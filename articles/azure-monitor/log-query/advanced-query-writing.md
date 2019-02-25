@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: 401a8d527fc3a8d0430e7eff965b6f5e20db8dc0
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 0b516dc4fb1ca4736791abdea7f0903b6399fa6e
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268013"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749899"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>Geavanceerde query's in Azure Monitor schrijven
 
 > [!NOTE]
-> U moet voltooien [aan de slag met Azure Monitor log-analytics](get-started-portal.md) en [aan de slag met query's](get-started-queries.md) voordat het voltooien van deze les gaat uitvoeren.
+> U moet voltooien [aan de slag met Azure Monitor Log-Analytics](get-started-portal.md) en [aan de slag met query's](get-started-queries.md) voordat het voltooien van deze les gaat uitvoeren.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 

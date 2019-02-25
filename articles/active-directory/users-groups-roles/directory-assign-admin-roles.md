@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95d11fd669817a28e120540fc1db4230585e4575
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 35927b038ee8caa7e826c4edfb7803a2bc0177c8
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672133"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750681"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Rol beheerdersmachtigingen in Azure Active Directory
 
@@ -42,14 +42,17 @@ De volgende beheerdersrollen zijn beschikbaar:
 
 * **[Toepassingsontwikkelaar](#application-developer)**: Gebruikers in deze rol kunnen toepassingsregistraties maken wanneer de 'Gebruikers kunnen toepassingen registreren' is ingesteld op Nee. Deze rol kan ook leden toe te staan hun eigen namens wanneer de 'Gebruikers toestemming kunnen geven voor apps die toegang tot bedrijfsgegevens in hun naam' is ingesteld op Nee. Leden van deze rol worden toegevoegd als eigenaars bij het maken van nieuwe toepassingsregistraties of zakelijke toepassingen.
 
-* **[Authentication-beheerder](#authentication-administrator)**: Gebruikers met deze rol kunnen instellen of referenties in niet-wachtwoord opnieuw instellen. Verificatie-beheerders kunnen afdwingen dat gebruikers kunnen opnieuw worden geregistreerd op basis van bestaande niet-wachtwoord referentie (bijvoorbeeld MFA, FIDO) en intrekken 'MFA herinneren op het apparaat', dat u wordt gevraagd voor MFA op de volgende aanmelding van andere gebruikers die niet-beheerders of leden van de alleen volgende rollen:
+* **[Authentication-beheerder](#authentication-administrator)**: Gebruikers met deze rol kunnen instellen of referenties in niet-wachtwoord opnieuw instellen. Verificatie-beheerders kunnen vereisen dat gebruikers kunnen opnieuw worden geregistreerd op basis van bestaande niet-wachtwoordreferenties (bijvoorbeeld, MFA of FIDO) en intrekken **MFA herinneren op het apparaat**, pwhich rompts voor MFA op de volgende aanmelding van gebruikers die zijn niet-beheerders of leden van alleen de volgende rollen:
   * Verificatiebeheerder
   * Adreslijstlezers
   * Gastuitnodiging
   * Berichtencentrum-lezer
   * Rapportenlezer
-  
+
+  De beheerdersrol voor de verificatie is momenteel in openbare preview. Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
+
   <b>Belangrijke</b>: Gebruikers met deze rol kunnen referenties wijzigen voor gebruikers die mogelijk toegang heeft tot gevoelige of persoonlijke gegevens of essentiële configuratie binnen en buiten Azure Active Directory. Wijzigen van de referenties van een gebruiker kan betekenen dat de mogelijkheid om te wordt ervan uitgegaan dat de identiteit en de machtigingen van die gebruiker. Bijvoorbeeld:
+
   * Registratie van toepassingen en zakelijke toepassing eigenaren, die de referenties van waarvan ze eigenaar apps kunnen beheren. Deze apps kunnen machtigingen in Azure AD privileged en ergens anders niet worden toegekend aan de verificatie-beheerders. Via dit pad een Authentication-beheerder kan mogelijk wordt ervan uitgegaan dat de identiteit van de eigenaar van een toepassing en vervolgens de identiteit aannemen van een bevoegde toepassing door bij te werken van de referenties voor de toepassing.
   * Azure-abonnementseigenaren, die mogelijk toegang heeft tot gevoelige of persoonlijke gegevens of essentiële configuratie in Azure.
   * Beveiligingsgroepen en Office 365-groep eigenaren, die het lidmaatschap kunnen beheren. Deze groepen kunnen toegang verlenen tot gevoelige of persoonlijke gegevens of essentiële configuratie in Azure AD en elders.
@@ -296,7 +299,7 @@ Kan toepassingsregistraties onafhankelijk van de 'gebruikers kunnen toepassingen
 | microsoft.aad.directory/servicePrincipals/createAsOwner | Maak servicePrincipals in Azure Active Directory. Maker wordt toegevoegd als de eigenaar van de eerste en het gemaakte object in mindering gebracht op de maker van 250 gemaakte objecten quotum. |
 
 ### <a name="authentication-administrator"></a>Verificatiebeheerder
-Toegestaan wilt weergeven, instellen en opnieuw instellen van verificatie methode-informatie voor elke gebruiker die geen beheerder.
+Mag weergeven, instellen en opnieuw instellen van verificatie methode-informatie voor elke gebruiker die geen beheerder.
 
 | **Acties** | **Beschrijving** |
 | --- | --- |

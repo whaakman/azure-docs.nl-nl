@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: b6a7fe2c12b2f1f5bcc0ba8cccd1a51ee39c4a6f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e5e80ac2229c3a2962702527dc3162229c25a5c5
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882079"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750868"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Problemen oplossen in- of Application Insights Profiler weergeven
 
@@ -123,6 +123,8 @@ Deze parameters Verwijder de map die wordt gebruikt door Application Insights Pr
 Profiler wordt uitgevoerd als een continue webjob in de web-app. U kunt openen de resource voor de web-app in de [Azure-portal](https://portal.azure.com). In de **WebJobs** deelvenster, Controleer de status van **ApplicationInsightsProfiler**. Als deze niet wordt uitgevoerd, opent u **logboeken** voor meer informatie.
 
 ## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Oplossen van problemen met de Profiler en Azure Diagnostics
+
+  >**Er is een fout in de profiler dat wordt meegeleverd met de nieuwste versie van WAD voor Cloud Services.** Als u wilt profiler gebruiken met een cloudservice, ondersteunt deze alleen AI SDK maximaal versie 2.7.2. Als u een nieuwere versie van de AI-SDK gebruikt, hebt u terugkeren naar 2.7.2 als u wilt de profiler gebruiken.
 
 Als u wilt zien of de Profiler juist is geconfigureerd door Azure Diagnostics, moet u de volgende drie dingen doen: 
 1. Controleer eerst of de inhoud van de Azure Diagnostics-configuratie die zijn geïmplementeerd zijn wat u verwacht. 

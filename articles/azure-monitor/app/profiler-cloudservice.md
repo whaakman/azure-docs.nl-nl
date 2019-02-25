@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: e050122984c19e46f3782c8364331323b403caad
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 32604c06c6a4325f7ae6cb45930de902a1366480
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893831"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750324"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Profiel live Azure Cloud Services met Application Insights
 
@@ -32,6 +32,8 @@ Application Insights Profiler wordt geïnstalleerd met de Azure Diagnostics-exte
 1. Selectievakje om ervoor te zorgen dat u [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) of hoger. Het is voldoende om te bevestigen dat de *ServiceConfiguration.\*.cscfg* bestanden hebben een `osFamily` waarde van '5' of hoger.
 
 1. Voeg [Application Insights-SDK voor Azure Cloud Services](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
+
+  >**Er is een fout in de profiler dat wordt meegeleverd met de nieuwste versie van WAD voor Cloud Services.** Als u wilt profiler gebruiken met een cloudservice, ondersteunt deze alleen AI SDK maximaal versie 2.7.2. Als u een nieuwere versie van de AI-SDK gebruikt, hebt u terugkeren naar 2.7.2 als u wilt de profiler gebruiken.
 
 1. Aanvragen voor bijhouden met Application Insights:
 

@@ -8,23 +8,23 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5172ba9881f80e202bdc69689e67befb79101dc0
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: d34ac159a216c5c77214b4c8b799a233c3671235
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450657"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749542"
 ---
 # <a name="add-an-iot-edge-device-to-your-remote-monitoring-solution-accelerator"></a>Een IoT Edge-apparaat toevoegt aan uw oplossingsverbetering voor externe controle
 
 Om toe te voegen een [IoT Edge](../iot-edge/about-iot-edge.md) apparaat naar uw oplossingenaccelerator, voltooi de volgende twee stappen:
 
-1. Het Edge-apparaat toevoegen aan de **apparaten** pagina in de Remote Monitoring solution accelerator-Webgebruikersinterface.
+1. Het Edge-apparaat toevoegen aan de **Device Explorer** pagina in de Remote Monitoring solution accelerator-Webgebruikersinterface.
 1. IoT Edge-runtime installeren op uw Edge-apparaat.
 
 ## <a name="add-the-iot-edge-device"></a>De IoT Edge-apparaat toevoegen
 
-Als u een IoT Edge-apparaat wilt toevoegen aan de oplossingsverbetering voor Externe bewaking, gaat u naar de pagina **Apparaten** in de webgebruikersinterface en klikt u op **+ Nieuw apparaat**.
+Een IoT Edge-apparaat toevoegen aan de oplossingsverbetering voor externe controle, gaat u naar de **Device Explorer** pagina in de web-UI en op **+ nieuwe apparaat**.
 
 In de **nieuw apparaat** deelvenster, kiest u **IoT Edge-apparaat**. Voor de overige instellingen kunt u de standaardwaarden gebruiken. Klik vervolgens op **Toepassen**:
 
@@ -38,7 +38,7 @@ Het is ook mogelijk om te registreren van een IoT Edge-apparaat rechtstreeks met
 - [Een nieuw Azure IoT Edge-apparaat registreren bij Azure CLI](../iot-edge/how-to-register-device-cli.md)
 - [Registreer een nieuwe Azure IoT Edge-apparaat vanuit Visual Studio Code](../iot-edge/how-to-register-device-vscode.md)
 
-Wanneer u een apparaat rechtstreeks met de IoT hub in de oplossingsverbetering voor externe controle hebt geregistreerd, wordt deze weergegeven op de **apparaten** pagina in de web-UI.
+Wanneer u een apparaat rechtstreeks met de IoT hub in de oplossingsverbetering voor externe controle hebt geregistreerd, wordt deze weergegeven op de **Device Explorer** pagina in de web-UI.
 
 ## <a name="install-the-iot-edge-runtime"></a>IoT Edge-runtime installeren
 

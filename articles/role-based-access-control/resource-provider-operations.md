@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/25/2019
+ms.date: 02/16/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 5b9c0a71c8b01810474e4936fdd4a0852baf0ed7
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 1ab5ec4e61649f7c9a705759a69d335260bfdc75
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343150"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750817"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager-resourceproviderbewerkingen
 
@@ -102,6 +102,8 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.ADHybridHealthService/reports/badpassworduseridipfrequency/read | Haalt Blob SAS-URI die de status en uiteindelijke resultaat van het zojuist in de wachtrij geplaatste rapporttaak voor de frequentie van onjuiste gebruikersnaam en wachtwoord probeert per gebruikers per IP-adres per dag voor een bepaalde Tenant-id. |
 > | Bewerking | Microsoft.ADHybridHealthService/reports/consentedtodevopstenants/read | Hiermee haalt u de lijst van DevOps ingestemd tenants. Doorgaans gebruikt voor klantondersteuning. |
 > | Bewerking | Microsoft.ADHybridHealthService/reports/isdevops/read | Hiermee haalt u een waarde die aangeeft of de tenant DevOps ingestemd of niet is. |
+> | Bewerking | Microsoft.ADHybridHealthService/reports/riskyIp/blobUri/action | Rapport riskant IP-adres wordt gegenereerd en retourneert een URI die verwijst naar deze. |
+> | Bewerking | Microsoft.ADHybridHealthService/reports/riskyIp/blobUris/read | Hiermee haalt alle riskant IP-adres rapport URI's voor de afgelopen 7 dagen. |
 > | Bewerking | Microsoft.ADHybridHealthService/reports/riskyIp/GetAllBlobUri/read | Hiermee haalt alle blob-uri voor de riskant IP-adres downloaden rapport aangevraagd voor een bepaalde service voor de afgelopen 7 dagen. |
 > | Bewerking | Microsoft.ADHybridHealthService/reports/riskyIp/GetBlobUri/read | Hiermee haalt alleen het huidige aangevraagde riskant IP-adres downloaden rapport voor een bepaalde service. |
 > | Bewerking | Microsoft.ADHybridHealthService/reports/selectdevopstenant/read | Updates userid(objectid) voor de geselecteerde dev ops-tenant. |
@@ -398,7 +400,6 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > [!div class="mx-tdCol2BreakAll"]
 > | Actietype | Bewerking | Description |
 > | --- | --- | --- |
-> | Bewerking | Microsoft.Authorization/checkAccess/action | Hiermee wordt gecontroleerd of de aanroeper is gemachtigd een bepaalde actie uit te voeren |
 > | Bewerking | Microsoft.Authorization/classicAdministrators/delete | Hiermee wordt de beheerder verwijderd uit het abonnement. |
 > | Bewerking | Microsoft.Authorization/classicAdministrators/operationstatuses/read | Hiermee haalt u de bewerkingsstatussen van het abonnement op. |
 > | Bewerking | Microsoft.Authorization/classicAdministrators/read | Hiermee worden de beheerders voor het abonnement ingelezen. |
@@ -1070,11 +1071,83 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > [!div class="mx-tdCol2BreakAll"]
 > | Actietype | Bewerking | Description |
 > | --- | --- | --- |
+> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/analyze/action | Deze bewerking wordt een grote verscheidenheid aan visuele kenmerken op basis van de inhoud van de uitgepakt.  |
+> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/areaofinterest/action | Deze bewerking wordt een vak rond het belangrijkste gedeelte van de afbeelding geretourneerd. |
+> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/describe/action | Met deze bewerking wordt een beschrijving van een installatiekopie in mens leesbaar taal met volledige zinnen gegenereerd.<br> De beschrijving is gebaseerd op een verzameling van inhoud labels, die ook worden geretourneerd door de bewerking.<br>Meer dan één beschrijving kan worden gegenereerd voor elke afbeelding.<br> Beschrijvingen zijn geordend op hun betrouwbaarheidsscore.<br>Alle beschrijvingen zijn in het Engels. |
+> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/detect/action | Deze bewerking uitvoeren objectdetectie op de opgegeven installatiekopie.  |
+> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/generatethumbnail/action | Met deze bewerking genereert een miniatuurafbeelding met de gebruiker opgegeven breedte en hoogte.<br> Standaard de service analyseert de afbeelding, de regio van belang (ROI), en genereert slim bijsnijden coördinaten op basis van het rendement op investering opleveren.<br> Slim bijsnijden is nuttig als u een hoogte-breedteverhouding die van de installatiekopie van het invoer verschilt opgeven |
+> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/models/analyze/action | Met deze bewerking herkent inhoud binnen een installatiekopie door het toepassen van een model domeinspecifieke.<br> De lijst van domeinspecifieke modellen die worden ondersteund door de Computer Vision-API kan worden opgehaald met behulp van de /models GET-aanvraag.<br> Op dit moment biedt de API domeinspecifieke modellen te volgen: beroemdheden, monumenten. |
+> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/models/read | Met deze bewerking wordt de lijst van domeinspecifieke modellen die worden ondersteund door de Computer Vision-API.  De API ondersteunt momenteel domeinspecifieke modellen te volgen: herkenning van beroemdheden, oriëntatiepunt herkenning. |
+> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/ocr/action | Optische tekenherkenning (OCR) detecteert tekst in een afbeelding en worden de herkende tekens naar een machine leesbare tekenstroom geëxtraheerd.    |
+> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/recognizetext/action | Deze interface gebruiken om op te halen van het resultaat van een bewerking tekst herkennen. Als u de interface van de tekst herkennen, bevat het antwoord een veld met de naam 'Bewerking-locatie'. Het veld 'Bewerking-locatie' bevat de URL die u voor de bewerking ophalen herkennen tekst bewerkingsresultaat gebruiken moet. |
+> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/tag/action | Met deze bewerking wordt een lijst met woorden of tags die relevant zijn voor de inhoud van de opgegeven installatiekopie gegenereerd.<br>De Computer Vision-API kunt retourneert tags op basis van objecten, levende wezens, landschappen of acties die zijn gevonden in afbeeldingen.<br>In tegenstelling tot categorieën, tags zijn niet ingedeeld op basis van een hiërarchische indeling-systeem, maar komen overeen met de inhoud.<br>Tags hints om te voorkomen dat dubbelzinnigheid of om context kunnen bevatten, bijvoorbeeld het label "cello" vergezeld gaan van de hint 'muziek instrument'.<br>Alle tags zijn in het Engels. |
+> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/textoperations/read | Deze interface wordt gebruikt voor het ophalen van tekst bewerkingsresultaat herkennen. De URL op deze interface moet worden opgehaald uit <b>"Bewerking-locatie"</b> veld geretourneerd uit tekst herkennen-interface. |
 > | Bewerking | Microsoft.CognitiveServices/accounts/delete | API-accounts verwijderen |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/detect/action | Detecteer menselijke gezichten in een afbeelding, return gezichtsrechthoeken, en eventueel met faceIds, monumenten en kenmerken. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/delete | Een lijst met opgegeven gezichten verwijderen. De face-gerelateerde afbeeldingen in de lijst met face wordt verwijderd, te. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/persistedfaces/delete | Een gezicht uit een lijst met face verwijderen door de opgegeven faceListId en persisitedFaceId. De gerelateerde gezicht wordt verwijderd, te. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/persistedfaces/write | Een gezicht toevoegen aan een lijst opgegeven face maximaal 1000 gezichten. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/read | Ophalen van de lijst van een gezicht faceListId, naam, userData en gezichten in de lijst met face.
+Face-lijsten faceListId, naam en userData lijst. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/write | Een leeg vlak-lijst maken met de gebruiker opgegeven faceListId, naam en een optionele userData. Maximaal 64 gezichten zijn lijsten toegestaan
+Gegevens van een lijst gezicht, met inbegrip van de naam en userData bijwerken. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/findsimilars/action | Face id van de zoekgezicht, om te zoeken naar de gelijkende gezichten uit een face id-matrix, een face-lijst of een grote face gegeven. faceId |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/group/action | Kandidaat gezichten in groepen op basis van gelijkenis face verdelen. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/identify/action | 1-op-veel-identificatie naar de dichtstbijzijnde overeenkomen met de specifieke persoon zoekgezicht van een Persoonsgroep of een grote Persoonsgroep vinden. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/delete | Een lijst met opgegeven grote gezichten verwijderen. De face-gerelateerde afbeeldingen in de lijst met grote face wordt verwijderd, te. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/persistedfaces/delete | Een gezicht uit een lijst met grote face verwijderen door de opgegeven largeFaceListId en persisitedFaceId. De gerelateerde gezicht wordt verwijderd, te. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/persistedfaces/read | Persistente gezichten in grote face lijst met largeFaceListId en persistedFaceId ophalen.
+Overzicht van de gezichten persistedFaceId en userData in een opgegeven grote face-lijst. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/persistedfaces/write | Een gezicht toevoegen aan een opgegeven grote face-lijst, tot 1.000.000 gezichten.
+Een opgegeven gezicht userData veld in een lijst met grote face bijwerken door de persistedFaceId. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/read | Ophalen van de lijst van een grote face largeFaceListId, naam, userData.
+Gegevens van de grote face-lijsten van largeFaceListId, namen en userData weer te geven. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/train/action | Een grote face lijst training taak indienen. Training is een belangrijke stap die alleen een lijst getrainde grote face kan worden gebruikt door |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/training/read | Controleer de status grote face lijst training voltooid of nog steeds lopende. LargeFaceList Training is een asynchrone bewerking |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/write | Maak een lege grote face-lijst met de gebruiker opgegeven largeFaceListId, naam en een optionele userData.
+Gegevens van een grote face-lijst, met inbegrip van de naam en userData bijwerken. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/delete | Een bestaande Persoonsgroep grote met opgegeven personGroupId verwijderen. Persistente gegevens in deze Persoonsgroep grote worden verwijderd. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/action | Maak een nieuwe persoon in een opgegeven grote Persoonsgroep. Face toevoegen aan deze persoon, neem contact op met |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/delete | Een bestaande persoon verwijderen uit een grote Persoonsgroep. Alle persoonsgegevens die zijn opgeslagen en face-installatiekopieën in de persoon die vermelding worden verwijderd. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/persistedfaces/delete | Een gezicht verwijderen van een persoon in een grote Persoonsgroep. Face-gegevens- en afbeeldingsbestanden die betrekking hebben op deze vermelding face worden, eveneens verwijderd. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/persistedfaces/read | Persoon face gegevens worden opgehaald. Het gezicht persistente persoon is opgegeven door de largePersonGroupId, personId en persistedFaceId. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/persistedfaces/write | Een afbeelding voor face toevoegen aan een persoon in een grote Persoonsgroep voor gezichts-id of verifiëren. De installatiekopie van zijn getroffen
+Update een persoon die permanent van face userData veld. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/read | Haal de naam van een persoon en userData en de persistente faceIds voor het gezicht geregistreerde persoon.
+Gegevens van alle personen in de Persoonsgroep opgegeven grote, met inbegrip van personId, naam, userData en persistedFaceIds weer te geven. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/write | Werk de naam of userData van een persoon. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/read | De gegevens van een die grote Persoonsgroep, met inbegrip van de naam en het userData ophalen. Deze API retourneert grote persoon informatie over de groep
+Lijst met alle bestaande grote personengroepen van largePesonGroupId, naam, en userData. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/train/action | Een persoon die grote groep training taak indienen. Training is een belangrijke stap dat alleen de groep van een persoon met grote kan worden gebruikt |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/training/read | Grote persoon groep trainingsstatus voltooid of nog steeds voortdurend controleren. LargePersonGroup Training is een asynchrone bewerking |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/write | Maak een nieuwe die grote Persoonsgroep met de gebruiker opgegeven largePersonGroupId, naam en optionele userData.
+De naam van een bestaande grote Persoonsgroep en de userData bijwerken. De eigenschappen blijven ongewijzigd als ze zich niet in de hoofdtekst van de aanvraag. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/delete | Een bestaande groep personen met de opgegeven personGroupId verwijderen. Persistente gegevens in deze Persoonsgroep worden verwijderd. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/action | Maak een nieuwe persoon in een bepaalde persoon-groep. Face toevoegen aan deze persoon, neem contact op met |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/delete | Een bestaande persoon verwijderen uit de Persoonsgroep van een. Alle persoonsgegevens die zijn opgeslagen en face-installatiekopieën in de persoon die vermelding worden verwijderd. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/persistedfaces/delete | Een gezicht verwijderen van een persoon in de Persoonsgroep van een. Face-gegevens- en afbeeldingsbestanden die betrekking hebben op deze vermelding face worden, eveneens verwijderd. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/persistedfaces/read | Persoon face gegevens worden opgehaald. Het gezicht persistente persoon is opgegeven door de personGroupId, personId en persistedFaceId. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/persistedfaces/write | Een afbeelding voor face toevoegen aan een persoon in de Persoonsgroep van een voor gezichts-id of verifiëren. De installatiekopie van meerdere zijn getroffen
+Update een persoon die permanent van face userData veld. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/read | Haal de naam van een persoon en userData en de persistente faceIds voor het gezicht geregistreerde persoon.
+Lijst van alle personen informatie in de Persoonsgroep opgegeven, met inbegrip van personId, naam, userData en persistedFaceIds van geregistreerd. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/write | Werk de naam of userData van een persoon. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/read | Naam van de groep persoon en userData ophalen. Als u de informatie onder deze personGroup persoon, gebruikt
+Lijst met de pesonGroupId, de naam en de userData personengroepen. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/train/action | Een persoon groep training taak indienen. Training is een belangrijke stap die alleen de groep van een persoon kan worden gebruikt door |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/training/read | Persoon groep trainingsstatus voltooid of nog steeds voortdurend controleren. PersonGroup Training is een asynchrone bewerking geactiveerd |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/write | Maak een nieuwe Persoonsgroep met opgegeven personGroupId, de naam en de gebruiker opgegeven userData.
+De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschappen blijven ongewijzigd als ze zich niet in de hoofdtekst van de aanvraag. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/verify/action | Controleer of twee gezichten horen bij een dezelfde persoon of een gezicht is of een persoon. |
 > | Bewerking | Microsoft.CognitiveServices/accounts/listKeys/action | Een lijst met sleutels maken |
+> | DataAction | Microsoft.CognitiveServices/accounts/LUIS/predict/action | Hiermee haalt u de voorspelling gepubliceerde eindpunt voor de opgegeven query. |
 > | Bewerking | Microsoft.CognitiveServices/accounts/read | Hiermee worden API-accounts gelezen. |
 > | Bewerking | Microsoft.CognitiveServices/accounts/regenerateKey/action | Sleutel opnieuw genereren |
 > | Bewerking | Microsoft.CognitiveServices/accounts/skus/read | Hiermee worden beschikbare SKU's voor een bestaande resource gelezen. |
+> | DataAction | Microsoft.CognitiveServices/accounts/TextAnalytics/entities/action | De API retourneert een lijst met bekende entiteiten en algemene entiteiten met de naam (\"persoon\", \"locatie\", \"organisatie\" enzovoort) in een bepaald document. |
+> | DataAction | Microsoft.CognitiveServices/accounts/TextAnalytics/keyphrases/action | De API retourneert een lijst met tekenreeksen die de belangrijkste gespreksonderwerpen in de invoertekst aanduiden. |
+> | DataAction | Microsoft.CognitiveServices/accounts/TextAnalytics/languages/action | De API retourneert de gedetecteerde taal en een numerieke score tussen 0 en 1. Scores dichtbij 1 geven aan dat het 100% zeker is dat de geïdentificeerde taal waar is. Er worden in totaal 120 talen ondersteund. |
+> | DataAction | Microsoft.CognitiveServices/accounts/TextAnalytics/sentiment/action | De API retourneert een numerieke score tussen 0 en 1.<br>Scores dichtbij 1 geven een positieve stemming, terwijl scores dicht bij 0 geven een negatieve stemming.<br>Een score van 0,5 geeft aan dat het ontbreken van sentiment (bijvoorbeeld in een instructie factoid). |
 > | Bewerking | Microsoft.CognitiveServices/accounts/usages/read | Het quotumgebruik voor een bestaande resource ophalen. |
 > | Bewerking | Microsoft.CognitiveServices/accounts/write | Hiermee worden API-accounts geschreven. |
 > | Bewerking | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | Leest beschikbare SKU's voor een abonnement. |
@@ -1240,6 +1313,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Consumption/reservationSummaries/read | Lijst met het gebruik van de samenvatting voor gereserveerde instanties van de reservering volgorde of beheer van groepen. De gegevens van de samenvatting is op het niveau van maandelijkse of dagelijks. |
 > | Bewerking | Microsoft.Consumption/reservationTransactions/read | Lijst met de transactiegeschiedenis voor gereserveerde instanties van beheergroepen. |
 > | Bewerking | Microsoft.Consumption/tags/read | Lijst met tags voor EA- en -abonnementen. |
+> | Bewerking | Microsoft.Consumption/tenants/read | Lijst met tenants |
 > | Bewerking | Microsoft.Consumption/tenants/register/action | Actie voor een bereik van Microsoft.Consumption door een tenant te registreren. |
 > | Bewerking | Microsoft.Consumption/terms/read | Lijst met de voorwaarden voor een abonnement of een beheergroep. |
 > | Bewerking | Microsoft.Consumption/usageDetails/read | Lijst met de informatie over het gebruik voor een bereik voor EA en WebDirect-abonnementen. |
@@ -1622,6 +1696,9 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.DataFactory/datafactories/tables/write | Hiermee of bijwerken van een gegevensset. |
 > | Bewerking | Microsoft.DataFactory/datafactories/write | Hiermee of bijwerken van de Data Factory. |
 > | Bewerking | Microsoft.DataFactory/factories/cancelpipelinerun/action | Hiermee annuleert u de pijplijnuitvoering die is opgegeven door de run-ID. |
+> | Bewerking | Microsoft.DataFactory/factories/dataflows/delete | Hiermee verwijdert u de gegevensstroom. |
+> | Bewerking | Microsoft.DataFactory/factories/dataflows/read | Hiermee leest u de gegevensstroom. |
+> | Bewerking | Microsoft.DataFactory/factories/dataflows/write | Maken of bijwerken van de gegevensstroom |
 > | Bewerking | Microsoft.DataFactory/factories/datasets/delete | Hiermee verwijdert u een gegevensset. |
 > | Bewerking | Microsoft.DataFactory/factories/datasets/read | Hiermee leest u een gegevensset. |
 > | Bewerking | Microsoft.DataFactory/factories/datasets/write | Hiermee of bijwerken van een gegevensset. |
@@ -1708,6 +1785,9 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.DataLakeAnalytics/accounts/storageAccounts/write | Maken of bijwerken van een gekoppelde Storage-account van een DataLakeAnalytics-account. |
 > | Bewerking | Microsoft.DataLakeAnalytics/accounts/TakeOwnership/action | Machtigingen verlenen voor het annuleren van de taken die worden ingediend door andere gebruikers. |
 > | Bewerking | Microsoft.DataLakeAnalytics/accounts/transferAnalyticsUnits/action | SystemMaxAnalyticsUnits overbrengen tussen DataLakeAnalytics accounts. |
+> | Bewerking | Microsoft.DataLakeAnalytics/accounts/virtualNetworkRules/delete | Een virtueel netwerk-regel verwijderen. |
+> | Bewerking | Microsoft.DataLakeAnalytics/accounts/virtualNetworkRules/read | Informatie ophalen over een regel voor virtuele netwerken. |
+> | Bewerking | Microsoft.DataLakeAnalytics/accounts/virtualNetworkRules/write | Maken of bijwerken van een regel voor virtuele netwerken. |
 > | Bewerking | Microsoft.DataLakeAnalytics/accounts/write | Maken of bijwerken van een DataLakeAnalytics-account. |
 > | Bewerking | Microsoft.DataLakeAnalytics/locations/capability/read | Informatie over de functionaliteit van een abonnement ophalen met betrekking tot DataLakeAnalytics gebruiken. |
 > | Bewerking | Microsoft.DataLakeAnalytics/locations/checkNameAvailability/action | De beschikbaarheid van de naam van een DataLakeAnalytics controleren. |
@@ -1735,6 +1815,9 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.DataLakeStore/accounts/trustedIdProviders/delete | Verwijderen van een vertrouwde id-provider. |
 > | Bewerking | Microsoft.DataLakeStore/accounts/trustedIdProviders/read | Informatie ophalen over een vertrouwde id-provider. |
 > | Bewerking | Microsoft.DataLakeStore/accounts/trustedIdProviders/write | Maken of bijwerken van een vertrouwde id-provider. |
+> | Bewerking | Microsoft.DataLakeStore/accounts/virtualNetworkRules/delete | Een virtueel netwerk-regel verwijderen. |
+> | Bewerking | Microsoft.DataLakeStore/accounts/virtualNetworkRules/read | Informatie ophalen over een regel voor virtuele netwerken. |
+> | Bewerking | Microsoft.DataLakeStore/accounts/virtualNetworkRules/write | Maken of bijwerken van een regel voor virtuele netwerken. |
 > | Bewerking | Microsoft.DataLakeStore/accounts/write | Maken of bijwerken van een DataLakeStore-account. |
 > | Bewerking | Microsoft.DataLakeStore/locations/capability/read | Informatie over de functionaliteit van een abonnement ophalen met betrekking tot DataLakeStore gebruiken. |
 > | Bewerking | Microsoft.DataLakeStore/locations/checkNameAvailability/action | Controleer de beschikbaarheid van een DataLakeStore-accountnaam. |
@@ -1819,10 +1902,12 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/diagnosticSettings/write | Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt |
 > | Bewerking | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/logDefinitions/read | De beschikbare logboeken opgehaald voor MySQL-servers |
 > | Bewerking | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/metricDefinitions/read | Resultaattypen van metrische gegevens die beschikbaar voor databases zijn |
+> | Bewerking | Microsoft.DBforMySQL/servers/queryTexts/action | De tekst voor een lijst met query's retourneren |
 > | Bewerking | Microsoft.DBforMySQL/servers/read | Retourneert de lijst met servers of haalt de eigenschappen voor de opgegeven server. |
 > | Bewerking | Microsoft.DBforMySQL/servers/recoverableServers/read | Retourneert de herstelbare gegevens van de MySQL-Server |
 > | Bewerking | Microsoft.DBforMySQL/servers/securityAlertPolicies/read | Gegevens van de server threat detection dat is geconfigureerd op een bepaalde server niet ophalen |
 > | Bewerking | Microsoft.DBforMySQL/servers/securityAlertPolicies/write | Het beleid voor detectie van bedreigingen server voor een bepaalde server wijzigen |
+> | Bewerking | Microsoft.DBforMySQL/servers/topQueryStatistics/read | Retourneert de lijst met Query-statistieken voor de populairste query's. |
 > | Bewerking | Microsoft.DBforMySQL/servers/updateConfigurations/action | Configuraties voor de opgegeven server bijwerken |
 > | Bewerking | Microsoft.DBforMySQL/servers/virtualNetworkRules/delete | Hiermee verwijdert u een bestaande regel voor het virtuele netwerk |
 > | Bewerking | Microsoft.DBforMySQL/servers/virtualNetworkRules/read | Retourneert de lijst van het virtuele netwerk regels of haalt u de eigenschappen voor de regel van de opgegeven virtuele netwerk. |
@@ -1850,6 +1935,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/logDefinitions/read | De beschikbare logboeken opgehaald voor Postgres-servers |
 > | Bewerking | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/metricDefinitions/read | Resultaattypen van metrische gegevens die beschikbaar voor databases zijn |
 > | Bewerking | Microsoft.DBforPostgreSQL/servers/queryTexts/action | De tekst van een query retourneren |
+> | Bewerking | Microsoft.DBforPostgreSQL/servers/queryTexts/read | De tekst voor een lijst met query's retourneren |
 > | Bewerking | Microsoft.DBforPostgreSQL/servers/read | Retourneert de lijst met servers of haalt de eigenschappen voor de opgegeven server. |
 > | Bewerking | Microsoft.DBforPostgreSQL/servers/recoverableServers/read | Retourneert de herstelbare gegevens van de PostgreSQL-Server |
 > | Bewerking | Microsoft.DBforPostgreSQL/servers/securityAlertPolicies/read | Gegevens van de server threat detection dat is geconfigureerd op een bepaalde server niet ophalen |
@@ -1936,12 +2022,12 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Devices/provisioningServices/certificates/verify/Action | Controleer de resource-certificaat |
 > | Bewerking | Microsoft.Devices/provisioningServices/certificates/Write | Maken of bijwerken van certificaat |
 > | Bewerking | Microsoft.Devices/provisioningServices/Delete | IotDps resource verwijderen |
-> | Bewerking | Microsoft.Devices/provisioningServices/diagnosticSettings/read | Hiermee wordt de diagnostische instelling voor de resource opgehaald. Opmerking: mogelijk moet u `Microsoft.Insights/diagnosticSettings/read` ook |
+> | Bewerking | Microsoft.Devices/provisioningServices/diagnosticSettings/read | Hiermee wordt de diagnostische instelling voor de resource opgehaald |
 > | Bewerking | Microsoft.Devices/provisioningServices/diagnosticSettings/write | Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt |
 > | Bewerking | Microsoft.Devices/provisioningServices/keys/listkeys/Action | IotDps sleutels voor de naam van de sleutel ophalen |
 > | Bewerking | Microsoft.Devices/provisioningServices/listkeys/Action | Alle IotDps-sleutels ophalen |
-> | Bewerking | Microsoft.Devices/provisioningServices/logDefinitions/read | Hiermee haalt u de beschikbare logboekdefinities voor de provisioning-Service. Opmerking: mogelijk moet u `Microsoft.Insights/logDefinitions/read` ook |
-> | Bewerking | Microsoft.Devices/provisioningServices/metricDefinitions/read | Hiermee haalt de beschikbare metrische gegevens voor de provisioning-service. Opmerking: mogelijk moet u `Microsoft.Insights/metricDefinitions/read` ook |
+> | Bewerking | Microsoft.Devices/provisioningServices/logDefinitions/read | De logboekdefinities van de beschikbaar voor de provisioning-Service opgehaald |
+> | Bewerking | Microsoft.Devices/provisioningServices/metricDefinitions/read | Hiermee haalt u de beschikbare metrische gegevens voor de provisioning-service |
 > | Bewerking | Microsoft.Devices/provisioningServices/operationresults/Read | Resultaat van de DPS-bewerking ophalen |
 > | Bewerking | Microsoft.Devices/provisioningServices/Read | Ophalen van IotDps |
 > | Bewerking | Microsoft.Devices/provisioningServices/skus/Read | Geldige IotDps Skus ophalen |
@@ -1958,6 +2044,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.DevSpaces/controllers/delete | Azure Dev spaties Controller en dataplane-services verwijderen |
 > | Bewerking | Microsoft.DevSpaces/controllers/listConnectionDetails/action | Lijst met verbindingsgegevens voor de Azure Dev spaties Controller-infrastructuur |
 > | Bewerking | Microsoft.DevSpaces/controllers/read | Eigenschappen lezen Azure Dev spaties netwerkcontroller |
+> | Bewerking | Microsoft.DevSpaces/controllers/rotateAuthKey/action | Verificatiesleutel voor de Controller Azure Dev spaties draaien en de services opnieuw implementeren |
 > | Bewerking | Microsoft.DevSpaces/controllers/write | Maken of de eigenschappen van de Update Azure Dev spaties Controller |
 > | Bewerking | Microsoft.DevSpaces/register/action | Microsoft Dev spaties resourceprovider registreren met een abonnement |
 
@@ -2142,19 +2229,6 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.DomainRegistration/topLevelDomains/Read | Haal toplevel domein |
 > | Bewerking | Microsoft.DomainRegistration/validateDomainRegistrationInformation/Action | Aankoop domeinobject valideren zonder deze te verzenden |
 
-## <a name="microsoftdynamicslcs"></a>Microsoft.DynamicsLcs
-
-> [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Description |
-> | --- | --- | --- |
-> | Bewerking | Microsoft.DynamicsLcs/lcsprojects/clouddeployments/read | Microsoft Dynamics AX 2012 R3 evaluatie implementaties in een Microsoft Dynamics Lifecycle Services-project die deel uitmaken van een gebruiker weergeven |
-> | Bewerking | Microsoft.DynamicsLcs/lcsprojects/clouddeployments/write | Microsoft Dynamics AX 2012 R3 evaluatie-implementatie in een project voor Microsoft Dynamics Lifecycle Services die deel uitmaken van een gebruiker maken. Implementaties kunnen worden beheerd in Azure management portal |
-> | Bewerking | Microsoft.DynamicsLcs/lcsprojects/connectors/read | Connectors die deel uitmaken van een project voor Microsoft Dynamics Lifecycle Services lezen |
-> | Bewerking | Microsoft.DynamicsLcs/lcsprojects/connectors/write | Maken en bijwerken van connectors die deel uitmaken van een Microsoft Dynamics Lifecycle Services-project |
-> | Bewerking | Microsoft.DynamicsLcs/lcsprojects/delete | Microsoft Dynamics Lifecycle Services-projecten die deel uitmaken van de gebruiker verwijderen |
-> | Bewerking | Microsoft.DynamicsLcs/lcsprojects/read | Microsoft Dynamics Lifecycle Services-projecten die deel uitmaken van een gebruiker weergeven |
-> | Bewerking | Microsoft.DynamicsLcs/lcsprojects/write | Maken en bijwerken van Microsoft Dynamics Lifecycle Services-projecten die deel uitmaken van de gebruiker. Alleen de naam en beschrijving van eigenschappen kunnen worden bijgewerkt. Het abonnement en de locatie die is gekoppeld aan het project kunnen niet worden bijgewerkt nadat is gemaakt |
-
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -2336,6 +2410,8 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Insights/AutoscaleSettings/Scaleup/Action | Automatische schaalaanpassing omhoog gestart |
 > | Bewerking | Microsoft.Insights/AutoscaleSettings/ScaleupResult/Action | Automatische schaalaanpassing omhoog voltooid |
 > | Bewerking | Microsoft.Insights/AutoscaleSettings/Write | Een instelling voor automatische schaalaanpassing maken of bijwerken |
+> | Bewerking | Microsoft.Insights/Baseline/Read | Een metrische basislijn lezen (preview) |
+> | Bewerking | Microsoft.Insights/CalculateBaseline/Read | Basislijn voor metrische waarden berekenen (preview) |
 > | Bewerking | Microsoft.Insights/Components/AnalyticsItems/Delete | Een analyse-item van Application Insights verwijderen |
 > | Bewerking | Microsoft.Insights/Components/AnalyticsItems/Read | Een analyse-item van Application Insights lezen |
 > | Bewerking | Microsoft.Insights/Components/AnalyticsItems/Write | Een analyse-item van Application Insights schrijven |
@@ -2642,21 +2718,35 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > [!div class="mx-tdCol2BreakAll"]
 > | Actietype | Bewerking | Description |
 > | --- | --- | --- |
-> | Bewerking | Microsoft.Kusto/Clusters/Databases/DataConnections/delete | Hiermee verwijdert u de resource van een gegevens-verbindingen. |
+> | Bewerking | Microsoft.Kusto/Clusters/Activate/action | Start het cluster. |
+> | Bewerking | Microsoft.Kusto/Clusters/CheckNameAvailability/action | Controleert de beschikbaarheid van de naam van het cluster. |
+> | Bewerking | Microsoft.Kusto/Clusters/Databases/AddPrincipals/action | Database-principals toegevoegd. |
 > | Bewerking | Microsoft.Kusto/Clusters/Databases/DataConnections/delete | Hiermee verwijdert u de resource van een gegevens-verbindingen. |
 > | Bewerking | Microsoft.Kusto/Clusters/Databases/DataConnections/read | Hiermee wordt een resource van de verbindingen gegevens gelezen. |
-> | Bewerking | Microsoft.Kusto/Clusters/Databases/DataConnections/read | Hiermee wordt een resource van de verbindingen gegevens gelezen. |
-> | Bewerking | Microsoft.Kusto/Clusters/Databases/DataConnections/write | Een resource van de connetions gegevens schrijft. |
-> | Bewerking | Microsoft.Kusto/Clusters/Databases/DataConnections/write | Een resource van de connetions gegevens schrijft. |
+> | Bewerking | Microsoft.Kusto/Clusters/Databases/DataConnections/write | Een resource van de verbindingen gegevens schrijft. |
+> | Bewerking | Microsoft.Kusto/Clusters/Databases/DataConnectionValidation/action | Valideert de gegevensverbinding van de database. |
 > | Bewerking | Microsoft.Kusto/Clusters/Databases/delete | Hiermee verwijdert u een databaseresource. |
+> | Bewerking | Microsoft.Kusto/Clusters/Databases/EventHubConnections/delete | Hiermee verwijdert u de resource van een Event Hub-verbindingen. |
+> | Bewerking | Microsoft.Kusto/Clusters/Databases/EventHubConnections/read | Hiermee leest u de resource van een Event Hub-verbindingen. |
+> | Bewerking | Microsoft.Kusto/Clusters/Databases/EventHubConnections/write | Schrijft de resource van een Event Hub-verbindingen. |
+> | Bewerking | Microsoft.Kusto/Clusters/Databases/EventHubConnectionValidation/action | Valideert de verbinding met database Event Hub. |
+> | Bewerking | Microsoft.Kusto/Clusters/Databases/ListPrincipals/action | Een lijst met database-principals. |
 > | Bewerking | Microsoft.Kusto/Clusters/Databases/read | Hiermee wordt een databaseresource gelezen. |
+> | Bewerking | Microsoft.Kusto/Clusters/Databases/RemovePrincipals/action | Hiermee verwijdert u database-principals. |
 > | Bewerking | Microsoft.Kusto/Clusters/Databases/write | Een databaseresource schrijft. |
+> | Bewerking | Microsoft.Kusto/Clusters/Deactivate/action | Stopt het cluster. |
 > | Bewerking | Microsoft.Kusto/Clusters/delete | Hiermee verwijdert u een cluster-bron. |
 > | Bewerking | Microsoft.Kusto/Clusters/read | Hiermee leest u een cluster-bron. |
+> | Bewerking | Microsoft.Kusto/Clusters/SKUs/read | Hiermee wordt een cluster SKU-resource gelezen. |
+> | Bewerking | Microsoft.Kusto/Clusters/Start/action | Start het cluster. |
+> | Bewerking | Microsoft.Kusto/Clusters/Stop/action | Stopt het cluster. |
 > | Bewerking | Microsoft.Kusto/Clusters/write | Schrijft een cluster-bron. |
-> | Bewerking | Microsoft.Kusto/Locations/CheckNameAvailability/write | Leesbewerkingen controleren resource van de naam van beschikbaarheid |
+> | Bewerking | Microsoft.Kusto/Locations/CheckNameAvailability/action | Controleert de beschikbaarheid van de resource-naam. |
 > | Bewerking | Microsoft.Kusto/locations/operationresults/read | Leesbewerkingen bewerkingen resources |
 > | Bewerking | Microsoft.Kusto/Operations/read | Leesbewerkingen bewerkingen resources |
+> | Bewerking | Microsoft.Kusto/Register/action | Hiermee wordt het abonnement bij de Kusto-Resourceprovider geregistreerd. |
+> | Bewerking | Microsoft.Kusto/SKUs/read | Leest een SKU-resource. |
+> | Bewerking | Microsoft.Kusto/Unregister/action | De registratie van het abonnement op de Kusto-Resourceprovider. |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 
@@ -2687,7 +2777,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.LabServices/labAccounts/labs/environmentSettings/schedules/write | Toevoegen of wijzigen van schema's. |
 > | Bewerking | Microsoft.LabServices/labAccounts/labs/environmentSettings/Start/action | Start een sjabloon op basis van alle resources in de sjabloon. |
 > | Bewerking | Microsoft.LabServices/labAccounts/labs/environmentSettings/Stop/action | Hiermee stopt een sjabloon door het stoppen van alle resources in de sjabloon. |
-> | Bewerking | Microsoft.LabServices/labAccounts/labs/environmentSettings/Upload/action | Huidige omgeving instellen-sjabloon uploaden naar de gedeelde galerie in het lab-account |
+> | Bewerking | Microsoft.LabServices/labAccounts/labs/environmentSettings/Upload/action | Huidige sjablooninstallatiekopie geüpload naar de gedeelde galerie in het lab-account |
 > | Bewerking | Microsoft.LabServices/labAccounts/labs/environmentSettings/write | Toevoegen of wijzigen van de omgevingsinstelling. |
 > | Bewerking | Microsoft.LabServices/labAccounts/labs/read | Lees labs. |
 > | Bewerking | Microsoft.LabServices/labAccounts/labs/Register/action | Registreren bij beheerde lab. |
@@ -2985,6 +3075,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Logic/workflows/runs/actions/requestHistories/read | Hiermee wordt de aanvraaggeschiedenis van de actie Werkstroom uitvoeren gelezen. |
 > | Bewerking | Microsoft.Logic/workflows/runs/actions/scoperepetitions/read | Hiermee leest u de herhaling van het bereik van de uitvoeringsactie van de werkstroom. |
 > | Bewerking | Microsoft.Logic/workflows/runs/cancel/action | Hiermee wordt de werkstroomuitvoering geannuleerd. |
+> | Bewerking | Microsoft.Logic/workflows/runs/delete | Hiermee wordt een werkstroomuitvoering verwijderd. |
 > | Bewerking | Microsoft.Logic/workflows/runs/operations/read | Hiermee wordt de bewerkingsstatus van de werkstroomuitvoering gelezen. |
 > | Bewerking | Microsoft.Logic/workflows/runs/read | Hiermee wordt de werkstroomuitvoering gelezen. |
 > | Bewerking | Microsoft.Logic/workflows/suspend/action | Hiermee onderbreekt u de werkstroom. |
@@ -3055,7 +3146,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > [!div class="mx-tdCol2BreakAll"]
 > | Actietype | Bewerking | Description |
 > | --- | --- | --- |
-> | Bewerking | Microsoft.MachineLearningServices/locations/computeoperationstatus/read | Hiermee wordt de status van een bepaalde compute-bewerking opgehaald |
+> | Bewerking | Microsoft.MachineLearningServices/locations/computeoperationsstatus/read | Hiermee wordt de status van een bepaalde compute-bewerking opgehaald |
 > | Bewerking | Microsoft.MachineLearningServices/locations/usages/read | Gebruiksrapport voor aml compute-resources in een abonnement |
 > | Bewerking | Microsoft.MachineLearningServices/locations/vmsizes/read | Ondersteunde vm-grootten opvragen |
 > | Bewerking | Microsoft.MachineLearningServices/locations/workspaceOperationsStatus/read | Hiermee wordt de status van een bepaalde werkruimte bewerking opgehaald |
@@ -3265,14 +3356,28 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Migrate/projects/write | Hiermee wordt een nieuw project gemaakt of een bestaand project bijgewerkt |
 > | Bewerking | Microsoft.Migrate/register/action | Hiermee wordt het abonnement bij de Microsoft.Migrate-resourceprovider geregistreerd |
 
+## <a name="microsoftmixedreality"></a>Microsoft.MixedReality
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Actietype | Bewerking | Description |
+> | --- | --- | --- |
+> | Bewerking | Microsoft.MixedReality/register/action | Hiermee wordt een abonnement geregistreerd voor de resourceprovider voor Mixed Reality. |
+> | DataAction | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Ruimtelijke ankers maken |
+> | DataAction | Microsoft.MixedReality/SpatialAnchorsAccounts/delete | Ruimtelijke ankers verwijderen |
+> | DataAction | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | In de buurt ruimtelijke ankers detecteren |
+> | DataAction | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Hiermee worden eigenschappen van ruimtelijke ankers |
+> | Bewerking | Microsoft.MixedReality/SpatialAnchorsAccounts/providers/Microsoft.Insights/diagnosticSettings/read | Hiermee wordt de diagnostische instelling voor Microsoft.MixedReality/SpatialAnchorsAccounts opgehaald |
+> | Bewerking | Microsoft.MixedReality/SpatialAnchorsAccounts/providers/Microsoft.Insights/diagnosticSettings/write | Hiermee maken of bijwerken van de diagnostische instelling voor Microsoft.MixedReality/SpatialAnchorsAccounts |
+> | Bewerking | Microsoft.MixedReality/SpatialAnchorsAccounts/providers/Microsoft.Insights/metricDefinitions/read | Hiermee haalt u de beschikbare metrische gegevens voor Microsoft.MixedReality/SpatialAnchorsAccounts |
+> | DataAction | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Ruimtelijke ankers zoeken |
+> | DataAction | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Verzenden van diagnostische gegevens over ter verbetering van de kwaliteit van de service Azure ruimtelijke ankers |
+> | DataAction | Microsoft.MixedReality/SpatialAnchorsAccounts/write | Eigenschappen van ruimtelijke ankers bijwerken |
+
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Actietype | Bewerking | Description |
 > | --- | --- | --- |
-> | Bewerking | Microsoft.NetApp/activeDirectories/delete |  |
-> | Bewerking | Microsoft.NetApp/activeDirectories/read |  |
-> | Bewerking | Microsoft.NetApp/activeDirectories/write |  |
 > | Bewerking | Microsoft.NetApp/locations/operationresults/read | Hiermee wordt een bewerking resultaat resource gelezen. |
 > | Bewerking | Microsoft.NetApp/locations/read | Leest een beschikbaarheid van controleren resources |
 > | Bewerking | Microsoft.NetApp/netAppAccounts/capacityPools/delete | Hiermee verwijdert u een pool resource. |
@@ -3301,16 +3406,19 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Network/applicationGatewayAvailableSslOptions/predefinedPolicies/read | Application-Gateway Ssl vooraf gedefinieerd beleid |
 > | Bewerking | Microsoft.Network/applicationGatewayAvailableSslOptions/read | Application Gateway beschikbare Ssl-opties |
 > | Bewerking | Microsoft.Network/applicationGatewayAvailableWafRuleSets/read | Application Gateway beschikbaar Waf regelsets opgehaald |
-> | Bewerking | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Lid wordt van een application gateway back-end-adresgroep |
+> | Bewerking | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Lid wordt van een application gateway back-end-adresgroep. Niet Signaleerbare. |
 > | Bewerking | Microsoft.Network/applicationGateways/backendhealth/action | Een application gateway back-endstatus opgehaald |
 > | Bewerking | Microsoft.Network/applicationGateways/delete | Hiermee verwijdert u een application gateway |
 > | Bewerking | Microsoft.Network/applicationGateways/read | Haalt een application gateway |
 > | Bewerking | Microsoft.Network/applicationGateways/start/action | Een application gateway wordt gestart |
 > | Bewerking | Microsoft.Network/applicationGateways/stop/action | Een application gateway wordt gestopt |
 > | Bewerking | Microsoft.Network/applicationGateways/write | Hiermee maakt u een application gateway of een application gateway-updates |
+> | Bewerking | Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/delete | Hiermee verwijdert u een Application Gateway WAF-beleid |
+> | Bewerking | Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/read | Haalt een Application Gateway WAF-beleid |
+> | Bewerking | Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/write | Hiermee maakt u een Application Gateway WAF-beleid of een Application Gateway WAF-beleid werkt |
 > | Bewerking | Microsoft.Network/applicationSecurityGroups/delete | Hiermee verwijdert u een Toepassingsbeveiligingsgroep |
-> | Bewerking | Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action | Lid wordt van een IP-configuratie naar Toepassingsbeveiligingsgroepen. |
-> | Bewerking | Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | Lid wordt van een beveiligingsregel voor beveiligingsgroepen voor toepassing. |
+> | Bewerking | Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action | Lid wordt van een IP-configuratie naar Toepassingsbeveiligingsgroepen. Niet Signaleerbare. |
+> | Bewerking | Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | Lid wordt van een beveiligingsregel voor beveiligingsgroepen voor toepassing. Niet Signaleerbare. |
 > | Bewerking | Microsoft.Network/applicationSecurityGroups/listIpConfigurations/action | Een lijst met IP-configuraties in met de ApplicationSecurityGroup |
 > | Bewerking | Microsoft.Network/applicationSecurityGroups/read | Haalt een Toepassingsbeveiligingsgroep-ID. |
 > | Bewerking | Microsoft.Network/applicationSecurityGroups/write | Hiermee maakt u een Toepassingsbeveiligingsgroep of updates van een bestaande Toepassingsbeveiligingsgroep. |
@@ -3336,7 +3444,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Network/ddosCustomPolicies/read | Haalt een DDoS aangepast beleidsdefinitie definitie |
 > | Bewerking | Microsoft.Network/ddosCustomPolicies/write | Hiermee een DDoS aangepast beleid maken of bijwerken van een bestaand aangepast DDoS-beleid |
 > | Bewerking | Microsoft.Network/ddosProtectionPlans/delete | Hiermee verwijdert u een DDoS-beschermingsplan |
-> | Bewerking | Microsoft.Network/ddosProtectionPlans/join/action | Lid wordt van een DDoS-beschermingsplan |
+> | Bewerking | Microsoft.Network/ddosProtectionPlans/join/action | Lid wordt van een DDoS-beschermingsplan. Niet Signaleerbare. |
 > | Bewerking | Microsoft.Network/ddosProtectionPlans/read | Hiermee wordt een DDoS-beschermingsplan opgehaald |
 > | Bewerking | Microsoft.Network/ddosProtectionPlans/write | Hiermee maakt u een DDoS Protection-Plan gemaakt of bijgewerkt een DDoS Protection-Plan  |
 > | Bewerking | Microsoft.Network/dnsoperationresults/read | Resultaten van een DNS-bewerking opgehaald |
@@ -3379,7 +3487,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Network/expressRouteCircuits/authorizations/read | Wordt een expressroute-circuit geautoriseerd |
 > | Bewerking | Microsoft.Network/expressRouteCircuits/authorizations/write | Hiermee maakt of een bestaande expressroute-circuit autorisatie werkt |
 > | Bewerking | Microsoft.Network/expressRouteCircuits/delete | Hiermee verwijdert u een expressroute-circuit |
-> | Bewerking | Microsoft.Network/expressRouteCircuits/join/action | Lid wordt van een Express Route-Circuit |
+> | Bewerking | Microsoft.Network/expressRouteCircuits/join/action | Lid wordt van een Express Route-Circuit. Niet Signaleerbare. |
 > | Bewerking | Microsoft.Network/expressRouteCircuits/peerings/arpTables/action | Een expressroute-circuit Peering ArpTable opgehaald |
 > | Bewerking | Microsoft.Network/expressRouteCircuits/peerings/connections/delete | Hiermee verwijdert u de verbinding van een expressroute-circuit |
 > | Bewerking | Microsoft.Network/expressRouteCircuits/peerings/connections/read | Een expressroute-circuit verbinding opgehaald |
@@ -3394,7 +3502,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Network/expressRouteCircuits/read | Ophalen van een expressroute-circuit |
 > | Bewerking | Microsoft.Network/expressRouteCircuits/stats/read | Een expressroute-circuit Stat opgehaald |
 > | Bewerking | Microsoft.Network/expressRouteCircuits/write | Hiermee maken of bijwerken van een bestaande expressroute-circuit |
-> | Bewerking | Microsoft.Network/expressRouteCrossConnections/join/action | Cross joins een Express Route-verbinding |
+> | Bewerking | Microsoft.Network/expressRouteCrossConnections/join/action | Joins een Express Route Cross-verbinding. Niet Signaleerbare. |
 > | Bewerking | Microsoft.Network/expressRouteCrossConnections/peerings/arpTables/action | Een Express-Route Cross-verbinding Peering Arp-tabel opgehaald |
 > | Bewerking | Microsoft.Network/expressRouteCrossConnections/peerings/delete | Hiermee verwijdert u een Express-Route Cross-Peering verbinding |
 > | Bewerking | Microsoft.Network/expressRouteCrossConnections/peerings/read | Een Express-Route Cross-Peering verbinding opgehaald |
@@ -3405,10 +3513,10 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Network/expressRouteGateways/expressRouteConnections/delete | Hiermee verwijdert u een Expressroute-verbinding |
 > | Bewerking | Microsoft.Network/expressRouteGateways/expressRouteConnections/read | Een Express Route-verbinding opgehaald |
 > | Bewerking | Microsoft.Network/expressRouteGateways/expressRouteConnections/write | Een Express Route-verbinding hiermee maken of bijwerken van een bestaande Express Route-verbinding |
-> | Bewerking | Microsoft.Network/expressRouteGateways/join/action | Lid wordt van een Expressroute-Gateway |
+> | Bewerking | Microsoft.Network/expressRouteGateways/join/action | Lid wordt van een Expressroute-Gateway. Niet Signaleerbare. |
 > | Bewerking | Microsoft.Network/expressRouteGateways/read | Verkrijg de Gateway van het Express Route |
 > | Bewerking | Microsoft.Network/expressRoutePorts/delete | Deletes ExpressRoutePorts |
-> | Bewerking | Microsoft.Network/expressRoutePorts/join/action | Joins ExpressRoutePorts |
+> | Bewerking | Microsoft.Network/expressRoutePorts/join/action | Express Route-poorten koppelt. Niet Signaleerbare. |
 > | Bewerking | Microsoft.Network/expressRoutePorts/links/read | Gets ExpressRouteLink |
 > | Bewerking | Microsoft.Network/expressRoutePorts/read | Gets ExpressRoutePorts |
 > | Bewerking | Microsoft.Network/expressRoutePorts/write | Hiermee maakt of ExpressRoutePorts werkt |
@@ -3442,21 +3550,21 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Network/interfaceEndpoints/delete | Hiermee verwijdert u een eindpuntresource interface. |
 > | Bewerking | Microsoft.Network/interfaceEndpoints/read | Hiermee haalt u een eindpuntresource interface. |
 > | Bewerking | Microsoft.Network/interfaceEndpoints/write | Hiermee maakt u een nieuwe interface-eindpunt of een bestaand eindpunt van de interface-updates. |
-> | Bewerking | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Lid wordt van een load balancer-back-end-adresgroep |
+> | Bewerking | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Lid wordt van een load balancer-back-end-adresgroep. Niet Signaleerbare. |
 > | Bewerking | Microsoft.Network/loadBalancers/backendAddressPools/read | Een load balancer-back-end-adres-groepsdefinitie opgehaald |
 > | Bewerking | Microsoft.Network/loadBalancers/delete | Hiermee verwijdert u een load balancer |
-> | Bewerking | Microsoft.Network/loadBalancers/frontendIPConfigurations/join/action | Lid wordt van een Load Balancer-Frontend-IP-configuratie. |
+> | Bewerking | Microsoft.Network/loadBalancers/frontendIPConfigurations/join/action | Lid wordt van een Load Balancer-Frontend-IP-configuratie. Niet Signaleerbare. |
 > | Bewerking | Microsoft.Network/loadBalancers/frontendIPConfigurations/read | Haalt een load balancer front-end IP-configuratie van definitie |
-> | Bewerking | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Lid wordt van een load balancer binnenkomende nat-pool |
+> | Bewerking | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Lid wordt van een load balancer binnenkomende NAT-pool. Niet Signaleerbare. |
 > | Bewerking | Microsoft.Network/loadBalancers/inboundNatPools/read | Een load balancer wordt binnenkomende nat-groepsdefinitie |
 > | Bewerking | Microsoft.Network/loadBalancers/inboundNatRules/delete | Hiermee verwijdert u een load balancer binnenkomende nat-regel |
-> | Bewerking | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Lid wordt van een load balancer binnenkomende nat-regel |
+> | Bewerking | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Lid wordt van een load balancer binnenkomende nat-regel. Niet Signaleerbare. |
 > | Bewerking | Microsoft.Network/loadBalancers/inboundNatRules/read | Een load balancer wordt binnenkomende nat-regel definiëren |
 > | Bewerking | Microsoft.Network/loadBalancers/inboundNatRules/write | Hiermee maakt u een load balancer binnenkomende nat-regel of een bestaande load balancer binnenkomende nat-regel bijgewerkt |
 > | Bewerking | Microsoft.Network/loadBalancers/loadBalancingRules/read | Een load balancer load balancing regeldefinitie opgehaald |
 > | Bewerking | Microsoft.Network/loadBalancers/networkInterfaces/read | Verwijzingen naar alle netwerkinterfaces onder een load balancer opgehaald |
 > | Bewerking | Microsoft.Network/loadBalancers/outboundRules/read | De definitie van een load balancer-regel voor uitgaande opgehaald |
-> | Bewerking | Microsoft.Network/loadBalancers/probes/join/action | U kunt met behulp van tests van een load balancer. Bijvoorbeeld: met deze machtiging Statustest-eigenschap van de VM-schaalset set kan verwijzen naar de test. |
+> | Bewerking | Microsoft.Network/loadBalancers/probes/join/action | U kunt met behulp van tests van een load balancer. Bijvoorbeeld: met deze machtiging Statustest-eigenschap van de VM-schaalset set kan verwijzen naar de test. Niet Signaleerbare. |
 > | Bewerking | Microsoft.Network/loadBalancers/probes/read | Haalt een load balancer-test |
 > | Bewerking | Microsoft.Network/loadBalancers/read | De definitie van een load balancer opgehaald |
 > | Bewerking | Microsoft.Network/loadBalancers/virtualMachines/read | Verwijzingen naar de virtuele machines onder een load balancer opgehaald |
@@ -3479,9 +3587,9 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Network/networkInterfaces/delete | Hiermee verwijdert u een netwerkinterface |
 > | Bewerking | Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action | Netwerkbeveiligingsgroepen geconfigureerde op Network Interface van de Vm ophalen |
 > | Bewerking | Microsoft.Network/networkInterfaces/effectiveRouteTable/action | Routetabel geconfigureerd op de netwerkinterface van de virtuele machine ophalen |
-> | Bewerking | Microsoft.Network/networkInterfaces/ipconfigurations/join/action | Lid wordt van een IP-configuratie voor de netwerkinterface. |
+> | Bewerking | Microsoft.Network/networkInterfaces/ipconfigurations/join/action | Lid wordt van een IP-configuratie voor de netwerkinterface. Niet Signaleerbare. |
 > | Bewerking | Microsoft.Network/networkInterfaces/ipconfigurations/read | Hiermee haalt u de definitie van de IP-configuratie voor een netwerk-interface.  |
-> | Bewerking | Microsoft.Network/networkInterfaces/join/action | Lid wordt van een virtuele Machine aan een netwerkinterface |
+> | Bewerking | Microsoft.Network/networkInterfaces/join/action | Een virtuele Machine koppelt aan een netwerkinterface. Niet Signaleerbare. |
 > | Bewerking | Microsoft.Network/networkInterfaces/loadBalancers/read | Alle load balancers die de netwerkinterface onderdeel van is opgehaald |
 > | Bewerking | Microsoft.Network/networkInterfaces/read | Hiermee haalt u de definitie van een netwerk-interface.  |
 > | Bewerking | Microsoft.Network/networkInterfaces/tapConfigurations/delete | Hiermee verwijdert u een configuratie voor de netwerkinterface te tikken. |
@@ -3496,7 +3604,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Network/networkProfiles/write | Hiermee maakt of een netwerkprofiel werkt |
 > | Bewerking | Microsoft.Network/networkSecurityGroups/defaultSecurityRules/read | Definitie van een standaard beveiligingsregels opgehaald |
 > | Bewerking | Microsoft.Network/networkSecurityGroups/delete | Hiermee wordt een netwerkbeveiligingsgroep verwijderd |
-> | Bewerking | Microsoft.Network/networkSecurityGroups/join/action | Lid wordt van een netwerkbeveiligingsgroep |
+> | Bewerking | Microsoft.Network/networkSecurityGroups/join/action | Een netwerkbeveiligingsgroep koppelt. Niet Signaleerbare. |
 > | Bewerking | Microsoft.Network/networkSecurityGroups/read | De definitie van een network security opgehaald |
 > | Bewerking | Microsoft.Network/networkSecurityGroups/securityRules/delete | Hiermee verwijdert u een beveiligingsregel |
 > | Bewerking | Microsoft.Network/networkSecurityGroups/securityRules/read | Een definitie van beveiligingsregels opgehaald |
@@ -3553,23 +3661,23 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Network/privateLinkServices/read | Hiermee haalt u de bron van een persoonlijke verbinding-service. |
 > | Bewerking | Microsoft.Network/privateLinkServices/write | Hiermee maakt u een nieuwe persoonlijke koppelingsservice of particuliere koppeling voor een bestaande service-updates. |
 > | Bewerking | Microsoft.Network/publicIPAddresses/delete | Hiermee verwijdert u een openbaar Ip-adres. |
-> | Bewerking | Microsoft.Network/publicIPAddresses/join/action | Lid wordt van een openbaar ip-adres |
+> | Bewerking | Microsoft.Network/publicIPAddresses/join/action | Koppelt een openbare ip-adres. Niet Signaleerbare. |
 > | Bewerking | Microsoft.Network/publicIPAddresses/read | Hiermee haalt u de definitie van een openbaar IP-adres. |
 > | Bewerking | Microsoft.Network/publicIPAddresses/write | Hiermee maakt u een openbaar Ip-adres of een bestaande openbare Ip-adres-updates.  |
 > | Bewerking | Microsoft.Network/publicIPPrefixes/delete | Hiermee verwijdert u een openbaar Ip-voorvoegsel |
-> | Bewerking | Microsoft.Network/publicIPPrefixes/join/action | Lid wordt van een PublicIPPrefix |
+> | Bewerking | Microsoft.Network/publicIPPrefixes/join/action | Een PublicIPPrefix koppelt. Niet Signaleerbare. |
 > | Bewerking | Microsoft.Network/publicIPPrefixes/read | De definitie van een openbaar Ip-voorvoegsel opgehaald |
 > | Bewerking | Microsoft.Network/publicIPPrefixes/write | Hiermee maakt u een openbaar Ip-voorvoegsel of Updates van een bestaande openbare Ip-voorvoegsel |
 > | Bewerking | Microsoft.Network/register/action | Hiermee wordt het abonnement geregistreerd |
 > | Bewerking | Microsoft.Network/routeFilters/delete | Hiermee verwijdert u de definitie van een route-filter |
-> | Bewerking | Microsoft.Network/routeFilters/join/action | Lid wordt van een routefilter |
+> | Bewerking | Microsoft.Network/routeFilters/join/action | Lid wordt van een routefilter. Niet Signaleerbare. |
 > | Bewerking | Microsoft.Network/routeFilters/read | De definitie van een route-filter opgehaald |
 > | Bewerking | Microsoft.Network/routeFilters/routeFilterRules/delete | Hiermee verwijdert u de regeldefinitie van een route-filter |
 > | Bewerking | Microsoft.Network/routeFilters/routeFilterRules/read | Met deze eigenschap wordt de regeldefinitie van een route-filter |
 > | Bewerking | Microsoft.Network/routeFilters/routeFilterRules/write | Hiermee maakt u een routefilterregel of een bestaande routefilterregel Updates |
 > | Bewerking | Microsoft.Network/routeFilters/write | Hiermee maakt u een routefilter of een bestaande routefilter werkt |
 > | Bewerking | Microsoft.Network/routeTables/delete | Hiermee verwijdert u de definitie van een route-table |
-> | Bewerking | Microsoft.Network/routeTables/join/action | Lid wordt van een routetabel |
+> | Bewerking | Microsoft.Network/routeTables/join/action | Een routetabel koppelt. Niet Signaleerbare. |
 > | Bewerking | Microsoft.Network/routeTables/read | De definitie van een route-tabel opgehaald |
 > | Bewerking | Microsoft.Network/routeTables/routes/delete | Hiermee verwijdert u de definitie van een route |
 > | Bewerking | Microsoft.Network/routeTables/routes/read | De definitie van een route opgehaald |
@@ -3579,8 +3687,8 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Network/securegateways/read | Beveiligde Gateway ophalen |
 > | Bewerking | Microsoft.Network/securegateways/write | Hiermee maken of bijwerken van een Gateway beveiligen |
 > | Bewerking | Microsoft.Network/serviceEndpointPolicies/delete | Hiermee verwijdert u een Service-eindpuntbeleid |
-> | Bewerking | Microsoft.Network/serviceEndpointPolicies/join/action | Lid wordt van een Service-eindpuntbeleid |
-> | Bewerking | Microsoft.Network/serviceEndpointPolicies/joinSubnet/action | Een Subnet koppelt aan Service-eindpuntbeleid |
+> | Bewerking | Microsoft.Network/serviceEndpointPolicies/join/action | Een Service-eindpuntbeleid koppelt. Niet Signaleerbare. |
+> | Bewerking | Microsoft.Network/serviceEndpointPolicies/joinSubnet/action | Een Subnet koppelt aan beleidsregels voor Service-eindpunt. Niet Signaleerbare. |
 > | Bewerking | Microsoft.Network/serviceEndpointPolicies/read | Een beschrijving van het Service-eindpunt beleid opgehaald |
 > | Bewerking | Microsoft.Network/serviceEndpointPolicies/serviceEndpointPolicyDefinitions/delete | Hiermee verwijdert u een Service-Eindpuntbeleidsdefinitie |
 > | Bewerking | Microsoft.Network/serviceEndpointPolicies/serviceEndpointPolicyDefinitions/read | Een beschrijving van de definitie van het Service-eindpunt beleid opgehaald |
@@ -3632,8 +3740,8 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Network/virtualNetworks/peer/action | Een virtueel netwerk met een ander virtueel netwerk van collega 's |
 > | Bewerking | Microsoft.Network/virtualNetworks/read | De definitie van het virtuele netwerk ophalen |
 > | Bewerking | Microsoft.Network/virtualNetworks/subnets/delete | Hiermee verwijdert u een subnet van een virtueel netwerk |
-> | Bewerking | Microsoft.Network/virtualNetworks/subnets/join/action | Lid wordt van een virtueel netwerk |
-> | Bewerking | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Resource, zoals storage-account of SQL-database koppelt naar een subnet. |
+> | Bewerking | Microsoft.Network/virtualNetworks/subnets/join/action | Lid wordt van een virtueel netwerk. Niet Signaleerbare. |
+> | Bewerking | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Resource, zoals storage-account of SQL-database koppelt naar een subnet. Niet Signaleerbare. |
 > | Bewerking | Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action | Bereidt van een subnet door toe te passen die nodig zijn netwerkbeleid |
 > | Bewerking | Microsoft.Network/virtualNetworks/subnets/read | De definitie van een virtueel netwerk subnet opgehaald |
 > | Bewerking | Microsoft.Network/virtualNetworks/subnets/virtualMachines/read | Hiermee haalt u verwijzingen naar alle virtuele machines in een subnet van een virtueel netwerk |
@@ -3645,7 +3753,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write | Hiermee maakt u een peering op virtueel netwerk of werkt een bestaande peering op virtueel netwerk |
 > | Bewerking | Microsoft.Network/virtualNetworks/write | Hiermee maakt u een virtueel netwerk of updates van een bestaand virtueel netwerk |
 > | Bewerking | Microsoft.Network/virtualNetworkTaps/delete | Tik op virtueel netwerk verwijderen |
-> | Bewerking | Microsoft.Network/virtualNetworkTaps/join/action | Lid wordt van een virtueel netwerk te tikken |
+> | Bewerking | Microsoft.Network/virtualNetworkTaps/join/action | Lid wordt van een virtueel netwerk te tikken. Niet Signaleerbare. |
 > | Bewerking | Microsoft.Network/virtualNetworkTaps/read | Tik op virtueel netwerk ophalen |
 > | Bewerking | Microsoft.Network/virtualNetworkTaps/write | Maken of bijwerken van Virtual Network Tap |
 > | Bewerking | Microsoft.Network/virtualWans/delete | Verwijdert een virtuele Wan |
@@ -3811,6 +3919,9 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/AppCenterError/read | Gegevens lezen uit de tabel AppCenterError |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/ApplicationInsights/read | Gegevens lezen uit de tabel ApplicationInsights |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/AuditLogs/read | Gegevens lezen uit de tabel AuditLogs |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/AutoscaleEvaluationsLog/read | Gegevens lezen uit de tabel AutoscaleEvaluationsLog |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/AutoscaleScaleActionsLog/read | Gegevens lezen uit de tabel AutoscaleScaleActionsLog |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/AWSCloudTrail/read | Gegevens lezen uit de tabel AWSCloudTrail |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/AzureActivity/read | Gegevens lezen uit de tabel AzureActivity |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/AzureMetrics/read | Gegevens lezen uit de tabel AzureMetrics |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/BoundPort/read | Gegevens lezen uit de tabel BoundPort |
@@ -3821,6 +3932,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/ContainerImageInventory/read | Gegevens lezen uit de tabel ContainerImageInventory |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/ContainerInventory/read | Gegevens lezen uit de tabel ContainerInventory |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/ContainerLog/read | Gegevens lezen uit de tabel ContainerLog |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/ContainerNodeInventory/read | Gegevens lezen uit de tabel ContainerNodeInventory |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/ContainerServiceLog/read | Gegevens lezen uit de tabel ContainerServiceLog |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/DeviceAppCrash/read | Gegevens lezen uit de tabel DeviceAppCrash |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/DeviceAppLaunch/read | Gegevens lezen uit de tabel DeviceAppLaunch |
@@ -3849,6 +3961,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/ExchangeAssessmentRecommendation/read | Gegevens lezen uit de tabel ExchangeAssessmentRecommendation |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/ExchangeOnlineAssessmentRecommendation/read | Gegevens lezen uit de tabel ExchangeOnlineAssessmentRecommendation |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/Heartbeat/read | Gegevens lezen uit de tabel Heartbeat |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/HuntingBookmark/read | Gegevens lezen uit de tabel HuntingBookmark |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/IISAssessmentRecommendation/read | Gegevens lezen uit de tabel IISAssessmentRecommendation |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/InboundConnection/read | Gegevens lezen uit de tabel InboundConnection |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/IntuneAuditLogs/read | Gegevens lezen uit de tabel IntuneAuditLogs |
@@ -3917,6 +4030,8 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/SecurityBaselineSummary/read | Gegevens lezen uit de tabel SecurityBaselineSummary |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/SecurityDetection/read | Gegevens lezen uit de tabel SecurityDetection |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/SecurityEvent/read | Gegevens lezen uit de tabel SecurityEvent |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/SecurityIoTRawEvent/read | Gegevens lezen uit de tabel SecurityIoTRawEvent |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/SecurityRecommendation/read | Gegevens lezen uit de tabel SecurityRecommendation |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/ServiceFabricOperationalEvent/read | Gegevens lezen uit de tabel ServiceFabricOperationalEvent |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/ServiceFabricReliableActorEvent/read | Gegevens lezen uit de tabel ServiceFabricReliableActorEvent |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/ServiceFabricReliableServiceEvent/read | Gegevens lezen uit de tabel ServiceFabricReliableServiceEvent |
@@ -3930,6 +4045,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/Syslog/read | Gegevens lezen uit de tabel Syslog |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/SysmonEvent/read | Gegevens lezen uit de tabel SysmonEvent |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read | Gegevens lezen van een aangepast logboek |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/ThreatIntelligenceIndicator/read | Gegevens lezen uit de tabel ThreatIntelligenceIndicator |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/UAApp/read | Gegevens lezen uit de tabel UAApp |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/UAComputer/read | Gegevens lezen uit de tabel UAComputer |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/query/UAComputerRank/read | Gegevens lezen uit de tabel UAComputerRank |
@@ -4044,13 +4160,13 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > [!div class="mx-tdCol2BreakAll"]
 > | Actietype | Bewerking | Description |
 > | --- | --- | --- |
-> | Bewerking | Microsoft.PowerBIDedicated/capacities/checkNameAvailability/action | Hiermee wordt gecontroleerd of de opgegeven toegewezen capaciteit van Power BI naam geldig is en niet wordt gebruikt. |
 > | Bewerking | Microsoft.PowerBIDedicated/capacities/delete | Verwijdert de Power BI toegewezen capaciteit. |
 > | Bewerking | Microsoft.PowerBIDedicated/capacities/read | Haalt de informatie van de opgegeven toegewezen capaciteit van Power BI. |
 > | Bewerking | Microsoft.PowerBIDedicated/capacities/resume/action | Hervat de capaciteit. |
 > | Bewerking | Microsoft.PowerBIDedicated/capacities/skus/read | Beschikbare SKU-gegevens voor de capaciteit ophalen |
 > | Bewerking | Microsoft.PowerBIDedicated/capacities/suspend/action | Hiermee onderbreekt u de capaciteit. |
 > | Bewerking | Microsoft.PowerBIDedicated/capacities/write | Hiermee maakt of de opgegeven toegewezen capaciteit van Power BI-updates. |
+> | Bewerking | Microsoft.PowerBIDedicated/locations/checkNameAvailability/action | Hiermee wordt gecontroleerd of de opgegeven toegewezen capaciteit van Power BI naam geldig is en niet wordt gebruikt. |
 > | Bewerking | Microsoft.PowerBIDedicated/locations/operationresults/read | Haalt de informatie van het opgegeven bewerkingsresultaat. |
 > | Bewerking | Microsoft.PowerBIDedicated/locations/operationstatuses/read | Haalt de informatie van de status van de opgegeven bewerking. |
 > | Bewerking | Microsoft.PowerBIDedicated/operations/read | De informatie over bewerkingen opgehaald |
@@ -4594,6 +4710,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Sql/checkNameAvailability/action | Controleer of de opgegeven server naam beschikbaar is voor het inrichten van over de hele wereld voor een bepaald abonnement. |
 > | Bewerking | Microsoft.Sql/instancePools/delete | Hiermee verwijdert u een exemplaar van toepassingen |
 > | Bewerking | Microsoft.Sql/instancePools/read | Haalt een exemplaar van toepassingen |
+> | Bewerking | Microsoft.Sql/instancePools/usages/read | Hiermee haalt u een exemplaar van toepassingen het gebruik van informatie. |
 > | Bewerking | Microsoft.Sql/instancePools/write | Hiermee maken of bijwerken van een exemplaar van toepassingen |
 > | Bewerking | Microsoft.Sql/locations/auditingSettingsAzureAsyncOperation/read | Resultaat van de uitgebreide server blob auditing beleid Set-bewerking ophalen |
 > | Bewerking | Microsoft.Sql/locations/auditingSettingsOperationResults/read | Resultaat van de server blob auditing beleid Set-bewerking ophalen |
@@ -4946,7 +5063,6 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Storage/storageAccounts/fileServices/fileShare/delete | De gebruiker toestaan de bestandsshare te verwijderen |
 > | Bewerking | Microsoft.Storage/storageAccounts/fileServices/fileShare/read | De gebruiker toestaan de bestandsshare te lezen |
 > | Bewerking | Microsoft.Storage/storageAccounts/fileServices/fileShare/write | De gebruiker toestaan naar een bestandsshare te schrijven |
-> | Bewerking | Microsoft.Storage/storageAccounts/lastsynctime/read | Retourneert de laatste synchronisatietijd van het opslagaccount |
 > | Bewerking | Microsoft.Storage/storageAccounts/listAccountSas/action | Hiermee wordt het SAS-token van het account geretourneerd voor het opgegeven opslagaccount. |
 > | Bewerking | Microsoft.Storage/storageAccounts/listkeys/action | Hiermee retourneert u de toegangssleutels voor het opgegeven opslagaccount. |
 > | Bewerking | Microsoft.Storage/storageAccounts/listServiceSas/action | Hiermee wordt het SAS-token van de service geretourneerd voor het opgegeven opslagaccount. |
@@ -5224,7 +5340,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > [!div class="mx-tdCol2BreakAll"]
 > | Actietype | Bewerking | Description |
 > | --- | --- | --- |
-> | Bewerking | Microsoft.Subscription/CreateSubscription/action | Maak een Azure-abonnement |
+> | Bewerking | Microsoft.Subscription/CreateSubscription/action | Een Azure-abonnement maken |
 > | Bewerking | Microsoft.Subscription/register/action | Hiermee wordt een abonnement bij de resourceprovider Microsoft.Subscription |
 > | Bewerking | Microsoft.Subscription/SubscriptionDefinitions/read | De definitie van een Azure-abonnement in een beheergroep ophalen. |
 > | Bewerking | Microsoft.Subscription/SubscriptionDefinitions/write | De definitie van een Azure-abonnement maken |
@@ -5234,7 +5350,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > [!div class="mx-tdCol2BreakAll"]
 > | Actietype | Bewerking | Description |
 > | --- | --- | --- |
-> | Bewerking | Microsoft.Support/register/action | Hiermee wordt het item geregistreerd bij de resourceprovider voor ondersteuning |
+> | Bewerking | Microsoft.Support/register/action | Hiermee wordt het item geregistreerd bij de ondersteuningsresourceprovider |
 > | Bewerking | Microsoft.Support/supportTickets/read | Hiermee worden gegevens over het ondersteuningsticket opgehaald (inclusief status, ernst, contactgegevens en communicatie) of wordt de lijst met ondersteuningstickets voor de verschillende abonnementen opgehaald. |
 > | Bewerking | Microsoft.Support/supportTickets/write | Hiermee wordt een ondersteuningsticket gemaakt of bijgewerkt. U kunt een ondersteuningsticket maken voor problemen van technische aard of op het gebied van facturering, quota's of beheer van abonnementen. U kunt voor bestaande ondersteuningstickets de ernst, de contactgegevens en de communicatiemethoden aanpassen. |
 

@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 01/25/2019
+ms.date: 02/16/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: d730efe8b09f167aaba2a4aa8e33446d44171c53
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 97f9c893487b486bd76031cb6321fe100321931d
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340840"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750715"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ingebouwde rollen voor Azure-resources
 
@@ -68,6 +68,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 | [Klassieke opslag Account servicerol Sleuteloperator](#classic-storage-account-key-operator-service-role) | Sleuteloperators voor klassieke opslagaccounts kunnen een lijst met sleutels voor klassieke opslagaccounts maken en de sleutels opnieuw genereren |
 | [Inzender voor klassieke virtuele machines](#classic-virtual-machine-contributor) | Hiermee beheert u klassieke virtuele machines, maar kunt u niet de toegang tot de virtuele machines of het virtuele netwerk of opslagaccount beheren waaraan de virtuele machines zijn gekoppeld. |
 | [Inzender voor cognitive Services](#cognitive-services-contributor) | Hiermee kunt u sleutels van Cognitive Services maken, lezen, bijwerken, verwijderen en beheren. |
+| [Gegevenslezer voor cognitive Services (Preview)](#cognitive-services-data-reader-preview) | Hiermee kunt u gegevens van de Cognitive Services lezen. |
 | [Cognitive Services User](#cognitive-services-user) | Hiermee kunt sleutels van Cognitive Services lezen en weergeven. |
 | [Rol van lezer voor cosmos DB-Account](#cosmos-db-account-reader-role) | Kan Azure Cosmos DB-accountgegevens lezen. Zie [Inzender voor DocumentDB-Account](#documentdb-account-contributor) voor het beheren van Azure Cosmos DB-accounts. |
 | [CosmosBackupOperator](#cosmosbackupoperator) | Hiermee kan een aanvraag voor herstel van een Cosmos DB-database of een container voor een account worden verzonden |
@@ -113,6 +114,9 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 | [Site Recovery-Inzender](#site-recovery-contributor) | Hiermee kunt u de Site Recovery-service beheren, maar geen kluizen maken of rollen toewijzen |
 | [Site Recovery-Operator](#site-recovery-operator) | Hiermee kunt u failover en fallback uitvoeren, maar geen andere beheerbewerkingen voor Site Recovery |
 | [Site Recovery-lezer](#site-recovery-reader) | Hiermee kunt u de Site Recovery-status weergeven maar geen andere beheerbewerkingen voor Site Recovery uitvoeren |
+| [Inzender voor het Account van de ruimtelijke ankers](#spatial-anchors-account-contributor) | Hiermee kunt u ruimtelijke ankers beheren in uw account, maar ze niet verwijderen |
+| [De accounteigenaar ruimtelijke ankers](#spatial-anchors-account-owner) | Hiermee kunt u beheren ruimtelijke ankers in uw account, met inbegrip van deze worden verwijderd |
+| [Ruimtelijke ankers Account Reader](#spatial-anchors-account-reader) | U kunt zoeken en lezen van de eigenschappen van ruimtelijke ankers in uw account |
 | [' SQL DB Contributor '](#sql-db-contributor) | Kunt u SQL-databases, maar niet de toegang tot beheren. U beheren niet ook hun beveiligingsbeleid of de bovenliggende SQL-servers. |
 | [SQL Security Manager](#sql-security-manager) | Hiermee kunt u beveiligingsbeleid van SQL-servers en -databases beheren, maar niet de toegang tot het beleid. |
 | [Inzender voor SQL Server](#sql-server-contributor) | Hiermee kunt u SQL-servers en -databases beheren, maar niet de toegang tot en het beveiligingsbeleid van de servers en databases. |
@@ -122,6 +126,8 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 | [Storage Blob de eigenaar van gegevens (Preview)](#storage-blob-data-owner-preview) | Hiermee wordt volledige toegang toegestaan tot Azure Storage Blob-containers en -gegevens, waaronder het toewijzen van POSIX-toegangscontrole. |
 | [Gegevenslezer voor Opslagblob (Preview)](#storage-blob-data-reader-preview) | Hiermee wordt leestoegang tot Azure Storage-blobcontainers en -gegevens verleend. |
 | [Gegevensbijdrager voor wachtrij (Preview)](#storage-queue-data-contributor-preview) | Hiermee wordt lees-, schrijf- en verwijdertoegang tot Azure Storage-wachtrijen en -wachtrijberichten verleend. |
+| [Storage Queue gegevens bericht Processor (Preview)](#storage-queue-data-message-processor-preview) | Kan voor peek, ontvangen en verwijdertoegang tot Azure Storage-berichtenwachtrij-berichten |
+| [Afzender (Preview) voor de Storage-wachtrij gegevens](#storage-queue-data-message-sender-preview) | Staat het verzenden van berichten van Azure Storage-wachtrij |
 | [Gegevenslezer voor Opslagwachtrij (Preview)](#storage-queue-data-reader-preview) | Hiermee wordt leestoegang verleend voor Azure Storage-wachtrijen en -wachtrijberichten. |
 | [Inzender voor ondersteuningsaanvragen](#support-request-contributor) | Hiermee kunt u ondersteuningsaanvragen maken en beheren |
 | [Inzender voor Traffic Manager](#traffic-manager-contributor) | Hiermee kunt u Traffic Manager-profielen beheren, maar kunt u niet bepalen wie toegang heeft. |
@@ -400,7 +406,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## <a name="automation-operator"></a>Automation-operator
+## <a name="automation-operator"></a>Operator voor Automation
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -684,7 +690,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## <a name="billing-reader"></a>Lezer voor facturering
+## <a name="billing-reader"></a>Facturering voor lezer
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -934,6 +940,21 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **NotDataActions** |  |
 > | *none* |  |
 
+## <a name="cognitive-services-data-reader-preview"></a>Gegevenslezer voor cognitive Services (Preview)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Hiermee kunt u gegevens van de Cognitive Services lezen. |
+> | **Id** | b59867f0-fa02-499b-be73-45a86b5b3e1c |
+> | **Acties** |  |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.CognitiveServices/*/read |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
 ## <a name="cognitive-services-user"></a>Cognitive Services-gebruiker
 > [!div class="mx-tableFixed"]
 > | | |
@@ -943,11 +964,11 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **Acties** |  |
 > | Microsoft.CognitiveServices/*/read |  |
 > | Microsoft.CognitiveServices/accounts/listkeys/action | Een lijst met sleutels maken |
-> | Microsoft.Insights/metricdefinitions/read | Metrische definities lezen |
-> | Microsoft.Insights/metrics/read | De metrische gegevens lezen |
 > | Microsoft.Insights/alertRules/read | Een klassieke waarschuwing voor metrische gegevens lezen |
 > | Microsoft.Insights/diagnosticSettings/read | Een diagnostische instelling voor de resource lezen |
 > | Microsoft.Insights/logDefinitions/read | Logboekdefinities lezen |
+> | Microsoft.Insights/metricdefinitions/read | Metrische definities lezen |
+> | Microsoft.Insights/metrics/read | De metrische gegevens lezen |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | De beschikbaarheidsstatus ophalen voor alle resources binnen het opgegeven bereik |
 > | Microsoft.Resources/deployments/operations/read | Hiermee kunt u implementatiebewerkingen ophalen of opnemen in een lijst. |
 > | Microsoft.Resources/subscriptions/operationresults/read | Hiermee worden de resultaten van de abonnementsbewerking opgehaald. |
@@ -957,7 +978,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | *none* |  |
+> | Microsoft.CognitiveServices/* |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -1177,16 +1198,16 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Lab-beleid evalueert. |
 > | Microsoft.DevTestLab/labs/virtualMachines/claim/action | Eigenaar worden van een bestaande virtuele machine |
 > | Microsoft.DevTestLab/labs/virtualmachines/listApplicableSchedules/action | Geeft een lijst van de planning van toepassing starten/stoppen, indien van toepassing. |
-> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Lid wordt van een load balancer-back-end-adresgroep |
-> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Lid wordt van een load balancer binnenkomende nat-regel |
+> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Lid wordt van een load balancer-back-end-adresgroep. Niet Signaleerbare. |
+> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Lid wordt van een load balancer binnenkomende nat-regel. Niet Signaleerbare. |
 > | Microsoft.Network/networkInterfaces/*/read | Lezen van de eigenschappen van een netwerkinterface (bijvoorbeeld alle load balancers die de netwerkinterface een deel van is) |
-> | Microsoft.Network/networkInterfaces/join/action | Lid wordt van een virtuele Machine aan een netwerkinterface |
+> | Microsoft.Network/networkInterfaces/join/action | Een virtuele Machine koppelt aan een netwerkinterface. Niet Signaleerbare. |
 > | Microsoft.Network/networkInterfaces/read | Hiermee haalt u de definitie van een netwerk-interface.  |
 > | Microsoft.Network/networkInterfaces/write | Hiermee maakt u een netwerkinterface gemaakt of bijgewerkt van een bestaande netwerkinterface.  |
 > | Microsoft.Network/publicIPAddresses/*/read | Lezen van de eigenschappen van een openbaar IP-adres |
-> | Microsoft.Network/publicIPAddresses/join/action | Lid wordt van een openbaar ip-adres |
+> | Microsoft.Network/publicIPAddresses/join/action | Koppelt een openbare ip-adres. Niet Signaleerbare. |
 > | Microsoft.Network/publicIPAddresses/read | Hiermee haalt u de definitie van een openbaar IP-adres. |
-> | Microsoft.Network/virtualNetworks/subnets/join/action | Lid wordt van een virtueel netwerk |
+> | Microsoft.Network/virtualNetworks/subnets/join/action | Lid wordt van een virtueel netwerk. Niet Signaleerbare. |
 > | Microsoft.Resources/deployments/operations/read | Hiermee kunt u implementatiebewerkingen ophalen of opnemen in een lijst. |
 > | Microsoft.Resources/deployments/read | Hiermee kunt u implementaties ophalen of opnemen in een lijst. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
@@ -2033,6 +2054,65 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **NotDataActions** |  |
 > | *none* |  |
 
+## <a name="spatial-anchors-account-contributor"></a>Inzender voor Spatial Anchors-account
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Hiermee kunt u ruimtelijke ankers beheren in uw account, maar ze niet verwijderen |
+> | **Id** | 8bbe83f1-e2a6-4df7-8cb4-4e04d4e5c827 |
+> | **Acties** |  |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Ruimtelijke ankers maken |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | In de buurt ruimtelijke ankers detecteren |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Hiermee worden eigenschappen van ruimtelijke ankers |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Ruimtelijke ankers zoeken |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Verzenden van diagnostische gegevens over ter verbetering van de kwaliteit van de service Azure ruimtelijke ankers |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/write | Eigenschappen van ruimtelijke ankers bijwerken |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## <a name="spatial-anchors-account-owner"></a>Eigenaar van Spatial Anchors-account
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Hiermee kunt u beheren ruimtelijke ankers in uw account, met inbegrip van deze worden verwijderd |
+> | **Id** | 70bbe301-9835-447d-afdd-19eb3167307c |
+> | **Acties** |  |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Ruimtelijke ankers maken |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/delete | Ruimtelijke ankers verwijderen |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | In de buurt ruimtelijke ankers detecteren |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Hiermee worden eigenschappen van ruimtelijke ankers |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Ruimtelijke ankers zoeken |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Verzenden van diagnostische gegevens over ter verbetering van de kwaliteit van de service Azure ruimtelijke ankers |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/write | Eigenschappen van ruimtelijke ankers bijwerken |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## <a name="spatial-anchors-account-reader"></a>Lezer voor Spatial Anchors-account
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | U kunt zoeken en lezen van de eigenschappen van ruimtelijke ankers in uw account |
+> | **Id** | 5d51204f-eb77-4b1c-b86a-2ec626c49413 |
+> | **Acties** |  |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | In de buurt ruimtelijke ankers detecteren |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Hiermee worden eigenschappen van ruimtelijke ankers |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Ruimtelijke ankers zoeken |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Verzenden van diagnostische gegevens over ter verbetering van de kwaliteit van de service Azure ruimtelijke ankers |
+> | **NotDataActions** |  |
+> | *none* |  |
+
 ## <a name="sql-db-contributor"></a>Inzender voor SQL-databases
 > [!div class="mx-tableFixed"]
 > | | |
@@ -2082,7 +2162,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Alleen Microsoft-authorisatie |
 > | Microsoft.Insights/alertRules/* | Maken en beheren van inzicht waarschuwingsregels |
-> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Resource, zoals storage-account of SQL-database koppelt naar een subnet. |
+> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Resource, zoals storage-account of SQL-database koppelt naar een subnet. Niet Signaleerbare. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | De beschikbaarheidsstatus ophalen voor alle resources binnen het opgegeven bereik |
 > | Microsoft.Resources/deployments/* | Maken en beheren van brongroepimplementaties |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
@@ -2173,7 +2253,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Authorization/*/read | Alle autorisatie lezen |
 > | Microsoft.Insights/alertRules/* | Maken en beheren van inzicht waarschuwingsregels |
 > | Microsoft.Insights/diagnosticSettings/* | Diagnostische instellingen beheren |
-> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Resource, zoals storage-account of SQL-database koppelt naar een subnet. |
+> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Resource, zoals storage-account of SQL-database koppelt naar een subnet. Niet Signaleerbare. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | De beschikbaarheidsstatus ophalen voor alle resources binnen het opgegeven bereik |
 > | Microsoft.Resources/deployments/* | Maken en beheren van brongroepimplementaties |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
@@ -2270,6 +2350,37 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **NotDataActions** |  |
 > | *none* |  |
 
+## <a name="storage-queue-data-message-processor-preview"></a>Storage Queue gegevens bericht Processor (Preview)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Kan voor peek, ontvangen en verwijdertoegang tot Azure Storage-berichtenwachtrij-berichten |
+> | **Id** | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
+> | **Acties** |  |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Hiermee wordt een bericht geretourneerd |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action | Hiermee wordt het resultaat van het verwerken van een bericht geretourneerd |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## <a name="storage-queue-data-message-sender-preview"></a>Afzender (Preview) voor de Storage-wachtrij gegevens
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Staat het verzenden van berichten van Azure Storage-wachtrij |
+> | **Id** | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
+> | **Acties** |  |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | Hiermee wordt het resultaat van het toevoegen van een bericht geretourneerd |
+> | **NotDataActions** |  |
+> | *none* |  |
+
 ## <a name="storage-queue-data-reader-preview"></a>Gegevenslezer voor opslagwachtrij (preview-versie)
 > [!div class="mx-tableFixed"]
 > | | |
@@ -2323,7 +2434,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## <a name="user-access-administrator"></a>Beheerder van gebruikerstoegang
+## <a name="user-access-administrator"></a>Administrator voor gebruikerstoegang
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2374,20 +2485,20 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Compute/virtualMachineScaleSets/* | Maken en beheren van virtuele-machineschaalsets |
 > | Microsoft.DevTestLab/schedules/* |  |
 > | Microsoft.Insights/alertRules/* | Maken en beheren van inzicht waarschuwingsregels |
-> | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Lid wordt van een application gateway back-end-adresgroep |
-> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Lid wordt van een load balancer-back-end-adresgroep |
-> | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Lid wordt van een load balancer binnenkomende nat-pool |
-> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Lid wordt van een load balancer binnenkomende nat-regel |
-> | Microsoft.Network/loadBalancers/probes/join/action | U kunt met behulp van tests van een load balancer. Bijvoorbeeld: met deze machtiging Statustest-eigenschap van de VM-schaalset set kan verwijzen naar de test. |
+> | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Lid wordt van een application gateway back-end-adresgroep. Niet Signaleerbare. |
+> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Lid wordt van een load balancer-back-end-adresgroep. Niet Signaleerbare. |
+> | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Lid wordt van een load balancer binnenkomende NAT-pool. Niet Signaleerbare. |
+> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Lid wordt van een load balancer binnenkomende nat-regel. Niet Signaleerbare. |
+> | Microsoft.Network/loadBalancers/probes/join/action | U kunt met behulp van tests van een load balancer. Bijvoorbeeld: met deze machtiging Statustest-eigenschap van de VM-schaalset set kan verwijzen naar de test. Niet Signaleerbare. |
 > | Microsoft.Network/loadBalancers/read | De definitie van een load balancer opgehaald |
 > | Microsoft.Network/locations/* | Maken en beheren van netwerklocaties |
 > | Microsoft.Network/networkInterfaces/* | Maken en beheren van netwerkinterfaces |
-> | Microsoft.Network/networkSecurityGroups/join/action | Lid wordt van een netwerkbeveiligingsgroep |
+> | Microsoft.Network/networkSecurityGroups/join/action | Een netwerkbeveiligingsgroep koppelt. Niet Signaleerbare. |
 > | Microsoft.Network/networkSecurityGroups/read | De definitie van een network security opgehaald |
-> | Microsoft.Network/publicIPAddresses/join/action | Lid wordt van een openbaar ip-adres |
+> | Microsoft.Network/publicIPAddresses/join/action | Koppelt een openbare ip-adres. Niet Signaleerbare. |
 > | Microsoft.Network/publicIPAddresses/read | Hiermee haalt u de definitie van een openbaar IP-adres. |
 > | Microsoft.Network/virtualNetworks/read | De definitie van het virtuele netwerk ophalen |
-> | Microsoft.Network/virtualNetworks/subnets/join/action | Lid wordt van een virtueel netwerk |
+> | Microsoft.Network/virtualNetworks/subnets/join/action | Lid wordt van een virtueel netwerk. Niet Signaleerbare. |
 > | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Een back-Upbeveiligingsintentie maken |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read |  |

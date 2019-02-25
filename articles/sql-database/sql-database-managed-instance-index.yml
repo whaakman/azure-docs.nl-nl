@@ -1,12 +1,12 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 287e4d63ca60200340a88dd45d6b8912a62b74cd
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 92af534642f5e1d56209944a481e244b8cf6207a
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454686"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750090"
 documentType: LandingData
-title: Azure SQL Database Managed Instance
+title: Beheerd exemplaar voor Azure SQL Database
 metadata:
   document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
   title: Azure SQL Database Managed Instance documentatie - zelfstudies, API-verwijzing
@@ -55,7 +55,7 @@ sections:
     - title: Migratie zonder uitvaltijd
       href: /azure/dms/tutorial-sql-server-to-managed-instance
       html: <p>Migreer een hele vloot van databases met minimale downtime met behulp van de Database Migration Service.</p>
-    - title: Prijzen
+    - title: Prijs
       href: https://azure.microsoft.com/pricing/hybrid-benefit/
       html: <p>Bespaar tot 40% met Azure Hybrid Benefit (AHB) met uw bestaande on-premises licenties.</p>
     - title: PaaS-mogelijkheden
@@ -82,6 +82,7 @@ sections:
     - html: (Preview) <a href="https://aka.ms/managed-instance-tde-byok">Doen om uw eigen versleutelingssleutels</a> tijdens het migreren van on-premises databases die al transparante gegevensversleuteling (TDE) hebt ingeschakeld.
     - html: Beheerde exemplaren zijn beveiligd met <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">ingebouwde firewall</a>.
     - html: (Preview) <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/2019/01/21/recreate-dropped-database-on-azure-sql-managed-instance/">Opnieuw maken verwijderde databases</a>.
+    - html: De databasenaam van de kan worden gewijzigd met behulp van sp_renamedb procedure of de instructie ALTER DATABASE.
 - title: QuickStarts van vijf minuten
   items:
   - type: paragraph
@@ -94,7 +95,7 @@ sections:
       title: Azure Portal
     - image:
         src: media/index/cli.svg
-      title: Azure-CLI
+      title: Azure CLI
     - image:
         src: media/index/logo_powershell.svg
       title: PowerShell
@@ -150,7 +151,7 @@ sections:
     - html: Meer informatie over de storage-laag in <a href="https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c">categorie Algemeen gebruik</a> en toe te passen <a href="https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose">storage aanbevolen procedures voor prestaties en overwegingen voor algemeen gebruik-servicelaag</a>.
     - html: Zoek de best practices en aanbevelingen voor <a href="https://www.youtube.com/watch?v=vO6k05Ox1iI">beveiligen van uw exemplaar</a>.
     - html: Meer informatie vinden <a href="sql-database-howto-managed-instance.md">instructies begeleidt</a> die kan helpen u bij het configureren van uw beheerde exemplaar.
-- title: Referentie
+- title: Verwijzing
   items:
   - type: list
     style: cards

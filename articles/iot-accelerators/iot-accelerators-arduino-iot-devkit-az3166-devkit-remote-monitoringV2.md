@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
-ms.openlocfilehash: eb2a6692c0b00dc4419c601228453a8cfc44c02a
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 0f444a4ce41a700af4c55795bca95dbbf95003a4
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156779"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750018"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>Een apparaat IoT DevKit verbinden met de oplossingsverbetering voor externe controle
 
@@ -79,7 +79,7 @@ Om te controleren of de voorbeeldtoepassing die u hebt geüpload naar het appara
 
 Wanneer de voorbeeld-app wordt uitgevoerd, verzendt het apparaat DevKit telemetrie van de gegevens van sensoren via Wi-Fi naar uw oplossingenaccelerator. De telemetrie bekijken:
 
-1. Ga naar het dashboard van uw oplossing en klik **apparaten**.
+1. Ga naar het dashboard van uw oplossing en klik **Device Explorer**.
 
 1. Klik op de naam van het apparaat van uw apparaat DevKit. u kunt de telemetrie van de DevKit in realtime zien op het tabblad rechter:
 
@@ -87,7 +87,7 @@ Wanneer de voorbeeld-app wordt uitgevoerd, verzendt het apparaat DevKit telemetr
 
 ### <a name="control-the-devkit-device"></a>Het apparaat DevKit beheren
 
-De oplossingsverbetering voor externe controle kunt u uw apparaat op afstand beheren. De voorbeeldcode implementeert drie methoden die u kunt zien in de **methode** sectie wanneer u het apparaat selecteert op de **apparaten** pagina:
+De oplossingsverbetering voor externe controle kunt u uw apparaat op afstand beheren. De voorbeeldcode implementeert drie methoden die u kunt zien in de **methode** sectie wanneer u het apparaat selecteert op de **Device Explorer** pagina:
 
 ![IoT DevKit methoden](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-methods.png)
 
@@ -121,7 +121,7 @@ Als u de oplossingsversneller niet meer nodig hebt, verwijderen van de pagina va
 
 Als u problemen ondervindt, raadpleegt u [de veelgestelde vragen over de IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) of contact opnemen met ons opnemen met behulp van de volgende kanalen:
 
-* [Gitter.IM](https://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Volgende stappen

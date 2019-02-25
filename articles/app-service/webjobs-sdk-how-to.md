@@ -4,45 +4,51 @@ description: Meer informatie over het schrijven van code voor de WebJobs SDK. Ge
 services: app-service\web, storage
 documentationcenter: .net
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/19/2019
+ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: a2e07f9022d7404d037903fda627649918134cb7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: ba9dbeb01be5a9869b69836b118651cff7f0c92d
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732735"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750545"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Over het gebruik van de Azure WebJobs SDK voor verwerking op de achtergrond gebeurtenisgestuurde
 
-Dit artikel bevat richtlijnen over het schrijven van code voor [de Azure WebJobs SDK](webjobs-sdk-get-started.md). De documentatie van toepassing op zowel versie 3.x en 2.x van de WebJobs SDK. Wanneer API verschillen bestaan, vindt u voorbeelden van beide. De belangrijkste wijziging die is geïntroduceerd in versie 3.x is het gebruik van .NET Core in plaats van .NET Framework.
+Dit artikel bevat richtlijnen over het werken met de Azure WebJobs SDK. U meteen aan de slag met WebJobs, Zie [aan de slag met de Azure WebJobs-SDK voor verwerking op de achtergrond gebeurtenisgestuurde](webjobs-sdk-get-started.md). 
 
->[!NOTE]
-> [Azure Functions](../azure-functions/functions-overview.md) is gebouwd op de WebJobs SDK en in dit artikel bevat koppelingen naar documentatie voor Azure Functions voor bepaalde onderwerpen. Houd rekening met de volgende verschillen tussen Functions en de WebJobs SDK:
+## <a name="webjobs-sdk-versions"></a>WebJobs-SDK-versies
+
+Hieronder vindt u belangrijke verschillen in versie 3.x van de WebJobs SDK in vergelijking met versie 2.x:
+
+* Versie 3.x voegt ondersteuning toe voor .NET Core.
+* In versie 3.x, moet u expliciet de bindingsuitbreiding opslag is vereist door de WebJobs-SDK installeren. In versie 2.x, de opslag bindingen zijn opgenomen in de SDK.
+* Visual Studio-tooling voor projecten met een .NET Core (3.x) verschilt van .NET Framework (2.x)-projecten. Zie voor meer informatie, [ontwikkelen en implementeren met Visual Studio - Azure App Service WebJobs](webjobs-dotnet-deploy-vs.md).
+
+Wanneer mogelijk, voorbeelden die zijn biedt voor beide versie 3.x en versie 2.x.
+
+> [!NOTE]
+> [Azure Functions](../azure-functions/functions-overview.md) is gebouwd op de WebJobs SDK en in dit artikel bevat koppelingen naar documentatie voor Azure Functions voor bepaalde onderwerpen. De volgende zijn de verschillen tussen Functions en de WebJobs SDK:
 > * Azure Functions-versie 2.x komt overeen met de WebJobs SDK-versie 3.x en Azure Functions 1.x komt overeen met de WebJobs SDK 2.x. Broncodeopslagplaatsen volgt u de WebJobs SDK nummering.
 > * Voorbeeldcode voor Azure Functions C#-klassebibliotheken is, net als de WebJobs SDK-code, behalve hoeft u niet een `FunctionName` kenmerk in een WebJobs SDK-project.
 > * Sommige bindingstypen worden alleen ondersteund in de functies, zoals HTTP, webhook en Event Grid (die is gebaseerd op HTTP).
-> 
+>
 > Zie voor meer informatie, [Vergelijk de WebJobs SDK en Azure Functions](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs).
 
-## <a name="prerequisites"></a>Vereisten
-
-In dit artikel wordt ervan uitgegaan dat u hebt gelezen en de taken in voltooid [aan de slag met de WebJobs SDK](webjobs-sdk-get-started.md).
-
-## <a name="webjobs-host"></a>WebJobs-host
+## <a name="webhobs-host"></a>WebHobs host
 
 De host is een runtime-container voor functies.  Er wordt geluisterd naar triggers en aanroepen van functies. In versie 3.x, de host is een implementatie van `IHost`, en in versie 2.x die u gebruikt de `JobHost` object. U maakt een instantie van de host in uw code en Schrijf code voor het aanpassen van het gedrag.
 
 Dit is een belangrijk verschil tussen de WebJobs SDK rechtstreeks gebruiken en indirect met behulp van Azure Functions. De service controleert de host in Azure Functions, en u kunt deze niet aanpassen door code te schrijven. Azure Functions kunt u aanpassen van het gedrag van de host via instellingen in de *host.json* bestand. Deze instellingen zijn tekenreeksen, niet-code, die beperkt de soorten aanpassingen die u kunt doen.
 
-### <a name="host-connection-strings"></a>Host-verbindingsreeksen 
+### <a name="host-connection-strings"></a>Host-verbindingsreeksen
 
 De WebJobs SDK zoekt naar Azure Storage en Azure Service Bus-verbindingsreeksen in de *local.settings.json* wanneer u lokaal of in de omgeving van de webtaak uitvoeren wanneer u in Azure uitvoert. Standaard verbinding met een tekenreeks-instelling met de naam `AzureWebJobsStorage` is vereist.  
 
@@ -151,7 +157,20 @@ Functies moet openbare methoden zijn en moet één triggerkenmerk hebben of de [
 
 ### <a name="automatic-trigger"></a>Automatische trigger
 
-Automatische triggers wordt een functie aanroepen in reactie op een gebeurtenis. Zie voor een voorbeeld: de wachtrijtrigger in de [Get de slag-artikel](webjobs-sdk-get-started.md).
+Automatische triggers wordt een functie aanroepen in reactie op een gebeurtenis. Houd rekening met het volgende voorbeeld van een functie geactiveerd door een bericht toegevoegd aan Azure Queue storage die een blob uit Azure BLOB-opslag kan lezen:
+
+```cs
+public static void Run(
+    [QueueTrigger("myqueue-items")] string myQueueItem,
+    [Blob("samples-workitems/{myQueueItem}", FileAccess.Read)] Stream myBlob,
+    ILogger log)
+{
+    log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
+}
+```
+
+De `QueueTrigger` kenmerk geeft aan dat de runtime voor het aanroepen van de functie wanneer er een wachtrijbericht wordt weergegeven in de `myqueue-items` wachtrij. De `Blob` kenmerk geeft aan dat de runtime het wachtrijbericht gebruiken om te lezen van een blob in de *voorbeeld workitems* container. De inhoud van het wachtrijbericht doorgegeven aan de functie in de `myQueueItem` parameter, is de naam van de blob.
+
 
 ### <a name="manual-trigger"></a>Handmatige trigger
 
@@ -264,9 +283,9 @@ De Timer-trigger of de bestanden te gebruiken verbinding maakt, die deel uitmake
 
 De volgende typen van de trigger en binding zijn opgenomen in versie 2.x van de `Microsoft.Azure.WebJobs` pakket:
 
-* Blob Storage
+* Blobopslag
 * Queue Storage
-* Table Storage
+* Tabelopslag
 
 Voor het gebruik van andere trigger en bindingstypen, installeer het NuGet-pakket dat ze bevat en roept een `Use<binding>` methode voor het `JobHostConfiguration` object. Bijvoorbeeld, als u een timertrigger gebruikt wilt, installeert `Microsoft.Azure.WebJobs.Extensions` en roep `UseTimers` in de `Main` methode, zoals in dit voorbeeld:
 
@@ -345,9 +364,78 @@ Sommige trigger en bindingen kunnen u hun gedrag configureren. De manier waarop 
 * **Versie 3.x:** Configuratie wordt ingesteld wanneer de `Add<Binding>` methode wordt aangeroepen `ConfigureWebJobs`.
 * **Versie 2.x:** Door het instellen van eigenschappen in een configuratieobject dat u doorgeeft aan de `JobHost`.
 
+Deze binding-specifieke instellingen zijn gelijk aan de instellingen in de [host.json projectbestand](../azure-functions/functions-host-json.md) in Azure Functions.
+
+U kunt de volgende bindingen configureren:
+
+* [Azure cosmos DB-trigger](#azure-cosmosdb-trigger-configuration-version-3x)
+* [Event Hubs trigger](#event-hubs-trigger-configuration-version-3x)
+* [Trigger voor queue storage](#queue-trigger-configuration)
+* [SendGrid-binding](#sendgrid-binding-configuration-version-3x)
+* [Service Bus trigger](#service-bus-trigger-configuration-version-3x)
+
+### <a name="azure-cosmosdb-trigger-configuration-version-3x"></a>Configuratie van Azure cosmos DB-trigger (versie 3.x)
+
+Het volgende voorbeeld laat zien hoe het configureren van de Azure Cosmos DB-trigger:
+
+```cs
+static void Main()
+{
+    var builder = new HostBuilder();
+    builder.ConfigureWebJobs(b =>
+    {
+        b.AddAzureStorageCoreServices();
+        b.AddCosmosDB(a =>
+        {
+            a.ConnectionMode = ConnectionMode.Gateway;
+            a.Protocol = Protocol.Https;
+            a.LeaseOptions.LeasePrefix = "prefix1";
+
+        });
+    });
+    var host = builder.Build();
+    using (host)
+    {
+
+        host.Run();
+    }
+}
+```
+
+Zie voor meer informatie de [Azure cosmos DB-binding artikel](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings).
+
+### <a name="event-hubs-trigger-configuration-version-3x"></a>Eventhubs activeren configuratie (versie 3.x)
+
+Het volgende voorbeeld laat zien hoe het configureren van de trigger van Event Hubs:
+
+```cs
+static void Main()
+{
+    var builder = new HostBuilder();
+    builder.ConfigureWebJobs(b =>
+    {
+        b.AddAzureStorageCoreServices();
+        b.AddEventHubs(a =>
+        {
+            a.BatchCheckpointFrequency = 5;
+            a.EventProcessorOptions.MaxBatchSize = 256;
+            a.EventProcessorOptions.PrefetchCount = 512;
+        });
+    });
+    var host = builder.Build();
+    using (host)
+    {
+
+        host.Run();
+    }
+}
+```
+
+Zie voor meer informatie de [Event Hubs-binding artikel](../azure-functions/functions-bindings-event-hubs.md#hostjson-settings).
+
 ### <a name="queue-trigger-configuration"></a>Configuratie van de wachtrij-trigger
 
-De instellingen die u voor de trigger van de Storage-wachtrij configureren kunt worden beschreven in de Azure-Functions [naslaginformatie over host.json](../azure-functions/functions-host-json.md#queues). De volgende voorbeelden ziet hoe u deze in uw configuratie instelt:
+De volgende voorbeelden laten zien hoe het configureren van de trigger van de Storage-wachtrij:
 
 #### <a name="version-3x"></a>Versie 3.x
 
@@ -374,6 +462,8 @@ static void Main()
 }
 ```
 
+Zie voor meer informatie de [Queue storage binding artikel](../azure-functions/functions-bindings-storage-queue.md#hostjson-settings).
+
 #### <a name="version-2x"></a>Versie 2.x
 
 ```cs
@@ -388,6 +478,64 @@ static void Main(string[] args)
     host.RunAndBlock();
 }
 ```
+
+Zie voor meer informatie de [v1.x naslaginformatie over host.json](../azure-functions/functions-host-json-v1.md#queues).
+
+### <a name="sendgrid-binding-configuration-version-3x"></a>Configuratie van SendGrid binding (versie 3.x)
+
+Het volgende voorbeeld laat zien hoe het configureren van de SendGrid-Uitvoerbinding:
+
+```cs
+static void Main()
+{
+    var builder = new HostBuilder();
+    builder.ConfigureWebJobs(b =>
+    {
+        b.AddAzureStorageCoreServices();
+        b.AddSendGrid(a =>
+        {
+            a.FromAddress.Email = "samples@functions.com";
+            a.FromAddress.Name = "Azure Functions";
+        });
+    });
+    var host = builder.Build();
+    using (host)
+    {
+
+        host.Run();
+    }
+}
+```
+
+Zie voor meer informatie de [SendGrid binding artikel](../azure-functions/functions-bindings-sendgrid.md#hostjson-settings).
+
+### <a name="service-bus-trigger-configuration-version-3x"></a>Configuratie van Service Bus-trigger (versie 3.x)
+
+Het volgende voorbeeld laat zien hoe het configureren van de Service Bus-trigger:
+
+```cs
+static void Main()
+{
+    var builder = new HostBuilder();
+    builder.ConfigureWebJobs(b =>
+    {
+        b.AddAzureStorageCoreServices();
+        b.AddServiceBus(sbOptions =>
+        {
+            sbOptions.MessageHandlerOptions.AutoComplete = true;
+            sbOptions.MessageHandlerOptions.MaxConcurrentCalls = 16;
+        });
+    });
+    var host = builder.Build();
+    using (host)
+    {
+
+        host.Run();
+    }
+}
+```
+
+Zie voor meer informatie de [Service Bus-binding artikel](../azure-functions/functions-bindings-service-bus.md#hostjson-settings).
 
 ### <a name="configuration-for-other-bindings"></a>Configuratie voor andere bindingen
 
@@ -687,11 +835,11 @@ Elk logboek wordt gemaakt door een `ILogger` exemplaar heeft een bijbehorende `C
 
 |LogLevel    |Code|
 |------------|---|
-|Tracering       | 0 |
+|Trace       | 0 |
 |Fouten opsporen       | 1 |
 |Informatie | 2 |
 |Waarschuwing     | 3 |
-|Fout       | 4 |
+|fOUT       | 4 |
 |Kritiek    | 5 |
 |Geen        | 6 |
 

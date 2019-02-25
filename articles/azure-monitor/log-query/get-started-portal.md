@@ -1,5 +1,5 @@
 ---
-title: Aan de slag met Azure Monitor log analytics | Microsoft Docs
+title: Aan de slag met Azure Monitor Log Analytics | Microsoft Docs
 description: Dit artikel bevat een zelfstudie voor het gebruik van Log Analytics in Azure portal om query's schrijven.
 services: log-analytics
 author: bwren
@@ -8,18 +8,18 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: 2adb23b63c3a8be56dc55293c7bb06534d9305c4
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: ec6f3884504c94b7669df21882aeb2a1eb9d7220
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242104"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750579"
 ---
-# <a name="get-started-with-azure-monitor-log-analytics"></a>Aan de slag met Azure Monitor log analytics
+# <a name="get-started-with-azure-monitor-log-analytics"></a>Aan de slag met Azure Monitor Log Analytics
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-In deze zelfstudie leert u hoe u Azure Monitor log analytics in Azure portal gebruiken voor het schrijven van Azure Monitor logboeken-query's. Deze leert u hoe aan:
+In deze zelfstudie leert u hoe u Azure Monitor Log Analytics in Azure portal gebruiken voor het schrijven van Azure Monitor logboeken-query's. Deze leert u hoe aan:
 
 - Eenvoudige query's schrijven
 - Het schema van uw gegevens begrijpen
@@ -30,8 +30,8 @@ In deze zelfstudie leert u hoe u Azure Monitor log analytics in Azure portal geb
 - Exporteren en delen van query 's
 
 
-## <a name="meet-log-analytics"></a>Voldoen aan de log analytics
-Log analytics is een web-hulpprogramma gebruikt om te schrijven en uitvoeren van Azure Monitor logboeken-query's. Open het door het selecteren van **logboeken** in het menu van Azure Monitor. Het begint al met een nieuwe lege query.
+## <a name="meet-log-analytics"></a>Voldoen aan de Log Analytics
+Log Analytics is een web-hulpprogramma gebruikt om te schrijven en uitvoeren van Azure Monitor logboeken-query's. Open het door het selecteren van **logboeken** in het menu van Azure Monitor. Het begint al met een nieuwe lege query.
 
 ![Startpagina](media/get-started-portal/homepage.png)
 
@@ -78,7 +78,7 @@ Beginnen met het ophalen van alles wat de _gebeurtenis_ tabel.
 Event
 ```
 
-Meld u analytics automatisch resultaten op basis van het bereik:
+Log Analytics automatisch het bereik van resultaten op basis van:
 
 - Tijdsbereik:  Query's zijn standaard beperkt tot de laatste 24 uur.
 - Het aantal resultaten: Resultaten zijn beperkt tot maximaal 10.000 records.
@@ -116,7 +116,7 @@ De tabel met resultaten wordt vaak een groot aantal kolommen bevat. Mogelijk vin
 
 
 ## <a name="select-a-time-range"></a>Een tijdsbereik selecteren
-Standaard log analytics is van toepassing de _afgelopen 24 uur_ tijdsbereik. Voor het gebruik van een ander bereik, selecteert u een andere waarde via de tijdkiezer en klikt u op **uitvoeren**. Naast de vooraf gedefinieerde waarden, kunt u de _aangepast tijdsbereik_ optie om een absolute bereik voor uw query te selecteren.
+Standaard Log Analytics is van toepassing de _afgelopen 24 uur_ tijdsbereik. Voor het gebruik van een ander bereik, selecteert u een andere waarde via de tijdkiezer en klikt u op **uitvoeren**. Naast de vooraf gedefinieerde waarden, kunt u de _aangepast tijdsbereik_ optie om een absolute bereik voor uw query te selecteren.
 
 ![Tijdkiezer](media/get-started-portal/time-picker.png)
 
@@ -170,7 +170,7 @@ U kunt de querypagina van de volledige, of één query opslaan als een functie. 
 
 ![Functie opslaan](media/get-started-portal/save-function.png)
 
-Log analytics-query's worden altijd opgeslagen in een geselecteerde werkruimte en gedeeld met andere gebruikers van deze werkruimte.
+Log Analytics-query's worden altijd opgeslagen in een geselecteerde werkruimte en gedeeld met andere gebruikers van deze werkruimte.
 
 ## <a name="load-queries"></a>Laden van query 's
 Het pictogram van de Query is op het gebied rechtsboven. Dit geeft een lijst van alle opgeslagen query's per categorie. Ook kunt u specifieke query's markeren als favorieten in de toekomst snel vinden. Dubbelklik op een opgeslagen query toe te voegen aan het huidige venster.
@@ -178,7 +178,7 @@ Het pictogram van de Query is op het gebied rechtsboven. Dit geeft een lijst van
 ![Queryverkenner](media/get-started-portal/query-explorer.png)
 
 ## <a name="export-and-share-as-link"></a>Exporteren en delen als koppeling
-Log analytics biedt ondersteuning voor meerdere methoden voor exporteren:
+Log Analytics ondersteunt meerdere methoden voor exporteren:
 
 - Excel: De resultaten opslaan als een CSV-bestand.
 - Power BI: De resultaten exporteren naar power BI. Zie [importeren van Azure Monitor-logboekgegevens in Power BI](../../azure-monitor/platform/powerbi.md) voor meer informatie.

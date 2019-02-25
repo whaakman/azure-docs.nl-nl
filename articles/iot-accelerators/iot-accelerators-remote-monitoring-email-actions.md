@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 484cdccef3198f45c08210c9d8fd41f66e6c867d
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 3e9d7191af3a870f60b40311be03e0ef9d9bf7ad
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51828335"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750205"
 ---
 # <a name="add-an-email-action"></a>Een e-mailactie toevoegen
 
 E-mailbericht acties zorgen ervoor dat u nooit waarschuwingen mist. U kunt een e-mailactie toevoegen aan een bestaande regel, of wanneer u een nieuwe regel maken.
 
-[!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
+Als u wilt de stappen in deze handleiding hebt voltooid, moet u een geïmplementeerd exemplaar van de oplossingsverbetering voor externe controle in uw Azure-abonnement.
 
 Als u wilt maken of wijzigen van een regel, moet u een [ **beheerder**, of de juiste machtigingen hebt](iot-accelerators-remote-monitoring-rbac.md).
 
@@ -31,7 +31,7 @@ Volg deze stappen voor het toevoegen van een e-mailactie aan een bestaande regel
 
 1. Uit de **Dashboard**, gaat u naar de **regels** pagina:
 
-    ![Pagina regels](./media/iot-accelerators-remote-monitoring-email-actions/rules.png)
+    ![Pagina regels](./media/iot-accelerators-remote-monitoring-email-actions/rules-email.png)
 
 1. Klik op het selectievakje naast de bestaande regel wilt wijzigen en klik vervolgens op **bewerken** aan de bovenkant. Een bewerkbaar **regel** deelvenster wordt weergegeven.
 
@@ -41,7 +41,7 @@ Volg deze stappen voor het toevoegen van een e-mailactie aan een bestaande regel
 
 1. Een e-mailadres invoeren in het geadresseerden in en druk op de **Enter** sleutel voor elke e-mailadres toe te voegen:
 
-    ![Adres](./media/iot-accelerators-remote-monitoring-email-actions/address.png)
+    ![Adres](./media/iot-accelerators-remote-monitoring-email-actions/address-email.png)
 
 1. Voer een onderwerp in voor het e-mailbericht.
 
@@ -59,7 +59,7 @@ Volg deze stappen voor het toevoegen van een e-mailactie wanneer u een nieuwe re
 
 1. Uit de **Dashboard**, gaat u naar de **regels** pagina:
 
-    ![Pagina regels](./media/iot-accelerators-remote-monitoring-email-actions/rules.png)
+    ![Pagina regels](./media/iot-accelerators-remote-monitoring-email-actions/rules-email.png)
 
 1. Volg de stappen in de [maakt u een sectie regel](iot-accelerators-remote-monitoring-automate.md#create-a-rule). Het volgen de stappen in de [een geavanceerde regel maken](iot-accelerators-remote-monitoring-automate.md#create-an-advanced-rule) sectie tot het punt waar u instellen een **ernstniveau**. Klik niet op **toepassen** nog.
 
@@ -69,7 +69,7 @@ Volg deze stappen voor het toevoegen van een e-mailactie wanneer u een nieuwe re
 
 1. Een e-mailadres invoeren in het geadresseerden in en druk op de **Enter** sleutel voor elke e-mailadres toe te voegen:
 
-    ![Adres](./media/iot-accelerators-remote-monitoring-email-actions/address.png)
+    ![Adres](./media/iot-accelerators-remote-monitoring-email-actions/address-email.png)
 
 1. Voer een onderwerp in voor het e-mailbericht.
 
@@ -128,7 +128,7 @@ De volgende stappen helpen u om te melden en e-mailacties instellen:
 
 1. Klik om aan te melden bij Outlook. Er wordt naar de Azure-portal:
 
-  ![Aanmelden bij Outlook](./media/iot-accelerators-remote-monitoring-email-actions/owneroutlook.png)
+  ![Aanmelden bij Outlook](./media/iot-accelerators-remote-monitoring-email-actions/owneroutlook-email.png)
 
 1. Klik op **autoriseren**. U wordt gevraagd of u zich aanmeldt. Het account waarmee u zich aanmeldt moet de toepassing van het e-mailadres wordt gebruikt voor het verzenden van e-mailmeldingen:
 
@@ -136,7 +136,7 @@ De volgende stappen helpen u om te melden en e-mailacties instellen:
 
 1. Als u het e-mailbericht hebt geconfigureerd, kunt u dit bericht ziet:
 
-  ![Geslaagde Outlook aanmelden](./media/iot-accelerators-remote-monitoring-email-actions/success.png)
+  ![Geslaagde Outlook aanmelden](./media/iot-accelerators-remote-monitoring-email-actions/success-email.png)
 
 ## Stem de e-mail HTML <a name="htmledit"></a>
 
@@ -164,11 +164,11 @@ De volgende stappen laten zien hoe u de HTML-e-mailsjabloon te bewerken. U kunt 
 
 1. Installatiekopieën of aangepaste tekst wilt toevoegen, moet u het bestand EmailTemplate.HTML rechtstreeks bijwerken.
 
-## <a name="throttling"></a>Beperking
+## <a name="throttling"></a>Beperken
 
 De oplossingsverbetering voor externe controle wordt Outlook gebruikt voor het verzenden van e-mailmeldingen. Outlook beperkt het aantal e-mailberichten verzonden naar [30 e-mailberichten per één minuut](https://docs.microsoft.com/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits). E-mailclients die de e-mailberichten ontvangt mogelijk ook het aantal e-mailberichten ontvangen per minuut vertraging. Neem contact op met uw specifieke e-mailclient op beperkingen. Bij het instellen van e-mailmelding voor een regel, wordt de regel berekend gemiddelde waarden gedurende een periode van ten minste één minuut en niet direct waarden gebruiken:
 
-![Berekening van gemiddelde](./media/iot-accelerators-remote-monitoring-email-actions/calculation.png)
+![Berekening van gemiddelde](./media/iot-accelerators-remote-monitoring-email-actions/calculation-email.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

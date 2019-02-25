@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 64cbf8f8704dbb216a15247caf741ff43690496a
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: ca4bd3d3b40934323bab8036f3ce72e9281f1de4
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54457056"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56751425"
 ---
 > [!div class="op_single_selector"]
 > * [C op Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -58,9 +58,9 @@ Wanneer het implementatieproces voor de oplossing voor externe controle is volto
 
 Voor een apparaat verbinding maakt met de oplossingsversnellers, moet deze zelf identificeren bij IoT Hub met geldige referenties. U hebt de mogelijkheid om op te slaan van de verbindingsreeks met deze referenties wanneer u het apparaat aan de oplossing toevoegt. U kunt de apparaatverbindingsreeks opnemen in uw clienttoepassing verderop in deze zelfstudie.
 
-Als u wilt een apparaat toevoegt aan uw oplossing voor externe controle, voltooit u de volgende stappen uit op de **apparaten** pagina in de oplossing:
+Als u wilt een apparaat toevoegt aan uw oplossing voor externe controle, voltooit u de volgende stappen uit op de **Device Explorer** pagina in de oplossing:
 
-1. Kies **+ nieuwe apparaat**, en kies vervolgens **fysieke** als de **apparaattype**:
+1. Kies **+ nieuwe apparaat**, en kies vervolgens **echte** als de **apparaattype**:
 
     ![Echt apparaat toevoegen](media/iot-suite-selector-connecting/devicesprovision.png)
 

@@ -1,0 +1,1 @@
+Als u nodig hebt voor het uitvoeren van asynchroon werk in de handler, kunt u uitstellen voor het instellen van het token met aanvragen van een uitgestelde-object en vervolgens uitvoeren, zoals in het volgende voorbeeld.

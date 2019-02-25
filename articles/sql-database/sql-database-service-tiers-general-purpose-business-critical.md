@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 02/13/2019
-ms.openlocfilehash: 59eb0b842392faa2adfcd99b028f1e283a7e8db7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.date: 02/23/2019
+ms.openlocfilehash: db91e67254e9927caba68a84b38a1ee94da8d3ab
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243826"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750120"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Azure SQL Database-Servicelagen
 
@@ -42,7 +42,7 @@ Overweeg de volgende:
 - Maximale grootte in het beheerde exemplaar moet worden opgegeven in veelvouden van 32 GB.
 - U kunt de grootte van een individuele database tussen 10 GB en de maximale ondersteunde selecteren
   - Voor opslag in de standard-of algemene service-lagen, vergroten of verkleinen in stappen van 10 GB
-  - Voor opslag in de premium- of buxiness kritieke-lagen, vergroten of verkleinen in stappen van 250 GB
+  - Voor opslag in de premium- of bedrijfskritiek Servicelagen, vergroten of verkleinen in stappen van 250 GB
 - In de categorie Algemeen gebruik-service `tempdb` maakt gebruik van een gekoppelde SSD en deze kosten voor opslag is opgenomen in het vCore-prijs.
 - In de laag bedrijfskritiek service `tempdb` shares de gekoppelde SSD met de MDF en LDF-bestanden en opslagkosten van de tempDB is opgenomen in het vCore-prijs.
 

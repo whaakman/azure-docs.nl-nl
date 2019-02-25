@@ -5,21 +5,22 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 02/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8d5dca65734640dc9e756f9130e6b362178781f2
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: d4f75a7bc552a7764a46865bf300b8fc5ffb350e
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453509"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750783"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Overgaan naar een openbaar CA-gatewaycertificaat voor een punt-naar-site-verbinding
 
 Azure VPN-Gateway wordt niet meer op Azure-niveau zelfondertekende certificaten geeft aan de gateways voor P2S-verbindingen. Uitgegeven certificaten zijn nu ondertekend door een openbare certificeringsinstantie (CA). Echter enkele van de oude gateways mogelijk nog steeds gebruik van zelfondertekende certificaten. Deze zelfondertekende certificaten zijn in de buurt van de vervaldatum en moeten worden overgezet naar een openbare CA-certificaten.
 
 >[!NOTE]
-> Zelfondertekende certificaten gebruikt voor verificatie van P2S-client worden niet beïnvloed door deze wijziging van het certificaat op Azure-niveau. U kunt blijven uitgeven en zelfondertekende certificaten als normale gebruiken.
+> * Zelfondertekende certificaten gebruikt voor verificatie van P2S-client worden niet beïnvloed door deze wijziging van het certificaat op Azure-niveau. U kunt blijven uitgeven en zelfondertekende certificaten als normale gebruiken.
+> * Web-Apps worden niet beïnvloed door deze wijziging.
 >
 
 De certificaten in deze context zijn een certificaat met aanvullende Azure-niveau. Ze zijn niet de certificaatketens die u gebruikt bij het genereren van uw eigen zelfondertekende basiscertificaten en clientcertificaten voor verificatie. Deze certificaten blijven ongewijzigd en vervalt op de datums dat u zo gegenereerd.

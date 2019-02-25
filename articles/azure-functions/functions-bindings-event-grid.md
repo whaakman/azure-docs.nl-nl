@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: 3d0c72f0178cddd668c0ac029c803ff339a1f6f4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 12056ebec0f0a23ed255532a8ba27b130ecb81d1
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311610"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750443"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Trigger Gebeurtenisraster voor Azure Functions
 
@@ -30,17 +30,17 @@ Als u liever, kunt u een HTTP-trigger voor het afhandelen van Event Grid-gebeurt
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-1x"></a>Pakketten - functies 1.x
-
-De trigger van Event Grid is opgegeven in de [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet-pakket versie 1.x. Broncode voor het pakket is in de [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/master) GitHub-opslagplaats.
-
-[!INCLUDE [functions-package](../../includes/functions-package.md)]
-
 ## <a name="packages---functions-2x"></a>Pakketten - functies 2.x
 
 De trigger van Event Grid is opgegeven in de [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet-pakket versie 2.x. Broncode voor het pakket is in de [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/v2.x) GitHub-opslagplaats.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
+
+## <a name="packages---functions-1x"></a>Pakketten - functies 1.x
+
+De trigger van Event Grid is opgegeven in de [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet-pakket versie 1.x. Broncode voor het pakket is in de [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/master) GitHub-opslagplaats.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="example"></a>Voorbeeld
 
@@ -53,31 +53,6 @@ Zie het voorbeeld taalspecifieke voor een trigger van Event Grid:
 * [Python](#python-example)
 
 Zie voor een voorbeeld van de trigger HTTP [over het gebruik van HTTP-trigger](#use-an-http-trigger-as-an-event-grid-trigger) verderop in dit artikel.
-
-### <a name="c-version-1x"></a>C#(Versie 1.x)
-
-Het volgende voorbeeld ziet u een functies 1.x [C#-functie](functions-dotnet-class-library.md) die wordt gebonden aan `JObject`:
-
-```cs
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-using Microsoft.Azure.WebJobs.Host;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Microsoft.Extensions.Logging;
-
-namespace Company.Function
-{
-    public static class EventGridTriggerCSharp
-    {
-        [FunctionName("EventGridTriggerCSharp")]
-        public static void Run([EventGridTrigger]JObject eventGridEvent, ILogger log)
-        {
-            log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
-        }
-    }
-}
-```
 
 ### <a name="c-2x"></a>C# (2.x)
 
@@ -105,6 +80,31 @@ namespace Company.Function
 
 Zie voor meer informatie, pakketten, [kenmerken](#attributes), [configuratie](#configuration), en [gebruik](#usage).
 
+### <a name="c-version-1x"></a>C#(Versie 1.x)
+
+Het volgende voorbeeld ziet u een functies 1.x [C#-functie](functions-dotnet-class-library.md) die wordt gebonden aan `JObject`:
+
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Microsoft.Azure.WebJobs.Host;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Microsoft.Extensions.Logging;
+
+namespace Company.Function
+{
+    public static class EventGridTriggerCSharp
+    {
+        [FunctionName("EventGridTriggerCSharp")]
+        public static void Run([EventGridTrigger]JObject eventGridEvent, ILogger log)
+        {
+            log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
+        }
+    }
+}
+```
+
 ### <a name="c-script-example"></a>Voorbeeld van C#-script
 
 Het volgende voorbeeld ziet u de binding van een trigger in een *function.json* bestand en een [C#-scriptfunctie](functions-reference-csharp.md) die gebruikmaakt van de binding.
@@ -124,22 +124,6 @@ Hier volgt de binding-gegevens de *function.json* bestand:
 }
 ```
 
-#### <a name="c-script-version-1x"></a>C#script (versie 1.x)
-
-Hier volgt Functions 1.x C#-script-code die wordt gebonden aan `JObject`:
-
-```cs
-#r "Newtonsoft.Json"
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-
-public static void Run(JObject eventGridEvent, TraceWriter log)
-{
-    log.Info(eventGridEvent.ToString(Formatting.Indented));
-}
-```
-
 #### <a name="c-script-version-2x"></a>C#script (versie 2.x)
 
 Hier volgt Functions 2.x C#-script-code die wordt gebonden aan `EventGridEvent`:
@@ -156,6 +140,22 @@ public static void Run(EventGridEvent eventGridEvent, ILogger log)
 ```
 
 Zie voor meer informatie, pakketten, [kenmerken](#attributes), [configuratie](#configuration), en [gebruik](#usage).
+
+#### <a name="c-script-version-1x"></a>C#script (versie 1.x)
+
+Hier volgt Functions 1.x C#-script-code die wordt gebonden aan `JObject`:
+
+```cs
+#r "Newtonsoft.Json"
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+public static void Run(JObject eventGridEvent, TraceWriter log)
+{
+    log.Info(eventGridEvent.ToString(Formatting.Indented));
+}
+```
 
 ### <a name="javascript-example"></a>JavaScript-voorbeeld
 
@@ -396,7 +396,7 @@ Als u deze koppeling selecteren, de portal wordt geopend de **gebeurtenisabonnem
 
 Zie voor meer informatie over het maken van abonnementen met behulp van de Azure-portal [aangepaste gebeurtenis maken - Azure-portal](../event-grid/custom-event-quickstart-portal.md) in de documentatie voor Event Grid.
 
-### <a name="azure-cli"></a>Azure-CLI
+### <a name="azure-cli"></a>Azure CLI
 
 Een abonnement maken met behulp van [de Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), gebruikt u de [az eventgrid gebeurtenisabonnement maken](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create) opdracht.
 
@@ -528,11 +528,18 @@ Gebruik een hulpprogramma zoals [Postman](https://www.getpostman.com/) of [curl]
 * Stel een `Content-Type: application/json` header.
 * Stel een `aeg-event-type: Notification` header.
 * Plak de RequestBin-gegevens in de aanvraagtekst.
-* Posten naar de URL van uw functie van de trigger Gebeurtenisraster met behulp van het volgende patroon:
+* Een bericht in de URL van de trigger-functie van Event Grid.
+  * Gebruik het volgende patroon voor 2.x:
 
-```
-http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={functionname}
-```
+    ```
+    http://localhost:7071/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
+    ```
+
+  * Voor 1.x-gebruik:
+
+    ```
+    http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
+    ```
 
 De `functionName` parameter moet de naam die is opgegeven de `FunctionName` kenmerk.
 
@@ -591,19 +598,19 @@ De URL ngrok krijgt niet speciale handelingen door Event Grid, u, zodat uw funct
 
 Maken van een Event Grid-abonnement van het type dat u wilt testen en wijs hieraan uw ngrok-eindpunt.
 
-Gebruik dit patroon eindpunt voor functies 1.x:
-
-```
-https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
-```
-
 Gebruik dit patroon eindpunt voor functies 2.x:
 
 ```
-https://{subdomain}.ngrok.io/runtime/webhooks/eventgrid?functionName={functionName}
+https://{SUBDOMAIN}.ngrok.io/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
 ```
 
-De `functionName` parameter moet de naam die is opgegeven de `FunctionName` kenmerk.
+Gebruik dit patroon eindpunt voor functies 1.x:
+
+```
+https://{SUBDOMAIN}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
+```
+
+De `{FUNCTION_NAME}` parameter moet de naam die is opgegeven de `FunctionName` kenmerk.
 
 Hier volgt een voorbeeld met de Azure CLI:
 

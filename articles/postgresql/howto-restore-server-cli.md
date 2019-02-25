@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: 357b22e4d4a6bf42ba165e49fc3cc01762268297
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: fc874ad04e65a3a80a4ceb76434b997e80019609
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756509"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750290"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Het back-up en herstellen van een server in Azure Database for PostgreSQL via de Azure CLI
 
@@ -47,7 +47,7 @@ Zie voor meer informatie over het instellen van deze waarden tijdens het maken, 
 De bewaarperiode voor back-up van een server kan als volgt worden gewijzigd:
 
 ```azurecli-interactive
-az postgres server update --name mydemoserver --resource-group myresourcegroup --backup-retention-days 10
+az postgres server update --name mydemoserver --resource-group myresourcegroup --backup-retention 10
 ```
 
 Het vorige voorbeeld wijzigt de bewaarperiode voor back-up van mydemoserver en 10 dagen.

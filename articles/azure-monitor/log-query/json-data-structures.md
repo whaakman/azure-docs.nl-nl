@@ -1,6 +1,6 @@
 ---
 title: Werken met tekenreeksen in Logboeken-query's van Azure Monitor | Microsoft Docs
-description: Dit artikel bevat een zelfstudie voor het gebruik van Azure Monitor log analytics in Azure portal om te zoeken en analyseren van logboekgegevens in Azure Monitor.
+description: Dit artikel bevat een zelfstudie voor het gebruik van Azure Monitor Log Analytics in Azure portal om te zoeken en analyseren van logboekgegevens in Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: dda7ef2e4e974ea053f030a3ebe71a16872612b0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 718b12c8a66d66a75796f88ef31b5f0f62abbbc4
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993721"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750953"
 ---
 # <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Werken met JSON en gegevensstructuren in Azure Monitor logboeken-query 's
 
 > [!NOTE]
-> U moet voltooien [aan de slag met Azure Monitor log-analytics](get-started-portal.md) en [aan de slag met Azure Monitor logboeken-query's](get-started-queries.md) voordat het voltooien van deze les gaat uitvoeren.
+> U moet voltooien [aan de slag met Azure Monitor Log-Analytics](get-started-portal.md) en [aan de slag met Azure Monitor logboeken-query's](get-started-queries.md) voordat het voltooien van deze les gaat uitvoeren.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
 ms.custom: seodec18
-ms.openlocfilehash: 43ec22836cb32c21953b9eb6871b9efe300cbf9e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0f2053e978b7c890f4e175515ed54f69694950c6
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001167"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749916"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Achtergrondtaken uitvoeren met WebJobs in Azure App Service
 
@@ -41,14 +41,13 @@ Azure Functions biedt een andere manier om uit te voeren programma's en scripts.
 De volgende tabel beschrijft de verschillen tussen *continue* en *geactiveerd* WebJobs.
 
 
-|Continu  |Geactiveerd  |
+|Doorlopend  |Geactiveerd  |
 |---------|---------|
 | Begint onmiddellijk wanneer de webtaak wordt gemaakt. Het programma of script, doet om te voorkomen dat de taak beëindigen, gewoonlijk zijn werk binnen een oneindige lus. Als de taak eindigt, kunt u deze opnieuw starten. | Wordt alleen gestart als geactiveerd handmatig of volgens een schema. |
 | Wordt uitgevoerd op alle exemplaren die de web-app wordt uitgevoerd op. U kunt eventueel de webtaak beperken tot één exemplaar. |Wordt uitgevoerd op een enkele instantie die door Azure wordt geselecteerd voor de taakverdeling.|
 | Biedt ondersteuning voor foutopsporing op afstand. | Biedt geen ondersteuning voor foutopsporing op afstand.|
 
-> [!NOTE]
-> Een web-app kan een time-out na 20 minuten van inactiviteit. Alleen aanvragen naar de werkelijke web-app opnieuw instellen van de timer. Configuratie van de app bekijken in Azure portal of die aanvragen verzonden naar de site geavanceerde hulpmiddelen (https:// < app_name >. scm.azurewebsites.net) niet herstellen voor de timer. Als uw app wordt uitgevoerd op een continue of geplande webtaken inschakelen **Always On** om ervoor te zorgen dat de webtaken betrouwbaar uit te voeren. Deze functie is alleen beschikbaar in de Basic, Standard en Premium [Prijscategorieën](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+[!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
 ## <a name="acceptablefiles"></a>Ondersteunde bestandstypen voor scripts of programma 's
 
@@ -87,7 +86,7 @@ when making changes in one don't forget the other two.
    | ------------ | ----------------- | ------------ |
    | **Naam** | myContinuousWebJob | Een naam die uniek is binnen een App Service-app. Moet beginnen met een letter of cijfer en mag geen andere waarde dan speciale tekens bevatten '-' en '_'. |
    | **Bestand uploaden** | ConsoleApp.zip | Een *.zip* -bestand met het bestand uitvoerbaar bestand of script, evenals alle ondersteunende bestanden die nodig zijn voor het programma of script uitvoeren. De ondersteunde typen voor uitvoerbaar bestand of script bestand worden vermeld in de [ondersteunde bestandstypen](#acceptablefiles) sectie. |
-   | **Type** | Continu | De [webtaak typen](#webjob-types) eerder in dit artikel worden beschreven. |
+   | **Type** | Doorlopend | De [webtaak typen](#webjob-types) eerder in dit artikel worden beschreven. |
    | **Schalen** | Meerdere exemplaren | Alleen beschikbaar voor doorlopende webtaken. Bepaalt of het programma of script wordt uitgevoerd op alle exemplaren of slechts één exemplaar. De mogelijkheid om te worden uitgevoerd op meerdere exemplaren niet van toepassing op gratis of gedeeld [Prijscategorieën](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). | 
 
 4. Klik op **OK**.
@@ -181,10 +180,9 @@ Kunt u een [CRON-expressie](../azure-functions/functions-bindings-timer.md#cron-
 {
     "schedule": "0 */15 * * * *"
 }
-``` 
+```
 
-> [!NOTE]
-> Wanneer u een WebJob vanuit Visual Studio implementeert, Markeer uw `settings.job` eigenschappen als het bestand **kopiëren indien nieuwer**.
+Zie voor meer informatie, [plannen van een geactiveerde WebJob](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob).
 
 ## <a name="ViewJobHistory"></a> De geschiedenis van de taak weergeven
 

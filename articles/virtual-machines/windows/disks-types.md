@@ -1,6 +1,6 @@
 ---
-title: Selecteer een schijftype voor Azure IaaS VM's - beheerde schijven
-description: Meer informatie over de typen beschikbare Azure-schijf voor virtuele machines, inclusief ultra SSD's, premium SSD's, standard-SSD's en HDD's van Standard.
+title: Selecteer een schijftype voor virtuele Azure IaaS Windows-machines - beheerde schijven
+description: Meer informatie over de beschikbare Azure-schijftypes voor Windows virtuele machines, inclusief ultra SSD's, premium SSD's, standard-SSD's en HDD's van Standard.
 services: virtual-machines-windows,storage
 author: roygara
 ms.author: rogarana
@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: windows
 ms.subservice: disks
-ms.openlocfilehash: f6fefcc0af3c901124e60591488c10a648a9478c
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 56e262a90f8ef5cda2fa076eab6c030a9cb4af1a
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56427650"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749355"
 ---
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-overview.md)]
 

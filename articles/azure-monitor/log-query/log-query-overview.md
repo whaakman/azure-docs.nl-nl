@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: bwren
-ms.openlocfilehash: 4c428372868e3d3fac58bc851de8c59ad01d1d8f
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 259a792acb4d2fb8f9695f0f5a856bdf5069f2cd
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269957"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749746"
 ---
 # <a name="analyze-log-data-in-azure-monitor"></a>Analyseren van logboekgegevens in Azure Monitor
 
@@ -102,5 +102,5 @@ Terwijl [Application Insights](../app/app-insights-overview.md) winkels toepassi
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over het gebruik van [melden analytics maken en bewerken van zoekopdrachten in logboeken](../log-query/portals.md).
+- Meer informatie over het gebruik van [Log Analytics maken en bewerken van zoekopdrachten](../log-query/portals.md).
 - Bekijk een [zelfstudie over het schrijven van query's](../log-query/get-started-queries.md) met behulp van de nieuwe querytaal.

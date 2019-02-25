@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: nitinme
-ms.openlocfilehash: b1cf3dc24482da70372f775d0ba63a203df1b285
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: f96c3a693ce8fc099374c998b35ce2fa90f4bb3f
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572058"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56753688"
 ---
 Sommige antwoorden Bing toevoegen URL's voor miniatuurafbeeldingen bediend door Bing. U kunt vergroten of verkleinen en de miniatuurafbeeldingen bijsnijden. 
 
@@ -17,11 +17,11 @@ Sommige antwoorden Bing toevoegen URL's voor miniatuurafbeeldingen bediend door 
 > Zorg ervoor dat de grootte en bijsnijden van de miniatuur van het bieden van een scenario voor het zoeken en aansluiten bij de rechten van derden, zoals vereist door de Bing zoeken-API en weergavevereisten.
 
 
-Als u wilt het formaat van een afbeelding, zijn onder andere de w (breedte) en h (hoogte) queryparameters in van de miniatuur-URL. Geef de breedte en hoogte in pixels. Bijvoorbeeld:  
+Als u wilt het formaat van een afbeelding, zijn de query w (breedte) parameter, h (hoogte) query, of beide van de miniatuur-URL. Geef de breedte en hoogte in pixels. Bijvoorbeeld:  
   
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=200&h=200`  
   
-Als u het formaat van de installatiekopie, wordt de hoogte-breedteverhouding behouden. Als u wilt de hoogte-breedteverhouding behouden, kan witte opvulling worden toegevoegd aan de rand van de installatiekopie. Bijvoorbeeld, als u het formaat van een afbeelding met een 480 x 359 200 x 200 zonder bijsnijden, de volledige breedte van de afbeelding bevat, maar de hoogte bevat 25 pixels wit opvulling van de boven- en onderkant van de afbeelding. Hetzelfde zijn ' True ' als de afbeelding 359 x 480, behalve de links is en rechts randen wit opvulling zou bevatten. Als u de afbeelding bijsnijden, wit opvulling niet toegevoegd.  
+Als u alleen de breedte of alleen de queryparameter hoogte opgeeft, onderhoudt Bing hoogte-breedteverhouding van de installatiekopie. Als u zowel breedte en hoogte opgeven en u de oorspronkelijke hoogte-breedteverhouding van de afbeelding niet behouden, voegt Bing wit opvulling toe aan de rand van de installatiekopie. Bijvoorbeeld, als u het formaat van een afbeelding met een 480 x 359 200 x 200 zonder bijsnijden, de volledige breedte van de afbeelding bevat, maar de hoogte bevat 25 pixels wit opvulling van de boven- en onderkant van de afbeelding. Hetzelfde zijn ' True ' als de afbeelding 359 x 480, behalve de links is en rechts randen wit opvulling zou bevatten. Als u de afbeelding bijsnijden, wit opvulling niet toegevoegd.  
 
  
 De volgende afbeelding ziet u de oorspronkelijke grootte van een miniatuurafbeelding (480 x 300).  

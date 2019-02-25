@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 73d4bfc3aaeb86568e3f7a3555a664a8815e3280
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: b903d20136beb306d3f38fbebdb70562b3634d31
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586168"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749780"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Gegevens weergeven vanuit Azure Monitor
 In dit artikel bevat een samenvatting van de beschikbare methoden voor het visualiseren van logboek- en metrische gegevens die zijn opgeslagen in Azure Monitor.
@@ -32,7 +32,7 @@ Visualisaties, zoals diagrammen en grafieken kunt u bij het analyseren van uw ge
 ![Dashboard](media/visualizations/dashboard.png)
 
 ### <a name="advantages"></a>Voordelen
-- Diepe integratie in Azure. Visualisaties kunnen worden vastgemaakt aan dashboards vanuit meerdere Azure pagina's, met inbegrip van metrics explorer, log analytics en Application Insights.
+- Diepe integratie in Azure. Visualisaties kunnen worden vastgemaakt aan dashboards vanuit meerdere Azure pagina's, met inbegrip van Metrics Explorer, Log Analytics en Application Insights.
 - Biedt ondersteuning voor metrische gegevens en Logboeken.
 - Combineer gegevens uit meerdere bronnen, met inbegrip van de uitvoer van [metrics explorer](platform/metrics-charts.md), [query's bijgehouden](log-query/log-query-overview.md), en [toegewezen](app/app-map.md) en beschikbaarheid in Application Insights.
 - De optie voor persoonlijke of gedeelde dashboards. Geïntegreerd met Azure [verificatie op basis van rollen (RBAC)](../role-based-access-control/overview.md).
@@ -53,7 +53,7 @@ Visualisaties, zoals diagrammen en grafieken kunt u bij het analyseren van uw ge
 ## <a name="azure-monitor-views"></a>Azure Monitor-weergaven
 [Weergaven in Azure Monitor](platform/view-designer.md) kunt u aangepaste visualisaties maken met logboekgegevens. Ze worden gebruikt door [bewakingsoplossingen](insights/solutions.md) om de gegevens die zij verzamelen te presenteren.
 
-![Weergave](media/visualizations/view.png)
+![Weergeven](media/visualizations/view.png)
 
 ### <a name="advantages"></a>Voordelen
 - Uitgebreide visualisaties voor logboekgegevens.

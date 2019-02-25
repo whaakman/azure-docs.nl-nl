@@ -1,19 +1,19 @@
 ---
 title: De Azure-activiteitenlogboek archiveren
 description: Archiveer uw activiteitenlogboek van Azure voor langdurige bewaarperioden in een storage-account.
-author: johnkemnetz
+author: nkiest
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/07/2018
-ms.author: johnkem
+ms.date: 02/22/2019
+ms.author: nikiest
 ms.subservice: logs
-ms.openlocfilehash: d9abfe90296b27918594c41a207befe2b59027b9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: f02b17ff4e83c3300973c86f26db76ebff5a8d0a
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461593"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750885"
 ---
 # <a name="archive-the-azure-activity-log"></a>De Azure-activiteitenlogboek archiveren
 In dit artikel laten we zien hoe u de Azure portal, PowerShell-Cmdlets of platformoverschrijdende CLI gebruiken kunt om te archiveren uw [ **Azure Activity Log** ](../../azure-monitor/platform/activity-logs-overview.md) in een storage-account. Deze optie is handig als u wilt behouden het activiteitenlogboek is langer dan 90 dagen (met volledige controle over het bewaarbeleid) voor de controle-, statische analysis- of back-up opgenomen. Als u hoeft alleen de gebeurtenissen worden bewaard gedurende 90 dagen of minder u niet hoeft om in te stellen archiveren naar een opslagaccount, omdat gebeurtenissen in activiteitenlogboeken worden bewaard in de Azure-platform voor 90 dagen zonder in te schakelen archivering.
@@ -26,11 +26,8 @@ In dit artikel laten we zien hoe u de Azure portal, PowerShell-Cmdlets of platfo
 ## <a name="prerequisites"></a>Vereisten
 Voordat u begint, moet u [een opslagaccount maken](../../storage/common/storage-quickstart-create-account.md) waarop kunt u uw activiteitenlogboek archiveren. Het is raadzaam dat u gebruik niet een bestaand opslagaccount met andere, niet-bewaking gegevens opgeslagen in het zodat u toegang tot bewakingsgegevens beter kunt beheren. Echter, als u ook diagnostische logboeken en metrische gegevens naar een opslagaccount archiveren weet, het wellicht verstandig dat opslagaccount voor uw activiteitenlogboek ook gebruiken om te houden van alle gegevens op een centrale locatie. Het storage-account heeft geen zich in hetzelfde abonnement bevinden als het abonnement dat Logboeken verzendt, zolang de gebruiker die de instelling configureert de juiste RBAC-toegang voor beide abonnementen heeft.
 
-> [!NOTE]
->  U gegevens naar een opslagaccount gemaakt achter een beveiligd virtueel netwerk kan momenteel niet archiveren.
-
 ## <a name="log-profile"></a>Logboekprofiel
-Als u wilt archiveren het activiteitenlogboek via een van de onderstaande methoden, stelt u de **Logboekprofiel** voor een abonnement. Het Logboekprofiel bepaalt het type gebeurtenissen die zijn opgeslagen of gestreamd en de uitvoer-storage-account en/of event hub. Het definieert ook de (aantal dagen wilt behouden) van het bewaarbeleid voor gebeurtenissen die zijn opgeslagen in een storage-account. Als het bewaarbeleid is ingesteld op nul, worden gebeurtenissen voor onbepaalde tijd opgeslagen. Dit kan anders worden ingesteld op een waarde tussen 1 en 2147483647. Bewaarbeleid zijn toegewezen per dag, dus aan het einde van een dag (UTC), logboeken van de dag dat nu is buiten de bewaarperiode van beleid wordt verwijderd. Bijvoorbeeld, als u een beleid voor het bewaren van één dag had, worden aan het begin van de dag vandaag nog de logboeken van de dag voor gisteren vernietigd. De verwijderbewerking begint bij middernacht UTC, maar houd er rekening mee dat het kan tot 24 uur duren voor de logboeken worden verwijderd uit uw storage-account. [U kunt meer lezen over log profielen hier](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). 
+Als u wilt archiveren het activiteitenlogboek via een van de onderstaande methoden, stelt u de **Logboekprofiel** voor een abonnement. Het Logboekprofiel bepaalt het type gebeurtenissen die zijn opgeslagen of gestreamd en de uitvoer-storage-account en/of event hub. Het definieert ook de (aantal dagen wilt behouden) van het bewaarbeleid voor gebeurtenissen die zijn opgeslagen in een storage-account. Als het bewaarbeleid is ingesteld op nul, worden gebeurtenissen voor onbepaalde tijd opgeslagen. Dit kan anders worden ingesteld op een waarde tussen 1 en 365. Bewaarbeleid zijn toegewezen per dag, dus aan het einde van een dag (UTC), logboeken van de dag dat nu is buiten de bewaarperiode van beleid wordt verwijderd. Bijvoorbeeld, als u een beleid voor het bewaren van één dag had, worden aan het begin van de dag vandaag nog de logboeken van de dag voor gisteren vernietigd. De verwijderbewerking begint bij middernacht UTC, maar houd er rekening mee dat het kan tot 24 uur duren voor de logboeken worden verwijderd uit uw storage-account. [U kunt meer lezen over log profielen hier](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). 
 
 ## <a name="archive-the-activity-log-using-the-portal"></a>Met behulp van de portal activiteitenlogboek archiveren
 1. Klik in de portal op de **activiteitenlogboek** koppeling op de navigatiebalk aan de linkerkant. Als u een koppeling voor het activiteitenlogboek niet ziet, klikt u op de **alle Services** eerst koppelen.
@@ -172,8 +169,8 @@ Elke gebeurtenis wordt in het bestand PT1H.json opgeslagen in de matrix "records
 | identity |JSON-blob met een beschrijving van de autorisatie en claims. |
 | Autorisatie |De BLOB van RBAC-eigenschappen van de gebeurtenis. Omvat gewoonlijk de "action", 'rol' en 'bereik'-Eigenschappen. |
 | niveau |Niveau van de gebeurtenis. Een van de volgende waarden: 'Kritiek', "Error", 'Waarschuwing', "Informatief" en "Uitgebreide" |
-| location |De regio in de locatie is opgetreden (of globale). |
-| properties |Instellen van `<Key, Value>` paren (dat wil zeggen woordenboek) met een beschrijving van de details van de gebeurtenis. |
+| locatie |De regio in de locatie is opgetreden (of globale). |
+| eigenschappen |Instellen van `<Key, Value>` paren (dat wil zeggen woordenboek) met een beschrijving van de details van de gebeurtenis. |
 
 > [!NOTE]
 > De eigenschappen en het gebruik van deze eigenschappen kunnen variëren afhankelijk van de resource.

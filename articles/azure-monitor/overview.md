@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: f18a1c90d3378831824542fabb884d36d12bddd4
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 56542ef116656bff979e27dfc2ddd5e82056c452
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652107"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750137"
 ---
 # <a name="azure-monitor-overview"></a>Overzicht van Azure Monitor
 
@@ -40,7 +40,7 @@ Voor veel Azure-resources ziet u de gegevens die zijn verzameld door met de rech
 
 ![Metrische gegevens](media/overview/metrics.png)
 
-Logboekgegevens die zijn verzameld door Azure Monitor kunnen worden geanalyseerd met [query's](log-query/log-query-overview.md) snel ophalen, samenvoegen en analyseren van verzamelde gegevens.  U kunt maken en query's testen met [melden analytics](log-query/portals.md) in Azure portal en rechtstreeks analyseren met behulp van deze hulpprogramma's of query's opslaan voor gebruik met [visualisaties](visualizations.md) of [waarschuwing regels](platform/alerts-overview.md).
+Logboekgegevens die zijn verzameld door Azure Monitor kunnen worden geanalyseerd met [query's](log-query/log-query-overview.md) snel ophalen, samenvoegen en analyseren van verzamelde gegevens.  U kunt maken en query's testen met [Log Analytics](log-query/portals.md) in Azure portal en rechtstreeks analyseren met behulp van deze hulpprogramma's of query's opslaan voor gebruik met [visualisaties](visualizations.md) of [waarschuwing regels](platform/alerts-overview.md).
 
 Azure Monitor maakt gebruik van een versie van de [Kusto-querytaal](/azure/kusto/query/) die worden gebruikt door Azure Data Explorer die geschikt is voor eenvoudige log query's, maar bevat ook geavanceerde functies, zoals aggregaties, joins en slimme analyse. U kunt snel leren over de query-taal met [meerdere lessen](log-query/get-started-queries.md).  Er worden specifieke richtlijnen gegeven voor gebruikers die al bekend zijn met [SQL](log-query/sql-cheatsheet.md) en [Splunk](log-query/splunk-cheatsheet.md).
 
@@ -117,7 +117,7 @@ Automatisch schalen kunt u de juiste hoeveelheid resources die worden uitgevoerd
 ### <a name="views"></a>Weergaven
 [Weergaven](../log-analytics/log-analytics-view-designer.md) visueel weergegeven logboekgegevens in Azure Monitor.  Elke weergave bevat één tegel die ingezoomd op een combinatie van visualisaties, zoals staaf- en lijndiagrammen naast een lijst met essentiële gegevens samenvatten.  Bewakingsoplossingen bevatten weergaven waarin gegevens voor een bepaalde toepassing worden samengevat en kunt u uw eigen weergaven openen om te presenteren van gegevens uit elke logboekquery. Net als andere elementen in Azure Monitor kunnen weergaven worden toegevoegd aan Azure-dashboards.
 
-![Weergave](media/overview/view.png)
+![Weergeven](media/overview/view.png)
 
 ### <a name="power-bi"></a>Power BI
 [Power BI](https://powerbi.microsoft.com) is een business analytics-service waarmee u interactieve visualisaties in een groot aantal gegevensbronnen en is een efficiënte manier om gegevens beschikbaar voor anderen binnen en buiten uw organisatie. U kunt Power BI om te configureren [importeren automatisch logboekgegevens van Azure Monitor](../log-analytics/log-analytics-powerbi.md) om te profiteren van deze extra visualisaties.
@@ -137,7 +137,7 @@ Vaak hebt u de vereiste Azure Monitor worden geïntegreerd met andere systemen e
 ### <a name="logic-apps"></a>Logic Apps
 [Logic Apps](https://azure.microsoft.com/services/logic-apps) is een service waarmee u kunt het automatiseren van taken en bedrijfsprocessen met behulp van werkstromen die kunnen worden geïntegreerd met andere systemen en services. Activiteiten zijn beschikbaar die lezen en schrijven van metrische gegevens en Logboeken in Azure Monitor, zodat u kunt het bouwen van werkstromen met tal van andere systemen integreren.
 
-![Logische apps](platform/media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
+![Logische app](platform/media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
 
 ### <a name="api"></a>API
 Meerdere API's zijn beschikbaar voor lezen en schrijven logboeken en metrische gegevens naar en van Azure Monitor naast de toegang tot gegenereerde waarschuwingen. U kunt ook configureren en waarschuwingen worden opgehaald. Dit biedt u in feite onbeperkte mogelijkheden om aangepaste oplossingen die kunnen worden geïntegreerd met Azure Monitor te maken.
