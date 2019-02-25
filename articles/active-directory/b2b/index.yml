@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 5ec95e9f1f91c31620644d3bd66118ed89337228
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 15c1e8af5e6df658ea24ce357aeeee711eaf9279
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078557"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673484"
 documentType: LandingData
 title: Documentatie voor Azure Active Directory B2B
 metadata:
   document_id: 
-  title: 'Documentatie voor Azure Active Directory B2B: zelfstudies, snelstarts, concepten, naslaginformatie | Microsoft Docs'
-  description: Ontdek hoe u B2B-toegang voor gastgebruikers kunt gebruiken om veilig resources te delen en samen te werken met externe partners.
+  title: Documentatie voor Azure Active Directory B2B | Microsoft Docs
+  description: Raadpleeg onze zelfstudies, quickstarts en instructies voor meer informatie over het gebruik van toegang tot B2B als gastgebruiker om delen en samenwerken met externe partners mogelijk te maken.
   services: active-directory
   ms.subservice: authentication
   author: msmimart
@@ -41,10 +41,12 @@ sections:
     style: icon48
     items:
     - image:
+        alt: 
         src: ./media/index/i_security-management.png
       text: Gastgebruikers toevoegen in de Azure-portal
       href: b2b-quickstart-add-guest-users-portal.md
     - image:
+        alt: 
         src: ./media/index/i_security-management.png
       text: Een gastgebruiker toevoegen met PowerShell
       href: b2b-quickstart-invite-powershell.md

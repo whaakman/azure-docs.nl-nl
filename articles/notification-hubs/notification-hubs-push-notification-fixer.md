@@ -1,5 +1,5 @@
 ---
-title: Azure Notification Hubs verbroken melding diagnose
+title: Azure Notification Hubs - Diagnose meldingen over verloren
 description: Leer hoe u veelvoorkomende problemen met verloren meldingen in Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: Mobile
@@ -14,14 +14,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 9dd6a66ea416ad61682b8e33c6163db3ac345d92
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 4419b68a0005ff6e0b5e46f22fba918699f3ba4f
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447714"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672199"
 ---
-# <a name="diagnose-dropped-notifications-in-notification-hubs"></a>Diagnose verloren meldingen in Notification Hubs
+# <a name="azure-notification-hubs---diagnose-dropped-notifications"></a>Azure Notification Hubs - Diagnose meldingen over verloren
 
 Een van de meest voorkomende vragen van klanten met Azure Notification Hubs wordt beschreven hoe u problemen kunt oplossen wanneer meldingen die worden verzonden vanuit een toepassing worden niet op clientapparaten weergegeven. Ze willen weten waar en waarom meldingen zijn verwijderd, en hoe het probleem op te lossen. In dit artikel geeft aan waarom meldingen is mogelijk verwijderd of niet door apparaten worden ontvangen. Informatie over het analyseren en te bepalen van de hoofdoorzaak te achterhalen.
 
@@ -246,10 +246,7 @@ In de portal krijgt u een kort overzicht van alle activiteiten in uw notificatio
 
 * **Toegang op programmeerniveau**
 
-Zie voor meer informatie over programmatische toegang tot de volgende artikelen:
-
-* [Programmatische telemetrie-toegang]  
-* [Telemetrie-toegang via API's-voorbeeld]
+Zie voor meer informatie over toegang op programmeerniveau [programmatische telemetrie-toegang]
 
 > [!NOTE]
 > Meerdere telemetrie-gerelateerde functies, zoals exporteren en importeren van registraties en telemetrie toegang via API's, zijn alleen beschikbaar op de servicelaag Standard. Als u probeert te gebruiken deze functies van de gratis of Basic-servicelaag, ontvangt u een bericht van uitzondering als u de SDK en een HTTP 403 (verboden)-fout als u de functies rechtstreeks vanuit de REST API's gebruiken.
@@ -282,4 +279,3 @@ Zie voor meer informatie over programmatische toegang tot de volgende artikelen:
 [Aankondiging van de release van Visual Studio 2013 Update 3 en Azure SDK 2.4]: http://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
 [EnableTestSend]: https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
 [Programmatische telemetrie-toegang]: http://msdn.microsoft.com/library/azure/dn458823.aspx
-[Telemetrie-toegang via API's-voorbeeld]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel

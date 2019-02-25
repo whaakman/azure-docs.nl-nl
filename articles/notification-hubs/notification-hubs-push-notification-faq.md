@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: jowargo
-ms.openlocfilehash: 7f1a1bd22ecd0b0a7ab64e639683ae316742c5f0
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: f2f11abcb3290e1d9459c26167706abc79c1b7fa
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563980"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670329"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Pushmeldingen verzenden met Azure Notification Hubs: Veelgestelde vragen
 
@@ -209,8 +209,6 @@ Met Azure Notification Hubs kunnen weergeven van telemetriegegevens in de [Azure
 > [!NOTE]
 > Meldingen over voltooide betekent alleen dat pushmeldingen te verzenden naar de externe PNS (bijvoorbeeld, APNS van Apple) of FCM voor Google zijn geleverd. Het is de verantwoordelijkheid van de PNS om te leveren van de meldingen aan doelapparaten. De PNS maakt normaal gesproken niet beschikbaar voor levering van metrische gegevens aan derden.  
 
-We bieden ook de mogelijkheid voor het exporteren van de telemetrische gegevens via een programma (in de Standard-laag). Zie voor meer informatie, de [Voorbeeld van Notification Hubs metrische gegevens].
-
 [Azure Portal]: https://portal.azure.com
 [Prijzen van Notification Hubs]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
@@ -229,7 +227,6 @@ We bieden ook de mogelijkheid voor het exporteren van de telemetrische gegevens 
 [Notification Hubs beveiligde Push-zelfstudie]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
 [Notification Hubs oplossen van problemen]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [Notification Hubs metrische gegevens]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
-[Voorbeeld van Notification Hubs metrische gegevens]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [Registraties exporteren/importeren]: https://msdn.microsoft.com/library/dn790624.aspx
 [Azure Portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples

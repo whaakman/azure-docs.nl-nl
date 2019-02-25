@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 09/18/2018
 ms.author: dacoulte
 ms.custom: include file
-ms.openlocfilehash: b797502343d1cc3af0eb5db0732da3815986c676
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c50ea038220e1c8eafbdfe077fddaf2466fd11bd
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318194"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56741328"
 ---
-### <a name="express-route"></a>ExpressRoute
+### <a name="expressroute"></a>ExpressRoute
 
 |  |  |
 |---------|---------|
-| [Toegestane Express Route-bandbreedten](../articles/governance/policy/samples/allowed-express-route-bandwidth.md) | Zorgt ervoor dat Express Routes een goedgekeurde set bandbreedten gebruikt. U geeft een matrix op van bandbreedten die kunnen worden opgegeven voor Express Route. |
-| [Toegestane Express Route-SKU's](../articles/governance/policy/samples/allowed-express-route-skus.md) | Zorgt ervoor dat Express Routes een goedgekeurde SKU gebruikt. U geeft een matrix op van toegestane SKU's. |
-| [Toegestane locaties voor Express Route-peering](../articles/governance/policy/samples/allowed-express-route-peering.md) | Zorgt ervoor dat Express Routes opgegeven peeringlocaties gebruikt. U geeft een matrix op van toegestane peeringlocaties. |
+| [Toegestane ExpressRoute-bandbreedte](../articles/governance/policy/samples/allowed-express-route-bandwidth.md) | Hiermee wordt vereist dat ExpressRoute gebruikmaakt van een specifieke set bandbreedten. U geeft een matrix met SKU's op die kunnen worden opgegeven voor ExpressRoute. |
+| [Toegestane ExpressRoute SKU's](../articles/governance/policy/samples/allowed-express-route-skus.md) | Hiermee wordt vereist dat ExpressRoute gebruikmaakt van een goedgekeurde SKU. U geeft een matrix op van toegestane SKU's. |
+| [Toegestane ExpressRoute-peeringlocaties](../articles/governance/policy/samples/allowed-express-route-peering.md) | Hiermee wordt vereist dat ExpressRoute gebruikmaakt van de opgegeven peeringlocaties. U geeft een matrix op van toegestane peeringlocaties. |
