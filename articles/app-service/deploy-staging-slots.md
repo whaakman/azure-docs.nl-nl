@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 7c12b34f6d735579326d4ccdd95e7831fbb777d6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 17b1adae9b369df53d69949e8183cf31daf7e35f
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181419"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674681"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Faseringsomgevingen in Azure App Service instellen
 <a name="Overview"></a>
@@ -205,7 +205,9 @@ Bij het gebruik van [automatisch wisselen](#Auto-Swap), sommige apps kunnen aang
         </applicationInitialization>
     </system.webServer>
 
-U kunt ook het gedrag warmen met een of meer van de volgende [app-instellingen](https://github.com/MicrosoftDocs/azure-docs-pr/pull/web-sites-configure.md):
+Voor meer informatie over het aanpassen van de `applicationInitialization` -element, Zie [meest voorkomende sleuf wisselen fouten bij de implementatie en het oplossen van deze](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
+
+U kunt ook het gedrag warmen met een of meer van de volgende [app-instellingen](web-sites-configure.md):
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: Het pad naar het pingen voor opwarming uw site. Deze app-instelling toevoegen door een aangepast pad dat begint met een slash als de waarde op te geven. Bijvoorbeeld `/statuscheck`. De standaardwaarde is `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Geldige HTTP-responscodes voor de bewerking warmen. Deze app-instelling met een door komma's gescheiden lijst met HTTP-codes toevoegen. Bijvoorbeeld: `200,202` . Als de geretourneerde statuscode zich niet in de lijst, worden de bewerkingen opwarmtijd en wisselen gestopt. Standaard zijn alle responscodes geldig.
