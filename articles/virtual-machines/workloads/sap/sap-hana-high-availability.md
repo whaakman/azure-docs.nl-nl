@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: aca5b1613a6500b3aeca1a7074cabdce50023510
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 0f5de24d42ccc930a4746251b9f466f241c3508e
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789497"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806705"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Hoge beschikbaarheid van SAP HANA op Azure VM's in SUSE Linux Enterprise Server
 
@@ -45,7 +45,7 @@ ms.locfileid: "53789497"
 [suse-hana-ha-guide]:https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
 [template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
-[template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged%2Fazuredeploy.json
+[template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
 
 U kunt voor de ontwikkeling van on-premises, hetzij HANA System Replication gebruiken of gedeelde opslag gebruiken om hoge beschikbaarheid voor SAP HANA stand te brengen.
 Op Azure virtual machines (VM's) is HANA System Replication in Azure momenteel dat de enige ondersteunde functie voor hoge beschikbaarheid. SAP HANA replicatie bestaat uit één primair knooppunt en ten minste één secundaire knooppunt. Wijzigingen in de gegevens op het primaire knooppunt worden gerepliceerd naar het secundaire knooppunt synchroon of asynchroon.
@@ -70,7 +70,7 @@ Lees eerst de volgende SAP-opmerkingen en documenten:
 * SAP-notitie [1999351] bevat aanvullende informatie over probleemoplossing voor de Azure uitgebreide controle-extensie voor SAP.
 * SAP-notitie [401162] bevat informatie over hoe u om te voorkomen dat 'het adres is al in gebruik' bij het instellen van HANA System Replication.
 * [SAP-Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) heeft alle van de vereiste SAP-opmerkingen voor Linux.
-* [SAP HANA-gecertificeerde IaaS-platformen](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
+* [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
 * [Azure virtuele Machines, planning en implementatie van SAP op Linux] [ planning-guide] handleiding.
 * [Azure Virtual Machines-implementatie voor SAP op Linux] [ deployment-guide] (in dit artikel).
 * [Azure virtuele Machines DBMS-implementatie voor SAP op Linux] [ dbms-guide] handleiding.
@@ -201,9 +201,9 @@ Volg de stappen in [Pacemaker op SUSE Linux Enterprise Server in Azure instellen
 ## <a name="install-sap-hana"></a>SAP HANA installeren
 
 De stappen in deze sectie gebruikt u de volgende voorvoegsels:
-- **[A]** : De stap is van toepassing op alle knooppunten.
-- **[1]** : De stap is van toepassing op knooppunt 1 alleen.
-- **[2]** : De stap is van toepassing op knooppunt 2 van het cluster Pacemaker alleen.
+- **[A]**: De stap is van toepassing op alle knooppunten.
+- **[1]**: De stap is van toepassing op knooppunt 1 alleen.
+- **[2]**: De stap is van toepassing op knooppunt 2 van het cluster Pacemaker alleen.
 
 1. **[A]**  Instellen van de schijfindeling: **Logical Volume Manager (LVM)**.
 
@@ -353,9 +353,9 @@ Volg voor het installeren van SAP HANA-Systeemreplicatie hoofdstuk 4 van de [SAP
 
 De stappen in deze sectie gebruikt u de volgende voorvoegsels:
 
-* **[A]** : De stap is van toepassing op alle knooppunten.
-* **[1]** : De stap is van toepassing op knooppunt 1 alleen.
-* **[2]** : De stap is van toepassing op knooppunt 2 van het cluster Pacemaker alleen.
+* **[A]**: De stap is van toepassing op alle knooppunten.
+* **[1]**: De stap is van toepassing op knooppunt 1 alleen.
+* **[2]**: De stap is van toepassing op knooppunt 2 van het cluster Pacemaker alleen.
 
 1. **[1]**  Maken van de tenant-database.
 
@@ -398,9 +398,9 @@ De stappen in deze sectie gebruikt u de volgende voorvoegsels:
 
 De stappen in deze sectie gebruikt u de volgende voorvoegsels:
 
-* **[A]** : De stap is van toepassing op alle knooppunten.
-* **[1]** : De stap is van toepassing op knooppunt 1 alleen.
-* **[2]** : De stap is van toepassing op knooppunt 2 van het cluster Pacemaker alleen.
+* **[A]**: De stap is van toepassing op alle knooppunten.
+* **[1]**: De stap is van toepassing op knooppunt 1 alleen.
+* **[2]**: De stap is van toepassing op knooppunt 2 van het cluster Pacemaker alleen.
 
 1. **[1]**  Maken van de juiste gebruikers.
 
