@@ -35,13 +35,16 @@
 ## Hoge beschikbaarheid configureren
 ### [Azure Storage gebruiken voor back-up en herstel](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
 ### AlwaysOn-beschikbaarheidsgroep
-#### [Azure-portalsjabloon gebruiken](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-#### [Snelstartsjablonen gebruiken](virtual-machines-windows-sql-availability-group-quickstart-template.md)
-#### [Handmatig - vereisten](virtual-machines-windows-portal-sql-availability-group-prereq.md)
-#### [Handmatig - zelfstudie](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
-#### [Load balancer - Azure Portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
-#### [Load balancer - Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+#### [CLI voor Azure SQL-VM](virtual-machines-windows-sql-availability-group-cli.md)
+#### [Azure-portalsjabloon](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+#### [Azure-snelstartsjablonen](virtual-machines-windows-sql-availability-group-quickstart-template.md)
 #### [Meerdere regio's](virtual-machines-windows-portal-sql-availability-group-dr.md)
+#### Handmatig configureren    
+##### [Vereisten](virtual-machines-windows-portal-sql-availability-group-prereq.md)
+##### [Zelfstudie](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
+##### [Load balancer - Azure Portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
+##### [Load balancer - Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+
 ### Failover-clusterexemplaar
 #### [Configureren](virtual-machines-windows-portal-sql-create-failover-cluster.md)
 

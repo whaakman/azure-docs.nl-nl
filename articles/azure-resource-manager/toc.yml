@@ -105,22 +105,14 @@ items:
       href: /azure/architecture/building-blocks/extending-templates/update-resource
   - name: Sjablonen implementeren
     items:
-    - name: Implementeren met behulp van de Azure-portal
+    - name: Implementeren - portal
       href: resource-group-template-deploy-portal.md
-    - name: Implementeren met behulp van Azure CLI
+    - name: Implementeren - CLI
       href: resource-group-template-deploy-cli.md
-    - name: Implementeren met behulp van Azure PowerShell
+    - name: Implementeren - PowerShell
       href: resource-group-template-deploy.md
     - name: Implementeren met behulp van REST API
       href: resource-group-template-deploy-rest.md
-    - name: Sjablonen exporteren
-      items:
-      - name: De portal gebruiken
-        href: resource-manager-export-template.md
-      - name: Azure CLI gebruiken
-        href: resource-manager-export-template-cli.md
-      - name: Azure PowerShell gebruiken
-        href: resource-manager-export-template-powershell.md
     - name: Sjablonen beveiligen met een SAS-token
       items:
       - name: Azure CLI gebruiken
@@ -134,12 +126,28 @@ items:
       maintainContext: true
   - name: Resources beheren
     items:
-    - name: Beheren met behulp van de Azure-portal
-      href: resource-group-portal.md
-    - name: Beheren met behulp van Azure PowerShell
-      href: powershell-azure-resource-manager.md
-    - name: Beheren met behulp van Azure CLI
-      href: cli-azure-resource-manager.md
+    - name: Resourcegroepen beheren
+      items:
+      - name: Resourcegroepen beheren - portal
+        displayName: create,list,open,delete,deploy,move,lock,tag,export
+        href: manage-resource-groups-portal.md
+      - name: Resourcegroepen beheren - CLI
+        displayName: create,list,open,delete,deploy,move,lock,tag,export
+        href: manage-resource-groups-cli.md
+      - name: Resourcegroepen beheren - PowerShell
+        displayName: create,list,open,delete,deploy,move,lock,tag,export
+        href: manage-resource-groups-powershell.md
+    - name: Resources beheren
+      items:
+      - name: Resources beheren - portal
+        displayName: open,delete,deploy,move,lock,tag,monitor
+        href: manage-resources-portal.md
+      - name: Resources beheren - CLI
+        displayName: open,delete,deploy,move,lock,tag
+        href: manage-resources-cli.md
+      - name: Resources beheren - PowerShell
+        displayName: open,delete,deploy,move,lock,tag
+        href: manage-resources-powershell.md
     - name: Resources verplaatsen
       href: resource-group-move-resources.md
     - name: Resources organiseren met behulp van tags
@@ -251,9 +259,9 @@ items:
     href: resource-manager-personal-data.md
   - name: Video's
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: 44ba1f922400b9e61d9c40f849b8cb923ef75ddf
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 1483d34859135d7b50bada6c74c90d09abc2df23
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301941"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820532"
