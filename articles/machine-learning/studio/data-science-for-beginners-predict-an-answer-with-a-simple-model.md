@@ -5,17 +5,17 @@ description: Het maken van een eenvoudige regressiemodel om te voorspellen van e
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 01/03/2018
-ms.openlocfilehash: 6adcf59053186c961a115164baac1f0af631ff4a
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: dfac085727ee86be018cfee1e15c3ee51b221763
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456840"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819868"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Met een eenvoudig model een antwoord voorspellen
 ## <a name="video-4-data-science-for-beginners-series"></a>Video 4: Gegevenswetenschap voor Beginners-serie
@@ -128,4 +128,4 @@ Zorg ervoor dat de andere video's in 'Data Science voor Beginners"van Microsoft 
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Probeer een eerste gegevenswetenschapexperiment met Machine Learning Studio](create-experiment.md)
-* [Maak kennis met Machine Learning op Microsoft Azure](what-is-machine-learning.md)
+* [Maak kennis met Machine Learning op Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

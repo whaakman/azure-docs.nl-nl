@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: 6645463f2172a6f201f4d2f840e03d1797367752
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: a4eea340fe57ab3c05e527a476d9153113eedba5
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512347"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819391"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Waarschuwen en bewaken van data factory's met behulp van Azure Monitor
 Cloud-Apps zijn complexe met veel bewegende onderdelen bevatten. Monitoring biedt gegevens om ervoor te zorgen dat uw toepassing actief en wordt uitgevoerd in een foutloze toestand bevindt. Ook kunt u potentiële problemen voorkomen of oplossen van het verleden zijn. Bovendien kunt u bewakingsgegevens diep om inzicht te krijgen over uw toepassing. Deze kennis kan u helpen te verbeteren van de prestaties van de toepassing of onderhoud, of Automatiseer acties die anders handmatig worden opgelost moeten zouden.
@@ -59,7 +59,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 **Headers**
 * Vervang `{api-version}` door `2016-09-01`.
-* Vervang `{resource-id}` met de resource-ID van de resource waarvoor u wilt bewerken diagnostische instellingen. Voor meer informatie [resourcegroepen voor het beheren van uw Azure-resources met behulp van](../azure-resource-manager/resource-group-portal.md).
+* Vervang `{resource-id}` met de resource-ID van de resource waarvoor u wilt bewerken diagnostische instellingen. Voor meer informatie [resourcegroepen voor het beheren van uw Azure-resources met behulp van](../azure-resource-manager/manage-resource-groups-portal.md).
 * Stel de `Content-Type` koptekst `application/json`.
 * De autorisatie-header ingesteld op een JSON webtoken die u uit Azure Active Directory verkrijgt. Zie voor meer informatie, [verifiëren van aanvragen](../active-directory/develop/authentication-scenarios.md).
 

@@ -4,7 +4,7 @@ description: Aanbevolen procedures voor het beheren van Service Fabric als infra
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
-manager: jeanpaul.connock
+manager: chackdan
 editor: ''
 ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
 ms.service: service-fabric
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 23c851008988af06927d387daaa5a6df980dab96
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 2a4c3adb39ebf6e58770348eccc8c78e8ff92167
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913821"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804464"
 ---
-# <a name="infrastructure-as-code"></a>Infrastructuur als code
+# <a name="infrastructure-as-code"></a>Infrastructure als code
 
 Maak in een productiescenario voor, Azure Service Fabric-clusters met behulp van Resource Manager-sjablonen. Resource Manager-sjablonen bieden meer controle over de resource-eigenschappen en zorg ervoor dat u een consistent model hebt.
 

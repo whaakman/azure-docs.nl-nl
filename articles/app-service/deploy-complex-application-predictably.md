@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 657211378d7b38b88ccd40aa31a175058e1ad67c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: e6d18222e15f62f12592362827b6dbc4a3d7dfbc
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015553"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820311"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Inrichten en implementeren van microservices zoals verwacht in Azure
 Deze zelfstudie laat zien hoe u kunt inrichten en implementeren van een toepassing die bestaat uit [microservices](https://en.wikipedia.org/wiki/Microservices) in [Azure App Service](https://azure.microsoft.com/services/app-service/) als één eenheid en op een voorspelbare wijze met behulp van JSON-resourcegroepsjablonen en PowerShell-scripts. 
@@ -39,9 +39,7 @@ In de zelfstudie implementeert u een toepassing die gebruikmaakt van:
 In deze zelfstudie gebruikt u de volgende hulpprogramma's. Omdat het geen uitgebreide discussie over de hulpprogramma's, ga ik Houd u aan de end-to-end-scenario alleen te geven en u een korte inleiding voor elke en waar u meer informatie over deze kan vinden. 
 
 ### <a name="azure-resource-manager-templates-json"></a>Azure Resource Manager-sjablonen (JSON)
-Telkens wanneer u een app in Azure App Service maken, bijvoorbeeld een JSON-sjabloon door Azure Resource Manager gebruikt om de hele resourcegroep met de component-resources maken. Een complexe sjabloon van de [Azure Marketplace](/azure/marketplace) kunt opnemen de database, storage-accounts, het App Service-plan, de app zelf, regels voor waarschuwingen, app-instellingen, instellingen voor automatisch schalen en meer en alle deze sjablonen zijn beschikbaar voor u via PowerShell. Zie voor meer informatie over het downloaden en gebruiken van deze sjablonen [met behulp van Azure PowerShell met Azure Resource Manager](../powershell-azure-resource-manager.md).
-
-Zie voor meer informatie over de Azure Resource Manager-sjablonen [Azure Resource Manager-sjablonen ontwerpen](../azure-resource-manager/resource-group-authoring-templates.md)
+Telkens wanneer u een app in Azure App Service maken, bijvoorbeeld een JSON-sjabloon door Azure Resource Manager gebruikt om de hele resourcegroep met de component-resources maken. Een complexe sjabloon van de [Azure Marketplace](/azure/marketplace) kunt opnemen de database, storage-accounts, het App Service-plan, de app zelf, regels voor waarschuwingen, app-instellingen, instellingen voor automatisch schalen en meer en alle deze sjablonen zijn beschikbaar voor u via PowerShell. Zie voor meer informatie over de Azure Resource Manager-sjablonen [Azure Resource Manager-sjablonen ontwerpen](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ### <a name="azure-sdk-26-for-visual-studio"></a>Azure SDK 2.6 voor Visual Studio
 De nieuwste SDK bevat verbeteringen voor de sjabloonondersteuning van de Resource Manager-in de JSON-editor. U kunt dit gebruiken om snel een resourcegroepsjabloon helemaal zelf maken of openen van een bestaande JSON-sjabloon (zoals een met gedownloade galeriesjabloon) voor de wijziging, vul in het parameterbestand en zelfs implementeren de resourcegroep die u rechtstreeks vanuit een Azure-Resource Groep-oplossing.
@@ -160,7 +158,7 @@ De verbindingsreeksen zijn ook gedefinieerd als een geneste resource.
 In de `properties` -element voor `config/connectionstrings`, elke verbindingsreeks ook is gedefinieerd als een combinatie van naam: waarde, met de specifieke indeling van `"<name>" : {"value": "…", "type": "…"}`. Voor de `type` -element, mogelijke waarden zijn `MySql`, `SQLServer`, `SQLAzure`, en `Custom`.
 
 > [!TIP]
-> Voer de volgende opdracht in Azure PowerShell voor een definitieve lijst van de tekenreeks verbindingstypen: \[Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.websites.Services.WebEntities.DatabaseType")
+> Voer de volgende opdracht in Azure PowerShell voor een definitieve lijst van de tekenreeks verbindingstypen: \[Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")
 > 
 > 
 
@@ -240,7 +238,7 @@ De **implementeren in Azure** knop is erg handig, maar kunt u de resource-groep 
     > Automatisch schalen is een functie die wordt aangeboden in **Standard** laag of hoger, plan op het niveau en waarschuwingen zijn functies die worden aangeboden **Basic** laag of hoger gebruikt, moet u om in te stellen de **sku** parameter naar **Standard** of **Premium** als u wilt bekijken van al uw nieuwe App Insights-resources belicht.
     > 
     > 
-16. Klik op **implementeren**. Als u hebt geselecteerd **wachtwoorden opslaan**, het wachtwoord wordt opgeslagen in het parameterbestand **in tekst zonder opmaak**. Anders wordt u gevraagd voor het invoeren van het wachtwoord voor de database tijdens het implementatieproces.
+16. Klik op **Implementeren**. Als u hebt geselecteerd **wachtwoorden opslaan**, het wachtwoord wordt opgeslagen in het parameterbestand **in tekst zonder opmaak**. Anders wordt u gevraagd voor het invoeren van het wachtwoord voor de database tijdens het implementatieproces.
 
 Dat is alles. Nu u alleen hoeft te gaat u naar de [Azure Portal](https://portal.azure.com/) en de [Azure Resource Explorer](https://resources.azure.com) hulpprogramma om te zien van de nieuwe waarschuwingen en de instellingen voor automatisch schalen is toegevoegd aan uw JSON-toepassing geïmplementeerd.
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2d9f1b99407f5c94581a3108c785292e9928cbb4
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 500d22993830534027c7ba9b372b6880cb608510
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432317"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822732"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Een Windows Hybrid Runbook Worker implementeren
 
@@ -61,7 +61,7 @@ Voer de volgende stappen uit voor het automatiseren van de installatie en config
    * *WorkspaceName* (optioneel): De naam van de Log Analytics-werkruimte. Als u een Log Analytics-werkruimte hebt, wordt het script maakt en configureert een.
 
      > [!NOTE]
-     > Op dit moment de enige Automation-regio's ondersteund voor integratie met Log Analytics zijn **Australië-Zuidoost**, **VS-Oost 2**, **Zuidoost-Azië**, en  **West-Europa**. Als uw Automation-account zich niet in een van deze regio's, wordt het script maakt u een Log Analytics-werkruimte maar waarschuwt u dat deze niet kan ze aan elkaar koppelen.
+     > Op dit moment de enige Automation-regio's ondersteund voor integratie met Azure Monitor-logboeken zijn **Australië-Zuidoost**, **VS-Oost 2**, **Zuidoost-Azië**, en **West-Europa**. Als uw Automation-account zich niet in een van deze regio's, wordt het script maakt u een Log Analytics-werkruimte maar waarschuwt u dat deze niet kan ze aan elkaar koppelen.
 
 2. Open op uw computer **Windows PowerShell** uit de **Start** scherm in de beheerdersmodus.
 3. Blader naar de map waarin het script dat u hebt gedownload vanaf de opdrachtregel-shell PowerShell. Wijzig de waarden voor de parameters *- AutomationAccountName*, *- AAResourceGroupName*, *- OMSResourceGroupName*, *- HybridGroupName*, *- SubscriptionId*, en *- WorkspaceName*. Voer het script.
@@ -83,27 +83,29 @@ Voer de volgende stappen uit voor het automatiseren van de installatie en config
 
 De eerste twee stappen eenmaal uitvoeren voor uw Automation-omgeving en herhaal vervolgens de resterende stappen voor elke worker-computer.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 #### <a name="1-create-a-log-analytics-workspace"></a>1. Een Log Analytics-werkruimte maken
 
 Als u nog een Log Analytics-werkruimte hebt, maakt u een met behulp van de instructies op de [beheren van uw werkruimte](../azure-monitor/platform/manage-access.md). Als u nog niet hebt, kunt u een bestaande werkruimte gebruiken.
 
 #### <a name="2-add-the-automation-solution-to-the-log-analytics-workspace"></a>2. De oplossing Automation toevoegen aan de Log Analytics-werkruimte
 
-Oplossingen voegen functionaliteit toe aan Log Analytics. De Automation-oplossing voegt u functionaliteit voor Azure Automation, inclusief ondersteuning voor Hybrid Runbook Worker. Wanneer u de oplossing aan uw werkruimte toevoegt, worden automatisch worker-onderdelen op de agentcomputer die u in de volgende stap installeren wilt pushes.
+Oplossingen voegen functionaliteit toe aan Azure Monitor-Logboeken. De Automation-oplossing voegt u functionaliteit voor Azure Automation, inclusief ondersteuning voor Hybrid Runbook Worker. Wanneer u de oplossing aan uw werkruimte toevoegt, worden automatisch worker-onderdelen op de agentcomputer die u in de volgende stap installeren wilt pushes.
 
 Om toe te voegen de **Automation** oplossing aan uw Log Analytics-werkruimte, volg de instructies op [om toe te voegen, een oplossing met behulp van de galerie van oplossingen](../log-analytics/log-analytics-add-solutions.md).
 
 #### <a name="3-install-the-microsoft-monitoring-agent"></a>3. De Microsoft Monitoring Agent installeren
 
-De Microsoft Monitoring Agent verbonden computers met Log Analytics. Wanneer u de agent op uw on-premises computer installeren en deze verbinden met uw werkruimte, wordt automatisch de onderdelen die vereist voor Hybrid Runbook Worker zijn gedownload.
+De Microsoft Monitoring Agent verbonden computers met Azure Monitor-Logboeken. Wanneer u de agent op uw on-premises computer installeren en deze verbinden met uw werkruimte, wordt automatisch de onderdelen die vereist voor Hybrid Runbook Worker zijn gedownload.
 
-Volg de instructies op voor het installeren van de agent op de lokale computer, [verbinding maken met Windows-computers naar Log Analytics](../log-analytics/log-analytics-windows-agent.md). U kunt dit proces voor meerdere computers meerdere werknemers toevoegen aan uw omgeving herhalen.
+Volg de instructies op voor het installeren van de agent op de lokale computer, [verbinding maken met Windows-computers naar Logboeken van Azure Monitor](../log-analytics/log-analytics-windows-agent.md). U kunt dit proces voor meerdere computers meerdere werknemers toevoegen aan uw omgeving herhalen.
 
-Wanneer de agent is verbonden met Log Analytics, wordt deze weergegeven op de **verbonden bronnen** tabblad van de met Log Analytics **instellingen** pagina. U kunt controleren of de agent correct de Automation-oplossing heeft gedownload wanneer er een map met de naam **AzureAutomationFiles** in C:\Program Files\Microsoft Monitoring Agent\Agent. Als u wilt controleren welke versie van de Hybrid Runbook Worker, kunt u bladeren naar C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ en noteer de \\ *versie* submap.
+Wanneer de agent is met Azure Monitor-logboeken verbonden, wordt deze weergegeven op de **verbonden bronnen** tabblad van de met log analytics **instellingen** pagina. U kunt controleren of de agent correct de Automation-oplossing heeft gedownload wanneer er een map met de naam **AzureAutomationFiles** in C:\Program Files\Microsoft Monitoring Agent\Agent. Als u wilt controleren welke versie van de Hybrid Runbook Worker, kunt u bladeren naar C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ en noteer de \\ *versie* submap.
 
 #### <a name="4-install-the-runbook-environment-and-connect-to-azure-automation"></a>4. De runbookomgeving installeren en verbinding maken met Azure Automation
 
-Wanneer u een agent naar Log Analytics toevoegt, wordt de oplossing voor automatisering pushes omlaag het **HybridRegistration** PowerShell-module bevat de **Add-HybridRunbookWorker** cmdlet. Met deze cmdlet kunt u de runbookomgeving op de computer installeren en registreren met Azure Automation.
+Wanneer u een agent naar Logboeken van Azure Monitor toevoegt, wordt de oplossing voor automatisering pushes omlaag het **HybridRegistration** PowerShell-module bevat de **Add-HybridRunbookWorker** cmdlet. Met deze cmdlet kunt u de runbookomgeving op de computer installeren en registreren met Azure Automation.
 
 Open een PowerShell-sessie in de beheerdersmodus en voer de volgende opdrachten om de module te importeren:
 

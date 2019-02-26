@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: ddbd77cbc199e78e74324c87d49155f27d6edeea
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 5a9ea460684383bd09e5a679f3140d3b8f083d4d
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417088"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823617"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
@@ -89,13 +89,13 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die kunnen wor
 * IoT Hubs
 * Key Vault - Sleutelkluizen gebruikt voor versleuteling van schijf kan niet worden verplaatst naar de resourcegroepen in hetzelfde abonnement of tussen abonnementen.
 * Load Balancers - basis SKU Load Balancer kunnen worden verplaatst. Standaard SKU Load Balancer kan niet worden verplaatst.
-* Log Analytics
 * Logic Apps
 * Machine Learning - Machine Learning Studio-webservices kunnen worden verplaatst naar een resourcegroep in hetzelfde abonnement, maar niet een ander abonnement. Andere Machine Learning-resources kunnen worden uitgewisseld tussen abonnementen.
 * Beheerde schijven - Zie [beperkingen van de virtuele Machines voor beperkingen](#virtual-machines-limitations)
 * Beheerde identiteit - gebruiker toegewezen
 * Media Services
 * Monitor - Zorg ervoor dat verplaatsen naar nieuwe abonnement niet groter is dan [abonnementquota](../azure-subscription-service-limits.md#monitor-limits)
+* Logboeken in Azure Monitor
 * Notification Hubs
 * Operational Insights
 * Operations Management
@@ -145,7 +145,7 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die niet worde
 * Lab-Services - verplaatsen naar de nieuwe resourcegroep in hetzelfde abonnement is ingeschakeld, maar de verplaatsing van kruislings abonnement is niet ingeschakeld.
 * Managed Applications
 * Microsoft Genomics
-* NetApp
+* Azure NetApp Files
 * SAP HANA op Azure
 * Beveiliging
 * Site Recovery
@@ -513,7 +513,7 @@ In de hoofdtekst van de aanvraag geeft u de doelresourcegroep die is en de resou
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor meer informatie over PowerShell-cmdlets voor het beheer van uw abonnement, [met behulp van Azure PowerShell met Resource Manager](powershell-azure-resource-manager.md).
-* Zie voor meer informatie over Azure CLI-opdrachten voor het beheren van uw abonnement, [met de Azure CLI met Resource Manager](xplat-cli-azure-resource-manager.md).
+* Zie voor meer informatie over de PowerShell-cmdlets voor het beheren van uw resources, [met behulp van Azure PowerShell met Resource Manager](manage-resources-powershell.md).
+* Zie voor meer informatie over de Azure CLI-opdrachten voor het beheren van uw resources, [met de Azure CLI met Resource Manager](manage-resources-cli.md).
 * Zie voor meer informatie over portal functies voor het beheren van uw abonnement, [om resources te beheren met behulp van de Azure-portal](resource-group-portal.md).
 * Zie voor meer informatie over het toepassen van een logische organisatie aan uw resources, [tags gebruiken om uw resources te organiseren](resource-group-using-tags.md).

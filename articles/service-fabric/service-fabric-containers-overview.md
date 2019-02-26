@@ -3,7 +3,7 @@ title: Overzicht van Service Fabric en containers | Microsoft Docs
 description: Een overzicht van Service Fabric en het gebruik van containers microservicetoepassingen te implementeren. Dit artikel bevat een overzicht van hoe containers kunnen worden gebruikt en de beschikbare mogelijkheden in Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: c98b3fcb-c992-4dd9-b67d-2598a9bf8aab
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/8/2018
-ms.author: twhitney, msfussell
-ms.openlocfilehash: 0acbd2d4ccf35c9490a06228eeb1bb465a8ca732
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.author: aljo, msfussell
+ms.openlocfilehash: 5344f34e0e35d4d47b032b660726a4d70a4f1987
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299971"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807011"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric en containers
 
@@ -35,8 +35,8 @@ Standaard wordt Service Fabric implementeert en Hiermee activeert u deze service
 
 Als u wilt meedoen en uitproberen van containers in Service Fabric, kunt u proberen een snelstart, zelfstudie of voorbeeld:  
 
-[Snelstartgids: Een Linux-containertoepassing in Service Fabric implementeren](service-fabric-quickstart-containers-linux.md)  
-[Snelstartgids: Een Windows-containertoepassing in Service Fabric implementeren](service-fabric-quickstart-containers.md)  
+[Snelstart: Een Linux-containertoepassing in Service Fabric implementeren](service-fabric-quickstart-containers-linux.md)  
+[Snelstart: Een Windows-containertoepassing in Service Fabric implementeren](service-fabric-quickstart-containers.md)  
 [Een bestaande .NET-app in een container plaatsen](service-fabric-host-app-in-a-container.md)  
 [Voorbeelden van Service Fabric-containers](https://azure.microsoft.com/resources/samples/service-fabric-containers/)  
 
@@ -49,9 +49,9 @@ Containers uitvoeren rechtstreeks boven op de kernel en beschikt over een geïso
 Vergeleken met de virtuele machines, hebben containers de volgende voordelen:
 
 * **Kleine**: Containers gebruiken een één opslagruimte en layer-versies en updates op de efficiëntie wordt verhoogd.
-* **Snel**: Containers geen volledig besturingssysteem, het opstarten, zodat ze kunnen veel sneller--doorgaans in een paar seconden.
-* **Draagbaarheid**: een containertoepassing-installatiekopie kan worden geïmplementeerd om uit te voeren in de cloud, on-premises, binnen virtuele machines of rechtstreeks op fysieke computers.
-* **Resourcebeheer**: een container kunt beperken tot de fysieke resources die deze op de host gebruiken kan.
+* **Snel**: Containers hebt geen volledig besturingssysteem, het opstarten, zodat ze kunnen veel sneller--doorgaans in een paar seconden.
+* **Draagbaarheid**: De installatiekopie van een containertoepassing kunt om uit te voeren in de cloud, on-premises, binnen virtuele machines of rechtstreeks op fysieke computers worden overgezet.
+* **Resourcebeheer**: Een container kunt beperken van de fysieke resources die deze op de host gebruiken kan.
 
 ### <a name="container-types-and-supported-environments"></a>Containertypen en ondersteunde omgevingen
 
@@ -78,9 +78,9 @@ Hier volgen typische voorbeelden waarin een container een goede keuze is:
 
 * **IIS lift- and -shift**: U kunt ook een bestaande plaatsen [ASP.NET MVC](https://www.asp.net/mvc) -app in een container in plaats van het migreren van het ASP.NET Core. Deze ASP.NET MVC-apps zijn afhankelijk van op Internet Information Services (IIS). U kunt deze toepassingen in containerinstallatiekopieën van de precreated IIS-installatiekopie Inpakken en te implementeren met Service Fabric. Zie [Containerinstallatiekopieën op Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) voor informatie over Windows-containers.
 
-* **Containers en microservices voor Service Fabric**: gebruik een bestaande containerinstallatiekopie voor een deel van uw toepassing. Bijvoorbeeld, kunt u de [NGINX-container](https://hub.docker.com/_/nginx/) voor de webfront-end van uw toepassing en de stateful services voor de berekening van de meer intensieve back-end.
+* **Containers en microservices voor Service Fabric**: Gebruik een bestaande containerinstallatiekopie voor een deel van uw toepassing. Bijvoorbeeld, kunt u de [NGINX-container](https://hub.docker.com/_/nginx/) voor de webfront-end van uw toepassing en de stateful services voor de berekening van de meer intensieve back-end.
 
-* **De gevolgen van 'luidruchtige buren' services**: U kunt de mogelijkheid van de resource governance van containers gebruiken voor het beperken van de resources die gebruikmaakt van een service op een host. Als services mogelijk veel resources verbruiken en invloed op de prestaties van anderen (zoals een langdurige, query-achtige-bewerking), kunt u deze services in containers die resourcebeheer brengen.
+* **De gevolgen van 'luidruchtige buren' services**: U kunt de mogelijkheid van de resource governance van containers gebruiken om te beperken van de resources die gebruikmaakt van een service op een host. Als services mogelijk veel resources verbruiken en invloed op de prestaties van anderen (zoals een langdurige, query-achtige-bewerking), kunt u deze services in containers die resourcebeheer brengen.
 
 ## <a name="service-fabric-support-for-containers"></a>Service Fabric-ondersteuning voor containers
 

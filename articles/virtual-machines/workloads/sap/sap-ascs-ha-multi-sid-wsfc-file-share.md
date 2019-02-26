@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0ce4391e8fb2047320c4d84ac18ce0b1f8c8eaad
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 486044656b1c288b1658d10a162e1f9fa071172a
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745015"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817113"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -347,7 +347,7 @@ Maken van de tweede **Volume2**. Voer deze PowerShell-script:
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR2 -FileSystem CSVFS_ReFS -Size 5GB -ResiliencySettingName Mirror
 ```
 
-![Afbeelding 5: Multi-SID scale-out Bestandsserver is hetzelfde als de naam van de globale SAP host 2][sap-ha-guide-figure-8016]
+![Afbeelding 5: Tweede Volume2 in Failoverclusterbeheer][sap-ha-guide-figure-8016]
 
 _**Afbeelding 5:** Tweede Volume2 in Failoverclusterbeheer_
 

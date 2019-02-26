@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1590a02503a12be870dab14a1ccffdd3cf64a282
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 197d7529a52b400cd078ead79bbb6db5f5849ee6
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426604"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821367"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Een zelfstandig Azure Automation-account maken
 
-In dit artikel wordt beschreven hoe u een Azure Automation-account maken in Azure portal. U kunt de portal Automation-account gebruiken om te evalueren en meer informatie over Automation zonder aanvullende beheeroplossingen of integratie met Azure Log Analytics. U kunt deze beheeroplossingen toevoegen of integreren in Log Analytics voor geavanceerde controle van runbooktaken op elk gewenst moment in de toekomst.
+In dit artikel wordt beschreven hoe u een Azure Automation-account maken in Azure portal. U kunt de portal Automation-account gebruiken om te evalueren en meer informatie over Automation zonder aanvullende beheeroplossingen of integratie met Azure Monitor-Logboeken. U kunt deze beheeroplossingen toevoegen of integreren met Azure Monitor-logboeken voor geavanceerde bewaking van runbooktaken op elk gewenst moment in de toekomst.
 
 Met een Automation-account, kunt u runbooks verifiëren met het beheren van resources in Azure Resource Manager of het klassieke implementatiemodel. Met één Automation-account kunt u resources in alle regio's en abonnementen voor een bepaalde tenant beheren.
 
@@ -69,7 +69,7 @@ Voor het maken van een Azure Automation-account in Azure portal, moet u de volge
   >
   > ![Waarschuwing voor Automation-account toevoegen](media/automation-create-standalone-account/create-account-without-perms.png)
 
-1. In de **Automation-Account toevoegen** deelvenster in de **naam** vak, voer een naam in voor uw nieuwe Automation-account. Deze naam kan niet worden gewijzigd nadat deze is geselecteerd. *Automation-accountnamen zijn unieke per regio en resourcegroep. Namen voor Automation-Accounts die zijn verwijderd is mogelijk niet onmiddellijk beschikbaar.*
+1. In de **Automation-Account toevoegen** deelvenster in de **naam** vak, voer een naam in voor uw nieuwe Automation-account. Deze naam kan niet worden gewijzigd nadat deze is geselecteerd. *Automation-accountnamen zijn uniek per regio en resourcegroep. Namen voor Automation-Accounts die zijn verwijderd, zijn mogelijk niet onmiddellijk beschikbaar.*
 1. Als u meer dan één abonnement hebt, in de **abonnement** , geeft u het abonnement dat u wilt gebruiken voor het nieuwe account.
 1. Voor **resourcegroep**, invoeren of een nieuwe of bestaande resourcegroep selecteren.
 1. Voor **locatie**, selecteert u een Azure-datacenter-locatie.

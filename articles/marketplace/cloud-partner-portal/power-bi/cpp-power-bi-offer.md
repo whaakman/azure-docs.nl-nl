@@ -1,6 +1,6 @@
 ---
-title: Power BI-toepassing aanbieding - Azure Marketplace | Microsoft Docs
-description: Wordt uitgelegd hoe u een Power BI-toepassing op Microsoft AppSource-Marketplace publiceert.
+title: Power BI-App-aanbieding - Azure Marketplace | Microsoft Docs
+description: Hoe u een Power BI-app publiceren naar de Microsoft AppSource-marketplace.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
 documentationcenter: ''
 author: v-miclar
@@ -14,46 +14,46 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: pbutlerm
-ms.openlocfilehash: a8474f6dd276c592fce27c8bd90706fe5f126519
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 11bbd87eb283dca2c7da19e32833221c7320a79f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55667050"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817793"
 ---
-# <a name="power-bi-application-offer"></a>Aanbieding van Power BI-toepassing
+# <a name="power-bi-app-offer"></a>Power BI-App-aanbieding
 
-|                  |                                |
-|------------------|--------------------------------|
-| Deze sectie wordt uitgelegd hoe u een Power BI-toepassing naar de Microsoft publiceert [AppSource-Marketplace](https://appsource.microsoft.com/). Een Power BI-toepassing pakketten van Power BI-inhoud en gegevensstromen verbinding te maken van rapporten en dashboards met gegevens in common data-opslag gebruikt. De app kan vervolgens worden geïmplementeerd voor andere tenants via AppSource. | ![Power BI-pictogram](./media/powerbi-icon.png) |
+|              |                                |
+|-|--------------------------------|
+| In dit artikel wordt uitgelegd hoe u een Power BI-app publiceren naar de Microsoft [AppSource-marketplace](https://appsource.microsoft.com/). Een Power BI-app Power BI-inhoud-pakketten en gegevensstromen verbinding te maken van rapporten en dashboards met gegevens in common data-opslag gebruikt. Vervolgens kunt u de app implementeren voor andere tenants via AppSource. | ![Power BI-pictogram](./media/powerbi-icon.png) |
 
 
-In deze sectie is onderverdeeld in de volgende hoofdonderdelen:
+In dit artikel is onderverdeeld in drie belangrijke onderdelen:
 
--   [Vereisten](./cpp-prerequisites.md) -aanbieding van de technische en zakelijke vereisten voor het maken of een Power BI-App publiceren
--   [Power BI-App-aanbieding maken](./cpp-create-offer.md) -vereiste stappen voor het maken van een nieuwe Power BI-App bieden vermelding met behulp van de [Cloud Partner-Portal](https://cloudpartner.azure.com)
--   [Power BI-App-aanbieding publiceren](./cpp-publish-offer.md) -het indienen van een nieuwe aanbieding voor publiceren op AppSource en hoe u een bestaande aanbieding bijwerken.
+-   [Vereisten](./cpp-prerequisites.md). De technische en zakelijke vereisten voor het maken en publiceren van een aanbieding van Power BI-App.
+-   [Maak een aanbieding van Power BI-App](./cpp-create-offer.md). Hoe u een vermelding voor het bieden van Power BI-App maken met behulp van de [Cloud Partner-Portal](https://cloudpartner.azure.com).
+-   [Een Power BI-App-aanbieding publiceren](./cpp-publish-offer.md). Hoe u kunt een nieuwe aanbieding naar AppSource verzenden voor publicatie, en hoe u een bestaande aanbieding bijwerken.
 
 
 ## <a name="publishing-steps"></a>Publiceren stappen
 
-Het volgende diagram illustreert de stappen op hoog niveau in de publicatie van een aanbieding van Power BI-App.
+Hier volgen de hoofdstappen voor het publiceren van een aanbieding van Power BI-App:
 
-![Power BI-App publiceren stappen](media/publishing-steps.png)
+![Power BI-App publiceren stappen bieden](media/publishing-steps.png)
 
-Power BI-Apps-publicatieproces
+Dit is de Power BI-App-aanbieding publiceren:
 
-1. Een servicetoepassing maken in Power BI (wat leidt tot het maken van de URL van de pakket-installatie).  Deze URL vertegenwoordigt de technische activa voor de aanbieding.  Zie voor meer informatie, [wat is Power BI](https://go.microsoft.com/fwlink/?linkid=2028636).
+1. Een servicetoepassing maken in Power BI. Deze actie genereert een URL van de installatie van pakket, waarmee de technische activa voor de aanbieding. Zie voor meer informatie, [wat is Power BI?](https://go.microsoft.com/fwlink/?linkid=2028636).
 2. Verzamelen of maak de bedrijfsactiva, met inbegrip van:
-    - Marketingmateriaal
-    - Juridische en ondersteuning voor documenten
-3.  De aanbieding maken: de Cloud Partner-Portal gebruiken om te configureren van de details en informatie over de aanbieding, met inbegrip van de beschrijving van de aanbieding, materialen, juridische informatie over ondersteuning en assetspecificaties marketing.
-4.  Certificeren en publiceren van de aanbieding - deze verzending van het publicatieproces te starten.
+    - Marketingmateriaal.
+    - Juridische en ondersteuning voor documenten.
+3.  Maak de aanbieding. Gebruik de Cloud Partner-Portal om de gegevens van de aanbieding, met inbegrip van de beschrijving van de aanbieding, marketingmaterialen, juridische informatie, informatie over ondersteuning en assetspecificaties te configureren.
+4.  Certificeren en publiceren van de aanbieding. Hiermee start u het publicatieproces.
     - Het voorbereidingsteam AppSource test, valideert en verklaart uw toepassing. 
-    - Nadat gecertificeerd, moet u deze bekijken in de testomgeving en vrijgeeft.
+    - Nadat de aanbieding is gecertificeerd, bekijken in de testomgeving en vrijgeeft.
 
-Zodra al deze stappen worden uitgevoerd, gaat uw app' live"op AppSource.
+Nadat u deze stappen hebt voltooid, is uw aanbieding van Power BI-App meteen live op AppSource.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Voordat u deze stappen begint, moet u voldoen aan de [vereisten](./cpp-prerequisites.md) voor het publiceren van een Power BI-App naar AppSource.
+Voordat u uw aanbieding van Power BI-App maken en deze naar AppSource publiceren, moet u voldoen aan de [vereisten](./cpp-prerequisites.md) voor het publiceren van een Power BI-app naar AppSource.

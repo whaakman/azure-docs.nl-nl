@@ -16,79 +16,30 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: e9c3e10f9b48bfe2efa5396c9e64d3d87be3d826
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: f1f786ea4fbf9cea5afbbd2ff038b2b3f8bc3eaf
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330644"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56803580"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Azure-VM's migreren naar Managed Disks in Azure
 
 Azure Managed Disks vereenvoudigt het beheer van uw opslag door het verwijderen van de noodzaak voor het storage-accounts afzonderlijk beheren.  U kunt ook uw bestaande Azure-VM's migreren naar Managed Disks profiteren van betere betrouwbaarheid van virtuele machines in een Beschikbaarheidsset. Dit zorgt ervoor dat de schijven van verschillende virtuele machines in een Beschikbaarheidsset voldoende geïsoleerd van elkaar om te voorkomen dat één punt van fouten. Deze plaatst automatisch schijven van verschillende virtuele machines in een Beschikbaarheidsset in verschillende kasten (stempels) zodat ze worden beperkt de gevolgen van één opslag scale unit storingen veroorzaakt door hardware en software.
 Op basis van uw behoeften, kunt u kiezen uit vier verschillende opties voor opslag. Zie voor meer informatie over de typen beschikbare schijfruimte, dan het artikel [een schijf selecteren](disks-types.md)
 
+## <a name="migrate-scenarios"></a>Scenario's migreren
+
 U kunt migreren naar Managed Disks in de volgende scenario's:
 
-| Migreren...                                            | Koppeling voor documentatie                                                                                                                                                                                                                                                                  |
+| **Migreren...**                                            | **Koppeling voor documentatie**                                                                                                                                                                                                                                                                  |
 |----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Zelfstandige virtuele machines en virtuele machines in een beschikbaarheidsset naar beheerde schijven converteren   | [Virtuele machines voor het gebruik van beheerde schijven converteren](convert-unmanaged-to-managed-disks.md) |
 | Een enkele virtuele machine van klassiek naar Resource Manager op beheerde schijven     | [Een virtuele machine maken van een klassieke VHD](create-vm-specialized-portal.md)  | 
 | Alle virtuele machines in een vNet van het klassieke implementatiemodel, naar Resource Manager op beheerde schijven     | [Migreren van IaaS-resources van klassiek naar Resource Manager](migration-classic-resource-manager-ps.md) en vervolgens [een VM van niet-beheerde schijven converteren naar beheerde schijven](convert-unmanaged-to-managed-disks.md) | 
 
 
-
-
-
-
-## <a name="plan-for-the-conversion-to-managed-disks"></a>Plan voor de conversie naar beheerde schijven
-
-In deze sectie helpt u bij het maken van de beste beslissing op schijf en VM-typen.
-
-
-## <a name="location"></a>Locatie
-
-Kies een locatie waar Azure Managed Disks beschikbaar zijn. Als u naar Premium Managed Disks overstapt, zorg er ook voor Premium storage is beschikbaar in de regio waar u van plan bent om naar te verplaatsen. Zie [Azure Services per regio](https://azure.microsoft.com/regions/#services) voor actuele informatie over de beschikbare locaties.
-
-## <a name="vm-sizes"></a>Formaten van virtuele machines
-
-Als u naar Premium Managed Disks migreert, hebt u de grootte van de virtuele machine bijwerken naar Premium Storage kunnen grootte beschikbaar in de regio waar de virtuele machine zich bevindt. Bekijk de VM-grootten die Premium-opslag die geschikt zijn. De specificaties van de grootte van virtuele Azure-machine vindt u in [grootten voor virtuele machines](sizes.md).
-Bekijk de prestatiekenmerken van virtuele machines die werken met Premium Storage en kiest u de meest geschikte VM-grootte die het beste bij uw workload. Zorg ervoor dat er voldoende bandbreedte beschikbaar op de virtuele machine is om het schijfverkeer te stimuleren.
-
-## <a name="disk-sizes"></a>Schijfformaten
-
-**Premium Managed Disks**
-
-Er zijn zeven typen premium-beheerde schijven die kunnen worden gebruikt met de virtuele machine en elk heeft specifieke IOPs en doorvoer limieten. In overweging nemen deze limieten bij het kiezen van het schijftype voor Premium voor uw virtuele machine op basis van de behoeften van uw toepassing in termen van capaciteit, prestaties, schaalbaarheid en piek wordt geladen.
-
-| Schijftype voor Premium-schijven  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
-|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Schijfgrootte           | 32 GB| 64 GB| 128 GB| 256 GB|512 GB | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
-| IOP's per schijf       | 120   | 240   | 500   | 1100  |2300              | 5000              | 7500              | 7500              | 
-| Doorvoer per schijf | 25 MB per seconde  | 50 MB per seconde  | 100 MB per seconde | 125 MB per seconde |150 MB per seconde | 200 MB per seconde | 250 MB per seconde | 250 MB per seconde |
-
-**Standaard beheerde schijven**
-
-Er zijn zeven typen van standard beheerde schijven die kunnen worden gebruikt met de virtuele machine. Elk van deze andere capaciteit hebben maar dezelfde IOPS en doorvoerlimieten. Kies het type Standard beheerde schijven op basis van de capaciteitsbehoeften van uw toepassing.
-
-| Standard-schijftype  | S4               | S6               | S10              | S15              | S20              | S30              | S40              | S50              | 
-|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------| 
-| Schijfgrootte           | 30 GB            | 64 GB            | 128 GB           | 256 GB           |512 GB           | 1024 GB (1 TB)   | 2048 GB (2TB)    | 4095 GB (4 TB)   | 
-| IOP's per schijf       | 500              | 500              | 500              | 500              |500              | 500              | 500             | 500              | 
-| Doorvoer per schijf | 60 MB per seconde | 60 MB per seconde | 60 MB per seconde | 60 MB per seconde |60 MB per seconde | 60 MB per seconde | 60 MB per seconde | 60 MB per seconde | 
-
-## <a name="disk-caching-policy"></a>Beleid voor caching schijf
-
-**Premium Managed Disks**
-
-Beleid voor caching schijf is standaard *alleen-lezen* voor alle Premium gegevensschijven, en *lezen / schrijven* voor de Premium-schijf die is gekoppeld aan de virtuele machine. Deze configuratieinstelling wordt aanbevolen om de optimale prestaties voor IOs van uw toepassing. Voor schijven schrijfintensief of alleen-schrijven gegevens (zoals SQL Server-logboekbestanden) uitschakelen in schijfcache zodat u betere prestaties van toepassingen kunt bereiken.
-
-## <a name="pricing"></a>Prijzen
-
-Controleer de [prijzen voor Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/). Prijzen van Premium Managed Disks is hetzelfde als de niet-beheerde Premium-schijven. Maar de prijzen voor Standard Managed Disks is anders dan standaard niet-beheerde schijven.
-
-
-
 ## <a name="next-steps"></a>Volgende stappen
 
 - Meer informatie over [Managed Disks](managed-disks-overview.md)
+- Controleer de [prijzen voor Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).

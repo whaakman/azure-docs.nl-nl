@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 2e30f3bb40e23e5b0b1951759bdff3a9f02cc9d5
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 01c3e9c82959629dc3e43fb6b0833d4dbb05e0aa
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236060"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823005"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>DSC-extensie voor Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -369,7 +369,7 @@ U kunt zich aanmelden bij uw Azure-account (Azure Resource Manager-modus) door t
 Login-AzAccount
 ```
 
-Klik op [ **hier** ](../../azure-resource-manager/powershell-azure-resource-manager.md) voor meer informatie over het gebruik van Azure PowerShell met Azure Resource Manager.
+Klik op [ **hier** ](../../azure-resource-manager/manage-resources-powershell.md) voor meer informatie over het gebruik van Azure PowerShell met Azure Resource Manager.
 
 U kunt DSCForLinux extensie implementeren door uit te voeren:
 

@@ -5,20 +5,22 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/23/2019
+ms.date: 2/25/2019
 ms.author: victorh
-ms.openlocfilehash: f88cc44890277604411f482779a83ee266820ac8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: f1e92c8581f8528b3622ad88f086d3f66619b996
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816319"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823469"
 ---
 # <a name="use-azure-dns-for-private-domains"></a>Azure DNS gebruiken voor persoonlijke domeinen
 
 De Domain Name System of DNS is verantwoordelijk voor het omzetten van (of het oplossen van) de naam van een service aan het bijbehorende IP-adres. Een hostingservice voor DNS-domeinen, Azure DNS biedt naamomzetting met behulp van de Microsoft Azure-infrastructuur. Naast ondersteuning voor internet gerichte DNS-domeinen, ondersteunt Azure DNS nu ook persoonlijke DNS-domeinen als preview-functie.
 
 Azure DNS biedt een betrouwbare en veilige DNS-service als u wilt beheren en omzetten van domeinnamen in een virtueel netwerk zonder herconfiguratie om toe te voegen een aangepaste DNS-oplossing. Met behulp van privé-DNS-zones, kunt u uw eigen aangepaste domeinnamen in plaats van de Azure geleverde namen die momenteel beschikbaar. Met behulp van aangepaste domeinnamen, helpt u bij het aanpassen van de architectuur van uw virtuele netwerk zelf behoeften van uw organisatie. Het biedt naamomzetting voor virtuele machines (VM's) binnen een virtueel netwerk en tussen virtuele netwerken. Bovendien kunt u zonenamen configureren met een split-horizon-weergave, waarmee een persoonlijke en openbare DNS-zone voor het delen van de naam.
+
+Als u een privé-DNS-zone wilt publiceren naar uw virtuele netwerk, geeft u de lijst op met virtuele netwerken die zijn toegestaan om records in de zone om te zetten. Deze worden *virtuele resolutienetwerken* genoemd. U kunt ook een virtueel netwerk opgeven waarvoor Azure DNS hostnaamrecords bewaart wanneer een virtuele machine wordt gemaakt, een ander IP-adres krijgt of wordt verwijderd. Dit wordt een *virtueel resolutienetwerk* genoemd.
 
 Als u een virtueel netwerk registratie opgeeft, de DNS-records voor de virtuele machines van dit virtuele netwerk die zijn geregistreerd bij de privézone zijn niet kan worden weergegeven of worden opgehaald uit de Azure Powershell en Azure CLI-API's, maar de records van de virtuele machine inderdaad worden geregistreerd en wordt is opgelost.
 

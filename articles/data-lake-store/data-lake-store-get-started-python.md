@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 0cc5b101e1afb6ea648963188887cf43b65a5afa
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 06c341da73ad8df96d5c97e1cb9da4b7fd5c804e
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124946"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820651"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-python"></a>Accountbeheerbewerkingen in Azure Data Lake Storage Gen1 met behulp van Python
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Informatie over het gebruik van de Python-SDK voor Azure Data Lake Storage Gen1 
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Een Azure-resourcegroep**. Zie [Een Azure-resourcegroep maken](../azure-resource-manager/resource-group-portal.md) voor instructies.
+* **Een Azure-resourcegroep**. Zie [Een Azure-resourcegroep maken](../azure-resource-manager/manage-resource-groups-portal.md) voor instructies.
 
 ## <a name="install-the-modules"></a>De modules installeren
 
@@ -86,7 +86,7 @@ pip install azure-datalake-store
 
 3. Sla de wijzigingen in mysample.py op.
 
-## <a name="authentication"></a>Verificatie
+## <a name="authentication"></a>Authentication
 
 In deze sectie bespreken we de verschillende manieren om te verifiëren met Azure AD. De beschikbare opties zijn:
 

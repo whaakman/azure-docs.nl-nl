@@ -11,15 +11,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: douglasl
-ms.openlocfilehash: 0236d9118389b4f8fb79453b425c70f09e94bbb8
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 408776b0b0053b2b2d45112568a2e28467123768
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213804"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805372"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn)
-> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](v1/data-factory-use-custom-activities.md)
 > * [Huidige versie](transform-data-using-dotnet-custom-activity.md)
 
@@ -106,10 +106,13 @@ De volgende tabel beschrijft de namen en beschrijvingen van eigenschappen die sp
 | resourceLinkedService | Azure Storage gekoppelde Service naar het opslagaccount waarin de aangepaste toepassing is opgeslagen | Nee&#42;       |
 | folderPath            | Pad naar de map van de aangepaste toepassing en alle bijbehorende afhankelijkheden<br/><br/>Als u beschikt over afhankelijkheden in submappen - dat wil zeggen, opgeslagen in een hiërarchische mapstructuur onder *folderPath* -de mapstructuur wordt momenteel afgevlakt wanneer de bestanden zijn gekopieerd naar de Azure Batch. Dat wil zeggen, worden alle bestanden gekopieerd naar één map zonder submappen. Als tijdelijke oplossing voor dit gedrag, houd rekening met de bestanden te comprimeren, het gecomprimeerde bestand kopiëren en deze vervolgens uitpakken met aangepaste code in de gewenste locatie. | Nee&#42;       |
 | referenceObjects      | Een matrix van bestaande gekoppelde Services en gegevenssets. De waarnaar wordt verwezen, gekoppelde Services en gegevenssets worden doorgegeven aan de aangepaste toepassing in JSON-indeling, zodat uw aangepaste code kan verwijzen naar resources van de Data Factory | Nee       |
-| ExtendedProperties    | Gebruiker gedefinieerde eigenschappen die kunnen worden doorgegeven aan de aangepaste toepassing in JSON-indeling, zodat uw aangepaste code kan verwijzen naar aanvullende eigenschappen | Nee       |
+| extendedProperties    | Gebruiker gedefinieerde eigenschappen die kunnen worden doorgegeven aan de aangepaste toepassing in JSON-indeling, zodat uw aangepaste code kan verwijzen naar aanvullende eigenschappen | Nee       |
 
 &#42;De eigenschappen `resourceLinkedService` en `folderPath` moeten beide worden opgegeven of beide worden weggelaten.
 
+> [!NOTE]
+> Als u gekoppelde services als referenceObjects in aangepaste activiteit doorgeeft, is een goede gewoonte om door te geven van een Azure Key Vault ingeschakeld gekoppelde service (omdat deze geen alle beveiligde tekenreeksen bevat) en ophalen op de referenties met behulp van de geheime naam rechtstreeks uit de sleutel Kluis uit de code. U vindt een voorbeeld [hier](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) dat verwijst naar Azure Sleutelkluis ingeschakeld gekoppelde service, haalt u de referenties van de Key Vault en vervolgens toegang tot het opslagaccount in de code.  
+ 
 ## <a name="custom-activity-permissions"></a>Machtigingen voor aangepaste activiteit
 
 De aangepaste activiteit wordt de Azure Batch-account automatisch-gebruiker ingesteld op *zonder beheerdersrechten toegang met een bereik van de taak* (de standaard automatisch gebruiker specification). U kunt het machtigingsniveau van het automatische-gebruikersaccount niet wijzigen. Zie voor meer informatie, [taken onder gebruikersaccounts uitvoeren in Batch | Automatisch gebruikersaccounts](../batch/batch-user-accounts.md#auto-user-accounts).
@@ -185,7 +188,7 @@ Dit voorbeeld laat zien hoe u de referenceObjects en extendedProperties gebruike
 
 Wanneer de activiteit wordt uitgevoerd, worden referenceObjects en extendedProperties opgeslagen in de volgende bestanden die zijn geïmplementeerd naar dezelfde map uitvoering van de SampleApp.exe:
 
-- Activity.JSON
+- activity.json
 
   ExtendedProperties en eigenschappen van de aangepaste activiteit worden opgeslagen.
 

@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: justhu, elisol
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 766eb7864a6bce296daafc86179e2deed77f8e02
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 44feaecd42a8c3ce0ac0c712aa27b2480fd2a486
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163119"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806926"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procedure: Meld u aan een Azure Active Directory-gebruiker met behulp van het patroon voor multitenant-toepassingen
 
@@ -39,7 +39,7 @@ Er zijn vier eenvoudige stappen om uw toepassing converteren naar een Azure AD-a
 1. [Bijwerken van de toepassingsregistratie van uw om te worden meerdere tenants](#update-registration-to-be-multi-tenant)
 2. [Werk uw code voor het verzenden van aanvragen naar de/Common eindpunt](#update-your-code-to-send-requests-to-common)
 3. [Werk uw code voor het afhandelen van meerdere verlenerwaarden](#update-your-code-to-handle-multiple-issuer-values)
-4. Gebruikers- en beheerdersactiviteiten toestemming begrijpen en wijzigingen in de juiste code
+4. [Gebruikers- en beheerdersactiviteiten toestemming begrijpen en wijzigingen in de juiste code](#understand-user-and-admin-consent)
 
 Laten we elke stap in detail kijken. U kunt ook rechtstreeks naar gaan [deze lijst met voorbeelden van meerdere tenants][AAD-Samples-MT].
 

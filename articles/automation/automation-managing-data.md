@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b133947a7daf1977f084ee4008599882b51d9e8b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3e217e0e3367c6e1200567f589749fec9e626da8
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428474"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817453"
 ---
 # <a name="managing-azure-automation-data"></a>Azure Automation-gegevens beheren
 In dit artikel bevat meerdere onderwerpen voor het beheren van een Azure Automation-omgeving.
@@ -39,7 +39,7 @@ De volgende tabel geeft een overzicht van het bewaarbeleid voor verschillende re
 
 Het bewaarbeleid is van toepassing op alle gebruikers en momenteel niet worden aangepast.
 
-Echter, als u behouden van gegevens voor een langere periode wilt, kunt u doorsturen runbook taaklogboeken met Log Analytics.  Raadpleeg voor meer informatie, [Azure Automation-taakgegevens doorsturen naar Log Analytics](automation-manage-send-joblogs-log-analytics.md).   
+Echter, als u behouden van gegevens voor een langere periode wilt, kunt u doorsturen runbook de taaklogboeken voor logboeken van Azure Monitor.  Raadpleeg voor meer informatie, [doorsturen van Azure Automation-taakgegevens naar Azure Monitor logboeken](automation-manage-send-joblogs-log-analytics.md).   
 
 ## <a name="backing-up-azure-automation"></a>Back-ups maken met Azure Automation
 Wanneer u een automation-account in Microsoft Azure verwijdert, worden alle objecten in het account verwijderd inclusief runbooks, modules, configuraties, instellingen, jobs en activa. De objecten kunnen niet worden hersteld nadat het account is verwijderd.  Gebruik de volgende informatie kunt u back-up van de inhoud van uw automation-account voordat deze worden verwijderd. 

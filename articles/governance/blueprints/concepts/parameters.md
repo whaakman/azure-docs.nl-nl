@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9166d5d552df4854a4d00c2211a273a06198877a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d7c923dd819f826d9d9aaf8d5b88355a9feb344f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567482"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823158"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Het maken van dynamische blauwdrukken via parameters
 
@@ -52,9 +52,9 @@ Een parameterwaarde die is gedefinieerd in de definitie van een blauwdruk heet e
 
 #### <a name="setting-static-parameters-in-the-portal"></a>Statische parameters instelt in de portal
 
-1. Klik op **Alle services** en selecteer **Beleid** in het linkerdeelvenster. Klik op de pagina **Beleid** op **Blueprints**.
+1. Selecteer **alle services** in het linkerdeelvenster. Zoek en selecteer **blauwdrukken**.
 
-1. Selecteer **Blauwdrukdefinities** op de pagina aan de linkerkant.
+1. Selecteer **blauwdruk definities** op de pagina aan de linkerkant.
 
 1. Klik op een bestaande blauwdruk en klik vervolgens op **blauwdruk bewerken** of klik op **+ maken blauwdruk** en vul de informatie op de **basisbeginselen** tabblad.
 
@@ -169,9 +169,9 @@ Het tegenovergestelde van een statische parameter is een **dynamische parameter*
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>Dynamische parameters instellen in de portal
 
-1. Klik op **Alle services** en selecteer **Beleid** in het linkerdeelvenster. Klik op de pagina **Beleid** op **Blueprints**.
+1. Selecteer **alle services** in het linkerdeelvenster. Zoek en selecteer **blauwdrukken**.
 
-1. Selecteer **Blauwdrukdefinities** op de pagina aan de linkerkant.
+1. Selecteer **blauwdruk definities** op de pagina aan de linkerkant.
 
 1. Met de rechtermuisknop op de blauwdruk die u wilt toewijzen. Selecteer **blauwdruk toewijzen** of klik op de blauwdruk die u wilt toewijzen en klik vervolgens op de **blauwdruk toewijzen** knop.
 

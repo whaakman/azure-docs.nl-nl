@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 039e2d3c70493868ca2f79e89fc82d8970ec6865
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 894fc42954182171588d81e2f7f1e37141af9add
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032387"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821248"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Onboarding updatebeheer, wijzigingen bijhouden en inventaris oplossingen van een virtuele machine van Azure
 
@@ -34,7 +34,7 @@ Selecteer de Azure Log Analytics-werkruimte en het Automation-account en selecte
 
 ![Onboard de oplossing Update Management](media/automation-onboard-solutions-from-vm/onboard-solution.png)
 
-Ga naar de andere oplossingen, en selecteer vervolgens **inschakelen**. De Log Analytics en Automation-account vervolgkeuzelijsten zijn uitgeschakeld omdat deze oplossingen gebruikt u de dezelfde werkruimte en het Automation-account als de eerder ingeschakelde oplossing.
+Ga naar de andere oplossingen, en selecteer vervolgens **inschakelen**. De Log Analytics-werkruimte en het Automation-account vervolgkeuzelijsten zijn uitgeschakeld omdat deze oplossingen gebruikt u de dezelfde werkruimte en het Automation-account als de eerder ingeschakelde oplossing.
 
 > [!NOTE]
 > **Bijhouden van wijzigingen** en **voorraad** dezelfde oplossing gebruiken. Wanneer een van deze oplossingen is ingeschakeld, wordt ook de andere ingeschakeld.
@@ -45,7 +45,7 @@ Elke oplossing maakt gebruik van de configuratie van een bereik in de werkruimte
 
 Als de geselecteerde werkruimte niet al de oplossingen voor beheer van updates of wijzigingen bijhouden, worden de volgende scopeconfiguraties gemaakt:
 
-* **MicrosoftDefaultScopeConfig-voor wijzigingen bijhouden**
+* **MicrosoftDefaultScopeConfig-ChangeTracking**
 
 * **MicrosoftDefaultScopeConfig-Updates**
 
@@ -59,7 +59,7 @@ Wanneer een computer wordt toegevoegd aan het updatebeheer, wijzigingen bijhoude
 
 Ga naar uw werkruimte. Onder **algemene**, selecteer **opgeslagen zoekopdrachten**. De twee opgeslagen zoekopdrachten die worden gebruikt door deze oplossingen worden weergegeven in de volgende tabel:
 
-|Naam     |Categorie  |Alias  |
+|Name     |Categorie  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  Voor wijzigingen bijhouden       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | Updates        | Updates__MicrosoftDefaultComputerGroup         |
@@ -76,7 +76,7 @@ De volgende oplossingen zijn afhankelijk van een Log Analytics-werkruimte:
 * [Tracering wijzigen](automation-change-tracking.md)
 * [VM's starten/stoppen buiten kantooruren](automation-solution-vm-management.md)
 
-Als u besluit dat u niet meer wilt integreren van uw Automation-account met Log Analytics, kunt u uw account rechtstreeks vanuit de Azure portal kunt ontkoppelen.  Voordat u doorgaat, moet u eerst te verwijderen van de oplossingen die eerder vermeld, anders wordt dit proces zal worden voorkomen dat u doorgaat. Lees het artikel voor de desbetreffende oplossing die u hebt geïmporteerd voor meer informatie over de stappen die nodig zijn om deze te verwijderen.
+Als u besluit dat u niet meer wilt integreren van uw Automation-account met een Log Analytics-werkruimte, kunt u uw account rechtstreeks vanuit de Azure portal kunt ontkoppelen.  Voordat u doorgaat, moet u eerst te verwijderen van de oplossingen die eerder vermeld, anders wordt dit proces zal worden voorkomen dat u doorgaat. Lees het artikel voor de desbetreffende oplossing die u hebt geïmporteerd voor meer informatie over de stappen die nodig zijn om deze te verwijderen.
 
 Nadat u deze oplossingen hebt verwijderd, kunt u de volgende stappen uit als u wilt loskoppelen van uw Automation-account kunt uitvoeren.
 

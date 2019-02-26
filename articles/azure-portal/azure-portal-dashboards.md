@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: kfollis
-ms.openlocfilehash: 4a2dee4ad90fb269268ec7d3e86def58f2444e3a
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 693e973fb988a57c15b4ea2fae47f16b4ff39011
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884725"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818575"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Dashboards in de Azure-portal maken en delen
 U kunt meerdere dashboards maken en delen met anderen die toegang tot uw Azure-abonnementen hebben.  In dit artikel gaat de basisbeginselen besproken van het maken, bewerken, publiceren en beheren van toegang tot de dashboards.
@@ -93,6 +93,6 @@ Nadat uw dashboard is gepubliceerd, de **delen en toegang** besturingselement de
 ![toegangsbeheer beheren](./media/azure-portal-dashboards/manage-access.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor het beheren van resources, [Azure-resources beheren via portal](../azure-resource-manager/resource-group-portal.md).
+* Zie voor het beheren van resources, [Azure-resources beheren met behulp van de Azure-portal](../azure-resource-manager/manage-resources-portal.md).
 * Zie voor het implementeren van resources, [resources implementeren met Resource Manager-sjablonen en Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Automation-taakgegevens doorsturen naar Log Analytics
-description: In dit artikel laat zien hoe u met het verzenden van taakstatus en runbook-taakstromen met Azure Log Analytics om meer inzicht en beheer te bieden.
+title: Doorsturen van Azure Automation-taakgegevens naar Azure Monitor-Logboeken
+description: In dit artikel laat zien hoe u met het verzenden van taakstatus en runbook-taakstromen naar Logboeken van Azure Azure Monitor om meer inzicht en beheer te bieden.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 34a695daa077e882e911d3fb59f8a30e39c3a9d2
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 10497d40dcf67fb18d40eba02ec9e95c45be097b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756628"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820855"
 ---
-# <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Taakstatus en taakstromen van Automation doorsturen naar Log Analytics
+# <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Taakstatus en taakstromen van Automation doorsturen naar de logboeken van Azure Monitor
 
-Automation kunt runbook en taakstromen van een taak verzenden naar uw Log Analytics-werkruimte. Dit proces wordt geen gebruikgemaakt van het koppelen van de werkruimte en is volledig onafhankelijk. Taaklogboeken en taakstromen zijn zichtbaar in de Azure portal of met PowerShell, voor afzonderlijke taken en deze kunt u eenvoudige onderzoek uitvoeren. Met Log Analytics kunt u nu:
+Automation kunt runbook en taakstromen van een taak verzenden naar uw Log Analytics-werkruimte. Dit proces wordt geen gebruikgemaakt van het koppelen van de werkruimte en is volledig onafhankelijk. Taaklogboeken en taakstromen zijn zichtbaar in de Azure portal of met PowerShell, voor afzonderlijke taken en deze kunt u eenvoudige onderzoek uitvoeren. Met Azure Monitor-Logboeken kunt u nu:
 
 * Inzicht verwerven in uw Automation-taken.
 * De trigger is een e-mailadres of de waarschuwing op basis van uw runbook job status (voor bijvoorbeeld mislukte of onderbroken).
@@ -26,12 +26,14 @@ Automation kunt runbook en taakstromen van een taak verzenden naar uw Log Analyt
 * Taken voor verschillende Automation-accounts aan elkaar te relateren.
 * Uw taakgeschiedenis in de loop van de tijd visualiseren.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## <a name="prerequisites-and-deployment-considerations"></a>Vereisten en overwegingen voor implementatie
 
-Als u wilt beginnen met het verzenden van uw Automation-logboeken naar Log Analytics, hebt u het volgende nodig:
+Als u wilt beginnen met het verzenden van uw Automation-Logboeken in Logboeken van Azure Monitor, hebt u het volgende nodig:
 
 * De November 2016 of hoger van de release [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) (v2.3.0).
-* Een Log Analytics-werkruimte. Zie voor meer informatie, [aan de slag met Log Analytics](../log-analytics/log-analytics-get-started.md). 
+* Een Log Analytics-werkruimte. Zie voor meer informatie, [aan de slag met Azure Monitor logboeken](../log-analytics/log-analytics-get-started.md). 
 * De ResourceId voor uw Azure Automation-account.
 
 Zoek de ResourceId voor uw Azure Automation-account:
@@ -52,7 +54,7 @@ Als u meer dan één Automation-accounts hebben, of als werkruimten in de uitvoe
 
 Als u wilt zoeken de *naam* van uw Automation-account, selecteert u in Azure portal uw Automation-account van de **Automation-account** blade en selecteer **alle instellingen** . Selecteer op de blade **Alle instellingen** onder **Accountinstellingen** de optie **Eigenschappen**.  Noteer de waarden die op de blade **Eigenschappen** worden weergegeven.<br> ![Eigenschappen van Automation-Account](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
 
-## <a name="set-up-integration-with-log-analytics"></a>Integratie met Log Analytics instellen
+## <a name="set-up-integration-with-azure-monitor-logs"></a>Integratie met Azure Monitor logboeken instellen
 
 1. Start op uw computer **Windows PowerShell** uit de **Start** scherm.
 2. Voer de volgende PowerShell uit en bewerkt u de waarde voor de `[your resource id]` en `[resource id of the log analytics workspace]` met de waarden uit de vorige stap.
@@ -64,9 +66,9 @@ Als u wilt zoeken de *naam* van uw Automation-account, selecteert u in Azure por
    Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled $true
    ```
 
-Na dit script is uitgevoerd, duurt het een uur voordat u begint met de records worden weergegeven in Log Analytics van nieuwe JobLogs of JobStreams wordt geschreven.
+Na dit script is uitgevoerd, duurt een uur voordat u begint met de records worden weergegeven in Azure Monitor-logboeken van de nieuwe JobLogs of JobStreams wordt geschreven.
 
-Als u wilt zien van de logboeken, moet u de volgende query uitvoeren in Log Analytics zoeken in Logboeken: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Als u wilt zien van de logboeken, moet u de volgende query uitvoeren in log analytics zoeken in Logboeken: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Configuratie controleren
 
@@ -81,9 +83,9 @@ Zorg ervoor dat in de uitvoer:
 * Onder *logboeken*, de waarde voor *ingeschakeld* is *waar*.
 * De waarde van *WorkspaceId* is ingesteld op de ResourceId van uw Log Analytics-werkruimte.
 
-## <a name="log-analytics-records"></a>Log Analytics-records
+## <a name="azure-monitor-log-records"></a>Azure Monitor log-records
 
-Diagnostische gegevens van Azure Automation worden twee typen records gemaakt in Log Analytics en zijn gelabeld als **AzureDiagnostics**. De volgende query's gebruikt u de bijgewerkte querytaal Log Analytics. Bezoek voor meer informatie over algemene query's tussen de verouderde query-taal en de nieuwe Azure Log Analytics-querytaal [verouderde naar de nieuwe querytaal van Azure Log Analytics-referentiemateriaal](https://docs.loganalytics.io/docs/Learn/References/Legacy-to-new-to-Azure-Log-Analytics-Language)
+Diagnostische gegevens van Azure Automation worden twee typen records gemaakt in Azure Monitor-logboeken en zijn gelabeld als **AzureDiagnostics**. De volgende query's uit de bijgewerkte querytaal naar Logboeken van Azure Monitor gebruiken. Bezoek voor meer informatie over algemene query's tussen de verouderde query-taal en de nieuwe querytaal van Azure Kusto [verouderde naar de nieuwe querytaal van Azure Kusto-referentiemateriaal](https://docs.loganalytics.io/docs/Learn/References/Legacy-to-new-to-Azure-Log-Analytics-Language)
 
 ### <a name="job-logs"></a>Taaklogboeken
 
@@ -98,7 +100,7 @@ Diagnostische gegevens van Azure Automation worden twee typen records gemaakt in
 | Categorie | Classificatie van het type gegevens. Voor Automation is de waarde JobLogs. |
 | OperationName | Hiermee wordt het type bewerking opgegeven dat in Azure wordt uitgevoerd. Voor Automation is is de waarde van taak. |
 | Resource | Naam van het Automation-account |
-| SourceSystem | Hoe worden de gegevens verzameld door Log Analytics. Altijd *Azure* voor Azure diagnostics. |
+| SourceSystem | Hoe Azure Monitor-logboeken verzameld voor de gegevens. Altijd *Azure* voor Azure diagnostics. |
 | ResultDescription |Hiermee wordt resultaatstatus van de runbooktaak beschreven. Mogelijke waarden zijn:<br>- Taak is gestart<br>- Taak is mislukt<br>- Taak is voltooid |
 | CorrelationId |De GUID die de correlatie-id van de runbooktaak is. |
 | ResourceId |Hiermee geeft u de Azure Automation-account resource-id van het runbook. |
@@ -121,7 +123,7 @@ Diagnostische gegevens van Azure Automation worden twee typen records gemaakt in
 | Categorie | Classificatie van het type gegevens. Voor Automation is de waarde JobStreams. |
 | OperationName | Hiermee wordt het type bewerking opgegeven dat in Azure wordt uitgevoerd. Voor Automation is is de waarde van taak. |
 | Resource | Naam van het Automation-account |
-| SourceSystem | Hoe worden de gegevens verzameld door Log Analytics. Altijd *Azure* voor Azure diagnostics. |
+| SourceSystem | Hoe Azure Monitor-logboeken verzameld voor de gegevens. Altijd *Azure* voor Azure diagnostics. |
 | ResultDescription |Bevat de uitvoerstroom van het runbook. |
 | CorrelationId |De GUID die de correlatie-id van de runbooktaak is. |
 | ResourceId |Hiermee geeft u de Azure Automation-account resource-id van het runbook. |
@@ -130,9 +132,9 @@ Diagnostische gegevens van Azure Automation worden twee typen records gemaakt in
 | ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
 
-## <a name="viewing-automation-logs-in-log-analytics"></a>Weergeven van Automation-Logboeken in Log Analytics
+## <a name="viewing-automation-logs-in-azure-monitor-logs"></a>Automation-Logboeken in Azure Monitor logboeken weergeven
 
-Nu dat u begint met het verzenden van uw Automation-taaklogboeken met Log Analytics, laten we zien wat u kunt doen met deze logboeken in Log Analytics.
+Nu dat u uw Automation-taaklogboeken verzenden naar Azure Monitor-logboeken eerst, laten we zien wat u kunt doen met deze logboeken in Logboeken van Azure Monitor.
 
 Als u wilt zien van de logboeken, voer de volgende query uit: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
@@ -141,7 +143,7 @@ Een van de grote klanten wordt gevraagd de mogelijkheid voor het verzenden van e
 
 Voor het maken van een waarschuwingsregel, begint u met het maken van een zoeken in Logboeken voor de runbook-Taakrecords die de waarschuwing moet worden aangeroepen. Klik op de **waarschuwing** knop maken en configureren van de waarschuwingsregel.
 
-1. Klik op de pagina overzicht van Log Analytics **zoeken in logboeken**.
+1. Klik op de pagina overzicht van Log Analytics-werkruimte **logboeken bekijken**.
 2. Maak een zoekquery logboek voor de waarschuwing door te zoeken in de volgende typen in het queryveld: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`  U kunt ook de RunbookName groeperen met behulp van: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    Als u logboeken van meer dan één Automation-account of abonnement aan uw werkruimte, kunt u uw waarschuwingen op basis van abonnement en de Automation-account kunt groeperen. Naam van het Automation-account kan worden gevonden in het veld Resource in het zoekvak van JobLogs.
@@ -150,7 +152,7 @@ Voor het maken van een waarschuwingsregel, begint u met het maken van een zoeken
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Alle taken hebt voltooid met fouten zoeken
 U kunt naast de waarschuwingen op fouten, wanneer een runbook-taak een niet-afsluitfout heeft vinden. In dergelijke gevallen PowerShell een foutstroom produceert, maar de niet-afsluitfouten niet tot gevolg dat de taak onderbreken of als mislukt.    
 
-1. Klik in uw Log Analytics-werkruimte op **zoeken in logboeken**.
+1. Klik in uw Log Analytics-werkruimte op **logboeken**.
 2. Typ in het queryveld `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and StreamType_s == "Error" | summarize AggregatedValue = count() by JobId_g` en klik vervolgens op de **zoeken** knop.
 
 ### <a name="view-job-streams-for-a-job"></a>Taakstromen weergeven voor een taak
@@ -176,15 +178,15 @@ Remove-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 
 ## <a name="summary"></a>Samenvatting
 
-Uw Automation-taak de status en stream-gegevens verzenden naar Log Analytics, krijgt u inzicht in de status van uw Automation-taken op:
+Uw Automation-taak de status en stream-gegevens verzenden naar Azure Monitor-Logboeken, krijgt u inzicht in de status van uw Automation-taken op:
 + Instellen van waarschuwingen om u te waarschuwen wanneer er een probleem.
 + Met behulp van aangepaste weergaven en zoekopdrachten naar uw runbookresultaten te visualiseren, gerelateerde de status van de runbook-taak en andere KPI's of metrische gegevens.  
 
-Log Analytics biedt tevens grotere operationele zichtbaarheid aan uw Automation-taken en kunt u incidenten sneller.  
+Logboeken in Azure Monitor biedt tevens grotere operationele zichtbaarheid aan uw Automation-taken en kunt u incidenten sneller.  
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over het maken van verschillende zoekquery's en bekijk de Automation-taaklogboeken met Log Analytics, [zoekopdrachten in Logboeken in Log Analytics](../log-analytics/log-analytics-log-searches.md).
+* Zie voor meer informatie over het maken van verschillende zoekquery's en bekijk de Automation-taaklogboeken met Azure Monitor-Logboeken, [zoekopdrachten in Logboeken van Azure Monitor](../log-analytics/log-analytics-log-searches.md).
 * Zie voor meer informatie over het maken en ophalen van de uitvoer en foutberichten van runbooks, [Runbook-uitvoer en berichten](automation-runbook-output-and-messages.md).
 * Zie [Runbooktaken bijhouden](automation-runbook-execution.md) voor meer informatie over runbookuitvoering, het bewaken van runbooktaken en andere technische details.
-* Zie voor meer informatie over Log Analytics en gegevensverzamelingsbronnen [verzamelen van Azure storage-gegevens in Log Analytics-overzicht](../azure-monitor/platform/collect-azure-metrics-logs.md).
+* Zie voor meer informatie over Azure Monitor-logboeken en -verzameling gegevensbronnen, [verzamelen van Azure storage-gegevens in Azure Monitor-Logboeken overzicht](../azure-monitor/platform/collect-azure-metrics-logs.md).
 

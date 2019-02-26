@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: 7aebdace6b6200f400d0c642c8cbdc6d31544752
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 17eb51044aae7f1f1536e965eea1d1cdb0a1a42b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733024"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817436"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Voldoen aan de vereisten voor het maken van AlwaysOn-beschikbaarheidsgroepen op Azure virtual machines
 
@@ -464,7 +464,7 @@ Om toe te voegen functies Failover Clustering, voer de volgende stappen uit op b
 Herhaal de stappen op de andere SQL Server-VM.
 
   >[!NOTE]
-  > Deze stap, samen met daadwerkelijk de SQL Server-VM's toevoegen aan het failovercluster kan nu worden geautomatiseerd met een Azure-Quickstart-sjabloon. Zie voor meer informatie, [WSFC maken, listener en ILB configureren voor de groep van een Always On-beschikbaarheid op een SQL Server-VM met Azure-Quickstart-sjabloon](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+  > Deze stap, samen met daadwerkelijk de SQL Server-VM's toevoegen aan het failovercluster kan nu worden geautomatiseerd met [Azure SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) en [Azure-Snelstartsjablonen](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
 ## <a name="a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"> De firewall configureren op elke SQL Server-VM

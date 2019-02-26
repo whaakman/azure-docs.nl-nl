@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 54b211584b170d6e2ee0bcaa6c80bcaed376814f
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 6d7cacf699df580b8a5c46b8bfc6d48e1a8daea1
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904366"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821727"
 ---
 # <a name="manage-and-configure-projects"></a>Projecten beheren en configureren
 
@@ -58,6 +58,15 @@ Als de volgende voorwaarden voldaan wordt, wordt ook de vervolgkeuzelijst weerge
 Wanneer u een exemplaar van de DSVM selecteert, Azure-notitieblokken wordt u mogelijk gevraagd om de specifieke machine-referenties gebruikt bij het maken van de virtuele machine.
 
 Voor het maken van een nieuw exemplaar van de DSVM, volgt u de instructies op [maken van een Ubuntu Data Science VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Gebruik de **Data Science Virtual Machine voor Linux (Ubuntu)** image als u wilt dat de DSVM wordt weergegeven in de vervolgkeuzelijst in notitieblokken van Azure.  Als voor andere redenen die u wilt gebruiken van de installatiekopie van het Windows- of CentOS, kunt u de **Direct Compute** handmatig verbinding maken met de DSVM.
+
+> [!IMPORTANT]
+> Wanneer u Direct Compute of Data Science virtuele machines, moeten de laptops die u op deze uitvoert geheel zelfstandig zijn. Op dit moment Azure notitieblokken kopieert alleen de *.ipynb* bestand met de virtuele machine, maar andere bestanden in het project niet kopiëren. Als gevolg hiervan mislukt laptops die worden uitgevoerd op andere virtuele machines om andere projectbestanden te zoeken.
+>
+> U kunt dit gedrag op twee manieren omzeilen:
+>
+> 1. Project-bestanden handmatig kopiëren naar de virtuele machine.
+>
+> 2. Sluit u de bestanden in een notitieblok instellen dat u eerst de primaire notebook uitvoert. In de setup-notebook maken een codecel voor elk bestand waarbij de cel inhoud van het bestand bevat. Voeg vervolgens de opdracht aan de bovenkant van elke cel `%writefile <filename>`, waarbij `<filename>` is de naam van het bestand voor het ontvangen van de inhoud. Wanneer u de notebook uitvoert, wordt deze bestanden op de virtuele machine gemaakt. Zie voor een voorbeeld: de [setup.ipynb-bestand in de demo Microsoft huisdier Detector](https://github.com/microsoft/connect-petdetector) (GitHub).
 
 ## <a name="edit-project-metadata"></a>Project metagegevens bewerken
 

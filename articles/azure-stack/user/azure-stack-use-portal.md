@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 02/25/2019
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 026e37534169fda8dbbf5a568f72046bc6ff55f7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 28b8971b61ff09346b2a2f89cd5ea8ae04e44079
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252044"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819357"
 ---
 # <a name="use-the-azure-stack-portal"></a>De Azure Stack-portal gebruiken
 
@@ -40,6 +40,10 @@ Uw Azure Stack-operators (een serviceprovider of een beheerder in uw organisatie
 Het dashboard bevat een set tegels. U kunt selecteren **dashboard bewerken** wijzigen van het standaarddashboard, of selecteer **nieuw dashboard** te maken van een aangepast dashboard. U kunt eenvoudig een dashboard aanpassen door het toevoegen of verwijderen van tegels. Selecteer bijvoorbeeld het volgende als u wilt toevoegen een Compute-tegel, **+ een resource maken**. Met de rechtermuisknop op **Compute**, en selecteer vervolgens **vastmaken aan dashboard**.
 
 ![Schermopname van de gebruikersportal van Azure Stack](media/azure-stack-use-portal/userportal.png)
+
+Het dashboard naar de oorspronkelijke instellingen herstellen:
+1.  Selecteer **Dashboard bewerken**. 
+2.  Met de rechtermuisknop op en selecteer **opnieuw ingesteld op standaardstatus**.
 
 ## <a name="create-subscription-and-browse-available-resources"></a>Abonnement maken en beschikbare resources bladeren
 

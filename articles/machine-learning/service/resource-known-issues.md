@@ -8,15 +8,15 @@ ms.author: jmartens
 ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: b10e434aece0ac214a0fd397ea94cbeccca4e44a
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 3cf71de72a6005c59d76e2d88059a1ae16ec2970
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746487"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817470"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Bekende problemen en oplossen van problemen met Azure Machine Learning-service
 
@@ -51,17 +51,18 @@ Niet mogelijk om te implementeren van modellen op FPGA's totdat u hebt aangevraa
 
 Problemen met Databricks en Azure Machine Learning.
 
-1. Azure Machine Learning-SDK-installatiefouten op Databricks wanneer meer pakketten zijn geïnstalleerd.
-
-   Sommige pakketten, zoals `psutil`, kan leiden tot conflicten. Om installatiefouten te voorkomen,-pakketten door blokkering lib versie te installeren. Dit probleem is gerelateerd aan het Databricks en niet de Azure Machine Learning-service SDK - die zich kunnen voordoen deze met andere bibliotheken te. Voorbeeld:
+### <a name="failure-when-installing-packages"></a>Fout bij het installeren van pakketten
+Azure Machine Learning-SDK-installatiefouten op Databricks wanneer meer pakketten zijn geïnstalleerd. Sommige pakketten, zoals `psutil`, kan leiden tot conflicten. Om installatiefouten te voorkomen,-pakketten door blokkering lib versie te installeren. Dit probleem is gerelateerd aan het Databricks en niet de Azure Machine Learning-service SDK - die zich kunnen voordoen deze met andere bibliotheken te. Voorbeeld:
    ```python
    pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
    ```
-   U kunt ook init scripts gebruiken als u problemen met Python-bibliotheken installeren houden aangesloten. Deze benadering is niet een aanpak die officieel ondersteund. U kunt verwijzen naar [dit document](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
+U kunt ook init scripts gebruiken als u problemen met Python-bibliotheken installeren houden aangesloten. Deze benadering is niet een aanpak die officieel ondersteund. U kunt verwijzen naar [dit document](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
 
-2. Wanneer u automatische Machine Learning op Databricks, als u wilt een uitvoering annuleren en start een nieuw experiment uitvoeren, start opnieuw op uw Azure Databricks-cluster.
+### <a name="cancel-an-automated-ml-run"></a>Een geautomatiseerde ML-uitvoering annuleren
+Wanneer met behulp van mogelijkheden voor machine learning op Databricks, met geautomatiseerde als u wilt een uitvoering annuleren en start een nieuw experiment uitvoeren, start opnieuw op uw Azure Databricks-cluster.
 
-3. In de instellingen voor automatische ml, hebt u meer dan 10 iteraties, instellen `show_output` naar `False` wanneer u de uitvoering verzenden.
+### <a name="10-iterations-for-automated-ml"></a>> 10 herhalingen voor geautomatiseerde ML
+In geautomatiseerde ml-instellingen, hebt u meer dan 10 iteraties, stel `show_output` naar `False` wanneer u de uitvoering verzenden.
 
 
 ## <a name="azure-portal"></a>Azure Portal

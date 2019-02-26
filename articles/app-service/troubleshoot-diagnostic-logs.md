@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b73656e2bb7c413d2c29fafb682f39154499854a
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: d7bcff89ba7f76980287f9aad3413a6ef3f41b4f
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904451"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807419"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Diagnostische logboekregistratie inschakelen voor apps in Azure App Service
 ## <a name="overview"></a>Overzicht
@@ -34,7 +34,7 @@ App Service biedt diagnosefunctionaliteit voor waardevolle informatie uit de web
 ### <a name="web-server-diagnostics"></a>Web server diagnostische gegevens
 U kunt inschakelen of uitschakelen van de volgende soorten logboeken:
 
-* **Gedetailleerde fout logboekregistratie** -gedetailleerde foutinformatie voor HTTP-statuscodes die duiden op een fout (statuscode 400 of hoger). Deze kan informatie om te bepalen waarom de server heeft geretourneerd met de foutcode bevatten.
+* **Gedetailleerde fout logboekregistratie** -gedetailleerde informatie weer voor elke aanvraag die in HTTP-statuscode 400 of hoger resulteert. Deze kan informatie om te bepalen waarom de server heeft geretourneerd met de foutcode bevatten. Een HTML-bestand voor elke fout wordt gegenereerd (in *D:\LogFiles\DetailedErrors* standaard), en maximaal 50 fouten (bestanden) worden bewaard. Wanneer het aantal HTML-bestanden groter zijn dan 50, wordt de oudste 26 bestanden worden automatisch verwijderd.
 * **Kan geen aanvraag tracering** -gedetailleerde informatie over mislukte aanvragen, met inbegrip van een tracering van de IIS-componenten gebruikt voor het verwerken van de aanvraag en de tijd die in elk onderdeel. Dit is handig als u wilt verbeteren de prestaties van de site of een specifieke HTTP-fout isoleren.
 * **Web Server-logboekregistratie** -informatie over HTTP-transacties met behulp van de [uitgebreide W3C-logboekbestandsindeling](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Dit is handig bij het bepalen van de algemene metrische sitegegevens, zoals het aantal aanvragen dat is verwerkt of het aantal aanvragen afkomstig zijn van een specifiek IP-adres.
 

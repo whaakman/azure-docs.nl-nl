@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 02/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 74061eb081fcc7c2c84707f2414a2edfbfde3289
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: fe0783891bd5f571c06551e19c154d6f22768e84
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299534"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821538"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Gegevens kopiëren van SAP Business Warehouse via Open-Hub met behulp van Azure Data Factory
 
@@ -27,7 +27,7 @@ In dit artikel bevat een overzicht over het gebruik van de Kopieeractiviteit in 
 
 [SAP BW Open Hub Service](https://wiki.scn.sap.com/wiki/display/BI/Overview+of+Open+Hub+Service) is een efficiënte manier gegevens te extraheren uit SAP BW. Het volgende diagram toont een van de typische stromen die klanten in hun SAP-systeem hebben, in welk geval gegevensstromen van SAP ECC -> PSA -> DSO kubus ->.
 
-SAP BW Open Hub bestemming (OHD) definieert het doel waarnaar de SAP-gegevens wordt doorgegeven. Eventuele objecten die wordt ondersteund door SAP Data Transfer proces (DTP) kunnen worden gebruikt als open hub-gegevensbronnen, bijvoorbeeld DSO, InfoCube, MultiProvider, de gegevensbron, enzovoort. Open type van de bestemming van de Hub - waar de relayed gegevens worden opgeslagen - databasetabellen (lokaal of extern) kan worden en platte bestanden. Deze connector SAP BW Open Hub ondersteuning het kopiëren van gegevens uit de lokale tabel OHD in BW. Als u van andere typen gebruikmaakt, kunt u rechtstreeks verbinding maken met de database of bestand system met behulp van andere connectors.
+SAP BW Open Hub bestemming (OHD) definieert het doel waarnaar de SAP-gegevens wordt doorgegeven. Eventuele objecten die wordt ondersteund door SAP Data Transfer proces (DTP) kunnen worden gebruikt als open hub-gegevensbronnen, bijvoorbeeld DSO, InfoCube, DataSource, enzovoort. Open type van de bestemming van de Hub - waar de relayed gegevens worden opgeslagen - databasetabellen (lokaal of extern) kan worden en platte bestanden. Deze connector SAP BW Open Hub ondersteuning het kopiëren van gegevens uit de lokale tabel OHD in BW. Als u van andere typen gebruikmaakt, kunt u rechtstreeks verbinding maken met de database of bestand system met behulp van andere connectors.
 
 ![SAP BW Open Hub](./media/connector-sap-business-warehouse-open-hub/sap-bw-open-hub.png)
 
@@ -37,7 +37,7 @@ U kunt gegevens van SAP Business Warehouse via Open Hub kopiëren naar een onder
 
 Deze connector SAP Business Warehouse Open Hub ondersteunt name:
 
-- SAP Business Warehouse **versie 7.30 of hoger (in een recente SAP ondersteuning voor pakket-Stack die na het jaar 2015 zijn uitgebracht)**.
+- SAP Business Warehouse **versie 7.01 of hoger (in een recente SAP ondersteuning voor pakket-Stack die na het jaar 2015 zijn uitgebracht)**.
 - Kopiëren van gegevens via Open Hub lokale doeltabel die onder DSO, InfoCube, MultiProvider, DataSource, enzovoort.
 - Kopiëren van gegevens met behulp van basisverificatie.
 - Verbinding maken met toepassingsserver.

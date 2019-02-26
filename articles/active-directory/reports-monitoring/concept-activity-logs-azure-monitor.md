@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dee8e1a005027899698d55ee120acadc0240b1b6
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 6cf9131fa5eb82fdd3248d78b1e6965cdc69cd3d
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672641"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816144"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Azure AD-activiteitenlogboeken in Azure Monitor (preview)
 
@@ -34,6 +34,8 @@ U kunt nu activiteitenlogboeken van Azure Active Directory (Azure AD) naar versc
 * Verzenden van Azure AD-activiteitenlogboeken naar Logboeken van Azure Monitor om in te schakelen uitgebreide visualisaties, bewaking en waarschuwingen voor de verbonden gegevens.
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="supported-reports"></a>Ondersteunde rapporten
 

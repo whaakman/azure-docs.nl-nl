@@ -17,18 +17,20 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2e565f5b9bcd9e3e79423c742b2c95c00abd97b
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: aca7f0dbe0906ea0e1572f4580d8937ebf3eee64
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454755"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823248"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs-preview"></a>Analyseren van Azure AD-activiteitenlogboeken met Azure Monitor-Logboeken (preview)
 
 Nadat u [integreren van Azure AD-activiteitenlogboeken met Azure Monitor logboeken](howto-integrate-activity-logs-with-log-analytics.md), kunt u de kracht van Azure Monitor-logboeken voor inzicht in uw omgeving. U kunt ook installeren de [analytics weergaven voor Azure AD-activiteit zich logboeken](howto-install-use-log-analytics-views.md) voor toegang tot vooraf gemaakte rapporten met betrekking tot controle en aanmeldingsgebeurtenissen in uw omgeving.
 
 In dit artikel leert u hoe u voor het analyseren van de Azure AD-activiteitenlogboeken in uw Log Analytics-werkruimte. 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Vereisten 
 

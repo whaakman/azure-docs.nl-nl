@@ -8,22 +8,16 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/27/2018
-ms.openlocfilehash: fa32aafa4f042351db7693ee684deafe9ed13fb0
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: a42d2c75913b2c9fdfa0d2b7c3ec2742525a4c97
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748320"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806093"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Regionaal herstel na noodgevallen voor Azure Databricks-clusters
 
 In dit artikel beschrijft een disaster recovery-architectuur geschikt voor Azure Databricks-clusters en de stappen om uit te voeren dat ontwerp.
-
-## <a name="azure-databricks-overview"></a>Overzicht van Azure Databricks
-
-Azure Databricks is een snel, eenvoudig en gezamenlijke Apache Spark gebaseerd analytics-service. Van een big data-pijplijn de gegevens (raw of gestructureerde) is opgenomen in Azure met Azure Data Factory in batches gaat doen, of in de buurt met behulp van realtime worden gestreamd Kafka, Event Hub of IoT-Hub. Deze gebieden van de gegevens in een data lake voor langdurige vastgehouden opslag in Azure Blob Storage of Azure Data Lake Storage. Als onderdeel van uw werkstroom analytics maakt gebruik van Azure Databricks om gegevens te lezen uit meerdere gegevensbronnen zoals [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), [Azure Data Lake Storage](../data-lake-store/index.md), [Azure Cosmos DB](../cosmos-db/index.yml) , of [Azure SQL Data Warehouse](../sql-data-warehouse/index.md) omzetten in baanbrekende inzichten met behulp van Spark.
-
-![Databricks-pijplijn](media/howto-regional-disaster-recovery/databricks-pipeline.png)
 
 ## <a name="azure-databricks-architecture"></a>Azure Databricks-architectuur
 
@@ -37,7 +31,7 @@ Een van de voordelen van deze architectuur is dat gebruikers verbinding maken me
 
 ## <a name="how-to-create-a-regional-disaster-recovery-topology"></a>Over het maken van een regionale disaster recovery-topologie
 
-Zoals u in de bovenstaande beschrijving van de architectuur ziet, er zijn een aantal onderdelen die worden gebruikt voor een Big Data-pijplijn met Azure Databricks: Azure Storage, Azure-Database en andere gegevensbronnen. Azure Databricks is de *compute* pijplijn voor het Big Data. Het is *kortstondige* aard is, wat betekent dat terwijl uw gegevens nog steeds beschikbaar in Azure Storage, is de *compute* (Azure Databricks-cluster) kan worden beëindigd, zodat u niet hoeft te betalen voor compute wanneer u deze niet nodig. De *compute* (Azure Databricks) en opslagbronnen moeten zich in dezelfde regio bevinden zodat taken niet hoge latentie ondervindt.  
+Zoals u in de bovenstaande beschrijving van de architectuur ziet, zijn er een aantal onderdelen die worden gebruikt voor een Big Data-pijplijn met Azure Databricks:  Azure Storage, Azure-Database en andere gegevensbronnen. Azure Databricks is de *compute* pijplijn voor het Big Data. Het is *kortstondige* aard is, wat betekent dat terwijl uw gegevens nog steeds beschikbaar in Azure Storage, is de *compute* (Azure Databricks-cluster) kan worden beëindigd, zodat u niet hoeft te betalen voor compute wanneer u deze niet nodig. De *compute* (Azure Databricks) en opslagbronnen moeten zich in dezelfde regio bevinden zodat taken niet hoge latentie ondervindt.  
 
 Voor het maken van de topologie van uw eigen regionale disaster recovery, de volgende vereisten voldoen:
 

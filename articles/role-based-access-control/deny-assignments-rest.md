@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 29b8e0953109238b724cc8df9f456706f71a041e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: ba1c60d45fb53be158d9e302748366ddf417f23e
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341620"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805474"
 ---
 # <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>Lijst weigeren toewijzingen voor Azure-resources met behulp van de REST-API
 
-Op dit moment zijn weigeringstoewijzingen **alleen-lezen** en kunnen deze alleen worden ingesteld door Azure. U kunt geen eigen weigeringstoewijzingen maken, maar u kunt wel een lijst met weigeringstoewijzingen weergeven omdat deze invloed kunnen hebben op uw effectieve machtigingen. Dit artikel wordt beschreven hoe u om weer te geven met RBAC en de REST-API toewijzingen weigeren.
+Op dit moment weigeren toewijzingen worden **alleen-lezen** en kan alleen worden ingesteld door Microsoft. U kunt geen eigen weigeringstoewijzingen maken, maar u kunt wel een lijst met weigeringstoewijzingen weergeven omdat deze invloed kunnen hebben op uw effectieve machtigingen. Dit artikel wordt beschreven hoe u om weer te geven met RBAC en de REST-API toewijzingen weigeren.
 
 ## <a name="list-a-single-deny-assignment"></a>Lijst met één opdracht weigeren
 

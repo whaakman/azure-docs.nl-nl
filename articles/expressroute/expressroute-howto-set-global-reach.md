@@ -2,27 +2,21 @@
 title: 'Wereldwijd bereik - ExpressRoute configureren: Azure | Microsoft Docs'
 description: Dit artikel helpt u koppelen van ExpressRoute-circuits samen om te maken van een particulier netwerk tussen uw on-premises netwerken en globale bereiken inschakelen.
 services: expressroute
-author: mialdrid
+author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/13/2018
-ms.author: mialdrid
+ms.date: 02/25/2019
+ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: ab1098ca65ad92cffdbe1dfb24fd43fcc8f10eae
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: aff283da27197b11ee496faecdd8b69571d3547e
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54431670"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821333"
 ---
-# <a name="configure-expressroute-global-reach-preview"></a>Configureer ExpressRoute globaal bereik (preview)
+# <a name="configure-expressroute-global-reach"></a>ExpressRoute Global Reach configureren
 Dit artikel helpt u bij het configureren van ExpressRoute globale bereiken met behulp van PowerShell. Zie voor meer informatie, [ExpressRouteRoute globaal bereik](expressroute-global-reach.md).
- 
-## <a name="before-you-begin"></a>Voordat u begint
-> [!IMPORTANT]
-> Deze openbare preview wordt aangeboden zonder een service level agreement, en mag niet worden gebruikt voor werkbelastingen voor productie. Bepaalde functies worden mogelijk niet ondersteund, zijn mogelijk beperkt of zijn mogelijk niet beschikbaar op alle Azure-locaties. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
-> 
-
 
 Voordat u de configuratie begint, controleert u het volgende:
 

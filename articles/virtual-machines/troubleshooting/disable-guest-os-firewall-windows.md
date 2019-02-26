@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: b0cd20278287b41dd953c64044b705aa2dba7557
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a8856bd46f516aa3c64965648d4f23b9ba665b1b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319405"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820022"
 ---
-# <a name="disable-the-guest-os-firewall-in-azure-vm"></a>De Gast OS-Firewall in virtuele Azure-machine uitschakelen
+# <a name="disable-the-guest-os-firewall-in-azure-vm"></a>De firewall van het gastbesturingssysteem uitschakelen in Azure VM
 
 Dit artikel bevat een verwijzing voor situaties waarin u vermoedt dat de firewall van de Gast-besturingssysteem van gedeeltelijke of volledige verkeer naar een virtuele machine (VM filteren). Dit kan gebeuren als de wijzigingen opzettelijk zijn aangebracht in de firewall waardoor RDP-verbindingen mislukken.
 
@@ -33,7 +33,7 @@ Het proces dat wordt beschreven in dit artikel is bedoeld om te worden gebruikt 
 
 Als de virtuele machine online is en kan worden geopend op een andere virtuele machine in hetzelfde virtuele netwerk, kunt u deze oplossingen met behulp van de andere virtuele machine.
 
-#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>Risicobeperking 1: Functie voor Custom Script Extension of opdracht uitvoeren
+#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>Risicobeperking 1: Functie voor aangepaste Scriptextensie of opdracht uitvoeren
 
 Als u een werkende Azure-agent hebt, kunt u [Custom Script Extension](../extensions/custom-script-windows.md) of de [opdrachten uitvoeren](../windows/run-command.md) functie (alleen Resource Manager-VM's) voor het extern uitvoeren van de volgende scripts.
 
@@ -70,7 +70,7 @@ Als u een werkende Azure-agent hebt, kunt u [Custom Script Extension](../extensi
     ```
 
 > [!Note]
-> Als de firewall is ingesteld via een Group Policy Object, werken deze methode niet omdat deze opdracht alleen de vermeldingen in het lokale register wijzigt. Als een beleid ingesteld is, overschrijft deze wijziging. 
+> Als de firewall is ingesteld via een Group Policy Object, werken deze methode niet omdat deze opdracht alleen de vermeldingen in het lokale register wijzigt. Als een beleid ingesteld is, overschrijft deze wijziging. 
 
 #### <a name="mitigation-3-pstools-commands"></a>Risicobeperking 3: PSTools opdrachten
 
@@ -86,7 +86,7 @@ Als u een werkende Azure-agent hebt, kunt u [Custom Script Extension](../extensi
     psservice restart mpssvc
     ```
 
-#### <a name="mitigation-4-remote-registry"></a>Risicobeperking 4: De Remote Registry 
+#### <a name="mitigation-4-remote-registry"></a>Risicobeperking 4: Remote Registry 
 
 Volg deze stappen om het gebruik van [Remote Registry](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry).
 

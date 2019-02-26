@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e0aaddb841687718295e09e64b23d9cefa9246fd
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 29ca8c4114d48fa0d3756930354660712b1b35b3
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436107"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820413"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Een Linux Hybrid Runbook Worker implementeren
 
@@ -62,7 +62,7 @@ Voordat u doorgaat, houd er rekening mee de Log Analytics-werkruimte die aan uw 
 
 1. Schakel de **Automation Hybrid Worker** oplossing in Azure met behulp van een van de volgende methoden:
 
-   * Toevoegen de **Automation Hybrid Worker** oplossing aan uw abonnement met behulp van de procedure op [oplossingen voor Log Analytics toevoegen aan uw werkruimte](../log-analytics/log-analytics-add-solutions.md).
+   * Toevoegen de **Automation Hybrid Worker** oplossing aan uw abonnement met behulp van de procedure op [toevoegen Azure Monitor registreert oplossingen aan uw werkruimte](../log-analytics/log-analytics-add-solutions.md).
    * Voer de volgende cmdlet uit:
 
         ```azurepowershell-interactive
@@ -87,7 +87,7 @@ Voordat u doorgaat, houd er rekening mee de Log Analytics-werkruimte die aan uw 
 
 ## <a name="turning-off-signature-validation"></a>Het uitschakelen van handtekeningvalidatie
 
-Standaard is Linux Hybrid Runbook Workers handtekeningvalidatie nodig. Als u een niet-ondertekende runbook in een werkrol uitvoert, ziet u de foutmelding "handtekeningvalidatie is mislukt." Als u wilt uitschakelen handtekeningvalidatie, moet u de volgende opdracht uitvoeren. De tweede parameter vervangen door uw Log Analytics-werkruimte-ID.
+Standaard is Linux Hybrid Runbook Workers handtekeningvalidatie nodig. Als u een niet-ondertekende runbook in een werkrol uitvoert, ziet u de foutmelding "handtekeningvalidatie is mislukt." Als u wilt uitschakelen handtekeningvalidatie, moet u de volgende opdracht uitvoeren. De tweede parameter vervangen door uw log analytics-werkruimte-ID.
 
  ```bash
  sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <LogAnalyticsworkspaceId>

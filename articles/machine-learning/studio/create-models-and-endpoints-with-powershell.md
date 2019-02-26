@@ -5,17 +5,17 @@ description: PowerShell gebruiken voor het maken van meerdere Machine Learning-m
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 40cb4b7969ec2272936d1361be8183db84f944d8
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 442acb88a7a758517b8007b85dd6a58520a0caa4
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455055"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817504"
 ---
 # <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>PowerShell gebruiken voor Studio-modellen en webservice-eindpunten van een experiment maken
 
@@ -27,7 +27,7 @@ U kunt uw model met één keer een samengevoegde versie van alle gegevenssets op
 
 Die mogelijk de beste benadering, maar u niet wilt dat 1000 training om experimenten te maken in Azure Machine Learning Studio met elkaar die een unieke locatie vertegenwoordigt. Naast een enorme taak nog worden, ook lijkt inefficiënt omdat elke experiment allemaal dezelfde onderdelen, met uitzondering van de gegevensset training hebben zou.
 
-Gelukkig, u kunt dit doen met behulp van de [Azure Machine Learning Studio retraining API](retrain-models-programmatically.md) en het automatiseren van de taak met de [Azure Machine Learning Studio PowerShell](powershell-module.md).
+Gelukkig, u kunt dit doen met behulp van de [Azure Machine Learning Studio retraining API](/azure/machine-learning/studio/retrain-machine-learning-model) en het automatiseren van de taak met de [Azure Machine Learning Studio PowerShell](powershell-module.md).
 
 > [!NOTE]
 > Als u uw voorbeeld sneller worden uitgevoerd, verminderen het aantal locaties van 1000 tot en met 10. Maar dezelfde principes en procedures die zijn toegepast op 1000 locaties. Echter, als u wilt trainen van 1000 gegevenssets raadzaam om de volgende PowerShell-scripts parallel uit te voeren. Hoe dat valt buiten het bereik van dit artikel, maar u voorbeelden van PowerShell multithreading kunt vinden op het Internet.  

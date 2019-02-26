@@ -3,7 +3,7 @@ title: Netwerkmodi voor Azure Service Fabric containerservices configureren | Mi
 description: Meer informatie over het instellen van de verschillende netwerken modi die worden ondersteund door Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: twhitney, subramar
-ms.openlocfilehash: 62812dd8f92bcace8f764a21aba608157815cec3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.author: aljo, subramar
+ms.openlocfilehash: 2ae533c81e68f8f6a32ad8fa0e45aed3c63eceb9
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093145"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805253"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Netwerkmodi voor service Fabric-containers
 
@@ -209,7 +209,7 @@ Wanneer een containerservice opnieuw wordt opgestart of naar een ander knooppunt
  
 3. Voor alleen voor Windows-clusters, stelt u een regel voor Azure Netwerkbeveiligingsgroep (NSG) die wordt geopend poort UDP/53 voor het virtuele netwerk met de volgende waarden:
 
-   |Instelling |Waarde | |
+   |Instelling |Value | |
    | --- | --- | --- |
    |Prioriteit |2000 | |
    |Name |Custom_Dns  | |

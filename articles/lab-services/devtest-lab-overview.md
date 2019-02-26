@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: bf9e83a1dfed0aac7f48cd47dc12bf56c7cb1b64
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 47d2e051cf3eeebbfaea95cfc16f5077559e6847
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38481699"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807130"
 ---
 # <a name="about-azure-devtest-labs"></a>Over Azure DevTest Labs
 ## <a name="overview"></a>Overzicht
@@ -44,6 +44,7 @@ Vastleggen en omgevingssjablonen en artefacten binnen uw team of organisatie - a
 
 ## <a name="integrates-with-your-existing-toolchain"></a>Integratie met uw bestaande hulpprogrammaketen
 Maak gebruik van vooraf gemaakte invoegtoepassingen of onze API om in te richten Dev/Test-omgevingen rechtstreeks vanuit uw gewenste tool continue integratie (CI), geïntegreerde ontwikkelingsomgeving (IDE) of pijplijn voor geautomatiseerde release. U kunt ook ons uitgebreide opdrachtregelprogramma gebruiken.
+
 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]

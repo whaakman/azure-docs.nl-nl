@@ -1,5 +1,5 @@
 ---
-title: Beheer de toegang tot Azure resoruces met RBAC en Azure portal | Microsoft Docs
+title: Toegang tot Azure-resources met behulp van RBAC en de Azure-portal beheren | Microsoft Docs
 description: Informatie over het beheren van toegang tot Azure-resources voor gebruikers, groepen, service-principals en beheerde identiteiten met behulp van op rollen gebaseerd toegangsbeheer (RBAC) en de Azure-portal. U vindt hier instructies voor het weergeven van toegang, het verlenen van toegang en het intrekken van toegang.
 services: active-directory
 documentationcenter: ''
@@ -11,43 +11,79 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1e3057108ef179af2f4692c061091fbdf59f0af2
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: bb23cbc275e01eab5361504c547c020b0a29f4c3
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342334"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805287"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Toegang tot Azure-resources met behulp van RBAC en de Azure-portal beheren
 
-[Op rollen gebaseerd toegangsbeheer (RBAC)](overview.md) is de manier waarop dat u de toegang tot Azure-resources beheren. Dit artikel wordt beschreven hoe u de toegang voor gebruikers, groepen, service-principals en beheerde identiteiten met RBAC en de Azure-portal beheren.
+[Op rollen gebaseerd toegangsbeheer (RBAC)](overview.md) is de manier waarop dat u de toegang tot Azure-resources beheren. Dit artikel wordt beschreven hoe u toegang met behulp van de Azure-portal beheren. Als u nodig hebt voor het beheren van toegang tot Azure Active Directory, Zie [weergeven en toewijzen beheerdersrollen in Azure Active Directory](../active-directory/users-groups-roles/directory-manage-roles-portal.md).
+
+## <a name="prerequisites"></a>Vereisten
+
+Als u wilt toevoegen en verwijderen van roltoewijzingen, moet u het volgende hebben:
+
+- `Microsoft.Authorization/roleAssignments/write` en `Microsoft.Authorization/roleAssignments/delete` machtigingen, zoals [Administrator voor gebruikerstoegang](built-in-roles.md#user-access-administrator) of [eigenaar](built-in-roles.md#owner)
+
+## <a name="overview-of-access-control-iam"></a>Overzicht van Access control (IAM)
+
+**Toegangsbeheer (IAM)** is de blade die u gebruikt om toegang tot Azure-resources te beheren. Het is ook bekend als identiteit-en toegangsbeheer en wordt weergegeven in verschillende locaties in Azure portal. Hieronder ziet u een voorbeeld van de blade toegangsbeheer (IAM) voor een abonnement.
+
+![Blade toegangsbeheer (IAM) voor een abonnement](./media/role-assignments-portal/access-control-numbers.png)
+
+De volgende tabel wordt beschreven wat enkele van de elementen worden gebruikt voor:
+
+| # | Element | Wat u gebruikt voor |
+| --- | --- | --- |
+| 1 | Resource waarop Access control (IAM) is geopend | Identificeren van bereik (abonnement in dit voorbeeld) |
+| 2 | **Voeg** knop | Roltoewijzingen toevoegen |
+| 3 | **Toegang controleren** tabblad | De roltoewijzingen voor één gebruiker weergeven |
+| 4 | **Roltoewijzingen** tabblad | De roltoewijzingen weergegeven bij het huidige bereik weergeven |
+| 5 | **Rollen** tabblad | Alle rollen en machtigingen weergeven |
+
+Als u de meest effectieve met de blade toegangsbeheer (IAM), is het handig als u de volgende drie vragen beantwoorden kunt wanneer u probeert om toegang te beheren:
+
+1. **Die toegang nodig heeft?**
+
+    Die verwijst naar een gebruiker, groep, service-principal of beheerde identiteit. Dit heet ook een *beveiligings-principal*.
+
+1. **Welke machtigingen moeten ze?**
+
+    Machtigingen zijn gegroepeerd tot rollen. U kunt selecteren uit een lijst met diverse rollen.
+
+1. **Waar hebben ze toegang nodig?**
+
+    Waar verwijst naar de set van resources die de toegang van toepassing op. Waar kan zijn een beheergroep, abonnement, resourcegroep of één resource, zoals een storage-account. Dit heet de *bereik*.
 
 ## <a name="open-access-control-iam"></a>Open Access control (IAM)
 
-De **toegangsbeheer (IAM)** blade, ook wel bekend als identiteits- en toegangsbeheer, beheer, worden weergegeven in de portal. Als u wilt bekijken of beheren van toegang in de portal, is het eerste wat dat u meestal doen open de blade toegangsbeheer (IAM) in het bereik waarin u wilt weergeven of een wijziging aanbrengt.
+Het eerste wat dat u nodig hebt om te bepalen is waar u de blade toegangsbeheer (IAM) open. Dat hangt ervan af op welke resources u wilt beheren van toegang voor. Wilt u voor het beheren van toegang voor alles in een beheergroep, alles in een abonnement, alles in een resourcegroep of één resource?
 
-1. Klik in de Azure-portal op **alle services** en selecteer vervolgens het bereik of de resource die u wilt bekijken of beheren. Bijvoorbeeld, kunt u **beheergroepen**, **abonnementen**, **resourcegroepen**, of een resource.
+1. Klik in de Azure-portal op **alle services** en selecteer vervolgens het bereik. Bijvoorbeeld, kunt u **beheergroepen**, **abonnementen**, **resourcegroepen**, of een resource.
 
-1. Klik op de specifieke resource die u wilt bekijken of beheren.
+1. Klik op de specifieke resource.
 
 1. Klik op **Toegangsbeheer (IAM)**.
 
-    Hieronder ziet u een voorbeeld van de blade toegangsbeheer (IAM) voor een abonnement.
+    Hieronder ziet u een voorbeeld van de blade toegangsbeheer (IAM) voor een abonnement. Als u geen hier access control-wijzigingen aanbrengt, zouden ze van toepassing op het hele abonnement.
 
     ![Blade toegangsbeheer (IAM) voor een abonnement](./media/role-assignments-portal/access-control-subscription.png)
 
 ## <a name="view-roles-and-permissions"></a>Rollen en machtigingen weergeven
 
-Een roldefinitie is een verzameling machtigingen die u gebruikt voor roltoewijzingen. Azure heeft meer dan 70 [ingebouwde rollen voor Azure-resources](built-in-roles.md). Volg deze stappen om de rollen en machtigingen die kunnen worden uitgevoerd op de beheer- en gegevenslaag weer te geven.
+Een roldefinitie is een verzameling machtigingen die u gebruikt voor roltoewijzingen. Azure heeft meer dan 70 [ingebouwde rollen voor Azure-resources](built-in-roles.md). Volg deze stappen om de beschikbare rollen en machtigingen weer te geven.
 
-1. Open **toegangsbeheer (IAM)** met een bereik, zoals de beheergroep, abonnement, resourcegroep of resource, waar u om rollen en machtigingen weer te geven.
+1. Open **toegangsbeheer (IAM)** op een bereik.
 
 1. Klik op de **rollen** tabblad voor een overzicht van alle ingebouwde en aangepaste rollen.
 
-   Hier ziet u het aantal gebruikers en groepen die zijn toegewezen aan elke rol binnen dit bereik.
+   Hier ziet u het aantal gebruikers en groepen die zijn toegewezen aan elke rol bij het huidige bereik.
 
    ![Lijst met rollen](./media/role-assignments-portal/roles-list.png)
 
@@ -57,7 +93,7 @@ Een roldefinitie is een verzameling machtigingen die u gebruikt voor roltoewijzi
 
 ## <a name="view-role-assignments"></a>Roltoewijzingen weergeven
 
-Toegang kan alleen efficiënt worden beheerd als u weet wie er toegang heeft, wat voor machtigingen gebruikers hebben en op welk niveau. Om de lijst met toegang voor een gebruiker, groep, service-principal of beheerde identiteit te bekijken van de roltoewijzingen.
+Bij het beheren van toegang, u wilt weten wie er toegang heeft, wat zijn de machtigingen, en in welk bereik. Voor toegang tot de lijst voor een gebruiker, groep, service-principal of beheerde identiteit, u de roltoewijzingen van hun weergeven.
 
 ### <a name="view-role-assignments-for-a-single-user"></a>Weergave-roltoewijzingen voor één gebruiker
 
@@ -85,7 +121,7 @@ Volg deze stappen om de toegang voor een enkele gebruiker, groep, service-princi
 
 1. Open **toegangsbeheer (IAM)** met een bereik, zoals de beheergroep, abonnement, resourcegroep of resource, waar u om weer toegang te geven.
 
-1. Klik op de **roltoewijzingen** tabblad (of klik op de **weergave** knop op de tegel weergave rol toewijzingen) om de roltoewijzingen binnen dit bereik weer te geven.
+1. Klik op de **roltoewijzingen** tabblad om de roltoewijzingen binnen dit bereik.
 
    ![Access control - rol toewijzingen tabblad](./media/role-assignments-portal/access-control-role-assignments.png)
 
@@ -101,9 +137,11 @@ In RBAC, als u wilt toegang verlenen u een rol toewijzen aan een gebruiker, groe
 
 1. Klik op de **roltoewijzingen** tabblad om de roltoewijzingen binnen dit bereik.
 
-1. Klik op **roltoewijzing toevoegen** om het deelvenster toevoegen rol toewijzing te openen.
+1. Klik op **toevoegen** > **roltoewijzing toevoegen** om het deelvenster toevoegen rol toewijzing te openen.
 
    Als u niet bent gemachtigd voor het toewijzen van rollen, is de optie Roltoewijzing toevoegen uitgeschakeld.
+
+   ![Menu toevoegen](./media/role-assignments-portal/add-menu.png)
 
    ![Deelvenster Roltoewijzing toevoegen](./media/role-assignments-portal/add-role-assignment.png)
 
@@ -127,9 +165,11 @@ Als u een gebruiker een beheerder van een Azure-abonnement, deze toewijzen de [e
 
 1. Klik op de **roltoewijzingen** tabblad om de roltoewijzingen voor dit abonnement.
 
-1. Klik op **roltoewijzing toevoegen** om het deelvenster toevoegen rol toewijzing te openen.
+1. Klik op **toevoegen** > **roltoewijzing toevoegen** om het deelvenster toevoegen rol toewijzing te openen.
 
    Als u niet bent gemachtigd voor het toewijzen van rollen, is de optie Roltoewijzing toevoegen uitgeschakeld.
+
+   ![Menu toevoegen](./media/role-assignments-portal/add-menu.png)
 
    ![Deelvenster Roltoewijzing toevoegen](./media/role-assignments-portal/add-role-assignment.png)
 

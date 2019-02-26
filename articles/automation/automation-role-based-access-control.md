@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4fb90dbdb02fc0a0448b8cb6723c980c0fe41bd6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 963bc8f6602a33ed703344f5277bb427f11390bb
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424316"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823515"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Op rollen gebaseerd toegangsbeheer in Azure Automation
 
@@ -142,7 +142,7 @@ Een inzender van Log Analytics kan alle controlegegevens lezen en bewerken van i
 |Microsoft.Compute/virtualMachines/extensions/*|Maken en beheren van extensies voor klassieke virtuele machines.|
 |Microsoft.Insights/alertRules/*|Waarschuwingsregels voor lezen/schrijven/verwijderen.|
 |Microsoft.Insights/diagnosticSettings/*|Diagnostische instellingen lezen, schrijven en verwijderen.|
-|Microsoft.OperationalInsights/*|Log Analytics beheren.|
+|Microsoft.OperationalInsights/*|Azure Monitor-logboeken beheren.|
 |Microsoft.OperationsManagement/*|Beheren van oplossingen in werkruimten.|
 |Microsoft.Resources/deployments/*|Maken en beheren van implementaties van resource-groep.|
 |Microsoft.Resources/subscriptions/resourcegroups/deployments/*|Maken en beheren van implementaties van resource-groep.|
@@ -156,8 +156,8 @@ Een lezer van Log Analytics kunt bekijken en zoeken van alle bewakingsgegevens e
 |**Acties**  |**Beschrijving**  |
 |---------|---------|
 |* / lezen|Bronnen van alle typen, met uitzondering van geheimen worden gelezen.|
-|Microsoft.OperationalInsights/workspaces/analytics/query/action|Query's in Log Analytics beheren.|
-|Microsoft.OperationalInsights/workspaces/search/action|Zoeken naar Log Analytics-gegevens.|
+|Microsoft.OperationalInsights/workspaces/analytics/query/action|Query's in Azure Monitor-logboeken beheren.|
+|Microsoft.OperationalInsights/workspaces/search/action|Azure Monitor-logboekgegevens zoeken.|
 |Microsoft.Support/*|Maak en ondersteuningstickets beheren.|
 |**Geen acties**| |
 |Microsoft.OperationalInsights/workspaces/sharedKeys/read|Kan de gedeelde toegangssleutel gelezen.|

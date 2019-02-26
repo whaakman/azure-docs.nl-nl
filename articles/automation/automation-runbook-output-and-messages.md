@@ -9,19 +9,19 @@ ms.author: gwallace
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 82382ecc3adf0d0621f51438a082f7807b031fc9
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ec71f8998f7db07cafca7f8141acb9898b016328
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54431211"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821350"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Runbookuitvoer en -berichten in Azure Automation
 De meeste Azure Automation-runbooks hebben een vorm van uitvoer. Deze uitvoer mogelijk een foutbericht aan de gebruiker of een complex object dat u wilt gebruiken met een ander runbook. Windows PowerShell biedt [meerdere streams](/powershell/module/microsoft.powershell.core/about/about_redirection) voor het verzenden van uitvoer van een script of een werkstroom. Azure Automation werkt anders met elk van deze stromen. U moet volgen aanbevolen procedures voor het gebruik bij het maken van een runbook.
 
 De volgende tabel bevat een korte beschrijving van elk van de stromen en hun gedrag in de Azure-portal voor gepubliceerde runbooks en wanneer [testen van een runbook](automation-testing-runbook.md). In latere secties vindt u meer informatie over elke stroom.
 
-| Stream | Description | Gepubliceerd | Test |
+| Streamen | Description | Gepubliceerd | Test |
 |:--- |:--- |:--- |:--- |
 | Uitvoer |Objecten die zijn bedoeld om te worden verbruikt door andere runbooks. |Naar de taakgeschiedenis geschreven. |In het deelvenster Testuitvoer weergegeven. |
 | Waarschuwing |Waarschuwingsbericht bedoeld voor de gebruiker. |Naar de taakgeschiedenis geschreven. |In het deelvenster Testuitvoer weergegeven. |
@@ -220,8 +220,8 @@ U kunt zien in de voorgaande schermafbeelding dat wanneer u uitgebreide logboekr
    
    ![Grafisch ontwerpen logboekregistratie en tracering van pagina](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
-### <a name="microsoft-azure-log-analytics"></a>Microsoft Azure Log Analytics
-Automation kunt runbook en taakstromen van een taak verzenden naar uw Log Analytics-werkruimte. U kunt de met Log Analytics,
+### <a name="microsoft-azure-monitor-logs"></a>Microsoft Azure Monitor-Logboeken
+Automation kunt runbook en taakstromen van een taak verzenden naar uw Log Analytics-werkruimte. U kunt met Azure Monitor-Logboeken,
 
 * Krijg inzicht in uw Automation-taken 
 * Trigger een e-mailadres of de waarschuwing op basis van uw runbook job status (voor bijvoorbeeld mislukte of onderbroken) 
@@ -229,7 +229,7 @@ Automation kunt runbook en taakstromen van een taak verzenden naar uw Log Analyt
 * Combineer taken van Automation-accounts 
 * Visualiseer uw Taakgeschiedenis na verloop van tijd    
 
-Zie voor meer informatie over het configureren van integratie met Log Analytics te verzamelen, correleren en reageren op Taakgegevens [taakstatus en taakstromen van Automation doorsturen naar Log Analytics](automation-manage-send-joblogs-log-analytics.md).
+Zie voor meer informatie over het configureren van integratie met Azure Monitor-logboeken te verzamelen, correleren en reageren op Taakgegevens [taakstatus en taakstromen van Automation doorsturen naar de logboeken van Azure Monitor](automation-manage-send-joblogs-log-analytics.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie [Track a runbook job (Runbooktaken bijhouden)](automation-runbook-execution.md) voor meer informatie over runbookuitvoering, het bewaken van runbooktaken en andere technische details

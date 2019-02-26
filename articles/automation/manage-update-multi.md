@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/10/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ac2d1c1fb59988c8b95fda6b92bb9ae0332fc0e0
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 864e93dcd94fd36b0e34495e0ea27f22d8b0dd0c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427420"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817674"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Updates voor meerdere machines beheren
 
@@ -72,7 +72,7 @@ Zodra de voorbereiding is voltooid, wordt updatebeheer is ingeschakeld voor uw v
 
 Zie voor informatie over het inschakelen van updatebeheer voor virtuele machines van Azure Windows- en -computers, [verbinding maken met Windows-computers naar de Log Analytics-service in Azure](../log-analytics/log-analytics-windows-agent.md).
 
-Zie voor informatie over het inschakelen van updatebeheer voor virtuele Azure Linux-machines en computers, [uw Linux-computers verbinden met Log Analytics](../log-analytics/log-analytics-agent-linux.md).
+Zie voor informatie over het inschakelen van updatebeheer voor virtuele Azure Linux-machines en computers, [uw Linux-computers verbinden met Azure Monitor logboeken](../log-analytics/log-analytics-agent-linux.md).
 
 ## <a name="view-computers-attached-to-your-automation-account"></a>Computers weergeven die zijn gekoppeld aan uw Automation-account
 
@@ -113,7 +113,7 @@ De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door de
 
 ### <a name="collection-frequency"></a>Verzamelingsfrequentie
 
-Nadat een computer is voltooid scannen voor Updatevereisten, stuurt de agent de informatie in bulk door naar Azure Log Analytics. Op een Windows-computer, de nalevingsscan standaard elke 12 uur uitgevoerd.
+Nadat een computer is voltooid scannen voor Updatevereisten, stuurt de agent de informatie in bulk naar Azure Monitor-Logboeken. Op een Windows-computer, de nalevingsscan standaard elke 12 uur uitgevoerd.
 
 Naast het schema voor scannen, wordt de scan voor naleving van updates binnen 15 minuten van de MMA opnieuw wordt gestart, voordat de installatie van de update en na installatie van update gestart.
 
@@ -132,7 +132,7 @@ In de **nieuwe update-implementatie** in het deelvenster de volgende informatie 
 - **Naam**: Voer een unieke naam voor het identificeren van de update-implementatie.
 - **Besturingssysteem**: Selecteer **Windows** of **Linux**.
 - **Groepen om bij te werken (preview)**: definieer een query op basis van een combinatie van abonnement, resourcegroepen, locaties en tags om een dynamische groep virtuele Azure-machines te bouwen voor opname in uw implementatie. Zie [Dynamische groepen](automation-update-management.md#using-dynamic-groups) voor meer informatie
-- **Bij te werken computers**: Selecteer een opgeslagen zoekopdracht, geïmporteerd groep, of selecteer Machines om te kiezen op de computers die u wilt bijwerken. Als u **Computers** selecteert, wordt de gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**. U ziet de status van de machine voordat u de update-implementatie plannen. Zie [Computergroepen in Log Analytics](../azure-monitor/platform/computer-groups.md) voor meer informatie over de verschillende manieren waarop u computergroepen kunt maken in Log Analytics
+- **Bij te werken computers**: Selecteer een opgeslagen zoekopdracht, geïmporteerd groep, of selecteer Machines om te kiezen op de computers die u wilt bijwerken. Als u **Computers** selecteert, wordt de gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**. U ziet de status van de machine voordat u de update-implementatie plannen. Zie voor meer informatie over de verschillende methoden voor het maken van computergroepen in Azure Monitor-Logboeken, [computergroepen in Logboeken van Azure Monitor](../azure-monitor/platform/computer-groups.md)
 
   ![Deelvenster met nieuwe update-implementatie](./media/manage-update-multi/update-select-computers.png)
 

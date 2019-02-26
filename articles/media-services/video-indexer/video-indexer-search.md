@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: d2c2e87b3dade68dc311aa38743c11a60a69f68b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6c93c0228425b2ff020e5b4301e68eae5b1062a3
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004541"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807827"
 ---
 # <a name="find-exact-moments-within-videos"></a>Exacte momenten in video's zoeken
 
@@ -23,12 +23,14 @@ Dit onderwerp leest u de zoekopties waarmee u kunt exacte momenten in video's zo
 1. Ga naar de [Video Indexer](https://www.videoindexer.ai/)-website en meld u aan.
 2. Zoeken in alle video's in uw account.
 
-    In het volgende voorbeeld wordt gezocht voor alle video's die zijn gemaakt door de Channel 9 met Scott Hanselman.
+    In het volgende voorbeeld wordt er gezocht naar alle video's die communiceren over beveiliging en waarin Satya wordt weergegeven,
 
     ![Search](./media/video-indexer-search/video-indexer-search01.png)
 3. Zoeken naar de samengevatte inzichten van de video.
 
-    Vervolgens kunt u zoeken binnen een video door te klikken op **afspelen** op de video. Vervolgens kunt u zoeken binnen de video door het selecteren van de **zoeken** tabblad. Bijvoorbeeld, hebben wij gezocht voor alle locaties waar de tekst 'identity protection' wordt gebruikt. 
+    Vervolgens kunt u zoeken binnen een video door te klikken op **afspelen** op de video. Vervolgens kunt u zoeken binnen de video door het selecteren van de **zoeken** tabblad. 
+
+    In het volgende voorbeeld wordt er gezocht naar "veilig" in de geselecteerde video.
 
     ![Search](./media/video-indexer-search/video-indexer-search02.png)
 

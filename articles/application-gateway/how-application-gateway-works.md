@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: d44bb4d3d0ff625d071c87fd39b3776915a6198f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 06206ececcb1a51da402c4232f19801793c1cd4a
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56675794"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807334"
 ---
 # <a name="how-application-gateway-works"></a>De werking van Application Gateway
 
@@ -42,9 +42,9 @@ Zodra de back-endserver de aanvraag verwerkt en een HTTP-antwoord met de pagina-
 
 Als een toepassing met interne load balancer of een internetgerichte toepassing load balancer kunt u de toepassingsgateway. Een internetgerichte Application Gateway biedt openbare IP-adressen. De DNS-naam van een internetgerichte Application Gateway is openbaar omgezette naar het openbare IP-adres. Internetgerichte Application Gateways kunnen daarom aanvragen van clients worden gerouteerd via Internet.
 
-Een interne Application-Gateway heeft alleen privé IP-adres. De DNS-naam van een interne Application-Gateway is een openbaar omgezette het particuliere IP-adres. Interne load balancers kunnen daarom alleen aanvragen van clients die toegang heeft met het VNET versturen voor Application Gateway.
+Een interne Application-Gateway heeft alleen privé IP-adres. De DNS-naam van een interne Application-Gateway is intern worden opgelost als de privé IP-adres. Interne load balancers kunnen daarom alleen aanvragen van clients die toegang heeft met het VNET versturen voor Application Gateway.
 
-Houd er rekening mee dat zowel internetgerichte en interne Toepassingsgateways routeren van aanvragen naar uw back-endservers met behulp van privé-IP-adressen. Uw back-endservers hoeft daarom geen openbare IP-adressen voor het ontvangen van aanvragen van een interne of een internetgerichte Application-Gateway.
+Houd er rekening mee dat zowel internetgerichte en interne Toepassingsgateways routeren van aanvragen naar uw back-endservers met behulp van privé-IP-adressen. Als uw back-end-pool resource bevat een privé IP-adres, VM NIC-configuratie of een intern omgezet adres, en als uw back endpool is een openbaar eindpunt, Application Gateway maakt gebruik van de front-end openbaar IP-adres om de server te bereiken. Als u een openbaar IP-adres voor front-end nog niet hebt ingericht, wordt een toegewezen voor de uitgaande externe connectiviteit.
 
 ## <a name="next-steps"></a>Volgende stappen
 

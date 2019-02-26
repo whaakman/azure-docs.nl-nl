@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2019
-ms.openlocfilehash: 407bb2e39e92390576da9c23868f5af9c444bed4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.date: 02/25/2019
+ms.openlocfilehash: fab5d69239c420c394645cef632d119848d0f4c4
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341529"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818830"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Activiteit in Azure Data Factory verwijderen
 
@@ -37,21 +37,20 @@ Hier volgen enkele aanbevelingen voor het gebruik van de activiteit verwijderen:
 
 -   Zorg ervoor dat u bent niet verwijderen van bestanden die op hetzelfde moment worden geschreven. 
 
--   Als u verwijderen van bestanden of mappen van een on-premises systeem wilt, zorg er dan voor dat u gebruikmaakt van een zelf-hostende integratieruntime met een versie die groter zijn dan 3.13.
+-   Als u verwijderen van bestanden of mappen van een on-premises systeem wilt, zorg er dan voor dat u gebruikmaakt van een zelf-hostende integratieruntime met een versie die groter is dan 3,14.
 
 ## <a name="supported-data-stores"></a>Ondersteunde gegevensarchieven
 
-### <a name="azure-data-stores"></a>Azure-gegevensopslag
-
 -   [Azure Blob Storage](connector-azure-blob-storage.md)
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
--   [Azure Data Lake Storage Gen2 (preview)](connector-azure-data-lake-storage.md)
+-   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
 
 ### <a name="file-system-data-stores"></a>Systeem gegevens worden opgeslagen
 
 -   [Bestandssysteem](connector-file-system.md)
 -   [FTP](connector-ftp.md)
--   [HDFS](connector-hdfs.md)
+-   [SFTP](connector-sftp.md)
+-   [Amazon S3](connector-amazon-simple-storage-service.md)
 
 ## <a name="syntax"></a>Syntaxis
 
@@ -61,7 +60,7 @@ Hier volgen enkele aanbevelingen voor het gebruik van de activiteit verwijderen:
     "type": "Delete",
     "typeProperties": {
         "dataset": {
-            "referenceName": "<dataset name to be deleted>",
+            "referenceName": "<dataset name>",
             "type": "DatasetReference"
         },
         "recursive": true/false,
@@ -87,7 +86,7 @@ Hier volgen enkele aanbevelingen voor het gebruik van de activiteit verwijderen:
 | maxConcurrentConnections | Het nummer van de verbindingen verbinding maken met opslag store gelijktijdig voor het verwijderen van map of bestanden.   |  Nee. De standaardwaarde is `1`. |
 | EnableLogging | Geeft aan of u wilt vastleggen van de namen van mappen of bestanden die zijn verwijderd. Indien waar, moet u een opslagaccount om op te slaan van het logboekbestand verder opgeven zodat u het gedrag van de Delete-activiteit bijhouden kunt door te lezen van het logboekbestand. | Nee |
 | logStorageSettings | Alleen van toepassing wanneer enablelogging = true.<br/><br/>Een groep met Opslageigenschappen die kunnen worden opgegeven waar u het bestand met de map of bestand namen die zijn verwijderd door de activiteit verwijderen. | Nee |
-| linkedServiceName | Alleen van toepassing wanneer enablelogging = true.<br/><br/>De gekoppelde service van [Azure Storage](connector-azure-blob-storage.md#linked-service-properties) of [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) voor het opslaan van het logboekbestand dat bevat het bestand of map namen die zijn verwijderd door de activiteit verwijderen. | Nee |
+| linkedServiceName | Alleen van toepassing wanneer enablelogging = true.<br/><br/>De gekoppelde service van [Azure Storage](connector-azure-blob-storage.md#linked-service-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#linked-service-properties), of [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) voor het opslaan van het logboekbestand bevat die de map of bestand namen die is verwijderd door de activiteit verwijderen. | Nee |
 | pad | Alleen van toepassing wanneer enablelogging = true.<br/><br/>Het pad naar het logboekbestand opslaan in uw storage-account. Als u een pad opgeeft, wordt in de service een container voor u gemaakt. | Nee |
 
 ## <a name="monitoring"></a>Bewaking
@@ -100,13 +99,15 @@ Er zijn twee manieren waarop u kunt zien en controleren van de resultaten van de
 
 ```json
 { 
-  "isWildcardUsed": false, 
-  "wildcard": null,
-  "type": "AzureBlobStorage",
+  "datasetName": "AmazonS3",
+  "type": "AmazonS3Object",
+  "prefix": "test",
+  "bucketName": "adf",
   "recursive": true,
-  "maxConcurrentConnections": 10,
-  "filesDeleted": 1,
-  "logPath": "https://sample.blob.core.windows.net/mycontainer/5c698705-a6e2-40bf-911e-e0a927de3f07/5c698705-a6e2-40bf-911e-e0a927de3f07.json",
+  "isWildcardUsed": false,
+  "maxConcurrentConnections": 2,  
+  "filesDeleted": 4,
+  "logPath": "https://sample.blob.core.windows.net/mycontainer/5c698705-a6e2-40bf-911e-e0a927de3f07",
   "effectiveIntegrationRuntime": "MyAzureIR (West Central US)",
   "executionDuration": 650
 }
@@ -114,22 +115,12 @@ Er zijn twee manieren waarop u kunt zien en controleren van de resultaten van de
 
 ### <a name="sample-log-file-of-the-delete-activity"></a>Logboekbestand van de activiteit verwijderen
 
-```json
-{
-  "customerInput": {
-    "type": "AzureBlob",
-    "fileName": "",
-    "folderPath": "folder/filename_to_be_deleted",
-    "recursive": false,
-    "enableFileFilter": false
-  },
-  "deletedFileList": [
-    "folder/filename_to_be_deleted"
-  ],
-  "deletedFolderList": null,
-  "error":"the reason why files are failed to be deleted"
-}
-```
+| Name | Categorie | Status | Fout |
+|:--- |:--- |:--- |:--- |
+| test1/yyy.json | File | Deleted |  |
+| test2/hello789.txt | File | Deleted |  |
+| test2/test3/hello000.txt | File | Deleted |  |
+| test2/test3/zzz.json | File | Deleted |  |
 
 ## <a name="examples-of-using-the-delete-activity"></a>Voorbeelden van het gebruik van de activiteit verwijderen
 
@@ -332,7 +323,7 @@ U kunt een pijplijn voor het opschonen van de oude of verlopen bestanden door ge
 
 ### <a name="move-files-by-chaining-the-copy-activity-and-the-delete-activity"></a>Bestanden verplaatsen door het koppelen van de kopieeractiviteit en de activiteit verwijderen
 
-U kunt een bestand verplaatst met behulp van een kopieeractiviteit om een bestand te kopiëren en vervolgens een de Delete-activiteit om een bestand in een pijplijn te verwijderen.  Als u wilt dat meerdere bestanden te verplaatsen, kunt u gebruikmaken van de activiteit GetMetadata + filteractiviteit + Foreach-activiteit + kopieeractiviteit + activiteit zoals in het volgende voorbeeld verwijderen:
+U kunt een bestand verplaatsen met behulp van een kopieeractiviteit om een bestand te kopiëren en vervolgens een delete-activiteit om een bestand in een pijplijn te verwijderen.  Als u wilt dat meerdere bestanden te verplaatsen, kunt u gebruikmaken van de activiteit GetMetadata + filteractiviteit + Foreach-activiteit + kopieeractiviteit + activiteit zoals in het volgende voorbeeld verwijderen:
 
 > [!NOTE]
 > Als u wilt verplaatsen van de hele map door te definiëren van een gegevensset met alleen een mappad en vervolgens met behulp van een kopieeractiviteit en een de Delete-activiteit om te verwijzen naar dezelfde gegevensset voor een map, moet u voorzichtig. Dit is omdat u om ervoor te zorgen dat er geen nieuwe bestanden die binnenkomen in de map worden tussen bewerking kopiëren en verwijderen van de bewerking.  Als er nieuwe bestanden die binnenkomen in de map op het moment wanneer de kopieeractiviteit zojuist de taak voor het kopiëren, maar de Delete-activiteit niet is stared zijn, is het mogelijk dat de activiteit verwijderen deze nieuwe binnenkomende-bestand dat niet is gekopieerd naar de destinati wordt verwijderd op het nog door het verwijderen van de hele map. 
@@ -575,9 +566,6 @@ Gegevensset voor het Gegevensdoel van die worden gebruikt door de kopieeractivit
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het kopiëren van bestanden in Azure Data Factory.
-
--   [De Kopieeractiviteit in Azure Data Factory](copy-activity-overview.md)
+Meer informatie over het verplaatsen van bestanden in Azure Data Factory.
 
 -   [Hulpprogramma voor kopiëren-gegevens in Azure Data Factory](copy-data-tool.md)
-- 

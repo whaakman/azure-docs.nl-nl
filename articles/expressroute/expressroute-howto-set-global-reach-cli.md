@@ -2,28 +2,23 @@
 title: 'Configureer ExpressRoute wereldwijd bereik: Azure CLI | Microsoft Docs'
 description: Dit artikel helpt u koppelen van ExpressRoute-circuits samen om te maken van een particulier netwerk tussen uw on-premises netwerken en globale bereiken inschakelen.
 services: expressroute
-author: cherylmc
+author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/12/2018
-ms.author: cherylmc
+ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: be10489d731b9e01d148ce1ac7892cb6de956662
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 28df8f59944ccac9d731e15a558d864beed2f3ae
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659317"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817691"
 ---
-# <a name="configure-expressroute-global-reach-by-using-the-azure-cli-preview"></a>Globaal bereik ExpressRoute configureren met behulp van de Azure CLI (Preview)
+# <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Globaal bereik ExpressRoute configureren met behulp van de Azure CLI
 
 Dit artikel helpt u bij het configureren van Azure ExpressRoute globale bereiken met behulp van de Azure CLI. Zie [ExpressRoute Global Reach](expressroute-global-reach.md) voor meer informatie.
  
-## <a name="before-you-begin"></a>Voordat u begint
-
-> [!IMPORTANT]
-> Deze openbare preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Bepaalde functies worden mogelijk niet ondersteund, zijn mogelijk beperkt of zijn mogelijk niet beschikbaar in alle Azure-locaties. Raadpleeg voor meer informatie de [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Voordat u de configuratie begint, voert u de volgende vereisten:
 
 * Installeer de nieuwste versie van de Azure CLI. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) en [Aan de slag met de Azure CLI](/cli/azure/get-started-with-azure-cli).

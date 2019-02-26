@@ -5,17 +5,17 @@ description: Informatie over het opnieuw trainen van een model en het bijwerken 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: peterlu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: 73ab816c7043c7fb0f572677c6ceeb722653dec1
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: fa4448c2a44a3c56548120bd04abf53df9a85ba0
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650767"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822016"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-web-service"></a>Opnieuw trainen en implementeren van een klassieke Studio-webservice
 
@@ -23,7 +23,7 @@ Opnieuw trainen van modellen voor machine learning is een manier om te zorgen da
 
 ## <a name="prerequisites"></a>Vereisten
 
-In dit artikel wordt ervan uitgegaan dat u hebt al een retraining experiment zowel een Voorspellend experiment. Deze stappen worden beschreven [opnieuw trainen en implementeren van een machine learning-model.](retrain-models-programmatically.md) In plaats van uw machine learning-model als een nieuwe webservice implementeert, wordt u echter uw Voorspellend experiment implementeren als een klassieke webservice.
+In dit artikel wordt ervan uitgegaan dat u hebt al een retraining experiment zowel een Voorspellend experiment. Deze stappen worden beschreven [opnieuw trainen en implementeren van een machine learning-model.](/azure/machine-learning/studio/retrain-machine-learning-model) In plaats van uw machine learning-model als een nieuwe webservice implementeert, wordt u echter uw Voorspellend experiment implementeren als een klassieke webservice.
      
 ## <a name="add-a-new-endpoint"></a>Een nieuw eindpunt toevoegen
 

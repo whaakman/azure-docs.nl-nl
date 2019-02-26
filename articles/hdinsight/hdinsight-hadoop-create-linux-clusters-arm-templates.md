@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: d40d3b32f3af8e50079de0a5988584427ea6777c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: b8264e4f69a7561865f5d14087bc81bc933a6c59
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819804"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821401"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Apache Hadoop-clusters in HDInsight maken met behulp van Resource Manager-sjablonen
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -47,11 +47,7 @@ Zie de volgende artikelen en voorbeelden voor meer informatie over het Resource 
 
 ## <a name="generate-templates"></a>Genereren van sjablonen
 
-Resource Manager kunt u een Resource Manager-sjabloon exporteren uit bestaande resources in uw abonnement met behulp van verschillende hulpprogramma's. Deze gegenereerde sjabloon kunt u vervolgens gebruiken om meer te weten te komen over de sjabloonsyntaxis of om desgewenst het hergebruik van uw oplossing te automatiseren.
-
-- Azure Portal: Zie [een Azure Resource Manager-sjabloon exporteren uit bestaande resources](../azure-resource-manager/resource-manager-export-template.md).
-- Azure PowerShell: Zie [exporteren van Azure Resource Manager-sjablonen met PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md).
-- Klassieke Azure-CLI: Zie [exporteren van Azure Resource Manager-sjablonen met klassieke Azure-CLI](../azure-resource-manager/resource-manager-export-template-cli.md).
+Resource Manager kunt u een Resource Manager-sjabloon exporteren uit bestaande resources in uw abonnement met behulp van verschillende hulpprogramma's. Deze gegenereerde sjabloon kunt u vervolgens gebruiken om meer te weten te komen over de sjabloonsyntaxis of om desgewenst het hergebruik van uw oplossing te automatiseren. Zie voor meer informatie, [sjablonen exporteren](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
 
 ## <a name="deploy-using-the-portal"></a>Implementeren met behulp van de portal
 

@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 516d8e9116bbdcd421897b5a5c2d9755e7e636c8
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: cd137f8fb44b20c9a1b3a506ad2703fc780bae89
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903550"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806646"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Beheer de toegang tot factureringsgegevens voor Azure
 
@@ -45,7 +45,7 @@ Deze rollen hebben toegang tot factureringsgegevens in de [Azure-portal](https:/
 
 ### <a name="opt-in"></a> Gebruikers toestaan om te downloaden van facturen
 
-Nadat u evalueren toewijzen die de juiste rollen voor leden van uw team, de accountbeheerder moeten inschakelen om te downloaden van facturen in Azure portal. Facturen die ouder zijn dan December 2016 zijn beschikbaar alleen naar de accountbeheerder.
+Nadat u de juiste rollen aan leden van uw team toewijzen, kan de accountbeheerder toegang tot het downloaden van facturen in Azure portal moet inschakelen. Facturen die ouder zijn dan December 2016 zijn beschikbaar alleen naar de accountbeheerder.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 1. Als de accountbeheerder, selecteer uw abonnement uit de [blade abonnementen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in Azure portal.

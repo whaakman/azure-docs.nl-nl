@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 293c2325f57f04c3a77b0b2b8ec2ef30e8c912b8
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: d5c92e31850cdac5e05021fd231259b0d3b064d1
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156235"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822801"
 ---
 # <a name="door-monitor"></a>De deur van Monitor          
 
@@ -66,7 +66,7 @@ U ziet nu het SendGrid aanmeldingsformulier hebt ingevuld.
 
 Voer het aanmeldingsformulier hebt ingevuld:
 
-   * **Resourcegroep**: Maak een resourcegroep voor het hosten van de SendGrid-service of gebruik een bestaande resourcegroep. Zie [resourcegroepen gebruiken voor het beheren van uw Azure-resources](../azure-resource-manager/resource-group-portal.md).
+   * **Resourcegroep**: Maak een resourcegroep voor het hosten van de SendGrid-service of gebruik een bestaande resourcegroep. Zie [resourcegroepen gebruiken voor het beheren van uw Azure-resources](../azure-resource-manager/manage-resource-groups-portal.md).
 
    * **Naam**: De naam voor uw SendGrid-service. Kies een unieke naam, die afwijkt van andere services die u hebt.
 
@@ -102,11 +102,11 @@ Klik op de **implementeren in Azure** hieronder.
 
 Het aanmeldingsformulier hebt ingevuld, wordt weergegeven.
 
-![IoTHub-implementatie](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/iot-hub-deploy.png)
+![IoTHub Deployment](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/iot-hub-deploy.png)
 
 Vul de velden in het aanmeldingsformulier hebt ingevuld.
 
-   * **Resourcegroep**: Maak een resourcegroep voor het hosten van de SendGrid-service of gebruik een bestaande resourcegroep. Zie [resourcegroepen gebruiken voor het beheren van uw Azure-resources](../azure-resource-manager/resource-group-portal.md).
+   * **Resourcegroep**: Maak een resourcegroep voor het hosten van de SendGrid-service of gebruik een bestaande resourcegroep. Zie [resourcegroepen gebruiken voor het beheren van uw Azure-resources](../azure-resource-manager/manage-resource-groups-portal.md).
 
    * **De naam van IOT Hub**: De naam voor uw IoT-hub. Kies een unieke naam, die afwijkt van andere services die u hebt.
 
@@ -193,7 +193,7 @@ Na de initialisatie van, `Door closed` op het scherm wordt weergegeven. Als er e
 
 Als u problemen ondervindt, raadpleegt u de [IoT DevKit Veelgestelde vragen over](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) of verbinding maken met behulp van de volgende kanalen:
 
-* [Gitter.IM](http://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Volgende stappen

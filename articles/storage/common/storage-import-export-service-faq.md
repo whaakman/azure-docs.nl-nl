@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 6706da978195cff65a3454e6b2d71dfea3b414c4
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 0b3128184942dbc750ea54bd7156c6e79b8bedea
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651410"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804838"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure Import/Export-service: veelgestelde vragen 
 Hier volgen vragen en antwoorden die u hebt wanneer u uw Azure Import/Export-service voor het overbrengen van gegevens naar Azure storage. De vragen en antwoorden zijn in de volgende categorieën onderverdeeld:
@@ -96,7 +96,7 @@ Houd er rekening mee dat de fysieke media die u moet mogelijk cross-internationa
 ### <a name="are-there-any-special-requirements-for-delivering-my-disks-to-a-datacenter"></a>Zijn er speciale vereisten voor het leveren van mijn schijven naar een datacenter?
 
 De vereisten, is afhankelijk van de specifieke Azure-datacenter-beperkingen.
-- Er zijn enkele klasse C-sites (bijvoorbeeld, Frankfurt), waarvoor een Microsoft-datacentrum inkomende ID-nummer van het pakket uit veiligheidsoverwegingen worden geschreven. Voordat u uw stations of schijven naar het datacenter te verzenden, neem dan contact op met de Azure DataBox bewerkingen (adbops@microsoft.com) om dit nummer. Zonder dit nummer, worden het pakket geweigerd.
+- Er zijn enkele sites, waarvoor een Microsoft-datacentrum inkomende ID-nummer van het pakket uit veiligheidsoverwegingen worden geschreven. Voordat u uw stations of schijven naar het datacenter te verzenden, neem dan contact op met de Azure DataBox bewerkingen (adbops@microsoft.com) om dit nummer. Zonder dit nummer, worden het pakket geweigerd.
 - De datacenters in India vereisen dat de persoonlijke gegevens van het stuurprogramma, zoals de overheid id-kaart of bewijs Nee. plaat getal in om een vermelding gate pass (bijvoorbeeld PANNEN, AADHAR, DL), met de naam en neem contact op met de auto. Om te voorkomen dat een vertraging bij de levering, door de provider te informeren over deze vereisten.
 
 

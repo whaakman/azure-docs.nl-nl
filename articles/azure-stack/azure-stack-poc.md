@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/25/2018
+ms.date: 02/25/2019
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
-ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 9341eefdbe1eaa8e27394fd4b10f50b1a48bd4c6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/25/2019
+ms.openlocfilehash: 65894ccd9514bce1d429b336f8bd5e6674048e65
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247320"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820260"
 ---
 # <a name="what-is-azure-stack"></a>Wat is Azure Stack?
 
@@ -33,15 +33,15 @@ Azure Stack wordt geleverd in twee implementatievarianten voor verschillende beh
 
 ## <a name="azure-stack-development-kit"></a>Azure Stack Development Kit
 
-De Microsoft [Azure Stack Development Kit (ASDK)](./asdk/asdk-what-is.md) is een Azure Stack-implementatie met één knooppunt die u kunt gebruiken om Azure Stack te evalueren en beter te leren kennen.  U kunt de ASDK ook gebruiken als ontwikkelomgeving voor het bouwen van apps met API's en tools die compatibel zijn met Azure.
+De Microsoft [Azure Stack Development Kit (ASDK)](./asdk/asdk-what-is.md) is een Azure Stack-implementatie met één knooppunt die u kunt gebruiken om Azure Stack te evalueren en beter te leren kennen.  U kunt ook de ASDK als een ontwikkelomgeving instellen voor het bouwen van apps met behulp van de API's en hulpprogramma's die consistent is met Azure gebruiken.
 
 >[!Note]
 >De ASDK is niet bedoeld voor gebruik als productieomgeving.
 
 De ASDK heeft de volgende beperkingen:
 
-* De ASDK is gekoppeld aan één identiteitsprovider binnen Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS). U kunt in deze directory meerdere gebruikers maken en aan elke gebruiker abonnementen toewijzen.
-* Omdat de Azure Stack-onderdelen op één hostcomputer worden geïmplementeerd, is er maar een beperkt aantal fysieke resources beschikbaar voor tenantresources. Deze configuratie is niet bedoeld voor het evalueren van de opschaalmogelijkheden en de prestaties.
+* De ASDK is gekoppeld aan een enkele Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS)-id-provider. U kunt in deze directory meerdere gebruikers maken en aan elke gebruiker abonnementen toewijzen.
+* Omdat Azure Stack-onderdelen zijn geïmplementeerd op een afzonderlijke host-computer, zijn er beperkte fysieke resources beschikbaar voor tenantresources. Deze configuratie is niet bedoeld om te schalen of voor evaluatie van de prestaties.
 * Het aantal netwerkscenario's is beperkt vanwege de vereisten met betrekking tot NIC-implementatie en gebruik van één host.
 
 ## <a name="azure-stack-integrated-systems"></a>Geïntegreerde Azure Stack-systemen

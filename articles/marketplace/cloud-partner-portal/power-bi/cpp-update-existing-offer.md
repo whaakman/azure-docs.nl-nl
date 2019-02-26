@@ -1,5 +1,5 @@
 ---
-title: Bijwerken van een bestaande Power BI-App-aanbieding - Azure Marketplace | Microsoft Docs
+title: Bijwerken van een aanbieding van Power BI-App - Azure Marketplace | Microsoft Docs
 description: Een aanbieding van Power BI-App bijwerken nadat deze is gepubliceerd op de Microsoft AppSource-Marketplace.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
 documentationcenter: ''
@@ -14,58 +14,51 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 635e2e71bb952aaee761df6a1d5d87c46db531f6
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 953c53b4ef2244b3444abb745f52e125306468f2
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55666707"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807113"
 ---
-# <a name="update-an-existing-power-bi-app-offer"></a>Een bestaande aanbieding van Power BI-App bijwerken
+# <a name="update-a-power-bi-app-offer"></a>Een aanbieding van Power BI-App bijwerken
 
-Dit artikel begeleidt u bij de verschillende aspecten van het bijwerken van uw aanbieding van Power BI-App in de [Cloud Partner-Portal](https://cloudpartner.azure.com/) en vervolgens de aanbieding opnieuw te publiceren.  Er zijn heel gebruikelijk redenen om u bij het bijwerken van uw aanbieding, met inbegrip van:
+Dit artikel laat u het bijwerken van uw aanbieding voor Microsoft Power BI-App in de [Cloud Partner-Portal](https://cloudpartner.azure.com/) en vervolgens opnieuw te publiceren van de aanbieding. Hier volgen enkele veelvoorkomende redenen waarom een aanbieding bijwerken:
 
-- Bijwerken van de inhoud van de app in Power BI en het ophalen van een nieuwe URL voor het installeren van nieuwe verpakte app
-- Bijwerken van de marketplace-metagegevens voor de aanbieding: verkoop, marketing, of informatie over ondersteuning en activa
+- Voor het bijwerken van de app-inhoud in Power BI en een installatie-URL ophalen uit de zojuist verpakte app.
+- Bijwerken van de aanbieding Azure Marketplace-metagegevens (verkoop, marketing, of informatie over ondersteuning en activa)
  
-Om te helpen u bij deze wijzigingen, de portal biedt de **vergelijken** en **geschiedenis** functies.
-
-
-## <a name="unpermitted-changes-to-offer"></a>Ongeoorloofde wijzigingen te bieden
-
-Er zijn enkele kenmerken van een Power BI-App-aanbieding die niet worden gewijzigd zodra de aanbieding is in grote lijnen in de AppSource, live **aanbiedings-ID** en **uitgevers-ID**.
-
+Gebruik van de portal **vergelijken** en **geschiedenis** functies voor het bijhouden van wijzigingen, zoals deze.
 
 ## <a name="common-update-operations"></a>Algemene updatebewerkingen
 
-Hoewel er een breed scala aan kenmerken die u wijzigen op een aanbieding van Power BI-App zijn kunt, wordt de volgende bewerkingen gelden.
-
+Sommige kenmerken van een aanbieding van Power BI-App kunnen niet worden gewijzigd nadat de aanbieding is gepubliceerd in AppSource. Niet-toegestane wijzigingen omvatten **aanbiedings-ID** en **uitgevers-ID**. Maar u kunt nog steeds een breed scala aan kenmerken wijzigen. Hier volgen enkele algemene wijzigingen.
 
 ### <a name="update-app-content-in-power-bi"></a>App-inhoud in Power BI bijwerken
 
-Het is gebruikelijk voor de app in Power BI om te worden regelmatig bijgewerkt met nieuwe inhoud, beveiligingspatches en extra functies. Onder dergelijke scenario's die u wilt de URL naar de nieuwe inhoud installatie van apps bijwerken met behulp van de volgende stappen uit:
+Power BI-apps zijn vaak regelmatig bijgewerkt met nieuwe inhoud, beveiligingspatches en functies. Wanneer een app wordt gewijzigd, werkt u de URL van de installatie door de volgende stappen:
 
-1.  Meld u aan bij de [Cloud Partner-Portal](https://cloudpartner.azure.com/).
-2.  Onder **alle aanbiedingen**, vinden de aanbieding om bij te werken.
-3.  In de **technische Info** tabblad, voer de URL van een nieuwe installatieprogramma.
-4.  Klik op **publiceren** om de werkstroom voor het publiceren van uw nieuwe app-versie naar de AppSource te starten.
-
-
-### <a name="update-offer-marketplace-metadata"></a>Metagegevens van marketplace-aanbieding update
-
-Gebruik de volgende stappen om bij te werken van de metagegevens van de marketplace, bedrijf naam, logo's, enzovoort, die zijn gekoppeld aan uw aanbieding:
-
-1.  Meld u aan bij de [Cloud Partner-Portal](https://cloudpartner.azure.com/).
+1.  Aanmelden bij de [Cloud Partner-Portal](https://cloudpartner.azure.com/).
 2.  Onder **alle aanbiedingen**, vinden de aanbieding die u wilt bijwerken.
-3.  Ga naar de **Storefront Details** tabblad en volg de instructies in de [tabblad Power BI-Apps Storefront Details](./cpp-storefront-details-tab.md) metagegevens wijzigingen aanbrengen.
-4.  Klik op **publiceren** om de werkstroom voor het publiceren van uw wijzigingen te starten.
+3.  Op de **technische Info** tabblad, voer een nieuwe installatie-URL.
+4.  Selecteer **publiceren** om de werkstroom voor het publiceren van de nieuwe appversie naar AppSource te starten.
 
 
-## <a name="compare-feature"></a>Functie vergelijken
+### <a name="update-the-offers-marketplace-metadata"></a>Bijwerken van de aanbieding van Marketplace-metagegevens
 
-Als u wijzigingen in een al gepubliceerde aanbieding aanbrengt, kunt u de **vergelijken** functie om te controleren van de wijzigingen die zijn gemaakt. Deze functie wilt gebruiken:
+Metagegevens van uw aanbieding van Marketplace bevat de naam van uw bedrijf, logo's en andere informatie. Voor het bijwerken van de metagegevens van de volgende stappen uit:
 
-1.  Op elk gewenst moment tijdens het bewerken, klikt u op de **vergelijken** knop van uw aanbieding.
+1.  Aanmelden bij de [Cloud Partner-Portal](https://cloudpartner.azure.com/).
+2.  Onder **alle aanbiedingen**, vinden de aanbieding die u wilt bijwerken.
+3.  Op de **Storefront Details** tabblad, wijzigt u de metagegevens van de door de instructies in het artikel [tabblad voor Power BI-app-winkel Details](./cpp-storefront-details-tab.md).
+4.  Selecteer **publiceren** om de werkstroom voor het publiceren van uw wijzigingen te starten.
+
+
+## <a name="the-compare-feature"></a>De functie vergelijken
+
+Als u een gepubliceerde aanbieding hebt bijgewerkt, kunt u de wijzigingen die u hebt aangebracht kunt controleren. Gebruik de **vergelijken** functie:
+
+1.  Selecteer op elk gewenst moment tijdens het bewerken van de aanbieding **vergelijken** knop.
 
     ![Knop vergelijken](./media/compare-feature-button.png)
 
@@ -74,9 +67,8 @@ Als u wijzigingen in een al gepubliceerde aanbieding aanbrengt, kunt u de **verg
 
 ## <a name="history-of-publishing-actions"></a>Geschiedenis van de publicatie van acties
 
-Als u wilt een historische publicatie-activiteit weergeven, klikt u op de **geschiedenis** tabblad in de menubalk van de navigatiebalk aan de linkerkant van de Cloud Partner-Portal. Hier zich kunt u kunt voorzien van een tijdstempel acties die zijn ondernomen tijdens de levensduur van uw aanbiedingen AppSource weergeven.
-
+Om uw aanbieding weer te geven de publicatie-geschiedenis, aan de linkerkant van de Cloud Partner-Portal, opent u de **geschiedenis** tabblad. Hier ziet u dat een overzicht van acties tijdstempel op uw AppSource biedt.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Gebruik u regelmatig de [verkoper Insights](../../cloud-partner-portal-orig/si-getting-started.md) functie van de [Cloud Partner-Portal](https://cloudpartner.azure.com/#insights) om aan te geven u inzicht in uw marketplace-klanten en het gebruik.  
+In de Cloud Partner-Portal, gebruikt u regelmatig [verkoper Insights](../../cloud-partner-portal-orig/si-getting-started.md) naar nuttige informatie over uw Marketplace-klanten en het gebruik.  

@@ -8,21 +8,19 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: a1f5a698ee76ebd0561bd19ff1a23d0f04be0771
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: c55783e9b209a1280a21edca34b75e72481f4cb6
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410112"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806985"
 ---
 #   <a name="shaper-cognitive-skill"></a>Shaper cognitieve vaardigheden
 
-De **Shaper** vaardigheid maakt een complex type ter ondersteuning van samengestelde velden (ook wel bekend als gedeeltelijk velden). Een veld van het complexe type heeft meerdere onderdelen, maar wordt beschouwd als één item in een Azure Search-index. Voorbeelden van geconsolideerde velden nuttig bij het zoeken in scenario's zijn de naam van een eerste en laatste combineren in een enkel veld, de plaats en de status in een enkel veld of de naam en geboortedatum in één veld tot stand brengen van de unieke id.
-
-De **Shaper** vaardigheden kunt u in feite een structuur maken, het definiëren van de naam van de leden van die structuur en het waarden toewijzen aan elk lid.
+De **Shaper** vaardigheid worden verschillende invoer geconsolideerd in een complex type die later in de pijplijn verrijking kan worden verwezen. De **Shaper** vaardigheden kunt u in feite een structuur maken, het definiëren van de naam van de leden van die structuur en het waarden toewijzen aan elk lid. Voorbeelden van geconsolideerde velden nuttig bij het zoeken in scenario's zijn de naam van een eerste en laatste combineren in een enkele structuur, plaats en staat in een enkele structuur, of een naam en geboortedatum in een enkele structuur tot stand brengen van de unieke id.
 
 Standaard ondersteunt deze techniek objecten die een niveau zijn. Voor meer complexe objecten, kunt u verschillende koppelen **Shaper** stappen.
 
@@ -58,7 +56,7 @@ Het volgende voorbeeld bevat het lid namen als invoer. De uitvoer-structuur (uw 
   "outputs": [
     {
       "name": "output",
-      "targetName": analyzedText"
+      "targetName": "analyzedText"
     }
   ]
 }
@@ -125,8 +123,8 @@ De definitie van de kwalificatie Shaper voor dit scenario kan er uitzien als in 
     ],
     "outputs": [
         {
-            "output": "titlesAndChapters",
-            "targetName": "analyzedText"
+            "name": "output",
+            "targetName": "titlesAndChapters"
         }
     ]
 }

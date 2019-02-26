@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 6fb8166893f0dada019ca633933833d17b95fee9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 368e1f6b9501c677eca1cf80d24a06c0a6533e86
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811457"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817351"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Batch metrische gegevens, waarschuwingen en logboeken voor diagnostische evaluatie en bewaking
 
@@ -91,7 +91,7 @@ Andere optionele bestemmingen voor diagnostische logboeken:
 
 * Stream gebeurtenissen uit batches met diagnostische logboeken naar een [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Eventhubs kunnen miljoenen gebeurtenissen per seconde, die u kunt vervolgens transformeren en opslaan met elke gewenste realtime analyseprovider opnemen. 
 
-* Verzenden van diagnostische logboeken naar [Azure Log Analytics](../log-analytics/log-analytics-overview.md), kunt u ze analyseren of voor analyse in Power BI of Excel exporteren.
+* Verzenden van diagnostische logboeken naar [logboeken van Azure Monitor](../log-analytics/log-analytics-overview.md), kunt u ze analyseren of voor analyse in Power BI of Excel exporteren.
 
 > [!NOTE]
 > Er worden mogelijk extra kosten als u wilt opslaan of verwerken van diagnostische gegevens van een met Azure-services. 
@@ -101,7 +101,7 @@ Andere optionele bestemmingen voor diagnostische logboeken:
 
 1. Klik in de portal op **alle services** > **Batch-accounts**, en klik vervolgens op de naam van uw Batch-account.
 2. Onder **bewaking**, klikt u op **diagnostische logboeken** > **diagnostische gegevens inschakelen**.
-3. In **diagnostische instellingen**, voer een naam voor de instelling en kies een doel van het logboek (bestaande Storage-account, Event Hub of Log Analytics). Selecteer een of beide **ServiceLog** en **AllMetrics**.
+3. In **diagnostische instellingen**, voer een naam voor de instelling en kies een doel van het logboek (bestaande Storage-account, Event Hub of Azure Monitor-Logboeken). Selecteer een of beide **ServiceLog** en **AllMetrics**.
 
     Wanneer u een storage-account selecteert, moet u eventueel een bewaarbeleid instellen. Als u een aantal dagen voor bewaarperiode niet opgeeft, worden gegevens worden bewaard gedurende de levensduur van het storage-account.
 

@@ -8,12 +8,12 @@ ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 0b92d36287646038d9195f7ba39352d8ced9a3b6
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: bdffcdee87c0c5c9c878948797ac7c6be566c7ea
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270263"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818847"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Oplossen van problemen met updatebeheer
 
@@ -78,11 +78,11 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
-### <a name="nologs"></a>Scenario: Beheergegevens die niet wordt weergegeven in Log Analytics voor een virtuele machine bijwerken
+### <a name="nologs"></a>Scenario: Beheergegevens die niet wordt weergegeven in Azure Monitor-logboeken voor een virtuele machine bijwerken
 
 #### <a name="issue"></a>Probleem
 
-U machines hebt die als **niet beoordeeld** onder **naleving**, maar ziet u gegevens van heartbeat in Log Analytics voor de Hybrid Runbook Worker, maar niet voor updatebeheer.
+U machines hebt die als **niet beoordeeld** onder **naleving**, maar ziet u heartbeat-gegevens in Azure Monitor-logboeken voor de Hybrid Runbook Worker, maar niet voor updatebeheer.
 
 #### <a name="cause"></a>Oorzaak
 

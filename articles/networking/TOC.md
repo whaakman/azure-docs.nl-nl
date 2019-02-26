@@ -11,7 +11,7 @@
 ### [Herstel na noodgevallen met Azure DNS en Traffic Manager](disaster-recovery-dns-traffic-manager.md)
 ## Plannen en ontwerpen
 ### [Virtuele netwerken](../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Cross-premises-connectiviteit - VPN](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Cross-premises-connectiviteit - VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Cross-premises-connectiviteit - exclusieve privéverbinding](../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### Interoperabiliteit van back-endconnectiviteit
 #### [Vooraf instellen en testen](connectivty-interoperability-preface.md?toc=%2fazure%2fnetworking%2ftoc.json)

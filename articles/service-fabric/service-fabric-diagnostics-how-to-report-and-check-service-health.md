@@ -3,7 +3,7 @@ title: Rapporteren en controleren van health gebruiken met Azure Service Fabric 
 description: Informatie over health om rapporten te verzenden vanuit uw servicecode en hoe u controleert de status van uw service met behulp van de health-controleprogramma's die Azure Service Fabric biedt.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: mfussell
 editor: ''
 ms.assetid: 7c712c22-d333-44bc-b837-d0b3603d9da8
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/2/2017
-ms.author: dekapur
-ms.openlocfilehash: d374886efb708797db1dd6352aa063a56aff4f44
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.date: 02/25/2019
+ms.author: srrengar
+ms.openlocfilehash: 2126157f49bd978d2218986601245cae2e4157b6
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427305"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821675"
 ---
 # <a name="report-and-check-service-health"></a>Servicestatus rapporteren en controleren
 Wanneer uw services problemen optreden, afhankelijk van de mogelijkheid om te reageren op incidenten en storingen oplossen kunt gebruiken om de problemen snel te detecteren. Als u problemen en fouten aan de Azure Service Fabric health manager vanuit uw servicecode rapporteren, kunt u standaard voor health monitoring hulpprogramma's die Service Fabric biedt om te controleren of de status.
@@ -38,7 +38,7 @@ Dit artikel begeleidt u bij een voorbeeld waarin wordt de status van de code van
 U hebt het volgende zijn geïnstalleerd:
 
 * Visual Studio 2015 of Visual Studio 2017
-* Service Fabric-SDK
+* Service Fabric SDK
 
 ## <a name="to-create-a-local-secure-dev-cluster"></a>Een lokale veilige dev-cluster maken
 * Open PowerShell met beheerdersbevoegdheden en voer de volgende opdrachten uit:

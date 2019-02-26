@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: de50c18fa8e2bebcb584fcd5763f0428637df484
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: f326c8608f92cc974a9decad3b010888c358c667
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455786"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818524"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Naslaginformatie voor Azure Cosmos DB SQL-taal 
 
@@ -1847,8 +1847,10 @@ SELECT
 |[INDEX_OF](#bk_index_of)|[LEFT](#bk_left)|[LENGTE](#bk_length)|  
 |[LAGERE](#bk_lower)|[LTRIM](#bk_ltrim)|[REPLACE](#bk_replace)|  
 |[REPLICEREN](#bk_replicate)|[REVERSE](#bk_reverse)|[RIGHT](#bk_right)|  
-|[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[DE SUBTEKENREEKS](#bk_substring)|  
-|[ToString](#bk_tostring)|[TRIM](#bk_trim)|[BOVENSTE](#bk_upper)||| 
+|[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[StringToArray](#bk_stringtoarray)|
+|[StringToBoolean](#bk_stringtoboolean)|[StringToNull](#bk_stringtonull)|[StringToNumber](#bk_stringtonumber)|
+|[StringToObject](#bk_stringtoobject)|[DE SUBTEKENREEKS](#bk_substring)|[ToString](#bk_tostring)|
+|[TRIM](#bk_trim)|[BOVENSTE](#bk_upper)||| 
   
 ####  <a name="bk_concat"></a> CONCAT  
  Retourneert een tekenreeks die het resultaat is van het samenvoegen van twee of meer tekenreekswaarden.  
@@ -2327,7 +2329,225 @@ SELECT STARTSWITH("abc", "b"), STARTSWITH("abc", "a")
 ```  
 [{"$1": false, "$2": true}]  
 ```  
+
+  ####  <a name="bk_stringtoarray"></a> StringToArray  
+ Expressie vertaald naar een matrix retourneert. Als de expressie kan niet worden vertaald, retourneert niet-gedefinieerde.  
   
+ **Syntaxis**  
+  
+```  
+StringToArray(<expr>)  
+```  
+  
+ **Argumenten**  
+  
+-   `expr`  
+  
+     Is geldige JSON-matrix-expressie. Houd er rekening mee dat tekenreekswaarden moeten zijn geschreven met dubbele aanhalingstekens om geldig te zijn. Zie voor meer informatie over de JSON-indeling, [json.org](https://json.org/)
+  
+ **Typen retourneren**  
+  
+ Retourneert een matrixexpressie of een niet-gedefinieerde.  
+  
+ **Voorbeelden**  
+  
+Het volgende voorbeeld laat zien hoe StringToArray gedraagt zich op verschillende typen. 
+  
+```  
+SELECT 
+StringToArray('[]'), 
+StringToArray("[1,2,3]"),
+StringToArray("[\"str\",2,3]"),
+IS_ARRAY(StringToArray("[['5','6','7'],['8'],['9']]")), 
+IS_ARRAY(StringToArray('[["5","6","7"],["8"],["9"]]')),
+StringToArray('[1,2,3, "[4,5,6]",[7,8]]'),
+StringToArray("[1,2,3, '[4,5,6]',[7,8]]"),
+StringToArray(false), 
+StringToArray(undefined),
+StringToArray(NaN), 
+StringToArray("[")
+```  
+  
+ Hier volgt de resultatenset.  
+  
+```  
+[{"$1": [], "$2": [1,2,3], "$3": ["str",2,3], "$4": false, "$5": true, "$6": [1,2,3,"[4,5,6]",[7,8]]}]
+```  
+
+####  <a name="bk_stringtoboolean"></a> StringToBoolean  
+ Expressie vertaald naar een Booleaanse waarde retourneert. Als de expressie kan niet worden vertaald, retourneert niet-gedefinieerde.  
+  
+ **Syntaxis**  
+  
+```  
+StringToBoolean(<expr>)  
+```  
+  
+ **Argumenten**  
+  
+-   `expr`  
+  
+     Een geldige expressie is.  
+  
+ **Typen retourneren**  
+  
+ Retourneert een Booleaanse expressie of een niet-gedefinieerde.  
+  
+ **Voorbeelden**  
+  
+Het volgende voorbeeld laat zien hoe StringToBoolean gedraagt zich op verschillende typen. 
+  
+```  
+SELECT 
+StringToBoolean("true"), 
+StringToBoolean("    false"),
+IS_BOOL(StringToBoolean("false")), 
+StringToBoolean("null"),
+StringToBoolean(undefined),
+StringToBoolean(NaN), 
+StringToBoolean(false), 
+StringToBoolean(true), 
+StringToBoolean("TRUE"),
+StringToBoolean("False")
+```  
+  
+ Hier volgt de resultatenset.  
+  
+```  
+[{"$1": true, "$2": false, "$3": true}]
+```  
+
+####  <a name="bk_stringtonull"></a> StringToNull  
+ Expressie vertaald naar null retourneert. Als de expressie kan niet worden vertaald, retourneert niet-gedefinieerde.  
+  
+ **Syntaxis**  
+  
+```  
+StringToNull(<expr>)  
+```  
+  
+ **Argumenten**  
+  
+-   `expr`  
+  
+     Een geldige expressie is.  
+  
+ **Typen retourneren**  
+  
+ Retourneert een null-expressie of een niet-gedefinieerde.  
+  
+ **Voorbeelden**  
+  
+Het volgende voorbeeld laat zien hoe StringToNull gedraagt zich op verschillende typen. 
+  
+```  
+SELECT 
+StringToNull("null"), 
+StringToNull("  null "),
+IS_NULL(StringToNull("null")), 
+StringToNull("true"), 
+StringToNull(false), 
+StringToNull(undefined),
+StringToNull(NaN), 
+StringToNull("NULL"),
+StringToNull("Null")
+```  
+  
+ Hier volgt de resultatenset.  
+  
+```  
+[{"$1": null, "$2": null, "$3": true}]
+```  
+
+####  <a name="bk_stringtonumber"></a> StringToNumber  
+ Expressie vertaald naar een getal retourneert. Als de expressie kan niet worden vertaald, retourneert niet-gedefinieerde.  
+  
+ **Syntaxis**  
+  
+```  
+StringToNumber(<expr>)  
+```  
+  
+ **Argumenten**  
+  
+-   `expr`  
+  
+     Is geldige JSON getal-expressie. Getallen in JSON moet een geheel getal of een drijvende komma zijn. Zie voor meer informatie over de JSON-indeling, [json.org](https://json.org/)  
+  
+ **Typen retourneren**  
+  
+ Retourneert een numerieke expressie of een niet-gedefinieerde.  
+  
+ **Voorbeelden**  
+  
+Het volgende voorbeeld laat zien hoe StringToNumber gedraagt zich op verschillende typen. 
+  
+```  
+SELECT 
+StringToNumber("1.000000"), 
+StringToNumber("3.14"),
+IS_NUMBER(StringToNumber("   60   ")), 
+StringToNumber("0xF"),
+StringToNumber("-1.79769e+308"),
+IS_STRING(StringToNumber("2")),
+StringToNumber(undefined),
+StringToNumber("99     54"), 
+StringToNumber("false"), 
+StringToNumber(false),
+StringToNumber(" "),
+StringToNumber(NaN)
+```  
+  
+ Hier volgt de resultatenset.  
+  
+```  
+{{"$1": 1, "$2": 3.14, "$3": true, "$5": -1.79769e+308, "$6": false}}
+```  
+
+####  <a name="bk_stringtoobject"></a> StringToObject  
+ Expressie vertaald naar een Object geretourneerd. Als de expressie kan niet worden vertaald, retourneert niet-gedefinieerde.  
+  
+ **Syntaxis**  
+  
+```  
+StringToObject(<expr>)  
+```  
+  
+ **Argumenten**  
+  
+-   `expr`  
+  
+     Is een geldige expressie van de JSON-object. Houd er rekening mee dat tekenreekswaarden moeten zijn geschreven met dubbele aanhalingstekens om geldig te zijn. Zie voor meer informatie over de JSON-indeling, [json.org](https://json.org/)  
+  
+ **Typen retourneren**  
+  
+ Retourneert een objectexpressie of een niet-gedefinieerde.  
+  
+ **Voorbeelden**  
+  
+Het volgende voorbeeld laat zien hoe StringToObject gedraagt zich op verschillende typen. 
+  
+```  
+SELECT 
+StringToObject("{}"), 
+StringToObject('{"a":[1,2,3]}'),
+StringToObject("{'a':[1,2,3]}"),
+StringToObject("{a:[1,2,3]}"),
+IS_OBJECT(StringToObject('{"obj":[{"b":[5,6,7]},{"c":8},{"d":9}]}')), 
+IS_OBJECT(StringToObject("{\"obj\":[{\"b\":[5,6,7]},{\"c\":8},{\"d\":9}]}")), 
+IS_OBJECT(StringToObject("{'obj':[{'b':[5,6,7]},{'c':8},{'d':9}]}")), 
+StringToObject(false), 
+StringToObject(undefined),
+StringToObject(NaN), 
+StringToObject("{")
+```  
+  
+ Hier volgt de resultatenset.  
+  
+```  
+[{"$1": {}, "$2": {"a": [1,2,3]}, "$5": true, "$6": true, "$7": false}]
+```  
+
 ####  <a name="bk_substring"></a> DE SUBTEKENREEKS  
  Onderdeel van een tekenreeksexpressie vanaf de op nul gebaseerde positie van het opgegeven teken geretourneerd en blijft aan de opgegeven lengte of aan het einde van de tekenreeks.  
   

@@ -6,12 +6,12 @@ author: iainfoulds
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: a47910083083787000b749a0b5b3256df5e702c8
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 2576d8d65fb6a72d5d90de57297afe2ea601c0fa
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845398"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816811"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Maken en configureren van een cluster Azure Kubernetes-Services (AKS) voor het gebruik van virtuele-knooppunten in de Azure-portal
 
@@ -19,6 +19,16 @@ Als u wilt snel workloads in een Azure Kubernetes Service (AKS)-cluster implemen
 
 > [!IMPORTANT]
 > Virtuele voor AKS-knooppunten zijn momenteel in **preview**. Previews worden voor u beschikbaar gesteld op voorwaarde dat u akkoord gaat met de [aanvullende gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Sommige aspecten van deze functie worden mogelijk nog gewijzigd voordat de functie algemeen beschikbaar wordt.
+
+## <a name="preview-limitations"></a>Beperkingen voor Preview
+
+Hoewel deze functie nog in Preview-versie, worden de volgende regio's worden ondersteund voor implementaties:
+
+* Australië-Oost (australiaeast)
+* VS-Oost (VS-Oost)
+* West-Centraal VS (westcentralus)
+* West Europe (westeurope)
+* VS-West (VS West)
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 

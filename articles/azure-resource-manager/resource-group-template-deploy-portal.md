@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: b8a6d58ad79b591548542d69e69b71ec61af79af
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 0711743d46aaac08f8572917d91e452ee919134c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220122"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816896"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Resources implementeren met Resource Manager-sjablonen en Azure Portal
 
-In dit artikel ziet u hoe u de [Azure-portal](https://portal.azure.com) met [Azure Resource Manager](resource-group-overview.md) implementeren van uw Azure-resources. Zie voor meer informatie over het beheren van uw resources, [Azure-resources beheren via portal](resource-group-portal.md).
+In dit artikel ziet u hoe u de [Azure-portal](https://portal.azure.com) met [Azure Resource Manager](resource-group-overview.md) implementeren van uw Azure-resources. Zie voor meer informatie over het beheren van uw resources, [Azure-resources beheren met behulp van de Azure-portal](manage-resources-portal.md).
 
 ## <a name="create-resource-group"></a>Een resourcegroep maken
 
@@ -30,7 +30,7 @@ In dit artikel ziet u hoe u de [Azure-portal](https://portal.azure.com) met [Azu
 
 1. Selecteer onder de resourcegroepen, **toevoegen**.
 
-   ![resourcegroep toevoegen](./media/resource-group-template-deploy-portal/add-resource-group.png)
+   ![Resourcegroep toevoegen](./media/resource-group-template-deploy-portal/add-resource-group.png)
 
 1. Wijs hieraan een naam en locatie en, indien nodig, selecteert u een abonnement. U moet een locatie voor de resourcegroep opgeven, omdat de resourcegroep metagegevens op over de resources slaat. Om wettelijke redenen, kunt u opgeven waar de metagegevens worden opgeslagen. In het algemeen is het raadzaam dat u opgeeft dat een locatie waar de meeste van uw resources worden opgeslagen. Met behulp van dezelfde locatie bevinden, kan de sjabloon vereenvoudigen.
 
@@ -89,7 +89,7 @@ Als u wilt uitvoeren van een implementatie, maar niet een van de sjablonen op Ma
 
    ![Selecteer Maken](./media/resource-group-template-deploy-portal/show-template-option.png)
 
-1. U verschillende opties voor het maken van een sjabloon te bekijken. Selecteer **bouw uw eigen sjabloon in de editor**.
+1. U verschillende opties voor het maken van een sjabloon te bekijken. Selecteer **Bouw uw eigen sjabloon in de editor**.
 
    ![Opties weergeven](./media/resource-group-template-deploy-portal/see-options.png)
 
@@ -134,7 +134,7 @@ De portal kunt u een sjabloon opslaan in uw Azure-account en later opnieuw te im
    ![Opgeslagen sjabloon implementeren](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie bekijken van auditlogboeken [bewerkingen controleren met Resource Manager](resource-group-audit.md).
-* Zie voor het oplossen van fouten bij de implementatie, [implementatiebewerkingen bekijken](resource-manager-deployment-operations.md).
-* Als u wilt ophalen van een sjabloon van een implementatie of de resourcegroep, Zie [Azure Resource Manager-sjabloon exporteren uit bestaande resources](resource-manager-export-template.md).
-* Veilig rollout uw service in meerdere regio's Zie [Azure Deployment Manager](deployment-manager-overview.md).
+* Zie bekijken van auditlogboeken [bewerkingen controleren met Resource Manager](./resource-group-audit.md).
+* Zie voor het oplossen van fouten bij de implementatie, [implementatiebewerkingen bekijken](./resource-manager-deployment-operations.md).
+* Als u wilt een sjabloon exporteren uit een implementatie of de resourcegroep, Zie [exporteren van Azure Resource Manager-sjablonen](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
+* Veilig rollout uw service in meerdere regio's Zie [Azure Deployment Manager](./deployment-manager-overview.md).

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/05/2019
-ms.openlocfilehash: 09f1bdfa4c9a7a179bddf9473b553924bfb58fb7
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 6cd1d917be67d21e3e6dfe54ed5dec77b92509e9
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768559"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821452"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics preview-functies
 
@@ -22,6 +22,10 @@ In dit artikel bevat een overzicht van alle functies die momenteel in Preview-ve
 ## <a name="public-previews"></a>Openbare preview-versies
 
 De volgende functies zijn in openbare preview. U kunt profiteren van deze functies vandaag, maar niet gebruiken in uw productieomgeving.
+
+### <a name="anomaly-detection"></a>Anomaliedetectie
+
+Azure Stream Analytics introduceert nieuwe machine learning-modellen met ondersteuning voor *piek* en *dalen* detectie naast bidirectionele, trage positief en traag negatieve trends detecteren. Ga voor meer informatie naar [anomaliedetectie in Azure Stream Analytics](stream-analytics-machine-learning-anomaly-detection.md).
 
 ### <a name="sql-database-reference-data"></a>Referentiegegevens voor SQL-Database
 
@@ -47,10 +51,6 @@ Met .NET standard-door gebruiker gedefinieerde functies, kunt u de standaard .NE
 
 De volgende functies zijn in de beperkte Preview-versie.
 
-### <a name="anomaly-detection"></a>Anomaliedetectie
-
-Azure Stream Analytics introduceert nieuwe machine learning-modellen met ondersteuning voor *piek* en *dalen* detectie naast bidirectionele, trage positief en traag negatieve trends detecteren.
-
 ### <a name="c-custom-deserializer-for-azure-stream-analytics-on-iot-edge"></a>C# aangepaste deserializer voor Azure Stream Analytics op IoT Edge
 
 Ontwikkelaars kunnen nu aangepaste deserializers in C# voor het deserialiseren van gebeurtenissen die worden ontvangen door Azure Stream Analytics implementeren. Voorbeelden van indelingen die kunnen worden gedeserialiseerd zijn Parquet, Protobuf, XML of een binaire indeling.
@@ -61,7 +61,7 @@ U kunt nu uw realtime pijplijnen met beheerde identiteiten voor Azure-resources 
 
 ### <a name="visual-studio-code-for-azure-stream-analytics"></a>Visual Studio Code for Azure Stream Analytics
 
-De functies van Azure Stream Analytics-taken kunnen worden geschreven in Visual Studio Code.
+De functies van Azure Stream Analytics-taken kunnen worden geschreven in Visual Studio Code. Voor toegang tot de hulpprogramma's private preview-functies, contact op met aan *ASAToolsfeedback@microsoft.com*.
 
 ## <a name="next-steps"></a>Volgende stappen
 

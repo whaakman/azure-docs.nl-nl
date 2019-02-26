@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/19/2019
+ms.date: 02/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: df4ae4b0c3f230947e0b9a5885070049f32a4b2f
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: fb96d69604ce341cec2de029f9663f6b8d274876
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429859"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822375"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
@@ -39,7 +39,7 @@ Updatebeheer kan worden gebruikt om systeemeigen Onboarding van machines in meer
 
 Zodra een CVE release is, duurt het 2-3 uur voor de patch voor Linux-machines voor evaluatie wordt weergegeven.  Het duurt 15-12 uur voor de patch om weer te geven voor de beoordeling nadat deze is vrijgegeven voor Windows-machines.
 
-Nadat een computer is voltooid scannen voor Updatevereisten, stuurt de agent de informatie in bulk door naar Azure Log Analytics. Op een Windows-computer, de nalevingsscan standaard elke 12 uur uitgevoerd.
+Nadat een computer is voltooid scannen voor Updatevereisten, stuurt de agent de informatie in bulk naar Azure Monitor-Logboeken. Op een Windows-computer, de nalevingsscan standaard elke 12 uur uitgevoerd.
 
 Naast het schema voor scannen, wordt de scan voor naleving van updates binnen 15 minuten van de MMA opnieuw wordt gestart, voordat de installatie van de update en na installatie van update gestart.
 
@@ -94,7 +94,7 @@ Windows-agents moeten worden geconfigureerd om te communiceren met een WSUS-serv
 
 Voor Linux, moet de computer toegang hebben tot een opslagplaats voor updates. De opslagplaats van de update kan privé of openbaar zijn. TLS 1.1 of TLS 1.2 is vereist om te communiceren met updatebeheer. Een Log Analytics-Agent voor Linux die geconfigureerd voor rapportage aan meer dan één Log Analytics-werkruimten wordt niet ondersteund met deze oplossing.
 
-Zie voor meer informatie over het installeren van de Log Analytics-Agent voor Linux en de nieuwste versie te downloaden, [Operations Management Suite-Agent voor Linux](https://github.com/microsoft/oms-agent-for-linux). Zie voor meer informatie over het installeren van de Log Analytics-Agent voor Windows [Operations Management Suite-Agent voor Windows](../log-analytics/log-analytics-windows-agent.md).
+Zie voor meer informatie over het installeren van de Log Analytics-Agent voor Linux en de nieuwste versie te downloaden, [Log Analytics-Agent voor Linux](https://github.com/microsoft/oms-agent-for-linux). Zie voor meer informatie over het installeren van de Log Analytics-Agent voor Windows [Microsoft Monitoring Agent voor Windows](../log-analytics/log-analytics-windows-agent.md).
 
 ## <a name="permissions"></a>Machtigingen
 
@@ -120,10 +120,10 @@ Als uw System Center Operations Manager-beheergroep is verbonden met een Log Ana
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
 * Implementatie MP bijwerken
 
-Zie voor meer informatie over hoe management packs voor oplossingen worden bijgewerkt, [Operations Manager verbinden met Log Analytics](../azure-monitor/platform/om-agents.md).
+Zie voor meer informatie over hoe management packs voor oplossingen worden bijgewerkt, [Operations Manager verbinden met Azure Monitor-logboeken](../azure-monitor/platform/om-agents.md).
 
 > [!NOTE]
-> Voor systemen waarop de Operations Manager-Agent, om te kunnen volledig worden beheerd door beheer van updates, de agent moet worden bijgewerkt naar de Microsoft Monitoring Agent. Zie voor informatie over het bijwerken van de agent, [upgrade uitvoeren van een Operations Manager-agent](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents).
+> Voor systemen waarop de Operations Manager-Agent, om te kunnen volledig worden beheerd door beheer van updates, de agent moet worden bijgewerkt naar de Microsoft Monitoring Agent. Zie voor informatie over het bijwerken van de agent, [upgrade uitvoeren van een Operations Manager-agent](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents). Voor omgevingen met behulp van Operations Manager, is het vereist dat u System Center Operations Manager 2012 R2 UR 14 of hoger wordt uitgevoerd.
 
 ## <a name="onboard"></a>Updatebeheer inschakelen
 
@@ -136,7 +136,7 @@ Als u wilt herstellen van systemen, moet u de oplossing Update Management inscha
   
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Controleer of niet-Azure-machines zijn toegevoegd
 
-Om te bevestigen dat worden rechtstreeks verbonden zijn met machines met Log Analytics, na een paar minuten communiceren kunt u uitvoeren een de volgende zoekopdrachten in Logboeken.
+Om te bevestigen dat rechtstreeks verbonden zijn met machines na een paar minuten zijn communicatie met Azure Monitor-Logboeken, kunt u uitvoeren een de volgende zoekopdrachten in Logboeken.
 
 #### <a name="linux"></a>Linux
 

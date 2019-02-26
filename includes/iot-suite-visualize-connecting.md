@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 73ba80878615f04e1755a4d12014691c5ae2a077
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 5bb2db84a21efb9c8bffb345e05e17d99b866fe9
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453117"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56825450"
 ---
 ## <a name="view-device-telemetry"></a>Telemetrie van apparaten weergeven
 
-U ziet de telemetrie van uw apparaat verzonden op de **apparaten** pagina in de oplossing.
+U ziet de telemetrie van uw apparaat verzonden op de **Device Explorer** pagina in de oplossing.
 
-1. Selecteer het apparaat dat u hebt ingericht in de lijst met apparaten op de **apparaten** pagina. Een paneel geeft informatie weer over uw apparaat met inbegrip van een diagram van de telemetrie van apparaten:
+1. Selecteer het apparaat dat u hebt ingericht in de lijst met apparaten op de **Device Explorer** pagina. Een paneel geeft informatie weer over uw apparaat met inbegrip van een diagram van de telemetrie van apparaten:
 
     ![Details van apparaat](media/iot-suite-visualize-connecting/devicesdetail.png)
 
@@ -33,11 +33,11 @@ U ziet de telemetrie van uw apparaat verzonden op de **apparaten** pagina in de 
 
 ## <a name="act-on-your-device"></a>Reageren op uw apparaat
 
-Voor het aanroepen van methoden op uw apparaten, gebruikt u de **apparaten** pagina in de oplossing voor externe controle. Bijvoorbeeld, in de oplossing voor externe controle **Koelunit** apparaten implementeren een **FirmwareUpdate** methode.
+Voor het aanroepen van methoden op uw apparaten, gebruikt u de **Device Explorer** pagina in de oplossing voor externe controle. Bijvoorbeeld, in de oplossing voor externe controle **Koelunit** apparaten implementeren een **FirmwareUpdate** methode.
 
-1. Kies **apparaten** om te navigeren naar de **apparaten** pagina in de oplossing.
+1. Kies **apparaten** om te navigeren naar de **Device Explorer** pagina in de oplossing.
 
-1. Selecteer het apparaat dat u hebt ingericht in de lijst met apparaten op de **apparaten** pagina:
+1. Selecteer het apparaat dat u hebt ingericht in de lijst met apparaten op de **Device Explorer** pagina:
 
     ![Selecteer uw echte apparaat](media/iot-suite-visualize-connecting/devicesselect.png)
 
@@ -49,7 +49,7 @@ Voor het aanroepen van methoden op uw apparaten, gebruikt u de **apparaten** pag
 
 1. Een reeks berichten weergegeven in de console die de apparaatcode uitgevoerd terwijl het gesimuleerde apparaat de methode afhandelt.
 
-1. Wanneer de update voltooid is, de nieuwe firmwareversie wordt weergegeven op de **apparaten** pagina:
+1. Wanneer de update voltooid is, de nieuwe firmwareversie wordt weergegeven op de **Device Explorer** pagina:
 
     ![Update voltooid](media/iot-suite-visualize-connecting/complete.png)
 

@@ -16,12 +16,12 @@ ms.date: 02/18/2019
 ms.author: celested
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3cb2302a8a20a9a5f50b9d11de7ac786ad04853d
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 7c5b61dbb3c6dde8dfcabdba015ee41e968cc5dd
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652260"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817079"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemen met aanmelden bij een toepassing in de galerie geconfigureerd voor federatieve eenmalige aanmelding
 
@@ -160,7 +160,7 @@ Azure AD biedt geen ondersteuning voor de SAML-aanvraag verzonden door de toepas
 
 Leverancier van de toepassing moet valideren dat ze de Azure AD-SAML-implementatie ondersteuning voor eenmalige aanmelding.
 
-## <a name="no-resource-in-requiredresourceaccess-list"></a>Er is geen resource in de lijst met requiredResourceAccess
+## <a name="misconfigured-application"></a>Onjuist geconfigureerde toepassing
 
 *Fout AADSTS650056: Onjuist geconfigureerde toepassing. Dit kan een van de volgende oorzaken hebben: De client heeft geen machtigingen voor 'AAD Graph' in de machtigingen die zijn aangevraagd in de registratie van de toepassing van de client niet weergegeven. Of de beheerder heeft niet toegestaan in de tenant. Of Controleer de toepassings-id in de aanvraag zodat deze overeenkomt met de geconfigureerde client toepassings-id. Neem contact op met uw beheerder om te herstellen van de configuratie of toestemming geven namens de tenant.* .
 
@@ -237,6 +237,33 @@ Er is geen Azure AD kunnen identificeren van de SAML-aanvraag in de URL-paramete
 
 De toepassing nodig heeft voor het verzenden van de SAML-aanvraag die is gecodeerd in de location-header met behulp van HTTP omleiden binding. Voor meer informatie over het implementeren, leest u de sectie HTTP omleiden Binding in de [SAML-protocol-specificatiedocument](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
 
+## <a name="azure-ad-is-sending-the-token-to-an-incorrect-endpoint"></a>Azure AD wordt het token verzonden naar een onjuiste eindpunt
+
+**Mogelijke oorzaak**
+
+Tijdens eenmalige aanmelding, vertrouwen als de aanmeldingsaanvraag geen een expliciete antwoord-URL (URL van de Bevestigingsconsumerservice) bevat en vervolgens u Azure AD een van de geconfigureerde selecteert wordt URL's voor de toepassing. Zelfs als de toepassing een expliciete antwoord-URL die is geconfigureerd heeft, wordt de gebruiker mogelijk omgeleid https://127.0.0.1:444. 
+
+Toen de toepassing werd toegevoegd als niet-galerie-app, is deze antwoord-URL in Azure Active Directory gemaakt als standaardwaarde. Dit gedrag is gewijzigd en deze URL wordt niet meer standaard toegevoegd in Azure Active Directory. 
+
+**Resolutie**
+
+Verwijder de ongebruikte antwoord-URL's geconfigureerd voor de toepassing.
+
+1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder**.
+
+2.  Open de **Azure Active Directory-extensie** hiervoor **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
+
+3.  Type **'Azure Active Directory'** in het zoekvak van filter en selecteer de **Azure Active Directory** item.
+
+4.  Selecteer **bedrijfstoepassingen** in het navigatiemenu aan Azure Active Directory.
+
+5.  Selecteer **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
+
+    Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle Toepassingen**.
+
+6.  Selecteer de toepassing die u wilt configureren voor eenmalige aanmelding.
+
+7.  Nadat de toepassing wordt geladen, opent u **Basic SAML-configuratie**. In de **antwoord-URL (URL van de Bevestigingsconsumerservice)**, niet-gebruikte verwijderen of standaard antwoord-URL's die zijn gemaakt door het systeem. Bijvoorbeeld `https://127.0.0.1:444/applications/default.aspx`.
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Probleem bij het aanpassen van de SAML-claims verzonden naar een toepassing
 

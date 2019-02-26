@@ -1,21 +1,21 @@
 ---
 title: Over ExpressRoute Direct - Azure | Microsoft Docs
-description: Deze pagina biedt een overzicht van ExpressRoute Direct (Preview)
+description: Deze pagina biedt een overzicht van ExpressRoute Direct
 services: expressroute
-author: mialdrid
+author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 3124e98dd035080c2989849232b978c5d4a563ea
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 98c5dc7dc6d977525d889a4cd97492183d1aad22
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100734"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818150"
 ---
-# <a name="about-expressroute-direct-preview"></a>Over ExpressRoute Direct (Preview)
+# <a name="about-expressroute-direct"></a>Over ExpressRoute Direct
 
 ExpressRoute Direct biedt de mogelijkheid om rechtstreeks in het wereldwijde netwerk van Microsoft op peeringlocaties strategisch verdeeld over de hele wereld verbinding te maken. ExpressRoute Direct biedt twee 100-Gbps-connectiviteit, die ondersteuning biedt voor actief/actief-verbindingen op schaal.
 
@@ -25,14 +25,9 @@ Belangrijke functies van ExpressRoute Direct bevatten, maar niet beperkt tot:
 * Fysieke isolatie voor branches die worden geregeld en vereisen toegewezen en geïsoleerd verbinding, zoals: het bankwezen, de overheid en de detailhandel
 * Gedetailleerde controle van circuitdistributie op basis van bedrijfsonderdelen
 
-> [!IMPORTANT]
-> ExpressRoute Direct is momenteel in Preview.
->
-> Deze openbare preview-versie wordt aangeboden zonder serviceovereenkomst en moet niet worden gebruikt voor productieworkloads. Bepaalde functies worden mogelijk niet ondersteund, zijn mogelijk beperkt of zijn mogelijk niet beschikbaar in alle Azure-locaties. Raadpleeg voor meer informatie de [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## <a name="onboard-to-expressroute-direct"></a>Onboarding van ExpressRoute Direct
 
-## <a name="enroll-in-the-preview"></a>Registreren voor de preview-versie
-
-Voordat u ExpressRoute Direct gebruikt, moet u eerst uw abonnement in de Preview-versie worden geregistreerd. Als u wilt inschrijven, stuur een E-mail naar <ExpressRouteDirect@microsoft.com> door uw abonnements-ID, met inbegrip van de volgende gegevens:
+Voordat u ExpressRoute Direct gebruikt, moet u eerst uw abonnement registreren. Als u wilt inschrijven, stuur een E-mail naar <ExpressRouteDirect@microsoft.com> door uw abonnements-ID, met inbegrip van de volgende gegevens:
 
 * Scenario's die u nodig hebt om uit te voeren met **ExpressRoute Direct**
 * Voorkeuren voor locatie - Zie [Partners en peeringlocaties](expressroute-locations-providers.md) voor een volledige lijst van alle locaties
@@ -74,7 +69,7 @@ ExpressRoute Direct biedt ondersteuning voor zowel QinQ en Dot1Q VLAN-tagging.
 
 ## <a name="sla"></a>SLA
 
-ExpressRoute Direct biedt de dezelfde SLA op ondernemingsniveau met redundante verbindingen actief/actief in het wereldwijde netwerk van Microsoft. ExpressRoute-infrastructuur is overbodig en connectiviteit in het wereldwijde netwerk van Microsoft is overbodig en diverse en kan worden geschaald dienovereenkomstig aan de klantvereisten. Tijdens de preview, zal er geen SLA en gelden alleen voor niet-productiewerkbelastingen.
+ExpressRoute Direct biedt de dezelfde SLA op ondernemingsniveau met redundante verbindingen actief/actief in het wereldwijde netwerk van Microsoft. ExpressRoute-infrastructuur is overbodig en connectiviteit in het wereldwijde netwerk van Microsoft is overbodig en diverse en kan worden geschaald dienovereenkomstig aan de klantvereisten. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

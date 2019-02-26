@@ -1,6 +1,6 @@
 ---
-title: Doorsturen van Azure Automation State Configuration rapportagegegevens met Log Analytics
-description: In dit artikel ziet u hoe u voor het verzenden van Desired State Configuration (DSC) rapportagegegevens van Azure Automation State Configuration naar Log Analytics om meer inzicht en beheer te bieden.
+title: Doorsturen van Azure Automation State Configuration waarvoor gegevens zijn gerapporteerd aan Azure Monitor-Logboeken
+description: In dit artikel ziet u hoe u voor het verzenden van Desired State Configuration (DSC) rapportagegegevens van Azure Automation State Configuration naar Logboeken van Azure Monitor om meer inzicht en beheer te bieden.
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -9,16 +9,16 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2450ffcbd9fa7bebd5a1b862aa9c35baa5dbdc95
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 33b3ed52d198d162af666e0f38066ba936d7874f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425171"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819817"
 ---
-# <a name="forward-azure-automation-state-configuration-reporting-data-to-log-analytics"></a>Doorsturen van Azure Automation State Configuration rapportagegegevens met Log Analytics
+# <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Doorsturen van Azure Automation State Configuration waarvoor gegevens zijn gerapporteerd aan Azure Monitor-Logboeken
 
-Statusconfiguratie van Azure Automation kan Desired State Configuration (DSC) knooppunt status van gegevens verzenden naar uw Log Analytics-werkruimte. Status van naleving is zichtbaar in de Azure portal of met PowerShell, voor knooppunten en voor afzonderlijke DSC-resources in knooppuntconfiguraties. Met Log Analytics kunt u het volgende doen:
+Statusconfiguratie van Azure Automation kan Desired State Configuration (DSC) knooppunt status van gegevens verzenden naar uw Log Analytics-werkruimte. Status van naleving is zichtbaar in de Azure portal of met PowerShell, voor knooppunten en voor afzonderlijke DSC-resources in knooppuntconfiguraties. Met Azure Monitor-Logboeken kunt u het volgende doen:
 
 - Informatie over de naleving voor beheerde knooppunten en afzonderlijke resources ophalen
 - Activeer een e-mailadres of de waarschuwing op basis van status van naleving
@@ -26,18 +26,20 @@ Statusconfiguratie van Azure Automation kan Desired State Configuration (DSC) kn
 - Combineer status van naleving van Automation-accounts
 - Visualiseer uw geschiedenis van naleving van knooppunt na verloop van tijd
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## <a name="prerequisites"></a>Vereisten
 
-Als u wilt beginnen met het verzenden van uw configuratie van de status van Automation-rapporten naar Log Analytics, hebt u het volgende nodig:
+Als u wilt beginnen met het verzenden van uw configuratie van de status van Automation-rapporten naar Azure Monitor-Logboeken, hebt u het volgende nodig:
 
 - De November 2016 of hoger van de release [Azure PowerShell](/powershell/azure/overview) (v2.3.0).
 - Een Azure Automation-account. Zie voor meer informatie, [aan de slag met Azure Automation](automation-offering-get-started.md)
-- Een Log Analytics-werkruimte met een **Automation en besturing** serviceaanbieding. Zie voor meer informatie, [aan de slag met Log Analytics](../log-analytics/log-analytics-get-started.md).
+- Een Log Analytics-werkruimte met een **Automation en besturing** serviceaanbieding. Zie voor meer informatie, [aan de slag met Azure Monitor logboeken](../log-analytics/log-analytics-get-started.md).
 - Ten minste één knooppunt van de configuratie van Azure Automation-status. Zie voor meer informatie, [Onboarding van machines voor beheer met Azure Automation State Configuration](automation-dsc-onboarding.md)
 
-## <a name="set-up-integration-with-log-analytics"></a>Integratie met Log Analytics instellen
+## <a name="set-up-integration-with-azure-monitor-logs"></a>Integratie met Azure Monitor logboeken instellen
 
-Als u wilt importeren van gegevens uit Azure Automation DSC in Log Analytics, voert u de volgende stappen uit:
+Als u wilt importeren van gegevens uit Azure Automation DSC in Logboeken van Azure Monitor, voert u de volgende stappen uit:
 
 1. Meld u aan bij uw Azure-account in PowerShell. Zie [aanmelden met Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
 1. Krijgen de _ResourceId_ van uw automation-account door het uitvoeren van de volgende PowerShell-opdracht: (als u meer dan één automation-account hebt, kiest u de _ResourceID_ voor het account dat u wilt configureren).
@@ -60,7 +62,7 @@ Als u wilt importeren van gegevens uit Azure Automation DSC in Log Analytics, vo
   Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Categories 'DscNodeStatus'
   ```
 
-Als u stoppen met het importeren van gegevens uit Azure Automation State Configuration in Log Analytics wilt, voert u de volgende PowerShell-opdracht:
+Als u stoppen met het importeren van gegevens uit Azure Automation State Configuration in Logboeken van Azure Monitor wilt, moet u de volgende PowerShell-opdracht uitvoeren:
 
 ```powershell
 Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $false -Categories 'DscNodeStatus'
@@ -68,7 +70,7 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 
 ## <a name="view-the-state-configuration-logs"></a>Bekijk de logboeken van de configuratie van status
 
-Na het instellen van integratie met Log Analytics voor uw Automation-status configuratiegegevens, een **zoeken in logboeken** knop wordt weergegeven op de **DSC-knooppunten** blade van uw automation-account. Klik op de **zoeken in logboeken** knop om de logboeken voor DSC-knooppuntgegevens weer te geven.
+Na het instellen van integratie met Azure Monitor-logboeken voor uw Automation-status configuratiegegevens, een **zoeken in logboeken** knop wordt weergegeven op de **DSC-knooppunten** blade van uw automation-account. Klik op de **zoeken in logboeken** knop om de logboeken voor DSC-knooppuntgegevens weer te geven.
 
 ![Zoekknop log](media/automation-dsc-diagnostics/log-search-button.png)
 
@@ -78,7 +80,8 @@ De **DscResourceStatusData** bewerking bevat foutinformatie voor eventuele DSC-r
 
 Klik op elke bewerking in de lijst om te zien van de gegevens voor deze bewerking.
 
-U kunt ook de logboeken bekijken door [te zoeken in Log Analytics. Zie [vinden van gegevens met behulp van zoekopdrachten in logboeken](../log-analytics/log-analytics-log-searches.md).
+U kunt ook de logboeken bekijken door te zoeken in Logboeken van Azure Monitor.
+Zie [vinden van gegevens met behulp van zoekopdrachten in logboeken](../log-analytics/log-analytics-log-searches.md).
 Typ de volgende query uit om uw logboeken State Configuration zoeken: `Type=AzureDiagnostics ResourceProvider='MICROSOFT.AUTOMATION' Category='DscNodeStatus'`
 
 U kunt de query ook beperken door de naam van de bewerking. Bijvoorbeeld: `Type=AzureDiagnostics ResourceProvider='MICROSOFT.AUTOMATION' Category='DscNodeStatus' OperationName='DscNodeStatusData'`
@@ -89,7 +92,7 @@ Een van onze belangrijkste klantaanvragen is de mogelijkheid voor het verzenden 
 
 Voor het maken van een waarschuwingsregel, begint u met het maken van een zoeken in Logboeken voor de configuratie van status rapport records die de waarschuwing moet worden aangeroepen. Klik op de **+ nieuwe waarschuwingsregel** knop maken en configureren van de waarschuwingsregel.
 
-1. Klik op de pagina overzicht van Log Analytics **zoeken in logboeken**.
+1. Klik op de pagina overzicht van Log Analytics-werkruimte **logboeken**.
 1. Maak een zoekquery logboek voor de waarschuwing door te zoeken in de volgende typen in het queryveld:  `Type=AzureDiagnostics Category='DscNodeStatus' NodeName_s='DSCTEST1' OperationName='DscNodeStatusData' ResultType='Failed'`
 
    Als u aan uw werkruimte Logboeken uit meer dan één Automation-account of -abonnement hebt ingesteld, kunt u uw waarschuwingen op basis van abonnement en de Automation-account kunt groeperen.  
@@ -98,10 +101,10 @@ Voor het maken van een waarschuwingsregel, begint u met het maken van een zoeken
 
 ### <a name="find-failed-dsc-resources-across-all-nodes"></a>Mislukte DSC-resources zoeken voor alle knooppunten
 
-Eén voordeel van het gebruik van Log Analytics is dat u kunt zoeken naar mislukte controles op knooppunten.
+Eén voordeel van het gebruik van Azure Monitor-Logboeken is dat u kunt zoeken naar mislukte controles op knooppunten.
 Alle exemplaren van DSC-resources die niet zijn gevonden.
 
-1. Klik op de pagina overzicht van Log Analytics **zoeken in logboeken**.
+1. Klik op de pagina overzicht van Log Analytics-werkruimte **logboeken**.
 1. Maak een zoekquery logboek voor de waarschuwing door te zoeken in de volgende typen in het queryveld:  `Type=AzureDiagnostics Category='DscNodeStatus' OperationName='DscResourceStatusData' ResultType='Failed'`
 
 ### <a name="view-historical-dsc-node-status"></a>Historische DSC-knooppuntstatus weergeven
@@ -113,9 +116,9 @@ U kunt deze query gebruiken om te zoeken naar de status van de status van uw DSC
 
 Hiermee wordt een grafiek zien van de status van het knooppunt weergegeven na verloop van tijd.
 
-## <a name="log-analytics-records"></a>Log Analytics-records
+## <a name="azure-monitor-logs-records"></a>Azure Monitor-logboeken records
 
-Diagnostische gegevens van Azure Automation wordt onderverdeeld in twee records gemaakt in Log Analytics.
+Diagnostische gegevens van Azure Automation maakt twee categorieën van de records in Azure Monitor-Logboeken.
 
 ### <a name="dscnodestatusdata"></a>DscNodeStatusData
 
@@ -139,7 +142,7 @@ Diagnostische gegevens van Azure Automation wordt onderverdeeld in twee records 
 | ReportStartTime_t |Datum en tijd waarop het rapport is gestart. |
 | ReportEndTime_t |De datum en tijd waarop het rapport is voltooid. |
 | NumberOfResources_d |Het aantal DSC-resources met de naam in de configuratie die is toegepast op het knooppunt. |
-| SourceSystem | Hoe worden de gegevens verzameld door Log Analytics. Altijd *Azure* voor Azure diagnostics. |
+| SourceSystem | Hoe Azure Monitor-logboeken verzameld voor de gegevens. Altijd *Azure* voor Azure diagnostics. |
 | ResourceId |Hiermee geeft u de Azure Automation-account. |
 | ResultDescription | De beschrijving voor deze bewerking. |
 | SubscriptionId | De Azure-abonnement-Id (GUID) voor het Automation-account. |
@@ -170,7 +173,7 @@ Diagnostische gegevens van Azure Automation wordt onderverdeeld in twee records 
 | ErrorCode_s | De foutcode van het object als de resource is mislukt. |
 | ErrorMessage_s |Het foutbericht als de resource is mislukt. |
 | DscResourceDuration_d |De tijd in seconden, de DSC-resource is uitgevoerd. |
-| SourceSystem | Hoe worden de gegevens verzameld door Log Analytics. Altijd *Azure* voor Azure diagnostics. |
+| SourceSystem | Hoe Azure Monitor-logboeken verzameld voor de gegevens. Altijd *Azure* voor Azure diagnostics. |
 | ResourceId |Hiermee geeft u de Azure Automation-account. |
 | ResultDescription | De beschrijving voor deze bewerking. |
 | SubscriptionId | De Azure-abonnement-Id (GUID) voor het Automation-account. |
@@ -181,12 +184,12 @@ Diagnostische gegevens van Azure Automation wordt onderverdeeld in twee records 
 
 ## <a name="summary"></a>Samenvatting
 
-Uw configuratiegegevens van Automation status verzenden naar Log Analytics, krijgt u inzicht in de status van uw configuratie van de status van Automation-knooppunten op basis van:
+Uw configuratiegegevens van Automation status verzenden naar Azure Monitor-Logboeken, krijgt u inzicht in de status van uw configuratie van de status van Automation-knooppunten op basis van:
 
 - Instellen van waarschuwingen om u te waarschuwen wanneer er een probleem
 - Met behulp van aangepaste weergaven en zoekopdrachten naar uw runbookresultaten te visualiseren, gerelateerde de status van de runbook-taak en andere KPI's of metrische gegevens.  
 
-Log Analytics biedt tevens grotere operationele zichtbaarheid aan uw Automation-status-configuratiegegevens en incidenten sneller kan helpen.
+Logboeken in Azure Monitor biedt tevens grotere operationele zichtbaarheid aan uw Automation-status-configuratiegegevens en incidenten sneller kunnen helpen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -196,5 +199,5 @@ Log Analytics biedt tevens grotere operationele zichtbaarheid aan uw Automation-
 - Zie voor naslagdocumentatie voor PowerShell-cmdlet, [Statusconfiguratie van Azure Automation-cmdlets](/powershell/module/azurerm.automation/#automation)
 - Zie voor informatie over de prijzen [Statusconfiguratie van Azure Automation-prijzen](https://azure.microsoft.com/pricing/details/automation/)
 - Zie voor een voorbeeld van het gebruik van Azure Automation State Configuration in een pijplijn voor continue implementatie [continue implementatie met behulp van Azure Automation Statusconfiguratie- en Chocolatey](automation-dsc-cd-chocolatey.md)
-- Zie voor meer informatie over het maken van verschillende zoekquery's en bekijk de logboeken van de configuratie van de Automation-status met Log Analytics, [zoekopdrachten in Logboeken in Log Analytics](../log-analytics/log-analytics-log-searches.md)
-- Zie voor meer informatie over Log Analytics en gegevensverzamelingsbronnen [verzamelen van Azure storage-gegevens in Log Analytics-overzicht](../azure-monitor/platform/collect-azure-metrics-logs.md)
+- Zie voor meer informatie over het maken van verschillende zoekquery's en bekijk de logboeken van de configuratie van de Automation-status met Azure Monitor-Logboeken, [zoekopdrachten in Logboeken van Azure Monitor](../log-analytics/log-analytics-log-searches.md)
+- Zie voor meer informatie over Azure Monitor-logboeken en -verzameling gegevensbronnen, [verzamelen van Azure storage-gegevens in Azure Monitor-overzicht van Logboeken](../azure-monitor/platform/collect-azure-metrics-logs.md)

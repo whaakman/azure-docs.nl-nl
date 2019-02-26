@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 02/25/2019
 ms.author: diberry
-ms.openlocfilehash: 6a4d20073275e3d858cecb73c2e95c97ea53a647
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 4215b008af21a3473a1d2dcef5f73a1b19133215
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311967"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821556"
 ---
 # <a name="configure-face-docker-containers"></a>Face-Docker-containers configureren
 
@@ -54,6 +54,49 @@ Deze instelling kan worden gevonden in de volgende plaats:
 |Vereist| Name | Gegevenstype | Description |
 |--|------|-----------|-------------|
 |Ja| `Billing` | Reeks | URI van de facturering-eindpunt<br><br>Voorbeeld:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
+
+<!-- specific to face only -->
+
+## <a name="cloudai-configuration-settings"></a>CloudAI configuratie-instellingen
+
+De configuratie-instellingen in de `CloudAI` sectie bieden container-specifieke opties die uniek is voor de container. De volgende instellingen en objecten worden ondersteund voor de Face-container in de `CloudAI` sectie
+
+| Name | Gegevenstype | Description |
+|------|-----------|-------------|
+| `Storage` | Object | De Opslagscenario wordt gebruikt door de Face-container. Voor meer informatie over scenario's voor opslag en de bijbehorende instellingen voor de `Storage` object, Zie [Opslaginstellingen scenario](#storage-scenario-settings) |
+
+### <a name="storage-scenario-settings"></a>Opslaginstellingen scenario
+
+De Face-container slaat blob, cache, metagegevens en wachtrijgegevens, afhankelijk van wat wordt opgeslagen. Training indexen en resultaten voor een grote Persoonsgroep worden als blob-gegevens opgeslagen. De Face-container biedt twee verschillende opslag-scenario's tijdens interactie met en het opslaan van deze typen gegevens:
+
+* Geheugen  
+  Alle vier typen gegevens worden opgeslagen in het geheugen. Ze niet worden gedistribueerd, noch zijn ze permanente. Als de Face-container wordt gestopt of verwijderd, worden alle gegevens in de opslag voor die container vernietigd.  
+  Dit is de standaard Opslagscenario voor de Face-container.
+* Azure  
+  De Face-container maakt gebruik van Azure Storage en Azure Cosmos DB voor de distributie van deze vier typen gegevens over de permanente opslag. BLOB- en wachtrijservices gegevens worden verwerkt door Azure Storage. Metagegevens en de cache-gegevens worden verwerkt door Azure Cosmos DB. Als de Face-container wordt gestopt of verwijderd, blijft alle gegevens in de opslag voor die container opgeslagen in Azure Storage en Azure Cosmos DB.  
+  De resources die worden gebruikt door het Azure storage-scenario gelden de volgende aanvullende vereisten
+  * De Azure Storage-resource moet het soort StorageV2-account gebruiken
+  * Gebruik de Azure Cosmos DB-resource van de Azure Cosmos DB API voor MongoDB
+
+De scenario's voor opslag en de bijbehorende configuratie-instellingen worden beheerd door de `Storage` object, onder de `CloudAI` configuratiesectie. De volgende configuratie-instellingen zijn beschikbaar in de `Storage` object:
+
+| Name | Gegevenstype | Description |
+|------|-----------|-------------|
+| `StorageScenario` | Reeks | De Opslagscenario wordt ondersteund door de container. De volgende waarden zijn beschikbaar<br/>`Memory` -Standaardwaarde. Container maakt gebruik van niet-permanente, niet-gedistribueerde en in het geheugen, opslag, voor gebruik met één knooppunt, tijdelijk. Als de container wordt gestopt of verwijderd, wordt de opslag voor deze container wordt vernietigd.<br/>`Azure` -Container maakt gebruik van Azure-resources voor de opslag. Als de container wordt gestopt of verwijderd, worden persistent gemaakt met de opslag voor die container.|
+| `ConnectionStringOfAzureStorage` | Reeks | De verbindingsreeks voor de Azure Storage-resource die wordt gebruikt door de container.<br/>Deze instelling geldt alleen als `Azure` is opgegeven voor de `StorageScenario` configuratie-instelling. |
+| `ConnectionStringOfCosmosMongo` | Reeks | De MongoDB-verbindingsreeks voor de Azure Cosmos DB-resource die wordt gebruikt door de container.<br/>Deze instelling geldt alleen als `Azure` is opgegeven voor de `StorageScenario` configuratie-instelling. |
+
+Bijvoorbeeld de volgende opdracht Hiermee geeft u het scenario voor Azure storage en voorbeeld-verbindingsreeksen voor de Azure Storage en Cosmos DB-resources gebruikt voor het opslaan van gegevens voor de Face-container biedt.
+
+  ```Docker
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789 CloudAI:Storage:StorageScenario=Azure CloudAI:Storage:ConnectionStringOfCosmosMongo="mongodb://samplecosmosdb:0123456789@samplecosmosdb.documents.azure.com:10255/?ssl=true&replicaSet=globaldb" CloudAI:Storage:ConnectionStringOfAzureStorage="DefaultEndpointsProtocol=https;AccountName=sampleazurestorage;AccountKey=0123456789;EndpointSuffix=core.windows.net"
+  ```
+
+Het Opslagscenario voor wordt afzonderlijk verwerkt van koppelingen invoer en uitvoer van koppelingen. U kunt een combinatie van deze functies voor een enkele container opgeven. De volgende opdracht wordt bijvoorbeeld gedefinieerd voor een koppelpunt van de Docker-binding aan de `D:\Output` map op de hostcomputer als het koppelpunt uitvoer wordt vervolgens een container van de containerinstallatiekopie Face opslaan van logboekbestanden in JSON-indeling voor het koppelen van de uitvoer. De opdracht ook Hiermee geeft u het scenario voor Azure storage en voorbeeld-verbindingsreeksen voor de Azure Storage en Cosmos DB-resources gebruikt voor het opslaan van gegevens voor de Face-container biedt.
+
+  ```Docker
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 --mount type=bind,source=D:\Output,destination=/output containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789 Logging:Disk:Format=json CloudAI:Storage:StorageScenario=Azure CloudAI:Storage:ConnectionStringOfCosmosMongo="mongodb://samplecosmosdb:0123456789@samplecosmosdb.documents.azure.com:10255/?ssl=true&replicaSet=globaldb" CloudAI:Storage:ConnectionStringOfAzureStorage="DefaultEndpointsProtocol=https;AccountName=sampleazurestorage;AccountKey=0123456789;EndpointSuffix=core.windows.net"
+  ```
 
 ## <a name="eula-setting"></a>Overeenkomst instelling
 

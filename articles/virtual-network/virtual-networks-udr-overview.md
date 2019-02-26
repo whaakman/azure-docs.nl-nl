@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
-ms.openlocfilehash: 86e4720f001f05534bc9af703f0f98d7ca5d95e4
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: a09d880a1a17e429692dcb8e542657f416de7b30
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268835"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823532"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routering van verkeer in virtuele netwerken
 
@@ -91,7 +91,7 @@ U kunt de onderstaande 'volgende hoptypen' opgeven wanneer u een door de gebruik
 
     U kunt een route met 0.0.0.0/0 als het adresvoorvoegsel definiëren en het 'volgende hoptype' Virtueel apparaat. Het apparaat kan dan het gegevensverkeer inspecteren en bepalen of dit moet worden doorgestuurd of verwijderd. Als u van plan bent een door de gebruiker gedefinieerde route te maken met het adresvoorvoegsel 0.0.0.0/0, moet u eerst [Adresvoorvoegsel 0.0.0.0/0](#default-route) lezen.
 
-- **Gateway voor een virtueel netwerk**: Gebruik dit type als u verkeer dat is bestemd voor specifieke adresvoorvoegsels, wilt doorsturen naar de gateway van een virtueel netwerk. De gateway van het virtuele netwerk moet worden gemaakt met het type **VPN**. U kunt een virtuele netwerkgateway gemaakt als het type niet opgeven **ExpressRoute** in een door de gebruiker gedefinieerde route omdat met ExpressRoute, u BGP voor aangepaste routes gebruiken moet. U kunt een route definiëren om ervoor te zorgen dat verkeer dat is bestemd voor het adresvoorvoegsel 0.0.0.0/0 wordt omgeleid naar de gateway van een virtueel netwerk die [op routes is gebaseerd](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-network%2ftoc.json#vpntype). Het is mogelijk dat u on-premises een apparaat hebt dat het verkeer inspecteert en vervolgens bepaalt of dit moet worden doorgestuurd of verwijderd. Als u van plan bent een door de gebruiker gedefinieerde route te maken voor het adresvoorvoegsel 0.0.0.0/0, moet u eerst [Adresvoorvoegsel 0.0.0.0/0](#default-route) lezen. In plaats van een door de gebruiker gedefinieerde route te configureren voor het adresvoorvoegsel 0.0.0.0/0, kunt u een route met het voorvoegsel 0.0.0.0/0 adverteren via BGP, maar alleen als u [BGP hebt ingeschakeld voor de gateway van een virtueel netwerk](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- **Gateway voor een virtueel netwerk**: Gebruik dit type als u verkeer dat is bestemd voor specifieke adresvoorvoegsels, wilt doorsturen naar de gateway van een virtueel netwerk. De gateway van het virtuele netwerk moet worden gemaakt met het type **VPN**. U kunt een virtuele netwerkgateway gemaakt als het type niet opgeven **ExpressRoute** in een door de gebruiker gedefinieerde route omdat met ExpressRoute, u BGP voor aangepaste routes gebruiken moet. U kunt een route definiëren om ervoor te zorgen dat verkeer dat is bestemd voor het adresvoorvoegsel 0.0.0.0/0 wordt omgeleid naar de gateway van een virtueel netwerk die [op routes is gebaseerd](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#vpntype). Het is mogelijk dat u on-premises een apparaat hebt dat het verkeer inspecteert en vervolgens bepaalt of dit moet worden doorgestuurd of verwijderd. Als u van plan bent een door de gebruiker gedefinieerde route te maken voor het adresvoorvoegsel 0.0.0.0/0, moet u eerst [Adresvoorvoegsel 0.0.0.0/0](#default-route) lezen. In plaats van een door de gebruiker gedefinieerde route te configureren voor het adresvoorvoegsel 0.0.0.0/0, kunt u een route met het voorvoegsel 0.0.0.0/0 adverteren via BGP, maar alleen als u [BGP hebt ingeschakeld voor de gateway van een virtueel netwerk](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - **Geen**: Gebruik dit type als u het verkeer naar een adresvoorvoegsel wilt verwijderen, in plaats van het verkeer door te sturen naar een bestemming. Als u een mogelijkheid van Azure niet volledig hebt geconfigureerd, kan voor sommige optionele systeemroutes *Geen* worden vermeld. Als u bijvoorbeeld *Geen* ziet staan bij **IP-adres van volgende hop** met **Volgende hoptype** ingesteld op *Gateway van virtueel netwerk* of *Virtueel apparaat*, kan het zijn dat het apparaat niet wordt uitgevoerd of niet volledig is geconfigureerd. Azure maakt [standaardsysteemroutes](#default) voor gereserveerde adresvoorvoegsels met **Geen** als het 'volgende hoptype'.
 - **Virtueel netwerk**: Kies dit type wanneer u de standaardroutering binnen een virtueel netwerk wilt vervangen. Zie [Voorbeeld van routering](#routing-example) voor een voorbeeld van waarom u een route met het hoptype **Virtueel netwerk** zou maken.
 - **Internet**: Gebruik dit type als u verkeer dat is bestemd voor een adresvoorvoegsel, expliciet naar internet wilt routeren, of als u verkeer dat is bestemd voor Azure-services met openbare IP-adressen, binnen het backbone-netwerk van Azure wilt houden.

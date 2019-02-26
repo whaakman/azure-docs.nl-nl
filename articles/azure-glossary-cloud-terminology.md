@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 748a9c0c583d4e1af9626527a440b19900898b87
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 9a93786759941def4cf8677509b1b2565cac5090
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600298"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823855"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Verklarende woordenlijst voor Microsoft Azure: Een woordenlijst met cloud-terminologie op het Azure-platform
 
@@ -39,7 +39,7 @@ Een andere naam voor [App Service-app](#app-service-app).
 ## <a name="app-service-app"></a>App Service-app
 De rekenresources die [Azure App Service](app-service/overview.md) biedt voor het hosten van een website of web-toepassing, web-API of [mobiele back-end](app-service-mobile/app-service-mobile-value-prop.md). App Service-apps worden ook aangeduid als *App Services*, *web-apps*, *API apps*, en *mobiele apps*.
 
-## <a name="availability-set"></a>Beschikbaarheidsset
+## <a name="availability-set"></a>beschikbaarheidsset
 Een verzameling van virtuele machines die samen worden beheerd voor toepassing redundantie en betrouwbaarheid. Het gebruik van een beschikbaarheidsset zorgt ervoor dat tijdens een geplande of onvoorziene onderhoudsgebeurtenis ten minste één virtuele machine beschikbaar is.  
 Zie [de beschikbaarheid van virtuele machines van Windows beheren](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) en [de beschikbaarheid van virtuele Linux-machines beheren](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -77,7 +77,7 @@ Zie [navigeren door en selecteren installatiekopieën van Windows-machines in Az
 Het aantal resources dat kunnen worden gemaakt of de benchmark-prestaties die kan worden bereikt. Grenzen zijn meestal gekoppeld aan abonnementen, services en aanbiedingen.  
 Zie [Azure-abonnement en Servicelimieten, quotums en beperkingen](azure-subscription-service-limits.md)
 
-## <a name="load-balancer"></a>Load balancer
+## <a name="load-balancer"></a>load balancer
 Een resource die inkomend verkeer tussen de computers in een netwerk distribueert. In Azure verdeelt een load balancer het verkeer naar virtuele machines die zijn gedefinieerd in een load balancer-set. Een [netwerktaakverdeler](load-balancer/load-balancer-overview.md) kan internet gerichte of interne kan zijn.  
 
 ## <a name="mobile-app"></a>mobiele app
@@ -110,7 +110,7 @@ Zie [Authoring Azure Resource Manager-sjablonen](resource-group-authoring-templa
 Een service die de resources levert die u kunt implementeren en beheren via Resource Manager. Elke resourceprovider biedt bewerkingen voor het werken met de resources die zijn geïmplementeerd. Resourceproviders is toegankelijk via de Azure-portal, Azure PowerShell en diverse programming SDK's.  
 Zie [overzicht van Azure Resource Manager](azure-resource-manager/resource-group-overview.md)
 
-## <a name="role"></a>rol
+## <a name="role"></a>role
 Een manier voor het beheren van toegang die kan worden toegewezen aan gebruikers, groepen en services. Rollen zijn bewerkingen zoals het maken, beheren, en meer over Azure-resources kunt uitvoeren.  
 Zie [RBAC: Ingebouwde rollen](role-based-access-control/built-in-roles.md)
 
@@ -147,7 +147,7 @@ Een resource die gedrag of functies die een andere programma's werkt of bieden d
 Zie [over extensies voor virtuele machines en -functies (Windows)](virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) of [over extensies voor virtuele machines en -functies (Linux)](virtual-machines/linux/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="vnet"></a>Virtueel netwerk
-Een netwerk dat biedt connectiviteit tussen uw Azure-resources die is geïsoleerd van alle andere Azure-tenants. Een [Azure VPN-Gateway](vpn-gateway/vpn-gateway-about-vpngateways.md) kunt u verbindingen kunt opzetten tussen virtuele netwerken en [tussen een virtueel netwerk en een on-premises netwerk](vpn-gateway/vpn-gateway-plan-design.md). U hebt volledige controle de IP-adresblokken, DNS-instellingen, beveiligingsbeleid en routetabellen binnen een virtueel netwerk.  
+Een netwerk dat biedt connectiviteit tussen uw Azure-resources die is geïsoleerd van alle andere Azure-tenants. Een [Azure VPN-Gateway](vpn-gateway/vpn-gateway-about-vpngateways.md) kunt u verbindingen tussen virtuele netwerken en tussen een virtueel netwerk en een on-premises netwerk tot stand brengen. U hebt volledige controle de IP-adresblokken, DNS-instellingen, beveiligingsbeleid en routetabellen binnen een virtueel netwerk.  
 Zie [overzicht van Virtual Network](virtual-network/virtual-networks-overview.md)  
 
 ## <a name="web-app"></a>Web-app

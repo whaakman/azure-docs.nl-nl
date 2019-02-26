@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 02/25/2019
 ms.author: orspod
-ms.openlocfilehash: 8f2a7a953ce2964645c281d9454a73b0cf1a8ff6
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: f614c6770dd29bc3d6b42c36fe8c81d9f129cd81
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747185"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816654"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Data Explorer met behulp van Azure Data Factory
 
@@ -29,7 +29,7 @@ In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in A
 U kunt gegevens uit een ondersteund brongegevensarchief kopiëren naar Azure Data Explorer. U kunt ook gegevens uit Azure Data Explorer kopiëren naar een ondersteunde sink-gegevensopslag. Zie voor een lijst met gegevensarchieven die worden ondersteund als gegevensbronnen of PUT voor de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md) tabel.
 
 >[!NOTE]
->Op dit moment is kopiëren van gegevens naar/van Azure Data Explorer van/naar on-premises gegevensarchief gebruiken zelfgehoste Integration Runtime nog niet ondersteund.
+>Kopiëren van gegevens naar/van Azure Data Explorer van/naar on-premises gegevensarchief gebruiken zelfgehoste Cloudintegratieruntime wordt ondersteund sinds versie 3,14.
 
 De Azure Data Explorer-connector kunt u het volgende doen:
 
@@ -162,7 +162,7 @@ Om gegevens te kopiëren naar Azure Data Explorer, stelt u de eigenschap type in
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De **type** eigenschap van de kopie-activiteit-sink moet zijn ingesteld op: **AzureDataExplorerSink** | Ja |
-| ingestionMappingName | Naam van een vooraf gemaakte [csv toewijzing](/azure/kusto/management/mappings#csv-mapping) op een Kusto-tabel. Als u wilt toewijzen van de kolommen van bron naar het Azure-gegevens verkennen, kunt u ook de Copy-activiteit gebruiken [kolomtoewijzing](copy-activity-schema-and-type-mapping.md). | Nee |
+| ingestionMappingName | Naam van een vooraf gemaakte **[CSV toewijzing](/azure/kusto/management/mappings#csv-mapping)** van een Kusto-tabel. JSON-toewijzing en Avro-toewijzing op Azure Data Explorer niet direct worden ondersteund, maar u kunt nog steeds gegevens uit JSON/Avro-bestanden kopiëren. Als u wilt toewijzen van de kolommen van bron naar Azure Data Explorer, kunt u de kopieeractiviteit [kolomtoewijzing](copy-activity-schema-and-type-mapping.md) die naast elkaar werkt ook met Azure Data Explorer CSV toewijzingen - activiteit maps/opnieuw-shapes gegevens kopiëren van bron naar het sink-op basis van kolom toewijzing van instellingen, wordt vervolgens toegewezen de gegevens opnieuw op basis van gegevensopname toewijzingsconfiguratie als bestaat. Het is van toepassing op [alle ondersteunde bron winkels](copy-activity-overview.md#supported-data-stores-and-formats) met inbegrip van JSON en Avro-indeling. | Nee |
 
 **Voorbeeld:**
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/10/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 8770aaeff3e0d7b2d6a39f596aafebf15ed48b23
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: c74a96e3dcce1394e0af5447c07ad38c54b960fa
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984989"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56825285"
 ---
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell starten
 
@@ -74,8 +74,8 @@ $galleryImage = New-AzGalleryImageDefinition `
    -Offer 'myOffer' `
    -Sku 'mySKU'
 ```
-
-In een toekomstige release zal het mogelijk gebruik van uw persoonlijke gedefinieerde **-uitgever**, **-bieden** en **- Sku** waarden om te zoeken en geef een definitie van een afbeelding, klikt u vervolgens een virtuele machine maken met behulp van meest recente versie van de installatiekopie van de definitie van de overeenkomende installatiekopie. Dit zijn bijvoorbeeld drie definities die installatiekopie en de bijbehorende waarden:
+### <a name="using-publisher-offer-and-sku"></a>Met behulp van de uitgever, aanbieding en SKU 
+Voor klanten over het implementeren van installatiekopieën van gedeelde planning **in een toekomstige release**, kunt u uw persoonlijke gedefinieerde **-uitgever**, **-bieden** en **- Sku** waarden zoeken en geef een definitie van een afbeelding en vervolgens een VM maken met de meest recente versie van de installatiekopie van het overeenkomende installatiekopie definitie. Dit zijn bijvoorbeeld drie definities die installatiekopie en de bijbehorende waarden:
 
 |Definitie van installatiekopie|Uitgever|Aanbieding|Sku|
 |---|---|---|---|
@@ -83,10 +83,9 @@ In een toekomstige release zal het mogelijk gebruik van uw persoonlijke gedefini
 |myImage2|myPublisher|standardOffer|mySku|
 |myImage3|Testen|standardOffer|testSku|
 
-Alle drie deze hebben unieke sets waarden. In een toekomstige release kunt u zich aan deze waarden combineren om een aanvraag van de meest recente versie van een specifieke installatiekopie. 
+Alle drie deze hebben unieke sets waarden. U kunt de versies van een installatiekopie die delen van één of twee, maar niet alle drie waarden hebben. **In een toekomstige release**, kun je deze waarden combineren om een aanvraag van de meest recente versie van een specifieke installatiekopie. **Dit niet werkt in de huidige release**, maar in de toekomst beschikbaar zijn. Wanneer er uitgebracht, met de volgende syntaxis moet worden gebruikt om in te stellen van de installatiekopie van de bron als *myImage1* uit de bovenstaande tabel.
 
 ```powershell
-# The following should set the source image as myImage1 from the table above
 $vmConfig = Set-AzVMSourceImage `
    -VM $vmConfig `
    -PublisherName myPublisher `
@@ -94,7 +93,7 @@ $vmConfig = Set-AzVMSourceImage `
    -Skus mySku 
 ```
 
-Dit is vergelijkbaar met hoe u deze voor de op dat moment kunt opgeven [Azure Marketplace-installatiekopieën](../articles/virtual-machines/windows/cli-ps-findimage.md) om een VM te maken. Met dat gegeven in gedachte moet elke definitie van de installatiekopie van een unieke set van deze waarden hebben. U kunt de versies van een installatiekopie die delen van één of twee, maar niet alle drie waarden hebben. 
+Dit is vergelijkbaar met hoe u op dit moment opgeven Gebruik uitgever, aanbieding en SKU voor de kunt [Azure Marketplace-installatiekopieën](../articles/virtual-machines/windows/cli-ps-findimage.md) naar de meest recente versie van een Marketplace-installatiekopie. Met dat gegeven in gedachte moet elke definitie van de installatiekopie van een unieke set van deze waarden hebben.  
 
 ##<a name="create-an-image-version"></a>De versie van een installatiekopie maken
 

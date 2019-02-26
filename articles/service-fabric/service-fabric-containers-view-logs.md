@@ -3,7 +3,7 @@ title: Containers logboeken bekijken in Azure Service Fabric | Microsoft Docs
 description: Beschrijft hoe u Logboeken voor containers voor een actieve Service Fabric-containerservices met Service Fabric Explorer weergeeft.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
-ms.author: twhitney
-ms.openlocfilehash: d66e27d860d18a37ffd9c6355b8d769116f26d73
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.author: aljo
+ms.openlocfilehash: 801d96dc154c1d7144217fe0f70c179c086690f0
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391237"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804498"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Logboeken weergeven voor een Service Fabric containerservice
 Azure Service Fabric is een containerorchestrator en ondersteunt zowel [Linux- en Windows-containers](service-fabric-containers-overview.md).  In dit artikel wordt beschreven hoe u Logboeken voor containers van een actieve containerservice of een andere container weergeven, zodat u kunt vaststellen en oplossen van problemen.

@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 9a5e75b762c2ab0591212ce0bc3d7fac42132f8a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 84b66605939abd0f676625a5959f4a31ef1774db
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116912"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818286"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Inschakelen van updatebeheer, wijzigingen bijhouden en inventaris-oplossingen op meerdere virtuele machines
 
@@ -51,7 +51,7 @@ Gebruik de besturingselementen voor filteren om te selecteren van virtuele machi
 
 ![Onboarden voor updatebeheer](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
-Controleer de keuzes voor de Log analytics-werkruimte en het Automation-account. Een bestaande werkruimte en een Automation-Account zijn standaard geselecteerd. Als u gebruiken een andere Log Analytics-werkruimte en een Automation-Account wilt, klikt u op **aangepaste** te selecteren uit de **aangepaste configuratie** pagina. Wanneer u ervoor een Log Analytics-werkruimte kiest, wordt een controle uitgevoerd om te bepalen als deze is gekoppeld aan een Automation-Account. Als een gekoppelde Automation-Account wordt gevonden, ziet u het volgende scherm. Wanneer u klaar bent, klikt u op **OK**.
+Controleer de keuzes voor de Log Analytics-werkruimte en het Automation-account. Een bestaande werkruimte en een Automation-Account zijn standaard geselecteerd. Als u gebruiken een andere Log Analytics-werkruimte en een Automation-Account wilt, klikt u op **aangepaste** te selecteren uit de **aangepaste configuratie** pagina. Wanneer u ervoor een Log Analytics-werkruimte kiest, wordt een controle uitgevoerd om te bepalen als deze is gekoppeld aan een Automation-Account. Als een gekoppelde Automation-Account wordt gevonden, ziet u het volgende scherm. Wanneer u klaar bent, klikt u op **OK**.
 
 ![Selecteer een werkruimte en account](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
 
@@ -89,7 +89,7 @@ De volgende oplossingen zijn afhankelijk van een Log Analytics-werkruimte:
 * [Tracering wijzigen](automation-change-tracking.md)
 * [VM's starten/stoppen buiten kantooruren](automation-solution-vm-management.md)
 
-Als u besluit dat u niet meer wilt integreren van uw Automation-account met Log Analytics, kunt u uw account rechtstreeks vanuit de Azure portal kunt ontkoppelen. Voordat u doorgaat, moet u eerst te verwijderen van de oplossingen die eerder vermeld, anders wordt dit proces zal worden voorkomen dat u doorgaat. Lees het artikel voor de desbetreffende oplossing die u hebt geïmporteerd voor meer informatie over de stappen die nodig zijn om deze te verwijderen.
+Als u besluit dat u niet meer wilt integreren van uw Automation-account met een Log Analytics-werkruimte, kunt u uw account rechtstreeks vanuit de Azure portal kunt ontkoppelen. Voordat u doorgaat, moet u eerst te verwijderen van de oplossingen die eerder vermeld, anders wordt dit proces zal worden voorkomen dat u doorgaat. Lees het artikel voor de desbetreffende oplossing die u hebt geïmporteerd voor meer informatie over de stappen die nodig zijn om deze te verwijderen.
 
 Nadat u deze oplossingen hebt verwijderd, kunt u de volgende stappen uit als u wilt loskoppelen van uw Automation-account kunt uitvoeren.
 

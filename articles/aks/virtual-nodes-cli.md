@@ -6,12 +6,12 @@ author: iainfoulds
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: 0aff1040a9c7532ff5efe724382a074120801eb3
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: ed3697cbfc605fbdecad2c1cc4b32c3ddd1e3813
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856482"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819038"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Maken en configureren van een cluster Azure Kubernetes-Services (AKS) voor het gebruik van virtuele knooppunten met de Azure CLI
 
@@ -43,6 +43,16 @@ Als de provider wordt weergegeven als *NotRegistered*, Registreer de provider me
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
 ```
+
+## <a name="preview-limitations"></a>Beperkingen voor Preview
+
+Hoewel deze functie nog in Preview-versie, worden de volgende regio's worden ondersteund voor implementaties:
+
+* Australië-Oost (australiaeast)
+* VS-Oost (VS-Oost)
+* West-Centraal VS (westcentralus)
+* West Europe (westeurope)
+* VS-West (VS West)
 
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell starten
 

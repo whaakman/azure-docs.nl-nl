@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: juliako
-ms.openlocfilehash: 02af95de3793f1d56204b17b0a3d91efbb285e55
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: d3222b2a2c47d6c2db4ca890a2618e89891d9deb
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726411"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804821"
 ---
 # <a name="dynamic-packaging"></a>Dynamische verpakking
 
@@ -26,9 +26,9 @@ Microsoft Azure Media Services kunnen worden gebruikt om veel media bron-bestand
 
 [Streaming-eindpunten](streaming-endpoint-concept.md) is de service voor dynamische pakketten in Media Services gebruikt voor het leveren van media-inhoud naar client spelers. Dynamische pakketten is een functie die wordt standaard geleverd op alle Streaming-eindpunten (Standard of Premium). Er zijn geen extra kosten die gepaard gaan met deze functie in Media Services v3. Met dynamische verpakking wordt alles wat u hoeft een asset die een set adaptive bitrate MP4-bestanden met manifestbestanden bevat. Klik, op basis van de opgegeven indeling in het manifest- of fragmentdeel, u de stream ontvangt in het protocol dat u hebt gekozen. Hierdoor hoeft u voor slechts één opslagindeling de bestanden op te slaan en hiervoor te betalen. De Media Services-service bouwt en levert de juiste reactie op basis van aanvragen van een client.
 
-In Media Services dynamische pakketten gebruikt of u On-Demand of Live streaming.
+In Media Services dynamische pakketten gebruikt of u on-demand streaming of live.
 
-Het volgende diagram toont de werkstroom dynamische pakketten.
+Het volgende diagram toont de streaming on demand met dynamische verpakking werkstroom.
 
 ![Dynamische codering](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
@@ -39,7 +39,11 @@ Hier volgt een algemene Media Services streaming-werkstroom waarbij dynamische p
 1. Upload een bestand voor invoer (een tussentijds bestand genoemd). Bijvoorbeeld, H.264 MP4 of WMV (Zie voor de lijst met ondersteunde indelingen [indelingen ondersteund door de Media Encoder Standard](media-encoder-standard-formats.md).
 2. Codeer uw tussentijds bestand op afspelen van H.264 MP4 adaptieve bitrate sets.
 3. Publiceer de asset met de adaptive bitrate die MP4-set.
-4. URL's die zijn gericht op verschillende indelingen (HLS, Dash en Smooth Streaming) maken. Het Streaming-eindpunt zou zorgen voor de juiste manifest en aanvragen voor deze verschillende indelingen.
+4. URL's die zijn gericht op verschillende indelingen (HLS, Dash en Smooth Streaming) maken. Het Streaming-eindpunt zou zorgen voor de juiste manifest en aanvragen voor deze verschillende indelingen. Bijvoorbeeld:
+
+ - HLS: `http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)`
+ - Dash: `http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)`
+ - Vloeiend: `http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest`
  
 ## <a name="video-codecs-supported-by-dynamic-packaging"></a>Codecs invoervideo ondersteund door dynamische verpakking
 

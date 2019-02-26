@@ -10,22 +10,24 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.service: azure-functions
 ms.devlang: nodejs
 ms.topic: reference
-ms.date: 10/26/2018
+ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: cff486f79abb02861c07e0daacaf2f58d3efaac4
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 04653dcdf0fb64e8b935cda18c01198ec91c548d
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729659"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807470"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Handleiding voor ontwikkelaars van Azure Functions-JavaScript
 
 Deze handleiding bevat informatie over de complexiteit van het schrijven van Azure Functions met JavaScript.
 
-Een JavaScript-functie is een geëxporteerde `function` die wordt uitgevoerd wanneer geactiveerd ([triggers zijn geconfigureerd in de function.json](functions-triggers-bindings.md)). Het eerste argument elke functie wordt doorgegeven is een `context` -object dat wordt gebruikt voor het ontvangen en verzenden die gegevens bindt, logboekregistratie en communiceert met de runtime.
+Een JavaScript-functie is een geëxporteerde `function` die wordt uitgevoerd wanneer geactiveerd ([triggers zijn geconfigureerd in de function.json](functions-triggers-bindings.md)). Het eerste argument doorgegeven aan elke functie is een `context` object, dat wordt gebruikt voor het ontvangen en verzenden die gegevens bindt, logboekregistratie en communiceert met de runtime.
 
-In dit artikel wordt ervan uitgegaan dat u al hebt gelezen de [referentie voor ontwikkelaars van Azure Functions](functions-reference.md). U moet ook uitvoeren met de Snelstartgids voor Functions voor het maken van uw eerste functie, met behulp van [Visual Studio Code](functions-create-first-function-vs-code.md) of [in de portal](functions-create-first-azure-function.md).
+In dit artikel wordt ervan uitgegaan dat u al hebt gelezen de [referentie voor ontwikkelaars van Azure Functions](functions-reference.md). Voltooien van de Snelstartgids voor Functions voor het maken van uw eerste functie, met behulp van [Visual Studio Code](functions-create-first-function-vs-code.md) of [in de portal](functions-create-first-azure-function.md).
+
+In dit artikel biedt ook ondersteuning voor [TypeScript-appontwikkeling](#typescript).
 
 ## <a name="folder-structure"></a>mapstructuur
 
@@ -109,7 +111,7 @@ In JavaScript, [bindingen](functions-triggers-bindings.md) zijn geconfigureerd e
 
 ### <a name="inputs"></a>Invoer
 Invoer zijn onderverdeeld in twee categorieën in Azure Functions: de invoer voor de werkstroomtrigger is en de andere is de aanvullende invoer. Trigger en andere invoer Bindingen (bindingen van `direction === "in"`) kunnen worden gelezen door een functie op drie manieren:
- - **_(Aanbevolen)_  Als parameters aan uw functie doorgegeven.** Ze worden doorgegeven aan de functie in dezelfde volgorde als waarin ze zijn gedefinieerd in *function.json*. Houd er rekening mee dat de `name` -eigenschap worden gedefinieerd *function.json* hoeft niet te overeenkomen met de naam van de parameter, maar het moet.
+ - **_(Aanbevolen)_  Als parameters aan uw functie doorgegeven.** Ze worden doorgegeven aan de functie in dezelfde volgorde als waarin ze zijn gedefinieerd in *function.json*. De `name` -eigenschap worden gedefinieerd *function.json* hoeft niet te overeenkomen met de naam van de parameter, maar het moet.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
@@ -138,7 +140,8 @@ Invoer zijn onderverdeeld in twee categorieën in Azure Functions: de invoer voo
 ### <a name="outputs"></a>Uitvoer
 Uitvoer (bindingen van `direction === "out"`) door een functie in een aantal manieren om te kunnen worden geschreven. In alle gevallen moet de `name` eigenschap van de binding zoals gedefinieerd in *function.json* komt overeen met de naam van het Objectlid naar worden geschreven in de functie. 
 
-U kunt gegevens toewijzen aan uitvoerbindingen in een van de volgende manieren. Deze methoden moeten niet worden gecombineerd.
+U kunt gegevens toewijzen aan uitvoerbindingen in een van de volgende manieren (geen deze methoden combineren):
+
 - **_[Aanbevolen voor meerdere uitvoer]_  Retourneren een object.** Als u van een asynchrone/Promise functie retourneren gebruikmaakt, kunt u een object met een toegewezen uitvoergegevens retourneren. In het volgende voorbeeld wordt de uitvoerbindingen zijn met de naam "httpResponse" en "queueOutput" in *function.json*.
 
   ```javascript
@@ -152,7 +155,7 @@ U kunt gegevens toewijzen aan uitvoerbindingen in een van de volgende manieren. 
       };
   };
   ```
-  
+
   Als u van een synchrone functie gebruikmaakt, kunt u terugkeren dit object met [ `context.done` ](#contextdone-method) (Zie het voorbeeld).
 - **_[Aanbevolen voor één uitvoer]_  Rechtstreeks een waarde retourneren en het gebruik van de naam van de binding $return.** Dit werkt alleen voor asynchrone/belofte functies retourneren. Zie het voorbeeld in [exporteren van een functie asynchrone](#exporting-an-async-function). 
 - **Toewijzen van waarden die moeten worden `context.bindings`**  kunt u waarden rechtstreeks aan context.bindings toewijzen.
@@ -167,7 +170,7 @@ U kunt gegevens toewijzen aan uitvoerbindingen in een van de volgende manieren. 
       return;
   };
   ```
- 
+
 ### <a name="bindings-data-type"></a>Bindings-gegevenstype
 
 Voor het definiëren van het gegevenstype voor een Invoerbinding, de `dataType` eigenschap in het bindingsdefinitie van de. Bijvoorbeeld, om te lezen van de inhoud van een HTTP-aanvraag in binaire indeling, gebruikt het type `binary`:
@@ -550,7 +553,47 @@ const myObj = new MyObj();
 module.exports = myObj;
 ```
 
-In dit voorbeeld is het belangrijk te weten dat hoewel een object wordt geëxporteerd, er geen garandeert dat zijn rond staat tussen uitvoerbewerkingen te behouden.
+In dit voorbeeld is het belangrijk te weten dat hoewel een object wordt geëxporteerd, er geen garanties met betrekking zijn tot de status tussen uitvoerbewerkingen te behouden.
+
+## <a name="typescript"></a>TypeScript
+
+Wanneer u zich richten op versie 2.x van de Functions-runtime, beide [Azure Functions voor Visual Studio Code](functions-create-first-function-vs-code.md) en de [Azure Functions Core Tools](functions-run-local.md) kunt u functie-apps met behulp van een sjabloon die ondersteuning bieden voor maken TypeScript-functie-app-projecten. De sjabloon wordt gegenereerd `package.json` en `tsconfig.json` projectbestanden die het eenvoudiger om te transpile, uitvoeren en publiceren van JavaScript-functies van de TypeScript-code met deze hulpprogramma's.
+
+Een gegenereerde `.funcignore` bestand wordt gebruikt om aan te geven welke bestanden worden uitgesloten wanneer er een project wordt gepubliceerd naar Azure.  
+
+TypeScript-bestanden (TS) zijn transpiled in JavaScript-bestanden (.js) in de `dist` uitvoermap. TypeScript-sjablonen gebruiken de [ `scriptFile` parameter](#using-scriptfile) in `function.json` om aan te geven van de locatie van het bijbehorende .js-bestand in de `dist` map. De locatie van de uitvoer van de sjabloon is ingesteld met behulp van `outDir` parameter in de `tsconfig.json` bestand. Als u deze instelling of de naam van de map wijzigt, is de runtime niet kunnen vinden van de code om uit te voeren.
+
+> [!NOTE]
+> Experimentele ondersteuning voor TypeScript bestaat versie 1.x van de Functions-runtime. De experimentele versie transpiles TypeScript-bestanden in JavaScript-bestanden wanneer de functie is aangeroepen. In versie 2.x gebruikt, deze experimentele ondersteuning is vervangen door de tool gebaseerde methode die transpilation voordat de host is geïnitialiseerd en tijdens het implementatieproces.
+
+De manier waarop u lokaal ontwikkelen en implementeren vanuit een TypeScript-project, is afhankelijk van uw ontwikkelprogramma.
+
+### <a name="visual-studio-code"></a>Visual Studio Code
+
+De [Azure Functions voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extensie kunt u uw functies met behulp van TypeScript ontwikkelen. De essentiële hulpprogramma is een vereiste voor de Azure Functions-extensie.
+
+Voor het maken van een TypeScript-functie-app in Visual Studio Code, kiest u gewoon `TypeScript` wanneer u een functie-app maken en wordt gevraagd de taal te kiezen.
+
+Wanneer u drukt u op **F5** om uit te voeren de app lokaal transpilation wordt uitgevoerd voordat de host (func.exe) is geïnitialiseerd. 
+
+Wanneer u uw functie-app implementeren naar Azure met de **implementeren in de functie-app...**  knop, de Azure Functions-extensie eerst een build klaar zijn voor gebruik van JavaScript-bestanden wordt gegenereerd vanuit de TypeScript-bronbestanden.
+
+### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
+
+Voor het maken van een TypeScript-functie-app-project met behulp van de Core-hulpprogramma's, moet u de optie typescript taal opgeven wanneer u uw functie-app maakt. U kunt dit doen in een van de volgende manieren:
+
+- Voer de `func init` opdracht uit, selecteer `node` als uw taal en selecteer vervolgens `typescript`.
+
+- Voer de opdracht `func init --worker-runtime typescript` uit.
+
+Voor het uitvoeren van de code van de functie-app lokaal via Core Tools, gebruikt u de `npm start` opdracht, in plaats van `func host start`. De `npm start` opdracht is gelijk aan de volgende opdrachten:
+
+- `npm run build`
+- `func extensions install`
+- `tsc`
+- `func start`
+
+Voordat u de [ `func azure functionapp publish` ] opdracht implementeren in Azure, moet u eerst uitvoeren de `npm run build:production` opdracht. Met deze opdracht maakt een build klaar zijn voor gebruik van JavaScript-bestanden van de TypeScript-bronbestanden die kunnen worden geïmplementeerd met [ `func azure functionapp publish` ].
 
 ## <a name="considerations-for-javascript-functions"></a>Overwegingen voor JavaScript-functies
 
@@ -558,11 +601,7 @@ Wanneer u met JavaScript-functies werkt, worden op de hoogte van de overwegingen
 
 ### <a name="choose-single-vcpu-app-service-plans"></a>Kies één vCPU Appservice-plannen
 
-Wanneer u een functie-app die gebruikmaakt van de App Service-plan maakt, wordt u aangeraden dat u een één-vCPU-plan in plaats van een abonnement met meerdere vcpu's selecteert. Vandaag de dag functies uitgevoerd JavaScript-functies efficiënter op één vCPU-VM's en grotere VM's niet de verwachte prestatieverbeteringen produceren. Indien nodig, kunt u handmatig uitschalen door meer VM-instanties van één vCPU toe te voegen of kunt u automatisch schalen inschakelen. Zie voor meer informatie, [aantal exemplaren handmatig of automatisch schalen](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
-
-### <a name="typescript-and-coffeescript-support"></a>Ondersteuning voor typeScript en CoffeeScript
-
-Omdat direct-ondersteuning nog niet voor het compileren van automatische TypeScript of CoffeeScript via de runtime bestaat, moet deze ondersteuning buiten de runtime worden verwerkt tijdens de implementatie. 
+Wanneer u een functie-app die gebruikmaakt van de App Service-plan maakt, wordt u aangeraden dat u een één-vCPU-plan in plaats van een abonnement met meerdere vcpu's selecteert. Vandaag de dag functies uitgevoerd JavaScript-functies efficiënter op één vCPU-VM's en grotere VM's niet de verwachte prestatieverbeteringen produceren. Indien nodig, kunt u handmatig uitschalen door meer VM-instanties van één vCPU toe te voegen of kunt u automatisch schalen inschakelen. Zie voor meer informatie, [aantal exemplaren handmatig of automatisch schalen](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2ftoc.json).
 
 ### <a name="cold-start"></a>Koude Start
 
@@ -575,3 +614,5 @@ Zie de volgende bronnen voor meer informatie:
 + [Aanbevolen procedures voor Azure Functions](functions-best-practices.md)
 + [Naslaginformatie over Azure Functions voor ontwikkelaars](functions-reference.md)
 + [Azure Functions-triggers en bindingen](functions-triggers-bindings.md)
+
+[`func azure functionapp publish`]: functions-run-local.md#project-file-deployment

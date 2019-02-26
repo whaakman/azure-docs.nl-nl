@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 17b1adae9b369df53d69949e8183cf31daf7e35f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: d9530d35bbaf608ae25e2a753685ee90e9e13501
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674681"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823294"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Faseringsomgevingen in Azure App Service instellen
 <a name="Overview"></a>
@@ -42,7 +42,7 @@ Elke laag van App Service-plan ondersteunt een verschillend aantal implementatie
 ## <a name="add-slot"></a>Sleuf toevoegen
 De app moet worden uitgevoerd de **Standard**, **Premium**, of **geïsoleerd** laag zodat u meerdere implementatiesites inschakelen.
 
-1. In de [Azure-portal](https://portal.azure.com/), opent u van uw app [resourcepagina](../azure-resource-manager/resource-group-portal.md#manage-resources).
+1. In de [Azure-portal](https://portal.azure.com/), opent u van uw app [resourcepagina](../azure-resource-manager/manage-resources-portal.md#manage-resources).
 
 2. Kies in het linkernavigatievenster de **implementatiesites (Preview)** optie en klik vervolgens op **sleuf toevoegen**.
    

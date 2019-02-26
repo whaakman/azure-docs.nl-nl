@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a63155e65460f9e2193c121bb49849940104eff1
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: dd2ba0ec3427cd99da3321b50fb43f4c00f2d1a9
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649222"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822818"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Overzicht van Azure Automation-status
 
@@ -37,9 +37,9 @@ Vanuit Azure portal of PowerShell, kunt u alle uw DSC-configuraties, resources e
 
 ![Schermafbeelding van de pagina Azure Automation](./media/automation-dsc-overview/azure-automation-blade.png)
 
-### <a name="import-reporting-data-into-log-analytics"></a>Rapportage gegevens importeren in Log Analytics
+### <a name="import-reporting-data-into-azure-monitor-logs"></a>Rapportage gegevens importeren in Azure Monitor-Logboeken
 
-Gedetailleerde status rapportagegegevens verzenden knooppunten die worden beheerd met Azure Automation State Configuration naar de ingebouwde pull-server. U kunt Azure Automation State Configuration voor het verzenden van deze gegevens aan uw Log Analytics-werkruimte configureren. Zie voor meer informatie over het verzenden van gegevens over de toepassingsstatus State Configuration naar uw Log Analytics-werkruimte, [doorsturen Azure Automation State Configuration rapportagegegevens met Log Analytics](automation-dsc-diagnostics.md).
+Gedetailleerde status rapportagegegevens verzenden knooppunten die worden beheerd met Azure Automation State Configuration naar de ingebouwde pull-server. U kunt Azure Automation State Configuration voor het verzenden van deze gegevens aan uw Log Analytics-werkruimte configureren. Zie voor meer informatie over het verzenden van gegevens over de toepassingsstatus State Configuration naar uw Log Analytics-werkruimte, [doorsturen Azure Automation State Configuration rapportagegegevens naar Logboeken van Azure Monitor](automation-dsc-diagnostics.md).
 
 ## <a name="prerequisites"></a>Vereisten
 

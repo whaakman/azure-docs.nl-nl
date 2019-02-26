@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 0de886e69f595d30332bdda2a71ae24891fdac00
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 37e1a308d63d782c6ff18c10a5874842341eeec7
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649489"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818099"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Maken, wijzigen of verwijderen van een netwerkinterface
 
@@ -89,7 +89,7 @@ U kunt weergeven en wijzigen van de meeste instellingen voor een netwerkinterfac
    - **Eigenschappen:** Geeft de belangrijkste instellingen over de netwerkinterface, met inbegrip van de MAC-adres (leeg als u de netwerkinterface is niet gekoppeld aan een virtuele machine) en het abonnement dat die het zich bevindt in.
    - **Effectieve beveiligingsregels:**  Beveiligingsregels worden weergegeven als de netwerkinterface is gekoppeld aan een actieve virtuele machine en een NSG gekoppeld aan de netwerkinterface, het subnet dat toegewezen is aan of beide. Zie voor meer informatie over wat wordt weergegeven, [effectieve beveiligingsregels bekijken](#view-effective-security-rules). Zie voor meer informatie over nsg's, [Netwerkbeveiligingsgroepen](security-overview.md).
    - **Effectieve routes:** Routes worden weergegeven als de netwerkinterface is gekoppeld aan een actieve virtuele machine. De routes zijn een combinatie van de Azure standaardroutes, een door de gebruiker gedefinieerde routes en een BGP-routes die mogelijk aanwezig zijn voor het subnet dat de netwerkinterface wordt toegewezen aan. Zie voor meer informatie over wat wordt weergegeven, [effectieve routes weergeven](#view-effective-routes). Zie voor meer informatie over Azure standaardroutes en de gebruiker gedefinieerde routes, [routeringoverzicht](virtual-networks-udr-overview.md).
-   - **Algemene Azure Resource Manager-instellingen:**  Zie voor meer informatie over algemene Azure Resource Manager-instellingen, [activiteitenlogboek](../azure-monitor/platform/activity-logs-overview.md), [toegangsbeheer (IAM)](../role-based-access-control/overview.md), [Tags](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Hiermee vergrendelt u](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), en [ Automatiseringsscript](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group).
+   - **Algemene Azure Resource Manager-instellingen:**  Zie voor meer informatie over algemene Azure Resource Manager-instellingen, [activiteitenlogboek](../azure-monitor/platform/activity-logs-overview.md), [toegangsbeheer (IAM)](../role-based-access-control/overview.md), [Tags](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Hiermee vergrendelt u](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), en [ Automatiseringsscript](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
 
 <a name="view-settings-commands"></a>**Commands**
 

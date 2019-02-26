@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/16/2018
+ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 700295c94428021445f6cbbd84175046d57b9147
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 559409ac73fb28df18c2ddeca7eb2bcd06a24835
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054891"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817657"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Algemene scenario's met Service Fabric onderzoeken
 
@@ -101,7 +101,7 @@ In de dezelfde weergave met alle grafieken ziet u enkele tegels weergegeven voor
 
 1. Nadat u hebt de Log Analytics-agent toegevoegd aan het cluster, moet u de specifieke prestatiemeteritems die u wilt bijhouden toevoegen. Navigeer naar de pagina van de Log Analytics-werkruimte in de portal – op het tabblad werkruimte in het menu links is van de oplossing-pagina.
 
-    ![Tabblad voor log Analytics-werkruimte](media/service-fabric-diagnostics-common-scenarios/workspacetab.png)
+    ![Log Analytics Workspace Tab](media/service-fabric-diagnostics-common-scenarios/workspacetab.png)
 
 2. Als u op de pagina van de werkruimte bent, klikt u op 'Geavanceerd' in het menu voor dezelfde links.
 
@@ -111,7 +111,6 @@ In de dezelfde weergave met alle grafieken ziet u enkele tegels weergegeven voor
 
     * `.NET CLR Memory(<ProcessNameHere>)\\# Total committed Bytes`
     * `Processor(_Total)\\% Processor Time`
-    * `Service Fabric Service(*)\\Average milliseconds per request`
 
     In de Quick Start, VotingData en VotingWeb zijn de procesnamen die worden gebruikt, dus deze items bijhouden zou er als volgt uitzien
 
@@ -128,7 +127,10 @@ In de dezelfde weergave met alle grafieken ziet u enkele tegels weergegeven voor
 
 ## <a name="how-do-i-track-performance-of-my-reliable-services-and-actors"></a>Hoe kan ik de prestaties van mijn Reliable Services en actoren bijhouden
 
-Voor het bijhouden van prestaties van Reliable Services of actoren in uw toepassingen, moet u ook de Service Fabric-Actor, Actormethode, Service en Service-methode items toevoegen. U kunt deze prestatiemeteritems toevoegen op dezelfde manier als het bovenstaande scenario, Hier volgen enkele voorbeelden van betrouwbare service en de actor-prestatiemeteritems om toe te voegen in Log Analytics:
+Voor het volgen van de prestaties van Reliable Services of actoren in uw toepassingen, moet u ook de Service Fabric-Actor, Actormethode, Service en Service-methode prestatiemeteritems verzamelen. Hier volgen enkele voorbeelden van betrouwbare service en de actor te verzamelen prestatiemeteritems
+
+>[!NOTE]
+>Service Fabric-prestatiemeteritems die momenteel door de Log Analytics-agent kan niet worden verzameld, maar kunnen worden verzameld door [andere diagnostische oplossingen](service-fabric-diagnostics-partners.md)
 
 * `Service Fabric Service(*)\\Average milliseconds per request`
 * `Service Fabric Service Method(*)\\Invocations/Sec`

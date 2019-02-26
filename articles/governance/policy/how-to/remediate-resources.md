@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 086ef9030451632ee4defa39a402e4d62c897f20
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: f0c05ddbc53d08334aded48ccb3a3ece547b4143
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342113"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816556"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Herstellen van niet-compatibele resources met Azure Policy
 
@@ -131,6 +131,8 @@ Een rol toevoegen aan de beheerde identiteit van de toewijzing, de volgende stap
 
 ## <a name="create-a-remediation-task"></a>Een herstel-taak maken
 
+### <a name="create-a-remediation-task-through-portal"></a>Een taak herstel via de portal maken
+
 Tijdens de evaluatie, de beleidstoewijzing met **deployIfNotExists** effect bepaalt u of er niet-compatibele resources zijn. Als niet-compatibele resources worden gevonden, de details zijn opgegeven op de **herstel** pagina. Samen met de lijst met beleidsregels die u niet-compatibele resources hebt is de optie voor het activeren van een **herstel taak**. Deze optie is wat maakt een implementatie van de **deployIfNotExists** sjabloon.
 
 Maakt een **herstel taak**, als volgt te werk:
@@ -163,6 +165,32 @@ Maakt een **herstel taak**, als volgt te werk:
    ![Herstellen - contextmenu van de resource-taak](../media/remediate-resources/resource-task-context-menu.png)
 
 Resources worden geïmplementeerd via een **herstel taak** worden toegevoegd aan de **geïmplementeerd Resources** tabblad op de pagina voor naleving van beleid.
+
+### <a name="create-a-remediation-task-through-azure-cli"></a>Maak een taak herstel via Azure CLI
+
+Maakt een **herstel taak** met Azure CLI, gebruikt u de `az policy remediation` opdrachten. Vervang `{subscriptionId}` door uw abonnements-ID en `{myAssignmentId}` met uw **deployIfNotExists** beleids-id op de toewijzing wordt gebruikt.
+
+```azurecli-interactive
+# Login first with az login if not using Cloud Shell
+
+# Create a remediation for a specific assignment
+az policy remediation create --name myRemediation --policy-assignment '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
+```
+
+Zie voor andere opdrachten van herstel en voorbeelden, de [az beleid herstel](/cli/azure/policy/remediation) opdrachten.
+
+### <a name="create-a-remediation-task-through-azure-powershell"></a>Maak een taak herstel via Azure PowerShell
+
+Maakt een **herstel taak** met Azure PowerShell, gebruikt u de `Start-AzPolicyRemediation` opdrachten. Vervang `{subscriptionId}` door uw abonnements-ID en `{myAssignmentId}` met uw **deployIfNotExists** beleids-id op de toewijzing wordt gebruikt.
+
+```azurepowershell-interactive
+# Login first with Connect-AzAccount if not using Cloud Shell
+
+# Create a remediation for a specific assignment
+Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
+```
+
+Zie voor andere herstel-cmdlets en voorbeelden, de [Az.PolicyInsights](/powershell/module/az.policyinsights/#policy_insights) module.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: a6c17ad8d4af568d910597da4b44f09676d1c36a
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 4e56d22dde5fca50d17c055be93db5b91deeb287
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652487"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819170"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Apache Sqoop gebruiken met Hadoop in HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -88,11 +88,11 @@ Als u liever de Azure PowerShell gebruiken voor het maken van het cluster en de 
      
         De volgende waarden zijn vastgelegd in de sectie met variabelen:
         
-        |Name|Waarde|
+        |Name|Value|
         |----|-----|
-        | Standaardnaam van opslagaccount | &lt;Clusternaam > opslaan |
-        | Azure SQL database-servernaam | &lt;Clusternaam > dbserver |
-        | Naam van een Azure SQL-database | &lt;Clusternaam > db |
+        | Standaardnaam van opslagaccount | &lt;ClusterName>store |
+        | Azure SQL database-servernaam | &lt;ClusterName>dbserver |
+        | Naam van een Azure SQL-database | &lt;ClusterName>db |
      
 3. Selecteer **ik ga akkoord met de voorwaarden en bepalingen bovenstaande**.
 4. Klik op **Kopen**. U ziet een nieuwe tegel met de titel implementatie indienen voor sjabloonimplementatie. Het duurt ongeveer 20 minuten om het cluster en de SQL-database te maken.
@@ -163,7 +163,7 @@ U hebt nu geleerd hoe u Sqoop gebruiken. Voor meer informatie zie:
 Het PowerShell-voorbeeld voert de volgende stappen uit:
 
 1. Verbinding maken met Azure.
-2. Maak een Azure-resourcegroep. Zie voor meer informatie, [met behulp van Azure PowerShell met Azure Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md)
+2. Maak een Azure-resourcegroep. Zie voor meer informatie, [met behulp van Azure PowerShell met Azure Resource Manager](../../azure-resource-manager/manage-resource-groups-powershell.md)
 3. Azure SQL Database-server, een Azure SQL database en twee tabellen maken. 
    
     Als u SQL Server in plaats daarvan gebruiken, gebruikt u de volgende instructies om de tabellen te maken:

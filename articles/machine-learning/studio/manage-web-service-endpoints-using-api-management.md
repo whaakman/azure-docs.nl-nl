@@ -5,24 +5,24 @@ description: Een handleiding waarin wordt getoond hoe voor het beheren van Azure
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 915b972774fb418a454d8a3acd2a61f25af7a6aa
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: b15fddcace19abcd1cd08d059c497c1c209f74d0
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488506"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823430"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Azure Machine Learning Studio-webservices met API Management beheren
 ## <a name="overview"></a>Overzicht
 Deze handleiding laat zien hoe u snel aan de slag met API Management voor het beheren van uw Azure Machine Learning Studio-webservices.
 
 ## <a name="what-is-azure-api-management"></a>Wat is Azure API Management?
-Azure API Management is een Azure-service waarmee u uw REST API-eindpunten beheren met het definiëren van gebruikerstoegang, beperking en bewaking van dashboard. Klik op [hier](https://azure.microsoft.com/services/api-management/) voor meer informatie over Azure API Management. Klik op [hier](../../api-management/api-management-get-started.md) voor richtlijnen voor hoe u aan de slag met Azure API Management. Deze andere gids, die in deze handleiding is gebaseerd op, vindt u meer onderwerpen, waaronder melding configuraties, prijzen, antwoord verwerking, gebruikersverificatie, producten, developer-abonnementen en gebruik dashboarding maken.
+Azure API Management is een Azure-service waarmee u uw REST API-eindpunten beheren met het definiëren van gebruikerstoegang, beperking en bewaking van dashboard. Klik op [hier](https://azure.microsoft.com/services/api-management/) voor meer informatie over Azure API Management. Klik op [hier](/azure/api-management/import-and-publish) voor richtlijnen voor hoe u aan de slag met Azure API Management. Deze andere gids, die in deze handleiding is gebaseerd op, vindt u meer onderwerpen, waaronder melding configuraties, prijzen, antwoord verwerking, gebruikersverificatie, producten, developer-abonnementen en gebruik dashboarding maken.
 
 ## <a name="what-is-azureml"></a>Wat is AzureML?
 AzureML is een Azure-service voor machine learning waarmee u eenvoudig bouwen, implementeren en delen van geavanceerde analyseoplossingen. Klik op [hier](https://azure.microsoft.com/services/machine-learning/) voor meer informatie over AzureML.

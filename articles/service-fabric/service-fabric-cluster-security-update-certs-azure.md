@@ -4,7 +4,7 @@ description: Beschrijft hoe u nieuwe certificaten, rollovercertificaat, toevoege
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chakdan
 editor: ''
 ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
-ms.author: aljo-microsoft
-ms.openlocfilehash: aa5096b84f9bfe97784d6f80e4c203a1d8384404
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.author: aljo
+ms.openlocfilehash: 37140b665f30d8bb99dd49dbdcca265969eaaf2f
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687415"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806688"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Toevoegen of verwijderen van certificaten voor een Service Fabric-cluster in Azure
 Het verdient aanbeveling dat u raken met het Service Fabric maakt gebruik van x.509-certificaten en vertrouwd met zijn de [clusterbeveiligingsscenario's](service-fabric-cluster-security.md). U moet begrijpen wat een clustercertificaat is en wat wordt gebruikt voor, voordat u verder gaat.
@@ -114,7 +114,7 @@ Voorbeeld 5-VM-1-NodeTypes-Secure_Step2.JSON bevat gemakkelijker te maken van de
          }
     ``` 
 
-4. Wijzigingen aanbrengen in **alle** de **Microsoft.Compute/virtualMachineScaleSets** resourcedefinities - Zoek de definitie van de resource Microsoft.Compute/virtualMachineScaleSets. Blader naar het 'publisher': 'Microsoft.Azure.ServiceFabric' onder 'virtualMachineProfile'.
+4. Wijzigingen aanbrengen in **alle** de **Microsoft.Compute/virtualMachineScaleSets** resourcedefinities - Zoek de definitie van de resource Microsoft.Compute/virtualMachineScaleSets. Schuif naar de 'publisher': "Microsoft.Azure.ServiceFabric", onder 'virtualMachineProfile'.
 
     In de instellingen van de uitgever van Service Fabric ziet u er ongeveer als volgt.
     

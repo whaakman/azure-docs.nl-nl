@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/16/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: a69a739f36854cacd6b361ca2bd17d904e9c4c96
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0cb3de7d893ccfe638468110b1b6f5fb61b2bc7c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38753647"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56825085"
 ---
 Resourcevergrendelingen te voorkomen dat gebruikers in uw organisatie per ongeluk verwijderen of aanpassen van kritieke bronnen. In tegenstelling tot toegangsbeheer op basis van rollen wordt met resourcevergrendelingen een beperking toegepast op alle gebruikers en rollen. 
 

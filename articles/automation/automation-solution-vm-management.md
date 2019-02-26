@@ -1,6 +1,6 @@
 ---
 title: VM's starten/stoppen buiten kantooruren oplossing
-description: Deze oplossing voor het beheer van virtuele machine wordt gestart en stopt met uw virtuele machines van Azure Resource Manager volgens een planning en proactief bewaakt vanuit Log Analytics.
+description: Deze oplossing voor het beheer van virtuele machine wordt gestart en stopt met uw virtuele machines van Azure Resource Manager volgens een planning en proactief bewaakt vanuit Azure Monitor-Logboeken.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d6e083c4a7595bb70e77bca860c756abc2eaa18e
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 3fcab4c7456295d8f7414232bc90bc5ab352e43a
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979646"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817878"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>VM's starten/stoppen buiten kantooruren oplossing in Azure Automation
 
-De VM's starten/stoppen buiten kantooruren oplossing wordt gestart en gestopt van uw Azure virtual machines op de gebruiker gedefinieerde schema's, biedt inzichten via Azure Log Analytics en optioneel e-mailberichten worden verzonden via [actiegroepen](../azure-monitor/platform/action-groups.md). Deze biedt ondersteuning voor zowel Azure Resource Manager en klassieke virtuele machines voor de meeste scenario's.
+De VM's starten/stoppen buiten kantooruren oplossing wordt gestart en gestopt van uw Azure virtual machines op de gebruiker gedefinieerde schema's, biedt inzichten via Azure Monitor-logboeken en optioneel e-mailberichten worden verzonden via [actiegroepen](../azure-monitor/platform/action-groups.md). Deze biedt ondersteuning voor zowel Azure Resource Manager en klassieke virtuele machines voor de meeste scenario's.
 
 Deze oplossing biedt een automatiseringsoptie gedecentraliseerde van de lage kosten voor gebruikers die hun VM-kosten optimaliseren. Met deze oplossing kunt u het volgende doen:
 
@@ -35,6 +35,8 @@ De volgende zijn beperkingen aan de huidige oplossing:
 > Als u van de oplossing voor klassieke virtuele machines gebruikmaakt, worden alle virtuele machines verwerkt sequentieel worden verwerkt per cloudservice. Virtuele machines worden in verschillende cloudservices nog steeds parallel verwerkt.
 >
 > Abonnementen voor Azure Cloud Solution Provider (Azure CSP) ondersteunen alleen de Azure Resource Manager-model, niet - Azure Resource Manager-services zijn niet beschikbaar in het programma. Als de oplossing starten/stoppen wordt uitgevoerd krijgt u mogelijk fouten omdat u cmdlets voor het beheren van klassieke resources. Zie voor meer informatie over de CSP, [beschikbare services in CSP-abonnementen](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments). Als u een CSP-abonnement, moet u wijzigt de [ **External_EnableClassicVMs** ](#variables) variabele **False** na de implementatie.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -63,7 +65,7 @@ De volgende stappen uitvoeren om de VM's starten/stoppen buiten kantooruren oplo
    - Selecteer een **abonnement** om te koppelen aan door in de vervolgkeuzelijst te selecteren of de geselecteerde standaardwaarde niet geschikt is.
    - Voor **resourcegroep**, u kunt maken van een nieuwe resourcegroep of Selecteer een bestaande resourcegroep.
    - Selecteer een **locatie**. Op dit moment de enige beschikbare locaties zijn **Australië-Zuidoost**, **Canada-centraal**, **centraal-India**, **VS-Oost**, **Japan (Oost)**, **Zuidoost-Azië**, **UK-Zuid**, **West-Europa**, en **VS-West 2**.
-   - Selecteer een **prijscategorie**. Kies de **Per GB (zelfstandig)** optie. Log Analytics is bijgewerkt [prijzen](https://azure.microsoft.com/pricing/details/log-analytics/) en de Per GB-laag is de enige optie.
+   - Selecteer een **prijscategorie**. Kies de **Per GB (zelfstandig)** optie. Azure Monitor-logboeken heeft bijgewerkt [prijzen](https://azure.microsoft.com/pricing/details/log-analytics/) en de Per GB-laag is de enige optie.
 
 5. Na het opgeven van de vereiste gegevens op de **Log Analytics-werkruimte** pagina, klikt u op **maken**. U kunt de voortgang bijhouden onder **meldingen** in het menu dat gaat u terug naar de **oplossing toevoegen** pagina wanneer u klaar bent.
 6. Op de **oplossing toevoegen** weergeeft, schakelt **Automation-account**. Als u een nieuwe Log Analytics-werkruimte maakt, kunt u een nieuw Automation-account worden gekoppeld aan het maken of Selecteer een bestaand Automation-Account die nog niet is gekoppeld aan een Log Analytics-werkruimte. Selecteer een bestaand Automation-Account of klik op **maken van een Automation-account**, en klik op de **Automation-account toevoegen** pagina, geef de volgende informatie:
@@ -174,7 +176,7 @@ Nu dat u een schema hebt voor het stoppen van VM's op basis van CPU-gebruik, moe
 
 ## <a name="solution-components"></a>Oplossingsonderdelen
 
-Deze oplossing bevat vooraf geconfigureerde runbooks, schema's en integratie met Log Analytics, zodat u kunt het opstarten en afsluiten van uw virtuele machines op basis van uw zakelijke behoeften aanpassen.
+Deze oplossing bevat vooraf geconfigureerde runbooks, schema's en integratie met Azure Monitor-Logboeken, zodat u kunt het opstarten en afsluiten van uw virtuele machines op basis van uw zakelijke behoeften aanpassen.
 
 ### <a name="runbooks"></a>Runbooks
 
@@ -209,7 +211,7 @@ De volgende tabel bevat de variabelen die in uw Automation-account gemaakt. Alle
 |External_AutoStop_TimeAggregationOperator | De tijd aggregatieoperator, die wordt toegepast op de grootte van het geselecteerde venster om de voorwaarde te evalueren. Acceptabele waarden zijn **gemiddelde**, **Minimum**, **maximale**, **totale**, en **laatste**.|
 |External_AutoStop_TimeWindow | De grootte van het venster waarin Azure geselecteerde metrische gegevens analyseert voor het activeren van een waarschuwing. Deze parameter accepteert invoer in timespan-indeling. Mogelijke waarden zijn van 5 minuten tot zes uur.|
 |External_EnableClassicVMs| Hiermee geeft u op of de klassieke virtuele machines door de oplossing zijn gericht. De standaardwaarde is True. Dit moet worden ingesteld op False voor CSP-abonnementen.|
-|External_ExcludeVMNames | Geef de namen van de virtuele machine moeten worden uitgesloten, namen scheiden met behulp van een door komma's zonder spaties. Dit is beperkt tot 140 VM's. Als u virtuele machines die zijn bedoeld om te worden uitgesloten worden toegevoegd door meer dan 140 VM's kunnen worden gestart of afsluiten per ongeluk|
+|External_ExcludeVMNames | Geef de namen van de virtuele machine moeten worden uitgesloten, namen scheiden met behulp van een door komma's zonder spaties. Dit is beperkt tot 140 VM's. Als u meer dan 140 VM's aan deze lijst met door komma's gescheiden toevoegt, virtuele machines die zijn ingesteld om te worden uitgesloten mogelijk per ongeluk gestart of gestopt.|
 |External_Start_ResourceGroupNames | Hiermee geeft u een of meer resourcegroepen, waarden scheiden met behulp van een door komma's, gericht voor begin acties.|
 |External_Stop_ResourceGroupNames | Hiermee geeft u een of meer resourcegroepen, waarden scheiden met behulp van een door komma's, gericht voor stop-acties.|
 |Internal_AutomationAccountName | Hiermee geeft u de naam van het Automation-account.|
@@ -233,7 +235,7 @@ U moet alle schema's is niet inschakelen omdat dit mogelijk overlappende schema-
 |Sequenced-StopVM | 1:00 uur (UTC), elke vrijdag | Het runbook Sequenced_Parent uitvoert met een parameter van _stoppen_ elke vrijdag op het opgegeven tijdstip. Sequentieel worden verwerkt (oplopend) stopt alle virtuele machines met een code van **SequenceStop** gedefinieerd door de betreffende variabelen. Zie de sectie Runbooks voor meer informatie over tagwaarden en variabelen voor de asset. Inschakelen van het bijbehorende schema **geordende StartVM**.|
 |Sequenced-StartVM | 1:00 uur (UTC), elke maandag | Het runbook Sequenced_Parent uitvoert met een parameter van _Start_ elke maandag op het opgegeven tijdstip. Sequentieel worden verwerkt alle virtuele machines (aflopend) begint met een code van **klikvolgorde** gedefinieerd door de betreffende variabelen. Zie de sectie Runbooks voor meer informatie over tagwaarden en variabelen voor de asset. Inschakelen van het bijbehorende schema **geordende StopVM**.|
 
-## <a name="log-analytics-records"></a>Log Analytics-records
+## <a name="azure-monitor-logs-records"></a>Azure Monitor-logboeken records
 
 Automation worden twee typen records gemaakt in de Log Analytics-werkruimte: taak-logboeken en stromen van de taak.
 
@@ -290,7 +292,7 @@ De volgende tabel bevat voorbeeldzoekopdrachten in logboeken voor taakrecords di
 
 ## <a name="viewing-the-solution"></a>De oplossing bekijken
 
-Voor toegang tot de oplossing, gaat u naar uw Automation-Account selecteren **werkruimte** onder **gerelateerde RESOURCES**. Selecteer op de pagina logboekanalyse **oplossingen** onder **algemene**. Op de **oplossingen** pagina, selecteert u de oplossing **Start-Stop-VM [workspace]** in de lijst.
+Voor toegang tot de oplossing, gaat u naar uw Automation-Account selecteren **werkruimte** onder **gerelateerde RESOURCES**. Selecteer op de pagina log analytics **oplossingen** onder **algemene**. Op de **oplossingen** pagina, selecteert u de oplossing **Start-Stop-VM [workspace]** in de lijst.
 
 Als u de oplossing wordt weergegeven de **Start-Stop-VM [workspace]** oplossingenpagina. Hier kunt u belangrijke details zoals controleren de **StartStopVM** tegel. Zoals in uw Log Analytics-werkruimte, worden deze tegel toont een telling en een grafische weergave van de runbooktaken voor de oplossing die zijn gestart en hebt voltooid.
 
@@ -364,14 +366,14 @@ Als u wilt verwijderen van de oplossing, moet u de volgende stappen uitvoeren:
 
 Het Automation-account en de Log Analytics-werkruimte worden niet verwijderd als onderdeel van dit proces. Als u niet behouden van de Log Analytics-werkruimte wilt, moet u deze handmatig te verwijderen. Dit kan worden bereikt vanaf de Azure-portal:
 
-1. Selecteer in de Azure portal startscherm **Log Analytics**.
-1. Op de **Log Analytics** pagina, selecteert u de werkruimte.
+1. Selecteer in de Azure portal startscherm **Log Analytics-werkruimten**.
+1. Op de **Log Analytics-werkruimten** pagina, selecteert u de werkruimte.
 1. Selecteer **verwijderen** in het menu op de pagina van de werkruimte instellingen.
 
 Als u niet behouden van de onderdelen van Azure Automation-account wilt, kunt u elk handmatig verwijderen. Zie voor een lijst van runbooks, variabelen en schema's die zijn gemaakt door de oplossing, de [oplossingsonderdelen](#solution-components).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over het maken van verschillende zoekquery's en bekijk de Automation-taaklogboeken met Log Analytics, [zoekopdrachten in Logboeken in Log Analytics](../log-analytics/log-analytics-log-searches.md).
+- Zie voor meer informatie over het maken van verschillende zoekquery's en bekijk de Automation-taaklogboeken met Azure Monitor-Logboeken, [zoekopdrachten in Logboeken van Azure Monitor](../log-analytics/log-analytics-log-searches.md).
 - Zie [Runbooktaken bijhouden](automation-runbook-execution.md) voor meer informatie over runbookuitvoering, het bewaken van runbooktaken en andere technische details.
-- Zie voor meer informatie over Log Analytics en gegevensverzamelingsbronnen [verzamelen van Azure storage-gegevens in Log Analytics-overzicht](../azure-monitor/platform/collect-azure-metrics-logs.md).
+- Zie voor meer informatie over Azure Monitor-logboeken en -verzameling gegevensbronnen, [verzamelen van Azure storage-gegevens in Azure Monitor-Logboeken overzicht](../azure-monitor/platform/collect-azure-metrics-logs.md).

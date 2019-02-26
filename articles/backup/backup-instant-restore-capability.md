@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: sogup
-ms.openlocfilehash: 566faaef4e91237bd0a0f915ea39f4bd389120d8
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 63a0e5bd3db6251e361d9dd03acb538556e811ca
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593077"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804982"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Ophalen van verbeterde back-up en herstellen van de prestaties met mogelijkheid Azure back-up direct herstellen
 
@@ -49,6 +49,7 @@ Momentopnamen worden standaard gedurende twee dagen bewaard. Deze functie kunt e
 * Incrementele momentopnamen worden opgeslagen als pagina-blobs. Alle gebruikers met behulp van niet-beheerde schijven worden in rekening gebracht voor de momentopnamen die zijn opgeslagen in hun lokale storage-account. Omdat de restore-punt verzamelingen die worden gebruikt door beheerde VM-back-ups blob-momentopnamen op het opslagniveau van de onderliggende, voor beheerde schijven ziet u kosten die overeenkomt met blob-momentopname prijzen en ze zijn.
 * Voor premium storage-accounts de momentopnamen die voor instant recovery points aantal voor de limiet van 10 TB van toegewezen ruimte.
 * U krijgt een mogelijkheid voor het configureren van de momentopname bewaarperiode op basis van de behoeften van de herstelbewerking. Afhankelijk van het vereiste, kunt u de bewaarperiode momentopname instellen op minimaal één dag in de blade back-upbeleid zoals hieronder wordt uitgelegd. Hiermee kunt u kosten voor het bewaren van momentopname opslaan als u niet vaak herstelbewerkingen uitvoert.
+* Dit is een één-directional upgrade, na de upgrade naar Instant restore, u niet meer terugkeren.
 
 
 >[!NOTE]
@@ -77,7 +78,7 @@ U kunt ook, gaat u naar **eigenschappen** pagina van de kluis om op te halen de 
 
 
 ## <a name="configure-snapshot-retention-using-azure-portal"></a>Momentopname bewaren met behulp van Azure portal configureren
-Deze optie is momenteel beschikbaar in West-Centraal VS, India-Zuid en Australië-Oost.
+Deze optie is momenteel beschikbaar in **West-Centraal VS**, **India-Zuid** en **Australië-Oost**.
 
 Voor de bijgewerkte gebruikers in de Azure-portal ziet u een veld toegevoegd aan de **VM back-upbeleid** blade onder de **direct herstellen** sectie. Kunt u de bewaartermijn van de momentopname van de **VM back-upbeleid** blade voor alle virtuele machines die zijn gekoppeld aan de specifieke back-upbeleid.
 

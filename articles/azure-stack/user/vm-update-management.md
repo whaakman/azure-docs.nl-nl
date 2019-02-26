@@ -16,19 +16,19 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: rtiberiu
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 28f8300b83f55f4b083aa1e740dcbf1db0f1dc31
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4683b6f63af9fe0081911db9914f04b1c90f9d23
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168135"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819442"
 ---
 # <a name="azure-stack-vm-update-and-management"></a>Azure Stack-VM bijwerken en beheren
 U kunt de volgende functies van Azure Automation-oplossing voor het beheren van Windows en Linux-machines die zijn geïmplementeerd met behulp van Azure Stack:
 
 - **[Updatebeheer](https://docs.microsoft.com/azure/automation/automation-update-management)**. U kunt snel de status van de beschikbare updates op alle agentcomputers beoordelen en beheren van het installatieproces van vereiste updates voor deze Windows en Linux-VM's met de oplossing Update Management.
 
-- **[Wijzigingen bijhouden](https://docs.microsoft.com/azure/automation/automation-change-tracking)**. Wijzigingen in de geïnstalleerde software, services voor Windows, Windows-register en bestanden en Linux-daemons op de bewaakte servers worden verzonden naar de Log Analytics-service in de cloud voor verwerking. Logica wordt toegepast op de ontvangen gegevens en de cloudservice registreert de gegevens. Met behulp van de informatie op het dashboard voor wijzigingen bijhouden, kunt u gemakkelijk zien van de wijzigingen die zijn aangebracht in uw serverinfrastructuur.
+- **[Wijzigingen bijhouden](https://docs.microsoft.com/azure/automation/automation-change-tracking)**. Wijzigingen in de geïnstalleerde software, services voor Windows, Windows-register en bestanden en Linux-daemons op de bewaakte servers worden verzonden naar de service Azure Monitor in de cloud voor verwerking. Logica wordt toegepast op de ontvangen gegevens en de cloudservice registreert de gegevens. Met behulp van de informatie op het dashboard voor wijzigingen bijhouden, kunt u gemakkelijk zien van de wijzigingen die zijn aangebracht in uw serverinfrastructuur.
 
 - **[Inventaris](https://docs.microsoft.com/azure/automation/automation-vm-inventory)**. De inventaris bijhouden voor een virtuele machine van Azure Stack biedt een gebruikersinterface op basis van een browser voor het instellen en configureren van de inventarisverzameling. 
 
@@ -38,13 +38,13 @@ U kunt de volgende functies van Azure Automation-oplossing voor het beheren van 
 ## <a name="prerequisites"></a>Vereisten
 Verschillende vereisten moeten worden voldaan voordat u deze functies bijwerken en beheren van virtuele machines van Azure Stack. Deze omvatten stappen die moeten worden genomen in de Azure-portal, evenals de Azure Stack-beheerportal.
 
-### <a name="in-the-azure-portal"></a>In de Azure-portal
+### <a name="in-the-azure-portal"></a>In de Azure Portal
 Voor het gebruik van de voorraad, wijzigingen bijhouden en Update Management Azure automation-functies voor Azure Stack-VM's, moet u eerst om in te schakelen van deze oplossingen in Azure.
 
 > [!TIP]
 > Als u al deze functies ingeschakeld voor Azure-VM's hebt, kunt u de referenties van uw bestaande LogAnalytics werkruimte. Als u al hebt een LogAnalytics WorkspaceID en primaire sleutel die u wilt gebruiken, gaat u verder met [de volgende sectie](./vm-update-management.md#in-the-azure-stack-administration-portal). Anders gaat u door in deze sectie om een nieuwe LogAnalytics en een automation-account te maken.
 
-De eerste stap bij het inschakelen van deze oplossingen is het [maken van een werkruimte LogAnalytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace) in uw Azure-abonnement. Een Log Analytics-werkruimte is een unieke Log Analytics-omgeving met een eigen gegevensopslagplaats, gegevensbronnen en oplossingen. Als u een werkruimte hebt gemaakt, noteert u de werkruimte-id en de sleutel. Als u wilt deze informatie te bekijken, gaat u naar de blade van de werkruimte, klikt u op **geavanceerde instellingen**, en bekijk de **werkruimte-ID** en **primaire sleutel** waarden. 
+De eerste stap bij het inschakelen van deze oplossingen is het [maken van een werkruimte LogAnalytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace) in uw Azure-abonnement. Een Log Analytics-werkruimte is een unieke omgeving van de logboeken voor Azure Monitor met een eigen gegevensopslagplaats, gegevensbronnen en oplossingen. Als u een werkruimte hebt gemaakt, noteert u de werkruimte-id en de sleutel. Als u wilt deze informatie te bekijken, gaat u naar de blade van de werkruimte, klikt u op **geavanceerde instellingen**, en bekijk de **werkruimte-ID** en **primaire sleutel** waarden. 
 
 Vervolgens moet u [maken van een Automation-Account](https://docs.microsoft.com/azure/automation/automation-create-standalone-account). Een Automation-Account is een container voor uw Azure Automation-resources. Het biedt een manier om te scheiden van uw omgevingen of verder organiseren uw Automation-werkstromen en resources. Nadat het automation-account is gemaakt, moet u de inventaris inschakelen bijhouden van wijzigingen en beheerfuncties bijwerken. U doet dit door deze stappen om in te schakelen van elke functie uit te voeren:
 

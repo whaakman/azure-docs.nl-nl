@@ -10,12 +10,12 @@ ms.author: jehunte
 ms.date: 02/06/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2d6cc55ec2e3be3510b9547025db17bcbee97e10
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: c0caece57885dfa3c26d368990a6af8e5b14eed6
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765378"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823991"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Een virtuele Azure-machine met inventarisverzameling beheren
 
@@ -36,7 +36,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 1. Selecteer in het linkerdeelvenster van de Azure-portal de optie **Virtuele machines**.
 2. Selecteer een virtuele machine in de lijst met virtuele machine.
 3. Op de **Resource** menu onder **Operations**, selecteer **voorraad**.
-4. Selecteer een Log Analytics-werkruimte om de gegevenslogboeken op te slaan.
+4. Selecteer een werkruimte voor logboekanalyse voor het opslaan van de logboeken van uw gegevens.
     Als er geen werkruimte beschikbaar is voor deze regio, wordt u gevraagd om een standaardwerkruimte en een Automation-account te maken.
 5. Selecteer **Inschakelen** om de onboarding voor uw computer te starten.
 
@@ -91,7 +91,9 @@ De volgende tabellen bevatten informatie over elke eigenschap die kan worden gec
 
 ## <a name="manage-machine-groups"></a>Computergroepen beheren
 
-Inventarisatie kunt u maken en weergeven van computergroepen in Log Analytics. Computergroepen zijn verzamelingen van computers die zijn gedefinieerd door een query in Log Analytics.
+Inventarisatie kunt u maken en machine-groepen in Azure Monitor logboeken weergeven. Computergroepen zijn verzamelingen van computers die zijn gedefinieerd door een query in de logboeken van Azure Monitor.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Naar weergave uw machine groepen selecteren de **Machine groepen** tabblad op de pagina inventaris.
 
@@ -116,7 +118,7 @@ Ga als volgt te werk om uw virtuele machine te verwijderen uit inventarisbeheer:
 3. Selecteer in de lijst de virtuele machine die u wilt loskoppelen. De virtuele machine heeft een groen vinkje naast de tekst **Deze werkruimte** in de kolom **OMS-verbinding**.
 
    >[!NOTE]
-   >OMS wordt nu aangeduid als Log Analytics.
+   >OMS wordt nu aangeduid als Azure Monitor-Logboeken.
    
 4. Selecteer bovenaan de volgende pagina de optie **Verbinding verbreken**.
 5. Selecteer **Ja** in het bevestigingsvenster.

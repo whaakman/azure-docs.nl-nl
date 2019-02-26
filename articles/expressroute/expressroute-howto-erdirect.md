@@ -1,28 +1,23 @@
 ---
 title: Configureren van ExpressRoute Direct - Azure | Microsoft Docs
-description: Deze pagina kunt u ExpressRoute Direct (Preview) configureren.
+description: Deze pagina kunt u ExpressRoute Direct configureren.
 services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/02/2018
+ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 05eb75c77cef5b975d0122714bb0ec9fba1d09a3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 9157466f0768b052f55f6d225e72ae7a036f8b9c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463971"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822169"
 ---
-# <a name="how-to-configure-expressroute-direct-preview"></a>Het configureren van ExpressRoute Direct (Preview)
+# <a name="how-to-configure-expressroute-direct"></a>ExpressRoute Direct configureren
 
 ExpressRoute Direct biedt de mogelijkheid om rechtstreeks in het wereldwijde netwerk van Microsoft op peeringlocaties strategisch verdeeld over de hele wereld verbinding te maken. Zie voor meer informatie, [over ExpressRoute rechtstreeks verbinding maken met](expressroute-erdirect-about.md).
-
-> [!IMPORTANT]
-> ExpressRoute Direct is momenteel in Preview.
->
-> Deze openbare preview-versie wordt aangeboden zonder serviceovereenkomst en moet niet worden gebruikt voor productieworkloads. Bepaalde functies worden mogelijk niet ondersteund, zijn mogelijk beperkt of zijn mogelijk niet beschikbaar in alle Azure-locaties. Raadpleeg voor meer informatie de [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="resources"></a>Maken van de resource
 

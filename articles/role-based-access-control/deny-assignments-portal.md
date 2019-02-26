@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ec5e3daf1d4d799aab043f241548a3b4177f567c
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 48098ba32a8eb1c2d7a7bafa246b8e850229b430
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343235"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804532"
 ---
 # <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Weergave weigeren toewijzingen voor Azure-resources met behulp van de Azure portal
 
@@ -28,7 +28,7 @@ ms.locfileid: "56343235"
 In dit artikel wordt beschreven hoe u Azure portal gebruiken om weer te weigeren toewijzingen.
 
 > [!NOTE]
-> Op dit moment weigeren toewijzingen zijn alleen-lezen en kunnen alleen worden ingesteld door Azure.
+> Op dit moment weigeren toewijzingen zijn alleen-lezen en kunnen alleen worden ingesteld door Microsoft.
 
 ## <a name="view-deny-assignments"></a>Weigeringstoewijzingen weergeven
 

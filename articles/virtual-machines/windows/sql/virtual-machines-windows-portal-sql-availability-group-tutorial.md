@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 65ccf45ea8ea1f8f553be0b2c599f5c1433fc3e8
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 61a05f912e8b8e0b954dc43faeb7d6e35a08b657
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359711"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820141"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configure AlwaysOn-beschikbaarheidsgroep in Azure VM handmatig
 
@@ -53,7 +53,7 @@ De volgende tabel bevat de vereisten die u nodig hebt om te voltooien voordat u 
 Voordat u met de zelfstudie begint, moet u [voldoen aan vereisten voor het maken van Always On Availability Groups in Azure Virtual Machines](virtual-machines-windows-portal-sql-availability-group-prereq.md). Als u deze vereisten zijn al voltooid, kunt u springen naar [Cluster maken](#CreateCluster).
 
   >[!NOTE]
-  > Veel van de stappen in deze zelfstudie kunnen worden geautomatiseerd met behulp van een Azure-Quickstart-sjabloon. Zie voor meer informatie, [WSFC maken, listener en ILB configureren voor de groep van een Always On-beschikbaarheid op een SQL Server-VM met Azure-Snelstartsjablonen](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+  > Veel van de stappen in deze zelfstudie kunnen nu worden geautomatiseerd met [Azure SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) en [Azure-Snelstartsjablonen](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->

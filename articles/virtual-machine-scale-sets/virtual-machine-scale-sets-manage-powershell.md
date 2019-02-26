@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 5746d8b1f4c12a9b39f1599da753db8109790a55
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: c4684dd27aeed4fab4335a93ea5a458b4a9f5d80
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984129"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821180"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Een virtuele-machineschaalset met Azure PowerShell beheren
 
@@ -55,7 +55,7 @@ Get-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -
 ## <a name="change-the-capacity-of-a-scale-set"></a>De capaciteit van een schaalset wijzigen
 De voorgaande opdrachten hebt u geleerd informatie over uw schaalset en de VM-exemplaren. Als u wilt vergroten of verkleinen van het aantal exemplaren in de schaalset, kunt u de capaciteit te wijzigen. De schaalset automatisch wordt gemaakt of verwijdert u het vereiste aantal virtuele machines en configureert u de virtuele machines voor het ontvangen van toepassingsverkeer.
 
-Maak eerst een schaalsetobject met [Get-AzVmss](/powershell/module/az.compute/get-azvmss), typt u een nieuwe waarde voor `sku.capacity`. Gebruiken om toe te passen de capaciteitswijziging, [Update AzVmss](/powershell/module/az.compute/update-azvmss). Het volgende voorbeeld updates *myScaleSet* in de *myResourceGroup* resourcegroep op een capaciteit van *5* exemplaren. Geef uw eigen waarden als volgt:
+Maak eerst een schaalsetobject met [Get-AzVmss](/powershell/module/az.compute/get-azvmss) en geef vervolgens een nieuwe waarde op voor `sku.capacity`. Gebruik [Update-AzVmss](/powershell/module/az.compute/update-azvmss) om de capaciteitswijziging toe te passen. Het volgende voorbeeld updates *myScaleSet* in de *myResourceGroup* resourcegroep op een capaciteit van *5* exemplaren. Geef uw eigen waarden als volgt:
 
 ```powershell
 # Get current scale set
@@ -70,7 +70,7 @@ Het duurt een paar minuten om de capaciteit van de schaalset bij te werken. Als 
 
 
 ## <a name="stop-and-start-vms-in-a-scale-set"></a>Stoppen en starten van virtuele machines in een schaalset
-Als u wilt stoppen met een of meer virtuele machines in een schaalset, gebruikt u [Stop-AzVmss](/powershell/module/az.compute/stop-azvmss). Met de parameter `-InstanceId` kunt u een of meer VM's opgeven om te stoppen. Als u geen exemplaar-id opgeeft, worden alle VM's in de schaalset gestopt. Als u wilt stoppen met meerdere virtuele machines, elk exemplaar-ID met een komma te scheiden.
+Als u een of meer VM's in een schaalset wilt stoppen, gebruikt u [Stop-AzVmss](/powershell/module/az.compute/stop-azvmss). Met de parameter `-InstanceId` kunt u een of meer VM's opgeven om te stoppen. Als u geen exemplaar-id opgeeft, worden alle VM's in de schaalset gestopt. Als u wilt stoppen met meerdere virtuele machines, elk exemplaar-ID met een komma te scheiden.
 
 Het volgende voorbeeld stopt exemplaar *0* in de schaalset met de naam *myScaleSet* en de *myResourceGroup* resourcegroep. Geef uw eigen waarden als volgt:
 
@@ -82,7 +82,7 @@ De standaardinstelling is dat de toewijzing van gestopte VM's ongedaan wordt gem
 
 
 ### <a name="start-vms-in-a-scale-set"></a>Virtuele machines in een schaalset starten
-Gebruiken om een of meer virtuele machines starten in een schaalset, [Start AzVmss](/powershell/module/az.compute/start-azvmss). Met de parameter `-InstanceId` kunt u een of meer VM's opgeven om te starten. Als u geen exemplaar-id opgeeft, worden alle VM's in de schaalset gestart. Voor het starten van meerdere virtuele machines, elk exemplaar-ID met een komma te scheiden.
+Als u een of meer VM's in een schaalset wilt starten, gebruikt u [Start-AzVmss](/powershell/module/az.compute/start-azvmss). Met de parameter `-InstanceId` kunt u een of meer VM's opgeven om te starten. Als u geen exemplaar-id opgeeft, worden alle VM's in de schaalset gestart. Voor het starten van meerdere virtuele machines, elk exemplaar-ID met een komma te scheiden.
 
 Het volgende voorbeeld start exemplaar *0* in de schaalset met de naam *myScaleSet* en de *myResourceGroup* resourcegroep. Geef uw eigen waarden als volgt:
 
@@ -92,7 +92,7 @@ Start-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -
 
 
 ## <a name="restart-vms-in-a-scale-set"></a>Virtuele machines in een schaalset opnieuw opstarten
-Als u wilt een of meer virtuele machines opnieuw opstarten in een schaalset, gebruikt u [restart-AzVmss](/powershell/module/az.compute/restart-azvmss). Met de parameter `-InstanceId` kunt u een of meer VM's opgeven om opnieuw op te starten. Als u geen exemplaar-id opgeeft, worden alle VM's in de schaalset opnieuw opgestart. Als u wilt meerdere virtuele machines opnieuw opstarten, elk exemplaar-ID met een komma te scheiden.
+Als u wilt een of meer virtuele machines opnieuw opstarten in een schaalset, gebruikt u [opnieuw opstarten-AzVmss](/powershell/module/az.compute/restart-azvmss). Met de parameter `-InstanceId` kunt u een of meer VM's opgeven om opnieuw op te starten. Als u geen exemplaar-id opgeeft, worden alle VM's in de schaalset opnieuw opgestart. Als u wilt meerdere virtuele machines opnieuw opstarten, elk exemplaar-ID met een komma te scheiden.
 
 Het volgende voorbeeld wordt opnieuw opgestart exemplaar *0* in de schaalset met de naam *myScaleSet* en de *myResourceGroup* resourcegroep. Geef uw eigen waarden als volgt:
 

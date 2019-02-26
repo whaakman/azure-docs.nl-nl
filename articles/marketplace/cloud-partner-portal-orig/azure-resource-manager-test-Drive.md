@@ -14,19 +14,18 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: b7cbd69a4551605b71930a23f837b467177e3cc3
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: a6ab19207b2c98064f99914e16cdde85133bfd96
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451354"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821761"
 ---
-<a name="azure-resource-manager-test-drive"></a>Azure Resource Manager-Test Drive
-=================================
+# <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager-Test Drive
 
 Dit artikel is voor uitgevers die hebben hun aanbieding op Azure Marketplace, of die op AppSource, maar wilt maken van de Test Drive met alleen Azure-resources.
 
-Een Azure Resource Manager (Azure Resource Manager)-sjabloon is een gecodeerde container van Azure-resources die u naar beste voor uw oplossing ontwerpt. Als u niet bekend bent met welke Resource Manager-sjabloon is, Lees [inzicht krijgen in ARM-sjablonen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) en [ARM-sjablonen maken](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) om ervoor te zorgen dat u weet hoe u bouwen en testen van uw eigen sjablonen.
+Een Azure Resource Manager (Resource Manager)-sjabloon is een gecodeerde container van Azure-resources die u naar beste voor uw oplossing ontwerpt. Als u niet bekend bent met welke Resource Manager-sjabloon is, Lees [inzicht krijgen in Resource Manager-sjablonen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) en [Resource Manager-sjablonen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) om ervoor te zorgen dat u weet hoe u bouwen en testen uw eigen sjablonen.
 
 Wat Test Drive doet, is dat deze de opgegeven Resource Manager-sjabloon wordt en maakt een implementatie van alle bronnen die van die Resource Manager-sjabloon in een resourcegroep nodig.
 
@@ -36,8 +35,7 @@ Als u kiest voor het bouwen van een Azure Resource Manager Test Drive, worden de
 - Configureer alle vereiste metagegevens en -instellingen om in te schakelen uw Test Drive.
 - Uw aanbod opnieuw publiceren met Test Drive is ingeschakeld.
 
-<a name="how-to-build-an-azure-resource-manager-test-drive"></a>Over het bouwen van een Azure Resource Manager Test Drive
-------------------------------
+## <a name="how-to-build-an-azure-resource-manager-test-drive"></a>Over het bouwen van een Azure Resource Manager Test Drive
 
 Het belangrijkste gedeelte over het bouwen van een Azure Resource Manager Test Drive is te definiëren welke scenario('s) u wilt dat uw klanten ondervinden. Weet u die een firewallproduct en u wilt demonstreren hoe goed het verwerken van script-injectieaanvallen? Weet u die een opslagproduct en u wilt demonstreren hoe snel en eenvoudig uw oplossing kunt u bestanden comprimeren?
 
@@ -47,8 +45,7 @@ Om door te gaan met ons voorbeeld firewall, is de architectuur mogelijk moet u e
 
 Nadat u het gewenste pakket van resources hebt ontworpen, wordt nu geleverd schrijven en het bouwen van de Test Drive Resource Manager-sjabloon.
 
-<a name="writing-test-drive-resource-manager-templates"></a>Test Drive Resource Manager-sjablonen schrijven
---------------------------------
+## <a name="writing-test-drive-resource-manager-templates"></a>Test Drive Resource Manager-sjablonen schrijven
 
 Implementaties van Test Drive wordt uitgevoerd in een modus voor volledig geautomatiseerd en vanwege die, Test Drive sjablonen gelden enkele beperkingen die hieronder worden beschreven.
 
@@ -62,24 +59,26 @@ Test Drive werkt echter in een volledig automatische modus, zonder menselijke tu
 
 U kunt een geldige naam voor de parameters, Test Drive herkent categorie parameter met behulp van de metagegevens van het type waarde. U **moet opgeven voor elke sjabloonparameter metagegevenstype**, de sjabloon wordt anders niet worden gevalideerd:
 
-    "parameters": {
-      ...
-      "username": {
-        "type": "string",
-        "metadata": {
-          "type": "username"
-        }
-      },
-      ...
+```json
+"parameters": {
+  ...
+  "username": {
+    "type": "string",
+    "metadata": {
+      "type": "username"
     }
+  },
+  ...
+}
+```
 
 Het is ook belangrijk om te weten dat **alle parameters zijn optioneel**, dus als u\'t wilt gebruiken, u\'t moet.
 
 ### <a name="accepted-parameter-metadata-types"></a>Metagegevens van geaccepteerde parametertypen
 
 | Metagegevenstype   | Parametertype  | Description     | Voorbeeldwaarde    |
-|---|---|---|---|---|
-| **BaseUri**     | string          | Basis-URI van het implementatiepakket| [https://\<\..\>.blob.core.windows.net/\<\..\>](#) |
+|---|---|---|---|
+| **BaseUri**     | string          | Basis-URI van het implementatiepakket| https:\//\<\..\>.blob.core.windows.net/\<\..\> |
 | **gebruikersnaam**    | string          | Nieuwe willekeurige gebruikersnaam.| admin68876      |
 | **Wachtwoord**    | beveiligde tekenreeks    | Nieuwe willekeurig wachtwoord | LP! ACS\^2kh     |
 | **Sessie-id**   | string          | Unieke Test Drive-sessie-ID (GUID)    | b8c8693e-5673-449c-bAdd-257a405a6dee |
@@ -88,40 +87,46 @@ Het is ook belangrijk om te weten dat **alle parameters zijn optioneel**, dus al
 
 Test Drive wordt geïnitialiseerd voor deze parameter met een **Base Uri** van het implementatiepakket, zodat u deze parameter gebruiken kunt om samen te stellen van de Uri van elk bestand dat is opgenomen in het pakket.
 
-    "parameters": {
-      ...
-      "baseuri": {
-        "type": "string",
-        "metadata": {
-          "type": "baseuri",
-          "description": "Base Uri of the deployment package."
-        }
-      },
-      ...
+```json
+"parameters": {
+  ...
+  "baseuri": {
+    "type": "string",
+    "metadata": {
+      "type": "baseuri",
+      "description": "Base Uri of the deployment package."
     }
+  },
+  ...
+}
+```
 
 In de sjabloon, kunt u deze parameter te maken van een Uri van elk bestand in uw Test Drive-implementatiepakket. In het volgende voorbeeld toont het maken van een Uri van de gekoppelde sjabloon:
 
-    "templateLink": {
-      "uri": "[concat(parameters('baseuri'),'templates/solution.json')]",
-      "contentVersion": "1.0.0.0"
-    }
+```json
+"templateLink": {
+  "uri": "[concat(parameters('baseuri'),'templates/solution.json')]",
+  "contentVersion": "1.0.0.0"
+}
+```
 
 #### <a name="username"></a>gebruikersnaam
 
 Test Drive wordt geïnitialiseerd voor deze parameter met een nieuwe willekeurige gebruikersnaam:
 
-    "parameters": {
-      ...
-      "username": {
-        "type": "string",
-        "metadata": {
-          "type": "username",
-          "description": "Solution admin name."
-        }
-      },
-      ...
+```json
+"parameters": {
+  ...
+  "username": {
+    "type": "string",
+    "metadata": {
+      "type": "username",
+      "description": "Solution admin name."
     }
+  },
+  ...
+}
+```
 
 Voorbeeldwaarde:
 
@@ -133,17 +138,19 @@ U kunt willekeurige of constant gebruikersnamen gebruiken voor uw oplossing.
 
 Test Drive wordt geïnitialiseerd voor deze parameter met een nieuwe willekeurig wachtwoord:
 
-    "parameters": {
-      ...
-      "password": {
-        "type": "securestring",
-        "metadata": {
-          "type": "password",
-          "description": "Solution admin password."
-        }
-      },
-      ...
+```json
+"parameters": {
+  ...
+  "password": {
+    "type": "securestring",
+    "metadata": {
+      "type": "password",
+      "description": "Solution admin password."
     }
+  },
+  ...
+}
+```
 
 Voorbeeldwaarde:
 
@@ -155,17 +162,19 @@ U kunt willekeurige of constante wachtwoorden gebruiken voor uw oplossing.
 
 Deze parameter Test Drive initialiseren met een unieke GUID die Test Drive-sessie-ID vertegenwoordigt:
 
-    "parameters": {
-      ...
-      "sessionid": {
-        "type": "string",
-        "metadata": {
-          "type": "sessionid",
-          "description": "Unique Test Drive session id."
-        }
-      },
-      ...
+```json
+"parameters": {
+  ...
+  "sessionid": {
+    "type": "string",
+    "metadata": {
+      "type": "sessionid",
+      "description": "Unique Test Drive session id."
     }
+  },
+  ...
+}
+```
 
 Voorbeeldwaarde:
 
@@ -179,12 +188,14 @@ Sommige Azure-resources, zoals storage-accounts of DNS-namen, globaal unieke nam
 
 Dit betekent dat telkens wanneer de Test Drive wordt het Resource Manager-sjabloon geïmplementeerd, worden er een **nieuwe resourcegroep met een unieke naam** voor alle bijbehorende\' resources. Daarom is vereist om te gebruiken de [uniquestring](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions#uniquestring) functie samengevoegd met de namen van variabelen voor de resourcegroep-id's voor het genereren van willekeurige unieke waarden:
 
-      "variables": {
-      ...
-      "domainNameLabel": "[concat('contosovm',uniquestring(resourceGroup().id))]",
-      "storageAccountName": "[concat('contosodisk',uniquestring(resourceGroup().id))]",
-      ...
-    }
+```json
+"variables": {
+  ...
+  "domainNameLabel": "[concat('contosovm',uniquestring(resourceGroup().id))]",
+  "storageAccountName": "[concat('contosodisk',uniquestring(resourceGroup().id))]",
+  ...
+}
+```
 
 Zorg ervoor dat u de parameter/variabele tekenreeksen (\'contosovm\') met een unieke tekenreeks van de uitvoer (\'resourceGroup () .id\'), omdat dit de uniekheid en betrouwbaarheid van elke variabele garandeert.
 
@@ -198,41 +209,45 @@ U kunt u met Test Drive beschikbaar maken in verschillende Azure-regio's. Het id
 
 Test Drive maakt een exemplaar van het testlab, wordt altijd wordt een resourcegroep in de regio kiezen door een gebruiker, en vervolgens de sjabloon voor de implementatie wordt uitgevoerd in de context van deze groep. De sjabloon moet dus de implementatielocatie kiezen uit resourcegroep:
 
-    "variables": {
-      ...
-      "location": "[resourceGroup().location]",
-      ...
-    }
+```json
+"variables": {
+  ...
+  "location": "[resourceGroup().location]",
+  ...
+}
+```
 
 En gebruik vervolgens deze locatie voor elke resource voor een specifiek exemplaar van de testomgeving:
 
-    "resources": [
-      {
-        "type": "Microsoft.Storage/storageAccounts",
-        "location": "[variables('location')]",
-        ...
-      },
-      {
-        "type": "Microsoft.Network/publicIPAddresses",
-        "location": "[variables('location')]",
-        ...
-      },
-      {
-        "type": "Microsoft.Network/virtualNetworks",
-        "location": "[variables('location')]",
-        ...
-      },
-      {
-        "type": "Microsoft.Network/networkInterfaces",
-        "location": "[variables('location')]",
-        ...
-      },
-      {
-        "type": "Microsoft.Compute/virtualMachines",
-        "location": "[variables('location')]",
-        ...
-      }
-    ]
+```json
+"resources": [
+  {
+    "type": "Microsoft.Storage/storageAccounts",
+    "location": "[variables('location')]",
+    ...
+  },
+  {
+    "type": "Microsoft.Network/publicIPAddresses",
+    "location": "[variables('location')]",
+    ...
+  },
+  {
+    "type": "Microsoft.Network/virtualNetworks",
+    "location": "[variables('location')]",
+    ...
+  },
+  {
+    "type": "Microsoft.Network/networkInterfaces",
+    "location": "[variables('location')]",
+    ...
+  },
+  {
+    "type": "Microsoft.Compute/virtualMachines",
+    "location": "[variables('location')]",
+    ...
+  }
+]
+```
 
 U moet ervoor zorgen dat uw abonnement is toegestaan voor het implementeren van alle resources die u wilt implementeren in elk van de regio's die u selecteert. Ook moet u ervoor zorgen dat uw installatiekopieën voor virtuele machines beschikbaar in alle regio's die u wilt inschakelen zijn, de sjabloon voor de implementatie werkt anders niet voor in sommige regio's.
 
@@ -246,20 +261,22 @@ Er zijn geen beperkingen met betrekking tot de uitvoer van de sjabloon. Vergeet 
 
 Voorbeeld:
 
-    "outputs": {
-      "Host Name": {
-        "type": "string",
-        "value": "[reference(variables('pubIpId')).dnsSettings.fqdn]"
-      },
-      "User Name": {
-        "type": "string",
-        "value": "[parameters('adminName')]"
-      },
-      "Password": {
-        "type": "string",
-        "value": "[parameters('adminPassword')]"
-      }
-    }
+```json
+"outputs": {
+  "Host Name": {
+    "type": "string",
+    "value": "[reference(variables('pubIpId')).dnsSettings.fqdn]"
+  },
+  "User Name": {
+    "type": "string",
+    "value": "[parameters('adminName')]"
+  },
+  "Password": {
+    "type": "string",
+    "value": "[parameters('adminPassword')]"
+  }
+}
+```
 
 ### <a name="subscription-limits"></a>Limieten voor een abonnement
 
@@ -277,20 +294,18 @@ Tijdens de publicatie-certificering, Test Drive wordt uitgepakt van het implemen
 
 | Package.zip                       | Test Drive blob-container         |
 |---|---|
-main-template.json                | [https://\<\.... \>.blob.core.windows.net/\<\.... \>/main-template.json](#)  |
- Templates/Solution.JSON           | [https://\<\.... \>.blob.core.windows.net/\<\.... \>/templates/solution.json](#) |
-| scripts/warmup.ps1                | [https://\<\.... \>.blob.core.windows.net/\<\.... \>/scripts/warmup.ps1](#)  |
+| main-template.json                | https:\//\<\...\>.blob.core.windows.net/\<\...\>/main-template.json  |
+| Templates/Solution.JSON           | https:\//\<\...\>.blob.core.windows.net/\<\...\>/templates/solution.json |
+| scripts/warmup.ps1                | https:\//\<\...\>.blob.core.windows.net/\<\...\>/scripts/warmup.ps1  |
 
 
 We noemen een Uri zijn die van deze basis-Uri van de blob-container. Elke revisie van uw praktijksessie heeft een eigen blob-container, en daarom elke revisie van uw praktijksessie heeft een eigen basis-Uri. Test Drive kunt u een basis-Uri van uw uitgepakte implementatiepakket doorgeven in de sjabloon via Sjabloonparameters.
 
-<a name="transforming-template-examples-for-test-drive"></a>Sjabloonvoorbeelden voor de Test Drive transformeren
----------------------------------------------
+## <a name="transforming-template-examples-for-test-drive"></a>Sjabloonvoorbeelden voor de Test Drive transformeren
 
 Het proces van het omzetten van een architectuur van resources in een Test Drive Resource Manager-sjabloon kan worden uitdaging zijn. Om dit proces eenvoudiger we\'ve die voorbeelden van het beste [transformeren huidige implementatiesjablonen hier](./transforming-examples-for-test-drive.md).
 
-<a name="how-to-publish-a-test-drive"></a>Het publiceren van een Test Drive
----------------------------
+## <a name="how-to-publish-a-test-drive"></a>Het publiceren van een Test Drive
 
 Nu dat u uw Test Drive gebouwd hebt, wordt dit gedeelte doorloopt samen met elk van de velden die vereist zijn voor u is uw Test Drive publiceren.
 
@@ -394,8 +409,7 @@ Krijgen we de toepassing gebruiken om te implementeren voor het abonnement, moet
 
 ![Ziet u de sleutels voor de Azure AD-toepassing](./media/azure-resource-manager-test-drive/subdetails8.png)
 
-<a name="next-steps"></a>Volgende stappen
-----------
+## <a name="next-steps"></a>Volgende stappen
 
 Nu dat u al uw Test Drive-velden ingevuld hebt, doorlopen en **opnieuw publiceren** uw aanbieding. Wanneer uw Test Drive is verstreken certificering, gaat u een uitgebreid te testen de klantervaring in de **preview** van uw aanbieding. Start een Test uit in de gebruikersinterface en opent u uw Azure-abonnement in Azure portal en controleer of dat uw Test Drives zijn wordt volledig correct is geïmplementeerd.
 

@@ -11,12 +11,12 @@ ms.topic: article
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: jeconnoc
-ms.openlocfilehash: 877d49a49333d70ac7660900e49e7c588f52756c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b7eba0e63f68cd56f2bcc310c3bde65c36e933dd
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451560"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822460"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Zakelijke continuïteit en herstel na noodgevallen in ruimten voor het ontwikkelen van Azure
 
@@ -93,7 +93,7 @@ Herhaal deze stappen voor eventuele andere projecten die zijn geconfigureerd voo
 
 ## <a name="access-a-service-on-a-backup-cluster"></a>Toegang tot een service op een back-cluster
 
-Als u uw service voor het gebruik van een openbare DNS-naam hebt geconfigureerd, klikt u vervolgens heeft de service een andere URL als u deze op een back-cluster uitvoert. Openbare DNS-namen zijn altijd in de indeling `<space name>.s.<service name>.<cluster GUID>.<region>.aksapp.io`. Als u naar een ander cluster overschakelt, wordt de GUID van het cluster en mogelijk de regio wijzigen.
+Als u uw service voor het gebruik van een openbare DNS-naam hebt geconfigureerd, klikt u vervolgens heeft de service een andere URL als u deze op een back-cluster uitvoert. Openbare DNS-namen zijn altijd in de indeling `<space name>.s.<root space name>.<service name>.<cluster GUID>.<region>.azds.io`. Als u naar een ander cluster overschakelt, wordt de GUID van het cluster en mogelijk de regio wijzigen.
 
 Ontwikkel spaties geeft altijd de juiste URL voor de service bij het uitvoeren van `azds up`, of in het uitvoervenster van Visual Studio onder **Azure Dev spaties**.
 
@@ -102,7 +102,7 @@ U kunt ook de URL vinden door te voeren de `azds list-uris` opdracht:
 $ azds list-uris
 Uri                                                     Status
 ------------------------------------------------------  ---------
-http://mywebapi.d05afe7e006a4fddb73c.eastus.aksapp.io/  Available
+http://default.mywebapi.d05afe7e006a4fddb73c.eus.azds.io/  Available
 ```
 
 Deze URL gebruiken bij het openen van de service.

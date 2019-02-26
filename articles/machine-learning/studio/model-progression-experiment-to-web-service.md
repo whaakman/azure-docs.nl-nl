@@ -5,17 +5,17 @@ description: Een overzicht van het mechanisme van hoe de voortgang van uw Azure 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: 776f33e3e550ad9a711a90732c6c4526e647aa89
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 808883fc96369538a26a06a7dadb5f0ecd6628d5
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456789"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823396"
 ---
 # <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Hoe een model voor Machine Learning Studio wordt uitgevoerd van een experiment naar een ingezette-webservice
 Azure Machine Learning Studio biedt een interactief canvas waarmee u kunt ontwikkelen, te worden uitgevoerd, te testen en te herhalen een ***experimenteren*** vertegenwoordigt een predictive Analytics-model. Er zijn tal van modules die kunnen:
@@ -95,7 +95,7 @@ Hier volgt een voorbeeld: Stel dat uw voorspellende experiment de hele rij van i
 
 Als u wilt behouden van uw machine learning-model, maar u wilt het opnieuw trainen met nieuwe gegevens, hebt u twee opties:
 
-1. **Het model opnieuw trainen terwijl de webservice wordt uitgevoerd** -als u wilt dat uw model trainen terwijl de voorspellende webservice wordt uitgevoerd, kunt u dit doen door enkele wijzigingen aan te brengen de trainingsexperiment u gemakkelijk een ***opnieuw trainen experimenteren***, en vervolgens kunt u het implementeert als een  ***retraining web* service**. Zie voor instructies over hoe u dit doet, [opnieuw trainen Machine Learning-modellen programmatisch](retrain-models-programmatically.md).
+1. **Het model opnieuw trainen terwijl de webservice wordt uitgevoerd** -als u wilt dat uw model trainen terwijl de voorspellende webservice wordt uitgevoerd, kunt u dit doen door enkele wijzigingen aan te brengen de trainingsexperiment u gemakkelijk een ***opnieuw trainen experimenteren***, en vervolgens kunt u het implementeert als een  ***retraining web* service**. Zie voor instructies over hoe u dit doet, [opnieuw trainen Machine Learning-modellen programmatisch](/azure/machine-learning/studio/retrain-machine-learning-model).
 2. **Ga terug naar de oorspronkelijke trainingsexperiment en verschillende trainingsgegevens gebruiken voor het ontwikkelen van uw model** : uw Voorspellend experiment is gekoppeld aan de webservice, maar het trainingsexperiment niet rechtstreeks is gekoppeld op deze manier. Als u de oorspronkelijke trainingsexperiment wijzigen en klik op **webservice instellen**, wordt er een *nieuwe* voorspellende experimenteren die wanneer geïmplementeerd, maakt een *nieuwe* Web de service. Het niet alleen de oorspronkelijke webservice bijgewerkt.
 
    Als u wijzigen van het trainingsexperiment wilt, open het en klik op **OpslaanAls** om een kopie te maken. Dit wordt het oorspronkelijke trainingsexperiment, Voorspellend experiment behouden en webservice. U kunt nu een nieuwe webservice maken met uw wijzigingen. Nadat u de nieuwe webservice die u kunt vervolgens beslissen of u zorgen dat naast de nieuwe resourcegroep of stoppen van de vorige webservice hebt geïmplementeerd.
@@ -109,7 +109,7 @@ Zie voor meer informatie over het proces van het ontwikkelen en te experimentere
 
 * converteren van het experiment - [over het voorbereiden van uw model voor implementatie in Azure Machine Learning Studio](convert-training-experiment-to-scoring-experiment.md)
 * implementatie van de webservice - [een Azure Machine Learning-webservice implementeren](publish-a-machine-learning-web-service.md)
-* opnieuw trainen het model - [-modellen programmatisch opnieuw trainen van Machine Learning](retrain-models-programmatically.md)
+* opnieuw trainen het model - [-modellen programmatisch opnieuw trainen van Machine Learning](/azure/machine-learning/studio/retrain-machine-learning-model)
 
 Zie voor voorbeelden van het hele proces:
 

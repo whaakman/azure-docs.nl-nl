@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 2ada0ccc1286677300c005da4fa0e92be94a3ca8
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: edfc14e837c92cac5bab589e33069bb771a53cb7
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314821"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818252"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Het bijwerken van een bestaande blauwdruktoewijzing van
 
@@ -26,11 +26,11 @@ Wanneer een blauwdruk wordt toegewezen, kan de toewijzing kan worden bijgewerkt.
 
 ## <a name="updating-assignments"></a>Toewijzingen bijwerken
 
-1. Klik op **Alle services** en selecteer **Beleid** in het linkerdeelvenster. Klik op de pagina **Beleid** op **Blueprints**.
+1. Selecteer **alle services** in het linkerdeelvenster. Zoek en selecteer **blauwdrukken**.
 
-1. Selecteer **Toegewezen blauwdrukken** op de pagina aan de linkerkant.
+1. Selecteer **toegewezen blauwdrukken** op de pagina aan de linkerkant.
 
-1. In de lijst met blauwdrukken, de blauwdruktoewijzing te klikken. Klik vervolgens op de **bijwerken van de toewijzing** of met de rechtermuisknop op de blauwdruktoewijzing en selecteer **bijwerken van de toewijzing**.
+1. In de lijst met blauwdrukken, de blauwdruktoewijzing te klikken. Klik vervolgens op de **toewijzing bijwerken** of met de rechtermuisknop op de blauwdruktoewijzing en selecteer **toewijzing bijwerken**.
 
    ![Toewijzing bijwerken](../media/update-existing-assignments/update-assignment.png)
 
@@ -40,7 +40,7 @@ Wanneer een blauwdruk wordt toegewezen, kan de toewijzing kan worden bijgewerkt.
 
    ![Bijgewerkte toewijzing - vergrendeld](../media/update-existing-assignments/updated-assignment.png)
 
-1. Bekijk details over andere **toewijzingsbewerkingen** met behulp van de vervolgkeuzelijst. De tabel van **beheerde Resources** updates voor geselecteerde toewijzingsbewerking.
+1. Bekijk details over andere **toewijzingsbewerkingen** met behulp van de vervolgkeuzelijst. De tabel van **beheerde resources** updates voor geselecteerde toewijzingsbewerking.
 
    ![Toewijzingsbewerkingen](../media/update-existing-assignments/assignment-operations.png)
 

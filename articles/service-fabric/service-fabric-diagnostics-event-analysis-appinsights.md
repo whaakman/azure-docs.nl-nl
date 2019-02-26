@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: efcd2e279d1bf387bc11c238a0592ecee6545cc4
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 7a3abd854ec5e492407d1fbdc8d170f2a27ba1bc
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053616"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816722"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Gebeurtenis analyses en visualisatie met Application Insights
 
@@ -49,50 +49,6 @@ Application Insights heeft een aangewezen weergave voor het uitvoeren van query'
 
 Als u wilt de mogelijkheden van de Application Insights-portal verder verkennen, Ga naar de [documentatie voor Application Insights-portal](../azure-monitor/app/app-insights-dashboards.md).
 
-### <a name="configuring-application-insights-with-wad"></a>Application Insights configureren met WAD
-
->[!NOTE]
->Dit is alleen van toepassing op Windows-clusters op dit moment.
-
-Er zijn twee primaire manieren om gegevens te verzenden vanuit WAD naar Azure Application Insights, waarmee wordt bereikt door een sink Application Insights toe te voegen aan de configuratie WAD, zoals beschreven in [in dit artikel](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
-
-#### <a name="add-an-application-insights-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>Een Application Insights-Instrumentatiesleutel toevoegen bij het maken van een cluster in Azure portal
-
-![Toevoegen van een AIKey](media/service-fabric-diagnostics-event-analysis-appinsights/azure-enable-diagnostics.png)
-
-Bij het maken van een cluster als diagnostische gegevens 'Aan' is ingeschakeld, ziet u een optioneel veld een sleutel van Application Insights-Instrumentatiepakket in te voeren. Als u uw Application Insights-sleutel hier plakt, worden de Application Insights-sink automatisch voor u in de Resource Manager-sjabloon die wordt gebruikt voor het implementeren van uw cluster geconfigureerd.
-
-#### <a name="add-the-application-insights-sink-to-the-resource-manager-template"></a>Het Sink-Application Insights toevoegen aan de Resource Manager-sjabloon
-
-Toevoegen in de 'WadCfg' van de Resource Manager-sjabloon, een 'Sink' door de volgende twee wijzigingen op te nemen:
-
-1. Toevoegen van de configuratie van de sink direct na het declareren van de `DiagnosticMonitorConfiguration` is voltooid:
-
-    ```json
-    "SinksConfig": {
-        "Sink": [
-            {
-                "name": "applicationInsights",
-                "ApplicationInsights": "***ADD INSTRUMENTATION KEY HERE***"
-            }
-        ]
-    }
-
-    ```
-
-2. Bevatten de Sink in de `DiagnosticMonitorConfiguration` door toe te voegen van de volgende regel in de `DiagnosticMonitorConfiguration` van de `WadCfg` (vlak voor de `EtwProviders` zijn gedeclareerd):
-
-    ```json
-    "sinks": "applicationInsights"
-    ```
-
-In zowel de voorgaande codefragmenten, is de naam 'Application Insights' gebruikt om te beschrijven van de sink. Dit is geen vereiste en als de naam van de sink is opgenomen in een 'put', kunt u de naam van de instellen op een willekeurige tekenreeks.
-
-Op dit moment logboeken van het cluster weergegeven als **traceringen** in Application Insights-Logboeken. Omdat de meeste van de traceringen die afkomstig zijn van het platform van niveau 'Ter informatie' zijn, kunt u ook overwegen wijzigen van de sink-configuratie voor het verzenden van alleen logboeken van het type "Critical" of "Error". Dit kan worden gedaan door 'Kanalen' toevoegen aan uw sink, zoals geïllustreerd in [in dit artikel](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
-
->[!NOTE]
->Als u een onjuiste Application Insights-sleutel in de portal of in het Resource Manager-sjabloon, moet u de sleutel handmatig te wijzigen en bijwerken van het cluster / opnieuw te implementeren.
-
 ### <a name="configuring-application-insights-with-eventflow"></a>Configuratie van Application Insights samenstellen met EventFlow
 
 Als u van EventFlow naar gebeurtenissen gebruikmaakt, controleert u of voor het importeren van de `Microsoft.Diagnostics.EventFlow.Output.ApplicationInsights`NuGet-pakket. De volgende code is vereist in de *levert* sectie van de *eventFlowConfig.json*:
@@ -108,7 +64,7 @@ Als u van EventFlow naar gebeurtenissen gebruikmaakt, controleert u of voor het 
 
 Zorg ervoor dat u de benodigde wijzigingen aanbrengen in de filters, evenals alle andere invoer (samen met hun respectieve NuGet-pakketten) bevatten.
 
-## <a name="application-insights-sdk"></a>Application Insights-SDK
+## <a name="application-insights-sdk"></a>Application Insights SDK
 
 Het verdient aanbeveling met EventFlow en WAD aggregatieoplossingen, omdat ze toestaan voor een meer modulaire benadering voor diagnose en controle, dat wil zeggen als u wilt wijzigen van de uitvoer van EventFlow, zonder veranderingen in uw werkelijke instrumentation vereist alleen een eenvoudige wijziging aan het configuratiebestand. Als u echter besluit om door te investeren in met behulp van Application Insights en waarschijnlijk niet wijzigen in een ander platform, moet u zoeken naar nieuwe Application Insights-SDK gebruiken voor het aggregeren van gebeurtenissen en deze te verzenden naar Application Insights. Dit betekent dat u niet langer hoeft EventFlow voor het verzenden van uw gegevens naar Application Insights configureren, maar in plaats daarvan de ApplicationInsight van Service Fabric NuGet-pakket wordt geïnstalleerd. Meer informatie over het pakket kunnen worden gevonden [hier](https://github.com/Microsoft/ApplicationInsights-ServiceFabric).
 

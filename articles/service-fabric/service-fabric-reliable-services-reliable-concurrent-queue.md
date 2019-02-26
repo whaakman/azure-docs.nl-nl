@@ -3,7 +3,7 @@ title: ReliableConcurrentQueue in Azure Service Fabric
 description: ReliableConcurrentQueue is een hoge doorvoer wachtrij zodat parallelle enqueues en dequeues.
 services: service-fabric
 documentationcenter: .net
-author: tylermsft
+author: aljo-microsoft
 manager: timlt
 editor: raja,tyadam,masnider,vturecek
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
-ms.author: twhitney
-ms.openlocfilehash: 61b53a23fdbb08b226878d9b702ec6bb2879f8bc
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.author: aljo
+ms.openlocfilehash: d4d399258ac1bd83fe4cfb46344576ca74e66f1e
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185032"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805134"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Inleiding tot ReliableConcurrentQueue in Azure Service Fabric
 Betrouwbare gelijktijdige wachtrij is een asynchrone, transactionele en gerepliceerde wachtrij welke functies hoog gelijktijdigheid voor in de wachtrij plaatsen en uit de wachtrij verwijderen bewerkingen. Het is ontworpen voor het leveren van hoge doorvoer en lage latentie door versoepeling van de strikte FIFO volgorde geleverd door [betrouwbare wachtrij](https://msdn.microsoft.com/library/azure/dn971527.aspx) en in plaats daarvan biedt een best-effort bestellen.
@@ -28,9 +28,9 @@ Betrouwbare gelijktijdige wachtrij is een asynchrone, transactionele en gereplic
 
 |Gelijktijdige wachtrij                |Betrouwbare gelijktijdige wachtrij                                         |
 |--------------------------------|------------------------------------------------------------------|
-| Ongeldig Enqueue(T item)           | Taak EnqueueAsync (tx ITransaction, T item)                       |
+| void Enqueue(T item)           | Task EnqueueAsync(ITransaction tx, T item)                       |
 | BOOL TryDequeue (uit T resultaat)  | Taak < ConditionalValue < T >> TryDequeueAsync (tx ITransaction)  |
-| int Count()                    | lange Count()                                                     |
+| int Count()                    | long Count()                                                     |
 
 ## <a name="comparison-with-reliable-queuehttpsmsdnmicrosoftcomlibraryazuredn971527aspx"></a>Vergelijking met [betrouwbare wachtrij](https://msdn.microsoft.com/library/azure/dn971527.aspx)
 

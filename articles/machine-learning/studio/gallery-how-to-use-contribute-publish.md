@@ -5,17 +5,17 @@ description: Delen en ontdekken analytics-resources en meer in de Azure AI Galle
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 48bb9b24901cd07891f3d52bcd916f95bc2801f4
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 53104aeaa88464a666a6ece495e51bf58bd1f002
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244215"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816858"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Delen en ontdekken van bronnen in de Azure AI Gallery
 

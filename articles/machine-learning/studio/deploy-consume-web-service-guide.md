@@ -5,17 +5,17 @@ description: U kunt Azure Machine Learning Studio gebruiken om machine learning-
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: a1ddf6aae9fdd661e30719fafb6000fb6559df20
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: b4658d6321b9c37a2f769ab3961268af8af0773d
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429016"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823923"
 ---
 # <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio Web Services: Implementatie en verbruik
 
@@ -37,7 +37,7 @@ De volgende koppelingen bieden algemene informatie over het implementeren van ee
 * Zie voor specifieke voorbeelden die een webservice implementeren:
 
   * [Zelfstudie 3: Tegoed risicomodel implementeren](tutorial-part3-credit-risk-deploy.md)
-  * [Een webservice implementeren in meerdere regio 's](how-to-deploy-to-multiple-regions.md)
+  * [Een webservice implementeren in meerdere regio 's](/azure/machine-learning/studio/publish-a-machine-learning-web-service#multi-region)
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>Bij de resourceprovider voor web services API's (Azure Resource Manager-API's)
 
@@ -49,7 +49,7 @@ De Azure Machine Learning Studio-resourceprovider voor web-services kunt impleme
 
 De Azure Machine Learning Studio-resourceprovider voor web-services kunt implementeren en beheren van webservices met behulp van PowerShell-cmdlets.
 
-De cmdlets wilt gebruiken, moet u eerst aanmelden bij uw Azure-account van de PowerShell-omgeving met behulp van de [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet. Als u niet bekend bent met het aanroepen van de PowerShell-opdrachten die zijn gebaseerd op Resource Manager, Zie [met behulp van Azure PowerShell met Azure Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md).
+De cmdlets wilt gebruiken, moet u eerst aanmelden bij uw Azure-account van de PowerShell-omgeving met behulp van de [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet. Als u niet bekend bent met het aanroepen van de PowerShell-opdrachten die zijn gebaseerd op Resource Manager, Zie [met behulp van Azure PowerShell met Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md).
 
 Voor het exporteren van uw Voorspellend experiment [deze voorbeeldcode](https://github.com/ritwik20/AzureML-WebServices). Nadat u het .exe-bestand van de code hebt gemaakt, kunt u het volgende typen:
 

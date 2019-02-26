@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/10/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4e5c64dc43be10eead1da35ec2337aa1f83f2f91
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: a7d290b9270d5d548a2e2b36cd73588639691b6c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472123"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819102"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Uitvoeren van Runbook in Azure Automation
 
@@ -138,7 +138,7 @@ In de volgende tabel wordt beschreven welke status een taak kan hebben. PowerShe
 
 ## <a name="viewing-job-status-from-the-azure-portal"></a>Status van de Azure-portal weergeven
 
-U kunt een samengevatte status van alle runbooktaken weergeven of Zoom in op details voor een specifiek runbook-taak in Azure portal. U kunt ook integratie met uw Log Analytics-werkruimte om door te sturen runbook en taakstromen van een taak configureren. Zie voor meer informatie over de integratie met Log Analytics [taakstatus en taakstromen van Automation doorsturen naar Log Analytics](automation-manage-send-joblogs-log-analytics.md).
+U kunt een samengevatte status van alle runbooktaken weergeven of Zoom in op details voor een specifiek runbook-taak in Azure portal. U kunt ook integratie met uw Log Analytics-werkruimte om door te sturen runbook en taakstromen van een taak configureren. Zie voor meer informatie over de integratie met Azure Monitor logboeken [taakstatus en taakstromen van Automation doorsturen naar de logboeken van Azure Monitor](automation-manage-send-joblogs-log-analytics.md).
 
 ### <a name="automation-runbook-jobs-summary"></a>Automation-runbooktaken samenvatting
 

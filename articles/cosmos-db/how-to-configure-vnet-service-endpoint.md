@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 4511ef81ccfa7008cd21a22b09459fb122d46327
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 03ec8858ee4b9323e6f7964ba02f8bb38f32d6a4
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452937"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819000"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>De toegang van virtuele netwerken (VNet) configureren
 
@@ -51,6 +51,9 @@ De volgende secties wordt beschreven hoe u een service-eindpunt voor virtueel ne
 > Om in te schakelen service-eindpunten voor virtueel netwerk, moet u de volgende abonnementsmachtigingen:
   * Abonnement met een virtueel netwerk: Inzender voor netwerken
   * Abonnement met Azure Cosmos DB-account: Inzender voor DocumentDB-account
+  * Als uw virtuele netwerk en Azure Cosmos DB-account zich in verschillende abonnementen, zorg ervoor dat het abonnement dat is het virtuele netwerk ook heeft `Microsoft.DocumentDB` -resourceprovider geregistreerd. Zie voor het registreren van een resourceprovider [Azure resourceproviders en typen](../azure-resource-manager/resource-manager-supported-services.md) artikel. 
+
+Hier vindt u de aanwijzingen voor het abonnement bij de resourceprovider registreren.
 
 ### <a name="configure-a-service-endpoint-for-a-new-azure-virtual-network-and-subnet"></a>Een service-eindpunt voor een nieuwe Azure-netwerk en subnet configureren
 

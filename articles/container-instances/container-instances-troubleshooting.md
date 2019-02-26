@@ -2,19 +2,19 @@
 title: Oplossen van problemen met Azure Container Instances
 description: Meer informatie over het oplossen van problemen met Azure Container Instances
 services: container-instances
-author: seanmck
+author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/08/2019
-ms.author: seanmck
+ms.date: 02/15/2019
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 609d52f9f2c5dce1bbfd668e94db25aca3d52f69
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: bfa616fb16470a3543f8c981a0104f6bda24cf4d
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119047"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823468"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Algemene problemen in Azure Container Instances oplossen
 
@@ -66,7 +66,7 @@ Als de afbeelding kan niet worden opgehaald, gebeurtenissen, zoals hieronder wor
     "count": 3,
     "firstTimestamp": "2017-12-21T22:56:19+00:00",
     "lastTimestamp": "2017-12-21T22:57:00+00:00",
-    "message": "pulling image \"microsoft/aci-hellowrld\"",
+    "message": "pulling image \"microsoft/aci-helloworld\"",
     "name": "Pulling",
     "type": "Normal"
   },
@@ -74,7 +74,7 @@ Als de afbeelding kan niet worden opgehaald, gebeurtenissen, zoals hieronder wor
     "count": 3,
     "firstTimestamp": "2017-12-21T22:56:19+00:00",
     "lastTimestamp": "2017-12-21T22:57:00+00:00",
-    "message": "Failed to pull image \"microsoft/aci-hellowrld\": rpc error: code 2 desc Error: image t/aci-hellowrld:latest not found",
+    "message": "Failed to pull image \"microsoft/aci-helloworld\": rpc error: code 2 desc Error: image t/aci-hellowrld:latest not found",
     "name": "Failed",
     "type": "Warning"
   },
@@ -82,7 +82,7 @@ Als de afbeelding kan niet worden opgehaald, gebeurtenissen, zoals hieronder wor
     "count": 3,
     "firstTimestamp": "2017-12-21T22:56:20+00:00",
     "lastTimestamp": "2017-12-21T22:57:16+00:00",
-    "message": "Back-off pulling image \"microsoft/aci-hellowrld\"",
+    "message": "Back-off pulling image \"microsoft/aci-helloworld\"",
     "name": "BackOff",
     "type": "Normal"
   }
@@ -93,7 +93,7 @@ Als de afbeelding kan niet worden opgehaald, gebeurtenissen, zoals hieronder wor
 
 Containergroepen standaard ingesteld op een [beleid voor opnieuw opstarten](container-instances-restart-policy.md) van **altijd**, zodat de containers in containergroep altijd opnieuw opstarten nadat ze volledig worden uitgevoerd. Mogelijk moet u deze optie om te wijzigen **OnFailure** of **nooit** als u van plan bent om uit te voeren van containers op basis van een taak. Als u opgeeft **OnFailure** en nog steeds Zie continu opnieuw wordt opgestart, kan er een probleem met de toepassing of het script dat wordt uitgevoerd in de container.
 
-Bij het uitvoeren van containergroepen zonder langlopende processen ziet u mogelijk herhaalde wordt afgesloten en opnieuw opstarten met de installatiekopieën, zoals Ubuntu of Alpine. Verbinding maken via [EXEC](container-instances-exec.md) werkt niet naar de container heeft geen proces dat deze actief te houden. Om op te lossen dit ook een opdracht start als volgt met uw implementatie van de groep container naar de container actief blijft.
+Bij het uitvoeren van containergroepen zonder langlopende processen ziet u mogelijk herhaalde wordt afgesloten en opnieuw opstarten met de installatiekopieën, zoals Ubuntu of Alpine. Verbinding maken via [EXEC](container-instances-exec.md) werkt niet naar de container heeft geen proces dat deze actief te houden. U lost dit probleem, omvatten een opdracht start als volgt met uw implementatie van de groep container naar de container actief blijft.
 
 ```azurecli-interactive
 ## Deploying a Linux container
@@ -178,11 +178,11 @@ Een andere manier om te beperken de gevolgen voor de pull-installatiekopie op de
 
 ### <a name="cached-windows-images"></a>Windows-installatiekopieën in de cache
 
-Azure Container Instances gebruikt een cachemechanisme om te snelheid container opstarttijd voor op basis van bepaalde installatiekopieën voor virtuele Windows-installatiekopieën.
+Azure Container Instances gebruikt een cachemechanisme om te snelheid container opstarttijd voor installatiekopieën op basis van algemene Windows- en Linux-installatiekopieën. Voor een gedetailleerde lijst in de cache installatiekopieën en tags, gebruikt u de [in de cache installatiekopieën vermelden] [ list-cached-images] API.
 
 Om te controleren of de snelste opstarttijd van de Windows-container, gebruikt u een van de **drie meest recente** versies van de volgende **twee installatiekopieën** als de basisinstallatiekopie:
 
-* [WindowsServer 2016] [ docker-hub-windows-core] (alleen TNS)
+* [Windows Server Core 2016] [ docker-hub-windows-core] (alleen LTSC)
 * [Windows Server 2016 Nano Server][docker-hub-windows-nano]
 
 ### <a name="windows-containers-slow-network-readiness"></a>Gereedheid voor Windows-containers langzaam netwerk
@@ -207,10 +207,12 @@ Deze fout geeft aan dat vanwege een zware belasting in de regio waarin u probeer
 Azure Container Instances maakt niet beschikbaar voor directe toegang tot de onderliggende infrastructuur die als host fungeert voor groepen met containers. Dit omvat toegang tot de Docker-API die wordt uitgevoerd op de host van de container en bevoorrechte containers uitvoeren. Als u nodig hebt voor interactie met Docker, controleert u de [REST-referentiedocumentatie](https://aka.ms/aci/rest) om te zien wat de ACI API ondersteunt. Als er iets ontbreekt, een aanvraag indienen op de [ACI feedbackforums](https://aka.ms/aci/feedback).
 
 ## <a name="ips-may-not-be-accessible-due-to-mismatched-ports"></a>IP-adressen mogelijk niet toegankelijk omdat het niet-overeenkomende poorten
+
 Azure Container Instances biedt momenteel geen ondersteuning poort toewijzen, zoals met de configuratie van de reguliere docker, maar deze hotfix op de planning is. Als u het IP-adressen zijn niet toegankelijk als u denkt dat deze moet worden gevonden, controleert u of u hebt geconfigureerd om de containerinstallatiekopie om te luisteren naar de dezelfde poorten die u beschikbaar in uw containergroep met maakt de `ports` eigenschap.
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over het [containerlogbestanden & gebeurtenissen ophalen](container-instances-get-logs.md) om u te helpen bij foutopsporing van uw containers.
+
+Meer informatie over het [containerlogboeken en -gebeurtenissen ophalen](container-instances-get-logs.md) om u te helpen bij foutopsporing van uw containers.
 
 <!-- LINKS - External -->
 [azure-name-restrictions]: https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions
@@ -221,3 +223,4 @@ Meer informatie over het [containerlogbestanden & gebeurtenissen ophalen](contai
 
 <!-- LINKS - Internal -->
 [az-container-show]: /cli/azure/container#az-container-show
+[list-cached-images]: /rest/api/container-instances/listcachedimages

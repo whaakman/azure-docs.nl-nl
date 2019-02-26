@@ -13,27 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: spelluru
-ms.openlocfilehash: 7e3142e0274f2328d3e0c8a3e6f9a2e4c3d45d87
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 6cd06778ad54fa698c5bc2fe4ccf02f4be2ee2ec
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55959134"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807037"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Lab-accounts in Azure Lab Services beheren 
-Een lab-account is in Azure Lab-Services, een container voor beheerde labs zoals leslokaallabs. Een beheerder stelt u een lab-account met Azure Lab-Services en biedt toegang tot een lab-eigenaren die labs in het account maken kunnen. In dit artikel wordt beschreven hoe u een lab-account maken, alle lab-accounts weergeven of verwijderen van een lab-account.
+Een lab-account is in Azure Lab-Services, een container voor beheerde labtypen zoals leslokaallabs. Een beheerder stelt u een lab-account met Azure Lab-Services en biedt toegang tot een lab-eigenaren die labs in het account maken kunnen. In dit artikel wordt beschreven hoe u een lab-account maken, alle lab-accounts weergeven of verwijderen van een lab-account.
 
 ## <a name="create-a-lab-account"></a>Een lab-account maken
 In de volgende stappen ziet u hoe u Azure Portal kunt gebruiken om een lab te maken met Azure Lab Services. 
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Selecteer **alle Services** in het menu links. Selecteer **Lab-Accounts** in de **DEVOPS** sectie. Als u een ster (`*`) naast **Lab-Accounts**, wordt deze toegevoegd aan de **Favorieten** sectie in het menu links. In de volgende keer dat en hoger, selecteert u **Lab-Accounts** onder **Favorieten**.
+2. Selecteer in het menu links **Alle services**. Selecteer **Lab-accounts** in de sectie **DEVOPS**. Selecteer de ster (`*`) naast de **Lab-accounts** om er een toe te voegen aan de sectie **FAVORIETEN** in het menu links. Vanaf de volgende keer selecteert u **Lab-accounts** onder **Favorieten**.
 
-    ![Alle Services -> Lab-Accounts](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
-3. Op de **Lab-Accounts** weergeeft, schakelt **toevoegen** op de werkbalk. 
+    ![Alle Services -> Lab-accounts](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
+3. Selecteer op de pagina **Lab-accounts** **Toevoegen** op de werkbalk. 
 
-    ![Selecteer de optie toevoegen op de pagina Lab-Accounts](../media/tutorial-setup-lab-account/add-lab-account-button.png)
-4. Op de **Lab-Account** pagina, de volgende acties uitvoeren: 
+    ![Selecteer de Toevoegen op de pagina Lab-accounts](../media/tutorial-setup-lab-account/add-lab-account-button.png)
+4. Voer op de pagina **Lab-account** de volgende acties uit: 
     1. Voer een naam in bij **lab-accountnaam**. 
     2. Selecteer het **Azure-abonnement** waarin u het lab-account wilt maken.
     3. Selecteer voor **Resourcegroep** de optie **Nieuwe maken** en voer een naam in voor de resourcegroep.
@@ -41,9 +41,9 @@ In de volgende stappen ziet u hoe u Azure Portal kunt gebruiken om een lab te ma
     5. Selecteer **Maken**. 
 
         ![Venster Een lab-account maken](../media/tutorial-setup-lab-account/lab-account-settings.png)
-5. Selecteer de **belpictogram** op de werkbalk (**meldingen**), Controleer of de implementatie is voltooid en selecteer vervolgens **naar de resource gaan**. 
+5. Selecteer het **Klokpictogram** op de werkbalk (**Meldingen**), controleer of de implementatie is voltooid en selecteer vervolgens **Naar de resource gaan**. 
 
-    U kunt ook selecteren **vernieuwen** op de **Lab-Accounts** pagina en selecteer het lab-account dat u hebt gemaakt. 
+    U kunt ook **Vernieuwen** selecteren op de **Lab-accounts**-pagina en het lab-account selecteren dat u hebt gemaakt. 
 
     ![Venster Een lab-account maken](../media/tutorial-setup-lab-account/go-to-lab-account.png)    
 6. U ziet de volgende pagina **lab-account**:
@@ -57,13 +57,13 @@ Als u machtigingen wilt toekennen aan docenten om labs te maken voor hun lessen,
 
 1. Selecteer op de pagina **Lab-account** de optie **Toegangsbeheer (IAM)** en klik op **+ Roltoewijzing toevoegen** in de werkbalk. 
 
-    ![Access Control -> knop roltoewijzing toevoegen](../media/tutorial-setup-lab-account/add-role-assignment-button.png)
-1. Op de **roltoewijzing toevoegen** weergeeft, schakelt **Labmaker** voor **rol**, selecteert u de gebruiker die u wilt toevoegen aan de rol Lab-ontwikkelaars, en selecteer **opslaan**. 
+    ![Access Control -> Knop Roltoewijzing toevoegen](../media/tutorial-setup-lab-account/add-role-assignment-button.png)
+1. Selecteer op de pagina **Roltoewijzing toevoegen** de optie **Labmaker** als **Rol**. Selecteer de gebruiker die u wilt toevoegen aan de rol Labmaker en selecteer **Opslaan**. 
 
     ![Labmaker toevoegen](../media/tutorial-setup-lab-account/add-lab-creator.png)
 
 
-## <a name="specify-marketplace-images-available-to-lab-creators"></a>Marketplace-installatiekopieën die beschikbaar is voor makers van lab opgeven
+## <a name="specify-marketplace-images-available-to-lab-creators"></a>Microsoft Azure Marketplace-installatiekopieën opgeven die beschikbaar zijn voor labmakers
 Als eigenaar van een labaccount kunt u de Marketplace-installatiekopieën opgeven die labmakers kunnen gebruiken in het labaccount. 
 
 1. Selecteer **Marketplace-installatiekopieën** in het menu aan de linkerkant. Standaard ziet u de volledige lijst met installatiekopieën (zowel ingeschakelde als uitgeschakelde). U kunt de lijst filteren om alleen ingeschakelde/uitgeschakelde installatiekopieën te bekijken door de optie **Alleen ingeschakeld**/**Alleen uitgeschakeld** in de vervolgkeuzelijst bovenaan te selecteren. 

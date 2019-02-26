@@ -12,12 +12,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: jingwang
-ms.openlocfilehash: ac0a4bf6f332095bd75a6be83d7a1cd3d37c8e1c
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 87811cd44b04b55537da166722dd1903d97e7ef5
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674545"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821025"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Data Lake Storage Gen1 met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -76,6 +76,7 @@ De Toepassingsentiteit van een registreren in Azure Active Directory voor het ge
 >Aan de lijst met mappen begint vanuit de hoofdmap, moet u de machtiging van de service-principal wordt verleend aan instellen **op hoofdniveau met de machtiging 'Uitvoeren'**. Dit geldt wanneer u de:
 >- **Data-hulpprogramma voor kopiëren** om de kopieerpijplijn auteur te.
 >- **Data Factory-UI** voor het testen van verbinding en het navigeren door mappen tijdens het ontwerpen.
+>Als u de bezorgdheid over het verlenen van toestemming op hoofdniveau hebt, kunt u testverbinding en invoerpad handmatig overslaan tijdens het ontwerpen. Kopieeractiviteit zullen nog steeds werken, zolang de service-principal is verleend met de juiste machtigingen aan de bestanden worden gekopieerd.
 
 De volgende eigenschappen worden ondersteund:
 
@@ -126,9 +127,10 @@ Beheerde om identiteiten te gebruiken voor verificatie van de Azure-resources:
 >- **Als sink**: In **Data explorer** > **toegang**, ten minste verlenen **schrijven + uitvoeren** machtiging voor het maken van onderliggende items in de map. U kunt kiezen om toe te voegen aan **deze map en alle onderliggende** voor recursieve, en toevoegen als **een toegangsmachtiging en een standaardmachtiging**. Als u Azure-integratie-runtime gebruiken om te kopiëren (bron en sink zijn in de cloud), verleen in IAM, ten minste de **lezer** rol om te kunnen detecteren van de regio voor Data Lake Store met Data Factory. Als u wilt om te voorkomen dat deze rol IAM expliciet [maken van een Azure integratieruntime](create-azure-integration-runtime.md#create-azure-ir) door de locatie van Data Lake Store. Koppel deze in de Data Lake Store gekoppelde service als in het volgende voorbeeld.
 
 >[!NOTE]
->Aan de lijst met mappen begint vanuit de hoofdmap, moet u de machtiging van de service-principal wordt verleend aan instellen **op hoofdniveau met de machtiging 'Uitvoeren'**. Dit geldt wanneer u de:
+>Aan de lijst met mappen begint vanuit de hoofdmap, moet u de machtiging van de beheerde identiteit wordt verleend aan instellen **op hoofdniveau met de machtiging 'Uitvoeren'**. Dit geldt wanneer u de:
 >- **Data-hulpprogramma voor kopiëren** om de kopieerpijplijn auteur te.
 >- **Data Factory-UI** voor het testen van verbinding en het navigeren door mappen tijdens het ontwerpen.
+>Als u de bezorgdheid over het verlenen van toestemming op hoofdniveau hebt, kunt u testverbinding en invoerpad handmatig overslaan tijdens het ontwerpen. Kopieeractiviteit zullen nog steeds werken, zolang de beheerde identiteit wordt verleend met de juiste machtigingen aan de bestanden worden gekopieerd.
 
 In Azure Data Factory moet u niet alle eigenschappen naast de algemene informatie van de Data Lake Store opgeven in de gekoppelde service.
 

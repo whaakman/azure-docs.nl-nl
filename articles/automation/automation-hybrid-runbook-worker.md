@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d61b39eb0a7b6a35330e0cde2142029b8eb7ce03
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 8fb1b5e06e694368cf80029fe5ce2dcf0749cc62
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512207"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818371"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Resources in uw datacentrum en de cloud automatiseren met behulp van Hybrid Runbook Worker
 
@@ -97,9 +97,11 @@ Als u wilt een groep verwijderen, moet u eerst de Hybrid Runbook Worker verwijde
 
 ### <a name="hybrid-worker-role"></a>Hybride werkrol
 
-De Hybrid Runbook Worker verbinding maken met en registreren met Log Analytics, moet de toegang tot het poortnummer en de URL's die worden beschreven in deze sectie hebben. Deze toegang is boven aan de [poorten en URL's die zijn vereist voor Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md) verbinding maken met Log Analytics.
+De Hybrid Runbook Worker verbinding maken met en registreren met Azure Monitor-Logboeken, moet de toegang tot het poortnummer en de URL's die worden beschreven in deze sectie hebben. Deze toegang is boven aan de [poorten en URL's die zijn vereist voor Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md) verbinding maken met Azure Monitor-Logboeken.
 
-Als u een proxyserver voor communicatie tussen de agent en de Log Analytics-service gebruikt, moet u controleren of de juiste resources toegankelijk zijn. Als u een firewall gebruikt voor toegang tot internet te beperken, moet u uw firewall zodanig toegang configureren. Als u de Log Analytics-gateway als een proxy gebruikt, controleert u of dat deze is geconfigureerd voor hybrid workers. Zie voor instructies over hoe u dit doet, [de Log Analytics-gateway configureren voor Automation Hybrid Workers](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers).
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+Als u een proxyserver voor communicatie tussen de agent en de service Azure Monitor gebruikt, moet u controleren of de juiste resources toegankelijk zijn. Als u een firewall gebruikt voor toegang tot internet te beperken, moet u uw firewall zodanig toegang configureren. Als u de Log Analytics-gateway als een proxy gebruikt, controleert u of dat deze is geconfigureerd voor hybrid workers. Zie voor instructies over hoe u dit doet, [de Log Analytics-gateway configureren voor Automation Hybrid Workers](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers).
 
 De volgende poort en URL's zijn vereist voor de Hybrid Runbook Worker-rol om te communiceren met Automation:
 

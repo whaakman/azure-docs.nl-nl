@@ -14,33 +14,33 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: pbutlerm
-ms.openlocfilehash: d96ef2fd318d6164e1b7dfc5c4b72d6957af0f3e
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: ca77da897eed51c8d832cad7052c2144d6ada562
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744431"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806483"
 ---
 # <a name="power-bi-apps-technical-info-tab"></a>Power BI-Apps technische Info tabblad
 
-De **technische Info** tabblad van de **nieuwe aanbieding** pagina is waarin u het Power BI-installatieprogramma opgeven pakket-URL's en eventuele aanvullende informatie die nodig zijn voor de validatie van de nieuwe aanbieding.  Bij de eerste release zijn alle Power BI-Apps gratis, beschikbaar voor downloaden van AppSource, zonder extra kosten. Als gevolg hiervan niet mogelijk om te definiëren van een voorraad eenheden (SKU's) voor dit aanbiedingtype te houden.
+Op de **nieuwe aanbieding** pagina, gebruikt u de **technische Info** tabblad voor de Power BI-installatieprogramma pakket-URL's en andere informatie die u wilt valideren van de nieuwe aanbieding.  Bij de eerste release, worden alle Power BI-apps zijn gratis en zijn beschikbaar voor downloaden van AppSource. U kunt geen voorraadeenheden (SKU's) voor dit aanbiedingtype definiëren als gevolg hiervan.
 
-![Tabblad technische gegevens](./media/technical-info-tab.png)
+![Het tabblad technische gegevens](./media/technical-info-tab.png)
 
 
 ## <a name="technical-info-fields"></a>Technische informatie velden 
 
-In de **technische Info** tabblad, moet u de volgende velden bevatten.  Een toegevoegde sterretje (*) op het veldlabel geeft aan dat dit vereist is.
+Op de **technische Info** tabblad, vul de velden in de volgende tabel beschreven. Een sterretje (*) aan het einde van een veldlabel betekent dat het veld vereist is.
 
 |        Veld          |  Description                                                                 |
 |    ---------------    |  ----------------------------------------------------------------------------|
-| **URL van installatieprogramma**     | Het adres is gegenereerd door Power BI wanneer u de app publiceren en het niveau naar productie verhogen.  Zie voor meer informatie over het maken van de URL [service-apps publiceren in Power BI](https://docs.microsoft.com/power-bi/service-create-distribute-apps).  |
-|  **Validatie-instructies**  |  Optionele tekst instructies (max 3000 tekens) voor de validatie-team van Microsoft om u te helpen bij het configureren, verbinding te maken en testen van uw app, met inbegrip van: standaardconfiguratie-instellingen, testaccounts of parameters die kunnen worden gebruikt voor het testen van de optie 'Verbinding maken met gegevens' enzovoort. Deze informatie is alleen zichtbaar voor de validatieteam en wordt alleen gebruikt voor validatie.  |
-| **Deze app gemaakt als een Power BI-inhoudspakket?** | Op dit moment is dit een intern gebruikte veld. De waarde is ingesteld op de standaardwaarde en laat `No`, anders wordt dit veld wijzigen `Yes` publicatie kan belemmeren.  |  
+| **URL van installatieprogramma**     | Wanneer u de app publiceren en het niveau naar productie verhogen, genereert Power BI deze URL.  Zie voor meer informatie, [publiceren van apps met dashboards en rapporten in Power BI](https://docs.microsoft.com/power-bi/service-create-distribute-apps).  |
+|  **Validatie-instructies**  |  Als u wilt, voegt u instructies (maximaal 3.000 tekens) om u te helpen bij het validatieteam van Microsoft configureren, verbinden en test uw app. Typische configuratie-instellingen, accounts, parameters of andere gegevens die kan worden gebruikt voor het testen van de optie verbinding maken met gegevens bevatten. Deze informatie is alleen zichtbaar voor de validatieteam en het wordt enkel gebruikt voor validatie doeleinden.  |
+| **Deze app gemaakt als een Power BI-inhoudspakket?** | Dit veld wordt op dit moment alleen intern gebruikt. Laat de standaardinstelling van **Nee**. Als u de instelling te wijzigen **Ja**, kunt u het publicatieproces stoppen.  |  
 |  |  |
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In de volgende [Storefront Details](./cpp-storefront-details-tab.md) tabblad, biedt u marketing- en juridische informatie voor uw app.
+Op de [Storefront Details](./cpp-storefront-details-tab.md) tabblad, marketing- en juridische informatie voor uw app.
 

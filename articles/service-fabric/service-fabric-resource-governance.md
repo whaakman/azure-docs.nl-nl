@@ -3,7 +3,7 @@ title: Azure Service Fabric-resourcebeheer voor containers en services | Microso
 description: Azure Service Fabric kunt u opgeven voor services die binnen of buiten containers worden uitgevoerd.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
-ms.author: twhitney, subramar
-ms.openlocfilehash: 66f651f921773f638b4493be70319d5d80b122db
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.author: aljo, subramar
+ms.openlocfilehash: 1a9d9e0b6a82bd4bb3312df5288c04d0e52af3a6
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956837"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805669"
 ---
 # <a name="resource-governance"></a>Resourcebeheer
 
@@ -32,9 +32,9 @@ Wanneer u meerdere services op hetzelfde knooppunt of cluster uitvoert, is het m
 
 Resourcebeheer wordt ondersteund in Service Fabric in overeenstemming met de [servicepakket](service-fabric-application-model.md). De resources die zijn toegewezen aan het servicepakket kunnen verder worden onderverdeeld tussen pakketten. De resourcelimieten die zijn opgegeven betekent ook dat de reservering van de resources. Service Fabric ondersteunt CPU en geheugen per service-pakket op te geven met twee ingebouwde [metrische gegevens](service-fabric-cluster-resource-manager-metrics.md):
 
-* *CPU* (naam van de meetwaarde `servicefabric:/_CpuCores`): een logische core die beschikbaar is op de hostmachine. Alle kernen voor alle knooppunten worden gewogen hetzelfde.
+* *CPU* (naam van de meetwaarde `servicefabric:/_CpuCores`): Een logische core die beschikbaar is op de hostmachine. Alle kernen voor alle knooppunten worden gewogen hetzelfde.
 
-* *Geheugen* (naam van de meetwaarde `servicefabric:/_MemoryInMB`): geheugen, uitgedrukt in megabytes en het fysieke geheugen die beschikbaar is op de machine wordt toegewezen.
+* *Geheugen* (naam van de meetwaarde `servicefabric:/_MemoryInMB`): Geheugen wordt uitgedrukt in megabytes en het fysieke geheugen die beschikbaar is op de machine wordt toegewezen.
 
 Voor deze twee metrische gegevens, [Cluster Resource Manager](service-fabric-cluster-resource-manager-cluster-description.md) totale clustercapaciteit, de belasting van elk knooppunt in het cluster en de resterende resources in het cluster worden bijgehouden. Deze twee metrische gegevens zijn gelijk aan een andere gebruiker of aangepaste metrische gegevens. Alle bestaande functies kunnen worden gebruikt met deze:
 
@@ -56,9 +56,9 @@ Op dit moment is de som van de limieten gelijk zijn aan de capaciteit van het kn
 
 Er zijn echter twee situaties waarin andere processen om CPU wedijveren mogelijk. In deze gevallen kunnen een proces en een container uit ons voorbeeld het probleem ruis optreden:
 
-* *Met een combinatie van beheerde en niet-beheerde services en containers*: als een gebruiker een service zonder een resourcebeheer die is opgegeven maken, de runtime ziet als er geen bronnen verbruiken en kunt plaatsen op het knooppunt in ons voorbeeld. In dit geval, verbruikt dit nieuwe proces effectief sommige CPU ten koste van de services die al op het knooppunt worden uitgevoerd. Er zijn twee oplossing voor dit probleem. Niet combineren bestuurbaar en niet-beheerde services in hetzelfde cluster of gebruik [plaatsingsbeperkingen](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) zodat deze twee soorten services niet op dezelfde set knooppunten terechtkomen.
+* *Met een combinatie van beheerde en niet-beheerde services en containers*: Als een gebruiker een service zonder een resourcebeheer die is opgegeven maken, wordt de runtime ziet als er geen bronnen verbruikt en kunt plaatsen op het knooppunt in ons voorbeeld. In dit geval, verbruikt dit nieuwe proces effectief sommige CPU ten koste van de services die al op het knooppunt worden uitgevoerd. Er zijn twee oplossing voor dit probleem. Niet combineren bestuurbaar en niet-beheerde services in hetzelfde cluster of gebruik [plaatsingsbeperkingen](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) zodat deze twee soorten services niet op dezelfde set knooppunten terechtkomen.
 
-* *Wanneer een ander proces wordt gestart op het knooppunt buiten een Service Fabric (bijvoorbeeld een OS-service)*: In dit geval het proces buiten de Service Fabric ook marketingafdeling voor CPU met bestaande services. De oplossing voor dit probleem is het instellen van knooppuntcapaciteiten correct aan het account voor OS-overhead, zoals wordt weergegeven in de volgende sectie.
+* *Wanneer een ander proces wordt gestart op het knooppunt buiten een Service Fabric (bijvoorbeeld een OS-service)*: In dit geval marketingafdeling het proces buiten de Service Fabric ook voor CPU met bestaande services. De oplossing voor dit probleem is het instellen van knooppuntcapaciteiten correct aan het account voor OS-overhead, zoals wordt weergegeven in de volgende sectie.
 
 ## <a name="cluster-setup-for-enabling-resource-governance"></a>Configuratie voor het inschakelen van resourcebeheer van een cluster
 
@@ -190,12 +190,12 @@ In dit voorbeeld zijn standaardwaarden voor parameters ingesteld voor de product
 
 Naast de CPU en geheugen is het mogelijk om op te geven van andere resourcelimieten voor containers. Deze limieten zijn opgegeven op het niveau van de code-pakket en worden toegepast wanneer de container wordt gestart. In tegenstelling tot met CPU en geheugen, wordt niet met Cluster Resource Manager is niet op de hoogte van deze resources, en elke capaciteit controles uitvoeren of taakverdeling voor hen.
 
-* *MemorySwapInMB*: de hoeveelheid swap-geheugen die een container kunt gebruiken.
-* *MemoryReservationInMB*: de dynamische limiet voor geheugen-beheer die wordt afgedwongen alleen wanneer er conflicten geheugen wordt gedetecteerd op het knooppunt.
-* *CpuPercent*: het percentage van CPU die de container kunt gebruiken. Als het CPU-limieten voor het servicepakket zijn opgegeven, wordt deze parameter effectief genegeerd.
-* *MaximumIOps*: de maximale IOPS dat een container kunt gebruiken (lezen en schrijven).
-* *MaximumIOBytesps*: de maximale i/o (bytes per seconde) die een container kunt gebruiken (lezen en schrijven).
-* *BlockIOWeight*: het IO-blok gewicht voor ten opzichte van andere containers.
+* *MemorySwapInMB*: De hoeveelheid swap-geheugen die een container kunt gebruiken.
+* *MemoryReservationInMB*: De dynamische limiet voor geheugen-beheer die wordt afgedwongen alleen wanneer er conflicten geheugen wordt gedetecteerd op het knooppunt.
+* *CpuPercent*: Het percentage van CPU die de container kunt gebruiken. Als het CPU-limieten voor het servicepakket zijn opgegeven, wordt deze parameter effectief genegeerd.
+* *MaximumIOps*: Het maximumaantal IOPS op dat een container kunt gebruiken (lezen en schrijven).
+* *MaximumIOBytesps*: De maximale i/o (bytes per seconde) die een container kunt gebruiken (lezen en schrijven).
+* *BlockIOWeight*: Het blok i/o-gewicht voor ten opzichte van andere containers.
 
 Deze resources kunnen worden gecombineerd met CPU en geheugen. Hier volgt een voorbeeld van hoe u aanvullende bronnen voor containers:
 

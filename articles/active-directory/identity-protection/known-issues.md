@@ -17,17 +17,17 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc08710909252c9bcade6177a105684128acc5bf
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: a1cc8a9305103a30fc0ea0fc40c23a522e136d80
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339020"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807181"
 ---
 # <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>Veelgestelde vragen en bekende problemen met identity protection (vernieuwd) in Azure Active Directory
 
 
-## <a name="dismiss-user-risk"></a>Gebruikersrisico negeren
+## <a name="dismiss-user-risk-known-issues"></a>Bekende problemen gebruikersrisico negeren
 
 **Negeren van gebruikersrisico** in de klassieke versie Identity Protection Hiermee stelt u de actor in de geschiedenis van risico's van de gebruiker in Identity Protection (vernieuwd) voor **Azure AD**.
 
@@ -37,7 +37,7 @@ ms.locfileid: "56339020"
 Er is een bekend probleem met huidige latentie in de gebruikersstroom voor het ontslag van risico's veroorzaken. Hebt u een 'beleid voor gebruikersrisico's ', stopt dit beleid toe te passen op gesloten gebruikers binnen enkele minuten van te klikken op 'Gebruikersrisico negeren'. Maar zijn er bekende vertragingen bij het vernieuwen van de 'risico-status' gesloten gebruikers UX. Als tijdelijke oplossing, vernieuw de pagina op het browserniveau van de om te zien dat de meest recente gebruiker 'Risico state'.
 
 
-## <a name="risky-users-report"></a>Rapport over riskante gebruikers
+## <a name="risky-users-report-known-issues"></a>Riskante gebruikers rapporteren bekende problemen
 
 Query's op de **gebruikersnaam** veld zijn hoofdlettergevoelig, terwijl de query's op de **naam** case-agnostische zijn.
 
@@ -45,14 +45,10 @@ Bij het omschakelen van **datums weergeven als** wordt ingeschakeld, wordt de **
 
 **Alle gebeurtenissen sluiten** in de klassieke versie Identity Protection de status van de risicogebeurtenissen naar stelt **gesloten (opgelost)**.
 
-Als u probeert te krijgen tot het rapport riskante gebruikers door te klikken op **riskante gebruikers rapporteren** in een record aanmelden in het rapport riskante aanmeldingen ze soms kunnen aantonen **is iets fout gegaan. Probeer het opnieuw**. U lost dit probleem, klikt u op **toepassen** of **opnieuw** aan de bovenkant van het scherm en de riskante gebruiker (s) gegevens wordt gevuld.
 
-
-## <a name="risky-sign-ins-report"></a>Rapport Riskante aanmeldingen
+## <a name="risky-sign-ins-report-known-issues"></a>Rapport riskante aanmeldingen bekende problemen
 
 **Los** gebeurtenis wordt op een risico op de status ingesteld op **gebruikers zijn geslaagd voor MFA aangestuurd door de risico's gebaseerd beleid**.
-
-**Opnieuw instellen van** in de **riskante aanmeldingen** rapport wist niet de waarde van de **risico gebeurtenistype**.
 
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen

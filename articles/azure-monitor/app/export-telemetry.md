@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: c2374bd0d67115bdc9fef2b6937f7b087bc581de
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: eda41870e86db206847f5ea81e23fa1b7612234c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076770"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817300"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Telemetrie exporteren vanuit Application Insights
 Wilt u uw telemetrie langer dan de standaard bewaarperiode houden? Of op een bepaalde gespecialiseerde manier te verwerken? Continue Export is ideaal voor dit. De gebeurtenissen die u in de Application Insights-portal ziet kunnen worden geëxporteerd naar de opslag in Microsoft Azure in JSON-indeling. Van daaruit kunt u uw gegevens downloaden en wat u code schrijven moet verwerken.  
@@ -32,6 +32,16 @@ Voordat u continue export instelt, zijn er enkele alternatieven die u wilt gebru
 * U kunt setup ook openen [continue export via Powershell](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0).
 
 Nadat de continue Export uw gegevens worden gekopieerd naar de opslag (waar deze kan blijven voor als u wilt), is het nog steeds beschikbaar in Application Insights voor de gebruikelijke [bewaarperiode](../../azure-monitor/app/data-retention-privacy.md).
+
+## <a name="continuous-export-advanced-storage-configuration"></a>Continue Export geavanceerde opslagconfiguratie
+
+Continue Export **biedt geen ondersteuning voor** de volgende Azure storage-functies/configuraties:
+
+* Het gebruik van [VNET/Azure Storage-firewalls](https://docs.microsoft.com/azure/storage/common/storage-network-security) in combinatie met Azure Blob storage.
+
+* [Onveranderbare opslag](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) voor Azure Blob-opslag.
+
+* [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
 
 ## <a name="setup"></a> Maken van een continue Export
 1. Open continue Export in de Application Insights-resource voor uw app, en kies **toevoegen**:

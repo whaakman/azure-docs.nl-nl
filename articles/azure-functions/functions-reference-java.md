@@ -11,18 +11,18 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 429c7c266357b4808ab3ebbb7f346cf22d9f479c
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 96b22a6e44142fef8d47dc228d5491c31c65478f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855387"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823056"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java-handleiding voor ontwikkelaars
 
-[!INCLUDE [functions-java-preview-note](../../includes/functions-java-preview-note.md)]
+Biedt ondersteuning voor de Azure Functions-runtime [Java SE 8 LTS (zulu8.31.0.2 jre8.0.181 win_x64)](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/).
 
-## <a name="programming-model"></a>Programmeermodel 
+## <a name="programming-model"></a>Programmeermodel
 
 De concepten van [triggers en bindingen](functions-triggers-bindings.md) zijn essentieel voor Azure Functions. Triggers start de uitvoering van code. Bindingen kunnen u een manier om gegevens aan doorgeven en als resultaat de gegevens van een functie zonder te hoeven schrijven van aangepaste code voor gegevenstoegang.
 

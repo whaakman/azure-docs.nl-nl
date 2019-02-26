@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 2dbf63e745af102de05ec6dc3e3bcb3e98cd3a32
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: c1e596516136240b1d1d08b4e8386e9cf5ef48e5
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563708"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819119"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Informatie over de levenscyclus van een Azure-blauwdruk
 
@@ -35,7 +35,7 @@ Om volledig te begrijpen een blauwdruk en fasen, aan bod de levensduur van een s
 
 Wanneer het maken van een blauwdruk toevoegen artefacten, opslaan in een beheergroep of het abonnement en een unieke naam en een unieke versie opgegeven. De blauwdruk is nu in een **Draft** modus en nog kan niet worden toegewezen. Terwijl de **Draft** modus, die u kunt doorgaan moet worden bijgewerkt en gewijzigd.
 
-Een blauwdruk in nooit gepubliceerd **Draft** modus wordt een ander pictogram weergegeven op de **Blauwdrukdefinities** pagina dan de wijzigingsaanvragen die zijn **gepubliceerd**. De **meest recente versie** wordt ook weergegeven als **Draft** voor deze blauwdrukken nooit gepubliceerd.
+Een blauwdruk in nooit gepubliceerd **Draft** modus wordt een ander pictogram weergegeven op de **Blauwdrukdefinities** pagina dan de wijzigingsaanvragen die zijn **gepubliceerd**. De **meest recente versie** wordt weergegeven als **Draft** voor deze blauwdrukken nooit gepubliceerd.
 
 Maken en bewerken van een blauwdruk met de [Azure-portal](../create-blueprint-portal.md#create-a-blueprint) of [REST-API](../create-blueprint-rest-api.md#create-a-blueprint).
 
@@ -68,9 +68,9 @@ Elke versie van een blauwdruk is een unieke object en kan afzonderlijk worden **
 > [!NOTE]
 > Het is niet mogelijk om te verwijderen van een blauwdruk die actieve toewijzingen heeft. Verwijder eerst de toewijzingen en verwijder vervolgens de versie die u wilt verwijderen.
 
-1. Klik op **Alle services** en selecteer **Beleid** in het linkerdeelvenster. Klik op de pagina **Beleid** op **Blueprints**.
+1. Selecteer **alle services** in het linkerdeelvenster. Zoek en selecteer **blauwdrukken**.
 
-1. Selecteer **Blauwdrukdefinities** op de pagina aan de linkerkant en gebruik het filter te vinden van de blauwdruk die u wilt verwijderen van een versie van de opties. Klik op de pagina bewerken te openen.
+1. Selecteer **blauwdruk definities** op de pagina aan de linkerkant en gebruik het filter te vinden van de blauwdruk die u wilt verwijderen van een versie van de opties. Klik op de pagina bewerken te openen.
 
 1. Klik op de **gepubliceerde versies** tabblad en zoek de versie die u wilt verwijderen.
 

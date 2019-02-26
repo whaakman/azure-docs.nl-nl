@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: 7e6b3e7496c4a063156ff3b8feae1f5096efe55f
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 819415712d8e605825957aa602fc99dcf6902d82
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035615"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821658"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>VPN-doorvoer naar een virtueel netwerk valideren
 
@@ -38,7 +38,7 @@ In dit artikel laat zien hoe om te valideren van de netwerkdoorvoer van de on-pr
 De VPN-gatewayverbinding omvat de volgende onderdelen:
 
 - On-premises VPN-apparaat (een lijst weergeven met [gevalideerde VPN-apparaten)](vpn-gateway-about-vpn-devices.md#devicetable).
-- Openbare Internet
+- Public Internet
 - Azure VPN-gateway
 - Azure VM
 
@@ -49,7 +49,7 @@ Het volgende diagram toont de logische verbinding van een on-premises netwerk me
 ## <a name="calculate-the-maximum-expected-ingressegress"></a>Berekenen van de maximale verwachte Inkomend/uitgaand verkeer
 
 1.  Bepaal de basisvereisten voor doorvoer van uw toepassing.
-2.  Bepaal de doorvoerlimieten van uw Azure VPN-gateway. Voor Help-informatie, Zie de sectie "Geaggregeerde doorvoer per SKU en VPN-type" van [Planning en ontwerp voor VPN-Gateway](vpn-gateway-plan-design.md).
+2.  Bepaal de doorvoerlimieten van uw Azure VPN-gateway. Help-informatie, Zie de sectie 'Gateway-SKU's ' van [over VPN-Gateway](vpn-gateway-about-vpngateways.md#gwsku).
 3.  Bepaal de [doorvoerrichtlijnen voor virtuele Azure-machine](../virtual-machines/virtual-machines-windows-sizes.md) voor uw VM-grootte.
 4.  Bepaal de bandbreedte Internetproviderverbindingen (ISP).
 5.  Bereken uw verwachte doorvoer - minimale bandbreedte van de (ISP VM, Gateway) * 0,8.
@@ -77,7 +77,7 @@ Download [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Zie
 
 2. Schakel een firewall-uitzondering voor poort 5001 op beide knooppunten.
 
-    **Windows:** uitvoeren van de volgende opdracht uit als beheerder:
+    **Windows:** Voer de volgende opdracht uit als beheerder:
 
     ```CMD
     netsh advfirewall firewall add rule name="Open Port 5001" dir=in action=allow protocol=TCP localport=5001
@@ -89,7 +89,7 @@ Download [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Zie
     netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
     ```
      
-    **Azure Linux:** Azure Linux-installatiekopieën hebben ruime firewalls. Als er een toepassing die luistert op een andere poort, wordt het verkeer is toegestaan via. Aangepaste installatiekopieën die zijn beveiligd, moet mogelijk expliciet geopende poorten. Algemene Linux OS-laag firewalls opnemen `iptables`, `ufw`, of `firewalld`.
+    **Azure Linux:**  Azure Linux-installatiekopieën hebben ruime firewalls. Als er een toepassing die luistert op een andere poort, wordt het verkeer is toegestaan via. Aangepaste installatiekopieën die zijn beveiligd, moet mogelijk expliciet geopende poorten. Algemene Linux OS-laag firewalls opnemen `iptables`, `ufw`, of `firewalld`.
 
 3. Wijzig de map waar iperf3.exe is uitgepakt op de server-knooppunt. IPerf uitvoeren in de servermodus en stelt u deze om te luisteren op poort 5001 als de volgende opdrachten:
 

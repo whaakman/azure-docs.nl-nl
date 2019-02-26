@@ -9,20 +9,35 @@ ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
-ms.date: 12/20/2018
+ms.date: 2/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: f02a44f41eba8cc4298b9fc730354799ca0aad0c
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 899e33db242a34d09df6109c2e195bdff9c65262
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446763"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823600"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Releaseopmerkingen Azure Machine Learning-service
 
 In dit artikel meer informatie over de versies van de Azure Machine Learning-service.  Voor een volledige beschrijving van elke SDK, gaat u naar de referentiedocumenten voor:
 + De Azure Machine Learning [ **belangrijkste SDK voor Python**](https://aka.ms/aml-sdk)
 + De Azure Machine Learning [ **Dataprep-SDK**](https://aka.ms/data-prep-sdk)
+
+## <a name="2019-02-25"></a>2019-02-25
+
+### <a name="azure-machine-learning-sdk-for-python-v1017"></a>Azure Machine Learning-SDK voor Python v1.0.17
+
++ **Nieuwe functies**
+
+  + Azure Machine Learning-SDK nu ondersteunt een [ `Chainer` ](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) estimator-klasse voor het stroomlijnen van de trainings- en implementeren van een model met behulp van aangepaste Chainer-code.
+
+### <a name="azure-portal"></a>Azure Portal
++ **Nieuwe functies**
+    + Nieuwe slepen en neerzetten van tabel editor-ervaring voor rapporten. Gebruikers kunnen een kolom uit de bron slepen naar de tabelgebied waar een Preview-versie van de tabel wordt weergegeven. De kolommen kunnen opnieuw worden gerangschikt.
+    + Nieuwe knop uitvoeren voor verzonden met ScriptRunConfig worden uitgevoerd. Gebruikers kunnen opnieuw uitvoeren voor een bestaande uitvoeren op een externe compute cluster van hun keuze.
+    + Nieuwe logboeken bestandsviewer
+    + Koppelingen om te experimenteren wordt uitgevoerd, berekening, modellen, afbeeldingen en implementaties van het tabblad activiteiten
 
 ## <a name="2019-02-11"></a>2019-02-11
 

@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 02/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 0f38902a166de8d623106849a124b8e2e5cceb5c
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: ac9bb6969e7771e1570670c83c88ddc892dc759e
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674788"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823583"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Data Lake Storage Gen2 met Azure Data Factory
 
@@ -98,10 +98,16 @@ Volg deze stappen voor het gebruik van service-principal verificatie:
     - Toepassingssleutel
     - Tenant-id
 
-2. Geef de service principal juiste toestemming in Azure storage.
+2. De service principal juiste machtiging verlenen.
 
-    - **Als bron**, toegang beheren (IAM), ten minste verlenen **gegevenslezer voor Opslagblob** rol.
-    - **Als sink**, toegang beheren (IAM), ten minste verlenen **Gegevensbijdrager voor Blob** rol.
+    - **Als bron**, in Storage Explorer verlenen ten minste **lees- en uitvoeringsmachtigingen** toestemming om te lijst en kopieer de bestanden in mappen en submappen of verlenen **lezen** machtiging voor het kopiëren van een enkel bestand. U kunt ook in de Access control (IAM), verleent ten minste **gegevenslezer voor Opslagblob** rol.
+    - **Als sink**, in Storage Explorer verlenen ten minste **schrijven + uitvoeren** machtiging voor het maken van onderliggende items in de map. U kunt ook in de Access control (IAM), verleent ten minste **Gegevensbijdrager voor Blob** rol.
+
+>[!NOTE]
+>Aan de lijst met mappen begint vanuit de hoofdmap, moet u de machtiging van de service-principal wordt verleend aan instellen **op hoofdniveau met de machtiging 'Uitvoeren'** of machtiging voor IAM. Dit geldt wanneer u de:
+>- **Data-hulpprogramma voor kopiëren** om de kopieerpijplijn auteur te.
+>- **Data Factory-UI** voor het testen van verbinding en het navigeren door mappen tijdens het ontwerpen. 
+>Als u de bezorgdheid over het verlenen van toestemming op hoofdniveau hebt, kunt u testverbinding en invoerpad handmatig overslaan tijdens het ontwerpen. Kopieeractiviteit zullen nog steeds werken, zolang de service-principal is verleend met de juiste machtigingen aan de bestanden worden gekopieerd.
 
 Deze eigenschappen worden ondersteund in de gekoppelde service:
 
@@ -146,10 +152,16 @@ Voor het gebruik van beheerde identiteiten voor verificatie van de Azure-resourc
 
 1. [Ophalen van gegevens van data factory beheerde identiteit](data-factory-service-identity.md#retrieve-managed-identity) door de waarde van "SERVICE-identiteit TOEPASSINGS-ID gegenereerd samen met uw factory kopiëren.
 
-2. Verleen de juiste machtiging beheerde identiteit in Azure storage. 
+2. Verleen de juiste machtiging beheerde identiteit. 
 
-    - **Als bron**, toegang beheren (IAM), ten minste verlenen **gegevenslezer voor Opslagblob** rol.
-    - **Als sink**, toegang beheren (IAM), ten minste verlenen **Gegevensbijdrager voor Blob** rol.
+    - **Als bron**, in Storage Explorer verlenen ten minste **lees- en uitvoeringsmachtigingen** toestemming om te lijst en kopieer de bestanden in mappen en submappen of verlenen **lezen** machtiging voor het kopiëren van een enkel bestand. U kunt ook in de Access control (IAM), verleent ten minste **gegevenslezer voor Opslagblob** rol.
+    - **Als sink**, in Storage Explorer verlenen ten minste **schrijven + uitvoeren** machtiging voor het maken van onderliggende items in de map. U kunt ook in de Access control (IAM), verleent ten minste **Gegevensbijdrager voor Blob** rol.
+
+>[!NOTE]
+>Aan de lijst met mappen begint vanuit de hoofdmap, moet u de machtiging van de beheerde identiteit wordt verleend aan instellen **op hoofdniveau met de machtiging 'Uitvoeren'** of machtiging voor IAM. Dit geldt wanneer u de:
+>- **Data-hulpprogramma voor kopiëren** om de kopieerpijplijn auteur te.
+>- **Data Factory-UI** voor het testen van verbinding en het navigeren door mappen tijdens het ontwerpen. 
+>Als u de bezorgdheid over het verlenen van toestemming op hoofdniveau hebt, kunt u testverbinding en invoerpad handmatig overslaan tijdens het ontwerpen. Kopieeractiviteit zullen nog steeds werken, zolang de beheerde identiteit wordt verleend met de juiste machtigingen aan de bestanden worden gekopieerd.
 
 Deze eigenschappen worden ondersteund in de gekoppelde service:
 

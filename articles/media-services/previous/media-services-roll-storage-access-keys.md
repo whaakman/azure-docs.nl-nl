@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: milanga;cenkdin;juliako
-ms.openlocfilehash: cdf644ab37d7f2e15cb35a3234786900a1a64ec1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: a49ab9b045854c49785546ed17834169ec29f8b8
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733500"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816812"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Media Services bijwerken na gebruik toegangssleutels voor opslag 
 
 Wanneer u een nieuwe Azure Media Services (AMS)-account maakt, kunt u wordt ook gevraagd om te selecteren van een Azure Storage-account dat wordt gebruikt voor het opslaan van uw media-inhoud. U kunt meer dan één storage-accounts toevoegen aan uw Media Services-account. In dit artikel laat zien hoe opslagsleutels draaien. U ziet ook hoe u storage-accounts toevoegen aan een media-account. 
 
-Als u wilt de in dit artikel beschreven acties uitvoeren, moet u [Azure Resource Manager-API's](/rest/api/media/operations/azure-media-services-rest-api-reference) en [Powershell](https://docs.microsoft.com/powershell/module/az.media).  Zie voor meer informatie, [over het beheren van Azure-resources met PowerShell en Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md).
+Als u wilt de in dit artikel beschreven acties uitvoeren, moet u [Azure Resource Manager-API's](/rest/api/media/operations/azure-media-services-rest-api-reference) en [Powershell](https://docs.microsoft.com/powershell/module/az.media).  Zie voor meer informatie, [over het beheren van Azure-resources met PowerShell en Resource Manager](../../azure-resource-manager/manage-resource-groups-powershell.md).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

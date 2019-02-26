@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 12/12/2018
 ms.custom: seodec18
-ms.openlocfilehash: a489d1a282c924ec1df658a0244745b225f7123e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 88eb7052c394d41c861ffc422738a4a650101ea7
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251262"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819306"
 ---
 # <a name="what-is-automated-machine-learning"></a>Wat is geautomatiseerde machine learning?
 
@@ -41,7 +41,7 @@ Geautomatiseerde machine learning is het proces van het trainen van gegevens met
 
 1. Configureer de [compute-doel](how-to-set-up-training-targets.md) die wordt gebruikt voor het model te trainen.
 
-1. Configureer de configuratie van de geautomatiseerde machine learning. Hiermee bepaalt u de parameters die worden gebruikt als Azure Machine Learning over verschillende modellen, hyperparameter instellingen doorloopt, en het bepalen van welke metrische gegevens om te kijken wanneer het beste model 
+1. Configureer de configuratie van de geautomatiseerde machine learning. Hiermee bepaalt u de parameters die worden gebruikt als Azure Machine Learning over verschillende modellen, hyperparameter instellingen doorloopt, en het bepalen van welke metrische gegevens om te kijken wanneer het beste model
 
 1. Dien een training uitvoeren.
 
@@ -58,9 +58,13 @@ Een algemene zich van geautomatiseerde machine learning is onvermogen om te zien
 1. Kennis van de machine learning-pijplijn en alle de stappen die betrokken zijn, waaronder gegevens voorverwerken/parametrisatie en hyperparameter waarden.
 1. De relatie tussen invoervariabelen (ook wel bekend als ' functies') en de model-uitvoer.  De omvang en de richting van de impact van elke functie van de voorspelde waarde te weten, kunt beter te begrijpen en leg uit het model. Dit staat bekend als functie urgentie.
 
-U kunt globale functie belang op aanvraag post-training voor de pijplijn van uw keuze, of deze inschakelen voor alle pijplijnen als onderdeel van geautomatiseerde ML-training.  Dit is een preview-functie en we blijven investeren in uitgebreidere informatie waarmee u beter inzicht in uw ML-modellen bieden.  
+U kunt globale functie belang op aanvraag post-training voor de pijplijn van uw keuze, of deze inschakelen voor alle pijplijnen als onderdeel van geautomatiseerde machine learning-cursussen. In veel gereguleerde branches, zoals de gezondheidszorg en bankieren is dit essentieel om te voldoen aan regelgeving en best practices.  Hier volgen enkele echte scenario's om te illustreren:
 
-Volg deze [voorbeeld notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/model-explanation/auto-ml-model-explanation.ipynb) om te experimenteren met uitleg model in Azure Machine Learning.
+1. Een productiebedrijf met behulp van machine learning om te voorspellen van toekomstige instrument fout, zodat ze kunnen proactief uitvoeren onderhoudsactiviteiten. Zodra u weet dat een instrument is mislukt dat, wat de meest waarschijnlijke oorzaak er dus preventief onderhoud kan snel worden uitgevoerd?
+1. Een financiële instelling met behulp van machine learning voor proces lening of creditcard toepassingen. Hoe wilt u weten als het model de juiste dingen doet, en als een klant gevraagd voor meer informatie over waarom de aanvraag is afgewezen, hoe u op deze reageert?
+1. Een online winkel of een onafhankelijke softwareleverancier met behulp van machine learning om te voorspellen klantverloop. Wat zijn de belangrijkste bijdragers aan de klant verloop, en hoe kunt u voorkomen dat klanten herhaald?
+
+Dit is een preview-functie en we blijven investeren in uitgebreidere informatie waarmee u beter inzicht in uw machine learning-modellen bieden. Volg deze [voorbeeld notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/model-explanation/auto-ml-model-explanation.ipynb) om te experimenteren met uitleg model in Azure Machine Learning.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/11/2018
+ms.date: 02/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: de0998dffeac54db5311bbcde1c9499488b23556
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 28ddecb20944893b23b54775e22f19644f0afbf0
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434969"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816501"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Python 2-pakketten in Azure Automation beheren
 
@@ -33,6 +33,35 @@ Op de **Python 2-pakket toevoegen** pagina, selecteert u een lokale pakket te up
 Wanneer een pakket is geïmporteerd, wordt deze weergegeven op de **Python 2-pakketten** pagina in uw Automation-Account. Als u nodig hebt om een pakket te verwijderen, selecteert u het pakket en kies **verwijderen** op de pakketpagina.
 
 ![Lijst met](media/python-packages/package-list.png)
+
+## <a name="import-packages-with-dependencies"></a>Importeren van pakketten met afhankelijkheden
+
+Azure automation tijdens het importproces kan afhankelijkheden voor python-pakketten niet worden omgezet. Er zijn twee manieren voor het importeren van een pakket met alle afhankelijkheden ervan. Slechts één van de volgende stappen moet worden gebruikt voor het importeren van de pakketten in uw Automation-Account.
+
+### <a name="manually-download"></a>Handmatig downloaden
+
+Op een Windows 64-bits computer met [python2.7](https://www.python.org/download/releases/2.7/) en [pip](https://pip.pypa.io/stable/installing/) geïnstalleerd, voer de volgende opdracht om een pakket en alle afhankelijkheden ervan te downloaden:
+
+```
+C:\Python27\Scripts\pip2.7.exe download -d <output dir> <package name>
+```
+
+Nadat de pakketten zijn gedownload, kunt u ze kunt importeren in uw automation-account.
+
+### <a name="runbook"></a>Runbook
+
+Het python-runbook importeren [importeren Python 2-pakketten uit pypi in Azure Automation-account](https://gallery.technet.microsoft.com/scriptcenter/Import-Python-2-packages-57f7d509) uit de galerie in uw Automation-Account. Zorg ervoor dat de instellingen worden uitgevoerd zijn ingesteld op **Azure** en het runbook start met de parameters. Het runbook moet een Run As-Account voor het Automation-Account om te werken. Voor elke parameter Zorg ervoor dat starten u deze met de switch zoals in de volgende lijst en de volgende afbeelding:
+
+* -s \<abonnements-id\>
+* -g \<resourceGroup\>
+* -a \<automationAccount\>
+* -m \<modulePackage\>
+
+![Lijst met](media/python-packages/import-python-runbook.png)
+
+Het runbook kunt u opgeven welk pakket te downloaden, bijvoorbeeld `Azure` (de vierde parameter) downloadt alle Azure-modules en alle bijbehorende afhankelijkheden, die ongeveer 105 is.
+
+Als het runbook is voltooid. u kunt controleren de **Python 2-pakketten** pagina onder **gedeelde bronnen** in uw Automation-Account om te controleren of dat ze het pakket is correct geïmporteerd.
 
 ## <a name="use-a-package-in-a-runbook"></a>Een pakket gebruiken in een runbook
 

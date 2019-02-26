@@ -8,16 +8,15 @@ ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-manager: cgronlun
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 61c380ee3427afdf40427ed82ed0fd5c4f1b49fd
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 2eb47bede14b139d011d8a74b5196a94a93a62c7
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729012"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817096"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Een ontwikkelomgeving configureren voor Azure Machine Learning
 
@@ -267,76 +266,69 @@ Voor het gebruik van Visual Studio Code voor de ontwikkeling, het volgende doen:
 <a name="aml-databricks"></a>
 
 ## <a name="azure-databricks"></a>Azure Databricks
+Azure Databricks is een omgeving op basis van Apache Spark in de Azure-cloud. Het biedt een samenwerkingsomgeving Notebook op basis van CPU of GPU gebaseerde compute cluster.
 
-U kunt een aangepaste versie van de Azure Machine Learning-SDK voor Azure Databricks gebruiken voor end-to-end aangepaste machine learning. Of u kunt uw model binnen Databricks te trainen en implementeren met behulp van [Visual Studio Code](how-to-vscode-train-deploy.md#deploy-your-service-from-vs-code).
+Hoe werkt Azure Databricks met Azure Machine Learning-service:
++ U kunt een model met behulp van Spark MLlib te trainen en het model implementeren naar ACI/AKS uit in Azure Databricks. 
++ U kunt ook [automatische leerprocessen](concept-automated-ml.md) mogelijkheden in een speciale Azure ML-SDK met Azure Databricks.
++ U kunt Azure Databricks gebruiken als een compute-doel van een [Azure Machine Learning-pijplijn](concept-ml-pipelines.md). 
 
-Voorbereiden van uw Databricks-cluster en voorbeeldnotitieblokken ophalen:
+### <a name="set-up-your-databricks-cluster"></a>Uw Databricks-cluster instellen
 
-1. Maak een [Databricks-cluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) met de volgende instellingen:
+Maak een [Databricks-cluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). Sommige instellingen gelden alleen als u de SDK voor geautomatiseerde machine learning op Databricks installeren.
+**Het duurt enkele minuten om het cluster te maken.**
 
-    | Instelling | Value |
-    |----|---|
-    | Clusternaam | yourclustername |
-    | Databricks Runtime | Een runtime niet ML (niet ML 4.x, 5.x) |
-    | Python-versie | 3 |
-    | Medewerkers | 2 of hoger |
+Gebruik deze instellingen:
 
-    Gebruik deze instellingen alleen als u automatische machine learning met op Databricks:
+| Instelling |Van toepassing op| Value |
+|----|---|---|
+| Clusternaam |altijd| yourclustername |
+| Databricks Runtime |altijd| Een runtime niet ML (niet ML 4.x, 5.x) |
+| Python-versie |altijd| 3 |
+| Medewerkers |altijd| 2 of hoger |
+| VM-typen voor worker-knooppunt <br>(bepaalt het maximum aantal gelijktijdige herhalingen) |Geautomatiseerde machine learning<br>alleen| Virtuele machine bij voorkeur is geoptimaliseerd voor geheugen |
+| Automatisch schalen inschakelen |Geautomatiseerde machine learning<br>alleen| Schakel het selectievakje |
 
-    |   Instelling | Value |
-    |----|---|
-    | VM-typen voor worker-knooppunt | Virtuele machine bij voorkeur is geoptimaliseerd voor geheugen |
-    | Automatisch schalen inschakelen | Schakel het selectievakje |
+Wacht totdat het cluster wordt uitgevoerd voordat u doorgaat.
 
-    Het aantal worker-knooppunten in uw Databricks-cluster bepaalt het maximum aantal gelijktijdige iteraties in geautomatiseerde machine learning-configuratie.
+### <a name="install-the-correct-sdk-into-a-databricks-library"></a>De juiste SDK installeren in een Databricks-bibliotheek
+Zodra het cluster wordt uitgevoerd, [maakt u een bibliotheek](https://docs.databricks.com/user-guide/libraries.html#create-a-library) het juiste Azure Machine Learning-SDK-pakket toevoegen aan uw cluster. 
 
-    Het duurt enkele minuten om het cluster te maken. Wacht totdat het cluster wordt uitgevoerd voordat u doorgaat.
+1. Kies **slechts één** optie (Er is geen andere SDK-installatie worden ondersteund)
 
-1. Installeren en het Azure Machine Learning-SDK-pakket te koppelen aan uw cluster.
+   |SDK&nbsp;package&nbsp;extras|Bron|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+   |----|---|---|
+   |Voor Databricks| Uploaden van Python EI of PyPI | azureml-sdk[databricks]|
+   |Voor Databricks - met-<br> geautomatiseerde ML-mogelijkheden| Uploaden van Python EI of PyPI | azureml-sdk[automl_databricks]|
 
-    * [Maken van een bibliotheek](https://docs.databricks.com/user-guide/libraries.html#create-a-library) met een van deze instellingen (_slechts één van deze opties kiest_):
+   * Er zijn geen andere SDK-extra's kunnen worden geïnstalleerd. Selecteer één van de voorgaande opties [databricks] of [automl_databricks].
+   * Schakel niet **automatisch koppelen aan alle clusters**.
+   * Selecteer **Attach** naast de clusternaam van uw.
 
-        * Azure Machine Learning-SDK installeren _zonder_ geautomatiseerde van machine learning-mogelijkheden:
-            | Instelling | Value |
-            |----|---|
-            |Bron | Uploaden van Python EI of PyPI
-            |De naam van de PyPi | azureml-sdk[databricks]
+1. Monitor voor fouten totdat de status gewijzigd in **gekoppeld**, dit kan enkele minuten duren.  Als deze stap mislukt, controleert u het volgende: 
 
-        * Azure Machine Learning-SDK installeren _met_ geautomatiseerde van machine learning:
-            | Instelling | Value |
-            |----|---|
-            |Bron | Uploaden van Python EI of PyPI
-            |De naam van de PyPi | azureml-sdk[automl_databricks]
+   Probeer het opnieuw opstarten van het cluster door:
+   1. Selecteer in het linkerdeelvenster **Clusters**.
+   1. Selecteer de clusternaam van uw in de tabel.
+   1. Op de **bibliotheken** tabblad **opnieuw**.
+      
+   Houd ook rekening met:
+   + Sommige pakketten, zoals `psutil`, kan leiden tot Databricks conflicten tijdens de installatie. Om te voorkomen dat dergelijke fouten,-pakketten installeren door blokkering lib versie, zoals `pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0`. 
+   + Of als u een oude versie van de SDK hebt, deze van de geïnstalleerde bibliotheken van het cluster uit te schakelen en verplaatsen naar de Prullenbak. De nieuwe versie van de SDK installeren en opnieuw starten van het cluster. Als er een probleem na deze is, loskoppelen en opnieuw koppelen van uw cluster.
 
-    * Schakel niet **automatisch koppelen aan alle clusters**
+Als de installatie is voltooid, worden de geïmporteerde bibliotheek moet eruitzien als een van de volgende:
+   
+SDK voor Databricks **_zonder_** automatische leerprocessen ![Azure Machine Learning-SDK voor Databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
-    * Selecteer **Attach** naast de clusternaam van uw
+SDK voor Databricks **WITH** automatische leerprocessen ![SDK met automatische leerprocessen geïnstalleerd op Databricks ](./media/how-to-configure-environment/automlonadb.jpg)
 
-    * Zorg ervoor dat er geen fouten zijn totdat de status gewijzigd in **gekoppeld**. Het kan enkele minuten duren.
+### <a name="start-exploring"></a>Beginnen met het verkennen
 
-    Als u een oude versie van de SDK hebt, deze van de geïnstalleerde bibliotheken van het cluster uit te schakelen en verplaatsen naar de Prullenbak. De nieuwe versie van de SDK installeren en opnieuw starten van het cluster. Als er een probleem na deze is, loskoppelen en opnieuw koppelen van uw cluster.
-
-    Wanneer u klaar bent, wordt de bibliotheek gekoppeld, zoals wordt weergegeven in de volgende afbeeldingen. Houd rekening met deze [problemen Databricks](resource-known-issues.md#databricks).
-
-    * Als u Azure Machine Learning-SDK geïnstalleerd _zonder_ automatische leerprocessen ![SDK zonder automatische leerprocessen geïnstalleerd op Databricks ](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
-
-    * Als u Azure Machine Learning-SDK geïnstalleerd _met_ automatische leerprocessen ![SDK met automatische leerprocessen geïnstalleerd op Databricks ](./media/how-to-configure-environment/automlonadb.jpg)
-
-   Als deze stap mislukt, start u uw cluster opnieuw door het volgende te doen:
-
-   a. Selecteer in het linkerdeelvenster **Clusters**.
-
-   b. Selecteer de clusternaam van uw in de tabel.
-
-   c. Op de **bibliotheken** tabblad **opnieuw**.
-
-1. Download de [SDK van Azure Databricks/Azure Machine Learning-notebook archiefbestand](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/Databricks_AMLSDK_1-4_6.dbc).
-
-   >[!Warning]
-   > Veel voorbeeldnotitieblokken zijn beschikbaar voor gebruik met Azure Machine Learning-service. Alleen [deze voorbeeldnotitieblokken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) werken met Azure Databricks.
-
-1.  [Importeren van het archiefbestand](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) naar uw Databricks-cluster en beginnen met het verkennen, zoals wordt beschreven op de [Machine Learning-laptops](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) pagina.
-
+Probeer het nu:
++ Download de [notebook archiefbestand](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/Databricks_AMLSDK_1-4_6.dbc) voor Azure Databricks/Azure Machine Learning SDK en [importeren van het archiefbestand](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) in uw Databricks-cluster.  
+  Veel voorbeeldnotitieblokken zijn beschikbaar, **alleen [deze voorbeeldnotitieblokken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) werken met Azure Databricks.**
+  
++ Meer informatie over het [een pijplijn maken met Databricks als de training compute](how-to-create-your-first-pipeline.md).
 
 ## <a id="workspace"></a>Het configuratiebestand van een werkruimte maken
 

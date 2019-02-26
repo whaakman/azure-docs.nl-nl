@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 9f0dbc549600ef2b931ee99a36c60cae57cc7a67
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: cd29fb968bd73e09c2e3b60e62a478b4e577146d
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56331281"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805488"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Krachtige Premium Storage en beheerde schijven voor virtuele machines
 
@@ -67,7 +67,7 @@ Hier volgen enkele van de functies van Premium Storage:
     - [Azure CLI voor Azure Storage](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
     - [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp) (voor Azure Resource Manager-implementaties) of een van de Azure Storage resource provider-clientbibliotheken
 
-    Zie voor meer informatie over limieten voor premium storage-account, schaalbaarheids- en prestatiedoelen van Premium Storage.
+    Zie voor meer informatie over limieten voor premium storage-account, [schaalbaarheids- en prestatiedoelen](#scalability-and-performance-targets).
 
 * **Premium lokaal redundante opslag**
 
@@ -158,7 +158,7 @@ Grootte die is gemarkeerd met een sterretje zijn momenteel in preview.
 | Doorvoer per schijf | 25 MB per seconde | 50 MB per seconde | 100 MB per seconde | 125 MB per seconde | 150 MB per seconde | 200 MB per seconde | 250 MB per seconde | 250 MB per seconde | 480 MB per seconde | 750 MB per seconde | 750 MB per seconde |
 
 > [!NOTE]
-> Zorg ervoor dat voldoende bandbreedte is beschikbaar op de virtuele machine op station schijfverkeer, zoals beschreven in [Premium Storage-ondersteunde VM's](). Anders wordt is de doorvoer van schijfgegevens en IOP's beperkt tot het lagere waarden. Maximale doorvoer en IOPS zijn gebaseerd op de VM-limieten, niet op de schijflimieten die worden beschreven in de voorgaande tabel.  
+> Zorg ervoor dat voldoende bandbreedte is beschikbaar op de virtuele machine op station schijfverkeer, zoals beschreven in [ondersteunde VM's](#supported-vms). Anders wordt is de doorvoer van schijfgegevens en IOP's beperkt tot het lagere waarden. Maximale doorvoer en IOPS zijn gebaseerd op de VM-limieten, niet op de schijflimieten die worden beschreven in de voorgaande tabel.  
 > Azure is zodanig ontworpen Premium Storage-platform, worden uitgebreide parallelle verwerkingsarchitectuur. Het ontwerpen van uw toepassing met meerdere threads kunnen aan de hoge prestatiedoel aangeboden op de grotere schijfgrootten bereiken.
 
 Hier volgen enkele belangrijke dingen om te weten over de schaalbaarheids- en prestatiedoelen van Premium Storage:
@@ -292,7 +292,7 @@ Als u Premium-opslag gebruikt, zijn de volgende factureringsvoorwaarden van toep
 
 * **Premium storage disk en blob-grootte**
 
-    Facturering voor een premium-opslagschijf of de blob is afhankelijk van de ingerichte grootte van de schijf of de blob. Azure wijst de ingerichte grootte (afgerond) toe aan de dichtstbijzijnde premium opslagschijfoptie. Voor meer informatie, Zie de tabel in [schaalbaarheids- en prestatiedoelen van Premium Storage](). Elke schijf toegewezen aan een grootte van de ondersteunde ingerichte schijf, en dienovereenkomstig wordt gefactureerd. Facturering voor ingerichte schijven is per uur Pro rata met behulp van de maandelijkse prijs voor de Premium-opslag-aanbieding. Bijvoorbeeld, als u een P10-schijf ingericht en deze na 20 uur, in rekening gebracht voor de aanbieding P10 20 uur Pro rata berekend. Dit is, ongeacht de hoeveelheid feitelijke gegevens geschreven naar de schijf of de IOPS en doorvoer die wordt gebruikt.
+    Facturering voor een premium-opslagschijf of de blob is afhankelijk van de ingerichte grootte van de schijf of de blob. Azure wijst de ingerichte grootte (afgerond) toe aan de dichtstbijzijnde premium opslagschijfoptie. Voor meer informatie, Zie de tabel in [schaalbaarheids- en prestatiedoelen](#scalability-and-performance-targets). Elke schijf toegewezen aan een grootte van de ondersteunde ingerichte schijf, en dienovereenkomstig wordt gefactureerd. Facturering voor ingerichte schijven is per uur Pro rata met behulp van de maandelijkse prijs voor de Premium-opslag-aanbieding. Bijvoorbeeld, als u een P10-schijf ingericht en deze na 20 uur, in rekening gebracht voor de aanbieding P10 20 uur Pro rata berekend. Dit is, ongeacht de hoeveelheid feitelijke gegevens geschreven naar de schijf of de IOPS en doorvoer die wordt gebruikt.
 
 * **Premium niet-beheerde schijven, momentopnamen**
 

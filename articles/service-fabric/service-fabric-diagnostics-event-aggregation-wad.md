@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: 89cd8e85c9902bb1caeedd80240811f59ebec409
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f9db156562692107a5603e15340f01ecf9f9d52c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187433"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823413"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Aggregatie van de gebeurtenis en verzameling met Windows Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -61,6 +61,8 @@ Nu dat u bij het samenvoegen van gebeurtenissen in Azure Storage, [Log Analytics
 
 >[!NOTE]
 >Er is momenteel geen manier om te filteren of opschonen van de gebeurtenissen die worden verzonden naar de tabellen. Als u een proces voor het verwijderen van gebeurtenissen uit de tabel niet implementeert, de tabel blijft groeien (de limiet van de standaardwaarde is 50 GB). Instructies over het wijzigen van deze zijn [verderop in dit artikel](service-fabric-diagnostics-event-aggregation-wad.md#update-storage-quota). Er is bovendien een voorbeeld van een gegevensservice opschonen die wordt uitgevoerd in de [Watchdog voorbeeld](https://github.com/Azure-Samples/service-fabric-watchdog-service), en wordt aanbevolen dat u een zelf ook, schrijven, tenzij er is een goede reden voor het opslaan van Logboeken na een periode 30 of 90 dagen.
+
+
 
 ## <a name="deploy-the-diagnostics-extension-through-azure-resource-manager"></a>De extensie voor diagnostische gegevens via Azure Resource Manager implementeren
 
@@ -292,7 +294,49 @@ Als u een Application Insights-sink, zoals beschreven in de onderstaande sectie,
 
 ## <a name="send-logs-to-application-insights"></a>Logboeken verzenden naar Application Insights
 
-Controle en diagnostische gegevens verzenden naar Application Insights (AI) kan worden gedaan als onderdeel van de configuratie van de WAD. Als u u AI gebruikt voor de gebeurtenis analyses en visualisatie besluit, leest u [over het instellen van een AI-sink](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template) als onderdeel van uw 'WadCfg'.
+### <a name="configuring-application-insights-with-wad"></a>Application Insights configureren met WAD
+
+>[!NOTE]
+>Dit is alleen van toepassing op Windows-clusters op dit moment.
+
+Er zijn twee primaire manieren om gegevens te verzenden vanuit WAD naar Azure Application Insights, waarmee wordt bereikt door een sink Application Insights toe te voegen aan de configuratie van de WAD, via de Azure-portal of via een Azure Resource Manager-sjabloon.
+
+#### <a name="add-an-application-insights-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>Een Application Insights-Instrumentatiesleutel toevoegen bij het maken van een cluster in Azure portal
+
+![Toevoegen van een AIKey](media/service-fabric-diagnostics-event-analysis-appinsights/azure-enable-diagnostics.png)
+
+Bij het maken van een cluster als diagnostische gegevens 'Aan' is ingeschakeld, ziet u een optioneel veld een sleutel van Application Insights-Instrumentatiepakket in te voeren. Als u uw Application Insights-sleutel hier plakt, worden de Application Insights-sink automatisch voor u in de Resource Manager-sjabloon die wordt gebruikt voor het implementeren van uw cluster geconfigureerd.
+
+#### <a name="add-the-application-insights-sink-to-the-resource-manager-template"></a>Het Sink-Application Insights toevoegen aan de Resource Manager-sjabloon
+
+Toevoegen in de 'WadCfg' van de Resource Manager-sjabloon, een 'Sink' door de volgende twee wijzigingen op te nemen:
+
+1. Toevoegen van de configuratie van de sink direct na het declareren van de `DiagnosticMonitorConfiguration` is voltooid:
+
+    ```json
+    "SinksConfig": {
+        "Sink": [
+            {
+                "name": "applicationInsights",
+                "ApplicationInsights": "***ADD INSTRUMENTATION KEY HERE***"
+            }
+        ]
+    }
+
+    ```
+
+2. Bevatten de Sink in de `DiagnosticMonitorConfiguration` door toe te voegen van de volgende regel in de `DiagnosticMonitorConfiguration` van de `WadCfg` (vlak voor de `EtwProviders` zijn gedeclareerd):
+
+    ```json
+    "sinks": "applicationInsights"
+    ```
+
+In zowel de voorgaande codefragmenten, is de naam 'Application Insights' gebruikt om te beschrijven van de sink. Dit is geen vereiste en als de naam van de sink is opgenomen in een 'put', kunt u de naam van de instellen op een willekeurige tekenreeks.
+
+Op dit moment logboeken van het cluster weergegeven als **traceringen** in Application Insights-Logboeken. Omdat de meeste van de traceringen die afkomstig zijn van het platform van niveau 'Ter informatie' zijn, kunt u ook overwegen wijzigen van de sink-configuratie voor het verzenden van alleen logboeken van het type "Waarschuwing" of "Error". Dit kan worden gedaan door 'Kanalen' toevoegen aan uw sink, zoals geïllustreerd in [in dit artikel](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
+
+>[!NOTE]
+>Als u een onjuiste Application Insights-sleutel in de portal of in het Resource Manager-sjabloon, moet u de sleutel handmatig te wijzigen en bijwerken van het cluster / opnieuw te implementeren.
 
 ## <a name="next-steps"></a>Volgende stappen
 

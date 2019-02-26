@@ -1,28 +1,23 @@
 ---
 title: Configureren van ExpressRoute Direct - Azure CLI | Microsoft Docs
-description: Dit artikel helpt u bij het configureren van ExpressRoute Direct met behulp van de Azure CLI (preview)
+description: Dit artikel helpt u bij het configureren van ExpressRoute Direct met behulp van de Azure CLI
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 2/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 285b429f565f8a2c7f8c20756f076e631223b10f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e918a8624d637e44a4bb1122b58d5bd5dac67690
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076709"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816671"
 ---
-# <a name="configure-expressroute-direct-by-using-the-azure-cli-preview"></a>Direct voor ExpressRoute configureren met behulp van de Azure CLI (preview)
+# <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Direct voor ExpressRoute configureren met behulp van de Azure CLI
 
 U kunt Azure ExpressRoute Direct rechtstreeks verbinding maken met het wereldwijde netwerk van Microsoft op peeringlocaties strategisch verdeeld over de hele wereld. Zie voor meer informatie, [over ExpressRoute rechtstreeks verbinding maken met](expressroute-erdirect-about.md).
-
-> [!IMPORTANT]
-> ExpressRoute Direct is momenteel in preview.
->
-> De openbare preview van ExpressRoute Direct wordt geleverd zonder een service level agreement. U mag niet Direct Preview ExpressRoute gebruiken voor productieworkloads. Sommige functies mogelijk niet ondersteund, sommige functies mogelijk beperkt en sommige functies mogelijk niet beschikbaar in alle Azure-locaties. Zie voor meer informatie, [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="resources"></a>Maken van de resource
 
