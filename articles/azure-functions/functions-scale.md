@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08897b2085c2a8f0eafb90b77486d60a0edce190
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 8d2d171235a23d3e41fda6172efe29b3bb358f0e
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359864"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804175"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions-schaal en hosting
 
@@ -70,11 +70,11 @@ Een virtuele machine worden losgekoppeld-kosten van het aantal uitvoeringen, uit
 
 U kunt handmatig opwaarts schalen door meer VM-exemplaren toe te voegen met een App Service-plan, of kunt u automatisch schalen inschakelen. Zie voor meer informatie, [aantal exemplaren handmatig of automatisch schalen](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). U kunt ook omhoog schalen door een andere App Service-plan te kiezen. Zie voor meer informatie, [opschalen van een app in Azure](../app-service/web-sites-scale.md). 
 
-Bij het uitvoeren van JavaScript-functies op een App Service-plan, moet u een plan dat minder vcpu's is kiezen. Zie voor meer informatie de [Kies één core-App Service-plannen](functions-reference-node.md#considerations-for-javascript-functions).  
+Bij het uitvoeren van JavaScript-functies op een App Service-plan, moet u een plan dat minder vcpu's is kiezen. Zie voor meer informatie, [Kies één core-App Service-plannen](functions-reference-node.md#choose-single-vcpu-app-service-plans).  
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
-<a name="always-on"></a>
-### <a name="always-on"></a>Altijd beschikbaar
+
+###<a name="always-on"></a> Altijd ingeschakeld
 
 Als u op een App Service-plan uitvoert, moet u inschakelen de **altijd op** instellen zodat uw functie-app correct wordt uitgevoerd. Op een App Service-plan gaat de functions-runtime niet-actieve na een paar minuten van inactiviteit, zodat alleen HTTP-triggers '' uw functies inschakelt. Altijd is op alleen beschikbaar op een App Service-plan. Functie-apps die het automatisch door het platform wordt geactiveerd op een verbruiksabonnement.
 
@@ -122,9 +122,9 @@ De eenheid van de schaal is de functie-app. Wanneer de functie-app is uitgebreid
 
 ### <a name="understanding-scaling-behaviors"></a>Understanding schaalmogelijkheden
 
-Schalen kan variëren van een aantal factoren, en schaal anders op basis van de trigger en taal selecteren. Maar er zijn een aantal aspecten van de schaal die aanwezig zijn in het systeem vandaag:
+Schalen kan variëren van een aantal factoren, en schaal anders op basis van de trigger en taal selecteren. Er zijn een echter een paar aspecten van schaalaanpassing die momenteel aanwezig zijn in het systeem:
 
-* Een enkele functie-app alleen omhoog wordt geschaald uitgaande maximaal 200 exemplaren. Slechts één exemplaar kan meer dan één bericht of aanvraag tegelijk verwerken, dus er is een limiet instellen voor het aantal gelijktijdige uitvoeringen niet.
+* Een functie-app kan zelfstandig omhoog worden geschaald naar maximaal 200 exemplaren. Slechts één exemplaar kan meer dan één bericht of aanvraag tegelijk verwerken, dus er is een limiet instellen voor het aantal gelijktijdige uitvoeringen niet.
 * Nieuwe instanties wordt alleen maximaal elke 10 seconden worden toegewezen.
 
 Verschillende triggers mogelijk ook andere limieten voor schalen, evenals gedocumenteerde hieronder:

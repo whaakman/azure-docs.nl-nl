@@ -3,8 +3,8 @@ title: Zelfstudie - Upgrade een net van Azure Service Fabric-toepassing | Micros
 description: Meer informatie over het upgraden van een Service Fabric-toepassing met Visual Studio
 services: service-fabric-mesh
 documentationcenter: .net
-author: tylerMSFT
-manager: jeconnoc
+author: dkkapur
+manager: chakdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/29/2018
-ms.author: twhitney
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 0f6ede488ae118f8df00febda3c53eabb73f2030
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 23809abd06d626eb87e5d5d15d265f1769b97b66
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890225"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806727"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Zelfstudie: Meer informatie over het upgraden van een Service Fabric-toepassing met Visual Studio
 
@@ -70,7 +70,7 @@ We werken de `WebFrontEnd_cpu` parameter voor het bijwerken van de cpu-resources
 > Standaard wordt de parameterbestand dat is een peer van het bestand profile.yaml worden gebruikt voor het leveren van de waarden voor dat bestand profile.yaml.
 > Bijvoorbeeld, omgevingen > Cloud > parameters.yaml biedt de parameterwaarden voor omgevingen > Cloud > profile.yaml.
 >
-> U kunt dit wijzigen door het volgende toe te voegen aan het bestand profile.yaml:`parametersFilePath=”relative or full path to the parameters file”` bijvoorbeeld `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` of `parametersFilePath=”..\CommonParameters.yaml”`
+> U kunt dit wijzigen door het volgende toe te voegen aan het bestand profile.yaml:`parametersFilePath=”relative or full path to the parameters file”` Bijvoorbeeld, `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` of `parametersFilePath=”..\CommonParameters.yaml”`
 
 ## <a name="modify-the-model"></a>Wijzigen van het model
 

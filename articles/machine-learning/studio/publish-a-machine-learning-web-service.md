@@ -5,17 +5,17 @@ description: Hoe u een opleidingsexperiment converteren naar een Voorspellend ex
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 5990f47a7cc1517349d85654bf5f02f6240e9baa
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: b77c21b75147a9bb5203effb20379dc208122d05
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327592"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819137"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Een Azure Machine Learning Studio-webservice implementeren
 
@@ -47,7 +47,7 @@ Het proces voor het maken en beheren van training experimenten wordt uitgebreid 
 * [Uw trainingsgegevens importeren in Azure Machine Learning Studio](import-data.md)
 * [Experimentherhalingen in Azure Machine Learning Studio beheren](manage-experiment-iterations.md)
 
-## <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>Het trainingsexperiment converteren naar een Voorspellend experiment
+## <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>Het trainingsexperiment converteren naar een voorspellend experiment
 
 Nadat u uw model hebt getraind, u kunt uw trainingsexperiment converteren naar een Voorspellend experiment te scoren van nieuwe gegevens.
 
@@ -77,7 +77,7 @@ Een prijscategorie selecteren. Hebt u een bestaande prijsstelling dat kunt u dit
 
 1. In de **Prijsplan** vervolgkeuzelijst, selecteert u een bestaand plan of de **Selecteer nieuw plan** optie.
 2. In **Plannaam**, typ een naam waarmee het abonnement op uw factuur wordt geïdentificeerd.
-3. Selecteer een van de **maandelijkse Plan lagen**. De standaardwaarde van de lagen plan voor de abonnementen voor uw standaardregio en wordt uw webservice wordt geïmplementeerd voor deze regio.
+3. Selecteer een van de **maandelijkse Plan lagen**. Standaard worden de prijscategorieën voor uw standaardregio gebruikt en de webservice wordt ook in die regio geïmplementeerd.
 
 Klik op **implementeren** en de **snelstartgids** pagina voor uw webservice wordt geopend.
 
@@ -109,7 +109,7 @@ Klik op **Test**. De status van de uitvoering van de Batch-taak wordt weergegeve
 
 Op de **configuratie** pagina, kunt u de beschrijving, de titel wijzigen, de opslagaccountsleutel bijwerken en voorbeeldgegevens inschakelen voor uw webservice.
 
-![Configureer de webservice](./media/publish-a-machine-learning-web-service/figure-8-arm-configure.png)
+![De webservice configureren](./media/publish-a-machine-learning-web-service/figure-8-arm-configure.png)
 
 ### <a name="access-your-new-web-service"></a>Toegang tot uw nieuwe webservice
 
@@ -167,7 +167,7 @@ Als u wilt uw Voorspellend experiment implementeren, klikt u op **uitvoeren** ca
 
 U kunt de webservice testen in de portal van de Machine Learning Studio-webservices of Machine Learning Studio.
 
-Als u wilt testen de Request Response-webservice, klikt u op de **testen** knop in het dashboard van de webservice. Een dialoogvenster wordt weergegeven gebruiken om u te vragen voor de invoergegevens voor de service. Dit zijn de kolommen die door het scoring experiment wordt verwacht. Voer een set gegevens en klik vervolgens op **OK**. De resultaten die worden gegenereerd door de webservice worden weergegeven aan de onderkant van het dashboard.
+Als u wilt testen de Request Response-webservice, klikt u op de **testen** knop in het dashboard van de webservice. Een dialoogvenster wordt weergegeven gebruiken om u te vragen voor de invoergegevens voor de service. Dit zijn de kolommen die door het scoring experiment wordt verwacht. Voer een set gegevens in en klik vervolgens op **OK**. De resultaten die worden gegenereerd door de webservice worden weergegeven aan de onderkant van het dashboard.
 
 U kunt klikken op de **testen** preview koppeling naar uw service testen in de portal voor Azure Machine Learning Studio-webservices, zoals eerder in de sectie nieuwe web-service.
 
@@ -181,7 +181,7 @@ U kunt een beschrijving voor uw invoergegevens, de uitvoergegevens en het web se
 
 U kunt logboekregistratie inschakelen om opsporen van fouten die u ziet wanneer uw webservice wordt geopend. Zie voor meer informatie, [logboekregistratie inschakelen voor Machine Learning Studio-webservices](web-services-logging.md).
 
-![Configureer de webservice](./media/publish-a-machine-learning-web-service/figure-4.png)
+![De webservice configureren](./media/publish-a-machine-learning-web-service/figure-4.png)
 
 U kunt ook de eindpunten voor de webservice configureren in de portal voor Azure Machine Learning-webservices die vergelijkbaar is met de procedure eerder weergegeven in de sectie nieuwe web-service. Zijn er andere opties, kunt u toevoegen of wijzigen van de beschrijving van de service, logboekregistratie inschakelen en de voorbeeldgegevens inschakelen voor het testen.
 
@@ -209,7 +209,7 @@ Omdat u dit experiment voordat hebt geïmplementeerd, kunt u wordt gevraagd of u
 > [!NOTE]
 > Als u configuratiewijzigingen in de oorspronkelijke webservice aangebracht, bijvoorbeeld moet invoeren van een nieuwe weergavenaam of beschrijving, u deze waarden opnieuw invoeren.
 
-Een optie voor het bijwerken van de webservice is aan het model programmatisch opnieuw trainen. Zie voor meer informatie, [-modellen programmatisch opnieuw trainen van Machine Learning Studio](retrain-models-programmatically.md).
+Een optie voor het bijwerken van de webservice is aan het model programmatisch opnieuw trainen. Zie voor meer informatie, [-modellen programmatisch opnieuw trainen van Machine Learning Studio](/azure/machine-learning/studio/retrain-machine-learning-model).
 
 ## <a name="next-steps"></a>Volgende stappen
 

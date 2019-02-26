@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/16/2019
+ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1ab5ec4e61649f7c9a705759a69d335260bfdc75
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: c296ed4011b874eb9b5635735d46b3f63a79a2be
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750817"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807555"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager-resourceproviderbewerkingen
 
@@ -681,30 +681,30 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > [!div class="mx-tdCol2BreakAll"]
 > | Actietype | Bewerking | Description |
 > | --- | --- | --- |
-> | Bewerking | Microsoft.Cache/checknameavailability/action | Controleert of een naam beschikbaar voor gebruik met een nieuwe Azure-Cache voor Redis is |
+> | Bewerking | Microsoft.Cache/checknameavailability/action | Hiermee wordt gecontroleerd of een naam beschikbaar is voor gebruik met een nieuwe Redis Cache |
 > | Bewerking | Microsoft.Cache/locations/operationresults/read | Hiermee wordt het resultaat van een langdurige bewerking opgehaald waarvoor de header 'Location' eerder is geretourneerd naar de client |
 > | Bewerking | Microsoft.Cache/operations/read | Hiermee worden de bewerkingen weergegeven die door de provider Microsoft.Cache worden ondersteund. |
-> | Bewerking | Microsoft.Cache/redis/delete | Verwijder de hele Azure-Cache voor Redis |
+> | Bewerking | Microsoft.Cache/redis/delete | Volledige Redis-cache verwijderen |
 > | Bewerking | Microsoft.Cache/redis/export/action | Redis-gegevens exporteren naar vooraf ingestelde opslag-blobs in een opgegeven indeling |
-> | Bewerking | Microsoft.Cache/redis/firewallRules/delete | IP-firewall-regels van een Azure-Cache voor Redis verwijderen |
-> | Bewerking | Microsoft.Cache/redis/firewallRules/read | De IP-firewall-regels van een Azure-Cache voor Redis ophalen |
-> | Bewerking | Microsoft.Cache/redis/firewallRules/write | De IP-firewall-regels van een Azure-Cache voor Redis bewerken |
+> | Bewerking | Microsoft.Cache/redis/firewallRules/delete | IP-firewallregels voor een Redis Cache verwijderen |
+> | Bewerking | Microsoft.Cache/redis/firewallRules/read | De IP-firewallregels voor een Redis Cache ophalen |
+> | Bewerking | Microsoft.Cache/redis/firewallRules/write | De IP-firewallregels voor een Redis Cache bewerken |
 > | Bewerking | Microsoft.Cache/redis/forceReboot/action | Een cache-instantie geforceerd opnieuw opstarten met mogelijk gegevensverlies. |
 > | Bewerking | Microsoft.Cache/redis/import/action | Gegevens met een opgegeven indeling in Redis importeren vanuit meerdere blobs |
-> | Bewerking | Microsoft.Cache/redis/linkedservers/delete | Gekoppelde Server verwijderen uit een Azure-Cache voor Redis |
-> | Bewerking | Microsoft.Cache/redis/linkedservers/read | Gekoppelde Servers die zijn gekoppeld aan een Azure-Cache voor Redis ophalen. |
-> | Bewerking | Microsoft.Cache/redis/linkedservers/write | Gekoppelde Server toevoegen aan een Azure-Cache voor Redis |
-> | Bewerking | Microsoft.Cache/redis/listKeys/action | De waarde van Azure Cache voor toegangssleutels voor Redis weergeven in de beheerportal |
+> | Bewerking | Microsoft.Cache/redis/linkedservers/delete | Gekoppelde server uit een Redis-cache verwijderen |
+> | Bewerking | Microsoft.Cache/redis/linkedservers/read | Gekoppelde servers die zijn gekoppeld aan een Redis-cache ophalen. |
+> | Bewerking | Microsoft.Cache/redis/linkedservers/write | Gekoppelde server aan een Redis-cache toevoegen |
+> | Bewerking | Microsoft.Cache/redis/listKeys/action | De waarde van de toegangssleutels voor Redis-cache weergeven in de beheerportal |
 > | Bewerking | Microsoft.Cache/redis/listUpgradeNotifications/read | De nieuwste upgrademeldingen weergeven voor de cachetenant. |
-> | Bewerking | Microsoft.Cache/redis/metricDefinitions/read | Hiermee haalt u de beschikbare metrische gegevens voor een Azure-Cache voor Redis |
-> | Bewerking | Microsoft.Cache/redis/patchSchedules/delete | De patch-schema van een Azure-Cache voor Redis verwijderen |
-> | Bewerking | Microsoft.Cache/redis/patchSchedules/read | Het toepassen van patches schema van een Azure-Cache voor Redis opgehaald |
-> | Bewerking | Microsoft.Cache/redis/patchSchedules/write | Wijzig het toepassen van patches schema van een Azure-Cache voor Redis |
-> | Bewerking | Microsoft.Cache/redis/read | Azure voor de instellingen en configuratie van Redis Cache weergeven in de beheerportal |
-> | Bewerking | Microsoft.Cache/redis/regenerateKey/action | Wijzig de waarde van Azure Cache voor toegangssleutels voor Redis in de beheerportal |
+> | Bewerking | Microsoft.Cache/redis/metricDefinitions/read | Hiermee worden de beschikbare metrische gegevens voor een Redis-cache opgehaald |
+> | Bewerking | Microsoft.Cache/redis/patchSchedules/delete | Het schema voor het toepassen van patches voor een Redis Cache verwijderen |
+> | Bewerking | Microsoft.Cache/redis/patchSchedules/read | Hiermee wordt het schema voor het toepassen van patches voor een Redis Cache opgehaald |
+> | Bewerking | Microsoft.Cache/redis/patchSchedules/write | Het schema voor het toepassen van patches voor een Redis Cache aanpassen |
+> | Bewerking | Microsoft.Cache/redis/read | De instellingen en configuratie van Redis-cache weergeven in de beheerportal |
+> | Bewerking | Microsoft.Cache/redis/regenerateKey/action | De waarde van de toegangssleutels voor Redis-cache wijzigen in de beheerportal |
 > | Bewerking | Microsoft.Cache/redis/start/action | Start een cache-instantie. |
 > | Bewerking | Microsoft.Cache/redis/stop/action | Stop een cache-instantie. |
-> | Bewerking | Microsoft.Cache/redis/write | Wijzigen van de Azure-Cache voor de instellingen en configuratie in de beheerportal van Redis |
+> | Bewerking | Microsoft.Cache/redis/write | De instellingen en configuratie van Redis-cache wijzigen in de beheerportal |
 > | Bewerking | Microsoft.Cache/register/action | Hiermee wordt de resourceprovider Microsoft.Cache geregistreerd bij een abonnement |
 > | Bewerking | Microsoft.Cache/unregister/action | Hiermee wordt de registratie van de resourceprovider Microsoft.Cache bij een abonnement ongedaan gemaakt |
 
@@ -1600,17 +1600,21 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/delete | Hiermee verwijdert u de gegevens in het Edge-apparaten |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/downloadUpdates/action | Updates naar apparaat downloaden |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/extendedInformation/action | Hiermee haalt u uitgebreide informatie over de resource op |
-> | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/extendedInformation/write | Hiermee maken of bijwerken van de informatie over de uitgebreide resource |
+> | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/getExtendedInformation/action | ArmApiDesc_action_getExtendedInformation_dataBoxEdgeDevices |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/installUpdates/action | Updates installeren op het apparaat |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/jobs/read | Geeft een lijst of de taken opgehaald |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/networkSettings/read | Geeft een lijst of de netwerkinstellingen van het apparaat opgehaald |
+> | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/delete | Hiermee verwijdert u de orders |
+> | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/read | Geeft een lijst of de orders opgehaald |
+> | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/read | Geeft een lijst of de orders opgehaald |
+> | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/write | Hiermee maakt of werkt de orders |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/read | Geeft een lijst of opgehaald van de gegevens in het Edge-apparaten |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/read | Geeft een lijst of opgehaald van de gegevens in het Edge-apparaten |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/read | Geeft een lijst of opgehaald van de gegevens in het Edge-apparaten |
-> | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/delete | Hiermee verwijdert u de ArmApiRes_roles |
-> | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | Geeft een lijst of de ArmApiRes_roles opgehaald |
-> | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | Geeft een lijst of de ArmApiRes_roles opgehaald |
-> | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/write | Hiermee maakt of werkt de ArmApiRes_roles |
+> | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/delete | Hiermee verwijdert u de rollen |
+> | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | Geeft een lijst of de rollen opgehaald |
+> | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | Geeft een lijst of de rollen opgehaald |
+> | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/write | Hiermee maken of bijwerken van de rollen |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/scanForUpdates/action | Scannen naar updates |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/securitySettings/update/action | Beveiligingsinstellingen bijwerken |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/delete | Hiermee verwijdert u de shares |
@@ -1622,6 +1626,10 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/read | Geeft een lijst of de referenties van het storage-account opgehaald |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/read | Geeft een lijst of de referenties van het storage-account opgehaald |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/write | Hiermee maakt of werkt de opslagaccountreferenties |
+> | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/delete | Hiermee verwijdert u de triggers |
+> | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/read | Geeft een lijst of opgehaald van de triggers |
+> | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/read | Geeft een lijst of opgehaald van de triggers |
+> | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/write | Hiermee maken of bijwerken van de triggers |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/updateSummary/read | Geeft een lijst of de update samenvatting opgehaald |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/uploadCertificate/action | Certificaat uploaden voor registratie van het apparaat |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/delete | Hiermee verwijdert u de share-gebruikers |
@@ -4766,6 +4774,8 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 > | Bewerking | Microsoft.Sql/managedInstances/databases/read | Hiermee wordt opgehaald van bestaande beheerde database |
 > | Bewerking | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/read | Lijst met gevoeligheidslabels van een bepaalde database |
 > | Bewerking | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/delete | De gevoeligheid, label van een bepaalde kolom verwijderen |
+> | Bewerking | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/disable/action | Gevoeligheid aanbevelingen voor een bepaalde kolom uitschakelen |
+> | Bewerking | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/enable/action | Gevoeligheid aanbevelingen op een bepaalde kolom inschakelen |
 > | Bewerking | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/read | De gevoeligheid, label van een bepaalde kolom ophalen |
 > | Bewerking | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/write | Maken of bijwerken van het gevoeligheidslabel van de van een bepaalde kolom |
 > | Bewerking | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/read | De gegevens van de database threat detection dat is geconfigureerd op een bepaalde beheerde database ophalen |
@@ -4899,6 +4909,8 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 > | Bewerking | Microsoft.Sql/servers/databases/schemas/read | Lijst van schema's van een database ophalen |
 > | Bewerking | Microsoft.Sql/servers/databases/schemas/tables/columns/read | Lijst met kolommen van een tabel ophalen |
 > | Bewerking | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/delete | De gevoeligheid, label van een bepaalde kolom verwijderen |
+> | Bewerking | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/disable/action | Gevoeligheid aanbevelingen voor een bepaalde kolom uitschakelen |
+> | Bewerking | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/enable/action | Gevoeligheid aanbevelingen op een bepaalde kolom inschakelen |
 > | Bewerking | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/read | De gevoeligheid, label van een bepaalde kolom ophalen |
 > | Bewerking | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/write | Maken of bijwerken van het gevoeligheidslabel van de van een bepaalde kolom |
 > | Bewerking | Microsoft.Sql/servers/databases/schemas/tables/read | Lijst met tabellen van een database ophalen |
@@ -5023,6 +5035,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 > | Bewerking | Microsoft.Sql/servers/vulnerabilityAssessments/write | De evaluatie van beveiligingsproblemen voor een bepaalde server wijzigen |
 > | Bewerking | Microsoft.Sql/servers/write | Hiermee maakt u een server met de opgegeven parameters of bijwerken van de eigenschappen of labels voor de opgegeven server. |
 > | Bewerking | Microsoft.Sql/unregister/action | De registratie van het abonnement voor de resourceprovider van Microsoft SQL-Database en wordt het maken van Microsoft SQL-Databases. |
+> | Bewerking | Microsoft.Sql/virtualClusters/delete | Hiermee verwijdert u een bestaand virtueel cluster. |
 > | Bewerking | Microsoft.Sql/virtualClusters/read | Retourneert de lijst met virtuele clusters of haalt de eigenschappen voor de opgegeven virtuele-cluster. |
 > | Bewerking | Microsoft.Sql/virtualClusters/write | Virtueel cluster tags-updates. |
 
@@ -5340,7 +5353,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 > [!div class="mx-tdCol2BreakAll"]
 > | Actietype | Bewerking | Description |
 > | --- | --- | --- |
-> | Bewerking | Microsoft.Subscription/CreateSubscription/action | Een Azure-abonnement maken |
+> | Bewerking | Microsoft.Subscription/CreateSubscription/action | Maak een Azure-abonnement |
 > | Bewerking | Microsoft.Subscription/register/action | Hiermee wordt een abonnement bij de resourceprovider Microsoft.Subscription |
 > | Bewerking | Microsoft.Subscription/SubscriptionDefinitions/read | De definitie van een Azure-abonnement in een beheergroep ophalen. |
 > | Bewerking | Microsoft.Subscription/SubscriptionDefinitions/write | De definitie van een Azure-abonnement maken |
@@ -5350,7 +5363,7 @@ De naam van een bestaande Persoonsgroep en de userData bijwerken. De eigenschapp
 > [!div class="mx-tdCol2BreakAll"]
 > | Actietype | Bewerking | Description |
 > | --- | --- | --- |
-> | Bewerking | Microsoft.Support/register/action | Hiermee wordt het item geregistreerd bij de ondersteuningsresourceprovider |
+> | Bewerking | Microsoft.Support/register/action | Hiermee wordt het item geregistreerd bij de resourceprovider voor ondersteuning |
 > | Bewerking | Microsoft.Support/supportTickets/read | Hiermee worden gegevens over het ondersteuningsticket opgehaald (inclusief status, ernst, contactgegevens en communicatie) of wordt de lijst met ondersteuningstickets voor de verschillende abonnementen opgehaald. |
 > | Bewerking | Microsoft.Support/supportTickets/write | Hiermee wordt een ondersteuningsticket gemaakt of bijgewerkt. U kunt een ondersteuningsticket maken voor problemen van technische aard of op het gebied van facturering, quota's of beheer van abonnementen. U kunt voor bestaande ondersteuningstickets de ernst, de contactgegevens en de communicatiemethoden aanpassen. |
 

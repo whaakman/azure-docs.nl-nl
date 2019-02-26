@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: deb3b155af464e69c6811414135913917cf2193a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: fb8dedac8b795ec127d7b4a14728d73c9397a1dd
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716460"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807402"
 ---
 # <a name="configure-apps-in-azure-app-service"></a>Apps in Azure App Service configureren
 
@@ -37,7 +37,7 @@ De **toepassingsinstellingen** blade bevat instellingen die zijn gegroepeerd ond
 ### <a name="general-settings"></a>Algemene instellingen
 **Frameworkversies**. Schakel deze optie als uw app gebruikmaakt van een deze frameworks: 
 
-* **.NET framework**: De .NET framework-versie instellen. 
+* **.NET Framework**: De .NET framework-versie instellen. 
 * **PHP**: De PHP-versie instellen of **OFF** om uit te schakelen van PHP. 
 * **Java**: Selecteer de Java-versie of **OFF** om uit te schakelen van Java. Gebruik de **webcontainer** kiezen uit versies voor Tomcat en Jetty.
 * **Python**: Selecteer de Python-versie, of **OFF** om uit te schakelen van Python.
@@ -106,7 +106,7 @@ Modules die route op basis van URL, plaats leveren van statische inhoud, in welk
 Gebruik dit gebied toe te voegen processors aangepast script voor het afhandelen van aanvragen voor specifieke bestandsextensies. 
 
 * **Extensie**. De bestandsextensie moet worden verwerkt, zoals *.php of handler.fcgi. 
-* **Processorpad script**. Het absolute pad van de ScriptProcessor. Aanvragen voor bestanden die overeenkomen met de bestandsextensie wordt verwerkt door de ScriptProcessor. Het pad gebruiken `D:\home\site\wwwroot` om te verwijzen naar de hoofdmap van uw app.
+* **Script Processor Path**. Het absolute pad van de ScriptProcessor. Aanvragen voor bestanden die overeenkomen met de bestandsextensie wordt verwerkt door de ScriptProcessor. Het pad gebruiken `D:\home\site\wwwroot` om te verwijzen naar de hoofdmap van uw app.
 * **Extra argumenten**. Optionele opdrachtregelargumenten voor de ScriptProcessor 
 
 ### <a name="virtual-applications-and-directories"></a>Virtuele toepassingen en mappen
@@ -163,13 +163,14 @@ Als u wilt uw implementatiesites weergeven, klikt u op **alle instellingen** > *
 ### <a name="monitoring"></a>Bewaking
 In de Basic- of Standard-modus, kunt u de beschikbaarheid van HTTP of HTTPS-eindpunten, van maximaal drie geografisch gedistribueerde locaties testen. Een controle test mislukt als de HTTP-responscode een fout (4xx of 5xx is) of het antwoord meer dan 30 seconden heeft. Een eindpunt wordt aangemerkt als beschikbaar als de bewakingstests van de opgegeven locaties slagen. 
 
-Zie voor meer informatie, [Procedures: Web-eindpunt controleren].
+Zie voor meer informatie [Procedure: Web-eindpunt controleren].
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Een aangepaste domeinnaam configureren in Azure App Service]
 * [HTTPS inschakelen voor een app in Azure App Service]
 * [Een app schalen in Azure App Service]
 * [Controle-bewerkingen in Azure App Service]
+* [Instellingen voor applicationHost.config met applicationHost.xdt wijzigen](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples)
 
 <!-- URL List -->
 
@@ -178,7 +179,7 @@ Zie voor meer informatie, [Procedures: Web-eindpunt controleren].
 [Een aangepaste domeinnaam configureren in Azure App Service]: ./app-service-web-tutorial-custom-domain.md
 [Implementeren naar Faseringsomgevingen voor Azure App Service]: ./deploy-staging-slots.md
 [HTTPS inschakelen voor een app in Azure App Service]: ./app-service-web-tutorial-custom-ssl.md
-[Procedures: Web-eindpunt controleren]: https://go.microsoft.com/fwLink/?LinkID=279906
+[Procedure: Web-eindpunt controleren]: https://go.microsoft.com/fwLink/?LinkID=279906
 [Controle-bewerkingen in Azure App Service]: ./web-sites-monitor.md
 [pipeline-modus]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Een app schalen in Azure App Service]: ./web-sites-scale.md
