@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3fd2feb8bbd54e7aefab357b0b2ba4209aa29e09
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 4c3c936a3d547389de3681b4f82f329c4978742d
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56418587"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886618"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Een runbook in Azure Automation starten
 
@@ -22,7 +22,7 @@ De volgende tabel om te bepalen de methode voor het starten van een runbook in A
 
 | **Methode** | **Kenmerken** |
 | --- | --- |
-| [Azure Portal](#starting-a-runbook-with-the-azure-portal) |<li>De eenvoudigste methode met interactieve gebruikersinterface.<br> <li>Formulier voor eenvoudige parameterwaarden.<br> <li>Taakstatus probleem gemakkelijk bijhouden.<br> <li>Toegang is geverifieerd met Azure sign in. |
+| [Azure Portal](#start-a-runbook-with-the-azure-portal) |<li>De eenvoudigste methode met interactieve gebruikersinterface.<br> <li>Formulier voor eenvoudige parameterwaarden.<br> <li>Taakstatus probleem gemakkelijk bijhouden.<br> <li>Toegang is geverifieerd met Azure sign in. |
 | [Windows PowerShell](/powershell/module/azurerm.automation/start-azurermautomationrunbook) |<li>Aanroepen vanaf de opdrachtregel met Windows PowerShell-cmdlets.<br> <li>Kan worden opgenomen in geautomatiseerde oplossing met meerdere stappen.<br> <li>Aanvraag is geverifieerd met certificaat of de OAuth-gebruiker principal / service principal.<br> <li>Eenvoudige en complexe parameterwaarden opgeven.<br> <li>Taakstatus bijhouden.<br> <li>De client is vereist ter ondersteuning van PowerShell-cmdlets. |
 | [Azure Automation API](/rest/api/automation/) |<li>Meest flexibele methode, maar ook de meeste complexe.<br> <li>Aanroepen van aangepaste code die de HTTP-aanvragen kunt maken.<br> <li>Aanvraag geverifieerd met certificaat of de Oauth-gebruiker principal / service principal.<br> <li>Eenvoudige en complexe parameterwaarden opgeven. *Als u een Python-runbook met behulp van de API aanroept bent, moet de JSON-nettolading worden geserialiseerd.*<br> <li>Taakstatus bijhouden. |
 | [Webhooks](automation-webhooks.md) |<li>Runbook starten vanuit één HTTP-aanvraag.<br> <li>Geverifieerd met de security-token in URL.<br> <li>Client kan geen parameterwaarden opgegeven tijdens het webhook overschrijven. Runbook kunt definiëren één parameter die is gevuld met de details van de HTTP-aanvraag.<br> <li>Er is geen mogelijkheid om bij te houden van de taakstatus via webhook-URL. |

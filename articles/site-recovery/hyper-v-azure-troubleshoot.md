@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: e79ffba90f0812d79bcb7ab808e2b6ba80e1c61b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 703bf7425962ddcb5e7566f99c461ca37d237b68
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756662"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868422"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Hyper-V naar Azure-replicatie en failover oplossen
 
@@ -30,7 +30,7 @@ Als u problemen ondervindt bij het inschakelen van de beveiliging voor Hyper-V-m
 5. Controleer op de Gast-VM, of dat WMI ingeschakeld en toegankelijk is is.
   - [Meer informatie over](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/) basic WMI-test.
   - [Problemen oplossen](https://aka.ms/WMiTshooting) WMI.
-  - [Problemen oplossen ](https://technet.microsoft.com/library/ff406382.aspx#H22) problemen met WMI-scripts en -services.
+  - [Problemen oplossen](https://technet.microsoft.com/library/ff406382.aspx#H22) problemen met WMI-scripts en -services.
 6. Zorg ervoor dat de nieuwste versie van Integration Services wordt uitgevoerd op de Gast-VM.
     - [Controleer](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) dat u de meest recente versie hebt.
     - [Houd](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) Integration Services up-to-date.

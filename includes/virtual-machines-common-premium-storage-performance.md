@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e2dc82ee49b240fe562f02b38c4991c644c010d3
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: a04a9f225d46ae3dc51381f01984a4ac2af3448f
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56333974"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56891005"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure premium storage: ontwerp voor hoge prestaties
 
@@ -67,6 +67,14 @@ Latentie is de tijd die nodig is een aanvraag ontvangen van een enkele aanvraag 
 
 Wanneer u uw toepassing om op te halen van hogere IOPS en doorvoer optimaliseert, heeft dit invloed op de latentie van uw toepassing. Na het afstemmen van de prestaties van toepassingen, moet u altijd de latentie van de toepassing om te voorkomen van onverwachte hoge latentie gedrag evalueren.
 
+De volgende bewerkingen voor de controlelaag op beheerde schijven kunnen verkeer van de schijf van de ene opslaglocatie naar de andere omvatten. Dit is georganiseerd via achtergrond kopiëren van gegevens die enkele uren, afhankelijk van de hoeveelheid gegevens in de schijven meestal minder dan 24 uur kan duren. Gedurende die tijd kunt uw toepassing ervaringen hoger dan normaal leeslatentie bij het aantal leesbewerkingen kunnen ophalen omgeleid naar de oorspronkelijke locatie en kunnen het langer duren om. Er zijn geen gevolgen voor schrijven latentie tijdens deze periode.
+
+1. [Bijwerken van het opslagtype](../articles/virtual-machines/windows/convert-disk-storage.md).
+1. [Loskoppelen en een schijf koppelen van een virtuele machine naar een andere](../articles/virtual-machines/windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
+1. [Een beheerde schijf maken op basis van een VHD](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md).
+1. [Een beheerde schijf maken op basis van een momentopname](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
+1. [Niet-beheerde schijven converteren naar managed disks](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md).
+
 # <a name="performance-application-checklist-for-disks"></a>Controlelijst voor prestaties-toepassing voor schijven
 
 De eerste stap bij het ontwerpen van krachtige toepassingen die worden uitgevoerd op Azure Premium Storage is het registreren van de prestatievereisten van uw toepassing. Nadat u de prestatie-eisen hebt verzameld, kunt u uw toepassing in de meest optimale prestaties kunt optimaliseren.
@@ -102,9 +110,9 @@ Als u een bestaande toepassing hebt en wilt overstappen op Premium Storage, moet
 
 ### <a name="counters-to-measure-application-performance-requirements"></a>Tellers voor het meten van prestaties toepassingsvereisten
 
-De beste manier om te meten van de prestatievereisten van uw toepassing, is met bewaking van toepassingsprestaties hulpprogramma's voor door het besturingssysteem van de server. U kunt PerfMon voor Windows en iostat voor Linux. Deze hulpprogramma's vastleggen tellers overeenkomt met elke meting wordt uitgelegd in de bovenstaande sectie. U moet de waarden van deze prestatiemeteritems vastleggen wanneer uw toepassing wordt uitgevoerd, zijn normaal, de piek- en buiten kantooruren werkbelastingen.
+De beste manier om te meten van de prestatievereisten van uw toepassing, is met bewaking van toepassingsprestaties hulpprogramma's voor door het besturingssysteem van de server. U kunt PerfMon voor Windows en iostat voor Linux. Deze hulpprogramma's vastleggen tellers overeenkomt met elke meting wordt uitgelegd in de bovenstaande sectie. U moet de waarden van deze prestatiemeteritems vastleggen wanneer uw toepassing wordt uitgevoerd de normale piek- en buiten kantooruren werkbelastingen.
 
-De prestatiemeteritems zijn beschikbaar voor processor, geheugen, en elke logische schijf en de fysieke schijf van uw server. Als u premium storage-schijven met een virtuele machine, de fysieke schijf-prestatiemeteritems maken voor elke premium-opslagschijf en prestatiemeteritems voor logische schijf zijn voor elk volume dat is gemaakt op de premium-opslagschijven. U kunt de waarden voor de schijven die als host de workload van uw toepassing fungeren moet vastleggen. Als er een één-op-een-toewijzing tussen logische en fysieke schijven, kunt u verwijzen naar prestatiemeteritems voor fysieke schijf; Raadpleeg anders de prestatiemeteritems voor logische schijf. Op Linux genereert de opdracht iostat een CPU en het disk utilization-rapport. Het disk utilization-rapport voorziet in statistieken per fysieke apparaat of de partitie. Als u een database-server met de gegevens en logboekbestanden op afzonderlijke schijven hebt, verzamelen van deze gegevens voor beide schijven. Onderstaande tabel worden beschreven tellers voor schijven, processor en geheugen:
+De prestatiemeteritems zijn beschikbaar voor processor, geheugen, en elke logische schijf en de fysieke schijf van uw server. Als u premium storage-schijven met een virtuele machine, de fysieke schijf-prestatiemeteritems maken voor elke premium-opslagschijf en prestatiemeteritems voor logische schijf zijn voor elk volume dat is gemaakt op de premium-opslagschijven. U kunt de waarden voor de schijven die als host de workload van uw toepassing fungeren moet vastleggen. Als er een één-op-een-toewijzing tussen logische en fysieke schijven, kunt u verwijzen naar prestatiemeteritems voor fysieke schijf; Raadpleeg anders de prestatiemeteritems voor logische schijf. Op Linux genereert de opdracht iostat een CPU en het disk utilization-rapport. Het disk utilization-rapport voorziet in statistieken per fysieke apparaat of de partitie. Als u een database-server met de gegevens en logboekbestanden op afzonderlijke schijven hebt, verzamelen van deze gegevens voor beide schijven. Onderstaande tabel worden beschreven tellers voor schijven, processors en geheugen:
 
 | Teller | Description | PerfMon | Iostat |
 | --- | --- | --- | --- |
@@ -123,9 +131,9 @@ Meer informatie over [iostat](https://linux.die.net/man/1/iostat) en [PerfMon](h
 
 ## <a name="optimize-application-performance"></a>Optimaliseer de prestaties van toepassingen
 
-De belangrijkste factoren die invloed hebben op prestaties van een toepassing die wordt uitgevoerd op de Premium-opslag zijn aard van i/o-aanvragen, VM-grootte, schijfgrootte, het aantal schijven, opslaan in schijfcache, Multithreading en wachtrijdiepte. Sommige van deze factoren kunt u bepalen met knoppen geleverd door het systeem. De meeste toepassingen kunnen u niet een optie voor het wijzigen van de i/o-grootte en de wachtrijdiepte rechtstreeks geven. Bijvoorbeeld, als u SQL Server gebruikt, kiezen u niet de diepte van de i/o-grootte en wachtrij. SQL Server kiest de optimale i/o-grootte en wachtrij diepte waarden om de meeste prestaties te verkrijgen. Het is belangrijk om te begrijpen van de gevolgen van beide typen factoren voor de prestaties van uw toepassing, zodat u de juiste resources om te voldoen aan prestatiebehoeften kunt inrichten.
+De belangrijkste factoren die invloed hebben op prestaties van een toepassing die wordt uitgevoerd op de Premium-opslag zijn de aard van i/o-aanvragen, VM-grootte, schijfgrootte, het aantal schijven, schijfcaching, multithreading, en wachtrijdiepte. Sommige van deze factoren kunt u bepalen met knoppen geleverd door het systeem. De meeste toepassingen kunnen u niet een optie voor het wijzigen van de i/o-grootte en de wachtrijdiepte rechtstreeks geven. Bijvoorbeeld, als u SQL Server gebruikt, kiezen u niet de diepte van de i/o-grootte en wachtrij. SQL Server kiest de optimale i/o-grootte en wachtrij diepte waarden om de meeste prestaties te verkrijgen. Het is belangrijk om te begrijpen van de gevolgen van beide typen factoren voor de prestaties van uw toepassing, zodat u de juiste resources om te voldoen aan prestatiebehoeften kunt inrichten.
 
-Raadpleeg de controlelijst voor de vereisten van toepassing die u hebt gemaakt, om te bepalen hoeveel moet u het optimaliseren van prestaties van uw toepassing in deze sectie. Op basis van die, kunt u zich om te bepalen welke factoren van deze sectie moet u om af te stemmen. Te wonen de effecten van elke factor op de prestaties van uw toepassing, hulpprogramma's voor benchmarking worden uitgevoerd op de toepassingsinstellingen van uw. Raadpleeg de [Benchmarking](#Benchmarking) sectie aan het einde van dit artikel voor stappen voor het uitvoeren van algemene hulpprogramma's voor benchmarking op Windows en Linux-machines.
+Raadpleeg de controlelijst voor de vereisten van toepassing die u hebt gemaakt, om te bepalen hoeveel moet u het optimaliseren van prestaties van uw toepassing in deze sectie. Op basis van die, kunt u zich om te bepalen welke factoren van deze sectie moet u om af te stemmen. Te wonen de effecten van elke factor op de prestaties van uw toepassing, hulpprogramma's voor benchmarking worden uitgevoerd op de toepassingsinstellingen van uw. Raadpleeg de sectie Benchmarking aan het einde van dit artikel voor stappen voor het uitvoeren van algemene hulpprogramma's voor benchmarking op Windows en Linux-machines.
 
 ### <a name="optimize-iops-throughput-and-latency-at-a-glance"></a>IOPS, doorvoer en latentie in een oogopslag optimaliseren
 
@@ -142,24 +150,24 @@ Zie voor meer informatie over VM-grootten en op de IOPS, doorvoer en latentie be
 | **Schijfgrootte** |Gebruik een schijfgrootte, IOPS is groter dan de vereisten van uw toepassing biedt. |Gebruik een grootte van de schijf met doorvoerlimiet groter is dan de vereisten van uw toepassing. |Gebruik een grootte van de schijf dat aanbiedingen limieten groter is dan de vereisten van uw toepassing schalen. |
 | **Virtuele machine en Schaallimieten voor schijf** |IOPS-limiet van de VM-grootte gekozen moet groter zijn dan totaal aantal IOPS aangestuurd door premium storage-schijven die zijn gekoppeld aan deze. |Doorvoerlimiet van de VM-grootte gekozen moet groter zijn dan de totale doorvoer aangestuurd door premium storage-schijven die zijn gekoppeld aan deze zijn. |Schaallimieten van de VM-grootte gekozen moet groter zijn dan totaal aantal schaallimieten van gekoppelde premium storage-schijven. |
 | **Schijfcache** |Alleen-lezen Cache inschakelen op premium storage-schijven met zware leesbewerkingen om op te halen van hogere IOPS voor lezen. | &nbsp; |Alleen-lezen Cache inschakelen op premium storage-schijven met gereed zware bewerkingen om op te halen lezen zeer lage latentie. |
-| **Striping van de schijf** |Meerdere schijven gebruiken en deze samen als u een gecombineerde hogere limiet voor IOPS en doorvoer stripe. Houd er rekening mee dat de gecombineerde limiet per virtuele machine hoger zijn dan de gecombineerde limieten van gekoppelde premium-schijven moet. | &nbsp; | &nbsp; |
-| **Streepgrootte** |Kleinere streep voor willekeurige kleine i/o-patroon gezien in OLTP-toepassingen. Gebruik bijvoorbeeld stripe-grootte van 64KB voor SQL Server OLTP-toepassing. |Grotere stripe voor opeenvolgende grote i/o-patroon bekijken in Data Warehouse-toepassingen. Gebruik bijvoorbeeld Streepgrootte van 256KB voor SQL Server Data warehouse-toepassing. | &nbsp; |
+| **Striping van de schijf** |Meerdere schijven gebruiken en deze samen als u een gecombineerde hogere limiet voor IOPS en doorvoer stripe. De gecombineerde limiet per virtuele machine moet hoger zijn dan de gecombineerde limieten van gekoppelde premium-schijven. | &nbsp; | &nbsp; |
+| **Streepgrootte** |Kleinere streep voor willekeurige kleine i/o-patroon gezien in OLTP-toepassingen. Gebruik bijvoorbeeld stripe-grootte van 64 KB voor SQL Server OLTP-toepassing. |Grotere stripe voor opeenvolgende grote i/o-patroon bekijken in Data Warehouse-toepassingen. Gebruik bijvoorbeeld Streepgrootte van 256 KB voor SQL Server Data warehouse-toepassing. | &nbsp; |
 | **Multithreading** |Gebruik multithreading pushen hoe hoger de waarde van aanvragen naar de Premium-opslag die tot hogere IOPS en doorvoer leiden. Stel bijvoorbeeld een hoge waarde van MAXDOP meer CPU's worden toegewezen aan SQL Server op SQL Server. | &nbsp; | &nbsp; |
 | **Wachtrijdiepte** |Grotere wachtrijdiepte leidt tot hogere IOPS. |Grotere wachtrijdiepte leidt tot hogere doorvoer. |Kleinere wachtrijdiepte leidt tot kortere wachttijden. |
 
 ## <a name="nature-of-io-requests"></a>De aard van de i/o-aanvragen
 
-Een i/o-aanvraag is een eenheid van i/o-bewerking dat door uw toepassing wordt uitgevoerd. Identificeren van de aard van i/o-aanvragen, willekeurige of opeenvolgende, kunt lezen of schrijven, klein of groot is, u bepalen van de prestatievereisten van uw toepassing. Het is heel belangrijk om te begrijpen van de aard van i/o-aanvragen, de juiste beslissingen bij het ontwerpen van de infrastructuur van uw toepassing.
+Een i/o-aanvraag is een eenheid van i/o-bewerking dat door uw toepassing wordt uitgevoerd. Identificeren van de aard van i/o-aanvragen, willekeurige of opeenvolgende, kunt lezen of schrijven, klein of groot is, u bepalen van de prestatievereisten van uw toepassing. Het is belangrijk om te begrijpen van de aard van i/o-aanvragen, de juiste beslissingen bij het ontwerpen van de infrastructuur van uw toepassing.
 
-I/o-grootte is een van de belangrijkste factoren. De i/o-grootte is de grootte van de bewerkingsaanvraag van de i/o-door uw toepassing wordt gegenereerd. De i/o-grootte heeft een aanzienlijke invloed op de prestaties met name op de IOPS en bandbreedte die de toepassing kan bereiken. De volgende formule wordt de relatie tussen IOP's, i/o-grootte en de bandbreedte/doorvoer.  
+I/o-grootte is een van de belangrijkste factoren. De i/o-grootte is de grootte van de bewerkingsaanvraag van de i/o-door uw toepassing wordt gegenereerd. De i/o-grootte heeft een aanzienlijke invloed op de prestaties met name op de IOPS en bandbreedte die de toepassing kan bereiken. De volgende formule wordt de relatie tussen IOP's, i/o-grootte, en bandbreedte/doorvoer.  
     ![](media/premium-storage-performance/image1.png)
 
 Sommige toepassingen kunnen u de i/o-grootte, alter, maar sommige toepassingen niet. Bijvoorbeeld, SQL Server bepaalt de optimale grootte voor i/o-zelf en biedt gebruikers met alle knoppen om deze te wijzigen. Aan de andere kant Oracle biedt een parameter met de naam [DB\_blokkeren\_grootte](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) die u kunt configureren met de grootte van de i/o-aanvraag van de database.
 
 Gebruik de richtlijnen in dit artikel als u een toepassing die u wilt wijzigen van de i/o-grootte niet toestaat, het optimaliseren van de KPI's die het meest relevant is voor uw toepassing. Bijvoorbeeld:
 
-* Een OLTP-toepassing genereert miljoenen kleine en willekeurige i/o-aanvragen. Voor het afhandelen van dit type i/o-aanvragen, moet u de infrastructuur van uw toepassingen om op te halen van hogere IOPS ontwerpen.  
-* Een datawarehouse-aanvraag genereert grote en opeenvolgende i/o-aanvragen. Voor het afhandelen van dit type i/o-aanvragen, moet u de infrastructuur van uw toepassingen om op te halen van de hogere bandbreedte of doorvoer ontwerpen.
+* Een OLTP-toepassing genereert miljoenen kleine en willekeurige i/o-aanvragen. Voor het afhandelen van deze typen i/o-aanvragen, moet u de infrastructuur van uw toepassingen om op te halen van hogere IOPS ontwerpen.  
+* Een datawarehouse-aanvraag genereert grote en opeenvolgende i/o-aanvragen. Voor het afhandelen van deze typen i/o-aanvragen, moet u de infrastructuur van uw toepassingen om op te halen van de hogere bandbreedte of doorvoer ontwerpen.
 
 Als u een toepassing, waarmee u de i/o-grootte te wijzigen, gebruikt u deze vuistregel voor de i/o-grootte naast andere prestatierichtlijnen
 
@@ -180,13 +188,13 @@ Voor IOPS en bandbreedte die hoger is dan de maximale waarde van een enkele prem
 > [!NOTE]
 > Als u IOPS of de andere verhoogt ook de doorvoer verhoogt, zorg er dan voor dat u doorvoer of IOPS-limieten van de schijf of virtuele machine niet tegenkomen wanneer u een verhogen.
 
-U kunt te wonen de gevolgen van i/o-grootte voor de prestaties van toepassingen, hulpprogramma's voor benchmarking uitvoeren op de virtuele machine en schijven. Maak meerdere testuitvoeringen en andere i/o-grootte voor elke uitvoering gebruiken om te zien van de impact. Raadpleeg de [Benchmarking](#Benchmarking) sectie aan het einde van dit artikel voor meer informatie.
+U kunt te wonen de gevolgen van i/o-grootte voor de prestaties van toepassingen, hulpprogramma's voor benchmarking uitvoeren op de virtuele machine en schijven. Maak meerdere testuitvoeringen en andere i/o-grootte voor elke uitvoering gebruiken om te zien van de impact. Raadpleeg de sectie Benchmarking aan het einde van dit artikel voor meer informatie.
 
 ## <a name="high-scale-vm-sizes"></a>Grote schaal VM-grootten
 
 Wanneer u het ontwerpen van een toepassing start, is een van de eerste dingen te doen, kiest u een virtuele machine voor het hosten van uw toepassing. Premium Storage wordt geleverd met hoge schaal VM-grootten die toepassingen die meer rekenkracht en een hoge lokale schijf i/o-prestaties nodig hebben kunnen worden uitgevoerd. Deze virtuele machines hebben snellere processors, een hogere geheugen-kernverhouding en een Solid-State Drive (SSD) voor de lokale schijf. Voorbeelden van hoge schaal VM's die Premium-opslag zijn de DS, DSv2 en GS-serie VM's.
 
-Hoge schaal VM's zijn beschikbaar in verschillende grootten met een ander aantal CPU-kernen, geheugen, besturingssysteem en grootte van de tijdelijke schijf. Elke VM-grootte heeft ook het maximum aantal gegevensschijven die u aan de virtuele machine koppelen kunt. Daarom de gekozen VM-grootte is van invloed op hoeveelheid verwerking, geheugen en opslagcapaciteit is beschikbaar voor uw toepassing. Dit geldt ook voor de Compute en Storage-kosten. Hieronder vindt u bijvoorbeeld de specificaties van de grootste VM-grootte in een DS-serie, DSv2-serie en GS-serie:
+Hoge schaal VM's zijn beschikbaar in verschillende grootten met een verschillend aantal CPU-kernen, geheugen, besturingssysteem en grootte van de tijdelijke schijf. Elke VM-grootte heeft ook het maximum aantal gegevensschijven die u aan de virtuele machine koppelen kunt. Daarom de gekozen VM-grootte is van invloed op hoeveelheid verwerking, geheugen en opslagcapaciteit is beschikbaar voor uw toepassing. Dit geldt ook voor de Compute en Storage-kosten. Hieronder vindt u bijvoorbeeld de specificaties van de grootste VM-grootte in een DS-serie, DSv2-serie en GS-serie:
 
 | VM-grootte | CPU-kernen | Geheugen | Schijf-VM-grootten | Met maximaal Gegevensschijven | Cachegrootte | IOPS | Bandbreedte Cache i/o-limieten |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -203,7 +211,7 @@ Stel bijvoorbeeld dat een vereiste toepassing is maximaal 4000 IOPS. Om dit te d
 *Kosten van bewerking*  
 In veel gevallen is het mogelijk dat uw totale kosten van het opnieuw met Premium Storage lager is dan het gebruik van Standard-opslag.
 
-Neem bijvoorbeeld een toepassing 16.000 IOPS vereisen. Deze om prestaties te behalen, moet u een standaard\_D14 Azure IaaS VM, zodat een maximale IOPS van 16.000 met behulp van 32 standard storage-schijven voor 1 TB. Elke schijf van 1TB standard-opslag kunt maximaal 500 IOPS bereiken. De geschatte kosten van deze virtuele machine per maand is $1,570. De maandelijkse kosten van 32 standard storage-schijven is $1,638. De geschatte totale maandelijkse kosten worden $3,208.
+Neem bijvoorbeeld een toepassing 16.000 IOPS vereisen. Deze om prestaties te behalen, moet u een standaard\_D14 Azure IaaS VM, zodat een maximale IOPS van 16.000 met behulp van 32 standard storage-schijven voor 1 TB. Elke schijf 1 TB standard-opslag kunt maximaal 500 IOPS bereiken. De geschatte kosten van deze virtuele machine per maand is $1,570. De maandelijkse kosten van 32 standard storage-schijven is $1,638. De geschatte totale maandelijkse kosten worden $3,208.
 
 Echter, als u dezelfde toepassing op Premium-opslag die wordt gehost, moet u een kleinere virtuele machine en minder premium storage-schijven, waardoor de totale kosten. Een standaard\_DS13-VM kan voldoen aan de 16.000 IOPS vereiste met behulp van vier P30-schijven. De DS13-virtuele machine heeft een maximale IOPS van 25,600 en elke P30-schijf heeft een maximale IOPS van 5000. Algemene, deze configuratie 5.000 x 4 = 20.000 kan maar liefst IOPS. De geschatte kosten van deze virtuele machine per maand is $1,003. De maandelijkse kosten van vier P30 premium storage-schijven is $544.34. De geschatte totale maandelijkse kosten worden $1,544.
 
@@ -223,7 +231,7 @@ Wanneer waarop Linux wordt uitgevoerd met Premium Storage, controleert u de mees
 
 ## <a name="premium-storage-disk-sizes"></a>Premium storage-schijfgrootten
 
-Azure Premium Storage biedt acht schijfgrootten voor algemene beschikbaarheid en drie schijfgrootten die momenteel Preview-versie worden. De grootte van elke schijf heeft de limiet van een andere schaal voor IOPS, bandbreedte en opslag. Kies het recht voor Premium Storage-schijfgrootte, afhankelijk van de toepassingsvereisten voor de en de hoge schaal VM-grootte. De onderstaande tabel ziet u de grootten elf schijven en de bijbehorende mogelijkheden. P4, P6, P15, P60, P70 en P80 grootten zijn momenteel alleen ondersteund voor Managed Disks.
+Azure Premium Storage biedt acht schijfgrootten voor algemene beschikbaarheid en drie schijfgrootten die momenteel in Preview-versie. De grootte van elke schijf heeft de limiet van een andere schaal voor IOPS, bandbreedte en opslag. Kies het recht voor Premium Storage-schijfgrootte, afhankelijk van de toepassingsvereisten voor de en de hoge schaal VM-grootte. De onderstaande tabel ziet u de grootten 11 schijven en de bijbehorende mogelijkheden. P4, P6, P15, P60, P70 en P80 grootten zijn momenteel alleen ondersteund voor Managed Disks.
 
 | Schijftype voor Premium-schijven  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
@@ -336,7 +344,7 @@ Wanneer een grootschalige die virtuele machine is gekoppeld met verschillende pr
 
 Op Windows, kunt u Storage Spaces stripe schijven samen. U moet een kolom voor elke schijf in een pool configureren. Anders kan de algehele prestaties van striped volumes lager dan verwacht vanwege een ongelijke distributie van verkeer op de schijven zijn.
 
-Belangrijk: Met behulp van Serverbeheer-UI, kunt u het totale aantal kolommen maximaal 8 voor een striped volume instellen. Bij het toevoegen van meer dan 8 schijven, kunt u PowerShell gebruiken om het volume te maken. Met behulp van PowerShell, kunt u instellen het aantal kolommen gelijk zijn aan het aantal schijven. Bijvoorbeeld, als er 16 schijven in een stripeset één; Geef 16 kolommen in de *NumberOfColumns* parameter van de *New-VirtualDisk* PowerShell-cmdlet.
+Belangrijk: Met behulp van Serverbeheer-UI, kunt u het totale aantal kolommen maximaal 8 voor een striped volume instellen. Bij het toevoegen van meer dan acht schijven, kunt u PowerShell gebruiken om het volume te maken. Met behulp van PowerShell, kunt u instellen het aantal kolommen gelijk zijn aan het aantal schijven. Bijvoorbeeld, als er 16 schijven in een stripeset één; Geef 16 kolommen in de *NumberOfColumns* parameter van de *New-VirtualDisk* PowerShell-cmdlet.
 
 Gebruik het hulpprogramma MDADM stripe-schijven samen op Linux. Voor gedetailleerde stappen voor het striping schijven op Linux naar verwijzen [Software-RAID configureren onder Linux](../articles/virtual-machines/linux/configure-raid.md).
 
@@ -345,7 +353,7 @@ Een belangrijke configuratie in schijfsegmentering wordt de stripe-grootte. De S
 
 Bijvoorbeeld, als een i/o-aanvraag die is gegenereerd door uw toepassing groter dan de Streepgrootte van de schijf is, schrijft het opslagsysteem deze grenzen stripe-eenheid op meer dan één schijf. Wanneer is het tijd om de toegang tot de gegevens, is er om te zoeken voor meer dan één stripe-eenheden om de aanvraag te voltooien. Het cumulatieve effect van dergelijk gedrag kan leiden tot aanzienlijke prestatievermindering. Anderzijds, kunnen als de grootte van de i/o-aanvraag is kleiner dan Streepgrootte, en als het willekeurig is, de i/o-aanvragen oplopen op dezelfde schijf als een knelpunt veroorzaakt en uiteindelijk vernederen de i/o-prestaties.
 
-Afhankelijk van het type werkbelasting van uw toepassing wordt uitgevoerd, kiest u een juiste stripe-grootte. Gebruik een kleinere streep voor willekeurige kleine i/o-aanvragen. Dat aanvragen voor grote opeenvolgende i/o een groter stripe gebruiken. Ontdek de stripe aanbevelingen voor de grootte voor de toepassing dat u zal worden uitgevoerd op Premium Storage. Configureren voor SQL Server, stripe-grootte van 64KB voor OLTP-workloads en 256KB voor magazijnbeheer data-workloads. Zie [aanbevolen procedures voor prestaties voor SQL Server op Azure Virtual machines](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) voor meer informatie.
+Afhankelijk van het type werkbelasting van uw toepassing wordt uitgevoerd, kiest u een juiste stripe-grootte. Gebruik een kleinere streep voor willekeurige kleine i/o-aanvragen. Dat aanvragen voor grote opeenvolgende i/o een groter stripe gebruiken. Ontdek de stripe aanbevelingen voor de grootte voor de toepassing dat u zal worden uitgevoerd op Premium Storage. Configureren voor SQL Server, stripe-grootte van 64 KB voor OLTP-workloads en 256 KB voor magazijnbeheer data-workloads. Zie [aanbevolen procedures voor prestaties voor SQL Server op Azure Virtual machines](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) voor meer informatie.
 
 > [!NOTE]
 > U kunt stripe samen een maximum van 32 premium storage-schijven op een virtuele machine uit de DS-serie en 64 premium storage-schijven op een virtuele machine uit de GS-serie.
@@ -366,7 +374,7 @@ Meer informatie over [graden van parallelle uitvoering](https://technet.microsof
 
 ## <a name="queue-depth"></a>Wachtrijdiepte
 
-De wachtrijdiepte of de lengte van wachtrij of de grootte van de wachtrij is het aantal openstaande i/o-aanvragen in het systeem. De waarde van wachtrijdiepte bepaalt hoeveel i/o-bewerkingen die uw toepassing uitlijnen kunt, die de opslagschijven wordt verwerkt. Het is van invloed op alle de drie toepassing prestatie-indicatoren dat we in dit artikel zoals, IOPS, Throughput and Latency besproken.
+De wachtrijdiepte of de lengte van wachtrij of de grootte van de wachtrij is het aantal openstaande i/o-aanvragen in het systeem. De waarde van wachtrijdiepte bepaalt hoeveel i/o-bewerkingen die uw toepassing uitlijnen kunt, die de opslagschijven wordt verwerkt. Het is van invloed op alle de drie toepassing prestatie-indicatoren die is besproken in dit artikel zoals, IOPS, doorvoer en latentie.
 
 In de wachtrij diepte en multithreading zijn nauw verwante. De waarde van de wachtrijdiepte geeft aan hoeveel multithreading kan worden bereikt door de toepassing. Als de wachtrijdiepte groot is, toepassingen kunt uitvoeren meer bewerkingen gelijktijdig, met andere woorden, meer multithreading. Als de diepte van de wachtrij klein, is zelfs als de toepassing meerdere threads is, wordt er niet voldoende uitgelijnd voor de uitvoering van gelijktijdige aanvragen.
 
@@ -382,13 +390,13 @@ Normaal gesproken een toepassing kunt bereiken met maximale doorvoer met 8-16 + 
 Bijvoorbeeld, in SQL Server informeert de MAXDOP-waarde voor een query naar "4" SQL Server maximaal vier kernen voor het uitvoeren van de query te gebruiken. SQL Server, bepaalt wat de beste wachtrijdiepte waarde en het aantal cores voor de uitvoering van de query is.
 
 *Optimale wachtrijdiepte*  
-Zeer hoog wachtrijdiepte waarde heeft ook de nadelen. Als de wachtrijdiepte waarde is te hoog, probeert de toepassing om zeer hoge IOPS te stimuleren. Tenzij de toepassing heeft permanente schijven met voldoende ingerichte IOPS, kan deze toepassing latenties negatief beïnvloeden. Formule te volgen, wordt de relatie tussen IOP's, latentie en wachtrijdiepte.  
+Zeer hoog wachtrijdiepte waarde heeft ook de nadelen. Als de wachtrijdiepte waarde is te hoog, probeert de toepassing om zeer hoge IOPS te stimuleren. Tenzij de toepassing heeft permanente schijven met voldoende ingerichte IOPS, kan deze toepassing latenties negatief beïnvloeden. Formule te volgen, wordt de relatie tussen IOPS, latentie en wachtrijdiepte.  
     ![](media/premium-storage-performance/image6.png)
 
 U moet wachtrijdiepte niet configureren voor een hoge waarde, maar voor een optimale waarde, die voldoende IOP's voor de toepassing zonder latenties kan bieden. Bijvoorbeeld, als de wachttijd van de toepassing moet zijn van 1 milliseconde, de wachtrijdiepte 5000 IOP's realiseren vereist is, Wachtrijdiepte = 5000 x 0,001 = 5.
 
 *Wachtrijdiepte voor Striped volumes*  
-Voor een striped volume wachtrijdiepte een hoog genoeg zijn zodat elke schijf een piek wachtrijdiepte afzonderlijk heeft. Neem bijvoorbeeld een toepassing die een wachtrijdiepte van 2 pushes en er zijn 4 schijven in de stripe. De twee i/o-aanvragen wordt omgeleid naar twee schijven en resterende twee schijven niet actief is. Daarom de wachtrijdiepte configureren zodat alle schijven bezet is. Formule hieronder laat zien hoe om te bepalen van de wachtrijdiepte van striped volumes.  
+Voor een striped volume wachtrijdiepte een hoog genoeg zijn zodat elke schijf een piek wachtrijdiepte afzonderlijk heeft. Neem bijvoorbeeld een toepassing die een wachtrijdiepte van 2 pushes en er zijn vier schijven in de stripe. De twee i/o-aanvragen wordt omgeleid naar twee schijven en resterende twee schijven niet actief is. Daarom de wachtrijdiepte configureren zodat alle schijven bezet is. Formule hieronder laat zien hoe om te bepalen van de wachtrijdiepte van striped volumes.  
     ![](media/premium-storage-performance/image7.png)
 
 ## <a name="throttling"></a>Beperking

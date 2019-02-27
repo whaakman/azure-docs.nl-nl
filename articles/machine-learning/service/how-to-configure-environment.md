@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2eb47bede14b139d011d8a74b5196a94a93a62c7
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: e055ddc49120d77047fa349b7e58c612eb724b41
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817096"
+ms.locfileid: "56881546"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Een ontwikkelomgeving configureren voor Azure Machine Learning
 
@@ -301,7 +301,9 @@ Zodra het cluster wordt uitgevoerd, [maakt u een bibliotheek](https://docs.datab
    |Voor Databricks| Uploaden van Python EI of PyPI | azureml-sdk[databricks]|
    |Voor Databricks - met-<br> geautomatiseerde ML-mogelijkheden| Uploaden van Python EI of PyPI | azureml-sdk[automl_databricks]|
 
-   * Er zijn geen andere SDK-extra's kunnen worden geïnstalleerd. Selecteer één van de voorgaande opties [databricks] of [automl_databricks].
+   > [!Warning]
+   > Er zijn geen andere SDK-extra's kunnen worden geïnstalleerd. Selecteer één van de voorgaande opties [databricks] of [automl_databricks].
+
    * Schakel niet **automatisch koppelen aan alle clusters**.
    * Selecteer **Attach** naast de clusternaam van uw.
 
@@ -320,7 +322,7 @@ Als de installatie is voltooid, worden de geïmporteerde bibliotheek moet eruitz
    
 SDK voor Databricks **_zonder_** automatische leerprocessen ![Azure Machine Learning-SDK voor Databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
-SDK voor Databricks **WITH** automatische leerprocessen ![SDK met automatische leerprocessen geïnstalleerd op Databricks ](./media/how-to-configure-environment/automlonadb.jpg)
+SDK voor Databricks **WITH** automatische leerprocessen ![SDK met automatische leerprocessen geïnstalleerd op Databricks](./media/how-to-configure-environment/automlonadb.jpg)
 
 ### <a name="start-exploring"></a>Beginnen met het verkennen
 

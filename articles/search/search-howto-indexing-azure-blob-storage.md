@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 2a282b76805ab91215d6b34ea30a7008d8c8244b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 56afc933eff2e06df270b17403b767ebaddd4154
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467975"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872995"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Documenten in Azure Blob-opslag met Azure Search indexeren
 Dit artikel wordt beschreven hoe u met Azure Search index documenten (zoals PDF-bestanden en Microsoft Office-documenten en enkele andere algemene indelingen) die zijn opgeslagen in Azure Blob-opslag. Eerst wordt de basisbeginselen van het instellen en configureren van een blob-indexeerfunctie uitgelegd. Vervolgens, biedt een diepergaand onderzoek van problemen en scenario's kunt u waarschijnlijk optreden.
@@ -333,7 +333,7 @@ Indexeren van blobs, kan een tijdrovend proces zijn. In gevallen waarin u werkt 
 
 U wilt 'samenstellen' documenten uit meerdere bronnen in uw index. U wilt bijvoorbeeld tekst van blobs samenvoegen met andere metagegevens die zijn opgeslagen in Cosmos DB. U kunt zelfs de push API indexeren, samen met verschillende indexeerfuncties gebruiken om op te bouwen documenten zoeken uit meerdere delen. 
 
-Om dit te werken, moeten alle Indexeerfuncties en andere onderdelen te stemmen op de documentsleutel. Zie voor een gedetailleerd overzicht dit externe artikel: [Documenten worden gecombineerd met andere gegevens in Azure Search ](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+Om dit te werken, moeten alle Indexeerfuncties en andere onderdelen te stemmen op de documentsleutel. Zie voor een gedetailleerd overzicht dit externe artikel: [Documenten worden gecombineerd met andere gegevens in Azure Search](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>Indexering als tekst zonder opmaak 

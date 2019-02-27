@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2fd6321dcdcb8102b38217eb377ae3c200d5d737
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: a549a46912b0d60f878a18cae1e70a763afc0243
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818558"
+ms.locfileid: "56874695"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Compute-doelen voor modeltraining instellen
 
@@ -46,6 +46,7 @@ Azure Machine Learning-service heeft verschillende ondersteuning voor verschille
 |[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |
 |[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+|[Azure Batch](#azbatch)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
 **Alle compute-doelen kunnen worden hergebruikt voor meerdere trainingstaken**. Bijvoorbeeld, wanneer u een externe VM aan uw werkruimte koppelen, u deze opnieuw kunt gebruiken voor meerdere taken.
 
@@ -240,6 +241,42 @@ Azure HDInsight is een populair platform voor big data-analyses. Het platform bi
 
 Nu dat u hebt de berekening die is gekoppeld en geconfigureerd uw uitvoering, de volgende stap is het [verzenden van de uitvoering van de training](#submit).
 
+
+### <a id="azbatch"></a>Azure Batch 
+
+Azure Batch is gebruikt voor het uitvoeren van grootschalige parallelle en high performance computing (HPC) toepassingen efficiënt in de cloud. AzureBatchStep kan worden gebruikt in een Azure Machine Learning-pijplijn voor het verzenden van taken naar een Azure Batch-pool van machines.
+
+Als u wilt koppelen Azure Batch als een compute-doel, moet u de Azure Machine Learning-SDK gebruiken en geef de volgende informatie:
+
+-   **Azure Batch-rekenknooppunt naam**: Een beschrijvende naam moet worden gebruikt voor de berekening die in de werkruimte
+-   **Azure Batch-accountnaam**: De naam van de Azure Batch-account
+-   **Resourcegroep**: De resourcegroep met de Azure Batch-account.
+
+De volgende code ziet u hoe u Azure Batch als een compute-doel toevoegen:
+
+```python
+from azureml.core.compute import ComputeTarget, BatchCompute
+from azureml.exceptions import ComputeTargetException
+
+batch_compute_name = 'mybatchcompute' # Name to associate with new compute in workspace
+
+# Batch account details needed to attach as compute to workspace
+batch_account_name = "<batch_account_name>" # Name of the Batch account
+batch_resource_group = "<batch_resource_group>" # Name of the resource group which contains this account
+
+try:
+    # check if the compute is already attached
+    batch_compute = BatchCompute(ws, batch_compute_name)
+except ComputeTargetException:
+    print('Attaching Batch compute...')
+    provisioning_config = BatchCompute.attach_configuration(resource_group=batch_resource_group, account_name=batch_account_name)
+    batch_compute = ComputeTarget.attach(ws, batch_compute_name, provisioning_config)
+    batch_compute.wait_for_completion()
+    print("Provisioning state:{}".format(batch_compute.provisioning_state))
+    print("Provisioning errors:{}".format(batch_compute.provisioning_errors))
+
+print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
+```
 
 ## <a name="set-up-compute-in-the-azure-portal"></a>Compute in Azure portal instellen
 

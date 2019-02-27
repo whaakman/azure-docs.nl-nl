@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: d36f2851f9c4f30725c8f8057d61970b6560009e
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 81ef669b62c822e10d8bf5c45e58dd769c5dbeb9
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313208"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888386"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Azure Cache beheren voor Redis
 In dit onderwerp wordt beschreven hoe u uitvoeren van beheertaken zoals [opnieuw wordt opgestart](#reboot) en [updates plannen](#schedule-updates) voor uw Azure-Cache voor instanties van Redis.
@@ -72,7 +72,7 @@ Ja, als u opnieuw opstarten om de cache die alle clientverbindingen zijn uitgesc
 > 
 
 ### <a name="will-i-lose-data-from-my-cache-if-i-do-a-reboot"></a>Ik gaan gegevens verloren uit de cache als ik een opnieuw opstarten?
-Als u opnieuw opstarten om zowel de **Master** en **Slave** knooppunten, alle gegevens in de cache (of shard als u een premium-cache met clustering is ingeschakeld) is verbroken. Als u hebt geconfigureerd [gegevenspersistentie](cache-how-to-premium-persistence.md), de meest recente back-up wordt hersteld wanneer de cache weer online komt, maar een cache-schrijfbewerkingen die hebben plaatsgevonden na de back-up is gemaakt, gaan verloren.
+Als u opnieuw opstarten om zowel de **Master** en **Slave** knooppunten, alle gegevens in de cache (of shard als u een premium-cache met clustering is ingeschakeld) kunnen worden verwijderd, maar dit is niet noodzakelijkerwijs een. Als u hebt geconfigureerd [gegevenspersistentie](cache-how-to-premium-persistence.md), de meest recente back-up wordt hersteld wanneer de cache weer online komt, maar een cache-schrijfbewerkingen die hebben plaatsgevonden na de back-up is gemaakt, gaan verloren.
 
 Als u slechts een van de knooppunten opnieuw opstarten, gegevens zijn niet doorgaans verloren, maar nog steeds kan zijn. Bijvoorbeeld als het hoofdknooppunt opnieuw wordt opgestart en een cache-Schrijf wordt uitgevoerd, de gegevens uit de cache schrijven is verloren gegaan. Een ander scenario voor preventie van gegevensverlies zou zijn als u een knooppunt opnieuw opstarten en het andere knooppunt gebeurt vanwege een fout op hetzelfde moment gaan. Zie voor meer informatie over mogelijke oorzaken voor verlies van gegevens, [wat is er gebeurd met mijn gegevens in Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md)
 
