@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: cf0eb7a0b9e38397034c03ef2b4310ed67c6e6dd
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: a7181c91424e1d905329eefd13f926d0b2700081
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980377"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864971"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Een niet-beheerde VM-installatiekopie maken van een Azure-VM
 
@@ -41,11 +41,11 @@ Zorg ervoor dat de server-functies die worden uitgevoerd op de machine worden on
 > 
 > 
 
-U kunt ook een Linux VM generaliseren met `sudo waagent -deprovision+user` en gebruikt u PowerShell om vast te leggen van de virtuele machine. Zie voor meer informatie over het gebruik van de CLI om vast te leggen van een virtuele machine [het generaliseren en vastleggen van een virtuele Linux-machine met de Azure CLI ](../linux/capture-image.md).
+U kunt ook een Linux VM generaliseren met `sudo waagent -deprovision+user` en gebruikt u PowerShell om vast te leggen van de virtuele machine. Zie voor meer informatie over het gebruik van de CLI om vast te leggen van een virtuele machine [het generaliseren en vastleggen van een virtuele Linux-machine met de Azure CLI](../linux/capture-image.md).
 
 
 1. Meld u aan de virtuele machine van Windows.
-2. Open het venster met de opdrachtprompt als beheerder. Wijzig de map in **%windir%\system32\sysprep**, en voer `sysprep.exe`.
+2. Open het venster met de opdrachtprompt als beheerder. Wijzig de directory in **%windir%\system32\sysprep** en voer dan `sysprep.exe`run uit.
 3. In het dialoogvenster **Hulpprogramma voor systeemvoorbereiding** selecteert u **OOBE (Out-of-Box Experience) van systeem starten** en zorgt u dat het selectievakje **Generaliseren** is ingeschakeld.
 4. In **afsluitopties**, selecteer **afsluiten**.
 5. Klik op **OK**.

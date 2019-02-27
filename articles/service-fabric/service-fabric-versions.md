@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/24/2018
 ms.author: aljo
-ms.openlocfilehash: 9da51d40c4a94af9bdcf16b48302e8eb2b60eb2f
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: ac25ad0e43930555153abdba19bb81baaee40305
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807708"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879234"
 ---
 # <a name="supported-service-fabric-versions"></a>Ondersteunde versies van de Service Fabric
 
@@ -27,8 +27,8 @@ Zorg ervoor dat uw cluster altijd wordt uitgevoerd een ondersteunde versie van S
 
 Raadpleeg de volgende documenten voor meer informatie over het behouden van uw cluster met een ondersteunde versie van Service Fabric.
 
-- [Service Fabric-versie op een Azure-cluster upgraden ](service-fabric-cluster-upgrade.md)
-- [Service Fabric-versie op een zelfstandige windows server-cluster upgraden ](service-fabric-cluster-upgrade-windows-server.md)
+- [Service Fabric-versie op een Azure-cluster upgraden](service-fabric-cluster-upgrade.md)
+- [Service Fabric-versie op een zelfstandige windows server-cluster upgraden](service-fabric-cluster-upgrade-windows-server.md)
 
 Hier volgen de lijst met de Service Fabric-versies die worden ondersteund en de einddatum van ondersteuning.
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: 2bd499c3afc423047dda9ff3ad657d110dab282a
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: f327b681b4e91e22d2d3c34e9e991b203c0330e4
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673644"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883161"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Ondersteuningsmatrix voor Azure VM backup
 U kunt de [Azure Backup-service](backup-overview.md) back-up on-premises computers en werkbelastingen en virtuele Azure-machines. In dit artikel bevat een overzicht van instellingen voor de ondersteuning en beperkingen bij het back-ups van Azure virtual machines (VM's) met Azure Backup.
@@ -168,7 +168,7 @@ Maak een back-up van virtuele machines gemigreerd naar Azure   | Ondersteund.<br
 --- | ---
 Azure VM-gegevensschijven | Back-up van een virtuele machine met 16 of minder gegevensschijven.
 Grootte van de gegevensschijf | Afzonderlijke schijf mag maximaal 4095 GB zijn.<br/><br/> Als u de nieuwste versie van Azure VM backup (bekend als Instant Restore) uitvoert, tot 4TB het formaat van schijf worden ondersteund. [Meer informatie](backup-instant-restore-capability.md).
-Opslagtype | Standaard harde schijven, standard-SSD, premium SSD <br/><br/> Standard-SSD wordt ondersteund als u de nieuwste versie van Azure VM backup (bekend als Instant Restore) uitvoert, standard-SSD wordt ondersteund. [Meer informatie](backup-instant-restore-capability.md).
+Opslagtype | Standaard harde schijven, standard-SSD, premium SSD <br/><br/> Standard-SSD wordt ondersteund als u de nieuwste versie van Azure VM backup (ook wel Instant Restore) uitvoert. [Meer informatie](backup-instant-restore-capability.md).
 Managed Disks | Ondersteund
 Versleutelde schijven | Ondersteund.<br/><br/> Azure VM's die zijn ingeschakeld met Azure Disk Encryption (ADE) kunnen worden back-ups (met of zonder de Azure AD-app).<br/><br/> Versleutelde virtuele machines kunnen niet worden hersteld op het niveau van het bestand/map. U moet de volledige virtuele machine herstellen.<br/><br/> U kunt versleuteling op virtuele machines die al worden beveiligd door Azure Backup inschakelen.
 Schijven met Write Accelerator is ingeschakeld | Wordt niet ondersteund.<br/><br/> Als u de nieuwste versie van Azure-VM back-up uitvoert (ook wel [direct herstellen](backup-instant-restore-capability.md)), kunt u schijven uitsluiten met Write Accelerator is ingeschakeld vanaf back-up.

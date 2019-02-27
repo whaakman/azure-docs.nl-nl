@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: mayg
-ms.openlocfilehash: 1fabbe3a9a486abc862bfb6c2671c60d11d8e8c7
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 8906c477a5d40eb4240669a615dcc9974246ecc8
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809927"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868830"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Met Azure ExpressRoute met Azure Site Recovery
 
@@ -40,7 +40,7 @@ Azure Site Recovery maakt herstel na noodgevallen en migratie naar Azure voor on
 
 Site Recovery repliceert gegevens naar een Azure Storage-account via een openbaar eindpunt. U kunt gebruiken voor het gebruik van ExpressRoute voor Site Recovery-replicatie, [openbare peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) of [Microsoft-peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). Microsoft-peering is de aanbevolen routeringsdomein voor replicatie. Zorg ervoor dat de [vereisten voor netwerken](vmware-azure-configuration-server-requirements.md#network-requirements) ook voor replicatie wordt voldaan. Nadat de virtuele machines of servers een failover uitvoeren naar een Azure-netwerk, kunt u ze openen met behulp van [privépeering](../expressroute/expressroute-circuit-peerings.md#privatepeering). Replicatie wordt niet ondersteund via persoonlijke peering.
 
-De gecombineerde scenario wordt weergegeven in het volgende diagram: ![On-premises-to-Azure met ExpressRoute](./media/concepts-expressroute-with-site-recovery/site-recovery-with-expressroute.png)
+De gecombineerde scenario wordt weergegeven in het volgende diagram: ![On-premises-to-Azure with ExpressRoute](./media/concepts-expressroute-with-site-recovery/site-recovery-with-expressroute.png)
 
 ## <a name="azure-to-azure-replication-with-expressroute"></a>Replicatie van Azure naar Azure met ExpressRoute
 
@@ -56,4 +56,4 @@ U kunt virtuele Azure-machines repliceren naar een Azure-regio binnen hetzelfde 
 - Meer informatie over [ExpressRoute-circuits](../expressroute/expressroute-circuit-peerings.md).
 - Meer informatie over [ExpressRoute-Routeringsdomeinen](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
 - Meer informatie over [ExpressRoute-locaties](../expressroute/expressroute-locations.md).
-- Meer informatie over herstel na noodgevallen van [Azure virtual machines met ExpressRoute ](azure-vm-disaster-recovery-with-expressroute.md).
+- Meer informatie over herstel na noodgevallen van [Azure virtual machines met ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).

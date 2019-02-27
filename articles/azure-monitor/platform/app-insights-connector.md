@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
-ms.openlocfilehash: 8b1504961254fefcaafc22008b4cc5adaf77e9c4
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: b9a847f04048cd17d550ca66bd3e6502577746eb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447868"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878452"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights-Connector-beheeroplossing (afgeschaft)
 
@@ -127,7 +127,7 @@ Wanneer u klikt op een willekeurige plaats de **uitzonderingen** blade ziet u ee
 
 Ongeacht of u klikken op iets een de **Application Insights-Connector** dashboard in de **zoeken** pagina zelf, query's retourneren van Application Insights-gegevens wordt de toepassing weergegeven. Insights-perspectief. Bijvoorbeeld, als u Application Insights-gegevens bekijkt een **&#42;** query geeft ook het tabblad perspectief, zoals de volgende afbeelding:
 
-![Application Insights ](./media/app-insights-connector/app-insights-search.png)
+![Application Insights](./media/app-insights-connector/app-insights-search.png)
 
 Perspectief onderdelen zijn bijgewerkt, afhankelijk van de zoekquery. Dit betekent dat u kunt de resultaten filteren met behulp van een zoekveld waarmee u beschikt over de mogelijkheid om te zien van de gegevens uit:
 

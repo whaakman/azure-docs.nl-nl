@@ -16,12 +16,12 @@ ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: a9cf502f169f4a9c4650545b1b37e11cc16a0a95
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: a4298a8bd78f178c56776e703e72ff99aac54207
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694377"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887897"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 update
 
@@ -77,7 +77,7 @@ Deze update bevat de volgende verbeteringen voor Azure Stack:
 ### <a name="changes"></a>Wijzigingen
 
 <!-- 2635202 - IS, ASDK -->
-- Back-upservice infrastructuur verplaatst van de [openbare infrastructuurnetwerk](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-infrastructure-network) naar de [openbare VIP-netwerk](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network). Klanten moet om te controleren of de service heeft toegang tot de back-upopslag-locatie van het openbare VIP-netwerk.  
+- Back-upservice infrastructuur verplaatst van de [openbare infrastructuurnetwerk](https://docs.microsoft.com/azure/azure-stack/azure-stack-network) naar de [openbare VIP-netwerk](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network). Klanten moet om te controleren of de service heeft toegang tot de back-upopslag-locatie van het openbare VIP-netwerk.  
 
 > [!IMPORTANT]  
 > Hebt u een firewall die verbindingen van het openbare VIP-netwerk met de server niet is toegestaan, wordt deze wijziging infrastructuur back-ups mislukken met 'Fout 53 het netwerkpad is niet gevonden'. Dit is een belangrijke wijziging waarvoor geen redelijke oplossing. Op basis van feedback van klanten, wordt Microsoft deze wijziging in een hotfix hersteld. Raadpleeg de [update stappen sectie boeken](#post-update-steps) voor meer informatie over beschikbare hotfixes voor 1809. Zodra de hotfix beschikbaar is, zorg ervoor dat deze na het bijwerken van 1809 alleen als uw beleid voor netwerken niet toestaan het openbare VIP-netwerk voor toegang tot infrastructuurresources dat toepassen. in 1811, wordt deze wijziging wordt toegepast op alle systemen. Als u de hotfix in 1809 toegepast, is er geen verdere actie vereist.  
@@ -243,7 +243,7 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 
    - NAAM: Storage service-interne communicatiefout  
    - ERNST: Kritiek  
-   - COMPONENT: Storage  
+   - COMPONENT: Opslag  
    - BESCHRIJVING: Storage service-interne communicatiefout is opgetreden bij het verzenden van aanvragen naar de volgende knooppunten.  
 
     De waarschuwing kan veilig worden genegeerd, maar moet u de waarschuwing handmatig sluit.

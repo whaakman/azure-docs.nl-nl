@@ -16,12 +16,12 @@ ms.date: 12/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3851e4c35b333e862ead296ad1e8448c3317228
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0e5b06ad551b45bc0c892bc789c6f5c5a27b5bb0
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210489"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882974"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Releasegeschiedenis van versie
 Azure AD Connect het team van Azure Active Directory (Azure AD) regelmatig bijgewerkt met nieuwe functies en functionaliteit. Niet alle toevoegingen gelden voor alle doelgroepen.
@@ -135,7 +135,7 @@ Azure AD Connect upgraden mislukt als altijd op beschikbaarheid van SQL is gecon
 ### <a name="new-features-and-improvements"></a>Nieuwe functies en verbeteringen
 
 - De Ping federeren integratie in Azure AD Connect is nu beschikbaar voor algemene beschikbaarheid. [Meer informatie over het federatieve Azure AD met Ping federeren](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#federation-with-pingfederate)
-- Azure AD Connect maakt nu de back-up van Azure AD-vertrouwensrelatie in AD FS telkens wanneer een update wordt gemaakt en in een afzonderlijk bestand voor eenvoudig herstel, opgeslagen indien nodig. [Meer informatie over de nieuwe functionaliteit en de Azure AD management in Azure AD Connect vertrouwen ](https://aka.ms/fedtrustinaadconnect).
+- Azure AD Connect maakt nu de back-up van Azure AD-vertrouwensrelatie in AD FS telkens wanneer een update wordt gemaakt en in een afzonderlijk bestand voor eenvoudig herstel, opgeslagen indien nodig. [Meer informatie over de nieuwe functionaliteit en de Azure AD management in Azure AD Connect vertrouwen](https://aka.ms/fedtrustinaadconnect).
 - Nieuwe hulpprogramma's voor het oplossen van problemen helpt u bij het oplossen van wijzigen van primaire e-mailadres en het account van de globale adreslijst verbergen
 - Azure AD Connect is bijgewerkt met de nieuwste SQL Server 2012 Native Client
 - Als u aanmelden van gebruikers naar wachtwoord-Hashsynchronisatie of Pass through-verificatie in de taak 'Wijziging gebruiker aanmelden', wordt het selectievakje naadloze eenmalige aanmelding is standaard ingeschakeld.

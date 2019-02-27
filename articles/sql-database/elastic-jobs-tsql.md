@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: bb7908c5ed72bf58f1bd8920983d76cb674286a3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 56ad75bc0bed77c2107a49ab339368ab2a63c1fe
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458088"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881257"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Transact-SQL (T-SQL) gebruiken om te maken en beheren van taken voor Elastic Database
 
@@ -409,7 +409,7 @@ De volgende opgeslagen procedures worden de [taken database](sql-database-job-au
 |Opgeslagen procedure  |Description  |
 |---------|---------|
 |[sp_add_job](#spaddjob)     |     Hiermee wordt een nieuwe taak toegevoegd.    |
-|[sp_update_job ](#spupdatejob)    |      Een bestaande taak voor het bijwerken.   |
+|[sp_update_job](#spupdatejob)    |      Een bestaande taak voor het bijwerken.   |
 |[sp_delete_job](#spdeletejob)     |      Hiermee verwijdert u een bestaande taak.   |
 |[sp_add_jobstep](#spaddjobstep)    |    Voegt een stap toe aan een taak.     |
 |[sp_update_jobstep](#spupdatejobstep)     |     Een stap in logboektaak-updates.    |
@@ -420,7 +420,7 @@ De volgende opgeslagen procedures worden de [taken database](sql-database-job-au
 |[sp_delete_target_group](#spdeletetargetgroup)     |    Hiermee verwijdert u een doelgroep.     |
 |[sp_add_target_group_member](#spaddtargetgroupmember)     |    Een database of een groep databases toegevoegd aan een doelgroep.     |
 |[sp_delete_target_group_member](#spdeletetargetgroupmember)     |     Hiermee verwijdert u een lid van een doel van een doelgroep.    |
-|[sp_purge_jobhistory ](#sppurgejobhistory)    |    Hiermee verwijdert u de geschiedenisrecords voor een taak.     |
+|[sp_purge_jobhistory](#sppurgejobhistory)    |    Hiermee verwijdert u de geschiedenisrecords voor een taak.     |
 
 
 
@@ -448,7 +448,7 @@ Hiermee wordt een nieuwe taak toegevoegd.
 #### <a name="arguments"></a>Argumenten  
 
 [ **@job_name =** ] 'job_name'  
-De naam van de taak. De naam moet uniek zijn en mag de %-teken niet bevatten. job_name is nvarchar(128) met geen standaardwaarde.
+De naam van de taak. De naam moet uniek zijn en mag het percentage (%) teken. job_name is nvarchar(128) met geen standaardwaarde.
 
 [  **@description =** ] 'description'  
 De beschrijving van de taak. de beschrijving is nvarchar(512), met een standaard null. Als de beschrijving wordt weggelaten, wordt een lege tekenreeks wordt gebruikt.

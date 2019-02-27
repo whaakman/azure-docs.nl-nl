@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 02/25/2019
 ms.author: juliako
-ms.openlocfilehash: 18c5e48b5f7dbf664b607b8b83473a914256590b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d5ca9e602416e6e575be8b79942cd6dba2a2fd69
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104549"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889151"
 ---
 # <a name="streaming-endpoints"></a>Streaming-eindpunten
 
@@ -33,11 +33,11 @@ Voor elke extra eindpunten: `{EndpointName}-{AccountName}-{DatacenterAbbreviatio
 
 ## <a name="types"></a>Typen  
 
-Er zijn twee **streamingendpoint zo** typen: **Standard** en **Premium**. Het type is gedefinieerd door het aantal schaaleenheden (`scaleUnits`) u toewijzen voor het streaming-eindpunt. 
+Er zijn twee **Streaming-eindpunt** typen: **Standard** en **Premium**. Het type is gedefinieerd door het aantal schaaleenheden (`scaleUnits`) u toewijzen voor het streaming-eindpunt. 
 
 De tabel staan de typen:  
 
-|Type|Schaaleenheden|Beschrijving|
+|Type|Schaaleenheden|Description|
 |--------|--------|--------|  
 |**Standard Streaming-eindpunt** (aanbevolen)|0|De **Standard** type is de aanbevolen optie voor vrijwel alle streaming scenario's en doelgroepen van elke grootte. De **Standard** type automatisch wordt geschaald uitgaande bandbreedte. <br/>Voor klanten met een bijzonder veeleisende behoeften Media Services biedt **Premium** streaming-eindpunten, die kunnen worden gebruikt voor het opschalen van capaciteit voor de grootste internet doelgroepen. Als u verwacht grote doelgroepen en gelijktijdige viewers dat, contact met ons op amsstreaming@microsoft.com voor informatie over de noodzaak om te verplaatsen naar de **Premium** type. |
 |**Premium Streaming Endpoint**|>0|**Premium**-streaming-eindpunten zijn geschikt voor geavanceerde workloads omdat er gebruik wordt gemaakt van toegewezen, schaalbare bandbreedtecapaciteit. U verplaatst naar een **Premium** type door aan te passen `scaleUnits`. `scaleUnits` bieden u speciale uitgangscapaciteit die kan worden aangeschaft per 200 Mbps. Wanneer u de **Premium** type, elke ingeschakelde unit biedt extra bandbreedtecapaciteit voor de toepassing. |
@@ -57,19 +57,58 @@ U moet ook rekening houden met hoe adaptieve streaming werkt. Elke afzonderlijke
  
 ## <a name="properties"></a>Properties 
 
-In deze sectie geeft informatie over een aantal van de eigenschappen van de streamingendpoint zo. Zie voor meer voorbeelden van het maken van een nieuwe streaming-eindpunt en een beschrijving van alle eigenschappen [Streaming-eindpunt](https://docs.microsoft.com/rest/api/media/streamingendpoints/create). 
+In deze sectie geeft informatie over een aantal van de eigenschappen van het Streaming-eindpunt. Zie voor meer voorbeelden van het maken van een nieuwe streaming-eindpunt en een beschrijving van alle eigenschappen [Streaming-eindpunt](https://docs.microsoft.com/rest/api/media/streamingendpoints/create). 
 
-|Eigenschap|Beschrijving|  
-|--------------|----------|
-|`accessControl`|Gebruikt voor het configureren van de volgende instellingen voor dit streaming-eindpunt: Verificatiesleutels van Akamai handtekening-header en IP-adressen die zijn toegestaan verbinding maken met dit eindpunt.<br />Deze eigenschap kan worden ingesteld wanneer `cdnEnabled`' ' is ingesteld op false.|  
-|`cdnEnabled`|Geeft aan of de Azure CDN-integratie voor dit streaming-eindpunt is ingeschakeld (standaard uitgeschakeld.)<br /><br /> Als u instelt `cdnEnabled` op true, de volgende configuraties uitgeschakeld: `customHostNames` en `accessControl`.<br /><br />Niet alle datacenters ondersteuning voor de Azure CDN-integratie. Als u wilt controleren of uw datacenter de Azure CDN heeft integratie beschikbaar het volgende doen:<br /><br /> -Probeert in te stellen de `cdnEnabled` op ' True '.<br /><br /> -Controleer de geretourneerde resultaten voor een `HTTP Error Code 412` (PreconditionFailed) met het bericht "Streaming-eindpunt CdnEnabled eigenschap kan niet worden ingesteld op true als het CDN-functionaliteit is niet beschikbaar in de huidige regio."<br /><br /> Als u deze fout optreedt, kan het datacenter deze biedt geen ondersteuning. Probeer een ander datacenter.|  
-|`cdnProfile`|Wanneer `cdnEnabled` is ingesteld op true, u kunt ook doorgeven `cdnProfile` waarden. `cdnProfile` de naam van het CDN-profiel is waar het CDN-eindpunt dat wordt gemaakt. U kunt een bestaande cdnProfile of gebruik een nieuwe. Als de waarde NULL is en `cdnEnabled` waar is, is de standaardwaarde 'AzureMediaStreamingPlatformCdnProfile' wordt gebruikt. Als de opgegeven `cdnProfile` al bestaat, een eindpunt wordt gemaakt onder het. Als het profiel niet aanwezig is, wordt een nieuw profiel automatisch gemaakt.|
-|`cdnProvider`|Wanneer CDN is ingeschakeld, kunt u ook doorgeven `cdnProvider` waarden. `cdnProvider` Hiermee bepaalt u welke provider worden gebruikt. Op dit moment worden drie waarden ondersteund: "StandardVerizon", "PremiumVerizon" and "StandardAkamai". Als er geen waarde is opgegeven en `cdnEnabled` is ingesteld op true, 'StandardVerizon' wordt gebruikt (dat wil zeggen de standaardwaarde.)|
-|`crossSiteAccessPolicies`|Hiermee geeft cross-site-beleidsregels voor verschillende clients. Zie voor meer informatie, [interdomein-bestand beleidsspecificatie](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) en [maken van een Service Available Across Domain Boundaries](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx).|  
-|`customHostNames`|Gebruikt voor het configureren van een streaming-eindpunt voor het accepteren van verkeer doorgestuurd naar een aangepaste hostnaam. Hierdoor kunnen voor eenvoudiger beheer van configuratie van het verkeer via een algemene Traffic Manager (GTM) en voor merknaam domeinnamen moet worden gebruikt als de streaming-eindpuntnaam.<br /><br /> Het eigendom van de domeinnaam moet worden bevestigd door Azure Media Services. Azure Media Services controleert het eigendom van de naam van domein of doordat een `CName` record met de Azure Media Services-account-ID als een onderdeel dat moet worden toegevoegd aan het domein wordt gebruikt. Een voorbeeld: voor 'sports.contoso.com' moet worden gebruikt als een aangepaste hostnaam voor het streaming-eindpunt, een record voor `<accountId>.contoso.com` moet worden geconfigureerd om te verwijzen naar een van de hostnamen voor Media Services-verificatie. De naam van de verificatie van verifydns bestaat. \<mediaservices-dns-zone >. De volgende tabel bevat de verwachte DNS-zones moet worden gebruikt in de record controleren voor verschillende Azure-regio's.<br /><br /> Noord-Amerika, Europa, Singapore, Hongkong SAR, Japan:<br /><br /> - mediaservices.windows.net<br /><br /> - verifydns.mediaservices.windows.net<br /><br /> China:<br /><br /> - mediaservices.chinacloudapi.cn<br /><br /> - verifydns.mediaservices.chinacloudapi.cn<br /><br /> Bijvoorbeeld, een `CName` record die wordt toegewezen '945a4c4e-28ea-45-cd-8ccb-a519f6b700ad.contoso.com' naar 'verifydns.mediaservices.windows.net' blijkt dat de 945a4c4e-28ea-45cd-8ccb-a519f6b700ad Azure Media Services-ID het eigendom van heeft de domein contoso.com, waardoor u van elke naam in contoso.com moet worden gebruikt als een aangepaste hostnaam voor een streaming-eindpunt onder dat account.<br /><br /> Als u de Media Service-ID-waarde zoekt, gaat u naar de [Azure-portal](https://portal.azure.com/) en selecteer uw Media Service-account. De MEDIA SERVICE-ID wordt weergegeven aan de rechterkant van de pagina DASHBOARD.<br /><br /> **Waarschuwing**: Als er een poging tot het instellen van een aangepaste hostnaam zonder een juiste verificatie van de `CName` record, het DNS-antwoord mislukken en worden opgeslagen in het cachegeheugen voor enige tijd. Zodra een juiste record ingesteld is, kan het even duren voordat totdat het antwoord in de cache opnieuw wordt gevalideerd. Afhankelijk van de DNS-provider voor het aangepaste domein, kan het een paar minuten tot een uur tot duren valideren van de record.<br /><br /> Naast de `CName` die wordt toegewezen `<accountId>.<parent domain>` naar `verifydns.<mediaservices-dns-zone>`, moet u een andere `CName` die de aangepaste hostnaam wordt toegewezen (bijvoorbeeld `sports.contoso.com`) naar uw Media Services-StreamingEndpont-hostnaam (bijvoorbeeld `amstest.streaming.mediaservices.windows.net`).<br /><br /> **Opmerking**: Streaming-eindpunten die zich in hetzelfde Datacenter delen niet dezelfde aangepaste hostnaam.<br /> Deze eigenschap is ongeldig voor Standard en premium streaming-eindpunten en kunnen worden ingesteld als "cdnEnabled": false<br/><br/> Op dit moment biedt geen AMS ondersteuning voor SSL met aangepaste domeinen.  |  
-|`maxCacheAge`|Onderdrukt de standaard max-age HTTP cache control-header ingesteld door het streaming-eindpunt op media fragmenten en op aanvraag manifesten. De waarde is ingesteld in een paar seconden.|
-|`resourceState`|Waarden voor de eigenschap zijn onder andere:<br /><br /> -Is gestopt. De initiële status van een streaming-eindpunt nadat is gemaakt.<br /><br /> -Wordt gestart. Het streaming-eindpunt is overstappen naar de actieve status.<br /><br /> -Wordt uitgevoerd. Het streaming-eindpunt kan inhoud te streamen naar clients.<br /><br /> -Schaal. De schaaleenheden worden verhoogd of verlaagd.<br /><br /> -Moet worden gestopt. Het streaming-eindpunt is overstappen naar de status ' gestopt '.<br/><br/> -Wordt verwijderd. Het streaming-eindpunt wordt verwijderd.|
-|`scaleUnits `|scaleUnits bieden u speciale uitgangscapaciteit die kan worden aangeschaft per 200 Mbps. Als u verplaatsen wilt naar een **Premium** typt, aanpassen `scaleUnits`. |
+- `accessControl` -Gebruikt voor het configureren van de volgende instellingen voor dit streaming-eindpunt: Verificatiesleutels van Akamai handtekening-header en IP-adressen die zijn toegestaan verbinding maken met dit eindpunt.<br />Deze eigenschap kan worden ingesteld wanneer `cdnEnabled` is ingesteld op false.
+- `cdnEnabled` -Geeft aan of de Azure CDN-integratie voor dit streaming-eindpunt is ingeschakeld (standaard uitgeschakeld). Als u instelt `cdnEnabled` op true, de volgende configuraties uitgeschakeld: `customHostNames` en `accessControl`.
+  
+    Niet alle datacenters ondersteuning voor de Azure CDN-integratie. Als u wilt controleren of uw datacenter de Azure CDN-integratie beschikbaar heeft, het volgende doen:
+ 
+   - Probeert in te stellen de `cdnEnabled` op ' True '.
+   - Controleer de geretourneerde resultaten voor een `HTTP Error Code 412` (PreconditionFailed) met het bericht "Streaming-eindpunt CdnEnabled eigenschap kan niet worden ingesteld op true als het CDN-functionaliteit is niet beschikbaar in de huidige regio." 
+
+    Als u deze fout optreedt, kan het datacenter deze biedt geen ondersteuning. Probeer een ander datacenter.
+- `cdnProfile` -Wanneer `cdnEnabled` is ingesteld op true, u kunt ook doorgeven `cdnProfile` waarden. `cdnProfile` de naam van het CDN-profiel is waar het CDN-eindpunt dat wordt gemaakt. U kunt een bestaande cdnProfile of gebruik een nieuwe. Als de waarde NULL is en `cdnEnabled` waar is, is de standaardwaarde 'AzureMediaStreamingPlatformCdnProfile' wordt gebruikt. Als de opgegeven `cdnProfile` al bestaat, een eindpunt wordt gemaakt onder het. Als het profiel niet bestaat, wordt een nieuw profiel automatisch gemaakt.
+- `cdnProvider` -Wanneer CDN is geactiveerd, kunt u ook doorgeven `cdnProvider` waarden. `cdnProvider` Hiermee bepaalt u welke provider worden gebruikt. Op dit moment worden drie waarden ondersteund: "StandardVerizon", "PremiumVerizon" and "StandardAkamai". Als er geen waarde is opgegeven en `cdnEnabled` is ingesteld op true, 'StandardVerizon' wordt gebruikt (dat wil zeggen de standaardwaarde).
+- `crossSiteAccessPolicies` -Hiermee geeft cross-site-beleidsregels voor verschillende clients. Zie voor meer informatie, [interdomein-bestand beleidsspecificatie](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) en [maken van een Service Available Across Domain Boundaries](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx).
+- `customHostNames` -Gebruikt voor het configureren van een Streaming-eindpunt voor het accepteren van verkeer doorgestuurd naar een aangepaste hostnaam.  Deze eigenschap is ongeldig voor Standard en Premium-Streaming-eindpunten en kunnen worden ingesteld wanneer `cdnEnabled`: false.
+    
+    Het eigendom van de domeinnaam moet worden bevestigd door Media Services. Media Services controleert het eigendom van de naam van domein of doordat een `CName` record met de ID van de Media Services-account als een onderdeel dat moet worden toegevoegd aan het domein wordt gebruikt. Een voorbeeld: voor 'sports.contoso.com' moet worden gebruikt als een aangepaste hostnaam voor het streaming-eindpunt, een record voor `<accountId>.contoso.com` moet worden geconfigureerd om te verwijzen naar een van de hostnamen voor Media Services-verificatie. De naam van de verificatie van verifydns bestaat. \<mediaservices-dns-zone >. 
+
+    Hieronder vindt u de verwachte DNS-zones moet worden gebruikt in de record controleren voor verschillende Azure-regio's.
+  
+    - Noord-Amerika, Europa, Singapore, Hongkong SAR, Japan:
+      
+      - `media.azure.net`
+      - `verifydns.media.azure.net`
+      
+    - China:
+        
+      - `mediaservices.chinacloudapi.cn`
+      - `verifydns.mediaservices.chinacloudapi.cn`
+        
+    Bijvoorbeeld, een `CName` record die wordt toegewezen '945a4c4e-28ea-45-cd-8ccb-a519f6b700ad.contoso.com' naar 'verifydns.media.azure.net' blijkt dat de Media Services-ID 945a4c4e-28ea-45cd-8ccb-a519f6b700ad het eigendom van het domein contoso.com dus heeft inschakelen van een willekeurige naam onder contoso.com moet worden gebruikt als een aangepaste hostnaam voor een streaming-eindpunt onder dat account. Als u de Media Service-ID-waarde zoekt, gaat u naar de [Azure-portal](https://portal.azure.com/) en selecteer uw Media Service-account. De **Account-ID** wordt weergegeven in de rechterbovenhoek van de pagina.
+        
+    Als er een poging tot het instellen van een aangepaste hostnaam zonder een juiste verificatie van de `CName` record, het DNS-antwoord mislukken en worden opgeslagen in het cachegeheugen voor enige tijd. Zodra een juiste record ingesteld is, kan het even duren voordat totdat het antwoord in de cache opnieuw wordt gevalideerd. Afhankelijk van de DNS-provider voor het aangepaste domein, kan het een paar minuten tot een uur tot duren valideren van de record.
+        
+     Naast de `CName` die wordt toegewezen `<accountId>.<parent domain>` naar `verifydns.<mediaservices-dns-zone>`, moet u een andere `CName` die de aangepaste hostnaam wordt toegewezen (bijvoorbeeld `sports.contoso.com`) naar uw Media Services Streaming-eindpunt van hostnaam (bijvoorbeeld `amstest-usea.streaming.media.azure.net`).
+ 
+    > [!NOTE]
+    > Streaming-eindpunten die zich in hetzelfde Datacenter delen niet dezelfde aangepaste hostnaam.
+
+    Op dit moment biedt geen Media Services ondersteuning voor SSL met aangepaste domeinen. 
+    
+- `maxCacheAge` -Onderdrukkingen de standaard max-age HTTP-cache beheren-header ingesteld door het streaming-eindpunt op media fragmenten en op aanvraag manifesten. De waarde is ingesteld in een paar seconden.
+- `resourceState` -
+
+    - Gestopt - de initiële status van een Streaming-eindpunt na het maken
+    - Begin - is overstappen naar de actieve status
+    - Actief - kan inhoud te streamen naar clients
+    - Schalen - de schaal eenheden worden verhoogd of verlaagd
+    - Stoppen - is overstappen naar de status gestopt
+    - Verwijderen - wordt verwijderd
+    
+- `scaleUnits ` -U voorzien van speciale uitgangscapaciteit die kan worden aangeschaft per 200 Mbps. Als u verplaatsen wilt naar een **Premium** typt, aanpassen `scaleUnits`.
 
 ## <a name="next-steps"></a>Volgende stappen
 

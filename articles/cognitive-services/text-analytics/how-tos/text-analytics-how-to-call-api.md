@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 52c5cb640bfb861fb2da52ee711fe3955a169bcf
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 6fedc1b9a6b88419dbcae41b5bb6f89bd8c5cbf7
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244025"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886874"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Over het aanroepen van de Text Analytics REST-API
 
@@ -43,7 +43,7 @@ U kunt dezelfde documenten voor alle Text Analytics-bewerkingen op dit moment in
 | Element | Geldige waarden | Vereist? | Gebruik |
 |---------|--------------|-----------|-------|
 |`id` |Het gegevenstype tekenreeks is, maar in de praktijk document-id's zijn meestal gehele getallen. | Vereist | De id's die u verstrekt structuur van de uitvoer wordt gebruikt door het systeem. Taalcodes, sleuteltermen en gevoel scores worden gegenereerd voor elke-ID in de aanvraag.|
-|`text` | Ongestructureerde onbewerkte tekst, maximaal 5000 tekens. | Vereist | Voor de taaldetectie, kan tekst worden uitgedrukt in elke taal. Voor sentimentanalyse, sleuteltermextractie en entiteits-id, de tekst moet zich in een [ondersteunde taal](../text-analytics-supported-languages.md). |
+|`text` | Ongestructureerde onbewerkte tekst, maximaal 5.120 tekens. | Vereist | Voor de taaldetectie, kan tekst worden uitgedrukt in elke taal. Voor sentimentanalyse, sleuteltermextractie en entiteits-id, de tekst moet zich in een [ondersteunde taal](../text-analytics-supported-languages.md). |
 |`language` | 2-teken [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) code voor een [ondersteunde taal](../text-analytics-supported-languages.md) | Varieert | Vereist voor sentimentanalyse, sleuteltermextractie en entiteiten koppelen; Dit is optioneel voor taaldetectie. Er is geen fout als u deze wordt uitgesloten, maar de analyse is zonder verzwakt. De taalcode die moet overeenkomen met de `text` u bieden. |
 
 Zie voor meer informatie over de limieten [Text Analytics-overzicht > gegevenslimieten](../overview.md#data-limits). 

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 49c41b436e0d935d1f9fce5ba2de10e0f2d0c99d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 2c32ef84c1016d0058ee07220729a291aff19b70
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991221"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868065"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Zeer grootschalige servicelaag (preview) voor maximaal 100 TB
 
@@ -145,7 +145,7 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 
 ## <a name="available-regions"></a>Beschikbare regio's
 
-Zeer grootschalige service-laag is momenteel in openbare preview en beschikbaar is in de volgende Azure-regio's: EastUS1, EastUS2, WestUS2, CentralUS, NorthCentralUS, WestEurope, NorthEurope, UKWest, AustraliaEast, AustraliaSouthEast, SouthEastAsia, JapanEast, KoreaCentral
+Zeer grootschalige service-laag is momenteel in openbare preview en beschikbaar is in de volgende Azure-regio's: VS-Oost 1, VS-Oost 2, West vs2, VS-midden, Noord CentralU S, West-Europa, Noord-Europa, Australië-Oost, Australië-Zuidoost, Zuidoost-Azië, Japan-Oost en Korea-centraal
 
 ## <a name="known-limitations"></a>Bekende beperkingen
 

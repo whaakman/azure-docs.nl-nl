@@ -15,12 +15,12 @@ ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: a638d5cdfbd3af46335cfb8e4970306534fc1c3b
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: cbdf864c2c10d5eb1c0f9a903bd186370b96a72f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445981"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879628"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Overzicht App Service op Azure Stack
 
@@ -53,7 +53,7 @@ Uw toepassing kan bestaan uit meerdere App Service-apps van verschillende typen.
 - Beide (front-end en API) implementeren in één web-app
 - Uw front-endcode implementeren in een web-app en uw back-endcode implementeren in een API-app.
 
-   [ ![App Service-overzicht met gegevens te controleren](media/azure-stack-app-service-overview/image01.png "App Service-overzicht met gegevens te controleren") ](media/azure-stack-app-service-overview/image01.png#lightbox)
+   [![App Service-overzicht met gegevens te controleren](media/azure-stack-app-service-overview/image01.png "App Service-overzicht met gegevens te controleren")](media/azure-stack-app-service-overview/image01.png#lightbox)
 
 ## <a name="what-is-an-app-service-plan"></a>Wat is een App Service-plan?
 

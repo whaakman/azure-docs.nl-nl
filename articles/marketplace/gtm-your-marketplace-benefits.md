@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: 0e324ae82a0223cf48f00b186f46e26840d4d655
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 3fa4fb9fb7accfbe4517e2bf917a3df31ea10fa7
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747523"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887247"
 ---
 # <a name="your-marketplace-benefits"></a>Uw Marketplace-voordelen
 
@@ -63,9 +63,9 @@ Voor toegang tot deze voordelen, moet u naar:
 1. Een aanbieding publiceren in Azure Marketplace of AppSource.
 2. Zorg ervoor dat u hebt een marketing contactpersoon in de **contactgegevens** gedeelte van uw aanbieding. Dit moet een toegewezen marketing resource, in plaats van een catch-all-alias. (Internet Explorer, Vermijd het gebruik van ' ondersteunen\@', ' info\@"," marketing\@', enzovoort.)
 
-Op basis van de oplossingsstatus van uw, ontvangt u een e-mail met bronnen voor zelfhulp of een uitnodiging voor een aanroep van overleg met een toegewezen Engagement Manager. U hoeft niet verder niets voor het starten van de aanroep te doen, het Marketplace-Voorbereidingsteam neemt contact met u op basis van de informatie die u opgeeft in de [Cloud Partner-Portal](https://cloudpartner.azure.com/).
+Op basis van de oplossingsstatus van uw, voorstel lijst, proefversie of Transact, ontvangt u een e-mail met bronnen voor zelfhulp of een uitnodiging voor een aanroep van overleg met een toegewezen Engagement Manager. U hoeft niet verder niets voor het starten van de aanroep te doen, het Marketplace-Voorbereidingsteam neemt contact met u op basis van de informatie die u opgeeft in de [Cloud Partner-Portal](https://cloudpartner.azure.com/).
 
-Het bereik van de activiteiten die beschikbaar zijn voor u uitgebreid naarmate u uw aanbiedingen op marketplace groeit. Alle aanbiedingen ontvangen een basisniveau aan optimalisatie aanbevelingen en de promotie.  Deze aanbiedingen zijn ook in aanmerking komen voor extra marketing voordelen op basis van de oplossingsstatus van de marketplace en de prestatie van de competentie voor het Microsoft-Partner gekozen. 
+Het bereik van de activiteiten die beschikbaar zijn voor u uitgebreid naarmate u uw aanbiedingen op marketplace groeit. Alle aanbiedingen ontvangen een basisniveau aan optimalisatie aanbevelingen en de promotie.  Deze aanbiedingen zijn ook in aanmerking komen voor extra marketing voordelen op basis van de oplossingsstatus (lijst, proefversie of Transact), marketplace en de prestatie van de competentie voor het Microsoft-Partner gekozen.
 
 De onderstaande tabel geven een overzicht van de vereisten voor geschiktheid:
 

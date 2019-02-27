@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: 40557d4e71dfea5996396cde634f7a1c80913556
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 16c7fe68e67094cef21d9efbffdccd614827ae6d
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430536"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887468"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Back-up van een Azure-VM van de instellingen van de virtuele machine
 
@@ -66,7 +66,7 @@ Als u wilt back-up van virtuele machines van Azure, installeert Azure Backup een
 
   ![Back-upstatus](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
 
-10. Na het inschakelen van back-up, een [eerste back-up](#run-the-initial-backup) wordt uitgevoerd. U kunt het onmiddellijk starten van de eerste back-up of wacht totdat deze wordt gestart in overeenstemming met de back-upschema.
+10. Na het inschakelen van back-up, een eerste back-up wordt uitgevoerd. U kunt het onmiddellijk starten van de eerste back-up of wacht totdat deze wordt gestart in overeenstemming met de back-upschema.
     - Totdat de eerste back-up is voltooid, de **laatste back-up status** wordt weergegeven als **waarschuwing (eerste back-up in behandeling)**.
     - Als u wilt zien wanneer de volgende geplande back-up wordt uitgevoerd, klikt u op de naam van de back-upbeleid.
     

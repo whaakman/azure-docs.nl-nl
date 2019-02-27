@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: hrasheed
-ms.openlocfilehash: a0da4339586982f5210834bcec5acfe463bc1a9a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 8fccf82371225acd5839537f7629ffe7df138d43
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816438"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888148"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Apache Hadoop-clusters in HDInsight beheren met behulp van de Azure-portal
 
@@ -71,9 +71,9 @@ Selecteer de clusternaam van uw vanaf het [ **HDInsight-clusters** pagina](#show
 
 - **Bewaking van menu**
   - **Waarschuwingen**: De waarschuwingen en acties beheren.
-  - **Metrische gegevens**: Controleer de metrische gegevens voor het cluster in Azure Log Analytics.
+  - **Metrische gegevens**: Controleer de metrische gegevens voor cluster in Azure Monitor-Logboeken.
   - **Diagnose-instellingen**: Instellingen voor het opslaan van de diagnose metrische gegevens.
-  - **Operations Management Suite**:  Controleer uw cluster in Azure Operations Management Suite (OMS) en Azure Log Analytics.
+  - **Operations Management Suite**:  Uw cluster in Azure Operations Management Suite (OMS) en Azure Monitor-logboeken bewaken.
 
 - **Ondersteuning en probleemoplossing van menu**
   - **Resourcestatus**: Zie [overzicht van Azure resource health](../service-health/resource-health-overview.md).

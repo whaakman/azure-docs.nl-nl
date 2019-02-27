@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: d98834abaf925cdabd312869615a60f64049826d
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: c98328342eec7fa59a56fbcc70da8cdd7a8fabf1
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56808539"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880883"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Oplossen van problemen met Azure Application Gateway-sessie-affiniteit
 
@@ -75,7 +75,7 @@ U kunt de instelling van de cookies gebaseerde affiniteit hebt ingeschakeld, wan
 
 Volg de instructies voor het identificeren van dit probleem:
 
-1. Maak een web-foutopsporingsprogramma-tracering op de 'Client' die verbinding met de toepassing achter de Gateway(We are using Fiddler in this example) toepassing maakt traceren.
+1. Een foutopsporingsprogramma web tracering uitvoeren op de 'Client' die verbinding met de toepassing achter de Gateway(We are using Fiddler in this example) toepassing maakt.
     **Tip** als u niet hoe u de Fiddler gebruikt weet, controleert u de optie '**ik wil netwerkverkeer verzamelen en analyseren met behulp van web foutopsporingsprogramma**' aan de onderkant.
 
 2. Controleren en analyseren van de sessielogboeken, om te bepalen of de cookies die is opgegeven door de client de details van de ARRAffinity hebben. Als u de details van ARRAffinity, zoals niet vinden "**ARRAffinity =** *ARRAffinityValue*' binnen de cookie is ingesteld, die aangeeft dat de client is niet met behulp van de cookie SH beantwoorden die wordt geleverd door de Application Gateway.

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 74b21a9dd8faa8eb35aa8a2ef738bd6303e4cdd7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1203f33458c83bbde7a263022b78563bad183143
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196792"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870734"
 ---
 # <a name="azure-application-marketplace-tab"></a>Azure-toepassing Marketplace tabblad
 
@@ -39,7 +39,7 @@ De volgende tabel beschrijft de instellingen moet worden gebruikt voor het maken
 |         Samenvatting           |        Korte samenvatting van de aanbieding. De maximale lengte is 100 tekens.           |
 |         Lange samenvatting           |        Meer samenvatting van de aanbieding (Hoewel deze kan niet hetzelfde zijn als de samenvatting). De maximale lengte is 256 tekens.           |
 |       Description            |         Beschrijving van de aanbieding. De maximale lengte is 3000 tekens. Eenvoudige HTML-opmaak is toegestaan, met inbegrip van &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; en header-codes.           |
-|        Marketing-id            |         Een unieke URL om te koppelen aan deze aanbieding omvat gewoonlijk van uw organisatie en de naam van de oplossing, maximaal 50 tekens. Kies een korte, beschrijvende marketing-id voor uw service. Dit wordt gebruikt in marketplace-URL's voor deze aanbieding. Bijvoorbeeld, als uw uitgevers-ID is 'contoso' en uw marketing-id is 'sampleApp', is de URL voor uw aanbieding in Azure Marketplace https://azuremarketplace.microsoft.com/en-us/marketplace/apps/contoso.sampleApp          |
+|        Marketing Identifier            |         Een unieke URL om te koppelen aan deze aanbieding omvat gewoonlijk van uw organisatie en de naam van de oplossing, maximaal 50 tekens. Kies een korte, beschrijvende marketing-id voor uw service. Dit wordt gebruikt in marketplace-URL's voor deze aanbieding. Bijvoorbeeld, als uw uitgevers-ID is 'contoso' en uw marketing-id is 'sampleApp', is de URL voor uw aanbieding in Azure Marketplace https://azuremarketplace.microsoft.com/en-us/marketplace/apps/contoso.sampleApp          |
 |        Preview-versie abonnement-id 's            |         Toevoegen van één tot 100 abonnements-id's van viewers. Deze technische vermeld abonnementen hebben toegang tot uw aanbieding terwijl het is beschikbaar in Preview-versie nadat deze gepubliceerd, voordat u deze meteen live.          |
 |         Nuttige koppelingen           |        U kunt koppelingen naar diverse bronnen opgeven voor gebruikers van uw aanbieding, zoals ondersteuning, documentatie, forums, enzovoort. Zorg ervoor dat u ten minste één koppeling toevoegen aan uw documentatie.            |
 |         Aanbevolen categorieën (maximaal 5)           |         Kies maximaal vijf categorieën. De geselecteerde categorieën worden gebruikt om uw aanbieding worden toegewezen aan de productcategorieën die beschikbaar zijn in Azure Marketplace en Azure-Portal. Ze worden weergegeven op de pagina's bladeren en op de pagina met details van uw product.          |
@@ -66,7 +66,7 @@ De volgende tabel beschrijft de marketing-artefacten.
 
 De volgende Schermafbeelding toont een voorbeeld van een zoekresultaat Marketplace.
 
-![Marketplace-aanbieding zoekresultaat ](./media/azureapp-marketplace-example-browse.png)
+![Marketplace-aanbieding zoekresultaat](./media/azureapp-marketplace-example-browse.png)
 
 De volgende afbeelding ziet u hoe de aanbieding wordt weergegeven in de Marketplace nadat een klant op de tegel van de aanbieding in de zoekresultaten klikt.
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: normesta
-ms.openlocfilehash: 09514e37d1d40c489eda483980237d26e4a08730
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: ec97cf903a37465f98007750fc41edc0952ab3a6
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417919"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889593"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Met behulp van Azure Data Lake Storage Gen2 voor big data-vereisten
 
@@ -70,9 +70,9 @@ Deze tabel laat zien hoe toegangsmachtigingen voor elke Azure-service of hulppro
 |---|--|---|
 |Opslagverkenner| Een rol toewijzen aan gebruikers en groepen | [De beheerder en niet-beheerder rollen toewijzen aan gebruikers met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal) |
 |AzCopy| Een rol toewijzen aan gebruikers en groepen <br>**or**<br> Een SAS-token gebruiken| [De beheerder en niet-beheerder rollen toewijzen aan gebruikers met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)<br><br>[Eenvoudig maken een SAS voor het downloaden van een bestand vanuit Azure Storage – met Azure Storage Explorer](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/)|
-|Apache DistCp | Een rol toewijzen aan een gebruiker toegewezen beheerde identiteit | [Het maken van een HDInsight-cluster met Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2#creating-an-hdinsight-cluster-with-data-lake-storage-gen2) |
+|Apache DistCp | Een rol toewijzen aan een gebruiker toegewezen beheerde identiteit | [Het maken van een HDInsight-cluster met Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
 |Azure Data Factory| Een rol toewijzen aan een gebruiker toegewezen-beheerde identiteit<br>**or**<br> Een rol is een service-principal toewijzen<br>**or**<br> Gebruik van een opslagaccountsleutel | [Eigenschappen van de gekoppelde service](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#linked-service-properties) |
-|Azure HDInsight| Een rol toewijzen aan een gebruiker toegewezen beheerde identiteit | [Het maken van een HDInsight-cluster met Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2#creating-an-hdinsight-cluster-with-data-lake-storage-gen2)|
+|Azure HDInsight| Een rol toewijzen aan een gebruiker toegewezen beheerde identiteit | [Het maken van een HDInsight-cluster met Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)|
 |Azure Databricks| Een rol toewijzen aan een service-principal | [Procedure: De portal gebruiken om een Azure AD-toepassing en service-principal die toegang hebben tot resources te maken](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)|
 
 Als u wilt toegang verlenen tot specifieke bestanden en mappen, Zie de volgende artikelen.

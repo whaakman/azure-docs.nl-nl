@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 9c35a4a811925abaf8dcb64d3e7060bbb1f91cce
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 3daa71c91d1e49a497a979b9b5b89df1fcb9418c
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408320"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889678"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Externe metagegevensopslag in Azure HDInsight gebruiken
 
@@ -57,7 +57,7 @@ U kunt uw cluster verwijzen naar een eerder gemaakte Azure SQL Database tijdens 
 
 U kunt ook extra clusters toevoegen aan een aangepaste metastore van Azure portal of van de Ambari-configuraties (Hive-> Geavanceerd)
 
-![HDInsight Hive-metagegevens Store Ambari](./media/hdinsight-use-external-metadata-stores/metadata-store-ambari.png)
+![HDInsight Hive Metadata Store Ambari](./media/hdinsight-use-external-metadata-stores/metadata-store-ambari.png)
 
 ## <a name="hive-metastore-best-practices"></a>Hive-metastore aanbevolen procedures
 
@@ -68,7 +68,7 @@ Hier volgen enkele algemene HDInsight Hive-metastore aanbevolen procedures:
 - Als u van plan meerdere HDInsight-clusters bent voor toegang tot afzonderlijke gegevens, moet u een afzonderlijke database gebruiken voor de metastore op elke cluster. Als u een metastore tussen meerdere HDInsight-clusters delen, betekent dit dat de clusters de dezelfde metagegevens en de onderliggende gegevensbestanden van de gebruiker gebruiken.
 - Back-up van uw aangepaste metastore periodiek. Azure SQL Database-back-ups automatisch genereert, maar is afhankelijk van het back-upretentie tijdsbestek. Zie voor meer informatie, [meer informatie over de automatische SQL-Database back-ups](../sql-database/sql-database-automated-backups.md).
 - Zoek uw metastore en HDInsight-cluster in dezelfde regio, voor de prestaties van de hoogste en laagste kosten voor netwerk-uitgaand verkeer.
-- Controleer uw metastore voor prestaties en beschikbaarheid met behulp van Azure SQL Database controleren hulpmiddelen, zoals de Azure portal of Azure Log Analytics.
+- Controleer uw metastore voor prestaties en beschikbaarheid met behulp van Azure SQL Database controleren hulpmiddelen, zoals de Azure portal of de logboeken van Azure Monitor.
 - Wanneer een nieuwe, hogere versie van Azure HDInsight is gemaakt op basis van een bestaande aangepaste metastore-database, werkt het systeem het schema van de metastore die zonder de database herstellen vanuit back-up is niet ongedaan worden gemaakt.
 - Als u een metastore tussen meerdere clusters delen, controleert u of dat alle clusters zijn dezelfde versie van HDInsight. Verschillende versies van Hive gebruiken verschillende metastore databaseschema's. U kunt een metastore niet delen tussen verschillende Hive 1.2 en 2.1 Hive versioned clusters. 
 

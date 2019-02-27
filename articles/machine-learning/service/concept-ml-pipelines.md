@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 12/4/2018
 ms.custom: seodec18
-ms.openlocfilehash: 917bac81923650405c37dfee500c9606dc7c54ca
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: d4bef53a21e6ab7b55c16e27083b818929fbd47c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816603"
+ms.locfileid: "56879251"
 ---
 # <a name="build-machine-learning-pipelines-with-the-azure-machine-learning-service"></a>Machine learning-pijplijnen met de Azure Machine Learning-service bouwen
 
@@ -34,13 +34,23 @@ Het volgende diagram toont een voorbeeld van de pijplijn:
 
 ![Machine learning-pijplijnen in Azure Machine Learning-service](./media/concept-ml-pipelines/pipelines.png)
 
+### <a name="which-azure-pipeline-technology-should-i-use"></a>Welke Azure-pipeline-technologie moet ik gebruiken?
+
+De Azure-cloud biedt verschillende andere pijplijnen, elk met een ander doel. De volgende tabel bevat de verschillende pijplijnen en waarvoor ze worden gebruikt voor:
+
+| Pijplijn | Wat het doet | Canonieke pipe |
+| ---- | ---- | ---- |
+| Azure Machine Learning-pijplijnen | Hiermee definieert u herbruikbare machine learning-werkstromen die kunnen worden gebruikt als een sjabloon voor uw machine learning-scenario's. | Data -> model |
+| [Azure Data Factory-pijplijnen](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Gegevensverplaatsing voor groepen, gegevenstransformatie en controleactiviteiten die nodig zijn om uit te voeren van een taak.  | Gegevens -> |
+| [Azure pijplijnen](https://azure.microsoft.com/services/devops/pipelines/) | Continue integratie en levering van uw toepassing op elk cloud platform/any  | Code -> app/service |
+
 ## <a name="why-build-pipelines-with-azure-machine-learning"></a>Waarom zou u pijplijnen met Azure Machine Learning bouwen?
 
 U kunt de [Azure Machine Learning-SDK voor Python](#the-python-sdk-for-pipelines) ML pijplijnen, evenals te verzenden en volgen van afzonderlijke pijplijnuitvoeringen maken.
 
 Met pijplijnen, kunt u uw werkstroom met de eenvoud, de snelheid, draagbaarheid en hergebruik optimaliseren. Bij het bouwen van pijplijnen met Azure Machine Learning, kunt u zich richten op uw expertise, machine learning, in plaats van op de infrastructuur.
 
-Met behulp van afzonderlijke stappen, maakt het mogelijk alleen de stappen die u nodig hebt, zoals u aanpassen en testen van de werkstroom opnieuw uit te voeren. Een stap is een rekenkundige eenheid in de pijplijn. Zoals weergegeven in het vorige diagram, kan de taak van het voorbereiden van gegevens hebben betrekking op veel stappen. Deze omvatten, maar niet beperkt tot normalisering, transformatie, validatie en parametrisatie. Gegevensbronnen en tussenliggende gegevens worden hergebruikt voor de pijplijn, welke bespaart tijd en resources berekenen. 
+Met behulp van afzonderlijke stappen, maakt het mogelijk alleen de stappen die u nodig hebt, zoals u aanpassen en testen van de werkstroom opnieuw uit te voeren. Een stap is een rekenkundige eenheid in de pijplijn. Zoals weergegeven in het vorige diagram, kan de taak van het voorbereiden van gegevens hebben betrekking op veel stappen. Deze stappen omvatten, maar niet beperkt tot normalisering, transformatie, validatie en parametrisatie. Gegevensbronnen en tussenliggende gegevens worden hergebruikt voor de pijplijn, welke bespaart tijd en resources berekenen. 
 
 Nadat de pijplijn is ontworpen, is er vaak meer aan te passen om de lus training van de pijplijn. Wanneer u een pijplijn, de run koppelingen naar de stappen die opnieuw worden gestart moeten, zoals een bijgewerkte trainingsscript opnieuw uitvoeren en slaat over wat er nog niet is gewijzigd. De dezelfde paradigma is van toepassing op ongewijzigd scripts die worden gebruikt voor het uitvoeren van de stap. 
 

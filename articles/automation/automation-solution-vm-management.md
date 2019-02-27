@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/08/2019
+ms.date: 02/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3fcab4c7456295d8f7414232bc90bc5ab352e43a
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 991a50828059d850627e1f8f3f34f65a55fdf3f6
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817878"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890229"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>VM's starten/stoppen buiten kantooruren oplossing in Azure Automation
 
@@ -41,6 +41,8 @@ De volgende zijn beperkingen aan de huidige oplossing:
 ## <a name="prerequisites"></a>Vereisten
 
 De runbooks voor deze oplossing werkt met een [uitvoeren als-account](automation-create-runas-account.md). Uitvoeren als-account is de aanbevolen verificatiemethode omdat deze verificatie via certificaten gebruikt in plaats van een wachtwoord dat mogelijk verlopen of regelmatig wordt gewijzigd.
+
+Het verdient aanbeveling een afzonderlijk Automation-Account gebruiken voor het starten/stoppen van VM-oplossing. Dit is omdat de versies van de Azure-module worden regelmatig bijgewerkt en de bijbehorende parameters kunnen worden gewijzigd. De oplossing starten/stoppen van VM is niet bijgewerkt op de frequentie die dezelfde zodat deze werkt niet met een nieuwere versie van de cmdlets die worden gebruikt. Het verdient aanbeveling voor het testen van module-updates in een test Automation-Account voordat u ze importeert in uw productieomgeving Automation-Account.
 
 ## <a name="deploy-the-solution"></a>De oplossing implementeren
 

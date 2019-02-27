@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 714bf5f915cb588a99552a8bbbc5ffa76aa16846
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 372df0bc6ea540b4b2c030ec71acc6889e7c7d19
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426128"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874083"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Certificaatassets in Azure Automation
 
@@ -105,7 +105,7 @@ U wilt toevoegen een **Get-AutomationCertificate** aan een grafisch runbook door
 
 De volgende afbeelding toont een voorbeeld van het gebruik van een certificaat in een grafisch runbook. Dit is hetzelfde als in het voorgaande voorbeeld voor het toevoegen van een certificaat aan een cloudservice vanuit een tekstuele runbook.
 
-![Voorbeeld van grafisch ontwerpen ](media/automation-certificates/graphical-runbook-add-certificate.png)
+![Voorbeeld van grafisch ontwerpen](media/automation-certificates/graphical-runbook-add-certificate.png)
 
 ### <a name="python2-sample"></a>Python2-voorbeeld
 Het volgende voorbeeld laat zien hoe toegang tot de certificaten in Python2-runbooks.

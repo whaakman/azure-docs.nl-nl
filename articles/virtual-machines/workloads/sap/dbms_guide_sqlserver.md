@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 58ae26a2daf2a65eaf56672c9e75147bd71e489a
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: b89c02aa0d30ec1928be2110fe6470da4f28080c
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330729"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889916"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SQL Server Azure virtuele Machines DBMS-implementatie voor SAP NetWeaver
 
@@ -383,7 +383,7 @@ SQL Server 2014 en latere releases open de mogelijkheid voor het opslaan van bes
 * Overwegingen met betrekking tot eerder vermelde met betrekking tot de distributie van VHD's die via andere Azure Storage-Accounts gelden voor deze methode ook implementaties. Betekent dat het aantal i/o-bewerkingen op basis van de grenzen van de Azure Storage-Account.
 * In plaats van boekhouding op van de VM-opslag i/o-quotum, zal het verkeer op basis van de storage-blobs die de bestanden van de gegevens en logboekbestanden voor SQL Server, worden verwerkt in de bandbreedte van de virtuele machine van het specifieke VM-type. Voor netwerk- en bandbreedte van een bepaald type van de virtuele machine, moet u het artikel [grootten voor Windows virtuele machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
 * Als gevolg van i/o via het netwerk quotum pushen, moet u het opslagquotum zijn voornamelijk gestrand en gebruiken met die de totale bandbreedte van de virtuele machine slechts gedeeltelijk.
-* De IOPS en i/o doorvoer prestatiedoelen met Azure Premium Storage voor de verschillende schijfgrootten niet meer van toepassing. Zelfs als de blobs die u hebt gemaakt, bevinden zich in Azure Premium Storage. De doelen worden beschreven het artikel [High-performance Premium Storage en beheerde schijven voor virtuele machines](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage#scalability-and-performance-targets). Als gevolg van het plaatsen van SQL Server-gegevensbestanden en logboekbestanden rechtstreeks op blobs die zijn opgeslagen op Azure Premium Storage, kunnen de prestatiekenmerken afwijken in vergelijking met VHD's op Azure Premium Storage.
+* De IOPS en i/o doorvoer prestatiedoelen met Azure Premium Storage voor de verschillende schijfgrootten niet meer van toepassing. Zelfs als de blobs die u hebt gemaakt, bevinden zich in Azure Premium Storage. De doelen worden beschreven het artikel [High-performance Premium Storage en beheerde schijven voor virtuele machines](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage). Als gevolg van het plaatsen van SQL Server-gegevensbestanden en logboekbestanden rechtstreeks op blobs die zijn opgeslagen op Azure Premium Storage, kunnen de prestatiekenmerken afwijken in vergelijking met VHD's op Azure Premium Storage.
 * Hostcache in op basis van als beschikbaar voor Azure Premium Storage-schijven is niet beschikbaar bij het plaatsen van SQL Server-gegevensbestanden rechtstreeks op de Azure-blobs.
 * Op virtuele machines uit de M-serie, worden niet Azure Write Accelerator gebruikt voor de ondersteuning van onder de milliseconde schrijfbewerkingen ten opzichte van het logboekbestand van de SQL Server-transactie. 
 

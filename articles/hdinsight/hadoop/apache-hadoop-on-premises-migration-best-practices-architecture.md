@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8295c149d513f89318aa63ddd7f4236013923203
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: f1e2b9dfc329e67d94fba998a01d593b992ba90f
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434000"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886805"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>On-premises Apache Hadoop-clusters migreren naar Azure HDInsight - architectuur van aanbevolen procedures
 
@@ -29,11 +29,11 @@ Azure HDInsight-clusters zijn ontworpen voor een specifiek type compute-gebruik.
 |**Workload**|**HDInsight-clustertype**|
 |---|---|
 |Batchverwerking (ETL / ELT)|Hadoop, Spark|
-|Datawarehousing|Hadoop, Spark, interactieve Query|
+|Datawarehousing|Hadoop, Spark, Interactive Query|
 |IoT / Streaming|Kafka, Storm, Spark|
 |NoSQL-transacties verwerken|HBase|
 |Interactief en sneller query's met caching in het geheugen|Interactive Query|
-|Data Science|ML-Services, Spark|
+|Data Science|ML Services, Spark|
 
 De volgende tabel ziet u de verschillende methoden die kunnen worden gebruikt om een HDInsight-cluster te maken.
 
@@ -105,7 +105,7 @@ Enkele aanbevolen procedures voor HDInsight Hive-metastore zijn als volgt:
 - Deel geen de metastore voor één versie van HDInsight-cluster met clusters van een andere versie gemaakt. Verschillende versies van Hive gebruiken verschillende schema's. Bijvoorbeeld, kan niet een metastore worden gedeeld met zowel Hive 1.2 en 2.1 Hive-clusters.
 - Back-up van de aangepaste metastore periodiek.
 - Houd de metastore en het HDInsight-cluster in dezelfde regio.
-- Controleer de metastore voor prestaties en beschikbaarheid met behulp van Azure SQL Database controleren hulpmiddelen, zoals Azure portal of Azure Log Analytics.
+- Controleer de metastore voor prestaties en beschikbaarheid met behulp van Azure SQL Database controleren hulpmiddelen, zoals Azure portal of de logboeken van Azure Monitor.
 - Voer de **tabel analyseren** opdracht zoals vereist voor het genereren van statistieken voor tabellen en kolommen. Bijvoorbeeld `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
 
 ## <a name="best-practices-for-different-workloads"></a>Aanbevolen procedures voor verschillende werkbelastingen

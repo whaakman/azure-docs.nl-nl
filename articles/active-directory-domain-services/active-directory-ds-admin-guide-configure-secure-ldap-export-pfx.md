@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2017
 ms.author: ergreenl
-ms.openlocfilehash: 18c91b0bfee3f423e2d60e3c9893e8e5208aa292
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 801ba3b84ba9956ca8d13916ac4d90060a7f4037
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164602"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883450"
 ---
 # <a name="create-a-pfx-file-with-the-secure-ldap-ldaps-certificate-for-a-managed-domain"></a>Maak een. PFX-bestand met het certificaat voor secure LDAP (LDAPS) voor een beheerd domein
 
@@ -82,7 +82,7 @@ Voor het exporteren van het LDAPS-certificaat naar een. PFX-bestand:
 
 14. Op de **Security** weergeeft, schakelt de **wachtwoord** optie en typ een wachtwoord te beschermen de. PFX-bestand. Onthoud dit wachtwoord omdat deze is vereist in de volgende taak. Klik op **volgende**.
 
-    ![Wachtwoord voor het certificaat exporteren ](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-password.png)
+    ![Wachtwoord voor het certificaat exporteren](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-password.png)
 
     > [!NOTE]
     > Noteer dit wachtwoord. U hebt deze nodig tijdens het inschakelen van secure LDAP voor dit beheerde domein in [taak 3: secure LDAP inschakelen voor het beheerde domein](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)

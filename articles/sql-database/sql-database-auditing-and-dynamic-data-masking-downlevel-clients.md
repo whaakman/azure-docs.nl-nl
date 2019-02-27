@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/14/2019
-ms.openlocfilehash: 76fe764d828a7fa6e4ebb015f98b9af485d5df5f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.date: 02/25/2019
+ms.openlocfilehash: 2c95ec4d88e55af0becc73719bcc6126501267db
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567080"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866824"
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>SQL Database - ondersteuning voor Downlevel-clients en IP-eindpunt voor Tabelcontrole wordt gewijzigd
 
@@ -28,6 +28,7 @@ ms.locfileid: "55567080"
 [Controle van de database](sql-database-auditing.md) werkt automatisch met SQL-clients die ondersteuning bieden voor TDS-omleiding. Houd er rekening mee dat omleiding is niet van toepassing wanneer u de methode controlefunctie voor blobs.
 
 ## <a id="subheading-1"></a>Ondersteuning voor downlevel-clients
+
 Omleiding moet ook ondersteuning voor elke client waarmee de TDS-7.4 wordt geïmplementeerd. Uitzonderingen op deze omvatten JDBC 4.0 waarin de functie voor omleiding wordt niet volledig ondersteund en Tedious voor Node.JS in waarvoor omleiding is niet geïmplementeerd.
 
 Voor 'Downlevel-clients', moet dat wil zeggen welke ondersteuning TDS-versie 7.3 hieronder wordt weergegeven: de FQDN-naam van de server in de verbinding tekenreeks en worden gewijzigd:
@@ -46,6 +47,7 @@ Een gedeeltelijke lijst van 'Downlevel-clients' bevat:
 **Opmerking:** De bovenstaande server FQDN wijzigingen zijn mogelijk nuttig zijn ook voor het toepassen van een beleid voor controle van SQL Server op zonder dat nodig is voor een configuratiestap in elke database (tijdelijke risicobeperking).
 
 ## <a id="subheading-2"></a>IP-eindpunt wijzigingen bij het inschakelen van controle
+
 Houd er rekening mee dat wanneer u de Tabelcontrole inschakelt, het IP-eindpunt van uw database worden gewijzigd. Als u strikte firewall-instellingen hebt, werkt u de firewall-instellingen dienovereenkomstig.
 
 De nieuwe database IP-eindpunt is afhankelijk van de databaseregio:
@@ -78,5 +80,4 @@ De nieuwe database IP-eindpunt is afhankelijk van de databaseregio:
 | US - west-centraal |52.161.29.186, 52.161.27.213 |
 | Canada - midden |13.88.248.106, 13.88.248.110 |
 | Canada - oost |40.86.227.82, 40.86.225.194 |
-| VK, noord |13.87.101.18, 13.87.100.232 |
-| VK, zuid 2 |13.87.32.202, 13.87.32.226 |
+| Verenigd Koninkrijk Zuid |13.87.32.202, 13.87.32.226 |

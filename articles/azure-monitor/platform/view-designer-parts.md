@@ -1,6 +1,6 @@
 ---
-title: Een referentie-handleiding voor de Weergaveontwerper-onderdelen in Azure Log Analytics | Microsoft Docs
-description: Met behulp van ontwerper in Log Analytics, kunt u aangepaste weergaven maken in Azure portal die tal van gegevensvisualisaties in uw Log Analytics-werkruimte worden weergegeven. In dit artikel is een handleiding verwijzing naar de instellingen voor de visualisatie-onderdelen die beschikbaar in uw aangepaste weergaven zijn.
+title: Een referentie-handleiding voor de Weergaveontwerper-onderdelen in Azure Monitor | Microsoft Docs
+description: Met behulp van Designer bekijken in Azure Monitor, kunt u aangepaste weergaven die worden weergegeven in de Azure-portal en bevatten een aantal visualisaties op de gegevens in de Log Analytics-werkruimte maken. In dit artikel is een handleiding verwijzing naar de instellingen voor de visualisatie-onderdelen die beschikbaar in uw aangepaste weergaven zijn.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
-ms.openlocfilehash: 61118520e84b53a7669e482694f48d60fd8e67ad
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 53323e70884e61b4643f7950a1a6333f08dbbb6f
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193872"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889899"
 ---
-# <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Naslaggids voor Weergaveontwerper visualisatie delen in Log Analytics
-Met behulp van Designer bekijken in Azure Log Analytics, kunt u aangepaste weergaven maken in Azure portal die tal van gegevensvisualisaties in uw Log Analytics-werkruimte. In dit artikel is een handleiding verwijzing naar de instellingen voor de visualisatie-onderdelen die beschikbaar in uw aangepaste weergaven zijn.
+# <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Naslaggids voor Weergaveontwerper visualisatie delen in Azure Monitor
+Met behulp van Designer bekijken in Azure Monitor, kunt u tal van aangepaste weergaven maken in Azure portal waarmee u gegevens visualiseren in uw Log Analytics-werkruimte kunt. In dit artikel is een handleiding verwijzing naar de instellingen voor de visualisatie-onderdelen die beschikbaar in uw aangepaste weergaven zijn.
 
 Zie voor meer informatie over Designer bekijken:
 
@@ -33,9 +33,9 @@ De beschikbare typen van de Weergaveontwerper-tegel worden in de volgende tabel 
 
 | Weergavetype | Description |
 |:--- |:--- |
-| [Lijst met query 's](#list-of-queries-part) |Geeft een lijst van logboek zoekquery's. U kunt elke query om de resultaten weer te geven. |
-| [Getal en lijst](#number-and-list-part) |De koptekst wordt weergegeven een enkel getal dat geeft het aantal records van een zoekquery logboek. De lijst bevat de bovenste tien resultaten van een query, met een grafiek die de relatieve waarde van een numerieke kolom of de wijziging na verloop van tijd aangeeft. |
-| [Twee getallen en lijst](#two-numbers-and-list-part) |De header geeft twee getallen die het aantal records van de afzonderlijke log zoekquery's weergeven. De lijst bevat de bovenste tien resultaten van een query, met een grafiek die de relatieve waarde van een numerieke kolom of de wijziging na verloop van tijd aangeeft. |
+| [Lijst met query 's](#list-of-queries-part) |Geeft een lijst van Logboeken-query's. U kunt elke query om de resultaten weer te geven. |
+| [Getal en lijst](#number-and-list-part) |De koptekst wordt weergegeven een enkel getal dat geeft het aantal records in een logboekquery. De lijst bevat de bovenste tien resultaten van een query, met een grafiek die de relatieve waarde van een numerieke kolom of de wijziging na verloop van tijd aangeeft. |
+| [Twee getallen en lijst](#two-numbers-and-list-part) |Twee getallen waarin het aantal records uit afzonderlijke logboeken-query's worden weergegeven in de header. De lijst bevat de bovenste tien resultaten van een query, met een grafiek die de relatieve waarde van een numerieke kolom of de wijziging na verloop van tijd aangeeft. |
 | [Ring en lijst](#donut-and-list-part) |De koptekst wordt weergegeven een enkel getal met een overzicht van de kolom van een waarde in een logboekquery. De Ring worden de resultaten van de top drie records grafisch weergegeven. |
 | [Twee tijdlijnen en lijst](#two-timelines-and-list-part) |De resultaten van twee logboeken-query's weergegeven de koptekst na verloop van tijd als kolomdiagrammen, met een toelichting waarop een enkel getal met een overzicht van de kolom van een waarde in een logboekquery. De lijst bevat de bovenste tien resultaten van een query, met een grafiek die de relatieve waarde van een numerieke kolom of de wijziging na verloop van tijd aangeeft. |
 | [Informatie](#information-part) |De koptekst wordt weergegeven voor statische tekst en een optionele koppeling. De lijst bevat een of meer items met een statische titel en tekst. |
@@ -46,7 +46,7 @@ De beschikbare typen van de Weergaveontwerper-tegel worden in de volgende tabel 
 De volgende secties beschrijven de tegeltypen en de bijbehorende eigenschappen in detail.
 
 ## <a name="list-of-queries-part"></a>Lijst met query's-onderdeel
-De lijst met query's onderdeel geeft een lijst van logboek zoekquery's. U kunt elke query om de resultaten weer te geven. De weergave bevat één query standaard, en u kunt selecteren **+ Query** toevoegen van extra query's.
+De lijst met query's onderdeel geeft een lijst van Logboeken-query's. U kunt elke query om de resultaten weer te geven. De weergave bevat één query standaard, en u kunt selecteren **+ Query** toevoegen van extra query's.
 
 ![Lijst met query's weergeven](media/view-designer-parts/view-list-queries.png)
 
@@ -62,7 +62,7 @@ De lijst met query's onderdeel geeft een lijst van logboek zoekquery's. U kunt e
 | Beschrijvende naam | De beschrijvende naam die wordt weergegeven. |
 
 ## <a name="number-and-list-part"></a>Aantal en de lijst met onderdeel
-De koptekst wordt weergegeven een enkel getal dat geeft het aantal records van een zoekquery logboek. De lijst bevat de bovenste tien resultaten van een query, met een grafiek die de relatieve waarde van een numerieke kolom of de wijziging na verloop van tijd aangeeft.
+De koptekst wordt weergegeven een enkel getal dat geeft het aantal records in een logboekquery. De lijst bevat de bovenste tien resultaten van een query, met een grafiek die de relatieve waarde van een numerieke kolom of de wijziging na verloop van tijd aangeeft.
 
 ![Lijst met query's weergeven](media/view-designer-parts/view-number-list.png)
 
@@ -86,12 +86,12 @@ De koptekst wordt weergegeven een enkel getal dat geeft het aantal records van e
 | Navigatie via klikken | Wanneer u op een item in de lijst met klikt uitgevoerde actie.  Zie voor meer informatie, [algemene instellingen die u](#click-through-navigation). |
 | **Lijst met** |**> Aangepaste titels** |
 | Name |De tekst die wordt weergegeven aan de bovenkant van de eerste kolom. |
-| Waarde |De tekst die wordt weergegeven aan de bovenkant van de tweede kolom. |
+| Value |De tekst die wordt weergegeven aan de bovenkant van de tweede kolom. |
 | **Lijst met** |**> Drempelwaarden** |
 | Drempelwaarden inschakelen |Selecteer deze koppeling om in te schakelen drempelwaarden. Zie voor meer informatie, [algemene instellingen die u](#thresholds). |
 
 ## <a name="two-numbers-and-list-part"></a>Twee getallen en lijst onderdeel
-De header heeft twee getallen die een aantal records van de afzonderlijke log zoekquery's worden weergegeven. De lijst bevat de bovenste tien resultaten van een query, met een grafiek die de relatieve waarde van een numerieke kolom of de wijziging na verloop van tijd aangeeft.
+De header heeft twee getallen die een aantal records uit afzonderlijke logboeken-query's worden weergegeven. De lijst bevat de bovenste tien resultaten van een query, met een grafiek die de relatieve waarde van een numerieke kolom of de wijziging na verloop van tijd aangeeft.
 
 ![Twee getallen en lijst weergeven](media/view-designer-parts/view-two-numbers-list.png)
 
@@ -117,7 +117,7 @@ De header heeft twee getallen die een aantal records van de afzonderlijke log zo
 | Navigatie via klikken | Wanneer u op een item in de lijst met klikt uitgevoerde actie.  Zie voor meer informatie, [algemene instellingen die u](#click-through-navigation). |
 | **Lijst met** |**> Aangepaste titels** |
 | Name |De tekst die wordt weergegeven aan de bovenkant van de eerste kolom. |
-| Waarde |De tekst die wordt weergegeven aan de bovenkant van de tweede kolom. |
+| Value |De tekst die wordt weergegeven aan de bovenkant van de tweede kolom. |
 | **Lijst met** |**> Drempelwaarden** |
 | Drempelwaarden inschakelen |Selecteer deze koppeling om in te schakelen drempelwaarden. Zie voor meer informatie, [algemene instellingen die u](#thresholds). |
 
@@ -158,7 +158,7 @@ De koptekst wordt weergegeven een enkel getal met een overzicht van de kolom van
 | Navigatie via klikken | Wanneer u op een item in de lijst met klikt uitgevoerde actie.  Zie voor meer informatie, [algemene instellingen die u](#click-through-navigation). |
 | **Lijst met** |**> Aangepaste titels** |
 | Name |De tekst die wordt weergegeven aan de bovenkant van de eerste kolom. |
-| Waarde |De tekst die wordt weergegeven aan de bovenkant van de tweede kolom. |
+| Value |De tekst die wordt weergegeven aan de bovenkant van de tweede kolom. |
 | **Lijst met** |**> Drempelwaarden** |
 | Drempelwaarden inschakelen |Selecteer deze koppeling om in te schakelen drempelwaarden. Zie voor meer informatie, [algemene instellingen die u](#thresholds). |
 
@@ -190,7 +190,7 @@ De resultaten van twee logboeken-query's weergegeven de koptekst na verloop van 
 | Navigatie via klikken | Wanneer u op een item in de lijst met klikt uitgevoerde actie.  Zie voor meer informatie, [algemene instellingen die u](#click-through-navigation). |
 | **Lijst met** |**> Aangepaste titels** |
 | Name |De tekst die wordt weergegeven aan de bovenkant van de eerste kolom. |
-| Waarde |De tekst die wordt weergegeven aan de bovenkant van de tweede kolom. |
+| Value |De tekst die wordt weergegeven aan de bovenkant van de tweede kolom. |
 | **Lijst met** |**> Drempelwaarden** |
 | Drempelwaarden inschakelen |Selecteer deze koppeling om in te schakelen drempelwaarden. Zie voor meer informatie, [algemene instellingen die u](#thresholds). |
 
@@ -208,7 +208,7 @@ De koptekst wordt weergegeven voor statische tekst en een optionele koppeling. D
 | **Header** | |
 | Installatiekopie |Het afbeeldingsbestand dat wordt weergegeven in de header. |
 | Label |De tekst die wordt weergegeven in de header. |
-| **Header** |**> Koppeling** |
+| **Header** |**> Link** |
 | Label |De tekst van de koppeling. |
 | URL |De Url voor de koppeling. |
 | **Informatie-items** | |
@@ -236,7 +236,7 @@ De koptekst wordt een lijndiagram met meerdere reeksen uit een query voor tijd e
 | **Lijndiagram** |**> Bijschrift** |
 | Titel van bijschrift |De tekst die wordt weergegeven boven de waarde van bijschrift. |
 | Reeksnaam |De waarde van de eigenschap voor de reeks moet worden gebruikt voor de waarde van bijschrift. Als er geen reeks is opgegeven, worden alle records van de query worden gebruikt. |
-| Bewerking |De bewerking uit te voeren op de eigenschap value om samen te vatten het als één waarde voor de toelichting.<ul><li>Gemiddelde: Het gemiddelde van de waarden van alle records.</li><li>Aantal: De telling van alle records die worden geretourneerd door de query.</li><li>Laatste voorbeeld: De waarde van het afgelopen interval dat opgenomen in de grafiek.</li><li>Max.: De maximale waarde van de tijden die zijn opgenomen in de grafiek.</li><li>Min.: De minimale waarde uit de intervallen die zijn opgenomen in de grafiek.</li><li>Som: De som van de waarden van alle records.</li></ul> |
+| Bewerking |De bewerking uit te voeren op de eigenschap value om samen te vatten het als één waarde voor de toelichting.<ul><li>Gemiddelde: Het gemiddelde van de waarden van alle records.</li><li>Aantal: De telling van alle records die worden geretourneerd door de query.</li><li>Laatste voorbeeld: De waarde van het afgelopen interval dat opgenomen in de grafiek.</li><li>Max.: De maximale waarde van de tijden die zijn opgenomen in de grafiek.</li><li>Min: De minimale waarde uit de intervallen die zijn opgenomen in de grafiek.</li><li>Som: De som van de waarden van alle records.</li></ul> |
 | **Lijndiagram** |**> Y-as** |
 | Logaritmische schaal gebruiken |Selecteer deze koppeling naar een logaritmische schaal gebruiken voor de y-as. |
 | Eenheden |Geef de eenheden voor de waarden moeten worden geretourneerd door de query. Deze informatie wordt gebruikt op gegevenslabels weergegeven die wijzen op de typen en, optioneel, om te converteren van de waarden. De *eenheid* type Hiermee geeft u de categorie van de eenheid en definieert de beschikbare *huidige eenheid* waarden. Als u een waarde in *converteren naar*, de numerieke waarden worden geconverteerd van de *huidige eenheid* type de *converteren naar* type. |
@@ -251,7 +251,7 @@ De koptekst wordt een lijndiagram met meerdere reeksen uit een query voor tijd e
 | Navigatie via klikken | Wanneer u op een item in de lijst met klikt uitgevoerde actie.  Zie voor meer informatie, [algemene instellingen die u](#click-through-navigation). |
 | **Lijst met** |**> Aangepaste titels** |
 | Name |De tekst die wordt weergegeven aan de bovenkant van de eerste kolom. |
-| Waarde |De tekst die wordt weergegeven aan de bovenkant van de tweede kolom. |
+| Value |De tekst die wordt weergegeven aan de bovenkant van de tweede kolom. |
 | **Lijst met** |**> Drempelwaarden** |
 | Drempelwaarden inschakelen |Selecteer deze koppeling om in te schakelen drempelwaarden. Zie voor meer informatie, [algemene instellingen die u](#thresholds). |
 
@@ -287,7 +287,7 @@ Een lijndiagram met meerdere reeksen uit een query voor weergegeven de koptekst 
 | Navigatie via klikken | Wanneer u op een item in de lijst met klikt uitgevoerde actie.  Zie voor meer informatie, [algemene instellingen die u](#click-through-navigation). |
 | **Lijst met** |**> Aangepaste titels** |
 | Name |De tekst die wordt weergegeven aan de bovenkant van de eerste kolom. |
-| Waarde |De tekst die wordt weergegeven aan de bovenkant van de tweede kolom. |
+| Value |De tekst die wordt weergegeven aan de bovenkant van de tweede kolom. |
 | **Lijst met** |**> Drempelwaarden** |
 | Drempelwaarden inschakelen |Selecteer deze koppeling om in te schakelen drempelwaarden. Zie voor meer informatie, [algemene instellingen die u](#thresholds). |
 
@@ -322,14 +322,14 @@ Het scheidingsteken naam en waarde is het scheidingsteken één teken gebruiken 
 Neem bijvoorbeeld een eigenschap genaamd *locatie* die waarden, zoals opgenomen *Redmond gebouw 41* en *Bellevue gebouw 12*. U kunt een streepje (-) opgeven voor de naam en waarde scheidingsteken en *plaats ontwikkelen* voor de naam. Deze aanpak parseert elke waarde in de twee eigenschappen aangeroepen *plaats* en *gebouw*.
 
 ### <a name="click-through-navigation"></a>Navigatie via klikken
-Navigatie via klikken wordt gedefinieerd welke actie moet worden ondernomen wanneer u een koptekst of lijstitem in een weergave op.  Hiermee wordt een query in een geopend de [portal zoeken in logboeken](../../azure-monitor/log-query/portals.md) of een andere weergave te starten.
+Navigatie via klikken wordt gedefinieerd welke actie moet worden ondernomen wanneer u een koptekst of lijstitem in een weergave op.  Hiermee wordt een query in een geopend de [Log Analyticsl](../../azure-monitor/log-query/portals.md) of een andere weergave te starten.
 
 De volgende tabel beschrijft de instellingen voor navigatie via klikken.
 
 | Instelling           | Description |
 |:--|:--|
-| Zoeken in logboeken (automatisch) | Zoeken in Logboeken worden uitgevoerd wanneer u een header-item selecteren.  Dit is dezelfde zoeken in logboeken die het item is gebaseerd op.
-| Zoeken in logboeken        | Zoeken in Logboeken om uit te voeren wanneer u een item in een lijst selecteert.  Typ de query in de **navigatiequery** vak.   Gebruik *{geselecteerde item}* om op te nemen van de syntaxis voor het item dat de gebruiker heeft geselecteerd.  Bijvoorbeeld, als de query heeft een kolom met de naam *Computer* en de navigatiequery is *{geselecteerde item}*, een query zoals *Computer = 'Computer'* wordt uitgevoerd wanneer u selecteert een computer. Als de navigatiequery is *Type = Event {geselecteerde item}*, de query *Type = Event Computer = 'Computer'* wordt uitgevoerd. |
+| Zoeken in logboeken (automatisch) | Query voor worden uitgevoerd wanneer u een header-item selecteren.  Dit is dezelfde logboekquery die het item is gebaseerd op.
+| Zoeken in logboeken        | Query voor worden uitgevoerd wanneer u een item in een lijst selecteert.  Typ de query in de **navigatiequery** vak.   Gebruik *{geselecteerde item}* om op te nemen van de syntaxis voor het item dat de gebruiker heeft geselecteerd.  Bijvoorbeeld, als de query heeft een kolom met de naam *Computer* en de navigatiequery is *{geselecteerde item}*, een query zoals *Computer = 'Computer'* wordt uitgevoerd wanneer u selecteert een computer. Als de navigatiequery is *Type = Event {geselecteerde item}*, de query *Type = Event Computer = 'Computer'* wordt uitgevoerd. |
 | Weergave              | De weergave wilt openen wanneer u een header-item of een item in een lijst selecteert.  Selecteer de naam van een weergave in uw werkruimte in de **weergavenaam** vak. |
 
 
@@ -342,7 +342,7 @@ De volgende tabel beschrijft de instellingen voor sparklines:
 | Instelling | Description |
 |:--- |:--- |
 | Sparklines inschakelen |Selecteer deze koppeling om een sparkline in plaats van een horizontale balk weer te geven. |
-| Bewerking |Als sparklines zijn ingeschakeld, is dit de bewerking uit te voeren op elke eigenschap in de lijst om de waarden voor de sparkline te berekenen.<ul><li>Laatste voorbeeld: De laatste waarde voor de reeks gedurende de tijdsinterval.</li><li>Max.: De maximale waarde voor de serie over het tijdsinterval.</li><li>Min.: De minimumwaarde voor de reeks gedurende de tijdsinterval.</li><li>Som: De som van de waarden voor de serie over het tijdsinterval.</li><li>Overzicht: Maakt gebruik van dezelfde `measure` opdracht als de query in de header.</li></ul> |
+| Bewerking |Als sparklines zijn ingeschakeld, is dit de bewerking uit te voeren op elke eigenschap in de lijst om de waarden voor de sparkline te berekenen.<ul><li>Laatste voorbeeld: De laatste waarde voor de reeks gedurende de tijdsinterval.</li><li>Max.: De maximale waarde voor de serie over het tijdsinterval.</li><li>Min: De minimumwaarde voor de reeks gedurende de tijdsinterval.</li><li>Som: De som van de waarden voor de serie over het tijdsinterval.</li><li>Overzicht: Maakt gebruik van dezelfde `measure` opdracht als de query in de header.</li></ul> |
 
 ### <a name="thresholds"></a>Drempelwaarden
 U kunt een gekleurde pictogram naast elk item in een lijst weergeven met behulp van de drempelwaarden. Drempelwaarden bieden u een snelle visuele indicator van de items die meer dan een bepaalde waarde of binnen een bepaald bereik vallen. U kunt bijvoorbeeld een groen pictogram voor items met een acceptabele waarde, geel als de waarde binnen een bereik dat een waarschuwing geeft en rood weergeven als er een foutwaarde overschrijdt.
@@ -361,4 +361,4 @@ De volgende tabel beschrijft de instellingen voor de drempelwaarden:
 | Kleur |De kleur die geeft aan de drempelwaarde dat. |
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md) ter ondersteuning van de query's in de visualisatie delen.
+* Meer informatie over [query's bijgehouden](../log-query/log-query-overview.md) ter ondersteuning van de query's in de visualisatie delen.

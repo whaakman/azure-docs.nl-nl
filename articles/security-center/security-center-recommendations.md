@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2018
 ms.author: rkarlin
-ms.openlocfilehash: 8535a77c9f44a4dafca34ef24414f90741a9133e
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 0a8680fbc8a3a051906f223d8b2476891c92d110
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652727"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888189"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Aanbevelingen voor beveiliging in Azure Security Center beheren
 Dit document helpt u bij het gebruik van de aanbevelingen in Azure Security Center kunt u uw Azure-resources beveiligen.
@@ -63,15 +63,9 @@ U kunt filteren, aanbevelingen. Als u wilt de aanbevelingen filteren, selecteert
    * **Laag (blauw)**: Een beveiligingslek dat moet worden opgelost, maar geen onmiddellijke aandacht vereist. (Standaard lage aanbevelingen worden niet weergegeven, maar u kunt filteren op lage aanbevelingen als u wilt zien.) 
    * **In orde (groen)**:
    * **Niet beschikbaar (grijs)**:
- <!-- * **DESCRIPTION**: Explains the recommendation and what needs to be done to address it.
-**STATE**: Describes the current state of the recommendation:
-   * **Open**: The recommendation hasn't been addressed yet.
-    * **In Progress**: The recommendation is currently being applied to the resources, and no action is required by you.
-   * **Resolved**: The recommendation has already been completed (in this case, the line is grayed out).
-    -->
+ 
 
-Gebruik de onderstaande tabel als referentie om te begrijpen van de beschikbare aanbevelingen en wat elke doet als u deze toepast.
-<!-- There is no table below -->
+
 > [!NOTE]
 > Wilt u inzicht in de [klassieke en Resource Manager-implementatiemodel](../azure-classic-rm.md) voor Azure-resources.
 >

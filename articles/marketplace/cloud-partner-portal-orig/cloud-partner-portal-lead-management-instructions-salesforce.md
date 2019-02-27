@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 54f9e19ae6cb9afba0de621c36352c3b1038b100
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 2f2a96e46b76ce41131b8e745075648bf0c68716
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48809970"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867334"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Beheer van leads voor Salesforce configureren
 
@@ -38,4 +38,4 @@ In dit artikel wordt beschreven hoe u uw Salesforce-systeem voor het afhandelen 
 5. Op **maken van een formulier Web potentiële klant**, selecteer **genereren** ![Salesforce genereren](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce4.png)
 
 6. Kopieer de OID in het voorbeeld en sla deze. Plakt u de OID in de **Object-id** veld in de Cloud Partner-Portal.
-![SalesForce-get OID ](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce5.png)
+![SalesForce-get OID](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce5.png)

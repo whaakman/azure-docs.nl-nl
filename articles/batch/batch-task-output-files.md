@@ -13,12 +13,12 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 0aa0be7ae9658259b327014c5678777c963e6cb5
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 77d8504dba180cfb56807344e659d6b22231f931
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302813"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866637"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Taakgegevens naar Azure Storage met de Batch-service-API behouden
 
@@ -38,7 +38,7 @@ Azure Batch biedt meer dan één manier om vast te leggen van de uitvoer van de 
 - U wilt behouden van de uitvoer naar een Azure Storage-container met de naam volgens de [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
 
 > [!NOTE]
-> De API voor Batch-service biedt geen ondersteuning voor vastleggen van gegevens van de taken die worden uitgevoerd in pools die zijn gemaakt met de configuratie van de cloud-service. Zie voor meer informatie over permanente taak uitvoer van groepen met de cloud services-configuratie [taak en gegevens naar Azure Storage met de Batch File Conventions-bibliotheek voor .NET om vast te leggen persistent ](batch-task-output-file-conventions.md).
+> De API voor Batch-service biedt geen ondersteuning voor vastleggen van gegevens van de taken die worden uitgevoerd in pools die zijn gemaakt met de configuratie van de cloud-service. Zie voor meer informatie over permanente taak uitvoer van groepen met de cloud services-configuratie [taak en gegevens naar Azure Storage met de Batch File Conventions-bibliotheek voor .NET om vast te leggen persistent](batch-task-output-file-conventions.md).
 
 Als uw scenario van die verschilt hierboven zijn vermeld, moet u mogelijk rekening houden met een andere benadering. Bijvoorbeeld, ondersteunt de API voor Batch-service momenteel geen streaming uitvoer naar Azure Storage terwijl de taak wordt uitgevoerd. Om te streamen uitvoer, overweeg het gebruik van de Batch File Conventions-bibliotheek, beschikbaar voor .NET. Voor andere talen moet u om uw eigen oplossing te implementeren. Zie voor meer informatie over andere opties voor permanente taakuitvoer [behouden taken kunt uitvoeren naar Azure Storage](batch-task-output.md).
 

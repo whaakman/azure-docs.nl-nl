@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 32c0ee4764c7c2b541428c63857286a45a09a634
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 040fac6cd4feb60b6635ba0868634f16dd9f146f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733117"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881720"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Kosten van de ingerichte doorvoer in Azure Cosmos DB optimaliseren
 
@@ -159,7 +159,7 @@ De volgende stappen helpen u uw oplossingen zeer schaalbare en rendabele maken b
 
 2. Een methode voor het schatten van de hoeveelheid gereserveerde doorvoer die is vereist voor de toepassing, is het vastleggen van de aanvraag eenheid RU kosten die zijn gekoppeld aan met het normale bewerkingen uitvoeren in een representatieve Azure Cosmos-container of een database die wordt gebruikt door uw toepassing en vervolgens schatting maken van het aantal bewerkingen die u verwacht dat per seconde uitvoeren. Zorg dat voor het meten en zijn typische query's en ook hun gebruik. Voor meer informatie over hoe u kosten wilt ramen RU van query's via een programma of met behulp van portal Zie [de kosten van query's optimaliseren](online-backup-and-restore.md). 
 
-3. Er is een andere manier om hun kosten en bewerkingen in ru's door in te schakelen van Log Analytics, waarmee u de verdeling van de bewerking/duur en de kosten van de aanvraag. Azure Cosmos DB biedt aanvraag kosten in rekening gebracht voor elke bewerking, zodat elke bewerking kosten in rekening gebracht kan worden opgeslagen van het antwoord en vervolgens worden gebruikt voor analyse. 
+3. Er is een andere manier om hun kosten en bewerkingen in ru's door in te schakelen van Azure Monitor-Logboeken, zodat u de verdeling van de bewerking/duur en de kosten van de aanvraag. Azure Cosmos DB biedt aanvraag kosten in rekening gebracht voor elke bewerking, zodat elke bewerking kosten in rekening gebracht kan worden opgeslagen van het antwoord en vervolgens worden gebruikt voor analyse. 
 
 4. U kunt flexibel schalen omhoog en omlaag de ingerichte doorvoer, als u nodig hebt om aan de behoeften van uw werkbelasting te. 
 

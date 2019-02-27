@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 2c4a95bddea85d298ff9343bfd813d0b79b24b51
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ba1e7d7f9226b3ca42d4117be33b9c236f0557b0
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164019"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867317"
 ---
 # <a name="azure-stack-administration-basics"></a>Basisbeginselen voor het beheer van Azure Stack
 Er zijn verschillende dingen die u weten moet als u geen ervaring met Azure Stack-beheer. Dit artikel bevat een overzicht van uw rol als Azure Stack-operators, en wat u moet uw gebruikers ze snel worden productief laten weten.
@@ -119,7 +119,7 @@ De informatie in deze artikelen bevat een overzicht van de verschillen tussen ee
 
 In een omgeving development kit als een gebruiker heeft geen extern bureaublad-toegang tot de host development kit ze moeten een virtueel particulier netwerk (VPN)-verbinding configureren voordat ze krijgen de Azure Stack tot toegang. Zie [verbinding maken met Azure Stack](azure-stack-connect-azure-stack.md). 
 
-Uw gebruikers willen weten hoe u [toegang tot de gebruikersportal ](user/azure-stack-use-portal.md) of hoe u verbinding maakt via PowerShell. In een omgeving met geïntegreerde systemen verschilt de portal-mailadres van de gebruiker per implementatie. U moet uw gebruikers met de juiste URL opgeven.
+Uw gebruikers willen weten hoe u [toegang tot de gebruikersportal](user/azure-stack-use-portal.md) of hoe u verbinding maakt via PowerShell. In een omgeving met geïntegreerde systemen verschilt de portal-mailadres van de gebruiker per implementatie. U moet uw gebruikers met de juiste URL opgeven.
 
 Als u PowerShell gebruikt, wordt gebruikers mogelijk resourceproviders registreren voordat ze de services kunnen gebruiken. (Een service een resourceprovider beheren. For example, resources zoals virtuele netwerken, netwerkinterfaces en load balancers worden beheerd door de VPN-resourceprovider.) Ze moeten [installeren](user/azure-stack-powershell-install.md) PowerShell, [downloaden](user/azure-stack-powershell-download.md) aanvullende modules en [configureren](user/azure-stack-powershell-configure-user.md) PowerShell (met registratie van de resourceprovider).
 

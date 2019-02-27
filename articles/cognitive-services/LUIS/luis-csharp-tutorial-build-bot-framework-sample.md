@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: fc8283d85cf7d516edd78f20c9a47d806fbb827b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 1fd472c452b476820414d51b8d13bce8a72dfb3d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328959"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874933"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>LUIS-bot in C# met Bot Framework 3.x en de Azure-Web-app-bot
 
@@ -130,7 +130,7 @@ Open **toepassingsinstellingen** en bewerk de **LuisAppId** veld bevat de toepas
 ## <a name="build-the-bot"></a>De bot bouwen
 In de code-editor met de rechtermuisknop op `build.cmd` en selecteer **uitvoeren vanaf de Console**.
 
-![Bouw Web-bot ](./media/luis-tutorial-cscharp-web-bot/bot-service-build-run-from-console.png)
+![Bouw Web-bot](./media/luis-tutorial-cscharp-web-bot/bot-service-build-run-from-console.png)
 
 De weergave van de code wordt vervangen door een terminalvenster waarin de voortgang en resultaten van de build.
 

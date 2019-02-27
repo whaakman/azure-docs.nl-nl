@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: f37e1ed2c7dd720e4a77076c8587fdf540b29ca5
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: d791148e6ee023239b0a6bf49c705c2da4eea9a2
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713949"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881869"
 ---
 # <a name="service-fabric-programming-model-overview"></a>Overzicht van service Fabric programming model
 Service Fabric biedt verschillende manieren om te schrijven en beheren van uw services. Services kunnen kiezen voor de Service Fabric-API's te kunnen profiteren van de functies van het platform en de App-frameworks. Services kunnen ook worden alle gecompileerde uitvoerbaar programma geschreven in elke taal of de code die wordt uitgevoerd in een container die wordt gehost op een Service Fabric-cluster.
@@ -65,7 +65,7 @@ Omdat Reliable Actors een toepassingsframework dat is gebaseerd op betrouwbare S
 
 [Overzicht van Reliable Actors](service-fabric-reliable-actors-introduction.md)
 
-[Service Fabric en ASP.NET Core ](service-fabric-reliable-services-communication-aspnetcore.md)
+[Service Fabric en ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
 
 

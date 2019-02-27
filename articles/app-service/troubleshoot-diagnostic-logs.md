@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d7bcff89ba7f76980287f9aad3413a6ef3f41b4f
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 7d877f467f06768c31679752d9deff1ca19d0003
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807419"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882872"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Diagnostische logboekregistratie inschakelen voor apps in Azure App Service
 ## <a name="overview"></a>Overzicht
@@ -34,8 +34,8 @@ App Service biedt diagnosefunctionaliteit voor waardevolle informatie uit de web
 ### <a name="web-server-diagnostics"></a>Web server diagnostische gegevens
 U kunt inschakelen of uitschakelen van de volgende soorten logboeken:
 
-* **Gedetailleerde fout logboekregistratie** -gedetailleerde informatie weer voor elke aanvraag die in HTTP-statuscode 400 of hoger resulteert. Deze kan informatie om te bepalen waarom de server heeft geretourneerd met de foutcode bevatten. Een HTML-bestand voor elke fout wordt gegenereerd (in *D:\LogFiles\DetailedErrors* standaard), en maximaal 50 fouten (bestanden) worden bewaard. Wanneer het aantal HTML-bestanden groter zijn dan 50, wordt de oudste 26 bestanden worden automatisch verwijderd.
-* **Kan geen aanvraag tracering** -gedetailleerde informatie over mislukte aanvragen, met inbegrip van een tracering van de IIS-componenten gebruikt voor het verwerken van de aanvraag en de tijd die in elk onderdeel. Dit is handig als u wilt verbeteren de prestaties van de site of een specifieke HTTP-fout isoleren.
+* **Gedetailleerde fout logboekregistratie** -gedetailleerde informatie weer voor elke aanvraag die in HTTP-statuscode 400 of hoger resulteert. Deze kan informatie om te bepalen waarom de server heeft geretourneerd met de foutcode bevatten. Een HTML-bestand is gegenereerd voor elke fout in het bestandssysteem van de app, en tot wel 50 fouten (bestanden) worden bewaard. Wanneer het aantal HTML-bestanden groter zijn dan 50, wordt de oudste 26 bestanden worden automatisch verwijderd.
+* **Kan geen aanvraag tracering** -gedetailleerde informatie over mislukte aanvragen, met inbegrip van een tracering van de IIS-componenten gebruikt voor het verwerken van de aanvraag en de tijd die in elk onderdeel. Dit is handig als u wilt verbeteren de prestaties van de site of een specifieke HTTP-fout isoleren. Een map wordt gegenereerd voor elke fout in het bestandssysteem van de app. Beleid voor het bewaren van bestand zijn hetzelfde als de gedetailleerde fout bij het aanmelden hierboven.
 * **Web Server-logboekregistratie** -informatie over HTTP-transacties met behulp van de [uitgebreide W3C-logboekbestandsindeling](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Dit is handig bij het bepalen van de algemene metrische sitegegevens, zoals het aantal aanvragen dat is verwerkt of het aantal aanvragen afkomstig zijn van een specifiek IP-adres.
 
 ### <a name="application-diagnostics"></a>Application diagnostics
@@ -213,6 +213,10 @@ De gegevens die zijn opgeslagen in een blob wordt het volgende voorbeeld als vol
 Traceringen van mislukte aanvragen worden opgeslagen in de XML-bestanden met de naam **fr ### .xml**. Als u wilt maken het gemakkelijker om de geregistreerde gegevens weer te geven, een XSL-opmaakmodel met de naam **freb.xsl** is opgegeven in dezelfde map als de XML-bestanden. Als u een van de XML-bestanden in Internet Explorer openen, Internet Explorer het XSL-opmaakmodel gebruikt voor een opgemaakte weergave van de trace-informatie, zoals in het volgende voorbeeld:
 
 ![mislukte aanvragen die worden weergegeven in de browser](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
+
+> [!NOTE]
+> Er is een eenvoudige manier om de traceringen opgemaakte mislukte aanvragen weer te geven om te navigeren naar de pagina van uw app in de portal. Selecteer in het menu links **vaststellen en oplossen van problemen met**, zoek vervolgens naar **mislukt aanvragen traceerlogboeken**, klik vervolgens op het pictogram om te bladeren en de trace die u wilt weergeven.
+>
 
 ### <a name="detailed-error-logs"></a>Logboeken met details
 Logboeken met details zijn HTML-documenten die bieden meer gedetailleerde informatie over HTTP-fouten die zijn opgetreden. Omdat ze gewoon HTML-documenten, kunnen ze worden weergegeven via een webbrowser.

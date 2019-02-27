@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: cdcdcff8a5c016cfd3074a950ad6060e55b8b0fe
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: b2d1c71049ae72ad974d9ab9761d4668aeb17929
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312579"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889117"
 ---
 # <a name="output-metadata"></a>Uitvoermetagegevens
 ## <a name="overview"></a>Overzicht
@@ -33,7 +33,7 @@ Dit artikel worden de elementen en typen van het XML-schema besproken waarop de 
 
 U vindt de code van de volledige schema en de XML-voorbeeld aan het einde van dit artikel.  
 
-## <a name="AssetFiles "></a> AssetFiles root-element
+## <a name="AssetFiles"></a> AssetFiles root-element
 Verzameling van AssetFile vermeldingen voor de coderingstaak.  
 
 ### <a name="child-elements"></a>Onderliggende elementen
@@ -41,7 +41,7 @@ Verzameling van AssetFile vermeldingen voor de coderingstaak.
 | --- | --- |
 | **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |Een element AssetFile die deel uitmaakt van de verzameling AssetFiles. |
 
-## <a name="AssetFile "></a> AssetFile-element
+## <a name="AssetFile"></a> AssetFile-element
 U vindt een voorbeeld van de XML- [XML-voorbeeld](#xml).  
 
 ### <a name="attributes"></a>Kenmerken
@@ -58,7 +58,7 @@ U vindt een voorbeeld van de XML- [XML-voorbeeld](#xml).
 | **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Elke fysieke AssetFile kan nul of meer video's in deze bevatten nummers interleaved in een indeling voor de juiste container. Zie voor meer informatie, VideoTracks element. |
 | **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Elke fysieke AssetFile kan nul of meer audionummers interleaved in een indeling voor de juiste container in het bevatten. Dit is een verzameling van deze audionummers. Zie voor meer informatie, AudioTracks element. |
 
-## <a name="Sources "></a> Bronnen-element
+## <a name="Sources"></a> Bronnen-element
 Verzameling van invoer/transcoderen, die is verwerkt om te kunnen deze AssetFile produceren.  
 
 U vindt een voorbeeld van de XML- [XML-voorbeeld](#xml).  
@@ -68,7 +68,7 @@ U vindt een voorbeeld van de XML- [XML-voorbeeld](#xml).
 | --- | --- |
 | **Bron**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Een invoer/bronbestand dat wordt gebruikt bij het genereren van deze asset. Zie voor meer informatie, bron-element. |
 
-## <a name="Source "></a> Bronelement
+## <a name="Source"></a> Bronelement
 Een invoer/bronbestand dat wordt gebruikt bij het genereren van deze asset.  
 
 U vindt een voorbeeld van de XML- [XML-voorbeeld](#xml).  
@@ -78,7 +78,7 @@ U vindt een voorbeeld van de XML- [XML-voorbeeld](#xml).
 | --- | --- | --- |
 | **Naam**<br/><br/> Vereist |**xs:String** |De bestandsnaam van de invoerbron. |
 
-## <a name="VideoTracks "></a> VideoTracks-element
+## <a name="VideoTracks"></a> VideoTracks-element
 Elke fysieke AssetFile kan nul of meer video's in deze bevatten nummers interleaved in een indeling voor de juiste container. De **VideoTracks** element vertegenwoordigt een verzameling van de video worden bijgehouden.  
 
 U vindt een voorbeeld van de XML- [XML-voorbeeld](#xml).  
@@ -110,7 +110,7 @@ U vindt een voorbeeld van de XML- [XML-voorbeeld](#xml).
 | **TargetBitrate**<br/><br/> minInclusive ="0"<br/><br/> Vereist |**xs:int** |Doel gemiddelde bitrate voor deze video bijhouden, zoals aangevraagd via de codering vooraf ingestelde in kilobits per seconde. |
 | **MaxGOPBitrate**<br/><br/> minInclusive ="0" |**xs:int** |Max GOP gemiddelde bitrate voor deze video spoor in kilobits per seconde. |
 
-## <a name="AudioTracks "></a> AudioTracks-element
+## <a name="AudioTracks"></a> AudioTracks-element
 Elke fysieke AssetFile kan nul of meer audionummers interleaved in een indeling voor de juiste container in het bevatten. De **AudioTracks** element vertegenwoordigt een verzameling van deze audionummers.  
 
 U vindt een voorbeeld van de XML- [XML-voorbeeld](#xml).  
@@ -120,7 +120,7 @@ U vindt een voorbeeld van de XML- [XML-voorbeeld](#xml).
 | --- | --- |
 | **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Een specifieke audiotrack in de bovenliggende AssetFile. Zie voor meer informatie, AudioTrack element. |
 
-## <a name="AudioTrack "></a> AudioTrack-element
+## <a name="AudioTrack"></a> AudioTrack-element
 Een specifieke audiotrack in de bovenliggende AssetFile.  
 
 U vindt een voorbeeld van de XML- [XML-voorbeeld](#xml).  
@@ -141,7 +141,7 @@ U vindt een voorbeeld van de XML- [XML-voorbeeld](#xml).
 | --- | --- |
 | **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |Volume softwarelicentiecontrole resultaat parameters. Zie voor meer informatie, LoudnessMeteringResultParameters-element. |
 
-## <a name="LoudnessMeteringResultParameters "></a> LoudnessMeteringResultParameters-element
+## <a name="LoudnessMeteringResultParameters"></a> LoudnessMeteringResultParameters-element
 Volume softwarelicentiecontrole resultaat parameters.  
 
 U vindt een voorbeeld van de XML- [XML-voorbeeld](#xml).  

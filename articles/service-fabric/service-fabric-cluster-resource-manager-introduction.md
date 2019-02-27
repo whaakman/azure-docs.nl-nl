@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: a5499826c06f5f8f5e5db91badf134befa44c9d0
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f41027b5455aa3b1835a0d4fd0c1be11cddccd0d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738229"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871992"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Maak kennis met de Service Fabric-cluster resource manager
 Traditioneel beheer van IT-systemen of online services bedoeld specifieke fysieke of virtuele machines toe die specifieke services of systemen. Services zijn ontworpen als lagen. Er worden een 'web'-laag en een laag "gegevens" of 'opslag'. Toepassingen hoeft een berichtenservice waar aanvragen gestroomd en afmelden, evenals een set van machines speciaal voor opslaan in cache. Elke servicelaag of het type workload specifieke computers die zijn toegewezen aan deze was: de database hebt u een aantal machines die zijn toegewezen, de webservers van een enkele. Als een bepaald type werkbelasting de machines er veroorzaakt op uitvoeren te ' hot ', en vervolgens u meer machines met dezelfde configuratie hebt toegevoegd aan die laag. Echter niet van alle werkbelastingen kunnen zo gemakkelijk worden uitgebreid - met name met de gegevenslaag zou u meestal machines met grotere machines vervangen. Eenvoudig. Als een virtuele machine is mislukt, wordt die deel uitmaken van de algemene toepassing is op lagere capaciteit totdat de computer kan worden hersteld. Nog steeds redelijk eenvoudig is (als deze niet per se leuke).
@@ -54,7 +54,7 @@ Hoewel sommige van deze strategieën interessante zijn, is Service Fabric Cluste
 Omdat met Cluster Resource Manager verantwoordelijk is voor het verplaatsen van services rondom, bevat deze een andere functieset in vergelijking met wat u in een network load balancer zoeken wilt. Dit is omdat netwerk load balancers netwerkverkeer leveren waar services al zijn, zelfs als deze locatie niet ideaal is voor het uitvoeren van de service zelf. De Service Fabric Cluster Resource Manager maakt gebruik van fundamenteel verschillende strategieën om ervoor te zorgen dat de resources in het cluster efficiënt worden gebruikt.
 
 ## <a name="next-steps"></a>Volgende stappen
-- Bekijk voor meer informatie over de architectuur en de informatiestroom binnen het Cluster Resource Manager [in dit artikel ](service-fabric-cluster-resource-manager-architecture.md)
+- Bekijk voor meer informatie over de architectuur en de informatiestroom binnen het Cluster Resource Manager [in dit artikel](service-fabric-cluster-resource-manager-architecture.md)
 - Cluster Resource Manager beschikt over veel opties voor het beschrijven van het cluster. Meer informatie over metrische gegevens, Bekijk dit artikel op [met een beschrijving van een Service Fabric-cluster](service-fabric-cluster-resource-manager-cluster-description.md)
 - Voor meer informatie over het configureren van services, [meer informatie over het configureren van Services](service-fabric-cluster-resource-manager-configure-services.md)
 - Metrische gegevens zijn hoe gebruiks- en capaciteit in het cluster worden beheerd door de Service Fabric-Cluster Resource Manager. Voor meer informatie over metrische gegevens en het configureren van uitchecken [in dit artikel](service-fabric-cluster-resource-manager-metrics.md)

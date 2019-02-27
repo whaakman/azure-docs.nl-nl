@@ -1,6 +1,6 @@
 ---
-title: Log Analytics voor Apache Kafka - Azure HDInsight
-description: Informatie over het gebruik van Log Analytics voor het analyseren van Logboeken van Apache Kafka-cluster in Azure HDInsight.
+title: Azure Monitor-logboeken voor Apache Kafka - Azure HDInsight
+description: Informatie over het gebruik van Azure Monitor-logboeken voor het analyseren van Logboeken van Apache Kafka-cluster in Azure HDInsight.
 services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,37 +9,39 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: 0862bcb2c04f3a8cd46a5e60644ebbb8c7735e51
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 65416a00ebd487e80625e4f3c8d8a95b5995daa9
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729964"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886567"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Logboeken voor Apache Kafka in HDInsight analyseren
 
-Informatie over het gebruik van Log Analytics voor het analyseren van logboeken die worden gegenereerd door Apache Kafka in HDInsight.
+Informatie over het gebruik van Azure Monitor-logboeken voor het analyseren van logboeken die worden gegenereerd door Apache Kafka in HDInsight.
 
-## <a name="enable-log-analytics-for-apache-kafka"></a>Log Analytics voor Apache Kafka inschakelen
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-De stappen voor het inschakelen van Log Analytics voor HDInsight zijn hetzelfde voor alle HDInsight-clusters. Gebruik de volgende koppelingen voor meer informatie over het maken en configureren van de vereiste services:
+## <a name="enable-azure-monitor-logs-for-apache-kafka"></a>Azure Monitor-logboeken voor Apache Kafka inschakelen
+
+De stappen voor het inschakelen van Azure Monitor-logboeken voor HDInsight zijn hetzelfde voor alle HDInsight-clusters. Gebruik de volgende koppelingen voor meer informatie over het maken en configureren van de vereiste services:
 
 1. Een Log Analytics-werkruimte maken. Zie voor meer informatie de [aan de slag met Log Analytics-werkruimte](https://docs.microsoft.com/azure/log-analytics) document.
 
 2. Maken van een Kafka op HDInsight-cluster. Zie voor meer informatie de [beginnen met Apache Kafka in HDInsight](apache-kafka-get-started.md) document.
 
-3. Configureer de Kafka-cluster voor het gebruik van Log Analytics. Zie voor meer informatie de [met Log Analytics voor het bewaken van HDInsight](../hdinsight-hadoop-oms-log-analytics-tutorial.md) document.
+3. Configureer de Kafka-cluster voor het gebruik van Azure Monitor-Logboeken. Zie voor meer informatie de [gebruikt Azure Monitor-logboeken voor het controleren van HDInsight](../hdinsight-hadoop-oms-log-analytics-tutorial.md) document.
 
     > [!NOTE]  
-    > U kunt ook configureren met het cluster voor het gebruik van Log Analytics met behulp van de `Enable-AzureRmHDInsightOperationsManagementSuite` cmdlet. Deze cmdlet vereist de volgende gegevens:
+    > U kunt ook configureren met het cluster voor het gebruik van Azure Monitor-logboeken met behulp van de `Enable-AzureRmHDInsightOperationsManagementSuite` cmdlet. Deze cmdlet vereist de volgende gegevens:
     >
     > * De naam van het HDInsight-cluster.
-    > * De ID van de werkruimte voor Log Analytics. U kunt de werkruimte-ID vinden in uw Log Analytics-werkruimte.
-    > * De primaire sleutel voor de verbinding met Log Analytics. Als u zoekt de primaire sleutel, open de werkruimte in Azure portal, selecteert u __geavanceerde instellingen__ in het menu links. Selecteer in de geavanceerde instellingen __verbonden bronnen__>__Linux-Servers__.
+    > * De werkruimte-ID voor Azure Monitor-Logboeken. U kunt de werkruimte-ID vinden in uw Log Analytics-werkruimte.
+    > * De primaire sleutel voor de verbinding van log analytics. Als u zoekt de primaire sleutel, open de werkruimte in Azure portal, selecteert u __geavanceerde instellingen__ in het menu links. Selecteer in de geavanceerde instellingen __verbonden bronnen__>__Linux-Servers__.
 
 
 > [!IMPORTANT]  
-> Het kan ongeveer 20 minuten duren voordat gegevens beschikbaar voor Log Analytics zijn.
+> Het kan ongeveer 20 minuten duren voordat gegevens beschikbaar voor Azure Monitor-logboeken zijn.
 
 ## <a name="query-logs"></a>Logboeken voor query 's
 
@@ -72,7 +74,7 @@ De stappen voor het inschakelen van Log Analytics voor HDInsight zijn hetzelfde 
  
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over Log Analytics, de [aan de slag met Log Analytics-werkruimte](../../log-analytics/log-analytics-get-started.md) document.
+Zie voor meer informatie over Azure Monitor, de [overzicht van Azure Monitor](../../log-analytics/log-analytics-get-started.md) document.
 
 Zie de volgende documenten voor meer informatie over het werken met Apache Kafka:
 

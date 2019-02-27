@@ -4,16 +4,16 @@ description: Informatie over het ophalen en beheren van grote gegevenssets tijde
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/31/2019
+ms.date: 02/26/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 8808f42cdd6fb547b70695278993faa0f52cdb61
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: ef61314ae124668fc8970e6d68a0f927bdf771bc
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338390"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889032"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Werken met grote Azure-resource-gegevenssets
 
@@ -22,6 +22,9 @@ Azure Resource Graph is ontworpen voor het werken met en het ophalen van gegeven
 ## <a name="data-set-result-size"></a>Grootte van de gegevensset
 
 Standaard beperkt Resourcegrafiek een query voor het retourneren van alleen **100** records. Dit besturingselement voorkomt onbedoelde query's die in grote gegevenssets resulteren zouden dat de gebruiker en de service. Dit gebeurt meestal wanneer een klant experimenteren met query's om te zoeken en filteren van bronnen in de manier die bij hun specifieke behoeften past. Dit besturingselement is anders dan met behulp van de [boven](/azure/kusto/query/topoperator) of [limiet](/azure/kusto/query/limitoperator) Azure Data Explorer taal operators om de resultaten te beperken.
+
+> [!NOTE]
+> Bij het gebruik van **eerste**, het is raadzaam om de resultaten op ten minste één kolom met `asc` of `desc`. Zonder te sorteren zijn de geretourneerde resultaten willekeurige en niet opnieuw kunt.
 
 De standaardlimiet kan worden genegeerd door alle methoden van interactie met Graph-Resource. De volgende voorbeelden laten zien hoe u de maximale grootte van de gegevensset te wijzigen _200_:
 
@@ -43,6 +46,9 @@ Het besturingselement dat _meest beperkende_ wint. Bijvoorbeeld, als uw query ge
 
 De volgende optie voor het werken met grote gegevenssets is de **overslaan** besturingselement. Met dit beheer kunt uw query te gaan of het opgegeven aantal records overslaan voordat het resultaat wordt geretourneerd. **Overslaan** is handig voor query's die resultaten sorteren op een begrijpelijke manier waar de bedoeling is om op te halen records ergens in het midden van de resultatenset. Als de resultaten die nodig aan het einde van de geretourneerde gegevens zijn, is het efficiënter en de configuratie van een andere sortering gebruiken in plaats daarvan de resultaten ophalen vanaf de bovenkant van de gegevensset.
 
+> [!NOTE]
+> Bij het gebruik van **overslaan**, het is raadzaam om de resultaten op ten minste één kolom met `asc` of `desc`. Zonder te sorteren zijn de geretourneerde resultaten willekeurige en niet opnieuw kunt.
+
 De volgende voorbeelden laten zien hoe de eerste overslaan _10_ records een query zou leiden, in plaats daarvan vanaf het geretourneerde resultaat ingesteld met de 11e record:
 
 ```azurecli-interactive
@@ -63,7 +69,7 @@ Wanneer het nodig zijn aan het einde van een resultatenset in kleinere groepen v
 Wanneer **resultTruncated** is **waar**, wordt de **$skipToken** eigenschap is ingesteld in het antwoord. Deze waarde wordt gebruikt door de dezelfde waarden voor query's en -abonnement om op te halen van de volgende set met records die overeenkomen met de query.
 
 > [!IMPORTANT]
-> De query moet **project** de **id** veld in de volgorde voor paginering om te werken. Als deze in de query ontbreekt, de REST-API-reactie niet worden opgenomen in de **$skipToken**.
+> De query moet **project** de **id** veld in de volgorde voor paginering om te werken. Als deze ontbreekt uit de query, wordt de REST-API-reactie worden niet opgenomen de **$skipToken**.
 
 Zie voor een voorbeeld [volgende pagina query](/rest/api/azureresourcegraph/resources/resources#next_page_query) in de REST-API-documenten.
 

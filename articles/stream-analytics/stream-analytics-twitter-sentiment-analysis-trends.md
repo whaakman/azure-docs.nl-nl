@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: 86fa7fab6897802fd4f18936f2d7bb0700829837
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: c34b3fa1597866e4f722fccee84f83f4caab6bfb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231135"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876293"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Realtime Twitter-sentimentanalyse in Azure Stream Analytics
 
@@ -58,7 +58,7 @@ In deze procedure maakt u eerst een event hub-naamruimte maken en vervolgens het
 
 5. Klik op de nieuwe naamruimte, en klik op de blade naamruimte  **+ &nbsp;Event Hub**. 
 
-    ![De knop Event Hub toevoegen voor het maken van een nieuwe event hub ](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-button.png)    
+    ![De knop Event Hub toevoegen voor het maken van een nieuwe event hub](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-button.png)    
  
 6. Naam van de nieuwe event hub `socialtwitter-eh`. U kunt ook een andere naam gebruiken. Als u dit doet, noteer, omdat u de naam van de later nodig. U hoeft niet te stel eventuele andere opties voor de event hub.
 
@@ -278,7 +278,7 @@ De volgende tabel bevat de velden die deel uitmaken van de JSON streamen van geg
 
 |JSON-eigenschap | Definitie|
 |--- | ---|
-|createdAt | Het tijdstip waarop de tweet is gemaakt|
+|CreatedAt | Het tijdstip waarop de tweet is gemaakt|
 |Onderwerp | Het onderwerp dat overeenkomt met het opgegeven trefwoord|
 |SentimentScore | De gevoelsscore van Sentiment140|
 |Auteur | De Twitter-handle die de tweet verzonden|
@@ -298,7 +298,7 @@ In deze zelfstudie hebt schrijven u de samengevoegde tweet-gebeurtenissen van de
 2. In de **uitvoer** blade, klikt u op  **+ &nbsp;toevoegen** en vul de blade met deze waarden:
 
     * **Uitvoeralias**: Gebruik de naam `TwitterStream-Output`. 
-    * **Sink-**: Selecteer **Blob-opslag**.
+    * **Sink**: Selecteer **Blob-opslag**.
     * **Opties voor het importeren**: Selecteer **gebruik blob-opslag van het huidige abonnement**.
     * **Storage-account**. Selecteer **een nieuw opslagaccount maken.**
     * **Storage-account** (tweede vak). Voer `YOURNAMEsa`, waarbij `YOURNAME` is uw naam of een andere unieke tekenreeks. De naam kan alleen kleine letters en cijfers gebruiken en deze moet uniek zijn binnen Azure. 

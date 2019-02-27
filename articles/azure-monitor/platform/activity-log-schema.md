@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 2f7d671dd70571ce167d9c5abd632cdebff329da
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 63c649f0850c4ffc60ce2087e91f3f69917e4837
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888138"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868541"
 ---
 # <a name="azure-activity-log-event-schema"></a>Gebeurtenisschema in het Azure-activiteitenlogboek
 De **Azure Activity Log** is een logboek dat u inzicht biedt in een abonnement op gebeurtenissen die hebben plaatsgevonden in Azure. Dit artikel beschrijft de gebeurtenisschema per categorie van gegevens. Het schema van de gegevens verschilt afhankelijk van als u bij het lezen van gegevens in de portal, PowerShell of CLI, of rechtstreeks via de REST-API ten opzichte van [streaminggegevens opslag of Event Hubs met behulp van een Logboekprofiel](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). De voorbeelden hieronder ziet u het schema als beschikbaar via de portal, PowerShell, CLI en REST-API. Een toewijzing van deze eigenschappen aan de [Azure diagnostische logboeken schema](./diagnostic-logs-schema.md) wordt geleverd aan het einde van het artikel.
@@ -119,10 +119,13 @@ Deze categorie bevat de record van alle maken, bijwerken, verwijderen en actie b
 | correlationId |Meestal een GUID in de indeling van de verbindingsreeks. Gebeurtenissen die delen van een correlationId behoren tot dezelfde uber actie. |
 | description |De beschrijving van de statische tekst van een gebeurtenis. |
 | eventDataId |De unieke id van een gebeurtenis. |
+| eventName | Beschrijvende naam van de gebeurtenis met beheerdersrechten. |
+| category | Altijd "beheer" |
 | httpRequest |De BLOB met een beschrijving van de Http-aanvraag. Omvat gewoonlijk het "clientRequestId", "clientIpAddress" en "method" (HTTP-methode. For example, plaatsen). |
 | niveau |Niveau van de gebeurtenis. Een van de volgende waarden: 'Kritiek', 'Fout', 'Waarschuwing' en "Informatieve" |
 | resourceGroupName |De naam van de resourcegroep voor de betrokken resource. |
 | resourceProviderName |Naam van de resourceprovider voor de betrokken resource |
+| ResourceType | Het type resource dat is beïnvloed door een gebeurtenis met beheerdersrechten. |
 | resourceId |Resource-ID van de betrokken resource. |
 | operationId |Een GUID die wordt gedeeld tussen de gebeurtenissen die met één bewerking overeenkomen. |
 | operationName |Naam van de bewerking. |

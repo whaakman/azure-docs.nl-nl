@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/15/2019
-ms.openlocfilehash: 93ab8b2aca49fcd0d2f27ec17f7fc519b19bf563
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: bdf862cd49816000fdf264406647af1ab4cea9fe
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54305156"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882906"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-managed-instance-using-azure-powershell"></a>On-premises SQL Server migreren naar Azure SQL Database Managed Instance met Azure PowerShell
 In dit artikel, migreert u de **Adventureworks2012** database hersteld naar een on-premises exemplaar van SQL Server 2005 of hoger naar een Azure SQL Database Managed Instance met behulp van Microsoft Azure PowerShell. U kunt databases uit een on-premises SQL Server-exemplaar naar Azure SQL Database Managed Instance migreren met behulp van de `AzureRM.DataMigration` module in Microsoft Azure PowerShell.
@@ -37,7 +37,7 @@ Als u wilt deze stappen hebt voltooid, hebt u het volgende nodig:
 - Een Azure SQL Database-exemplaar. U kunt een Azure SQL Database-exemplaar maken met de details in het artikel te volgen [maken van een Azure SQL database in Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 - [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 of hoger.
 - Een VNET gemaakt met behulp van de Azure Resource Manager-implementatiemodel, dat de Azure Database Migration Service met site-naar-site-verbinding met uw on-premises bronservers biedt met behulp van [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) of [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Beoordeling van uw on-premises database en het schema een migratie met behulp van Data Migration Assistant zoals beschreven in het artikel hebt voltooid [ uitvoeren van een SQL Server-migratie-evaluatie](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)
+- Beoordeling van uw on-premises database en het schema een migratie met behulp van Data Migration Assistant zoals beschreven in het artikel hebt voltooid [uitvoeren van een SQL Server-migratie-evaluatie](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)
 - Om te downloaden en installeren van de module AzureRM.DataMigration vanuit de PowerShell Gallery met behulp van [Install-Module PowerShell-cmdlet](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1)
 - Om ervoor te zorgen dat de referenties waarmee verbinding met bron SQL Server-exemplaar heeft de [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) machtiging.
 - Om ervoor te zorgen dat de referenties waarmee verbinding met doel-Azure SQL DB heeft exemplaar de machtiging beheer DATABASE voor de doel-Azure SQL Database-databases.

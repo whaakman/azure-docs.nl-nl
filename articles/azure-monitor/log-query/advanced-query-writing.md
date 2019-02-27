@@ -1,5 +1,5 @@
 ---
-title: Geavanceerde query's in Azure Azure Monitor | Microsoft Docs
+title: Geavanceerde query's in Azure Monitor | Microsoft Docs
 description: Dit artikel bevat een zelfstudie voor het gebruik van de Analytics-portal voor het schrijven van query's in Azure Monitor.
 services: log-analytics
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: 0b516dc4fb1ca4736791abdea7f0903b6399fa6e
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 62dffffee411519cdcafe80a11404f9e273dd9dd
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749899"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880781"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>Geavanceerde query's in Azure Monitor schrijven
 

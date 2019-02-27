@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: 1b97ff461dc3a4f7dcba0a3dbfad71a25cb3f1e9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d73c0e3f62d30764cba8866d7e731c5ea67d3057
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840196"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878265"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Herstel na noodgevallen van virtuele VMware-machines naar Azure met PowerShell instellen
 
@@ -487,4 +487,4 @@ We niet in deze stap over de virtuele machine Win2K12VM1 naar een specifiek hers
 2. Nadat failover is, u kunt de failoverbewerking doorvoeren en stelt u de omgekeerde replicatie van Azure back-ups maken met de on-premises VMware-site.
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over het automatiseren van meer taken met behulp van de [Azure Site Recovery PowerShell-referentie ](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery).
+Meer informatie over het automatiseren van meer taken met behulp van de [Azure Site Recovery PowerShell-referentie](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery).

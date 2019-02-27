@@ -9,12 +9,12 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 1/17/2019
-ms.openlocfilehash: 45ba049717f2b9874bbac8d6493e13c2afc4b8f2
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: c5a8869b0619b7be506ead1b9d37053e9fa57bba
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54910645"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880288"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>De interactieve PySpark-omgeving instellen voor Visual Studio Code
 
@@ -71,4 +71,4 @@ We gebruiken **python/pip** opdracht voor het bouwen van virtuele omgeving in he
 * [Externe pakketten gebruiken met Jupyter-notebooks](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [Jupyter op uw computer installeren en verbinding maken met een HDInsight Spark-cluster](spark/apache-spark-jupyter-notebook-install-locally.md)
 * [Apache Hive-gegevens visualiseren met Microsoft Power BI in Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md)
-* [Apache Zeppelin Apache Hive-query's uitvoeren in Azure HDInsight gebruiken ](hdinsight-connect-hive-zeppelin.md)
+* [Apache Zeppelin Apache Hive-query's uitvoeren in Azure HDInsight gebruiken](hdinsight-connect-hive-zeppelin.md)

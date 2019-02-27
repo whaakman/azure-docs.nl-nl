@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: c3b97ee7181d6475b7271d5ae4bcea0f6c9ff2b3
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: f91ea4c4ec887a9f9fe0c15000e3810109caeb96
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805219"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889066"
 ---
 # <a name="capacity-planning-and-scaling"></a>Capaciteitsplanning en schalen
 
@@ -40,7 +40,7 @@ Schaalbewerkingen moet worden uitgevoerd via Azure-Resource-sjabloonimplementati
 
 ## <a name="vertical-scaling-considerations"></a>Overwegingen voor verticaal vergroten/verkleinen
 
-[Verticaal schalen](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out#upgrade-the-size-and-operating-system-of-the-primary-node-type-vms) een knooppunttype in Azure Service Fabric is een aantal stappen en overwegingen bij vereist. Bijvoorbeeld:
+[Verticaal schalen](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) een knooppunttype in Azure Service Fabric is een aantal stappen en overwegingen bij vereist. Bijvoorbeeld:
 * Het cluster moet in orde zijn voor het schalen. Anders wordt u alleen cluster verder instabiel.
 * **Duurzaamheid niveau of hoger van Silver** is vereist voor alle Service Fabric-Cluster NodeTypes die als host van stateful services.
 

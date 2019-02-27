@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: be702571d178fc67eeb92de4e52a48d5bef72b18
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 947740ed28deea9682d10eecf9a66dab7540669e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54824623"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880305"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Beveiliging-Frame: Cryptografie | Oplossingen 
 | Product/Service | Artikel |
@@ -228,7 +228,7 @@ Zoals u kunt zien, is primaire sleutel voor het apparaat niet aanwezig in de cod
 | **SDL-fase**               | Implementatie |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
-| **Verwijzingen**              | [Identiteitsserver - sleutels, handtekeningen en cryptografische ](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html) |
+| **Verwijzingen**              | [Identiteitsserver - sleutels, handtekeningen en cryptografische](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html) |
 | **Stappen** | Zorg ervoor dat ondersteuningssleutels worden meegenomen bij het gebruik van identiteit-Server. De koppeling in de sectie verwijzingen wordt uitgelegd hoe dit moet worden gepland zonder onderbrekingen voor toepassingen die afhankelijk zijn van identiteit-Server. |
 
 ## <a id="client-server"></a>Zorg ervoor dat cryptografisch sterke client-ID, client secret zijn gebruikt in Identiteitsserver

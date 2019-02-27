@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 413e005762ab557e0605f9b4e79a6fe5b45448b7
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 32367559ba4ae6931804c1ea702dca6c2c5ee297
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993908"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870904"
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services-concepten 
 
@@ -177,7 +177,7 @@ U kunt maximaal 2 streaming-eindpunten in Media Services-account hebben standaar
 U wordt alleen gefactureerd wanneer uw streamingendpoint zo wordt uitgevoerd.
 
 ### <a name="asset-delivery-policy"></a>Leveringsbeleid voor Assets
-Een van de stappen in de werkstroom van de levering van inhoud Media Services configureert [leveringsbeleid voor assets ](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)die u wilt worden gestreamd. Het leveringsbeleid voor Assets mediaservices vertelt hoe u wilt gebruiken voor uw asset moet worden geleverd: in welke streaming-protocol moet uw asset worden dynamisch verpakt (voor een voorbeeld, MPEG DASH, HLS, Smooth Streaming of alle), ongeacht of u wilt dat het dynamisch versleutelen of niet uw asset en hoe (envelop of algemene versleuteling).
+Een van de stappen in de werkstroom van de levering van inhoud Media Services configureert [leveringsbeleid voor assets](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)die u wilt worden gestreamd. Het leveringsbeleid voor Assets mediaservices vertelt hoe u wilt gebruiken voor uw asset moet worden geleverd: in welke streaming-protocol moet uw asset worden dynamisch verpakt (voor een voorbeeld, MPEG DASH, HLS, Smooth Streaming of alle), ongeacht of u wilt dat het dynamisch versleutelen of niet uw asset en hoe (envelop of algemene versleuteling).
 
 Als u een versleutelde activabeheer voor opslag, hebt voordat uw asset kan worden gestreamd, wordt de server voor streaming Hiermee verwijdert u de versleuteling van opslag en uw inhoud met behulp van het opgegeven leveringsbeleid streams. Bijvoorbeeld met het oog op uw asset is versleuteld met Advanced Encryption Standard (AES)-versleutelingssleutel stelt u het beleidstype naar DynamicEnvelopeEncryption. Als u wilt verwijderen van versleuteling van opslag en de activa in de stream, Stel in het beleidstype op NoDynamicEncryption.
 

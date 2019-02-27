@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2018
+ms.date: 02/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6083237426e86220f8a3cb7fbe0cdfc30f44f8cc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b05f2dc1ed766ccb06b71c2977ceaf2b7cd823d3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208823"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869663"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: Automatische upgrade
 Deze functie is ingevoerd met build [1.1.105.0 (uitgebracht februari 2016)](reference-connect-version-history.md#111050).  Deze functie is bijgewerkt in [1.1.561 bouwen](reference-connect-version-history.md#115610) en biedt nu ondersteuning voor aanvullende scenario's die niet eerder werden ondersteund.
@@ -43,7 +43,7 @@ De huidige status van de automatische upgrade kan worden weergegeven met de Powe
 | Uitgesteld |Door het systeem alleen ingesteld. Het systeem is **momenteel niet** in aanmerking voor automatische upgrades. |
 | Uitgeschakeld |Automatisch bijwerken is uitgeschakeld. |
 
-U kunt wisselen tussen **ingeschakeld** en **uitgeschakelde** met `Set-ADSyncAutoUpgrade`. Alleen het systeem moet de status ingesteld **onderbroken**.
+U kunt wisselen tussen **ingeschakeld** en **uitgeschakelde** met `Set-ADSyncAutoUpgrade`. Alleen het systeem moet de status ingesteld **onderbroken**.  Voorafgaand aan 1.1.750.0 zou de cmdlet Set-ADSyncAutoUpgrade Autoupgrade geblokkeerd als de status van de automatische clientupdate is ingesteld op uitgesteld. Deze functionaliteit is nu gewijzigd zodat AutoUpgrade niet worden geblokkeerd.
 
 Automatische upgrade wordt met behulp van Azure AD Connect Health voor de upgrade-infrastructuur. Voor automatisch bijwerken om te werken, moet u de URL's hebt geopend in uw proxyserver voor **Azure AD Connect Health** zoals beschreven in [Office 365-URL's en IP-adresbereiken](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 

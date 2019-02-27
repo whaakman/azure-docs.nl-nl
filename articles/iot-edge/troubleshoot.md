@@ -4,17 +4,17 @@ description: Gebruik dit artikel voor meer informatie over standard diagnostisch
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/26/2018
+ms.date: 02/26/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: cd9ff1a1a7730ae870ef4e80fbca2d934aa5c8e2
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2daaa1275d9a97bec43f277e726518ead6eca9ff
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342660"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876361"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Veelvoorkomende problemen en oplossingen voor Azure IoT Edge
 
@@ -101,15 +101,15 @@ In Windows:
 
 ### <a name="check-container-logs-for-issues"></a>Raadpleeg de containerlogboeken voor problemen
 
-Zodra de IoT Edge Security-Daemon wordt uitgevoerd, bekijkt u de logboeken van de containers om problemen te detecteren. Beginnen met uw geïmplementeerde containers en kijk vervolgens naar de containers die gezamenlijk de IoT Edge-runtime: Edge Agent en Edge Hub. De Edge Agent-logboeken bieden doorgaans informatie over de levenscyclus van elke container. De Edge Hub-logboeken bieden informatie over berichten en routering. 
+Zodra de IoT Edge Security-Daemon wordt uitgevoerd, bekijkt u de logboeken van de containers om problemen te detecteren. Beginnen met uw geïmplementeerde containers en kijk vervolgens naar de containers die gezamenlijk de IoT Edge-runtime: edgeAgent en edgeHub. De IoT Edge agent-logboeken bieden doorgaans informatie over de levenscyclus van elke container. De IoT Edge hub-logboeken bieden informatie over berichten en routering. 
 
    ```cmd
    iotedge logs <container name>
    ```
 
-### <a name="view-the-messages-going-through-the-edge-hub"></a>Bekijk de berichten die via Edge hub gaan
+### <a name="view-the-messages-going-through-the-iot-edge-hub"></a>Bekijk de berichten die via de IoT Edge hub
 
-U kunt de berichten die via Edge hub bekijken, en inzichten te verwerven uit uitgebreide Logboeken uit de runtimecontainers. Als u wilt inschakelen op de uitgebreide logboeken op deze containers, instellen `RuntimeLogLevel` in uw configuratiebestand yaml. Open het bestand:
+U kunt de berichten die via de IoT Edge hub bekijken, en inzichten te verwerven uit uitgebreide Logboeken uit de runtimecontainers. Als u wilt inschakelen op de uitgebreide logboeken op deze containers, instellen `RuntimeLogLevel` in uw configuratiebestand yaml. Open het bestand:
 
 Op Linux:
 
@@ -137,13 +137,13 @@ Standaard de `agent` element ziet er als volgt:
 
 Vervang `env: {}` met:
 
-> [!WARNING]
-> YAML-bestanden mag geen tabbladen als inspringing bevatten. Gebruik in plaats daarvan 2 spaties.
-
    ```yaml
    env:
      RuntimeLogLevel: debug
    ```
+
+   > [!WARNING]
+   > YAML-bestanden mag geen tabbladen als inspringing bevatten. Gebruik in plaats daarvan 2 spaties.
 
 Sla het bestand op en start de IoT Edge security manager opnieuw.
 
@@ -180,11 +180,11 @@ In Windows:
    Start-Service iotedge
    ```
 
-## <a name="edge-agent-stops-after-about-a-minute"></a>Edge Agent stopt na ongeveer een minuut
+## <a name="iot-edge-agent-stops-after-about-a-minute"></a>IoT Edge agent stopt na ongeveer een minuut
 
-De Edge Agent wordt gestart en wordt gedurende ongeveer een minuut uitgevoerd en vervolgens gestopt. De logboeken geven aan dat de Edge Agent probeert te verbinden met IoT Hub via AMQP en vervolgens verbinding probeert te maken met behulp van AMQP via WebSocket. Als dat mislukt, wordt de Edge Agent afgesloten. 
+De module edgeAgent wordt gestart en is voor ongeveer een minuut uitgevoerd en vervolgens gestopt. De logboeken geven aan dat de IoT Edge-agent probeert te verbinden met IoT Hub via AMQP en vervolgens verbinding probeert te maken met behulp van AMQP via WebSocket. Als dat mislukt, wordt de IoT Edge agent afgesloten. 
 
-Voorbeeld van Edge Agent-logboeken:
+Voorbeeld edgeAgent Logboeken:
 
 ```output
 2017-11-28 18:46:19 [INF] - Starting module management agent. 
@@ -194,16 +194,16 @@ Voorbeeld van Edge Agent-logboeken:
 ```
 
 ### <a name="root-cause"></a>Hoofdoorzaak
-Een netwerkconfiguratie op het hostnetwerk verhindert dat de Edge Agent het netwerk bereikt. De agent probeert eerst verbinding maken via AMQP (poort 5671). Als de verbinding is mislukt, probeert deze WebSockets (poort 443).
+Een netwerkconfiguratie op het hostnetwerk verhindert dat de IoT Edge agent het netwerk wordt bereikt. De agent probeert eerst verbinding maken via AMQP (poort 5671). Als de verbinding is mislukt, probeert deze WebSockets (poort 443).
 
 De IoT Edge-runtime stelt een netwerk in voor elk van de modules waarmee moet worden gecommuniceerd. In Linux is dit netwerk een brugnetwerk. In Windows wordt NAT gebruikt. Dit probleem komt vaker voor op Windows-apparaten die gebruikmaken van Windows-containers die het NAT-netwerk gebruiken. 
 
 ### <a name="resolution"></a>Oplossing
 Zorg ervoor dat er een route naar internet is voor de IP-adressen die aan deze brug/dit NAT-netwerk zijn toegewezen. Soms heeft een VPN-configuratie op de host voorrang op het IoT Edge-netwerk. 
 
-## <a name="edge-hub-fails-to-start"></a>Edge Hub kan niet worden gestart
+## <a name="iot-edge-hub-fails-to-start"></a>IoT Edge hub niet kan worden gestart
 
-De Edge Hub wordt niet gestart en drukt het volgende bericht af naar de logboeken: 
+De module edgeHub is mislukt voor de begin- en drukt het volgende bericht naar de logboeken: 
 
 ```output
 One or more errors occurred. 
@@ -213,16 +213,16 @@ Error starting userland proxy: Bind for 0.0.0.0:443 failed: port is already allo
 ```
 
 ### <a name="root-cause"></a>Hoofdoorzaak
-Poort 443 is bezig met een ander proces op de hostmachine. De Edge Hub heeft poorten 5671 en 443 toegewezen voor gebruik in gatewayscenario's. Deze poorttoewijzing mislukt als er al een ander proces bezig is op deze poort. 
+Poort 443 is bezig met een ander proces op de hostmachine. De IoT Edge hub toegewezen poorten 5671 en 443 voor gebruik in gatewayscenario's. Deze poorttoewijzing mislukt als er al een ander proces bezig is op deze poort. 
 
 ### <a name="resolution"></a>Oplossing
 Zoek en stop het proces dat poort 443 gebruikt. Dit proces is meestal een webserver.
 
-## <a name="edge-agent-cant-access-a-modules-image-403"></a>Edge Agent heeft geen toegang tot de installatiekopie van een module (403)
-Een container kan niet worden uitgevoerd en in de logboeken van de Edge Agent wordt fout 403 weergegeven. 
+## <a name="iot-edge-agent-cant-access-a-modules-image-403"></a>IoT Edge-agent geen toegang tot de installatiekopie van een module (403)
+Een container kan niet worden uitgevoerd en de logboeken edgeAgent fout 403 weergegeven. 
 
 ### <a name="root-cause"></a>Hoofdoorzaak
-De Edge Agent beschikt niet over machtigingen voor toegang tot de installatiekopie van een module. 
+De Iot Edge agent beschikt niet over machtigingen voor toegang tot de installatiekopie van een module. 
 
 ### <a name="resolution"></a>Oplossing
 Zorg ervoor dat de registerreferenties van uw juist zijn opgegeven in uw manifest implementatie
@@ -266,14 +266,14 @@ Wanneer u deze fout ziet, kunt u deze kunt oplossen door de DNS-naam van uw virt
 U kunt de stabiliteitsproblemen op beperkte apparaten, zoals de Raspberry Pi, ondervinden met name wanneer die wordt gebruikt als een gateway. Symptomen zijn buiten het geheugen uitzonderingen in de edge hub-module, downstream apparaten kunnen geen verbinding maken of het apparaat reageert verzenden van berichten over telemetrie na een paar uur.
 
 ### <a name="root-cause"></a>Hoofdoorzaak
-De edge hub, die deel van de edge-runtime uitmaakt, standaard is geoptimaliseerd voor prestaties en grote hoeveelheden geheugen wordt toegewezen. Deze optimalisatie is niet ideaal voor beperkte edge-apparaten en stabiliteitsproblemen kan veroorzaken.
+De IoT Edge hub, die deel van de IoT Edge-runtime uitmaakt, standaard is geoptimaliseerd voor prestaties en grote hoeveelheden geheugen wordt toegewezen. Deze optimalisatie is niet ideaal voor beperkte edge-apparaten en stabiliteitsproblemen kan veroorzaken.
 
 ### <a name="resolution"></a>Oplossing
-Voor de edge hub, stelt u een omgevingsvariabele **OptimizeForPerformance** naar **false**. Er zijn twee manieren om dit te doen:
+Voor de IoT Edge hub, stelt u een omgevingsvariabele **OptimizeForPerformance** naar **false**. Er zijn twee manieren om dit te doen:
 
 In de gebruikersinterface: 
 
-In de portal van *Apparaatdetails*->*Modules instellen*->*geavanceerde instellingen voor Edge-Runtime configureren*, maken van een omgevingsvariabele met de naam *OptimizeForPerformance* die is ingesteld op *false* voor de *Edge Hub*.
+Navigeer in de portal naar **Apparaatdetails** > **Modules instellen** > **geavanceerde instellingen voor Edge-Runtime configureren**. Maken van een omgevingsvariabele voor de Edge Hub-module met de naam *OptimizeForPerformance* die is ingesteld op *false*.
 
 ![OptimizeForPerformance ingesteld op false](./media/troubleshoot/optimizeforperformance-false.png)
 
@@ -324,13 +324,13 @@ Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/ada
 De IoT Edge-daemon wordt afgedwongen proces-id in voor alle modules die verbinding maken met de edgeHub uit veiligheidsoverwegingen. Hiermee wordt gecontroleerd dat alle berichten worden verzonden door een module afkomstig van de belangrijkste proces-ID van de module zijn. Als een bericht wordt verzonden door een module van de ID van een ander proces dan in eerste instantie tot stand gebracht, wordt deze het bericht met een 404-fout-bericht negeren.
 
 ### <a name="resolution"></a>Oplossing
-Zorg ervoor dat de hetzelfde proces-ID altijd door de aangepaste IoT Edge-module gebruikt wordt om berichten te verzenden naar de edgeHub. Bijvoorbeeld, zorg ervoor dat u `ENTRYPOINT` in plaats van `CMD` opdracht in uw Docker-bestand, aangezien `CMD` zal leiden tot een proces-ID voor de module en een ander proces-ID voor de bash-opdracht uitvoeren van de belangrijkste programma dat `ENTRYPOINT` zal leiden tot een een enkel proces-id.
+Zorg ervoor dat de hetzelfde proces-ID altijd door de aangepaste IoT Edge-module gebruikt wordt om berichten te verzenden naar de edgeHub. Bijvoorbeeld, zorg ervoor dat u `ENTRYPOINT` in plaats van `CMD` opdracht in uw Docker-bestand, aangezien `CMD` zal leiden tot een proces-ID voor de module en een ander proces-ID voor de bash-opdracht uitvoeren van de belangrijkste programma dat `ENTRYPOINT` zal leiden tot een een enkel proces-ID.
 
 
 ## <a name="firewall-and-port-configuration-rules-for-iot-edge-deployment"></a>Firewall- en poortinstellingen configuratieregels voor IoT Edge-implementatie
-Azure IoT Edge kunt u communicatie tussen een on-premises Edge-server en Azure-cloud met ondersteunde protocollen van IoT Hub, Zie [een communicatieprotocol kiezen](../iot-hub/iot-hub-devguide-protocols.md). Voor een betere beveiliging zijn altijd communicatiekanalen tussen Azure IoT Edge en Azure IoT-Hub geconfigureerd om uitgaand. Deze configuratie is gebaseerd op de [Services communicatiepatroon](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/), die minimaliseert de kwetsbaarheid voor aanvallen voor een schadelijke entiteit om te verkennen. Binnenkomende communicatie is alleen vereist voor specifieke scenario's waar Azure IoT Hub moeten push-berichten naar de Azure IoT Edge-apparaat. Cloud-naar-apparaat-berichten worden beschermd met behulp van beveiligde TLS-kanalen en verder kunnen beveiligd met X.509-certificaten en -modules voor TPM-apparaat. De Azure IoT Edge Security Manager bepaalt hoe deze communicatie kan worden tot stand gebracht, Zie [IoT Edge Security Manager](../iot-edge/iot-edge-security-manager.md).
+Azure IoT Edge kunt u communicatie tussen een on-premises server en Azure-cloud met ondersteunde protocollen van IoT Hub, Zie [een communicatieprotocol kiezen](../iot-hub/iot-hub-devguide-protocols.md). Voor een betere beveiliging zijn altijd communicatiekanalen tussen Azure IoT Edge en Azure IoT-Hub geconfigureerd om uitgaand. Deze configuratie is gebaseerd op de [Services communicatiepatroon](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/), die minimaliseert de kwetsbaarheid voor aanvallen voor een schadelijke entiteit om te verkennen. Binnenkomende communicatie is alleen vereist voor specifieke scenario's waar Azure IoT Hub moeten push-berichten naar de Azure IoT Edge-apparaat. Cloud-naar-apparaat-berichten worden beschermd met behulp van beveiligde TLS-kanalen en verder kunnen beveiligd met X.509-certificaten en -modules voor TPM-apparaat. De Azure IoT Edge Security Manager bepaalt hoe deze communicatie kan worden tot stand gebracht, Zie [IoT Edge Security Manager](../iot-edge/iot-edge-security-manager.md).
 
-Hoewel IoT Edge verbeterde configuratie biedt voor het beveiligen van Azure IoT Edge-runtime en modules geïmplementeerd, is het nog steeds afhankelijk van de onderliggende machine en het netwerk. Het is dus van cruciaal belang om te controleren of het juiste netwerk en firewall-regels zijn ingesteld voor beveiligde Edge communicatie tussen de Cloud. De volgende kan worden gebruikt als richtlijn wanneer configuratie firewallregels voor de onderliggende servers waar Azure IoT Edge-runtime wordt gehost:
+Hoewel IoT Edge verbeterde configuratie biedt voor het beveiligen van Azure IoT Edge-runtime en modules geïmplementeerd, is het nog steeds afhankelijk van de onderliggende machine en het netwerk. Daarom kan het is belangrijk om ervoor te zorgen goede netwerk en firewall-regels zijn ingesteld voor beveiligde edge naar de cloud communicatie. De volgende tabel kan worden gebruikt als richtlijn wanneer configuratie firewallregels voor de onderliggende servers waar Azure IoT Edge-runtime wordt gehost:
 
 |Protocol|Poort|binnenkomende|Uitgaand|Richtlijnen|
 |--|--|--|--|--|

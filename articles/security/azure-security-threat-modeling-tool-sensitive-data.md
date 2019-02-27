@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 5e9104f59173c3d39ef2f2232ed2a9c6864cf84f
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 93beef5702df9b4cf0a51a01fb286a3f023f9839
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892555"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876616"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Beveiliging-Frame: Gevoelige gegevens | Oplossingen 
 | Product/Service | Artikel |
 | --------------- | ------- |
 | **Vertrouwensgrenzen van computer** | <ul><li>[Zorg ervoor dat de binaire bestanden worden verborgen als ze gevoelige informatie bevatten](#binaries-info)</li><li>[U kunt met behulp van versleuteld bestand System (EFS) wordt gebruikt voor het beveiligen van vertrouwelijke gegevens van specifieke gebruikers](#efs-user)</li><li>[Zorg ervoor dat gevoelige gegevens die zijn opgeslagen door de toepassing op het bestandssysteem is versleuteld](#filesystem)</li></ul> | 
 | **Web-App** | <ul><li>[Zorg ervoor dat gevoelige inhoud niet in cache in de browser opgeslagen is](#cache-browser)</li><li>[Secties van Web-App-configuratiebestanden met gevoelige gegevens versleutelen](#encrypt-data)</li><li>[Het automatisch aanvullen HTML-kenmerk in gevoelige formulieren en invoer expliciet uitschakelen](#autocomplete-input)</li><li>[Zorg ervoor dat gevoelige gegevens die worden weergegeven op het scherm van de gebruiker wordt gemaskeerd](#data-mask)</li></ul> | 
-| **Database** | <ul><li>[Dynamische gegevensmaskering implementeren om te voorkomen dat gevoelige gegevens niet in beschermde modus blootstelling gebruikers](#dynamic-users)</li><li>[Zorg ervoor dat wachtwoorden worden opgeslagen in gezouten hash-indeling](#salted-hash)</li><li>[ Zorg ervoor dat gevoelige gegevens in de databasekolommen is versleuteld](#db-encrypted)</li><li>[Zorg ervoor dat op databaseniveau encryption (TDE) is ingeschakeld](#tde-enabled)</li><li>[Ervoor zorgen dat databaseback-ups worden gecodeerd](#backup)</li></ul> | 
+| **Database** | <ul><li>[Dynamische gegevensmaskering implementeren om te voorkomen dat gevoelige gegevens niet in beschermde modus blootstelling gebruikers](#dynamic-users)</li><li>[Zorg ervoor dat wachtwoorden worden opgeslagen in gezouten hash-indeling](#salted-hash)</li><li>[Zorg ervoor dat gevoelige gegevens in de databasekolommen is versleuteld](#db-encrypted)</li><li>[Zorg ervoor dat op databaseniveau encryption (TDE) is ingeschakeld](#tde-enabled)</li><li>[Ervoor zorgen dat databaseback-ups worden gecodeerd](#backup)</li></ul> | 
 | **Web-API** | <ul><li>[Zorg ervoor dat gevoelige gegevens die relevant zijn voor Web-API niet zijn opgeslagen in de opslag van browser](#api-browser)</li></ul> | 
 | Azure Document DB | <ul><li>[Versleutelen van gevoelige gegevens die zijn opgeslagen in Azure Cosmos DB](#encrypt-docdb)</li></ul> | 
 | **Vertrouwensgrenzen van Azure IaaS-VM** | <ul><li>[Azure Disk Encryption gebruiken voor het versleutelen van schijven die worden gebruikt door virtuele Machines](#disk-vm)</li></ul> | 
@@ -34,7 +34,7 @@ ms.locfileid: "55892555"
 | **Dynamics CRM** | <ul><li>[Uitvoeren van beveiliging modelleren en zakelijke eenheden/Teams gebruiken indien nodig](#modeling-teams)</li><li>[Beperkt u de toegangsrechten voor het delen van de functie voor kritieke entiteiten](#entities)</li><li>[Gebruikers van de trein op de risico's die zijn gekoppeld aan de Dynamics CRM-Share-functie en de procedures voor goede beveiliging](#good-practices)</li><li>[Een ontwikkeling standaarden regel met config details in Uitzonderingsbeheer proscribing opnemen](#exception-mgmt)</li></ul> | 
 | **Azure Storage** | <ul><li>[Azure Storage Service Encryption (SSE) gebruiken voor Data-at-Rest (Preview)](#sse-preview)</li><li>[Client-Side-versleuteling gebruiken voor het opslaan van gevoelige gegevens in Azure Storage](#client-storage)</li></ul> | 
 | **Mobiele Client** | <ul><li>[Versleutelen van gevoelige of persoonlijke gegevens geschreven naar de lokale opslag voor telefoons](#pii-phones)</li><li>[Gegenereerde binaire bestanden, onleesbaar maakt voordat u distribueert voor eindgebruikers](#binaries-end)</li></ul> | 
-| **WCF** | <ul><li>[ ClientCredentialType ingesteld op certificaten of Windows](#cert)</li><li>[WCF-beveiligingsmodus is niet ingeschakeld](#security)</li></ul> | 
+| **WCF** | <ul><li>[ClientCredentialType ingesteld op certificaten of Windows](#cert)</li><li>[WCF-beveiligingsmodus is niet ingeschakeld](#security)</li></ul> | 
 
 ## <a id="binaries-info"></a>Zorg ervoor dat de binaire bestanden worden verborgen als ze gevoelige informatie bevatten
 

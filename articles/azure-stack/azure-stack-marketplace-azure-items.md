@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 02/27/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: 924befd2ec1949973123acc9b7c7d1b89e707e3e
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 6dad4fc98dccc5c8db22019fdc548efdf7165d9e
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245623"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888743"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-items beschikbaar voor Azure Stack
 
@@ -252,4 +252,5 @@ Microsoft Azure Stack biedt ondersteuning voor de volgende virtuele machines van
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise kunt u de hele levenscyclus van uw Azure Stack-infrastructuur te automatiseren. **Beide Puppet Marketplace-items downloaden.** | Puppet |
 | ![Quest snel herstel](media/azure-stack-marketplace-azure-items/quest.png) | [Quest snel herstel Core](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | Snel herstel geavanceerde bescherming van gegevens verenigt de back-up, replicatie en herstel in één eenvoudig te gebruiken, softwareoplossing. | Quest Software |
 | ![SUSE Manager 3.1 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.1 Proxy (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.suse-manager-proxy-byos?tab=Overview) | Beheer van de best mogelijke open-source-infrastructuur. | SUSE |
+| ![CipherTrust Cloud-Sleutelbeheer](media/azure-stack-marketplace-azure-items/cckm.png) | [CipherTrust Cloud-Sleutelbeheer](https://azuremarketplace.microsoft.com/marketplace/apps/thales-vormetric.ciphertrust-ckm) | Gebruik te maken van Microsoft Azure en andere cloudprovider Bring Your Own Key (BYOK) API's, het Sleutelbeheer CipherTrust Cloud Sleutelbeheer complexiteit reduceert en operationele kosten door te geven u controle multicloud levenscyclus van de versleutelingssleutels met gecentraliseerde beheer en zichtbaarheid. | Thales™ eSecurity |
 | ![ZeroDown Software BCaaS](media/azure-stack-marketplace-azure-items/zerodown.png) | [Bedrijfscontinuïteit ZeroDown Software as a Service](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.bcaasforazure) | ZeroDown®-Software-technologie biedt bedrijven met continue toegang tot hun bedrijfsgegevens via hun zakelijke continuïteit as a Service (BCaaS)™-architectuur, beveiligt toepassingen en transacties, als netwerkonderbrekingen die optreden normaal platleggen de onderneming. | ZeroDown Software |

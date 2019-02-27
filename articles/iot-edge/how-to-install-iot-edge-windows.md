@@ -7,15 +7,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 02/25/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 27478de68cde9a097dcc160a4553839aef9a018c
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 3981ae197515803821891402e525852901963f63
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902802"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871594"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>De Azure IoT Edge-runtime installeren op Windows
 
@@ -213,6 +213,34 @@ En lijst met modules met:
 ```powershell
 iotedge list
 ```
+
+Na een nieuwe installatie, de enige module ziet u het uitvoeren is **edgeAgent**. Nadat u [IoT Edge-modules implementeren](how-to-deploy-modules-portal.md), ziet u anderen. 
+
+## <a name="manage-module-containers"></a>Module containers beheren
+
+De IoT Edge-service is een container-engine die wordt uitgevoerd op uw apparaat. Wanneer u een module op een apparaat implementeert, gebruikt de IoT Edge-runtime de container-engine voor het ophalen van de container-installatiekopie uit een register in de cloud. De IoT Edge-service kunt u communiceren met uw modules en Logboeken kunt ophalen, maar soms wilt u mogelijk de container-engine gebruiken om te communiceren met de container zelf. 
+
+Zie voor meer informatie over concepten van de module [inzicht in Azure IoT Edge-modules](iot-edge-modules.md). 
+
+Als u Windows-containers op uw Windows IoT Edge-apparaat uitvoert, vervolgens met de installatie van de IoT Edge de engine van de container Moby opgenomen. Als u Linux-containers op uw Windows-ontwikkelcomputer ontwikkelt, gebruikt u waarschijnlijk Docker Desktop. De engine Moby is gebaseerd op de dezelfde standaarden als Docker, en is ontworpen voor het parallel uitgevoerd op dezelfde computer als Docker-bureaublad. Als u Doelcontainers die worden beheerd door de engine Moby wilt om die reden hebt u specifiek gericht op dat de engine in plaats van Docker. 
+
+Bijvoorbeeld, als u alle Docker-installatiekopieën, gebruik de volgende opdracht:
+
+```powershell
+docker images
+```
+
+Als u alle Moby installatiekopieën, wijzig de dezelfde opdracht met een verwijzing naar de Moby-engine: 
+
+```powershell
+docker -H npipe:////./pipe/iotedge_moby_engine images
+```
+
+De URI-engine wordt weergegeven in de uitvoer van het script voor installatie, of u kunt deze vinden in de sectie container runtime-instellingen voor het bestand config.yaml. 
+
+![de uri moby_runtime in config.yaml](./media/how-to-install-iot-edge-windows/moby-runtime-uri.png)
+
+Zie voor meer informatie over opdrachten die u kunt gebruiken om te communiceren met containers en afbeeldingen die worden uitgevoerd op uw apparaat [Docker opdrachtregelinterfaces](https://docs.docker.com/engine/reference/commandline/docker/).
 
 ## <a name="uninstall-iot-edge"></a>Verwijderen van IoT Edge
 

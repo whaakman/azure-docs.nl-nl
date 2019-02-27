@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: maxluk
-ms.openlocfilehash: 0c2fd29990e180283eb25949b806c4ceac58e2f7
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 8c37093b5369d2390942bc00c1531248bc4424c8
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653625"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869085"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Overzicht van Apache Spark Structured Streaming
 
@@ -24,7 +24,7 @@ Structured Streaming-toepassingen uitvoeren in HDInsight Spark-clusters, en maak
 
 Structured Streaming maakt een langlopende query waarin u bewerkingen kunt toepassen op de invoergegevens, zoals selectie, projectie, aggregatie, windowing en lid worden van het gegevensframe streaming met verwijzing gegevensframes. U kunt vervolgens de resultaten met file storage (Azure Storage-Blobs of Data Lake Storage) of naar een gegevensarchief uitvoeren met behulp van aangepaste code (zoals SQL-Database of Power BI). Structured Streaming biedt ook uitvoer naar de console voor foutopsporing op lokaal en in een tabel in het geheugen, zodat u de gegevens die worden gegenereerd voor foutopsporing in HDInsight kunt zien. 
 
-![Stream verwerken met HDInsight en Spark Structured Streaming ](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
+![Stream verwerken met HDInsight en Spark Structured Streaming](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
 
 > [!NOTE]  
 > Spark Structured Streaming is vervangen door Spark Streaming (DStreams). Voortaan kunt ontvangt Structured Streaming uitbreidingen en onderhoud, terwijl DStreams in de onderhoudsmodus alleen. Structured Streaming is momenteel niet als functie aanvullen als DStreams voor de bronnen en sinks dat het gebruiksklaar ondersteunt, dus uw vereisten voor het kiezen van de juiste Spark stream verwerkingsoptie evalueren. 
@@ -114,7 +114,7 @@ Terwijl de query wordt uitgevoerd, in de dezelfde SparkSession, kunt u een query
 Deze query levert het resultaat is vergelijkbaar met het volgende:
 
 
-| venster |  min(Temp) | Avg(Temp) | Max(Temp) |
+| venster |  min(temp) | Avg(Temp) | max(temp) |
 | --- | --- | --- | --- |
 |{u'start': u'2016-07-26T02:00:00.000Z', u'end'... |    95 |    95.231579 | 99 |
 |{u'start': u'2016-07-26T03:00:00.000Z', u'end'...  |95 |   96.023048 | 99 |

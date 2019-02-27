@@ -16,12 +16,12 @@ ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 88cbfc895d188162d0f242a5aceaab721a6c877f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: def9026fb0422d8868af098f12180617aefe7eff
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239092"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877942"
 ---
 # <a name="quota-types-in-azure-stack"></a>Quotatypen in Azure Stack
 
@@ -74,7 +74,7 @@ Er zijn twee verschillende manieren om een bestaande quotum weer te geven:
 3.  Selecteer in de blade die wordt geopend, **Services en quota**.
 4.  Selecteer de quota die u graag zou zien willen door te klikken op in de **naam** kolom.
 
-    [ ![Quota](media/azure-stack-quota-types/quotas1sm.png "quota weergeven") ](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![Quota](media/azure-stack-quota-types/quotas1sm.png "quota weergeven")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 ### <a name="resource-providers"></a>Resourceproviders
 
@@ -92,7 +92,7 @@ Er zijn twee verschillende manieren een quotum bewerken:
 2.  Selecteer het abonnement waarvoor u een quotum bewerken wilt door te klikken op de naam ervan.
 3.  Selecteer in de blade die wordt geopend, **Services en quota**.
 4.  Selecteer de quota die u bewerken wilt door erop te klikken in de **naam** kolom.
-    [ ![Quota](media/azure-stack-quota-types/quotas1sm.png "quota weergeven") ](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![Quota](media/azure-stack-quota-types/quotas1sm.png "quota weergeven")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 5.  Selecteer in de blade die wordt geopend, **bewerken in Compute**, **bewerken in het netwerk**, of **bewerken in de opslag**.
     ![Quota](media/azure-stack-quota-types/quotas3.png "quota weergeven")    

@@ -1,6 +1,6 @@
 ---
-title: Een Snelzoekgids voor in de tegels Designer bekijken in Azure Log Analytics | Microsoft Docs
-description: Met behulp van ontwerper in Log Analytics, kunt u aangepaste weergaven maken in Azure portal die tal van gegevensvisualisaties in uw Log Analytics-werkruimte worden weergegeven. In dit artikel is een referentie-handleiding voor de instellingen voor de tegels die beschikbaar in uw aangepaste weergaven zijn.
+title: Een Snelzoekgids voor in de tegels Designer bekijken in Azure Monitor | Microsoft Docs
+description: Met behulp van Designer bekijken in Azure Monitor, kunt u aangepaste weergaven die worden weergegeven in de Azure-portal en bevatten een aantal visualisaties op de gegevens in de Log Analytics-werkruimte maken. In dit artikel is een referentie-handleiding voor de instellingen voor de tegels die beschikbaar in uw aangepaste weergaven zijn.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 5b01b55c8b2367861459069cc255840e883b9fc5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: c380f0391c51628b0eb71723a0faf982a4399680
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817381"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887757"
 ---
-# <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Naslaggids voor tegels in Log Analytics-ontwerper
-Met behulp van Designer bekijken in Azure Log Analytics, kunt u aangepaste weergaven maken in Azure portal die tal van gegevensvisualisaties in uw Log Analytics-werkruimte. In dit artikel is een referentie-handleiding voor de instellingen voor de tegels die beschikbaar in uw aangepaste weergaven zijn.
+# <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Naslaggids voor Weergaveontwerper tegels in Azure Monitor
+Met behulp van Designer bekijken in Azure Monitor, kunt u tal van aangepaste weergaven maken in Azure portal waarmee u gegevens visualiseren in uw Log Analytics-werkruimte kunt. In dit artikel is een referentie-handleiding voor de instellingen voor de tegels die beschikbaar in uw aangepaste weergaven zijn.
 
 Zie voor meer informatie over Designer bekijken:
 
@@ -177,5 +177,5 @@ De **twee tijdlijnen** tegel toont de resultaten van de twee logboeken-query's n
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md) ter ondersteuning van de query's in tegels.
+* Meer informatie over [query's bijgehouden](../log-query/log-query-overview.md) ter ondersteuning van de query's in tegels.
 * Voeg [visualisatie delen](view-designer-parts.md) aan uw aangepaste weergave.

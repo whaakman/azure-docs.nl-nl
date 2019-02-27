@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
-ms.openlocfilehash: 54faf8b37afa953aac7d411df2f539188dc5b451
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 6e97001497ebdddebe9b5b726e0526a987b6c63c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310210"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873318"
 ---
 # <a name="how-to-improve-your-classifier"></a>Hoe u de classificatie verbeteren
 
@@ -39,7 +39,7 @@ Op dit probleem te corrigeren, gebruikt u de volgende richtlijnen op training me
 
 ## <a name="data-quantity"></a>De hoeveelheid gegevens
 
-Het aantal trainingsafbeeldingen is de belangrijkste factor. We recomment met behulp van ten minste 50 afbeeldingen per label als uitgangspunt. Er is een hogere kans te met minder installatiekopieën en terwijl de nummers van de prestaties kunnen goed worden voorgesteld, het model is het mogelijk moeilijk met echte gegevens. 
+Het aantal trainingsafbeeldingen is de belangrijkste factor. U wordt aangeraden ten minste 50 afbeeldingen per label als uitgangspunt gebruiken. Er is een hogere kans te met minder installatiekopieën en terwijl de nummers van de prestaties kunnen goed worden voorgesteld, het model is het mogelijk moeilijk met echte gegevens. 
 
 ## <a name="data-balance"></a>Gegevens verdelen
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
-ms.openlocfilehash: 8a660de0502a6ab215d3a23615f6a53813f1695e
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 4b6c4af37211ede2cb2153afdd071c219178f2ba
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649200"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882838"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Back-up van virtuele VMware-machines met Azure Backup Server
 
@@ -72,7 +72,7 @@ Stel een beveiligd kanaal als volgt in:
 
 5. In de **certificaten** map met de rechtermuisknop op het basiscertificaatbestand > **naam**.
 
-    ![Wijzig de naam van basiscertificaat ](./media/backup-azure-backup-server-vmware/rename-cert.png)
+    ![Wijzig de naam van basiscertificaat](./media/backup-azure-backup-server-vmware/rename-cert.png)
 
 6. Wijzigen van het basiscertificaat extensie .crt en bevestigen. Het pictogram van het bestand wordt gewijzigd in een waarde van een basiscertificaat.
 
@@ -124,7 +124,7 @@ De Azure Backup-Server moet een gebruikersaccount met machtigingen voor toegang 
 1. Aanmelden bij de vCenter-Server (of de ESXi-host als u geen vCenter-Server).
 2. In de **Navigator** deelvenster, klikt u op **beheer**.
 
-    ![Beheer ](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
+    ![Beheer](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
 
 3. In **beheer** > **rollen**, klikt u op het pictogram van de rol toevoegen (het symbool +).
 

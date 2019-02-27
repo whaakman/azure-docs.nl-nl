@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: e9fcf36d6ece441c73e7d1224bd5918d2e74bf84
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 704c12bc2ea16fcad5672dde4181f63495fbe967
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001964"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870836"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Verzamelen en gebruiken van logboekgegevens van uw Azure-resources
 
@@ -23,7 +23,7 @@ ms.locfileid: "56001964"
 * **Logboeken voor de tenantsleutel** -deze logboeken afkomstig zijn van het tenantniveau-services die buiten een Azure-abonnement bestaan, zoals Azure Active Directory-Logboeken.
 * **Logboeken van de resource** -deze logboeken afkomstig zijn van de Azure-services die resources binnen een Azure-abonnement, zoals Network Security Groups of Storage-Accounts implementeren.
 
-    ![Resource diagnostische logboeken en andere typen logboeken ](./media/diagnostic-logs-overview/Diagnostics_Logs_vs_other_logs_v5.png)
+    ![Resource diagnostische logboeken en andere typen logboeken](./media/diagnostic-logs-overview/Diagnostics_Logs_vs_other_logs_v5.png)
 
 De inhoud van deze logboeken is afhankelijk van het Azure-service en resource-type. Tellers van regels voor Network Security Group en Key Vault controles zijn bijvoorbeeld twee typen logboeken met diagnostische gegevens.
 

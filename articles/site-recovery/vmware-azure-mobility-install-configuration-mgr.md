@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: cd50a957894c2c6c4944b0ba3768a00754abaa15
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: eb7d5acdcfade47ca916dcfd58aa271a9b1298ac
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835077"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867132"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>Installatie van de Mobility-Service met System Center Configuration Manager automatiseren
 
@@ -24,7 +24,7 @@ Dit artikel bevat een voorbeeld van hoe u System Center Configuration Manager ge
 
 In dit artikel maakt gebruik van System Center Configuration Manager 2012 R2 ter illustratie van de implementatie-activiteit. Er wordt ervan uitgegaan dat u gebruikmaakt van versie **9.9.4510.1** of hoger van de Mobility-service.
 
-U kunt ook installatie van de Mobility-Service met automatiseren [Azure Automation DSC ](vmware-azure-mobility-deploy-automation-dsc.md).
+U kunt ook installatie van de Mobility-Service met automatiseren [Azure Automation DSC](vmware-azure-mobility-deploy-automation-dsc.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -172,7 +172,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
   | **Parameternaam** | **Waarde** |
   |--|--|
-  | Naam | Microsoft Azure Mobility-Service (Windows) installeren |
+  | Name | Microsoft Azure Mobility-Service (Windows) installeren |
   | Opdrachtregel | Install.bat |
   | Programma kan worden uitgevoerd | Of een gebruiker is aangemeld |
 
@@ -397,7 +397,7 @@ cd /tmp
 
     | **Parameternaam** | **Waarde** |
   |--|--|
-  | Naam | Mobility-Service voor de Microsoft Azure (Linux) installeren |
+  | Name | Mobility-Service voor de Microsoft Azure (Linux) installeren |
   | Opdrachtregel | ./install_linux.sh |
   | Programma kan worden uitgevoerd | Of een gebruiker is aangemeld |
 

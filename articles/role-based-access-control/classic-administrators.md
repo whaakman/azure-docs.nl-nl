@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3babcf0562a2f817f6ebd1fcc66df6d655d905bb
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: a19153677e691d2681c131df67100a43ef9532a0
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807147"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889321"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Beheerders van de klassieke Azure-abonnement
 
@@ -91,7 +91,7 @@ Er zijn twee manieren om te wijzigen van de Service-beheerder. U kunt wijzigen d
 
 ### <a name="azure-portal"></a>Azure Portal
 
-1. Zorg ervoor dat uw scenario wordt ondersteund door het controleren van de [beperkingen voor het wijzigen van servicebeheerders](#limits).
+1. Zorg ervoor dat uw scenario wordt ondersteund door het controleren van de beperkingen voor het wijzigen van servicebeheerders.
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) als de accountbeheerder.
 
@@ -109,7 +109,7 @@ Er zijn twee manieren om te wijzigen van de Service-beheerder. U kunt wijzigen d
 
 ### <a name="account-center"></a>Accountcentrum
 
-1. Zorg ervoor dat uw scenario wordt ondersteund door het controleren van de [beperkingen voor het wijzigen van servicebeheerders](#limits).
+1. Zorg ervoor dat uw scenario wordt ondersteund door het controleren van de beperkingen voor het wijzigen van servicebeheerders.
 
 1. Aanmelden bij [Accountcentrum](https://account.windowsazure.com/subscriptions) als de accountbeheerder.
 

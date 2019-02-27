@@ -16,12 +16,12 @@ ms.date: 10/09/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54aab6e9718b5a4a55cf2a3f9c472e9e02a53ea7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 67ae5d2661371c256f753d05eb496d2cd53a0017
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191075"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869544"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect en federatie
 Met Azure Active Directory (Azure AD) Connect kunt u bij het configureren van Federatie met on-premises Active Directory Federation Services (AD FS) en Azure AD. Met de aanmelding federation kunt u gebruikers zich aanmelden voor Azure op basis van een AD-services met hun on-premises wachtwoorden-- en, terwijl op het bedrijfsnetwerk bevinden, zonder te hoeven hun wachtwoord opnieuw invoeren. U kunt een nieuwe installatie van AD FS implementeren met de optie Federatie met AD FS, of kunt u een bestaande installatie in een farm met Windows Server 2012 R2.
@@ -36,7 +36,7 @@ In dit onderwerp is de thuisbasis voor informatie over de federation-gerelateerd
 | **AD FS installeren met behulp van Azure AD Connect** | |
 | [Vereisten](how-to-connect-install-custom.md#ad-fs-configuration-pre-requisites) |Zie de vereisten voor een geslaagde installatie van AD FS via Azure AD Connect. |
 | [AD FS-farm configureren](how-to-connect-install-custom.md#configuring-federation-with-ad-fs) |Installeer een nieuwe AD FS-farm met behulp van Azure AD Connect. |
-| [Federeren met Azure AD met behulp van alternatieve aanmeldings-ID ](how-to-connect-fed-management.md#alternateid) | Federatie met behulp van alternatieve aanmeldings-ID configureren  |
+| [Federeren met Azure AD met behulp van alternatieve aanmeldings-ID](how-to-connect-fed-management.md#alternateid) | Federatie met behulp van alternatieve aanmeldings-ID configureren  |
 | **De AD FS-configuratie wijzigen** | |
 | [Herstel de vertrouwensrelatie](how-to-connect-fed-management.md#repairthetrust) |Herstel de vertrouwensrelatie van de huidige tussen on-premises AD FS- en Office 365/Azure. |
 | [Een nieuwe AD FS-server toevoegen](how-to-connect-fed-management.md#addadfsserver) |Vouw een AD FS-farm met een aanvullende AD FS-server na de eerste installatie. |

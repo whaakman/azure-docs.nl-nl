@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: geg
-ms.openlocfilehash: b919adbaf665055ee19df9b9167984cc29388032
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 370428213414d1048478cb8413d45e2a39992e39
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428735"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887519"
 ---
 # <a name="restore-azure-vms"></a>Azure-VM's herstellen
 
@@ -76,7 +76,7 @@ Als een van de [opties voor terugzetten](#restore-options), kunt u snel een virt
 Als een van de [opties voor terugzetten](#restore-options), kunt u een schijf van een herstelpunt. Klik met de schijf maakt, kunt u een van de volgende doen:
 
 - Gebruik de sjabloon die wordt gegenereerd tijdens de herstelbewerking op de instellingen aanpassen en het activeren van VM-implementatie. U de standaardinstellingen van de sjabloon bewerken en het verzenden van de sjabloon voor VM-implementatie.
-- [Herstelde schijven koppelen](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal#option-2-attach-an-existing-disk) aan een bestaande virtuele machine.
+- [Herstelde schijven koppelen](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) aan een bestaande virtuele machine.
 - [Maak een nieuwe virtuele machine] (https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks van de herstelde schijven met behulp van PowerShell.
 
 

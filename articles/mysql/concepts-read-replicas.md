@@ -5,23 +5,19 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 1/30/2019
-ms.openlocfilehash: 03e0db822e38cc6823fc32aa915dc9283fa46cbe
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.date: 02/26/2019
+ms.openlocfilehash: 6e33c7571dc735ce9984a0ce1b37275a6c4c7eca
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493045"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888462"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Lezen-replica's in Azure Database for MySQL
 
-> [!IMPORTANT]
-> De functie lezen replica is beschikbaar als openbare preview.
-
 De functie lezen replica kunt u voor het repliceren van gegevens uit een Azure Database for MySQL-server (master) op maximaal vijf alleen-lezen-servers (replica's) binnen dezelfde Azure-regio. Alleen-lezen replica's worden asynchroon bijgewerkt met de MySQL-engine systeemeigen binair logboek (binlog)-bestand op basis van positie-Replicatietechnologie. Zie voor meer informatie over binlog replicatie, de [MySQL binlog replicatie-overzicht](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
-Replica's die zijn gemaakt in de Azure Database for MySQL-service zijn nieuwe servers die op dezelfde manier als normale/zelfstandige MySQL-servers kunnen worden beheerd. Voor elke leesreplica worden kosten in rekening gebracht voor de ingerichte compute in vCores en ingerichte opslag in GB/maand. 
-
+Replica's die zijn gemaakt in de Azure Database for MySQL-service zijn nieuwe servers die op dezelfde manier als normale/zelfstandige MySQL-servers kunnen worden beheerd. Voor elke leesreplica worden kosten in rekening gebracht voor de ingerichte compute in vCores en ingerichte opslag in GB/maand.
 
 Raadpleeg voor meer informatie over functies voor MySQL-replicatie en problemen met de [MySQL replicatie documentatie](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
@@ -39,7 +35,7 @@ Lezen-replica's zijn momenteel alleen beschikbaar in de Prijscategorieën voor a
 
 ### <a name="master-server-restart"></a>Hoofd-server opnieuw opstarten
 
-Deze Preview-versie, als u een replica maakt voor een model waarvoor geen bestaande replica's, wordt het model eerst opnieuw zelf voorbereiden voor replicatie. Dit rekening mee te houden en het uitvoeren van deze bewerkingen gedurende een periode buiten piektijden.
+Wanneer u een replica voor een model waarvoor geen bestaande replica's maakt, wordt eerst het model opnieuw zelf voorbereiden voor replicatie. Dit rekening mee te houden en het uitvoeren van deze bewerkingen gedurende een periode buiten piektijden.
 
 ### <a name="stopping-replication"></a>Replicatie stoppen
 
@@ -58,7 +54,7 @@ Replica-servers worden gemaakt met behulp van de configuraties van dezelfde serv
 - Prijscategorie
 - Bewerking voor COMPUTE
 - vCores
-- Storage
+- Opslag
 - Bewaarperiode voor back-up
 - Optie voor back-redundantie
 - MySQL-engine-versie

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5614c061586c39e44f04f3542285e55e07f14d9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e5d48cbeb1714a4a3cd645fd65264aec0baf2c05
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172704"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871757"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Zelfstudie: Azure Active Directory-integratie met Silverback
 
@@ -131,7 +131,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     b. Op de **verificatie-instellingen voor Provider** pagina, voert u de volgende stappen uit:
 
-    ![De beheerder ](./media/silverback-tutorial/tutorial_silverback_admin.png)
+    ![De beheerder](./media/silverback-tutorial/tutorial_silverback_admin.png)
 
     c.  Klik op **importeren vanaf URL**.
     
@@ -195,7 +195,7 @@ Als u wilt dat Azure AD-gebruikers zich aanmelden bij Silverback, moeten ze word
 
 3. Op de **Basic** pagina, voert u de volgende stappen uit:
 
-    ![De gebruiker ](./media/silverback-tutorial/tutorial_silverback_user.png)
+    ![Gebruiker](./media/silverback-tutorial/tutorial_silverback_user.png)
 
     a. In **gebruikersnaam** tekst voert u de naam van gebruiker, zoals **Julia**.
 

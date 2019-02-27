@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae428f18a2b927f42716a1c00b55790fe73d81a4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 06f51f56de29d5e598ea74b39352d3c15bf7b375
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173399"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880628"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect-synchronisatie: Inzicht in de standaardconfiguratie
 Dit artikel wordt uitgelegd dat de van de out-of-box-configuratieregels. Deze documenten in de regels en hoe deze regels invloed hebben op de configuratie. Ook helpt u bij de standaardconfiguratie van Azure AD Connect-synchronisatie. Het doel is dat de lezer hoe de configuratiemodel begrijpt, met de naam declaratieve inrichting werkt in een voorbeeld van een echte. In dit artikel wordt ervan uitgegaan dat u al hebt geïnstalleerd en Azure AD Connect-synchronisatie met de installatiewizard configureren.
@@ -151,7 +151,7 @@ Een regel voor synchronisatie heeft vier configuratiesecties: Beschrijving, Scop
 #### <a name="description"></a>Description
 De eerste sectie bevat algemene informatie, zoals een naam en beschrijving.
 
-![Beschrijving van tabblad synchroon regeleditor ](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
+![Beschrijving van tabblad synchroon regeleditor](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
 
 Ook vindt u informatie over welke verbonden systeem met deze regel is gerelateerd aan, waarmee het verbonden systeem dat is van toepassing op type en het metaverse-objecttype-object. Het metaverse-objecttype is altijd persoon ongeacht wanneer het brontype van het object een gebruiker, iNetOrgPerson of neem contact op met is. Het metaverse-objecttype moet nooit wijzigen zodat deze als een generiek type is gemaakt. Het koppelingstype kan worden ingesteld op Join, StickyJoin of inrichten. Deze instelling werkt samen met de sectie met regels voor lid worden en wordt later behandeld.
 
@@ -160,18 +160,18 @@ U ziet ook dat deze synchronisatieregel wordt gebruikt voor Wachtwoordsynchronis
 #### <a name="scoping-filter"></a>Bereikfilter
 De sectie bereikfilter voor wordt gebruikt om te configureren wanneer een regel voor synchronisatie moet worden toegepast. Omdat de naam van de Synchronisatieregel u kijkt moet alleen worden toegepast voor ingeschakelde gebruikers aangeeft, het bereik is geconfigureerd zodat de AD-kenmerk **userAccountControl** moet hebt niet de bit 2 ingesteld. Als de synchronisatie-engine wordt een gebruiker in AD gevonden, wordt deze synchronisatie toegepast wanneer regel **userAccountControl** is ingesteld op de decimale waarde 512 (ingeschakeld normale gebruiker). De regel is niet van toepassing wanneer de gebruiker heeft **userAccountControl** ingesteld op 514 (uitgeschakelde normale gebruiker).
 
-![Scoping tabblad in de editor voor synchronisatie-regel ](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
+![Scoping tabblad in de editor voor synchronisatie-regel](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
 
 De bereikfilter heeft groepen en -componenten die kunnen worden genest. Alle componenten binnen een groep moeten worden voldaan voor een regel voor synchronisatie om toe te passen. Wanneer er meerdere groepen zijn gedefinieerd, moet ten minste één groep worden voldaan voor de regel wilt toepassen. Dat wil zeggen, een logische of tussen groepen en een logische wordt geëvalueerd en wordt geëvalueerd binnen een groep. Een voorbeeld van deze configuratie kunt u vinden in de regel voor uitgaande synchronisatie **Out voor AAD-groep Join**. Er zijn verschillende filter groepen voor synchronisatie, bijvoorbeeld één voor beveiligingsgroepen (`securityEnabled EQUAL True`) en één voor distributiegroepen (`securityEnabled EQUAL False`).
 
-![Scoping tabblad in de editor voor synchronisatie-regel ](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilterout.png)
+![Scoping tabblad in de editor voor synchronisatie-regel](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilterout.png)
 
 Deze regel wordt gebruikt om te definiëren welke groepen moeten worden ingericht met Azure AD. Distributiegroepen moeten zijn ingeschakeld om te worden gesynchroniseerd met Azure AD e-mail, maar voor beveiligingsgroepen een e-mailbericht is niet vereist.
 
 #### <a name="join-rules"></a>Regels toevoegen
 De derde sectie wordt gebruikt om te configureren hoe objecten in het connectorgebied zich verhouden tot objecten in de metaverse. De regel die u eerder hebt bekeken heeft geen geen configuratie voor regels voor lid worden, dus in plaats daarvan u gaat kijken **In uit Active Directory-gebruiker toevoegen**.
 
-![Tabblad regels in de editor voor synchronisatie-regel toevoegen ](./media/concept-azure-ad-connect-sync-default-configuration/syncrulejoinrules.png)
+![Tabblad regels in de editor voor synchronisatie-regel toevoegen](./media/concept-azure-ad-connect-sync-default-configuration/syncrulejoinrules.png)
 
 De inhoud van de join-regel, is afhankelijk van de overeenkomende optie is geselecteerd in de installatiewizard. De evaluatie begint met een object in het connectorgebied bron voor een inkomende regel en elke groep in de join-regels in de reeks wordt geëvalueerd. Als een bronobject wordt vastgesteld zodat deze overeenkomt met één object in de metaverse met behulp van een van de regels voor lid worden, worden de objecten zijn gekoppeld. Als alle regels zijn geëvalueerd en er geen overeenkomst is, wordt het koppelingstype op de beschrijvingspagina gebruikt. Als deze configuratie is ingesteld op **inrichten**, en vervolgens een nieuw object wordt gemaakt in het doel, de metaverse. Voor het inrichten van een nieuw object naar de metaverse staat ook bekend als aan **project** een object naar de metaverse.
 
@@ -184,7 +184,7 @@ Als u de bovenstaande afbeelding bekijkt, kunt u zien dat de regel is proberen t
 #### <a name="transformations"></a>Transformaties
 Het gedeelte transformatie definieert alle kenmerkstromen die betrekking hebben op het beoogde doelobject als lid zijn van de objecten en het filter voor zoekbereik is voldaan. Ga terug naar de **In uit Active Directory-gebruiker AccountEnabled** Synchronisatieregel, vindt u de volgende transformaties:
 
-![Transformaties tabblad synchroon regeleditor ](./media/concept-azure-ad-connect-sync-default-configuration/syncruletransformations.png)
+![Transformaties tabblad synchroon regeleditor](./media/concept-azure-ad-connect-sync-default-configuration/syncruletransformations.png)
 
 Om deze configuratie in de context in een implementatie met een Account-Resource-forests is het waarschijnlijk een ingeschakeld account in het forest en een uitgeschakeld account vinden in de bron-forest met instellingen voor Exchange en Lync. De Synchronisatieregel die u wilt de kenmerken die vereist zijn voor aanmelding bij bevat en deze kenmerken moeten stromen van het forest waarbij er een ingeschakeld account. Deze kenmerkstromen zijn in één regel voor synchronisatie samengesteld.
 

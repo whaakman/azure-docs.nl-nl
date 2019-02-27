@@ -8,19 +8,19 @@ ms.assetid: 03332872-8d84-44a0-8a78-04fd30e14b18
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: dd3cb108844cd009d74de42630511073021d94b1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5513948a6611e93833c7e70fa4e5667b3901a9f3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238485"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880220"
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Aan de slag met Azure Data Catalog
 Azure Data Catalog is een volledig beheerde cloudservice die als een registratie- en detectiesysteem voor gegevensassets van ondernemingen fungeert. Zie [Wat is Azure Data Catalog?](data-catalog-what-is-data-catalog.md) voor een gedetailleerd overzicht.
 
 Deze zelfstudie helpt u om aan de slag te gaan met Azure Data Catalog. In deze zelfstudie voert u de volgende procedures uit:
 
-| Procedure | Beschrijving |
+| Procedure | Description |
 |:--- |:--- |
 | [Gegevenscatalogus inrichten](#provision-data-catalog) |In deze procedure richt of stelt u een Azure Data Catalog in. U voert deze stap alleen uit als de catalogus nog niet is ingesteld. Zelfs als er aan uw Azure-account meerdere abonnementen zijn gekoppeld, kunt u slechts één gegevenscatalogus per organisatie (Microsoft Azure Active Directory-domein) hebben. |
 | [Gegevensassets registreren](#register-data-assets) |In deze procedure registreert u gegevensassets uit de AdventureWorks2014-voorbeelddatabase in de gegevenscatalogus. Registratie is het proces waarbij belangrijke structurele metagegevens, zoals namen, typen en locaties, worden geëxtraheerd uit de gegevensbron en worden gekopieerd naar de catalogus. De gegevensbronnen en gegevensassets blijven waar ze zijn, maar de metagegevens worden door de catalogus gebruikt om de gegevensbronnen en gegevensassets eenvoudiger te detecteren en te begrijpen. |
@@ -82,7 +82,7 @@ U kunt per organisatie (Azure Active Directory-domein) slechts één gegevenscat
     ![Azure Data Catalog - catalogus in lijst bekijken](media/data-catalog-get-started/data-catalog-azure-portal-show-catalog.png)
 3. Klik op de catalogus die u hebt gemaakt. U ziet de blade **Gegevenscatalogus** in de portal.
    
-   ![Azure Data Catalog - blade in portal ](media/data-catalog-get-started/data-catalog-blade-azure-portal.png)
+   ![Azure Data Catalog - blade in portal](media/data-catalog-get-started/data-catalog-blade-azure-portal.png)
 4. U kunt de eigenschappen van de gegevenscatalogus bekijken en bijwerken. Klik bijvoorbeeld op **Prijscategorie** en wijzig de editie.
    
     ![Azure Data Catalog - prijscategorie](media/data-catalog-get-started/data-catalog-change-pricing-tier.png)
@@ -144,7 +144,7 @@ In deze oefening gebruikt u de het hulpprogramma voor registratie om gegevensass
       ![Azure Data Catalog - geregistreerde objecten](media/data-catalog-get-started/data-catalog-registered-objects.png)
    9. Als u uw geregistreerde gegevensbronobjecten wilt zien, klikt u op **Portal weergeven**. Bevestig in de Azure Data Catalog-portal dat u alle vier tabellen en de database in de rasterweergave ziet.
       
-      ![Objecten in de Azure Data Catalog-portal ](media/data-catalog-get-started/data-catalog-view-portal.png)
+      ![Objecten in de Azure Data Catalog-portal](media/data-catalog-get-started/data-catalog-view-portal.png)
 
 In deze oefening hebt u objecten uit de voorbeelddatabase van Adventure Works geregistreerd, zodat ze eenvoudig kunnen worden gevonden door gebruikers in uw organisatie. In de volgende oefening leert u hoe u geregistreerde gegevensassets kunt detecteren.
 

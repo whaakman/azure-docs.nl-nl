@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/12/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1162eb7964c8ec40f2b342e33044b60385cbd5f6
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f7829627352815bc96a7a81bcbbc7e51240c858e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727482"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870853"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Veelgestelde vragen en bekende problemen met beheerde identiteiten voor Azure-resources
 
@@ -38,7 +38,7 @@ Nee, er zijn geen plannen voor de ondersteuning van beheerde identiteiten voor A
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>Werkt beheerde identiteiten voor Azure-resources met de Active Directory Authentication Library (ADAL) of de Microsoft Authentication Library (MSAL)?
 
-Nee, beheerde identiteiten voor Azure-resources nog niet is geïntegreerd met ADAL of MSAL. Zie voor meer informatie over het ophalen van een token voor beheerde identiteiten voor Azure-resources met behulp van de REST-eindpunt, [over het gebruik van beheerde identiteiten voor Azure-resources op een Azure-VM aan een toegangstoken verkrijgen ](how-to-use-vm-token.md).
+Nee, beheerde identiteiten voor Azure-resources nog niet is geïntegreerd met ADAL of MSAL. Zie voor meer informatie over het ophalen van een token voor beheerde identiteiten voor Azure-resources met behulp van de REST-eindpunt, [over het gebruik van beheerde identiteiten voor Azure-resources op een Azure-VM aan een toegangstoken verkrijgen](how-to-use-vm-token.md).
 
 ### <a name="what-is-the-security-boundary-of-managed-identities-for-azure-resources"></a>Wat is de beveiligingsgrens van beheerde identiteiten voor Azure-resources?
 

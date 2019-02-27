@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
-ms.openlocfilehash: 82ed1378f1a754c8b5c64db2a190db5ceeb0de4a
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 0a6296441374c3cf716211f8ba5961392407e240
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821204"
+ms.locfileid: "56870261"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Over het voorbereiden van uw model voor implementatie in Azure Machine Learning Studio
 
@@ -22,7 +22,7 @@ Azure Machine Learning Studio biedt u de hulpmiddelen die u nodig hebt voor het 
 
 U doet dit door u Studio kunt gebruiken om u te maken van een experiment - met de naam een *trainingsexperiment* - waar u trainen, beoordelen en uw model bewerken. Wanneer u tevreden bent, krijgt uw model klaar om te implementeren door te converteren van uw trainingsexperiment op een *Voorspellend experiment* dat geconfigureerd voor de score gebruikersgegevens.
 
-U ziet een voorbeeld van dit proces in [ zelfstudie 1: Kredietrisico voorspellen](tutorial-part1-credit-risk.md).
+U ziet een voorbeeld van dit proces in [zelfstudie 1: Kredietrisico voorspellen](tutorial-part1-credit-risk.md).
 
 In dit artikel wordt een dieper ingaan op de details van hoe een opleidingsexperiment wordt geconverteerd naar een Voorspellend experiment en hoe die Voorspellend experiment is geïmplementeerd. Door de volgende details, kunt u informatie over het configureren van uw geïmplementeerd model zodat het efficiëntere.
 

@@ -12,12 +12,12 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b2be42e4984ac7000cfb31ce6575c529b752db2d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b52e08485c5ce853f9c8eafaafd15f137aef10bb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471144"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873442"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Herstel na noodgevallen voor een multitenant SaaS-toepassing met behulp van de database geo-replicatie
 
@@ -241,7 +241,7 @@ Wanneer het herstelproces is voltooid, zijn de toepassing en alle tenants volled
     * De _tenants2-dpt -&lt;gebruiker&gt;-recovery_ SQL server.  Deze server wordt gebruikt voor het inrichten van nieuwe tenants gedurende de storing.
     *   De naam van de App Service, _gebeurtenissen-wingtip-dpt -&lt;recoveryregion&gt;-&lt;gebruiker & gt_; is de herstel-exemplaar van de app. 
 
-    ![Azure recovery-resources ](media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png)    
+    ![Azure recovery-resources](media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png) 
     
 4. Open de _tenants2-dpt -&lt;gebruiker&gt;-recovery_ SQL server.  U ziet dat deze de database bevat _hawthornhall_ en de elastische pool _Pool1_.  De _hawthornhall_ database is geconfigureerd als een elastische database in _Pool1_ elastische pool.
 

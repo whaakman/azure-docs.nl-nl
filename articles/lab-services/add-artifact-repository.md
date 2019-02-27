@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: e8a94fdae74c5a30ba75e9143b298c3372b886d7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 9a267b48e185e02c1b1217380429453799308bbe
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733007"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886760"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Een artefactopslagplaats toevoegen aan uw lab in DevTest Labs
 DevTest Labs kunt u opgeven van een artefact dat moet worden toegevoegd aan een virtuele machine op het moment van de VM is gemaakt of nadat de virtuele machine is gemaakt. Dit artefact is mogelijk een hulpprogramma of een toepassing die u wilt installeren op de virtuele machine. Artefacten worden gedefinieerd in een JSON-bestand geladen vanuit een GitHub- of VSTS Git-opslagplaats. 
@@ -60,7 +60,7 @@ Een opslagplaats toevoegen aan uw testomgeving, moet u eerst, belangrijke inform
    4. Selecteer de **alle scopes** optie.
    5. Selecteer **maakt u Token**.
 9. Het nieuwe token wordt weergegeven in de **persoonlijke toegangstokens** lijst. Selecteer **kopie Token**, en sla vervolgens de waarde voor de token voor later gebruik.
-10. Blijven de [verbinding maken met uw lab in de opslagplaats](#connect-your-lab-to-the-repository) sectie.
+10. Doorgaan met het verbinding maken met uw lab, waar de opslagplaats-sectie.
 
 ## <a name="use-azure-portal"></a>Azure Portal gebruiken
 In deze sectie bevat stappen voor het toevoegen van een artefactopslagplaats aan een lab in Azure portal. 

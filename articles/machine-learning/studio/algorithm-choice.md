@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: cf45c97fccb89fe7175796322f0d3d7d114eea11
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 8ae8ecab5363c9eff7fcadd65c76dd31ca6818e1
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822957"
+ms.locfileid: "56877925"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Algoritmen kiezen voor Azure Machine Learning Studio
 
@@ -129,7 +129,7 @@ Sommige learning-algoritmen moeten u bepaalde veronderstellingen over de structu
 | **Meerdere klasse-classificatie** | | | | | |
 | [Logistieke regressie](https://msdn.microsoft.com/library/azure/dn905853.aspx) | |● |● |5 | |
 | [beslissingsforest met](https://msdn.microsoft.com/library/azure/dn906015.aspx) |● |○ | |6 | |
-| [besluit jungle ](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Het geheugengebruik van laag |
+| [besluit jungle](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Het geheugengebruik van laag |
 | [neurale netwerk](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[Aanvullende aanpassing is mogelijk](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |Controleer de eigenschappen van de twee klassen methode geselecteerd |
 | **Regressie** | | | | | |

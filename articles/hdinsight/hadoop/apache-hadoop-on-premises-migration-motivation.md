@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 94dec611a04819580696133c48db66da1ea9c463
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 73a2f0754cafaa5da09ebd437ecd62813296ffd9
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000434"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890076"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>On-premises Apache Hadoop-clusters migreren naar Azure HDInsight - motivatie en voordelen
 
@@ -54,7 +54,7 @@ Azure HDInsight is een cloud-distributie van Hadoop-onderdelen uit de [Hortonwo
 
 - **Uitbreidbaarheid met aangepaste hulpprogramma's of toepassingen van derden** -HDInsight-clusters kunnen worden uitgebreid met geïnstalleerde onderdelen en kunnen ook worden geïntegreerd met andere big data-oplossingen met behulp van [één muisklik](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/)  -implementaties van de Azure-marktplaats.
 
-- **Eenvoudig beheer, beheer en controle** -Azure HDInsight kan worden geïntegreerd met [Azure Log Analytics](../hdinsight-hadoop-oms-log-analytics-tutorial.md) en biedt een enkele interface waarmee u al uw clusters kunt bewaken.
+- **Eenvoudig beheer, beheer en controle** -Azure HDInsight kan worden geïntegreerd met [logboeken van Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md) en biedt een enkele interface waarmee u al uw clusters kunt bewaken.
 
 - **Integratie met andere Azure-services** -HDInsight kan eenvoudig worden geïntegreerd met andere populaire Azure-services, zoals het volgende:
 
@@ -83,18 +83,18 @@ De volgende stappen worden aanbevolen voor het plannen van een migratie van on-p
 Deze sectie bevat sjabloon vragenlijsten zodat belangrijke informatie verzamelen over:
 
 - De on-premises implementatie
-- Projectdetails
+- Projectgegevens
 - Azure-vereisten
 
 ### <a name="on-premises-deployment-questionnaire"></a>On-Premises implementatie vragenlijst
 
 | **Vraag** | **Voorbeeld** | **Antwoord** |
 |---|---|---|
-|**Onderwerp**: **omgeving**|||
+|**onderwerp**: **Omgeving**|||
 |Distributietype van cluster|Hortonworks, Cloudera, MapR| |
 |Clusterversie distributie|HDP 2.6.5, CDH 5.7|
-|Onderdelen van big Data-ecosysteem|HDFS, Yarn, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
-|Clustertypen|Hadoop, Spark, confluente Kafka, Storm, Solr|
+|Onderdelen van big Data-ecosysteem|HDFS, Yarn, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
+|Clustertypen|Hadoop, Spark, Confluent Kafka, Storm, Solr|
 |Aantal clusters|4|
 |Aantal Master-knooppunten|2|
 |Het aantal Worker-knooppunten|100|
@@ -103,17 +103,17 @@ Deze sectie bevat sjabloon vragenlijsten zodat belangrijke informatie verzamelen
 |Master-knooppuntconfiguratie|m/y, cpu, schijf, enzovoort.|
 |Configuratie voor opslagknooppunten gegevens|m/y, cpu, schijf, enzovoort.|
 |Edge-configuratie voor opslagknooppunten|m/y, cpu, schijf, enzovoort.|
-|HDFS-codering?|Ja|
-|Hoge beschikbaarheid|HDFS HA, HA Metastore|
+|HDFS Encryption?|Ja|
+|Hoge beschikbaarheid|HDFS HA, Metastore HA|
 |Herstel na noodgevallen / back-up maken|Back-cluster?|  
 |Systemen die afhankelijk van Cluster zijn|SQL Server, Teradata, Power BI, MongoDB|
 |Integratie van derden|Tableau, GridGain, Qubole, Informatica, Splunk|
-|**Onderwerp**: **beveiliging**|||
+|**onderwerp**: **Beveiliging**|||
 |Perimeterbeveiliging|Firewalls|
 |Cluster-verificatie en autorisatie|Active Directory, Ambari, Cloudera Manager, is geen verificatie|
 |HDFS-toegangsbeheer|  Handmatige, ssh gebruikers|
 |Hive-verificatie en autorisatie|SENTRY, LDAP, AD met Kerberos, Ranger|
-|Controleren|Ambari, Cloudera Navigator Ranger|
+|Controleren|Ambari, Cloudera Navigator, Ranger|
 |Bewaking|Grafiek, verzamelde, statsd, Telegraf, InfluxDB|
 |Waarschuwingen|Kapacitor, Prometheus, Datadog|
 |Bewaartermijn voor gegevens| drie jaar, 5 jaar|
@@ -123,7 +123,7 @@ Deze sectie bevat sjabloon vragenlijsten zodat belangrijke informatie verzamelen
 
 |**Vraag**|**Voorbeeld**|**Antwoord**|
 |---|---|---|
-|**Onderwerp**: **Workloads en de frequentie**|||
+|**onderwerp**: **Workloads en de frequentie**|||
 |MapReduce-taken|10 taken--twee keer per dag||
 |Hive-taken|100 taken--elk uur||
 |Spark-batch-taken|50 taken--om de 15 minuten||
@@ -131,54 +131,54 @@ Deze sectie bevat sjabloon vragenlijsten zodat belangrijke informatie verzamelen
 |Structured Streaming van taken|5 taken--elke minuut||
 |Trainingstaken ML-Model|2-taken, in één keer per week||
 |Programmeertalen|Python, Scala, Java||
-|Scripts|Python-shell||
-|**Onderwerp**: **gegevens**|||
+|Scripts|Shell, Python||
+|**onderwerp**: **Gegevens**|||
 |Gegevensbronnen|Platte bestanden, Json, Kafka, RDBMS||
-|Gegevensindeling|Oozie-werkstromen, luchtstroom||
+|Data orchestratie|Oozie-werkstromen, luchtstroom||
 |In geheugen zoekacties|Apache Ignite, Redis||
-|Gegevensbestemmingen|HDFS, RDBMS van TOPKLASSE, Kafka, MPP ||
-|**Onderwerp**: **metagegevens**|||
+|Gegevensbestemmingen|HDFS, RDBMS, Kafka, MPP ||
+|**onderwerp**: **Metagegevens**|||
 |Hive-databasetype|MySQL, Postgres||
 |Nee. van Hive metastores|2||
 |Nee. van Hive-tabellen|100||
 |Nee. van Ranger-beleidsregels|20||
 |Nee. Oozie-werkstromen|100||
-|**Onderwerp**: **schaal**|||
+|**onderwerp**: **Schalen**|||
 |Gegevensvolume, met inbegrip van replicatie|100 TB||
 |Dagelijkse opname-volume|50 GB||
 |Groei van gegevens|10% per jaar||
 |Groei van de cluster-knooppunten|5% per jaar
-|**Onderwerp**: **gebruik van Cluster**|||
+|**onderwerp**: **Clustergebruik**|||
 |Gemiddeld CPU-percentage gebruikt|60%||
 |Gemiddeld geheugen percentage gebruikt|75%||
 |Gebruikte schijfruimte|75%||
 |Gemiddelde netwerk % gebruikt|25%
-|**Onderwerp**: **personeel**|||
+|**onderwerp**: **Personeel**|||
 |Nee. Beheerders|2||
 |Nee. van ontwikkelaars|10||
 |Nee. van eindgebruikers|100||
 |Vaardigheden|Hadoop, Spark||
 |Nee. beschikbare resources voor migratie inspanningen|2||
-|**Onderwerp**: **beperkingen**|||
+|**onderwerp**: **Beperkingen**|||
 |Huidige beperkingen|Is hoog||
 |Huidige uitdagingen|Gelijktijdigheid van probleem||
 
 ### <a name="azure-requirements-questionnaire"></a>Vragenlijst voor Azure-vereisten
 
-|**Onderwerp**: **infrastructuur** |||
+|**onderwerp**: **Infrastructuur** |||
 |---|---|---|
 |**Vraag**|**Voorbeeld**|**Antwoord**|
-| De Voorkeursregio|US - oost||
+| Voorkeursregio|US - oost||
 |VNet de voorkeur?|Ja||
 |Hoge beschikbaarheid / herstel na Noodgevallen nodig?|Ja||
 |Integratie met andere cloudservices?|ADF, CosmosDB||
-|**Onderwerp**: **verplaatsing van gegevens**  |||
-|Voorkeur voor de eerste keer wordt geladen|DistCp, gegevens-vak, ADF, WANDisco||
+|**onderwerp**:   **Gegevensverplaatsing**  |||
+|Voorkeur voor de eerste keer wordt geladen|DistCp, Data box, ADF, WANDisco||
 |Gegevens overbrengen delta|DistCp, AzCopy||
 |Continue incrementele gegevensoverdracht|DistCp, Sqoop||
-|**Onderwerp**: **bewaking en waarschuwingen** |||
+|**onderwerp**:   **Bewaking en waarschuwingen** |||
 |Gebruik Azure bewaking en waarschuwingen over Visual Studio-integratie van derden controleren|Gebruik Azure bewaking en waarschuwingen||
-|**Onderwerp**: **voorkeuren voor beveiliging** |||
+|**onderwerp**:   **Voorkeuren voor beveiliging** |||
 |Privé en beschermd gegevenspijplijn?|Ja||
 |Domein apparaat is toegevoegd aan cluster (ESP)?|     Ja||
 |On-Premises AD-synchronisatie naar de Cloud?|     Ja||
@@ -191,7 +191,7 @@ Deze sectie bevat sjabloon vragenlijsten zodat belangrijke informatie verzamelen
 |Controle nodig?|                  Ja||
 |Gegevensversleuteling in rust?|          Ja||
 |Gegevensversleuteling onderweg zijn?|       Ja||
-|**Onderwerp**: **voorkeuren Re-architectuur** |||
+|**onderwerp**:   **Voorkeuren voor re-architectuur** |||
 |Één cluster vs specifieke clustertypen|Specifieke clustertypen||
 |Geplaatste opslag en externe opslag?|Externe opslag||
 |Kleinere clusters als gegevens worden op afstand opgeslagen?|Kleinere clusters||

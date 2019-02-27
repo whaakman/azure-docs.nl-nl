@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: fbd4782d7fde089f9770e148564ec5941da3dc8e
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: e14e35cc8589bb524bae791ccd74952da90bdb04
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753585"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871533"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Disaster recovery en storage-account failover (preview) in Azure Storage
 
@@ -152,7 +152,6 @@ Niet-beheerde schijven worden opgeslagen als pagina-blobs in Azure Storage. Wann
 4. Wacht totdat de **tijd van laatste synchronisatie** is bijgewerkt en is hoger dan de tijd waarop u de virtuele machine verwijderd. Deze stap is belangrijk, omdat als het secundaire eindpunt niet volledig met de VHD-bestanden bijgewerkt is wanneer de failover is uitgevoerd, klikt u vervolgens de virtuele machine mogelijk niet goed in de nieuwe primaire regio.
 5. Start de failover van het account.
 6. Wacht totdat de account-failover voltooid is en de secundaire regio is de nieuwe primaire regio geworden.
-6. Maak een opslagaccount in de nieuwe primaire regio en uw niet-beheerde schijf te kopiëren.
 7. Een virtuele machine in de nieuwe primaire regio maken en koppelen van de VHD's.
 8. Start de nieuwe virtuele machine.
 

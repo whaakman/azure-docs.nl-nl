@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: cd6927cccfa85c8409d612a40a4e708e81af746a
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: ba5ea7205a5d0e5fdbadc8a1ba955091ae95b569
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413546"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875783"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Zoeken naar een adres met behulp van de search-service van Azure Maps
 
@@ -37,7 +37,7 @@ De meeste zoekopdrachten standaard `maxFuzzyLevel=1` om prestaties en onvoorspel
 
 2. Selecteer op het tabblad Builder de **ophalen** HTTP-methode en voer de aanvraag-URL voor uw API-eindpunt.
 
-    ![Fuzzy zoeken ](./media/how-to-search-for-address/fuzzy_search_url.png)
+    ![Fuzzy zoeken](./media/how-to-search-for-address/fuzzy_search_url.png)
 
     | Parameter | Voorgestelde waarde |
     |---------------|------------------------------------------------|
@@ -49,9 +49,9 @@ De meeste zoekopdrachten standaard `maxFuzzyLevel=1` om prestaties en onvoorspel
 
 3. Klik op **Params**, en voer de volgende sleutel / waarde-paren te gebruiken als parameters query of het pad in de aanvraag-URL:
 
-    ![Fuzzy zoeken ](./media/how-to-search-for-address/fuzzy_search_params.png)
+    ![Fuzzy zoeken](./media/how-to-search-for-address/fuzzy_search_params.png)
 
-    | Sleutel | Waarde |
+    | Sleutel | Value |
     |------------------|-------------------------|
     | API-versie | 1.0 |
     | abonnement-sleutel | \<de sleutel van uw Azure-kaarten\> |
@@ -65,7 +65,7 @@ De meeste zoekopdrachten standaard `maxFuzzyLevel=1` om prestaties en onvoorspel
 
 5. Voeg de volgende sleutel / waarde-paar aan de **Params** sectie en klikt u op **verzenden**:
 
-    | Sleutel | Waarde |
+    | Sleutel | Value |
     |------------------|-------------------------|
     | countrySet | VS |
   
@@ -75,9 +75,9 @@ De meeste zoekopdrachten standaard `maxFuzzyLevel=1` om prestaties en onvoorspel
   
 6. In-parameters, voer de volgende sleutel / waarde-paren en klikt u op **verzenden**:
 
-    ![Fuzzy zoeken ](./media/how-to-search-for-address/fuzzy_search_latlon.png)
+    ![Fuzzy zoeken](./media/how-to-search-for-address/fuzzy_search_latlon.png)
   
-    | Sleutel | Waarde |
+    | Sleutel | Value |
     |-----|------------|
     | LAT | 47.620525 |
     | ion | -122.349274 |
@@ -89,7 +89,7 @@ U kunt een volledige of gedeeltelijke adres doorgeven aan het adres search API e
 1. In Postman, klikt u op **nieuwe aanvraag** | **GET-aanvraag** en noem het **zoeken**.
 2. Selecteer op het tabblad Builder de **ophalen** HTTP-methode, voer de aanvraag-URL voor uw API-eindpunt en selecteer een autorisatieprotocol, indien van toepassing.
 
-    ![Adres zoeken ](./media/how-to-search-for-address/address_search_url.png)
+    ![Adres zoeken](./media/how-to-search-for-address/address_search_url.png)
   
     | Parameter | Voorgestelde waarde |
     |---------------|------------------------------------------------|
@@ -99,9 +99,9 @@ U kunt een volledige of gedeeltelijke adres doorgeven aan het adres search API e
 
 3. Klik op **Params**, en voer de volgende sleutel / waarde-paren te gebruiken als parameters query of het pad in de aanvraag-URL:
   
-    ![Adres zoeken ](./media/how-to-search-for-address/address_search_params.png)
+    ![Adres zoeken](./media/how-to-search-for-address/address_search_params.png)
   
-    | Sleutel | Waarde |
+    | Sleutel | Value |
     |------------------|-------------------------|
     | API-versie | 1.0 |
     | abonnement-sleutel | \<de sleutel van uw Azure-kaarten\> |
@@ -118,7 +118,7 @@ U kunt een volledige of gedeeltelijke adres doorgeven aan het adres search API e
 
 6. Voeg de volgende sleutel / waarde-paar aan de **Params** sectie en klikt u op **verzenden**:
 
-    | Sleutel | Waarde |
+    | Sleutel | Value |
     |-----|------------|
     | typeahead | true |
 
@@ -130,7 +130,7 @@ U kunt een volledige of gedeeltelijke adres doorgeven aan het adres search API e
 
 2. Selecteer op het tabblad Builder de **ophalen** HTTP-methode en voer de aanvraag-URL voor uw API-eindpunt.
   
-    ![URL van omgekeerde-adres zoeken ](./media/how-to-search-for-address/reverse_address_search_url.png)
+    ![URL van omgekeerde-adres zoeken](./media/how-to-search-for-address/reverse_address_search_url.png)
   
     | Parameter | Voorgestelde waarde |
     |---------------|------------------------------------------------|
@@ -140,9 +140,9 @@ U kunt een volledige of gedeeltelijke adres doorgeven aan het adres search API e
   
 3. Klik op **Params**, en voer de volgende sleutel / waarde-paren te gebruiken als parameters query of het pad in de aanvraag-URL:
   
-    ![Reverse-adres zoekparameters ](./media/how-to-search-for-address/reverse_address_search_params.png)
+    ![Reverse-adres zoekparameters](./media/how-to-search-for-address/reverse_address_search_params.png)
   
-    | Sleutel | Waarde |
+    | Sleutel | Value |
     |------------------|-------------------------|
     | API-versie | 1.0 |
     | abonnement-sleutel | \<de sleutel van uw Azure-kaarten\> |
@@ -154,7 +154,7 @@ U kunt een volledige of gedeeltelijke adres doorgeven aan het adres search API e
   
 5. Voeg de volgende sleutel / waarde-paar aan de **Params** sectie en klikt u op **verzenden**:
 
-    | Sleutel | Waarde |
+    | Sleutel | Value |
     |-----|------------|
     | getal | true |
 
@@ -162,7 +162,7 @@ U kunt een volledige of gedeeltelijke adres doorgeven aan het adres search API e
   
 6. Voeg de volgende sleutel / waarde-paar aan de **Params** sectie en klikt u op **verzenden**:
 
-    | Sleutel | Waarde |
+    | Sleutel | Value |
     |-----|------------|
     | returnSpeedLimit | true |
   
@@ -170,7 +170,7 @@ U kunt een volledige of gedeeltelijke adres doorgeven aan het adres search API e
 
 7. Voeg de volgende sleutel / waarde-paar aan de **Params** sectie en klikt u op **verzenden**:
 
-    | Sleutel | Waarde |
+    | Sleutel | Value |
     |-----|------------|
     | returnRoadUse | true |
 
@@ -178,7 +178,7 @@ U kunt een volledige of gedeeltelijke adres doorgeven aan het adres search API e
 
 8. Voeg de volgende sleutel / waarde-paar aan de **Params** sectie en klikt u op **verzenden**:
 
-    | Sleutel | Waarde |
+    | Sleutel | Value |
     |-----|------------|
     | roadUse | true |
 
@@ -190,7 +190,7 @@ U kunt een volledige of gedeeltelijke adres doorgeven aan het adres search API e
 
 2. Selecteer op het tabblad Builder de **ophalen** HTTP-methode en voer de aanvraag-URL voor uw API-eindpunt.
   
-    ![Reverse-adres Cross-adres zoeken ](./media/how-to-search-for-address/reverse_address_search_url.png)
+    ![Reverse-adres Cross-adres zoeken](./media/how-to-search-for-address/reverse_address_search_url.png)
   
     | Parameter | Voorgestelde waarde |
     |---------------|------------------------------------------------|
@@ -200,7 +200,7 @@ U kunt een volledige of gedeeltelijke adres doorgeven aan het adres search API e
   
 3. Klik op **Params**, en voer de volgende sleutel / waarde-paren te gebruiken als parameters query of het pad in de aanvraag-URL:
   
-    | Sleutel | Waarde |
+    | Sleutel | Value |
     |------------------|-------------------------|
     | API-versie | 1.0 |
     | abonnement-sleutel | \<de sleutel van uw Azure-kaarten\> |

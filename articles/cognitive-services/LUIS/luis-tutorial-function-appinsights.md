@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: c9a772af79cba8b5bfb592eaf03efa37520d5e48
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 97e29ba166d652f053f754482b6da36a33ec5bb5
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870602"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878168"
 ---
 # <a name="add-luis-results-to-application-insights-and-azure-functions"></a>LUIS resultaten toevoegen aan Application Insights en Azure functions
 In deze zelfstudie voegt LUIS-aanvraag en respons informatie aan [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetrie-gegevensopslag. Zodra u deze gegevens hebt, kunt u deze met de Kusto-taal of Power BI te analyseren, samenvoegen, opvragen en te rapporteren intenties en entiteiten van de utterance in realtime. Met deze analyse kunt u bepalen of u moet toevoegen of bewerken van de intenties en entiteiten van uw LUIS-app.
@@ -51,11 +51,11 @@ Om te kunnen leggen de LUIS-aanvraag en respons, de web-app-bot moet de **[Appli
 
 1. Selecteer in de Azure portal, in de web-app-bot-service **bouwen** onder de **Bot Management** sectie. 
 
-    ![Selecteer 'Build' onder de sectie 'Bot Management' in de Azure portal, in de web-app-bot-service. ](./media/luis-tutorial-appinsights/build.png)
+    ![Selecteer 'Build' onder de sectie 'Bot Management' in de Azure portal, in de web-app-bot-service.](./media/luis-tutorial-appinsights/build.png)
 
 2. Er wordt een nieuw browsertabblad geopend met de App Service-Editor. Selecteer de naam van de app in de bovenste balk en selecteer vervolgens **Kudu-Console openen**. 
 
-    ![Selecteer de naam van de app in de bovenste balk en selecteer vervolgens 'Open Kudu-Console. ](./media/luis-tutorial-appinsights/kudu-console.png)
+    ![Selecteer de naam van de app in de bovenste balk en selecteer vervolgens 'Open Kudu-Console.](./media/luis-tutorial-appinsights/kudu-console.png)
 
 3. Voer de volgende opdracht om Application Insights en het onderstrepingsteken-pakketten te installeren in de console:
 

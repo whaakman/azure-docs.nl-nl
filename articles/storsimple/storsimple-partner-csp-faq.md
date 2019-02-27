@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: f2c726fd4159bcb47088e814fd60e054e50a1315
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4750ba55c08ebac244e7515cae4e998155a79599
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814279"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870617"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple voor Cloud Solutions Provider-programma: Veelgestelde vragen
 
@@ -63,7 +63,7 @@ Er zijn meerdere oplossingen:
 - Ze kunnen ook nieuwe bedrijfsmodellen vinden door beheerde services leveren.
 
 ### <a name="what-are-the-incentives-available-for-storsimple-csp-partners-do-i-qualify-for-any-csp-program-incentives"></a>Wat zijn de stimulansen beschikbaar voor StorSimple-CSP-partners? Ik in aanmerking voor een incentives CSP-programma?
-Voor informatie over incentives, gaat u naar [CSP-programma incentives ](https://partner.microsoft.com/en-US/cloud-solution-provider/program-details).
+Voor informatie over incentives, gaat u naar [CSP-programma incentives](https://partner.microsoft.com/en-US/cloud-solution-provider/program-details).
 
 
 ## <a name="deploy-and-manage-storsimple-as-a-partner"></a>Implementeren en beheren van StorSimple als partner

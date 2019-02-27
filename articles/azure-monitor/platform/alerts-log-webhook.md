@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 0765e5978f62a60b7a9b405c04c2471508947c60
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 24e159ea2cccfdaab9c732835506a1a22abab134
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433166"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869141"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhookacties voor waarschuwingsregels
 Wanneer een [waarschuwing is gemaakt in Azure](alerts-log.md), hebt u de optie [configureren met behulp van actiegroepen](action-groups.md) een of meer acties uit te voeren.  In dit artikel beschrijft de verschillende webhookacties die beschikbaar zijn en meer informatie over het configureren van de aangepaste JSON-indeling webhook.
@@ -197,7 +197,7 @@ Hieronder volgt een voorbeeld-nettolading voor een aangepaste webhookactie voor 
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over [waarschuwingen voor activiteitenlogboeken in Azure-waarschuwingen ](alerts-unified-log.md)
+- Meer informatie over [waarschuwingen voor activiteitenlogboeken in Azure-waarschuwingen](alerts-unified-log.md)
 - Inzicht in [waarschuwingen in Azure beheren](alerts-log.md)
 - Maken en beheren van [actiegroepen in Azure](action-groups.md)
 - Meer informatie over [Application Insights](../../azure-monitor/app/analytics.md)

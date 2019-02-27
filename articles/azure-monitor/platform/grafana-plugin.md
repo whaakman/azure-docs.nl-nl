@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: fc963987b45751aab33035a83b2b477129e9a756
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: f592cfdba940b95a9935c6b68f3294233d9fbf15
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730897"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888488"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Bewaken van uw Azure-services in Grafana
 U kunt nu Azure-services en toepassingen van bewaken [Grafana](https://grafana.com/) met behulp van de [Azure Monitor-gegevensbron invoegtoepassing](https://grafana.com/plugins/grafana-azure-monitor-datasource). De invoegtoepassing verzamelt prestatiegegevens van toepassingen die door Azure Monitor, met inbegrip van verschillende logboeken en metrische gegevens worden verzameld. U kunt deze gegevens vervolgens weergeven in het Grafana-dashboard.
@@ -26,7 +26,8 @@ Gebruik de volgende stappen uit op een server Grafana instellen en dashboards bo
 ## <a name="set-up-a-grafana-server"></a>Een Grafana-server instellen
 
 ### <a name="set-up-grafana-locally"></a>Grafana lokaal instellen
-Voor het instellen van een lokale server voor het Grafana [downloaden en installeren van Grafana in uw lokale omgeving](https://grafana.com/grafana/download). Voor het gebruik van de invoegtoepassing Log Analytics-integratie, installeert u Grafana versie 5.3 of hoger.
+Voor het instellen van een lokale server voor het Grafana [downloaden en installeren van Grafana in uw lokale omgeving](https://grafana.com/grafana/download). Voor het gebruik van de invoegtoepassing Azure Monitor-integratie, installeert u Grafana versie 5.3 of hoger.
+
 ### <a name="set-up-grafana-on-azure-through-the-azure-marketplace"></a>Instellen van Grafana op Azure via de Azure Marketplace
 1. Ga naar de Azure Marketplace en kies Grafana door Grafana Labs.
 
@@ -70,7 +71,7 @@ Wanneer is aangemeld, ziet u de Azure Monitor data source-invoegtoepassing is al
     De Log Analytics-API is vereist de [rol van lezer van Log Analytics](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader), die de rol Lezer machtigingen bevat en wordt toegevoegd aan het.
 
 4. Geef de verbindingsdetails naar de API's die u wilt gebruiken. U kunt verbinding maken met alle of enkele ervan. 
-    * Als u een verbinding maken met zowel Azure Monitor (voor het verzamelen van metrische gegevens) en Azure Log Analytics (voor logboekgegevens), kunt u dezelfde referenties opnieuw gebruiken door het selecteren van **dezelfde gegevens als de API van Azure Monitor**.
+    * Als u verbinding kunt maken naar metrische gegevens en Logboeken in Azure Monitor, kunt u dezelfde referenties opnieuw door te selecteren **dezelfde gegevens als de API van Azure Monitor**.
     * Wanneer u de invoegtoepassing configureert, kunt u aangeven welke Azure-Cloud wilt u de invoegtoepassing naar monitor (openbaar, Azure US Government, Azure Duitsland of Azure China).
     * Als u Application Insights gebruikt, kunt u ook uw Application Insights-API en de toepassings-ID voor het verzamelen van Application Insights op basis van metrische gegevens opnemen. Zie voor meer informatie, [aan uw API-sleutel en de toepassings-ID](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 
@@ -97,7 +98,7 @@ Wanneer is aangemeld, ziet u de Azure Monitor data source-invoegtoepassing is al
 4. Selecteer de Azure Monitor-gegevensbron die u hebt geconfigureerd.
     * Verzamelen van Azure Monitor metrics - Selecteer **Azure Monitor** in de vervolgkeuzelijst voor de service. Een lijst met selectors wordt, waarin u de resources en metrische gegevens om te controleren in deze grafiek kunt selecteren. Voor het verzamelen van metrische gegevens van een virtuele machine, gebruikt u de naamruimte **Microsoft.Compute/VirtualMachines**. Nadat u VM's en metrische gegevens hebt geselecteerd, kunt u beginnen met het weergeven van hun gegevens in het dashboard.
     ![Grafana graph-configuratie voor Azure Monitor](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
-    * Verzamelen van Azure Log Analytics-gegevens - Selecteer **Azure Log Analytics** in de vervolgkeuzelijst voor de service. Selecteer de werkruimte die u wilt opvragen en de querytekst instellen. U kunt hier elke Log Analytics-query u al hebt of maak een nieuwe kopiëren. Terwijl u in uw query typt, wordt de IntelliSense weergegeven en de opties voor automatisch aanvullen voorstellen. Selecteer het visualisatietype **Time series** **tabel**, en voer de query uit.
+    * Verzamelen van Azure Monitor logboekgegevens - Selecteer **Azure Log Analytics** in de vervolgkeuzelijst voor de service. Selecteer de werkruimte die u wilt opvragen en de querytekst instellen. U kunt hier elke logboekquery u al hebt of maak een nieuwe kopiëren. Terwijl u in uw query typt, wordt de IntelliSense weergegeven en de opties voor automatisch aanvullen voorstellen. Selecteer het visualisatietype **Time series** **tabel**, en voer de query uit.
     
     > [!NOTE]
     >

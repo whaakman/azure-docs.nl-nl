@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 2/7/2019
-ms.openlocfilehash: 4b530ed2ffd32e2433a744b05aaab2219bf2b15a
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 185e605db366fb392758ad9870a3c15badc0f321
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55896673"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874865"
 ---
 # <a name="restart-azure-database-for-mariadb-server-using-azure-portal"></a>Opnieuw opstarten van Azure Database voor MariaDB-server met behulp van Azure portal
 In dit onderwerp wordt beschreven hoe u een Azure Database voor MariaDB-server opnieuw kunt starten. Mogelijk moet u de server voor onderhoudsredenen, waardoor een korte onderbreking als de server de bewerking voert opnieuw.
@@ -36,15 +36,15 @@ De MariaDB-server opnieuw opstarten in de volgende stappen uit:
 
 3. Klik op **Ja** om te bevestigen van de server opnieuw wordt opgestart.
 
-   ![Azure Database voor MariaDB - opnieuw starten bevestigen ](./media/howto-restart-server-portal/3-restart-confirm.png)
+   ![Azure Database voor MariaDB - opnieuw starten bevestigen](./media/howto-restart-server-portal/3-restart-confirm.png)
 
 4. U ziet dat de status van de server is gewijzigd in 'Opnieuw opstarten'.
 
-   ![Azure Database voor MariaDB - status opnieuw starten ](./media/howto-restart-server-portal/4-restarting-status.png)
+   ![Azure Database voor MariaDB - status opnieuw starten](./media/howto-restart-server-portal/4-restarting-status.png)
 
 5. Controleer of de server opnieuw opstarten is voltooid.
 
-   ![Azure Database voor MariaDB - opnieuw opstarten geslaagd ](./media/howto-restart-server-portal/5-restart-success.png)
+   ![Azure Database voor MariaDB - opnieuw opstarten geslaagd](./media/howto-restart-server-portal/5-restart-success.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

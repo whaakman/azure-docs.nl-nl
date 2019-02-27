@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 18b698861a791174f2e254543d5d3b7a54052574
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 0797a8a2d5633a30dcb2099ea475e4daae026686
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54854162"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874032"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>Uw profiel en gebruikers-ID voor Azure-laptops
 
@@ -46,7 +46,7 @@ Een **gebruikers-ID configureren** opdracht wordt ook weergegeven naast de naam 
 
 U kunt ook uw gebruikers-ID op elk gewenst moment wijzigen op uw profielpagina.
 
-Een gebruikers-ID moet bestaan uit ten minste vier letters, cijfers en afbreekstreepjes bevatten. Er zijn geen andere tekens zijn toegestaan en de gebruikers-ID mag niet beginnen of eindigen met een afbreekstreepje of gebruikmaken van meerdere opeenvolgende afbreekstreepjes in een rij.
+Een gebruikers-ID moet bestaan uit tussen de vier en 16 letters, cijfers en afbreekstreepjes bevatten. Er zijn geen andere tekens zijn toegestaan en de gebruikers-ID mag niet beginnen of eindigen met een afbreekstreepje of gebruikmaken van meerdere opeenvolgende afbreekstreepjes in een rij. Omdat gebruikers-id's uniek zijn voor alle Azure-notitieblokken-accounts, ziet u het bericht, "Gebruikers-ID wordt al gebruikt." (Het bericht ook wordt weergegeven als u probeert te gebruiken een handelsmerken van Microsoft als een gebruikers-ID.) In dergelijke gevallen, kies een andere gebruiker-ID.
 
 > [!Important]
 > Bijgewerkt met de ID wordt ongeldig alle URL's die u mogelijk hebt gedeeld met uw vorige ID. Terug naar de vorige-ID voor het valideren van de koppelingen kunt u uw ID. Het is echter mogelijk dat een andere gebruiker voor een niet-gebruikte claim in de tussentijd de ID.

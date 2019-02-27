@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: shlo
-ms.openlocfilehash: e934c8bdc851f8c550e8b87a923215df3f95e389
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: c4e71f3c355f00bda3df6d43bc81743b391ea0dd
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728249"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871958"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visueel ontwerpen in Azure Data Factory
 De Azure Data Factory gebruikersinterface gebruikerservaring (UX) kunt u visueel ontwerpen en resources van uw gegevensfactory implementeren zonder code te schrijven. U kunt slepen van activiteiten op een pijplijncanvas, testuitvoeringen uitvoeren, iteratief, fouten en implementeren en uw pijplijnuitvoeringen controleren. Er zijn twee benaderingen voor het gebruik van de UX om uit te voeren visueel ontwerpen:
@@ -31,7 +31,7 @@ Visueel ontwerpen met de Data Factory-service wijkt af van het visuele ontwerp m
 - De Data Factory-service bevat geen een opslagplaats voor het opslaan van de JSON-entiteiten voor uw wijzigingen.
 - De Data Factory-service is niet geoptimaliseerd voor samenwerking of versiebeheer.
 
-![De Data Factory-service configureren ](media/author-visually/configure-data-factory.png)
+![De Data Factory-service configureren](media/author-visually/configure-data-factory.png)
 
 Bij het gebruik van de UX **Ontwerpcanvas** om rechtstreeks met de Data Factory-service, alleen de **Alles publiceren** modus beschikbaar is. Alle wijzigingen die u worden rechtstreeks naar de Data Factory-service gepubliceerd.
 

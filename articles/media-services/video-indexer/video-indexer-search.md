@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 02/25/2019
 ms.author: juliako
-ms.openlocfilehash: 6c93c0228425b2ff020e5b4301e68eae5b1062a3
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 07b3c806dc5df5f93bee3206cbca53485675e7dd
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807827"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872400"
 ---
 # <a name="find-exact-moments-within-videos"></a>Exacte momenten in video's zoeken
 
@@ -36,11 +36,13 @@ Dit onderwerp leest u de zoekopties waarmee u kunt exacte momenten in video's zo
 
     Als u klikt op een van de resultaten, brengt de speler u op dat moment in de video. U kunt de weergave van de speler/inzichten en de synchronisatie in uw toepassing bereiken. Zie voor meer informatie, [widgets in uw toepassing insluiten van Video Indexer](video-indexer-embed-widgets.md). 
 4. Zoeken naar de gedetailleerde informatie van de video.
+    
+    Als u wilt maken van uw eigen clip op basis van de video die u hebt gevonden, drukt u op de **bewerken** knop. Deze pagina ziet u samen met de insights video als filters. Zie voor meer informatie, [weergeven en bewerken van Video Indexer-inzichten](video-indexer-view-edit.md). 
 
-    Als u wilt maken van uw eigen uitsplitsing op basis van de video die u hebt gevonden, drukt u op de **bewerken** knop. Deze pagina geeft u de volledige uitsplitsing van een video. U kunt zoeken naar binnen de uitsplitsing van de weer te geven alleen de regels waarin u geïnteresseerd bent. Zie voor meer informatie, [weergeven en bewerken van Video Indexer-inzichten](video-indexer-view-edit.md).
-
-    In dit voorbeeld wordt gezocht we de tekst 'identity protection'. We hebben ook meer filters toegepast zoals wordt weergegeven in het onderstaande scherm.
-
+    U kunt zoeken in de video om weer te geven alleen de regels die u geïnteresseerd bent in en gebruikt u de inzichten aan clientzijde voor het filteren van de onderdelen die u wilt zien. Wanneer u klaar bent, kunt u uw clip en druk op bekijken **publiceren** te maken van de nieuwe clip die wordt weergegeven in de galerie.
+    
+    In het volgende voorbeeld wordt gezocht we de tekst "gemengde realiteit". We hebben ook meer filters toegepast zoals wordt weergegeven in het onderstaande scherm.
+    
     ![Search](./media/video-indexer-search/video-indexer-search03.png)
 
 ## <a name="next-steps"></a>Volgende stappen 

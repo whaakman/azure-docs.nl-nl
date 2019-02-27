@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 598af6bb945318f0a76ffe094dd5786abacccc3f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: b55f8d44d12fa503a17218db4a5166819024f1aa
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543526"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872893"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Maken en beheren van Azure Database voor MySQL-firewallregels met behulp van Azure portal
 Firewallregels op serverniveau kunnen beheerders toegang tot een Azure-Database voor MySQL-Server vanaf een opgegeven IP-adres of een bereik van IP-adressen. 
@@ -34,7 +34,7 @@ Firewallregels op serverniveau kunnen beheerders toegang tot een Azure-Database 
 
 4. Voeg aanvullende adresbereiken. In de firewallregels voor de Azure Database for MySQL, kunt u één IP-adres of een reeks adressen. Als u beperken van de regel moet één IP-adres wilt, typt u hetzelfde adres in het eerste IP- en eind-IP-velden. De firewall opent, kunnen beheerders, gebruikers en toepassingen voor toegang tot elke database op de MySQL-server waarvoor ze geldige aanmeldgegevens hebben.
 
-   ![Azure portal - firewall-regels ](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
+   ![Azure portal - firewall-regels](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
 
 5. Klik op **opslaan** op de werkbalk om op te slaan deze firewallregel op serverniveau. Wachten op de bevestiging dat de update van de firewall-regels voltooid is.
 

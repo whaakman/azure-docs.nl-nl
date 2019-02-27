@@ -16,12 +16,12 @@ ms.date: 01/10/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69645c4aa9034b9a3459c7ee5fb0378c790a6e18
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0f2539674668a9738d03e9af9c4fb88327cb1933
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178087"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56865056"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory naadloze eenmalige aanmelding: Snel starten
 
@@ -120,7 +120,7 @@ Er zijn twee manieren om gebruikers Intranet zone-instellingen te wijzigen:
 
 1. Open de Editor voor Groepsbeleidsbeheer-hulpprogramma.
 2. Bewerk het groepsbeleid dat wordt toegepast op sommige of alle gebruikers. In dit voorbeeld wordt **standaarddomeinbeleid**.
-3. Blader naar **Gebruikersconfiguratie** > **Beheersjablonen** > **Windows-onderdelen**  >   **Internet Explorer** > **Configuratiescherm Internet** > **beveiligingspagina**. Selecteer vervolgens **Site lijst van zonetoewijzingen**.
+3. Blader naar **Gebruikersconfiguratie** > **beleid** > **Beheersjablonen** > **Windows Onderdelen** > **Internet Explorer** > **Configuratiescherm Internet** > **beveiligingspagina**. Selecteer vervolgens **Site lijst van zonetoewijzingen**.
     ![Eenmalige aanmelding](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Het beleid inschakelen en voer de volgende waarden in het dialoogvenster:
    - **Waardenaam**: De Azure AD-URL waar de Kerberos-tickets worden doorgestuurd.
@@ -140,7 +140,7 @@ Er zijn twee manieren om gebruikers Intranet zone-instellingen te wijzigen:
 
     ![Eenmalige aanmelding](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Blader naar **Gebruikersconfiguratie** > **Beheersjablonen** > **Windows-onderdelen**  >   **Internet Explorer** > **Configuratiescherm Internet** > **beveiligingspagina** > **intranetzone**. Selecteer vervolgens **toestaan van updates op de statusbalk via script**.
+6. Blader naar **Gebruikersconfiguratie** > **Beheersjablonen** **beleid** > ** > **Windows-onderdelen**  >  **Internet Explorer** > **Configuratiescherm Internet** > **beveiligingspagina**  >   **Intranetzone**. Selecteer vervolgens **toestaan van updates op de statusbalk via script**.
 
     ![Eenmalige aanmelding](./media/how-to-connect-sso-quick-start/sso11.png)
 

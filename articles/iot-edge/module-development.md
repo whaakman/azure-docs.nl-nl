@@ -4,17 +4,17 @@ description: Aangepaste modules ontwikkelen voor Azure IoT Edge die met de runti
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 02/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 3dd5005312e1c59fa53a0d917951c89033374192
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: ea2d1dbcf991ce858f07905bc1bb41809f9bcdd8
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200629"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882736"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>Ontwikkelen van uw eigen IoT Edge-modules
 
@@ -65,5 +65,9 @@ Een exemplaar ModuleClient om uw module met de IoT Edge hub die wordt uitgevoerd
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nadat u een module ontwikkelen, informatie over hoe u [implementeren en controleren van IoT Edge-modules op schaal](how-to-deploy-monitor.md).
+[Voorbereiden van uw ontwikkel- en testomgeving voor IoT Edge](development-environment.md)
+
+[Visual Studio 2017 gebruiken voor het ontwikkelen van C# modules voor IoT Edge](how-to-visual-studio-develop-csharp-module.md)
+
+[Visual Studio Code gebruiken voor het ontwikkelen van modules voor IoT Edge](how-to-vs-code-develop-module.md)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 2224c798d0854aab2d3ec7fc2c03b51de58dbfc0
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: e21058d47f554ca4a057ab90433895800fb17dd9
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244433"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886720"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>In Azure Cosmos DB - wijzigingenfeed overzicht
 
@@ -118,7 +118,7 @@ Wijzigingenfeed is beschikbaar voor elke sleutel logische partitie in de contain
 
 * Wijzigingen zijn beschikbaar in parallelle voor alle sleutels van de logische partitie van een Azure Cosmos-container. Op deze manier kunt wijzigingen in grote containers moeten parallel worden verwerkt door meerdere gebruikers.
 
-* Toepassingen kunnen aanvragen meerdere wijzigingen tegelijkertijd op dezelfde container-kanalen. ChangeFeedOptions.StartTime kan worden gebruikt voor een initieel beginpunt. Als u bijvoorbeeld het vervolgtoken dat overeenkomt met een bepaalde clock-tijd vinden. De ContinuationToken, wins indien opgegeven, boven de StartTime en StartFromBeginning waarden. De precisie van de ChangeFeedOptions.StartTime is ongeveer 5 seconden. 
+* Toepassingen kunnen tegelijkertijd meerdere wijzigingsfeeds op dezelfde container aanvragen. ChangeFeedOptions.StartTime kan worden gebruikt voor een initieel beginpunt. Als u bijvoorbeeld het vervolgtoken dat overeenkomt met een bepaalde clock-tijd vinden. De ContinuationToken, wins indien opgegeven, boven de StartTime en StartFromBeginning waarden. De precisie van de ChangeFeedOptions.StartTime is ongeveer 5 seconden. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

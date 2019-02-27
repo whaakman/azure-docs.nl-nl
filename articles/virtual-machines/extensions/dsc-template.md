@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: e62bc0fff054f0392cd4f437565b5f4dae9cbfb7
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 41d9f21688df6f32918500365bc88f3f168604d2
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594420"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869646"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration-extensie met Azure Resource Manager-sjablonen
 
@@ -254,7 +254,7 @@ Configuratie argumenten worden doorgegeven aan de standaard-configuratiescript L
 
 Het volgende voorbeeld komt uit de [DSC-extensie-handler overzicht](dsc-overview.md).
 In dit voorbeeld maakt gebruik van Resource Manager-sjablonen in plaats van de cmdlets voor het implementeren van de extensie.
-De IisInstall.ps1-configuratie op te slaan, plaats deze in een ZIP-bestand en upload het bestand in een toegankelijke URL.
+Sla de configuratie IisInstall.ps1, plaatst u het in een ZIP-bestand (voorbeeld: `iisinstall.zip`), en upload het bestand in een URL toegankelijk is.
 In dit voorbeeld maakt gebruik van Azure Blob-opslag, maar u kunt een ZIP-bestanden downloaden vanaf elke willekeurige locatie.
 
 In het Resource Manager-sjabloon, Hiermee geeft u de volgende code de virtuele machine om te downloaden van het juiste bestand en voer vervolgens de juiste PowerShell-functie:
@@ -262,7 +262,7 @@ In het Resource Manager-sjabloon, Hiermee geeft u de volgende code de virtuele m
 ```json
 "settings": {
     "configuration": {
-        "url": "https://demo.blob.core.windows.net/",
+        "url": "https://demo.blob.core.windows.net/iisinstall.zip",
         "script": "IisInstall.ps1",
         "function": "IISInstall"
     }

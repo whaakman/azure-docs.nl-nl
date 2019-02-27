@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/06/2019
-ms.openlocfilehash: 16d536ff5bd1f7d9a3427877a93036d9f711564e
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: d94bc570f47d71a7e2b626041acd4bb6e84d0dc1
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099770"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876004"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Veelgestelde vragen over zeer grootschalige Azure-SQL-databases
 
@@ -73,7 +73,7 @@ De servicelaag van grootschalige is voornamelijk bedoeld voor klanten die hebben
 
 ### <a name="what-regions-currently-support-hyperscale"></a>Welke regio's ondersteunen momenteel zeer grootschalige
 
-Zeer grootschalige is momenteel beschikbaar voor individuele databases in de volgende regio's:  West US1, West vs2, US1 VS-Oost, VS-midden, West-Europa, Noord-Europa, UK-West, Zuidoost-Azië, Japan-Oost, Korea-centraal, Australië-Zuidoost en Australië-Oost.
+Zeer grootschalige is momenteel beschikbaar voor individuele databases in de volgende regio's:  West US1, West vs2 US1 VS-Oost, VS-midden, West-Europa, Noord-Europa, Zuidoost-Azië, Japan-Oost, Korea-centraal, Australië-Zuidoost en Australië-Oost.
 
 ### <a name="can-i-create-multiple-hyperscale-databases-per-sql-database-server"></a>Ik kan meerdere grootschalige databases per SQL-databaseserver maken
 

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: f595fbb6571c3deaaa0644ba9d62f598181592e3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4daae4357a7a9577c48edc8643355d319b701944
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106308"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881563"
 ---
-# <a name="quickstart-sign-in-and-set-a-user-id"></a>Snelstart: Aanmelden en instellen van een gebruikers-ID
+# <a name="quickstart-sign-in-and-set-a-user-id"></a>Quickstart: Aanmelden en een gebruikers-id instellen
 
 Hoewel u altijd Azure-notitieblokken weergeven kunt zonder dat u aangemeld, moet u zich aanmelden bij uitvoeren van notitieblokken, toegang tot opgeslagen projecten en -laptops en uw notitieblokken delen met anderen.
 
@@ -52,6 +52,9 @@ Hoewel u altijd Azure-notitieblokken weergeven kunt zonder dat u aangemeld, moet
 
     ![Weergave van de profielpagina van een Azure-laptops](media/accounts/profile-page-new.png)
 
+> [!NOTE]
+> Als u het bericht, "Gebruikers-ID is al in gebruik is," Probeer een andere id op. Gebruikers-id's uniek zijn voor alle Azure-notitieblokken-accounts en Azure-notitieblokken reserveert ook bepaalde gebruikers-id's, zoals Microsoft merknamen.
+
 ## <a name="sign-out"></a>Afmelden
 
 Op Afmelden, selecteert u uw gebruikersnaam in de rechterbovenhoek van de pagina en selecteer vervolgens **Afmelden**:
@@ -61,4 +64,4 @@ Op Afmelden, selecteert u uw gebruikersnaam in de rechterbovenhoek van de pagina
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [QuickStart: Maken en delen van een laptop](quickstart-create-share-jupyter-notebook.md)
+> [Snelstart: Maken en delen van een laptop](quickstart-create-share-jupyter-notebook.md)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: ronmat
 ms.manager: shaik
-ms.openlocfilehash: 8b2ca2d5d6418d68cab847df80fc437e468249ed
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 00de38aa7309179b92ff65f009f8aa780f60c284
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995636"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883688"
 ---
 # <a name="azure-storage-advanced-threat-protection"></a>Azure Storage Advanced Threat Protection
 
@@ -59,21 +59,21 @@ U kunt bekijken en beheren van uw huidige beveiligingswaarschuwingen in Azure Se
 
 Waarschuwingen worden gegenereerd door ongebruikelijke en potentieel schadelijke pogingen om toegang tot of misbruik te maken van storage-accounts. Deze gebeurtenissen kunnen de volgende waarschuwing is geactiveerd:
 
-* **Toegang vanaf ongebruikelijke locatie**: deze waarschuwing wordt geactiveerd wanneer er een wijziging in het toegangspatroon tot een opslagaccount. Bijvoorbeeld wanneer iemand toegang heeft tot een opslagaccount vanuit een ongebruikelijke geografische locatie. In sommige gevallen detecteert de waarschuwing een legitieme actie (een nieuwe toepassing of de onderhoudsbewerking-ontwikkelaars). In andere gevallen detecteert de waarschuwing een schadelijke actie (voormalig werknemer, externe aanvaller, enzovoort).
+* **Toegang vanaf ongebruikelijke locatie**: Deze waarschuwing wordt geactiveerd wanneer er een wijziging in het toegangspatroon tot een opslagaccount. Bijvoorbeeld wanneer iemand toegang heeft tot een opslagaccount vanuit een ongebruikelijke geografische locatie. In sommige gevallen detecteert de waarschuwing een legitieme actie (een nieuwe toepassing of de onderhoudsbewerking-ontwikkelaars). In andere gevallen detecteert de waarschuwing een schadelijke actie (voormalig werknemer, externe aanvaller, enzovoort).
 
-* **Ongebruikelijke gegevensextractie**: deze waarschuwing wordt geactiveerd wanneer er een wijziging in het patroon voor het extraheren van gegevens van een storage-account. Bijvoorbeeld, als iemand anders toegang gekregen een ongebruikelijke hoeveelheid gegevens in een storage-account tot heeft. In sommige gevallen detecteert de waarschuwing een legitieme actie (onderhoud activiteit). In andere gevallen detecteert de waarschuwing een schadelijke actie (exfiltratie/inbreuk op gegevens, niet-geautoriseerde overdracht van gegevens).
+* **Ongebruikelijke gegevensextractie**: Deze waarschuwing wordt geactiveerd wanneer er een wijziging in het patroon voor het extraheren van gegevens van een storage-account. Bijvoorbeeld, als iemand anders toegang gekregen een ongebruikelijke hoeveelheid gegevens in een storage-account tot heeft. In sommige gevallen detecteert de waarschuwing een legitieme actie (onderhoud activiteit). In andere gevallen detecteert de waarschuwing een schadelijke actie (exfiltratie/inbreuk op gegevens, niet-geautoriseerde overdracht van gegevens).
 
-* **Ongebruikelijke anonieme toegang:** deze waarschuwing wordt geactiveerd wanneer er een wijziging in het toegangspatroon tot een opslagaccount. Stel bijvoorbeeld dat iemand anoniem toegang heeft gekregen tot een opslagaccount. In sommige gevallen detecteert de waarschuwing een legitieme toegang met behulp van openbare leestoegang. In andere gevallen detecteert de waarschuwing niet-geautoriseerde toegang die misbruik maakt van openbare leestoegang tot een container en de blobs.
+* **Ongebruikelijke anonieme toegang:** Deze waarschuwing wordt geactiveerd wanneer er een wijziging in het toegangspatroon tot een opslagaccount. Stel bijvoorbeeld dat iemand anoniem toegang heeft gekregen tot een opslagaccount. In sommige gevallen detecteert de waarschuwing een legitieme toegang met behulp van openbare leestoegang. In andere gevallen detecteert de waarschuwing niet-geautoriseerde toegang die misbruik maakt van openbare leestoegang tot een container en de blobs.
 
-* **Onverwachte verwijderen:** deze waarschuwing wordt geactiveerd wanneer een of meer onverwachte delete-bewerkingen in een storage-account plaatsvinden, op basis van historische analyse van de storage-account. Stel dat iemand uitgevoerd een *DeleteBlob* opnieuw met een nieuwe toepassing en naar een nieuw IP-adres. In sommige gevallen detecteert de waarschuwing een legitieme actie (de beheerder gebruikt een andere browser onderweg business). In andere gevallen detecteert de waarschuwing een schadelijke actie (een aanvaller het verwijderen van gegevens). 
+* **Onverwachte verwijderen:** Deze waarschuwing wordt geactiveerd wanneer een of meer onverwachte delete-bewerkingen in een storage-account plaatsvinden, op basis van historische analyse van de storage-account. Stel dat iemand uitgevoerd een *DeleteBlob* opnieuw met een nieuwe toepassing en naar een nieuw IP-adres. In sommige gevallen detecteert de waarschuwing een legitieme actie (de beheerder gebruikt een andere browser onderweg business). In andere gevallen detecteert de waarschuwing een schadelijke actie (een aanvaller het verwijderen van gegevens). 
  
-* **Toegang tot de machtiging wijzigen:** deze waarschuwing wordt geactiveerd wanneer er een onverwachte wijziging van toegangsmachtigingen tot een opslagaccount. Stel bijvoorbeeld dat iemand de toegangsmachtigingen gewijzigd naar een opslagaccount met behulp van een nieuwe toepassing en van een nieuw IP-adres. In sommige gevallen detecteert de waarschuwing een legitieme actie (de beheerder gebruikt een andere browser onderweg business). In andere gevallen detecteert de waarschuwing een schadelijke actie (bijvoorbeeld een aanvaller de bevoegdheden van een account dat ze toegang tot hebben opgedaan verhogen). 
+* **Toegang tot machtigingen wijzigen:** Deze waarschuwing wordt geactiveerd wanneer er een onverwachte wijziging van toegangsmachtigingen tot een opslagaccount. Stel bijvoorbeeld dat iemand de toegangsmachtigingen gewijzigd naar een opslagaccount met behulp van een nieuwe toepassing en van een nieuw IP-adres. In sommige gevallen detecteert de waarschuwing een legitieme actie (de beheerder gebruikt een andere browser onderweg business). In andere gevallen detecteert de waarschuwing een schadelijke actie (bijvoorbeeld een aanvaller de bevoegdheden van een account dat ze toegang tot hebben opgedaan verhogen). 
 
-* **Uploaden van Azure Cloud Service-pakket:** deze waarschuwing wordt geactiveerd wanneer er een onverwachte uploaden van een Azure Cloud Service-pakket (*.cspkg* bestand) naar een opslagaccount. Stel een *.cspkg* bestand is geüpload van een nieuw IP-adres. In sommige gevallen detecteert de waarschuwing een legitieme actie. In andere gevallen detecteert de waarschuwing een schadelijke actie (bijvoorbeeld, een Cloudservice pakket is geüpload in voorbereiding voor een implementatie van een schadelijke service).    
+* **Azure Cloud Service-pakket uploaden:** Deze waarschuwing wordt geactiveerd wanneer er een onverwachte uploaden van een Azure Cloud Service-pakket (*.cspkg* bestand) naar een opslagaccount. Stel een *.cspkg* bestand is geüpload van een nieuw IP-adres. In sommige gevallen detecteert de waarschuwing een legitieme actie. In andere gevallen detecteert de waarschuwing een schadelijke actie (bijvoorbeeld, een Cloudservice pakket is geüpload in voorbereiding voor een implementatie van een schadelijke service).    
    
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over [registreert in Azure Storage-accounts ](/rest/api/storageservices/About-Storage-Analytics-Logging)
+* Meer informatie over [registreert in Azure Storage-accounts](/rest/api/storageservices/About-Storage-Analytics-Logging)
 
 * Meer informatie over [Azure Security Center](../../security-center/security-center-intro.md)

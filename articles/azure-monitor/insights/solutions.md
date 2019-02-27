@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: ff7d886d3f219d007f159167cacfed1b8ee13863
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b66d9cf15aaeaca975b60f24601b8ad7f555f458
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001014"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887553"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Bewakingsoplossingen in Azure Monitor
 Bewakingsoplossingen gebruikmaken van services in Azure om meer inzicht in de werking van een bepaalde toepassing of service. In dit artikel geeft een kort overzicht van bewakingsoplossingen in Azure en meer informatie over het gebruiken en ze te installeren.
@@ -65,7 +65,7 @@ Klik op de naam van een oplossing voor het openen van de pagina overzicht. Deze 
 ## <a name="install-a-monitoring-solution"></a>Installeren van een oplossing voor bewaking
 Bewakingsoplossingen van Microsoft en partners zijn beschikbaar via de [Azure Marketplace](https://azuremarketplace.microsoft.com). U kunt zoeken naar beschikbare oplossingen en installeren met behulp van de volgende procedure. Wanneer u een oplossing installeert, moet u een [Log Analytics-werkruimte](../platform/manage-access.md) installatie van de oplossing en waar de gegevens worden verzameld.
 
-1. Uit de [lijst met oplossingen voor uw abonnement](#list-installed-management-solutions), klikt u op **toevoegen**. 
+1. Uit de [lijst met oplossingen voor uw abonnement](#list-installed-monitoring-solutions), klikt u op **toevoegen**. 
 1. Aan de rechterkant van **beheeroplossingen**, klikt u op **meer**. 
 1. Ga naar de oplossing voor controle u wilt gebruiken en lees de beschrijving.
 1. Klik op **maken** om het installatieproces te starten.

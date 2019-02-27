@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 0eeab5a2489bacde74b98e7d404789a00b64d02a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6e3c456b3ee92f30b3b152a39faf3f1fe483013f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992718"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876599"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Verzamel inzichten over uw DNS-infrastructuur met de oplossing DNS Analytics Preview
 
@@ -142,7 +142,7 @@ De informatie helpt u bij het identificeren van de:
 
 **Naam van aanvragen voor naamregistraties**. De bovenste tegel ziet u een trendlijn van geslaagde en mislukte DNS-aanvragen voor dynamische updates. De lagere tegel geeft een lijst van de top 10-clients die mislukte DNS-update aanvragen om de DNS-servers, gesorteerd op basis van het aantal fouten te verzenden.
 
-![Naam registratie aanvragen blade ](./media/dns-analytics/name-reg-req-blade.png)
+![Naam registratie aanvragen blade](./media/dns-analytics/name-reg-req-blade.png)
 
 **Voorbeeld van een Analytics-query's DDI**. Bevat een lijst van de meest voorkomende zoekquery's die rechtstreeks ophalen van onbewerkte analytics-gegevens.
 

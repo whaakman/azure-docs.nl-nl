@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f42237c1bf5c4782f47254c253d1d40289b65099
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 1794aa26fc725207c4a901c11c345eeaa3d2f65d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670541"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867731"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Statische website hosting in Azure Storage
 Azure Storage GPv2-accounts kunt u statische inhoud (HTML, CSS, JavaScript en afbeeldingsbestanden) rechtstreeks vanuit een storage-container met de naam *$web*. U profiteert van hosten in Azure Storage kunt u gebruikmaken van serverloze architecturen, met inbegrip van [Azure Functions](/azure/azure-functions/functions-overview) en andere PaaS-services.
@@ -51,6 +51,7 @@ De geselecteerde standaard-bestandsnaam wordt gebruikt in de hoofdmap en alle su
 
 Om uw statische website bestanden die beschikbaar zijn via HTTPS, Zie [de Azure CDN gebruiken voor toegang tot blobs met aangepaste domeinen via HTTPS](storage-https-custom-domain-cdn.md). Als een onderdeel van dit proces, moet u *uw CDN verwijzen naar het eindpunt op het web* in plaats van de blob-eindpunt. Mogelijk moet u over een paar minuten voordat de inhoud weergegeven wordt als de CDN-configuratie niet onmiddellijk wordt uitgevoerd.
 
+Wanneer u uw statische website bijwerken, moet u de inhoud op het CDN edge-servers in cache wissen door het opschonen van het CDN-eindpunt. Zie voor meer informatie [Een Azure CDN-eindpunt leegmaken](../../cdn/cdn-purge-endpoint.md).
 
 ## <a name="custom-domain-names"></a>Aangepaste domeinnamen
 

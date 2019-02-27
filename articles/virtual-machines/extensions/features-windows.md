@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4b737117880393e24fe6ea00223fb0f719be4e4
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 542fe0064de84e6266d2d0274809d7b2046b855c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980464"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874406"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensies voor virtuele machines en functies voor Windows
 
@@ -366,7 +366,7 @@ De volgende stappen voor probleemoplossing van toepassing op alle VM-extensies.
 
 ### <a name="view-extension-status"></a>Status van de extensie weergeven
 
-Nadat een VM-extensie is uitgevoerd op basis van een virtuele machine, gebruikt u [Get-AzVM ](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) Extensiestatus moet worden geretourneerd. *Substatus [0]* laat zien dat de extensie wordt ingericht is voltooid, wat betekent dat deze succesvolle geïmplementeerd op de VM, maar de uitvoering van de extensie in de virtuele machine is mislukt, *substatus [1]*.
+Nadat een VM-extensie is uitgevoerd op basis van een virtuele machine, gebruikt u [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) Extensiestatus moet worden geretourneerd. *Substatus [0]* laat zien dat de extensie wordt ingericht is voltooid, wat betekent dat deze succesvolle geïmplementeerd op de VM, maar de uitvoering van de extensie in de virtuele machine is mislukt, *substatus [1]*.
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status

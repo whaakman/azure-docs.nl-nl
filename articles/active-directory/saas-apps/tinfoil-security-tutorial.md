@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ed0912e8d4705b6cbefa9eb8f7a712a37d8b0be
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8d2001e221ef9c02ee2ab80b647a9bafe6490432
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183174"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882141"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tinfoil-security"></a>Zelfstudie: Azure Active Directory-integratie met TINFOIL SECURITY
 
@@ -186,7 +186,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
 1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
     
-    ![Gebruikers en groepen -> alle gebruikers ](./media/tinfoil-security-tutorial/create_aaduser_02.png) 
+    ![Gebruikers en groepen -> alle gebruikers](./media/tinfoil-security-tutorial/create_aaduser_02.png) 
 
 1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
  

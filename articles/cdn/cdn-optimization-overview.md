@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: magattus
-ms.openlocfilehash: 526f3522bff05618189ad4f8205fbb61afc47fdc
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 5be1835de2aa1631c4ec2115dd34ea85f0267403
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320295"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870887"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Azure CDN voor het type van de levering van inhoud optimaliseren
 
@@ -66,7 +66,7 @@ Wanneer u een CDN-eindpunt maakt, selecteert u een optimalisatietype die het bes
 
 1. In een **Azure CDN Standard van Akamai** profiel, selecteer een eindpunt.
 
-    ![Eindpunt selecteren ](./media/cdn-optimization-overview/01_Akamai.png)
+    ![Eindpunt selecteren](./media/cdn-optimization-overview/01_Akamai.png)
 
 2. Selecteer onder instellingen **optimalisatie**. Selecteer een type in de **geoptimaliseerd voor** vervolgkeuzelijst.
 

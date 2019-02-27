@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 02/27/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 2acc26fc473d0e8dcb93b1439de316fbef67ae98
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 77b3d8bd1d16e90e9929c41f0f28940694dc7906
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416510"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889831"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 update
 
@@ -34,7 +34,14 @@ Dit artikel wordt de inhoud van het updatepakket 1901 beschreven. De update beva
 
 ## <a name="build-reference"></a>Naslaginformatie over bouwen
 
-De Azure Stack 1901 update build-nummer **1.1901.0.95**.
+De Azure Stack 1901 update build-nummer **1.1901.0.95** of **1.1901.0.99** na 26 februari 2019. Zie de opmerking hieronder:
+
+> [!IMPORTANT]  
+> Microsoft heeft een probleem die gevolgen kan hebben dat een 1901 klanten bijwerken van 1811 (1.1811.0.101) gedetecteerd en heeft een bijgewerkte 1901 pakket om het probleem op te lossen: 1.1901.0.99, bijgewerkt van 1.1901.0.95 bouwen. Klanten die al hebt bijgewerkt naar 1.1901.0.95 hoeft geen verdere actie te ondernemen.
+>
+> Verbonden klanten die zich op 1811 ziet automatisch het nieuwe 1901 (1.1901.0.99)-pakket beschikbaar zijn in de beheerdersportal en moeten installeren wanneer u klaar bent. Niet-verbonden klanten kunnen downloaden en importeren van het nieuwe 1901-pakket met behulp van hetzelfde proces [die hier worden beschreven](azure-stack-apply-updates.md).
+>
+> Klanten met beide versies van 1901 heeft geen invloed bij het installeren van de volgende volledige of de hotfix-pakket.
 
 ## <a name="hotfixes"></a>Hotfixes
 
@@ -84,9 +91,9 @@ Deze update bevat de volgende nieuwe functies en verbeteringen voor Azure Stack:
    * **AzureRm.Insights**  
          Rollup-AzureRm-module bevat nu de al gepubliceerde versie 5.1.5 ondersteunen de **api-versie 2018-01-01** voor metrische gegevens, metrische definities van de resourcetypen.
 
-- **AzureStack 1.7.0** dit een belangrijke wijziging release. Raadpleeg voor meer informatie over de wijzigingen die fouten veroorzaken. https://aka.ms/azspshmigration170
+- **AzureStack 1.7.0** dit een belangrijke wijziging release. Raadpleeg voor meer informatie over de wijzigingen die fouten veroorzaken https://aka.ms/azspshmigration170
    * **Azs.Backup.Admin-Module**  
-         Belangrijke wijziging: Wijzigingen in de back-up naar de versleutelingsmodus op basis van een certificaat. Ondersteuning voor symmetrische sleutels is afgeschaft.  
+         Belangrijke wijziging: Back-up gewijzigd zodat de versleutelingsmodus op basis van een certificaat wordt gebruikt. Ondersteuning voor symmetrische sleutels is afgeschaft.  
    * **Azs.Fabric.Admin-Module**  
          `Get-AzsInfrastructureVolume` is afgeschaft. Gebruik de nieuwe cmdlet `Get-AzsVolume`.  
          `Get-AzsStorageSystem` is afgeschaft.  Gebruik de nieuwe cmdlet `Get-AzsStorageSubSystem`.  
@@ -170,33 +177,6 @@ De verwijzing voor de bijgewerkte modules Zie [Azure Stack-Moduleverwijzing](htt
 
    Update-AzsHomeDirectoryTenant -AdminResourceManagerEndpoint $adminResourceManagerEndpoint `
      -DirectoryTenantName $homeDirectoryTenantName -Verbose
-   ```
-
-- Er zijn momenteel in Azure Stack-uitbreidingen die implementeren zonder dat u expliciet hoeft te downloaden van de uitbreidingen via marketplace-syndicatie. De volgende versies van deze extensies worden verwijderd. Deze uitbreidingen van de Azure Stack marketplace moeten nu expliciet extern door Azure Stack-operators:
-
-   | Type                     | Versie        |
-   |--------------------------|----------------|
-   | DSC                      | 2.19.0.0       |
-   | IaaSAntimalware          | 1.4.0.0        |
-   | BGInfo                   | 2.1            |
-   | VMAccessAgent            | 2.0            |
-   | CustomScriptExtension    | 1.8            |
-   | MicrosoftMonitoringAgent | 1.0.10900.0    |
-   | IaaSDiagnostics          | 1.10.1.1       |
-   | VMAccessForLinux         | 1.4.0.0        |
-   | CustomScriptForLinux     | 1.5.2.0        |
-   | DockerExtension          | 1.1.1606092330 |
-   | JsonADDomainExtension    | 1.3            |
-   | OSPatchingForLinux       | 2.3.0.1        |
-   | WebRole                  | 4.3000.14.0    |
-
-   Het verdient aanbeveling dat bij het implementeren van extensies, Azure Stack-gebruikers ingesteld `autoUpgradeMinorVersion` naar **waar**. Bijvoorbeeld:
-
-   ```json
-   "type": "Extension",
-           "publisher": "ExtensionPublisher",
-           "typeHandlerVersion": "1.2",
-           "autoUpgradeMinorVersion": "true"
    ```
 
 - Er is een nieuwe overweging voor het plannen van capaciteit van de Azure Stack nauwkeurig. Met de update 1901 is er nu een limiet voor het totale aantal virtuele Machines dat kan worden gemaakt.  Deze limiet is bedoeld als tijdelijke om te voorkomen dat instabiliteit van de oplossing. De bron van het stabiliteitsprobleem met de op grotere aantallen virtuele machines wordt behandeld, maar een specifieke tijdlijn voor herstel nog niet is vastgesteld. Met de update 1901, is er nu een per Serverlimiet van 60 virtuele machines met een limiet totale oplossing van 700.  Een virtuele machine in Azure Stack-limiet van 8 server zou bijvoorbeeld 480 (8 * 60).  Voor een server 12 tot 16 Azure Stack-oplossing is de limiet 700. Deze limiet is gemaakt blijven alle rekencapaciteit capaciteitsoverwegingen in gedachten, zoals de tolerantie-reserve en de CPU virtueel naar fysieke hoogte-breedteverhouding die een operator wilt behouden op het stempel. Zie de nieuwe versie van de Capaciteitsplanner voor meer informatie.  

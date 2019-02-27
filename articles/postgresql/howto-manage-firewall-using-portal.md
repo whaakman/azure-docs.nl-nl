@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 7211b7f5db14f4bad114556e5c080cf5d535b00b
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 20c5d66f51cffeb7e4e73ba9f16b7ea5ce305e5c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545481"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874100"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-the-azure-portal"></a>Maken en beheren van Azure Database voor PostgreSQL-firewallregels met behulp van de Azure portal
 Firewallregels op serverniveau kunnen beheerders toegang krijgen tot een Azure Database for PostgreSQL-Server vanaf een opgegeven IP-adres of IP-adresbereik. 
@@ -36,7 +36,7 @@ Gebruik een zoekmachine of andere online hulpprogramma om te controleren of uw e
 
 4. Voeg aanvullende adresbereiken. In de firewallregels voor de Azure Database for PostgreSQL, kunt u één IP-adres of een reeks adressen. Als u beperken van de regel moet één IP-adres wilt, typt u hetzelfde adres in het veld voor het eerste IP- en eind-IP. De firewall opent, kunnen beheerders, gebruikers en toepassingen om aan te melden bij elke database op de PostgreSQL-server waarvoor ze geldige aanmeldgegevens hebben.
 
-  ![Azure portal - firewall-regels ](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
+  ![Azure portal - firewall-regels](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
 
 5. Klik op **opslaan** op de werkbalk om op te slaan deze firewallregel op serverniveau. Wachten op de bevestiging dat de update van de firewall-regels geslaagd is.
 

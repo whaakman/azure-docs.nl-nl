@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 4b4510a02c4212724f8a592c7318aecab3d06275
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: ecd6dd9e8eb6d11161faf6ed3b51f06cf0d3f454
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733258"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868813"
 ---
 # <a name="what-is-microsoft-genomics"></a>Wat is Microsoft Genomics?
 Microsoft Genomics biedt een cloudimplementatie van Burrows-Wheeler Aligner (BWA) en de Genome Analysis Toolkit (GATK) voor secundaire analyse. De service is ISO-gecertificeerd en compatibel met HIPAA-voorschriften en voorspelbaarheid van de prijs voor uw behoeften voor sequentiëring van genoom biedt. Informatie over het gebruik van de Microsoft Genomics-service en integreren met de API door te lezen van onze snelstartgidsen, zelfstudies en documentatie.
@@ -34,6 +34,6 @@ De service Microsoft Genomics is ISO 27001, ISO 27018- en ISO 9001-gecertificeer
 ## <a name="next-steps"></a>Volgende stappen
 Nu u een inleiding tot Microsoft Genomics hebt gelezen, kunt u naar:
 - Zie de pagina met prijzen voor kostenvergelijkingen en calculators. [Prijzen](https://azure.microsoft.com/pricing/details/genomics/)
-- Aan de slag door te voeren van uw eerste werkstroom via de Microsoft Genomics-service. [Een werkstroom uitvoeren via de service Microsoft Genomics ](quickstart-run-genomics-workflow-portal.md)
+- Aan de slag door te voeren van uw eerste werkstroom via de Microsoft Genomics-service. [Een werkstroom uitvoeren via de service Microsoft Genomics](quickstart-run-genomics-workflow-portal.md)
 - Indienen van uw eigen gegevens voor verwerking door de service Microsoft Genomics: [gekoppelde FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [meerdere FASTQ of BAM](quickstart-input-multiple.md) 
 

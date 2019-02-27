@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a72df28fbaed89076976f567774bd5fdb15bc2f9
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: c24d8bd382dc57a8a354b61252d7a5e16640436f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229486"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864635"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Azure Automation-resources toe te voegen aan een oplossing voor beheer (Preview)
 > [!NOTE]
@@ -29,7 +29,7 @@ ms.locfileid: "54229486"
 [Beheeroplossingen]( solutions.md) bevatten meestal runbooks in Azure Automation voor het automatiseren van processen, zoals het verzamelen en verwerken van gegevens.  Automation-accounts bevat naast runbooks, assets zoals variabelen en schema's die ondersteuning bieden voor de runbooks die worden gebruikt in de oplossing.  Dit artikel wordt beschreven hoe u runbooks en hun verwante bronnen opnemen in een oplossing.
 
 > [!NOTE]
-> De voorbeelden in dit artikel Gebruik parameters en variabelen die zijn vereist of gemeenschappelijke beheeroplossingen en wordt beschreven in [ontwerpen en bouwen van een oplossing in Azure ]( solutions-creating.md) 
+> De voorbeelden in dit artikel Gebruik parameters en variabelen die zijn vereist of gemeenschappelijke beheeroplossingen en wordt beschreven in [ontwerpen en bouwen van een oplossing in Azure]( solutions-creating.md) 
 
 
 ## <a name="prerequisites"></a>Vereisten
@@ -270,7 +270,7 @@ De eigenschappen voor variabele resources worden in de volgende tabel beschreven
 | Eigenschap | Description |
 |:--- |:--- |
 | description | Optionele beschrijving voor de variabele. |
-| IsEncrypted | Hiermee geeft u op of de variabele moet worden versleuteld. |
+| isEncrypted | Hiermee geeft u op of de variabele moet worden versleuteld. |
 | type | Deze eigenschap heeft momenteel geen effect.  Het gegevenstype van de variabele wordt bepaald door de aanvankelijke waarde. |
 | waarde | De waarde voor de variabele. |
 

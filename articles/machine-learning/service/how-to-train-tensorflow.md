@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: b1ee41c6d543ac4f52b537ebc8054f2986c4217c
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: b06151b9cb5603ef54c8e84d261bb7a4e7885e1b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649577"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880458"
 ---
 # <a name="train-tensorflow-and-keras-models-with-azure-machine-learning-service"></a>Train TensorFlow en Keras-modellen met Azure Machine Learning-service
 
@@ -71,10 +71,10 @@ keras_est = TensorFlow(source_directory='./my-keras-proj',
                        script_params=script_params,
                        compute_target=compute_target,
                        entry_script='keras_train.py',
-                       conda_packages=['keras'], # just add keras through conda
+                       pip_packages=['keras'], # just add keras through pip
                        use_gpu=True)
 ```
-Azure Machine Learning-service voor het installeren van Keras via Conda op de uitvoeringsomgeving Hiermee geeft u de bovenstaande TensorFlow estimator-constructor. En uw `keras_train.py` Keras-API als u wilt een Keras-model te trainen kunt importeren. Voor een compleet voorbeeld verkennen [deze Jupyter-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb).
+Azure Machine Learning-service voor het installeren van Keras via pip aan de uitvoeringsomgeving Hiermee geeft u de bovenstaande TensorFlow estimator-constructor. En uw `keras_train.py` Keras-API als u wilt een Keras-model te trainen kunt importeren. Voor een compleet voorbeeld verkennen [deze Jupyter-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb).
 
 ## <a name="distributed-training"></a>Gedistribueerde training
 De TensorFlow Estimator kunt u uw modellen op schaal te trainen voor CPU en GPU-clusters virtuele Azure-machines. U kunt eenvoudig gedistribueerde TensorFlow-training uitvoeren met een aantal API-aanroepen, terwijl Azure Machine Learning achter de schermen beheert de infrastructuur en orchestration die nodig zijn voor het uitvoeren van deze werkbelastingen.

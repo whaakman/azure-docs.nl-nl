@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 9ce7a36f796716f48f6575b2391ac563eebf4530
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 7da813022527830a5ede62c9f4ce98645fe63d4b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447817"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871590"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Data Warehouse Units (dwu's) en compute Data Warehouse Units (cDWUs)
 Aanbevelingen over het kiezen van het ideale aantal datawarehouse units (dwu's, cDWUs) om te optimaliseren prijs en prestaties en het wijzigen van het aantal eenheden. 
@@ -68,7 +68,7 @@ Elke prestatielaag maakt gebruik van een iets andere maateenheid voor de datawar
 
 Dwu's zowel cDWUs ondersteuning voor vergroten/verkleinen compute omhoog of omlaag en onderbreken compute wanneer u niet nodig hebt voor het gebruik van het datawarehouse. Deze bewerkingen zijn alle op aanvraag. Gen2 maakt gebruik van een lokale schijf op basis van cache op de rekenknooppunten om prestaties te verbeteren. Als u het systeem onderbreken of schalen, de cache ongeldig is gemaakt en dus een periode van het opwarmen van cache is vereist voordat de optimale prestaties wordt bereikt.  
 
-Als u de datawarehouse-eenheden verhoogt, zijn u Lineair computerbronnen te vergroten. Gen2 biedt de beste prestaties van query's en de hoogste schaal, maar heeft een hogere instapprijs. Het is ontworpen voor bedrijven die een constante aanvraag voor de prestaties hebben. Deze systemen maken de meeste gebruik van de cache. 
+Als u de datawarehouse-eenheden verhoogt, zijn u Lineair computerbronnen te vergroten. Gen2 biedt de beste prestaties van query's en de hoogste schaal. Deze systemen maken de meeste gebruik van de cache.
 
 ### <a name="capacity-limits"></a>Capaciteitslimieten
 Elke SQL-server (bijvoorbeeld myserver.database.windows.net) heeft een [Database Transaction Unit (DTU)](../sql-database/sql-database-what-is-a-dtu.md) quotum waarmee een bepaald aantal dwu's. Zie voor meer informatie de [Capaciteitslimieten management workload](sql-data-warehouse-service-capacity-limits.md#workload-management).

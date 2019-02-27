@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0d0e9c1c35236ce6449a9c9bf06ba291f46db472
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 5e749f68aba48ac258363a0a03e3474e1e28b064
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731098"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876769"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Problemen met een app in Azure App Service met behulp van Visual Studio oplossen
 ## <a name="overview"></a>Overzicht
@@ -596,7 +596,7 @@ U kunt Logboeken voor tracering van mislukte aanvragen kunt weergeven in een bro
 
 8. Open de map met de naam W3SVC plus een numerieke waarde.
 
-    ![Open de map W3SVC](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-w3svcfolder.png)
+    ![Open W3SVC folder](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-w3svcfolder.png)
 
     De map bevat de XML-bestanden voor eventuele fouten die zijn geregistreerd nadat u de tracering van mislukte aanvragen ingeschakeld en een XSL-bestand dat een browser kunt gebruiken om de opmaak van het XML-bestand.
 
@@ -617,7 +617,7 @@ U hebt gezien hoe u Visual Studio gemakkelijk om logboeken die zijn gemaakt door
 * Traceren in ASP.NET-toepassingen
 * Analyseren van webserverlogboeken
 * Analyse van Logboeken voor mislukte aanvragen traceren
-* Fouten in Cloudservices opsporen
+* Debugging Cloud Services
 
 ### <a name="app-service-troubleshooting"></a>App Service oplossen
 Zie de volgende bronnen voor meer informatie over het oplossen van apps in Azure App Service:
@@ -685,7 +685,7 @@ Zie de volgende bronnen voor meer informatie over het analyseren van weblogboeke
 
 * [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
   Een hulpprogramma voor het weergeven van gegevens in webserverlogboeken (*.log* bestanden).
-* [Het oplossen van prestatieproblemen voor IIS of met behulp van LogParser toepassingsfouten ](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
+* [Het oplossen van prestatieproblemen voor IIS of met behulp van LogParser toepassingsfouten](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   Een inleiding tot het hulpprogramma Logboekparser die u gebruiken kunt voor het analyseren van weblogboeken-server.
 * [Blog van Robert McMurray over het gebruik van LogParser plaatst.](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [De HTTP-statuscode in IIS 7.0, IIS 7.5 en IIS 8.0](https://support.microsoft.com/kb/943891)

@@ -18,12 +18,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49a82e1452a4380920271f4fb4f7397208e32d78
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 021e13dafcc659337d4096a068e224312e69db1b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174449"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870938"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Beheren en aanpassen van Active Directory Federation Services met behulp van Azure AD Connect
 Dit artikel wordt beschreven hoe u kunt beheren en aanpassen van Active Directory Federation Services (AD FS) met behulp van Azure Active Directory (Azure AD) Connect. Dit omvat ook andere algemene AD FS-taken die u moet uitvoeren voor een volledige configuratie van AD FS-farm.
@@ -32,7 +32,7 @@ Dit artikel wordt beschreven hoe u kunt beheren en aanpassen van Active Director
 |:--- |:--- |
 | **AD FS beheren** | |
 | [Herstel de vertrouwensrelatie](#repairthetrust) |Klik hier voor meer informatie over het herstellen van de federatieve vertrouwensrelatie met Office 365. |
-| [Federeren met Azure AD met behulp van alternatieve aanmeldings-ID ](#alternateid) | Federatie met behulp van alternatieve aanmeldings-ID configureren  |
+| [Federeren met Azure AD met behulp van alternatieve aanmeldings-ID](#alternateid) | Federatie met behulp van alternatieve aanmeldings-ID configureren  |
 | [Een AD FS-server toevoegen](#addadfsserver) |Over het uitbreiden van een AD FS-farm met een aanvullende AD FS-server. |
 | [Een AD FS Web Application Proxy-server toevoegen](#addwapserver) |Over het uitbreiden van een AD FS-farm met een extra Webtoepassingsproxy (WAP)-server. |
 | [Een federatief domein toevoegen](#addfeddomain) |Het toevoegen van een federatief domein. |

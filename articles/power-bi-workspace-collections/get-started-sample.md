@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: fdbbfaf4a4c3df90302b0b69e4964b7a073f2fa4
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 4a7da4a6e7b4b395063f7e4c9a3e97d610492ef6
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237957"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882659"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Aan de slag met Power BI Workspace Collections-voorbeeld
 
@@ -28,7 +28,7 @@ Voordat we verdergaan, die u wilt opslaan in de volgende bronnen: Ze helpen u bi
 
 * [Voorbeeld werkruimte web-app](https://go.microsoft.com/fwlink/?LinkId=761493)
 * [Power BI-werkruimte verzamelingen API-verwijzing](https://msdn.microsoft.com/library/azure/mt711507.aspx)
-* [Power BI .NET-SDK ](https://go.microsoft.com/fwlink/?LinkId=746472) (beschikbaar via NuGet)
+* [Power BI .NET-SDK](https://go.microsoft.com/fwlink/?LinkId=746472) (beschikbaar via NuGet)
 * [Voorbeeld van het JavaScript-rapport insluiten](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 > [!NOTE]

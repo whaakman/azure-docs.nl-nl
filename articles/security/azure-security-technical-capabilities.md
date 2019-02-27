@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: e7f8eef2c3422084846462e2f6159a8b8be7167f
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: f615c4ca9ffc56daafcedd711f27672e0855e4fa
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301822"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883944"
 ---
 # <a name="azure-security-technical-capabilities"></a>Technische mogelijkheden van Azure-beveiliging
 
@@ -169,7 +169,7 @@ Abonnementen hebben ook een koppeling met een directory. De map definieert een g
 
 Beveiliging-georiënteerde bedrijven moeten zich richten op uw werknemers de exacte machtigingen die ze nodig hebben. Te veel machtigingen kunnen een account voor aanvallen worden blootgesteld. Te weinig machtigingen betekenen dat werknemers hun werk efficiënter kunnen niet ophalen. [Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) helpt dit probleem oplossen door het aanbieden van verfijnd toegangsbeheer voor Azure.
 
-![Toegang tot beveiligde bronnen ](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig4.png)
+![Toegang tot beveiligde bronnen](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
 Met op rollen gebaseerd toegangsbeheer kunt u taken scheiden binnen uw team en alleen de mate van toegang verlenen aan gebruikers die nodig is om de taken uit te voeren. In plaats van zodat iedereen onbeperkte machtigingen in uw Azure-abonnement of resources, kunt u alleen bepaalde acties toestaan. Bijvoorbeeld, RBAC gebruiken om één werknemer virtuele machines in een abonnement beheren terwijl een andere SQL-databases binnen hetzelfde abonnement kunt beheren.
 

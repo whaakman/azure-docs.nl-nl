@@ -6,15 +6,15 @@ manager: philmea
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 02/15/2018
+ms.date: 02/15/2019
 ms.author: menchi
 ms.custom: seodec18
-ms.openlocfilehash: 4267a60911b02615e8482f8616f889ad2c1df02d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4d45ce16410292b2763d20686063f8a414c1f9a4
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093898"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883093"
 ---
 # <a name="glossary-of-terms-for-azure-iot-edge"></a>Verklarende woordenlijst voor Azure IoT Edge
 In dit artikel worden enkele van de algemene termen gebruikt in de IoT Edge-artikelen.
@@ -23,6 +23,4 @@ In dit artikel worden enkele van de algemene termen gebruikt in de IoT Edge-arti
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie [IoT-Hub verklarende woordenlijst](../iot-hub/iot-hub-devguide-glossary.md)
-* Informatie over IoT Edge [module-ontwikkeling](iot-edge-modules.md)
-* Informatie over IoT Edge [implementatie](module-deployment-monitoring.md)
+[Verklarende woordenlijst voor IoT Hub](../iot-hub/iot-hub-devguide-glossary.md)

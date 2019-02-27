@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: johndeu;
-ms.openlocfilehash: e13995ccdc609951f908b4a1779eaefcfdc596bb
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b8437f224a83ac07d27aed03b5a9686f66949bc4
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005213"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868252"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Smooth Streaming Protocol (MS-SSTR) amendement voor HEVC 
 
@@ -78,17 +78,17 @@ De volgende voorwaarden zijn specifiek voor dit document:
 
 >   [RFC-6381] IETF RFC-6381, 'de 'Codecs' en 'Profielen'-Parameters voor 'Bucket"mediatypen" <http://tools.ietf.org/html/rfc6381>
 
->   [MPEG4-RA] De MP4-statusregistratie-instantie, "MP4REG" [http://www.mp4ra.org   ](https://go.microsoft.com/fwlink/?LinkId=327787)
+>   [MPEG4-RA] De MP4-statusregistratie-instantie, "MP4REG" [http://www.mp4ra.org](https://go.microsoft.com/fwlink/?LinkId=327787)
 
->   [RFC2119] Bradner, S., 'sleutel woorden voor gebruik in RFC's aangeven vereiste niveaus', BCP 14, RFC 2119, maart 1997   [http://www.rfc-editor.org/rfc/rfc2119.txt   ](https://go.microsoft.com/fwlink/?LinkId=90317)
+>   [RFC2119] Bradner, S., 'sleutel woorden voor gebruik in RFC's aangeven vereiste niveaus', BCP 14, RFC 2119, maart 1997   [http://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
 
 ### <a name="122-informative-references"></a>1.2.2 informatieve referenties 
 
 >   [MS-GLOS] Microsoft Corporation, "*Windows protocollen Master verklarende woordenlijst*."
 
->   [RFC3548] Josefsson, S., editie, 'De Base16, Base32 en Base64 gegevens coderingen', RFC 3548, juli 2003 [http://www.ietf.org/rfc/rfc3548.txt   ](https://go.microsoft.com/fwlink/?LinkId=90432)
+>   [RFC3548] Josefsson, S., editie, 'De Base16, Base32 en Base64 gegevens coderingen', RFC 3548, juli 2003 [http://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
 
->   [RFC5234] Crocker, D., editie, en Overell, s., "BNF uitgebreid voor de syntaxis van de specificaties: ABNF", STD 68, RFC 5234, January 2008,   [http://www.rfc-editor.org/rfc/rfc5234.txt   ](https://go.microsoft.com/fwlink/?LinkId=123096)
+>   [RFC5234] Crocker, D., editie, en Overell, s., "BNF uitgebreid voor de syntaxis van de specificaties: ABNF", STD 68, RFC 5234, January 2008,   [http://www.rfc-editor.org/rfc/rfc5234.txt](https://go.microsoft.com/fwlink/?LinkId=123096)
 
 
 ## <a name="13-overview"></a>1.3-overzicht 
@@ -108,7 +108,7 @@ De volgende voorwaarden zijn specifiek voor dit document:
 >   De volgende methode moet worden gebruikt identificeren stromen met behulp van de HEVC video-indeling:
 
 >   * **Aangepaste beschrijvende-Codes voor Media-indelingen:** Deze mogelijkheid wordt geboden door de **code** veld, zoals opgegeven in de sectie *2.2.2.5*.
->   Uitvoerders zorgt ervoor dat extensies niet in strijd met de extensie codes registreren met de MPEG4-RA, zoals opgegeven in [[ISO/IEC-14496-12] ](https://go.microsoft.com/fwlink/?LinkId=183695)
+>   Uitvoerders zorgt ervoor dat extensies niet in strijd met de extensie codes registreren met de MPEG4-RA, zoals opgegeven in [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695)
 
 ## <a name="19-standards-assignments"></a>1.9 standaarden toewijzingen 
 

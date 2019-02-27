@@ -1,6 +1,6 @@
 ---
 title: Azure-Stream bewakingsgegevens naar Event Hubs
-description: Meer informatie over het streamen van al uw Azure-bewakingsgegevens naar een event hub om op te halen van de gegevens in een SIEM-partner of analyseprogramma.
+description: Meer informatie over het streamen van uw Azure-bewakingsgegevens naar een event hub om op te halen van de gegevens in een SIEM-partner of analyseprogramma.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 424dc1611622a1dfc37419fd443d860698020524
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 549ec74514ff03e06ff25893d3fa865f179470e9
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468230"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870683"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Azure-Stream bewakingsgegevens naar een event hub voor gebruik door een extern hulpprogramma
 
-Azure Monitor biedt één pijplijn voor het verkrijgen van toegang tot alle bewakingsgegevens uit uw Azure-omgeving, zodat u kunt eenvoudig partner SIEM instellen en controlehulpprogramma's die gegevens gebruiken. Dit artikel helpt bij het instellen van de verschillende lagen van de gegevens van uw Azure-omgeving moet worden verzonden naar een enkele Event Hubs-naamruimte of event hub, waar deze kan worden verzameld door een extern hulpprogramma.
+Dit artikel helpt bij het instellen van de verschillende lagen van de gegevens van uw Azure-omgeving moet worden verzonden naar een enkele Event Hubs-naamruimte of event hub, waar deze kan worden verzameld door een extern hulpprogramma.
 
 > [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
@@ -33,7 +33,7 @@ Er zijn verschillende 'categorieën' van de gegevens te controleren binnen uw Az
 - **Azure-abonnement door gegevens te controleren:** Gegevens over de werking en het beheer van een Azure-abonnement, evenals gegevens over de status en de werking van Azure zelf. De [activiteitenlogboek](./../../azure-monitor/platform/activity-logs-overview.md) bevat de meeste abonnement, zoals service health incidenten en Azure Resource Manager-controle door gegevens te controleren. U kunt deze gegevens met behulp van een Logboekprofiel verzamelen.
 - **Azure-tenant door gegevens te controleren:** Gegevens over de werking van op tenantniveau-Azure-services, zoals Azure Active Directory. Controles van de Azure Active Directory en aanmeldingen zijn voorbeelden van de tenant door gegevens te controleren. Deze gegevens kan worden verzameld met behulp van de diagnostische instelling van een tenant.
 
-Gegevens van elke laag kunnen worden verzonden naar een event hub, waar deze kan worden opgehaald in een partner-hulpprogramma. De volgende secties wordt beschreven hoe u gegevens uit elke laag kunnen worden gestreamd naar een event hub kunt configureren. De stappen wordt ervan uitgegaan dat u de activa in die laag moet worden bewaakt al hebt.
+Gegevens van elke laag kunnen worden verzonden naar een event hub, waar deze kan worden opgehaald in een partner-hulpprogramma. Sommige gegevensbronnen kunnen worden geconfigureerd voor het verzenden van gegevens rechtstreeks naar een event hub, terwijl andere verwerken, zoals een logische App zijn vereist om de vereiste gegevens op te halen. De volgende secties wordt beschreven hoe u gegevens uit elke laag kunnen worden gestreamd naar een event hub kunt configureren. De stappen wordt ervan uitgegaan dat u de activa in die laag moet worden bewaakt al hebt.
 
 ## <a name="set-up-an-event-hubs-namespace"></a>Instellen van een Event Hubs-naamruimte
 

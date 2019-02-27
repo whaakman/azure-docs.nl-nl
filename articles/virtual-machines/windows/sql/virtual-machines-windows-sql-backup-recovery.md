@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: 164ec0898e2f7ad461ab63ce0fcaf47a87998797
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 47d06ce5a03fe51ba345f60e2feff958ed4a890b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997829"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871159"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Back-up en herstel voor SQL Server in Azure Virtual Machines
 
@@ -56,23 +56,23 @@ Als u een database herstellen, moet u de vereiste bestanden voor back-up niet vi
 
 Zie een van de volgende artikelen voor meer informatie over het configureren van automatische back-up voor SQL-VM's:
 
-- **SQL Server 2016/2017**: [automatische back-up v2 voor virtuele Machines van Azure ](virtual-machines-windows-sql-automated-backup-v2.md)
-- **SQL Server 2014**: [automatische back-up voor virtuele Machines van SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
+- **SQL Server 2016/2017**: [Automatische back-up v2 voor virtuele Machines van Azure](virtual-machines-windows-sql-automated-backup-v2.md)
+- **SQL Server 2014**: [Automatische back-up voor virtuele Machines van SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
 
 ## <a id="azbackup"></a> Azure Backup voor SQL-VM's (Preview-versie)
 
 [Azure Backup](/azure/backup/) biedt u een back-upfunctionaliteit voor Enterprise-klasse voor SQL Server wordt uitgevoerd in Azure VM's. Alle back-ups worden opgeslagen en beheerd in een Recovery Services-kluis. Er zijn diverse voordelen die deze oplossing, met name voor ondernemingen biedt:
 
-- **Back-up van nul infrastructuur**: U hebt niet om back-upservers of opslaglocaties te beheren.
-- **Schaal**: veel SQL-VM's en schaling van duizenden databases beveiligen.
-- **Betalen per gebruik**: deze mogelijkheid is een afzonderlijke service die is geleverd door Azure Backup, maar net als bij alle Azure-services, betaalt u alleen voor wat u gebruikt.
+- **Back-up van nul infrastructuur**: U hoeft niet te beheren van back-upservers of opslaglocaties.
+- **Schaal**: Veel SQL-VM's en schaling van duizenden databases beveiligen.
+- **Pay-As-You-Go**: Deze mogelijkheid is een afzonderlijke service die is geleverd door Azure Backup, maar als met alle Azure-services, betaalt u alleen voor wat u gebruikt.
 - **Centraal beheer en controle**: Centraal beheer al uw back-ups, met inbegrip van andere werkbelastingen die Azure Backup, vanaf één dashboard in Azure ondersteunt.
-- **Beleid voor back-up en retentie gestuurde**: standaard back-upbeleid voor regelmatige back-ups maken. Tot stand brengen voor het bewaren van voor het onderhouden van back-ups voor jaar.
-- **Ondersteuning voor SQL Always On**: detecteren en beschermen van de configuratie van een SQL Server Always On en de back-up beschikbaarheidsgroep back-upvoorkeur in acht neemt.
-- **15 minuten Recovery Point Objective (RPO)**: configureren van SQL-transactielogboeken maximaal elke 15 minuten.
-- **Punt in tijd herstel**: de portal gebruiken om databases te herstellen naar een bepaald punt in tijd zonder handmatig herstellen meerdere volledige, differentiële, en logboekback-ups.
-- **E-mailwaarschuwingen voor fouten geconsolideerd**: configureren geconsolideerd e-mailmeldingen voor fouten.
-- **Op rollen gebaseerd toegangsbeheer**: bepalen wie kan beheren van back-up en herstelbewerkingen via de portal.
+- **Beleid voor back-up en retentie gestuurde**: Standaard back-upbeleid voor regelmatige back-ups maken. Tot stand brengen voor het bewaren van voor het onderhouden van back-ups voor jaar.
+- **Ondersteuning voor SQL altijd op**: Detecteren en beschermen van de configuratie van een SQL Server Always On en voldoen aan de back-back-upvoorkeur voor beschikbaarheidsgroep.
+- **15 minuten Recovery Point Objective (RPO)**: Configureer SQL transactielogboekback-ups maximaal elke 15 minuten.
+- **Punt in tijd herstel**: De portal gebruiken om databases te herstellen naar een bepaald punt in tijd zonder handmatig herstellen meerdere volledige, differentiële en logboekback-ups.
+- **E-mailwaarschuwingen voor fouten geconsolideerd**: Geconsolideerde e-mailmeldingen fouten configureren.
+- **Op rollen gebaseerd toegangsbeheer**: Bepalen wie kan beheren van back-up en herstelbewerkingen via de portal.
 
 Bekijk de volgende video voor een snel overzicht van hoe het werkt samen met een demo:
 
@@ -150,6 +150,6 @@ De volgende tabel geeft een overzicht van de mogelijkheden van elke optie back-u
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u van plan bent uw implementatie van SQL Server in een Azure-VM, kunt u inrichting hulp vinden in de volgende handleiding: [hoe u een Windows SQL Server-machine inrichten in Azure portal](virtual-machines-windows-portal-sql-server-provision.md).
+Als u van plan bent uw implementatie van SQL Server in een Azure-VM, vindt u inrichting richtlijnen in de volgende handleiding: [Hoe u een Windows SQL Server-machine inrichten in Azure portal](virtual-machines-windows-portal-sql-server-provision.md).
 
 Hoewel back-up en herstel kunnen worden gebruikt om uw gegevens te migreren, zijn er mogelijk eenvoudiger migratiepaden van gegevens naar SQL Server op een Azure-VM. Zie voor een volledige beschrijving van de opties voor de migratie en aanbevelingen, [een Database migreren naar SQL Server op een Azure-VM](virtual-machines-windows-migrate-sql.md).

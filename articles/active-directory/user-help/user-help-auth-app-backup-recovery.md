@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3fc8ae7eac8d54e332d43925ede6ad690ae1dde
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3b8a06276bcaa989fa04f105ac7858c25ab4d0ef
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167827"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887502"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Back-up en herstel van accountreferenties met de Microsoft Authenticator-app
 
@@ -84,7 +84,7 @@ Voor persoonlijke Microsoft-accounts kunt u uw identiteit bewijst door in te voe
     ![Microsoft Authenticator-app, zodat u uw QR-code scannen](./media/user-help-auth-app-backup-recovery/backup-and-recovery-scan-qr-code.png)
 
     >[!NOTE]
-    >Zie voor meer informatie over het registreren van een QR-code [aan de slag met de Microsoft Authenticator-app](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) of [beveiligingsgegevens ingesteld voor het gebruik van een verificator-app](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app#to-use-the-microsoft-authenticator-app), afhankelijk van of uw beheerder beveiligingsgegevens is ingeschakeld.
+    >Zie voor meer informatie over het registreren van een QR-code [aan de slag met de Microsoft Authenticator-app](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) of [beveiligingsgegevens ingesteld voor het gebruik van een verificator-app](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app), afhankelijk van of uw beheerder beveiligingsgegevens is ingeschakeld.
 
 ## <a name="troubleshooting-backup-and-recovery-problems"></a>Het oplossen van problemen met back-up en herstel
 Er zijn enkele redenen waarom de back-up mogelijk niet beschikbaar:

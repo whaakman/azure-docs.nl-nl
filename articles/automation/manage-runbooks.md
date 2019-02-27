@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 02/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: da3b09998d163ffcc16bfcbbf9f516467dd3311d
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 5bb52e0547ed9bc18d67370ffb9db35942212aab
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56418583"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887587"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Runbooks in Azure Automation beheren
 
-U kunt een runbook toevoegen aan Azure Automation door [het maken van een nieuwe](#creating-a-new-runbook) of een bestaand runbook importeren uit een bestand of de [Runbookgalerie](automation-runbook-gallery.md). In dit artikel bevat informatie over het maken en runbooks importeren uit een bestand.  Krijgt u alle details over de toegang tot community runbooks en modules in [Runbook- en galerieën voor Azure Automation](automation-runbook-gallery.md).
+U kunt een runbook toevoegen aan Azure Automation door [het maken van een nieuwe](#create-a-runbook) of een bestaand runbook importeren uit een bestand of de [Runbookgalerie](automation-runbook-gallery.md). In dit artikel bevat informatie over het maken en runbooks importeren uit een bestand.  Krijgt u alle details over de toegang tot community runbooks en modules in [Runbook- en galerieën voor Azure Automation](automation-runbook-gallery.md).
 
 ## <a name="create-a-runbook"></a>Een runbook maken
 
@@ -65,7 +65,7 @@ De volgende procedure kunt u een scriptbestand importeren in Azure Automation.
 5. Als de **naam** veld is ingeschakeld, wordt u hebt de mogelijkheid om deze te wijzigen.  De runbooknaam moet beginnen met een letter en kan hebben letters, cijfers, onderstrepingstekens en streepjes bevatten.
 6. De [runbooktype](automation-runbook-types.md) wordt automatisch geselecteerd, maar u kunt het type wijzigen nadat de beperkingen van toepassing in aanmerking nemen. 
 7. Het nieuwe runbook wordt weergegeven in de lijst met runbooks voor het Automation-Account.
-8. U moet [het runbook publiceren](#publishing-a-runbook) voordat u deze kunt uitvoeren.
+8. U moet [het runbook publiceren](#publish-a-runbook) voordat u deze kunt uitvoeren.
 
 > [!NOTE]
 > Nadat u een grafisch runbook of een grafische PowerShell workflow-runbook importeren, hebt u de optie moet worden geconverteerd naar het andere type als gewenst. U converteren niet naar een tekstuele runbook.
@@ -89,7 +89,7 @@ Import-AzureRMAutomationRunbook -Name $runbookName -Path $scriptPath `
 
 ## <a name="test-a-runbook"></a>Een runbook testen
 
-Wanneer u een runbook test de [conceptversie](#publishing-a-runbook) wordt uitgevoerd en de acties die worden uitgevoerd zijn voltooid. Er wordt geen Taakgeschiedenis wordt gemaakt, maar de [uitvoer](automation-runbook-output-and-messages.md#output-stream) en [waarschuwings- en](automation-runbook-output-and-messages.md#message-streams) stromen worden weergegeven in de Test deelvenster Uitvoer. Berichten naar de [uitgebreide Stream](automation-runbook-output-and-messages.md#message-streams) worden weergegeven in het deelvenster Uitvoer alleen als de [variabele $VerbosePreference](automation-runbook-output-and-messages.md#preference-variables) is ingesteld om verder te gaan.
+Wanneer u een runbook test de [conceptversie](#publish-a-runbook) wordt uitgevoerd en de acties die worden uitgevoerd zijn voltooid. Er wordt geen Taakgeschiedenis wordt gemaakt, maar de [uitvoer](automation-runbook-output-and-messages.md#output-stream) en [waarschuwings- en](automation-runbook-output-and-messages.md#message-streams) stromen worden weergegeven in de Test deelvenster Uitvoer. Berichten naar de [uitgebreide Stream](automation-runbook-output-and-messages.md#message-streams) worden weergegeven in het deelvenster Uitvoer alleen als de [variabele $VerbosePreference](automation-runbook-output-and-messages.md#preference-variables) is ingesteld om verder te gaan.
 
 Hoewel de conceptversie wordt uitgevoerd, wordt het runbook nog steeds normaal uitgevoerd en worden eventuele acties op basis van resources in de omgeving wordt uitgevoerd. Daarom moet u alleen runbooks op niet-productiebronnen testen.
 

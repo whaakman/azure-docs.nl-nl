@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: sogup
-ms.openlocfilehash: da686e53f711877642a33806719a0d71050e721b
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: eef1b14f5f25c53877c0d364facfcf9817f508c2
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669377"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56885836"
 ---
 # <a name="manage-azure-vm-backups"></a>Back-ups van Azure-VM's beheren
 
@@ -58,7 +58,7 @@ U kunt back-ups met behulp van het dashboard, beheren en te verkrijgen van toega
 
 
 ## <a name="manage-backup-policies"></a>Back-upbeleid beheren
-1. Op de [item kluisdashboard](backup-azure-manage-vms.md#open-a-vault-item-dashboard), klikt u op **alle instellingen** .
+1. Op de [item kluisdashboard](#view-vms-in-the-dashboard), klikt u op **alle instellingen** .
 
     ![Blade back-upbeleid](./media/backup-azure-manage-vms/all-settings-button.png)
 2. In **instellingen**, klikt u op**back-upbeleid**e.
@@ -79,7 +79,7 @@ U kunt een on-demand back-up van een virtuele machine nemen nadat deze is geconf
 
 Voor het activeren van een on-demand back-up:
 
-1. Op de [item kluisdashboard](backup-azure-manage-vms.md#open-a-vault-item-dashboard), klikt u op **back-up nu**.
+1. Op de [item kluisdashboard](#view-vms-in-the-dashboard), klikt u op **back-up nu**.
 
     ![Knop Nu back-up](./media/backup-azure-manage-vms/backup-now-button.png)
 
@@ -107,7 +107,7 @@ Houd rekening met het volgende:
 
 Beveiliging voor een virtuele machine stoppen:
 
-1. Op de [item kluisdashboard](backup-azure-manage-vms.md#open-a-vault-item-dashboard), klikt u op **back-up stoppen**.
+1. Op de [item kluisdashboard](#view-vms-in-the-dashboard), klikt u op **back-up stoppen**.
 2. Kies of u wilt behouden of verwijderen van de back-upgegevens en controleer indien nodig. Bevestig als vereist, en geef eventueel een opmerking. Als u niet zeker weet van de naam van het item, Beweeg de muisaanwijzer over de uitroepteken om de naam van de weer te geven.
 
     ![Beveiliging stoppen](./media/backup-azure-manage-vms/retain-or-delete-option.png)
@@ -121,9 +121,9 @@ Als u back-upgegevens behouden wanneer de virtuele machine is gestopt, kunt u de
 
 Te
 
-1. Op de [item kluisdashboard](backup-azure-manage-vms.md#open-a-vault-item-dashboard), klikt u op **back-up hervatten**.
+1. Op de [item kluisdashboard](#view-vms-in-the-dashboard), klikt u op **back-up hervatten**.
 
-2. Volg de stappen in [back-upbeleid beheren](backup-azure-manage-vms.md#manage-backup-policies) om toe te wijzen van het beleid voor de virtuele machine. u kunt een ander beleid dan het beleid waarmee virtuele machine in eerste instantie is beveiligd.
+2. Volg de stappen in [back-upbeleid beheren](#manage-backup-policies) om toe te wijzen van het beleid voor de virtuele machine. u kunt een ander beleid dan het beleid waarmee virtuele machine in eerste instantie is beveiligd.
 3. Nadat de back-upbeleid wordt toegepast op de virtuele machine, ziet u het volgende bericht weergegeven.
 
     ![Is beveiligde virtuele machine](./media/backup-azure-manage-vms/success-message.png)
@@ -138,7 +138,7 @@ U kunt de back-upgegevens die zijn gekoppeld aan een virtuele machine tijdens he
 Deze procedure wordt ervan uitgegaan dat de back-uptaak voor de virtuele machine is gestopt of uitgeschakeld.
 
 
-1. Op de [item kluisdashboard](backup-azure-manage-vms.md#open-a-vault-item-dashboard), klikt u op **back-up verwijderen**.
+1. Op de [item kluisdashboard](#view-vms-in-the-dashboard), klikt u op **back-up verwijderen**.
 
     ![VM-type](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 

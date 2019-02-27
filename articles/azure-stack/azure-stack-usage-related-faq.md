@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 02/26/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.lastreviewed: 11/08/2018
-ms.openlocfilehash: 92774592f86a71a8482fd3d44eca404fcf2d4e6e
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.lastreviewed: 02/26/2019
+ms.openlocfilehash: 00fb888f201f4bb8d211050b288516021d837dc5
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429550"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888761"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Veelgestelde vragen over Azure Stack gebruiks-API
 
@@ -407,6 +407,10 @@ Op dit moment kunt u opvragen alleen *gemelde tijd*.
 | / 400-Ongeldige aanvraag |*SubscriptionIdMissingInRequest* |De abonnements-ID van de oproepende functie ontbreekt. |
 | / 400-Ongeldige aanvraag |*InvalidAggregationGranularity* |Een ongeldige aggregatie granulariteit is aangevraagd. Geldige waarden zijn per dag en uur. |
 | 503 |*ServiceUnavailable* |Er is een herstelbare fout opgetreden omdat de service bezet is of de oproep wordt beperkt. |
+
+## <a name="what-is-the-policy-for-charging-for-vms"></a>Wat is het beleid voor voor virtuele machines in rekening gebracht?
+
+Actieve en gestopte VM's genereren van gebruiksgegevens. Consistent zijn met Azure, ongedaan wordt gemaakt is nodig om te stoppen van de uitstoot van gebruiksgegevens. In het geval waarin de portal is niet beschikbaar, maar de berekende resourceprovider nog steeds wordt uitgevoerd, wordt gebruik worden verzonden.
 
 ## <a name="next-steps"></a>Volgende stappen
 [De facturering van klanten en chargeback in Azure Stack](azure-stack-billing-and-chargeback.md)

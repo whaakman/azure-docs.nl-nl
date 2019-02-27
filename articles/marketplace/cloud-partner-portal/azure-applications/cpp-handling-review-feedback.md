@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 98ab9b25c59af194a1a81c600c373b2180272e10
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: e5fe076cfe733b4fa0151570603c090af98de0e8
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106950"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882685"
 ---
 # <a name="handling-review-feedback"></a>Afhandeling van revisie feedback
 
@@ -58,14 +58,14 @@ Gebruik de volgende procedure om problemen die worden beschreven in de pull-aanv
 
 1. In de **Microsoft revisie** sectie van **publiceren stappen** vormen, klikt u op een koppeling pull-aanvraag naar Start uw browser en navigeer naar de **overzicht** (homepage) voor dit pull-aanvraag.  De volgende afbeelding ziet u een voorbeeld van kritiek probleem-startpagina voor de Contoso-voorbeeld-app-aanbieding.  Deze pagina bevat nuttige overzichtsinformatie over de beoordeling-problemen gevonden in de Azure-app.  
 
-    [ ![Startpagina voor pull-aanvraag](./media/pr-home-page-thumb.png) ](./media/pr-home-page.png)
+    [![Startpagina voor pull-aanvraag](./media/pr-home-page-thumb.png)](./media/pr-home-page.png)
     <br/> *Klik op de afbeelding om uit te vouwen.*
     
 2. (Optioneel) Aan de rechterkant van het venster in de sectie **beleid**, klikt u op het probleem-bericht (in dit voorbeeld: **Beleid voor validatie is mislukt**) voor het onderzoeken van de details op laag niveau van het probleem, met inbegrip van de bijbehorende logboekbestanden.  Fouten worden doorgaans weergegeven aan de onderkant van de logboekbestanden.
 
 3. Selecteer in het menu aan de aan de linkerkant van de startpagina, **bestanden** om de lijst met bestanden die deel uitmaken van de technische activa voor deze aanbieding weer te geven.  De Microsoft-revisoren moeten opmerkingen met een beschrijving van de gedetecteerde kritieke problemen hebt toegevoegd.  In het volgende voorbeeld, zijn twee problemen gedetecteerd. 
 
-    [ ![Startpagina voor pull-aanvraag](./media/pr-files-page-thumb.png) ](./media/pr-files-page.png)
+    [![Startpagina voor pull-aanvraag](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
     <br/> *Klik op de afbeelding om uit te vouwen.*
 
 4. Klik op elk knooppunt van de opmerking in het linkerdeelvenster om te navigeren naar de opmerking in de context van de omringende code.  Corrigeer uw broncode in uw teamproject voor het probleem wordt beschreven in de opmerking.

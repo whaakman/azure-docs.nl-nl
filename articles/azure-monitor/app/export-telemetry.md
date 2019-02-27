@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 02/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: eda41870e86db206847f5ea81e23fa1b7612234c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: b1f6024538c6807fd68a0d7b0b7ae2776938055b
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817300"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888184"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Telemetrie exporteren vanuit Application Insights
 Wilt u uw telemetrie langer dan de standaard bewaarperiode houden? Of op een bepaalde gespecialiseerde manier te verwerken? Continue Export is ideaal voor dit. De gebeurtenissen die u in de Application Insights-portal ziet kunnen worden geëxporteerd naar de opslag in Microsoft Azure in JSON-indeling. Van daaruit kunt u uw gegevens downloaden en wat u code schrijven moet verwerken.  
@@ -37,7 +37,7 @@ Nadat de continue Export uw gegevens worden gekopieerd naar de opslag (waar deze
 
 Continue Export **biedt geen ondersteuning voor** de volgende Azure storage-functies/configuraties:
 
-* Het gebruik van [VNET/Azure Storage-firewalls](https://docs.microsoft.com/azure/storage/common/storage-network-security) in combinatie met Azure Blob storage.
+* Het gebruik van [VNET/Azure Storage-firewalls](https://docs.microsoft.com/azure/storage/common/storage-network-security) in combinatie met Azure Blob-opslag.
 
 * [Onveranderbare opslag](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) voor Azure Blob-opslag.
 
@@ -150,7 +150,7 @@ Op kleine schaal, kunt u bepaalde code kunt u gegevens uit elkaar gehaald, worde
 Zie voor een grotere codevoorbeeld [met behulp van een werkrol][exportasa].
 
 ## <a name="delete"></a>Uw oude gegevens verwijderen
-Houd er rekening mee dat u verantwoordelijk bent voor het beheren van de opslagcapaciteit van uw en het verwijderen van de oude gegevens indien nodig.
+U bent verantwoordelijk voor het beheren van de opslagcapaciteit van uw en het verwijderen van de oude gegevens indien nodig.
 
 ## <a name="if-you-regenerate-your-storage-key"></a>Als u uw storage-sleutel opnieuw genereren...
 Als u de sleutel in de opslagruimte wijzigt, meer continue export gebruiken. U ziet een melding in uw Azure-account.
@@ -187,7 +187,7 @@ Op grotere schaal, houd rekening met [HDInsight](https://azure.microsoft.com/ser
 * *Het aantal blobs moet ik Zie in de opslag?*
 
   * Voor elk gegevenstype dat u hebt geselecteerd om te exporteren, wordt een nieuwe blob elke minuut gemaakt (als de gegevens beschikbaar is).
-  * Voor toepassingen met intensief verkeer, worden bovendien extra partitie eenheden toegewezen. Elke eenheid maakt een blob in dit geval elke minuut.
+  * Voor toepassingen met intensief verkeer, worden bovendien extra partitie eenheden toegewezen. Elke eenheid maakt een blob in dit geval wordt elke minuut.
 * *Kan ik de sleutel naar Mijn opslag opnieuw gegenereerd of de naam van de container gewijzigd en nu de export niet werkt.*
 
     De export bewerken en open de blade van de bestemming exporteren. Laat de dezelfde opslag als voorheen geselecteerd en klik op OK om te bevestigen. Exporteren wordt opnieuw opgestart. Als de wijziging in de afgelopen paar dagen is, kunt u gegevens verliest.

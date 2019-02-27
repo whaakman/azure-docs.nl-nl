@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 6d7cacf699df580b8a5c46b8bfc6d48e1a8daea1
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 2c81369bc278a0995af04a38b0143eb0df8ba3a5
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821727"
+ms.locfileid: "56877364"
 ---
 # <a name="manage-and-configure-projects"></a>Projecten beheren en configureren
 
@@ -66,7 +66,9 @@ Voor het maken van een nieuw exemplaar van de DSVM, volgt u de instructies op [m
 >
 > 1. Project-bestanden handmatig kopiëren naar de virtuele machine.
 >
-> 2. Sluit u de bestanden in een notitieblok instellen dat u eerst de primaire notebook uitvoert. In de setup-notebook maken een codecel voor elk bestand waarbij de cel inhoud van het bestand bevat. Voeg vervolgens de opdracht aan de bovenkant van elke cel `%writefile <filename>`, waarbij `<filename>` is de naam van het bestand voor het ontvangen van de inhoud. Wanneer u de notebook uitvoert, wordt deze bestanden op de virtuele machine gemaakt. Zie voor een voorbeeld: de [setup.ipynb-bestand in de demo Microsoft huisdier Detector](https://github.com/microsoft/connect-petdetector) (GitHub).
+> 2. Sluit u de bestanden in een notitieblok instellen dat u eerst de primaire notebook uitvoert. In de setup-notebook maken een codecel voor elk bestand waarbij de cel inhoud van het bestand bevat. Voeg vervolgens de opdracht aan de bovenkant van elke cel `%%writefile <filename>`, waarbij `<filename>` is de naam van het bestand voor het ontvangen van de inhoud. Wanneer u de notebook uitvoert, wordt deze bestanden op de virtuele machine gemaakt. Zie voor een voorbeeld: de [setup.ipynb-bestand in de demo Microsoft huisdier Detector](https://github.com/Microsoft/connect-petdetector/blob/master/setup.ipynb) (GitHub).
+>
+>     ![Met behulp van een %% writefile opdracht aan het begin van een codecel](media/setup-notebook-writefile-command.png)
 
 ## <a name="edit-project-metadata"></a>Project metagegevens bewerken
 
@@ -75,7 +77,7 @@ Selecteer in het projectdashboard **projectinstellingen**en selecteer vervolgens
 | Instelling | Description |
 | --- | --- |
 | Projectnaam | Een beschrijvende naam voor uw project die gebruikmaakt van Azure-notitieblokken weer te geven. Bijvoorbeeld: 'Hello World in Python'. |
-| Project-id | Een aangepaste id die deel van de URL uitmaken die u gebruiken voor het delen van een project (het formulier is `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Deze ID kunt alleen letters, cijfers en afbreekstreepjes bevatten en is beperkt tot 30 tekens bevatten. Als u niet zeker weet wat u wilt gebruiken, is een algemene overeenkomst met een kleine versie van de naam van uw project waar de spaties zijn ingeschakeld in afbreekstreepjes bevatten, bijvoorbeeld 'Mijn Project Name' in "Mijn-project-name" verandert. |
+| Project-id | Een aangepaste id die deel van de URL die u gebruikt uitmaken voor het delen van een project. Deze ID kunt alleen letters, cijfers en afbreekstreepjes bevatten, is beperkt tot 30 tekens bevatten en mag niet een [gereserveerd project-ID](create-clone-jupyter-notebooks.md#reserved-project-ids). Als u niet zeker weet wat u wilt gebruiken, wordt een algemene conventie is het gebruik van een kleine versie van de projectnaam van uw waar spaties in afbreekstreepjes bevatten, zoals 'Mijn-notebook-project' (afgekapt indien nodig aanpassen aan de maximale lengte) zijn ingeschakeld. |
 | Openbare project | Als is ingesteld, kan iedereen met de koppeling voor toegang tot het project. Wanneer u een privé-project maakt, moet u deze optie uitschakelen. |
 | Klonen verbergen | Als is ingesteld, andere gebruikers kunnen een lijst met klonen die zijn gemaakt voor dit project niet zien. Klonen verbergen is handig voor projecten die worden gedeeld met veel mensen die geen deel uitmaken van dezelfde organisatie, zoals bij het gebruik van een notitieblok voor het geven van een klasse. |
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 284a590a484052fdb7da2f03c6155078268b2aac
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3013365f96fa6841e4db826f9010c6ea994eba2a
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211441"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879591"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Beheren van de Azure Blob-opslag Lifecycle (Preview)
 
@@ -337,4 +337,4 @@ Het platform wordt één keer per dag uitgevoerd de lifecycle-beleid. Nadat u ee
 
 Informatie over het herstellen van gegevens na het per ongeluk verwijderen:
 
-- [Voorlopig verwijderen voor Azure Storage-blobs ](../blobs/storage-blob-soft-delete.md)
+- [Voorlopig verwijderen voor Azure Storage-blobs](../blobs/storage-blob-soft-delete.md)

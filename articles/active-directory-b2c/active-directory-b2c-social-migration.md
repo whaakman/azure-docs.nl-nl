@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 4d4acecbbb90fff7865902a3371d282f1d402374
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d6f857e926343c4c3c26d746134bbb9d94754c12
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662887"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866008"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: Gebruikers met sociale identiteiten migreren
 Wanneer u van plan bent om te migreren van uw id-provider naar Azure AD B2C, moet u mogelijk ook gebruikers met sociale identiteiten migreren. Dit artikel wordt uitgelegd hoe u voor het migreren van bestaande accounts voor sociale identiteiten, zoals: Facebook, LinkedIn, Microsoft en Google-accounts aan Azure AD B2C. In dit artikel geldt ook voor federatieve identiteiten, maar deze migraties minder gangbaar zijn.
@@ -139,7 +139,7 @@ De naam van de verlener of de naam van de id-provider is geconfigureerd in uw be
 1. Meld u aan met een van de sociale accounts
 2. De JWT-token, Kopieer de `sub` waarde. De `sub` bevat doorgaans de object-ID van de gebruiker in Azure AD B2C. Of vanuit de Azure portal, opent u de eigenschappen van de gebruiker en kopieer de object-ID.
 3. Open [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net)
-4. Meld u aan met uw beheerder. N
+4. Meld u aan met uw beheerder.
 5. Voer de volgende GET-aanvraag. De userObjectId vervangen door de gebruikers-ID die u hebt gekopieerd. **TOEVOEGEN** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
 6. Zoek de `userIdentities` -element in de JSON geretourneerd uit Azure AD B2C.
 7. [Optioneel] U kunt ook moet worden gedecodeerd de `issuerUserId` waarde.

@@ -1,6 +1,6 @@
 ---
-title: Log Analytics gebruiken voor Azure HDInsight-clusters controleren
-description: Informatie over het gebruik van Azure Log Analytics voor het bewaken van taken die worden uitgevoerd in een HDInsight-cluster.
+title: Gebruik Azure Monitor-logboeken voor het bewaken van Azure HDInsight-clusters
+description: Informatie over het gebruik van Azure Azure Monitor-logboeken voor het bewaken van taken die worden uitgevoerd in een HDInsight-cluster.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,26 +9,28 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5fe1aee35f5501d3ec4910aadb9ef43d2f9fb8ed
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: b7e0dba70d7f3a201c5f3491f0bc906977fbf229
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727516"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886448"
 ---
-# <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Azure Log Analytics gebruiken voor het HDInsight-clusters controleren
+# <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Gebruik Azure Monitor-logboeken voor het controleren van HDInsight-clusters
 
-Meer informatie over het inschakelen van Azure Log Analytics voor het bewaken van bewerkingen voor Hadoop-cluster in HDInsight en het toevoegen van een Hdinsight voor controle.
+Meer informatie over het inschakelen van Azure Monitor-logboeken voor het bewaken van bewerkingen voor Hadoop-cluster in HDInsight en het toevoegen van een Hdinsight voor controle.
 
-[Log Analytics](../log-analytics/log-analytics-overview.md) is een service in Azure Monitor die uw cloud en on-premises omgevingen voor het onderhouden van hun beschikbaarheid en prestaties. De service verzamelt gegevens afkomstig van resources in uw cloud- en on-premises omgevingen en van andere bewakingsprogramma's om analyse over meerdere resources aan te bieden.
+[Logboeken in Azure Monitor](../log-analytics/log-analytics-overview.md) is een service in Azure Monitor die uw cloud en on-premises omgevingen voor het onderhouden van hun beschikbaarheid en prestaties. De service verzamelt gegevens afkomstig van resources in uw cloud- en on-premises omgevingen en van andere bewakingsprogramma's om analyse over meerdere resources aan te bieden.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* **Een Log Analytics-werkruimte**. U kunt deze werkruimte zien als een unieke omgeving van Log Analytics met een eigen gegevensopslagplaats, gegevensbronnen en oplossingen. Zie voor instructies [een Log Analytics-werkruimte maken](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace).
+* **Een Log Analytics-werkruimte**. U kunt deze werkruimte zien als een unieke omgeving van Azure Monitor zich aanmeldt met een eigen gegevensopslagplaats, gegevensbronnen en oplossingen. Zie voor instructies [een Log Analytics-werkruimte maken](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace).
 
-* **Een Azure HDInsight-cluster**. U kunt op dit moment Log Analytics gebruiken met de volgende typen van de HDInsight-cluster:
+* **Een Azure HDInsight-cluster**. Op dit moment kunt u logboeken van Azure Monitor met de volgende typen van de HDInsight-cluster:
 
   * Hadoop
   * HBase
@@ -42,9 +44,9 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 * **Azure PowerShell Az-module**.  Zie [Maak kennis met de nieuwe module voor Azure PowerShell Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
 
 > [!NOTE]  
-> Het verdient aanbeveling om zowel het HDInsight-cluster en de Log Analytics-werkruimte in dezelfde regio voor betere prestaties. Azure Log Analytics is niet beschikbaar in alle Azure-regio's.
+> Het verdient aanbeveling om zowel het HDInsight-cluster en de Log Analytics-werkruimte in dezelfde regio voor betere prestaties. Logboeken in Azure Monitor is niet beschikbaar in alle Azure-regio's.
 
-## <a name="enable-log-analytics-by-using-the-portal"></a>Log Analytics met behulp van de portal inschakelen
+## <a name="enable-azure-monitor-logs-by-using-the-portal"></a>Logboeken van Azure Monitor inschakelen met behulp van de portal
 
 In deze sectie configureert u een bestaand HDInsight Hadoop-cluster voor het gebruik van een Azure Log Analytics-werkruimte voor het bewaken van taken, logboeken voor foutopsporing, enz.
 
@@ -66,9 +68,9 @@ In deze sectie configureert u een bestaand HDInsight Hadoop-cluster voor het geb
 
     ![Schakel de bewaking voor HDInsight-clusters](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring.png "Schakel bewaking voor HDInsight-clusters")
 
-## <a name="enable-log-analytics-by-using-azure-powershell"></a>Log Analytics inschakelen met behulp van Azure PowerShell
+## <a name="enable-azure-monitor-logs-by-using-azure-powershell"></a>Logboeken van Azure Monitor inschakelen met behulp van Azure PowerShell
 
-U kunt Log Analytics met behulp van de Az van Azure PowerShell-module inschakelen [inschakelen AzHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/az.hdinsight/enable-azhdinsightoperationsmanagementsuite) cmdlet.
+U kunt Azure Monitor-logboeken met behulp van de Az van Azure PowerShell-module inschakelen [inschakelen AzHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/az.hdinsight/enable-azhdinsightoperationsmanagementsuite) cmdlet.
 
 ```powershell
 # Enter user information
@@ -95,7 +97,7 @@ Disable-AzHDInsightOperationsManagementSuite -Name "<your-cluster>"
 
 ## <a name="install-hdinsight-cluster-management-solutions"></a>Installeren van HDInsight-cluster-beheeroplossingen
 
-HDInsight biedt van de cluster-specifieke beheeroplossingen die u voor Azure Log Analytics toevoegen kunt. [Beheeroplossingen](../log-analytics/log-analytics-add-solutions.md) functionaliteit toevoegen aan Log Analytics, aanvullende gegevens en analysehulpprogramma's bieden. Deze oplossingen belangrijke prestatiegegevens verzamelen van uw HDInsight-clusters en over de hulpprogramma's om te zoeken naar de metrische gegevens. Deze oplossingen bieden ook visualisaties en dashboards voor de meeste clustertypen in HDInsight wordt ondersteund. Met behulp van de metrische gegevens die u verzamelt van de oplossing, kunt u aangepaste regels voor bewaking en waarschuwingen kunt maken.
+HDInsight biedt van de cluster-specifieke beheeroplossingen die u voor Azure Monitor-logboeken toevoegen kunt. [Beheeroplossingen](../log-analytics/log-analytics-add-solutions.md) functionaliteit toevoegen aan Azure Monitor-Logboeken, aanvullende gegevens en analysehulpprogramma's bieden. Deze oplossingen belangrijke prestatiegegevens verzamelen van uw HDInsight-clusters en over de hulpprogramma's om te zoeken naar de metrische gegevens. Deze oplossingen bieden ook visualisaties en dashboards voor de meeste clustertypen in HDInsight wordt ondersteund. Met behulp van de metrische gegevens die u verzamelt van de oplossing, kunt u aangepaste regels voor bewaking en waarschuwingen kunt maken.
 
 Dit zijn de beschikbare HDInsight-oplossingen:
 
@@ -114,4 +116,4 @@ Omdat het cluster een nieuwe cluster is, weergeven niet alle activiteiten in het
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Query uitvoeren op Azure Log Analytics voor het bewaken van HDInsight-clusters](hdinsight-hadoop-oms-log-analytics-use-queries.md)
+* [Query Azure Monitor-logboeken voor het controleren van HDInsight-clusters](hdinsight-hadoop-oms-log-analytics-use-queries.md)

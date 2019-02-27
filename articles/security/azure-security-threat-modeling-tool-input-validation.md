@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: dd2914c675d3bca32ca8951ffca1b04e23786400
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 51ede2ecf60b2b1dbe0b7afa47bce41a101e5bf4
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266901"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879408"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Beveiliging-Frame: Invoervalidatie | Oplossingen 
 | Product/Service | Artikel |
@@ -460,7 +460,7 @@ Gebruik geen `innerHtml`; gebruik in plaats daarvan `innerText`. Op dezelfde man
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Generic, Web Forms, MVC5, MVC6  |
 | **Kenmerken**              | N/A  |
-| **Verwijzingen**              | [DefaultRegexMatchTimeout Property ](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.defaultregexmatchtimeout.aspx) |
+| **Verwijzingen**              | [DefaultRegexMatchTimeout Property](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.defaultregexmatchtimeout.aspx) |
 | **Stappen** | Gemaakte reguliere expressies, die ertoe leiden veel backtracking dat, ingesteld om ervoor te zorgen denial of service-aanvallen op een ongeldige time-out voor de algemene standaardwaarde. Als de verwerkingstijd langer duurt dan de bovengrens van de gedefinieerde, zou dit een time-outuitzondering genereren. Als er niets is geconfigureerd, is de time-out is oneindig.| 
 
 ### <a name="example"></a>Voorbeeld
@@ -563,7 +563,7 @@ AS
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | MVC5, MVC6 |
 | **Kenmerken**              | N/A  |
-| **Verwijzingen**              | [Modelvalidatie van het in ASP.NET Web-API ](http://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
+| **Verwijzingen**              | [Modelvalidatie van het in ASP.NET Web-API](http://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
 | **Stappen** | Wanneer een client gegevens naar een web-API verzendt, is het is verplicht voor het valideren van de gegevens voordat u een verwerking. Gebruik gegevens aantekeningen op modellen validatieregels instellen voor de eigenschappen van het model voor ASP.NET Web-API's die modellen als invoer accepteert.|
 
 ### <a name="example"></a>Voorbeeld

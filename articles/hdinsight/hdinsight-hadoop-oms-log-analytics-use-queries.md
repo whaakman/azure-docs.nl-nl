@@ -1,6 +1,6 @@
 ---
-title: Query uitvoeren op Azure Log Analytics voor het bewaken van Azure HDInsight-clusters
-description: Leer hoe u query's uitvoeren op Azure Log Analytics voor het bewaken van taken die worden uitgevoerd in een HDInsight-cluster.
+title: Query Azure Monitor-logboeken voor het bewaken van Azure HDInsight-clusters
+description: Leer hoe u query's uitvoeren op Azure Monitor-logboeken voor het bewaken van taken die worden uitgevoerd in een HDInsight-cluster.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,24 +9,26 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 400ae8ffe86b5ba66a53835c720f911ddb889bd9
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: e1187867fc9da9a89f92d7b321c8703ee7a8a407
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386499"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889253"
 ---
-# <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Query uitvoeren op Azure Log Analytics voor het bewaken van HDInsight-clusters
+# <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Query Azure Monitor-logboeken voor het controleren van HDInsight-clusters
 
-Leer enkele algemene scenario's voor het gebruik van Azure Log Analytics voor het bewaken van Azure HDInsight-clusters:
+Leer enkele algemene scenario's voor het gebruik van Azure Monitor-logboeken voor het bewaken van Azure HDInsight-clusters:
 
 * [HDInsight-cluster metrische gegevens analyseren](#analyze-hdinsight-cluster-metrics)
 * [Zoeken naar specifieke logboekberichten](#search-for-specific-log-messages)
 * [Waarschuwingen maken](#create-alerts-for-tracking-events)
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## <a name="prerequisites"></a>Vereisten
 
-* U moet zijn geconfigureerd een HDInsight-cluster voor het gebruik van Azure Log Analytics en HDInsight-cluster-specifieke Log Analytics-beheeroplossingen toegevoegd aan de werkruimte. Zie voor instructies [met Azure Log Analytics met HDInsight-clusters](hdinsight-hadoop-oms-log-analytics-tutorial.md).
+* U moet zijn geconfigureerd een HDInsight-cluster voor het gebruik van Azure Monitor-logboeken en de HDInsight-cluster-specifieke Azure Monitor logboeken bewakingsoplossingen in de werkruimte toegevoegd. Zie voor instructies [gebruikt Azure Monitor-logboeken met HDInsight-clusters](hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
 ## <a name="analyze-hdinsight-cluster-metrics"></a>HDInsight-cluster metrische gegevens analyseren
 
@@ -34,7 +36,7 @@ Informatie over het zoeken naar specifieke metrische gegevens voor uw HDInsight-
 
 1. Open de Log Analytics-werkruimte die is gekoppeld aan uw HDInsight-cluster in Azure portal.
 2. Selecteer de **zoeken in logboeken** tegel.
-3. Typ de volgende query in het zoekvak om te zoeken naar alle metrische gegevens voor alle beschikbare metrische gegevens voor alle HDInsight clusters die zijn geconfigureerd voor het gebruik van Azure Log Analytics en selecteer vervolgens **uitvoeren**.
+3. Typ de volgende query in het zoekvak om te zoeken naar alle metrische gegevens voor alle beschikbare metrische gegevens voor alle HDInsight clusters die zijn geconfigureerd voor het gebruik van Azure Monitor-logboeken en selecteer vervolgens **uitvoeren**.
 
         search *
 
@@ -67,7 +69,7 @@ Leer hoe u om te controleren of er foutberichten tijdens een bepaalde periode. D
 
 1. Open de Log Analytics-werkruimte die is gekoppeld aan uw HDInsight-cluster in Azure portal.
 2. Selecteer de **zoeken in logboeken** tegel.
-3. Typ het volgende om te zoeken naar alle foutberichten voor alle HDInsight clusters die zijn geconfigureerd voor het gebruik van Azure Log Analytics en selecteer vervolgens **uitvoeren**. 
+3. Typ het volgende om te zoeken naar alle foutberichten voor alle HDInsight clusters die zijn geconfigureerd voor het gebruik van Azure Monitor-logboeken en selecteer vervolgens **uitvoeren**. 
 
          search "Error"
 
@@ -117,11 +119,11 @@ Om te bewerken of verwijderen van een bestaande waarschuwing:
 3. Selecteer de waarschuwing die u wilt bewerken of verwijderen.
 4. U hebt de volgende opties: **Sla**, **negeren**, **uitschakelen**, en **verwijderen**.
 
-    ![HDInsight Log Analytics alert delete bewerken](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
+    ![HDInsight Azure Monitor logboeken alert delete bewerken](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 
-Zie voor meer informatie, [werken met regels voor waarschuwingen in Log Analytics](../log-analytics/log-analytics-alerts-creating.md).
+Zie voor meer informatie, [maken, weergeven en beheren van metrische waarschuwingen met behulp van Azure Monitor](../azure-monitor/platform/alerts-metric.md).
 
 ## <a name="see-also"></a>Zie ook
 
-* [Werken met Log Analytics](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
-* [Waarschuwingsregels in Log Analytics maken](../log-analytics/log-analytics-alerts-creating.md)
+* [OMS Log Analytics: Weergaveontwerper](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
+* [Maken, weergeven en beheren van metrische waarschuwingen met behulp van Azure Monitor](../azure-monitor/platform/alerts-metric.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7be10f03d65e53b51c3916849dc12feb4de9c919
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 1020e18894f4bb307ad14f780e76eab1df1314bb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737651"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875970"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Met een beschrijving van een service fabric-cluster
 De Service Fabric Cluster Resource Manager biedt verschillende mechanismen voor het beschrijven van een cluster. Cluster Resource Manager wordt tijdens runtime gebruikgemaakt van deze informatie om hoge beschikbaarheid van de services die in het cluster wordt uitgevoerd. Tijdens het afdwingen van deze belangrijke regels, probeert deze ook aan het Optimaliseer het gebruik van resources binnen het cluster.
@@ -603,7 +603,7 @@ LoadMetricInformation     :
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* Bekijk voor meer informatie over de architectuur en de informatiestroom binnen het Cluster Resource Manager [in dit artikel ](service-fabric-cluster-resource-manager-architecture.md)
+* Bekijk voor meer informatie over de architectuur en de informatiestroom binnen het Cluster Resource Manager [in dit artikel](service-fabric-cluster-resource-manager-architecture.md)
 * Defragmentatie metrische gegevens definiëren is één manier om te laden op knooppunten in plaats van deze uitspreiden consolideren. Raadpleeg voor informatie over het configureren van de defragmentatie, [in dit artikel](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
 * Vanaf het begin starten en [een inleiding tot de Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
 * Als u wilt weten over hoe met Cluster Resource Manager beheert en verdeelt de taken in het cluster, Zie het artikel op [taakverdeling](service-fabric-cluster-resource-manager-balancing.md)

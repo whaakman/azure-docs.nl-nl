@@ -7,14 +7,14 @@ manager: shivamg
 keywords: herstel op itemniveau; herstel van bestanden uit back-up van virtuele Azure-machine. bestanden herstellen vanaf Azure VM
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/22/2018
-ms.author: pvrk
-ms.openlocfilehash: c267b3a8289d87402647a399376161cf18716112
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.date: 2/26/2019
+ms.author: pullabhk
+ms.openlocfilehash: 4bae9a09dad217b8d805a64372ed404eb7ada723
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488489"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874155"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Bestanden herstellen vanuit back-up van virtuele Azure-machine
 
@@ -73,11 +73,15 @@ Als u bestanden of mappen herstellen vanaf het herstelpunt, gaat u naar de virtu
         - <https://pod01-rec2.geo-name.backup.windowsazure.de> (Voor Azure Duitsland)
     - uitgaande poort 3260
 
-    Het script vereist voor Linux, onderdelen voor 'openen met iscsi-' en 'lshw' verbinding maken met het herstelpunt. Als de componenten nog niet bestaan op de computer waarop het script wordt uitgevoerd, wordt het script vraagt om machtiging om de onderdelen te installeren. Geef toestemming om de benodigde onderdelen te installeren.
+> [!Note]
+> De bestandsnaam van het gedownloade script heeft de 'geo-naam' de URL zijn ingevuld. Voor bijvoorbeeld: Naam van het gedownloade script begint met \'VMname\'\_\'geoname\'_\'GUID\', zoals ContosoVM_wcus_12345678... De URL 'https://pod01-rec2.wcus.backup.windowsazure.com"
+> 
 
-    De toegang tot download.microsoft.com is vereist voor het downloaden van de onderdelen die worden gebruikt voor het bouwen van een beveiligd kanaal tussen de computer waarop het script wordt uitgevoerd en de gegevens in het herstelpunt.
-
-    U kunt het script uitvoeren op elke computer waarop het besturingssysteem hetzelfde (of compatibel) als de VM waarvan een back-up is gemaakt. Zie de [compatibel besturingssysteem tabel](backup-azure-restore-files-from-vm.md#system-requirements) voor besturingssystemen die compatibel is. Als de beveiligde virtuele machine van Azure gebruikmaakt van Windows Storage Spaces (voor Windows Azure-VM's) of LVM/RAID-matrices (voor Linux-VM's), kunt u het uitvoerbare bestand of script niet uitvoeren op dezelfde virtuele machine. In plaats daarvan het uitvoerbare bestand of script uitvoeren op elke andere computer met een compatibel besturingssysteem.
+   Het script vereist voor Linux, onderdelen voor 'openen met iscsi-' en 'lshw' verbinding maken met het herstelpunt. Als de componenten nog niet bestaan op de computer waarop het script wordt uitgevoerd, wordt het script vraagt om machtiging om de onderdelen te installeren. Geef toestemming om de benodigde onderdelen te installeren.
+   
+   De toegang tot download.microsoft.com is vereist voor het downloaden van de onderdelen die worden gebruikt voor het bouwen van een beveiligd kanaal tussen de computer waarop het script wordt uitgevoerd en de gegevens in het herstelpunt.
+   
+   U kunt het script uitvoeren op elke computer waarop het besturingssysteem hetzelfde (of compatibel) als de VM waarvan een back-up is gemaakt. Zie de [compatibel besturingssysteem tabel](backup-azure-restore-files-from-vm.md#system-requirements) voor besturingssystemen die compatibel is. Als de beveiligde virtuele machine van Azure gebruikmaakt van Windows Storage Spaces (voor Windows Azure-VM's) of LVM/RAID-matrices (voor Linux-VM's), kunt u het uitvoerbare bestand of script niet uitvoeren op dezelfde virtuele machine. In plaats daarvan het uitvoerbare bestand of script uitvoeren op elke andere computer met een compatibel besturingssysteem.
 
 ### <a name="identifying-volumes"></a>Identificeren van Volumes
 
@@ -199,6 +203,11 @@ In Linux, moet het besturingssysteem van de computer die wordt gebruikt om besta
 | Oracle Linux | 6.4 en hoger |
 | SLES | 12 en hoger |
 | openSUSE | 42.2 en hoger |
+
+> [!Note]
+> We hebben enkele problemen gevonden in het bestand recovery-script is uitgevoerd op virtuele machines met SLES 12 SP4 OS. Onderzoeken met SLES-team.
+> Op dit moment, actief wordt de bestandsherstelscript werkt op virtuele machines met SLES 12 SP2 en SP3 OS-versies.
+>
 
 Het script Python en bash-onderdelen uit te voeren en veilig verbinding maken met het herstelpunt dat is ook vereist.
 

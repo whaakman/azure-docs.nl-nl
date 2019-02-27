@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: be0dd7147e3864befa90434ade86b4032cd45cc3
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: d451b53868dcd3253aba2a1c3118ddcc140445c3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013182"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882991"
 ---
-# <a name="security-frame-communication-security--mitigations"></a>Beveiliging Frame: Beveiligde communicatie | Oplossingen 
+# <a name="security-frame-communication-security--mitigations"></a>Beveiliging-Frame: Communicatiebeveiliging | Oplossingen 
 | Product/Service | Artikel |
 | --------------- | ------- |
 | **Azure Event Hub** | <ul><li>[Beveiligde communicatie naar Event Hub met behulp van SSL/TLS](#comm-ssltls)</li></ul> |
@@ -32,11 +32,11 @@ ms.locfileid: "53013182"
 | **Database** | <ul><li>[Zorg ervoor dat SQL server-verbinding versleuteling en certificaat-validatie](#sqlserver-validation)</li><li>[Versleutelde communicatie met SQL server afdwingen](#encrypted-sqlserver)</li></ul> |
 | **Azure Storage** | <ul><li>[Zorg ervoor dat de communicatie met Azure Storage via HTTPS](#comm-storage)</li><li>[MD5-hash valideren nadat u hebt blob gedownload als HTTPS kan niet worden ingeschakeld](#md5-https)</li><li>[SMB 3.0-compatibele client gebruiken om te controleren of in-transit gegevensversleuteling voor Azure-bestandsshares](#smb-shares)</li></ul> |
 | **Mobiele Client** | <ul><li>[Implementeren van certificaten vast te maken](#cert-pinning)</li></ul> |
-| **WCF** | <ul><li>[HTTPS inschakelen: Beveilig transportkanaal](#https-transport)</li><li>[WCF: Set-berichtbeveiliging beveiligingsniveau op EncryptAndSign](#message-protection)</li><li>[WCF: Een account minste bevoegdheden gebruiken voor het uitvoeren van de WCF-service](#least-account-wcf)</li></ul> |
+| **WCF** | <ul><li>[HTTPS inschakelen: Beveilig transportkanaal](#https-transport)</li><li>[WCF: Ingesteld op EncryptAndSign, berichtbeveiliging beveiligingsniveau](#message-protection)</li><li>[WCF: Een account minste bevoegdheden gebruiken voor het uitvoeren van de WCF-service](#least-account-wcf)</li></ul> |
 | **Web-API** | <ul><li>[Al het verkeer naar de Web-API's via HTTPS-verbinding afdwingen](#webapi-https)</li></ul> |
-| **Azure Redis-Cache** | <ul><li>[Zorg ervoor dat communicatie met Azure-Cache voor Redis via SSL](#redis-ssl)</li></ul> |
-| **Veld voor IoT-Gateway** | <ul><li>[Apparaat Veldgateway communicatie beveiligen](#device-field)</li></ul> |
-| **IoT-Cloud-Gateway** | <ul><li>[Apparaat naar Cloud-gatewaycommunicatie met behulp van SSL/TLS beveiligen](#device-cloud)</li></ul> |
+| **Azure Cache voor Redis** | <ul><li>[Zorg ervoor dat communicatie met Azure-Cache voor Redis via SSL](#redis-ssl)</li></ul> |
+| **IoT Field Gateway** | <ul><li>[Apparaat Veldgateway communicatie beveiligen](#device-field)</li></ul> |
+| **IoT Cloud Gateway** | <ul><li>[Apparaat naar Cloud-gatewaycommunicatie met behulp van SSL/TLS beveiligen](#device-cloud)</li></ul> |
 
 ## <a id="comm-ssltls"></a>Beveiligde communicatie naar Event Hub met behulp van SSL/TLS
 
@@ -68,7 +68,7 @@ ms.locfileid: "53013182"
 | **SDL-fase**               | Implementatie |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | Gekoppelde servicetypen - Azure en On-premises |
-| **Verwijzingen**              |[ Gegevens verplaatsen tussen On-premises en Azure Data Factory](https://azure.microsoft.com/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#create-gateway), [Data management gateway](https://azure.microsoft.com/documentation/articles/data-factory-data-management-gateway/) |
+| **Verwijzingen**              |[Gegevens verplaatsen tussen On-premises en Azure Data Factory](https://azure.microsoft.com/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#create-gateway), [Data management gateway](https://azure.microsoft.com/documentation/articles/data-factory-data-management-gateway/) |
 | **Stappen** | <p>Het hulpprogramma Data Management Gateway (DMG) is vereist om verbinding maken met gegevensbronnen die worden beveiligd achter een firewall of een bedrijfsnetwerk.</p><ol><li>Vergrendelen van de machine Hiermee isoleert u het hulpprogramma DMG en voorkomt u dat niet-functionerende programma's van beschadigen of op de bronmachine gegevens stelen. (Bijvoorbeeld) meest recente updates moeten worden geïnstalleerd, enable minimale vereiste poorten, beheerde accounts die zijn ingericht, controle ingeschakeld, schijfversleuteling ingeschakeld enz.)</li><li>Data Gateway sleutel moet worden gedraaid met regelmatige intervallen of wanneer het wachtwoord van het DMG-serviceaccount wordt vernieuwd</li><li>Passages van gegevens via de Koppelingsservice moeten worden versleuteld.</li></ol> |
 
 ## <a id="identity-https"></a>Zorg ervoor dat alle verkeer naar Identiteitsserver via HTTPS-verbinding
@@ -146,7 +146,7 @@ Deze regel werkt door een HTTP-statuscode 301 (permanente omleiding) wanneer de 
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | [Overzichtskaart OWASP HTTP strikte Transport Security](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) |
-| **Stappen** | <p>HTTP strikte Transport Security (HSTS) is een beveiligingsuitbreiding van opt-in voor die is opgegeven door een web-App door het gebruik van een speciale response-header. Wanneer een ondersteunde browser, deze header ontvangt wordt deze browser wordt voorkomen dat alle communicatie via HTTP worden verzonden naar het opgegeven domein en ontvangt alle communicatie via HTTPS in plaats daarvan. Dit voorkomt ook dat HTTPS klik door de aanwijzingen in browsers.</p><p>Voor het implementeren van HSTS, heeft de volgende response-header moet worden geconfigureerd voor een website wereldwijd in code of in de configuratie. Strikt-Transport-Security: max-age = 300; includeSubDomains HSTS adressen bedreigingen voor de volgende:</p><ul><li>Bladwijzers van de gebruiker of handmatig typen http://example.com en is onderworpen aan een aanvaller man-in-the-middle: HTTP-aanvragen naar HTTPS voor het doeldomein HSTS automatisch omleidt</li><li>Web-App die is bedoeld voor alleen HTTPS per ongeluk worden HTTP-koppelingen bevat of waarvoor u inhoud via HTTP: HTTP-aanvragen naar HTTPS voor het doeldomein HSTS automatisch omleidt</li><li>Een aanvaller man-in-the-middle probeert te onderscheppen verkeer van een gebruiker van het slachtoffer met behulp van een ongeldig certificaat en hoopt accepteert de gebruiker het ongeldige certificaat: HSTS staat niet toe dat een gebruiker het bericht ongeldig certificaat negeren</li></ul>|
+| **Stappen** | <p>HTTP strikte Transport Security (HSTS) is een beveiligingsuitbreiding van opt-in voor die is opgegeven door een web-App door het gebruik van een speciale response-header. Wanneer een ondersteunde browser, deze header ontvangt wordt deze browser wordt voorkomen dat alle communicatie via HTTP worden verzonden naar het opgegeven domein en ontvangt alle communicatie via HTTPS in plaats daarvan. Dit voorkomt ook dat HTTPS klik door de aanwijzingen in browsers.</p><p>Voor het implementeren van HSTS, heeft de volgende response-header moet worden geconfigureerd voor een website wereldwijd in code of in de configuratie. Strikt-Transport-Security: max-age = 300; includeSubDomains HSTS adressen bedreigingen voor de volgende:</p><ul><li>Bladwijzers van de gebruiker of handmatig typen http://example.com en is onderworpen aan een aanvaller man-in-the-middle: HTTP-aanvragen omleidt naar HTTPS voor het doeldomein HSTS automatisch</li><li>Web-App die is bedoeld voor alleen HTTPS per ongeluk worden HTTP-koppelingen bevat of waarvoor inhoud via HTTP: HTTP-aanvragen omleidt naar HTTPS voor het doeldomein HSTS automatisch</li><li>Een aanvaller man-in-the-middle probeert te onderscheppen verkeer van een gebruiker van het slachtoffer met behulp van een ongeldig certificaat en hoopt accepteert de gebruiker het ongeldige certificaat: HSTS staat niet toe dat een gebruiker het bericht ongeldig certificaat negeren</li></ul>|
 
 ## <a id="sqlserver-validation"></a>Zorg ervoor dat SQL server-verbinding versleuteling en certificaat-validatie
 
@@ -209,7 +209,7 @@ Deze regel werkt door een HTTP-statuscode 301 (permanente omleiding) wanneer de 
 | ----------------------- | ------------ |
 | **Onderdeel**               | Azure Storage | 
 | **SDL-fase**               | Ontwikkelen |  
-| **Van toepassing technologieën** | Algemeen, Windows Phone |
+| **Van toepassing technologieën** | Generic, Windows Phone |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | [Certificaat en openbare sleutel vast te maken](https://www.owasp.org/index.php/Certificate_and_Public_Key_Pinning#.Net) |
 | **Stappen** | <p>Certificaat vastmaken beschermt tegen aanvallen van Man-In-The-Middle (MITM). Vast te maken, is het proces van het koppelen van een host met hun verwachte X509 certificaat of de openbare sleutel. Nadat u een certificaat of een openbare sleutel is bekend of gezien voor een host, wordt het certificaat of de openbare sleutel die is gekoppeld of vastgemaakt aan de host. </p><p>Dus wanneer een aanvaller probeert te doen SSL MITM-aanvallen, tijdens de SSL-handshake de sleutel van de server van de kwaadwillende persoon wordt afwijken van de sleutel van het vastgemaakte certificaat, en de aanvraag worden genegeerd, waardoor wordt voorkomen dat MITM certificaat vast te maken kan worden bereikt door implementatie van de ServicePointManager `ServerCertificateValidationCallback` delegeren.</p>|
@@ -289,21 +289,21 @@ namespace CertificatePinningExample
 | **Van toepassing technologieën** | NET Framework 3 |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Voeg Koninkrijk](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_transport_security_enabled) |
-| **Stappen** | Configuratie van de toepassing moet ervoor zorgen dat HTTPS voor alle toegang tot gevoelige informatie wordt gebruikt.<ul><li>**UITLEG:** als een toepassing omgaat met gevoelige gegevens en maakt geen gebruik van versleuteling op apparaatniveau bericht, wordt er alleen moet worden gegeven om te communiceren via een gecodeerde transportkanaal.</li><li>**AANBEVELINGEN:** Zorg ervoor dat HTTP-transport is uitgeschakeld en in plaats daarvan HTTPS-transport inschakelen. Vervang bijvoorbeeld de `<httpTransport/>` met `<httpsTransport/>` tag. Vertrouw niet op een netwerkconfiguratie (firewall) om te waarborgen dat de toepassing alleen kan worden geopend via een beveiligd kanaal. Vanuit een levensbeschouwelijke oogpunt, moet de toepassing niet afhankelijk zijn van het netwerk voor de beveiliging.</li></ul><p>Uit praktisch oogpunt volgen de mensen die verantwoordelijk zijn voor het beveiligen van het netwerk niet altijd de beveiligingsvereisten van de toepassing als ze zich ontwikkelen.</p>|
+| **Stappen** | Configuratie van de toepassing moet ervoor zorgen dat HTTPS voor alle toegang tot gevoelige informatie wordt gebruikt.<ul><li>**EXPLANATION:** Als een toepassing omgaat met gevoelige gegevens en maakt geen gebruik van versleuteling op apparaatniveau bericht, moet klikt u vervolgens het alleen worden toegestaan om te communiceren via een gecodeerde transportkanaal.</li><li>**AANBEVELINGEN:** Zorg ervoor dat de HTTP-transport is uitgeschakeld en in plaats daarvan HTTPS-transport inschakelen. Vervang bijvoorbeeld de `<httpTransport/>` met `<httpsTransport/>` tag. Vertrouw niet op een netwerkconfiguratie (firewall) om te waarborgen dat de toepassing alleen kan worden geopend via een beveiligd kanaal. Vanuit een levensbeschouwelijke oogpunt, moet de toepassing niet afhankelijk zijn van het netwerk voor de beveiliging.</li></ul><p>Uit praktisch oogpunt volgen de mensen die verantwoordelijk zijn voor het beveiligen van het netwerk niet altijd de beveiligingsvereisten van de toepassing als ze zich ontwikkelen.</p>|
 
-## <a id="message-protection"></a>WCF: Set-berichtbeveiliging beveiligingsniveau op EncryptAndSign
+## <a id="message-protection"></a>WCF: Ingesteld op EncryptAndSign, berichtbeveiliging beveiligingsniveau
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
 | **Onderdeel**               | WCF | 
 | **SDL-fase**               | Ontwikkelen |  
-| **Van toepassing technologieën** | .NET framework 3 |
+| **Van toepassing technologieën** | .NET Framework 3 |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | [MSDN](https://msdn.microsoft.com/library/ff650862.aspx) |
-| **Stappen** | <ul><li>**UITLEG:** wanneer beveiliging niveau is ingesteld op 'none' het bericht-beveiliging wordt uitgeschakeld. Vertrouwelijkheid en integriteit wordt bereikt met het juiste niveau van instelling.</li><li>**AANBEVELINGEN:**<ul><li>Wanneer `Mode=None` -schakelt de bericht-beveiliging</li><li>Wanneer `Mode=Sign` -tekens, maar het bericht niet-versleuteld; moet worden gebruikt wanneer de integriteit van gegevens belangrijk is</li><li>Wanneer `Mode=EncryptAndSign` -tekens en versleutelt het bericht</li></ul></li></ul><p>Houd rekening met het uitschakelen van versleuteling en alleen uw bericht ondertekening wanneer u alleen wilt valideren van de integriteit van de gegevens zonder problemen van vertrouwelijkheid. Dit kan nuttig zijn voor bewerkingen zijn of servicecontracten in die u nodig hebt voor het valideren van de oorspronkelijke afzender, maar geen gevoelige gegevens worden verzonden. Bij het reduceren van het niveau van bescherming, zorg er dan voor dat het bericht bevat geen een persoonlijk identificeerbare informatie (PII).</p>|
+| **Stappen** | <ul><li>**EXPLANATION:** Niveau is ingesteld op 'none' deze bescherming wordt wanneer het uitschakelen van bericht-beveiliging. Vertrouwelijkheid en integriteit wordt bereikt met het juiste niveau van instelling.</li><li>**AANBEVELINGEN:**<ul><li>Wanneer `Mode=None` -schakelt de bericht-beveiliging</li><li>Wanneer `Mode=Sign` -tekens, maar het bericht niet-versleuteld; moet worden gebruikt wanneer de integriteit van gegevens belangrijk is</li><li>Wanneer `Mode=EncryptAndSign` -tekens en versleutelt het bericht</li></ul></li></ul><p>Houd rekening met het uitschakelen van versleuteling en alleen uw bericht ondertekening wanneer u alleen wilt valideren van de integriteit van de gegevens zonder problemen van vertrouwelijkheid. Dit kan nuttig zijn voor bewerkingen zijn of servicecontracten in die u nodig hebt voor het valideren van de oorspronkelijke afzender, maar geen gevoelige gegevens worden verzonden. Bij het reduceren van het niveau van bescherming, zorg er dan voor dat het bericht bevat geen een persoonlijk identificeerbare informatie (PII).</p>|
 
 ### <a name="example"></a>Voorbeeld
-Configureren van de service en de bewerking voor het ondertekenen van alleen het bericht wordt weergegeven in de volgende voorbeelden. Voorbeeld van Contract van `ProtectionLevel.Sign`: de hieronder volgt een voorbeeld van het gebruik van ProtectionLevel.Sign op het niveau van het servicecontract: 
+Configureren van de service en de bewerking voor het ondertekenen van alleen het bericht wordt weergegeven in de volgende voorbeelden. Voorbeeld van de overeenkomst van de service `ProtectionLevel.Sign`: Hier volgt een voorbeeld van het gebruik van ProtectionLevel.Sign op het niveau van het servicecontract: 
 ```
 [ServiceContract(Protection Level=ProtectionLevel.Sign] 
 public interface IService 
@@ -326,10 +326,10 @@ string GetData(int value);
 | ----------------------- | ------------ |
 | **Onderdeel**               | WCF | 
 | **SDL-fase**               | Ontwikkelen |  
-| **Van toepassing technologieën** | .NET framework 3 |
+| **Van toepassing technologieën** | .NET Framework 3 |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | [MSDN](https://msdn.microsoft.com/library/ff648826.aspx ) |
-| **Stappen** | <ul><li>**UITLEG:** WCF-services onder beheer of hoge bevoegdheid account niet wordt uitgevoerd. in het geval van inbreuk op de services, het hoge impact leidt.</li><li>**AANBEVELINGEN:** een account van de minste bevoegdheden gebruiken voor het hosten van de WCF-service omdat het verminderen van kwetsbaarheid voor aanvallen van uw toepassing en verlagen van de potentiële schade voorkomen als u wordt aangevallen. Als de serviceaccount extra toegangsrechten op beschikken over infrastructurele resources, zoals MSMQ, het gebeurtenislogboek, prestatiemeteritems en het bestandssysteem vereist, moeten juiste machtigingen krijgen tot deze resources zodat de WCF-service met succes kunt uitvoeren.</li></ul><p>Als uw service nodig heeft voor toegang tot bepaalde resources namens de oorspronkelijke aanvrager, gebruikt u imitatie en de delegatie op die moeten stromen van de oproepende functie identiteit voor een downstream autorisatie-controle. In een scenario voor het ontwikkelen, gebruikt het lokale netwerk service-account, dat is een speciaal ingebouwd account dat machtigingen heeft beperkt. Maak een serviceaccount van de minste bevoegdheden aangepast domein in een productiescenario voor.</p>|
+| **Stappen** | <ul><li>**EXPLANATION:** WCF-services onder beheer of hoge bevoegdheid account niet uitgevoerd. in het geval van inbreuk op de services, het hoge impact leidt.</li><li>**AANBEVELINGEN:** Een account van de minste bevoegdheden gebruiken voor het hosten van de WCF-service omdat het verminderen van kwetsbaarheid voor aanvallen van uw toepassing en verlagen van de potentiële schade voorkomen als u wordt aangevallen. Als de serviceaccount extra toegangsrechten op beschikken over infrastructurele resources, zoals MSMQ, het gebeurtenislogboek, prestatiemeteritems en het bestandssysteem vereist, moeten juiste machtigingen krijgen tot deze resources zodat de WCF-service met succes kunt uitvoeren.</li></ul><p>Als uw service nodig heeft voor toegang tot bepaalde resources namens de oorspronkelijke aanvrager, gebruikt u imitatie en de delegatie op die moeten stromen van de oproepende functie identiteit voor een downstream autorisatie-controle. In een scenario voor het ontwikkelen, gebruikt het lokale netwerk service-account, dat is een speciaal ingebouwd account dat machtigingen heeft beperkt. Maak een serviceaccount van de minste bevoegdheden aangepast domein in een productiescenario voor.</p>|
 
 ## <a id="webapi-https"></a>Al het verkeer naar de Web-API's via HTTPS-verbinding afdwingen
 
@@ -389,7 +389,7 @@ Houd er rekening mee dat Redis is ontworpen om te worden geopend door vertrouwde
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
-| **Onderdeel**               | Veld voor IoT-Gateway | 
+| **Onderdeel**               | IoT Field Gateway | 
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
@@ -400,7 +400,7 @@ Houd er rekening mee dat Redis is ontworpen om te worden geopend door vertrouwde
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
-| **Onderdeel**               | IoT-Cloud-Gateway | 
+| **Onderdeel**               | IoT Cloud Gateway | 
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |

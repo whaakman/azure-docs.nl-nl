@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 095aff293b23f4589dce9f71890b5e9bfd8636d4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4d980bf28fb9248cc88c4b0802817e85992ef9ee
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201853"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869697"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Zelfstudie: Azure Active Directory-integratie met Shmoop voor scholen
 
@@ -85,10 +85,10 @@ Voor eenmalige aanmelding om te werken, moet Azure AD te weten wie de gebruiker 
 
 Als u wilt configureren en testen van Azure AD eenmalige aanmelding met Shmoop voor scholen, voert u de volgende bouwstenen:
 
-1. [Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on) zodat uw gebruikers deze functie wilt gebruiken.
-2. [Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user) voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. [Eenmalige aanmelding van Azure AD configureren](#configure-azure-ad-single-sign-on) zodat uw gebruikers deze functie kunnen gebruiken.
+2. [Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user) voor het testen van eenmalige aanmelding van Azure AD met Britta Simon.
 3. [Maak een testgebruiker Shmoop voor scholen](#create-a-shmoop-for-schools-test-user) hebben een equivalent van Britta Simon in Shmoop voor scholen die is gekoppeld aan de Azure AD-weergave van de gebruiker.
-4. [Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user) Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+4. [De Azure AD-testgebruiker toewijzen](#assign-the-azure-ad-test-user) zodat Britta Simon gebruik kan maken van eenmalige aanmelding van Azure AD.
 5. [Eenmalige aanmelding testen](#test-single-sign-on) om te controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
@@ -116,7 +116,7 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure-portal inschake
     > [!NOTE] 
     > Dit zijn geen echte waarden. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met de [Shmoop voor scholen Client ondersteuningsteam](mailto:support@shmoop.com) om deze waarden te verkrijgen. 
  
-4. De toepassing Shmoop voor scholen wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit beheren de **gebruikerskenmerken** sectie op de pagina van de integratie van toepassingen. De volgende schermafbeelding ziet u hoe de asserties configureren:
+4. De toepassing Shmoop voor scholen wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. De volgende schermafbeelding ziet u hoe de asserties configureren:
 
     ![Eenmalige aanmelding configureren](./media/shmoopforschools-tutorial/tutorial_attribute.png)
 
@@ -131,7 +131,7 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure-portal inschake
 
     a. Om te openen de **kenmerk toevoegen** in het dialoogvenster, selecteer **kenmerk toevoegen**.
     
-    ![Eenmalige aanmelding configureren ](./media/shmoopforschools-tutorial/tutorial_attribute_04.png)
+    ![Eenmalige aanmelding configureren](./media/shmoopforschools-tutorial/tutorial_attribute_04.png)
     
     ![Eenmalige aanmelding configureren](./media/shmoopforschools-tutorial/tutorial_attribute_05.png)
     
@@ -224,7 +224,7 @@ In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding door
     
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie kunt u uw configuratie Azure AD eenmalige aanmelding testen met behulp van het toegangsvenster.
+In dit gedeelte test u de configuratie voor eenmalige aanmelding van Azure AD met behulp van het toegangsvenster.
 
 Wanneer u selecteert de **Shmoop voor scholen** tegel in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing Shmoop voor scholen.
 

@@ -16,12 +16,12 @@ ms.date: 02/14/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: 1fa85fa26594ef6e5df2d05bb3bcc34e5689c3be
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 1fb9917e30a88cf5a68c9e170d66eeaa1d477deb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728400"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877143"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack registreren bij Azure
 
@@ -311,7 +311,7 @@ U kunt de **regiobeheer** tegel om te controleren of de Azure Stack-registratie 
 
 3. Selecteer **eigenschappen**. Deze blade ziet u de status en details van uw omgeving. De status kan zijn **geregistreerde** of **niet geregistreerd**.
 
-    [ ![De tegel beheer regio](media/azure-stack-registration/admin1sm.png "regio management tegel") ](media/azure-stack-registration/admin1.png#lightbox)
+    [![De tegel beheer regio](media/azure-stack-registration/admin1sm.png "regio management tegel")](media/azure-stack-registration/admin1.png#lightbox)
 
     Als u geregistreerd, voegt u de eigenschappen:
     

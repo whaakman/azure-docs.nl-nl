@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ergreenl
-ms.openlocfilehash: 1609d413604e172b9c718bd11768c495dfa8afe8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 734fb5ce641d48800cef68ea79cdb258e44ac267
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191415"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867096"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Active Directory Domain Services met behulp van de Azure-portal inschakelen
 
@@ -83,7 +83,7 @@ Het proces van inrichting van uw beheerde domein kan een uur duren.
 
 3. De **overzicht** tabblad ziet u dat het beheerde domein wordt momenteel ingericht. U kunt het beheerde domein niet configureren, totdat deze volledig is ingericht. Het kan een uur duren voor uw beheerde domein volledig is ingericht.
 
-    ![Domain Services: tabblad Overzicht tijdens de Inrichtingsstatus ](./media/getting-started/domain-services-provisioning-state-details.png)
+    ![Domain Services: tabblad Overzicht tijdens de Inrichtingsstatus](./media/getting-started/domain-services-provisioning-state-details.png)
 
 4. Wanneer het beheerde domein volledig is ingericht, de **overzicht** tabblad toont de domeinstatus als **met**.
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 75fc79b582803150f2111efb848d113d52928263
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 3fccb50e3447eabc15cbef89ab7655b3f1d1f4ac
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544665"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876803"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-portal"></a>Maken en beheren van Azure Database voor MariaDB-firewallregels met behulp van Azure portal
 Firewallregels op serverniveau kunnen beheerders toegang tot een Azure-Database voor MariaDB-Server vanaf een opgegeven IP-adres of een bereik van IP-adressen. 
@@ -32,7 +32,7 @@ Firewallregels op serverniveau kunnen beheerders toegang tot een Azure-Database 
 
 4. Voeg aanvullende adresbereiken. In de firewallregels voor de Azure Database voor MariaDB, kunt u één IP-adres of een reeks adressen. Als u beperken van de regel moet één IP-adres wilt, typt u hetzelfde adres in het eerste IP- en eind-IP-velden. De firewall opent, kunnen beheerders, gebruikers en toepassingen voor toegang tot elke database op de MariaDB-server waarvoor ze geldige aanmeldgegevens hebben.
 
-   ![Azure portal - firewall-regels ](./media/howto-manage-firewall-portal/4-specify-addresses.png)
+   ![Azure portal - firewall-regels](./media/howto-manage-firewall-portal/4-specify-addresses.png)
 
 5. Klik op **opslaan** op de werkbalk om op te slaan deze firewallregel op serverniveau. Wachten op de bevestiging dat de update van de firewall-regels voltooid is.
 

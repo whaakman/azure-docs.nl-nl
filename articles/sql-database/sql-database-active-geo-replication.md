@@ -11,15 +11,15 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: b39967c071b21978324f205eb62d305011b65fb6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 02/26/2019
+ms.openlocfilehash: f6179c14c0a057a08203764316eeb43783cd7fc8
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995050"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887740"
 ---
-# <a name="create-readable-secondary-databases-using-active-geo-replication"></a>Leesbare secundaire databases met behulp van actieve geo-replicatie maken
+# <a name="creating-and-using-active-geo-replication"></a>Het maken en gebruiken van actieve geo-replicatie
 
 Actieve geo-replicatie is Azure SQL Database-functie waarmee u leesbare secundaire databases van afzonderlijke databases maken in een SQL Database-server in het hetzelfde of een ander datacenter (regio).
 
@@ -110,7 +110,7 @@ Voor het bereiken van echte zakelijke continuïteit, toe te voegen databaseredun
 
 - **Referenties en firewallregels synchroon houden**
 
-  Wordt u aangeraden [database-firewallregels](sql-database-firewall-configure.md) voor databases, zodat deze regels kunnen worden gerepliceerd met de database om te controleren of alle secundaire databases hebben de dezelfde firewall-regels als de primaire geo-replicatie. Deze aanpak elimineert de noodzaak voor klanten om handmatig te configureren en firewallregels op servers die als host fungeert voor zowel de primaire en secundaire databases te onderhouden. Op dezelfde manier met behulp van [ingesloten databasegebruikers](sql-database-manage-logins.md) voor gegevens toegang zorgt ervoor dat de primaire en secundaire databases hebben altijd hetzelfde gebruikersreferenties zodat tijdens een failover er geen onderbrekingen vanwege problemen met aanmeldingen en wachtwoorden is. Met de toevoeging van [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), klanten kunnen gebruikerstoegang tot zowel primaire als secundaire databases beheren en hoeft u voor het beheren van referenties in databases die kan worden overgeslagen.
+Wordt u aangeraden [database-firewallregels](sql-database-firewall-configure.md) voor databases, zodat deze regels kunnen worden gerepliceerd met de database om te controleren of alle secundaire databases hebben de dezelfde firewall-regels als de primaire geo-replicatie. Deze aanpak elimineert de noodzaak voor klanten om handmatig te configureren en firewallregels op servers die als host fungeert voor zowel de primaire en secundaire databases te onderhouden. Op dezelfde manier met behulp van [ingesloten databasegebruikers](sql-database-manage-logins.md) voor gegevens toegang zorgt ervoor dat de primaire en secundaire databases hebben altijd hetzelfde gebruikersreferenties zodat tijdens een failover er geen onderbrekingen vanwege problemen met aanmeldingen en wachtwoorden is. Met de toevoeging van [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), klanten kunnen gebruikerstoegang tot zowel primaire als secundaire databases beheren en hoeft u voor het beheren van referenties in databases die kan worden overgeslagen.
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Het upgraden of downgraden van een primaire database
 
@@ -125,6 +125,16 @@ Doorlopend kopiëren gebruikt vanwege de hoge latentie voor wide area network, e
 
 > [!NOTE]
 > **sp_wait_for_database_copy_sync** wordt voorkomen dat gegevens verloren gaan na een failover, maar is geen garantie voor volledige synchronisatie voor leestoegang. De vertraging is veroorzaakt door een **sp_wait_for_database_copy_sync** procedureaanroep kan aanzienlijk zijn en is afhankelijk van de grootte van het transactielogboek op het moment van de aanroep.
+
+## <a name="monitoring-geo-replication-lag"></a>Vertraging van geo-replicatie controleren
+
+U kunt controleren lag met betrekking tot RPO met *replication_lag_sec* kolom van [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) op de primaire database. Hier ziet u vertraging in seconden tussen de transacties doorgevoerd op de primaire en opgeslagen op de secundaire server. Bijvoorbeeld Als de waarde van de vertraging is 1 seconde, betekent dit als de primaire wordt beïnvloed door een storing op dit moment en failover is intiated, 1 seconde van de meest recente transtions worden niet opgeslagen. 
+
+Als u wilt meten lag met betrekking tot wijzigingen op de primaire database die zijn toegepast op de secundaire, dat wil zeggen beschikbaar voor het lezen van de secundaire vergelijken *last_commit* tijd op de secundaire database met dezelfde waarde op de primaire de database.
+
+> [!NOTE]
+> Soms *replication_lag_sec* op de primaire database heeft een NULL-waarde, wat betekent dat de primaire op dit moment weet niet hoe ver de secundaire server is.   Dit gebeurt gewoonlijk nadat het proces opnieuw is opgestart en moet ook een tijdelijke toestand. Houd rekening met waarschuwingen van de toepassing als de *replication_lag_sec* wordt er NULL geretourneerd voor een lange periode. Dit zou betekenen dat de secundaire database kan niet met de primaire vanwege een probleem met de permanente communiceren. Er zijn ook situaties die ervoor zorgen het verschil tussen dat kunnen *last_commit* tijd op de secundaire server en op de primaire database te groot. Bijvoorbeeld Als een wijziging wordt doorgevoerd op de primaire na een lange periode geen wijzigingen, wordt het verschil voordat u snel terugkeert naar de 0 gaan tot een grote waarde. Houd rekening met het een fout bij het verschil tussen deze twee waarden grote gedurende een lange periode blijft.
+
 
 ## <a name="programmatically-managing-active-geo-replication"></a>Actieve geo-replicatie programmatisch te beheren
 

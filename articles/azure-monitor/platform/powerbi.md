@@ -13,40 +13,42 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: bwren
-ms.openlocfilehash: e5053fe0a22dfa1c85438e8d293046343e09db52
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 623968467da775c55adf006a84a16ba46bd21d1d
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191798"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887451"
 ---
-# <a name="import-azure-log-analytics-data-into-power-bi"></a>Azure Log Analytics-gegevens importeren in Power BI
+# <a name="import-azure-monitor-log-data-into-power-bi"></a>Azure Monitor log-gegevens importeren in Power BI
 
 
-[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) is een cloud op basis van business analytics-service van Microsoft waarmee uitgebreide visualisaties en rapporten voor analyse van verschillende gegevenssets.  U kunt de resultaten van een logboekzoekopdracht Log Analytics importeren in een Power BI-gegevensset, zodat u van de functies profiteren kunt, zoals het combineren van gegevens uit verschillende bronnen en delen van rapporten op het web en mobiele apparaten.
+[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) is een cloud op basis van business analytics-service van Microsoft waarmee uitgebreide visualisaties en rapporten voor analyse van verschillende gegevenssets.  U kunt de resultaten van een query voor Azure Monitor importeren in een Power BI-gegevensset, zodat u van de functies profiteren kunt, zoals het combineren van gegevens uit verschillende bronnen en delen van rapporten op het web en mobiele apparaten.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="overview"></a>Overzicht
-Om gegevens te importeren vanuit een Log Analytics-werkruimte in Power BI, kunt u een gegevensset maken in Power BI op basis van een query voor zoeken in Log Analytics.  De query wordt uitgevoerd telkens wanneer die de gegevensset wordt vernieuwd.  U kunt vervolgens Power BI-rapporten waarin gegevens uit de gegevensset maken.  Voor het maken van de gegevensset in Power BI, u uw query exporteren vanuit Log Analytics [Power Query (M) taal](https://msdn.microsoft.com/library/mt807488.aspx).  U dit vervolgens gebruiken om een query in Power BI Desktop en vervolgens publiceren naar Power BI als een gegevensset.  De details van dit proces worden hieronder beschreven.
+Voor het importeren van gegevens uit een [Log Analytics-werkruimte](manage-access.md) in Azure Monitor in Power BI, maakt u een gegevensset in Power BI op basis van een [logboekquery](../log-query/log-query-overview.md) in Azure Monitor.  De query wordt uitgevoerd telkens wanneer die de gegevensset wordt vernieuwd.  U kunt vervolgens Power BI-rapporten waarin gegevens uit de gegevensset maken.  Voor het maken van de gegevensset in Power BI, u uw query exporteren vanuit Log Analytics [Power Query (M) taal](https://msdn.microsoft.com/library/mt807488.aspx).  U dit vervolgens gebruiken om een query in Power BI Desktop en vervolgens publiceren naar Power BI als een gegevensset.  De details van dit proces worden hieronder beschreven.
 
 ![Log Analytics met Power BI](media/powerbi/overview.png)
 
 ## <a name="export-query"></a>Query exporteren
-Maak eerst een [zoeken in logboeken](../../azure-monitor/log-query/log-query-overview.md) die de gegevens wordt geactiveerd vanuit Log Analytics dat u wilt vullen van de Power BI-gegevensset.  U deze query te exporteren [Power Query (M) taal](https://msdn.microsoft.com/library/mt807488.aspx) die kan worden gebruikt door Power BI Desktop.
+Maak eerst een [logboekquery](../log-query/log-query-overview.md) die de gegevens retourneert waarop u wilt vullen van de Power BI-gegevensset.  U deze query te exporteren [Power Query (M) taal](https://msdn.microsoft.com/library/mt807488.aspx) die kan worden gebruikt door Power BI Desktop.
 
-1. Zoeken in Logboeken in Log Analytics om op te halen van de gegevens voor uw gegevensset maken.
-2. Als u de portal zoeken in Logboeken, klikt u op **Power BI**.  Als u de Analytics-portal, selecteert u **exporteren** > **Power BI Query (M)**.  Beide opties de query exporteren naar een tekstbestand met de naam **PowerBIQuery.txt**. 
+1. [De logboekquery gemaakt in Log Analytics](../log-query/get-started-portal.md) om op te halen van de gegevens voor uw gegevensset.
+2. Selecteer **exporteren** > **Power BI-Query (M)**.  Hiermee exporteert u de query naar een tekstbestand met de naam **PowerBIQuery.txt**. 
 
-    ![Zoeken in Logboeken exporteren](media/powerbi/export-logsearch.png) ![Zoeken in Logboeken exporteren](media/powerbi/export-analytics.png)
+    ![Zoeken in Logboeken exporteren](media/powerbi/export-analytics.png)
 
 3. Open het bestand en kopieer de inhoud.
 
 ## <a name="import-query-into-power-bi-desktop"></a>Query importeren in Power BI Desktop
-Power BI Desktop is een bureaubladtoepassing die u kunt gegevenssets en rapporten die kunnen worden gepubliceerd naar Power BI maken.  U kunt deze ook gebruiken om een query met behulp van de Power Query-taal geëxporteerd van Log Analytics te maken. 
+Power BI Desktop is een bureaubladtoepassing die u kunt gegevenssets en rapporten die kunnen worden gepubliceerd naar Power BI maken.  U kunt deze ook gebruiken om een query met behulp van de Power Query-taal geëxporteerd uit Azure Monitor te maken. 
 
 1. Installeer [Power BI Desktop](https://powerbi.microsoft.com/desktop/) als u niet al op uw computer en vervolgens de toepassing open.
 2. Selecteer **gegevens ophalen** > **lege Query** om een nieuwe query te openen.  Selecteer vervolgens **geavanceerde Editor** en plak de inhoud van het geëxporteerde bestand in de query. Klik op **Gereed**.
 
-    ![Query van Power BI Desktop](media/powerbi/desktop-new-query.png)
+    ![Power BI Desktop query](media/powerbi/desktop-new-query.png)
 
 5. De query wordt uitgevoerd, en de resultaten worden weergegeven.  U mogelijk gevraagd om referenties voor het verbinding maken met Azure.  
 6. Typ een beschrijvende naam voor de query.  De standaardwaarde is **Query1**. Klik op **sluiten en toepassen** om toe te voegen van de gegevensset naar het rapport.
@@ -66,9 +68,9 @@ Wanneer u naar Power BI publiceert, wordt een gegevensset en een rapport worden 
 
 
 ### <a name="configure-scheduled-refresh"></a>Geplande vernieuwing configureren
-De gegevensset gemaakt in Power BI heeft dezelfde gegevens die u eerder hebt gezien in Power BI Desktop.  U moet de gegevensset om de query opnieuw uitvoeren en deze vullen met de meest recente gegevens van Log Analytics periodiek te vernieuwen.  
+De gegevensset gemaakt in Power BI heeft dezelfde gegevens die u eerder hebt gezien in Power BI Desktop.  U moet de gegevensset om de query opnieuw uitvoeren en deze vullen met de meest recente gegevens uit Azure Monitor periodiek te vernieuwen.  
 
-1. Klik op de werkruimte waar u uw rapport en selecteer geüpload de **gegevenssets** menu. Selecteer het snelmenu naast uw nieuwe gegevensset en selecteer **instellingen**. Onder **gegevensbronreferenties** hebt u een bericht dat de referenties ongeldig zijn.  Dit is omdat u referenties voor de gegevensset moet worden gebruikt wanneer het wordt vernieuwd met de gegevens nog niet hebt opgegeven.  Klik op **referenties bewerken** en geef de referenties met toegang tot Log Analytics.
+1. Klik op de werkruimte waar u uw rapport en selecteer geüpload de **gegevenssets** menu. Selecteer het snelmenu naast uw nieuwe gegevensset en selecteer **instellingen**. Onder **gegevensbronreferenties** hebt u een bericht dat de referenties ongeldig zijn.  Dit is omdat u referenties voor de gegevensset moet worden gebruikt wanneer het wordt vernieuwd met de gegevens nog niet hebt opgegeven.  Klik op **referenties bewerken** en geef de referenties die toegang hebben tot de Log Analytics-werkruimte in Azure Monitor.
 
     ![Power BI-schema](media/powerbi/powerbi-schedule.png)
 
@@ -79,5 +81,5 @@ De gegevensset gemaakt in Power BI heeft dezelfde gegevens die u eerder hebt gez
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md) naar query's opbouwen die kunnen worden geëxporteerd naar Power BI.
-* Meer informatie over [Power BI](https://powerbi.microsoft.com) te maken van visualisaties op basis van Log Analytics-uitvoer.
+* Meer informatie over [zoekopdrachten](../log-query/log-query-overview.md) naar query's opbouwen die kunnen worden geëxporteerd naar Power BI.
+* Meer informatie over [Power BI](https://powerbi.microsoft.com) te maken van visualisaties op basis van Azure Monitor log-uitvoer.

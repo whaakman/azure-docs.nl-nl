@@ -15,12 +15,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf5e198dff2dd3cd93455d5cca25428723bf1ce9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5ee322dd3ff6ccd68b09645fb46b1488b17819bb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171975"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871686"
 ---
 # <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problemen met aanmelden bij een on-premises toepassing met behulp van de Azure AD-toepassingsproxy
 
@@ -56,7 +56,7 @@ De volgende documenten kunnen u helpen een aantal van de meest voorkomende probl
 
 ## <a name="im-having-a-problem-with-the-application-proxy-agent-connector"></a>Ik ondervind een probleem met de Toepassingsproxyagent
   De volgende documenten kunnen u helpen een aantal van de meest voorkomende problemen in deze categorie op te lossen.
-  * [Ik ondervind problemen bij het installeren van de connector voor de toepassingsproxyagent](application-proxy-connector-installation-problem.md)
+  * [Ik ondervind problemen bij het installeren van de Toepassingsproxyagent](application-proxy-connector-installation-problem.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 [How to provide secure remote access to on-premises applications](application-proxy.md) (Beveiligde externe toegang bieden voor on-premises toepassingen)

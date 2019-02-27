@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
-ms.openlocfilehash: a5f32504fc7d8fe0faa17d469aec017d39a6b1ce
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: ae3d1fa6a921067e8c3b629206e47e1a1314adc1
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737141"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889236"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Een Windows-machine maken met versnelde netwerken
 
@@ -66,7 +66,7 @@ Virtuele machines (klassiek) kan niet worden geïmplementeerd met versnelde netw
 Hoewel dit artikel stappen bevat voor het maken van een virtuele machine met versneld netwerken met behulp van Azure Powershell, kunt u ook [maken van een virtuele machine met versneld netwerken met behulp van de Azure-portal](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Bij het maken van een virtuele machine in de portal in de **maken van een virtuele machine** blade, kiest u de **netwerken** tabblad.  Op dit tabblad is een optie voor **versnelde netwerken**.  Als u hebt ervoor gekozen een [ondersteund besturingssysteem](#supported-operating-systems) en [VM-grootte](#supported-vm-instances), deze optie wordt automatisch gevuld op 'Op'.  Zo niet, wordt de optie "Uitgeschakeld" voor versnelde netwerken vullen en geef de gebruiker een reden op waarom is het niet worden ingeschakeld.   
 * *Opmerking:* Alleen ondersteunde besturingssystemen kan worden ingeschakeld via de portal.  Als u een aangepaste installatiekopie gebruikt en uw installatiekopie versnelde netwerken ondersteunt, maakt u uw virtuele machine met CLI of Powershell. 
 
-Nadat de virtuele machine is gemaakt, kunt u bevestigen versnelde netwerken is ingeschakeld door de instructies in de [bevestigen dat versneld netwerken is ingeschakeld](#confirm-that-accelerated-networking-is-enabled).
+Nadat de virtuele machine is gemaakt, kunt u controleren dat aan de hand van de instructies in de controleren of de versnelde netwerken is ingeschakeld versnelde netwerken is ingeschakeld.
 
 ## <a name="powershell-creation"></a>Het maken van PowerShell
 ## <a name="create-a-virtual-network"></a>Een virtueel netwerk maken

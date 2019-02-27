@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9b1d3506c400a3a2d8002feed0181deac39b3821
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 43989ff9dac7cdad76117aaa6e3c862453b24813
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344088"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56865107"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Inrichten voor multitenancy 
 
@@ -96,7 +96,7 @@ Voor het gemak in dit artikel wordt [symmetrische sleutel attestation](concepts-
 
     **Type Attestation**: Selecteer **symmetrische sleutel**.
 
-    **Automatisch sleutels genereren**: Dit selectievakje moet nog worden gecontroleerd.
+    **Sleutels automatisch genereren**: Dit selectievakje moet nog worden gecontroleerd.
 
     **Selecteer de gewenste apparaten toewijzen aan hubs**: Selecteer **laagste latentie**.
 
@@ -421,7 +421,7 @@ Verwijderen van de resourcegroep met de naam:
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie voor meer meer Reprovisioning [reprovisoning concepten van IoT Hub-apparaat](concepts-device-reprovision.md) 
-- Zie voor meer meer opheffen van inrichting [hoe u de inrichting van apparaten die zijn eerder automatisch ingericht ](how-to-unprovision-devices.md) 
+- Zie voor meer meer opheffen van inrichting [hoe u de inrichting van apparaten die zijn eerder automatisch ingericht](how-to-unprovision-devices.md) 
 
 
 

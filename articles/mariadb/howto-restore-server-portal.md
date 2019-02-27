@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: cf6d0399c790a42eaf74b3ec339bf8cf67495fb3
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ec55a33874973bf9aeaaa34ab07b162a46db44eb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548751"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873998"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Het back-up en herstellen van een server in Azure Database voor MariaDB met behulp van de Azure portal
 
@@ -63,7 +63,7 @@ De volgende stappen wordt de voorbeeldserver hersteld naar een punt-in-time:
 
 3. Vul het formulier herstellen met de vereiste gegevens in:
 
-   ![Azure Database voor MariaDB - gegevens herstellen ](./media/howto-restore-server-portal/3-restore.png)
+   ![Azure Database voor MariaDB - gegevens herstellen](./media/howto-restore-server-portal/3-restore.png)
   - **Herstelpunt**: Selecteer de point-in-time-u wilt herstellen.
   - **Doelserver**: Geef een naam voor de nieuwe server.
   - **Locatie**: U kunt de regio niet selecteren. Het is standaard hetzelfde als de bronserver.

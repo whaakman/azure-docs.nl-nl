@@ -14,12 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
-ms.openlocfilehash: 6907382fccaa463fe305ac5049b3858e59b8631b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: fa1f90cf0236a589d1df96658c672a555195be6b
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991392"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888811"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>DNS-records en recordsets in Azure DNS met behulp van Azure PowerShell beheren
 
@@ -238,7 +238,7 @@ Deze reeks bewerkingen kan ook worden *doorgesluisd*, wat betekent dat u de Reco
 Get-AzDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Add-AzDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzDnsRecordSet
 ```
 
-De bovenstaande voorbeelden laten zien hoe u een A-record toevoegt aan een bestaande recordset van het type 'A'. Een vergelijkbare reeks bewerkingen wordt gebruikt voor het toevoegen van records aan de recordsets van andere typen, waarbij de `-Ipv4Address` parameter van `Add-AzDnsRecordConfig` met andere parameters die specifiek zijn voor elk recordtype. De parameters van elk recordtype zijn hetzelfde als voor de `New-AzDnsRecordConfig` cmdlet, zoals wordt weergegeven in [voorbeelden van aanvullende recordtypen](#additional-record-type-examples) hierboven.
+De bovenstaande voorbeelden laten zien hoe u een A-record toevoegt aan een bestaande recordset van het type 'A'. Een vergelijkbare reeks bewerkingen wordt gebruikt voor het toevoegen van records aan de recordsets van andere typen, waarbij de `-Ipv4Address` parameter van `Add-AzDnsRecordConfig` met andere parameters die specifiek zijn voor elk recordtype. De parameters van elk recordtype zijn hetzelfde als voor de `New-AzDnsRecordConfig` cmdlet, zoals wordt weergegeven in de bovenstaande voorbeelden van aanvullende recordtype.
 
 Recordsets van het type 'CNAME' of 'SOA' mag niet meer dan één record bevatten. Deze beperking voortvloeit uit de DNS-standaarden. Het is niet een beperking van Azure DNS.
 
@@ -272,7 +272,7 @@ Aan de records toe te voegen aan een recordset, kan de volgorde van bewerkingen 
 Get-AzDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Remove-AzDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzDnsRecordSet
 ```
 
-Verschillende recordtypen worden ondersteund door de juiste typespecifieke parameters doorgeven `Remove-AzDnsRecordSet`. De parameters van elk recordtype zijn hetzelfde als voor de `New-AzDnsRecordConfig` cmdlet, zoals wordt weergegeven in [voorbeelden van aanvullende recordtypen](#additional-record-type-examples) hierboven.
+Verschillende recordtypen worden ondersteund door de juiste typespecifieke parameters doorgeven `Remove-AzDnsRecordSet`. De parameters van elk recordtype zijn hetzelfde als voor de `New-AzDnsRecordConfig` cmdlet, zoals wordt weergegeven in de bovenstaande voorbeelden van aanvullende recordtype.
 
 
 ## <a name="modify-an-existing-record-set"></a>Een bestaande recordset wijzigen

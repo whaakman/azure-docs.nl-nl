@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 56256a6c10ecb0d06dfd6194668b9c32c5540c0e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: df329d42022f4e56b3d6d4d26519acd42caa1ae4
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51683897"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881818"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: Veelgestelde vragen
 
@@ -91,12 +91,12 @@ Witruimte wordt genegeerd.
  |Opdrachtregelargument            | Regel voor configuratie-bestand |
  |:-------------                   |:-------------                 |
  |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
- |`-k/--access-key KEY`            | *access_key:Key*              |      
+ |`-k/--access-key KEY`            | *access_key:KEY*              |      
  |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Gebruik de volgende bronnen om aan de slag met Microsoft Genomics:
-- Aan de slag door te voeren van uw eerste werkstroom via de Microsoft Genomics-service. [Een werkstroom uitvoeren via de service Microsoft Genomics ](quickstart-run-genomics-workflow-portal.md)
+- Aan de slag door te voeren van uw eerste werkstroom via de Microsoft Genomics-service. [Een werkstroom uitvoeren via de service Microsoft Genomics](quickstart-run-genomics-workflow-portal.md)
 - Indienen van uw eigen gegevens voor verwerking door de service Microsoft Genomics: [gekoppelde FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [meerdere FASTQ of BAM](quickstart-input-multiple.md) 
 

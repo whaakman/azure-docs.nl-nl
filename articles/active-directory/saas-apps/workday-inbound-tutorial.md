@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e209fe0486b72c14912fd0af1b29c878e4b4545
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 722fc5366d8f6863d19d09bd6e555fcc9a73d570
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340107"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868116"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Zelfstudie: Workday voor het automatisch inrichten van gebruikers configureren
 
@@ -470,7 +470,7 @@ In deze sectie configureert u hoe gegevens stromen van Workday naar Active Direc
 
    * Voorbeeld: Alleen werknemers en niet voorwaardelijke werknemers
 
-      * Kenmerk: Werknemer-id
+      * Kenmerk: EmployeeID
 
       * Operator: IS NIET NULL
 
@@ -522,7 +522,7 @@ In deze sectie configureert u hoe gegevens stromen van Workday naar Active Direc
 
 | WORKDAY KENMERK | ACTIVE DIRECTORY-KENMERK |  OVEREENKOMENDE ID? | MAKEN / BIJWERKEN |
 | ---------- | ---------- | ---------- | ---------- |
-| **WorkerID**  |  Werknemer-id | **Ja** | Geschreven alleen bij het maken |
+| **WorkerID**  |  EmployeeID | **Ja** | Geschreven alleen bij het maken |
 | **PreferredNameData**    |  algemene naam    |   |   Geschreven alleen bij het maken |
 | **SelectUniqueValue (deelnemen aan ("@", deelnemen aan (".", \[FirstName\], \[LastName\]), 'contoso.com'), deelnemen aan ("@", deelnemen aan (".", Mid (\[FirstName\], 1, 1), \[LastName\]), 'contoso.com'), Join (' @ ', Join ('. ', Mid (\[FirstName\], 1, 2), \[LastName\]), 'contoso.com'))**   | userPrincipalName     |     | Geschreven alleen bij het maken 
 | **Vervang(Mid(Vervang(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Geschreven alleen bij het maken |
@@ -530,7 +530,7 @@ In deze sectie configureert u hoe gegevens stromen van Workday naar Active Direc
 | **Voornaam**   | givenName       |     |    Maken en bijwerken |
 | **LastName**   |   SN   |     |  Maken en bijwerken |
 | **PreferredNameData**  |  displayName |     |   Maken en bijwerken |
-| **Bedrijf**         | Bedrijf   |     |  Maken en bijwerken |
+| **Bedrijf**         | bedrijf   |     |  Maken en bijwerken |
 | **SupervisoryOrganization**  | department  |     |  Maken en bijwerken |
 | **ManagerReference**   | beheerder  |     |  Maken en bijwerken |
 | **BusinessTitle**   |  titel     |     |  Maken en bijwerken | 
@@ -1064,7 +1064,7 @@ In deze sectie worden de volgende aspecten van het oplossen van problemen:
 
 Wanneer een nieuwe medewerkers in Workday wordt gedetecteerd (Stel met werknemer-ID *21023*), de service-aanvallen te maken van een nieuw AD-gebruikersaccount voor de werknemer en tijdens het inrichten op Azure AD maakt 4 records in auditlogboeken zoals hieronder wordt beschreven:
 
-  [ ![Controlelogboek ops maken](media/workday-inbound-tutorial/wd_audit_logs_02.png) ](media/workday-inbound-tutorial/wd_audit_logs_02.png#lightbox)
+  [![Controlelogboek ops maken](media/workday-inbound-tutorial/wd_audit_logs_02.png)](media/workday-inbound-tutorial/wd_audit_logs_02.png#lightbox)
 
 Wanneer u een van de records in auditlogboeken, op de **activiteitendetails** pagina wordt geopend. Dit is wat de **activiteitendetails** pagina worden weergegeven voor elk type record.
 
@@ -1132,7 +1132,7 @@ Wanneer u een van de records in auditlogboeken, op de **activiteitendetails** pa
 
 Het kenmerk manager is een verwijzingskenmerk in AD. De provisioning-service wordt niet ingesteld voor het kenmerk manager als onderdeel van een bewerking voor het maken van de gebruiker. In plaats van het kenmerk manager is ingesteld als onderdeel van een *bijwerken* bewerking nadat AD-account is gemaakt voor de gebruiker. Uitbreiden van het bovenstaande voorbeeld, stel een nieuwe medewerkers met werknemer-ID "21451" is geactiveerd in Workday en de nieuwe medewerkers manager (*21023*) heeft al een AD-account. In dit scenario weergegeven te zoeken naar de auditlogboeken voor gebruiker 21451 5 vermeldingen.
 
-  [ ![Manager-Update](media/workday-inbound-tutorial/wd_audit_logs_03.png) ](media/workday-inbound-tutorial/wd_audit_logs_03.png#lightbox)
+  [![Manager-Update](media/workday-inbound-tutorial/wd_audit_logs_03.png)](media/workday-inbound-tutorial/wd_audit_logs_03.png#lightbox)
 
 De eerste 4 records zijn, zoals we verkend als onderdeel van de gebruiker die de maakbewerking. De 5-record is de export manager kenmerk update is gekoppeld. De logboekrecord toont het resultaat van de AD-account manager updatebewerking, die wordt uitgevoerd met behulp van de manager *objectGuid* kenmerk.
 

@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: ce748be7f11d440e656e4af5cdd3cee3bbc9e313
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 68bffaeef0451dae3a3b9707049dd2e44ad311fd
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302146"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56865872"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Beveiliging-Frame: Uitzonderingsbeheer | Oplossingen 
 | Product/Service | Artikel |
 | --------------- | ------- |
 | **WCF** | <ul><li>[WCF - kan geen serviceDebug knooppunt in het configuratiebestand](#servicedebug)</li><li>[WCF - kan geen serviceMetadata knooppunt in het configuratiebestand](#servicemetadata)</li></ul> |
-| **Web-API** | <ul><li>[Zorg ervoor dat afhandeling van uitzonderingen correct wordt uitgevoerd in de ASP.NET-Web-API ](#exception)</li></ul> |
-| **Web-App** | <ul><li>[Beveiligingsdetails van de in foutberichten niet zichtbaar ](#messages)</li><li>[Pagina voor foutafhandeling standaard implementeren ](#default)</li><li>[Implementatiemethode voor instellen naar de handelsversie in IIS](#deployment)</li><li>[Uitzonderingen zou moeten veilig mislukken](#fail)</li></ul> |
+| **Web-API** | <ul><li>[Zorg ervoor dat afhandeling van uitzonderingen correct wordt uitgevoerd in de ASP.NET-Web-API](#exception)</li></ul> |
+| **Web-App** | <ul><li>[Beveiligingsdetails van de in foutberichten niet zichtbaar](#messages)</li><li>[Pagina voor foutafhandeling standaard implementeren](#default)</li><li>[Implementatiemethode voor instellen naar de handelsversie in IIS](#deployment)</li><li>[Uitzonderingen zou moeten veilig mislukken](#fail)</li></ul> |
 
 ## <a id="servicedebug"></a>WCF - kan geen serviceDebug knooppunt in het configuratiebestand
 
@@ -69,7 +69,7 @@ Informatie over foutopsporing in de service uitschakelen. Dit kan worden bewerks
 | ----------------------- | ------------ |
 | **Onderdeel**               | Web-API | 
 | **SDL-fase**               | Ontwikkelen |  
-| **Van toepassing technologieën** | MVC 5, 6 MVC |
+| **Van toepassing technologieën** | MVC 5, MVC 6 |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | [Afhandeling van uitzonderingen in ASP.NET Web API](http://www.asp.net/web-api/overview/error-handling/exception-handling), [Model voor validatie in ASP.NET Web-API](http://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
 | **Stappen** | Standaard worden meeste niet-onderschepte uitzonderingen in ASP.NET-Web-API vertaald naar een HTTP-antwoord met de statuscode `500, Internal Server Error`|
@@ -201,7 +201,7 @@ Controleer de koppelingen in de sectie Verwijzingen voor meer informatie over he
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | [Dialoogvenster van de instellingen voor ASP.NET-foutpagina's bewerken](https://technet.microsoft.com/library/dd569096(WS.10).aspx) |
-| **Stappen** | <p>Wanneer een ASP.NET-toepassing mislukt en zorgt ervoor dat een HTTP/1.x 500 Interne serverfout opgetreden of een functieconfiguratie (zoals Aanvraagfiltering) voorkomt dat een pagina worden weergegeven, kunt u een foutbericht dat wordt gegenereerd. Beheerders kunnen kiezen of een bericht van de toepassing moet worden weergegeven voor de client, de gedetailleerd foutbericht naar de client of het gedetailleerde foutbericht op dat alleen localhost. De <customErrors> tag op in het bestand web.config heeft drie modi:</p><ul><li>**Op:** geeft aan dat de aangepaste fouten zijn ingeschakeld. Als geen kenmerk defaultRedirect is opgegeven, zien gebruikers een algemene fout. De aangepaste fouten worden weergegeven met de externe clients en op de lokale host</li><li>**Uitgeschakeld:** geeft aan dat de aangepaste fouten zijn uitgeschakeld. De gedetailleerde ASP.NET-fouten worden weergegeven met de externe clients en op de lokale host</li><li>**Ingesteld op RemoteOnly:** geeft aan dat aangepaste fouten worden alleen weergegeven op de externe clients, en dat de ASP.NET-fouten worden weergegeven op de lokale host. Dit is de standaardwaarde</li></ul><p>Open de `web.config` -bestand voor de toepassing/site en zorg ervoor dat de tag een heeft `<customErrors mode="RemoteOnly" />` of `<customErrors mode="On" />` gedefinieerd.</p>|
+| **Stappen** | <p>Wanneer een ASP.NET-toepassing mislukt en zorgt ervoor dat een HTTP/1.x 500 Interne serverfout opgetreden of een functieconfiguratie (zoals Aanvraagfiltering) voorkomt dat een pagina worden weergegeven, kunt u een foutbericht dat wordt gegenereerd. Beheerders kunnen kiezen of een bericht van de toepassing moet worden weergegeven voor de client, de gedetailleerd foutbericht naar de client of het gedetailleerde foutbericht op dat alleen localhost. De <customErrors> tag op in het bestand web.config heeft drie modi:</p><ul><li>**Op:** Hiermee geeft u op dat aangepaste fouten zijn ingeschakeld. Als geen kenmerk defaultRedirect is opgegeven, zien gebruikers een algemene fout. De aangepaste fouten worden weergegeven met de externe clients en op de lokale host</li><li>**Uitgeschakeld:** Hiermee geeft u op dat aangepaste fouten zijn uitgeschakeld. De gedetailleerde ASP.NET-fouten worden weergegeven met de externe clients en op de lokale host</li><li>**Ingesteld op RemoteOnly:** Hiermee geeft u op dat aangepaste fouten worden alleen weergegeven op de externe clients, en dat de ASP.NET-fouten worden weergegeven op de lokale host. Dit is de standaardwaarde</li></ul><p>Open de `web.config` -bestand voor de toepassing/site en zorg ervoor dat de tag een heeft `<customErrors mode="RemoteOnly" />` of `<customErrors mode="On" />` gedefinieerd.</p>|
 
 ## <a id="deployment"></a>Implementatiemethode voor instellen naar de handelsversie in IIS
 

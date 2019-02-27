@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 02/25/2019
 ms.author: juliako
-ms.openlocfilehash: 18e629571a45046e5cf54996cd38b425c999ee36
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 60623ab4b41c343cab0f9be1abd8ab45051b3f9e
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737634"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889355"
 ---
 # <a name="define-account-filters-and-asset-filters"></a>Accountfilters en asset filters definiëren  
 
@@ -38,9 +38,9 @@ De volgende tabel ziet u enkele voorbeelden van URL's met filters:
 
 |Protocol|Voorbeeld|
 |---|---|
-|HLS|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl,filter=myAccountFilter)`<br/>Gebruik voor HLS-v3: `format=m3u8-aapl-v3`.|
-|MPEG DASH|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=myAssetFilter)`|
-|Smooth Streaming|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=myAssetFilter)`|
+|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`<br/>Gebruik voor HLS-v3: `format=m3u8-aapl-v3`.|
+|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
+|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 ## <a name="define-filters"></a>Filters definiëren
 
@@ -71,7 +71,7 @@ Gebruik deze eigenschap met **Asset Filters**. Het is niet raadzaam om in te ste
 |**forceEndTimestamp**|Is van toepassing alleen Live streamen.<br/>Geeft aan of de eigenschap endTimestamp aanwezig zijn moet. Indien waar, endTimestamp moet worden opgegeven of een onjuiste aanvraagcode wordt geretourneerd.<br/>Toegestane waarden: false, true.|
 |**liveBackoffDuration**|Is van toepassing alleen Live streamen.<br/> Deze waarde bepaalt de meest recente live positie aan die een client kan worden gezocht tot.<br/>Deze eigenschap gebruikt, kunt u live afspelen positie vertraging en maken van een buffer-serverzijde voor spelers.<br/>De eenheid voor deze eigenschap is tijdschaal (Zie hieronder).<br/>Het maximum live uitstel duur is 300 seconden (3000000000).<br/>Bijvoorbeeld: een waarde van 2000000000 betekent dat de meest recente inhoud 20 seconden vertraagd ten opzichte van de rand van het werkelijke live is.|
 |**presentationWindowDuration**|Is van toepassing alleen Live streamen.<br/>Gebruik presentationWindowDuration om toe te passen een sliding window van fragmenten om op te nemen in een afspeellijst vindt.<br/>De eenheid voor deze eigenschap is tijdschaal (Zie hieronder).<br/>Bijvoorbeeld, stel presentationWindowDuration = 1200000000 om toe te passen een sliding window van twee minuten. Media binnen twee minuten van de rand van het live worden opgenomen in de afspeellijst. Als een fragment de grens gevestigd, wordt het hele fragment worden opgenomen in de afspeellijst. De duur van het venster minimale presentatie is 60 seconden.|
-|**startTimestamp**|Van toepassing op Video on Demand (VoD) of Live Streaming.<br/>Dit is een long-waarde die een absolute beginpunt van de stroom vertegenwoordigt. De waarde wordt afgerond naar de dichtstbijzijnde volgende GOP starten. De eenheid is de tijdschaal, dus een startTimestamp van 150000000 15 seconden is.<br/>Gebruik startTimestamp en endTimestampp waaruit de fragmenten die weergegeven in de afspeellijst (manifest worden).<br/>Bijvoorbeeld, startTimestamp = 40000000 en endTimestamp 100000000 = een afspeellijst met fragmenten tussen 4 seconden en 10 seconden van de presentatie VoD met behulp van de standaard-tijdschaal wordt gegenereerd. Als een fragment gevestigd de grens, worden de hele fragment opgenomen in het manifest|
+|**startTimestamp**|Van toepassing op Video on Demand (VoD) of Live Streaming.<br/>Dit is een long-waarde die een absolute beginpunt van de stroom vertegenwoordigt. De waarde wordt afgerond naar de dichtstbijzijnde volgende GOP starten. De eenheid is de tijdschaal, dus een startTimestamp van 150000000 15 seconden is.<br/>Gebruik startTimestamp en endTimestampp waaruit de fragmenten die weergegeven in de afspeellijst (manifest worden).<br/>Bijvoorbeeld, startTimestamp = 40000000 en endTimestamp 100000000 = een afspeellijst met fragmenten tussen 4 seconden en 10 seconden van de presentatie VoD met behulp van de standaard-tijdschaal wordt gegenereerd. Als een fragment de grens gevestigd, wordt het hele fragment worden opgenomen in het manifest.|
 |**timescale**|Het is van toepassing op alle tijdstempels en de duur in het tijdsbereik van een presentatie, opgegeven als het aantal stappen in één seconde.<br/>Standaard is 10000000 - tien miljoen stappen in één seconde, waarbij elke incrementele eenheden van 100 nanoseconden lang kan worden.<br/>Bijvoorbeeld, als u een startTimestamp ingesteld op 30 seconden wilt, zou u een waarde van 300000000 bij het gebruik van de standaard-tijdschaal.|
 
 ### <a name="tracks"></a>sporen te wissen
@@ -83,7 +83,7 @@ Eigenschap van de filtervoorwaarden bijhouden beschrijven tracktypen, waarden (i
 |Name|Description|
 |---|---|
 |**Bitrate**|Gebruik de bitrate van het spoor voor filteren.<br/><br/>De aanbevolen waarde is een reeks bitsnelheden in bits per seconde. Bijvoorbeeld: '0-2427000'.<br/><br/>Opmerking: tijdens een specifieke bitrate-waarde, zoals 250000 (bits per seconde), kunt u deze methode wordt niet aanbevolen, omdat de exacte bitsnelheden van een Asset naar een andere variëren kan.|
-|**FourCC**|Gebruik de waarde van de code van het spoor voor het filteren.<br/><br/>De waarde is het eerste element van codecs indeling, zoals opgegeven in [RFC 6381](https://tools.ietf.org/html/rfc6381). Op dit moment worden de volgende codecs ondersteund: <br/>Video: "Avc1", "hev1", "hvc1"<br/>Voor Audio: "Mp4a", "EG-3"<br/><br/>Om te bepalen van de waarden van de code voor de nummers in een actief [ophalen en bekijk het manifestbestand](#get-and-examine-manifest-files).|
+|**FourCC**|Gebruik de waarde van de code van het spoor voor het filteren.<br/><br/>De waarde is het eerste element van codecs indeling, zoals opgegeven in [RFC 6381](https://tools.ietf.org/html/rfc6381). Op dit moment worden de volgende codecs ondersteund: <br/>Video: "Avc1", "hev1", "hvc1"<br/>Voor Audio: "Mp4a", "EG-3"<br/><br/>Om te bepalen van de code-waarden voor de nummers in een Asset, ophalen en onderzoeken van het manifestbestand.|
 |**Taal**|Gebruik de taal van de track voor filteren.<br/><br/>De waarde is de code van een taal die u opnemen wilt, als opgegeven in RFC 5646. Bijvoorbeeld, "en".|
 |**Naam**|Gebruik de naam van de track voor het filteren.|
 |**Type**|Gebruik het type van het spoor voor het filteren.<br/><br/>De volgende waarden zijn toegestaan: "video", 'audio' of 'tekst'.|

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 4ba744c3d8cc3a785c04bbbb1b476a857859e244
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1691bf9334d15ed7af211a929cf87ce433af895c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876851"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866399"
 ---
 # <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-portal"></a>Quickstart: Een kennisdatabase met behulp van de QnA Maker portal maken
 
@@ -52,7 +52,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 1. Voeg **Chit chat** aan uw KB. Kies chit chatondersteuning voor uw bot toevoegen door een van de 3 wensen te kiezen. 
 
-    ![Chit chat toevoegen aan KB ](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
+    ![Chit chat toevoegen aan KB](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
 
 1. Selecteer **maken uw KB**.
 

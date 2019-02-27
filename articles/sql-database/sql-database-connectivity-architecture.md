@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/06/2019
-ms.openlocfilehash: 5ce8464de552fb228b961af199e4b03e645478a2
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 02/25/2019
+ms.openlocfilehash: 3be2f804bc755b92896305a2ba2b38a45450aed3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809977"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871227"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architectuur van Azure SQL-connectiviteit
 
@@ -28,10 +28,12 @@ In dit artikel wordt de Azure SQL Database en SQL Data Warehouse connectiviteits
 > Klanten wordt aangeraden om nieuwe servers en set aandeel bestaande klanten met verbindingstype expliciet zijn ingesteld op omleiding (voorkeur) of Proxy, afhankelijk van hun architectuur, verbinding te maken.
 >
 > Om te voorkomen dat connectiviteit via een service-eindpunt belangrijke in bestaande omgevingen als gevolg van deze wijziging, gebruiken we telemetrie Doe het volgende:
+>
 > - Voor servers die worden gedetecteerd die zijn toegankelijk via service-eindpunten voor de wijziging, schakelen we het verbindingstype voor `Proxy`.
 > - Voor alle andere servers, schakelen we de verbinding type zal worden overgeschakeld naar de `Redirect`.
 >
 > De invloed van service-eindpuntgebruikers in de volgende scenario's mogelijk nog steeds:
+>
 > - Toepassing verbinding maakt met een bestaande server niet regelmatig worden, zodat onze telemetrie is niet de informatie over deze toepassingen vastleggen
 > - Logica voor automatische implementatie maakt u een SQL-databaseserver ervan uitgaande dat het standaardgedrag voor verbindingen met de service-eindpunt `Proxy`
 >
@@ -106,10 +108,7 @@ De volgende tabel geeft een lijst van de primaire en secundaire IP-adressen van 
 | Europa - noord | 191.235.193.75 | 40.113.93.91 |
 | US - zuid-centraal | 23.98.162.75 | 13.66.62.124 |
 | Azië - zuidoost | 23.100.117.95 | 104.43.15.0 |
-| VK, noord | 13.87.97.210 | |
-| UK-Zuid 1 | 51.140.184.11 | |
-| VK, zuid 2 | 13.87.34.7 | |
-| Verenigd Koninkrijk West | 51.141.8.11 | |
+| Verenigd Koninkrijk Zuid | 51.140.184.11 | |
 | US - west-centraal | 13.78.145.25 | |
 | Europa -west | 191.237.232.75 | 40.68.37.158 |
 | VS-West 1 | 23.99.34.75 | 104.42.238.205 |

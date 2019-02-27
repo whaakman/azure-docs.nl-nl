@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: hkanna
-ms.openlocfilehash: 361ab36d3029dbc00e8d1e53ef9f9af42be3e1eb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 913df079b56e131a3120971b635c49c2c04b2b1e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255833"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871567"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple als back-updoel met NetBackup
 
@@ -79,7 +79,7 @@ StorSimple biedt deze voordelen:
 
 Hoewel StorSimple geeft fundamenteel twee belangrijkste implementatiescenario's (back-updoel primaire en secundaire back-updoel), is het een gewone, blokopslagapparaat. StorSimple biedt alle compressie en Ontdubbeling. Naadloos wordt verzonden en opgehaald van gegevens tussen de cloud en de toepassing en het bestandssysteem.
 
-Zie voor meer informatie over StorSimple [StorSimple 8000-serie: hybride cloudopslagoplossing](storsimple-overview.md). U kunt ook controleren de [technische specificaties van de StorSimple 8000-serie](storsimple-technical-specifications-and-compliance.md).
+Zie voor meer informatie over StorSimple [StorSimple 8000-serie: Oplossing voor hybride cloudopslag](storsimple-overview.md). U kunt ook controleren de [technische specificaties van de StorSimple 8000-serie](storsimple-technical-specifications-and-compliance.md).
 
 > [!IMPORTANT]
 > Met behulp van een storsimple-oplossing wordt apparaat als een back-updoel alleen ondersteund voor StorSimple 8000-Update 3 en latere versies.
@@ -153,7 +153,7 @@ Het is belangrijk om de grootte van het volume met hoge prestaties, zodat uw ret
 Deze oplossing implementeert, zijn er drie stappen vereist:
 1. Bereid de netwerkinfrastructuur.
 2. Uw StorSimple-apparaat implementeren als een back-updoel.
-3. Veritas NetBackup implementeren.
+3. Deploy Veritas NetBackup.
 
 Elke stap wordt besproken in de volgende secties.
 
@@ -292,7 +292,7 @@ Op basis van de voorgaande veronderstellingen, maak een 26-TiB StorSimple gelaag
 
 De volgende afbeelding ziet u de toewijzing van een typische volume naar een back-uptaak. In dit geval alle wekelijkse back-ups worden toegewezen aan de volledige schijf zaterdag en de incrementele back-ups worden toegewezen aan incrementele schijven van maandag tot en met vrijdag. Alle back-ups en herstelbewerkingen van een storsimple-oplossing zijn een gelaagd volume.
 
-![Primaire back-updoel configuratie logisch diagram ](./media/storsimple-configure-backup-target-using-netbackup/primarybackuptargetdiagram.png)
+![Primaire back-updoel configuratie logisch diagram](./media/storsimple-configure-backup-target-using-netbackup/primarybackuptargetdiagram.png)
 
 ### <a name="storsimple-as-a-primary-backup-target-gfs-schedule-example"></a>StorSimple als primaire back-updoel algemene voorbeeld plannen
 
@@ -300,7 +300,7 @@ Hier volgt een voorbeeld van een algemene rotatieschema vier weken, maandelijkse
 
 | Frequentie/back-up-type | Volledig | Incrementele (dagen 1-5)  |   
 |---|---|---|
-| Wekelijks (weken 1-4) | zaterdag | Maandag tot vrijdag |
+| Wekelijks (weken 1-4) | zaterdag | Monday-Friday |
 | Maandelijks  | zaterdag  |   |
 | Per jaar | zaterdag  |   |   |
 
@@ -403,13 +403,13 @@ De volgende tabel laat zien hoe het instellen van back-ups uit te voeren op de l
 \* Totale capaciteit omvat 17 TiB van StorSimple-schijven en 1 TiB aan lokale RAID-volume.
 
 
-### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Algemene voorbeeldschema: algemene rotatie wekelijkse, maandelijkse en jaarlijkse planning
+### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Algemene voorbeeldschema: Algemene rotatie wekelijkse, maandelijkse en jaarlijkse planning
 
 | Wekelijks | Volledig | Incrementele dag 1 | Incrementele dag 2 | Incrementele dag 3 | Incrementele dag 4 | Incrementele dag 5 |
 |---|---|---|---|---|---|---|
-| 1 week | Lokale RAID-volume  | Lokale RAID-volume | Lokale RAID-volume | Lokale RAID-volume | Lokale RAID-volume | Lokale RAID-volume |
-| Week van 2 | StorSimple weken 2-4 |   |   |   |   |   |
-| Week van 3 | StorSimple weken 2-4 |   |   |   |   |   |
+| Week 1 | Lokale RAID-volume  | Lokale RAID-volume | Lokale RAID-volume | Lokale RAID-volume | Lokale RAID-volume | Lokale RAID-volume |
+| Week 2 | StorSimple weken 2-4 |   |   |   |   |   |
+| Week 3 | StorSimple weken 2-4 |   |   |   |   |   |
 | Week 4 | StorSimple weken 2-4 |   |   |   |   |   |
 | Maandelijks | Maandelijks StorSimple |   |   |   |   |   |
 | Per jaar | StorSimple jaarlijks  |   |   |   |   |   |   |

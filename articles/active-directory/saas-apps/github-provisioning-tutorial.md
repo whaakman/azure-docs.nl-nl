@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac25473ecce86c2721eda9ede01b6d299c4b727b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 31f10ba0c04ccbd9f52b95c43fea7cc551fe64ee
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179328"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888012"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Zelfstudie: GitHub voor het automatisch inrichten van gebruikers configureren
 
@@ -33,11 +33,11 @@ Het doel van deze zelfstudie is om weer te geven u de stappen die u uitvoeren in
 Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende items hebt:
 
 *   Een Azure Active directory-tenant
-*   Een GitHub-tenant met de [zakelijke Cloud-plan](https://help.github.com/articles/organization-billing-plans/#github-business-cloud) of beter ingeschakeld 
-*   Een gebruikersaccount in GitHub met beheerdersmachtigingen 
+*   Een GitHub-organisatie, gemaakt in [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise), waarvoor een [GitHub Enterprise-abonnement](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations) vereist is
+*   Een gebruikersaccount in GitHub met beheerdersmachtigingen voor de organisatie
 
 > [!NOTE]
-> De integratie wordt ingericht op Azure AD is afhankelijk van de [GitHub SCIM API](https://developer.github.com/v3/scim/), die beschikbaar zijn voor GitHub-teams van het plan zakelijke of hoger is.
+> De integratie wordt ingericht op Azure AD is afhankelijk van de [GitHub SCIM API](https://developer.github.com/v3/scim/), die kan worden [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) klanten op de [GitHub Enterprise abonnement](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations) .
 
 ## <a name="assigning-users-to-github"></a>Gebruikers toewijzen aan GitHub
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 0b3128184942dbc750ea54bd7156c6e79b8bedea
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: ee2917c64843c8ab137e0122d63a328d6c19fedb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804838"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867572"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure Import/Export-service: veelgestelde vragen 
 Hier volgen vragen en antwoorden die u hebt wanneer u uw Azure Import/Export-service voor het overbrengen van gegevens naar Azure storage. De vragen en antwoorden zijn in de volgende categorieën onderverdeeld:
@@ -138,7 +138,7 @@ Nee. Het hulpprogramma WAImportExport is alleen compatibel met 64-bits Windows-b
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Wat is de maximale blok-Blob en het formaat van pagina-Blob ondersteund door Azure Import/Export?
 
 Blok-Blob voor maximale grootte is ongeveer 4.768TB of 5.000.000 MB.
-Max Page Blob-grootte is 1TB.
+Max Page Blob-grootte is 8TB.
 
 
 ### <a name="does-azure-importexport-support-aes-256-encryption"></a>Azure Import/Export biedt ondersteuning voor AES-256-codering?

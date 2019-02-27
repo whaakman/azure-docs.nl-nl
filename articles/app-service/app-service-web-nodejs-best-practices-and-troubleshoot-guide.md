@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: aad31e72682e15c49fb3d6dce64e7ef46525cb66
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 6a22600f7d6653da64256d7ec63ba26f272b2184
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051849"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888267"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Aanbevolen procedures en gids voor probleemoplossing voor knooppunttoepassingen in Azure App Service-Windows
 
@@ -90,7 +90,7 @@ Naast dit moet voor het streamen van toepassingen, u ook instellen responseBuffe
 
 ### <a name="watchedfiles"></a>watchedFiles
 
-Een door puntkomma's gescheiden lijst met bestanden die worden gevolgd voor wijzigingen. Elke wijziging in een bestand zorgt ervoor dat de toepassing worden gerecycled. Elke vermelding bestaat uit een optionele mapnaam, evenals een vereist bestandsnaam, die zijn ten opzichte van de map waarin het toegangspunt van het hoofdvenster van de toepassing zich bevindt. Jokertekens zijn toegestaan in het bestand alleen naamgedeelte. De standaardwaarde is `*.js;web.config`
+Een door puntkomma's gescheiden lijst met bestanden die worden gevolgd voor wijzigingen. Elke wijziging in een bestand zorgt ervoor dat de toepassing worden gerecycled. Elke vermelding bestaat uit een optionele mapnaam, evenals een vereist bestandsnaam, die zijn ten opzichte van de map waarin het toegangspunt van het hoofdvenster van de toepassing zich bevindt. Jokertekens zijn toegestaan in het bestand alleen naamgedeelte. De standaardwaarde is `*.js;iisnode.yml`
 
 ### <a name="recyclesignalenabled"></a>recycleSignalEnabled
 
@@ -179,7 +179,7 @@ Ga naar de map site/wwwroot. Zoals wordt weergegeven in het volgende voorbeeld z
 
 ![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_install_v8.png)
 
-Voer de opdracht `npm install v8-profiler`.
+Voer de opdracht `npm install v8-profiler` uit.
 
 Met deze opdracht installeert de v8-profiler onder het knooppunt\_modules map en alle bijbehorende afhankelijkheden.
 Nu uw server.js wilt profileren van uw toepassing bewerken.
@@ -283,6 +283,6 @@ Volg deze koppelingen voor meer informatie over de node.js-toepassingen in Azure
 * [Aan de slag met Node.js-web-apps in Azure App Service](app-service-web-get-started-nodejs.md)
 * [Fouten opsporen in een Node.js web-app in Azure App Service](app-service-web-tutorial-nodejs-mongodb-app.md)
 * [Node.js-modules gebruiken met Azure-toepassingen](../nodejs-use-node-modules-azure-apps.md)
-* [Azure App Service WebApps: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
+* [Azure App Service Web Apps: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Node.js Developer Center](../nodejs-use-node-modules-azure-apps.md)
 * [De geheimen van de Kudu-console voor foutopsporing](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)

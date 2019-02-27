@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.openlocfilehash: 796cbcfc7ab905c54b878a5ccc866efbf9242fb6
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: d44dc7e7a7b3c63012518c3e854270555f469247
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652078"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873709"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Overzicht van Apache Spark-Streaming
 
@@ -34,7 +34,7 @@ Beginnen met één gebeurtenis, een temperatuur lezen van een verbonden thermost
 
 Elke RDD gebeurtenissen die worden verzameld via een gebruiker gedefinieerde periode met de naam vertegenwoordigt de *batch interval*. Omdat elk batch-interval is verstreken, wordt met alle gegevens uit dat het interval voor een nieuwe RDD geproduceerd. De continue reeks rdd's worden verzameld in een DStream. Bijvoorbeeld, als het batch-interval 1 seconde lang is, verzendt uw DStream een batch elke tweede met één RDD met alle gegevens die zijn opgenomen in die seconde. Bij het verwerken van de DStream, wordt de gebeurtenis temperatuur weergegeven in een van deze batches. Een toepassing voor Spark Streaming verwerkt de batches die de gebeurtenissen bevatten en uiteindelijk omgaat met de gegevens die zijn opgeslagen in elke RDD.
 
-![Voorbeeld DStream met temperatuur-gebeurtenissen ](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-example.png)
+![Voorbeeld DStream met temperatuur-gebeurtenissen](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-example.png)
 
 ## <a name="structure-of-a-spark-streaming-application"></a>Structuur van een toepassing met Spark Streaming
 

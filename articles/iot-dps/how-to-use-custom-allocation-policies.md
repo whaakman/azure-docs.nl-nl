@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 0229b83a1b19e422954879ea9660373a34b18002
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 4c02df5684036aef078b0f79c70d3b66d60e013b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340047"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881512"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Het gebruik van aangepaste toewijzingsbeleid
 
@@ -100,7 +100,7 @@ In deze sectie maakt u een nieuwe registratiegroep die gebruikmaakt van de aange
 
     **Type Attestation**: Selecteer **symmetrische sleutel**.
 
-    **Automatisch sleutels genereren**: Dit selectievakje moet nog worden gecontroleerd.
+    **Sleutels automatisch genereren**: Dit selectievakje moet nog worden gecontroleerd.
 
     **Selecteer de gewenste apparaten toewijzen aan hubs**: Selecteer **aangepast (Gebruik de Azure-functie)**.
 
@@ -555,7 +555,7 @@ Verwijderen van de resourcegroep met de naam:
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie voor meer meer Reprovisioning [reprovisoning concepten van IoT Hub-apparaat](concepts-device-reprovision.md) 
-- Zie voor meer meer opheffen van inrichting [hoe u de inrichting van apparaten die zijn eerder automatisch ingericht ](how-to-unprovision-devices.md) 
+- Zie voor meer meer opheffen van inrichting [hoe u de inrichting van apparaten die zijn eerder automatisch ingericht](how-to-unprovision-devices.md) 
 
 
 

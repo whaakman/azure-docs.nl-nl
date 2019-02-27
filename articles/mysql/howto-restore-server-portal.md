@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: e1545e830ac04000920c3881486b2add79744201
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: d76a644de8cb55da5e743e482d14946d371c3dfe
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548864"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867224"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Het back-up en herstellen van een server in Azure Database voor MySQL met behulp van de Azure-portal
 
@@ -61,7 +61,7 @@ De volgende stappen wordt de voorbeeldserver hersteld naar een punt-in-time:
 
 3. Vul het formulier herstellen met de vereiste gegevens in:
 
-   ![Azure Database voor MySQL - gegevens herstellen ](./media/howto-restore-server-portal/3-restore.png)
+   ![Azure Database voor MySQL - gegevens herstellen](./media/howto-restore-server-portal/3-restore.png)
    - **Herstelpunt**: Selecteer de point-in-time-u wilt herstellen.
    - **Doelserver**: Geef een naam voor de nieuwe server.
    - **Locatie**: U kunt de regio niet selecteren. Het is standaard hetzelfde als de bronserver.

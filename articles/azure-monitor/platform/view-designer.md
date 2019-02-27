@@ -1,6 +1,6 @@
 ---
-title: Weergaven voor het analyseren van gegevens in Azure Log Analytics maken | Microsoft Docs
-description: Met behulp van ontwerper in Log Analytics, kunt u aangepaste weergaven die worden weergegeven in de Azure-portal en bevatten een verscheidenheid aan visualisaties van zoekgegevens in de Log Analytics-werkruimte maken. In dit artikel bevat een overzicht van de Weergaveontwerper en biedt procedures voor het maken en bewerken van aangepaste weergaven.
+title: Maak weergaven die voor het analyseren van logboekgegevens in Azure Monitor | Microsoft Docs
+description: Met behulp van Designer bekijken in Azure Monitor, kunt u aangepaste weergaven die worden weergegeven in de Azure-portal en bevatten een aantal visualisaties op de gegevens in de Log Analytics-werkruimte maken. In dit artikel bevat een overzicht van de Weergaveontwerper en biedt procedures voor het maken en bewerken van aangepaste weergaven.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,15 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: ec56e21a989fb0e8db7b8bafb1357c6ed64eae75
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1996befa78409e572798a9043f7e6ee3b6f647bc
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192244"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887898"
 ---
-# <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Aangepaste weergaven maken met behulp van de Weergaveontwerper in Log Analytics
-Met behulp van de Weergaveontwerper in [Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md), kunt u tal van aangepaste weergaven maken in Azure portal kunt u visualiseren van gegevens in uw Log Analytics-werkruimte. In dit artikel geeft een overzicht van de Weergaveontwerper en procedures voor het maken en bewerken van aangepaste weergaven.
+# <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Aangepaste weergaven maken met behulp van Designer bekijken in Azure Monitor
+Met behulp van Designer bekijken in Azure Monitor, kunt u tal van aangepaste weergaven maken in Azure portal waarmee u gegevens visualiseren in uw Log Analytics-werkruimte kunt. In dit artikel geeft een overzicht van de Weergaveontwerper en procedures voor het maken en bewerken van aangepaste weergaven.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Zie voor meer informatie over Designer bekijken:
 
@@ -30,7 +32,7 @@ Zie voor meer informatie over Designer bekijken:
 
 
 ## <a name="concepts"></a>Concepten
-Weergaven worden weergegeven op de **overzicht** pagina van uw Log Analytics-werkruimte in de Azure-portal. De tegels in elke aangepaste weergave op alfabetische volgorde worden weergegeven, en de tegels voor de oplossingen die zijn geïnstalleerd dezelfde werkruimte.
+Weergaven worden weergegeven in de Azure Monitor **overzicht** pagina in de Azure portal. Open deze pagina van de **Azure Monitor** menu door te klikken op **meer** onder de **Insights** sectie. De tegels in elke aangepaste weergave op alfabetische volgorde worden weergegeven, en de tegels voor de bewakingsoplossingen zijn geïnstalleerd dezelfde werkruimte.
 
 ![Overzichtspagina](media/view-designer/overview-page.png)
 
@@ -38,9 +40,9 @@ De weergaven die u met de Weergaveontwerper maakt bevatten de elementen die word
 
 | Onderdeel | Description |
 |:--- |:--- |
-| Tegels | Worden weergegeven in uw Log Analytics-werkruimte **overzicht** pagina. Elke tegel geeft een visueel overzicht van de aangepaste weergave vertegenwoordigt. Elk tegeltype biedt een andere visualisatie van uw records. U selecteert een tegel om een aangepaste weergave weer te geven. |
+| Tegels | Worden weergegeven op uw Azure-Monitor **overzicht** pagina. Elke tegel geeft een visueel overzicht van de aangepaste weergave vertegenwoordigt. Elk tegeltype biedt een andere visualisatie van uw records. U selecteert een tegel om een aangepaste weergave weer te geven. |
 | Aangepaste weergave | Weergegeven wanneer u een tegel selecteert. Elke weergave bevat een of meer onderdelen van de visualisatie. |
-| Visualisatie delen | Een visualisatie van gegevens in de Log Analytics-werkruimte op basis van een of meer presenteren [zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md). De meeste onderdelen zijn een koptekst, waarmee u een visualisatie op hoog niveau, en een lijst waarin de belangrijkste resultaten worden weergegeven. Elk onderdeeltype biedt een andere visualisatie van de records in de Log Analytics-werkruimte. U selecteren elementen in het gedeelte om uit te voeren van een logboekzoekopdracht die gedetailleerde records bevat. |
+| Visualisatie delen | Een visualisatie van gegevens in de Log Analytics-werkruimte op basis van een of meer presenteren [query's bijgehouden](../log-query/log-query-overview.md). De meeste onderdelen zijn een koptekst, waarmee u een visualisatie op hoog niveau, en een lijst waarin de belangrijkste resultaten worden weergegeven. Elk onderdeeltype biedt een andere visualisatie van de records in de Log Analytics-werkruimte. U selecteren elementen in het gedeelte om uit te voeren een query voor waarmee gedetailleerde records. |
 
 
 ## <a name="work-with-an-existing-view"></a>Werken met een bestaande weergave
@@ -53,7 +55,7 @@ De opties worden in de volgende tabel beschreven:
 | Optie | Description |
 |:--|:--|
 | Vernieuwen   | Hiermee vernieuwt u de weergave met de meest recente gegevens. | 
-| Analyse | Hiermee opent u de [portal Advanced Analytics](../../azure-monitor/log-query/portals.md) voor het analyseren van gegevens met Logboeken-query's. |
+| Logboeken      | Hiermee opent u de [Log Analytics](../log-query/portals.md) voor het analyseren van gegevens met Logboeken-query's. |
 | Bewerken       | Hiermee opent de weergave in de Designer bekijken om te bewerken van de inhoud en configuratie.  |
 | Klonen      | Hiermee maakt u een nieuwe weergave en wordt deze geopend in de ontwerper. De naam van de nieuwe weergave is hetzelfde als de oorspronkelijke naam, maar met *kopie* hieraan toegevoegd. |
 | Datumbereik | De datum en tijd bereikfilter instellen voor de gegevens die zijn opgenomen in de weergave. Deze datumbereik is toegepast voordat een datumbereiken instellen in query's in de weergave.  |

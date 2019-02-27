@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: manayar
-ms.openlocfilehash: 4e6186310f63fde8648ded03a62b207b5f81a8e2
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 71899a9d6782c4700c287458c85ec83bd1516a4b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984797"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873624"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Wijzigen van een virtuele-machineschaalset
 
@@ -316,7 +316,7 @@ Voor het bijwerken van bestaande VM's, moet u een 'handmatige upgrade' van elke 
 - U kunt ook de taalspecifieke [Azure-SDK's](https://azure.microsoft.com/downloads/).
 
 >[!NOTE]
-> Service Fabric-clusters kunnen alleen worden gebruikt *automatische* modus, maar de update wordt verwerkt. Zie voor meer informatie, [ upgrades van de Service Fabric-toepassingen](../service-fabric/service-fabric-application-upgrade.md).
+> Service Fabric-clusters kunnen alleen worden gebruikt *automatische* modus, maar de update wordt verwerkt. Zie voor meer informatie, [upgrades van de Service Fabric-toepassingen](../service-fabric/service-fabric-application-upgrade.md).
 
 Er is een type wijziging op wereldwijde schaal seteigenschappen die niet aan het beleid voor upgrades voldoet. Wijzigingen in de schaalset Besturingssysteemprofiel (zoals admin-gebruikersnaam en wachtwoord) kan alleen worden gewijzigd in API-versie *2017-12-01* of hoger. Deze wijzigingen zijn alleen van toepassing op virtuele machines die na de wijziging in het schaalsetmodel worden gemaakt. Om bestaande VM's bijgewerkt, moet u een 'installatiekopie' van elke bestaande VM doen. U kunt deze terugzetten via doen:
 

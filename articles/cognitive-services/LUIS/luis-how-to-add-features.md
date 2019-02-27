@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: diberry
-ms.openlocfilehash: f3376b8077302eb6bd9a96710f92d692b641cac4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0723c3730ca0ae6325d828fbb5f41698cb807dd3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866777"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874882"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Gebruik woordgroep lijsten moeten worden boost signaal van de lijst met woorden
 
@@ -44,7 +44,7 @@ LUIS kunt u maximaal 10 woordgroep lijsten per app.
 
 5. Klik op **deze waarden zijn verwisselbaar** als de waarden van de lijst met toegevoegde woordgroep alternatieven die door elkaar kunnen worden gebruikt.
 
-    ![Lijst met voorgestelde waarden woordgroep - uitwisselbaar box selecteren ](./media/luis-add-features/interchangeable.png)
+    ![Lijst met voorgestelde waarden woordgroep - uitwisselbaar box selecteren](./media/luis-add-features/interchangeable.png)
 
 6. Klik op **Opslaan**. De woordgroep "Steden" lijst wordt toegevoegd aan de **lijsten woordgroep** pagina.
 

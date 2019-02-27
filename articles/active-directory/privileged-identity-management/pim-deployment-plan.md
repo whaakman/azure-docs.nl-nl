@@ -14,12 +14,12 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54fa8d09d930069191fb48e0ab015d436496b725
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fb675778d899d6f4cec22de8a1c81fdae76ba17e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166399"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879761"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Azure AD Privileged Identity Management (PIM) implementeren
 
@@ -61,9 +61,9 @@ Zie voor meer informatie, [licentie-vereisten voor het gebruik van PIM](subscrip
 | Term of concept | Description |
 | --- | --- |
 | in aanmerking komend | Een roltoewijzing die vereist dat een gebruiker een of meer acties uitvoert om de rol te kunnen gebruiken. Als een gebruiker in aanmerking komt voor een rol, betekent dit dat de gebruiker de rol kan activeren wanneer deze nodig is om bevoegde taken uit te voeren. Er is geen verschil in de toegang voor iemand met een permanente roltoewijzing ten opzichte van iemand die in aanmerking komt voor een roltoewijzing. Het enige verschil is dat sommige gebruikers niet voortdurend toegang nodig hebben. |
-| activeren | Het proces van het uitvoeren van een of meer acties voor het gebruik van een rol die in aanmerking komen voor de gebruiker is. Acties kunnen bijvoorbeeld een meervoudige verificatiecontrole, het opgeven van een zakelijke reden of het vragen om toestemming bij aangewezen fiatteurs zijn. |
-| toegang met Just in time (JIT) | Een model waarin gebruikers ontvangen tijdelijke machtigingen voor het uitvoeren van bevoorrechte taken, waarmee wordt voorkomen schadelijke of niet-gemachtigde gebruikers toegang krijgen dat nadat de machtigingen zijn verlopen. Toegang is verleend, alleen wanneer gebruikers ze nodig hebt. |
-| principe van minimale bevoegdheden toegang | Een aanbevolen beveiligingsprocedure waarbij elke gebruiker is opgegeven met alleen de minimale bevoegdheden die nodig zijn om uit te voeren van de taken die ze gemachtigd zijn om uit te voeren. Met deze procedure minimaliseert het aantal globale beheerders en bepaalde beheerdersrollen in plaats daarvan gebruikt voor bepaalde scenario's. |
+| activeren | Het proces van het uitvoeren van een of meer acties om de rol te kunnen gebruiken waarvoor de gebruiker in aanmerking komt. Acties kunnen bijvoorbeeld een meervoudige verificatiecontrole, het opgeven van een zakelijke reden of het vragen om toestemming bij aangewezen fiatteurs zijn. |
+| Just-in-time-toegang (JIT) | Een model waarbij gebruikers tijdelijke machtigingen ontvangen om bepaalde taken uit te mogen voeren, waardoor kwaadwillende of onbevoegde gebruikers geen toegang kunnen krijgen na het verlopen van deze machtigingen. Toegang wordt alleen verleend wanneer gebruikers deze nodig hebben. |
+| Principe van toegang met minimale bevoegdheden | Een aanbevolen beveiligingsprocedure waarbij alle gebruikers enkel de minimale bevoegdheden krijgt toegewezen die nodig zijn om de taken uit te voeren waarvoor ze bevoegd zijn. Met deze procedure wordt het aantal globale beheerders tot het minimum beperkt en worden er specifieke beheerdersrollen gebruikt voor bepaalde scenario's. |
 
 Zie voor meer informatie, [terminologie](pim-configure.md#terminology).
 
@@ -120,7 +120,7 @@ De volgende sectie helpt u identificeren van de betrokkenen die bij het project 
 
 Als onderdeel van het planningsproces, moet u eerst toestemming geven en PIM inschakelen door onze [starten met PIM-document](pim-getting-started.md). PIM inschakelen, geeft u toegang tot sommige functies die speciaal zijn ontworpen om te helpen bij uw implementatie.
 
-Als het doel is om te implementeren PIM voor Azure-resources, moet u onze [detecteren van Azure-resources te beheren in PIM-document](pim-resource-roles-discover-resources.md). Alleen eigenaars van elke resource, resourcegroep en abonnement zich voor het detecteren van deze in PIM. Als u een globale beheerder bent bij het PIM implementeren voor uw Azure-resources, kunt u [toegangsrechten voor het beheren van alle Azure-abonnementen ](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) zelf toegang geven tot alle Azure-resources in de map voor detectie. Echter, we adviseren dat u goedkeuring van elk van de eigenaars van uw abonnementen voordat hun resources beheren met PIM ophalen.
+Als het doel is om te implementeren PIM voor Azure-resources, moet u onze [detecteren van Azure-resources te beheren in PIM-document](pim-resource-roles-discover-resources.md). Alleen eigenaars van elke resource, resourcegroep en abonnement zich voor het detecteren van deze in PIM. Als u een globale beheerder bent bij het PIM implementeren voor uw Azure-resources, kunt u [toegangsrechten voor het beheren van alle Azure-abonnementen](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) zelf toegang geven tot alle Azure-resources in de map voor detectie. Echter, we adviseren dat u goedkeuring van elk van de eigenaars van uw abonnementen voordat hun resources beheren met PIM ophalen.
 
 ### <a name="enforce-principle-of-least-privilege"></a>Principe van minimale bevoegdheden afdwingen
 
@@ -161,7 +161,7 @@ Toegangsbeoordelingen zijn afhankelijk van e-mailberichten mensen om te controle
 
 Voor Azure-abonnementen en resources, kunt u een soortgelijk proces uit Access controle instellen om te controleren van de rollen in elk abonnement of resourcegroep. Het doel van dit proces is om te minimaliseren, eigenaar en beheerder van gebruikerstoegang toewijzingen die zijn gekoppeld aan elk abonnement en de bron evenals garantie voor verwijderen van onnodige toewijzingen. Echter, organisaties vaak dergelijke taken delegeren aan de eigenaar van elk abonnement of resourcegroep omdat ze hebben een beter begrip van de specifieke rollen (met name aangepaste rollen).
 
-Als u een IT-beheerder met de rol globale beheerder bij het PIM voor Azure-resources in uw organisatie implementeert, kunt u [toegangsrechten voor het beheren van alle Azure-abonnementen ](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) toegang te krijgen tot elk abonnement. U kunt vervolgens de eigenaar van elk abonnement vinden en werken met ze voor het verwijderen van onnodige toewijzingen en roltoewijzing eigenaar minimaliseren.
+Als u een IT-beheerder met de rol globale beheerder bij het PIM voor Azure-resources in uw organisatie implementeert, kunt u [toegangsrechten voor het beheren van alle Azure-abonnementen](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) toegang te krijgen tot elk abonnement. U kunt vervolgens de eigenaar van elk abonnement vinden en werken met ze voor het verwijderen van onnodige toewijzingen en roltoewijzing eigenaar minimaliseren.
 
 Gebruikers met de rol van eigenaar voor een Azure-abonnement kunnen ook gebruikmaken van [toegangsbeoordelingen voor Azure-resources](pim-resource-roles-start-access-review.md) controleren en verwijderen van onnodige roltoewijzingen die vergelijkbaar is met het proces dat eerder is beschreven voor Azure AD-rollen.
 

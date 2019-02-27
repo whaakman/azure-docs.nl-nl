@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 01/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 76e25c04afbce215028699d54cb6022f0caeced5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: aa4c4beacd6f6755c1e5ce56f70dcf5a74166c80
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118238"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880237"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Vereisten voor Azure Disk Encryption (vorige versie)
 
@@ -232,7 +232,7 @@ Voor het uitvoeren van de volgende opdrachten, halen en gebruik de [Azure AD Pow
 
 ### <a name="bkmk_ADappCLI"></a> Instellen van een Azure AD-app en service principal met de Azure CLI
 
-U kunt uw service-principals met Azure CLI met beheren de [az ad sp](/cli/azure/ad/sp) opdrachten. Zie voor meer informatie, [een Azure-service-principal maken ](/cli/azure/create-an-azure-service-principal-azure-cli).
+U kunt uw service-principals met Azure CLI met beheren de [az ad sp](/cli/azure/ad/sp) opdrachten. Zie voor meer informatie, [een Azure-service-principal maken](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 1. Indien nodig, [verbinding maken met uw Azure-abonnement](azure-security-disk-encryption-appendix.md#bkmk_ConnectCLI).
 2. Maak een nieuwe serviceprincipal.
@@ -293,7 +293,7 @@ Gebruik [az keyvault-beleid instellen](/cli/azure/keyvault#az-keyvault-set-polic
 
 ![Azure Key Vault cryptografische bewerkingen - sleutel Inpakken](./media/azure-security-disk-encryption/keyvault-portal-fig3.png)
 
-![Azure Key Vault-geheim machtigingen - instellen ](./media/azure-security-disk-encryption/keyvault-portal-fig3b.png)
+![Azure Key Vault-geheim machtigingen - instellen](./media/azure-security-disk-encryption/keyvault-portal-fig3b.png)
 
 ## <a name="bkmk_KVper"></a> Geavanceerde toegangsbeleid voor sleutelkluis instellen
 Het Azure-platform moet toegang hebben tot de sleutels of geheimen in uw key vault zodat ze beschikbaar voor de virtuele machine voor opstarten en ontsleutelen van de volumes. Schijf-versleuteling inschakelen voor de sleutelkluis of implementaties mislukken.  

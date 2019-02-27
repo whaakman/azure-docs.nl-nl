@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial;anavin
-ms.openlocfilehash: a2d799a85932f8b7fdf1f6ae53dc50579c266311
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 52c0799dd2f3c22b1ae3553869aafe9a1fcffc7f
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674510"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887927"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Maken, wijzigen of een virtueel netwerk-peering verwijderen
 
@@ -71,7 +71,7 @@ Zie voor stapsgewijze instructies voor het implementeren van peering tussen virt
 
 ### <a name="commands"></a>Opdrachten
 
-- **Azure CLI**: [az network vnet-peering maken](/cli/azure/network/vnet/peering#create)
+- **Azure CLI**: [az network vnet-peering maken](/cli/azure/network/vnet/peering)
 - **PowerShell**: [Add-AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering)
 
 ## <a name="view-or-change-peering-settings"></a>Weergeven of wijzigen van instellingen van peering
@@ -88,7 +88,7 @@ Voordat u een peering, raken met de vereisten en beperkingen en [benodigde macht
 
 **Opdrachten**
 
-- **Azure CLI**: [az network vnet peering list](/cli/azure/network/vnet/peering) aan lijst peerings voor een virtueel netwerk, [az network vnet peering show](/cli/azure/network/vnet/peering#az_network_vnet_peering_show) om instellingen voor een specifieke peering weer te geven en [az-netwerk vnet peering update](/cli/azure/network/vnet/peering#az_network_vnet_peering_update) peering-instellingen te wijzigen. |
+- **Azure CLI**: [az network vnet peering list](/cli/azure/network/vnet/peering) aan lijst peerings voor een virtueel netwerk, [az network vnet peering show](/cli/azure/network/vnet/peering) om instellingen voor een specifieke peering weer te geven en [az-netwerk vnet peering update](/cli/azure/network/vnet/peering) peering-instellingen te wijzigen. |
 - **PowerShell**: [Get-AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering) peering weergave-instellingen op te halen en [Set AzVirtualNetworkPeering](/powershell/module/az.network/set-azvirtualnetworkpeering) om instellingen te wijzigen.
 
 ## <a name="delete-a-peering"></a>Een peering verwijderen
@@ -97,7 +97,7 @@ Voordat u een peering te verwijderen, moet uw account heeft de [benodigde machti
 
 Wanneer een peering wordt verwijderd, wordt verkeer van een virtueel netwerk niet langer stroomt naar het gekoppelde virtuele netwerk. Wanneer virtuele netwerken die zijn geïmplementeerd via Resource Manager zijn gekoppeld, heeft elk virtueel netwerk een peering voor het virtuele netwerk. Hoewel de peering van een virtueel netwerk verwijderen, schakelt de communicatie tussen de virtuele netwerken, worden niet verwijderd de peering vanuit het virtuele netwerk. De peeringstatus voor de peering die deel uitmaakt van het virtuele netwerk **verbroken**. U de peering niet opnieuw totdat u opnieuw maken van de peering in het eerste virtuele netwerk en de peeringstatus van beide virtuele netwerken wijzigingen in *verbonden*.
 
-Als u virtuele netwerken om te communiceren soms, maar niet altijd, in plaats van een peering te verwijderen, kunt u instellen de **toestaan van toegang tot het virtuele netwerk** instelt op **uitgeschakelde** in plaats daarvan. Voor meer informatie over hoe lezen in stap 6 van de [maken van een peering](#create-a-peering) sectie van dit artikel. Mogelijk vindt u uitschakelen en verwijderen en opnieuw maken van peerings gemakkelijker dan netwerktoegang in te schakelen.
+Als u virtuele netwerken om te communiceren soms, maar niet altijd, in plaats van een peering te verwijderen, kunt u instellen de **toestaan van toegang tot het virtuele netwerk** instelt op **uitgeschakelde** in plaats daarvan. Voor meer informatie over hoe een peering sectie van dit artikel lezen in stap 6 van de maken. Mogelijk vindt u uitschakelen en verwijderen en opnieuw maken van peerings gemakkelijker dan netwerktoegang in te schakelen.
 
 1. Voer in het zoekvak boven aan de portal, *virtuele netwerken* in het zoekvak in. Wanneer **virtuele netwerken** worden weergegeven in de lijst met zoekresultaten, selecteert u deze. Schakel niet **virtuele netwerken (klassiek)** als deze wordt weergegeven in de lijst, zoals u kunt geen maken een peering van een virtueel netwerk dat is geïmplementeerd via het klassieke implementatiemodel.
 2. Selecteer het virtuele netwerk in de lijst die u verwijderen van een peering wilt voor.

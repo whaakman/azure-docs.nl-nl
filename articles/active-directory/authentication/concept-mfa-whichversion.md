@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fb7785487fc79daca56e35ce0c6a19efd5b0605
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: edfc26355933db549b735c4baf9744744f46734c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195750"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870464"
 ---
 # <a name="which-version-of-azure-mfa-is-right-for-my-organization"></a>Welke versie van Azure MFA is geschikt voor mijn organisatie?
 
@@ -38,7 +38,7 @@ Als u wilt bepalen welke de juiste verificatie in twee stappen verificatie-oplos
 | SaaS-apps in de app-galerie |● |  |
 | Webtoepassingen die zijn gepubliceerd via de toepassingsproxy van Azure AD |● |  |
 | IIS-toepassingen die niet zijn gepubliceerd via toepassingsproxy van Azure AD | |● |
-| Externe toegang zoals VPN, RDG | ● | ● |
+| Externe toegang zoals VPN, RDG met behulp van de NPS-extensie of een bestaande NPS-Server | ● | ● |
 
 ## <a name="where-are-the-users-located"></a>Waar bevinden de gebruikers zich?
 

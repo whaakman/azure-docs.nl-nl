@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 8bcb00029acbe8c64e29addbc9291a694f1de98b
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 4aa18ae791e5fa573eae76d5bdb9c45b9311e6b5
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267714"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888080"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Application Insights instellen: Bijhouden van afhankelijkheid
 Een *afhankelijkheid* is een externe component die wordt aangeroepen door uw app. Het is doorgaans een service die wordt aangeroepen met behulp van HTTP, of een database of een bestandssysteem. [Application Insights](../../azure-monitor/app/app-insights-overview.md) meet hoe lang de toepassing moet wachten voor afhankelijkheden en hoe vaak een afhankelijkheidsaanroep is mislukt. U kunt specifieke aanroepen te onderzoeken en koppelen aan aanvragen en uitzonderingen.
@@ -50,7 +50,7 @@ Gedeeltelijke afhankelijkheidsgegevens worden verzameld, automatisch door de [Ap
 
 ## <a name="where-to-find-dependency-data"></a>Waar vind ik afhankelijkheidsgegevens
 * [Overzicht van de toepassing](#application-map) worden gevisualiseerd met afhankelijkheden tussen uw app en door in aangrenzende onderdelen.
-* [Prestaties, browser en de fout blades](#performance-and-blades) server afhankelijkheidsgegevens weergeven.
+* [Prestaties, browser en de fout blades](#performance-and-failure-blades) server afhankelijkheidsgegevens weergeven.
 * [Blade browsers](#ajax-calls) AJAX-aanroepen van de browsers van uw gebruikers bevat.
 * Klik op traag of mislukte aanvragen om te controleren op hun afhankelijkheidsaanroepen.
 * [Analytics](#analytics) kan worden gebruikt om gegevens van de afhankelijkheid opvragen.

@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 0cffb4fdff4bddc33c6938e27425035c929808b7
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 5afd5020b060961d215b922c9e49466b73f2a69e
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301924"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889882"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Automatische failover-groepen gebruiken voor het inschakelen van transparante en gecoördineerd failover van meerdere databases
 
@@ -129,6 +129,18 @@ Voor het bereiken van echte zakelijke continuïteit, toe te voegen databaseredun
 
   > [!IMPORTANT]
   > Beheerd exemplaar biedt geen ondersteuning voor meerdere failover-groepen.
+  
+## <a name="permissions"></a>Machtigingen
+Machtigingen voor een failovergroep worden beheerd via [op rollen gebaseerd toegangsbeheer (RBAC)](../role-based-access-control/overview.md). De [Inzender voor SQL Server](../role-based-access-control/built-in-roles.md#sql-server-contributor) rol bevat alle benodigde machtigingen om failover-groepen te beheren. 
+
+### <a name="create-failover-group"></a>Failover-groep maken
+Als u wilt een failovergroep maakt, moet u toegang voor RBAC schrijven naar de primaire en secundaire servers, en tot alle databases in de failovergroep. Voor een beheerd exemplaar, moet u RBAC schrijftoegang heeft tot zowel de primaire en secundaire beheerd exemplaar, maar machtigingen voor afzonderlijke databases zijn niet relevant omdat beheerd exemplaar voor afzonderlijke databases kunnen niet worden toegevoegd aan of verwijderd uit een failovergroep. 
+
+### <a name="update-a-failover-group"></a>Een failovergroep bijwerken
+Voor het bijwerken van een failovergroep, moet u RBAC schrijftoegang tot de failovergroep en alle databases op de huidige primaire server of het beheerde exemplaar.  
+
+### <a name="failover-a-failover-group"></a>Failover van een failovergroep
+Voor een failover-groep met failover, moet RBAC schrijftoegang tot de failovergroep op de nieuwe primaire server of beheerd exemplaar. 
 
 ## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>Aanbevolen procedures van het gebruik van failover-groepen met individuele databases en elastische pools
 

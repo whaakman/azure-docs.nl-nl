@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: a73dab8a0df642e439e8519c404423c6689418f5
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: c62560d2f80375a725464607f38b9e8adf221d16
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236971"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875596"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup oplossen: Problemen met de agent of de extensie
 
@@ -225,7 +225,7 @@ Uitvoeren van deze stappen zorgt ervoor dat de uitbreiding moet worden geïnstal
 3. In de **instellingen** sectie, selecteer **vergrendelingen** om de vergrendelingen weer te geven.
 4. Als u wilt de vergrendeling verwijderen, selecteer het beletselteken en klik op **verwijderen**.
 
-    ![Vergrendeling voor verwijderen ](./media/backup-azure-arm-vms-prepare/delete-lock.png)
+    ![Vergrendeling voor verwijderen](./media/backup-azure-arm-vms-prepare/delete-lock.png)
 
 ### <a name="clean_up_restore_point_collection"></a> Herstelpuntverzameling opschonen
 Nadat de vergrendeling is verwijderd, moeten de herstelpunten worden opgeschoond. Als u wilt opschonen van de herstelpunten, gaat u als volgt een van de methoden:<br>
@@ -244,12 +244,12 @@ Schakelt u de terugzetbewerking handmatig verwijst verzameling die niet zijn uit
 1. Meld u aan bij [Azure Portal](http://portal.azure.com/).
 2. Op de **Hub** menu, klikt u op **alle resources**, selecteer de resourcegroep met de volgende indeling AzureBackupRG_`<Geo>`_`<number>` waar uw virtuele machine zich bevindt.
 
-    ![Vergrendeling voor verwijderen ](./media/backup-azure-arm-vms-prepare/resource-group.png)
+    ![Vergrendeling voor verwijderen](./media/backup-azure-arm-vms-prepare/resource-group.png)
 
 3. Klik op de resourcegroep, de **overzicht** blade wordt weergegeven.
 4. Selecteer **verborgen typen weergeven** optie om de verborgen resources weer te geven. Selecteer de verzamelingen terugzetten punt met de volgende indeling AzureBackupRG_`<VMName>`_`<number>`.
 
-    ![Vergrendeling voor verwijderen ](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
+    ![Vergrendeling voor verwijderen](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
 
 5. Klik op **verwijderen**, voor het opschonen van de verzameling van herstelpunt.
 6. Voer opnieuw de back-upbewerking opnieuw uit.
