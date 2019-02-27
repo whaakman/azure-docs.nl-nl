@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 54fcbe9adc8fbf4a8fba6eabbd7c2f8802fd933a
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 210254a4404a5280e326bf40057331a784ff6148
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191088"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326736"
 ---
 # <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Zelfstudie: een containertoepassing implementeren in Azure Container Instances
 
@@ -36,26 +36,20 @@ In deze sectie gebruikt u Azure CLI om de installatiekopie te implementeren die 
 
 ### <a name="get-registry-credentials"></a>Registerreferenties ophalen
 
-Wanneer u een installatiekopie implementeert die in een privécontainerregister wordt gehost, zoals de installatiekopie die u hebt gemaakt in de [tweede zelfstudie](container-instances-tutorial-prepare-acr.md), moet u de referenties van het register opgeven.
+Wanneer u een installatiekopie implementeert die in een privécontainerregister wordt gehost, zoals de installatiekopie die u hebt gemaakt in de [tweede zelfstudie](container-instances-tutorial-prepare-acr.md), moet u referenties opgeven om toegang te krijgen tot het register. Zoals wordt uitgelegd in [Authenticate with Azure Container Registry from Azure Container Instances](../container-registry/container-registry-auth-aci.md) (Authenticeren bij Azure Container Registry vanuit Azure Container Instances), is het voor veel scenario's een best practice om een Azure Active Directory-service-principal te maken met *pull*-machtigingen voor het register. Raadpleeg dit artikel voor voorbeelden van scripts voor het maken van een service-principal met de vereiste machtigingen. Noteer de ID en het wachtwoord van de service-principal. U gebruikt deze referenties wanneer u de container implementeert.
 
-Haal eerst de volledige naam op van de aanmeldingsserver van het containerregister (vervang `<acrName>` door de naam van het register):
+U hebt ook de volledige naam nodig van de aanmeldingsserver van het containerregister (vervang `<acrName>` door de naam van het register):
 
 ```azurecli
 az acr show --name <acrName> --query loginServer
 ```
 
-Haal vervolgens het wachtwoord van het containerregister op:
-
-```azurecli
-az acr credential show --name <acrName> --query "passwords[0].value"
-```
-
 ### <a name="deploy-container"></a>Container implementeren
 
-Gebruik nu de opdracht [az container create][az-container-create] om de container te implementeren. Vervang `<acrLoginServer>` en `<acrPassword>` door de waarden die u hebt opgehaald met de vorige twee opdrachten. Vervang `<acrName>` door de naam van het containerregister en `<aciDnsLabel>` door de naam van het gewenste DNS.
+Gebruik nu de opdracht [az container create][az-container-create] om de container te implementeren. Vervang `<acrLoginServer>` door de waarde die u hebt verkregen met de vorige opdracht. Vervang `<service-principal-ID>` en `<service-principal-password>` door de ID en het wachtwoord van de service-principal die u hebt gemaakt voor toegang tot het register. Vervang `<aciDnsLabel>` door een gewenste DNS-naam.
 
 ```azurecli
-az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <acrName> --registry-password <acrPassword> --dns-name-label <aciDnsLabel> --ports 80
+az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <service-principal-ID> --registry-password <service-principal-password> --dns-name-label <aciDnsLabel> --ports 80
 ```
 
 U ontvangt binnen enkele seconden een eerste reactie van Azure. De waarde `--dns-name-label` moet uniek zijn voor de Azure-regio waar u de containerinstallatiekopie maakt. Wijzig de waarde in de vorige opdracht als u een foutbericht ontvangt over het **DNS-naamlabel** wanneer u de opdracht uitvoert.

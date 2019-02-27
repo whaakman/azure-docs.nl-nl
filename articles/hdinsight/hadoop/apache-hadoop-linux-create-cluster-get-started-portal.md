@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: dbae234739cd58278b1dc56c956a5fb058394681
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 003bd5ccae2b22dc411259226d84b11444694651
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913407"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417902"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-the-azure-portal"></a>Snelstart: Aan de slag met Apache Hadoop en Apache Hive in Azure HDInsight met behulp van Azure Portal
 
@@ -63,7 +63,7 @@ In deze sectie maakt u een Hadoop-cluster in HDInsight met behulp van Azure Port
     |Eigenschap  |Beschrijving  |
     |---------|---------|
     |**Clustertype**     | Selecteer **Hadoop**. |
-    |**Besturingssysteem**     |  Selecteer uw Azure-abonnement. |
+    |**Besturingssysteem**     | Selecteer **Linux** |
     |**Versie**     | Selecteer **Hadoop 2.7.3 (HDI 3.6)**|
 
     Klik op **Selecteren** en daarna op **Volgende**.

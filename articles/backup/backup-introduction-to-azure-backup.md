@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2601f81b4abecd98d645af9bc0d368e52534a04e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e2b9d380b5e164bb8b730ec7037a6b2836c2af85
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487877"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447358"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Overzicht van de functies in Azure Backup
 Azure Backup is de Azure-service die u kunt gebruiken voor het maken van back-ups en het herstellen van uw gegevens in de Microsoft-cloud (of deze te beschermen). Met Azure Backup vervangt u uw bestaande on-premises of off-site back-upoplossing door een betrouwbare, veilige en kostenbesparende cloudoplossing. Azure Backup biedt meerdere onderdelen die u kunt downloaden en implementeren op de desbetreffende computer, server, of in de cloud. Welk onderdeel, of welke agent, u implementeert, is afhankelijk van wat u wilt beveiligen. Alle onderdelen van Azure Backup (ongeacht of u gegevens on-premises of in de cloud wilt beveiligen) kunnen worden gebruikt om back-ups te maken naar een Recovery Services-kluis in Azure. Zie de [Azure Backup onderdelentabel](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (verderop in dit artikel) voor informatie over welk onderdeel moet worden gebruikt om specifieke gegevens, toepassingen of workloads te beschermen.
@@ -33,7 +33,7 @@ Traditionele back-upoplossingen gebruiken de cloud als een eindpunt, of statisch
 
 * Met lokaal redundante opslag (Locally Redundant Storage, LRS) worden uw gegevens drie keer gerepliceerd (er worden drie kopieën gemaakt van uw gegevens) in een opslagschaaleenheid in een datacenter. Alle kopieën van de gegevens komen binnen dezelfde regio voor. LRS is een goedkope optie voor het beschermen van uw gegevens tegen lokale hardwarefouten.
 
-* Geografisch redundante opslag (GRS) is de standaardinstelling en is de replicatieoptie die wordt aanbevolen. Met GRS worden uw gegevens gerepliceerd naar een secundaire regio (honderden kilometers verwijderd van de primaire locatie van de brongegevens). GRS is duurder dan LRS, maar biedt een hoger duurzaamheidsniveau voor uw gegevens, zelfs in geval van een regionale onderbreking.
+* Geografisch redundante opslag (GRS) is de standaardinstelling en is de replicatieoptie die wordt aanbevolen. Met GRS worden uw gegevens gerepliceerd naar een secundaire [gekoppelde Azure-regio](../best-practices-availability-paired-regions.md) (honderden kilometers verwijderd van de primaire locatie van de brongegevens). GRS is duurder dan LRS, maar biedt een hoger duurzaamheidsniveau voor uw gegevens, zelfs in geval van een regionale onderbreking.
 
 **Onbeperkt gegevensoverdracht**: Azure Backup stelt geen beperking aan de hoeveelheid binnenkomende of uitgaande gegeven die u overbrengt. In Azure Backup wordt gegevensoverdracht niet in rekening gebracht. Als u de Azure Import/Exportservice gebruikt voor het importeren van grote hoeveelheden gegevens, zijn er kosten verbonden aan inkomende gegevens. Zie [Offline back-upworkflow in Azure Backup](backup-azure-backup-import-export.md) (Offline back-upwerkstroom in Azure Backup) voor meer informatie over deze kosten. Uitgaande gegevens zijn gegevens die tijdens een herstelbewerking worden overgebracht uit een Recovery Services-kluis.
 
@@ -44,7 +44,7 @@ Traditionele back-upoplossingen gebruiken de cloud als een eindpunt, of statisch
 **Langetermijnretentie**: u kunt de Recovery Services-kluizen gebruiken voor het bewaren van gegevens voor de korte en de lange termijn. Azure heeft geen beperkingen voor hoelang gegevens bewaard blijven in een Recovery Services-kluis. U kunt gegevens zo lang als u wilt in een kluis bewaren. Azure Backup heeft een limiet van 9999 herstelpunten per beveiligd exemplaar. Zie het gedeelte [Back-ups en retentie](backup-introduction-to-azure-backup.md#backup-and-retention) in dit artikel voor meer informatie over hoe deze limiet invloed kan hebben op uw back-upbehoeften.
 
 ## <a name="which-azure-backup-components-should-i-use"></a>Welke Azure Backup-onderdelen moet ik gebruiken?
-Raadpleeg de volgende tabel voor informatie over wat u met elk Azure Backup-onderdeel kunt beveiligen. 
+Raadpleeg de volgende tabel voor informatie over wat u met elk Azure Backup-onderdeel kunt beveiligen.
 
 | Onderdeel | Voordelen | Limieten | Wat wordt er beveiligd? | Waar worden de back-ups opgeslagen? |
 | --- | --- | --- | --- | --- |
@@ -62,7 +62,7 @@ Raadpleeg de volgende tabel voor informatie over wat u met elk Azure Backup-onde
 | Back-up van virtuele machines van Azure IaaS |<p>**Ja**</p><p>Onderdeel van de Azure-infrastructuur</p><p>Speciaal voor [back-ups van de virtuele machines van Azure IaaS (Infrastructure as a Service)](backup-azure-vms-introduction.md).</p> |<p>**Nee**</p> <p>Gebruik System Center DPM om back-ups van virtuele machines in uw datacenter te maken.</p> |<p>Recovery Services-kluis</p> |
 
 ## <a name="which-applications-and-workloads-can-be-backed-up"></a>Van welke toepassingen en workloads kan een back-up worden gemaakt?
-De volgende tabel bevat een matrix van de gegevens en workloads die kunnen worden beveiligd met Azure Backup. De kolom met Azure Backup oplossingen bevat koppelingen naar de implementatiedocumentatie voor die oplossing. 
+De volgende tabel bevat een matrix van de gegevens en workloads die kunnen worden beveiligd met Azure Backup. De kolom met Azure Backup oplossingen bevat koppelingen naar de implementatiedocumentatie voor die oplossing.
 
 | Gegevens of workload | Bronomgeving | Azure Backup-oplossing |
 | --- | --- | --- |
@@ -81,17 +81,17 @@ De volgende tabel bevat een matrix van de gegevens en workloads die kunnen worde
 De volgende tabel bevat Azure Backup-onderdelen die ondersteuning bieden voor Linux.  
 
 **Onderdeel** | **Linux (goedgekeurd door Azure)**
---- | --- 
-Azure Backup-agent (MARS) | Nee (alleen Windows-agent) 
+--- | ---
+Azure Backup-agent (MARS) | Nee (alleen Windows-agent)
 System Center DPM | Bestandsconsistente back-up van Linux-gast-VM's op Hyper-V en VMware<br/><br/> Linux-gast-VM's herstellen op Hyper-V- en VMware</br></br> Bestandsconsistente back-up is niet beschikbaar voor virtuele Azure-machines
-Azure Backup-server | Bestandsconsistente back-up van Linux-gast-VM's op Hyper-V en VMware<br/><br/> Linux-gast-VM's herstellen op Hyper-V- en VMware</br></br> Bestandsconsistente back-up is niet beschikbaar voor virtuele Azure-machines 
+Azure Backup-server | Bestandsconsistente back-up van Linux-gast-VM's op Hyper-V en VMware<br/><br/> Linux-gast-VM's herstellen op Hyper-V- en VMware</br></br> Bestandsconsistente back-up is niet beschikbaar voor virtuele Azure-machines
 Back-up van virtuele machines van Azure IaaS | App-consistente back-up met het [prescript- en postscript-framework](backup-azure-linux-app-consistent.md)<br/><br/> [Herstel op bestandsniveau](backup-azure-restore-files-from-vm.md)<br/><br/> [Een VM maken op basis van een herstelde schijf](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [Een VM maken op basis van een herstelpunt](backup-azure-arm-restore-vms.md#create-new-create-a-vm)
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>VM's voor Premium Storage met Azure Backup gebruiken
-Azure Backup beschermt VM's voor Premium Storage. Azure Premium Storage is opslag op basis van SSD (Solid-State Drive), ontworpen om I/O-intensieve workloads te ondersteunen. Premium Storage is uitermate geschikt voor VM-workloads (virtuele machine). Voor meer informatie over Premium Storage, zie het artikel [Premium Storage: Opslag met hoge prestaties voor workloads van virtuele Azure-machines](../virtual-machines/windows/premium-storage.md).
+Azure Backup beschermt VM's voor Premium Storage. Azure Premium Storage is opslag op basis van SSD (Solid-State Drive), ontworpen om I/O-intensieve workloads te ondersteunen. Premium Storage is uitermate geschikt voor VM-workloads (virtuele machine). Zie het artikel [Een schijftype selecteren](../virtual-machines/windows/disks-types.md) voor meer informatie over Premium Storage en andere schijftypen.
 
 ### <a name="back-up-premium-storage-vms"></a>Een back-up van VM's voor Premium-opslag maken
-Tijdens een back-up van virtuele machines voor Premium-opslag, maakt de Backup-service in het Premium-opslagaccount een tijdelijke faseringslocatie met de naam 'AzureBackup-'. De faseringslocatie is even groot als de momentopname van het herstelpunt. Zorg ervoor dat er voldoende vrije ruimte in het Premium Storage-account is voor de tijdelijke faseringslocatie. Zie het artikel [Beperkingen van Premium Storage](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets) voor meer informatie. Zodra de back-uptaak is voltooid, wordt de faseringslocatie verwijderd. De opslagkosten die in rekening worden gebracht voor de faseringslocatie zijn consistent met de [Prijzen voor een Premium-opslag](../virtual-machines/windows/premium-storage.md#pricing-and-billing).
+Tijdens een back-up van virtuele machines voor Premium Storage, maakt de Backup-service in het Premium-opslagaccount een tijdelijke faseringslocatie met de naam 'AzureBackup-'. De faseringslocatie is even groot als de momentopname van het herstelpunt. Zorg ervoor dat er voldoende vrije ruimte in het Premium Storage-account is voor de tijdelijke faseringslocatie. Zie het artikel op [Schaalbaarheidsdoelen in Azure Storage](../storage/common/storage-scalability-targets.md) voor meer informatie. Zodra de back-uptaak is voltooid, wordt de faseringslocatie verwijderd. De opslagkosten die in rekening worden gebracht voor de faseringslocatie zijn consistent met de [Prijzen voor een Premium-opslag](../virtual-machines/windows/disks-types.md).
 
 > [!NOTE]
 > Wijzig of bewerk de faseringslocatie niet.
@@ -113,7 +113,7 @@ Met Azure Backup kunt u een volledige virtuele machine terugzetten met beheerde 
 ## <a name="what-are-the-features-of-each-backup-component"></a>Wat zijn de functies van elk Backup-onderdeel?
 De volgende secties bevatten tabellen met een overzicht van de beschikbaarheid van of de ondersteuning voor verschillende functies in elk Azure Backup-onderdeel. Zie de informatie na elke tabel voor aanvullende ondersteuning of details.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Opslag
 | Functie | Azure Backup-agent | System Center DPM | Azure Backup-server | Back-up van virtuele machines van Azure IaaS |
 | --- | --- | --- | --- | --- |
 | Recovery Services-kluis |![Ja][green] |![Ja][green] |![Ja][green] |![Ja][green] |

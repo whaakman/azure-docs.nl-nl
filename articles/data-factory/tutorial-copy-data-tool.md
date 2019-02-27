@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: a9ba02478b17b29343236a91fe637357c1414717
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ebc0f93055a014888d01fa9bffc7702b99380234
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015319"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417462"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Gegevens kopiëren van Azure Blob Storage naar een SQL-database met behulp van het hulpprogramma Copy Data
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -152,7 +152,7 @@ Bereid uw Blob-opslag en de SQL-database voor voor gebruik tijdens de zelfstudie
 
     ![Nieuwe aan sink gekoppelde service](./media/tutorial-copy-data-tool/new-sink-linked-service.png)
 
-    b. Selecteer in de galerie de optie **Azure Blob Storage**. Selecteer vervolgens **Volgende**.
+    b. Selecteer in de galerie de optie **Azure SQL Database**. Selecteer vervolgens **Volgende**.
 
     ![Azure SQL DB selecteren](./media/tutorial-copy-data-tool/select-azure-sql-db.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Voorbeeld - Toegestane locaties
-description: Dit voorbeeldbeleid vereist dat alle resources worden geïmplementeerd naar de goedgekeurde locaties.
+description: Deze voorbeeldbeleidsdefinitie vereist dat alle resources worden geïmplementeerd naar de goedgekeurde locaties.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: a13f181e90f0435f23e22a7c4db42976bd0afb44
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 70e1b2b20c4846626121dec190dff220a154b81b
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243543"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341348"
 ---
-# <a name="allowed-locations"></a>Toegestane locaties
+# <a name="sample---allowed-region-locations"></a>Voorbeeld - Toegestane regiolocaties
 
 Met dit beleid kunt u de locaties beperken die uw organisatie kan opgeven tijdens het implementeren van resources. Dit beleid wordt gebruikt om uw geografische nalevingsvereisten af te dwingen. Resourcegroepen, Microsoft.AzureActiveDirectory/b2cDirectories en resources die gebruikmaken van de regio 'global' worden uitgesloten. U geeft een matrix van toegestane locaties op.
 

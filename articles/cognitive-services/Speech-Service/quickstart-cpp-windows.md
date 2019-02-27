@@ -1,7 +1,7 @@
 ---
 title: 'Snelstartgids: Spraak herkennen, C++ (Windows) - Speech Services'
 titleSuffix: Azure Cognitive Services
-description: Informatie over het herkennen van gesproken tekst in C++ onder Windows Desktop met behulp van de Speech Service SDK
+description: Informatie over het herkennen van gesproken tekst in C++ op Windows Desktop met behulp van de Speech SDK
 services: cognitive-services
 author: wolfma61
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 3068c4e3c1bb7ddb41feb45f999398d533b66afa
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d6504b97bbc6c1ba4bcd02da54a29501c164439f
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863037"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447987"
 ---
-# <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Snelstartgids: Gesproken tekst herkennen in C++ onder Windows met behulp van de Speech-SDK
+# <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Quickstart: Gesproken tekst herkennen in C++ onder Windows met behulp van de Speech-SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 

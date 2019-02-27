@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: een Azure Data Explorer-cluster en -database maken'
+title: 'Quickstart: Een Azure Data Explorer-cluster en -database maken'
 description: In deze snelstart leert u hoe u een Azure Data Explorer-cluster en -database maakt en hoe u gegevens opneemt (laadt).
 services: data-explorer
 author: orspod
@@ -8,14 +8,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 4b4230397da7d97b613b546f33a0cbb764675720
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 1ab6fe13df111b5f56da1f368fc0dacf0a6206fc
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214814"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408830"
 ---
-# <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Snelstart: een Azure Data Explorer-cluster en -database maken
+# <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Quickstart: Een Azure Data Explorer-cluster en -database maken
 
 Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logboeken en telemetrie te verkennen. Als u Azure Data Explorer wilt gebruiken, maakt u eerst een *cluster*. Daarna maakt u een of meer *databases* in het cluster. De volgende stap is het *opnemen* (laden) van gegevens in een database, zodat er query's voor kunt uitvoeren. In deze snelstart maakt u een cluster en een database. In de volgende artikelen wordt uitgelegd hoe u gegevens opneemt.
 
@@ -77,8 +77,8 @@ U bent nu klaar voor de tweede stap in het proces: het maken van de database.
     **Instelling** | **Voorgestelde waarde** | **Beschrijving van veld**
     |---|---|---|
     | Databasenaam | *TestDatabase* | De databasenaam moet uniek zijn binnen het cluster.
-    | Bewaarperiode | *3650* | De periode waarin de gegevens gegarandeerd beschikbaar blijven voor query's. De periode wordt gemeten vanaf het moment dat de gegevens zijn opgenomen.
-    | Cacheperiode | *31* | De periode waarin vaak opgevraagde gegevens beschikbaar blijven in de SSD-opslag of het RAM-geheugen in plaats van in de langetermijnopslag.
+    | Bewaarperiode | *3650* | De periode (in dagen) dat de gegevens gegarandeerd beschikbaar blijven voor query's. De periode wordt gemeten vanaf het moment dat de gegevens zijn opgenomen.
+    | Cacheperiode | *31* | De periode (in dagen) dat vaak opgevraagde gegevens beschikbaar blijven in de SSD-opslag of het RAM-geheugen in plaats van in de langetermijnopslag.
     | | | |
 
 1. Selecteer **Opslaan** om de database te maken. Het maakproces duurt meestal minder dan een minuut. Wanneer het proces is voltooid, keert u terug naar het tabblad **Overzicht** van het cluster.
@@ -130,6 +130,6 @@ Als u onze andere snelstarts en zelfstudies wilt volgen, behoudt u de gemaakte r
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Snelstart: gegevens uit Event Hub opnemen in Azure Data Explorer](ingest-data-event-hub.md)
+> [Snelstart: Gegevens uit Event Hub opnemen in Azure Data Explorer](ingest-data-event-hub.md)
 
 

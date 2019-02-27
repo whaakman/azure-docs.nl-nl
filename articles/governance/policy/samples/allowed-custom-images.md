@@ -1,6 +1,6 @@
 ---
 title: Voorbeeld - Goedgekeurde VM-installatiekopieën
-description: Dit voorbeeldbeleid vereist dat alleen goedgekeurde aangepaste installatiekopieën in uw omgeving zijn geïmplementeerd.
+description: Deze voorbeeldbeleidsdefinitie vereist dat alleen goedgekeurde aangepaste installatiekopieën in uw omgeving zijn geïmplementeerd.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: e5b6b3e34f3c85d7fdc90f4f54acbbfac0d75061
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 8134ca98fe190a161d940387926e6b3dfea2989c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243906"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337965"
 ---
-# <a name="approved-vm-images"></a>Goedgekeurde VM-installatiekopieën
+# <a name="sample---approved-vm-images"></a>Voorbeeld - Goedgekeurde VM-installatiekopieën
 
 Dit beleid vereist dat alleen goedgekeurde aangepaste installatiekopieën in uw omgeving zijn geïmplementeerd. U geeft een matrix van goedgekeurde installatiekopie-id’s op.
 

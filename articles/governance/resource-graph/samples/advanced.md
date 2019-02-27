@@ -1,6 +1,6 @@
 ---
 title: Voorbeelden van geavanceerde query's
-description: Gebruik Azure Resource Graph om een aantal geavanceerde query's uit te voeren.
+description: Gebruik Azure Resource Graph voor het uitvoeren van enkele geavanceerde query's, met inbegrip van VMSS-capaciteit. Hiermee wordt een lijst van alle gebruikte tags en overeenkomende virtuele machines weergegeven met behulp van reguliere expressies.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: cb2755384f8b87c74aa283af0c75f9f869fb31cd
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 8bb1733090ac2a4f3fad837e55943706309c4a5a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54854663"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56344009"
 ---
 # <a name="advanced-resource-graph-queries"></a>Geavanceerde query's van Resource Graph
 

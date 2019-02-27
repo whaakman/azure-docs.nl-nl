@@ -8,40 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 05/30/2018
+ms.date: 02/07/2019
 ms.author: pafarley
-ms.openlocfilehash: b7dbbc328f61b47cb89af2974ad3c428d868d465
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 52faef37dbd9a3ce324db9665f04d6ac9b223d9c
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857121"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312392"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Quickstart: Gezichten in een afbeelding detecteren met de REST API en Ruby
 
-In deze snelstartgids detecteert u menselijke gezichten in een afbeelding met behulp van de Face-API.
+In deze quickstart gebruikt u de Azure Face REST API met Ruby om menselijke gezichten in een afbeelding te detecteren.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt een abonnementssleutel nodig om het voorbeeld uit te voeren. U kunt abonnementssleutels voor een gratis proefversie downloaden op [Cognitive Services proberen](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+- Een Face-API-abonnementssleutel. U kunt een abonnementssleutel voor een gratis proefversie downloaden van [Cognitive Services proberen](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Of volg de instructies in [Een Cognitive Services-account maken](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) om u te abonneren op de Face-API-service en uw sleutel op te halen.
+- Een code-editor zoals [Visual Studio Code](https://code.visualstudio.com/download)
 
-## <a name="face---detect-request"></a>Face - Detect-aanvraag
+## <a name="write-the-script"></a>Het script schrijven
 
-Gebruik de methode [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) om gezichten in een afbeelding te detecteren en gezichtskenmerken te retourneren, waaronder:
-
-* Face ID: De unieke ID die wordt gebruikt in verschillende Face-API-scenario's.
-* Gezichtsrechthoek: De coördinaten die de locatie van het gezicht in de afbeelding aangeven (links, boven, breedte en hoogte).
-* Oriëntatiepunten: Een matrix van 27 gezichtsoriëntatiepunten die verwijzen naar de belangrijkste posities van de gezichtsonderdelen.
-* Gezichtskenmerken zoals leeftijd, geslacht, glimlachintensiteit, hoofdhouding en gezichtshaar.
-
-U kunt het voorbeeld uitvoeren aan de hand van de volgende stappen:
-
-1. Kopieer de volgende code in een editor.
-1. Vervang `<Subscription Key>` door uw geldige abonnementssleutel.
-1. Wijzig indien nodig de `uri`-waarde in de locatie waar u uw abonnementssleutels hebt verkregen.
-1. Stel `imageUri` eventueel in op de afbeelding die u wilt analyseren.
-1. Sla het bestand op met de extensie `.rb`.
-1. Open de Ruby-opdrachtprompt en voer het bestand uit, bijvoorbeeld: `ruby myfile.rb`.
+Maak een nieuw bestand _faceDetection.rb_, en voeg de volgende code toe. Hiermee wordt de Face-API voor een bepaalde afbeeldings-URL aangeroepen.
 
 ```ruby
 require 'net/http'
@@ -75,9 +62,19 @@ end
 puts response.body
 ```
 
-## <a name="face---detect-response"></a>Face - Detect-antwoord
+U moet het veld `request['Ocp-Apim-Subscription-Key']` bijwerken met uw abonnementssleutel en mogelijk moet u de tekenreeks `uri` wijzigen, zodat deze de juiste regio-id bevat (zie de [Face-API-documentatie](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) voor een lijst met alle regio-eindpunten). 
 
-Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, bijvoorbeeld:
+Desgewenst kunt u ook het veld `imageUri` zo wijzigen dat het verwijst naar uw eigen invoerafbeelding. Ook kunt ook het veld `returnFaceAttributes` wijzigen dat aangeeft welke gezichtskenmerken moeten worden opgehaald.
+
+## <a name="run-the-script"></a>Het script uitvoeren
+
+Voer het Ruby-script uit met de volgende opdracht:
+
+```shell
+ruby faceDetection.rb
+```
+
+Er wordt een JSON-tekenreeks van gedetecteerde gezichtsgegevens weergegeven op de console. Het volgende is een voorbeeld van een geslaagd JSON-antwoord.
 
 ```json
 [
@@ -260,7 +257,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, bijvoorbeeld:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Verken de Face-API's die worden gebruikt om menselijke gezichten in een afbeelding te detecteren, om de gezichten af ​​te bakenen met rechthoeken en kenmerken als leeftijd en geslacht te retourneren.
+In deze quickstart hebt u een Ruby-script geschreven waarmee de Azure Face-API wordt aangeroepen om gezichten in een afbeelding te detecteren en de gezichtskenmerken te retourneren. Lees het naslagmateriaal bij de Face-API voor meer informatie.
 
 > [!div class="nextstepaction"]
-> [Face-API's](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [Face-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

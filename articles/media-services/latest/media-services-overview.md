@@ -16,12 +16,12 @@ ms.workload: media
 ms.date: 02/07/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 1911b851e4e219ec4c6d2d4872b75e9c18706feb
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 0f4fd963ce3649c901a76f6677be059ba5be25af
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893320"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337558"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Wat is Azure Media Services v3?
 
@@ -62,7 +62,7 @@ Namen van Media Services-resources mogen niet de volgende tekens bevatten: '<', 
 
 Zie [Naamvereisten](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) en [Naamconventies](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) voor meer informatie over Azure Resource Manager-naamgeving.
 
-## <a name="media-services-v3-api-design-principles"></a>Ontwerpprincipes van Media Services v3-API
+## <a name="v3-api-design-principles"></a>Ontwerpprincipes voor v3 API
 
 Een van de belangrijkste principes van de API v3 is het beter beveiligen van de API. V3 API's retourneren geen geheimen of referenties naar aanleiding van een**Get**- of **List**-bewerking. De sleutels zijn altijd null, leeg of opgeschoond uit het antwoord. U moet een afzonderlijke actiemethode aanroepen voor het ophalen van geheimen of referenties. Door afzonderlijke acties te gebruiken, kunt u verschillende RBAC-beveiligingsrechten instellen voor het geval een aantal API's wel geheimen ophaalt/weergeeft en andere API's dat niet doen. Zie voor meer informatie over het beheren van toegang met RBAC [RBAC gebruiken om toegang te beheren](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest).
 
@@ -76,25 +76,20 @@ Bekijk het voorbeeld, [Beleid voor inhoudssleutels ophalen - .NET](get-content-k
 
 ## <a name="how-can-i-get-started-with-v3"></a>Hoe ga ik aan de slag met v3?
 
-Als een ontwikkelaar kunt u de [REST-API](https://go.microsoft.com/fwlink/p/?linkid=873030) van Media Services gebruiken, of clientbibliotheken waarmee u kunt communiceren met de REST-API, om eenvoudig aangepaste mediawerkstromen te maken, beheren en onderhouden. De API van Media Services versie 3 is gebaseerd op de [OpenAPI-specificatie](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media) (voorheen bekend als een Swagger).
+Zie [Aan de slag met ontwikkelen](developers-guide.md) voor meer informatie over hoe u aan de slag gaat met het ontwikkelen met de Media Services v3 API met behulp van verschillende hulpprogramma's en SDK's.
 
-[Azure Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE) is een hulpprogramma beschikbaar voor Windows-klanten die kennis willen maken met Media Services. AMSE is een Winforms/C#-toepassing voor het uploaden, downloaden, coderen en streamen van VOD en live-inhoud met Media Services. Het AMSE-hulpprogramma is voor clients die Media Services willen testen zonder code te schrijven. De AMSE-code wordt geleverd als een bron voor klanten die willen ontwikkelen met Media Services.
+## <a name="v3-content-map"></a>Inhoudsstructuur van v3
 
-AMSE is een Open-Source-project, en dus wordt er ondersteuning geboden door de community (problemen kunnen worden gemeld aan https://github.com/Azure/Azure-Media-Services-Explorer/issues). Op dit project is de [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) (Microsoft Open Source-gedragscode) van toepassing. Raadpleeg voor meer informatie de [veelgestelde vragen over de gedragscode](https://opensource.microsoft.com/codeofconduct/faq/) of neem contact op met opencode@microsoft.com als u aanvullende vragen of opmerkingen hebt.
- 
-Azure Media Services ondersteunt de volgende clientbibliotheken: 
+De Media Services v3-inhoud is ingedeeld op basis van de volgende structuur (wordt ook weergegeven in de inhoudsopgave):
 
-|API-referenties|SDK’s/hulpprogramma’s|Voorbeelden|
-|---|---|---|---|
-|[REST-ref](https://aka.ms/ams-v3-rest-ref)|[REST SDK](https://aka.ms/ams-v3-rest-sdk)|[REST Postman-voorbeelden](https://github.com/Azure-Samples/media-services-v3-rest-postman)<br/>[REST API op basis van Azure Resource Manager](https://github.com/Azure-Samples/media-services-v3-arm-templates)|
-|[Azure CLI-ref](https://aka.ms/ams-v3-cli-ref)|[Azure-CLI](https://aka.ms/ams-v3-cli)|[Azure CLI-voorbeelden](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)||
-|[.NET-ref](https://aka.ms/ams-v3-dotnet-ref)|[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[.NET-voorbeelden](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials)||
-||[.NET Core SDK](https://aka.ms/ams-v3-dotnet-sdk) (kies het tabblad **.NET CLI**)|[.NET Core-voorbeelden](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials)||
-|[Java-ref](https://aka.ms/ams-v3-java-ref)|[Java SDK](https://aka.ms/ams-v3-java-sdk)||
-|[Node.js-ref](https://aka.ms/ams-v3-nodejs-ref)|[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk)|[Node.js-voorbeelden](https://github.com/Azure-Samples/media-services-v3-node-tutorials)||
-|[Python-ref](https://aka.ms/ams-v3-python-ref)|[Python SDK](https://aka.ms/ams-v3-python-sdk)||
-|[Go-ref](https://aka.ms/ams-v3-go-ref)|[Go SDK](https://aka.ms/ams-v3-go-sdk)||
-|Ruby|[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
+|Secties| Beschrijving|
+|---|---|
+| Overzicht | Geeft uitleg over de functies van Media Services en wat u kunt doen met de service.|
+| Snelstartgidsen | Basisinstructies voor nieuwe klanten die Media Services snel willen uitproberen.|
+| Zelfstudies | Op scenario's gebaseerde procedures weergeven voor een aantal veelgebruikte Media Services-taken.|
+| Voorbeelden | Links naar voorbeelden van code. |
+| Concepten | Bevat gedetailleerde uitleg van de Media Services v3-functionaliteit en diagrammen. Bekijk de basisconcepten die worden beschreven in de volgende onderwerpen voordat u start met de ontwikkeling.<br/><br/>* Uploaden naar en opslaan in de cloud<br/>* Codering<br/>* Media Analytics<br/>* Verpakking, levering, beveiliging<br/>* Live streamen<br/>* Doorlopende bewaking<br/>* Afspeel-clients<br/><br/>en meer. |
+| Handleidingen | Laat zien hoe u een taak voltooit.|
 
 ## <a name="next-steps"></a>Volgende stappen
 

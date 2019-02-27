@@ -2,33 +2,36 @@
 title: Wat is de Face-API?
 titleSuffix: Azure Cognitive Services
 description: Informatie over het gebruik van de Face-service voor het detecteren en analyseren van gezichten op afbeeldingen.
-author: SteveMSFT
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 10/29/2018
-ms.author: sbowles
-ms.openlocfilehash: 655234bfec650ef027e325ff8df23fe91eecfd43
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/20/2019
+ms.author: pafarley
+ms.openlocfilehash: 2f5f57f0978adbdf33ed4ce25ba9b32247ea0484
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861049"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455973"
 ---
 # <a name="what-is-the-azure-face-api"></a>Wat is de Azure Face-API?
 
 De Face-API van Azure is een cognitieve service die algoritmen levert voor het detecteren, herkennen en analyseren van menselijke gezichten op afbeeldingen. De mogelijkheid menselijke gezichten te verwerken is belangrijk in veel verschillende softwarescenario's, zoals voor beveiliging, natuurlijke gebruikersinterface, analyse van afbeeldingsinhoud, mobiele apps en robotica.
 
-De Face-API biedt verschillende functies die elk in de volgende secties worden beschreven. Lees verder om meer te weten te komen over elk ervan en om uit te vinden welke tegemoetkomt aan uw eisen.
+De Face-API biedt verschillende functies die elk in de volgende secties worden beschreven. Lees verder voor meer informatie over deze functies.
 
 ## <a name="face-detection"></a>Gezichtsdetectie
 
-De Face APi is in staat om menselijke gezichten te detecteren op een afbeelding en de locatiecoördinaten van de gezichtsrechthoek te retourneren. Gezichtsdetectie kan een reeks gezichtsgerelateerde kenmerken extraheren (optioneel), zoals houding, geslacht, leeftijd, hoofdhouding, gezichtshaar en bril.
+De Face APi is in staat om menselijke gezichten te detecteren op een afbeelding en de locatiecoördinaten van de gezichtsrechthoek te retourneren. Gezichtsdetectie kan een reeks gezichtsgerelateerde kenmerken extraheren (optioneel), zoals houding, hoofdhouding, geslacht, leeftijd, emotie, gezichtshaar en bril.
 
 ![Een afbeelding van een vrouw en een man met rechthoeken getekend rond de gezichten, en de leeftijd en het geslacht weergegeven](./Images/Face.detection.jpg)
 
-De gezichtsdetectiefunctie is ook beschikbaar via de [Computer Vision-API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), maar als u meer bewerkingen wilt uitvoeren met gezichtsgegevens, moet u de Face-API (deze service) gebruiken. Zie de [Detect API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) voor meer informatie over gezichtsdetectie.
+> [!NOTE] 
+> De gezichtsdetectiefunctie is ook beschikbaar via de [Computer Vision-API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), maar als u meer bewerkingen wilt uitvoeren met gezichtsgegevens, moet u de Face-API (deze service) gebruiken. 
+
+Zie de [Detect API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) voor meer informatie over gezichtsdetectie.
 
 ## <a name="face-verification"></a>Gezichtsverificatie
 

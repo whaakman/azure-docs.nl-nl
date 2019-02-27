@@ -1,6 +1,6 @@
 ---
 title: 'Voorbeeld: toegestane locaties voor ExpressRoute-peering'
-description: Dit beleid vereist dat ExpressRoute opgegeven peeringlocaties gebruikt.
+description: Dit voorbeeld van een beleidsdefinitie vereist dat ExpressRoute opgegeven peeringlocaties gebruikt.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 10e2ccb6d19872413a94dceb1438319afe57976a
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 3c0fd08e5b01776454e1f4bbf1c4e837ce35e0d9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245997"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339053"
 ---
-# <a name="allowed-peering-location-for-expressroute"></a>Toegestane peeringlocatie voor ExpressRoute
+# <a name="sample---allowed-peering-location-for-expressroute"></a>Voorbeeld - Toegestane peeringlocatie voor ExpressRoute
 
 Dit beleid vereist dat ExpressRoute opgegeven peeringlocaties gebruikt. U geeft een matrix op van toegestane peeringlocaties.
 

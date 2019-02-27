@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 2dc9d72afd14547a091acf64cea2c8f0bad75914
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: c5bf56482534a55d24d8ca043e36c39cec99b1f0
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234404"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267526"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Zelfstudie: Azure Resource Manager-sjablonen met afhankelijke resources maken
 
@@ -34,8 +34,6 @@ Deze zelfstudie bestaat uit de volgende taken:
 > * De sjabloon implementeren
 
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -156,6 +154,9 @@ Er bestaan meerdere methoden voor het implementeren van sjablonen.  In deze zelf
         -dnsLabelPrefix $dnsLabelPrefix `
         -TemplateFile azuredeploy.json
     ```
+
+    > [!NOTE]
+    > Er is een bestands-IO-probleem met het gebruik van Azure PowerShell in de Cloud-shell.  Het foutbericht is *Kan de dynamische parameters voor de cmdlet niet ophalen. Kan pad 'Azure:/azuredeploy.json' niet vinden omdat het niet bestaat.*  Een tijdelijke oplossing is om de schakelaar **-TemplateFile** niet op te nemen in de opdracht `New-AzResourceGroupDeploy`. U wordt gevraagd om de bestandsnaam in te voeren.
 
 8. Voer de volgende PowerShell-opdracht uit om de nieuwe virtuele machine weer te geven:
 

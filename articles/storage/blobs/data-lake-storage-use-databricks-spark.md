@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: dineshm
-ms.openlocfilehash: e448ef0de9ef5560c1b4ea0df5c02e8efd8c0ea9
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: b5d7be25ba18e256352d8793689bcb63a013e20b
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891654"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452596"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Zelfstudie: Toegang tot Data Lake Storage Gen2-gegevens met Azure Databricks met behulp van Apache Spark
 
@@ -38,6 +38,17 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 * Installeer AzCopy v10. Zie [Gegevens overdragen met AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
+*  Een service-principal maken. Raadpleeg [Uitleg: Gebruik de portal voor het maken van een Azure AD-toepassing en service-principal die toegang hebben tot resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+   Er zijn een paar specifieke zaken die u moet doen terwijl u de stappen in het artikel uitvoert.
+
+   :heavy_check_mark: Wanneer u de stappen uitvoert in de sectie [De toepassing toewijzen aan een rol](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) van het artikel, moet u ervoor zorgen dat de rol **Gegevensbijdrager voor opslagblob** is toegewezen aan de service-principal.
+
+   > [!IMPORTANT]
+   > Zorg ervoor dat u de rol toewijst in het bereik van het Data Lake Storage Gen2-opslagaccount. U kunt een rol toewijzen aan de bovenliggende resourcegroep of het bovenliggende abonnement, maar u ontvangt machtigingsgerelateerde fouten tot die roltoewijzingen zijn doorgegeven aan het opslagaccount.
+
+   :heavy_check_mark: Als u de stappen gaat uitvoeren in de sectie [Waarden ophalen voor het aanmelden](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) van het artikel, plakt u de waarden van de tenant-id, de toepassings-id en de verificatiesleutel in een tekstbestand. U hebt deze binnenkort nodig.
+
 ### <a name="download-the-flight-data"></a>De vluchtgegevens downloaden
 
 In deze zelfstudie worden vluchtgegevens van het Bureau of Transport Statistics gebruikt om te laten zien hoe u een ETL-bewerking kunt uitvoeren. U moet deze gegevens downloaden om de zelfstudie te kunnen voltooien.
@@ -49,24 +60,6 @@ In deze zelfstudie worden vluchtgegevens van het Bureau of Transport Statistics 
 3. Selecteer de knop **Download** en sla de resultaten op uw computer op. 
 
 4. Pak de inhoud van het zipbestand uit en noteer de bestandsnaam en het pad van het bestand. U hebt deze informatie in een latere stap nodig.
-
-## <a name="get-your-storage-account-name"></a>Uw opslagaccountnaam ophalen
-
-U hebt de naam van uw opslagaccount nodig. Om deze op te halen, meldt u zich aan bij de [Microsoft Azure-portal](https://portal.azure.com/), kiest u **Alle services** en filtert u op de term *opslag*. Selecteer vervolgens **Opslagaccounts** en zoek het opslagaccount.
-
-Plak de naam in een tekstbestand. U hebt deze naam binnenkort nodig.
-
-<a id="service-principal"/>
-
-## <a name="create-a-service-principal"></a>Een service-principal maken
-
-Maak een service-principal aan de hand van de instructies in dit onderwerp: [Procedure: Gebruik de portal voor het maken van een Azure AD-toepassing en service-principal die toegang hebben tot resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
-
-Er zijn een paar dingen die u moet doen terwijl u de stappen in het artikel uitvoert.
-
-:heavy_check_mark: Als u de stappen gaat uitvoeren in de sectie [De toepassing aan een rol toewijzen](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) van het artikel, moet u er voor zorgen dat u de toepassing toewijst aan de **rol van inzender voor Blob Storage**.
-
-:heavy_check_mark: Als u de stappen gaat uitvoeren in de sectie [Waarden ophalen voor het aanmelden](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) van het artikel, plakt u de waarden van de tenant-id, de toepassings-id en de verificatiesleutel in een tekstbestand. U hebt deze binnenkort nodig.
 
 ## <a name="create-an-azure-databricks-service"></a>Een Azure Databricks-service maken
 
@@ -145,9 +138,16 @@ In deze sectie maakt u een bestandssysteem en een map in uw opslagaccount.
     mount_point = "/mnt/flightdata",
     extra_configs = configs)
     ```
-18. In dit codeblok vervangt u de tijdelijke aanduidingen `storage-account-name`, `application-id`, `authentication-id` en `tenant-id` door de waarden die u hebt verkregen bij het uitvoeren van de stappen in de secties Opslagaccountconfiguratie instellen en [Een service-principal maken](#service-principal) van dit artikel. Vervang de tijdelijke aanduiding `file-system-name` door de naam die u aan uw bestandssysteem wilt geven.
 
-19. Druk op de toetsen **Shift + Enter** om de code in dit blok uit te voeren. 
+18. In dit codeblok vervangt u de tijdelijke aanduidingen `application-id`, `authentication-id`, `tenant-id` en `storage-account-name` door de waarden die u hebt verzameld bij het uitvoeren van de vereiste stappen voor deze zelfstudie. Vervang de tijdelijke aanduiding `file-system-name` door de naam die u het bestandssysteem wilt geven.
+
+   * De tijdelijke aanduidingen `application-id` en `authentication-id` zijn afkomstig uit de app die u bij Active Directory hebt geregistreerd tijdens het maken van een service-principal.
+
+   * De tijdelijke aanduiding `tenant-id` is afkomstig van uw abonnement.
+
+   * De tijdelijke aanduiding `storage-account-name` is de naam van uw Azure Data Lake Storage Gen2-opslagaccount.
+
+19. Druk op de toetsen **Shift + Enter** om de code in dit blok uit te voeren.
 
     Houd dit notitieblok open, want u gaat er later opdrachten aan toevoegen.
 

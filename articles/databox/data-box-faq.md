@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 6c7dd6ebaf7eebefcdcfa50bbd77ad80f4cda907
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: b3d79f106554bf4a80df835ac880fbb7a72c8bfe
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077451"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268393"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Veelgestelde vragen
 
@@ -70,7 +70,7 @@ A.  Meld u aan bij de Azure-portal en maak een bestelling voor Data Box om Azure
 ### <a name="q-i-was-not-able-to-create-a-data-box-order-in-the-azure-portal-why-would-this-be"></a>V. Ik kon geen bestelling voor een Data Box maken in de Azure-portal. Waarom is dit?
 A. Als u geen bestelling voor een Data Box kunt maken, is er een probleem met uw abonnementstype of toegang. 
 
-Raadpleeg uw abonnement. Data Box is alleen beschikbaar voor Enterprise Agreement- (EA) en Cloud Solution Provider-abonnementen (CSP) en abonnement met betalen per gebruik. Neem contact op met Microsoft Ondersteuning om uw abonnement te upgraden als uw abonnement niet onder de bovenstaande typen valt.
+Raadpleeg uw abonnement. Data Box is alleen beschikbaar voor EA- en CSP-abonnementen (Enterprise Agreement en Cloud Solution Provider). Neem contact op met Microsoft Ondersteuning om uw abonnement te upgraden als uw abonnement niet onder de bovenstaande typen valt.
 
 Controleer het toegangsniveau van uw abonnement als u een ondersteund type aanbieding voor het abonnement hebt. U moet inzender of eigenaar van een abonnement zijn om een bestelling te kunnen maken.
 

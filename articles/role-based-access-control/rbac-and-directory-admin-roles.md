@@ -15,12 +15,12 @@ ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 9fce35f811a4d2440ba73e4f305ede6891928069
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 00b96b5bfa88a6c1c31d3415027ce1d4eda11e6b
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633279"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339087"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Klassieke abonnementsbeheerdersrollen, Azure RBAC-rollen en Azure AD-beheerdersrollen
 
@@ -73,7 +73,7 @@ Azure RBAC staat voor op rollen gebaseerd toegangsbeheer en is een machtigingssy
 | [Lezer](built-in-roles.md#reader) | <ul><li>Azure-resources weergeven</li></ul> | Geldt voor alle resourcetypen. |
 | [Beheerder van gebruikerstoegang](built-in-roles.md#user-access-administrator) | <ul><li>Toegang van gebruikers tot Azure-resources beheren</li></ul> |  |
 
-De overige ingebouwde rollen zijn bedoeld voor het beheer van specifieke Azure-resources. Met de rol [Inzender voor virtuele machines](built-in-roles.md#virtual-machine-contributor) kan een gebruiker bijvoorbeeld virtuele machines maken en beheren. Zie [Ingebouwde rollen](built-in-roles.md) voor een lijst met alle ingebouwde rollen.
+De overige ingebouwde rollen zijn bedoeld voor het beheer van specifieke Azure-resources. Met de rol [Inzender voor virtuele machines](built-in-roles.md#virtual-machine-contributor) kan een gebruiker bijvoorbeeld virtuele machines maken en beheren. Zie [Ingebouwde rollen](built-in-roles.md) voor een lijst met alle ingebouwde rollen voor Azure-resources.
 
 Alleen Azure Portal en de API's van Azure Resource Manager ondersteunen RBAC. Gebruikers, groepen en toepassingen met toegewezen RBAC-rollen kunnen geen gebruikmaken van de [API's van het klassieke implementatiemodel van Azure](../azure-resource-manager/resource-manager-deployment-model.md).
 
@@ -95,7 +95,7 @@ Azure AD-beheerdersrollen worden gebruikt voor het beheren van Azure AD-resource
 | [Gebruikersbeheerder](../active-directory/users-groups-roles/directory-assign-admin-roles.md#user-account-administrator) | <ul><li>Alle aspecten van gebruikers en groepen maken en beheren</li><li>Ondersteuningstickets beheren</li><li>Servicestatus bewaken</li><li>Wachtwoorden wijzigen voor gebruikers, helpdeskbeheerders en andere gebruikersbeheerders</li></ul> |  |
 | [Factureringsbeheerder](../active-directory/users-groups-roles/directory-assign-admin-roles.md#billing-administrator) | <ul><li>Aankopen doen</li><li>Abonnementen beheren</li><li>Ondersteuningstickets beheren</li><li>Servicestatus beheren</li></ul> |  |
 
-Zie [Beheerdersrollen toewijzen in Azure Active Directory](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) voor een lijst met alle Azure AD-beheerdersrollen.
+Zie [Machtigingen voor beheerdersrol toewijzen in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) voor een lijst met alle Azure AD-beheerdersrollen.
 
 In Azure Portal kunt u de lijst met Azure AD-beheerdersrollen bekijken op de blade **Rollen en beheerders**.
 
@@ -122,6 +122,6 @@ Er zijn verschillende Azure AD-beheerdersrollen die Azure AD en Microsoft Office
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Wat is toegangsbeheer op basis van rollen (RBAC)?](overview.md)
-- [Beheerdersrollen toewijzen in Azure Active Directory](/azure/active-directory/active-directory-assign-admin-roles-azure-portal)
-- [Azure-abonnementsbeheerders toevoegen of wijzigen](/azure/billing/billing-add-change-azure-subscription-administrator)
+- [Wat is op rollen gebaseerd toegangsbeheer (RBAC) voor Azure-resources?](overview.md)
+- [Machtigingen voor beheerrol in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+- [Azure-abonnementsbeheerders toevoegen of wijzigen](../billing/billing-add-change-azure-subscription-administrator.md)

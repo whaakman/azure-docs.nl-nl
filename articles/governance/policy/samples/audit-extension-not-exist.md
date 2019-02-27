@@ -1,6 +1,6 @@
 ---
 title: 'Voorbeeld: controleert of uitbreiding bestaat'
-description: Dit voorbeeldbeleid controleert of een uitbreiding met een virtuele machine wordt geïmplementeerd.
+description: Deze voorbeeldbeleiddefinitie controleert of een uitbreiding met een virtuele machine wordt geïmplementeerd.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 7e5f396bb4acfdef0d49d38019b6c4d19661d9ae
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 0c0f41c01d33add81508d828259ddcdd48d0cbc8
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244178"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340872"
 ---
-# <a name="audit-if-extension-does-not-exist"></a>Controleert of uitbreiding bestaat
+# <a name="sample---audit-if-extension-does-not-exist"></a>Voorbeeld: controleert of uitbreiding bestaat
 
 Dit beleid controleert of een uitbreiding met een virtuele machine wordt geïmplementeerd. U geeft de uitgever van de uitbreiding op en het type om te controleren of deze zijn geïmplementeerd.
 

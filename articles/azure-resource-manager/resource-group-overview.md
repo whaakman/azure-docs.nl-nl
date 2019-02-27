@@ -10,20 +10,20 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2019
+ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: fbfbb4e452032073d92e7c2b93f78669da0ceaf5
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 1d576b24e96d6c4c88d6fbef86cb1c6cf7f7c61a
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55691554"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268126"
 ---
 # <a name="azure-resource-manager-overview"></a>Overzicht van Azure Resource Manager
 
 Azure Resource Manager is de implementatie- en beheersservice voor Azure. Het biedt een consistente beheerlaag waarmee u resources in uw Azure-abonnement kunt maken, bijwerken en verwijderen. U kunt toegangsbeheer, controle en tagfuncties gebruiken om uw resources te beveiligen en te organiseren na de implementatie.
 
-Wanneer u acties onderneemt via de portal, PowerShell, Azure CLI, REST-API's of client-SDK's, verwerkt de API van Azure Resource Manager uw aanvraag. Omdat alle aanvragen worden verwerkt via dezelfde API, ziet u consistente resultaten en mogelijkheden in de verschillende hulpprogramma's.
+Wanneer u acties onderneemt via de portal, PowerShell, Azure CLI, REST-API's of client-SDK's, verwerkt de API van Azure Resource Manager uw aanvraag. Omdat alle aanvragen worden verwerkt via dezelfde API, ziet u consistente resultaten en mogelijkheden in de verschillende hulpprogramma's. Alle mogelijkheden die beschikbaar zijn in de Azure-portal zijn ook beschikbaar via Azure PowerShell, Azure CLI, de Azure REST API's en client-SDK's. Functionaliteit die oorspronkelijk wordt uitgegeven via API's, is binnen 180 dagen na de eerste release beschikbaar in de portal.
 
 In de volgende afbeelding ziet u hoe alle hulpprogramma's werken met de Azure Resource Manager-API. Via de API worden aanvragen doorgegeven aan de Resource Manager-service, waar de aanvragen worden geverifieerd en geautoriseerd. De aanvragen worden vervolgens via Resource Manager naar de juiste service geleid.
 

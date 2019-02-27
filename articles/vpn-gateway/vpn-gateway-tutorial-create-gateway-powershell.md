@@ -2,33 +2,26 @@
 title: Een Azure VPN-gateway maken en beheren met behulp van PowerShell | Microsoft Docs
 description: 'Zelfstudie: Een Azure VPN-gateway maken en beheren met behulp van Microsoft Azure PowerShell'
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: infrastructure
-ms.date: 05/14/2018
+ms.date: 02/11/2019
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: 17c8a55c27a276fa1e2e04ebb9f748fa6d59a9dc
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: afe71953e9917ccf274742124d59cb790f15521b
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55505968"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414130"
 ---
-# <a name="create-and-manage-vpn-gateway-with-the-azure-powershell-module"></a>Een Azure VPN-gateway maken en beheren met behulp van Microsoft Azure PowerShell
+# <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Zelfstudie: Een VPN-gateway maken en beheren met behulp van PowerShell
 
 Azure VPN-gateways bieden veilige, cross-premises connectiviteit tussen de klanten-premises en Azure. Deze zelfstudie bevat informatie over implementatie-basiselementen voor Azure VPN-gateways, zoals het maken en beheren van een VPN-gateway. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
 > * Een VPN-gateway maken
+> * Het openbare IP-adres weergeven
 > * Het formaat van een VPN-gateway wijzigen
 > * Een VPN-gateway opnieuw instellen
 
@@ -38,13 +31,13 @@ Het volgende diagram toont het virtuele netwerk en de VPN-gateway die zijn gemaa
 
 ### <a name="azure-cloud-shell-and-azure-powershell"></a>Azure Cloud Shell en Azure PowerShell
 
-[!INCLUDE [working with cloudshell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Als u PowerShell lokaal wilt installeren en gebruiken, is voor deze zelfstudie moduleversie 5.3 of later van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure. 
+[!INCLUDE [working with cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
 ## <a name="common-network-parameter-values"></a>Algemene parameterwaarden van het netwerk
 
-Wijzig de waarden hieronder op basis van uw omgeving en netwerkinstellingen.
+Wijzig de onderstaande waarden op basis van uw omgeving en netwerkinstellingen en kopieer en plak deze waarden vervolgens om de variabelen voor deze zelfstudie in te stellen. Als er een time-out optreedt in uw Cloud Shell-sessie, of als u een ander PowerShell-venster moet gebruiken, kopieert en plakt u de variabelen naar uw nieuwe sessie en vervolgt u de zelfstudie.
 
 ```azurepowershell-interactive
 $RG1         = "TestRG1"
@@ -64,23 +57,23 @@ $GwIP1       = "VNet1GWIP"
 $GwIPConf1   = "gwipconf1"
 ```
 
-## <a name="create-resource-group"></a>Een resourcegroep maken
+## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Maak een resourcegroep met de opdracht [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Eerst moet u een resourcegroep maken. In het volgende voorbeeld wordt een resourcegroep met de naam *TestRG1* gemaakt in de regio *US - oost*:
+Maak een resourcegroep met de opdracht [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Eerst moet u een resourcegroep maken. In het volgende voorbeeld wordt een resourcegroep met de naam *TestRG1* gemaakt in de regio *US - oost*:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -ResourceGroupName $RG1 -Location $Location1
+New-AzResourceGroup -ResourceGroupName $RG1 -Location $Location1
 ```
 
 ## <a name="create-a-virtual-network"></a>Een virtueel netwerk maken
 
-Azure VPN-gateway biedt cross-premises connectiviteit en P2S-VPN-server-functionaliteit voor uw virtuele netwerk. Voeg de VPN-gateway toe aan een bestaand virtueel netwerk of maak een nieuw virtueel netwerk en de gateway. In dit voorbeeld wordt een nieuw virtueel netwerk met drie subnetten gemaakt: front-end, back-end en GatewaySubnet met behulp van [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) en [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork):
+Azure VPN-gateway biedt cross-premises connectiviteit en P2S-VPN-server-functionaliteit voor uw virtuele netwerk. Voeg de VPN-gateway toe aan een bestaand virtueel netwerk of maak een nieuw virtueel netwerk en de gateway. In dit voorbeeld wordt een nieuw virtueel netwerk met drie subnetten gemaakt: front-end, back-end en GatewaySubnet met behulp van [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) en [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork):
 
 ```azurepowershell-interactive
-$fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubnet1 -AddressPrefix $FEPrefix1
-$besub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubnet1 -AddressPrefix $BEPrefix1
-$gwsub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubnet1 -AddressPrefix $GwPrefix1
-$vnet   = New-AzureRmVirtualNetwork `
+$fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubnet1 -AddressPrefix $FEPrefix1
+$besub1 = New-AzVirtualNetworkSubnetConfig -Name $BESubnet1 -AddressPrefix $BEPrefix1
+$gwsub1 = New-AzVirtualNetworkSubnetConfig -Name $GWSubnet1 -AddressPrefix $GwPrefix1
+$vnet   = New-AzVirtualNetwork `
             -Name $VNet1 `
             -ResourceGroupName $RG1 `
             -Location $Location1 `
@@ -90,26 +83,26 @@ $vnet   = New-AzureRmVirtualNetwork `
 
 ## <a name="request-a-public-ip-address-for-the-vpn-gateway"></a>Een openbaar IP-adres voor de VPN-gateway aanvragen
 
-Azure VPN-gateways communiceren met uw on-premises VPN-apparaten via Internet om IKE (Internet Key Exchange)-onderhandeling uit te voeren en IPsec-tunnels tot stand te brengen. Maak een openbaar IP-adres en wijs dit toe aan uw VPN-gateway, zoals wordt weergegeven in het onderstaande voorbeeld met [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) en [New-AzureRmVirtualNetworkGatewayIpConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayipconfig):
+Azure VPN-gateways communiceren met uw on-premises VPN-apparaten via Internet om IKE (Internet Key Exchange)-onderhandeling uit te voeren en IPsec-tunnels tot stand te brengen. Maak een openbaar IP-adres en wijs dit toe aan uw VPN-gateway, zoals wordt weergegeven in het onderstaande voorbeeld met [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) en [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig):
 
 > [!IMPORTANT]
 > Op dit moment kunt u alleen een dynamisch openbaar IP-adres gebruiken voor de gateway. Statische IP-adressen worden niet ondersteund op Azure VPN-gateways.
 
 ```azurepowershell-interactive
-$gwpip    = New-AzureRmPublicIpAddress -Name $GwIP1 -ResourceGroupName $RG1 `
+$gwpip    = New-AzPublicIpAddress -Name $GwIP1 -ResourceGroupName $RG1 `
               -Location $Location1 -AllocationMethod Dynamic
-$subnet   = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' `
+$subnet   = Get-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' `
               -VirtualNetwork $vnet
-$gwipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GwIPConf1 `
+$gwipconf = New-AzVirtualNetworkGatewayIpConfig -Name $GwIPConf1 `
               -Subnet $subnet -PublicIpAddress $gwpip
 ```
 
-## <a name="create-vpn-gateway"></a>Een VPN-gateway maken
+## <a name="create-a-vpn-gateway"></a>Een VPN-gateway maken
 
-Het maken van een VPN-gateway kan tot 45 minuten of langer duren. Nadat het maken van de gateway is voltooid, kunt u een verbinding tussen uw virtuele netwerk en een ander VNet maken. Of maak een verbinding tussen uw virtuele netwerk en een on-premises locatie. Maak een VPN-gateway met de cmdlet [New-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/New-AzureRmVirtualNetworkGateway).
+Het maken van een VPN-gateway kan tot 45 minuten of langer duren. Nadat het maken van de gateway is voltooid, kunt u een verbinding tussen uw virtuele netwerk en een ander VNet maken. Of maak een verbinding tussen uw virtuele netwerk en een on-premises locatie. Maak een VPN-gateway met de cmdlet [New-AzVirtualNetworkGateway](/powershell/module/az.network/New-azVirtualNetworkGateway).
 
 ```azurepowershell-interactive
-New-AzureRmVirtualNetworkGateway -Name $Gw1 -ResourceGroupName $RG1 `
+New-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroupName $RG1 `
   -Location $Location1 -IpConfigurations $gwipconf -GatewayType Vpn `
   -VpnType RouteBased -GatewaySku VpnGw1
 ```
@@ -119,47 +112,51 @@ Sleutelparameterwaarden:
 * VpnType: Gebruik **RouteBased** om te communiceren met meer verschillende VPN-apparaten en meer routeringsfuncties
 * GatewaySku: **VpnGw1** is de standaardinstelling; wijzig deze in VpnGw2 of VpnGw3 als u hogere doorvoercapaciteit of meer verbindingen nodig hebt. Zie [Gateway-SKU's](vpn-gateway-about-vpn-gateway-settings.md#gwsku) voor meer informatie.
 
+Als u de TryIt gebruikt, is het mogelijk dat de sessie een time-out geeft. Dat is niet erg. De gateway wordt alsnog gemaakt.
+
 Nadat het maken van de gateway is voltooid, kunt u een verbinding maken tussen uw virtuele netwerk en een ander VNet of een verbinding maken tussen uw virtuele netwerk en een on-premises locatie. U kunt ook een P2S-verbinding configureren voor uw VNet vanaf een clientcomputer.
 
-## <a name="resize-vpn-gateway"></a>Het formaat van VPN-gateway wijzigen
+## <a name="view-the-gateway-public-ip-address"></a>Het openbare IP-adres van de gateway weergeven
 
-U kunt de VPN-gateway-SKU wijzigen nadat de gateway is gemaakt. Verschillende gateway-SKU's ondersteunen verschillende specificaties zoals doorvoercapaciteit, aantal verbindingen, enzovoort. Het volgende voorbeeld gebruikt [Resize-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/Resize-AzureRmVirtualNetworkGateway) om het formaat van uw gateway van VpnGw1 naar VpnGw2 te wijzigen. Zie [Gateway-SKU's](vpn-gateway-about-vpn-gateway-settings.md#gwsku) voor meer informatie.
+Als u de naam van het openbare IP-adres weet, gebruikt u [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azurermps-6.8.1) om het openbare IP-adres weer te geven dat is toegewezen aan de gateway.
+
+Als er een time-out optreedt voor uw sessie, kopieert u de netwerkparameters uit het begin van deze zelfstudie naar de nieuwe sessie en gaat u verder.
 
 ```azurepowershell-interactive
-$gateway = Get-AzureRmVirtualNetworkGateway -Name $Gw1 -ResourceGroup $RG1
-Resize-AzureRmVirtualNetworkGateway -GatewaySku VpnGw2 -VirtualNetworkGateway $gateway
+$myGwIp = Get-AzPublicIpAddress -Name $GwIP1 -ResourceGroup $RG1
+$myGwIp.IpAddress
+```
+
+## <a name="resize-a-gateway"></a>Het formaat van een gateway wijzigen
+
+U kunt de VPN-gateway-SKU wijzigen nadat de gateway is gemaakt. Verschillende gateway-SKU's ondersteunen verschillende specificaties zoals doorvoercapaciteit, aantal verbindingen, enzovoort. In het volgende voorbeeld wordt [Resize-AzVirtualNetworkGateway](/powershell/module/az.network/Resize-azVirtualNetworkGateway) gebruikt om het formaat van uw gateway te wijzigen van VpnGw1 in VpnGw2. Zie [Gateway-SKU's](vpn-gateway-about-vpn-gateway-settings.md#gwsku) voor meer informatie.
+
+```azurepowershell-interactive
+$gateway = Get-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroup $RG1
+Resize-AzVirtualNetworkGateway -GatewaySku VpnGw2 -VirtualNetworkGateway $gateway
 ```
 
 Vergroten of verkleinen van een VPN-gateway duurt ook ongeveer 30 tot 45 minuten, hoewel deze bewerking bestaande verbindingen en configuraties **niet** onderbreekt of verwijdert.
 
-## <a name="reset-vpn-gateway"></a>VPN-gateway opnieuw instellen
+## <a name="reset-a-gateway"></a>Een gateway opnieuw instellen
 
-Als onderdeel van de stappen voor probleemoplossing, kunt u uw Azure VPN-gateway opnieuw instellen om de VPN-gateway te dwingen de IPsec-/IKE-tunnelconfiguraties opnieuw op te starten. Gebruik [Reset-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/Reset-AzureRmVirtualNetworkGateway) voor het opnieuw instellen van uw gateway.
+Als onderdeel van de stappen voor probleemoplossing, kunt u uw Azure VPN-gateway opnieuw instellen om de VPN-gateway te dwingen de IPsec-/IKE-tunnelconfiguraties opnieuw op te starten. Gebruik [Reset-AzVirtualNetworkGateway](/powershell/module/az.network/Reset-azVirtualNetworkGateway) als u een gateway opnieuw wilt instellen.
 
 ```azurepowershell-interactive
-$gateway = Get-AzureRmVirtualNetworkGateway -Name $Gw1 -ResourceGroup $RG1
-Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gateway
+$gateway = Get-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroup $RG1
+Reset-AzVirtualNetworkGateway -VirtualNetworkGateway $gateway
 ```
 
 Zie [Reset a VPN gateway](vpn-gateway-resetgw-classic.md) (Een VPN-gateway opnieuw instellen) voor meer informatie.
 
-## <a name="get-the-gateway-public-ip-address"></a>Het openbare IP-adres van de gateway ophalen
+## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u de naam van het openbare IP-adres weet, gebruikt u [Get-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress?view=azurermps-6.8.1) om het openbare IP-adres weer te geven dat is toegewezen aan de gateway.
+Als u verder gaat naar de [volgende zelfstudie](vpn-gateway-tutorial-vpnconnection-powershell.md), moet u deze resources behouden, want ze zijn daarvoor vereist.
 
-```azurepowershell-interactive
-$myGwIp = Get-AzureRmPublicIpAddress -Name $GwIP1 -ResourceGroup $RG1
-$myGwIp.IpAddress
-```
-
-## <a name="delete-vpn-gateway"></a>VPN-gateway verwijderen
-
-Een volledige configuratie van cross-premises en VNet-naar-VNet-connectiviteit vereist meerdere resourceypes naast de VPN-gateway. Verwijder de verbindingen die zijn gekoppeld aan de VPN-gateway voordat u de gateway zelf verwijdert. Zodra de gateway is verwijderd, kunt u vervolgens de openbare IP-adressen voor de gateway verwijderen. Zie [Delete a VPN gateway](vpn-gateway-delete-vnet-gateway-powershell.md) (Een VPN-gateway verwijderen) voor gedetailleerde stappen.
-
-Als de gateway deel uitmaakt van een protype of bewijs van concept-implementatie, kunt u de opdracht [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) gebruiken voor het verwijderen van de resourcegroep, de VPN-gateway en alle bijbehorende resources.
+Als de gateway echter deel uitmaakt van een prototype, test of 'proof of concept'-implementatie, kunt u de opdracht [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) gebruiken om de resourcegroep, de VPN-gateway en alle bijbehorende resources te verwijderen.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name $RG1
+Remove-AzResourceGroup -Name $RG1
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -168,6 +165,7 @@ In deze zelfstudie hebt u informatie gehad over basistaken voor het maken en beh
 
 > [!div class="checklist"]
 > * Een VPN-gateway maken
+> * Het openbare IP-adres weergeven
 > * Het formaat van een VPN-gateway wijzigen
 > * Een VPN-gateway opnieuw instellen
 

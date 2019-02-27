@@ -1,6 +1,6 @@
 ---
 title: "Voorbeeld: toegestane SKU's voor opslagaccounts en virtuele machines"
-description: Voor dit voorbeeldbeleid moeten opslagaccounts en virtuele machines gebruikmaken van goedgekeurde SKU's.
+description: Voor deze voorbeeldbeleidsdefinitie moeten opslagaccounts en virtuele machines gebruikmaken van goedgekeurde SKU's.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 4e194e70c13fe70702e700fcaafa7cdf981e0147
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: cb6ccf87cc14424801a06cc2e9749e2fc2f6ee4a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242070"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339903"
 ---
-# <a name="allowed-skus-for-storage-accounts-and-virtual-machines"></a>Toegestane SKU's voor opslagaccounts en virtuele machines
+# <a name="sample---allowed-skus-for-storage-accounts-and-virtual-machines"></a>Voorbeeld: toegestane SKU's voor opslagaccounts en virtuele machines
 
 Voor dit beleid moeten opslagaccounts en virtuele machines gebruikmaken van goedgekeurde SKU's. Gebruik ingebouwde beleidsregels om verzekerd te zijn van goedgekeurde SKU's. U geeft een reeks goedgekeurde SKU's voor virtuele machines op en een reeks goedgekeurde SKU's voor opslagaccounts.
 

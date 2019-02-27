@@ -1,6 +1,6 @@
 ---
-title: Zelfstudie - Toegang verlenen aan een groep met RBAC en Azure PowerShell | Microsoft Docs
-description: Gebruik op rollen gebaseerd toegangsbeheer (RBAC) om een groep toestemming te geven om alles in een abonnement te bekijken en om alles in een resourcegroep te beheren met Azure PowerShell.
+title: 'Zelfstudie: Toegang tot Azure-resources verlenen aan een groep met behulp van RBAC en Azure PowerShell | Microsoft Docs'
+description: Leer hoe u een groep toegang geeft tot Azure-resources met behulp van op rollen gebaseerd toegangsbeheer (RBAC) en Azure Powershell.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: ad6884067a756412efe27ce275387ff5ceb1b298
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 7f080682baf42c5852e167a20bfbad7f00fe8bd3
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105668"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343686"
 ---
-# <a name="tutorial-grant-access-for-a-group-using-rbac-and-azure-powershell"></a>Zelfstudie: Toegang verlenen aan een groep met RBAC en Azure PowerShell
+# <a name="tutorial-grant-a-group-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Zelfstudie: Toegang tot Azure-resources verlenen aan een groep met behulp van RBAC en Azure PowerShell
 
-[Op rollen gebaseerde toegangsbeheer (RBAC)](overview.md) is de manier waarop u de toegang tot resources in Azure beheert. In deze zelfstudie geeft u een groep toestemming om alles in een abonnement te bekijken en om alles in een resourcegroep te beheren met Azure PowerShell.
+[Op rollen gebaseerd toegangsbeheer (RBAC)](overview.md) is de manier waarop u de toegang tot Azure-resources beheert. In deze zelfstudie geeft u een groep toestemming om alles in een abonnement te bekijken en om alles in een resourcegroep te beheren met Azure PowerShell.
 
 In deze zelfstudie leert u het volgende:
 
@@ -70,7 +70,7 @@ Als u een rol wilt toewijzen, hebt u een gebruiker, groep of service-principal n
    11111111-1111-1111-1111-111111111111 RBAC Tutorial Group
    ```
 
-Als u geen machtigingen hebt voor het maken van groepen, kunt u in plaats daarvan de [Zelfstudie: Toegang verlenen aan een gebruiker met RBAC en Azure PowerShell](tutorial-role-assignments-user-powershell.md) proberen.
+Als u geen machtigingen hebt voor het maken van groepen, kunt u in plaats daarvan de [Zelfstudie: Toegang tot Azure-resources verlenen aan een gebruiker met behulp van RBAC en Azure PowerShell](tutorial-role-assignments-user-powershell.md).
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -294,4 +294,4 @@ Als u de in deze zelfstudie gemaakte resources wilt opschonen, verwijdert u de r
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Toegang beheren met RBAC en PowerShell](role-assignments-powershell.md)
+> [Toegang tot Azure-resources beheren met behulp van RBAC en Azure PowerShell](role-assignments-powershell.md)

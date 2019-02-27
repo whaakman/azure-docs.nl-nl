@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6cdc7ef8ee991719153f6daed01fbb76f945a7a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e233de6f0909477e5033d2a0104f9165e86a9077
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194934"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311032"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Zelfstudie: Azure Active Directory-integratie met Workplace by Facebook
 
@@ -143,31 +143,38 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
 
 1. Meld u in een ander browservenster als beheerder aan bij de bedrijfssite van Workplace by Facebook.
   
-   > [!NOTE]
-   > Als onderdeel van het SAML-verificatieproces kan Workplace queryreeksen van maximaal 2,5 kB gebruiken om parameters door te geven aan Azure AD.
+    > [!NOTE]
+    > Als onderdeel van het SAML-verificatieproces kan Workplace queryreeksen van maximaal 2,5 kB gebruiken om parameters door te geven aan Azure AD.
 
-2. Ga in het **deelvenster Beheer** naar het tabblad **Beveiliging** en vervolgens naar **Verificatie**.
+2. Ga in het **deelvenster Beheer** naar het tabblad **Beveiliging**.
 
-3. Selecteer onder **SAML-verificatie** de optie **Alleen SSO** in de vervolgkeuzelijst.
+    ![Deelvenster Beheer](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure01.png)
 
-4. Voer de waarden die u hebt gekopieerd uit het gedeelte **Workplace by Facebook-configuratie** van de Azure portal in de bijbehorende velden in:
+3. Selecteer op het tabblad **Verificatie** de optie **Eenmalige aanmelding (SSO)** en voer de volgende stappen uit:
 
-    * Plak in het tekstvak **SAM-URL** de waarde van **Aanmeldings-URL**, die u hebt gekopieerd uit de Azure-portal.
-    * Plak in het tekstvak **URL SAM-verlener** de waarde van **Azure AD-id**, die u hebt gekopieerd uit de Azure-portal.
-    * Plak in het tekstvak **Omleiden SAML-afmelding** (optioneel) de waarde van **Afmeldings-URL**, die u hebt gekopieerd uit de Azure-portal.
-    * Open in Kladblok het **met Base 64 gecodeerde certificaat** dat u hebt gedownload uit de Azure-portal, kopieer de inhoud ervan naar het Klembord en plak deze vervolgens in het tekstvak **SAML-certificaat**.
+    ![Tabblad Verificatie](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure02.png)
 
-5. U moet mogelijk de URL van de doelgroep, de URL van de ontvanger en de URL van de ACS (Assertion Consumer Service) invoeren die worden vermeld onder **Standaard SAML-configuratie**.
+    a. Plak in het tekstvak **SAM-URL** de waarde van **Aanmeldings-URL**, die u hebt gekopieerd uit de Azure-portal.
 
-6. Blader naar de onderkant van het gedeelte en klik op de knop **SSO testen**. Er verschijnt een pop-upvenster met de aanmeldingspagina van Azure AD. Voer uw referenties op de gebruikelijke manier in om te verifiëren.
+    b. Plak in het tekstvak **URI SAML-verlener** de waarde van **Azure AD-id**, die u hebt gekopieerd uit de Azure-portal.
+
+    c. Plak in het tekstvak **Omleiden SAML-afmelding** (optioneel) de waarde van **Afmeldings-URL**, die u hebt gekopieerd uit de Azure-portal.
+
+    d. Open in Kladblok het **met Base 64 gecodeerde certificaat** dat u hebt gedownload uit de Azure-portal, kopieer de inhoud ervan naar het Klembord en plak deze vervolgens in het tekstvak **SAML-certificaat**.
+
+    e. Kopieer de **Doelgroep-URL** voor uw exemplaar en plak deze in het tekstvak  **Id (Entiteits-id)** in de sectie  **SAML-basisconfiguratie**  in de Azure-portal.
+
+    f. Kopieer de **Ontvangers-URL** voor uw exemplaar en plak deze in het tekstvak  **Aanmeldings-URL** in de sectie  **SAML-basisconfiguratie**  in de Azure-portal.
+
+    g. Blader naar de onderkant van het gedeelte en klik op de knop **SSO testen**. Er verschijnt een pop-upvenster met de aanmeldingspagina van Azure AD. Voer uw referenties op de gebruikelijke manier in om te verifiëren.
 
     **Problemen oplossen:** Controleer of het e-mailadres dat wordt geretourneerd door Azure AD hetzelfde is als het Workplace-account waarbij u bent aangemeld.
 
-7. Zodra de test is voltooid, bladert u naar de onderkant van de pagina en klikt u op de knop **Opslaan**.
+    h. Zodra de test is voltooid, bladert u naar de onderkant van de pagina en klikt u op de knop **Opslaan**.
 
-8. Alle gebruikers van Workplace zien nu voortaan de Azure AD-aanmeldingspagina voor verificatie.
+    i. Alle gebruikers van Workplace zien nu voortaan de Azure AD-aanmeldingspagina voor verificatie.
 
-9. **Omleiden SAML-afmelding (optioneel)** -
+4. **Omleiden SAML-afmelding (optioneel)** -
 
     U kunt eventueel een URL voor SAML afmelding configureren, die kan worden gebruikt om te verwijzen naar de afmeldingspagina van Azure AD. Als deze instelling is ingeschakeld en geconfigureerd, wordt de gebruiker niet meer omgeleid naar de afmeldingspagina van Workplace. In plaats daarvan wordt de gebruiker omgeleid naar de URL die is opgegeven in het tekstvak Omleiden SAML-afmelding.
 

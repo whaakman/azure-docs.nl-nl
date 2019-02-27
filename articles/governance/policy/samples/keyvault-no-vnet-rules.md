@@ -1,6 +1,6 @@
 ---
-title: Voorbeeld - Key Vault-kluizen controleren op het ontbreken van eindpunten voor een virtueel netwerk
-description: Hiermee wordt een controle uitgevoerd op Key Vault-kluizen om exemplaren te detecteren die geen service-eindpunten voor een virtueel netwerk hebben.
+title: 'Voorbeeld: Key Vault-kluizen controleren op het ontbreken van eindpunten voor een virtueel netwerk'
+description: Met deze voorbeeldbeleidsdefinitie wordt een controle uitgevoerd op Key Vault-kluizen om exemplaren te detecteren die geen service-eindpunten voor een virtueel netwerk hebben.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: c9a5359303c1feecfbc905099a1bed2fc10fa52d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 6b53c94787cfcabae1072f9879f14e0d890e967c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245793"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341518"
 ---
-# <a name="key-vault-vaults-with-no-virtual-network-endpoints"></a>Key Vault-kluizen zonder eindpunten voor een virtueel netwerk
+# <a name="sample---key-vault-vaults-with-no-virtual-network-endpoints"></a>Voorbeeld: Key Vault-kluizen zonder eindpunten voor een virtueel netwerk
 
 Met dit beleid wordt een controle uitgevoerd voor Key Vault-kluizen die geen eindpunten voor een virtueel netwerk hebben. Gebruik het om uw beveiligingsvereisten af te dwingen. Zie [eindpunten voor een virtueel netwerk in Key Vault](../../../key-vault/key-vault-overview-vnet-service-endpoints.md) voor meer informatie.
 

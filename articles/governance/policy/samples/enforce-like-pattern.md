@@ -1,6 +1,6 @@
 ---
 title: 'Voorbeeld: patroon voor naamconventies afdwingen'
-description: Dit voorbeeldbeleid vereist dat bronnen voldoen aan het patroon voor naamconventies.
+description: Deze voorbeeldbeleidsdefinitie vereist dat bronnen voldoen aan het patroon voor naamconventies.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 7bc7624cdcc6676d3f622f30e9549a2e444c1d6f
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 6ff890773a045220b7e2f343d86434fe9109ef1a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243028"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338475"
 ---
-# <a name="enforce-like-pattern-for-naming-conventions"></a>Patroon voor naamconventies afdwingen
+# <a name="sample---enforce-like-pattern-for-naming-conventions"></a>Voorbeeld: patroon voor naamconventies afdwingen
 
 Vereist dat bronnamen voldoen aan de patroonovereenkomst voor naamconventies. Geef het toegestane patroon op als parameter.
 

@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Een aangepaste rol maken met Azure PowerShell | Microsoft Docs'
-description: Lees hier hoe u een aangepaste rol maakt met Azure PowerShell.
+title: 'Zelfstudie: Een aangepaste rol maken voor Azure-resources met Azure PowerShell | Microsoft Docs'
+description: Lees hier hoe u een aangepaste rol maakt voor Azure-resources met Azure PowerShell.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 9dddef43e1ac5f3bcedcc08b313eea300436ea61
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 23ee8aef4ab9b7ea54dae0587e2caaafbf08e5b2
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106424"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339155"
 ---
-# <a name="tutorial-create-a-custom-role-using-azure-powershell"></a>Zelfstudie: Een aangepaste rol maken met Azure PowerShell
+# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-powershell"></a>Zelfstudie: Een aangepaste rol maken voor Azure-resources met Azure PowerShell
 
-Als de [ingebouwde rollen](built-in-roles.md) niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen aangepaste rollen maken. Voor deze zelfstudie gaat u met behulp van Azure PowerShell een aangepaste rol maken met de naam Reader Support Tickets. De aangepaste rol stelt de gebruiker in staat om alles in het abonnement te zien en ook om ondersteuningstickets te openen.
+Als de [ingebouwde rollen voor Azure-resources](built-in-roles.md) niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen aangepaste rollen maken. Voor deze zelfstudie gaat u met behulp van Azure PowerShell een aangepaste rol maken met de naam Reader Support Tickets. De aangepaste rol stelt de gebruiker in staat om alles in het abonnement te zien en ook om ondersteuningstickets te openen.
 
 In deze zelfstudie leert u het volgende:
 
@@ -277,4 +277,4 @@ Als u de aangepaste rol wilt bijwerken, kunt u het JSON-bestand bijwerken of het
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Aangepaste rollen maken met PowerShell](custom-roles-powershell.md)
+> [Aangepaste rollen maken voor Azure-resources met Azure PowerShell](custom-roles-powershell.md)

@@ -1,291 +1,255 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met halogeen Software | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en halogeen Software.
+title: 'Zelfstudie: Azure Active Directory-integratie met Halogen Software | Microsoft Docs'
+description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active Directory en Halogen Software.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 2ca2298d-9a0c-4f14-925c-fa23f2659d28
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/23/2017
+ms.topic: tutorial
+ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec1ef8db71a6a9765eac4ec6ac8cae1d731e296b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: 143c214e13d3a603b9d417c68acd7b74dd342040
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205882"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455225"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-halogen-software"></a>Zelfstudie: Azure Active Directory-integratie met halogeen Software
+# <a name="tutorial-azure-active-directory-integration-with-halogen-software"></a>Zelfstudie: Azure Active Directory-integratie met Halogen Software
 
-In deze zelfstudie leert u hoe u halogeen om Software te integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Halogen Software kunt integreren met Azure Active Directory (Azure AD).
+De integratie van Halogen Software met Azure AD biedt de volgende voordelen:
 
-Halogeen Software integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD beheren wie toegang tot Halogen Software heeft.
+* U kunt inschakelen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij Halogen Software (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot halogeen Software heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij halogeen Software (Single Sign-On) inschakelen met hun Azure AD-accounts
-- U kunt uw accounts in één centrale locatie - Azure portal beheren
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met halogeen Software, moet u de volgende items:
+Voor het configureren van Azure AD-integratie met Halogen Software hebt u de volgende zaken nodig:
 
-- Een Azure AD-abonnement
-- Een halogeen Software eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u nog geen proefversie van Azure AD hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) een proefversie van één maand aanvragen.
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op Halogen Software waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-1. Halogeen Software uit de galerie toe te voegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+* Halogen Software ondersteunt door **SP** geïnitieerde eenmalige aanmelding
 
-## <a name="adding-halogen-software-from-the-gallery"></a>Halogeen Software uit de galerie toe te voegen
+## <a name="adding-halogen-software-from-the-gallery"></a>Halogeen Software toevoegen vanuit de galerie
 
-Voor het configureren van de integratie van halogeen Software in Azure AD, moet u halogeen Software uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+Voor het configureren van de integratie van Halogen Software met Azure AD moet u Halogen Software uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen halogeen Software uit de galerie, moet u de volgende stappen uitvoeren:**
+**Als u Halogen Software vanuit de galerie wilt toevoegen, moet u de volgende stappen uitvoeren:**
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![Active Directory][1]
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-    ![Applicaties][2]
-    
-1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![Applicaties][3]
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-1. Typ in het zoekvak **halogeen Software**.
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/halogen-software-tutorial/tutorial_halogensoftware_search.png)
+4. Typ **Halogen Software** in het zoekvak, selecteer **Halogen Software** in het deelvenster met resultaten en klik op **Toevoegen** om de toepassing toe te voegen.
 
-1. Selecteer in het deelvenster resultaten **halogeen Software**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+     ![Halogen Software in de resultatenlijst](common/search-new-app.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/halogen-software-tutorial/tutorial_halogensoftware_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met halogeen-Software op basis van een testgebruiker 'Julia steen' genoemd.
+In deze sectie gaat u Azure AD-eenmalige aanmelding bij Halogen Software configureren en testen op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Halogen Software tot stand is gebracht.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in halogeen Software is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Software halogeen tot stand worden gebracht.
+Voor het configureren en testen van eenmalige aanmelding via Azure AD bij Halogen Software moet u de volgende bouwstenen uitvoeren:
 
-Wijs in halogeen Software, de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding voor Halogen Software configureren](#configure-halogen-software-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wilt configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Halogen Software-testgebruiker maken](#create-halogen-software-test-user)**: als u een equivalent van Britta Simon in Halogen Software wilt hebben dat gekoppeld is aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-Als u wilt configureren en Azure AD eenmalige aanmelding met halogeen Software testen, moet u de volgende bouwstenen voltooien:
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Het maken van een testgebruiker halogeen Software](#creating-a-halogen-software-test-user)**  : als u wilt een equivalent van Britta Simon in halogeen-Software die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+Voor het configureren van Azure AD-eenmalige aanmelding met Halogen Software moet u de volgende stappen uitvoeren:
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing halogeen Software.
+1. Ga in de [Azure-portal](https://portal.azure.com/) naar de pagina voor integratie van de toepassing **Halogen Software** en selecteer **Eenmalige aanmelding**.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met halogeen Software, moet u de volgende stappen uitvoeren:**
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-1. In de Azure-portal op de **halogeen Software** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-    ![Eenmalige aanmelding configureren][4]
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![Eenmalige aanmelding configureren](./media/halogen-software-tutorial/tutorial_halogensoftware_samlbase.png)
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-1. Op de **halogeen Software domein en URL's** sectie, voert u de volgende stappen uit:
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    ![Eenmalige aanmelding configureren](./media/halogen-software-tutorial/tutorial_halogensoftware_url.png)
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
-    a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://global.hgncloud.com/<companyname>`
+    ![Informatie over eenmalige aanmelding bij het Halogen Software-domein en Halogen Software-URL's](common/sp-identifier.png)
 
-    b. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://global.halogensoftware.com/<companyname>`, `https://global.hgncloud.com/<companyname>`
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://global.hgncloud.com/<companyname>`
 
-    > [!NOTE] 
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de daadwerkelijke aanmeldings-URL en id. Neem contact op met [halogeen softwareclient ondersteuningsteam](https://support.halogensoftware.com/) om deze waarden te verkrijgen. 
- 
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon:
 
+    | |
+    |--|
+    | `https://global.halogensoftware.com/<companyname>`|
+    | `https://global.hgncloud.com/<companyname>`|
+    | |
 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+    > [!NOTE]
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met het [ondersteuningsteam van Halogen Software](https://support.halogensoftware.com/) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-    ![Eenmalige aanmelding configureren](./media/halogen-software-tutorial/tutorial_halogensoftware_certificate.png) 
+4. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
-1. Klik op de knop **Save**.
+    ![De link om het certificaat te downloaden](common/metadataxml.png)
 
-    ![Eenmalige aanmelding configureren](./media/halogen-software-tutorial/tutorial_general_400.png)
+6. In de sectie **Halogen Software instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
 
-1. In een ander browservenster aanmelden voor uw **halogeen Software** toepassing als beheerder.
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-1. Klik op de **opties** tabblad. 
-   
-    ![Wat is Azure AD Connect?][12]
+    a. Aanmeldings-URL
 
-1. Klik in het linkernavigatiedeelvenster op **SAML-configuratie**. 
-   
-    ![Wat is Azure AD Connect?][13]
+    b. Azure AD-id
 
-1. Op de **SAML-configuratie** pagina, voert u de volgende stappen uit: 
+    c. Afmeldings-URL
 
-    ![Wat is Azure AD Connect?][14]
+### <a name="configure-halogen-software-single-sign-on"></a>Eenmalige aanmelding voor Halogen Software configureren
 
-     a. Als **unieke id**, selecteer **NameID**.
+1. Meld u in een ander browservenster als beheerder aan bij de **Halogen Software**-toepassing.
 
-     b. Als **unieke id gerelateerd aan**, selecteer **gebruikersnaam**.
+2. Klik op het tabblad **Options**.
   
-     c. Als u wilt uw gedownloade metagegevensbestand uploaden, klikt u op **Bladeren** om het bestand te selecteren en vervolgens **-bestand uploaden**.
- 
-     d. Als u wilt testen van de configuratie, klikt u op **Test uitvoeren**. 
-    
-    >[!NOTE]
-    >U moet wachten op het bericht '*de SAML-test is voltooid. Sluit dit venster*'. Sluit het geopende browservenster. De **SAML inschakelen** selectievakje is alleen beschikbaar als de test is voltooid. 
-     
-     e. Selecteer **SAML inschakelen**.
-    
-     f. Klik op **Wijzigingen opslaan**. 
+    ![Wat is Azure AD Connect?](./media/halogen-software-tutorial/tutorial_halogen_12.png)
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+3. Klik in het linkernavigatiedeelvenster op **SAML Configuration**.
+  
+    ![Wat is Azure AD Connect?](./media/halogen-software-tutorial/tutorial_halogen_13.png)
 
+4. Voer de volgende stappen uit op de pagina **SAML Configuration**:
 
-### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
+    ![Wat is Azure AD Connect?](./media/halogen-software-tutorial/tutorial_halogen_14.png)
+
+    a. Selecteer bij **Unique Identifier** de waarde **NameID**.
+
+    b. Selecteer bij **Unique Identifier Maps To** de waarde **Username**.
+  
+    c. Klik op **Browse**, selecteer het gedownloade metagegevensbestand dat u wilt uploaden, en selecteer vervolgens **Upload File**.
+
+    d. Klik op **Run Test** om de configuratie te testen.
+
+    > [!NOTE]
+    > Wacht totdat het bericht "*The SAML test is complete. Please close this window.*" wordt weergegeven. Sluit vervolgens het geopende browservenster. Het selectievakje **SAML inschakelen** is pas beschikbaar als de test is voltooid.
+
+    e. Selecteer **SAML inschakelen**.
+
+    f. Klik op **Wijzigingen opslaan**.
+
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-![Azure AD-gebruiker maken][100]
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![Het maken van een Azure AD-testgebruiker](./media/halogen-software-tutorial/create_aaduser_01.png) 
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
-    
-    ![Het maken van een Azure AD-testgebruiker](./media/halogen-software-tutorial/create_aaduser_02.png) 
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/halogen-software-tutorial/create_aaduser_03.png) 
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/halogen-software-tutorial/create_aaduser_04.png) 
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    a. In de **naam** tekstvak typenaam als **BrittaSimon**.
-
-    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
-
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="creating-a-halogen-software-test-user"></a>Het maken van een testgebruiker halogeen Software
 
-Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in halogeen Software.
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-**Voor het maken van een gebruiker met de naam van Britta Simon in halogeen Software, moet u de volgende stappen uitvoeren:**
+In deze sectie gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot Halogen Software.
 
-1. Meld u aan bij uw **halogeen Software** toepassing als beheerder.
+1. Selecteer in de Azure-portal achtereenvolgens **Bedrijfstoepassingen**, **Alle toepassingen** en **Halogen Software**.
 
-1. Klik op de **gebruiker Center** tabblad en klik vervolgens op **Create User**.
-   
-    ![Wat is Azure AD Connect?][300]  
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Op de **nieuwe gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
-   
-    ![Wat is Azure AD Connect?][301]
+2. Selecteer **Halogen Software** in de lijst met toepassingen.
 
-    a. In de **voornaam** tekstvak, type de voornaam van de gebruiker, zoals **Julia**.
-    
-    b. In de **achternaam** tekstvak, type achternaam van de gebruiker, zoals **Simon**. 
+    ![De Halogen Software-koppeling in de lijst met toepassingen](common/all-applications.png)
 
-    c. In de **gebruikersnaam** tekstvak, type **Britta Simon**, zoals in de Azure-portal de naam van de gebruiker.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    d. In de **wachtwoord** tekstvak, typ een wachtwoord voor Julia.
-    
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
+
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
+
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
+
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
+
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
+
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
+
+### <a name="create-halogen-software-test-user"></a>Halogen Software-testgebruiker maken
+
+Het doel van dit gedeelte is om een gebruiker met de naam Britta Simon te maken in Halogen Software.
+
+**Voer de volgende stappen uit om een gebruiker met de naam Britta Simon te maken in Halogen Software:**
+
+1. Meld u aan bij uw **Halogen Software**-toepassing als beheerder.
+
+2. Klik op het tabblad **User Center** tabblad en klik vervolgens op **Create User**.
+
+    ![Wat is Azure AD Connect?](./media/halogen-software-tutorial/tutorial_halogen_300.png)  
+
+3. Voer de volgende stappen uit in het dialoogvenster **New User**:
+
+    ![Wat is Azure AD Connect?](./media/halogen-software-tutorial/tutorial_halogen_301.png)
+
+    a. Typ in het tekstvak **First Name** de voornaam van de gebruiker, bijvoorbeeld **Britta**.
+
+    b. Typ in het tekstvak **Last Name** de achternaam van de gebruiker, bijvoorbeeld **Simon**.
+
+    c. Typ in het tekstvak **Username** de gebruikersnaam **Britta Simon**, zoals in de Azure-portal.
+
+    d. Typ in het tekstvak **Password** een wachtwoord voor Britta.
+
     e. Klik op **Opslaan**.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen tot halogeen Software.
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-![Gebruiker toewijzen][200] 
-
-**Als u wilt toewijzen Britta Simon halogeen software, moet u de volgende stappen uitvoeren:**
-
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
-
-    ![Gebruiker toewijzen][201] 
-
-1. Selecteer in de lijst met toepassingen, **halogeen Software**.
-
-    ![Eenmalige aanmelding configureren](./media/halogen-software-tutorial/tutorial_halogensoftware_app.png) 
-
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
-
-    ![Gebruiker toewijzen][202] 
-
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
-
-    ![Gebruiker toewijzen][203]
-
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
-
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
-
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
-
-Het doel van deze sectie is het testen van de configuratie van uw Azure AD-eenmalige aanmelding via het toegangsvenster.
-
-Wanneer u op de tegel halogeen Software in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing halogeen Software.
+Wanneer u in het toegangsvenster op de tegel Halogen Software klikt, wordt u als het goed is automatisch aangemeld bij de instantie van Halogen Software waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-
-<!--Image references-->
-
-[1]: ./media/halogen-software-tutorial/tutorial_general_01.png
-[2]: ./media/halogen-software-tutorial/tutorial_general_02.png
-[3]: ./media/halogen-software-tutorial/tutorial_general_03.png
-[4]: ./media/halogen-software-tutorial/tutorial_general_04.png
-
-[12]: ./media/halogen-software-tutorial/tutorial_halogen_12.png
-
-[13]: ./media/halogen-software-tutorial/tutorial_halogen_13.png
-
-[14]: ./media/halogen-software-tutorial/tutorial_halogen_14.png
-
-[100]: ./media/halogen-software-tutorial/tutorial_general_100.png
-
-[200]: ./media/halogen-software-tutorial/tutorial_general_200.png
-[201]: ./media/halogen-software-tutorial/tutorial_general_201.png
-[202]: ./media/halogen-software-tutorial/tutorial_general_202.png
-[203]: ./media/halogen-software-tutorial/tutorial_general_203.png
-
-[300]: ./media/halogen-software-tutorial/tutorial_halogen_300.png
-
-[301]: ./media/halogen-software-tutorial/tutorial_halogen_301.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

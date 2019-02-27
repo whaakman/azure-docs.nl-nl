@@ -1,6 +1,6 @@
 ---
 title: 'Voorbeeld: controleren of Network Watcher is ingeschakeld voor de regio'
-description: Dit voorbeeldbeleid controleert of Network Watcher is ingeschakeld voor een bepaalde regio
+description: Deze voorbeeldbeleidsdefinitie controleert of Network Watcher is ingeschakeld voor een bepaalde regio
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 66aca50f0697a648bda60c1dacb439fd6399a764
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 418efd2652098ed04f1d150cfe25b011cdd15eeb
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245691"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342623"
 ---
-# <a name="audit-if-network-watcher-is-not-enabled-for-region"></a>Controleren of Network Watcher is ingeschakeld voor de regio
+# <a name="sample---audit-if-network-watcher-is-not-enabled-for-region"></a>Voorbeeld: controleren of Network Watcher is ingeschakeld voor de regio
 
 Dit beleid controleert of Network Watcher is ingeschakeld voor een bepaalde regio. U geeft de naam op van de regio waarin u wilt controleren of Network Watcher is ingeschakeld.
 

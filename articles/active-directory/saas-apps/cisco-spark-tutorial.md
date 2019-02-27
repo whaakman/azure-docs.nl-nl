@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met Cisco Spark | Microsoft Docs'
-description: Leer hoe u eenmalige aanmelding tussen Azure Active Directory en Cisco Spark configureert.
+title: 'Zelfstudie: Azure Active Directory-integratie met Cisco Webex | Microsoft Docs'
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Cisco Webex.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,23 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/03/2019
+ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87161c79bc58387d97863581675bb49f1e09160f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a1460fba4d6897dfcc6bf40b6e02ab856ffe8456
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191551"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340465"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cisco-spark"></a>Zelfstudie: Azure Active Directory-integratie met Cisco Spark
+# <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>Zelfstudie: Azure Active Directory-integratie met Cisco Webex
 
-In deze zelfstudie leert u hoe u Cisco Spark kunt integreren met Azure Active Directory (Azure AD).
-De integratie van Cisco Spark met Azure AD biedt de volgende voordelen:
+In deze zelfstudie leert u hoe u Cisco Webex kunt integreren met Azure Active Directory (Azure AD).
+Integratie van Cisco Webex met Azure AD biedt de volgende voordelen:
 
-* U kunt in Azure AD bepalen wie er toegang heeft tot Cisco Spark.
-* U kunt instellen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij Cisco Spark (eenmalige aanmelding).
+* U kunt in Azure AD beheren wie toegang heeft tot Cisco Webex.
+* U kunt inschakelen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij Cisco Webex (eenmalige aanmelding).
 * U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
 Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
@@ -36,22 +36,22 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt het volgende nodig om Azure AD-integratie met Cisco Spark te configureren:
+U hebt het volgende nodig om Azure AD-integratie met Cisco Webex te configureren:
 
 * Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
-* Een abonnement op Cisco Spark waarvoor eenmalige aanmelding is ingeschakeld
+* Een abonnement op Cisco Webex waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
 In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-* Cisco Spark ondersteunt door **SP** geïnitieerde eenmalige aanmelding
+* Cisco Webex ondersteunt door **SP** geïnitieerde eenmalige aanmelding
 
-## <a name="adding-cisco-spark-from-the-gallery"></a>Cisco Spark toevoegen vanuit de galerie
+## <a name="adding-cisco-webex-from-the-gallery"></a>Cisco Webex toevoegen vanuit de galerie
 
-Om de integratie van Cisco Spark te configureren in Azure AD, moet u Cisco Spark vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+Voor het configureren van de integratie van Cisco Webex in Azure AD moet u Cisco Webex vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Voer de volgende stappen uit om Cisco Spark vanuit de galerie toe te voegen:**
+**Voer de volgende stappen uit om Cisco Webex toe te voegen vanuit de galerie:**
 
 1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
@@ -65,31 +65,31 @@ Om de integratie van Cisco Spark te configureren in Azure AD, moet u Cisco Spark
 
     ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-4. Typ **toe te voegen** in het zoekvak, selecteer **toe te voegen** in het deelvenster met resultaten en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
+4. Typ **Cisco Webex** in het zoekvak, selecteer **Cisco Webex** in het resultatenvenster en klik op **Toevoegen** om de toepassing toe te voegen.
 
-     ![Cisco Spark toevoegen vanuit de galerie](common/search-new-app.png)
+     ![Cisco Webex in de resultatenlijst](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In dit gedeelte configureert en test u eenmalige aanmelding van Azure AD met Cisco Spark op basis van een testgebruiker met de naam **Britta Simon**.
-Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Cisco Spark tot stand is gebracht.
+In dit gedeelte configureert en test u eenmalige aanmelding van Azure AD met Cisco Webex op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Cisco Webex tot stand is gebracht.
 
-Om eenmalige aanmelding van Azure AD met Cisco Spark te configureren en testen, moet u de volgende procedures voltooien:
+Voltooi de volgende bouwstenen om Azure AD-eenmalige aanmelding met Cisco Webex te configureren en testen:
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Eenmalige aanmelding voor Cisco Spark configureren](#configure-cisco-spark-single-sign-on)**: de instellingen voor eenmalige aanmelding aan de toepassingszijde configureren.
+2. **[Eenmalige aanmelding voor Cisco Webex configureren](#configure-cisco-webex-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wil configureren.
 3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Een testgebruiker voor Cisco Spark maken](#create-cisco-spark-test-user)**: als u een tegenhanger van Britta Simon in Cisco Spark wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+5. **[Testgebruiker voor Cisco Webex maken](#create-cisco-webex-test-user)**: als u een tegenhanger van Britta Simon in Cisco Webex wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
 6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
 In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configureren met Cisco Spark:
+Voer de volgende stappen uit om Azure AD-eenmalige aanmelding met Cisco Webex te configureren:
 
-1. Ga in de [Azure-portal](https://portal.azure.com/) naar de pagina van de integratie van **Cisco Spark** en selecteer **Eenmalige aanmelding**.
+1. In de [Azure-portal](https://portal.azure.com/), op de pagina voor integratie van toepassingen met **Cisco Webex**, selecteert u **Eenmalige aanmelding**.
 
     ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
@@ -103,24 +103,24 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
 
 4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
-    ![Gegevens van domein en URL's voor eenmalige aanmelding van Cisco Spark](common/sp-identifier.png)
+    ![Informatie over domein en URL's voor eenmalige aanmelding met Cisco Webex](common/sp-identifier.png)
 
     a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://web.ciscospark.com/#/signin`
 
-    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://idbroker.webex.com/<companyname>`
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://idbroker.webex.com/<Org Id>`
 
     > [!NOTE]
-    > Deze id is geen echte waarde. Werk deze waarde bij met de werkelijke id. Neem contact op met het [klantondersteuningsteam van Cisco Spark](https://support.ciscospark.com/) om deze waarden op te vragen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Deze id is geen echte waarde. Werk deze waarde bij met de werkelijke id. Als u de metagegevens van de provider hebt, uploadt u deze in de sectie **SAML-basisconfiguratie**. De waarde **Id (Entiteits-id)** wordt vervolgens automatisch ingevuld.
 
-5. De toepassing Cisco Spark verwacht de SAML-asserties in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen.
+5. In de Cisco Webex-toepassing worden de SAML-asserties in een specifieke indeling verwacht. Hiervoor moet u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van uw SAML-tokenkenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op het pictogram  **Bewerken**  om de kenmerken toe te voegen.
 
     ![image](common/edit-attribute.png)
 
-6. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** configureert u het kenmerk van het SAML-token zoals wordt weergegeven in de bovenstaande afbeelding en voert u de volgende stappen uit:
+6. Bovendien verwacht de Cisco Webex-toepassing nog enkele kenmerken die als SAML-antwoord moeten worden doorgestuurd. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** voert u de volgende stappen uit om het kenmerk van het SAML-token toe te voegen zoals wordt weergegeven in de onderstaande tabel:
     
     | Naam |  Bronkenmerk|
     | ---------------|--------- |
-    | uid | user.userprincipalname |
+    | UID | user.userprincipalname |
 
     a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 
@@ -144,7 +144,7 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
 
     ![De link om het certificaat te downloaden](common/metadataxml.png)
 
-8. Kopieer in de sectie **Cisco Spark instellen** de juiste URL('s) op basis van uw behoeften.
+8. In de sectie **Cisco Webex instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
 
     ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
@@ -154,7 +154,7 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
 
     c. Afmeldings-URL
 
-### <a name="configure-cisco-spark-single-sign-on"></a>Eenmalige aanmelding configureren voor Cisco Spark
+### <a name="configure-cisco-webex-single-sign-on"></a>Eenmalige aanmelding voor Cisco Webex configureren
 
 1. Meld u aan bij [Cisco Cloud Collaboration Management](https://admin.ciscospark.com/) met uw volledige beheerdersreferenties.
 
@@ -199,15 +199,15 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot Cisco Spark.
+In deze sectie hebt u Britta Simon in staat gesteld gebruik te maken van eenmalige aanmelding van Azure door haar toegang te geven tot Cisco Webex.
 
-1. Selecteer in de Azure-portal achtereenvolgens **Bedrijfstoepassingen**, **Alle toepassingen** en **Cisco Spark**.
+1. Selecteer in de Azure-portal **Bedrijfstoepassingen**, selecteer **Alle toepassingen** en selecteer vervolgens **Cisco Webex**.
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-2. Typ en selecteer **Cisco Spark** in de lijst met toepassingen.
+2. Typ en selecteer **Cisco Webex** in de lijst met toepassingen.
 
-    ![De koppeling naar Cisco Spark in de lijst met toepassingen](common/all-applications.png)
+    ![De koppeling Cisco Webex in de lijst met toepassingen](common/all-applications.png)
 
 3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
@@ -223,9 +223,9 @@ In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige
 
 7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-### <a name="create-cisco-spark-test-user"></a>Een testgebruiker maken voor Cisco Spark
+### <a name="create-cisco-webex-test-user"></a>Testgebruiker voor Cisco Webex maken
 
-In deze sectie gaat u een gebruiker met de naam Britta Simon maken in Cisco Spark. In deze sectie gaat u een gebruiker met de naam Britta Simon maken in Cisco Spark.
+In deze sectie gaat u een gebruiker met de naam Britta Simon maken in Cisco Webex. In deze sectie gaat u een gebruiker met de naam Britta Simon maken in Cisco Webex.
 
 1. Meld u aan bij [Cisco Cloud Collaboration Management](https://admin.ciscospark.com/) met uw volledige beheerdersreferenties.
 
@@ -253,7 +253,7 @@ In deze sectie gaat u een gebruiker met de naam Britta Simon maken in Cisco Spar
 
 In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-Wanneer u in het toegangsvenster op de tegel Cisco Spark klikt, wordt u automatisch aangemeld bij de instantie van Cisco Spark waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
+Wanneer u op de tegel Cisco Webex in het toegangsvenster klikt, zou u automatisch moeten worden aangemeld bij het exemplaar van Cisco Webex waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

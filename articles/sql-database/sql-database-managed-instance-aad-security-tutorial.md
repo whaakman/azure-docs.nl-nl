@@ -1,6 +1,6 @@
 ---
-title: Beveiliging van Azure SQL Database Managed Instance met behulp van Azure AD-aanmeldingen | Microsoft Docs
-description: Informatie over technieken en functies voor het beveiligen van een beheerd exemplaar in Azure SQL Database en over aanmeldingen bij Azure AD
+title: Beveiliging van Azure SQL Database Managed Instance met behulp van Azure AD-server-principals (aanmeldingen) | Microsoft Docs
+description: Informatie over technieken en functies voor het beveiligen van een beheerd exemplaar in Azure SQL Database en over aanmeldingen bij Azure AD-server-principals (aanmeldingen)
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,15 +9,15 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 402e10d9b99dbf0eeba8aac27071e4d78fdf0f01
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.date: 02/20/2019
+ms.openlocfilehash: 39877e01eb8b9690dc1ac7b1dbb79bab450814c4
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984508"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456925"
 ---
-# <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-logins"></a>Zelfstudie: Beveiliging van een beheerd exemplaar in Azure SQL Database met behulp van Azure AD-aanmeldingen
+# <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Zelfstudie: Beveiliging van een beheerd exemplaar in Azure SQL Database met behulp van Azure AD-server-principals (aanmeldingen)
 
 Managed Instance biedt bijna alle beveiligingsfuncties die de meest recente SQL Server on-premises (Enterprise Edition) Database Engine ook heeft:
 
@@ -29,16 +29,16 @@ Managed Instance biedt bijna alle beveiligingsfuncties die de meest recente SQL 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> - Een Azure Active Directory (AD)-aanmelding voor een beheerde exemplaar maken
-> - Machtigingen verlenen aan Azure AD-aanmeldingen in een beheerd exemplaar
-> - Azure AD-gebruikers maken op basis van Azure AD-aanmeldingen
+> - Een AD-aanmelding (Azure Active Directory) voor een beheerd exemplaar maken
+> - Machtigingen verlenen aan Azure AD-server-principals (aanmeldingen) in een beheerd exemplaar
+> - Azure AD-gebruikers maken op basis van Azure AD-server-principals (aanmeldingen)
 > - Machtigingen aan Azure AD-gebruikers toewijzen en databasebeveiliging beheren
 > - Imitatie gebruiken voor Azure AD-gebruikers
 > - Databaseoverschrijdende query’s gebruiken voor Azure AD-gebruikers
 > - Leren over beveiligingsfuncties, zoals beveiliging tegen bedreigingen, controle, gegevensmaskering en versleuteling
 
 > [!NOTE]
-> De functie Azure AD-aanmeldingen voor beheerde exemplaren bevindt zich nog in een **openbare preview-versie**.
+> De functie Azure AD-server-principals (aanmeldingen) voor beheerde exemplaren bevindt zich nog in een **openbare preview-versie**.
 
 Zie de artikelen [Overzicht van Azure SQL Database Managed Instance](sql-database-managed-instance-index.yml) en [-mogelijkheden](sql-database-managed-instance.md) voor meer informatie.
 
@@ -61,15 +61,15 @@ Beheerde exemplaren kunnen alleen worden geopend via een particulier IP-adres. E
 > [!NOTE] 
 > Omdat beheerde exemplaren alleen kunnen worden geopend binnen het eigen VNET, zijn [firewallregels voor SQL Database](sql-database-firewall-configure.md) niet van toepassing. Managed Instance heeft zijn eigen [ingebouwde firewall](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
-## <a name="create-an-azure-ad-login-for-a-managed-instance-using-ssms"></a>Een Azure AD-aanmelding maken voor een beheerd exemplaar met behulp van SSMS
+## <a name="create-an-azure-ad-server-principal-login-for-a-managed-instance-using-ssms"></a>Een AD-server-principal (aanmelding) voor een beheerd exemplaar maken met SSMS
 
-De eerste Azure AD-aanmelding moet worden gemaakt met het standaard SQL Server-account (niet-azure AD) dat een `sysadmin` is. Zie de volgende artikelen voor voorbeelden van verbinding maken met uw beheerd exemplaar:
+De eerste Azure AD-server-principal (aanmelding) moet worden gemaakt met het standaard SQL Server-account (niet-Azure AD) dat een `sysadmin` is. Zie de volgende artikelen voor voorbeelden van verbinding maken met uw beheerd exemplaar:
 
 - [Snelstart: Azure VM configureren om verbinding te maken met een beheerd exemplaar](sql-database-managed-instance-configure-vm.md)
 - [Snelstart: Vanuit on-premises een punt-naar-site-verbinding configureren naar een beheerd exemplaar](sql-database-managed-instance-configure-p2s.md)
 
 > [!IMPORTANT]
-> De Azure AD-beheerder die werd gebruikt voor het instellen van het beheerde exemplaar kan niet worden gebruikt om een Azure AD-aanmelding binnen het beheerde exemplaar te maken. U moet de eerste Azure AD-aanmelding maken met een SQL Server-account dat een `sysadmin` is. Dit is een tijdelijke beperking die wordt verwijderd zodra Azure AD-aanmeldingen algemeen beschikbaar zijn. U krijgt de volgende fout te zien als u probeert een Azure AD-beheerdersaccount te gebruiken om de aanmelding te maken: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
+> De Azure AD-beheerder die werd gebruikt voor het instellen van het beheerde exemplaar kan niet worden gebruikt om een Azure AD-server-principal (aanmelding) binnen het beheerde exemplaar te maken. U moet de eerste Azure AD-server-principal (aanmelding) maken met een SQL Server-account dat een `sysadmin` is. Dit is een tijdelijke beperking die wordt verwijderd zodra Azure AD-server-principals (aanmeldingen) algemeen beschikbaar zijn. U krijgt de volgende fout te zien als u probeert een Azure AD-beheerdersaccount te gebruiken om de aanmelding te maken: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
 
 1. Meld u aan bij uw beheerde exemplaar met behulp van een standaard SQL Server-account (niet-azure AD) dat een `sysadmin` is, met behulp van [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
 
@@ -109,7 +109,7 @@ Zie [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresql
 
 ## <a name="granting-permissions-to-allow-the-creation-of-managed-instance-logins"></a>Machtigingen verlenen om aanmeldingen bij een beheerd exemplaar toe te staan
 
-Voor het maken van andere Azure AD-aanmeldingen, moeten SQL Server-rollen of -machtigingen aan de principal (SQL of Azure AD) worden verleend.
+Voor het maken van andere Azure AD-server-principals (aanmeldingen), moeten SQL Server-rollen of -machtigingen aan de principal (SQL of Azure AD) worden verleend.
 
 ### <a name="sql-authentication"></a>SQL-verificatie
 
@@ -117,10 +117,10 @@ Voor het maken van andere Azure AD-aanmeldingen, moeten SQL Server-rollen of -ma
 
 ### <a name="azure-ad-authentication"></a>Azure Active Directory-verificatie
 
-- Om ervoor te zorgen dat de zojuist gemaakte Azure AD-aanmelding andere aanmeldingen voor andere Azure AD-gebruikers, -groepen of -toepassingen kan maken, verleent u de aanmelding de `sysadmin`- of `securityadmin`-serverrol. 
-- Minimaal moet de machtiging **ALTER ANY LOGIN** worden toegewezen aan de Azure AD-aanmelding om andere Azure AD-aanmeldingen te kunnen maken. 
-- De machtiging die aan de zojuist gemaakte Azure AD-aanmeldingen in de master wordt verleend, is standaard: **CONNECT SQL** en **VIEW ANY DATABASE**.
-- De `sysadmin`-serverrol kan worden verleend aan veel Azure AD-aanmeldingen in een beheerd exemplaar.
+- Om ervoor te zorgen dat de zojuist gemaakte Azure AD-server-principal (aanmelding) andere aanmeldingen voor andere Azure AD-gebruikers, -groepen of -toepassingen kan maken, verleent u de aanmelding de `sysadmin`- of `securityadmin`-serverrol. 
+- Minimaal moet de machtiging **ALTER ANY LOGIN** worden toegewezen aan de Azure AD-server-principal (aanmelding) om andere Azure AD-server-principals (aanmeldingen) te kunnen maken. 
+- De machtiging die aan de zojuist gemaakte Azure AD-server-principals (aanmeldingen) in de master wordt verleend, is standaard: **CONNECT SQL** en **VIEW ANY DATABASE**.
+- De `sysadmin`-serverrol kan worden verleend aan veel Azure AD-server-principals (aanmeldingen) in een beheerd exemplaar.
 
 Ga als volgt te werk om de aanmelding toe te voegen aan de `sysadmin`-serverrol:
 
@@ -128,7 +128,7 @@ Ga als volgt te werk om de aanmelding toe te voegen aan de `sysadmin`-serverrol:
 
 1. Klik in **Objectverkenner** met de rechtermuisknop op de server en kies **Nieuwe query**.
 
-1. Verleen de Azure AD-aanmelding de `sysadmin`-serverrol met behulp van de volgende T-SQL-syntaxis:
+1. Verleen de Azure AD-server-principal (aanmelding) de `sysadmin`-serverrol met behulp van de volgende T-SQL-syntaxis:
 
     ```sql
     ALTER SERVER ROLE sysadmin ADD MEMBER login_name
@@ -142,11 +142,11 @@ Ga als volgt te werk om de aanmelding toe te voegen aan de `sysadmin`-serverrol:
     GO
     ```
 
-## <a name="create-additional-azure-ad-logins-using-ssms"></a>Extra Azure AD-aanmeldingen maken met behulp van SSMS
+## <a name="create-additional-azure-ad-server-principals-logins-using-ssms"></a>Extra Azure AD-server-principals (aanmeldingen) maken met behulp van SSMS
 
-Nadat de Azure AD-aanmelding is gemaakt en is voorzien van `sysadmin`-bevoegdheden, kan die aanmelding extra aanmeldingen maken met behulp van de component **FROM EXTERNAL PROVIDER** met **CREATE LOGIN**.
+Nadat de Azure AD-server-principal (aanmelding) is gemaakt en is voorzien van `sysadmin`-bevoegdheden, kan die aanmelding extra aanmeldingen maken met behulp van de component **FROM EXTERNAL PROVIDER** met **CREATE LOGIN**.
 
-1. Maak verbinding met het beheerde exemplaar met de Azure AD-aanmelding, met behulp van SQL Server Management Studio. Voer de hostnaam van uw beheerd exemplaar in. Voor verificatie in SSMS zijn er drie opties waaruit u kunt kiezen wanneer u zich aanmeldt bij een Azure AD-account:
+1. Maak verbinding met het beheerde exemplaar met de Azure AD-server-principal (aanmelding), met behulp van SQL Server Management Studio. Voer de hostnaam van uw beheerd exemplaar in. Voor verificatie in SSMS zijn er drie opties waaruit u kunt kiezen wanneer u zich aanmeldt bij een Azure AD-account:
 
     - Active Directory - Universal met ondersteuning voor MFA
     - Active Directory - wachtwoord
@@ -205,7 +205,7 @@ Nadat de Azure AD-aanmelding is gemaakt en is voorzien van `sysadmin`-bevoegdhed
 
 1. Als test meldt u zich aan bij het beheerde exemplaar met de zojuist gemaakte aanmelding of groep. Open een nieuwe verbinding naar het beheerde exemplaar en gebruik de nieuwe aanmelding voor verificatie.
 1. Klik in **Objectverkenner** met de rechtermuisknop op de server en kies **Nieuwe query** als nieuwe verbinding.
-1. Controleer servermachtigingen voor de zojuist gemaakte Azure AD-aanmelding door de volgende opdracht uit te voeren:
+1. Controleer servermachtigingen voor de zojuist gemaakte Azure AD-server-principal (aanmelding) door de volgende opdracht uit te voeren:
 
     ```sql
     SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
@@ -215,7 +215,7 @@ Nadat de Azure AD-aanmelding is gemaakt en is voorzien van `sysadmin`-bevoegdhed
 > [!NOTE]
 > Ook gastgebruikers van Azure AD worden ondersteund voor aanmeldingen bij een beheerd exemplaar, maar alleen wanneer ze zijn toegevoegd als onderdeel van een Azure AD-groep. Een Azure AD-gastgebruiker is een account dat vanuit een andere Azure AD wordt uitgenodigd voor de Azure AD waarvan het beheerde exemplaar deel uitmaakt. joe@contoso.com (Azure AD-Account) of steve@outlook.com (MSA-Account) kunnen bijvoorbeeld worden toegevoegd aan een groep in de Azure AD aadsqlmi. Zodra de gebruikers aan een groep zijn toegevoegd, kan er een aanmelding worden gemaakt in de **hoofd**database van het beheerde exemplaar voor de groep met de syntaxis **CREATE LOGIN**. Gastgebruikers die lid zijn van deze groep, kunnen verbinding maken met het beheerde exemplaar met behulp van hun huidige aanmeldingsgegevens (bijvoorbeeld joe@contoso.com of steve@outlook.com).
 
-## <a name="create-an-azure-ad-user-from-the-azure-ad-login-and-give-permissions"></a>Een Azure AD-gebruiker maken op basis van de Azure AD-aanmelding en die gebruiker machtigingen verlenen
+## <a name="create-an-azure-ad-user-from-the-azure-ad-server-principal-login-and-give-permissions"></a>Een Azure AD-gebruiker maken op basis van de Azure AD-server-principal (aanmelding) en die gebruiker machtigingen verlenen
 
 Autorisatie voor afzonderlijke databases werkt in Managed Instance nagenoeg hetzelfde als bij SQL Server on-premise. Er kan een gebruiker worden gemaakt op basis van een bestaande aanmelding in een database en worden voorzien van machtigingen voor die database, of worden toegevoegd aan een databaserol.
 
@@ -229,7 +229,7 @@ Zie [Aan de slag met machtigingen voor database-engines](/sql/relational-databas
 
 1. Meld u aan bij uw beheerde exemplaar met behulp van een `sysadmin`-account via SQL Server Management Studio.
 1. Klik in **Objectverkenner** met de rechtermuisknop op de server en kies **Nieuwe query**.
-1. Gebruik in het queryvenster de volgende syntaxis om een Azure AD-gebruiker te maken op basis van een Azure AD-aanmelding:
+1. Gebruik in het queryvenster de volgende syntaxis om een Azure AD-gebruiker te maken op basis van een Azure AD-server-principal (aanmelding):
 
     ```sql
     USE <Database Name> -- provide your database name
@@ -247,7 +247,7 @@ Zie [Aan de slag met machtigingen voor database-engines](/sql/relational-databas
     GO
     ```
 
-1. Er kan ook een Azure AD-gebruiker worden gemaakt op basis van een Azure AD-aanmelding voor een groep.
+1. Er kan ook een Azure AD-gebruiker worden gemaakt op basis van een Azure AD-server-principal (aanmelding) voor een groep.
 
     In het volgende voorbeeld maakt u een aanmelding voor de Azure AD-groep _mygroup_ die in uw Azure AD bestaat.
 
@@ -261,7 +261,7 @@ Zie [Aan de slag met machtigingen voor database-engines](/sql/relational-databas
     Alle gebruikers die deel uitmaken van **mygroup**, hebben toegang tot de **MyMITestDB**-database.
 
     > [!IMPORTANT]
-    > Bij het maken van een **USER** op basis van een Azure AD-aanmelding is de user_name hetzelfde als de login_name van **LOGIN**.
+    > Bij het maken van een **USER** op basis van een Azure AD-server-principal (aanmelding) is de user_name hetzelfde als de login_name van **LOGIN**.
 
     Zie [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) voor meer informatie.
 
@@ -383,7 +383,7 @@ Managed Instance biedt ondersteuning voor het imiteren van principals op Azure A
 
 ## <a name="using-cross-database-queries-in-managed-instances"></a>Gebruik van query's tussen meerdere databases in beheerde exemplaren
 
-Query's tussen meerdere databases worden ondersteund voor Azure AD-accounts met Azure AD-aanmeldingen. Als u een query tussen meerdere databases met een Azure AD-groep wilt testen, moeten we een andere database en tabel maken. U kunt het maken van een andere database en tabel overslaan als die al bestaan.
+Query's tussen meerdere databases worden ondersteund voor Azure AD-accounts met Azure AD-server-principals (aanmeldingen). Als u een query tussen meerdere databases met een Azure AD-groep wilt testen, moeten we een andere database en tabel maken. U kunt het maken van een andere database en tabel overslaan als die al bestaan.
 
 1. Meld u aan bij uw beheerde exemplaar met behulp van een `sysadmin`-account via SQL Server Management Studio.
 1. Klik in **Objectverkenner** met de rechtermuisknop op de server en kies **Nieuwe query**.
@@ -424,15 +424,15 @@ Query's tussen meerdere databases worden ondersteund voor Azure AD-accounts met 
 
     U krijgt dan de tabelresultaten uit **TestTable2** te zien.
 
-## <a name="additional-scenarios-supported-for-azure-ad-logins-public-preview"></a>Aanvullende scenario's ondersteund voor Azure AD-aanmeldingen (openbare preview) 
+## <a name="additional-scenarios-supported-for-azure-ad-server-principals-logins-public-preview"></a>Aanvullende scenario's ondersteund voor Azure AD-server-principals (aanmeldingen) (openbare preview) 
 
-- Beheer van SQL Agent en taakuitvoeringen worden ondersteund voor Azure AD-aanmeldingen.
-- Database-back-up en herstelbewerkingen kunnen worden uitgevoerd door Azure AD-aanmeldingen.
-- [Controle](sql-database-managed-instance-auditing.md) van alle instructies met betrekking tot Azure AD-aanmelding en verificatiegebeurtenissen.
-- Toegewezen beheerdersverbinding voor Azure AD-aanmeldingen die lid van zijn de `sysadmin`-serverrol.
-- Azure AD-aanmeldingen worden ondersteund bij gebruik van het [sqlcmd-hulpprogramma](/sql/tools/sqlcmd-utility) en [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
-- Aanmeldingstriggers worden ondersteund voor aanmeldingsgebeurtenissen die afkomstig zijn van Azure AD-aanmeldingen.
-- Service Broker en DB-mail kunnen worden ingesteld voor gebruik van Azure AD-aanmeldingen.
+- Beheer van SQL Agent en taakuitvoeringen worden ondersteund voor Azure AD-server-principals (aanmeldingen).
+- Database-back-up en herstelbewerkingen kunnen worden uitgevoerd door Azure AD-server-principals (aanmeldingen).
+- [Controle](sql-database-managed-instance-auditing.md) van alle instructies met betrekking tot Azure AD-server-principal (aanmelding) en verificatiegebeurtenissen.
+- Exclusieve beheerdersverbinding voor Azure AD-server-principals (aanmeldingen) die lid zijn van de `sysadmin`-serverrol.
+- Azure AD-server-principals (aanmeldingen) worden ondersteund bij gebruik van het [sqlcmd-hulpprogramma](/sql/tools/sqlcmd-utility) en [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
+- Aanmeldingstriggers worden ondersteund voor aanmeldingsgebeurtenissen die afkomstig zijn van Azure AD-server-principal s(aanmeldingen).
+- Service Broker en DB-mail kunnen worden ingesteld voor gebruik van Azure AD-server-principals (aanmeldingen).
 
 
 ## <a name="next-steps"></a>Volgende stappen

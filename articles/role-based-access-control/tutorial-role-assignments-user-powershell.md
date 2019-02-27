@@ -1,6 +1,6 @@
 ---
-title: Zelfstudie - Toegang verlenen aan een gebruiker met RBAC en Azure PowerShell | Microsoft Docs
-description: Gebruik op rollen gebaseerd toegangsbeheer (RBAC) om een gebruiker toestemming te geven om alles in een abonnement te bekijken en om alles in een resourcegroep te beheren met Azure PowerShell.
+title: 'Zelfstudie: Toegang tot Azure-resources verlenen aan een gebruiker met behulp van RBAC en Azure PowerShell | Microsoft Docs'
+description: Leer hoe u een gebruiker toegang geeft tot Azure-resources met behulp van op rollen gebaseerd toegangsbeheer (RBAC) en Azure Powershell.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 7f5e67edd2a5300ae1898e2620ee8ace80ac6d92
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: b9aefc8eae733d9f43d1f5399c1464b40367f09e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109024"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343473"
 ---
-# <a name="tutorial-grant-access-for-a-user-using-rbac-and-azure-powershell"></a>Zelfstudie: Zelfstudie - Toegang verlenen aan een gebruiker met RBAC en Azure PowerShell
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Zelfstudie: Toegang tot Azure-resources verlenen aan een gebruiker met behulp van RBAC en Azure PowerShell
 
-[Op rollen gebaseerde toegangsbeheer (RBAC)](overview.md) is de manier waarop u de toegang tot resources in Azure beheert. In deze zelfstudie geeft u een gebruiker toestemming om alles in een abonnement te bekijken en om alles in een resourcegroep te beheren met Azure PowerShell.
+[Op rollen gebaseerd toegangsbeheer (RBAC)](overview.md) is de manier waarop u de toegang tot Azure-resources beheert. In deze zelfstudie geeft u een gebruiker toestemming om alles in een abonnement te bekijken en om alles in een resourcegroep te beheren met Azure PowerShell.
 
 In deze zelfstudie leert u het volgende:
 
@@ -279,4 +279,4 @@ Als u de in deze zelfstudie gemaakte resources wilt opschonen, verwijdert u de r
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Toegang beheren met RBAC en PowerShell](role-assignments-powershell.md)
+> [Toegang tot Azure-resources beheren met behulp van RBAC en Azure PowerShell](role-assignments-powershell.md)

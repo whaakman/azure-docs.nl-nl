@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 160d42725abdb91af4f83696c2bceae38bbab67d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: dd9429ade750810138335c522d68df5cd595f320
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869327"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310980"
 ---
-# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-c35-in-computer-vision"></a>Quickstart: Handgeschreven tekst extraheren met behulp van de REST API en C# in Computer Vision
+# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-c-in-computer-vision"></a>Quickstart: Handgeschreven tekst extraheren met behulp van de REST API en C# in Computer Vision
 
-In deze snelstart extraheert u handgeschreven tekst uit een afbeelding met behulp van de Computer Vision-REST API. Met de methoden [Tekst herkennen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) en [Resultaat van tekstherkenningsbewerking ophalen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) kunt u handgeschreven tekst in een afbeelding detecteren en herkende tekens extraheren naar een machinaal leesbare tekenstroom.
+In deze quickstart extraheert u handgeschreven tekst uit een afbeelding met behulp van de Computer Vision-REST API. Met de methoden [Recognize Text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) (tekst herkennen) en [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) (resultaat van tekstherkenningsbewerking ophalen) kunt u handgeschreven tekst in een afbeelding detecteren en herkende tekens extraheren naar een machinaal leesbare tekenstroom.
 
 > [!IMPORTANT]
 > In tegenstelling tot de [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc)-methode wordt de methode [Tekst herkennen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) asynchroon uitgevoerd. Deze methode retourneert geen gegevens in de hoofdtekst van een geslaagd antwoord. In plaats daarvan retourneert de methode Tekst herkennen een URI in de waarde van de `Operation-Content`-antwoordveld-header. Deze URI vertegenwoordigt de methode [Resultaat van tekstherkenningsbewerking ophalen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) en u kunt deze URI aanroepen om de status te controleren en de resultaten van de methode Tekst herkennen te retourneren.
@@ -425,7 +425,7 @@ Verwijder de Visual Studio-oplossing wanneer u deze niet meer nodig hebt. Open d
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Een eenvoudige Windows-toepassing verkennen die Computer Vision gebruikt om optische tekenherkenning (OCR) uit te voeren; slim bijgesneden miniaturen maken; plus visuele kenmerken, inclusief gezichten, in een afbeelding detecteren, categoriseren, labelen en beschrijven. Als u snel wilt experimenteren met de Computer Vision-API's, probeert u de [Open API-testconsole](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Verken een eenvoudige Windows-toepassing die gebruikmaakt van Computer Vision om optische tekenherkenning (OCR) uit te voeren. Maak mooi bijgesneden miniaturen en detecteer, rubriceer, label en beschrijf visuele kenmerken, waaronder gezichten, in een afbeelding.
 
 > [!div class="nextstepaction"]
-> [Zelfstudie voor Computer Vision API C&#35;](../Tutorials/CSharpTutorial.md)
+> [Zelfstudie voor Computer Vision API met C#](../Tutorials/CSharpTutorial.md)

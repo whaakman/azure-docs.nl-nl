@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 11/09/2018
+ms.date: 02/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 9b30e9da523e564f531ec8e9cebe5b16653e579f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bbb5cf9a043f8f4ab4202b6113d1c1b915f3b8a0
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858872"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312766"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Quickstart: Gezichten in een afbeelding detecteren met de Face REST API en Node.js
 
@@ -26,12 +26,21 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 ## <a name="prerequisites"></a>Vereisten
 
 - Een Face-API-abonnementssleutel. U kunt een abonnementssleutel voor een gratis proefversie downloaden van [Cognitive Services proberen](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Of volg de instructies in [Een Cognitive Services-account maken](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) om u te abonneren op de Face-API-service en uw sleutel op te halen.
+- Een code-editor zoals [Visual Studio Code](https://code.visualstudio.com/download)
 
-## <a name="create-the-nodejs-script"></a>De Node.js-script maken
+## <a name="set-up-the-node-environment"></a>De Node-omgeving instellen
 
-Met de volgende code wordt de Face-API aangeroepen en kenmerkgegevens voor gezichten opgehaald uit een afbeelding. Kopieer eerst de code naar een teksteditor; u moet enkele wijzigingen aanbrengen voordat u de code kunt uitvoeren.
+Ga naar de map waarin u uw project wilt maken en maak een nieuw bestand met de naam *facedetection.js*. Installeer vervolgens de `requests`-module voor dit project. Hiermee kunnen uw scripts HTTP-aanvragen doen.
 
-```nodejs
+```shell
+npm install request --save
+```
+
+## <a name="write-the-nodejs-script"></a>Het Node.js-script schrijven
+
+Plak de volgende code in *facedetection.js*. Met deze velden wordt aangegeven hoe de Face-service moet worden verbonden en waar de invoergegevens kunnen worden opgehaald. U moet het veld `subscriptionKey` bijwerken met de waarde van de abonnementssleutel en mogelijk moet u de tekenreeks `uriBase` wijzigen, zodat deze de juiste regio-id bevat (zie de [Face API-documentatie](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) voor een lijst met alle regio-eindpunten). U kunt desgewenst het veld `imageUrl` wijzigen zodat het verwijst naar uw invoerafbeelding.
+
+```javascript
 'use strict';
 
 const request = require('request');
@@ -46,7 +55,12 @@ const uriBase = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/det
 
 const imageUrl =
     'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg';
+```
 
+Voeg vervolgens de volgende code toe om de Face API aan te roepen en kenmerkgegevens voor gezichten op te halen uit de invoerafbeelding. Het veld `returnFaceAttributes` geeft aan welke gezichtskenmerken moeten worden opgehaald. U kunt deze queryreeks wijzigen afhankelijk van het beoogde gebruik.
+
+
+```javascript
 // Request parameters.
 const params = {
     'returnFaceId': 'true',
@@ -76,26 +90,12 @@ request.post(options, (error, response, body) => {
 });
 ```
 
-### <a name="subscription-key"></a>Abonnementssleutel
-Vervang `<Subscription Key>` door een geldige Face-abonnementssleutel.
-
-### <a name="face-endpoint-url"></a>Eindpunt-URL voor Face
-
-De URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` geeft het Azure Face-eindpunt aan waarvoor een query moet worden uitgevoerd. Mogelijk moet u het eerste gedeelte van deze URL wijzigen zodat deze overeenkomt met de regio die bij uw abonnementssleutel hoort (zie de [documentatie voor de Face-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) voor een lijst met alle regio-eindpunten).
-
-### <a name="url-query-string"></a>Queryreeks voor URL
-
-Het veld `returnFaceAttributes` geeft aan welke gezichtskenmerken moeten worden opgehaald. U kunt deze queryreeks wijzigen afhankelijk van het beoogde gebruik.
-
-### <a name="image-source-url"></a>Bron-URL van afbeelding
-Het veld `imageUrl` geeft aan welke afbeelding moet worden gebruikt als invoer. U kunt de URL wijzigen zodat deze verwijst naar de afbeelding die u wilt analyseren.
-
 ## <a name="save-and-run-the-script"></a>Het script opslaan en uitvoeren
 
-Nadat u de wijzigingen hebt aangebracht, slaat u het bestand op als een JavaScript-script (.js). Open vervolgens een opdrachtprompt en voer deze uit met de opdracht `node`.
+Nadat u de wijzigingen hebt aangebracht, opent u een opdrachtprompt en voert u het bestand uit met de opdracht `node`.
 
 ```
-node myfile.js
+node facedetection.js
 ```
 
 De gegevens over het gezicht worden nu in het consolevenster weergegeven als JSON-gegevens. Bijvoorbeeld:
@@ -281,7 +281,7 @@ De gegevens over het gezicht worden nu in het consolevenster weergegeven als JSO
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstart hebt u een cURL-opdracht geschreven waarmee de Azure Face-API wordt aangeroepen om gezichten in een afbeelding te detecteren en de gezichtskenmerken te retourneren. Lees het naslagmateriaal bij de Face-API voor meer informatie.
+In deze quickstart hebt u een Node.js-script geschreven waarmee de Azure Face API wordt aangeroepen om gezichten in een afbeelding te detecteren en de gezichtskenmerken te retourneren. Lees het naslagmateriaal bij de Face-API voor meer informatie.
 
 > [!div class="nextstepaction"]
 > [Face-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

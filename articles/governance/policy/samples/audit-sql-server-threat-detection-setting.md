@@ -1,6 +1,6 @@
 ---
 title: Voorbeeld - Instelling dreigingsdetectieniveau server controleren
-description: Dit voorbeeldbeleid controleert of het beveiligingsmeldingenbeleid van SQL-databases is ingesteld op de specifieke status.
+description: Deze voorbeeldbeleidsdefinitie controleert of het beveiligingsmeldingenbeleid van SQL-server is ingesteld op de specifieke status.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,16 +8,16 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 9e0ea3b65a4c442358c357e9603d607d8464c21b
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: ba694618bf86ef8e97241c955a40790960be2f0c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242172"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341365"
 ---
-# <a name="audit-server-level-threat-detection-setting"></a>Instelling dreigingsdetectieniveau server controleren
+# <a name="sample---audit-server-level-threat-detection-setting"></a>Voorbeeld - Instelling dreigingsdetectieniveau server controleren
 
-Dit beleid controleert of het beveiligingsmeldingenbeleid van SQL-databases is ingesteld op de specifieke status. U geeft een waarde op die aangeeft of de detectie van dreigingen is ingeschakeld of uitgeschakeld.
+Dit beleid controleert of het beveiligingsmeldingenbeleid van SQL-server is ingesteld op de specifieke status. U geeft een waarde op die aangeeft of de detectie van dreigingen is ingeschakeld of uitgeschakeld.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 1866a5d86d3ee47371a5eb6e14c2976798d2b4da
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: ab920094561b9143945793ddd4ea3da877a7ae90
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787840"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340532"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Failover en failback tussen Azure-regio's voor Azure-VM's
 
@@ -70,6 +70,16 @@ Na een failover van de virtuele machine moet u deze opnieuw beveiligen zodat dez
 3. Controleer de informatie over **resourcegroep, netwerk, opslag en beschikbaarheidssets**. Alle resources die zijn gemarkeerd als (nieuw) worden gemaakt als onderdeel van het opnieuw beveiligen.
 4. Klik op **OK** om het opnieuw beveiligen te activeren. Met deze taak wordt de doelsite van de meest recente gegevens voorzien. Vervolgens worden de verschillen naar de primaire regio gerepliceerd. De virtuele machine heeft nu een beveiligde status.
 
+> [!NOTE]
+> Raadpleeg het [uitleggedeelte](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection) voor meer informatie over de reproductiewerkstroom en wat er tijden reproductie gebeurt.
+
+
 ## <a name="fail-back-to-the-primary-region"></a>Een failback naar de primaire regio uitvoeren
 
-Nadat de virtuele machines opnieuw zijn beveiligd, kunt u als het nodig is een failback uitvoeren naar de primaire regio. Als u dit wilt doen, stelt u een failover van de secundaire naar de primaire regio in, zoals beschreven in dit artikel.
+Nadat de virtuele machines opnieuw zijn beveiligd, kunt u als het nodig is een failback uitvoeren naar de primaire regio. Als u dit wilt doen, stelt u een failover van de secundaire in naar de primaire regio, zoals beschreven in dit artikel.
+
+![Klik met de rechtermuisknop om opnieuw te beveiligen](./media/azure-to-azure-tutorial-failover-failback/failback.png)
+
+Als u de voorgaande schermafbeelding ziet, heeft de VM 'ContosoWin2016' een failover-overschakeling uitgevoerd van US - centraal naar US - oost en een failback uitgevoerd van US - oost naar US - centraal.
+
+Door de failover wordt de VM in de secundaire regio, de regio voor noodherstel, uitgeschakeld en wordt de VM in de primaire regio gemaakt en opgestart. **Onthoud** dat de VM's voor noodherstel de status ongedaan gemaakt blijven behouden zoals hierboven wordt weergegeven. Dit gedrag is inherent aan het ontwerp, omdat Azure Site Recovery de informatie van de virtuele machine bewaart, wat later eventueel handig is voor failover van de primaire naar de secundaire regio. Er worden geen kosten in rekening gebracht voor virtuele machines waarvan de toewijzing ongedaan is gemaakt; de status moet dus worden bewaard.

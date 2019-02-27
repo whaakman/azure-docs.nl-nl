@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 8c63b97f9d4423bf57909da7716675915a5271ef
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: a4481e1bbc6248a9616fa7b3fe1d67c7d90af56e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994045"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429414"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Zelfstudie: API's voor cognitief zoeken aanroepen (preview)
 
@@ -403,9 +403,7 @@ Het script stelt ```"maxFailedItems"``` op -1 in, wat de indexeerengine de opdra
 
 Let ook op de instructie ```"dataToExtract":"contentAndMetadata"``` in de configuratieparameters. Deze instructie geeft de indexeerfunctie de opdracht om automatisch de inhoud van verschillende bestandsindelingen te extraheren, evenals metagegevens voor elk bestand. 
 
-Wanneer inhoud wordt uitgepakt, kunt u instellen dat ```ImageAction``` tekst ophaalt uit afbeeldingen die in de gegevensbron worden gevonden. De ```"ImageAction":"generateNormalizedImages"``` geeft de indexeerfunctie de opdracht om tekst uit de afbeeldingen te extraheren (bijvoorbeeld het woord 'stop' van een Stop-verkeersbord) en deze in te sluiten als onderdeel van het inhoudsveld. Dit gedrag is van toepassing op zowel de afbeeldingen die zijn ingesloten in de documenten (zoals een afbeelding in een pdf-bestand) als afbeeldingen die zijn gevonden in de gegevensbron, zoals een JPG-bestand.
-
-In deze preview is ```"generateNormalizedImages"``` de enige geldige waarde voor ```"ImageAction"```.
+Wanneer inhoud wordt uitgepakt, kunt u instellen dat ```imageAction``` tekst ophaalt uit afbeeldingen die in de gegevensbron worden gevonden. De configuratie van ```"imageAction":"generateNormalizedImages"```, OCR Skill en Text Merge Skill geeft de indexeerfunctie de opdracht om tekst uit de afbeeldingen te extraheren (bijvoorbeeld het woord 'stop' van een Stop-verkeersbord) en deze in te sluiten als onderdeel van het inhoudsveld. Dit gedrag is van toepassing op zowel de afbeeldingen die zijn ingesloten in de documenten (zoals een afbeelding in een pdf-bestand) als afbeeldingen die zijn gevonden in de gegevensbron, zoals een JPG-bestand.
 
 ## <a name="check-indexer-status"></a>De status van de indexeerfunctie controleren
 

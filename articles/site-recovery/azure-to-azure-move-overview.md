@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 0d0009c833c313b5416998502601285e5b710a8d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 1560dad31e00b00a2d27cf1675e05901e6611825
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112543"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309859"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Virtuele Azure-machines verplaatsen naar een andere regio
 
@@ -48,10 +48,10 @@ Het verplaatsen van virtuele machines omvat de volgende stappen:
 
 
 > [!IMPORTANT]
-> Momenteel ondersteunt Azure Site Recovery de verplaatsing van virtuele machines van de ene regio naar een andere regio en biedt het geen ondersteuning voor het verplaatsen binnen een regio. 
+> Momenteel ondersteunt Azure Site Recovery de verplaatsing van VM’s van de ene regio naar een andere regio en biedt het geen ondersteuning voor het verplaatsen binnen een regio. 
 
 > [!NOTE]
-> Gedetailleerde informatie over deze stappen wordt beschreven in de documentatie voor elk van de scenario’s die hier worden vermeld
+> Gedetailleerde informatie over deze stappen wordt beschreven in de documentatie voor elk van de scenario's die [hier](#next-steps) worden vermeld
 
 ## <a name="typical-architectures-for-a-multi-tier-deployment"></a>Gangbare architecturen voor een implementatie met meerdere lagen
 In de onderstaande sectie worden de meest voorkomende implementatie-architecturen besproken waarmee klanten gaan werken, voor een toepassing met meerdere lagen in Azure. Het voorbeeld dat hier wordt genomen, is een toepassing met drie lagen met een openbaar IP-adres. Elk van de lagen - web, toepassing en database - bevat elk 2 VM's en is via een load balancer met de andere lagen verbonden. De databaselaag heeft SQL Always ON-replicatie tussen de VM's voor hoge beschikbaarheid.

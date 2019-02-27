@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 01/09/2019
+ms.date: 02/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 68bc3302874849a69249a50dcecd46024ad939ef
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 007c63c163b6e972bd59189569c92c99d2718cbe
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448326"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301482"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Wat is Azure Data Box Disk?
 
@@ -131,6 +131,9 @@ A. Er zijn drie hulpprogramma's beschikbaar voor Data Box Disk:
 De set hulpprogramma's is beschikbaar voor zowel Windows als Linux. U kunt de set hulpprogramma's hier downloaden:
  - [Data Box Disk-toolset voor Windows downloaden](https://aka.ms/databoxdisktoolswin) 
  - [Data Box Disk-toolset voor Linux downloaden](https://aka.ms/databoxdisktoolslinux)
+ 
+ ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>V. Kan ik Data Box Disk gebruiken om gegevens over te brengen naar Azure Files en vervolgens de gegevens gebruiken met Azure File Sync? 
+ A. Azure Files worden niet ondersteund door Data Box Disk. Metagegevens worden ook niet behouden als de gegevens uit een bestand later met Azure File Sync worden gebruikt.
 
 
 ## <a name="verify-and-upload"></a>Verifiëren en uploaden

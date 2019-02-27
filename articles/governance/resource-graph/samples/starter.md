@@ -1,6 +1,6 @@
 ---
 title: Voorbeelden van starter query's
-description: Gebruik Azure Resource Graph om een aantal starter query's uit te voeren.
+description: Gebruik Azure Resource Graph om een aantal starterquery's uit te voeren, waaronder het tellen van resources, het ordenen van resources, of het opvragen op een specifieke tag.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 85d54503e980d8c51128c8b5235197759a536003
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: fd945b5fd9f26cc65c5b049406831228a3d5f327
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852351"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338713"
 ---
 # <a name="starter-resource-graph-queries"></a>Starter query's van Resource Graph
 

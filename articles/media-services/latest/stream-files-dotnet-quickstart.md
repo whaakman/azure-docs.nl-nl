@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 50c17e6ce953b601cc4ac0a406f443a54b9db3e7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d50bb6ca67d7d09525013b65d0635e8e16b4cb4e
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162715"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417275"
 ---
 # <a name="quickstart-stream-video-files---net"></a>Quickstart: Videobestanden streamen - .NET
 
@@ -81,6 +81,8 @@ In dit artikel gebruiken we Azure Media Player om de stream te testen.
 
 1. Open een browser en ga naar [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
 2. Plak in het vak **URL:** een van de streaming URL's die u hebt verkregen door het uitvoeren van de toepassing. 
+ 
+     U kunt de URL plakken in de HLS-, Dash-, of Smooth-indeling. Azure Media Player schakelt over op naar een geschikt streaming-protocol zodat de stream automatisch op uw apparaat wordt afgespeeld.
 3. Klik op **Update Player**.
 
 Azure Media Player kan worden gebruikt voor testdoeleinden, maar mag niet worden gebruikt in een productieomgeving. 
@@ -101,7 +103,11 @@ Als u meer wilt weten over de werking van de functies in het voorbeeld, bekijkt 
 
 De zelfstudie [Bestanden uploaden, coderen en streamen](stream-files-tutorial-with-api.md) bevat een geavanceerder voorbeeld voor het streamen van bestanden, met een meer gedetailleerde uitleg. 
 
-## <a name="multithreading"></a>Multi-threading
+### <a name="job-error-codes"></a>Foutcodes in taak
+
+Zie [Foutcodes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+
+## <a name="multithreading"></a>Multithreading
 
 De SDK's van Azure Media Services v3 zijn niet thread-safe. Als u werkt met een multi-threaded toepassing, moet u per thread een nieuw AzureMediaServicesClient-object genereren.
 

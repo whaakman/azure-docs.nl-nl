@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e1724454ff67f6cfe3646b59e8302a3dd099081
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 79abead77705d13df909703a234bf72ee121a5be
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217442"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301176"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Wat is de Microsoft Authenticator-app?
 Met de Microsoft Authenticator-app kunt u zich aanmelden bij uw accounts als u gebruikmaakt van verificatie in twee stappen. Verificatie in twee stappen helpt u veiliger toegang te krijgen tot uw accounts, vooral als u gevoelige informatie bekijkt. Omdat wachtwoorden kunnen worden vergeten, gestolen of gewijzigd, is verificatie in twee stappen een extra beveiligingsstap waarmee u uw account beschermt door het voor anderen lastiger te maken om in te breken.
@@ -59,11 +59,11 @@ Als u een pincode gebruikt om het verificatieproces uit te voeren, kunt u de Mic
 ## <a name="who-decides-if-you-use-this-feature"></a>Wie besluit of u deze functie gebruikt?
 Afhankelijk van uw accounttype kan uw organisatie besluiten dat u gebruik moet maken van verificatie in twee stappen, maar het is ook mogelijk dat u dat zelf kunt bepalen.
 
-- **Werk- of schoolaccount.** Als u een werk- of schoolaccount gebruikt (zoals alain@contoso.com), is het aan uw organisatie of u verificatie in twee stappen moet gebruiken, samen met de specifieke verificatiemethoden. Zie [Werk- of schoolaccounts toevoegen](microsoft-authenticator-app-add-work-account.md) voor meer informatie over het toevoegen van uw werk- of schoolaccount aan de Microsoft Authenticator-app.
+- **Werk- of schoolaccount.** Als u een werk- of schoolaccount gebruikt (zoals alain@contoso.com), is het aan uw organisatie of u verificatie in twee stappen moet gebruiken, samen met de specifieke verificatiemethoden. Zie [Werk- of schoolaccounts toevoegen](user-help-auth-app-add-work-school-account.md) voor meer informatie over het toevoegen van uw werk- of schoolaccount aan de Microsoft Authenticator-app.
 
-- **Persoonlijk Microsoft-account.** U kunt ervoor kiezen verificatie in twee stappen in te stellen voor uw persoonlijke Microsoft-accounts (zoals alain@outlook.com). Meer informatie over het toevoegen van uw persoonlijke Microsoft-account vindt u in 
+- **Persoonlijk Microsoft-account.** U kunt ervoor kiezen verificatie in twee stappen in te stellen voor uw persoonlijke Microsoft-accounts (zoals alain@outlook.com). Zie [Uw persoonlijke accounts toevoegen](user-help-auth-app-add-personal-ms-account.md) voor meer informatie over het toevoegen van uw persoonlijke Microsoft-accounts.
 
-- **Niet-Microsoft-account.** U kunt ervoor kiezen verificatie in twee stappen in te stellen voor uw niet-Microsoft-accounts (zoals alain@gmail.com). Uw niet-Microsoft-accounts hanteren wellicht niet de term verificatie in twee stappen, maar u zou de functie moeten kunnen vinden in de instellingen voor **beveiliging** of **aanmelding**. De Microsoft Authenticator-app werkt met alle accounts die ondersteuning bieden voor de TOTP-normen.
+- **Niet-Microsoft-account.** U kunt ervoor kiezen verificatie in twee stappen in te stellen voor uw niet-Microsoft-accounts (zoals alain@gmail.com). Uw niet-Microsoft-accounts hanteren wellicht niet de term verificatie in twee stappen, maar u zou de functie moeten kunnen vinden in de instellingen voor **beveiliging** of **aanmelding**. De Microsoft Authenticator-app werkt met alle accounts die ondersteuning bieden voor de TOTP-normen. Zie [Uw niet-Microsoft-accounts toevoegen](user-help-auth-app-add-non-ms-account.md) voor meer informatie over het toevoegen van uw niet-Microsoft-accounts.
 
 ## <a name="in-this-section"></a>In deze sectie doet u het volgende
 
@@ -71,7 +71,8 @@ Afhankelijk van uw accounttype kan uw organisatie besluiten dat u gebruik moet m
 |------|------------|
 |[De app downloaden en installeren](user-help-auth-app-download-install.md)|Beschrijft waar en hoe u de Microsoft Authenticator-app kunt downloaden en installeren voor apparaten met Android en iOS.|
 |[Uw werk- of schoolaccounts toevoegen](user-help-auth-app-add-work-school-account.md)|Beschrijft hoe u uw verschillende werk- of schoolaccounts toevoegt aan de Microsoft Authenticator-app.|
-|[Uw persoonlijke accounts toevoegen](user-help-auth-app-add-personal-ms-account.md)|Beschrijft hoe u uw persoonlijke Microsoft- en niet-Microsoft-accounts toevoegt aan de Microsoft Authenticator-app.|
+|[Uw persoonlijke accounts toevoegen](user-help-auth-app-add-personal-ms-account.md)|Beschrijft hoe u uw persoonlijke Microsoft-accounts toevoegt aan de Microsoft Authenticator-app.|
+|[Uw niet-Microsoft-account toevoegen](user-help-auth-app-add-non-ms-account.md)|Beschrijft hoe u uw niet-Microsoft-accounts toevoegt aan de Microsoft Authenticator-app.|
 |[Uw accounts handmatig toevoegen](user-help-auth-app-add-account-manual.md)|Beschrijft hoe u handmatig uw accounts toevoegt aan de Microsoft Authenticator-app als u de verstrekte QR-code niet kunt scannen.|
 |[Aanmelden met de app](user-help-auth-app-sign-in.md)|Beschrijft hoe u zich aanmeldt bij uw verschillende accounts met behulp van de Microsoft Authenticator-app.|
 |[Back-up en herstel van accountreferenties](user-help-auth-app-backup-recovery.md)| Bevat informatie over back-up en herstel van uw accountreferenties met behulp van de Microsoft Authenticator-app.|

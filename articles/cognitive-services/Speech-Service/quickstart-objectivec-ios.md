@@ -1,23 +1,23 @@
 ---
 title: 'Snelstart: Spraak herkennen, Objective-C - Speech Services'
 titleSuffix: Azure Cognitive Services
-description: Informatie over het herkennen van gesproken tekst in Objective-C in iOS met behulp van de Speech Service-SDK
+description: Informatie over het herkennen van gesproken tekst in Objective-C in iOS met behulp van de Speech SDK
 services: cognitive-services
 author: chlandsi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/13/2018
+ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: f92a5c5ea064d91eae065c96e656416b21714e98
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5f6a66b4005a0fa7106830d7e53950a9902cd078
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878099"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447239"
 ---
-# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>Snelstart: Gesproken tekst herkennen in Objective-C in iOS met behulp van de Speech Service-SDK
+# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Quickstart: Gesproken tekst herkennen in Objective-C in iOS met behulp van de Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -35,7 +35,7 @@ Voordat u begint, bekijkt u de lijst vereisten:
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-De huidige versie van de Speech SDK van Cognitive Services is `1.2.0`.
+De huidige versie van de Speech SDK van Cognitive Services is `1.3.0`.
 
 De Cognitive Services Speech-SDK voor Mac en iOS wordt momenteel gedistribueerd als een Cocoa-framework.
 Dit kan worden gedownload van https://aka.ms/csspeech/iosbinary. Download het bestand naar uw basismap.

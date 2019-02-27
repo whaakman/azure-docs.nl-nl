@@ -8,12 +8,12 @@ ms.date: 02/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 6b3bad4e4619f8909f5c6d71111b4fad9ddb3098
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 31b9405b7d4141890d786ab3d1cb70d11ef0c1b3
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813276"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267951"
 ---
 # <a name="what-is-azure-resource-graph"></a>Wat is Azure Resource Graph
 
@@ -38,7 +38,7 @@ Met Azure Resource Graph hebt u toegang tot de eigenschappen die de resourceprov
 
 Nu u weet wat Azure Resource Graph is, leert u hoe u query's kunt maken.
 
-Het is belangrijk te weten dat de querytaal van Azure Resource Graph is gebaseerd op de [querytaal van Azure Data Explorer](../../data-explorer/data-explorer-overview.md).
+Het is belangrijk te weten dat de querytaal van Azure Resource Graph is gebaseerd op de [querytaal van Kusto](../../data-explorer/data-explorer-overview.md) die wordt gebruikt door Azure Data Explorer.
 
 Voor meer informatie over bewerkingen en functies die kunnen worden gebruikt met Azure Resource Graph raadpleegt u eerst [De querytaal van Resource Graph](./concepts/query-language.md). Zie [Resources verkennen](./concepts/explore-resources.md) als u de resources wilt bekijken.
 

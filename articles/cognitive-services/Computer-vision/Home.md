@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 08/22/2018
+ms.date: 02/20/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4322b118268ee88235190f5672585d17ea365495
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 84287191af60a5e9306f03ca2ebd10f9e347c9ac
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872640"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453049"
 ---
 # <a name="what-is-computer-vision"></a>Wat is Computer Vision?
 
@@ -45,13 +45,13 @@ U kunt afbeeldingen analyseren om inzicht te krijgen in de visuele kenmerken en 
 
 ## <a name="extract-text-from-images"></a>Extraheren van tekst uit afbeeldingen
 
-U kunt Computer Vision gebruiken om [tekst uit een afbeelding met OCR te extraheren](concept-extracting-text-ocr.md) in een tekenstroom die door een machine kan worden gelezen. Via OCR wordt zo nodig de draaiing van de herkende tekst gecorrigeerd, in graden rond de horizontale as van de afbeelding en worden de framecoördinaten van elk woord weergegeven. OCR ondersteunt 25 talen en detecteert automatisch de taal van de geëxtraheerde tekst.
+U kunt Computer Vision gebruiken om [tekst uit een afbeelding met OCR te extraheren](concept-extracting-text-ocr.md) in een tekenstroom die door een machine kan worden gelezen. Via OCR wordt zo nodig de draaiing van de herkende tekst gecorrigeerd en worden de framecoördinaten van elk woord weergegeven. OCR ondersteunt 25 talen en detecteert automatisch de taal van de herkende tekst.
 
-U kunt ook [gedrukte en handgeschreven tekst](concept-recognizing-text.md) in een afbeelding herkennen. Met Computer Vision kan zowel gedrukte als handgeschreven tekst worden gedetecteerd en geëxtraheerd uit afbeeldingen van verschillende objecten met verschillende oppervlakken en achtergronden, zoals bonnetjes, posters, visitekaartjes, brieven en whiteboards. Momenteel is het herkennen van gedrukte en handgeschreven tekst in preview en is Engels de enige ondersteunde taal.  
+U kunt ook [gedrukte en handgeschreven tekst](concept-recognizing-text.md) in een afbeelding herkennen. Met Computer Vision kan zowel gedrukte als handgeschreven tekst worden gedetecteerd en geëxtraheerd uit afbeeldingen van verschillende objecten met verschillende oppervlakken en achtergronden, zoals bonnetjes, posters, visitekaartjes, brieven en whiteboards. Momenteel is het herkennen van gedrukte en handgeschreven tekst in preview en is Engels de enige ondersteunde taal. 
 
 ## <a name="moderate-content-in-images"></a>Beheren van inhoud in afbeeldingen
 
-U kunt Computer Vision gebruiken om [inhoud voor volwassenen of ongepaste inhoud](concept-detecting-adult-content.md) in een afbeelding te detecteren, waarbij u beoordeelt hoe waarschijnlijk het is dat de afbeelding inhoud voor volwassenen of ongepaste inhoud bevat en een betrouwbaarheidsscore voor beide genereert. Het filter voor de detectie van inhoud voor volwassenen en ongepaste inhoud kan worden ingesteld met een glijdende schaal om uw voorkeuren aan te geven.
+U kunt Computer Vision gebruiken om [erotische en ongepaste inhoud te detecteren](concept-detecting-adult-content.md) in een afbeelding en voor beide een vertrouwensscore laten retourneren. Het filter voor de detectie van inhoud voor volwassenen en ongepaste inhoud kan worden ingesteld met een glijdende schaal om uw voorkeuren aan te geven.
 
 ## <a name="use-containers"></a>Containers gebruiken
 

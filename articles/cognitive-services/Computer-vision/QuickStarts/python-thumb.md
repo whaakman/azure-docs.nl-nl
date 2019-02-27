@@ -8,47 +8,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 85a8bcaeecc998a2020a657e6944a18c82a0159e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c29ea46513624215421845b99bd8306b73a5a9ac
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860164"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309009"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-python-in-computer-vision"></a>Snelstartgids: Een miniatuur maken met de REST API en Python in Computer Vision
 
-In deze snelstart maakt u een miniatuur van een afbeelding met behulp van de REST API van Computer Vision. Met de methode [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) kunt u een miniatuur van een afbeelding genereren. U geeft de hoogte en breedte op. Deze waarden mogen afwijken van de hoogte-breedteverhouding van de invoerafbeelding. Computer Vision maakt gebruik van slim bijsnijden om op intelligente wijze het interessegebied te bepalen en coördinaten voor het bijsnijden te genereren op basis van dat gebied.
-
-U kunt deze snelstart stapsgewijs uitvoeren met behulp van een Jupyter Notebook op [MyBinder](https://mybinder.org). Selecteer de volgende knop om Binder te starten:
-
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
+In deze quickstart maakt u een miniatuur van een afbeelding met behulp van de REST API van Computer Vision. Met de methode [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) kunt u de gewenste hoogte en breedte opgeven. Computer Vision maakt gebruik van slim bijsnijden om op intelligente wijze het interessegebied te bepalen en coördinaten voor het bijsnijden te genereren op basis van dat gebied.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u Computer Vision wilt gebruiken, hebt u een abonnementssleutel nodig. Zie [Abonnementssleutels verkrijgen](../Vision-API-How-to-Topics/HowToSubscribe.md) voor meer informatie.
-
-## <a name="prerequisites"></a>Vereisten
-
-- [Python](https://www.python.org/downloads/) moet geïnstalleerd zijn als u het voorbeeld lokaal wilt uitvoeren.
 - U moet beschikken over een abonnementssleutel voor Computer Vision. Zie [Abonnementssleutels verkrijgen](../Vision-API-How-to-Topics/HowToSubscribe.md) voor meer informatie over het verkrijgen van een abonnementssleutel.
+- Een code-editor zoals [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="create-and-run-the-sample"></a>Het voorbeeld maken en uitvoeren
 
-U kunt het voorbeeld maken en uitvoeren aan de hand van de volgende stappen:
-
-1. Kopieer de volgende code in een teksteditor.
-1. Breng waar nodig de volgende wijzigingen in code aan:
-    1. Vervang de waarde van `subscription_key` door uw abonnementssleutel.
-    1. Vervang de waarde van `vision_base_url` door de eindpunt-URL voor de Computer Vision-bron in de Azure-regio waar u uw abonnementssleutels hebt verkregen (indien nodig).
-    1. Vervang optioneel de waarde van `image_url` door de URL van een andere afbeelding waar u een miniatuur van wilt maken.
-1. Sla de code op als een bestand met de extensie `.py`. Bijvoorbeeld `get-thumbnail.py`.
-1. Open een opdrachtpromptvenster.
-1. Typ bij de prompt de opdracht `python` om het voorbeeld uit te voeren. Bijvoorbeeld `python get-thumbnail.py`.
+Als u het voorbeeld wilt maken en uitvoeren, kopieert u de volgende code naar de code-editor. 
 
 ```python
 import requests
@@ -92,13 +75,27 @@ plt.axis("off")
 print("Thumbnail is {0}-by-{1}".format(*thumbnail.size))
 ```
 
+Ga daarna als volgt te werk:
+1. Vervang de waarde van `subscription_key` door uw abonnementssleutel.
+1. Vervang de waarde van `vision_base_url` door de eindpunt-URL voor de Computer Vision-bron in de Azure-regio waar u uw abonnementssleutels hebt verkregen (indien nodig).
+1. Vervang optioneel de waarde van `image_url` door de URL van een andere afbeelding waar u een miniatuur van wilt maken.
+1. Sla de code op als een bestand met de extensie `.py`. Bijvoorbeeld `get-thumbnail.py`.
+1. Open een opdrachtpromptvenster.
+1. Typ bij de prompt de opdracht `python` om het voorbeeld uit te voeren. Bijvoorbeeld `python get-thumbnail.py`.
+
 ## <a name="examine-the-response"></a>Het antwoord bekijken
 
-Een geslaagd antwoord wordt geretourneerd als binaire gegevens - deze staan voor de afbeeldingsgegevens van de miniatuur. Als de aanvraag is geslaagd, wordt er een miniatuur gegenereerd op basis van de binaire gegevens in het antwoord en weergegeven door het voorbeeld. Als de aanvraag mislukt, wordt het antwoord weergegeven in het opdrachtpromptvenster. De reactie op de mislukte aanvraag bevat een foutcode en een bericht om u te helpen bepalen wat er mis is gegaan.
+Een geslaagd antwoord wordt geretourneerd als binaire gegevens, die staan voor de afbeeldingsgegevens van de miniatuur. Deze afbeelding moet worden weergegeven in het voorbeeld. Als de aanvraag mislukt, wordt het antwoord weergegeven in het opdrachtpromptvenster en bevat het antwoord een foutcode.
+
+## <a name="run-in-jupyter-optional"></a>Uitvoeren in Jupyter-(optioneel)
+
+U kunt deze quickstart desgewenst stapsgewijs uitvoeren met behulp van een Jupyter Notebook op [MyBinder](https://mybinder.org). Selecteer de volgende knop om Binder te starten:
+
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Een Python-toepassing verkennen die Computer Vision gebruikt om optische tekenherkenning (OCR) uit te voeren; slim bijgesneden miniaturen maken; plus visuele kenmerken, inclusief gezichten, in een afbeelding detecteren, categoriseren, labelen en beschrijven. Als u snel wilt experimenteren met de Computer Vision-API, gebruikt u de [Open API-testconsole](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Hieronder vindt u meer gedetailleerde informatie over de functie voor het genereren van miniaturen.
 
 > [!div class="nextstepaction"]
-> [Zelfstudie voor de Computer Vision-API met Python](../Tutorials/PythonTutorial.md)
+> [Miniaturen genereren](../concept-generating-thumbnails.md)

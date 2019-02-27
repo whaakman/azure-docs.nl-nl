@@ -10,12 +10,12 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 67797f3bc5eadc126bad1051e793a8d3bc4590e5
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 27db3327e296dafea3af2180eeaadd0ff4680b8d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48800941"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341946"
 ---
 # <a name="azure-managed-applications-overview"></a>Overzicht van Azure Managed Applications
 
@@ -73,11 +73,11 @@ Wanneer de gebruiker de beheerde toepassing verwijdert, wordt ook de beheerde re
 
 ## <a name="azure-policy"></a>Azure Policy
 
-U kunt een [Azure Policy](../azure-policy/azure-policy-introduction.md) toepassen op uw beheerde toepassing. U past beleidsregels toe om te verzekeren dat geïmplementeerde exemplaren van uw beheerde toepassing aan gegevens- en beveiligingsvereisten voldoen. Als uw toepassing met gevoelige gegevens werkt, zorg er dan voor dat u hebt geëvalueerd hoe die moeten worden beschermd. Als uw toepassing bijvoorbeeld met gegevens uit Office 365 werkt, past u een beleid toe om te verzekeren dat gegevensversleuteling is ingeschakeld.
+U kunt een [Azure Policy](../governance/policy/overview.md) toepassen op uw beheerde toepassing. U past beleidsregels toe om te verzekeren dat geïmplementeerde exemplaren van uw beheerde toepassing aan gegevens- en beveiligingsvereisten voldoen. Als uw toepassing met gevoelige gegevens werkt, zorg er dan voor dat u hebt geëvalueerd hoe die moeten worden beschermd. Als uw toepassing bijvoorbeeld met gegevens uit Office 365 werkt, past u een beleid toe om te verzekeren dat gegevensversleuteling is ingeschakeld.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 In dit artikel hebt u geleerd over de voordelen van het gebruik van beheerde toepassingen. Ga naar het volgende artikel om een definitie van een ​​beheerde toepassing te maken.
 
 > [!div class="nextstepaction"]
-> [Snelstart: Een definitie van een door Azure beheerde toepassing publiceren](publish-managed-app-definition-quickstart.md)
+> [Snelstart: De definitie van een door Azure beheerde toepassing publiceren](publish-managed-app-definition-quickstart.md)

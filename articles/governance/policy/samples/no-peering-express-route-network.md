@@ -1,6 +1,6 @@
 ---
 title: 'Voorbeeld: er is geen netwerk-peering naar een ExpressRoute-netwerk'
-description: Dit voorbeeldbeleid verbiedt de koppeling van een netwerkpeering aan een netwerk in een opgegeven brongroep.
+description: Deze voorbeeldbeleidsdefinitie verbiedt de koppeling van een netwerkpeering aan een netwerk in een opgegeven brongroep.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: dbd7494b5104482624448fc0525a58d68138a833
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: c06e750c19227d245fcf8eaeb077691ef2c8a675
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245640"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337598"
 ---
-# <a name="no-network-peering-to-express-route-network"></a>Er is geen netwerk-peering naar een ExpressRoute-netwerk
+# <a name="sample---no-network-peering-to-express-route-network"></a>Voorbeeld: er is geen netwerk-peering naar een ExpressRoute-netwerk
 
 Dit beleid verbiedt de koppeling van een netwerkpeering aan een netwerk in een opgegeven brongroep. Gebruiken om de verbinding met centraal beheerde netwerkinfrastructuur te voorkomen. U geeft de naam op van de brongroep die niet gekoppeld mag worden.
 

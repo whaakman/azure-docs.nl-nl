@@ -11,12 +11,12 @@ author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1c369a75bbaa0853386e0139b94c119e5bb3675a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 36e0ca360cfbdfc77ce0a1768222f43f8864537c
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251534"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267254"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Wat is de Azure Machine Learning-service?
 
@@ -28,14 +28,14 @@ Machine learning is een techniek van gegevenswetenschap die computers in staat s
 
 Prognoses of voorspellingen op basis van machine learning kunnen apps en apparaten slimmer maken. Wanneer u bijvoorbeeld online winkelt, helpt machine learning op basis van wat u eerder hebt gekocht, bij het aanraden van andere producten waarvoor u mogelijk belangstelling hebt. Of wanneer uw creditcard wordt gebruikt, vergelijkt machine learning de transactie met een database van transacties om fraude te detecteren. En wanneer uw robotstofzuiger een kamer stofzuigt, helpt machine learning bij het besluiten wanneer de taak klaar is.
 
-## <a name="what-is-azure-machine-learning-service"></a>Wat is Azure Machine Learning-service?
+## <a name="what-is-azure-machine-learning-service"></a>Wat is de Azure Machine Learning-service?
 
-Azure Machine Learning-service biedt een omgeving in de cloud die u kunt gebruiken om machine learning-modellen te ontwikkelen, trainen, testen, implementeren, beheren en volgen.
+Azure Machine Learning Service biedt een omgeving in de cloud die u kunt gebruiken om machine learning-modellen te trainen, testen, implementeren, beheren en volgen en er gegevens voor voor te bereiden.
 
 [ ![Azure Machine Learning Service-workflow](./media/overview-what-is-azure-ml/aml.png)] (./media/overview-what-is-azure-ml/aml.png#lightbox)
 
-Azure Machine Learning Service biedt volledige ondersteuning voor open-sourcetechnologieën. U kunt tienduizenden open source Python-pakketten met elementen van machine learning gebruiken. Voorbeelden zijn TensorFlow en scikit-learn.
-Dankzij de ondersteuning voor uitgebreide programma’s kunt u eenvoudig interactief gegevens verkennen en transformeren en vervolgens modellen ontwikkelen en testen. Voorbeelden zijn [Jupyter-notebooks](http://jupyter.org) of de extensie [Azure Machine Learning voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview).
+Azure Machine Learning Service biedt volledige ondersteuning voor open-sourcetechnologieën. U kunt tienduizenden open source Python-pakketten met elementen van machine learning gebruiken. Voorbeelden zijn PyTorch, TensorFlow en scikit-learn.
+Dankzij de ondersteuning voor uitgebreide programma’s kunt u eenvoudig interactief gegevens verkennen en voorbereiden en vervolgens modellen ontwikkelen en testen. Voorbeelden zijn [Jupyter-notebooks](http://jupyter.org) of de extensie [Azure Machine Learning voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview).
 Azure Machine Learning-service omvat ook functies die [modelgeneratie automatiseren en afstemmen](tutorial-auto-train-models.md)om u te helpen met gemak, efficiënt en nauwkeurig modellen te maken.
 
 Met Azure Machine Learning Service kunt u op uw lokale machine beginnen met trainen en dan opschalen naar de cloud. Dankzij de vele beschikbare [rekendoelen](how-to-set-up-training-targets.md) zoals Azure Machine Learning Compute en [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), en [geavanceerde afstemmingsservices van hyperparameters](how-to-tune-hyperparameters.md), kunt u sneller betere modellen bouwen, met de kracht van de cloud.
@@ -49,10 +49,7 @@ En met geavanceerde [machine learning-pijplijnen](concept-ml-pipelines.md) kunt 
 
 ## <a name="what-can-i-do-with-azure-machine-learning-service"></a>Wat kan ik doen met de Azure Machine Learning-service?
 
-Met Azure Machine Learning Service kunt u een model automatisch trainen en op uw behoeften laten afstemmen.
-Zie bijvoorbeeld [Een regressiemodel trainen met geautomatiseerde machine learning](tutorial-auto-train-models.md).
-
-Met de Azure Machine Learning <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> voor Python kunt u samen met open source Python-pakketten uiterst nauwkeurige machine learning- en deep learning-modellen bouwen en trainen in een Azure Machine Learning Service-werkruimte.
+Met de <a href="https://aka.ms/aml-sdk" target="_blank">voornaamste SDK voor Python</a> en de <a href="https://aka.ms/data-prep-sdk" target="_blank">Data Prep SDK</a> voor Azure Machine Learning kunt u samen met open source Python-pakketten uiterst nauwkeurige machine learning- en deep learning-modellen bouwen en trainen in een Azure Machine Learning Service-werkruimte.
 U kunt kiezen uit veel machine learning-onderdelen die beschikbaar zijn in open-source Python-pakketten, zoals de volgende voorbeelden:
 
 - <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
@@ -60,6 +57,9 @@ U kunt kiezen uit veel machine learning-onderdelen die beschikbaar zijn in open-
 - <a href="https://pytorch.org" target="_blank">PyTorch</a>
 - <a href="https://www.microsoft.com/en-us/cognitive-toolkit/" target="_blank">CNTK</a>
 - <a href="http://mxnet.io" target="_blank">MXNet</a>
+
+Met Azure Machine Learning Service kunt u ook een model automatisch trainen en op uw behoeften laten afstemmen.
+Zie bijvoorbeeld [Een regressiemodel trainen met geautomatiseerde machine learning](tutorial-auto-train-models.md).
 
 Zodra u een model hebt, kunt u het gebruiken om een container (zoals Docker) te maken die lokaal kan worden geïmplementeerd voor testdoeleinden. Zodra het testen is voltooid, kunt u het model als een productiewebservice implementeren in Azure Container Instances of Azure Kubernetes Service. Zie het artikel [Hoe implementeren en waar](how-to-deploy-and-where.md) voor meer informatie.
 
@@ -70,7 +70,7 @@ Bekijk [Volgende stappen](#next-steps) om te beginnen met de Azure Machine Learn
 
 ## <a name="how-is-azure-machine-learning-service-different-from-machine-learning-studio"></a>Waarin verschilt Azure Machine Learning Service van Machine Learning Studio?
 
-Azure Machine Learning Studio is een visuele werkruimte voor samenwerking met slepen en neerzetten waar u machine learning-oplossingen kunt bouwen, testen en implementeren zonder dat u code hoeft te programmeren. Er wordt gebruikgemaakt van vooraf gebouwde en geconfigureerde machine learning-algoritmen en modules voor gegevensverwerking.
+Azure Machine Learning Studio is een visuele werkruimte voor samenwerking met slepen en neerzetten waar u machine learning-oplossingen kunt bouwen, testen en implementeren zonder dat u code hoeft te programmeren. Er wordt gebruikgemaakt van vooraf gebouwde en geconfigureerde machine learning-algoritmen en modules voor gegevensverwerking. 
 
 Gebruik Machine Learning Studio wanneer u snel en eenvoudig wilt experimenteren met machine learning-modellen en de ingebouwde machine learning-algoritmen voldoende zijn voor uw oplossingen.
 
@@ -87,12 +87,12 @@ U ontvangt tegoed wat u kunt uitgeven aan Azure-services. Als uw tegoed op is, k
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Maak een werkruimte voor Machine Learning service om aan de slag te gaan [met Azure Portal](quickstart-get-started.md) of [in Python](quickstart-create-workspace-with-python.md).
+- Maak een werkruimte voor Machine Learning service om aan de slag te gaan [met de Azure-portal](quickstart-get-started.md) (zonder installatie) of [in Python](quickstart-create-workspace-with-python.md) (met installatie van de SDK).
 
-- Volg de volledige zelfstudie [Een model voor de classificatie van installatiekopieën trainen met Azure Machine Learning Service](tutorial-train-models-with-aml.md).
-
-- [Gebruik Azure Machine Learning om automatisch een model te genereren en af te stemmen](tutorial-auto-train-models.md).
-
+- Volg de volledige zelfstudies: 
+  + [Een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning Service](tutorial-train-models-with-aml.md) 
+  + [Gegevens voorbereiden en geautomatiseerde machine learning gebruiken om een regressiemodel automatisch te trainen](tutorial-data-prep.md)
+  
 - Gebruik de [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk) om uw gegevens voor te bereiden.
 
 - Leer meer over [Machine Learning-pijplijnen](/azure/machine-learning/service/concept-ml-pipelines) om uw Machine Learning-scenario’s te bouwen, te optimaliseren en te beheren.
@@ -100,18 +100,3 @@ U ontvangt tegoed wat u kunt uitgeven aan Azure-services. Als uw tegoed op is, k
 - Lees het gedetailleerde artikel [Azure Machine Learning service architecture and concepts](concept-azure-machine-learning-architecture.md) (Architectuur en begrippen van de Azure Machine Learning-service).
 
 - Raadpleeg [andere machine learning-producten van Microsoft](./overview-more-machine-learning.md) voor meer informatie.
-
-
-<!-- 
-
-An intro to AML or an end-to-end quickstart video could go here.
-
-In this 9-minute video, learn how you can benefit your app. You'll learn about key features and what a typical workflow looks like. 
-
->[!VIDEO https://channel9.msdn.com/Events/Connect/2016/138/player]
- 
-+ 0-3 minutes covers key features and use-cases.
-+ 3-4 minutes covers service provisioning. 
-+ 4-6 minutes covers Import Data wizard used to create an index using the built-in real estate dataset.
-
--->

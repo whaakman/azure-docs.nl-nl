@@ -8,47 +8,42 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 05/30/2018
+ms.date: 02/07/2019
 ms.author: pafarley
-ms.openlocfilehash: c75745452ee819dbda75f7420c93a5629cef4e08
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 93e3d9fa67cfb941abf97476e03f44a4b16e94e7
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860387"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313157"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Quickstart: Gezichten in een afbeelding detecteren met de REST API en PHP
 
-In deze snelstartgids detecteert u menselijke gezichten in een afbeelding met behulp van de Face-API.
+In deze quickstart gebruikt u de Azure Face REST API met PHP om menselijke gezichten in een afbeelding te detecteren.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt een abonnementssleutel nodig om het voorbeeld uit te voeren. U kunt abonnementssleutels voor een gratis proefversie downloaden op [Cognitive Services proberen](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+- Een Face-API-abonnementssleutel. U kunt een abonnementssleutel voor een gratis proefversie downloaden van [Cognitive Services proberen](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Of volg de instructies in [Een Cognitive Services-account maken](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) om u te abonneren op de Face-API-service en uw sleutel op te halen.
+- Een code-editor zoals [Visual Studio Code](https://code.visualstudio.com/download)
 
-## <a name="face---detect-request"></a>Face - Detect-aanvraag
+## <a name="initialize-the-html-file"></a>Het HTML-bestand initialiseren
 
-Gebruik de methode [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) om gezichten in een afbeelding te detecteren en gezichtskenmerken te retourneren, waaronder:
+Maak een nieuw HTML-bestand, *detectFaces.html*, en voeg de volgende code toe.
 
-* Face ID: De unieke ID die wordt gebruikt in verschillende Face-API-scenario's.
-* Gezichtsrechthoek: De coördinaten die de locatie van het gezicht in de afbeelding aangeven (links, boven, breedte en hoogte).
-* Oriëntatiepunten: Een matrix van 27 gezichtsoriëntatiepunten die verwijzen naar de belangrijkste posities van de gezichtsonderdelen.
-* Gezichtskenmerken zoals leeftijd, geslacht, glimlachintensiteit, hoofdhouding en gezichtshaar.
+```html
+<html>
+    <head>
+        <title>Face Detect Sample</title>
+    </head>
+    <body></body>
+</html>
+```
 
-U kunt het voorbeeld uitvoeren aan de hand van de volgende stappen:
+## <a name="write-the-php-script"></a>Het PHP-script schrijven
 
-1. Kopieer de volgende code in een editor.
-1. Vervang `<Subscription Key>` door uw geldige abonnementssleutel.
-1. Wijzig zo nodig `uriBase` om de locatie te gebruiken waar u de abonnementssleutels hebt verkregen.
-1. Stel `imageUrl` eventueel in op de afbeelding die u wilt analyseren.
-1. Sla het bestand op met de extensie `.php`.
-1. Open het bestand in een browservenster met PHP-ondersteuning.
+Voeg de volgende code toe in het element `body` van het document. Hiermee wordt een eenvoudige gebruikersinterface ingesteld met een URL-veld, een knop **Gezicht analyseren**, een antwoordvenster en een venster voor een afbeeldingsweergave.
 
 ```php
-<html>
-<head>
-    <title>Face Detect Sample</title>
-</head>
-<body>
 <?php
 // Replace <Subscription Key> with a valid subscription key.
 $ocpApimSubscriptionKey = '<Subscription Key>';
@@ -102,13 +97,13 @@ catch (HttpException $ex)
     echo "<pre>" . $ex . "</pre>";
 }
 ?>
-</body>
-</html>
 ```
 
-## <a name="face---detect-response"></a>Face - Detect-antwoord
+U moet het veld `subscriptionKey` bijwerken met de waarde van de abonnementssleutel en mogelijk moet u de tekenreeks `uriBase` wijzigen, zodat deze de juiste regio-id bevat (zie de [Face API-documentatie](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) voor een lijst met alle regio-eindpunten). Het veld `returnFaceAttributes` geeft op welke gezichtskenmerken moeten worden opgehaald. U kunt deze queryreeks wijzigen afhankelijk van het beoogde gebruik.
 
-Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, bijvoorbeeld:
+## <a name="run-the-script"></a>Het script uitvoeren
+
+Open het bestand in een webbrowser waarvoor PHP is ingeschakeld. U zou een JSON-tekenreeks van de Face-gegevens moeten krijgen die er als volgt uitziet.
 
 ```json
 [

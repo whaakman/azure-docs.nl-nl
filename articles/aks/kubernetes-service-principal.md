@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: get-started-article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 2bc0579d3dd60d66a23a29dabff7e43ca8dfee76
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: b8cbeacda98aec639724f30fe3a7e94346f05ba4
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435392"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308751"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Service-principals met AKS (Azure Kubernetes Service)
 
@@ -105,7 +105,7 @@ U kunt gebruikmaken van geavanceerde netwerkmogelijkheden als het virtuele netwe
   - *Microsoft.Network/publicIPAddresses/join/action*
 - U kunt ook de ingebouwde rol [Inzender voor netwerken][rbac-network-contributor] gebruiken in het subnet of in het virtuele netwerk
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Opslag
 
 Mogelijk hebt u toegang nodig tot bestaande schijfresources in een andere resourcegroep. Wijs een van de volgende sets rolmachtigingen toe:
 
@@ -128,11 +128,10 @@ Houd rekening met het volgende wanneer u werkt met AKS en Azure AD-service-princ
 - Op de hoofd- en knooppunt-VM's in het Kubernetes-cluster worden de referenties voor de service-principal opgeslagen in het bestand `/etc/kubernetes/azure.json`
 - Wanneer u de opdracht [az aks create][az-aks-create] gebruikt om de service-principal automatisch te genereren, worden de referenties voor de service-principal naar het bestand `~/.azure/aksServicePrincipal.json` geschreven op de computer die wordt gebruikt om de opdracht uit te voeren.
 - Wanneer u een AKS-cluster verwijdert dat is gemaakt met [az aks create][az-aks-create], wordt de automatisch gemaakte service-principal niet verwijderd.
-    - Als u de service-principal wilt verwijderen, haalt u eerst het id voor de service-principal op met [az ad app list][az-ad-app-list]. In het volgende voorbeeld wordt eerst een query uitgevoerd voor het cluster met de naam *myAKSCluster* en wordt vervolgens het app-id verwijderd met [az ad app delete][az-ad-app-delete]. Vervang deze namen door uw eigen waarden:
+    - Als u de service-principal wilt verwijderen, zoekt u *servicePrincipalProfile.clientId* op met een query. Vervolgens verwijdert u de service-principal met [az ad app delete][az-ad-app-delete]. Vervang de volgende brongroeps- en clusternamen door uw eigen waarden:
 
         ```azurecli
-        az ad app list --query "[?displayName=='myAKSCluster'].{Name:displayName,Id:appId}" --output table
-        az ad app delete --id <appId>
+        az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
         ```
 
 ## <a name="next-steps"></a>Volgende stappen

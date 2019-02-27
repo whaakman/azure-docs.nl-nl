@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 0c865b8bc129f4f2809f2dbb09a836efe4cee3d9
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 1d8a9cf10bf9b4aab02dd5033ecdd4fdc1f9423e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093037"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429244"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Zelfstudie: Netwerkcommunicatie tussen twee virtuele machines bewaken met behulp van de Azure-portal
 
@@ -73,11 +73,11 @@ Voer de stappen in [De eerste virtuele machine maken](#create-the-first-vm) opni
 
 |Stap|Instelling|Waarde|
 |---|---|---|
-| 1 | Selecteer **Ubuntu Server 17.10 VM** |                                                                         |
-| 3 | Naam                              | myVm2                                                                   |
-| 3 | Verificatietype               | Plak uw openbare SSH-sleutel of selecteer **Wachtwoord** en voer een wachtwoord in. |
-| 3 | Resourcegroep                    | Selecteer **Bestaande gebruiken** en selecteer **myResourceGroup**.                 |
-| 6 | Extensies                        | **Netwerkagent voor Linux**                                             |
+| 1 | Selecteer een versie van **Ubuntu Server** |                                                                         |
+| 3 | Naam                                  | myVm2                                                                   |
+| 3 | Verificatietype                   | Plak uw openbare SSH-sleutel of selecteer **Wachtwoord** en voer een wachtwoord in. |
+| 3 | Resourcegroep                        | Selecteer **Bestaande gebruiken** en selecteer **myResourceGroup**.                 |
+| 6 | Extensies                            | **Netwerkagent voor Linux**                                             |
 
 Het implementeren van de VM duurt een paar minuten. Wacht tot de VM is geïmplementeerd voordat u doorgaat met de resterende stappen.
 
@@ -160,7 +160,7 @@ Standaard staat Azure communicatie toe over alle poorten tussen virtuele machine
 
     U ziet dat er een rood uitroepteken staat in de statuskolom voor de netwerkinterface **myvm2529**.
 
-6. Voor meer informatie over waarom de status is gewijzigd, selecteert u 10.0.0.5, in de vorige afbeelding. De verbindingsmonitor meldt de reden voor de communicatiefout: *Verkeer geblokkeerd vanwege de volgende regel voor netwerkbeveiligingsgroep: UserRule_DenySshInbound*.
+6. Voor meer informatie over waarom de status is gewijzigd, selecteert u 10.0.0.5, in de vorige afbeelding. De verbindingsmonitor informeert u dat de reden voor de communicatiefout als volgt is: *Verkeer geblokkeerd vanwege de volgende netwerkbeveiligingsregel: UserRule_DenySshInbound*.
 
     Als u niet wist dat iemand de beveiligingsregel die u hebt gemaakt in stap 4 had geïmplementeerd, zou u via de verbindingsmonitor te weten komen dat het communicatieprobleem wordt veroorzaakt door de regel. U kunt vervolgens de regel wijzigen, overschrijven of verwijderen om de communicatie tussen de virtuele machines te herstellen.
 

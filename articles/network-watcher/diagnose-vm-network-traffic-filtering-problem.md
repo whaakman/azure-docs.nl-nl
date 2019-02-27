@@ -17,13 +17,14 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 1802df4e6cbe77b4bc7ee2ee49f24d8dc51de015
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6d5c159d030303b90128513d3521a19419e4277e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429227"
 ---
-# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Snelstart: Diagnose uitvoeren voor een probleem met netwerkverkeersfilters op een virtuele machine met behulp van Azure Portal
+# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Quickstart: Diagnose uitvoeren voor een probleem met netwerkverkeersfilters op een virtuele machine met behulp van de Azure-portal
 
 In deze snelstart implementeert u een VM (virtuele machine) en controleert u vervolgens de communicatie naar een IP-adres en URL, en vanaf een IP-adres. U stelt de oorzaak van mislukte communicatie vast en leert hoe u dit probleem kunt oplossen.
 
@@ -36,7 +37,7 @@ Meld u aan bij Azure Portal op https://portal.azure.com.
 ## <a name="create-a-vm"></a>Een virtuele machine maken
 
 1. Selecteer **+ Een resource maken** in de linkerbovenhoek van Azure Portal.
-2. Selecteer **Compute** en selecteer vervolgens **Windows Server 2016 Datacenter** of **Ubuntu Server 17.10 VM**.
+2. Selecteer **Compute** en selecteer **Windows Server 2016 Datacenter** of een versie van **Ubuntu Server**.
 3. Voer de volgende informatie in of selecteer deze, accepteer de standaardwaarden voor de overige instellingen en selecteer **OK**:
 
     |Instelling|Waarde|
@@ -61,7 +62,7 @@ Als u de netwerkcommunicatie wilt testen met Network Watcher, moet u eerst een n
 Als u al een netwerk-watcher hebt ingeschakeld in minstens één regio, gaat u verder met [IP-stroomverificatie gebruiken](#use-ip-flow-verify).
 
 1. Selecteer in de portal de optie **Alle services**. Typ *Network Watcher* in het vak **Filteren**. Selecteer **Network Watcher** in de resultaten.
-2. Schakel een netwerk-watcher in de regio VS Oost in, omdat dat de regio is waarin de VM is geïmplementeerd in de vorige stap. Selecteer **Regio's** om dit item uit te vouwen en selecteer vervolgens **...** rechts van **VS - oost**, zoals wordt weergegeven in de volgende afbeelding:
+2. Schakel een netwerk-watcher in de regio US - oost in, omdat dat de regio is waarin de VM is geïmplementeerd in de vorige stap. Selecteer **Regio's** om dit item uit te vouwen en selecteer vervolgens **...** rechts van **US - oost**, zoals wordt weergegeven in de volgende afbeelding:
 
     ![Network Watcher inschakelen](./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png)
 
@@ -89,7 +90,7 @@ Als u een VM maakt, wordt netwerkverkeer van en naar de VM standaard toegestaan 
 
     ![IP-stroomverificatie](./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-outbound.png)
 
-    Na enkele seconden blijkt uit het resultaat dat toegang is toegestaan vanwege een beveiligingsregel met de naam **AllowInternetOutbound**. Toen u de controle uitvoerde, werd met Network Watcher automatisch een netwerk-watcher gemaakt in de regio VS Oost, als u een bestaande netwerk-watcher had in een andere regio dan Oost VS voordat u de controle uitvoerde.
+    Na enkele seconden blijkt uit het resultaat dat toegang is toegestaan vanwege een beveiligingsregel met de naam **AllowInternetOutbound**. Toen u de controle uitvoerde, werd met Network Watcher automatisch een netwerk-watcher gemaakt in de regio US - oost, als u een bestaande netwerk-watcher had in een andere regio dan US - oost voordat u de controle uitvoerde.
 4. Voltooi stap 3 nogmaals, maar wijzig het **Externe IP-adres** in **172.31.0.100**. Uit het resultaat blijkt dat toegang wordt geweigerd vanwege een beveiligingsregel met de naam **DefaultOutboundDenyAll**.
 5. Voltooi stap 3 nogmaals, maar wijzig de **Richting** in **Binnenkomend**, de **Lokale poort** in **80** en de **Externe poort** in **60000**. Uit het resultaat blijkt dat toegang wordt geweigerd vanwege een beveiligingsregel met de naam **DefaultInboundDenyAll**.
 

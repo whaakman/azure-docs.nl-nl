@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 02/18/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 191a6c9dc1cc5a24c1a46af21c5b63e3ff27a290
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9dbe641c5e22129f7db3d3f3b886fea4501300b0
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150390"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416136"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>Zelfstudie: Video's analyseren met Media Services v3 met behulp van .NET
 
@@ -27,7 +27,7 @@ In deze zelfstudie ontdekt u hoe u:
 
 > [!div class="checklist"]
 > * Downloaden van de voorbeeld-app zoals beschreven in het onderwerp
-> * De code kunt onderzoeken die de opgegeven video analyseert
+> * De code onderzoeken die de opgegeven video analyseert
 > * De app kunt uitvoeren
 > * De uitvoer kunt controleren
 > * Resources opschonen
@@ -37,7 +37,7 @@ In deze zelfstudie ontdekt u hoe u:
 ## <a name="prerequisites"></a>Vereisten
 
 - Als u niet beschikt over Visual Studio, kunt u [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15) downloaden.
-- [Maak een Azure Media Services-account](create-account-cli-how-to.md).<br/>Zorg ervoor dat u de waarden onthoudt die u hebt gebruikt voor de namen van de resourcegroep en het Media Services-account.
+- [Een Azure Media Services-account maken](create-account-cli-how-to.md).<br/>Vergeet niet de waarden die u hebt gebruikt voor de namen van de resourcegroep en het Media Services-account.
 - Volg de stappen in [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) (Toegang tot de Azure Media Services-API met de Azure CLI) en sla de referenties op. U hebt deze nodig voor toegang tot de API.
 
 ## <a name="download-and-configure-the-sample"></a>Het voorbeeld downloaden en configureren
@@ -125,6 +125,11 @@ Event Grid is ontworpen voor hoge beschikbaarheid, consistente prestaties en dyn
 De **taak** doorloopt meestal de volgende statussen: **Gepland**, **In de wachtrij geplaatst**, **Verwerken**, **Voltooid** (de eindstatus). Als bij de taak een fout is opgetreden is, krijgt u de status **Fout**. Als de taak momenteel wordt geannuleerd, krijgt u de melding **Wordt geannuleerd** en **Geannuleerd** wanneer het annuleren is voltooid.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#WaitForJobToFinish)]
+
+
+### <a name="job-error-codes"></a>Foutcodes in taak
+
+Zie [Foutcodes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
 ### <a name="download-the-result-of-the-job"></a>Het resultaat van de taak downloaden
 

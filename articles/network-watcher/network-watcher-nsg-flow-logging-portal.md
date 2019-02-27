@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: ce2d69e26909231383f3538d51387f27d8202a43
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 09d43386b994ffc046f8c3e22c82f13ec15acd38
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332469"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428968"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Zelfstudie: Logboekregistratie van netwerkverkeer naar en van een virtuele machine met behulp van de Microsoft Azure-portal
 
@@ -37,13 +37,10 @@ Met een NSG (netwerkbeveiligingsgroep) kunt u inkomend verkeer naar en uitgaand 
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-> [!NOTE] 
-> Versie 2 van stroomlogboeken is alleen beschikbaar in de regio US - west-centraal. Als u Versie 2-logboeken inschakelt in een niet-ondersteunde regio worden de Versie 1-logboeken uitgevoerd naar uw opslagaccount.
-
 ## <a name="create-a-vm"></a>Een virtuele machine maken
 
 1. Selecteer **+ Een resource maken** in de linkerbovenhoek van Azure Portal.
-2. Selecteer **Compute** en selecteer vervolgens **Windows Server 2016 Datacenter** of **Ubuntu Server 17.10 VM**.
+2. Selecteer **Compute** en selecteer **Windows Server 2016 Datacenter** of een versie van **Ubuntu Server**.
 3. Voer de volgende informatie in of selecteer deze, accepteer de standaardwaarden voor de overige instellingen en selecteer **OK**:
 
     |Instelling|Waarde|

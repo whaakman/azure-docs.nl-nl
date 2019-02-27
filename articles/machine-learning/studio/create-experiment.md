@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: f5b24b21c4511b535509421aaa35ba3498e9f6a8
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 803a52994536d2d6f39a064f97af7831af0cebb6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246014"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453168"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Quickstart: Uw eerste gegevenswetenschappelijke experiment maken in Azure Machine Learning Studio
 
@@ -57,15 +57,15 @@ U voegt de gegevensset als volgt toe aan uw experiment.
 
 1. Het experiment krijgt een standaardnaam die boven aan het canvas wordt weergegeven. Selecteer deze tekst en wijzig de naam in iets relevants, bijvoorbeeld **prijzen auto's voorspellen**. De naam hoeft niet uniek te zijn.
 
-    ![De naam van het experiment wijzigen][rename-experiment]
+    ![De naam van het experiment wijzigen](./media/create-experiment/rename-experiment.png)
 
 1. Aan de linkerkant van het experimentcanvas bevindt zich een palet met gegevenssets en modules. Typ in het zoekvak boven aan dit palet **automobile** om de gegevensset met het label **Automobile price data (Raw)** te zoeken. Sleep deze gegevensset naar het experimentcanvas.
 
-    ![Zoek de 'automobile'-gegevensset en sleep deze naar het experimentcanvas][type-automobile]
+    ![Zoek de 'automobile'-gegevensset en sleep deze naar het experimentcanvas](./media/create-experiment/type-automobile.png)
 
 Als u wilt zien hoe deze gegevens eruitzien, klikt u op de uitvoerpoort onderaan de 'automobile'-gegevensset en selecteert u **Visualize**.
 
-![Op de uitvoerpoort klikken en Visualize selecteren][select-visualize]
+![Op de uitvoerpoort klikken en Visualize selecteren](./media/create-experiment/select-visualize.png)
 
 > [!TIP]
 > De invoer- en uitvoerpoorten van gegevenssets en modules worden aangeduid met kleine cirkels, waarbij de invoerpoorten zich boven en de uitvoerpoorten zich onder bevinden.
@@ -74,7 +74,7 @@ U kunt op elk gewenst moment op de uitvoerpoort van een gegevensset of module kl
 
 In deze gegevensset wordt elke auto weergegeven als een rij. De variabelen die aan elke auto zijn gekoppeld, worden weergegeven als kolommen. Aan de hand van de variabelen voor een specifieke auto wordt de prijs voorspeld in de kolom price, uiterst rechts (kolom 26).
 
-![De autogegevens weergeven in het venster voor gegevensvisualisatie][visualize-auto-data]
+![De autogegevens weergeven in het venster voor gegevensvisualisatie](./media/create-experiment/visualize-auto-data.png)
 
 Sluit het visualisatievenster door op de **x** in de rechterbovenhoek te klikken.
 
@@ -89,9 +89,9 @@ Eerst voegen we een module toe waarmee de kolom **normalized-losses** volledig w
 
 1. Typ **select columns** in het zoekvak bovenaan het modulepalet om de module [Select Columns in Dataset][select-columns] te vinden. Sleep deze vervolgens naar het experimentcanvas. Met deze module kunt u selecteren welke kolommen met gegevens u wilt opnemen in of uitsluiten voor het model.
 
-1. Koppel de uitvoerpoort van de gegevensset **Automobile price data (Raw)** aan de invoerpoort van de module [Select Columns in Dataset][select-columns].
+1. Koppel de uitvoerpoort van de gegevensset **Automobile price data (Raw)** aan de invoerpoort van de module Select Columns in Dataset.
 
-    ![De module Select Columns in Dataset toevoegen aan het experimentcanvas en hiermee verbinding maken][type-select-columns]
+    ![De module Select Columns in Dataset toevoegen aan het experimentcanvas en hiermee verbinding maken](./media/create-experiment/type-select-columns.png)
 
 1. Klik op de module [Select Columns in Dataset][select-columns] en klik in het deelvenster **Properties** op **Launch column selector**.
 
@@ -100,26 +100,26 @@ Eerst voegen we een module toe waarmee de kolom **normalized-losses** volledig w
     - Selecteer in de vervolgkeuzelijsten **Exclude** en **column names** en klik in het tekstvak. Er wordt een lijst met kolommen weergegeven. Selecteer **normalized-losses** om dit aan het tekstvak toe te voegen.
     - Klik rechtsonder op de knop met het vinkje (OK) om de kolomkiezer te sluiten.
 
-    ![De kolomkiezer starten en de kolom normalized-losses uitsluiten][launch-column-selector]
+    ![De kolomkiezer starten en de kolom normalized-losses uitsluiten](./media/create-experiment/launch-column-selector.png)
 
     Het deelvenster met eigenschappen van de module **Select Columns in Dataset** geeft nu aan dat alle kolommen uit de gegevensset worden doorgegeven, met uitzondering van **normalized-losses**.
 
-    ![Het deelvenster met eigenschappen geeft aan dat de kolom normalized-losses is uitgesloten][showing-excluded-column]
+    ![Het deelvenster met eigenschappen geeft aan dat de kolom normalized-losses is uitgesloten](./media/create-experiment/showing-excluded-column.png)
 
     > [!TIP] 
     > U kunt een opmerking aan een module toevoegen door te dubbelklikken op de module en tekst in te voeren. Zodoende kunt u in één oogopslag zien wat de module in uw experiment doet. Dubbelklik in dit geval op de module [Select Columns in Dataset][select-columns] en typ de opmerking 'normalized-losses uitsluiten'.
 
-    ![Op een module dubbelklikken om een opmerking toe te voegen][add-comment]
+    ![Op een module dubbelklikken om een opmerking toe te voegen](./media/create-experiment/add-comment.png)
 
 1. Sleep de module [Clean Missing Data][clean-missing-data] naar het canvas en verbindt deze met de module [Select Columns in Dataset][select-columns]. Selecteer in het deelvenster **Properties** de optie **Remove entire row** onder **Cleaning mode**. Deze opties zorgen ervoor dat de module [Clean Missing Data][clean-missing-data] de gegevens opschoont door rijen met ontbrekende waarden te verwijderen. Dubbelklik op de module en typ de opmerking 'Rijen met ontbrekende waarde verwijderen'.
 
-    ![De opschoonmodus van de module Clean Missing Data instellen op Remove entire row][set-remove-entire-row]
+    ![De opschoonmodus van de module Clean Missing Data instellen op Remove entire row](./media/create-experiment/set-remove-entire-row.png)
 
 1. Voer het experiment uit door onder aan de pagina op **RUN** te klikken.
 
     Wanneer het experiment is voltooid, wordt er bij alle modules een groen vinkje weergegeven om aan te geven dat deze zijn voltooid. In de rechterbovenhoek wordt de status **Finished running** weergegeven.
 
-    ![Zo ziet het experiment er ongeveer uit nadat het is uitgevoerd][early-experiment-run]
+    ![Zo ziet het experiment er ongeveer uit nadat het is uitgevoerd](./media/create-experiment/early-experiment-run.png)
 
 > [!TIP]
 > Waarom voeren we het experiment nu uit? Door het experiment uit te voeren, worden de kolomdefinities voor onze gegevens van de gegevensset doorgegeven via de module [Select Columns in Dataset][select-columns] en via de module [Clean Missing Data][clean-missing-data]. Hierdoor beschikken alle modules die u koppelt aan [Clean Missing Data][clean-missing-data] over dezelfde informatie.
@@ -140,7 +140,7 @@ Laten we een model bouwen dat gebruikmaakt van een subset kenmerken onze gegeven
 
 1. Sleep nog een module [Select Columns in Dataset][select-columns] naar het experimentcanvas. Koppel de linkeruitvoerpoort van de module [Clean Missing Data][clean-missing-data] aan de invoerpoort van de module [Select Columns in Dataset][select-columns].
 
-    ![De module Select Columns in Dataset koppelen aan de module Clean Missing Data][connect-clean-to-select]
+    ![De module Select Columns in Dataset koppelen aan de module Clean Missing Data](./media/create-experiment/connect-clean-to-select.png)
 
 1. Dubbelklik op de module en typ 'Select features for prediction' (Kenmerken voor de voorspelling selecteren).
 
@@ -152,7 +152,7 @@ Laten we een model bouwen dat gebruikmaakt van een subset kenmerken onze gegeven
 
 1. Klik op de knop met het vinkje (OK).
 
-    ![De kolommen (kenmerken) selecteren die u wilt opnemen in de voorspelling][select-columns-to-include]
+    ![De kolommen (kenmerken) selecteren die u wilt opnemen in de voorspelling](./media/create-experiment/select-columns-to-include.png)
 
 Deze module produceert een gefilterde gegevensset met alleen de kenmerken die we willen doorgeven aan het learning-algoritme dat we in de volgende stap gebruiken. U kunt later terugkeren en het opnieuw proberen met een andere selectie kenmerken.
 
@@ -174,7 +174,7 @@ We gebruiken onze gegevens zowel voor trainings- als testdoeleinden door ze op t
 
 1. Klik op de module [Split Data][split] om deze te selecteren. Stel **Fraction of rows in the first output dataset** in het deelvenster **Properties** (rechts van het canvas) in op 0,75. Zodoende gebruiken we 75 procent van de gegevens om het model te trainen en gebruiken we 25 procent van de gegevens om het model te testen.
 
-    ![De splitsfractie van de module Split Data in instellen op 0,75][set-split-data-percentage]
+    ![De splitsfractie van de module Split Data in instellen op 0,75](./media/create-experiment/set-split-data-percentage.png)
 
     > [!TIP]
     > Door de parameter **Random seed** te wijzigen, kunt u verschillende willekeurig samples voor trainings- en testdoeleinden gebruiken. Deze parameter bepaalt de seeding van de pseudo-willekeurige nummergenerator.
@@ -185,19 +185,19 @@ We gebruiken onze gegevens zowel voor trainings- als testdoeleinden door ze op t
 
 1. Zoek de module [Train Model][train-model] en sleep deze naar het experimentcanvas. Koppel de uitvoer van de module [Linear Regression][linear-regression] aan de linkerinvoer van de module [Train model][train-model] en koppel de trainingsgegevensuitvoer (linkerpoort) van de module [Split Data][split] aan de rechterinvoer van de module [Train Model][train-model].
 
-    ![De module Train Model verbinden met de modules Linear Regression en Split Data][connect-train-model]
+    ![De module Train Model verbinden met de modules Linear Regression en Split Data](./media/create-experiment/connect-train-model.png)
 
 1. Klik op de module [Train Model][train-model], klik in het deelvenster **Properties** op **Launch column selector** en selecteer vervolgens de kolom **price**. **Price** is de waarde die door het model wordt voorspeld.
 
     U selecteert de kolom **prijs** in de kolomkiezer door deze vanuit de lijst **Available columns** te verplaatsen naar de lijst **Selected columns**.
 
-    ![Selecteer de kolom price voor de module Train Model][select-price-column]
+    ![Selecteer de kolom price voor de module Train Model](./media/create-experiment/select-price-column.png)
 
 1. Voer het experiment uit.
 
 Nu beschikken we over een getraind regressiemodel dat kan worden gebruikt om nieuwe autogegevens te beoordelen voor het maken van prijsvoorspellingen.
 
-![Zo ziet het experiment er ongeveer uit nadat het is uitgevoerd][second-experiment-run]
+![Zo ziet het experiment er ongeveer uit nadat het is uitgevoerd](./media/create-experiment/second-experiment-run.png)
 
 ## <a name="predict-new-automobile-prices"></a>Prijzen van nieuwe auto's voorspellen
 
@@ -205,21 +205,21 @@ Nu we het model met 75 procent van de gegevens hebben getraind, kunnen we het mo
 
 1. Zoek de module [Score Model][score-model] en sleep deze naar het experimentcanvas. Koppel de uitvoer van de module [Train Model][train-model] aan de linkerinvoerpoort van de module [Score Model][score-model]. Koppel de testgegevensuitvoer (rechterpoort) van de module [Split Data][split] aan de rechterinvoerpoort van de module [Score Model][score-model].
 
-    ![De module Score Model verbinden met de modules Train Model en Split Data][connect-score-model]
+    ![De module Score Model verbinden met de modules Train Model en Split Data](./media/create-experiment/connect-score-model.png)
 
 1. Voer het experiment uit en geef de uitvoer van de module [Score Model][score-model]. Hiervoor klikt u op de uitvoerpoort van [Score Model][score-model] en selecteert u **Visualize**. De uitvoer bevat de voorspelde waarden voor de prijs en de bekende waarden uit de testgegevens.  
 
-    ![Uitvoer van de module Score Model][score-model-output]
+    ![Uitvoer van de module Score Model](./media/create-experiment/score-model-output.png)
 
 1. Ten slotte testen we de kwaliteit van de resultaten. Selecteer de module [Evaluate Model][evaluate-model], sleep deze naar het experimentcanvas en koppel de uitvoer van de module [Score Model][score-model] aan de linkerinvoer van de module [Evaluate Model][evaluate-model]. Het laatste experiment ziet er ongeveer als volgt uit:
 
-    ![Laatste experiment][complete-linear-regression-experiment]
+    ![Laatste experiment](./media/create-experiment/complete-linear-regression-experiment.png)
 
 1. Voer het experiment uit.
 
 Als u de uitvoer van de module [Evaluate Model][evaluate-model] wilt weergeven, klikt u op de uitvoerpoort en selecteert u **Visualize**.
 
-![Evaluatieresultaten van het experiment][evaluation-results]
+![Evaluatieresultaten van het experiment](./media/create-experiment/evaluation-results.png)
 
 De volgende statistieken worden weergegeven voor het model:
 
@@ -241,35 +241,6 @@ In deze quickstart hebt u een eenvoudig experiment uitgevoerd met behulp van een
 
 > [!div class="nextstepaction"]
 > [Zelfstudie: Een voorspellende oplossing ontwikkelen in Studio](tutorial-part1-credit-risk.md)
-
-<!-- Images -->
-[sign-in-to-studio]: ./media/create-experiment/sign-in-to-studio.png
-[rename-experiment]: ./media/create-experiment/rename-experiment.png
-[visualize-auto-data]:./media/create-experiment/visualize-auto-data.png
-[select-visualize]: ./media/create-experiment/select-visualize.png
-[showing-excluded-column]:./media/create-experiment/showing-excluded-column.png
-[set-remove-entire-row]:./media/create-experiment/set-remove-entire-row.png
-[early-experiment-run]:./media/create-experiment/early-experiment-run.png
-[select-columns-to-include]:./media/create-experiment/select-columns-to-include.png
-[second-experiment-run]:./media/create-experiment/second-experiment-run.png
-[connect-score-model]:./media/create-experiment/connect-score-model.png
-[evaluation-results]:./media/create-experiment/evaluation-results.png
-[complete-linear-regression-experiment]:./media/create-experiment/complete-linear-regression-experiment.png
-
-<!-- temporarily switching GIFs to PNGs to remove animation -->
-[type-automobile]:./media/create-experiment/type-automobile.png
-[type-select-columns]:./media/create-experiment/type-select-columns.png
-[launch-column-selector]:./media/create-experiment/launch-column-selector.png
-[add-comment]:./media/create-experiment/add-comment.png
-[connect-clean-to-select]:./media/create-experiment/connect-clean-to-select.png
-
-[set-split-data-percentage]:./media/create-experiment/set-split-data-percentage.png
-
-<!-- temporarily switching GIFs to PNGs to remove animation -->
-[connect-train-model]:./media/create-experiment/connect-train-model.png
-[select-price-column]:./media/create-experiment/select-price-column.png
-
-[score-model-output]:./media/create-experiment/score-model-output.png
 
 <!-- Module References -->
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/

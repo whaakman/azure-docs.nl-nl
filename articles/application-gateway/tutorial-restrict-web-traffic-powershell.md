@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 7/13/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: c8abcf484ffe57122fadeeed9f9a94d922b76362
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 6a43d96bc59ea348c8bcd456e1e06d70e851d182
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429120"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454461"
 ---
 # <a name="enable-web-application-firewall-using-azure-powershell"></a>Web Application Firewall inschakelen met Azure PowerShell
 
@@ -248,7 +248,7 @@ Update-AzureRmVmss `
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>Een opslagaccount maken en diagnostische gegevens configureren
 
-In deze zelfstudie gebruikt de toepassingsgateway een opslagaccount voor het opslaan van gegevens voor detectie- en preventiedoeleinden. U kunt ook Log Analytics of Event Hub gebruiken om gegevens vast te leggen.
+In deze zelfstudie gebruikt de toepassingsgateway een opslagaccount voor het opslaan van gegevens voor detectie- en preventiedoeleinden. U kunt ook Azure Monitor of Event Hub gebruiken om gegevens vast te leggen.
 
 ### <a name="create-the-storage-account"></a>Het opslagaccount maken
 

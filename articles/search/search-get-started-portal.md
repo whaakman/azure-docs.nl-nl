@@ -1,21 +1,21 @@
 ---
 title: Snelstartzelfstudie indexeren en query's uitvoeren met Azure Portal - Azure Search
-description: In deze snelstartzelfstudie gebruikt u Azure Portal en ingebouwde voorbeeldgegevens om een index te genereren in Azure Search. Probeer zoekopdrachten in volledige tekst, filters, facetten, fuzzy zoekopdrachten, geosearch en meer.
+description: Ontdek hoe u uw eerste index in Azure Search bouwt en er query's op uitvoert met behulp van ingebouwde voorbeeldgegevens en de wizard Gegevens importeren in de Azure-portal.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 53be1180f074c075ed2ca2d544b9b164a3a1bdd6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 260dfc829d0869b1fc4f58ae399351c5f68dd926
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991307"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270331"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Quickstart: Ingebouwde portalprogramma's gebruiken voor importeren, indexeren en query's uitvoeren in Azure Search
 
@@ -94,15 +94,17 @@ Velden bevatten gegevenstypen en kenmerken. De selectievakjes bovenaan zijn *ind
 
 Opslagvereisten verschillen niet als gevolg van uw selectie. Als u bijvoorbeeld het kenmerk **Ophalen mogelijk** instelt voor meerdere velden, nemen de opslagvereisten niet toe.
 
-Standaard wordt met de wizard de gegevensbron gescand op unieke id's als basis voor het sleutelveld. Tekenreeksen hebben de kenmerken Ophaalbaar en Doorzoekbaar. Gehele getallen hebben de kenmerken Ophaalbaar, Filterbaar, Sorteerbaar en Geschikt voor facetten.
+Standaard wordt met de wizard de gegevensbron gescand op unieke id's als basis voor het sleutelveld. *Tekenreeksen* hebben de kenmerken **Ophaalbaar** en **Doorzoekbaar**. *Gehele getallen* hebben de kenmerken **Ophaalbaar**, **Filterbaar**, **Sorteerbaar** en **Geschikt voor facetten**.
 
-1. Accepteer alle standaardwaarden.
+1. Accepteer de standaardwaarden. 
 
-  ![Gegenereerde onroerend goed-index](media/search-get-started-portal/realestateindex2.png)
+   Als u de wizard opnieuw uitvoert met behulp van een bestaande onroerend goed-gegevensbron, kan de index niet worden geconfigureerd met standaardkenmerken. Voor toekomstige importbewerkingen moet u de kenmerken handmatig selecteren.
+
+   ![Gegenereerde onroerend goed-index](media/search-get-started-portal/realestateindex2.png)
 
 2. Ga door naar de volgende pagina.
 
-  ![Volgende pagina Indexeerfunctie maken](media/search-get-started-portal/next-button-create-indexer.png)
+   ![Volgende pagina Indexeerfunctie maken](media/search-get-started-portal/next-button-create-indexer.png)
 
 ### <a name="step-4---configure-indexer"></a>Stap 4: indexeerfunctie configureren
 

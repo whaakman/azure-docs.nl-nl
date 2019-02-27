@@ -1,137 +1,132 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met houden bestanden | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en houden bestanden.
+title: 'Zelfstudie: Azure Active Directory-integratie met Flatter Files | Microsoft Docs'
+description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active Directory en Flatter Files.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: f86fe5e3-0e91-40d6-869c-3df6912d27ea
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/21/2017
+ms.topic: tutorial
+ms.date: 02/15/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 744d18b39ffc696d0973628c60687c6b70fbcaad
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: e086975f52a40eabcbec1fa4e7aedf1d717bde89
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168666"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455548"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Zelfstudie: Azure Active Directory-integratie met houden bestanden
+# <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Zelfstudie: Azure Active Directory-integratie met Flatter Files
 
-In deze zelfstudie leert u hoe u houden bestanden integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Flatter Files kunt integreren met Azure Active Directory (Azure AD).
+De integratie van Flatter Files met Azure AD biedt de volgende voordelen:
 
-Houden bestanden integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD beheren wie toegang tot Flatter Files heeft.
+* U kunt inschakelen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij Flatter Files (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot houden bestanden heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld te houden bestanden (Single Sign-On) inschakelen met hun Azure AD-accounts
-- U kunt uw accounts in één centrale locatie - Azure portal beheren
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met houden bestanden, moet u de volgende items:
+Voor het configureren van Azure AD-integratie met Flatter Files hebt u de volgende zaken nodig:
 
-- Een Azure AD-abonnement
-- Een houden bestanden eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u nog geen proefversie van Azure AD hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) een proefversie van één maand aanvragen.
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op Flatter Files waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Houden bestanden uit de galerie toevoegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-flatter-files-from-the-gallery"></a>Houden bestanden uit de galerie toevoegen
-Voor het configureren van de integratie van houden bestanden in Azure AD, moet u houden bestanden uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* Flatter Files ondersteunt door **IDP** geïnitieerde eenmalige aanmelding
 
-**Als u wilt houden bestanden uit de galerie toevoegen, moet u de volgende stappen uitvoeren:**
+## <a name="adding-flatter-files-from-the-gallery"></a>Flatter Files toevoegen vanuit de galerie
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Voor het configureren van de integratie van Flatter Files met Azure AD moet u Flatter Files uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-    ![Active Directory][1]
+**Als u Flatter Files vanuit de galerie wilt toevoegen, moet u de volgende stappen uitvoeren:**
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![Applicaties][2]
-    
-1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![Applicaties][3]
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-1. Typ in het zoekvak **houden bestanden**.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/flatter-files-tutorial/tutorial_flatterfiles_search.png)
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-1. Selecteer in het deelvenster resultaten **houden bestanden**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/flatter-files-tutorial/tutorial_flatterfiles_addfromgallery.png)
+4. Typ **Flatter Files** in het zoekvak, selecteer **Flatter Files** in het deelvenster met resultaten en klik op **Toevoegen** om de toepassing toe te voegen.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met houden bestanden op basis van een testgebruiker 'Julia steen' genoemd.
+     ![Flatter Files in de resultatenlijst](common/search-new-app.png)
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in houden bestanden is voor een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in houden bestanden tot stand worden gebracht.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In houden bestanden, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+In deze sectie gaat u Azure AD-eenmalige aanmelding bij Flatter Files configureren en testen op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Flatter Files tot stand is gebracht.
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met houden bestanden, moet u de volgende bouwstenen voltooien:
+Voor het configureren en testen van eenmalige aanmelding via Azure AD bij Flatter Files moet u de volgende bouwstenen uitvoeren:
 
-1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Het maken van een testgebruiker houden bestanden](#creating-a-flatter-files-test-user)**  : als u wilt een equivalent van Britta Simon in houden bestanden dat is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding voor Flatter Files configureren](#configure-flatter-files-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wilt configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Flatter Files-testgebruiker maken](#create-flatter-files-test-user)**: als u een equivalent van Britta Simon in Flatter Files wilt hebben dat gekoppeld is aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing houden bestanden.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met houden bestanden, moet u de volgende stappen uitvoeren:**
+Voor het configureren van Azure AD-eenmalige aanmelding met Flatter Files moet u de volgende stappen uitvoeren:
 
-1. In de Azure-portal op de **houden bestanden** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. Ga in de [Azure-portal](https://portal.azure.com/) naar de pagina voor integratie van de toepassing **Flatter Files** en selecteer **Eenmalige aanmelding**.
 
-    ![Eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![Eenmalige aanmelding configureren](./media/flatter-files-tutorial/tutorial_flatterfiles_samlbase.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-1. Op de **houden bestanden domein en URL's** sectie, de gebruiker beschikt niet over de stappen uitvoeren omdat de app is al vooraf geïntegreerd met Azure.
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    ![Eenmalige aanmelding configureren](./media/flatter-files-tutorial/tutorial_flatterfiles_url.png)
- 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    ![Eenmalige aanmelding configureren](./media/flatter-files-tutorial/tutorial_flatterfiles_certificate.png) 
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-1. Klik op de knop **Save**.
+4. In de sectie **SAML-basisconfiguratie** hoeft de gebruiker geen enkele stap uit te voeren omdat de app al vooraf is geïntegreerd met Azure.
 
-    ![Eenmalige aanmelding configureren](./media/flatter-files-tutorial/tutorial_general_400.png)
+    ![Informatie over eenmalige aanmelding bij het Flatter Files-domein en Flatter Files-URL's](common/preintegrated.png)
 
-1. Op de **houden bestanden configuratie** sectie, klikt u op **houden bestanden configureren** openen **aanmelding configureren** venster. Kopiëren de **Single Sign-On Service URL voor SAML** uit de **Naslaggids sectie.**
+5. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
-    ![Eenmalige aanmelding configureren](./media/flatter-files-tutorial/tutorial_flatterfiles_configure.png) 
+    ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
-1. Aanmelding bij uw toepassing houden bestanden als beheerder.
+6. In de sectie **Flatter Files instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
 
-1. Klik op **DASHBOARD**. 
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
+
+    a. Aanmeldings-URL
+
+    b. Azure AD-id
+
+    c. Afmeldings-URL
+
+### <a name="configure-flatter-files-single-sign-on"></a>Eenmalige aanmelding voor Flatter Files configureren
+
+1. Meld u bij uw Flatter Files-toepassing aan als beheerder.
+
+2. Klik op **DASHBOARD**. 
    
     ![Eenmalige aanmelding configureren](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
 
-1. Klik op **instellingen**, en voer de volgende stappen uit op de **bedrijf** tabblad: 
+3. Klik op **Instellingen** en voer de volgende stappen uit op het tabblad **Bedrijf**: 
    
     ![Eenmalige aanmelding configureren](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
     
@@ -139,138 +134,110 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     
     b. Klik op **SAML configureren**.
 
-1. Op de **SAML-configuratie** dialoogvenster, voer de volgende stappen uit: 
+4. Voer in het dialoogvenster **SAML-configuratie** de volgende stappen uit: 
    
     ![Eenmalige aanmelding configureren](./media/flatter-files-tutorial/tutorial_flatter_files_08.png)  
    
-    a. In de **domein** tekstvak typt u uw geregistreerde domeinnaam.
+    a. Typ uw geregistreerde domein in het tekstvak **Domein**.
    
     >[!NOTE]
-    >Als u geen een geregistreerde domeinnaam nog, neem contact op met uw houden bestanden ondersteuningsteam via [ support@flatterfiles.com ](mailto:support@flatterfiles.com). 
+    >Als u nog geen domein hebt geregistreerd, neemt u contact op met het ondersteuningsteam van Flatter Files via [support@flatterfiles.com](mailto:support@flatterfiles.com). 
     
-    b. In **URL van de id-Provider** tekstvak, plak de waarde van **Single Sign-On Service URL voor SAML** die u hebt gekopieerd vormen van Azure portal.
+    b. Plak in het tekstvak voor de **URL van de identiteitsprovider** de waarde van de **aanmeldings-URL** die u hebt gekopieerd uit de Azure-portal.
    
-    c.  Het base-64 gecodeerde certificaat openen in Kladblok, Kopieer de inhoud ervan in het Klembord en plakt u deze naar de **Provider identiteitscertificaat** tekstvak.
+    c.  Open het base-64 gecodeerde certificaat in Kladblok, kopieer de inhoud ervan naar het klembord en plak het in het tekstvak **Id-providercertificaat**.
 
     d. Klik op **Update**.
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-
-### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-![Azure AD-gebruiker maken][100]
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![Het maken van een Azure AD-testgebruiker](./media/flatter-files-tutorial/create_aaduser_01.png) 
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
-    
-    ![Het maken van een Azure AD-testgebruiker](./media/flatter-files-tutorial/create_aaduser_02.png) 
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/flatter-files-tutorial/create_aaduser_03.png) 
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/flatter-files-tutorial/create_aaduser_04.png) 
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    a. In de **naam** tekstvak, type **BrittaSimon**.
-
-    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
-
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="creating-a-flatter-files-test-user"></a>Het maken van een testgebruiker houden bestanden
 
-Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in houden-bestanden.
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-**Voor het maken van een gebruiker met de naam van Britta Simon in houden bestanden, moet u de volgende stappen uitvoeren:**
+In deze sectie gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot Flatter Files.
 
-1. Meld u aan bij uw **houden bestanden** bedrijf site als administrator.
+1. Selecteer in de Azure-portal **Bedrijfstoepassingen**, selecteer **Alle toepassingen** en selecteer vervolgens **Flatter Files**.
 
-1. Klik in het navigatiedeelvenster aan de linkerkant op **instellingen**, en klik vervolgens op de **gebruikers** tabblad.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
+
+2. Selecteer **Flatter Files** in de lijst met toepassingen.
+
+    ![De Flatter Files-koppeling in de lijst met toepassingen](common/all-applications.png)
+
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
+
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
+
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
+
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
+
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
+
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
+
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
+
+### <a name="create-flatter-files-test-user"></a>Flatter Files-testgebruiker maken
+
+Het doel van deze sectie is het maken van een gebruiker met de naam Britta Simon in Flatter Files.
+
+**Voer de volgende stappen uit om een gebruiker met de naam Britta Simon te maken in Flatter Files:**
+
+1. Meld u als beheerder aan bij de bedrijfssite van **Flatter Files**.
+
+2. Klik in het navigatievenster links op **Settings** en vervolgens op het tabblad **Users**.
    
-    ![Een houden bestanden-gebruiker maken](./media/flatter-files-tutorial/tutorial_flatter_files_09.png)
+    ![Een Flatter Files-gebruiker maken](./media/flatter-files-tutorial/tutorial_flatter_files_09.png)
 
-1. Klik op **Add User**. 
+3. Klik op **Add User**. 
 
-1. Op de **gebruiker toevoegen** dialoogvenster, voer de volgende stappen uit:
+4. Voer in het dialoogvenster **Add User** de volgende stappen uit:
    
-    ![Een houden bestanden-gebruiker maken](./media/flatter-files-tutorial/tutorial_flatter_files_10.png)
+    ![Een Flatter Files-gebruiker maken](./media/flatter-files-tutorial/tutorial_flatter_files_10.png)
 
-    a. In de **voornaam** tekstvak, type **Julia**.
+    a. Typ **Britta** in het tekstvak **First Name**.
    
-    b. In de **achternaam** tekstvak, type **Simon**. 
+    b. Typ **Simon** in het tekstvak **Last Name**. 
    
-    c. In de **e-mailadres** tekstvak typt u het e-mailadres van Julia in Azure portal.
+    c. Typ in het tekstvak **Email address** het e-mailadres van het account van Britta Simon in de Azure-portal.
    
     d. Klik op **Submit**   
 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen tot houden bestanden.
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-![Gebruiker toewijzen][200] 
-
-**Als u wilt toewijzen Britta Simon houden bestanden, moet u de volgende stappen uitvoeren:**
-
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
-
-    ![Gebruiker toewijzen][201] 
-
-1. Selecteer in de lijst met toepassingen, **houden bestanden**.
-
-    ![Eenmalige aanmelding configureren](./media/flatter-files-tutorial/tutorial_flatterfiles_app.png) 
-
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
-
-    ![Gebruiker toewijzen][202] 
-
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
-
-    ![Gebruiker toewijzen][203]
-
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
-
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
-
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
-
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
-
-Wanneer u op de tegel houden bestanden in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing houden bestanden.
-Zie [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
+Wanneer u in het toegangsvenster op de tegel Flatter Files klikt, wordt u als het goed is automatisch aangemeld bij de instantie van Flatter Files waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-
-<!--Image references-->
-
-[1]: ./media/flatter-files-tutorial/tutorial_general_01.png
-[2]: ./media/flatter-files-tutorial/tutorial_general_02.png
-[3]: ./media/flatter-files-tutorial/tutorial_general_03.png
-[4]: ./media/flatter-files-tutorial/tutorial_general_04.png
-
-[100]: ./media/flatter-files-tutorial/tutorial_general_100.png
-
-[200]: ./media/flatter-files-tutorial/tutorial_general_200.png
-[201]: ./media/flatter-files-tutorial/tutorial_general_201.png
-[202]: ./media/flatter-files-tutorial/tutorial_general_202.png
-[203]: ./media/flatter-files-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

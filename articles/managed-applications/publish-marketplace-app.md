@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8f35bda8c6925bdc10097ac6d180f5998bd5cf1d
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: d208d989fb9b84ae7bc94c6a1882754ed2bacb5d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989782"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343958"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Door Azure beheerde toepassingen in Marketplace
 
@@ -64,9 +64,9 @@ De aanbieding voor een beheerde toepassing komt overeen met de klasse van een pr
 
 Dit zijn de velden voor het formulier **Offer Settings**:
 
-* **Offer ID**: deze unieke id identificeert de aanbieding binnen een uitgeversprofiel. Deze id wordt weergegeven in product-URL's, Resource Manager-sjablonen en factureringsrapporten. De id kan alleen bestaan uit alfanumerieke tekens in kleine letters en streepjes (-). De id mag niet eindigen op een streepje. Het maximum aantal tekens is 50. Zodra een aanbieding is gepubliceerd, kan dit veld niet meer worden gewijzigd.
-* **Publisher ID**: gebruik deze vervolgkeuzelijst om het uitgeversprofiel te kiezen dat u wilt gebruiken voor het publiceren van deze aanbieding. Zodra een aanbieding is gepubliceerd, kan dit veld niet meer worden gewijzigd.
-* **Name**: deze weergavenaam voor uw aanbieding wordt weergegeven in Marketplace en in de portal. De naam mag maximaal 50 tekens bevatten. Gebruik een merknaam voor het product die makkelijk te herkennen is. Laat de naam van uw bedrijf weg, tenzij u het product als zodanig wilt publiceren. Als u deze aanbieding al op uw eigen website onder de aandacht wordt gebracht, zorg er dan voor dat de naam exact overeenkomt met de naam op uw website.
+* **Offer ID**: Deze unieke id identificeert de aanbieding binnen een uitgeversprofiel. Deze id wordt weergegeven in product-URL's, Resource Manager-sjablonen en factureringsrapporten. De id kan alleen bestaan uit alfanumerieke tekens in kleine letters en streepjes (-). De id mag niet eindigen op een streepje. Het maximum aantal tekens is 50. Zodra een aanbieding is gepubliceerd, kan dit veld niet meer worden gewijzigd.
+* **Publisher ID**: Gebruik deze vervolgkeuzelijst om het uitgeversprofiel te kiezen dat u wilt gebruiken voor het publiceren van deze aanbieding. Zodra een aanbieding is gepubliceerd, kan dit veld niet meer worden gewijzigd.
+* **Naam**: Deze weergavenaam voor uw aanbieding wordt weergegeven in Marketplace en in de portal. De naam mag maximaal 50 tekens bevatten. Gebruik een merknaam voor het product die makkelijk te herkennen is. Laat de naam van uw bedrijf weg, tenzij u het product als zodanig wilt publiceren. Als u deze aanbieding al op uw eigen website onder de aandacht wordt gebracht, zorg er dan voor dat de naam exact overeenkomt met de naam op uw website.
 
 Als u klaar bent, selecteert u **Save** om verder te gaan.
 
@@ -90,22 +90,22 @@ Een SKU wordt in Marketplace weergegeven onder de bovenliggende aanbieding. Een 
 
    Vul de volgende velden in:
 
-   * **Title**: voer een titel in voor deze SKU. Deze titel wordt weergegeven in de galerie voor dit item.
-   * **Summary**: voer een korte samenvatting in voor deze SKU. Deze tekst wordt onder de titel weergegeven.
-   * **Description**: voer een gedetailleerde beschrijving van de SKU in.
-   * **SKU Type**: de toegestane waarden zijn *Managed Application* en *Solution Templates*. Selecteer voor deze aanvraag *Managed Application*.
-   * **Country/Region availability**: selecteer de landen/regio's waar de beheerde toepassing beschikbaar is.
-   * **Pricing**: geef een prijs op voor beheer van de toepassing. Selecteer de beschikbare landen voordat u de prijs instelt.
+   * **Title**: Voer een titel in voor deze SKU. Deze titel wordt weergegeven in de galerie voor dit item.
+   * **Summary**: Voer een korte samenvatting in voor deze SKU. Deze tekst wordt onder de titel weergegeven.
+   * **Beschrijving**: Voer een gedetailleerde beschrijving van de SKU in.
+   * **SKU Type**: De toegestane waarden zijn *Managed Application* en *Solution Templates*. Selecteer voor deze aanvraag *Managed Application*.
+   * **Country/Region availability**: Selecteer de landen/regio's waar de beheerde toepassing beschikbaar is.
+   * **Pricing**: Geef een prijs op voor beheer van de toepassing. Selecteer de beschikbare landen voordat u de prijs instelt.
 
 1. Voeg een nieuw pakket toe. Vul de sectie **Package Details** in op het volgende formulier:
 
    Vul de volgende velden in:
 
-   * **Version**: voer een versie in voor het pakket dat u uploadt. Gebruik hierbij de notatie `{number}.{number}.{number}{number}`.
-   * **Package file (.zip)**: dit pakket bevat twee vereiste bestanden die in één ZIP-pakket zijn gecomprimeerd. Het ene bestand is een Resource Manager-sjabloon die de resources definieert die voor de beheerde toepassing moeten worden geïmplementeerd. Het andere bestand definieert de [gebruikersinterface](create-uidefinition-overview.md) voor consumenten die de beheerde toepassing implementeren via de portal. In de gebruikersinterface geeft u elementen op waarmee consumenten parameterwaarden kunnen opgeven.
-   * **PrincipalId**: deze eigenschap is de id van Azure Active Directory (Azure AD) van een gebruiker, groep of toepassing die toegang krijgt tot de resources in het abonnement van de klant. In de roldefinitie worden de machtigingen beschreven.
-   * **Role Definition**: deze eigenschap bestaat uit een lijst met alle ingebouwde rollen voor op rollen gebaseerd toegangsbeheer (RBAC) die worden aangeboden door Azure AD. U kunt de rol selecteren die het meest geschikt is voor het beheren van resources namens de klant.
-   * **Policy Settings**: pas een [Azure Policy](../azure-policy/azure-policy-introduction.md) op uw beheerde toepassing toe om nalevingsvereisten voor de geïmplementeerde oplossingen te specificeren. Selecteer de gewenste beleidsregels in de beschikbare opties. Geef bij **Policy Parameters** een JSON-tekenreeks met de parameterwaarden op. Zie [Voorbeelden van Azure Policy](../azure-policy/json-samples.md) voor beleidsdefinities en de indeling van de parameterwaarden.
+   * **Version**: Voer een versie in voor het pakket dat u uploadt. Gebruik hierbij de notatie `{number}.{number}.{number}{number}`.
+   * **Package file (.zip)**: Dit pakket bevat twee vereiste bestanden die in één ZIP-pakket zijn gecomprimeerd. Het ene bestand is een Resource Manager-sjabloon die de resources definieert die voor de beheerde toepassing moeten worden geïmplementeerd. Het andere bestand definieert de [gebruikersinterface](create-uidefinition-overview.md) voor consumenten die de beheerde toepassing implementeren via de portal. In de gebruikersinterface geeft u elementen op waarmee consumenten parameterwaarden kunnen opgeven.
+   * **PrincipalId**: Deze eigenschap is de id van Azure Active Directory (Azure AD) van een gebruiker, groep of toepassing die toegang krijgt tot de resources in het abonnement van de klant. In de roldefinitie worden de machtigingen beschreven.
+   * **Role Definition**: Deze eigenschap bestaat uit een lijst met alle ingebouwde rollen voor op rollen gebaseerd toegangsbeheer (RBAC) die worden aangeboden door Azure AD. U kunt de rol selecteren die het meest geschikt is voor het beheren van resources namens de klant.
+   * **Policy Settings**: Pas een [Azure Policy](../governance/policy/overview.md) op uw beheerde toepassing toe om nalevingsvereisten voor de geïmplementeerde oplossingen te specificeren. Selecteer de gewenste beleidsregels in de beschikbare opties. Geef bij **Policy Parameters** een JSON-tekenreeks met de parameterwaarden op. Zie [Voorbeelden van Azure Policy](../governance/policy/samples/index.md) voor beleidsdefinities en de indeling van de parameterwaarden.
 
 U kunt verschillende autorisaties toevoegen. Het wordt aangeraden om een AD-gebruikersgroep te maken en de id van deze groep op te geven voor **PrincipalId**. Op deze manier kunt u meer gebruikers toevoegen aan de gebruikersgroep zonder dat u de SKU hoeft bij te werken.
 

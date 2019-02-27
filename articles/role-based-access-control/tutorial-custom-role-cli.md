@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Een aangepaste rol maken met Azure CLI | Microsoft Docs'
-description: Lees hier hoe u een aangepaste rol maakt met Azure CLI.
+title: 'Zelfstudie: een aangepaste rol maken voor Azure-resources met Azure CLI | Microsoft Docs'
+description: Lees hier hoe u een aangepaste rol maakt voor Azure-resources met Azure CLI.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 06/12/2018
 ms.author: rolyon
-ms.openlocfilehash: d2b34fa12836416f68d57f0147dd0364a1501c13
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 9cd736272fce71f08006d32a169b88d092a48231
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698014"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340209"
 ---
-# <a name="tutorial-create-a-custom-role-using-azure-cli"></a>Zelfstudie: Een aangepaste rol maken met Azure CLI
+# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-cli"></a>Zelfstudie: een aangepaste rol maken voor Azure-resources met Azure CLI
 
-Als de [ingebouwde rollen](built-in-roles.md) niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen aangepaste rollen maken. Voor deze zelfstudie gaat u met behulp van Azure CLI een aangepaste rol maken met de naam Reader Support Tickets. De aangepaste rol stelt de gebruiker in staat om alles in het abonnement te zien en ook om ondersteuningstickets te openen.
+Als de [ingebouwde rollen voor Azure-resources](built-in-roles.md) niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen aangepaste rollen maken. Voor deze zelfstudie gaat u met behulp van Azure CLI een aangepaste rol maken met de naam Reader Support Tickets. De aangepaste rol stelt de gebruiker in staat om alles in het abonnement te zien en ook om ondersteuningstickets te openen.
 
 In deze zelfstudie leert u het volgende:
 
@@ -269,4 +269,4 @@ Als u de aangepaste rol wilt bijwerken, moet u eerst het JSON-bestand bijwerken 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Aangepaste rollen maken met Azure CLI](custom-roles-cli.md)
+> [Aangepaste rollen maken voor Azure-resources met Azure CLI](custom-roles-cli.md)

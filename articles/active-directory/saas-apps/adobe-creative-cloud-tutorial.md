@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccb593e198e4dff8f30bddfe26071523ea7a893d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3a160c604050f567f3fc0f77ca20a22349f07fd9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179226"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341161"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Zelfstudie: Azure Active Directory-integratie met Adobe Creative Cloud
 
@@ -45,7 +45,7 @@ Voor het configureren van de Azure AD-integratie met Adobe Creative Cloud hebt u
 
 In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-* Adobe Creative Cloud ondersteunt door **SP en IDP** geïnitieerde eenmalige aanmelding
+* Adobe Creative Cloud ondersteunt door **SP** geïnitieerde eenmalige aanmelding
 
 ## <a name="adding-adobe-creative-cloud-from-the-gallery"></a>Adobe Creative Cloud toevoegen vanuit de galerie
 
@@ -67,7 +67,7 @@ Om de integratie van Adobe Creative Cloud met Azure AD te configureren, moet u A
 
 4. Typ **Adobe Creative Cloud** in het zoekvak, selecteer **Adobe Creative Cloud** in het deelvenster met resultaten en klik vervolgens op **Toevoegen** om de toepassing toe te voegen.
 
-     ![Adobe Creative Cloud in de lijst met resultaten](common/search-new-app.png)
+    ![Adobe Creative Cloud in de lijst met resultaten](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
@@ -101,29 +101,23 @@ Voer de volgende stappen uit om eenmalige aanmelding met Azure AD te configurere
 
     ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-4. Voer in het gedeelte **Standaard SAML-configuratie** de volgende stappen uit als u in de door **IDP** geïnitieerde modus wilt configureren:
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
-    ![Informatie over eenmalige aanmelding voor domein en URL's van Adobe Creative Cloud](common/idp-intiated.png)
+    ![Informatie over eenmalige aanmelding voor domein en URL's van Adobe Creative Cloud](common/sp-identifier.png)
 
-    a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://www.okta.com/saml2/service-provider/<token>`
+    a. Typ `https://adobe.com` in het tekstvak **Aanmeldings-URL**.
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://<company name>.okta.com/auth/saml20/accauthlinktest`
+    b. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://www.okta.com/saml2/service-provider/<token>`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Vervang deze waarden door de werkelijke-id en antwoord-URL. Neem contact op met het [ondersteuningsteam van Adobe Creative Cloud](https://www.adobe.com/au/creativecloud/business/teams/plans.html) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > De id-waarde is niet echt. Werk deze waarde bij met de werkelijke id. Neem contact op met het [ondersteuningsteam van Adobe Creative Cloud](https://www.adobe.com/au/creativecloud/business/teams/plans.html) om deze waarde te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
-
-    Typ `https://adobe.com` in het tekstvak **Aanmeldings-URL**.
-
-    ![Informatie over eenmalige aanmelding voor domein en URL's van Adobe Creative Cloud](common/metadata-upload-additional-signon.png)
-
-6. De toepassing Adobe Creative Cloud verwacht dat de SAML-asserties een specifieke indeling hebben. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen.
+5. De toepassing Adobe Creative Cloud verwacht dat de SAML-asserties een specifieke indeling hebben. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op de knop **Bewerken** om het dialoogvenster **Gebruikerskenmerken** te openen.
 
     ![image](common/edit-attribute.png)
 
-7. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** configureert u het kenmerk van het SAML-token zoals wordt weergegeven in de bovenstaande afbeelding en voert u de volgende stappen uit:
- 
+6. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** configureert u het kenmerk van het SAML-token zoals wordt weergegeven in de bovenstaande afbeelding en voert u de volgende stappen uit:
+
     | Naam | Bronkenmerk|
     |----- | --------- |
     | FirstName | user.givenname |
@@ -151,11 +145,11 @@ Voer de volgende stappen uit om eenmalige aanmelding met Azure AD te configurere
     > [!NOTE]
     > De waarde voor de claim Email kan alleen worden gevuld in het SAML-antwoord als gebruikers beschikken over een geldige licentie voor Office 365 ExO.
 
-8. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
+7. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
     ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
-9. Kopieer in het gedeelte **Adobe Creative Cloud instellen** de juiste URL('s) overeenkomstig wat u nodig hebt.
+8. Kopieer in het gedeelte **Adobe Creative Cloud instellen** de juiste URL('s) overeenkomstig wat u nodig hebt.
 
     ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 

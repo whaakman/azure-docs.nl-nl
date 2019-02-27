@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Toegang verlenen aan een gebruiker met behulp van RBAC en de Azure-portal | Microsoft Docs'
-description: Gebruik op rollen gebaseerd toegangsbeheer (RBAC) om machtigingen te verlenen aan een gebruiker door een rol toe te wijzen in de Azure-portal.
+title: 'Zelfstudie: Toegang tot Azure-resources verlenen aan een gebruiker met behulp van RBAC en de Azure-portal | Microsoft Docs'
+description: Leer hoe u gebruikers toegang geeft tot Azure-resources met behulp van op rollen gebaseerd toegangsbeheer (RBAC) in de Azure-portal.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 8caa5c3b33ac1b483429251e0c1256636c4ece1a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 41f1c6dc8904f167f34ea72aeb9b3866504b7087
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634469"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341297"
 ---
-# <a name="tutorial-grant-access-for-a-user-using-rbac-and-the-azure-portal"></a>Zelfstudie: Toegang verlenen aan een gebruiker met behulp van RBAC en de Azure-portal
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Zelfstudie: Toegang tot Azure-resources verlenen aan een gebruiker met behulp van RBAC en de Azure-portal
 
-[Op rollen gebaseerde toegangsbeheer (RBAC)](overview.md) is de manier waarop u de toegang tot resources in Azure beheert. In deze zelfstudie verleent u een gebruiker toegang tot het maken en beheren van virtuele machines in een resourcegroep.
+[Op rollen gebaseerd toegangsbeheer (RBAC)](overview.md) is de manier waarop u de toegang tot Azure-resources beheert. In deze zelfstudie verleent u een gebruiker toegang tot het maken en beheren van virtuele machines in een resourcegroep.
 
 In deze zelfstudie leert u het volgende:
 
@@ -113,5 +113,5 @@ Als u in RBAC de toegang wilt intrekken voor een rol, verwijdert u de roltoewijz
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Zelfstudie - Toegang verlenen aan een gebruiker met RBAC en PowerShell](tutorial-role-assignments-user-powershell.md)
+> [Zelfstudie: Toegang tot Azure-resources verlenen aan een gebruiker met behulp van RBAC en Azure PowerShell](tutorial-role-assignments-user-powershell.md)
 

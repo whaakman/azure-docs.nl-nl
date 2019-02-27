@@ -6,20 +6,20 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 2/12/2019
 ms.author: mjbrown
-ms.openlocfilehash: effe6fa942ce0cabace08e72dba90baf8646680e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 84c8e2921602bb653c0b1ef0adffd3d89e91bd78
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118801"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312137"
 ---
-# <a name="how-to-configure-multi-master-in-your-applications-in-azure-cosmos-db"></a>Meerdere masters configureren in uw toepassingen in Azure Cosmos DB
+# <a name="how-to-configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Meerdere masters configureren in uw toepassingen die Azure Cosmos DB gebruiken
 
-Om functies voor meerdere masters in uw toepassingen te gebruiken, moet u schrijfbewerkingen voor meerdere regio's in uw toepassing inschakelen en de mogelijkheid Multihoming configureren door de huidige regio waarin de toepassing wordt geïmplementeerd, in te stellen.
+Als u functies voor meerdere masters in uw toepassingen wilt gebruiken, moet u schrijfbewerkingen in meerdere regio's inschakelen en de multihoming-mogelijkheid configureren. Multihoming wordt geconfigureerd door de regio in te stellen waarin de toepassing op dat moment is geïmplementeerd.
 
 ## <a id="netv2"></a>.NET SDK v2
 
-Om meerdere masters in uw toepassingen in te schakelen, moet u `UseMultipleWriteLocations` op Waar instellen en `SetCurrentLocation` configureren naar de regio waarin de toepassing wordt geïmplementeerd en Cosmos DB wordt gerepliceerd.
+Om meerdere masters in uw toepassingen in te schakelen, moet u `UseMultipleWriteLocations` op Waar instellen en `SetCurrentLocation` configureren naar de regio waarin de toepassing wordt geïmplementeerd en Azure Cosmos DB wordt gerepliceerd.
 
 ```csharp
 ConnectionPolicy policy = new ConnectionPolicy

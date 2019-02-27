@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: c9c336b9aed06095849f33060ff6969e8b7bfcaf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 815147abba444f0a55a8455c0a818aa048271b92
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881703"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309638"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Aan de slag met de Knowledge Exploration Service
 
@@ -228,7 +228,7 @@ Wanneer u `kes.exe` uitvoert buiten Azure is de index beperkt tot 10.000 objecte
 
 Om `kes.exe` toegang te geven tot een Azure-account moet u het [Azure Publish Settings-bestand](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) downloaden van de Azure Portal. Meld u aan met uw gewenste Azure-account als u daarom wordt gevraagd. Sla het bestand op als *AzurePublishSettings.xml* in de werkmap waaruit `kes.exe` wordt uitgevoerd.
 
-Er zijn twee manieren voor het bouwen en hosten van grote indexen. De eerste is het voorbereiden van de gegevensbestanden en het schema in een Windows-VM in Azure. Voer daarna [ `kes.exe build_index` ](#building-index) uit voor het bouwen van de lokale index op de virtuele machine, zonder groottebeperkingen. De resulterende index kan lokaal worden gehost op de virtuele machine met behulp van [ `kes.exe host_service` ](#hosting-service) voor snelle ontwikkeling van prototypen, opnieuw zonder beperkingen. Ga voor gedetailleerde stappen naar [Zelfstudie voor Azure-VM](../../../articles/virtual-machines/windows/quick-create-portal.md).
+Er zijn twee manieren voor het bouwen en hosten van grote indexen. De eerste is het voorbereiden van de gegevensbestanden en het schema in een Windows-VM in Azure. Voer daarna `kes.exe build_index` uit voor het bouwen van de lokale index op de virtuele machine, zonder groottebeperkingen. De resulterende index kan lokaal worden gehost op de virtuele machine met behulp van `kes.exe host_service` voor snelle ontwikkeling van prototypen, opnieuw zonder beperkingen. Ga voor gedetailleerde stappen naar [Zelfstudie voor Azure-VM](../../../articles/virtual-machines/windows/quick-create-portal.md).
 
 De tweede methode is het uitvoeren van een externe Azure-build met behulp van [ `kes.exe build_index` ](CommandLine.md#build_index-command) met de `--remote` parameter. Hiermee geeft u een Azure VM-grootte aan. Wanneer de parameter `--remote` is opgegeven, maakt de opdracht een tijdelijke Azure-VM van die grootte. Vervolgens wordt index op de virtuele machine gebouwd, wordt de index geüpload naar de Blob-opslag en wordt na voltooiing de VM weer verwijderd. Uw Azure-abonnement wordt belast voor de kosten van de virtuele machine terwijl de index wordt opgebouwd.
 

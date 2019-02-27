@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2018
+ms.date: 02/14/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c41771db4ff674b2f0df941286358d3154034ea1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5e6f1174351f0907ce2bef21324c7ba81c81498b
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194356"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56266710"
 ---
 # <a name="what-is-conditional-access-in-azure-active-directory"></a>Wat is voorwaardelijke toegang in Azure Active Directory?
 
@@ -109,11 +109,7 @@ Als u voorwaardelijke toegang wilt gebruiken, hebt u een Azure AD Premium-licent
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Als u meer wilt weten over:
-    - Voorwaarden, raadpleegt u [Voorwaarden in Azure Active Directory](conditions.md).
+Zie [Uw implementatie van voorwaardelijke toegang in Azure Active Directory plannen](plan-conditional-access.md) voor informatie over het implementeren van voorwaardelijke toegang tot uw omgeving.
 
-    - Besturingselementen voor toegang, raadpleegt u [Besturingselementen voor toegang in voorwaardelijke toegang van Azure Active Directory](controls.md).
 
-- Zie [MFA vereisen voor specifieke apps met voorwaardelijke toegang van Azure Active Directory](app-based-mfa.md) als u ervaring wilt opdoen met het configureren van beleid voor voorwaardelijke toegang.
 
-- Zie [conditional access deployment plan](https://aka.ms/conditionalaccessdeploymentplan) (implementatieplan voor voorwaardelijke toegang) als u een stapsgewijs implementatieplan met aanbevolen beleid zoekt

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 6789e1d6e514ce107ab96fddbaa582ccbe922bbb
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: c067b0e6a85e0b5c4bd4cbb582de13bb1bc87774
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243719"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453610"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio"></a>Zelfstudie 1: Kredietrisico voorspellen - Azure Machine Learning Studio
 
@@ -23,7 +23,7 @@ In deze zelfstudie wordt uitgebreid ingegaan op het ontwikkelingsproces van een 
 
 Stel dat u iemands kredietrisico moet voorspellen op basis van de gegevens die deze persoon in een kredietaanvraag heeft ingevuld.  
 
-Kredietrisicobeoordeling is een complex probleem, maar in deze zelfstudie wordt het enigszins vereenvoudigd. Het wordt gebruikt als voorbeeld van hoe u een predictive analytics-oplossing kunt maken met behulp van Microsoft Azure Machine Learning. U gebruikt Azure Machine Learning Studio en een Machine Learning-webservice om deze oplossing te maken.  
+Kredietrisicobeoordeling is een complex probleem, maar in deze zelfstudie wordt het enigszins vereenvoudigd. Het wordt gebruikt als voorbeeld van hoe u een predictive analytics-oplossing kunt maken met behulp van Microsoft Azure Machine Learning Studio. U gebruikt Azure Machine Learning Studio en een Machine Learning-webservice om deze oplossing te maken.  
 
 In deze driedelige zelfstudie begint u met openbaar beschikbare kredietrisicogegevens.  Vervolgens ontwikkelt en traint u een voorspellend model.  En ten slotte implementeert u het model als een webservice.
 
@@ -55,7 +55,7 @@ Als u **Azure Machine Learning Studio** nog nooit eerder hebt gebruikt, doet u e
 
 Om Machine Learning Studio te kunnen gebruiken, moet u beschikken over een Microsoft Azure Machine Learning Studio-werkruimte. Deze werkruimte bevat de hulpprogramma's die u nodig hebt om experimenten te maken, beheren en publiceren.  
 
-Zie [Een Azure Machine Learning-werkruimte maken en delen](create-workspace.md) voor het maken van een werkruimte.
+Zie [Een Azure Machine Learning Studio-werkruimte maken en delen](create-workspace.md) voor het maken van een werkruimte.
 
 Nadat uw werkruimte is gemaakt, opent u Machine Learning Studio ([https://studio.azureml.net/Home](https://studio.azureml.net/Home)). Als u meer dan één werkruimte hebt, kunt u de werkruimte selecteren op de werkbalk in de rechterbovenhoek van het venster.
 

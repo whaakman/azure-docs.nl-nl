@@ -1,238 +1,213 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met kwaliteit NetBenefits | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en betrouwbaarheid NetBenefits.
+title: 'Zelfstudie: Azure Active Directory-integratie met Fidelity NetBenefits | Microsoft Docs'
+description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active Directory en Fidelity NetBenefits.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 77dc8a98-c0e7-4129-ab88-28e7643e432a
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/07/2018
+ms.topic: tutorial
+ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf7de6d0416c60f33f57fd83768fd23b0a09e0f1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: 25171a2d455bda3f6a3c0ee85bad47c44820110c
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184870"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300751"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-fidelity-netbenefits"></a>Zelfstudie: Azure Active Directory-integratie met kwaliteit NetBenefits
+# <a name="tutorial-azure-active-directory-integration-with-fidelity-netbenefits"></a>Zelfstudie: Azure Active Directory-integratie met Fidelity NetBenefits
 
-In deze zelfstudie leert u hoe u betrouwbare en NetBenefits integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Fidelity NetBenefits kunt integreren met Azure Active Directory (Azure AD).
+De integratie van Fidelity NetBenefits met Azure Active Directory biedt de volgende voordelen:
 
-Kwaliteit NetBenefits integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure Active Directory bepalen wie er toegang heeft tot Fidelity NetBenefits.
+* U kunt inschakelen dat gebruikers automatisch met hun Azure Active Directory-account worden aangemeld bij Fidelity NetBenefits (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot kwaliteit NetBenefits heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij kwaliteit NetBenefits (Single Sign-On) inschakelen met hun Azure AD-accounts.
-- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met kwaliteit NetBenefits, moet u de volgende items:
+Om Azure Active Directory-integratie te configureren met Fidelity NetBenefits hebt u het volgende nodig:
 
-- Een Azure AD-abonnement
-- Een betrouwbare en NetBenefits eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Fidelity NetBenefits-abonnement waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving.
-Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-1. Kwaliteit NetBenefits uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+* Fidelity NetBenefits ondersteunt door **IDP** geïnitieerde SSO
 
-## <a name="adding-fidelity-netbenefits-from-the-gallery"></a>Kwaliteit NetBenefits uit de galerie toe te voegen
+* Fidelity NetBenefits ondersteunt het **Just-In-Time** inrichten van gebruikers
 
-Voor het configureren van de integratie van betrouwbaarheid NetBenefits in Azure AD, moet u nauwkeurige NetBenefits uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+## <a name="adding-fidelity-netbenefits-from-the-gallery"></a>Fidelity NetBenefits uit de galerie toevoegen
 
-**Als u wilt toevoegen kwaliteit NetBenefits uit de galerie, moet u de volgende stappen uitvoeren:**
+Voor het configureren van de integratie van Fidelity NetBenefits in Azure Active Directory, moet u Fidelity NetBenefits uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+**Als u Fidelity NetBenefits wilt toevoegen uit de galerie, moet u de volgende stappen uitvoeren:**
 
-    ![De Azure Active Directory-knop][1]
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![De blade Enterprise-toepassingen][2]
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
+
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
 3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![De knop Nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-4. Typ in het zoekvak **kwaliteit NetBenefits**, selecteer **kwaliteit NetBenefits** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+4. Typ in het zoekvak **Fidelity NetBenefits**, selecteer **Fidelity NetBenefits** in het resultaatvenster en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-    ![Kwaliteit NetBenefits in de lijst met resultaten](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_addfromgallery.png)
+     ![Fidelity NetBenefits in de lijst met resultaten](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In deze sectie maakt u configureren en testen Azure AD eenmalige aanmelding met kwaliteit NetBenefits op basis van een testgebruiker 'Julia steen' genoemd.
+In deze sectie gaat u eenmalige aanmelding met Azure Active Directory bij Fidelity NetBenefits configureren en testen op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure Active Directory-gebruiker en de daaraan gerelateerde gebruiker in Fidelity NetBenefits tot stand is gebracht.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in kwaliteit NetBenefits is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in kwaliteit NetBenefits tot stand worden gebracht.
-
-In de betrouwbaarheid NetBenefits, **gebruiker** toewijzing moet worden uitgevoerd met **Azure AD-gebruiker** de relatie van de koppeling tot stand brengen.
-
-Om te configureren en testen van Azure AD eenmalige aanmelding met kwaliteit NetBenefits, moet u de volgende bouwstenen voltooien:
+Om eenmalige aanmelding met Azure Active Directory bij Fidelity NetBenefits te configureren en testen, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-3. **[Maak een testgebruiker kwaliteit NetBenefits](#create-a-fidelity-netbenefits-test-user)**  : als u wilt een equivalent van Britta Simon in kwaliteit NetBenefits die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+2. **[Eenmalige aanmelding voor Fidelity NetBenefits configureren](#configure-fidelity-netbenefits-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wilt configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+5. **[Testgebruiker voor Fidelity NetBenefits maken](#create-fidelity-netbenefits-test-user)**: als u een tegenhanger van Britta Simon in Fidelity NetBenefits wilt hebben die is gekoppeld aan de Azure Active Directory-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing NetBenefits betrouwbaarheid.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met kwaliteit NetBenefits, moet u de volgende stappen uitvoeren:**
+Voer de volgende stappen uit als u eenmalige aanmelding met Azure Active Directory wilt configureren bij Fidelity NetBenefits:
 
-1. In de Azure-portal op de **kwaliteit NetBenefits** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. Ga in de [Azure-portal](https://portal.azure.com/) naar de overzichtspagina van de integratie voor **Fidelity NetBenefits** en selecteer **Eenmalige aanmelding**.
 
-    ![Koppeling Eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_samlbase.png)
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-3. Op de **kwaliteit NetBenefits domein en URL's** sectie, voert u de volgende stappen uit:
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    ![Kwaliteit NetBenefits domein en URL's eenmalige aanmelding informatie](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_url.png)
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    a. In de **id** tekstvak, een URL typen:
+4. Op de pagina **Eenmalige aanmelding instellen met SAML** voert u de volgende stappen uit:
 
-    Voor de omgeving testen:  `urn:sp:fidelity:geninbndnbparts20:uat:xq1`
+    ![Domein- en URL-gegevens voor eenmalige aanmelding bij Fidelity NetBenefits](common/idp-intiated.png)
 
-    Voor productie-omgeving:  `urn:sp:fidelity:geninbndnbparts20`
+    a. In het tekstvak **Id** typt u een URL met het volgende patroon:
 
-    b. In de **antwoord-URL** tekstvak, een URL opgeven die worden geleverd door betrouwbaarheid op moment van implementatie of neem contact op met uw toegewezen kwaliteit Client-Service Manager.
+    Voor de testomgeving:  `urn:sp:fidelity:geninbndnbparts20:uat:xq1`
 
-4. Kwaliteit NetBenefits toepassing verwacht het SAML-asserties ondertekend in een specifieke indeling. We zijn toegewezen de **gebruikers-id** met de **user.userprincipalname**. U kunt dit met toewijzen **employeeid** of enige andere vordering van toepassing op uw organisatie als is **gebruikers-id**. De volgende schermafbeelding ziet u slechts een voorbeeld voor deze.
+    Voor de productieomgeving: `urn:sp:fidelity:geninbndnbparts20`
 
-    ![Kwaliteit NetBenefits kenmerk](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_attribute.png)
+    b. In het tekstvak **Antwoord-URL** typt u een URL die wordt geleverd door Fidelity op het moment van implementatie, of neem contact op met uw toegewezen Fidelity Client Service Manager.
+
+5. In de Fidelity NetBenefits-toepassing worden de SAML-asserties in een specifieke indeling verwacht. Hiervoor moet u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van uw SAML-tokenkenmerken. In de volgende schermafbeelding ziet u de lijst met standaardkenmerken, waarbij **nameidentifier** is toegewezen aan **user.userprincipalname**. De Fidelity NetBenefits-toepassing verwacht dat **nameidentifier** wordt toegewezen met **employeeid** of een andere claim die van toepassing is op uw organisatie als **nameidentifier**, dus u moet de kenmerktoewijzing bewerken door te klikken op het pictogram **Bewerken** en de kenmerktoewijzing wijzigen.
+
+    ![image](common/edit-attribute.png)
 
     >[!Note]
-    >Kwaliteit NetBenefits ondersteuning voor statische en dynamische Federatie. Statische betekent dat SAML op basis van just-in-tijd gebruiker inrichting en dynamische betekent dat die deze biedt ondersteuning voor just-in-time gebruikersinrichting zullen niet worden gebruikt. Voor het gebruik van JIT hebben op basis van inrichting klanten enkele meer claims toevoegen in Azure AD, zoals Geboortedatum van gebruiker enzovoort. Deze gegevens worden geleverd door de uw toegewezen **kwaliteit Client-Service Manager** en ze moeten deze dynamische Federatie voor uw exemplaar inschakelen.
+    >Fidelity NetBenefits-ondersteuning voor statische en dynamische federatie. Statisch betekent dat SAML geen Just-in-Time-gebruikersinrichting gebruikt en dynamisc betekent dat SAML ondersteuning biedt voor Just-in-Time gebruikersinrichting. Voor het gebruik van inrichten op basis van JIT moeten klanten meer claims toevoegen in Azure Active Directory, zoals de geboortedatum van de gebruiker, enzovoort. Deze gegevens worden geleverd door uw toegewezen **Fidelity Client-Service Manager** en ze moeten deze dynamische federatie voor uw exemplaar inschakelen.
 
-5. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+6. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
-    ![De downloadkoppeling certificaat](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_certificate.png)
+    ![De link om het certificaat te downloaden](common/metadataxml.png)
 
-6. Klik op **opslaan** knop.
+7. In het gedeelte **Fidelity NetBenefits instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
 
-    ![De knop voor enkelvoudige aanmelding configureren](./media/fidelitynetbenefits-tutorial/tutorial_general_400.png)
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-7. Op de **kwaliteit NetBenefits configuratie** sectie, klikt u op **configureren kwaliteit NetBenefits** openen **aanmelding configureren** venster. Kopiëren de **SAML entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
+    a. Aanmeldings-URL
 
-    ![Kwaliteit NetBenefits configuratie](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_configure.png)
+    b. Azure AD-id
 
-8. Het configureren van eenmalige aanmelding op **kwaliteit NetBenefits** zijde, moet u voor het verzenden van de gedownloade **Metadata XML**, **Single Sign-On Service URL voor SAML** en  **SAML-entiteit-ID** naar **uw toegewezen kwaliteit Client-Service Manager**. Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+    c. Afmeldings-URL
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+### <a name="configure-fidelity-netbenefits-single-sign-on"></a>Eenmalige aanmelding bij Fidelity NetBenefits configureren
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+Als u eenmalige aanmelding aan de zijde van **Fidelity NetBenefits** wilt configureren, moet u het gedownloade **XML-bestand met federatieve metagegevens** en de juiste uit de Azure-portal gekopieerde URL's naar het [ondersteuningsteam van Fidelity NetBenefits](mailto:SSOMaintenance@fmr.com) verzenden. Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
-   ![Maak een testgebruiker Azure AD][100]
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-    ![De Azure Active Directory-knop](./media/fidelitynetbenefits-tutorial/create_aaduser_01.png)
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/fidelitynetbenefits-tutorial/create_aaduser_02.png)
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-3. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-    ![De knop toevoegen](./media/fidelitynetbenefits-tutorial/create_aaduser_03.png)
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    ![Het dialoogvenster gebruiker](./media/fidelitynetbenefits-tutorial/create_aaduser_04.png)
-
-    a. In de **naam** in het vak **BrittaSimon**.
-
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
-
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
-  
-### <a name="create-a-fidelity-netbenefits-test-user"></a>Maak een testgebruiker kwaliteit NetBenefits
-
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in kwaliteit NetBenefits. Als u statische federation maakt, neem contact op met uw toegewezen **kwaliteit Client-Service Manager** om gebruikers te maken van betrouwbare en NetBenefits-platform. Deze gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
-
-Gebruikers worden gemaakt met behulp van Just In Time gebruikers inrichten voor dynamische Federatie. Voor het gebruik van JIT hebben op basis van inrichting klanten enkele meer claims toevoegen in Azure AD, zoals Geboortedatum van gebruiker enzovoort. Deze gegevens worden geleverd door de uw toegewezen **kwaliteit Client-Service Manager** en ze moeten deze dynamische Federatie voor uw exemplaar inschakelen.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan kwaliteit NetBenefits.
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot Fidelity NetBenefits.
 
-![De de gebruikersrol toewijzen][200]
+1. Selecteer in de Azure-portal **Bedrijfstoepassingen**, selecteer **Alle toepassingen** en selecteer vervolgens **Fidelity NetBenefits**.
 
-**Britta Simon om aan te wijzen kwaliteit NetBenefits, moet u de volgende stappen uitvoeren:**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+2. Selecteer **Fidelity NetBenefits** in de lijst met toepassingen.
 
-    ![Gebruiker toewijzen][201]
+    ![De Fidelity NetBenefits-link in de lijst met toepassingen](common/all-applications.png)
 
-2. Selecteer in de lijst met toepassingen, **kwaliteit NetBenefits**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![De betrouwbaarheid NetBenefits-koppeling in de lijst met toepassingen](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_app.png)  
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+### <a name="create-fidelity-netbenefits-test-user"></a>Fidelity NetBenefits-testgebruiker maken
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
+In deze sectie maakt u een gebruiker met de naam Britta Simon in Fidelity NetBenefits. Als u statische federatie maakt, neemt u contact op met uw toegewezen **Fidelity Client-Service Manager** om gebruikers aan te maken in het Fidelity NetBenefits-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
 
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+Gebruikers worden gemaakt met behulp van Just-In-Time-inrichten voor dynamische Federatie. Voor het gebruik van inrichten op basis van JIT moeten klanten meer claims toevoegen in Azure Active Directory, zoals de geboortedatum van de gebruiker, enzovoort. Deze gegevens worden geleverd door uw toegewezen **Fidelity Client-Service Manager** en ze moeten deze dynamische federatie voor uw exemplaar inschakelen.
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-Wanneer u op de tegel kwaliteit NetBenefits in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing kwaliteit NetBenefits.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+
+Wanneer u op de tegel Fidelity NetBenefits in het toegangsvenster klikt, zou u automatisch moeten worden aangemeld bij de instantie van Fidelity NetBenefits waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-[1]: ./media/fidelitynetbenefits-tutorial/tutorial_general_01.png
-[2]: ./media/fidelitynetbenefits-tutorial/tutorial_general_02.png
-[3]: ./media/fidelitynetbenefits-tutorial/tutorial_general_03.png
-[4]: ./media/fidelitynetbenefits-tutorial/tutorial_general_04.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/fidelitynetbenefits-tutorial/tutorial_general_100.png
-
-[200]: ./media/fidelitynetbenefits-tutorial/tutorial_general_200.png
-[201]: ./media/fidelitynetbenefits-tutorial/tutorial_general_201.png
-[202]: ./media/fidelitynetbenefits-tutorial/tutorial_general_202.png
-[203]: ./media/fidelitynetbenefits-tutorial/tutorial_general_203.png

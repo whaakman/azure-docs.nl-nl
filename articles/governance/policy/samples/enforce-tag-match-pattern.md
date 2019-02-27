@@ -1,6 +1,6 @@
 ---
 title: 'Voorbeeld: tagpatroonovereenkomst afdwingen'
-description: Dit voorbeeldbeleid vereist dat bronnen voldoen aan de patroonovereenkomst voor tagwaarden.
+description: Deze voorbeeldbeleidsdefinitie vereist dat bronnen voldoen aan de patroonovereenkomst voor tagwaarden.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: f3e4246141a9d9de1a7d6451422e1e55a4c3545f
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 9510bb147a8eb9687e074191e8fcc404c847dc0a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244416"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342657"
 ---
-# <a name="enforce-tag-match-pattern-for-tag-values"></a>Tagpatroonovereenkomst voor tagwaarden afdwingen
+# <a name="sample---enforce-tag-match-pattern-for-tag-values"></a>Voorbeeld: tagpatroonovereenkomst voor tagwaarden afdwingen
 
 Vereist dat een tagwaarde voldoet aan een patroonovereenkomst. Geef het toegestane patroon op in de beleidsregel.
 

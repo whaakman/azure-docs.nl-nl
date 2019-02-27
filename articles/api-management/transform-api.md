@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: eab00663918eadea485aed17a91ce01e5718c36e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 4aa4c69857bfd1ab99945cb0f5f748e60cff9978
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413669"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417327"
 ---
 # <a name="transform-and-protect-your-api"></a>Uw API transformeren en beveiligen 
 
@@ -41,8 +41,8 @@ In deze zelfstudie leert u het volgende:
 
 + Informatie over de [terminologie van Azure API Management](api-management-terminology.md).
 + Inzicht in het [beleidsconcept in Azure API Management](api-management-howto-policies.md).
-+ Lees de volgende snelstartgids: [Een Azure API Management-exemplaar maken](get-started-create-service-instance.md).
-+ Voltooi tevens de volgende zelfstudie: [Uw eerste API importeren en publiceren](import-and-publish.md).
++ Voltooi de volgende quickstart: [Een Azure API Management-exemplaar maken](get-started-create-service-instance.md).
++ Voltooi ook de volgende zelfstudie: [Uw eerste API importeren en publiceren](import-and-publish.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -126,9 +126,10 @@ In deze sectie wordt beschreven hoe u beveiliging voor uw back-end-API kunt toev
 1. Selecteer **Demo Conference API**.
 2. Selecteer **Alle bewerkingen**.
 3. Selecteer boven in het scherm het tabblad **Ontwerp**.
-4. Klik in de sectie **Binnenkomende verwerking** op het pictogram **</>**. Plaats de cursor in het **&lt;binnenkomende&gt;** element.
-5. Klik in het rechtervenster onder **Toegang tot beperkingsbeleid** op **+ Aantal oproepen per sleutel beperken**.
-6. Wijzig uw **rate-limit-by-key**-code (in het **\<inkomende\>** element) in de volgende code:
+4. Klik in de sectie **Binnenkomende verwerking** op het pictogram **</>**.
+5. Plaats de cursor in het **&lt;binnenkomende&gt;** element.
+6. Klik in het rechtervenster onder **Toegang tot beperkingsbeleid** op **+ Aantal oproepen per sleutel beperken**.
+7. Wijzig uw **rate-limit-by-key**-code (in het **\<inkomende\>** element) in de volgende code:
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 

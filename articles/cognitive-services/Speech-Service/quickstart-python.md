@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 1/16/2019
+ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 43ae1339b2b6880656c68957a3d4ed2d2f13b559
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d3a6b8389d44d3ad92f9305124884d97fa293429
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859537"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447105"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>Quickstart: Spraak herkennen met de Speech-SDK voor Python
 
@@ -26,16 +26,16 @@ In dit artikel ziet u hoe u Speech Service kunt gebruiken via de Speech SDK voor
 ## <a name="prerequisites"></a>Vereisten
 
 * Een Azure-abonnementssleutel voor de Spraakservice. [Gratis downloaden](get-started.md).
-* [Python 3.5 of hoger](https://www.python.org/downloads/), 64-bits.
+* [Python 3.5](https://www.python.org/downloads/) of hoger.
 * Het Python Speech-SDK-pakket is beschikbaar voor deze besturingssystemen: 
-    * Windows: x64.
+    * Windows: x64 en x86.
     * Mac: Mac OS X-versie 10.12 of hoger.
     * Linux: Ubuntu 16.04 of 18.04 op x64.
 * Voer op Ubuntu deze opdrachten uit om de vereiste pakketten te installeren:
 
   ```sh
   sudo apt-get update
-  sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
+  sudo apt-get install build-essential libssl1.0.0 libasound2 wget
   ```
 
 * In Windows hebt u ook het [Microsoft Visual C++ Redistributable for Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) voor uw platform nodig.

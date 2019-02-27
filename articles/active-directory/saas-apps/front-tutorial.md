@@ -1,259 +1,230 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met Front | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en de voorzijde.
+description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active Directory en Front.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 88270b6d-2571-434a-b139-b6ccc3a2b19f
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/15/2017
+ms.topic: tutorial
+ms.date: 02/15/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7edc02f6291decf28c4b3d27277545b9ad31c537
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: 296008d84547b9562216725250af43cc863be17e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183646"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339714"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-front"></a>Zelfstudie: Azure Active Directory-integratie met front-end
+# <a name="tutorial-azure-active-directory-integration-with-front"></a>Zelfstudie: Azure Active Directory-integratie met Front
 
-In deze zelfstudie leert u over het integreren van voorgrond met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Front kunt integreren met Azure Active Directory (Azure AD).
+De integratie van Front met Azure Active Directory biedt de volgende voordelen:
 
-Integratie van voorgrond in Azure AD biedt u de volgende voordelen:
+* U kunt in Azure Active Directory bepalen wie er toegang heeft tot Front.
+* U kunt inschakelen dat gebruikers automatisch met hun Azure Active Directory-account worden aangemeld bij Front (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot de front-end heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld naar voorgrond (Single Sign-On) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met front-end, moet u de volgende items:
+Om Azure Active Directory-integratie te configureren met Front hebt u het volgende nodig:
 
-- Een Azure AD-abonnement
-- Een front-end eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op Front waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Toevoegen van voorgrond uit de galerie
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-front-from-the-gallery"></a>Toevoegen van voorgrond uit de galerie
-Voor het configureren van de integratie van voorgrond in Azure AD, moet u Front uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* Front biedt ondersteuning voor met **IDP** geïnitieerde eenmalige aanmelding
 
-**Als u wilt toevoegen voor uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-front-from-the-gallery"></a>Front toevoegen uit de galerie
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Voor het configureren van de integratie van Frons in Azure Active Directory, moet u Front uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-    ![De Azure Active Directory-knop][1]
+**Als u Front wilt toevoegen uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![De blade Enterprise-toepassingen][2]
-    
-1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![De knop Nieuwe toepassing][3]
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-1. Typ in het zoekvak **Front**, selecteer **Front** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![Begin in de lijst met resultaten](./media/front-tutorial/tutorial_front_addfromgallery.png)
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
+
+4. Typ in het zoekvak **Front**, selecteer **Front** in het resultaatvenster en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
+
+     ![Front in de lijst met resultaten](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met front-end op basis van een testgebruiker 'Britta Simon' genoemd.
+In deze sectie gaat u eenmalige aanmelding met Azure Active Directory bij Front configureren en testen op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure Active Directory-gebruiker en de daaraan gerelateerde gebruiker in Front tot stand is gebracht.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat het equivalent van de gebruiker op de voorgrond is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker op de voorgrond tot stand worden gebracht.
-
-Op de voorgrond, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
-
-Om te configureren en testen van Azure AD eenmalige aanmelding met front-end, moet u de volgende bouwstenen voltooien:
+Om eenmalige aanmelding met Azure Active Directory bij Front te configureren en testen, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-1. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-1. **[Maak een testgebruiker van voorgrond](#create-a-front-test-user)**  : als u wilt een equivalent van Britta Simon voorkant die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-1. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+2. **[Eenmalige aanmelding bij Front configureren](#configure-front-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wilt configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Testgebruiker voor Front maken](#create-front-test-user)**: als u een tegenhanger van Britta Simon in Front wilt hebben die is gekoppeld aan de Azure Active Directory-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw Front-toepassing.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met front-end, moet u de volgende stappen uitvoeren:**
+Voer de volgende stappen uit als u eenmalige aanmelding voor Azure Active Directory wilt configureren met Front:
 
-1. In de Azure-portal op de **Front** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. In de [Azure-portal](https://portal.azure.com/) selecteert u **Eenmalige aanmelding** op de integratiepagina van de toepassing **Front**.
 
-    ![Koppeling Eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/front-tutorial/tutorial_front_samlbase.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-1. Op de **Front domein en URL's** sectie, voert u de volgende stappen uit:
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    ![Eenmalige aanmelding configureren](./media/front-tutorial/tutorial_front_url1.png)
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    a. Typ in het tekstvak **Id** een URL met het volgende patroon: `https://<companyname>.frontapp.com`
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met behulp van het volgende patroon: `https://<companyname>.frontapp.com/sso/saml/callback`
-     
-    > [!NOTE] 
-    > Dit zijn geen echte waarden. Deze waarden bijwerken met de werkelijke id en de antwoord-URL die worden beschreven later in de zelfstudie of neem contact op met [Front-Client-ondersteuningsteam](mailto:support@frontapp.com) om deze waarden te verkrijgen. 
+4. Op de pagina **Eenmalige aanmelding instellen met SAML** voert u de volgende stappen uit:
 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
+    ![Domein- en URL-gegevens voor eenmalige aanmelding bij Front](common/idp-intiated.png)
 
-    ![Eenmalige aanmelding configureren](./media/front-tutorial/tutorial_front_certificate.png) 
+    a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://<companyname>.frontapp.com`
 
-1. Klik op de knop **Save**.
+    b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://<companyname>.frontapp.com/sso/saml/callback`
 
-    ![Eenmalige aanmelding configureren](./media/front-tutorial/tutorial_general_400.png)
-    
-1. Op de **Front configuratie** sectie, klikt u op **Front configureren** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
+    > [!NOTE]
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke id en antwoord-URL. Neem contact op met het [klantenondersteuningsteam van Front](mailto:support@frontapp.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-    ![Eenmalige aanmelding configureren](./media/front-tutorial/tutorial_front_configure.png) 
+5. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
-1. Aanmelding met uw Front-tenant als beheerder.
+    ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
-1. Ga naar **instellingen (tandwielpictogram aan de onderkant van de linkerzijbalk) > Voorkeuren**.
+6. In het gedeelte **Front** kopieert u de juiste URL('s) op basis van uw behoeften.
+
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
+
+    a. Aanmeldings-URL
+
+    b. Azure AD-id
+
+    c. Afmeldings-URL
+
+### <a name="configure-front-single-sign-on"></a>Front configureren voor eenmalige aanmelding
+
+1. Meld u als beheerder aan bij uw Front-tenant.
+
+2. Ga naar **Instellingen (tandwielpictogram aan de onderkant van de linkerzijbalk) > Voorkeuren**.
    
-    ![Configureren van eenmalige aanmelding op App-zijde](./media/front-tutorial/tutorial_front_000.png)
+    ![Eenmalige aanmelding in de app configureren](./media/front-tutorial/tutorial_front_000.png)
 
-1. Klik op **Single Sign On** koppeling.
+3. Klik op de link voor **Eenmalige aanmelding**.
    
-    ![Configureren van eenmalige aanmelding op App-zijde](./media/front-tutorial/tutorial_front_001.png)
+    ![Eenmalige aanmelding in de app configureren](./media/front-tutorial/tutorial_front_001.png)
 
-1. Selecteer **SAML** in de vervolgkeuzelijst van **Single Sign On**.
+4. Selecteer **SAML** in de vervolgkeuzelijst van **Eenmalige aanmelding**.
    
-    ![Configureren van eenmalige aanmelding op App-zijde](./media/front-tutorial/tutorial_front_002.png)
+    ![Eenmalige aanmelding in de app configureren](./media/front-tutorial/tutorial_front_002.png)
 
-1. In de **toegangspunt** tekstvak plaatst de waarde van **Single Sign-on Service URL** van Azure AD-wizard voor het configureren van toepassing.
+5. In het tekstvak **Toegangspunt** plaatst u de waarde van de **Aanmeldings-URL** van de wizard voor het configureren van de Azure Active Directory-toepassing.
     
-    ![Configureren van eenmalige aanmelding op App-zijde](./media/front-tutorial/tutorial_front_003.png)
+    ![Eenmalige aanmelding in de app configureren](./media/front-tutorial/tutorial_front_003.png)
 
-1. Open uw gedownloade **Certificate(Base64)** -bestand in Kladblok, Kopieer de inhoud ervan in het Klembord en plakt u deze naar de **handtekeningcertificaat** tekstvak.
+6. Open het gedownloade bestand **Certificate(Base64)** in kladblok, kopieer de inhoud ervan naar het klembord, en plak deze vervolgens in het tekstvak **Handtekeningcertificaat**.
     
-    ![Configureren van eenmalige aanmelding op App-zijde](./media/front-tutorial/tutorial_front_004.png)
+    ![Eenmalige aanmelding in de app configureren](./media/front-tutorial/tutorial_front_004.png)
 
-1. Op de **Service-Providerinstellingen** sectie, voert u de volgende stappen uit:
+7. Voer in de sectie **Serviceprovider-instellingen** de volgende stappen uit:
 
-    ![Configureren van eenmalige aanmelding op App-zijde](./media/front-tutorial/tutorial_front_005.png)
+    ![Eenmalige aanmelding in de app configureren](./media/front-tutorial/tutorial_front_005.png)
 
-    a. Kopieer de waarde van **entiteit-ID** en plak deze in de **id** -tekstvak in **Front domein en URL's** sectie in Azure portal.
+    a. Kopieer de waarde van de **Entiteits-id** en plak deze in het tekstvak **Id** in de sectie **Front-domein en URL's** in de Azure-portal.
 
-    b. Kopieer de waarde van **ACS URL** en plak deze in de **antwoord-URL** -tekstvak in **Front domein en URL's** sectie in Azure portal.
+    b. Kopieer de waarde van de **ACS-URL** en plak deze in het tekstvak **Id** in de sectie **Front-domein en URL's** in de Azure-portal.
     
-1. Klik op de knop **Save**.
+8. Klik op de knop **Save**.
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-   ![Maak een testgebruiker Azure AD][100]
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-    ![De Azure Active Directory-knop](./media/front-tutorial/create_aaduser_01.png)
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/front-tutorial/create_aaduser_02.png)
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-1. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
-
-    ![De knop toevoegen](./media/front-tutorial/create_aaduser_03.png)
-
-1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
-
-    ![Het dialoogvenster gebruiker](./media/front-tutorial/create_aaduser_04.png)
-
-    a. In de **naam** in het vak **BrittaSimon**.
-
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
-
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="create-a-front-test-user"></a>Maak een testgebruiker van voorgrond
-
-In deze sectie maakt u een gebruiker met de naam Britta Simon op de voorgrond. Werken met [Front-Client-ondersteuningsteam](mailto:support@frontapp.com) om toe te voegen de gebruikers in de Front-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan begin.
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot Front.
 
-![De de gebruikersrol toewijzen][200] 
+1. Selecteer **Bedrijfstoepassingen** in de Azure-portal, selecteer **Alle toepassingen** en selecteer vervolgens **Front**.
 
-**Als u wilt toewijzen Britta Simon naar voorgrond, moet u de volgende stappen uitvoeren:**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+2. Selecteer **Front** in de lijst met toepassingen.
 
-    ![Gebruiker toewijzen][201] 
+    ![De Front-link in de lijst met toepassingen](common/all-applications.png)
 
-1. Selecteer in de lijst met toepassingen, **Front**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![De Front-koppeling in de lijst met toepassingen](./media/front-tutorial/tutorial_front_app.png)  
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+### <a name="create-front-test-user"></a>Front-testgebruiker maken
 
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+In deze sectie gaat u in Front een gebruiker maken met de naam Britta Simon. Werk samen met het [ondersteuningsteam van Front](mailto:support@frontapp.com) om de gebruikers toe te voegen in het Front-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
 
-Het doel van deze sectie is het testen van uw Azure AD-SSOconfiguration via het toegangsvenster.
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-Wanneer u op de Front-tegel in het toegangsvenster, u moet u automatisch aangemeld bij uw Front-toepassing. 
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+
+Wanneer u op de tegel Front in het toegangsvenster klikt, wordt u automatisch aangemeld bij de instantie van Front waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-[1]: ./media/front-tutorial/tutorial_general_01.png
-[2]: ./media/front-tutorial/tutorial_general_02.png
-[3]: ./media/front-tutorial/tutorial_general_03.png
-[4]: ./media/front-tutorial/tutorial_general_04.png
-
-[100]: ./media/front-tutorial/tutorial_general_100.png
-
-[200]: ./media/front-tutorial/tutorial_general_200.png
-[201]: ./media/front-tutorial/tutorial_general_201.png
-[202]: ./media/front-tutorial/tutorial_general_202.png
-[203]: ./media/front-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

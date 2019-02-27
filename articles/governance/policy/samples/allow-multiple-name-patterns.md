@@ -1,6 +1,6 @@
 ---
 title: Voorbeeld - Meerdere naampatronen
-description: Dit voorbeeld vereist dat de bron overeenkomt met een van de opgegeven naampatronen.
+description: Dit voorbeeld van een beleidsdefinitie vereist dat de bron overeenkomt met een van de opgegeven naampatronen.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 2e424b7ff79aab36a50e9b44436295cf4ff3d447
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 2c77edfcb8dbf777a14e3a5ffa5b78a5689dbcbc
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242971"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342521"
 ---
-# <a name="allow-multiple-name-patterns"></a>Meerdere naampatronen toestaan
+# <a name="sample---allow-multiple-name-patterns"></a>Voorbeeld: meerdere naampatronen toestaan
 
 Toestaan dat verschillende naampatronen mogen worden gebruikt voor resources. Geef de toegestane naampatronen op in de beleidsregel.
 

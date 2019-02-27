@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 8ffcfc86823d46e65e116eed86ef35fcba2a99bf
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 45407e183c70fe67e6bd59e3fd86a50a31844c47
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56006597"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453475"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio"></a>Zelfstudie 2: Modellen voor kredietrisico trainen - Azure Machine Learning Studio
 
@@ -23,7 +23,7 @@ In deze zelfstudie wordt uitgebreid ingegaan op het ontwikkelingsproces van een 
 
 Stel dat u iemands kredietrisico moet voorspellen op basis van de gegevens die deze persoon in een kredietaanvraag heeft ingevuld.  
 
-Kredietrisicobeoordeling is een complex probleem, maar in deze zelfstudie wordt het enigszins vereenvoudigd. Het wordt gebruikt als voorbeeld van hoe u een predictive analytics-oplossing kunt maken met behulp van Microsoft Azure Machine Learning. U gebruikt Azure Machine Learning Studio en een Machine Learning-webservice om deze oplossing te maken.  
+Kredietrisicobeoordeling is een complex probleem, maar in deze zelfstudie wordt het enigszins vereenvoudigd. Het wordt gebruikt als voorbeeld van hoe u een predictive analytics-oplossing kunt maken met behulp van Microsoft Azure Machine Learning Studio. U gebruikt Azure Machine Learning Studio en een Machine Learning-webservice om deze oplossing te maken.  
 
 In deze driedelige zelfstudie begint u met openbaar beschikbare kredietrisicogegevens.  Vervolgens ontwikkelt en traint u een voorspellend model.  En ten slotte implementeert u het model als een webservice.
 
@@ -191,9 +191,9 @@ Aan de rechterkant van de grafiek, klikt u op **Scored dataset** of **Scored dat
 Door deze waarden te onderzoeken, kunt u bepalen welk model de resultaten die u zoekt het dichtst benadert. U kunt teruggaan en uw experiment herhalen door parameterwaarden in de verschillende modellen te wijzigen. 
 
 De wetenschap en kunst van het interpreteren van deze resultaten en het afstemmen van de modelprestaties vallen buiten deze zelfstudie. U kunt de volgende artikelen lezen voor meer informatie:
-- [Modelprestaties evalueren in Azure Machine Learning](evaluate-model-performance.md)
-- [Parameters kiezen voor het optimaliseren van uw algoritmen in Azure Machine Learning](algorithm-parameters-optimize.md)
-- [Modelresultaten in Azure Machine Learning interpreteren](interpret-model-results.md)
+- [Modelprestaties evalueren in Azure Machine Learning Studio](evaluate-model-performance.md)
+- [Parameters kiezen voor het optimaliseren van uw algoritmen in Azure Machine Learning Studio](algorithm-parameters-optimize.md)
+- [Modelresultaten in Azure Machine Learning Studio interpreteren](interpret-model-results.md)
 
 > [!TIP]
 > Telkens wanneer u het experiment uitvoert, wordt een record van deze iteratie opgeslagen in de uitvoeringsgeschiedenis. U kunt deze iteraties bekijken en ze opnieuw bekijken door te klikken op **VIEW RUN HISTORY** onder het canvas. U kunt ook klikken op **Prior Ru** in het **Properties**-venster om terug te keren naar de iteratie direct vóór de versie die u hebt geopend.
