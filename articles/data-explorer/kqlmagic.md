@@ -8,17 +8,17 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 83c4ae7ff942579d55a5855c24a28809f60fdc62
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 0e1eedf497ea5fd4a8a9551996102a8aa72847fc
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382451"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961564"
 ---
 # <a name="analyze-data-using-jupyter-notebook-and-kql-magic"></a>Gegevens analyseren met Jupyter-Notebook en KQL Magic-pakket
 
 Jupyter-Notebook is een open-source-webtoepassing waarmee u het maken en delen van documenten met live code, vergelijkingen, visualisaties en verhalende tekst. Gebruik omvat het opschonen van gegevens en -transformatie, numerieke simulatie, statistische modellen bouwen, gegevensvisualisatie en machine learning.
-[Jupyter-Notebook](https://jupyter.org/) ondersteunt magic-functies die de mogelijkheden van de kernel uitbreiden door de ondersteuning van aanvullende opdrachten. KQL Magic-pakket is een opdracht die de mogelijkheden van de Python-kernel in Jupyter-Notebook breidt, zodat u kunt systeemeigen Kusto language-query's uitvoeren. U kunt eenvoudig combineren met Python en Kusto-querytaal om te vragen en visualiseren van gegevens met behulp van uitgebreide Plot.ly bibliotheek geïntegreerd met `render` opdrachten. Gegevensbronnen voor het uitvoeren van query's worden ondersteund. Deze gegevensbronnen zijn Azure Data Explorer, een snelle en schaalbare data exploration service voor logboek- en telemetrie-gegevens, evenals een Log Analytics en Application Insights. KQL magic werkt ook met de Azure-notitieblokken, Jupyter Lab en Visual Studio Code Jupyter-extensie.
+[Jupyter-Notebook](https://jupyter.org/) ondersteunt magic-functies die de mogelijkheden van de kernel uitbreiden door de ondersteuning van aanvullende opdrachten. KQL Magic-pakket is een opdracht die de mogelijkheden van de Python-kernel in Jupyter-Notebook breidt, zodat u kunt systeemeigen Kusto language-query's uitvoeren. U kunt eenvoudig combineren met Python en Kusto-querytaal om te vragen en visualiseren van gegevens met behulp van uitgebreide Plot.ly bibliotheek geïntegreerd met `render` opdrachten. Gegevensbronnen voor het uitvoeren van query's worden ondersteund. Deze gegevensbronnen zijn Azure Data Explorer, een service voor het verkennen van snelle en schaalbare gegevens voor logboek en telemetriegegevens, evenals Azure Monitor-logboeken en Application Insights. KQL magic werkt ook met de Azure-notitieblokken, Jupyter Lab en Visual Studio Code Jupyter-extensie.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -171,6 +171,6 @@ In veel scenario's voor analyse, kunt u herbruikbare notitieblokken die veel que
 Voer de opdracht help om te verkennen van de volgende voorbeeldnotitieblokken die alle functies van de ondersteunde bevatten:
 - [Aan de slag met KQL magic voor Azure Data Explorer](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStart.ipynb) 
 - [Aan de slag met KQL magic voor Application Insights](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartAI.ipynb) 
-- [Aan de slag met KQL magic voor Log Analytics](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartLA.ipynb) 
+- [Aan de slag met KQL Magic-pakket voor Azure Monitor-Logboeken](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartLA.ipynb) 
 - [Parametrize uw KQL magic-query met Python](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb) 
 - [Kleurenpalet voor uw KQL magic grafiek queryresultaat kiezen](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FColorYourCharts.ipynb)

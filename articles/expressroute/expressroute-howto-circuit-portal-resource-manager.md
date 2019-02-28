@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 3abdeff3c3f1a4069130ed7c8d49d485feea4093
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 45e87be071e09a19f1d8164eb9a002909a964201
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894714"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960382"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Een ExpressRoute-circuit maken en wijzigen
 > [!div class="op_single_selector"]
@@ -119,9 +119,9 @@ U kunt de volgende taken zonder uitvaltijd uitvoeren:
 
 * In- of uitschakelen van een ExpressRoute Premium-invoegtoepassing voor uw ExpressRoute-circuit.
 * Vergroot de bandbreedte van uw ExpressRoute-circuit, mits er capaciteit beschikbaar is op de poort.
-  > [!IMPORTANT] Het downgraden van de bandbreedte van een circuit wordt niet ondersteund. 
+> [!IMPORTANT] Het downgraden van de bandbreedte van een circuit wordt niet ondersteund. 
 * Wijzigen van de softwarelicentiecontrole plan is uit de *naar gebruik* naar *onbeperkte gegevens*.
-  > [!IMPORTANT] Wijzigen van de softwarelicentiecontrole plan van onbeperkte gegevens in naar gebruik wordt niet ondersteund.
+> [!IMPORTANT] Wijzigen van de softwarelicentiecontrole plan van onbeperkte gegevens in naar gebruik wordt niet ondersteund.
 * U kunt inschakelen en uitschakelen *klassieke bewerkingen toestaan*.
 > [!IMPORTANT]
 > U moet de ExpressRoute-circuit opnieuw te maken als er onvoldoende capaciteit op de bestaande poort. U kunt het circuit niet bijwerken als er geen extra capaciteit beschikbaar is op die locatie.

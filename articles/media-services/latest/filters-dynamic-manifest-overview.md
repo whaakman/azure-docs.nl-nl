@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: juliako
-ms.openlocfilehash: 87b68eceda6749e3bb0fdc64394b2b839f3963c3
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 7d40a29a0d9d708deb5485b18327d809ded0022d
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866739"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959541"
 ---
 # <a name="dynamic-manifests"></a>Dynamische manifesten
 
@@ -41,7 +41,7 @@ Dit onderwerp wordt uitgelegd concepten met betrekking tot **dynamische manifest
 
 ## <a name="manifest-files-overview"></a>Overzicht van de manifest-bestanden
 
-Wanneer u een asset voor adaptive bitratestreaming, codeert een **manifest** ()-afspeellijstbestand wordt gemaakt (het bestand is op basis van tekst of XML-indeling). De **manifest** bestand bevat metagegevens zoals streaming: bijhouden van type (audio, video of tekst), naam, begintijd en eindtijd, bitrate (kenmerken), bijhouden talen, presentatievenster (sliding window van vaste duur), video-codec (bijhouden Code). Hiermee geeft u ook de speler om op te halen van het volgende fragment door te geven informatie over het volgende kan worden afgespeeld video fragmenten beschikbaar en hun locatie. Fragmenten (of segmenten) zijn de werkelijke 'segmenten' van een video-inhoud.
+Een **manifest** ()-afspeellijstbestand (op basis van tekst of XML-indeling) bevat metagegevens zoals streaming: type (audio, video of tekst) bijhouden, bijhouden van de naam, begintijd en eindtijd, bitrate (kenmerken), talen, bijhouden, presentatievenster (schuiven venster van vaste duur), video-codec (code). Hiermee geeft u ook de speler om op te halen van het volgende fragment door te geven informatie over het volgende kan worden afgespeeld video fragmenten beschikbaar en hun locatie. Fragmenten (of segmenten) zijn de werkelijke 'segmenten' van een video-inhoud.
 
 Hier volgt een voorbeeld van een manifestbestand HLS: 
 

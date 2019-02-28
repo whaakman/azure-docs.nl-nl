@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: be0cdeed81c66e1a848b44d2429c1c67bce9b4f3
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 112ff38ad4e35ac284501c5dd3881c4f340b5f9b
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024090"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984633"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory Veelgestelde vragen
 In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Data Factory.  
@@ -174,6 +174,33 @@ Ja. De uitvoer van een activiteit kan worden gebruikt in een volgende activiteit
  
 ### <a name="how-do-i-gracefully-handle-null-values-in-an-activity-output"></a>Hoe ga ik null-waarden in de uitvoer van een activiteit zonder problemen om? 
 U kunt de `@coalesce` maken in de expressies voor het afhandelen van null-waarden zonder problemen. 
+
+## <a name="mapping-data-flows"></a>Gegevensoverdrachten van toewijzing
+
+### <a name="which-adf-version-do-i-use-to-create-data-flows"></a>Welke versie van de ADF gebruik ik gegevens stromen maken?
+De ADF V2-versie gebruiken voor het maken van de gegevens stromen
+  
+### <a name="i-was-a-previous-private-preview-customer-using-data-flows-and-i-used-the-adf-v2-wdata-flows-preview-version"></a>Ik is voorgaande privépreview klant die gebruikmaakt van gegevens stromen en ik de preview-versie van ADF V2 w/gegevens stromen gebruikt
+Deze versie is nu verouderd. Gebruik ADF V2 voor gegevensoverdrachten
+  
+### <a name="what-has-changed-from-private-preview-to-limited-public-preview-in-data-flows"></a>Wat is gewijzigd van beperkte Preview-versie voor beperkte openbare preview in gegevens stromen?
+U hebt niet meer om uw eigen Databricks-clusters. ADF beheert het maken van clusters en tear omlaag. BLOB-gegevenssets en ADLS gegevenssets zijn verdeeld in tekst met scheidingstekens en Parquet-gegevenssets. U kunt nog steeds ADLS & Blob Store gebruiken voor het opslaan van deze bestanden. Gebruik de juiste gekoppelde Service voor de opslag-engines.
+
+### <a name="can-i-migrate-my-private-preview-factories-to-adf-v2"></a>Kan ik mijn privépreview factory's migreren naar ADF V2?
+
+[Ja, volg de instructies hier](https://www.slideshare.net/kromerm/adf-mapping-data-flow-private-preview-migration)
+
+### <a name="i-need-help-troubleshooting-my-data-flow-logic-what-do-you-need"></a>Kan ik hulp krijgen het oplossen van mijn gegevensstroom logica, wat hebt u nodig?
+
+Wanneer Microsoft biedt hulp of oplossen van problemen met gegevens stromen, Geef op de 'DSL Code plannen'. Voer de volgende stappen uit om dit te doen:
+
+* Klik op "Code" in de rechterbovenhoek van de Flow-ontwerper. Hiermee wordt de bewerkbare JSON-code voor de gegevensstroom weergegeven.
+* In de codeweergave, klikt u op 'Plannen' in de rechterbovenhoek. Het Plan swtich van JSON naar het opgemaakte DSL-script-plan.
+* Kopieer en plak dit script of opslaan in een tekstbestand.
+
+### <a name="how-do-i-access-data-using-the-other-80-dataset-types-in-adf"></a>Hoe krijg ik toegang tot gegevens met behulp van de andere 80 gegevenssettypen in ADF?
+
+Gegevensstroom ondersteunt op dit moment Azure SQL DB, Azure SQL DW, tekstbestanden gescheiden van de Blob of ADLS en Parquet-bestanden via Blob of ADLS systeemeigen voor de bron en Sink. De Kopieeractiviteit gebruiken om te gegevens te Faseren van een van de andere connectors en voer vervolgens een gegevensstroom activiteit voor het transformeren van gegevens nadat deze is tijdelijk worden opgeslagen. Bijvoorbeeld: uw pijplijn wordt eerst naar de Blob kopiëren en vervolgens een gegevensstroom activiteit een gegevensset wordt gebruikt in de bron om die gegevens te transformeren.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende zelfstudies voor stapsgewijze instructies voor het maken van een data factory:

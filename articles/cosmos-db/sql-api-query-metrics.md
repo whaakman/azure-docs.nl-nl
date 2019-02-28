@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: sngun
-ms.openlocfilehash: e6d16c31b8975036202fe77906e2d729391b5c59
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: c7b62f66830e17fd8f6607e0a629307a9ab6fc78
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038072"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983588"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Afstemming van prestaties van query's met Azure Cosmos DB
 
@@ -215,6 +215,8 @@ De sectie over query uitvoering van metrische gegevens wordt uitgelegd hoe u de 
 
 ### <a name="indexing-policy"></a>Indexeringsbeleid
 Zie [indexeringsbeleid configureren](index-policy.md) voor indexering paden, soorten en modi en hoe ze invloed op de uitvoering van de query. Het indexeringsbeleid gebruikt standaard hash-indexering voor tekenreeksen, die geldt voor gelijkheid query's, maar niet voor de bereik-query's / OrderBy-query's. Als u een bereik-query's nodig voor tekenreeksen, wordt u aangeraden het indextype bereik voor alle tekenreeksen op te geven. 
+
+Azure Cosmos DB past standaard, automatische indexering voor alle gegevens. Voor hoge prestaties invoegen scenario's, overweeg dan paden uitsluiten zoals zo u de RU-kosten voor elke bewerking insert beperkt. 
 
 ## <a name="query-execution-metrics"></a>Query uitvoering van metrische gegevens
 U kunt gedetailleerde metrische gegevens over het uitvoeren van query's verkrijgen door de optionele `x-ms-documentdb-populatequerymetrics` header (`FeedOptions.PopulateQueryMetrics` in de .NET SDK). De waarde die wordt geretourneerd `x-ms-documentdb-query-metrics` heeft de volgende sleutel-waardeparen bedoeld voor geavanceerde probleemoplossing van het uitvoeren van query's. 

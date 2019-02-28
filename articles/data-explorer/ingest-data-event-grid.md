@@ -8,14 +8,14 @@ ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 1/30/2019
-ms.openlocfilehash: 343baedb77eb5c8a250e2ab967332dc0905f5112
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 6dac6fb18f221ddb45e5b5b7e325868915732368
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743681"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804638"
 ---
-# <a name="quickstart-ingest-azure-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Snelstart: Azure-blobs opnemen in Azure Data Explorer door u te abonneren op Event Grid-meldingen
+# <a name="quickstart-ingest-azure-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Quickstart: Azure-blobs opnemen in Azure Data Explorer door u te abonneren op Event Grid-meldingen
 
 Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logboeken en telemetrie te verkennen. Azure Data Explorer biedt continue opname (gegevens laden) van blobs die naar blob-containers zijn geschreven. Dit wordt bereikt door een [Azure Event Grid](/azure/event-grid/overview)-abonnement in te stellen voor gebeurtenissen waarbij blobs worden gemaakt en door de gebeurtenissen naar Kusto door te sturen via een Event Hub. Voor deze quickstart hebt u een opslagaccount nodig met een Event Grid-abonnement die meldingen naar Event Hub verzendt. U kunt vervolgens een Event Grid-gegevensverbinding maken en de gegevensstroom door het systeem bekijken.
 
@@ -58,7 +58,7 @@ Maak een tabel in Azure Data Explorer waarnaar via Event Hubs gegevens worden ve
 
 1. Selecteer in de Azure-portal, onder het cluster, de optie **Query**.
 
-    ![Toepassingskoppeling voor query](media/ingest-data-event-hub/query-explorer-link.png)
+    ![Toepassingskoppeling voor query](media/ingest-data-event-grid/query-explorer-link.png)
 
 1. Kopieer de volgende opdracht in het venster en selecteer **Uitvoeren** om de tabel (TestTable) te maken waarin de opgenomen gegevens worden geplaatst.
 
@@ -82,11 +82,11 @@ Nu maakt u vanuit Azure Data Explorer verbinding met de Event Grid, zodat de geg
 
 1. Selecteer onder het gemaakte cluster de optie **Databases** en vervolgens **TestDatabase**.
 
-    ![Testdatabase selecteren](media/ingest-data-event-hub/select-test-database.png)
+    ![Testdatabase selecteren](media/ingest-data-event-grid/select-test-database.png)
 
 1. Selecteer **Gegevensopname** en vervolgens **Gegevensverbinding toevoegen**.
 
-    ![Gegevensopname](media/ingest-data-event-hub/data-ingestion-create.png)
+    ![Gegevensopname](media/ingest-data-event-grid/data-ingestion-create.png)
 
 1. Verbindingstype selecteren: **Blob Storage**.
 
@@ -185,9 +185,9 @@ Als u niet van plan bent de Event Grid opnieuw te gebruiken, wist u de **test-hu
 
 1. Selecteer in Azure Portal **Resourcegroepen** aan de linkerkant en selecteer vervolgens de resourcegroep die u hebt gemaakt.  
 
-    Als het menu links is samengevouwen, selecteert u ![Knop Uitvouwen](media/ingest-data-event-hub/expand.png) om het menu uit te vouwen.
+    Als het menu links is samengevouwen, selecteert u ![Knop Uitvouwen](media/ingest-data-event-grid/expand.png) om het menu uit te vouwen.
 
-   ![Resourcegroep selecteren die moet worden verwijderd](media/ingest-data-event-hub/delete-resources-select.png)
+   ![Resourcegroep selecteren die moet worden verwijderd](media/ingest-data-event-grid/delete-resources-select.png)
 
 1. Selecteer onder **test-resource-group** de optie **Resourcegroep verwijderen**.
 

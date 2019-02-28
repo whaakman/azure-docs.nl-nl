@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 02/26/2019
 ms.author: kumud
-ms.openlocfilehash: 309c69862d475a0ef76ab0a24ed804b363ba33c0
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 4d47192ea69047b0b12deffc41776a87c16ca6ab
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696792"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959745"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager Frequently Asked Questions (FAQ)
 
@@ -59,14 +59,7 @@ De methode prestaties verkeer routeert naar de dichtstbijzijnde beschikbare eind
 Zoals uitgelegd in [hoe Traffic Manager werkt](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager werkt op DNS-niveau. Nadat de DNS-zoekactie voltooid is, clients rechtstreeks verbinding maken met het toepassingseindpunt, niet via Traffic Manager. De verbinding Gebruik daarom elk toepassingsprotocol voor de. Als u TCP als de controle van het protocol, Traffic Manager selecteren statuscontrole eindpunt kan worden uitgevoerd zonder met behulp van een toepassingsprotocollen. Als u ervoor kiest om de status controleren met behulp van een toepassingsprotocol, moet het eindpunt kunnen reageren op aanvragen via HTTP of HTTPS ophalen.
 
 ### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>Kan ik Traffic Manager gebruiken met de naam van een domein 'zonder voorvoegsel zijn'?
-
-Nee. De DNS-standaarden staan niet toe dat CNAME-records in combinatie met andere DNS-records met dezelfde naam. De apex (of basiscertificaat) van een DNS-zone bevat altijd twee vooraf bestaande DNS-records. de SOA en gezaghebbende NS-records. Dit betekent dat een CNAME-record in de apex van de zone kan niet worden gemaakt zonder te schenden van de DNS-standaarden.
-
-Traffic Manager is een DNS CNAME-record toe te wijzen de aangepaste DNS-naam vereist. Bijvoorbeeld, wijst u `www.contoso.com` naar de DNS-naam van het Traffic Manager-profiel `contoso.trafficmanager.net`. Traffic Manager-profiel wordt bovendien een tweede DNS CNAME om aan te geven welk eindpunt dat de client verbinding moet maken.
-
-U kunt dit probleem omzeilen, wordt u aangeraden een HTTP-omleiding voor verkeer van de naam van het domein zonder voorvoegsel zijn naar een andere URL, die vervolgens Traffic Manager kunt gebruiken. Het domein zonder voorvoegsel zijn 'contoso.com' kan bijvoorbeeld gebruikers omleiden naar de CNAME 'www.contoso.com' die naar de Traffic Manager-DNS-naam verwijst.
-
-Volledige ondersteuning voor zonder voorvoegsel zijn domeinen in Traffic Manager wordt bijgehouden in de functie gewerkt. U kunt registreren voor deze functieaanvraag door het ondersteuningsteam van het [uw stem op deze op de site voor gebruikersfeedback van onze community](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
+Ja. Zie voor meer informatie over het maken van een alias-record voor uw domein het toppunt van de naam om te verwijzen naar een Azure Traffic Manager-profiel, [configureren ter ondersteuning van het toppunt van domeinnamen met Traffic Manager-een alias-record](../dns/tutorial-alias-tm.md).
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>Traffic Manager rekening houden met het adres van client subnet bij het verwerken van DNS-query's? 
 Ja, naast de bron-IP-adres van de DNS-query wordt ontvangen (dit is meestal het IP-adres van de DNS-resolver), bij het uitvoeren van zoekopdrachten voor geografisch, prestaties en een Subnet routeringsmethoden, traffic manager ook rekening gehouden met het adres van client subnet als het is opgenomen in de query door de resolver die de aanvraag namens de eindgebruiker.  

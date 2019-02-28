@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b8a06276bcaa989fa04f105ac7858c25ab4d0ef
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 1927e9b4aeec6f424c69632d8811c49c97d3aad1
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887502"
+ms.locfileid: "56961547"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Back-up en herstel van accountreferenties met de Microsoft Authenticator-app
 
@@ -28,7 +28,9 @@ ms.locfileid: "56887502"
 De Microsoft Authenticator-app back-ups van uw accountreferenties en de bijbehorende appinstellingen, zoals de volgorde van uw accounts, naar de cloud. Na de back-up, kunt u de app ook gebruiken om te herstellen van uw gegevens op een nieuw apparaat mogelijk vermijden ophalen vergrendeld out- of accounts opnieuw hoeft te.
 
 >[!IMPORTANT]
-> U moet een persoonlijk Microsoft-account en een iCloud-account voor elke back-upopslag-locatie. Maar binnen die opslaglocatie back-up van diverse accounts. U kunt bijvoorbeeld een persoonlijk account, een school-account en een account van derden, zoals Facebook, Google, enzovoort.<br><br>Alleen de referenties van uw persoonlijke en 3rd derden account zijn opgeslagen, waaronder de naam van de gebruiker en de verificatiecode van account die vereist zijn om uw identiteit te bewijzen. We geen andere gegevens die zijn gekoppeld aan uw accounts, met inbegrip van e-mailberichten of bestanden op te slaan. We geen ook koppelen of delen van uw accounts op geen enkele manier of met een ander product of service. En ten slotte uw IT-beheerder geen informatie over elk van deze accounts wordt niet ophalen.
+> U moet een persoonlijk Microsoft-account en een iCloud-account voor elke back-upopslag-locatie. Maar binnen die opslaglocatie back-up van diverse accounts. U kunt bijvoorbeeld een persoonlijk account, een school-account en een account van derden, zoals Facebook, Google, enzovoort.
+
+> Alleen de referenties van uw persoonlijke en 3rd derden account zijn opgeslagen, waaronder de naam van de gebruiker en de verificatiecode van account die vereist zijn om uw identiteit te bewijzen. We geen andere gegevens die zijn gekoppeld aan uw accounts, met inbegrip van e-mailberichten of bestanden op te slaan. We geen ook koppelen of delen van uw accounts op geen enkele manier of met een ander product of service. En ten slotte uw IT-beheerder geen informatie over elk van deze accounts wordt niet ophalen.
 
 ## <a name="back-up-your-account-credentials"></a>Back-up van uw accountreferenties
 Voordat u kunt back-up van uw referenties moet hebben:
@@ -98,10 +100,12 @@ Er zijn enkele redenen waarom de back-up mogelijk niet beschikbaar:
 -   **Bestaande accounts van de Microsoft Authenticator.** Als u al in de Microsoft Authenticator-app hebt ingesteld, kunnen de app om te herstellen van uw back-up-accounts niet mogelijk. Voorkomen dat herstel zorgt ervoor dat uw accountgegevens worden niet met verouderde gegevens overschreven. In dit geval moet u alle bestaande gegevens verwijderen uit de bestaande accounts in de Authenticator-app instellen voordat u kunt uw back-up herstellen.
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat u hebt een back-up en referenties van uw account op het nieuwe apparaat kunt herstellen, kunt u echter ook doorgaan met de Microsoft Authenticator-app om uw identiteit te verifiëren.
+Nu dat u hebt een back-up en referenties van uw account op het nieuwe apparaat kunt herstellen, kunt u echter ook doorgaan met de Microsoft Authenticator-app om uw identiteit te verifiëren. Zie voor meer informatie, [aanmelden bij uw accounts met behulp van de Microsoft Authenticator-app](user-help-sign-in.md).
 
 ## <a name="related-topics"></a>Verwante onderwerpen
-- [Aan de slag gaan met de Microsoft Authenticator-app](user-help-auth-app-download-install.md)  
+
+- [Wat is de Microsoft Authenticator-app?](user-help-auth-app-overview.md)
+
 - [Veelgestelde vragen over Microsoft Authenticator-app](user-help-auth-app-faq.md)
 
 - [Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/)

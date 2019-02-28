@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fb96d69604ce341cec2de029f9663f6b8d274876
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 214c67e34fc8d36f2618c94414fe1c305efbf7d2
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822375"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960136"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
@@ -119,6 +119,9 @@ Als uw System Center Operations Manager-beheergroep is verbonden met een Log Ana
 * Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
 * Implementatie MP bijwerken
+
+> [!NOTE]
+> Als u een beheergroep van Operations Manager 1807 waarop agents zijn geconfigureerd op het niveau van de beheergroep moet worden gekoppeld aan een werkruimte hebt, de huidige oplossing om op te halen ze worden weergegeven voor de onderdrukking is **IsAutoRegistrationEnabled** aan **Waar** in de **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init** regel.
 
 Zie voor meer informatie over hoe management packs voor oplossingen worden bijgewerkt, [Operations Manager verbinden met Azure Monitor-logboeken](../azure-monitor/platform/om-agents.md).
 
@@ -608,7 +611,7 @@ Een virtuele machine verwijderen uit het beheer van de Update:
 
 * In uw Log Analytics-werkruimte, verwijdert u de virtuele machine van de opgeslagen zoekopdracht voor de Bereikconfiguratie `MicrosoftDefaultScopeConfig-Updates`. Opgeslagen zoekopdrachten kunnen u vinden onder **algemene** in uw werkruimte.
 * Verwijder de [Microsoft Monitoring agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) of de [Log Analytics-agent voor Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
-  
+
 ## <a name="troubleshoot"></a>Problemen oplossen
 
 Zie voor informatie over het oplossen van uw updatebeheer, [updatebeheer oplossen van problemen](troubleshoot/update-management.md)

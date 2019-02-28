@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: v-gedod
-ms.openlocfilehash: 1534b2a85067867800c147c86ee7d82374de8794
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: ea13ae5bc649ae3a803fb8446fa009fac94874a8
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866192"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673561"
 ---
 # <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-java"></a>Quickstart: Een aanvraag verzenden om te zoeken naar entiteiten met de Bing Entity Search SDK voor Java
 
@@ -145,10 +145,11 @@ Installeer de afhankelijkheden van Bing Entity Search SDK met Maven, Gradle of e
             }
         }
     }
+    ```
 
-## Next steps
+## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Build a single-page web app](../tutorial-bing-entities-search-single-page-app.md)
+> [Een web-app van één pagina maken](../tutorial-bing-entities-search-single-page-app.md).
 
-* [What is the Bing Entity Search API?](../overview.md )
+* [Wat is de Bing Entiteiten zoeken-API?](../overview.md )

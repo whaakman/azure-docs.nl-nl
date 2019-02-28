@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 02/09/2019
-ms.openlocfilehash: 8dbe282b919c988d5cb997a66914d81ce1981f88
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: d21731549c55f8e3fe90711838fcd21e6770eefe
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56592414"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960697"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Uw datawarehouse een upgrade uitvoert naar Gen2
 Microsoft helpt oppervlaktegebied de op instapniveau kosten van het uitvoeren van een datawarehouse kan verwerken, query's door toe te voegen lagere rekenlagen voor Azure SQL Data Warehouse To veeleisende Lees de volledige aankondiging over [kleine compute laag ondersteuning voor Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). De nieuwe aanbieding is al beschikbaar in de regio's die u hebt genoteerd in de onderstaande tabel. Voor ondersteunde regio's, kunnen bestaande Gen1 datawarehouses worden bijgewerkt naar Gen2 via een:
@@ -36,27 +36,29 @@ De volgende tabel geeft een overzicht van per regio als de lagere Gen2 compute-l
 | Canada - oost |\* |\* |
 | US - centraal |Beschikbaar |1 mei 2019 |
 | China East |\* |\* |
-| China North 1 |\* |\* |
+| China - oost 2 |\* |\* |
+| China - noord |\* |\* |
+| China - noord 2 |\* |\* |
 | Azië - oost |Beschikbaar |1 mei 2019 |
-| VS-Oost 1 |Beschikbaar |16 maart 2019 |
+| US - oost |Beschikbaar |16 maart 2019 |
 | US - oost 2 |Beschikbaar |16 maart 2019 |
 | Frankrijk - centraal |1 maart 2019 |1 mei 2019 |
 | Duitsland - centraal |\* |\* |
 | India - centraal |Beschikbaar |1 mei 2019 |
-| India-Zuid 1 |1 maart 2019 |15 juni 2019 |
+| India - zuid |1 maart 2019 |15 juni 2019 |
 | Japan - oost |Beschikbaar |1 mei 2019 |
 | Japan - west |Beschikbaar |15 juni 2019 |
 | Korea - centraal |1 maart 2019 |1 mei 2019 |
-| Korea South 1 |1 maart 2019 |15 juni 2019 |
+| Korea - zuid |1 maart 2019 |15 juni 2019 |
 | US - noord-centraal |1 maart 2019 |15 juni 2019 |
 | Europa - noord |Beschikbaar |16 maart 2019 |
 | US - zuid-centraal |Beschikbaar |1 mei 2019 |
 | Azië - zuidoost |Beschikbaar |16 maart 2019 |
 | Verenigd Koninkrijk Zuid |1 maart 2019 |1 mei 2019 |
-| Verenigd Koninkrijk West 1 |1 maart 2019 |15 juni 2019 |
+| Verenigd Koninkrijk West |1 maart 2019 |15 juni 2019 |
 | US - west-centraal |\* |\* |
 | Europa -west |Beschikbaar |16 maart 2019 |
-| VS-West 1 |1 maart 2019 |15 juni 2019 |
+| US - west |1 maart 2019 |15 juni 2019 |
 | US - west 2 |Beschikbaar |16 maart 2019 |
 
 ## <a name="automatic-upgrade-process"></a>Automatische upgradeproces

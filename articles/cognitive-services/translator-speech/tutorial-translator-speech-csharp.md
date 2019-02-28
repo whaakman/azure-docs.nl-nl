@@ -10,12 +10,13 @@ ms.subservice: translator-speech
 ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 383e17e0a9e60b52a63420af19c2bca4337083d4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: a3ed13cfe764c4f94dfa50fd096cfc7a8ac7656d
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876909"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673748"
 ---
 # <a name="tutorial-translator-speech-application-in-c"></a>Zelfstudie: Translator Speech-toepassing in C#
 
@@ -33,7 +34,7 @@ Een Visual Studio-oplossingsbestand voor deze toepassing is [beschikbaar in GitH
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor deze zelfstudie hebt u een editie van Visual Studio 2017 nodig, inclusief de Community-editie. 
+Voor deze zelfstudie hebt u een editie van Visual Studio 2017 nodig, inclusief de Community-editie.
 
 Met de Visual Studio-oplossing wordt ook een installatieprogramma voor de toepassing gebouwd. U hebt de [WiX Toolset](http://wixtoolset.org/) en de [WiX Toolset Visual Studio-extensie](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension) nodig om deze functionaliteit te ondersteunen.
 
@@ -63,7 +64,7 @@ Ten tijde van dit schrijven biedt de Translator Speech-service ondersteuning voo
 
 Met andere woorden: voor spraakomzetting moet de brontaal zijn ondersteund voor transcriptie. De doeltaal kan elke taal zijn die wordt ondersteund voor tekstvertaling, aangenomen dat u een tekstresultaat wilt zien. Als u spraakuitvoer wilt, kunt u alleen vertalen in een taal die wordt ondersteund voor tekst-naar-spraak.
 
-Zo nu en dan wordt in Microsoft ondersteuning toegevoegd voor nieuwe talen. Het is dus raadzaam om kennis van ondersteunde talen niet vast te leggen in uw toepassing. In plaats hiervan biedt de Translator Speech-API een eindpunt Talen waarmee u de ondersteunde talen tijdens de uitvoering kunt ophalen. U kunt ervoor kiezen om een of meer lijsten met talen te ontvangen: 
+Zo nu en dan wordt in Microsoft ondersteuning toegevoegd voor nieuwe talen. Het is dus raadzaam om kennis van ondersteunde talen niet vast te leggen in uw toepassing. In plaats hiervan biedt de Translator Speech-API een eindpunt Talen waarmee u de ondersteunde talen tijdens de uitvoering kunt ophalen. U kunt ervoor kiezen om een of meer lijsten met talen te ontvangen:
 
 | | |
 |-|-|
@@ -73,7 +74,7 @@ Zo nu en dan wordt in Microsoft ondersteuning toegevoegd voor nieuwe talen. Het 
 
 Voor het eindpunt Talen is geen abonnementssleutel vereist, en het gebruik van het eindpunt telt niet mee in uw quotum. De bijbehorende URI is `https://dev.microsofttranslator.com/languages` en de resultaten worden geretourneerd in de JSON-indeling.
 
-Met de methode `UpdateLanguageSettingsAsync()` in `MainWindow.xaml.cs`, die hier wordt weergegeven, wordt het eindpunt Talen aangeroepen om de lijst met ondersteunde talen op te halen. 
+Met de methode `UpdateLanguageSettingsAsync()` in `MainWindow.xaml.cs`, die hier wordt weergegeven, wordt het eindpunt Talen aangeroepen om de lijst met ondersteunde talen op te halen.
 
 ```csharp
 private async Task UpdateLanguageSettingsAsync()
@@ -193,9 +194,9 @@ Met deze methode wordt eerst een HTTP-aanvraag naar het eindpunt Talen gemaakt, 
 
 Het eindpunt Talen maakt gebruik van de `Accept-Languages`-header van de aanvraag om de taal te bepalen waarin de namen van de talen worden weergegeven. De taal die in het Engels bijvoorbeeld ‘German’ wordt genoemd, heet ‘Deutsch’ in het Duits en ‘Alemán’ in het Spaans, en in de lijst met talen worden deze verschillen weergegeven. Voor deze header wordt de standaardtaal van het systeem gebruikt.
 
-Nadat de aanvraag is verzonden en het JSON-antwoord is ontvangen, wordt het antwoord geparseerd in interne gegevensstructuren. Deze structuren worden vervolgens gebruikt om de menu’s voor de brontaal en doeltaal samen te stellen. 
+Nadat de aanvraag is verzonden en het JSON-antwoord is ontvangen, wordt het antwoord geparseerd in interne gegevensstructuren. Deze structuren worden vervolgens gebruikt om de menu’s voor de brontaal en doeltaal samen te stellen.
 
-Omdat de beschikbare stemmen afhankelijk zijn van de door de gebruiker gekozen doeltaal, kan het menu Stem nog niet worden ingesteld. In plaats hiervan worden de beschikbare stemmen voor elke taal opgeslagen voor later gebruik. Het menu Stem wordt later bijgewerkt met behulp van de `ToLanguage_SelectionChanged`-handler (in hetzelfde bronbestand) door `UpdateVoiceComboBox()` aan te roepen wanneer de gebruiker een doeltaal kiest. 
+Omdat de beschikbare stemmen afhankelijk zijn van de door de gebruiker gekozen doeltaal, kan het menu Stem nog niet worden ingesteld. In plaats hiervan worden de beschikbare stemmen voor elke taal opgeslagen voor later gebruik. Het menu Stem wordt later bijgewerkt met behulp van de `ToLanguage_SelectionChanged`-handler (in hetzelfde bronbestand) door `UpdateVoiceComboBox()` aan te roepen wanneer de gebruiker een doeltaal kiest.
 
 Als de gebruiker de toepassing nog nooit eerder heeft uitgevoerd, wordt een willekeurige doeltaal geselecteerd. (De menu-instellingen worden tussen sessies in opgeslagen.)
 
@@ -281,7 +282,7 @@ private void Connect()
         TranslateTo = ((ComboBoxItem)this.ToLanguage.SelectedItem).Tag.ToString(),
         Voice = voicename,
     };
-    
+
     options.Hostname = baseUrl;
     options.AuthHeaderKey = "Authorization";
     options.AuthHeaderValue = ""; // set later in ConnectAsync.
@@ -368,11 +369,11 @@ Hier is de methode `ConnectAsync()` waarmee de klasse `speechClient` wordt geïn
 private async Task ConnectAsync(SpeechClientOptions options, bool suspendInputAudioDuringTTS)
 {
     await ADMAuthenticate(options);
-    
+
     TextMessageDecoder textDecoder;
-    
+
     s2smtClient = new SpeechClient((SpeechTranslateClientOptions)options, CancellationToken.None);
-    
+
     s2smtClient.OnBinaryData += (c, a) => { AddSamplesToPlay(a, suspendInputAudioDuringTTS); };
     s2smtClient.OnEndOfBinaryData += (c, a) => { AddSamplesToPlay(a, suspendInputAudioDuringTTS); };
     s2smtClient.OnTextData += (c, a) => { textDecoder.AppendData(a); lastReceivedPacketTick = DateTime.Now.Ticks; };
@@ -410,7 +411,7 @@ private async Task ConnectAsync(SpeechClientOptions options, bool suspendInputAu
     {
         SafeInvoke(() =>
         {
-            // We only care to react to server disconnect when our state is Connected. 
+            // We only care to react to server disconnect when our state is Connected.
             if (currentState == UiState.Connected)
             {
                 Log("E: Connection has been lost.");

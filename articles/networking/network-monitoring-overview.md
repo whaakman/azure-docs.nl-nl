@@ -1,5 +1,5 @@
 ---
-title: Over de Netwerkbewaking van Log Analytics | Microsoft Docs
+title: Over het netwerk controleren in Azure Monitor-Logboeken | Microsoft Docs
 description: Overzicht van oplossingen, met inbegrip van NPM, voor het beheren van netwerken in cloud, on-premises en hybride omgevingen voor netwerkbeheer.
 services: monitoring-and-diagnostics
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 4107b292a606ea629e7de0c7be66621d699c5f42
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 617dbae67c71eac4bfc38de4e63c1ba05516ff61
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427383"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984047"
 ---
 # <a name="network-monitoring-solutions"></a>Oplossingen voor netwerkbeheer 
 
@@ -51,9 +51,9 @@ Prestatiemeter maakt deel uit van NPM en netwerkbewaking is voor de cloud, hybri
 
 Voor meer informatie raadpleegt u de volgende artikelen:
 
-* [Een-oplossing Netwerkprestatiemeter configureren in Log Analytics](../azure-monitor/insights/network-performance-monitor.md) 
-* [Use-cases](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
-*  Productupdates: [februari 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/), [augustus 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
+* [Een-oplossing Netwerkprestatiemeter configureren in Azure Monitor-Logboeken](../azure-monitor/insights/network-performance-monitor.md) 
+* [Use cases](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
+*  Productupdates: [Februari 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/), [augustus 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
 
 ## <a name="expressroute-monitor"></a>ExpressRoute-bewaking
 
@@ -118,7 +118,7 @@ Gebouwd voor DNS-beheerders, deze oplossing verzamelt, analyseert en correleert 
 ![DNS Analytics-Dashboard](./media/network-monitoring-overview/dns-analytics-overview.png) 
 
 Verwante koppelingen:
-* [Blogbericht](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [documentatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
+* [Blogpost](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [Documentatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
 
 ## <a name="miscellaneous"></a>Diversen
 

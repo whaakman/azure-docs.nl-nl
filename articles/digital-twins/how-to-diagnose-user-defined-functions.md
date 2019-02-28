@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: stefanmsft
 ms.custom: seodec18
-ms.openlocfilehash: ebeed6d2a52937a6e80dfe28574ad854643fa7f2
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 6122cd4507ed0883d1b78ca519269c25098e55ff
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119206"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961411"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Fouten opsporen in door de gebruiker gedefinieerde functies in Azure, digitale dubbels
 
@@ -29,10 +29,10 @@ Weten hoe u eventuele problemen die in uw exemplaar van Azure digitale dubbels o
 
 ### <a name="enable-log-analytics-for-your-instance"></a>Log analytics voor uw exemplaar inschakelen
 
-Logboeken en metrische gegevens voor uw exemplaar van Azure digitale dubbels worden weergegeven in Azure Monitor. Deze documentatie wordt ervan uitgegaan dat u hebt gemaakt een [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) werkruimte via de [Azure Portal](../azure-monitor/learn/quick-create-workspace.md), tot en met [Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md), of via [ PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
+Logboeken en metrische gegevens voor uw exemplaar van Azure digitale dubbels worden weergegeven in Azure Monitor. Deze documentatie wordt ervan uitgegaan dat u hebt gemaakt een [logboeken van Azure Monitor](../azure-monitor/log-query/log-query-overview.md) werkruimte via de [Azure Portal](../azure-monitor/learn/quick-create-workspace.md), tot en met [Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md), of via [ PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
 
 > [!NOTE]
-> Een vijf minuten vertraging kan optreden bij het verzenden van gebeurtenissen naar Azure Log Analytics voor het eerst.
+> Een vijf minuten vertraging kan optreden bij het verzenden van gebeurtenissen naar Azure Monitor-logboeken voor de eerste keer.
 
 Voor het configureren van bewaking en logboekregistratie voor digitale dubbels Azure-resources, Lees [bewaking en logboekregistratie configureren](./how-to-configure-monitoring.md).
 
@@ -43,11 +43,11 @@ Lees het artikel [verzamelen en gebruiken van logboekgegevens van uw Azure-resou
 
 ### <a name="trace-sensor-telemetry"></a>Sensor-tracetelemetrie
 
-Te traceren sensor telemetrie, controleert u of dat er diagnostische instellingen zijn ingeschakeld voor uw exemplaar van Azure digitale dubbels. Controleer vervolgens of dat alle gewenste logboekcategorieën zijn geselecteerd. Ten slotte of dat de gewenste logboeken worden verzonden naar Azure Log Analytics.
+Te traceren sensor telemetrie, controleert u of dat er diagnostische instellingen zijn ingeschakeld voor uw exemplaar van Azure digitale dubbels. Controleer vervolgens of dat alle gewenste logboekcategorieën zijn geselecteerd. Ten slotte of dat de gewenste logboeken worden verzonden naar de logboeken van Azure Monitor.
 
 Om een bericht van de sensor telemetrie naar de respectieve Logboeken, kunt u een correlatie-ID opgeven op de gegevens van de gebeurtenis wordt verzonden. Om dit te doen, stel de `x-ms-client-request-id` eigenschap naar een GUID.
 
-Na het verzenden van telemetrie, opent u de Azure Log Analytics om op te vragen met behulp van de set logboeken correlatie-ID:
+Na het verzenden van telemetrie, opent u log analytics-query voor logboeken met behulp van de set correlatie-ID:
 
 ```Kusto
 AzureDiagnostics
@@ -58,7 +58,7 @@ AzureDiagnostics
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | De correlatie-ID die is opgegeven in de gebeurtenisgegevens |
 
-Als u logboekregistratie voor de gebruiker gedefinieerde functie inschakelt, deze logboeken worden weergegeven in uw Azure-logboekanalyse-exemplaar met de categorie `UserDefinedFunction`. Om op te halen ze, voer de volgende queryvoorwaarde in Azure Log Analytics:
+Als u logboekregistratie voor de gebruiker gedefinieerde functie inschakelt, deze logboeken worden weergegeven in uw log analytics-exemplaar met de categorie `UserDefinedFunction`. Om op te halen ze, voer de volgende queryvoorwaarde in log analytics:
 
 ```Kusto
 AzureDiagnostics

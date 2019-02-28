@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 02/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: d1c7340038731ebde10a7ffcb0ef2adcde18e901
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 8648042c114c514df2218249719faa3ff19df5ec
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267492"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56669819"
 ---
 # <a name="what-is-application-insights"></a>Wat is Application Insights?
 Application Insights is een uitbreidbare APM-service (Application Performance Management) voor webontwikkelaars op meerdere platforms. Hiermee kunt u uw livewebtoepassing controleren. Afwijkende prestaties worden automatisch gedetecteerd. De service bevat krachtige analysehulpmiddelen om u te helpen bij het vaststellen van problemen en te begrijpen wat gebruikers daadwerkelijk doen met uw app.  De service is bedoeld om u te helpen de prestaties en bruikbaarheid van uw apps continu te verbeteren. Het werkt voor apps op uiteenlopende platforms, waaronder .NET, Node.js en Java EE, on-premises, of in een hybride of openbare cloud gehost. De service kan ook worden geïntegreerd met uw DevOps-proces en bevat verbindingspunten naar verschillende hulpmiddelen voor ontwikkelaars. Gebruik de service voor het controleren en analyseren van telemetrie van mobiele apps door Application Insights te integreren met Visual Studio App Center.
@@ -107,7 +107,6 @@ Er zijn verschillende manieren om van start te gaan. Begin op de manier die voor
 * **Tijdens runtime: instrumenteer uw web-app op de server.** Hiermee voorkomt u dat u updates moet uitvoeren op de code. U hebt moet beheerderstoegang tot uw server hebben.
   * [**IIS on-premises of op een VM**](../../azure-monitor/app/monitor-performance-live-website-now.md)
   * [**Azure web-app of VM**](../../azure-monitor/app/monitor-performance-live-website-now.md)
-  * [**Java EE**](../../azure-monitor/app/java-live.md)
 * **Tijdens het ontwikkelen: voeg Application Insights toe aan uw code.** Dit stelt u in staat om aangepaste telemetrie te schrijven en om back-end- en desktop-apps te instrumenteren.
   * [Visual Studio](../../azure-monitor/app/asp-net.md) 2013 update 2 of hoger.
   * [Java](../../azure-monitor/app/java-get-started.md)
@@ -117,12 +116,10 @@ Er zijn verschillende manieren om van start te gaan. Begin op de manier die voor
 * **[Analyseer het gebruik van uw mobiele app](../../azure-monitor/learn/mobile-center-quickstart.md)** door de service te integreren met Visual Studio App Center.
 * **[Beschikbaarheidstests](../../azure-monitor/app/monitor-web-app-availability.md)** - ping uw website regelmatig vanaf onze servers.
 
-
 ## <a name="next-steps"></a>Volgende stappen
 Gebruik tijdens runtime:
 
 * [IIS-server](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Java EE-server](../../azure-monitor/app/java-live.md)
 
 Gebruik tijdens het ontwikkelen:
 

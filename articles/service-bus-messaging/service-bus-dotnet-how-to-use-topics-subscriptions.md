@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 535dd04efd9f150365b24ae175ee90fbb247305f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 28b15e950aa4ebbfcb1b04bfd495b3accf13528e
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846673"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586899"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Aan de slag met Service Bus-onderwerpen
 
@@ -41,40 +41,11 @@ Deze zelfstudie bestaat uit de volgende stappen:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Een naamruimte maken met de Azure-portal
-
-> [!NOTE] 
-> U kunt ook een Service Bus-naamruimte en berichtentiteiten maken met [PowerShell](/powershell/azure/get-started-azureps). Zie voor meer informatie [PowerShell gebruiken om Service Bus-resources te beheren](service-bus-manage-with-ps.md).
-
-Als u al een Service Bus Messaging-naamruimte hebt gemaakt, gaat u naar het gedeelte [Een onderwerp maken met de Azure-portal](#2-create-a-topic-using-the-azure-portal).
-
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="2-create-a-topic-using-the-azure-portal"></a>2. Een onderwerp maken met de Azure-portal
+[!INCLUDE [service-bus-create-topics-subscriptions-portal](../../includes/service-bus-create-topics-subscriptions-portal.md)]
 
-1. Meld u aan bij [Azure Portal][azure-portal].
-2. Klik in het navigatiedeelvenster links in de portal op **Service Bus** (als u **Service Bus** niet ziet, klik dan op **Alle services** of op **Alle resources**). Klik op de naamruimte waarin u het onderwerp wilt maken. 
-3. Het overzichtsvenster voor de naamruimte wordt geopend. Klik op **Onderwerpen**:
-   
-    ![Een onderwerp maken][createtopic1]
-4. Klik op **+ Onderwerp**.
-   
-    ![Onderwerpen selecteren][createtopic2]
-5. Voer een naam in voor het onderwerp. Houd voor de overige opties de standaardwaarden aan.
-   
-    ![Selecteer Nieuw][createtopic3]
-6. Klik onder aan het dialoogvenster op **Maken**.
-
-## <a name="3-create-a-subscription-to-the-topic"></a>3. Een abonnement op het onderwerp maken
-
-1. In het resourcesdeelvenster van de portal klik u op de naamruimte die u in stap 1 hebt gemaakt en klikt u op **Onderwerpen** en vervolgens op de naam van het onderwerp dat u in stap 2 hebt gemaakt.
-2. Klik bovenaan het overzichtsvenster op **+ Abonnement** om een abonnement toe te voegen aan dit onderwerp.
-
-    ![Abonnement maken][createtopic4]
-
-3. Voer een naam in voor het abonnement. Houd voor de overige opties de standaardwaarden aan.
-
-## <a name="4-send-messages-to-the-topic"></a>4. Berichten naar het onderwerp verzenden
+## <a name="send-messages-to-the-topic"></a>Berichten naar het onderwerp verzenden
 
 Maak een C#-consoletoepassing met Visual Studio om berichten naar het onderwerp te verzenden.
 
@@ -231,7 +202,7 @@ Start Visual Studio en maak een nieuwe **consoletoepassing (.NET Core)**.
    
       ![Berichtgrootte][topic-message]
 
-## <a name="5-receive-messages-from-the-subscription"></a>5. Berichten ontvangen van het abonnement
+## <a name="receive-messages-from-the-subscription"></a>Berichten ontvangen van het abonnement
 
 Als u berichten wilt ontvangen die u zojuist hebt verzonden, maakt u een andere .NET Core-consoletoepassing en installeert u het **Microsoft.Azure.ServiceBus** NuGet-pakket, zoals ook met de voorgaande verzendtoepassing is gedaan.
 

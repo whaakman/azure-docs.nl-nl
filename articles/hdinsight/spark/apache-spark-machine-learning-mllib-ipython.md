@@ -8,21 +8,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 02/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2a566312e70e0c1d5f85a540f30ecdf0adc0e7e7
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: b5d1908201de803ae065403600fc3478e604eedd
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653710"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959099"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Apache Spark MLlib een machine learning-toepassing bouwen en analyseren van een gegevensset gebruiken
 
 Informatie over het gebruik van Apache Spark [MLlib](https://spark.apache.org/mllib/) te maken van een machine learning-toepassing eenvoudig voorspellende analyse uitvoeren op een open-gegevensset. Van Spark van ingebouwde machine learning-bibliotheken, in dit voorbeeld wordt *classificatie* via logistieke regressie. 
-
-> [!TIP]  
-> In dit voorbeeld is ook beschikbaar als een [Jupyter-Notebook](https://jupyter.org/) op een Spark (Linux)-cluster die u in HDInsight maakt. De notebookervaring kunt u de Python-codefragmenten uitvoeren vanuit het notitieblok zelf. Volg de zelfstudie uit binnen een laptop, een Spark-cluster maken en starten van een Jupyter-notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`). Vervolgens voert u de notebook **Spark Machine Learning - voorspellende analyse van voedsel inspectie gegevens met behulp van MLlib.ipynb** onder de **Python** map.
 
 MLlib is een core Spark-bibliotheek met vele nuttige hulpprogramma's voor machine learning-taken, waaronder hulpprogramma's die geschikt zijn voor:
 
@@ -49,7 +46,7 @@ In de onderstaande stappen kunt u een model om te zien wat die nodig is voor het
 
 1. Maak een Jupyter-notebook met behulp van de PySpark-kernel. Zie [Een Jupyter-notebook maken](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook) voor de instructies.
 
-2. Importeer de typen die zijn vereist voor deze toepassing. Kopieer en plak de volgende code in een lege cel en druk vervolgens op **SHIRT + ENTER**.
+2. Importeer de typen die zijn vereist voor deze toepassing. Kopieer en plak de volgende code in een lege cel en druk vervolgens op **SHIFT + ENTER**.
 
     ```PySpark
     from pyspark.ml import Pipeline
@@ -173,7 +170,7 @@ Laten we beginnen aan een idee van wat de gegevensset bevat.
 
     ```PySpark
     %%sql -o countResultsdf
-    SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
+    SELECT COUNT(results) AS cnt, results FROM CountResults GROUP BY results
     ```
 
     De `%%sql` magic gevolgd door `-o countResultsdf` zorgt ervoor dat de uitvoer van de query lokaal worden bewaard op de Jupyter-server (meestal het hoofdknooppunt van het cluster). De uitvoer wordt opgeslagen als een [Pandas](https://pandas.pydata.org/) gegevensframe met de opgegeven naam **countResultsdf**. Voor meer informatie over de `%%sql` magic, en andere magics die beschikbaar zijn met de PySpark-kernel, Zie [beschikbare Kernels op Jupyter-notebooks met Apache Spark HDInsight-clusters](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
@@ -200,14 +197,6 @@ Laten we beginnen aan een idee van wat de gegevensset bevat.
     De uitvoer is:
 
     ![Spark machine learning-toepassing-uitvoer - cirkeldiagram met vijf verschillende resultaten](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-1.png "Spark machine learning-resultaat uitvoer")
-
-    Er zijn 5 verschillende resultaten genereren die een controle kan hebben:
-
-    - Bedrijven niet vinden
-    - Mislukt
-    - Geslaagd
-    - Doorgeven met voorwaarden
-    - Buiten het bedrijf
 
     Om te voorspellen een resultaat van de inspectie food, moet u een model op basis van de schendingen te ontwikkelen. Omdat logistieke regressie een binaire classificatie-methode is, worden het verstandig om de resulterende gegevens te groeperen in twee categorieën: **Mislukken** en **doorgeven**:
 
@@ -272,7 +261,7 @@ U kunt het model dat u eerder naar gemaakt *voorspellen* wat de resultaten van d
 1. Voer de volgende code voor het maken van een nieuwe dataframe **predictionsDf** die de voorspelling die worden gegenereerd door het model bevat. Het fragment maakt ook een tijdelijke tabel genaamd **voorspellingen** op basis van het gegevensframe.
 
     ```PySpark
-    testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
+    testData = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
                 .map(csvParse) \
                 .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
     testDf = spark.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
@@ -284,10 +273,6 @@ U kunt het model dat u eerder naar gemaakt *voorspellen* wat de resultaten van d
     Als het goed is, wordt ongeveer de volgende uitvoer weergegeven:
 
     ```
-    # -----------------
-    # THIS IS AN OUTPUT
-    # -----------------
-
     ['id',
         'name',
         'results',
@@ -321,10 +306,6 @@ U kunt het model dat u eerder naar gemaakt *voorspellen* wat de resultaten van d
     De uitvoer ziet er als volgt uit:
 
     ```
-    # -----------------
-    # THIS IS AN OUTPUT
-    # -----------------
-
     There were 9315 inspections and there were 8087 successful predictions
     This is a 86.8169618894% success rate
     ```
@@ -377,7 +358,7 @@ U kunt nu een definitieve visualisatie te maken u over de resultaten van deze te
     In deze grafiek verwijst "" positief naar de mislukte food inspectie, terwijl een negatief resultaat naar een doorgegeven controle verwijst.
 
 ## <a name="shut-down-the-notebook"></a>De notebook afsluiten
-Wanneer u klaar bent met het uitvoeren van de toepassing, moet u het notitieblok om de resources vrij te geven afsluiten. Dit doet u door in het menu **Bestand** in de notebook te klikken op **Sluiten en stoppen**. Dit wordt afgesloten en sluit u de notebook.
+Wanneer u klaar bent met het uitvoeren van de toepassing, moet u het notitieblok om de resources vrij te geven afsluiten. Selecteer hiervoor **Sluiten en stoppen** in het menu **Bestand** van het notebook. Dit wordt afgesloten en sluit u de notebook.
 
 ## <a name="seealso"></a>Zie ook
 * [Overzicht: Apache Spark in Azure HDInsight](apache-spark-overview.md)

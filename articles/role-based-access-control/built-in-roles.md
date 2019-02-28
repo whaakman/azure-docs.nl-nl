@@ -15,16 +15,16 @@ ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 106cda22f8f7c54441f438b61eb427446f36a69a
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: ce9ef687643de7ec9b289f74feea613fb9a1db7a
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807487"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960603"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ingebouwde rollen voor Azure-resources
 
-[Op rollen gebaseerd toegangsbeheer (RBAC)](overview.md) heeft diverse ingebouwde rollen voor Azure-resources die u aan gebruikers, groepen, service-principals en beheerde identiteiten toewijzen kunt. Roltoewijzingen zijn de manier waarop u de toegang tot Azure-resources beheren. Als de ingebouwde rollen niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen [aangepaste rollen voor Azure-resources](custom-roles.md).
+[Op rollen gebaseerd toegangsbeheer (RBAC)](overview.md) heeft diverse ingebouwde rollen voor Azure-resources die u aan gebruikers, groepen, service-principals en beheerde identiteiten toewijzen kunt. Roltoewijzingen zijn de manier waarop u de toegang tot Azure-resources beheren. Als de ingebouwde rollen niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen [aangepaste rollen maken voor Azure-resources](custom-roles.md).
 
 In dit artikel geeft een lijst van de ingebouwde rollen voor Azure-resources, die altijd zijn nog in ontwikkeling. Als u de nieuwste functies, gebruikt [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) of [az role definitielijst](/cli/azure/role/definition#az-role-definition-list). Als u op zoek bent voor de beheerdersrollen voor Azure Active Directory, Zie [rol beheerdersmachtigingen in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
@@ -1628,11 +1628,11 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Insights/Register/Action | De Microsoft Insights-provider registeren |
 > | Microsoft.Insights/scheduledqueryrules/* |  |
 > | Microsoft.Insights/webtests/* | Lezen/schrijven/verwijderen Application Insights-webtests. |
-> | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Oplossingspakketten voor lezen/schrijven/verwijderen Log Analytics. |
-> | Microsoft.OperationalInsights/workspaces/savedSearches/* | Lezen, schrijven en verwijderen met Log Analytics opgeslagen zoekopdrachten. |
+> | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Oplossingspakketten voor lezen/schrijven/verwijderen log analytics. |
+> | Microsoft.OperationalInsights/workspaces/savedSearches/* | Lezen, schrijven en verwijderen met log analytics opgeslagen zoekopdrachten. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Een zoekquery uitgevoerd |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/action | Hiermee haalt u de gedeelde sleutels voor de werkruimte. Deze sleutels worden gebruikt om agents van Microsoft Operational Insights verbinding naar de werkruimte te maken. |
-> | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | Lezen/schrijven/verwijderen Log Analytics insight opslagconfiguraties. |
+> | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | Lezen/schrijven/verwijderen log analytics insight opslagconfiguraties. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
@@ -1831,7 +1831,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | Microsoft.Authorization/policySetDefinitions/* | Maken en beheren van beleid instellen |
 > | Microsoft.Insights/alertRules/* | Maken en beheren van regels voor waarschuwingen |
 > | Microsoft.Management/managementGroups/read | Lijst met beheergroepen omwille van de geverifieerde gebruiker. |
-> | Microsoft.operationalInsights/workspaces/*/read | Log Analytics-gegevens weergeven |
+> | Microsoft.operationalInsights/workspaces/*/read | Log analytics-gegevens weergeven |
 > | Microsoft.Resources/deployments/* | Maken en beheren van brongroepimplementaties |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Security/*/read | Onderdelen van de veiligheid lezen en het beleid |
@@ -1886,7 +1886,7 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
 > | Microsoft.Insights/alertRules/* | Maken en beheren van regels voor waarschuwingen |
-> | Microsoft.operationalInsights/workspaces/*/read | Log Analytics-gegevens weergeven |
+> | Microsoft.operationalInsights/workspaces/*/read | Log analytics-gegevens weergeven |
 > | Microsoft.Resources/deployments/* | Maken en beheren van brongroepimplementaties |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Security/*/read | Onderdelen van de veiligheid lezen en het beleid |
@@ -2594,5 +2594,5 @@ De volgende tabel bevat een korte beschrijving van de ingebouwde rol. Klik op de
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Aangepaste rollen voor Azure-resources](custom-roles.md)
-- [Toegang tot Azure-resources met behulp van RBAC en de Azure-portal beheren](role-assignments-portal.md)
+- [Toegang tot Azure-resources beheren met op rollen gebaseerd toegangsbeheer en de Azure-portal](role-assignments-portal.md)
 - [Machtigingen in Azure Security Center](../security-center/security-center-permissions.md)

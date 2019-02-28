@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: aljo, subramar
-ms.openlocfilehash: 2ae533c81e68f8f6a32ad8fa0e45aed3c63eceb9
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: cb918516a9180b4bffdc72c688df5d830e83833a
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805253"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959660"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Netwerkmodi voor service Fabric-containers
 
@@ -30,7 +30,7 @@ Als u een containerservice met een statisch eindpunt in het servicemanifest hebt
 Wanneer een containerservice opnieuw wordt opgestart of naar een ander knooppunt in het cluster verplaatst, wordt het IP-adres verandert. Om deze reden wordt niet aanbevolen met dynamisch toegewezen IP-adres voor het detecteren van containerservices. Alleen de Service Fabric Naming-Service of de DNS-Service moet worden gebruikt voor de servicedetectie. 
 
 >[!WARNING]
->Met Azure kunt een totaal van 4096 IP-adressen per virtueel netwerk. De som van het aantal knooppunten en het aantal exemplaren van de container service (die gebruikmaakt van Open-modus) kan niet groter zijn dan 4096 IP-adressen binnen een virtueel netwerk. Voor scenario's met hoge dichtheid raden wij netwerken nat-modus.
+>Met Azure kunt een totaal van 65,356 IP-adressen per virtueel netwerk. De som van het aantal knooppunten en het aantal exemplaren van de container service (die gebruikmaakt van Open-modus) kan niet groter zijn dan 65,356 IP-adressen binnen een virtueel netwerk. Voor scenario's met hoge dichtheid raden wij netwerken nat-modus. Bovendien andere afhankelijkheden, zoals de load balancer hebben andere [beperkingen](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits) om te overwegen. Op dit moment maximaal 50 IP-adressen per knooppunt zijn getest en bewezen stabiel. 
 >
 
 ## <a name="set-up-open-networking-mode"></a>Open netwerken modus instellen

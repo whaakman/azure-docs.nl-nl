@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: f21d92dabfcfbe51cf8135388a1ab489c20593a4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 56e203a212a4e0e81922336f72fd58ef3cb7dc64
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537542"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983503"
 ---
 # <a name="azure-networking"></a>Azure-netwerken
 
@@ -126,7 +126,7 @@ U kunt filteren, verkeer van en naar Azure-resources met de volgende opties:
 
 Als u nodig hebt voor netwerkmogelijkheden Azure niet bieden, of wilt u on-premises gebruiken netwerktoepassingen gebruiken, kunt u de producten implementeren in virtuele machines en verbind deze met uw VNet. De [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances) bevat diverse verschillende virtuele machines die vooraf is geconfigureerd met netwerktoepassingen u momenteel mag gebruiken. Deze vooraf geconfigureerde VM's worden gewoonlijk aangeduid als virtuele netwerkapparaten (NVA). NVA's zijn beschikbaar met toepassingen zoals firewalls en WAN-optimalisatie.
 
-## <a name="routing"></a>Routering
+## <a name="routing"></a>Routing
 
 Azure maakt standaard routetabellen waarmee de resources die zijn verbonden met een subnet in elk VNet om te communiceren met elkaar. U kunt een of beide van de volgende typen van routes voor de onderdrukking van de maakt Azure standaardroutes implementeren:
 - **De gebruiker gedefinieerde:** U kunt aangepaste routetabellen maken met routes die bepalen waar verkeer naartoe wordt doorgestuurd voor elk subnet. Lees het artikel [User-defined routes](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) (Door de gebruiker gedefinieerde routes) voor meer informatie over door de gebruiker gedefinieerde routes.
@@ -136,9 +136,9 @@ Azure maakt standaard routetabellen waarmee de resources die zijn verbonden met 
 
 Azure biedt de volgende hulpprogramma's om te controleren en beheren van netwerken:
 - **Activiteitenlogboeken:** Alle Azure-resources hebben activiteitenlogboeken Hier vindt u informatie over bewerkingen hebben plaatsgevonden, status van bewerkingen en wie de bewerking heeft gestart. Lees voor meer informatie over activiteitenlogboeken, de [activiteitenlogboeken overzicht](../azure-monitor/platform/activity-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel.
-- **Logboeken met diagnostische gegevens:** Periodieke en spontaan gebeurtenissen worden gemaakt met netwerkbronnen en geregistreerd in Azure storage-accounts, verzonden naar een Azure Event Hub of naar Azure Log Analytics verzonden. Diagnoselogboeken bieden inzicht in de status van een resource. Logboeken met diagnostische gegevens zijn opgegeven voor de Load Balancer (internetgerichte), Network Security Groups, routes en Application Gateway. Lees voor meer informatie over de logboeken met diagnostische gegevens, de [diagnostische logboeken overzicht](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel.
+- **Logboeken met diagnostische gegevens:** Periodieke en spontaan gebeurtenissen worden gemaakt met netwerkbronnen en geregistreerd in Azure storage-accounts, verzonden naar een Azure Event Hub of verzonden naar Azure Monitor-Logboeken. Diagnoselogboeken bieden inzicht in de status van een resource. Logboeken met diagnostische gegevens zijn opgegeven voor de Load Balancer (internetgerichte), Network Security Groups, routes en Application Gateway. Lees voor meer informatie over de logboeken met diagnostische gegevens, de [diagnostische logboeken overzicht](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel.
 - **Metrische gegevens:** Metrische gegevens zijn metingen van de prestaties en de tellers die zijn verzameld gedurende een bepaalde periode op resources. Metrische gegevens kan worden gebruikt voor het activeren van waarschuwingen op basis van drempelwaarden. Metrische gegevens zijn momenteel beschikbaar in Application Gateway. Lees voor meer informatie over metrische gegevens, de [overzicht van metrische gegevens](../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel.
-- **Probleemoplossing:** Informatie over probleemoplossing is toegankelijk rechtstreeks in Azure portal. De informatie helpt bij het vaststellen van veelvoorkomende problemen met ExpressRoute, VPN-Gateway, Application Gateway, netwerk-Logboeken, Routes, DNS, Load Balancer en Traffic Manager.
+- **Problemen oplossen:** Informatie over probleemoplossing is toegankelijk rechtstreeks in Azure portal. De informatie helpt bij het vaststellen van veelvoorkomende problemen met ExpressRoute, VPN-Gateway, Application Gateway, netwerk-Logboeken, Routes, DNS, Load Balancer en Traffic Manager.
 - **Op rollen gebaseerd toegangsbeheer (RBAC):** Bepalen wie kunt maken en beheren van netwerkresources met op rollen gebaseerd toegangsbeheer (RBAC). Meer informatie over RBAC vindt de [aan de slag met RBAC](../role-based-access-control/overview.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel. 
 - **Pakketopname:** De service Azure Network Watcher biedt de mogelijkheid om uit te voeren van een pakketopname op een virtuele machine via een extensie in de virtuele machine. Deze mogelijkheid is beschikbaar voor Linux- en Windows-machines. Lees voor meer informatie over de pakketopname de [overzicht van Pakketopname](../network-watcher/network-watcher-packet-capture-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel.
 - **Controleer of IP-stromen:** Network Watcher kunt u controleren of IP-stromen tussen een Azure-VM en een externe bron om te bepalen of er pakketten worden toegestaan of geweigerd. Deze mogelijkheid biedt beheerders de mogelijkheid om snel verbindingsproblemen vast te stellen. Lees voor meer informatie over het IP-stromen controleren de [IP-stroom controleren overzicht](../network-watcher/network-watcher-ip-flow-verify-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel.

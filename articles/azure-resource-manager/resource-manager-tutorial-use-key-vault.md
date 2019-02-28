@@ -10,16 +10,16 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/25/2019
+ms.date: 02/26/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 7371808db8d40948f501b051692172fd6a84e2ac
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 1390a3be20dd1fc66bb04939f9ce41139db3cb2e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270212"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873267"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Zelfstudie: Azure Key Vault integreren in de Resource Manager-sjabloonimplementatie
 
@@ -66,15 +66,23 @@ Uw Azure AD-gebruikersobject-id is in de sjabloon nodig om machtigingen te kunne
 
 1. Voer de volgende Azure PowerShell- of Azure CLI-opdracht uit.  
 
+    # <a name="clitabcli"></a>[CLI](#tab/CLI)
     ```azurecli-interactive
     echo "Enter your email address that is associated with your Azure subscription):" &&
     read upn &&
     az ad user show --upn-or-object-id $upn --query "objectId" &&
-    ```
+    ```   
+    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
     ```azurepowershell-interactive
-    $upn = Read-Host -Prompt "Input your user principal name (email address) used to sign in to Azure"
+    $upn = Read-Host -Prompt "Enter your user principal name (email address) used to sign in to Azure"
     (Get-AzADUser -UserPrincipalName $upn).Id
     ```
+    of
+    ```azurepowershell-interactive
+    $displayName = Read-Host -Prompt "Enter your user display name (i.e. John Dole, see the upper right corner of the Azure portal)"
+    (Get-AzADUser -DisplayName $displayName).Id
+    ```
+    ---
 2. Noteer de object-id. U hebt deze verderop in de zelfstudie nodig.
 
 U maakt als volgt een sleutelkluis:
@@ -187,12 +195,9 @@ $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
-    -TemplateFile azuredeploy.json `
-    -TemplateParameterFile azuredeploy.parameters.json
+    -TemplateFile "$HOME/azuredeploy.json" `
+    -TemplateParameterFile "$HOME/azuredeploy.parameters.json"
 ```
-
-> [!NOTE]
-> Er is een bestands-IO-probleem met het gebruik van Azure PowerShell in de Cloud-shell.  Het foutbericht is *Kan de dynamische parameters voor de cmdlet niet ophalen. Kan pad 'Azure:/azuredeploy.json' niet vinden omdat het niet bestaat.*  Een tijdelijke oplossing is om de schakelopties **-TemplateFile** en **TemplateParameterFile** niet op te nemen in de opdracht `New-AzResourceGroupDeploy`. U wordt gevraagd om de bestandsnaam in te voeren.
 
 Wanneer u de sjabloon implementeert, gebruikt u dezelfde resourcegroep als die van de sleutelkluis. Dit is handiger bij het opschonen van de resources. U hoeft dan slechts één resourcegroep te verwijderen in plaats van twee.
 

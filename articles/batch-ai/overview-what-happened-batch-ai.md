@@ -7,12 +7,12 @@ ms.service: batch-ai
 ms.topic: overview
 ms.date: 2/14/2019
 ms.author: garye
-ms.openlocfilehash: 87dcf18a2517561e3166726f8f1f1a70c2ec7713
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: fb1114e94c227ce6787532c6059186399d0f57f0
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447800"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961348"
 ---
 # <a name="whats-happening-to-azure-batch-ai"></a>Wat gebeurt er met Azure Batch AI?
 
@@ -282,7 +282,7 @@ ds = ws.get_default_datastore()
 print(ds.datastore_type, ds.account_name, ds.container_name)
 ```
 
-Meer informatie over het registreren van extra opslagaccounts of het ophalen van een verwijzing naar een andere geregistreerde gegevensopslag vindt u in de [documentatie van Azure Machine Learning Service](../machine-learning/service/how-to-access-data.md#create-a-datastore).
+Meer informatie over het registreren van extra opslagaccounts of het ophalen van een verwijzing naar een andere geregistreerde gegevensopslag vindt u in de [documentatie van Azure Machine Learning Service](../machine-learning/service/how-to-access-data.md#access).
 
 
 #### <a name="downloading-and-uploading-data"></a>Gegevens downloaden en uploaden 
@@ -434,7 +434,7 @@ estimator = TensorFlow(source_directory=project_folder,
                        use_gpu=True)
 ```
 
-De volledige informatie voor dit codefragment voor de training (inclusief het bestand tf_mnist_replica.py) vindt u hier: [Azure ML sample notebook github repo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/distributed-tensorflow-with-parameter-server) (GitHub-opslagplaats met de Azure Machine Learning-voorbeeldnotebook). De gegevensopslag zelf kan worden gekoppeld aan de afzonderlijke knooppunten, maar de trainingsgegevens kunnen ook in het knooppunt zelf worden gedownload. Meer informatie over het verwijzen naar de gegevensopslag in uw Estimator vindt u in de [documentatie van Azure Machine Learning Service](../machine-learning/service/how-to-access-data.md#access-datastores-for-training). 
+De volledige informatie voor dit codefragment voor de training (inclusief het bestand tf_mnist_replica.py) vindt u hier: [Azure ML sample notebook github repo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/distributed-tensorflow-with-parameter-server) (GitHub-opslagplaats met de Azure Machine Learning-voorbeeldnotebook). De gegevensopslag zelf kan worden gekoppeld aan de afzonderlijke knooppunten, maar de trainingsgegevens kunnen ook in het knooppunt zelf worden gedownload. Meer informatie over het verwijzen naar de gegevensopslag in uw Estimator vindt u in de [documentatie van Azure Machine Learning Service](../machine-learning/service/how-to-access-data.md#access). 
 
 U kunt een uitvoering in Azure Machine Learning Service indienen via de verzendfunctie.
 

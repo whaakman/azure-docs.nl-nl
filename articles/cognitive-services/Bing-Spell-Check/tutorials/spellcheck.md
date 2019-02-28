@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: tutorial
-ms.date: 09/28/2017
+ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 086bcbe48fbace1a199e195e32fd1ad1bbd6ff46
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0a7b8637ae3ca7342a04f6bf3f8a808539d980eb
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869888"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886159"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>Zelfstudie: Een webpagina met Spellingcontrole bouwen
 
-In deze zelfstudie bouwen we een webpagina waarmee gebruikers query's kunnen uitvoeren op de Spellingcontrole-API voor Bing.
+In deze zelfstudie bouwen we een webpagina waarmee gebruikers query's kunnen uitvoeren op de Spellingcontrole-API voor Bing. De broncode voor deze toepassing is beschikbaar [op GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingSpellCheckApp.html).
 
 In deze zelfstudie ontdekt u hoe u:
 

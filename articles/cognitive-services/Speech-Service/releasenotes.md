@@ -11,14 +11,22 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 0f5452e3abbde40c247ef7e000b84fc3eb00c943
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: e389df02966146b217802d4e93f844a4fee425a3
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446831"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958643"
 ---
 # <a name="release-notes"></a>Releaseopmerkingen
+
+## <a name="speech-sdk-131-2019-february-refresh"></a>Speech SDK 1.3.1: Februari 2019 vernieuwen
+
+Dit is een opgelost probleem release en alleen gevolgen heeft voor de SDK systeemeigen of worden beheerd. Het is niet van invloed op de JavaScript-versie van de SDK.
+
+**Opgelost probleem**
+
+* Een geheugenlek opgelost bij het gebruik van de invoer van de microfoon. Stream op basis van of het bestand invoer wordt niet beïnvloed.
 
 ## <a name="speech-sdk-130-2019-february-release"></a>Speech SDK 1.3.0: Release van februari 2019
 
@@ -26,6 +34,8 @@ ms.locfileid: "56446831"
 
 * De spraak-SDK biedt ondersteuning voor selectie van de invoer microfoon via de klasse AudioConfig. Hiermee audio om gegevens te streamen met de spraak-Service van een niet-standaard microfoon. Voor meer informatie, Zie de documentatie beschrijven [audio-invoer Apparaatselectie](how-to-select-audio-input-devices.md). Dit is nog niet beschikbaar is via JavaScript.
 * De spraak-SDK biedt nu ondersteuning voor Unity in een bètaversie. Geef feedback via de sectie probleem in de [voorbeeldopslagplaats in GitHub](https://aka.ms/csspeech/samples). Deze release biedt ondersteuning voor Unity op Windows x86 en x64 (desktop of Universal Windows Platform-toepassingen), en Android (ARM32/64, x86). Meer informatie vindt u in onze [Unity-snelstartgids](quickstart-csharp-unity.md).
+* Het bestand `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (geleverd in eerdere versies) wordt niet meer nodig hebt. De functionaliteit is nu geïntegreerd in de core-SDK.
+
 
 **Voorbeelden**
 
@@ -54,6 +64,7 @@ De volgende nieuwe inhoud is beschikbaar in onze [voorbeeldopslagplaats](https:/
   * Eerste ondersteuning en de implementatie voor woordgroep hints.
   * Eigenschappen van verzameling met JSON-service voor opname geretourneerd
 * Windows-DLL's bevat nu een versie-resource.
+* Als u een kenmerk maakt `FromEndpoint` kunt u parameters rechtstreeks aan de eindpunt-URL toevoegen. Met behulp van `FromEndpoint` kunt u de herkenning via de standaard configuratie-eigenschappen niet configureren.
 
 **Oplossingen voor problemen**
 

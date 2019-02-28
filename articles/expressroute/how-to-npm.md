@@ -8,16 +8,18 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 93fd42739e0ec8ca9230688274b31fac5edf216d
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: fb9ee97726632b7eeccc923596c1f5527a7c95bd
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098575"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961604"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Netwerkprestatiemeter configureren voor ExpressRoute
 
-Dit artikel helpt u bij het configureren van een extensie voor Network Performance Monitor voor het controleren van ExpressRoute. (Netwerkprestatiemeter) is een cloud-gebaseerde Netwerkcontrole-oplossing waarmee connectiviteit tussen Azure-cloud-implementaties en on-premises locaties (filialen, enzovoort) worden gecontroleerd. NPM maakt deel uit van Log Analytics. NPM biedt een uitbreiding voor ExpressRoute waarmee u het bewaken van prestaties van het netwerk via ExpressRoute-circuits die zijn geconfigureerd voor gebruik van persoonlijke peering of Microsoft-peering. Wanneer u NPM voor ExpressRoute configureren, kunt u netwerkproblemen identificeren en oplossen detecteren. Deze service is ook beschikbaar voor Azure Government-Cloud.
+Dit artikel helpt u bij het configureren van een extensie voor Network Performance Monitor voor het controleren van ExpressRoute. (Netwerkprestatiemeter) is een cloud-gebaseerde Netwerkcontrole-oplossing waarmee connectiviteit tussen Azure-cloud-implementaties en on-premises locaties (filialen, enzovoort) worden gecontroleerd. NPM is onderdeel van Azure Monitor-Logboeken. NPM biedt een uitbreiding voor ExpressRoute waarmee u het bewaken van prestaties van het netwerk via ExpressRoute-circuits die zijn geconfigureerd voor gebruik van persoonlijke peering of Microsoft-peering. Wanneer u NPM voor ExpressRoute configureren, kunt u netwerkproblemen identificeren en oplossen detecteren. Deze service is ook beschikbaar voor Azure Government-Cloud.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 U kunt:
 
@@ -98,7 +100,7 @@ Het is raadzaam dat u ten minste twee agents op elke zijde van de ExpressRoute-v
 2. Klik op de pagina **Welkom** op **Volgende**.
 3. Op de **licentievoorwaarden** pagina, lees de gebruiksrechtovereenkomst en klik vervolgens op **ik ga akkoord**.
 4. Op de **doelmap** pagina, wijzigen of desgewenst de standaardinstallatiemap en klik vervolgens op **volgende**.
-5. Op de **installatieopties voor Agent** pagina die u kunt kiezen om de agent verbinden met Azure Log Analytics of Operations Manager. Of u kunt de opties leeg laten als u wilt configureren van de agent later opnieuw. Nadat u uw selection(s), klikt u op **volgende**.
+5. Op de **installatieopties voor Agent** pagina die u kunt kiezen om de agent verbinden met Azure Monitor-Logboeken of Operations Manager. Of u kunt de opties leeg laten als u wilt configureren van de agent later opnieuw. Nadat u uw selection(s), klikt u op **volgende**.
 
   * Als u wilt verbinding maken met **Azure Log Analytics**, plak de **werkruimte-ID** en **Werkruimtesleutel** (primaire sleutel) die u in Kladblok in de vorige sectie hebt gekopieerd. Klik op **Volgende**.
 
@@ -111,7 +113,7 @@ Het is raadzaam dat u ten minste twee agents op elke zijde van de ExpressRoute-v
     ![Account](./media/how-to-npm/10.png)
 6. Op de **gereed voor installatie** pagina, Controleer uw keuzes en klik vervolgens op **installeren**.
 7. Klik op de pagina **Configuratie voltooid** op **Voltooien**.
-8. Als u klaar bent, is de Microsoft Monitoring Agent wordt weergegeven in het Configuratiescherm. U kunt de configuratie controleren en verifiëren dat de agent is verbonden met Azure Log Analytics. Wanneer verbinding is gemaakt, wordt de agent een bericht weergegeven: **De Microsoft Monitoring Agent verbonden is met de Microsoft Operations Management Suite service**.
+8. Als u klaar bent, is de Microsoft Monitoring Agent wordt weergegeven in het Configuratiescherm. U kunt de configuratie controleren en verifiëren dat de agent is verbonden met Azure Monitor-Logboeken. Wanneer verbinding is gemaakt, wordt de agent een bericht weergegeven: **De Microsoft Monitoring Agent verbonden is met de Microsoft Operations Management Suite service**.
 
 9. Herhaal deze procedure voor elke VNET die u nodig hebt om te worden bewaakt.
 
@@ -135,7 +137,7 @@ U kunt eenvoudig controleren of uw agents communiceren.
 1. Open op een server met de monitoring agent, de **Configuratiescherm**.
 2. Open de **Microsoft Monitoring Agent**.
 3. Klik op de **Azure Log Analytics** tabblad.
-4. In de **Status** kolom ziet u de agent is verbonden met Log Analytics.
+4. In de **Status** kolom ziet u dat de agent is verbonden met Azure Monitor-Logboeken.
 
   ![status](./media/how-to-npm/12.png)
 

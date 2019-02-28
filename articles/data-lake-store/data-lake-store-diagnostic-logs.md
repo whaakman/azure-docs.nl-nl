@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 357257d38c444eae8077568993d49816e3c090a3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a0bb320abb31b38461102e0e9a062ea0c2af51fb
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966072"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959575"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Diagnostische logboeken openen voor Azure Data Lake Storage Gen1
 Leer hoe u Diagnostische logboekregistratie voor uw Azure Data Lake Storage Gen1-account en het weergeven van de logboeken die worden verzameld voor uw account inschakelen.
@@ -46,7 +46,7 @@ Organisaties kunnen diagnostische logboekregistratie inschakelen voor hun Gen1 v
         
         * Selecteer de optie voor **Stream naar een event hub** logboek om gegevens te streamen naar een Azure Event Hub. Waarschijnlijk gebruikt u deze optie hebt u een pijplijn downstream-verwerkingen binnenkomende Logboeken in realtime analyseren. Als u deze optie selecteert, moet u de details opgeven voor de Azure Event Hub die u wilt gebruiken.
 
-        * Selecteer de optie voor **verzenden naar Log Analytics** de Azure Log Analytics-service gebruiken voor het analyseren van de gegenereerde logboekgegevens. Als u deze optie selecteert, moet u de details opgeven voor de Log Analytics-werkruimte die u de logboekanalyse uitvoeren gebruikt is. Zie [weergeven of analyseren van gegevens die zijn verzameld met zoeken in Logboeken Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) voor meer informatie over het gebruik van Log Analytics.
+        * Selecteer de optie voor **verzenden naar Log Analytics** de service Azure Monitor gebruiken voor het analyseren van de gegenereerde logboekgegevens. Als u deze optie selecteert, moet u de details opgeven voor de Log Analytics-werkruimte die u de logboekanalyse uitvoeren gebruikt is. Zie [weergeven of analyseren van gegevens die zijn verzameld met Azure Monitor logboeken zoeken](../azure-monitor/learn/tutorial-viewdata.md) logboeken voor meer informatie over het gebruik van Azure Monitor.
      
    * Geef op of u wilt ophalen van de logboeken voor controle of aanvraag zich aanmeldt of beide.
    * Geef het aantal dagen waarvoor gegevens moeten worden bewaard. Bewaarperiode is alleen van toepassing als u Azure storage-account gebruikt voor het archiveren van gegevens aan het logboek.
@@ -113,27 +113,27 @@ Hier volgt een voorbeeldvermelding voor het in het logboek van de aanvraag voor 
     }
 
 #### <a name="request-log-schema"></a>Schema voor het logboek van aanvraag
-| Naam | Type | Beschrijving |
+| Name | Type | Description |
 | --- | --- | --- |
-| tijd |Reeks |De tijdstempel (in UTC) van het logboek |
-| resourceId |Reeks |De ID van de resource die bewerking duurde plaats op |
-| category |Reeks |De logboekcategorie. Bijvoorbeeld, **aanvragen**. |
-| operationName |Reeks |Naam van de bewerking die wordt vastgelegd. Bijvoorbeeld: getfilestatus. |
-| resultType |Reeks |De status van de bewerking, bijvoorbeeld 200. |
-| callerIpAddress |Reeks |Het IP-adres van de client die de aanvraag |
-| correlationId |Reeks |De ID van het logboek die kan worden gebruikt voor het groeperen van een set van gerelateerde vermeldingen |
+| time |String |De tijdstempel (in UTC) van het logboek |
+| resourceId |String |De ID van de resource die bewerking duurde plaats op |
+| category |String |De logboekcategorie. Bijvoorbeeld, **aanvragen**. |
+| operationName |String |Naam van de bewerking die wordt vastgelegd. Bijvoorbeeld: getfilestatus. |
+| resultType |String |De status van de bewerking, bijvoorbeeld 200. |
+| callerIpAddress |String |Het IP-adres van de client die de aanvraag |
+| correlationId |String |De ID van het logboek die kan worden gebruikt voor het groeperen van een set van gerelateerde vermeldingen |
 | identity |Object |De identiteit die het logboek is gegenereerd |
 | properties |JSON |Zie hieronder voor meer informatie |
 
 #### <a name="request-log-properties-schema"></a>Schema voor eigenschappen van aanvraag-logboek
-| Naam | Type | Beschrijving |
+| Name | Type | Description |
 | --- | --- | --- |
-| HttpMethod |Reeks |De HTTP-methode gebruikt voor de bewerking. Bijvoorbeeld, krijgen. |
-| Pad |Reeks |Het pad naar de bewerking is uitgevoerd op |
+| HttpMethod |String |De HTTP-methode gebruikt voor de bewerking. Bijvoorbeeld, krijgen. |
+| Pad |String |Het pad naar de bewerking is uitgevoerd op |
 | RequestContentLength |int |De lengte van de inhoud van de HTTP-aanvraag |
-| clientRequestId |Reeks |De ID die is uniek voor deze aanvraag |
-| startTime |Reeks |Het tijdstip waarop de server de aanvraag ontvangen |
-| Eindtijd |Reeks |Het tijdstip waarop de server een antwoord verzonden |
+| ClientRequestId |String |De ID die is uniek voor deze aanvraag |
+| StartTime |String |Het tijdstip waarop de server de aanvraag ontvangen |
+| EndTime |String |Het tijdstip waarop de server een antwoord verzonden |
 
 ### <a name="audit-logs"></a>Controlelogboeken
 Hier volgt een voorbeeldvermelding voor het in het auditlogboek voor JSON-indeling. Elke blob heeft een basis-object met de naam **records** waarin een matrix met objecten log
@@ -160,25 +160,25 @@ Hier volgt een voorbeeldvermelding voor het in het auditlogboek voor JSON-indeli
     }
 
 #### <a name="audit-log-schema"></a>Schema van auditlogboek
-| Naam | Type | Beschrijving |
+| Name | Type | Description |
 | --- | --- | --- |
-| tijd |Reeks |De tijdstempel (in UTC) van het logboek |
-| resourceId |Reeks |De ID van de resource die bewerking duurde plaats op |
-| category |Reeks |De logboekcategorie. Bijvoorbeeld, **Audit**. |
-| operationName |Reeks |Naam van de bewerking die wordt vastgelegd. Bijvoorbeeld: getfilestatus. |
-| resultType |Reeks |De status van de bewerking, bijvoorbeeld 200. |
-| resultSignature |Reeks |Meer informatie over het opnieuw. |
-| correlationId |Reeks |De ID van het logboek die kan worden gebruikt voor het groeperen van een set van gerelateerde vermeldingen |
+| time |String |De tijdstempel (in UTC) van het logboek |
+| resourceId |String |De ID van de resource die bewerking duurde plaats op |
+| category |String |De logboekcategorie. Bijvoorbeeld, **Audit**. |
+| operationName |String |Naam van de bewerking die wordt vastgelegd. Bijvoorbeeld: getfilestatus. |
+| resultType |String |De status van de bewerking, bijvoorbeeld 200. |
+| resultSignature |String |Meer informatie over het opnieuw. |
+| correlationId |String |De ID van het logboek die kan worden gebruikt voor het groeperen van een set van gerelateerde vermeldingen |
 | identity |Object |De identiteit die het logboek is gegenereerd |
 | properties |JSON |Zie hieronder voor meer informatie |
 
 #### <a name="audit-log-properties-schema"></a>Audit log eigenschappen schema
-| Naam | Type | Beschrijving |
+| Name | Type | Description |
 | --- | --- | --- |
-| StreamName |Reeks |Het pad naar de bewerking is uitgevoerd op |
+| StreamName |String |Het pad naar de bewerking is uitgevoerd op |
 
 ## <a name="samples-to-process-the-log-data"></a>Voorbeelden voor het verwerken van de logboekgegevens
-Bij het verzenden van Logboeken van Azure Data Lake Storage Gen1 met Azure Log Analytics (Zie [weergeven of analyseren van gegevens die zijn verzameld met zoeken in Logboeken Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) voor meer informatie over het gebruik van Log Analytics), de volgende query retourneert een tabel met een lijst van gebruiker namen weergeven, het tijdstip van de gebeurtenissen en het aantal gebeurtenissen voor de tijd van de gebeurtenis, samen met een visuele grafiek. Kan eenvoudig worden gewijzigd om weer te geven van gebruikers-GUID of andere kenmerken:
+Bij het verzenden van Logboeken van Azure Data Lake Storage Gen1 naar Azure Monitor-Logboeken (Zie [weergeven of analyseren van gegevens die zijn verzameld met Azure Monitor logboeken zoeken](../azure-monitor/learn/tutorial-viewdata.md) logboeken voor meer informatie over het gebruik van Azure Monitor), de volgende query retourneert een tabel met een lijst van de gebruiker weergeven namen van de tijd van de gebeurtenissen en het aantal gebeurtenissen voor de tijd van de gebeurtenis, samen met een visuele grafiek. Kan eenvoudig worden gewijzigd om weer te geven van gebruikers-GUID of andere kenmerken:
 
 ```
 search *

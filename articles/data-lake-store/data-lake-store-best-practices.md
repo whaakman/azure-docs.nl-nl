@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 45d828b32984363f611828ca3ea33e5fa96a5017
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 53af7ff840f9d04f0e09010b72e9eefc32a8eadd
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745840"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961887"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Aanbevolen procedures voor het gebruik van Azure Data Lake Storage Gen1
 
@@ -140,7 +140,7 @@ Als Data Lake Storage Gen1 back-upfunctie niet is ingeschakeld, Azure HDInsight 
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG
 
-Als de eigenschap is ingesteld en de knooppunten opnieuw worden opgestart, Data Lake Storage Gen1 diagnostische gegevens naar de YARN-Logboeken is geschreven op de knooppunten (/tmp/\<gebruiker\>/yarn.log), en belangrijke gegevens, zoals fouten of beperking (foutcode HTTP 429) kan worden bewaakt. Deze informatie kan ook worden bewaakt in Log Analytics of waar de logboeken zijn verzonden naar in de [Diagnostics](data-lake-store-diagnostic-logs.md) blade van het Data Lake Storage Gen1-account. Het verdient aanbeveling ten minste client-side-logboekregistratie ingeschakeld of gebruikmaken van de optie met Data Lake Storage Gen1 voor operationele zichtbaarheid en beter foutopsporing-upfunctie voor logboekbestanden.
+Als de eigenschap is ingesteld en de knooppunten opnieuw worden opgestart, Data Lake Storage Gen1 diagnostische gegevens naar de YARN-Logboeken is geschreven op de knooppunten (/tmp/\<gebruiker\>/yarn.log), en belangrijke gegevens, zoals fouten of beperking (foutcode HTTP 429) kan worden bewaakt. Deze informatie kan ook worden bewaakt in de logboeken van Azure Monitor of waar de logboeken zijn verzonden naar in de [Diagnostics](data-lake-store-diagnostic-logs.md) blade van het Data Lake Storage Gen1-account. Het verdient aanbeveling ten minste client-side-logboekregistratie ingeschakeld of gebruikmaken van de optie met Data Lake Storage Gen1 voor operationele zichtbaarheid en beter foutopsporing-upfunctie voor logboekbestanden.
 
 ### <a name="run-synthetic-transactions"></a>Synthetische transacties uitvoeren
 

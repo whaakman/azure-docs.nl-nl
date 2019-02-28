@@ -4,14 +4,14 @@ description: Leer hoe u de open source Azure Cosmos DB-hulpprogramma's voor gege
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 02/22/2019
 ms.author: dech
-ms.openlocfilehash: 972602bb6c5fc80433c2479516f8d0a5d885e4dd
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: c2020688359fafe6cf39dacc84c84ea79251ddbb
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446933"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733347"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Hulpprogramma voor gegevensmigratie gebruiken voor het migreren van uw gegevens naar Azure Cosmos DB
 
@@ -58,7 +58,7 @@ Het hulpprogramma voor importeren bevat een grafische gebruikersinterface (dtui.
 
 ## <a id="Install"></a>Installatie
 
-De broncode van het hulpprogramma voor migratie is beschikbaar op GitHub in [deze opslagplaats](https://github.com/azure/azure-documentdb-datamigrationtool). U kunt de oplossing lokaal downloaden en compileren, of u kunt [een vooraf gecompileerd binair bestand downloaden](https://cosmosdbtools.blob.core.windows.net/datamigrationtool/2019.02.19-1.8.2/dt-1.8.2.zip). Vervolgens voert u een van de volgende opdrachten uit:
+De broncode van het hulpprogramma voor migratie is beschikbaar op GitHub in [deze opslagplaats](https://github.com/azure/azure-documentdb-datamigrationtool). U kunt de oplossing lokaal downloaden en compileren, of u kunt [een vooraf gecompileerd binair bestand downloaden](http://aka.ms/csdmtool). Vervolgens voert u een van de volgende opdrachten uit:
 
 * **Dtui.exe**: grafische-interfaceversie van het hulpprogramma
 * **Dt.exe**: opdrachtregelversie van het hulpprogramma

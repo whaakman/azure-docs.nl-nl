@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: ba9dbeb01be5a9869b69836b118651cff7f0c92d
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 1bb729ecd532edf20a116c88a4773a6bb6617767
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750545"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959201"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Over het gebruik van de Azure WebJobs SDK voor verwerking op de achtergrond gebeurtenisgestuurde
 
@@ -42,7 +42,7 @@ Wanneer mogelijk, voorbeelden die zijn biedt voor beide versie 3.x en versie 2.x
 >
 > Zie voor meer informatie, [Vergelijk de WebJobs SDK en Azure Functions](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs).
 
-## <a name="webhobs-host"></a>WebHobs host
+## <a name="webjobs-host"></a>WebJobs-host
 
 De host is een runtime-container voor functies.  Er wordt geluisterd naar triggers en aanroepen van functies. In versie 3.x, de host is een implementatie van `IHost`, en in versie 2.x die u gebruikt de `JobHost` object. U maakt een instantie van de host in uw code en Schrijf code voor het aanpassen van het gedrag.
 
@@ -283,9 +283,9 @@ De Timer-trigger of de bestanden te gebruiken verbinding maakt, die deel uitmake
 
 De volgende typen van de trigger en binding zijn opgenomen in versie 2.x van de `Microsoft.Azure.WebJobs` pakket:
 
-* Blobopslag
+* Blob Storage
 * Queue Storage
-* Tabelopslag
+* Table Storage
 
 Voor het gebruik van andere trigger en bindingstypen, installeer het NuGet-pakket dat ze bevat en roept een `Use<binding>` methode voor het `JobHostConfiguration` object. Bijvoorbeeld, als u een timertrigger gebruikt wilt, installeert `Microsoft.Azure.WebJobs.Extensions` en roep `UseTimers` in de `Main` methode, zoals in dit voorbeeld:
 
@@ -835,11 +835,11 @@ Elk logboek wordt gemaakt door een `ILogger` exemplaar heeft een bijbehorende `C
 
 |LogLevel    |Code|
 |------------|---|
-|Trace       | 0 |
+|Tracering       | 0 |
 |Fouten opsporen       | 1 |
 |Informatie | 2 |
 |Waarschuwing     | 3 |
-|fOUT       | 4 |
+|Fout       | 4 |
 |Kritiek    | 5 |
 |Geen        | 6 |
 

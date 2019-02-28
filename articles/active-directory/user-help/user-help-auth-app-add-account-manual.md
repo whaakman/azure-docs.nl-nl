@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e82e8f6caafb38b758f552913def234a92a0d83
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 696b6b14b2a369e8b80ac615fc77fa7f48f51c57
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454647"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959932"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Handmatig een account toevoegen aan de app.
 Als uw camera niet kan om vast te leggen van de QR-code, kunt u gegevens over uw account handmatig toevoegen aan de Microsoft Authenticator-app voor tweeledige verificatie. Dit werkt voor werk of schoolaccounts en niet-Microsoft-accounts.
@@ -102,5 +102,7 @@ U kunt uw Amazon-account toevoegen door het inschakelen van tweeledige verificat
 ## <a name="next-steps"></a>Volgende stappen
 
 - Nadat u uw accounts aan de app toevoegen, kunt u zich bij het gebruik van de Microsoft Authenticator-app op uw apparaat. Zie voor meer informatie, [Meld u aan met behulp van de app](user-help-auth-app-sign-in.md).
+
+- Als u problemen bij het ophalen van uw verificatiecode voor uw persoonlijke Microsoft-account ondervindt, raadpleegt u de **code voor verificatie problemen** sectie van de [beveiligingsgegevens voor Microsoft-account & verificatie codes](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) artikel.
 
 - Voor apparaten met iOS, u kunt ook een back-up maken van de accountreferenties van uw en appinstellingen, zoals de volgorde van uw accounts, die betrekking hebben op de cloud. Zie voor meer informatie, [back-up en herstellen met de Microsoft Authenticator-app](user-help-auth-app-backup-recovery.md).

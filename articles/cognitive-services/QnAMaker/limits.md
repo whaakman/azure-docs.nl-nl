@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 02/26/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 424aa7038fecba7a11c1ccaa07053cf2e1606835
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: fe15cafceea8128735f7241fa5e4187d4d9c47a9
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651124"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960051"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker kennisdatabase limieten en grenzen
 Uitgebreide lijst met limieten voor QnA Maker.
@@ -52,7 +52,7 @@ Algemene beperkingen met betrekking tot de inhoud in het knowledge base:
 * De lengte van bestandsnaam: 200
 * Ondersteunde bestandsindelingen: ".tsv", '.pdf', '.txt', ".docx", '.xlsx'.
 * Maximum aantal alternatieve vragen: 100
-* Maximum aantal paren met vraag-antwoord: Afhankelijk van de [Azure Search tier](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) gekozen 
+* Maximum aantal paren met vraag-antwoord: Afhankelijk van de [Azure Search tier](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) gekozen. Een sleutelpaar met een vraag en antwoord toegewezen aan een document van Azure Search-index. 
 
 ## <a name="create-knowledge-base-call-limits"></a>Limieten voor Knowledge base-aanroep maken:
 Deze vertegenwoordigen de limieten voor elk maken knowledge base-actie. dat wil zeggen, te klikken op *maken KB* of de CreateKnowledgeBase-API aan te roepen.

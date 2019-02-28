@@ -13,12 +13,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e11092057af3a7a16c60e55837f31ac3004e42a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 40be6f333bf259cc036bec9c0d9fc967dd33f2a3
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184836"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960034"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Download en installeer de Microsoft Authenticator-app
 Met de Microsoft Authenticator-app kunt u zich aanmelden bij uw accounts als u gebruikmaakt van verificatie in twee stappen. Verificatie in twee stappen helpt u veiliger toegang te krijgen tot uw accounts, vooral als u gevoelige informatie bekijkt. Omdat wachtwoorden kunnen worden vergeten, gestolen of gewijzigd, is verificatie in twee stappen een extra beveiligingsstap waarmee u uw account beschermt door het voor anderen lastiger te maken om in te breken.
@@ -28,6 +28,9 @@ U kunt de Microsoft Authenticator-app op meerdere manieren gebruiken, bijvoorbee
 - **Tweeledige verificatie.** De standaard verificatiemethode, waarbij een van de factoren het wachtwoord is. Nadat u zich aanmelden met uw gebruikersnaam en wachtwoord, kunt u een melding goed te keuren of een opgegeven verificatiecode.
 
 - **Aanmelden via telefoon.** Een versie van verificatie met twee factoren waarmee u kunt aanmelden zonder een wachtwoord, met behulp van uw gebruikersnaam en het mobiele apparaat met uw vingerafdruk, vlak of PINCODE.
+
+>[!Important]
+>Uw organisatie moet u mogelijk gebruik van een verificator-app aanmelden en toegang tot uw gegevens van de organisatie en documenten. Hoewel uw gebruikersnaam wordt in de app weergegeven mogelijk, het account wordt niet daadwerkelijk ingesteld om te fungeren als een verificatiemethode totdat u het registratieproces. Zie voor meer informatie, [uw werk- of schoolaccount toevoegen](user-help-auth-app-overview.md).
 
 >[!NOTE]
 >Als u problemen ondervindt met aanmelden bij uw account, gaat u naar [Wanneer u zich niet kunt aanmelden bij uw Microsoft-account](https://support.microsoft.com/help/12429) voor hulp.  Bekijk meer informatie over wat u kunt doen wanneer het bericht ['Dat Microsoft-account bestaat niet'](https://support.microsoft.com/help/13811) wordt weergegeven wanneer u zich aanmeldt bij uw Microsoft-account.

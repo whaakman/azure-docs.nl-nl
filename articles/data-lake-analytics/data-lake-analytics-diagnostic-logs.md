@@ -8,12 +8,12 @@ ms.author: jasonh
 ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.topic: conceptual
 ms.date: 02/12/2018
-ms.openlocfilehash: 0bade9f393d879123b7b1485052f70924d9c9b9c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 7fd88383e909ebd6be64c22721b813946e37179e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045478"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959122"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Diagnostische logboeken openen voor Azure Data Lake Analytics
 
@@ -41,7 +41,7 @@ Diagnostische logboekregistratie kunt u voor het verzamelen van audittrails voor
 
      * Selecteer **Stream naar een Event Hub** logboek om gegevens te streamen naar een Azure Event Hub. Gebruik deze optie als u een downstream-verwerkingen pijplijn hebt die wordt binnenkomende Logboeken in realtime analyseren. Als u deze optie selecteert, moet u de details opgeven voor de Azure Event Hub die u wilt gebruiken.
 
-     * Selecteer __verzenden naar Log Analytics__ de gegevens te verzenden naar de service Log Analytics. Gebruik deze optie als u wilt Log Analytics gebruiken om te verzamelen en analyseren van Logboeken.
+     * Selecteer __verzenden naar Log Analytics__ de gegevens te verzenden naar de Azure Monitor-service. Gebruik deze optie als u met behulp van Azure Monitor-logboeken wilt te verzamelen en analyseren van Logboeken.
    * Geef op of u wilt ophalen van de logboeken voor controle of aanvraag zich aanmeldt of beide.  Een aanvraag logboek vastgelegd elke API-aanvraag. Een controlelogboek registreert alle bewerkingen die worden geactiveerd door deze API-aanvraag.
 
    * Voor __archiveren naar een opslagaccount__, geef het aantal dagen om de gegevens te behouden.
@@ -125,28 +125,28 @@ Hier volgt een voorbeeldvermelding voor het in het logboek van de aanvraag voor 
 
 #### <a name="request-log-schema"></a>Schema voor het logboek van aanvraag
 
-| Naam | Type | Beschrijving |
+| Name | Type | Description |
 | --- | --- | --- |
-| tijd |Reeks |De tijdstempel (in UTC) van het logboek |
-| resourceId |Reeks |De id van de resource die bewerking duurde plaats op |
-| category |Reeks |De logboekcategorie. Bijvoorbeeld, **aanvragen**. |
-| operationName |Reeks |Naam van de bewerking die wordt vastgelegd. Bijvoorbeeld: GetAggregatedJobHistory. |
-| resultType |Reeks |De status van de bewerking, bijvoorbeeld 200. |
-| callerIpAddress |Reeks |Het IP-adres van de client die de aanvraag |
-| correlationId |Reeks |De id van het logboek. Deze waarde kan worden gebruikt voor het groeperen van een set van gerelateerde vermeldingen. |
+| time |String |De tijdstempel (in UTC) van het logboek |
+| resourceId |String |De id van de resource die bewerking duurde plaats op |
+| category |String |De logboekcategorie. Bijvoorbeeld, **aanvragen**. |
+| operationName |String |Naam van de bewerking die wordt vastgelegd. Bijvoorbeeld: GetAggregatedJobHistory. |
+| resultType |String |De status van de bewerking, bijvoorbeeld 200. |
+| callerIpAddress |String |Het IP-adres van de client die de aanvraag |
+| correlationId |String |De id van het logboek. Deze waarde kan worden gebruikt voor het groeperen van een set van gerelateerde vermeldingen. |
 | identity |Object |De identiteit die het logboek is gegenereerd |
 | properties |JSON |Zie de volgende sectie (aanvraag log eigenschappen schema) voor meer informatie |
 
 #### <a name="request-log-properties-schema"></a>Schema voor eigenschappen van aanvraag-logboek
 
-| Naam | Type | Beschrijving |
+| Name | Type | Description |
 | --- | --- | --- |
-| HttpMethod |Reeks |De HTTP-methode gebruikt voor de bewerking. Bijvoorbeeld, krijgen. |
-| Pad |Reeks |Het pad naar de bewerking is uitgevoerd op |
+| HttpMethod |String |De HTTP-methode gebruikt voor de bewerking. Bijvoorbeeld, krijgen. |
+| Pad |String |Het pad naar de bewerking is uitgevoerd op |
 | RequestContentLength |int |De lengte van de inhoud van de HTTP-aanvraag |
-| clientRequestId |Reeks |De id die is uniek voor deze aanvraag |
-| startTime |Reeks |Het tijdstip waarop de server de aanvraag ontvangen |
-| Eindtijd |Reeks |Het tijdstip waarop de server een antwoord verzonden |
+| ClientRequestId |String |De id die is uniek voor deze aanvraag |
+| StartTime |String |Het tijdstip waarop de server de aanvraag ontvangen |
+| EndTime |String |Het tijdstip waarop de server een antwoord verzonden |
 
 ### <a name="audit-logs"></a>Controlelogboeken
 
@@ -175,17 +175,17 @@ Hier volgt een voorbeeldvermelding voor het in het auditlogboek voor JSON-indeli
       ]
     }
 
-#### <a name="audit-log-schema"></a>Audit log schema
+#### <a name="audit-log-schema"></a>Schema van auditlogboek
 
-| Naam | Type | Beschrijving |
+| Name | Type | Description |
 | --- | --- | --- |
-| tijd |Reeks |De tijdstempel (in UTC) van het logboek |
-| resourceId |Reeks |De id van de resource die bewerking duurde plaats op |
-| category |Reeks |De logboekcategorie. Bijvoorbeeld, **Audit**. |
-| operationName |Reeks |Naam van de bewerking die wordt vastgelegd. Bijvoorbeeld: JobSubmitted. |
-| resultType |Reeks |Een substatus voor de status van de taak (operationName). |
-| resultSignature |Reeks |Meer informatie over de status van de taak (operationName). |
-| identity |Reeks |De gebruiker die de bewerking aangevraagd. Bijvoorbeeld susan@contoso.com. |
+| time |String |De tijdstempel (in UTC) van het logboek |
+| resourceId |String |De id van de resource die bewerking duurde plaats op |
+| category |String |De logboekcategorie. Bijvoorbeeld, **Audit**. |
+| operationName |String |Naam van de bewerking die wordt vastgelegd. Bijvoorbeeld: JobSubmitted. |
+| resultType |String |Een substatus voor de status van de taak (operationName). |
+| resultSignature |String |Meer informatie over de status van de taak (operationName). |
+| identity |String |De gebruiker die de bewerking aangevraagd. Bijvoorbeeld susan@contoso.com. |
 | properties |JSON |Zie de volgende sectie (Audit log eigenschappen schema) voor meer informatie |
 
 > [!NOTE]
@@ -195,15 +195,15 @@ Hier volgt een voorbeeldvermelding voor het in het auditlogboek voor JSON-indeli
 
 #### <a name="audit-log-properties-schema"></a>Audit log eigenschappen schema
 
-| Naam | Type | Beschrijving |
+| Name | Type | Description |
 | --- | --- | --- |
-| JobId |Reeks |De ID die is toegewezen aan de job |
-| JobName |Reeks |De naam die is opgegeven voor de taak |
-| JobRunTime |Reeks |De runtime die wordt gebruikt voor het verwerken van de taak |
-| SubmitTime |Reeks |De tijd (in UTC) dat de taak is verzonden |
-| startTime |Reeks |De tijd die de taak is gestart na het opsturen hiervan (in UTC) |
-| Eindtijd |Reeks |De tijd die de taak is beëindigd |
-| Parallelle uitvoering |Reeks |Het aantal aangevraagd voor deze taak tijdens het indienen van Data Lake Analytics-eenheden |
+| JobId |String |De ID die is toegewezen aan de job |
+| JobName |String |De naam die is opgegeven voor de taak |
+| JobRunTime |String |De runtime die wordt gebruikt voor het verwerken van de taak |
+| SubmitTime |String |De tijd (in UTC) dat de taak is verzonden |
+| StartTime |String |De tijd die de taak is gestart na het opsturen hiervan (in UTC) |
+| EndTime |String |De tijd die de taak is beëindigd |
+| Parallelle uitvoering |String |Het aantal aangevraagd voor deze taak tijdens het indienen van Data Lake Analytics-eenheden |
 
 > [!NOTE]
 > **SubmitTime**, **StartTime**, **EndTime**, en **parallelle uitvoering** bevatten informatie over een bewerking. Deze vermeldingen alleen een waarde bevatten als die bewerking is gestart of voltooid. Bijvoorbeeld, **SubmitTime** bevat alleen een waarde na **operationName** heeft de waarde **JobSubmitted**.

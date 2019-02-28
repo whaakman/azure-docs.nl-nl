@@ -3,7 +3,7 @@ title: Service Fabric CLI-voorbeeldscript - bijwerken van een toepassing op een 
 description: Service Fabric CLI-voorbeeldscript - bijwerken van een toepassing met een nieuwe versie. Dit voorbeeld voert ook een upgrade van een geïmplementeerde toepassing uit met de nieuwe bits.
 services: service-fabric
 documentationcenter: ''
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 tags: ''
@@ -13,14 +13,14 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 12/06/2017
-ms.author: twhitney
+ms.author: aljo
 ms.custom: ''
-ms.openlocfilehash: bd0941cc6e67a759dd5fcb2e8912f8fcd6e9b18c
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 7c6b4b6214f5fc2788827ae34aad4019dad1d8ae
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071161"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806960"
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Een toepassingscertificaat toevoegen aan een Service Fabric-cluster
 

@@ -4,24 +4,21 @@ description: Meer informatie over hoe Azure Policy Gast-configuratie gebruikt vo
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/29/2019
+ms.date: 02/27/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 19f55c7d383d64e6c400e22e624b713f6c42dc58
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: e6621172734ea02f971bd5064b403ad4844210a3
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649285"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960754"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Informatie over Azure Policy Gast-configuratie
 
 Naast het controleren en [herstellen](../how-to/remediate-resources.md) Azure-resources, Azure Policy kunnen controle-instellingen in een virtuele machine. De validatie wordt uitgevoerd door de configuratie van de Gast-extensie en de client. De extensie, via de client, valideert instellingen zoals de configuratie van het besturingssysteem, Toepassingsconfiguratie of aanwezigheid en omgevingsinstellingen.
-
-> [!IMPORTANT]
-> Op dit moment alleen **ingebouwde** beleid met gast-configuratie wordt ondersteund.
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
@@ -83,7 +80,7 @@ De volgende tabel ziet u een lijst met ondersteunde besturingssystemen op Azure-
 |SUSE|SLES|12 SP3|
 
 > [!IMPORTANT]
-> Gast-configuratie wordt momenteel niet ondersteund op aangepaste VM-installatiekopieën.
+> Configuratie van de Gast kan elke server met een ondersteund besturingssysteem controleren.  Als u controleren van servers die een aangepaste installatiekopie gebruiken wilt, moet u voor het dupliceren van de **DeployIfNotExists** definitie en wijzig de **als** sectie om op te nemen van uw installatiekopie-eigenschappen.
 
 ### <a name="unsupported-client-types"></a>Niet-ondersteunde client-typen
 
@@ -93,6 +90,17 @@ De volgende tabel geeft een overzicht van de besturingssystemen die niet worden 
 |-|-|
 |Windows-client | Client-besturingssystemen (zoals Windows 7 en Windows 10) worden niet ondersteund.
 |Windows Server 2016 Nano Server | Wordt niet ondersteund.|
+
+### <a name="guest-configuration-extension-network-requirements"></a>Vereisten voor uitbreiding van Gast-configuratie
+
+Om te communiceren met de configuratie van de Gast-resourceprovider in Azure, virtuele machines uitgaande toegang tot Azure-datacenters op poort vereisen **443**. Als u een virtueel particulier netwerk in Azure en niet is toegestaan uitgaand verkeer, uitzonderingen moeten worden geconfigureerd met behulp van [Network Security Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) regels. Op dit moment een servicetag die voor Azure-beleidsconfiguratie Gast bestaat niet.
+
+Voor een lijst met IP-adres, kunt u downloaden [Microsoft Azure Datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653). Dit bestand wordt wekelijks bijgewerkt, en heeft de bereiken momenteel zijn geïmplementeerd en eventuele toekomstige wijzigingen in de IP-adresbereiken. U hoeft alleen uitgaande toegang tot de IP-adressen in de regio's waar uw virtuele machines worden geïmplementeerd.
+
+> [!NOTE]
+> Het Azure Datacenter IP-adres XML-bestand bevat de IP-adresbereiken die worden gebruikt in de Microsoft Azure-datacenters. Het bestand bevat compute, SQL en storage.
+> Wekelijks wordt een bijgewerkt bestand geplaatst. Het bestand weerspiegelt bereiken momenteel zijn geïmplementeerd en eventuele toekomstige wijzigingen in de IP-adresbereiken. Nieuwe bereiken die worden weergegeven in het bestand worden niet gebruikt in de datacenters voor ten minste één week.
+> Er is een goed idee om te downloaden van het nieuwe XML-bestand elke week. Werk vervolgens uw site services die worden uitgevoerd in Azure correct kan worden geïdentificeerd. Gebruikers van Azure ExpressRoute Houd er rekening mee dat dit bestand wordt gebruikt voor het bijwerken van de aankondiging Border Gateway Protocol (BGP) van Azure-ruimte in de eerste week van elke maand.
 
 ## <a name="guest-configuration-definition-requirements"></a>Configuratie van de Gast de definitie van vereisten
 

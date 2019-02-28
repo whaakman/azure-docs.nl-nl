@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: a4eea340fe57ab3c05e527a476d9153113eedba5
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: f56b4f07b7155d9f465a6ce492b4718d4a66e76e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819391"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959320"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Waarschuwen en bewaken van data factory's met behulp van Azure Monitor
 Cloud-Apps zijn complexe met veel bewegende onderdelen bevatten. Monitoring biedt gegevens om ervoor te zorgen dat uw toepassing actief en wordt uitgevoerd in een foutloze toestand bevindt. Ook kunt u potentiële problemen voorkomen of oplossen van het verleden zijn. Bovendien kunt u bewakingsgegevens diep om inzicht te krijgen over uw toepassing. Deze kennis kan u helpen te verbeteren van de prestaties van de toepassing of onderhoud, of Automatiseer acties die anders handmatig worden opgelost moeten zouden.
@@ -40,11 +40,11 @@ U kunt een storage-account of event hub-naamruimte die zich niet in hetzelfde ab
 ### <a name="diagnostic-settings"></a>Diagnostische instellingen
 Diagnostische logboeken voor niet-compute-resources zijn geconfigureerd met behulp van diagnostische instellingen. Diagnostische instellingen voor een resource-besturingselement:
 
-* Waarnaar logboeken met diagnostische gegevens worden verzonden (Storage-Account, Event Hubs of Log Analytics).
+* Waarnaar logboeken met diagnostische gegevens worden verzonden (Storage-Account, Event Hubs of Logboeken van Azure Monitor).
 * Welke logboekcategorieën worden verzonden.
 * Hoe lang elke categorie logboekbestanden worden bewaard in een storage-account.
 * Een bewaarperiode van nul dagen betekent dat Logboeken altijd worden bewaard. De waarde kan anders een willekeurig aantal dagen tussen 1 en 2147483647 zijn.
-* Als bewaarbeleid worden ingesteld, maar het opslaan van Logboeken in een storage-account is uitgeschakeld (bijvoorbeeld alleen Event Hubs of Log Analytics-opties zijn geselecteerd), het bewaarbeleid hebben geen effect.
+* Als Logboeken opslaan in een storage-account is uitgeschakeld (bijvoorbeeld alleen Event Hubs of Azure Monitor logboeken opties zijn geselecteerd), bewaarbeleid worden ingesteld, maar hebben het bewaarbeleid geen effect.
 * Bewaarbeleid zijn toegepast per dag, dus aan het einde van een dag (UTC), logboeken van de dag dat nu is buiten de bewaarperiode van beleid worden verwijderd. Bijvoorbeeld, als u een beleid voor het bewaren van één dag had, worden aan het begin van de dag vandaag nog de logboeken van de dag voor gisteren vernietigd.
 
 ### <a name="enable-diagnostic-logs-via-rest-apis"></a>Logboeken met diagnostische gegevens via REST API's inschakelen

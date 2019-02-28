@@ -10,12 +10,13 @@ ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 34d397412a6d461325465ccc5dd41a62d91c6fc5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 9a6afc4dfb25a2a5f6e778fbda877a93269a96eb
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872047"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673272"
 ---
 # <a name="quickstart-translator-speech-api-with-python"></a>Quickstart: Translator Speech-API met Python
 <a name="HOLTop"></a>
@@ -30,7 +31,7 @@ U hebt [Python 3.x](https://www.python.org/downloads/) nodig om deze code uit te
 
 U moet het [websocket-clientpakket](https://pypi.python.org/pypi/websocket-client) voor Python installeren.
 
-In de map met het uitvoerbare bestand dat u hebt gemaakt op basis van de volgende code moet ook een WAV-bestand staan met de naam speak.wav. Dit WAV-bestand moet de standaardindeling hebben: PCM, 16-bits, 16 kHz, mono. 
+In de map met het uitvoerbare bestand dat u hebt gemaakt op basis van de volgende code moet ook een WAV-bestand staan met de naam speak.wav. Dit WAV-bestand moet de standaardindeling hebben: PCM, 16-bits, 16 kHz, mono.
 
 U moet beschikken over een [account voor de Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) en de **Microsoft Translator Speech-API**. U hebt een betaalde abonnementssleutel nodig op het [Azure-dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
@@ -132,7 +133,7 @@ Deze handeling is geslaagd als het bestand 'speak2.wav' is gemaakt. Het bestand 
 > [!div class="nextstepaction"]
 > [Translator Speech-zelfstudie](../tutorial-translator-speech-csharp.md)
 
-## <a name="see-also"></a>Zie ook 
+## <a name="see-also"></a>Zie ook
 
 [Translator Speech-overzicht](../overview.md)
 [API-naslagmateriaal](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

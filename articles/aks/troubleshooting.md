@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 8164e2db064523fe648ec9ef0c72754be846dff6
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 53061d4d09ac2769e59269701467a22f292cd919
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327553"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959762"
 ---
 # <a name="aks-troubleshooting"></a>Het oplossen van AKS
 
@@ -63,10 +63,30 @@ De eenvoudigste manier om toegang tot uw service buiten het cluster is om uit te
 
 Als u het Kubernetes-dashboard niet ziet, controleert u of de `kube-proxy` pod wordt uitgevoerd in de `kube-system` naamruimte. Als deze niet actief is, verwijdert de schil en deze zal opnieuw worden opgestart.
 
-## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Ik kan geen logboeken ophalen met behulp van kubectl Logboeken of ik kan geen verbinding maken met de API-server. Krijg ik ' fout van de server: fout nummer inspreken back-end: bellen tcp... ' Wat moet ik doen?
+## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Ik kan geen logboeken ophalen met behulp van kubectl Logboeken of ik kan geen verbinding maken met de API-server. Krijg ik ' fout van de server: fout nummer inspreken back-end: bellen tcp... '. Wat moet ik doen?
 
-Zorg ervoor dat de standaard-netwerkbeveiligingsgroep (NSG) wordt niet gewijzigd en dat poort 22 geopend voor verbinding met de API-server is. Controleer of de `tunnelfront` pod wordt uitgevoerd in de `kube-system` naamruimte. Als dat niet, opnieuw geforceerd verwijderen van de schil en het.
+Zorg ervoor dat de standaardnetwerkbeveiligingsgroep wordt niet gewijzigd en dat poort 22 geopend voor verbinding met de API-server is. Controleer of de `tunnelfront` pod wordt uitgevoerd in de *kube-systeem* naamruimte met behulp van de `kubectl get pods --namespace kube-system` opdracht. Als dat niet, opnieuw geforceerd verwijderen van de schil en het.
 
-## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-problem"></a>Ik heb geprobeerd om te upgraden of schalen en krijg een "bericht: Fout bij voor het wijzigen van de eigenschap 'imageReference' is niet toegestaan'.  Hoe kan ik dit probleem oplossen?
+## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>Ik heb geprobeerd om te upgraden of schalen en krijg een "bericht: Fout bij voor het wijzigen van de eigenschap 'imageReference' is niet toegestaan'. Hoe kan ik dit probleem oplossen?
 
 Mogelijk worden aan te bieden u deze fout omdat u de tags in de agentknooppunten binnen het AKS-cluster hebt gewijzigd. Wijzigen en verwijderen van tags en andere eigenschappen van bronnen in de resourcegroep MC_ * kunnen leiden tot onverwachte resultaten. Wijzigen van de resources in de groep MC_ * in de AKS-cluster verbreekt de service level objective (SLO).
+
+## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>Ik krijg fouten die mijn cluster zich in de status mislukt en een upgrade of schalen niet werkt totdat het probleem is opgelost
+
+*Deze hulp bij probleemoplossing is uit gericht https://aka.ms/aks-cluster-failed*
+
+Deze fout treedt op wanneer clusters een foutstatus voor meerdere redenen invoeren. Volg de stappen hieronder om de status van uw cluster is niet opgelost voordat u de eerder mislukte bewerking opnieuw uitvoert:
+
+1. Tot het cluster van is `failed` staat, `upgrade` en `scale` upbewerkingen wordt niet voltooid. Algemene root problemen en oplossingen zijn onder andere:
+    * Schalen met **onvoldoende rekenquota (CRP)**. Om op te lossen, moet u eerst uw cluster naar een stabiele doelstatus binnen quota schalen. Volg deze [stappen om aan te vragen een compute-quotum verhogen](../azure-supportability/resource-manager-core-quotas-request.md) voordat u probeert opnieuw buiten de eerste quotalimieten kan worden uitgebreid.
+    * Schalen van een cluster met geavanceerde netwerken en **onvoldoende (netwerk) subnetresources**. Om op te lossen, moet u eerst uw cluster naar een stabiele doelstatus binnen quota schalen. Volg [deze stappen om aan te vragen van een resourcequotum verhogen](../azure-resource-manager/resource-manager-quota-errors.md#solution) voordat u probeert opnieuw buiten de eerste quotalimieten kan worden uitgebreid.
+2. Als de onderliggende oorzaak van de upgrade mislukt, opgelost is, moet uw cluster zich in een status geslaagd. Zodra de status van een geslaagd is geverifieerd, moet u de oorspronkelijke bewerking opnieuw proberen.
+
+## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>Ik krijg fouten op wanneer u probeert te upgraden of schaal die de status van mijn cluster momenteel wordt wordt bijgewerkt of de upgrade is mislukt
+
+*Deze hulp bij probleemoplossing is uit gericht https://aka.ms/aks-pending-upgrade*
+
+Bewerkingen voor een cluster worden beperkt wanneer actieve upgrade bewerkingen plaatsvinden of een upgrade is uitgevoerd, maar later is mislukt. Voor het vaststellen van het probleem uitvoeren `az aks show -g myResourceGroup -n myAKSCluster -o table` om op te halen van gedetailleerde status van uw cluster. Op basis van het resultaat:
+
+* Als het cluster is actief bijwerkt, wacht u totdat de bewerking wordt beëindigd. Als deze is geslaagd, probeert u de eerder mislukte bewerking opnieuw uit.
+* Als het cluster is de upgrade mislukt, volgt u stappen die worden beschreven [boven](#im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade-directed-from-httpsakamsaks-pending-upgrade)

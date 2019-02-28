@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e60804e6bdf37607a08b6c530fd900e0f481a45b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a9dc40af397e0d97ac5ddf47901c7da818faf8ae
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204505"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957790"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>Wat is Azure Active Directory Identity Protection (vernieuwd)?
 
@@ -58,6 +58,7 @@ Om te reageren op deze bedreigingen, dankzij u Azure AD Identity Protection:
 
 Azure AD Identity Protection is een functie van Azure Active Directory Premium P2 waarmee u kunt beleid configureren voor het automatisch reageren wanneer de identiteit van een gebruiker ermee is geknoeid of wanneer iemand anders dan de eigenaar van het account probeert aan te melden met hun de identiteit. Deze beleidsregels, naast andere besturingselementen voor voorwaardelijke toegang wordt geboden door Azure AD kan ofwel automatisch blokkeren toegang of initiëren risicobeperking acties, zoals wachtwoord opnieuw instellen of multi-factor authentication afdwingen. Identity Protection biedt ook mogelijkheden voor bewaking en rapportage voor beter inzicht krijgen in risico en de mogelijke inbreuk in uw organisatie. 
 
+> [!VIDEO https://youtu.be/1REQYdZ6364]
 
 
 ## <a name="risk-events"></a>Risicogebeurtenissen

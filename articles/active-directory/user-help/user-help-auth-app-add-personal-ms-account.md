@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67cb3d049cc2d2f26be6d62270e677a5cbcd39cc
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: bcb49048fa9200b8970f37a4f187ca995d208cc2
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455038"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961581"
 ---
 # <a name="add-your-personal-microsoft-accounts"></a>Uw persoonlijke Microsoft-accounts toevoegen.
 Uw persoonlijke Microsoft-accounts, zoals voor Outlook.com en Xbox LIVE naar de Microsoft Authenticator-app voor zowel het proces voor de standard tweeledige verificatie en de aanmeldingsmethode zonder wachtwoord uitproberen phone toevoegen.
@@ -67,5 +67,7 @@ U kunt uw persoonlijke Microsoft-account toevoegen door het eerste inschakelen v
 ## <a name="next-steps"></a>Volgende stappen
 
 - Nadat u uw accounts aan de app toevoegen, kunt u zich bij het gebruik van de Authenticator-app op uw apparaat. Zie voor meer informatie, [Meld u aan met behulp van de app](user-help-auth-app-sign-in.md).
+
+- Als u problemen bij het ophalen van uw verificatiecode voor uw persoonlijke Microsoft-account ondervindt, raadpleegt u de **code voor verificatie problemen** sectie van de [beveiligingsgegevens voor Microsoft-account & verificatie codes](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) artikel.
 
 - Voor apparaten met iOS, u kunt ook een back-up maken van de accountreferenties van uw en appinstellingen, zoals de volgorde van uw accounts, die betrekking hebben op de cloud. Zie voor meer informatie, [back-up en herstellen met de Microsoft Authenticator-app](user-help-auth-app-backup-recovery.md).

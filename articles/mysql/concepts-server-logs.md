@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/03/2018
-ms.openlocfilehash: c9f8fc4bee370f287b40275b76fa98d2552d7600
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 60ef547cb3a6ef579f5ab0b3f5438212145d92ff
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545070"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961785"
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>Serverlogboeken in Azure Database for MySQL
 In Azure Database voor MySQL is het logboek voor langzame query's beschikbaar voor gebruikers. Toegang tot het transactielogboek wordt niet ondersteund. Het logboek voor langzame query's kan worden gebruikt om knelpunten in de prestaties voor het oplossen van problemen. 
@@ -44,7 +44,7 @@ Er zijn andere parameters die u kunt aanpassen:
 Zie de MySQL [trage query-documentatie voor log](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) voor een volledige beschrijving van de parameters voor het vastleggen van langzame query's.
 
 ## <a name="diagnostic-logs"></a>Diagnostische logboeken
-Azure Database voor MySQL is geïntegreerd met Azure Monitor diagnostische logboeken. Als u Logboeken voor langzame query's hebt ingeschakeld op uw MySQL-server, kunt u deze verzonden naar Log Analytics, Event Hubs of Azure Storage. Zie voor meer informatie over het inschakelen van diagnostische logboeken, het gedeelte van de [diagnostische logboeken documentatie](../azure-monitor/platform/diagnostic-logs-overview.md).
+Azure Database voor MySQL is geïntegreerd met Azure Monitor diagnostische logboeken. Als u Logboeken voor langzame query's hebt ingeschakeld op uw MySQL-server, kunt u deze naar Azure Monitor-Logboeken, Event Hubs of Azure Storage verzonden. Zie voor meer informatie over het inschakelen van diagnostische logboeken, het gedeelte van de [diagnostische logboeken documentatie](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 De volgende tabel wordt beschreven wat er in elk logboek. Afhankelijk van de uitvoermethode, zijn de velden die zijn opgenomen en de volgorde waarin ze worden weergegeven kunnen verschillen.
 

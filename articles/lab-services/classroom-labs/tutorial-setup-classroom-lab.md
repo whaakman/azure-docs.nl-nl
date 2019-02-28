@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 96d5e94cb60888f7e098e31d7f06481a766cabd5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4abec80df4aeeb4c20d56b43ba122ee7266905a6
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998515"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649580"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Zelfstudie: Een leslokaallab instellen 
 In deze zelfstudie stelt u een leslokaallab in met virtuele machines die worden gebruikt door studenten in het leslokaal.  
@@ -69,10 +69,8 @@ Een labeigenaar kan andere gebruikers toevoegen aan de rol **Labmaker**. Zo kan 
 
     ![Sjabloonpagina configureren nadat deze is voltooid](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. Voer de volgende stappen uit op de pagina **Sjabloon configureren**: Deze stappen zijn **optioneel** voor de zelfstudie.
-    1. De sjabloon-VM starten door **Starten** te selecteren.
     2. De sjabloon-VM verbinden door **Verbinding maken** te selecteren. 
-    3. Software installeren en configureren op uw sjabloon-VM. 
-    4. **Stop** de virtuele machine.  
+    3. Software installeren en configureren op uw sjabloon-VM.     
     5. Een **Beschrijving** voor de sjabloon invoeren
 9. Selecteer **Volgende** op de sjabloonpagina. 
 10. Voer op de pagina **De sjabloon publiceren** de volgende acties uit. 

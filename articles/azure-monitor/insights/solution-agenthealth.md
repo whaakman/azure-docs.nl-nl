@@ -1,5 +1,5 @@
 ---
-title: Oplossing status van agent in Azure | Microsoft Docs
+title: Oplossing status van agent in Azure Monitor | Microsoft Docs
 description: In dit artikel is bedoeld om te begrijpen hoe u deze oplossing gebruikt voor het bewaken van de status van uw agents die rapporteren rechtstreeks naar Log Analytics of System Center Operations Manager.
 services: operations-management-suite
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 203a37071637a7e0e44b65240be4c4cae974d95f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: cca234340526b732067adac3c6725f8aa5acc47c
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53335950"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983373"
 ---
 #  <a name="agent-health-solution-in-azure"></a>Oplossing status van agent in Azure
-De oplossing status van Agent in Azure kunt u meer informatie over voor alle van de agents die rapporteren rechtstreeks verbonden met Log Analytics, dat niet meer reageert zijn op de Log Analytics-werkruimte of vanuit een System Center Operations Manager-beheergroep en het verzenden van operationele de gegevens.  U kunt ook bijhouden hoeveel agents er zijn geïmplementeerd en waar deze zich geografisch gezien bevinden. Bovendien kunt u query's uitvoeren om op de hoogte te blijven van de verdeling van agents over Azure, andere cloudomgevingen of on-premises.    
+De oplossing status van Agent in Azure kunt u meer informatie over voor alle van de agents die rapporteren rechtstreeks verbonden met Azure Monitor, die niet meer reageert op de Log Analytics-werkruimte of vanuit een System Center Operations Manager-beheergroep en het verzenden van operationele de gegevens.  U kunt ook bijhouden hoeveel agents er zijn geïmplementeerd en waar deze zich geografisch gezien bevinden. Bovendien kunt u query's uitvoeren om op de hoogte te blijven van de verdeling van agents over Azure, andere cloudomgevingen of on-premises.    
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat u deze oplossing implementeert, Controleer of u beschikt over ondersteunde [Windows agents](../../log-analytics/log-analytics-windows-agent.md) rapporteren aan de Log Analytics-werkruimte of aan een [Operations Manager-beheergroep](../../azure-monitor/platform/om-agents.md) geïntegreerd met uw werkruimte.    
+Voordat u deze oplossing implementeert, Controleer of u beschikt over ondersteunde [Windows agents](../../log-analytics/log-analytics-windows-agent.md) rapporteren aan de Log Analytics-werkruimte of aan een [Operations Manager-beheergroep](../../azure-monitor/platform/om-agents.md) geïntegreerd met uw werkruimte.
 
 ## <a name="solution-components"></a>Oplossingsonderdelen
 Deze oplossing bestaat uit de volgende resources die worden toegevoegd aan uw werkruimte en rechtstreeks verbonden agents of verbonden Operations Manager-beheergroepen.
@@ -48,7 +48,7 @@ De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door de
 | Verbonden bron | Ondersteund | Description |
 | --- | --- | --- |
 | Windows-agents | Ja | Er worden heartbeat-gebeurtenissen verzameld van direct verbonden Windows-agents.|
-| Beheergroep System Center Operations Manager | Ja | Er worden elke 60 seconden heartbeat-gebeurtenissen verzameld van agents die rapporteren aan de beheergroep en deze worden vervolgens doorgestuurd naar Log Analytics. Er is geen directe verbinding tussen Operations Manager-agents en Log Analytics vereist. Gegevens van heartbeat-gebeurtenissen worden vanuit de beheergroep doorgestuurd naar de opslagplaats van Log Analytics.|
+| Beheergroep System Center Operations Manager | Ja | Heartbeat-gebeurtenissen worden verzameld van agents die rapporteren aan de beheergroep elke 60 seconden en vervolgens doorgestuurd naar Azure Monitor. Een directe verbinding van Operations Manager-agents naar Azure Monitor is niet vereist. Gegevens van heartbeat-gebeurtenissen uit de beheergroep doorgestuurd naar de Log Analytics-werkruimte.|
 
 ## <a name="using-the-solution"></a>De oplossing gebruiken
 Wanneer u de oplossing aan uw Log Analytics-werkruimte toevoegt, de **agentstatus** tegel wordt toegevoegd aan uw dashboard. Op deze tegel ziet u het totale aantal agents en het aantal agents dat de afgelopen 24 uur niet heeft gereageerd.<br><br> ![De tegel Status van agent in het dashboard](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
@@ -68,7 +68,7 @@ Klik op de tegel **Status van agent** om het **gelijknamige** dashboard te opene
 
 ![Voorbeeld van het dashboard van de oplossing Status van agent](./media/solution-agenthealth/agenthealth-solution-dashboard.png)  
 
-## <a name="log-analytics-records"></a>Log Analytics-records
+## <a name="azure-monitor-log-records"></a>Azure Monitor log-records
 De oplossing voegt één type record in de Log Analytics-werkruimte.  
 
 ### <a name="heartbeat-records"></a>Heartbeat-records
@@ -92,7 +92,7 @@ Er wordt een record van het type **Heartbeat** gemaakt.  Deze records hebben de 
 | RemoteIPLongitude | De lengtegraad van geografische locatie van de computer.|
 | RemoteIPLatitude | De breedtegraad van de geografische locatie van de computer.|
 
-Elke agent die rapporteert aan een Operations Manager-beheerserver stuurt twee heartbeats, en de waarde van de eigenschap SCAgentChannel bevat zowel **Direct** en **SCManagementServer** , afhankelijk van welke Log Analytics-gegevensbronnen en oplossingen die u hebt ingeschakeld in uw abonnement. Als u intrekt, gegevens van oplossingen verzonden rechtstreeks vanuit een Operations Manager-beheerserver naar Log Analytics of vanwege de hoeveelheid gegevens die worden verzameld op de agent, rechtstreeks vanuit de agent worden verzonden naar Log Analytics. Voor heartbeat-gebeurtenissen met de waarde **SCManagementServer** bestaat de waarde van ComputerIP uit het IP-adres van de beheerserver, aangezien de gegevens door deze server worden geüpload.  Voor heartbeats waarvan de eigenschap SCAgentChannel is ingesteld op **Direct**, is de waarde het openbare IP-adres van de agent.  
+Elke agent die rapporteert aan een Operations Manager-beheerserver stuurt twee heartbeats, en de waarde van de eigenschap SCAgentChannel bevat zowel **Direct** en **SCManagementServer** , afhankelijk van wat gegevensbronnen en bewakingsoplossingen die u hebt ingeschakeld in uw abonnement. Als u intrekt, gegevens van oplossingen verzonden rechtstreeks vanuit een Operations Manager-beheerserver naar Azure Monitor of vanwege de hoeveelheid gegevens die worden verzameld op de agent, rechtstreeks vanuit de agent worden verzonden naar Azure Monitor. Voor heartbeat-gebeurtenissen met de waarde **SCManagementServer** bestaat de waarde van ComputerIP uit het IP-adres van de beheerserver, aangezien de gegevens door deze server worden geüpload.  Voor heartbeats waarvan de eigenschap SCAgentChannel is ingesteld op **Direct**, is de waarde het openbare IP-adres van de agent.  
 
 ## <a name="sample-log-searches"></a>Voorbeeldzoekopdrachten in logboeken
 De volgende tabel bevat voorbeelden van zoekopdrachten in logboeken voor records die zijn verzameld met deze oplossing.
@@ -117,4 +117,4 @@ De volgende tabel bevat voorbeelden van zoekopdrachten in logboeken voor records
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie [Understanding alerts in Log Analytics](../../azure-monitor/platform/alerts-overview.md) voor meer informatie over het genereren van waarschuwingen van Log Analytics. 
+* Meer informatie over [waarschuwingen in Azure Monitor](../platform/alerts-overview.md) voor meer informatie over het genereren van waarschuwingen van Log Analytics. 

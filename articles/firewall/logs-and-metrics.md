@@ -7,18 +7,18 @@ ms.service: firewall
 ms.topic: article
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 0698f1dbc491781089ef94eec32f2a427fd3cca4
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: c129c394f3d694b832722287027c1f9e58028a33
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422385"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957688"
 ---
 # <a name="azure-firewall-logs"></a>Azure Firewall-logboeken
 
 U kunt Azure Firewall bewaken met behulp van firewall-logboeken. U kunt ook activiteitenlogboeken gebruiken om bewerkingen in Azure Firewall-resources te controleren.
 
-Via de portal kunt u toegang verkrijgen tot sommige van deze logboeken. Logboeken kunnen worden verzonden naar [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Storage en Event Hubs en kunnen worden geanalyseerd in Log Analytics of door verschillende hulpprogramma’s zoals Excel en Power BI.
+Via de portal kunt u toegang verkrijgen tot sommige van deze logboeken. Logboeken kunnen worden verzonden naar [logboeken van Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md), opslag- en Event Hubs en geanalyseerd in Logboeken van Azure Monitor of door verschillende hulpprogramma's zoals Excel en Power BI.
 
 ## <a name="diagnostic-logs"></a>Diagnostische logboeken
 
@@ -26,7 +26,7 @@ Via de portal kunt u toegang verkrijgen tot sommige van deze logboeken. Logboeke
 
 * **Logboek voor toepassingsregels**
 
-   Het logboek voor toepassingsregels wordt alleen in een opslagaccount opgeslagen, naar Event Hubs gestreamd en/of naar Log Analytics verzonden als u het voor elke Azure Firewall hebt ingeschakeld. Elke nieuwe verbinding die overeenkomt met een van uw geconfigureerde toepassingsregels, resulteert in een logboek voor de geaccepteerde/geweigerde verbinding. De gegevens worden geregistreerd in JSON-indeling, zoals weergegeven in het volgende voorbeeld:
+   Het toepassingslogboek van de regel wordt opgeslagen in een storage-account, worden gestreamd naar eventhubs en/of verzonden naar de logboeken van Azure Monitor alleen als u deze voor elke Azure-Firewall hebt ingeschakeld. Elke nieuwe verbinding die overeenkomt met een van uw geconfigureerde toepassingsregels, resulteert in een logboek voor de geaccepteerde/geweigerde verbinding. De gegevens worden geregistreerd in JSON-indeling, zoals weergegeven in het volgende voorbeeld:
 
    ```
    Category: application rule logs.
@@ -49,7 +49,7 @@ Via de portal kunt u toegang verkrijgen tot sommige van deze logboeken. Logboeke
 
 * **Logboek voor netwerkregels**
 
-   Het logboek voor netwerkregels wordt alleen in een opslagaccount opgeslagen, naar Event Hubs gestreamd en/of naar Log Analytics verzonden als u het voor elke Azure Firewall hebt ingeschakeld. Elke nieuwe verbinding die overeenkomt met een van uw geconfigureerde netwerkregels, resulteert in een logboek voor de geaccepteerde/geweigerde verbinding. De gegevens worden geregistreerd in JSON-indeling, zoals weergegeven in het volgende voorbeeld:
+   Het logboek van de regel netwerk wordt opgeslagen in een storage-account, worden gestreamd naar eventhubs en/of verzonden naar de logboeken van Azure Monitor alleen als u deze voor elke Azure-Firewall hebt ingeschakeld. Elke nieuwe verbinding die overeenkomt met een van uw geconfigureerde netwerkregels, resulteert in een logboek voor de geaccepteerde/geweigerde verbinding. De gegevens worden geregistreerd in JSON-indeling, zoals weergegeven in het volgende voorbeeld:
 
    ```
    Category: network rule logs.
@@ -73,9 +73,9 @@ Via de portal kunt u toegang verkrijgen tot sommige van deze logboeken. Logboeke
 
 U hebt drie opties voor het opslaan van uw logboeken:
 
-* **Opslagaccount**: opslagaccounts kunnen het best worden gebruikt wanneer logboeken voor een langere periode worden opgeslagen en moeten kunnen worden bekeken wanneer dat nodig is.
-* **Event Hubs**: Event Hubs zijn een geweldige optie voor integratie met andere SIEM-hulpprogramma’s (Security Information and Event Management) om waarschuwingen over uw resources te krijgen.
-* **Log Analytics**: Log Analytics kan het best worden gebruikt voor algemene realtime bewaking van uw toepassing of voor het bekijken van trends.
+* **Storage-account**: Storage-accounts zijn beste worden gebruikt voor Logboeken als Logboeken worden opgeslagen voor een langere duur en gecontroleerd wanneer dit nodig is.
+* **Eventhubs**: Eventhubs zijn een goede optie voor het integreren met andere security information en event management (SEIM) hulpprogramma's voor waarschuwingen over uw resources.
+* **Logboeken in Azure Monitor**: Logboeken in Azure Monitor is best gebruikt voor algemene realtime-controle van uw toepassing of trends kijken.
 
 ## <a name="activity-logs"></a>Activiteitenlogboeken
 
@@ -86,4 +86,4 @@ U hebt drie opties voor het opslaan van uw logboeken:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over het bewaken van Azure-Firewall-logboeken en metrische gegevens, [zelfstudie: logboeken van de Firewall van Azure Monitor](tutorial-diagnostics.md).
+Zie voor meer informatie over het bewaken van Azure-Firewall-logboeken en metrische gegevens, [zelfstudie: Azure-Firewall-logboeken bewaken](tutorial-diagnostics.md).

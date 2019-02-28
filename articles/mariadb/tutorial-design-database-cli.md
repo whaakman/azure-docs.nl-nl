@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 11/10/2018
 ms.custom: mvc
-ms.openlocfilehash: fa056dad052914e771251585cb426c70591aa235
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ed80008548585015c9e29aaea013fdeb85fd8e9d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541188"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872774"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Zelfstudie: een Azure Database for MariaDB ontwerpen met Azure CLI
 
@@ -27,6 +27,8 @@ Azure Database for MariaDB is een relationele databaseservice in de Microsoft Cl
 > * Querygegevens
 > * Gegevens bijwerken
 > * Gegevens terugzetten
+
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis Azure-account](https://azure.microsoft.com/free/) aan voordat u begint.
 
 U kunt de Azure Cloud Shell gebruiken in de browser of [Azure CLI installeren]( /cli/azure/install-azure-cli) op uw eigen computer om de codeblokken in deze zelfstudie uit te voeren.
 

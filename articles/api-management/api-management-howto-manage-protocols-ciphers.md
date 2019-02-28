@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2018
+ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: a55d16a35b5eec1af2b24d02e158905493615999
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 91b6cd64a42319b2a5307919c2efe6bc8e5dcd64
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441109"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983197"
 ---
 # <a name="manage-protocols-and-ciphers-in-azure-api-management"></a>Protocollen en coderingen in Azure API Management beheren
 
@@ -39,11 +39,9 @@ Als u wilt volgen de stappen in dit artikel, moet u het volgende hebben:
 ## <a name="how-to-manage-tls-protocols-and-3des-cipher"></a>Over het beheren van TLS-protocollen en 3DES-codering
 
 1. Navigeer naar uw **exemplaar van API Management** in Azure portal.
-2. Selecteer **SSL** in het menu.  
-    ![Beheren van protocollen en coderingen in APIM - menu](./media/api-management-howto-manage-protocols-ciphers/api-management-menu.png)
+2. Selecteer **Protocol-instellingen** in het menu.  
 3. In- of uitschakelen van de gewenste protocollen of versleuteling.
 4. Klik op **Opslaan**. Wijzigingen worden toegepast binnen een uur.  
-    ![Beheren van protocollen en coderingen in APIM - opslaan](./media/api-management-howto-manage-protocols-ciphers/api-management-protocols-ciphers-save.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -10,22 +10,22 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.reviewer: jonfan, LADocs
 ms.suite: integration
-ms.openlocfilehash: 38fe0e4901977637be22670d09dccffdfa274304
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5543fd5ee2b86a57414a384df9d808e87b297a5e
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253819"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983027"
 ---
-# <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>BizTalk Server EDI-oplossingen migreren naar BizTalk Services: technische handleiding
+# <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>BizTalk Server EDI-oplossingen migreren naar BizTalk Services: Technische handleiding
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
-Auteur: Tim Wieman en Mirchandani Mehrotra
+Auteur: TIM Wieman en Mirchandani Mehrotra
 
 Revisoren: Karthik Bharthy
 
-Met behulp van geschreven: Microsoft Azure BizTalk Services – februari 2014-release.
+Geschreven met behulp van:  Microsoft Azure BizTalk Services – februari 2014-release.
 
 ## <a name="introduction"></a>Inleiding
 (EDI, Electronic Data Interchange) is een van de meest voorkomende manier waarop bedrijven exchange de gegevens elektronisch, ook als Business-to-Business- of B2B-transacties worden genoemd. BizTalk Server heeft ondersteuning voor meer dan een decennium sinds de release van de eerste BizTalk Server EDI. Microsoft blijft de ondersteuning voor EDI-oplossingen met BizTalk Services, de op het Microsoft Azure-platform. B2B-transacties worden meestal buiten een organisatie en daarom is het gemakkelijker te implementeren als deze is geïmplementeerd op een cloudplatform. Microsoft Azure biedt deze mogelijkheid tot en met BizTalk Services.
@@ -82,7 +82,7 @@ Microsoft Azure BizTalk Services biedt ook een **TPM gegevensmigratie** hulpprog
 ## <a name="schemas"></a>Schema 's
 BizTalk Services biedt EDI-schema's die kunnen worden gebruikt in oplossingen voor BizTalk Services.  BizTalk Server EDI-schema's kunnen bovendien ook worden gebruikt met BizTalk Services omdat het hoofdknooppunt van het EDI-schema hetzelfde voor BizTalk Server, evenals de BizTalk Services is. Zo kunt u zich rechtstreeks uw BizTalk Server EDI-schema's en deze gebruiken in de EDI-oplossingen die u hebt ontwikkeld met behulp van BizTalk Services. U kunt ook downloaden de schema's uit de [MABS SDK](https://go.microsoft.com/fwlink/p/?LinkId=235057).
 
-## <a name="maps-transforms"></a>Maps (transformaties)
+## <a name="maps-transforms"></a>Maps (Transforms)
 Kaarten in BizTalk Server heten transformaties in BizTalk Services. Toewijzingen van BizTalk Server migreren naar BizTalk Services wordt mogelijk een van de complexere taken om te realiseren (afhankelijk van de complexiteit van de kaart). De toewijzingsfunctie voor BizTalk Services gebruikt, wijkt af van het toewijzen van de BizTalk. Hoewel het toewijzen van de ziet er meestal hetzelfde, wordt de onderliggende toewijzingsindeling verschilt. De functoids (met de naam **kaart Operations** in BizTalk Services) beschikbaar voor de gebruikers ook verschillend zijn.  U kunt een BizTalk-kaart van kracht, rechtstreeks in BizTalk Services gebruiken. Niet alle functoids die beschikbaar zijn in BizTalk Server zijn ook beschikbaar als kaart bewerkingen in BizTalk Services.
 
 ### <a name="new-transform-operations"></a>Nieuwe transformatiebewerkingen
@@ -102,7 +102,7 @@ Als u nodig hebt voor het migreren van BizTalk Server-orchestration verwerking n
 
 * [*Over het integreren van een werkstroom WCF-Service met Service Bus-wachtrijen en onderwerpen* ](https://blogs.msdn.microsoft.com/paolos/2013/04/09/how-to-integrate-a-wcf-workflow-service-with-service-bus-queues-and-topics/) door Paolo Salvatori. 
 * [*Het bouwen van apps met Windows Workflow Foundation en Azure* sessie](https://go.microsoft.com/fwlink/p/?LinkId=237314) van de Conferentie Build 2011.
-* [*Windows Workflow Foundation Developer Center* ](https://go.microsoft.com/fwlink/p/?LinkId=237315) op MSDN.
+* [*Windows Workflow Foundation Developer Center*](https://docs.microsoft.com/previous-versions/dotnet/articles/ee342461(v=msdn.10)).
 * [*Documentatie van Windows Workflow Foundation 4 (WF4)* ](https://msdn.microsoft.com/library/dd489441.aspx) op MSDN.
 
 ## <a name="other-considerations"></a>Andere overwegingen

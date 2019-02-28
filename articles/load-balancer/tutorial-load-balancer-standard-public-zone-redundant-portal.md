@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: d2e81e4f2eda730dc064699f42ba7bfb49648082
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: e83991f553d00af11cfc275137f8e73ebab2098c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230829"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882634"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Zelfstudie: Met behulp van Azure Portal taakverdeling uitvoeren van virtuele machines over beschikbaarheidszones met een standaard Load Balancer
 
@@ -177,7 +177,7 @@ Om verkeer te distribueren naar de VM's bevat een back-end-adresgroep de IP-adre
 4. Klik op **Nieuwe back-endresource toevoegen** om elke virtuele machine (*myVM2* en *myVM3*)  toe te voegen aan de back-endpool van de load balancer.
 5. Klik op **Add**.
 
-    ![Toevoegingen doen aan de back-endadresgroep ](./media/load-balancer-standard-public-availability-zones-portal/add-backend-pool.png)
+    ![Toevoegingen doen aan de back-endadresgroep](./media/load-balancer-standard-public-availability-zones-portal/add-backend-pool.png)
 
 3. Controleer of de instelling voor de back-endpool van de load balancer alle drie de VM's (**myVM1**, **myVM2** en **myVM3**) weergeeft.
 

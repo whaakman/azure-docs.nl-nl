@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: c936d7946398183f0b0aac025503bb172bc147af
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: bdfeb41c7881bfbd577cdf1a9190617e09979a7f
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101002"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961011"
 ---
 # <a name="monitor-and-tune"></a>Controleren en afstemmen
 Gegevens over uw servers te controleren, kunt u problemen op te optimaliseren voor uw workload. Azure Database voor PostgreSQL biedt verschillende controle-opties te bieden inzicht in het gedrag van uw server.
@@ -22,7 +22,7 @@ Azure Database voor PostgreSQL biedt verschillende metrische gegevens geven inzi
 ### <a name="list-of-metrics"></a>Overzicht van metrische gegevens
 Deze metrische gegevens zijn beschikbaar voor Azure Database voor PostgreSQL:
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Beschrijving|
+|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Description|
 |---|---|---|---|---|
 |cpu_percent|CPU-percentage|Procent|Het percentage van CPU gebruikt.|
 |memory_percent|Percentage geheugen|Procent|Het percentage gebruikt geheugen.|
@@ -40,7 +40,7 @@ Deze metrische gegevens zijn beschikbaar voor Azure Database voor PostgreSQL:
 |backup_storage_used|Back-upopslag gebruikt|Bytes|De hoeveelheid back-upopslag gebruikt.|
 
 ## <a name="server-logs"></a>Serverlogboeken
-U kunt logboekregistratie op uw server inschakelen. Deze logboeken zijn ook beschikbaar via Azure diagnostische logboeken in [Log Analytics](../azure-monitor/log-query/log-query-overview.md), Event Hubs en Storage-Account. Voor meer informatie over logboekregistratie, gaat u naar de [serverlogboeken](concepts-server-logs.md) pagina.
+U kunt logboekregistratie op uw server inschakelen. Deze logboeken zijn ook beschikbaar via Azure diagnostische logboeken in [logboeken van Azure Monitor](../azure-monitor/log-query/log-query-overview.md), Event Hubs en Storage-Account. Voor meer informatie over logboekregistratie, gaat u naar de [serverlogboeken](concepts-server-logs.md) pagina.
 
 ## <a name="query-store"></a>Query Store
 [Query Store](concepts-query-store.md) is een openbare preview-functie die boekrecords bijhoudt query prestaties gedurende een bepaalde tijd met inbegrip van runtime-statistieken opvragen en wacht gebeurtenissen. De functie zich blijft voordoen querygegevens over de runtimeprestaties in een systeemdatabase met de naam **azure_sys** onder het query_store-schema. U kunt de verzameling en opslag van gegevens via verschillende configuratie-knoppen beheren.

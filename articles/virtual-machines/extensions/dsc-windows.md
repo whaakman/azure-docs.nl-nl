@@ -14,12 +14,12 @@ ms.tgt_pltfrm: windows
 ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
-ms.openlocfilehash: 26b083069380d7bf107cd3be54cb2e4786789e11
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 4f4793e18185c16ef144de33b4f116eff89a9969
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593860"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960153"
 ---
 # <a name="powershell-dsc-extension"></a>PowerShell DSC-extensie
 
@@ -116,7 +116,7 @@ De volgende JSON ziet u het schema voor het gedeelte instellingen van de DSC-ext
 | settings.configurationArguments | Verzameling | Hiermee definieert u de parameters die u wilt doorgeven aan uw DSC-configuratie. Deze eigenschap wordt niet versleuteld.
 | settings.configurationData.url | string | Geeft de URL waaruit u uw gegevens (.pds1)-configuratiebestand te downloaden om te gebruiken als invoer voor uw DSC-configuratie. Als de opgegeven URL is een SAS-token om toegang te krijgen vereist, moet u de eigenschap protectedSettings.configurationDataUrlSasToken instellen op de waarde van uw SAS-token.
 | settings.privacy.dataEnabled | string | Hiermee of verzamelen van telemetriegegevens uitgeschakeld. De enige mogelijke waarden voor deze eigenschap zijn 'Inschakelen', 'Uitschakelen', ', of $null. Deze eigenschap verlaten leeg of null wordt telemetrie inschakelen
-| settings.advancedOptions.forcePullAndApply | Bool | Kan de DSC-extensie bij te werken en DSC-configuraties gerapporteerd als de vernieuwingsmodus voor het Pull is.
+| settings.advancedOptions.forcePullAndApply | Bool | Deze instelling is ontworpen voor het verbeteren van de ervaring van het werken met de extensie voor het registreren van knooppunten met Azure Automation DSC.  Als de waarde `$true`, de uitbreiding wordt gewacht op de eerste uitvoering van de configuratie die is opgehaald uit de service alvorens geslaagde/mislukte.  Als de waarde is ingesteld op $false, de status die wordt geretourneerd door de extensie wordt alleen verwijzen naar of het knooppunt is geregistreerd met de configuratie van Azure Automation-status en de configuratie van de knooppunten wordt niet uitgevoerd tijdens de registratie.
 | settings.advancedOptions.downloadMappings | Verzameling | Definieert de alternatieve locaties voor het downloaden van afhankelijkheden, zoals WMF en .NET
 
 ### <a name="protected-settings-property-values"></a>Beveiligde instellingen eigenschapswaarden

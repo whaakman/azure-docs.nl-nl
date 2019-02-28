@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: 686e008a83924460b1f85212b5c06796b6bc8217
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: e6a24bfe25513b1b4eacd8bc192caa5518c896c6
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354209"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593196"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Incrementeel gegevens uit meerdere tabellen in SQL Server naar een Azure SQL-database kopiëren
 In deze zelfstudie maakt u een Azure data factory met een pijplijn waarmee wijzigingsgegevens uit meerdere tabellen van een lokale SQL-server naar een Azure SWL-database worden gekopieerd.    
@@ -270,7 +270,7 @@ Als u gegevens uit een gegevensopslag in een particulier netwerk (on-premises) n
 1. In het venster **Instellen van Integration Runtime** selecteert u de optie **Gegevensverkeer uitvoeren en activiteiten verzenden naar externe berekeningen** en klikt u op **Volgende**. 
 
    ![Type integratieruntime selecteren](./media/tutorial-incremental-copy-multiple-tables-portal/select-integration-runtime-type.png)
-1. Selecteer ** Privénetwerk** en klik op **Volgende**. 
+1. Selecteer **Privénetwerk** en klik op **Volgende**. 
 
    ![Privénetwerk selecteren](./media/tutorial-incremental-copy-multiple-tables-portal/select-private-network.png)
 1. Voer **MySelfHostedIR** in bij **Name** en klik op **Next**. 

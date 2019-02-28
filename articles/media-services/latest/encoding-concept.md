@@ -9,19 +9,29 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 02/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 52e7fdf6de25300d4f78ee9822aca4ad83f646e9
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: ccf298c99851dc2418da894431c5c86adafe59b3
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408422"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959439"
 ---
 # <a name="encoding-with-media-services"></a>Codering met mediaservices
 
-Azure Media Services kunt u uw digitale media van hoge kwaliteit bestanden coderen naar indelingen die kunnen worden afgespeeld op een groot aantal browsers en apparaten. Zo kunt u bijvoorbeeld inhoud streamen in de indelingen Apple HLS of MPEG DASH. In dit onderwerp vindt u richtlijnen over hoe u uw inhoud codeert met Media Services v3.
+Azure Media Services kunt u uw digitale media van hoge kwaliteit bestanden coderen in adaptive bitrate MP4-bestanden, zodat uw inhoud kan worden afgespeeld op een groot aantal browsers en apparaten. Een geslaagde Media Services encoding-taak maakt uitvoer activa met een set adaptive bitrate MP4s en -manifestbestanden (server en client). Op dit moment kunt u profiteren van [dynamische verpakking](dynamic-packaging-overview.md).
+
+Om video's in de uitvoer van de Asset die beschikbaar zijn voor clients om te worden afgespeeld, die u moet maken een **Streaming-Locator gemaakt** en bouw vervolgens de streaming-URL's. Klik, op basis van de indeling die is opgegeven in het manifest, uw clients de stream ontvangt in het protocol dat ze hebben gekozen.
+
+Het volgende diagram toont de streaming on demand met dynamische verpakking werkstroom.
+
+![Dynamische codering](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
+
+In dit onderwerp vindt u richtlijnen over hoe u uw inhoud codeert met Media Services v3.
+
+## <a name="transforms-and-jobs"></a>Transformaties en taken
 
 Als u wilt coderen met Media Services v3, moet u maken een [transformeren](https://docs.microsoft.com/rest/api/media/transforms) en een [taak](https://docs.microsoft.com/rest/api/media/jobs). Een transformatie definieert het recept voor de instellingen voor codering en de uitvoer en de taak is een exemplaar van het recept. Zie voor meer informatie, [transformaties en taken](transforms-jobs-concept.md)
 
@@ -60,9 +70,11 @@ Media Services biedt volledige ondersteuning voor het aanpassen van alle waarden
 
 ## <a name="scaling-encoding-in-v3"></a>Encoding in v3 schalen
 
-Op dit moment moeten klanten de Azure portal of Media Services v2-API's gebruiken om in te stellen ru's (zoals beschreven in [mediaverwerking schalen](../previous/media-services-scale-media-processing-overview.md). 
+Als u wilt mediaverwerking schalen, Zie [schaal met CLI](media-reserved-units-cli-how-to.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Transformaties en taken](transforms-jobs-concept.md)
+* [Coderen in een HTTPS-URL met behulp van ingebouwde voorinstellingen](job-input-from-http-how-to.md)
+* [Een lokaal bestand met behulp van ingebouwde voorinstellingen coderen](job-input-from-local-file-how-to.md)
+* [Bouw een aangepaste voorinstelling wilt richten op uw specifieke vereisten voor scenario of het apparaat](customize-encoder-presets-how-to.md)
 * [Uploaden, coderen en streamen met Media Services](stream-files-tutorial-with-api.md)

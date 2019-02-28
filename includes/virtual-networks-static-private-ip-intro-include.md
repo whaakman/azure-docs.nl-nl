@@ -2,16 +2,14 @@
 author: genlin
 ms.service: virtual-network
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 02/27/2019
 ms.author: genli
-ms.openlocfilehash: 5c1caf87f32ddd827b85263ee634d3e15d821124
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 63853ee34d99516b139b0356f609f41637ac2b39
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52269695"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56963304"
 ---
-Uw virtuele machines (VM's) van IaaS en PaaS-rolexemplaren in een virtueel netwerk ontvangen automatisch een privé IP-adres van een bereik dat u opgeeft, op basis van de ze zijn verbonden met subnet. Dit adres wordt vastgehouden door de virtuele machines en rollen, totdat ze buiten gebruik gesteld. U buiten gebruik stellen een rol of VM-exemplaar door stoppen via PowerShell, de Azure CLI of Azure portal. In deze gevallen zodra het exemplaar van de VM of het rolexemplaar opnieuw wordt gestart ontvangt deze een beschikbaar IP-adres van de Azure-infrastructuur, die misschien niet dezelfde die het eerder had. Als u de VM of het rolexemplaar-exemplaar van het gastbesturingssysteem afsluit, behoudt hij het IP-adres hebben.  
-
-In bepaalde gevallen wilt u een VM of het rolexemplaar-exemplaar dat een statisch IP-adres, bijvoorbeeld, als uw virtuele machine gaat DNS worden uitgevoerd of wordt een domeincontroller. U kunt dit doen door in te stellen van een statisch privé IP-adres.
+Een virtuele machine (VM) krijgt automatisch een privé IP-adres uit een bereik dat u opgeeft, op basis van het subnet dat deze is geïmplementeerd in. Het adres wordt vastgehouden door een virtuele machine totdat de virtuele machine wordt verwijderd. Azure wijst het eerstvolgende beschikbare privé IP-adres toe uit het subnet dat u maakt een virtuele machine in. Een statisch IP-adres toewijzen als u wilt dat een specifiek IP-adres van het subnet dat is toegewezen aan de virtuele machine.
 

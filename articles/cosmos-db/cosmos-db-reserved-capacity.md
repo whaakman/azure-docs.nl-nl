@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: e7a5ed6274a0429726f0ed19c0765cfdc3378daa
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 5547186d314f0c8cebf9f08463e4953f9f20ad3c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888522"
+ms.locfileid: "56957977"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Kosten optimaliseren met gereserveerde capaciteit in Azure Cosmos DB
 
@@ -71,7 +71,7 @@ Wanneer uw reservering verloopt, wordt uw Azure Cosmos DB-exemplaren worden uitg
 
 ## <a name="cancellation-and-exchanges"></a>Annulering en uitwisselingen
 
-Zie voor hulp bij het identificeren van de juiste gereserveerde capaciteit [te begrijpen hoe de reserveringskorting wordt toegepast op Azure Cosmos DB](../billing/billing-understand-cosmosdb-reservation-charges.md). In het geval, u wilt annuleren of uitwisselen van een Azure Cosmos DB-reservering, neem contact op met het team van Azure Cosmos DB via `askCosmosDB@microsoft.com`.
+Zie voor hulp bij het identificeren van de juiste gereserveerde capaciteit [te begrijpen hoe de reserveringskorting wordt toegepast op Azure Cosmos DB](../billing/billing-understand-cosmosdb-reservation-charges.md). In het geval, u wilt annuleren of uitwisselen van een Azure Cosmos DB-reservering, neem contact op met het team van Azure Cosmos DB via `AskCosmosDB@microsoft.com`.
 
 ## <a name="next-steps"></a>Volgende stappen
 

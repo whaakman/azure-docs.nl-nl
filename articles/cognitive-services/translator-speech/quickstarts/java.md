@@ -10,14 +10,15 @@ ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: b9a20439bd1c926753921e2ece5dfc083128be92
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: b56e4715e77129f228967ef595e506d26d33fc66
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869922"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674120"
 ---
-# <a name="quickstart-translator-speech-api-with-java"></a>Quickstart: Translator Speech-API met Java 
+# <a name="quickstart-translator-speech-api-with-java"></a>Quickstart: Translator Speech-API met Java
 <a name="HOLTop"></a>
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
@@ -277,7 +278,7 @@ Deze handeling is geslaagd als het bestand 'speak2.wav' is gemaakt. Het bestand 
 > [!div class="nextstepaction"]
 > [Translator Speech-zelfstudie](../tutorial-translator-speech-csharp.md)
 
-## <a name="see-also"></a>Zie ook 
+## <a name="see-also"></a>Zie ook
 
 [Translator Speech-overzicht](../overview.md)
 [API-naslagmateriaal](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

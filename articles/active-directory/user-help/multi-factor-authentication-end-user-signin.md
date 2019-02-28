@@ -14,12 +14,12 @@ ms.date: 04/02/2017
 ms.author: lizross
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2545e85ff466ed7455161eb725b824da465457bd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 153b3d61324d504fe260b104bf412913f9692627
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177300"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957535"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>De ervaring van aanmelding met Azure multi-factor Authentication
 > [!NOTE]
@@ -83,9 +83,8 @@ Soms hebt u niet de telefoon of het apparaat die u hebt ingesteld als uw contact
   ![Alternatieve methode gebruiken](./media/multi-factor-authentication-end-user-signin/alt.png)
 
 ## <a name="next-steps"></a>Volgende stappen
+- Als u problemen met aanmelden met verificatie in twee stappen hebt, u meer informatie op [problemen hebt met Azure multi-factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
 
-Als u problemen met aanmelden met verificatie in twee stappen hebt, u meer informatie op [problemen hebt met Azure multi-factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
+- Meer informatie over het [beheren van de verificatie-instellingen voor verificatie in twee stappen](multi-factor-authentication-end-user-manage-settings.md).
 
-Meer informatie over het [beheren van de verificatie-instellingen voor verificatie in twee stappen](multi-factor-authentication-end-user-manage-settings.md).
-
-Meer informatie over het [aan de slag met de Microsoft Authenticator-app](user-help-auth-app-download-install.md) zodat u meldingen kunt aan te melden bij, in plaats van teksten en telefoongesprekken.
+- Meer informatie over het [aan de slag met de Microsoft Authenticator-app](user-help-auth-app-download-install.md) zodat u meldingen kunt aan te melden bij, in plaats van teksten en telefoongesprekken.

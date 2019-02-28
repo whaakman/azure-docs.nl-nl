@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6521dc8db663df5e19fb97c495b4a5bcb6d3c1d1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 170b96810130d33935e54c85529129e7e0267fe9
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208467"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957773"
 ---
 # <a name="reset-your-work-or-school-password"></a>Uw werk- of schoolaccount wachtwoord opnieuw instellen
 
@@ -163,13 +163,10 @@ Hier volgen enkele algemene foutgevallen en hun oplossingen:
 |Wanneer ik mijn gebruikers-ID hebt ingevoerd, verschijnt een foutbericht dat aangeeft dat deze, "Kan niet controleren We uw account."|De aanmeldprocedure kon om te controleren of uw accountgegevens.|Er zijn twee redenen waarom dat u dit bericht kan zien.<br><br>1. De beheerder ingeschakeld voor wachtwoordherstel voor uw organisatie, maar u dit nog niet hebt geregistreerd voor het gebruik van de service. Als u wilt registreren voor wachtwoord opnieuw instellen, ziet u een van de volgende artikelen, op basis van de verificatiemethode: [Beveiligingsgegevens ingesteld voor het gebruik van een verificator-app (preview)](security-info-setup-auth-app.md), [beveiligingsgegevens ingesteld voor het gebruik van een telefonische oproep (preview)](security-info-setup-phone-number.md), [beveiligingsgegevens instellen voor het gebruik van SMS-berichten verzenden (preview)](security-info-setup-text-msg.md), [ Beveiligingsgegevens ingesteld voor het gebruik van e-mailadres (preview)](security-info-setup-email.md), of [beveiligingsgegevens ingesteld voor het gebruik van vragen over de beveiliging (preview)](security-info-setup-questions.md).<br><br>2. De beheerder nog niet is ingeschakeld voor wachtwoord opnieuw instellen voor uw organisatie. In dit geval moet u de "Neem contact op met de koppeling van een beheerder' voor het verzenden van een e-mailbericht naar uw beheerder, vraagt u om uw wachtwoord opnieuw instellen.|
 
 ## <a name="next-steps"></a>Volgende stappen
-
-- Bewerken van je beveiligingsgegevens wilt toevoegen of wijzigen van uw verificatiemethoden in de [beheren van je beveiligingsgegevens (preview)](security-info-manage-settings.md) artikel. 
-
 - Meer informatie over beveiligingsgegevens in de [info (preview) beveiligingsoverzicht](user-help-security-info-overview.md) artikel.
 
 - Meer informatie over verificatie in twee stappen in de [overzicht van de verificatie in twee stappen](user-help-two-step-verification-overview.md) artikel. 
 
 - Uw wachtwoord opnieuw instellen als u hebt verloren of bent vergeten, uit de [portal voor wachtwoordherstel](https://passwordreset.microsoftonline.com/)
 
-- Problemen oplossen met tips en Help-informatie voor problemen met aanmelden in de [niet kunt aanmelden bij uw Microsoft-account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) artikel.
+- Krijg tips voor het oplossen van problemen en hulp met problemen met aanmelden in het artikel [U kunt niet aanmelden bij uw Microsoft-account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

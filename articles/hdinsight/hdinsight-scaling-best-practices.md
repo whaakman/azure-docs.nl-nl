@@ -7,40 +7,40 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/02/2018
+ms.date: 02/26/2019
 ms.author: ashish
-ms.openlocfilehash: 30f96c54dd916188296ca0245d4095a32ae0bbe4
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 85aba4478e27d88af439dbe2e474a84ee65b373c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742878"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960425"
 ---
 # <a name="scale-hdinsight-clusters"></a>HDInsight-clusters schalen
 
 HDInsight biedt flexibiliteit doordat u de optie voor omhoog en omlaag het aantal worker-knooppunten in uw clusters schalen. Hiermee kunt u een cluster verkleinen na uur of in het weekend en vouwt u het tijdens piek bedrijfsbehoeften te voldoen.
 
-Bijvoorbeeld, hebt u enkele batchverwerking in dat geval één keer per dag of één keer per maand, de HDInsight-cluster kan worden opgeschaald een paar minuten vóór de geplande gebeurtenis, zodat er voldoende geheugen en CPU-rekenkracht. U kunt automatiseren met de PowerShell-cmdlet schalen [ `Set–AzureRmHDInsightClusterSize` ](hdinsight-administer-use-powershell.md#scale-clusters).  Later, nadat de verwerking is voltooid en gebruik opnieuw uitvalt, kunt u schalen u het HDInsight-cluster met minder werkrolknooppunten.
+Bijvoorbeeld, hebt u enkele batchverwerking in dat geval één keer per dag of één keer per maand, de HDInsight-cluster kan worden opgeschaald een paar minuten vóór de geplande gebeurtenis, zodat er voldoende geheugen en CPU-rekenkracht.  Later, nadat de verwerking is voltooid en gebruik opnieuw uitvalt, kunt u schalen u het HDInsight-cluster met minder werkrolknooppunten.
 
-* Voor het schalen van uw cluster via [PowerShell](hdinsight-administer-use-powershell.md):
+## <a name="utilities-to-scale-clusters"></a>Hulpprogramma's voor het schalen van clusters
 
-    ```powershell
-    Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
-    ```
-    
-* Voor het schalen van uw cluster via de [klassieke Azure-CLI](hdinsight-administer-use-command-line.md):
+Microsoft biedt de volgende hulpprogramma's voor het schalen van clusters:
 
-    ```
-    azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
-    ```
+|Hulpprogramma | Description|
+|---|---|
+|[PowerShell Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) - clusternaam \<Clusternaam > - TargetInstanceCount \<NewSize >|
+|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm/overview) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) - clusternaam \<Clusternaam > - TargetInstanceCount \<NewSize >|
+|[Azure-CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)|[AZ hdinsight vergroten of verkleinen](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resourcegroep \<resourcegroep >--naam \<Clusternaam >--target-instance-count \<NewSize >|
+|[CLI van Azure Classic](hdinsight-administer-use-command-line.md)|Azure hdinsight-cluster formaat \<clusterName > \<doel exemplaren >|
+|[Azure Portal](https://portal.azure.com)|Uw HDInsight-cluster deelvenster te openen, selecteert u **clustergrootte** in het menu links en vervolgens in het deelvenster van de grootte van Cluster, typt u in het aantal worker-knooppunten en selecteer opslaan.|  
 
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
-    
-* Voor het schalen van uw cluster via de [Azure-portal](https://portal.azure.com), opent u uw HDInsight-cluster deelvenster, selecteert u **cluster schalen** in het menu links en vervolgens in het deelvenster van de cluster schalen, typt u in het aantal worker-knooppunten, en Selecteer opslaan.
-
-    ![Schaal cluster aanpassen](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
+![Schaal cluster aanpassen](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
 
 Met behulp van een van deze methoden, kunt u uw HDInsight-cluster omhoog of omlaag schalen binnen enkele minuten.
+
+> [!IMPORTANT]  
+> * De klassieke Azure-CLI is verouderd en moet alleen worden gebruikt met het klassieke implementatiemodel. Voor alle andere implementaties, gebruikt u de [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).  
+> * De PowerShell AzureRM-module is afgeschaft.  Gebruik de [Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) indien mogelijk.
 
 ## <a name="scaling-impacts-on-running-jobs"></a>Gevolgen voor het uitvoeren van taken schalen
 
@@ -53,11 +53,12 @@ Om dit probleem op te lossen, kunt u de taken zijn voltooid voordat u uw cluster
 U ziet een lijst van in behandeling en taken die worden uitgevoerd, kunt u de YARN ResourceManager-interface, volgende stappen:
 
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com).
-2. Selecteer in het menu links **Bladeren**, selecteer **HDInsight-Clusters**, en selecteer vervolgens uw cluster.
-3. Selecteer in het deelvenster HDInsight-cluster **Dashboard** in het bovenste menu de UI Ambari te openen. Voer uw referenties voor clusteraanmelding.
-4. Klik op **YARN** in de lijst met services in het menu links. Selecteer op de pagina YARN **snelkoppelingen** en beweeg de muisaanwijzer over de actieve hoofdknooppunt en klik vervolgens op **ResourceManager UI**.
+2. Aan de linkerkant, gaat u naar **alle services** > **Analytics** > **HDInsight-Clusters**, en selecteer vervolgens uw cluster.
+3. Vanuit de hoofdweergave, navigeert u naar **Clusterdashboards** > **Ambari home**. Voer uw referenties voor clusteraanmelding.
+4. Selecteer in de UI Ambari **YARN** in de lijst met services in het menu links.  
+5. Selecteer in de pagina YARN **snelkoppelingen** en beweeg de muisaanwijzer over de actieve hoofdknooppunt en selecteer vervolgens **ResourceManager UI**.
 
-    ![ResourceManager-interface](./media/hdinsight-scaling-best-practices/resourcemanager-ui.png)
+    ![ResourceManager UI](./media/hdinsight-scaling-best-practices/resourcemanager-ui.png)
 
 U hebt rechtstreeks toegang tot de ResourceManager-UI met `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`.
 
@@ -97,13 +98,11 @@ Zoals eerder vermeld, worden alle in behandeling of actieve taken beëindigd na 
 
 ## <a name="hdinsight-name-node-stays-in-safe-mode-after-scaling-down"></a>HDInsight naam knooppunt blijft in de veilige modus na het omlaag schalen
 
-![Schaal cluster aanpassen](./media/hdinsight-scaling-best-practices/scale-cluster.png)
-
-Als u uw cluster naar het minimum van een worker-knooppunt, zoals wordt weergegeven in de vorige afbeelding krimpen, zijn Apache HDFS vastgelopen in de veilige modus als de worker-knooppunten opnieuw worden opgestart vanwege het toepassen van patches of onmiddellijk nadat de vergroten/verkleinen is uitgevoerd.
+Als u uw cluster naar het minimum van een worker-knooppunt verkleinen, zijn Apache HDFS vastgelopen in de veilige modus als de worker-knooppunten opnieuw worden opgestart vanwege het toepassen van patches of onmiddellijk nadat de vergroten/verkleinen is uitgevoerd.
 
 De belangrijkste oorzaak hiervan is dat Hive enkele gebruikt `scratchdir` bestanden en standaard wordt verwacht dat de drie replica's van elk blok, maar er is slechts één replica mogelijk als u omlaag naar het ten minste één worker-knooppunt schalen. Als gevolg, de bestanden in de `scratchdir` worden *under-gerepliceerde*. Dit kan ertoe leiden dat HDFS om te blijven in de veilige modus wanneer de services opnieuw na de schaalbewerking gestart zijn.
 
-Als een neerschalen poging gebeurt, is HDInsight is afhankelijk van de Apache Ambari-management-interfaces voor het eerst uit bedrijf nemen de extra ongewenste worker-knooppunten, die hun HDFS-blokken gerepliceerd naar andere online worker-knooppunten, en het cluster veilig omlaag te schalen. HDFS gaat op een veilige modus tijdens het onderhoudsvenster, en moet afkomstig zijn uit als de schaal is voltooid. Het is op dit moment dat de HDFS kan zijn vastgelopen in de veilige modus.
+Als een neerschalen poging gebeurt, is HDInsight is afhankelijk van de Apache Ambari-management-interfaces voor het eerst uit bedrijf nemen de extra ongewenste worker-knooppunten, die hun HDFS-blokken worden gerepliceerd naar andere online worker-knooppunten, en het cluster veilig omlaag te schalen. HDFS gaat op een veilige modus tijdens het onderhoudsvenster, en moet afkomstig zijn uit als de schaal is voltooid. Het is op dit moment dat de HDFS kan zijn vastgelopen in de veilige modus.
 
 HDFS is geconfigureerd met een `dfs.replication` instellen van 3. Dus zijn de blokken van de tijdelijke bestanden under-gerepliceerde wanneer er minder dan drie werkknooppunten online zijn, omdat er niet de verwachte drie kopieën van elk bestand blok beschikbaar.
 
@@ -121,12 +120,12 @@ Na de veilige modus te verlaten, kunt u handmatig de tijdelijke bestanden verwij
 
 * H100 geen instructie indienen databases weergeven: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException: Verbinding maken met hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername. Internal.cloudapp.NET/1.1.1.1] is mislukt: **Verbinding geweigerd**
 
-* H020 kan geen verbinding maken met .net hn0 hdisrv.servername.bx.internal.cloudapp: 10001: org.apache.thrift.transport.TTransportException: Kan geen http-verbinding te maken http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Verbinding maken met hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] is mislukt: Verbinding geweigerd: org.apache.thrift.transport.TTransportException: Kan geen http-verbinding te maken http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Verbinding maken met hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] is mislukt: **Verbinding geweigerd**
+* H020 Could not establish connection to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001: org.apache.thrift.transport.TTransportException: Kan geen http-verbinding te maken http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Connect to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] failed: Connection refused: org.apache.thrift.transport.TTransportException: Kan geen http-verbinding te maken http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Connect to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] failed: **Verbinding geweigerd**
 
 * In de Hive-Logboeken: Waarschuwen [main]: server. HiveServer2 (HiveServer2.java:startHiveServer2(442)): fout bij het starten van HiveServer2 poging 21, probeert in 60 seconden java.lang.RuntimeException: Fout bij het autorisatiebeleid voor toepassen van hive-configuratie: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **Kan map niet maken** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374. **De naam van knooppunt zich in de veilige modus**.
     De gerapporteerde blokken 0 moet extra 9 blokken aan de drempelwaarde 0.9900 van blokken 9 bereiken.
     Het aantal live datanodes 10 heeft het minimale aantal 0 bereikt. **Veilige modus wordt automatisch worden uitgeschakeld zodra de drempelwaarden hebben bereikt**.
-    op org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1324)
+    at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1324)
 
 U kunt de naam van knooppuntlogboeken van bekijken de `/var/log/hadoop/hdfs/` map in de buurt van de tijd wanneer het cluster is geschaald om te zien wanneer deze veilige modus hebt ingevoerd. De naam van de logboekbestanden `Hadoop-hdfs-namenode-hn0-clustername.*`.
 
@@ -245,7 +244,7 @@ U ziet ook een of meer kritieke fouten op de actieve of stand-by NameNodes. Als 
 
 ![NameNode blokken Health](./media/hdinsight-scaling-best-practices/ambari-hdfs-crit.png)
 
-Opschonen van de tijdelijke bestanden die Hiermee verwijdert u de blok-replicatiefouten SSH naar elke hoofdknooppunt en voer de volgende opdracht uit:
+Als u de tijdelijke bestanden, die de replicatiefouten blok verwijderen, wilt opschonen SSH op elk knooppunt te gaan en voer de volgende opdracht uit:
 
 ```
 hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/

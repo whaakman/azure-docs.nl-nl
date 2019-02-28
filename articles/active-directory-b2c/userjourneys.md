@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5c63a838d6cffce5ca45dbf0dde50bb9bd01892c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8cda538cade4750e03ecb91dfb2c478df730e556
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171640"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961292"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -49,7 +49,7 @@ De **UserJourney** element bevat de volgende elementen:
 
 Een gebruikersbeleving wordt weergegeven als een reeks orchestration die moet worden gevolgd door voor een geslaagde transactie. Als er een stap mislukt, wordt de transactie mislukt. Deze stappen orchestration verwijzen naar de bouwstenen en de claimsproviders die zijn toegestaan in het beleid-bestand. Een orchestration-stap die moeten worden weergeven of een gebruikerservaring renderen heeft ook een verwijzing naar de bijbehorende inhoud definitie-id.
 
-Orchestration stappen kunnen worden conditionaly uitgevoerd, op basis van voorwaarden die zijn gedefinieerd in de orchestration-stap-element. U kunt controleren voor examle om uit te voeren een indelingsstap alleen als een bepaalde claims aanwezig is, of als een claim gelijk is of niet aan de opgegeven waarde. 
+Orchestration stappen kunnen worden voorwaardelijk uitgevoerd, op basis van voorwaarden die zijn gedefinieerd in de orchestration-stap-element. U kunt bijvoorbeeld controleren om uit te voeren een indelingsstap alleen als een bepaalde claims aanwezig is, of als een claim gelijk is of niet aan de opgegeven waarde. 
 
 Om op te geven van de geordende lijst indelingsstappen, een **OrchestrationSteps** element wordt toegevoegd als onderdeel van het beleid. Dit element is vereist.
 
@@ -77,7 +77,7 @@ De **OrchestrationStep** element mag de volgende elementen:
 | ClaimsProviderSelections | 0: n | Een lijst van de claims provider selecties voor de orchestration-stap. | 
 | ClaimsExchanges | 0: n | Een lijst met claims worden uitgewisseld voor de orchestration-stap. | 
 
-#### <a name="preconditions"></a>Voorwaarden
+### <a name="preconditions"></a>Voorwaarden
 
 De **voorwaarden** element bevat het volgende element:
 
@@ -86,7 +86,7 @@ De **voorwaarden** element bevat het volgende element:
 | Voorwaarde | 0: n | Afhankelijk van het technische profiel wordt gebruikt, leidt u de client op basis van de selectie van claims-provider of maakt een server te worden aangeroepen voor het uitwisselen van claims. | 
 
 
-##### <a name="precondition"></a>Voorwaarde
+#### <a name="precondition"></a>Voorwaarde
 
 De **voorwaarde** element bevat het volgende kenmerk:
 
@@ -99,10 +99,10 @@ De **voorwaarde** elementen bevat de volgende elementen:
 
 | Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
-| Waarde | 1: n | Een ClaimTypeReferenceId moet worden gezocht voor. Een andere waarde-element bevat de waarde moet worden gecontroleerd.</li></ul>|
+| Value | 1: n | Een ClaimTypeReferenceId moet worden gezocht voor. Een andere waarde-element bevat de waarde moet worden gecontroleerd.</li></ul>|
 | Bewerking | 1:1 | De actie die moet worden uitgevoerd als de controle van de voorwaarde in een orchestration-stap ingesteld op true is. Als de waarde van de `Action` is ingesteld op `SkipThisOrchestrationStep`, de bijbehorende `OrchestrationStep` moet niet worden uitgevoerd. | 
 
-### <a name="preconditions-examples"></a>Voorbeelden van voorwaarden
+#### <a name="preconditions-examples"></a>Voorbeelden van voorwaarden
 
 De volgende voorwaarden wordt gecontroleerd of de objectId van de gebruiker bestaat. De gebruiker heeft geselecteerd in de gebruikersbeleving zich aanmelden met lokaal account. Als de object-id bestaat, moet u deze orchestration-stap overslaan.
 
@@ -226,20 +226,3 @@ De **ClaimsExchange** element bevat de volgende kenmerken:
 | --------- | -------- | ----------- |
 | Id | Ja | Een id van de claims exchange-stap. De id wordt gebruikt om te verwijzen naar de claimuitwisseling van van een claims provider-selectie stap in het beleid. | 
 | TechnicalProfileReferenceId | Ja | De id van het technische profiel die moet worden uitgevoerd. |
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

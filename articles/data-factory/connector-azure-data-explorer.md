@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: orspod
-ms.openlocfilehash: f614c6770dd29bc3d6b42c36fe8c81d9f129cd81
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: d30eab024fa988b3341c5efc9fe188ee4802720a
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816654"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961071"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Data Explorer met behulp van Azure Data Factory
 
@@ -44,6 +44,22 @@ De Azure Data Explorer-connector kunt u het volgende doen:
 De volgende secties bevatten meer informatie over eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke met Azure Data Explorer-connector.
 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
+
+De connector voor Azure Data Explorer maakt gebruik van service-principal verificatie. Volg deze stappen voor het ophalen van een service-principal en machtigingen verlenen:
+
+1. Registreren van een Toepassingsentiteit in Azure Active Directory (Azure AD) door [uw toepassing registreren bij een Azure AD-tenant](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Noteer de volgende waarden, die u gebruikt voor het definiëren van de gekoppelde service:
+
+    - Toepassings-id
+    - Toepassingssleutel
+    - Tenant-id
+
+2. Geef de service principal juiste toestemming in Azure Data Explorer. Raadpleeg [beheren Azure Data Explorer databasemachtigingen](../data-explorer/manage-database-permissions.md) met gedetailleerde informatie over rollen en machtigingen, evenals stapsgewijze instructies over het beheren van machtigingen. In het algemeen moet u
+
+    - **Als bron**, ten minste verlenen **Database viewer** rol met uw database.
+    - **Als sink**, ten minste verlenen **Database ingestor** rol met uw database.
+
+>[!NOTE]
+>Wanneer u ADF UI gebruikt om te maken, moet de bewerkingen van databases op de gekoppelde service aanbieden of lijst tabellen op de gegevensset mogelijk hogere bevoegdheden machtiging verleend voor de service-principal. U kunt er ook voor kiezen voor het handmatig invoeren van de databasenaam van de en de tabelnaam van de. Kopieer activiteit uitvoering werkt als de service-principal met de juiste machtigingen voor lezen/schrijven van gegevens wordt verleend.
 
 De volgende eigenschappen worden ondersteund voor Azure Data Explorer gekoppelde service:
 
@@ -162,7 +178,7 @@ Om gegevens te kopiëren naar Azure Data Explorer, stelt u de eigenschap type in
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De **type** eigenschap van de kopie-activiteit-sink moet zijn ingesteld op: **AzureDataExplorerSink** | Ja |
-| ingestionMappingName | Naam van een vooraf gemaakte **[CSV toewijzing](/azure/kusto/management/mappings#csv-mapping)** van een Kusto-tabel. JSON-toewijzing en Avro-toewijzing op Azure Data Explorer niet direct worden ondersteund, maar u kunt nog steeds gegevens uit JSON/Avro-bestanden kopiëren. Als u wilt toewijzen van de kolommen van bron naar Azure Data Explorer, kunt u de kopieeractiviteit [kolomtoewijzing](copy-activity-schema-and-type-mapping.md) die naast elkaar werkt ook met Azure Data Explorer CSV toewijzingen - activiteit maps/opnieuw-shapes gegevens kopiëren van bron naar het sink-op basis van kolom toewijzing van instellingen, wordt vervolgens toegewezen de gegevens opnieuw op basis van gegevensopname toewijzingsconfiguratie als bestaat. Het is van toepassing op [alle ondersteunde bron winkels](copy-activity-overview.md#supported-data-stores-and-formats) met inbegrip van JSON en Avro-indeling. | Nee |
+| ingestionMappingName | Naam van een vooraf gemaakte **[CSV toewijzing](/azure/kusto/management/mappings#csv-mapping)** op een Kusto-tabel. Toewijzen van de kolommen van bron naar Azure Data Explorer - dat van toepassing op **[alle ondersteunde bron-winkels/indelingen](copy-activity-overview.md#supported-data-stores-and-formats)** inclusief CSV/JSON/Avro enz opgemaakt, kunt u de kopieeractiviteit [kolom toewijzing](copy-activity-schema-and-type-mapping.md) (impliciet door de naam of expliciet geconfigureerd) en/of Azure Data Explorer CSV-toewijzingen. | Nee |
 
 **Voorbeeld:**
 

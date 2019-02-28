@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
 ms.author: aljo
-ms.openlocfilehash: 37140b665f30d8bb99dd49dbdcca265969eaaf2f
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 047e058fee6cd72a7eeaecdde976b1b9d49aeb5c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806688"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958946"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Toevoegen of verwijderen van certificaten voor een Service Fabric-cluster in Azure
 Het verdient aanbeveling dat u raken met het Service Fabric maakt gebruik van x.509-certificaten en vertrouwd met zijn de [clusterbeveiligingsscenario's](service-fabric-cluster-security.md). U moet begrijpen wat een clustercertificaat is en wat wordt gebruikt voor, voordat u verder gaat.
 
-Azure Service Fabrics SDK's standaard certificaat load gedrag, is het implementeren en gebruiken van een gedefinieerde certificaat met een vervaldatum verste weg in de toekomst; ongeacht de definitie van de primaire of secundaire configuratie. Terugvallen naar de klassieke gedrag wordt niet aanbevolen geavanceerde actie, en is vereist als de waarde van de parameter 'UseSecondaryIfNever' instellen op false in de configuratie van uw Fabric.Code.
+Azure Service Fabrics SDK's standaard certificaat load gedrag, is het implementeren en gebruiken van een gedefinieerde certificaat met een vervaldatum verste weg in de toekomst; ongeacht de definitie van de primaire of secundaire configuratie. Terugvallen naar de klassieke gedrag wordt niet aanbevolen geavanceerde actie, en is vereist als de waarde van de parameter 'UseSecondaryIfNewer' instellen op false in de configuratie van uw Fabric.Code.
 
 Service fabric kunt u twee clustercertificaten, een primaire en een secundaire opgeven bij het configureren van Certificaatbeveiliging tijdens het maken van een cluster, naast de clientcertificaten. Raadpleeg [het maken van een azure-cluster via de portal](service-fabric-cluster-creation-via-portal.md) of [het maken van een azure-cluster via Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) voor meer informatie over het instellen van deze clusters op voor het maken. Als u slechts één clustercertificaat opgeeft bij het maken, klikt u vervolgens die wordt gebruikt als het primaire certificaat voor. Na het maken van een cluster, kunt u een nieuw certificaat toevoegen als een secundaire.
 

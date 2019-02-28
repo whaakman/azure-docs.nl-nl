@@ -10,16 +10,16 @@ ms.date: 11/21/2018
 ms.topic: tutorial
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: 77760310d305b21f89422edb8b49fd67bdcbcb0b
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 39c9d2f938dd3e06a328626756ddcc80d0aad47b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55665077"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821231"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Ontwikkeling van meerdere services met Azure Dev Spaces
 
-In deze zelfstudie leert u hoe u toepassingen met meerdere services ontwikkelt met Azure Dev Spaces, samen met enkele aanvullende voordelen van Azure Dev Spaces.
+In deze zelfstudie leert u hoe u toepassingen met meerdere services ontwikkelt met Azure Dev Spaces, samen met enkele van de aanvullende voordelen van Azure Dev Spaces.
 
 ## <a name="call-a-service-running-in-a-separate-container"></a>Een service aanroepen die wordt uitgevoerd in een afzonderlijke container
 
@@ -77,10 +77,10 @@ In het vorige codevoorbeeld wordt de `azds-route-as`-header van de binnenkomende
 1. In de web-app wordt nu op de pagina About een bericht weergegeven dat is samengevoegd door de twee services: "Hello from webfrontend and Hello from mywebapi."
 
 ### <a name="automatic-tracing-for-http-messages"></a>Automatische tracering voor HTTP-berichten
-U hebt wellicht gemerkt dat, hoewel *webfrontend* geen speciale code bevat om de HTTP-aanroep af te drukken die deze naar *mywebapi* uitvoert, u kunt zien dat HTTP berichten in het uitvoervenster traceert:
+U hebt mogelijk opgemerkt dat, hoewel *webfrontend* geen speciale code bevat om de HTTP-aanroep af te drukken die deze naar *mywebapi* uitvoert, u kunt zien dat HTTP berichten in het uitvoervenster traceert:
 ```
 // The request from your browser
-webfrontend.<id>.<region>.aksapp.io --gyk-> webfrontend-668b7ddb9f-n5rhj:
+default.webfrontend.856bb3af715744c6810b.eus.azds.io --gyk-> webfrontend:
    GET /Home/About HTTP/1.1
 
 // *webfrontend* reaching out to *mywebapi*
@@ -93,7 +93,7 @@ webfrontend-668b7ddb9f-n5rhj <-pu5-- mywebapi:
    Hello from mywebapi
 
 // Response from *webfrontend* to your browser
-webfrontend.<id>.<region>.aksapp.io <-gyk-- webfrontend-668b7ddb9f-n5rhj:
+default.webfrontend.856bb3af715744c6810b.eus.azds.io <-gyk-- webfrontend:
    HTTP/1.1 200 OK
    <!DOCTYPE html>
    <html>
@@ -101,7 +101,7 @@ webfrontend.<id>.<region>.aksapp.io <-gyk-- webfrontend-668b7ddb9f-n5rhj:
        <meta charset="utf-8" />
        <meta name="viewport" content="width=device-width, initial-sc...<[TRUNCATED]>
 ```
-Dit is een van de 'gratis' voordelen van Dev Spaces-instrumentatie. We voegen onderdelen toe die HTTP-aanvragen traceren terwijl deze het systeem doorlopen om het voor u eenvoudiger te maken om tijdens de ontwikkeling aanroepen naar meerdere services te traceren.
+Dit is een van de 'gratis' voordelen van Dev Spaces-instrumentatie. We voegen onderdelen in die HTTP-aanvragen traceren terwijl deze het systeem doorlopen om het voor u eenvoudiger te maken om tijdens de ontwikkeling aanroepen naar meerdere services te traceren.
 
 
 ### <a name="well-done"></a>Dat is dus gelukt.

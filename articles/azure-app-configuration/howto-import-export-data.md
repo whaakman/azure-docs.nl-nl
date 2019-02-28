@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 33ba01440f599e2f019db46c304b0658632d9342
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 851a8705b3cfa9c88e369af7b961a653dee8fd7a
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56885282"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959847"
 ---
 # <a name="import-or-export-configuration-data"></a>Configuratiegegevens importeren of exporteren
 
@@ -69,4 +69,4 @@ U kunt gegevens met behulp van exporteren de [Azure-portal](https://aka.ms/azcon
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Snelstart: Een ASP.NET-web-app maken](quickstart-aspnet-core-app.md)  
+* [Snelstart: Een ASP.NET-web-app maken](./quickstart-aspnet-core-app.md)  

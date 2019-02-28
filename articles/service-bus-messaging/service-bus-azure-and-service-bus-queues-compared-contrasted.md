@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c59d79a7c6ac0590861c99daa01438b184cd71ff
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 8c86ffaeb717914d9165ecb5b65f300ae7d903b2
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852793"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959303"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Storage-wachtrijen en Service Bus-wachtrijen: overeenkomsten en verschillen
 In dit artikel analyseert de verschillen en overeenkomsten tussen de twee typen wachtrijen die momenteel worden aangeboden door Microsoft Azure: Storage-wachtrijen en Service Bus-wachtrijen. U kunt deze informatie gebruiken om de verschillende technologieën te vergelijken en tegen elkaar af te zetten zodat u een weloverwogen beslissing kunt nemen en de oplossing kiest die beste voldoet aan uw behoeften.
@@ -83,7 +83,8 @@ In deze sectie worden enkele van de fundamentele queuing mogelijkheden geboden d
 * Berichten in de Storage-wachtrijen worden meestal first-in-first-out kunnen, maar soms ze niet de juiste volgorde; bijvoorbeeld, wanneer van een bericht zichtbaarheid time-out duur is verlopen (bijvoorbeeld, als gevolg van een clienttoepassing vastloopt tijdens het verwerken). Wanneer de time-out voor zichtbaarheid is verlopen, wordt het bericht zichtbaar op de wachtrij voor een andere werknemer uit de wachtrij verwijderen het opnieuw. Op dat moment kan het bericht pas zichtbaar in de wachtrij (om te worden uit de wachtrij genomen opnieuw) worden geplaatst nadat een bericht dat in de wachtrij geplaatste oorspronkelijk nadat deze.
 * De gegarandeerde FIFO-patroon in Service Bus-wachtrijen vereist het gebruik van de messaging-sessies. In het geval dat de toepassing vastloopt tijdens het verwerken van een bericht wordt ontvangen in de **bekijken & vergrendelen** modus, de volgende keer dat de ontvanger van een wachtrij een berichtensessie accepteert deze begint met het bericht is mislukt nadat de time-to-live (TTL) periode is verlopen.
 * Storage-wachtrijen zijn ontworpen ter ondersteuning van standard queuing's, zoals toepassingsonderdelen ontkoppeling zodat de schaalbaarheid en tolerantie voor fouten, load leveling en het samenstellen van proceswerkstromen.
-* Service Bus-wachtrijen ondersteunen de *op-één keer* bezorging gegarandeerd. Bovendien de *op in de meeste eenmaal* semantische kan worden ondersteund met behulp van de sessiestatus voor het opslaan van de status van de toepassing en met behulp van transacties atomisch ontvangen van berichten en bijwerken van de sessiestatus.
+* Service Bus-wachtrijen ondersteunen de *op-één keer* bezorging gegarandeerd. 
+* Inconsistenties met betrekking tot de afhandeling van berichten in de context van Service Bus-sessies kunnen worden voorkomen met behulp van de sessiestatus voor het opslaan van de status van de toepassing ten opzichte van de voortgang van de verwerking van de sessie berichtenstroom en met behulp van transacties om vereffenen ontvangen berichten en de sessiestatus bij te werken. Dit soort consistentie is soms aangeduid als *exact-één keer worden verwerkt* fouten wordt duidelijk dat berichten worden redeliveried in de producten van andere leveranciers maar de transactie en de term is daarom niet precies voldoende.
 * Storage-wachtrijen bieden een uniforme en consistente programmeermodel voor wachtrijen, tabellen en BLOBs – voor ontwikkelaars en bewerkingsteams.
 * Service Bus-wachtrijen bieden ondersteuning voor lokale transacties in de context van één wachtrij.
 * De **ontvangt en verwijdert** modus wordt ondersteund door Service Bus biedt de mogelijkheid om te beperken van de berichten item (en de bijbehorende kosten) ruil verlaagde levering assurance.
@@ -173,7 +174,7 @@ Deze sectie wordt de verificatie en autorisatie functies die worden ondersteund 
 
 | Vergelijkingscriteria | Opslagwachtrijen | Service Bus-wachtrijen |
 | --- | --- | --- |
-| Verificatie |**Symmetrische sleutel** |**Symmetrische sleutel** |
+| Authentication |**Symmetrische sleutel** |**Symmetrische sleutel** |
 | Beveiligingsmodel |Gedelegeerde toegang via SAS-tokens. |SAS |
 | Id-provider-Federatie |**Nee** |**Ja** |
 

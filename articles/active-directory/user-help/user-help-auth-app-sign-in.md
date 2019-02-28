@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3974d1de2bd90049541dcc249f18346c9e48fd3d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 80fd458356cf5b375e0b3d922d9bdca3f3a30503
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456024"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961666"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Aanmelden bij uw accounts met behulp van de Microsoft Authenticator-app
 Met de Microsoft Authenticator-app kunt u zich aanmelden bij uw accounts als u gebruikmaakt van verificatie in twee stappen. Verificatie in twee stappen helpt u veiliger toegang te krijgen tot uw accounts, vooral als u gevoelige informatie bekijkt. Omdat wachtwoorden kunnen worden vergeten, gestolen of gewijzigd, is verificatie in twee stappen een extra beveiligingsstap waarmee u uw account beschermt door het voor anderen lastiger te maken om in te breken.
@@ -110,14 +110,17 @@ Voor de stappen die nodig zijn om aan te melden bij uw werk of school of je pers
 |**Hoe is het aanmelden met mijn telefoon veiliger dan een wachtwoord te typen?**|De meeste mensen zich vandaag nog voor web sites of apps met behulp van een gebruikersnaam en wachtwoord. Helaas kunnen wachtwoorden worden verloren, gestolen of geraden door hackers.<br><br>Na het instellen van de Microsoft Authenticator-app, wordt een sleutel gemaakt op uw telefoon om uw account die wordt beveiligd door de PINCODE of biometrische vergrendelen van uw telefoon te ontgrendelen. Deze sleutel wordt vervolgens naar uw identiteit bewijst bij het aanmelden gebruikt.<br><br>**Belangrijk**<br>Uw gegevens wordt alleen gebruikt om de sleutel lokaal te beveiligen. Er is nooit verzonden naar of opgeslagen in de cloud.|
 |**Aanmelding via telefoon vervangt verificatie in twee stappen? Moet ik uitschakelen?**|Aanmelding via telefoon is een type verificatie in twee stappen waarbij de twee stappen zowel van toepassing op het mobiele apparaat. U moet verificatie in twee stappen ingeschakeld om te voorzien in aanvullende beveiliging voor uw account te behouden.|
 |**Als ik verificatie in twee stappen ingeschakeld voor mijn account wilt houden, heb ik twee meldingen goedkeuren?**| Nee. Aanmelden bij uw Microsoft-account met behulp van uw telefoon ook telt als verificatie in twee stappen, zodat er geen tweede goedkeuring is vereist.|
-|**Wat gebeurt er als ik mijn telefoon verlies of deze nog niet met mij? Hoe krijg ik toegang tot mijn account?**| U kunt altijd een wachtwoord in plaats daarvan een koppeling op de aanmeldingspagina wilt terugkeren naar het met het wachtwoord gebruikt selecteren. Echter, als u verificatie in twee stappen gebruikt u nog steeds moet een tweede verificatiemethode gebruiken om uw identiteit te verifiëren.<br><br>**Belangrijk**<br>We raden u om ervoor te zorgen dat u hebt meer dan één, up-to-date zijn, verificatiemethode die is gekoppeld aan uw account.<br><br>U kunt beheren van uw verificatiemethoden voor persoonlijke accounts van uw [beveiligingsinstellingen](https://account.live.com/proofs/manage) pagina. Voor accounts voor werk- of schoolaccount, gaat u naar uw organisatie [aanvullende beveiligingsverificatie](https://aka.ms/MFASetup) pagina of het **je account blijft beveiligd** pagina als de beheerder de beveiligingsgegevens is ingeschakeld. Zie voor meer informatie over beveiligingsgegevens [je beveiligingsgegevens beheren](security-info-manage-settings.md).<br><br>Als u niet uw verificatiemethoden beheren, moet u contact op met uw beheerder.|
+|**Wat gebeurt er als ik mijn telefoon verlies of deze nog niet met mij? Hoe krijg ik toegang tot mijn account?**| U kunt altijd een wachtwoord in plaats daarvan een koppeling op de aanmeldingspagina wilt terugkeren naar het met het wachtwoord gebruikt selecteren. Echter, als u verificatie in twee stappen gebruikt u nog steeds moet een tweede verificatiemethode gebruiken om uw identiteit te verifiëren.<br><br>**Belangrijk**<br>We raden u om ervoor te zorgen dat u hebt meer dan één, up-to-date zijn, verificatiemethode die is gekoppeld aan uw account.<br><br>U kunt beheren van uw verificatiemethoden voor persoonlijke accounts van uw [beveiligingsinstellingen](https://account.live.com/proofs/manage) pagina. Voor accounts voor werk- of schoolaccount, gaat u naar uw organisatie [aanvullende beveiligingsverificatie](https://aka.ms/MFASetup) pagina of het **je account blijft beveiligd** pagina als de beheerder de beveiligingsgegevens is ingeschakeld. Zie voor meer informatie over beveiligingsgegevens [info (preview) beveiligingsoverzicht](user-help-security-info-overview.md).<br><br>Als u niet uw verificatiemethoden beheren, moet u contact op met uw beheerder.|
 |**Hoe kan ik stoppen met het gebruik van deze functie en gaat u terug naar mijn wachtwoord gebruiken?**|Voor persoonlijke accounts, selecteert u de **in plaats daarvan gebruik van een wachtwoord** koppeling tijdens het aanmelden. Uw meest recente keuze is onthouden en aangeboden standaard de volgende keer dat u zich aanmeldt. Als u ooit terugkeren wilt naar de met behulp van aanmelden via telefoon, selecteer de **gebruik van een app in plaats daarvan** koppeling tijdens het aanmelden.<br><br>Voor werk of school-accounts, moet u naar de pagina extra beveiliging met verificatie (zoals https://aka.ms/MFASetup) en verwijderen van de Microsoft Authenticator-app.|
 |**Waarom kan ik meer dan één account voor werk of school niet gebruiken voor aanmelding via telefoon?**| Een telefoon moet worden geregistreerd in één werk- of schoolaccount. Als u wilt inschakelen op aanmelden via telefoon voor een ander werk- of schoolaccount, moet u eerst het oude apparaat via registratie de **instellingen** pagina.|
 |**Kan ik me aanmelden op mijn computer met behulp van mijn telefoon?**| Voor de computer, wordt u aangeraden aanmelden met Windows Hello op Windows 10. Windows Hello kunt u uw face, vingerafdruk of PINCODE gebruikt om te melden.|
 
 ## <a name="next-steps"></a>Volgende stappen
+
+- Als u problemen bij het ophalen van uw verificatiecode voor uw persoonlijke Microsoft-account ondervindt, raadpleegt u de **code voor verificatie problemen** sectie van de [beveiligingsgegevens voor Microsoft-account & verificatie codes](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) artikel.
+
 - Als u meer algemene vragen over de app hebt, raadpleegt u de [Veelgestelde vragen over de Microsoft Authenticator](user-help-auth-app-faq.md)
 
 - Als u meer informatie over verificatie in twee stappen wilt, Zie [Mijn account voor verificatie in twee stappen instellen](multi-factor-authentication-end-user-first-time.md)
 
-- Als u meer informatie over de beveiligingsgegevens wilt, Zie [je beveiligingsgegevens beheren](security-info-manage-settings.md)
+- Als u meer informatie over de beveiligingsgegevens wilt, Zie [beveiligingsoverzicht info (preview)](user-help-security-info-overview.md)

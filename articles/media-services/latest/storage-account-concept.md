@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/21/2019
 ms.author: juliako
-ms.openlocfilehash: 471bc34272b8e141c8640bd218bdafd840850d24
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: cda029dd11e8cb4cb07e9fce7eef95d6d4d78d7e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672267"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960209"
 ---
 # <a name="cloud-upload-and-storage"></a>Uploaden naar en opslaan in de cloud
 
@@ -31,16 +31,14 @@ U kunt maar één **primaire** opslagaccount koppelen aan uw Media Services-acco
 
 We raden u aan gpv2-Opslagaccounts te gebruiken, zodat u kunt profiteren van het kiezen tussen hot en cool storage-lagen. Zie voor meer informatie over de storage-accounts, [overzicht van Azure Storage-account](../../storage/common/storage-account-overview.md). 
 
-Er zijn verschillende SKU's u voor uw storage-account kiezen kunt. Zie voor meer informatie, [opslagaccounts](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest). Als u experimenteren met de storage-accounts wilt, gebruikt u `--sku Standard_LRS`. Echter tijdens het selecteren van een SKU voor de productie kunt u overwegen, `--sku Standard_RAGRS`, waarmee u geografische replicatie voor bedrijfscontinuïteit. 
+Er zijn verschillende SKU's u voor uw storage-account kiezen kunt. Zie [Opslagaccounts](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest) voor meer informatie. Als u wilt experimenteren met opslagaccounts, gebruikt u `--sku Standard_LRS`. Als u echter een SKU voor productie selecteert, kunt u overwegen om `--sku Standard_RAGRS` te gebruiken. Deze biedt geografische replicatie voor bedrijfscontinuïteit. 
 
 ## <a name="assets-in-a-storage-account"></a>Assets in een storage-account
 
-In Media Services v3, worden de Storage-API's gebruikt om bestanden te uploaden.
+In Media Services v3, worden de Storage-API's gebruikt om bestanden te uploaden naar activa. Zie voor meer informatie, [activa concept](assets-concept.md).
 
 > [!Note]
 > U moet niet proberen om de inhoud van de blob-containers die zijn gegenereerd door de Media Services SDK zonder gebruik van Media Services-API's te wijzigen.
-
-Bekijk voor meer informatie over het gebruik van Storage-API's met Media Services voor uw invoerbestanden uploaden, [de Taakinvoer van een maken vanuit een lokaal bestand](job-input-from-local-file-how-to.md). 
  
 ## <a name="next-steps"></a>Volgende stappen
 

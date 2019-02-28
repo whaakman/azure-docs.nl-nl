@@ -12,12 +12,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: 08903bcb15c69e3bc9a2b5435785d4a1ee8edb5c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: f345ff2e64670536771a639a7619c6e1d4d2d82d
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659045"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823940"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Aan de slag in Azure Dev Spaces met .NET Core en Visual Studio
 
@@ -52,13 +52,6 @@ In deze handleiding leert u het volgende:
 1. Kies de gewenste instelling voor RBAC (op rollen gebaseerd toegangsbeheer). Azure Dev Spaces biedt ondersteuning voor clusters waarop RBAC is ingeschakeld of uitgeschakeld.
 
     ![RBAC-instelling](media/common/k8s-RBAC.PNG)
-
-1. Zorg ervoor dat routering van HTTP-toepassingen is ingeschakeld.
-
-   ![Routering van HTTP-toepassingen inschakelen](media/common/Kubernetes-Create-Cluster-3.PNG)
-
-    > [!Note]
-    > Om [Routering van HTTP-toepassingen](/azure/aks/http-application-routing) in te schakelen op een bestaande cluster, gebruikt u de opdracht: `az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing`
 
 1. Selecteer **Controleren + maken** en vervolgens **Maken** wanneer u klaar bent.
 

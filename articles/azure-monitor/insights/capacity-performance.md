@@ -1,6 +1,6 @@
 ---
-title: Oplossing voor capaciteit en prestaties in Azure Log Analytics | Microsoft Docs
-description: De oplossing capaciteit en prestaties in Log Analytics gebruiken om te begrijpen van de capaciteit van uw Hyper-V-servers.
+title: Oplossing voor capaciteit en prestaties in Azure Monitor | Microsoft Docs
+description: De oplossing capaciteit en prestaties in Monitor gebruiken om te begrijpen van de capaciteit van uw Hyper-V-servers.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 41508a1d99ed243d377cc72c0accc005c5ca737d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: db2bbd8c3c0e3d7d172ea2948a42f300c2875745
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189197"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983707"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Capaciteit van de Hyper-V-virtuele machine met de oplossing capaciteit en prestaties (Preview) plannen
 
@@ -27,7 +27,7 @@ ms.locfileid: "53189197"
 > [!NOTE]
 > De oplossing capaciteit en prestaties is afgeschaft.  Klanten die de oplossing al hebt geïnstalleerd kunnen blijven gebruiken, maar de capaciteit en prestaties kan niet worden toegevoegd voor nieuwe werkruimten.
 
-U kunt de oplossing capaciteit en prestaties in Log Analytics gebruiken om te begrijpen van de capaciteit van uw Hyper-V-servers. De oplossing biedt inzicht in uw Hyper-V-omgeving door u het totale gebruik (CPU, geheugen en schijfruimte) van de hosts en de virtuele machines die worden uitgevoerd op de Hyper-V-hosts weer te geven. Metrische gegevens worden verzameld voor CPU, geheugen en schijven voor alle hosts en de virtuele machines die daarop worden uitgevoerd.
+U kunt de oplossing capaciteit en prestaties in Monitor gebruiken om te begrijpen van de capaciteit van uw Hyper-V-servers. De oplossing biedt inzicht in uw Hyper-V-omgeving door u het totale gebruik (CPU, geheugen en schijfruimte) van de hosts en de virtuele machines die worden uitgevoerd op de Hyper-V-hosts weer te geven. Metrische gegevens worden verzameld voor CPU, geheugen en schijven voor alle hosts en de virtuele machines die daarop worden uitgevoerd.
 
 De oplossing:
 

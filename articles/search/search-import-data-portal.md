@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 02/26/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ee1b2a40dbcbd53a758ac71f30401778ef07e872
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: fcb1e4f32608a1c83b653984dfa066da38e7c451
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229754"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960751"
 ---
 # <a name="import-data-wizard-for-azure-search"></a>De wizard gegevens importeren voor Azure Search
 
@@ -77,7 +77,9 @@ De **gegevens importeren** wizard maakt een permanente gegevensbronobject verbin
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md) (niet ondersteund voor [cognitief zoeken](cognitive-search-concept-intro.md) pijplijnen)
 
-Een platte gegevensset is een vereiste invoer. U kunt slechts importeren uit één tabel, databaseweergave of gelijkwaardige gegevensstructuur. U moet deze gegevensstructuur maken voordat u de wizard uitvoert.
+Een platte gegevensset is een vereiste invoer. U kunt slechts importeren uit één tabel, databaseweergave of gelijkwaardige gegevensstructuur. 
+
+Inhoud moet bevatten en moet u deze gegevensstructuur maken voordat u de wizard uitvoert. Voer niet de **gegevens importeren** wizard op een lege gegevensbron.
 
 |  Selectie | Description |
 | ---------- | ----------- |
@@ -85,7 +87,7 @@ Een platte gegevensset is een vereiste invoer. U kunt slechts importeren uit é�
 | **Voorbeelden**| Azure Search als host fungeert voor een gratis openbare Azure SQL database die u gebruiken kunt voor meer informatie over aanvragen voor importeren en query's uitvoeren in Azure Search. Zie [Quickstart: Importeren, indexeren en query's uitvoeren met behulp van portal-hulpprogramma's](search-get-started-portal.md) voor een overzicht. |
 | **Azure SQL Database** |De servicenaam, referenties voor een databasegebruiker met leesmachtiging en de naam van een database kunnen worden opgegeven op de pagina of via een ADO.NET-verbindingsreeks. Kies de verbindingsreeksoptie om eigenschappen te bekijken of aan te passen. <br/><br/>De tabel of weergave die de rijenset bevat, moet worden opgegeven op de pagina. Deze optie wordt weergegeven nadat de verbinding tot stand is gebracht, waarna een vervolgkeuzelijst wordt weergegeven zodat u een selectie kunt maken. |
 | **SQL Server op virtuele Azure-machine** |Geef een volledig gekwalificeerde servicenaam, gebruikers-ID en wachtwoord en -database als een verbindingsreeks. Voor het gebruik van deze gegevensbron moet u eerder een certificaat hebben geïnstalleerd in het lokale archief dat de verbinding versleutelt. Zie [SQL VM-verbinding met Azure Search](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md) voor instructies. <br/><br/>De tabel of weergave die de rijenset bevat, moet worden opgegeven op de pagina. Deze optie wordt weergegeven nadat de verbinding tot stand is gebracht, waarna een vervolgkeuzelijst wordt weergegeven zodat u een selectie kunt maken. |
-| **Azure Cosmos DB** |Vereisten zijn het account, de database en de verzameling. Alle documenten in de verzameling worden opgenomen in de index. U kunt een query definiëren om de rijenset plat te maken of te filteren of voor het detecteren van gewijzigde documenten voor verdere gegevensvernieuwingsbewerkingen. |
+| **Cosmos DB** |Vereisten zijn het account, de database en de verzameling. Alle documenten in de verzameling worden opgenomen in de index. U kunt een query voor het samenvoegen of filteren van de rijenset definiëren, of de query leeg laten. Een query is niet vereist in deze wizard.|
 | **Azure Blob Storage** |Vereisten zijn het opslagaccount en een container. Als blob-namen een virtuele naamconventie voor groeperingsdoeleinden volgen, kunt u desgewenst het gedeelte van de virtuele map van de naam als een map onder de container opgeven. Zie [Blob Storage indexeren](search-howto-indexing-azure-blob-storage.md) voor meer informatie. |
 | **Azure Table Storage** |Vereisten zijn het opslagaccount en een tabelnaam. U kunt desgewenst een query opgeven om een subset van de tabellen op te halen. Zie [Table Storage indexeren](search-howto-indexing-azure-tables.md) voor meer informatie. |
 

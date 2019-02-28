@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5458c7e74728952df89380a3649c6ed60eb6ea9a
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 0ec047f38596bed4d3f0bc5520dc9c7fc18b4c24
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749760"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585233"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Routes vinden voor verschillende manieren van reizen met Azure Maps
 
@@ -248,7 +248,7 @@ In deze sectie wordt beschreven hoe u de routeservice-API van Azure Maps gebruik
         datasource.add(routeLine, 0);
     });
     ```
-    Met dit codefragment wordt een query uitgevoerd op de Azure Maps-routeringservice via de methode [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest), waarna het antwoord met behulp van [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest) wordt geparseerd naar de GeoJSON-indeling. Vervolgens wordt er een matrix met coördinaten gemaakt voor de route die is geretourneerd en wordt deze toegevoegd aan de gegevensbron. Maar er wordt ook een index van 0 toegevoegd zodat de route altijd eerder wordt weergegeven dan alle andere lijnen in de gegevensbron. Dit gebeurt omdat de berekende vrachtwagenroute vaak langzamer uitvalt dan een autoroute, en als de vrachtwagenroute na de autoroute aan de gegevensbron wordt toegevoegd, wordt de vrachtwagenroute bovenop de autoroute weergegeven. Er worden twee eigenschappen toegevoegd aan de lijn voor de vrachtwagenroute: een mooie blauwe lijnkleur en een lijndikte van 9 pixels. 
+    Met dit codefragment wordt een query uitgevoerd op de Azure Maps-routeringservice via de methode [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest), waarna het antwoord met behulp van [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routegeojson?view=azure-iot-typescript-latest) wordt geparseerd naar de GeoJSON-indeling. Vervolgens wordt er een matrix met coördinaten gemaakt voor de route die is geretourneerd en wordt deze toegevoegd aan de gegevensbron. Maar er wordt ook een index van 0 toegevoegd zodat de route altijd eerder wordt weergegeven dan alle andere lijnen in de gegevensbron. Dit gebeurt omdat de berekende vrachtwagenroute vaak langzamer uitvalt dan een autoroute, en als de vrachtwagenroute na de autoroute aan de gegevensbron wordt toegevoegd, wordt de vrachtwagenroute bovenop de autoroute weergegeven. Er worden twee eigenschappen toegevoegd aan de lijn voor de vrachtwagenroute: een mooie blauwe lijnkleur en een lijndikte van 9 pixels. 
 
 4. Voeg de volgende JavaScript-code toe om de route voor een auto aan te vragen en de resultaten weer te geven:
 
@@ -267,7 +267,7 @@ In deze sectie wordt beschreven hoe u de routeservice-API van Azure Maps gebruik
         datasource.add(routeLine);
     });
     ```
-    Dit codefragment gebruikt dezelfde query voor het opvragen van de route voor een vrachtwagen als voor een auto. Er wordt een query uitgevoerd op de Azure Maps-routeringservice via de methode [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest), waarna het antwoord met behulp van [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest) wordt geparseerd naar de GeoJSON-indeling. Ten slotte wordt er een matrix met coördinaten gemaakt voor de route die is geretourneerd, en wordt deze toegevoegd aan de gegevensbron. Er worden twee eigenschappen toegevoegd aan de lijn voor de autoroute: lijnkleur paars en lijndikte van 5 pixels. 
+    Dit codefragment gebruikt dezelfde query voor het opvragen van de route voor een vrachtwagen als voor een auto. Er wordt een query uitgevoerd op de Azure Maps-routeringservice via de methode [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest), waarna het antwoord met behulp van [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routegeojson?view=azure-iot-typescript-latest) wordt geparseerd naar de GeoJSON-indeling. Ten slotte wordt er een matrix met coördinaten gemaakt voor de route die is geretourneerd, en wordt deze toegevoegd aan de gegevensbron. Er worden twee eigenschappen toegevoegd aan de lijn voor de autoroute: lijnkleur paars en lijndikte van 5 pixels. 
 
 5. Sla het bestand **MapTruckRoute.html** op en vernieuw de browser om het resultaat te bekijken. Bij een succesvolle verbinding met de-API's van Maps ziet de kaart er ongeveer als volgt uit.
 

@@ -11,12 +11,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 robot: noindex
 ms.custom: seodec2018
-ms.openlocfilehash: a55652c8d19866b717cbafec4629030a7708bb50
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: d63fdbfd71e812e9b445fb0055cb9aee5876ecc1
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359490"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56962142"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Cosmos DB verbinden met Azure Search met behulp van indexeerfuncties
 
@@ -65,7 +65,7 @@ Een **indexeerfunctie** wordt beschreven hoe de gegevens worden overgebracht uit
 
 Als u een Azure Cosmos DB-indexeerfunctie instelt, moet u een index, gegevensbron en ten slotte de indexeerfunctie maken. U kunt deze objecten met behulp van de [portal](search-import-data-portal.md), [.NET SDK](/dotnet/api/microsoft.azure.search), of [REST-API](/rest/api/searchservice/). 
 
-In dit artikel laat zien hoe de REST-API gebruikt. Als u ervoor voor de portal kiezen, de [wizard gegevens importeren](search-import-data-portal.md) begeleidt u bij het maken van al deze resources, met inbegrip van de index.
+In dit artikel laat zien hoe de REST-API gebruikt. Als u ervoor voor de portal kiezen, zorg er dan voor dat uw Cosmos DB-database gegevens bevat. De [wizard gegevens importeren](search-import-data-portal.md) metagegevens leest en voert steekproeven te nemen aan het afleiden van een indexschema, maar ook geladen gegevens uit Cosmos DB. Als de gegevens ontbreekt, wordt de wizard wordt gestopt vanwege de volgende fout ' fout detectie indexschema uit de gegevensbron: Kan een prototype-index niet opbouwen omdat de gegevensbron 'emptycollection' zijn geen gegevens geretourneerd. '.
 
 > [!TIP]
 > U kunt de wizard **Gegevens importeren** laden vanuit het dashboard Azure Cosmos DB om indexering voor die gegevensbron te vereenvoudigen. Ga in het linkernavigatiedeelvenster naar **Verzamelingen** > **Azure Search toevoegen** om aan de slag te gaan.
@@ -96,7 +96,7 @@ Voer een bericht voor het maken van een gegevensbron:
 
 De hoofdtekst van de aanvraag bevat de definitie van de gegevensbron, waaronder de volgende velden moet:
 
-* **Naam**: Kies een naam voor uw database.
+* **name**: Kies een naam voor uw database.
 * **type**: Moet `documentdb`.
 * **referenties**:
   
@@ -104,7 +104,7 @@ De hoofdtekst van de aanvraag bevat de definitie van de gegevensbron, waaronder 
   Vermijd poortnummers in de eindpunt-url. Als u het poortnummer opgeeft, worden Azure Search kan geen index van uw Azure Cosmos DB-database.
 * **container**:
   
-  * **Naam**: Vereist. Geef de id van de databaseverzameling worden geïndexeerd.
+  * **name**: Vereist. Geef de id van de databaseverzameling worden geïndexeerd.
   * **query**: Optioneel. U kunt een query voor het samenvoegen van een willekeurige JSON-document in een vast schema dat Azure Search kunt indexeren. Query's worden niet ondersteund voor MongoDB-verzamelingen. 
 * **dataChangeDetectionPolicy**: Aanbevolen. Zie [gewijzigd documenten te indexeren](#DataChangeDetectionPolicy) sectie.
 * **dataDeletionDetectionPolicy**: Optioneel. Zie [verwijderd documenten te indexeren](#DataDeletionDetectionPolicy) sectie.
@@ -182,10 +182,10 @@ Zorg ervoor dat het schema van de doelindex compatibel met het schema van de bro
 ### <a name="mapping-between-json-data-types-and-azure-search-data-types"></a>Toewijzing tussen JSON-gegevenstypen en Azure Search-gegevenstypen
 | JSON-gegevenstype | Veldtypen compatibel target-index |
 | --- | --- |
-| BOOL |Edm.Boolean, Edm.String |
+| Bool |Edm.Boolean, Edm.String |
 | Cijfers die lijkt op gehele getallen |Edm.Int32, Edm.Int64, Edm.String |
 | Getallen die eruit drijvende-punten |Edm.Double, Edm.String |
-| Reeks |Edm.String |
+| String |Edm.String |
 | Matrices met primitieve typen, bijvoorbeeld ["a", "b", "c"] |Collection(EDM.String) |
 | Tekenreeksen die lijkt op datums |Edm.DateTimeOffset, Edm.String |
 | GeoJSON-objecten, bijvoorbeeld {"type": 'Point', "coördinaten": [lang zijn en lat]} |Edm.GeographyPoint |

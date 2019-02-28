@@ -4,17 +4,17 @@ description: In deze zelfstudie implementeert u Azure Machine Learning als een m
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/15/2018
+ms.date: 02/21/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 464d16d4bbcbdbefd36ce1132630ad702d7a0c90
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 0f7201ffd71a6bc3e68f83f005c693cae4fef84a
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076963"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56648997"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Zelfstudie: Azure Machine Learning als een IoT Edge-module implementeren (preview)
 
@@ -58,7 +58,7 @@ Cloudresources:
 
 Als u procesidentificatie wilt uitschakelen op uw IoT Edge-apparaat, moet u het IP-adres en de poort voor **workload_uri** en **management_uri** opgeven in de sectie **verbinding maken** van de IoT Edge-daemonconfiguratie.
 
-Haal eerst het IP-adres op. Voer in de opdrachtregel `ipconfig` in en kopieer het IP-adres van de **docker0**-interface.
+Haal eerst het IP-adres op. Voer in de opdrachtregel `ifconfig` in en kopieer het IP-adres van de **docker0**-interface.
 
 Bewerk het configuratiebestand voor de IoT Edge-daemon:
 

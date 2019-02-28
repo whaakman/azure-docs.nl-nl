@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 6e3f0613e89ef7d6e9b44e519226a793940d41f6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: f64000ed502ee817f907e6ac9c89c2f037725a39
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56006495"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823787"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio"></a>Zelfstudie 3: Een kredietrisicomodel implementeren - Azure Machine Learning Studio
 
@@ -23,7 +23,7 @@ In deze zelfstudie wordt uitgebreid ingegaan op het ontwikkelingsproces van een 
 
 Stel dat u iemands kredietrisico moet voorspellen op basis van de gegevens die deze persoon in een kredietaanvraag heeft ingevuld.  
 
-Kredietrisicobeoordeling is een complex probleem, maar in deze zelfstudie wordt het enigszins vereenvoudigd. Het wordt gebruikt als voorbeeld van hoe u een predictive analytics-oplossing kunt maken met behulp van Microsoft Azure Machine Learning. U gebruikt Azure Machine Learning Studio en een Machine Learning-webservice om deze oplossing te maken. 
+Kredietrisicobeoordeling is een complex probleem, maar in deze zelfstudie wordt het enigszins vereenvoudigd. Het wordt gebruikt als voorbeeld van hoe u een predictive analytics-oplossing kunt maken met behulp van Microsoft Azure Machine Learning Studio. U gebruikt Azure Machine Learning Studio en een Machine Learning-webservice om deze oplossing te maken. 
 
 In deze driedelige zelfstudie begint u met openbaar beschikbare kredietrisicogegevens.  Vervolgens ontwikkelt en traint u een voorspellend model.  En ten slotte implementeert u het model als een webservice.
 
@@ -234,7 +234,7 @@ De snelste en eenvoudigste manier om toegang te verkrijgen tot een klassieke web
 
 Met deze web-app-sjablonen kan een aangepaste web-app worden gebouwd die bekend is met de invoergegevens van uw webservice en waarvan bekend is wat er wordt geretourneerd. U hoeft alleen toegang te bieden tot uw webservice en gegevens en de sjabloon doet de rest.
 
-Zie [Consume an Azure Machine Learning Web service with a web app template](consume-web-service-with-web-app-template.md) (Een Azure Machine Learning-webservice gebruiken met een web-app-sjabloon) voor meer informatie over het gebruik van de web-app-sjablonen.
+Zie [Consume an Azure Machine Learning Web service with a web app template](/azure/machine-learning/studio/consume-web-services) (Een Azure Machine Learning-webservice gebruiken met een web-app-sjabloon) voor meer informatie over het gebruik van de web-app-sjablonen.
 
 
 

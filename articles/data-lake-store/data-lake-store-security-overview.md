@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 4da387abe24318a29472c11dffa7aac67192408c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a310851819f70d138a4980b1ab61891fb0b2c311
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297416"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959609"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Beveiliging in Azure Data Lake Storage Gen1
 Veel ondernemingen profiteren van big data-analyses voor zakelijke inzichten zodat ze slimme besluiten. Een organisatie kan een complexe en gereguleerde omgeving, met een toenemend aantal diverse gebruikers hebben. Het is essentieel voor een onderneming om ervoor te zorgen dat kritieke bedrijfsgegevens veiliger, worden opgeslagen met het juiste niveau van toegang verleend aan individuele gebruikers. Azure Data Lake Storage Gen1 is ontworpen om te voldoen aan deze beveiligingsvereisten. In dit artikel leert u over de beveiligingsfuncties van Data Lake Storage Gen1, met inbegrip van:
 
-* Verificatie
+* Authentication
 * Autorisatie
 * Netwerkisolatie
 * Gegevensbeveiliging
@@ -82,7 +82,7 @@ Data Lake Storage Gen1 biedt ook versleuteling voor gegevens die zijn opgeslagen
 
 Voor sleutelbeheer biedt Data Lake Storage Gen1 twee modi voor het beheren van uw hoofdversleutelingssleutels (MEK's), die vereist zijn voor het ontsleutelen van gegevens die zijn opgeslagen in Data Lake Storage Gen1. U kunt ofwel Data Lake Storage Gen1 de MEK's voor u beheren of kies eigendom van de MEK's met uw Azure Key Vault-account behouden. U opgeven de modus van Sleutelbeheer tijdens het maken van een Data Lake Storage Gen1-account. Zie voor meer informatie over het bieden van versleuteling-gerelateerde configuratie [aan de slag met Azure Data Lake Storage Gen1 met behulp van de Azure-Portal](data-lake-store-get-started-portal.md).
 
-## <a name="activity-and-diagnostic-logs"></a>Diagnostische logboeken en activiteit
+## <a name="activity-and-diagnostic-logs"></a>Diagnostische en activiteitslogboeken
 U kunt de activiteit of diagnostische logboeken, afhankelijk van of u op zoek naar de logboeken voor account-gerelateerde activiteiten of gegevens gerelateerde activiteiten.
 
 * Account voor activiteiten met betrekking tot beheer van Azure Resource Manager-API's gebruiken en worden weergegeven in Azure portal via activiteitenlogboeken.
@@ -98,7 +98,7 @@ Voor account management audittrails, weergeven en kies de kolommen die u wilt re
 Zie voor meer informatie over het werken met activiteitenlogboeken [activiteitenlogboeken om te controleren van acties op resources bekijken](../azure-resource-manager/resource-group-audit.md).
 
 ### <a name="diagnostics-logs"></a>Logboeken met diagnostische gegevens
-U kunt de controle van de gegevens en diagnostische gegevens vastleggen in Azure portal inschakelen en de logboeken verzenden naar een Azure Blob storage-account, een event hub of Log Analytics.
+U kunt controle van de gegevens en diagnostische gegevens vastleggen in Azure portal inschakelen en de logboeken verzenden naar een Azure Blob storage-account, een event hub of Azure Monitor-Logboeken.
 
 ![Logboeken met diagnostische gegevens](./media/data-lake-store-security-overview/diagnostic-logs.png "logboeken met diagnostische gegevens")
 

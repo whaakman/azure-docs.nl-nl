@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 03/20/2018
-ms.openlocfilehash: 441b56aa683ac01566d2fd2877b9b8b912194f3a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 869bee8fcd0d1c2876ac7317fb239a1d5c61cb87
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536522"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864546"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>Zelfstudie: Een Azure Database for PostgreSQL ontwerpen met Azure Portal
 
@@ -78,7 +78,7 @@ De Azure Database for PostgreSQL-service gebruikt een firewall op serverniveau. 
 
 1.  Nadat de implementatie is voltooid, klikt u op **Alle resources** in het menu links en voert u de naam **mydemoserver** in om te zoeken naar de zojuist gemaakte server. Klik op de servernaam in de zoekresultaten. De pagina **Overzicht** wordt geopend voor uw server en biedt opties voor verdere configuratie.
 
-   ![Azure Database voor PostgreSQL - Zoeken naar de server ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
+   ![Azure Database voor PostgreSQL - Zoeken naar de server](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
 2.  Selecteer **Verbindingsbeveiliging** op de serverpagina. 
 
@@ -98,7 +98,7 @@ Toen u de Azure Database for PostgreSQL-server maakte, is de standaarddatabase *
 
 1. Klik in het menu links in Azure Portal op **Alle resources** en zoek de server die u zojuist hebt gemaakt.
 
-   ![Azure Database voor PostgreSQL - Zoeken naar de server ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
+   ![Azure Database voor PostgreSQL - Zoeken naar de server](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
 2. Klik op de servernaam **mydemoserver**.
 

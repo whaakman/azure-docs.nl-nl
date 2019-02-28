@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/08/2018
+ms.date: 02/26/2019
 ms.author: juliako
-ms.openlocfilehash: c62d9132cdd7eb2ebcbecc3c417ad30d368a278a
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: a0843e6c641ded75ded01da4c8a54cd4c0f48ee1
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138701"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957467"
 ---
 # <a name="how-to-encode-with-a-custom-transform"></a>Coderen met een aangepaste transformatie
 
@@ -38,7 +38,7 @@ De aangepaste voorinstelling voorbeeld bevindt zich in de [EncodeCustomTransform
 
 ## <a name="create-a-transform-with-a-custom-preset"></a>Maken van een transformatie met een aangepaste voorinstelling 
 
-Bij het maken van een nieuwe [transformeren](https://docs.microsoft.com/rest/api/media/transforms), moet u opgeven wat u wilt dat als uitvoer produceren. De vereiste parameter is een **TransformOutput**-object, zoals weergegeven in de onderstaande code. Elke **transformatie-uitvoer** bevat een **voorinstelling**. **Voorinstelling** bevat de stapsgewijze instructies van de video- en/of audioverwerkingen die moeten worden gebruikt voor het genereren van de gewenste **TransformOutput**. De volgende **TransformOutput** aangepaste codec en laag uitvoerinstellingen maakt.
+Bij het maken van een nieuwe [transformeren](https://docs.microsoft.com/rest/api/media/transforms), moet u opgeven wat u wilt dat als uitvoer produceren. De vereiste parameter is een [TransformOutput](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#transformoutput)-object, zoals weergegeven in de onderstaande code. Elke **transformatie-uitvoer** bevat een **voorinstelling**. **Voorinstelling** bevat de stapsgewijze instructies van de video- en/of audioverwerkingen die moeten worden gebruikt voor het genereren van de gewenste **TransformOutput**. De volgende **TransformOutput** aangepaste codec en laag uitvoerinstellingen maakt.
 
 Bij het maken van een [transformatie](https://docs.microsoft.com/rest/api/media/transforms) moet u controleren of er al een bestaat met de methode **Ophalen** zoals weergegeven in de volgende code.  In Media Services v3, **ophalen** methoden op entiteiten retourneren **null** als de entiteit bestaat niet (een niet-hoofdlettergevoelige controle op de naam).
 

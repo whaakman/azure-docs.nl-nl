@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 8b890630d352619da86c3017426e24f55ef016d9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d08ebc7c1e52022ec918020387264c464d1cd967
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307167"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883416"
 ---
 # <a name="create-a-xamarinios-app"></a>Een Xamarin.iOS-app maken
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -72,7 +72,7 @@ Volg de onderstaande stappen voor het configureren van het serverproject voor he
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Offlinesynchronisatie toevoegen aan uw app](app-service-mobile-xamarin-ios-get-started-offline-data.md)
-* [Verificatie toevoegen aan uw app ](app-service-mobile-xamarin-ios-get-started-users.md)
+* [Verificatie toevoegen aan uw app](app-service-mobile-xamarin-ios-get-started-users.md)
 * [Pushmeldingen toevoegen aan uw Xamarin.Android-app](app-service-mobile-xamarin-ios-get-started-push.md)
 * [De beheerde client gebruiken voor Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 2bdd3cd05f78503962461abfcc85320c25350e69
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: a002c4ff843ad1e0bc48d490132d7499526f4d7b
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593128"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958759"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Inleiding tot de handler Azure Desired State Configuration-extensie
 
@@ -65,6 +65,25 @@ Installeren van WMF moet opnieuw worden opgestart. Na het opnieuw is opgestart, 
 ### <a name="default-configuration-script"></a>Standaard-configuratiescript
 
 De Azure-DSC-extensie bevat een standaard-configuratiescript die is bedoeld om te worden gebruikt wanneer u met het voorbereiden een virtuele machine met de service Azure Automation DSC. De scriptparameters zijn uitgelijnd met de configureerbare eigenschappen van [Local Configuration Manager](/powershell/dsc/metaconfig). Zie voor de scriptparameters, [standaard configuratiescript](dsc-template.md#default-configuration-script) in [Desired State Configuration-extensie met Azure Resource Manager-sjablonen](dsc-template.md). Zie voor het volledige script de [Azure quickstart-sjabloon in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
+
+## <a name="information-for-registering-with-azure-automation-state-configuration-dsc-service"></a>Informatie voor het registreren bij Azure Automation State Configuration (DSC)-service
+
+Wanneer u de DSC-extensie voor het registreren van een knooppunt met de status Configuration-service gebruikt, moet drie waarden worden opgegeven.
+
+- RegistrationUrl - het https-adres van de Azure Automation-account
+- RegistrationKey - een gedeeld geheim dat is gebruikt voor het registreren van knooppunten met de service
+- NodeConfigurationName - de naam van het knooppunt configuratie (MOF) om op te halen uit de service op de serverrol configureren
+
+Deze gegevens kan worden weergegeven de [Azure-portal](../../automation/automation-dsc-onboarding.md#azure-portal) of u kunt PowerShell gebruiken.
+
+```PowerShell
+(Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).Endpoint
+(Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).PrimaryKey
+```
+
+Voor de naam van de knooppuntconfiguratie, zorg ervoor dat u de naam van de *knooppuntconfiguratie* en niet de configuratie.
+Een configuratie is gedefinieerd in een script dat wordt gebruikt [voor het compileren van de knooppuntconfiguratie (MOF-bestand)](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-compile).
+De naam is altijd de configuratie gevolgd door een punt `.` en ofwel `localhost` of de naam van een specifieke computer.
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>DSC-extensie in Resource Manager-sjablonen
 
@@ -177,7 +196,7 @@ De portal worden de volgende invoer verzameld:
 
 - **Het verzamelen van gegevens**: Hiermee bepaalt u als de extensie de telemetrie verzamelt. Zie voor meer informatie, [Azure DSC-extensie gegevensverzameling](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/).
 
-- **Versie**: Hiermee geeft u de versie van de DSC-extensie te installeren. Zie voor meer informatie over versies [versiegeschiedenis van DSC-extensie](/powershell/dsc/azuredscexthistory).
+- **Version**: Hiermee geeft u de versie van de DSC-extensie te installeren. Zie voor meer informatie over versies [versiegeschiedenis van DSC-extensie](/powershell/dsc/azuredscexthistory).
 
 - **Automatische Upgrade secundaire versie**: Dit veld wordt toegewezen aan de **AutoUpdate** -switch in de cmdlets en de extensie voor het automatisch wordt bijgewerkt naar de meest recente versie tijdens de installatie maakt. **Ja** instructies voor gebruik van de meest recente beschikbare versie van de handler extensie en **Nee** forceert de **versie** opgegeven om te worden geïnstalleerd. Geen van beide selecteren **Ja** noch **Nee** is hetzelfde als het selecteren van **Nee**.
 

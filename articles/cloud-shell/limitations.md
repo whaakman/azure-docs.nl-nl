@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 1f2c218ed9ba2f5f9285c60b8d4c11704825c0f5
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 0cbd2c1f9a5a36d4e11eb86a3d531340b0e0ff03
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563878"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983724"
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Beperkingen van Azure Cloudshell
 
@@ -45,7 +45,7 @@ Cloudshell biedt ondersteuning voor de nieuwste versies van Microsoft Edge, Micr
 
 ### <a name="for-a-given-user-only-one-shell-can-be-active"></a>Voor een bepaalde gebruiker kan slechts één shell actief zijn
 
-Gebruikers kunnen alleen starten één type shell op een tijdstip, ofwel **Bash** of **PowerShell**. U mogelijk echter meerdere exemplaren van de Bash- of PowerShell in één keer uitgevoerd. Wisselen tussen Bash of PowerShell oorzaken Cloud Shell te starten, waarmee bestaande sessies beëindigd.
+Gebruikers kunnen alleen starten één type shell op een tijdstip, ofwel **Bash** of **PowerShell**. U mogelijk echter meerdere exemplaren van de Bash- of PowerShell in één keer uitgevoerd. Wisselen tussen Bash of PowerShell met behulp van het menu zorgt ervoor dat Cloud-Shell te starten, dat bestaande sessies beëindigd. U kunt bash in PowerShell ook uitvoeren door te typen `bash`, en kunt u PowerShell uitvoeren in bash door te typen `pwsh`.
 
 ### <a name="usage-limits"></a>Gebruiksbeperkingen
 
@@ -57,9 +57,9 @@ Cloudshell is bedoeld voor interactieve gebruiksvoorbeelden. Als gevolg hiervan,
 
 Machtigingen zijn ingesteld als normale gebruikers zonder toegang tot sudo. Elke installatie buiten uw `$Home` directory is niet persistent.
 
-### <a name="editing-bashrc"></a>.Bashrc bewerken
+### <a name="editing-bashrc-or-profile"></a>.Bashrc of $PROFILE bewerken
 
-Nemen voorzichtig bij het bewerken van .bashrc, in dat geval kan onverwachte fouten veroorzaken in Cloud Shell.
+Nemen voorzichtig bij het bewerken van .bashrc of van PowerShell $PROFILE bestand, in dat geval kan onverwachte fouten veroorzaken in Cloud Shell.
 
 ## <a name="powershell-limitations"></a>PowerShell-beperkingen
 
@@ -73,23 +73,15 @@ De `SqlServer` opgenomen in de Cloud Shell-module bevat alleen prerelease onders
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Standaardlocatie wanneer gemaakt op basis van Azure-station:
 
-Met behulp van PowerShell-cmdlets, kunnen gebruikers niet maken in de Azure-station bestanden. Wanneer gebruikers nieuwe bestanden met andere hulpprogramma's, zoals vim of nano, maakt de bestanden worden opgeslagen in de `$HOME` standaard. 
+Met behulp van PowerShell-cmdlets, gebruikers kunnen niet maken in de Azure bestanden: station. Wanneer gebruikers nieuwe bestanden met andere hulpprogramma's, zoals vim of nano, maakt de bestanden worden opgeslagen in de `$HOME` standaard. 
 
 ### <a name="gui-applications-are-not-supported"></a>GUI-toepassingen worden niet ondersteund
 
-Als de gebruiker wordt uitgevoerd een opdracht die u een Windows-dialoogvenster, zoals maakt `Connect-AzureAD`, `Connect-AzureRmAccount`, of `Connect-AzAccount` een foutmelding zoals ziet: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
-
-### <a name="tab-completion-crashes-psreadline"></a>Tab-Aanvulling PSReadline loopt vast
-
-Als de gebruiker EditMode in PSReadline is ingesteld op Emacs, de gebruiker probeert om weer te geven van alle mogelijkheden via de tab-aanvulling, en de-venstergrootte is te klein om weer te geven van alle mogelijkheden, PSReadline loopt vast.
+Als de gebruiker wordt uitgevoerd een opdracht die een Windows-dialoogvenster wilt maken, een foutmelding zoals ziet: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ### <a name="large-gap-after-displaying-progress-bar"></a>Wijd nadat de voortgangsbalk weergegeven
 
 Als de gebruiker een actie uitvoert die wordt weergegeven een voortgangsbalk, zoals een tabblad voltooien tijdens het in de `Azure:` station, dan is het mogelijk dat de cursor is niet juist ingesteld en een onderbreking wordt weergegeven wanneer de voortgangsbalk is eerder.
-
-### <a name="random-characters-appear-inline"></a>Willekeurige tekens inline worden weergegeven
-
-De volgorde van de positie van cursor codes, bijvoorbeeld `5;13R`, kan worden weergegeven in de invoer van de gebruiker.  De tekens kunnen handmatig worden verwijderd.
 
 ## <a name="next-steps"></a>Volgende stappen
 

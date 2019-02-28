@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: e76c8ae671333bcbf50995c4bd9345f8434fbea2
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 14f1a92f701eaedd98b825316ebf213f7c144920
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745959"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959456"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Resource verbruik en query-activiteiten in Azure Search controleren
 
@@ -61,11 +61,11 @@ De volgende tabel vergelijkt de opties voor het opslaan van Logboeken en uitgebr
 | Resource | Gebruikt voor |
 |----------|----------|
 | [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Geregistreerde gebeurtenissen en metrische gegevens voor query's, op basis van de onderstaande, schema's verband houden met de gebruikersgebeurtenissen in uw app. Dit is de enige oplossing die gehouden gebruikersacties of signalen, toewijzing van gebeurtenissen van de gebruiker geïnitieerde zoeken, in plaats van filter aanvragen ingediend door de toepassingscode. Voor het gebruik van deze benadering, kopiëren en plakken instrumentation code in de bronbestanden op aanvraag voor informatie over de route naar Application Insights. Zie voor meer informatie, [Zoekverkeer](search-traffic-analytics.md). |
-| [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Geregistreerde gebeurtenissen en metrische gegevens voor query's, op basis van de onderstaande schema's. Gebeurtenissen worden geregistreerd in een werkruimte van Log Analytics. U kunt query's uitvoeren op een werkruimte voor gedetailleerde informatie retourneren op het logboek. Zie voor meer informatie, [aan de slag met Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
+| [Logboeken in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Geregistreerde gebeurtenissen en metrische gegevens voor query's, op basis van de onderstaande schema's. Gebeurtenissen worden geregistreerd in een Log Analytics-werkruimte. U kunt query's uitvoeren op een werkruimte voor gedetailleerde informatie retourneren op het logboek. Zie voor meer informatie, [aan de slag met Azure Monitor-Logboeken](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
 | [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Geregistreerde gebeurtenissen en metrische gegevens voor query's, op basis van de onderstaande schema's. Gebeurtenissen worden vastgelegd in een Blob-container en opgeslagen in de JSON-bestanden. Een JSON-editor gebruiken om de inhoud van bestand weer te geven.|
 | [Event Hub](https://docs.microsoft.com/azure/event-hubs/) | Geregistreerde gebeurtenissen en metrische gegevens voor query's, op basis van de schema's beschreven in dit artikel. Kies deze optie als een alternatieve data collection-Services voor zeer grote logboeken. |
 
-Log Analytics- en Blob-opslag zijn beschikbaar als een gratis gedeelde service zodat u dit zonder kosten voor de levensduur van uw Azure-abonnement uitproberen kunt. Application Insights is gratis te registreren en gebruiken, zolang de grootte van toepassing onder bepaalde limieten is (Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/monitor/) voor meer informatie).
+Zowel Azure Monitor-logboeken en Blob-opslag zijn beschikbaar als een gratis gedeelde service zodat u dit zonder kosten voor de levensduur van uw Azure-abonnement uitproberen kunt. Application Insights is gratis te registreren en gebruiken, zolang de grootte van toepassing onder bepaalde limieten is (Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/monitor/) voor meer informatie).
 
 De volgende sectie helpt u door de stappen voor het inschakelen en gebruiken van Azure Blob-opslag voor het verzamelen en toegang krijgen tot logboekgegevens die zijn gemaakt door Azure Search-bewerkingen.
 
@@ -81,7 +81,7 @@ In deze sectie leert u hoe u Blob storage gebruiken voor het opslaan van gegeven
 
    ![Schakel de bewaking](./media/search-monitor-usage/enable-monitoring.png "bewaking inschakelen")
 
-3. Kies de gegevens die u wilt exporteren: Logboeken, metrische gegevens of beide. U kunt kopiëren naar een opslagaccount, verzenden naar een event hub of exporteren naar Log Analytics.
+3. Kies de gegevens die u wilt exporteren: Logboeken, metrische gegevens of beide. U kunt kopiëren naar een opslagaccount, verzenden naar een event hub of exporteren naar Azure Monitor-Logboeken.
 
    Voor archivering naar Blob-opslag, alleen de storage-account moet bestaan. Containers en blobs wordt gemaakt tijdens het exporteren van gegevens aan het logboek.
 

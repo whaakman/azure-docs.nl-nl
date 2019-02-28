@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 0e2dc2af6b4c7ddf531458136e6bcabb49be3b8f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: a7f4d10e3273fb2b4e17ff0a55c3a3ed6294833d
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538802"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961275"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>Serverlogboeken in Azure Database for PostgreSQL 
 Azure Database voor PostgreSQL-query en de fout genereert logboeken. Query's en fout-logboeken kunnen worden gebruikt om te bepalen, oplossen en herstellen van fouten in de configuratie en optimale prestaties. (Toegang tot transactielogboeken is niet opgenomen). 
@@ -28,7 +28,7 @@ Als u de logboeken hebt ingeschakeld, kunt u deze kunt openen vanaf de Azure Dat
 
 
 ## <a name="diagnostic-logs"></a>Diagnostische logboeken
-Azure Database voor PostgreSQL is geïntegreerd met Azure Monitor diagnostische logboeken. Als u Logboeken hebt ingeschakeld op uw PostgreSQL-server, kunt u deze verzonden naar [Log Analytics](../azure-monitor/log-query/log-query-overview.md), Event Hubs of Azure Storage. Voor meer informatie over het inschakelen van diagnostische logboeken, Zie de sectie van de procedures van de [diagnostische logboeken documentatie](../azure-monitor/platform/diagnostic-logs-overview.md). 
+Azure Database voor PostgreSQL is geïntegreerd met Azure Monitor diagnostische logboeken. Als u Logboeken hebt ingeschakeld op uw PostgreSQL-server, kunt u deze verzonden naar [logboeken van Azure Monitor](../azure-monitor/log-query/log-query-overview.md), Event Hubs of Azure Storage. Voor meer informatie over het inschakelen van diagnostische logboeken, Zie de sectie van de procedures van de [diagnostische logboeken documentatie](../azure-monitor/platform/diagnostic-logs-overview.md). 
 
 
 De volgende tabel wordt beschreven wat er in elk logboek. Afhankelijk van het uitvoereindpunt dat u kiest, de velden die zijn opgenomen en de volgorde waarin ze worden weergegeven kunnen variëren. 

@@ -15,12 +15,12 @@ ms.date: 02/11/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: c2ef0d34897171e04d0982405909183634ebb696
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f054cf101f24d7cc571e9f90943122e42beb9dc6
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115399"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983486"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Kubernetes op Azure Stack met behulp van Active Directory Federated Services implementeren
 
@@ -226,3 +226,5 @@ U moet samenwerken met uw Azure Stack-beheerder om het instellen van uw service-
 ## <a name="next-steps"></a>Volgende stappen
 
 [Verbinding maken met uw cluster](azure-stack-solution-template-kubernetes-deploy.md#connect-to-your-cluster)
+
+[Inschakelen van het Kubernetes-Dashboard](azure-stack-solution-template-kubernetes-dashboard.md)

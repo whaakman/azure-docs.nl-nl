@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0454bc211d2ae8497babc808f9794fae4d22c47e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: a842c0807a3cfbad78a43bcffa896c83bceedfb9
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498162"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959286"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Referentieassets in Azure Automation
 
@@ -27,7 +27,7 @@ Een Automation-referentieasset bevat een object dat beveiligingsreferenties, zoa
 
 ## <a name="azure-classic-powershell-cmdlets"></a>Azure klassieke PowerShell-cmdlets
 
-De cmdlets in de volgende tabel worden gebruikt voor het maken en beheren van automation-referentie-assets met Windows PowerShell.  Ze geleverd als onderdeel van de [Azure PowerShell-module](/powershell/azure/overview) die beschikbaar is voor gebruik in Automation-runbooks en DSC-configuraties.
+De cmdlets in de volgende tabel worden gebruikt voor het maken en beheren van automation-referentie-assets met Windows PowerShell.  Ze geleverd als onderdeel van de [Azure PowerShell-module](/powershell/azure/overview), die beschikbaar is voor gebruik in Automation-runbooks en DSC-configuraties.
 
 | Cmdlets | Description |
 |:--- |:--- |
@@ -38,7 +38,7 @@ De cmdlets in de volgende tabel worden gebruikt voor het maken en beheren van au
 
 ## <a name="azurerm-powershell-cmdlets"></a>AzureRM PowerShell-cmdlets
 
-De cmdlets in de volgende tabel worden gebruikt voor AzureRM, maken en beheren van automation-referentie-assets met Windows PowerShell.  Ze geleverd als onderdeel van de [AzureRM.Automation module](/powershell/azure/overview) die beschikbaar is voor gebruik in Automation-runbooks en DSC-configuraties.
+De cmdlets in de volgende tabel worden gebruikt voor AzureRM, maken en beheren van automation-referentie-assets met Windows PowerShell.  Ze geleverd als onderdeel van de [AzureRM.Automation module](/powershell/azure/overview), die beschikbaar is voor gebruik in Automation-runbooks en DSC-configuraties.
 
 | Cmdlets | Description |
 |:--- |:--- |
@@ -106,6 +106,19 @@ $securePassword = $myCredential.Password
 $password = $myCredential.GetNetworkCredential().Password
 ```
 
+U kunt ook een referentie gebruiken voor verificatie op Azure met [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount). In de meeste gevallen moet u een [uitvoeren als-account](manage-runas-account.md) en op te halen met [Get-AutomationConnection](automation-connections.md).
+
+```azurepowershell
+$myCred = Get-AutomationPSCredential -Name 'MyCredential`
+$userName = $myCred.UserName
+$securePassword = $myCred.Password
+$password = $myCred.GetNetworkCredential().Password
+
+$myPsCred = New-Object System.Management.Automation.PSCredential ($userName,$password)
+
+Connect-AzureRmAccount -Credential $myPsCred
+```
+
 ### <a name="graphical-runbook-sample"></a>Voorbeeld van een grafisch runbook
 
 U wilt toevoegen een **Get-AutomationPSCredential** activiteit aan een grafisch runbook door te selecteren met de rechtermuisknop op de referentie in het deelvenster bibliotheek van de grafische editor **toevoegen aan papier**.
@@ -141,5 +154,3 @@ print cred["password"]
 * Zie [Mijn eerste grafische runbook](automation-first-runbook-graphical.md) om aan de slag te gaan met grafische runbooks
 * Zie [Mijn eerste PowerShell Workflow-runbook](automation-first-runbook-textual.md) om aan de slag te gaan met PowerShell Workflow-runbooks 
 * Als u wilt beginnen met Python2-runbooks, Zie [Mijn eerste Python2-runbook](automation-first-runbook-textual-python2.md) 
-
-

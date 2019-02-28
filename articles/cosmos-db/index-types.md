@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/5/2018
 ms.author: rimman
-ms.openlocfilehash: 02055ec07de2b08abdc949e17c668912431e00ce
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f45663fd0f63537f87ee4466ad5f17cce0bed6a3
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871248"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961717"
 ---
 # <a name="index-types-in-azure-cosmos-db"></a>Typen van de index in Azure Cosmos DB
 
@@ -54,6 +54,9 @@ Hier volgen enkele voorbeelden van query's die Hash, bereik en ruimtelijke index
 
 ## <a name="index-precision"></a>Index precisie
 
+> [!NOTE]
+> Azure Cosmos-containers ondersteunen een nieuwe indexindeling die een aangepaste index precisie dan de maximale precisie value(-1) niet meer vereist. Met deze methode worden altijd paden geïndexeerd met de maximale precisie. Als u een precisiewaarde voor het indexeringsbeleid opgeeft, de CRUD-aanvragen op een containers wordt het secondedeel zonder interactie te negeren en het antwoord van de container bevat alleen de value(-1) maximumprecisie.  Alle nieuwe Cosmos-containers maken standaard gebruik van de nieuwe indexindeling.
+
 - Index precisie kunt u een afweging maken tussen de overhead van indexopslag en prestaties van query's. Voor getallen, wordt u aangeraden de standaardconfiguratie van de precisie van-1 (maximum). Omdat de getallen 8 bytes in JSON, is dit gelijk aan een configuratie van 8 bytes. Het kiezen van een lagere waarde voor de precisie, zoals 1 tot en met 7, index betekent dat de waarden binnen bepaalde bereiken worden toegewezen aan dezelfde-vermelding. Daarom kunt u opslagruimte in de index verminderen, maar het uitvoeren van query's mogelijk voor het verwerken van meer items. Als gevolg daarvan kunnen verbruikt deze meer doorvoer ru's.
 
 - Index precisie heeft meer praktische toepassingen met bereiken van de tekenreeks. Omdat tekenreeksen elke willekeurige lengte zijn kunnen, kan de prestaties van tekenreeks bereik-query's door de keuze van de precisie van de index beïnvloeden. Het ook mogelijk van invloed op de hoeveelheid opslagruimte index die is vereist. Tekenreeks bereik indexen kunnen worden geconfigureerd met een index precisie tussen 1 en 100 of -1 (maximum). Als u uitvoeren ORDER BY query's op de eigenschappen van een verbindingsreeks wilt, moet u een precisie van-1 voor de bijbehorende paden opgeven.
@@ -61,9 +64,6 @@ Hier volgen enkele voorbeelden van query's die Hash, bereik en ruimtelijke index
 - Ruimtelijke indexen gebruik altijd de precisie van de index standaard voor alle typen (Point, LineString en Veelhoek). De precisie van de index standaard voor ruimtelijke indexen kan niet worden overschreven.
 
 Azure Cosmos DB, wordt er een fout geretourneerd wanneer een query maakt gebruik van ORDER BY, maar beschikt niet over een bereik-index op basis van het aangevraagde pad met de maximale precisie.
-
-> [!NOTE]
-> Azure Cosmos-containers ondersteunen een nieuwe indexindeling die een aangepaste index precisie dan de maximale precisie value(-1) niet meer vereist. Met deze methode worden altijd paden geïndexeerd met de maximale precisie. Als u een precisiewaarde voor het indexeringsbeleid opgeeft, de CRUD-aanvragen op een containers wordt het secondedeel zonder interactie te negeren en het antwoord van de container bevat alleen de value(-1) maximumprecisie.  Alle nieuwe Cosmos-containers maken standaard gebruik van de nieuwe indexindeling.
 
 ## <a name="next-steps"></a>Volgende stappen
 

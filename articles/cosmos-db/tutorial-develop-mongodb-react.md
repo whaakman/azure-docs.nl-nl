@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: jopapa
 ms.reviewer: sngun
-ms.openlocfilehash: 2033c309a63c7135ba845aebbfc4e353380429f6
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: ef245c2ef5da2b3dc9780e772a71e8ef896e1aff
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043274"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959796"
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>Een MongoDB-app maken met React en Azure Cosmos DB  
 
@@ -102,8 +102,6 @@ In deze zelfstudie hebt u het volgende geleerd:
 > * De app verbinding laten maken met het Azure Cosmos DB-account
 > * De app testen in Postman
 > * De app uitvoeren en hero's toevoegen aan de database
-
-Kom hier terug voor een aanvullende video in deze serie zelfstudies, waarin de implementatie van de app en het globaal repliceren van uw gegevens aan de orde komt.
 
 U kunt doorgaan met de volgende zelfstudie om te leren hoe u MongoDB-gegevens in Azure Cosmos DB importeert.  
 

@@ -15,12 +15,12 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01ac309d333b6e2456c53e0352067471514198c9
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 5a06b7f66742ad7e97e4ae2ab57aabf15f21faf3
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338804"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957725"
 ---
 # <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Activiteitenlogboeken bekijken voor RBAC-wijzigingen in de Azure-resources
 
@@ -108,9 +108,9 @@ Met deze opdracht worden de activiteitenlogboeken voor de autorisatie-resourcepr
 az monitor activity-log list --resource-provider "Microsoft.Authorization" --start-time 2018-04-20T00:00:00Z
 ```
 
-## <a name="azure-log-analytics"></a>Azure Log Analytics
+## <a name="azure-monitor-logs"></a>Logboeken in Azure Monitor
 
-[Azure Log Analytics](../log-analytics/log-analytics-overview.md) is een ander hulpprogramma, kunt u het verzamelen en analyseren van RBAC-wijzigingen voor al uw Azure-resources. Log Analytics heeft de volgende voordelen:
+[Logboeken in Azure Monitor](../log-analytics/log-analytics-overview.md) is een ander hulpprogramma, kunt u het verzamelen en analyseren van RBAC-wijzigingen voor al uw Azure-resources. Logboeken in Azure Monitor biedt de volgende voordelen:
 
 - Schrijven van complexe query's en logica
 - Integreren met waarschuwingen, Power BI en andere hulpprogramma 's

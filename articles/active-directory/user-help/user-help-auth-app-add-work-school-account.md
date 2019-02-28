@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad6dda9e41f1ea87439ffc315f020d4e3566e0c6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 231f3c44344f4119bab6e1efb5546e6fded0c784
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453542"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960605"
 ---
 # <a name="add-your-work-or-school-account"></a>Uw werk- of schoolaccount toevoegen
 Als uw organisatie gebruikmaakt van tweeledige verificatie, kunt u uw werk of school-account instellen om te gebruiken van de Microsoft Authenticator-app als een van de verificatiemethoden.
@@ -30,7 +30,7 @@ Als uw organisatie gebruikmaakt van tweeledige verificatie, kunt u uw werk of sc
 1. Op uw computer, gaat u naar de [aanvullende beveiligingsverificatie](https://aka.ms/mfasetup) pagina.
 
     >[!Note]
-    >Als er geen de **aanvullende beveiligingsverificatie** pagina, is het mogelijk dat de beheerder de ervaring van de gegevens (preview) beveiliging is ingeschakeld. Als dit het geval is, moet u de instructies in de [beveiligingsgegevens ingesteld voor het gebruik van een verificator-app](security-info-setup-auth-app.md) sectie. Als dat niet het geval is, moet u contact op met de helpdesk van uw organisatie voor hulp. Zie voor meer informatie over beveiligingsgegevens [je beveiligingsgegevens beheren](security-info-manage-settings.md).
+    >Als er geen de **aanvullende beveiligingsverificatie** pagina, is het mogelijk dat de beheerder de ervaring van de gegevens (preview) beveiliging is ingeschakeld. Als dit het geval is, moet u de instructies in de [beveiligingsgegevens ingesteld voor het gebruik van een verificator-app](security-info-setup-auth-app.md) sectie. Als dat niet het geval is, moet u contact op met de helpdesk van uw organisatie voor hulp. Zie voor meer informatie over beveiligingsgegevens [info (preview) beveiligingsoverzicht](user-help-security-info-overview.md).
 
 2. Schakel het selectievakje in naast **Authenticator-app**, en selecteer vervolgens **configureren**.
 

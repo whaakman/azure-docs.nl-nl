@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: yuvalm
-ms.openlocfilehash: 0bc680b47a85834886b8d7875968eb4b9b12a870
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 2ca5e41bb384a9b4d7fd1c5d81f4e8b9c921472a
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664817"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817334"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Ontwikkeling van meerdere services met Azure Dev Spaces
 
@@ -73,10 +73,10 @@ In het vorige codevoorbeeld wordt de `azds-route-as`-header van de binnenkomende
 1. In de web-app wordt nu op de pagina About een bericht weergegeven dat is samengevoegd door de twee services: "Hello from webfrontend and Hello from mywebapi."
 
 ### <a name="automatic-tracing-for-http-messages"></a>Automatische tracering voor HTTP-berichten
-U hebt wellicht gemerkt dat, hoewel *webfrontend* geen speciale code bevat om de HTTP-aanroep af te drukken die het deze naar *mywebapi* uitvoert, u kunt zien dat HTTP berichten in het uitvoervenster traceert:
+U hebt mogelijk opgemerkt dat, hoewel *webfrontend* geen speciale code bevat om de HTTP-aanroep af te drukken die deze naar *mywebapi* uitvoert, u kunt zien dat HTTP berichten in het uitvoervenster traceert:
 ```
 // The request from your browser
-webfrontend.856bb3af715744c6810b.eastus.aksapp.io --ytv-> webfrontend:8080:
+default.webfrontend.856bb3af715744c6810b.eus.azds.io --ytv-> webfrontend:8080:
    GET /greeting?_=1544503627515 HTTP/1.1
 
 // *webfrontend* reaching out to *mywebapi*
@@ -89,12 +89,12 @@ webfrontend <-ve4-- mywebapi:
    Hello from mywebapi
 
 // Response from *webfrontend* to your browser
-webfrontend.856bb3af715744c6810b.eastus.aksapp.io <-ytv-- webfrontend:8080:
+default.webfrontend.856bb3af715744c6810b.eus.azds.io <-ytv-- webfrontend:8080:
    HTTP/1.1 200
    Hello from webfrontend and
    Hello from mywebapi
 ```
-Dit is een van de 'gratis' voordelen van Dev Spaces-instrumentatie. We voegen onderdelen toe die HTTP-aanvragen traceren terwijl deze het systeem doorlopen zodat het voor u eenvoudiger wordt om tijdens de ontwikkeling aanroepen naar meerdere services te traceren.
+Dit is een van de 'gratis' voordelen van Dev Spaces-instrumentatie. We voegen onderdelen in die HTTP-aanvragen traceren terwijl deze het systeem doorlopen om het voor u eenvoudiger te maken om tijdens de ontwikkeling aanroepen naar meerdere services te traceren.
 
 ### <a name="well-done"></a>Dat is dus gelukt.
 U hebt nu een toepassing met meerdere containers waarin elke container afzonderlijk kan worden ontwikkeld en geïmplementeerd.

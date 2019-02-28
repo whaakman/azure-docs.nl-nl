@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/16/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 446c5393b654c7743371e4097517d16ba71da630
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 5f8dffa01b2d7dd7fa966d2b417019f1d2afb1bc
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270297"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867011"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Zelfstudie: Gekoppelde Azure Resource Manager-sjablonen maken
 
@@ -297,7 +297,7 @@ Omdat het opslagaccount nu is gedefinieerd in de gekoppelde sjabloon, moet u de 
 1. Open azuredeploy.json in Visual Studio Code als het bestand nog niet is geopend.
 2. Vouw de definitie van de VM-resource uit en werk **dependsOn** bij zoals wordt weergegeven in de volgende schermafbeelding:
 
-    ![Gekoppelde Azure Resource Manager-sjablonen configureren afhankelijkheid ](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
+    ![Gekoppelde Azure Resource Manager-sjablonen configureren afhankelijkheid](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
 
     *linkedTemplate* is de naam van de implementatieresource.  
 3. Werk **properties/diagnosticsProfile/bootDiagnostics/storageUri** bij zoals is weergegeven in de vorige schermafbeelding.
