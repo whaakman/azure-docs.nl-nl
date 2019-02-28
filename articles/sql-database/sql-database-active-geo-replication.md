@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/26/2019
-ms.openlocfilehash: f6179c14c0a057a08203764316eeb43783cd7fc8
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.date: 02/27/2019
+ms.openlocfilehash: 0d0ee3664a5f442e4fbf61af3111a53110afd740
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887740"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984744"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Het maken en gebruiken van actieve geo-replicatie
 
@@ -51,9 +51,6 @@ Actieve geo-replicatie maakt gebruik van de [Always On](https://docs.microsoft.c
 > Als er een netwerkstoring tussen twee regio's, proberen we elke tien seconden opnieuw om verbindingen te maken.
 > [!IMPORTANT]
 > Om ervoor te zorgen dat een cruciale veranderingen op de primaire database worden gerepliceerd naar een secundaire voordat u een failover, kunt u afdwingen dat synchronisatie om te controleren of de replicatie van belangrijke wijzigingen (bijvoorbeeld bijwerken van wachtwoorden). Geforceerde synchronisatie heeft invloed op prestaties omdat de aanroepende thread geblokkeerd totdat alle doorgevoerde transacties worden gerepliceerd. Zie voor meer informatie, [sp_wait_for_database_copy_sync](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync). Zie voor het controleren van de vertraging van replicatie tussen de primaire database en geo-secundaire [sys.dm_geo_replication_link_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).
-
-
-
 
 De volgende afbeelding toont een voorbeeld van actieve geo-replicatie geconfigureerd met een primaire in de regio Noord-centraal VS en secundaire in de regio Zuid-centraal VS.
 
@@ -110,7 +107,7 @@ Voor het bereiken van echte zakelijke continuïteit, toe te voegen databaseredun
 
 - **Referenties en firewallregels synchroon houden**
 
-Wordt u aangeraden [database-firewallregels](sql-database-firewall-configure.md) voor databases, zodat deze regels kunnen worden gerepliceerd met de database om te controleren of alle secundaire databases hebben de dezelfde firewall-regels als de primaire geo-replicatie. Deze aanpak elimineert de noodzaak voor klanten om handmatig te configureren en firewallregels op servers die als host fungeert voor zowel de primaire en secundaire databases te onderhouden. Op dezelfde manier met behulp van [ingesloten databasegebruikers](sql-database-manage-logins.md) voor gegevens toegang zorgt ervoor dat de primaire en secundaire databases hebben altijd hetzelfde gebruikersreferenties zodat tijdens een failover er geen onderbrekingen vanwege problemen met aanmeldingen en wachtwoorden is. Met de toevoeging van [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), klanten kunnen gebruikerstoegang tot zowel primaire als secundaire databases beheren en hoeft u voor het beheren van referenties in databases die kan worden overgeslagen.
+Wordt u aangeraden [IP-firewallregels op databaseniveau database](sql-database-firewall-configure.md) voor databases, zodat deze regels kunnen worden gerepliceerd met de database om te controleren of alle secundaire databases hebben de dezelfde IP-firewall-regels als de primaire geo-replicatie. Deze aanpak elimineert de noodzaak voor klanten om handmatig te configureren en firewallregels op servers die als host fungeert voor zowel de primaire en secundaire databases te onderhouden. Op dezelfde manier met behulp van [ingesloten databasegebruikers](sql-database-manage-logins.md) voor gegevens toegang zorgt ervoor dat de primaire en secundaire databases hebben altijd hetzelfde gebruikersreferenties zodat tijdens een failover er geen onderbrekingen vanwege problemen met aanmeldingen en wachtwoorden is. Met de toevoeging van [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), klanten kunnen gebruikerstoegang tot zowel primaire als secundaire databases beheren en hoeft u voor het beheren van referenties in databases die kan worden overgeslagen.
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Het upgraden of downgraden van een primaire database
 

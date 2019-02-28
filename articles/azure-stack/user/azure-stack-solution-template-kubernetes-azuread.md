@@ -15,12 +15,12 @@ ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: b7214230d55831fa33d547ecf9e65051aa5bb4d9
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: a24ba9c0f19ce0a040671e4515dc2e7d2468fb5c
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891450"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985577"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-azure-active-directory"></a>Kubernetes op Azure Stack met Azure Active Directory implementeren
 
@@ -167,3 +167,5 @@ De service-principal toegang geven aan uw abonnement, zodat de principal-resourc
 ## <a name="next-steps"></a>Volgende stappen
 
 [Verbinding maken met uw cluster](azure-stack-solution-template-kubernetes-deploy.md#connect-to-your-cluster)
+
+[Inschakelen van het Kubernetes-Dashboard](azure-stack-solution-template-kubernetes-dashboard.md)

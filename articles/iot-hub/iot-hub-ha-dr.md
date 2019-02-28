@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: rkmanda
-ms.openlocfilehash: 1596cf1337fa084fe6a160c99e52ae80ee3e2491
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 308d9a04e52572e00e1cbed24548e5f09adda571
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341970"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985917"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub hoge beschikbaarheid en herstel na noodgevallen
 
@@ -64,6 +64,7 @@ Nadat de failoverbewerking voor de IoT hub is voltooid, worden alle bewerkingen 
 >
 > - Na een failover, kunnen de gebeurtenissen verzonden via Event Grid worden gebruikt via de dezelfde abonnementen eerder hebt geconfigureerd, zolang deze Event Grid-abonnementen beschikbaar blijven.
 >
+> - Wanneer Routering BLOB storage, raden wij de blobs opnemen en vervolgens iteratie van deze, om ervoor te zorgen dat voor alle containers worden gelezen zonder een veronderstellingen van de partitie. Het partitiebereik kan tijdens een failover geïnitieerd van Microsoft of een handmatige failover mogelijk wijzigen. Voor informatie over het inventariseren van de lijst met blobs Zie [routering naar blob-opslag](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
 
 ### <a name="microsoft-initiated-failover"></a>Microsoft geïnitieerde failover
 
@@ -111,14 +112,14 @@ In een regionale failover-model, de oplossing back-end wordt voornamelijk in é�
 
 Op een hoog niveau voor het implementeren van een model regionale failover met IoT Hub, moet u de volgende stappen uit:
 
-* **Een secundaire IoT-hub en apparaat routering logische**: als de service in de primaire regio wordt onderbroken, apparaten verbinding maken met uw secundaire regio moeten beginnen. Gezien de statusbewust aard van de meeste services die betrokken zijn, is het gebruikelijk voor beheerders van de oplossing voor het activeren van het failoverproces tussen regio's. De beste manier om te communiceren van het nieuwe eindpunt naar apparaten, terwijl het beheer van het proces is dat ze regelmatig controleren op een *concierge* service voor het huidige actieve eindpunt. De conciërge-service kan een webtoepassing die wordt gerepliceerd en opgeslagen bereikbaar zijn met behulp van DNS-omleiding technieken (bijvoorbeeld met behulp van [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)).
+* **Een secundaire IoT-hub en apparaat routering logische**: Als service in de primaire regio wordt onderbroken, moeten verbinding maken met uw secundaire regio apparaten starten. Gezien de statusbewust aard van de meeste services die betrokken zijn, is het gebruikelijk voor beheerders van de oplossing voor het activeren van het failoverproces tussen regio's. De beste manier om te communiceren van het nieuwe eindpunt naar apparaten, terwijl het beheer van het proces is dat ze regelmatig controleren op een *concierge* service voor het huidige actieve eindpunt. De conciërge-service kan een webtoepassing die wordt gerepliceerd en opgeslagen bereikbaar zijn met behulp van DNS-omleiding technieken (bijvoorbeeld met behulp van [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)).
 
    > [!NOTE]
    > IoT hub-service is niet een ondersteunde eindpunt van het type in Azure Traffic Manager. De aanbeveling is de voorgestelde concierge-service integreren met Azure traffic manager door het implementeren van de eindpunt-statustest API.
 
-* **Replicatie voor Identity-registry**: om te worden gebruikt, de secundaire IoT-hub alle apparaat-id's die u verbinding met de oplossing maken kunnen moet bevatten. De oplossing moet bewaren van back-ups via geo-replicatie van apparaat-id's en upload deze naar de secundaire IoT-hub voordat u overschakelt van de actieve eindpunt voor de apparaten. De exportfunctie van apparaat-id van IoT-Hub is handig in deze context. Zie voor meer informatie, [het Ontwikkelaarshandleiding voor IoT Hub - identiteitsregister](iot-hub-devguide-identity-registry.md).
+* **Replicatie voor Identity-registry**: Om te worden gebruikt, moet de secundaire IoT-hub alle apparaat-id's die u verbinding met de oplossing maken kunnen bevatten. De oplossing moet bewaren van back-ups via geo-replicatie van apparaat-id's en upload deze naar de secundaire IoT-hub voordat u overschakelt van de actieve eindpunt voor de apparaten. De exportfunctie van apparaat-id van IoT-Hub is handig in deze context. Zie voor meer informatie, [het Ontwikkelaarshandleiding voor IoT Hub - identiteitsregister](iot-hub-devguide-identity-registry.md).
 
-* **Samenvoegen van logische**: wanneer de primaire regio weer beschikbaar is, alle de status en gegevens die zijn gemaakt op de secundaire site moeten worden gemigreerd terug naar de primaire regio. Deze status en gegevens, voornamelijk betrekking hebben op apparaat-id's en metagegevens van de toepassing, die moet worden samengevoegd met de primaire IoT-hub en andere toepassingsspecifieke winkels in de primaire regio. 
+* **Samenvoegen van logische**: Wanneer de primaire regio weer beschikbaar is, moet de status en gegevens die zijn gemaakt op de secundaire site worden gemigreerd naar de primaire regio. Deze status en gegevens, voornamelijk betrekking hebben op apparaat-id's en metagegevens van de toepassing, die moet worden samengevoegd met de primaire IoT-hub en andere toepassingsspecifieke winkels in de primaire regio. 
 
 Ter vereenvoudiging van deze stap, moet u idempotente bewerkingen. Idempotente bewerkingen Minimaliseer de neveneffecten van de uiteindelijke consistente distributie van gebeurtenissen en van duplicaten of out volgorde bezorging van gebeurtenissen. Bovendien moet de toepassingslogica worden ontworpen te tolereren mogelijke inconsistenties of iets verouderd staat. Deze situatie kan optreden vanwege de extra tijd die nodig is voor het systeem herstel knooppuntservice op basis van de doelstellingen voor herstelpunten (RPO).
 
@@ -130,7 +131,7 @@ Hier volgt een samenvatting van de HA-/ DR-opties in dit artikel die kan worden 
 | --- | --- | --- | --- | --- | --- | --- |
 | Microsoft geïnitieerde failover |2 - 26 uur|Raadpleeg de bovenstaande RPO-tabel|Nee|Geen|Geen|
 | Handmatige failover |10 minuten - 2 uur|Raadpleeg de bovenstaande RPO-tabel|Ja|Zeer laag. U hoeft alleen te activeren met deze bewerking via de portal.|Geen|
-| Cross-regio HA |< 1 minuut|Afhankelijk van de replicatiefrequentie van uw aangepaste HA-oplossing|Nee|Hoog|> 1 x de kosten van 1 IoT-hub|
+| Cross-regio HA |< 1 min|Afhankelijk van de replicatiefrequentie van uw aangepaste HA-oplossing|Nee|Hoog|> 1 x de kosten van 1 IoT-hub|
 
 ## <a name="next-steps"></a>Volgende stappen
 

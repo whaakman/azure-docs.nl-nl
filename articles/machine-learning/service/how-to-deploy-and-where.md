@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 19d34e76c73c5ec2472d3eacddc01d6aebb6b9fb
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 4f89fab47cf07538d1915d359fc29a21deb1e560
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889100"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986072"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementeer modellen met de Azure Machine Learning-service
 
@@ -259,6 +259,44 @@ Azure Kubernetes Service biedt de volgende mogelijkheden:
 * Logboekregistratie
 * Gegevensverzameling van model
 * Snelle responstijden voor uw web-services
+* TLS-beëindiging
+* Authentication
+
+#### <a name="autoscaling"></a>Automatisch schalen
+
+Automatisch schalen kan worden beheerd door in te stellen `autoscale_target_utilization`, `autoscale_min_replicas`, en `autoscale_max_replicas` voor de AKS-service. Het volgende voorbeeld ziet u hoe u automatisch schalen inschakelen:
+
+```python
+aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True, 
+                                                autoscale_target_utilization=30,
+                                                autoscale_min_replicas=1,
+                                                autoscale_max_replicas=4)
+```
+
+Beslissingen bij het omhoog/omlaag schalen is op basis van gebruik van de huidige container-replica's. Het aantal replica's die bezet zijn (verwerken van een aanvraag) gedeeld door het totaal aantal huidige replica's is het huidige gebruik. Als dit aantal de doelverbruik overschrijdt, worden klikt u vervolgens meer replica's gemaakt. Als deze lager is, worden replica's gereduceerd. Standaard is het gebruik van de doel-70%.
+
+Beslissingen bij het toevoegen van replica's zijn eager en fast (ongeveer 1 seconde). Beslissingen bij het verwijderen van replica's worden conservatieve (ongeveer 1 minuut).
+
+U kunt de vereiste replica's berekenen met behulp van de volgende code:
+
+```python
+from math import ceil
+# target requests per second
+targetRps = 20
+# time to process the request (in seconds)
+reqTime = 10
+# Maximum requests per container
+maxReqPerContainer = 1
+# target_utilization. 70% in this example
+targetUtilization = .7
+
+concurrentRequests = targetRps * reqTime / targetUtilization
+
+# Number of container replicas
+replicas = ceil(concurrentRequests / maxReqPerContainer)
+```
+
+Voor meer informatie over het instellen `autoscale_target_utilization`, `autoscale_max_replicas`, en `autoscale_min_replicas`, Zie de [AksWebservice](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) -Moduleverwijzing voorkomen.
 
 #### <a name="create-a-new-cluster"></a>Maak een nieuw cluster
 

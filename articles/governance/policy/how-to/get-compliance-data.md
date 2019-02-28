@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 44f0309d472a79526537f79feabcd9777b70bcc7
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 05802c2a6e1d5e0ea16aa8cfcc4333c14d05c7ae
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888768"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986077"
 ---
 # <a name="getting-compliance-data"></a>Nalevingsgegevens ophalen
 
@@ -28,7 +28,7 @@ Er zijn verschillende manieren toegang krijgen tot de informatie over naleving d
 Voordat u de methoden voor het rapporteren van naleving bekijkt, laten we kijken wanneer de compatibiliteitsinformatie wordt bijgewerkt en de frequentie en gebeurtenissen die een evaluatiecyclus van een te activeren.
 
 > [!WARNING]
-> Als de nalevingsstatus wordt gerapporteerd als **niet geregistreerd**, Controleer de **Microsoft.PolicyInsights** Resourceprovider is geregistreerd en dat de gebruiker de juiste toegang op basis van rollen heeft beheren () RBAC)-machtigingen, zoals wordt beschreven [hier](../overview.md#rbac-permissions-in-azure-policy).
+> Als de nalevingsstatus wordt gerapporteerd als **niet geregistreerd**, Controleer de **Microsoft.PolicyInsights** Resourceprovider is geregistreerd en dat de gebruiker de juiste toegang op basis van rollen heeft beheren () Machtigingen voor RBAC) zoals beschreven in [RBAC in Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 

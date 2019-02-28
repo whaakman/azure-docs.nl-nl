@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: saudas
-ms.openlocfilehash: 37a9712749a1575f81086d28ad461a665bef36d9
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: c55a12e6bd5ab57f790e5f161930851be10f5c2a
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313446"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985237"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Ondersteunde versies van Kubernetes in Azure Kubernetes Service (AKS)
 
@@ -31,7 +31,7 @@ Bijvoorbeeld, als u AKS introduceert *1.12.x* vandaag de dag wordt ook ondersteu
 
 Wanneer een nieuwe secundaire versie wordt geïntroduceerd, worden de oudste ondersteunde secundaire versie en patchreleases afgeschaft. 15 dagen vóór de release van de nieuwe secundaire versie en de komende versie buiten gebruik stellen, een aankondiging is gemaakt via de [Azure updatekanalen][azure-update-channel]. In het voorbeeld hierboven waar *1.12.x* is uitgebracht, de buiten gebruik gestelde versies zijn *1.8.g* + *1.8.h*.
 
-Wanneer u een AKS-cluster implementeert in de portal of met Azure CLI, wordt het cluster altijd ingesteld op de n-1 secundaire versie en de nieuwste patch. Bijvoorbeeld, als biedt ondersteuning voor AKS *1.12.x*, *1.11.a* + *1.11.b*, *1.10.c*  +   *1,10 d*, *1.9.e* + *1.9f*, is de standaardversie voor nieuwe clusters *1.10.b*.
+Wanneer u een AKS-cluster implementeert in de portal of met Azure CLI, wordt het cluster altijd ingesteld op de n-1 secundaire versie en de nieuwste patch. Bijvoorbeeld, als biedt ondersteuning voor AKS *1.12.x*, *1.11.a* + *1.11.b*, *1.10.c*  +   *1,10 d*, *1.9.e* + *1.9f*, is de standaardversie voor nieuwe clusters *1.11.b*.
 
 ## <a name="list-currently-supported-versions"></a>Versies weergeven die momenteel worden ondersteund
 

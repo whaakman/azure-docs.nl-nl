@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c38b28a247feb94efd5f4b73e690d30aac9ed73a
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 85beb9b7e0c62d5e1c8dae61fdd15d5faf3a294c
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900235"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985866"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Een partner-ID koppelen aan uw Azure-accounts
 
@@ -138,3 +138,25 @@ De koppeling tussen de partner-ID en het account wordt gedaan voor elke klantten
 **Kunnen andere partners en klanten bewerken of verwijderen van de koppeling naar de partner-ID?**
 
 De koppeling is gekoppeld op het niveau van de gebruiker. U kunt alleen bewerken of verwijderen van de koppeling naar de partner-ID. De klant en andere partners kunnen de koppeling wijzigen in de partner-ID. 
+
+
+**Welke MPN-ID moet ik gebruiken als mijn bedrijf meerdere heeft?**
+
+U kunt een geldige ID voor de MPN, behalve v org MPN-ID. De meeste partners kiezen voor de MPN ID voor de geografische locatie waar de klant is gebaseerd of services worden geleverd.
+
+**Waar vind ik beïnvloed omzet rapportage voor gekoppelde partner-ID**
+
+U vindt beïnvloed omzet rapportage op [mijn Insights dashboard](https://partner.microsoft.com/membership/reports/myinsights) door Partner Admin koppeling selecteren, zoals wordt weergegeven.
+
+**Waarom zie ik mijn klanten in de rapporten niet?**
+
+U kunt de klant in de rapporten vanwege de volgende redenen niet zien
+
+1. De gekoppelde gebruikersaccount niet beschikt over [rollen gebaseerd toegangsbeheer ](https://docs.microsoft.com/azure/role-based-access-control/overview) op elke klant Azure-abonnement of de resource.
+
+2. Het Azure-abonnement waar de gebruiker heeft [rollen gebaseerd toegangsbeheer ](https://docs.microsoft.com/azure/role-based-access-control/overview) toegang beschikt niet over het gebruik.
+
+**Partner-ID met Azure Stack werkt is een koppeling?**
+
+Ja, koppelt u uw partner-ID voor Azure Stack.
+

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8d39b614c373c63cf1405c5db0f64581c481d1f
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 6a9839d636ba582c5006a260aeb6a17ac1a12e9b
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417195"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986002"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Preview: Azure AD-wachtwoord beveiliging implementeren
 
@@ -112,7 +112,7 @@ Er zijn twee vereist installatieprogramma's voor Azure AD-wachtwoord beveiliging
       * Apparaat-code-verificatiemodus:
 
          ```PowerShell
-         Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceMode
+         Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceCode
          To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
          ```
 
@@ -155,7 +155,7 @@ Er zijn twee vereist installatieprogramma's voor Azure AD-wachtwoord beveiliging
       * Apparaat-code-verificatiemodus:
 
          ```PowerShell
-         Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceMode
+         Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceCode
          To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
          ```
 

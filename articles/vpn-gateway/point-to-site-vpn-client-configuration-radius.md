@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 02/27/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8881582eac47e31b20e9eb96effea254b821ba34
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: f59a871297189cfd5082b55a3dbdfd3156a4e501
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417292"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985701"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Maken en VPN-clientconfiguratiebestanden voor P2S-RADIUS-verificatie installeren
 
@@ -48,9 +48,22 @@ Als u verificatie voor gebruikersnaam en wachtwoord configureert, kunt u alleen 
 
 ### <a name="usernamefiles"></a> 1. De configuratiebestanden voor de VPN-client genereren
 
+U kunt de configuratiebestanden van de VPN-client genereren met behulp van de Azure-portal of met behulp van Azure PowerShell.
+
+#### <a name="azure-portal"></a>Azure Portal
+
+1. Navigeer naar de virtuele netwerkgateway.
+2. Klik op **punt-naar-Site-configuratie**.
+3. Klik op **VPN-client downloaden**.
+4. Selecteer de client en vul de informatie die is aangevraagd.
+5. Klik op **downloaden** voor het genereren van het ZIP-bestand.
+6. Het ZIP-bestand wordt doorgaans in de map Downloads gedownload.
+
+#### <a name="azure-powershell"></a>Azure PowerShell
+
 VPN-clientconfiguratiebestanden voor gebruik met verificatie voor gebruikersnaam en wachtwoord genereren. U kunt de configuratiebestanden van de VPN-client genereren met behulp van de volgende opdracht uit:
 
-```powershell 
+```azurepowershell-interactive
 New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapMSChapv2"
 ```
  
@@ -64,7 +77,7 @@ Als u al hebt gemaakt client-configuratiebestanden, kunt u ze wel ophalen met be
 
 Als u wilt ophalen van eerder gegenereerde client-configuratiebestanden, gebruik de volgende opdracht:
 
-```powershell
+```azurepowershell-interactive
 Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 ```
 
@@ -182,7 +195,7 @@ Elk VPN-client-apparaat vereist een geïnstalleerd clientcertificaat. Een Window
 
 VPN-clientconfiguratiebestanden voor gebruik met verificatie via certificaat genereren. U kunt de configuratiebestanden van de VPN-client genereren met behulp van de volgende opdracht uit:
  
-```powershell
+```azurepowershell-interactive
 New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root> | fl
 ```
 
@@ -195,7 +208,7 @@ Als u al hebt gemaakt client-configuratiebestanden, kunt u ze wel ophalen met be
 
 Als u wilt ophalen van eerder gegenereerde client-configuratiebestanden, gebruik de volgende opdracht:
 
-```powershell
+```azurepowershell-interactive
 Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
 ```
  

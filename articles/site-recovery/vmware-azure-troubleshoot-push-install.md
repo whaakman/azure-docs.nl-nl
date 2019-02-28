@@ -6,13 +6,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 02/07/2019
-ms.openlocfilehash: 3de5996f574bf076b856a4d0cf7e18d77b1a9e5d
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.date: 02/27/2019
+ms.openlocfilehash: 3b46ffe49aeb31aaf9040be038e8a9e83641ae51
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895683"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984372"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Problemen met de Mobility-Service push-installatie
 
@@ -58,7 +58,7 @@ Als u wijzigen van de referenties van de gekozen gebruikersaccount wilt, volgt u
 
 ## <a name="insufficient-privileges-failure-errorid-95518"></a>Fout bij onvoldoende bevoegdheden (Aanroepstatus: 95518)
 
-Wanneer domein vertrouwensrelatie relatie tot stand brengen tussen het primaire domein en -werkstation is mislukt tijdens het aanmelden bij de bron-VM, mislukt de installatie van de mobility-agent met de fout-id 95518. Dus zorg ervoor dat het gebruikersaccount dat wordt gebruikt voor het installeren van de mobility-agent administratorbevoegdheden om aan te melden via de primaire domeincontroller van de bronmachine.
+Wanneer domein vertrouwensrelatie relatie tot stand brengen tussen het primaire domein en -werkstation is mislukt tijdens het aanmelden bij de bron-VM, mislukt de installatie van de mobility-agent met de fout-ID 95518. Dus zorg ervoor dat het gebruikersaccount dat wordt gebruikt voor het installeren van de mobility-agent beheerdersrechten voor het aanmelden via de primaire domeincontroller van de bronmachine.
 
 Als u wijzigen van de referenties van de gekozen gebruikersaccount wilt, volgt u de instructies [hier](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
 
@@ -80,7 +80,7 @@ De referenties die is gekozen door de instructies te volgen, te wijzigen [hier](
 
 ### <a name="logon-servers-are-not-available-on-the-source-machine-errorid-95521"></a>Aanmeldingsservers zijn niet beschikbaar op de bronmachine (Aanroepstatus: 95521)
 
-Deze fout treedt op wanneer de aanmeldingsservers niet beschikbaar op de bronmachine zijn. Geen aanmeldingsservers beschikbaar zijn zal leiden tot het mislukken van de aanmeldingsaanvraag en dus de mobility-agent kan niet worden geïnstalleerd. Zorg ervoor dat aanmeldingsservers beschikbaar op de broncomputer zijn en de Logon-service starten voor een geslaagde aanmelding. Klik voor gedetailleerde instructies [hier](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available).
+Deze fout treedt op wanneer de aanmeldingsservers niet beschikbaar op de bronmachine zijn. Geen aanmeldingsservers beschikbaar zijn zal leiden tot het mislukken van de aanmeldingsaanvraag en dus de mobility-agent kan niet worden geïnstalleerd. Zorg ervoor dat aanmeldingsservers beschikbaar op de broncomputer zijn en de Logon-service starten voor een geslaagde aanmelding. Zie voor gedetailleerde instructies, de KB [139410](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available) Err Msg: Er zijn momenteel geen aanmelding Servers beschikbaar.
 
 ### <a name="logon-service-isnt-running-on-the-source-machine-errorid-95522"></a>Logon-service niet wordt uitgevoerd op de bronmachine (Aanroepstatus: 95522)
 
@@ -122,9 +122,9 @@ Voor **windows 2008 R2 en eerdere versies**,
 * Om in te schakelen met Groepsbeleid, het delen van bestanden
   * Ga naar Start, typ gpmc.msc en zoeken.
   * Open de volgende mappen in het navigatiedeelvenster: Beleid voor lokale Computer, Gebruikersconfiguratie Beheersjablonen, Windows-onderdelen en netwerk delen.
-  * Dubbelklik in het deelvenster met details op **te voorkomen dat gebruikers in het delen van bestanden in hun profiel**. Als u de instelling voor Groepsbeleid uitschakelen en inschakelen van de gebruiker de mogelijkheid om bestanden te delen, klikt u op uitgeschakeld. Klik op OK om uw wijzigingen hebt opgeslagen. Voor meer informatie, klikt u op [hier](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10)).
+  * Dubbelklik in het deelvenster met details op **te voorkomen dat gebruikers in het delen van bestanden in hun profiel**. Als u de instelling voor Groepsbeleid uitschakelen en inschakelen van de gebruiker de mogelijkheid om bestanden te delen, klikt u op uitgeschakeld. Klik op OK om uw wijzigingen hebt opgeslagen. Zie voor meer informatie, [in- of uitschakelen van het delen van bestanden met Groepsbeleid](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10)).
 
-Voor **hoger**, volg de instructies [hier](vmware-azure-install-mobility-service.md) om in te schakelen van bestands- en printerdeling.
+Voor **hoger**, volg de instructies [installeren van de Mobility-service voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers](vmware-azure-install-mobility-service.md) om in te schakelen van bestands- en printerdeling.
 
 ## <a name="windows-management-instrumentation-wmi-configuration-check-error-code-95103"></a>Windows Management Instrumentation (WMI)-configuratiecontrole (foutcode: 95103)
 
@@ -191,7 +191,7 @@ blkid /dev/sda2
 /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
 ```
 
-2. Vervang nu de naam van het apparaat met de UUID in de indeling, zoals ' root = UUID =<UUID>'. Bijvoorbeeld, als we de apparaatnamen vervangen door UUID voor basis- en hervatten van de parameter die hierboven worden vermeld in de bestanden "/ boot/grub2/grub.cfg ', ' / boot/grub2/grub.cfg" of "/ standaard/etc/wormgaten: vervolgens lijkt op de regels in de bestanden. <br>
+2. Vervang nu de naam van het apparaat met de UUID in de indeling, zoals ' root = UUID =<UUID>'. Bijvoorbeeld, als we de apparaatnamen vervangen door UUID voor basis- en hervatten van de parameter die hierboven worden vermeld in de bestanden "/ boot/grub2/grub.cfg ', ' / boot/grub2/grub.cfg" of "/ standaard/etc/wormgaten: vervolgens de regels in de bestanden er als volgt uitzien. <br>
 *kernel /boot/vmlinuz-3.0.101-63-default **hoofdmap = UUID = 62927e85-f7ba-40bc-9993-cc1feeb191e4** **hervatten UUID = 6f614b44-433b-431b-9ca1-4dd2f6f74f6b =** splash = op de achtergrond crashkernel 256M-:128M = showopts vga 0x314 =*
 3. De beveiliging opnieuw starten
 
@@ -199,10 +199,10 @@ blkid /dev/sda2
 
 Site Recovery mobility-service heeft meerdere onderdelen, waarvan er één filter-stuurprogramma wordt aangeroepen. Filterstuurprogramma opgehaald in het systeemgeheugen geladen alleen op een tijdstip van het systeem opnieuw is opgestart. Dit betekent dat de filter-stuurprogramma-oplossingen kunnen alleen worden gerealiseerd wanneer een nieuw filterstuurprogramma wordt geladen; Dit kan gebeuren alleen op het moment van systeem opnieuw is opgestart.
 
-**Houd er rekening mee** dat dit is een waarschuwing en bestaande replicatie werkt zelfs nadat de update voor de nieuwe. U kunt telkens wanneer u profiteren van nieuwe filterstuurprogramma, maar wilt als u dan ook oude filter-stuurprogramma houdt over het werken niet opnieuw opstarten. Ja, nadat een update zonder opnieuw opstarten, naast de stuurprogramma-filter, **voordelen van andere verbeteringen en oplossingen in de mobility-service wordt gerealiseerd**. Dus Hoewel aanbevolen, is dit niet verplicht opnieuw opstarten na elke upgrade. Klik voor informatie over wanneer opnieuw opstarten verplicht is, [hier](https://aka.ms/v2a_asr_reboot).
+**Houd er rekening mee** dat dit is een waarschuwing en bestaande replicatie werkt zelfs nadat de update voor de nieuwe. U kunt op te starten wanneer u profiteren van nieuwe filterstuurprogramma, maar wilt als u de oude filter-stuurprogramma houdt over het werken niet opnieuw kunt opstarten. Ja, nadat een update zonder opnieuw opstarten, naast de stuurprogramma-filter, **voordelen van andere verbeteringen en oplossingen in de mobility-service wordt gerealiseerd**. Dus Hoewel aanbevolen, is dit niet verplicht opnieuw opstarten na elke upgrade. Voor informatie over wanneer opnieuw opstarten verplicht is, stel de [opnieuw opstarten van de bronmachine na de upgrade van de mobility-agent ](https://aka.ms/v2a_asr_reboot) sectie in Service-updates in de Azure Site Recovery.
 
 > [!TIP]
->Raadpleeg voor best practices voor het plannen van upgrades tijdens het onderhoudsvenster [hier](https://aka.ms/v2a_asr_upgrade_practice).
+>Zie voor aanbevolen procedures over het plannen van upgrades tijdens het onderhoudsvenster, de [ondersteuning voor de meest recente versies van de OS/kernel](https://aka.ms/v2a_asr_upgrade_practice) in Service-updates in de Azure Site Recovery.
 
 ## <a name="lvm-support-from-920-version"></a>LVM-ondersteuning van 9.20 versie
 
@@ -220,7 +220,7 @@ Installatie van de VSS is een onderdeel van de installatie van de Mobility-agent
 
 ### <a name="vss-error--2147023170-0x800706be---exit-code-511"></a>VSS-fout-2147023170 [0x800706BE] - afsluitcode 511
 
-Dit probleem is voornamelijk gezien als een antivirusprogramma wordt geblokkeerd door de bewerkingen van Azure Site Recovery-services. Dit, oplossen
+Dit probleem is voornamelijk zichtbaar wanneer de bewerkingen van Azure Site Recovery-services wordt geblokkeerd door antivirussoftware. Los dit probleem als volgt op:
 
 1. Alle mappen die worden vermeld uitsluiten [hier](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program).
 2. Volg de richtlijnen gepubliceerd door uw provider antivirusprogramma's blokkering opheffen van de registratie van DLL-bestand in Windows.
@@ -250,6 +250,97 @@ Deze fout treedt op wanneer het gebruikersaccount dat wordt gebruikt voor de ins
 Probeer VSS-provider-service handmatig op de bronmachine installeren door het uitvoeren van de volgende opdrachtregel
 
 `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
+
+
+
+## <a name="vss-error---0x8004e00f"></a>VSS-fout - 0x8004E00F
+
+Deze fout wordt meestal veroorzaakt tijdens de installatie van de mobility-agent vanwege problemen met DCOM en DCOM is een kritieke status.
+
+Gebruik de volgende procedure om de oorzaak van de fout te bepalen.
+
+**Controleer de installatielogboeken**
+
+1. Open het installatielogboek dat zich bevindt in c:\ProgramData\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
+2. De aanwezigheid van de volgende fout geeft aan dat dit probleem:
+
+    Registratie van de bestaande toepassing...  Maak het object al de verzameling van toepassingen ophalen 
+
+    FOUT:
+
+    - Foutcode:-2147164145 [0x8004E00F]
+    - Afsluitcode: 802
+
+Het probleem kunt oplossen:
+
+Neem contact op met de [platform-team van Microsoft Windows](https://aka.ms/Windows_Support) ondersteuning aanvragen voor de DCOM-problemen kunt oplossen.
+
+Wanneer het DCOM-probleem is opgelost en opnieuw installeren van de Azure Site Recovery VSS Provider handmatig met behulp van de volgende opdracht uit:
+ 
+**C:\Program bestanden (x86) \Microsoft Azure Site Recovery\agent > "C:\Program bestanden (x86) \Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd**
+  
+Als toepassingsconsistentie niet essentieel is voor uw vereisten voor herstel na noodgevallen, kunt u de VSS-Provider-installatie overslaan. 
+
+De Azure Site Recovery VSS Provider-installatie overslaan en Azure Site Recovery VSS Provider na de installatie handmatig te installeren:
+
+1. Installeer de mobility-service. 
+> [!Note]
+> 
+> De installatie mislukken bij stap 'Post installeren configuration'. 
+2. De installatie van de VSS overslaan:
+   1. Open de Azure Site Recovery Mobility Service-installatiemap zich bevindt in:
+   
+    C:\Program bestanden (x86) \Microsoft Azure Site Recovery\agent
+   2.  Wijzigen van de installatie van Azure Site Recovery VSS Provider scripts **nMageVSSProvider_Install** en **InMageVSSProvider_Uninstall.cmd** altijd voltooid door de volgende regels toe te voegen:
+    
+    ```     
+    rem @echo off
+    setlocal
+    exit /B 0
+    ```
+
+3. Voer de installatie van de Mobility-Agent handmatig opnieuw uit. 
+4. Wanneer de installatie is geslaagd en naar de volgende stap verplaatst **configureren**, verwijder de regels die u hebt toegevoegd.
+5. Voor het installeren van de VSS-provider, open een opdrachtprompt als beheerder en voer de volgende opdracht uit:
+   
+    **C:\Program bestanden (x86) \Microsoft Azure Site Recovery\agent >.\InMageVSSProvider_Install.cmd**
+
+9.  Controleer of de ASR-VSS-Provider is geïnstalleerd als een service in Windows-Services en open de MMC Component-Service om te controleren of de VSS-Provider voor ASR wordt weergegeven.
+10. Als de VSS-Provider installeren blijft mislukken, werken met CX om op te lossen de machtigingen voor fouten in diagnostische CAPI2.
+
+## <a name="vss-provider-installation-fails-due-to-the-cluster-service-being-enabled-on-non-cluster-machine"></a>VSS-Provider-installatie mislukt als gevolg van de cluster-service wordt ingeschakeld op de machine niet-cluster
+
+Dit probleem zorgt ervoor dat de installatie van de Azure Site Recovery Mobility-Agent kan worden uitgevoerd tijdens de stap van de VSS-Provider voor ASAzure Site RecoveryR installatie vanwege een probleem met COM + waarmee wordt voorkomen de installatie van de VSS-provider dat.
+ 
+### <a name="to-identify-the-issue"></a>Bepalen wat het probleem
+
+In het logboek op de configuratieserver op C:\ProgramData\ASRSetupLogs\UploadedLogs\<datum / tijd-> UA_InstallLogFile.log, vindt u de volgende uitzondering:
+
+COM + is niet kan communiceren met de Microsoft Distributed Transaction Coordinator (uitzondering van HRESULT: 0x8004E00F)
+
+Het probleem kunt oplossen:
+
+1.  Controleer of dat deze machine een niet-cluster-machine is en dat de clusteronderdelen niet worden gebruikt.
+3.  Als de onderdelen niet worden gebruikt, verwijdert u de clusteronderdelen van de machine.
+
+## <a name="drivers-are-missing-on-the-source-server"></a>Stuurprogramma's ontbreken op de bronserver
+
+Als de installatie van de Mobility-Agent mislukt, controleert u de Logboeken onder C:\ProgramData\ASRSetupLogs om te bepalen of enkele van de vereiste stuurprogramma's ontbreken in sommige controlesets.
+ 
+Het probleem kunt oplossen:
+  
+1. Gebruik een register-editor, zoals regedit.msc, opent u het register.
+2. Open het HKEY_LOCAL_MACHINE\SYSTEM-knooppunt.
+3. Zoek in het knooppunt SYSTEM, het besturingselement ingesteld.
+4. Open elk besturingselement instellen en controleren of de volgende Windows-stuurprogramma's weergegeven worden:
+
+   - Atapi
+   - Vmbus
+   - storflt
+   - Storvsc
+   - intelide
+ 
+Installeer eventuele ontbrekende stuurprogramma's.
 
 ## <a name="next-steps"></a>Volgende stappen
 

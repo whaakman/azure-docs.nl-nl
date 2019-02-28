@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 02/27/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 4bdc17e444239652fa612078e89ec85e357c9316
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 2a245a6e3d76a7df41b5ef28f9bac8a2c2122402
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750511"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985415"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Entiteit herkenning van cognitieve vaardigheden
 
@@ -43,7 +43,8 @@ Parameters zijn hoofdlettergevoelig en zijn optioneel.
 | categorieën    | Matrix van categorieën die moeten worden geëxtraheerd.  Mogelijke categorietypen: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Als er geen categorie is opgegeven, worden alle typen worden geretourneerd.|
 |defaultLanguageCode |  De taalcode van de invoertekst. De volgende talen worden ondersteund: `de, en, es, fr, it`|
 |minimumPrecision | Niet-gebruikte. Gereserveerd voor toekomstig gebruik. |
-|includeTypelessEntities | Als de waarde in op true als de tekst bevat van een entiteit erg bekend is, maar kan niet worden onderverdeeld in een van de ondersteunde categorieën, deze wordt geretourneerd als onderdeel van de `"entities"` complexe uitvoerveld. De standaardwaarde is `false` |
+|includeTypelessEntities | Als de waarde in op true als de tekst bevat van een entiteit erg bekend is, maar kan niet worden onderverdeeld in een van de ondersteunde categorieën, deze wordt geretourneerd als onderdeel van de `"entities"` complexe uitvoerveld. 
+Dit zijn de entiteiten die goed bekend zijn, maar niet zijn geclassificeerd als onderdeel van de huidige ondersteunde 'categorieën'. Bijvoorbeeld ' Windows 10 ' is een bekende entiteit (product), maar 'Producten' zich niet in de categorieën die tegenwoordig wordt ondersteund. De standaardwaarde is `false` |
 
 
 ## <a name="skill-inputs"></a>Kwalificatie invoer

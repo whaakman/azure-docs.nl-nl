@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: d0051f081f005d61a1eed43d177a11781b2b3fa8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7b73a0efbe20b43b3ba8e94fce3aabf12ea918e8
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997080"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986053"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes op Azure Stack Marketplace toevoegen
 
@@ -31,7 +31,7 @@ ms.locfileid: "55997080"
 
 Als een Marketplace-item kunt u Kubernetes aanbieden aan uw gebruikers. Uw gebruikers kunnen vervolgens Kubernetes implementeert in een enkele, gecoördineerde bewerking.
 
-Het volgende artikel bekijken met behulp van een Azure Resource Manager-sjabloon te implementeren en de resources voor een zelfstandige Kubernetes-cluster inrichten. De Kubernetes-Cluster Marketplace-item 0.3.0 vereist Azure Stack-versie 1808. Voordat u begint, controleert u uw Azure Stack en de instellingen van de globale Azure-tenant. De vereiste gegevens verzamelen over uw Azure Stack. Benodigde resources toevoegen aan uw tenant en de Azure Stack Marketplace. Het cluster is afhankelijk van een Ubuntu-server, aangepaste scripts en de Kubernetes-items in de marketplace.
+Het volgende artikel bekijken met behulp van een Azure Resource Manager-sjabloon te implementeren en de resources voor een zelfstandige Kubernetes-cluster inrichten. Voordat u begint, controleert u uw Azure Stack en de instellingen van de globale Azure-tenant. De vereiste gegevens verzamelen over uw Azure Stack. Benodigde resources toevoegen aan uw tenant en de Azure Stack Marketplace. Het cluster is afhankelijk van een Ubuntu-server, aangepaste scripts en het Kubernetes-Cluster Marketplace-item in de marketplace.
 
 ## <a name="create-a-plan-an-offer-and-a-subscription"></a>Een plan, een aanbieding en een abonnement maken
 
@@ -73,7 +73,7 @@ Als u Active Directory Federated Services (AD FS) voor uw identity management-se
        | ---   | ---         |
        | Wachtwoord | Een nieuw wachtwoord invoeren voor het certificaat. |
        | Pad naar het lokale certificaat | Voer het pad en de naam van het certificaat. Bijvoorbeeld: `c:\certfilename.pfx` |
-       | Naam van het certificaat | Voer de naam van het certificaat. |
+       | Certificaatnaam | Voer de naam van het certificaat. |
        | Certificaatarchieflocatie |  Bijvoorbeeld: `Cert:\LocalMachine\My` |
 
     - Open PowerShell met een opdrachtprompt. Voer het volgende script met de parameters die zijn bijgewerkt naar uw waarden:
@@ -202,7 +202,7 @@ De volgende Ubuntu-Server-installatiekopie toevoegen aan de Marketplace:
 1. Selecteer de nieuwste versie van de server. De volledige versie controleren en ervoor te zorgen dat u de nieuwste versie hebt:
     - **Publisher**: Canonical
     - **Bieden**: UbuntuServer
-    - **Versie**: 16.04.201806120 (of meest recente versie)
+    - **Version**: 16.04.201806120 (of meest recente versie)
     - **SKU**: 16.04-LTS
 
 1. Selecteer **downloaden.**
@@ -221,7 +221,7 @@ De Kubernetes uit de Marketplace toevoegen:
 
 1. Het script met het volgende profiel te selecteren:
     - **Bieden**: Aangepast Script voor Linux 2.0
-    - **Versie**: 2.0.6 (of de meest recente versie)
+    - **Version**: 2.0.6 (of de meest recente versie)
     - **Publisher**: Microsoft Corp
 
     > [!Note]  

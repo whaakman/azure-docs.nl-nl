@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: wesmc
-ms.openlocfilehash: 30b83613637d97bfe265c4f5a9c911d14da50c4f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 26865acbf635f07db4799ab197e110d37cbe69e8
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810904"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984336"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Kies de juiste IoT Hub-laag voor uw oplossing
 
@@ -53,7 +53,7 @@ IoT Hub biedt ook een gratis laag die is bedoeld voor test- en evaluatiedoeleind
 
 Azure IoT-Hubs bevatten veel kernonderdelen van [Azure Event Hubs](../event-hubs/event-hubs-features.md), waaronder [partities](../event-hubs/event-hubs-features.md#partitions). Gebeurtenisstromen voor IoT-Hubs zijn doorgaans gevuld met binnenkomende telemetriegegevens die moet worden gerapporteerd door verschillende IoT-apparaten. Het partitioneren van de gebeurtenisstroom wordt gebruikt om contentions die zich voordoen bij het gelijktijdig lezen en schrijven naar gebeurtenisstromen verminderen. 
 
-De limiet van de partitie wordt gekozen bij IoT Hub wordt gemaakt, en kan niet worden gewijzigd. De maximale partitielimiet voor IoT-Hubs basic-laag is 8 en voor de standard-laag het maximum is 32. De meeste IoT-hubs hoeft slechts 4 partities. Zie voor meer informatie over het bepalen van de partities, de Event Hubs-Veelgestelde vragen over [hoeveel partities heb ik nodig?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
+De limiet van de partitie wordt gekozen bij IoT Hub wordt gemaakt, en kan niet worden gewijzigd. De maximale partitielimiet voor basic-laag IoT-Hub en IoT-Hub in de standaardlaag is 32. De meeste IoT-hubs hoeft slechts 4 partities. Zie voor meer informatie over het bepalen van de partities, de Event Hubs-Veelgestelde vragen over [hoeveel partities heb ik nodig?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
 
 
 ## <a name="tier-upgrade"></a>Laag-upgrade

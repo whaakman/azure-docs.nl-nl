@@ -16,12 +16,12 @@ ms.date: 02/27/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: 6dad4fc98dccc5c8db22019fdc548efdf7165d9e
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 86a3542c39fe81607187442799ef7b546e053a8e
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888743"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985832"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-items beschikbaar voor Azure Stack
 
@@ -166,7 +166,6 @@ Microsoft Azure Stack biedt ondersteuning voor de volgende virtuele machines van
 | ![MongoDB](media/azure-stack-marketplace-azure-items/mongodb.png) | [MongoDB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mongodb) | Krachtige open-source NoSQL-database is geschreven in C++. | Bitnami |
 | ![MongoDB met replicatie](media/azure-stack-marketplace-azure-items/mongodb.png) | [MongoDB met replicatie](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-mongodb) | Krachtige open-source NoSQL-database is geschreven in C++. **Deze oplossingssjabloon uw Azure-Stack op 1807 of hoger vereist en vereist ook Debian 8 en aangepast Script voor Linux 2.0-extensie.** | Bitnami |
 | ![Moodle](media/azure-stack-marketplace-azure-items/moodle.png) | [Moodle](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.moodle) | Effectieve CMS is ontworpen voor online leren community's. | Bitnami |
-| ![Multicraft](media/azure-stack-marketplace-azure-items/multicraft.png) | [Multicraft](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.multicraft) | Minecraft-server die als host fungeert deelvenster oplossing en controle. | Bitnami |
 | ![MyBB](media/azure-stack-marketplace-azure-items/mybb.png) | [MyBB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mybb) | Gratis en open-source-Software-Forum. | Bitnami |
 | ![MySQL](media/azure-stack-marketplace-azure-items/mysql.png) | [MySQL](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mysql) | De meest populaire database-systeem. | Bitnami |
 | ![MySQL met replicatie](media/azure-stack-marketplace-azure-items/mysql.png) | [MySQL met replicatie](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mysql-cluster) | MySQL is een relationele database van snelle, betrouwbare, schaalbare en gebruiksvriendelijke open-source-systeem. MySQL-Server is bedoeld voor essentiële en zware belasting productiesystemen ook als u voor insluiten in software voor massaopslag geïmplementeerd. Deze oplossing maakt gebruik van meerdere virtuele machines worden gerepliceerd van de databases van het hoofdknooppunt naar een configureerbaar aantal replica's. **Deze oplossingssjabloon vereist ook Debian 8 en aangepast Script voor Linux 2.0-extensie.** | Bitnami |

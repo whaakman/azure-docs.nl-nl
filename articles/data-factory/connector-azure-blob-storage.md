@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: jingwang
-ms.openlocfilehash: b2676d16abe3fb3cb1ec59b261c6cc059b4795de
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: cacc17464d15e8872508cff0e626b383ee9a2808
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674766"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985390"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Blob-opslag met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,7 +37,7 @@ Deze Blob storage-connector ondersteunt name:
 - Blobs kopiëren of parseren of genereren van blobs met [ondersteunde indelingen en codecs voor compressie](supported-file-formats-and-compression-codecs.md).
 
 >[!NOTE]
->Als u Hiermee _'Vertrouwde Microsoft-services voor toegang tot dit storage-account toestaan'_ optie voor Azure Storage firewall-instellingen, met behulp van Azure Integration Runtime verbinding maken met Blob-opslag mislukt en niet-toegestane foutmelding ADF zijn niet beschouwd als vertrouwde Microsoft-service. Gebruik zelfgehoste Cloudintegratieruntime zoals verbinding maken via in plaats daarvan.
+>Als u inschakelt de _'Vertrouwde Microsoft-services voor toegang tot dit storage-account toestaan'_ optie voor Azure Storage firewall-instellingen, met behulp van Azure Integration Runtime verbinding maken met Blob-opslag mislukken met een niet-toegestane fout, omdat de ADF niet Als een vertrouwde Microsoft-service behandeld. Maak in plaats daarvan verbinding via een zelfgehoste Cloudintegratieruntime.
 
 ## <a name="get-started"></a>Aan de slag
 

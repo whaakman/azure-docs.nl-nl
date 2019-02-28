@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 73c94b79bb315c317d39ade704e2ee70a241a348
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 0bf7c335f552fee103118e57239bcd872e880edb
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187742"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984846"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Met behulp van Azure Monitor voor virtuele machines (preview) de kaart om te begrijpen van toepassingsonderdelen
 De gedetecteerde toepassingsonderdelen weergeven op Windows en Linux-machines uitvoeren in uw omgeving kan worden waargenomen op twee manieren met Azure Monitor voor virtuele machines van een virtuele machine rechtstreeks of via groepen virtuele machines van Azure Monitor Azure. 
@@ -39,7 +39,7 @@ Wanneer u op de virtuele machine klikt, de **eigenschappen** deelvenster aan de 
 
 ![Eigenschappen van de computer](./media/vminsights-maps/properties-pane-01.png)
 
-Aan de rechterkant-van het deelvenster, klikt u op de **logboekgebeurtenissen** pictogram focus verplaatsen van het deelvenster om een lijst met tabellen die gegevens verzameld van de virtuele machine weer te geven is verzonden naar Log Analytics en is beschikbaar voor het uitvoeren van query's.  Te klikken op een van de typen bronrecords vermeld wordt geopend de **logboeken** pagina om de resultaten voor dat type met een vooraf geconfigureerde query weer te geven die zijn gefilterd op basis van de specifieke virtuele machine.  
+Aan de rechterkant-van het deelvenster, klikt u op de **logboekgebeurtenissen** pictogram om over te schakelen focus van het deelvenster om weer te geven van een lijst met tabellen die gegevens verzameld van de virtuele machine naar Azure Monitor heeft verzonden en is beschikbaar voor het uitvoeren van query's.  Te klikken op een van de typen bronrecords vermeld wordt geopend de **logboeken** pagina om de resultaten voor dat type met een vooraf geconfigureerde query weer te geven die zijn gefilterd op basis van de specifieke virtuele machine.  
 
 ![Lijst met zoeken in het deelvenster met eigenschappen](./media/vminsights-maps/properties-pane-logs-01.png)
 

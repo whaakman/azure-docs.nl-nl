@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 01/31/2019
+ms.date: 02/25/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92fc46dd3fe3c6526a9a85fd13ec7297bf270976
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 423399c93fca222dad2db3175036719a0cd5fdb9
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208891"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986144"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Licenties toewijzen aan gebruikers door groepslidmaatschappen in Azure Active Directory
 
@@ -35,38 +35,33 @@ In dit voorbeeld bevat de tenant een beveiligingsgroep met de naam **HR-afdeling
 
 ## <a name="step-1-assign-the-required-licenses"></a>Stap 1: De vereiste licenties toewijzen
 
-1. Aanmelden bij de [ **Azure-portal** ](https://portal.azure.com) met een Administrator-account. Het account moet een globale beheerder rol of de gebruiker de accountbeheerder voor het beheren van licenties.
+1. Aanmelden bij de [ **Azure AD-beheercentrum** ](https://aad.portal.azure.com) met een licentie voor administrator-account. Voor het beheren van licenties, moet het account een licentiebeheerder, beheerder of globale beheerder.
 
-2. Selecteer **alle services** in het navigatiedeelvenster links in en selecteer vervolgens **Azure Active Directory**. U kunt dit deelvenster toevoegen aan Favorieten of vastmaken aan het portaldashboard.
+2. Selecteer **licenties** om een deelvenster waar u kunt zien en beheren van alle licentieproducten in de tenant te openen.
 
-3. Op de **Azure Active Directory** venster **licenties** om een deelvenster waar u kunt zien en beheren van alle licentieproducten in de tenant te openen.
-
-4. Onder **alle producten**, Office 365 Enterprise E3 en Enterprise Mobility + Security selecteren door de productnamen te selecteren. Selecteer eerst de toewijzing **toewijzen** aan de bovenkant van het deelvenster.
+4. Onder **alle producten**, Office 365 Enterprise E5 en Enterprise Mobility + Security E3 selecteren door de productnamen te selecteren. Selecteer eerst de toewijzing **toewijzen** aan de bovenkant van het deelvenster.
 
    ![Alle producten toewijzen-licentie](./media/licensing-groups-assign/all-products-assign.png)
+  
+5. Op de **licentie toewijzen** venster **gebruikers en groepen** om een lijst van gebruikers en groepen te openen.
 
-5. Op de **licentie toewijzen** deelvenster, klikt u op **gebruikers en groepen** openen de **gebruikers en groepen** deelvenster. Zoek de naam van de *HR-afdeling*, selecteert u de groep en moet u controleren of om te controleren door te klikken op **Selecteer** aan de onderkant van het deelvenster.
+6. Selecteer een gebruiker of groep, en gebruik vervolgens de **Selecteer** knop aan de onderkant van het deelvenster uw selectie te bevestigen.
 
-   ![Een groep selecteren](./media/licensing-groups-assign/select-a-group.png)
-
-6. Op de **licentie toewijzen** deelvenster, klikt u op **toewijzingsopties (optioneel)**, weergeven met alle service-abonnementen opgenomen in de twee producten die we eerder hebt geselecteerd. Zoek **Yammer Enterprise** en schakel het **uit** om uit te schakelen die service van de productlicentie. Controleer of door te klikken op **OK** aan de onderkant van **toewijzingsopties**.
+7. Op de **licentie toewijzen** deelvenster, klikt u op **toewijzingsopties**, weergeven met alle service-abonnementen opgenomen in de twee producten die we eerder hebt geselecteerd. Zoek **Yammer Enterprise** en schakel het **uit** om uit te schakelen die service van de productlicentie. Controleer of door te klikken op **OK** aan de onderkant van **licentieopties**.
 
    ![Toewijzingsopties](./media/licensing-groups-assign/assignment-options.png)
+  
+8. Voltooi de toewijzing door onder aan het deelvenster **Licentie toewijzen** op **Toewijzen** te klikken.
 
-7. Voltooi de toewijzing door onder aan het deelvenster **Licentie toewijzen** op **Toewijzen** te klikken.
+9. Een melding wordt weergegeven in de rechterbovenhoek waarin de status en het resultaat van het proces. Als de toewijzing aan de groep kan niet worden voltooid (bijvoorbeeld vanwege bestaande licenties in de groep), klikt u op de melding om details van de fout te bekijken.
 
-8. Een melding wordt weergegeven in de rechterbovenhoek waarin de status en het resultaat van het proces. Als de toewijzing aan de groep kan niet worden voltooid (bijvoorbeeld vanwege bestaande licenties in de groep), klikt u op de melding om details van de fout te bekijken.
-
-We hebben hebt een licentiesjabloon voor de groep HR-afdeling nu opgegeven. Een achtergrondproces in Azure AD is gestart voor het verwerken van alle bestaande leden van die groep. Deze eerste bewerking kan enige tijd, afhankelijk van de huidige grootte van de groep duren. De volgende stap wordt beschreven hoe om te verifiëren dat het proces is voltooid en bepalen als meer aandacht is vereist voor het oplossen van problemen.
-
-> [!NOTE]
-> U kunt dezelfde toewijzing starten vanaf een alternatieve locatie: **Gebruikers en groepen** in Azure AD. Ga naar **Azure Active Directory** > **gebruikers en groepen** > **alle groepen**. Zoek vervolgens de groep, selecteert u deze en gaat u naar de **licenties** tabblad. De **toewijzen** knop boven op het deelvenster opent u het deelvenster van de toewijzing van licentie.
+Wanneer de licenties toewijzen aan een groep, Azure AD verwerkt alle bestaande leden van die groep. Dit proces kan even, variëren met de grootte van de groep. De volgende stap wordt beschreven hoe om te verifiëren dat het proces is voltooid en bepalen als meer aandacht is vereist voor het oplossen van problemen.
 
 ## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Stap 2: Controleer of de eerste toewijzing is voltooid
 
-1. Ga naar **Azure Active Directory** > **gebruikers en groepen** > **alle groepen**. Gaat u naar de **HR-afdeling** groep voor die licenties zijn toegewezen aan.
+1. Ga naar **Azure Active Directory** > **groepen**. Selecteer de groep die licenties zijn toegewezen aan.
 
-2. Op de **HR-afdeling** groep venster **licenties**. Hiermee kunt u snel bevestigen als licenties volledig zijn toegewezen aan gebruikers en als er fouten optreden die u nodig hebt om uit te zoeken. De volgende informatie is beschikbaar:
+2. Selecteer in de groep **licenties**. Hiermee kunt u snel bevestigen als licenties volledig zijn toegewezen aan gebruikers en als er fouten optreden die u nodig hebt om uit te zoeken. De volgende informatie is beschikbaar:
 
    - Lijst van productlicenties die momenteel zijn toegewezen aan de groep. Selecteer een item om weer te geven van de specifieke services die zijn ingeschakeld en wijzigingen aanbrengen.
 
@@ -86,8 +81,8 @@ We hebben hebt een licentiesjabloon voor de groep HR-afdeling nu opgegeven. Een 
 
 ## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Stap 3: Controleren op problemen en op te lossen
 
-1. Ga naar **Azure Active Directory** > **gebruikers en groepen** > **alle groepen**, en zoek de **HR-afdeling** groep voor die licenties zijn toegewezen aan.
-2. Op de **HR-afdeling** groep venster **licenties**. De melding boven op het deelvenster ziet u dat er 10 gebruikers die licenties kunnen niet worden toegewezen aan zijn. Erop te klikken, opent u een lijst van alle gebruikers in een status-licentieverlening-fout voor deze groep.
+1. Ga naar **Azure Active Directory** > **groepen**, en de groep die licenties zijn toegewezen aan niet vinden.
+2. Selecteer in de groep **licenties**. De melding boven op het deelvenster ziet u dat er 10 gebruikers die licenties kunnen niet worden toegewezen aan zijn. Open om te zien of een lijst met alle gebruikers in een licentie foutstatus van deze groep.
 3. De **mislukte toewijzingen** kolom kan worden achterhaald dat beide productlicenties kunnen niet worden toegewezen aan de gebruikers. De **belangrijkste reden voor mislukken** kolom bevat de oorzaak van het probleem. In dit geval heeft **conflicterende serviceabonnementen**.
 
    ![Mislukte toewijzingen](./media/licensing-groups-assign/failed-assignments.png)

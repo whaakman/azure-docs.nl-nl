@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 02/26/2019
 ms.author: diberry
-ms.openlocfilehash: 4a06b30c209828e7ffd9f59d1b4ece06cfe6e2dd
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: d7547ecf387e070efe788ba5f8582076388f422a
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428904"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984200"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Aanbevolen procedures voor het bouwen van een language understanding-app met Cognitive Services
 Gebruik Apps kunt maken om uw LUIS-app te bouwen. 
@@ -78,7 +78,9 @@ Voor meer informatie:
 
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>Voeg woordgroep lijsten en -patronen in de volgende herhalingen
 
-Er is een best practice op deze procedures niet van toepassing voordat u uw app is getest. U moet begrijpen hoe het gedrag van de app voordat u een lijst met woorden en patronen toe te voegen. Als u inzicht in hoe uw app zonder dat deze zich gedraagt, add u elk van deze functies zoals ze voor uw app gelden. U hoeft niet naar het toevoegen van deze functies in elke [iteratie](luis-concept-app-iteration.md) of wijzigen van de functies bij elke versie. 
+Er is een best practice op deze procedures niet van toepassing voordat u uw app is getest. U moet begrijpen hoe de app zich gedraagt voordat woordgroep lijsten en -patronen worden toegevoegd omdat deze functies worden gewogen dan voorbeeld uitingen en wordt een verkeerd vertrouwen. 
+
+Als u inzicht in hoe uw app zonder dat deze zich gedraagt, add u elk van deze functies zoals ze voor uw app gelden. U hoeft niet naar het toevoegen van deze functies in elke [iteratie](luis-concept-app-iteration.md) of wijzigen van de functies bij elke versie. 
 
 Er kan geen kwaad om ze toe te voegen aan het begin van het modelontwerp van uw, maar het is eenvoudiger om te zien hoe elke functie resultaten verandert nadat het model is getest met uitingen. 
 

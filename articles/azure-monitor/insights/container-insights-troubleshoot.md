@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 5a9211abdbc4c9ea7907dfac00d449317dd13089
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: abf833cc054bfac0581506f75259e357f0ab1b38
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190744"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985747"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Oplossen van problemen met Azure Monitor voor containers
 
 Wanneer u de bewaking van uw cluster Azure Kubernetes Service (AKS) met Azure Monitor voor containers configureert, kunt u een probleem te voorkomen dat het verzamelen van gegevens of rapportage over de status kunt tegenkomen. Dit artikel worden enkele veelvoorkomende problemen en stappen voor probleemoplossing.
 
 ## <a name="azure-monitor-for-containers-is-enabled-but-not-reporting-any-information"></a>Azure Monitor voor containers zijn ingeschakeld, maar niet alle informatie rapporteren
-Als Azure-Monitor voor containers met succes is ingeschakeld en geconfigureerd, maar u kunt geen statusinformatie weergeven of er zijn geen resultaten zijn geretourneerd door een query voor Log Analytics, kunt u het probleem onderzoeken door de volgende stappen: 
+Als Azure Monitor voor containers met succes is ingeschakeld en geconfigureerd, maar u kunt geen statusinformatie weergeven of er zijn geen resultaten worden geretourneerd door een logboekquery, kunt u het probleem onderzoeken door de volgende stappen: 
 
 1. Controleer de status van de agent met de opdracht: 
 
@@ -98,7 +98,7 @@ De onderstaande tabel bevat een overzicht van de bekende problemen die optreden 
 | Foutberichten  | Bewerking |  
 | ---- | --- |  
 | Foutbericht `No data for selected filters`  | Het duurt enige tijd tot stand brengen van bewaking gegevensstroom voor nieuwe clusters. Wacht ten minste 10 tot 15 minuten voor de gegevens worden weergegeven voor uw cluster. |   
-| Foutbericht `Error retrieving data` | Terwijl Azure Kubenetes Service-cluster voor basisstatus en -prestaties instelt, een verbinding tot stand is gebracht tussen het cluster en Azure Log Analytics-werkruimte. Een Log Analytics-werkruimte wordt gebruikt voor het opslaan van alle bewakingsgegevens voor uw cluster. Deze fout kan optreden wanneer uw Log Analytics-werkruimte is verwijderd of verloren gaan. Controleer of uw werkruimte beschikbaar aan de hand is [toegang beheren](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json#workspace-information). Als de werkruimte ontbreekt, moet u voor de re-onboarding uw cluster met Azure Monitor voor containers. Voor de re-onboarding, moet u [uitschakelen](container-insights-optout.md) bewaking voor het cluster en [inschakelen](container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json#enable-monitoring-for-a-new-cluster) Azure Monitor voor containers opnieuw. |  
+| Foutbericht `Error retrieving data` | Terwijl Azure Kubenetes Service-cluster voor basisstatus en -prestaties instelt, een verbinding tot stand is gebracht tussen het cluster en Azure Log Analytics-werkruimte. Een Log Analytics-werkruimte wordt gebruikt voor het opslaan van alle bewakingsgegevens voor uw cluster. Deze fout kan optreden wanneer uw Log Analytics-werkruimte is verwijderd of verloren gaan. Controleer of uw werkruimte beschikbaar aan de hand is [toegang beheren](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json#view-workspace-details). Als de werkruimte ontbreekt, moet u voor de re-onboarding uw cluster met Azure Monitor voor containers. Voor de re-onboarding, moet u [uitschakelen](container-insights-optout.md) bewaking voor het cluster en [inschakelen](container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json#enable-monitoring-for-a-new-cluster) Azure Monitor voor containers opnieuw. |  
 | `Error retrieving data` na het toevoegen van Azure Monitor voor containers via az aks cli | Wanneer met behulp van onboarding `az aks cli`, zelden, Azure-Monitor voor containers mogelijk niet correct zijn toegevoegd. Controleer of de oplossing geïmplementeerd is. Om dit te doen, gaat u naar uw Log Analytics-werkruimte en of de oplossing beschikbaar is, door te selecteren **oplossingen** in het deelvenster aan de linkerkant. U lost dit probleem, moet u de oplossing implementeren door de instructies te volgen op [Azure Monitor for containers implementeren](container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json) |  
 
 Om u te helpen bij het vaststellen van het probleem, wij een probleemoplossing script beschikbaar hebt opgegeven [hier](https://github.com/Microsoft/OMS-docker/tree/ci_feature_prod/Troubleshoot#troubleshooting-script).  

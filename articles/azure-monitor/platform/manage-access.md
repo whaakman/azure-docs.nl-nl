@@ -11,50 +11,59 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 02/27/2019
 ms.author: magoedte
-ms.openlocfilehash: 4a777c2bd57d40b4bb6c8d36c996b655cb019e5f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b42eb963e33c14b003c053bb0f7fca6361dbd555
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005366"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985101"
 ---
-# <a name="manage-log-analytics-workspaces-in-azure-monitor"></a>Log Analytics-werkruimten in Azure Monitor beheren
+# <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Logboekgegevens en toegang tot werkruimten in Azure Monitor beheren
 Azure Monitor-winkels vastleggen gegevens in een Log Analytics-werkruimte is in wezen een container die gegevens en configuratie-informatie bevat. Voor het beheren van toegang tot gegevens vastleggen, kunt u verschillende beheertaken met betrekking tot werkruimten uitvoeren. U of andere leden van uw organisatie kunnen meerdere werkruimten gebruiken om verschillende gegevenssets te beheren die worden verzameld uit de gehele of delen van uw IT-infrastructuur.
 
-Het volgende is nodig om een werkruimte te maken:
+In dit artikel wordt uitgelegd hoe u voor het beheren van toegang tot logboeken en voor het beheer van de werkruimten die ze bevatten. 
+
+## <a name="create-a-workspace"></a>Een werkruimte maken
+Voor het maken van een Log Analytics-werkruimte, moet u naar:
 
 1. U dient een Azure-abonnement te hebben.
 2. U dient een naam voor de werkruimte te kiezen.
 3. De werkruimte koppelen aan een van uw abonnementen en resourcegroepen.
 4. U dient een geografische locatie te kiezen.
 
-## <a name="determine-the-number-of-workspaces-you-need"></a>Vaststellen hoeveel werkruimten u nodig hebt
-Een Log Analytics-werkruimte is een Azure-resource en een container waaruit gegevens worden verzameld, samengevoegd, geanalyseerd en gepresenteerd in Azure Monitor.
+Raadpleeg de volgende artikelen voor meer informatie over het maken van een werkruimte:
 
-U kunt meerdere werkruimten per Azure-abonnement hebt en u toegang hebt tot meer dan één werkruimte, de mogelijkheid om eenvoudig query's uitvoeren voor deze. In deze sectie wordt beschreven wanneer het handig kan zijn om meer dan één werkruimte te maken.
+- [Een Log Analytics-werkruimte maken in Azure portal](../learn/quick-create-workspace.md)
+- [Een Log Analytics-werkruimte maken met Azure CLI 2.0](../learn/quick-create-workspace-cli.md)
+- [Een Log Analytics-werkruimte maken met Azure PowerShell](../learn/quick-create-workspace-posh.md)
+
+## <a name="determine-the-number-of-workspaces-you-need"></a>Vaststellen hoeveel werkruimten u nodig hebt
+Een Log Analytics-werkruimte is een Azure-resource en een container waaruit gegevens worden verzameld, samengevoegd, geanalyseerd en gepresenteerd in Azure Monitor. U kunt meerdere werkruimten per Azure-abonnement hebt en u toegang hebt tot meer dan één werkruimte, de mogelijkheid om eenvoudig query's uitvoeren voor deze. In deze sectie wordt beschreven wanneer het handig kan zijn om meer dan één werkruimte te maken.
 
 Een Log Analytics-werkruimte biedt:
 
-* Een geografische locatie voor de opslag van gegevens
-* Gegevensisolatie toegangsrechten voor verschillende gebruikers definiëren
-* Bereik voor de configuratie van instellingen, zoals [prijscategorie](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [retentie](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) en [gegevens beperking](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap) 
+* Een geografische locatie voor de opslag van gegevens.
+* Gegevensisolatie voor het definiëren van toegangsrechten voor verschillende gebruikers in de werkruimte-georiënteerde modus. Niet relevant als u werkt in de resource-georiënteerde modus.
+* Bereik voor de configuratie van instellingen, zoals [prijscategorie](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [retentie](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) en [gegevens beperking](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap).
+* Kosten met betrekking tot de gegevensopname en retentie zijn aangebracht op de bron van de werkruimte.
 
 Uit oogpunt van verbruik, wordt u aangeraden dat u werkruimten zo weinig mogelijk maakt. Het maakt beheer en query's eenvoudiger en sneller. Maar op basis van de voorgaande kenmerken, kunt u meerdere werkruimten maken:
 
 * U bent een mondiaal bedrijf en u moet zich aanmelden voor gegevens die zijn opgeslagen in specifieke regio's voor gegevens soevereiniteit of om nalevingsredenen.
 * U gebruikt Azure en wilt kosten voor de overdracht van uitgaande gegevens voorkomen door een werkruimte in dezelfde regio te hebben als de Azure-resource die deze beheert.
-* U wilt kosten toewijzen aan verschillende afdelingen of bedrijfsonderdelen op basis van hun gebruik door het maken van een werkruimte voor elke afdeling of bedrijfsgroep in een eigen Azure-abonnement.
 * U bent aanbieder van beheerde services en moet de Log Analytics-gegevens voor elke klant geïsoleerd van de gegevens van andere klanten bewaren.
-* U beheert meerdere klanten en wilt dat elke klant / afdeling of bedrijfsgroep om te zien van hun eigen gegevens, maar niet de gegevens van anderen.
+* U beheert meerdere klanten en wilt dat elke klant / afdeling of bedrijfsgroep om te zien van hun eigen gegevens, maar niet gegevens uit andere resources, en er is geen bedrijfsbehoefte voor een geconsolideerde cross klant / afdeling of bedrijfsgroep weergeven. '.
 
 Wanneer u Windows-agents gebruikt om gegevens te verzamelen, kunt u [elke agent configureren om te rapporteren aan een of meer werkruimten](../../azure-monitor/platform/agent-windows.md).
 
 Als u System Center Operations Manager gebruikt, kan elke beheergroep uit Operations Manager worden verbonden met slechts één werkruimte. U kunt Microsoft Monitoring Agent installeren op computers die worden beheerd door Operations Manager en de agent laten rapporteren over zowel Operations Manager als een andere Log Analytics-werkruimte.
 
-## <a name="workspace-information"></a>Werkruimtegegevens
-Tijdens het analyseren van gegevens in de Log Analytics-werkruimte in de **Azure Monitor** in het menu in de Azure-portal maken en beheren van toegang tot werkruimten in de **Log Analytics-werkruimten** menu.
+Als de architectuur van de werkruimte is gedefinieerd, moet u dit beleid op Azure-resources afdwingen [Azure Policy](../../governance/policy/overview.md). Dit biedt een ingebouwde definitie die zouden automatisch worden toegepast op alle Azure-resources. U kunt bijvoorbeeld een beleid om ervoor te zorgen dat al uw Azure-resources in een bepaalde regio hun diagnostische logboeken naar een bepaalde werkruimte verzonden instellen.
+
+## <a name="view-workspace-details"></a>Details van de werkruimte weergeven
+Terwijl u gegevens in uw Log Analytics-werkruimte van analyseren de **Azure Monitor** in het menu in de Azure-portal maken en beheren van toegang tot werkruimten in de **Log Analytics-werkruimten** menu.
  
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) en klikt u op **alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics** werkruimten.  
@@ -63,25 +72,104 @@ Tijdens het analyseren van gegevens in de Log Analytics-werkruimte in de **Azure
 
 3. Selecteer in de lijst met uw werkruimte.
 
-4. Pagina van de werkruimte geeft details weer over de aan de slag, configuratie en koppelingen voor meer informatie.  
+4. Pagina van de werkruimte geeft details weer over de werkruimte, aan de slag, configuratie en koppelingen voor meer informatie.  
 
     ![Details van de werkruimte](./media/manage-access/workspace-overview-page.png)  
 
+
+## <a name="workspace-permissions-and-scope"></a>Machtigingen voor de werkruimte en het bereik
+De gegevens die een gebruiker toegang tot heeft worden bepaald door meerdere factoren die in de volgende tabel worden vermeld. In de onderstaande secties worden beschreven.
+
+| Multi-factor Authentication | Description |
+|:---|:---|
+| [Toegangsmodus](#access-modes) | Methode waarmee de gebruiker toegang heeft tot de werkruimte.  Definieert het bereik van de beschikbare gegevens en de modus voor het beheer van toegang dat wordt toegepast. |
+| [Access control-modus](#access-control-mode) | Instellen in de werkruimte waarmee wordt gedefinieerd of machtigingen worden toegepast op het niveau van de werkruimte of resource. |
+| [Machtigingen](#manage-accounts-and-users) | Machtigingen voor afzonderlijke of groepen gebruikers voor de werkruimte of resource. Hiermee definieert u welke gegevens de gebruiker toegang tot hebben. |
+
+
+
+## <a name="access-modes"></a>Toegangsmodi in
+De _toegangsmodus_ verwijst naar hoe een gebruiker toegang heeft tot een Log Analytics-werkruimte en definieert u het bereik van de toegang te krijgen tot gegevens. 
+
+**Workspace-centric**: In deze modus kan een gebruiker alle logboeken in de werkruimte die ze gemachtigd zijn om te bekijken. Query's in deze modus zijn gericht op alle gegevens in alle tabellen in de werkruimte. Dit is de access-modus gebruikt wanneer u zich aanmeldt met de werkruimte worden geopend als het bereik, zoals wanneer u selecteert **logboeken** uit de **Azure Monitor** in het menu in de Azure-portal.
+
+**Resource-georiënteerde**: Wanneer u toegang krijgen tot de werkruimte voor een bepaalde resource, zoals wanneer u selecteert **logboeken** in een resourcemenu in Azure portal, kunt u Logboeken voor alleen die bron weergeven. Query's in deze modus zijn gericht op alleen de gegevens die zijn gekoppeld aan deze resource. In deze modus kunt ook gedetailleerde op rollen gebaseerd toegangsbeheer (RBAC). 
+
+> [!NOTE]
+> Logboeken zijn beschikbaar voor de resource-georiënteerde query's alleen als ze goed gekoppeld aan de betreffende resource zijn. Op dit moment hebben de volgende bronnen beperkingen: 
+> - Computers buiten Azure
+> - Service Fabric
+> - Application Insights
+> - Containers
+> - Aangepaste logboeken die zijn gemaakt door HTTP-gegevensverzamelaar-API
+>
+> U kunt testen als Logboeken goed gekoppeld aan de resource zijn door een query uit te voeren en inspecteren van de records u geïnteresseerd bent in. Als de juiste resource-ID in de [_ResourceId](log-standard-properties.md#resourceid) eigenschap en klik vervolgens gegevens is beschikbaar voor de resource-georiënteerde query's.
+
+### <a name="comparing-access-modes"></a>Vergelijking van de toegangsmodi in
+
+De volgende tabel geeft een overzicht van de toegangsmodi in:
+
+| | Werkruimte-centraal | Resource-centraal |
+|:---|:---|:---|
+| Voor wie is elk model bedoeld? | Centrale beheersite. Beheerders moeten configureren voor het verzamelen van gegevens en gebruikers die toegang nodig tot een groot aantal bronnen. Ook nodig op dat moment voor gebruikers die hebben voor toegang tot logboeken voor resources buiten Azure. | Toepassing teams. Beheerders van Azure-resources die worden bewaakt. |
+| Wat is een gebruiker nodig om logboeken weer te geven? | Machtigingen voor de werkruimte. Zie **werkruimtemachtigingen** in [accounts en gebruikers beheren](#manage-accounts-and-users). | Leestoegang tot de resource. Zie **machtigingen voor resources** in [accounts en gebruikers beheren](#manage-accounts-and-users). Machtigingen kunnen worden overgenomen (zoals de betreffende resourcegroep) of rechtstreeks toegewezen aan de resource. Machtiging voor de logboeken voor de resource wordt automatisch toegewezen. |
+| Wat is het bereik van machtigingen? | Werkruimte. Gebruikers met toegang tot de werkruimte kunnen alle logboeken in de werkruimte opvragen. | Azure resource. Gebruikers logboeken kan opvragen voor bronnen ze hebben toegang tot vanuit elke werkruimte, maar kan geen query uitvoeren voor logbestanden voor andere bronnen. |
+| Hoe kan een gebruiker toegang tot logboeken? | Start **logboeken** van **Azure Monitor** menu of **Log Analytics-werkruimten**. | Start **logboeken** in het menu voor de Azure-resource. |
+
+
+## <a name="access-control-mode"></a>Modus toegangsbeheer
+De _besturingselement toegangsmodus_ is een instelling op elk werkruimten die definieert hoe machtigingen voor deze werkruimte worden bepaald.
+
+**Machtigingen voor de werkruimte vereisen**:  In deze modus controle is niet toegestaan voor gedetailleerde RBAC. Voor een gebruiker voor toegang tot de werkruimte, moeten deze machtigingen aan de werkruimte worden verleend. 
+
+Als een gebruiker toegang heeft tot de werkruimte in de werkruimte-georiënteerde modus, hebben ze toegang tot alle gegevens in de werkruimte. Als een gebruiker toegang heeft tot de werkruimte in de resource-georiënteerde modus, hebben ze toegang tot alleen de gegevens voor die bron.
+
+Dit is de standaardinstelling voor alle werkruimten die zijn gemaakt vóór maart 2019.
+
+**Gebruik resource of werkruimte machtigingen**: In deze modus controle kunt gedetailleerde RBAC. Gebruikers worden krijgen toegang tot alleen de gegevens die zijn gekoppeld aan resources die ze kunnen bekijken via de Azure-machtigingen, resources waarvoor ze hebben `read` machtiging. 
+
+Wanneer een gebruiker toegang heeft tot de werkruimte in de werkruimte-georiënteerde modus, gelden de volgende machtigingen voor de werkruimte. Wanneer een gebruiker toegang heeft tot de werkruimte in de resource-georiënteerde modus, alleen machtigingen voor resources moeten worden gecontroleerd en machtigingen voor de werkruimte worden genegeerd. RBAC voor een gebruiker door te verwijderen van machtigingen voor de werkruimte en hun machtigingen voor resources om te worden erkend inschakelen.
+
+Dit is de standaardinstelling voor alle werkruimten die zijn gemaakt na maart 2019.
+
+> [!NOTE]
+> Als een gebruiker alleen machtigingen voor resources in de werkruimte, ze worden pas toegang krijgen tot de werkruimte met behulp van [Resource-georiënteerde modus](#access-modes).
+
+
+### <a name="define-access-control-mode-in-azure-portal"></a>Besturingselement toegangsmodus definiëren in Azure portal
+U kunt de huidige werkruimte access control-modus weergeven op de **overzicht** -pagina voor de werkruimte in de **Log Analytics-werkruimte** menu.
+
+![Weergavemodus werkruimte access control](media/manage-access/view-access-control-mode.png)
+
+U kunt deze instelling wijzigen op de **eigenschappen** pagina voor de werkruimte. Als u de instelling wijzigt worden, uitgeschakeld als u geen machtigingen voor het configureren van de werkruimte.
+
+![Toegangsmodus voor werkruimte wijzigen](media/manage-access/change-access-control-mode.png)
+
+### <a name="define-access-mode-in-resource-manager-template"></a>Toegangsmodus definiëren in Resource Manager-sjabloon
+Voor het configureren van de toegangsmodus voor in een Azure Resource Manager-sjabloon, stel de **enableLogAccessUsingOnlyResourcePermissions** functie vlag in de werkruimte aan een van de volgende waarden.
+
+- **De waarde False**: De werkruimte aan werkruimte gerichte machtigingen instellen. Dit is de standaardinstelling als de vlag is niet ingesteld.
+- **true**: Stel de werkruimte op resource-georiënteerde machtigingen.
+
+
 ## <a name="manage-accounts-and-users"></a>Accounts en gebruikers beheren
-Elke werkruimte kunnen meerdere accounts worden gekoppeld, en elk account kan toegang hebben tot meerdere werkruimten. Toegang wordt beheerd [Azure op rollen gebaseerde toegang](../../role-based-access-control/role-assignments-portal.md). Deze toegangsrechten is van toepassing op de Azure-portal en de API-toegang.
+De machtigingen voor de werkruimte die worden toegepast op een bepaalde gebruiker zijn gedefinieerd door hun [toegangsmodus](#access-mode) en de [besturingselement toegangsmodus](#access-control-mode) van de werkruimte. **Machtigingen voor de werkruimte** worden toegepast wanneer een gebruiker toegang heeft tot een werkruimte met behulp van **werkruimte gerichte** in [werkruimte gerichte modus](#access-modes). **Machtigingen voor resources** worden toegepast wanneer een gebruiker toegang heeft tot een werkruimte met **resource of werkruimte machtigingen gebruiken** [besturingselement toegangsmodus](#access-control-mode) met behulp van [resource-georiënteerde modus ](#access-modes).
+
+### <a name="workspace-permissions"></a>Machtigingen voor de werkruimte
+Elke werkruimte kunnen meerdere accounts worden gekoppeld, en elk account kan toegang hebben tot meerdere werkruimten. Toegang wordt beheerd [Azure op rollen gebaseerde toegang](../../role-based-access-control/role-assignments-portal.md). 
 
 
 Voor de volgende activiteiten zijn ook Azure-machtigingen vereist:
 
 | Bewerking                                                          | Azure-machtigingen nodig | Opmerkingen |
 |-----------------------------------------------------------------|--------------------------|-------|
-| Beheeroplossingen toevoegen en verwijderen                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Deze machtigingen moeten worden toegekend op het niveau van de resourcegroep of het abonnement. |
+| Toevoegen en verwijderen van bewakingsoplossingen                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Deze machtigingen moeten worden toegekend op het niveau van de resourcegroep of het abonnement. |
 | De prijscategorie wijzigen                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | Gegevens weergeven op de tegels *Back-up* en *Site Recovery* | Beheerder/medebeheerder | Heeft toegang tot resources die zijn geïmplementeerd met behulp van het klassieke implementatiemodel |
 | Een werkruimte maken in Azure Portal                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
 
 
-### <a name="managing-access-to-log-analytics-workspace-using-azure-permissions"></a>Toegang tot Log Analytics-werkruimte met behulp van Azure-machtigingen beheren
+#### <a name="manage-access-to-log-analytics-workspace-using-azure-permissions"></a>Toegang tot Log Analytics-werkruimte met behulp van Azure-machtigingen beheren 
 Volg de stappen in [Roltoewijzingen gebruiken voor het beheer van de toegang tot de resources van uw Azure-abonnement](../../role-based-access-control/role-assignments-portal.md) om toegang te verlenen tot de Log Analytics-werkruimte met behulp van Azure-machtigingen.
 
 Azure heeft twee ingebouwde gebruikersrollen voor Log Analytics-werkruimten:
@@ -141,7 +229,21 @@ Gebruik deze rollen om gebruikers toegang te geven op verschillende niveaus:
 - Resourcegroep: toegang tot alle werkruimten in de resourcegroep
 - Resource: alleen toegang tot de opgegeven werkruimte
 
-Het wordt aangeraden om toewijzingen uit te voeren op resourceniveau (werkruimte) omdat dan een nauwkeurig toegangsbeheer mogelijk is.  Gebruik [aangepaste rollen](../../role-based-access-control/custom-roles.md) om rollen te maken met de specifieke machtigingen die nodig zijn.
+U kunt toewijzingen op het resourceniveau van de (werkruimte) om te verzekeren dat nauwkeurig toegangsbeheer moet uitvoeren.  Gebruik [aangepaste rollen](../../role-based-access-control/custom-roles.md) om rollen te maken met de specifieke machtigingen die nodig zijn.
+
+### <a name="resource-permissions"></a>Machtigingen voor resources 
+Als gebruikers query zich vanaf een werkruimte met behulp van resource-georiënteerde toegang aanmeldt, wordt ze de volgende machtigingen hebben op de resource:
+
+| Machtiging | Description |
+| ---------- | ----------- |
+| `Microsoft.Insights/logs/<tableName>/read`<br><br>Voorbeelden:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | De mogelijkheid om alle gegevens voor de resource weer te geven.  |
+
+
+Deze machtiging wordt meestal van een rol met verleend  _\*/lezen of_ _\*_ machtigingen, zoals de ingebouwde [lezer](../../role-based-access-control/built-in-roles.md#reader) en [ Inzender](../../role-based-access-control/built-in-roles.md#contributor) rollen. Houd er rekening mee dat aangepaste rollen met specifieke acties of toegewezen ingebouwde rollen niet advies bij deze machtiging inwinnen.
+
+
+
+
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie [Log Analytics-agent overzicht](../../azure-monitor/platform/log-analytics-agent.md) voor het verzamelen van gegevens van computers in uw datacenter of andere cloudomgeving.

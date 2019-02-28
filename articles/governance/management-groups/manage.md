@@ -2,26 +2,22 @@
 title: Wijzigen, verwijderen of beheren van uw beheergroepen in Azure - Azure-beheer
 description: Informatie over het weergeven, onderhouden, bijwerken en verwijderen van uw hiërarchie beheren.
 author: rthorn17
-manager: rithorn
 ms.service: azure-resource-manager
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/20/2018
+ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: dbfb6ecb9f29a82a8871922982a64dbefc338969
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: bcc0b247ee304e657b7679920a3956acad11adc9
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342576"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985118"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Uw resources beheren met beheergroepen
 
-Beheergroepen zijn containers waarmee u toegang, beleid en naleving beheren voor meerdere abonnementen. U kunt wijzigen, verwijderen en beheren van deze containers om hiërarchieën die kunnen worden gebruikt met [Azure Policy](../policy/overview.md) en [Azure rollen gebaseerde toegang besturingselementen (RBAC)](../../role-based-access-control/overview.md). Zie voor meer informatie over het van beheergroepen, [organiseren van uw resources met Azure-beheergroepen](overview.md).
+Als uw organisatie veel abonnementen heeft, moet u de toegang, beleidsregels en naleving voor deze abonnementen op een efficiënte manier kunnen beheren. Azure-beheergroepen bieden een scopeniveau boven abonnementen. U ordent abonnementen in containers, zogenaamde 'beheergroepen', en past uw governancevoorwaarden hierop toe. Alle abonnementen in een beheergroep nemen automatisch de voorwaarden over die op de beheergroep zijn toegepast.
 
-Als u wilt wijzigingen aanbrengt aan een beheergroep, moet u een rol eigenaar of bijdrager hebben voor de beheergroep. Om te zien welke machtigingen u hebt, selecteert u de beheergroep en selecteer vervolgens **IAM**. Zie voor meer informatie over RBAC-rollen, [beheren van toegang en machtigingen met RBAC](../../role-based-access-control/overview.md).
+Beheergroepen bieden u beheer van bedrijfskwaliteit op grote schaal, ongeacht de typen abonnementen die u hebt.  Zie voor meer informatie over het van beheergroepen, [organiseren van uw resources met Azure-beheergroepen](overview.md).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
@@ -73,7 +69,7 @@ Als u wilt verwijderen van een beheergroep, moeten de volgende vereisten worden 
 
    - Zie voor het verplaatsen van een beheergroep met een andere beheergroep, [beheergroepen verplaatsen in de hiërarchie](#Move-management-groups-in-the-hierarchy).
 
-1. U hebt schrijfmachtigingen voor de groep eigenaar of bijdrager beheerrol in de beheergroep. Om te zien welke machtigingen u hebt, selecteert u de beheergroep en selecteer vervolgens **IAM**. Zie voor meer informatie over RBAC-rollen, [beheren van toegang en machtigingen met RBAC](../../role-based-access-control/overview.md).  
+1. U hebt schrijfmachtigingen voor de beheergroep ("Owner", "Bijdrager" of "Management groep bijdrager"). Om te zien welke machtigingen u hebt, selecteert u de beheergroep en selecteer vervolgens **IAM**. Zie voor meer informatie over RBAC-rollen, [beheren van toegang en machtigingen met RBAC](../../role-based-access-control/overview.md).  
 
 ### <a name="delete-in-the-portal"></a>In de portal verwijderen
 
@@ -85,7 +81,8 @@ Als u wilt verwijderen van een beheergroep, moeten de volgende vereisten worden 
 
 1. Selecteer **verwijderen**
 
-   - Als het pictogram is uitgeschakeld, ziet de muis selector muiswijzer op het pictogram u de reden.
+    > [!TIP]
+    > Als het pictogram is uitgeschakeld, ziet de muis selector muiswijzer op het pictogram u de reden.
 
    ![De Groepsoptie verwijderen](./media/delete.png)
 
@@ -121,15 +118,15 @@ Hier vindt u een beheergroep die u hebt een directe of overgenomen RBAC-rol op.
 
 1. Selecteer **alle services** > **beheergroepen**.
 
-1. De hiërarchie beheren pagina geladen waar u alle beheergroepen en abonnementen die u toegang tot hebt kunt bekijken. De groepsnaam van de selecteren gaat u naar beneden een niveau in de hiërarchie. De navigatie werkt op dezelfde manier als een bestand in bestandenverkenner.
+1. De beheerpagina voor de hiërarchie van groep wordt geladen. Deze pagina is waar u alle beheergroepen kunt verkennen en abonnementen dat u toegang hebt. De groepsnaam van de selecteren gaat u naar beneden een niveau in de hiërarchie. De navigatie werkt op dezelfde manier als een bestand in bestandenverkenner.
+
+1. De details van de beheergroep, selecteer de **(details)** koppelen naast de titel van de beheergroep. Als deze koppeling niet beschikbaar is, hebt u machtigingen om deze beheergroep weer te geven.
 
    ![Algemeen](./media/main.png)
 
-1. De details van de beheergroep, selecteer de **(details)** koppelen naast de titel van de beheergroep. Als deze koppeling niet beschikbaar is, hebt u machtigingen om deze beheergroep weer te geven.  
-
 ### <a name="view-in-powershell"></a>Weergeven in PowerShell
 
-U kunt de opdracht Get-AzureRmManagementGroup gebruiken om op te halen van alle groepen.  
+U kunt de opdracht Get-AzureRmManagementGroup gebruiken om op te halen van alle groepen.  Zie [ https://aka.ms/Get-MG-Powershell ](https://aka.ms/Get-MG-Powershell) voor een volledige lijst van management groep ophalen Powershell-opdrachten.  
 
 ```azurepowershell-interactive
 Get-AzureRmManagementGroup
@@ -139,6 +136,41 @@ Voor een enkele beheergroep informatie gebruikt u de parameter - groepsnaam
 
 ```azurepowershell-interactive
 Get-AzureRmManagementGroup -GroupName 'Contoso'
+```
+
+Ophalen van een bepaalde beheergroep en alle niveaus van de hiërarchie onder het **-Vouw** en **-Recurse** parameters.  
+
+```azurepowershell-interactive
+PS C:\> $response = Get-AzureRmManagementGroup -GroupName TestGroupParent -Expand -Recurse
+PS C:\> $response
+
+Id                : /providers/Microsoft.Management/managementGroups/TestGroupParent
+Type              : /providers/Microsoft.Management/managementGroups
+Name              : TestGroupParent
+TenantId          : 00000000-0000-0000-0000-000000000000
+DisplayName       : TestGroupParent
+UpdatedTime       : 2/1/2018 11:15:46 AM
+UpdatedBy         : 00000000-0000-0000-0000-000000000000
+ParentId          : /providers/Microsoft.Management/managementGroups/00000000-0000-0000-0000-000000000000
+ParentName        : 00000000-0000-0000-0000-000000000000
+ParentDisplayName : 00000000-0000-0000-0000-000000000000
+Children          : {TestGroup1DisplayName, TestGroup2DisplayName}
+
+PS C:\> $response.Children[0]
+
+Type        : /managementGroup
+Id          : /providers/Microsoft.Management/managementGroups/TestGroup1
+Name        : TestGroup1
+DisplayName : TestGroup1DisplayName
+Children    : {TestRecurseChild}
+
+PS C:\> $response.Children[0].Children[0]
+
+Type        : /managementGroup
+Id          : /providers/Microsoft.Management/managementGroups/TestRecurseChild
+Name        : TestRecurseChild
+DisplayName : TestRecurseChild
+Children    :
 ```
 
 ### <a name="view-in-azure-cli"></a>Weergeven in de Azure CLI
@@ -155,17 +187,25 @@ Voor een enkele beheergroep informatie gebruikt u de opdracht weergeven
 az account management-group show --name 'Contoso'
 ```
 
+Ophalen van een bepaalde beheergroep en alle niveaus van de hiërarchie onder het **-Vouw** en **-Recurse** parameters.
+
+```azurecli-interactive
+az account management-group show --name 'Contoso' -e -r
+```
+
 ## <a name="move-subscriptions-in-the-hierarchy"></a>Verplaatsen van abonnementen in de hiërarchie
 
 Eén reden om te maken van een beheergroep is abonnementen samen bundelen. Alleen de beheergroepen en abonnementen kunnen onderliggende elementen van een andere beheergroep worden gemaakt. Een abonnement dat wordt verplaatst naar een beheergroep neemt alle toegang van gebruikers en het beleid van de bovenliggende beheergroep.
 
-Voor het verplaatsen van het abonnement, zijn er enkele machtigingen die u moet hebben:
+Voor het verplaatsen van het abonnement, moet de volgende RBAC-machtigingen waar zijn:
 
 - De rol van de 'Eigenaar' van het onderliggende-abonnement.
-- 'Eigenaar' of ' ' de rol Inzender op de nieuwe bovenliggende beheergroep.
-- 'Eigenaar' of ' ' de rol Inzender op de oude bovenliggende beheergroep.
+- 'Eigenaar', "Bijdrager" of 'Management groep Inzender'-rol op het doel bovenliggende management group.*
+- 'Eigenaar', "Bijdrager" of 'Management groep Inzender'-rol op de bestaande bovenliggende management group.*
 
-Om te zien welke machtigingen u hebt, selecteert u de beheergroep en selecteer vervolgens **IAM**. Zie voor meer informatie over RBAC-rollen, [beheren van toegang en machtigingen met RBAC](../../role-based-access-control/overview.md).
+*: Als het doel of de bestaande bovenliggende beheergroep die de Root management-groep. Aangezien de Root management-groep de landingspagina voor alle nieuwe beheergroepen en abonnementen spot standaard is, hoeven gebruikers niet machtigingen voor het verplaatsen van een item.
+
+Om te controleren welke machtigingen u hebt in de Azure portal, selecteer de management groep en selecteer vervolgens **IAM**. Zie voor meer informatie over RBAC-rollen, [beheren van toegang en machtigingen met RBAC](../../role-based-access-control/overview.md).
 
 ### <a name="move-subscriptions-in-the-portal"></a>Verplaatsen van abonnementen in de portal
 
@@ -235,7 +275,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 
 ## <a name="move-management-groups-in-the-hierarchy"></a>Beheergroepen verplaatsen in de hiërarchie  
 
-Wanneer u een bovenliggende beheergroep, alle onderliggende resources met beheergroepen, abonnementen, resourcegroepen en resources verplaatsen met de bovenliggende verplaatsen.
+Wanneer u een bovenliggende beheergroep hebt verplaatst, worden ook de mappenhiërarchie in die groep verplaatst.
 
 ### <a name="move-management-groups-in-the-portal"></a>Beheergroepen verplaatsen in de portal
 
@@ -274,17 +314,29 @@ az account management-group update --name 'Contoso' --parent 'Contoso Tenant'
 
 ## <a name="audit-management-groups-using-activity-logs"></a>Beheergroepen controleren met behulp van activiteitenlogboeken
 
-Als u de activiteit van beheergroepen wilt bijhouden via een API, gebruikt u de [Tenant Activity Log-API](/rest/api/monitor/tenantactivitylogs). Het is momenteel niet mogelijk om de activiteit van beheergroepen bij te houden met PowerShell, de CLI of de Azure-portal.
+Beheergroepen worden ondersteund in [Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md). U kunt een query uitvoeren voor alle gebeurtenissen die in een beheergroep op de centrale locatie als andere Azure-resources optreden.  U kunt bijvoorbeeld zien dat alle roltoewijzingen of beleidstoewijzing wijzigingen aangebracht in een bepaalde beheergroep.
 
-1. [Verhoog het toegangsniveau](../../role-based-access-control/elevate-access-global-admin.md) als tenantbeheerder van de Azure AD-tenant en wijs vervolgens de rol van Lezer toe aan de controlerende gebruiker voor het bereik `/providers/microsoft.insights/eventtypes/management`.
-1. Roep als controlerende gebruiker de [Tenant Activity Log-API](/rest/api/monitor/tenantactivitylogs) aan om de activiteit van beheergroepen weer te geven. Voor alle activiteit van beheergroepen moet u filteren op de resourceprovider **Microsoft.Management**.  Voorbeeld:
+![Activiteitenlogboeken met beheergroepen](media/al-mg.png)
 
-```xml
-GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
+Bij het zoeken naar query op beheergroepen buiten de Azure-portal, het doelbereik voor beheergroepen ziet eruit als **"/ providers/Microsoft.Management/managementGroups/{yourMgID}"**.
+
+## <a name="referencing-management-groups-from-other-resource-providers"></a>Verwijzende beheergroepen van andere leveranciers van Resource
+
+Wanneer u verwijst naar beheergroepen van de andere Resource Provider acties, moet u het volgende pad gebruiken als het bereik. Dit pad wordt gebruikt bij het gebruik van PowerShell, Azure CLI en REST-API's.  
+
+>"/providers/Microsoft.Management/managementGroups/{yourMgID}"
+
+Een voorbeeld van het gebruik van dit pad is bij het toewijzen van een nieuwe functie toewijzen aan een beheergroep in PowerShell
+
+```powershell-interactive
+New-AzureRmRoleAssignment -Scope "/providers/Microsoft.Management/managementGroups/Contoso"
 ```
 
-> [!NOTE]
-> Probeer [ARMClient](https://github.com/projectkudu/ARMClient) om deze API eenvoudig aan te roepen vanaf de opdrachtregel.
+Hetzelfde bereik pad wordt gebruikt bij het ophalen van de beleidsdefinitie van een op een beheergroep.
+
+```http
+GET https://management.azure.com/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming?api-version=2018-05-01
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 

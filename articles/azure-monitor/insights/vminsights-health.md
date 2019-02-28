@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2019
 ms.author: magoedte
-ms.openlocfilehash: 67217b63588946782d42b4287cf5f24e29ebe5bd
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 7eecd7f5da2b20cb80d8a04d105460baaf9ed4a2
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961258"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984710"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Meer informatie over de status van uw Azure virtual machines met Azure Monitor voor virtuele machines (preview)
-Azure bevat meerdere services die afzonderlijk uitvoeren van een specifieke rol of de taak in de ruimte bewaking, maar biedt een perspectief gedetailleerde status van het besturingssysteem die worden gehost op Azure virtual machines niet beschikbaar was.  Terwijl u verschillende voorwaarden met behulp van Log Analytics of Azure Monitor controleren kan, zijn ze niet ontworpen om te modelleren en status van de belangrijkste onderdelen of algemene status van de virtuele machine vertegenwoordigen.  Met Azure Monitor voor virtuele machines de gezondheid van functie bewaakt het proactief de beschikbaarheid en prestaties van de Windows- of Linux Gast-OS met een model met daarin belangrijke onderdelen en hun relaties, criteria waarmee wordt aangegeven hoe u voor het meten van de status van deze onderdelen, en u waarschuwen wanneer een slechte status voorwaarde wordt gedetecteerd.  
+Azure bevat meerdere services die afzonderlijk uitvoeren van een specifieke rol of de taak in de ruimte bewaking, maar biedt een perspectief gedetailleerde status van het besturingssysteem die worden gehost op Azure virtual machines niet beschikbaar was.  Terwijl u voor verschillende voorwaarden met behulp van Azure Monitor bewaakt kan, is niet het ontworpen modelleren en status van de belangrijkste onderdelen of algemene status van de virtuele machine vertegenwoordigen.  Met Azure Monitor voor virtuele machines de gezondheid van functie bewaakt het proactief de beschikbaarheid en prestaties van de Windows- of Linux Gast-OS met een model met daarin belangrijke onderdelen en hun relaties, criteria waarmee wordt aangegeven hoe u voor het meten van de status van deze onderdelen, en u waarschuwen wanneer een slechte status voorwaarde wordt gedetecteerd.  
 
 De algehele status van de Azure-VM weergave en het onderliggende besturingssysteem kunnen worden waargenomen vanuit twee perspectieven met Azure Monitor status van de virtuele machines, rechtstreeks vanuit de virtuele machine of voor alle virtuele machines in een resourcegroep van Azure Monitor.
 
@@ -251,7 +251,7 @@ Totale aantal VM-status waarschuwingen op basis van ernst worden gecategoriseerd
 
 Op de **waarschuwingen** pagina, het heeft niet alleen een bereik om weer te geven van waarschuwingen die overeenkomen met uw selectie, maar ook worden gefilterd op **resourcetype** alleen health u waarschuwingen wilt weergeven die worden gegenereerd door de bron van de virtuele machine.  Dit wordt weergegeven in de lijst met waarschuwingen, onder de kolom **Doelresource**, waarbij u hier ziet u de Azure-VM die de waarschuwing is gegeven voor wanneer de status van bepaalde-criteria niet in orde voorwaarde is voldaan.  
 
-Waarschuwingen van andere resourcetypen of services zijn niet bedoeld om te worden opgenomen in deze weergave, zoals waarschuwingen op basis van Log Analytics query's of metrische die waarschuwingen u normaal zou weergeven uit het standaardbeleid voor Azure Monitor [alle waarschuwingen](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) pagina. 
+Waarschuwingen van andere resourcetypen of services zijn niet bedoeld om te worden opgenomen in deze weergave, zoals waarschuwingen op basis van Logboeken-query's of metrische die waarschuwingen u normaal zou weergeven uit het standaardbeleid voor Azure Monitor [alle waarschuwingen](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) pagina. 
 
 U kunt deze weergave filteren op waarden selecteren in het vervolgkeuzemenu's aan de bovenkant van de pagina.
 

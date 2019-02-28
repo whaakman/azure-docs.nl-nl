@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: e2b08dbbeb078a4e139400112e9cdd9416878214
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 87c624e0fc5eac60b309a2535afc7508f1b6b3ac
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383000"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986104"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Veelgestelde vragen over Traffic Analytics
 
@@ -105,7 +105,7 @@ Ja.
 
 ## <a name="can-i-use-an-existing-workspace"></a>Kan ik een bestaande werkruimte gebruiken?
 
-Ja. Als u een bestaande werkruimte selecteert, zorg ervoor dat deze is gemigreerd naar de nieuwe querytaal. Als u niet bijwerken van de werkruimte wilt, moet u een nieuwe maken. Zie voor meer informatie over de nieuwe querytaal [Azure Log Analytics upgraden voor nieuwe zoekopdrachten](../log-analytics/log-analytics-log-search-upgrade.md).
+Ja. Als u een bestaande werkruimte selecteert, zorg ervoor dat deze is gemigreerd naar de nieuwe querytaal. Als u niet bijwerken van de werkruimte wilt, moet u een nieuwe maken. Zie voor meer informatie over de nieuwe querytaal [Azure Monitor upgrade naar nieuwe zoekopdrachten in logboeken](../log-analytics/log-analytics-log-search-upgrade.md).
 
 ## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>Kan mijn Azure-Opslagaccount zich in één abonnement en de Log Analytics-werkruimte zich in een ander abonnement?
 

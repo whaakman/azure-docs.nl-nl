@@ -1,5 +1,5 @@
 ---
-title: VMware Monitoring solution in Log Analytics | Microsoft Docs
+title: De oplossing VMware Monitoring in Azure Monitor | Microsoft Docs
 description: Meer informatie over hoe u de oplossing VMware Monitoring kunt logboeken beheren en controleren van de ESXi-hosts.
 services: log-analytics
 documentationcenter: ''
@@ -13,23 +13,23 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 9f5bdc3686e35f09b461bd5c2df695218b48ede3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 92889708df2df06096ac74d6f270af990d02c07a
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993364"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984251"
 ---
-# <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>VMware Monitoring (Preview) solution in Log Analytics
+# <a name="vmware-monitoring-preview-solution-in-azure-monitor"></a>VMware Monitoring (Preview) solution in Azure Monitor
 
 ![VMware-symbool](./media/vmware/vmware-symbol.png)
 
 > [!NOTE]
 > De oplossing VMware Monitoring is afgeschaft.  Klanten die de oplossing al hebt geïnstalleerd kunnen blijven gebruiken, maar de VMware-bewaking kan niet worden toegevoegd voor nieuwe werkruimten.
 
-De oplossing VMware Monitoring in Log Analytics is een oplossing die helpt u bij het maken van een centrale logboekregistratie en bewaking benadering voor grote VMware-Logboeken. Dit artikel wordt beschreven hoe u kunt oplossen, vastleggen en beheren van de ESXi-hosts op één locatie met behulp van de oplossing. Met de oplossing ziet u gedetailleerde gegevens voor uw ESXi-hosts op één locatie. U kunt zien aantal belangrijke gebeurtenissen, statussen en trends van VM- en ESXi-hosts via de logboeken van ESXi-host. U kunt oplossen door bekijken en gecentraliseerde logboeken van ESXi-host te zoeken. Daarnaast kunt u waarschuwingen op basis van log zoekquery's.
+De oplossing VMware Monitoring in Azure Monitor is een oplossing die helpt u bij het maken van een centrale logboekregistratie en bewaking benadering voor grote VMware-Logboeken. Dit artikel wordt beschreven hoe u kunt oplossen, vastleggen en beheren van de ESXi-hosts op één locatie met behulp van de oplossing. Met de oplossing ziet u gedetailleerde gegevens voor uw ESXi-hosts op één locatie. U kunt zien aantal belangrijke gebeurtenissen, statussen en trends van VM- en ESXi-hosts via de logboeken van ESXi-host. U kunt oplossen door bekijken en gecentraliseerde logboeken van ESXi-host te zoeken. Daarnaast kunt u waarschuwingen op basis van log zoekquery's.
 
-De oplossing maakt gebruik van systeemeigen syslog-functionaliteit van de ESXi-host om gegevens te pushen naar een doel-VM met de Log Analytics-agent. De oplossing schrijven niet echter bestanden naar syslog binnen de doel-VM. De Log Analytics-agent wordt poort 1514 geopend en luistert naar deze. Wanneer deze de gegevens ontvangt, duwt de Log Analytics-agent de gegevens in Log Analytics.
+De oplossing maakt gebruik van systeemeigen syslog-functionaliteit van de ESXi-host om gegevens te pushen naar een doel-VM met de Log Analytics-agent. De oplossing schrijven niet echter bestanden naar syslog binnen de doel-VM. De Log Analytics-agent wordt poort 1514 geopend en luistert naar deze. Wanneer deze de gegevens ontvangt, wordt in de Log Analytics-agent de gegevens in Azure Monitor pushes.
 
 ## <a name="install-and-configure-the-solution"></a>Installeren en configureren van de oplossing
 Gebruik de volgende informatie om de oplossing te installeren en configureren.
@@ -71,7 +71,7 @@ Maak een Linux-besturingssysteem VM voor het ontvangen van alle syslog-gegevens 
     Connection to 123.456.789.101 1514 port [tcp/*] succeeded!
     ```
 
-1. In de Azure-portal, voert u een zoeken in Logboeken voor `VMware_CL`. Wanneer de Log Analytics verzamelt de syslog-gegevens, behoudt de syslog-indeling. In de portal, enkele specifieke velden worden vastgelegd, zoals *hostnaam* en *procesnaam*.  
+1. Uitvoeren in de Azure-portal een query voor voor `VMware_CL`. Wanneer Azure Monitor, de syslog-gegevens verzamelt, behoudt de syslog-indeling. In de portal, enkele specifieke velden worden vastgelegd, zoals *hostnaam* en *procesnaam*.  
 
     ![type](./media/vmware/type.png)  
 
@@ -129,7 +129,7 @@ In de **VMware** dashboardweergave, blades zijn gerangschikt op:
 
 Klik op een blade om Log Analytics search deelvenster waarin gedetailleerde informatie voor de blade te openen.
 
-Hier kunt kunt u de zoekopdracht om dit te wijzigen voor een bepaald bewerken. Zie voor meer informatie over het maken van zoekopdrachten in logboeken [vinden van gegevens met behulp van zoekopdrachten in Logboeken in Log Analytics](../log-query/log-query-overview.md).
+Hier kunt kunt u de logboekquery om dit te wijzigen voor een bepaald bewerken. Zie voor meer informatie over het maken van Logboeken-query's [vinden van gegevens met behulp van Logboeken-query's in Azure Monitor](../log-query/log-query-overview.md).
 
 #### <a name="find-esxi-host-events"></a>ESXi-host evenementen zoeken
 Één ESXi-host genereert meerdere logboeken, op basis van hun processen. De oplossing VMware Monitoring zijn ze gecentraliseerd en bevat een overzicht van het aantal gebeurtenissen. Deze gecentraliseerde weergave helpt u begrijpen welke ESXi-host heeft een groot aantal gebeurtenissen en welke gebeurtenissen treden het vaakst in uw omgeving.
@@ -151,14 +151,14 @@ Als u zien van aanvullende ESXi-host virtuele machine maken van gegevens wilt, k
 
 ![Inzoomen](./media/vmware/createvm.png)
 
-#### <a name="common-search-queries"></a>Algemene zoekquery 's
+#### <a name="common-log-queries"></a>Algemene logboeken-query 's
 De oplossing bevat andere handige query's die u kunnen helpen uw ESXi-hosts, zoals hoge opslagruimte, opslaglatentie en padfout beheren.
 
 ![query's](./media/vmware/queries.png)
 
 
 #### <a name="save-queries"></a>Query's opslaan
-Zoekopdrachten opslaan is een standaardfunctie in Log Analytics en kunt u alle query's die u hebt gevonden nuttig. Nadat u een query die u hebt gemaakt, sla deze door te klikken op de **Favorieten**. Een opgeslagen query kunt u eenvoudig opnieuw kunt gebruiken vanaf de [mijn Dashboard](../learn/tutorial-logs-dashboards.md) pagina waar u uw eigen aangepaste dashboards kunt maken.
+Opslaan van Logboeken-query's is een standaard-functie in Azure Monitor en kunt u alle query's die u hebt gevonden nuttig. Nadat u een query die u hebt gemaakt, sla deze door te klikken op de **Favorieten**. Een opgeslagen query kunt u eenvoudig opnieuw kunt gebruiken vanaf de [mijn Dashboard](../learn/tutorial-logs-dashboards.md) pagina waar u uw eigen aangepaste dashboards kunt maken.
 
 ![DockerDashboardView](./media/vmware/dockerdashboardview.png)
 

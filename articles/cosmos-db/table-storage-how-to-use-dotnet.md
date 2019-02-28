@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 08/17/2018
-ms.openlocfilehash: 7798af5d667bcf70ba562bb7198f9af570f3005a
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 57ed02463555ce9e958aedd9c2b317f7a167567b
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044413"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985883"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>Aan de slag met Azure Table Storage en de Azure Cosmos DB Table-API met behulp van .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -36,7 +36,6 @@ U hebt het volgende nodig voor dit voorbeeld:
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Algemene bibliotheek voor Azure Storage voor .NET (preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). - Een vereist preview-pakket dat wordt ondersteund in productieomgevingen. 
 * [Microsoft Azure CosmosDB Table-bibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table): deze bibliotheek is momenteel alleen beschikbaar voor .NET Standard, nog niet voor .NET Core.
-* [Azure Configuration Manager voor .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [Azure Storage-account](../storage/common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
@@ -77,14 +76,11 @@ Er zijn drie aanbevolen pakketten waarnaar u in uw project moet verwijzen om dit
 
 * [Microsoft Azure Cosmos DB Table-bibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Dit pakket biedt programmatisch toegang tot gegevensbronnen in uw Azure Table Storage-account of Azure Cosmos DB Table-API-account. Deze bibliotheek is momenteel alleen beschikbaar voor .NET Standard, nog niet voor .NET Core.
 
-* [Microsoft Azure Configuration Manager-bibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): dit pakket biedt een klasse voor het parseren van een verbindingsreeks in een configuratiebestand, ongeacht waar de toepassing wordt uitgevoerd.
-
 Volg deze stappen voor het verkrijgen van de NuGet-pakketten:
 
 1. Klik met de rechtermuisknop op het project in **Solution Explorer** en kies **NuGet-pakketten beheren**.
 2. Zoek online naar 'Microsoft.Azure.Storage.Common', kies versie <= 9.0.0.1 en selecteer **Installeren** om de algemene bibliotheek van Azure Storage voor .NET (preview) en de bijbehorende afhankelijkheden te installeren. Zorg ervoor dat het selectievakje **Voorlopige versie opnemen** is ingeschakeld omdat dit een preview-pakket is.
 3. Zoek online naar 'Microsoft.Azure.CosmosDB.Table' en selecteer **Installeren** om de Microsoft Azure CosmosDB Table-bibliotheek te installeren.
-4. Zoek online naar 'WindowsAzure.ConfigurationManager' en selecteer **Installeren** om de Microsoft Azure Configuration Manager-bibliotheek te installeren.
 
 > [!NOTE]
 > De ODataLib-afhankelijkheden in de algemene Storage-bibliotheek voor .NET worden omgezet met de ODataLib-pakketten, die beschikbaar zijn op NuGet, en niet vanuit WCF Data Services. U kunt de ODataLib-bibliotheken rechtstreeks downloaden of u kunt er via NuGet in uw codeproject naar verwijzen. De specifieke ODataLib-pakketten die door de Storage-clientbibliotheek worden gebruikt, zijn [OData](https://nuget.org/packages/Microsoft.Data.OData/), [Edm](https://nuget.org/packages/Microsoft.Data.Edm/) en [Spatial](https://nuget.org/packages/System.Spatial/). Hoewel deze bibliotheken door de Azure Table Storage-klassen worden gebruikt, zijn het verplichte afhankelijkheden voor het programmeren met de algemene Storage-bibliotheek.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 35ac69c4e61c370c72a7d503920e02ff7258ed60
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: e7b1b3e3fba04276fc284fd71adabedc01185251
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56885317"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984812"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Bewaking op schaal met Azure Monitor
 
@@ -28,6 +28,9 @@ De [ingebouwde bewaking en waarschuwingen van artikel](backup-azure-monitoring-b
 
 ## <a name="using-log-analytics-workspace"></a>Met behulp van Log Analytics-werkruimte
 
+> [!NOTE]
+> Gegevens uit Azure-VM back-ups, MAB-Agent, System Center DPM (SC-DPM) is aan de Log Analytics-werkruimte via diagnostische instellingen worden gepompt. Ondersteuning voor SQL-back-ups in Azure VM's, back-ups van Azure File share, Microsoft Azure Backup-Server (MABS) is binnenkort beschikbaar.
+
 We maken gebruik van de mogelijkheden van twee Azure-services - **diagnostische instellingen** (om gegevens te verzenden vanuit meerdere Azure Resource Manager-resources naar een andere resource) en **Log Analytics** (LA - genereren aangepaste waarschuwingen waar u andere meldingskanalen met behulp van actiegroepen kunt definiëren) voor het bewaken van op grote schaal. De volgende secties details over het gebruik van LA voor het bewaken van Azure back-up op schaal.
 
 ### <a name="configuring-diagnostic-settings"></a>Diagnostische instellingen configureren
@@ -39,7 +42,7 @@ Een Azure Resource Manager-resource, zoals Azure Recovery services-kluis registr
 U kunt een werkruimte LA selecteren vanuit een ander abonnement als het doel. *Als u de dezelfde werkruimte LA voor meerdere RS kluizen selecteert, kunt u kluizen voor abonnementen op één plek bewaken.* Selecteer 'AzureBackupReport' als het logboek aan kanaal alle Azure Backup gerelateerde gegevens in de werkruimte LA.
 
 > [!IMPORTANT]
-> Nadat u de configuratie hebt voltooid, moet u wachten gedurende 24 uur voor de initiële gegevens-push te voltooien. Daarna alle gebeurtenissen worden gepusht wanneer ze worden gegenereerd (die mogelijk wordt omgezet naar een algehele vertraging van 15-20 minuten). Voor zeer vaak bewerkingen zoals logboekback-ups van werkbelastingen zoals SQL DB, ze worden verzameld en verzonden elke X mins
+> Nadat u de configuratie hebt voltooid, moet u wachten gedurende 24 uur voor de initiële gegevens-push te voltooien. Daarna alle gebeurtenissen worden gepusht, zoals vermeld in de [sectie frequentie](#diagnostic-data-update-frequency).
 
 ### <a name="deploying-solution-to-log-analytics-workspace"></a>Oplossing implementeren naar Log Analytics-werkruimte
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 6f6cf6de9b1f12451bf28a9bd7fc7077c1c6b1cd
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 4acd4f3fd9c013d622a23853dc2f0d02b8b753d9
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673450"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985781"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>Upgrade uitvoeren van uw IoT-hub
 
@@ -45,7 +45,9 @@ Deze voorbeelden zijn bedoeld om te begrijpen hoe u uw IoT-hub als de oplossing 
 4. Als u wilt wijzigen van het aantal eenheden in uw hub, voer een nieuwe waarde onder **IoT Hub-eenheden**. 
 5. Selecteer **opslaan** uw wijzigingen op te slaan. 
 
-Uw IoT-hub is nu aangepast en de configuraties zijn niet gewijzigd. De maximale partitielimiet voor basic-laag IoT Hub is 8 en voor standard-laag is 32. De meeste IoT-Hubs hoeft slechts vier partities. De limiet van de partitie wordt gekozen bij IoT Hub wordt gemaakt en is gekoppeld aan de apparaat-naar-cloud-berichten naar het aantal gelijktijdige lezers van deze berichten. Deze waarde blijft ongewijzigd wanneer u van basic-laag naar de standard-laag migreert. 
+Uw IoT-hub is nu aangepast en de configuraties zijn niet gewijzigd. 
+
+De maximale partitielimiet voor basic-laag IoT-Hub en IoT-Hub in de standaardlaag is 32. De meeste IoT-Hubs hoeft slechts 4 partities. De limiet van de partitie wordt gekozen bij IoT Hub wordt gemaakt en is gekoppeld aan de apparaat-naar-cloud-berichten naar het aantal gelijktijdige lezers van deze berichten. Deze waarde blijft ongewijzigd wanneer u van basic-laag naar de standard-laag migreert. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

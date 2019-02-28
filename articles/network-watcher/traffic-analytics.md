@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 4f1ce84dba4e9f35e7884ebd9058781eb30c3ec4
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 8dd3c6ce7eabdf90c2a84f4d1e52ce3aef2d5c12
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815843"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984627"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -41,13 +41,13 @@ Virtuele netwerken van Azure hebben NSG-stroomlogboeken, waarin u informatie ove
 
 - **Netwerkbeveiligingsgroep (NSG)**: Bevat een lijst met regels voor toestaan of weigeren van netwerkverkeer naar resources die zijn verbonden met een Azure-netwerk. NSG's kunnen worden gekoppeld aan subnetten, afzonderlijke virtuele machines (klassiek) of afzonderlijke netwerkinterfaces (NIC) die zijn gekoppeld aan VM’s (Resource Manager). Zie voor meer informatie, [overzicht van netwerkbeveiligingsgroepen](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Network security group (NSG) stroomlogboeken**: Kunt u informatie bekijken over inkomende en uitgaande IP-verkeer via een netwerkbeveiligingsgroep. NSG-stroom logboeken zijn geschreven in json-indeling en weergeven van binnenkomende en uitgaande stromen op basis van per regel, dat de NIC van de stroom is van toepassing op, 5-tuple-informatie over de stroom (bron-/ doel-IP-adres, bron-/ doel-poort en protocol) en als het verkeer is toegestaan of is geweigerd. Zie voor meer informatie over NSG-stroomlogboeken [NSG-stroomlogboeken](network-watcher-nsg-flow-logging-overview.md).
-- **Log Analytics**: Een Azure-service die gegevens verzamelt en de gegevens worden opgeslagen in een centrale opslagplaats. Deze gegevens kunnen gebeurtenissen, prestatiegegevens of aangepaste gegevens die worden geleverd via de API van Azure bevatten. Na verzameling zijn de gegevens beschikbaar voor waarschuwingen, analyse en export. Bewaking van toepassingen, zoals network performance monitor en verkeer analytics zijn gebouwd met behulp van Log Analytics als basis. Zie voor meer informatie, [Log analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Log analytics-werkruimte**: Een instantie van log analytics, waar de gegevens die betrekking hebben op een Azure-account is opgeslagen. Zie voor meer informatie over log analytics-werkruimten, [een Log Analytics-werkruimte maken](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Log Analytics**: Een Azure-service die gegevens verzamelt en de gegevens worden opgeslagen in een centrale opslagplaats. Deze gegevens kunnen gebeurtenissen, prestatiegegevens of aangepaste gegevens die worden geleverd via de API van Azure bevatten. Na verzameling zijn de gegevens beschikbaar voor waarschuwingen, analyse en export. Bewaking van toepassingen, zoals network performance monitor en verkeer analytics zijn gebouwd met behulp van Azure Monitor-Logboeken als een basis. Zie voor meer informatie, [logboeken van Azure Monitor](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Log Analytics-werkruimte**: Een exemplaar van Azure Monitor-Logboeken, waar de gegevens die betrekking hebben op een Azure-account is opgeslagen. Zie voor meer informatie over Log Analytics-werkruimten, [een Log Analytics-werkruimte maken](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Network Watcher**: Een regionale service waarmee u kunt bewaken en diagnosticeren op netwerkscenarioniveau in Azure. U kunt NSG-stroomlogboeken in- en uitschakelen met Network Watcher inschakelen. Zie voor meer informatie, [Network Watcher](network-watcher-monitoring-overview.md).
 
 ## <a name="how-traffic-analytics-works"></a>De werking van traffic analytics
 
-Verkeersanalyse onderzoekt de onbewerkte NSG-stroomlogboeken en verminderde Logboeken vastgelegd door samenvoeging van veelvoorkomende stromen tussen de dezelfde bron-IP-adres, de doel-IP-adres, de doelpoort en het protocol. Bijvoorbeeld-Host 1 (IP-adres: 10.10.10.10) communicatie met de Host 2 (IP-adres: 10.10.20.10), 100 keer gebruikt in een periode van 1 uur (bijvoorbeeld: 80)-poort en protocol (bijvoorbeeld http). De verminderde logboek heeft een vermelding, die-Host 1 en 2 van de Host gecommuniceerd 100 keer gedurende een periode van 1 uur via poort *80* en protocol *HTTP*, in plaats van 100 berichten. Verminderde logboeken zijn uitgebreid met Geografie, beveiliging en informatie over de topologie en vervolgens opgeslagen in een log analytics-werkruimte. De volgende afbeelding ziet u de gegevensstroom:
+Verkeersanalyse onderzoekt de onbewerkte NSG-stroomlogboeken en verminderde Logboeken vastgelegd door samenvoeging van veelvoorkomende stromen tussen de dezelfde bron-IP-adres, de doel-IP-adres, de doelpoort en het protocol. Bijvoorbeeld-Host 1 (IP-adres: 10.10.10.10) communicatie met de Host 2 (IP-adres: 10.10.20.10), 100 keer gebruikt in een periode van 1 uur (bijvoorbeeld: 80)-poort en protocol (bijvoorbeeld http). De verminderde logboek heeft een vermelding, die-Host 1 en 2 van de Host gecommuniceerd 100 keer gedurende een periode van 1 uur via poort *80* en protocol *HTTP*, in plaats van 100 berichten. Verminderde logboeken zijn uitgebreid met Geografie, beveiliging en informatie over de topologie en vervolgens opgeslagen in een Log Analytics-werkruimte. De volgende afbeelding ziet u de gegevensstroom:
 
 ![De gegevensstroom voor verwerking van NSG-stroomlogboeken](./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
 
@@ -164,9 +164,9 @@ Selecteer de volgende opties, zoals wordt weergegeven in de afbeelding:
 2. Selecteer een bestaand opslagaccount voor het opslaan van de logboeken van de stroom in. Als u wilt voor het opslaan van de gegevens altijd, stel de waarde op *0*. Worden er kosten voor Azure Storage voor het opslagaccount.
 3. Stel **retentie** aan het aantal dagen dat u wilt voor het opslaan van gegevens voor.
 4. Selecteer *op* voor **Traffic Analytics Status**.
-5. Selecteer een bestaande Log Analytics-werkruimte of selecteer **nieuwe werkruimte maken** naar een nieuwe maken. Een Log Analytics-werkruimte wordt gebruikt door Traffic Analytics voor het opslaan van de geaggregeerde en geïndexeerde gegevens die vervolgens gebruikt wordt voor het genereren van de analyse. Als u een bestaande werkruimte selecteert, moet aanwezig zijn in een van de ondersteunde regio's en zijn bijgewerkt naar de nieuwe querytaal. Als u niet wilt upgraden van een bestaande werkruimte of geen een werkruimte in een ondersteunde regio, kunt u een nieuwe maken. Zie voor meer informatie over querytalen [Azure Log Analytics upgraden voor nieuwe zoekopdrachten](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+5. Selecteer een bestaande Log Analytics-werkruimte of selecteer **nieuwe werkruimte maken** naar een nieuwe maken. Een Log Analytics-werkruimte wordt gebruikt door Traffic Analytics voor het opslaan van de geaggregeerde en geïndexeerde gegevens die vervolgens gebruikt wordt voor het genereren van de analyse. Als u een bestaande werkruimte selecteert, moet aanwezig zijn in een van de ondersteunde regio's en zijn bijgewerkt naar de nieuwe querytaal. Als u niet wilt upgraden van een bestaande werkruimte of geen een werkruimte in een ondersteunde regio, kunt u een nieuwe maken. Zie voor meer informatie over querytalen [Azure Monitor upgrade naar nieuwe zoekopdrachten in logboeken](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
-    De log analytics-werkruimte die als host fungeert voor de oplossing voor traffic analytics en de nsg's hoeven niet te zijn in dezelfde regio. Bijvoorbeeld, u mogelijk traffic analytics in een werkruimte in de regio West-Europa, terwijl er nsg's in VS-Oost en VS-West. Meerdere nsg's kunnen worden geconfigureerd in dezelfde werkruimte.
+    De Log Analytics-werkruimte die als host fungeert voor de oplossing voor traffic analytics en de nsg's hoeven niet te zijn in dezelfde regio. Bijvoorbeeld, u mogelijk traffic analytics in een werkruimte in de regio West-Europa, terwijl er nsg's in VS-Oost en VS-West. Meerdere nsg's kunnen worden geconfigureerd in dezelfde werkruimte.
 6. Selecteer **Opslaan**.
 
     ![Selectie van het opslagaccount, Log Analytics-werkruimte en inschakelen voor Traffic Analytics](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement.png)

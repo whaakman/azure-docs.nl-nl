@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 74bdcc831f19031162d004e1ba98c0cfc258ce4b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c66f0e67b09dab15431a8c7c10db1c820038dea6
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879409"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984982"
 ---
 # <a name="introduction-to-azure-security"></a>Inleiding tot Azure-beveiliging
 ## <a name="overview"></a>Overzicht
@@ -116,7 +116,7 @@ Een van de eenvoudigste manieren om aan de slag met testen op beveiligingsproble
 Als u liever uw eigen indringingstests uit te voeren of een andere scanner suite of provider wilt gebruiken, volgt u de [Azure goedkeuringsproces voor indringingstests](https://docs.microsoft.com/azure/security/azure-security-pen-testing ) en verkrijgen van voorafgaande goedkeuring om de gewenste indringingstests uit te voeren.
 
 ### <a name="web-application-firewall"></a>Web Application firewall
-De web application firewall (WAF) in [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) beschermt webtoepassingen tegen veelvoorkomende webgebaseerde aanvallen, zoals SQL-injectie, aanvallen via cross-site scripting en sessiehijacking. Dit is vooraf geconfigureerd met beveiliging tegen bedreigingen die door de [Open Web Application Security Project (OWASP) als de top 10 belangrijkste kwetsbaarheden](https://msdn.microsoft.com/library/).
+De web application firewall (WAF) in [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) beschermt webtoepassingen tegen veelvoorkomende webgebaseerde aanvallen, zoals SQL-injectie, aanvallen via cross-site scripting en sessiehijacking. Dit is vooraf geconfigureerd met beveiliging tegen bedreigingen die door de [Open Web Application Security Project (OWASP) als de top 10 belangrijkste kwetsbaarheden](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project).
 
 ### <a name="authentication-and-authorization-in-azure-app-service"></a>Verificatie en autorisatie in Azure App Service
 [App Service-verificatie / autorisatie](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) is een functie waarmee u een manier voor uw toepassing aan te melden bij de gebruikers, zodat u code op de back-end te wijzigen. Het biedt een eenvoudige manier voor het beveiligen van uw toepassing en werken met gegevens per gebruiker.
