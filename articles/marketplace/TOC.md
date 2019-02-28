@@ -1,5 +1,6 @@
 # [Documentatie voor Azure Marketplace en AppSource](index.md)
 ## [Roadmap voor Azure Marketplace en AppSource](./marketplace-roadmap.md)
+## [Beleidsregels en voorwaarden voor Azure Marketplace](./policies-terms.md)
 
 ## [Overzicht en voordelen van Azure Marketplace en AppSource](./marketplace-publishers-guide.md)  
 ### [Uitgever worden op de marketplace](./become-publisher.md)  
@@ -29,7 +30,6 @@
 #### [Best practices voor aanbiedingsvermeldingen](./gtm-offer-listing-best-practices.md)
 #### [Hoe u wordt uitgelicht](./gtm-how-to-get-featured.md)
 #### [Validatie van Marketplace-inhoud](./marketplace-criteria-content-validation.md)
-#### [Beleid voor classificatie en beoordeling](./rating-review-policies.md)   
 
 ### [Kies uw marketplace-voordelen](./gtm-your-marketplace-benefits.md)
 #### [Uw bedrijf promoten met Microsoft](./gtm-promote-your-business.md)
@@ -37,9 +37,6 @@
 
 ### [Ondersteuning voor Azure Marketplace en AppSource](./support-azure-marketplace.md)
 #### [Veelgestelde vragen over Marketplace](./marketplace-faq-publisher-guide.md)
-#### [Voorwaarden van Marketplace](./marketplace-terms.md)
-#### [Deelnamebeleid voor Marketplace](./marketplace-participation-policy.md)
-
 
 <!-- Following section is for Cloud Partner Portal (CPP). -->
 

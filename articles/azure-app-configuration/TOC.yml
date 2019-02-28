@@ -1,0 +1,60 @@
+items:
+- name: Documentatie voor Azure App Configuration
+  href: index.yml
+- name: Overzicht
+  items:
+  - name: Over Azure App Configuration
+    href: overview.md
+- name: Snelstartgidsen
+  items:
+  - name: Een ASP.NET Core-app maken
+    href: quickstart-aspnet-core-app.md
+  - name: Een .NET Core-app maken
+    href: quickstart-dotnet-core-app.md
+  - name: Een .NET Framework-app maken
+    href: quickstart-dotnet-app.md
+  - name: Een Azure-functie maken
+    href: quickstart-azure-function-csharp.md
+  - name: Een Java Spring-app maken
+    href: quickstart-java-spring-app.md
+  expanded: true
+- name: Zelfstudies
+  items:
+  - name: Dynamische configuratie in ASP.NET Core inschakelen
+    href: enable-dynamic-configuration-aspnet-core.md
+  - name: Integreren met Azure Managed Service Identity
+    href: integrate-azure-managed-service-identity.md
+- name: Voorbeelden
+  items:
+  - name: Codevoorbeelden
+    href: https://github.com/Azure/AppConfiguration/samples
+  - name: Azure-CLI
+    href: cli-samples.md
+- name: Concepten
+  items:
+  - name: Sleutel-waardearchief
+    href: concept-key-value.md
+  - name: Momentopname van een bepaald tijdstip
+    href: concept-point-time-snapshot.md
+- name: Handleidingen
+  items:
+  - name: Configuratiegegevens importeren of exporteren
+    href: howto-import-export-data.md
+  - name: Integreren met een CI/CD-pijplijn
+    href: howto-integrate-ci-cd-pipeline.md
+- name: Naslaginformatie
+  items:
+  - name: .NET Core-configuratieprovider
+    href: https://go.microsoft.com/fwlink/?linkid=2074664
+  - name: .NET Framework-configuratie maken
+    href: https://go.microsoft.com/fwlink/?linkid=2074663
+  - name: Java Spring-configuratieprovider
+    href: https://go.microsoft.com/fwlink/?linkid=2074659
+  - name: REST
+    href: https://docs.microsoft.com/rest/api/azure-app-configuration
+ms.openlocfilehash: c35296a6923e464ca20a873de4165ea20c08278f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56884131"

@@ -284,12 +284,12 @@ items:
     - name: HDInsight verbinden met een on-premises netwerk
       href: ../connect-on-premises-network.md
       maintainContext: true
-  - name: Bewaken met behulp van Log Analytics
+  - name: Bewaken met behulp van Azure Monitor-logboeken
     items:
-    - name: Azure Log Analytics gebruiken
+    - name: Azure Monitor-logboeken gebruiken
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
       maintainContext: true
-    - name: Queries gebruiken met Log Analytics
+    - name: Query's gebruiken met Azure Monitor-logboeken
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
       maintainContext: true
     - name: Cluster-prestaties bewaken
@@ -342,9 +342,9 @@ items:
   - name: Windows-hulpprogramma's voor HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 95075606f4a992d8c19a6a556f8dfa6c71cc6606
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 7c80f3ef28f4e0f47e03d79865f93a0aa9e6e716
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328313"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889814"

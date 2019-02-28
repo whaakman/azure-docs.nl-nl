@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 28172ed2309c1e97fe6dafa46cf055862a894cee
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: daf643a96195bc5f8f30652eaf1e7b071d63fa87
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730338"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888233"
 documentType: LandingData
 title: Documentatie voor Bing Spellingcontrole-API
 metadata:
@@ -12,18 +12,39 @@ metadata:
   title: Documentatie voor de Bing Spellingcontrole-API - zelfstudies, API-verwijzing - Azure Cognitive Services  | Microsoft Docs
   description: Informatie over het gebruik van de Bing Spellingcontrole-API voor voorgestelde verbeteringen voor tekstdocumenten. Zelfstudies laten zien hoe u apps maakt die gebruikmaken van de API.
   services: cognitive-services
-  author: noellelacharite
-  manager: nolachar
+  author: aahill
+  manager: cgronlun
   ms.service: cognitive-services
   ms.subservice: bing-spell-check
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 05/09/2018
-  ms.author: nolachar
+  ms.date: 02/19/2019
+  ms.author: aahi
 abstract:
   description: Met de Bing Spellingcontrole-API kunt u contextuele grammatica- en spellingcontrole uitvoeren. Bing heeft een webgebaseerde spellingcontrole waarvoor wordt gebruikgemaakt van Machine Learning en statistische automatische vertaling om een steeds groter wordend, zeer contextueel algoritme dynamisch te trainen. De spellingcontrole is gebaseerd op een zeer grote verzameling webzoekopdrachten en documenten. Leer hoe u inhoud op verschillende manieren kunt analyseren met behulp van onze snelstartgidsen, zelfstudies en voorbeelden.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-spell-check/overview
+      html: <p>Meer informatie over de Bing Spellingcontrole-API.</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Wat is de Bing Spellingcontrole-API?
+    - href: /azure/cognitive-services/bing-spell-check/concepts/sending-requests
+      html: <p>Meer informatie over het verzenden van spellingcontroleaanvragen naar de Bing Spellingcontrole-API.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Spellingcontroleaanvragen
+    - href: /azure/cognitive-services/bing-spell-check/concepts/using-spell-check
+      html: <p>Meer informatie over het gebruik van de verschillende spellingcontrolemodi van de API.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Reactie van Afbeeldingen zoeken
 - title: QuickStarts van vijf minuten
   items:
   - type: paragraph
@@ -63,7 +84,6 @@ sections:
     style: unordered
     items:
     - html: <a href="tutorials/spellcheck.md">Web-app van één pagina</a>
-    - html: <a href="tutorials/spellcheck-source.md">Web-app van één pagina (broncode)</a>
 - title: Voorbeelden
   items:
   - type: paragraph

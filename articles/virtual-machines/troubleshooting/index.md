@@ -5,45 +5,40 @@ title: Documentatie voor probleemoplossing van Azure Virtual Machines | Microsof
 services: virtual-machines
 author: genlin
 manager: jeconnoc
-ms.assetid: ''
+ms.assetid: null
 ms.service: virtual-machines
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 10/3/2018
 ms.author: genli
-ms.openlocfilehash: 493c8053af1648e415fc774dd0031e18554e0458
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877427"
 ---
+
 # <a name="troubleshooting-azure-virtual-machines"></a>Problemen met virtuele Azure-machines oplossen
 
 - Toewijzingsfouten
-    - [ Toewijzingsfouten   ](allocation-failure.md)
-    - [ Toewijzingsfouten voor klassieke implementaties  ](allocation-failure-classic.md)
+    - [Toewijzingsfouten](allocation-failure.md)
+    - [Toewijzingsfouten voor klassieke implementaties](allocation-failure-classic.md)
 - [Diagnostische gegevens over opstarten](boot-diagnostics.md)
 - RDP
-    - [ RDP opnieuw instellen  ](reset-rdp.md)
-    - [ Problemen met RDP oplossen  ](troubleshoot-rdp-connection.md)
-    - [ Gedetailleerde RDP-probleemoplossing  ](detailed-troubleshoot-rdp.md)
-    - [ Specifieke fouten oplossen  ](troubleshoot-specific-rdp-errors.md)
+    - [RDP opnieuw instellen](reset-rdp.md)
+    - [Problemen met RDP oplossen](troubleshoot-rdp-connection.md)
+    - [Gedetailleerde RDP-probleemoplossing](detailed-troubleshoot-rdp.md)
+    - [Specifieke fouten oplossen](troubleshoot-specific-rdp-errors.md)
 - SSH 
-    - [ Problemen met SSH oplossen  ](troubleshoot-ssh-connection.md)
-    - [ Gedetailleerde SSH-probleemoplossing  ](detailed-troubleshoot-ssh-connection.md)
+    - [Problemen met SSH oplossen](troubleshoot-ssh-connection.md)
+    - [Gedetailleerde SSH-probleemoplossing](detailed-troubleshoot-ssh-connection.md)
     - [Veelvoorkomende foutberichten](error-messages.md)
     - [Prestatieproblemen met Windows-VM's](performance-diagnostics.md  )
-    - [ PerfInsights gebruiken  ](how-to-use-perfInsights.md)
-    - [ Extensie voor diagnostische gegevens over prestaties  ](performance-diagnostics-vm-extension.md)
+    - [PerfInsights gebruiken](how-to-use-perfInsights.md)
+    - [Extensie voor diagnostische gegevens over prestaties](performance-diagnostics-vm-extension.md)
 - [VM-agent voor Windows offline installeren](install-vm-agent-offline.md)
 - Een virtuele machine opnieuw implementeren
-    - [ Linux  ](redeploy-to-new-node-linux.md)
-    - [ Windows  ](redeploy-to-new-node-windows.md)
+    - [Linux](redeploy-to-new-node-linux.md)
+    - [Windows](redeploy-to-new-node-windows.md)
 - VM-wachtwoord opnieuw instellen
-    - [ Windows  ](reset-local-password-without-agent.md)
-    - [ Linux  ](reset-password.md)
+    - [Windows](reset-local-password-without-agent.md)
+    - [Linux](reset-password.md)
 - [Netwerkadapter opnieuw instellen](reset-network-interface.md)
 - [Een virtuele machine opnieuw starten of het formaat van een virtuele machine wijzigen](restart-resize-error-troubleshooting.md)
 - Via de seriële console
@@ -57,8 +52,8 @@ ms.locfileid: "52877427"
 - [Windows-activeringsproblemen](troubleshoot-activation-problems.md)
 - [Problemen met toegang tot toepassingen](troubleshoot-app-connection.md)
 - Problemen met implementaties oplossen
-    - [Linux  ](troubleshoot-deploy-vm-linux.md)
-    - [Windows  ](troubleshoot-deploy-vm-windows.md)
+    - [Linux](troubleshoot-deploy-vm-linux.md)
+    - [Windows](troubleshoot-deploy-vm-windows.md)
 - [Apparaatnamen zijn gewijzigd](troubleshoot-device-names-problems.md)
 - Toegang tot VM voor herstel
     - Windows
@@ -69,8 +64,8 @@ ms.locfileid: "52877427"
     - [Azure Portal](troubleshoot-recovery-disks-portal-linux.md)
 - [Opstartfouten](boot-error-troubleshoot.md)
 - [BitLocker-fouten](troubleshoot-bitlocker-boot-error.md)
-- [Fouten in het bestandssysteem controleren  ](troubleshoot-check-disk-boot-error.md)
-- [Fouten met blauw scherm  ](troubleshoot-common-blue-screen-error.md)
+- [Fouten in het bestandssysteem controleren](troubleshoot-check-disk-boot-error.md)
+- [Fouten met blauw scherm](troubleshoot-common-blue-screen-error.md)
 - [Netwerkbeperkingsfouten](troubleshooting-throttling-errors.md)
 - [Geneste virtualisatie gebruiken](troubleshoot-vm-by-use-nested-virtualization.md)
 - [Het opnieuw opstarten van systemen begrijpen](understand-vm-reboot.md)
