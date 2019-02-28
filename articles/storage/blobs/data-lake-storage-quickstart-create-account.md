@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: a4c3d952edd115748c6a63f031d9c8e115aedb1c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1af6214833109ad89e8b5f27eefc0c99cdaf2496
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884457"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984183"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Snelstart: Een Azure Data Lake Storage Gen2-opslagaccount maken
 
@@ -83,7 +83,7 @@ Als u een resourcegroep wilt maken in Azure Portal, volgt u deze stappen:
 Als u een v2-opslagaccount voor algemeen gebruik wilt maken in de Azure Portal, volgt u deze stappen:
 
 > [!NOTE]
-> De hiërarchische naamruimte is momenteel beschikbaar in alle openbare regio's. De naamruimte is momenteel ook niet beschikbaar in soevereine clouds.
+> De hiërarchische naamruimte is momenteel beschikbaar in alle openbare regio's.
 
 1. Vouw in Azure Portal het menu links open om het menu met services te openen en kies **Alle services**. Schuif vervolgens omlaag naar **Opslag** en kies **Opslagaccounts**. Kies in het venster **Opslagaccounts** dat wordt weergegeven de optie **Toevoegen**.
 2. Selecteer uw **abonnement** en de **resourcegroep** die u eerder hebt gemaakt.
@@ -141,7 +141,7 @@ Login-AzAccount
 Gebruik de opdracht [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) om een nieuwe resourcegroep met PowerShell te maken: 
 
 > [!NOTE]
-> De hiërarchische naamruimte is momenteel beschikbaar in alle openbare regio's. De naamruimte is momenteel ook niet beschikbaar in soevereine clouds.
+> De hiërarchische naamruimte is momenteel beschikbaar in alle openbare regio's.
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -201,7 +201,7 @@ az group create `
 ```
 
 > [!NOTE]
-> > De hiërarchische naamruimte is momenteel beschikbaar in alle openbare regio's. De naamruimte is momenteel ook niet beschikbaar in soevereine clouds.
+> > De hiërarchische naamruimte is momenteel beschikbaar in alle openbare regio's.
 
 ### <a name="create-a-general-purpose-v2-storage-account"></a>Een v2-opslagaccount voor algemeen gebruik maken
 
