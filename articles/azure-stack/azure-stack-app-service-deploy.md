@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2019
-ms.author: jeffgilb
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 0467f131ab4300ba3217ed01f37ebb7f4b8dbe5e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: e8028bc9a4a6f3245dca61d6dd30db22dc295a7f
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732769"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992427"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Een App Service-resourceprovider toevoegen aan Azure Stack
 
@@ -30,7 +30,7 @@ ms.locfileid: "56732769"
 Gebruik de richtlijnen in dit artikel om App Service in Azure Stack te implementeren.
 
 > [!IMPORTANT]  
-> De update 1809 toepassen op uw geïntegreerde Azure Stack-systeem of implementeren van de meest recente Azure Stack Development Kit (ASDK) voordat u Azure App Service 1.4 implementeert.
+> De update 1901 toepassen op uw geïntegreerde Azure Stack-systeem of implementeren van de meest recente Azure Stack Development Kit (ASDK) voordat u Azure App Service 1.5 implementeert.
 
 U kunt uw gebruikers de mogelijkheid om te maken van web- en API-toepassingen geven. Als u wilt dat gebruikers deze toepassingen maken, moet u naar:
 
@@ -38,7 +38,7 @@ U kunt uw gebruikers de mogelijkheid om te maken van web- en API-toepassingen ge
  - Nadat u de App Service-resourceprovider hebt geïnstalleerd, kunt u deze kunt opnemen in uw aanbiedingen en plannen. Gebruikers kunnen zich vervolgens aanmelden om de service en -toepassingen maken.
 
 > [!IMPORTANT]  
-> Voordat u de resource provider-installatieprogramma uitvoert, zorgt u ervoor dat u de instructies in hebt gevolgd [voordat u aan de slag](azure-stack-app-service-before-you-get-started.md).
+> Voordat u de resource provider-installatieprogramma uitvoert, zorgt u ervoor dat u de instructies in hebt gevolgd [voordat u aan de slag](azure-stack-app-service-before-you-get-started.md) en lees de [opmerkingen bij de release](azure-stack-app-service-release-notes-update-five.md), die vergezeld gaan van de 1,5 release, voor meer informatie over nieuwe functionaliteit, correcties en bekende problemen die invloed kunnen zijn op uw implementatie.
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>Voer het installatieprogramma van App Service resource provider
 
@@ -99,7 +99,7 @@ Volg deze stappen voor het implementeren van App Service-resourceprovider:
 
    ![App Service-installatieprogramma][4]
 
-8. Voer de gegevens voor de bestandsshare en selecteer vervolgens **volgende**. Het adres van de bestandsshare moet gebruiken voor het volledig FULLY Qualified Domain Name () of het IP-adres van de bestandsserver. Bijvoorbeeld, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, of \\\10.0.0.1\websites.
+8. Voer de gegevens voor de bestandsshare en selecteer vervolgens **volgende**. Het adres van de bestandsshare moet gebruiken voor het volledig FULLY Qualified Domain Name () of het IP-adres van de bestandsserver. Bijvoorbeeld, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, of \\\10.0.0.1\websites.  Als u van een bestandsserver die toegevoegd aan een domein gebruikmaakt is, moet u de volledige gebruikersnaam, domein, bijvoorbeeld myfileserverdomain\FileShareOwner opgeven.
 
    >[!NOTE]
    >Het installatieprogramma wil test de verbinding met de bestandsshare voordat u doorgaat. Maar als u naar een bestaand virtueel netwerk implementeert, deze Connectiviteitstest mislukken. Krijgt u een waarschuwing en een prompt om door te gaan. Als de gegevens van bestandsshare juist is, blijven de implementatie.
@@ -184,6 +184,11 @@ Volg deze stappen voor het implementeren van App Service-resourceprovider:
 
     ![App Service-installatieprogramma][17]
 
+## <a name="post-deployment-steps"></a>Stappen na de implementatie
+
+> [!IMPORTANT]  
+> Als u hebt opgegeven dat de RP-App Service met een SQL Always On-exemplaar moet u [de appservice_hosting en appservice_metering databases toevoegen aan een beschikbaarheidsgroep](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) en synchroniseren van de databases om te voorkomen dat verlies van de service in de gebeurtenis van een databasefailover.
+
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>Valideren van de App-Service op Azure Stack-installatie
 
 1. In de Azure Stack-beheerportal, gaat u naar **beheer - App Service**.
@@ -192,7 +197,7 @@ Volg deze stappen voor het implementeren van App Service-resourceprovider:
 
     ![App Service-beheer](media/azure-stack-app-service-deploy/image12.png)
 
-    Als u naar een bestaand virtueel netwerk implementeert en met behulp van een interne IP-adres verbinding maken met de bestandsserver, moet u een uitgaande beveiligingsregel toevoegen. Deze regel kunnen SMB-verkeer tussen het worker-subnet en de bestandsserver.  Om dit te doen, gaat u naar de WorkersNsg in de beheerportal en voeg een uitgaande beveiligingsregel met de volgende eigenschappen toe:
+    Als u naar een bestaand virtueel netwerk implementeert en met behulp van een interne IP-adres verbinding maken met de bestandsserver, moet u een uitgaande beveiligingsregel toevoegen. Deze regel kunnen SMB-verkeer tussen de worker-subnet en de bestandsserver.  Om dit te doen, gaat u naar de WorkersNsg in de beheerportal en voeg een uitgaande beveiligingsregel met de volgende eigenschappen toe:
 
     - Bron: Alle
     - Poortbereik van bron: *

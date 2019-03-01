@@ -6,14 +6,14 @@ author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 11/02/2018
+ms.date: 02/25/2018
 ms.author: glenga
-ms.openlocfilehash: 4246259445cf096b5353ab87a9ed83f87332dc78
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: df4fcb505cce17663334d9b80245f5c981cdbe1e
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56299323"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56989623"
 ---
 # <a name="how-to-manage-connections-in-azure-functions"></a>Over het beheren van verbindingen in Azure Functions
 
@@ -21,13 +21,13 @@ Functies in een functie-app-resources delen en tussen deze gedeelde resources zi
 
 ## <a name="connections-limit"></a>Limiet voor verbindingen
 
-Het aantal beschikbare verbindingen is beperkt, deels omdat een functie-app wordt uitgevoerd in de [Azure App Service-sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Een van de beperkingen die de sandbox opgelegd, uw code is een [bovengrens voor het aantal verbindingen, momenteel 300](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#numerical-sandbox-limits). Wanneer u deze limiet is bereikt, de functions-runtime wordt een logboekbestand gemaakt met het volgende bericht: `Host thresholds exceeded: Connections`.
+Het aantal beschikbare verbindingen is beperkt, deels omdat een functie-app wordt uitgevoerd in een [sandbox-omgeving](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Een van de beperkingen die de sandbox opgelegd, uw code is een [bovengrens voor het aantal verbindingen (dat zich momenteel in 600 actieve verbindingen, 1200 totaal aantal verbindingen)](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#numerical-sandbox-limits) per exemplaar. Wanneer u deze limiet is bereikt, de functions-runtime wordt een logboekbestand gemaakt met het volgende bericht: `Host thresholds exceeded: Connections`.
 
-De kans op meer dan de limiet gaat wanneer de [schaal controller voegt de functie-app-instanties](functions-scale.md#how-the-consumption-plan-works) om meer aanvragen te verwerken. Elke functie-app-exemplaar kan veel functies tegelijk, die allemaal zijn tellen mee voor de limiet van 300 verbindingen met een worden uitgevoerd.
+Deze limiet is per exemplaar.  Wanneer de [schaal controller voegt de functie-app-instanties](functions-scale.md#how-the-consumption-plan-works) voor het afhandelen van meer aanvragen, heeft elk exemplaar een onafhankelijke verbindingslimiet.  Dit betekent dat er is geen limiet globale verbinding en in totaal hebt u veel meer dan 600 actieve verbindingen voor alle actieve exemplaren.
 
 ## <a name="use-static-clients"></a>Gebruik statische clients
 
-Om te voorkomen dat bevat meer verbindingen dan nodig, opnieuw gebruiken clientexemplaren in plaats van het maken van nieuwe kennis met elke functieaanroep. .NET-clients, zoals de [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx), [DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
+Om te voorkomen dat bevat meer verbindingen dan nodig, opnieuw gebruiken clientexemplaren in plaats van het maken van nieuwe kennis met elke functieaanroep.  Hergebruik van clientverbindingen wordt aanbevolen voor elke taal die u mogelijk uw functie schrijven in. Bijvoorbeeld, .NET-clients, zoals de [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx), [DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
 ), en Azure Storage-clients verbindingen kunnen beheren als u een enkele, statische-client gebruiken.
 
 Hier vindt u enkele richtlijnen te volgen bij het gebruik van een client servicespecifieke in een Azure Functions-toepassing:

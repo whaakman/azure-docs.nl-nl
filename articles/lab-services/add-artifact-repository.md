@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 9a267b48e185e02c1b1217380429453799308bbe
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 393a5c0af5ff7ccaef8aa462391c5c9457aa9c08
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886760"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011108"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Een artefactopslagplaats toevoegen aan uw lab in DevTest Labs
 DevTest Labs kunt u opgeven van een artefact dat moet worden toegevoegd aan een virtuele machine op het moment van de VM is gemaakt of nadat de virtuele machine is gemaakt. Dit artefact is mogelijk een hulpprogramma of een toepassing die u wilt installeren op de virtuele machine. Artefacten worden gedefinieerd in een JSON-bestand geladen vanuit een GitHub- of VSTS Git-opslagplaats. 
@@ -172,7 +172,7 @@ Er zijn een paar manieren om de sjabloon implementeren in Azure en de resource g
 - [Resources implementeren met Resource Manager-sjablonen en Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
 - [Resources implementeren met Resource Manager-sjablonen en Resource Manager REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
-Laten we doorgaan en informatie over het implementeren van de sjabloon in PowerShell. Cmdlets die worden gebruikt om de sjabloon te implementeren zijn contextspecifiek, zodat de huidige tenant en het huidige abonnement worden gebruikt. Gebruik [Set AzContext](/powershell/module/az.profile/set-azcontext) voordat u de sjabloon implementeert, indien nodig, context wijzigen.
+Laten we doorgaan en informatie over het implementeren van de sjabloon in PowerShell. Cmdlets die worden gebruikt om de sjabloon te implementeren zijn contextspecifiek, zodat de huidige tenant en het huidige abonnement worden gebruikt. Gebruik [Set AzContext](/powershell/module/az.accounts/set-azcontext) voordat u de sjabloon implementeert, indien nodig, context wijzigen.
 
 Maak eerst een resource-groep met [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Als de resourcegroep die u wilt gebruiken al bestaat, moet u deze stap overslaan.
 
@@ -375,7 +375,7 @@ if ($ArtifactRepositoryName -eq $null){
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | Met deze opdracht wordt gebruikt voor meer informatie over het lab, zoals de locatie. |
 | [New-AzResource](/powershell/module/az.resources/new-azresource) | Er is geen specifieke opdracht voor het toevoegen van artefact opslagplaatsen. De algemene [New-AzResource](/powershell/module/az.resources/new-azresource) cmdlet wordt de taak. Deze cmdlet moet ofwel de **ResourceId** of de **ResourceName** en **ResourceType** paar om te weten welk type resource die u wilt maken. Met dit voorbeeldscript maakt gebruik van de resourcenaam en de resource-type-paar. <br/><br/>U ziet dat het maken van de bron van de opslagplaats artefact op dezelfde locatie en in dezelfde resourcegroep bevinden als het lab.|
 
-Het script voegt een nieuwe resource toe aan het huidige abonnement. Gebruik [Get-AzContext](/powershell/module/az.profile/get-azcontext) om deze informatie te bekijken. Gebruik [Set AzContext](/powershell/module/az.profile/set-azcontext) om in te stellen de huidige tenant en hetzelfde abonnement.
+Het script voegt een nieuwe resource toe aan het huidige abonnement. Gebruik [Get-AzContext](/powershell/module/az.accounts/get-azcontext) om deze informatie te bekijken. Gebruik [Set AzContext](/powershell/module/az.accounts/set-azcontext) om in te stellen de huidige tenant en hetzelfde abonnement.
 
 De beste manier voor het detecteren van de resourcenaam van de en resource-informatie is met de [Test Drive Azure REST-API's](https://azure.github.io/projects/apis/) website. Bekijk de [DevTest Labs-15-05-2016](http://aka.ms/dtlrestapis) provider om te controleren van de beschikbare REST-API's voor de DevTest Labs-provider. De scriptgebruikers de volgende resource-ID. 
 

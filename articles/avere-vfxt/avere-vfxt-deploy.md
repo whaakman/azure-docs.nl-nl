@@ -4,29 +4,27 @@ description: Stappen voor het implementeren van het cluster Avere vFXT in Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 972ba937ad15fa9a6d2eb74e3e4c9e6e8f3923a4
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 7081d46af335f29e5723ef8d471814a1564907c2
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745432"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990201"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Het vFXT-cluster implementeren
 
-Deze procedure begeleidt u stapsgewijs door de implementatiewizard beschikbaar vanuit de Azure Marketplace. De wizard wordt automatisch het cluster geïmplementeerd met behulp van een Azure Resource Manager-sjabloon. Nadat u de parameters in het formulier invoeren en klikt u op **maken**, Azure is automatisch voltooid voor deze stappen: 
+Deze procedure begeleidt u stapsgewijs door de implementatiewizard beschikbaar vanuit de Azure Marketplace. De wizard wordt automatisch het cluster geïmplementeerd met behulp van een Azure Resource Manager-sjabloon. Nadat u de parameters in het formulier invoeren en klikt u op **maken**, Azure is automatisch voltooid voor deze stappen:
 
-* Maak de clustercontroller, dit is een eenvoudige virtuele machine die de software die nodig zijn om te implementeren en beheren van het cluster bevat.
-* Instellen van de resourcegroep en virtuele netwerkinfrastructuur, met inbegrip van nieuwe elementen maken indien nodig.
-* Het cluster-knooppunt virtuele machines maken en deze configureren als het cluster Avere.
-* Als dat wordt gevraagd, een nieuwe Azure Blob-container maken en configureren als een cluster core filer.
+* Hiermee maakt u de clustercontroller, dit is een eenvoudige virtuele machine die de software die nodig zijn om te implementeren en beheren van het cluster bevat.
+* Stelt u de resourcegroep en virtuele netwerkinfrastructuur, waaronder het maken van nieuwe elementen.
+* Knooppunt VM's van het cluster maakt en configureert u deze als het cluster Avere.
+* Als dat wordt gevraagd, maakt u een nieuwe Azure Blob-container en configureert deze als een cluster core filer.
 
-Nadat u de instructies in dit document te volgen, hebt u een virtueel netwerk, een subnet, een domeincontroller en een cluster vFXT zoals wordt weergegeven in het volgende diagram:
+Nadat u de instructies in dit document te volgen, hebt u een virtueel netwerk, een subnet, een domeincontroller en een cluster vFXT zoals wordt weergegeven in het volgende diagram. In dit diagram ziet u de optionele Azure Blob core filer, met inbegrip van een nieuwe Blob storage-container (in een nieuw opslagaccount, niet weergegeven) en een service-eindpunt voor Microsoft storage binnen het subnet. 
 
-![diagram van vnet met optionele blob-opslag en een subnet met drie virtuele machines met het label vFXT knooppunten/vFXT cluster en één virtuele machine met het label clustercontroller gegroepeerd](media/avere-vfxt-deployment.png)
-
-Nadat het cluster is gemaakt, moet u [maken van een opslageindpunt](#create-a-storage-endpoint-if-using-azure-blob) in uw virtuele netwerk als Blob-opslag. 
+![diagram waarin drie concentrische rechthoeken met Avere onderdelen van het cluster. De buitenste rechthoek heet 'Resource group' en bevat een hexagoon met het label 'Blob-opslag (optioneel)'. De volgende rechthoek in het label ' virtueel netwerk: 10.0.0.0/16' en bevat geen unieke onderdelen. De binnenste rechthoek heet 'Subnet:10.0.0.0/24' en een virtuele machine met het label 'clustercontroller', een stapel drie VM's met het label vFXT knooppunten (vFXT cluster) en een hexagoon met het label 'Service-eindpunt' bevat. Er is een pijl met verbinding van het service-eindpunt (dat zich binnen het subnet) en de blob-opslag (dit is buiten het subnet en een vnet, in de resourcegroep). De pijl wordt doorgegeven via het subnet en de grenzen van het virtuele netwerk.](media/avere-vfxt-deployment.png)  
 
 Zorg ervoor dat u deze vereisten hebt opgelost voordat u met behulp van de sjabloon maken:  
 
@@ -34,6 +32,7 @@ Zorg ervoor dat u deze vereisten hebt opgelost voordat u met behulp van de sjabl
 1. [Eigenaarsmachtigingen voor abonnement](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
 1. [Het quotum voor het cluster vFXT](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
 1. [Aangepaste rollen](avere-vfxt-prereqs.md#create-access-roles) -moet u een rol voor het beheer van toegang op basis van rollen om toe te wijzen aan de clusterknooppunten. U hebt de mogelijkheid ook een aangepaste toegang-rol voor de netwerkcontroller cluster maken, maar de meeste gebruikers de rol eigenaar standaard, waardoor de bevoegdheden van de netwerkcontroller overeenkomt op een resourcegroepeigenaar zal duren. Lezen [ingebouwde rollen voor Azure-resources](../role-based-access-control/built-in-roles.md#owner) voor meer informatie.
+1. [Storage service-eindpunt (indien nodig)](avere-vfxt-prereqs.md#optional-create-a-storage-service-endpoint-in-your-virtual-network) - vereist voor implementeert met behulp van een bestaand virtueel netwerk en het maken van blob-opslag
 
 Lees voor meer informatie over de stappen voor de implementatie van cluster en het plannen van [van plan bent uw Avere vFXT systeem](avere-vfxt-deploy-plan.md) en [implementatieoverzicht](avere-vfxt-deploy-overview.md).
 
@@ -105,13 +104,13 @@ De tweede pagina van de sjabloon voor de implementatie kunt u de clustergrootte,
 
 * **De naam van de cluster vFXT Avere** -Geef het cluster een unieke naam. 
 
-* **Grootte** -Geef het type virtuele machine moet worden gebruikt bij het maken van de clusterknooppunten. 
+* **Grootte** -in deze sectie ziet u het VM-type dat wordt gebruikt voor de clusterknooppunten. Hoewel er slechts één aanbevolen optie, de **grootte wijzigen** koppeling opent u een tabel met informatie over dit exemplaartype en een koppeling naar een prijscalculator.  <!-- old: Specify the VM type to use when creating the cluster nodes.  -->
 
 * **Cachegrootte per knooppunt** -de cluster-cache is verdeeld over de clusterknooppunten, dus de totale cachegrootte op uw Avere vFXT cluster zullen de cachegrootte per knooppunt vermenigvuldigd met het aantal knooppunten. 
 
-  De aanbevolen configuratie is 1 TB per knooppunt gebruiken als Standard_D16s_v3 clusterknooppunten, en het gebruik van 4 TB per knooppunt als Standard_E32s_v3 knooppunten.
+  De aanbevolen configuratie is het gebruik van 4 TB per knooppunt voor Standard_E32s_v3 knooppunten.
 
-* **Virtueel netwerk** : Selecteer een bestaand vnet ook voor het cluster, of definiëren een nieuw vnet te maken. 
+* **Virtueel netwerk** - definiëren een nieuw vnet voor het cluster bevatten, of Selecteer een bestaand vnet die voldoet aan de vereisten die worden beschreven [van plan bent uw Avere vFXT systeem](avere-vfxt-deploy-plan.md#resource-group-and-network-infrastructure). 
 
   > [!NOTE]
   > Als u een nieuw vnet maakt, wordt de clustercontroller een openbaar IP-adres hebben zodat u toegang hebben tot de nieuwe particulier netwerk. Als u een bestaand vnet kiest, wordt de cluster-netwerkcontroller geconfigureerd zonder een openbaar IP-adres. 
@@ -121,13 +120,17 @@ De tweede pagina van de sjabloon voor de implementatie kunt u de clustergrootte,
   >  * Als u een openbaar IP-adres op de controller niet ingesteld, moet u een andere jump host, een VPN-verbinding of ExpressRoute gebruiken voor toegang tot het cluster. Bijvoorbeeld, maken de controller binnen een virtueel netwerk waarvoor al een VPN-verbinding geconfigureerd.
   >  * Als u een domeincontroller met een openbaar IP-adres maakt, moet u de virtuele machine van de controller beveiligen met een netwerkbeveiligingsgroep. Standaard de vFXT Avere voor Azure-implementatie wordt gemaakt van een netwerkbeveiligingsgroep en binnenkomende toegang beperkt tot alleen poort 22 voor domeincontrollers met openbare IP-adressen. Kunt u het systeem verder beschermen met vergrendelen omlaag toegang tot het bereik van IP-bronadressen - dat wil zeggen, alleen verbindingen toestaan vanaf computers die u wilt gebruiken voor toegang tot het cluster.
 
+  De sjabloon implementeren configureert ook de nieuwe vnet met een storage-service-eindpunt voor Azure Blob storage en netwerktoegangsbeheer vergrendeld voor alleen IP-adressen uit het subnet van het cluster. <!-- xxx make sure this is accurate --> <!-- do I need to say that this only happens if you choose to create storage? -->
+
 * **Subnet** : Kies een subnet van uw bestaande virtuele netwerk of een nieuwe maken. 
 
-* **Blob storage gebruiken** -Kies **waar** naar een nieuwe Azure Blob-container maken en configureren als back-end-opslag voor het nieuwe Avere vFXT cluster. Deze optie maakt ook een nieuw opslagaccount in dezelfde resourcegroep bevinden als het cluster. 
+* **Maken en gebruiken van blob-opslag** -Kies **waar** naar een nieuwe Azure Blob-container maken en configureren als back-end-opslag voor het nieuwe Avere vFXT cluster. Deze optie maakt ook een nieuw opslagaccount in dezelfde resourcegroep bevinden als het cluster en een Microsoft storage service-eindpunt binnen het subnet van het cluster. 
+  
+  Als u een bestaand virtueel netwerk opgeeft, moet een storage-service-eindpunt hebben voordat u het cluster maakt. (Voor meer informatie lezen [van plan bent uw Avere vFXT systeem](avere-vfxt-deploy-plan.md).)
 
   Stel dit veld in **false** als u niet wilt dat een nieuwe container maken. In dit geval moet u koppelt en opslag configureren nadat het cluster is gemaakt. Lezen [opslag configureren](avere-vfxt-add-storage.md) voor instructies. 
 
-* **Storage-account** : als het maken van een nieuwe Azure Blob-container, voer een naam voor het nieuwe opslagaccount. 
+* **(Nieuw) Storage-account** : als het maken van een nieuwe Azure Blob-container, voer een naam voor het nieuwe opslagaccount. 
 
 ## <a name="validation-and-purchase"></a>Validatie en -aanschaf
 
@@ -159,20 +162,6 @@ Als u wilt deze informatie vinden, volgt u deze procedure:
 1. Aan de linkerkant, klikt u op **uitvoer**. Kopieer de waarden in elk van de velden. 
 
    ![voert de pagina tonen SSHSTRING, RESOURCE_GROUP, locatie, NETWORK_RESOURCE_GROUP, netwerk, SUBNET, SUBNET_ID, VSERVER_IPs en MGMT_IP waarden in de velden aan de rechterkant van de labels](media/avere-vfxt-outputs-values.png)
-
-
-## <a name="create-a-storage-endpoint-if-using-azure-blob"></a>Maak een opslageindpunt (als u Azure Blob)
-
-Als u van Azure Blob-opslag voor uw back-end-gegevensopslag gebruikmaakt, moet u een service-eindpunt voor opslag in uw virtuele netwerk maken. Dit [service-eindpunt](../virtual-network/virtual-network-service-endpoints-overview.md) houdt Azure Blob-verkeer lokale in plaats van deze routering buiten het virtuele netwerk.
-
-1. Klik in de portal op **virtuele netwerken** aan de linkerkant.
-1. Selecteer het vnet voor de controller. 
-1. Klik op **Service-eindpunten** aan de linkerkant.
-1. Klik op **toevoegen** aan de bovenkant.
-1. De service als ``Microsoft.Storage`` en van de controller subnet kiezen.
-1. Klik onderaan op **toevoegen**.
-
-  ![Schermafbeelding van Azure portal met aantekeningen voor de stappen voor het maken van het service-eindpunt](media/avere-vfxt-service-endpoint.png)
 
 ## <a name="next-step"></a>Volgende stap
 

@@ -3,99 +3,95 @@ title: Verificatie van Azure Maps beheren | Microsoft Docs
 description: U kunt de Azure-portal gebruiken om verificatie in Azure-kaarten te beheren.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/09/2018
+ms.date: 02/14/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: db0450ab8b765ec158201c6db149a7de7d135b98
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: eb71eab965f8d512a9f1621c2fc38c49b60ee268
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56143784"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57009168"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Verificatie van Azure Maps beheren
 
-Nadat u een Azure kaarten-account hebt gemaakt, worden drie GUID's worden gemaakt ter ondersteuning van Azure Active Directory (Azure AD) of gedeelde sleutelverificatie.
-
-U kunt uw verificatie-informatie vinden door te navigeren naar de **verificatie** pagina onder **instellingen** in Azure portal. Navigeer naar uw account. Selecteer vervolgens **verificatie** in het menu.
-
+Nadat u een Azure kaarten-account hebt gemaakt, worden een client-ID en sleutels gemaakt ter ondersteuning van Azure Active Directory (Azure AD) of gedeelde sleutelverificatie.
 
 ## <a name="view-authentication-details"></a>Verificatie-details weergeven
 
-Uw verificatie om details te bekijken, gaat u naar de **verificatie** optie in het instellingenmenu.
+De verificatie-informatie vindt u in Azure portal. Ga naar uw account en selecteer **verificatie** op de **instellingen** menu.
 
-![Weergave-verificatie](./media/how-to-manage-authentication/how-to-view-auth.png)
+![Verificatiegegevens](./media/how-to-manage-authentication/how-to-view-auth.png)
 
- Zie voor meer informatie over verificatie en Azure-kaarten, [verificatie met Azure Maps](https://aka.ms/amauth).
+ Zie voor meer informatie, [verificatie met Azure Maps](https://aka.ms/amauth).
 
 
-## <a name="configure-azure-ad-app-registration"></a>Azure AD-App-registratie configureren
+## <a name="set-up-azure-ad-app-registration"></a>Azure AD-app-registratie instellen
 
-Zodra een overzicht van Azure-account is gemaakt, wordt een koppeling tussen uw Azure AD-tenant en de Azure Maps Azure-resource is vereist. 
+Nadat u een Azure kaarten-account hebt gemaakt, moet u een koppeling tussen uw Azure AD-tenant en de bron van de Azure-kaarten.
 
-1. Ga naar de AAD-blade en de registratie van een App maken met een naam en het teken in de URL als de startpagina van de web-app / API, zoals 'https://localhost/'. Als u al een geregistreerde app hebt, gaat u verder met stap 2.
+1. Ga naar de blade Azure AD en maak een app-registratie. Geef een naam voor de registratie. In de **aanmeldings-URL** geeft u de startpagina van de web-app / API (bijvoorbeeld https://localhost/). Als u al een geregistreerde app hebt, gaat u naar stap 2.
 
     ![App-registratie](./media/how-to-manage-authentication/app-registration.png)
 
-    ![App-registratie](./media/how-to-manage-authentication/app-create.png)
+    ![Details van de App-registratie](./media/how-to-manage-authentication/app-create.png)
 
-2. Gedelegeerde API-machtigingen toewijzen aan Azure-kaarten door te navigeren naar de toepassing onder App-registraties en klik op **instellingen**.  Selecteer **vereiste machtigingen** en selecteer **toevoegen**. Zoeken en vervolgens selecteert u Azure Maps onder **Select an API** en klikt u op **Selecteer**.
+2. Als u wilt gedelegeerde API-machtigingen toewijzen aan Azure-kaarten, gaat u naar de toepassing onder **App-registraties**, en selecteer vervolgens **instellingen**.  Selecteer **vereiste machtigingen**, en selecteer vervolgens **toevoegen**. Zoek en selecteer **Azure Maps** onder **Select an API**, en selecteer vervolgens de **Selecteer** knop.
 
-    ![Api-App-machtigingen](./media/how-to-manage-authentication/app-permissions.png)
+    ![API-App-machtigingen](./media/how-to-manage-authentication/app-permissions.png)
 
-3. Ten slotte onder Selecteer machtigingen kiest u toegang tot Azure-kaarten en klik op selecteren.
+3. Onder **machtigingen selecteren**, selecteer **toegang tot Azure Maps**, en selecteer vervolgens de **Selecteer** knop.
 
-    ![Selecteer de api-app-machtigingen](./media/how-to-manage-authentication/select-app-permissions.png)
+    ![Selecteer API app-machtigingen](./media/how-to-manage-authentication/select-app-permissions.png)
 
-4. Ga als volgt stap een of b, afhankelijk van de verificatie-implementatie.
+4. Volledige stap een of b, afhankelijk van de verificatiemethode.
 
-    1. Als de toepassing wilde maken is voor gebruik van token gebruikersverificatie met onze Azure Maps Web SDK, moet u inschakelen de `oauthEnableImplicitFlow` door deze te stellen op ' True ' in de Manifest-sectie van de detailpagina van uw app-registratie. 
+    1. Als uw toepassing gebruikerstoken verificatie met Azure Maps Web SDK gebruikt, schakelt u `oauthEnableImplicitFlow` door deze te stellen op ' True ' in de Manifest-sectie van de detailpagina van uw app-registratie.
     
        ![App-manifest](./media/how-to-manage-authentication/app-manifest.png)
 
-    2. Als de verificatie van uw toepassing maakt gebruik van server/toepassing gaat u naar de **sleutels** blade in de app-registratie en een wachtwoord maken of uploaden van een openbare-sleutelcertificaat dat naar de app-registratie. Als u een wachtwoord, nadat u **opslaan**, kopieert u het wachtwoord voor later, en bewaar deze zorgvuldig, u dit wilt gebruiken voor het verkrijgen van tokens van AAD. 
+    2. Als uw toepassing gebruikmaakt van verificatie van de server/toepassing, gaat u naar de **sleutels** -blade in de app-registratie en maak een wachtwoord of een openbare-sleutelcertificaat dat uploaden naar de app-registratie. Als u een wachtwoord maken nadat u hebt geselecteerd **opslaan**, kopieert u het wachtwoord voor later en bewaar deze zorgvuldig. U gebruikt dit wachtwoord aan te schaffen tokens van Azure AD.
 
        ![App-sleutels](./media/how-to-manage-authentication/app-keys.png)
 
 
 ## <a name="grant-rbac-to-azure-maps"></a>Verleen RBAC voor Azure Maps
 
-Wanneer een Azure kaarten-account gekoppeld aan uw Azure AD-tenant is, kan toegangsbeheer worden verleend door de gebruiker of toepassing met beschikbare Azure Maps access control rollen toewijzen.
+Nadat u een Azure kaarten-account aan uw Azure AD-tenant koppelt, kunt u toegangsbeheer door het toewijzen van een gebruiker of toepassing naar een of meer Azure-kaarten toegangsbeheerrollen verlenen.
 
-1. Navigeer naar **Access Control** optie, klikt u op **roltoewijzingen**, en **roltoewijzing toevoegen**.
+1. Ga naar **toegangsbeheer (IAM)**, selecteer **roltoewijzingen**, en selecteer vervolgens **roltoewijzing toevoegen**.
 
     ![RBAC verlenen](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
-2. Selecteer op de roltoewijzing pop-outmodus venster, Azure Maps datum Reader (Preview) **rol**, **toegang toewijzen aan**: Azure AD-gebruiker, groep of service-principal **Selecteer** gebruiker of toepassing in vervolgkeuzelijst en **opslaan**.
+2. In de **roltoewijzing toevoegen** venster onder **rol**, selecteer **Azure Maps datum Reader (Preview)**. Onder **toegang toewijzen aan**, selecteer **Azure AD-gebruiker, groep of service-principal**. Onder **Selecteer**, selecteer de gebruiker of toepassing. Selecteer **Opslaan**.
 
     ![Roltoewijzing toevoegen](./media/how-to-manage-authentication/add-role-assignment.png)
 
 ## <a name="view-available-azure-maps-rbac-roles"></a>Beschikbare Azure Maps RBAC-rollen weergeven
 
-Als u wilt weergeven beschikbaar op basis van rollen toegangsbeheerrollen voor Azure-kaarten die toegang kan worden verleend aan, gaat u naar **Access Control (IAM)** optie, klikt u op **rollen**, en zoeken naar functies vanaf **Azure Maps**.
+Als u wilt weergeven op basis van rollen (RBAC) toegangsbeheerrollen die beschikbaar voor Azure-kaarten zijn, gaat u naar **toegangsbeheer (IAM)**, selecteer **rollen**, en vervolgens zoeken naar functies vanaf **Azure Maps**. Dit zijn de functies die u toegang tot kunt verlenen.
 
 ![Beschikbare rollen weergeven](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
 
 
-## <a name="view-azure-maps-role-based-access-control-rbac"></a>Azure-kaarten weergeven op rollen gebaseerd toegangsbeheer (RBAC)
+## <a name="view-azure-maps-rbac"></a>Azure Maps RBAC weergeven
 
-Azure AD maakt voor de brongroep gedetailleerd toegangsbeheer via op rollen gebaseerd toegangsbeheer (RBAC). 
+RBAC biedt nauwkeurig toegangsbeheer.
 
-Als u wilt weergeven van gebruikers en apps die zijn verleend RBAC voor Azure-kaarten, gaat u naar **Access Control (IAM)** optie, selecteer **roltoewijzingen**, en filteren op **Azure Maps**. Alle beschikbare rollen wordt hieronder weergegeven.
+Als u wilt weergeven van gebruikers en apps die zijn verleend RBAC voor Azure-kaarten, gaat u naar **Access Control (IAM)**, selecteer **roltoewijzingen**, en vervolgens filteren op **Azure Maps**.
 
-![Weergave RBAC](./media/how-to-manage-authentication/how-to-view-amrbac.png)
+![Gebruikers en apps die zijn verleend RBAC weergeven](./media/how-to-manage-authentication/how-to-view-amrbac.png)
 
 
 ## <a name="request-tokens-for-azure-maps"></a>Aanvragen van tokens voor Azure-kaarten
 
-Als uw app is geregistreerd en die zijn gekoppeld aan Azure-kaarten, kunt u nu toegangstokens aanvragen.
+Nadat u uw app registreren en deze met Azure-kaarten die zijn gekoppeld, kunt u toegangstokens aanvragen.
 
-* Als u de toepassing is wilde maken gebruik van token gebruikersverificatie met onze Azure Maps Web SDK (Web), moet u de HTML-pagina configureren met Azure Maps Client-ID en de Azure AD-App-ID.
+* Als uw toepassing gebruikerstoken verificatie met Azure Maps Web SDK gebruikt, moet u het configureren van uw HTML-pagina met de Azure-kaarten client-ID en de Azure AD-app-ID.
 
-
-* Voor toepassingen die gebruikmaken van verificatie van de server/toepassing, een token aanvragen van Azure AD-aanmelding eindpunt https://login.microsoftonline.com met Azure Maps Client-ID, Azure AD-App-ID en Azure AD-App-registratie-wachtwoord of certificaat.
+* Als uw toepassing gebruikmaakt van server/toepassing verificatie, moet u een token uit Azure AD-aanmelding eindpunt aanvragen `https://login.microsoftonline.com` met de Azure AD-resource-ID `https://atlas.microsoft.com/`, de Azure-kaarten client-ID, de Azure AD-app-ID en de Azure AD-app-registratie wachtwoord of certificaat.
 
 Zie voor meer informatie over het aanvragen van tokens voor toegang van Azure AD voor gebruikers en service-principals [Verificatiescenario's voor Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 

@@ -12,23 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
-ms.author: jeffgilb
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 332722a1774eea41ab3566051da138f2383fef98
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 9d941c36499f851f20c41fa6dd01faf14e4192ba
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447664"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992767"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Offline-update van Azure App Service in Azure Stack
 
 *Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 > [!IMPORTANT]
-> De update 1809 toepassen of later naar uw Azure Stack-geïntegreerd systeem of de meest recente Azure Stack development kit implementeren voordat u Azure App Service 1.4 implementeert. Controleer voordat u de resourceprovider bijwerkt, de opmerkingen bij de release voor meer informatie over nieuwe functionaliteit, correcties en bekende problemen die invloed kunnen zijn op uw implementatie.
+> De update 1901 toepassen of later naar uw Azure Stack-geïntegreerd systeem of de meest recente Azure Stack development kit implementeren voordat u Azure App Service 1.5 implementeert. 
 
 Door de instructies in dit artikel te volgen, kunt u upgraden de [App Service-resourceprovider](azure-stack-app-service-overview.md) in een Azure Stack-omgeving die is geïmplementeerd:
 
@@ -36,9 +35,7 @@ Door de instructies in dit artikel te volgen, kunt u upgraden de [App Service-re
 * beveiligd door Active Directory Federation Services (AD FS).
 
 > [!IMPORTANT]
-> Vóór de upgrade uitvoert, zorg ervoor dat u al hebt voltooid de [implementatie van de Azure App Service op Azure Stack-Resourceprovider](azure-stack-app-service-deploy-offline.md)
->
->
+> Vóór de upgrade uitvoert, zorg ervoor dat u al hebt voltooid de [implementatie van de Azure App Service op Azure Stack Resource Provider](azure-stack-app-service-deploy-offline.md) en dat u hebt gelezen de [opmerkingen bij de release](azure-stack-app-service-release-notes-update-five.md), die vergezeld gaan van de versie 1.5 release voor meer informatie over nieuwe functionaliteit, correcties en bekende problemen die invloed kunnen zijn op uw implementatie.
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>Voer het installatieprogramma van App Service resource provider
 

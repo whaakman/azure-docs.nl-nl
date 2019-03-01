@@ -1,19 +1,20 @@
 ---
 title: Plannen van taken met Azure IoT Hub (Java) | Microsoft Docs
 description: Klik hier voor meer informatie over het plannen van een Azure IoT Hub-taak voor een rechtstreekse methode aanroepen en een gewenste eigenschap instellen op meerdere apparaten. U de Azure IoT-device-SDK voor Java gebruiken om de gesimuleerde apparaat-apps en de Azure IoT service SDK voor Java voor het implementeren van een service-app voor het uitvoeren van de taak te implementeren.
-author: dominicbetts
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/10/2017
-ms.author: dobett
-ms.openlocfilehash: 52c5e1a2166c2c609b2edc486bd451f01b3395fa
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: d2d92c05e54bc78d5b01e73b586e5c25fc431255
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515791"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011395"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Taken plannen en uitzenden (Java)
 
@@ -29,9 +30,9 @@ Een taak een van deze acties wordt verpakt en houdt de uitvoering op basis van e
 
 Zie voor meer informatie over elk van deze mogelijkheden:
 
-* Apparaatdubbel en eigenschappen: [aan de slag met apparaatdubbels](iot-hub-java-java-twin-getstarted.md)
+* Apparaatdubbel en eigenschappen: [Aan de slag met apparaatdubbels](iot-hub-java-java-twin-getstarted.md)
 
-* Directe methoden: [het Ontwikkelaarshandleiding voor IoT Hub - directe methoden](iot-hub-devguide-direct-methods.md) en [zelfstudie: directe methoden gebruiken](quickstart-control-device-java.md)
+* Directe methoden: [Ontwikkelaarshandleiding voor IoT Hub - directe methoden](iot-hub-devguide-direct-methods.md) en [zelfstudie: Directe methoden gebruiken](quickstart-control-device-java.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -64,7 +65,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Voor IoT hub-verbindingsreeks ophalen
+### <a name="retrieve-connection-string-for-iot-hub"></a>Verbindingsreeks voor IoT-hub ophalen
 
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Gebruik Azure beheerde Service-identiteit in Azure API Management | Microsoft Docs
-description: Informatie over het gebruik van Azure beheerde Service-identiteit in API Management
+title: Gebruik van beheerde identiteiten in Azure API Management | Microsoft Docs
+description: Informatie over het gebruik van beheerde identiteiten in API Management
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -11,27 +11,27 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: 54c4d58dc881ffc7c1f5ecc2242b64e5b61fa68f
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 750403c18a6eaa36cdc05ece2de1222ad050ba1b
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730744"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56989537"
 ---
-# <a name="use-azure-managed-service-identity-in-azure-api-management"></a>Azure beheerde Service-identiteit gebruiken in Azure API Management
+# <a name="use-managed-identities-in-azure-api-management"></a>Gebruik van beheerde identiteiten in Azure API Management
 
-In dit artikel leest u over het maken van een beheerde service-identiteit voor een exemplaar van API Management-service en voor toegang tot andere resources. Een beheerde service-identiteit die is gegenereerd door Azure Active Directory (Azure AD) kunt uw exemplaar van API Management eenvoudig en veilig toegang krijgen tot andere Azure AD-beveiligde bronnen, zoals Azure Key Vault. Deze beheerde service-identiteit wordt beheerd door Azure en vereist niet dat u in te richten of er geheimen draaien. Zie voor meer informatie over Azure beheerde Service-identiteit, [beheerde Service-identiteit voor Azure-resources](../active-directory/msi-overview.md).
+In dit artikel leest u over het maken van een beheerde identiteit voor een exemplaar van API Management-service en voor toegang tot andere resources. Een beheerde identiteit die is gegenereerd door Azure Active Directory (Azure AD) kunt uw exemplaar van API Management eenvoudig en veilig toegang krijgen tot andere Azure AD-beveiligde bronnen, zoals Azure Key Vault. Deze identiteit wordt beheerd door Azure en vereist niet dat u in te richten of er geheimen draaien. Zie voor meer informatie over beheerde identiteiten [wat is beheerde identiteiten voor Azure-resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="create-a-managed-service-identity-for-an-api-management-instance"></a>Maken van een beheerde service-identiteit voor een exemplaar van API Management
+## <a name="create-a-managed-identity-for-an-api-management-instance"></a>Een beheerde identiteit voor een exemplaar van API Management maken
 
 ### <a name="using-the-azure-portal"></a>Azure Portal gebruiken
 
-Als u een beheerde service-identiteit in de portal instelt, wordt u maakt eerst een exemplaar van API Management als normale en schakel vervolgens de functie.
+Als u een beheerde identiteit in de portal instelt, wordt u maakt eerst een exemplaar van API Management als normale en schakel vervolgens de functie.
 
 1. API Management-exemplaar maken in de portal zoals u gewend bent. Navigeren in de portal.
-2. Selecteer **beheerde service-identiteit**.
+2. Selecteer **beheerde service-identiteiten**.
 3. Registreren bij Azure Active Directory overschakelen naar op. Klik op Opslaan.
 
 ![Inschakelen van MSI](./media/api-management-msi/enable-msi.png)
@@ -80,7 +80,7 @@ Bijvoorbeeld, uitzien een volledige Azure Resource Manager-sjabloon als volgt:
 ## <a name="use-the-managed-service-identity-to-access-other-resources"></a>De beheerde service-identiteit gebruiken voor toegang tot andere resources
 
 > [!NOTE]
-> Beheerde service-identiteit kan op dit moment worden gebruikt om certificaten te verkrijgen uit Azure Key Vault voor aangepaste domeinnamen voor API Management. Meer scenario's zal binnenkort worden ondersteund.
+> Beheerde identiteiten kunnen op dit moment worden gebruikt om certificaten te verkrijgen uit Azure Key Vault voor aangepaste domeinnamen voor API Management. Meer scenario's zal binnenkort worden ondersteund.
 >
 >
 
@@ -110,7 +110,7 @@ Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -S
 
 Het volgende voorbeeld ziet u een Azure Resource Manager-sjabloon met de volgende stappen uit:
 
-1. Maak een exemplaar van API Management met een beheerde service-identiteit.
+1. Maak een exemplaar van API Management met een beheerde identiteit.
 2. Bijwerken van het toegangsbeleid van een Azure Key Vault-instantie en de API Management-exemplaar te verkrijgen geheimen toestaan.
 3. De API Management-exemplaar bijwerken door in te stellen van een aangepaste domeinnaam via een certificaat van de Key Vault-instantie.
 
@@ -238,7 +238,7 @@ Het volgende voorbeeld ziet u een Azure Resource Manager-sjabloon met de volgend
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over Azure Managed Service Identity:
+Meer informatie over beheerde identiteiten voor Azure-resources:
 
-* [Beheerde Service-identiteit voor Azure-resources](../active-directory/msi-overview.md)
+* [Wat is beheerde identiteiten voor Azure-resources](../active-directory/managed-identities-azure-resources/overview.md)
 * [Azure Resource Manager-sjablonen](https://github.com/Azure/azure-quickstart-templates)

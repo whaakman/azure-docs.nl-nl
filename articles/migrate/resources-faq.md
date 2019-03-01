@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: snehaa
-ms.openlocfilehash: 9d1820215dd2b81edb694d71a1b9496237876d05
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 9577e2c8eea153b38475bf5126a41641b3642ae9
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416187"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991322"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - Asked Frequently Questions (FAQ)
 
@@ -176,7 +176,7 @@ Deze eigenschappen zijn alleen van toepassing wanneer de grootte wordt bepaald o
 
 ### <a name="what-is-dependency-visualization"></a>Wat is visualisatie van afhankelijkheden?
 
-Visualisatie van afhankelijkheden, kunt u groepen met VM's voor migratie met meer vertrouwen beoordelen door machineafhankelijkheden cross controleren voordat u een evaluatie uitvoert. Visualisatie van afhankelijkheden helpt u om ervoor te zorgen dat er niets is overgebleven, voorkomen van onverwachte storingen wanneer u naar Azure migreert. Azure Migrate maakt gebruik van de oplossing Serviceoverzicht in Log Analytics om in te schakelen visualisatie van afhankelijkheden.
+Visualisatie van afhankelijkheden, kunt u groepen met VM's voor migratie met meer vertrouwen beoordelen door machineafhankelijkheden cross controleren voordat u een evaluatie uitvoert. Visualisatie van afhankelijkheden helpt u om ervoor te zorgen dat er niets is overgebleven, voorkomen van onverwachte storingen wanneer u naar Azure migreert. Azure Migrate maakt gebruik van de oplossing Serviceoverzicht in Logboeken van Azure Monitor om in te schakelen visualisatie van afhankelijkheden.
 
 ### <a name="do-i-need-to-pay-to-use-the-dependency-visualization-feature"></a>Moet ik betalen voor het gebruik van de functie voor visualisatie van afhankelijkheden?
 
@@ -217,7 +217,7 @@ De lijst van Windows-besturingssystemen wordt ondersteund door de agent voor afh
 De lijst met Linux-besturingssystemen wordt ondersteund door de agent voor afhankelijkheden is [hier](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### <a name="can-i-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Kan ik meer dan één uur duurt afhankelijkheden in Azure Migrate visualiseren?
-Nee, kunt u visualiseren afhankelijkheden voor de duur van maximaal één uur voor Azure Migrate. Azure Migrate kunt u terugkeren naar een bepaalde datum in de geschiedenis voor maximaal laatste maand, maar de maximale duur waarvoor u de afhankelijkheden visualiseren is tot 1 uur. Bijvoorbeeld, u kunt de functionaliteit van de duur van de tijd in de kaart van afhankelijkheden, gebruiken om afhankelijkheden voor gisteren, maar kan alleen weergeven voor een venster van één uur. Echter, kunt u Log Analytics [query uitvoeren op de afhankelijkheidsgegevens](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) gedurende een langere periode.
+Nee, kunt u visualiseren afhankelijkheden voor de duur van maximaal één uur voor Azure Migrate. Azure Migrate kunt u terugkeren naar een bepaalde datum in de geschiedenis voor maximaal laatste maand, maar de maximale duur waarvoor u de afhankelijkheden visualiseren is tot 1 uur. Bijvoorbeeld, u kunt de functionaliteit van de duur van de tijd in de kaart van afhankelijkheden, gebruiken om afhankelijkheden voor gisteren, maar kan alleen weergeven voor een venster van één uur. Echter, kunt u logboeken met Azure Monitor [query uitvoeren op de afhankelijkheidsgegevens](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) gedurende een langere periode.
 
 ### <a name="is-dependency-visualization-supported-for-groups-with-more-than-10-vms"></a>Visualisatie van afhankelijkheden is wordt ondersteund voor groepen met meer dan 10 virtuele machines?
 U kunt [visualiseren afhankelijkheden voor groepen](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) die maximaal 10 virtuele machines hebben. Als u een groep met meer dan 10 virtuele machines hebt, raden we u aan de groep in kleinere groepen splitsen en de afhankelijkheden visualiseren.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 21175e74bd40d0d4aeaf1c0a1e677f1c8113e80a
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 9a2cf35203c673d6296754360ac4f794241d4c43
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738008"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008675"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Met behulp van Azure API Management-service met een intern virtueel netwerk
 Met virtuele netwerken van Azure beheren Azure API Management API's die niet toegankelijk is via internet. Een aantal VPN-technologieën zijn beschikbaar voor het maken van de verbinding. API Management kan worden geïmplementeerd in twee belangrijke modi binnen een virtueel netwerk:
@@ -74,7 +74,7 @@ U kunt ook verbinding met het virtuele netwerk inschakelen met behulp van PowerS
 
 * Een API Management-service binnen een virtueel netwerk maken: Gebruik de cmdlet [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) naar een Azure API Management-service binnen een virtueel netwerk maken en configureren voor het gebruik van het type intern virtueel netwerk.
 
-* Een bestaande API Management-service binnen een virtueel netwerk implementeert: Gebruik de cmdlet [Update AzApiManagementDeployment](/powershell/module/az.apimanagement/update-azapimanagementdeployment) te verplaatsen van een bestaande API Management-service binnen een virtueel netwerk configureren voor het gebruik van het type intern virtueel netwerk.
+* Een bestaande implementatie van een API Management-service binnen een virtueel netwerk bijwerken: Gebruik de cmdlet [Update AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) te verplaatsen van een bestaande API Management-service binnen een virtueel netwerk configureren voor het gebruik van het type intern virtueel netwerk.
 
 ## <a name="apim-dns-configuration"></a>DNS-configuratie
 Wanneer er is een API Management in de modus voor extern virtueel netwerk, worden de DNS-server wordt beheerd door Azure. U hebt voor het beheren van uw eigen routering voor de modus intern virtueel netwerk.

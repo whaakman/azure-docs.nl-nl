@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 19e340609e80998037938bdad59e9e6e74894bad
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 00a6e518dd6ffa8ea5a38e8433da02e0b88fce20
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098303"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010707"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>Kennismaken met de oplossingsversneller Verbonden factory
 
@@ -229,7 +229,7 @@ De web-app geïmplementeerd als onderdeel van de oplossingsversnellers bevat een
 
 U kunt verder aan de slag gaan met IoT-oplossingsversnellers door de volgende artikelen te lezen:
 
-* [Machtigingen op de site azureiotsuite.com][lnk-permissions]
+* [Machtigingen op de site azureiotsolutions.com][lnk-permissions]
 * [Een gateway implementeren in Windows of Linux voor de oplossingsversneller Verbonden factory](iot-accelerators-connected-factory-gateway-deployment.md)
 * [OPC Publisher reference implementation](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md) (Implementatie ter referentie van OPC Publisher).
 

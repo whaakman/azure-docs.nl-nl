@@ -1,18 +1,19 @@
 ---
 title: Meer informatie over apparaatdubbels Azure IoT Hub | Microsoft Docs
 description: Handleiding voor ontwikkelaars - apparaatdubbels gebruiken om de status en configuratie van gegevens tussen IoT-Hub en uw apparaten te synchroniseren
-author: fsautomata
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.author: elioda
-ms.openlocfilehash: 606a7c64cc60fa81a71bf40a8087875e08e7c984
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 4cbb8e389f403aeb149998acc21956ebce40be78
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053020"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011497"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Begrijpen en gebruiken van apparaatdubbels in IoT Hub
 
@@ -181,14 +182,14 @@ De back-end van de oplossing is van invloed op het dubbele apparaat met behulp v
 
    - Properties
 
-   | Name | Waarde |
+   | Name | Value |
    | --- | --- |
    $content-type | application/json |
    $iothub-enqueuedtime |  Tijd waarop de melding is verzonden |
    $iothub-bericht-bron | twinChangeEvents |
-   $content-codering | utf-8 |
+   $content-encoding | utf-8 |
    deviceId | ID van het apparaat |
-   HubName | Naam van IoT Hub |
+   hubName | Naam van IoT Hub |
    operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp van bewerking |
    iothub-bericht-schema | deviceLifecycleNotification |
    opType | "replaceTwin" of "updateTwin" |

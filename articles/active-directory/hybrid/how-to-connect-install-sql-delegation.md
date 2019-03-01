@@ -16,12 +16,12 @@ ms.date: 02/26/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41859195474f19906118dbe94503bcbe04d0ac65
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 31cfcc6d2309b90565f71a7827fb7057145323c3
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960357"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192409"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Installeer Azure AD Connect met behulp van SQL delegated administrator-machtigingen
 Voordat u de nieuwste build van Azure AD Connect, met beheerdersrechten de delegatie, bij het implementeren van configuraties die SQL vereist, niet wordt ondersteund.  Gebruikers die wil Azure AD Connect installeert die nodig zijn om machtigingen voor serverbeheerders (SA) op de SQL server.
@@ -59,9 +59,9 @@ Gebruik de volgende stappen voor het inrichten van de buiten-band-database en Az
  3. Een e-mailbericht verzenden naar de Azure AD Connect-beheerder die wijzen op de naam van SQL server en het exemplaar dat moet worden gebruikt bij het installeren van Azure AD Connect.
 
 ## <a name="additional-information"></a>Aanvullende informatie
-Zodra de database is ingericht, wordt dit door de beheerder van de Azure AD Connect kunt installeren en configureren van on-premises synchronisatie op het gebruiksgemak.  
+Zodra de database is ingericht, wordt dit door de beheerder van de Azure AD Connect kunt installeren en configureren van on-premises synchronisatie op het gebruiksgemak.
 
-Zie voor meer informatie over het installeren van Azure AD Connect met een bestaande database [Installeer Azure AD Connect met behulp van een bestaande ADSync-database](how-to-connect-install-existing-database.md)
+Als de SQL-beheerder ADSync-database vanuit een eerdere back-up van Azure AD Connect teruggezet heeft, moet u de nieuwe Azure AD Connect-server installeren met behulp van een bestaande database. Zie voor meer informatie over het installeren van Azure AD Connect met een bestaande database [Installeer Azure AD Connect met behulp van een bestaande ADSync-database](how-to-connect-install-existing-database.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Aan de slag met Azure AD Connect met Express-instellingen](how-to-connect-install-express.md)

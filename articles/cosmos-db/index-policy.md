@@ -4,14 +4,14 @@ description: Begrijp hoe indexering werkt in Azure Cosmos DB. Informatie over he
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2018
+ms.date: 3/1/2019
 ms.author: mjbrown
-ms.openlocfilehash: 6c145b58a1f0eaaf93fb5797028e11ba8338d6be
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2b46638a7e0fa3dc80fa4d2fa23d49b37b8885ec
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460230"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193144"
 ---
 # <a name="index-policy-in-azure-cosmos-db"></a>Index-beleid in Azure Cosmos DB
 
@@ -23,9 +23,9 @@ U kunt overschrijven de standaardbeleidsregels voor indexering van beleid voor e
 
 * **Configureren van index modi**: Met behulp van het indexeringsbeleid voor een container, kunt u verschillende modi voor indexering zoals *consistente* of *geen*.
 
-## <a name="indexing-modes"></a>Modi indexeren 
+## <a name="indexing-modes"></a>Modi indexeren
 
-Azure Cosmos DB ondersteunt twee modi voor indexering die u voor een Azure Cosmos-container configureren kunt. U kunt de volgende twee modi voor indexering via het indexeringsbeleid kunt configureren: 
+Azure Cosmos DB ondersteunt twee modi voor indexering die u voor een Azure Cosmos-container configureren kunt. U kunt de volgende twee modi voor indexering via het indexeringsbeleid kunt configureren:
 
 * **Consistente**: Als van de container van een Azure Cosmos-beleid is ingesteld op een consistente, de query's op een specifieke container, volgt u de dezelfde consistentieniveau als het account dat is opgegeven voor punt-leesbewerkingen (bijvoorbeeld: sterk, gebonden veroudering, sessie, of uiteindelijke). 
 
@@ -37,6 +37,9 @@ Azure Cosmos DB ondersteunt twee modi voor indexering die u voor een Azure Cosmo
   > De modus voor indexering configureren als een geen heeft een neveneffect van het verwijderen van alle bestaande indexen. U moet deze optie gebruiken als uw patronen voor databasetoegang ID vereisen of self link alleen.
 
 Query-consistentieniveaus worden die vergelijkbaar is met de reguliere leesbewerkingen bijgehouden. Azure Cosmos-database, wordt er een fout geretourneerd als u een query uitvoeren op de container met een geen modus te indexeren. U kunt de query's uitvoeren als scans via de expliciete **x-ms-documentdb-enable-scan** -header in de REST-API of de **EnableScanInQuery** optie vragen via de .NET SDK. Sommige query functies, zoals ORDER BY worden momenteel niet ondersteund met **EnableScanInQuery**, omdat ze een bijbehorende index verplichten.
+
+> [!NOTE]
+> Azure Cosmos DB heeft een derde, vertraagde indexering modus. Maar dit wordt opgeheven benadrukte omdat de queryprestaties en kosten kunnen onvoorspelbaar zijn. Het is raadzaam om met behulp van consistente indexering modus.
 
 ## <a name="modifying-the-indexing-policy"></a>Wijzigen van het indexeringsbeleid
 

@@ -1,5 +1,5 @@
 ---
-title: CI/CD met Azure Dev spaties | Microsoft Docs
+title: Met behulp van CI/CD met Azure Dev spaties
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -7,22 +7,22 @@ ms.subservice: azds-kubernetes
 author: DrEsteban
 ms.author: stevenry
 ms.date: 12/17/2018
-ms.topic: article
+ms.topic: conceptual
 manager: yuvalm
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, containers
-ms.openlocfilehash: 0abe2902248c8203046cfe891d136ca7d5d0a75b
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: b614a517874363be95ff17d802995a927a15af2f
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55666896"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194620"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>CI/CD met Azure Dev opslagruimten gebruiken
 
 In dit artikel begeleidt u bij het instellen van continue integratie/continue implementatie (CI/CD) naar Azure Kubernetes Service (AKS) met Dev spaties ingeschakeld. CI/CD naar AKS kunt app-updates worden automatisch geïmplementeerd wanneer toegezegde code naar uw opslagplaats wordt gepusht. CI/CD in combinatie met een Dev-ruimten met is ingeschakelde cluster nuttig omdat deze een basislijn van de toepassing voor het team om te werken met up-to-date kunt houden.
 
-![Voorbeeld van de CI/CD-diagram](../media/common/ci-cd-simple.png)
+![Voorbeeld van CI/CD-diagram](../media/common/ci-cd-simple.png)
 
 Hoewel dit artikel u met Azure DevOps helpt, zou dezelfde concepten worden toegepast met CI/CD-systemen, zoals Jenkins, TeamCity, enzovoort.
 
@@ -44,7 +44,7 @@ Maak een nieuwe ruimte met de naam _dev_ met behulp van de `azds space select` o
 azds space select -n dev
 ```
 
-Wanneer u hierom wordt gevraagd om te selecteren van een bovenliggende dev-ruimte, selecteert u  _\<geen\>_.
+Wanneer u wordt gevraagd een bovenliggende dev-ruimte te selecteren, selecteert u _\<geen\>_.
 
 De _dev_ ruimte bevat altijd de meest recente status van de opslagplaats, een basislijn, zodat ontwikkelaars kunnen maken _onderliggende spaties_ van _dev_ voor het testen van hun geïsoleerde wijzigingen in de context van de grotere app. Dit concept wordt in meer detail beschreven in de zelfstudies Dev spaties.
 

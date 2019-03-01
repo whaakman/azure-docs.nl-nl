@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96e2c3cfd509c9b0b77d0db00add31b58a07ce6a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ca079fa2ec41f85c365102fbd81ffde23e97e2c4
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206545"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990489"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Onjuiste wachtwoorden in uw organisatie te elimineren
 
@@ -96,7 +96,7 @@ Voorbeeld: een gebruiker het wachtwoord wijzigt naar "C0ntos0Blank12"
 
 Na normaliseren wordt dit wachtwoord 'contosoblank12'. Het overeenkomende proces wordt gevonden dat dit wachtwoord twee uitgesloten wachtwoorden bevat: contoso en leeg. Dit wachtwoord wordt vervolgens een score gegeven:
 
-[contoso] + [lege] [1] = + [2] = 4 punten omdat dit wachtwoord onder 5 punten is, wordt dit geweigerd.
+[contoso] + [lege] + [1] + [2] = 4 punten omdat dit wachtwoord onder 5 punten is, wordt dit geweigerd.
 
 Voorbeeld: een gebruiker wijzigt het wachtwoord op 'ContoS0Bl@nkf9! ".
 

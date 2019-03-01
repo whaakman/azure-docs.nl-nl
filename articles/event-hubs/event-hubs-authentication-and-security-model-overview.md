@@ -15,12 +15,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 6f4abd9f826864914abee0b5d513d5b1c530d416
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 19b347423c28b4c615f90f325ead462b9d3e8e9e
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104149"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990031"
 ---
 # <a name="azure-event-hubs---authentication-and-security-model"></a>Azure Eventhubs - verificatie en beveiligingsmodel
 
@@ -68,13 +68,13 @@ nm.CreateEventHub(ed);
 
 ### <a name="generate-tokens"></a>Genereren van tokens
 
-U kunt met behulp van de SAS-sleutel genereren. U moet slechts één token per client produceren. Tokens kunnen vervolgens worden gemaakt met behulp van de volgende methode. Alle tokens worden gegenereerd met behulp van de **EventHubSendKey** sleutel. Elke token is een unieke URI toegewezen.
+U kunt met behulp van de SAS-sleutel genereren. U moet slechts één token per client produceren. Tokens kunnen vervolgens worden gemaakt met behulp van de volgende methode. Alle tokens worden gegenereerd met behulp van de **EventHubSendKey** sleutel. Elke token is een unieke URI toegewezen. De parameter 'resource' komt overeen met het eindpunt van de URI van de service (event hub in dit geval).
 
 ```csharp
 public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)
 ```
 
-Bij het aanroepen van deze methode, de URI moet worden opgegeven als `//<NAMESPACE>.servicebus.windows.net/<EVENT_HUB_NAME>/publishers/<PUBLISHER_NAME>`. Voor alle tokens, de URI is identiek zijn, met uitzondering van `PUBLISHER_NAME`, die moet verschillen voor elk token. In het ideale geval `PUBLISHER_NAME` Hiermee geeft u de ID van de client die dit token ontvangt.
+Bij het aanroepen van deze methode, de URI moet worden opgegeven als `https://<NAMESPACE>.servicebus.windows.net/<EVENT_HUB_NAME>/publishers/<PUBLISHER_NAME>`. Voor alle tokens, de URI is identiek zijn, met uitzondering van `PUBLISHER_NAME`, die moet verschillen voor elk token. In het ideale geval `PUBLISHER_NAME` Hiermee geeft u de ID van de client die dit token ontvangt.
 
 Deze methode een token met de volgende structuur wordt gegenereerd:
 

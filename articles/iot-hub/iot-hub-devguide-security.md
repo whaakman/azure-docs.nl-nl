@@ -1,19 +1,19 @@
 ---
 title: Meer uitleg over Azure IoT Hub-beveiliging | Microsoft Docs
 description: Ontwikkelaars begeleiden - toegang tot IoT Hub voor apps op apparaten en back-end-apps beheren. Bevat informatie over de beveiligingstokens en ondersteuning voor X.509-certificaten.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.author: dobett
-ms.openlocfilehash: f347c9ca3d56bedcc838d72ca15793bd13ee19ad
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 5d360e0959a61cde763f5aafe62de38f6c03e806
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563929"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011174"
 ---
 # <a name="control-access-to-iot-hub"></a>Toegang tot IoT Hub regelen
 

@@ -9,17 +9,17 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 02/24/2019
-ms.openlocfilehash: ed172db6aaa064cfed319a4190306d91aa846c48
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: ff43a55429eb69a7f98fd4da7fdbeb5d4e51513c
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806824"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991245"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Toegang tot resources van Azure Virtual Network van Azure Logic Apps met behulp van de integratie van service-omgevingen (ISEs)
 
 > [!NOTE]
-> Deze mogelijkheid is in *preview-versie*.
+> Deze mogelijkheid is in [ *openbare preview*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Soms uw logic apps en integratieaccounts toegang tot beveiligde bronnen, zoals virtuele machines (VM's) en andere systemen of -services, moeten een [virtueel Azure-netwerk](../virtual-network/virtual-networks-overview.md). Als u deze toegang instelt, kunt u [maken een *integratieserviceomgeving* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) voor het uitvoeren van uw logic apps en integratieaccounts. Wanneer u een ISE maakt, wordt een privé- en geïsoleerde instantie van de Logic Apps-service in uw Azure-netwerk in Azure geïmplementeerd. Dit privé-exemplaar toegewezen resources, zoals opslag gebruikt en wordt afzonderlijk van de openbare 'global' Logic Apps-service wordt uitgevoerd. Het scheiden van uw geïsoleerde privé-instantie en de openbare globale exemplaar ook vermindert de invloed die andere Azure-tenants kunnen hebben op de prestaties van uw apps, die ook wel bekend als de ['luidruchtige buren'-effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors).
 

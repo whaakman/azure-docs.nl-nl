@@ -1,19 +1,19 @@
 ---
 title: Informatie over de ingebouwde Azure IoT Hub-eindpunt | Microsoft Docs
 description: Handleiding voor ontwikkelaars - wordt beschreven hoe u van de ingebouwde, Event Hub-compatibele eindpunt om apparaat-naar-cloud-berichten te lezen.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.author: dobett
-ms.openlocfilehash: 81cdd53769cc33daaed70ba824a0a3bbf68f8134
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 292e2c53c298856b7420dde7e85e4f6636b56178
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877228"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008233"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Apparaat-naar-cloud-berichten lezen van het geïntegreerde eindpunt
 

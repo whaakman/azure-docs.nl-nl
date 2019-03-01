@@ -17,12 +17,12 @@ ms.date: 08/30/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8254766568c54748ee3646dd627a102ffc86e743
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d34b416fd8c9e87006a0fe5d7a7e30521ef03e2b
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191347"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193684"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Azure AD Connect met behulp van een bestaande ADSync-database installeren
 Azure AD Connect vereist een SQL Server-database voor het opslaan van gegevens. U kunt de standaard die SQL Server 2012 Express LocalDB geïnstalleerd met Azure AD Connect of gebruik uw eigen volledige versie van SQL. Voorheen was tijdens de installatie van Azure AD Connect, is een nieuwe database met de naam ADSync altijd gemaakt. Met Azure AD Connect versie 1.1.613.0 (of na) hebt u de optie voor het Azure AD Connect installeren door het aan te wijzen aan een bestaande ADSync-database.
@@ -62,7 +62,7 @@ Belangrijke opmerkingen te nemen Let van op voordat u doorgaat:
 3.  Start een nieuwe opdrachtprompt of PowerShell-sessie. Ga naar de map <drive>\program files\Microsoft Azure AD Connect. Voer de opdracht .\AzureADConnect.exe /useexistingdatabase uit om de wizard Azure AD Connect te starten in de installatiemodus Bestaande database gebruiken.
 
 > [!NOTE]
-> Gebruik de schakeloptie **/useexistingdatabase** alleen wanneer de database bevat al gegevens uit een eerdere installatie van de Azure AD Connect. Bijvoorbeeld, wanneer u vanaf een lokale database wilt verplaatsen naar een volledige SQL Server-database of wanneer de Azure AD Connect-server opnieuw is opgebouwd en u een SQL back-up teruggezet van de ADSync-database van een eerdere installatie van Azure AD Connect. Als u een lege database gemaakt en deze voor installatie gebruiken, moet u deze stap overslaan.
+> Gebruik de schakeloptie **/useexistingdatabase** alleen wanneer de database bevat al gegevens uit een eerdere installatie van de Azure AD Connect. Bijvoorbeeld, wanneer u vanaf een lokale database wilt verplaatsen naar een volledige SQL Server-database of wanneer de Azure AD Connect-server opnieuw is opgebouwd en u een SQL back-up teruggezet van de ADSync-database van een eerdere installatie van Azure AD Connect. Als de database leeg is, dat wil zeggen, deze niet bevat geen gegevens van een eerdere installatie van de Azure AD Connect, deze stap overslaan.
 
 ![PowerShell](./media/how-to-connect-install-existing-database/db2.png)
 4.  U wordt verwelkomd met het scherm Welkom bij Azure AD Connect. Nadat u akkoord bent gegaan met de licentievoorwaarden en privacyverklaring, klikt u op **Doorgaan**.

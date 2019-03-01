@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2a5876a3f77eb0764edc5ce833f4b74284dda66
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ce4ad48a81d5f3b3b8574237b8d8685ad9b141ec
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211713"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194196"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: Upgraden van DirSync
 Azure AD Connect is de opvolger van DirSync. In dit onderwerp vindt u de manieren voor het upgraden van DirSync. Deze stappen werken niet voor een upgrade van een andere versie van Azure AD Connect of Azure AD Sync.
@@ -71,7 +71,7 @@ De volgende wijziging kan niet worden bijgewerkt. Als u deze configuratie hebt, 
 
 ![Upgrade geblokkeerd](./media/how-to-dirsync-upgrade-get-started/analysisblocked.png)
 
-In dit soort gevallen wordt het installeren van een nieuwe Azure AD Connect-server in de [faseringsmodus](how-to-connect-sync-operations.md#staging-mode) en het controleren van de oude DirSync en nieuwe Azure AD Connect-configuratie aanbevolen. Pas eventuele wijzigingen aan met behulp van aangepaste configuratie, zoals beschreven in [Aangepaste configuratie Azure AD Connect-synchronisatie](how-to-connect-sync-whatis.md).
+In dit soort gevallen wordt het installeren van een nieuwe Azure AD Connect-server in de [faseringsmodus](how-to-connect-sync-staging-server.md) en het controleren van de oude DirSync en nieuwe Azure AD Connect-configuratie aanbevolen. Pas eventuele wijzigingen aan met behulp van aangepaste configuratie, zoals beschreven in [Aangepaste configuratie Azure AD Connect-synchronisatie](how-to-connect-sync-whatis.md).
 
 De wachtwoorden die door DirSync worden gebruikt voor de serviceaccounts kunnen niet worden opgehaald en worden niet gemigreerd. Deze wachtwoorden worden opnieuw ingesteld tijdens de upgrade.
 
@@ -161,12 +161,12 @@ Wanneer u Azure AD Connect installeert op een nieuwe server, gaat deze ervan uit
      Deze opties zijn te zien op dit scherm:  
      ![Voer uw Azure AD-referenties in](./media/how-to-dirsync-upgrade-get-started/advancedsettings.png)
 7. Klik op **Volgende**.
-8. Laat op de pagina **Gereed voor configuratie** het vakje **Start het synchronisatieproces zodra de configuratie is voltooid** aangevinkt. De server is nu in de [faseringsmodus](how-to-connect-sync-operations.md#staging-mode) dus wijzigingen worden niet geëxporteerd naar Azure AD.
+8. Laat op de pagina **Gereed voor configuratie** het vakje **Start het synchronisatieproces zodra de configuratie is voltooid** aangevinkt. De server is nu in de [faseringsmodus](how-to-connect-sync-staging-server.md) dus wijzigingen worden niet geëxporteerd naar Azure AD.
 9. Klik op **Install**.
 10. Nadat de installatie is voltooid, dient u zich af te melden en weer aan te melden bij Windows vóór u Synchronization Service Manager of Synchronization Rule Editor gaat gebruiken of andere configuratiewijzigingen gaat maken.
 
 > [!NOTE]
-> De synchronisatie van Windows Server Active Directory en Azure Active Directory wordt gestart, maar er worden geen wijzigingen geëxporteerd naar Azure AD. Slechts één synchronisatieprogramma tegelijk kan actief wijzigingen exporteren. Deze status wordt de [faseringsmodus](how-to-connect-sync-operations.md#staging-mode) genoemd.
+> De synchronisatie van Windows Server Active Directory en Azure Active Directory wordt gestart, maar er worden geen wijzigingen geëxporteerd naar Azure AD. Slechts één synchronisatieprogramma tegelijk kan actief wijzigingen exporteren. Deze status wordt de [faseringsmodus](how-to-connect-sync-staging-server.md) genoemd.
 
 ### <a name="verify-that-azure-ad-connect-is-ready-to-begin-synchronization"></a>Controleren of Azure AD Connect gereed is voor de synchronisatie
 Om te controleren of Azure AD Connect gereed is om het over te nemen van DirSync dient u **Synchronization Service Manager** in de groep **Azure AD Connect** te openen vanuit het startmenu.
@@ -182,7 +182,7 @@ Ga in de toepassing naar het tabblad **Bewerkingen**. Op dit tabblad moet u beve
 
 Controleer het resultaat van deze bewerkingen en zorg ervoor dat er geen fouten zijn.
 
-Als u de wijzigingen die op het punt staan geëxporteerd te worden naar Azure AD wilt bekijken en controleren, lees dan hier hoe u de configuratie onder [faseringsmodus](how-to-connect-sync-operations.md#staging-mode) kunt controleren. Voer de vereiste wijzigingen door in de configuratie zodat alles klopt.
+Als u de wijzigingen die op het punt staan geëxporteerd te worden naar Azure AD wilt bekijken en controleren, lees dan hier hoe u de configuratie onder [faseringsmodus](how-to-connect-sync-staging-server.md) kunt controleren. Voer de vereiste wijzigingen door in de configuratie zodat alles klopt.
 
 U kunt van DirSync overschakelen naar Azure AD wanneer u deze stappen hebt uitgevoerd en blij bent met het resultaat.
 

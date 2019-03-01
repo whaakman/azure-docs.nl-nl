@@ -1,19 +1,19 @@
 ---
 title: De Azure portal gebruiken voor het uploaden van bestanden configureren | Microsoft Docs
 description: Het gebruik van de Azure-portal naar uw IoT-hub zodat het uploaden van bestanden van verbonden apparaten configureren. Bevat informatie over het configureren van de bestemming Azure storage-account.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/03/2017
-ms.author: dobett
-ms.openlocfilehash: a9f9eeaed2716c5d492099568fd6f90080471af2
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.author: robin.shahan
+ms.openlocfilehash: 04f3f05c8c18a3356c282144cda62d1f980362fe
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42060164"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008438"
 ---
 # <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>IoT Hub-bestand wordt geüpload met behulp van de Azure-portal configureren
 
@@ -25,17 +25,17 @@ Gebruik de [bestand functionaliteit voor het uploaden van IoT-Hub](iot-hub-devgu
 
 ![IoT Hub-bestand voor de weergave-instellingen in de portal uploaden](./media/iot-hub-configure-file-upload/file-upload-settings.png)
 
-* **Storage-container**: de Azure portal gebruiken voor het selecteren van een blob-container in een Azure Storage-account in uw huidige Azure-abonnement koppelen aan uw IoT-Hub. Indien nodig, kunt u een Azure Storage-account op de **opslagaccounts** blade en blob-container op de **Containers** blade. IoT Hub wordt automatisch gegenereerd SAS URI's met schrijfmachtigingen voor deze blob-container voor apparaten moet worden gebruikt bij het uploaden van bestanden.
+* **Storage-container**: De Azure portal gebruiken voor het selecteren van een blob-container in een Azure Storage-account in uw huidige Azure-abonnement koppelen aan uw IoT-Hub. Indien nodig, kunt u een Azure Storage-account op de **opslagaccounts** blade en blob-container op de **Containers** blade. IoT Hub wordt automatisch gegenereerd SAS URI's met schrijfmachtigingen voor deze blob-container voor apparaten moet worden gebruikt bij het uploaden van bestanden.
 
    ![Storage-containers voor het uploaden van bestand weergeven in de portal](./media/iot-hub-configure-file-upload/file-upload-container-selection.png)
 
-* **Meldingen over geüploade bestanden ontvangen**: in- of uitschakelen van bestand uploaden meldingen via de in-/ uitschakelen.
+* **Meldingen over geüploade bestanden ontvangen**: In- of uitschakelen van bestand uploaden meldingen via de in-/ uitschakelen.
 
-* **SAS TTL**: deze instelling wordt de time-to-live van de SAS-URI's op het apparaat wordt geretourneerd door de IoT Hub. Standaard ingesteld op één uur, maar kan worden aangepast aan andere waarden met behulp van de schuifregelaar.
+* **SAS TTL**: Deze instelling is de time-to-live van de SAS-URI's op het apparaat wordt geretourneerd door de IoT Hub. Standaard ingesteld op één uur, maar kan worden aangepast aan andere waarden met behulp van de schuifregelaar.
 
-* **Melding instellingen standaard TTL-bestand**: de time-to-live van een bestand uploaden melding voordat deze is verlopen. Standaard ingesteld op één dag, maar kan worden aangepast aan andere waarden met behulp van de schuifregelaar.
+* **Melding instellingen standaard TTL-bestand**: De time-to-live van een bestand uploaden van melding voordat deze is verlopen. Standaard ingesteld op één dag, maar kan worden aangepast aan andere waarden met behulp van de schuifregelaar.
 
-* **Maximumaantal leveringen voor melding bestand**: het aantal keren dat de IoT-Hub wil ervoor zorgen dat een bestand uploaden een melding. Standaard ingesteld op 10, maar kan worden aangepast aan andere waarden met behulp van de schuifregelaar.
+* **Maximumaantal leveringen voor melding bestand**: Het aantal keren dat die de IoT-Hub wil ervoor zorgen dat een bestand uploaden een melding. Standaard ingesteld op 10, maar kan worden aangepast aan andere waarden met behulp van de schuifregelaar.
 
    ![Uploaden van de IoT Hub-bestanden in de portal configureren](./media/iot-hub-configure-file-upload/file-upload-selected-container.png)
 

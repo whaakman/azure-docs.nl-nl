@@ -10,13 +10,13 @@ ms.reviewer: estfan, LADocs
 manager: carmonm
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
-ms.date: 10/16/2018
-ms.openlocfilehash: 04fb86f9b8f8be2c013f9bd7449dd5a4b2bcf90c
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.date: 02/26/2019
+ms.openlocfilehash: 9b5452f112c6325dafd5edbe693b90ec2a94abc0
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854115"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990234"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Prijsmodel voor Azure Logic Apps
 
@@ -33,12 +33,12 @@ Zie voor meer informatie, [Logic Apps-prijzen](https://azure.microsoft.com/prici
 
 ## <a name="fixed-pricing-model"></a>Vaste prijsmodel
 
-Voor nieuwe logic-apps die worden uitgevoerd binnen een [ *integratieserviceomgeving* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), betaalt u maandelijks een vast bedrag voor ingebouwde acties en ISE etiket standaardconnectors. Een ISE biedt een manier voor u maken en uitvoeren van geïsoleerde logische apps die toegang hebben tot resources in een Azure-netwerk.  
+Voor nieuwe logic-apps die worden uitgevoerd binnen een [ *integratieserviceomgeving* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), betaalt u maandelijks een vast bedrag voor ingebouwde acties en standaard-connectors. Een ISE biedt een manier voor u maken en uitvoeren van geïsoleerde logische apps die toegang hebben tot resources in een Azure-netwerk. 
 
-Uw ISE bevat één gratis Enterprise-connector, waaronder het aantal verbindingen als u wilt. Gebruik voor extra Enterprise connectors worden in rekening gebracht op basis van de Enterprise-verbruik prijs. 
+De basiseenheid voor uw ISE-capaciteit, is opgelost, zodat als u meer doorvoer nodig hebt, u kunt [toevoegen van meer schaaleenheden](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), hetzij tijdens het maken of later. Uw ISE bevat één gratis Enterprise-connector, waaronder het aantal verbindingen als u wilt. Gebruik voor extra Enterprise connectors worden in rekening gebracht op basis van de Enterprise-verbruik prijs. 
 
 > [!NOTE]
-> De integratieserviceomgeving is in *privépreview*. Om te vragen tot, [maken van uw aanvraag voor deelname aan hier](https://aka.ms/iseprivatepreview). Zie voor meer informatie, [Logic Apps-prijzen](https://azure.microsoft.com/pricing/details/logic-apps).
+> Het ISE is in [ *openbare preview*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Zie voor meer informatie, [Logic Apps-prijzen](https://azure.microsoft.com/pricing/details/logic-apps).
 
 <a name="triggers"></a>
 

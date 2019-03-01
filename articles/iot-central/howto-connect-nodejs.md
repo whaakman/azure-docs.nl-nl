@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: cc6857750534dad2ded29178eb3f140fc25cce0d
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 7b1d7c50970107300676213707368f9f16e04812
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410486"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194798"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Verbinding maken met een algemene clienttoepassing aan uw Azure IoT Central-toepassing (Node.js)
 
@@ -130,7 +130,7 @@ De volgende stappen laten zien over het maken van een clienttoepassing die het e
     ```
 
   > [!NOTE]
-  > Azure IoT Central is overgeschakeld naar het gebruik van Azure IoT Hub Device Provisioning service (DPS) voor alle apparaatverbindingen, volgt u deze instrustions naar [de apparaat-verbindingsreeks ophalen](concepts-connectivity.md#getting-device-connection-string) en Ga door met de rest van de zelfstudie. Voor meer informatie vindt u ook een gedetailleerd aantal instructies in [voorbereiden van de clientcode](tutorial-add-device.md#prepare-the-client-code) in zelfstudies > een apparaat toevoegen.
+  > Azure IoT Central is overgeschakeld naar het gebruik van Azure IoT Hub Device Provisioning service (DPS) voor alle apparaatverbindingen, volgt u deze instructies voor het [de apparaat-verbindingsreeks ophalen](concepts-connectivity.md#get-a-connection-string) en Ga door met de rest van de zelfstudie. Voor meer informatie vindt u ook een gedetailleerd aantal instructies in [voorbereiden van de clientcode](tutorial-add-device.md#prepare-the-client-code) in zelfstudies > een apparaat toevoegen.
 
 
   Bijwerken van de tijdelijke aanduiding `{your device connection string}` door de verbindingsreeks van het apparaat. In dit voorbeeld wordt geïnitialiseerd `targetTemperature` op nul, eventueel tilt u de huidige lezen van het apparaat of -waarde van het dubbele apparaat. 

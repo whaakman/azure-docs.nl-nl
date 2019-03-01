@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/21/2019
+ms.date: 02/28/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aeb991de113b13666eeaab3f283b9eccd75fbd39
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 14b277e505e2a4975945f4b2f8f8410e25e0f8b3
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166026"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193582"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Wat is de locatievoorwaarde in Azure Active Directory voor voorwaardelijke toegang? 
 
@@ -59,7 +59,7 @@ Een benoemde locatie heeft de volgende onderdelen:
 
 - **Naam** -de naam van een benoemde locatie.
 
-- **IP-adresbereiken** -een of meer IPv4-adresbereiken in CIDR-indeling. Een Ipv6-adresbereik op te geven wordt niet ondersteund.
+- **IP-adresbereiken** -een of meer IPv4-adresbereiken in CIDR-indeling. Een IPv6-adresbereik op te geven wordt niet ondersteund.
 
 - **Als vertrouwde locatie markeren** -een vlag die u kunt instellen voor een benoemde locatie om aan te geven van een vertrouwde locatie bevindt. Vertrouwde locaties zijn meestal netwerkgebieden die worden beheerd door uw IT-afdeling. Naast de voorwaardelijke toegang benoemde locaties vertrouwde worden ook gebruikt door Azure Identity Protection en Azure AD-beveiligingsrapporten te verminderen [fout-positieven](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 
@@ -142,7 +142,7 @@ Azure AD geeft standaard een token op uurbasis. Nadat u hebt verplaatst uit het 
 
 ### <a name="user-ip-address"></a>IP-gebruikersadres
 
-Het IP-adres dat wordt gebruikt in de evaluatie van het beleid is het openbare IP-adres van de gebruiker. Voor apparaten in een particulier netwerk, is dit niet het client-IP-adres van het apparaat van de gebruiker op het intranet, dit is het adres dat wordt gebruikt door het netwerk verbinding maken met het openbare internet. 
+Het IP-adres dat wordt gebruikt in de evaluatie van het beleid is het openbare IP-adres van de gebruiker. Voor apparaten in een particulier netwerk, is dit niet het client-IP-adres van het apparaat van de gebruiker op het intranet, dit is het adres dat wordt gebruikt door het netwerk verbinding maken met het openbare internet. Als uw apparaat alleen een IPv6-adres heeft, wordt het configureren van de locatievoorwaarde niet ondersteund.
 
 ### <a name="bulk-uploading-and-downloading-of-named-locations"></a>Bulksgewijs uploaden en downloaden van benoemde locaties
 

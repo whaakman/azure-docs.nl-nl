@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: annahar
-ms.openlocfilehash: b06213b253b6a289513d5cc1b8fcf0f2e25897f5
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 1b130dff9d290dcce566570fd015d227d44a1310
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594794"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57191898"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>De taakverdeling op meerdere IP-configuraties met behulp van PowerShell
 
@@ -143,4 +143,4 @@ Volg onderstaande stappen voor het bereiken van het scenario in dit artikel besc
 
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over het combineren van load balancing-services in Azure in [met load balancing-services in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Lees hoe u verschillende soorten logboeken in Azure kunt gebruiken om te beheren en problemen oplossen van load balancer in het [Log analytics voor Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+- Lees hoe u verschillende soorten logboeken in Azure kunt gebruiken om te beheren en problemen oplossen van load balancer in het [Azure Monitor-logboeken voor Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).

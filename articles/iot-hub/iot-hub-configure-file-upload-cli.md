@@ -1,18 +1,19 @@
 ---
 title: Uploaden van bestanden naar IoT Hub met behulp van Azure CLI configureren | Microsoft Docs
 description: Het configureren van bestand wordt geüpload naar Azure IoT Hub met behulp van de platformoverschrijdende Azure CLI.
-author: dominicbetts
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.author: dobett
-ms.openlocfilehash: 6cd0b657c8d0352c41e0da538396b166d633306a
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.author: robin.shahan
+ms.openlocfilehash: a77635b6c022527203d1df752723aac3ce2c296c
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42055310"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010783"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>IoT Hub-bestand wordt geüpload met behulp van Azure CLI configureren
 
@@ -88,15 +89,15 @@ U kunt nu uw IoT-hub zodat de mogelijkheid om te configureren [bestanden uploade
 
 De configuratie moet de volgende waarden:
 
-* **Storage-container**: een blob-container in Azure storage-account in uw huidige Azure-abonnement koppelen aan uw IoT-hub. U hebt de benodigde opslag-accountgegevens in de voorgaande sectie hebt opgehaald. IoT Hub wordt automatisch gegenereerd SAS URI's met schrijfmachtigingen voor deze blob-container voor apparaten moet worden gebruikt bij het uploaden van bestanden.
+* **Storage-container**: Een blob-container in Azure storage-account in uw huidige Azure-abonnement koppelen aan uw IoT-hub. U hebt de benodigde opslag-accountgegevens in de voorgaande sectie hebt opgehaald. IoT Hub wordt automatisch gegenereerd SAS URI's met schrijfmachtigingen voor deze blob-container voor apparaten moet worden gebruikt bij het uploaden van bestanden.
 
-* **Meldingen over geüploade bestanden ontvangen**: bestand uploaden meldingen in of uit.
+* **Meldingen over geüploade bestanden ontvangen**: In- of bestand uploaden meldingen uitschakelen.
 
-* **SAS TTL**: deze instelling wordt de time-to-live van de SAS-URI's op het apparaat wordt geretourneerd door de IoT Hub. Standaard ingesteld op één uur.
+* **SAS TTL**: Deze instelling is de time-to-live van de SAS-URI's op het apparaat wordt geretourneerd door de IoT Hub. Standaard ingesteld op één uur.
 
-* **Melding instellingen standaard TTL-bestand**: de time-to-live van een bestand uploaden melding voordat deze is verlopen. Standaard ingesteld op één dag.
+* **Melding instellingen standaard TTL-bestand**: De time-to-live van een bestand uploaden van melding voordat deze is verlopen. Standaard ingesteld op één dag.
 
-* **Maximumaantal leveringen voor melding bestand**: het aantal keren dat de IoT-Hub wil ervoor zorgen dat een bestand uploaden een melding. Standaard ingesteld op 10.
+* **Maximumaantal leveringen voor melding bestand**: Het aantal keren dat die de IoT-Hub wil ervoor zorgen dat een bestand uploaden een melding. Standaard ingesteld op 10.
 
 Gebruik de volgende Azure CLI-opdrachten voor het configureren van instellingen voor het uploaden van uw IoT-hub:
 

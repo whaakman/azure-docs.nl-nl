@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 85beb9b7e0c62d5e1c8dae61fdd15d5faf3a294c
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 4857b1771ae66cbee25765bb5173a638cbcd223e
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985866"
+ms.locfileid: "57008590"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Een partner-ID koppelen aan uw Azure-accounts
 
@@ -142,11 +142,11 @@ De koppeling is gekoppeld op het niveau van de gebruiker. U kunt alleen bewerken
 
 **Welke MPN-ID moet ik gebruiken als mijn bedrijf meerdere heeft?**
 
-U kunt een geldige ID voor de MPN, behalve v org MPN-ID. De meeste partners kiezen voor de MPN ID voor de geografische locatie waar de klant is gebaseerd of services worden geleverd.
+U kunt een geldige ID voor de MPN, behalve virtuele orgnization(v-org) MPN-ID. De meeste partners kiezen voor de MPN ID voor de geografische locatie waar de klant is gebaseerd of services worden geleverd.
 
 **Waar vind ik beïnvloed omzet rapportage voor gekoppelde partner-ID**
 
-U vindt beïnvloed omzet rapportage op [mijn Insights dashboard](https://partner.microsoft.com/membership/reports/myinsights) door Partner Admin koppeling selecteren, zoals wordt weergegeven.
+U vindt beïnvloed omzet rapportage op [dashboard voor Beveiligingsinzichten van mijn](https://partner.microsoft.com/membership/reports/myinsights). U moet Partner Admin koppeling selecteren als het koppelingstype partner.
 
 **Waarom zie ik mijn klanten in de rapporten niet?**
 

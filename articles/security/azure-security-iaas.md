@@ -4,7 +4,7 @@ description: " De migratie van werkbelastingen naar Azure IaaS brengt kansen te 
 services: security
 documentationcenter: na
 author: barclayn
-manager: barbkess
+manager: MBaldwin
 editor: TomSh
 ms.assetid: 02c5b7d2-a77f-4e7f-9a1e-40247c57e7e2
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 6bf73bcc691e2ab27f3ec379530a59d3b616a070
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: de89e0a30f39ba97379b4d55914338702aef5c32
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341213"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990405"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Aanbevolen beveiligingsprocedures voor IaaS-workloads in Azure
 
@@ -39,7 +39,7 @@ De best practices zijn gebaseerd op een consensus van advies, en ze werken met d
 De eerste stap bij het beschermen van uw virtuele machines is om ervoor te zorgen dat alleen gemachtigde gebruikers kunnen instellen van nieuwe virtuele machines en toegang tot virtuele machines.
 
 **Beste**: De VM-toegang beheren.   
-**Details**: Gebruik [Azure beleid](../governance/policy/overview.md) conventies voor resources in uw organisatie vast te stellen en aangepaste beleidsregels maken. Dit beleid van toepassing op resources, zoals [resourcegroepen](../azure-resource-manager/resource-group-overview.md). Virtuele machines die deel uitmaken van een resourcegroep worden overgenomen voorgeschreven beleid.
+**Details**: Gebruik [Azure beleid](../azure-policy/azure-policy-introduction.md) conventies voor resources in uw organisatie vast te stellen en aangepaste beleidsregels maken. Dit beleid van toepassing op resources, zoals [resourcegroepen](../azure-resource-manager/resource-group-overview.md). Virtuele machines die deel uitmaken van een resourcegroep worden overgenomen voorgeschreven beleid.
 
 Als uw organisatie veel abonnementen heeft, moet u mogelijk een manier om efficiënt beheer van toegang, beleid en naleving voor deze abonnementen. [Azure-beheergroepen](../azure-resource-manager/management-groups-overview.md) een bepaald niveau van bereik hierboven abonnementen. U ordenen van abonnementen in beheergroepen (containers) en de voorwaarden van uw beheeracties toepassen op deze groepen. Alle abonnementen in een beheergroep worden automatisch de voorwaarden die aan de groep overgenomen. Beheergroepen bieden u beheer van bedrijfskwaliteit op grote schaal, ongeacht de typen abonnementen die u hebt.
 
@@ -153,10 +153,10 @@ Hieronder vindt u aanbevolen procedures voor het gebruik van Azure Disk Encrypti
 **Details**: Azure Disk Encryption genereert en schrijft de versleutelingssleutels in uw key vault. Beheer van versleutelingssleutels in uw key vault, vereist Azure AD-verificatie. Maak een Azure AD-toepassing voor dit doel. Voor verificatiedoeleinden wordt gebruikt, kunt u een van beide verificaties client op basis van een geheim of [Azure AD op basis van certificaten clientverificatie](../active-directory/active-directory-certificate-based-authentication-get-started.md).
 
 **Beste**: Gebruik een sleutel van versleutelingssleutel (KEK-sleutel) voor een extra beveiligingslaag voor versleutelingssleutels. Een KEK-sleutel toevoegen aan uw key vault.   
-**Details**: Gebruik de [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) cmdlet voor het maken van een sleutel van versleutelingssleutel in de key vault. U kunt ook een KEK importeren uit uw on-premises hardware security module (HSM) voor sleutelbeheer. Zie voor meer informatie de [Key Vault-documentatie](../key-vault/key-vault-hsm-protected-keys.md). Wanneer een sleutel van versleutelingssleutel is opgegeven, gebruikt Azure Disk Encryption die sleutel het verpakken van de geheimen van de versleuteling voor het schrijven naar de Key Vault. Bewaren van een escrow-kopie van deze sleutel in een on-premises biedt Sleutelbeheer HSM extra beveiliging tegen per ongeluk verwijderen van sleutels.
+**Details**: Gebruik de [toevoegen AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azurekeyvaultkey) cmdlet voor het maken van een sleutel van versleutelingssleutel in de key vault. U kunt ook een KEK importeren uit uw on-premises hardware security module (HSM) voor sleutelbeheer. Zie voor meer informatie de [Key Vault-documentatie](../key-vault/key-vault-hsm-protected-keys.md). Wanneer een sleutel van versleutelingssleutel is opgegeven, gebruikt Azure Disk Encryption die sleutel het verpakken van de geheimen van de versleuteling voor het schrijven naar de Key Vault. Bewaren van een escrow-kopie van deze sleutel in een on-premises biedt Sleutelbeheer HSM extra beveiliging tegen per ongeluk verwijderen van sleutels.
 
 **Beste**: Duren voordat een [momentopname](../virtual-machines/windows/snapshot-copy-managed-disk.md) en/of back-up voordat de schijven worden versleuteld. Back-ups bieden een optie voor siteherstel als het geval is een onverwachte fout opgetreden tijdens het versleutelen.   
-**Details**: Virtuele machines met beheerde schijven moeten u een back-up voordat versleuteling plaatsvindt. Nadat een back-up is gemaakt, kunt u de **Set-AzureRmVMDiskEncryptionExtension** cmdlet voor het versleutelen van beheerde schijven door op te geven de *- skipVmBackup* parameter. Zie voor meer informatie over hoe u een back-up en herstel van versleutelde virtuele machines, de [Azure Backup](../backup/backup-azure-vms-encryption.md) artikel.
+**Details**: Virtuele machines met beheerde schijven moeten u een back-up voordat versleuteling plaatsvindt. Nadat een back-up is gemaakt, kunt u de **Set AzVMDiskEncryptionExtension** cmdlet voor het versleutelen van beheerde schijven door op te geven de *- skipVmBackup* parameter. Zie voor meer informatie over hoe u een back-up en herstel van versleutelde virtuele machines, de [Azure Backup](../backup/backup-azure-vms-encryption.md) artikel.
 
 **Beste**: Als u wilt controleren of dat de geheimen van de versleuteling niet overschreden door de regionale grenzen, moet Azure Disk Encryption de sleutelkluis en de VM's die zich in dezelfde regio bevinden.   
 **Details**: Maak en gebruik van een key vault die zich in dezelfde regio als de virtuele machine moeten worden versleuteld.

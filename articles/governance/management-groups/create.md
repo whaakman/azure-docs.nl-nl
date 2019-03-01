@@ -10,18 +10,20 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 01bfd10b2f37a7990ab9a1badfcb09422baa391a
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 8e887409c35619261544b92395301ce06a033e8b
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342198"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992733"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Beheergroepen voor resource organisatie en beheer maken
 
 Beheergroepen zijn containers waarmee u toegang, beleid en naleving beheren voor meerdere abonnementen. Maken van deze containers voor het bouwen van een effectief en efficiënt-hiërarchie die kan worden gebruikt met [Azure Policy](../policy/overview.md) en [Azure rol-gebaseerd toegangsbeheer](../../role-based-access-control/overview.md). Zie voor meer informatie over beheergroepen [organiseren van uw resources met Azure-beheergroepen](overview.md).
 
 De eerste beheergroep die u hebt gemaakt in de map kan tot 15 minuten duren. Er zijn processen die worden uitgevoerd van de eerste keer voor het instellen van de beheerservice van groepen in Azure voor uw directory. U ontvangt een melding wanneer het proces voltooid is.
+
+[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
 ## <a name="create-a-management-group"></a>Een beheergroep maken
 
@@ -48,10 +50,10 @@ U kunt de beheergroep maken met behulp van de portal, PowerShell of Azure CLI. O
 
 ### <a name="create-in-powershell"></a>Maken in PowerShell
 
-In PowerShell, moet u de cmdlet New-AzureRmManagementGroup gebruiken:
+In PowerShell, moet u de cmdlet New-AzManagementGroup gebruiken:
 
 ```azurepowershell-interactive
-New-AzureRmManagementGroup -GroupName 'Contoso'
+New-AzManagementGroup -GroupName 'Contoso'
 ```
 
 De **GroupName** is een unieke id wordt gemaakt. Deze ID wordt gebruikt door andere opdrachten om te verwijzen naar deze groep en kan later worden gewijzigd.
@@ -59,7 +61,7 @@ De **GroupName** is een unieke id wordt gemaakt. Deze ID wordt gebruikt door and
 Als u wilt dat de beheergroep die u wilt weergeven van een andere naam in Azure portal, voegt u de **DisplayName** parameter met de tekenreeks. Als u wilt maken van een beheergroep met de groepsnaam van Contoso en de weergavenaam van 'Contoso groeperen', gebruikt u bijvoorbeeld de volgende cmdlet:
 
 ```azurepowershell-interactive
-New-AzureRmManagementGroup -GroupName 'Contoso' -DisplayName 'Contoso Group' -ParentId 'ContosoTenant'
+New-AzManagementGroup -GroupName 'Contoso' -DisplayName 'Contoso Group' -ParentId '/providers/Microsoft.Management/managementGroups/ContosoTenant'
 ```
 
 Gebruik de **ParentId** parameter voor deze beheergroep hebt gemaakt onder een ander management.
@@ -78,6 +80,6 @@ Voor meer informatie over beheergroepen gaat u naar:
 
 - [Beheergroepen maken om Azure-resources te ordenen](create.md)
 - [Uw beheergroepen wijzigen, verwijderen of beheren](manage.md)
-- [Beheergroepen bekijken via de module voor Azure PowerShell-resources](https://aka.ms/mgPSdocs)
-- [Beheergroepen bekijken via de REST-API](https://aka.ms/mgAPIdocs)
-- [Beheergroepen bekijken via de Azure-CLI](https://aka.ms/mgclidoc)
+- [Beheergroepen bekijken via de module voor Azure PowerShell-resources](/powershell/module/az.resources#resources)
+- [Beheergroepen bekijken via de REST-API](/rest/api/resources/managementgroups)
+- [Beheergroepen bekijken via de Azure-CLI](/cli/azure/account/management-group)

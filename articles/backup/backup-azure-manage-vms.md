@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: sogup
-ms.openlocfilehash: 0e05bf71c1689015be0b8e3a4be1b37447ba6eb8
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: b08e8ea6a8768510177f1ea664f3036813e1a890
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961241"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57009916"
 ---
 # <a name="manage-azure-vm-backups"></a>Back-ups van Azure-VM's beheren
 
@@ -74,20 +74,23 @@ U kunt back-ups met behulp van het dashboard, beheren en te verkrijgen van toega
 U kunt een on-demand back-up van een virtuele machine nemen nadat deze is geconfigureerd voor beveiliging.
 - Als de eerste back-up in behandeling is, maakt back-up op aanvraag een volledige kopie van de virtuele machine in de Recovery Services-kluis.
 - Als de eerste back-up is voltooid, verzendt een on-demand back-up alleen wijzigingen van de vorige momentopname naar de Recovery Services-kluis. Dat wil zeggen, zijn volgende back-ups altijd incrementeel.
-- De bewaartermijn voor een on-demand back-up is de waarde voor de bewaarperiode opgegeven voor de dagelijkse back-uppunt in het beleid. Als er geen dagelijkse back-uppunt is geselecteerd, wordt de wekelijkse back-uppunt gebruikt.
+- De bewaartermijn voor een on-demand back-up is de waarde voor de bewaarperiode opgegeven op het moment van de back-uptaak wordt geactiveerd.
 
 Voor het activeren van een on-demand back-up:
 
-1. Op de [item kluisdashboard](#view-vms-in-the-dashboard), klikt u op **back-up nu**.
+1. Op de [item kluisdashboard](#view-vms-in-the-dashboard), klikt u op **back-upitem** onder de **beveiligde Item** sectie.
 
     ![Knop Nu back-up](./media/backup-azure-manage-vms/backup-now-button.png)
 
- 2. Klik op **Ja** starten van de back-uptaak.
+2. Klik op **virtuele Azure-Machine** van **back-up beheertype**. De **back-upitem (Azure virtuele Machine)** blade wordt weergegeven.
+3. Selecteer een virtuele machine en klikt u op **nu back-up** een on-demand back-up maken. De **blade nu back-up** wordt weergegeven.
+4. In de **bewaren back-up tot** optie, Geef een datum voor back-up moet worden bewaard.
 
     ![Knop Nu back-up](./media/backup-azure-manage-vms/backup-now-check.png)
 
+5. Klik op **OK**, om uit te voeren van de back-uptaak.
 
- Met de back-uptaak wordt een herstelpunt gemaakt. De bewaartermijn van het herstelpunt is hetzelfde als de bewaartermijn is opgegeven in het beleid dat is gekoppeld aan de virtuele machine. Klik om de voortgang voor de taak, op het kluisdashboard te volgen op de **back-uptaken** tegel.  
+Klik om de voortgang voor de taak, op het kluisdashboard te volgen op de **back-uptaken** tegel.
 
 ## <a name="stop-protecting-a-vm"></a>De beveiliging van een virtuele machine stoppen
 

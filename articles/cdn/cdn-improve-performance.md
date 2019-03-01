@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 02/28/2018
 ms.author: magattus
-ms.openlocfilehash: 2468462170f970cd597dd1296417d5b93a88c2ec
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4d1725b0559c34692d1a89d016fd2d6b7b1b26c1
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997266"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193089"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>De prestaties verbeteren door bestanden in Azure CDN te comprimeren
 Bestandscompressie is een eenvoudige maar effectieve methode voor het verbeteren van bestand overdrachtssnelheid en het laden van de pagina prestaties van een bestand door grootte te beperken voordat deze wordt verzonden vanaf de server. Bestandscompressie kunt bandbreedtekosten verlagen en biedt een beter te laten reageren ervaring voor uw gebruikers.
@@ -102,8 +102,10 @@ De lagen standard en premium CDN bieden dezelfde functionaliteit compressie, maa
 
 ### <a name="azure-cdn-standard-from-microsoft-profiles"></a>Azure CDN Standard van Microsoft-profielen
 
-Voor **Azure CDN Standard van Microsoft** profielen, alleen in aanmerking komende bestanden zijn gecomprimeerd. Als u in aanmerking komen voor compressie, een bestand moet:-worden van een MIME-type dat is [geconfigureerd voor compressie](#enabling-compression).
--Worden groter is dan 1 KB-kleiner is dan 8 MB
+Voor **Azure CDN Standard van Microsoft** profielen, alleen in aanmerking komende bestanden zijn gecomprimeerd. Als u in aanmerking komen voor compressie, moet een bestand:
+- Van het MIME-type dat is [geconfigureerd voor compressie](#enabling-compression).
+- Niet groter zijn dan 1 KB
+- Kleiner is dan 8 MB
 
 Deze profielen ondersteunen de volgende aanduidingen van de compressie:
 - gzip (GNU zip)
@@ -117,12 +119,12 @@ Wanneer een aanvraag voor een asset gzip-compressie en de resultaten van de aanv
 
 Voor **Azure CDN Standard van Verizon** en **Azure CDN Premium van Verizon** profielen, alleen in aanmerking komende bestanden zijn gecomprimeerd. Als u in aanmerking komen voor compressie, moet een bestand:
 - Niet groter zijn dan 128 bytes
-- Kleiner dan 1 MB
+- Kleiner is dan 3 MB
  
 Deze profielen ondersteunen de volgende aanduidingen van de compressie:
 - gzip (GNU zip)
-- VERKLEINEN
-- Bzip2
+- DEFLATE
+- bzip2
 - brotli 
  
 Als de aanvraag meer dan één compressietype ondersteunt, hebben deze compressietypen voorrang op brotli compressie.
@@ -160,10 +162,10 @@ De volgende tabellen beschrijven Azure CDN compressie gedrag voor elk scenario:
 
 ## <a name="media-services-cdn-compression"></a>Media Services-CDN-compressie
 Compressie is ingeschakeld voor eindpunten ingeschakeld voor het streamen van Media Services CDN standaard voor de volgende MIME-typen: 
-- toepassing/vnd.ms-sstr + xml 
-- toepassing/dash + xml
-- application/vnd.Apple.mpegurl
-- toepassing/f4m + xml 
+- application/vnd.ms-sstr+xml 
+- application/dash+xml
+- application/vnd.apple.mpegurl
+- application/f4m+xml 
 
 ## <a name="see-also"></a>Zie ook
 * [Problemen met CDN-bestandscompressie oplossen](cdn-troubleshoot-compression.md)    

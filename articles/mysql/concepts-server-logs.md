@@ -1,17 +1,17 @@
 ---
 title: Serverlogboeken voor Azure Database for MySQL
 description: Beschrijving van de logboeken die beschikbaar zijn in Azure Database voor MySQL en de beschikbare parameters voor het inschakelen van van verschillende logboekregistratieniveaus.
-author: rachel-msft
-ms.author: raagyema
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/03/2018
-ms.openlocfilehash: 60ef547cb3a6ef579f5ab0b3f5438212145d92ff
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.date: 02/28/2019
+ms.openlocfilehash: bc3dd038a21786a75d6b519ef8523dc328829705
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961785"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192885"
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>Serverlogboeken in Azure Database for MySQL
 In Azure Database voor MySQL is het logboek voor langzame query's beschikbaar voor gebruikers. Toegang tot het transactielogboek wordt niet ondersteund. Het logboek voor langzame query's kan worden gebruikt om knelpunten in de prestaties voor het oplossen van problemen. 
@@ -45,6 +45,9 @@ Zie de MySQL [trage query-documentatie voor log](https://dev.mysql.com/doc/refma
 
 ## <a name="diagnostic-logs"></a>Diagnostische logboeken
 Azure Database voor MySQL is geïntegreerd met Azure Monitor diagnostische logboeken. Als u Logboeken voor langzame query's hebt ingeschakeld op uw MySQL-server, kunt u deze naar Azure Monitor-Logboeken, Event Hubs of Azure Storage verzonden. Zie voor meer informatie over het inschakelen van diagnostische logboeken, het gedeelte van de [diagnostische logboeken documentatie](../azure-monitor/platform/diagnostic-logs-overview.md).
+
+> [!IMPORTANT]
+> Deze diagnostische functies voor server-Logboeken is alleen beschikbaar in het algemeen gebruik en geoptimaliseerd voor geheugen [Prijscategorieën](concepts-pricing-tiers.md).
 
 De volgende tabel wordt beschreven wat er in elk logboek. Afhankelijk van de uitvoermethode, zijn de velden die zijn opgenomen en de volgorde waarin ze worden weergegeven kunnen verschillen.
 

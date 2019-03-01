@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.assetid: 3656acfb-eefd-4e75-b5d2-73da56c424c9
 ms.date: 10/15/2017
-ms.openlocfilehash: 554171e02a369905bcf9cd4aa7bfa2e59ab46336
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 134a8f9625b45a8196ebd47f10286093f6ba0d46
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50229754"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193446"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Het maken van de logic app workflows met vooraf gedefinieerde sjablonen
 
@@ -23,7 +23,7 @@ Logic Apps biedt om u snel werkstromen maken, sjablonen, die zijn vooraf gemaakt
 
 Hier volgen enkele Sjablooncategorieën:
 
-| Het sjabloontype | Beschrijving | 
+| Het sjabloontype | Description | 
 | ------------- | ----------- | 
 | Sjablonen van Enterprise cloud | Voor het integreren van Azure Blob-, Dynamics CRM, Salesforce, Box, en andere connectors bevat voor de cloud voor ondernemingen. Bijvoorbeeld, kunt u deze sjablonen kunt organiseren zakelijke potentiële klanten of back-up van uw zakelijke bestandsgegevens. | 
 | Hun eigen sjablonen | De persoonlijke productiviteit te verbeteren door in te stellen van dagelijkse herinneringen ontvangen, schakelen belangrijk werkitems in takenlijsten en automatisering van langdurige taken op een enkele gebruiker goedkeuringsstap. | 
@@ -52,7 +52,7 @@ Als u nog geen abonnement op Azure hebt, [meld u dan aan voor een gratis Azure-a
    | **Abonnement** | *naam-van-uw-Azure-abonnement* | Selecteer het Azure-abonnement dat u wilt gebruiken. | 
    | **Resourcegroep** | *naam-van-uw-Azure-resourcegroep* | Maak of Selecteer een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) voor deze logische app en alle resources die zijn gekoppeld aan deze app te organiseren. | 
    | **Locatie** | *uw-Azure-datacenter-regio* | Selecteer de regio van het datacenter voor het implementeren van uw logische app, bijvoorbeeld US - west. | 
-   | **Log Analytics** | **Uit** (standaard) of **op** | Schakel [registratie in diagnoselogboek](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) voor uw logische app via [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Vereist dat u al een Log Analytics-werkruimte. | 
+   | **Log Analytics** | **Uit** (standaard) of **op** | Schakel [registratie in diagnoselogboek](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) voor uw logische app via [logboeken van Azure Monitor](../log-analytics/log-analytics-overview.md). Vereist dat u al een Log Analytics-werkruimte. | 
    |||| 
 
 4. Wanneer u klaar bent, selecteert u **Vastmaken aan dashboard**. Op die manier wordt uw logische app automatisch weergegeven op uw Azure-dashboard en wordt geopend na de implementatie. Kies **Maken**.

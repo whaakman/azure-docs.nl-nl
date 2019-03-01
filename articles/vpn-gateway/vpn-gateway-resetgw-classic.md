@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6e57979e2c43cc47504495cce23947b93abb4020
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: d09f03aed8a739eaaaf8c60c379a746551d3b6f8
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414930"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57009882"
 ---
 # <a name="reset-a-vpn-gateway"></a>Een VPN-gateway opnieuw instellen
 
@@ -56,7 +56,7 @@ U kunt een Resource Manager-VPN-gateway met behulp van de Azure portal opnieuw. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-De cmdlet voor het opnieuw instellen van een gateway is **Reset-AzVirtualNetworkGateway**. Voordat u een opnieuw instellen, zorg ervoor dat u hebt de nieuwste versie van de [Resource Manager PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/azurerm/install-Az-ps?view=azurermps-4.0.0). Het volgende voorbeeld wordt een virtuele netwerkgateway met de naam VNet1GW in de resourcegroep TestRG1:
+De cmdlet voor het opnieuw instellen van een gateway is **Reset-AzVirtualNetworkGateway**. Voordat u een opnieuw instellen, zorg ervoor dat u hebt de nieuwste versie van de [Az PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/az.network). Het volgende voorbeeld wordt een virtuele netwerkgateway met de naam VNet1GW in de resourcegroep TestRG1:
 
 ```powershell
 $gw = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1

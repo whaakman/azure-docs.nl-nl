@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: dobett
-ms.openlocfilehash: bdb9b48549d24565fdafb9ac1c3215029445793c
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: ffa85a1a14434e638e76e699650a0be8e31ade00
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100484"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010953"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Overzicht van de oplossingsversneller Voorspeld onderhoud
 
@@ -27,7 +27,7 @@ Het volgende diagram geeft een overzicht van de logische onderdelen van de oplos
 
 ![Logische architectuur][img-architecture]
 
-De blauwe items zijn Azure-services die zijn ingericht in de regio waar u de oplossingsversneller hebt geïmplementeerd. De lijst met regio's waar u de oplossingsversneller kunt implementeren, wordt weergegeven op de pagina [Inrichting][lnk-azureiotsuite].
+De blauwe items zijn Azure-services die zijn ingericht in de regio waar u de oplossingsversneller hebt geïmplementeerd. De lijst met regio's waar u de oplossingsversneller kunt implementeren, wordt weergegeven op de pagina [Inrichting][lnk-azureiotsolutions].
 
 Het groene item is een gesimuleerde vliegtuigmotor. Meer informatie over deze gesimuleerde apparaten vindt u in het gedeelte [Gesimuleerde apparaten](#simulated-devices).
 
@@ -39,7 +39,7 @@ Navigeer in Azure Portal naar de resourcegroep met de naam van de oplossing die 
 
 ![Accelerator-resources][img-resource-group]
 
-Wanneer u de oplossingsversneller inricht, krijgt u een e-mailbericht met een koppeling naar de Machine Learning-werkruimte. U kunt ook navigeren naar de Machine Learning-werkruimte van de [Microsoft Azure IoT-oplossingsversnellers] [ lnk-azureiotsuite] pagina. Op deze pagina is een tegel beschikbaar wanneer de oplossing de status **Gereed** heeft.
+Wanneer u de oplossingsversneller inricht, krijgt u een e-mailbericht met een koppeling naar de Machine Learning-werkruimte. U kunt ook navigeren naar de Machine Learning-werkruimte van de [Microsoft Azure IoT-oplossingsversnellers] [ lnk-azureiotsolutions] pagina. Op deze pagina is een tegel beschikbaar wanneer de oplossing de status **Gereed** heeft.
 
 ![Machine learning-model][img-machine-learning]
 
@@ -71,7 +71,7 @@ IoT Hub biedt een bevestiging van apparaatopdrachten.
 De **gebeurtenisprocessorhost** wordt uitgevoerd in een Azure-webtaak. De **gebeurtenisverwerking** neemt de gemiddelde sensorwaarden voor een voltooide cyclus. Vervolgens worden deze waarden doorgegeven met een getraind model de RUL voor een motor berekent. Een API biedt toegang tot het model in Machine Learning-werkruimte die deel uitmaakt van de oplossing.
 
 ## <a name="machine-learning"></a>Machine Learning
-Het Machine Learning-onderdeel maakt gebruikt van een model dat is afgeleid van gegevens die zijn verzameld bij echte vliegtuigmotoren. U kunt naar de Machine Learning-werkruimte navigeren vanaf de tegel van de oplossing op de pagina [azureiotsuite.com][lnk-azureiotsuite]. De tegel is beschikbaar wanneer de oplossing de status **Gereed** heeft.
+Het Machine Learning-onderdeel maakt gebruikt van een model dat is afgeleid van gegevens die zijn verzameld bij echte vliegtuigmotoren. U kunt naar de Machine Learning-werkruimte navigeren vanaf de tegel van uw oplossing op de [azureiotsolutions.com] [ lnk-azureiotsolutions] pagina. De tegel is beschikbaar wanneer de oplossing de status **Gereed** heeft.
 
 De Machine Learning-model is beschikbaar als een sjabloon die laat zien hoe u werkt met telemetrie die worden verzameld via IoT-oplossing accelerator-services. Microsoft heeft ontwikkeld een [regressiemodel] [ lnk_regression_model] van een vliegtuigmotor op basis van de openbaar beschikbare gegevens<sup>\[1\]</sup>, en stapsgewijze instructies over het gebruik van het model.
 
@@ -93,7 +93,7 @@ U kunt ook een aantal andere functies van de IoT-oplossingsversnellers verkennen
 
 [lnk-remote-monitoring]: quickstart-predictive-maintenance-deploy.md
 [lnk-cortana-analytics]: https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
-[lnk-azureiotsuite]: https://www.azureiotsolutions.com/
+[lnk-azureiotsolutions]: https://www.azureiotsolutions.com/
 [lnk-faq]: iot-accelerators-faq.md
 [lnk-security-groundup]:/azure/iot-fundamentals/iot-security-ground-up
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/

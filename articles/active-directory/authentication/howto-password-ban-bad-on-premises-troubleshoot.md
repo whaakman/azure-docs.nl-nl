@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5727965373752d40e3ce508c1bc79046c2b3b70b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8e3632fdb3b4d5c1d2b5465671f36a201c5ff990
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177748"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193293"
 ---
 # <a name="preview-azure-ad-password-protection-troubleshooting"></a>Preview: Azure AD-wachtwoordbeveiliging oplossen
 
@@ -27,27 +27,65 @@ ms.locfileid: "56177748"
 
 Na de implementatie van Azure AD-wachtwoord beveiliging, probleemoplossing mogelijk zijn vereist. In dit artikel gaat gedetailleerd inzicht in bepaalde algemene stappen voor probleemoplossing.
 
-## <a name="weak-passwords-are-not-getting-rejected-as-expected"></a>Zwakke wachtwoorden zijn niet ophalen van geweigerd zoals verwacht
+## <a name="the-dc-agent-cannot-locate-a-proxy-in-the-directory"></a>De DC-agent kan een proxy niet vinden in de map
 
-Dit kan verschillende oorzaken hebben:
+De belangrijkste symptoom van dit probleem is 30017 gebeurtenissen in het gebeurtenislogboek van DC-agent-beheerder.
 
-1. De DC-agent (s) nog niet een beleid gedownload. De als gevolg hiervan is 30001 gebeurtenissen in het gebeurtenislogboek van DC-agent-beheerder.
+De gebruikelijke oorzaak van dit probleem is dat een proxy nog niet is geregistreerd. Als een proxy is geregistreerd, kunnen er enigszins vertraagd vanwege replicatievertraging van AD totdat een bepaalde DC-agent is proxyinstellingen zien.
 
-    Mogelijke oorzaken voor dit probleem zijn:
+## <a name="the-dc-agent-is-not-able-to-communicate-with-a-proxy"></a>De DC-agent is niet kan communiceren met een proxy
 
-    1. Forest nog niet is geregistreerd
-    2. Proxy nog niet is geregistreerd
-    3. Problemen met de netwerkverbinding zijn zo wordt voorkomen dat de Proxy-service communiceert met Azure (vereisten controleren HTTP-Proxy)
+De belangrijkste symptoom van dit probleem is 30018 gebeurtenissen in het gebeurtenislogboek van DC-agent-beheerder. Dit kan verschillende oorzaken hebben:
 
-2. De modus wachtwoord beleid afdwingen is nog steeds ingesteld op Audit. Als dit het geval is, deze opnieuw configureren op afdwingen met behulp van de portal van de beveiliging van Azure AD-wachtwoord. Raadpleeg [inschakelen wachtwoordbeveiliging](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+1. De DC-agent bevindt zich in een geïsoleerde gedeelte van het netwerk waarmee de netwerkverbinding met de geregistreerde proxy(s) niet toelaat. Dit probleem mogelijk daarom expected\benign, zolang andere DC-agents met de proxy(s) communiceren kunnen om te downloaden van beleid voor wachtwoorden van Azure, die vervolgens worden verkregen door de geïsoleerde DC via replicatie van de bestanden in de sysvol-share.
 
-3. Het wachtwoordbeleid is uitgeschakeld. Als dit het geval is, moet opnieuw worden ingeschakeld met behulp van de portal voor Azure AD-wachtwoord beveiliging configureren. Raadpleeg [inschakelen wachtwoordbeveiliging](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+1. De proxy-hostmachine blokkeert de toegang tot het hulpprogramma voor het toewijzen van de RPC-eindpunt (poort 135)
 
-4. Het algoritme voor gegevensvalidatie gebruikt wachtwoord werkt zoals verwacht. Raadpleeg [hoe wachtwoorden worden geëvalueerd](concept-password-ban-bad.md#how-are-passwords-evaluated).
+   Het installatieprogramma van Azure AD-wachtwoord beveiliging Proxy maakt automatisch een inkomende Windows Firewall-regel waarmee de toegang tot poort 135. Als deze regel wordt later verwijderd of uitgeschakeld, worden DC agents kan niet communiceren met de Proxy-service. Als de ingebouwde Windows Firewall is uitgeschakeld in plaats van een ander firewallproduct, moet u de firewall voor toegang tot poort 135 configureren.
+
+1. De proxy-hostmachine blokkeert de toegang tot de RPC-eindpunt (dynamisch of statisch) geluisterd op door de Proxy-service
+
+   Het installatieprogramma van Azure AD-wachtwoord beveiliging Proxy maakt automatisch een Windows-Firewall binnenkomende regel waarmee toegang tot alle poorten voor inkomend verkeer hebben geluisterd naar door de Azure AD-wachtwoord beveiliging Proxy-service. Als deze regel wordt later verwijderd of uitgeschakeld, worden DC agents kan niet communiceren met de Proxy-service. Als de ingebouwde Windows Firewall is uitgeschakeld in plaats van een ander firewallproduct, moet u configureren dat firewall voor toegang tot alle poorten voor inkomend verkeer hebben geluisterd naar door de Azure AD-wachtwoord beveiliging Proxy-service. Deze configuratie kan worden gemaakt, specifiekere als de Proxy-service is geconfigureerd om te luisteren naar een specifieke statische RPC-poort (met behulp van de `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet).
+
+## <a name="the-proxy-service-can-receive-calls-from-dc-agents-in-the-domain-but-is-unable-to-communicate-with-azure"></a>De Proxy-service kunt aanroepen ontvangen van DC-agents in het domein, maar kan niet communiceren met Azure
+
+Zorg ervoor dat de proxy-computer is verbonden met de eindpunten die worden vermeld in de [implementatievereisten](howto-password-ban-bad-on-premises-deploy.md).
+
+## <a name="the-dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files-and-other-state"></a>De DC-agent is kan niet versleutelen of ontsleutelen van bestanden van het wachtwoord en andere status
+
+Dit probleem kan het manifest met tal van problemen, maar heeft meestal een veelvoorkomende oorzaak van de hoofdmap.
+
+Azure AD-wachtwoord beveiliging heeft een kritieke afhankelijkheid van de versleuteling en ontsleuteling functionaliteit verstrekt door de Microsoft Key Distribution-Service is beschikbaar op domeincontrollers met Windows Server 2012 en hoger. De KDS-service moet zijn ingeschakeld en functioneel op alle Windows Server 2012 en hoger domeincontrollers in een domein.  
+
+Standaard de KDS is startmodus van service-service geconfigureerd als handmatige (Trigger starten). Deze configuratie betekent dat de eerste keer dat een client probeert de service, gebruiken deze is gestart op aanvraag. De startmodus van deze standaard-service is geschikt voor de beveiliging met Azure AD-wachtwoord. 
+
+Als de startmodus van de KDS-service is geconfigureerd op uitgeschakeld, kan deze configuratie moet worden opgelost voordat de beveiliging van Azure AD-wachtwoord werkt goed.
+
+Een eenvoudige test voor dit probleem is handmatig starten van de KDS-service, via de de Service management MMC-console of met behulp van andere hulpprogramma's voor service management (bijvoorbeeld 'net start kdssvc' vanaf een opdrachtprompt-console worden uitgevoerd). De KDS-service wordt gestart en blijven altijd werken verwacht.
+
+De meest voorkomende oorzaak is dat de Active Directory domain controller object bevindt zich buiten de standaard-domeincontrollers. Deze configuratie wordt niet ondersteund door de KDS-service en is niet beperkt tot die zijn opgelegd door Azure AD-wachtwoord beveiliging. De oplossing voor dit probleem is de domain controller object verplaatsen naar een locatie in de standaard-domeincontrollers.
+
+## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Zwakke wachtwoorden worden geaccepteerd, maar mag niet zijn
+
+Dit probleem kan verschillende oorzaken hebben.
+
+1. De DC-agent (s) een beleid kan niet worden gedownload of kan niet ontsleutelen van bestaande beleidsregels. Controleren op mogelijke oorzaken in de bovenstaande onderwerpen.
+
+1. De modus wachtwoord beleid afdwingen is nog steeds ingesteld op Audit. Als deze configuratie van kracht is, deze opnieuw configureren op afdwingen met behulp van de portal van de beveiliging van Azure AD-wachtwoord. Zie [inschakelen wachtwoordbeveiliging](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+
+1. Het wachtwoordbeleid is uitgeschakeld. Als deze configuratie van kracht is, moet opnieuw worden ingeschakeld met behulp van de portal voor Azure AD-wachtwoord beveiliging configureren. Zie [inschakelen wachtwoordbeveiliging](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+
+1. U hebt de agentsoftware DC niet geïnstalleerd op alle domeincontrollers in het domein. In dit geval is het moeilijk zijn om ervoor te zorgen dat externe Windows-clients gericht op een bepaalde domeincontroller tijdens een wachtwoordwijziging. Als u hebt denkt dat u hebt een bepaalde domeincontroller waarop de software van DC-agent is geïnstalleerd is gericht, kunt u controleren door het gebeurtenislogboek van DC-agent admin dubbele: ongeacht resultaat, zullen er ten minste één gebeurtenis vastleggen van het resultaat van het wachtwoord validatie. Als er geen gebeurtenis aanwezig zijn voor de gebruiker waarvan het wachtwoord is gewijzigd, is klikt u vervolgens de wachtwoordwijziging waarschijnlijk verwerkt door een andere domeincontroller.
+
+   Als een alternatieve test, proberen setting\changing wachtwoorden terwijl u aangemeld rechtstreeks naar een domeincontroller waarop de software van DC-agent is geïnstalleerd. Deze techniek wordt niet aanbevolen voor productie Active Directory-domeinen.
+
+   Stapsgewijze implementatie van de DC-agentsoftware onderworpen aan deze beperkingen wordt ondersteund, wordt aangeraden de DC-agentsoftware zo snel mogelijk op alle domeincontrollers in een domein is geïnstalleerd.
+
+1. Het algoritme voor gegevensvalidatie gebruikt wachtwoord daadwerkelijk werkt zoals verwacht. Zie [hoe wachtwoorden worden geëvalueerd](concept-password-ban-bad.md#how-are-passwords-evaluated).
 
 ## <a name="directory-services-repair-mode"></a>Directory Services Repair Mode
 
-Als de domeincontroller wordt opgestart naar Directory Services Repair Mode, wordt de DC-agent-service detecteert DPM dit en zorgt ervoor dat alle wachtwoordvalidatie of activiteiten worden uitgeschakeld, ongeacht de configuratie van het actieve beleid afdwingen.
+Als de domeincontroller wordt opgestart naar Directory Services Repair Mode, wordt de DC-agent-service detecteert deze voorwaarde en zorgt ervoor dat alle wachtwoordvalidatie of activiteiten worden uitgeschakeld, ongeacht de configuratie van het actieve beleid afdwingen.
 
 ## <a name="emergency-remediation"></a>Herstel voor noodgevallen
 

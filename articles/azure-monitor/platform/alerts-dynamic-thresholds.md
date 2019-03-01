@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 92a6d0f0cd9ef9a7d246624f89315a87a7fb26f9
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: c28bf3ac85709fb996cfb067b83530645fdccba1
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097806"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008902"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Metrische waarschuwingen met dynamische drempelwaarden in Azure Monitor (Preview-versie)
 
@@ -79,7 +79,11 @@ Waarschijnlijk niet. Dynamische drempelwaarden zijn geschikt voor grote afwijkin
 
 ## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>Hoeveel gegevens wordt gebruikt om te bekijken en vervolgens drempelwaarden te berekenen?
 
-De drempelwaarden die worden weergegeven in de grafiek, voordat een waarschuwingsregel wordt gemaakt op de metrische gegevens, worden berekend op basis van op de laatste 10 dagen van historische gegevens, zodra een waarschuwingsregel is gemaakt, de dynamische drempelwaarden wordt verkrijgen van aanvullende historische gegevens die beschikbaar is en wordt continu leren op basis van de nieuwe gegevens om de drempelwaarden meer nauwkeurige.
+De drempelwaarden die worden weergegeven in de grafiek, voordat een waarschuwingsregel wordt gemaakt op de metrische gegevens, worden berekend op basis van genoeg historische gegevens voor het berekenen van uur of dagelijks seizoensgebonden patronen (10 dagen). Te drukken op 'Wekelijks weergave-patroon' krijgen voldoende historische gegevens voor het berekenen van de wekelijkse seizoensgebonden patronen (28 dagen). Zodra een waarschuwingsregel is gemaakt, wordt de dynamische drempelwaarden alle benodigde historische gegevens die beschikbaar is en continu leren en vertrouwd op basis van nieuwe gegevens gebruiken om te de drempelwaarden nauwkeuriger maken.
+
+## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>Hoeveel gegevens nodig is om een waarschuwing te activeren?
+
+Dynamische drempelwaarden vereist ten minste drie dagen aan gegevens om ervoor te zorgen nauwkeurige drempelwaarden voor waarschuwingen activeren.
 
 ## <a name="dynamic-thresholds-best-practices"></a>Aanbevolen procedures voor dynamische drempelwaarden
 

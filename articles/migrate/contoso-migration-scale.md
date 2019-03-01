@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: raynew
-ms.openlocfilehash: bd1761ecf16bbfb0d3fdc354ab1b9fa1f42f9c17
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: bc4673a12ec5b752a513b4a95796f2aeb8b8ce5d
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328575"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991238"
 ---
 # <a name="contoso---scale-a-migration-to-azure"></a>Contoso - schaal een migratie naar Azure
 
@@ -379,7 +379,7 @@ Contoso zal zijn afhankelijk van de Azure Security Center voor geïntegreerd bev
 
 ### <a name="monitoring"></a>Bewaking
 
-Contoso moet inzicht in de status en prestaties van de gemigreerde apps, infrastructuur en gegevens nu met Azure. Contoso gebruik van ingebouwde Azure-cloud controlehulpprogramma's zoals Azure Monitor, Log Analytics en Application Insights.
+Contoso moet inzicht in de status en prestaties van de gemigreerde apps, infrastructuur en gegevens nu met Azure. Contoso gebruik van ingebouwde Azure-cloud controlehulpprogramma's zoals Azure Monitor, Log Analytics-werkruimte en Application Insights.
  
 - Met deze hulpprogramma's kunt Contoso eenvoudig gegevens verzamelen van bronnen en Verkrijg uitgebreide inzichten. Contoso kan bijvoorbeeld CPU-schijf en het geheugen gebruik voor virtuele machines, Bekijk toepassingen en netwerkafhankelijkheden in meerdere virtuele machines, meten en bijhouden van prestaties van toepassingen.
 - Contoso gebruikt deze cloud controlehulpprogramma's om actie ondernemen en integreren met service-oplossingen.

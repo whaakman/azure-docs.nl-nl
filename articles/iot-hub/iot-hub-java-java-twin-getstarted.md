@@ -1,19 +1,20 @@
 ---
 title: Aan de slag met apparaatdubbels Azure IoT Hub (Java) | Microsoft Docs
 description: Het gebruik van Azure IoT Hub-apparaatdubbels tags toevoegen en vervolgens een IoT Hub-query. U de Azure IoT-device-SDK voor Java gebruiken voor het implementeren van de apparaat-app en de Azure IoT service SDK voor Java voor het implementeren van een service-app die wordt toegevoegd de labels en de IoT Hub-query wordt uitgevoerd.
-author: dominicbetts
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/04/2017
-ms.author: dobett
-ms.openlocfilehash: a938e5d872d2c1602f7ce898f0d14e3e04feb759
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 75acacdd36b7e0829f347f23652128ed07544eff
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312559"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011072"
 ---
 # <a name="get-started-with-device-twins-java"></a>Aan de slag met apparaatdubbels (Java)
 

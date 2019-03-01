@@ -8,18 +8,18 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 02/24/2019
-ms.openlocfilehash: eb082d5194cb6948668c4944208ec11fab987206
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.date: 02/26/2019
+ms.openlocfilehash: c0f4d483c214847227059046c2dda305f63398d6
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806520"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991732"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Verbinding maken met virtuele Azure-netwerken van Azure Logic Apps met behulp van een integratie van service-omgeving (ISE)
 
 > [!NOTE]
-> Deze mogelijkheid is in *preview-versie*. 
+> Deze mogelijkheid is in [ *openbare preview*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Voor scenario's waar uw logic apps en de integratieaccounts toegang hebben tot moeten een [virtueel Azure-netwerk](../virtual-network/virtual-networks-overview.md), maak een [ *integratieserviceomgeving* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Een ISE is een privé- en geïsoleerde omgeving die gebruikmaakt van opslagruimte en andere resources geïsoleerd van de openbare of 'global' Logic Apps-service. Dankzij deze scheiding vermindert ook eventuele gevolgen die andere Azure-tenants op de prestaties van uw apps hebben kunnen. Is voor uw ISE *geïnjecteerd* in met uw Azure-netwerk, die vervolgens implementeert u de Logic Apps-service in uw virtuele netwerk. Wanneer u een logische app of integratie-account maakt, selecteert u deze ISE als hun locatie. Uw logische app of integratie-account kan vervolgens rechtstreeks toegang tot resources, zoals virtuele machines (VM's), servers, systemen en services in uw virtuele netwerk.
 
@@ -73,7 +73,7 @@ Voor het beheren van de binnenkomend en uitgaand verkeer via subnetten van het v
 | Diagnostische logboeken en metrische gegevens publiceren | Uitgaand | 443 | VIRTUAL_NETWORK  | AzureMonitor | |
 | Ontwerper van logische Apps - dynamische eigenschappen | Inkomend | 454 | INTERNET  | VIRTUAL_NETWORK | Aanvragen afkomstig zijn van de Logic Apps [toegang hebben tot eindpunt inkomende IP-adressen in die regio](../logic-apps/logic-apps-limits-and-config.md#inbound). |
 | Service Management-App-afhankelijkheid | Inkomend | 454 & 455 | AppServiceManagement | VIRTUAL_NETWORK | |
-| Connector-implementatie | Inkomend | 454 & 3443 | INTERNET  | VIRTUAL_NETWORK | Dit is nodig voor het implementeren en bijwerken van connectors. Afsluiting of blockng deze poort zorgt ervoor dat de ISE-implementaties mislukken en wordt voorkomen dat updates van de connector of oplossingen. |
+| Connector-implementatie | Inkomend | 454 & 3443 | INTERNET  | VIRTUAL_NETWORK | Dit is nodig voor het implementeren en bijwerken van connectors. Sluiten of te blokkeren van deze poort zorgt ervoor dat de ISE-implementaties mislukken en voorkomt u dat updates van de connector of oplossingen. |
 | API Management - beheereindpunt | Inkomend | 3443 | APIManagement  | VIRTUAL_NETWORK | |
 | Afhankelijkheid van logboek naar Event Hub-beleid en de monitoring agent | Uitgaand | 5672 | VIRTUAL_NETWORK  | EventHub | |
 | Toegang tot Azure Cache voor instanties van Redis tussen Rolinstanties | Inkomend <br>Uitgaand | 6379-6383 | VIRTUAL_NETWORK  | VIRTUAL_NETWORK | |
@@ -142,7 +142,7 @@ Selecteer in de lijst met resultaten **Integratieserviceomgeving (preview)**, en
    | **Resourcegroep** | Ja | <*Azure-resource-group-name*> | De Azure-resourcegroep waar u om uw omgeving te maken |
    | **Naam van integratieserviceomgeving** | Ja | <*naam van omgeving*> | De naam te geven van uw omgeving |
    | **Locatie** | Ja | <*Azure-datacenter-region*> | De Azure-datacenter-regio waar u om uw omgeving te implementeren |
-   | **Extra capaciteit** | Ja | 0, 1, 2, 3 | Het aantal verwerkingseenheden moet worden gebruikt voor deze resource ISE |
+   | **Extra capaciteit** | Ja | 0, 1, 2, 3 | Het aantal verwerkingseenheden moet worden gebruikt voor deze resource ISE. Zie voor informatie over het toevoegen van capaciteit na het maken van [toevoegen van capaciteit](#add-capacity). |
    | **Virtueel netwerk** | Ja | <*Azure-virtual-network-name*> | De Azure-netwerk waarin u invoeren van uw omgeving wilt, zodat logic apps in die omgeving krijgen uw virtuele netwerk tot toegang. Als u een netwerk hebt, kunt u een maken hier. <p>**Belangrijke**: U kunt *alleen* deze injectie uitvoeren bij het maken van uw ISE. Echter, voordat u deze relatie maken kunt, zorg ervoor dat u al [instellen van op rollen gebaseerd toegangsbeheer in uw virtuele netwerk voor Azure Logic Apps](#vnet-access). |
    | **Subnets** | Ja | <*subnet-resource-list*> | Een ISE vereist is vier *leeg* subnetten voor het maken van resources in uw omgeving. Dus, zorg ervoor dat deze subnetten *worden niet overgedragen* voor elke service. U *kan niet worden gewijzigd* deze subnetadressen nadat u uw omgeving hebt gemaakt. <p><p>Elk subnet maken [Volg de stappen onder deze tabel](#create-subnet). Elk subnet moet voldoen aan deze criteria voldoen: <p>-Moet niet leeg zijn. <br>-Maakt gebruik van een naam die niet met een getal of een afbreekstreepje begint. <br>-Hiermee wordt de [notatie (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) en de adresruimte van een klasse B. <br>-Bevat ten minste een `/27` in de adresruimte, zodat het subnet ten minste 32 adressen opgehaald. Zie voor meer informatie over het berekenen van het aantal adressen, [IPv4 CIDR-blokken](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks). Bijvoorbeeld: <p>- `10.0.0.0/24` 256-adressen heeft omdat 2<sup>(32-24)</sup> 2<sup>8</sup> of 256. <br>- `10.0.0.0/27` 32 adressen heeft, omdat 2<sup>(32-27)</sup> 2<sup>5</sup> of 32. <br>- `10.0.0.0/28` alleen 16-adressen heeft omdat 2<sup>(32-28)</sup> 2<sup>4</sup> of 16. |
    |||||
@@ -187,6 +187,30 @@ Selecteer in de lijst met resultaten **Integratieserviceomgeving (preview)**, en
    > Als implementatie mislukt of als u uw ISE, Azure verwijderen *mogelijk* duren een uur voordat de subnetten zijn vrijgegeven. U moet dus gewacht voordat opnieuw gebruiken van deze subnetten in een andere ISE.
 
 1. Als u uw omgeving, kiest u **naar de resource gaan** als Azure niet automatisch naar uw omgeving gaat na de implementatie is voltooid.  
+
+<a name="add-capacity"></a>
+
+### <a name="add-capacity"></a>Toevoegen van capaciteit
+
+De basiseenheid voor uw ISE-capaciteit, is opgelost, zodat als u meer doorvoer nodig hebt, kunt u meer schaaleenheden toevoegen. U kunt geen met automatisch schalen op basis van metrische gegevens voor prestaties of op basis van een bepaald aantal verwerkingseenheden. Als u automatisch schalen op basis van metrische gegevens, kunt u kiezen uit verschillende criteria en geef de voorwaarden van de drempelwaarde voor het voldoen aan deze criteria.
+
+1. In de Azure-portal zoeken uw ISE.
+
+1. Als u wilt weergeven van metrische gegevens voor prestaties voor uw ISE, in het hoofdmenu van uw ISE, kies **overzicht**.
+
+1. Voor het instellen van automatisch schalen, onder **instellingen**, selecteer **uitschalen**. Op de **configureren** tabblad **automatisch schalen inschakelen**.
+
+1. In de **standaard** sectie, kiest u **schalen op basis van een metrische waarde** of **schalen naar een specifiek aantal instanties**.
+
+1. Als u ervoor op basis van het exemplaar kiest, voert u het aantal verwerkingseenheden tussen 0 en 3 liggen. Anders wordt voor follow-up op basis van metrische gegevens als volgt:
+
+   1. In de **standaard** sectie **toevoegen van een regel**.
+
+   1. Op de **schaalregel** deelvenster, instellen van uw criteria en de actie moet worden uitgevoerd wanneer de regel wordt geactiveerd.
+   
+   1. Wanneer u klaar bent, kiest u **toevoegen**.
+
+1. Wanneer u klaar bent, moet u uw wijzigingen op te slaan.
 
 <a name="create-logic-apps-environment"></a>
 

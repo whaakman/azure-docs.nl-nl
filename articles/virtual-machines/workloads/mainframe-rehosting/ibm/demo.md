@@ -8,12 +8,12 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: f366b9eee3104527fb9e974b51f339494b552e3b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f8af19056a343abdbafcd4ead8b072330cb41fd9
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739498"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192069"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Instellen van een toepassing ontwikkelaars beheerd distributie (ADCD) in de IBM zD & T v1
 
@@ -89,7 +89,7 @@ Nu dat u de pakketten hebt, moet u ze uploaden naar uw VM op Azure.
         gunzip \*.gz
     ```
     
-![](media/01-gunzip.png)
+![Met Verkenner gedecomprimeerd gz volumes](media/01-gunzip.png)
 
 ## <a name="configure-the-image-storage"></a>De installatiekopie-opslag configureren
 
@@ -105,11 +105,11 @@ De volgende stap is het configureren van zD & n naar de geüploade pakket(ten) g
      >
      > Vergeet niet dat de web access maakt gebruik van poort 9443. Gebruik deze optie om aan te melden met de webserver. De gebruikers-id voor ZD & T **zdtadmin** en het wachtwoord is **wachtwoord**.
 
-    ![](media/02-welcome.png)
+    ![IBM zD&T Enterprise Edition Welcome screen](media/02-welcome.png)
 
 3. Op de **Quick Start** pagina onder **configureren**, selecteer **Afbeeldingopslag**.
 
-     ![](media/03-quickstart.png)
+     ![IBM zD&T Enterprise Edition Quick Start screen](media/03-quickstart.png)
 
 4. Op de **configureren afbeeldingopslag** weergeeft, schakelt **SSH File Transfer Protocol**.
 
@@ -133,7 +133,7 @@ De volgende stap is het configureren van de zD & T doelomgeving. Deze geëmuleer
 
 5. In de **doelomgeving label** voert u een label, zoals **MyCICS.**
 
-     ![](media/04-add-target.png)
+     ![Omgeving doelscherm toevoegen](media/04-add-target.png)
 
 ## <a name="configure-adcd-and-deploy"></a>ADCD configureren en implementeren
 
@@ -143,7 +143,7 @@ Na het voltooien van de vorige configuratiestappen, moet u configureren zD & n n
 
 2. Ervan uitgaande dat alle installatiekopieën zijn geüpload naar de juiste mappen, klikt u op de **afbeelding van ADCD** koppeling die wordt weergegeven in de rechterbenedenhoek (weergegeven in stap 7 in de volgende schermafbeelding).
 
-     ![](media/05-adcd.png)
+     ![IBM zD & T Enterprise Edition - scherm ADCD configureren](media/05-adcd.png)
 
 ## <a name="create-the-image"></a>De installatiekopie maken
 
@@ -157,7 +157,7 @@ Als de vorige stap in de configuratie voltooid is, de **maken van een installati
 
 4. Selecteer de **afbeelding maken** knop in de rechterbenedenhoek.
 
-     ![](media/06-adcd.png)
+     ![IBM zD & T Enterprise Edition - maken van een installatiekopie met behulp van het scherm ADCD onderdelen](media/06-adcd.png)
 
 5. In het venster dat wordt weergegeven, waarin u de installatiekopie is geïmplementeerd, kiest u **installatiekopieën**.
 
@@ -169,7 +169,7 @@ Als de vorige stap in de configuratie voltooid is, de **maken van een installati
 
 9. Zorg ervoor dat het selectievakje is ingeschakeld voor **automatisch probleem IPL opdracht z/OS na implementeren**.
 
-     ![](media/07-properties.png)
+     ![Eigenschappen van scherm](media/07-properties.png)
 
 10. Selecteer **volledige**.
 
@@ -194,5 +194,5 @@ Gefeliciteerd! U worden nu een IBM mainframe-omgeving in Azure uitgevoerd.
 [microfocus-setup]: /microfocus/set-up-micro-focus-on-azure.md
 [microfocus-demo]: /microfocus/demo.md
 [ibm-get-started]: /ibm/get-started.md
-[ibm-install-z]: /ibm/install-ibm-z-environment.md
+[ibm-install-z]: install-ibm-z-environment.md
 [ibm-demo]: /ibm/demo.md

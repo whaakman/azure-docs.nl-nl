@@ -1,5 +1,5 @@
 ---
-title: Logische apps met Log Analytics - Azure Logic Apps bewaken | Microsoft Docs
+title: Logische apps met Azure Monitor-logs - Azure Logic Apps bewaken | Microsoft Docs
 description: Verzamel inzichten en foutopsporing van gegevens voor het oplossen en diagnosticeren van uw logische app wordt uitgevoerd met Azure Log Analytics
 services: logic-apps
 ms.service: logic-apps
@@ -9,21 +9,23 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 70242de62e976b05e2708dfd4991915c854d4bb4
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 3f890e6cabd757fdd38374befaaccd1a10c9bd96
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995645"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192459"
 ---
-# <a name="monitor-logic-apps-with-azure-log-analytics"></a>Logische apps controleren met Azure Log Analytics
+# <a name="monitor-logic-apps-with-azure-monitor-logs"></a>Logische apps met Azure Monitor-logboeken bewaken
 
-Inschakelen om te controleren en uitgebreidere foutopsporing meer informatie over uw logische apps, [Azure Log Analytics](../log-analytics/log-analytics-overview.md) wanneer u uw logische app maakt. Log Analytics biedt Diagnostische logboekregistratie en bewaking voor uw logische apps wanneer u de oplossing voor Logic Apps-beheer in Azure portal installeren. Deze oplossing biedt ook de verzamelde informatie voor uw logische app wordt uitgevoerd met specifieke details zoals status, uitvoeringstijd, de status opnieuw indienen en correlatie-id's. In dit artikel laat zien hoe inschakelen op Log Analytics, zodat u de runtime-gebeurtenissen weergeven kunt en gegevens voor uw logische app wordt uitgevoerd.
+Inschakelen om te controleren en uitgebreidere foutopsporing meer informatie over uw logische apps, [logboeken van Azure Monitor](../log-analytics/log-analytics-overview.md) wanneer u uw logische app maakt. Logboeken in Azure Monitor biedt Diagnostische logboekregistratie en bewaking voor uw logische apps wanneer u de oplossing voor Logic Apps-beheer in Azure portal installeren. Deze oplossing biedt ook de verzamelde informatie voor uw logische app wordt uitgevoerd met specifieke details zoals status, uitvoeringstijd, de status opnieuw indienen en correlatie-id's. Dit artikel laat het inschakelen van Azure Monitor-Logboeken, zodat u de runtime-gebeurtenissen weergeven kunt en gegevens voor uw logische app wordt uitgevoerd.
 
-Als u wilt inschakelen op Azure Log Analytics voor bestaande logische apps, volgt u deze stappen voor het [Diagnostische logboekregistratie inschakelen en de logische app runtime-gegevens verzenden naar Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+Als u wilt inschakelen op Azure Monitor-logboeken voor logische apps, volgt u deze stappen voor het [Diagnostische logboekregistratie inschakelen en de logische app runtime-gegevens verzenden naar Azure Monitor logboeken](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 > [!NOTE]
 > Eerder beschreven stappen voor het uitvoeren van deze taken met de Microsoft Operations Management Suite (OMS), is deze pagina [buiten gebruik stellen in januari 2019](../azure-monitor/platform/oms-portal-transition.md), vervangt u deze stappen met Azure Log Analytics op in plaats daarvan. 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -56,11 +58,11 @@ Voordat u begint, moet u een Log Analytics-werkruimte. Informatie over [over het
 
 ## <a name="install-logic-apps-management-solution"></a>Oplossing voor de Logic Apps-beheer installeren
 
-Als u al ingesteld op Log Analytics tijdens het maken van uw logische app, moet u deze stap overslaan. U hebt al de Logic Apps-beheeroplossing geïnstalleerd.
+Als u al ingeschakeld voor Azure Monitor-logboeken tijdens het maken van uw logische app, moet u deze stap overslaan. U hebt al de Logic Apps-beheeroplossing geïnstalleerd.
 
 1. Selecteer in [Azure Portal](https://portal.azure.com) de optie **Alle services**. In het zoekvak zoeken "log analytics" en selecteer **Log Analytics**.
 
-   ![Selecteer "Log Analytics"](./media/logic-apps-monitor-your-logic-apps-oms/find-log-analytics.png)
+   ![Select "Log Analytics"](./media/logic-apps-monitor-your-logic-apps-oms/find-log-analytics.png)
 
 1. Onder **Log Analytics**, zoek en selecteer uw Log Analytics-werkruimte. 
 
@@ -116,17 +118,17 @@ Nadat uw logische app wordt uitgevoerd, kunt u de status en het aantal voor deze
 
      Alle toegevoegde bijgehouden eigenschappen kunnen 10-15 minuten voordat ze worden weergegeven eerst duren. Informatie over [bijgehouden eigenschappen toevoegen aan uw logische app](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details).
 
-   * **Verzend:** kunt opnieuw indienen voor een of meer uitvoeringen van logische app die is mislukt, is geslaagd, of u nog steeds uitgevoerd. Schakel de selectievakjes in voor de wordt uitgevoerd die u wilt verzenden, en kies **opnieuw indienen**. 
+   * **Opnieuw:** U kunt uitvoeringen opnieuw indienen een of meer logische app die niet zijn geslaagd, is geslaagd, of nog steeds worden uitgevoerd. Schakel de selectievakjes in voor de wordt uitgevoerd die u wilt verzenden, en kies **opnieuw indienen**. 
 
      ![Uitvoeringen van logische app opnieuw indienen](media/logic-apps-monitor-your-logic-apps-oms/logic-app-resubmit.png)
 
 1. Als u wilt deze resultaten filteren, kunt u filteren zowel client-zijde en serverzijde uitvoeren.
 
-   * **Client-side '-filter**: voor elke kolom, kiest u de filters die u, bijvoorbeeld wilt:
+   * **Client-side '-filter**: Voor elke kolom, kiest u de filters die u, bijvoorbeeld wilt:
 
      ![Voorbeeld van de kolomfilters](media/logic-apps-monitor-your-logic-apps-oms/filters.png)
 
-   * **Server-side '-filter**: kiezen van een specifiek tijdvenster of om te beperken van het aantal uitvoeringen die worden weergegeven, gebruikt u de bereik-besturingselement aan de bovenkant van de pagina. Standaard worden alleen 1000 records weergegeven op een tijdstip.
+   * **Server-side '-filter**: Om te kiezen van een bepaalde periode of om te beperken van het aantal uitvoeringen die worden weergegeven, gebruikt u het bereik-besturingselement aan de bovenkant van de pagina. Standaard worden alleen 1000 records weergegeven op een tijdstip.
    
      ![Het tijdvenster wijzigen](media/logic-apps-monitor-your-logic-apps-oms/change-interval.png)
  
@@ -149,9 +151,9 @@ Nadat uw logische app wordt uitgevoerd, kunt u de status en het aantal voor deze
 
      ![Acties en de details voor een logische app weergeven](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
      
-     U kunt op de pagina Azure Log Analytics bijwerken, query's en bekijk de resultaten uit de tabel. Maakt gebruik van deze query [Kusto-querytaal](https://aka.ms/LogAnalyticsLanguageReference), die u kunt bewerken als u wilt om verschillende resultaten weer te geven. 
+     U kunt op de pagina log analytics bijwerken, query's en bekijk de resultaten uit de tabel. Maakt gebruik van deze query [Kusto-querytaal](https://aka.ms/LogAnalyticsLanguageReference), die u kunt bewerken als u wilt om verschillende resultaten weer te geven. 
 
-     ![Azure Log Analytics - query weergeven](media/logic-apps-monitor-your-logic-apps-oms/query.png)
+     ![log analytics - query weergeven](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

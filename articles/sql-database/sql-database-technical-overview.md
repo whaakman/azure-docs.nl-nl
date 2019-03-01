@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 711e51a075ce25ef3aa3c9c7e8784c914c8d0581
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: c11dc2b24e3cf5d201a73c1ed405ba4b7c09978b
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982264"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992597"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Wat is Azure SQL Database-service?
 
@@ -101,7 +101,15 @@ U maakt gebruik van de [ingebouwde hulpprogramma's voor prestatiebewaking](sql-d
 
 ## <a name="availability-capabilities"></a>Beschikbaarheid
 
-De toonaangevende serviceovereenkomst [(SLA)](https://azure.microsoft.com/support/legal/sla/) van Azure met 99,99% beschikbaarheid dankzij een wereldwijd netwerk van door Microsoft beheerde datacenters, zorgt u ervoor dat uw app continu (24 uur per dag, 7 dagen per week) in de lucht blijft. Het Azure-platform volledig elke database wordt beheerd en zonder verlies van gegevens en een hoog percentage van de beschikbaarheid van gegevens wordt gegarandeerd. Patches, back-ups, replicatie, foutdetectie, onderliggende potentiële hardware-, software- of netwerkfouten, de implementatie van bugfixes, failovers, database-upgrades en andere onderhoudstaken worden in Azure automatisch afgehandeld. Standaard-beschikbaarheid wordt bereikt door de lagen voor berekeningen en opslag te scheiden. Premium-beschikbaarheid wordt bereikt door de integratie van compute en opslag op een enkel knooppunt voor de prestaties en vervolgens implementeren technologie die vergelijkbaar is met Always On Availability Groups op de achtergrond. Zie voor een volledige beschrijving van de mogelijkheden voor hoge beschikbaarheid van Azure SQL Database, [beschikbaarheid van de SQL-Database](sql-database-high-availability.md). Daarnaast biedt SQL Database ingebouwde functies voor [bedrijfscontinuïteit en wereldwijde schaalbaarheid](sql-database-business-continuity.md), zoals:
+In een traditionele SQL Server-omgeving, zijn er in het algemeen (minimaal) 2 machines lokaal ingesteld exacte (synchroon gehouden) kopieën van de gegevens (met functies zoals AlwaysOn-beschikbaarheidsgroepen of Failover Cluster Instances) om te beveiligen tegen een Fout van een enkele machine/component.  Dit zorgt voor hoge beschikbaarheid, maar biedt geen bescherming tegen een natuurramp vernietigen van uw datacenter.
+ 
+Herstel na noodgevallen wordt ervan uitgegaan dat een catastrofale gebeurtenis geografisch worden gelokaliseerd voldoende om het te ver hebben van een andere computer/set van computers met een kopie van uw gegevens.  U kunt in SQL Server Always On Availability Groups in asynchrone modus gebruiken om op te halen van deze mogelijkheid.  De snelheid van lichte problemen betekent meestal dat mensen niet wilt wachten op replicatie om te voorkomen dat ver weg voordat het doorvoeren van een transactie, zodat er kans op gegevensverlies als u niet-geplande failovers uitvoeren.
+
+Databases in de premium- en business kritieke service al lagen [iets vergelijkbaar doen](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) tot de synchronisatie van een beschikbaarheidsgroep. Redundantie voor databases in een lagere service-lagen via opslag met behulp van een [verschillend maar vergelijkbaar mechanisme](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability). Er is een logica die tegen fouten in een enkele computer beschermt.  De functie van actieve geo-replicatie biedt u de mogelijkheid om te beveiligen tegen rampen waar een hele regio wordt vernietigd.
+
+Azure Availability Zones is een afspelen op het probleem met hoge beschikbaarheid.  Probeert te beveiligen tegen de uitval van één datacentrum bouwen binnen één regio.  Ja, het bedrijf wil beveiligen tegen het verlies van kracht of het netwerk naar een gebouw. In SQL Azure, dit werkt door de verschillende replica's in verschillende beschikbaarheidszones (verschillende gebouwen, effectief) en anders werken als voorheen. 
+
+In feite van Azure voor de bedrijfstak toonaangevende 99,99% beschikbaarheid serviceovereenkomst [(SLA)](https://azure.microsoft.com/support/legal/sla/), dankzij een wereldwijd netwerk van door Microsoft beheerde datacenters, helpt bij het beveiligen van uw app 24/7 wordt uitgevoerd. Het Azure-platform volledig elke database wordt beheerd en zonder verlies van gegevens en een hoog percentage van de beschikbaarheid van gegevens wordt gegarandeerd. Patches, back-ups, replicatie, foutdetectie, onderliggende potentiële hardware-, software- of netwerkfouten, de implementatie van bugfixes, failovers, database-upgrades en andere onderhoudstaken worden in Azure automatisch afgehandeld. Standaard-beschikbaarheid wordt bereikt door de lagen voor berekeningen en opslag te scheiden. Premium-beschikbaarheid wordt bereikt door de integratie van compute en opslag op een enkel knooppunt voor de prestaties en vervolgens implementeren technologie die vergelijkbaar is met Always On Availability Groups op de achtergrond. Zie voor een volledige beschrijving van de mogelijkheden voor hoge beschikbaarheid van Azure SQL Database, [beschikbaarheid van de SQL-Database](sql-database-high-availability.md). Daarnaast biedt SQL Database ingebouwde functies voor [bedrijfscontinuïteit en wereldwijde schaalbaarheid](sql-database-business-continuity.md), zoals:
 
 - **[Automatische back-ups](sql-database-automated-backups.md)**:
 

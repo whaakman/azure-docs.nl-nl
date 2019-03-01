@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: eaef1c904b5404339c476d86c5b8c2a1740e5a3e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 8b895580f2edc0b7af1c6195212490ce083208ad
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700074"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991152"
 ---
 # <a name="best-practices-for-securing-and-managing-workloads-migrated-to-azure"></a>Aanbevolen procedures voor het beveiligen en beheren van werkbelastingen naar Azure gemigreerd
 
@@ -588,7 +588,7 @@ Azure-resources een geoorloofd aantal metrische gegevens en telemetrie-gegevens 
 
 - De meeste resourcetypen geen standaard Diagnostische logboekregistratie is ingeschakeld.
 - Door Diagnostische logboekregistratie inschakelen voor uw resources, kunt u logboekregistratie van gegevens op te vragen en bouwen van waarschuwingen en playbooks op basis van dit.
-- Wanneer u Diagnostische logboekregistratie inschakelt, wordt elke resource een specifieke set categorieën hebben. Selecteert u een of meer categorieën voor logboekregistratie en een locatie voor de logboekgegevens. Logboeken kunnen worden verzonden naar een opslagaccount, de event hub, of naar Log Analytics. 
+- Wanneer u Diagnostische logboekregistratie inschakelt, wordt elke resource een specifieke set categorieën hebben. Selecteert u een of meer categorieën voor logboekregistratie en een locatie voor de logboekgegevens. Logboeken kunnen worden verzonden naar een opslagaccount, de event hub of Azure Monitor-Logboeken. 
 
 
 ![Registratie in diagnoselogboek](./media/migrate-best-practices-security-management/diagnostics.png)
@@ -679,7 +679,7 @@ Net als bij elk productiesysteem, waardoor elk type wijziging kan invloed hebben
 Azure heeft een oplossing voor wijzigingen bijhouden in Azure automation:
 
 - De oplossing houdt de wijzigingen in Windows en Linux-software en bestanden, Windows-registersleutels, services voor Windows en Linux-daemons.
-- Wijzigingen in de bewaakte servers worden verzonden naar de Log Analytics-service in de cloud voor verwerking.
+- Wijzigingen in de bewaakte servers worden verzonden naar de service Azure Monitor in de cloud voor verwerking.
 - Logica wordt toegepast op de ontvangen gegevens en de cloudservice registreert de gegevens.
 - Op het dashboard wijzigingen bijhouden kunt kunt u gemakkelijk zien de wijzigingen die zijn aangebracht in uw serverinfrastructuur.
 

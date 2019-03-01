@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 8b5b56e39e1b9830d5b998ace2a384d6878cd510
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 6ed968b1613a96a2f4ab449c7b52488e066a38ab
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041812"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991815"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Online back-up en gegevens op aanvraag voor herstellen in Azure Cosmos DB
 
@@ -20,11 +20,18 @@ Azure Cosmos DB maakt back-ups van uw gegevens automatisch met regelmatige inter
 
 ## <a name="automatic-and-online-backups"></a>Automatische en online back-ups
 
-Met Azure Cosmos DB zijn niet alleen uw gegevens, maar ook de back-ups van uw gegevens maximaal redundante en tegen regionale rampen. De automatische back-ups op dat moment gaat om de vier uur en op elk gewenst moment tijd wordt opgelost, de meest recente twee back-ups worden opgeslagen. Als u hebt per ongeluk verwijderd of beschadigd van uw gegevens, moet u contact opnemen [ondersteuning van Azure](https://azure.microsoft.com/support/options/) binnen acht uur zodat het team van Azure Cosmos DB kunt u de gegevens herstelt vanaf de back-ups.
+Met Azure Cosmos DB zijn niet alleen uw gegevens, maar ook de back-ups van uw gegevens maximaal redundante en tegen regionale rampen. De volgende stappen laten zien hoe de back-up wordt uitgevoerd in Azure Cosmos DB:
 
-De back-ups zijn uitgevoerd zonder gevolgen voor de prestaties of beschikbaarheid van uw toepassing. Azure Cosmos DB kunt u gegevensback-up op de achtergrond zonder eventuele extra ingerichte doorvoer (ru's) verbruikt of die betrekking hebben op de prestaties en beschikbaarheid van uw database.
+* Azure Cosmos DB maakt automatisch een back-up van uw database elke 4 uur en op elk moment, alleen de meest recente 2 back-ups worden opgeslagen. Echter, als de container of de database wordt verwijderd, behoudt Azure Cosmos DB de bestaande momentopnamen van een bepaalde container of de database gedurende 30 dagen.
 
-Azure Cosmos DB slaat automatische back-ups in Azure Blob-opslag terwijl de werkelijke gegevens lokaal aanwezig is in Azure Cosmos DB. Om te waarborgen van de lage latentie, de momentopname van de back-up wordt opgeslagen in Azure Blob-opslag in dezelfde regio als de huidige schrijfregio (of een van de schrijfregio's, hebt u een configuratie met meerdere masters) van uw Cosmos DB database-account. Voor bescherming tegen regionale na noodgevallen, wordt elke momentopname van de back-upgegevens in Azure Blob-opslag opnieuw gerepliceerd naar een andere regio via geo-redundante opslag (GRS). De regio waarnaar de back-up worden gerepliceerd is gebaseerd op de regio van de gegevensbron en de regionaal paar die zijn gekoppeld aan de bronregio. Zie voor meer informatie, de [lijst met geografisch redundante paren van Azure-regio's](../best-practices-availability-paired-regions.md) artikel. U kunt geen rechtstreeks toegang hebben tot deze back-up. Azure Cosmos DB wordt deze back-up alleen gebruiken als een back-up herstellen wordt gestart.
+* Azure Cosmos DB slaat deze back-ups in Azure Blob-opslag terwijl de werkelijke gegevens lokaal aanwezig is in Azure Cosmos DB.
+
+*  Om te waarborgen met lage latentie, de momentopname van de back-up wordt opgeslagen in Azure Blob-opslag in dezelfde regio als de huidige schrijfregio (of een van de schrijfregio's, u hebt een configuratie met meerdere masters) van uw Azure-Cosmos-database account. Voor bescherming tegen regionale na noodgevallen, wordt elke momentopname van de back-upgegevens in Azure Blob-opslag opnieuw gerepliceerd naar een andere regio via geo-redundante opslag (GRS). De regio waarnaar de back-up worden gerepliceerd is gebaseerd op de regio van de gegevensbron en de regionaal paar die zijn gekoppeld aan de bronregio. Zie voor meer informatie, de [lijst met geografisch redundante paren van Azure-regio's](../best-practices-availability-paired-regions.md) artikel. U kunt geen rechtstreeks toegang hebben tot deze back-up. Azure Cosmos DB wordt deze back-up alleen gebruiken als een back-up herstellen wordt gestart.
+
+* De back-ups zijn uitgevoerd zonder gevolgen voor de prestaties of beschikbaarheid van uw toepassing. Azure Cosmos DB kunt u gegevensback-up op de achtergrond zonder eventuele extra ingerichte doorvoer (ru's) verbruikt of die betrekking hebben op de prestaties en beschikbaarheid van uw database.
+
+* Als u hebt per ongeluk verwijderd of beschadigd van uw gegevens, moet u contact opnemen [ondersteuning van Azure](https://azure.microsoft.com/support/options/) binnen acht uur zodat het team van Azure Cosmos DB kunt u de gegevens herstelt vanaf de back-ups.
+
 De volgende afbeelding ziet u hoe een Azure Cosmos-container met alle drie primaire fysieke partities in VS-West is een back-up in een externe Azure Blob Storage-account in VS-West en vervolgens gerepliceerd naar VS-Oost:
 
 ![Periodieke volledige back-ups van alle Cosmos DB-entiteiten in GRS Azure Storage](./media/online-backup-and-restore/automatic-backup.png)

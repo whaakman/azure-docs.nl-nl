@@ -9,12 +9,12 @@ ms.subservice: custom-translator
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: fc3e545db0529739659c1019cbed6d434b586f8f
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 10f34a24668981da5629bd9d03652aa76081bd44
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726955"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194109"
 ---
 # <a name="what-are-parallel-documents"></a>Wat zijn parallelle documenten?
 
@@ -23,7 +23,7 @@ Het maakt niet uit welke taal is gemarkeerd als 'bron' en welke taal is gemarkee
 
 ## <a name="requirements"></a>Vereisten
 
-U moet minimaal 10.000 parallelle zinnen met het trainen van een systeem. Als een best practice, kunt u continu meer parallelle inhoud toevoegen en retrain, voor het verbeteren van de kwaliteit van uw vertaalsysteem.
+U moet minimaal 10.000 unieke parallelle zinnen met het trainen van een systeem. Als een best practice, kunt u continu meer parallelle inhoud toevoegen en retrain, voor het verbeteren van de kwaliteit van uw vertaalsysteem.
 
 Microsoft vereist dat documenten die zijn geüpload naar de Translator aangepaste eigenschappen voor het auteursrecht of intellectueel eigendom van een derde partij niet schenden. Zie voor meer informatie de [gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/cognitive-services-terms/).
 Uploaden van een document met behulp van de portal, wordt het eigendom van het intellectueel eigendom in het document zelf niet gewijzigd.

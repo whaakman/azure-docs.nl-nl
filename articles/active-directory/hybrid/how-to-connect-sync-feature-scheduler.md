@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a40159a43db6f83029ed6eacd37d2a4eff28aa09
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1d5f4dec48d81b032de293bb6c68ad62ac48d475
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203842"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193055"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect-synchronisatie: Scheduler
 In dit onderwerp beschrijft de ingebouwde scheduler in Azure AD Connect-synchronisatie (ook wel) synchronisatie-engine).
@@ -55,7 +55,7 @@ Als u ziet **de synchronisatieopdracht of de cmdlet is niet beschikbaar** wannee
 * **PurgeRunHistoryInterval**. De tijd logboeken voor bewerkingen moeten worden opgeslagen. Deze logboeken kunnen worden gecontroleerd in synchronization servicemanager. De standaardwaarde is dat deze logboeken 7 dagen.
 * **SyncCycleEnabled**. Geeft aan of de scheduler de import, synchronisatie en processen voor exporteren wordt uitgevoerd als onderdeel van de werking ervan.
 * **MaintenanceEnabled**. Geeft aan of het onderhoudsproces voor is ingeschakeld. Het bijwerken van de certificaten/sleutels en Hiermee verwijdert u de operations-logboek.
-* **StagingModeEnabled**. Laat zien als [faseringsmodus](how-to-connect-sync-operations.md#staging-mode) is ingeschakeld. Als deze instelling is ingeschakeld, klikt u vervolgens het onderdrukt de uitvoer die worden uitgevoerd, maar nog steeds import en synchronisatie worden uitgevoerd.
+* **StagingModeEnabled**. Laat zien als [faseringsmodus](how-to-connect-sync-staging-server.md) is ingeschakeld. Als deze instelling is ingeschakeld, klikt u vervolgens het onderdrukt de uitvoer die worden uitgevoerd, maar nog steeds import en synchronisatie worden uitgevoerd.
 * **SchedulerSuspended**. Ingesteld door Connect tijdens een upgrade voor het tijdelijk blokkeren de scheduler wordt uitgevoerd.
 
 U kunt sommige van deze instellingen met wijzigen `Set-ADSyncScheduler`. De volgende parameters kunnen worden gewijzigd:

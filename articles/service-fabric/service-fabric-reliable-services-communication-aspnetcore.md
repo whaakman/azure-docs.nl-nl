@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: 71d5b0e8156710e2f82ac76d3187ba1ddba46936
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c941a9adb552bcd0a02e22b23970717f82c0308f
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151087"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57009933"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core in Service Fabric Reliable Services
 
@@ -333,6 +333,123 @@ new KestrelCommunicationListener(serviceContext, (url, listener) => ...
 ```
 
 In deze configuratie `KestrelCommunicationListener` wordt automatisch een niet-gebruikte poort selecteren in het poortbereik voor toepassingen.
+
+## <a name="service-fabric-configuration-provider"></a>Service Fabric-Configuratieprovider
+Appconfiguratie in ASP.NET Core is gebaseerd op sleutel / waarde-paren worden vastgesteld door de configuratieproviders, lezen [configuratie in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/) om te begrijpen meer op algemene ASP.NET Core-configuratie-ondersteuning.
+
+Deze sectie beschrijft de Configuratieprovider voor Service Fabric om te integreren met ASP.NET Core-configuratie door het importeren van de `Microsoft.ServiceFabric.AspNetCore.Configuration` NuGet-pakket.
+
+### <a name="addservicefabricconfiguration-startup-extensions"></a>AddServiceFabricConfiguration opstarten-extensies
+Nadat u importeren hebt `Microsoft.ServiceFabric.AspNetCore.Configuration` NuGet-pakket, moet u de configuratie van Service Fabric-bron registreren met ASP.NET Core configuratie-API door **AddServiceFabricConfiguration** uitbreidingen in `Microsoft.ServiceFabric.AspNetCore.Configuration` naamruimte op basis van `IConfigurationBuilder`
+
+```csharp
+using Microsoft.ServiceFabric.AspNetCore.Configuration;
+
+public Startup(IHostingEnvironment env)
+{
+    var builder = new ConfigurationBuilder()
+        .SetBasePath(env.ContentRootPath)
+        .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+        .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+        .AddServiceFabricConfiguration() // Add Service Fabric configuration settings.
+        .AddEnvironmentVariables();
+    Configuration = builder.Build();
+}
+
+public IConfigurationRoot Configuration { get; }
+```
+
+De ASP.NET Core-service hebben nu toegang tot de configuratie-instellingen voor Service Fabric, net als elke andere toepassingsinstellingen. Bijvoorbeeld, kunt u het patroon opties om instellingen te laden in sterk getypeerde objecten.
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.Configure<MyOptions>(Configuration);  // Strongly typed configuration object.
+    services.AddMvc();
+}
+```
+### <a name="default-key-mapping"></a>Standaardsleutel toewijzen
+Service Fabric-elementen voor configuratie-provider bevat standaard pakketnaam, de naam van sectie en de naam van de eigenschap samen om te vormen van de configuratie van asp.net core-sleutel van de volgende functie:
+```csharp
+$"{this.PackageName}{ConfigurationPath.KeyDelimiter}{section.Name}{ConfigurationPath.KeyDelimiter}{property.Name}"
+```
+
+Bijvoorbeeld, als u een configuratiepakketten met de naam hebt `MyConfigPackage` met onderstaande inhoud, klikt u vervolgens de configuratiewaarde beschikbaar zullen zijn op ASP.NET Core `IConfiguration` via sleutel *MyConfigPackage:MyConfigSection:MyParameter*
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">  
+  <Section Name="MyConfigSection">
+    <Parameter Name="MyParameter" Value="Value1" />
+  </Section>  
+</Settings>
+```
+### <a name="service-fabric-configuration-options"></a>Configuratieopties voor service Fabric
+Configuratieprovider voor service Fabric ondersteunt ook `ServiceFabricConfigurationOptions` te wijzigen van het standaardgedrag van de toewijzing van de sleutel.
+
+#### <a name="encrypted-settings"></a>Versleutelde instellingen
+Service Fabric biedt ondersteuning voor het versleutelen van de instellingen, biedt dit ook ondersteuning voor Service Fabric-Configuratieprovider. Beveiligde volgen door de instellingen voor versleutelde are't descrypted standaard ASP.NET Core-standaard principe `IConfiguration`, de versleutelde waarde worden er opgeslagen in plaats daarvan. Als u wilt de waarde op te slaan in ASP.NET Core IConfiguration niet ontsleutelen kan u DecryptValue-vlag ingesteld op false in `AddServiceFabricConfiguration` extensies als volgt te werk:
+
+```csharp
+public Startup()
+{
+    ICodePackageActivationContext activationContext = FabricRuntime.GetActivationContext();
+    var builder = new ConfigurationBuilder()        
+        .AddServiceFabricConfiguration(activationContext, (options) => options.DecryptValue = true); // set flag to decrypt the value
+    Configuration = builder.Build();
+}
+```
+#### <a name="multiple-configuration-packages"></a>Meerdere configuratiepakketten
+Service Fabric biedt ondersteuning voor meerdere configuratiepakketten. Naam van het pakket is standaard opgenomen in de configuratie van de sleutel. U kunt instellen de `IncludePackageName` vlag aan het standaardgedrag wijzigen.
+```csharp
+public Startup()
+{
+    ICodePackageActivationContext activationContext = FabricRuntime.GetActivationContext();
+    var builder = new ConfigurationBuilder()        
+        // exclude package name from key.
+        .AddServiceFabricConfiguration(activationContext, (options) => options.IncludePackageName = false); 
+    Configuration = builder.Build();
+}
+```
+#### <a name="custom-key-mapping-value-extraction-and-data-population"></a>Aangepaste toewijzing van de sleutel, waarde extractie en invullen van de gegevens
+Naast de bovenstaande 2 vlaggen voor het wijzigen van het standaardgedrag Configuratieprovider voor Service Fabric biedt ook ondersteuning voor meer geavanceerde scenario's op aangepast de belangrijkste toewijzing via `ExtractKeyFunc` en pak de waarden via op aangepast `ExtractValueFunc`. U kunt ook wijzigen in de gehele procedure voor het vullen van gegevens uit de Service Fabric-configuratie van ASP.NET Core-configuratie via `ConfigAction`.
+
+De volgende voorbeelden ziet u voor het gebruik van `ConfigAction` om aan te passen invullen van de gegevens.
+```csharp
+public Startup()
+{
+    ICodePackageActivationContext activationContext = FabricRuntime.GetActivationContext();
+    
+    this.valueCount = 0;
+    this.sectionCount = 0;
+    var builder = new ConfigurationBuilder();
+    builder.AddServiceFabricConfiguration(activationContext, (options) =>
+        {
+            options.ConfigAction = (package, configData) =>
+            {
+                ILogger logger = new ConsoleLogger("Test", null, false);
+                logger.LogInformation($"Config Update for package {package.Path} started");
+
+                foreach (var section in package.Settings.Sections)
+                {
+                    this.sectionCount++;
+
+                    foreach (var param in section.Parameters)
+                    {
+                        configData[options.ExtractKeyFunc(section, param)] = options.ExtractValueFunc(section, param);
+                        this.valueCount++;
+                    }
+                }
+
+                logger.LogInformation($"Config Update for package {package.Path} finished");
+            };
+        });
+  Configuration = builder.Build();
+}
+```
+### <a name="configuration-update"></a>Configuratie-Update
+Configuratieprovider voor service Fabric biedt ook ondersteuning voor configuratie-Update en kunt u ASP.NET Core `IOptionsMonitor` voor het ontvangen van meldingen voor wachtwoordwijzigingen maar ook met `IOptionsSnapshot` laden van configuratiegegevens. Zie voor meer informatie, [ASP.NET Core mogelijk](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options).
+
+Dit wordt standaard ondersteund en er kunnen geen nieuwe codering nodig zijn om in te schakelen van configuratie-update.
 
 ## <a name="scenarios-and-configurations"></a>Scenario's en configuraties
 In deze sectie worden de volgende scenario's beschreven en vindt u de aanbevolen combinatie van de webserver, poortconfiguratie, Service Fabric-integratie-opties en diverse instellingen om een goed werkende service:

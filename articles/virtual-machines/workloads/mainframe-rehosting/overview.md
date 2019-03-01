@@ -8,12 +8,12 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: 067ab7538924f4aef7c48731d10fa7e68855214a
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 8be0ebc486739f8826e8a1d5a5307a219ba71b6f
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739521"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192714"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Mainframe opnieuw hosten op Azure virtual machines
 
@@ -25,7 +25,7 @@ Een Azure virtuele machine (VM) wordt gebruikt om te isoleren en beheren van de 
 
 Azure-VM's kunnen uitvoeren, mainframe-emulatie omgevingen en compilers die ondersteuning bieden voor lift-and-shift-scenario's. Ontwikkelen en testen zijn vaak een van de eerste werkbelastingen die het migreren van een mainframe naar een Azure dev/test-omgeving. Algemene serveronderdelen waarmee kan worden geëmuleerd zijn onder andere online transactieproces (OLTP), batch en systemen voor opname van gegevens zoals in de volgende afbeelding wordt weergegeven.
 
-![](media/01-overview.png)
+![Emulatie omgevingen op Azure kunnen u z/OS gebaseerde systemen uitvoeren.](media/01-overview.png)
 
 Sommige mainframe-werkbelastingen kunnen worden gemigreerd naar Azure met relatief veel gemak, terwijl anderen kunnen worden rehosted op Azure met behulp van een partneroplossing. Voor gedetailleerde instructies over het kiezen van een partneroplossing de [Azure Mainframe-migratie center](https://azure.microsoft.com/migration/mainframe/) kan helpen.
 

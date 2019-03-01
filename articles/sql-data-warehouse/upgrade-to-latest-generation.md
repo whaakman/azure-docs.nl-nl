@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
-ms.openlocfilehash: f3e877733d473993a5acd2f44e088b8b0b4fe130
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 70a59ddc1b15693cb2a50c1dc2da6dd9233e0811
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447256"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990014"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Prestaties optimaliseren door bijwerken van SQL Data Warehouse
 Azure SQL Data Warehouse een upgrade uitvoert naar de nieuwste generatie van Azure hardware- en storage-architectuur.
@@ -55,7 +55,7 @@ Deze upgrade is van toepassing op geoptimaliseerd Gen1 Compute-laag voor datawar
 ## <a name="upgrade-in-a-supported-region-using-the-azure-portal"></a>Een upgrade uitvoert in een ondersteunde regio met Azure portal
 
 > [!NOTE]
-> Migratie van GEN1 naar GEN2 via Azure portal is definitief. Er is een proces voor het retourneren van GEN1.  
+> Migratie van Gen1 naar Gen2 via Azure portal is definitief. Er is een proces voor het retourneren van Gen1.  
 
 ## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 

@@ -13,12 +13,12 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1851a6c27e89da71e75c59e025fee3800d0cd973
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ee64fe8643362c6a75e288d78e163317fd8a44d8
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876956"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193145"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Installatieprocedure voor Azure AD Connect en Azure AD Connect Health
 
@@ -49,7 +49,7 @@ U vindt de download voor Azure AD Connect op [Microsoft Download Center](https:/
 |Na installatie | [Controleer of de installatie en licenties toewijzen](how-to-connect-post-installation.md)|
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>Meer informatie over het installeren van Azure AD Connect
-U wilt u ook voorbereiden op [operationele](how-to-connect-sync-operations.md) problemen. U wilt mogelijk een stand-by-server hebben, waarop u eenvoudig failover-overschakeling kunt uitvoeren in geval van een [noodgeval](how-to-connect-sync-operations.md#disaster-recovery). Als u van plan bent frequente configuratiewijzigingen aan te brengen, moet u een [faseringsmodus](how-to-connect-sync-operations.md#staging-mode)-server gebruiken.
+U wilt u ook voorbereiden op [operationele](how-to-connect-sync-operations.md) problemen. U wilt mogelijk een stand-by-server hebben, waarop u eenvoudig failover-overschakeling kunt uitvoeren in geval van een [noodgeval](how-to-connect-sync-staging-server.md#disaster-recovery). Als u van plan bent frequente configuratiewijzigingen aan te brengen, moet u een [faseringsmodus](how-to-connect-sync-staging-server.md)-server gebruiken.
 
 |Onderwerp |Koppeling|  
 | --- | --- |

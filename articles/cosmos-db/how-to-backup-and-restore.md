@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 7f99b6d2f6fc1c6d1c270bd66965d978749ac63f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e79fdf2d7d680b3a229385c0fd96d844b3425b18
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455929"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992478"
 ---
 # <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Gegevens terugzetten vanaf een back-up in Azure Cosmos DB 
 
@@ -33,6 +33,11 @@ U hebt de volgende informatie voordat u aanvraagt van een herstelpunt:
 * Als een of meer databases zijn verwijderd, moet u opgeven van de Azure Cosmos-account, evenals de namen van de Azure Cosmos-database en opgeven of een nieuwe database met dezelfde naam bestaat.
 
 * Als een of meer containers zijn verwijderd, moet u de naam van de Azure Cosmos-account, databasenamen en de namen van containers opgeven. En geef als een container met dezelfde naam bestaat.
+
+* Als u hebt per ongeluk verwijderd of beschadigd van uw gegevens, moet u contact opnemen [ondersteuning van Azure](https://azure.microsoft.com/support/options/) binnen acht uur zodat het team van Azure Cosmos DB kunt u de gegevens herstelt vanaf de back-ups.
+  
+  * Als u uw database of de container per ongeluk hebt verwijderd, moet u een Sev B of Sev C Azure-ondersteuningsaanvraag openen. 
+  * Als u hebt per ongeluk verwijderd of beschadigd bepaalde documenten in de container, moet u een ondersteuningsaanvraag Sev A openen. 
 
 Wanneer gegevensbeschadiging optreedt en de documenten in een container worden gewijzigd of verwijderd, **zo snel mogelijk verwijderen van de container**. Door het verwijderen van de container, kunt u Azure Cosmos DB van het overschrijven van de back-ups voorkomen. Als de verwijdering niet mogelijk om een bepaalde reden is, moet u zo snel mogelijk een ticket indienen. Naast de naam van de Azure Cosmos-account, databasenamen, namen van verzamelingen, moet u het punt in tijd waarop de gegevens kunnen worden hersteld. Het is belangrijk om te worden zo nauwkeurig mogelijk om te bepalen van de beste beschikbare back-ups op dat moment. Het is ook belangrijk op te geven van de tijd in UTC. 
 

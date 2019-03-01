@@ -1,19 +1,20 @@
 ---
 title: Aan de slag met Apparaatbeheer via Azure IoT Hub (Java) | Microsoft Docs
 description: Het gebruik van Apparaatbeheer via Azure IoT Hub om te beginnen met een extern apparaat opnieuw opstarten. U de Azure IoT-device-SDK voor Java gebruiken voor het implementeren van een gesimuleerde apparaat-app met een rechtstreekse methode en de Azure IoT service SDK voor Java voor het implementeren van een service-app die de directe methode aanroept.
-author: dominicbetts
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.author: dobett
-ms.openlocfilehash: 46b094e8436d74915a1cd5a0ccec402bee03e33b
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 272f4cfd4d79ef6d4fca3f3c00afb1c251649db8
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515281"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010749"
 ---
 # <a name="get-started-with-device-management-java"></a>Aan de slag met Apparaatbeheer (Java)
 
@@ -39,7 +40,7 @@ Aan het einde van deze zelfstudie, beschikt u over twee Java-consoletoepassingen
 
 * De tijd van de laatste keer opnieuw opstarten via een gerapporteerde eigenschap rapporteert.
 
-**trigger-opnieuw opstarten**. Deze app:
+**trigger-reboot**. Deze app:
 
 * Een rechtstreekse methode aanroepen in het gesimuleerde apparaat-app.
 
@@ -62,7 +63,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Voor IoT hub-verbindingsreeks ophalen
+### <a name="retrieve-connection-string-for-iot-hub"></a>Verbindingsreeks voor IoT-hub ophalen
 
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 

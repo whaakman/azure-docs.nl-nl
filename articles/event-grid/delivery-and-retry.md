@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: spelluru
-ms.openlocfilehash: b69215a76b332db9b994827705d6bbc3b48af5c8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 6dfa84eff8dcc104ae6f9c16262f3b1c697df6c1
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465510"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991203"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Levering van berichten van Event Grid en probeer het opnieuw
 
@@ -24,17 +24,20 @@ Op dit moment Event Grid elke gebeurtenis afzonderlijk naar abonnees worden verz
 
 ## <a name="retry-schedule-and-duration"></a>Schema voor nieuwe pogingen en de duur
 
-Event Grid maakt gebruik van een beleid voor exponentieel uitstel opnieuw proberen voor de bezorging van gebeurtenissen. Als een eindpunt reageert niet of een foutcode retourneert, pogingen Event Grid levering op het volgende schema:
+Event Grid maakt gebruik van een beleid voor exponentieel uitstel opnieuw proberen voor de bezorging van gebeurtenissen. Als een eindpunt reageert niet of een foutcode retourneert, pogingen Event Grid levering op het volgende schema beste vermogen:
 
 1. 10 seconden
-2. 30 seconden
-3. 1 minuut
-4. 5 minuten
-5. 10 minuten
-6. 30 minuten
-7. 1 uur
+1. 30 seconden
+1. 1 minuut
+1. 5 minuten
+1. 10 minuten
+1. 30 minuten
+1. 1 uur
+1. Per uur voor maximaal 24 uur
 
-Event Grid wordt een willekeurig toepassen van kleine toegevoegd aan alle stappen voor opnieuw proberen. Levering van gebeurtenissen wordt eenmaal per uur opnieuw uitgevoerd na een uur.
+Event Grid een kleine willekeurige toegevoegd aan alle stappen van de nieuwe pogingen en kunt u alleen bepaalde nieuwe pogingen overslaan als een eindpunt consistent beschadigd, omlaag gedurende een lange periode is of lijkt te worden geconfronteerd.
+
+Voor het gedrag van deterministische, stelt time to live gebeurtenis en maximale levering probeert de [beleid voor opnieuw proberen abonnement](manage-event-delivery.md).
 
 Event Grid verloopt standaard alle gebeurtenissen die niet worden bezorgd binnen 24 uur. U kunt [aanpassen van het beleid voor opnieuw proberen](manage-event-delivery.md) bij het maken van een gebeurtenisabonnement. U opgeven dat het maximum aantal bezorgingspogingen (de standaardwaarde is 30) en de gebeurtenis time-to-live (standaard is 1440 minuten).
 

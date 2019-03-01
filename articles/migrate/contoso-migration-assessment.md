@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: raynew
-ms.openlocfilehash: e948ee943db646ca83d39510485849b3c9956e90
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: df3ae6fbeceb85df6d6e5245a5bbad517179733c
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697446"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991356"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migratie van Contoso: On-premises workloads evalueren voor migratie naar Azure
 
@@ -82,7 +82,7 @@ Het Contoso-cloud-team heeft de doelstellingen voor de migratie-evaluaties geïd
 - Beheer van Contoso database moet worden geminimaliseerd nadat apps naar de cloud verplaatsen.  
 - Contoso wil weten niet alleen de opties voor de migratie, maar ook de kosten die zijn gekoppeld aan de infrastructuur, nadat deze is verplaatst naar de cloud.
 
-## <a name="assessment-tools"></a>Analyseprogramma 's
+## <a name="assessment-tools"></a>Evaluatieprogramma's
 
 Contoso maakt gebruik van Microsoft-hulpprogramma's voor de migratie-analyse. De hulpprogramma's zijn afgestemd op de doelstellingen van het bedrijf en moeten voorzien van Contoso alle gegevens die nodig zijn.
 
@@ -90,7 +90,7 @@ Technologie | Description | Kosten
 --- | --- | ---
 [Gegevensmigratieassistent](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Contoso maakt gebruik van Data Migration Assistant om te beoordelen en detecteert compatibiliteitsproblemen die invloed kunnen hebben op de databasefunctionaliteit in Azure. Data Migration Assistant beoordeelt de functiepariteit tussen SQL-bronnen en doelen. Dit is de aanbevolen verbeteringen in de prestaties en betrouwbaarheid. | Data Migration Assistant is een gratis, downloadbare-hulpprogramma.
 [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-overview) | Contoso maakt gebruik van de service Azure Migrate voor de beoordeling van de virtuele VMware-machines. Azure Migrate beoordeelt de geschiktheid voor migratie van de machines. Het biedt formaat wijzigen en kostenramingen voor het uitvoeren in Azure.  | Vanaf mei 2018 is Azure Migrate een gratis service.
-[Serviceoverzicht](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Migrate maakt gebruik van servicetoewijzing om afhankelijkheden tussen de machines die het bedrijf wil migreren weer te geven. | Servicetoewijzing is een onderdeel van Azure Log Analytics. Op dit moment kunt Contoso Serviceoverzicht voor 180 dagen kosteloos gebruiken.
+[Serviceoverzicht](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Migrate maakt gebruik van servicetoewijzing om afhankelijkheden tussen de machines die het bedrijf wil migreren weer te geven. | Serviceoverzicht is onderdeel van Azure Monitor-Logboeken. Op dit moment kunt Contoso Serviceoverzicht voor 180 dagen kosteloos gebruiken.
 
 In dit scenario, Contoso downloadt en Data Migration Assistant voor het evalueren van de on-premises SQL Server-database voor de reis-app wordt uitgevoerd. Contoso maakt gebruik van Azure Migrate met afhankelijkheidstoewijzing om te beoordelen van de VM's van de app voorafgaand aan de migratie naar Azure.
 

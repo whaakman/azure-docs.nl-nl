@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 02/19/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: f9ed10c84be86304722020606873b0c7866df1e8
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: f5b884ddda292b1c523a5364d34753ccb3a5bbdf
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594046"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194433"
 ---
 # <a name="validate-oem-packages"></a>OEM-pakketten valideren
 
@@ -91,6 +91,9 @@ Gebruik de **Blob SAS-URL** wanneer URL's bieden pakket blob naar de portal.
 ## <a name="apply-monthly-update"></a>Maandelijkse update van toepassing
 
 [!INCLUDE [azure-stack-vaas-workflow-section_update-azs](includes/azure-stack-vaas-workflow-section_update-azs.md)]
+
+> [!NOTE]
+> Nadat u de maandelijkse update hebt toegepast, wordt u aangeraden Test-AzureStack om te controleren of de update correct is toegepast en in orde is uit te voeren. Als de Test-AzureStack mislukt, moet u het probleem rapporteren aan Microsoft. Niet doorgaan met de testronde totdat het probleem opgelost is. Informatie over het uitvoeren van de Test Azure Stack-opdracht kan worden gevonden in deze [artikel](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test).
 
 ## <a name="create-a-package-validation-workflow"></a>Een werkstroom voor validatie van het pakket maken
 

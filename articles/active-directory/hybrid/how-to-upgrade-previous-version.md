@@ -16,12 +16,12 @@ ms.date: 07/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 437577ec68ee825bd0815735fef08e8297dad756
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: aa21b1054fa6860a8acc5d6971f75e1d74c889f7
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180536"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193752"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: Upgrade van een vorige versie naar de nieuwste versie
 Dit onderwerp beschrijft de verschillende methoden die u kunt uw Azure Active Directory (Azure AD) Connect-installatie bijwerken naar de nieuwste versie. U wordt aangeraden dat u zelf actueel met de versies van Azure AD Connect houden. U ook de stappen in de [Swingmigratie](#swing-migration) sectie bij het maken van een aanzienlijke configuratie wijzigen.
@@ -62,7 +62,7 @@ De twee servers kunnen verschillende versies gebruiken. Bijvoorbeeld, de actieve
 ![Staging-server](./media/how-to-upgrade-previous-version/stagingserver1.png)
 
 > [!NOTE]
-> Sommige klanten de voorkeur geeft aan dat drie of vier servers voor dit scenario. Wanneer de upgrade van de staging-server is uitgevoerd, hebt u niet een back-upserver voor [herstel na noodgevallen](how-to-connect-sync-operations.md#disaster-recovery). Met drie of vier servers, kunt u één set met primaire/stand-by-servers met de nieuwe versie, die zorgt ervoor dat er altijd een testserver die gereed is om over te nemen voorbereiden.
+> Sommige klanten de voorkeur geeft aan dat drie of vier servers voor dit scenario. Wanneer de upgrade van de staging-server is uitgevoerd, hebt u niet een back-upserver voor [herstel na noodgevallen](how-to-connect-sync-staging-server.md#disaster-recovery). Met drie of vier servers, kunt u één set met primaire/stand-by-servers met de nieuwe versie, die zorgt ervoor dat er altijd een testserver die gereed is om over te nemen voorbereiden.
 
 Deze stappen werken ook voor het verplaatsen van Azure AD Sync of een oplossing met FIM + Azure AD-Connector. Deze stappen niet werken voor DirSync, maar de dezelfde swing migratiemethode (ook wel een parallelle implementatie genoemd) met stappen voor DirSync wordt [upgraden van Azure Active Directory-synchronisatie (DirSync)](how-to-dirsync-upgrade-get-started.md).
 
@@ -71,8 +71,8 @@ Deze stappen werken ook voor het verplaatsen van Azure AD Sync of een oplossing 
 2. Als u een aangepaste configuratie hebt aangebracht en uw server met tijdelijke bestanden niet hebt, volgt u de stappen onder [een aangepaste configuratie van de actieve server verplaatsen naar de staging-server](#move-a-custom-configuration-from-the-active-server-to-the-staging-server).
 3. Als u een vanaf een eerdere versie van Azure AD Connect upgrade uitvoert, moet u de staging-server upgraden naar de nieuwste versie. Als u van Azure AD Sync overstapt, moet u vervolgens Azure AD Connect installeert op uw server met tijdelijke bestanden.
 4. Laat de synchronisatie-engine volledige import en volledige synchronisatie uitvoeren op uw server met tijdelijke bestanden.
-5. Controleer of dat de nieuwe configuratie niet ervoor zorgen eventuele onverwachte wijzigingen dat met behulp van de stappen onder 'Verifiëren' [Controleer de configuratie van een server](how-to-connect-sync-operations.md#verify-the-configuration-of-a-server). Als er iets niet zoals verwacht, deze te corrigeren, voert u het importeren en synchroniseren en de gegevens te controleren totdat deze ziet er goed uit, met de volgende stappen.
-6. Schakel de staging-server om de actieve server. Dit is de laatste stap 'Switch active server' [Controleer de configuratie van een server](how-to-connect-sync-operations.md#verify-the-configuration-of-a-server).
+5. Controleer of dat de nieuwe configuratie niet ervoor zorgen eventuele onverwachte wijzigingen dat met behulp van de stappen onder 'Verifiëren' [Controleer de configuratie van een server](how-to-connect-sync-staging-server.md#verify-the-configuration-of-a-server). Als er iets niet zoals verwacht, deze te corrigeren, voert u het importeren en synchroniseren en de gegevens te controleren totdat deze ziet er goed uit, met de volgende stappen.
+6. Schakel de staging-server om de actieve server. Dit is de laatste stap 'Switch active server' [Controleer de configuratie van een server](how-to-connect-sync-staging-server.md#verify-the-configuration-of-a-server).
 7. Als u Azure AD Connect bijwerkt, moet u de server die nu in de faseringsmodus naar de meest recente versie bijwerken. Volg dezelfde stappen als voordat de gegevens en configuratie van een upgrade uitgevoerd. Als u een upgrade uitgevoerd van Azure AD Sync, kunt u nu uitschakelen en de oude server buiten gebruik stellen.
 
 ### <a name="move-a-custom-configuration-from-the-active-server-to-the-staging-server"></a>Een aangepaste configuratie van de actieve server verplaatsen naar de staging-server

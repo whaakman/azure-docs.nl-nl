@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83a0685f75111a5552645d487589734846b05968
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ed081b32fd8ac464f7ec66f97c6867708a6f8533
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164631"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991477"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Expressies schrijven voor kenmerktoewijzingen in Azure Active Directory
 Bij het configureren van inrichting tot een SaaS-toepassing, is een van de typen kenmerktoewijzingen die u kunt opgeven een expressie-toewijzing. Voor deze, moet u een script-achtige-expressie waarmee u uw gebruikers om gegevens te transformeren naar indelingen die meer geschikt is voor de SaaS-toepassing kunt schrijven.
@@ -175,7 +175,7 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
 **Functie:**<br> SingleAppRoleAssignment([appRoleAssignments])
 
-**Beschrijving:**<br> Vereist een tekenreeksargument. Hiermee wordt de tekenreeks wordt geretourneerd, maar met een luiden diakritische tekens met gelijkwaardige niet-diakritische tekens.
+**Beschrijving:**<br> Retourneert een enkel appRoleAssignment uit de lijst met alle appRoleAssignments toegewezen aan een gebruiker voor een bepaalde toepassing. Deze functie is vereist voor het object appRoleAssignments converteren naar een tekenreeks met één functie. Houd er rekening mee dat de aanbevolen procedure is om te controleren of slechts één appRoleAssignment is toegewezen aan één gebruiker tegelijk, en als de rol-tekenreeks geretourneerd door meerdere rollen zijn toegewezen mogelijk niet voorspelbaar. 
 
 **Parameters:**<br> 
 

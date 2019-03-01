@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 5bb2db84a21efb9c8bffb345e05e17d99b866fe9
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 9b9e28f18208674609d0842b0e3a54e3fc661c9f
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56825450"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56988105"
 ---
 ## <a name="view-device-telemetry"></a>Telemetrie van apparaten weergeven
 
@@ -33,7 +33,7 @@ U ziet de telemetrie van uw apparaat verzonden op de **Device Explorer** pagina 
 
 ## <a name="act-on-your-device"></a>Reageren op uw apparaat
 
-Voor het aanroepen van methoden op uw apparaten, gebruikt u de **Device Explorer** pagina in de oplossing voor externe controle. Bijvoorbeeld, in de oplossing voor externe controle **Koelunit** apparaten implementeren een **FirmwareUpdate** methode.
+Voor het aanroepen van methoden op uw apparaten, gebruikt u de **Device Explorer** pagina in de oplossing voor externe controle. Bijvoorbeeld, in de oplossing voor externe controle **Koelunit** apparaten implementeren een **opnieuw opstarten** methode.
 
 1. Kies **apparaten** om te navigeren naar de **Device Explorer** pagina in de oplossing.
 
@@ -41,20 +41,16 @@ Voor het aanroepen van methoden op uw apparaten, gebruikt u de **Device Explorer
 
     ![Selecteer uw echte apparaat](media/iot-suite-visualize-connecting/devicesselect.png)
 
-1. Voor een lijst van de methoden die u op uw apparaat aanroepen kunt, kies **taken**, klikt u vervolgens **methode Run**. Als u een taak uit te voeren op meerdere apparaten plannen, kunt u meerdere apparaten selecteren in de lijst. De **taken** deelvenster ziet u de typen van de methode voor alle apparaten die u hebt geselecteerd.
+1. Voor een lijst van de methoden die u op uw apparaat aanroepen kunt, kies **taken**, klikt u vervolgens **methoden**. Als u een taak uit te voeren op meerdere apparaten plannen, kunt u meerdere apparaten selecteren in de lijst. De **taken** deelvenster ziet u de typen van de methode voor alle apparaten die u hebt geselecteerd.
 
-1. Kies **FirmwareUpdate**, naam van de taak ingesteld op **UpdatePhysicalChiller**. Instellen **firmwareversie** naar **2.0.0**, stel **Firmware URI** naar **http://contoso.com/updates/firmware.bin**, en kies vervolgens **toepassen**:
+1. Kies **opnieuw opstarten**, naam van de taak ingesteld op **RebootPhysicalChiller** en kies vervolgens **toepassen**:
 
     ![Plannen van de firmware-update](media/iot-suite-visualize-connecting/deviceschedule.png)
 
 1. Een reeks berichten weergegeven in de console die de apparaatcode uitgevoerd terwijl het gesimuleerde apparaat de methode afhandelt.
 
-1. Wanneer de update voltooid is, de nieuwe firmwareversie wordt weergegeven op de **Device Explorer** pagina:
-
-    ![Update voltooid](media/iot-suite-visualize-connecting/complete.png)
-
 > [!NOTE]
-> Kies voor het volgen van de status van de taak in de oplossing, **weergave**.
+> Kies voor het volgen van de status van de taak in de oplossing, **weergave taakstatus**.
 
 ## <a name="next-steps"></a>Volgende stappen
 

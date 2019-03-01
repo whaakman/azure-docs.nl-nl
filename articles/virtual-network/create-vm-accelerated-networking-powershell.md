@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
-ms.openlocfilehash: ae3d1fa6a921067e8c3b629206e47e1a1314adc1
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: c4567919490c8bc9094dea3dddbe22550d9eebb2
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889236"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192902"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Een Windows-machine maken met versnelde netwerken
 
@@ -48,7 +48,7 @@ De volgende distributies worden gebruiksklaar uit de galerie met Azure ondersteu
 ### <a name="supported-vm-instances"></a>Ondersteunde VM-exemplaren
 Versneld netwerken wordt ondersteund op de meest algemene en geoptimaliseerde exemplaargrootten met 2 of meer vcpu's.  Deze ondersteunde reeksen zijn: D/DSv2 en F/Fs
 
-Op de VM-exemplaren met 4 of meer vcpu's wordt versnelde netwerken op instanties die ondersteuning bieden voor hyperthreading is, ondersteund. Ondersteunde reeksen zijn: D/DSv3, E/ESv3 Fsv2 en Ms-/ Mms-
+Op de VM-exemplaren met 4 of meer vcpu's wordt versnelde netwerken op instanties die ondersteuning bieden voor hyperthreading is, ondersteund. Ondersteunde reeksen zijn: D/Dsv3, E/Esv3, Fsv2, Lsv2, Ms-/ Mms- en Ms/Mmsv2.
 
 Zie voor meer informatie over VM-exemplaren [Windows VM-grootten](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -73,7 +73,7 @@ Nadat de virtuele machine is gemaakt, kunt u controleren dat aan de hand van de 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Installeer [Azure PowerShell](/powershell/azure/install-az-ps) versie 1.0.0 of hoger. Ga voor de momenteel geïnstalleerde versie uitvoeren `Get-Module -ListAvailable Az`. Als u wilt installeren of upgraden, installeert u de nieuwste versie van de Az-module op basis van de [PowerShell Gallery](https://www.powershellgallery.com/packages/Az). In een PowerShell-sessie, moet u zich aanmelden bij een Azure-account met [Connect AzAccount](/powershell/module/az.profile/connect-azaccount).
+Installeer [Azure PowerShell](/powershell/azure/install-az-ps) versie 1.0.0 of hoger. Ga voor de momenteel geïnstalleerde versie uitvoeren `Get-Module -ListAvailable Az`. Als u wilt installeren of upgraden, installeert u de nieuwste versie van de Az-module op basis van de [PowerShell Gallery](https://www.powershellgallery.com/packages/Az). In een PowerShell-sessie, moet u zich aanmelden bij een Azure-account met [Connect AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 In de volgende voorbeelden kunt u voorbeeldnamen parameter vervangen door uw eigen waarden. Voorbeeld van de parameternamen opgenomen *myResourceGroup*, *myNic*, en *myVM*.
 

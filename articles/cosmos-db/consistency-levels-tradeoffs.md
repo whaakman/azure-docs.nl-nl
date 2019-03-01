@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/13/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: e727e1ad9a4d202a3798f516d1db7d88464999fa
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d8031d4984a278c04342853a06fecb3c8a9a8171
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875953"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194438"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Compromissen tussen consistentie, beschikbaarheid en prestaties 
 
@@ -30,11 +30,11 @@ Elk model optimalisatie van de beschikbaarheid en prestaties biedt en wordt onde
 
 ## <a name="consistency-levels-and-latency"></a>Consistentieniveaus en latentie
 
-- De leeslatentie voor alle consistentieniveaus is altijd gegarandeerd minder dan 10 milliseconden in het 99e percentiel. Deze leeslatentie wordt ondersteund door de SLA. De gemiddelde latentie in het 50e percentiel, lezen, is doorgaans 2 milliseconden of minder. Azure Cosmos-accounts die meerdere regio's beslaan en zijn geconfigureerd met een sterke consistentie vormen een uitzondering op deze gegarandeerd.
+De leeslatentie voor alle consistentieniveaus is altijd gegarandeerd minder dan 10 milliseconden in het 99e percentiel. Deze leeslatentie wordt ondersteund door de SLA. De gemiddelde latentie in het 50e percentiel, lezen, is doorgaans 2 milliseconden of minder. Azure Cosmos-accounts die meerdere regio's beslaan en zijn geconfigureerd met een sterke consistentie vormen een uitzondering op deze gegarandeerd.
 
-- De latentie schrijven voor de resterende consistentieniveaus is altijd gegarandeerd minder dan 10 milliseconden in het 99e percentiel. Deze schrijflatentie wordt ondersteund door de SLA. De gemiddelde schrijflatentie, in het 50e percentiel, is doorgaans 5 milliseconden of minder.
+De latentie schrijven voor alle consistentieniveaus is altijd gegarandeerd minder dan 10 milliseconden in het 99e percentiel. Deze schrijflatentie wordt ondersteund door de SLA. De gemiddelde schrijflatentie, in het 50e percentiel, is doorgaans 5 milliseconden of minder.
 
-Sommige Azure-Cosmos-accounts mogelijk meerdere regio's die zijn geconfigureerd met sterke consistentie. In dit geval is de schrijflatentie gegarandeerd minder dan twee keer retourtijd (RTT) plus 10 milliseconden in het 99e percentiel. De RTT tussen een van de twee verst regio's is gekoppeld aan uw Azure Cosmos-account. Dit is gelijk aan de RTT tussen een van de twee verst regio's die zijn gekoppeld aan uw Azure Cosmos-account. Deze optie is momenteel in preview.
+Voor Azure Cosmos-accounts die zijn geconfigureerd met sterke consistentie met meer dan één regio, is de schrijflatentie gegarandeerd minder dan twee keer retourtijd (RTT) tussen de twee verst regio's, plus 10 milliseconden in het 99e percentiel. Deze optie is momenteel in preview.
 
 De exacte RTT latentie is een functie van de snelheid van licht afstand en de Azure-netwerktopologie. Azure-netwerken biedt geen eventuele latentie Sla's voor de RTT tussen elke twee Azure-regio's. Voor uw Azure Cosmos-account, worden replicatielatentie weergegeven in de Azure-portal. U kunt de Azure-portal gebruiken voor het bewaken van de replicatielatentie tussen verschillende regio's die gekoppeld aan uw account zijn.
 

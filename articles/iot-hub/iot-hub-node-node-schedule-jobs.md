@@ -1,20 +1,20 @@
 ---
 title: Plannen van taken met Azure IoT Hub (Node) | Microsoft Docs
 description: Klik hier voor meer informatie over het plannen van een taak is Azure IoT Hub een rechtstreekse methode aanroepen op meerdere apparaten. U de Azure IoT SDK's voor Node.js gebruiken voor het implementeren van de gesimuleerde apparaat-apps en een app service de taak uit te voeren.
-author: juanjperez
-manager: cberlin
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 10/06/2017
-ms.author: juanpere
-ms.openlocfilehash: a0614b5a1eadafe78537a4793d2dc0a866337487
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 8f2130c1927522a587136fde3423e971a0555026
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118877"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010035"
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>Taken plannen en uitzenden (Node)
 

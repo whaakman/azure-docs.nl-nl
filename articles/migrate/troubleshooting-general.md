@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: raynew
-ms.openlocfilehash: bb9d22b45011f5156a63444ec8e1651f148993b6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: cb1bed847f5b7afe7c1eff0243c64e8c25ddb814
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751902"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992553"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Problemen met Azure Migrate oplossen
 
@@ -170,7 +170,7 @@ Dit probleem kan optreden vanwege een probleem met de installatie van VMware Pow
 
 ### <a name="error-unabletoconnecttoserver"></a>Error UnableToConnectToServer
 
-Kan geen verbinding maken met vCenter-Server 'Servernaam.com:9443' vanwege fout: Er is geen eindpunt dat luistert op https://Servername.com:9443/sdk die het bericht kan accepteren.
+Kan geen verbinding maken met vCenter Server: 'Servernaam.com:9443' vanwege de fout: Er luistert geen eindpunt op https://Servername.com:9443/sdk dat het bericht kan accepteren.
 
 Als u de nieuwste versie van het collector-apparaat worden uitgevoerd, zo niet, upgrade van het apparaat kan controleren de [meest recente versie](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
@@ -222,14 +222,14 @@ De lijst van Windows-besturingssystemen wordt ondersteund door de agent voor afh
 De lijst met Linux-besturingssystemen wordt ondersteund door de agent voor afhankelijkheden is [hier](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### <a name="i-am-unable-to-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Ik kan geen visualiseren afhankelijkheden in Azure Migrate voor meer dan één uur duurt?
-Azure Migrate kunt u visualiseren afhankelijkheden voor maximaal één uur duurt. Hoewel Azure Migrate, u kunt terugkeren naar een bepaalde datum in de geschiedenis voor maximaal laatste maand, is de maximale duur waarvoor u de afhankelijkheden visualiseren maximaal 1 uur. Bijvoorbeeld, u kunt de functionaliteit van de duur van de tijd in de kaart van afhankelijkheden, gebruiken om afhankelijkheden voor gisteren, maar kan alleen weergeven voor een venster van één uur. Echter, kunt u Log Analytics [query uitvoeren op de afhankelijkheidsgegevens](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) gedurende een langere periode.
+Azure Migrate kunt u visualiseren afhankelijkheden voor maximaal één uur duurt. Hoewel Azure Migrate, u kunt terugkeren naar een bepaalde datum in de geschiedenis voor maximaal laatste maand, is de maximale duur waarvoor u de afhankelijkheden visualiseren maximaal 1 uur. Bijvoorbeeld, u kunt de functionaliteit van de duur van de tijd in de kaart van afhankelijkheden, gebruiken om afhankelijkheden voor gisteren, maar kan alleen weergeven voor een venster van één uur. Echter, kunt u logboeken met Azure Monitor [query uitvoeren op de afhankelijkheidsgegevens](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) gedurende een langere periode.
 
 ### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>Ik kan geen visualiseren afhankelijkheden voor groepen met meer dan 10 virtuele machines?
 U kunt [visualiseren afhankelijkheden voor groepen](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) dat hebben van 10 virtuele machines, hebt u een groep met meer dan 10 virtuele machines, we raden u aan de groep in kleinere groepen splitsen en de afhankelijkheden visualiseren.
 
 ### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>Ik agents zijn geïnstalleerd en de visualisatie van afhankelijkheden gebruikt voor het maken van groepen. Nu na een failover, de machines actie "Agent installeren" in plaats van 'Afhankelijkheden bij weergave' weergeven
 * Post geplande of niet-geplande failover, on-premises machines zijn uitgeschakeld en gelijkwaardige machines in Azure hebben zijn ingeschakeld. Deze machines een ander MAC-adres hebt aanschaft. Ze kunnen een ander IP-adres dat is gebaseerd op of de gebruiker heeft ervoor gekozen op het lokale IP-adres behouden of niet verkrijgen. Als zowel MAC als IP-adressen verschillen, Azure Migrate heeft niet de on-premises machines koppelen aan alle gegevens van de afhankelijkheid Serviceoverzicht en vraagt de gebruiker voor het installeren van agents in plaats van afhankelijkheden weergeven.
-* Test-failover, plaatsen de on-premises machines ingeschakeld blijven zoals verwacht. Gelijkwaardige machines hebben ingeschakeld in Azure ander MAC-adres verkrijgen en kunnen verschillende IP-adres hebt aanschaft. Tenzij de gebruiker wordt geblokkeerd uitgaand verkeer van Log Analytics van deze machines, Azure Migrate heeft niet de on-premises machines koppelen aan alle gegevens van de afhankelijkheid Serviceoverzicht en vraagt de gebruiker voor het installeren van agents in plaats van afhankelijkheden weergeven.
+* Test-failover, plaatsen de on-premises machines ingeschakeld blijven zoals verwacht. Gelijkwaardige machines hebben ingeschakeld in Azure ander MAC-adres verkrijgen en kunnen verschillende IP-adres hebt aanschaft. Tenzij de gebruiker blokkeert uitgaande Azure Monitor zich verkeer van deze machines, Azure Migrate koppelt de on-premises computers niet met alle gegevens van de afhankelijkheid Serviceoverzicht en vraagt de gebruiker voor het installeren van agents in plaats van afhankelijkheden weergeven.
 
 ## <a name="troubleshoot-azure-readiness-issues"></a>Problemen met Azure-gereedheid
 

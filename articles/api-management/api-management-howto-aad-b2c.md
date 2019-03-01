@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 8c60e7dec2d2a9bc3e063adfee0ffaff63417265
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: bdc479c6cc91c3ebba343a8423a73fb2e0404a73
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960160"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992699"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Hoe ontwikkelaarsaccounts authoriseren met behulp van Azure Active Directory B2C in Azure API Management
 
@@ -38,9 +38,9 @@ Azure Active Directory B2C is een cloudoplossing voor het beheer van identiteit 
    > [!NOTE]
    > Als u nog een exemplaar van API Management-service hebt gemaakt, Zie [API Management service-exemplaar maken] [ Create an API Management service instance] in de [aan de slag met Azure API Management-zelfstudie] [Get started with Azure API Management].
 
-2. Onder **SECURITY**, selecteer **identiteiten**. Klik op **+ toevoegen** aan de bovenkant.
+2. Onder **identiteiten**. Klik op **+ toevoegen** aan de bovenkant.
 
-   De **id-provider toevoegen** deelvenster wordt weergegeven aan de rechterkant. Kies **Azure Active Directory B2C**.
+   De **id-provider toevoegen** deelvenster wordt weergegeven aan de rechterkant. Choose **Azure Active Directory B2C**.
     
    ![AAD B2C als id-provider toevoegen][api-management-howto-add-b2c-identity-provider]
 

@@ -10,12 +10,12 @@ ms.reviewer: klam, estfan, LADocs
 ms.custom: vs-azure
 ms.topic: article
 ms.date: 03/30/2017
-ms.openlocfilehash: 068e5399073959d2c5aa6c4bbeb0d7bccf7d05e6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 9cd1946d8fa670764bcc95b82298d07cc70417bd
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393776"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57191320"
 ---
 # <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>Overzicht: Azure Serverloos met Azure Logic Apps en Azure Functions
 
@@ -29,7 +29,7 @@ De core-services in Azure om zonder server zijn [Azure Functions](https://azure.
 
 ## <a name="what-are-azure-functions"></a>Wat zijn Azure Functions?
 
-Azure Functions is een oplossing voor het eenvoudig uitvoeren van kleine stukjes code, ofwel ‘functies’, in de cloud. U hoeft alleen de code te schrijven die u op dat moment nodig hebt, zonder dat u een complete toepassing of de bijbehorende infrastructuur nodig hebt. Functions kunnen het ontwikkeltraject nog efficiënter en kunt u uw programmeertaal naar keuze, zoals C#, F #, Node.js, Python of PHP. Betaal alleen voor de tijd dat uw code wordt uitgevoerd en Azure kan worden geschaald naar behoefte.
+Azure Functions is een oplossing voor het eenvoudig uitvoeren van kleine stukjes code, ofwel ‘functies’, in de cloud. U hoeft alleen de code te schrijven die u op dat moment nodig hebt, zonder dat u een complete toepassing of de bijbehorende infrastructuur nodig hebt. Functions kunnen het ontwikkeltraject nog efficiënter en kunt u uw ontwikkeling taal naar keuze, zoals C#, F#, Node.js, Python of PHP. Betaal alleen voor de tijd dat uw code wordt uitgevoerd en Azure kan worden geschaald naar behoefte.
 
 Als u meteen aan de slag wilt met Azure Functions, kunt u beginnen met [Uw eerste Azure-functie maken](../azure-functions/functions-create-first-azure-function.md). Als u behoefte hebt aan meer technische informatie over Functions, raadpleegt u de [naslaginformatie voor ontwikkelaars](../azure-functions/functions-reference.md).
 
@@ -41,7 +41,7 @@ Als u wilt aan de slag met Logic Apps, beginnen met [het maken van uw eerste log
 
 ## <a name="how-can-i-build-and-deploy-serverless-applications-in-azure"></a>Hoe kan ik bouw en implementeer Serverloze toepassingen in Azure?
 
-Azure biedt een uitgebreide set hulpprogramma's voor ontwikkeling, implementatie en het beheer van Serverloze apps.  Apps kunnen worden gebouwd, rechtstreeks in Azure portal of met [vanuit Visual Studio-hulpmiddelen](logic-apps-serverless-get-started-vs.md).  Wanneer een toepassing is ontwikkeld kan zijn [onmiddellijk geïmplementeerd](logic-apps-create-deploy-template.md).  Azure biedt ook de bewaking voor serverloze apps.  Deze bewaking zijn toegankelijk vanuit Azure portal, via de API of SDK's of met geïntegreerde hulpprogramma's voor Log Analytics en Application Insights.
+Azure biedt een uitgebreide set hulpprogramma's voor ontwikkeling, implementatie en het beheer van Serverloze apps.  Apps kunnen worden gebouwd, rechtstreeks in Azure portal of met [vanuit Visual Studio-hulpmiddelen](logic-apps-serverless-get-started-vs.md).  Wanneer een toepassing is ontwikkeld kan zijn [onmiddellijk geïmplementeerd](logic-apps-create-deploy-template.md).  Azure biedt ook de bewaking voor serverloze apps.  Deze bewaking zijn toegankelijk vanuit Azure portal, via de API of SDK's of met geïntegreerde hulpprogramma's voor Azure Monitor-logboeken en Application Insights.
 
 ## <a name="next-steps"></a>Volgende stappen
 

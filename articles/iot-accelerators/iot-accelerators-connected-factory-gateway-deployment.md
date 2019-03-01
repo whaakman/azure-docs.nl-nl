@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 0a2ccdc6b02e9d348517bee95306ffc88d9ccd98
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 9208d9949ee68f966087c5e0bb50806ece8a2f60
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599941"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011412"
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>Een edge-gateway voor de verbonden Factory solution accelerator op Windows of Linux implementeren
 
@@ -28,7 +28,7 @@ Beide componenten zijn open-source en zijn beschikbaar als bron op GitHub en Doc
 | GitHub | DockerHub |
 | ------ | --------- |
 | [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) | [OPC Publisher](https://hub.docker.com/r/microsoft/iot-edge-opc-publisher/)   |
-| [OPC-Proxy](https://github.com/Azure/iot-edge-opc-proxy)         | [OPC-Proxy](https://hub.docker.com/r/microsoft/iot-edge-opc-proxy/) |
+| [OPC Proxy](https://github.com/Azure/iot-edge-opc-proxy)         | [OPC Proxy](https://hub.docker.com/r/microsoft/iot-edge-opc-proxy/) |
 
 U hoeft geen een openbare IP-adres of binnenkomende poorten openen in de firewall van de gateway voor een onderdeel. Onderdelen van de OPC-Proxy en OPC Publisher gebruik alleen uitgaande poort 443.
 
@@ -39,7 +39,7 @@ De stappen in dit artikel ziet u hoe u een edge-gateway met behulp van Docker op
 
 ## <a name="choose-a-gateway-device"></a>Kies een gateway-apparaat
 
-Als u nog een gateway-apparaat hebt, raadt Microsoft aan dat u een commerciële gateway bij een van hun partners kopen. Voor een lijst van de gatewayapparaten die compatibel zijn met de verbonden Factory-oplossing, gaat u naar de [Azure IoT-apparaatcatalogus](https://catalog.azureiotsuite.com/?q=opc). Volg de instructies die deel van het apparaat uitmaken voor het instellen van de gateway.
+Als u nog een gateway-apparaat hebt, raadt Microsoft aan dat u een commerciële gateway bij een van hun partners kopen. Voor een lijst van de gatewayapparaten die compatibel zijn met de verbonden Factory-oplossing, gaat u naar de [Azure IoT-apparaatcatalogus](https://catalog.azureiotsolutions.com/?q=opc). Volg de instructies die deel van het apparaat uitmaken voor het instellen van de gateway.
 
 Als u een bestaande gatewayapparaat handmatig te configureren wilt, gebruikt u de volgende instructies.
 

@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8f309d628ec4531ca5594ecb25533b1484e8b274
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 177d74a54e4ab4de698cbb63091656cc8b584e2b
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732395"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010681"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Azure analyseservices beheren met PowerShell
 
@@ -51,7 +51,7 @@ Module - [Azure.AnalysisServices](https://www.powershellgallery.com/packages/Azu
 
 |Cmdlet|Description| 
 |------------|-----------------| 
-|[Add-AzAnalysisServicesAccount](/powershell/module/azure.analysisservices/add-AzAnalysisServicesaccount)|Een geverifieerde account moet worden gebruikt voor Azure Analysis Services-serveraanvragen cmdlet toegevoegd.| 
+|[Add-AzAnalysisServicesAccount](/powershell/module/az.analysisservices/add-AzAnalysisServicesaccount)|Een geverifieerde account moet worden gebruikt voor Azure Analysis Services-serveraanvragen cmdlet toegevoegd.| 
 |[Export-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/export-AzAnalysisServicesinstancelog)|Hiermee exporteert u een logboek van een exemplaar van Analysis Services-server in de momenteel aangemelde omgeving zoals opgegeven in de opdracht Add-AzAnalysisServicesAccount|  
 |[Restart-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|Een exemplaar van Analysis Services-server opnieuw wordt opgestart in de omgeving die momenteel is aangemeld. in de opdracht Add-AzAnalysisServicesAccount hebt opgegeven.|  
 |[Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|Een opgegeven database op het opgegeven exemplaar van Analysis Services-server op alle query scale-out-exemplaren in de momenteel aangemelde omgeving zoals opgegeven in de opdracht Add-AzAnalysisServicesAccount synchroniseert|  

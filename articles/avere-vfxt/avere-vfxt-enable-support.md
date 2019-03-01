@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: b975f84106507da6adff11dc62441526773f5cab
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: fe096b2e2a75cc89e3ce5ef905d8e4c347cc153a
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998130"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992461"
 ---
 # <a name="enable-support-uploads"></a>Ondersteuningsuploads inschakelen
 
@@ -30,18 +30,18 @@ Volg deze stappen in het Configuratiescherm Avere ondersteuning te activeren. (L
 1. Klik op de **Revalidate uploadinformatie** knop.
 1. Naam van de ondersteuning van het cluster instellen in **unieke clusternaam** -Zorg ervoor dat deze unieke identificatie van uw cluster ter ondersteuning van personeel.
 1. Schakel de selectievakjes voor **statistieken bewaking**, **algemene gegevens uploaden**, en **Crash gegevens uploaden**.
-1. Klik op **indienen**.
+1. Klik op **Submit**
 
    ![Schermafbeelding met voltooide klant info-sectie van de pagina instellingen ondersteuning](media/avere-vfxt-support-info.png)
 
 1. Klik op het driehoekje aan de linkerkant van **Secure proactieve ondersteuning (SP's)** om uit te breiden, de sectie.
 1. Schakel het selectievakje voor **inschakelen SP's koppeling**.
-1. Klik op **indienen**.
+1. Klik op **Submit**
 
    ![Schermafbeelding met voltooide proactieve ondersteuning beveiligde sectie op de instellingenpagina voor ondersteuning](media/avere-vfxt-support-sps.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u wilt een on-premises opslag-systeem aan het cluster toevoegen of bijwerken van de standaardversleutelingssleutel in een nieuw gemaakte Blob-container, volgt u de instructies in [opslag configureren](avere-vfxt-add-storage.md). 
+Als u toevoegen van een wilt on-premises of in de cloud opslagsysteem aan het cluster, volg de instructies in bestaande [opslag configureren](avere-vfxt-add-storage.md). 
 
 Als u klaar om te beginnen clients koppelen aan het cluster bent, lezen [koppelen van het cluster van Avere vFXT](avere-vfxt-mount-clients.md).

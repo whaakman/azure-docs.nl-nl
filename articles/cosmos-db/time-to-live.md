@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 9b5054da56bdc6a88642ea7860702b280a76dbb1
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d09abfbec7ace3112de35869ccc95c56e113e6fe
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461165"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991832"
 ---
 # <a name="time-to-live-in-azure-cosmos-db"></a>Time to live in Azure Cosmos DB van 
 
@@ -30,7 +30,7 @@ De waarde time to live in seconden wordt ingesteld en dit wordt geïnterpreteerd
 
    - Als aanwezig zijn en de waarde is ingesteld op een nummer ("n"): verlopen items "n" aantal seconden na de laatste keer is gewijzigd.
 
-2. **Time to Live op een item** (ingesteld met behulp van `TimeToLive`):
+2. **Time to Live op een item** (ingesteld met behulp van `ttl`):
 
    - Deze eigenschap geldt alleen als `DefaultTimeToLive` aanwezig is en deze niet is ingesteld op null voor de bovenliggende container.
 

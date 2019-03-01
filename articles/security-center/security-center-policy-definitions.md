@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: e83ff9f3bf02a134919d497662744028e1b9acda
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 895afb7af8ed7100af237f88e2953f4dc0991acb
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56343014"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195248"
 ---
 # <a name="azure-security-policies-monitored-by-azure-security-center"></a>Beleid voor Azure-beveiliging bewaakt door Azure Security Center
 In dit artikel biedt een overzicht van Azure Policy-definities die kan worden bewaakt in Security Center. Zie voor meer informatie over beveiligingsbeleid, [werken met beleidsregels voor veiligheid](tutorial-security-policy.md).
@@ -58,30 +58,30 @@ Zie voor meer informatie over de ingebouwde beleidsregels die worden bewaakt doo
 |Inschakelen van diagnostische logboeken in App Services controleren|Controle inschakelen van diagnostische logboeken op de app. Hiermee kunt u activiteit sporen onderzoek opnieuw maken als een beveiligingsincident optreedt of als uw netwerk is gecompromitteerd.| 
 |Controlestatus van transparante gegevensversleuteling|Controlestatus van transparante gegevensversleuteling voor SQL-databases.| 
 |Instellingen voor SQL-controle op serverniveau|Controleert het bestaan van de SQL-controle op serverniveau.| 
-|[Preview]: Niet-versleutelde SQL-database in Azure Security Center bewaken|Niet-versleutelde SQL-servers of databases wordt bewaakt door Azure Security Center als aanbevelingen.| 
-|[Preview]: Niet-gecontroleerde SQL-database in Azure Security Center bewaken|SQL-servers en databases waarvoor geen SQL-controle ingeschakeld zal worden bewaakt door Azure Security Center als aanbevelingen.| 
-|[Preview]: Ontbrekende systeemupdates in Azure Security Center bewaken|Ontbrekende beveiligingssysteemupdates op uw servers zullen worden bewaakt door Azure Security Center als aanbevelingen.| 
-|[Preview]: Controle uitvoeren op ontbrekende blobversleuteling voor opslagaccounts|Dit beleid controleert opslagaccounts zonder blobversleuteling. Dit is alleen van toepassing op Microsoft.Storage-resourcetypen, niet op andere opslagproviders. Mogelijk netwerk Just In Time-toegang wordt worden als aanbevelingen bewaakt door Azure Security Center.| 
-|[Preview]: Mogelijk alleen In tijd (JIT)-toegang in Azure Security Center bewaken|Mogelijke netwerktoegang alleen In tijd (JIT) worden door Azure Security Center als aanbevelingen bewaakt.| 
-|[Preview]: Mogelijke opname Apps op Whitelist in Azure Security Center bewaken|Mogelijke whitelistconfiguratie voor toepassingen wordt bewaakt door Azure Security Center.| 
-|[Preview]: Ruime netwerktoegang in Azure Security Center bewaken|Netwerkbeveiligingsgroepen met te ruime regels worden door Azure Security Center als aanbevelingen bewaakt.| 
-|[Preview]: Beveiligingsproblemen van besturingssystemen bewaken in Azure Security Center|Servers die niet voldoen aan de ingestelde basislijn worden bewaakt door Azure Security Center als aanbevelingen.| 
-|[Preview]: Ontbrekende Endpoint Protection bewaken in Azure Security Center|Servers zonder een geïnstalleerde Endpoint Protection-agent worden bewaakt door Azure Security Center als aanbevelingen.| 
-|[Preview]: Niet-versleutelde VM-schijven in Azure Security Center bewaken|Virtuele machines zonder ingeschakelde schijfversleuteling worden door Azure Security Center als aanbevelingen bewaakt.| 
-|[Preview]: Beveiligingsproblemen van virtuele machines bewaken in Azure Security Center|Hiermee worden beveiligingsproblemen die door de oplossing voor evaluatie van beveiligingsproblemen zijn gedetecteerd en virtuele machines zonder oplossing voor evaluatie van beveiligingsproblemen bewaakt als aanbevelingen in Azure Security Center.| 
-|[Preview]: Niet-beveiligde web-App in Azure Security Center bewaken|Webtoepassingen zonder Web Application Firewall bescherming wordt worden als aanbevelingen bewaakt door Azure Security Center.| 
-|[Preview]: Netwerkeindpunten in Azure Security Center bewaken|Netwerkeindpunten zonder een Next Generation Firewall beveiliging wordt worden als aanbevelingen bewaakt door Azure Security Center.| 
-|[Preview]: Evaluatie van beveiligingsproblemen SQL monitor resulteert in Azure Security Center|Bewaken van de scanresultaten en aanbevelingen van de beveiligingsevaluatie over het herstellen van beveiligingsproblemen in een database.| 
-|[Preview]: Maximum aantal eigenaars voor een abonnement controleren|Het wordt aanbevolen maximaal drie abonnementseigenaren toe te wijzen om het risico dat een gecomprimeerde eigenaar inbreuk kan plegen te beperken.| 
-|[Preview]: Minimum aantal eigenaren voor het abonnement controleren|We raden u aan meer dan één abonnementseigenaar toe te wijzen voor toegangsredundantie voor beheerders.| 
-|[Preview]: Accounts met eigenaarsmachtigingen die geen MFA is ingeschakeld op een abonnement controleren|Schakel meervoudige verificatie (MFA) in voor alle abonnementsaccounts met eigenaarsmachtigingen om te voorkomen dat er inbreuk wordt gepleegd op accounts of resources.| 
-|[Preview]: Accounts met schrijfmachtigingen die geen MFA is ingeschakeld op een abonnement controleren|Schakel meervoudige verificatie (MFA) in voor alle abonnementsaccounts met schrijfmachtigingen om te voorkomen dat er inbreuk wordt gepleegd op accounts of resources.| 
-|[Preview]: Accounts met leesmachtigingen die geen MFA is ingeschakeld op een abonnement controleren|Schakel meervoudige verificatie (MFA) in voor alle abonnementsaccounts met leesmachtigingen om te voorkomen dat er inbreuk wordt gepleegd op accounts of resources.| 
-|[Preview]: Afgeschafte accounts met eigenaarsmachtigingen voor een abonnement controleren|Afgeschafte accounts met eigenaarsmachtigingen moeten worden verwijderd uit uw abonnement. Afgeschafte accounts zijn accounts die zich zijn geblokkeerd.| 
-|[Preview]: Afgeschafte accounts op een abonnement controleren|Afgeschafte accounts moeten worden verwijderd van uw abonnementen. Afgeschafte accounts zijn accounts die zich zijn geblokkeerd.| 
-|[Preview]: Externe accounts met eigenaarsmachtigingen voor een abonnement controleren|Externe accounts met eigenaarsmachtigingen moeten worden verwijderd uit uw abonnement om onbewaakte toegang te voorkomen.| 
-|[Preview]: Controle van externe accounts met schrijfmachtigingen heeft voor een abonnement|Externe accounts met schrijfmachtigingen moeten worden verwijderd van uw abonnement om onbewaakte toegang te voorkomen.| 
-|[Preview]: Externe accounts met leesmachtigingen voor een abonnement controleren|Externe accounts met leesmachtigingen moeten worden verwijderd van uw abonnement om onbewaakte toegang te voorkomen.| 
+|\[Preview-versie]: Niet-versleutelde SQL-database in Azure Security Center bewaken|Niet-versleutelde SQL-servers of databases wordt bewaakt door Azure Security Center als aanbevelingen.| 
+|\[Preview-versie]: Niet-gecontroleerde SQL-database in Azure Security Center bewaken|SQL-servers en databases waarvoor geen SQL-controle ingeschakeld zal worden bewaakt door Azure Security Center als aanbevelingen.| 
+|\[Preview-versie]: Ontbrekende systeemupdates in Azure Security Center bewaken|Ontbrekende beveiligingssysteemupdates op uw servers zullen worden bewaakt door Azure Security Center als aanbevelingen.| 
+|\[Preview-versie]: Controle uitvoeren op ontbrekende blobversleuteling voor opslagaccounts|Dit beleid controleert opslagaccounts zonder blobversleuteling. Dit is alleen van toepassing op Microsoft.Storage-resourcetypen, niet op andere opslagproviders. Mogelijk netwerk Just In Time-toegang wordt worden als aanbevelingen bewaakt door Azure Security Center.| 
+|\[Preview-versie]: Mogelijk alleen In tijd (JIT)-toegang in Azure Security Center bewaken|Mogelijke netwerktoegang alleen In tijd (JIT) worden door Azure Security Center als aanbevelingen bewaakt.| 
+|\[Preview-versie]: Mogelijke opname Apps op Whitelist in Azure Security Center bewaken|Mogelijke whitelistconfiguratie voor toepassingen wordt bewaakt door Azure Security Center.| 
+|\[Preview-versie]: Ruime netwerktoegang in Azure Security Center bewaken|Netwerkbeveiligingsgroepen met te ruime regels worden door Azure Security Center als aanbevelingen bewaakt.| 
+|\[Preview-versie]: Beveiligingsproblemen van besturingssystemen bewaken in Azure Security Center|Servers die niet voldoen aan de ingestelde basislijn worden bewaakt door Azure Security Center als aanbevelingen.| 
+|\[Preview-versie]: Ontbrekende Endpoint Protection bewaken in Azure Security Center|Servers zonder een geïnstalleerde Endpoint Protection-agent worden bewaakt door Azure Security Center als aanbevelingen.| 
+|\[Preview-versie]: Niet-versleutelde VM-schijven in Azure Security Center bewaken|Virtuele machines zonder ingeschakelde schijfversleuteling worden door Azure Security Center als aanbevelingen bewaakt.| 
+|\[Preview-versie]: Beveiligingsproblemen van virtuele machines bewaken in Azure Security Center|Hiermee worden beveiligingsproblemen die door de oplossing voor evaluatie van beveiligingsproblemen zijn gedetecteerd en virtuele machines zonder oplossing voor evaluatie van beveiligingsproblemen bewaakt als aanbevelingen in Azure Security Center.| 
+|\[Preview-versie]: Niet-beveiligde web-App in Azure Security Center bewaken|Webtoepassingen zonder Web Application Firewall bescherming wordt worden als aanbevelingen bewaakt door Azure Security Center.| 
+|\[Preview-versie]: Netwerkeindpunten in Azure Security Center bewaken|Netwerkeindpunten zonder een Next Generation Firewall beveiliging wordt worden als aanbevelingen bewaakt door Azure Security Center.| 
+|\[Preview-versie]: Evaluatie van beveiligingsproblemen SQL monitor resulteert in Azure Security Center|Bewaken van de scanresultaten en aanbevelingen van de beveiligingsevaluatie over het herstellen van beveiligingsproblemen in een database.| 
+|\[Preview-versie]: Maximum aantal eigenaars voor een abonnement controleren|Het wordt aanbevolen maximaal drie abonnementseigenaren toe te wijzen om het risico dat een gecomprimeerde eigenaar inbreuk kan plegen te beperken.| 
+|\[Preview-versie]: Minimum aantal eigenaren voor het abonnement controleren|We raden u aan meer dan één abonnementseigenaar toe te wijzen voor toegangsredundantie voor beheerders.| 
+|\[Preview-versie]: Accounts met eigenaarsmachtigingen die geen MFA is ingeschakeld op een abonnement controleren|Schakel meervoudige verificatie (MFA) in voor alle abonnementsaccounts met eigenaarsmachtigingen om te voorkomen dat er inbreuk wordt gepleegd op accounts of resources.| 
+|\[Preview-versie]: Accounts met schrijfmachtigingen die geen MFA is ingeschakeld op een abonnement controleren|Schakel meervoudige verificatie (MFA) in voor alle abonnementsaccounts met schrijfmachtigingen om te voorkomen dat er inbreuk wordt gepleegd op accounts of resources.| 
+|\[Preview-versie]: Accounts met leesmachtigingen die geen MFA is ingeschakeld op een abonnement controleren|Schakel meervoudige verificatie (MFA) in voor alle abonnementsaccounts met leesmachtigingen om te voorkomen dat er inbreuk wordt gepleegd op accounts of resources.| 
+|\[Preview-versie]: Afgeschafte accounts met eigenaarsmachtigingen voor een abonnement controleren|Afgeschafte accounts met eigenaarsmachtigingen moeten worden verwijderd uit uw abonnement. Afgeschafte accounts zijn accounts die zich zijn geblokkeerd.| 
+|\[Preview-versie]: Afgeschafte accounts op een abonnement controleren|Afgeschafte accounts moeten worden verwijderd van uw abonnementen. Afgeschafte accounts zijn accounts die zich zijn geblokkeerd.| 
+|\[Preview-versie]: Externe accounts met eigenaarsmachtigingen voor een abonnement controleren|Externe accounts met eigenaarsmachtigingen moeten worden verwijderd uit uw abonnement om onbewaakte toegang te voorkomen.| 
+|\[Preview-versie]: Controle van externe accounts met schrijfmachtigingen heeft voor een abonnement|Externe accounts met schrijfmachtigingen moeten worden verwijderd van uw abonnement om onbewaakte toegang te voorkomen.| 
+|\[Preview-versie]: Externe accounts met leesmachtigingen voor een abonnement controleren|Externe accounts met leesmachtigingen moeten worden verwijderd van uw abonnement om onbewaakte toegang te voorkomen.| 
 
 
 

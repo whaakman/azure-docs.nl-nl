@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 95fb889da564d6e40e25dfb9ee64a8665a954652
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 5496be93a5241621cd4dc5e873e4386f8ed6c992
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700737"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195214"
 ---
 # <a name="public-ip-address-prefix"></a>Openbare IP-adresvoorvoegsel
 
 Een openbare IP-adresvoorvoegsel is een gereserveerd bereik met IP-adressen voor uw openbare eindpunten in Azure. Azure wijst een aaneengesloten reeks adressen aan uw abonnement op basis van hoeveel u opgeeft. Als u niet bekend met openbare adressen bent, Zie [openbare IP-adressen.](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
 
-Openbare IP-adressen worden toegewezen uit een groep met de adressen in elke Azure-regio. U kunt [downloaden](https://www.microsoft.com/download/details.aspx?id=41653) de lijst met bereiken maakt gebruik van Azure voor elke regio. 40.121.0.0/16 is bijvoorbeeld een van meer dan 100 bereiken in die Azure wordt gebruikt in de regio VS-Oost. Bereik omvat ook de bruikbare adressen van 40.121.0.1 - 40.121.255.254.
+Openbare IP-adressen worden toegewezen uit een groep met de adressen in elke Azure-regio. U kunt [downloaden](https://www.microsoft.com/download/details.aspx?id=56519) de lijst met bereiken maakt gebruik van Azure voor elke regio. 40.121.0.0/16 is bijvoorbeeld een van meer dan 100 bereiken in die Azure wordt gebruikt in de regio VS-Oost. Bereik omvat ook de bruikbare adressen van 40.121.0.1 - 40.121.255.254.
 
 U een openbaar IP-adresvoorvoegsel dat in een Azure-regio en een abonnement maken door een naam op te geven en het aantal adressen wilt u het voorvoegsel om op te nemen. Bijvoorbeeld, als u een openbaar IP-adresvoorvoegsel van/28 maakt, toewijst Azure 16-adressen uit een van de bereiken ligt voor u. U weet niet welke bereik Azure wordt toegewezen wanneer u het bereik hebt gemaakt, maar de adressen aaneengesloten zijn. Openbare IP-adresvoorvoegsels hebben een betaling te doen. Zie voor meer informatie, [prijzen van openbare IP-adressen](https://azure.microsoft.com/pricing/details/ip-addresses).
 

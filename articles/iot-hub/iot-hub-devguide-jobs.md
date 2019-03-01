@@ -1,19 +1,19 @@
 ---
 title: Informatie over Azure IoT Hub-taken | Microsoft Docs
 description: Handleiding voor ontwikkelaars - plannen van taken om uit te voeren op meerdere apparaten worden verbonden met uw IoT-hub. Taken kunnen labels en gewenste eigenschappen bijwerken en directe methoden aanroepen op meerdere apparaten.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/09/2018
-ms.author: dobett
-ms.openlocfilehash: b9ad7a0e1947c9ca95b343a443688e976c306f95
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: c2b05b1854b4f1d7ee4ac65ebe635330ba8c604e
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884221"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011361"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Taken op meerdere apparaten plannen
 
@@ -113,28 +113,28 @@ U kunt een query voor de status van de taak kan worden uitgevoerd op elk apparaa
 
 De volgende lijst bevat de eigenschappen en de bijbehorende beschrijvingen, die kunnen worden gebruikt voor het uitvoeren van query's voor taken of Taakresultaten.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
-| **taak-id** |Toepassing opgegeven ID voor de taak. |
+| **jobId** |Toepassing opgegeven ID voor de taak. |
 | **startTime** |Toepassing opgegeven begintijd (ISO 8601-) voor de taak. |
 | **endTime** |IoT Hub opgegeven datum (ISO 8601-) voor wanneer de taak is voltooid. Geldige pas nadat de taak de status 'voltooid' hebben bereikt. |
 | **type** |Typen taken: |
-| | **scheduledUpdateTwin**: een taak die wordt gebruikt voor het bijwerken van een set van gewenste eigenschappen of labels. |
-| | **scheduledDeviceMethod**: een taak die wordt gebruikt om aan te roepen een apparaatmethode op een set dubbele apparaten. |
+| | **scheduledUpdateTwin**: Een taak die wordt gebruikt voor het bijwerken van een set van gewenste eigenschappen of labels. |
+| | **scheduledDeviceMethod**: Een taak die wordt gebruikt om aan te roepen een apparaatmethode op een set dubbele apparaten. |
 | **status** |Huidige status van de taak. Mogelijke waarden voor de status van: |
-| | **in behandeling**: gepland en wachten op het door de taak service opgehaald. |
-| | **geplande**: gepland voor een tijd in de toekomst. |
-| | **met**: momenteel actieve taken. |
-| | **geannuleerd**: taak is geannuleerd. |
-| | **kan geen**: taak is mislukt. |
-| | **voltooid**: taak is voltooid. |
+| | **In behandeling**: Gepland en wachten op het door de taak service opgehaald. |
+| | **Geplande**: Gepland voor een tijd in de toekomst. |
+| | **Met**: Momenteel actieve taken. |
+| | **Geannuleerd**: Taak is geannuleerd. |
+| | **Kan geen**: Taak is mislukt. |
+| | **Voltooid**: Taak is voltooid. |
 | **deviceJobStatistics** |Statistieken over van de taak kan worden uitgevoerd. |
 | | **deviceJobStatistics** eigenschappen: |
-| | **deviceJobStatistics.deviceCount**: aantal apparaten in de taak. |
-| | **deviceJobStatistics.failedCount**: aantal apparaten waarop de taak is mislukt. |
-| | **deviceJobStatistics.succeededCount**: aantal apparaten waarop de taak is voltooid. |
-| | **deviceJobStatistics.runningCount**: aantal apparaten dat de taak momenteel worden uitgevoerd. |
-| | **deviceJobStatistics.pendingCount**: aantal apparaten dat in behandeling voor het uitvoeren van de taak zijn. |
+| | **deviceJobStatistics.deviceCount**: Het aantal apparaten in de taak. |
+| | **deviceJobStatistics.failedCount**: Aantal apparaten waarop de taak is mislukt. |
+| | **deviceJobStatistics.succeededCount**: Aantal apparaten waarop de taak is voltooid. |
+| | **deviceJobStatistics.runningCount**: Het aantal apparaten dat de taak momenteel worden uitgevoerd. |
+| | **deviceJobStatistics.pendingCount**: Het aantal apparaten dat in behandeling voor het uitvoeren van de taak zijn. |
 
 ### <a name="additional-reference-material"></a>Meer referentiemateriaal dat beschikbaar is
 

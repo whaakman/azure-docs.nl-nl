@@ -18,15 +18,18 @@ ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 109ababa78292bf8b172144174af3216f3844941
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a90f530febccada5421323dd95461257e0fc5950
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203655"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194245"
 ---
 # <a name="app-registration-reference"></a>Naslaginformatie over app-registratie
 Dit document bevat context en beschrijvingen van de verschillende functies die zijn gevonden in de [Portal voor Appregistratie](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/).
+
+> [!NOTE] 
+Er wordt geen ondersteuning meer voor registreren en beheren van geconvergeerde en Azure AD-toepassingen in de [Portal voor Appregistratie](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/) vanaf mei 2019. We raden aan dat u uw bestaande toepassingen beheren en registreren van nieuwe toepassingen met behulp van de [(Preview) van de App-registraties](https://aka.ms/appregistrations) -ervaring in Azure portal.
 
 ## <a name="my-applications-or-converged-applications"></a>Mijn toepassingen of geconvergeerde toepassingen
 Deze lijst bevat al uw toepassingen die zijn geregistreerd voor gebruik met de Azure AD v2.0-eindpunt. Deze toepassingen hebben de mogelijkheid om aan te melden bij de gebruikers met persoonlijke Microsoft-accounts en werk-of schoolaccounts van Azure Active Directory. Zie voor meer informatie over de Azure AD v2.0-eindpunt, de [v2.0 overzicht](active-directory-appmodel-v2-overview.md). Deze toepassingen kunnen ook worden gebruikt om te integreren met de Microsoft-account verificatie-eindpunt `https://login.live.com`.

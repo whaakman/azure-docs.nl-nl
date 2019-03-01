@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 2f5e140e4f620362ca90a1e1cd06d23719cd2099
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 236009a3292f26d7fda73013c022f40535aa1ecb
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471603"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992325"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL datawarehouse - krachtige parallelle verwerking (MPP)-architectuur
 Meer informatie over hoe Azure SQL Data Warehouse combineert met massively parallelle verwerking (MPP) met Azure-opslag om hoge prestaties en schaalbaarheid te realiseren. 
@@ -84,7 +84,7 @@ Een distributietabel round robin distribueert gegevens gelijkmatig in de tabel, 
 ## <a name="replicated-tables"></a>Gerepliceerde tabellen
 Een gerepliceerde tabel bevat de snelste prestaties van query's voor kleine tabellen.
 
-Een tabel die is gerepliceerd in de cache opgeslagen voor een volledige kopie van de tabel op elk knooppunt. Als gevolg daarvan kunnen repliceren van een tabel Hiermee verwijdert u de noodzaak om over te dragen van gegevens tussen rekenknooppunten voordat een join of aggregatie. Gerepliceerde tabellen het beste met kleine tabellen reguleren. Extra opslag is vereist en er zijn extra overhead die zijn gemaakt bij het schrijven van gegevens waarmee u grote tabellen niet praktisch.  
+Een tabel die is gerepliceerd in de cache opgeslagen voor een volledige kopie van de tabel op elk knooppunt. Als gevolg daarvan kunnen repliceren van een tabel Hiermee verwijdert u de noodzaak om over te dragen van gegevens tussen rekenknooppunten voordat een join of aggregatie. Gerepliceerde tabellen het beste met kleine tabellen reguleren. Extra opslag is vereist en er is extra overhead die is gemaakt bij het schrijven van gegevens waarmee u grote tabellen niet praktisch.  
 
 Het volgende diagram toont een gerepliceerde tabel. Voor SQL Data Warehouse de gerepliceerde tabel is in de cache op de eerste distributie op elk knooppunt.  
 

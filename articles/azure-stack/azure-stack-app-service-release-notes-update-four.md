@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 2555ce4b9485ba6464bde3422df114343b579641
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5108d4f65208f12875ad592e2e9222f8e1fdb130
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243416"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991078"
 ---
 # <a name="app-service-on-azure-stack-update-4-release-notes"></a>App Service op de opmerkingen bij de release van de Azure Stack update 4
 
@@ -96,7 +96,12 @@ Azure App Service onder Azure Stack Update 4 bevat de volgende verbeteringen en 
 
 - Zorg ervoor dat het eindpunt is opgegeven in de verbindingsreeks voor aangepaste opslag als opgegeven in de nieuwe functie-toepassing
 
-### <a name="post-update-steps-optional"></a>Stappen voor na-update (optioneel)
+### <a name="post-deployment-steps"></a>Stappen na de implementatie
+
+> [!IMPORTANT]  
+> Als u hebt opgegeven dat de RP-App Service met een SQL Always On-exemplaar moet u [de appservice_hosting en appservice_metering databases toevoegen aan een beschikbaarheidsgroep](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) en synchroniseren van de databases om te voorkomen dat verlies van de service in de gebeurtenis van een databasefailover.
+
+### <a name="post-update-steps-optional"></a>Na het bijwerken stappen (optioneel)
 
 Voor klanten die willen migreren naar een ingesloten database voor bestaande Azure App Service op Azure Stack-implementaties, voert u deze stappen uit nadat de Azure App Service op Azure Stack 1.4 update is voltooid:
 

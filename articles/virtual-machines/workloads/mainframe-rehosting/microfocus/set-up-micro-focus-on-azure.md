@@ -8,12 +8,12 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: 2b730179cecee32282b9a79d8b62e3a35ee91048
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 46b135aabaefb3a94e4470927297fb696f216b7a
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739523"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192527"
 ---
 # <a name="install-micro-focus-enterprise-server-40-and-enterprise-developer-40-on-azure"></a>Micro Focus Enterprise Server 4.0 en Enterprise Developer 4.0 installeren op Azure
 
@@ -66,11 +66,11 @@ Voordat u aan de slag, bekijkt u deze vereisten voldoet:
 
 9. Dubbelklik op het bestand om de installatie te starten. In het eerste venster de installatielocatie selecteren en accepteer de gebruiksrechtovereenkomst.
 
-     ![](media/01-enterprise-server.png)
+     ![Micro Focus Enterprise Server Setup-scherm](media/01-enterprise-server.png)
 
      Wanneer de installatie is voltooid, wordt het volgende bericht weergegeven:
 
-     ![](media/02-enterprise-server.png)
+     ![Micro Focus Enterprise Server Setup-scherm](media/02-enterprise-server.png)
 
 ### <a name="check-for-updates"></a>Controleren op updates
 
@@ -82,11 +82,11 @@ Na de installatie moet controleren of er aanvullende updates sinds een aantal ve
 
 2. Klik op **Start** \> **Micro Focus License Manager** \> **gebruiksrechtovereenkomst beheerprogramma**, en klik vervolgens op de **installeren** tabblad. Kies het type licentie-indeling te uploaden: een licentiebestand of de licentiecode van een voor 16 tekens. Bijvoorbeeld, voor een bestand in **licentiebestand**, blader naar de **mflic** bestand eerder hebt geüpload naar de virtuele machine en selecteer **licenties installeren**.
 
-     ![](media/03-enterprise-server.png)
+     ![In het dialoogvenster van micro Focus gebruiksrechtovereenkomst beheerprogramma](media/03-enterprise-server.png)
 
-3. Controleer of dat Enterprise-Server wordt geladen. Probeer de beheersite Enterprise Server vanuit een browser met behulp van deze URL te starten <http://localhost:86/> . De beheerpagina van de Enterprise-Server wordt weergegeven, zoals wordt weergegeven.
+3. Controleer of dat Enterprise-Server wordt geladen. Probeer de beheersite Enterprise Server vanuit een browser met behulp van deze URL te starten <http://localhost:86/> . De pagina beheer van Enterprise-Server wordt weergegeven, zoals wordt weergegeven.
 
-     ![](media/04-enterprise-admin.png)
+     ![De pagina beheer van Enterprise-Server](media/04-enterprise-admin.png)
 
 ## <a name="install-enterprise-developer-on-the-developer-machine"></a>Enterprise Developer installeren op de machine voor ontwikkelaars
 
@@ -102,17 +102,17 @@ Na de installatie moet controleren of er aanvullende updates sinds een aantal ve
 
 4. Dubbelklik op de **edvs2017.exe** bestand om de installatie te starten. In het eerste venster de installatielocatie selecteren en accepteer de gebruiksrechtovereenkomst. Als u wilt, kiest u **installeren Rumba 9.5** voor het installeren van deze terminal emulator, u waarschijnlijk moet.
 
-     ![](media/04-enterprise-server.png)
+     ![Micro Focus Enterprise Developer voor dialoogvenster van de installatie van Visual Studio 2017](media/04-enterprise-server.png)
 
 5. Nadat setup voltooid is, wordt het volgende bericht weergegeven:
 
-     ![](media/05-enterprise-server.png)
+     ![Bericht Setup is voltooid](media/05-enterprise-server.png)
 
 6. Start de Micro Focus License Manager net zoals u dit hebt gedaan voor Enterprise-Server. Kies **Start** \> **Micro Focus License Manager** \> **gebruiksrechtovereenkomst beheerprogramma**, en klik op de **installeren**tabblad.
 
 7. Kies het type licentie-indeling te uploaden: een licentiebestand of de licentiecode van een voor 16 tekens. Bijvoorbeeld, voor een bestand in **licentiebestand**, blader naar de **mflic** bestand eerder hebt geüpload naar de virtuele machine en selecteer **licenties installeren**.
 
-     ![](/edia/07-enterprise-server.png)
+     ![In het dialoogvenster van micro Focus gebruiksrechtovereenkomst beheerprogramma](/edia/07-enterprise-server.png)
 
 Als ontwikkelaar wordt geladen, is uw implementatie van een omgeving met Micro Focus ontwikkelen en testen op Azure voltooid.
 

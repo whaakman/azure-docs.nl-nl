@@ -8,19 +8,19 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 02/26/2019
 ms.author: glenga
-ms.openlocfilehash: a0e643397372e5b132119a7c23f251ecec876916
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 292b25987f183df2091667312d4e6730b7f40dda
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346574"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990897"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Uw Azure Functions uitvoeren vanuit een pakketbestand
 
 > [!NOTE]
-> De functionaliteit die worden beschreven in dit artikel is niet beschikbaar voor Functions op Linux.
+> De functionaliteit die worden beschreven in dit artikel is niet beschikbaar voor functie-apps op Linux in een [App Service-plan](functions-scale.md#app-service-plan).
 
 In Azure, kunt u uw functies direct vanuit een pakketbestand implementeren in uw functie-app uitvoeren. De andere mogelijkheid is het implementeren van uw bestanden in de `d:\home\site\wwwroot` map van uw functie-app.
 
@@ -42,10 +42,13 @@ Zie voor meer informatie, [deze aankondiging](https://github.com/Azure/app-servi
 
 Als u wilt inschakelen voor de functie-app om uit te voeren van een pakket, toe te voegen een `WEBSITE_RUN_FROM_PACKAGE` instellen op de instellingen van uw functie-app. De `WEBSITE_RUN_FROM_PACKAGE` instelling kan een van de volgende waarden hebben:
 
-| Waarde  | Beschrijving  |
+| Value  | Description  |
 |---------|---------|
+| **`1`**  | Aanbevolen voor functie-apps die worden uitgevoerd op Windows. Uitvoeren van een pakketbestand in de `d:\home\data\SitePackages` map van uw functie-app. Als dit niet het [implementeren met zip implementeren] (#integration-met-zip-deployment], deze optie is vereist voor de map hebben ook een bestand met de naam `packagename.txt`. Dit bestand bevat alleen de naam van het pakketbestand in de map, zonder een spatie. |
 |**`<url>`**  | Locatie van een specifiek pakket-bestand dat u wilt uitvoeren. Wanneer u Blob-opslag gebruikt, moet u een privé-container met een [Shared Access Signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) om in te schakelen de Functions-runtime voor de toegang tot het pakket. U kunt de [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) pakketbestanden uploaden naar uw Blob storage-account.         |
-| **`1`**  | Uitvoeren van een pakketbestand in de `d:\home\data\SitePackages` map van uw functie-app. Deze optie is vereist voor de map hebben ook een bestand met de naam `packagename.txt`. Dit bestand bevat alleen de naam van het pakketbestand in de map, zonder een spatie. |
+
+> [!CAUTION]
+> Bij het uitvoeren van een functie-app voor Windows, de optie van de externe URL-slechter koude start prestaties levert. Wanneer uw functie-app implementeren op Windows, moet u instellen `WEBSITE_RUN_FROM_PACKAGE` naar `1` en publiceert met zip-implementatie.
 
 Hieronder ziet u een functie-app die is geconfigureerd voor het uitvoeren van een ZIP-bestand die wordt gehost in Azure Blob-opslag:
 

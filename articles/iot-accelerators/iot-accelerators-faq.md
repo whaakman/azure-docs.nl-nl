@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 59271a96c5ad1a92483ca585fc30f1e9de0ed4f7
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: b2f08e811217572e09a254e9ab3306ab954b14b5
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608746"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57009680"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Veelgestelde vragen over IoT-oplossingsversnellers
 
@@ -71,9 +71,9 @@ De vorige versie van de oplossingsverbetering voor externe controle was bekend a
 
 Ja, de nieuwe externe controle is beschikbaar in dezelfde geografische regio's.
 
-### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsuitecom"></a>Wat is het verschil tussen het verwijderen van een resourcegroep in Azure portal en te klikken op verwijderen bij een oplossingsversnellers op azureiotsuite.com?
+### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsolutionscom"></a>Wat is het verschil tussen het verwijderen van een resourcegroep in Azure portal en te klikken op verwijderen bij een oplossingsversnellers in azureiotsolutions.com?
 
-* Als u de oplossingsversneller in verwijdert [azureiotsuite.com](https://www.azureiotsolutions.com/), verwijdert u alle resources die zijn geïmplementeerd tijdens het maken van de solution accelerator. Als u aanvullende resources toegevoegd aan de resourcegroep, worden deze resources worden ook verwijderd.
+* Als u de oplossingsversneller in verwijdert [azureiotsolutions.com](https://www.azureiotsolutions.com/), verwijdert u alle resources die zijn geïmplementeerd tijdens het maken van de solution accelerator. Als u aanvullende resources toegevoegd aan de resourcegroep, worden deze resources worden ook verwijderd.
 * Als u verwijdert de resourcegroep in de [Azure-portal](https://portal.azure.com), verwijdert u alleen de resources in die resourcegroep. U moet ook de Azure Active Directory-toepassing die is gekoppeld aan de solution accelerator verwijderen.
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>Kan ik dan blijven om mijn bestaande investeringen in Azure IoT-oplossingsversnellers?

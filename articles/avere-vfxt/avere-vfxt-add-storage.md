@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: procedural
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: 13084ac21315d725df3f0913583fff3e64ee5c4a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: cda95b8f7cbf1da85f080c7ea53306f48375db32
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813225"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992342"
 ---
 # <a name="configure-storage"></a>Opslag configureren
 
@@ -72,7 +72,7 @@ Vervolgens gaat u verder met [maken van een verbinding](#create-a-junction).
 Voor het gebruik van Azure Blob-opslag als opslagruimte voor back-end van uw cluster vFXT, moet u een lege container om toe te voegen als een filer core.
 
 > [!TIP] 
-> Als u ervoor kiest om te maken van een blob-container op hetzelfde moment als die u het Avere vFXT-cluster maakt, de sjabloon voor de implementatie of het script maakt u een opslagcontainer, gedefinieerd als een filer core en wordt de verbinding van de naamruimte als onderdeel van het maken van een cluster vFXT gemaakt. 
+> Als u ervoor kiest om te maken van een blob-container op hetzelfde moment als die u het Avere vFXT-cluster maakt, de sjabloon voor de implementatie of het script maakt u een opslagcontainer, gedefinieerd als een filer core en wordt de verbinding van de naamruimte als onderdeel van het maken van een cluster vFXT gemaakt. De sjabloon maakt ook een storage-service-eindpunt in het virtuele netwerk van het cluster. 
 
 Blob-opslag toevoegen aan uw cluster, moet u deze taken:
 

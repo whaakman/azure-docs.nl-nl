@@ -9,12 +9,12 @@ ms.subservice: custom-translator
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 21d4e8c3ea51da559ac1d576c1a076898136ded8
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 13d446f9f2aa651c766f250e551a97a97cf4d5d8
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727839"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195231"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Hub-werkruimte en projecten migreren naar aangepaste Translator
 
@@ -27,7 +27,7 @@ Deze acties worden uitgevoerd tijdens de migratie:
 * Op elk gewenst moment de score BLEU gemigreerd van de training u op de pagina TrainingDetails van het model in de 'Bleu score in MT Hub vindt' Hub kop.
 
 >[!Note]
->Aangepaste Translator vereist voor een training te voltooien, minimale 10.000 uitgepakte zinnen. Voor een kleiner aantal opgehaalde zinnen dan de [voorgestelde minimale](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences), aangepaste Translator kan niet een trainen.
+>Voor een training te voltooien, aangepaste Translator minimaal 10.000 unieke uitgepakte zinnen is vereist. Aangepaste Translator kan niet geeft u een training met minder uitgepakte zinnen dan de [voorgestelde minimale](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences).
 
 ## <a name="enable-account-migration"></a>Migratie inschakelen
 

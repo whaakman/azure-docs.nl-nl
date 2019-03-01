@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/05/2019
+ms.date: 02/28/2019
 ms.author: magoedte
-ms.openlocfilehash: 6803e700a42a0d0279b48d38995c4fc299415075
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 58f16b0aa068c8b333ef4e7986bb49327b002fbb
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985492"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195418"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Container Monitoring-oplossing in Azure Monitor
 
@@ -496,28 +496,16 @@ Gebruik de informatie in de sectie installeren en configureren van de hosts van 
 
 Voordat u agents op computers waarop Windows wordt uitgevoerd installeren, moet u de Docker-service configureren. De configuratie kunt de Windows-agent of de extensie van de Azure Monitor-virtuele machine het gebruik van de Docker-TCP-sockets, zodat de agents op afstand toegang krijgen de Docker-daemon tot kunnen en gegevens voor het bewaken van vast te leggen.
 
-##### <a name="to-start-docker-and-verify-its-configuration"></a>Docker starten en controleren van de configuratie
+##### <a name="to-configure-the-docker-service"></a>De Docker-service configureren  
 
-Er zijn stappen die nodig zijn voor het instellen van TCP benoemde pipe voor Windows Server:
+Voer de volgende PowerShell-opdrachten voor het inschakelen van pipe TCP en named pipe voor Windows Server:
 
-1. In Windows PowerShell, schakelt u pipe TCP en named pipes.
-
-    ```
-    Stop-Service docker
-    dockerd --unregister-service
-    dockerd --register-service -H npipe:// -H 0.0.0.0:2375  
-    Start-Service docker
-    ```
-
-2. Docker configureren met het configuratiebestand voor TCP-pipe en benoemde pipe. Het configuratiebestand bevindt C:\ProgramData\docker\config\daemon.json.
-
-    In het bestand daemon.json nodig u het volgende:
-
-    ```
-    {
-    "hosts": ["tcp://0.0.0.0:2375", "npipe://"]
-    }
-    ```
+```
+Stop-Service docker
+dockerd --unregister-service
+dockerd --register-service -H npipe:// -H 0.0.0.0:2375  
+Start-Service docker
+```
 
 Zie voor meer informatie over de configuratie van de Docker-daemon gebruikt in combinatie met Windows-Containers, [Docker-Engine op Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon).
 

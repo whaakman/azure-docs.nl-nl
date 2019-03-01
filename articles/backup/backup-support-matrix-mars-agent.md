@@ -8,12 +8,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: b579816a4367537a7da4aa0f68c8776465295448
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 61afefb955914c75606c4fff36ebcc05a4ad0057
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670749"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010902"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Ondersteuningsmatrix voor de back-up met de Microsoft Azure Recovery Services agent (MARS)
 
@@ -29,7 +29,7 @@ De MARS-agent wordt gebruikt door Azure Backup om maakt u een back-up van gegeve
 Wat u kunt back-up, is afhankelijk van de waarop de agent is geïnstalleerd.
 
 - [Meer informatie](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders) over de architectuur van back-up met behulp van de MARS-agent.
-- [Meer informatie]() over MABS/DPM [back-up van architectuur](backup-architecture.md#architecture-back-up-to-dpmmabs)en [vereisten](backup-support-matrix-mabs-dpm.md).
+- Meer informatie over MABS/DPM [back-up van architectuur](backup-architecture.md#architecture-back-up-to-dpmmabs)en [vereisten](backup-support-matrix-mabs-dpm.md).
 
 
 ## <a name="supported-installation"></a>Ondersteunde-installatie
@@ -37,7 +37,7 @@ Wat u kunt back-up, is afhankelijk van de waarop de agent is geïnstalleerd.
 **Installeren** | **Details**
 --- | ---
 **Meest recente MARS-agent downloaden** | U kunt de meest recente versie van de agent downloaden uit de kluis of [rechtstreeks downloaden](https://aka.ms/azurebackup_agent).
-**Rechtstreeks op een computer installeren** | U kunt de MARS-agent installeren op een on-premises Windows server of Windows Azure-VM met een van de [ondersteunde besturingssystemen]().
+**Rechtstreeks op een computer installeren** | U kunt de MARS-agent installeren op een on-premises Windows server of Windows Azure-VM met een van de [ondersteunde besturingssystemen](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
 **Installeren op een back-upserver** | Bij het instellen van DPM- of MABS back-up naar Azure, kunt u downloaden en installeren van de MARS-agent op de server. De agent kan worden geïnstalleerd in overeenstemming met de [ondersteunde besturingssystemen](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) in de ondersteuningsmatrix voor back-upserver.
 
 > [!NOTE]

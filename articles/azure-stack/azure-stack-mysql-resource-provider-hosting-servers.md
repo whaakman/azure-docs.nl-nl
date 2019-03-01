@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/28/2019
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: e1a00ea36efa6af816c371f5498085fc2cf491b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.lastreviewed: 02/28/2019
+ms.openlocfilehash: eb5d1ca55efed7e83739f21a432b61b6aad25f70
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165022"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194007"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Hosting-servers voor de MySQL-resourceprovider toevoegen
 
@@ -44,7 +44,9 @@ Zorg ervoor dat u hebt de referenties voor een account met systeembeheerdersbevo
 4. Geef de details van de verbinding van uw MySQL-Server-exemplaar.
 
    * Voor **naam van MySQL-Server die als host fungeert**, geef de volledig gekwalificeerde domeinnaam (FQDN) of een geldig IPv4-adres. Gebruik niet de korte naam van de virtuele machine.
-   * Een standaardexemplaar van de MySQL is niet opgegeven, dus u hoeft op te geven de **grootte van de host-Server in GB**. Voer een grootte die zich in de buurt van de capaciteit van de database-server.
+   - De beheerder van de standaard **gebruikersnaam** voor u de Bitnami MySQL installatiekopieën beschikbaar in de Azure Stack marketplace is *hoofdmap*. 
+   - Als u niet dat de hoofdmap weet **wachtwoord**, Zie de [Bitnami documentatie](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) voor informatie over het downloaden. 
+   - Een standaardexemplaar van de MySQL is niet opgegeven, dus u hoeft op te geven de **grootte van de host-Server in GB**. Voer een grootte die zich in de buurt van de capaciteit van de database-server.
    * Laat de standaardinstelling voor **abonnement**.
    * Voor **resourcegroep**, een nieuwe maken of een bestaande groep gebruiken.
 

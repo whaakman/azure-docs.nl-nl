@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 88dcc7110acaf42243d0ebb3c1ae25aa6d0bca46
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: b266ff100d2573ce547564a52ec0efda6ec53458
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257965"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991849"
 ---
 # <a name="dependency-visualization"></a>Visualisatie van afhankelijkheden
 
@@ -26,7 +26,7 @@ Visualisatie van afhankelijkheden in Azure Migrate kunt u het maken van groepen 
 
 ## <a name="how-does-it-work"></a>Hoe werkt het?
 
-Azure Migrate gebruikt de [Serviceoverzicht](../operations-management-suite/operations-management-suite-service-map.md) oplossing in [Log Analytics](../log-analytics/log-analytics-overview.md) voor visualisatie van afhankelijkheden.
+Azure Migrate gebruikt de [Serviceoverzicht](../operations-management-suite/operations-management-suite-service-map.md) oplossing in [logboeken van Azure Monitor](../log-analytics/log-analytics-overview.md) voor visualisatie van afhankelijkheden.
 - Als u wilt gebruikmaken van de visualisatie van afhankelijkheden, moet u een Log Analytics-werkruimte, nieuwe of bestaande koppelen met een Azure Migrate-project.
 - U kunt alleen maken of koppelen van een werkruimte in hetzelfde abonnement waar het migratieproject is gemaakt.
 - Als u wilt een Log Analytics-werkruimte koppelen aan een project, gaat u naar **Essentials** sectie van het project **overzicht** pagina en klik op **configuratie is vereist**

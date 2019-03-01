@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 01/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: fda7d6d3fddf2f4529a983ce2d4991797a5c8448
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: a1b045ecf10399ca2297e4d9d010d5c973c40f4e
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661833"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193276"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk Encryption voor IaaS-VM's Veelgestelde vragen
 
@@ -72,6 +72,14 @@ Aan de slag, lees de [overzicht van Azure Disk Encryption](azure-security-disk-e
 ## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>Kan ik volumes van zowel de opstart- en de gegevens met Azure Disk Encryption coderen?
 
 Ja, kunt u de opstart- en volumes voor Windows en Linux IaaS-machines versleutelen. Voor Windows-VM's, kunt u de gegevens niet coderen zonder eerst het versleutelen van het volume met het besturingssysteem. Voor virtuele Linux-machines is het mogelijk voor het versleutelen van het gegevensvolume zonder te coderen volume met het besturingssysteem eerst. Nadat u hebt het volume met het besturingssysteem versleuteld voor Linux, wordt niet uitschakelen van versleuteling op een volume met het besturingssysteem voor Linux IaaS-VM's ondersteund.
+
+## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>Hoe ik geheimen of versleutelingssleutels draaien?
+
+Om te roteren geheimen, roept u de dezelfde opdracht die u oorspronkelijk hebt gebruikt voor het inschakelen van versleuteling van schijf. Als u wilt de sleutel van versleutelingssleutel draaien, roept de dezelfde opdracht die u oorspronkelijk gebruikt om in te schakelen schijfversleuteling, de nieuwe key-versleuteling op te geven. 
+
+## <a name="how-do-i-add-or-remove-a-key-encryption-key-if-i-didnt-originally-use-one"></a>Hoe ik toevoegen of verwijderen van een sleutel van versleutelingssleutel als ik een oorspronkelijk hebt gebruikt?
+
+Als u wilt toevoegen een sleutel van versleutelingssleutel, roept de opdracht enable weer te geven de sleutelparameter key-versleuteling. Als u wilt verwijderen van een sleutel van versleutelingssleutel, roept u de opdracht inschakelen opnieuw uit zonder de sleutelparameter key-versleuteling.
 
 ## <a name="does-azure-disk-encryption-allow-you-to-bring-your-own-key-byok"></a>Azure Disk Encryption bent u in staat uw eigen sleutel (BYOK)?
 

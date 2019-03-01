@@ -1,19 +1,19 @@
 ---
 title: Import/export van Azure IoT Hub apparaat-id's | Microsoft Docs
 description: Het gebruik van de Azure IoT service SDK bulksgewijs bewerkingen op basis van het id-register voor het importeren en exporteren van apparaat-id's uit te voeren. Importbewerkingen kunnen u maken, bijwerken en verwijderen van apparaat-id's in één bulkbewerking.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/03/2017
-ms.author: dobett
-ms.openlocfilehash: aedf2d0012f5af8ea2eb8e944f06b20c7f1a6bb8
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.author: robin.shahan
+ms.openlocfilehash: 5ef34fb039d35ff714e249a6ac107e6ec615093e
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42058674"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010987"
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Uw IoT-Hub apparaatidentiteiten bulksgewijs beheren
 
@@ -253,7 +253,7 @@ Als het importbestand dubbele metagegevens bevat, overschrijft deze metagegevens
 
 Gebruik het optionele **ImportMode %** eigenschap in de serialisatie-gegevens importeren voor elk apparaat voor het beheren van de import proces per apparaat. De **ImportMode %** eigenschap heeft de volgende opties:
 
-| ImportMode % | Beschrijving |
+| importMode | Description |
 | --- | --- |
 | **createOrUpdate** |Als een apparaat niet met de opgegeven bestaat **id**, het zojuist is ingeschreven. <br/>Als het apparaat al bestaat, wordt de bestaande gegevens overschreven met de opgegeven invoergegevens zonder betrekking tot de **ETag** waarde. <br> De gebruiker kan eventueel dubbele gegevens samen met de apparaatgegevens opgeven. Etag van het dubbele, wordt indien opgegeven, verwerkt onafhankelijk van de etag van het apparaat. Als er een niet-overeenkomend met het bestaande dubbele etag is, wordt er een fout naar het logboekbestand geschreven. |
 | **maken** |Als een apparaat niet met de opgegeven bestaat **id**, het zojuist is ingeschreven. <br/>Als het apparaat al bestaat, wordt er een fout naar het logboekbestand geschreven. <br> De gebruiker kan eventueel dubbele gegevens samen met de apparaatgegevens opgeven. Etag van het dubbele, wordt indien opgegeven, verwerkt onafhankelijk van de etag van het apparaat. Als er een niet-overeenkomend met het bestaande dubbele etag is, wordt er een fout naar het logboekbestand geschreven. |

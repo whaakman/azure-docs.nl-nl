@@ -16,12 +16,12 @@ ms.date: 10/04/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91dd25eadd3842cf1a94608a6f0ad9cfcd25039a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b55a7016ec0068234dfc6110d9d4afc04119ccdd
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197229"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194058"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Custom installation of Azure AD Connect (Engelstalig)
 Voor meer opties voor de installatie gaat u naar **Aangepaste instellingen**. Deze instellingen gebruikt u wanneer u meerdere forests hebt of als u optionele functies wilt configureren die niet in de snelle installatie voorkomen. De aangepaste instellingen worden gebruikt in alle gevallen waarin de optie [**snelle installatie**](how-to-connect-install-express.md) niet aan uw implementatie of topologie voldoet.
@@ -365,7 +365,7 @@ Het is mogelijk om een nieuwe synchronisatieserver parallel met de faseringsmodu
 
 In de faseringsmodus kunt u vereiste wijzigingen in de synchronisatie-engine aanbrengen en controleren wat geëxporteerd gaat worden. Voer de installatiewizard opnieuw uit en schakel de faseringsmodus uit wanneer de configuratie er goed uitziet. De gegevens zijn nu van deze server naar Azure AD geëxporteerd. Schakel de andere server op hetzelfde moment uit, zodat slechts één server actief aan het exporteren is.
 
-Zie voor meer informatie [Staging mode](how-to-connect-sync-operations.md#staging-mode).
+Zie voor meer informatie [Staging mode](how-to-connect-sync-staging-server.md).
 
 ### <a name="verify-your-federation-configuration"></a>Controleer uw federatieconfiguratie
 Azure AD Connect verifieert de DNS-instellingen voor u wanneer u op Verifiëren klikt.

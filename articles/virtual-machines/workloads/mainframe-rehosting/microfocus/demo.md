@@ -8,12 +8,12 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: c921fd0c52d555264ab511486709b888b50bd68e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 2a29b484b58b887981b1879ceba5bf7426bb6c2e
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739502"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192001"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-in-azure"></a>Micro Focus CICS BankDemo instellen voor Micro Focus Enterprise Developer 4.0 in Azure
 
@@ -73,7 +73,7 @@ Nadat u Enterprise Developer 4.0 hebt geïnstalleerd op de virtuele machine, moe
     - TCP Activation
     - TCP-poort delen
 
-     ![](media/01-demo-roles.png)
+     ![Wizard functies en onderdelen toevoegen: Functieservices](media/01-demo-roles.png)
 
 8. Wanneer u alle opties hebt geselecteerd, klikt u op **volgende** te installeren.
 
@@ -101,7 +101,7 @@ Bepaalde processen Enterprise-Server moeten kunnen aanmelden bij SQL Server en h
 
 4. Selecteer **serverfuncties** en Controleer **sysadmin**.
 
-     ![](media/02-demo-explorer.png)
+     ![SSMS-Object Explorer-venster: Aanmeldingseigenschappen](media/02-demo-explorer.png)
 
 ## <a name="create-the-bankdemo-database-and-all-its-objects"></a>De database BankDemo en alle bijbehorende objecten maken
 
@@ -117,7 +117,7 @@ Bepaalde processen Enterprise-Server moeten kunnen aanmelden bij SQL Server en h
 
 De query moet worden uitgevoerd zonder fouten. Wanneer deze voltooid is, hebt u de voorbeelddatabase voor de toepassing BankDemo.
 
-![](media/03-demo-query.png)
+![SQLQuery1.sql output](media/03-demo-query.png)
 
 ## <a name="verify-that-the-database-tables-and-objects-have-been-created"></a>Controleer of de database-tabellen en objecten is gemaakt
 
@@ -125,7 +125,7 @@ De query moet worden uitgevoerd zonder fouten. Wanneer deze voltooid is, hebt u 
 
 2. Vouw de **Database** en selecteer **tabellen**. U ziet er ongeveer als volgt uit.
 
-     ![](media/04-demo-explorer.png)
+     ![BANKDEMO tabel uitgevouwen in Object Explorer](media/04-demo-explorer.png)
 
 ## <a name="build-the-application-in-enterprise-developer"></a>Maken van de toepassing in Enterprise Developer
 
@@ -147,7 +147,7 @@ De query moet worden uitgevoerd zonder fouten. Wanneer deze voltooid is, hebt u 
 
 6. Wanneer het Project is gemaakt, bekijkt u de **uitvoer** venster. Het ziet er als de onderstaande afbeelding.
 
-     ![](media/05-demo-output.png)
+     ![Venster van de uitvoer van geslaagde build](media/05-demo-output.png)
 
 ## <a name="deploy-the-bankdemo-application-into-the-region-database"></a>De toepassing BankDemo in de regio-database implementeren
 
@@ -164,7 +164,7 @@ De query moet worden uitgevoerd zonder fouten. Wanneer deze voltooid is, hebt u 
 > [!NOTE]
 > Zorg ervoor dat u een slash (/) een backslash (\\). Met dit script wordt uitgevoerd voor een tijdje.
 
-![](media/06-demo-cmd.png)
+![Beheer: Enterprise Developer-opdrachtpromptvenster](media/06-demo-cmd.png)
 
 ## <a name="create-the-bankdemo-region-in-enterprise-administrator-for-net"></a>Maken van de regio BankDemo in Enterprise-beheerder voor .NET
 
@@ -178,11 +178,11 @@ De query moet worden uitgevoerd zonder fouten. Wanneer deze voltooid is, hebt u 
 
 5. Het database-server-exemplaar opgeven, klikt u op **volgende**, en voer vervolgens de regionaam van de **BANKDEMO**.
 
-     ![](media/07-demo-cics.png)
+     ![In het dialoogvenster van de regio bepalen](media/07-demo-cics.png)
 
 6. Als u wilt het definitiebestand van de regio voor de regio-overschrijdende database selecteert, zoek **regio\_bankdemo\_db.config** in **C:\\gebruikers\\openbare\\ Documenten\\Micro Focus\\Enterprise Developer\\voorbeelden\\Mainframe\\CICS\\DotNet\\BankDemo**.
 
-     ![](media/08-demo-cics.png)
+     ![Regio - regionaam definiëren: BANKDEMO](media/08-demo-cics.png)
 
 7. Klik op **Voltooien**.
 
@@ -198,11 +198,11 @@ De query moet worden uitgevoerd zonder fouten. Wanneer deze voltooid is, hebt u 
 
 5. Selecteer **Database XA-Resource Definition** en typ vervolgens **BANKDEMO** voor de **naam** en **regio**.
 
-     ![](media/09-demo-xa.png)
+     ![Nieuwe Database XA-Resource Definition scherm](media/09-demo-xa.png)
 
 6. Klik op het beletselteken (**...** ) om de wizard Connection String. Voor **servernaam**, type **(lokaal)\\SQLEXPRESS**. Voor **aanmelding**, selecteer **Windows-verificatie**. Typ voor de databasenaam, **BANKDEMO**
 
-     ![](media/10-demo-string.png)
+     ![Verbindingsreeks-scherm voor bewerken](media/10-demo-string.png)
 
 7. Test de verbinding.
 
@@ -217,11 +217,11 @@ De query moet worden uitgevoerd zonder fouten. Wanneer deze voltooid is, hebt u 
 
 3. Met de rechtermuisknop op **BANKDEMO CICS regio** in de **Console** deelvenster en selecteer **starten/stoppen regio**.
 
-4. In de onderkant van de **starten / stoppen** vak dat wordt weergegeven in het middelste deelvenster, selecteer **Start**. Na enkele seconden, de regio wordt gestart.
+4. In de onderkant van de **starten/stoppen regio** vak dat wordt weergegeven in het middelste deelvenster, selecteer **Start**. Na enkele seconden, de regio wordt gestart.
 
-     ![](/media/11-demo-sql.png)
+     ![Vak SQL starten/stoppen](/media/11-demo-sql.png)
 
-     ![](media/12-demo-cics.png)
+     ![CICS regio BANKDEMO - gestart scherm](media/12-demo-cics.png)
 
 ## <a name="create-a-listener"></a>Maak een listener
 
@@ -245,7 +245,7 @@ U moet een listener voor de TN3270-sessies die toegang hebben tot de toepassing 
 
 9. Voor het starten van de listener, klikt u op de **Listener starten** pictogram of kies **opties** \> **Listener starten**.
 
-     ![](media/13-demo-listener.png)
+     ![Configuratie-Editor voor listener-windows](media/13-demo-listener.png)
 
 
 ## <a name="configure-rumba-to-access-the-bankdemo-application"></a>Rumba voor toegang tot de toepassing BankDemo configureren
@@ -264,8 +264,8 @@ Het laatste wat dat u moet doen is een 3270-sessie met behulp van Rumba, een emu
 
 6. Voor gebruikers-ID, typt u **B0001** en voor het wachtwoord, typt u. Het eerste scherm BANK20 wordt geopend.
 
-![](media/14-demo.png)
-![](media/15-demo.png)
+![Mainframe weergave welkomstscherm](media/14-demo.png)
+![Mainframe-weergave - Rumba - subsysteem demonstratie scherm](media/15-demo.png)
 
 Gefeliciteerd! U nu uitvoert een CICS toepassing in Azure met behulp van Micro Focus Enterprise-Server.
 

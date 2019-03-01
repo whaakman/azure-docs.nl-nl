@@ -4,14 +4,14 @@ description: Vereisten voor Avere vFXT voor Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 9c3301ba16bfaeb7014658a380e287a36a505be8
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 045b010736f8cecf877408f23530022af1f94f14
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299201"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991419"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Voorbereiden op het maken van de Avere vFXT
 
@@ -57,7 +57,7 @@ U moet voldoende quotum voor de volgende Azure-onderdelen hebben. Indien nodig, 
 
 |Azure-onderdeel|Quota|
 |----------|-----------|
-|Virtuele machines|3 of meer D16s_v3's of E32s_v3's|
+|Virtuele machines|3 of meer E32s_v3|
 |Premium SSD-opslag|200 GB ruimte in het besturingssysteem plus 1 tot 4 TB ruimte in de cache per knooppunt |
 |Opslagaccount (optioneel) |v2|
 |Back-endopslag van gegevens (optioneel) |Een nieuwe LRS Blob-container |
@@ -151,6 +151,30 @@ Voordat u de vFXT Avere voor Azure-cluster kunt maken, moet u de rol van de clus
    ```
 
 Naam van de rol wordt gebruikt bij het maken van het cluster. In dit voorbeeld wordt de naam is ``avere-operator``.
+
+## <a name="optional-create-a-storage-service-endpoint-in-your-virtual-network"></a>(Optioneel) Een service-eindpunt voor opslag in uw virtuele netwerk maken
+
+Een [service-eindpunt](../virtual-network/virtual-network-service-endpoints-overview.md) houdt Azure Blob-verkeer lokale in plaats van deze routering buiten het virtuele netwerk. Het wordt aanbevolen voor alle vFXT Avere voor Azure-cluster die gebruikmaakt van Azure Blob voor back-end-gegevensopslag. 
+
+Als u een bestaand vnet opgeeft en het maken van een nieuwe Azure Blob-container voor uw back-end-opslag als onderdeel van het maken van een cluster, moet u een service-eindpunt in het vnet voor Microsoft-opslag hebben. Dit eindpunt moet bestaan voordat u het cluster maakt, het maken, anders mislukt. 
+
+Een storage-service-eindpunt wordt aanbevolen voor alle vFXT Avere voor Azure-cluster die gebruikmaakt van Azure Blob-opslag, zelfs als u de opslag later toevoegen. 
+
+> [!TIP] 
+> * Deze stap overslaan als u een nieuw virtueel netwerk als onderdeel van het maken van clusters maakt. 
+> * Deze stap is optioneel als u geen Blob-opslag tijdens het maken van clusters maakt. In dat geval kunt u het service-eindpunt later maken als u besluit te gebruiken van Azure Blob.
+
+Het storage-service-eindpunt van de Azure-portal maken. 
+
+1. Klik in de portal op **virtuele netwerken** aan de linkerkant.
+1. Selecteer het vnet voor uw cluster. 
+1. Klik op **Service-eindpunten** aan de linkerkant.
+1. Klik op **toevoegen** aan de bovenkant.
+1. De service als ``Microsoft.Storage`` en kies subnet van het cluster.
+1. Klik onderaan op **toevoegen**.
+
+  ![Schermafbeelding van Azure portal met aantekeningen voor de stappen voor het maken van het service-eindpunt](media/avere-vfxt-service-endpoint.png)
+
 
 ## <a name="next-step-create-the-vfxt-cluster"></a>Volgende stap: Maken van het cluster vFXT
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: kumud
-ms.openlocfilehash: f0ebb5cc913dda99d7e927ccf45c0f1478fa86c5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a42a56b8a4a54c33297461a427a2b64b72357020
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814823"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194075"
 ---
 # <a name="outbound-connections-in-azure"></a>Uitgaande verbindingen in Azure
 
@@ -70,7 +70,7 @@ SNAT poorten worden vooraf toegewezen zoals beschreven in de [Understanding SNAT
 
 Wanneer [meerdere openbare IP-adressen zijn gekoppeld aan de Load Balancer Basic](load-balancer-multivip-overview.md), een van deze openbare IP-adressen zijn een kandidaat voor uitgaande stromen en een willekeurig is geselecteerd.  
 
-Voor het controleren van de status van uitgaande verbindingen met Load Balancer Basic, kunt u [Log Analytics voor Load Balancer](load-balancer-monitor-log.md) en [waarschuwen gebeurtenislogboeken](load-balancer-monitor-log.md#alert-event-log) om te controleren op SNAT poort uitputting van berichten.
+Voor het controleren van de status van uitgaande verbindingen met Load Balancer Basic, kunt u [Azure Monitor-logboeken voor Load Balancer](load-balancer-monitor-log.md) en [waarschuwen gebeurtenislogboeken](load-balancer-monitor-log.md#alert-event-log) om te controleren op SNAT poort uitputting van berichten.
 
 ### <a name="defaultsnat"></a>Scenario 3: Standalone VM zonder een Instance Level Public IP-adres
 

@@ -12,32 +12,32 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
-ms.author: jeffgilb
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 315a96680674636f7cab9d93b362febcb25f9922
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: af3e7528e2312cef1832dc104e83384a91acf263
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447062"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991339"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Een App Service-resourceprovider toevoegen aan een niet-verbonden Azure Stack-omgeving beveiligd door AD FS
 
 *Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 > [!IMPORTANT]
-> De update 1809 toepassen op uw geïntegreerde Azure Stack-systeem of de meest recente Azure Stack development kit implementeren voordat u Azure App Service 1.4 implementeert.
+> De update 1901 toepassen op uw geïntegreerde Azure Stack-systeem of de meest recente Azure Stack development kit implementeren voordat u Azure App Service 1.5 implementeert.
 
 Door de instructies in dit artikel te volgen, kunt u de [App Service-resourceprovider](azure-stack-app-service-overview.md) in een Azure Stack-omgeving die is:
 
 - niet verbonden met Internet
 - beveiligd door Active Directory Federation Services (AD FS).
 
- > [!IMPORTANT]
- > Controleer voordat u de resourceprovider implementeert, de opmerkingen bij de release voor meer informatie over nieuwe functionaliteit, correcties en bekende problemen die invloed kunnen zijn op uw implementatie.
- 
+> [!IMPORTANT]  
+> Voordat u de resource provider-installatieprogramma uitvoert, zorgt u ervoor dat u de instructies in hebt gevolgd [voordat u aan de slag](azure-stack-app-service-before-you-get-started.md) en lees de [opmerkingen bij de release](azure-stack-app-service-release-notes-update-five.md) die vergezeld gaan van de 1.5 release meer informatie over nieuwe functionaliteit, correcties en bekende problemen die invloed kunnen zijn op uw implementatie.
+
 De App Service-resourceprovider toevoegen aan uw offline Azure Stack-implementatie, moet u deze op het hoogste niveau taken uitvoeren:
 
 1. Voltooi de [vereiste stappen](azure-stack-app-service-before-you-get-started.md) (zoals de aanschaf van certificaten, die kan een paar dagen duren voor het ontvangen van).
@@ -105,7 +105,7 @@ Voor het implementeren van App Service in een omgeving zonder verbinding, moet u
 
     ![App Service-installatieprogramma][5]
 
-9. Voer de gegevens voor de bestandsshare en klik vervolgens op **volgende**. Het adres van de bestandsshare moet gebruiken de FQDN-naam of IP-adres van de bestandsserver. Bijvoorbeeld, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, of \\\10.0.0.1\websites
+9. Voer de gegevens voor de bestandsshare en klik vervolgens op **volgende**. Het adres van de bestandsshare moet gebruiken de FQDN-naam of IP-adres van de bestandsserver. Bijvoorbeeld, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, of \\\10.0.0.1\websites.  Als u van een bestandsserver die toegevoegd aan een domein gebruikmaakt is, moet u de volledige gebruikersnaam, domein, bijvoorbeeld myfileserverdomain\FileShareOwner opgeven.
 
     > [!NOTE]
     > Het installatieprogramma wil test de verbinding met de bestandsshare voordat u doorgaat.  Als u hebt gekozen om te implementeren in een bestaand Virtueelnetwerk, het installatieprogramma mogelijk geen verbinding maken met de bestandsshare en een waarschuwing weergegeven waarin wordt gevraagd of u wilt doorgaan.  Controleer of de bestandsshare-informatie en blijven als ze juist zijn.
@@ -196,6 +196,11 @@ Voor het implementeren van App Service in een omgeving zonder verbinding, moet u
 
     ![App Service-installatieprogramma][18]
 
+## <a name="post-deployment-steps"></a>Stappen na de implementatie
+
+> [!IMPORTANT]  
+> Als u hebt opgegeven dat de RP-App Service met een SQL Always On-exemplaar moet u [de appservice_hosting en appservice_metering databases toevoegen aan een beschikbaarheidsgroep](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) en synchroniseren van de databases om te voorkomen dat verlies van de service in de gebeurtenis van een databasefailover.
+
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>Valideren van de App-Service op Azure Stack-installatie
 
 1. In de Azure Stack-beheerportal, gaat u naar **beheer - App Service**.
@@ -205,7 +210,7 @@ Voor het implementeren van App Service in een omgeving zonder verbinding, moet u
     ![App Service-beheer](media/azure-stack-app-service-deploy/image12.png)
 
 > [!NOTE]
-> Als u wilt implementeren in een bestaand virtueel netwerk en een interne IP-adres verbinding maken met de bestandsserver, moet u een uitgaande beveiligingsregel toevoegen voor het inschakelen van SMB-verkeer tussen het worker-subnet en de bestandsserver aan te geven.  Om dit te doen, gaat u naar de WorkersNsg in de beheerportal en voeg een uitgaande beveiligingsregel met de volgende eigenschappen toe:
+> Als u wilt implementeren in een bestaand virtueel netwerk en een interne IP-adres verbinding maken met de bestandsserver, moet u een uitgaande beveiligingsregel toevoegen voor het inschakelen van SMB-verkeer tussen de worker-subnet en de bestandsserver aan te geven.  Om dit te doen, gaat u naar de WorkersNsg in de beheerportal en voeg een uitgaande beveiligingsregel met de volgende eigenschappen toe:
 > * Bron: Alle
 > * Poortbereik van bron: *
 > * Bestemming: IP-adressen

@@ -1,19 +1,19 @@
 ---
 title: Informatie over aangepaste eindpunten van Azure IoT Hub | Microsoft Docs
 description: Handleiding voor ontwikkelaars - routering query's gebruiken voor het routeren van apparaat-naar-cloud-berichten met aangepaste eindpunten.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.author: dobett
-ms.openlocfilehash: 1b0e99998aaf29c366cce1926f930174686cfee6
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: e5e92c40cef15e99431dc9652820c71e87935f67
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414895"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008709"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Gebruik berichtroutes en aangepaste eindpunten voor apparaat-naar-cloud-berichten
 

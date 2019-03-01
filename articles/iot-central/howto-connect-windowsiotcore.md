@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ff45ecc00d1c5c810015c8007d194b882f32f3da
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: bd2f675fe646395b60aeb687f67269b0184563bd
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412565"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193395"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Een Windows IoT Core-apparaat verbinden met uw Azure IoT Central-toepassing
 
@@ -51,7 +51,7 @@ Voor het instellen van een apparaat met Windows IoT Core Volg de stapsgewijze ha
 Voeg in uw Azure IoT Central-toepassing een echt apparaat uit de **Windows IoT Core** apparaat sjabloon en maak een notitie van de verbindingsgegevens van het apparaat (**bereik-ID, apparaat-ID, primaire sleutel**). Zie voor meer informatie, [een echt apparaat toevoegen aan uw Azure IoT Central toepassing](tutorial-add-device.md).
 
  > [!NOTE]
-   > Azure IoT Central is overgeschakeld naar het gebruik van Azure IoT Hub Device Provisioning service (DPS) voor alle apparaatverbindingen, volgt u deze instrustions naar [de apparaat-verbindingsreeks ophalen](concepts-connectivity.md#getting-device-connection-string) en Ga door met de rest van de zelfstudie.
+   > Azure IoT Central is overgeschakeld naar het gebruik van Azure IoT Hub Device Provisioning service (DPS) voor alle apparaatverbindingen, volgt u deze instructies voor het [de apparaat-verbindingsreeks ophalen](concepts-connectivity.md#get-a-connection-string) en Ga door met de rest van de zelfstudie.
 
 ## <a name="prepare-the-windows-10-iot-core-device"></a>Het Windows 10 IoT Core-apparaat voorbereiden
 

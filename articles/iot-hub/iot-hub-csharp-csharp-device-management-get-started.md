@@ -1,20 +1,20 @@
 ---
 title: Aan de slag met Azure IoT Hub device management (.NET/.NET) | Microsoft Docs
 description: Het gebruik van Apparaatbeheer via Azure IoT Hub om te beginnen met een extern apparaat opnieuw opstarten. De Azure IoT-device-SDK voor .NET kunt u implementeert een gesimuleerde apparaat-app met een rechtstreekse methode en de Azure IoT service SDK voor .NET voor het implementeren van een service-app die de directe methode aanroept.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 09/15/2017
-ms.author: dobett
-ms.openlocfilehash: 00eda1dc5ad0e455c451fda17cc915ae6c633696
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.author: robin.shahan
+ms.openlocfilehash: 7e7d6fad4268200e5410eb3d3ba3c1e2df06e967
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515133"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008607"
 ---
 # <a name="get-started-with-device-management-netnet"></a>Aan de slag met Apparaatbeheer (.NET/.NET)
 
@@ -44,7 +44,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Voor IoT hub-verbindingsreeks ophalen
+### <a name="retrieve-connection-string-for-iot-hub"></a>Verbindingsreeks voor IoT-hub ophalen
 
 [!INCLUDE [iot-hub-find-include-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 

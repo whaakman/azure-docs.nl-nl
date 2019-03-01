@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 2770c6a31f0117b96e08eb8a03986f37ebdb7098
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 98d8f530b91c2b2483d00838cd4001be88e18a6c
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733738"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011208"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Azure API Management gebruiken met virtuele netwerken
 Azure-netwerken (VNETs) kunt u een van uw Azure-resources in een niet-internet routeerbare netwerk dat u toegang tot te plaatsen. Deze netwerken kunnen vervolgens worden verbonden met uw on-premises netwerken met behulp van verschillende VPN-technologieën. Voor meer informatie over Azure Virtual Networks beginnen met de informatie hier: [Overzicht van Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -89,7 +89,7 @@ U kunt ook inschakelen met VNET-connectiviteit met de PowerShell-cmdlets
 
 * **Een API Management-service binnen een VNET maken**: Gebruik de cmdlet [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) om een Azure API Management-service binnen een VNET te maken.
 
-* **Een bestaande API Management-service binnen een VNET implementeert**: Gebruik de cmdlet [Update AzApiManagementDeployment](/powershell/module/az.apimanagement/update-azapimanagementdeployment) te verplaatsen van een bestaande Azure API Management-service binnen een Virtueelnetwerk.
+* **Een bestaande API Management-service binnen een VNET implementeert**: Gebruik de cmdlet [Update AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) te verplaatsen van een bestaande Azure API Management-service binnen een Virtueelnetwerk.
 
 ## <a name="connect-vnet"> </a>Verbinding maken met een webservice die worden gehost in een virtueel netwerk
 Nadat uw API Management-service is verbonden met het VNET, is het niet anders dan toegang tot openbare services om toegang tot endservices in het back. Typ in het lokale IP-adres of de hostnaam (als een DNS-server is geconfigureerd voor het VNET) van de webservice in de **webservice-URL** veld bij het maken van een nieuwe API of een bestaande bewerkt.
@@ -132,7 +132,7 @@ Wanneer een exemplaar van API Management-service wordt gehost in een VNET, worde
 
 + **DNS-toegang**: Uitgaand verkeer op poort 53 is vereist voor communicatie met de DNS-servers. Als een aangepaste DNS-server op het andere uiteinde van een VPN-gateway bestaat, moet de DNS-server bereikbaar is vanaf het subnet die als host fungeert voor API Management zijn.
 
-+ **Metrische gegevens en statuscontrole**: Uitgaande netwerkconnectiviteit met Azure Monitoring eindpunten, die onder de volgende domeinen oplossen: 
++ **Metrische gegevens en statuscontrole**: Uitgaande netwerkconnectiviteit met Azure Monitoring eindpunten, die onder de volgende domeinen oplossen:
 
     | Azure-omgeving | Eindpunten                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -202,7 +202,6 @@ Gezien de berekening boven de minimale grootte van het subnet waarin API Managem
 * [Servicetags](../virtual-network/security-overview.md#service-tags)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
-[api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-type.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-select.png
 [api-management-setup-vpn-add-api]: ./media/api-management-using-with-vnet/api-management-using-vnet-add-api.png
 [api-management-vnet-private]: ./media/api-management-using-with-vnet/api-management-vnet-internal.png

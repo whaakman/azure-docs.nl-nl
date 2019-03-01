@@ -17,12 +17,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e07fc6c4ce7477cd6f1c64d5de1574ae7c4cecff
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8ff2caae7cb387f4f0d88cf059d01ad28861b9ad
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168949"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57191984"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect-synchronisatie: De installatiewizard een tweede keer uitvoeren
 De eerste keer dat u de wizard Azure AD Connect-installatie uitvoert helpt het u bij het configureren van uw installatie. Als u de installatiewizard opnieuw uitvoert, biedt opties voor onderhoud.
@@ -73,7 +73,7 @@ Wanneer u deze optie selecteert, worden de mappen in uw configuratie weergegeven
 ![Pagina met een lijst van alle mappen in de omgeving](./media/how-to-connect-installation-wizard/refreshschema.png)
 
 ## <a name="configure-staging-mode"></a>De faseringsmodus configureren
-Deze optie kunt u om te schakelen en schakel de faseringsmodus op de server uit. Meer informatie over de staging-modus en hoe deze wordt gebruikt kan worden gevonden [Operations](how-to-connect-sync-operations.md#staging-mode).
+Deze optie kunt u om te schakelen en schakel de faseringsmodus op de server uit. Meer informatie over de staging-modus en hoe deze wordt gebruikt kan worden gevonden [Operations](how-to-connect-sync-staging-server.md).
 
 De optie wordt weergegeven als fasering momenteel is ingeschakeld of uitgeschakeld:  
 ![Optie die ook zichtbaar is voor de huidige status van de faseringsmodus](./media/how-to-connect-installation-wizard/stagingmodecurrentstate.png)

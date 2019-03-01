@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/04/2018
-ms.openlocfilehash: a7f4d10e3273fb2b4e17ff0a55c3a3ed6294833d
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.date: 02/28/2019
+ms.openlocfilehash: 99deef907818ffdb1ce858c8e988e26cbd53a1a1
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961275"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195095"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>Serverlogboeken in Azure Database for PostgreSQL 
 Azure Database voor PostgreSQL-query en de fout genereert logboeken. Query's en fout-logboeken kunnen worden gebruikt om te bepalen, oplossen en herstellen van fouten in de configuratie en optimale prestaties. (Toegang tot transactielogboeken is niet opgenomen). 
@@ -30,6 +30,8 @@ Als u de logboeken hebt ingeschakeld, kunt u deze kunt openen vanaf de Azure Dat
 ## <a name="diagnostic-logs"></a>Diagnostische logboeken
 Azure Database voor PostgreSQL is geïntegreerd met Azure Monitor diagnostische logboeken. Als u Logboeken hebt ingeschakeld op uw PostgreSQL-server, kunt u deze verzonden naar [logboeken van Azure Monitor](../azure-monitor/log-query/log-query-overview.md), Event Hubs of Azure Storage. Voor meer informatie over het inschakelen van diagnostische logboeken, Zie de sectie van de procedures van de [diagnostische logboeken documentatie](../azure-monitor/platform/diagnostic-logs-overview.md). 
 
+> [!IMPORTANT]
+> Deze diagnostische functies voor server-Logboeken is alleen beschikbaar in het algemeen gebruik en geoptimaliseerd voor geheugen [Prijscategorieën](concepts-pricing-tiers.md).
 
 De volgende tabel wordt beschreven wat er in elk logboek. Afhankelijk van het uitvoereindpunt dat u kiest, de velden die zijn opgenomen en de volgorde waarin ze worden weergegeven kunnen variëren. 
 

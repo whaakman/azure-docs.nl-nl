@@ -10,18 +10,20 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: e06bf20a04c6a57ae5988d4cc334ec7a3cdd4bf1
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 6a8c4583d86b41e767e8a2057bae4cef8943a1c1
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543853"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193415"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Status controleren, instellen van logboekregistratie van diagnostische gegevens en waarschuwingen inschakelen voor Azure Logic Apps
 
 Nadat u [maken en uitvoeren van een logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md), kunt u de geschiedenis van uitvoeringen, triggergeschiedenis, status en prestaties controleren. Instellen voor gebeurtenissen in realtime bewaking en uitgebreidere foutopsporing, [Diagnostische logboekregistratie](#azure-diagnostics) voor uw logische app. Op die manier kunt u [vinden en weergeven van gebeurtenissen](#find-events), zoals de triggergebeurtenissen, voer gebeurtenissen en actie. U kunt dit ook gebruiken [diagnostische gegevens met andere services](#extend-diagnostic-data), zoals Azure Storage en Azure Event Hubs. 
 
 Instellen als u meldingen over fouten of andere mogelijke problemen, [waarschuwingen](#add-azure-alerts). Bijvoorbeeld, kunt u een waarschuwing waarmee wordt gedetecteerd "wanneer meer dan vijf uitvoering mislukt binnen een uur." U kunt ook instellen van controle, tracering en logboekregistratie via een programma met behulp van [Azure Diagnostics gebeurtenisinstellingen en eigenschappen](#diagnostic-event-properties).
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="view-runs-and-trigger-history-for-your-logic-app"></a>Uitvoeringen weergeven en de triggergeschiedenis voor uw logische app
 
@@ -72,7 +74,7 @@ Instellen als u meldingen over fouten of andere mogelijke problemen, [waarschuwi
 
 ## <a name="turn-on-diagnostics-logging-for-your-logic-app"></a>Diagnostische gegevens voor uw logische app logboekregistratie inschakelen
 
-Voor uitgebreidere foutopsporing met details van de runtime en gebeurtenissen, kunt u Diagnostische logboekregistratie met instellen [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Log Analytics is een service in Azure waarmee u uw cloud en on-premises omgevingen om te helpen u hun beschikbaarheid en prestaties te onderhouden. 
+Voor uitgebreidere foutopsporing met details van de runtime en gebeurtenissen, kunt u Diagnostische logboekregistratie met instellen [logboeken van Azure Monitor](../log-analytics/log-analytics-overview.md). Azure Monitor is een service in Azure waarmee u uw cloud en on-premises omgevingen om te helpen u hun beschikbaarheid en prestaties te onderhouden. 
 
 Voordat u begint, moet u een Log Analytics-werkruimte. Informatie over [over het maken van een Log Analytics-werkruimte](../azure-monitor/learn/quick-create-workspace.md).
 
@@ -125,7 +127,7 @@ Als u wilt zoeken en weergeven van gebeurtenissen in uw logische app, zoals gebe
 
    ![Geef zoektekenreeks](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
 
-   Meer informatie over [gegevens zoeken in Log Analytics](../log-analytics/log-analytics-log-searches.md).
+   Meer informatie over [gegevens zoeken in Logboeken van Azure Monitor](../log-analytics/log-analytics-log-searches.md).
 
 5. Kies op de pagina met resultaten in de linkerbalk de periode die u wilt weergeven.
 Als u wilt uw query te verfijnen door een filter toe te voegen, kies **+ toevoegen**.
@@ -153,7 +155,7 @@ Als u wilt uw query te verfijnen door een filter toe te voegen, kies **+ toevoeg
 
 ## <a name="extend-how-and-where-you-use-diagnostic-data-with-other-services"></a>Hoe en waar u de diagnostische gegevens gebruiken met andere services uitbreiden
 
-Samen met Azure Log Analytics, kunt u uitbreiden hoe u diagnostische gegevens van uw logische app gebruiken met andere Azure-services, bijvoorbeeld: 
+Samen met Azure Monitor-Logboeken, kunt u uitbreiden hoe u diagnostische gegevens van uw logische app gebruiken met andere Azure-services, bijvoorbeeld: 
 
 * [Azure Diagnostics-in Azure-opslag logboeken archiveren](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [Stream diagnostische logboeken van Azure naar Azure Eventhubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
@@ -176,7 +178,7 @@ Op basis van de opties die u wilt instellen, zorg ervoor dat u eerst [maken van 
 
 Instellen voor het bewaken van specifieke metrische gegevens of overschreden drempelwaarden voor uw logische app, [waarschuwingen in Azure](../azure-monitor/platform/alerts-overview.md). Meer informatie over [metrische gegevens in Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). 
 
-Voor het instellen van waarschuwingen zonder [Azure Log Analytics](../log-analytics/log-analytics-overview.md), als volgt te werk. Voor meer geavanceerde criteria voor waarschuwingen en acties, [Log Analytics instellen](#azure-diagnostics) te.
+Voor het instellen van waarschuwingen zonder [logboeken van Azure Monitor](../log-analytics/log-analytics-overview.md), als volgt te werk. Voor meer geavanceerde criteria voor waarschuwingen en acties, [instellen van Azure Monitor logboeken](#azure-diagnostics) te.
 
 1. In het menu van de blade in de logische app, onder **bewaking**, kiest u **Diagnostics** > **waarschuwingsregels** > **waarschuwing toevoegen**zoals hier wordt weergegeven:
 

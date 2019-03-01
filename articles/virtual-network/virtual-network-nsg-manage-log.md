@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: 20c103c19de203d7598484b8f1d160256cb253e9
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 6cc75a70dfc7022efa8577234cc67659d53b2f88
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56648860"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194414"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Diagnostische logboekregistratie voor een netwerkbeveiligingsgroep
 
@@ -78,7 +78,7 @@ $Oms=Get-AzOperationalInsightsWorkspace `
 
 Als u geen een bestaande werkruimte hebt, kunt u maken met [New-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace).
 
-Er zijn twee categorieën van logboekregistratie die kunt u Logboeken voor inschakelen. Zie voor meer informatie, [categorieën zich](#log-categories). Diagnostische logboekregistratie inschakelen voor de NSG met [Set AzDiagnosticSetting](/powershell/module/az.insights/set-azdiagnosticsetting). Het volgende voorbeeld registreert gebeurtenis zowel teller categoriegegevens aan de werkruimte voor een Netwerkbeveiligingsgroep, met behulp van de id's voor de NSG en de werkruimte die u eerder hebt opgehaald:
+Er zijn twee categorieën van logboekregistratie die kunt u Logboeken voor inschakelen. Zie voor meer informatie, [categorieën zich](#log-categories). Diagnostische logboekregistratie inschakelen voor de NSG met [Set AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting). Het volgende voorbeeld registreert gebeurtenis zowel teller categoriegegevens aan de werkruimte voor een Netwerkbeveiligingsgroep, met behulp van de id's voor de NSG en de werkruimte die u eerder hebt opgehaald:
 
 ```azurepowershell-interactive
 Set-AzDiagnosticSetting `

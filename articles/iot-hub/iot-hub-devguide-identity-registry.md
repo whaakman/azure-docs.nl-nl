@@ -1,19 +1,19 @@
 ---
 title: Inzicht in de Azure IoT Hub-identiteitsregister | Microsoft Docs
 description: Handleiding voor ontwikkelaars - beschrijving van de id-register van IoT Hub en hoe u deze gebruiken om uw apparaten te beheren. Bevat informatie over het importeren en exporteren van apparaat-id's in één bulkbewerking.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.author: dobett
-ms.openlocfilehash: 6291350cab41c123b41f7fee811bf72a21d9ff35
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 935635c474190413545d1a2731c367a691bfa56d
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319129"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010257"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Inzicht in het identiteitenregister van uw IoT-hub
 
@@ -101,23 +101,23 @@ Een meer complexe implementatie kan bijvoorbeeld de gegevens van [Azure Monitor]
 
 IoT Hub kunnen uw IoT-oplossing waarschuwen wanneer een identiteit die wordt gemaakt of verwijderd door het verzenden van meldingen over de levenscyclus. Om dit te doen, moet uw IoT-oplossing een route te maken en in te stellen de gegevensbron gelijk zijn aan *DeviceLifecycleEvents* of *ModuleLifecycleEvents*. Standaard geen lifecycle-meldingen worden verzonden, dat wil zeggen, er zijn geen dergelijke routes vooraf bestaan. De melding bevat eigenschappen en hoofdtekst.
 
-Eigenschappen: Eigenschappen bericht worden voorafgegaan door de `$` symbool.
+Eigenschappen: Systeemeigenschappen bericht worden voorafgegaan door de `$` symbool.
 
 Melding voor apparaat:
 
-| Naam | Waarde |
+| Name | Value |
 | --- | --- |
 |$content-type | application/json |
 |$iothub-enqueuedtime |  Tijd waarop de melding is verzonden |
 |$iothub-bericht-bron | deviceLifecycleEvents |
-|$content-codering | utf-8 |
+|$content-encoding | utf-8 |
 |opType | **createDeviceIdentity** of **deleteDeviceIdentity** |
-|HubName | Naam van IoT Hub |
+|hubName | Naam van IoT Hub |
 |deviceId | ID van het apparaat |
 |operationTimestamp | ISO8601-timestamp van bewerking |
 |iothub-bericht-schema | deviceLifecycleNotification |
 
-Hoofdtekst: Deze sectie wordt in JSON-indeling en vertegenwoordigt het dubbele van de gemaakte apparaat-id. Bijvoorbeeld:
+Hoofdtekst: In deze sectie wordt in JSON-indeling en vertegenwoordigt het dubbele van de gemaakte apparaat-id. Bijvoorbeeld:
 
 ```json
 {
@@ -141,14 +141,14 @@ Hoofdtekst: Deze sectie wordt in JSON-indeling en vertegenwoordigt het dubbele v
 ```
 Melding voor module:
 
-| Naam | Waarde |
+| Name | Value |
 | --- | --- |
 $content-type | application/json |
 $iothub-enqueuedtime |  Tijd waarop de melding is verzonden |
 $iothub-bericht-bron | moduleLifecycleEvents |
-$content-codering | utf-8 |
+$content-encoding | utf-8 |
 opType | **createModuleIdentity** of **deleteModuleIdentity** |
-HubName | Naam van IoT Hub |
+hubName | Naam van IoT Hub |
 moduleId | ID van de module |
 operationTimestamp | ISO8601-timestamp van bewerking |
 iothub-bericht-schema | moduleLifecycleNotification |
@@ -181,17 +181,17 @@ Hoofdtekst: Deze sectie wordt in JSON-indeling en vertegenwoordigt het dubbele v
 
 Apparaat-id's worden weergegeven als JSON-documenten met de volgende eigenschappen:
 
-| Eigenschap | Opties | Beschrijving |
+| Eigenschap | Opties | Description |
 | --- | --- | --- |
 | deviceId |vereist, alleen-lezen op updates |Een hoofdlettergevoelige tekenreeks (maximaal 128 tekens lang) van ASCII-7-bits alfanumerieke tekens, plus bepaalde speciale tekens: `- . + % _ # * ? ! ( ) , = @ $ '`. |
 | generationId |vereist, alleen-lezen |Een IoT hub is gegenereerd, hoofdlettergevoelig tekenreeks van maximaal 128 tekens lang. Deze waarde wordt gebruikt om u te onderscheiden van apparaten met dezelfde **deviceId**, wanneer ze zijn verwijderd en opnieuw gemaakt. |
-| ETag |vereist, alleen-lezen |Een tekenreeks voor een zwakke ETag voor de apparaat-id als per [RFC7232](https://tools.ietf.org/html/rfc7232). |
+| etag |vereist, alleen-lezen |Een tekenreeks voor een zwakke ETag voor de apparaat-id als per [RFC7232](https://tools.ietf.org/html/rfc7232). |
 | auth |optioneel |Een samengestelde-object met verificatie-informatie en beveiliging materiaal. |
 | auth.symkey |optioneel |Een samengestelde-object met een primaire en secundaire sleutel, die zijn opgeslagen in Base 64-indeling. |
 | status |vereist |Een indicator toegang. Kan **ingeschakeld** of **uitgeschakelde**. Als **ingeschakeld**, het apparaat is toegestaan om verbinding te maken. Als **uitgeschakelde**, dit apparaat geen toegang tot een willekeurig apparaat gerichte-eindpunt. |
 | statusReason |optioneel |Een 128 tekens lang tekenreeks waarin de reden voor de status van het apparaat-id. Alle UTF-8 tekens zijn toegestaan. |
 | statusUpdateTime |alleen-lezen |Een tijdelijke aanduiding met de datum en tijd van de laatste statusupdate. |
-| connectionState |alleen-lezen |Een veld verbindingsstatus aangeeft: beide **verbonden** of **verbroken**. Dit veld geeft de IoT Hub-weergave van de status van het apparaat verbinding. **Belangrijke**: dit veld moet alleen worden gebruikt voor ontwikkeling/foutopsporing doeleinden. Status van de verbinding wordt alleen voor apparaten die gebruikmaken van MQTT- of AMQP bijgewerkt. Bovendien is gebaseerd op protocolniveau pings (MQTT pings of AMQP pings) en er een maximale vertraging van slechts vijf minuten. Daarom kunnen er fout-positieven, zoals apparaten gerapporteerd als verbonden, maar die niet zijn verbonden. |
+| connectionState |alleen-lezen |Een veld verbindingsstatus aangeeft: beide **verbonden** of **verbroken**. Dit veld geeft de IoT Hub-weergave van de status van het apparaat verbinding. **Belangrijke**: Dit veld moet alleen worden gebruikt voor ontwikkeling/foutopsporing doeleinden. Status van de verbinding wordt alleen voor apparaten die gebruikmaken van MQTT- of AMQP bijgewerkt. Bovendien is gebaseerd op protocolniveau pings (MQTT pings of AMQP pings) en er een maximale vertraging van slechts vijf minuten. Daarom kunnen er fout-positieven, zoals apparaten gerapporteerd als verbonden, maar die niet zijn verbonden. |
 | connectionStateUpdatedTime |alleen-lezen |Een tijdelijke indicator, met de datum en tijd van laatste status van de verbinding is bijgewerkt. |
 | lastActivityTime |alleen-lezen |Een tijdelijke aanduiding die laat zien de datum en de laatste keer dat het apparaat verbinding, ontvangen of een bericht verzonden. |
 
@@ -205,18 +205,18 @@ Apparaat-id's worden weergegeven als JSON-documenten met de volgende eigenschapp
 
 Module-id's worden weergegeven als JSON-documenten met de volgende eigenschappen:
 
-| Eigenschap | Opties | Beschrijving |
+| Eigenschap | Opties | Description |
 | --- | --- | --- |
 | deviceId |vereist, alleen-lezen op updates |Een hoofdlettergevoelige tekenreeks (maximaal 128 tekens lang) van ASCII-7-bits alfanumerieke tekens, plus bepaalde speciale tekens: `- . + % _ # * ? ! ( ) , = @ $ '`. |
 | moduleId |vereist, alleen-lezen op updates |Een hoofdlettergevoelige tekenreeks (maximaal 128 tekens lang) van ASCII-7-bits alfanumerieke tekens, plus bepaalde speciale tekens: `- . + % _ # * ? ! ( ) , = @ $ '`. |
 | generationId |vereist, alleen-lezen |Een IoT hub is gegenereerd, hoofdlettergevoelig tekenreeks van maximaal 128 tekens lang. Deze waarde wordt gebruikt om u te onderscheiden van apparaten met dezelfde **deviceId**, wanneer ze zijn verwijderd en opnieuw gemaakt. |
-| ETag |vereist, alleen-lezen |Een tekenreeks voor een zwakke ETag voor de apparaat-id als per [RFC7232](https://tools.ietf.org/html/rfc7232). |
+| etag |vereist, alleen-lezen |Een tekenreeks voor een zwakke ETag voor de apparaat-id als per [RFC7232](https://tools.ietf.org/html/rfc7232). |
 | auth |optioneel |Een samengestelde-object met verificatie-informatie en beveiliging materiaal. |
 | auth.symkey |optioneel |Een samengestelde-object met een primaire en secundaire sleutel, die zijn opgeslagen in Base 64-indeling. |
 | status |vereist |Een indicator toegang. Kan **ingeschakeld** of **uitgeschakelde**. Als **ingeschakeld**, het apparaat is toegestaan om verbinding te maken. Als **uitgeschakelde**, dit apparaat geen toegang tot een willekeurig apparaat gerichte-eindpunt. |
 | statusReason |optioneel |Een 128 tekens lang tekenreeks waarin de reden voor de status van het apparaat-id. Alle UTF-8 tekens zijn toegestaan. |
 | statusUpdateTime |alleen-lezen |Een tijdelijke aanduiding met de datum en tijd van de laatste statusupdate. |
-| connectionState |alleen-lezen |Een veld verbindingsstatus aangeeft: beide **verbonden** of **verbroken**. Dit veld geeft de IoT Hub-weergave van de status van het apparaat verbinding. **Belangrijke**: dit veld moet alleen worden gebruikt voor ontwikkeling/foutopsporing doeleinden. Status van de verbinding wordt alleen voor apparaten die gebruikmaken van MQTT- of AMQP bijgewerkt. Bovendien is gebaseerd op protocolniveau pings (MQTT pings of AMQP pings) en er een maximale vertraging van slechts vijf minuten. Daarom kunnen er fout-positieven, zoals apparaten gerapporteerd als verbonden, maar die niet zijn verbonden. |
+| connectionState |alleen-lezen |Een veld verbindingsstatus aangeeft: beide **verbonden** of **verbroken**. Dit veld geeft de IoT Hub-weergave van de status van het apparaat verbinding. **Belangrijke**: Dit veld moet alleen worden gebruikt voor ontwikkeling/foutopsporing doeleinden. Status van de verbinding wordt alleen voor apparaten die gebruikmaken van MQTT- of AMQP bijgewerkt. Bovendien is gebaseerd op protocolniveau pings (MQTT pings of AMQP pings) en er een maximale vertraging van slechts vijf minuten. Daarom kunnen er fout-positieven, zoals apparaten gerapporteerd als verbonden, maar die niet zijn verbonden. |
 | connectionStateUpdatedTime |alleen-lezen |Een tijdelijke indicator, met de datum en tijd van laatste status van de verbinding is bijgewerkt. |
 | lastActivityTime |alleen-lezen |Een tijdelijke aanduiding die laat zien de datum en de laatste keer dat het apparaat verbinding, ontvangen of een bericht verzonden. |
 

@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/23/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 5c791dc8216a4c905b4147f59a42d52091f14aae
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 93e1904862af7eaad395bf14b0d09555d9d1d2ab
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465976"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990132"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Ontwerprichtlijnen voor het gebruik van gerepliceerde tabellen in Azure SQL Data Warehouse
 In dit artikel biedt aanbevelingen voor het ontwerpen van gerepliceerde tabellen in uw SQL Data Warehouse-schema. Gebruik deze aanbevelingen om queryprestaties te verbeteren door minder gegevens verplaatsen en query complex.
@@ -58,7 +58,7 @@ Voordat u ervoor kiest om te distribueren of een tabel niet repliceren, moet u o
 
 CPU-intensieve query's het beste presteren wanneer het werk wordt verdeeld over alle van de rekenknooppunten. Bijvoorbeeld, sneller query's die berekeningen kunt op elke rij van een tabel uitvoeren op gedistribueerde tabellen dan gerepliceerde tabellen. Omdat een gerepliceerde tabel zijn opgeslagen in het volledige op elk knooppunt, een CPU-intensieve query op basis van een gerepliceerde tabel wordt uitgevoerd op de hele tabel op elk rekenknooppunt. De extra berekening kan de prestaties van query's vertragen.
 
-Deze query heeft bijvoorbeeld een complexe predicaat.  Deze sneller uitgevoerd leverancier is een distributietabel in plaats van een gerepliceerde tabel. In dit voorbeeld kunt leverancier worden gedistribueerd middels round-robin.
+Deze query heeft bijvoorbeeld een complexe predicaat.  Het wordt sneller uitgevoerd wanneer de gegevens zich in een tabel in plaats van een gerepliceerde tabel. In dit voorbeeld wordt door de gegevens kunnen worden gedistribueerd middels round-robin.
 
 ```sql
 
@@ -69,7 +69,7 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
 ```
 
 ## <a name="convert-existing-round-robin-tables-to-replicated-tables"></a>Converteren van bestaande round robin-tabellen naar gerepliceerde tabellen
-Als u al round robin-tabellen hebt, wordt u aangeraden deze te converteren naar gerepliceerde tabellen als ze voldoen aan criteria die in dit artikel worden beschreven. Gerepliceerde tabellen de prestaties verbeteren van round robin-tabellen, omdat ze de noodzaak van verplaatsing van gegevens elimineert.  Een round robin-tabel is altijd vereist voor verplaatsing van gegevens voor joins. 
+Als u al round robin-tabellen hebt, wordt u aangeraden deze te converteren naar gerepliceerde tabellen als ze voldoen aan de criteria die in dit artikel worden beschreven. Gerepliceerde tabellen de prestaties verbeteren van round robin-tabellen, omdat ze de noodzaak van verplaatsing van gegevens elimineert.  Een round robin-tabel is altijd vereist voor verplaatsing van gegevens voor joins. 
 
 In dit voorbeeld wordt [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) wijzigen van de tabel DimSalesTerritory in een gerepliceerde tabel. In dit voorbeeld werkt ongeacht of DimSalesTerritory hash gedistribueerde of round robin.
 

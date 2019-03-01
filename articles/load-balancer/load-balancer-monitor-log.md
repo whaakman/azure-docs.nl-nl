@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/10/2018
 ms.author: kumud
-ms.openlocfilehash: 00a5e888961a9712db0cd509a39fb0367895ac3f
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: d6b5a8b31b78e21868a7f81c481c4fce1cd4e6f5
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164123"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192442"
 ---
-# <a name="log-analytics-for-public-basic-load-balancer"></a>Log analytics voor openbare Basic Load Balancer
+# <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Azure Monitor-logboeken voor openbare Basic Load Balancer
 
 >[!IMPORTANT] 
 >Azure Load Balancer ondersteunt twee verschillende typen: Basic en Standard. In dit artikel wordt Basic Load Balancer beschreven. Zie voor meer informatie over Standard Load Balancer [overzicht van Standard Load Balancer](load-balancer-standard-overview.md) die telemetrie via multi-dimensionale metrische gegevens in Azure Monitor beschikbaar maakt.
@@ -32,7 +32,7 @@ U kunt verschillende soorten logboeken in Azure gebruiken om te beheren en probl
 * **Statustestlogboeken:** U kunt dit logboek gebruiken om problemen gedetecteerd door de statustest, zoals het aantal exemplaren in uw back-end-pool die geen aanvragen van de load balancer vanwege health test problemen ontvangen zijn weer te geven. Dit logboek wordt geschreven naar wanneer er een wijziging in de status van de test.
 
 > [!IMPORTANT]
-> Meld u analytics momenteel geldt alleen voor openbare Basic netwerktaakverdelers. Logboeken zijn alleen beschikbaar voor resources die zijn geïmplementeerd in het Resource Manager-implementatiemodel. U kunt Logboeken niet gebruiken voor resources in het klassieke implementatiemodel. Zie voor meer informatie over de implementatiemodellen [Understanding Resource Manager-implementatie en klassieke implementatie](../azure-resource-manager/resource-manager-deployment-model.md).
+> Azure Monitor meldt zich op dit moment werkt alleen voor openbare Basic load balancers. Logboeken zijn alleen beschikbaar voor resources die zijn geïmplementeerd in het Resource Manager-implementatiemodel. U kunt Logboeken niet gebruiken voor resources in het klassieke implementatiemodel. Zie voor meer informatie over de implementatiemodellen [Understanding Resource Manager-implementatie en klassieke implementatie](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## <a name="enable-logging"></a>Logboekregistratie inschakelen
 

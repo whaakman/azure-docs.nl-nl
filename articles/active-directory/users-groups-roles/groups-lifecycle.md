@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0df176185bde104a2beb34ea64d54e4069643f69
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d26cd97a248172955dcfcf2662424d1e782793bf
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190089"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192324"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Het vervalbeleid voor Office 365-groepen configureren
 
@@ -30,6 +30,8 @@ Wanneer u een groep verlopen instellen:
 -   Eigenaars van de groep krijgt een melding om te vernieuwen van de groep als de vervaldatum nadert
 -   Een groep die niet wordt verlengd wordt verwijderd
 -   Een Office 365-groep die is verwijderd kan door de eigenaren van groepen of door de beheerder binnen 30 dagen worden hersteld
+
+Momenteel kan slechts één verloopbeleid worden geconfigureerd voor Office 365-groepen in een tenant.
 
 > [!NOTE]
 > Configureren en gebruiken van het vervalbeleid voor Office 365-groepen moet u bij de hand Azure AD Premium-licenties hebt voor alle leden van de groepen waarop het beleid wordt toegepast.
@@ -61,6 +63,10 @@ Zie voor meer informatie over machtigingen om terug te zetten van een verwijderd
   * Selecteer welke Office 365-groepen is verlopen. U kunt vervaldatum inschakelen voor **alle** Office 365-groepen die u kunt kiezen om in te schakelen alleen **geselecteerde** Selecteer Office 365-groepen, of u **geen**  om uit te schakelen verlopen voor alle groepen.
   * Uw instellingen opslaan wanneer u klaar bent met het selecteren van **opslaan**.
 
+> [!NOTE]
+> * Wanneer u vervaldatum voor het eerst instelt, worden alle groepen die ouder dan het Vervalinterval opgegeven zijn ingesteld op 30 dagen voordat het vervalt. De eerste vernieuwing meldingse-mail wordt verzonden in een dag. Bijvoorbeeld, groep A 400 dagen geleden is gemaakt, en het Vervalinterval opgegeven is ingesteld op 180 dagen. Wanneer u instellingen voor verlooptijd toepast, heeft groep A 30 dagen voordat het wordt verwijderd, tenzij de eigenaar van de Hiermee vernieuwt u deze.
+> * Wanneer een dynamische groep is verwijderd en hersteld, wordt deze beschouwd als een nieuwe groep en opnieuw ingevuld volgens de regel. Dit proces duurt maximaal 24 uur.
+
 ## <a name="email-notifications"></a>E-mailmeldingen
 
 E-mailmeldingen zoals deze worden verzonden naar de Office 365-groepseigenaren 30 dagen, 15 dagen en 1 dag vóór de vervaldatum van de groep. De taal van het e-mailbericht wordt bepaald door de voorkeurstaal of de taal van de tenant van de eigenaar van de groepen. Als de eigenaar van de groep een voorkeurstaal is gedefinieerd, of meerdere eigenaars de dezelfde voorkeurstaal hebben, wordt die taal gebruikt. Voor alle andere gevallen wordt tenant taal gebruikt.
@@ -77,11 +83,12 @@ De groep binnen 30 dagen na de verwijdering kan worden hersteld door het selecte
     
 Als de groep die u herstellen van wilt documenten, SharePoint-sites of andere permanente objecten bevat, is het duurt maximaal 24 uur aan de groep en de inhoud ervan volledig te herstellen.
 
+## <a name="how-to-retrieve-office-365-group-expiration-date"></a>Datum van afloop voor Office 365-groep ophalen
+Naast het paneel voor Apptoegang waar gebruikers Groepsdetails, met inbegrip van de datum van afloop en datum van laatste vernieuwde kunnen bekijken, kan de vervaldatum van een Office 365-groep worden opgehaald van Microsoft Graph REST API Beta. expirationDateTime als een groepseigenschap is ingeschakeld in Microsoft Graph Beta. Het kan worden opgehaald met een GET-aanvraag. Raadpleeg voor meer informatie, [in dit voorbeeld](https://docs.microsoft.com/en-us/graph/api/group-get?view=graph-rest-beta#example).
+
 > [!NOTE]
-> * Wanneer u vervaldatum voor het eerst instelt, worden alle groepen die ouder dan het Vervalinterval opgegeven zijn ingesteld op 30 dagen voordat het vervalt. De eerste vernieuwing meldingse-mail wordt verzonden in een dag. 
->   Bijvoorbeeld, groep A 400 dagen geleden is gemaakt, en het Vervalinterval opgegeven is ingesteld op 180 dagen. Wanneer u instellingen voor verlooptijd toepast, heeft groep A 30 dagen voordat het wordt verwijderd, tenzij de eigenaar van de Hiermee vernieuwt u deze.
-> * Momenteel kan slechts één verloopbeleid worden geconfigureerd voor Office 365-groepen in een tenant.
-> * Wanneer een dynamische groep is verwijderd en hersteld, wordt deze beschouwd als een nieuwe groep en opnieuw ingevuld volgens de regel. Dit proces duurt maximaal 24 uur.
+> Wilt u groepslidmaatschappen in Toegangsvenster beheren, moet "Toegang beperken tot groepen in Toegangsvenster" worden ingesteld op "Nee" in Azure Active Directory-groepen algemene instelling.
+
 
 ## <a name="how-office-365-group-expiration-works-with-a-mailbox-on-legal-hold"></a>Hoe de vervaldatum van de Office 365-groep is werkt met een postvak in juridische bewaring
 Wanneer een groep is verlopen en wordt verwijderd, klikt u vervolgens 30 dagen na verwijdering van de groep gegevens van apps, Planner, Sites, zoals of Teams worden definitief verwijderd, maar de groepspostvak dat zich op de juridische bewaring worden bewaard en is niet permanent verwijderd. De beheerder kan Exchange-cmdlets gebruiken voor het herstellen van het postvak om op te halen van de gegevens. 

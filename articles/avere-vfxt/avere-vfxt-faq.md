@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: dbd9eaf531dcad230c23d1b41110036102faf3df
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 83229cdca0ccff68dcdd543495a7a19b6e6c4c5b
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652662"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990048"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Veelgestelde vragen over Avere vFXT for Azure
 
@@ -63,7 +63,7 @@ Avere vFXT is een cache. Gegevens worden niet specifiek opgeslagen. Hierbij word
 
 ### <a name="what-regions-are-supported"></a>Welke regio's worden ondersteund?
 
-Vanaf 1 November 2018 worden Avere vFXT voor Azure wordt ondersteund in alle regio's, met uitzondering van soevereine regio's (China, Duitsland) en government-regio's. Zorg ervoor dat het grote aantal rekenkernen en de VM-exemplaren die nodig zijn voor het maken van het Avere vFXT cluster kunt ondersteuning voor de regio die u wilt gebruiken.
+Avere vFXT voor Azure wordt ondersteund in alle regio's, met uitzondering van soevereine regio's (China, Duitsland). Zorg ervoor dat het grote aantal rekenkernen en de VM-exemplaren die nodig zijn voor het maken van het Avere vFXT cluster kunt ondersteuning voor de regio die u wilt gebruiken.
 
 ### <a name="how-do-i-get-help-with-avere-vfxt"></a>Hoe krijg ik hulp met Avere vFXT?
 
@@ -88,15 +88,17 @@ Avere vFXT is een geclusterde apparaat bestaan uit meerdere virtuele machines va
 
 ### <a name="what-kind-of-azure-virtual-machines-does-avere-vfxt-run-on"></a>Welke virtuele machines van Azure Avere vFXT uit te voeren?  
 
-Een vFXT Avere voor Azure-cluster maakt gebruik van Microsoft Azure E32s_v3 of D16s_v3 virtuele machines. 
+Een vFXT Avere voor Azure-cluster maakt gebruik van Microsoft Azure E32s_v3 virtuele machines. 
 
-### <a name="can-i-mix-and-match-virtual-machine-types-for-my-cluster"></a>Kan ik combineren en matchen van virtual machine-typen voor mijn cluster?
+<!-- ### Can I mix and match virtual machine types for my cluster?
 
-Nee, moet u een type van de virtuele machine of de andere kiezen.
+No, you must choose one virtual machine type or the other.
     
-### <a name="can-i-move-between-virtual-machine-types"></a>Kan ik verplaatsen tussen typen virtuele machines?
+### Can I move between virtual machine types?
 
-Ja, er is een migratiepad van één VM-type naar de andere verplaatsen. [Open een ondersteuningsticket](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) voor meer informatie over hoe.
+Yes, there is a migration path to move from one VM type to the other. [Open a support ticket](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) to learn how.
+
+-->
 
 ### <a name="does-the-avere-vfxt-environment-scale"></a>De Avere vFXT omgeving schalen?
 
@@ -175,7 +177,7 @@ Ja, kunt u uw Avere vFXT systeem in een ander virtueel netwerk maken. Lezen [van
 
 ### <a name="does-avere-vfxt-require-its-own-subnet"></a>Vereist Avere vFXT een eigen subnet?
 
-Ja. Avere vFXT wordt uitsluitend gebruikt als een HA-cluster wordt uitgevoerd en vereist meerdere IP-adressen te werken. Als het cluster zich in een eigen subnet, kunt u de kans op conflicten tijdens IP-adres, die problemen voor installatie en de normale werking veroorzaken kan voorkomen. Subnet van het cluster is binnen het bestaande virtuele netwerk, zolang er zijn geen IP-elkaar overlappen adressen.
+Ja. Avere vFXT wordt uitsluitend gebruikt als een cluster met hoge beschikbaarheid (HA) wordt uitgevoerd en vereist meerdere IP-adressen te werken. Als het cluster zich in een eigen subnet, kunt u de kans op conflicten tijdens IP-adres, die problemen voor installatie en de normale werking veroorzaken kan voorkomen. Subnet van het cluster is binnen het bestaande virtuele netwerk, zolang er zijn geen IP-elkaar overlappen adressen.
 
 ### <a name="can-i-run-avere-vfxt-on-infiniband"></a>Kan ik Avere vFXT uitvoeren op InfiniBand?
 

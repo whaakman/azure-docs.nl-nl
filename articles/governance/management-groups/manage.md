@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: bcc0b247ee304e657b7679920a3956acad11adc9
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 51e9d44a95a3896767caf4b3f04d17c2933e8599
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985118"
+ms.locfileid: "56990529"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Uw resources beheren met beheergroepen
 
@@ -20,6 +20,8 @@ Als uw organisatie veel abonnementen heeft, moet u de toegang, beleidsregels en 
 Beheergroepen bieden u beheer van bedrijfskwaliteit op grote schaal, ongeacht de typen abonnementen die u hebt.  Zie voor meer informatie over het van beheergroepen, [organiseren van uw resources met Azure-beheergroepen](overview.md).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
+
+[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
 ## <a name="change-the-name-of-a-management-group"></a>Wijzig de naam van een beheergroep
 
@@ -45,10 +47,10 @@ U kunt de naam van de beheergroep wijzigen met behulp van de portal, PowerShell 
 
 ### <a name="change-the-name-in-powershell"></a>Wijzig de naam in PowerShell
 
-Bijwerken van het gebruik van de naam weergegeven **Update AzureRmManagementGroup**. Bijvoorbeeld, als wilt wijzigen de naam van een management groepen van 'Contoso IT' naar 'Contoso groeperen', voert u de volgende opdracht uit:
+Bijwerken van het gebruik van de naam weergegeven **Update AzManagementGroup**. Bijvoorbeeld, om te wijzigen van een management groepen weergavenaam van 'Contoso IT' naar 'Contoso groeperen', u de volgende opdracht uitvoeren:
 
 ```azurepowershell-interactive
-Update-AzureRmManagementGroup -GroupName 'ContosoIt' -DisplayName 'Contoso Group'
+Update-AzManagementGroup -GroupName 'ContosoIt' -DisplayName 'Contoso Group'
 ```
 
 ### <a name="change-the-name-in-azure-cli"></a>Wijzig de naam in de Azure CLI
@@ -94,10 +96,10 @@ Als u wilt verwijderen van een beheergroep, moeten de volgende vereisten worden 
 
 ### <a name="delete-in-powershell"></a>Verwijderen in PowerShell
 
-Gebruik de **Remove-AzureRmManagementGroup** opdracht vanuit PowerShell beheergroepen verwijderen.
+Gebruik de **Remove-AzManagementGroup** opdracht vanuit PowerShell beheergroepen verwijderen.
 
 ```azurepowershell-interactive
-Remove-AzureRmManagementGroup -GroupName 'Contoso'
+Remove-AzManagementGroup -GroupName 'Contoso'
 ```
 
 ### <a name="delete-in-azure-cli"></a>Verwijderen in de Azure CLI
@@ -126,22 +128,22 @@ Hier vindt u een beheergroep die u hebt een directe of overgenomen RBAC-rol op.
 
 ### <a name="view-in-powershell"></a>Weergeven in PowerShell
 
-U kunt de opdracht Get-AzureRmManagementGroup gebruiken om op te halen van alle groepen.  Zie [ https://aka.ms/Get-MG-Powershell ](https://aka.ms/Get-MG-Powershell) voor een volledige lijst van management groep ophalen Powershell-opdrachten.  
+U kunt de opdracht Get-AzManagementGroup gebruiken om op te halen van alle groepen.  Zie [Az.Resources](/powershell/module/az.resources/Get-AzManagementGroup) modules voor een volledige lijst van management groep ophalen Powershell-opdrachten.  
 
 ```azurepowershell-interactive
-Get-AzureRmManagementGroup
+Get-AzManagementGroup
 ```
 
 Voor een enkele beheergroep informatie gebruikt u de parameter - groepsnaam
 
 ```azurepowershell-interactive
-Get-AzureRmManagementGroup -GroupName 'Contoso'
+Get-AzManagementGroup -GroupName 'Contoso'
 ```
 
 Ophalen van een bepaalde beheergroep en alle niveaus van de hi√´rarchie onder het **-Vouw** en **-Recurse** parameters.  
 
 ```azurepowershell-interactive
-PS C:\> $response = Get-AzureRmManagementGroup -GroupName TestGroupParent -Expand -Recurse
+PS C:\> $response = Get-AzManagementGroup -GroupName TestGroupParent -Expand -Recurse
 PS C:\> $response
 
 Id                : /providers/Microsoft.Management/managementGroups/TestGroupParent
@@ -247,16 +249,16 @@ Om te controleren welke machtigingen u hebt in de Azure portal, selecteer de man
 
 ### <a name="move-subscriptions-in-powershell"></a>Verplaatsen van abonnementen in PowerShell
 
-Voor het verplaatsen van een abonnement in PowerShell, gebruikt u de opdracht New-AzureRmManagementGroupSubscription.  
+Voor het verplaatsen van een abonnement in PowerShell, gebruikt u de opdracht New-AzManagementGroupSubscription.  
 
 ```azurepowershell-interactive
-New-AzureRmManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
+New-AzManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
 ```
 
-De koppeling tussen verwijderen en het abonnement en de beheergroep die u gebruikt de opdracht Remove-AzureRmManagementGroupSubscription.
+De koppeling tussen verwijderen en het abonnement en de beheergroep die u gebruikt de opdracht Remove-AzManagementGroupSubscription.
 
 ```azurepowershell-interactive
-Remove-AzureRmManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
+Remove-AzManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
 ```
 
 ### <a name="move-subscriptions-in-azure-cli"></a>Verplaatsen van abonnementen in Azure CLI
@@ -298,10 +300,10 @@ Wanneer u een bovenliggende beheergroep hebt verplaatst, worden ook de mappenhi√
 
 ### <a name="move-management-groups-in-powershell"></a>Verplaatsen van beheergroepen in PowerShell
 
-Gebruik de opdracht Update AzureRmManagementGroup in PowerShell om te verplaatsen van een beheergroep onder een andere groep.
+Gebruik de opdracht Update AzManagementGroup in PowerShell om te verplaatsen van een beheergroep onder een andere groep.
 
 ```azurepowershell-interactive
-Update-AzureRmManagementGroup -GroupName 'Contoso' -ParentName 'ContosoIT'
+Update-AzManagementGroup -GroupName 'Contoso' -ParentId '/providers/Microsoft.Management/managementGroups/ContosoIT'
 ```  
 
 ### <a name="move-management-groups-in-azure-cli"></a>Beheergroepen verplaatsen in de Azure CLI
@@ -309,7 +311,7 @@ Update-AzureRmManagementGroup -GroupName 'Contoso' -ParentName 'ContosoIT'
 Gebruik de opdracht update voor het verplaatsen van een beheergroep met Azure CLI.
 
 ```azurecli-interactive
-az account management-group update --name 'Contoso' --parent 'Contoso Tenant'
+az account management-group update --name 'Contoso' --parent-id '/providers/Microsoft.Management/managementGroups/ContosoIT'
 ```
 
 ## <a name="audit-management-groups-using-activity-logs"></a>Beheergroepen controleren met behulp van activiteitenlogboeken
@@ -329,7 +331,7 @@ Wanneer u verwijst naar beheergroepen van de andere Resource Provider acties, mo
 Een voorbeeld van het gebruik van dit pad is bij het toewijzen van een nieuwe functie toewijzen aan een beheergroep in PowerShell
 
 ```powershell-interactive
-New-AzureRmRoleAssignment -Scope "/providers/Microsoft.Management/managementGroups/Contoso"
+New-AzRoleAssignment -Scope "/providers/Microsoft.Management/managementGroups/Contoso"
 ```
 
 Hetzelfde bereik pad wordt gebruikt bij het ophalen van de beleidsdefinitie van een op een beheergroep.
@@ -344,6 +346,6 @@ Voor meer informatie over beheergroepen gaat u naar:
 
 - [Beheergroepen maken om Azure-resources te ordenen](create.md)
 - [Uw beheergroepen wijzigen, verwijderen of beheren](manage.md)
-- [Beheergroepen bekijken via de module voor Azure PowerShell-resources](https://aka.ms/mgPSdocs)
-- [Beheergroepen bekijken via de REST-API](https://aka.ms/mgAPIdocs)
-- [Beheergroepen bekijken via de Azure-CLI](https://aka.ms/mgclidoc)
+- [Beheergroepen bekijken via de module voor Azure PowerShell-resources](/powershell/module/az.resources#resources)
+- [Beheergroepen bekijken via de REST-API](/rest/api/resources/managementgroups)
+- [Beheergroepen bekijken via de Azure-CLI](/cli/azure/account/management-group)

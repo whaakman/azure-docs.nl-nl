@@ -1,5 +1,5 @@
 ---
-title: Zakelijke continuïteit en herstel na noodgevallen in Azure Dev spaties | Microsoft Docs
+title: Zakelijke continuïteit en herstel na noodgevallen in ruimten voor het ontwikkelen van Azure
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -7,16 +7,16 @@ ms.subservice: azds-kubernetes
 author: lisaguthrie
 ms.author: lcozzens
 ms.date: 01/28/2019
-ms.topic: article
+ms.topic: conceptual
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s '
 manager: jeconnoc
-ms.openlocfilehash: b7eba0e63f68cd56f2bcc310c3bde65c36e933dd
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 25397b52cbcfb141fe27e9261c78a2ef6adb677d
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822460"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192936"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Zakelijke continuïteit en herstel na noodgevallen in ruimten voor het ontwikkelen van Azure
 

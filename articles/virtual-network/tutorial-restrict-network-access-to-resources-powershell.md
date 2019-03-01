@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 501bfddd64d3353abc9212d63c76fb582e81a580
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: b9672c55ae2285a7dd9d951038ef41eebcfa195c
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649507"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192783"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>Netwerktoegang tot PaaS-resources beperken met virtual network-service-eindpunten met behulp van PowerShell
 
@@ -197,13 +197,13 @@ De sleutel wordt gebruikt voor een bestandsshare maken in een latere stap. Voer 
 
 ### <a name="create-a-file-share-in-the-storage-account"></a>Een bestandsshare maken in het opslagaccount
 
-Een context maken voor uw storage-account en -sleutel met [New-AzStorageContext](/powershell/module/azure.storage/new-AzStoragecontext). De context bevat de naam en toegangssleutel van het opslagaccount:
+Een context maken voor uw storage-account en -sleutel met [New-AzStorageContext](/powershell/module/az.storage/new-AzStoragecontext). De context bevat de naam en toegangssleutel van het opslagaccount:
 
 ```azurepowershell-interactive
 $storageContext = New-AzStorageContext $storageAcctName $storageAcctKey
 ```
 
-Maak een bestandsshare met [New-AzStorageShare](/powershell/module/azure.storage/new-AzStorageshare):
+Maak een bestandsshare met [New-AzStorageShare](/powershell/module/az.storage/new-azstorageshare):
 
 $share = New-AzStorageShare my-file-share -Context $storageContext
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/24/2018
 ms.author: aljo
-ms.openlocfilehash: ac25ad0e43930555153abdba19bb81baaee40305
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: de5522e68d1329ce2b80a4d3c7045d38c13169e5
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879234"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57191644"
 ---
 # <a name="supported-service-fabric-versions"></a>Ondersteunde versies van de Service Fabric
 
@@ -43,5 +43,5 @@ Hier volgen de lijst met de Service Fabric-versies die worden ondersteund en de 
 | 6.0.* | 5.6.205.* |Kleiner dan of gelijk zijn aan versie 2.8 |30,2018 maart     |
 | 6.1.* | 5.7.221.* |Kleiner dan of gelijk zijn aan versie 3.0 |Juli 15,2018      |
 | 6.2.* | 6.0.232.* |Kleiner dan of gelijk zijn aan versie 3.1 |Oktober 26,2018   |
-| 6.3.* | 6.1.480.* |Kleiner dan of gelijk zijn aan versie 3.2 |Februari 28,2019  |
+| 6.3.* | 6.1.480.* |Kleiner dan of gelijk zijn aan versie 3.2 |31,2019 maart  |
 | 6.4.* | 6.2.301.* |Kleiner dan of gelijk zijn aan versie 3.3 |Huidige versie en dus geen einddatum |

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 02/28/2019
 ms.author: juliako
-ms.openlocfilehash: 9d62ef2295abbb8f8fc6f45ffc0c7ab1ce9616e4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9671d9f61b610a85cbf2475e045c641a29dac11b
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878354"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010613"
 ---
 # <a name="live-event-types-comparison"></a>Vergelijking van de typen Live gebeurtenis
 
@@ -33,7 +33,7 @@ De volgende tabel vergelijkt de functies van de twee typen van de Live gebeurten
 | Single-bitrate-invoer is gecodeerd in meerdere bitsnelheden in de cloud |Nee |Ja |
 | Maximale beeldschermresolutie voor bijdrage feed |4K (4096 x 2160 op 60 frames per seconde) |1080p (1920 x 1088 op 30 frames per seconde)|
 | Aanbevolen maximale lagen in bijdrage feed|Maximaal 12|Een audio|
-| Maximum aantal lagen in de uitvoer| Hetzelfde als invoer|Maximaal 7|
+| Maximum aantal lagen in de uitvoer| Hetzelfde als invoer|Maximaal 6|
 | Maximale cumulatieve bandbreedte van de bijdrage van feed|60 Mbps|N/A|
 | Maximale bitrate voor één laag van de bijdrage |20 Mbps|20 Mbps|
 | Ondersteuning voor meerdere talen audionummers|Ja|Nee|

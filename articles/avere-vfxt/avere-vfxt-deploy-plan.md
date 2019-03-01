@@ -4,18 +4,18 @@ description: Wordt uitgelegd wilt doen voordat u implementeert Avere vFXT voor A
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: a097110bac7dad630f9a85dd8b20678db0c739cf
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 3212befac60e3677c0b556825560cc548df42969
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744653"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990982"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Uw Avere vFXT-systeem plannen
 
-In dit artikel wordt uitgelegd hoe u van plan bent een nieuwe Avere vFXT voor Azure-cluster om te controleren of het cluster die u maakt is geplaatst en juiste grootte krijgen voor uw behoeften. 
+In dit artikel wordt uitgelegd hoe u van plan bent een nieuwe Avere vFXT voor Azure-cluster dat wordt geplaatst en juiste grootte krijgen voor uw behoeften. 
 
 Voordat u gaat naar de Azure Marketplace of het maken van virtuele machines, kunt u overwegen hoe het cluster communiceren met andere elementen in Azure. Abonnement aan waar de clusterbronnen bevindt zich in uw particuliere netwerk en subnetten en bepalen waar uw back-end-opslag worden. Zorg ervoor dat de clusterknooppunten die u maakt krachtig genoeg is zijn voor de ondersteuning van uw werkstroom. 
 
@@ -32,16 +32,22 @@ Volg deze richtlijnen bij het plannen van de netwerkinfrastructuur van uw Avere 
 * Alle elementen moeten worden beheerd met een nieuw abonnement voor de implementatie van de vFXT Avere gemaakt. Voordelen zijn: 
   * Eenvoudiger kosten bijhouden: weergeven en controle alle kosten van resources, infrastructuur en compute-cycli worden in één abonnement.
   * Eenvoudiger opruimen - u kunt het hele abonnement wanneer u klaar bent met het project te verwijderen.
-  * Handige partitioneren van resource quota - voorkomen dat andere kritieke werkbelastingen mogelijk Resourcebeperking bij het plaatsen van het grote aantal clients gebruikt voor de high performance computing-werkstroom door te isoleren van de Avere vFXT-clients en -cluster in een één abonnement.
+  * Handige partitioneren van resource quota - andere kritieke werkbelastingen beschermen tegen mogelijke Resourcebeperking door te isoleren van de Avere vFXT clients en het cluster in één abonnement. Hiermee voorkomt u conflicten bij het plaatsen van een groot aantal clients voor een high performance computing-werkstroom.
 
 * Ga naar uw compute-clientsystemen dicht bij het cluster vFXT. Back-end-opslag kan meer externe zijn.  
 
-* Zoek het cluster vFXT en het cluster netwerkcontroller-VM in hetzelfde virtuele netwerk (vnet) en in dezelfde resourcegroep voor het gemak. Ze moeten ook hetzelfde opslagaccount gebruiken. (De clustercontroller maakt het cluster, en kan ook worden gebruikt voor het Clusterbeheer van de opdrachtregel-.)  
-
-  > [!NOTE] 
-  > De sjabloon voor het maken van cluster kunt maken, een nieuwe resourcegroep en een nieuw opslagaccount voor het cluster. U kunt een bestaande resourcegroep opgeven, maar deze moet leeg zijn.
+* Het cluster vFXT en het cluster netwerkcontroller-VM in hetzelfde virtuele netwerk (vnet), moeten zich bevinden in dezelfde resourcegroep bevinden, en gebruikt u hetzelfde opslagaccount. De sjabloon die automatisch een cluster maken doet dit voor de meeste situaties.
 
 * Het cluster moet zich in een eigen subnet om te voorkomen van IP-adres conflicteert met clients of bronnen berekenen. 
+
+* De sjabloon voor het maken van cluster kunt maken van de meeste van de benodigde infrastructuurresources voor het cluster, met inbegrip van resourcegroepen, virtuele netwerken, subnetten en storage-accounts. Als u gebruiken van resources die al bestaat wilt, controleert u of ze voldoen aan de vereisten in deze tabel. 
+
+  | Resource | Bestaande gebruiken? | Vereisten |
+  |----------|-----------|----------|
+  | Resourcegroep | Ja, als dit leeg is | Moet leeg zijn| 
+  | Storage-account | Ja als u verbinding maakt een bestaande Blob-container na het maken van clusters <br/>  Nee als u een nieuwe Blob-container maakt tijdens het maken van clusters | Bestaande Blob-container moet leeg zijn <br/> &nbsp; |
+  | Virtueel netwerk | Ja | Een storage-service-eindpunt moet bevatten als het maken van een nieuwe Azure Blob-container | 
+  | Subnet | Ja |   |
 
 ## <a name="ip-address-requirements"></a>Vereisten voor IP-adres 
 
@@ -62,22 +68,20 @@ Als u Azure Blob-opslag gebruikt, kan er ook IP-adressen van uw cluster vnet ver
 
 U hebt de mogelijkheid om te zoeken netwerkbronnen en Blob storage (indien gebruikt) in verschillende resourcegroepen uit het cluster.
 
-## <a name="vfxt-node-sizes"></a>knooppuntgrootten vFXT 
+## <a name="vfxt-node-size"></a>knooppuntgrootte vFXT
 
-De virtuele machines die fungeren als knooppunten van het cluster de capaciteit voor aanvraag doorvoer en opslag van uw cache te bepalen. U kunt kiezen uit twee exemplaartypen, met verschillende geheugen, processor en kenmerken van lokale opslag. 
+De virtuele machines die fungeren als knooppunten van het cluster de capaciteit voor aanvraag doorvoer en opslag van uw cache te bepalen. <!-- The instance type offered has been chosen for its memory, processor, and local storage characteristics. You can choose from two instance types, with different memory, processor, and local storage characteristics. -->
 
 Elk knooppunt vFXT zijn identiek. Dat wil zeggen, als u een cluster met drie knooppunten maken hebt u drie virtuele machines van hetzelfde type en grootte. 
 
 | Instantietype | vCPU's | Geheugen  | Lokale SSD-opslag  | Max. aantal gegevensschijven | Doorvoer per schijf zonder caching | NIC (aantal) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D16s_v3 | 16  | 64 GiB  | 128 GiB  | 32 | 25,600 IOPS <br/> 384 MBps | 8000 MBps (8) |
 | Standard_E32s_v3 | 32  | 256 GiB | 512 GiB  | 32 | 51.200 IOPS <br/> 768 MBps | 16.000 MBps (8)  |
 
-Schijfcache per knooppunt kan worden geconfigureerd en kunt rage van 1000 GB tot 8000 GB. 1 TB per knooppunt is de aanbevolen cachegrootte voor Standard_D16s_v3 knooppunten en 4 TB per knooppunt wordt aanbevolen voor Standard_E32s_v3 knooppunten.
+Schijfcache per knooppunt kan worden geconfigureerd en kunt rage van 1000 GB tot 8000 GB. 4 TB per knooppunt is de aanbevolen cachegrootte voor Standard_E32s_v3 knooppunten.
 
-Lees de volgende Microsoft Azure-documenten voor meer informatie over deze VM's:
+Lees voor meer informatie over deze VM's, de Microsoft Azure-documentatie:
 
-* [Grootten van virtuele machines voor algemeen gebruik](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general)
 * [Grootten van virtuele machines geoptimaliseerd voor geheugen](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)
 
 ## <a name="account-quota"></a>Accountquotum
@@ -120,7 +124,7 @@ Lees voor meer informatie over deze opties de [Azure Virtual Network-documentati
 
 Als u een openbaar IP-adres ingesteld op de clustercontroller, kunt u deze als host voor een korte inleiding contact opnemen met de Avere vFXT-cluster op basis van buiten het privé-subnet. Echter, omdat de controller toegangsrechten heeft voor het wijzigen van de clusterknooppunten, Hiermee maakt u een kleine beveiligingsrisico.  
 
-Gebruik een netwerkbeveiligingsgroep waarmee binnenkomende toegang alleen via poort 22 voor verbeterde beveiliging met een openbaar IP-adres. Eventueel kunt u verder beveiligen het systeem door het vergrendelen van omlaag toegang tot het bereik van IP-bronadressen - dat wil zeggen, alleen verbindingen toestaan vanaf computers die u wilt gebruiken voor toegang tot het cluster.
+Voor een betere beveiliging voor een domeincontroller met een openbaar IP-adres maakt het script voor implementatie automatisch een netwerkbeveiligingsgroep die binnenkomende toegang tot alleen poort 22 beperkt. Kunt u het systeem verder beschermen met vergrendelen omlaag toegang tot het bereik van IP-bronadressen - dat wil zeggen, alleen verbindingen toestaan vanaf computers die u wilt gebruiken voor toegang tot het cluster.
 
 Bij het maken van het cluster, kunt u al dan niet te maken van een openbaar IP-adres op de clustercontroller. 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: monhaber
-ms.openlocfilehash: c246c6a96f56d36e1d42bb8c44f7c9a06949ecd5
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 74902d9628f147f37169c22319ad9186bd267f6c
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56648947"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56989554"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Een upgrade uitvoert naar Standard van Security Center-prijscategorie voor verbeterde beveiliging
 Azure Security Center biedt geïntegreerd beveiligingsbeheer en geavanceerde bedreigingsbeveiliging voor werkbelastingen die worden uitgevoerd in Azure, on-premises en in andere clouds. Het biedt zichtbaarheid en controle over hybride cloudworkloads, actieve beveiliging die de blootstelling aan bedreigingen en Slimme detectie om te laten groeien met zich snel ontwikkelende cyberaanvallen verminderen.
@@ -28,7 +28,7 @@ Azure Security Center biedt geïntegreerd beveiligingsbeheer en geavanceerde bed
 Security Center wordt aangeboden in twee lagen:
 
 - De **gratis** laag is automatisch ingeschakeld op alle Azure-abonnementen, en biedt beveiligingsbeleid, continue beveiligingsevaluatie en bruikbare beveiligingsaanbevelingen om u te helpen beschermen van uw Azure-resources.
-- De **Standard** laag breidt de mogelijkheden van de gratis laag voor werkbelastingen die worden uitgevoerd in een privé- en andere openbare clouds, beveiliging en bedreigingsbeveiliging en bescherming bieden unified voor uw hybride cloudworkloads. De Standard-laag wordt ook toegevoegd advanced threat detectiemogelijkheden, die gebruikmaakt van ingebouwde gedragsanalyses en machine learning om te identificeren van aanvallen en zero day-aanvallen, toegangs- en toepassingsbesturingselementen om te beperken van blootstelling aan netwerkaanvallen en schadelijke software, en meer. U kunt proberen de Standard tier is gratis. Standard van Security Center biedt ondersteuning voor Azure resources zoals VM's, VM-schaalsets, App Service, SQL-servers en Storage-accounts. Als u Azure Security Center Standard kunt u ondersteuning op basis van het resourcetype afmelden. 
+- De **Standard** laag breidt de mogelijkheden van de gratis laag voor werkbelastingen die worden uitgevoerd in een privé- en andere openbare clouds, beveiliging en bedreigingsbeveiliging en bescherming bieden unified voor uw hybride cloudworkloads. De Standard-laag wordt ook toegevoegd advanced threat detectiemogelijkheden, die gebruikmaakt van ingebouwde gedragsanalyses en machine learning om te identificeren van aanvallen en zero day-aanvallen, toegangs- en toepassingsbesturingselementen om te beperken van blootstelling aan netwerkaanvallen en schadelijke software, en meer. De Standard-laag kunt u gratis proberen. Standard van Security Center biedt ondersteuning voor Azure resources zoals VM's, VM-schaalsets, App Service, SQL-servers en Storage-accounts. Als u Azure Security Center Standard kunt u ondersteuning op basis van het resourcetype afmelden. 
 
 
 Zie voor meer informatie het Security Center [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/).

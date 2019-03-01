@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 2289fc143abfde0aaaf2bcb079a6d24b74d57975
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 41eed6bc878bff4c9d847f9a449ca693274bf234
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564439"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195503"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Problemen met Azure Files oplossen in Windows
 
@@ -75,12 +75,11 @@ Gebruik de `Test-NetConnection` cmdlet, de AzureRM PowerShell-module moet worden
     # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
     # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
     Test-NetConnection -ComputerName ([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) -Port 445
-  
     
 Als de verbinding is geslaagd, hoort u de volgende uitvoer te zien:
     
   
-    ComputerName     : <storage-account-host-name>
+    ComputerName     : <your-storage-account-name>
     RemoteAddress    : <storage-account-ip-address>
     RemotePort       : 445
     InterfaceAlias   : <your-network-interface>
@@ -93,7 +92,19 @@ Als de verbinding is geslaagd, hoort u de volgende uitvoer te zien:
 
 ### <a name="solution-for-cause-1"></a>Oplossing voor oorzaak 1
 
-Werken met uw IT-afdeling poort 445 uitgaand naar openen [IP-adresbereiken Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+#### <a name="solution-1---use-azure-file-sync"></a>Oplossing 1: gebruik Azure File Sync
+Azure File Sync kunt uw on-premises Windows Server worden getransformeerd in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. Azure File Sync werkt via poort 443 en dus kan worden gebruikt als tijdelijke oplossing voor toegang tot Azure Files van clients waarvoor poort 445 is geblokkeerd. [Informatie over het instellen van Azure File Sync](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-extend-servers).
+
+#### <a name="solution-2---use-vpn"></a>Oplossing 2: gebruik VPN
+Door het instellen van een VPN-verbinding aan uw specifieke Storage-Account, gaat het verkeer via een beveiligde tunnel plaats via internet. Ga als volgt de [instructies voor het instellen van VPN](https://github.com/Azure-Samples/azure-files-samples/tree/master/point-to-site-vpn-azure-files
+) voor toegang tot Azure Files van Windows.
+
+#### <a name="solution-3---unblock-port-445-with-help-of-your-ispit-admin"></a>Oplossing 3 - poort 445 met behulp van de Internetprovider deblokkeren / IT-beheerder
+Werken met uw IT-afdeling of ISP-poort 445 uitgaand naar openen [IP-adresbereiken Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+
+#### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>Oplossing 4 - hulpprogramma's, zoals Storage Explorer/Powershell op basis van REST-API gebruiken
+Azure Files ondersteunt ook REST naast SMB. REST-toegang werkt via poort 443 (standaard tcp). Er zijn verschillende hulpprogramma's die zijn geschreven met behulp van REST-API, waarmee een rijke UI-ervaring. [Storage Explorer](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) is een van beide. [Download en installeer Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) en maak verbinding met de bestandsshare die wordt ondersteund door de Azure-bestanden. U kunt ook [PowerShell](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-powershell) die ook gebruiker REST-API.
+
 
 ### <a name="cause-2-ntlmv1-is-enabled"></a>2 oorzaak: NTLMv1 is ingeschakeld
 

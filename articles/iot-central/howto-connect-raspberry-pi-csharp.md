@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: f0232c8d2627cd600f4f05b5b501db85fa7d2ec4
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 4873c834a33ff5f401f38fdb810c65ca7ef20f5e
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051387"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57191184"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Verbinding maken met een Raspberry Pi aan uw Azure IoT Central-toepassing (C#)
 
@@ -39,8 +39,8 @@ Een toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon
     - Temperatuur
     - Druk
     - Magnetometer (X, Y, Z)
-    - Versnellingsmeter (X, Y, Z)
-    - Gyroscoop (X, Y, Z)
+    - Accelerometer (X, Y, Z)
+    - Gyroscope (X, Y, Z)
 - Instellingen
     - Voltage
     - Huidige
@@ -94,7 +94,7 @@ Als u wilt de volgende stappen hebt voltooid, kunt u Visual Studio Code. Zie voo
     > [!NOTE]
     > Uw **Microsoft.Azure.Devices.Client** versienummer-pakket mag niet hoger zijn dan de architectuur die wordt weergegeven.
 
-1. Sla **pisample.csproj**. Als u voor het uitvoeren van de opdracht restore Visual Studio Code wordt gevraagd, kiest u **herstellen**.
+1. Save **pisample.csproj**. Als u voor het uitvoeren van de opdracht restore Visual Studio Code wordt gevraagd, kiest u **herstellen**.
 
 1. Open **Program.cs** en vervang de inhoud door de volgende code:
 
@@ -275,7 +275,7 @@ Als u wilt de volgende stappen hebt voltooid, kunt u Visual Studio Code. Zie voo
 Uw apparaat-specifieke verbindingsreeks toevoegen aan de code voor het apparaat om te verifiëren met Azure IoT Central. U hebt deze verbindingsreeks wanneer u uw echt apparaat toegevoegd aan uw Azure IoT Central-toepassing.
 
   > [!NOTE]
-   > Azure IoT Central is overgeschakeld naar het gebruik van Azure IoT Hub Device Provisioning service (DPS) voor alle apparaatverbindingen, volgt u deze instrustions naar [de apparaat-verbindingsreeks ophalen](concepts-connectivity.md#getting-device-connection-string) en Ga door met de rest van de zelfstudie.
+   > Azure IoT Central is overgeschakeld naar het gebruik van Azure IoT Hub Device Provisioning service (DPS) voor alle apparaatverbindingen, volgt u deze instructies voor het [de apparaat-verbindingsreeks ophalen](concepts-connectivity.md#get-a-connection-string) en Ga door met de rest van de zelfstudie.
 
 1. Vervang `{your device connection string}` in de **Program.cs** -bestand met de verbindingsreeks die u eerder hebt genoteerd.
 
@@ -331,7 +331,7 @@ Een toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon
 | Veldnaam     | Eenheden  | Minimum | Maximum | Aantal decimalen |
 | -------------- | ------ | ------- | ------- | -------------- |
 | vochtigheid       | %      | 0       | 100     | 0              |
-| TEMP           | ° C     | -40     | 120     | 0              |
+| temp           | °C     | -40     | 120     | 0              |
 | pressure       | hPa    | 260     | 1260    | 0              |
 | magnetometerX  | mgauss | -1000   | 1000    | 0              |
 | magnetometerY  | mgauss | -1000   | 1000    | 0              |
@@ -339,9 +339,9 @@ Een toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon
 | accelerometerX | mg     | -2000   | 2000    | 0              |
 | accelerometerY | mg     | -2000   | 2000    | 0              |
 | accelerometerZ | mg     | -2000   | 2000    | 0              |
-| gyroscopeX     | MDP 's   | -2000   | 2000    | 0              |
-| gyroscopeY     | MDP 's   | -2000   | 2000    | 0              |
-| gyroscopeZ     | MDP 's   | -2000   | 2000    | 0              |
+| gyroscopeX     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeY     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
 
 ### <a name="settings"></a>Instellingen
 

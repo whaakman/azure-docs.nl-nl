@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2019
-ms.author: jeffgilb
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 02/22/2019
-ms.openlocfilehash: 3b057e9c4a0fccb3f85ec237433e4020fd4a84da
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 01b0a86ede79187d8f180df0f2f71f6eaadb7428
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737481"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990516"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Voordat u aan de slag met App Service in Azure Stack
 
@@ -30,7 +30,7 @@ ms.locfileid: "56737481"
 Voordat u Azure App Service in Azure Stack implementeren, moet u de vereiste stappen in dit artikel te voltooien.
 
 > [!IMPORTANT]
-> De update 1809 toepassen op uw geïntegreerde Azure Stack-systeem of implementeren van de meest recente Azure Stack Development Kit (ASDK) voordat u Azure App Service 1.4 implementeert.
+> De update 1901 toepassen op uw geïntegreerde Azure Stack-systeem of implementeren van de meest recente Azure Stack Development Kit (ASDK) voordat u Azure App Service 1.5 implementeert.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>Het installatieprogramma en helper scripts downloaden
 
@@ -49,15 +49,7 @@ Voordat u Azure App Service in Azure Stack implementeren, moet u de vereiste sta
 
 ## <a name="syndicate-the-custom-script-extension-from-the-marketplace"></a>Verbind de aangepaste Scriptextensie vanuit de Marketplace
 
-Azure App Service in Azure Stack is Custom Script Extension v1.9.0 vereist.  De extensie moet [publiceren vanuit de Marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) voordat u begint met de installatie of upgrade van Azure App Service in Azure Stack
-
-## <a name="high-availability"></a>Hoge beschikbaarheid
-
-De update voor Azure Stack 1802 ondersteuning toegevoegd voor domeinen met fouten. Nieuwe implementaties van Azure App Service in Azure Stack wordt verdeeld over foutdomeinen en fouttolerantie.
-
-Zie voor bestaande implementaties van Azure App Service in Azure Stack, die zijn geïmplementeerd voordat de update 1802, de [opnieuw verdelen van een App Service-resourceprovider over foutdomeinen](azure-stack-app-service-fault-domain-update.md) artikel.
-
-Bovendien implementeren de vereiste bestandsserver en de SQL Server-exemplaren in een maximaal beschikbare configuratie.
+Azure App Service in Azure Stack is Custom Script Extension v1.9.1 vereist.  De extensie moet [publiceren vanuit de Marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) voordat u begint met de installatie of upgrade van Azure App Service in Azure Stack
 
 ## <a name="get-certificates"></a>Certificaten ophalen
 

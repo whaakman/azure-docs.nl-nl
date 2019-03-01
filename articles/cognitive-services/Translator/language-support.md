@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 4e8193a9996c9675a353e3e427c86ecfee45da8f
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3a99c0157ef3afe9823d73379775ddcf564faccc
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737838"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193803"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Ondersteuning voor taal en regio voor de Translator Text-API
 
@@ -33,7 +33,7 @@ De Translator Text-API ondersteunt de volgende talen voor tekst naar tekst conve
 * Neurale standaard: Neurale is de vertaling van het systeem. Gebruik de parameter `category=smt` voor toegang tot de statistische systeem voor gebruik met de Microsoft Translator-Hub.
 * Neurale alleen: Alleen neurale vertalingen is beschikbaar.
 
-**V3-API van Translator** de Translator-API V3 is standaard neurale en statistische systemen zijn alleen beschikbaar wanneer geen neurale systeem bestaat. Aangepaste Translator kan alleen worden gebruikt met neurale talen.
+**V3-API van Translator** de Translator-API V3 is standaard neurale en statistische systemen zijn alleen beschikbaar wanneer geen neurale systeem bestaat. Aangepaste Translator kan alleen worden gebruikt met neurale talen. [Weergeven van de talen die beschikbaar zijn in aangepaste Translator](#customization).
 
 |Taal|  Taalcode|  V2 API| V3 API|
 |:-----|:-----:|:-----|:-----|
@@ -73,7 +73,7 @@ De Translator Text-API ondersteunt de volgende talen voor tekst naar tekst conve
 |Koreaans |`ko`   |Neurale beschikbaar|  Neurale|
 |Lets|   `lv`    |Neurale beschikbaar|  Neurale|
 |Litouws|    `lt`    |Neurale beschikbaar|  Neurale|
-|Malagassische|  `mg`    |Alleen statistisch|  Statistische|
+|Malagassisch|  `mg`    |Alleen statistisch|  Statistische|
 |Maleis| `ms`    |Alleen statistisch   |Statistische|
 |Maltees|   `mt`    |Alleen statistisch|  Statistische|
 |Noors| `nb`    |Neurale beschikbaar|  Neurale|
@@ -94,7 +94,7 @@ De Translator Text-API ondersteunt de volgende talen voor tekst naar tekst conve
 |Tamil| `ta`    |Alleen statistisch|  Statistische|
 |Telugu|    `te`    |Alleen Neurale|   Neurale|
 |Thais|  `th`    |Neurale beschikbaar|  Neurale|
-|Tongan|    `to`    |Alleen statistisch|  Statistische|
+|Tongaans|    `to`    |Alleen statistisch|  Statistische|
 |Turks|   `tr`    |Neurale beschikbaar   |Neurale|
 |Oekraïens| `uk`    |Neurale beschikbaar|  Neurale|
 |Urdu|  `ur`    |Alleen statistisch|  Statistische|

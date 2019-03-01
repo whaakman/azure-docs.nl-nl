@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: d2d62dea683d3e42411d526fe002596e6473b4a9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 21e7406d566be5be73342d530a4ad66b80a1d23f
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736665"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990438"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Het gebruik van toegangsbeheer op basis van rollen in Azure API Management
 Met Azure API Management maakt gebruik van op rollen gebaseerd toegangsbeheer (RBAC) om in te schakelen over Geavanceerd toegangsbeheer voor API Management-services en entiteiten (bijvoorbeeld API's en beleid). In dit artikel biedt een overzicht van de ingebouwde en aangepaste rollen in API Management. Zie voor meer informatie over toegangsbeheer in Azure portal, [aan de slag met toegangsbeheer in Azure portal](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/).
@@ -47,6 +47,9 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. U kunt de
 
 ## <a name="custom-roles"></a>Aangepaste rollen
 Als geen van de ingebouwde rollen aan uw specifieke behoeften voldoen, kunnen aangepaste rollen worden gemaakt voor meer gedetailleerd toegangsbeheer voor API Management-entiteiten. U kunt bijvoorbeeld een aangepaste rol die is alleen-lezen toegang tot een API Management-service, maar heeft alleen toegang voor schrijven naar een specifieke API maken. Zie voor meer informatie over aangepaste rollen, [aangepaste rollen in Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). 
+
+> [!NOTE]
+> Als u om te zien van een exemplaar van API Management in Azure portal, een aangepaste rol moet bevatten de ```Microsoft.ApiManagement/service/read``` actie.
 
 Wanneer u een aangepaste rol maakt, is het gemakkelijker om te beginnen met een van de ingebouwde rollen. Bewerk de kenmerken toe te voegen **acties**, **NotActions**, of **AssignableScopes**, en vervolgens de wijzigingen opslaan als een nieuwe rol. Het volgende voorbeeld begint met de rol van 'Azure API Management-Service lezer' en maakt u een aangepaste rol met de naam "Rekenmachine API-Editor." U kunt de aangepaste rol toewijzen aan een bepaalde API. Deze rol heeft als gevolg daarvan kan alleen toegang tot deze API. 
 

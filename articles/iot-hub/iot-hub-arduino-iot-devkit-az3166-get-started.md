@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 12/19/2018
 ms.author: wesmc
-ms.openlocfilehash: 2f480fd4d5d7d6261776660f1a7eab587320c849
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 0e668c0b31defd5c945ddf2fec1b00f75d92f174
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052507"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990150"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>IoT DevKit AZ3166 verbinden met Azure IoT Hub
 
@@ -88,10 +88,10 @@ Wanneer de verbinding slaagt, wordt de DevKit opnieuw wordt opgestart in een paa
 
 ![Naam Wi-Fi- en IP-adres](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/wifi-ip.jpg)
 
-> [!NOTE] 
-> Het IP-adres weergegeven in de foto mogelijk niet overeen met het IP-adres toegewezen en wordt weergegeven op het scherm DevKit. Dit is normaal, omdat het Wi-Fi DHCP gebruikt voor het IP-adressen dynamisch toewijzen.
+> [!NOTE]
+> U moet een netwerk 2,4 GHz IoT DevKit werken. De module voor het Wi-Fi op het IoT DevKit is niet compatibel met 5GHz-netwerk. Controleer [Veelgestelde vragen over](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#wi-fi-configuration) voor meer informatie.
 
-Nadat Wi-Fi is geconfigureerd, wordt uw referenties op het apparaat voor die verbinding behouden, zelfs als het apparaat losgekoppeld wordt. Bijvoorbeeld, als u de DevKit voor Wi-Fi op uw startpagina configureren en vervolgens de DevKit duren voordat het kantoor, moet u Azië en Stille Oceaan-modus (te beginnen bij de stap in de sectie 'Voer Azië en Stille Oceaan modus') als u wilt de DevKit verbinden met uw kantoor Wi-Fi configureren. 
+Nadat Wi-Fi is geconfigureerd, wordt uw referenties op het apparaat voor die verbinding behouden, zelfs als het apparaat losgekoppeld wordt. Bijvoorbeeld, als u de DevKit voor Wi-Fi op uw startpagina configureren en vervolgens de DevKit duren voordat het kantoor, moet u Azië en Stille Oceaan-modus (te beginnen bij de stap in de sectie 'Voer Azië en Stille Oceaan modus') als u wilt de DevKit verbinden met uw kantoor Wi-Fi configureren.
 
 ## <a name="start-using-the-devkit"></a>Start met behulp van de DevKit
 
@@ -175,7 +175,7 @@ Volg deze stappen voor de ontwikkelomgeving voorbereiden voor DevKit:
 
 ### <a name="install-st-link-drivers"></a>ST-koppeling stuurprogramma's installeren
 
-[ST-koppeling/V2](http://www.st.com/en/development-tools/st-link-v2.html) is de USB-interface die IoT DevKit gebruikt om te communiceren met uw ontwikkelcomputer. De specifieke stappen voor de machine toegang tot uw apparaat.
+[ST-koppeling/V2](http://www.st.com/en/development-tools/st-link-v2.html) is de USB-interface die IoT DevKit gebruikt om te communiceren met uw ontwikkelcomputer. U moet ze deze willen installeren op Windows om in te schakelen van flash de gecompileerde deivce code aan de DevKit. De specifieke stappen voor de machine toegang tot uw apparaat.
 
 * **Windows**: Download en installeer USB-stuurprogramma van [STMicroelectronics website](http://www.st.com/en/development-tools/stsw-link009.html).
 * **macOS**: Er zijn geen stuurprogramma is vereist voor macOS.

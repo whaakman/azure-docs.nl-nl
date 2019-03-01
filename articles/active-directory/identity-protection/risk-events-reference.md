@@ -16,12 +16,12 @@ ms.date: 01/25/2018
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1509f40b88e3dc9c51bd00ed379c5b0130230a99
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b1c69705131cfea4e5ace9b5b9e829b3fdfa87e4
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178835"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991645"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Azure Active Directory Identity Protection risicogebeurtenissen verwijzen naar
 
@@ -83,6 +83,7 @@ Dit type risicogebeurtenis geeft aanmeldingen vanaf IP-adressen die zijn geïnfe
 **Detectietype:** Realtime  
 **Oude naam:** Aanmeldingen vanaf onbekende locaties
 
-Dit type risicogebeurtenis rekening gehouden met na aanmelding eigenschappen (bijvoorbeeld, apparaat, locatie, netwerk) om te bepalen-aanmeldingen met onbekende eigenschappen. Het systeem opgeslagen eigenschappen van de voorgaande locaties die worden gebruikt door een gebruiker en acht deze 'vertrouwd'. De risicogebeurtenis wordt geactiveerd wanneer de aanmelding met eigenschappen die niet al in de lijst met bekende eigenschappen plaatsvindt. Het systeem heeft een eerste leerperiode van 30 dagen, gedurende welke wordt deze niet nieuwe detecties te markeren.
+Dit type risicogebeurtenis rekening gehouden met na aanmelding geschiedenis (IP, breedtegraad / lengtegraad en ASN) om te zoeken naar afwijkende aanmeldingen. Het systeem wordt informatie opgeslagen over de voorgaande locaties die worden gebruikt door een gebruiker en deze 'vertrouwde' locaties overweegt. De risicogebeurtenis wordt geactiveerd wanneer de aanmelding plaatsvindt vanaf een locatie die nog niet in de lijst met vertrouwde sites. Nieuwe gebruikers bevindt zich in 'learning modus' voor een bepaalde periode in welke eigenschappen voor onbekende aanmelden risicogebeurtenissen wordt uitgeschakeld terwijl het gedrag van de gebruiker door onze algoritmen voor meer informatie. De learning dynamisch is de duur van de modus en is afhankelijk van de op hoe lang het duurt voordat het algoritme voor het verzamelen van voldoende gegevens over van de gebruiker aanmelden patronen. De minimale duur is vijf dagen. Een gebruiker kunt teruggaan naar het learning-modus na een lange periode van inactiviteit. Aanmeldingen vanaf bekende apparaten en de locaties die geografisch dicht bij een vertrouwde locatie wordt ook negeert door het systeem. 
+
 We ook uitvoeren deze detectie voor basisverificatie (of verouderde protocollen). Omdat deze protocollen geen moderne eigenschappen zoals client-ID hebt, is er beperkte prestatietelemetrie waarmee u fout-positieven. We raden onze klanten om te verplaatsen naar moderne verificatie.
 

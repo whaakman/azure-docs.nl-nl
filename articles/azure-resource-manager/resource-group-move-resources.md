@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 02/28/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5a9ea460684383bd09e5a679f3140d3b8f083d4d
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 579c23fc3092acb785e89ddfa390e9495fc004d3
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823617"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194524"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
@@ -57,6 +57,7 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die kunnen wor
 * App Service-certificaten - Zie [beperkingen van App Service Certificate](#app-service-certificate-limitations)
 * Automation - Runbooks moeten zich in dezelfde resourcegroep bevinden als het Automation-Account.
 * Azure Active Directory B2C
+* Azure Cache voor Redis op: als de Azure-Cache voor Redis-exemplaar is geconfigureerd met een virtueel netwerk, het exemplaar kan niet worden verplaatst naar een ander abonnement. Zie [beperkingen in virtuele netwerken](#virtual-networks-limitations).
 * Azure Cosmos DB
 * Azure Data Explorer
 * Azure Database for MariaDB
@@ -64,6 +65,7 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die kunnen wor
 * Azure Database for PostgreSQL
 * Azure DevOps - Azure DevOps-organisaties met niet-Microsoft-extensie aankopen moet [hun aankopen annuleren](https://go.microsoft.com/fwlink/?linkid=871160) voordat hij verder kan het account voor abonnementen.
 * Azure Maps
+* Logboeken in Azure Monitor
 * Azure Relay
 * Azure Stack - registraties
 * Batch
@@ -91,11 +93,10 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die kunnen wor
 * Load Balancers - basis SKU Load Balancer kunnen worden verplaatst. Standaard SKU Load Balancer kan niet worden verplaatst.
 * Logic Apps
 * Machine Learning - Machine Learning Studio-webservices kunnen worden verplaatst naar een resourcegroep in hetzelfde abonnement, maar niet een ander abonnement. Andere Machine Learning-resources kunnen worden uitgewisseld tussen abonnementen.
-* Beheerde schijven - Zie [beperkingen van de virtuele Machines voor beperkingen](#virtual-machines-limitations)
+* Managed Disks: beheerde schijven in Beschikbaarheidszones kunnen niet worden verplaatst naar een ander abonnement
 * Beheerde identiteit - gebruiker toegewezen
 * Media Services
 * Monitor - Zorg ervoor dat verplaatsen naar nieuwe abonnement niet groter is dan [abonnementquota](../azure-subscription-service-limits.md#monitor-limits)
-* Logboeken in Azure Monitor
 * Notification Hubs
 * Operational Insights
 * Operations Management
@@ -103,7 +104,6 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die kunnen wor
 * Power BI - zowel Power BI Embedded en Power BI-Werkruimteverzameling
 * Openbaar IP-adres - Basic SKU en openbare IP kunnen worden verplaatst. Standaard SKU en openbare IP kan niet worden verplaatst.
 * Recovery Services-kluis: Schrijf u in een [preview](#recovery-services-limitations).
-* Azure Cache voor Redis op: als de Azure-Cache voor Redis-exemplaar is geconfigureerd met een virtueel netwerk, het exemplaar kan niet worden verplaatst naar een ander abonnement. Zie [beperkingen in virtuele netwerken](#virtual-networks-limitations).
 * Scheduler
 * Search - u kunt verschillende zoeken resources niet verplaatsen in verschillende regio's in één bewerking. In plaats daarvan deze verplaatsen in aparte bewerkingen.
 * Service Bus
@@ -116,7 +116,7 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die kunnen wor
 * SQL Database-server - database en server moet zich in dezelfde resourcegroep bevinden. Wanneer u een SQL-server hebt verplaatst, worden ook alle bijbehorende databases verplaatst. Dit gedrag is van toepassing op Azure SQL Database en Azure SQL Data Warehouse-databases.
 * Time Series Insights
 * Traffic Manager
-* Virtuele Machines - voor virtuele machines met beheerde schijven, Zie [beperkingen van de virtuele Machines](#virtual-machines-limitations)
+* Virtuele Machines - Zie [beperkingen van de virtuele Machines](#virtual-machines-limitations)
 * Virtuele Machines (klassiek) - Zie [klassieke Implementatiebeperkingen](#classic-deployment-limitations)
 * Virtual Machine Scale Sets - Zie [beperkingen van de virtuele Machines](#virtual-machines-limitations)
 * Virtuele netwerken - Zie [beperkingen in virtuele netwerken](#virtual-networks-limitations)
@@ -133,6 +133,7 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die niet worde
 * Azure Databricks
 * Azure Firewall
 * Azure Migrate
+* Azure NetApp Files
 * Certificaten - App Service-certificaten kunnen worden verplaatst, maar de geüploade certificaten hebben [beperkingen](#app-service-limitations).
 * Klassieke toepassingen
 * Container Instances
@@ -145,7 +146,6 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die niet worde
 * Lab-Services - verplaatsen naar de nieuwe resourcegroep in hetzelfde abonnement is ingeschakeld, maar de verplaatsing van kruislings abonnement is niet ingeschakeld.
 * Managed Applications
 * Microsoft Genomics
-* Azure NetApp Files
 * SAP HANA op Azure
 * Beveiliging
 * Site Recovery
@@ -166,12 +166,11 @@ De sectie bevat beschrijvingen van het verwerken van complexe scenario's voor he
 
 ### <a name="virtual-machines-limitations"></a>Beperkingen van de virtuele Machines
 
-Vanaf September 24 mei 2018, kunt u beheerde schijven verplaatsen. Deze ondersteuning betekent dat u virtuele machines met beheerde schijven, beheerde installatiekopieën, beheerde momentopnamen en beschikbaarheidssets met virtuele machines die gebruikmaken van beheerde schijven kunt verplaatsen.
+U kunt virtuele machines met beheerde schijven, beheerde installatiekopieën, beheerde momentopnamen en beschikbaarheidssets met virtuele machines die gebruikmaken van beheerde schijven verplaatsen. Beheerde schijven in Beschikbaarheidszones kunnen niet worden verplaatst naar een ander abonnement.
 
 De volgende scenario's nog niet ondersteund:
 
 * Virtuele Machines met een certificaat dat is opgeslagen in Key Vault kan worden verplaatst naar een nieuwe resourcegroep in hetzelfde abonnement, maar niet tussen meerdere abonnementen.
-* Beheerde schijven in Beschikbaarheidszones kunnen niet worden verplaatst naar een ander abonnement
 * Virtual Machine Scale Sets met standaard SKU Load Balancer of een standaard SKU en openbare IP kan niet worden verplaatst.
 * Virtuele machines die zijn gemaakt op basis van Marketplace-resources met een abonnement dat is gekoppeld kan niet worden verplaatst tussen resourcegroepen of abonnementen. Inrichting ongedaan maken van de virtuele machine in het huidige abonnement en opnieuw implementeren in het nieuwe abonnement.
 
@@ -190,6 +189,8 @@ Voor het verplaatsen van virtuele machines die zijn geconfigureerd met Azure Bac
 ### <a name="virtual-networks-limitations"></a>Beperkingen voor virtuele netwerken
 
 Bij het verplaatsen van een virtueel netwerk, moet u ook de afhankelijke resources verplaatsen. Voor VPN-Gateways, moet u IP-adressen, virtuele netwerkgateways en alle bijbehorende verbindingsresources verplaatsen. Lokale netwerkgateways kunnen zich in een andere resourcegroep.
+
+Voor het verplaatsen van een virtuele machine met een netwerkinterfacekaart, moet u alle afhankelijke resources verplaatsen. U moet het virtuele netwerk voor de netwerkkaart, andere netwerkinterfacekaarten voor het virtuele netwerk en de VPN-gateways verplaatsen.
 
 Voor het verplaatsen van een gekoppeld virtueel netwerk, moet u eerst de virtueel-netwerkpeering uitschakelen. Als uitgeschakeld, kunt u het virtuele netwerk kunt verplaatsen. Na de verplaatsing opnieuw de peering op virtueel netwerk.
 

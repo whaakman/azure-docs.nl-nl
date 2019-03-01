@@ -11,18 +11,25 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 2/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5bb2c7d9eed2ed33f3cd0c33bfc479d2e3627370
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: aeda7377a2d5d070a2e36126d53f8f5c203a8256
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889848"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991390"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Releaseopmerkingen Azure Machine Learning-service
 
 In dit artikel meer informatie over de versies van de Azure Machine Learning-service.  Voor een volledige beschrijving van elke SDK, gaat u naar de referentiedocumenten voor:
 + De Azure Machine Learning [ **belangrijkste SDK voor Python**](https://aka.ms/aml-sdk)
 + De Azure Machine Learning [ **Dataprep-SDK**](https://aka.ms/data-prep-sdk)
+
+## <a name="2019-02-27"></a>2019-02-27
+
+### <a name="azure-machine-learning-data-prep-sdk-v1016"></a>Azure Machine Learning Data Prep SDK v1.0.16
+
++ **Opgelost probleem**
+  + Een Service-Principal opgelost verificatieprobleem die is veroorzaakt door een wijziging in de API.
 
 ## <a name="2019-02-25"></a>2019-02-25
 
@@ -37,6 +44,7 @@ In dit artikel meer informatie over de versies van de Azure Machine Learning-ser
   + We hebben ondersteuning voor Azure Machine Learning-pijplijnen toegevoegd voor het instellen van de eigenschap source_directory_data_store met een gewenste gegevensarchief (zoals een blob-opslag) op [RunConfigurations](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) die worden geleverd aan de [ PythonScriptStep](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). Standaard stappen Azure File-opslag gebruikt als de back-ups gegevensopslag die kan worden uitgevoerd in de beperking van problemen wanneer een groot aantal stappen gelijktijdig worden uitgevoerd.
 
 ### <a name="azure-portal"></a>Azure Portal
+
 + **Nieuwe functies**
     + Nieuwe slepen en neerzetten van tabel editor-ervaring voor rapporten. Gebruikers kunnen een kolom uit de bron slepen naar de tabelgebied waar een Preview-versie van de tabel wordt weergegeven. De kolommen kunnen opnieuw worden gerangschikt.
     + Nieuwe knop uitvoeren voor verzonden met ScriptRunConfig worden uitgevoerd. Gebruikers kunnen opnieuw uitvoeren voor een bestaande uitvoeren op een externe compute cluster van hun keuze.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 7666af14f61ac04d82f73d439cda85063cfbc758
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b8f2df14e0aa0246d794bd56f4187002cfdeee02
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880135"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194465"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Verbinding maken met een algemene clienttoepassing aan uw Azure IoT Central-toepassing (Node.js)
 
@@ -130,7 +130,7 @@ De volgende stappen laten zien over het maken van een clienttoepassing die het e
     ```
 
     > [!NOTE]
-    > Azure IoT Central is overgeschakeld naar het gebruik van Azure IoT Hub Device Provisioning service (DPS) voor alle apparaatverbindingen, volgt u deze instrustions naar [de apparaat-verbindingsreeks ophalen](concepts-connectivity-experimental.md#get-the-device-connection-string) en Ga door met de rest van de zelfstudie. Voor meer informatie vindt u ook een gedetailleerd aantal instructies in [voorbereiden van de clientcode](tutorial-add-device-experimental.md#prepare-the-client-code) in zelfstudies > een apparaat toevoegen.
+    > Azure IoT Central is overgeschakeld naar het gebruik van Azure IoT Hub Device Provisioning service (DPS) voor alle apparaatverbindingen, volgt u deze instructies voor het [de apparaat-verbindingsreeks ophalen](concepts-connectivity-experimental.md#get-a-connection-string) en Ga door met de rest van de zelfstudie. Voor meer informatie vindt u ook een gedetailleerd aantal instructies in [voorbereiden van de clientcode](tutorial-add-device-experimental.md#prepare-the-client-code) in zelfstudies > een apparaat toevoegen.
 
     Bijwerken van de tijdelijke aanduiding `{your device connection string}` door de verbindingsreeks van het apparaat. In dit voorbeeld wordt geïnitialiseerd `targetTemperature` op nul, eventueel tilt u de huidige lezen van het apparaat of -waarde van het dubbele apparaat. 
 

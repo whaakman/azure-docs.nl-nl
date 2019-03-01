@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.date: 09/08/2016
-ms.openlocfilehash: c9733346d091a6829bd5b42c80201df3a1357fe3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 8c0e47f5bed0799b8536cecb38a85ed76185d0cd
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243107"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194925"
 ---
 # <a name="overview-b2b-enterprise-integration-scenarios-in-azure-logic-apps-with-enterprise-integration-pack"></a>Overzicht: B2B-integratie bedrijfsscenario's in Azure Logic Apps met Enterprise Integration Pack
 
@@ -70,5 +70,5 @@ Enterprise Integration ondersteunt deze industrienormen:
 * [Enterprise Integration-Connectors](../connectors/apis-list.md "meer informatie over enterprise integration pack-connectors")
 * [Integratie-Account metagegevens](../logic-apps/logic-apps-enterprise-integration-metadata.md "meer informatie over de metagegevens van de integratie-account")
 * [B2B-berichten bewaken](logic-apps-monitor-b2b-message.md "meer informatie over het controleren van B2B-berichten")
-* [B2B-berichten in Azure Log Analytics traceren](logic-apps-track-b2b-messages-omsportal.md "meer informatie over het bijhouden van B2B-berichten in Azure Log Analytics")
+* [B2B-berichten in Azure Monitor-logboeken bijhouden](logic-apps-track-b2b-messages-omsportal.md "meer informatie over het bijhouden van B2B-berichten in de logboeken van Azure Monitor")
 

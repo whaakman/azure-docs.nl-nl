@@ -16,12 +16,12 @@ ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29cb7f6799556406c4c5def12b1367bfd581d06b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 56fda1110218910f8fbd8aa9597195f37444e01c
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198657"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193316"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Problemen met wachtwoord-hashsynchronisatie met Azure AD Connect-synchronisatie oplossen
 Dit onderwerp bevat stappen voor het oplossen van problemen met wachtwoord-hashsynchronisatie. Als de wachtwoorden zijn niet gesynchroniseerd zoals verwacht, kan het zijn voor een subset van gebruikers of voor alle gebruikers.
@@ -225,7 +225,7 @@ Problemen met waar geen wachtwoorden gesynchroniseerd zijn voor een gebruiker:
 ## <a name="no-passwords-are-synchronized-manual-troubleshooting-steps"></a>Er zijn geen wachtwoorden gesynchroniseerd: handmatige stappen voor probleemoplossing
 Volg deze stappen om te bepalen waarom er zijn geen wachtwoorden worden gesynchroniseerd:
 
-1. Is de Connect-server in [faseringsmodus](how-to-connect-sync-operations.md#staging-mode)? Een server in de faseringsmodus wachtwoorden niet gesynchroniseerd.
+1. Is de Connect-server in [faseringsmodus](how-to-connect-sync-staging-server.md)? Een server in de faseringsmodus wachtwoorden niet gesynchroniseerd.
 
 2. Het script uitvoeren in de [ophalen van de status van synchronisatie-instellingen van wachtwoord](#get-the-status-of-password-sync-settings) sectie. Dit biedt u een overzicht van de configuratie van de synchronisatie van wachtwoord.  
 

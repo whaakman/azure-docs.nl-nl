@@ -1,19 +1,19 @@
 ---
 title: De Azure IoT SDK's begrijpen | Microsoft Docs
 description: Handleiding voor ontwikkelaars - informatie over en koppelingen naar de verschillende Azure IoT-apparaat en service-SDK's die u gebruiken kunt om apps op apparaten en back-end-apps te bouwen.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: dobett
-ms.openlocfilehash: 3bdb09de04ec5041d671f5af709a1a1e7133d141
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: fcb6f564c97632e4d62f7f052ec5ecc35a9e479a
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199507"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011242"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Begrijpen en gebruiken van Azure IoT Hub SDK 's
 
@@ -37,7 +37,7 @@ Meer informatie over de [voordelen van het ontwikkelen met behulp van Azure IoT 
 
 Ondersteunde platforms voor de SDK's kunnen u vinden in [platformondersteuning voor Azure IoT SDK's](iot-hub-device-sdk-platform-support.md).
 
-Zie voor meer informatie over de compatibiliteit van de SDK met de specifieke hardware, de [Azure Certified voor IoT-apparaatcatalogus](https://catalog.azureiotsuite.com/) of afzonderlijke-opslagplaats.
+Zie voor meer informatie over de compatibiliteit van de SDK met de specifieke hardware, de [Azure Certified voor IoT-apparaatcatalogus](https://catalog.azureiotsolutions.com/) of afzonderlijke-opslagplaats.
 
 ## <a name="azure-iot-hub-device-sdks"></a>Azure IoT Hub apparaat-SDK 's
 

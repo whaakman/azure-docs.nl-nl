@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/27/2019
+ms.date: 2/25/2019
 ms.author: monhaber
-ms.openlocfilehash: 0b548acc92ab1efedab963e9bd3318e8525ffee4
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 73a88ec0280728b4a485bd095096e90bbc43ef40
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649557"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990948"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Beveiligen van uw computers en toepassingen in Azure Security Center
 Azure Security Center analyseert de beveiligingsstatus van uw Azure-resources. Wanneer Security Center potentiële beveiligingsproblemen worden geïdentificeerd, worden er aanbevelingen die u bij het proces begeleiden van het configureren van de benodigde besturingselementen. Aanbevelingen zijn van toepassing op Azure-resource-typen: virtuele machines (VM's) en computers, toepassingen, netwerken, SQL, en de identiteit en toegang.
@@ -226,7 +226,11 @@ Als u wilt instellen, alle bestaande schaalsets voor het installeren van Microso
 |Machine|30|Een evaluatie van beveiligingsproblemen op uw virtuele machines installeren|Een evaluatie van beveiligingsproblemen op uw virtuele machines installeren|
 |Machine|1|Virtuele machines migreren naar nieuwe Azure Resource Manager-resources|Gebruik Azure Resource Manager voor uw virtuele machines voor verbeterde beveiliging, zoals: sterkere toegangsbeheer (RBAC), betere controle, op basis van Resource Manager-implementatie en beheer, de toegang tot beheerde identiteiten, toegang tot key vault voor geheimen, Azure AD gebaseerde verificatie en ondersteuning voor labels en resourcegroepen voor eenvoudiger beveiligingsbeheer. |
 |Machine|30|Beveiligingsproblemen met behulp van een oplossing voor evaluatie van beveiligingsproblemen herstellen|Virtuele machines waarvoor een 3e partij oplossing voor beveiligingslekken die is geïmplementeerd worden continu wordt geëvalueerd op basis van de toepassing en beveiligingsproblemen van besturingssystemen. Wanneer u dergelijke problemen worden gevonden, is deze zijn beschikbaar voor meer informatie als onderdeel van de aanbeveling.|
-
+|Schaalset voor virtuele machines |4|Diagnostische logboeken inschakelen in virtuele-machineschaalsets|Logboeken inschakelen en behouden voor maximaal een jaar. Hiermee kunt u activiteit sporen onderzoek opnieuw te maken. Dit is handig wanneer een beveiligingsincident voordoet, of uw netwerk is gecompromitteerd.|
+|Schaalset voor virtuele machines|35|Problemen met de beveiligingsconfiguratie van virtuele-machineschaalsets verhelpen|Beveiligingsproblemen verhelpen in de beveiligingsconfiguratie van uw virtuele-machineschaalsets om beveiliging tegen aanvallen te bieden. |
+|Schaalset voor virtuele machines|5|Statusfouten in de eindpuntbeveiliging van virtuele-machineschaalsets verhelpen|Fouten in de eindpuntbeveiligingsstatus van uw virtuele-machineschaalsets verhelpen om deze te beschermen tegen bedreigingen en beveiligingsproblemen. |
+|Schaalset voor virtuele machines|10|Oplossing voor eindpuntbeveiliging installeren op virtuele-machineschaalsets|Installeer een oplossing voor eindpuntbeveiliging op uw virtuele-machineschaalsets, ze te beschermen tegen bedreigingen en zwakke plekken. |
+|Schaalset voor virtuele machines|40|Systeemupdates installeren op virtuele-machineschaalsets|Ontbrekende systeembeveiliging en essentiële updates installeren ter beveiliging van de virtuele-machineschaalsets voor Windows en Linux. |
  
 
 

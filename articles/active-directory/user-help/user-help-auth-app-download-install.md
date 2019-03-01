@@ -13,14 +13,17 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40be6f333bf259cc036bec9c0d9fc967dd33f2a3
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 81d0590215f92f7b3d1c2ad0bbbc509da31c2fd1
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960034"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011621"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Download en installeer de Microsoft Authenticator-app
+>[!Important]
+>Deze inhoud is bedoeld voor gebruikers. Als u een beheerder bent, kunt u meer informatie vinden over hoe u uw Azure Active Directory-omgeving (Azure AD) instelt en beheert in de [documentatie voor Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+
 Met de Microsoft Authenticator-app kunt u zich aanmelden bij uw accounts als u gebruikmaakt van verificatie in twee stappen. Verificatie in twee stappen helpt u veiliger toegang te krijgen tot uw accounts, vooral als u gevoelige informatie bekijkt. Omdat wachtwoorden kunnen worden vergeten, gestolen of gewijzigd, is verificatie in twee stappen een extra beveiligingsstap waarmee u uw account beschermt door het voor anderen lastiger te maken om in te breken.
 
 U kunt de Microsoft Authenticator-app op meerdere manieren gebruiken, bijvoorbeeld:
@@ -29,8 +32,12 @@ U kunt de Microsoft Authenticator-app op meerdere manieren gebruiken, bijvoorbee
 
 - **Aanmelden via telefoon.** Een versie van verificatie met twee factoren waarmee u kunt aanmelden zonder een wachtwoord, met behulp van uw gebruikersnaam en het mobiele apparaat met uw vingerafdruk, vlak of PINCODE.
 
+- **Genereren van code.** Als de codegenerator voor andere accounts die ondersteuning bieden voor verificator-apps.
+
 >[!Important]
->Uw organisatie moet u mogelijk gebruik van een verificator-app aanmelden en toegang tot uw gegevens van de organisatie en documenten. Hoewel uw gebruikersnaam wordt in de app weergegeven mogelijk, het account wordt niet daadwerkelijk ingesteld om te fungeren als een verificatiemethode totdat u het registratieproces. Zie voor meer informatie, [uw werk- of schoolaccount toevoegen](user-help-auth-app-overview.md).
+>De Microsoft Authenticator-app werkt met een account die gebruikmaakt van tweeledige verificatie en biedt ondersteuning voor de standaarden op basis van tijd eenmalig wachtwoord (mobiele TOTP).
+
+>Uw organisatie moet u mogelijk gebruik van een verificator-app aanmelden en toegang tot uw gegevens van de organisatie en documenten. Hoewel uw gebruikersnaam wordt in de app weergegeven mogelijk, het account wordt niet daadwerkelijk ingesteld om te fungeren als een verificatiemethode totdat u het registratieproces. Zie voor meer informatie, [uw werk- of schoolaccount toevoegen](user-help-auth-app-add-work-school-account.md).
 
 >[!NOTE]
 >Als u problemen ondervindt met aanmelden bij uw account, gaat u naar [Wanneer u zich niet kunt aanmelden bij uw Microsoft-account](https://support.microsoft.com/help/12429) voor hulp.  Bekijk meer informatie over wat u kunt doen wanneer het bericht ['Dat Microsoft-account bestaat niet'](https://support.microsoft.com/help/13811) wordt weergegeven wanneer u zich aanmeldt bij uw Microsoft-account.
@@ -42,7 +49,7 @@ Installeer de nieuwste versie van de Microsoft Authenticator-app op basis van uw
 
 - **Apple iOS.** Op uw Apple iOS-apparaat, gaat u naar de App Store naar [downloaden en installeren van de Microsoft Authenticator-app](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
 
-    >[Belangrijk] Als u niet die momenteel op uw mobiele apparaat bent, kunt u nog steeds de Microsoft Authenticator-app downloaden door te sturen zelf een downloadkoppeling van de [Microsoft Authenticator pagina](https://www.microsoft.com/en-us/account/authenticator).
+>[Belangrijk] Als u niet die momenteel op uw mobiele apparaat bent, kunt u nog steeds de Microsoft Authenticator-app downloaden door te sturen zelf een downloadkoppeling van de [Microsoft Authenticator pagina](https://www.microsoft.com/en-us/account/authenticator).
 
 ## <a name="next-steps"></a>Volgende stappen
 

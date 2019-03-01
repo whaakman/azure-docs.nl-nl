@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: e62a792e7503e65ebe008a52430f86f1f3a00006
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f04b4dd473f98889b895fa3536c652fb6e3eb01a
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456014"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990796"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Machines groeperen met behulp van machine-afhankelijkheidstoewijzing
 
@@ -21,7 +21,7 @@ In dit artikel wordt beschreven hoe u een groep machines voor [Azure Migrate](mi
 > De functie voor visualisatie van afhankelijkheden is niet beschikbaar in Azure Government.
 
 ## <a name="prepare-for-dependency-visualization"></a>Voorbereiden voor visualisatie van afhankelijkheden
-Azure Migrate maakt gebruik van de oplossing Serviceoverzicht in Log Analytics om in te schakelen visualisatie van afhankelijkheden van machines.
+Azure Migrate maakt gebruik van de oplossing Serviceoverzicht in Logboeken van Azure Monitor om in te schakelen visualisatie van afhankelijkheden van machines.
 
 ### <a name="associate-a-log-analytics-workspace"></a>Een Log Analytics-werkruimte koppelen
 Als u wilt gebruikmaken van de visualisatie van afhankelijkheden, moet u een Log Analytics-werkruimte, nieuwe of bestaande koppelen met een Azure Migrate-project. U kunt alleen maken of koppelen van een werkruimte in hetzelfde abonnement waar het migratieproject is gemaakt.
@@ -106,7 +106,7 @@ Meer informatie over de ondersteuning van de agent afhankelijkheid voor de [Wind
 4. U kunt zoeken op afhankelijkheden verschillende tijdsduren door te klikken op de duur in het bereik tijdlabel. Het bereik is standaard een uur. U kunt het tijdsbereik wijzigen of geef de begin- en einddatums en duur.
 
     > [!NOTE]
-      De visualisatie van afhankelijkheden gebruikersinterface biedt op dit moment geen ondersteuning voor selectie van een periode die langer dan een uur. Log Analytics te gebruiken [query uitvoeren op de afhankelijkheidsgegevens](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) gedurende een langere periode.
+      De visualisatie van afhankelijkheden gebruikersinterface biedt op dit moment geen ondersteuning voor selectie van een periode die langer dan een uur. Gebruik Azure Monitor meldt zich aan [query uitvoeren op de afhankelijkheidsgegevens](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) gedurende een langere periode.
 
 5. Nadat u hebt vastgesteld dat afhankelijke machines die u wilt groeperen, gebruikt u Ctrl + klikken om te selecteren van meerdere virtuele machines op de kaart en klikt u op **machines groeperen**.
 6. Geef een groepsnaam op. Controleer of dat de afhankelijke machines zijn gedetecteerd door Azure Migrate.
@@ -119,19 +119,19 @@ Meer informatie over de ondersteuning van de agent afhankelijkheid voor de [Wind
 
 Nadat de groep is gemaakt, is het aanbevolen om agents te installeren op alle computers van de groep en de groep verfijnen door te visualiseren van de afhankelijkheid van de hele groep.
 
-## <a name="query-dependency-data-from-log-analytics"></a>Query uitvoeren op afhankelijkheidsgegevens van Log Analytics
+## <a name="query-dependency-data-from-azure-monitor-logs"></a>Query uitvoeren op afhankelijkheidsgegevens van Azure Monitor-Logboeken
 
-Afhankelijkheidsgegevens die zijn vastgelegd door Serviceoverzicht is beschikbaar voor het uitvoeren van query's in Log Analytics-werkruimte die is gekoppeld aan uw Azure Migrate-project. [Meer informatie](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) over de Serviceoverzicht-gegevenstabellen opvragen in Log Analytics. 
+Afhankelijkheidsgegevens die zijn vastgelegd door Serviceoverzicht is beschikbaar voor het uitvoeren van query's in Log Analytics-werkruimte die is gekoppeld aan uw Azure Migrate-project. [Meer informatie](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) logboeken over de Serviceoverzicht-gegevenstabellen opvragen in Azure Monitor. 
 
-De Log Analytics-query's uitvoeren:
+De Kusto-query's uitvoeren:
 
 1. Nadat u de agents hebt geïnstalleerd, gaat u naar de portal en klik op **overzicht**.
 2. In **overzicht**, gaat u naar **Essentials** sectie van het project en klik op de naam van de werkruimte is opgegeven bij **OMS-werkruimte**.
 3. Klik op de pagina van de Log Analytics-werkruimte **algemene** > **logboeken**.
-4. Schrijf de query voor het verzamelen van afhankelijkheidsgegevens met behulp van Log Analytics. Voorbeeldquery's voor het verzamelen van afhankelijkheidsgegevens zijn beschikbaar [hier](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+4. Schrijf de query om afhankelijkheidsgegevens met behulp van Azure Monitor-logboeken te verzamelen. Voorbeeldquery's voor het verzamelen van afhankelijkheidsgegevens zijn beschikbaar [hier](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
 5. Voer de query uit door te klikken op uitvoeren. 
 
-[Meer informatie](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) over het schrijven van Log Analytics-query's. 
+[Meer informatie](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) over het schrijven van Kusto-query's. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

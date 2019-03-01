@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a9839d636ba582c5006a260aeb6a17ac1a12e9b
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: cdd4ecb1bfc9385ea3fa23756fcbf8fb20b6d87c
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986002"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193242"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Preview: Azure AD-wachtwoord beveiliging implementeren
 
@@ -57,6 +57,7 @@ Dit gebeurt bij voorkeur volledig patches voor de machine via Windows Update. An
 * Een globale beheerdersaccount voor de Azure AD-wachtwoord beveiliging Proxy-service en -forest registreren bij Azure AD.
 * Een account met Active Directory-domein administrator-bevoegdheden in het forest-hoofddomein het Windows Server Active Directory-forest registreren bij Azure AD.
 * Een Active Directory-domein met de DC agent-service-software gebruiken DFS-replicatie voor sysvol-replicatie.
+* De Microsoft Key Distribution-Service moet zijn ingeschakeld op alle Windows Server 2012 en hoger domeincontrollers in het domein (geactiveerd via de handmatige trigger start de standaardstatus van deze service is).
 
 ## <a name="single-forest-deployment"></a>Implementatie met één forest
 

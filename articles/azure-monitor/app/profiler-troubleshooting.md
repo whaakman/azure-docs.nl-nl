@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: e5e80ac2229c3a2962702527dc3162229c25a5c5
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 7d0743c09adf1c50d888d2e279ba85a8369bf286
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750868"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991617"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Problemen oplossen in- of Application Insights Profiler weergeven
 
@@ -135,15 +135,19 @@ Als u wilt zien of de Profiler juist is geconfigureerd door Azure Diagnostics, m
 
 Om te controleren of de instellingen die zijn gebruikt voor het configureren van Azure Diagnostics:
 
-1. Meld u aan de virtuele machine (VM) en open vervolgens het logboekbestand op deze locatie: 
+1. Meld u aan de virtuele machine (VM) en open vervolgens het logboekbestand op deze locatie. (Het station c: kan zijn of d: en de versie van de invoegtoepassing kunnen afwijken.)
 
     ```
-    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.logs  
+    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log  
+    ```
+    of
+    ```
+    c:\WindowsAzure\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log
     ```
 
 1. In het bestand, kunt u zoeken naar de tekenreeks **WadCfg** te vinden van de instellingen die zijn doorgegeven aan de virtuele machine naar Azure Diagnostics configureren. U kunt controleren of de iKey die worden gebruikt door de sink Profiler juist is.
 
-1. Controleer de opdrachtregel die wordt gebruikt voor het starten van Profiler. De argumenten die worden gebruikt voor het starten van Profiler zijn in het volgende bestand:
+1. Controleer de opdrachtregel die wordt gebruikt voor het starten van Profiler. De argumenten die worden gebruikt voor het starten van Profiler zijn in het volgende bestand. (Het station kan worden c: of d:)
 
     ```
     D:\ProgramData\ApplicationInsightsProfiler\config.json

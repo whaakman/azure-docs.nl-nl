@@ -1,19 +1,19 @@
 ---
 title: Plannen van taken met Azure IoT Hub (.NET/.NET) | Microsoft Docs
 description: Klik hier voor meer informatie over het plannen van een taak is Azure IoT Hub een rechtstreekse methode aanroepen op meerdere apparaten. U de Azure IoT-device-SDK voor .NET gebruiken voor het implementeren van de gesimuleerde apparaat-apps en een app service de taak uit te voeren.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/06/2018
-ms.author: dobett
-ms.openlocfilehash: 4089ee74b44bc17324c7cd33b1bbd734a651d75f
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.author: robin.shahan
+ms.openlocfilehash: b39d7d4af4c476778665e844f647beecf20e3d9f
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514805"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008879"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>Taken plannen en uitzenden (.NET/.NET)
 
@@ -29,9 +29,9 @@ Een taak een van deze acties wordt verpakt en houdt de uitvoering op basis van e
 
 Zie voor meer informatie over elk van deze mogelijkheden:
 
-* Apparaatdubbel en eigenschappen: [aan de slag met apparaatdubbels](iot-hub-csharp-csharp-twin-getstarted.md) en [zelfstudie: apparaatdubbeleigenschappen gebruiken](tutorial-device-twins.md)
+* Apparaatdubbel en eigenschappen: [Aan de slag met apparaatdubbels](iot-hub-csharp-csharp-twin-getstarted.md) en [zelfstudie: Apparaatdubbeleigenschappen gebruiken](tutorial-device-twins.md)
 
-* Directe methoden: [het Ontwikkelaarshandleiding voor IoT Hub - directe methoden](iot-hub-devguide-direct-methods.md) en [zelfstudie: directe methoden gebruiken](quickstart-control-device-dotnet.md)
+* Directe methoden: [Ontwikkelaarshandleiding voor IoT Hub - directe methoden](iot-hub-devguide-direct-methods.md) en [zelfstudie: Directe methoden gebruiken](quickstart-control-device-dotnet.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -56,7 +56,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Voor IoT hub-verbindingsreeks ophalen
+### <a name="retrieve-connection-string-for-iot-hub"></a>Verbindingsreeks voor IoT-hub ophalen
 
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
@@ -291,6 +291,6 @@ U kunt nu de apps uitvoeren.
 
 In deze zelfstudie gebruikt u een taak voor het plannen van een rechtstreekse methode aan een apparaat en het bijwerken van eigenschappen van het dubbele apparaat.
 
-Lees het volgende om door te gaan aan de slag met IoT Hub en patronen voor Apparaatbeheer zoals het op afstand via de lucht firmware-update [zelfstudie: hoe u een firmware-update doet](tutorial-firmware-update.md).
+Lees het volgende om door te gaan aan de slag met IoT Hub en patronen voor Apparaatbeheer zoals het op afstand via de lucht firmware-update [zelfstudie: Hoe u een firmware-update doet](tutorial-firmware-update.md).
 
 Zie voor meer informatie over het implementeren van AI op edge-apparaten met Azure IoT Edge, [aan de slag met IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).

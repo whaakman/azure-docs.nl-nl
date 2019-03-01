@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: barclayn
-ms.openlocfilehash: c9d8dd366ecabe9eb508998d526ddfe7b1da300d
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: afec42551f124890dd2cc7b03cce48c359fc88c4
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960502"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194092"
 ---
 # <a name="azure-key-vault-logging"></a>Logboekregistratie voor Azure Key Vault
 
@@ -306,11 +306,11 @@ De volgende tabel bevat de **operationName** waarden en de bijbehorende REST-API
 | **SecretList** |[Geheimen in een kluis weergeven](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
 | **SecretListVersions** |[Versies van een geheim weergeven](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
 
-## <a id="loganalytics"></a>Log Analytics gebruiken
+## <a id="loganalytics"></a>Logboeken van Azure Monitor gebruiken
 
-U kunt de oplossing Key Vault in Azure Log Analytics gebruiken om te controleren van Key Vault **AuditEvent** Logboeken. In Log Analytics gebruikt u Logboeken-query's kunt analyseren en ophalen van de informatie die u nodig hebt. 
+U kunt de oplossing Key Vault in Logboeken van Azure Monitor gebruiken om te controleren van Key Vault **AuditEvent** Logboeken. In de logboeken van Azure Monitor gebruikt u Logboeken-query's kunt analyseren en ophalen van de informatie die u nodig hebt. 
 
-Zie [Azure Key Vault solution in Log Analytics](../azure-monitor/insights/azure-key-vault.md) (De oplossing Azure Key Vault in Log Analytics) voor meer informatie. In dit artikel bevat ook instructies als u nodig hebt voor het migreren van de oude Key Vault-oplossing die tijdens de preview van Log Analytics, waar u eerst uw logboeken naar een Azure storage-account geleid en geconfigureerd Log Analytics om van daaruit te lezen.
+Zie voor meer informatie, inclusief hoe u dit instellen, [Azure Key Vault-oplossing in Azure Monitor logboeken](../azure-monitor/insights/azure-key-vault.md). In dit artikel bevat ook instructies als u nodig hebt voor het migreren van de oude Key Vault-oplossing die tijdens de logboeken van Azure Monitor is aangeboden bekijken, waarin u uw logboeken naar een Azure storage-account voor het eerst hebt gerouteerd en drempelwaarde voor de Azure Monitor geregistreerd om van daaruit te lezen.
 
 ## <a id="next"></a>Volgende stappen
 

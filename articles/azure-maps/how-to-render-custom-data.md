@@ -1,6 +1,6 @@
 ---
-title: Het genereren van aangepaste gegevens op rasterafbeeldingen van Azure Maps | Microsoft Docs
-description: Aangepaste gegevens op rasterafbeeldingen van Azure Maps worden weergegeven.
+title: Het genereren van aangepaste gegevens op een rasterafbeeldingen van Azure Maps | Microsoft Docs
+description: Aangepaste gegevens op een rasterafbeeldingen van Azure Maps worden weergegeven.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/12/2019
@@ -9,67 +9,69 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ddc051eb5f9638f7afec34db41c0e9d6e6d9d57d
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 982a8b6ed67b955fcb68006072b67f7c59f29688
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890059"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010154"
 ---
-# <a name="render-custom-data-on-raster-map"></a>Maken van aangepaste gegevens op rasterafbeeldingen
+# <a name="render-custom-data-on-a-raster-map"></a>Aangepaste gegevens op een kaart raster weergeven
 
-In dit artikel leest u hoe u [statische afbeelding service](https://docs.microsoft.com/rest/api/maps/render/getmapimage) met functionaliteit voor samenstelling van afbeeldingen om toe te staan overlays boven op een rasterafbeeldingen. Samenstelling van de afbeelding biedt de mogelijkheid om op te halen van een tegel raster met aanvullende gegevens, zoals aangepaste punaises, labels en geometrie-overlays. Voor het renderen van aangepaste punaises, labels en geometry, gebruiken we de postman-toepassing. Open de Postman-app, klikt u op Nieuw | Nieuw maken, selecteren en een verzameling of een map die u wilt opslaan op naam en klik op opslaan.
+In dit artikel wordt uitgelegd hoe u de [statische afbeelding service](https://docs.microsoft.com/rest/api/maps/render/getmapimage) met functionaliteit voor samenstelling van afbeeldingen om toe te staan overlays boven op een rasterafbeeldingen. Samenstelling van de afbeelding biedt de mogelijkheid om op te halen van de tegel van een raster weer, met extra gegevens, zoals aangepaste punaises, labels en geometrie-overlays.
 
-We gebruiken Azure Maps [Data Service-API's](https://docs.microsoft.com/rest/api/maps/data) opslaan en weergeven van overlays. 
+Voor het renderen van aangepaste punaises, labels en geometrie-overlays, kunt u de Postman-toepassing. U kunt Azure Maps [Data Service-API's](https://docs.microsoft.com/rest/api/maps/data) opslaan en weergeven van overlays.
 
 
 ## <a name="prerequisites"></a>Vereisten
 
-### <a name="create-an-azure-maps-account"></a>Een Azure Maps-account maken 
+### <a name="create-an-azure-maps-account"></a>Een Azure Maps-account maken
 
-Als u wilt volgen de stappen in deze handleiding, moet u eerst om te zien [account en sleutels beheren](how-to-manage-account-keys.md) maken en beheren van uw account-abonnement met S1 prijscategorie.
+Als u wilt de procedures in dit artikel hebt voltooid, moet u eerst [maken van een Azure kaarten-account](how-to-manage-account-keys.md) in de prijscategorie S1.
 
-## <a name="render-pushpins-with-labels-and-custom-image"></a>Punaises met labels en de aangepaste afbeelding weergeven
+## <a name="render-pushpins-with-labels-and-a-custom-image"></a>Punaises met labels en een aangepaste installatiekopie van weergeven
 
 > [!Note]
-> In dit voorbeeld is een Azure kaarten-account met de prijscategorie S0 of S1 vereist. 
+> De procedure in deze sectie vereist een Azure kaarten-account in de prijscategorie S0 of S1.
 
-De Azure-kaarten-account S0-SKU biedt alleen ondersteuning voor één exemplaar van de `pins` parameter zodat gebruikers om maximaal 5 punaises opgegeven in de url-aanvraag met een aangepaste installatiekopie weer te geven.
+De Azure-kaarten rekening S0-laag ondersteunt slechts één exemplaar van de `pins` parameter. Hiermee kunt u maximaal vijf punaises, opgegeven in de URL-aanvraag, met een aangepaste installatiekopie weergegeven.
 
-Voor het renderen van push stappen pincodes met labels en aangepaste installatiekopie van de volgende:
+Voer de volgende stappen uit voor het renderen van punaises met labels en een aangepaste installatiekopie:
 
-1. Open de Postman-app en klik op New | Create new en selecteer Request. Voer een Aanvraagnaam voor render punaises, selecteert u een verzameling of een map die u wilt opslaan op en klik op opslaan.
+1. Maak een verzameling waarin u voor het opslaan van de aanvragen. Selecteer in de Postman-app **nieuw**. In de **nieuw** venster **verzameling**. De naam van de verzameling en selecteer de **maken** knop. 
+
+2. Selecteer voor het maken van de aanvraag, **nieuw** opnieuw. In de **nieuw** venster **aanvragen**. Voer een **Aanvraagnaam** voor de punaises, selecteert u de verzameling die u in de vorige stap hebt gemaakt als de locatie voor de aanvraag opslaan en selecteer vervolgens **opslaan**.
     
-    ![Geofences uploaden met Postman](./media/tutorial-geofence/postman-new.png)
+    ![Maken van een aanvraag in Postman](./media/tutorial-geofence/postman-new.png)
 
-2. Selecteer GET HTTP-methode op het tabblad builder en voer de volgende URL als u wilt maken van een GET-aanvraag.
+3. Selecteer de GET HTTP-methode op het tabblad builder en voer de volgende URL voor het maken van een GET-aanvraag.
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.98,%2040.77&pins=custom%7Cla15+50%7Cls12%7Clc003b61%7C%7C%27CentralPark%27-73.9657974+40.781971%7C%7Chttp%3A%2F%2Fazuremapscodesamples.azurewebsites.net%2FCommon%2Fimages%2Fpushpins%2Fylw-pushpin.png
     ```
-    Hieronder volgt de installatiekopie van het antwoord krijgt.
+    Dit is de afbeelding:
 
-    ![aangepaste punaises met labels weergeven](./media/how-to-render-custom-data/render-pins.png)
+    ![Een aangepaste markeringspunt met een label](./media/how-to-render-custom-data/render-pins.png)
 
 
 ## <a name="get-data-from-azure-maps-data-storage"></a>Gegevens ophalen uit Azure Maps-gegevensopslag
 
 > [!Note]
-> In dit voorbeeld vereist Azure kaarten-account met de prijscategorie S1.
+> De procedure in deze sectie vereist een Azure kaarten-account in de prijscategorie S1.
 
-De locatie-informatie van het pad en de pincodes kan ook worden verkregen via [gegevens uploaden API](https://docs.microsoft.com/rest/api/maps/mapdata/upload). Volg de stappen hieronder om de gegevens van het pad en pincodes te uploaden.
+U kunt ook de locatie-informatie van het pad en de pincode verkrijgen met behulp van de [gegevens uploaden API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview). Volg de stappen hieronder om de gegevens van het pad en pincodes te uploaden.
 
-1. Open in de Postman-app een nieuw tabblad in de verzameling die u hierboven hebt gemaakt. Selecteer HTTP POST-methode op het tabblad builder en voer de volgende URL als u wilt maken van een POST-aanvraag:
+1. Open een nieuw tabblad in de verzameling die u in de vorige sectie hebt gemaakt in de Postman-app. Selecteer de HTTP POST-methode op het tabblad builder en voer de volgende URL als u wilt maken van een POST-aanvraag:
 
     ```HTTP
     https://atlas.microsoft.com/mapData/upload?subscription-key={subscription-key}&api-version=1.0&dataFormat=geojson
     ```
 
-2. Klik op parameters en voer de volgende sleutel/waarde-paren moet worden gebruikt voor de POST-aanvraag-URL. Vervang de subscription-key-waarde door de sleutel van uw Azure Maps-abonnement.
+2. Op de **Params** tabblad, voer de volgende sleutel/waarde-paren, die worden gebruikt voor de POST-aanvraag-URL. Vervang de `subscription-key` waarde met de sleutel van uw Azure Maps-abonnement.
     
-    ![Key-Value-parameters in Postman](./media/how-to-render-custom-data/postman-key-vals.png)
+    ![Sleutel/waarde-parameters in Postman](./media/how-to-render-custom-data/postman-key-vals.png)
 
-3. Klik op **Body** en selecteer de onbewerkte invoerindeling. Kies de invoerindeling JSON in de vervolgkeuzelijst. Geef de volgende JSON op als de gegevens die u wilt uploaden:
+3. Op de **hoofdtekst** tabblad, selecteert u de onbewerkte invoerindeling en JSON als de invoerindeling kiezen uit de vervolgkeuzelijst. Deze JSON opgeven als gegevens worden geüpload:
     
     ```JSON
     {
@@ -131,63 +133,66 @@ De locatie-informatie van het pad en de pincodes kan ook worden verkregen via [g
     }
     ```
 
-4. Klik op Send en controleer de reactieheader. De locatieheader bevat de URI waar u de gegevens voor toekomstig gebruik kunt vinden en downloaden. Deze bevat ook een unieke `udId` voor de geüploade gegevens.   
+4. Selecteer **verzenden** en bekijk de antwoord-header. De location-header bevat de URI die wordt gebruikt voor toegang tot of het downloaden van de gegevens voor toekomstig gebruik. Deze bevat ook een unieke `udId` voor de geüploade gegevens.  
 
   ```HTTP
   https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
   ```
 
-
-
-5. Gebruik de waarde van `udid` ontvangen van de gegevens uploaden API om functies op de kaart weer te geven. Om dit te doen, opent u een nieuw tabblad in dezelfde verzameling die u hierboven hebt gemaakt. Selecteer GET HTTP-methode op het tabblad builder en voer de volgende URL als u wilt maken van een GET-aanvraag:
+5. Gebruik de `udId` ontvangen waarde van de gegevens uploaden API om functies op de kaart weer te geven. U doet dit door een nieuw tabblad te openen in de verzameling die u in de voorgaande sectie hebt gemaakt. Selecteer de GET HTTP-methode op het tabblad builder en voer deze URL om te maken van een GET-aanvraag:
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.96682739257812%2C40.78119135317995&pins=default|la-35+50|ls12|lc003C62|co9B2F15||'Times Square'-73.98516297340393 40.758781646381024|'Central Park'-73.96682739257812 40.78119135317995&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.30||udid-{udId}
     ```
 
-6. De installatiekopie van het antwoord ziet er als volgt uit:
+6. Dit is de afbeelding:
 
-    ![geüploade gegevens weergeven](./media/how-to-render-custom-data/uploaded-path.png)
+    ![Gegevens ophalen uit Azure Maps-gegevensopslag](./media/how-to-render-custom-data/uploaded-path.png)
 
-## <a name="render-polygon-with-color-and-opacity"></a>Veelhoek met kleur en dekking weergeven
+## <a name="render-a-polygon-with-color-and-opacity"></a>Een veelhoek met kleur en dekking weergeven
 
 > [!Note]
-> In dit voorbeeld vereist Azure kaarten-account met de prijscategorie S1.
+> De procedure in deze sectie vereist een Azure kaarten-account in de prijscategorie S1.
 
-U kunt het uiterlijk van een polygoon wijzigen met behulp van de stijl van parameters met de [padparameter](https://docs.microsoft.com/rest-staging/api/maps/render/getmapimage).
 
-1. Open in de Postman-app een nieuw tabblad in de verzameling die u hierboven hebt gemaakt. Selecteer GET HTTP-methode op het tabblad builder en voer de volgende URL als u wilt maken van een GET-aanvraag om een veelhoek met kleur en dekking weer te geven:
+U kunt het uiterlijk van een polygoon wijzigen met behulp van de stijl van parameters met de [padparameter](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
+
+1. Open een nieuw tabblad in de verzameling die u eerder hebt gemaakt in de Postman-app. Selecteer de GET HTTP-methode op het tabblad builder en voer de volgende URL voor het configureren van een GET-aanvraag om een veelhoek met kleur en dekking weer te geven:
     
     ```HTTP
     https://atlas.microsoft.com/map/static/png?api-version=1.0&style=main&layer=basic&sku=S1&zoom=14&height=500&Width=500&center=-74.040701, 40.698666&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.50||-74.03995513916016 40.70090237454063|-74.04082417488098 40.70028420372218|-74.04113531112671 40.70049568385827|-74.04298067092896 40.69899904076542|-74.04271245002747 40.69879568992435|-74.04367804527283 40.6980961582905|-74.04364585876465 40.698055487620714|-74.04368877410889 40.698022951066996|-74.04168248176573 40.696444909137|-74.03901100158691 40.69837271818651|-74.03824925422668 40.69837271818651|-74.03809905052185 40.69903971085914|-74.03771281242369 40.699340668780984|-74.03940796852112 40.70058515602143|-74.03948307037354 40.70052821920425|-74.03995513916016 40.70090237454063
     &subscription-key={subscription--key}
     ```
 
-De installatiekopie van het antwoord ziet er als volgt uit:
+Dit is de afbeelding:
 
-![ondoorzichtige veelhoek weergeven](./media/how-to-render-custom-data/opaque-polygon.png)
+![Een ondoorzichtige veelhoek weergeven](./media/how-to-render-custom-data/opaque-polygon.png)
 
 
-## <a name="render-polygon-with-circle-and-push-pins-with-custom-labels"></a>Veelhoek met cirkel- en push pincodes met aangepaste labels weergeven
+## <a name="render-a-circle-and-pushpins-with-custom-labels"></a>Een cirkel- en punaises met aangepaste labels weergeven
 
 > [!Note]
-> In dit voorbeeld vereist Azure kaarten-account met de prijscategorie S1.
+> De procedure in deze sectie vereist een Azure kaarten-account in de prijscategorie S1.
 
-U kunt punaises en de bijbehorende labels groter of kleiner maken met behulp van de modifier 'sc' scale stijl. Dit is een waarde die groter zijn dan nul. De waarde 1 is de standaardschaal. Waarden die groter zijn dan 1 wordt de pincodes groter maken, en waarden die kleiner zijn dan 1 zorgt ervoor dat deze kleiner. Zie voor meer informatie op de stijl van parameters, [statische afbeelding service padparameters](https://docs.microsoft.com/rest/api/maps/render/getmapimage).
 
-De volgende stappen om een veelhoek met cirkel- en push pincodes met aangepaste labels weer te geven:
+U kunt punaises en de bijbehorende labels groter of kleiner maken met behulp van de `sc` schaal stijl modifier. Deze optie wordt een waarde die groter is dan nul. De waarde 1 is de standaardschaal. Waarden die groter zijn dan 1 wordt de pincodes groter maken, en waarden die kleiner zijn dan 1 zorgt ervoor dat deze kleiner. Zie voor meer informatie over de stijl van parameters [statische afbeelding service padparameters](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
 
-1. Open in de Postman-app een nieuw tabblad in de verzameling die u hierboven hebt gemaakt. Selecteer GET HTTP-methode op het tabblad builder en voer de volgende URL als u wilt maken van een GET-aanvraag:
+
+Volg deze stappen voor het renderen van een cirkel- en punaises met aangepaste labels:
+
+1. Open een nieuw tabblad in de verzameling die u eerder hebt gemaakt in de Postman-app. Selecteer de GET HTTP-methode op het tabblad builder en voer deze URL om te maken van een GET-aanvraag:
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?api-version=1.0&style=main&layer=basic&zoom=14&height=700&Width=700&center=-122.13230609893799,47.64599069048016&path=lcFF0000|lw2|la0.60|ra1000||-122.13230609893799 47.64599069048016&pins=default|la15+50|al0.66|lc003C62|co002D62||'Microsoft Corporate Headquarters'-122.14131832122801  47.64690503939462|'Microsoft Visitor Center'-122.136828 47.642224|'Microsoft Conference Center'-122.12552547454833 47.642940335653996|'Microsoft The Commons'-122.13687658309935  47.64452336193245&subscription-key={subscription-key}
     ```
 
-De installatiekopie van het antwoord ziet er als volgt uit:
+Dit is de afbeelding:
 
-![cirkel met aangepaste pincodes weergeven](./media/how-to-render-custom-data/circle-custom-pins.png)
+![Een cirkel met aangepaste punaises weergeven](./media/how-to-render-custom-data/circle-custom-pins.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Verken de [Azure Maps ophalen Map installatiekopie API](https://docs.microsoft.com/rest/api/maps/search) documentatie.
-* Zie voor meer informatie over de functies van Azure Maps Data Service, [documentatie voor service](https://docs.microsoft.com/rest/api/maps/data).
+
+* Verken de [Azure Maps ophalen Map installatiekopie API](https://docs.microsoft.com/rest/api/maps/render/getmapimage) documentatie.
+* Zie voor meer informatie over Azure Maps Data Service, de [documentatie voor service](https://docs.microsoft.com/rest/api/maps/data).
+

@@ -11,28 +11,28 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
-ms.author: jeffgilb
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: a017e1c70658953e1c08cd92a7e1e5184fee0bb5
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: c993322bdf4266939eab854e217cae6e90326d29
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447392"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991560"
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>Bijwerken van de Azure App Service op Azure Stack
 
 *Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 > [!IMPORTANT]  
-> De update 1809 toepassen of later naar uw Azure Stack-geïntegreerd systeem of de meest recente Azure Stack development kit implementeren voordat u Azure App Service 1.4 implementeert. Controleer voordat u de resourceprovider bijwerkt, de opmerkingen bij de release voor meer informatie over nieuwe functionaliteit, correcties en bekende problemen die invloed kunnen zijn op uw implementatie.
+> De update 1901 toepassen op uw geïntegreerde Azure Stack-systeem of de meest recente Azure Stack development kit implementeren voordat u Azure App Service 1.5 implementeert.
 
 Door de instructies in dit artikel te volgen, kunt u upgraden de [App Service-resourceprovider](azure-stack-app-service-overview.md) geïmplementeerd in een Azure Stack-omgeving die is verbonden met Internet.
 
 > [!IMPORTANT]  
-> Vóór de upgrade uitvoert, zorg ervoor dat u al hebt voltooid de [implementatie van de Azure App Service op Azure Stack-Resourceprovider](azure-stack-app-service-deploy.md)
+> Vóór de upgrade uitvoert, zorg ervoor dat u al hebt voltooid de [implementatie van de Azure App Service op Azure Stack Resource Provider](azure-stack-app-service-deploy.md) en die u hebt gelezen de [opmerkingen bij de release](azure-stack-app-service-release-notes-update-five.md) die vergezeld gaan van de release van versie 1.5 meer informatie over nieuwe functionaliteit, correcties en bekende problemen die invloed kunnen zijn op uw implementatie.
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>Voer het installatieprogramma van App Service resource provider
 
