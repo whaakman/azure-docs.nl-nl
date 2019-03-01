@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 2105919e0c21ef57ae2cd19450110df384252e97
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 43d28cde7e4287b5394087000b5e730a94748713
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730933"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010630"
 documentType: LandingData
 title: Documentatie voor Bing Automatische suggesties
 metadata:
@@ -12,18 +12,39 @@ metadata:
   title: Documentatie voor Bing Automatische suggesties - zelfstudies, snelstarts, API-verwijzingen | Microsoft Docs
   description: Meer informatie over het gebruik van Bing Automatische suggesties voor voorgestelde query’s op basis van een gedeeltelijke query. Zelfstudies laten zien hoe u apps maakt die gebruikmaken van de service.
   services: cognitive-services
-  author: v-jaswel
-  manager: kamrani
+  author: aahill
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-autosuggest
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/10/2017
-  ms.author: v-jaswel
+  ms.date: 02/20/2019
+  ms.author: aahi
 abstract:
-  description: Met Bing Automatische suggesties kunt u een gedeeltelijke query-zoekterm naar Bing verzenden en een lijst ontvangen met voorgestelde query’s van andere gebruikers.  Terwijl de gebruiker bijvoorbeeld een teken van zijn eigen zoekterm invoert, zou u deze API aanroepen en de vervolgkeuzelijst van het zoekvak vullen met de voorgestelde queryreeksen. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u de Automatische suggesties-API gebruikt.
+  description: Met Bing Automatische suggesties kunt u een gedeeltelijke query-zoekterm naar Bing verzenden en een lijst ontvangen met voorgestelde query’s van andere gebruikers.  Terwijl gebruikers bijvoorbeeld elk teken van hun zoekterm invoeren, kunt u deze API aanroepen om de vervolgkeuzelijst van het zoekvak te vullen met suggesties. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u de Automatische suggesties-API gebruikt.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-autosuggest/overview
+      html: <p>Meer informatie over de Bing Automatische suggesties-API</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Wat is de Bing Automatische suggesties-API?
+    - href: /azure/cognitive-services/bing-autosuggest/concepts/get-suggestions
+      html: <p>Leer hoe u in realtime zoeksuggesties ontvangt</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Suggesties krijgen van de Bing Automatische suggesties-API
+    - href: /azure/cognitive-services/bing-autosuggest/language-support
+      html: <p>Ontdek welke talen worden ondersteund door de API.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Ondersteunde talen
 - title: QuickStarts van vijf minuten
   items:
   - type: paragraph
@@ -60,7 +81,7 @@ sections:
   - type: paragraph
     text: 'Leer apps te ontwikkelen die gebruikmaken van de Bing Automatische suggesties-API:'
   - type: paragraph
-    text: <a href="tutorials/autosuggest.md">Web-app van één pagina</a> &#124; <a href="tutorials/autosuggest-source.md">Broncode</a>
+    text: <a href="tutorials/autosuggest.md">Web-app van één pagina</a>
 - title: Naslaginformatie
   items:
   - type: list

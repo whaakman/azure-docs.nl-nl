@@ -1,0 +1,56 @@
+items:
+- name: Azure-API voor FHIR
+  href: index.yml
+- name: Overzicht
+  items:
+  - name: Over Azure-API voor FHIR
+    href: overview.md
+  - name: Over FHIR-server voor Azure
+    href: overview-open-source-server.md
+- name: Snelstartgidsen
+  items:
+  - name: Azure-API implementeren voor FHIR - Portal
+    href: fhir-paas-portal-quickstart.md
+  - name: Azure-API implementeren voor FHIR - PowerShell
+    href: fhir-paas-powershell-quickstart.md
+  - name: Azure-API implementeren voor FHIR - CLI
+    href: fhir-paas-cli-quickstart.md
+  - name: FHIR-server implementeren voor Azure - Portal
+    href: fhir-oss-portal-quickstart.md
+  - name: FHIR-server implementeren voor Azure - PowerShell
+    href: fhir-oss-powershell-quickstart.md
+  - name: FHIR-server implementeren voor Azure - CLI
+    href: fhir-oss-cli-quickstart.md
+  expanded: true
+- name: Zelfstudies
+  items:
+  - name: Toegang tot FHIR-API met Postman
+    href: access-fhir-postman-tutorial.md
+  expanded: false
+- name: Handleidingen
+  items:
+  - name: Een resourcetoepassing registreren
+    href: register-resource-azure-ad-client-app.md
+  - name: Een vertrouwelijke client-app registreren
+    href: register-confidential-azure-ad-client-app.md
+  - name: Een openbare client-app registreren
+    href: register-public-azure-ad-client-app.md
+  - name: Een serviceclient-app registreren
+    href: register-service-azure-ad-client-app.md
+  - name: Een token verkrijgen voor Azure-API voor FHIR - CLI
+    href: get-healthcare-apis-access-token-cli.md
+  - name: ID's van identiteitsobjecten vinden
+    href: find-identity-object-ids.md
+  expanded: false
+- name: Resources
+  items:
+  - name: Veelgestelde vragen
+    href: fhir-faq.md
+  - name: Ondersteunde functies
+    href: fhir-features-supported.md
+ms.openlocfilehash: 60d0d4b8368a64b9ef66608de6824cec9876b8be
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958113"

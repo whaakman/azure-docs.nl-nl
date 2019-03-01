@@ -2,7 +2,7 @@
 ## [Agentbewaking](../monitoring/index.md)
 
 # Aan de slag
-## [Log Analytics](../log-analytics/log-analytics-get-started.md)
+## [Azure Monitor-logboeken](../log-analytics/log-analytics-get-started.md)
 ## [Automation](/azure/automation/)
 ## [Een back-up maken](../backup/backup-introduction-to-azure-backup.md)
 ## [Site Recovery](../site-recovery/site-recovery-overview.md)
@@ -11,7 +11,7 @@
 # Procedures
 
 ## Analyseren
-### [Log Analytics](../azure-monitor/log-query/log-query-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Azure Monitor-logboeken](../azure-monitor/log-query/log-query-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## Automatiseren
 ### [Overzicht van Azure Automation](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 

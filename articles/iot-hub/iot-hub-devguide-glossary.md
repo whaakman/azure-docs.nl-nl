@@ -1,19 +1,19 @@
 ---
 title: Azure IoT Hub-woordenlijst van termen | Microsoft Docs
 description: Handleiding voor ontwikkelaars - een verklarende woordenlijst van termen met betrekking tot Azure IoT Hub.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.author: dobett
-ms.openlocfilehash: d815f980a0583058957b7d87b6c99df59e9a4821
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d79485fa7587a6cf8783f2e5779fa0a1d593aea7
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817375"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011429"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Verklarende woordenlijst voor IoT Hub
 In dit artikel worden enkele van de algemene termen gebruikt in de IoT Hub-artikelen.
@@ -97,7 +97,7 @@ In de context van een [apparaatdubbel](iot-hub-devguide-device-twins.md), gewens
 Verwijst naar berichten van een verbonden apparaat [IoT-Hub](#iot-hub). Deze berichten mogelijk [gegevenspunt](#data-point-message) of [interactieve](#interactive-message) berichten. Zie voor meer informatie, [berichten verzenden en ontvangen met IoT Hub](iot-hub-devguide-messaging.md).
 
 ## <a name="device"></a>Apparaat
-Een apparaat is in de context van IoT, doorgaans een kleinschalige, zelfstandige computer of fysiek apparaat die kan worden verzameld of andere apparaten beheren. Een apparaat zijn mogelijk een uitwerking controle-apparaat of een domeincontroller voor het water en ventilatie systemen in een vergunning. De [apparaatcatalogus](https://catalog.azureiotsuite.com/) bevat een lijst met apparaten gecertificeerd voor gebruik met [IoT-Hub](#iot-hub).
+Een apparaat is in de context van IoT, doorgaans een kleinschalige, zelfstandige computer of fysiek apparaat die kan worden verzameld of andere apparaten beheren. Een apparaat zijn mogelijk een uitwerking controle-apparaat of een domeincontroller voor het water en ventilatie systemen in een vergunning. De [apparaatcatalogus](https://catalog.azureiotsolutions.com/) bevat een lijst met apparaten gecertificeerd voor gebruik met [IoT-Hub](#iot-hub).
 
 ## <a name="device-app"></a>Apparaat-app
 Een apparaat-app wordt uitgevoerd op uw [apparaat](#device) en verzorgt de communicatie met uw [IoT-hub](#iot-hub). Meestal gebruikt u een van de [Azure IoT device SDK's](#azure-iot-device-sdks) bij het implementeren van een apparaat-app. In veel van de IoT-zelfstudies, gebruikt u een [gesimuleerd apparaat](#simulated-device) voor het gemak.

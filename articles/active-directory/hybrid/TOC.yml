@@ -211,6 +211,8 @@ items:
       href: how-to-connect-fed-ssl-update.md
     - name: De AD FS-vertrouwensrelatie beheren met Azure AD
       href: how-to-connect-azure-ad-trust.md
+    - name: Groepclaims voor toepassingen configureren
+      href: how-to-connect-fed-group-claims.md
     - name: Hash-algoritme voor O365 RP wijzigen
       href: how-to-connect-fed-sha256-guidance.md
     - name: Een SAML 2.0-server gebruiken als u id-provider
@@ -243,8 +245,8 @@ items:
       href: how-to-connect-health-alert-catalog.md
   - name: Azure AD Connect Sync beheren
     items:
-    - name: Operationele taken beheren
-      href: how-to-connect-sync-operations.md
+    - name: Serverherstel en herstel na noodgevallen faseren
+      href: how-to-connect-sync-staging-server.md
     - name: Aanbevolen procedures voor het wijzigen van de standaardconfiguratie
       href: how-to-connect-sync-best-practices-changing-default-configuration.md
     - name: De standaardconfiguratie wijzigen
@@ -335,9 +337,9 @@ items:
     href: reference-connect-adsynctools.md
   - name: ADConnectivityTools-verwijzing
     href: reference-connect-adconnectivitytools.md
-ms.openlocfilehash: 8eb252f12a4a1a66ba7e8bd5c584e7aad227e24c
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 613adb5c19c3ca7fa2f47700a0358a51beac98e4
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889273"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193701"

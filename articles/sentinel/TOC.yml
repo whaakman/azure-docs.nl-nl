@@ -1,0 +1,94 @@
+items:
+- name: Preview-documentatie voor Azure Sentinel
+  href: index.yml
+- name: Overzicht
+  href: overview.md
+- name: Snelstartgidsen
+  items:
+  - name: Azure Sentinel voorbereiden
+    href: quickstart-onboard.md
+  - name: Inzicht krijgen in waarschuwingen
+    href: quickstart-get-visibility.md
+  expanded: true
+- name: Zelfstudies
+  items:
+  - name: Verdachte bedreigingen detecteren
+    href: tutorial-detect-threats.md
+  - name: Cases onderzoeken
+    href: tutorial-investigate-cases.md
+  - name: Op bedreigingen reageren
+    href: tutorial-respond-threats-playbook.md
+- name: Handleidingen
+  items:
+  - name: Verbinding maken met gegevensbronnen
+    href: connect-data-sources.md
+    items:
+    - name: Verbinding maken met Microsoft-services
+      items:
+      - name: Verbinding maken met Azure AD
+        href: connect-azure-active-directory.md
+      - name: Verbinding maken met Office 365
+        href: connect-office-365.md
+      - name: Verbinding maken met Cloud App Security
+        href: connect-cloud-app-security.md
+      - name: Verbinding maken met Azure-activiteitenlogboek
+        href: connect-azure-activity.md
+      - name: Verbinding maken met Azure AD Identity Protection
+        href: connect-azure-ad-identity-protection.md
+      - name: Verbinding maken met Azure Information Protection
+        href: connect-azure-information-protection.md
+      - name: Verbinding maken met Azure ATP
+        href: connect-azure-atp.md
+      - name: Verbinding maken met Azure Security Center
+        href: connect-azure-security-center.md
+      - name: Verbinding maken met Windows-firewall
+        href: connect-windows-firewall.md
+      - name: Verbinding maken met Windows-beveiligingsgebeurtenissen
+        href: connect-windows-security-events.md
+    - name: Verbinding maken met externe oplossingen
+      items:
+      - name: Verbinding maken met generic CEF
+        href: connect-common-event-format.md
+      - name: Verbinding maken met Barracuda
+        href: connect-barracuda.md
+      - name: Verbinding maken met Check Point
+        href: connect-checkpoint.md
+      - name: Verbinding maken met Palo Alto
+        href: connect-paloalto.md
+      - name: Verbinding maken met Fortinet
+        href: connect-fortinet.md
+      - name: Verbinden maken met F5
+        href: connect-f5.md
+      - name: Verbinding maken met Syslog
+        href: connect-syslog.md
+      - name: Verbinding maken met Cisco
+        href: connect-cisco.md
+    - name: Verbinding maken met bedreigingsinformatie
+      href: connect-threat-intelligence.md
+  - name: Gebruikersanalyses
+    href: user-analytics.md
+  - name: Zoeken
+    href: hunting.md
+    items:
+    - name: Notitieblokken gebruiken om te zoeken
+      href: notebooks.md
+    - name: Bladwijzers gebruiken om te zoeken
+      href: bookmarks.md
+  - name: Fusie inschakelen
+    href: connect-fusion.md
+- name: Resources
+  items:
+  - name: Nuttige informatie
+    href: resources.md
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/?category=security-identity
+  - name: Blog over veiligheid, privacy en naleving met betrekking tot Azure
+    href: http://blogs.msdn.com/b/azuresecurity/
+  - name: Regionale beschikbaarheid
+    href: https://azure.microsoft.com/regions/services/
+ms.openlocfilehash: 50587fc6b2fca37ddbe5a9a1cbe4ff1914c809c9
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56993364"
