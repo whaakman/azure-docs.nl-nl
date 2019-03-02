@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database managed instance connectiviteitsarchitectuur | Microsoft Docs
-description: Dit artikel bevat de Azure SQL Database managed instance communicatieoverzicht en connectiviteitsarchitectuur ook wordt uitgelegd hoe de verschillende onderdelen functie voor het verkeer naar het beheerde exemplaar.
+title: Architectuur van de verbinding voor een beheerd exemplaar in Azure SQL Database | Microsoft Docs
+description: Meer informatie over Azure SQL Database managed instance-communicatie en connectiviteitsarchitectuur ook hoe de onderdelen van verkeer naar het beheerd exemplaar te regelen.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -12,90 +12,88 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: 64e0444c85440a017872aa32017e7d1c47e44e89
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 6ef020ff1054416e2b9af5af824b9aa27f0b1e64
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889768"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247236"
 ---
-# <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Azure SQL Database managed instance connectiviteitsarchitectuur
+# <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architectuur van de verbinding voor een beheerd exemplaar in Azure SQL Database 
 
-Dit artikel bevat de Azure SQL Database managed instance communicatieoverzicht en connectiviteitsarchitectuur ook wordt uitgelegd hoe de verschillende onderdelen functie voor het verkeer naar het beheerde exemplaar.  
+In dit artikel wordt uitgelegd communicatie in een beheerd exemplaar voor Azure SQL Database. Ook wordt beschreven connectiviteitsarchitectuur en hoe de onderdelen van verkeer naar het beheerd exemplaar te regelen.  
 
-Het beheerde exemplaar van Azure SQL Database wordt in Azure VNet en het subnet dat is toegewezen aan beheerde exemplaren geplaatst. Deze implementatie kunt de volgende scenario's:
+Het beheerde exemplaar van SQL-Database wordt in de Azure-netwerk en het subnet dat toegewezen aan beheerde exemplaren geplaatst. Deze implementatie biedt:
 
-- Beveilig privé IP-adres.
-- Verbinding maken met een beheerd exemplaar rechtstreeks vanuit een on-premises netwerk.
-- Een beheerd exemplaar verbinding te maken met gekoppelde server of een andere on-premises gegevensarchief.
-- Verbinding maken met een beheerd exemplaar van Azure-resources.
+- Een veilige persoonlijke IP-adres.
+- De mogelijkheid om een on-premises netwerk verbinden met een beheerd exemplaar.
+- De mogelijkheid om te verbinden met een beheerd exemplaar van een gekoppelde server of een andere on-premises gegevensarchief.
+- De mogelijkheid om te verbinden met een beheerd exemplaar van Azure-resources.
 
 ## <a name="communication-overview"></a>Overzicht servicecommunicatie
 
-Het volgende diagram toont de entiteiten die verbinding met beheerd exemplaar maken, evenals de resources die worden beheerd exemplaar moet contact met u opnemen om u te laten functioneren.
+Het volgende diagram toont de entiteiten die verbinding met een beheerd exemplaar maken. U ziet ook de bronnen die nodig zijn om te communiceren met het beheerde exemplaar. Het communicatieproces aan de onderkant van het diagram geeft klanttoepassingen en hulpprogramma's die verbinding met het beheerde exemplaar als gegevensbronnen maken.  
 
-![connectiviteit architectuur entiteiten](./media/managed-instance-connectivity-architecture/connectivityarch001.png)
+![Entiteiten in connectiviteitsarchitectuur](./media/managed-instance-connectivity-architecture/connectivityarch001.png)
 
-Communicatie die wordt weergegeven aan de onderkant van het diagram geeft toepassingen van klanten en hulpprogramma's verbinding maken met beheerde instantie als gegevensbron.  
+Een beheerd exemplaar is een platform als service (PaaS) te kunnen aanbieden. Microsoft maakt gebruik van geautomatiseerde agents (beheer, implementatie en onderhoud) voor het beheren van deze service op basis van telemetrie-gegevensstromen. Omdat Microsoft verantwoordelijk voor het beheer is, klanten geen toegang tot de beheerde exemplaar cluster virtuele machines via Remote Desktop Protocol (RDP).
 
-Beheerd exemplaar is een platform-as-a-services (PaaS) aanbieding, beheert Microsoft deze service met behulp van geautomatiseerde agents (beheer, implementatie en onderhoud) op basis van telemetrie-gegevensstromen. Als beheerde instantiebeheer is uitsluitend de verantwoordelijkheid van Microsoft, klanten zijn niet in staat is toegang tot de beheerde exemplaar cluster virtuele machines via RDP.
+Een SQL-Server bewerkingen aan de slag door gebruikers of toepassingen mogelijk beheerde instanties om te communiceren met het platform. Een voorbeeld is het maken van een beheerd exemplaar in de database. Deze resource is toegankelijk via de Azure-portal, PowerShell, Azure CLI en de REST-API.
 
-Bepaalde bewerkingen, gestart door de gebruikers of toepassingen mogelijk SQL-Server beheerd exemplaren om te communiceren met het platform. Een voorbeeld is het maken van een beheerd exemplaar van database - een resource die wordt weergegeven via de Azure-portal, PowerShell, Azure CLI en de REST-API.
+Beheerde exemplaren afhankelijk zijn van de Azure-services zoals Azure Storage voor back-ups, Azure Service Bus voor telemetrie, Azure Active Directory voor verificatie en Azure Key Vault voor transparante gegevensversleuteling (TDE). De beheerde exemplaren maken verbindingen met deze services.
 
-Beheerd exemplaar is afhankelijk van andere Azure-Services voor de goede werking ervan (zoals Azure Storage voor back-ups, Azure Service Bus voor telemetrie, Azure AD voor de verificatie van Azure Key Vault voor TDE, enzovoort) en start de verbindingen met deze dienovereenkomstig aan.
-
-Alle communicatie, hierboven, worden versleuteld en ondertekend met behulp van certificaten. Om ervoor te zorgen dat communicatie partijen vertrouwd worden, controleert beheerd exemplaar voortdurend deze certificaten of neem contact op met de certificeringsinstantie. Als de certificaten worden ingetrokken of beheerd exemplaar niet ze verifiëren kan, sluit deze de verbindingen om de gegevens te beveiligen.
+Alle communicatie certificaten gebruiken voor versleuteling en ondertekening. Om te controleren of de betrouwbaarheid van communicerende partijen, beheerde verifiëren exemplaren voortdurend deze certificaten contact opnemen met een certificeringsinstantie. Als de certificaten worden ingetrokken of niet kunnen worden geverifieerd, sluit het beheerde exemplaar de verbindingen om de gegevens te beveiligen.
 
 ## <a name="high-level-connectivity-architecture"></a>Connectiviteitsarchitectuur op hoog niveau
 
-Op hoog niveau is een beheerd exemplaar van een set van de onderdelen van de service, die worden gehost op een toegewezen set met geïsoleerde virtuele machines die worden uitgevoerd binnen een subnet voor het virtueel netwerk van de klant en een virtueel cluster vormen.
+Op hoog niveau is een beheerd exemplaar van een set met serviceonderdelen. Deze onderdelen worden gehost op een toegewezen set met geïsoleerde virtuele machines die worden uitgevoerd binnen het subnet van de klant virtuele netwerk. Deze machines vormen een virtueel cluster.
 
-Meerdere beheerde exemplaren kunnen worden gehost in één virtueel cluster. Het cluster wordt automatisch uitgebreid of maak indien nodig wanneer het aantal ingerichte exemplaren in het subnet van de klant wordt gewijzigd.
+Een virtueel cluster kan meerdere beheerde exemplaren hosten. Indien nodig, wordt het cluster automatisch uitgebreid of opdrachten wanneer het aantal ingerichte exemplaren in het subnet van de klant wordt gewijzigd.
 
-Toepassingen van klanten kunnen verbinding maken met beheerde exemplaren, query- en databases alleen als ze worden uitgevoerd binnen het virtuele netwerk of in een gekoppeld virtueel netwerk of VPN / Expressroute verbonden netwerk met behulp van eindpunt met particuliere IP-adres.  
+Toepassingen van klanten verbinding kunnen maken met beheerde exemplaren en query's kunnen uitvoeren en databases van de update alleen als ze worden uitgevoerd binnen het virtuele netwerk gekoppeld virtueel netwerk, of een netwerk verbonden via VPN of Azure ExpressRoute. Dit netwerk moet een eindpunt en een privé IP-adres gebruiken.  
 
 ![Architectuurdiagram van connectiviteit](./media/managed-instance-connectivity-architecture/connectivityarch002.png)
 
-Services voor het beheer en de implementatie van Microsoft worden uitgevoerd buiten het virtuele netwerk, zodat de verbindingen tussen een beheerd exemplaar en Microsoft-services gaat via de eindpunten met openbare IP-adressen. Wanneer beheerd exemplaar maakt een uitgaande verbinding, bij ontvangst van end lijkt het alsof deze afkomstig van dit openbare IP-adres vanwege NAT (Network Address Translation).
+Services voor het beheer en de implementatie van Microsoft worden uitgevoerd buiten het virtuele netwerk. Een beheerd exemplaar en Microsoft-services verbinding maken via de eindpunten met openbare IP-adressen. Als een beheerd exemplaar maakt een uitgaande verbinding op de ontvangende kant NAT (Network Address Translation) wordt de verbinding eruit deze afkomstig van dit openbare IP-adres.
 
-Beheer van verkeer stroomt via het virtuele netwerk van de klant. Dat betekent dat van invloed op elementen van de infrastructuur van het virtuele netwerk en kan mogelijk beheerverkeer schade veroorzaken exemplaar beschadigde status heeft en niet beschikbaar.
+Beheer van verkeer stroomt via virtueel netwerk van de klant. Dit betekent dat dat elementen van de infrastructuur van het virtuele netwerk schadelijk voor beheer van verkeer zijn kunnen door te maken van het exemplaar mislukt en niet beschikbaar.
 
 > [!IMPORTANT]
-> Voor het verbeteren van klantervaring en beschikbaarheid van de service, past Microsoft bedoeling netwerkbeleid op virtuele Azure-netwerk Infrastructuurelementen die invloed kunnen zijn op beheerde exemplaar werkt. Dit is een platform-mechanisme om te communiceren transparant netwerkvereisten voor eindgebruikers, met de belangrijkste doel om te voorkomen netwerkconfiguratiefouten en zorgen voor beheerd exemplaar voor normale bewerkingen. Bij het verwijderen van beheerde instantie netwerkbeleid kunt u lezen wat ook verwijderd.
+> Voor het verbeteren van klantervaring en beschikbaarheid van de service, past Microsoft een intentie netwerkbeleid op Azure virtual network-Infrastructuurelementen. Het beleid kan van invloed op de werking van het beheerde exemplaar. Dit mechanisme platform communiceert transparant netwerkvereisten voor gebruikers. Het belangrijkste doel van het beleid is om te voorkomen dat netwerk onjuiste configuratie en het zorgen voor beheerd exemplaar voor normale bewerkingen. Wanneer u een beheerd exemplaar verwijdert, wordt de intentie netwerkbeleid ook verwijderd.
 
 ## <a name="virtual-cluster-connectivity-architecture"></a>Virtueel cluster connectiviteitsarchitectuur
 
-We gaan meer informatie over in connectiviteitsarchitectuur beheerd exemplaar. Het volgende diagram toont de algemene indeling van de virtuele-cluster.
+We gaan meer informatie over in de connectiviteitsarchitectuur van de voor beheerde exemplaren. Het volgende diagram toont de algemene indeling van de virtuele-cluster.
 
-![connectiviteit architectuur diagram virtueel cluster](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
+![Connectiviteitsarchitectuur van de virtuele-cluster](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-Clients verbinding maken met beheerd exemplaar met behulp van de naam van de host met een formulier `<mi_name>.<dns_zone>.database.windows.net`. Deze hostnaam wordt omgezet in privé-IP-adres, maar het is geregistreerd in de openbare DNS-zone en openbaar omgezette. De `zone-id` automatisch wordt gegenereerd wanneer het cluster is gemaakt. Als een nieuw cluster een secundaire beheerd exemplaar host is, wordt deze de zone-ID deelt met de primaire-cluster. Zie voor meer informatie, [automatische failover-groepen](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets)
+Clients verbinding maken met een beheerd exemplaar met behulp van de naam van een host met het formulier `<mi_name>.<dns_zone>.database.windows.net`. Deze hostnaam wordt omgezet in een privé IP-adres, maar het geregistreerd in een openbare domein Name System (DNS)-zone en openbaar omgezette. De `zone-id` wordt automatisch gegenereerd bij het maken van het cluster. Als een nieuw cluster als host fungeert voor een secundaire beheerd exemplaar, wordt deze de zone-ID deelt met de primaire cluster. Zie voor meer informatie, [autofailover groepen gebruiken voor het inschakelen van transparante en gecoördineerd failover van meerdere databases](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
 
-Dit privé IP-adres behoort tot het beheerde exemplaar van interne load balancer (ILB) die verkeer doorgestuurd naar de gateway beheerd exemplaar (GW). Als meerdere beheerde exemplaren kunnen mogelijk worden uitgevoerd in hetzelfde cluster, de GW maakt gebruik van de naam van het beheerde exemplaar host verkeer omleiden naar de juiste SQL-Engine-service.
+Dit privé IP-adres behoort tot het beheerde exemplaar van interne load balancer. De load balancer zorgt ervoor dat verkeer naar de gateway van het beheerde exemplaar. Omdat meerdere beheerde exemplaren kunnen worden uitgevoerd in hetzelfde cluster, de gateway maakt gebruik van de hostnaam van het beheerde exemplaar verkeer omleiden naar de juiste SQL-engine-service.
 
-Beheer en de implementatie van services verbinding maken met een beheerd exemplaar met een [beheereindpunt](#management-endpoint) dat is toegewezen aan een externe netwerktaakverdeler. Verkeer wordt doorgestuurd naar de knooppunten alleen als ontvangen op een vooraf gedefinieerde set van poorten die uitsluitend door de onderdelen van de beheerde instantie worden gebruikt. Ingebouwde firewall op de knooppunten is geconfigureerd, zodat alleen verkeer van specifieke IP-adresbereiken van Microsoft. Alle communicatie tussen de onderdelen en de beheerlaag is sluiten elkaar wederzijds geverifieerd certificaat.
+Beheer-en implementatie met een beheerd exemplaar te maken met een [beheereindpunt](#management-endpoint) dat is toegewezen aan een externe netwerktaakverdeler. Verkeer wordt doorgestuurd naar de knooppunten alleen als deze is ontvangen op een vooraf gedefinieerde set van poorten die alleen onderdelen voor het beheerde exemplaar gebruiken. Een ingebouwde firewall op de knooppunten wordt ingesteld om toe te staan alleen verkeer van Microsoft IP-bereiken. Certificaten alle communicatie tussen de onderdelen en het beheervlak wederzijds te verifiëren.
 
 ## <a name="management-endpoint"></a>Beheereindpunt
 
-Het beheerde exemplaar virtuele cluster bevat een beheereindpunt die gebruikmaakt van Microsoft voor het beheren van het beheerde exemplaar. Het eindpunt is beveiligd met ingebouwde firewall netwerk certificaat niveau en wederzijdse verificatie op toepassingsniveau. U kunt [management eindpunt ip-adres vinden](sql-database-managed-instance-find-management-endpoint-ip-address.md).
+Microsoft beheert het beheerde exemplaar met behulp van een eindpunt. Dit eindpunt is in de virtuele cluster van het exemplaar. Het eindpunt is beveiligd door een ingebouwde firewall op niveau van het netwerk. Op het niveau van de toepassing, wordt deze beveiligd door wederzijdse certificaatverificatie. IP-adres van het eindpunt, Zie [vast IP-adres voor het beheereindpunt](sql-database-managed-instance-find-management-endpoint-ip-address.md).
 
-Wanneer verbindingen geïnitieerd worden vanuit binnen het beheerde exemplaar (back-up, auditlogboek) wordt weergegeven dat verkeer afkomstig is uit het beheer van eindpunt openbare IP-adres. U kunt toegang beperken tot openbare services van een beheerd exemplaar door in te stellen van firewall-regels waarmee het beheerde exemplaar IP-adres alleen. Meer informatie over de methode die u kunt [controleren of de ingebouwde firewall voor beheerd exemplaar](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
+Wanneer verbindingen start in het beheerde exemplaar (net als bij back-ups en logboeken voor controle), verkeer wordt weergegeven om te starten vanaf het openbare IP-adres van het eindpunt. U kunt toegang beperken tot openbare services van een beheerd exemplaar door in te stellen van firewallregels om toe te staan alleen IP-adres van het beheerde exemplaar. Zie voor meer informatie, [controleren of de ingebouwde firewall van het beheerde exemplaar](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 > [!NOTE]
-> Dit is niet van toepassing op het instellen van de firewallregels voor Azure-services die zich in dezelfde regio als het beheerde exemplaar als het Azure-platform heeft een optimalisatie voor het verkeer dat wordt verstuurd tussen de services die zijn geplaatst.
+> In tegenstelling tot de firewall voor verbindingen die binnen het beheerde exemplaar worden gestart, hebben de Azure-services die binnen het gebied van het beheerde exemplaar firewall die geoptimaliseerd voor het verkeer dat wordt verstuurd tussen deze services.
 
 ## <a name="network-requirements"></a>Netwerkvereisten
 
-U implementeert een beheerd exemplaar in een speciaal subnet (het subnet van een beheerd exemplaar) binnen het virtuele netwerk dat aan de volgende vereisten voldoet:
+Implementeer een beheerd exemplaar in een speciaal subnet binnen het virtuele netwerk. Het subnet moet beschikken over deze kenmerken:
 
-- **Toegewezen subnet**: Het beheerde exemplaar subnet mag geen andere cloud-services die zijn gekoppeld aan deze bevatten en mag geen een gatewaysubnet. Kunt u zich niet aan een beheerd exemplaar maken in een subnet dat resources dan het beheerde exemplaar bevat, en u de andere resources in het subnet niet op de later kunt toevoegen.
-- **Netwerkbeveiligingsgroep (NSG)**: Een NSG die is gekoppeld aan het virtuele netwerk mag deze gedefinieerde verplicht [inkomende beveiligingsregels](#mandatory-inbound-security-rules) en [uitgaande beveiligingsregels](#mandatory-outbound-security-rules) vóór alle andere regels. U kunt een NSG gebruiken voor het beheren van toegang tot het eindpunt van de gegevens beheerd exemplaar volledig door te filteren van het verkeer op poort 1433.
-- **Tabel van de gebruiker gedefinieerde route (UDR)**: Een gebruiker gedefinieerde routetabel die zijn gekoppeld aan het virtuele netwerk moet zijn deze [vermeldingen](#user-defined-routes) in een door de gebruiker gedefinieerde routetabel.
-- **Er is geen service-eindpunten**: Het subnet beheerd exemplaar moet een service-eindpunt dat is gekoppeld aan deze niet hebben. Zorg ervoor dat de service-eindpunten-optie is uitgeschakeld bij het maken van het virtuele netwerk.
-- **Voldoende IP-adressen**: Het beheerde exemplaar subnet moet de minimumwaarde van 16 IP-adressen (aanbevolen minimum is 32 IP-adressen). Zie voor meer informatie, [bepalen van de grootte van het subnet voor beheerde exemplaren](sql-database-managed-instance-determine-size-vnet-subnet.md). U kunt beheerde exemplaren in implementeren [het bestaande netwerk](sql-database-managed-instance-configure-vnet-subnet.md) zodra u deze om te voldoen aan configureren [beheerd exemplaar netwerkvereisten](#network-requirements), of maak een [nieuwe netwerk en subnet](sql-database-managed-instance-create-vnet-subnet.md).
+- **Toegewezen subnet:** Subnet van het beheerde exemplaar kan niet een andere cloudservice die is gekoppeld aan deze bevatten en mag niet een gatewaysubnet. Het subnet mag niet een resource, maar het beheerde exemplaar en later kunt u resources in het subnet toevoegen.
+- **Netwerkbeveiligingsgroep (NSG):** Een NSG die is gekoppeld aan het virtuele netwerk moet definiëren [inkomende beveiligingsregels](#mandatory-inbound-security-rules) en [uitgaande beveiligingsregels](#mandatory-outbound-security-rules) vóór alle andere regels. U kunt een NSG gebruiken voor het beheren van toegang tot het beheerde exemplaar gegevens eindpunt door te filteren van het verkeer op poort 1433.
+- **Gebruiker gedefinieerde route (UDR) tabel:** Een UDR-tabel die is gekoppeld aan het virtuele netwerk moet bevatten specifieke [vermeldingen](#user-defined-routes).
+- **Er is geen service-eindpunten:** Er is geen service-eindpunt moet worden gekoppeld aan het beheerde exemplaar subnet. Zorg ervoor dat de service-eindpunten-optie is uitgeschakeld bij het maken van het virtuele netwerk.
+- **Voldoende IP-adressen:** Het subnet beheerd exemplaar moet ten minste 16 IP-adressen hebben. Het aanbevolen minimum is 32 IP-adressen. Zie voor meer informatie, [bepalen van de grootte van het subnet voor beheerde exemplaren](sql-database-managed-instance-determine-size-vnet-subnet.md). U kunt beheerde exemplaren in implementeren [het bestaande netwerk](sql-database-managed-instance-configure-vnet-subnet.md) nadat u hebt geconfigureerd om te voldoen aan [de netwerkvereisten voor beheerde exemplaren](#network-requirements). Anders maakt u een [nieuwe netwerk en subnet](sql-database-managed-instance-create-vnet-subnet.md).
 
 > [!IMPORTANT]
-> Kunt u zich niet aan het implementeren van een nieuwe beheerd exemplaar als het doelsubnet niet compatibel met alle van de volgende vereisten is. Als u een beheerd exemplaar maakt, een *bedoeling netwerkbeleid* wordt toegepast op het subnet om te voorkomen dat niet-compatibele wijzigingen aan de configuratie van netwerken. Nadat het laatste exemplaar is verwijderd uit het subnet, de *bedoeling netwerkbeleid* ook is verwijderd
+> U kunt een nieuwe beheerde exemplaar niet implementeren als het doelsubnet beschikt niet over deze kenmerken. Wanneer u een beheerd exemplaar maakt, wordt een intentie netwerkbeleid toegepast op het subnet om te voorkomen dat niet-compatibele wijzigingen tot het instellen van netwerken. Nadat het laatste exemplaar van het subnet is verwijderd, wordt de intentie netwerkbeleid ook verwijderd.
 
 ### <a name="mandatory-inbound-security-rules"></a>Verplichte beveiligingsregels voor binnenkomend verkeer
 
@@ -112,16 +110,17 @@ U implementeert een beheerd exemplaar in een speciaal subnet (het subnet van een
 |beheer  |80, 443, 12000|TCP     |Alle              |Internet   |Toestaan |
 |mi_subnet   |Alle           |Alle     |Alle              |MI-SUBNET *  |Toestaan |
 
-\* MI-SUBNET verwijst naar het IP-adresbereik voor het subnet in het formulier 10.x.x.x/y. Deze informatie kan worden gevonden in de Azure-portal (via de subneteigenschappen).
+\* MI-SUBNET verwijst naar het IP-adresbereik voor het subnet in het formulier 10.x.x.x/y. U kunt deze informatie vinden in de Azure-portal in de subneteigenschappen van het.
 
 > [!IMPORTANT]
-> Hoewel de verplichte beveiligingsregels voor binnenkomend verkeer toestaan verkeer van _eventuele_ bron op poorten 9000, 9003, 1438, 1440, 1452 deze poorten worden beveiligd door ingebouwde firewall. Dit [artikel](sql-database-managed-instance-find-management-endpoint-ip-address.md) laat zien hoe u IP-adres voor beheer-eindpunt detecteren en controleer of de firewall-regels.
+> Hoewel de vereiste beveiligingsregels voor binnenkomend verkeer toestaan verkeer van _eventuele_ bron op poorten 9000, 9003, 1438 1440 en 1452, deze poorten worden beveiligd door een ingebouwde firewall. Zie voor meer informatie, [bepalen de eindpuntadres management](sql-database-managed-instance-find-management-endpoint-ip-address.md).
+
 > [!NOTE]
-> Als u transactionele replicatie in een beheerd exemplaar gebruikt en een exemplaar in de database wordt gebruikt als een publisher of een distributor, moet poort 445 (TCP uitgaand) ook worden geopend in de regels van het subnet voor toegang tot de Azure-bestandsshare.
+> Als u transactionele replicatie in een beheerd exemplaar gebruiken, en als u een exemplaar in de database als een publisher of een distributor, opent poort 445 (TCP uitgaand) in van het subnet beveiligingsregels voor verbindingen. Deze poort krijgt toegang tot de Azure-bestandsshare.
 
 ### <a name="user-defined-routes"></a>Door de gebruiker gedefinieerde routes
 
-|Name|Adresvoorvoegsel|NET Hop|
+|Name|Adresvoorvoegsel|Volgende Hop|
 |----|--------------|-------|
 |subnet_to_vnetlocal|[mi_subnet]|Virtueel netwerk|
 |mi-0-5-next-hop-internet|0.0.0.0/5|Internet|
@@ -159,15 +158,15 @@ U implementeert een beheerd exemplaar in een speciaal subnet (het subnet van een
 
 U kunt bovendien vermeldingen toevoegen aan de routetabel voor het routeren van verkeer dat on-premises privé IP-adresbereiken als doel via de gateway van virtueel netwerk of een virtueel netwerkapparaat (NVA heeft).
 
-- **Optionele aangepaste DNS**: Als een aangepaste DNS-server is opgegeven in het virtuele netwerk, moet de recursieve naamomzetting IP-adres (zoals 168.63.129.16) van Azure worden toegevoegd aan de lijst. Zie voor meer informatie, [configureren van aangepaste DNS](sql-database-managed-instance-custom-dns.md). De aangepaste DNS-server moeten kunnen omzetten van hostnamen in de volgende domeinen bevinden en hun subdomeinen: *microsoft.com*, *windows.net*, *windows.com*, *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com*, en *microsoftonline-p.com*.
+Als het virtuele netwerk een aangepaste DNS-server bevat, moet u een vermelding voor de Azure recursieve naamomzetting IP-adres (zoals 168.63.129.16) toevoegen. Zie voor meer informatie, [instellen van een aangepaste DNS-server](sql-database-managed-instance-custom-dns.md). De aangepaste DNS-server moeten kunnen omzetten van hostnamen in deze domeinen en hun subdomeinen: *microsoft.com*, *windows.net*, *windows.com*,  *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com*, en *microsoftonline-p.com*.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor een overzicht [wat is er een beheerd exemplaar](sql-database-managed-instance.md)
-- Meer informatie over het [nieuwe VNet configureren](sql-database-managed-instance-create-vnet-subnet.md) of [bestaande VNet configureren](sql-database-managed-instance-configure-vnet-subnet.md) waarin u beheerde exemplaren kunt implementeren.
-- [Berekenen van de grootte van het subnet](sql-database-managed-instance-determine-size-vnet-subnet.md) waar u de beheerde exemplaren implementeren.
-- Zie voor snelstartgidsen, over het maken van beheerde exemplaar:
-  - Uit de [Azure-portal](sql-database-managed-instance-get-started.md)
-  - met behulp van [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/)
-  - met behulp van [Azure Resource Manager-sjabloon](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/)
-  - met behulp van [Azure Resource Manager-sjabloon (jumpbox met SSMS opgenomen)](https://portal.azure.com/)
+- Zie voor een overzicht [geavanceerde beveiliging van gegevens van SQL-Database](sql-database-managed-instance.md).
+- Meer informatie over het [instellen van een nieuwe Azure-netwerk](sql-database-managed-instance-create-vnet-subnet.md) of een [bestaande Azure-netwerk](sql-database-managed-instance-configure-vnet-subnet.md) waarin u beheerde exemplaren kunt implementeren.
+- [De grootte van het subnet berekenen](sql-database-managed-instance-determine-size-vnet-subnet.md) waar u de beheerde exemplaren implementeren.
+- Informatie over het maken van een beheerd exemplaar:
+  - Uit de [Azure-portal](sql-database-managed-instance-get-started.md).
+  - Met behulp van [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/).
+  - Met behulp van [een Azure Resource Manager-sjabloon](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
+  - Met behulp van [een Azure Resource Manager-sjabloon (met JumpBox, met SSMS opgenomen)](https://portal.azure.com/).

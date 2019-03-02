@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 6dd413a6b6550e18551db1105d306f8a0bdaf9c2
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: daa81f4ec14a0e022ea22948324478b8e9cc3ce3
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106746"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247355"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Azure-beveiliging en naleving blauwdruk: IaaS-webtoepassing voor FedRAMP
 
@@ -72,8 +72,7 @@ Deze oplossing maakt gebruik van de volgende Azure-services. Details van de impl
 - Azure Key Vault
 - Azure Active Directory (Azure AD)
 - Azure Resource Manager
-- Log Analytics
-- Azure Monitor
+- Azure Monitor (Logboeken)
 
 ## <a name="deployment-architecture"></a>Implementatie-architectuur
 
@@ -148,11 +147,11 @@ De volgende technologieën bieden identiteit beheermogelijkheden in de Azure-omg
 
 ### <a name="logging-and-auditing"></a>Logboekregistratie en controle
 
-Log Analytics biedt uitgebreide logboekregistratie van het systeem- en gebruikersactiviteit, evenals de status van het bestandssysteem. De [Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) oplossing verzamelt en analyseert gegevens gegenereerd door resources in Azure en on-premises omgevingen.
+Logboeken in Azure Monitor biedt uitgebreide logboekregistratie van het systeem- en gebruikersactiviteit, evenals de status van het bestandssysteem. De [logboeken van Azure Monitor](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) oplossing verzamelt en analyseert gegevens gegenereerd door resources in Azure en on-premises omgevingen.
 
 - **Activiteitenlogboeken:**  [Activiteitenlogboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bieden inzicht in bewerkingen die worden uitgevoerd op resources in een abonnement. Activiteitenlogboeken kunnen u eenvoudiger bepalen van een bewerking initiator, tijdstip van de gebeurtenis en status.
 - **Logboeken met diagnostische gegevens:**  [Diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) zijn alle logboeken die door elke resource. Deze logboeken bevatten de logboeken voor Windows-systeem, Azure-opslaglogboeken, Key Vault-auditlogboeken en Application Gateway toegangs- en firewall-Logboeken.
-- **Logboek archiveren:**  Alle logboeken met diagnostische gegevens schrijven naar een gecentraliseerd en versleutelde Azure storage-account voor archivering. De bewaarperiode is om te voldoen aan vereisten voor de bewaarperiode van de organisatie-specifieke gebruiker-configureren, tot maximaal 730 dagen. Deze logboeken verbinding maken met Azure Log Analytics voor verwerking, opslag en -dashboardrapporten.
+- **Logboek archiveren:**  Alle logboeken met diagnostische gegevens schrijven naar een gecentraliseerd en versleutelde Azure storage-account voor archivering. De bewaarperiode is om te voldoen aan vereisten voor de bewaarperiode van de organisatie-specifieke gebruiker-configureren, tot maximaal 730 dagen. Deze logboeken verbinden met Azure Monitor-logboeken voor verwerking, opslag en -dashboardrapporten.
 
 Bovendien worden de volgende bewakingsoplossingen geïnstalleerd als onderdeel van deze architectuur. Houd er rekening mee dat het verantwoordelijkheid van de klant het configureren van deze oplossingen aan te passen aan FedRAMP beveiligingscontroles is:
 -   [AD-evaluatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): De oplossing statuscontrole van Active Directory beoordeelt het risico en de gezondheid van server-omgevingen op een vast interval en biedt een geprioriteerde lijst met aanbevelingen die specifiek zijn voor de geïmplementeerde serverinfrastructuur.

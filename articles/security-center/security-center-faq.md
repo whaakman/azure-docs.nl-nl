@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2019
 ms.author: monhaber
-ms.openlocfilehash: 5fd885acc4294ae9f370d3becd0ad8cfb7935193
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 312e6c3c102946bcd19247f0730369dc7d0c8aba
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992359"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247423"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Veelgestelde vragen over Azure Security Center
 Deze Veelgestelde vragen vindt u antwoorden op vragen over Azure Security Center, een service die u bij het voorkomen helpt, detecteren en direct reageren op bedreigingen met verbeterde zichtbaarheid en controle over de beveiliging van uw Microsoft Azure-resources.
@@ -54,8 +54,8 @@ Zie [machtigingen in Azure Security Center](security-center-permissions.md) voor
 ## <a name="data-collection-agents-and-workspaces"></a>Het verzamelen van gegevens, agents en werkruimten
 Security Center verzamelt gegevens van uw virtuele Azure-machines (VM's) en niet-Azure-computers om te controleren op beveiligingsproblemen en bedreigingen. De gegevens worden verzameld met behulp van de MMA, die verschillende configuraties en gebeurtenislogboeken met betrekking tot beveiliging van de machine leest en de gegevens kopieert naar uw werkruimte voor analyse.
 
-### <a name="am-i-billed-for-log-analytics-on-the-workspaces-created-by-security-center"></a>Word ik gefactureerd voor Log Analytics op de werkruimten die zijn gemaakt door Security Center?
-Nee. Werkruimten die zijn gemaakt door Security Center, terwijl voor Log Analytics geconfigureerd per knooppunt facturering, doen niet Log Analytics kosten in rekening gebracht. Security Center-facturering is altijd gebaseerd op het Security Center-beveiligingsbeleid en de oplossingen die zijn geïnstalleerd op een werkruimte:
+### <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>Word ik gefactureerd voor Azure Monitor-logboeken op de werkruimten die zijn gemaakt door Security Center?
+Nee. Werkruimten die zijn gemaakt door Security Center, terwijl geconfigureerd voor Azure Monitor-logboeken per knooppunt facturering, doen niet Azure Monitor logboeken kosten in rekening gebracht. Security Center-facturering is altijd gebaseerd op het Security Center-beveiligingsbeleid en de oplossingen die zijn geïnstalleerd op een werkruimte:
 
 - **Gratis laag** – Security Center schakelt u de oplossing 'SecurityCenterFree' in de standaardwerkruimte. U bent niet in rekening gebracht voor de gratis laag.
 - **Standard-laag** – Security Center schakelt u de oplossing 'Beveiliging' in de standaardwerkruimte.
@@ -63,9 +63,11 @@ Nee. Werkruimten die zijn gemaakt door Security Center, terwijl voor Log Analyti
 Zie voor meer informatie over prijzen [prijzen van Security Center](https://azure.microsoft.com/pricing/details/security-center/). De pagina met prijzen adressen wijzigingen in de opslag van beveiligingsgegevens en facturering naar rato vanaf juni 2017.
 
 > [!NOTE]
-> De prijscategorie van werkruimten die zijn gemaakt door Security Center met Log Analytics heeft geen invloed op de facturering van Security Center.
+> De prijscategorie van werkruimten die zijn gemaakt door Security Center met log analytics heeft geen invloed op de facturering van Security Center.
 >
 >
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ### <a name="what-qualifies-a-vm-for-automatic-provisioning-of-the-microsoft-monitoring-agent-installation"></a>Wat is een virtuele machine de definitie voor automatische inrichting van de Microsoft Monitoring Agent-installatie?
 Windows- of Linux IaaS-VM's in aanmerking komt als:
@@ -217,7 +219,7 @@ De agent een nominaal bedrag van systeembronnen verbruikt en moet weinig invloed
 ### <a name="where-is-my-data-stored"></a>Waar worden mijn gegevens opgeslagen?
 Gegevens die worden verzameld van deze agent worden opgeslagen in een bestaande Log Analytics-werkruimte die is gekoppeld aan uw abonnement of een nieuwe werkruimte. Zie voor meer informatie, [gegevensbeveiliging](security-center-data-security.md).
 
-## Bestaande klanten van Log Analytics<a name="existingloganalyticscust"></a>
+## Klanten van bestaande Azure Monitor-Logboeken<a name="existingloganalyticscust"></a>
 
 ### <a name="does-security-center-override-any-existing-connections-between-vms-and-workspaces"></a>Security Center heeft voorrang op bestaande verbindingen tussen virtuele machines en werkruimten?
 Als een virtuele machine al de Microsoft Monitoring Agent is geïnstalleerd als een uitbreiding van Azure is, wordt de bestaande verbinding in de werkruimte niet overschreven door Security Center. Security Center gebruikt in plaats daarvan de bestaande werkruimte.

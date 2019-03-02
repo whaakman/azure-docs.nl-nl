@@ -12,13 +12,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 4da18fffc98367f24ec95bd27617e7638e3d5705
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 03/01/2019
+ms.openlocfilehash: 3e31842cf4b6afa2117ea71c644b0376e8434bd0
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003666"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247304"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL-foutcodes voor SQL Database-clienttoepassingen: Database-verbindingsfouten en andere problemen
 
@@ -58,7 +58,7 @@ De volgende fouten tijdelijk zijn en opnieuw moeten worden uitgevoerd in de logi
 | 4060 |16 |Kan database niet openen "%.&#x2a;ls" aangevraagd door de aanmelding. De aanmelding is mislukt. |
 | 40197 |17 |De service heeft een fout bij het verwerken van uw aanvraag aangetroffen. Probeer het opnieuw. Foutcode %d.<br/><br/>U ontvangt deze foutmelding wanneer de service niet beschikbaar vanwege de software of hardware-upgrades, problemen met de hardware of andere problemen met betrekking tot failover is. De foutcode (%d) dat is ingesloten in het bericht van fout 40197 bevat aanvullende informatie over het soort fout of een failover die is opgetreden. Enkele voorbeelden van de fout codes zijn ingesloten in het bericht van fout 40197 zijn 40020, 40143 40166 en 40540.<br/><br/>Automatisch opnieuw verbinding te maken met uw SQL Database-server, maakt u verbinding met een goede kopie van uw database. Uw toepassing moet 40197, foutenlogboek de ingesloten foutcode (%d) in het bericht voor het oplossen van problemen ontdekken en probeer het opnieuw verbinding maken met SQL-Database, totdat de resources beschikbaar zijn en de verbinding opnieuw wordt ingesteld. |
 | 40501 |20 |De service is momenteel bezet. De aanvraag opnieuw proberen na tien seconden. Incident-ID: %ls. Code: %d.<br/><br/>Zie voor meer informatie:<br/>• [Azure SQL Database-resourcebeperkingen](sql-database-service-tiers-dtu.md). |
-| 40613 |17 |Database '%.&#x2a;ls' op server '%.&#x2a;ls' is momenteel niet beschikbaar. Probeer opnieuw verbinding later opnieuw. Als het probleem zich blijft voordoen, neem contact op met klantenondersteuning en geeft u de sessietracerings-ID "%.&#x2a;ls". |
+| 40613 |17 |Database '%.&#x2a;ls' op server '%.&#x2a;ls' is momenteel niet beschikbaar. Probeer opnieuw verbinding later opnieuw. Als het probleem zich blijft voordoen, neem contact op met klantenondersteuning en geeft u de sessietracerings-ID "%.&#x2a;ls".<br/><br/> Deze fout kan optreden als er al een bestaande exclusieve beheerdersverbinding (DAC) tot stand gebracht met de database. |
 | 49918 |16 |Kan aanvraag niet verwerken. Er is onvoldoende resources om aanvraag te verwerken.<br/><br/>De service is momenteel bezet. Probeer de aanvraag later opnieuw. |
 | 49919 |16 |Proces kan maken of bijwerken van de aanvraag. Te veel bewerkingen maken of bijwerken uitgevoerd voor abonnement "% ld '.<br/><br/>De service is bezet verwerken van meerdere maken of bijwerken van aanvragen voor uw abonnement of de server. Aanvragen worden momenteel geblokkeerd voor resource-optimalisatie. Query [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) voor bewerkingen die in behandeling. Wacht totdat in behandeling zijnde maken of bijwerken aanvragen voltooid zijn of verwijder een van de aanvragen in behandeling en probeer de aanvraag later opnieuw. |
 | 49920 |16 |Kan aanvraag niet verwerken. Te veel bewerkingen uitgevoerd voor abonnement "% ld '.<br/><br/>De service is bezig met het verwerken van meerdere aanvragen voor dit abonnement. Aanvragen worden momenteel geblokkeerd voor resource-optimalisatie. Query [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) voor de bewerkingsstatus van de. Wacht totdat in behandeling zijnde aanvragen zijn voltooid of verwijder een van de aanvragen in behandeling en probeer de aanvraag later opnieuw. |

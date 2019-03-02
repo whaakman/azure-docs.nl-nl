@@ -5,18 +5,20 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 2/25/2019
+ms.date: 3/1/2019
 ms.author: victorh
-ms.openlocfilehash: f1e92c8581f8528b3622ad88f086d3f66619b996
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 7f5f377f34a43dfb01ea516e023bb98f118d0dd4
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823469"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247219"
 ---
 # <a name="use-azure-dns-for-private-domains"></a>Azure DNS gebruiken voor persoonlijke domeinen
 
 De Domain Name System of DNS is verantwoordelijk voor het omzetten van (of het oplossen van) de naam van een service aan het bijbehorende IP-adres. Een hostingservice voor DNS-domeinen, Azure DNS biedt naamomzetting met behulp van de Microsoft Azure-infrastructuur. Naast ondersteuning voor internet gerichte DNS-domeinen, ondersteunt Azure DNS nu ook persoonlijke DNS-domeinen als preview-functie.
+
+[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
 Azure DNS biedt een betrouwbare en veilige DNS-service als u wilt beheren en omzetten van domeinnamen in een virtueel netwerk zonder herconfiguratie om toe te voegen een aangepaste DNS-oplossing. Met behulp van privé-DNS-zones, kunt u uw eigen aangepaste domeinnamen in plaats van de Azure geleverde namen die momenteel beschikbaar. Met behulp van aangepaste domeinnamen, helpt u bij het aanpassen van de architectuur van uw virtuele netwerk zelf behoeften van uw organisatie. Het biedt naamomzetting voor virtuele machines (VM's) binnen een virtueel netwerk en tussen virtuele netwerken. Bovendien kunt u zonenamen configureren met een split-horizon-weergave, waarmee een persoonlijke en openbare DNS-zone voor het delen van de naam.
 
@@ -26,7 +28,8 @@ Als u een virtueel netwerk registratie opgeeft, de DNS-records voor de virtuele 
 
 ![DNS-overzicht](./media/private-dns-overview/scenario.png)
 
-[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
+> [!NOTE]
+> Als een best practice, gebruik niet een .local-domein voor uw privé-DNS-zone. Niet alle besturingssystemen ondersteunen dit.
 
 ## <a name="benefits"></a>Voordelen
 

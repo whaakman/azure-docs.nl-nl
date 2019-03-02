@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 38a69327e5aaa758dc70ca950956d0bdc8001a4f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 6fd25bbf6910140a338267c51955a817d0195939
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818082"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247185"
 ---
 # <a name="azure-network-security-overview"></a>Overzicht van de beveiliging van Azure-netwerk
 
@@ -324,7 +324,7 @@ Microsoft biedt DDoS protection, ook wel **Basic** als onderdeel van het Azure-P
 * **Adaptieve afstemming:** Intelligente verkeer profilering leert van verkeer van uw toepassing gedurende een periode, selecteert en het profiel dat het meest geschikt is voor uw service-updates. Het profiel wordt aangepast wanneer verkeer na verloop van tijd verandert. Laag-3 in laag 7 protection: Biedt volledige stack DDoS protection, gebruikt in combinatie met een web application firewall.
 * **Uitgebreide risicobeperking schaal:** Meer dan 60 verschillende aanval typen kunnen worden verholpen, met wereldwijde capaciteit, om te beveiligen tegen het grootste bekende DDoS-aanvallen.
 * **Aanval metrische gegevens:** Samengevatte metrische gegevens van elke aanval zijn toegankelijk zijn via Azure Monitor.
-* **Aanval waarschuwingen:** Waarschuwingen kunnen worden geconfigureerd op het starten en stoppen van een aanval en over de duur van de aanval, met ingebouwde aanval metrische gegevens. Waarschuwingen integreren in uw operationele software, zoals Microsoft Azure Log Analytics, Splunk, Azure Storage, e-mailadres en de Azure-portal.
+* **Aanval waarschuwingen:** Waarschuwingen kunnen worden geconfigureerd op het starten en stoppen van een aanval en over de duur van de aanval, met ingebouwde aanval metrische gegevens. Waarschuwingen integreren in uw operationele software, zoals Microsoft Azure Monitor-Logboeken, Splunk, Azure Storage, e-mailadres en de Azure-portal.
 * **Kosten garantie:**  Overdracht van gegevens en toepassingen scale-out servicetegoeden voor gedocumenteerde DDoS-aanvallen.
 * **DDoS-snelle responsieve** DDoS Protection Standard-klanten hebben nu toegang tot Rapid Response team tijdens een actieve aanval. DRR kan helpen bij onderzoek van de aanval, aangepaste oplossingen tijdens een aanval en na aanval analyse.
 
@@ -401,4 +401,4 @@ Logboekregistratie op het niveau van een netwerk is een belangrijke functie voor
 U kunt ook [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), een krachtig hulpmiddel voor gegevensvisualisatie, weergeven en analyseren van deze logboeken.
 Meer informatie:
 
-* [Logboekanalyses voor Netwerkbeveiligingsgroepen (nsg's)](../virtual-network/virtual-network-nsg-manage-log.md)
+* [Azure Monitor-logboeken voor Netwerkbeveiligingsgroepen (nsg's)](../virtual-network/virtual-network-nsg-manage-log.md)

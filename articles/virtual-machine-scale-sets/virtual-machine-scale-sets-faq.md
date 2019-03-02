@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 924ed7c2a253ab74a4807559d190218d3125b92c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 8627f5bb704c963b628fb3dab29b6d2cfee0789b
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978592"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247321"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Veelgestelde vragen over schaalsets voor virtuele Azure-machine
 
@@ -374,9 +374,9 @@ Update-AzVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName
 
 U vindt de waarde extensienaam in `$vmss`.
 
-### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-log-analytics"></a>Er is dat een virtuele-machineschaalset voorbeeldsjabloon die kan worden geïntegreerd met Log Analytics?
+### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-azure-monitor-logs"></a>Er is dat een voorbeeld van de sjabloon die is geïntegreerd met Azure Monitor logboeken virtuele-machineschaalset?
 
-Zie voor een virtuele-voorbeeldsjabloon die kan worden geïntegreerd met Log Analytics machineschaalset, het tweede voorbeeld in [een Azure Service Fabric-cluster implementeren en bewaken met Log Analytics inschakelen](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
+Zie voor een virtuele-voorbeeldsjabloon die kan worden geïntegreerd met Azure Monitor-logboeken machineschaalset, het tweede voorbeeld in [implementeren van een Azure Service Fabric-cluster op en schakel bewaking met behulp van Azure Monitor logboeken](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
 
 ### <a name="extensions-seem-to-run-in-parallel-on-virtual-machine-scale-sets-this-causes-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this"></a>Extensies lijkt het alsof parallel worden uitgevoerd op schaalsets voor virtuele machines. Dit zorgt ervoor dat de extensie voor aangepaste scripts mislukken. Wat kan ik doen om dit probleem oplossen?
 
@@ -658,7 +658,7 @@ Ja, kunt u de bewerking installatiekopie terugzetten uitvoeren in te stellen van
 
 Zie voor meer informatie, [beheren van alle virtuele machines in een virtuele-machineschaalset](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
-### <a name="is-it-possible-to-integrate-scale-sets-with-azure-log-analytics"></a>Is het mogelijk om schaalsets te integreren met Azure Log Analytics?
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>Is het mogelijk om schaalsets te integreren met Azure Monitor Logboeken?
 
 Ja, u kunt door de Log Analytics-extensie installeren op de schaal instellen VM's. Hier volgt een voorbeeld van Azure CLI:
 ```
@@ -666,7 +666,10 @@ az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.Ente
 ```
 U kunt de vereiste workspaceId en workspaceKey vinden in de Log Analytics-werkruimte van Azure-portal. Klik op de tegel van de instellingen op de pagina overzicht. Klik op het tabblad verbonden bronnen aan de bovenkant.
 
-Opmerking: als uw schaalset _upgradePolicy_ is ingesteld op handmatig, moet u de extensie is toegepast op alle virtuele machines in de set door het aanroepen van upgrade op deze. In de CLI zou dit _az vmss update-instances_.
+> [!NOTE]
+> Als uw schaalset _upgradePolicy_ is ingesteld op handmatig, moet u de extensie is toegepast op alle virtuele machines in de set door het aanroepen van upgrade op deze. In de CLI zou dit _az vmss update-instances_.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 

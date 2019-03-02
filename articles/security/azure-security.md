@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: c66f0e67b09dab15431a8c7c10db1c820038dea6
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 7c76f7c5810370fa396b81bcc16e7e2204393bc1
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984982"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247542"
 ---
 # <a name="introduction-to-azure-security"></a>Inleiding tot Azure-beveiliging
 ## <a name="overview"></a>Overzicht
@@ -75,7 +75,7 @@ De ingebouwde mogelijkheden zijn ingedeeld in zes (6) functionele aspecten: Bewe
 Deze sectie bevat meer informatie over belangrijke functies in beveiligingsbewerkingen en algemene informatie over deze mogelijkheden.
 
 ### <a name="security-and-audit-dashboard"></a>Beveiliging en controle-Dashboard
-De [oplossing beveiliging en controle](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) biedt een uitgebreid overzicht van uw organisatie de beveiligingspostuur IT met [ingebouwde zoekquery's](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/) voor belangrijke problemen die uw aandacht nodig hebben. De [beveiliging en controle](https://technet.microsoft.com/library/mt484091.aspx) dashboard is het startscherm voor alles met betrekking tot beveiliging in Log Analytics. Dit zorgt voor hoogwaardig inzicht in de beveiligingsstatus van uw computers. Ook kunnen op het startscherm alle gebeurtenissen van de afgelopen 24 uur, 7 dagen of een ander tijdsbestek worden weergegeven.
+De [oplossing beveiliging en controle](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) biedt een uitgebreid overzicht van uw organisatie de beveiligingspostuur IT met [ingebouwde zoekquery's](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/) voor belangrijke problemen die uw aandacht nodig hebben. De [beveiliging en controle](https://technet.microsoft.com/library/mt484091.aspx) dashboard is het startscherm voor alles met betrekking tot beveiliging in Azure Monitor-Logboeken. Dit zorgt voor hoogwaardig inzicht in de beveiligingsstatus van uw computers. Ook kunnen op het startscherm alle gebeurtenissen van de afgelopen 24 uur, 7 dagen of een ander tijdsbestek worden weergegeven.
 
 U kunt bovendien configureren beveiliging en naleving van [automatisch bepaalde acties uitvoeren](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/) wanneer een bepaalde gebeurtenis wordt gedetecteerd.
 
@@ -94,10 +94,10 @@ Als er crashes, fouten of prestatieproblemen, kunt u zoeken via de telemetrische
 ### <a name="azure-monitor"></a>Azure Monitor
 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) biedt visualisatie, query, routering, waarschuwingen, automatisch schalen en automatisering van gegevens, zowel van de Azure-infrastructuur ([activiteitenlogboek](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)) en elke afzonderlijke Azure-resource ([diagnostische Registreert](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)). U kunt Azure Monitor gebruiken om te waarschuwen wanneer u beveiligingsgerelateerde gebeurtenissen die worden gegenereerd in Logboeken in Azure.
 
-### <a name="log-analytics"></a>Log Analytics
-[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) : een IT-beheeroplossing biedt voor zowel on-premises en van derden cloud gebaseerde infrastructuur hebben (zoals AWS) naast de Azure-resources. Gegevens van Azure Monitor kunnen rechtstreeks met Log Analytics worden gerouteerd, zodat u metrische gegevens en logboeken voor uw gehele omgeving op één plek kunt zien.
+### <a name="azure-monitor-logs"></a>Logboeken in Azure Monitor
+[Logboeken in Azure Monitor](https://azure.microsoft.com/documentation/services/log-analytics/) : een IT-beheeroplossing biedt voor zowel on-premises en van derden cloud gebaseerde infrastructuur hebben (zoals AWS) naast de Azure-resources. Gegevens van Azure Monitor kan worden gerouteerd rechtstreeks naar Azure Monitor-Logboeken, zodat u metrische gegevens en logboeken voor uw gehele omgeving op één plek kunt zien.
 
-Log Analytics is een handig hulpmiddel in forensische en andere beveiligingsanalyse, zoals het hulpprogramma kunt u snel zoeken in grote hoeveelheden beveiliging gerelateerde items met een flexibele querymogelijkheden benadering. Bovendien on-premises [firewall en proxy logboeken kunnen worden geëxporteerd naar Azure en beschikbaar gesteld voor analyse met behulp van Log Analytics.](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)
+Logboeken in Azure Monitor is een handig hulpmiddel in forensische en andere beveiligingsanalyse, zoals het hulpprogramma kunt u snel zoeken in grote hoeveelheden beveiliging gerelateerde items met een flexibele querymogelijkheden benadering. Bovendien on-premises [firewall en proxy logboeken kunnen worden geëxporteerd naar Azure en beschikbaar gesteld voor analyse met behulp van Azure Monitor-Logboeken.](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)
 
 ### <a name="azure-advisor"></a>Azure Advisor
 [Azure Advisor](https://docs.microsoft.com/azure/advisor/) is een persoonlijke cloudconsultant die u helpt bij het optimaliseren van uw Azure-implementaties. Advisor analyseert de configuratie van uw resources en de gebruiksgerelateerde telemetrie. Vervolgens raadt het programma in oplossingen om u te helpen verbeteren de [prestaties](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations), [security](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations), en [hoge beschikbaarheid](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations) van uw resources tijdens het zoeken naar mogelijkheden om [verlagen van uw totale Azure besteden](https://docs.microsoft.com/azure/advisor/advisor-cost-recommendations). Azure Advisor biedt aanbevelingen voor beveiliging, waarmee u kunnen uw algehele beveiligingsstatus voor oplossingen die u in Azure implementeert aanzienlijk verbeteren. Deze aanbevelingen zijn afkomstig van beveiligingsanalyse uitgevoerd door [Azure Security Center.](https://docs.microsoft.com/azure/security-center/security-center-intro)

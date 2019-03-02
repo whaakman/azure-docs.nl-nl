@@ -8,12 +8,12 @@ ms.author: normesta
 ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: d07e11d005ac05c9bf048a48c5865885813707cb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d6644cf923d439a9f6ef13b53a84ff6626f04ade
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874542"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247457"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>Upgrade van uw big data analytics-oplossingen van Azure Data Lake Storage Gen1 naar Azure Data Lake Storage Gen2
 
@@ -45,13 +45,13 @@ Er zijn bovendien algemene onderdelen kunt inrichten, beheren en bewaken van dez
 
 **Afbeelding 2** toont een voorbeeld van hoe deze onderdelen zal worden geïmplementeerd met behulp van specifieke technologieën.
 
-De functionaliteit voor opslaan in **afbeelding 1** wordt geleverd door Data Lake Storage Gen1 (**afbeelding 2**). Houd er rekening mee hoe de verschillende onderdelen in de gegevensstroom interactief werken met Data Lake Storage Gen1 met behulp van REST-API's of Java-SDK. Houd er ook rekening mee hoe de onderdelen van de functionaliteit transversale werken met Data Lake Storage Gen1. Het onderdeel Provisioning maakt gebruik van Azure Resource-sjablonen, terwijl de controle-onderdeel dat gebruikmaakt van Log Analytics maakt gebruik van operationele gegevens die afkomstig zijn van Data Lake Storage Gen1.
+De functionaliteit voor opslaan in **afbeelding 1** wordt geleverd door Data Lake Storage Gen1 (**afbeelding 2**). Houd er rekening mee hoe de verschillende onderdelen in de gegevensstroom interactief werken met Data Lake Storage Gen1 met behulp van REST-API's of Java-SDK. Houd er ook rekening mee hoe de onderdelen van de functionaliteit transversale werken met Data Lake Storage Gen1. Het onderdeel Provisioning maakt gebruik van Azure Resource-sjablonen, terwijl de controle-onderdeel dat gebruikmaakt van Logboeken van Azure Monitor maakt gebruik van operationele gegevens die afkomstig zijn van Data Lake Storage Gen1.
 
 Als u een oplossing uit met behulp van Data Lake Storage Gen1 naar Data Lake Storage Gen2 bijwerken, moet u de gegevens en metagegevens kopiëren, de gegevensstromen opnieuw koppelen en vervolgens alle onderdelen moeten kunnen werken met Data Lake Storage Gen2.
 
 De volgende secties bevatten informatie over u betere beslissingen kunt komen:
 
-:heavy_check_mark: Mogelijkheden van het platform
+:heavy_check_mark: Platformfunctionaliteiten
 
 :heavy_check_mark: Programmeerinterfaces
 

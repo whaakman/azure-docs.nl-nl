@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: e845adc3aad21e62009ee9b99dbd65bcff794bd9
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 497fc1dd5691b5aa33207c6a3943a51c473d2f6c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117796"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247202"
 ---
 # <a name="securing-paas-deployments"></a>PaaS-implementaties beveiligen
 
@@ -153,7 +153,7 @@ Bewaken is het verzamelen en analyseren van gegevens om te bepalen van de presta
 
 Gebruik [Azure Application Insights](https://azure.microsoft.com/documentation/services/application-insights) voor het bewaken van beschikbaarheid, prestaties en gebruik van uw toepassing, of deze in de cloud of on-premises wordt gehost. Met behulp van Application Insights, kunt u snel identificeren en fouten opsporen in uw toepassing zonder te wachten op een gebruiker ze heeft gerapporteerd. Met de informatie die u verzamelt, kunt u weloverwogen keuzes maken over het onderhoud en de verbeteringen van uw toepassing.
 
-Application Insights heeft uitgebreide hulpmiddelen voor interactie met de gegevens die worden verzameld. Application Insights slaat zijn gegevens op in een gemeenschappelijke opslagplaats. Het kan profiteren van gedeelde functionaliteit zoals waarschuwingen, dashboards en diepgaande analyse met de Log Analytics-querytaal.
+Application Insights heeft uitgebreide hulpmiddelen voor interactie met de gegevens die worden verzameld. Application Insights slaat zijn gegevens op in een gemeenschappelijke opslagplaats. Deze kan profiteren van de gedeelde-functionaliteit, zoals waarschuwingen, dashboards en geavanceerde analyse met de Kusto-query-taal.
 
 
 
