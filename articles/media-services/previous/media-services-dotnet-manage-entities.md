@@ -2,7 +2,7 @@
 title: Beheer van Assets en gerelateerde entiteiten met mediaservices .NET SDK
 description: Informatie over het beheren van assets en gerelateerde entiteiten met de Media Services SDK voor .NET.
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 7cab21919eca9ba62fa57e1c6b2089c0b8e115dc
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: f9f4dacc8aac2fc47002b65798c8367e354bb69c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979969"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240538"
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Beheer van Assets en gerelateerde entiteiten met mediaservices .NET SDK
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "55979969"
 > 
 > 
 
-In dit onderwerp wordt beschreven hoe u Azure Media Services entiteiten beheren met .NET (verouderde)
+In dit onderwerp laat zien hoe Azure Media Services entiteiten beheren met .NET.
 
 >[!NOTE]
 > Vanaf 1 april 2017 wordt elke taakrecord in uw account die ouder is dan 90 dagen, automatisch verwijderd, samen met de bijbehorende onderliggende taakrecords, zelfs als het totale aantal records lager is dan het maximale quotum. Bijvoorbeeld op 1 April 2017 wordt worden elke taakrecord in uw account die ouder zijn dan 31 December 2016, automatisch verwijderd. Als u nodig hebt voor het archiveren van de taak gegevens, kunt u de code die in dit onderwerp beschreven.

@@ -10,19 +10,25 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 3fcac10e32d6510510dc3a069c754a6f482e75eb
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: f287648758d2883226132c0f45418dacaaf27652
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194840"
+ms.locfileid: "57216319"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexeren van JSON-blobs met de indexeerfunctie Azure Search Blob
 In dit artikel leest u hoe het configureren van een indexeerfunctie Azure Search blob gestructureerde inhoud ophalen van JSON-documenten in Azure Blob-opslag en doorzoekbare in Azure Search. Deze werkstroom wordt een Azure Search-index gemaakt en wordt geladen met de bestaande tekst die is geëxtraheerd uit JSON-blobs. 
 
 U kunt de [portal](#json-indexer-portal), [REST-API's](#json-indexer-rest), of [.NET SDK](#json-indexer-dotnet) naar JSON-inhoud indexeren. Gemeenschappelijke alle methoden is dat de JSON-documenten bevinden zich in een blob-container in een Azure Storage-account. Zie voor instructies over het pushen van JSON-documenten in andere niet-Azure-platforms, [gegevens importeren in Azure Search](search-what-is-data-import.md).
 
-JSON-blobs in Azure Blob-opslag zijn doorgaans een enkele JSON-document of een JSON-matrix. De blob-indexeerfunctie in Azure Search de bouw, afhankelijk van hoe u instellen kunt parseren de **parsingMode** parameter voor de aanvraag.
+JSON-blobs in Azure Blob-opslag zijn doorgaans een enkele JSON-document of een verzameling van JSON-entiteiten. Voor JSON-verzamelingen, de blob kan hebben een **matrix** van opgemaakte JSON-elementen. BLOBs kunnen ook bestaan uit meerdere afzonderlijke JSON-entiteiten van elkaar gescheiden door een nieuwe regel. Dergelijke constructie, afhankelijk van hoe u ingesteld kan worden geparseerd in de blob-indexeerfunctie in Azure Search de **parsingMode** parameter voor de aanvraag.
+
+> [!IMPORTANT]
+> `json` en `jsonArray` parseermodi zijn algemeen beschikbaar, maar `jsonLines` parseermodus is in openbare preview en mag niet worden gebruikt in een productieomgeving. Zie voor meer informatie, [REST api-version = 2017-11-11-Preview](search-api-2017-11-11-preview.md). 
+
+> [!NOTE]
+> Volg de aanbevelingen van de configuratie van indexeerfunctie in [een-op-veel indexeren](search-howto-index-one-to-many-blobs.md) voor uitvoer van meerdere documenten zoeken van een Azure-blob.
 
 <a name="json-indexer-portal"></a>
 
@@ -51,11 +57,13 @@ In de **gegevensbron** pagina, de bron moet **Azure Blob Storage**, met de volge
 
 + **Gegevens uitpakken** moet *inhoud en metagegevens*. Als u deze optie kiest, kan de wizard een indexschema afleiden en wijs de velden voor het importeren.
    
-+ **Bij het parseren modus** moet worden ingesteld op *JSON* of *JSON-matrix*. 
++ **Bij het parseren modus** moet worden ingesteld op *JSON*, *JSON-matrix* of *JSON regels*. 
 
   *JSON* articulates van elke blob als één zoekopdracht documenten, weergegeven als een onafhankelijke item in de zoekresultaten. 
 
-  *JSON-matrix* is voor blobs bestaan uit meerdere elementen, waar u voor elk element in om te worden gelede als een zelfstandige, document onafhankelijke zoeken. Als u blobs zijn complex en u niet kiezen *JSON-matrix* de gehele blob wordt opgenomen als één document.
+  *JSON-matrix* is voor blobs met opgemaakte JSON-gegevens - goed-opgemaakte JSON komt overeen met een matrix met objecten of heeft een eigenschap die een matrix met objecten is en u wilt dat elk element te worden gelede als een zelfstandige, document onafhankelijke zoeken. Als u blobs zijn complex en u niet kiezen *JSON-matrix* de gehele blob wordt opgenomen als één document.
+
+  *JSON-regels* is voor blobs bestaan uit meerdere JSON-entiteiten, gescheiden door een nieuwe regel, waar u elke entiteit moet worden gelede als een zelfstandige onafhankelijke search-document. Als u blobs zijn complex en u niet kiezen *JSON regels* als één document parseren modus en de volledige blob wordt opgenomen.
    
 + **Storage-container** moet uw opslagaccount en container of een verbindingsreeks die wordt omgezet naar de container opgeven. Op de portalpagina van Blob service krijgt u verbindingsreeksen.
 
@@ -116,12 +124,13 @@ Gebruik voor de code op basis van JSON indexeren, [Postman](search-fiddler.md) e
 
 In tegenstelling tot de wizard beheerportal een code-benadering vereist dat u een index hebt in-place, klaar om te accepteren van de JSON-documenten bij het verzenden van de **indexeerfunctie maken** aanvraag.
 
-JSON-blobs in Azure Blob-opslag zijn doorgaans een enkele JSON-document of een JSON-matrix. De bouw, afhankelijk van hoe u ingesteld kan worden geparseerd in de blob-indexeerfunctie in Azure Search de **parsingMode** parameter voor de aanvraag.
+JSON-blobs in Azure Blob-opslag zijn doorgaans een enkele JSON-document of een JSON 'matrix'. De bouw, afhankelijk van hoe u ingesteld kan worden geparseerd in de blob-indexeerfunctie in Azure Search de **parsingMode** parameter voor de aanvraag.
 
 | JSON-document | parsingMode | Description | Beschikbaarheid |
 |--------------|-------------|--------------|--------------|
-| Een per-blob | `json` | Geparseerd JSON-blobs als één segment van de tekst. Elk JSON-blob wordt één Azure Search-document. | Algemeen beschikbaar in zowel [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) en [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) API's. |
-| Meerdere per blob | `jsonArray` | Een JSON-matrix in de blob, waarbij elk element van de matrix een afzonderlijke Azure Search-document wordt geparseerd.  | Algemeen beschikbaar in zowel [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) en [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) API's. |
+| Een per-blob | `json` | Geparseerd JSON-blobs als één segment van de tekst. Elk JSON-blob wordt één Azure Search-document. | Algemeen beschikbaar in zowel [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API en [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
+| Meerdere per blob | `jsonArray` | Een JSON-matrix in de blob, waarbij elk element van de matrix een afzonderlijke Azure Search-document wordt geparseerd.  | Beschikbaar in preview in beide [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API en [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
+| Meerdere per blob | `jsonLines` | Een blob die meerdere JSON-entiteiten (een ' matrix' bevat) gescheiden door een nieuwe regel, waarbij elke entiteit een afzonderlijke Azure Search-document wordt worden geparseerd. | Beschikbaar in preview in beide [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API en [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 - invoer voor de aanvraag samenvoegen
 
@@ -208,12 +217,16 @@ Tot nu toe zijn definities voor de gegevensbron en index parsingMode neutraal. E
 
 + Stel **parsingMode** naar `json` indexeren van elke blob als één document.
 
-+ Stel **parsingMode** naar `jsonArray` als uw blobs bestaan uit JSON-matrices en moet u elk element van de matrix om te worden van een afzonderlijke document in Azure Search. U kunt een document zien als één item in de zoekresultaten. Als u wilt dat elk element in de matrix worden weergegeven in zoekresultaten als onafhankelijk item, gebruikt u de `jsonArray` optie.
++ Stel **parsingMode** naar `jsonArray` als uw blobs bestaan uit JSON-matrices en moet u elk element van de matrix om te worden van een afzonderlijke document in Azure Search. 
 
-JSON-matrices, kunt u een document-basis waarmee wordt aangegeven waar de matrix wordt geplaatst in de blob instellen als de matrix als een eigenschap op lagere niveaus bestaat.
++ Stel **parsingMode** naar `jsonLines` als uw blobs bestaan uit meerdere JSON-entiteiten, die worden gescheiden door een nieuwe regel, en moet u elke entiteit om te worden van een afzonderlijke document in Azure Search.
+
+U kunt een document zien als één item in de zoekresultaten. Als u wilt dat elk element in de matrix worden weergegeven in zoekresultaten als onafhankelijk item, gebruikt u de `jsonArray` of `jsonLines` optie waar nodig.
+
+In het definitie van de indexeerfunctie, kunt u eventueel gebruiken [veldtoewijzingen](search-indexer-field-mappings.md) om te kiezen welke eigenschappen van de bron-JSON-document worden gebruikt om uw doel search-index te vullen. Voor `jsonArray` parseermodus, als de matrix als een eigenschap op lager niveau bestaat, kunt u een document-basis waarmee wordt aangegeven waar de matrix wordt geplaatst in de blob instellen.
 
 > [!IMPORTANT]
-> Bij het gebruik `json` of `jsonArray` parseermodus, Azure Search wordt ervan uitgegaan dat alle blobs in uw gegevensbron JSON bevatten. Als u nodig hebt ter ondersteuning van een combinatie van JSON en niet-JSON-blobs in de dezelfde gegevensbron, laat het ons weten op [onze UserVoice-site](https://feedback.azure.com/forums/263029-azure-search).
+> Bij het gebruik `json`, `jsonArray` of `jsonLines` parseermodus, Azure Search wordt ervan uitgegaan dat alle blobs in uw gegevensbron JSON bevatten. Als u nodig hebt ter ondersteuning van een combinatie van JSON en niet-JSON-blobs in de dezelfde gegevensbron, laat het ons weten op [onze UserVoice-site](https://feedback.azure.com/forums/263029-azure-search).
 
 
 ### <a name="how-to-parse-single-json-blobs"></a>Het parseren van één JSON-blobs
@@ -232,7 +245,7 @@ De blob-indexeerfunctie parseert het JSON-document in een Azure Search-document.
 
 Veldtoewijzingen zijn niet vereist, zoals is vermeld. Gegeven van een index met 'tekst', ' datePublished en 'tags' velden en de blob indexeerfunctie kunt afleiden van de juiste toewijzing zonder een veldtoewijzing aanwezig zijn in de aanvraag.
 
-### <a name="how-to-parse-json-arrays"></a>Het parseren van JSON-matrices
+### <a name="how-to-parse-json-arrays-in-a-well-formed-json-document"></a>Het parseren van JSON-matrices in een opgemaakte JSON-document
 
 U kunt ook kiezen voor de functie voor JSON-matrix. Deze mogelijkheid is nuttig wanneer blobs bevatten een *matrix met JSON-objecten*, en u wilt dat elk element om te worden van een afzonderlijke Azure Search-document. Bijvoorbeeld, kunt uitgaande van de volgende JSON-blob, u vullen uw Azure Search-index met drie afzonderlijke documenten, elk met velden 'id' en 'tekst'.  
 
@@ -281,7 +294,31 @@ Deze configuratie gebruiken om te indexeren van de matrix die is opgenomen in de
         "parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
     }
 
-### <a name="field-mappings"></a>Veldtoewijzingen
+### <a name="how-to-parse-blobs-with-multiple-json-entities-separated-by-newlines"></a>Het parseren van blobs met meerdere JSON-entiteiten, gescheiden door nieuwe regels
+
+Als uw blob meerdere JSON-entiteiten bevat, gescheiden door een nieuwe regel en u voor elk element in om te worden van een afzonderlijke Azure Search-document wilt, kunt u zich voor de functie van de JSON-regels. Bijvoorbeeld, krijgt de volgende blob (indien er drie verschillende entiteiten in de JSON zijn), kunt u uw Azure Search-index met drie seprate documenten, elk met 'id' en 'tekst' velden invullen.
+
+    { "id" : "1", "text" : "example 1" }
+    { "id" : "2", "text" : "example 2" }
+    { "id" : "3", "text" : "example 3" }
+
+Voor een JSON-regels, moet definitie van de indexeerfunctie lijken op het volgende voorbeeld. U ziet dat de parameter parsingMode geeft u de `jsonLines` parser. 
+
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      "name" : "my-json-indexer",
+      "dataSourceName" : "my-blob-datasource",
+      "targetIndexName" : "my-target-index",
+      "schedule" : { "interval" : "PT2H" },
+      "parameters" : { "configuration" : { "parsingMode" : "jsonLines" } }
+    }
+
+Nogmaals, ziet u dat veldtoewijzingen weggelaten, vergelijkbaar met worden kunnen de `jsonArray` parseermodus.
+
+### <a name="using-field-mappings-to-build-search-documents"></a>U veldtoewijzingen voor het bouwen van documenten zoeken
 
 Als bron en doel-velden zijn niet perfect uitgelijnd, kunt u een sectie met toewijzing in de hoofdtekst van de aanvraag voor koppelingen met expliciete veld te definiëren.
 

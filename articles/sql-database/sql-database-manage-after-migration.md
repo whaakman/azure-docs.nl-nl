@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 148dff16d56755755f71e24e658e29c116ac5df1
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 2b8c35450ab4586f619993aeb9a578c83cafc0c6
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417632"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216931"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nieuwe DBA in de cloud, uw één en gepoolde databases in Azure SQL Database beheren
 
@@ -261,9 +261,9 @@ U kunt een query de [sys.dm_db_resource_stats](/sql/relational-databases/system-
 
 ![Inzicht in queryprestaties](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
-#### <a name="azure-sql-analytics-preview-in-log-analytics"></a>Azure SQL Analytics (Preview) in Log Analytics
+#### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Azure SQL Analytics (Preview) in Azure Monitor-Logboeken
 
-[Azure Log Analytics](../azure-monitor/insights/azure-sql.md) kunt u voor het verzamelen en visualiseren van de belangrijkste prestatiegegevens voor Azure SQL Azure, ondersteuning biedt voor maximaal 150.000 SQL-Databases en 5000 elastische SQL-pools per werkruimte. U kunt deze gebruiken om te controleren en meldingen ontvangen. U kunt controleren op SQL-Database en elastische pool metrische gegevens op meerdere Azure-abonnementen en elastische pools en kan worden gebruikt voor het identificeren van problemen in elke laag van een toepassingsstack.
+[Logboeken in Azure Monitor](../azure-monitor/insights/azure-sql.md) kunt u voor het verzamelen en visualiseren van de belangrijkste prestatiegegevens voor Azure SQL Azure, ondersteuning biedt voor maximaal 150.000 SQL-Databases en 5000 elastische SQL-pools per werkruimte. U kunt deze gebruiken om te controleren en meldingen ontvangen. U kunt controleren op SQL-Database en elastische pool metrische gegevens op meerdere Azure-abonnementen en elastische pools en kan worden gebruikt voor het identificeren van problemen in elke laag van een toepassingsstack.
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Ik ben dat u prestatieproblemen kunnen voordoen: Hoe verschilt mijn probleemoplossing methodologie SQL-Database van SQL Server
 

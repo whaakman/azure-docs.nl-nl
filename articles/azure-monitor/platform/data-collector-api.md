@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: bwren
-ms.openlocfilehash: d2bf55129465a607fdc3bce3bd1735642c64e428
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 79adde06e3a21e2fb8999d41ec113b61aa328ef5
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237923"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241371"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Logboekgegevens verzenden naar Azure Monitor met de HTTP Data Collector-API (preview-versie)
 Dit artikel leest u hoe de API HTTP Data Collector gebruikt om te verzenden van logboekgegevens naar Azure Monitor van een REST-API-client.  Dit wordt beschreven hoe u gegevens die zijn verzameld door het script of een toepassing opmaken, opnemen in een aanvraag en die aanvraag heeft geautoriseerd door Azure Monitor.  Voorbeelden zijn bedoeld voor PowerShell, C# en Python.
@@ -465,6 +465,15 @@ def post_data(customer_id, shared_key, body, log_type):
 
 post_data(customer_id, shared_key, body, log_type)
 ```
+## <a name="alternatives-and-considerations"></a>Alternatieven en overwegingen
+De Collector-API moet beslaat van uw behoeften voor het verzamelen van vrije-gegevens in Azure-Logboeken, maar er zijn gevallen waarbij alternatief nodig zijn om het oplossen van enkele van de beperkingen van de API. Alle uw opties zijn als volgt de belangrijkste zaken die zijn opgenomen:
+
+| Alternatieve | Description | Het meest geschikt voor |
+|---|---|---|
+| [Aangepaste gebeurtenissen](https://docs.microsoft.com/en-us/azure/azure-monitor/app/api-custom-events-metrics?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Systeemeigen SDK op basis van opname in Application Insights | Application Insights, doorgaans geïnstrumenteerd via een SDK in uw toepassing, biedt de mogelijkheid voor u om aangepaste gegevens door middel van aangepaste gebeurtenissen te verzenden. | <ul><li> Gegevens die is gegenereerd in uw toepassing, maar niet zijn doorgevoerd door SDK via een van de standaard-gegevenstypen (ie: aanvragen, afhankelijkheden, uitzonderingen, enzovoort).</li><li> Gegevens die vaak wordt gecorreleerd met de andere toepassingsgegevens in Application Insights </li></ul> |
+| [Gegevensverzamelaar-API](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) in Logboeken van Azure Monitor | De Collector-API in Azure Monitor-Logboeken is een volledig mogelijkheden voor opname van gegevens. Geen gegevens ingedeeld in een JSON-object kunnen hier worden verzonden. Als verzonden, wordt verwerkt en beschikbaar zijn in Logboeken om te worden gecorreleerd met andere gegevens in Logboeken of op basis van andere Application Insights gegevens. <br/><br/> Het is redelijk eenvoudig de gegevens te uploaden als bestanden naar een Azure Blob-blob uit waar deze bestanden worden verwerkt en geüpload naar Log Analytics. Raadpleeg [dit](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) artikel voor een Voorbeeldimplementatie van dergelijke een pijplijn. | <ul><li> Gegevens die niet noodzakelijkerwijs worden gegenereerd in een toepassing die is geïnstrumenteerd in Application Insights.</li><li> Voorbeelden zijn onder meer lookup-en feitentabellen, referentiegegevens, vooraf samengevoegde statistieken, enzovoort </li><li> Bedoeld voor gegevens die op basis van andere Azure Monitor-gegevens (bijvoorbeeld Application Insights, andere gegevenstypen Logboeken, Security Center, Azure-Monitor voor Containers/VM's, enzovoort) waarnaar wordt verwezen. </li></ul> |
+| [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview) | Azure Data Explorer (ADX) is het gegevensplatform dat wordt gebruikt door Application Insights Analytics en logboeken van Azure Monitor. Nu biedt algemeen beschikbaar ('GA'), met behulp van het gegevensplatform in ruwe vorm u volledige flexibiliteit (maar waarvoor de overhead van het management) ten opzichte van het cluster (RBAC, Retentiepercentage, schema, enzovoort). ADX biedt veel [opname opties](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview#ingestion-methods) inclusief [CSV, TSV en JSON](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master) bestanden. | <ul><li> Gegevens die niet wordt worden gecorreleerd met andere gegevens in Application Insights of de logboeken. </li><li> Gegevens vereisen geavanceerde opname of vandaag nog niet beschikbaar in Logboeken van Azure Monitor-verwerkingsmogelijkheden. </li></ul> |
+
 
 ## <a name="next-steps"></a>Volgende stappen
 - Gebruik de [Log Search API](../log-query/log-query-overview.md) voor het ophalen van gegevens vanuit de Log Analytics-werkruimte.

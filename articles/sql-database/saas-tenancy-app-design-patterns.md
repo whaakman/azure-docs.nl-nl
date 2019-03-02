@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 2775ceb3cf27b6feedfd73cd43855204490ebc31
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d55d8f8f945e30402cb772c7e26b234e3e460698
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471195"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217866"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Multitenant SaaS-patronen voor databases-tenants
 
@@ -99,7 +99,7 @@ Wanneer databases zijn geïmplementeerd in dezelfde resourcegroep bevinden, kunn
 
 ![Ontwerp van multitenant-app met database-per-tenant, met behulp van de elastische pool.][image-mt-app-db-per-tenant-pool-153p]
 
-Azure SQL Database biedt de hulpprogramma's die nodig zijn om te configureren, bewaken en beheren van het delen.  De metrische gegevens voor beide toepassingen op serverniveau en databaseniveau prestaties zijn beschikbaar in Azure portal, en via Log Analytics.  De metrische gegevens krijgt fantastische inzichten in aggregeren en tenant-specifieke prestaties.  Afzonderlijke databases kunnen worden verplaatst tussen groepen voor gereserveerde bronnen voor een specifieke tenant.  Deze hulpprogramma's kunnen u om ervoor te zorgen goede prestaties op een voordelige manier.
+Azure SQL Database biedt de hulpprogramma's die nodig zijn om te configureren, bewaken en beheren van het delen.  De metrische gegevens voor beide toepassingen op serverniveau en databaseniveau prestaties zijn beschikbaar in Azure portal en via Azure Monitor-Logboeken.  De metrische gegevens krijgt fantastische inzichten in aggregeren en tenant-specifieke prestaties.  Afzonderlijke databases kunnen worden verplaatst tussen groepen voor gereserveerde bronnen voor een specifieke tenant.  Deze hulpprogramma's kunnen u om ervoor te zorgen goede prestaties op een voordelige manier.
 
 #### <a name="operations-scale-for-database-per-tenant"></a>Schaal van de bewerkingen voor de database-per-tenant
 

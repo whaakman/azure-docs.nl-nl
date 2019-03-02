@@ -15,12 +15,12 @@ ums.workload: na
 ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 93a4595ce0b36c8d0f447177bda69d2d8cab12c8
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: a8b792ee7731a9994ded76ef1614fc3966d033d0
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117525"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243802"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure-Logboekintegratie met Azure Diagnostics-logboeken en Windows event forwarding
 
@@ -248,5 +248,5 @@ Zie voor meer informatie over Azure-Logboekintegratie, de volgende artikelen: Vo
 * [Inleiding tot Azure-Logboekintegratie](security-azure-log-integration-overview.md). In dit artikel vindt u Azure-Logboekintegratie, de belangrijkste mogelijkheden en hoe het werkt.
 * [Stappen voor het configureren van partners](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/). Dit blogbericht wordt beschreven hoe u Azure-Logboekintegratie om te werken met oplossingen van partners Splunk, HP ArcSight en IBM QRadar configureren. Hierin wordt beschreven onze huidige richtlijnen over het configureren van de SIEM-onderdelen. Neem contact op met de leverancier van uw SIEM voor meer informatie.
 * [Veelgestelde vragen (FAQ) Azure-Logboekintegratie](security-azure-log-integration-faq.md). Deze Veelgestelde vragen vindt u antwoorden op veelgestelde vragen over Azure-Logboekintegratie.
-* [Azure Security Center-waarschuwingen integreren met Azure-Logboekintegratie](../security-center/security-center-integrating-alerts-with-log-integration.md). Dit artikel leest u hoe u wilt synchroniseren van waarschuwingen van Beveiligingscentrum en VM-beveiligingsgebeurtenissen die worden verzameld door Azure Diagnostics en Azure-activiteit Logboeken. U kunt de logboeken synchroniseren met behulp van uw Azure Log Analytics of SIEM-oplossing.
+* [Azure Security Center-waarschuwingen integreren met Azure-Logboekintegratie](../security-center/security-center-integrating-alerts-with-log-integration.md). Dit artikel leest u hoe u wilt synchroniseren van waarschuwingen van Beveiligingscentrum en VM-beveiligingsgebeurtenissen die worden verzameld door Azure Diagnostics en Azure-activiteit Logboeken. U kunt de logboeken synchroniseren met behulp van de logboeken van Azure Monitor of de SIEM-oplossing.
 * [Nieuwe functies voor Azure Diagnostics en Azure-auditlogboeken](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/). Dit blogbericht bevat een inleiding tot Azure-auditlogboeken en andere functies die u kunnen helpen meer inzicht krijgen in de bewerkingen van uw Azure-resources.

@@ -4,7 +4,7 @@ description: Leer hoe u een App Service-certificaat kopen en te binden aan uw Ap
 services: app-service
 documentationcenter: .net
 author: cephalin
-manager: cfowler
+manager: jpconnoc
 tags: buy-ssl-certificates
 ms.assetid: cdb9719a-c8eb-47e5-817f-e15eaea1f5f8
 ms.service: app-service
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b569165153ce713846be5e836a26f48e500be1fc
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 3e113639dbe4220b943d49dc610ee22b6416e12a
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594131"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216574"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Kopen en configureren van een SSL-certificaat voor Azure App Service
 
@@ -121,28 +121,35 @@ Gebruik de volgende tabel om u te helpen u bij het configureren van de binding i
 
 Ga naar uw app met `HTTPS://<domain_name>` in plaats van `HTTP://<domain_name>` om te verifiëren dat het certificaat correct is geconfigureerd.
 
-## <a name="rekey-and-sync-certificate"></a>Opnieuw versleutelen en synchroniseren certificaat
+## <a name="rekey-certificate"></a>Certificaat opnieuw versleutelen
 
-Als u ooit moet u uw certificaat opnieuw versleutelen, selecteert u het certificaat in de [App Service-certificaten](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) pagina en selecteer vervolgens **opnieuw versleutelen en synchroniseren** in de linkernavigatiebalk.
+Als u denkt dat uw certificaat's persoonlijke sleutel is aangetast, kunt u uw certificaat opnieuw versleutelen. Selecteer het certificaat in de [App Service-certificaten](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) pagina en selecteer vervolgens **opnieuw versleutelen en synchroniseren** in de linkernavigatiebalk.
 
-Klik op **opnieuw versleutelen** knop om het proces te starten. Dit proces kan 1-10 minuten duren.
+Klik op **opnieuw versleutelen** om het proces te starten. Dit proces kan 1-10 minuten duren.
 
 ![afbeelding van SSL opnieuw versleutelen invoegen](./media/app-service-web-purchase-ssl-web-site/Rekey.png)
 
 Uw certificaat opnieuw genereren van sleutels, wordt het certificaat met een nieuw certificaat is uitgegeven door de certificeringsinstantie getotaliseerd.
 
+Nadat de bewerking opnieuw versleutelen voltooid is, klikt u op **synchronisatie**. De synchronisatiebewerking automatisch bijgewerkt met de hostnaambindingen voor het certificaat in App Service zonder eventuele uitvaltijd voor uw apps.
+
+> [!NOTE]
+> Als u niet op **synchronisatie**, App Service automatisch worden gesynchroniseerd met uw certificaat binnen 48 uur.
+
 ## <a name="renew-certificate"></a>Certificaat vernieuwen
 
-Als u wilt inschakelen voor de automatische vernieuwing van uw certificaat op elk gewenst moment, selecteert u het certificaat in de [App Service-certificaten](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) pagina en klik vervolgens op **instellingen voor automatisch verlengen** in het linkernavigatievenster. 
+Als u wilt inschakelen voor de automatische vernieuwing van uw certificaat op elk gewenst moment, selecteert u het certificaat in de [App Service-certificaten](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) pagina en klik vervolgens op **instellingen voor automatisch verlengen** in het linkernavigatievenster.
 
 Selecteer **op** en klikt u op **opslaan**. Certificaten kunnen beginnen met 60 dagen voordat het verloopt automatisch vernieuwen als u ingeschakeld voor de automatische vernieuwing hebt.
 
-![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
+![certificaat automatisch vernieuwen](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
 
 Als u wilt handmatig vernieuwen van het certificaat in plaats daarvan, klikt u op **handmatig verlengen**. U kunt aanvragen naar uw certificaat handmatig vernieuwen 60 dagen voordat het verloopt.
 
+Nadat de bewerking voor verlengen voltooid is, klikt u op **synchronisatie**. De synchronisatiebewerking automatisch bijgewerkt met de hostnaambindingen voor het certificaat in App Service zonder eventuele uitvaltijd voor uw apps.
+
 > [!NOTE]
-> De vernieuwde certificaat is niet automatisch gebonden aan uw app, of u deze handmatig wordt verlengd of het automatisch vernieuwd. Als u wilt koppelen aan uw app, Zie [certificaten vernieuwen](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
+> Als u niet op **synchronisatie**, App Service automatisch worden gesynchroniseerd met uw certificaat binnen 48 uur.
 
 ## <a name="automate-with-scripts"></a>Automatiseren met scripts
 

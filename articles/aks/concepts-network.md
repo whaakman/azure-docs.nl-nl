@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 7de97097e9678410537895c3bafc48d67809331e
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 360caaec0033136ffa250d636864fbed8359b8ef
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594165"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244228"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Netwerkconcepten voor toepassingen in Azure Kubernetes Service (AKS)
 
@@ -23,7 +23,7 @@ In dit artikel worden de belangrijkste concepten waarmee u toegang tot uw toepas
 - [Services](#services)
 - [Virtuele netwerken van Azure](#azure-virtual-networks)
 - [Inkomend verkeer domeincontrollers](#ingress-controllers)
-- Beleid voor netwerken
+- [Beleid voor netwerken](#network-policies)
 
 ## <a name="kubernetes-basics"></a>Basisbeginselen voor Kubernetes
 
@@ -68,7 +68,7 @@ In AKS implementeert u een cluster dat gebruik maakt van een van de volgende twe
 
 De *kubenet* optie netwerken is de standaardconfiguratie voor het AKS-cluster maken. Met *kubenet*, knooppunten een IP-adres ophalen uit het subnet van de Azure-netwerk. Schillen ontvangen een IP-adres van een logisch verschillende adresruimte op het subnet van de Azure-netwerk van de knooppunten. Netwerkadresomzetting (NAT) wordt vervolgens geconfigureerd zodat de schillen bronnen op het Azure-netwerk kunnen bereiken. De bron-IP-adres van het verkeer is dat NAT wilt aan de primaire IP-adres van het knooppunt oplossen.
 
-Knooppunten maken gebruik van de [kubenet] [ kubenet] Kubernetes-invoegtoepassing. U kunt het Azure-platform maken en configureren van de virtuele netwerken voor u of uw AKS-cluster in een bestaand virtueel netwerksubnet implementeren. Opnieuw gebruiken alleen de knooppunten die zijn ontvangen van een routeerbaar IP-adres en de schillen NAT om te communiceren met andere resources buiten het AKS-cluster. Deze aanpak vermindert aanzienlijk het aantal IP-adressen die u reserveren in de adresruimte van uw netwerk voor pods wilt te gebruiken.
+Knooppunten maken gebruik van de [kubenet] [ kubenet] Kubernetes-invoegtoepassing. U kunt het Azure-platform maken en configureren van de virtuele netwerken voor u of uw AKS-cluster in een bestaand virtueel netwerksubnet implementeren. Nogmaals, alleen de knooppunten ontvangen een routeerbaar IP-adres en de schillen NAT gebruiken om te communiceren met andere resources buiten het AKS-cluster. Deze aanpak vermindert aanzienlijk het aantal IP-adressen die u reserveren in de adresruimte van uw netwerk voor pods wilt te gebruiken.
 
 Zie voor meer informatie, [kubenet netwerken voor een AKS-cluster configureren][aks-configure-kubenet-networking].
 
@@ -104,8 +104,6 @@ Een andere algemene functie van inkomend verkeer is SSL/TLS-beëindiging. Op gro
 
 Een netwerkbeveiligingsgroep filtert het verkeer voor virtuele machines, zoals de AKS-knooppunten. Bij het maken van Services, zoals een Load Balancer, configureert het Azure-platform automatisch alle regels voor netwerkbeveiligingsgroepen die nodig zijn. Geen regels voor netwerkbeveiligingsgroepen om te filteren van verkeer voor schillen in een AKS-cluster handmatig configureren. Alle vereiste poorten en doorsturen via definiëren als onderdeel van de manifesten voor uw Kubernetes-Service en laat het Azure-platform maken of bijwerken van de juiste regels. U kunt ook gebruiken netwerkbeleid, zoals beschreven in de volgende sectie, automatisch toepassen van regels voor netwerkverkeer filteren op schillen.
 
-Standaard netwerkbeveiligingsgroep regels bestaan voor zoals SSH-verkeer. Deze standaardregels zijn voor Clusterbeheer en oplossen van problemen. Deze standaardregels verwijderen kan leiden tot problemen met AKS management en verbreekt u de serviceniveaudoelstelling (SLO).
-
 ## <a name="network-policies"></a>Beleid voor netwerken
 
 Standaard kunnen alle schillen in een AKS-cluster verzonden en ontvangen van verkeer zonder beperkingen. Voor betere beveiliging, kunt u regels definiëren die de stroom van het verkeer te regelen. Back-endtoepassingen vaak alleen zichtbaar zijn voor de vereiste front-end-services of databaseonderdelen zijn alleen toegankelijk is voor de toepassingslagen die verbinding met deze maken.
@@ -117,6 +115,8 @@ Zie voor meer informatie, [beveiliging van verkeer tussen schillen met behulp va
 ## <a name="next-steps"></a>Volgende stappen
 
 Aan de slag met AKS netwerken, maken en configureren van een AKS-cluster met uw eigen IP-adresbereiken met behulp van [kubenet] [ aks-configure-kubenet-networking] of [Azure CNI] [ aks-configure-advanced-networking].
+
+Zie voor de bijbehorende best practices, [aanbevolen procedures voor verbinding met het netwerk en beveiliging in AKS][operator-best-practices-network].
 
 Zie de volgende artikelen voor meer informatie over core Kubernetes en concepten voor AKS:
 
@@ -148,3 +148,4 @@ Zie de volgende artikelen voor meer informatie over core Kubernetes en concepten
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-identity]: concepts-identity.md
 [use-network-policies]: use-network-policies.md
+[operator-best-practices-network]: operator-best-practices-network.md

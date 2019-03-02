@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: cabfe4381f7f941f2a5e049eed73be546902f6ae
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: dd811a48d6f3f1061bad49a81b7e833dcb40e1e3
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55485344"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241286"
 ---
 # <a name="use-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Berichtroutering gebruik apparaat-naar-cloud-berichten te verzenden naar verschillende eindpunten
 
@@ -101,7 +101,7 @@ In de meeste gevallen is de gemiddelde toename in latentie van minder dan 500ms.
 
 IoT Hub biedt verschillende Routering en eindpunt verwante metrische gegevens waarin u een overzicht van de status van uw hub en de berichten die worden verzonden. U kunt gegevens uit meerdere metrische gegevens om de hoofdoorzaak van problemen vast te combineren. Gebruik bijvoorbeeld de statistiek voor **routering: telemetrieberichten verwijderd** of **d2c.telemetry.egress.dropped** voor het identificeren van het aantal berichten dat is verwijderd als ze niet overeenkomen met de query's op een van de routes en alternatieve route is uitgeschakeld. [Metrische gegevens van IoT-Hub](iot-hub-metrics.md) geeft een lijst van alle metrische gegevens die zijn standaard ingeschakeld voor uw IoT-Hub.
 
-Met behulp van de **routes** diagnostische logboeken in Azure Monitor [diagnostische instellingen](../iot-hub/iot-hub-monitor-resource-health.md), kunt u de nummers fouten die tijdens de evaluatie van een routering query- en eindpunt status optreden zoals waargenomen door de IoT-Hub, bijvoorbeeld een eindpunt is als inactief. Deze logboeken met diagnostische gegevens kunnen worden verzonden naar Log Analytics, Event Hubs of Azure Storage voor aangepaste verwerking.
+Met behulp van de **routes** diagnostische logboeken in Azure Monitor [diagnostische instellingen](../iot-hub/iot-hub-monitor-resource-health.md), kunt u de nummers fouten die tijdens de evaluatie van een routering query- en eindpunt status optreden zoals waargenomen door de IoT-Hub, bijvoorbeeld een eindpunt is als inactief. Deze logboeken met diagnostische gegevens kunnen worden verzonden naar Azure Monitor-Logboeken, Event Hubs of Azure Storage voor aangepaste verwerking.
 
 ## <a name="next-steps"></a>Volgende stappen
 

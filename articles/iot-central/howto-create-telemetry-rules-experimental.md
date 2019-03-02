@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1d6f43b23bddf2d1ff7a2a41a11b4a2c8623d372
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: c8cba4006d1112ccc1529fc1769e046fe45468a7
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768620"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214177"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Maak een regel Telemetrie en meldingen in uw Azure IoT Central-toepassing instellen
 
@@ -27,14 +27,9 @@ Apparaten kunnen telemetrie meting gebruiken voor het verzenden van numerieke ge
 
 De apparaat-sjabloon moet ten minste één telemetrie meting gedefinieerd hebben voor het maken van een telemetrie-regel. Dit voorbeeld wordt een gekoeld Verkoopautomaat-apparaat dat de temperatuur en vochtigheid telemetrie verzendt. De regel controleert de door het apparaat gemelde temperatuur en een e-mailbericht wordt verzonden wanneer het gaat dan 80 graden.
 
-1. Gebruik Device Explorer, Ga naar de sjabloon van het apparaat waarvoor u de regel voor het toevoegen.
+1. Met behulp van de **Apparaatsjablonen** pagina, gaat u naar de sjabloon van het apparaat waarvoor u de regel voor het toevoegen.
 
-1. Klik op een bestaand apparaat onder de geselecteerde sjabloon. 
-
-    >[!TIP]
-    >Als de sjabloon niet apparaten hebt en voeg eerst een nieuw apparaat toe.
-
-1. Als u geen regels nog gemaakt nog, ziet u het volgende scherm:
+1. Als u dit nog niet hebt nog geen regels gemaakt, ziet u het volgende scherm:
 
     ![Nog geen regels](media/howto-create-telemetry-rules-experimental/Rules_Landing_Page.png)
 
@@ -60,11 +55,11 @@ Voorwaarde definieert de criteria die wordt bewaakt door de regel.
 
 1. Selecteer de telemetrie die u controleren wilt in de **meting** vervolgkeuzelijst.
 
-   ![Voorwaarde](media/howto-create-telemetry-rules-experimental/Aggregate_Condition_Filled_Out.png)
-
 1. Kies vervolgens **aggregatie**, **Operator**, en geef een **drempelwaarde** waarde.
-    - Aggregatie is optioneel. Zonder aggregatie, de regel wordt geactiveerd voor elk gegevenspunt telemetrie die aan de voorwaarde voldoet. Bijvoorbeeld, als de regel is geconfigureerd om te activeren wanneer temperatuur hoger is dan 80 en vervolgens de regel wordt geactiveerd vrijwel direct wanneer het apparaat temperatuur > 80 rapporteert.
+    - Aggregatie is optioneel. Zonder aggregatie, de regel wordt geactiveerd voor elk gegevenspunt telemetrie die aan de voorwaarde voldoet. Bijvoorbeeld, als de regel is geconfigureerd voor de trigger wanneer de temperatuur hoger is dan 80 en de regel wordt geactiveerd, vervolgens bijna onmiddellijk wanneer het apparaat rapporteert temperatuur > 80.
     - Als een statistische functie, zoals gemiddelde, minimum, maximum, aantal gekozen vervolgens de gebruiker moet opgeven een **cumulatieve tijdvenster** over waarop de voorwaarde moet worden geëvalueerd. Als u de periode van '5 minuten' en de regel ziet er bijvoorbeeld voor de gemiddelde temperatuur hoger 80, de regel wordt geactiveerd wanneer de gemiddelde temperatuur hoger dan 80 voor ten minste vijf minuten is. De evaluatiefrequentie regel is hetzelfde als de **cumulatieve tijdvenster**, wat betekent dat, in dit voorbeeld wordt de regel is geëvalueerd om de 5 minuten.
+
+    ![Voorwaarde](media/howto-create-telemetry-rules-experimental/Aggregate_Condition_Filled_Out.png)
 
     >[!NOTE]
     >Meer dan één telemetrie meting kan worden toegevoegd onder **voorwaarde**. Wanneer meerdere voorwaarden zijn opgegeven, moeten aan de voorwaarden worden voldaan om de regel te activeren. Elke voorwaarde wordt impliciet gekoppeld door een 'En'-component. Wanneer u statistische functie gebruikt, moet elke meting worden geaggregeerd.

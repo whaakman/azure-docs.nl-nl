@@ -3,17 +3,17 @@ title: Apparaat-connectiviteit controleren met behulp van Azure IoT Central Expl
 description: Bewaken van apparaat-berichten en bekijk device twin wijzigingen via de IoT Central Explorer CLI.
 author: viv-liu
 ms.author: viviali
-ms.date: 09/12/2018
+ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: e510cfbd89ab8dcd8dccd9a8b95a49a057c9b54f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: ace8eedf4b6f03c839fc2da7469e5e9c36bc5cae
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824100"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213327"
 ---
 # <a name="monitor-device-connectivity-using-the-azure-iot-central-explorer"></a>Apparaat-connectiviteit controleren met behulp van Azure IoT Central Explorer
 
@@ -21,59 +21,61 @@ ms.locfileid: "55824100"
 
 Zie uw apparaten bij IoT Central verzenden en houd rekening met wijzigingen op het dubbele IoT Hub-berichten met behulp van IoT Central Explorer CLI. Deze open-source-hulpprogramma kunt u beter inzicht krijgen in de status van de connectiviteit van apparaten en problemen van apparaat-berichten niet bereiken van de cloud of niet reageert op wijzigingen van de dubbele apparaten.
 
-## <a name="visit-the-iotc-explorer-repo-in-githubhttpsakamsiotciotcexplorercligithub"></a>[Ga naar de iotc-explorer-opslagplaats in GitHub](https://aka.ms/iotciotcexplorercligithub)
+[Ga naar de iotc-explorer-opslagplaats in GitHub.](https://aka.ms/iotciotcexplorercligithub)
 
 ## <a name="prerequisites"></a>Vereisten
-+ Node.js versie 8.x of hoger: https://nodejs.org
-+ U moet een beheerder van uw app voor het genereren van een toegangstoken voor gebruik in iotc-explorer ophalen
 
-## <a name="installing-iotc-explorer"></a>Iotc explorer installeren
++ Node.js versie 8.x of hoger: https://nodejs.org
++ Een beheerder van uw toepassing moet een toegangstoken voor gebruik in iotc-explorer genereren
+
+## <a name="install-iotc-explorer"></a>Installeer iotc-explorer
 
 Voer de volgende opdracht uit vanaf de opdrachtregel om te installeren:
 
-```
+```cmd/sh
 npm install -g iotc-explorer
 ```
 
 > [!NOTE]
-> Moet u meestal om uit te voeren van de installatieopdracht met `sudo` in Unix-achtige omgevingen.
+> Normaal gesproken moet u uitvoeren de installatieopdracht met `sudo` in Unix-achtige omgevingen.
 
-## <a name="running-iotc-explorer"></a>Actieve iotc-explorer
+## <a name="run-iotc-explorer"></a>Iotc explorer uitvoeren
 
-Hieronder volgen enkele opdrachten en de algemene opties die u uitvoeren kunt wanneer u `iotc-explorer`. Als u de volledige set opdrachten en opties, u kunt doorgeven `--help` naar `iotc-explorer` of een van de subopdrachten.
+De volgende secties worden veelgebruikte opdrachten en opties die u gebruiken kunt tijdens het uitvoeren van `iotc-explorer`. Als u de volledige set opdrachten en opties, doorgeven `--help` naar `iotc-explorer` of een van de subopdrachten.
 
 ### <a name="login"></a>Aanmelden
 
 Voordat u aan de slag gaat, moet u een beheerder van uw IoT Central-toepassing in een toegangstoken voor gebruik. De beheerder heeft de volgende stappen uit:
-1. Ga naar **beheer/toegangstokens**. 
-1. Klik op **genereren**.
+
+1. Navigeer naar **beheer** vervolgens **toegangstokens**.
+1. Klik op **Token genereren**.
     ![Schermafbeelding van pagina-token toegang](media/howto-use-iotc-explorer-experimental/accesstokenspage.png)
 
-1. Voer de Tokennaam van een, klikt u op **volgende**, en **Kopieer de waarde van het Token**.
+1. Voer de Tokennaam van een, klikt u op **volgende**, en vervolgens **kopie**.
     > [!NOTE]
-    > De waarde voor het token wordt alleen slechts één keer weergegeven, zodat deze moet worden gekopieerd voordat u het dialoogvenster te sluiten. Nadat u het dialoogvenster te sluiten, wordt er nooit opnieuw wordt weergegeven.
+    > De waarde voor token wordt alleen slechts één keer worden weergegeven, zodat deze moet worden gekopieerd voordat u het dialoogvenster te sluiten. Na het sluiten van het dialoogvenster, wordt deze nooit opnieuw weergegeven.
 
     ![Schermafbeelding van dialoogvenster-token toegang kopiëren](media/howto-use-iotc-explorer-experimental/copyaccesstoken.png)
 
-U kunt dit token vervolgens gebruiken voor aanmelding bij de CLI door uit te voeren:
+U kunt het token gebruiken voor aanmelding bij de CLI als volgt:
 
-```sh
+```cmd/sh
 iotc-explorer login "<Token value>"
 ```
 
-Als u niet hebt liever het token wordt bewaard in de geschiedenis van uw shell, kunt u het token out en deze in plaats daarvan opgeven wanneer u hierom wordt gevraagd:
+Als u liever geen het token wordt bewaard in de geschiedenis van uw shell, kunt u het token out en deze in plaats daarvan opgeven wanneer u hierom wordt gevraagd:
 
-```
+```cmd/sh
 iotc-explorer login
 ```
 
 ### <a name="monitor-device-messages"></a>Monitor voor apparaat-berichten
 
-U kunt controleren of de berichten die afkomstig zijn van een specifiek apparaat of alle apparaten in uw toepassing met de `monitor-messages` opdracht. Hiermee wordt een watcher wordt voortdurend nieuwe berichten uitvoer wanneer deze worden gestart.
+U kunt controleren of de berichten die afkomstig zijn van een specifiek apparaat of alle apparaten in uw toepassing met de `monitor-messages` opdracht. Met deze opdracht start een watcher die voortdurend nieuwe berichten uitvoert wanneer ze binnenkomen:
 
 Als u wilt bekijken van alle apparaten in uw toepassing, moet u de volgende opdracht uitvoeren:
 
-```
+```cmd/sh
 iotc-explorer monitor-messages
 ```
 
@@ -81,13 +83,13 @@ Uitvoer:
 
 ![uitvoer van de opdracht Monitor-berichten](media/howto-use-iotc-explorer-experimental/monitormessages.png)
 
-Als u wilt een specifiek apparaat bekijken, moet u alleen de apparaat-ID toevoegen aan het einde van de opdracht:
+Als u wilt een specifiek apparaat bekijken, moet u alleen de apparaat-id toevoegen aan het einde van de opdracht:
 
-```
+```cmd/sh
 iotc-explorer monitor-messages <your-device-id>
 ```
 
-U kunt ook de uitvoer van een machine geschikte indeling door toe te voegen van de opdracht hebben de `--raw` optie met de opdracht:
+U kunt ook een meer machine-vriendelijk-indeling van uitvoer door toe te voegen de `--raw` optie met de opdracht:
 
 ```
 iotc-explorer monitor-messages --raw
@@ -97,7 +99,7 @@ iotc-explorer monitor-messages --raw
 
 U kunt de `get-twin` opdracht voor het ophalen van de inhoud van het dubbele voor een apparaat met IoT Central. Voer de volgende opdracht uit om dit te doen:
 
-```
+```cmd/sh
 iotc-explorer get-twin <your-device-id>
 ```
 
@@ -107,9 +109,10 @@ Uitvoer:
 
 Net als bij `monitor-messages`, krijgt u een meer machine-vriendelijk uitvoer door door te geven de `--raw` optie:
 
-```
+```cmd/sh
 iotc-explorer get-twin <your-device-id> --raw
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-U hebt geleerd hoe u met de IoT Central Explorer, de voorgestelde volgende stap is om te verkennen [beheer van apparaten IoT Central](howto-manage-devices-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
+
+Nu dat u hebt geleerd hoe u met de IoT Central Explorer, de voorgestelde volgende stap is om te verkennen [beheer van apparaten IoT Central](howto-manage-devices-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).

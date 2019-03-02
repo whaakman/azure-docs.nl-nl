@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 0a0d003f3d78c6d18938e9c87dd4862f7429d55b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 4ef16a932eb50294ff3d1596873295d82f8d894e
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728689"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241474"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C#-script (.csx) referentie voor ontwikkelaars
 
@@ -376,7 +376,7 @@ Zie de sectie voor informatie over het uploaden van bestanden naar de map van uw
 De map waarin het scriptbestand functie wordt automatisch weergegeven voor wijzigingen in de assembly's. Als u wilt bekijken voor assembly wijzigingen in andere directory's, voeg deze toe aan de `watchDirectories` in lijst [host.json](functions-host-json.md).
 
 ## <a name="using-nuget-packages"></a>Met behulp van NuGet-pakketten
-Gebruik de NuGet-pakketten in een C# werken, upload een *function.proj* -bestand naar de map van de functie in het bestandssysteem van de functie-app. Hier volgt een voorbeeld *function.proj* -bestand dat wordt toegevoegd een verwijzing naar *Microsoft.ProjectOxford.Face* versie *1.1.0*:
+Het gebruik van NuGet-pakketten in een 2.x C# werken, upload een *function.proj* -bestand naar de map van de functie in het bestandssysteem van de functie-app. Hier volgt een voorbeeld *function.proj* -bestand dat wordt toegevoegd een verwijzing naar *Microsoft.ProjectOxford.Face* versie *1.1.0*:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -390,19 +390,36 @@ Gebruik de NuGet-pakketten in een C# werken, upload een *function.proj* -bestand
 </Project>
 ```
 
-Geef voor het gebruik van een aangepaste NuGet-feed, de feed in een *Nuget.Config* bestand in de hoofdmap van de functie-App. Zie voor meer informatie, [NuGet configureren gedrag](/nuget/consume-packages/configuring-nuget-behavior).
+Geef voor het gebruik van een aangepaste NuGet-feed, de feed in een *Nuget.Config* bestand in de hoofdmap van de functie-App. Zie voor meer informatie, [NuGet configureren gedrag](/nuget/consume-packages/configuring-nuget-behavior). 
 
-### <a name="using-a-extensionscsproj-file"></a>Met behulp van een bestand extensions.csproj
+> [!NOTE]
+> In 1.x C# functies, NuGet-pakketten zijn waarnaar wordt verwezen met een *project.json* in plaats van het bestand een *function.proj* bestand.
+
+Gebruik voor de 1.x-functies, een *project.json* in plaats daarvan het bestand. Hier volgt een voorbeeld *project.json* bestand: 
+
+```json
+{
+  "frameworks": {
+    "net46":{
+      "dependencies": {
+        "Microsoft.ProjectOxford.Face": "1.1.0"
+      }
+    }
+   }
+}
+```
+
+### <a name="using-a-functionproj-file"></a>Met behulp van een bestand function.proj
 
 1. De functie openen in de Azure-portal. De uitvoer van de installatie van pakket wordt weergegeven in het tabblad Logboeken.
-2. Het uploaden van een *extensions.csproj* bestand, gebruik een van de methoden die worden beschreven in de [het bijwerken van de functie app-bestanden](functions-reference.md#fileupdate) in het naslagonderwerp voor ontwikkelaars van Azure Functions.
-3. Na de *extensions.csproj* bestand is geüpload, ziet u uitvoer zoals in het volgende voorbeeld in de functie de streaming-logboek:
+2. Het uploaden van een *function.proj* bestand, gebruik een van de methoden die worden beschreven in de [het bijwerken van de functie app-bestanden](functions-reference.md#fileupdate) in het naslagonderwerp voor ontwikkelaars van Azure Functions.
+3. Na de *function.proj* bestand is geüpload, ziet u uitvoer zoals in het volgende voorbeeld in de functie de streaming-logboek:
 
 ```
 2018-12-14T22:00:48.658 [Information] Restoring packages.
 2018-12-14T22:00:48.681 [Information] Starting packages restore
 2018-12-14T22:00:57.064 [Information] Restoring packages for D:\local\Temp\9e814101-fe35-42aa-ada5-f8435253eb83\function.proj...
-2016-04-04T19:02:50.511 Restoring packages for D:\home\site\wwwroot\HttpTriggerCSharp1\extensions.csproj...
+2016-04-04T19:02:50.511 Restoring packages for D:\home\site\wwwroot\HttpTriggerCSharp1\function.proj...
 2018-12-14T22:01:00.844 [Information] Installing Newtonsoft.Json 10.0.2.
 2018-12-14T22:01:01.041 [Information] Installing Microsoft.ProjectOxford.Common.DotNetStandard 1.0.0.
 2018-12-14T22:01:01.140 [Information] Installing Microsoft.ProjectOxford.Face.DotNetStandard 1.0.0.

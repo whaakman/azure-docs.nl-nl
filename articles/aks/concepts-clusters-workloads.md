@@ -5,18 +5,18 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 7f964397b476d5a97ecdde0ae22bd6662a435e1a
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: d4293bf6a375f3e1a26c0c4fb50fcdc7bb5b8e8e
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456517"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243853"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes-belangrijkste concepten voor Azure Kubernetes Service (AKS)
 
-Als de ontwikkeling van toepassingen is verplaatst naar een benadering op basis van een container, wordt de noodzaak om te coördineren en beheren van de onderling verbonden bronnen belangrijk. Kubernetes is het toonaangevende platform waarmee u de mogelijkheid te bieden betrouwbare planning van fouttolerantie toepassingsworkloads. Azure Kubernetes Service (AKS) is een beheerde Kubernetes-aanbieding die verder vereenvoudigt de implementatie van toepassing op basis van een container en beheer.
+Als de ontwikkeling van toepassingen wordt verplaatst naar een benadering op basis van een container, is het belangrijk hoeft te coördineren en beheren van resources. Kubernetes is het toonaangevende platform waarmee u de mogelijkheid te bieden betrouwbare planning van fouttolerantie toepassingsworkloads. Azure Kubernetes Service (AKS) is een beheerde Kubernetes-aanbieding die verder vereenvoudigt de implementatie van toepassing op basis van een container en beheer.
 
 Dit artikel bevat de basisonderdelen van de Kubernetes-infrastructuur, zoals de *cluster master*, *knooppunten*, en *knooppuntgroepen*. Workload-resources zoals *schillen*, *implementaties*, en *ingesteld* ook geïntroduceerd, samen met het om resources te groeperen in *naamruimten*.
 
@@ -52,9 +52,11 @@ Het cluster-model bevat de volgende basisonderdelen voor Kubernetes:
 
 AKS biedt een cluster met één tenant-model, met een eigen API-server, Scheduler, enzovoort. U definieert het aantal en de grootte van de knooppunten en het Azure-platform configureert de veilige communicatie tussen de cluster-model en de knooppunten. Interactie met de cluster-master vindt plaats via Kubernetes APIs, zoals `kubectl` of het Kubernetes-dashboard.
 
-Dit model beheerd cluster betekent dat u niet wilt configureren van onderdelen, zoals een maximaal beschikbare *etcd* store, maar dit betekent ook dat u kan niet rechtstreeks toegang hebben tot de cluster-master. Upgrades naar Kubernetes worden beheerd via de Azure CLI of Azure portal, die de cluster-master en klik vervolgens op de knooppunten wordt bijgewerkt. Voor het oplossen van problemen, kunt u de cluster master logboeken via Azure Monitor logboeken bekijken.
+Dit model beheerd cluster betekent dat u hoeft geen te configureren van onderdelen, zoals een maximaal beschikbare *etcd* store, maar dit betekent ook dat u kan niet rechtstreeks toegang hebben tot de cluster-master. Upgrades naar Kubernetes worden beheerd via de Azure CLI of Azure portal, die de cluster-master en klik vervolgens op de knooppunten wordt bijgewerkt. Voor het oplossen van problemen, kunt u de cluster master logboeken via Azure Monitor logboeken bekijken.
 
 Als u wilt configureren van de cluster-master op een bepaalde manier of directe toegang nodig tot deze, kunt u uw eigen Kubernetes-cluster via te implementeren [aks-engine][aks-engine].
+
+Zie voor de bijbehorende best practices, [aanbevolen procedures voor beveiliging van clusters en upgrades in AKS][operator-best-practices-cluster-security].
 
 ## <a name="nodes-and-node-pools"></a>Knooppunten en knooppuntgroepen
 
@@ -62,7 +64,7 @@ Als u wilt uitvoeren op uw toepassingen en ondersteunende services, moet u een K
 
 - De `kubelet` is de Kubernetes-agent die de orchestration-aanvragen van het cluster hoofd- en planning van het uitvoeren van de aangevraagde containers worden verwerkt.
 - Virtuele netwerken wordt verwerkt door de *kube-proxy* op elk knooppunt. De proxy-routes netwerkverkeer en beheert IP-adressering voor services en schillen.
-- De *container runtime* is het onderdeel waarmee toepassingen in containers uitvoeren en communiceren met andere resources, zoals het virtuele netwerk en opslag. Docker is in AKS gebruikt als de container-runtime.
+- De *container runtime* is het onderdeel waarmee toepassingen in containers uitvoeren en communiceren met andere resources, zoals het virtuele netwerk en opslag. In AKS, wordt Moby gebruikt als de container-runtime.
 
 ![Virtuele Azure-machine en de ondersteunende resources voor een Kubernetes-knooppunt](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
@@ -70,7 +72,7 @@ De Azure VM-grootte voor uw knooppunten definieert het aantal CPU's, hoeveel geh
 
 De VM-installatiekopie voor de knooppunten in het cluster is momenteel in AKS gebaseerd op Ubuntu Linux. Wanneer u een AKS-cluster maken of het aantal knooppunten opschalen, wordt het Azure-platform het aangevraagde aantal virtuele machines maakt en configureert u deze. Er is geen handmatige configuratie voor u om uit te voeren.
 
-Als u nodig hebt voor het gebruik van een andere host-besturingssysteem hebt, container-runtime, of aangepaste pakketten bevatten, kunt u uw eigen Kubernetes-cluster via implementeren [aks-engine][aks-engine]. De upstream `aks-engine` vrijgegeven functies en configuratieopties bevat voordat ze officieel worden ondersteund in AKS-clusters. Bijvoorbeeld, als u gebruiken van Windows-containers of in een container runtime dan Docker wilt, kunt u `aks-engine` configureren en implementeren van een Kubernetes-cluster die voldoet aan de behoeften van uw huidige.
+Als u nodig hebt voor het gebruik van een andere host-besturingssysteem hebt, container-runtime, of aangepaste pakketten bevatten, kunt u uw eigen Kubernetes-cluster via implementeren [aks-engine][aks-engine]. De upstream `aks-engine` vrijgegeven functies en configuratieopties bevat voordat ze officieel worden ondersteund in AKS-clusters. Bijvoorbeeld, als u gebruiken van Windows-containers of in een container runtime dan Moby wilt, kunt u `aks-engine` configureren en implementeren van een Kubernetes-cluster die voldoet aan de behoeften van uw huidige.
 
 ### <a name="resource-reservations"></a>Resource-reserveringen
 
@@ -92,6 +94,8 @@ Bijvoorbeeld:
     - Totaal *(32-4) 28 GiB =* is beschikbaar voor het knooppunt
     
 Het onderliggende knooppunt OS vereist ook een zekere mate van CPU en geheugen zijn voor het voltooien van een eigen kernfuncties.
+
+Zie voor de bijbehorende best practices, [aanbevolen procedures voor basic scheduler-functies in AKS][operator-best-practices-scheduler].
 
 ### <a name="node-pools"></a>Knooppuntgroepen
 
@@ -115,7 +119,7 @@ Een *implementatie* vertegenwoordigt een of meer identieke schillen, beheerd doo
 
 U kunt update-implementaties om de configuratie van pods te wijzigen, container-installatiekopie gebruikt, of opslag die is gekoppeld. De Controller implementatie verkeer naar en een bepaald aantal replica's wordt beëindigd, maakt van replica's van de implementatiedefinitie van de nieuwe en het proces wordt herhaald totdat alle replica's in de implementatie worden bijgewerkt.
 
-De meeste stateless toepassingen in AKS moeten gebruiken voor het implementatiemodel in plaats van afzonderlijke schillen plannen. Kubernetes kunt controleren, de status en de status van implementaties om ervoor te zorgen dat de vereiste aantal replica's in het cluster worden uitgevoerd. Wanneer u alleen afzonderlijke schillen plannen, de schillen zijn niet opnieuw opgestart als ze zich een probleem voordoet, en niet op in orde knooppunten worden gepland als het huidige knooppunt een probleem optreedt.
+De meeste stateless toepassingen in AKS moeten gebruiken voor het implementatiemodel in plaats van afzonderlijke schillen plannen. Kubernetes kunt controleren, de status en de status van implementaties om ervoor te zorgen dat de vereiste aantal replica's in het cluster worden uitgevoerd. Als u alleen afzonderlijke schillen plant, worden niet de schillen opnieuw opgestart als ze zich een probleem voordoet, en niet opnieuw gepland op knooppunten in orde als het huidige knooppunt een probleem optreedt.
 
 Als een toepassing een quorum van exemplaren altijd beschikbaar zijn voor management beslissingen worden genomen vereist, kunt u een updateproces verstoren die mogelijkheid niet wilt. *Pod onderbreking budgetten* kan worden gebruikt voor het definiëren van het aantal replica's in een implementatie kunnen alleen worden uitgeschakeld tijdens de upgrade van een update of het knooppunt. Als u hebt bijvoorbeeld *5* replica's in uw implementatie, kunt u een onderbreking van de schil van definiëren *4* om toe te staan slechts één replica wordt verwijderd/gewijzigd op een tijdstip. Met pod resourcebeperkingen is een best practice te definiëren pod onderbreking budgetten voor toepassingen waarvoor een minimum aantal replica's altijd aanwezig zijn.
 
@@ -236,3 +240,5 @@ Dit artikel vindt u enkele van de belangrijkste onderdelen die Kubernetes en hoe
 [aks-concepts-network]: concepts-network.md
 [acr-helm]: ../container-registry/container-registry-helm-repos.md
 [aks-helm]: kubernetes-helm.md
+[operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
+[operator-best-practices-scheduler]: operator-best-practices-scheduler.md

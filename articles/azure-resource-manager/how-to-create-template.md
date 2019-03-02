@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: abfc7ce78e8676e9560621be1ec9a81717d958e5
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: a802b12f34c5fe16202f55416a698823e55c01bb
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994280"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245893"
 ---
 # <a name="create-azure-resource-manager-template"></a>Azure Resource Manager-sjabloon maken
 
@@ -40,13 +40,13 @@ Laten we bekijken de onderdelen van de sjabloon om te begrijpen hoe de sjabloon 
 
 * De [parameters](resource-manager-templates-parameters.md) sectie waarin de waarden die u opgeven tijdens de implementatie van kunt het aanpassen van de infrastructuur die is geïmplementeerd. 
 
-* De [variabelen](resource-manager-templates-variables.md) sectie waarin de waarden die worden gebruikt in de sjabloon.
+* De [variabelen](resource-group-authoring-templates.md#variables) sectie waarin de waarden die worden gebruikt in de sjabloon.
 
 * De [functies](resource-group-authoring-templates.md#functions) sectie, waaruit blijkt aangepast sjabloon-expressies die worden gebruikt in uw sjabloon.
 
 * De [resources](resource-manager-templates-resources.md) sectie waarin de Azure-resources die zijn geïmplementeerd voor uw abonnement.
 
-* De [levert](resource-manager-templates-outputs.md) sectie waarin de waarden die worden geretourneerd na de implementatie is voltooid.
+* De [levert](resource-group-authoring-templates.md#outputs) sectie waarin de waarden die worden geretourneerd na de implementatie is voltooid.
 
 ## <a name="look-for-similar-templates"></a>Zoek naar vergelijkbare sjablonen
 

@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 0bcc49df6540b73b8feb5bb1ec4312e680572797
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 75057f6bd92fbdc805da2e0e36dc2bff7b069f26
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51617872"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243326"
 ---
 # <a name="apply-security-and-kernel-updates-to-nodes-in-azure-kubernetes-service-aks"></a>Beveiliging en kernel-updates toepassen op knooppunten in Azure Kubernetes Service (AKS)
 
@@ -27,7 +27,7 @@ Dit artikel laat u het gebruik van de open-source [kured (KUbernetes opnieuw ops
 
 In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de Quick Start voor AKS [met de Azure CLI] [ aks-quickstart-cli] of [met behulp van de Azure-portal][aks-quickstart-portal].
 
-U ook moet de Azure CLI versie 2.0.49 of later geïnstalleerd en geconfigureerd. Voer `az --version` de versie te vinden. Als u wilt installeren of upgraden, Zie [Azure CLI installeren][install-azure-cli].
+U ook moet de Azure CLI versie 2.0.59 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u de Azure CLI wilt installeren of upgraden, raadpleegt u  [Azure CLI installeren][install-azure-cli].
 
 ## <a name="understand-the-aks-node-update-experience"></a>Inzicht in de update-ervaring van de AKS-knooppunten
 
@@ -78,15 +78,15 @@ U kunt de status van de knooppunten met behulp van bewaken de [kubectl ophalen k
 
 ```
 NAME                       STATUS                     ROLES     AGE       VERSION
-aks-nodepool1-79590246-2   Ready,SchedulingDisabled   agent     1h        v1.9.11
+aks-nodepool1-28993262-0   Ready,SchedulingDisabled   agent     1h        v1.11.7
 ```
 
-Nadat de updateproces voltooid is, vindt u de status van de knooppunten met behulp van de [kubectl ophalen knooppunten] [ kubectl-get-nodes] opdracht met de `--output wide` parameter. Deze extra uitvoer ziet u een verschil in *KERNEL-versie* van de onderliggende knooppunten, zoals in de volgende voorbeelduitvoer wordt weergegeven. De *aks-nodepool1-79590246-2* is bijgewerkt in een vorige stap en toont de kernelversie *4.15.0-1025-azure*. Het knooppunt *aks-nodepool1-79590246-1* die niet is bijgewerkt toont de kernelversie *4.15.0-1023-azure*.
+Nadat de updateproces voltooid is, vindt u de status van de knooppunten met behulp van de [kubectl ophalen knooppunten] [ kubectl-get-nodes] opdracht met de `--output wide` parameter. Deze extra uitvoer ziet u een verschil in *KERNEL-versie* van de onderliggende knooppunten, zoals in de volgende voorbeelduitvoer wordt weergegeven. De *aks-nodepool1-28993262-0* is bijgewerkt in een vorige stap en toont de kernelversie *4.15.0-1039-azure*. Het knooppunt *aks-nodepool1-28993262-1* die niet is bijgewerkt toont de kernelversie *4.15.0-1037-azure*.
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
-aks-nodepool1-79590246-1   Ready     agent     1h        v1.9.11   10.240.0.6    <none>        Ubuntu 16.04.5 LTS   4.15.0-1023-azure   docker://1.13.1
-aks-nodepool1-79590246-2   Ready     agent     1h        v1.9.11   10.240.0.4    <none>        Ubuntu 16.04.5 LTS   4.15.0-1025-azure   docker://1.13.1
+aks-nodepool1-28993262-0   Ready     agent     1h        v1.11.7   10.240.0.4    <none>        Ubuntu 16.04.6 LTS   4.15.0-1039-azure   docker://3.0.4
+aks-nodepool1-28993262-1   Ready     agent     1h        v1.11.7   10.240.0.5    <none>        Ubuntu 16.04.6 LTS   4.15.0-1037-azure   docker://3.0.4
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

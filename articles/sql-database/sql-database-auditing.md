@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 08c71ac1aba659a2e0fbb6655b6ee0a21576bf5d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: bbf04104d70ecb6ea8d83c6167b5b9b0dfe2c2dc
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339784"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217441"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Aan de slag met SQL Database Auditing
 
@@ -30,6 +30,8 @@ Controle-instellingen voor Azure [SQL-Database](sql-database-technical-overview.
 
 > [!NOTE] 
 > Dit onderwerp is van toepassing op Azure SQL-servers en op SQL Database- en SQL Data Warehouse-databases die op deze Azure SQL-servers worden gemaakt. Voor het gemak wordt de term 'SQL Database' gebruikt wanneer er wordt verwezen naar zowel SQL Database als SQL Data Warehouse.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 
 ## <a id="subheading-1"></a>Azure SQL database auditing-overzicht
@@ -85,7 +87,7 @@ Het volgende gedeelte bevat de configuratie van de controle met Azure portal.
 
     ![Navigatievenster][3]
 
-5. **Nieuwe** -u hebt nu meerdere opties voor het configureren van waarnaar de auditlogboeken worden geschreven. U kunt Logboeken schrijven naar een Azure storage-account, een Log Analytics-werkruimte voor gebruik door Log Analytics of naar event hub voor gebruik met behulp van event hub. U kunt een willekeurige combinatie van deze opties configureren en auditlogboeken worden geschreven naar elk.
+5. **Nieuwe** -u hebt nu meerdere opties voor het configureren van waarnaar de auditlogboeken worden geschreven. U kunt Logboeken schrijven naar een Azure storage-account, een Log Analytics-werkruimte voor gebruik door Azure Monitor-Logboeken of naar event hub voor gebruik met behulp van event hub. U kunt een willekeurige combinatie van deze opties configureren en auditlogboeken worden geschreven naar elk.
 
     ![Opties voor opslag](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
@@ -95,7 +97,7 @@ Het volgende gedeelte bevat de configuratie van de controle met Azure portal.
 
 7. Schrijven controle configureren vastgelegd in een Log Analytics-werkruimte, selecteer **Log Analytics (Preview)** en open **Log Analytics-gegevens**. Selecteer of maak de Log Analytics-werkruimte waar logboeken worden geschreven en klik vervolgens op **OK**.
 
-    ![Log Analytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
+    ![Log Analytics-werkruimte](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
 8. Logboeken om te schrijven controle configureren naar een event hub, selecteer **Event Hub (Preview)** en open **details van Event Hub**. Selecteer de event hub waar logboeken worden geschreven en klik vervolgens op **OK**. Zorg ervoor dat de event hub in dezelfde regio als uw database en de server.
 
@@ -112,7 +114,7 @@ Het volgende gedeelte bevat de configuratie van de controle met Azure portal.
 
 ## <a id="subheading-3"></a>Analyseren van controlelogboeken en -rapporten
 
-Als u ervoor hebt gekozen auditlogboeken schrijven naar Log Analytics:
+Als u ervoor hebt gekozen auditlogboeken schrijven naar Azure Monitor-Logboeken:
 
 - Gebruik de [Azure-portal](https://portal.azure.com).  Open de betreffende database. Aan de bovenkant van de database **controle** pagina, klikt u op **auditlogboeken weergeven**.
 
@@ -123,7 +125,7 @@ Als u ervoor hebt gekozen auditlogboeken schrijven naar Log Analytics:
     ![Open in Log Analytics](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
 
 - U kunt ook u kunt ook toegang tot de auditlogboeken van Log Analytics-blade. Open uw Log Analytics-werkruimte en klik vervolgens onder **algemene** sectie, klikt u op **logboeken**. U kunt beginnen met een eenvoudige query, zoals: *zoeken naar "SQLSecurityAuditEvents"* om weer te geven van de audit-Logboeken.
-    Hier kunt u ook kunt gebruiken [Log Analytics](../log-analytics/log-analytics-log-search.md) geavanceerde zoekopdrachten uitvoeren op uw logboekgegevens audit. Log Analytics biedt u realtime operationele inzichten met behulp van geïntegreerde Zoek- en aangepaste dashboards voor het analyseren van miljoenen records gemakkelijk in uw werkbelastingen en servers. Zie voor meer nuttige informatie over opdrachten en Log Analytics-zoektaal, [Log Analytics zoeken verwijzing](../log-analytics/log-analytics-log-search.md).
+    Hier kunt u ook kunt gebruiken [logboeken van Azure Monitor](../log-analytics/log-analytics-log-search.md) geavanceerde zoekopdrachten uitvoeren op uw logboekgegevens audit. Logboeken in Azure Monitor kunt u realtime operationele inzichten met behulp van geïntegreerde Zoek- en aangepaste dashboards voor het analyseren van miljoenen records gemakkelijk in uw werkbelastingen en servers. Zie voor meer nuttige informatie over opdrachten en Azure Monitor logboeken zoektaal, [Azure Monitor-verwijzing naar de logboeken](../log-analytics/log-analytics-log-search.md).
 
 Als u ervoor hebt gekozen auditlogboeken naar Event Hub schrijven:
 
@@ -187,7 +189,7 @@ Met geo-replicatie databases, wanneer u de controle op de primaire database insc
     >[!IMPORTANT]
     >Met de controle op databaseniveau is de opslaginstellingen voor de secundaire database identiek aan die van de primaire database, waardoor regio-overschrijdend-verkeer. U wordt aangeraden dat u alleen op serverniveau controle inschakelen en laat u de controle op databaseniveau uitgeschakeld voor alle databases.
     > [!WARNING]
-    > Event hub of log analytics met als doel voor de logboeken voor controle op serverniveau is momenteel niet ondersteund voor secundaire geo-replicatie-databases.
+    > Met behulp van event hub of Azure Monitor-Logboeken als doelen voor de logboeken voor controle op serverniveau is momenteel niet ondersteund voor secundaire geo-replicatie-databases.
 
 ### <a id="subheading-6">Toegangssleutel voor opslag</a>
 
@@ -256,7 +258,7 @@ Uitgebreide beleid met waar component ondersteuning voor aanvullende filters:
 U kunt beheren met Azure SQL database auditing met behulp van [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) sjablonen, zoals wordt weergegeven in deze voorbeelden:
 
 - [Een Azure SQL-Server implementeren met controle ingeschakeld auditlogboeken schrijven naar Azure Blob storage-account](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
-- [Een Azure SQL-Server met controle ingeschakeld auditlogboeken schrijven naar Log Analytics implementeren](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
+- [Implementeren van een Azure SQL-Server met controle ingeschakeld auditlogboeken schrijven naar Azure Monitor-Logboeken](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
 - [Een Azure SQL-Server implementeren met controle ingeschakeld auditlogboeken schrijven naar Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
 
 <!--Anchors-->

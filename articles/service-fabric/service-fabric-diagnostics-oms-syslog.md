@@ -14,23 +14,25 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: 30b064e3c20b184023cb6ada25d673f5cab6597c
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 25452d3d65518511c47087d1cb712d0a512416fc
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297664"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245553"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Gebeurtenissen van de service Fabric Linux-cluster in Syslog
 
 Service Fabric wordt aangegeven dat een reeks gebeurtenissen platform om u belangrijke activiteit in uw cluster te informeren. De volledige lijst van gebeurtenissen die worden weergegeven is beschikbaar [hier](service-fabric-diagnostics-event-generation-operational.md). Er zijn verschillende manieren waarmee deze gebeurtenissen kunnen worden gebruikt. In dit artikel gaan we bespreken hoe u Service Fabric voor het schrijven van deze gebeurtenissen tot Syslog configureert.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="introduction"></a>Inleiding
 
 In de 6.4 release is de SyslogConsumer geïntroduceerd voor het verzenden van de Service Fabric-platformgebeurtenissen tot Syslog voor Linux-clusters. Eenmaal ingeschakeld, wordt automatisch gebeurtenissen overgebracht naar Syslog dat kan worden verzameld en verzonden door de Log Analytics-Agent.
 
 Alle Syslog-gebeurtenis is 4-onderdelen
-* Opslagruimte
+* Faciliteit
 * Identiteit
 * Bericht
 * Severity
@@ -93,8 +95,8 @@ Hier volgen de wijzigingen te belichten
     }
 ```
 
-## <a name="log-analytics-integration"></a>Log Analytics-integratie
-U vindt deze Syslog-gebeurtenissen in een hulpprogramma voor bewaking, zoals Log Analytics. U kunt een Log Analytics-werkruimte maken met behulp van de Azure Marketplace via deze [instructies]. (.. / azure-monitor/learn/quick-create-workspace.md) moet u ook de Log Analytics-agent toevoegen aan uw cluster voor het verzamelen en deze gegevens worden verzonden naar de werkruimte. Dit is dezelfde agent die wordt gebruikt voor het verzamelen van prestatiemeteritems. 
+## <a name="azure-monitor-logs-integration"></a>Integratie van Azure Monitor-Logboeken
+U vindt deze Syslog-gebeurtenissen in een hulpprogramma zoals Azure Monitor-logboeken voor bewaking. U kunt een Log Analytics-werkruimte maken met behulp van de Azure Marketplace via deze [instructies]. (.. / azure-monitor/learn/quick-create-workspace.md) moet u ook de Log Analytics-agent toevoegen aan uw cluster voor het verzamelen en deze gegevens worden verzonden naar de werkruimte. Dit is dezelfde agent die wordt gebruikt voor het verzamelen van prestatiemeteritems. 
 
 1. Navigeer naar de `Advanced Settings` blade
 
@@ -120,6 +122,6 @@ Het bovenstaande voorbeeld is van een gebeurtenis NodeDown. U vindt de volledige
 
 ## <a name="next-steps"></a>Volgende stappen
 * [De Log Analytics-agent implementeren](service-fabric-diagnostics-oms-agent.md) naar uw knooppunten om te verzamelen prestatiemeteritems en verzamelen van Logboeken voor uw containers en docker-statistieken
-* Familiarized ophalen met de [zoeken en uitvoeren van query's](../log-analytics/log-analytics-log-searches.md) functies die worden aangeboden als onderdeel van Log Analytics
-* [Weergaveontwerper gebruiken om te maken van aangepaste weergaven in Log Analytics](../log-analytics/log-analytics-view-designer.md)
-* Verwijzing voor informatie over het [Log Analytics-integratie met Syslog](../log-analytics/log-analytics-data-sources-syslog.md).
+* Familiarized ophalen met de [zoeken en uitvoeren van query's](../log-analytics/log-analytics-log-searches.md) functies die worden aangeboden als onderdeel van Azure Monitor-Logboeken
+* [Weergaveontwerper aangepaste weergaven maken in Azure Monitor-Logboeken gebruiken](../log-analytics/log-analytics-view-designer.md)
+* Verwijzing voor informatie over het [Azure Monitor-integratie van logboeken met Syslog](../log-analytics/log-analytics-data-sources-syslog.md).

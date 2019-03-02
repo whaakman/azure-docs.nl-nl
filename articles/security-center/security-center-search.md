@@ -1,6 +1,6 @@
 ---
 title: Zoeken in Azure Security Center | Microsoft Docs
-description: Meer informatie over hoe Azure Security Center maakt gebruik van Log Analytics search ophalen en uw beveiligingsgegevens te analyseren.
+description: Meer informatie over hoe Azure Security Center maakt gebruik van Azure Monitor zoeken in Logboeken om te halen en je beveiligingsgegevens te analyseren.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: rkarlin
-ms.openlocfilehash: c02a9f61a4a8b88f8b6c4d861f1a6cbe904ad70d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 7fae267b74677e93527b4e185c5b52d421ef149e
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110537"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244941"
 ---
 # <a name="azure-security-center-search"></a>Zoeken in Azure Security Center
-Azure Security Center maakt gebruik van [zoeken in Log Analytics](../log-analytics/log-analytics-log-searches.md) ophalen en uw beveiligingsgegevens te analyseren. Log Analytics bevat een querytaal voor het snel ophalen en samenvoegen van gegevens. Vanuit Security Center, kunt u gebruikmaken van Log Analytics search om query's samenstelt en verzamelde gegevens te analyseren.
+Azure Security Center maakt gebruik van [Azure Monitor-logboeken zoeken](../log-analytics/log-analytics-log-searches.md) ophalen en uw beveiligingsgegevens te analyseren. Logboeken in Azure Monitor omvat een querytaal snel ophalen en samenvoegen van gegevens. Vanuit Security Center, kunt u gebruikmaken van Azure Monitor logboeken zoeken voor het samenstellen van query's en verzamelde gegevens te analyseren.
 
 Search is beschikbaar in de gratis laag en de prijscategorie Standard van Security Center.  De gegevens beschikbaar zijn in uw zoekopdrachten is afhankelijk van het niveau van de laag toegepast op uw werkruimte.  Zie het Security Center [pagina met prijzen](../security-center/security-center-pricing.md) voor meer informatie.
 
@@ -49,15 +49,15 @@ Search is beschikbaar in de gratis laag en de prijscategorie Standard van Securi
 
   ![Zoekresultaten][3]
 
-Zie [querytaal van Log Analytics](../log-analytics/log-analytics-search-reference.md) voor meer informatie over query's uitvoeren voor gegevens onder de geselecteerde werkruimte.
+Zie [Kusto-querytaal](../log-analytics/log-analytics-search-reference.md) voor meer informatie over query's uitvoeren voor gegevens onder de geselecteerde werkruimte.
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel hebt u geleerd hoe u toegang tot zoekopdracht in Security Center. Security Center maakt gebruik van Log Analytics search. Zie voor meer informatie over Log Analytics search:
+In dit artikel hebt u geleerd hoe u toegang tot zoekopdracht in Security Center. Security Center maakt gebruik van Azure Monitor logboeken zoeken. Zie voor meer informatie over Azure Monitor logboeken zoeken:
 
-- [Wat is Log Analytics?](../log-analytics/log-analytics-overview.md) – Overzicht van Log Analytics
-- [Understanding zoekopdrachten in Logboeken in Log Analytics](../log-analytics/log-analytics-log-search-new.md) : hierin wordt beschreven hoe zoekopdrachten in Logboeken in Log Analytics worden gebruikt en concepten die moet worden geïnterpreteerd voor het maken van een zoeken in Logboeken
-- [Zoeken naar gegevens met behulp van zoekopdrachten in Logboeken in Log Analytics](../log-analytics/log-analytics-log-searches.md) – zelfstudie over het gebruik van zoeken in Logboeken
-- [Log Analytics zoeken verwijzing](../log-analytics/log-analytics-search-reference.md) : Beschrijving van de querytaal in Log Analytics
+- [Wat is Azure Monitor Logboeken?](../log-analytics/log-analytics-overview.md) – Overzicht van Azure Monitor-Logboeken
+- [Understanding zoekopdrachten in Logboeken van Azure Monitor](../log-analytics/log-analytics-log-search-new.md) : hierin wordt beschreven hoe zoekopdrachten in Logboeken van Azure Monitor worden gebruikt en concepten die moet worden geïnterpreteerd voor het maken van een zoeken in Logboeken
+- [Zoeken naar gegevens met behulp van zoekopdrachten in Logboeken van Azure Monitor](../log-analytics/log-analytics-log-searches.md) – zelfstudie over het gebruik van zoeken in Logboeken
+- [Verwijzing naar de Kusto](../log-analytics/log-analytics-search-reference.md) : Beschrijving van de querytaal in Azure Monitor-Logboeken
 
 Zie de volgende onderwerpen voor meer informatie over Azure Security Center:
 

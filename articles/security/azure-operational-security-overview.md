@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
-ms.openlocfilehash: da58737314012255f26d344f279d855244f0c1ba
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 38054d6ee3799296887726954ef1f096945aeaeb
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116470"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241082"
 ---
 # <a name="azure-operational-security-overview"></a>Overzicht van Azure operationele beveiliging
 
@@ -29,13 +29,13 @@ ms.locfileid: "56116470"
 
 IT operations-teams is verantwoordelijk voor het beheren van datacenter-infrastructuur, toepassingen en gegevens, inclusief de stabiliteit en beveiliging van deze systemen. Verkrijgen van beveiligingsinzichten op in complexe IT-omgevingen vaak verhogen vereist echter organisaties cobble samen gegevens van meerdere systemen voor beveiliging en beheer.
 
-[Microsoft Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) is een cloudgebaseerde IT-beheeroplossing waarmee u beheren kunt en beveiligen van uw on-premises en cloudinfrastructuur. De kernfunctionaliteit wordt geleverd door de volgende services die worden uitgevoerd in Azure. Azure bevat meerdere services die u helpen beheren en beveiligen van uw on-premises en cloudinfrastructuur. Elke service biedt een specifieke beheerfunctie. U kunt services voor het bereiken van verschillende beheerscenario combineren. 
+[Microsoft Azure Monitor logboeken](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) is een cloudgebaseerde IT-beheeroplossing waarmee u beheren kunt en beveiligen van uw on-premises en cloudinfrastructuur. De kernfunctionaliteit wordt geleverd door de volgende services die worden uitgevoerd in Azure. Azure bevat meerdere services die u helpen beheren en beveiligen van uw on-premises en cloudinfrastructuur. Elke service biedt een specifieke beheerfunctie. U kunt services voor het bereiken van verschillende beheerscenario combineren. 
 
 ### <a name="azure-monitor"></a>Azure Monitor
 
 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) verzamelt gegevens van beheerde bronnen in de centrale gegevensopslag. Deze gegevens kunnen bevatten gebeurtenissen, prestatiegegevens of aangepaste gegevens die worden geleverd via de API. Nadat de gegevens zijn verzameld, is het beschikbaar voor waarschuwingen, analyse en export. 
 
-U kunt gegevens uit een groot aantal bronnen consolideren en gegevens uit uw Azure-services combineren met uw bestaande on-premises omgeving. Log Analytics ook duidelijk het verzamelen van de gegevens worden gescheiden van de actie wordt uitgevoerd op die gegevens, zodat alle acties beschikbaar voor alle soorten gegevens zijn.
+U kunt gegevens uit een groot aantal bronnen consolideren en gegevens uit uw Azure-services combineren met uw bestaande on-premises omgeving. Logboeken in Azure Monitor ook een duidelijk het verzamelen van de gegevens worden gescheiden van de actie wordt uitgevoerd op die gegevens, zodat alle acties zijn beschikbaar voor alle soorten gegevens.
 
 ### <a name="automation"></a>Automation
 
@@ -93,7 +93,7 @@ Security Center beoordeelt de configuratie van uw resources om beveiligingsprobl
 >[!Note]
 >Voor meer informatie over rollen en toegestane acties in Security Center, Zie [machtigingen in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-permissions).
 
-Security Center maakt gebruik van de Microsoft Monitoring Agent. Dit is dezelfde agent die gebruikmaakt van de service Log Analytics. Gegevens die worden verzameld van deze agent worden opgeslagen in een bestaande Log Analytics [werkruimte](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) die zijn gekoppeld aan uw Azure-abonnement of een nieuwe werkruimte, rekening houdend met de geolocatie van de virtuele machine.
+Security Center maakt gebruik van de Microsoft Monitoring Agent. Dit is dezelfde agent die gebruikmaakt van de Azure Monitor-service. Gegevens die worden verzameld van deze agent worden opgeslagen in een bestaande Log Analytics [werkruimte](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) die zijn gekoppeld aan uw Azure-abonnement of een nieuwe werkruimte, rekening houdend met de geolocatie van de virtuele machine.
 
 ## <a name="azure-monitor"></a>Azure Monitor
 

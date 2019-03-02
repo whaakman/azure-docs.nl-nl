@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric-Gebeurtenisanalyse met Log Analytics | Microsoft Docs
-description: Meer informatie over het visualiseren en analyseren van gebeurtenissen met Log Analytics voor controle en diagnose van Azure Service Fabric-clusters.
+title: Azure Service Fabric-Gebeurtenisanalyse met Azure Monitor-Logboeken | Microsoft Docs
+description: Meer informatie over het visualiseren en analyseren van gebeurtenissen met behulp van Azure Monitor-logboeken voor controle en diagnose van Azure Service Fabric-clusters.
 services: service-fabric
 documentationcenter: .net
 author: srrengar
@@ -14,28 +14,30 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/21/2019
 ms.author: srrengar
-ms.openlocfilehash: e8719b071bf2e836ed92fa4f6dcddc5f1865b320
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 2f3106b33ab0cbea95efe2ac42c05a8543719190
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56668791"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246913"
 ---
-# <a name="event-analysis-and-visualization-with-log-analytics"></a>Gebeurtenis analyses en visualisatie met Log Analytics
- Log Analytics verzamelt en analyseert telemetrie van toepassingen en services die worden gehost in de cloud biedt analyse hulpprogramma's waarmee u hun beschikbaarheid en prestaties te maximaliseren. In dit artikel bevat een overzicht van het uitvoeren van query's in Log Analytics inzicht en problemen met wat er gebeurt in uw cluster. De volgende veelgestelde vragen worden behandeld:
+# <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Gebeurtenis analyses en visualisatie met Azure Monitor-Logboeken
+ Azure Monitor-logboeken verzamelt en analyseert telemetrie van toepassingen en services die worden gehost in de cloud biedt analyse hulpprogramma's waarmee u hun beschikbaarheid en prestaties te maximaliseren. In dit artikel bevat een overzicht van hoe u query's uitvoeren in Azure Monitor-logboeken inzicht en problemen met wat er gebeurt in uw cluster. De volgende veelgestelde vragen worden behandeld:
 
 * Hoe kan ik statusgebeurtenissen oplossen?
 * Hoe weet ik wanneer een knooppunt wordt uitgeschakeld?
 * Hoe weet ik als services van mijn toepassing hebben gestart of gestopt?
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="overview-of-the-log-analytics-workspace"></a>Overzicht van de Log Analytics-werkruimte
 
 >[!NOTE] 
 >Opslagaccount voor diagnostische is standaard ingeschakeld tijdens de aanmaak van het cluster, moet u de Log Analytics-werkruimte nog steeds instellen om te lezen uit het opslagaccount voor diagnostische.
 
-Log Analytics verzamelt gegevens van beheerde resources, met inbegrip van een Azure storage-tabel of een agent, en deze in een centrale opslagplaats bijhoudt. De gegevens kunnen vervolgens worden gebruikt voor analyse, waarschuwingen en visualisatie, of het verder exporteren. Log Analytics biedt ondersteuning voor gebeurtenissen, prestatiegegevens of een andere aangepaste gegevens. Bekijk [stappen voor het configureren van de extensie voor diagnostische gegevens voor](service-fabric-diagnostics-event-aggregation-wad.md) en [stappen voor het maken van een Log Analytics-werkruimte te lezen van de gebeurtenissen in de opslag](service-fabric-diagnostics-oms-setup.md) om ervoor te zorgen dat gegevens worden doorgestuurd naar Log Analytics .
+Azure Monitor-logboeken verzamelt gegevens van beheerde resources, met inbegrip van een Azure storage-tabel of een agent, en deze in een centrale opslagplaats onderhoudt. De gegevens kunnen vervolgens worden gebruikt voor analyse, waarschuwingen en visualisatie, of het verder exporteren. Azure Monitor registreert ondersteunt gebeurtenissen, prestatiegegevens of een andere aangepaste gegevens. Bekijk [stappen voor het configureren van de extensie voor diagnostische gegevens voor](service-fabric-diagnostics-event-aggregation-wad.md) en [stappen voor het maken van een Log Analytics-werkruimte te lezen van de gebeurtenissen in de opslag](service-fabric-diagnostics-oms-setup.md) om ervoor te zorgen dat gegevens worden doorgestuurd naar Azure Monitor Hiermee wordt geregistreerd.
 
-Nadat de gegevens worden ontvangen door Log Analytics, Azure heeft verscheidene *beheeroplossingen* die zijn voorverpakte oplossingen of operationele dashboards voor het bewaken van binnenkomende gegevens, aangepast aan verschillende scenario's. Deze omvatten een *Service Fabric-analyse* oplossing en een *Containers* oplossing, zijn de twee meest relevante diagnostische gegevens en de bewaking van bij het gebruik van Service Fabric-clusters. In dit artikel wordt beschreven hoe u van de Service Fabric-analyse-oplossing die is gemaakt met de werkruimte.
+Nadat de gegevens worden ontvangen door de logboeken van Azure Monitor, Azure heeft verscheidene *bewaking oplossingen* die zijn voorverpakte oplossingen of operationele dashboards voor het bewaken van binnenkomende gegevens, aangepast aan verschillende scenario's. Deze omvatten een *Service Fabric-analyse* oplossing en een *Containers* oplossing, zijn de twee meest relevante diagnostische gegevens en de bewaking van bij het gebruik van Service Fabric-clusters. In dit artikel wordt beschreven hoe u van de Service Fabric-analyse-oplossing die is gemaakt met de werkruimte.
 
 ## <a name="access-the-service-fabric-analytics-solution"></a>Toegang tot de Service Fabric-analyse-oplossing
 
@@ -110,7 +112,7 @@ De Kusto-query-taal is krachtig. Er is een andere waardevolle query die u kunt u
 ## <a name="next-steps"></a>Volgende stappen
 
 * Om in te schakelen prestatiemeteritems dat wil zeggen de controle van infrastructuren, Ga naar [toe te voegen de Log Analytics-agent](service-fabric-diagnostics-oms-agent.md). De agent verzamelt prestatiemeters en voegt deze toe aan uw bestaande werkruimte.
-* Voor clusters van on-premises biedt Log Analytics een Gateway (http-doorsturen Proxy) die kan worden gebruikt om gegevens te verzenden naar Log Analytics. Meer informatie over die in [computers zonder internettoegang verbinden met Log Analytics met behulp van de Log Analytics-gateway](../azure-monitor/platform/gateway.md).
+* Logboeken van Azure Monitor biedt een Gateway (http-doorsturen Proxy) die kan worden gebruikt om gegevens te verzenden naar Azure Monitor-logboeken voor clusters van on-premises. Meer informatie over die in [computers zonder toegang tot het Internet verbinding te maken met Azure Monitor-logboeken met behulp van de Log Analytics-gateway](../azure-monitor/platform/gateway.md).
 * Configureer [automatische waarschuwingen](../log-analytics/log-analytics-alerts.md) voor detectie en diagnostiek.
-* Vertrouwd raken met de functies [zoeken in logboeken en query's uitvoeren](../log-analytics/log-analytics-log-searches.md) die als onderdeel van Log Analytics worden aangeboden.
-* Ophalen van een meer gedetailleerd overzicht van Log Analytics en de mogelijkheden van het startpakket, lezen [wat is Log Analytics?](../operations-management-suite/operations-management-suite-overview.md).
+* Familiarized ophalen met de [zoeken en uitvoeren van query's](../log-analytics/log-analytics-log-searches.md) functies die worden aangeboden als onderdeel van Azure Monitor-Logboeken.
+* Ophalen van een meer gedetailleerd overzicht van Azure Monitor-logboeken en mogelijkheden van het startpakket, lezen [wat is Azure Monitor logboeken?](../operations-management-suite/operations-management-suite-overview.md).

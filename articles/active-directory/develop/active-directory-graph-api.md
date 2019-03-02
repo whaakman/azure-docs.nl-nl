@@ -12,27 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 03/01/2019
 ms.author: alleonar
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 567ea09a50edc043f2022a47d08576720550e750
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 47233d593e9539e5755daf331ce9dbff73207942
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448089"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213480"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API
 
 > [!IMPORTANT]
 >
-> Vanaf februari 2019, is de Azure Active Directory Graph API afgeschaft en vervangen door de Microsoft Graph API.  
+> Vanaf februari 2019 begonnen we met het proces voor afschaffen sommige oudere versies van Azure Active Directory Graph API en vervangen door de Microsoft Graph API. 
 >
-> Om de overgang, eerdere versies van de Azure AD Graph-API wordt buiten gebruik worden gesteld voordat de meest recente waarden.  
->
-> Voor meer informatie, updates en meteen, [Microsoft Graph of Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) blogbericht in het Office-ontwikkelaarscentrum.
+> Zie voor meer informatie, updates en meteen [Microsoft Graph of Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) in de Office-ontwikkelaarscentrum.
 >
 > Vooruit, moeten-toepassingen de Microsoft Graph API gebruiken. 
 

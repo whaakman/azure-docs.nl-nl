@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 03/01/2019
 ms.author: raynew
-ms.openlocfilehash: 960d1df7c89383efc976fed959c1a39fae461c52
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2225c978eade3af12e910d7f403ca06287cabbef
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875801"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214228"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Ondersteuningsmatrix voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure
 
@@ -230,6 +230,26 @@ FC-schijf | Wordt niet ondersteund. | Controle mislukt als niet-ondersteund.
 BitLocker | Wordt niet ondersteund. | BitLocker moet worden uitgeschakeld voordat u replicatie voor een machine inschakelt. |
 VM-naam | Van 1 tot 63 tekens bevatten.<br/><br/> Alleen letters, cijfers en afbreekstreepjes.<br/><br/> Naam van de machine moet beginnen en eindigen met een letter of cijfer. |  Werk de waarde in de eigenschappen van de machine in Site Recovery.
 
+## <a name="azure-site-recovery-churn-limits"></a>Azure Site Recovery-limieten voor verloop
+
+De volgende tabel bevat de Azure Site Recovery-limieten. Deze limieten zijn gebaseerd op onze tests, maar dekken niet alle mogelijke toepassings-I/O-combinaties. De werkelijke resultaten kunnen variëren op basis van uw toepassings-I/O-combinatie. Voor optimale resultaten, wordt aangeraden om te [tool voor implementatieplanning uitgevoerd](site-recovery-deployment-planner.md) en moet u toepassingen uitgebreid testen met behulp van een testfailover uit om de prestaties van de toepassing.
+
+**Beoogde replicatieopslag** | **Gemiddelde I/O-grootte van bronschijf** |**Gemiddeld gegevensverloop van bronschijf** | **Totale gegevensverloop van bronschijf per dag**
+---|---|---|---
+Standard Storage | 8 kB | 2 MB/s | 168 GB per schijf
+Premium P10 of P15 schijf | 8 kB  | 2 MB/s | 168 GB per schijf
+Premium P10 of P15 schijf | 16 kB | 4 MB/s |  336 GB per schijf
+Premium P10 of P15 schijf | 32 kB of meer | 8 MB/s | 672 GB per schijf
+Premium P20 of P30 of P40 of P50 schijf | 8 kB    | 5 MB/s | 421 GB per schijf
+Premium P20 of P30 of P40 of P50 schijf | 16 kB of meer |10 MB/s | 842 GB per schijf
+
+**brongegevensverloop** | **Maximumaantal**
+---|---
+Gemiddeld gegevensverloop per VM| 25 MB/s
+Piekgegevensverloop over alle schijven op een VM | 54 MB/s
+Maximumgegevensverloop per dag dat wordt ondersteund door een processerver | 2 TB
+
+Dit zijn gemiddelden uitgaande van een I/O-overlapping van 30%. Site Recovery kan een hogere doorvoer verwerken op basis van overlappingsverhouding, grotere schrijfgrootten en daadwerkelijk workload-I/O-gedrag. De bovenstaande waarden zijn gebaseerd op een typische backlog van ongeveer vijf minuten. Dat wil zeggen dat de gegevens na het uploaden binnen vijf minuten worden verwerkt en er een herstelpunt is gemaakt.
 
 ## <a name="vault-tasks"></a>Kluis-taken
 

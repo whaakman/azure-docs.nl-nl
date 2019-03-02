@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ead303257b0b5a4b56803abe57a0101b8f031c0
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 9623cf727998348c313b7184c29e968afd33c6cc
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56589006"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214143"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Schakel gecombineerd security informatie registratie (preview)
 
@@ -38,6 +38,9 @@ Volg de volgende stappen voor het gecombineerde registratie inschakelen:
 3. Onder **gebruikers kunnen gebruiken preview-functies voor het registreren en beheren van beveiligingsgegevens - vernieuwen**, kiezen om in te schakelen voor een **geselecteerde** groep van gebruikers of voor **alle** gebruikers.
 
 ![De gecombineerde security info preview-ervaring voor alle gebruikers in de Azure AD-portal inschakelen](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
+
+> [!IMPORTANT]
+> Vanaf maart van 2019 de opties telefoongesprek zich niet beschikbaar voor gebruikers voor MFA en Self-service voor Wachtwoordherstel in vrij/proefversie van Azure AD-tenants. SMS-berichten worden niet beïnvloed door deze wijziging. Telefonische oproep blijft beschikbaar voor gebruikers in betaalde Azure AD-tenants. Deze wijziging geldt alleen voor gratis/proefversie van Azure AD-tenants.
 
 > [!NOTE]
 > Nadat u gecombineerde registratie inschakelen, gebruikers registreren of bevestigen dat hun telefoonnummer of mobiele app via de nieuwe ervaring voor ze kunt gebruiken voor MFA en SSPR, als deze methoden zijn ingeschakeld in het beleid voor MFA en Self-service voor Wachtwoordherstel. Als u deze vervolgens uitschakelt, wordt gebruikers die gaat u naar de SSPR-registratie in de vorige pagina op [https:/aka.ms/ssprsetup](https:/aka.ms/ssprsetup) moeten multi-factor authentication uitvoeren voordat ze krijgen de pagina tot toegang.

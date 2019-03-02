@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 3a99c0157ef3afe9823d73379775ddcf564faccc
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: aed3d08f96265736889deccf51d427a6631e1ea9
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193803"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241566"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Ondersteuning voor taal en regio voor de Translator Text-API
 
@@ -33,7 +33,7 @@ De Translator Text-API ondersteunt de volgende talen voor tekst naar tekst conve
 * Neurale standaard: Neurale is de vertaling van het systeem. Gebruik de parameter `category=smt` voor toegang tot de statistische systeem voor gebruik met de Microsoft Translator-Hub.
 * Neurale alleen: Alleen neurale vertalingen is beschikbaar.
 
-**V3-API van Translator** de Translator-API V3 is standaard neurale en statistische systemen zijn alleen beschikbaar wanneer geen neurale systeem bestaat. Aangepaste Translator kan alleen worden gebruikt met neurale talen. [Weergeven van de talen die beschikbaar zijn in aangepaste Translator](#customization).
+**V3-API van Translator** de Translator-API V3 is standaard neurale en statistische systemen zijn alleen beschikbaar wanneer geen neurale systeem bestaat. Aangepaste Translator kan alleen worden gebruikt met neurale talen. [Talen die momenteel beschikbaar in aangepaste Translator weergeven](#customization).
 
 |Taal|  Taalcode|  V2 API| V3 API|
 |:-----|:-----:|:-----|:-----|

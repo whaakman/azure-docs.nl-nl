@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan,moslake
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 670ca1b8ba16122d4e969a41f8679e1a6d1b27c6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 03/01/2019
+ms.openlocfilehash: 011aa97d44a92feced7328b2bd014395d2c5b765
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990101"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246695"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>SQL Database-resourcebeperkingen voor Azure SQL Database-server
 
@@ -73,6 +73,29 @@ Als hoog gebruik van sessie- of werkrollen worden aangetroffen, wordt een risico
 
 - Vergroten van de service tier of compute-grootte van de database of elastische pool. Zie [schalen van één database-resources](sql-database-single-database-scale.md) en [resources voor elastische pool schalen](sql-database-elastic-pool-scale.md).
 - Optimaliseren query's om te verlagen van het Resourcegebruik van elke query als de oorzaak van het toegenomen worker-gebruik is vanwege conflicten over rekenresources. Zie voor meer informatie, [Query afstemmen/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
+
+### <a name="transaction-log-rate-governance"></a>Transaction Log tarief Governance 
+Transaction log tarief governance is een proces in Azure SQL Database gebruikt voor het beperken van hoge opname-tarieven voor workloads zoals bulksgewijs invoegen, SELECT INTO en indexbuilds. Deze limieten worden bijgehouden en worden afgedwongen op het niveau dan een seconde voor het aantal records genereren van logboekbestanden, beperkende doorvoer, ongeacht hoeveel IOs kan worden uitgegeven voor de gegevensbestanden.  Transactietarieven log generatie op dit moment worden lineair geschaald tot een tijdstip dat is afhankelijk van de hardware, snelheid toegestaan met de maximumgrootte van het logboek wordt 48 MB/s met de vCore model kopen. 
+
+> [!NOTE]
+> De daadwerkelijke fysieke IOs aan logbestanden van transacties worden niet geregeld of die beperkt zijn. 
+
+Logboek-tarieven zijn ingesteld, zodat ze kunnen worden bereikt en aanhoudend in tal van scenario's, terwijl het algehele systeem de functionaliteit ervan met minimale gevolgen voor de gebruikersbelasting onderhouden kunt. Logboek tarief bestuur zorgt ervoor dat back-ups binnen een gepubliceerde herstelmogelijkheden Sla's blijven transactielogboek.  Deze governance voorkomt ook dat voor een overmatige achterstand op secundaire replica's.
+
+Als de logboekrecords worden gegenereerd, wordt elke bewerking geëvalueerd en beoordeeld op of moet worden vertraagd om te kunnen handhaven een maximale gewenste log-tarief (MB/s per seconde). De vertragingen zijn niet toegevoegd wanneer de records in logboek registreren in plaats daarvan worden weggeschreven naar de opslag, log tarief governance wordt toegepast tijdens het genereren van frequentie logboek zelf.
+
+De werkelijke logboekgeneratie tarieven die zijn opgelegd tijdens runtime kunnen ook worden beïnvloed door mechanismen voor feedback, tijdelijk vermindering van de toegestane log-tarieven, zodat het systeem kunt stabiliseren. Ruimtebeheer van logboekbestanden, actieve naar buiten het logboek ruimte voorwaarden en beschikbaarheidsgroep replicatiemechanismen vermijden kan de grenzen van het hele systeem tijdelijk verlagen. 
+
+Vormgeven van logboek tarief resourceregeling verkeer wordt opgehaald via de volgende wait-typen (waarbij wordt aangemeld met de [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) DMV):
+
+| Type wachten | Opmerkingen |
+| :--- | :--- |
+| LOG_RATE_GOVERNOR | Database beperken |
+| POOL_LOG_RATE_GOVERNOR | Groep van toepassingen beperken |
+| INSTANCE_LOG_RATE_GOVERNOR | Exemplaar niveau beperken |  
+| HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Besturingselement voor feedback, beschikbaarheid van groep fysieke replicatie in Premium/bedrijfskritiek niet kunnen |  
+| HADR_THROTTLE_LOG_RATE_LOG_SIZE | Feedback-besturingselement, beperken tarieven om te voorkomen dat een out-of ruimte-logboekvoorwaarde |
+||||
 
 ## <a name="next-steps"></a>Volgende stappen
 

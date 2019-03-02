@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: f9db156562692107a5603e15340f01ecf9f9d52c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: afc833775894a01e8061401fe7601267f09edded
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823413"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243241"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Aggregatie van de gebeurtenis en verzameling met Windows Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "56823413"
 
 Wanneer u een Azure Service Fabric-cluster uitvoert, is het een goed idee om de logboeken te verzamelen van alle knooppunten in een centrale locatie. De logboeken die in een centrale locatie, helpt u bij het analyseren en oplossen van problemen in uw cluster, of problemen in de toepassingen en services die worden uitgevoerd in het cluster.
 
-Eén manier om te uploaden en verzamelen van Logboeken is het gebruik van de extensie Windows Azure Diagnostics (WAD), die wordt logboeken geüpload naar Azure Storage en bevat ook een optie om Logboeken te verzenden naar Azure Application Insights of Eventhub. U kunt ook een extern proces gebruiken voor de gebeurtenissen kan lezen uit de opslag en plaats deze in een analyse platform product, zoals [Log Analytics](../log-analytics/log-analytics-service-fabric.md) of een andere oplossing voor het parseren van Logboeken.
+Eén manier om te uploaden en verzamelen van Logboeken is het gebruik van de extensie Windows Azure Diagnostics (WAD), die wordt logboeken geüpload naar Azure Storage en bevat ook een optie om Logboeken te verzenden naar Azure Application Insights of Eventhub. U kunt ook een extern proces gebruiken voor de gebeurtenissen kan lezen uit de opslag en plaats deze in een analyse platform product, zoals [logboeken van Azure Monitor](../log-analytics/log-analytics-service-fabric.md) of een andere oplossing voor het parseren van Logboeken.
 
 ## <a name="prerequisites"></a>Vereisten
 In dit artikel worden de volgende hulpprogramma's gebruikt:
@@ -57,7 +57,7 @@ We raden u aan dat u de sjabloon downloaden **voordat u klikt op maken** in de l
 
 ![Clustersjabloon](media/service-fabric-diagnostics-event-aggregation-wad/download-cluster-template.png)
 
-Nu dat u bij het samenvoegen van gebeurtenissen in Azure Storage, [Log Analytics instellen](service-fabric-diagnostics-oms-setup.md) inzicht en query's voor uitvoert in de Log Analytics-portal
+Nu dat u bij het samenvoegen van gebeurtenissen in Azure Storage, [instellen van Azure Monitor logboeken](service-fabric-diagnostics-oms-setup.md) inzicht en query's voor uitvoert in Azure Monitor-portal Logboeken
 
 >[!NOTE]
 >Er is momenteel geen manier om te filteren of opschonen van de gebeurtenissen die worden verzonden naar de tabellen. Als u een proces voor het verwijderen van gebeurtenissen uit de tabel niet implementeert, de tabel blijft groeien (de limiet van de standaardwaarde is 50 GB). Instructies over het wijzigen van deze zijn [verderop in dit artikel](service-fabric-diagnostics-event-aggregation-wad.md#update-storage-quota). Er is bovendien een voorbeeld van een gegevensservice opschonen die wordt uitgevoerd in de [Watchdog voorbeeld](https://github.com/Azure-Samples/service-fabric-watchdog-service), en wordt aanbevolen dat u een zelf ook, schrijven, tenzij er is een goede reden voor het opslaan van Logboeken na een periode 30 of 90 dagen.
@@ -340,11 +340,11 @@ Op dit moment logboeken van het cluster weergegeven als **traceringen** in Appli
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Wanneer u Azure diagnostics correct hebt geconfigureerd, ziet u gegevens in uw Storage-tabellen van Logboeken van de ETW- en gebeurtenisbron. Als u gebruikmaken van Log Analytics, Kibana of een andere analyse- en visualisatieservice gegevensplatform die niet rechtstreeks in het Resource Manager-sjabloon is geconfigureerd wilt, moet u voor het instellen van het platform van uw keuze in de gegevens uit deze opslagtabellen worden gelezen. Hierdoor voor Log Analytics is relatief eenvoudig en wordt uitgelegd in [analyse van gebeurtenis- en logboekbestanden](service-fabric-diagnostics-event-analysis-oms.md). Application Insights is een deel van een speciaal geval in dit opzicht, omdat deze kan worden geconfigureerd als onderdeel van de configuratie van de extensie voor diagnostische gegevens, zodat u verwijzen naar de [juiste artikel](service-fabric-diagnostics-event-analysis-appinsights.md) als u AI gebruikt.
+Wanneer u Azure diagnostics correct hebt geconfigureerd, ziet u gegevens in uw Storage-tabellen van Logboeken van de ETW- en gebeurtenisbron. Als u gebruikmaken van Azure Monitor-Logboeken, Kibana of een andere analyse- en visualisatieservice gegevensplatform die niet rechtstreeks in het Resource Manager-sjabloon is geconfigureerd wilt, moet u voor het instellen van het platform van uw keuze in de gegevens uit deze opslagtabellen worden gelezen. Deze manier voor Azure Monitor-Logboeken is relatief eenvoudig en wordt uitgelegd in [analyse van gebeurtenis- en logboekbestanden](service-fabric-diagnostics-event-analysis-oms.md). Application Insights is een deel van een speciaal geval in dit opzicht, omdat deze kan worden geconfigureerd als onderdeel van de configuratie van de extensie voor diagnostische gegevens, zodat u verwijzen naar de [juiste artikel](service-fabric-diagnostics-event-analysis-appinsights.md) als u AI gebruikt.
 
 >[!NOTE]
 >Er is momenteel geen manier om te filteren of opschonen van de gebeurtenissen die worden verzonden naar de tabel. Als een proces voor het verwijderen van gebeurtenissen uit de tabel niet is geïmplementeerd, blijft de tabel om te groeien. Er is momenteel een voorbeeld van een gegevensservice opschonen die wordt uitgevoerd in de [Watchdog voorbeeld](https://github.com/Azure-Samples/service-fabric-watchdog-service), en wordt aanbevolen dat u een zelf ook, schrijven, tenzij er is een goede reden voor het opslaan van Logboeken na een periode 30 of 90 dagen.
 
 * [Meer informatie over het verzamelen van prestatiemeteritems of de logboeken met behulp van de extensie voor diagnostische gegevens](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Gebeurtenis analyses en visualisatie met Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [Gebeurtenis analyses en visualisatie met Log Analytics](service-fabric-diagnostics-event-analysis-oms.md)
+* [Gebeurtenis analyses en visualisatie met Azure Monitor-Logboeken](service-fabric-diagnostics-event-analysis-oms.md)

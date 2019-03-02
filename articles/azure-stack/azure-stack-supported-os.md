@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 2/17/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 67022b1d00c8982d7b6e6eff77ffb648bfc557ec
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 171beb432a2c49f1896dc13208a3df1b922828c0
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301278"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245689"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Gastbesturingssystemen die worden ondersteund in Azure Stack
 
@@ -53,7 +53,7 @@ Datacenter-edities zijn beschikbaar in de marketplace voor het downloaden van; k
 Linux-distributies die worden vermeld als beschikbaar in de Marketplace bevatten de benodigde Windows Azure Linux Agent (WALA). Als u uw eigen installatiekopie met Azure Stack maken, volgt u de richtlijnen in [toevoegen Linux-installatiekopieën naar Azure Stack](azure-stack-linux.md).
 
 > [!NOTE]
-> Aangepaste installatiekopieën moeten worden gebouwd met de meest recente versie voor openbare WALA of met versie 2.2.20. Versies ouder dan 2.2.20 en tussen 2.2.20 en 2.2.35 (exclusieve) werkt mogelijk niet juist in Azure Stack. 
+> Aangepaste installatiekopieën moeten worden gebouwd met de meest recente versie voor openbare WALA of met versie 2.2.20. Versies ouder dan 2.2.20 en tussen 2.2.20 en 2.2.36 werkt mogelijk niet juist in Azure Stack. 
 >
 > [cloud-init](https://cloud-init.io/) wordt niet ondersteund in Azure Stack op dit moment.
 

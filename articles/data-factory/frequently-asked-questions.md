@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: 112ff38ad4e35ac284501c5dd3881c4f340b5f9b
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: cdd5c7592ebbc092c8e7be01a0fdd16e9c78aeaf
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984633"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240793"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory Veelgestelde vragen
 In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Data Factory.  
@@ -195,7 +195,7 @@ U hebt niet meer om uw eigen Databricks-clusters. ADF beheert het maken van clus
 Wanneer Microsoft biedt hulp of oplossen van problemen met gegevens stromen, Geef op de 'DSL Code plannen'. Voer de volgende stappen uit om dit te doen:
 
 * Klik op "Code" in de rechterbovenhoek van de Flow-ontwerper. Hiermee wordt de bewerkbare JSON-code voor de gegevensstroom weergegeven.
-* In de codeweergave, klikt u op 'Plannen' in de rechterbovenhoek. Het Plan swtich van JSON naar het opgemaakte DSL-script-plan.
+* In de codeweergave, klikt u op 'Plannen' in de rechterbovenhoek. De wisselknop Plan wordt overschakelen van JSON naar het kenmerk alleen-lezen opgemaakte DSL-script-abonnement.
 * Kopieer en plak dit script of opslaan in een tekstbestand.
 
 ### <a name="how-do-i-access-data-using-the-other-80-dataset-types-in-adf"></a>Hoe krijg ik toegang tot gegevens met behulp van de andere 80 gegevenssettypen in ADF?

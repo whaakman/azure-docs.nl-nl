@@ -4,7 +4,7 @@ description: Gebruik deze zelfstudie voor informatie over het onderzoeken van aa
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: a493cd67-dc70-4163-81b8-04a9bc0232ac
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 424f7eeacf5ca3317462fa63cf684c0d5d1bac9e
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 8d44c1448296df16e9dd58a486d4cfb21bb053de
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56993249"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244193"
 ---
 # <a name="tutorial-investigate-cases-with-azure-sentinel-preview"></a>Zelfstudie: Aanvragen met Azure Sentinel Preview onderzoeken
 
@@ -33,10 +33,10 @@ Nadat u [uw gegevensbronnen verbonden](quickstart-onboard.md) Azure Sentinel, u 
 
 > [!div class="checklist"]
 > * Aanvragen maken
-> * Gevallen onderzoeken
-> * Reageren op bedreigingen
+> * Cases onderzoeken
+> * Op bedreigingen reageren
 
-## <a name="investigate-cases"></a>Gevallen onderzoeken
+## <a name="investigate-cases"></a>Cases onderzoeken
 
 Een aanvraag kan meerdere waarschuwingen bevatten. Het is een samenloop van alle relevante gegevens voor een specifiek onderzoek. Een aanvraag is gemaakt op basis van waarschuwingen die u hebt gedefinieerd in de **Analytics** pagina. De eigenschappen die betrekking hebben op de waarschuwingen, zoals ernst en status worden ingesteld op het niveau van de aanvraag. Nadat u Azure Sentinel weten welke soorten bedreigingen die u zoekt en u deze kunt vinden laat, kunt u bedreigingen die zijn gedetecteerd door het onderzoeken van gevallen bewaken. 
 
@@ -60,7 +60,7 @@ Een aanvraag kan meerdere waarschuwingen bevatten. Het is een samenloop van alle
 
 
 
-## <a name="respond-to-threats"></a>Reageren op bedreigingen
+## <a name="respond-to-threats"></a>Op bedreigingen reageren
 
 Azure Sentinel kunt u twee primaire manieren voor het reageren op bedreigingen met behulp van playbooks. U kunt een playbook worden automatisch uitgevoerd wanneer een waarschuwing wordt geactiveerd, of u handmatig een playbook in reactie op een waarschuwing uitvoeren kunt instellen.
 

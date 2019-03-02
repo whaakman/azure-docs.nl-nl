@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: 0afc507a49ae7cc54fb0daa5c7ae71c3a40ee637
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 09abb8fa2c8d08b27b83a2510b4c1133458b8363
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731103"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240725"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Verzamelen van gegevens in Azure Security Center
 Security Center verzamelt gegevens van uw virtuele Azure-machines (VM's) en niet-Azure-computers om te controleren op beveiligingsproblemen en bedreigingen. Gegevens worden verzameld met behulp van de Log Analytics-agent, die verschillende beveiliging gerelateerde configuraties en gebeurtenislogboeken van de machine leest en de gegevens worden gekopieerd naar uw werkruimte voor analyse. Voorbeelden van dergelijke gegevens zijn: besturingssysteem systeemtype en versie, besturingssysteemlogboeken (Windows-gebeurtenislogboeken), actieve processen, computernaam, IP-adressen en aangemelde gebruiker. De Log Analytics-agent kopieert ook crashdumpbestanden naar uw werkruimte.
@@ -87,11 +87,11 @@ Een werkruimte te selecteren die zijn gemaakt door Security Center:
 -   Security Center wordt automatisch ingeschakeld voor een oplossing voor Security Center in de werkruimte per de prijscategorie voor het abonnement instellen. 
 
 > [!NOTE]
-> Log Analytics-prijscategorie van werkruimten die zijn gemaakt door Security Center heeft geen invloed op de facturering van Security Center. Security Center-facturering is altijd gebaseerd op het Security Center-beveiligingsbeleid en de oplossingen die zijn geïnstalleerd op een werkruimte. Voor de laag gratis, schakelt Azure Security Center de *SecurityCenterFree* -oplossing op de standaardwerkruimte. Voor de Standard-laag, schakelt Azure Security Center de *Security* -oplossing op de standaardwerkruimte.
+> Log analytics prijscategorie van werkruimten die zijn gemaakt door Security Center heeft geen invloed op de facturering van Security Center. Security Center-facturering is altijd gebaseerd op het Security Center-beveiligingsbeleid en de oplossingen die zijn geïnstalleerd op een werkruimte. Voor de laag gratis, schakelt Azure Security Center de *SecurityCenterFree* -oplossing op de standaardwerkruimte. Voor de Standard-laag, schakelt Azure Security Center de *Security* -oplossing op de standaardwerkruimte.
 
 Zie voor meer informatie over prijzen [prijzen van Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
-Zie voor meer informatie over bestaande Log Analytics-accounts, [bestaande Log Analytics-klanten](security-center-faq.md#existingloganalyticscust).
+Zie voor meer informatie over bestaande log analytics-accounts, [bestaande log analytics-klanten](security-center-faq.md#existingloganalyticscust).
 
 ### <a name="using-an-existing-workspace"></a>Met behulp van een bestaande werkruimte
 
@@ -149,7 +149,7 @@ Wanneer u een werkruimte waarin u uw gegevens kunt opslaan selecteert, worden al
 ## <a name="data-collection-tier"></a>Verzameling gegevenslaag
 Een verzameling gegevenslaag selecteren in Azure Security Center heeft alleen invloed op de opslag van beveiligingsgebeurtenissen in uw Log Analytics-werkruimte. De Log Analytics-agent wordt nog steeds verzamelen en analyseren van de beveiligingsgebeurtenissen die vereist zijn voor Azure Security Center bedreigingen detecties, ongeacht welke laag van beveiligingsgebeurtenissen die u kiest voor het opslaan in uw Log Analytics-werkruimte (indien aanwezig). Voor het opslaan van beveiligingsgebeurtenissen in uw werkruimte te kiezen kunt voor onderzoek, zoeken en controle van de gebeurtenissen die in uw werkruimte. 
 > [!NOTE]
-> Opslaan van gegevens in Log Analytics mogelijk extra kosten voor gegevensopslag, Zie de pagina met prijzen voor meer informatie.
+> Opslaan van gegevens in log analytics mogelijk extra kosten voor gegevensopslag, Zie de pagina met prijzen voor meer informatie.
 >
 U kunt het recht filterbeleid voor uw abonnementen en werkruimten op vier sets gebeurtenissen worden opgeslagen in uw werkruimte kiezen: 
 
@@ -212,8 +212,8 @@ Zie voor meer informatie, [wat gebeurt er als een SCOM of OMS directe agent al i
 
 -   Een bestaande VM-extensie is aanwezig<br>
     - Security center biedt ondersteuning voor bestaande installaties van de extensie en wordt de bestaande verbindingen niet overschreven. Security Center worden gegevens van de virtuele machine in de werkruimte al verbonden en beveiliging op basis van de oplossingen die zijn ingeschakeld op de werkruimte biedt opgeslagen.   
-    - Om te zien op welke werkruimte de bestaande extensie verzendt gegevens naar de test uit te voeren [connectiviteit met Azure Security Center valideren](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/). U kunt ook Log analytics openen, selecteer een werkruimte, selecteert u de virtuele machine en kijken naar de verbinding van Log Analytics-agent. 
-    - Als u een omgeving waar de Log Analytics-agent is geïnstalleerd op werkstations en rapporteren aan een bestaande Log Analytics-werkruimte, bekijk de lijst [besturingssystemen die worden ondersteund door Azure Security Center](security-center-os-coverage.md) om ervoor te zorgen het besturingssysteem wordt ondersteund, en Zie [bestaande Log Analytics-klanten](security-center-faq.md#existingloganalyticscust) voor meer informatie.
+    - Om te zien op welke werkruimte de bestaande extensie verzendt gegevens naar de test uit te voeren [connectiviteit met Azure Security Center valideren](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/). U kunt ook open Log Analytics-werkruimten, selecteer een werkruimte, selecteert u de virtuele machine en kijken naar de verbinding van Log Analytics-agent. 
+    - Als u een omgeving waar de Log Analytics-agent is geïnstalleerd op werkstations en rapporteren aan een bestaande Log Analytics-werkruimte, bekijk de lijst [besturingssystemen die worden ondersteund door Azure Security Center](security-center-os-coverage.md) om ervoor te zorgen het besturingssysteem wordt ondersteund, en Zie [bestaande log analytics-klanten](security-center-faq.md#existingloganalyticscust) voor meer informatie.
  
 ### Automatische inrichting uitschakelen <a name="offprovisioning"></a>
 U kunt automatische inrichting van resources op elk gewenst moment door het uitschakelen van deze instelling in het beveiligingsbeleid uitschakelen. 

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 301dd9357bc1585d96eda216d7e47601e488665b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 60a0d7c2da25f63d0728dbb86f9a6c2328def811
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871791"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245237"
 ---
 # <a name="azure-advanced-threat-detection"></a>Geavanceerde bedreigingsdetectie van Azure
 
-Azure biedt ingebouwde functie voor de detectie geavanceerde bedreigingen via services zoals Azure Active Directory (Azure AD), Azure Log Analytics en Azure Security Center. Deze verzameling van beveiligingsservices en -mogelijkheden biedt een eenvoudige en snelle manier om te begrijpen wat er gebeurt in uw Azure-implementaties.
+Azure biedt ingebouwde functie voor de detectie geavanceerde bedreigingen via services zoals Azure Active Directory (Azure AD), logboeken van Azure Monitor en Azure Security Center. Deze verzameling van beveiligingsservices en -mogelijkheden biedt een eenvoudige en snelle manier om te begrijpen wat er gebeurt in uw Azure-implementaties.
 
 Azure biedt een breed scala aan opties voor het configureren en aanpassen van beveiliging om te voldoen aan de vereisten van uw app-implementaties. In dit artikel wordt beschreven hoe u aan deze vereisten voldoen.
 
@@ -75,17 +75,17 @@ PIM kunt u:
 
 -   Ontvang waarschuwingen over de toegang tot een bevoorrechte rol.
 
-## <a name="azure-log-analytics"></a>Azure Log Analytics
+## <a name="azure-monitor-logs"></a>Logboeken in Azure Monitor
 
-[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) is een Microsoft cloud-gebaseerde IT-beheeroplossing waarmee u beheren kunt en beveiligen van uw on-premises en cloudinfrastructuur. Omdat de Log Analytics wordt geïmplementeerd als een cloud-gebaseerde service, kunt u laten actief en werkend snel met minimale investeringen in infrastructuurservices. Nieuwe beveiligingsfuncties worden automatisch geleverd, voortdurende onderhoud opslaan en kosten voor een upgrade uitvoert.
+[Logboeken in Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) is een Microsoft cloud-gebaseerde IT-beheeroplossing waarmee u beheren kunt en beveiligen van uw on-premises en cloudinfrastructuur. Omdat Azure Monitor-Logboeken als een cloud-gebaseerde service is geïmplementeerd, kunt u laten actief en werkend snel met minimale investeringen in infrastructuurservices. Nieuwe beveiligingsfuncties worden automatisch geleverd, voortdurende onderhoud opslaan en kosten voor een upgrade uitvoert.
 
-Naast het leveren van waardevolle services op een eigen, Log Analytics kan worden geïntegreerd met System Center-onderdelen, zoals [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), uit te breiden de beveiliging van uw bestaande investeringen in beheerfuncties in de cloud. System Center en Log Analytics kunnen samenwerken voor een volledige hybride beheer van ondervinden.
+Naast het leveren van waardevolle services op een eigen, Azure Monitor logboeken kunnen worden geïntegreerd met System Center-onderdelen, zoals [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), uit te breiden de beveiliging van uw bestaande investeringen in beheerfuncties in de cloud. System Center en Azure Monitor logboeken kunnen samenwerken voor een volledige hybride beheer van ondervinden.
 
 ### <a name="holistic-security-and-compliance-posture"></a>Holistische beveiliging en naleving verbeteren
 
-De [dashboard Log Analytics-beveiliging en controle](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) biedt een uitgebreid overzicht van uw organisatie beveiligingspostuur van IT, met ingebouwde zoekquery's voor belangrijke problemen die uw aandacht nodig hebben. Het dashboard beveiliging en controle is het startscherm voor alles met betrekking tot beveiliging in Log Analytics. Het zorgt voor hoogwaardig inzicht in de beveiligingsstatus van uw computers. U kunt ook alle gebeurtenissen van de afgelopen 24 uur, 7 dagen of andere aangepaste periode bekijken.
+De [dashboard Log Analytics-beveiliging en controle](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) biedt een uitgebreid overzicht van uw organisatie beveiligingspostuur van IT, met ingebouwde zoekquery's voor belangrijke problemen die uw aandacht nodig hebben. Het dashboard beveiliging en controle is het startscherm voor alles met betrekking tot beveiliging in Azure Monitor-Logboeken. Het zorgt voor hoogwaardig inzicht in de beveiligingsstatus van uw computers. U kunt ook alle gebeurtenissen van de afgelopen 24 uur, 7 dagen of andere aangepaste periode bekijken.
 
-Log Analytics kunt u snel en eenvoudig inzicht in de algehele beveiligingsstatus van elke omgeving, allemaal binnen de context van IT-activiteiten, met inbegrip van software-evaluatie, antimalware-evaluatie en configuratiebasislijnen. Logboekgegevens van de beveiliging is gemakkelijk toegankelijk zijn voor het stroomlijnen van de beveiliging en naleving audit-processen.
+Azure Monitor registreert geven u snel en eenvoudig inzicht in de algehele beveiligingsstatus van elke omgeving, allemaal binnen de context van IT-activiteiten, met inbegrip van software-update-evaluatie, antimalware-evaluatie en configuratiebasislijnen. Logboekgegevens van de beveiliging is gemakkelijk toegankelijk zijn voor het stroomlijnen van de beveiliging en naleving audit-processen.
 
 ![Het dashboard Log Analytics-beveiliging en controle](./media/azure-threat-detection/azure-threat-detection-fig3.jpg)
 
@@ -102,25 +102,25 @@ De Log Analytics-beveiliging en controle-dashboard is onderverdeeld in vier hoof
 -   **Algemene Beveiligingsquery's**: Geeft een lijst van de meest voorkomende Beveiligingsquery's die u gebruiken kunt voor het bewaken van uw omgeving. Wanneer u een query selecteert, wordt het zoekvenster wordt geopend en de resultaten voor deze query worden weergegeven.
 
 ### <a name="insight-and-analytics"></a>Inzicht en analyse
-In het centrum van [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) is de opslagplaats, die wordt gehost door Azure.
+In het centrum van [logboeken van Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) is de opslagplaats, die wordt gehost door Azure.
 
 ![Inzicht en analyse-diagram](./media/azure-threat-detection/azure-threat-detection-fig4.png)
 
 U verzamelen gegevens in de opslagplaats van verbonden bronnen door te configureren van gegevensbronnen en oplossingen toe te voegen aan uw abonnement.
 
-![De Log Analytics-dashboard](./media/azure-threat-detection/azure-threat-detection-fig5.png)
+![Het dashboard van Azure Monitor-Logboeken](./media/azure-threat-detection/azure-threat-detection-fig5.png)
 
 Gegevensbronnen en oplossingen voor elke afzonderlijke recordtypen maken met hun eigen set eigenschappen, maar u kunt nog steeds analyseren ze samen in query's naar de opslagplaats. U kunt dezelfde hulpprogramma's en methoden gebruiken om te werken met een verscheidenheid aan gegevens die worden verzameld door verschillende bronnen.
 
 
-Het merendeel van uw interactie met Log Analytics is via de Azure-portal, die wordt uitgevoerd in een browser en biedt u toegang tot configuratie-instellingen en verschillende hulpprogramma's om te analyseren en benutten van verzamelde gegevens. Vanuit de portal, kunt u het volgende gebruiken:
+Het merendeel van uw interactie met Azure Monitor-Logboeken is via de Azure-portal, die wordt uitgevoerd in een browser en biedt u toegang tot configuratie-instellingen en verschillende hulpprogramma's om te analyseren en benutten van verzamelde gegevens. Vanuit de portal, kunt u het volgende gebruiken:
 * [Zoekopdrachten](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches) waar het samenstellen van query's om verzamelde gegevens te analyseren.
 * [Dashboards](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards), die u kunt aanpassen met grafische views van uw waardevolste zoekopdrachten.
 * [Oplossingen](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions), die aanvullende functionaliteit en analysehulpprogramma's bieden.
 
 ![Analyseprogramma 's](./media/azure-threat-detection/azure-threat-detection-fig6.png)
 
-Oplossingen voegen functionaliteit toe aan Log Analytics. Deze voornamelijk uitgevoerd in de cloud en analyseren gegevens die worden verzameld in de Log Analytics-opslagplaats. Oplossingen mogelijk ook nieuwe recordtypen moeten worden verzameld die kunnen worden geanalyseerd met zoekopdrachten in Logboeken of met behulp van een aanvullende gebruikersinterface die de oplossing in de Log Analytics-dashboard biedt definiëren.
+Oplossingen voegen functionaliteit toe aan Azure Monitor-Logboeken. Deze voornamelijk uitgevoerd in de cloud en analyseren gegevens die worden verzameld in de log analytics-opslagplaats. Oplossingen mogelijk ook nieuwe recordtypen moeten worden verzameld die kunnen worden geanalyseerd met zoekopdrachten in Logboeken of met behulp van een aanvullende gebruikersinterface die de oplossing in de log analytics-dashboard biedt definiëren.
 
 Het dashboard beveiliging en controle is een voorbeeld van deze typen oplossingen.
 

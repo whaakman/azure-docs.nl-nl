@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: bbebfca1684cad600d7ef0cc1a4cff2201fdc07e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: c26f042cb749f9ab023e7033ea015b74d87ca92a
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566141"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214109"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Inleiding tot een multitenant SaaS-app die gebruikmaakt van het patroon van de database-per-tenant met SQL Database
 
@@ -46,7 +46,7 @@ Nadat u de app hebt geïmplementeerd, bekijk de volgende zelfstudies die op de e
 |[De Wingtip SaaS-toepassing implementeren en verkennen](saas-dbpertenant-get-started-deploy.md)|  Implementeren en verkennen van de Wingtip SaaS-toepassing met uw Azure-abonnement. |
 |[Tenants inrichten en catalogiseren](saas-dbpertenant-provision-and-catalog.md)| Meer informatie over hoe de toepassing verbinding maakt met tenants met behulp van een catalogusdatabase, en hoe tenants in de catalogus worden toegewezen aan hun gegevens. |
 |[Prestaties controleren en beheren](saas-dbpertenant-performance-monitoring.md)| Informatie over het gebruik controlefuncties van SQL-Database en waarschuwingen kunt instellen wanneer drempelwaarden worden overschreden. |
-|[Bewaken met Azure Log Analytics](saas-dbpertenant-log-analytics.md) | Meer informatie over het gebruik van [Log Analytics](../log-analytics/log-analytics-overview.md) voor het bewaken van grote hoeveelheden van resources in meerdere pools. |
+|[Bewaken met Azure Monitor-Logboeken](saas-dbpertenant-log-analytics.md) | Meer informatie over het gebruik van [logboeken van Azure Monitor](../log-analytics/log-analytics-overview.md) voor het bewaken van grote hoeveelheden van resources in meerdere pools. |
 |[Een enkele tenant herstellen](saas-dbpertenant-restore-single-tenant.md)| Leer hoe u een tenantdatabase herstellen naar een eerdere in-time. U leert ook hoe u herstellen met een parallelle database, die de database van de bestaande tenant online verlaat. |
 |[Database-tenantschema beheren](saas-tenancy-schema-management.md)| Informatie over het schema en het bijwerken van referentiegegevens in alle tenantdatabases. |
 |[Cross-tenant gedistribueerde query's uitvoeren](saas-tenancy-cross-tenant-reporting.md) | Maken van een ad-hoc analytics-database, en realtime gedistribueerde query's uitvoeren voor alle tenants.  |

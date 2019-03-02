@@ -1,5 +1,5 @@
 ---
-title: Machine Learning-webservices (met R) in het overzicht van Azure SQL Database (Preview)
+title: Azure SQL Database Machine Learning-Services met R (preview)-overzicht
 description: In dit onderwerp worden beschreven van Azure SQL Database Machine Learning-Services (met R) en wordt uitgelegd hoe het werkt.
 services: sql-database
 ms.service: sql-database
@@ -11,30 +11,34 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
-ms.date: 02/06/2019
-ms.openlocfilehash: b50fd21e4d3325875134d2e2e9caeed9f8db75d0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 03/01/2019
+ms.openlocfilehash: 5f876deef4c92c0d678380a49aa38628e0afa660
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875600"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240301"
 ---
-# <a name="machine-learning-services-with-r-in-azure-sql-database-preview"></a>Machine Learning-Services (met R) in Azure SQL Database (preview)
+# <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>Azure SQL Database Machine Learning-Services met R (preview)
 
 Machine Learning-Services is een functie van Azure SQL Database, die wordt gebruikt voor het uitvoeren van R-scripts in de database. De functie bevat Microsoft R-pakketten voor krachtige voorspellende analyse en machine learning. De relationele gegevens kunnen worden gebruikt in de R-scripts via opgeslagen procedures, overzichten van de T-SQL-script met-R of R-code met T-SQL.
 
 > [!IMPORTANT]
-> Machine Learning-Services (met R) in Azure SQL Database is momenteel in openbare preview voor individuele databases en elastische pools met behulp van de vCore gebaseerde aankoopmodel in de **algemeen** en **business kritieke** Servicelagen. In deze eerste preview-versie, de **grootschalige** servicelaag en het **beheerd exemplaar** Implementatieoptie worden niet ondersteund. Momenteel is R de enige ondersteunde taal. Er is op dit moment geen ondersteuning voor Python. 
+> Azure SQL Database Machine Learning-Services (met R) is momenteel in openbare preview.
+> Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt.
+> Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 >
-> De Preview-versie is momenteel beschikbaar in de volgende regio's: West-Europa, Noord-Europa, VS-West 2, VS-Oost, Zuid-centraal VS, Noord-centraal VS, Canada centraal, Zuidoost-Azië, India-Zuid en Australië-Zuidoost. 
+> De openbare preview-versie is beschikbaar voor individuele databases en elastische pools met behulp van de vCore gebaseerde aankoopmodel in de **algemeen** en **bedrijfskritiek** Servicelagen. In deze eerste preview-versie, de **grootschalige** servicelaag en het **beheerd exemplaar** Implementatieoptie worden niet ondersteund. Momenteel is R de enige ondersteunde taal. Er is op dit moment geen ondersteuning voor Python.
+>
+> De Preview-versie is momenteel beschikbaar in de volgende regio's: West-Europa, Noord-Europa, VS-West 2, VS-Oost, VS Zuid-centraal, Noord-centraal VS, Canada centraal, Zuidoost-Azië, India-Zuid en Australië-Zuidoost.
 >
 > [Aanmelden voor de Preview-versie](#signup) hieronder.
 
 ## <a name="what-you-can-do-with-r"></a>U kunt doen met R
 
-Gebruik de kracht van R-taal voor het leveren van geavanceerde analyses en machine learning-in-database. Deze mogelijkheid zorgt voor berekeningen en verwerking aan waar de gegevens zich bevinden, hoeft u de gegevens wilt halen via het netwerk. Bovendien benut de kracht van zakelijke R-pakketten voor het leveren van geavanceerde analyses op schaal.
+Gebruik de kracht van de taal R om geavanceerde analyses en in-database machine learning te bieden. Deze mogelijkheid zorgt voor berekeningen en verwerking op de plaats waar de gegevens zich bevinden, u hoeft de gegevens niet op te halen via het netwerk. Maak ook gebruik van de kracht van zakelijke R-pakketten om geavanceerde analyses op schaal te bieden.
 
-Machine Learning-Services bevat een basis-distributie van R, overlapt met R-pakketten voor enterprise van Microsoft. R-functies en -algoritmen van Microsoft zijn ontworpen voor zowel schaal en -hulpprogramma, voorspellende analyses, statistische modellen bouwen, gegevensvisualisaties en een toonaangevende machine learning-algoritmen worden geleverd.
+Machine Learning-services bevatten een basisdistributie van R, overlapt met zakelijke R-pakketten van Microsoft. R-functies en -algoritmen van Microsoft zijn ontworpen voor zowel schaal als bruikbaarheid en bieden voorspellende analyses, statistische modellen, gegevensvisualisaties en toonaangevende algoritmen voor machine learning.
 
 ### <a name="r-packages"></a>R-pakketten
 
@@ -54,13 +58,13 @@ Naast de vooraf geïnstalleerde pakketten, kunt u [toevoeging pakketten installe
 
 Als u zich voor de openbare preview-versie, de volgende stappen uit:
 
-1. Als u een Azure-abonnement geen [maken van een account](https://azure.microsoft.com/free/) voordat u begint.
+1. Als u geen Azure-abonnement hebt, [maakt u een account](https://azure.microsoft.com/free/) voordat u begint.
 
 2. Stuur een e-mailbericht naar Microsoft op [sqldbml@microsoft.com](mailto:sqldbml@microsoft.com) om u te registreren voor de openbare preview. De openbare preview van Machine Learning Services (met R) in SQL Database is niet standaard ingeschakeld.
 
 Zodra u zijn geregistreerd in het programma, Microsoft zullen we u aan de openbare preview en R inschakelen voor uw bestaande of nieuwe database.
 
-Gebruik geen Machine Learning-Services met R voor productieworkloads tijdens de openbare preview.
+Machine Learning-Services met R wordt niet aanbevolen voor productie-werkbelasting tijdens de openbare preview.
 
 ## <a name="next-steps"></a>Volgende stappen
 

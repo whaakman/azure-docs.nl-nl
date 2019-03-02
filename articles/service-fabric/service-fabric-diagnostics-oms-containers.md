@@ -1,6 +1,6 @@
 ---
-title: Containers in Azure Service Fabric met Log Analytics controleren | Microsoft Docs
-description: Log Analytics gebruiken voor het bewaken van containers die worden uitgevoerd op Azure Service Fabric-clusters.
+title: Containers in Azure Service Fabric met Azure Monitor-logboeken bewaken | Microsoft Docs
+description: Logboeken van Azure Monitor gebruiken voor het bewaken van containers die worden uitgevoerd op Azure Service Fabric-clusters.
 services: service-fabric
 documentationcenter: .net
 author: srrengar
@@ -14,25 +14,27 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 2123cf0eb575d632e871e23513128e67d5433c9d
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: d5840db718191c9b67a8b28a2efccd55146ae510
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820162"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246930"
 ---
-# <a name="monitor-containers-with-log-analytics"></a>Containers bewaken met Log Analytics
+# <a name="monitor-containers-with-azure-monitor-logs"></a>Bewaken van containers met Azure Monitor-Logboeken
  
-In dit artikel bevat informatie over de stappen die nodig zijn om in te stellen de containerbewakingsoplossing voor Azure Log Analytics om containergebeurtenissen weer te geven. Als u uw cluster instelt voor het verzamelen van containergebeurtenissen, ziet deze [stapsgewijze zelfstudie](service-fabric-tutorial-monitoring-wincontainers.md). 
+In dit artikel bevat informatie over de stappen voor het instellen van de Azure Monitor logboeken containerbewakingsoplossing om containergebeurtenissen weer te geven. Als u uw cluster instelt voor het verzamelen van containergebeurtenissen, ziet deze [stapsgewijze zelfstudie](service-fabric-tutorial-monitoring-wincontainers.md). 
 
 [!INCLUDE [log-analytics-agent-note.md](../../includes/log-analytics-agent-note.md)]
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="set-up-the-container-monitoring-solution"></a>De containerbewakingsoplossing instellen
 
 > [!NOTE]
-> U moet de Log Analytics instellen voor uw cluster hebt, evenals de Log Analytics-agent is geïmplementeerd op de knooppunten. Als u dit niet doet, volg de stappen in [Log Analytics instellen](service-fabric-diagnostics-oms-setup.md) en [de Log Analytics-agent toevoegen aan een cluster](service-fabric-diagnostics-oms-agent.md) eerste.
+> U moet Azure Monitor logboeken instellen voor uw cluster, evenals de Log Analytics-agent is geïmplementeerd op uw knooppunten hebben. Als u dit niet doet, volg de stappen in [instellen van Azure Monitor logboeken](service-fabric-diagnostics-oms-setup.md) en [de Log Analytics-agent toevoegen aan een cluster](service-fabric-diagnostics-oms-agent.md) eerste.
 
-1. Zodra het cluster met Log Analytics en de Log Analytics-agent is ingesteld, kunt u uw containers implementeren. Wachten op voor uw containers worden geïmplementeerd voordat u doorgaat met de volgende stap.
+1. Zodra het cluster is ingesteld met Azure Monitor-logboeken en de Log Analytics-agent, moet u uw containers implementeren. Wachten op voor uw containers worden geïmplementeerd voordat u doorgaat met de volgende stap.
 
 2. Zoek in Azure Marketplace, *Container Monitoring Solution* en klik op de **Container Monitoring Solution** resource die weergegeven onder de bewaking en beheer wordt categorie.
 
@@ -42,7 +44,7 @@ In dit artikel bevat informatie over de stappen die nodig zijn om in te stellen 
 
     ![Basic Log Analytics-Dashboard](./media/service-fabric-diagnostics-event-analysis-oms/oms-containers-dashboard.png)
 
-De agent kunt u het verzamelen van verschillende container-specifieke logboeken die kunnen worden opgevraagd in Log Analytics of gebruikt voor het visualiseren van prestatie-indicatoren. Typen logboeken die worden verzameld zijn:
+De agent kunt u het verzamelen van verschillende container-specifieke logboeken die kunnen worden opgevraagd in Logboeken van Azure Monitor of gebruikt voor het visualiseren van prestatie-indicatoren. Typen logboeken die worden verzameld zijn:
 
 * ContainerInventory: bevat informatie over de containerlocatie, naam en afbeeldingen
 * ContainerImageInventory: informatie over geïmplementeerde installatiekopieën, met inbegrip van id's of -grootten
@@ -53,7 +55,7 @@ De agent kunt u het verzamelen van verschillende container-specifieke logboeken 
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [containerbewakingsoplossing voor Log Analytics](../azure-monitor/insights/containers.md).
+* Meer informatie over [Containers-oplossing van Azure Monitor-logboeken](../azure-monitor/insights/containers.md).
 * Meer informatie over de indeling met containers in Service Fabric - [Service Fabric en containers](service-fabric-containers-overview.md)
-* Familiarized ophalen met de [zoeken en uitvoeren van query's](../log-analytics/log-analytics-log-searches.md) functies die worden aangeboden als onderdeel van Log Analytics
-* Log Analytics configureren om het instellen van [automatische waarschuwingen](../log-analytics/log-analytics-alerts.md) regels om te detecteren en diagnostiek
+* Familiarized ophalen met de [zoeken en uitvoeren van query's](../log-analytics/log-analytics-log-searches.md) functies die worden aangeboden als onderdeel van Azure Monitor-Logboeken
+* Logboeken voor het instellen van Azure Monitor configureren [automatische waarschuwingen](../log-analytics/log-analytics-alerts.md) regels om te detecteren en diagnostiek

@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 4e4de6d487aaad8a0d036928fe59b47f25157bf6
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.date: 02/28/2019
+ms.openlocfilehash: dd06ae6046ab96d95cf1c1907c74d0b4d9a843bb
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55963842"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214330"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastische pools kunt u beheren en schalen van meerdere Azure SQL-databases
 
@@ -90,7 +90,7 @@ Ten minste twee S3-databases of ten minste 15 S0-databases nodig zijn voor een g
 
 ### <a name="maximum-number-of-concurrently-peaking-databases"></a>Maximum aantal gelijktijdig piekende databases
 
-Resources worden gedeeld, niet alle databases in een groep gebruiken resources tot de limiet die beschikbaar voor individuele databases. Hoe minder databases gelijktijdig pieken, des te lager de resources van de groep kunnen worden ingesteld en des te rendabeler de groep wordt. In het algemeen zou moeten niet meer dan 2/3 (of 67%) van de databases in de pool tegelijkertijd pieken tot hun resources-limiet.
+Resources worden gedeeld, niet alle databases in een groep gebruiken resources tot de limiet die beschikbaar voor individuele databases. Hoe minder databases gelijktijdig pieken, des te lager de resources van de groep kunnen worden ingesteld en des te rendabeler de groep wordt. In het algemeen, niet meer dan 2/3 (of 67%) van de databases in de pool moeten tegelijkertijd pieken tot hun resources-limiet.
 
 ***Voorbeeld van aankopen model op basis van DTU***
 
@@ -200,6 +200,20 @@ Standaard wordt de grafiek in de **databasebron** blade ziet u de databases van 
 U kunt ook meer metrische gegevens naar de weergave naast elkaar in deze database-tabel voor een volledig overzicht van de prestaties van uw databases selecteren.
 
 Zie voor meer informatie, [waarschuwingen van de SQL-Database maken in Azure portal](sql-database-insights-alerts-portal.md).
+
+## <a name="customer-case-studies"></a>Casestudy's van klanten
+
+- [SnelStart](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-snelstart/)
+
+  Bedrijfsservices gebruikt elastische pools met Azure SQL Database om uit te breiden snel zijn Bedrijfsservices tegen een tarief van 1000 nieuwe Azure SQL-Databases per maand.
+
+- [Umbraco](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-umbraco/)
+
+  Umbraco maakt gebruik van elastische pools met Azure SQL Database tot snel inrichten en schalen-services voor duizenden tenants in de cloud.
+
+- [Daxko/CSI](http://customers.microsoft.com/story/csi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services)
+
+  Daxko/CSI maakt gebruik van elastische pools met Azure SQL Database de ontwikkeling versnellen en verbeter de klantenservice en prestaties.
 
 ## <a name="next-steps"></a>Volgende stappen
 

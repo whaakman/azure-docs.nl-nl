@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 701c5c175e22556aefa95d1ac3836d52cd19b845
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: d2093c5b4c07e6e62df4d1f52a7fbe6e12a91ea0
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342301"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217050"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Auditing in Azure SQL datawarehouse
 
@@ -131,7 +131,7 @@ Er zijn verschillende methoden die u gebruiken kunt om blob auditing logboeken w
 
     4. Het samengevoegde bestand wordt geopend in SSMS, waar u kunt weergeven en analyseren, evenals exporteren naar een xel-bestand of een CSV-bestand of een tabel.
 
-* Gebruik de [toepassing synchroniseren](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) die we hebben gemaakt. Het wordt uitgevoerd in Azure en maakt gebruik van Log Analytics openbare API's voor de push-SQL-controlelogboeken in Log Analytics. De synchronisatie-toepassing pushes SQL-controlelogboeken in Log Analytics voor gebruik via de Log Analytics-dashboard.
+* Gebruik de [toepassing synchroniseren](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) die we hebben gemaakt. Het wordt uitgevoerd in Azure en maakt gebruik van logboekanalyse openbare API's om de push-SQL-controlelogboeken in Azure Monitor-Logboeken. De synchronisatie-toepassing pushes SQL-controlelogboeken in Azure Monitor-logboeken voor gebruik via de log analytics-dashboard.
 
 * Power BI gebruiken. U kunt bekijken en analyseren van logboekgegevens audit in Power BI. Meer informatie over [Power BI en toegang tot een sjabloon downloaden](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
 

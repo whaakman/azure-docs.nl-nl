@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbfade56ff12aa719927d496606a6ce4b4fe5a38
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 07e98d5a93b8576c06e9be8274a974b1b574da4b
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167147"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217736"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication op basis van cloud implementeren
 
@@ -42,6 +42,9 @@ Voordat u begint, zorg er dan voor dat u hebt de volgende vereisten:
 ## <a name="choose-authentication-methods"></a>Verificatiemethoden kiezen
 
 Schakel ten minste één verificatiemethode voor uw gebruikers op basis van de vereisten van uw organisatie. We vinden dat wanneer dit is ingeschakeld voor gebruikers van de Microsoft Authenticator-app de beste gebruikerservaring biedt. Als u nodig hebt om te begrijpen welke methoden beschikbaar zijn en hoe u deze instelt, Zie het artikel [wat verificatiemethoden zijn](concept-authentication-methods.md).
+
+> [!IMPORTANT]
+> Vanaf maart van 2019 de opties telefoongesprek zich niet beschikbaar voor gebruikers voor MFA en Self-service voor Wachtwoordherstel in vrij/proefversie van Azure AD-tenants. SMS-berichten worden niet beïnvloed door deze wijziging. Telefonische oproep blijft beschikbaar voor gebruikers in betaalde Azure AD-tenants. Deze wijziging geldt alleen voor gratis/proefversie van Azure AD-tenants.
 
 ## <a name="get-users-to-enroll"></a>Gebruikers te registreren
 

@@ -9,18 +9,18 @@ ms.subservice: custom-translator
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 01d7d197983638e415798b0b73e7ac7168c8cfab
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 9dcfb40835202849761d5d81728caf6be63d9641
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192697"
+ms.locfileid: "57215469"
 ---
 # <a name="view-model-details"></a>Modelgegevens weergeven
 
 Het tabblad modellen onder project bevat alle modellen in dat project. Alle modellen die zijn getraind voor dat project wordt vermeld op dit tabblad.
 
-Voor elk model in het project, worden de details van de volgende model weergegeven.
+Voor elk model in het project, worden deze gegevens worden weergegeven.
 
 1.  Modelnaam: Geeft de naam van het model van een bepaald model.
 

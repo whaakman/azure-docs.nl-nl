@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial;anavin
-ms.openlocfilehash: 52c0799dd2f3c22b1ae3553869aafe9a1fcffc7f
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: e752c19dc74135c05b971f8eb296da61259d0c20
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887927"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217764"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Maken, wijzigen of een virtueel netwerk-peering verwijderen
 
@@ -113,9 +113,9 @@ Als u virtuele netwerken om te communiceren soms, maar niet altijd, in plaats va
 
 ## <a name="requirements-and-constraints"></a>Vereisten en beperkingen
 
-- <a name="cross-region"></a>U kunt virtuele netwerken in de dezelfde regio bevinden, of verschillende regio's koppelen. Peering van virtuele netwerken in verschillende regio's wordt ook aangeduid als *wereldwijde peering*.
-- Bij het maken van een wereldwijde peering, worden de gekoppelde virtuele netwerken kunnen bestaan in een openbare cloud van Azure-regio, China-cloud-regio's of Government cloud-regio's. U kunt niet koppelen tussen clouds.
-- Resources in een virtueel netwerk kunnen niet communiceren met de front-end-IP-adres van een interne Azure load balancer in een wereldwijd gekoppelde virtuele netwerk. De load balancer en de resources die met deze communiceren moeten zich in een virtueel netwerk in dezelfde regio. Als de gekoppelde virtuele netwerken zich echter in dezelfde regio bevinden, kunnen resources in beide virtuele netwerken communiceren met de front-end-IP-adres van een interne Azure load balancer in beide virtuele netwerken in de peering.
+- <a name="cross-region"></a>U kunt virtuele netwerken in de dezelfde regio bevinden, of verschillende regio's koppelen. Peering van virtuele netwerken in verschillende regio's wordt ook aangeduid als *wereldwijde VNet-Peering*. 
+- Bij het maken van een wereldwijde peering, kunnen de gekoppelde virtuele netwerken bestaan in andere openbare cloud van Azure-regio's of regio's China-cloud, maar niet in Government cloud-regio's. U kunt alleen peering van virtuele netwerken in dezelfde regio in Azure Government cloud-regio's. U kan niet koppelen tussen clouds.
+- Resources in een virtueel netwerk kunnen niet communiceren met de front-end-IP-adres van een algemene interne load balancer in een wereldwijd gekoppelde virtuele netwerk. Ondersteuning voor de basisversie van Load Balancer bestaat alleen binnen dezelfde regio. Ondersteuning voor de standaardversie van Load Balancer bestaat voor wereldwijde VNet-Peering.
 - U kunt geen externe gateways gebruiken of gatewayoverdracht toestaan in wereldwijd gekoppelde virtuele netwerken. Als u externe gateways gebruiken of gatewayoverdracht toestaan, moet de gekoppelde virtuele netwerken in dezelfde regio.
 - De virtuele netwerken kunnen zich in de dezelfde of verschillende abonnementen behoren. Wanneer u virtuele netwerken in verschillende abonnementen koppelen, kunnen beide abonnementen worden gekoppeld aan dezelfde of verschillende Azure Active Directory-tenant. Als u nog een AD-tenant hebt, kunt u [maakt u er een](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). Ondersteuning voor peering tussen virtuele netwerken van abonnementen die zijn gekoppeld aan andere Azure Active Directory-tenants is niet beschikbaar in de Portal. U kunt de CLI, PowerShell of sjablonen gebruiken.
 - De virtuele netwerken die u op hetzelfde niveau moeten niet-overlappende IP-adresruimten hebben.

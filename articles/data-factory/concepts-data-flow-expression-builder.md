@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: b99311a7a8742cdc5995e53a6b0d3e6a2ddf1328
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 7cf6b08655174ce6d9b851d635d5c8b9d9d358dd
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736869"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245536"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Mapping Data Flow Expression Builder
 
@@ -70,3 +70,12 @@ regex_replace('100 and 200', '(\\d+)', 'digits')
 Gebruiken met de expressie-functies die matrices retourneren, vierkante haken [] om de specifieke indexen binnen dat matrixobject geretourneerde. De matrix is die zijn gebaseerd.
 
 ![Expressie Builder matrix](media/data-flow/expb2.png "Gegevensvoorbeeld-expressie")
+
+## <a name="handling-names-with-special-characters"></a>Afhandeling van namen met speciale tekens
+
+Wanneer u de namen van kolommen die speciale tekens of spaties bevatten, plaatst u rond de naam met behulp van accolades.
+* ```{[dbo].this_is my complex name$$$}```
+
+## <a name="next-steps"></a>Volgende stappen
+
+[Begin met het maken van data transformation expressies](data-flow-expression-functions.md)

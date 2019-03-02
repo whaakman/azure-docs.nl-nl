@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 03/01/2019
 ms.author: juliako
-ms.openlocfilehash: 9671d9f61b610a85cbf2475e045c641a29dac11b
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 9952a7bbac1eb79de0d3425f839e3bd30196844e
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010613"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243887"
 ---
 # <a name="live-event-types-comparison"></a>Vergelijking van de typen Live gebeurtenis
 
@@ -33,7 +33,7 @@ De volgende tabel vergelijkt de functies van de twee typen van de Live gebeurten
 | Single-bitrate-invoer is gecodeerd in meerdere bitsnelheden in de cloud |Nee |Ja |
 | Maximale beeldschermresolutie voor bijdrage feed |4K (4096 x 2160 op 60 frames per seconde) |1080p (1920 x 1088 op 30 frames per seconde)|
 | Aanbevolen maximale lagen in bijdrage feed|Maximaal 12|Een audio|
-| Maximum aantal lagen in de uitvoer| Hetzelfde als invoer|Maximaal 6|
+| Maximum aantal lagen in de uitvoer| Hetzelfde als invoer|Maximaal 6 (Zie onderstaande systeemwaarden)|
 | Maximale cumulatieve bandbreedte van de bijdrage van feed|60 Mbps|N/A|
 | Maximale bitrate voor één laag van de bijdrage |20 Mbps|20 Mbps|
 | Ondersteuning voor meerdere talen audionummers|Ja|Nee|
@@ -54,6 +54,30 @@ De volgende tabel vergelijkt de functies van de twee typen van de Live gebeurten
 | Ondersteuning voor niet-uniforme invoer GOPs|Ja|Nee – invoer GOP duur moet opgelost|
 | Ondersteuning voor variabele frame tarief invoer|Ja|Nee – moet dat invoer framesnelheid worden opgelost. Kleine variaties zijn toegestaan, bijvoorbeeld tijdens hoge beweging schermen. Maar de feed bijdrage kan de framesnelheid (bijvoorbeeld om 15 frames per seconde) niet verwijderen.|
 | Automatisch-signalen van Live gebeurtenis als invoer-kanaal is verbroken|Nee|Na 12 uur, als er geen LiveOutput uitgevoerd|
+
+## <a name="system-presets"></a>Systeemwaarden
+
+Bij het gebruik van live codering (Live gebeurtenis wordt ingesteld op **Standard**), de vooraf ingestelde standaardcodering definieert hoe de binnenkomende stream wordt gecodeerd in meerdere bitsnelheden of lagen. Op dit moment de enige toegestane waarde voor de vooraf ingestelde is *Default720p* (standaard).
+
+**Default720p** wordt de video coderen in de volgende 6 lagen.
+
+### <a name="output-video-stream"></a>Uitvoer Video Stream
+
+| BitRate | Breedte | Hoogte | MaxFPS | Profiel | Naam van de uitvoer-Stream |
+| --- | --- | --- | --- | --- | --- |
+| 3500 |1280 |720 |30 |Hoog |Video_1280x720_3500kbps |
+| 2200 |960 |540 |30 |Hoog |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |Hoog |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |Hoog |Video_512x288_850kbps |
+| 550 |384 |216 |30 |Hoog |Video_384x216_550kbps |
+| 200 |340 |192 |30 |Hoog |Video_340x192_200kbps |
+
+> [!NOTE]
+> Als u gebruiken een aangepaste voorinstelling voor live codering wilt, contact op met amshelp@microsoft.com. U moet de gewenste tabel van de oplossing en bitrates opgeven. Controleer of er slechts één laag bij 720p en maximaal 6 lagen.
+
+### <a name="output-audio-stream"></a>Uitvoer Audio Stream
+
+Audio is naar stereo AAC-LC op 128 k, samplefrequentie van 48 kHz gecodeerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 

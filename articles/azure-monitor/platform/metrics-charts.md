@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: c71822f50879404ba943ef6e703364a09a80fbf3
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: e5c7d019a34736cfbc26e245dc54a93374aada9c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310930"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242425"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor metrics explorer
 
@@ -76,16 +76,16 @@ U kunt filters toepassen op de grafieken met metrische gegevens met dimensies. B
 
 5. U kunt de stappen 1-4 meerdere filters toepassen op de dezelfde grafieken herhalen.
 
-## <a name="segment-a-chart"></a>Een grafiek in segmenten
+## <a name="apply-splitting-to-a-chart"></a>Splitsen op een grafiek van toepassing
 
 U kunt een metrische waarde splitsen op dimensie om te visualiseren hoe verschillende segmenten van de metrische gegevens vergelijken ten opzichte van elkaar en identificeren van de afgelegen segmenten van een dimensie. 
 
-### <a name="to-segment-a-chart"></a>Een grafiek in segmenten
+### <a name="to-apply-splitting"></a>Om toe te passen splitsen
 
 1. Klik op **toepassen splitsen** boven de grafiek.
  
    > [!NOTE]
-   > U kunt meerdere filters, maar slechts één splitsen/segmentering waarde kan hebben op één grafiek.
+   > Splitsen kan niet worden gebruikt met grafieken die meerdere metrische gegevens hebben. U kunt ook meerdere filters, maar slechts één splitsen dimensie toegepast op één grafiek hebben.
 
 2. Kies een dimensie waarop u wilt indelen van de grafiek:
 

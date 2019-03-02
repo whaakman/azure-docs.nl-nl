@@ -15,12 +15,12 @@ ms.date: 02/08/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 89e75afd3b9001f7a0b8a027744ef71c8bb69690
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 1f51aee41937c531a987482a6a367970305e6594
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56299561"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57218019"
 ---
 # <a name="install-powershell-for-azure-stack"></a>PowerShell voor Azure Stack installeren
 
@@ -106,8 +106,8 @@ Voer het volgende PowerShell-script voor het installeren van deze modules op uw 
     ```
 
     > [!Note]  
-    > De Azure Stack-moduleversie 1.7.0 is een belangrijke wijziging. Voor het migreren van Azure Stack 1.6.0 raadpleegt u de [Migratiehandleiding](https://aka.ms/azspshmigration170).
-
+    > Er is een fout opgetreden in de Azure Stack-moduleversie 1.7.0 een release bevat belangrijke wijzigingen. Voor het migreren van Azure Stack 1.6.0 raadpleegt u de [Migratiehandleiding](https://aka.ms/azspshmigration170).
+    > De AzureRm-moduleversie 2.4.0 wordt geleverd met een belangrijke wijziging voor de cmdlet Remove-AzureRmStorageAccount. Deze cmdlet wordt verwacht dat - Force prameter worden opgegeven voor het verwijderen van het opslagaccount zonder bevestiging.
 - Azure Stack 1811:
 
     ```PowerShell
@@ -216,6 +216,12 @@ Installatie bestaat uit vier stappen:
     $Path = "<Path that is used to save the packages>"
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
+    ```
+
+    > [!NOTE]  
+    >Op virtuele machines zonder internetverbinding, wordt u aangeraden uitvoeren van de volgende cmdlet voor het uitschakelen van de verzameling van telemetriegegevens. Een verslechtering van de prestaties van de cmldets kan zonder het uitschakelen van de verzameling van telemetriegegevens optreden. Dit is alleen van toepassing op de machines zonder verbindingen via internet
+    ```PowerShell
+    Disable-AzureRmDataCollection
     ```
 
 ### <a name="enable-additional-storage-features"></a>Extra opslag-functies inschakelen

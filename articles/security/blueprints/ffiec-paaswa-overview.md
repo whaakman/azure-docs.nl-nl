@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: meladie
-ms.openlocfilehash: 3ef8afb554b00c3d261ec8d0093a0c5831a43a7f
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 63ad692e1050f900310f8195b79f26dd99704b93
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652590"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245912"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-ffiec-financial-services"></a>Azure-beveiliging en naleving blauwdruk: PaaS-webtoepassing voor de financiële dienstverlening FFIEC
 
@@ -43,7 +43,7 @@ Voor een betere beveiliging, worden alle resources in deze oplossing worden behe
 
 Azure SQL Database is meestal beheerd via SQL Server Management Studio, die wordt uitgevoerd op een lokale machine is geconfigureerd voor toegang tot de Azure SQL Database via een beveiligde VPN of ExpressRoute-verbinding.
 
-Application Insights biedt bovendien toepassingsprestatiebeheer van realtime en analytics gebruikt via Log Analytics. **Microsoft raadt aan een VPN of ExpressRoute-verbinding voor het beheer en de gegevens importeren in de referentie-architectuur subnet configureren.**
+Application Insights biedt bovendien toepassingsprestatiebeheer van realtime en analytics gebruikt via Azure Monitor-Logboeken. **Microsoft raadt aan een VPN of ExpressRoute-verbinding voor het beheer en de gegevens importeren in de referentie-architectuur subnet configureren.**
 
 ![PaaS-webtoepassing voor FFIEC verwijzing Architectuurdiagram](images/ffiec-paaswa-architecture.png "PaaS-webtoepassing voor FFIEC reference architecture-diagram")
 
@@ -61,12 +61,11 @@ Deze oplossing maakt gebruik van de volgende Azure-services. Informatie van de i
 - Azure DNS
 - Azure Key Vault
 - Azure Load Balancer
-- Azure Monitor
+- Azure Monitor (Logboeken)
 - Azure Resource Manager
 - Azure Security Center
 - Azure SQL Database
 - Azure Storage
-- Azure Log Analytics
 - Azure Virtual Network
     - (1) /16 netwerk
     - (4) /24 netwerken
@@ -119,7 +118,7 @@ De architectuur definieert een particulier virtueel netwerk met een adresruimte 
 Elk van de netwerkbeveiligingsgroepen specifieke poorten en protocollen openen, zodat de oplossing kunt veilig en goed werken. Bovendien zijn de volgende configuraties ingeschakeld voor elke netwerkbeveiligingsgroep:
 
 - [Diagnostische logboeken en gebeurtenissen](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) zijn ingeschakeld en die zijn opgeslagen in een storage-account
-- Log Analytics is verbonden met de [netwerkbeveiligingsgroep&#39;s diagnostische logboeken](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+- Logboeken in Azure Monitor is verbonden met de [netwerkbeveiligingsgroep&#39;s diagnostische logboeken](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 **Subnetten**: Elk subnet is gekoppeld aan de bijbehorende netwerkbeveiligingsgroep.
 
@@ -179,7 +178,7 @@ Azure Security Center biedt beveiligingswaarschuwingen en incidenten, waardoor h
 
 **Azure Application Gateway**: De architectuur vermindert het risico van beveiligingsproblemen met behulp van een Azure Application Gateway met een web application firewall is geconfigureerd en de OWASP ruleset ingeschakeld. Aanvullende mogelijkheden zijn onder andere:
 
-- [End-naar-end-SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [End-to-end-SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - Schakel [SSL-Offload](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal)
 - Uitschakelen [TLS v1.0 en v1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [De Web application firewall](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) (preventiemodus)
@@ -194,9 +193,9 @@ Azure-services zich uitgebreid systeem en activiteit van gebruikers, evenals sys
 - **Activiteitenlogboeken**: [Activiteitenlogboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bieden inzicht in bewerkingen die worden uitgevoerd op resources in een abonnement. Activiteitenlogboeken kunnen u eenvoudiger bepalen van een bewerking initiator, tijdstip van de gebeurtenis en status.
 - **Diagnostische logboeken**: [Diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) bevatten alle logboeken die zijn gegenereerd door elke resource. Deze logboeken bevatten de logboeken voor Windows-systeem, Azure Storage-Logboeken, Key Vault-auditlogboeken en Application Gateway toegangs- en firewall-Logboeken. Alle logboeken met diagnostische gegevens schrijven naar een gecentraliseerd en versleutelde Azure storage-account voor archivering. De bewaarperiode is om te voldoen aan vereisten voor de bewaarperiode van de organisatie-specifieke gebruiker-configureren, tot maximaal 730 dagen.
 
-**Log Analytics**: Deze logboeken worden geconsolideerd [Log Analytics](https://azure.microsoft.com/services/log-analytics/) voor verwerking, opslag en -dashboardrapporten. Zodra de verzameld, worden de gegevens zijn onderverdeeld in afzonderlijke tabellen voor elk gegevenstype in Log Analytics-werkruimten, zodat alle gegevens samen kunnen worden geanalyseerd, ongeacht de oorspronkelijke bron. Daarnaast wordt Azure Security Center kan worden geïntegreerd met Log Analytics, waardoor klanten kunnen Log Analytics-query's gebruiken voor toegang tot hun beveiligingsgegevens voor de gebeurtenis en combineren met gegevens van andere services.
+**Logboeken in Azure Monitor**: Deze logboeken worden geconsolideerd [logboeken van Azure Monitor](https://azure.microsoft.com/services/log-analytics/) voor verwerking, opslag en -dashboardrapporten. Zodra de verzameld, worden de gegevens zijn onderverdeeld in afzonderlijke tabellen voor elk gegevenstype in Log Analytics-werkruimten, zodat alle gegevens samen kunnen worden geanalyseerd, ongeacht de oorspronkelijke bron. Daarnaast wordt Azure Security Center kan worden geïntegreerd met Azure Monitor-Logboeken zodat klanten kunnen Kusto-query's gebruiken voor toegang tot hun beveiligingsgegevens voor de gebeurtenis en combineren met gegevens van andere services.
 
-De volgende Log Analytics [beheeroplossingen](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) zijn opgenomen als onderdeel van deze architectuur:
+De volgende Azure [bewakingsoplossingen](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) zijn opgenomen als onderdeel van deze architectuur:
 -   [Active Directory-evaluatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): De oplossing statuscontrole van Active Directory beoordeelt het risico en de gezondheid van server-omgevingen op een vast interval en biedt een geprioriteerde lijst met aanbevelingen die specifiek zijn voor de geïmplementeerde serverinfrastructuur.
 - [SQL-evaluatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): De oplossing SQL-statuscontrole beoordeelt het risico en de gezondheid van server-omgevingen op een vast interval en biedt klanten een geprioriteerde lijst met aanbevelingen die specifiek zijn voor de geïmplementeerde serverinfrastructuur.
 - [Status van agent](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): De oplossing status van Agent rapporteert het aantal agents zijn geïmplementeerd en hun geografische verdeling, evenals hoeveel agents die niet meer reageert en het aantal agents die zijn operationele gegevens kan verzenden.
@@ -229,7 +228,7 @@ Deze Azure-beveiliging en naleving blauwdruk Automation bestaat uit JSON-configu
 2. 0-Setup-AdministrativeAccountAndPermission.md bekijken en de opgegeven opdrachten.
 
 3. Implementeer een testoplossing met voorbeeldgegevens voor Contoso of pilot een initiële productie-omgeving.
-    - 1a-ContosoWebStoreDemoAzureResources.ps1
+    - 1A-ContosoWebStoreDemoAzureResources.ps1
         - Dit script implementeert Azure-resources voor een demonstratie van een webwinkel met Contoso-voorbeeldgegevens.
     - 1-DeployAndConfigureAzureResources.ps1
         - Dit script implementeert de Azure-resources die nodig zijn voor de ondersteuning voor een productie-omgeving voor een webtoepassing met klanten. Deze omgeving moet verder worden aangepast door de klant op basis van de vereisten van de organisatie.

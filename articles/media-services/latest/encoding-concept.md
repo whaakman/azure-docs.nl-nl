@@ -9,25 +9,25 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 02/27/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ccf298c99851dc2418da894431c5c86adafe59b3
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: de2c60d4449762c4a8fcc3e2f486130f3df37c7c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959439"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243616"
 ---
 # <a name="encoding-with-media-services"></a>Codering met mediaservices
 
-Azure Media Services kunt u uw digitale media van hoge kwaliteit bestanden coderen in adaptive bitrate MP4-bestanden, zodat uw inhoud kan worden afgespeeld op een groot aantal browsers en apparaten. Een geslaagde Media Services encoding-taak maakt uitvoer activa met een set adaptive bitrate MP4s en -manifestbestanden (server en client). Op dit moment kunt u profiteren van [dynamische verpakking](dynamic-packaging-overview.md).
+Azure Media Services kunt u uw digitale media van hoge kwaliteit bestanden coderen in adaptive bitrate MP4-bestanden, zodat uw inhoud kan worden afgespeeld op een groot aantal browsers en apparaten. Een geslaagde Media Services encoding-taak maakt uitvoer activa met een set adaptive bitrate MP4s en streaming-configuratiebestanden. De configuratiebestanden bevatten ISM, .ismc .mpi en andere bestanden die u moet niet worden gewijzigd. Zodra de coderingstaak is voltooid, kunt u profiteren van [dynamische verpakking](dynamic-packaging-overview.md) en streamen.
 
-Om video's in de uitvoer van de Asset die beschikbaar zijn voor clients om te worden afgespeeld, die u moet maken een **Streaming-Locator gemaakt** en bouw vervolgens de streaming-URL's. Klik, op basis van de indeling die is opgegeven in het manifest, uw clients de stream ontvangt in het protocol dat ze hebben gekozen.
+Om video's in de uitvoer van de Asset die beschikbaar zijn voor clients om te worden afgespeeld, die u moet maken een **Streaming-Locator gemaakt** en streaming-URL's te bouwen. Klik, op basis van de indeling die is opgegeven in het manifest, uw clients de stream ontvangt in het protocol dat ze hebben gekozen.
 
 Het volgende diagram toont de streaming on demand met dynamische verpakking werkstroom.
 
-![Dynamische codering](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
+![Dynamische verpakking](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
 In dit onderwerp vindt u richtlijnen over hoe u uw inhoud codeert met Media Services v3.
 

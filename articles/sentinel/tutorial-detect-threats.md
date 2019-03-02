@@ -4,7 +4,7 @@ description: Gebruik deze zelfstudie voor informatie over het onderzoeken van wa
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: b5fbc5ac-68b2-4024-9c1b-bd3cc41a66d0
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 35268d8001f8869838745d14f0e8c0ba7253d4c9
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 897bcae65cd0115f3e224ec4a65e3736089bf97f
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56993200"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242493"
 ---
 # <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Zelfstudie: Detectie van bedreigingen met Azure Sentinel Preview
 
@@ -34,7 +34,7 @@ Nadat u [uw gegevensbronnen verbonden](quickstart-onboard.md) Azure Sentinel, u 
 
 > [!div class="checklist"]
 > * Detectieregels maken
-> * Reageren op bedreigingen
+> * Op bedreigingen reageren
 
 ## <a name="create-detection-rules"></a>Detectieregels maken
 
@@ -75,7 +75,7 @@ Voor het onderzoeken van aanvragen, moet u eerst detectieregels maken. Detectier
 
 
 
-## <a name="respond-to-threats"></a>Reageren op bedreigingen
+## <a name="respond-to-threats"></a>Op bedreigingen reageren
 
 Azure Sentinel kunt u twee primaire manieren voor het reageren op bedreigingen met behulp van playbooks. U kunt een playbook worden automatisch uitgevoerd wanneer een waarschuwing wordt geactiveerd, of u handmatig een playbook in reactie op een waarschuwing uitvoeren kunt instellen.
 

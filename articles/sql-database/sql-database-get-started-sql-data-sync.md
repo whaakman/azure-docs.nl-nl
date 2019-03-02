@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 01/14/2019
-ms.openlocfilehash: 04bb32abf7100975d72e5782b79b44006f1ac965
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 4cd7c61903bad5c0f1d6c41165e9bd7ff61a6d09
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567924"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213429"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Zelfstudie: SQL Data Sync tussen Azure SQL Database en SQL Server instellen met on-premises
 
@@ -232,7 +232,7 @@ Zie de volgende onderwerpen voor meer informatie over SQL Data Sync:
 
 - [Data Sync-Agent voor Azure SQL Data Sync](sql-database-data-sync-agent.md)
 - [Aanbevolen procedures](sql-database-best-practices-data-sync.md) en [over het oplossen van problemen met Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
-- [SQL Data Sync bewaken met Log Analytics](sql-database-sync-monitor-oms.md)
+- [SQL Data Sync bewaken met Azure Monitor-Logboeken](sql-database-sync-monitor-oms.md)
 - [Het synchronisatieschema bijwerken met behulp van Transact-SQL](sql-database-update-sync-schema.md) of [PowerShell](scripts/sql-database-sync-update-schema.md)
 
 Zie de volgende onderwerpen voor meer informatie over SQL Database:

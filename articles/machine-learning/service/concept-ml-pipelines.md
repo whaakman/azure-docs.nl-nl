@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 12/4/2018
 ms.custom: seodec18
-ms.openlocfilehash: d4bef53a21e6ab7b55c16e27083b818929fbd47c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 3f1dd0921153d6b65bdc257f91019483adbb18fa
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879251"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213667"
 ---
 # <a name="build-machine-learning-pipelines-with-the-azure-machine-learning-service"></a>Machine learning-pijplijnen met de Azure Machine Learning-service bouwen
 
@@ -54,7 +54,7 @@ Met behulp van afzonderlijke stappen, maakt het mogelijk alleen de stappen die u
 
 Nadat de pijplijn is ontworpen, is er vaak meer aan te passen om de lus training van de pijplijn. Wanneer u een pijplijn, de run koppelingen naar de stappen die opnieuw worden gestart moeten, zoals een bijgewerkte trainingsscript opnieuw uitvoeren en slaat over wat er nog niet is gewijzigd. De dezelfde paradigma is van toepassing op ongewijzigd scripts die worden gebruikt voor het uitvoeren van de stap. 
 
-Met Azure Machine Learning, kunt u verschillende toolkits en frameworks, zoals Microsoft Cognitive Toolkit of TensorFlow, om voor elke stap in de pijplijn. Azure coördinaten tussen de verschillende [compute-doelen](concept-azure-machine-learning-architecture.md) u gebruikt, zodat de tussentijdse gegevens kunnen worden gedeeld met de downstream compute-doelen eenvoudig. 
+Met Azure Machine Learning, kunt u verschillende toolkits en frameworks, zoals PyTorch of TensorFlow, om voor elke stap in de pijplijn. Azure coördinaten tussen de verschillende [compute-doelen](concept-azure-machine-learning-architecture.md) u gebruikt, zodat de tussentijdse gegevens kunnen worden gedeeld met de downstream compute-doelen eenvoudig. 
 
 U kunt [bijhouden van de metrische gegevens voor uw experimenten pijplijn](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments) rechtstreeks in Azure portal. 
 

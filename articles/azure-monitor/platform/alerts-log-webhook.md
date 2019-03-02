@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 24e159ea2cccfdaab9c732835506a1a22abab134
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 68fb7678fac2a0a32278e813d03a0eebd20565ec
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869141"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216037"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhookacties voor waarschuwingsregels
 Wanneer een [waarschuwing is gemaakt in Azure](alerts-log.md), hebt u de optie [configureren met behulp van actiegroepen](action-groups.md) een of meer acties uit te voeren.  In dit artikel beschrijft de verschillende webhookacties die beschikbaar zijn en meer informatie over het configureren van de aangepaste JSON-indeling webhook.
@@ -78,9 +78,6 @@ Zorg ervoor dat als u wilt opnemen zoekresultaten in een aangepaste payload, **I
 ## <a name="sample-payloads"></a>Voorbeeld-nettoladingen
 In deze sectie wordt een voorbeeld van payload voor webhook voor Logboekwaarschuwingen, met inbegrip van wanneer de nettolading van standard is en wanneer de aangepaste.
 
-> [!NOTE]
-> Om ervoor te zorgen voor compatibiliteit, standaard webhookpayload voor waarschuwingen met behulp van Azure Log Analytics is hetzelfde als [Log Analytics-waarschuwing management](alerts-metric.md). Maar voor logboekwaarschuwingen met behulp van [Application Insights](../../azure-monitor/app/analytics.md), de standaard webhookpayload is gebaseerd op schema van de actiegroep.
-
 ### <a name="standard-webhook-for-log-alerts"></a>Standard Webhook voor Logboekwaarschuwingen 
 Deze voorbeelden hebben een dummy-nettolading met slechts twee kolommen en twee rijen vermeld.
 
@@ -118,7 +115,11 @@ Hieronder volgt een voorbeeld-nettolading voor een standaard webhookactie *zonde
     "Description": null,
     "Severity": "Warning"
  }
- ```   
+ ```
+
+> [!NOTE]
+> De veldwaarde ernst kan worden gewijzigd als u hebt [overgeschakeld van uw voorkeur API](alerts-log-api-switch.md) voor waarschuwingen in Log Analytics.
+
 
 #### <a name="log-alert-for-azure-application-insights"></a>Waarschuwing voor Azure Application Insights
 Hieronder volgt een voorbeeld-nettolading voor een standaard webhook *zonder aangepaste Json-optie* wanneer die wordt gebruikt voor application insights-waarschuwingen op basis van log-.
@@ -154,7 +155,7 @@ Hieronder volgt een voorbeeld-nettolading voor een standaard webhook *zonder aan
     "SearchIntervalInSeconds": 3600,
     "LinkToSearchResults": "https://analytics.applicationinsights.io/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "Description": null,
-    "Severity": "Error",
+    "Severity": "3",
     "ApplicationId": "123123f0-01d3-12ab-123f-abc1ab01c0a1"
     }
 }

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 222957bb79a88ec7b4c6e9afd6d86fe2776dbfd3
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 7f67b7363719f544c485503e0f8207bb1f1078ce
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301788"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244703"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure-beveiliging en naleving blauwdruk: PaaS-webtoepassing die als host fungeert voor de officiële Workloads groot-Brittannië
 
@@ -57,9 +57,8 @@ Deze oplossing maakt gebruik van de volgende Azure-services. Informatie van de i
 - API-app
 - Azure DNS
 - Key Vault
-- Azure Monitor
+- Azure Monitor (Logboeken)
 - Application Insights
-- Log Analytics
 - Azure Resource Manager
 - Azure Security Center
 - Azure SQL Database
@@ -169,11 +168,11 @@ Gedetailleerde informatie over het beveiligen van Azure Storage vindt u de [beve
 
 ### <a name="monitoring-logging-and-audit"></a>Bewaking, logboekregistratie en controle
 
-#### <a name="log-analytics"></a>Log Analytics
+#### <a name="azure-monitor-logs"></a>Logboeken in Azure Monitor
 
-[Log Analytics](https://azure.microsoft.com/services/log-analytics/) is een service in Azure waarmee u kunt verzamelen en analyseren van gegevens die worden gegenereerd door resources in uw cloud en on-premises omgevingen.
+[Logboeken in Azure Monitor](https://azure.microsoft.com/services/log-analytics/) is een service in Azure waarmee u kunt verzamelen en analyseren van gegevens die worden gegenereerd door resources in uw cloud en on-premises omgevingen.
 
-#### <a name="log-analytics-in-this-blueprint"></a>Log Analytics in deze blauwdruk
+#### <a name="azure-monitor-logs-in-this-blueprint"></a>Azure Monitor-Logboeken in deze blauwdruk
 
 - SQL-evaluatie
 - Diagnostische gegevens van Key Vault

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: spelluru
-ms.openlocfilehash: eb71161c9191e29d3248b2c64fd9cc0fa76c92a2
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ebff47dc4007ab265b43d32c9f956eb73d5ba1ac
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545141"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213412"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Metrische gegevens van Azure Relay in Azure Monitor (preview)
 Metrische gegevens van Azure Relay bieden u de status van resources in uw Azure-abonnement. Met een uitgebreide set metrische gegevens, kunt u de algemene status van de Relay-resources, niet alleen op het niveau van de naamruimte, maar ook op het entiteitsniveau van de beoordelen. Deze statistische gegevens is belangrijk, omdat ze helpen u de status van Azure Relay bewaken. Metrische gegevens kunnen ook helpen problemen hoofdoorzaak zonder contact opnemen met ondersteuning van Azure.
@@ -47,7 +47,7 @@ Voor metrische gegevens voor ondersteuning van dimensies, moet u filteren met de
 
 ## <a name="billing"></a>Billing
 
-Met metrische gegevens in Azure Monitor is momenteel gratis tijdens Preview-versie. Echter, als u aanvullende oplossingen die metrische gegevens opnemen, u mogelijk worden kosten in rekening gebracht door deze oplossingen. U wordt bijvoorbeeld gefactureerd door Azure Storage als u metrische gegevens om een Azure Storage-account te archiveren. U wordt ook gefactureerd door Log Analytics, als u metrische gegevens naar Log Analytics voor geavanceerde analyse streamen.
+Met metrische gegevens in Azure Monitor is momenteel gratis tijdens Preview-versie. Echter, als u aanvullende oplossingen die metrische gegevens opnemen, u mogelijk worden kosten in rekening gebracht door deze oplossingen. U wordt bijvoorbeeld gefactureerd door Azure Storage als u metrische gegevens om een Azure Storage-account te archiveren. U wordt ook gefactureerd door Azure Monitor-Logboeken, als u metrische gegevens naar Azure Monitor-logboeken voor geavanceerde analyse streamen.
 
 De volgende metrische gegevens geven u een overzicht van de status van uw service. 
 
@@ -60,10 +60,10 @@ Alle metrische waarden worden verzonden naar Azure Monitor elke minuut. De tijdg
 
 | Naam van meetwaarde | Description |
 | ------------------- | ----------------- |
-| ListenerConnections-geslaagd (preview) | Het aantal geslaagde listener verbindingen met Azure Relay gedurende een bepaalde periode. <br/><br/> Eenheid: Count <br/> Aggregatietype: Totaal <br/> Dimensie: EntityName|
+| ListenerConnections-Success (preview) | Het aantal geslaagde listener verbindingen met Azure Relay gedurende een bepaalde periode. <br/><br/> Eenheid: Count <br/> Aggregatietype: Totaal <br/> Dimensie: EntityName|
 |ListenerConnections-ClientError (preview)|Het aantal clientfouten voor listener-verbindingen gedurende een bepaalde periode.<br/><br/> Eenheid: Count <br/> Aggregatietype: Totaal <br/> Dimensie: EntityName|
 |ListenerConnections-ServerError (preview)|Het nummer van de server-fouten op de listener-verbindingen gedurende een bepaalde periode.<br/><br/> Eenheid: Count <br/> Aggregatietype: Totaal <br/> Dimensie: EntityName|
-|SenderConnections-geslaagd (preview)|Het aantal geslaagde afzender verbindingen die zijn gemaakt in een opgegeven periode.<br/><br/> Eenheid: Count <br/> Aggregatietype: Totaal <br/> Dimensie: EntityName|
+|SenderConnections-Success (preview)|Het aantal geslaagde afzender verbindingen die zijn gemaakt in een opgegeven periode.<br/><br/> Eenheid: Count <br/> Aggregatietype: Totaal <br/> Dimensie: EntityName|
 |SenderConnections-ClientError (preview)|Het aantal clientfouten op de afzender-verbindingen gedurende een bepaalde periode.<br/><br/> Eenheid: Count <br/> Aggregatietype: Totaal <br/> Dimensie: EntityName|
 |SenderConnections-ServerError (preview)|Het aantal serverfouten voor verbindingen van de afzender gedurende een bepaalde periode.<br/><br/> Eenheid: Count <br/> Aggregatietype: Totaal <br/> Dimensie: EntityName|
 |ListenerConnections-TotalRequests (preview)|Het totale aantal listener-verbindingen gedurende een bepaalde periode.<br/><br/> Eenheid: Count <br/> Aggregatietype: Totaal <br/> Dimensie: EntityName|

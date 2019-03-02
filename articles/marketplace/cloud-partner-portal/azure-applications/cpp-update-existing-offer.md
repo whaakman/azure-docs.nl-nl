@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3fbbf688f6de7c3fceb6695a6b085f917dbec242
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1019c06afbdab0a6b0e172133da316aea01a5504
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196789"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216888"
 ---
 # <a name="update-an-existing-azure-application-offer"></a>Een bestaande Azure-toepassing-aanbieding bijwerken
 
@@ -75,6 +75,9 @@ Gebruik de volgende stappen uit om bij te werken van de marketplace-metagegevens
 2. Onder **alle aanbiedingen**, vinden de aanbieding die u wilt bijwerken.
 3. Ga naar de **Marketplace** tabblad. Volg de instructies in [Azure publiceren toepassingsbieding](./cpp-publish-offer.md) metagegevens wijzigingen aanbrengen.
 4. Selecteer **publiceren** om de werkstroom voor het publiceren van uw wijzigingen te starten.
+ 
+>[!Note]
+>Cloud Solution Providers (CSP) partner kanaal aanmelden is nu beschikbaar.  Raadpleeg [Cloud Solution Providers](../../cloud-solution-providers.md) voor meer informatie over marketingcontactpersonen van uw aanbieding via de Microsoft CSP partner kanalen.
 
 ## <a name="deleting-an-existing-offer"></a>Een bestaande aanbieding verwijderen...
 

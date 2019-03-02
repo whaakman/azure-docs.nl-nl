@@ -10,18 +10,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/14/2019
+ms.date: 03/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: 34f34545e4511c4f8bc4af95f906f2871480bd47
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 7819dc62d766a6b35f5c2efe1179cb0adb0ab933
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310152"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243547"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Informatie over de structuur en de syntaxis van Azure Resource Manager-sjablonen
 
-Dit artikel beschrijft de structuur van een Azure Resource Manager-sjabloon. Deze geeft de verschillende secties van een sjabloon en de eigenschappen die beschikbaar in deze secties zijn. De sjabloon bestaat uit JSON en uitdrukkingen die u gebruiken kunt om waarden voor uw implementatie samen te stellen. Zie voor een stapsgewijze zelfstudie over het maken van een sjabloon, [uw eerste Azure Resource Manager-sjabloon maken](resource-manager-create-first-template.md).
+Dit artikel beschrijft de structuur van een Azure Resource Manager-sjabloon. Deze geeft de verschillende secties van een sjabloon en de eigenschappen die beschikbaar in deze secties zijn. De sjabloon bestaat uit JSON en uitdrukkingen die u gebruiken kunt om waarden voor uw implementatie samen te stellen.
+
+In dit artikel is bedoeld voor gebruikers die bekend zijn met Resource Manager-sjablonen. Het biedt gedetailleerde informatie over de structuur en de syntaxis van de sjabloon. Als u een inleiding wilt tot het maken van een sjabloon, Zie [uw eerste Azure Resource Manager-sjabloon maken](resource-manager-create-first-template.md).
 
 ## <a name="template-format"></a>Sjabloonindeling
 
@@ -197,15 +199,106 @@ Zie voor meer informatie over het definiëren van parameters [sectie opdrachtreg
 
 In het gedeelte variabelen kunt u waarden die kunnen worden gebruikt in uw sjabloon maken. U hoeft niet te definiëren, variabelen, maar ze vaak de sjabloon vereenvoudigen door te verminderen van complexe expressies.
 
-Het volgende voorbeeld ziet u een eenvoudige definitie van de variabele:
+### <a name="available-definitions"></a>Beschikbare definities
+
+Het volgende voorbeeld ziet u de beschikbare opties voor het definiëren van een variabele:
 
 ```json
 "variables": {
-  "webSiteName": "[concat(parameters('siteNamePrefix'), uniqueString(resourceGroup().id))]",
+    "<variable-name>": "<variable-value>",
+    "<variable-name>": { 
+        <variable-complex-type-value> 
+    },
+    "<variable-object-name>": {
+        "copy": [
+            {
+                "name": "<name-of-array-property>",
+                "count": <number-of-iterations>,
+                "input": <object-or-value-to-repeat>
+            }
+        ]
+    },
+    "copy": [
+        {
+            "name": "<variable-array-name>",
+            "count": <number-of-iterations>,
+            "input": <object-or-value-to-repeat>
+        }
+    ]
+}
+```
+
+Voor informatie over het gebruik van `copy` voor het maken van verschillende waarden voor een variabele, Zie [variabele iteratie](resource-group-create-multiple.md#variable-iteration).
+
+### <a name="define-and-use-a-variable"></a>Definiëren en een variabele te gebruiken
+
+Het volgende voorbeeld ziet de definitie van een variabele. Hiermee maakt u een string-waarde voor de naam van een opslagaccount. Het maakt gebruik van verschillende sjabloonfuncties een parameterwaarde op te halen en tot een unieke tekenreeks worden samengevoegd.
+
+```json
+"variables": {
+  "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
 },
 ```
 
-Zie voor meer informatie over het definiëren van variabelen [sectie met variabelen van Azure Resource Manager-sjablonen](resource-manager-templates-variables.md).
+U kunt de variabele gebruiken bij het definiëren van de resource.
+
+```json
+"resources": [
+  {
+    "name": "[variables('storageName')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    ...
+```
+
+### <a name="configuration-variables"></a>Configuratievariabelen voor de
+
+U kunt complexe JSON-typen gebruiken om gerelateerde waarden voor een omgeving te definiëren.
+
+```json
+"variables": {
+    "environmentSettings": {
+        "test": {
+            "instanceSize": "Small",
+            "instanceCount": 1
+        },
+        "prod": {
+            "instanceSize": "Large",
+            "instanceCount": 4
+        }
+    }
+},
+```
+
+In de parameters maakt u een waarde die welke configuratiewaarden aangeeft te gebruiken.
+
+```json
+"parameters": {
+    "environmentName": {
+        "type": "string",
+        "allowedValues": [
+          "test",
+          "prod"
+        ]
+    }
+},
+```
+
+Ophalen van de huidige instellingen met:
+
+```json
+"[variables('environmentSettings')[parameters('environmentName')].instanceSize]"
+```
+
+### <a name="variables-example-templates"></a>Voorbeeldsjablonen van variabelen
+
+Deze voorbeeldsjablonen laten zien voor sommige scenario's voor het gebruik van variabelen. Te testen hoe variabelen worden verwerkt in verschillende scenario's implementeren. 
+
+|Template  |Description  |
+|---------|---------|
+| [definities van variabele](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Ziet u de verschillende typen variabelen. De sjabloon implementeren niet alle resources. Deze waarden van variabelen constructs en die waarden retourneert. |
+| [van configuratievariabele](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Ziet u het gebruik van een variabele die de configuratiewaarden definieert. De sjabloon implementeren niet alle resources. Deze waarden van variabelen constructs en die waarden retourneert. |
+| [netwerkbeveiligingsregels](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) en [parameterbestand](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json) | Vormt het een matrix in de juiste indeling voor het beveiligingsregels toewijzen aan een netwerkbeveiligingsgroep. |
+
 
 ## <a name="functions"></a>Functions
 
@@ -214,7 +307,7 @@ U kunt uw eigen functies maken in uw sjabloon. Deze functies zijn beschikbaar vo
 Bij het definiëren van de functie van een gebruiker, zijn er enkele beperkingen:
 
 * De functie heeft geen toegang tot variabelen.
-* De functie kan de parameters die zijn gedefinieerd in de functie alleen gebruiken. Wanneer u gebruikt de [parameters functie](resource-group-template-functions-deployment.md#parameters) binnen een door de gebruiker gedefinieerde functie, u bent beperkt tot de parameters voor deze functie.
+* De functie kan de parameters die zijn gedefinieerd in de functie alleen gebruiken. Wanneer u gebruikt de [parameters functie](resource-group-template-functions-deployment.md#parameters) binnen een door de gebruiker gedefinieerde functie, bent u beperkt tot de parameters voor deze functie.
 * De functie kan geen andere door de gebruiker gedefinieerde functies aanroepen.
 * De functie niet gebruiken de [verwijzen naar de functie](resource-group-template-functions-resource.md#reference).
 * Parameters voor de functie kunnen geen standaardwaarden hebben.
@@ -282,18 +375,91 @@ In de sectie resources definieert u de resources die worden geïmplementeerd of 
 Voorwaardelijk opnemen of uitsluiten van een resource tijdens de implementatie, gebruikt u de [voorwaarde element](resource-manager-templates-resources.md#condition). Zie voor meer informatie over de sectie met resources [bronnensectie van Azure Resource Manager-sjablonen](resource-manager-templates-resources.md).
 
 ## <a name="outputs"></a>Uitvoer
-In de sectie uitvoer geeft u waarden die zijn geretourneerd na de implementatie. U kunt bijvoorbeeld de URI voor toegang tot een geïmplementeerde resource retourneren.
+
+In de sectie uitvoer geeft u waarden die zijn geretourneerd na de implementatie. Normaal gesproken retourneren u waarden van resources die zijn geïmplementeerd.
+
+### <a name="available-properties"></a>Beschikbare eigenschappen
+
+Het volgende voorbeeld ziet u de structuur van de uitvoerdefinitie van een:
 
 ```json
 "outputs": {
-  "newHostName": {
+    "<outputName>" : {
+        "condition": "<boolean-value-whether-to-output-value>",
+        "type" : "<type-of-output-value>",
+        "value": "<output-value-expression>"
+    }
+}
+```
+
+| De naam van element | Vereist | Description |
+|:--- |:--- |:--- |
+| outputName |Ja |De naam van de uitvoerwaarde. Moet een geldige JavaScript-id. |
+| voorwaarde |Nee | Booleaanse waarde die aangeeft of deze uitvoer waarde wordt geretourneerd. Wanneer `true`, de waarde is opgenomen in de uitvoer voor de implementatie. Wanneer `false`, de uitvoerwaarde wordt overgeslagen voor deze implementatie. Als niet is opgegeven, is de standaardwaarde `true`. |
+| type |Ja |Type van de uitvoerwaarde. Uitvoerwaarden ondersteuning van de dezelfde typen als sjabloon invoerparameters die zijn opgegeven. |
+| waarde |Ja |De sjabloontaalexpressie dat wordt geëvalueerd en geretourneerd als de uitvoerwaarde. |
+
+### <a name="define-and-use-output-values"></a>Definiëren en uitvoerwaarden
+
+Het volgende voorbeeld laat zien hoe geretourneerd van de resource-ID voor een openbaar IP-adres:
+
+```json
+"outputs": {
+  "resourceID": {
     "type": "string",
-    "value": "[reference(variables('webSiteName')).defaultHostName]"
+    "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
   }
 }
 ```
 
-Zie voor meer informatie, [gedeelte van Azure Resource Manager-sjablonen levert](resource-manager-templates-outputs.md).
+Het volgende voorbeeld laat zien hoe voorwaardelijk geretourneerd de resource-ID voor een openbaar IP-adres op basis van of een nieuw een is geïmplementeerd:
+
+```json
+"outputs": {
+  "resourceID": {
+    "condition": "[equals(parameters('publicIpNewOrExisting'), 'new')]",
+    "type": "string",
+    "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
+  }
+}
+```
+
+Zie voor een eenvoudig voorbeeld van uitvoer voorwaardelijke [voorwaardelijke uitvoer sjabloon](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/conditional-output/azuredeploy.json).
+
+Na de implementatie, kunt u de waarde met het script ophalen. Gebruik voor PowerShell:
+
+```powershell
+(Get-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -Name <deployment-name>).Outputs.resourceID.value
+```
+
+Gebruik voor Azure CLI:
+
+```azurecli-interactive
+az group deployment show -g <resource-group-name> -n <deployment-name> --query properties.outputs.resourceID.value
+```
+
+U kunt de uitvoerwaarde van een gekoppelde sjabloon ophalen met behulp van de [verwijzing](resource-group-template-functions-resource.md#reference) functie. Als u een uitvoerwaarde op basis van een gekoppelde sjabloon, halen de waarde van de eigenschap met de syntaxis, zoals: `"[reference('deploymentName').outputs.propertyName.value]"`.
+
+Bij het ophalen van een eigenschap van een uitvoer van een gekoppelde sjabloon, kan niet de eigenschapsnaam van de een streepje bestaan.
+
+Het volgende voorbeeld ziet hoe u het IP-adres op een load balancer instellen met het ophalen van een waarde van een gekoppelde sjabloon.
+
+```json
+"publicIPAddress": {
+    "id": "[reference('linkedTemplate').outputs.resourceID.value]"
+}
+```
+
+U kunt geen gebruiken de `reference` functie in de uitvoersectie van een [geneste sjabloon](resource-group-linked-templates.md#link-or-nest-a-template). Als u wilt de waarden voor een geïmplementeerde resource in een geneste sjabloon, uw geneste sjabloon te converteren naar een gekoppelde sjabloon.
+
+### <a name="output-example-templates"></a>Voorbeeldsjablonen van uitvoer
+
+|Template  |Description  |
+|---------|---------|
+|[Kopieer variabelen](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Complexe variabelen maakt en deze waarden weergeeft. Niet alle resources niet implementeren. |
+|[Openbaar IP-adres](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Hiermee maakt u een openbaar IP-adres en de uitvoer van de resource-ID. |
+|[Load balancer](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) | Koppelingen naar de voorgaande sjabloon. Maakt gebruik van de resource-ID in de uitvoer bij het maken van de load balancer. |
+
 
 <a id="comments" />
 

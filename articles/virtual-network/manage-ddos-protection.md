@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: jdial
-ms.openlocfilehash: 360c0d9a96b8dac2f08b89caa8c1fd36e8a54b3f
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 32c4516c7dc68b04826b362d34841160936d682d
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020418"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244516"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Azure DDoS Protection Standard met behulp van de Azure-portal beheren
 
@@ -31,7 +31,7 @@ Voordat het voltooien van alle stappen in deze zelfstudie, meld u aan bij Azure 
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-## <a name="create-a-ddos-protection-plan"></a>Maken van een DDoS-beschermingsplan
+## <a name="create-a-ddos-protection-plan"></a>Een DDoS-beschermingsplan maken
 
 Een DDoS-beschermingsplan definieert een set van virtuele netwerken waarvoor DDoS-bescherming standaard ingeschakeld voor abonnementen. U kunt één DDoS-beschermingsplan voor uw organisatie en de koppeling virtuele netwerken van meerdere abonnementen naar hetzelfde abonnement. DDoS-beschermingsplan zelf is ook gekoppeld aan een abonnement, die u hebt geselecteerd tijdens het maken van het plan. Het abonnement dat het abonnement is gekoppeld aan de maandelijkse terugkerende factuur voor het abonnement, evenals de overschrijdingskosten, worden in rekening gebracht als het aantal beveiligde openbare IP-adressen meer dan 100. Zie voor meer informatie over prijzen voor DDoS [prijsinformatie](https://azure.microsoft.com/pricing/details/ddos-protection/).
 
@@ -159,7 +159,7 @@ Aanval risicobeperking rapporten maakt gebruik van de gegevens voor het protocol
 
     - **Archiveren naar een opslagaccount**: Gegevens worden geschreven naar een Azure Storage-account. Zie voor meer informatie over deze optie, [diagnostische logboeken archiveren](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Stream naar een event hub**: Hiermee kunt u een ontvanger logboekbestanden te verzamelen van logboeken met behulp van een Azure Event Hub. Eventhubs bieden integratie met Splunk of andere SIEM-systemen. Zie voor meer informatie over deze optie, [Stream logboeken met diagnostische gegevens naar een event hub](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Verzenden naar Log Analytics**: Schrijft de logboeken naar de Azure Log Analytics-service. Zie voor meer informatie over deze optie, [verzamelen van Logboeken voor gebruik in Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Verzenden naar Log Analytics**: Schrijft de logboeken naar de Azure Monitor-service. Zie voor meer informatie over deze optie, [verzamelen van Logboeken voor gebruik in Azure Monitor logboeken](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Zowel de incrementele en na aanval risicobeperking-rapporten bevatten de volgende velden
 - Aanvalsvectoren
@@ -181,7 +181,7 @@ Aanval risicobeperking Flow Logboeken kunt u bekijken van het verwijderde verkee
 
     - **Archiveren naar een opslagaccount**: Gegevens worden geschreven naar een Azure Storage-account. Zie voor meer informatie over deze optie, [diagnostische logboeken archiveren](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Stream naar een event hub**: Hiermee kunt u een ontvanger logboekbestanden te verzamelen van logboeken met behulp van een Azure Event Hub. Eventhubs bieden integratie met Splunk of andere SIEM-systemen. Zie voor meer informatie over deze optie, [Stream logboeken met diagnostische gegevens naar een event hub](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Verzenden naar Log Analytics**: Schrijft de logboeken naar de Azure Log Analytics-service. Zie voor meer informatie over deze optie, [verzamelen van Logboeken voor gebruik in Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Verzenden naar Log Analytics**: Schrijft de logboeken naar de Azure Monitor-service. Zie voor meer informatie over deze optie, [verzamelen van Logboeken voor gebruik in Azure Monitor logboeken](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 1. Als u wilt de gegevens van de logboeken stroom bekijken in Azure analytics-dashboard, kunt u het voorbeelddashboard van importeren https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip
 
 Logboeken van de stroom heeft de volgende velden: 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: cf16a01ef1003b73740c05ff45f703a65aaf0acc
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 8c344999839b3dcde98536b3d8d196a434f4cde8
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961178"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244907"
 ---
 # <a name="comparing-azure-and-standalone-service-fabric-clusters-on-windows-server-and-linux"></a>Vergelijking van Azure en zelfstandige Service Fabric-clusters in Windows Server en Linux
 Een Service Fabric-cluster is een netwerk verbonden reeks virtuele of fysieke machines waarop uw microservices worden geïmplementeerd en beheerd. Een machine of virtuele machine die deel uitmaakt van een cluster wordt een clusterknooppunt genoemd. Clusters kunnen worden geschaald naar duizenden knooppunten. Als u nieuwe knooppunten aan het cluster toevoegt, rebalances Service Fabric de partitiereplica's service en de exemplaren in het grotere aantal knooppunten. Algemene verbetert de prestaties van toepassingen en conflicten voor toegang tot het geheugen vermindert. Als de knooppunten in het cluster niet efficiënt worden gebruikt, kunt u het aantal knooppunten in het cluster verminderen. Service Fabric rebalances opnieuw de partitiereplica's en exemplaren voor het kleinere aantal knooppunten om beter gebruik van de hardware op elk knooppunt.
@@ -33,7 +33,7 @@ In Azure bieden we integratie met andere Azure-functies en services, waarmee bew
 * **Azure Resource Manager:** Gebruik van Azure Resource Manager kunt eenvoudig beheer van alle resources die door het cluster worden gebruikt als een eenheid en kosten bijhouden en facturering vereenvoudigt.
 * **Service Fabric-Cluster als een Azure-Resource** A Service Fabric-cluster is een Azure-resource, dus u kunt het model, zoals u ook andere resources in Azure.
 * **Integratie met Azure-infrastructuur** coördineert de Service Fabric met de onderliggende Azure-infrastructuur voor OS-, netwerk en andere upgrades worden uitgevoerd voor betere beschikbaarheid en betrouwbaarheid van uw toepassingen.  
-* **Diagnostische gegevens:** In Azure bieden we integratie met Azure diagnostics en Log Analytics.
+* **Diagnostische gegevens:** We bieden integratie met Azure diagnostics in Azure, en logboeken van Azure Monitor.
 * **Automatisch schalen:** Voor clusters op Azure bieden we ingebouwde functionaliteit voor automatisch schalen vanwege een virtuele-machineschaalsets. In on-premises en andere cloudomgevingen hebt u uw eigen automatisch schalen functie of schaal handmatig met behulp van de API's die Service Fabric beschikbaar maakt voor het schalen van clusters.
 
 ## <a name="benefits-of-standalone-clusters"></a>Voordelen van zelfstandige clusters

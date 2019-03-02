@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: f6874b1d97c36d22e60606ad8c8a356baec53b85
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 6f8dd8611e5e2120bdfa0ae111bf6e248ca0f3cb
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893593"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214731"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metrische gegevens van Azure SQL-Database en logboekregistratie van diagnostische gegevens
 
@@ -76,7 +76,7 @@ U kunt Azure SQL-databases voor het verzamelen van de volgende diagnostische geg
 
 ### <a name="azure-portal"></a>Azure Portal
 
-U gebruikt de **diagnostische instellingen** menu voor elk één, gegroepeerd, of het exemplaar van de database in de Azure portal voor het configureren van het streamen van diagnostische gegevens telemetrie voor Azure SQL-databases. U kunt de volgende bestemmingen instellen: Azure Storage, Azure Eventhubs en Azure Log Analytics.
+U gebruikt de **diagnostische instellingen** menu voor elk één, gegroepeerd, of het exemplaar van de database in de Azure portal voor het configureren van het streamen van diagnostische gegevens telemetrie voor Azure SQL-databases. U kunt de volgende bestemmingen instellen: Logboeken in Azure Storage, Azure Event Hubs en Azure Monitor.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-single-pooled-or-instance-databases"></a>Configureren van diagnostische gegevens telemetrie voor één streamen, gepoold of databases-exemplaar
 
@@ -100,7 +100,7 @@ Voor het inschakelen van diagnostische gegevens telemetrie voor één streaming 
    ![Configureren van diagnostische gegevens voor één, gepoold of databases-exemplaar](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 
 > [!NOTE]
-> Auditlogboeken voor beveiliging kunnen niet worden ingeschakeld vanuit de database-instellingen voor diagnostische gegevens. Inschakelen van controle logboekstreaming [controle voor uw database instellen](sql-database-auditing.md#subheading-2), en [controlelogboeken in Azure Log Analytics en Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
+> Auditlogboeken voor beveiliging kunnen niet worden ingeschakeld vanuit de database-instellingen voor diagnostische gegevens. Inschakelen van controle logboekstreaming [controle voor uw database instellen](sql-database-auditing.md#subheading-2), en [controle van Logboeken in Logboeken van Azure Monitor en Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
 > [!TIP]
 > Herhaal deze stappen voor elke Azure SQL-Database die u wilt bewaken.
 
@@ -152,7 +152,7 @@ Als u wilt inschakelen voor streaming van diagnostische gegevens telemetrie voor
 
 1. Voer een instellingnaam in voor uw eigen referentie.
 1. Selecteer een doelresource voor de streaminggegevens van diagnostische gegevens: **Archiveren naar opslagaccount**, **Stream naar een event hub**, of **verzenden naar Log Analytics**.
-1. Selecteer voor Log Analytics, **configureren** en een nieuwe werkruimte maken door te selecteren **+ nieuwe werkruimte maken**, of Selecteer een bestaande werkruimte.
+1. Selecteer voor log analytics, **configureren** en een nieuwe werkruimte maken door te selecteren **+ nieuwe werkruimte maken**, of Selecteer een bestaande werkruimte.
 1. Schakel het selectievakje voor telemetrie voor elastische Pools diagnostische gegevens: **AllMetrics**.
 1. Selecteer **Opslaan**.
 
@@ -181,7 +181,7 @@ Als u wilt inschakelen voor streaming van diagnostische gegevens telemetrie voor
 
 1. Voer een instellingnaam in voor uw eigen referentie.
 1. Selecteer een doelresource voor de streaminggegevens van diagnostische gegevens: **Archiveren naar opslagaccount**, **Stream naar een event hub**, of **verzenden naar Log Analytics**.
-1. Selecteer voor Log Analytics, **configureren** en een nieuwe werkruimte maken door te selecteren **+ nieuwe werkruimte maken**, of gebruik een bestaande werkruimte.
+1. Selecteer voor log analytics, **configureren** en een nieuwe werkruimte maken door te selecteren **+ nieuwe werkruimte maken**, of gebruik een bestaande werkruimte.
 1. Schakel het selectievakje bijvoorbeeld diagnostische gegevens telemetrie: **ResourceUsageStats**.
 1. Selecteer **Opslaan**.
 
@@ -288,7 +288,7 @@ Azure SQL Analytics is een cloudoplossing waarmee de prestaties van Azure SQL-da
 
 ![Overzicht van Azure SQL Analytics](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
 
-De logboeken van de metrische gegevens en diagnostische gegevens van de SQL-Database kunnen worden gestreamd naar Azure SQL Analytics met behulp van de ingebouwde **verzenden naar Log Analytics** optie in het tabblad instellingen van diagnostische gegevens in de portal. U kunt ook Log Analytics inschakelen met behulp van een diagnostische instelling via PowerShell-cmdlets, de Azure CLI of de Azure Monitor REST API.
+De logboeken van de metrische gegevens en diagnostische gegevens van de SQL-Database kunnen worden gestreamd naar Azure SQL Analytics met behulp van de ingebouwde **verzenden naar Log Analytics** optie in het tabblad instellingen van diagnostische gegevens in de portal. U kunt ook log analytics inschakelen met behulp van een diagnostische instelling via PowerShell-cmdlets, de Azure CLI of de Azure Monitor REST API.
 
 ### <a name="installation-overview"></a>Installatie-overzicht
 
@@ -379,7 +379,7 @@ Meer informatie over het [metrische en diagnostische gegevens logboeken download
 
 ## <a name="data-retention-policy-and-pricing"></a>Bewaarbeleid voor gegevens en prijzen
 
-Als u Event Hubs of een Storage-account selecteert, kunt u een bewaarbeleid opgeven. Dit beleid verwijdert de gegevens die ouder is dan een geselecteerde periode. Als u Log Analytics opgeeft, is het bewaarbeleid afhankelijk van de geselecteerde prijscategorie. In dit geval kunt opgegeven gratis eenheden van de gegevensopname gratis bewaking van meerdere databases per maand. Een verbruik van diagnostische gegevens telemetrie dat gratis eenheden overschrijdt mogelijk kosten in rekening. Let erop dat actieve databases met zwaardere werkbelastingen meer gegevens dan niet-actieve databases opnemen. Zie voor meer informatie, [Log Analytics-prijzen](https://azure.microsoft.com/pricing/details/monitor/).
+Als u Event Hubs of een Storage-account selecteert, kunt u een bewaarbeleid opgeven. Dit beleid verwijdert de gegevens die ouder is dan een geselecteerde periode. Als u Log Analytics opgeeft, is het bewaarbeleid afhankelijk van de geselecteerde prijscategorie. In dit geval kunt opgegeven gratis eenheden van de gegevensopname gratis bewaking van meerdere databases per maand. Een verbruik van diagnostische gegevens telemetrie dat gratis eenheden overschrijdt mogelijk kosten in rekening. Let erop dat actieve databases met zwaardere werkbelastingen meer gegevens dan niet-actieve databases opnemen. Zie voor meer informatie, [prijzen voor Log analytics](https://azure.microsoft.com/pricing/details/monitor/).
 
 Als u van Azure SQL Analytics gebruikmaakt, kunt u uw gegevensverbruik voor opname in de oplossing bewaken door het selecteren van **OMS-werkruimte** in het navigatiemenu van Azure SQL Analytics en vervolgens de optie **gebruik** en **geschatte kosten**.
 

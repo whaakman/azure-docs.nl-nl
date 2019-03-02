@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 9783c7f2837619d9b279a645668d06d9e0a144bb
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: d90daaf18e5161053e00671b7667d05ec8e5db76
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804760"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242918"
 ---
 # <a name="monitoring-and-diagnostics"></a>Controle en diagnose
 
@@ -33,13 +33,13 @@ Bewaking van toepassingen wordt bijgehouden hoe functies en onderdelen van uw to
 
 Een van de doelstellingen van Service Fabric is om toepassingen te maken tegen hardwarefouten. Dit doel wordt bereikt door middel van het platform systeemservices mogelijkheid voor het detecteren van problemen met infrastructuur en snel failover-workloads naar andere knooppunten in het cluster. Maar wat als de systeemservices zelf problemen heb? Of als bij een poging om te implementeren of verplaatsen van een werkbelasting, regels voor de plaatsing van services zijn geschonden? Service Fabric biedt diagnostische gegevens voor deze en andere problemen, om ervoor te zorgen dat u wordt geïnformeerd over de interactie van de Service Fabric-platform met uw toepassingen, services, containers en knooppunten.
 
-Voor Windows-clusters, is het aanbevolen dat u instelt met behulp van Clusterbewaking [Diagnostics-Agent](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) en [Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-setup).
+Voor Windows-clusters, is het aanbevolen dat u instelt met behulp van Clusterbewaking [Diagnostics-Agent](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) en [logboeken van Azure Monitor](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-setup).
 
-Log Analytics is voor Linux-clusters, ook de aanbevolen hulpprogramma voor het Azure-platform en infrastructuur controleren. Diagnostische gegevens over Linux-platform vereisen andere configuratie als zijn aangegeven in [Linux Service Fabric-Clustergebeurtenissen in Syslog](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-syslog).
+Logboeken van Azure Monitor is voor Linux-clusters, ook de aanbevolen hulpprogramma voor het Azure-platform en infrastructuur controleren. Diagnostische gegevens over Linux-platform vereisen andere configuratie als zijn aangegeven in [Linux Service Fabric-Clustergebeurtenissen in Syslog](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-syslog).
 
 ## <a name="infrastructure-monitoring"></a>Infrastructuur bewaken
 
-[Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-agent) wordt aanbevolen voor het bewaken van gebeurtenissen op toepassingsniveau voor cluster. Nadat u de Log Analytics-agent met uw werkruimte, configureren zoals beschreven in de vorige koppeling, kunt u zich voor het verzamelen van metrische gegevens voor prestaties zoals CPU-gebruik, de prestatiemeteritems .NET zoals proces niveau CPU-gebruik, prestaties van Service Fabric items zoals het aantal uitzonderingen van een betrouwbare service en de container metrische gegevens zoals CPU-gebruik.  U moet schrijven van Logboeken voor containers naar stdout of stderr, zodat ze beschikbaar zijn in Log Analytics.
+[Logboeken in Azure Monitor](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-agent) wordt aanbevolen voor het bewaken van gebeurtenissen op toepassingsniveau voor cluster. Nadat u de Log Analytics-agent met uw werkruimte, configureren zoals beschreven in de vorige koppeling, kunt u zich voor het verzamelen van metrische gegevens voor prestaties zoals CPU-gebruik, de prestatiemeteritems .NET zoals proces niveau CPU-gebruik, prestaties van Service Fabric items zoals het aantal uitzonderingen van een betrouwbare service en de container metrische gegevens zoals CPU-gebruik.  U moet schrijven van Logboeken voor containers naar stdout of stderr, zodat ze beschikbaar zijn in Azure Monitor-Logboeken.
 
 ## <a name="watchdogs"></a>Watchdogs
 
@@ -50,7 +50,7 @@ Over het algemeen is een watchdog een afzonderlijke service die de status en bel
 * Aan de slag instrumenteren van uw toepassingen: [Toepassing op gebeurtenis- en logboekbestanden genereren](service-fabric-diagnostics-event-generation-app.md).
 * Doorloop de stappen voor het instellen van Application Insights voor uw toepassing met [bewaken en diagnosticeren van een ASP.NET Core-toepassing in Service Fabric](service-fabric-tutorial-monitoring-aspnet.md).
 * Meer informatie over het controleren van het platform en de Service Fabric u biedt gebeurtenissen: [Platform op gebeurtenis- en logboekbestanden genereren](service-fabric-diagnostics-event-generation-infra.md).
-* Log Analytics-integratie met Service Fabric configureren: [Log Analytics instellen voor een cluster](service-fabric-diagnostics-oms-setup.md)
-* Meer informatie over het instellen van Log Analytics voor het bewaken van containers: [Bewaking en diagnose voor Windows-Containers in Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md).
+* Integratie van Azure Monitor met Service Fabric configureren: [Azure Monitor-logboeken voor een cluster instellen](service-fabric-diagnostics-oms-setup.md)
+* Meer informatie over het instellen van Azure Monitor-logboeken voor het bewaken van containers: [Bewaking en diagnose voor Windows-Containers in Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md).
 * Zie het voorbeeld van de diagnostische gegevens over problemen en oplossingen met Service Fabric: [oplossen van veelvoorkomende scenario's](service-fabric-diagnostics-common-scenarios.md)
 * Meer informatie over algemene aanbevelingen voor bewaking voor Azure-resources: [Aanbevolen procedures - bewaking en diagnose](https://docs.microsoft.com/azure/architecture/best-practices/monitoring).

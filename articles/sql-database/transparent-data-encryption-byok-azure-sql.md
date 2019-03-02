@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: c8c2c58250b6f806b48241ad1bb2a85202b9b67a
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: bccf79cea88890d02e2e1bfeb952ca9e754705cb
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456874"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217373"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Azure SQL Transparent Data Encryption met de klant beheerde sleutels in Azure Key Vault: Bring Your Own Key-ondersteuning
 
@@ -72,7 +72,7 @@ Wanneer TDE is eerst geconfigureerd voor gebruik van een TDE-beveiliging uit Key
  > [!NOTE]
  > Als TDE versleuteld SQL-databases geen toegang meer tot de key vault omdat ze de firewall niet overslaan, de databases binnen 24 uur niet toegankelijk zijn.
 
-- Controle en rapportage van alle versleutelingssleutels inschakelen: Key Vault biedt de logboeken die gemakkelijk zijn te injecteren in andere informatie over beveiliging en event management (SIEM)-hulpprogramma's. Operations Management Suite (OMS) [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) is een voorbeeld van een service die al is geïntegreerd.
+- Controle en rapportage van alle versleutelingssleutels inschakelen: Key Vault biedt de logboeken die gemakkelijk zijn te injecteren in andere informatie over beveiliging en event management (SIEM)-hulpprogramma's. Operations Management Suite (OMS) [logboeken van Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) is een voorbeeld van een service die al is geïntegreerd.
 - Om ervoor te zorgen hoge beschikbaarheid van de versleutelde databases, configureert u elke SQL-Database-server met twee Sleutelkluizen van Azure die zich in verschillende regio's bevinden.
 
 ### <a name="guidelines-for-configuring-the-tde-protector-asymmetric-key"></a>Richtlijnen voor het configureren van de TDE-beveiliging (asymmetrische sleutel)

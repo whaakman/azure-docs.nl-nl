@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 51a334557ddfb57ceab318963e319fd046d3a703
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 6aec4e4bbf0abcfb6201da50381b6697a47716fa
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820039"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244584"
 ---
 # <a name="list-of-service-fabric-events"></a>Lijst met Service Fabric-gebeurtenissen 
 
-Service Fabric wordt aangegeven dat een primaire set Clustergebeurtenissen om te informeren over de status van het cluster als [Service Fabric-gebeurtenissen](service-fabric-diagnostics-events.md). Deze zijn gebaseerd op acties die door Service Fabric wordt uitgevoerd op uw knooppunten als uw cluster of management beslissingen door een cluster eigenaar/operator. Deze gebeurtenissen kunnen worden geopend door te configureren op een aantal manieren, inclusief het configureren van [Log Analytics met uw cluster](service-fabric-diagnostics-oms-setup.md), of het uitvoeren van query's de [EventStore](service-fabric-diagnostics-eventstore.md). Deze gebeurtenissen zijn opgenomen in het gebeurtenislogboek - op Windows-machines, zodat u Service Fabric-gebeurtenissen in Logboeken ziet. 
+Service Fabric wordt aangegeven dat een primaire set Clustergebeurtenissen om te informeren over de status van het cluster als [Service Fabric-gebeurtenissen](service-fabric-diagnostics-events.md). Deze zijn gebaseerd op acties die door Service Fabric wordt uitgevoerd op uw knooppunten als uw cluster of management beslissingen door een cluster eigenaar/operator. Deze gebeurtenissen kunnen worden geopend door te configureren op een aantal manieren, inclusief het configureren van [Azure Monitor-logboeken met uw cluster](service-fabric-diagnostics-oms-setup.md), of het uitvoeren van query's de [EventStore](service-fabric-diagnostics-eventstore.md). Deze gebeurtenissen zijn opgenomen in het gebeurtenislogboek - op Windows-machines, zodat u Service Fabric-gebeurtenissen in Logboeken ziet. 
 
 Hier volgen enkele kenmerken van deze gebeurtenissen
 * Elke gebeurtenis is gekoppeld aan een bepaalde entiteit in het cluster bijvoorbeeld toepassing, Service, knooppunt, Replica.

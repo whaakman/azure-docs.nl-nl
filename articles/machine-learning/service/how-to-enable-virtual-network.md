@@ -10,18 +10,27 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: 60a76df6360ca66e8f55b03d5914283f669eb402
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 045a8fc3723c7bae176f0b99a83965bb2bef721d
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118102"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242935"
 ---
 # <a name="securely-run-experiments-and-inferencing-inside-an-azure-virtual-network"></a>Experimenten en inferentietaken in een Azure-netwerk veilig uitvoeren
 
 In dit artikel leert u hoe u uw experimenten en inferentietaken binnen een virtueel netwerk uit te voeren. Een virtueel netwerk fungeert als een beveiligingsgrens isoleren van uw Azure-resources op het openbare internet. U kunt ook een Azure-netwerk toevoegen aan uw on-premises netwerk. Hiermee kunt u veilig uw modellen trainen en toegang tot uw geïmplementeerde modellen voor inferentietaken.
 
 De Azure Machine Learning-service is afhankelijk van andere Azure-services voor compute-resources. COMPUTE-resources (compute-doelen) worden gebruikt om te trainen en modellen te implementeren. Deze compute-doelen kunnen worden gemaakt binnen een virtueel netwerk. Bijvoorbeeld, kunt u de Microsoft Data Science Virtual Machine naar een model te trainen en implementeer vervolgens het model naar Azure Kubernetes Service (AKS). Zie voor meer informatie over virtuele netwerken, de [overzicht van Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+
+## <a name="prerequisites"></a>Vereisten
+
+Dit document wordt ervan uitgegaan dat u bekend bent met Azure Virtual Networks en IP-netwerken in het algemeen. Dit document wordt ook van uitgegaan dat u een virtueel netwerk en subnet gebruiken met uw rekenresources hebt gemaakt. Als u niet bekend met Azure Virtual Networks bent, leest u de volgende artikelen voor meer informatie over de service:
+
+* [IP-adressering](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
+* [Beveiligingsgroepen](https://docs.microsoft.com/azure/virtual-network/security-overview)
+* [Snelstart: Een virtueel netwerk maken](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Netwerkverkeer filteren](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
 
 ## <a name="storage-account-for-your-workspace"></a>Storage-account voor uw werkruimte
 

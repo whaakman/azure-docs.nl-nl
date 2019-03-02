@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: bd6c592f0d3d073ec2a05c8f4636086df01ddb06
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: b653b0276cedea1e3b45adf7a9dc390b24f0d03f
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450742"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213616"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS-toepassingen bieden Publicatiehandleiding voor
 
@@ -143,6 +143,9 @@ Microsoft als host fungeert voor de commercetransactie. Microsoft factureert de 
 |Annulering | Er is op elk gewenst moment uw aanbieding is annuleerbaar door de klant. |  
 |Landingspagina van transactie | U hosten een Azure gezamenlijke transactie landingspagina waar gebruikers kunnen maken en beheren van hun SaaS-serviceaccount. |   
 | Abonnement API | U beschikbaar maakt voor een service die met de SaaS-abonnement communiceren kan te maken, bijwerken en verwijderen van een gebruiker account en service-plan. Kritieke API-wijzigingen moeten worden ondersteund binnen 24 uur. Niet-kritieke API-wijzigingen worden regelmatig uitgebracht. |  
+
+>[!Note]
+>Cloud Solution Providers (CSP) partner kanaal aanmelden is nu beschikbaar.  Raadpleeg [Cloud Solution Providers](./cloud-solution-providers.md) voor meer informatie over marketingcontactpersonen van uw aanbieding via de Microsoft CSP partner kanalen.
 
 ## <a name="next-steps"></a>Volgende stappen
 Als u dit nog niet hebt gedaan,

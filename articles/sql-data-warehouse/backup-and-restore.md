@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 09/06/2018
+ms.date: 03/01/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 0d2c7fbba8184fba81be5e93eae1dd816687ecb4
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: e9cf4fd448527e8104883e1c23c8c4b64fde3f0d
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992665"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213633"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Back-up en herstel in Azure SQL Data Warehouse
 
@@ -97,6 +97,10 @@ U kunt de teruggezette datawarehouse en de huidige houden of verwijder een van d
 Als u een datawarehouse herstellen, Zie [herstellen van een datawarehouse met behulp van de Azure-portal](sql-data-warehouse-restore-database-portal.md), [herstellen van een datawarehouse met behulp van PowerShell](sql-data-warehouse-restore-database-powershell.md), of [herstellen van een datawarehouse met behulp van REST-API's](sql-data-warehouse-restore-database-rest-api.md).
 
 Voor het herstellen van een datawarehouse verwijderd of is onderbroken, kunt u [een ondersteuningsticket maken](sql-data-warehouse-get-started-create-support-ticket.md).
+
+## <a name="cross-subscription-restore"></a>Cross-herstel
+
+Als u rechtstreeks herstellen in abonnement wilt, stemmen voor deze mogelijkheid [hier](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Herstellen naar een andere logische server en ['Verplaatsen'](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources) de server voor abonnementen om uit te voeren van een herstelpunt kruislings abonnement. 
 
 ## <a name="geo-redundant-restore"></a>Geografisch redundante herstellen
 

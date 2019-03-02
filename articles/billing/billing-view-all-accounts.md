@@ -1,6 +1,6 @@
 ---
-title: Uw facturering accounts weergeven in Azure portal | Microsoft Docs
-description: Informatie over het weergeven van uw persoonlijke en Enterprise Agreement facturering accounts in Azure portal.
+title: Bekijk uw facturering accounts in Azure portal | Microsoft Docs
+description: Leer hoe u uw facturering om accounts te bekijken in Azure portal.
 services: ''
 documentationcenter: ''
 author: amberbhargava
@@ -14,32 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2018
 ms.author: banders
-ms.openlocfilehash: a9f299f8987b5a2023d668d41c98b473f1a626d4
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 58a84848c8a0ccfe906cde7027129e2ca022ec0f
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902259"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244890"
 ---
-# <a name="view-all-your-billing-accounts-in-azure-portal"></a>Uw facturering accounts weergeven in Azure portal  
+# <a name="view-your-billing-accounts-in-azure-portal"></a>Bekijk uw facturering accounts in Azure portal  
 
-Facturering-accounts definiëren uw Azure facturering relaties. U kunt meerdere facturering accounts hebben. Bijvoorbeeld, mogelijk hebt u een Azure-abonnement dat u voor persoonlijke projecten gebruiken. U kunt ook toegang tot Azure via uw organisatie Enterprise Agreement hebben. Ga naar [kostenbeheer en facturering](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingMenuBlade/Overview) in Azure portal om alle facturering accounts weer te geven.
+Factureringsaccount is gemaakt voor elke overeenkomst dat u zich aanmelden met Microsoft om Azure te gebruiken. U gebruikt uw factureringsrekening voor het beheren van uw facturen en betalingen methoden en kosten voor Azure-services bijhouden. U kunt hebben toegang tot meerdere accounts voor facturering. Bijvoorbeeld, u mogelijk hebben geregistreerd voor Azure voor uw persoonlijke projecten. U kunt ook toegang via een Enterprise Agreement of een Microsoft-KLANTOVEREENKOMST van uw organisatie hebben.
 
-Op dit moment kunt u uw persoonlijke en Enterprise Agreement facturering accounts alleen weergeven. Standaard de [kostenbeheer en facturering](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingMenuBlade/Overview) pagina ziet u uw persoonlijke factureringsrekening. Echter, u kunt navigeren naar **facturering accounts** en het account wijzigen.
+Azure portal ondersteunt momenteel het volgende type facturering accounts:
 
-Voor persoonlijke accounts van facturering, kunt u beheren en weergeven van uw kosten in de [Azure-portal](https://portal.azure.com). Echter voor Enterprise Agreement-accounts, kunt u alleen weergeven aankopen in de Azure-reservering, saldo en het kosten maand tot heden. Deze Enterprise agreement-functies zijn beschikbaar als preview en zijn alleen beschikbaar als u in de rol van een Enterprise-beheerder zijn.
+- **Microsoft Online Services Program**: Factureringsaccount voor een Microsoft Online Services-programma wordt gemaakt wanneer u zich registreren voor Azure via de Azure-website. Bijvoorbeeld, wanneer u zich registreren voor een [gratis Azure-Account](https://azure.microsoft.com/offers/ms-azr-0044p/), [Azure betalen naar gebruik-aanbieding](https://azure.microsoft.com/offers/ms-azr-0003p/) of als een [Visual studio-abonnee](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
 
-## <a name="change-billing-account-view"></a>Facturering Accountweergave wijzigen 
+- **Enterprise Overeenkomst**: Factureringsaccount voor een Enterprise Agreement wordt gemaakt wanneer uw organisatie zich een Enterprise Agreement om Azure te gebruiken. Beheerders in de facturering voor een Enterprise Agreement-account gebruiken afdelingen en accountfacturering bereiken om te beheren en te organiseren dat facturering voor hun organisatie.
 
-1.  Meld u aan bij [Azure Portal](https://portal.azure.com).
+- **Microsoft KLANTOVEREENKOMST**: Een facturering voor de KLANTOVEREENKOMST van een Microsoft-account wordt gemaakt wanneer uw organisatie zich een KLANTOVEREENKOMST van Microsoft om Azure te gebruiken. Beheerders in de facturering-account voor een Microsoft-KLANTOVEREENKOMST facturering profielen gebruiken en secties bereiken om te beheren en te organiseren dat facturering voor hun organisatie facturering factuur. Zie voor meer informatie, [aan de slag met uw factureringsrekening voor Microsoft-KLANTOVEREENKOMST](billing-mca-overview.md).
 
-2.  Selecteer in de linkerkant van de portal, **kostenbeheer en facturering**. 
+## <a name="change-billing-account-view"></a>Facturering Accountweergave wijzigen
 
-3.  Standaard, als u hebt, ziet u uw persoonlijke factureringsrekening. Als u een persoonlijk account is facturering niet hebt of als u wilt wijzigen in een Enterprise Agreement-account, selecteert **facturering accounts**.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-4.  Selecteer een account om details weer te geven. Voor Enterprise-overeenkomsten, alleen ziet u de facturering accounts waarbij u een Enterprise-beheerder bent. Andere rollen Enterprise Agreement wordt in de toekomst worden ondersteund.
+2. Zoeken op **kosten Management en facturering**.
 
-    ![Schermafbeelding van lijst met accounts voor facturering](./media/billing-view-all-accounts/billing-list-of-accounts.png)
+   ![Schermafbeelding van zoeken in Azure portal](./media/billing-mca-section-invoice/billing-search-cost-management-billing.png)
+
+3. Standaard ziet u de details van een van de facturering bereik, zoals factureringsaccount, afdeling in een Enterprise Agreement of factureringsprofiel in Microsoft-overeenkomst voor de klant.
+
+4. U kunt het bereik wijzigen door te selecteren **facturering scopes** vanaf de linkerkant ziet en selecteer vervolgens een bereik.
 
 ## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 

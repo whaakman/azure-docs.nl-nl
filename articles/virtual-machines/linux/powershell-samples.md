@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/01/2017
+ms.date: 03/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 10c72f84a13eb1edb653d23722cb03ee97298c6b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: e094a95fef5e010471dde3e60f2fc9aaaaad6344
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407619"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246371"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Voorbeelden van Azure PowerShell van de virtuele Machine
 
@@ -29,10 +29,20 @@ De volgende tabel bevat koppelingen naar voorbeelden van de PowerShell-scripts d
 | | |
 |---|---|
 |**Virtuele machines maken**||
-| [Een volledig geconfigureerde virtuele machine maken](./../scripts/virtual-machines-linux-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Hiermee maakt u een resourcegroep, de virtuele machine en alle gerelateerde resources.|
-| [Een virtuele machine maken met Docker is ingeschakeld](./../scripts/virtual-machines-linux-powershell-sample-create-docker-host.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Een virtuele machine maakt, configureert deze virtuele machine als een Docker-host en een NGINX-container wordt uitgevoerd. |
-| [Een virtuele machine maken en uitvoeren van script voor configuratie](./../scripts/virtual-machines-linux-powershell-sample-create-vm-nginx.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Hiermee maakt u een virtuele machine en de aangepaste scriptextensie van Azure gebruikt om NGINX te installeren. |
-| [Een virtuele machine maken met WordPress geïnstalleerd](./../scripts/virtual-machines-linux-powershell-sample-create-vm-wordpress.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Hiermee maakt u een virtuele machine en de aangepaste scriptextensie van Azure gebruikt om WordPress te installeren. |
+| [Een volledig geconfigureerde virtuele machine maken](./../scripts/virtual-machines-linux-powershell-sample-create-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Hiermee maakt u een resourcegroep, de virtuele machine en alle gerelateerde resources.|
+| [Een virtuele machine maken met Docker is ingeschakeld](./../scripts/virtual-machines-linux-powershell-sample-create-docker-host.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Een virtuele machine maakt, configureert deze virtuele machine als een Docker-host en een NGINX-container wordt uitgevoerd. |
+| [Een virtuele machine maken en uitvoeren van script voor configuratie](./../scripts/virtual-machines-linux-powershell-sample-create-vm-nginx.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Hiermee maakt u een virtuele machine en de aangepaste scriptextensie van Azure gebruikt om NGINX te installeren. |
+| [Een virtuele machine maken met WordPress geïnstalleerd](./../scripts/virtual-machines-linux-powershell-sample-create-vm-wordpress.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Hiermee maakt u een virtuele machine en de aangepaste scriptextensie van Azure gebruikt om WordPress te installeren. |
+| [Een virtuele machine maken vanaf een beheerde OS-schijf](./../scripts/virtual-machines-linux-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Hiermee maakt u een virtuele machine door het koppelen van een bestaande beheerde schijf als besturingssysteemschijf. |
+| [Een virtuele machine maken van een momentopname](./../scripts/virtual-machines-linux-powershell-sample-create-vm-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Maakt een virtuele machine van een momentopname van een door eerst een beheerde schijf maken op basis van de momentopname en vervolgens de nieuwe beheerde schijf als besturingssysteemschijf te koppelen. |
+|**Opslag beheren**||
+| [Een beheerde schijf maken op basis van een VHD in dezelfde of een ander abonnement](../scripts/virtual-machines-linux-powershell-sample-create-managed-disk-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Hiermee maakt u een beheerde schijf van een gespecialiseerde VHD als een besturingssysteemschijf of van een gegevens-VHD als een gegevensschijf, in dezelfde of een ander abonnement.  |
+| [Een beheerde schijf maken op basis van een momentopname](../scripts/virtual-machines-linux-powershell-sample-create-managed-disk-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Hiermee maakt u een beheerde schijf van een momentopname. |
+| [Een momentopname exporteren als een VHD naar een opslagaccount](../scripts/virtual-machines-linux-powershell-sample-copy-snapshot-to-storage-account.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Een beheerde momentopname geëxporteerd als een VHD naar een opslagaccount in een andere regio. |
+| [De VHD van een beheerde schijf exporteren naar een opslagaccount](../scripts/virtual-machines-linux-powershell-sample-copy-managed-disks-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Hiermee exporteert u de onderliggende VHD van een beheerde schijf naar een opslagaccount in een andere regio. |
+| [Een momentopname van een VHD maken](../scripts/virtual-machines-linux-powershell-sample-create-snapshot-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Hiermee maakt u een momentopname van een VHD en gebruikt vervolgens die momentopname meerdere identieke beheerde schijven om snel te maken.  |
+| [Een momentopname kopiëren naar dezelfde of een ander abonnement](../scripts/virtual-machines-linux-powershell-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | De momentopname van de exemplaren naar dezelfde of een ander abonnement dat zich in dezelfde regio als de bovenliggende momentopname. |
 |**Virtuele machines bewaken**||
-| [Een virtuele machine met Azure Log Analytics bewaken](./../scripts/virtual-machines-linux-powershell-sample-create-vm-oms.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Hiermee maakt u een virtuele machine, de Log Analytics-agent wordt geïnstalleerd en geregistreerd van de virtuele machine in een Log Analytics-werkruimte.  |
+| [Een virtuele machine met Azure Log Analytics bewaken](./../scripts/virtual-machines-linux-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Hiermee maakt u een virtuele machine, de Log Analytics-agent wordt geïnstalleerd en geregistreerd van de virtuele machine in een Log Analytics-werkruimte.  |
+| [Een beheerde schijf kopiëren naar hetzelfde of een ander abonnement](../scripts/virtual-machines-linux-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Een beheerde schijf gekopieerd naar hetzelfde of een ander abonnement dat zich in dezelfde regio als de bovenliggende beheerde schijf.
 | | |

@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 1a21ab5af8c0dc5fbbe2c1dbab8931bd903df4ff
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 121226ad9ca1ea0c29dd192ed69797b37245da46
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235985"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213922"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Een overzicht van de mogelijkheden van Azure SQL Database-beveiliging
 
@@ -84,7 +84,7 @@ Zie voor een overzicht van machtigingen in Azure SQL Database, [aanmeldingen en 
 
 SQL-Database voor beveiliging van gegevens van de klant door de mogelijkheden voor controle en bedreigingen detectie.
 
-### <a name="sql-auditing-in-log-analytics-and-event-hubs"></a>SQL-controle in Log Analytics en Event Hubs
+### <a name="sql-auditing-in-azure-monitor-logs-and-event-hubs"></a>SQL-controle in Azure Monitor-logboeken en Event Hubs
 
 SQL Database auditing houdt databaseactiviteiten bij en zorgt voor naleving van beveiligingsstandaarden door databasegebeurtenissen naar een auditlogboek in een klanten van Azure storage-account. Controle, kunnen gebruikers actieve bewaken, evenals analyseren en onderzoeken van de historische activiteit voor het identificeren van mogelijke bedreigingen of vermoedelijke schendingen van misbruik en beveiliging. Voor meer informatie, Zie het Engelstalige artikel [SQL Database Auditing](sql-database-auditing.md).  
 

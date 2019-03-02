@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: afd6ded48bc330032b77be4bc8cd186a6f71ee5f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 9c2d6c48b9bf51062181886c8a9ef789b1c2b359
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105124"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240827"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Systeemupdates in Azure Security Center toepassen
 Azure Security Center bewaakt dagelijkse Windows en Linux-machines (VM's) en computers voor het besturingssysteemupdates ontbreken. Security Center wordt een lijst met beschikbare beveiligingsupdates en essentiële updates opgehaald van Windows Update of Windows Server Update Services (WSUS), afhankelijk van welke service is geconfigureerd op een Windows-computer. Security Center wordt ook gecontroleerd voor de meest recente updates in Linux-systemen. Als uw virtuele machine of computer het bijwerken van een systeem ontbreekt, wordt Security Center aangeraden dat u systeemupdates toepassen.
@@ -63,13 +63,13 @@ In dit voorbeeld gebruiken we **Compute**.
 
    ![Ontbrekende beveiligingsupdate][3]
 
-4. Selecteer de **zoeken** pictogram in het bovenste lint.  Een Log Analytics-zoekquery wordt gefilterd op de computers met ontbrekende van de update geopend.
+4. Selecteer de **zoeken** pictogram in het bovenste lint.  Er wordt een zoekquery voor logboeken van Azure Monitor geopend gefilterd op de computers met ontbrekende van de update.
 
-   ![Analytics voor zoeken in Logboeken][4]
+   ![Azure Monitor-logboeken zoeken][4]
 
 5. Selecteer een computer in de lijst voor meer informatie. Een andere zoekresultaat wordt geopend met informatie die alleen voor die computer gefilterd.
 
-    ![Analytics voor zoeken in Logboeken][5]
+    ![Azure Monitor-logboeken zoeken][5]
 
 ## <a name="reboot-after-system-updates"></a>Opnieuw opstarten na systeemupdates
 1. Ga terug naar de **aanbevelingen** blade. Een nieuwe vermelding is gegenereerd nadat u systeemupdates, met de naam toegepast **opnieuw opstarten na systeemupdates**. Deze vermelding laat u weten dat u de virtuele machine moet voor het voltooien van het proces van het toepassen van systeemupdates van het opnieuw opstarten.

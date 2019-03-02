@@ -1,5 +1,5 @@
 ---
-title: Belangrijke verschillen voor Machine Learning-Services (met R) in het overzicht van Azure SQL Database (Preview)
+title: Belangrijke verschillen voor Azure SQL Database Machine Learning-Services (preview)
 description: Dit onderwerp beschrijft de belangrijkste verschillen tussen Azure SQL Database Machine Learning-Services (met R) en SQL Server Machine Learning-Services.
 services: sql-database
 ms.service: sql-database
@@ -11,17 +11,22 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
-ms.date: 01/31/2019
-ms.openlocfilehash: 4350fb0e75f140e120ba6cd2f074ffa1816a8fce
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.date: 03/01/2019
+ms.openlocfilehash: c750942f8f0f2727d1d11945a84bffb434a01193
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237481"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242119"
 ---
-# <a name="key-differences-between-machine-learning-services-in-azure-sql-database-and-sql-server"></a>Belangrijke verschillen tussen Machine Learning-Services in Azure SQL Database en SQL Server
+# <a name="key-differences-between-machine-learning-services-in-azure-sql-database-preview-and-sql-server"></a>Belangrijke verschillen tussen Machine Learning-Services in Azure SQL Database (preview) en SQL Server
 
-De functionaliteit van Machine Learning Services (met R) in Azure SQL Database is vergelijkbaar met [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Hieronder vindt u enkele belangrijke verschillen tussen deze.
+De functionaliteit van Azure SQL Database Machine Learning-Services (met R) in (preview) is vergelijkbaar met [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Hieronder vindt u enkele belangrijke verschillen.
+
+> [!IMPORTANT]
+> Azure SQL Database Machine Learning-Services is momenteel in openbare preview.
+> Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt.
+> Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
 ## <a name="language-support"></a>Taalondersteuning
 
@@ -41,7 +46,19 @@ Beheer van R-pakket en de installatie werkt verschil is tussen de SQL-Database e
 
 ## <a name="resource-governance"></a>Resourcebeheer
 
-Het is niet mogelijk om te beperken van R-resources via [Resourceregeling](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) en externe resourcegroepen. R-resources zijn een percentage van de SQL Database-resources en zijn afhankelijk van welke servicelaag die u kiest. Zie voor meer informatie, [modellen aanschaffen van Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
+Het is niet mogelijk om te beperken van R-resources via [Resourceregeling](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) en externe resourcegroepen.
+
+Tijdens de openbare preview, R-resources zijn ingesteld op een maximum van 20% van de SQL Database-resources en zijn afhankelijk van welke servicelaag die u kiest. Zie voor meer informatie, [modellen aanschaffen van Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
+
+### <a name="insufficient-memory-error"></a>Fout door onvoldoende geheugen
+
+Als er onvoldoende geheugen beschikbaar voor R is, krijgt u een foutbericht weergegeven. Veelvoorkomende foutberichten zijn:
+
+- Kan niet communiceren met de runtime voor 'R'-script voor aanvraag-id: ***. Controleer of de vereisten van 'R'-runtime
+- 'R' script error occurred during execution of 'sp_execute_external_script' with HRESULT 0x80004004. ...an external script error occurred: "..could not allocate memory (0 Mb) in C function 'R_AllocStringBuffer'"
+- Er is een externe scriptfout opgetreden: Fout: kan geen vector van grootte toewijzen.
+
+Gebruik is afhankelijk van hoeveel geheugen wordt gebruikt in uw R-scripts en het aantal parallelle query's wordt uitgevoerd. Als u de bovenstaande fouten ontvangt, kunt u uw database naar een hogere servicelaag dit oplossen kunt schalen.
 
 ## <a name="security-isolation"></a>Isolatie
 

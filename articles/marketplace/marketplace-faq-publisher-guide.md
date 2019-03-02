@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: ellacroi
-ms.openlocfilehash: c420b1b5fc15f89bd14b8ae42919f24de97da4fc
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 25349593bd45949f662581160fa23d30b4682710
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894153"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214194"
 ---
 # <a name="marketplace-faqs"></a>Veelgestelde vragen over Marketplace
 
@@ -66,10 +66,11 @@ Met Azure Marketplace, kunnen klanten technische toepassingen die is gebouwd voo
 
 Azure Marketplace-aanbiedingen die kunnen worden aangeschaft via:
 
-* [webwinkel](https://azuremarketplace.microsoft.com/marketplace/apps).
-* [Microsoft Azure Management portal](https://portal.azure.com/), of via de [Azure Marketplace Command Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+* [webwinkel](https://azuremarketplace.microsoft.com/marketplace/apps)
+* [Microsoft Azure Management portal](https://portal.azure.com/), of via de [Azure Marketplace Command Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
-Opmerking: Prepaidcredits en andere vormen van de monetaire toezegging kunnen niet worden gebruikt om te betalen voor de kosten voor de softwarelicentie, maar kunnen worden gebruikt om de bijbehorende Azure-gebruikskosten te betalen.  Uitzonderingen worden vermeld in [monetaire toezegging voor Azure](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/).
+>[!Note]
+>Prepaidcredits en andere vormen van de monetaire toezegging kunnen niet worden gebruikt om te betalen voor de kosten voor de softwarelicentie, maar kunnen worden gebruikt om de bijbehorende Azure-gebruikskosten te betalen.  Uitzonderingen worden vermeld in [monetaire toezegging voor Azure](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/).
 
 **Kan ik kiezen in welke Microsoft Azure-regio('s) mijn Azure Marketplace-aankoop implementeren?**
 
@@ -93,9 +94,11 @@ Op dit moment zijn alleen de gratis en bring-your-own-license (BYOL) Marketplace
 
 **Welke landen worden ondersteund voor het aanschaffen van toepassingen en services die worden verkocht/ingericht via de Azure Marketplace?**
 
-Azure Marketplace is beschikbaar voor Microsoft Azure-klanten in de volgende landen:
+Azure Marketplace is beschikbaar voor Microsoft Azure-klanten in de landen vermeld in de [beleidsregels voor deelname aan](https://docs.microsoft.com/legal/marketplace/participation-policy).
 
-Algerije, Argentinië, Australië, Bahrein, Belarus, België, Brazilië, Bulgarije, Canada, Chili, Colombia, Costa Rica, Cyprus, Denemarken, Dominicaanse Republiek, Duitsland, Ecuador, Egypte, El Salvador, Estland, Filipijnen, Finland, Frankrijk, Griekenland, Guatemala, Hongkong SAR, Hongarije, Ierland, IJsland, India, Indonesië, Israël, Italië, Japan, Jordanië, Kazachstan, Kenia, Koeweit, Kroatië, Letland, Liechtenstein, Litouwen, Luxemburg, Voormalige Joegoslavische Republiek Macedonië, Maleisië, Malta, Marokko, Mexico, Montenegro, Nederland, Nieuw Zeeland, Nigeria, Noorwegen, Oekraïne, Oman, Oostenrijk, Pakistan, Panama, Paraguay, Peru, Polen, Portugal, Puerto Rico, Qatar, Roemenië, Rusland, Saoedi-Arabië, Servië, Singapore, Slovenië, Slowakije, Spanje, Sri Lanka, Taiwan, Thailand, Trinidad en Tobago, Tsjechische Republiek, Tunesië, Turkije, Uruguay, Verenigde Arabische Emiraten, Verenigde Staten, Verenigd Koninkrijk, Venezuela, Zweden, Zwitserland, Zuid-Afrika, Zuid-Korea.
+**Welke valuta's worden ondersteund door Azure Marketplace?**
+
+Transacties kunnen worden uitgevoerd in de volgende 17 valuta: AUD, BRL, CAD, CHF, DKK, EUR, GBP, INR, JPY, KRW, NOK, NZD, RUB, SEK, TWD, USD, RMB.
 
 ### <a name="deploying-a-solution-from-azure-marketplace"></a>Een oplossing implementeren vanuit Azure Marketplace
 
@@ -180,17 +183,17 @@ Nee. De publisher die eigenaar is van oplossingen op Azure Marketplace kunt inst
 
 **Hoe moet ik betalen voor deze abonnementen? Mijn Azure Marketplace-aankopen worden weergegeven op de factuur van Azure, of is er een afzonderlijke factuur?**
 
-Azure Marketplace-aankopen nemen de dezelfde betalingswijze als voor het Azure-abonnement.  Ze worden afzonderlijk gefactureerd gebruik van Azure, tenzij ze zijn ingeschakeld op de monetaire toezegging verbruiken.
+MOSP - [Microsoft Online Subscription Program](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (dat wil zeggen web direct)-klanten worden in rekening gebracht op de creditcard die is geregistreerd voor hun Azure-abonnementsprofiel. Als u geen creditcard is geregistreerd in het bestand, klikt u vervolgens aanschaffen kunt u niet vanuit Azure Marketplace. In dit geval ontheffing u een speciale hebt van Azure-kosten worden in plaats daarvan aan u gefactureerd.
 
-MOSP - klanten van Microsoft Online Subscription Program (web-direct) worden kosten in rekening gebracht op de creditcard die is geregistreerd voor hun Azure-abonnementsprofiel. Als de klant heeft geen creditcard is geregistreerd in het bestand (een speciale ontheffing hebt van Azure-kosten worden gefactureerd), aanschaffen niet op de Azure Marketplace ze.
-
-Enterprise Agreement (EA)-klanten worden kosten in rekening gebracht op basis van hun EA. Specifieke Azure Marketplace-aanbiedingen die worden vermeld in [monetaire toezegging voor Azure](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/) worden eerst afgetrokken van de beschikbare monetaire toezegging en vervolgens gefactureerd als overschrijding op één kwartaalfactuur. EA indirect-, onderwijs- en overheidsklanten worden gefactureerd door hun LSP Provider (Licensing Solution).
+Enterprise Agreement (EA)-klanten worden kosten in rekening gebracht op basis van hun EA. Specifieke Azure Marketplace-aanbiedingen die hier worden vermeld worden eerst afgetrokken van de beschikbare monetaire toezegging en vervolgens gefactureerd als overschrijding op één kwartaalfactuur. EA indirect-, onderwijs- en overheidsklanten worden gefactureerd door hun LSP Provider (Licensing Solution).
 
 **Waar kan ik mijn Azure Marketplace-abonnementsgegevens en factureringsgegevens bekijken?**
 
-MOSP - klanten van Microsoft Online Subscription Program (web direct) kunnen gegevens van Marketplace-abonnementen onder het menu 'Marketplace' weergeven in de Azure-factureringsportal. Klanten die virtuele Machines uit de Marketplace hebben aangeschaft kunnen hun geschatte totale kosten bekijken in de Microsoft Azure Management portal.
+MOSP - [Microsoft Online Subscription Program](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (web direct)-klanten kunnen details van Marketplace-aankoop weergeven in het tabblad facturen van de kostenbeheer en facturering-sectie van de Azure management portal.
 
-Enterprise Agreement (EA)-klanten kunnen details van Marketplace-abonnementen weergeven op het tabblad Azure Marketplace in de factuur- en accountbeheerweergave van de Enterprise Portal. Opmerking: EA Indirect-klanten zien alleen aanbieding en het gebruik informatie. Prijsinformatie zijn niet beschikbaar in de Enterprise portal.
+Enterprise Agreement (EA)-klanten kunnen details van Marketplace-aankoop weergeven in het tabblad facturen van de kostenbeheer en facturering-sectie van de Azure management portal.
+
+Cloud Solution Provider (CSP) partners kunnen gegevens van Marketplace-aankoop weergeven voor elke klant in Partner Center in het tabblad ordergeschiedenis na het selecteren van een bedrijf in de weergave van klanten.
 
 **Hoe annuleer ik een Azure Marketplace-invoegtoepassing voor Azure-VM?**
 
@@ -198,9 +201,9 @@ Omdat de invoegtoepassing is gekoppeld aan de Azure-virtuele Machine (VM), als u
 
 **Hoe vaak Word ik gefactureerd voor mijn Azure Marketplace-aankopen?**
 
-Enterprise Agreement-klanten voor de [specifieke services](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/), hebt u eerst beschikbare monetaire toezegging verlaagd met de totale kosten voor deze services in de maand dat deze zijn verbruikt. Alle Azure Marketplace-aanbiedingen die niet worden afgetrokken van de monetaire toezegging, worden maandelijks gefactureerd, achteraf in rekening gebracht.
+Enterprise Agreement-klanten wordt voor de specifieke services die worden beschreven, eerst hebt monetaire toezeggingen verlaagd met de totale kosten voor deze services in de maand dat deze zijn verbruikt. Alle Azure Marketplace-aanbiedingen die niet worden afgetrokken van de monetaire toezegging, worden maandelijks gefactureerd, achteraf in rekening gebracht. Jaarlijkse SaaS-abonnementen worden één keer voor een volledig jaar services gefactureerd.
 
-MOSP, dat wil zeggen web direct-klanten, worden maandelijks gefactureerd op de creditcard die is geregistreerd voor hun Azure-abonnementsprofiel.
+MOSP - [Microsoft Online Subscription Program](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) klanten (web direct) worden in rekening gebracht per maand op de creditcard die is geregistreerd voor hun Azure-abonnementsprofiel. Jaarlijkse SaaS-abonnementen worden één keer voor een volledig jaar services gefactureerd.
 
 **Hoe kan ik mijn Azure Marketplace-aankopen van mijn MOSP-abonnement naar mijn directe Enterprise Agreement (EA)-abonnement verplaatsen?**
 
@@ -246,7 +249,7 @@ Neem contact op met de provider van de uitgever voor alle technische productonde
 
 **Als ik niet tevreden ben, kan ik een aankoop retourneren?**
 
-Aankopen die zijn gedaan op Azure Marketplace kunnen niet worden geretourneerd, maar kunnen wel worden geannuleerd of verwijderd. Nadat een abonnement geannuleerd of verwijderd is, het is niet in rekening gebracht voor volgende maanden.
+Aankopen vanuit [Azure Marketplace](https://azuremarketplace.microsoft.com/) kan niet worden geretourneerd, maar kunnen worden geannuleerd/verwijderd. Verbruik gebaseerde aanbiedingen in rekening op basis van gebruik gebracht worden, dus wanneer deze wordt beëindigd, in rekening gebracht ook stoppen. Abonnementen worden geannuleerd en zal niet worden in rekening gebracht na de huidige factureringsperiode. Als een abonnement wordt geannuleerd kort na de aankoop (24 uur voor maandelijks en 14 dagen voor per jaar), krijgt u een volledige terugbetaling.
 
 Klanten moeten rechtstreeks contact op met de uitgever voor technische problemen met betrekking tot hun Marketplace-service of aankoop. Contactgegevens van de uitgever en/of een koppeling naar de ondersteuningswebsite kunt u vinden op de pagina met Oplossingsdetails op Azure Marketplace.
 
@@ -336,6 +339,10 @@ Er geldt geen publicatietarief tijdens het uploaden van een lijst, een proefvers
 
 Wanneer de licentie voor een oplossing is aangeschaft via Azure Marketplace, worden de opbrengsten voor de softwarelicentie verdeeld tussen de uitgever en Microsoft.  Dit wordt uitgevoerd in overeenstemming met de bepalingen en voorwaarden de [Marketplace-overeenkomst voor uitgevers](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf). Oplossingen met BYOL (Bring Your Own License) uitgevers genereren bovendien geen transactiekosten.
 
+**Wat is een standaard-Contract?**
+
+Microsoft biedt standaard contractvoorwaarden die een uitgever selecteren kunt om te gebruiken, zodat klanten een vereenvoudigde inkoop en juridische controleproces hebben.
+
 **Waar vind ik richtlijnen voor het integreren van mijn toepassing met Azure Active Directory (AAD)?**
 
 Microsoft verifieert alle Marketplace-gebruikers met AAD.  U kunt rechtstreeks ingericht in een proefversie zonder een aanvullende stap aanmelden.  Bijvoorbeeld, een geverifieerde gebruiker via een vermelding proefversie in Marketplace klikt en wordt omgeleid naar een evaluatieomgeving.
@@ -374,7 +381,7 @@ Na het voltooien van de aanbieding en het instellen van een lead bestemming, kan
 
 **Welke landen/regio's kunnen uitgevers verkopen via Azure Marketplace?**
 
-Uitgevers in de volgende landen kunnen momenteel verkopen op Azure Marketplace: Afghanistan, Albanië, Algerije, Angola, Antigua en Barbuda, Argentinië, Armenië, Australië, Oostenrijk, Azerbeidzjan, Bahrein, Bangladesh, Belarus, België, Benin, Bolivia, Bosnië en Herzegovina, Botswaanse, Brazilië, Bulgarije, Burkina Faso, Burundi, Cambodja, Kameroen, Canada, Centraal-Afrikaanse Republiek, Tsjaad, Chili, Colombia, Comoren, Congo, Congo-Kinshasa, Costa Rica, Ivoorkust, Kroatië, Cyprus, Tsjechië, Denemarken, Dominica, Dominicaanse Republiek, Ecuador, Egypte, El Salvador, Eritrea, Estland, Ethiopië, Fiji -Eilanden, Finland, Frankrijk, Georgië, Duitsland, Ghana, Griekenland, Guatemala, Guinee, Haïti, Honduras, Hongkong SAR, Hongarije, IJsland, India, Indonesië, Irak, Ierland, Israël, Italië, Jamaica, Japan, Jordanië, Kazachstan, Kenia, Korea (Zuid), Koeweit, Laos, Letland, Libanon, Libérie, Liechtenstein, Litouwen, Luxemburg, Madagaskar, Malawi, Maleisië, Mali, Malta, Mauritius, Mexico, Monaco, Mongolië, Montenegro, Marokko, Mozambique, Nepal, de Nederland, Nieuw-Zeeland, Nicaragua, Niger, Nigeria, Noorwegen, Oman, Pakistan, Panama, Paraguay, Peru, Filippijnen, Polen, Portugal, Qatar, Roemenië, Rusland, Rwanda, Saoedi-Arabië, Senegal, Servië, Sierra Leone, Singapore, Slowakije, Slovenië, Somalië, Zuid-Afrika, Spanje, Sri Lanka, Zweden, Zwitserland, Tadzjikistan, Tanzania, Thailand, Timor-Leste, Togo, Tonga, Trinidad en Tobago, Tunesië, Turkije, Turkmenistan, Oeganda, Oekraïne, Verenigde Arabische Emiraten, Verenigd Koninkrijk, Verenigde Staten, Uruguay, Oezbekistan, Venezuela, Vietnam, Zambia, en Zimbabwe.
+Uitgevers in de volgende landen kunnen momenteel verkopen op Azure Marketplace: Afghanistan, Albanië, Algerije, Angola, Antigua en Barbuda, Argentinië, Armenië, Australië, Oostenrijk, Azerbeidzjan, Bahrein, Bangladesh, Belarus, België, Benin, Bolivia, Bosnië en Herzegovina, Botswaanse, Brazilië, Bulgarije, Burkina Faso, Burundi, Cambodja, Kameroen, Canada, Centraal-Afrikaanse Republiek, Tsjaad, Chili, Colombia, Comoren, Congo, Congo-Kinshasa, Costa Rica, Ivoorkust, Kroatië, Cyprus, Tsjechië, Denemarken, Dominica, Dominicaanse Republiek, Ecuador, Egypte, El Salvador, Eritrea, Estland, Ethiopië, Fiji -Eilanden, Finland, Frankrijk, Georgië, Duitsland, Ghana, Griekenland, Guatemala, Guinee, Haïti, Honduras, Hongkong SAR, Hongarije, IJsland, India, Indonesië, Irak, Ierland, Israël, Italië, Jamaica, Japan, Jordanië, Kazachstan, Kenia, Korea (Zuid), Koeweit, Laos, Letland, Libanon, Libérie, Liechtenstein, Litouwen, Luxemburg, Madagaskar, Malawi, Maleisië, Mali, Malta, Mauritius, Mexico, Monaco, Mongolië, Montenegro, Marokko, Mozambique, Nepal, de Nederland, Nieuw-Zeeland, Nicaragua, Niger, Nigeria, Noorwegen, Oman, Pakistan, Panama, Paraguay, Peru, Filippijnen, Polen, Portugal, Qatar, Roemenië, Rusland, Rwanda, Saoedi-Arabië, Senegal, Servië, Sierra Leone, Singapore, Slowakije, Slovenië, Somalië, Zuid-Afrika, Spanje, Sri Lanka, Zweden, Zwitserland, Tadzjikistan, Tanzania, Thailand, Oost-Timor, Togo, Tonga, Trinidad en Tobago, Tunesië, Turkije, Turkmenistan, Oeganda, Oekraïne, Verenigde Arabische Emiraten, Verenigd Koninkrijk, Verenigde Staten, Uruguay, Oezbekistan, Venezuela, Vietnam, Zambia, en Zimbabwe.
 
 **Hoe verwijder ik een aanbieding op Azure Marketplace?**
 
@@ -490,6 +497,35 @@ Momenteel zijn op Marketplace alleen de gratis en de BYOL-aanbiedingen (bring-yo
 Azure Marketplace is beschikbaar voor klanten van Microsoft Azure in de volgende landen:
 
 Algerije, Argentinië, Australië, Bahrein, Belarus, België, Brazilië, Bulgarije, Canada, Chili, Colombia, Costa Rica, Cyprus, Denemarken, Dominicaanse Republiek, Duitsland, Ecuador, Egypte, El Salvador, Estland, Filipijnen, Finland, Frankrijk, Griekenland, Guatemala, Hongkong SAR, Hongarije, Ierland, IJsland, India, Indonesië, Israël, Italië, Japan, Jordanië, Kazachstan, Kenia, Koeweit, Kroatië, Letland, Liechtenstein, Litouwen, Luxemburg, Voormalige Joegoslavische Republiek Macedonië, Maleisië, Malta, Marokko, Mexico, Montenegro, Nederland, Nieuw Zeeland, Nigeria, Noorwegen, Oekraïne, Oman, Oostenrijk, Pakistan, Panama, Paraguay, Peru, Polen, Portugal, Puerto Rico, Qatar, Roemenië, Rusland, Saoedi-Arabië, Servië, Singapore, Slovenië, Slowakije, Spanje, Sri Lanka, Taiwan, Thailand, Trinidad en Tobago, Tsjechische Republiek, Tunesië, Turkije, Uruguay, Verenigde Arabische Emiraten, Verenigde Staten, Verenigd Koninkrijk, Venezuela, Zweden, Zwitserland, Zuid-Afrika, Zuid-Korea.
+
+**Hoe definieer ik mijn geografische beschikbaarheid om in te schakelen in verschillende landen verkopen?**
+
+1.  Navigeer in de Cloud Partner-Portal naar de SKU die u wilt toevoegen van nieuwe landen.  Binnen de 'SKU-Details' naar ' Land/regio beschikbaarheid' en klikt u op "Bepaalde regio's."
+
+    ![Regio’s selecteren](media/marketplace-publishers-guide/FAQ-choose-geo.png)
+
+1.  Een lijst weergegeven met alle beschikbare landen aan te verkopen.  Klik op het selectievakje in naast elk land die u beschikbaar wilt stellen deze SKU. Klik op 'OK'.
+
+    ![Lijst van de land/regio selecteren](media/marketplace-publishers-guide/FAQ-select-countries.png)
+
+1.  Ten slotte de wijzigingen worden toegepast op uw live aanbieding, klikt u op 'Publiceren'.  
+
+>[!Note]
+>Het duurt 24 uur voor de wijzigingen worden doorgevoerd.
+
+<!---    ![Publish offer](media/marketplace-publishers-guide/FAQ-publish-offer.png) -->
+
+**Hoe kan een uitgever de geografische beschikbaarheid voor een bestaande aanbieding wijzigen?**
+
+De uitgever kan een bestaande aanbieding bewerken, selecteert u de nieuwe landen en gebruikt u de functie downloaden/uploaden om in te stellen prijzen.
+
+**In welke landen kunnen klanten aanbiedingen op Azure Marketplace kopen?**
+
+Azure Marketplace ondersteunt 141 kopen van verschillende geografische gebieden, zoals gedefinieerd door het factuuradres van de klant. Zie [beleidsregels voor deelname aan](https://docs.microsoft.com/legal/marketplace/participation-policy) voor een lijst van landen.
+
+**Welke valuta's worden ondersteund door Azure Marketplace?**
+
+Transacties kunnen worden uitgevoerd in de volgende 17 valuta: AUD, BRL, CAD, CHF, DKK, EUR, GBP, INR, JPY, KRW, NOK, NZD, RUB, SEK, TWD, USD.
 
 ### <a name="deploying-a-solution-from-azure-marketplace"></a>Een oplossing implementeren vanuit Azure Marketplace
 

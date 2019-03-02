@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: b82961d2446cf1e97e10dce2dc44525ea1d3d9bd
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3f3c7523bfc800a74da56b1b3241ac5756c68d14
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733245"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215503"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure-partner klant gebruik attribution
 
@@ -27,16 +27,19 @@ Uw oplossingen vereisen een Azure-onderdelen of ze moeten rechtstreeks op de inf
 
 Microsoft biedt nu een methode om te kunnen bijhouden beter gebruik van Azure van implementaties van klanten van de software op Azure-partners. De nieuwe methode maakt gebruik van Azure Resource Manager voor het indelen van de implementatie van Azure-services.
 
-Als een Microsoft-partner, kunt u gebruik van Azure kunt koppelen aan alle Azure-resources die u namens een klant inricht. U kunt de koppeling via de Azure Marketplace, de Quick Start-opslagplaats, persoonlijke GitHub-opslagplaatsen en praat klantbetrokkenheid vormen. Als u wilt bijhouden inschakelt, zijn twee methoden beschikbaar:
+Als een Microsoft-partner, kunt u gebruik van Azure kunt koppelen aan alle Azure-resources die u namens een klant inricht. U kunt de koppeling via de Azure Marketplace, de Quick Start-opslagplaats, persoonlijke GitHub-opslagplaatsen en praat klantbetrokkenheid vormen. Klant gebruik attribution ondersteunt drie implementatieopties:
 
-- Azure Resource Manager-sjablonen: Resource Manager-sjablonen of sjablonen voor oplossingen met de Azure-services voor het uitvoeren van de partner software implementeren. Partners kunnen maken van een Resource Manager-sjabloon voor het definiëren van de infrastructuur en configuratie van hun Azure-oplossing. Resource Manager-sjabloon kunt u en uw klanten om uw oplossing gedurende de levenscyclus te implementeren. U kunt er zeker van te zijn dat uw resources worden geïmplementeerd in een consistente status zijn. 
+- Azure Resource Manager-sjablonen: Partners met Resource Manager-sjablonen kunnen de Azure-services voor het uitvoeren van de partner software implementeren. Partners kunnen maken van een Resource Manager-sjabloon voor het definiëren van de infrastructuur en configuratie van hun Azure-oplossing. Resource Manager-sjabloon kunt u en uw klanten om uw oplossing gedurende de levenscyclus te implementeren. U kunt er zeker van te zijn dat uw resources worden geïmplementeerd in een consistente status zijn. 
 - Azure Resource Manager-API's: Partners kunnen de Resource Manager-API's rechtstreeks naar het Resource Manager-sjabloon implementeren of voor het genereren van de API-aanroepen voor het inrichten van Azure-services rechtstreeks aanroepen. 
+- Terraform: Partners kunnen cloud orchestrator zoals Terraform gebruiken voor het implementeren van een Resource Manager-sjabloon of Azure-services rechtstreeks implementeren. 
 
-Klant gebruik attribution is vereist op [aanbieding van Azure-toepassing](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer) gepubliceerde op Azure Marketplace.
+Klant gebruik attribution is voor de implementatie van nieuwe en biedt geen ondersteuning voor het labelen van bestaande resources die al zijn geïmplementeerd.
+
+Klant gebruik attribution is vereist op [Azure-toepassing](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer): oplossing sjabloon aanbieding op Azure Marketplace worden gepubliceerd.
 
 ## <a name="use-resource-manager-templates"></a>Resource Manager-sjablonen gebruiken
 
-Veel oplossingen van partners zijn geïmplementeerd op het abonnement van een klant met behulp van Resource Manager-sjablonen. Hebt u een Resource Manager-sjabloon die beschikbaar is in de Azure Marketplace, op GitHub, of als een snelstartgids, moet het proces voor het wijzigen van de sjabloon om in te schakelen van een methode voor het nieuwe bijhouden rechtstreeks doorsturen.
+Veel oplossingen van partners zijn geïmplementeerd op het abonnement van een klant met behulp van Resource Manager-sjablonen. Hebt u een Resource Manager-sjabloon die beschikbaar is in de Azure Marketplace, op GitHub, of als een snelstartgids, moet het proces voor het wijzigen van de sjabloon zodat klanten gebruik attribution rechtstreeks doorsturen.
 
 Zie voor meer informatie over het maken en publiceren van sjablonen voor oplossingen
 
@@ -93,7 +96,7 @@ Als u een Resource Manager-sjabloon, moet u uw oplossing labelen door de eerder 
 
 ### <a name="tag-a-deployment-with-the-resource-manager-apis"></a>Label van een implementatie met de Resource Manager-API 's
 
-Bij het ontwerpen van uw API-aanroepen, wordt een GUID voor deze benadering bijhouden opnemen in de koptekst van de gebruiker agent in de aanvraag. De GUID voor elke aanbieding en SKU toevoegen. De tekenreeks met de **pid -** voorvoegsel en de partner gegenereerde GUID zijn. Hier volgt een voorbeeld van de GUID-indeling voor invoegen in de gebruikersagent: 
+Om in te schakelen toekenning aan het gebruik van de klant, bij het ontwerpen van uw API-aanroepen, omvatten een GUID in de koptekst van de gebruiker agent in de aanvraag. De GUID voor elke aanbieding en SKU toevoegen. De tekenreeks met de **pid -** voorvoegsel en de partner gegenereerde GUID zijn. Hier volgt een voorbeeld van de GUID-indeling voor invoegen in de gebruikersagent: 
 
 ![Voorbeeld van de GUID-indeling](media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG)
 
@@ -124,6 +127,24 @@ Wanneer u de Azure-CLI gebruiken voor uw GUID toevoegen, stelt de **AZURE_HTTP_U
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
+## <a name="use-terraform"></a>Gebruik Terraform
+
+De ondersteuning voor Terraform is beschikbaar via Azure-Provider 1.21.0 release: [ https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019 ](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019).  Deze ondersteuning geldt voor alle partners die hun oplossing via Terraform implementeren, en alle resources geïmplementeerd en wordt gemeten door de Azure-Provider (versie 1.21.0 of hoger).
+
+Azure-provider voor Terraform toegevoegd een nieuw optioneel veld met de naam [ *partner_id* ](https://www.terraform.io/docs/providers/azurerm/#partner_id) dat is waar u het bijhouden van GUID die u voor uw oplossing gebruikt opgeven. De waarde van dit veld kan ook worden afkomstig is van de *ARM_PARTNER_ID* omgevingsvariabele.
+
+```
+provider "azurerm" { 
+          subscription_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 
+          client_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 
+          …… 
+          # new stuff for ISV attribution
+          partner_id = “xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}
+```
+Partners die u wilt ophalen van de implementatie via Terraform bijgehouden door de klant gebruik attribution moeten het volgende doen:
+
+* Maak een GUID (de GUID moet worden toegevoegd voor elke aanbieding of SKU)
+* Bijwerken van hun Azure-Provider om in te stellen de waarde van *partner_id* op de GUID (niet vooraf fix de GUID met 'pid-', alleen op de werkelijke GUID instellen)
 
 ## <a name="create-guids"></a>GUID's maken
 
@@ -145,7 +166,7 @@ Ook kunt u bijhouden van GUID's op een meer gedetailleerd niveau, zoals de SKU, 
 
 ## <a name="register-guids-and-offers"></a>Registreert de GUID's en aanbiedingen
 
-Als u wilt opnemen een GUID in onze bijhouden, moet de GUID worden geregistreerd.  
+De GUID's moeten worden geregistreerd zodat klanten gebruik attribution.
 
 Alle registraties voor de sjabloon-GUID's moeten worden uitgevoerd via de Azure Marketplace Cloud Partner Portal (CPP). 
 
@@ -226,9 +247,17 @@ foreach ($deployment in $deployments){
 }
 ```
 
+## <a name="report"></a>Rapport
+
+U kunt het rapport voor de klant gebruik attribution vinden in uw dashboard Partner Center analyseren. ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)).
+
+Kies sjabloon bijgehouden in de vervolgkeuzelijst van het Type van de Partner koppeling om het rapport te zien.
+
+![Rapport voor toekenning aan het gebruik van klant](media/marketplace-publishers-guide/customer-usage-attribution-report.png)
+
 ## <a name="notify-your-customers"></a>Informeer uw klanten
 
-Partners moeten hun klanten informeren over implementaties die gebruikmaken van Resource Manager-GUID bijhouden. Microsoft rapporteert het gebruik van Azure die is gekoppeld aan deze implementaties op met de partner. De volgende voorbeelden bevatten inhoud die u gebruiken kunt voor uw klanten informeren over deze implementaties. Vervang in de voorbeelden \<PARTNER > met de naam van uw bedrijf. Partners moeten controleren of dat de melding wordt uitgelijnd met hun gegevens privacy en verzameling beleid, inclusief opties voor klanten moeten worden uitgesloten van bijhouden. 
+Partners moeten hun klanten informeren over implementaties die gebruikmaken van de klant gebruik attribution. Microsoft rapporteert het gebruik van Azure die is gekoppeld aan deze implementaties op met de partner. De volgende voorbeelden bevatten inhoud die u gebruiken kunt voor uw klanten informeren over deze implementaties. Vervang in de voorbeelden \<PARTNER > met de naam van uw bedrijf. Partners moeten controleren of dat de melding wordt uitgelijnd met hun gegevens privacy en verzameling beleid, inclusief opties voor klanten moeten worden uitgesloten van bijhouden. 
 
 ### <a name="notification-for-resource-manager-template-deployments"></a>Melding voor sjabloonimplementaties van Resource Manager
 
@@ -240,7 +269,7 @@ Wanneer u implementeert \<PARTNER > software, Microsoft is in staat om te identi
 
 ## <a name="get-support"></a>Ondersteuning krijgen
 
-Als u hulp nodig hebt, volgt u deze stappen.
+Als u hulp nodig voor Onboarding van de Marketplace en/of klant gebruik attribution hebt, volgt u deze stappen.
 
 1. Ga naar de [ondersteuningspagina](https://go.microsoft.com/fwlink/?linkid=844975). 
 
@@ -266,44 +295,66 @@ Als u hulp nodig hebt, volgt u deze stappen.
 
 1. Vul het formulier in en selecteer vervolgens **indienen**.
 
+U kunt ook technische hulp van een Microsoft-Partner technische Consultant voor technische presale-, implementatie- en scenario's voor het ontwikkelen van apps te begrijpen en klant gebruik attribution ontvangen.
+
+### <a name="how-to-submit-a-technical-consultation-request"></a>Hoe u een technische consultatie indienen
+
+1. Ga naar [ http://aka.ms/TechnicalJourney ](http://aka.ms/TechnicalJourney).
+1. Selecteer Cloud-infrastructuur- en beheer- en een nieuwe pagina wordt geopend voor u om de technische reis weer te geven.
+1. Klik in Deployment-Services, op het indienen van een knop aanvragen
+1. Meld u aan met uw beheerde Serviceaccounts (MPN-account) of uw AAD (Dashboard van de Partner account); op basis van de aanmelding referenties, wordt een online formulier geopend: 
+    * De contactgegevens voltooien/controleren.
+    * De details van de consultatie mogelijk vooraf worden ingevuld of Selecteer in de vervolgkeuzelijsten.
+    * Voer een titel en de beschrijving van het probleem (Geef zoveel mogelijk details).
+1. Klik op verzenden
+
+Stapsgewijze instructies met schermafbeeldingen op [ http://aka.ms/TechConsultInstructions ](http://aka.ms/TechConsultInstructions).
+
+### <a name="whats-next"></a>Wat zijn de nieuwste
+
+U definieert door een Microsoft-Partner technische Consultant voor het instellen van een aanroep van het bereik van uw behoeften.
+
 ## <a name="faq"></a>Veelgestelde vragen
 
 **Wat is het voordeel van de GUID toe te voegen aan de sjabloon?**
 
-Microsoft biedt partners met een weergave van implementaties van klanten hun sjablonen en inzichten op het gebruik van hun beïnvloed. Deze gegevens dichter bij betrokkenheid tussen verkoopteams kunnen gebruiken door zowel Microsoft als de partner. Zowel Microsoft als de partner kunnen u de gegevens gebruiken om op te halen van een consistente weergave van de impact van een afzonderlijke partner op Azure groei. 
-
-**Wie kan een GUID toevoegen aan een sjabloon?**
-
-De tracerings-resource is bedoeld om van de partner-oplossing verbinden met gebruik van Azure van de klant. Gegevens over gebruik is gekoppeld aan de identiteit van een partner Microsoft Partner Network (MPN-ID). Rapportage is beschikbaar voor partners in de CPP.
+Microsoft biedt partners met een weergave van implementaties van klanten hun oplossingen en inzichten op het gebruik van hun beïnvloed. Deze gegevens dichter bij betrokkenheid tussen verkoopteams kunnen gebruiken door zowel Microsoft als de partner. Zowel Microsoft als de partner kunnen u de gegevens gebruiken om op te halen van een consistente weergave van de impact van een afzonderlijke partner op Azure groei. 
 
 **Nadat een GUID wordt toegevoegd, kan het worden gewijzigd?**
  
-Ja, een klant of implementatiepartner kan de sjabloon aanpassen en kunt wijzigen of verwijderen van de GUID. Het is raadzaam dat partners proactief de rol van de resource en de GUID voor hun klanten en partners beschrijven om te voorkomen dat de verwijdering of bewerkingen voor het bijhouden van GUID. De GUID wijzigt, worden alleen nieuwe, niet-bestaande implementaties en resources verwijderd.
-
-**Wanneer reporting beschikbaar zal zijn?**
-
-Een bètaversie van rapportage moet zijn binnenkort beschikbaar. Reporting wordt in de CPP worden geïntegreerd.
+Ja, een klant of implementatiepartner kan de sjabloon aanpassen en kunt wijzigen of verwijderen van de GUID. Het is raadzaam dat de rol van de resource en de GUID voor hun klanten en partners om te voorkomen dat de verwijdering of wijzigingen in de GUID die door partners proactief te beschrijven. De GUID wijzigt, worden alleen nieuwe, niet-bestaande implementaties en resources verwijderd.
 
 **Kan ik de sjablonen die zijn geïmplementeerd vanuit een niet-Microsoft-opslagplaats, zoals GitHub bijhouden?**
 
-Ja, zolang de GUID gebruikt wordt als de sjabloon wordt geïmplementeerd, wordt gebruik bijgehouden. Partners moeten een profiel hebt in het CPP registreren verwante sjablonen die buiten de Azure Marketplace worden gepubliceerd. 
-
-**Is er een verschil als de sjabloon wordt geïmplementeerd op Azure Marketplace ten opzichte van andere opslagplaatsen zoals GitHub?**
-
-Ja, kunnen partners die het publiceren van aanbiedingen in de Azure Marketplace meer gedetailleerde gegevens over implementaties ontvangen van de Azure Marketplace. Partners profiteren van hun aanbieding aan klanten in de portal van Azure Marketplace en in Azure portal om vrij te geven. Aanbiedingen in de Azure Marketplace een leads voor de partner.
-
-**Wat gebeurt er als ik een aangepaste sjabloon voor een afzonderlijke klantcontacten maken?**
-
-U kunt nog steeds Welkom bij de GUID toevoegen aan de sjabloon. Als u een bestaande geregistreerde GUID, het opgenomen in de rapportage. Als u een nieuwe GUID maakt, moet u de nieuwe GUID om deze opgenomen in de tracering te laten registreren.
+Ja, zolang de GUID gebruikt wordt als de sjabloon wordt geïmplementeerd, wordt gebruik bijgehouden. Partners moeten een profiel hebt in het CPP voor het registreren van GUID's gebruikt voor de implementatie buiten de Azure Marketplace. 
 
 **De klant's ontvangen ook melden?**
 
 Klanten kunnen hun gebruik van afzonderlijke resources of resourcegroepen in Azure portal door de klant gedefinieerde bijhouden.   
 
-**Is deze methodologie vergelijkbaar voor de digitale Partner van Record (DPOR)?**
+**Is deze methode vergelijkbaar voor de digitale Partner van Record (DPOR)?**
 
 Deze nieuwe methode voor het koppelen van de implementatie en het gebruik aan van een partner-oplossing biedt een mechanisme om te koppelen van een partneroplossing aan het gebruik van Azure. DPOR is bedoeld om een advies (systeemintegrator) of management (Managed Service Provider) werken samen met een klant Azure-abonnement te koppelen.   
 
 **Wat is het voordeel van Azure Storage GUID-Generator formulier?**
 
 Azure Storage GUID-Generator formulier kan worden gegarandeerd voor het genereren van een GUID van de vereiste indeling. Bovendien, als u van Azure-Storage-gegevenslaag methoden bijhouden gebruikmaakt, kunt u gebruikmaken van dezelfde GUID voor de controlelaag Marketplace bijhouden. Hiermee kunt u gebruikmaken van een GUID voor een uniforme voor Partner attribution zonder te onderhouden afzonderlijke GUID's.
+
+**Kan ik een persoonlijke, aangepaste VHD gebruiken voor een aanbieding van de sjabloon oplossing in de Azure Marketplace?**
+
+Nee, is niet mogelijk. De installatiekopie van de virtuele machine moet afkomstig zijn van de Azure Marketplace, Zie: [ https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines ](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines). 
+
+U kunt een VM-aanbieding op marketplace met behulp van uw aangepaste VHD maken en gemarkeerd als privé zodat niemand ze kunt bekijken. Vervolgens verwijzing naar deze virtuele machine in de oplossingssjabloon voor uw.
+
+**Kan niet bijwerken *sjablooneigenschap* eigenschap voor de belangrijkste sjabloon?**
+
+Waarschijnlijk is dit een bug in sommige gevallen wanneer de sjabloon wordt geïmplementeerd met behulp van een TemplateLink uit een andere sjabloon die oudere sjablooneigenschap voor een of andere reden verwacht. De tijdelijke oplossing is de metagegevenseigenschap wilt gebruiken:
+
+```
+"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "metadata": {
+        "contentVersion": "1.0.1.0"
+    },
+    "parameters": {
+```

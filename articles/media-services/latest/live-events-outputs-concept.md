@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 03/01/2019
 ms.author: juliako
-ms.openlocfilehash: cce3ea06ebd7d3469dad14e491124f81567610ea
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: c4be56b3ee32a5177c66353ba45c6b3647c732f2
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894048"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240079"
 ---
 # <a name="live-events-and-live-outputs"></a>Live gebeurtenissen en live uitvoer
 
@@ -42,7 +42,7 @@ Een [Live gebeurtenis](https://docs.microsoft.com/rest/api/media/liveevents) kan
 
 ### <a name="pass-through"></a>Pass-through
 
-![Pass Through-query](./media/live-streaming/pass-through.png)
+![Pass Through-query](./media/live-streaming/pass-through.svg)
 
 Bij het gebruik van de pass-through **Live gebeurtenis**, afhankelijk van uw on-premises live coderingsprogramma meerdere bitrate videostream genereren en verzenden dat er als de bijdrage feed aan de Live-gebeurtenis (met behulp van RTMP- of gefragmenteerde MP4-protocol). De Live gebeurtenis wordt vervolgens via de binnenkomende video stromen zonder verdere verwerking. Dergelijke een Pass Through-LiveEvent is geoptimaliseerd voor langlopende live gebeurtenissen of 24 x lineair 365 live streamen. Bij het maken van dit soort Live gebeurtenis, geeft u geen (LiveEventEncodingType.None).
 
@@ -56,11 +56,16 @@ Zie een .NET-codevoorbeeld in [MediaV3LiveApp](https://github.com/Azure-Samples/
 
 ### <a name="live-encoding"></a>Live Encoding  
 
-![Live encoding](./media/live-streaming/live-encoding.png)
+![Live encoding](./media/live-streaming/live-encoding.svg)
 
 Wanneer u live coderen met Media Services, zou u uw on-premises live coderingsprogramma voor het verzenden van een single-bitrate video als de bijdrage feed om de Live-gebeurtenis (met behulp van RTMP- of Fragmented Mp4-protocol) te configureren. De Live gebeurtenis codeert die binnenkomende single-bitrate stream naar een [meerdere bitrate videostream](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), maakt deze beschikbaar zijn voor de levering van voor het afspelen van apparaten via protocollen, zoals MPEG-DASH, HLS en Smooth Streaming. Bij het maken van dit soort Live gebeurtenis, geef het type codering als **Standard** (LiveEventEncodingType.Standard).
 
 U kunt de bijdrage op maximaal 1080 p oplossing tegen een tarief van het kader van 30 frames/seconde, met de video codec H.264/AVC en AAC-kanaal verzenden (AAC-LC, hij AACv1 of hij AACv2)-audiocodec. Zie de [Live gebeurtenis van het type vergelijking](live-event-types-comparison.md) artikel voor meer informatie.
+
+Bij het gebruik van live codering (Live gebeurtenis wordt ingesteld op **Standard**), de vooraf ingestelde standaardcodering definieert hoe de binnenkomende stream wordt gecodeerd in meerdere bitsnelheden of lagen. Zie voor meer informatie, [systeemwaarden](live-event-types-comparison.md#system-presets).
+
+> [!NOTE]
+> Op dit moment de enige toegestane vooraf ingestelde waarde voor het type standaard Live gebeurtenis is *Default720p*. Als u gebruiken een aangepaste voorinstelling voor live codering wilt, contact op met amshelp@microsoft.com. U moet de gewenste tabel van de oplossing en bitrates opgeven. Controleer of er slechts één laag bij 720p en maximaal 6 lagen.
 
 ## <a name="live-event-creation-options"></a>Opties voor het maken van Live gebeurtenis
 

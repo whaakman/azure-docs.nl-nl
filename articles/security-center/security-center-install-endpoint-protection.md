@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1ce1faa13c541939335d188866e15c683b6ffc28
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 2065381063058eb59dd5896e12c1aa34184148bf
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110265"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246998"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Problemen met endpoint protection met Azure Security Center beheren
 Azure Security Center bewaakt de status van bescherming tegen malware en rapporteert deze op de blade problemen van Endpoint protection. Security Center worden de kwesties, zoals de gedetecteerde bedreigingen en onvoldoende beveiliging, waardoor uw virtuele machines (VM's) en de computers kwetsbaar voor antimalwarebedreigingen gemarkeerd. Met behulp van de gegevens in onder **problemen met Endpoint protection**, kunt u een plan om alle vastgestelde problemen identificeren.
@@ -84,13 +84,13 @@ In dit voorbeeld gebruiken we **Compute**.  Er wordt beschreven hoe u anti-malwa
 
    ![Endpoint protection niet geïnstalleerd op niet-Azure-computers selecteren][4]
 
-2. Onder **Endpoint protection niet geïnstalleerd op computers met niet-Azure**, selecteer een werkruimte. Een Log Analytics-zoekquery gefilterd op de werkruimte wordt geopend en geeft een lijst van computers met ontbrekende anti-malware. Selecteer een computer in de lijst voor meer informatie.
+2. Onder **Endpoint protection niet geïnstalleerd op computers met niet-Azure**, selecteer een werkruimte. Een Azure Monitor logboeken zoekquery gefilterd op de werkruimte wordt geopend en geeft een lijst van computers met ontbrekende anti-malware. Selecteer een computer in de lijst voor meer informatie.
 
-   ![Analytics voor zoeken in Logboeken][5]
+   ![Azure Monitor-logboeken zoeken][5]
 
 Een andere zoekresultaat wordt geopend met informatie die alleen voor die computer gefilterd.
 
-  ![Analytics voor zoeken in Logboeken][6]
+  ![Azure Monitor-logboeken zoeken][6]
 
 > [!NOTE]
 > Het is raadzaam dat endpoint protection worden ingericht voor alle virtuele machines en computers op te sporen en virussen, spyware en andere schadelijke software verwijderen.

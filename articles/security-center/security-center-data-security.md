@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: af3cc229482021fe6d5e5c988bc98afe6f7f97ce
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 165617270bef58f7a92fab0adc75c916129ef317
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114158"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242697"
 ---
 # <a name="azure-security-center-data-security"></a>Gegevensbeveiliging in Azure Security Center
 Om klanten te helpen bedreigingen te voorkomen, te detecteren en erop te reageren, verzamelt en verwerkt Azure Security Center gegevens over beveiliging, zoals configuratie-informatie, metagegevens, gebeurtenislogboeken, crashdumpbestanden en nog veel meer. Microsoft voldoet aan strikte nalevings- en beveiligingsrichtlijnen - van het schrijven van code tot de uitvoering van een service.
@@ -76,7 +76,7 @@ Als u de gratis variant van Azure Security Center gebruikt, kunt u het verzamele
 Klanten kunnen gegevens die verband houden met Security Center gebruiken uit verschillende gegevensstromen, zoals hieronder weergegeven:
 
 * **Azure-activiteit**: alle beveiligingswaarschuwingen, goedgekeurde [Just-In-Time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)-aanvragen van Security Center en alle waarschuwingen die zijn gegenereerd door [besturingselementen voor adaptieve toepassingen](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
-* **Log Analytics**: alle beveiligingswaarschuwingen.
+* **Logboeken in Azure Monitor**: alle beveiligingswaarschuwingen.
 
 
 > [!NOTE]

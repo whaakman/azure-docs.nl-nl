@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: f0f6bbf5f235d6ae3e86114e583d55c502296470
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 383f65ea925a3575afd988e07784be643201c6b8
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895394"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214491"
 ---
 # <a name="saas-application-technical-info-tab"></a>Tabblad voor SaaS-toepassing technische gegevens
 
@@ -73,6 +73,9 @@ De aanroep van actieveld kunt u het bericht dat wordt weergegeven op van uw aanb
 - Contact opnemen
 
 Zie voor meer informatie over het aanroepen van actie-opties, kies een optie voor publiceren.
+
+>[!Note]
+>Partnerkanaal voor cloud Solution Providers (CSP) aanmelden nu beschikbaar.  Raadpleeg [Cloud Solution Providers](../../cloud-solution-providers.md) voor meer informatie over marketingcontactpersonen van uw aanbieding via de Microsoft CSP partner kanalen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

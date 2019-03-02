@@ -5,24 +5,23 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 02/28/2019
 ms.author: tamram
-ms.openlocfilehash: 500d5217a35cdc569964195558b6e4a2c023c614
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: d57023063fe23db9f57d52ab9cdf99e0687c1fdf
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352135"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217288"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Een upgrade uitvoert naar een opslagaccount voor algemeen gebruik v2
 
 Opslagaccounts voor algemeen gebruik v2 ondersteuning voor de nieuwste opslagfuncties van Azure en alle functionaliteit van voor algemeen gebruik v1 en Blob storage-accounts. Voor algemeen gebruik v2-accounts worden aanbevolen voor de meeste scenario's voor opslag. Voor algemeen gebruik v2-accounts bieden de laagste per GB capaciteit prijzen voor Azure Storage, evenals de bedrijfstak van concurrerende transactieprijzen in.
 
-Een upgrade naar een opslagaccount voor algemeen gebruik v2 in uw voor algemeen gebruik v1- of Blob storage-accounts is eenvoudig. U kunt upgraden met behulp van de Azure portal, PowerShell of Azure CLI. 
+Een upgrade naar een opslagaccount voor algemeen gebruik v2 in uw voor algemeen gebruik v1- of Blob storage-accounts is eenvoudig. U kunt upgraden met behulp van de Azure portal, PowerShell of Azure CLI.
 
-> [!NOTE]
-> Uw storage-account upgraden naar een algemeen gebruik v2-account is gratis.
-> Wijzigen van de storage-toegangslaag kan leiden tot wijzigingen op uw factuur. Zie [Prijzen en facturering](#pricing-and-billing) voor meer informatie.
+> [!IMPORTANT]
+> Upgraden van een v1-opslagaccount voor algemeen gebruik v2 is permanent en kan niet ongedaan worden gemaakt.
 
 ## <a name="upgrade-using-the-azure-portal"></a>Upgraden met Azure portal
 
@@ -68,8 +67,10 @@ Standaard een nieuw opslagaccount wordt gemaakt in de hot Storage-toegangslaag e
 
 In beide gevallen is de eerste prioriteit schat de kosten voor opslag, toegang tot en werken met uw gegevens die zijn opgeslagen in een opslagaccount voor algemeen gebruik v2 en vergelijkt die met uw huidige kosten.
 
-
 ## <a name="pricing-and-billing"></a>Prijzen en facturering
+
+Een v1-storage-account upgraden naar een algemeen gebruik v2-account is gratis. Wijzigen van de storage-toegangslaag kan echter resulteren in wijzigingen op uw factuur. 
+
 Alle opslagaccounts maken gebruik van een prijsmodel voor het opslaan van blobs op basis van laag van elke blob. Als u een opslagaccount gebruikt, zijn de volgende factureringsvoorwaarden van toepassing:
 
 * **Kosten voor opslag**: Naast de hoeveelheid gegevens die zijn opgeslagen, wordt de kosten voor opslag van gegevens is afhankelijk van de storage-toegangslaag. De kosten per GB nemen af als de laag minder dynamisch ('cooler') wordt.

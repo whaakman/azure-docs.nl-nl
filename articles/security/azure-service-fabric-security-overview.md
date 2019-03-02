@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: 3e7717d4ee07a1f3bfebb5e09b983af68aa4ea31
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c5b5f80a43530fe6d0b90e65c3aef89a815157e4
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116217"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241388"
 ---
 # <a name="azure-service-fabric-security-overview"></a>Overzicht van Azure Service Fabric-beveiliging
 [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) is een platform voor gedistribueerde systemen waarmee u eenvoudig kunnen worden verpakt, implementeren en beheren van schaalbare en betrouwbare microservices. Service Fabric is afhankelijk van de uitdagingen van ontwikkelen en beheren van cloudtoepassingen. Ontwikkelaars en beheerders kunnen complexe infrastructuurproblemen vermijden en zich richten op het implementeren van essentiële en intensieve werkbelastingen die schaalbare en betrouwbare zijn.
@@ -64,9 +64,9 @@ Zie voor informatie over het Certificaatbeveiliging configureren in een cluster,
 
 Clusters die worden uitgevoerd op Azure kunnen ook toegang tot de eindpunten voor beheer beveiligen met behulp van Azure Active Directory (Azure AD). Zie voor meer informatie over het maken van de benodigde Azure Active Directory-artefacten, hoe u deze in te vullen tijdens het maken en hoe u verbinding maken met deze clusters [een cluster instellen met behulp van een Azure Resource Manager-sjabloon](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm).
 
-Azure AD kan organisaties (bekend als tenants) voor het beheren van toegang tot toepassingen. Er zijn toepassingen met een web gebaseerde aanmelding bij de gebruikersinterface en toepassingen met een systeemeigen client-ervaring.
+Azure Active Directory maakt het beheren van toegang tot toepassingen door organisaties (bekend als tenants) mogelijk. Er zijn toepassingen met een web gebaseerde aanmelding bij de gebruikersinterface en toepassingen met een systeemeigen client-ervaring.
 
-Een Service Fabric-cluster biedt verschillende toegangspunten bij de management-functionaliteit, met inbegrip van het web gebaseerde Service Fabric Explorer en Visual Studio. Als gevolg hiervan, het maken van twee Azure AD-toepassingen voor het beheren van toegang tot het cluster: een webtoepassing en een systeemeigen toepassing.
+Een Service Fabric-cluster biedt verschillende toegangspunten bij de management-functionaliteit, met inbegrip van het web gebaseerde Service Fabric Explorer en Visual Studio. Als gevolg hiervan, maakt u twee Azure Active Directory-toepassingen voor het beheren van toegang tot het cluster: een webtoepassing en een systeemeigen toepassing.
 
 Voor clusters met Azure, wordt u aangeraden dat u Azure AD-beveiligingsgroep hebt gebruikt voor verificatie van clients en certificaten voor de beveiliging van knooppunt-naar-knooppunt.
 
@@ -87,7 +87,7 @@ De werkstroom van bewaking en diagnostiek bestaat uit drie stappen:
 
 2.  **Gebeurtenis-aggregatie**: Gegenereerde gebeurtenissen moeten worden verzameld en samengevoegd voordat ze kunnen worden weergegeven. Wordt doorgaans aangeraden [Azure Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) (vergelijkbaar met logboekverzameling op basis van een agent) of [EventFlow](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow) (in-process logboekverzameling).
 
-3.  **Analyse**: Gebeurtenissen moeten worden zinvoller visualiseren en toegankelijk is in een indeling, om toe te staan voor analyse en weergeven. Er zijn verschillende platforms voor de analyse en visualisatie van gegevens voor controle en diagnostische gegevens. Het is raadzaam [Azure Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) en [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) omdat ze probleemloos worden geïntegreerd met Service Fabric.
+3.  **Analyse**: Gebeurtenissen moeten worden zinvoller visualiseren en toegankelijk is in een indeling, om toe te staan voor analyse en weergeven. Er zijn verschillende platforms voor de analyse en visualisatie van gegevens voor controle en diagnostische gegevens. Het is raadzaam [logboeken van Azure Monitor](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) en [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) omdat ze probleemloos worden geïntegreerd met Service Fabric.
 
 U kunt ook [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) voor het bewaken van veel van de Azure-resources waarop een Service Fabric-cluster is gebouwd.
 

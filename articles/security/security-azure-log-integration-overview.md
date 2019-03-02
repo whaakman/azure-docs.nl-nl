@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: 7b06d7bb85e7445f50956a003e46542062b09165
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c644d81b647fc1151b10a94fb636e3eeaba1ce5c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118272"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245043"
 ---
 # <a name="introduction-to-azure-log-integration"></a>Inleiding tot Azure-Logboekintegratie
 
@@ -61,7 +61,7 @@ Als er geen andere opties beschikbaar zijn, overweeg het gebruik van Azure-Logbo
 |---------|--------------------------|-------------------------------------------|
 |**Splunk** | Kunt u migreren naar de [Azure Monitor-invoegtoepassing voor Splunk](https://splunkbase.splunk.com/app/3534/). | Gebruik de [Splunk connector](https://splunkbase.splunk.com/app/3534/). |
 |**QRadar** | Migratie naar of gebruikmaken van de QRadar-connector die wordt beschreven in de laatste sectie van [Stream Azure-bewakingsgegevens naar een event hub voor gebruik door een extern hulpprogramma](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). | Gebruik van de QRadar-connector die wordt beschreven in de laatste sectie van [Stream Azure-bewakingsgegevens naar een event hub voor gebruik door een extern hulpprogramma](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). |
-|**ArcSight** | Echter ook doorgaan met de Azure log integrator totdat een connector beschikbaar is, en vervolgens migreren naar de oplossing op basis van een connector.  | Overweeg het gebruik van Azure Log Analytics als alternatief. Geen onboarding voor Azure-Logboekintegratie, tenzij u bereid bent te doorlopen van het migratieproces zodra de connector beschikbaar. |
+|**ArcSight** | Echter ook doorgaan met de Azure log integrator totdat een connector beschikbaar is, en vervolgens migreren naar de oplossing op basis van een connector.  | Overweeg het gebruik van Azure Monitor-Logboeken als alternatief. Geen onboarding voor Azure-Logboekintegratie, tenzij u bereid bent te doorlopen van het migratieproces zodra de connector beschikbaar. |
 
 > [!NOTE]
 > Hoewel Azure-Logboekintegratie gratis oplossing is, er zijn met een Azure storage-kosten voor gegevensopslag log-bestand.

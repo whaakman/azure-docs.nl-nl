@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: a951e60b417167f2e1566efb689ea0f2d4e65374
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f3764e5f4a5d6bbc3d6988321a2d7648012825ae
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111421"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242238"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Beveiligingsconfiguraties in Azure Security Center herstellen
 Azure Security Center analyseert dagelijks het besturingssysteem (OS) van uw virtuele machines (VM's) en de computers voor een configuratie die kan de virtuele machines en computers die meer kwetsbaar voor aanvallen. Security Center raadt aan dat u beveiligingsproblemen oplossen wanneer de configuratie van het besturingssysteem komt niet overeen met de aanbevolen configuratie van beveiligingsregels en er configuratiewijzigingen aanbevolen om deze beveiligingsproblemen te verhelpen.
@@ -84,7 +84,7 @@ In dit voorbeeld bevat informatie over de aanbeveling 'Beveiligingsconfiguraties
    ![Vermelde werkruimten][4]
 
 5. Selecteer een werkruimte.  
-  Een Log Analytics-zoekquery wordt gefilterd op de werkruimte met de beveiliging configuraties mismatch geopend.
+  Een zoekquery voor logboeken van Azure Monitor wordt gefilterd op de werkruimte met de beveiliging configuraties mismatch geopend.
 
    ![Werkruimte met besturingssysteem-beveiligingsproblemen][5]
 

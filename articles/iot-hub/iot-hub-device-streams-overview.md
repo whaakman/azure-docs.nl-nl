@@ -8,12 +8,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: ea50902a557e8bd7aa18fbc03fca8fc4a99ac2e2
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 7b436acb937216ad02289282f4a7ac5f88df2eea
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770785"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245145"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IoT Hub apparaat-Streams (preview)
 
@@ -117,16 +117,16 @@ az iot hub devicestream show --name <YourIoTHubName>
 
 ## <a name="troubleshoot-via-device-streams-activity-logs"></a>Problemen oplossen via apparaat Streams activiteitenlogboeken
 
-U kunt Azure Log Analytics instellen voor het verzamelen van het activiteitenlogboek van apparaat stromen in uw IoT-Hub. Dit kan zeer nuttig zijn bij het oplossen van scenario's zijn.
+U kunt de logboeken van Azure Monitor instellen voor het verzamelen van het activiteitenlogboek van apparaat stromen in uw IoT-Hub. Dit kan zeer nuttig zijn bij het oplossen van scenario's zijn.
 
-Volg onderstaande stappen voor het configureren van Azure Log Analytics voor uw IoT-Hub apparaat stream activiteiten:
+Volg onderstaande stappen voor het configureren van Azure Monitor-logboeken voor uw IoT-Hub apparaat stream activiteiten:
 
 1. Navigeer naar de *diagnostische instellingen* tabblad in uw IoT-Hub en klik op *diagnostische gegevens inschakelen* koppeling.
 
   ![Alternatieve tekst](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings.PNG "disgnostics Logboeken inschakelen")
 
 
-2. Geef een naam op voor de diagnostische instellingen en kies *verzenden naar Log Analytics* optie. U wordt geholpen om een bestaande Log Analytics-resource kiezen of een nieuwe maken. Controleer daarnaast de *DeviceStreams* in de lijst.
+2. Geef een naam op voor de diagnostische instellingen en kies *verzenden naar Log Analytics* optie. Training voor het kiezen van een bestaande resource van de Log Analytics-werkruimte of maak een nieuwe. Controleer daarnaast de *DeviceStreams* in de lijst.
 
     ![Alternatieve tekst](./media/iot-hub-device-streams-overview/device-streams-diagnostics.PNG "inschakelen apparaat streamt Logboeken")
 

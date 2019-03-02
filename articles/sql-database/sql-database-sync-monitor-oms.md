@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Data Sync met Log Analytics controleren | Microsoft Docs
-description: Leer hoe u Azure SQL Data Sync bewaken met behulp van Log Analytics
+title: Azure SQL Data Sync bewaken met Azure Monitor-Logboeken | Microsoft Docs
+description: Leer hoe u Azure SQL Data Sync bewaken met behulp van Azure Monitor-Logboeken
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -12,16 +12,18 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: 75bbae000fa0fbbf783b3df43bd51ed2f8a73e96
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: a1f2b0e3095718caad7c35a20bf7e91c88568364
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561413"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213463"
 ---
-# <a name="monitor-sql-data-sync-with-log-analytics"></a>SQL Data Sync bewaken met Log Analytics 
+# <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>SQL Data Sync bewaken met Azure Monitor-Logboeken 
 
 Als u wilt het activiteitenlogboek van SQL Data Sync controleren en opsporen van fouten en waarschuwingen, eerder moest u handmatig SQL Data Sync controleren in Azure portal of PowerShell of de REST-API gebruiken. Volg de stappen in dit artikel voor het configureren van een aangepaste oplossing waarmee de controle-ervaring gegevenssynchronisatie worden verbeterd. U kunt deze oplossing voor uw scenario.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Zie [Gegevens synchroniseren tussen meerdere cloud- en on-premises databases met SQL Data Sync](sql-database-sync-data.md) voor een overzicht van SQL Data Sync.
 
@@ -30,27 +32,27 @@ Zie [Gegevens synchroniseren tussen meerdere cloud- en on-premises databases met
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Dashboard van de controle voor alle synchronisatiegroepen 
 
-U moet niet meer om te zoeken via de logboeken van elke Synchronisatiegroep afzonderlijk op zoek naar problemen. U kunt alle synchronisatiegroepen uit een van uw abonnementen op één plek bewaken met behulp van een aangepaste weergave van de Log Analytics. In deze weergave toont de informatie die belangrijk is voor klanten met SQL Data Sync.
+U moet niet meer om te zoeken via de logboeken van elke Synchronisatiegroep afzonderlijk op zoek naar problemen. U kunt alle synchronisatiegroepen uit een van uw abonnementen op één plek bewaken met behulp van een aangepaste log analytics-weergave. In deze weergave toont de informatie die belangrijk is voor klanten met SQL Data Sync.
 
 ![Gegevens synchroniseren bewakingsdashboard](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.png)
 
 ## <a name="automated-email-notifications"></a>Geautomatiseerde e-mailmeldingen
 
-U moet niet meer om te controleren of het logboek handmatig in Azure portal of via PowerShell of de REST-API. Met [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), kunt u waarschuwingen die rechtstreeks naar de e-mailadressen van de mensen die u zien wilt wanneer er een fout optreedt.
+U moet niet meer om te controleren of het logboek handmatig in Azure portal of via PowerShell of de REST-API. Met [logboeken van Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), kunt u waarschuwingen die rechtstreeks naar de e-mailadressen van de mensen die u zien wilt wanneer er een fout optreedt.
 
 ![Data Sync-e-mailmeldingen](media/sql-database-sync-monitor-oms/sync-email-notifications.png)
 
 ## <a name="how-do-you-set-up-these-monitoring-features"></a>Hoe kan u deze bewakingsfuncties instellen? 
 
-Implementeren van een aangepaste Log Analytics voor controle voor SQL Data Sync in minder dan een uur aan de hand van de volgende zaken:
+Implementeer een aangepast Azure Monitor registreert bewakingsoplossing voor SQL Data Sync in minder dan een uur door het uitvoeren van de volgende handelingen:
 
 U moet drie onderdelen configureren:
 
--   Een PowerShell-runbook naar SQL Data Sync logboekgegevens naar Log Analytics-kanaal.
+-   Een PowerShell-runbook om gegevens van een SQL Data Sync naar Azure Monitor-Logboeken.
 
--   Een Log Analytics-waarschuwing voor e-mailmeldingen.
+-   Een log analytics-waarschuwing voor e-mailmeldingen.
 
--   Een Log Analytics-weergave voor de bewaking.
+-   Een log analytics weergeven voor de bewaking.
 
 ### <a name="samples-to-download"></a>Voorbeelden downloaden
 
@@ -70,7 +72,7 @@ Zorg ervoor dat u hebt ingesteld met de volgende zaken:
 
 ## <a name="powershell-runbook-to-get-sql-data-sync-log"></a>PowerShell-Runbook om op te halen van SQL Data Sync-logboek 
 
-Gebruik een PowerShell-runbook die wordt gehost in Azure Automation voor het ophalen van de gegevens van een SQL Data Sync en deze verzenden naar Log Analytics. Een voorbeeld van een script is opgenomen. Als een vereiste moet u een Azure Automation-account hebben. Vervolgens moet u een runbook maken en plannen om uit te voeren. 
+Gebruik een PowerShell-runbook die wordt gehost in Azure Automation voor het ophalen van de gegevens van een SQL Data Sync en deze verzenden naar Azure Monitor-Logboeken. Een voorbeeld van een script is opgenomen. Als een vereiste moet u een Azure Automation-account hebben. Vervolgens moet u een runbook maken en plannen om uit te voeren. 
 
 ### <a name="create-a-runbook"></a>Een runbook maken
 
@@ -100,7 +102,7 @@ Zie voor meer informatie over het maken van een runbook [Mijn eerste PowerShell-
 
     2.  Groep voor synchronisatie met gegevens.
 
-    3.  Meld u Analytics-gegevens. Deze informatie vinden in Azure Portal | Instellingen | Verbonden bronnen. Zie voor meer informatie over het verzenden van gegevens naar Log Analytics, [gegevens verzenden naar Log Analytics met de HTTP Data Collector-API (preview)](../azure-monitor/platform/data-collector-api.md).
+    3.  Azure Monitor registreert informatie. Deze informatie vinden in Azure Portal | Instellingen | Verbonden bronnen. Zie voor meer informatie over het verzenden van gegevens naar Azure Monitor-Logboeken, [gegevens verzenden naar Azure Monitor-logboeken met de HTTP Data Collector-API (preview)](../azure-monitor/platform/data-collector-api.md).
 
 11. Het runbook uitvoeren in het deelvenster. Controleer of dat deze is voltooid.
 
@@ -120,7 +122,7 @@ Het runbook plannen:
 
 4.  Selecteer **een nieuw schema maken.**
 
-5.  Stel **terugkeerpatroon** terugkerend en stel het interval u wilt gebruiken. Gebruik hetzelfde interval, in het script en in Log Analytics.
+5.  Stel **terugkeerpatroon** terugkerend en stel het interval u wilt gebruiken. Gebruik hetzelfde interval, in het script en in Azure Monitor-Logboeken.
 
 6.  Selecteer **Maken**.
 
@@ -130,7 +132,7 @@ Om te controleren of uw automation wordt uitgevoerd zoals verwacht, onder **over
 
 ## <a name="create-a-log-analytics-reader-alert-for-email-notifications"></a>Een waarschuwing in Log Analytics-lezer voor e-mailmeldingen maken
 
-Als u wilt een waarschuwing maken die gebruikmaakt van Log Analytics, doe dan het volgende. Als een vereiste moet u Log Analytics is gekoppeld met een Log Analytics-werkruimte hebben.
+Voor het maken van een waarschuwing die gebruikmaakt van Azure Monitor-Logboeken, kunt u de volgende dingen doen. Als een vereiste moet u logboeken van Azure Monitor is gekoppeld met een Log Analytics-werkruimte.
 
 1.  Selecteer in de Azure portal, **zoeken in logboeken**.
 
@@ -152,7 +154,7 @@ Als u wilt een waarschuwing maken die gebruikmaakt van Log Analytics, doe dan he
 
 ## <a name="create-a-log-analytics-view-for-monitoring"></a>Een Log Analytics-weergave maken voor het bewaken van
 
-Deze stap maakt u een Log Analytics-weergave voor de opgegeven synchronisatiegroepen visueel te controleren. De weergave bevat verschillende onderdelen:
+Deze stap maakt u een log analytics-weergave voor de opgegeven synchronisatiegroepen visueel te controleren. De weergave bevat verschillende onderdelen:
 
 -   Een overzichtstegel ziet u hoeveel fouten, voltooide bewerkingen en waarschuwingen voor alle synchronisatiegroepen hebben.
 
@@ -160,9 +162,9 @@ Deze stap maakt u een Log Analytics-weergave voor de opgegeven synchronisatiegro
 
 -   Een tegel voor elke groep voor synchronisatie, waarin het aantal fouten, is voltooid, en waarschuwingen en de recente foutberichten worden weergegeven.
 
-Voor het configureren van de Log Analytics-weergave, moet u de volgende dingen doen:
+Voor het configureren van de log analytics-weergave, moet u de volgende dingen doen:
 
-1.  Selecteer het plusteken aan de linkerkant om te openen op de startpagina van Log Analytics de **weergaveontwerper**.
+1.  Selecteer het plusteken aan de linkerkant om te openen op de startpagina van log analytics de **weergaveontwerper**.
 
 2.  Selecteer **importeren** op de bovenste balk van de ontwerper. Selecteer vervolgens het voorbeeldbestand 'DataSyncLogOMSView'.
 
@@ -186,7 +188,7 @@ In de meeste gevallen is deze oplossing gratis.
 
 **Azure Automation:** Mogelijk zijn er kosten in rekening gebracht met de Azure Automation-account, afhankelijk van het gebruik. De eerste 500 minuten aan taakuitvoertijd per maand zijn gratis. Deze oplossing wordt in de meeste gevallen verwacht gebruik van minder dan 500 minuten per maand. Om kosten te voorkomen, moet u het runbook om uit te voeren met een interval van twee uur of meer plannen. Zie voor meer informatie, [Automation-prijzen](https://azure.microsoft.com/pricing/details/automation/).
 
-**Log Analytics:** Mogelijk zijn er kosten verbonden met Log Analytics, afhankelijk van uw gebruik. De laag gratis omvat 500 MB opgenomen gegevens per dag. Deze oplossing wordt in de meeste gevallen verwacht voor het opnemen van minder dan 500 MB per dag. Om te reduceren het verbruik, gebruik van de alleen-fout filtering opgenomen in het runbook. Als u meer dan 500 MB per dag gebruikt, moet u een upgrade uitvoeren naar de prijscategorie betaald om te voorkomen dat het risico van analytics stoppen na het verstrijken van de beperking. Zie voor meer informatie, [Log Analytics-prijzen](https://azure.microsoft.com/pricing/details/log-analytics/).
+**Logboeken in Azure Monitor:** Er is mogelijk een kosten die gepaard gaan met Azure Monitor-Logboeken, afhankelijk van uw gebruik. De laag gratis omvat 500 MB opgenomen gegevens per dag. Deze oplossing wordt in de meeste gevallen verwacht voor het opnemen van minder dan 500 MB per dag. Om te reduceren het verbruik, gebruik van de alleen-fout filtering opgenomen in het runbook. Als u meer dan 500 MB per dag gebruikt, moet u een upgrade uitvoeren naar de prijscategorie betaald om te voorkomen dat het risico van analytics stoppen na het verstrijken van de beperking. Zie voor meer informatie, [Azure Monitor-logboeken prijzen](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 ## <a name="code-samples"></a>Codevoorbeelden
 

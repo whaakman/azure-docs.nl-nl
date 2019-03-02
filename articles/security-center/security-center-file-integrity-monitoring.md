@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: c32dcbac8ebab5fb71839a4525163c0e6cf028ed
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: bb987bcc38dee1f3d4ea2fce19e5e546ebfc8f7c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310721"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240232"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Bestandsintegriteit controleren in Azure Security Center
 Informatie over het configureren van bestand integriteit controleren (FIM) in Azure Security Center gebruikt deze stapsgewijze kennismaking.
@@ -37,7 +37,7 @@ Security Center raadt entiteiten te bewaken, die u kunt eenvoudig FIM inschakele
 
 > [!NOTE]
 > De functie bestand integriteit controleren (FIM) werkt voor Windows en Linux-computers en VM's en is beschikbaar op de prijscategorie Standard van Security Center. Bekijk de pagina [Prijzen](security-center-pricing.md) voor meer informatie over de tariefopties van Security Center.
-FIM worden gegevens geüpload naar de Log Analytics-werkruimte. Gegevens in rekening gebracht, op basis van de hoeveelheid gegevens die u uploadt. Zie [Log Analytics-prijzen](https://azure.microsoft.com/pricing/details/log-analytics/) voor meer informatie.
+FIM worden gegevens geüpload naar de Log Analytics-werkruimte. Gegevens in rekening gebracht, op basis van de hoeveelheid gegevens die u uploadt. Zie [prijzen voor log analytics](https://azure.microsoft.com/pricing/details/log-analytics/) voor meer informatie.
 >
 >
 

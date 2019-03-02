@@ -9,16 +9,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 34f994bfca8bdeaffde6732572f47aeaa86b2ac5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: cc62a6b9f03bdd6dc8671a6cf96113a2234fc092
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818928"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247151"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Azure Stream Analytics oplossen met behulp van logboeken met diagnostische gegevens
 
-Een Azure Stream Analytics-taak stopt soms onverwacht verwerking. Het is belangrijk om dit type gebeurtenissen te kunnen oplossen. Fouten kunnen worden veroorzaakt door een onverwachte queryresultaat, door de verbinding met apparaten of door een onverwachte. De diagnostische logboeken in Stream Analytics kunt u de oorzaak van problemen identificeren wanneer ze zich voordoen en hersteltijd te verminderen.
+Een Azure Stream Analytics-taak stopt soms onverwacht verwerking. Het is belangrijk om dit type gebeurtenissen te kunnen oplossen. Mislukte taken kunnen worden veroorzaakt door een onverwacht queryresultaat, door storing in de verbinding met apparaten of door een onverwachte serviceonderbreking. De diagnostische logboeken in Stream Analytics kunt u de oorzaak van problemen identificeren wanneer ze zich voordoen en hersteltijd te verminderen.
 
 ## <a name="log-types"></a>Typen logboeken
 
@@ -29,7 +29,9 @@ Stream Analytics biedt twee typen logboeken:
 * [Logboeken met diagnostische gegevens](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) (configureerbaar), die uitgebreider inzicht geven in alles dat gebeurt met een taak. Diagnostische logboeken start wanneer de taak is gemaakt en einde van wanneer de taak wordt verwijderd. Deze gebeurtenissen van toepassing wanneer de taak wordt bijgewerkt en terwijl deze wordt uitgevoerd.
 
 > [!NOTE]
-> U kunt services zoals Azure Storage, Azure Event Hubs en Azure Log Analytics gebruiken om niet-overeenkomende gegevens te analyseren. U betaalt op basis van het prijsmodel voor deze services.
+> Kunt u services zoals Azure Storage, Azure Event Hubs en Azure Monitor meldt zich als niet-overeenkomende gegevens wilt analyseren. U betaalt op basis van het prijsmodel voor deze services.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="debugging-using-activity-logs"></a>Foutopsporing met behulp van activiteit-Logboeken
 
@@ -51,11 +53,11 @@ Activiteitenlogboeken zijn standaard ingeschakeld en geef op hoog niveau inzicht
 
 5. U kunt nemen corrigerende acties op basis van het foutbericht in JSON. In dit voorbeeld wordt gecontroleerd om ervoor te zorgen Breedtegraadwaarde ligt tussen-90 graden en 90 graden moeten worden toegevoegd aan de query.
 
-6. Als het foutbericht in de activiteitenlogboeken niet handig zijn bij het identificeren van de hoofdoorzaak te achterhalen, diagnostische logboeken inschakelen en Log Analytics gebruiken.
+6. Als het foutbericht in de activiteitenlogboeken niet handig zijn bij het identificeren van de hoofdoorzaak te achterhalen, diagnostische logboeken inschakelen en logboeken van Azure Monitor gebruiken.
 
-## <a name="send-diagnostics-to-log-analytics"></a>Diagnostische gegevens verzenden naar Log Analytics
+## <a name="send-diagnostics-to-azure-monitor-logs"></a>Diagnostische gegevens verzenden naar Azure Monitor-Logboeken
 
-Inschakelen van logboeken met diagnostische gegevens en deze te verzenden naar Log Analytics wordt sterk aanbevolen. Logboeken met diagnostische gegevens zijn **uit** standaard. Als u wilt inschakelen op Logboeken met diagnostische gegevens, de volgende stappen uit:
+Inschakelen van logboeken met diagnostische gegevens en deze te verzenden naar Azure Monitor-Logboeken wordt sterk aanbevolen. Logboeken met diagnostische gegevens zijn **uit** standaard. Als u wilt inschakelen op Logboeken met diagnostische gegevens, de volgende stappen uit:
 
 1.  Meld u aan bij Azure portal en navigeer naar uw Stream Analytics-taak. Onder **bewaking**, selecteer **diagnoselogboeken**. Selecteer vervolgens **diagnostische gegevens inschakelen**.
 
@@ -67,7 +69,7 @@ Inschakelen van logboeken met diagnostische gegevens en deze te verzenden naar L
 
 3. Wanneer uw Stream Analytics-taak wordt gestart, worden de logboeken met diagnostische gegevens doorgestuurd naar uw Log Analytics-werkruimte. Navigeer naar de Log Analytics-werkruimte en kies **logboeken** onder de **algemene** sectie.
 
-   ![Log Analytics-Logboeken onder algemene sectie](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
+   ![Azure Monitor-Logboeken onder de sectie Algemeen](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
 
 4. U kunt [Schrijf uw eigen query](../azure-monitor/log-query/get-started-portal.md) om te zoeken naar termen, trends te identificeren, patronen analyseren en inzichten op basis van uw gegevens te kunnen bieden. Bijvoorbeeld, kunt u een query schrijven om te filteren alleen diagnostische logboeken waarvoor het bericht 'de streaming-taak is mislukt.' Diagnostische logboeken van Azure Stream Analytics worden opgeslagen in de **AzureDiagnostics** tabel.
 

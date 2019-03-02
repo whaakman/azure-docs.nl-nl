@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: bc72fe2492d2eb38d60c6e96dcca35af5fb825ec
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 17bcb9efbf28901f241d44231bc5c71ae20380b5
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56808519"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241609"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Stroomactiviteit gegevens uitvoeren in Azure Data Factory
 De activiteit execute gegevens flow voor uw gegevensstroom ADF in Foutopsporing (sandbox) pijplijnuitvoeringen en geactiveerde pijplijnuitvoeringen gebruiken.
@@ -37,9 +37,7 @@ De activiteit execute gegevens flow voor uw gegevensstroom ADF in Foutopsporing 
       },
         "compute": {
           "computeType": "General",
-          "dataTransformationUnits": 4,
           "coreCount": 8,
-          "numberOfNodes": 0
       }
 }
 
@@ -49,6 +47,7 @@ De activiteit execute gegevens flow voor uw gegevensstroom ADF in Foutopsporing 
 
 * ```dataflow``` de naam van de flow-entiteit voor gegevens die u wilt uitvoeren
 * ```compute``` Beschrijving van de uitvoeringsomgeving Spark
+* ```coreCount``` is het aantal cores om toe te wijzen voor de uitvoering van deze activiteit van de gegevensstroom
 
 ![Uitvoeren van de gegevensstroom](media/data-flow/activity-data-flow.png "gegevensstroom uitvoeren")
 

@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 02/26/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: be55fcd7bb4baab218f739094b91fc734c2fb70d
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: f9d431fe0ee76edf5d41c1ce7831f335128402a8
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985556"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244737"
 ---
 # <a name="media-services-concepts"></a>Media Services-concepten
 
@@ -36,7 +36,7 @@ Nadat u uw hoogwaardige digitale media-bestanden naar Assets uploaden, kunt u ze
 
 Als u wilt coderen met Media Services v3, moet u maken **transformeert** en **taken**.
 
-![Transformaties](./media/concepts/transforms-jobs.png)
+![Transformaties](./media/encoding/transforms-jobs.png)
 
 - [Transformaties en taken](transforms-jobs-concept.md)
 - [Codering met mediaservices](encoding-concept.md)
@@ -55,7 +55,7 @@ Bij het maken van de **Streaming-Locator gemaakt**, naast de assetnaam, moet u o
 
 Dynamische pakketten wordt gebruikt of u uw inhoud live of on-demand streamen. Het volgende diagram toont de streaming on demand met dynamische verpakking werkstroom.
 
-![Dynamische codering](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+![Dynamische verpakking](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
 Met Media Services van uw live en on-demand inhoud dynamisch wordt versleuteld met Advanced Encryption Standard (AES-128) kan worden geleverd of / en een van de drie belangrijkste digital rights management (DRM)-systemen: Microsoft PlayReady, Google Widevine en FairPlay van Apple. Media Services biedt ook een service voor het leveren van AES-sleutels en DRM (PlayReady, Widevine en FairPlay) licenties voor geautoriseerde clients.
 
@@ -63,11 +63,13 @@ Als versleutelingsopties voor uw stroom op te geven, maakt u de **inhoud sleutel
 
 De volgende afbeelding ziet u de Media Services content protection-werkstroom: 
 
-![Inhoud beveiligen](./media/concepts/content-protection.png)
+![Inhoud beveiligen](./media/content-protection/content-protection.svg)
+
+&#42;* dynamische versleuteling ondersteunt AES-128 "clear key', CBCS en CENC. 
 
 U kunt Media Services gebruiken **dynamische manifesten** alleen een specifieke weergave of subclips van uw video te streamen. In het volgende voorbeeld is een coderingsprogramma gebruikt een tussentijds asset coderen in zeven ISO MP4s video voorinstelling (van 180p 1080p). De gecodeerde asset kan dynamisch worden verpakt in een van de volgende protocollen voor streaming: HLS, MPEG DASH en Smooth.  Aan de bovenkant van het diagram, het HLS-manifest voor de asset met geen filters wordt weergegeven (bevat alle zeven voorinstelling).  In de linksonder, wordt het HLS-manifest waarop een filter met de naam "ott" is toegepast weergegeven. Het filter "ott" Hiermee geeft u als u wilt verwijderen van alle bitsnelheden hieronder 1 Mbps, wat leidde tot de twee quality-niveaus van onder, worden verwijderd uit in het antwoord. In de rechts onderaan wordt het HLS-manifest waarop een filter met de naam 'mobiel' is toegepast weergegeven. Het filter 'mobiel' Hiermee geeft u het verwijderen van vertoningen waar de oplossing is groter dan 720p, wat leidde tot de twee 1080p voorinstelling wordt overblijft.
 
-![Weergavefiltering](./media/concepts/media-services-rendition-filter.png)
+![Weergavefiltering](./media/filters-dynamic-manifest-overview/media-services-rendition-filter.png)
 
 - [Dynamische pakketten](dynamic-packaging-overview.md)
 - [Streaming-eindpunten](streaming-endpoint-concept.md)
@@ -84,7 +86,7 @@ Azure Media Services kunt u live-evenementen Bied uw klanten op de Azure-cloud. 
 
 De volgende afbeelding illustreert de werkstroom van Pass Through-type:
 
-![Pass Through-query](./media/concepts/pass-through.png)
+![Pass Through-query](./media/live-streaming/pass-through.svg)
 
 - [Overzicht van live streaming](live-streaming-overview.md)
 - [Live-evenementen en Live-uitvoer](live-events-outputs-concept.md)

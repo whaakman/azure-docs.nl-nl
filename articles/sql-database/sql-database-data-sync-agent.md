@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: 78d85239e1e82c290b210d33d3ca7000d6a05a1f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 40a5c21c2411d0f1bfdf3254799d8abbd585c3ee
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567907"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217339"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Data Sync-Agent voor Azure SQL Data Sync
 
@@ -148,7 +148,7 @@ U ontdekt dat de agent niet wordt uitgevoerd op een computer die als host fungee
 - **Resolutie**. Wachtwoord van de agent bijwerken op uw huidige serverwachtwoord:
 
   1. Ga naar de SQL Data Sync client-agent-service.  
-    a. Selecteer **Start**.  
+    a. Selecteer **Starten**.  
     b. Voer in het zoekvak **services.msc**.  
     c. Selecteer in de lijst met zoekresultaten **Services**.  
     d. In de **Services** venster, Ga naar de vermelding voor **SQL Data Sync-Agent**.  
@@ -326,7 +326,7 @@ Zie de volgende artikelen voor meer informatie over SQL Data Sync:
         -  [PowerShell gebruiken om meerdere Azure SQL-databases te synchroniseren](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [PowerShell gebruiken om te synchroniseren tussen een Azure SQL-database en een on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
 -   Best practices: [Best practices voor Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
--   Bewaken: [SQL Data Sync bewaken met Log Analytics](sql-database-sync-monitor-oms.md)
+-   Monitor - [SQL Data Sync bewaken met Azure Monitor-Logboeken](sql-database-sync-monitor-oms.md)
 -   Problemen oplossen: [Problemen met Azure SQL Data Sync oplossen](sql-database-troubleshoot-data-sync.md)
 -   Het synchronisatieschema bijwerken
     -   Met Transact-SQL: [De replicatie van schemawijzigingen in Azure SQL Data Sync automatiseren](sql-database-update-sync-schema.md)

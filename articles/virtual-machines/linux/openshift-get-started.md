@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: bf34d7e85632999056388eb74816140ce667ce10
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: b1a39016907e697ab03a8a6962fb1e75e4433675
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382351"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57218036"
 ---
 # <a name="openshift-in-azure"></a>OpenShift in Azure
 
@@ -46,7 +46,7 @@ De vijf versies in dit artikel besproken, zijn slechts twee die momenteel beschi
 
 Containerplatform is een bedrijfsklare [commerciële versie](https://www.openshift.com) uit en wordt ondersteund door Red Hat. Met deze versie kunnen klanten de benodigde rechten voor OpenShift Container Platform aanschaffen en verantwoordelijk zijn voor installatie en beheer van de gehele infrastructuur.
 
-Omdat klanten 'eigenaar' van het platform, kunnen ze deze installeren in hun on-premises datacenter of in een openbare cloud (zoals Azure, AWS en Google).
+Omdat klanten 'eigenaar' van het platform, kunnen ze deze installeren in hun on-premises datacenter of in een openbare cloud (zoals Azure).
 
 ## <a name="openshift-on-azure"></a>OpenShift On Azure
 
@@ -58,7 +58,7 @@ OKD is een [open-source](https://www.okd.io/) upstream-project van OpenShift die
 
 ## <a name="openshift-dedicated"></a>OpenShift Dedicated
 
-Toegewezen is een Red Hat-beheerde *één tenant* OpenShift die gebruikmaakt van OpenShift Container Platform. Red Hat beheert alle van de onderliggende infrastructuur (VM's, OpenShift-cluster, netwerken, opslag, enzovoort.). Het cluster is specifiek voor één klant en wordt uitgevoerd in een openbare cloud (zoals AWS of Google). Een eerste cluster bevat vier knooppunten van de toepassingen en alle kosten worden jaarlijks en betaalde kosten vooraf.
+Toegewezen is een Red Hat-beheerde *één tenant* OpenShift die gebruikmaakt van OpenShift Container Platform. Red Hat beheert alle van de onderliggende infrastructuur (VM's, OpenShift-cluster, netwerken, opslag, enzovoort.). Het cluster is specifiek voor één klant en wordt uitgevoerd in een openbare cloud (zoals Azure). Een eerste cluster bevat vier knooppunten van de toepassingen en alle kosten worden jaarlijks en betaalde kosten vooraf.
 
 ## <a name="openshift-online"></a>OpenShift Online
 

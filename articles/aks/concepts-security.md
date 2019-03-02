@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: df95329128c93f326b6f2c75fb7faef1a46029cc
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 66fc5c92410118f4e0042738d2107b272d68f9bf
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456500"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240334"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Beveiligingsconcepten voor toepassingen en -clusters in Azure Kubernetes Service (AKS)
 
@@ -28,13 +28,13 @@ In dit artikel worden de belangrijkste concepten die beveiligen van uw toepassin
 
 ## <a name="master-security"></a>Beveiliging van master
 
-In AKS uitmaken de Kubernetes-hoofdcomponenten deel van de beheerde service die is geleverd door Microsoft. Elk AKS-cluster is hun eigen Kubernetes één tenants, speciaal model voor de API-Server, Scheduler, enzovoort. Dit model wordt beheerd en onderhouden door Microsoft
+In AKS uitmaken de Kubernetes-hoofdcomponenten deel van de beheerde service die is geleverd door Microsoft. Elk AKS-cluster is hun eigen Kubernetes één tenants, speciaal model voor de API-Server, Scheduler, enzovoort. Dit model wordt beheerd en onderhouden door Microsoft.
 
 Standaard is de Kubernetes API-server maakt gebruik van een openbaar IP-adres, en met FQDN-naam (Fully Qualified Domain Name). U kunt toegang tot de API-server met behulp van Kubernetes op rollen gebaseerd toegangsbeheer en Azure Active Directory beheren. Zie voor meer informatie, [Azure AD-integratie met AKS][aks-aad].
 
 ## <a name="node-security"></a>Beveiliging van knooppunt
 
-AKS-knooppunten zijn Azure virtuele machines die u beheren en onderhouden. De knooppunten draait een geoptimaliseerde Ubuntu Linux-distributie met de Docker container-runtime. Wanneer een AKS-cluster wordt gemaakt of uitgebreid, worden automatisch de knooppunten geïmplementeerd met de meest recente beveiligingsupdates OS en configuraties.
+AKS-knooppunten zijn Azure virtuele machines die u beheren en onderhouden. Een geoptimaliseerde Ubuntu Linux-distributie met behulp van de runtime van de container Moby op de knooppunten uitgevoerd. Wanneer een AKS-cluster wordt gemaakt of uitgebreid, worden automatisch de knooppunten geïmplementeerd met de meest recente beveiligingsupdates OS en configuraties.
 
 OS-beveiligingspatches het Azure-platform automatisch toegepast op de knooppunten op basis van elke nacht. Als een update van het besturingssysteem beveiliging een host opnieuw worden opgestart vereist, wordt dat opnieuw opstarten niet automatisch uitgevoerd. U kunt handmatig opnieuw opstarten de knooppunten of een algemene aanpak is het gebruik [Kured][kured], een open-source opnieuw opstarten-daemon voor Kubernetes. Kured wordt uitgevoerd als een [DaemonSet] [ aks-daemonsets] en bewaakt elk knooppunt op de aanwezigheid van een bestand dat aangeeft dat een herstart vereist is. Opnieuw opstarten worden beheerd in het cluster met behulp van dezelfde [cordon en proces leegmaken](#cordon-and-drain) als de clusterupgrade van een.
 
@@ -65,7 +65,7 @@ Voor de connectiviteit en beveiliging met on-premises netwerken, kunt u uw AKS-c
 
 ### <a name="azure-network-security-groups"></a>Azure-netwerk-beveiligingsgroepen
 
-Als u wilt de stroom van verkeer in virtuele netwerken filteren, gebruikt Azure de regels voor netwerkbeveiligingsgroepen. Deze regels definiëren de bron en doel-IP-adresbereiken, poorten en protocollen die worden toegestaan of geweigerd toegang tot bronnen. Standaardregels worden voor TLS-verkeer naar de Kubernetes API-server en waarbij voor SSH-toegang tot de knooppunten gemaakt. Als u services met load balancers, poorttoewijzingen of routes voor inkomend verkeer maken, Hiermee wijzigt u AKS automatisch de netwerkbeveiligingsgroep voor verkeer voor flow op de juiste wijze.
+Als u wilt de stroom van verkeer in virtuele netwerken filteren, gebruikt Azure de regels voor netwerkbeveiligingsgroepen. Deze regels definiëren de bron en doel-IP-adresbereiken, poorten en protocollen die worden toegestaan of geweigerd toegang tot bronnen. Standaardregels worden voor TLS-verkeer naar de Kubernetes API-server gemaakt. Als u services met load balancers, poorttoewijzingen of routes voor inkomend verkeer maken, Hiermee wijzigt u AKS automatisch de netwerkbeveiligingsgroep voor verkeer voor flow op de juiste wijze.
 
 ## <a name="kubernetes-secrets"></a>Kubernetes Secrets
 
@@ -76,6 +76,8 @@ Het gebruik van geheimen vermindert de gevoelige informatie die is gedefinieerd 
 ## <a name="next-steps"></a>Volgende stappen
 
 Als u wilt beginnen met het beveiligen van uw AKS-clusters, Zie [een AKS-cluster upgraden][aks-upgrade-cluster].
+
+Zie voor de bijbehorende best practices, [aanbevolen procedures voor beveiliging van clusters en upgrades in AKS][operator-best-practices-cluster-security].
 
 Zie de volgende artikelen voor meer informatie over core Kubernetes en concepten voor AKS:
 
@@ -99,3 +101,4 @@ Zie de volgende artikelen voor meer informatie over core Kubernetes en concepten
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
+[operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md

@@ -1,6 +1,6 @@
 ---
 title: Operationele beveiliging in Azure | Microsoft Docs
-description: Meer informatie over Microsoft Azure Log Analytics, de services en hoe het werkt.
+description: Meer informatie over Microsoft Azure Monitor-Logboeken, de services en hoe het werkt.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: cc820d0e8a19ae3905fbd26a1b9a98e948ecfb63
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 2f68156e593281acb46dbeb132f0f45db4b3dfb9
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107276"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244771"
 ---
 # <a name="azure-operational-security"></a>Azure operationele beveiliging
 ## <a name="introduction"></a>Inleiding
@@ -53,36 +53,36 @@ Dit technische document geeft een overzicht van de Microsoft-benadering tot oper
 6.  [Azure Active directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
 
 
-## <a name="microsoft-azure-log-analytics"></a>Microsoft Azure Log Analytics
+## <a name="microsoft-azure-monitor-logs"></a>Microsoft Azure Monitor-Logboeken
 
-Microsoft Azure Log Analytics is de IT-beheeroplossing voor de hybride cloud. Alleen wordt gebruikt of om uit te breiden van uw bestaande System Center-implementatie, Log Analytics, zodat u de maximale flexibiliteit en controle voor cloud-gebaseerd beheer van uw infrastructuur.
+Logboeken van de Microsoft Azure Monitor is de IT-beheeroplossing voor de hybride cloud. Alleen wordt gebruikt of om uit te breiden van uw bestaande System Center-implementatie, de logboeken van Azure Monitor, zodat u de maximale flexibiliteit en controle voor cloud-gebaseerd beheer van uw infrastructuur.
 
-![Log Analytics](./media/azure-operational-security/azure-operational-security-fig1.png)
+![Logboeken in Azure Monitor](./media/azure-operational-security/azure-operational-security-fig1.png)
 
-Met Log Analytics, kunt u een instantie in elke cloud, met inbegrip van on-premises, Azure, AWS, Windows Server, Linux, VMware en OpenStack, tegen lagere kosten dan concurrerende, door oplossingen te beheren. Log Analytics is gebouwd voor de cloudgeoriënteerde wereld, biedt een nieuwe benadering voor het beheren van uw bedrijf dat is de snelste en meest rendabele manier om te voldoen aan de nieuwe zakelijke uitdagingen en geschikt voor de nieuwe werkbelastingen, toepassingen en cloudomgevingen.
+Met Azure Monitor-Logboeken, kunt u een instantie in elke cloud, met inbegrip van on-premises, Azure, AWS, Windows Server, Linux, VMware en OpenStack, tegen lagere kosten dan concurrerende oplossingen beheren. Ontwikkeld voor de cloudgeoriënteerde wereld en logboeken van Azure Monitor biedt een nieuwe benadering voor het beheren van uw bedrijf dat is de snelste en meest rendabele manier om te voldoen aan de nieuwe zakelijke uitdagingen en geschikt voor de nieuwe werkbelastingen, toepassingen en cloudomgevingen.
 
-### <a name="log-analytics-services"></a>Log Analytics-services
+### <a name="azure-monitor-services"></a>Azure Monitor-services
 
-De kernfunctionaliteit van Log Analytics wordt geboden door een set met services die worden uitgevoerd in Azure. Elke service biedt een specifieke beheerfunctie. U kunt services combineren om verschillende beheerscenario's te bewerkstelligen.
+De kernfunctionaliteit van Azure Monitor-Logboeken wordt geleverd door een set met services die worden uitgevoerd in Azure. Elke service biedt een specifieke beheerfunctie. U kunt services combineren om verschillende beheerscenario's te bewerkstelligen.
 
 | Service  | Description|
 | :------------- | :-------------|
-| Log Analytics | Bewaak en analyseer de beschikbaarheid en prestaties van verschillende resources, met inbegrip van fysieke en virtuele machines. |
+| Logboeken in Azure Monitor | Bewaak en analyseer de beschikbaarheid en prestaties van verschillende resources, met inbegrip van fysieke en virtuele machines. |
 |Automation | Automatiseer handmatige processen en dwing configuraties af voor fysieke en virtuele machines. |
 | Backup | Back-up en herstellen van kritieke gegevens. |
 | Site Recovery | Bied hoge beschikbaarheid voor kritieke toepassingen. |
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="azure-monitor-logs"></a>Logboeken in Azure Monitor
 
-[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics) bewakingsservices biedt door het verzamelen van gegevens van beheerde resources in een centrale opslagplaats. Deze gegevens kunnen gebeurtenissen, prestatiegegevens en aangepaste gegevens omvatten die via de API worden geleverd. Na verzameling zijn de gegevens beschikbaar voor waarschuwingen, analyse en export.
+[Logboeken in Azure Monitor](https://azure.microsoft.com/documentation/services/log-analytics) bewakingsservices biedt door het verzamelen van gegevens van beheerde resources in een centrale opslagplaats. Deze gegevens kunnen gebeurtenissen, prestatiegegevens en aangepaste gegevens omvatten die via de API worden geleverd. Na verzameling zijn de gegevens beschikbaar voor waarschuwingen, analyse en export.
 
 
 Deze methode kunt u gegevens uit verschillende bronnen consolideren, zodat u kunt combineren gegevens uit uw Azure-services met uw bestaande on-premises omgeving. De methode maakt ook een duidelijk onderscheid tussen het verzamelen van gegevens en het bewerken hiervan. Zo zijn alle bewerkingen beschikbaar voor alle soorten gegevens.
 
 
-![Log Analytics](./media/azure-operational-security/azure-operational-security-fig2.png)
+![Logboeken in Azure Monitor](./media/azure-operational-security/azure-operational-security-fig2.png)
 
-De service Log Analytics beheert uw cloud-gebaseerde gegevens veilig met behulp van de volgende methoden:
+De Azure Monitor-service beheert uw cloud-gebaseerde gegevens veilig met behulp van de volgende methoden:
 -   scheiding van gegevens
 -   bewaren van gegevens
 -   fysieke beveiliging
@@ -92,22 +92,22 @@ De service Log Analytics beheert uw cloud-gebaseerde gegevens veilig met behulp 
 
 ### <a name="azure-backup"></a>Azure Backup
 
-[Azure Backup](https://azure.microsoft.com/documentation/services/backup) biedt gegevens back-up en herstellen van services en maakt deel uit van de Log Analytics-suite met producten en services.
+[Azure Backup](https://azure.microsoft.com/documentation/services/backup) biedt gegevens back-up en herstellen van services en maakt deel uit van de Azure Monitor-suite met producten en services.
 Het beschermt uw toepassingsgegevens en bewaart deze jarenlang, zonder dat u grote investeringen hoeft te doen en met een minimum aan operationele kosten. Back-up kan gegevens van fysieke en virtuele Windows-servers en werkbelastingen van toepassingen zoals SQL Server en SharePoint. Kan ook worden gebruikt door [System Center Data Protection Manager (DPM)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager) beveiligde om gegevens te repliceren naar Azure voor redundantie en opslag op lange termijn.
 
 
 Beveiligde gegevens in Azure Backup worden opgeslagen in een back-upkluis in een bepaalde geografische regio. De gegevens binnen dezelfde regio gerepliceerd en, afhankelijk van het type kluis, kan ook worden gerepliceerd naar een andere regio voor meer flexibiliteit.
 
 ### <a name="management-solutions"></a>Beheeroplossingen
-[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) is van Microsoft cloud-gebaseerde IT-beheeroplossing waarmee u beheren kunt en beveiligen van uw on-premises en cloudinfrastructuur.
+[Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) is van Microsoft cloud-gebaseerde IT-beheeroplossing waarmee u beheren kunt en beveiligen van uw on-premises en cloudinfrastructuur.
 
 
-[Beheeroplossingen](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) zijn voorverpakte sets met logics die een bepaald beheerscenario met behulp van een of meer Log Analytics-services te implementeren. Er zijn verschillende oplossingen beschikbaar van Microsoft en partners die u kunt eenvoudig toevoegen aan uw Azure-abonnement te verhogen van de waarde van uw investering in Log Analytics. Als partner kunt u uw eigen oplossingen voor het ondersteunen van uw toepassingen en services en ze aanbieden aan gebruikers via de Azure Marketplace of snel starten-sjablonen maken.
+[Beheeroplossingen](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) zijn voorverpakte sets met logics die een bepaald beheerscenario met behulp van een of meer Azure Monitor-services te implementeren. Er zijn verschillende oplossingen beschikbaar van Microsoft en partners die u kunt eenvoudig toevoegen aan uw Azure-abonnement te verhogen van de waarde van uw investering in Azure Monitor. Als partner kunt u uw eigen oplossingen voor het ondersteunen van uw toepassingen en services en ze aanbieden aan gebruikers via de Azure Marketplace of snel starten-sjablonen maken.
 
 
 ![Beheeroplossingen](./media/azure-operational-security/azure-operational-security-fig4.png)
 
-Een goed voorbeeld van een oplossing die gebruikmaakt van meerdere services om extra functionaliteit te bieden is de [oplossing Update Management](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management). Deze oplossing maakt gebruik van de [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) -agent voor Windows en Linux om gegevens te verzamelen over vereiste updates op elke agent. Het schrijft deze gegevens naar de opslagplaats van Log Analytics waar u ze kunt analyseren met een inbegrepen dashboard.
+Een goed voorbeeld van een oplossing die gebruikmaakt van meerdere services om extra functionaliteit te bieden is de [oplossing Update Management](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management). Deze oplossing maakt gebruik van de [logboeken van Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) -agent voor Windows en Linux om gegevens te verzamelen over vereiste updates op elke agent. Het schrijft deze gegevens naar de Azure Monitor logboeken opslagplaats waar u ze met een inbegrepen dashboard analyseren kunt.
 
 Wanneer u een implementatie van runbooks in maakt [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) worden gebruikt voor het installeren van vereiste updates. U beheert dit hele proces in de portal en hoeft zich geen zorgen te maken over de onderliggende details.
 
@@ -312,7 +312,7 @@ In dit artikel samenvattingen van de bescherming van uw privacy en beveiliging v
 
 Dit artikel wordt uitgelegd
 
--   Hoe data wordt verzameld, verwerkt en beveiligd in de Log Analytics-suite.
+-   Hoe data wordt verzameld, verwerkt en beveiligd in de Azure Monitor-suite.
 
 -   Analyseer snel gebeurtenissen in meerdere gegevensbronnen. Identificeer beveiligingsrisico's en wees op de hoogte van de omvang en impact van bedreigingen en aanvallen om schade na inbreuk op de beveiliging te voorkomen.
 
@@ -335,7 +335,7 @@ Dit artikel wordt uitgelegd
 
 De services en software van Microsoft worden wordt met beveiliging in gedachten om ervoor te zorgen dat de cloudinfrastructuur flexibel en beveiligd tegen aanvallen is.
 
-- [Log Analytics | Beveiliging en naleving](https://www.microsoft.com/cloud-platform/security-and-compliance)
+- [Logboeken in Azure Monitor | Beveiliging en naleving](https://www.microsoft.com/cloud-platform/security-and-compliance)
 
 Gebruik Microsoft beveiligingsgegevens en -analyse uit te voeren van intelligente en effectieve bedreigingsdetectie.
 

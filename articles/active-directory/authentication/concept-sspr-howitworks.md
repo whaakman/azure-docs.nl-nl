@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0d1c2a35a6ad246eea593990c485181aa776594
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 76af36de833bc496df7c24ddb1cbfd75c91c7976
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175086"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214748"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Het werkt als volgt: Azure AD-selfservice wachtwoord opnieuw instellen
 
@@ -59,7 +59,7 @@ Lezen via de volgende stappen uit voor meer informatie over de logica achter het
 
 ## <a name="authentication-methods"></a>Verificatiemethoden
 
-Als self-service voor Wachtwoordherstel is ingeschakeld, moet u ten minste één van de volgende opties voor de verificatiemethoden. Soms hoort u deze opties aangeduid als "gates." Is het raadzaam dat u **twee of meer verificatiemethoden kiezen** zodat uw gebruikers meer flexibiliteit hebben wanneer ze niet voor toegang tot een wanneer ze deze nodig hebben.
+Als self-service voor Wachtwoordherstel is ingeschakeld, moet u ten minste één van de volgende opties voor de verificatiemethoden. Soms hoort u deze opties aangeduid als "gates." Is het raadzaam dat u **twee of meer verificatiemethoden kiezen** zodat uw gebruikers meer flexibiliteit hebben wanneer ze niet voor toegang tot een wanneer ze deze nodig hebben. Meer informatie over de methoden hieronder vindt u in het artikel [wat verificatiemethoden zijn?](concept-authentication-methods.md).
 
 * Melding mobiele app (preview)
 * Mobiele app-code (preview)
@@ -69,6 +69,9 @@ Als self-service voor Wachtwoordherstel is ingeschakeld, moet u ten minste één
 * Beveiligingsvragen
 
 Gebruikers kunnen hun wachtwoord alleen opnieuw instellen als ze beschikken over gegevens aanwezig zijn in de verificatiemethoden die de beheerder heeft ingeschakeld.
+
+> [!IMPORTANT]
+> Vanaf maart van 2019 de opties telefoongesprek zich niet beschikbaar voor gebruikers voor MFA en Self-service voor Wachtwoordherstel in vrij/proefversie van Azure AD-tenants. SMS-berichten worden niet beïnvloed door deze wijziging. Telefonische oproep blijft beschikbaar voor gebruikers in betaalde Azure AD-tenants. Deze wijziging geldt alleen voor gratis/proefversie van Azure AD-tenants.
 
 > [!WARNING]
 > Accounts die zijn toegewezen Azure-beheerdersrollen is vereist voor het gebruik van methoden, zoals gedefinieerd in de sectie [beheerder opnieuw instellen van beleid verschillen](concept-sspr-policy.md#administrator-reset-policy-differences).
@@ -90,7 +93,7 @@ Wanneer u een mobiele app, zoals de Microsoft Authenticator-app als een methode 
 * Wanneer beheerders vereisen een methode dat worden gebruikt om een wachtwoord opnieuw instellen, de verificatiecode is de enige beschikbare optie.
 * Wanneer beheerders vereisen twee methoden dat worden gebruikt om een wachtwoord opnieuw instellen, gebruikers mogen gebruiken **uitvoeren** melding **of** verificatiecode naast eventuele andere methoden ingeschakeld.
 
-| Het aantal methoden dat is vereist om het wachtwoord opnieuw in te stellen | een | Twee |
+| Het aantal methoden dat is vereist om het wachtwoord opnieuw in te stellen | Een | Twee |
 | :---: | :---: | :---: |
 | Mam-functies die beschikbaar zijn | Code | Code- of -meldingen |
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: rkarlin
-ms.openlocfilehash: f1a3268fcacd4083b767a3fe89d6ab9b41b6cceb
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 2b9426043619887d99003677fd6e8488cb56cce2
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114056"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241065"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Controle en het verwerken van beveiligingsgebeurtenissen in Azure Security Center
 Het dashboard gebeurtenissen bevat een overzicht van het aantal beveiligingsgebeurtenissen verzameld voor tijd en een lijst van gebeurtenissen die aandacht vereisen die uw aandacht nodig hebben.  
@@ -28,6 +28,8 @@ Het dashboard gebeurtenissen bevat een overzicht van het aantal beveiligingsgebe
 > Deze functie wilt gebruiken, moet uw werkruimte Log Analytics versie 2 actief zijn en moet op Security Center Standard-laag. Zie het Security Center [pagina met prijzen](security-center-pricing.md) voor meer informatie over de Standard-laag.
 >
 >
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="what-is-a-security-event"></a>Wat is een beveiligingsgebeurtenis?
 Security Center maakt gebruik van de Microsoft Monitoring Agent voor het verzamelen van verschillende aan beveiliging gerelateerde configuraties en gebeurtenissen van uw machines en slaat deze gebeurtenissen in uw werkruimte(n). Voorbeelden van dergelijke gegevens zijn: besturingssysteemlogboeken (Windows-gebeurtenislogboeken), uitvoeren van processen en gebeurtenissen van beveiligingsoplossingen die zijn geïntegreerd met Security Center. De Microsoft Monitoring Agent kopieert ook crashdumpbestanden naar uw werkruimte(n).
@@ -70,7 +72,7 @@ De **gebeurtenissendashboard** biedt een overzicht van het aantal verwerkte gebe
   ![Zoekopdrachten in logboeken][6]
 
 ## <a name="add-a-notable-event"></a>Een gebeurtenis die aandacht vereist toevoegen
-Security Center biedt gebeurtenissen die aandacht vereisen voor out-of-the-box. U kunt gebeurtenissen die aandacht vereisen op basis van uw eigen query met toevoegen de [querytaal van Log Analytics](../log-analytics/log-analytics-search-reference.md). Wordt geretourneerd en wordt naar de **gebeurtenissendashboard** om toe te voegen een gebeurtenis die aandacht vereist.
+Security Center biedt gebeurtenissen die aandacht vereisen voor out-of-the-box. U kunt gebeurtenissen die aandacht vereisen op basis van uw eigen query met toevoegen de [Kusto-querytaal](../log-analytics/log-analytics-search-reference.md). Wordt geretourneerd en wordt naar de **gebeurtenissendashboard** om toe te voegen een gebeurtenis die aandacht vereist.
 
 1. Selecteer **gebeurtenis die aandacht vereist toevoegen**.
 
@@ -94,7 +96,7 @@ Als de rij van de werkruimte:
 - Is blanco - voldoet aan uw werkruimte en een werkruimte selecteren, gaat u naar het dashboard
 
 > [!NOTE]
-> Onder **gebeurtenissendashboard**, wordt de **gebeurtenissen** kolom wordt aangegeven hoeveel gebeurtenissen in elke werkruimte.  Deze kolom is leeg voor een aantal werkruimten, omdat de gratis laag van Security Center wordt toegepast op deze werkruimte. Onder de gratis laag, Security Center verzamelt gebeurtenissen, maar de gebeurtenissen worden niet opgeslagen in Log Analytics en zijn niet beschikbaar in het dashboard.
+> Onder **gebeurtenissendashboard**, wordt de **gebeurtenissen** kolom wordt aangegeven hoeveel gebeurtenissen in elke werkruimte.  Deze kolom is leeg voor een aantal werkruimten, omdat de gratis laag van Security Center wordt toegepast op deze werkruimte. Onder de gratis laag, Security Center verzamelt gebeurtenissen, maar de gebeurtenissen worden niet opgeslagen in Azure Monitor-logboeken en zijn niet beschikbaar in het dashboard.
 >
 >
 
@@ -119,9 +121,9 @@ Als de rij van de werkruimte:
 ## <a name="next-steps"></a>Volgende stappen
 In dit artikel hebt u geleerd hoe u Event-dashboard van Security Center bevinden. Zie voor meer informatie over de werking van het dashboard en het schrijven van uw eigen query's van gebeurtenis:
 
-- [Wat is Log Analytics?](../log-analytics/log-analytics-overview.md) – Overzicht van Log Analytics
-- [Understanding zoekopdrachten in Logboeken in Log Analytics](../log-analytics/log-analytics-log-search-new.md) : hierin wordt beschreven hoe zoekopdrachten in Logboeken in Log Analytics worden gebruikt en concepten die moet worden geïnterpreteerd voor het maken van een zoeken in Logboeken
-- [Log Analytics zoeken verwijzing](../log-analytics/log-analytics-search-reference.md) : informatie over het schrijven van uw eigen event-query's met behulp van de querytaal in logboek
+- [Wat is Azure Monitor Logboeken?](../log-analytics/log-analytics-overview.md) – Overzicht van Azure Monitor-Logboeken
+- [Understanding zoekopdrachten in Logboeken in Kusto](../log-analytics/log-analytics-log-search-new.md) : hierin wordt beschreven hoe zoekopdrachten in Logboeken van Azure Monitor worden gebruikt en concepten die moet worden geïnterpreteerd voor het maken van een zoeken in Logboeken
+- [Verwijzing naar de Kusto](../log-analytics/log-analytics-search-reference.md) : informatie over het schrijven van uw eigen event-query's met behulp van de querytaal in logboek
 
 Zie de volgende onderwerpen voor meer informatie over Azure Security Center:
 

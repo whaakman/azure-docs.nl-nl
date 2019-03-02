@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 82d072cc6f86ae758bd0fdd4d02b68b1ac1de53a
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 6d86d4c03a41834322c98438958c0b9e87e6025c
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56097147"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213515"
 ---
 # <a name="azure-application-offer"></a>Aanbieding voor Azure-toepassing
 
@@ -44,6 +44,9 @@ Er zijn twee soorten Azure-toepassingen: beheerde toepassingen en -oplossingssja
 
 U kunt ook beheerde toepassingen in een Servicecatalogus bieden naast de Azure Marketplace. De servicecatalogus is een interne catalogus van goedgekeurde oplossingen voor gebruikers in een organisatie. U kunt de catalogus gebruiken om te voldoen aan de standaarden van de organisatie terwijl oplossingen voor groepen in een organisatie. Werknemers gebruiken de catalogus om eenvoudig toepassingen te vinden die worden aanbevolen en zijn goedgekeurd door hun IT-afdelingen.
 
+>[!Note]
+>Cloud Solution Providers (CSP) partner kanaal aanmelden is nu beschikbaar.  Raadpleeg [Cloud Solution Providers](../../cloud-solution-providers.md) voor meer informatie over marketingcontactpersonen van uw aanbieding via de Microsoft CSP partner kanalen.
+
 Zie voor meer informatie over de voordelen en typen van beheerde toepassingen, de [Azure beheerde toepassingen-overzicht](https://docs.microsoft.com/azure/managed-applications/overview).
 
 
@@ -64,7 +67,6 @@ De stappen op hoog niveau voor het publiceren van een aanbieding van Azure-toepa
 3. [Maken van de SKU](./cpp-skus-tab.md) -maken van de SKU('s) die zijn gekoppeld aan de aanbieding. Een unieke SKU is vereist voor elke afbeelding die u van plan bent om te publiceren.
 
 4. Certificeren en [de aanbieding publiceren](./cpp-publish-offer.md) -nadat de aanbieding en de technische activa zijn voltooid, kunt u de aanbieding indienen. Deze verzending van het publicatieproces te starten. Tijdens dit proces wordt is de oplossing getest, gevalideerd, gecertificeerd, klikt u vervolgens "meteen live' op Azure Marketplace.
-
 
 ## <a name="next-steps"></a>Volgende stappen
 

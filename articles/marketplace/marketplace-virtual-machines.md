@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: acfe5590edf5a3d04c44d7e3d8034e761a85cb86
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: b9403855949e87a287f543c2ac41738e92238303
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728934"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217203"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Publicatiehandleiding voor virtuele Machine-aanbieding
 
@@ -67,6 +67,9 @@ Het type van de aanbieding virtuele machine gebruiken wanneer u een virtueel app
 |:--- |:--- | 
 | Facturering en betaling naar gebruik | Uw virtuele machine moet ondersteunen BYOL of betalen per gebruik maandelijkse facturering. |  
 | Azure-compatibele virtuele harde schijf (VHD) | Virtuele machines moeten worden gebouwd op Windows of Linux. <ul> <li>Zie voor meer informatie over het maken van een Linux VHD [op Azure onderschreven Linux-distributies](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Zie voor meer informatie over het maken van een Windows VHD [maken van een Azure-compatibele VHD](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |  
+
+>[!Note]
+>Cloud Solution Providers (CSP) partner kanaal aanmelden is nu beschikbaar.  Raadpleeg [Cloud Solution Providers](./cloud-solution-providers.md) voor meer informatie over marketingcontactpersonen van uw aanbieding via de Microsoft CSP partner kanalen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

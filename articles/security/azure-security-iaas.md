@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: de89e0a30f39ba97379b4d55914338702aef5c32
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: c60022d43af1601359ab5de8b4d3e4eb06dd239a
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990405"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243224"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Aanbevolen beveiligingsprocedures voor IaaS-workloads in Azure
 
@@ -128,7 +128,7 @@ Voor het bewaken van de beveiligingsstatus van uw [Windows](../security-center/s
 
 Security Center actief voor bedreigingen kunt bewaken en mogelijke bedreigingen in beveiligingswaarschuwingen worden blootgesteld. Gecorreleerde bedreigingen worden samengevoegd in één weergave met de naam een beveiligingsincident.
 
-Security Center slaat gegevens op in [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Log Analytics biedt een query taal en analytics-engine waarmee u inzicht in de werking van uw toepassingen en resources. Gegevens ook worden verzameld van [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md), oplossingen voor het beheer en de agents zijn geïnstalleerd op virtuele machines in de cloud of on-premises. Deze gedeelde functionaliteit helpt u een volledig overzicht van uw omgeving te vormen.
+Security Center slaat gegevens op in [logboeken van Azure Monitor](../log-analytics/log-analytics-overview.md). Logboeken in Azure Monitor biedt een query taal en analytics-engine waarmee u inzicht in de werking van uw toepassingen en resources. Gegevens ook worden verzameld van [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md), oplossingen voor het beheer en de agents zijn geïnstalleerd op virtuele machines in de cloud of on-premises. Deze gedeelde functionaliteit helpt u een volledig overzicht van uw omgeving te vormen.
 
 Organisaties die geen sterke beveiliging voor hun virtuele machines afdwingen blijven niet op de hoogte van mogelijke pogingen door onbevoegde gebruikers besturingselementen voor de beveiliging te omzeilen.
 

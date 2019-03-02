@@ -8,12 +8,12 @@ ms.author: ramonarguelles
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 56f59a76ac3d11677d5b1f76904cf74e933fa7f6
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 3d1ee0b25fbbf0ef895bdf6ff8afad71ff82de25
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56753084"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217169"
 ---
 # <a name="anchor-relationships-and-way-finding-in-azure-spatial-anchors"></a>Anker relaties en manier-zoeken in Azure ruimtelijke ankers
 
@@ -77,4 +77,4 @@ De app kunt controleren of er twee ankers door uitgifte van een query voor in de
 
 ### <a name="sample-code"></a>Voorbeeldcode
 
-Hier ziet u de volgende voorbeeldcode ziet u hoe u verbinding maken met ankers en doen in de buurt van query's. Raadpleeg de voorbeeld-apps van Azure ruimtelijke ankers op GitHub.
+Hier ziet u de volgende voorbeeldcode ziet u hoe u verbinding maken met ankers en doen in de buurt van query's. Raadpleeg de [Azure ruimtelijke ankers voorbeeld-apps](https://github.com/Azure/azure-spatial-anchors-samples) op GitHub.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 07592c6852a7fce057381cb9086baedc9d2b1bd6
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f1e238890b777e2816648ec407e2581f636d1c12
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111744"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57239824"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>Overzicht beveiligingswaarschuwingen en informatie over bedreigingen
 In dit artikel helpt u bij het gebruik van de Azure Security Center security waarschuwingen kaart en beveiliging op basis van gebeurtenissen bedreigingsinformatiekaart beveiligingsgerelateerde om problemen te verhelpen.
@@ -62,7 +62,7 @@ Als u de bedreigingsinformatiekaart op basis van onbewerkte beveiligingsgebeurte
 4. Selecteer aan de bovenkant van de kaart **klassieke bedreigingsinformatie weer**. De **Bedreigingsinformatie** dashboard wordt geopend.
 
    > [!NOTE]
-   > Als in de meest rechtse kolom de tekst **UPGRADE ABONNEMENT** staat, is deze werkruimte gekoppeld aan het gratis abonnement. Voer een upgrade naar de Standard-versie uit om deze functie te gebruiken. Als in de meest rechtse kolom **VEREIST UPDATE** staat, moet u [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) bijwerken om deze functie te gebruiken. Lees Prijzen van Azure Security Center voor meer informatie over de prijzen.
+   > Als in de meest rechtse kolom de tekst **UPGRADE ABONNEMENT** staat, is deze werkruimte gekoppeld aan het gratis abonnement. Voer een upgrade naar de Standard-versie uit om deze functie te gebruiken. Als de kolom helemaal rechts ziet u **vereist UPDATE**, bijwerken [logboeken van Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) deze functie wilt gebruiken. Lees Prijzen van Azure Security Center voor meer informatie over de prijzen.
    >
 5. Als er meer dan één werkruimte is om te onderzoeken, bepaalt u de prioriteit van het onderzoek via de kolom **Schadelijk IP**. Hier ziet u het huidige aantal schadelijke IP-adressen in deze werkruimte. Selecteer de werkruimte die u wilt gebruiken. Het dashboard **Bedreigingsinformatie** wordt nu weergegeven.
 

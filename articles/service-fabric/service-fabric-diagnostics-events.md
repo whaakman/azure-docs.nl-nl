@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 936a47593b9db6e4989c30b2df37dfd82c286c59
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: c4ce8e01b1dc819453610f68d044cc268e27eed7
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290515"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242748"
 ---
 # <a name="service-fabric-events"></a>Service Fabric-gebeurtenissen 
 
@@ -40,12 +40,12 @@ Hier volgen enkele voorbeelden van scenario's dat u gebeurtenissen voor in het c
 * Implementatie van de toepassing/Service / verwijderen: Er zijn gebeurtenissen voor elke toepassing, service en -container, die wordt gemaakt of verwijderd en handig wanneer u in- of uitgeschaald bijvoorbeeld verhoging van het aantal replica's
 * Partitie worden verplaatst (herconfiguratie): wanneer een stateful partitie gaat via een herconfiguratie (een wijziging in de replicaset), een gebeurtenis wordt geregistreerd. Dit is handig als u probeert te begrijpen hoe vaak uw replicaset partitie is gewijzigd of Failover-overschakeling uitvoeren, of welk knooppunt de primaire replica werd uitgevoerd op elk gewenst moment in de tijd bijhouden.
 * Chaos-gebeurtenissen: bij het gebruik van Service Fabric [Chaos](service-fabric-controlled-chaos.md) service, ziet u gebeurtenissen telkens wanneer de service is gestart of gestopt, of wanneer het injects een storing in het systeem.
-* Statusgebeurtenissen: Service Fabric beschrijft statusgebeurtenissen telkens wanneer een waarschuwing of een statusrapport van de fout is gemaakt, of een entiteit terug naar de status OK status gaat of een statusrapport is verlopen. Deze gebeurtenissen zijn zeer nuttig zijn voor het bijhouden van statistieken van de historische status voor een entiteit. 
+* Health-gebeurtenissen: Service Fabric wordt aangegeven dat statusgebeurtenissen telkens wanneer een waarschuwing of een statusrapport van de fout is gemaakt, of een entiteit terug naar de status OK status gaat of een statusrapport is verlopen. Deze gebeurtenissen zijn zeer nuttig zijn voor het bijhouden van statistieken van de historische status voor een entiteit. 
 
 ## <a name="how-to-access-events"></a>Hoe u toegang tot gebeurtenissen
 
 Er zijn een aantal verschillende manieren waarmee de Service Fabric-gebeurtenissen kunnen worden geopend:
-* De gebeurtenissen worden geregistreerd via standaard kanalen zoals ETW/Windows-gebeurtenislogboeken en kunnen worden gevisualiseerd door een controleprogramma die ondersteuning biedt voor deze zoals Log Analytics. Standaard clusters die zijn gemaakt in de portal voor diagnostische gegevens zijn ingeschakeld en de Windows Azure diagnostics-agent de gebeurtenissen verzenden naar Azure-tabelopslag hebben, maar u moet nog steeds dit integreren in uw Log Analytics-resource. Meer informatie over het configureren van de [Azure Diagnostics-agent](service-fabric-diagnostics-event-aggregation-wad.md) de configuratie van diagnostische gegevens van uw cluster om op te halen meer logboeken of prestatiemeteritems wijzigen en de [Log Analytics-integratie](service-fabric-diagnostics-event-analysis-oms.md)
+* De gebeurtenissen worden geregistreerd via standaard kanalen zoals ETW/Windows-gebeurtenislogboeken en kunnen worden gevisualiseerd door een controleprogramma die ondersteuning biedt voor deze zoals Azure Monitor-Logboeken. Standaard clusters die zijn gemaakt in de portal voor diagnostische gegevens zijn ingeschakeld en de Windows Azure diagnostics-agent de gebeurtenissen verzenden naar Azure-tabelopslag hebben, maar u moet nog steeds dit integreren in uw log analytics-resource. Meer informatie over het configureren van de [Azure Diagnostics-agent](service-fabric-diagnostics-event-aggregation-wad.md) de configuratie van diagnostische gegevens van uw cluster om op te halen meer logboeken of prestatiemeteritems wijzigen en de [integratie van Azure Monitor-Logboeken](service-fabric-diagnostics-event-analysis-oms.md)
 * EventStore service Rest API's waarmee u kunt query uitvoeren op het cluster rechtstreeks of via de Service Fabric-clientbibliotheek. Zie [Query EventStore APIs voor Clustergebeurtenissen](service-fabric-diagnostics-eventstore-query.md).
 
 ## <a name="next-steps"></a>Volgende stappen

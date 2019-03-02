@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/19/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: d97a2350765ac321cf77f8a9f84825c88d0c9185
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 9402c4b24c9d64b4b69d750fbd19de40cda396f3
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56824250"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57218087"
 ---
 Azure biedt de volgende ingebouwde RBAC-rollen voor toegang tot gegevens in de opslag:
 
@@ -23,6 +23,4 @@ Azure biedt de volgende ingebouwde RBAC-rollen voor toegang tot gegevens in de o
 - [Gegevensbijdrager voor wachtrij (Preview)](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-contributor-preview): Gebruiken om de machtigingen lezen, schrijven en verwijderen in Azure-wachtrijen te verlenen.
 - [Gegevenslezer voor Opslagwachtrij (Preview)](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-reader-preview): Gebruiken om Azure-wachtrijen alleen-lezen machtigingen te verlenen.
 
-Voor meer informatie over hoe u de ingebouwde rollen voor Azure Storage zijn gedefinieerd, Zie [begrijpen roldefinities](../articles/role-based-access-control/role-definitions.md#management-and-data-operations-preview).
-
-Azure Storage biedt ook ondersteuning voor aangepaste RBAC-rollen. Zie voor meer informatie, [aangepaste rollen maken voor op rollen gebaseerd toegangsbeheer](../articles/role-based-access-control/custom-roles.md). 
+Voor meer informatie over hoe u de ingebouwde rollen voor Azure Storage zijn gedefinieerd, Zie [begrijpen roldefinities](../articles/role-based-access-control/role-definitions.md#management-and-data-operations-preview). Zie voor meer informatie over het maken van aangepaste RBAC-rollen [aangepaste rollen maken voor op rollen gebaseerd toegangsbeheer](../articles/role-based-access-control/custom-roles.md). 

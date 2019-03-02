@@ -3,17 +3,17 @@ title: Beheren van een toepassing met Azure IoT Central | Microsoft Docs
 description: Als een beheerder, het beheren van uw Azure IoT Central-toepassing
 author: viv-liu
 ms.author: viviali
-ms.date: 02/05/2019
+ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: b43e496323da75dfc63f889283257fac41f48abf
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 8989d6ef54961f5f8eea7c6d8c9d941319bd917a
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117728"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215401"
 ---
 # <a name="administer-your-iot-central-application"></a>Uw IoT Central-toepassing beheren
 
@@ -44,7 +44,7 @@ In de **toepassingsinstellingen** pagina, kunt u de naam en de URL van uw toepas
 Als u wilt wijzigen van de installatiekopie van de toepassing, Zie [voorbereiden en uploaden van afbeeldingen aan uw Azure IoT Central toepassing](howto-prepare-images-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
 
 ### <a name="copy-an-application"></a>Kopiëren van een toepassing
-U kunt een kopie van een toepassing, verminderd met elk apparaatexemplaren, de geschiedenis van apparaat en de gebruikersgegevens kunt maken. De kopie zich een betalen per gebruik-toepassing die u in rekening gebracht. U kunt een toepassing proefversie kan niet maken op deze manier.
+U kunt een kopie van een toepassing, verminderd met elk apparaatexemplaren, de geschiedenis van apparaat en de gebruikersgegevens kunt maken. Het exemplaar is een betalen per gebruik-toepassing die u in rekening gebracht. U kunt een toepassing proefversie kan niet maken op deze manier.
 
 Klik op de **kopie** knop. Geef de details voor de nieuwe betalen per gebruik-toepassing in het dialoogvenster. Klik vervolgens op de **kopie** knop om te bevestigen dat u wilt doorgaan. Meer informatie over de velden in dit formulier in [maken van een toepassing](quick-deploy-iot-central-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) Quick Start.
 
@@ -62,7 +62,7 @@ Nadat de app-kopieerbewerking is geslaagd, gaat u naar de nieuwe toepassing die 
 > [!Note]
 > Als u wilt verwijderen van een toepassing, moet u ook machtigingen om resources te verwijderen hebben in de Azure-abonnement u hebt gekozen tijdens het maken van de toepassing. Zie voor meer informatie, [op rollen gebaseerd toegangsbeheer gebruiken voor het beheren van toegang tot de resources van uw Azure-abonnement](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
 
-Gebruik de **verwijderen** knop om uw IoT Central-toepassing permanent te verwijderen. Dit doet, worden alle gegevens die is gekoppeld aan deze toepassing permanent verwijderd.
+Gebruik de **verwijderen** knop om uw IoT Central-toepassing permanent te verwijderen. Hierdoor permanent verwijdert alle gegevens die is gekoppeld aan deze toepassing.
 
 ## <a name="manage-users"></a>Gebruikers beheren
 
@@ -95,7 +95,7 @@ Als u wilt verwijderen van gebruikers, selecteert u een of meer selectievakjes i
 
 ## <a name="manage-roles"></a>Rollen beheren
 
-Met functies kunt u om te bepalen wie binnen uw organisatie verschillende taken in IoT Central uitvoeren kunt. Er zijn drie rollen die u aan gebruikers van uw toepassing toewijzen kunt. 
+Met functies kunt u om te bepalen wie binnen uw organisatie verschillende taken in IoT Central uitvoeren kunt. Er zijn drie rollen die u aan gebruikers van uw toepassing toewijzen kunt.
 
 ### <a name="administrator"></a>Beheerder
 
@@ -111,7 +111,6 @@ Gebruikers in de **toepassing Builder** rol kunt doen alles in een toepassing, b
 
 Gebruikers in de **toepassing Operator** rol geen wijzigingen aanbrengen in apparaatsjablonen en de toepassing niet kan beheren. Dit betekent operators kunnen toevoegen en verwijderen van apparaten, Apparaatsets beheren en uitvoeren van analyses en taken. Operators geen toegang heeft tot de **toepassing Builder** en **beheer** pagina's.
 
-
 ## <a name="view-your-bill"></a>Uw factuur weergeven
 
 Als u wilt uw factuur bekijken, gaat u naar de **facturering** pagina in de **beheer** sectie. De Azure-facturering pagina wordt geopend in een nieuw tabblad, waar u de factuur voor elk van uw Azure IoT Central toepassingen kunt zien.
@@ -124,14 +123,14 @@ U kunt uw proefversie-toepassing naar een betalen per gebruik converteren. Dit z
 - **Betalen per gebruik**-toepassingen worden per apparaat in rekening gebracht, waarbij de eerste vijf apparaten gratis zijn.
 
 Lees meer over prijzen op de [prijzenpagina van IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
-    
+
 Volg deze stappen voor het voltooien van deze Self-serviceproces:
 
-1. Ga naar de **facturering** pagina in de **beheer** sectie. 
+1. Ga naar de **facturering** pagina in de **beheer** sectie.
 
     ![De status van de proefversie](media/howto-administer-experimental/freetrialbilling.png)
 
-1. Klik op **converteren naar betalen per gebruik**. 
+1. Klik op **converteren naar betalen per gebruik**.
 
     ![Evaluatieversie converteren](media/howto-administer-experimental/convert.png)
 

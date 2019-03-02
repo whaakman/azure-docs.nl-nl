@@ -13,14 +13,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/09/2019
 ms.author: juliako;
-ms.openlocfilehash: 7fa1bec1b6f83b18684f6139bf6ac8db1ae9daec
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: eee0d5365c515f8a7764b9d5636ae3d1b34cb934
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004890"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240844"
 ---
-# <a name="redact-faces-with-azure-media-analytics-legacy"></a>Redigeer gezichten met Azure Media Analytics (verouderd)
+# <a name="redact-faces-with-azure-media-analytics"></a>Redigeer gezichten met Azure Media Analytics 
 ## <a name="overview"></a>Overzicht
 **Azure Media Redactor** is een [Azure Media Analytics](media-services-analytics-overview.md) Mediaprocessor (MP) biedt schaalbare gezichten onherkenbaar maken in de cloud. Gezichten onherkenbaar maken kunt u uw video om gezichten van geselecteerde personen onherkenbaar wijzigen. U wilt de gezichten onherkenbaar maken-service gebruikt in scenario's met openbare veiligheid en nieuwsmedia. Kunnen een paar minuten beeldmateriaal met meerdere gezichten uren redigeer handmatig duren, maar het proces van gezichten onherkenbaar maken moet met deze service slechts een paar eenvoudige stappen. Zie voor meer informatie, [dit](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 

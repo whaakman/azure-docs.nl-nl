@@ -14,12 +14,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 452811cae74253570591e5ffe2c58708fe632b39
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 28891c103df91baa16b895ece7909658fede3b91
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894391"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213310"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Aan de slag met Azure SQL Database managed instance-controle
 
@@ -158,9 +158,9 @@ Meer informatie:
 - [SERVERAUDIT MAKEN](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVERAUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
-## <a name="set-up-auditing-for-your-server-to-event-hub-or-log-analytics"></a>Controle voor uw server voor het Event Hub of Log Analytics instellen
+## <a name="set-up-auditing-for-your-server-to-event-hub-or-azure-monitor-logs"></a>Instellen van de controle voor uw server naar Event Hub of Azure Monitor-Logboeken
 
-Controlelogboeken van een beheerd exemplaar kunnen worden verzonden naar zelfs Hubs of Log Analytics met Azure Monitor. Deze sectie wordt beschreven hoe u dit wilt configureren:
+Controlelogboeken van een beheerd exemplaar kunnen worden verzonden naar zelfs Hubs of de logboeken van Azure Monitor. Deze sectie wordt beschreven hoe u dit wilt configureren:
 
 1. Navigeer de [Azure Portal](https://portal.azure.com/) met het beheerde exemplaar.
 
@@ -170,7 +170,7 @@ Controlelogboeken van een beheerd exemplaar kunnen worden verzonden naar zelfs H
 
 4. Selecteer **SQLSecurityAuditEvents** in de lijst van Logboeken.
 
-5. Selecteer een doel voor de controlegebeurtenissen - Event Hub, de Log Analytics of beide. Configureren voor elk doel van de vereiste parameters (bijvoorbeeld Log Analytics-werkruimte).
+5. Selecteer een doel voor de controlegebeurtenissen - Event Hub en/of de logboeken van Azure Monitor. Configureren voor elk doel van de vereiste parameters (bijvoorbeeld Log Analytics-werkruimte).
 
 6. Klik op **Opslaan**.
 
@@ -213,11 +213,13 @@ Er zijn verschillende methoden die u gebruiken kunt om blob auditing logboeken w
 
 Als u wilt controleren Logboeken gegevens uit Event Hub gebruiken, moet u voor het instellen van een stroom gebeurtenissen gebruiken en te schrijven naar een doel. Zie voor meer informatie de documentatie over Azure Event Hubs.
 
-### <a name="consume-and-analyze-logs-stored-in-log-analytics"></a>Verbruiken en die zijn opgeslagen in Log Analytics-logboekbestanden analyseren
+### <a name="consume-and-analyze-logs-stored-in-azure-monitor-logs"></a>Verbruiken en logboeken die zijn opgeslagen in Azure controleren logboeken analyseren
 
-Als u auditlogboeken naar Log Analytics worden geschreven, zijn ze beschikbaar in de Log Analytics-werkruimte waar u geavanceerde zoekopdrachten op de controlegegevens uitvoeren kunt. Als uitgangspunt, gaat u naar de Log Analytics en klik vervolgens onder *algemene* sectie Klik *logboeken* en voer een eenvoudige query, zoals: `search "SQLSecurityAuditEvents"` om weer te geven van de audit-Logboeken.  
+Als u de logboeken voor controle worden vastgelegd in Logboeken van Azure Monitor, zijn ze beschikbaar in de Log Analytics-werkruimte waar u geavanceerde zoekopdrachten op de controlegegevens uitvoeren kunt. Als uitgangspunt, gaat u naar de Log Analytics-werkruimte en klik vervolgens onder *algemene* sectie Klik *logboeken* en voer een eenvoudige query, zoals: `search "SQLSecurityAuditEvents"` om weer te geven van de audit-Logboeken.  
 
-Log Analytics biedt u realtime operationele inzichten met behulp van geïntegreerde Zoek- en aangepaste dashboards voor het analyseren van miljoenen records gemakkelijk in uw werkbelastingen en servers. Zie voor meer nuttige informatie over opdrachten en Log Analytics-zoektaal, [Log Analytics zoeken verwijzing](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+Logboeken in Azure Monitor kunt u realtime operationele inzichten met behulp van geïntegreerde Zoek- en aangepaste dashboards voor het analyseren van miljoenen records gemakkelijk in uw werkbelastingen en servers. Zie voor meer nuttige informatie over opdrachten en Azure Monitor logboeken zoektaal, [Azure Monitor-verwijzing naar de logboeken](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server"></a>Controle van de verschillen tussen databases in Azure SQL Database en -databases in SQL Server
 
@@ -232,7 +234,7 @@ XEvent controle voor beheerd exemplaar biedt ondersteuning voor Azure Blob stora
 De sleutel verschillen de `CREATE AUDIT` syntaxis voor het controleren van Azure Blob-opslag zijn:
 
 - Een nieuwe syntaxis `TO URL` wordt geleverd en kunt u de URL van de Azure blob Storage-container op te geven waar de `.xel` bestanden worden geplaatst.
-- Een nieuwe syntaxis `TO EXTERNAL MONITOR` is opgegeven voor het inschakelen van zelfs Hub en de Log Analytics-doelen.
+- Een nieuwe syntaxis `TO EXTERNAL MONITOR` is opgegeven voor het inschakelen van zelfs Hub en Azure Monitor logboeken doelen.
 - De syntaxis van de `TO FILE` is **niet ondersteund** omdat SQL Database heeft geen toegang Windows-bestandsshares tot.
 - Optie voor afsluiten is **niet ondersteund**.
 - `queue_delay` 0 is **niet ondersteund**.

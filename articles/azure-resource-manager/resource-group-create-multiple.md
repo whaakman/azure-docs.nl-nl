@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: c343dfa3c0eac4aeabaa9244c6675b235fc95552
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 9914943cc5b3ef9e95f12c6890cb8e1646f7e335
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311713"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244215"
 ---
 # <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Meer dan één exemplaar van een resource of eigenschap in Azure Resource Manager-sjablonen implementeren
 
@@ -272,6 +272,8 @@ U kunt de resource en de eigenschap iteratie samen gebruiken. Naslaginformatie o
 
 U kunt meerdere exemplaren van een variabele maken met de `copy` eigenschap in de sectie met variabelen. U maakt een matrix van elementen die zijn samengesteld uit de waarde in de `input` eigenschap. U kunt de `copy` eigenschap in een variabele, of op het hoogste niveau van de sectie met variabelen. Bij het gebruik van `copyIndex` in een variabele iteratie moet u de naam van de iteratie opgeven.
 
+Zie voor een eenvoudig voorbeeld van het maken van een matrix met waarden van verbindingsreeksen [sjabloon kopiëren-matrix](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json).
+
 Het volgende voorbeeld ziet verschillende manieren voor het maken van matrixvariabelen voor de met dynamisch samengestelde elementen. Het laat zien hoe u kopiëren in een variabele gebruiken om te maken van matrices van objecten en tekenreeksen. Ook ziet u hoe exemplaar op het hoogste niveau gebruiken om te maken van matrices van objecten, tekenreeksen en gehele getallen.
 
 ```json
@@ -344,6 +346,50 @@ Het volgende voorbeeld ziet verschillende manieren voor het maken van matrixvari
     }
   }
 }
+```
+
+Het type van de variabele die wordt gemaakt, is afhankelijk van het invoerobject. Bijvoorbeeld, de variabele met de naam **top-niveau-object-matrix** in het voorgaande voorbeeld geeft als resultaat:
+
+```json
+[
+  {
+    "name": "myDataDisk1",
+    "diskSizeGB": "1",
+    "diskIndex": 0
+  },
+  {
+    "name": "myDataDisk2",
+    "diskSizeGB": "1",
+    "diskIndex": 1
+  },
+  {
+    "name": "myDataDisk3",
+    "diskSizeGB": "1",
+    "diskIndex": 2
+  },
+  {
+    "name": "myDataDisk4",
+    "diskSizeGB": "1",
+    "diskIndex": 3
+  },
+  {
+    "name": "myDataDisk5",
+    "diskSizeGB": "1",
+    "diskIndex": 4
+  }
+]
+```
+
+En de variabele met de naam **top-niveau-string-matrix** geeft als resultaat:
+
+```json
+[
+  "myDataDisk1",
+  "myDataDisk2",
+  "myDataDisk3",
+  "myDataDisk4",
+  "myDataDisk5"
+]
 ```
 
 ## <a name="depend-on-resources-in-a-loop"></a>Afhankelijk zijn van bronnen in een lus

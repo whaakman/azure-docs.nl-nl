@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
-ms.openlocfilehash: a41599194d6dd6230c80aa078375b798c3002adf
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 9e4c4e8c8d7aa89e2a27efc2c2deebd4863be23e
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56824008"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242952"
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Aggregatie van de gebeurtenis en verzameling met Linux Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "56824008"
 
 Wanneer u een Azure Service Fabric-cluster uitvoert, is het een goed idee om de logboeken te verzamelen van alle knooppunten in een centrale locatie. De logboeken die in een centrale locatie, helpt u bij het analyseren en oplossen van problemen in uw cluster, of problemen in de toepassingen en services die worden uitgevoerd in het cluster.
 
-Eén manier om te uploaden en verzamelen van Logboeken is het gebruik van de Linux Azure Diagnostics (LAD)-extensie, die wordt logboeken geüpload naar Azure Storage en bevat ook een optie om Logboeken te verzenden naar Azure Application Insights of Eventhub. U kunt ook een extern proces gebruiken voor de gebeurtenissen kan lezen uit de opslag en plaats deze in een analyse platform product, zoals [Log Analytics](../log-analytics/log-analytics-service-fabric.md) of een andere oplossing voor het parseren van Logboeken.
+Eén manier om te uploaden en verzamelen van Logboeken is het gebruik van de Linux Azure Diagnostics (LAD)-extensie, die wordt logboeken geüpload naar Azure Storage en bevat ook een optie om Logboeken te verzenden naar Azure Application Insights of Eventhub. U kunt ook een extern proces gebruiken voor de gebeurtenissen kan lezen uit de opslag en plaats deze in een analyse platform product, zoals [logboeken van Azure Monitor](../log-analytics/log-analytics-service-fabric.md) of een andere oplossing voor het parseren van Logboeken.
 
 ## <a name="log-and-event-sources"></a>Logboek- en gebeurtenisgegevens bronnen
 

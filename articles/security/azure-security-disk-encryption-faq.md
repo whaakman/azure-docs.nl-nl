@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 01/25/2019
+ms.date: 03/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: a1b045ecf10399ca2297e4d9d010d5c973c40f4e
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 305a5c5d4f82c732dd796f5c5140c0da04fe7b13
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193276"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245213"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk Encryption voor IaaS-VM's Veelgestelde vragen
 
@@ -73,9 +73,13 @@ Aan de slag, lees de [overzicht van Azure Disk Encryption](azure-security-disk-e
 
 Ja, kunt u de opstart- en volumes voor Windows en Linux IaaS-machines versleutelen. Voor Windows-VM's, kunt u de gegevens niet coderen zonder eerst het versleutelen van het volume met het besturingssysteem. Voor virtuele Linux-machines is het mogelijk voor het versleutelen van het gegevensvolume zonder te coderen volume met het besturingssysteem eerst. Nadat u hebt het volume met het besturingssysteem versleuteld voor Linux, wordt niet uitschakelen van versleuteling op een volume met het besturingssysteem voor Linux IaaS-VM's ondersteund.
 
+## <a name="can-i-encrypt-an-unmounted-volume-with-azure-disk-encryption"></a>Kan ik een volume ontkoppeld met Azure Disk Encryption coderen?
+
+Nee, Azure Disk Encryption versleutelt alleen gekoppelde volumes.
+
 ## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>Hoe ik geheimen of versleutelingssleutels draaien?
 
-Om te roteren geheimen, roept u de dezelfde opdracht die u oorspronkelijk hebt gebruikt voor het inschakelen van versleuteling van schijf. Als u wilt de sleutel van versleutelingssleutel draaien, roept de dezelfde opdracht die u oorspronkelijk gebruikt om in te schakelen schijfversleuteling, de nieuwe key-versleuteling op te geven. 
+Geheimen draaien, roept de dezelfde opdracht die u oorspronkelijk hebt gebruikt voor het inschakelen van versleuteling van schijf, op te geven een andere Key Vault. Als u wilt de sleutel van versleutelingssleutel draaien, roept de dezelfde opdracht die u oorspronkelijk gebruikt om in te schakelen schijfversleuteling, de nieuwe key-versleuteling op te geven. 
 
 ## <a name="how-do-i-add-or-remove-a-key-encryption-key-if-i-didnt-originally-use-one"></a>Hoe ik toevoegen of verwijderen van een sleutel van versleutelingssleutel als ik een oorspronkelijk hebt gebruikt?
 
@@ -145,6 +149,10 @@ Op Windows, ADE de versleutelingsmethode BitLocker AES256 gebruikt (AES256WithDi
 
 ## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>Als ik EncryptFormatAll gebruiken en alle typen opgeeft, wordt deze de gegevens op de schijven die we al versleuteld wissen?
 Nee, wordt niet gegevens worden gewist van schijven die al zijn versleuteld met Azure Disk Encryption. Net als bij hoe EncryptFormatAll opnieuw de besturingssysteemschijf niet versleutelen, deze wordt niet het station al versleutelde gegevens opnieuw versleutelen. Zie voor meer informatie de [EncryptFormatAll criteria](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        
+
+## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>Kan ik back-up en herstellen van een versleutelde VM? 
+
+Azure Backup biedt een mechanisme voor back-up en herstel van versleutelde VM's binnen hetzelfde abonnement en regio.  Zie voor instructies, [Back-up en herstel van versleutelde virtuele machines met Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).  Een versleutelde VM herstellen naar een andere regio wordt momenteel niet ondersteund.  
 
 ## <a name="where-can-i-go-to-ask-questions-or-provide-feedback"></a>Waar vind ik vragen of feedback geven?
 

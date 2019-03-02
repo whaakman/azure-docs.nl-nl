@@ -14,16 +14,16 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: aa43a6f1f7c757366e321e7da0fb1e47d4928cee
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 551f2bbc4846a1b47dafaa03cca08b424572ebf5
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639683"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214874"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Virtuele machine Marketplace tabblad
 
-De **Marketplace** tabblad van de **nieuwe aanbieding** pagina kunt u uw potentiële klanten voorzien van marketing, verkoop en juridische informatie en -overeenkomsten en beheer van leads die zijn gegenereerd op basis van de Marketplace. Dit lang formulier is onderverdeeld in vier secties: **overzicht**, **Marketing artefacten**, **leiden Management**, en **juridische**. 
+De **Marketplace** tabblad van de **nieuwe aanbieding** pagina kunt u uw potentiële klanten voorzien van marketing, verkoop en juridische informatie en -overeenkomsten en beheer van leads die zijn gegenereerd op basis van de Marketplace. Dit lang formulier is onderverdeeld in vier secties: **Overzicht**, **Marketing artefacten**, **leiden Management**, en **juridische**. 
 
 ## <a name="overview-section"></a>Overzichtssectie
 In deze sectie voert u de algemene informatie over uw Azure Marketplace bieden.  Een toegevoegde sterretje (*) op de veldnaam van het geeft aan dat dit vereist is.
@@ -38,24 +38,26 @@ De volgende tabel beschrijft het doel en de inhoud van deze velden.
 | **Samenvatting**               | Korte doel of de functie van de oplossing.  Maximale lengte van 100 tekens. |
 | **Lange samenvatting**          | Doel of de functie van de oplossing.  Mag maximaal 256 tekens bevatten. |
 | **Beschrijving**           | Beschrijving van de oplossing.  Maximale lengte van 3000 tekens ondersteunt eenvoudige HTML-opmaak. |
+| **Microsoft CSP-Reseller kanaal** | Cloud Solution Providers (CSP) partner kanaal aanmelden is nu beschikbaar.  Raadpleeg [Cloud Solution Providers](../../cloud-solution-providers.md) voor meer informatie over marketingcontactpersonen van uw aanbieding via de Microsoft CSP partner kanalen. |
 | **Marketing-id**  | Een unieke URL om te koppelen aan deze aanbieding omvat gewoonlijk van uw organisatie en de naam van de oplossing, maximaal 50 tekens.  Bijvoorbeeld: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
 | **Preview-versie abonnement-id 's** | Toevoegen van 1 tot 100 abonnements-id's van viewers. Deze technische vermeld abonnementen hebben toegang tot de aanbieding zodra deze gepubliceerd, voordat u deze meteen live. |
-| **Nuttige koppelingen**          | Meervoudige selectie van zakelijke en technische categorieën die worden geboden door mag beste is gekoppeld.  Maximaal vijf toegestaan.  |
+| **Nuttige koppelingen**          | URL's toevoegen aan de documentatie, opmerkingen bij de release, veelgestelde vragen over, enzovoort. |
+| **Aanbevolen categorieën (maximaal 5)** | Meervoudige selectie van zakelijke en technische categorieën die worden geboden door mag beste is gekoppeld.  Maximaal vijf toegestaan.  |
 |  |  |
 
 
 ## <a name="marketing-artifacts-section"></a>Gedeelte van de artefacten Marketing
 
-Deze tweede sectie is onderverdeeld in drie subsecties: **logo's**, **schermafbeelding**, en **video's**. Logo's zijn de enige vereiste marketing-artefacten, maar alle sterk voor de beste beroep van de klant aanbevolen wordt.
+Deze tweede sectie is onderverdeeld in drie subsecties: **Logo's**, **schermafbeelding**, en **video's**. Logo's zijn de enige vereiste marketing-artefacten, maar alle sterk voor de beste beroep van de klant aanbevolen wordt.
 
 ![Marketing artefacten gedeelte van de Marketplace-tabblad in het formulier nieuwe aanbieding voor virtuele machines](./media/publishvm_009.png)
 
 |  **Veld**                |     **Beschrijving**                                                          |
 |  ---------                |     ---------------                                                          |
-| *Logo 's*  |  |
-| **Kleine**                 | 40, 40 pixel .ico bitmap                                                      |
+| *Logos*  |  |
+| **Small**                 | 40, 40 pixel .ico bitmap                                                      |
 | **Gemiddeld**                | 90 x 90 pixel .ico bitmap                                                      |
-| **Grote**                 | 115 x 115 pixel .ico bitmap                                                   |
+| **Large**                 | 115 x 115 pixel .ico bitmap                                                   |
 | **Breed**                  | 255 x 115 pixel .ico bitmap                                                    |
 | **Hero**                  | 815 x 290 bitmap.  Optioneel, maar eenmaal geüploade de hero-pictogram kan niet worden verwijderd. |
 | *Schermafbeeldingen*  | Optioneel, maar maximaal vijf schermafbeeldingen per SKU. |
@@ -120,7 +122,7 @@ Nadat u uw aanbieding is gepubliceerd, wordt de lead-verbinding is gevalideerd e
 
 ## <a name="legal-section"></a>Juridische sectie
 
-Deze laatste sectie kunt u de twee juridische documenten die zijn vereist voor elke aanbieding: privacybeleid en de gebruiksvoorwaarden.
+Deze laatste sectie kunt u voor de twee juridische documenten die zijn vereist voor elke aanbieding: Privacybeleid en de gebruiksvoorwaarden.
 
 |  **Veld**                |     **Beschrijving**                                                          |
 |  ---------                |     ---------------                                                          |

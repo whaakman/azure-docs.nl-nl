@@ -3,17 +3,17 @@ title: Maken en beheren van gebeurtenisregels in uw Azure IoT Central-toepassing
 description: Azure IoT Central gebeurtenisregels zorgen ervoor dat u uw apparaten in bijna realtime controleren en automatisch aanroepen van acties, zoals een e-mailbericht verzenden wanneer de regel wordt geactiveerd.
 author: ankitscribbles
 ms.author: ankitgup
-ms.date: 02/02/2019
+ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8655265f5f793741c2d563d1e79d4565700e0128
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 937f8fe09cae6284b318201657cf112138ac17c7
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768515"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217220"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Maken van een regel voor gebeurtenissen en meldingen in uw Azure IoT Central-toepassing instellen
 
@@ -27,29 +27,21 @@ Apparaten kunnen gebeurtenis meting gebruiken voor het verzenden van voor belang
 
 De apparaat-sjabloon moet ten minste één gebeurtenis meting gedefinieerd hebben voor het maken van een regel voor gebeurtenissen. Dit voorbeeld wordt een gekoeld Verkoopautomaat-apparaat dat een ventilator motor is een foutgebeurtenis gemeld. De regel controleert de gebeurtenis die is gerapporteerd door het apparaat en een e-mail verzenden zodra de gebeurtenis wordt gerapporteerd.
 
-1. Gebruik Device Explorer, Ga naar de sjabloon van het apparaat waarvoor u de regel voor het toevoegen.
-
-1. Klik op een bestaand apparaat onder de geselecteerde sjabloon.
-
-    >[!TIP] 
-    >Als de sjabloon niet apparaten hebt en voeg eerst een nieuw apparaat toe.
+1. Met behulp van de **Apparaatsjablonen** pagina, gaat u naar de sjabloon van het apparaat waarvoor u de regel voor het toevoegen.
 
 1. Als u dit nog niet hebt nog geen regels gemaakt, ziet u het volgende scherm:
 
     ![Nog geen regels](media/howto-create-event-rules-experimental/Rules_Landing_Page.png)
 
+1. Op de **regels** tabblad **+ nieuwe regel** om te zien welke typen regels die u kunt maken.
 
-1. Op de **regels** tabblad **sjabloon bewerken** en vervolgens **+ nieuwe regel** om te zien welke typen regels die u kunt maken.
-
-
-1. Klik op de **gebeurtenis** tegel om een gebeurtenis bewaking van de regel te maken.
+1. Kies de **gebeurtenis** tegel om een gebeurtenis bewaking van de regel te maken.
 
     ![Regeltypen](media/howto-create-event-rules-experimental/Rule_Types.png)
 
-    
 1. Voer een naam die u helpt bij het identificeren van de regel in de sjabloon van dit apparaat.
 
-1. Om in te schakelen direct de regel voor alle apparaten die zijn gemaakt met deze sjabloon, in-/ uitschakelen **regel inschakelen voor alle apparaten voor deze sjabloon**.
+1. Om in te schakelen direct de regel voor alle apparaten die zijn gemaakt met deze sjabloon, in-/ uitschakelen **regel inschakelen voor alle apparaten van deze sjabloon**.
 
     ![Details van de regel](media/howto-create-event-rules-experimental/Rule_Detail.png)
 
@@ -65,17 +57,16 @@ Voorwaarde definieert de criteria die wordt bewaakt door de regel.
 
    ![Voorwaarde](media/howto-create-event-rules-experimental/Condition_Filled_Out.png)
 
-
 1. (Optioneel) u kunt ook instellen **aantal** als **aggregatie** en de bijbehorende drempelwaarde opgeven.
 
-    - Zonder aggregatie, de regel wordt geactiveerd voor elk gegevenspunt gebeurtenis die aan de voorwaarde voldoet. Bijvoorbeeld, als u een voorwaarde om te activeren wanneer een gebeurtenis '-ventilator Motor fout' van de regel configureert wordt vervolgens de regel geactiveerd bijna onmiddellijk wanneer het apparaat dat de gebeurtenis meldt.
+    - Zonder aggregatie, de regel wordt geactiveerd voor elk gegevenspunt gebeurtenis die aan de voorwaarde voldoet. Bijvoorbeeld, als u van de regel configureert voorwaarde om te activeren wanneer een **ventilator Motor fout** gebeurtenis optreedt en vervolgens de regel wordt geactiveerd bijna onmiddellijk wanneer het apparaat dat de gebeurtenis meldt.
     - Als het aantal wordt gebruikt als een statistische functie, hebt u voor een **drempelwaarde** en een **cumulatieve tijdvenster** over waarop de voorwaarde moet worden geëvalueerd. In dit geval wordt het aantal gebeurtenissen is samengevoegd en de regel wordt geactiveerd als het aantal verzamelde gebeurtenissen komt overeen met de drempelwaarde.
- 
-    Bijvoorbeeld, als u waarschuwen wilt wanneer er meer dan drie apparaatgebeurtenissen binnen 5 minuten, selecteert u de gebeurtenis en de statistische functie "aantal", operator, als "groter is dan" en "drempelwaarde' als 3. Stel 'Aggregatie periode' van '5 minuten'. De regel wordt geactiveerd wanneer er meer dan drie gebeurtenissen worden verzonden door het apparaat binnen 5 minuten. De evaluatiefrequentie regel is hetzelfde als de **cumulatieve tijdvenster**, wat betekent dat, in dit voorbeeld wordt de regel is geëvalueerd om de 5 minuten. 
+
+    Bijvoorbeeld, als u waarschuwen wilt wanneer er meer dan drie apparaatgebeurtenissen binnen 5 minuten, selecteert u de gebeurtenis en de statistische functie "aantal", operator, als "groter is dan" en "drempelwaarde' als 3. Stel 'Aggregatie periode' van '5 minuten'. De regel wordt geactiveerd wanneer er meer dan drie gebeurtenissen worden verzonden door het apparaat binnen 5 minuten. De evaluatiefrequentie regel is hetzelfde als de **cumulatieve tijdvenster**, wat betekent dat, in dit voorbeeld wordt de regel is geëvalueerd om de 5 minuten.
 
     ![Gebeurtenis voorwaarde toevoegen](media/howto-create-event-rules-experimental/Aggregate_Condition_Filled_Out.png)
 
-    >[!NOTE] 
+    >[!NOTE]
     >Meer dan één gebeurtenis meting kan worden toegevoegd onder **voorwaarde**. Wanneer meerdere voorwaarden zijn opgegeven, moeten aan de voorwaarden worden voldaan om de regel te activeren. Elke voorwaarde wordt impliciet gekoppeld door een 'En'-component. Wanneer u statistische functie gebruikt, moet elke meting worden geaggregeerd.
 
 ### <a name="configure-actions"></a>Configureren van acties

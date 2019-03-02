@@ -15,12 +15,12 @@ ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 197e79c2674d314c178444cc1f0d685503425031
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: cdc1be0c0274977fe14ef704fbb74fa955ad7e11
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986924"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242408"
 ---
 # <a name="enable-the-kubernetes-dashboard-in-azure-stack"></a>Inschakelen van het Kubernetes-Dashboard in Azure Stack 
 
@@ -107,7 +107,6 @@ U kunt de URL voor het dashboard ophalen uit het hoofdknooppunt in uw cluster.
 3. Noteer de bestandslocaties. Het script bijwerken met de locaties en opent u PowerShell met een opdrachtprompt. Voer het bijgewerkte script:  
 
     ```PowerShell   
-    Import  /etc/kubernetes/certs/ca.crt -CertStoreLocation cert:\LocalMachine\Root 
     Import-Certificate -Filepath "ca.crt" -CertStoreLocation cert:\LocalMachine\Root 
     $pfxpwd = Get-Credential -UserName 'Enter password below' -Message 'Enter password below' 
     Import-PfxCertificate -Filepath "client.pfx" -CertStoreLocation cert:\CurrentUser\My -Password $pfxpwd.Password 
@@ -121,9 +120,11 @@ U kunt de URL voor het dashboard ophalen uit het hoofdknooppunt in uw cluster.
 3.  Selecteer het clientcertificaat.
 4.  Voer het token. 
 5. Opnieuw verbinding maken met de bash-opdrachtregel op het hoofdknooppunt en machtigen voor `kubernetes-dashboard`. Voer de volgende opdracht uit:
-    ```Bash   
+
+    ```Bash  
     kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard 
     ``` 
+
     Het script geeft `kubernetes-dashboard` administrator-bevoegdheden in de Cloud. Zie voor meer informatie, [clusters voor RBAC-functionaliteit](https://docs.microsoft.com/azure/aks/kubernetes-dashboard).
 
 U kunt het dashboard. Zie voor meer informatie over het Kubernetes-dashboard [Kubernetes Web UI-Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f57e793278af7eb03fe49fd657e45b0846db8b1c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 3a8ee51656b5521916e68ee34edda91c34ea0c35
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817912"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216032"
 ---
 # <a name="authenticate-access-to-azure-blobs-and-queues-using-azure-active-directory-preview"></a>Verifiëren van toegang tot Azure-blobs en wachtrijen met behulp van Azure Active Directory (Preview)
 
@@ -57,9 +57,11 @@ Wanneer een RBAC-rol is toegewezen aan een beveiligings-principal voor Azure AD,
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
+Zie voor informatie over het toewijzen van een ingebouwde rol in Azure portal, [toegang verlenen tot Azure-containers en wachtrijen met RBAC in Azure portal (preview)](storage-auth-aad-rbac.md).
+
 ### <a name="access-permissions-granted-by-rbac-roles"></a>Machtigingen voor toegang verleend door RBAC-rollen 
 
-De volgende tabel geeft een overzicht van de rechten verleend door de ingebouwde rollen, afhankelijk van bereik:
+De volgende tabel geeft een overzicht van de rechten verleend door de ingebouwde rollen voor verschillende niveaus van bereik:
 
 |Bereik|Blob Data Owner|Inzender voor BLOB-gegevens|Blob Data Reader|Inzender voor wachtrij Data|Gegevenslezer voor opslagwachtrij|
 |---|---|---|---|---|---|

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 2c8e71a058b2c770741c38f07c6c440fea90f2b2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: ab9bf868191238d933ae301b9a7df293842e8e36
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998430"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247049"
 ---
-# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs-legacy"></a>Een MPEG-DASH adaptieve Streaming-videostream insluiten in een HTML5-toepassing met DASH.js (verouderde)
+# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Een MPEG-DASH adaptieve Streaming video's insluiten in een HTML5-toepassing met DASH.js  
 
 ## <a name="overview"></a>Overzicht
 MPEG-DASH is een ISO-norm voor adaptief streamen van video-inhoud, biedt aanzienlijke voordelen voor ontwikkelaars die aan het leveren van hoge kwaliteit, adaptief streamen uitvoer. Met MPEG-DASH, de videostream automatisch aangepast aan de definitie van een lagere wanneer het netwerk wordt overbelast. Dit vermindert de kans van de viewer voor een 'onderbroken' video zien terwijl de speler wordt gedownload de volgende paar seconden om af te spelen (ook wel buffer). Zoals opstoppingen in het netwerk wordt beperkt, wordt op zijn beurt de videospeler naar een hogere kwaliteit-stream geretourneerd. Deze mogelijkheid om aan te passen aan de bandbreedte die vereist zijn ook van resulteert in een snellere starttijd voor video. Dat betekent dat de eerste paar seconden kunnen worden afgespeeld in een lagere kwaliteit segment voor snel te downloaden en vervolgens de buffer van stap tot een hogere kwaliteit eenmaal voldoende inhoud is opgeslagen.

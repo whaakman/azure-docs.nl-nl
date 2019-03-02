@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5b9d5d6252f22901d2b8ac5a61d924ce12cc7065
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 902fbde0eca8db9113dda51e5d912fa9d94644ee
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004627"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215163"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Prestaties van Azure SQL-databases en pools in een multitenant SaaS-app controleren en beheren
 
@@ -57,7 +57,7 @@ Pools en de databases in pools moeten worden gecontroleerd om ervoor te zorgen d
 
 [Azure Portal](https://portal.azure.com) biedt ingebouwde functionaliteit voor bewaking en waarschuwingen voor de meeste resources. Voor SQL Database zijn bewaking en waarschuwingen beschikbaar voor databases en pools. Deze ingebouwde bewaking en waarschuwingen is resource-specifieke, dus dit is handig voor kleine aantallen resources, maar is niet erg handig als u werkt met veel resources.
 
-Voor scenario's met hoge volumes, waarin u met veel resources werkt, [Log Analytics](saas-dbpertenant-log-analytics.md) kan worden gebruikt. Dit is een afzonderlijke Azure-service die analyse van verzonden diagnostische logboeken en telemetrie die zijn verzameld in een log analytics-werkruimte biedt. Log Analytics kunnen telemetrische gegevens van veel services en worden gebruikt om te zoeken en waarschuwingen instellen.
+Voor scenario's met hoge volumes, waarin u met veel resources werkt, [logboeken van Azure Monitor](saas-dbpertenant-log-analytics.md) kan worden gebruikt. Dit is een afzonderlijke Azure-service die analyse van verzonden diagnostische logboeken en telemetrie verzamelen in Log Analytics-werkruimte biedt. Logboeken in Azure Monitor kunnen telemetrische gegevens van veel services en worden gebruikt om te zoeken en waarschuwingen instellen.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>De scripts van de toepassing Wingtip Tickets SaaS Database Per Tenant ophalen
 
@@ -247,4 +247,4 @@ In deze zelfstudie leert u het volgende:
 * Aanvullende [zelfstudies voort op de implementatie van de toepassing Wingtip Tickets SaaS Database Per Tenant bouwen](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Elastische SQL-pools](sql-database-elastic-pool.md)
 * [Azure Automation](../automation/automation-intro.md)
-* [Log Analytics](saas-dbpertenant-log-analytics.md): zelfstudie Log Analytics instellen en gebruiken
+* [Logboeken in Azure Monitor](saas-dbpertenant-log-analytics.md) - instelling logboeken zelfstudie voor Azure Monitor instellen en gebruiken

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: b8f2df14e0aa0246d794bd56f4187002cfdeee02
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: ba5a8cc09a098e58c39d42475d18e92e45222937
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194465"
+ms.locfileid: "57216778"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Verbinding maken met een algemene clienttoepassing aan uw Azure IoT Central-toepassing (Node.js)
 
@@ -93,7 +93,7 @@ Voer veldnaam precies zoals weergegeven in de tabel in de sjabloon voor het appa
 
 ## <a name="add-a-real-device"></a>Echt apparaat toevoegen
 
-Voeg een echt apparaat van de sjabloon van het apparaat u maken en noteer de apparaatverbindingsreeks in uw Azure IoT Central-toepassing. Zie voor stapsgewijze instructies over het verbinden van een Node.js-toepassing naar IoT Central [verbindingsreeks voor een echt apparaat van de toepassing genereren](tutorial-add-device-experimental.md#generate-connection-string-for-real-device-from-application) en [voorbereiden van de clientcode](tutorial-add-device-experimental.md#prepare-the-client-code) in de zelfstudies > Een apparaat toevoegen.
+Voeg een echt apparaat van de sjabloon van het apparaat u maken en noteer de apparaatverbindingsreeks in uw Azure IoT Central-toepassing. Zie voor stapsgewijze instructies over het verbinden van een Node.js-toepassing naar IoT Central [verbindingsreeks voor een echt apparaat van de toepassing genereren](tutorial-add-device-experimental.md#generate-connection-string) en [voorbereiden van de clientcode](tutorial-add-device-experimental.md#prepare-the-client-code) in de zelfstudies > Een apparaat toevoegen.
 
 ### <a name="create-a-nodejs-application"></a>Een Node.js-toepassing maken
 
@@ -268,11 +268,11 @@ Als operator in uw Azure IoT Central-toepassing voor uw echte apparaat kunt u:
 
     ![Telemetrie bekijken](media/howto-connect-nodejs-experimental/viewtelemetry.png)
 
-* Bekijk de eigenschapswaarden van het apparaat verzonden van uw apparaat op de **eigenschappen** pagina. De eigenschappen van apparaat tegels worden bijgewerkt als de verbinding geslaagd is. 
+* Bekijk de eigenschapswaarden van het apparaat verzonden van uw apparaat op de **eigenschappen** pagina. De eigenschappen van tegels update als de verbinding geslaagd is.
 
     ![Eigenschappen van apparaat weergeven](media/howto-connect-nodejs-experimental/viewproperties.png)
 
-* Stel de temperatuur ventilator snelheid en het doel van de **instellingen** pagina. De waarden voor de instellingen worden gesynchroniseerd als de verbinding geslaagd is. 
+* Stel de temperatuur ventilator snelheid en het doel van de **instellingen** pagina. De waarden voor instellingen synchroniseren als de verbinding geslaagd is.
 
     ![Snelheid van de set-ventilator](media/howto-connect-nodejs-experimental/setfanspeed.png)
 

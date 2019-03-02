@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: Ankit.Sud
-ms.openlocfilehash: b48910b74d90072a360bad504e2b826402dceea5
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: ee828c908cb3b103befa3890b43bb2c1f04f7cf0
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639670"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214041"
 ---
 # <a name="update-an-existing-vm-offer-on-azure-marketplace"></a>Bijwerken van een bestaande VM-aanbieding op Azure Marketplace
 
@@ -35,6 +35,8 @@ Er zijn een aantal gebruikelijke redenen waarom u bij het bijwerken van uw aanbi
 
 Om te helpen u bij deze wijzigingen, de portal biedt de **vergelijken** en **geschiedenis** functies.  
 
+>[!Note]
+>Cloud Solution Providers (CSP) partner kanaal aanmelden is nu beschikbaar.  Raadpleeg [Cloud Solution Providers](../../cloud-solution-providers.md) voor meer informatie over marketingcontactpersonen van uw aanbieding via de Microsoft CSP partner kanalen.
 
 ## <a name="unpermitted-changes-to-vm-offer-or-sku"></a>Ongeoorloofde wijzigingen voor de VM-aanbieding of SKU
 
@@ -149,12 +151,12 @@ Als ze al zijn gefactureerd voor de cyclus waarbij er een lagere prijs is opgetr
 
 Vanaf 1 September-2018, een nieuwe sectie met de naam **vereenvoudigd valuta prijzen** wordt toegevoegd aan de portal. Microsoft is de Azure Marketplace-bedrijven stroomlijnen door in te schakelen van meer voorspelbare prijzen en verzamelingen van uw klanten over de hele wereld. Deze stroomlijnen bevat het aantal valuta waarin wij factureren van uw klanten te verminderen.
 
-De nieuwe sectie duurt prijzen in deze nieuwe valuta's. Wanneer alle klanten zijn gemigreerd naar deze nieuwe verwerken valuta's, de oorspronkelijke prijzensectie wordt beëindigd en alleen de sectie vereenvoudigd valuta-prijzen blijven.
+De nieuwe sectie duurt prijzen in deze nieuwe valuta's. Wanneer alle klanten zijn gemigreerd naar deze nieuwe verwerken valuta's, de oorspronkelijke prijzensectie wordt beëindigd en alleen de sectie vereenvoudigd valuta-prijzen blijven.
 
 Hebt u tot 1 November 2018 om in te stellen van een nieuwe prijs voor de regio's waarin de valuta verwerken wordt gewijzigd. Niet mogelijk de prijs voor regio's waarin de valuta verwerken niet is gewijzigd, te verhogen.
 
 > [!NOTE] 
-> Als u API's gebruiken voor het publiceren van uw aanbieding, ziet u mogelijk een nieuwe sectie in de JSON bieden. Dit zou worden voorzien van een `virtualMachinePricingV2` of `monthlyPricingV2`, afhankelijk van het type aanbieding. 
+> Als u API's gebruiken voor het publiceren van uw aanbieding, ziet u mogelijk een nieuwe sectie in de JSON bieden. Dit zou worden voorzien van een `virtualMachinePricingV2` of `monthlyPricingV2`, afhankelijk van het type aanbieding. 
 
 Als u vragen hebt over deze wijziging hebt, neem dan contact op met [ondersteuning voor Azure Marketplace](../../support-azure-marketplace.md).
 

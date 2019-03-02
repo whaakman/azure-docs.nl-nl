@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 0af3133a1f9a903874c25bf34af0fbf99da8af14
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 64150438560d48575b4b65db4cdaf61aa0ada240
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49381065"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243820"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opties voor toegang en identiteit voor Azure Kubernetes Service (AKS)
 
@@ -30,7 +30,7 @@ In dit artikel worden de belangrijkste concepten die u helpen bij verifiëren en
 
 Een van de primaire gebruiker typt in Kubernetes is een *-serviceaccount*. Een service-account bestaat, en wordt beheerd door de Kubernetes-API. De referenties voor service-accounts worden opgeslagen als geheimen voor Kubernetes, waardoor ze moeten worden gebruikt door een geautoriseerde schillen om te communiceren met de API-Server. De meeste API-aanvragen bieden een verificatietoken voor een service-account of een normaal gebruikersaccount.
 
-Normale gebruikersaccounts toestaan meer traditionele toegang voor menselijke beheerders of ontwikkelaars, niet alleen services en processen. Kubernetes zelf beschikt niet over een oplossing voor identiteitsbeheer waar gewone gebruikersaccounts en wachtwoorden worden opgeslagen. Externe id-oplossingen kunnen in plaats daarvan worden geïntegreerd in Kubernetes. Voor clusters met AKS is deze identiteitsoplossing geïntegreerde Azure Active Directory.
+Normale gebruikersaccounts toestaan meer traditionele toegang voor menselijke beheerders of ontwikkelaars, niet alleen services en processen. Kubernetes zelf biedt geen een oplossing voor identiteitsbeheer waar gewone gebruikersaccounts en wachtwoorden worden opgeslagen. Externe id-oplossingen kunnen in plaats daarvan worden geïntegreerd in Kubernetes. Voor clusters met AKS is deze identiteitsoplossing geïntegreerde Azure Active Directory.
 
 Zie voor meer informatie over de identiteitsopties in Kubernetes [Kubernetes verificatie][kubernetes-authentication].
 
@@ -75,6 +75,8 @@ Een ClusterRoleBinding werkt op dezelfde manier binden rollen aan gebruikers, ma
 
 Aan de slag met Azure AD en Kubernetes RBAC, Zie [Integreer Azure Active Directory met AKS][aks-aad].
 
+Zie voor de bijbehorende best practices, [aanbevolen procedures voor verificatie en autorisatie in AKS][operator-best-practices-identity].
+
 Zie de volgende artikelen voor meer informatie over core Kubernetes en concepten voor AKS:
 
 - [Kubernetes / AKS-clusters en workloads][aks-concepts-clusters-workloads]
@@ -98,3 +100,4 @@ Zie de volgende artikelen voor meer informatie over core Kubernetes en concepten
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
+[operator-best-practices-identity]: operator-best-practices-identity.md

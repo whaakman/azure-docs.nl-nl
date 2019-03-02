@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: barclayn
-ms.openlocfilehash: 7577a05302dcf23cc68666685c1537c0eb31f831
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 13183282e5e607f0052194a474203f97e0160adb
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115569"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246131"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Beveiligingsservices en -technologieën die beschikbaar zijn op Azure
 
@@ -34,7 +34,7 @@ Na verloop van tijd, wordt deze lijst wijzigt en groeien, net als Azure. Zorg er
 |--------|--------|
 |[Azure&nbsp;Security&nbsp;Center](../security-center/security-center-intro.md)| Een cloud-workload oplossing voor gegevensbescherming waarmee beveiligingsbeheer en geavanceerde bedreigingsbeveiliging voor hybride cloudworkloads.|
 |[Azure Key Vault](../key-vault/key-vault-overview.md)| Een beveiligd geheimenarchief voor de wachtwoorden, verbindingsreeksen en andere informatie die u nodig hebt om uw apps werken te houden. |
-|[Log Analytics](../log-analytics/log-analytics-overview.md)|Een bewakingsservice die Telemetrie en andere gegevens worden verzameld en biedt een query taal en analytics-engine voor het leveren van operationele inzichten voor uw apps en resources. Kan worden gebruikt alleen of met andere services zoals Security Center. |
+|[Azure Monitor-logboeken](../log-analytics/log-analytics-overview.md)|Een bewakingsservice die Telemetrie en andere gegevens worden verzameld en biedt een query taal en analytics-engine voor het leveren van operationele inzichten voor uw apps en resources. Kan worden gebruikt alleen of met andere services zoals Security Center. |
 |[Azure Dev/Test Labs](../devtest-lab/devtest-lab-overview.md)|Een service waarmee ontwikkelaars en testers snel omgevingen maken in Azure zonder verspilling en beheerkosten.  |
 
 <!---|[Azure&nbsp;Disk&nbsp;Encryption](azure-security-disk-encryption-overview.md)| THIS WILL GO TO THE NEW OVERVIEW TOPIC MEGHAN STEWART IS WRITING|--->

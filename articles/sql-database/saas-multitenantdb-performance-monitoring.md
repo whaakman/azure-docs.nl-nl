@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5be6acc28932cb3c7f0481b18cbcffae27c3ce13
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1629e08d4ba1a7fd7cedb40b1e46d1bfd2766497
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002371"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215537"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Prestaties van shard Azure SQL-database met meerdere tenants in een multitenant SaaS-app controleren en beheren
 
@@ -52,7 +52,7 @@ Het beheren van de databaseprestaties bestaat uit het verzamelen en analyseren v
 
 [Azure Portal](https://portal.azure.com) biedt ingebouwde functionaliteit voor bewaking en waarschuwingen voor de meeste resources. Bewaking en waarschuwingen is beschikbaar voor databases voor SQL-Database. Deze ingebouwde bewaking en waarschuwingen is resource-specifieke, dus dit is handig voor kleine aantallen resources, maar is niet handig als u werkt met veel resources.
 
-Voor scenario's met hoge volumes, waarin u met veel resources werkt, [Log Analytics](https://azure.microsoft.com/services/log-analytics/) kan worden gebruikt. Dit is een afzonderlijke Azure-service die analyse van verzonden diagnostische logboeken en telemetrie die zijn verzameld in een log analytics-werkruimte biedt. Log Analytics kunnen telemetrische gegevens van veel services en worden gebruikt om te zoeken en waarschuwingen instellen.
+Voor scenario's met hoge volumes, waarin u met veel resources werkt, [logboeken van Azure Monitor](https://azure.microsoft.com/services/log-analytics/) kan worden gebruikt. Dit is een afzonderlijke Azure-service die analyse van verzonden diagnostische logboeken en telemetrie verzamelen in Log Analytics-werkruimte biedt. Logboeken in Azure Monitor kunnen telemetrische gegevens van veel services en worden gebruikt om te zoeken en waarschuwingen instellen.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Download de broncode van de toepassing Wingtip Tickets SaaS multitenant-Database en -scripts
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a405583503b75a64dda2bf277a4a50be4e926d28
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 857672e8dee4dbe8d586db0cd80b206ec6ecb7df
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111285"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244567"
 ---
 # <a name="azure-network-security"></a>Azure-netwerkbeveiliging
 
@@ -393,7 +393,7 @@ Bovendien Application Gateway WAF helpt u bij het bewaken van webtoepassingen te
 
 Het opgemaakte JSON-logboek gaat rechtstreeks naar het opslagaccount van de klant. U hebt volledige controle over deze logboeken en uw eigen bewaarbeleid kunt toepassen.
 
-U kunt deze logboeken ook opnemen in uw eigen analytics system met [Azure-Logboekintegratie](https://aka.ms/AzLog). WAF-Logboeken ook worden geïntegreerd met [Log Analytics](../log-analytics/log-analytics-overview.md) zodat u Log Analytics gebruiken kunt voor het uitvoeren van geavanceerde fijnmazig query's.
+U kunt deze logboeken ook opnemen in uw eigen analytics system met [Azure-Logboekintegratie](https://aka.ms/AzLog). WAF-Logboeken ook worden geïntegreerd met [logboeken van Azure Monitor](../log-analytics/log-analytics-overview.md) zodat u logboeken van Azure Monitor gebruiken kunt voor het uitvoeren van geavanceerde fijnmazig query's.
 
 #### <a name="azure-web-application-firewall-waf"></a>Azure-web application firewall (WAF)
 
@@ -507,7 +507,7 @@ Azure biedt veel hulpprogramma's om te controleren, voorkomen, detecteren en rea
 
 -   De Resource niveau Netwerkbewaking
 
--   Log Analytics
+-   Logboeken in Azure Monitor
 
 ### <a name="network-watcher"></a>Netwerk-watcher
 
@@ -547,7 +547,7 @@ Bepaalt de [volgende hop](https://docs.microsoft.com/azure/network-watcher/netwo
 
 Volgende hop retourneert ook de routetabel die zijn gekoppeld aan de volgende hop. Bij het opvragen van de volgende hop als de route is gedefinieerd als een gebruiker gedefinieerde route, worden die route geretourneerd. Anders retourneert de volgende hop 'Systeemroute'.
 
-#### <a name="security-group-view"></a>weergave van de beveiligingsgroep
+#### <a name="security-group-view"></a>Weergave van de beveiligingsgroep
 
 Hiermee haalt u de effectieve en toegepaste beveiligingsregels die worden toegepast op een virtuele machine. Netwerkbeveiligingsgroepen worden gekoppeld op het subnetniveau van een of op een NIC-niveau. Als dat is gekoppeld op het subnetniveau van een, geldt dit voor alle VM-exemplaren in het subnet. Netwerk [beveiligingsgroep weergave](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) retourneert de geconfigureerde Netwerkbeveiligingsgroepen en regels die zijn gekoppeld op het niveau van een NIC en het subnet voor een virtuele machine biedt inzicht in de configuratie. Bovendien worden de effectieve beveiligingsregels voor elk van de NIC's in een virtuele machine geretourneerd. Met behulp van Network Security Group weergeven, kunt u een virtuele machine voor netwerk-beveiligingsproblemen, zoals poorten openen beoordelen. U kunt ook controleren of uw Netwerkbeveiligingsgroep werkt zoals verwacht op basis van een [vergelijking tussen de geconfigureerde en de effectieve beveiligingsregels](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-auditing-powershell).
 
@@ -597,17 +597,17 @@ Metrische gegevens zijn metingen van de prestaties en de tellers die zijn verzam
 
 #### <a name="diagnostic-logs"></a>Diagnostische logboeken
 
-Periodieke en spontaan gebeurtenissen worden gemaakt met netwerkbronnen en vastgelegd in de storage-accounts, verzonden naar een Event Hub of Log Analytics. Deze logboeken bieden inzicht in de status van een resource. Deze logboeken kunnen worden weergegeven in de hulpprogramma's zoals Power BI en Log Analytics. Als u wilt weten hoe u logboeken met diagnostische gegevens weergeven, gaat u naar [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
+Periodieke en spontaan gebeurtenissen worden gemaakt met netwerkbronnen en vastgelegd in de storage-accounts, verzonden naar een Event Hub of Azure Monitor-Logboeken. Deze logboeken bieden inzicht in de status van een resource. Deze logboeken kunnen worden weergegeven in de hulpprogramma's zoals Power BI en Azure Monitor-Logboeken. Als u wilt weten hoe u logboeken met diagnostische gegevens weergeven, gaat u naar [logboeken van Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
 
 Logboeken met diagnostische gegevens zijn beschikbaar voor [Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log), [Netwerkbeveiligingsgroepen](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log), Routes, en [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics).
 
 Network Watcher biedt dat een diagnostische logboeken weergeven. Deze weergave bevat alle netwerkresources die ondersteuning bieden voor registratie in diagnoselogboek. In deze weergave kunt u in- en netwerkresources uitschakelen gemakkelijk en snel.
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="azure-monitor-logs"></a>Logboeken in Azure Monitor
 
-[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) is een service in Azure waarmee u uw cloud en on-premises omgevingen voor het onderhouden van hun beschikbaarheid en prestaties. De service verzamelt gegevens afkomstig van resources in uw cloud- en on-premises omgevingen en van andere bewakingsprogramma's om analyse over meerdere resources aan te bieden.
+[Logboeken in Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) is een service in Azure waarmee u uw cloud en on-premises omgevingen voor het onderhouden van hun beschikbaarheid en prestaties. De service verzamelt gegevens afkomstig van resources in uw cloud- en on-premises omgevingen en van andere bewakingsprogramma's om analyse over meerdere resources aan te bieden.
 
-Log Analytics biedt de volgende oplossingen voor het bewaken van uw netwerken:
+Logboeken in Azure Monitor biedt de volgende oplossingen voor het bewaken van uw netwerken:
 
 -   Netwerkprestatiemeter (NPM)
 
@@ -627,7 +627,7 @@ Het wordt gebruikt voor het bewaken van verbinding tussen:
 -   Subnetten die als host fungeert voor verschillende lagen van een toepassing met meerdere lagen.
 
 
-#### <a name="azure-application-gateway-analytics-in-log-analytics"></a>Azure application gateway analytics in log analytics
+#### <a name="azure-application-gateway-analytics-in-azure-monitor-logs"></a>Azure application gateway analytics in Azure Monitor-Logboeken
 
 De volgende logboeken worden voor Toepassingsgateways ondersteund:
 
@@ -641,7 +641,7 @@ De volgende metrische gegevens worden ondersteund voor Application Gateways:
 
 -   doorvoer van 5 minuten
 
-#### <a name="azure-network-security-group-analytics-in-log-analytics"></a>Azure network security group analytics in log analytics
+#### <a name="azure-network-security-group-analytics-in-azure-monitor-logs"></a>Azure network security group analytics in Azure Monitor-Logboeken
 
 De volgende logboeken worden ondersteund voor [netwerkbeveiligingsgroepen](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log):
 
@@ -652,7 +652,7 @@ De volgende logboeken worden ondersteund voor [netwerkbeveiligingsgroepen](https
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over beveiliging vindt u enkele van de onderwerpen over onze uitgebreide beveiliging:
 
--   [Logboekanalyses voor Netwerkbeveiligingsgroepen (nsg's)](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
+-   [Azure Monitor-logboeken voor Netwerkbeveiligingsgroepen (nsg's)](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
 
 -   [Netwerken innovaties waarmee u onderbreking van de cloud uitbreiden](https://azure.microsoft.com/blog/networking-innovations-that-drive-the-cloud-disruption/)
 

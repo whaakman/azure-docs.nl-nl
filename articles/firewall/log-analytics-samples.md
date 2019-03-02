@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 2/15/2019
 ms.author: victorh
-ms.openlocfilehash: 2ea95a8e32e2162c31e95bc2e9dd5e60be07649f
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: f639f47997fc122efde2bc223bc24b5de7630710
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958062"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240147"
 ---
 # <a name="azure-firewall-log-analytics-samples"></a>Azure log analytics-voorbeelden van Firewall
 
@@ -98,7 +98,7 @@ RuleCollection = case(RuleCollection2b == "",case(RuleCollection2a == "","No rul
 
 ## <a name="network-rules-log-data-query"></a>Netwerk regels query voor gegevens
 
-De onderstaande query parseert de logboekgegevens van de netwerk-regel. In de verschillende opmerkingsregels vindt u enkele richtlijnen over hoe de query is gemaakt:
+De volgende query parseert de logboekgegevens van de netwerk-regel. In de verschillende opmerkingsregels vindt u enkele richtlijnen over hoe de query is gemaakt:
 
 ```Kusto
 AzureDiagnostics
@@ -147,6 +147,21 @@ AzureDiagnostics
 | extend SourcePort = tostring(SourcePortInt),TargetPort = tostring(TargetPortInt)
 | extend Action = case(Action1a == "", case(Action1b == "",Action2,Action1b), Action1a),Protocol = case(Protocol == "", Protocol2, Protocol),SourceIP = case(SourceIP == "", SourceIP2, SourceIP),TargetIP = case(TargetIP == "", TargetIP2, TargetIP),SourcePort = case(SourcePort == "", "N/A", SourcePort),TargetPort = case(TargetPort == "", "N/A", TargetPort),NatDestination = case(NatDestination == "", "N/A", NatDestination)
 | project TimeGenerated, msg_s, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action, NatDestination
+```
+
+## <a name="threat-intelligence-log-data-query"></a>Threat Intelligence query voor gegevens
+
+De volgende query parseert de logboekgegevens van Bedreigingsinformatie regel:
+
+```Kusto
+AzureDiagnostics
+| where OperationName  == "AzureFirewallThreatIntelLog"
+| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " to " TargetIP ":" TargetPortInt:int *
+| parse msg_s with * ". Action: " Action "." Message
+| parse msg_s with Protocol2 " request from " SourceIP2 " to " TargetIP2 ". Action: " Action2
+| extend SourcePort = tostring(SourcePortInt),TargetPort = tostring(TargetPortInt)
+| extend Protocol = case(Protocol == "", Protocol2, Protocol),SourceIP = case(SourceIP == "", SourceIP2, SourceIP),TargetIP = case(TargetIP == "", TargetIP2, TargetIP),SourcePort = case(SourcePort == "", "N/A", SourcePort),TargetPort = case(TargetPort == "", "N/A", TargetPort)
+| sort by TimeGenerated desc | project TimeGenerated, msg_s, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action,Message
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

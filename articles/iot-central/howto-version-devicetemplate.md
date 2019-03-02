@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: e6148a35540b08916a4f0468af39e0f088453286
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 3889aa1e8b19e203a3f6354c2d26fb82afe2b922
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958863"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214279"
 ---
 # <a name="create-a-new-device-template-version"></a>Maak een nieuwe versie van de apparaat-sjabloon
 
@@ -56,7 +56,7 @@ Wat gebeurt er met de regels en dashboards apparaat wanneer er een wijziging ver
 
 U kunt meerdere versies van de apparaat-sjabloon maken. Na verloop van tijd hebt u meerdere verbonden apparaten met behulp van deze apparaatsjablonen. U kunt apparaten uit één versie van de sjabloon voor het apparaat naar de andere migreren. De volgende stappen wordt beschreven hoe u migreert van een apparaat:
 
-1. Ga naar de **Explorer** pagina.
+1. Ga naar de **Device Explorer** pagina.
 1. Selecteer het apparaat dat u wilt migreren naar een andere versie.
 1. Kies **migreren apparaat**.
 1. Selecteer het versienummer dat u wilt migreren van het apparaat en kies **migreren**.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 185dfbcee7ab352a73e4a998cbd0d8c36cb92ff5
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: b9d90407dab29f431f5a592e077c859aea997c4c
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588035"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214092"
 ---
 # <a name="what-are-authentication-methods"></a>Wat zijn verificatiemethoden?
 
@@ -196,6 +196,9 @@ Een SMS-bericht is verzonden naar het mobiele nummer met een verificatiecode. Vo
 
 Een geautomatiseerd telefoongesprek is naar het telefoonnummer dat u opgeeft gemaakt. Beantwoord de oproep en druk op # in het toetsenblok telefoon verifiëren
 
+> [!IMPORTANT]
+> Vanaf maart van 2019 de opties telefoongesprek zich niet beschikbaar voor gebruikers voor MFA en Self-service voor Wachtwoordherstel in vrij/proefversie van Azure AD-tenants. SMS-berichten worden niet beïnvloed door deze wijziging. Telefonische oproep blijft beschikbaar voor gebruikers in betaalde Azure AD-tenants. Deze wijziging geldt alleen voor gratis/proefversie van Azure AD-tenants.
+
 ## <a name="office-phone"></a>Telefoon (werk)
 
 Een geautomatiseerd telefoongesprek is naar het telefoonnummer dat u opgeeft gemaakt. Beantwoord het gesprek en drukt # in het toetsenblok van de telefoon om te verifiëren.
@@ -203,6 +206,9 @@ Een geautomatiseerd telefoongesprek is naar het telefoonnummer dat u opgeeft gem
 Voor een goede werking telefoonnummers moet zich in de indeling *+ CountryCode PhoneNumber*, bijvoorbeeld: + 1 4255551234.
 
 Het kenmerk van de telefoon office wordt beheerd door uw beheerder.
+
+> [!IMPORTANT]
+> Vanaf maart van 2019 de opties telefoongesprek zich niet beschikbaar voor gebruikers voor MFA en Self-service voor Wachtwoordherstel in vrij/proefversie van Azure AD-tenants. SMS-berichten worden niet beïnvloed door deze wijziging. Telefonische oproep blijft beschikbaar voor gebruikers in betaalde Azure AD-tenants. Deze wijziging geldt alleen voor gratis/proefversie van Azure AD-tenants.
 
 > [!NOTE]
 > Er moet een spatie tussen de landcode en het telefoonnummer.

@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric - prestaties bewaken met Log Analytics | Microsoft Docs
+title: Logboeken van Azure Service Fabric - prestaties controleren met Azure Monitor | Microsoft Docs
 description: Meer informatie over het instellen van de Log Analytics-Agent voor het bewaken van containers en prestatiemeteritems voor uw Azure Service Fabric-clusters.
 services: service-fabric
 documentationcenter: .net
@@ -14,19 +14,21 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 36402b7dc9c5ee801dd59b03f99b45d6428de187
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 3d35075c768855ebd907b96de2ded82757d5e525
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56815991"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242901"
 ---
-# <a name="performance-monitoring-with-log-analytics"></a>Prestatiebewaking met Log Analytics
+# <a name="performance-monitoring-with-azure-monitor-logs"></a>Prestaties controleren met Azure Monitor-Logboeken
 
 In dit artikel bevat informatie over de stappen voor het toevoegen van de Log Analytics-agent als een virtuele-machineschaalset extensie met uw cluster instellen en deze verbinden met uw bestaande Azure Log Analytics-werkruimte. Hierdoor kunnen verzamelen van diagnostische gegevens over containers, toepassingen en bewaking van toepassingsprestaties. Door deze toe te voegen als een uitbreiding op de virtuele machine scale set-resource, Azure Resource Manager zorgt ervoor dat deze wordt geïnstalleerd op elk knooppunt, zelfs wanneer schalen van het cluster.
 
 > [!NOTE]
-> In dit artikel wordt ervan uitgegaan dat u een Azure Log Analytics-werkruimte al ingesteld hebt. Als u dit niet doet, Ga naar [Azure Log Analytics instellen](service-fabric-diagnostics-oms-setup.md)
+> In dit artikel wordt ervan uitgegaan dat u een Azure Log Analytics-werkruimte al ingesteld hebt. Als u dit niet doet, Ga naar [Azure Azure Monitor logboeken instellen](service-fabric-diagnostics-oms-setup.md)
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="add-the-agent-extension-via-azure-cli"></a>Toevoegen van de agent-extensie via Azure CLI
 
@@ -34,9 +36,9 @@ De beste manier om de Log Analytics-agent toevoegen aan uw cluster is via de vir
 
 1. Zodra uw Cloud Shell is aangevraagd, zorg er dan voor dat u werkt in hetzelfde abonnement als uw resource. Schakel deze optie met `az account show` en zorg ervoor dat de waarde "naam" komt overeen met die van het abonnement van uw cluster.
 
-2. Navigeer naar de resourcegroep waar uw Log Analytics-werkruimte zich bevindt in de Portal. Klik in de Log Analytics-resource (het type van de resource zijn Log Analytics). Als u zich op de overzichtspagina van resource, klikt u op **geavanceerde instellingen** in het gedeelte instellingen in het menu links.
+2. Navigeer naar de resourcegroep waar uw Log Analytics-werkruimte zich bevindt in de Portal. Klik in de log analytics-resource (het type van de resource zijn Log Analytics-werkruimte). Als u zich op de overzichtspagina van resource, klikt u op **geavanceerde instellingen** in het gedeelte instellingen in het menu links.
 
-    ![Eigenschappenpagina van log Analytics](media/service-fabric-diagnostics-oms-agent/oms-advanced-settings.png)
+    ![Eigenschappenpagina van log analytics](media/service-fabric-diagnostics-oms-agent/oms-advanced-settings.png)
  
 3. Klik op **Windows Servers** als u een Windows-cluster zijn permanent en **Linux-Servers** als u een Linux-cluster maakt. Deze pagina ziet u uw `workspace ID` en `workspace key` (weergegeven als primaire sleutel in de portal). U moet zowel voor de volgende stap.
 
@@ -99,5 +101,5 @@ Nu dat u hebt de Log Analytics-agent, head toegevoegd op wilt naar de Log Analyt
 ## <a name="next-steps"></a>Volgende stappen
 
 * Collect relevante [prestatiemeteritems](service-fabric-diagnostics-event-generation-perf.md). Voor het configureren van de Log Analytics-agent voor het verzamelen van specifieke prestatiemeteritems, Bekijk [gegevensbronnen configureren](../azure-monitor/platform/agent-data-sources.md#configuring-data-sources).
-* Log Analytics configureren om het instellen van [automatische waarschuwingen](../log-analytics/log-analytics-alerts.md) bij detectie en diagnostiek
+* Logboeken voor het instellen van Azure Monitor configureren [automatische waarschuwingen](../log-analytics/log-analytics-alerts.md) bij detectie en diagnostiek
 * Als alternatief kunt u verzamelen van prestatiemeteritems via [Azure Diagnostics-extensie en ze verzenden naar Application Insights](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template)

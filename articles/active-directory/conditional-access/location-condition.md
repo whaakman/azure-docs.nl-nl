@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/28/2019
+ms.date: 03/01/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14b277e505e2a4975945f4b2f8f8410e25e0f8b3
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: e405b592e75ca8b9fd811c7f891baafa19e528da
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193582"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241184"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Wat is de locatievoorwaarde in Azure Active Directory voor voorwaardelijke toegang? 
 
@@ -67,7 +67,7 @@ Een benoemde locatie heeft de volgende onderdelen:
 
 - **Onbekende gebieden opnemen** -enkele IP-adressen zijn niet toegewezen aan een bepaald land. Deze optie kunt u kiezen of deze IP-adressen op de locatie met de naam moeten worden opgenomen. Gebruik deze instelling wanneer het beleid met behulp van de locatie met de naam van toepassing op onbekende locaties.
 
-Het aantal benoemde locaties die u kunt configureren wordt beperkt door de grootte van het gerelateerde object in Azure AD. U kunt configureren:
+Het aantal benoemde locaties die u kunt configureren wordt beperkt door de grootte van het gerelateerde object in Azure AD. U kunt een van de volgende configureren:
 
 - Een locatie met maximaal 1200 IP-bereiken met de naam.
 

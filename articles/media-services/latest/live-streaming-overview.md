@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 02/01/2019
 ms.author: juliako
-ms.openlocfilehash: e90dd052f6a4af83d2dd794dd405a4700da75bde
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 0f63896239615699db63c9f48be6b291208408db
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656331"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247168"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Live streamen met Azure Media Services v3
 
@@ -42,13 +42,14 @@ Voor meer informatie over de werkstroom voor live streaming in Media Services v3
 
 - [Streaming-eindpunten](streaming-endpoint-concept.md)
 - [Live-evenementen en Live-uitvoer](live-events-outputs-concept.md)
+- [Streaming-Locators](streaming-locators-concept.md)
 
 ## <a name="live-streaming-workflow"></a>Werkstroom voor live streaming
 
 Hier volgen de stappen voor een live streaming-werkstroom:
 
 1. In Media Services-account, zorg ervoor dat de **Streaming-eindpunt** wordt uitgevoerd. 
-2. Maak een [Live evenement](live-events-outputs-concept.md). <br/>Bij het maken van de gebeurtenis, kunt u op automatisch starten het. U kunt ook kun u de gebeurtenis wanneer u klaar bent om te streamen.<br/> Wanneer autostart is ingesteld op true, wordt de Live gebeurtenis wordt gestart rechts nadat is gemaakt. De facturering begint zodra de Live gebeurtenis wordt gestart. U moet stoppen expliciet aanroepen op de bron van de Live gebeurtenis verder facturering is gestopt. Zie voor meer informatie, [Live gebeurtenis Staten en facturering](live-event-states-billing.md).
+2. Maak een [Live evenement](live-events-outputs-concept.md). <br/>Bij het maken van de gebeurtenis, kunt u op automatisch starten het. U kunt ook kun u de gebeurtenis wanneer u klaar bent om te streamen.<br/> Wanneer autostart is ingesteld op true, wordt de Live gebeurtenis wordt gestart rechts nadat is gemaakt. De facturering begint zodra de Live gebeurtenis wordt gestart. U moet expliciet Stop aanroepen in de resource van de livegebeurtenis om verdere facturering stop te zetten. Zie [Live Event states and billing](live-event-states-billing.md) (Statussen en facturering voor livegebeurtenissen) voor meer informatie.
 3. De opname-URL's ophalen en uw on-premises coderingsprogramma voor het gebruik van de URL voor het verzenden van de bijdrage feed configureren.<br/>Zie [aanbevolen live coderingsprogramma's](recommended-on-premises-live-encoders.md).
 4. De voorbeeld-URL ophalen en deze gebruiken om te controleren dat de invoer van het coderingsprogramma daadwerkelijk worden ontvangen.
 5. Maak een nieuwe **Asset** object.

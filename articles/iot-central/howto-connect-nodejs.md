@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 7b1d7c50970107300676213707368f9f16e04812
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: b22d719a25a93e1dffdba848e18f732b31e6e67d
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194798"
+ms.locfileid: "57214517"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Verbinding maken met een algemene clienttoepassing aan uw Azure IoT Central-toepassing (Node.js)
 
@@ -269,11 +269,11 @@ Als operator in uw Azure IoT Central-toepassing voor uw echte apparaat kunt u:
 
     ![Telemetrie bekijken](media/howto-connect-nodejs/viewtelemetry.png)
 
-* Bekijk de eigenschapswaarden van het apparaat verzonden van uw apparaat op de **eigenschappen** pagina. De eigenschappen van apparaat tegels worden bijgewerkt als de verbinding geslaagd is. 
+* Bekijk de eigenschapswaarden van het apparaat verzonden van uw apparaat op de **eigenschappen** pagina. De eigenschappen van apparaat tegels worden bijgewerkt als de verbinding geslaagd is.
 
     ![Eigenschappen van apparaat weergeven](media/howto-connect-nodejs/viewproperties.png)
 
-* Stel de temperatuur ventilator snelheid en het doel van de **instellingen** pagina. De waarden voor de instellingen worden gesynchroniseerd als de verbinding geslaagd is. 
+* Stel de temperatuur ventilator snelheid en het doel van de **instellingen** pagina. De waarden voor instellingen synchroniseren als de verbinding geslaagd is.
 
     ![Snelheid van de set-ventilator](media/howto-connect-nodejs/setfanspeed.png)
 

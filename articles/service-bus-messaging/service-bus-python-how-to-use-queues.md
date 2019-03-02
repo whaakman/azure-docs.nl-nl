@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: aschhab
-ms.openlocfilehash: 172fee19de77deb4ecf679d6884dfcea2a4968be
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2c28ae3bf05a994293a8bf2af0675280d818fdde
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865957"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242595"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>Het gebruik van Service Bus-wachtrijen met Python
 
@@ -38,7 +38,7 @@ In dit artikel wordt het gebruik van de Service Bus-wachtrijen beschreven. De vo
 
 
 ## <a name="create-a-queue"></a>Een wachtrij maken
-De **ServiceBusService** object kunt u werken met wachtrijen. Voeg de volgende code aan de bovenkant van een Python-bestand waarin u wilt programmatisch toegang verkrijgen tot de Service Bus:
+De **ServiceBusClient** object kunt u werken met wachtrijen. Voeg de volgende code aan de bovenkant van een Python-bestand waarin u wilt programmatisch toegang verkrijgen tot de Service Bus:
 
 ```python
 from azure.servicebus import ServiceBusClient
@@ -69,7 +69,7 @@ sb_client.create_queue("taskqueue", queue_options)
 Zie voor meer informatie, [documentatie voor Azure Service Bus Python](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## <a name="send-messages-to-a-queue"></a>Berichten verzenden naar een wachtrij
-Een bericht verzenden naar een Service Bus-wachtrij, het aanroepen van uw toepassing de `send_queue_message` methode voor het **ServiceBusService** object.
+Een bericht verzenden naar een Service Bus-wachtrij, het aanroepen van uw toepassing de `send` methode voor het `ServiceBusClient` object.
 
 Het volgende voorbeeld ziet u hoe u een testbericht verzenden naar de wachtrij met de naam `taskqueue` met behulp van `send_queue_message`:
 
@@ -89,7 +89,7 @@ Service Bus-wachtrijen ondersteunen een maximale berichtgrootte van 256 kB in de
 Zie voor meer informatie, [documentatie voor Azure Service Bus Python](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## <a name="receive-messages-from-a-queue"></a>Berichten ontvangen van een wachtrij
-Berichten worden ontvangen van een wachtrij met de `receive_queue_message` methode voor het **ServiceBusService** object:
+Berichten worden ontvangen van een wachtrij met de `get_receiver` methode voor het `ServiceBusService` object:
 
 ```python
 from azure.servicebus import QueueClient, Message
@@ -97,9 +97,12 @@ from azure.servicebus import QueueClient, Message
 # Create the QueueClient 
 queue_client = QueueClient.from_connection_string("<CONNECTION STRING>", "<QUEUE NAME>")
 
-# Send a test message to the queue
-msg = Message(b'Test Message')
-queue_client.send(Message("Message"))
+## Receive the message from the queue
+with queue_client.get_receiver() as queue_receiver:
+    messages = queue_receiver.fetch_next(timeout=3)
+    for message in messages:
+        print(message)
+        message.complete()
 ```
 
 Zie voor meer informatie, [documentatie voor Azure Service Bus Python](/python/api/overview/azure/servicebus?view=azure-python).

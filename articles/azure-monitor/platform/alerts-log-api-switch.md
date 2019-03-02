@@ -5,20 +5,20 @@ author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/24/2018
+ms.date: 03/01/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 6af1c5347a522f7e42feecb6722dfbb64439d086
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 7c8e2297426b098fa6e86a5cda81afc2d71b08f4
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341008"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214636"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Voorkeur voor switch API voor Logboekwaarschuwingen
 
 > [!NOTE]
-> Inhoud vermeld **niet** van toepassing op gebruikers van Azure GovCloud en alleen gebruikers van de openbare cloud van Azure.  
+> Inhoud vermeld van toepassing op gebruikers alleen Azure openbare cloud en **niet** voor Azure Government or Azure China-cloud.  
 
 Tot voor kort beheerd u regels voor waarschuwingen in de Microsoft Operations Management Suite-portal. De nieuwe ervaring voor waarschuwingen is geïntegreerd met verschillende services in Microsoft Azure, inclusief Log Analytics en we gevraagd [uw regels voor waarschuwingen van OMS-portal uitbreiden naar Azure](alerts-extend.md). Maar om ervoor te zorgen minimale verstoring voor klanten, het proces heeft geen invloed op de programma-interface voor het verbruik - [Log Analytics-waarschuwing API](api-alerts.md) op basis van SavedSearch.
 
@@ -43,6 +43,7 @@ De gevolgen van de switch van voorkeur aan scheduledQueryRules API worden gecomp
 
 - Alle interacties gedaan voor het beheren van waarschuwingen via programmatische interfaces moet nu worden uitgevoerd met [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) in plaats daarvan. Voor meer informatie ziet, [voorbeeld gebruiken via Azure Resource-sjabloon](alerts-log.md#managing-log-alerts-using-azure-resource-template) en [voorbeeld gebruiken via Azure CLI en PowerShell](alerts-log.md#managing-log-alerts-using-powershell-cli-or-api)
 - Een nieuwe waarschuwingsregel hebt gemaakt in Azure portal worden gemaakt met [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) alleen en gebruikers gebruiken de [aanvullende functionaliteit van de nieuwe API](#Benefits-of-switching-to-new-Azure-API) via Azure portal ook
+- Ernst voor waarschuwingsregels verplaatst uit: *Kritiek, waarschuwing en ter informatie*naar *ernstwaarden 0, 1 en 2 van*. Samen met de optie voor regels voor waarschuwingen met urgentie 4 ook maken/bijwerken.
 
 Elke klant die wil vrijwillig overschakelen naar de nieuwe [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) en blokkeren van gebruik van de [verouderde Log Analytics-waarschuwing API](api-alerts.md); kunt dit doen door het uitvoeren van een PUT-aanroep op de onderstaande API om over te schakelen van alle waarschuwing regels die zijn gekoppeld aan de specifieke Log Analytics-werkruimte.
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
-ms.openlocfilehash: b05a8bfd46800c5b0b0126adcf2acb4852bb6683
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 9057245c108e4a1b9af2549bc87f98258da50535
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339753"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240164"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Detecteren en oplossen van de verbinding verbreekt met Azure IoT Hub
 
@@ -54,7 +54,7 @@ Zie voor meer informatie, [wat zijn klassieke waarschuwingen in Microsoft Azure?
 
 ## <a name="resolve-connectivity-errors"></a>Connectiviteit oplossen
 
-Als u logboeken met diagnostische gegevens en waarschuwingen voor verbonden apparaten inschakelt, krijgt u waarschuwingen wanneer er fouten optreden. In deze sectie wordt beschreven hoe u veelvoorkomende problemen oplossen wanneer u een waarschuwing ontvangt. De onderstaande stappen wordt ervan uitgegaan dat u hebt Azure Log Analytics instellen voor uw logboeken met diagnostische gegevens.
+Als u logboeken met diagnostische gegevens en waarschuwingen voor verbonden apparaten inschakelt, krijgt u waarschuwingen wanneer er fouten optreden. In deze sectie wordt beschreven hoe u veelvoorkomende problemen oplossen wanneer u een waarschuwing ontvangt. De onderstaande stappen wordt ervan uitgegaan dat u logboeken van Azure Monitor hebt ingesteld voor uw logboeken met diagnostische gegevens.
 
 1. Ga aan de werkruimte voor **Log Analytics** in Azure portal.
 1. Selecteer **zoeken in logboeken**.

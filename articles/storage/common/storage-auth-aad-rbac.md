@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 03/01/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 622a7bc870aba58205c1811de2fcdcabffd177e5
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 19a4f8fc41ed4d6850f114e19f49f239befe08d0
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869680"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242646"
 ---
 # <a name="grant-access-to-azure-containers-and-queues-with-rbac-in-the-azure-portal-preview"></a>Toegang verlenen tot Azure-containers en wachtrijen met RBAC in Azure portal (preview)
 
@@ -88,14 +88,12 @@ Als u bijvoorbeeld de **Gegevensbijdrager voor Blob (Preview)** rol aan Mary op 
 
 Echter, als Mary wil weergeven van een blob in Azure portal, dan zal de **Gegevensbijdrager voor Blob (Preview)** rol zelf bieden niet voldoende machtigingen om te navigeren via de portal naar de blob om te bekijken. Extra Azure AD-machtigingen zijn vereist om te navigeren via de portal en weergeven van de andere resources die er zichtbaar zijn.
 
-Als uw gebruikers nodig hebben om toegang tot blobs in Azure portal en vervolgens een extra RBAC-rol toewijzen te kunnen de [lezer](../../role-based-access-control/built-in-roles.md#reader) rol aan deze gebruikers. De **lezer** rol is een Azure Resource Manager-rol die gebruikers kunnen resources voor storage-account weergeven, maar ze niet worden gewijzigd. Biedt geen leesmachtigingen voor gegevens in Azure Storage, maar alleen voor account management-resources.
+Als uw gebruikers nodig hebben om toegang tot blobs in Azure portal en vervolgens een extra RBAC-rol toewijzen te kunnen de [lezer](../../role-based-access-control/built-in-roles.md#reader) rol aan deze gebruikers, op het niveau van het opslagaccount of hoger. De **lezer** rol is een Azure Resource Manager-rol die gebruikers kunnen resources voor storage-account weergeven, maar ze niet worden gewijzigd. Biedt geen leesmachtigingen voor gegevens in Azure Storage, maar alleen voor account management-resources.
 
-Volg deze stappen om toe te wijzen de **lezer** rol zodat een gebruiker toegang heeft tot de blobs in Azure portal. In dit geval wordt is de toewijzing afgestemd op de container:
+Volg deze stappen om toe te wijzen de **lezer** rol zodat een gebruiker toegang heeft tot de blobs in Azure portal. In dit voorbeeld wordt is de toewijzing afgestemd op het storage-account:
 
-1. In de [Azure-portal](https://portal.azure.com), gaat u naar uw storage-account en weergeven van de **overzicht** voor het account.
-1. Selecteer onder Services **Blobs**. 
-1. Zoek naar de container die u wilt een rol toewijzen en weergeven van de instellingen van de container. 
-1. Selecteer **toegangsbeheer (IAM)** om instellingen voor toegangsbeheer voor de container weer te geven. Selecteer de **roltoewijzingen** tabblad om te bekijken van de lijst van roltoewijzingen.
+1. In de [Azure-portal](https://portal.azure.com), gaat u naar uw storage-account.
+1. Selecteer **toegangsbeheer (IAM)** om de instellingen voor toegangsbeheer voor de storage-account weer te geven. Selecteer de **roltoewijzingen** tabblad om te bekijken van de lijst van roltoewijzingen.
 1. In de **roltoewijzing toevoegen** venster de **lezer** rol. 
 1. Uit de **toegang toewijzen aan** vervolgkeuzelijst, selecteer **Azure AD-gebruiker, groep of service-principal**.
 1. Zoekt u naar de beveiligings-principal die u wilt de rol toe te wijzen.

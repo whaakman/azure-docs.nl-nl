@@ -10,15 +10,15 @@ ms.subservice: manage
 ms.date: 11/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 4613a16ee27168dd5c00435ee04fa5a7f95f4d97
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: dda3725be7549d90223b33608939c392bdf66852
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460417"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217968"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Controleren van de resource-gebruik en query-activiteit in Azure SQL Data Warehouse
-Azure SQL Data Warehouse biedt een uitgebreide controle-ervaring in Azure portal om inzichten te kunnen verkrijgen voor uw datawarehouse-workload. De Azure portal is het aanbevolen hulpmiddel bij het bewaken van uw datawarehouse, aangezien deze configureerbare bewaarperioden, waarschuwingen, aanbevelingen, en aanpasbare grafieken en dashboards voor metrische gegevens en Logboeken biedt. Via de portal kunt u integreren met andere Azure-services, zoals Operations Management Suite (OMS) controleren / Log Analytics en Azure Monitor om te bieden een holistische controle-ervaring voor het niet alleen uw datawarehouse, maar ook uw hele Azure Analytics-platform voor een geïntegreerde ervaring voor de bewaking. Deze documentatie wordt beschreven welke mogelijkheden voor bewaking zijn beschikbaar om te optimaliseren en beheren van uw platform voor streaminganalyse met SQL Data Warehouse. 
+Azure SQL Data Warehouse biedt een uitgebreide controle-ervaring in Azure portal om inzichten te kunnen verkrijgen voor uw datawarehouse-workload. De Azure portal is het aanbevolen hulpmiddel bij het bewaken van uw datawarehouse, aangezien deze configureerbare bewaarperioden, waarschuwingen, aanbevelingen, en aanpasbare grafieken en dashboards voor metrische gegevens en Logboeken biedt. Via de portal kunt u integreren met andere Azure-bewakingsservices zoals Operations Management Suite (OMS) en Azure Monitor (Logboeken) voor een holistische controle-ervaring voor het niet alleen uw datawarehouse, maar ook uw hele Azure analytics platform voor een geïntegreerde ervaring voor de bewaking. Deze documentatie wordt beschreven welke mogelijkheden voor bewaking zijn beschikbaar om te optimaliseren en beheren van uw platform voor streaminganalyse met SQL Data Warehouse. 
 
 ## <a name="resource-utilization"></a>Resourcegebruik 
 De volgende metrische gegevens zijn beschikbaar in de Azure-portal voor SQL Data Warehouse. Deze metrische gegevens zijn opgehaald via de [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
@@ -46,11 +46,8 @@ De service biedt voor een programmatische ervaring bij het bewaken van SQL Data 
 Als u wilt weergeven in de lijst met DMV's die SQL Data Warehouse biedt, verwijzen naar dit [documentatie](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views#sql-data-warehouse-dynamic-management-views-dmvs). 
 
 ## <a name="metrics-and-diagnostics-logging"></a>Metrische gegevens en logboekregistratie van diagnostische gegevens
-Logboeken en metrische gegevens kunnen worden geëxporteerd naar Azure Monitor, specifiek de [Log analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) onderdeel en via een programma kunnen worden benaderd met [zoeken in logboeken](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata).
+Logboeken en metrische gegevens kunnen worden geëxporteerd naar Azure Monitor, specifiek de [logboeken van Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) onderdeel en via een programma kunnen worden benaderd met [zoeken in logboeken](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata).
 
-
-> [!NOTE]
-> Vanaf November 2018, worden logboeken op dit moment wordt geïmplementeerd voor SQL Data Warehouse
 
 ## <a name="next-steps"></a>Volgende stappen
 De volgende handleidingen worden algemene scenario's beschreven en use-cases bij het controleren en beheren van uw datawarehouse:

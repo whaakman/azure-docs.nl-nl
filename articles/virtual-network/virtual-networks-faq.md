@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2018
+ms.date: 02/12/2019
 ms.author: jdial
-ms.openlocfilehash: 98b2c0bc27336e9ee5fe9aaf6332d9854e9af4de
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 5689cdb2e9f8028f8e1e05a9b43cc00719701fce
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650288"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213905"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Veelgestelde vragen (FAQ) over virtuele Azure-netwerk
 
@@ -231,6 +231,26 @@ VNet-peering (of peering op virtueel netwerk), kunt u virtuele netwerken verbind
 
 ### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>Kan ik een peering verbinding met een VNet maken in een andere regio?
 Ja. Wereldwijde VNet-peering, kunt u peer-VNets in verschillende regio's. Wereldwijde VNet-peering is beschikbaar in alle Azure-openbare regio's en regio's China-cloud. U kan niet uit Azure openbare regio's wereldwijd koppelen aan nationale cloud-regio's. Wereldwijde peering is momenteel niet beschikbaar in Government-cloud.
+
+### <a name="what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers"></a>Wat zijn de beperkingen met betrekking tot wereldwijde VNet-Peering en Load Balancers?
+Als de twee virtuele netwerken zich in verschillende regio's (wereldwijde VNet-Peering), kunt u geen verbinding maken met bronnen die gebruikmaken van de basisversie van Load Balancer. U kunt verbinding maken met bronnen die gebruikmaken van Standard Load Balancer.
+De volgende bronnen gebruiken Basic Load Balancers, wat betekent dat u aan hen kan niet communiceren via het wereldwijde VNet-Peering:
+- Virtuele machines achter de basisversie van Load Balancers
+- VM-Schaalsets met basisversie van Load Balancers 
+- Redis Cache 
+- Application Gateway (v1) SKU
+- Service Fabric
+- SQL Always on
+- SQL MI
+- API-Managemenet
+- ADDS
+- Logic Apps
+- HD Insight
+-   Azure Batch
+- AKS
+- App Service-omgeving
+
+U kunt verbinding maken met deze resource via ExpressRoute of VNet-naar-VNet via VNet-Gateways.
 
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>Kan ik inschakelen VNet-Peering als mijn virtuele netwerken deel uitmaken van abonnementen in verschillende Azure Active Directory-tenants?
 Ja. Het is mogelijk te maken van VNet-Peering (lokaal of globaal) als uw abonnementen tot verschillende Azure Active Directory-tenants behoren. U kunt dit doen via PowerShell of CLI. Portal is nog niet ondersteund.

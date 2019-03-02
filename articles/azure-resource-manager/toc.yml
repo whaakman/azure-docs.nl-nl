@@ -59,22 +59,17 @@ items:
     - name: Parameters
       href: resource-manager-templates-parameters.md
     - name: Variabelen
-      href: resource-manager-templates-variables.md
+      href: resource-group-authoring-templates.md#variables
     - name: Functions
       href: resource-group-authoring-templates.md#functions
     - name: Resources
       href: resource-manager-templates-resources.md
     - name: Uitvoer
-      href: resource-manager-templates-outputs.md
-  - name: Richtlijnen
-    items:
-    - name: Best practices voor sjablonen
-      href: template-best-practices.md
-    - name: Abonnementsgovernance
-      href: /azure/architecture/cloud-adoption/appendix/azure-scaffold
-      maintainContext: true
-    - name: Sjablonen voor de consistentie van de cloud
-      href: templates-cloud-consistency.md
+      href: resource-group-authoring-templates.md#outputs
+  - name: Best practices voor sjablonen
+    href: template-best-practices.md
+  - name: Sjablonen voor de consistentie van de cloud
+    href: templates-cloud-consistency.md
   - name: Resourceproviders en -typen
     href: resource-manager-supported-services.md
   - name: Beheergroepen
@@ -265,9 +260,9 @@ items:
     href: resource-manager-personal-data.md
   - name: Video's
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: 061f23dd0f25fccdbcfe459dc71f998319b06d58
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: cb2e9b6d12acfb6fff514fc5e2603d9531acd76f
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886686"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241679"

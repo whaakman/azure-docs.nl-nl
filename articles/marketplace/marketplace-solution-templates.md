@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/15/2018
 ms.author: ellacroi
-ms.openlocfilehash: 8e8bcc43a3bf26a40055e4258bf73bb047e61ef9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: bbf9ab56bd7e070e40e2454a69f0a5e313597f14
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737600"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215367"
 ---
 # <a name="azure-applications-solution-template-offer-publishing-guide"></a>Azure-toepassingen: Oplossing sjabloon aanbieding Publicatiehandleiding voor
 
@@ -38,7 +38,6 @@ Deze sjablonen zijn transactie-aanbiedingen, die zijn geïmplementeerd en worden
 |Azure-compatibele virtuele harde schijf (VHD)  |   Virtuele machines moeten worden gebouwd op Windows of Linux.  Voor meer informatie, [Zie maken met een Azure compatibele VHD](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md). |
 | Klant gebruik Attribution | Inschakelen van de klant gebruik attribution is vereist op alle oplossingssjablonen die zijn gepubliceerd naar de Azure Marketplace. Zie voor meer informatie over klant gebruik attribution en het inschakelen ervan [Azure-partner klant gebruik attribution](./azure-partner-customer-usage-attribution.md).  |
 |  |  |
-
 
 ## <a name="next-steps"></a>Volgende stappen
 Als u dit nog niet hebt gedaan, [registreren](https://azuremarketplace.microsoft.com/sell) in de marketplace.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a42f4ce85214ad2a8c5692736b7d36101ccb62ed
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 7e196a912db723d5d118b0aadc98f73f1c7271e0
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556217"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243751"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Een IoT Edge-apparaat om te fungeren als een transparante gateway configureren
 
@@ -45,7 +45,10 @@ Een Azure IoT Edge-apparaat configureren als een gateway. U kunt uw ontwikkelcom
 * [Linux x64](./how-to-install-iot-edge-linux.md)
 * [Linux ARM32](./how-to-install-iot-edge-linux-arm.md)
 
-U kunt elke virtuele machine gebruiken voor het genereren van de certificaten, en kopieer deze vervolgens naar uw IoT Edge-apparaat. 
+U kunt elke virtuele machine gebruiken voor het genereren van de certificaten, en kopieer deze vervolgens naar uw IoT Edge-apparaat.
+
+>[!NOTE]
+>De "gatewaynaam" gebruikt voor het maken van de certificaten in deze instructie moet dezelfde naam als gebruikt als de hostnaam in uw IoT Edge config.yaml-bestand en als GatewayHostName in de verbindingsreeks van de downstream-apparaat. De gatewaynaam"" moet worden omgezet naar een IP-adres, hetzij met behulp van DNS- of een hostbestandvermelding. Communicatie op basis van het protocol dat wordt gebruikt (MQTTS:8883 / AMQPS:5671 / HTTPS:433) moet mogelijk tussen downstream-apparaat en het transparant IoT Edge. Als een firewall tussen is, moet de respectieve poort geopend.
 
 ## <a name="generate-certificates-with-windows"></a>Genereren van certificaten met Windows
 

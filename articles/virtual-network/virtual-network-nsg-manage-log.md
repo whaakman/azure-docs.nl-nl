@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: 6cc75a70dfc7022efa8577234cc67659d53b2f88
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: ed611eeeffa77aa42ab017ee97c6b1a0b7f7822e
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194414"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240657"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Diagnostische logboekregistratie voor een netwerkbeveiligingsgroep
 
@@ -131,7 +131,7 @@ Logboeken bekijken en analyseren. Zie voor meer informatie, [weergeven en logboe
 Diagnostische gegevens kan zijn:
 - [Naar een Azure Storage-account geschreven](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), voor controle of handmatige controle. U kunt de bewaartijd (in dagen) met behulp van de instellingen voor resourcediagnose opgeven.
 - [Gestreamd naar een Event hub](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor opname van een service van derden of aangepaste analytics-oplossing, zoals Power BI.
-- [Geschreven naar Azure Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
+- [Naar Azure Azure Monitor-Logboeken geschreven](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
 
 ## <a name="log-categories"></a>Logboekcategorieën
 
@@ -198,7 +198,7 @@ Het logboek van de teller regel bevat informatie over elke regel toegepast op re
 ## <a name="view-and-analyze-logs"></a>Logboeken bekijken en analyseren
 
 Zie voor informatie over het weergeven van diagnostische logboekgegevens, [diagnostische logboeken van Azure-overzicht](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Als u diagnostische gegevens verzenden:
-- **Log Analytics**: U kunt de [network security group analytics](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-log-analytics
+- **Logboeken in Azure Monitor**: U kunt de [network security group analytics](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-log-analytics
 ) oplossing voor het verbeterde inzicht te krijgen. De oplossing biedt visualisaties voor NSG-regels die verkeer per MAC-adres van de netwerkinterface in een virtuele machine toestaan of weigeren.
 - **Azure Storage-account**: Gegevens worden geschreven naar een bestand PT1H.json. U vindt de:
   - Gebeurtenislogboek in het volgende pad: `insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`

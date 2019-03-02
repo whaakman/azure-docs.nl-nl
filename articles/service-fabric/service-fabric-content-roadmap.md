@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 12c5ba06eed37072d4c122be9e47a80ce94a5f1b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 8beac9d4a84fdee4e8fa7689d60cb51c20acd671
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872825"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241830"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Zo wilt u meer informatie over Service Fabric?
 Azure Service Fabric is een gedistribueerde systemen platform waarmee u gemakkelijk pakket, implementeren en beheren van schaalbare en betrouwbare microservices.  Service Fabric is een grote-gebied, en er is veel te leren.  In dit artikel biedt een overzicht van Service Fabric en beschrijft de belangrijkste concepten, programmeermodellen, levensduur van toepassingen, testen, clusters en statuscontrole. Lees de [overzicht](service-fabric-overview.md) en [wat zijn microservices?](service-fabric-overview-microservices.md) voor een inleiding en hoe Service Fabric kan worden gebruikt om te maken van microservices. In dit artikel bevat een uitgebreide lijst met inhoud, maar koppelen aan het overzicht en artikelen aan de slag voor elk gebied van Service Fabric. 
@@ -119,7 +119,7 @@ Een [Service Fabric-cluster](service-fabric-deploy-anywhere.md) is een met het n
 Service Fabric-clusters kunnen worden gemaakt op virtuele of fysieke machines waarop Windows Server of Linux wordt uitgevoerd. Om te implementeren en uitvoeren van Service Fabric-toepassingen in een omgeving waarin u een set van Windows Server of Linux-computers onderling hebben: on-premises, op Microsoft Azure, of op elke andere cloudprovider.
 
 ### <a name="clusters-on-azure"></a>Clusters op Azure
-Service Fabric-clusters worden uitgevoerd op Azure biedt integratie met andere Azure-functies en services, waardoor bewerkingen en het beheer van het cluster, eenvoudiger en betrouwbaarder maakt. Een cluster is een Azure Resource Manager-resource, dus u kunt een model van clusters, zoals alle andere resources in Azure. Resource Manager biedt ook eenvoudig beheer van alle resources die worden gebruikt door het cluster als één eenheid. Clusters in Azure zijn geïntegreerd met Azure diagnostics en Log Analytics. Knooppunt clustertypen [virtuele-machineschaalsets](/azure/virtual-machine-scale-sets/index), zodat de functionaliteit voor automatisch schalen is ingebouwd in.
+Service Fabric-clusters worden uitgevoerd op Azure biedt integratie met andere Azure-functies en services, waardoor bewerkingen en het beheer van het cluster, eenvoudiger en betrouwbaarder maakt. Een cluster is een Azure Resource Manager-resource, dus u kunt een model van clusters, zoals alle andere resources in Azure. Resource Manager biedt ook eenvoudig beheer van alle resources die worden gebruikt door het cluster als één eenheid. Clusters in Azure zijn geïntegreerd met Azure diagnostics en Azure Monitor-Logboeken. Knooppunt clustertypen [virtuele-machineschaalsets](/azure/virtual-machine-scale-sets/index), zodat de functionaliteit voor automatisch schalen is ingebouwd in.
 
 U kunt een cluster maken op Azure via de [Azure-portal](service-fabric-cluster-creation-via-portal.md), van een [sjabloon](service-fabric-cluster-creation-via-arm.md), of van [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md).
 

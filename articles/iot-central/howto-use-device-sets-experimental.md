@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: dd8fa36acaf3f4871d63200a4863778180e9be1a
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: b3bd157f06c922d96f71627f885fe6de2537987a
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55773327"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215283"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Hiermee stelt u apparaten gebruikt in uw Azure IoT Central-toepassing
 
@@ -94,10 +94,10 @@ Als u wilt toevoegen aan een locatiekaart op uw apparaat wordt ingesteld dashboa
 1. Selecteer de kaart uit de bibliotheek op uw Dashboard apparaat instellen.
 2. Geef een titel in en kies de locatie-eigenschap die u eerder hebt geconfigureerd als onderdeel van de eigenschap van uw apparaat.
 3. Opslaan en u ziet de kaart tegel weergeven van de locatie van uw apparaten in het apparaat ingesteld.
-4. Nu als een operator weergaven dashboard Hiermee stelt u het apparaat, de operator alle tegels die u hebt geconfigureerd ziet, met inbegrip van de locatie van de kaart voor het visualiseren van alle apparaten-locatie in een oogopslag! 
-    
-> [!NOTE] 
-> U kunt zich grootte van de kaart om de gewenste grootte te wijzigen. Te klikken op een pincode op de kaart wordt weergegeven de apparaatgegevens, naam en locatie. U kunt klikken op het pop-upvenster om naar de eigenschappenpagina van het apparaat te gaan.  
+4. Nu als een operator weergaven dashboard Hiermee stelt u het apparaat, de operator alle tegels die u hebt geconfigureerd ziet, met inbegrip van de locatie van de kaart voor het visualiseren van alle apparaten-locatie in een oogopslag!
+
+> [!NOTE]
+> U kunt zich grootte van de kaart om de gewenste grootte te wijzigen. Te klikken op een pincode op de kaart wordt weergegeven de apparaatgegevens, naam en locatie. U kunt klikken op het pop-upvenster om naar de eigenschappenpagina van het apparaat te gaan.
 
 ## <a name="configure-the-list-for-your-device-set"></a>De lijst voor het instellen van uw apparaat configureren
 

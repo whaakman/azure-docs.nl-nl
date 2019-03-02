@@ -14,16 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 377b41f6ea011c06457fb6550ddd8d448574835e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 355b859428712b2e7b086fdfc152044814695b7b
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881327"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243938"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Algemene scenario's met Service Fabric onderzoeken
 
-In dit artikel ziet u algemene scenario's die gebruikers hebben aangetroffen in het gebied van controle en diagnostische gegevens met Service Fabric. De scenario's die betrekking hebben op alle 3 lagen van service fabric: Toepassings-, Cluster- en -infrastructuur. Elke oplossing maakt gebruik van Application Insights en Log Analytics, Azure controleprogramma's, elk scenario te voltooien. De stappen in elke oplossing geeft gebruikers een inleiding over het gebruik van Application Insights en Log Analytics in de context van Service Fabric.
+In dit artikel ziet u algemene scenario's die gebruikers hebben aangetroffen in het gebied van controle en diagnostische gegevens met Service Fabric. De scenario's die betrekking hebben op alle 3 lagen van service fabric: Toepassings-, Cluster- en -infrastructuur. Elke oplossing maakt gebruik van Application Insights en logboeken van Azure Monitor, Azure controlehulpprogramma's, om uit te voeren van elk scenario. De stappen in elke oplossing geeft gebruikers een inleiding over het gebruik van Application Insights en Azure Monitor geregistreerd in de context van Service Fabric.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites-and-recommendations"></a>Vereisten en aanbevelingen
 
@@ -31,7 +33,7 @@ De oplossingen in dit artikel worden de volgende hulpprogramma's gebruiken. U wo
 
 * [Application Insights met Service Fabric](service-fabric-tutorial-monitoring-aspnet.md)
 * [Inschakelen van Azure Diagnostics in uw cluster](service-fabric-diagnostics-event-aggregation-wad.md)
-* [Instellen van een Log Analytics-werkruimte](service-fabric-diagnostics-oms-setup.md)
+* [Stel een Log Analytics-werkruimte](service-fabric-diagnostics-oms-setup.md)
 * [Meld u Analytics-agent voor het volgen van prestatiemeteritems](service-fabric-diagnostics-oms-agent.md)
 
 ## <a name="how-can-i-see-unhandled-exceptions-in-my-application"></a>Hoe kan ik onverwerkte uitzonderingen in mijn toepassing zien?
@@ -63,7 +65,7 @@ De oplossingen in dit artikel worden de volgende hulpprogramma's gebruiken. U wo
 1. Knooppunt-gebeurtenissen worden bijgehouden door uw Service Fabric-cluster. Navigeer naar de Service Fabric-analyse-oplossing-resource met de naam **ServiceFabric(NameofResourceGroup)**
 2. Klik op de grafiek aan de onderkant van de blade met de titel 'Overzicht'
 
-    ![Log Analytics-oplossing](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)
+    ![Azure Monitor-logboeken oplossing](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)
 
 3. U hebt hier veel grafieken en tegels weergeven van verschillende metrische gegevens. Klik op een van de grafieken en deze gaat u naar de zoeken in Logboeken. U kunt hier een query voor elk clustergebeurtenissen of prestatiemeteritems.
 4. Voer de volgende query. Deze gebeurtenis-id's vindt u in de [knooppunt gebeurtenissen-naslaginformatie](service-fabric-diagnostics-event-generation-operational.md#application-events)
@@ -75,7 +77,7 @@ De oplossingen in dit artikel worden de volgende hulpprogramma's gebruiken. U wo
 
 5. Klik op 'Nieuwe waarschuwingsregel' aan de bovenkant en nu telkens wanneer een gebeurtenis wordt ontvangen op basis van deze query, ontvangt u een waarschuwing in de gekozen methode voor communicatie.
 
-    ![Nieuwe waarschuwing in log Analytics](media/service-fabric-diagnostics-common-scenarios/oms-create-alert.png)
+    ![Azure Monitor meldt zich op een nieuwe waarschuwing](media/service-fabric-diagnostics-common-scenarios/oms-create-alert.png)
 
 ## <a name="how-can-i-be-alerted-of-application-upgrade-rollbacks"></a>Hoe kan ik gewaarschuwd van application upgrade terugdraaiacties?
 
@@ -143,7 +145,7 @@ Controleer deze koppelingen voor de volledige lijst prestatiemeteritems op betro
 
 * [Stel waarschuwingen in AI](../azure-monitor/app/alerts.md) om te worden geïnformeerd over wijzigingen in de prestaties of gebruik
 * [Slimme detectie in Application Insights](../azure-monitor/app/proactive-diagnostics.md) voert een proactieve analyse van de telemetrie wordt verzonden naar AI om u te waarschuwen voor mogelijke prestatieproblemen
-* Meer informatie over Log Analytics [waarschuwingen](../log-analytics/log-analytics-alerts.md) voor detectie en diagnostiek.
-* Voor clusters van on-premises biedt Log Analytics een gateway (http-doorsturen Proxy) die kan worden gebruikt om gegevens te verzenden naar Log Analytics. Meer informatie over die in [computers zonder internettoegang verbinden met Log Analytics met behulp van de Log Analytics-gateway](../azure-monitor/platform/gateway.md)
-* Familiarized ophalen met de [zoeken en uitvoeren van query's](../log-analytics/log-analytics-log-searches.md) functies die worden aangeboden als onderdeel van Log Analytics
-* Ophalen van een meer gedetailleerd overzicht van Log Analytics en de mogelijkheden van het startpakket, lezen [wat is Log Analytics?](../operations-management-suite/operations-management-suite-overview.md)
+* Meer informatie over Azure Monitor logboeken [waarschuwingen](../log-analytics/log-analytics-alerts.md) voor detectie en diagnostiek.
+* Logboeken van Azure Monitor biedt een gateway (http-doorsturen Proxy) die kan worden gebruikt om gegevens te verzenden naar Azure Monitor-logboeken voor clusters van on-premises. Meer informatie over die in [computers zonder toegang tot het Internet verbinding te maken met Azure Monitor-logboeken met behulp van de Log Analytics-gateway](../azure-monitor/platform/gateway.md)
+* Familiarized ophalen met de [zoeken en uitvoeren van query's](../log-analytics/log-analytics-log-searches.md) functies die worden aangeboden als onderdeel van Azure Monitor-Logboeken
+* Ophalen van een meer gedetailleerd overzicht van Azure Monitor-logboeken en mogelijkheden van het startpakket, lezen [wat Azure Monitor-Logboeken is?](../operations-management-suite/operations-management-suite-overview.md)

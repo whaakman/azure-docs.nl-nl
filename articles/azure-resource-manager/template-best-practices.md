@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9b136c73afc08e05694aed99d57139f77466788d
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 121011555d0ba6fdae392275495b89a9759f3978
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490376"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244261"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure Resource Manager sjabloon aanbevolen procedures
 
@@ -131,7 +131,7 @@ De informatie in deze sectie kan nuttig zijn wanneer u met werkt [parameters](re
 
 ## <a name="variables"></a>Variabelen
 
-De volgende informatie kan nuttig zijn wanneer u met werkt [variabelen](resource-manager-templates-variables.md):
+De volgende informatie kan nuttig zijn wanneer u met werkt [variabelen](resource-group-authoring-templates.md#variables):
 
 * Variabelen voor waarden die u wilt meer dan één keer gebruiken in een sjabloon gebruiken. Als een waarde slechts één keer gebruikt wordt, een vastgelegde waarde maakt de sjabloon voor het gemakkelijker te lezen.
 
@@ -277,7 +277,7 @@ De volgende informatie kan nuttig zijn wanneer u met werkt [resources](resource-
 
 ## <a name="outputs"></a>Uitvoer
 
-Als u een sjabloon te maken van openbare IP-adressen gebruiken, voegt een [sectie uitvoer](resource-manager-templates-outputs.md) die retourneert gegevens van het IP-adres en de volledig gekwalificeerde domeinnaam (FQDN). U kunt uitvoerwaarden gebruiken om op te halen eenvoudig meer informatie over openbare IP-adressen en FQDN's na de implementatie.
+Als u een sjabloon te maken van openbare IP-adressen gebruiken, voegt een [sectie uitvoer](resource-group-authoring-templates.md#outputs) die retourneert gegevens van het IP-adres en de volledig gekwalificeerde domeinnaam (FQDN). U kunt uitvoerwaarden gebruiken om op te halen eenvoudig meer informatie over openbare IP-adressen en FQDN's na de implementatie.
 
 ```json
 "outputs": {

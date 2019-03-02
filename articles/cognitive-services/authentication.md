@@ -7,14 +7,14 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 03/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 2f9b477e076b038a6a695952ee3f770b30ad179b
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 90bc2bf4c207f3bb2727d76c2e6b4fd5597539b1
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429465"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240759"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Verifiëren van aanvragen voor Azure Cognitive Services
 
@@ -28,6 +28,8 @@ Elke aanvraag aan een Azure Cognitive Service moet een verificatieheader bevatte
 
 Voordat u een aanvraag indienen, moet u een Azure-account en een Azure Cognitive Services-abonnement. Als u al een account hebt, gaat u verder en gaat u verder met de volgende sectie. Als u geen account hebt, hebben we een handleiding waarmee u binnen minuten opzet: [Een Cognitive Services-account maken voor Azure](cognitive-services-apis-create-account.md).
 
+U krijgt de abonnementssleutel van uw uit de [Azure-portal](cognitive-services-apis-create-account.md#access-your-resource) na het maken van uw account of activeren van een [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/my-apis).
+ 
 ## <a name="authentication-headers"></a>Verificatieheaders
 
 Laten we snel bekijken de verificatieheaders die beschikbaar zijn voor gebruik met Azure Cognitive Services.

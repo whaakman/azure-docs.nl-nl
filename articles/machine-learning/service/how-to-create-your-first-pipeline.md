@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: f5d453fbacb44105c491c9e69085a219099943fa
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: b1544d73478f30c7501e76a8e20975f975f9708d
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326905"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215044"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Maken en uitvoeren van een machine learning-pijplijn met behulp van Azure Machine Learning-SDK
 
@@ -234,7 +234,7 @@ except ComputeTargetException:
 
 ## <a id="steps"></a>De stappen van uw pijplijn bouwen
 
-Als u maken en koppelen van een compute-doel aan uw werkruimte, bent u klaar voor het definiëren van een stap van de pijplijn. Er zijn veel ingebouwde stappen beschikbaar via de SDK van Azure Machine Learning. De meeste algemene van deze stappen is een [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py), die een Python-script wordt uitgevoerd in een opgegeven compute-doel.
+Als u maken en koppelen van een compute-doel aan uw werkruimte, bent u klaar voor het definiëren van een stap van de pijplijn. Er zijn veel ingebouwde stappen beschikbaar via de SDK van Azure Machine Learning. De meeste algemene van deze stappen is een [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py), die een Python-script wordt uitgevoerd in een opgegeven compute-doel:
 
 ```python
 trainStep = PythonScriptStep(
@@ -281,6 +281,8 @@ steps = [dbStep]
 pipeline1 = Pipeline(workspace=ws, steps=steps)
 ```
 
+Zie voor meer informatie de [azure-pipeline-stappen pakket](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) en [Pipeline-klasse](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) verwijzing.
+
 ## <a name="submit-the-pipeline"></a>Verzenden van de pijplijn
 
 Wanneer u de pijplijn verzendt, wordt Azure Machine Learning-service controleert de afhankelijkheden voor elke stap en uploadt een momentopname van de bronmap die u hebt opgegeven. Als er geen bronmap is opgegeven, wordt de huidige lokale map geüpload.
@@ -302,6 +304,8 @@ Wanneer u eerst een pijplijn uitvoert, Azure Machine Learning:
 * Artefacten, zoals Logboeken, stdout en stderr, metrische gegevens en uitvoerwaarde zijn opgegeven in de stap maakt. Deze artefacten worden vervolgens geüpload en opgeslagen in de standaard gegevensopslag van de gebruiker.
 
 ![Diagram van het uitvoeren van een experiment als een pijplijn](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
+
+Zie voor meer informatie de [experimenteren klasse](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) verwijzing.
 
 ## <a name="publish-a-pipeline"></a>Publiceren van een pijplijn
 
