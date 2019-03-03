@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a04a9f225d46ae3dc51381f01984a4ac2af3448f
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 5f97c2997711c30ad52e5209ba86e0d1bfe30ea8
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56891005"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57251913"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure premium storage: ontwerp voor hoge prestaties
 
@@ -69,11 +69,11 @@ Wanneer u uw toepassing om op te halen van hogere IOPS en doorvoer optimaliseert
 
 De volgende bewerkingen voor de controlelaag op beheerde schijven kunnen verkeer van de schijf van de ene opslaglocatie naar de andere omvatten. Dit is georganiseerd via achtergrond kopiëren van gegevens die enkele uren, afhankelijk van de hoeveelheid gegevens in de schijven meestal minder dan 24 uur kan duren. Gedurende die tijd kunt uw toepassing ervaringen hoger dan normaal leeslatentie bij het aantal leesbewerkingen kunnen ophalen omgeleid naar de oorspronkelijke locatie en kunnen het langer duren om. Er zijn geen gevolgen voor schrijven latentie tijdens deze periode.
 
-1. [Bijwerken van het opslagtype](../articles/virtual-machines/windows/convert-disk-storage.md).
-1. [Loskoppelen en een schijf koppelen van een virtuele machine naar een andere](../articles/virtual-machines/windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
-1. [Een beheerde schijf maken op basis van een VHD](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md).
-1. [Een beheerde schijf maken op basis van een momentopname](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
-1. [Niet-beheerde schijven converteren naar managed disks](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md).
+- Bijwerken van het opslagtype.
+- Loskoppelen en een schijf koppelen van een virtuele machine naar een andere.
+- Een beheerde schijf maken op basis van een VHD.
+- Een beheerde schijf maken op basis van een momentopname.
+- Niet-beheerde schijven converteren naar managed disks.
 
 # <a name="performance-application-checklist-for-disks"></a>Controlelijst voor prestaties-toepassing voor schijven
 

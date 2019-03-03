@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/22/2018
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: 646ebc79e3615b289b60e47c0a38595e7892d8cc
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 609eaa25640e74ffe3b39606051edd7048f72497
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55084888"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57251969"
 ---
 | Resource | Limiet |
 | --- | --- |
@@ -23,7 +23,8 @@ ms.locfileid: "55084888"
 | Gelijktijdige back-end verbindingen<sup>3</sup> per HTTP-instantie | 2048 per eenheid<sup>4</sup> |
 | Maximumgrootte van antwoorden in de cache | 2MB |
 | Beleid voor maximale documentgrootte | 256KB<sup>5</sup> | 
-| Maximum aantal aangepaste gateway domeinen per service-exemplaar<sup>6</sup> | 20 | 
+| Maximum aantal aangepaste gateway domeinen per service-exemplaar<sup>6</sup> | 20 |
+| Maximum aantal van ca-certificaten per service-exemplaar | 10 | 
 | Maximum aantal exemplaren van de service per abonnement<sup>7</sup> | 20 | 
 | Maximum aantal abonnementen per service-exemplaar<sup>7</sup> | 500 |
 | Maximum aantal clientcertificaten per service-exemplaar<sup>7</sup> | 50 | 
