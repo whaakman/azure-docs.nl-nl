@@ -7,21 +7,35 @@ items:
     href: billing-understand-your-bill.md
   - name: Meer informatie over uw EA-factuur
     href: billing-understand-your-bill-ea.md
-  - name: Factuur- en gebruiksgegevens ophalen
-    href: billing-download-azure-invoice-daily-usage-date.md
+  - name: Meer informatie over uw factuur - alleen Microsoft-klantovereenkomst
+    href: billing-mca-understand-your-bill.md
+  - name: Uw Microsoft Azure-factuur weergeven en downloaden
+    href: billing-download-azure-invoice.md
+  - name: Uw Microsoft Azure-gebruik en -kosten weergeven en downloaden
+    href: billing-download-azure-daily-usage.md
+  - name: Belastingdocumenten voor uw Microsoft-klantovereenkomst weergeven en downloaden
+    href: billing-mca-download-tax-document.md
   - name: Kosten voor services van derden
     href: billing-understand-your-azure-marketplace-charges.md
   - name: Informatie over gebruiksvoorwaarden
     href: billing-understand-your-usage.md
+  - name: Informatie over gebruiksvoorwaarden - alleen Microsoft-klantovereenkomst
+    href: billing-mca-understand-your-usage.md
   - name: Informatie over factureringsvoorwaarden
     href: billing-understand-your-invoice.md
+  - name: Informatie over factureringsvoorwaarden - alleen Microsoft-klantovereenkomst
+    href: billing-mca-understand-your-invoice.md
+  - name: Factureringsaccounts voor Microsoft-klantovereenkomst
+    href: billing-mca-overview.md
   expanded: true
 - name: Kosten beheren
   items:
   - name: Onverwachte kosten voorkomen
     href: billing-getting-started.md
-  - name: EA-prijzen weergeven
+  - name: Prijzen voor uw organisatie weergeven en downloaden
     href: billing-ea-pricing.md
+  - name: Informatie over prijsvoorwaarden - alleen Microsoft-klantovereenkomst
+    href: billing-mca-understand-pricesheet.md
   - name: Resourcetags gebruiken
     href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
   - name: Beginnen met analyseren van kosten
@@ -30,6 +44,8 @@ items:
     href: ../cost-management/tutorial-acm-create-budgets.md?toc=/azure/billing/TOC.json
   - name: Aanbevelingen optimaliseren
     href: ../cost-management/tutorial-acm-opt-recommendations.md?toc=/azure/billing/TOC.json
+  - name: Tegoed bijhouden voor Microsoft-klantovereenkomst
+    href: billing-mca-check-azure-credits-balance.md
   - name: Prijs berekenen
     href: https://azure.microsoft.com/pricing/calculator/
   - name: De bestedingslimiet begrijpen
@@ -90,12 +106,20 @@ items:
     href: billing-manage-access.md
   - name: EA-rollen in Azure
     href: billing-understand-ea-roles.md
+  - name: Microsoft-klantovereenkomstrollen in Azure
+    href: billing-understand-mca-roles.md
   - name: Partner-id koppelen
     href: billing-partner-admin-link-started.md
   - name: Factureringsaccounts weergeven
     href: billing-view-all-accounts.md
+  - name: Kosten ordenen met factuursecties
+    href: billing-mca-section-invoice.md
+  - name: EA-taken in Microsoft-klantovereenkomst
+    href: billing-mca-enterprise-operations.md
   - name: Verschuldigd bedrag betalen
     href: billing-azure-subscription-past-due-balance.md
+  - name: Factureringsaccount instellen voor Microsoft-klantovereenkomst
+    href: billing-mca-setup-account.md
   - name: Registreren met Office 365-account
     href: billing-use-existing-office-365-account-azure-subscription.md
   - name: Registreren voor Office 365 met een Azure-account
@@ -106,6 +130,8 @@ items:
     href: billing-subscription-become-disable.md
   - name: Eigendom overdragen
     href: billing-subscription-transfer.md
+  - name: Eigendom aanvragen - Microsoft-klantovereenkomst
+    href: billing-mca-request-billing-ownership.md
   - name: Abonnement annuleren
     href: billing-how-to-cancel-azure-subscription.md
   - name: Creditcard wijzigen
@@ -122,6 +148,8 @@ items:
     href: ../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json
   - name: Extra abonnementen maken
     href: billing-create-subscription.md
+  - name: Extra abonnement maken - Microsoft-klantovereenkomst
+    href: billing-mca-create-subscription.md
   - name: Programmatisch Enterprise-abonnementen maken
     href: ../azure-resource-manager/programmatically-create-subscription.md?toc=/azure/billing/TOC.json
   - name: Abonnementsgegevens exporteren
@@ -190,9 +218,9 @@ items:
     items:
     - name: REST-API van Enterprise Reporting
       href: https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary
-ms.openlocfilehash: 156f9f2ebb293855d541c779c7a2e3ba83cffc07
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 5d56504730be60d872c9d1345850925a645c664e
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447698"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241643"

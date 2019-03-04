@@ -14,6 +14,7 @@
 #### [Leadbeheer](./lead-management-for-cloud-marketplace.md)
 #### [Transacties in Azure Marketplace](./marketplace-commercial-transaction-capabilities-and-considerations.md)
 #### [Persoonlijke aanbiedingen](./private-offers.md)
+#### [Standaardcontract](./standard-contract.md)
 
 ### [Publicatiehandleiding op type aanbieding](./publisher-guide-by-offer-type.md)
 #### [Virtuele machines](./marketplace-virtual-machines.md)
@@ -30,13 +31,16 @@
 #### [Best practices voor aanbiedingsvermeldingen](./gtm-offer-listing-best-practices.md)
 #### [Hoe u wordt uitgelicht](./gtm-how-to-get-featured.md)
 #### [Validatie van Marketplace-inhoud](./marketplace-criteria-content-validation.md)
+#### [Providers van cloudoplossingen](./cloud-solution-providers.md)
 
 ### [Kies uw marketplace-voordelen](./gtm-your-marketplace-benefits.md)
 #### [Uw bedrijf promoten met Microsoft](./gtm-promote-your-business.md)
 #### [Voorkeursoplossingen](./preferred-solutions.md) 
+#### [Geïntegreerde oplossingen](./integrated-solutions.md)
 
 ### [Ondersteuning voor Azure Marketplace en AppSource](./support-azure-marketplace.md)
 #### [Veelgestelde vragen over Marketplace](./marketplace-faq-publisher-guide.md)
+#### [Geografische beschikbaarheid en valuta's](./marketplace-geo-availability-currencies.md)
 
 <!-- Following section is for Cloud Partner Portal (CPP). -->
 
