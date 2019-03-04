@@ -10,15 +10,15 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 08/09/2018
+ms.date: 02/28/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8d2d171235a23d3e41fda6172efe29b3bb358f0e
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 1d385fd8c8388e3ce54b89ff2ac863cd5a1aa0df
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804175"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216132"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions-schaal en hosting
 
@@ -125,7 +125,8 @@ De eenheid van de schaal is de functie-app. Wanneer de functie-app is uitgebreid
 Schalen kan variëren van een aantal factoren, en schaal anders op basis van de trigger en taal selecteren. Er zijn een echter een paar aspecten van schaalaanpassing die momenteel aanwezig zijn in het systeem:
 
 * Een functie-app kan zelfstandig omhoog worden geschaald naar maximaal 200 exemplaren. Slechts één exemplaar kan meer dan één bericht of aanvraag tegelijk verwerken, dus er is een limiet instellen voor het aantal gelijktijdige uitvoeringen niet.
-* Nieuwe instanties wordt alleen maximaal elke 10 seconden worden toegewezen.
+* Voor HTTP-triggers, wordt nieuwe instanties alleen toegewezen maximaal eenmaal per 1 seconde.
+* Voor niet-HTTP-triggers, wordt nieuwe instanties alleen toegewezen maximaal elke 30 seconden.
 
 Verschillende triggers mogelijk ook andere limieten voor schalen, evenals gedocumenteerde hieronder:
 
