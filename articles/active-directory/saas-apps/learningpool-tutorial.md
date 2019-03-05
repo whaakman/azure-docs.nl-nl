@@ -1,265 +1,244 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met Learningpool Act | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Learningpool Act.
+description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active Directory en Learningpool Act.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 51e8695f-31e1-4d09-8eb3-13241999d99f
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/30/2017
+ms.topic: tutorial
+ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bd7dd3b2cc69770ea92f1ed1f442c49cf4140dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: c1b988fe2049a81fe98636d52f56c85f7b80f9e4
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164540"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986257"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learningpool-act"></a>Zelfstudie: Azure Active Directory-integratie met Learningpool Act
 
-In deze zelfstudie leert u hoe u Learningpool Act integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Learningpool Act kunt integreren met Azure Active Directory (Azure AD).
+De integratie van Learningpool Act met Azure AD biedt de volgende voordelen:
 
-Learningpool Act integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD bepalen wie er toegang heeft tot Learningpool Act.
+* U kunt instellen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij Learningpool Act (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot Learningpool Act heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Learningpool Act (Single Sign-On) inschakelen met hun Azure AD-accounts
-- U kunt uw accounts in één centrale locatie - Azure portal beheren
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Learningpool Act, moet u de volgende items:
+Om Azure AD-integratie te configureren met Learningpool Act hebt u het volgende nodig:
 
-- Een Azure AD-abonnement
-- Een Learningpool Act eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u nog geen proefversie van Azure AD hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) een proefversie van één maand aanvragen.
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op Learningpool Act waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Learningpool Act uit de galerie toe te voegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-learningpool-act-from-the-gallery"></a>Learningpool Act uit de galerie toe te voegen
-Voor het configureren van de integratie van Learningpool Act in Azure AD, moet u Learningpool Act uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* Learningpool Act ondersteunt door **SP** geïnitieerde eenmalige aanmelding
 
-**Als u wilt toevoegen Learningpool Act uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-learningpool-act-from-the-gallery"></a>Learningpool Act toevoegen vanuit de galerie
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Om de integratie van Learningpool Act in Azure AD te configureren, moet u Learningpool Act vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-    ![Active Directory][1]
+**Voer de volgende stappen uit om Learningpool Act toe te voegen vanuit de galerie:**
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![Applicaties][2]
-    
-1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![Applicaties][3]
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-1. Typ in het zoekvak **Learningpool Act**.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/learningpool-tutorial/tutorial_Learningpoolact_search.png)
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-1. Selecteer in het deelvenster resultaten **Learningpool Act**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/learningpool-tutorial/tutorial_Learningpoolact_addfromgallery.png)
+4. Typ **Learningpool Act** in het zoekvak, selecteer **Learningpool Act** in het deelvenster met resultaten en klik op de knop **Toevoegen** om de toepassing toe te voegen.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-In deze sectie configureert u en test Azure AD eenmalige aanmelding met Learningpool Act op basis van een testgebruiker 'Britta Simon' genoemd.
+     ![Learningpool Act in de resultatenlijst](common/search-new-app.png)
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Learningpool Act is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Learningpool Act tot stand worden gebracht.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In de Learningpool Act, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+In deze sectie gaat u Azure AD-eenmalige aanmelding bij Learningpool Act configureren en testen op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Learningpool Act tot stand is gebracht.
 
-Als u wilt configureren en testen van Azure AD eenmalige aanmelding met Learningpool Act, u nodig hebt voor de volgende bouwstenen:
+Als u eenmalige aanmelding van Azure AD met Learningpool Act wilt configureren en testen, moet u de volgende bouwstenen voltooien:
 
-1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Het maken van een testgebruiker Learningpool Act](#creating-a-learningpool-act-test-user)**  : als u wilt een equivalent van Britta Simon in Learningpool Act die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding met Learningpool Act configureren](#configure-learningpool-act-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wil configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Testgebruiker maken voor Learningpool Act](#create-learningpool-act-test-user)**: als u een tegenhanger van Britta Simon in Learningpool Act wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Learningpool Act.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Learningpool Act, moet u de volgende stappen uitvoeren:**
+Voer de volgende stappen uit als u Azure AD-eenmalige aanmelding wilt configureren met Learningpool Act:
 
-1. In de Azure-portal op de **Learningpool Act** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. In de [Azure-portal](https://portal.azure.com/) selecteert u **Eenmalige aanmelding** op de integratiepagina van de toepassing **Learningpool Act**.
 
-    ![Eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![Eenmalige aanmelding configureren](./media/learningpool-tutorial/tutorial_Learningpoolact_samlbase.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-1. Op de **Learningpool Act domein en URL's** sectie, voert u de volgende stappen uit:
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    ![Eenmalige aanmelding configureren](./media/learningpool-tutorial/tutorial_Learningpoolact_url.png)
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    a. In de **aanmeldings-URL** tekstvak typt u de URL: `https://parliament.preview.Learningpool.com/auth/shibboleth/index.php`
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    b. In het tekstvak **Id** typt u een URL met het volgende patroon:
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
+
+    ![Gegevens van domein en URL's voor eenmalige aanmelding van Learningpool Act Domain](common/sp-identifier.png)
+
+    a. In het tekstvak **Aanmeldings-URL** typt u de URL: `https://parliament.preview.Learningpool.com/auth/shibboleth/index.php`
+
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon:
     | |
     |--|
     | `https://<subdomain>.Learningpool.com/shibboleth` |
     | `https://<subdomain>.preview.Learningpool.com/shibboleth` |
+    | | |
 
-    > [!NOTE] 
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de daadwerkelijke aanmeldings-URL en id. Neem contact op met [Learningpool Act Client ondersteuningsteam](https://www.Learningpool.com/support) om deze waarden te verkrijgen. 
- 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+    > [!NOTE]
+    > De id-waarde is niet echt. Werk deze waarde bij met de werkelijke id. Neem contact op met het [klantondersteuningsteam van Learningpool Act](https://www.learningpool.com/support) om deze waarde te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-    ![Eenmalige aanmelding configureren](./media/learningpool-tutorial/tutorial_Learningpoolact_certificate.png) 
+5. Uw Learningpool Act-toepassing verwacht de SAML-asserties in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen moet toevoegen aan de configuratie van de SAML-tokenkenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op het pictogram  **Bewerken** om het dialoogvenster Gebruikerskenmerken te openen.
 
-1. Learningpool Act-toepassing wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit beheren de **"Atrribute"** tabblad van de toepassing. In de volgende schermopname ziet u een voorbeeld hiervan. 
+    ![image](common/edit-attribute.png)
 
-    ![Eenmalige aanmelding configureren](./media/learningpool-tutorial/tutorial_Learningpoolact_attribute.png) 
+6. Bewerk in het gedeelte **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** de claims met het **pictogram Bewerken** of voeg de claims toe door met **Nieuwe claim toevoegen** het kenmerk van het SAML-token te configureren, zoals wordt weergegeven in de bovenstaande afbeelding. Hierna voert u de volgende stappen uit: 
 
-1. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de afbeelding en voer de volgende stappen uit:
-    
-    | Naam kenmerk | Waarde kenmerk |
+    | Naam | Bronkenmerk|
     | ------------------- | -------------------- |
     | urn:oid:1.2.840.113556.1.4.221 | user.userprincipalname |
-    | urn: oid:2.5.4.42 | user.givenname |
-    | urn:oid:0.9.2342.19200300.100.1.3 | user.mail |    
-    | urn: oid:2.5.4.4 | user.surname |
-    
-    a. Klik op **kenmerk toevoegen** openen de **kenmerk toevoegen** dialoogvenster.
+    | urn:oid:2.5.4.42 | user.givenname |
+    | urn:oid:0.9.2342.19200300.100.1.3 | user.mail |
+    | urn:oid:2.5.4.4 | user.surname |
+    | | |
 
-    ![Eenmalige aanmelding configureren](./media/learningpool-tutorial/tutorial_attribute_04.png)
+    a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 
-    ![Eenmalige aanmelding configureren](./media/learningpool-tutorial/tutorial_attribute_05.png)
+    ![image](common/new-save-attribute.png)
+
+    ![image](common/new-attribute-details.png)
 
     b. In het tekstvak **Naam** typt u de naam van het kenmerk die voor die rij wordt weergegeven.
 
-    c. Uit de **waarde** weergeven, typt u de waarde van het kenmerk wordt weergegeven voor die rij.
+    c. Laat **Naamruimte** leeg.
 
-    d. Laat **Naamruimte** leeg.
-    
-    e. Klik op **OK**.
+    d. Selecteer Bron bij **Kenmerk**.
 
-1. Klik op de knop **Save**.
+    e. Typ de kenmerkwaarde voor die rij in de lijst met **bronkenmerken**.
 
-    ![Eenmalige aanmelding configureren](./media/learningpool-tutorial/tutorial_general_400.png)
+    f. Klik op **OK**.
 
-1. Het configureren van eenmalige aanmelding op **Learningpool Act** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [Learningpool Act-ondersteuningsteam](https://www.Learningpool.com/support). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+    g. Klik op **Opslaan**.
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+7. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
-### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
+    ![De link om het certificaat te downloaden](common/metadataxml.png)
+
+8. In de sectie **Learningpool Act instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
+
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
+
+    a. Aanmeldings-URL
+
+    b. Azure AD-id
+
+    c. Afmeldings-URL
+
+### <a name="configure-learningpool-act-single-sign-on"></a>Eenmalige aanmelding configureren voor Learningpool Act
+
+Als u eenmalige aanmelding aan de zijde van **Learningpool Act** wilt configureren, moet u het gedownloade **XML-bestand met federatieve metagegevens** en de correcte uit de Azure-portal gekopieerde URL's verzenden naar het [ondersteuningsteam van Learningpool Act](https://www.learningpool.com/support). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-![Azure AD-gebruiker maken][100]
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![Het maken van een Azure AD-testgebruiker](./media/learningpool-tutorial/create_aaduser_01.png) 
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
-    
-    ![Het maken van een Azure AD-testgebruiker](./media/learningpool-tutorial/create_aaduser_02.png) 
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/learningpool-tutorial/create_aaduser_03.png) 
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/learningpool-tutorial/create_aaduser_04.png) 
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    a. In de **naam** tekstvak, type **BrittaSimon**.
-
-    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
-
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="creating-a-learningpool-act-test-user"></a>Het maken van een testgebruiker Learningpool Act
 
-Als u wilt dat Azure AD-gebruikers zich aanmelden bij Learningpool Act, moeten ze worden ingericht voor Learningpool Act.
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-Er is geen actie-item voor u het inrichten van gebruikers naar Learningpool Act configureren.  
-Gebruikers moeten worden gemaakt door uw [Learningpool Act-ondersteuningsteam](https://www.Learningpool.com/support).
+In deze sectie zorgt u ervoor dat Britta Simon gebruik kan maken van eenmalige aanmelding van Azure, door haar toegang te geven tot Learningpool Act.
 
->[!NOTE]
->U kunt alle andere Learningpool Act gebruiker-account maken van hulpprogramma's of API's geleverd door Learningpool Act aan inrichten AAD-gebruikersaccounts. 
+1. Selecteer **Bedrijfstoepassingen** in de Azure-portal, selecteer **Alle toepassingen** en selecteer vervolgens **Learningpool Act**.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Learningpool Act.
+2. Selecteer **Learningpool Act** in de lijst met toepassingen.
 
-![Gebruiker toewijzen][200] 
+    ![De koppeling Learningpool Act in de lijst met toepassingen](common/all-applications.png)
 
-**Als u wilt toewijzen Britta Simon naar Learningpool handeling, moet u de volgende stappen uitvoeren:**
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-    ![Gebruiker toewijzen][201] 
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-1. Selecteer in de lijst met toepassingen, **Learningpool Act**.
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-    ![Eenmalige aanmelding configureren](./media/learningpool-tutorial/tutorial_Learningpoolact_app.png) 
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-    ![Gebruiker toewijzen][202] 
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+### <a name="create-learningpool-act-test-user"></a>Learningpool Act-testgebruiker maken
 
-    ![Gebruiker toewijzen][203]
+Als u wilt dat gebruikers van Azure AD zich kunnen aanmelden bij Learningpool Act, moeten ze worden ingericht voor Learningpool Act.
 
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+U hoeft niets te doen om het inrichten van gebruikers bij Learningpool Act te configureren.  
+Gebruikers moeten worden gemaakt door het [ondersteuningsteam van Learningpool Act](https://www.Learningpool.com/support).
 
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+> [!NOTE]
+> U kunt alle hulpprogramma's voor het maken van gebruikersaccounts of API's van Learningpool Act gebruiken om AAD-gebruikersaccounts in te richten.
 
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding configuratie via het toegangsvenster.
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-Wanneer u op de tegel Learningpool Act in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing Learningpool Act.
+Wanneer u in het toegangsvenster op de tegel Learningpool Act klikt, zou u automatisch moeten worden aangemeld bij het exemplaar van Learningpool Act waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-
-<!--Image references-->
-
-[1]: ./media/Learningpool-tutorial/tutorial_general_01.png
-[2]: ./media/Learningpool-tutorial/tutorial_general_02.png
-[3]: ./media/Learningpool-tutorial/tutorial_general_03.png
-[4]: ./media/Learningpool-tutorial/tutorial_general_04.png
-
-[100]: ./media/Learningpool-tutorial/tutorial_general_100.png
-
-[200]: ./media/Learningpool-tutorial/tutorial_general_200.png
-[201]: ./media/Learningpool-tutorial/tutorial_general_201.png
-[202]: ./media/Learningpool-tutorial/tutorial_general_202.png
-[203]: ./media/Learningpool-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

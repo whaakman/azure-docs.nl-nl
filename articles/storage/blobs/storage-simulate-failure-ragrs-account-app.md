@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: tamram
-ms.openlocfilehash: 2d86c0c4838fb2ae9d839e64a067824019133d8b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 0cbb4d2bc6449dc1cf12a374085b429743224995
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024430"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872876"
 ---
 # <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Zelfstudie: Een fout simuleren bij het openen van redundante opslag met leestoegang
 
@@ -75,7 +75,7 @@ Selecteer als u klaar bent **File** en **Save** om uw wijzigingen op te slaan.
 
 ### <a name="interrupting-the-application"></a>De toepassing onderbreken
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python, and Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python en Java versie 7](#tab/dotnet-python-java-v7)
 
 Voer de toepassing uit in uw IDE of shell.
 
@@ -83,7 +83,7 @@ Wanneer de toepassing van het primaire eindpunt gaat lezen, drukt u op **een wil
 
 ![Scenario-app](media/storage-simulate-failure-ragrs-account-app/scenario.png)
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Voer de toepassing uit in uw IDE of shell.
 
@@ -113,7 +113,7 @@ Verwijder de commentaartekens voor de volgende regels en vervang `STORAGEACCOUNT
          }
 ```
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python, and Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python en Java versie 7](#tab/dotnet-python-java-v7)
 
 Druk op **een willekeurige toets** om de toepassing te hervatten.
 
@@ -123,7 +123,7 @@ Dit patroon is het [circuitonderbreker](https://docs.microsoft.com/azure/archite
 
 ![De aangepaste regel plakken](media/storage-simulate-failure-ragrs-account-app/figure3.png)
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 De fout is nu geïntroduceerd en dus voert u **G** uit om te testen op de fout.
 
@@ -133,7 +133,7 @@ Er verschijnt een bericht dat de secundaire pijplijn wordt gebruikt in plaats va
 
 ### <a name="simulate-primary-endpoint-restoration"></a>Herstel van het primaire eindpunt simuleren
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python, and Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python en Java versie 7](#tab/dotnet-python-java-v7)
 
 Met de aangepaste regelset van Fiddler in de vorige stap, mislukken aanvragen naar het primaire eindpunt.
 
@@ -153,7 +153,7 @@ Druk als u klaar bent op **een willekeurige toets** om de toepassing te hervatte
 
 ![Toepassing hervatten](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Met de aangepaste regelset van Fiddler in de vorige stap, mislukken aanvragen naar het primaire eindpunt.
 
@@ -173,11 +173,11 @@ U kunt een ongeldige statische route maken voor alle aanvragen naar het primaire
 
 ### <a name="start-and-pause-the-application"></a>De toepassing starten en onderbreken
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python, and Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python en Java versie 7](#tab/dotnet-python-java-v7)
 
 Voer de toepassing uit in uw IDE of shell. Wanneer de toepassing van het primaire eindpunt gaat lezen, drukt u op **een willekeurige toets** in het consolevenster om de toepassing te onderbreken.
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Aangezien u het voorbeeld beheert, hoeft u geen onderbreking in te voegen om een fout te testen.
 
@@ -210,13 +210,13 @@ Als u een statische route voor de doelhost wilt toevoegen, typt u de volgende op
 
 Vervang `<destination_ip>` door het IP-adres van uw opslagaccount en `<gateway_ip>` door het IP-adres van uw lokale host.
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python, and Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python en Java versie 7](#tab/dotnet-python-java-v7)
 
 Druk op **een willekeurige toets** om de toepassing te hervatten.
 
 Wanneer de toepassing weer wordt uitgevoerd, gaan de aanvragen naar het primaire eindpunt mislukken. De toepassing probeert vijf keer opnieuw verbinding te maken met het primaire eindpunt. Na de foutdrempelwaarde van vijf pogingen wordt de installatiekopie van het secundaire eindpunt met alleen leestoegang aangevraagd. Nadat de toepassing de installatiekopie 20 keer van het secundaire eindpunt heeft opgehaald, probeert de toepassing verbinding te maken met het primaire eindpunt. Als het primaire eindpunt nog steeds niet bereikbaar is, hervat de toepassing het lezen van het secundaire eindpunt. Dit patroon is het [circuitonderbreker](/azure/architecture/patterns/circuit-breaker)-patroon dat in de vorige zelfstudie is beschreven.
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 De fout is nu geïntroduceerd en dus voert u **G** uit om te testen op de fout. Er verschijnt een bericht dat de secundaire pijplijn wordt gebruikt in plaats van de primaire pijplijn.
 
@@ -236,14 +236,14 @@ Als u de statische route van een doelhost wilt verwijderen, typt u de volgende o
 
 `route delete <destination_ip>`
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python, and Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python en Java versie 7](#tab/dotnet-python-java-v7)
 
 Druk op **een willekeurige toets** als u de toepassing wilt hervatten. De toepassing blijft lezen van het primaire eindpunt totdat de 999 leesbewerkingen zijn bereikt.
 
 ![Toepassing hervatten](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Voer **G** in om de download te testen. De toepassing meldt dat nu weer de primaire pijplijn wordt gebruikt.
 

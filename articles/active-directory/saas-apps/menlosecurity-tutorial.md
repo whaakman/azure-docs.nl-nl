@@ -1,250 +1,218 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met Menlo beveiliging | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Menlo beveiliging.
+title: 'Zelfstudie: Integratie van Azure Active Directory met Menlo Security | Microsoft Docs'
+description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active Directory en Menlo Security.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 9e63fe6b-0ad0-405d-9e41-6a1a40a41df8
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/08/2017
+ms.topic: tutorial
+ms.date: 02/20/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e779e4fab06802212514af94cafc1b016b737ca4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: 2a83a72320a035bdb28ba0b52fd5ca1b3a17e7a9
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183901"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873964"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-menlo-security"></a>Zelfstudie: Azure Active Directory-integratie met Menlo beveiliging
+# <a name="tutorial-azure-active-directory-integration-with-menlo-security"></a>Zelfstudie: Integratie van Azure Active Directory met Menlo Security
 
-In deze zelfstudie leert u hoe u Menlo beveiliging integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Menlo Security integreert met Azure Active Directory (Azure AD).
+Als u Menlo Security integreert met Azure AD, levert dit de volgende voordelen op:
 
-Menlo beveiliging integreren met Azure AD biedt u de volgende voordelen:
+* In Azure AD kunt u bepalen wie er toegang heeft tot Menlo Security.
+* U kunt instellen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij Menlo Security (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot Menlo beveiliging heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij de beveiliging Menlo (Single Sign-On) inschakelen met hun Azure AD-accounts
-- U kunt uw accounts in één centrale locatie - Azure portal beheren
-
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, raadpleegt u. [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Menlo beveiliging, moet u de volgende items:
+Als u de integratie van Azure AD met Menlo Security wilt configureren, hebt u de volgende zaken nodig:
 
-- Een Azure AD-abonnement
-- Een Menlo Security eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u nog geen proefversie van Azure AD hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) een proefversie van één maand aanvragen.
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op Menlo Security waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Menlo beveiliging toe te voegen uit de galerie
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-menlo-security-from-the-gallery"></a>Menlo beveiliging toe te voegen uit de galerie
-Voor het configureren van de integratie van Menlo beveiliging in Azure AD, moet u Menlo beveiliging uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* Menlo Security biedt ondersteuning voor met **SP** geïnitieerde eenmalige aanmelding
 
-**Als u wilt toevoegen Menlo beveiliging uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-menlo-security-from-the-gallery"></a>Menlo Security toevoegen vanuit de galerie
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Als u de integratie van Menlo Security in Azure AD wilt configureren, moet u Menlo Security vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-    ![Active Directory][1]
+**Als u Menlo Security vanuit de galerie wilt toevoegen, voert u de volgende stappen uit:**
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![Applicaties][2]
-    
-1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![Applicaties][3]
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-1. Typ in het zoekvak **Menlo Security**.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/menlosecurity-tutorial/tutorial_menlosecurity_search.png)
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-1. Selecteer in het deelvenster resultaten **Menlo Security**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/menlosecurity-tutorial/tutorial_menlosecurity_addfromgallery.png)
+4. Typ **Menlo Security** in het zoekvak, selecteer **Menlo Security** in het resultaatvenster en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met Menlo beveiliging op basis van een testgebruiker met de naam "Britta Simon."
+     ![Menlo Security in de resultatenlijst](common/search-new-app.png)
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Menlo Security is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Menlo beveiliging tot stand worden gebracht.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-Deze relatie koppeling tot stand is gebracht door toe te wijzen de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** in Menlo Security.
+In dit gedeelte configureert en test u eenmalige aanmelding van Azure AD met Menlo Security, met behulp van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tot stand is gebracht tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Menlo Security.
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met Menlo beveiliging, moet u de volgende bouwstenen voltooien:
+Als u eenmalige aanmelding van Azure AD met Menlo Security wilt configureren en testen, moet u de volgende bouwstenen voltooien:
 
-1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Het maken van een testgebruiker Menlo Security](#creating-a-menlo-security-test-user)**  : als u wilt hebben van een equivalent van Britta Simon in Menlo Security die is gekoppeld aan de Azure AD-weergave van de gebruiker.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding configureren voor Menlo Security](#configure-menlo-security-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wil configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Testgebruiker maken voor Menlo Security](#create-menlo-security-test-user)**: als u een tegenhanger van Britta Simon in Menlo Security wilt hebben die is gekoppeld aan de weergave van de gebruiker in Azure AD.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Menlo beveiliging.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Menlo beveiliging, moet u de volgende stappen uitvoeren:**
+Als u eenmalige aanmelding van Azure AD met Menlo Security wilt configureren, voert u de volgende stappen uit:
 
-1. In de Azure-portal op de **Menlo Security** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. Ga in de [Azure-portal](https://portal.azure.com/) naar de pagina met de integratie van de toepassing **Menlo Security** en selecteer **Eenmalige aanmelding**.
 
-    ![Eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![Eenmalige aanmelding configureren](./media/menlosecurity-tutorial/tutorial_menlosecurity_samlbase.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-1. Op de **Menlo Security domein en URL's** sectie, voert u de volgende stappen uit:
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    ![Eenmalige aanmelding configureren](./media/menlosecurity-tutorial/tutorial_menlosecurity_url.png)
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<subdomain>.menlosecurity.com/account/login`
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    b. Typ in het tekstvak **Id** een URL met het volgende patroon: `https://<subdomain>.menlosecurity.com/safeview-auth-server/saml/metadata`
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
-    > [!NOTE] 
-    > Dit zijn niet de echte waarden. Werk deze waarden bij met de daadwerkelijke aanmeldings-URL en id. Neem contact op met [Menlo Beveiligingsclient ondersteuningsteam](https://www.menlosecurity.com/menlo-contact) om deze waarden te verkrijgen. 
- 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
+    ![Informatie over eenmalige aanmelding van domeinen en URL’s van Menlo Security](common/sp-identifier.png)
 
-    ![Eenmalige aanmelding configureren](./media/menlosecurity-tutorial/tutorial_menlosecurity_certificate.png) 
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<subdomain>.menlosecurity.com/account/login`
 
-1. Klik op de knop **Save**.
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<subdomain>.menlosecurity.com/safeview-auth-server/saml/metadata`
 
-    ![Eenmalige aanmelding configureren](./media/menlosecurity-tutorial/tutorial_general_400.png)
+    > [!NOTE]
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met het [klantondersteuningsteam van Menlo Security](https://www.menlosecurity.com/menlo-contact) om deze waarden op te vragen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-1. Op de **Menlo Beveiligingsconfiguratie** sectie, klikt u op **Configure Menlo Security** openen **aanmelding configureren** venster. Kopiëren de **SAML entiteit-ID**, en **Single Sign-On Service URL voor SAML** uit de **Naslaggids sectie.**
+5. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
-    ![Eenmalige aanmelding configureren](./media/menlosecurity-tutorial/tutorial_menlosecurity_configure.png) 
+    ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
-1. Het configureren van eenmalige aanmelding op **Menlo Security** side, meld u aan bij de **Menlo Security** website als beheerder.
+6. Kopieer in het gedeelte **Menlo Security instellen** de juiste URL('s) op basis van uw behoeften.
 
-1. Onder **instellingen** Ga naar **verificatie** en de volgende acties uitvoeren:
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
+
+    a. Aanmeldings-URL
+
+    b. Azure AD-id
+
+    c. Afmeldings-URL
+
+### <a name="configure-menlo-security-single-sign-on"></a>Eenmalige aanmelding configureren voor Menlo Security
+
+1. Als u eenmalige aanmelding wilt configureren aan de zijde van **Menlo Security**, meldt u zich als beheerder aan bij de website van **Menlo Security**.
+
+2. Kies onder **Instellingen** voor **Verificatie** en voer de volgende acties uit:
     
     ![Eenmalige aanmelding configureren](./media/menlosecurity-tutorial/menlo_user_setup.png)
 
-    a. Vink het selectievakje **inschakelen gebruikersverificatie via SAML**.
+    a. Vink het selectievakje **Gebruikersverificatie met behulp van SAML inschakelen** aan.
 
-    b. Selecteer **toestaan van externe toegang** naar **Ja**.
+    b. Stel **Externe toegang toestaan** in op **Ja**.
 
-    c. Onder **SAML-Provider**, selecteer **Azure Active Directory**.
+    c. Kies onder **SAML-provider** voor **Azure Active Directory**.
 
-    d. **SAML 2.0 eindpunt** : Plak de **Single Sign-On Service URL voor SAML** die u hebt gekopieerd vanuit Azure portal.
+    d. **SAML 2.0-eindpunt**: Plak hier de **aanmeldings-URL** die u in de Azure-portal hebt gekopieerd.
 
-    e. **Service-id (verlener)** : Plak de **SAML entiteit-ID** die u hebt gekopieerd vanuit Azure portal.
+    e. **Service-id (verlener)**: Plak hier de **Azure AD-id** die u in de Azure-portal hebt gekopieerd.
 
-    f. **X.509-certificaat** : Open de **certificaat (Base64)** gedownload vanuit de Azure-Portal in Kladblok en plak deze in dit vak.
+    f. **X.509-certificaat**: Open het **Certificaat (Base64)** dat u uit de Azure-portal hebt gedownload in Kladblok en plak het in dit vak.
 
     g. Klik op **Opslaan** om de instellingen op te slaan.
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
- 
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-![Azure AD-gebruiker maken][100]
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![Het maken van een Azure AD-testgebruiker](./media/menlosecurity-tutorial/create_aaduser_01.png) 
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
-    
-    ![Het maken van een Azure AD-testgebruiker](./media/menlosecurity-tutorial/create_aaduser_02.png) 
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/menlosecurity-tutorial/create_aaduser_03.png) 
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/menlosecurity-tutorial/create_aaduser_04.png) 
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    a. In de **naam** tekstvak, type **BrittaSimon**.
-
-    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
-
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="creating-a-menlo-security-test-user"></a>Het maken van een testgebruiker Menlo beveiliging
- 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in Menlo Security. Werken met [Menlo Beveiligingsclient ondersteuningsteam](https://www.menlosecurity.com/menlo-contact) om toe te voegen de gebruikers in het platform voor Menlo beveiliging. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken. 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Menlo beveiliging.
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot Menlo Security.
 
-![Gebruiker toewijzen][200] 
+1. Selecteer **Bedrijfstoepassingen** in de Azure-portal, selecteer **Alle toepassingen** en selecteer vervolgens **Menlo Security**.
 
-**Als u wilt toewijzen Britta Simon Menlo beveiliging, moet u de volgende stappen uitvoeren:**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+2. Selecteer **Menlo Security** in de lijst met toepassingen.
 
-    ![Gebruiker toewijzen][201] 
+    ![De koppeling naar Menlo Security in de lijst met toepassingen](common/all-applications.png)
 
-1. Selecteer in de lijst met toepassingen, **Menlo Security**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![Eenmalige aanmelding configureren](./media/menlosecurity-tutorial/tutorial_menlosecurity_app.png) 
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![Gebruiker toewijzen][202] 
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Gebruiker toewijzen][203]
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+### <a name="create-menlo-security-test-user"></a>Testgebruiker maken voor Menlo Security
 
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
+In dit gedeelte gaat u een gebruiker met de naam Britta Simon maken in Menlo Security. Werk samen met het [klantondersteuningsteam van Menlo Security](https://www.menlosecurity.com/menlo-contact) om de gebruikers toe te voegen in het Menlo Security-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
 
-In deze sectie maakt testen u uw configuratie Azure AD eenmalige aanmelding.
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-Open een browservenster in de modus 'InPrivate' of 'Incognito' voor het activeren van een nieuwe verificatie.  Gebruik Ctrl + Shift + P in Internet Explorer.  In Chrome, gebruikt u Ctrl + Shift + N.  Blader naar een beveiligde bron in het persoonlijke gebruik van browser venster en uitvoeren van een Azure AD-aanmelding.  Bij geslaagde aanmelding gaat u naar de gewenste site in een sessie isolatie.
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+
+Wanneer u in het toegangsvenster op de tegel Menlo Security klikt, wordt u automatisch aangemeld bij de instantie van Menlo Security waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
-
-<!--Image references-->
-
-[1]: ./media/menlosecurity-tutorial/tutorial_general_01.png
-[2]: ./media/menlosecurity-tutorial/tutorial_general_02.png
-[3]: ./media/menlosecurity-tutorial/tutorial_general_03.png
-[4]: ./media/menlosecurity-tutorial/tutorial_general_04.png
-
-[100]: ./media/menlosecurity-tutorial/tutorial_general_100.png
-
-[200]: ./media/menlosecurity-tutorial/tutorial_general_200.png
-[201]: ./media/menlosecurity-tutorial/tutorial_general_201.png
-[202]: ./media/menlosecurity-tutorial/tutorial_general_202.png
-[203]: ./media/menlosecurity-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

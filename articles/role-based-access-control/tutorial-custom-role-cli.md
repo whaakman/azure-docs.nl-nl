@@ -11,18 +11,18 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/12/2018
+ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: 9cd736272fce71f08006d32a169b88d092a48231
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: de1805d91f48b5718ecf293c2b8672ba40fb81a9
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340209"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588157"
 ---
 # <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-cli"></a>Zelfstudie: een aangepaste rol maken voor Azure-resources met Azure CLI
 
-Als de [ingebouwde rollen voor Azure-resources](built-in-roles.md) niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen aangepaste rollen maken. Voor deze zelfstudie gaat u met behulp van Azure CLI een aangepaste rol maken met de naam Reader Support Tickets. De aangepaste rol stelt de gebruiker in staat om alles in het abonnement te zien en ook om ondersteuningstickets te openen.
+Als de [ingebouwde rollen voor Azure-resources](built-in-roles.md) niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen aangepaste rollen maken. Voor deze zelfstudie gaat u met behulp van Azure CLI een aangepaste rol maken met de naam Reader Support Tickets. De aangepaste rol stelt de gebruiker in staat om alles in het beheersvenster van een abonnement te zien en ook om ondersteuningstickets te openen.
 
 In deze zelfstudie leert u het volgende:
 
@@ -39,7 +39,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 - Machtigingen voor het maken van aangepaste rollen, zoals [Eigenaar](built-in-roles.md#owner) of [Administrator voor gebruikerstoegang](built-in-roles.md#user-access-administrator)
-- [Azure CLI](/cli/azure/install-azure-cli) lokaal geïnstalleerd
+- [Azure Cloud Shell](../cloud-shell/overview.md) of [Azure CLI](/cli/azure/install-azure-cli)
 
 ## <a name="sign-in-to-azure-cli"></a>Aanmelden bij Azure CLI
 
@@ -61,7 +61,7 @@ De eenvoudigste manier om een aangepaste rol te maken, is door een JSON-sjabloon
 
 1. Open ReaderSupportRole.json in een editor en voeg de volgende JSON-code toe.
 
-    Zie [Aangepaste rollen](custom-roles.md) voor informatie over de verschillende eigenschappen.
+    Zie [Aangepaste rollen voor Azure-resources](custom-roles.md) voor informatie over de verschillende eigenschappen.
 
     ```json
     {

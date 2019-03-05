@@ -11,12 +11,12 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: c0a7bb9dfe8553515816efd53785dbe661cee0fa
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f272f72a0bcae70a25bada266dc6b080f46526cd
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54431585"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817713"
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Een virtuele Linux-machine met Desired State Configuration configureren
 
@@ -144,5 +144,5 @@ In deze quickstart hebt u een onboarding uitgevoerd voor een virtuele Linux-mach
 
 * Zie voor meer informatie over PowerShell Desired State Configuration, [PowerShell Desired State Configuration Overview](https://docs.microsoft.com/powershell/dsc/overview) (Overzicht van PowerShell Desired Configuration).
 * Zie [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-5.0.0) voor meer informatie over het beheren van Automation DSC vanuit PowerShell.
-* Zie [Forwarding DSC Reporting to Log Analytics](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics) (DSC-rapporten doorsturen naar Log Analytics) voor informatie over het doorsturen van DSC-rapporten naar Log Analytics voor rapportage- en waarschuwingsdoeleinden. 
+* Zie [Forwarding DSC Reporting to Azure Monitor logs](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics) (DSC-rapporten doorsturen naar Azure Monitor-logboeken) voor informatie over het doorsturen van DSC-rapporten naar Azure Monitor-logboeken voor rapportage- en waarschuwingsdoeleinden. 
 

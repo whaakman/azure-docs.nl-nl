@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: add284a3a001d5bc2e756f9ad4a2a3b9550b212c
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 7287a9ddbd84960dcde790d813a6204e9e790094
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242123"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887417"
 ---
 # <a name="example-how-to-detect-sentiment-with-text-analytics"></a>Voorbeeld: Sentiment detecteren met Text Analytics
 
@@ -39,7 +39,7 @@ Gevoelsanalyse produceert een hoger kwaliteitsresultaat wanneer u ze kleinere se
 
 U moet JSON-documenten in deze indeling hebben: id, tekst, taal
 
-De documentgrootte moet onder maximaal 5000 tekens per document zijn, en u kunt maximaal 1000 items (id's) per verzameling hebben. De verzameling is in de hoofdtekst van de aanvraag ingediend. Hier volgt een voorbeeld van de inhoud die u voor gevoelsanalyse kan indienen.
+De documentgrootte moet minder dan maximaal 5120 tekens per document zijn, en u kunt maximaal 1000 items (id's) per verzameling hebben. De verzameling is in de hoofdtekst van de aanvraag ingediend. Hier volgt een voorbeeld van de inhoud die u voor gevoelsanalyse kan indienen.
 
 ```
     {

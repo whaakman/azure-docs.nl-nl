@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2018
+ms.date: 02/21/2019
 ms.author: jdial
-ms.openlocfilehash: c91292bff22a76e4c15f031094809e20fdc43031
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3f308c38e9fa23c36f964b117f620a39e56c9bbd
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175724"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958181"
 ---
 # <a name="virtual-network-peering"></a>Peering op virtueel netwerk
 
@@ -63,7 +63,7 @@ Wanneer virtuele netwerken zijn gekoppeld in dezelfde regio, kunt u ook de gatew
 
 ![doorvoer bij peering van virtuele netwerken](./media/virtual-networks-peering-overview/figure04.png)
 
-Gateway-doorvoer wordt niet ondersteund in de peeringrelatie tussen virtuele netwerken die in verschillende regio’s zijn gemaakt. Beide virtuele netwerken in de peeringrelatie moeten zich in dezelfde regio bevinden om ervoor te zorgen dat de doorvoer via een gateway werkt. Gateway-doorvoer tussen virtuele netwerken die zijn gemaakt via verschillende implementatiemodellen (Resource Manager en classic) wordt alleen ondersteund als de gateway zich in het virtuele netwerk (Resource Manager) bevindt. Zie voor meer informatie over het gebruik van een gateway voor de doorvoer, [Een VPN-gateway configureren voor de doorvoer in een virtueel netwerkpeering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Gateway-doorvoer wordt niet ondersteund in de peeringrelatie tussen virtuele netwerken die in verschillende regio’s zijn gemaakt. Beide virtuele netwerken in de peeringrelatie moeten zich in dezelfde regio bevinden om ervoor te zorgen dat de doorvoer via een gateway werkt. Gateway-doorvoer tussen virtuele netwerken die zijn gemaakt via verschillende implementatiemodellen (Resource Manager en classic) wordt alleen ondersteund als de gateway (VPN of ExpressRoute) zich in het virtuele netwerk (Resource Manager) bevindt. Zie voor meer informatie over het gebruik van een gateway voor de doorvoer, [Een VPN-gateway configureren voor de doorvoer in een virtueel netwerkpeering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Wanneer virtuele netwerken die één Azure ExpressRoute-verbinding delen, worden gekoppeld, gaat het verkeer tussen de twee netwerken via de peering-relatie (dat wil zeggen, via het backbone-netwerk van Azure). U kunt nog steeds in elk virtueel netwerk lokale gateways gebruiken om verbinding te maken met het on-premises circuit. U kunt ook een gedeelde gateway gebruiken en de doorvoer voor on-premises connectiviteit configureren.
 
@@ -77,8 +77,7 @@ U kunt ook de [Probleemoplosser voor virtueel netwerk peering problemen](https:/
 
 ## <a name="requirements-and-constraints"></a>Vereisten en beperkingen
 
-De volgende beperkingen zijn van toepassing wanneer virtuele netwerken wereldwijd zijn gekoppeld:
-- De virtuele netwerken kunnen bestaan in elke openbare cloudregio van Azure en in Azure China-cloudregio’s, maar niet in Azure Government-clouds.
+De volgende beperkingen zijn alleen van toepassing wanneer virtuele netwerken wereldwijd zijn gekoppeld:
 - Resources in het ene virtueel netwerk kunnen niet communiceren met het front-end IP-adres van een interne Azure load balancer in het wereldwijd gekoppelde virtuele netwerk. De load balancer en de resources die met het adres communiceren, moeten zich in dezelfde regio bevinden.
 - U kunt geen externe gateways gebruiken of gatewayoverdracht toestaan. Als u externe gateways wilt gebruiken of gatewayoverdracht wilt toestaan, moeten gekoppelde virtuele netwerken zich in dezelfde regio bevinden.
 

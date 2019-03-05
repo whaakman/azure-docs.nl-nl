@@ -1,229 +1,200 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met ICIMS | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en ICIMS.
+description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active Directory en ICIMS.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 72dbd649-e4b1-4d72-ad76-636d84922596
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/19/2017
+ms.topic: tutorial
+ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e037ee527c327028fec7abe988583fd5144995ec
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: dfeb5669b6af231577b71b52c17027614f776604
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210574"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869306"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-icims"></a>Zelfstudie: Azure Active Directory-integratie met ICIMS
 
-In deze zelfstudie leert u hoe u ICIMS integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u ICIMS kunt integreren met Azure Active Directory (Azure AD).
+De integratie van ICIMS met Azure Active Directory biedt de volgende voordelen:
 
-ICIMS integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure Active Directory bepalen wie er toegang heeft tot ICIMS.
+* U kunt inschakelen dat gebruikers automatisch met hun Azure Active Directory-account worden aangemeld bij ICIMS (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot ICIMS heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij ICIMS (Single Sign-On) met hun Azure AD-accounts inschakelen
-- U kunt uw accounts in één centrale locatie - Azure portal beheren
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met ICIMS, moet u de volgende items:
+Om Azure Active Directory-integratie te configureren met ICIMS hebt u het volgende nodig:
 
-- Een Azure AD-abonnement
-- Een ICIMS eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op ICIMS waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. ICIMS uit de galerie toe te voegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-icims-from-the-gallery"></a>ICIMS uit de galerie toe te voegen
-Voor het configureren van de integratie van ICIMS in Azure AD, moet u ICIMS uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* ICIMS ondersteunt door **SP** geïnitieerde eenmalige aanmelding
 
-**Als u wilt toevoegen ICIMS uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-icims-from-the-gallery"></a>ICIMS uit de galerie toevoegen
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Voor het configureren van de integratie van ICIMS met Azure Active Directory moet u ICIMS vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-    ![De Azure Active Directory-knop][1]
+**Als u ICIMS wilt toevoegen uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![De blade Enterprise-toepassingen][2]
-    
-1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![De knop Nieuwe toepassing][3]
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-1. Typ in het zoekvak **ICIMS**, selecteer **ICIMS** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![ICIMS in de lijst met resultaten](./media/icims-tutorial/tutorial_icims_addfromgallery.png)
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met ICIMS op basis van een testgebruiker 'Julia steen' genoemd.
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in ICIMS is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in ICIMS tot stand worden gebracht.
+4. Typ in het zoekvak **ICIMS**, selecteer **ICIMS** in het resultaatvenster en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-In ICIMS, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+     ![ICIMS in de lijst met resultaten](common/search-new-app.png)
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met ICIMS, moet u de volgende bouwstenen voltooien:
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
+
+In deze sectie gaat u eenmalige aanmelding met Azure Active Directory bij ICIMS configureren en testen op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure Active Directory-gebruiker en de daaraan gerelateerde gebruiker in ICIMS tot stand is gebracht.
+
+Om eenmalige aanmelding met Azure Active Directory bij ICIMS te configureren en testen, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-1. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-1. **[Maak een testgebruiker ICIMS](#create-an-icims-test-user)**  : als u wilt een equivalent van Britta Simon in ICIMS die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+2. **[Eenmalige aanmelding voor ICIMS configureren](#configure-icims-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wilt configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Testgebruiker voor ICIMS maken](#create-icims-test-user)**: als u een tegenhanger van Britta Simon in ICIMS wilt hebben die is gekoppeld aan de Azure Active Directory-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing ICIMS.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met ICIMS, moet u de volgende stappen uitvoeren:**
+Voer de volgende stappen uit als u eenmalige aanmelding met Azure Active Directory wilt configureren met ICIMS:
 
-1. In de Azure-portal op de **ICIMS** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. In de [Azure Portal](https://portal.azure.com/) selecteert u **Eenmalige aanmelding** op de integratiepagina van de toepassing **ICIMS**.
 
-    ![Eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/icims-tutorial/tutorial_icims_samlbase.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-1. Op de **ICIMS domein en URL's** sectie, voert u de volgende stappen uit:
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    ![ICIMS domein en URL's, eenmalige aanmelding informatie](./media/icims-tutorial/tutorial_icims_url.png)
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<tenant name>.icims.com`
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    b. Typ in het tekstvak **Id** een URL met het volgende patroon: `https://<tenant name>.icims.com`
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
-    > [!NOTE] 
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de daadwerkelijke aanmeldings-URL en id. Neem contact op met [ICIMS Client ondersteuningsteam](https://www.icims.com/contact-us) om deze waarden te verkrijgen. 
- 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+    ![Domein- en URL-gegevens voor eenmalige aanmelding bij ICIMS](common/sp-identifier.png)
 
-    ![De downloadkoppeling certificaat](./media/icims-tutorial/tutorial_icims_certificate.png) 
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<tenant name>.icims.com`
 
-1. Klik op **opslaan** knop.
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<tenant name>.icims.com`
 
-    ![De knop voor enkelvoudige aanmelding configureren](./media/icims-tutorial/tutorial_general_400.png)
+    > [!NOTE]
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met het [clientondersteuningsteam van ICIMS](https://www.icims.com/contact-us) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-1. Op de **ICIMS configuratie** sectie, klikt u op **configureren ICIMS** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
+5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
-    ![ICIMS configuratie](./media/icims-tutorial/tutorial_icims_configure.png) 
+    ![De link om het certificaat te downloaden](common/metadataxml.png)
 
-1. Het configureren van eenmalige aanmelding op **ICIMS** zijde, moet u voor het verzenden van de gedownloade **Metadata XML**, **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** naar [ ICIMS ondersteuningsteam](https://www.icims.com/contact-us). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+6. In dit gedeelte **ICIMS instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
+
+    a. Aanmeldings-URL
+
+    b. Azure AD-id
+
+    c. Afmeldings-URL
+
+### <a name="configure-icims-single-sign-on"></a>Eenmalige aanmelding bij ICIMS configureren
+
+Als u eenmalige aanmelding aan de zijde van **ICIMS** wilt configureren, moet u het gedownloade **XML-bestand met federatieve metagegevens** en de correcte uit de Azure Portal gekopieerde URL's verzenden naar het [ondersteuningsteam van ICIMS](https://www.icims.com/contact-us). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
-![Maak een testgebruiker Azure AD][100]
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-    ![De knop Azure Active Directory](./media/icims-tutorial/create_aaduser_01.png) 
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
-    
-    ![De koppelingen Gebruikers en groepen en Alle gebruikers](./media/icims-tutorial/create_aaduser_02.png) 
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
- 
-    ![De knop toevoegen](./media/icims-tutorial/create_aaduser_03.png) 
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
-    ![Het dialoogvenster Gebruiker](./media/icims-tutorial/create_aaduser_04.png) 
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    a. In de **naam** tekstvak, type **BrittaSimon**.
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
-
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="create-an-icims-test-user"></a>Maak een testgebruiker ICIMS
-
-Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in ICIMS. Werken met [ICIMS ondersteuningsteam](https://www.icims.com/contact-us) om toe te voegen de gebruikers in de ICIMS-account. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan ICIMS.
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot ICIMS.
 
-![De de gebruikersrol toewijzen][200]
+1. Selecteer **Bedrijfstoepassingen** in de Azure Portal, selecteer **Alle toepassingen** en selecteer vervolgens **ICIMS**.
 
-**Als u wilt Britta Simon aan ICIMS toewijst, moet u de volgende stappen uitvoeren:**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+2. Selecteer **ICIMS** in de lijst met toepassingen.
 
-    ![Gebruiker toewijzen][201] 
+    ![De ICIMS-link in de lijst met toepassingen](common/all-applications.png)
 
-1. Selecteer in de lijst met toepassingen, **ICIMS**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![De koppeling ICIMS in de lijst met toepassingen](./media/icims-tutorial/tutorial_icims_app.png) 
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202] 
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+### <a name="create-icims-test-user"></a>ICIMS-testgebruiker maken
 
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
+In deze sectie gaat u een gebruiker maken met de naam Britta Simon. Werk met het  [ondersteuningsteam van ICIMS](https://www.icims.com/contact-us) om de gebruikers toe te voegen in het ICIMS-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
+
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-Het doel van deze sectie is het testen van de configuratie van uw Azure AD-eenmalige aanmelding via het toegangsvenster.  
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-Wanneer u op de tegel ICIMS in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing ICIMS.
+Wanneer u in het toegangsvenster op de tegel ICIMS klikt, wordt u automatisch aangemeld bij de instantie van ICIMS waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
-
-<!--Image references-->
-
-[1]: ./media/icims-tutorial/tutorial_general_01.png
-[2]: ./media/icims-tutorial/tutorial_general_02.png
-[3]: ./media/icims-tutorial/tutorial_general_03.png
-[4]: ./media/icims-tutorial/tutorial_general_04.png
-
-[100]: ./media/icims-tutorial/tutorial_general_100.png
-
-[200]: ./media/icims-tutorial/tutorial_general_200.png
-[201]: ./media/icims-tutorial/tutorial_general_201.png
-[202]: ./media/icims-tutorial/tutorial_general_202.png
-[203]: ./media/icims-tutorial/tutorial_general_203.png
-
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

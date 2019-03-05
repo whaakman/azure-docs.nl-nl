@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/20189
+ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 806f71526433d5817450dc80427fbc9f2381307b
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 9bd3142a8b72b042db82576f63549a3c722b8d33
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54446609"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674172"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-phone-devices-by-using-azure-notification-hubs"></a>Zelfstudie: Pushmeldingen verzenden naar specifieke Windows Phone-apps met Azure Notification Hubs
 
@@ -43,13 +43,13 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voltooi de zelfstudie: [Pushmeldingen verzenden naar Windows Phone-apps met Azure Notification Hubs](notification-hubs-windows-mobile-push-notifications-mpns.md). In deze zelfstudie werkt u de mobiele toepassing zij, zodat u zich kunt registreren voor nieuwscategorieën waarin u geïnteresseerd bent en u alleen voor die categorieën pushmeldingen ontvangt als er belangrijk nieuws is.
+U moet de [Zelfstudie: Pushmeldingen verzenden naar Windows Phone-apps met Azure Notification Hubs](notification-hubs-windows-mobile-push-notifications-mpns.md). In deze zelfstudie werkt u de mobiele toepassing zij, zodat u zich kunt registreren voor nieuwscategorieën waarin u geïnteresseerd bent en u alleen voor die categorieën pushmeldingen ontvangt als er belangrijk nieuws is.
 
 ## <a name="add-category-selection-to-the-mobile-app"></a>Categorieselectie toevoegen aan de mobiele app
 
 De eerste stap is het toevoegen van UI-elementen aan de bestaande hoofdpagina, zodat gebruikers categorieën kunnen selecteren waarvoor ze zich willen registreren. De geselecteerde categorieën worden op het apparaat opgeslagen. Wanneer de app wordt gestart, wordt er een apparaatregistratie gemaakt in uw meldingshub, met de geselecteerde categorieën als tags.
 
-1. Open het bestand `MainPage.xaml` en vervang de `Grid`-elementen `TitlePanel` en `ContentPanel` door de code:
+1. Open het bestand `MainPage.xaml` en vervang de `Grid`-elementen `TitlePanel` en `ContentPanel` door de volgende code:
 
     ```xml
     <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">

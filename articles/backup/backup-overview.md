@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 79a53c1b11a1bac0ea83afdd1333423aff4d6aa6
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: b590d75abb9e3f6465594a5c8c684b94e6f2e07f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428463"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864292"
 ---
 # <a name="what-is-azure-backup"></a>Wat is Azure Backup?
 
@@ -33,7 +33,7 @@ Azure Backup biedt deze belangrijke voordelen:
     - Als u met de Azure Import/Exportservice een offline eerste back-up uitvoert voor het importeren van grote hoeveelheden gegevens, zijn er kosten verbonden aan inkomende gegevens.  [Meer informatie](backup-azure-backup-import-export.md). 
 - **Gegevens veilig houden**: Gegevensversleuteling zorgt voor een beveiligde overdracht en opslag van uw gegevens in de openbare cloud. U slaat de wachtwoordzin voor versleuteling lokaal op. Deze wordt nooit verzonden naar of opgeslagen in Azure. Als het herstellen van gegevens noodzakelijk is, bent u de enige met de wachtwoordzin voor versleuteling of de sleutel.
 - **App-consistente back-ups**: Een app-consistente back-up betekent dat een herstelpunt alle vereiste gegevens heeft om de back-up te kunnen herstellen. Azure Backup biedt toepassingsconsistente back-ups, om ervoor te zorgen dat er geen aanvullende correcties nodig zijn om de gegevens te herstellen. Herstellen van toepassingsconsistente gegevens verkort de hersteltijd, zodat u snel weer normaal aan het werk kunt.
-- **Korte- en langetermijngegevens bewaren**: u kunt de Recovery Services-kluizen gebruiken voor gegevensretentie op korte en lange termijn. Azure heeft geen beperkingen voor hoelang gegevens bewaard blijven in een Recovery Services-kluis. U kunt gegevens zo lang bewaren als u wilt. Azure Backup heeft een limiet van 9999 herstelpunten per beveiligd exemplaar. [Lees meer](backup-introduction-to-azure-backup.md#backup-and-retention) over de invloed van deze limiet op uw back-upbehoeften.
+- **Korte- en langetermijngegevens bewaren**: u kunt de Recovery Services-kluizen gebruiken voor het bewaren van gegevens voor de korte en de lange termijn. Azure heeft geen beperkingen voor hoelang gegevens bewaard blijven in een Recovery Services-kluis. U kunt gegevens zo lang bewaren als u wilt. Azure Backup heeft een limiet van 9999 herstelpunten per beveiligd exemplaar. [Lees meer](backup-introduction-to-azure-backup.md#backup-and-retention) over de invloed van deze limiet op uw back-upbehoeften.
 - **Automatisch opslagbeheer**: voor hybride omgevingen is vaak heterogene opslag vereist, soms on-premises en soms in de cloud. Met Azure Backup zijn er geen kosten voor het gebruik van on-premises opslagapparaten. De back-upopslag wordt automatisch door Azure Backup toegewezen en beheerd en u betaalt naar gebruik. Dat betekent dat u alleen betaalt voor de opslag die u verbruikt. [Lees meer](https://azure.microsoft.com/pricing/details/backup) over prijzen.
 - **Meerdere opslagopties**: Azure Backup biedt twee typen replicatie om uw opslag/gegevens maximaal beschikbaar te houden.
     - Met [lokaal redundante opslag LRS](../storage/common/storage-redundancy-lrs.md) worden uw gegevens drie keer gerepliceerd (er worden drie kopieën gemaakt van uw gegevens) in een opslagschaaleenheid in een datacenter. Alle kopieën van de gegevens komen binnen dezelfde regio voor. LRS is een goedkope optie voor het beschermen van uw gegevens tegen lokale hardwarefouten.

@@ -1,31 +1,32 @@
 ---
-title: 'Quickstart: Bing Spellingcontrole-API, PHP'
+title: 'Quickstart: Spellingcontrole met de Bing Spellingcontrole-REST API en PHP'
 titlesuffix: Azure Cognitive Services
-description: Haal informatie en codevoorbeelden op om u te helpen snel aan de slag te gaan met de Bing Spellingcontrole-API.
+description: Aan de slag met de Bing Spellingcontrole-API om de spelling en grammatica te controleren.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/14/2017
+ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: abce882edb9b6c97ea3b8a91219f8e2887cfb78d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bb952a9169710a7ba8248293e1eab30c7a2da6c0
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862306"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888930"
 ---
-# <a name="quickstart-for-bing-spell-check-api-with-php"></a>Snelstart: Bing Spellingcontrole-API met PHP 
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-php"></a>Quickstart: Spellingcontrole met de Bing Spellingcontrole-REST API en PHP
 
-In dit artikel leest u hoe u de [Bing Spellingcontrole-API](https://azure.microsoft.com/services/cognitive-services/spell-check/) kunt gebruiken in combinatie met PHP. De Spellingcontrole-API retourneert een lijst met woorden die niet worden herkend, samen met voorgestelde vervangingen. Normaal gesproken zou u tekst naar deze API sturen en vervolgens de voorgestelde vervangingen in de tekst doorvoeren of deze weergeven aan de gebruikers van uw toepassing, zodat ze zelf kunnen beslissen of de vervangingen moeten worden doorgevoerd. Dit artikel laat zien hoe een aanvraag met de tekst "Hollo, wrld!" wordt verzonden. De voorgestelde vervangingen zijn "Hello" en "world".
+Gebruik deze quickstart om uw eerste aanroep naar de Bing Spellingcontrole REST API te maken. Deze eenvoudige Python-toepassing verzendt een aanvraag naar de API en retourneert een lijst met voorgestelde correcties. Hoewel deze toepassing in Python is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt [PHP 5.6.x](http://php.net/downloads.php) nodig om deze code uit te voeren.
+* [PHP 5.6.x](http://php.net/downloads.php)
 
-U moet een [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Bing Spellingcontrole-API voor Bing versie 7** hebben. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/#lang) is voldoende voor deze snelstartgids. U hebt de toegangssleutel nodig die wordt verstrekt bij het activeren van uw gratis proefversie of u gebruikt de sleutel van een betaald abonnement vanuit uw Azure-dashboard.  Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+[!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
+
 
 ## <a name="get-spell-check-results"></a>Resultaten van spellingcontrole ophalen
 
@@ -130,13 +131,10 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
    ]
 }
 ```
-
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Zelfstudie over Bing Spellingcontrole](../tutorials/spellcheck.md)
+> [Een web-app met één pagina maken](../tutorials/spellcheck.md)
 
-## <a name="see-also"></a>Zie ook
-
-- [Overzicht van Bing Spellingcontrole](../proof-text.md)
+- [Wat is de Bing Spellingcontrole-API?](../overview.md)
 - [Referentie voor de Bing Spellingcontrole-API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)

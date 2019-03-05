@@ -1,124 +1,118 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met grijs Pe | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en grijs Pe.
+title: 'Zelfstudie: Zelfstudie: Azure Active Directory-integratie met Gra-Pe | Microsoft Docs'
+description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active Directory en Gra-Pe.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 073f8641-b64d-4754-b1a6-2b91c865b13d
-ms.service: active-directory
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/15/2018
+ms.topic: tutorial
+ms.date: 02/18/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02df0a5d13aeb90049383f61d743e8a11e93fc79
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: 689d0cdea70da4f4ad3c11ba25025ac4f9f342fb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188525"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866144"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-gra-pe"></a>Zelfstudie: Azure Active Directory-integratie met grijs Pe
+# <a name="tutorial-azure-active-directory-integration-with-gra-pe"></a>Zelfstudie: Azure Active Directory-integratie met Gra-Pe
 
-In deze zelfstudie leert u hoe u grijs Pe integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Gra-Pe kunt integreren met Azure Active Directory (Azure AD).
+De integratie van Gra-Pe met Azure AD biedt de volgende voordelen:
 
-Grijs Pe integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD bepalen wie er toegang heeft tot Gra-Pe.
+* U kunt inschakelen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij Gra-Pe (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot grijs Pe heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij grijs-Pe (Single Sign-On) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met grijs Pe, moet u de volgende items:
+Om Azure AD-integratie te configureren met Gra-Pe hebt u het volgende nodig:
 
-- Een Azure AD-abonnement
-- Een grijs Pe eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op Gra-Pe waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Grijs Pe vanuit de galerie toevoegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-gra-pe-from-the-gallery"></a>Grijs Pe vanuit de galerie toevoegen
-Voor het configureren van de integratie van grijs Pe in Azure AD, moet u grijs Pe vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* Gra-Pe ondersteunt door **SP** geïnitieerde eenmalige aanmelding
 
-**Als u wilt grijs Pe vanuit de galerie toevoegen, moet u de volgende stappen uitvoeren:**
+## <a name="adding-gra-pe-from-the-gallery"></a>Gra-Pe toevoegen vanuit de galerie
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Voor het configureren van de integratie van Gra-Pe met Microsoft Azure Active Directory moet u Gra-Pe vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-    ![image](./media/grape-tutorial/selectazuread.png)
+**Als u Gra-Pe uit de galerie wilt toevoegen, moet u de volgende stappen uitvoeren:**
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![image](./media/grape-tutorial/a_select_app.png)
-    
+    ![De knop Azure Active Directory](common/select-azuread.png)
+
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
+
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
+
 3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![image](./media/grape-tutorial/a_new_app.png)
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-4. Typ in het zoekvak **grijs Pe**, selecteer **grijs Pe** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+4. Typ in het zoekvak **Gra-Pe**, selecteer **Gra-Pe** in het resultaatvenster en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-     ![image](./media/grape-tutorial/tutorial_grape_addfromgallery.png)
+     ![Gra-Pe in de lijst met resultaten](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met grijs-Pe gebaseerd op een testgebruiker 'Julia steen' genoemd.
+In deze sectie gaat u Azure AD-eenmalige aanmelding bij Gra-Pe configureren en testen op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Gra-Pe tot stand is gebracht.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in grijs Pe is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in grijs Pe tot stand worden gebracht.
-
-Om te configureren en testen van Azure AD eenmalige aanmelding met grijs Pe, moet u de volgende bouwstenen voltooien:
+Om eenmalige aanmelding van Azure AD met Gra-Pe te configureren en testen, moet u de volgende procedures voltooien:
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-3. **[Maak een testgebruiker grijs Pe](#create-a-gra-pe-test-user)**  : als u wilt een equivalent van Britta Simon in grijs-Pe die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+2. **[Gra-Pe-eenmalige aanmelding configureren](#configure-gra-pe-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wil configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+5. **[Testgebruiker voor Gra-Pe maken](#create-gra-pe-test-user)**: als u een tegenhanger van Britta Simon in Gra-Pe wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing grijs Pe.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met grijs Pe, moet u de volgende stappen uitvoeren:**
+Voer de volgende stappen uit als u Azure AD-eenmalige aanmelding wilt configureren met Gra-Pe:
 
-1. In de [Azure-portal](https://portal.azure.com/)op de **grijs Pe** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
+1. Ga in de [Azure-portal](https://portal.azure.com/) naar de overzichtspagina van de integratie voor **Gra-Pe** en selecteer **Eenmalige aanmelding**.
 
-    ![image](./media/grape-tutorial/b1_b2_select_sso.png)
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-2. Op de **selecteert u een methode voor eenmalige aanmelding** dialoogvenster, klikt u op **Selecteer** voor **SAML** modus voor eenmalige aanmelding inschakelen.
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-    ![image](./media/grape-tutorial/b1_b2_saml_sso.png)
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-3. Klik op de pagina **Eenmalige aanmelding met SAML instellen** u de knop **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    ![image](./media/grape-tutorial/b1-domains_and_urlsedit.png)
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
 4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
-    In de **aanmeldings-URL** in het tekstvak, een URL als:  `https://btm.tts.co.jp/portal/apl/SSOLogin.aspx`
+    ![Informatie over eenmalige aanmelding van domeinen en URL's van Gra-Pe](common/sp-signonurl.png)
 
-    ![image](./media/grape-tutorial/tutorial_grape_url.png)
+    In het tekstvak **Aanmeldings-URL** typt u een URL: `https://btm.tts.co.jp/portal/apl/SSOLogin.aspx`
 
-5. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **certificaat (Base64)** te downloaden, en slaat u dit op uw computer op.
+5. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
-    ![image](./media/grape-tutorial/tutorial_grape_certficate.png)
+    ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
-6. Op de **grijs Pe instellen** sectie, kopieert u de juiste URL aan de hand van uw behoeften.
+6. In het gedeelte **Gra-Pe instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
+
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
     a. Aanmeldings-URL
 
@@ -126,73 +120,76 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     c. Afmeldings-URL
 
-    ![image](./media/grape-tutorial/d1_samlsonfigure.png) 
+### <a name="configure-gra-pe-single-sign-on"></a>Gra-Pe-eenmalige aanmelding configureren
 
-7. Het configureren van eenmalige aanmelding op **grijs Pe** zijde, moet u voor het verzenden van de gedownloade **certificaat (Base64)** en gekopieerde **afmeldings-URL van aanmeldings-URL, Azure AD-id,** naar [ Het ondersteuningsteam grijs Pe](https://www.toppantravel.com/inquiry/). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+Als u eenmalige aanmelding aan de zijde van **Gra-Pe** wilt configureren, moet u het gedownloade **Certificaat (Base64)** en de juiste uit de Azure-portal gekopieerde URL's verzenden naar het [ondersteuningsteam voor Gra-Pe](https://www.toppantravel.com/inquiry/). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
 1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-    ![image](./media/grape-tutorial/d_users_and_groups.png)
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
 2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![image](./media/grape-tutorial/d_adduser.png)
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
 3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-    ![image](./media/grape-tutorial/d_userproperties.png)
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
     b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
-    c. Selecteer **eigenschappen**, selecteer de **Show wachtwoord** selectievakje en noteer de waarde die wordt weergegeven in het wachtwoord.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
-    d. Selecteer **Maken**.
- 
-### <a name="create-a-gra-pe-test-user"></a>Maak een testgebruiker grijs Pe
-
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in grijs Pe. Werken met [grijs Pe ondersteuningsteam](https://www.toppantravel.com/inquiry/) om toe te voegen de gebruikers in het grijs Pe-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
+    d. Klik op **Create**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan grijs Pe.
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot Gra-Pe.
 
-1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**.
+1. Selecteer **Bedrijfstoepassingen** in de Azure-portal, selecteer **Alle toepassingen** en selecteer vervolgens **Gra-Pe**.
 
-    ![image](./media/grape-tutorial/d_all_applications.png)
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-2. Selecteer in de lijst met toepassingen, **grijs Pe**.
+2. Selecteer **Gra-Pe** in de lijst met toepassingen.
 
-    ![image](./media/grape-tutorial/tutorial_grape_app.png)
+    ![Gra-Pe in de lijst met toepassingen](common/all-applications.png)
 
 3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![image](./media/grape-tutorial/d_leftpaneusers.png)
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-4. Selecteer de **toevoegen** knop en selecteer vervolgens **gebruikers en groepen** in de **toevoegen toewijzing** dialoogvenster.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![image](./media/grape-tutorial/d_assign_user.png)
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-4. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-5. Selecteer in het dialoogvenster **Toewijzing toevoegen** de knop **Toewijzen**.
-    
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-Wanneer u op de tegel grijs Pe in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing grijs Pe.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md). 
+### <a name="create-gra-pe-test-user"></a>Testgebruiker voor Gra-Pe maken
+
+In deze sectie maakt u een gebruiker met de naam Britta Simon in Gra-Pe. Werk samen met het  [Gra-Pe-ondersteuningsteam](https://www.toppantravel.com/inquiry/) om gebruikers toe te voegen in het Gra-Pe-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
+
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
+
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+
+Wanneer u op de tegel Gra-Pe in het toegangsvenster klikt, wordt u automatisch aangemeld bij het Gra-Pe-exemplaar waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

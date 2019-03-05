@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 88ac9f07fb8791ca3d64123663b0380a56220cdd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 25841971a2e7921c89c63032e8fd48bc528263aa
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865947"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878167"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Zelfstudie: Onzekere voorspellingen herstellen door eindpuntuitingen te controleren
 In deze zelfstudie leert u de voorspellingen van de app te verbeteren door de uitingen die worden ontvangen via het LUIS-HTTP-eindpunt (en waar LUIS niet zeker over is) te controleren of corrigeren. Bij sommige uitingen moet mogelijk de intentie worden gecontroleerd en bij andere de entiteit. Controleer de eindpuntuitingen regelmatig als onderdeel van uw geplande LUIS-onderhoud. 
@@ -50,11 +50,13 @@ Voer de volgende stappen uit:
 
 1.  Download het [JSON-bestand van de app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json) en sla het op.
 
-2. Importeer de JSON in een nieuwe app.
+1. Importeer de JSON in een nieuwe app.
 
-3. Ga naar het gedeelte **Beheren**, open het tabblad **Versies**, kloon de versie en noem deze `review`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. Omdat de versienaam wordt gebruikt als onderdeel van de URL-route, kan de naam geen tekens bevatten die niet zijn toegestaan in een URL.
+1. Ga naar het gedeelte **Beheren**, open het tabblad **Versies**, kloon de versie en noem deze `review`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. Omdat de versienaam wordt gebruikt als onderdeel van de URL-route, kan de naam geen tekens bevatten die niet zijn toegestaan in een URL.
 
-    Als u deze zelfstudie doet met een nieuwe, geïmporteerde app, moet u die ook trainen en publiceren en vervolgens de uitingen toevoegen aan het eindpunt met een [script](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) of via het eindpunt in een browser. U dient deze uitingen toe te voegen:
+1. Train en publiceer de nieuwe app.
+
+1. Gebruik het eindpunt om de volgende uitingen toe te voegen. U doet dit ofwel met een [script](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) of vanuit het eindpunt in een browser. U dient deze uitingen toe te voegen:
 
    [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
 
@@ -64,13 +66,13 @@ Voer de volgende stappen uit:
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. Selecteer in de linkernavigatiebalk **Eindpuntuitingen beoordelen**. De lijst is gefilterd voor de intentie **ApplyForJob**. 
+1. Selecteer in de linkernavigatiebalk **Eindpuntuitingen beoordelen**. De lijst is gefilterd voor de intentie **ApplyForJob**. 
 
-    [ ![Schermafbeelding van de knop Eindpuntuitingen beoordelen in de navigatiebalk aan de linkerkant](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png#lightbox)
+    [![Schermafbeelding van de knop Eindpuntuitingen beoordelen in de navigatiebalk aan de linkerkant](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png#lightbox)
 
-3. Schakelen tussen de **Weergave Entiteiten** om de entiteiten met labels weer te geven. 
+1. Schakelen tussen de **Weergave Entiteiten** om de entiteiten met labels weer te geven. 
     
-    [ ![Schermafbeelding van het paneel Eindpuntuitingen beoordelen met de wisselknop Entiteiten weergeven gemarkeerd](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
+    [![Schermafbeelding van het paneel Eindpuntuitingen beoordelen met de wisselknop Entiteiten weergeven gemarkeerd](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
 
     |Utterance|Correcte intentie|Ontbrekende entiteiten|
     |:--|:--|:--|
@@ -78,29 +80,29 @@ Voer de volgende stappen uit:
 
     Deze uiting is niet ingedeeld onder de juiste intentie en heeft een score lager dan 50%. De intentie **ApplyForJob** bevat 21 uitingen, terwijl **GetJobInformation** zeven uitingen bevat. Nu dient dus eerst de eindpuntuiting correct te worden gekoppeld, maar er moeten ook meer uitingen worden toegevoegd aan de intentie **GetJobInformation**. Deze stappen kunt u bij wijze van oefening zelf uitvoeren. Alle intenties, met uitzondering van de intentie **None**, zouden ongeveer hetzelfde aantal voorbeelduitingen moeten bevatten. De intentie **None** zou 10% van het totale aantal uitingen in de app moeten bevatten. 
 
-4. Selecteer voor de intentie `I'm looking for a job with Natual Language Processing` de correcte intentie, **GetJobInformation**, in de kolom **Uitgelijnde intentie** kolom. 
+1. Selecteer voor de intentie `I'm looking for a job with Natual Language Processing` de correcte intentie, **GetJobInformation**, in de kolom **Uitgelijnde intentie** kolom. 
 
-    [ ![Schermafbeelding van het uitlijnen van uitingen met intenties in het venster Eindpuntuitingen beoordelen](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png#lightbox)
+    [![Schermafbeelding van het paneel Eindpuntuitingen beoordelen met het uitlijnen van uitingen met intenties](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png#lightbox)
 
-5. In de dezelfde uiting is de entiteit voor `Natural Language Processing` keyPhrase. Dit zou eigenlijk de entiteit **Job** moeten zijn. Selecteer `Natural Language Processing` en selecteer vervolgens in de lijst de entiteit **Job**.
+1. In de dezelfde uiting is de entiteit voor `Natural Language Processing` keyPhrase. Dit zou eigenlijk de entiteit **Job** moeten zijn. Selecteer `Natural Language Processing` en selecteer vervolgens in de lijst de entiteit **Job**.
 
-    [ ![Schermafbeelding van het toepassen van entiteitslabels op een uiting in het venster Eindpuntuitingen beoordelen](./media/luis-tutorial-review-endpoint-utterances/label-entity.png)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png#lightbox)
+    [![Schermafbeelding van het paneel Eindpuntuitingen beoordelen met het labelen van entiteit in een uiting](./media/luis-tutorial-review-endpoint-utterances/label-entity.png)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png#lightbox)
 
-6. Selecteer op dezelfde regel het omcirkelde vinkje in de kolom **Toevoegen aan uitgelijnde intentie**. 
+1. Selecteer op dezelfde regel het omcirkelde vinkje in de kolom **Toevoegen aan uitgelijnde intentie**. 
 
-    [ ![Schermafbeelding van het voltooien van de uitlijning van een uiting met een intentie](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png)](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png#lightbox)
+    [![Schermafbeelding van het voltooien van de uitlijning van een uiting met een intentie](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png)](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png#lightbox)
 
     Met deze actie verplaatst u de uiting van **Eindpuntuitingen beoordelen** naar de intentie **GetJobInformation**. De eindpuntuiting is nu een voorbeelduiting voor deze intentie. 
 
-7. Beoordeel de resterende uitingen in deze intentie, waarbij u de uitingen van een label kunt voorzien en de **Uitgelijnde intentie** kunt corrigeren als deze onjuist zijn.
+1. Beoordeel de resterende uitingen in deze intentie, waarbij u de uitingen van een label kunt voorzien en de **Uitgelijnde intentie** kunt corrigeren als deze onjuist zijn.
 
-8. Selecteer, wanneer alle uitingen correct zijn, het selectievakje op iedere rij en selecteer vervolgens **Selectie toevoegen** om de uitingen correct uit te lijnen. 
+1. Selecteer, wanneer alle uitingen correct zijn, het selectievakje op iedere rij en selecteer vervolgens **Selectie toevoegen** om de uitingen correct uit te lijnen. 
 
-    [ ![Schermafbeelding van het voltooien van de resterende uitingen naar de uitgelijnde intentie](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
+    [![Schermafbeelding van het voltooien van de resterende uitingen naar de uitgelijnde intentie](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
 
-9. Deze uitingen zouden nu niet meer op de lijst moeten staan. Als meer uitingen worden weergegeven, dient u de lijst af te blijven gaan, de intenties waar nodig te corrigeren en eventuele ontbrekende entiteiten van een label te voorzien, tot de lijst leeg is. 
+1. Deze uitingen zouden nu niet meer op de lijst moeten staan. Als meer uitingen worden weergegeven, dient u de lijst af te blijven gaan, de intenties waar nodig te corrigeren en eventuele ontbrekende entiteiten van een label te voorzien, tot de lijst leeg is. 
 
-10. Selecteer de volgende intentie in de filterlijst en blijf vervolgens uitingen corrigeren en entiteiten van labels voorzien. Vergeet niet voor iedere intentie als laatste stap ofwel **Toevoegen aan uitgelijnde intentie** te selecteren op de rij van die uiting of het selectievakje te selecteren bij die intentie en boven de tabel op **Selectie toevoegen** te klikken.
+1. Selecteer de volgende intentie in de filterlijst en blijf vervolgens uitingen corrigeren en entiteiten van labels voorzien. Vergeet niet voor iedere intentie als laatste stap ofwel **Toevoegen aan uitgelijnde intentie** te selecteren op de rij van die uiting of het selectievakje te selecteren bij die intentie en boven de tabel op **Selectie toevoegen** te klikken.
 
     Ga door totdat alle intenties en entiteiten in de filterlijst over een lege lijst beschikken. Dit is een hele kleine app. Het beoordelingsproces duurt slechts een paar minuten. 
 

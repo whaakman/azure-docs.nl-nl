@@ -15,20 +15,20 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e55a50a1a4ae1db995a6054cf9dc13382236b8e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cdb47a009c42193a30214377d21d63e42040b1d4
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189477"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56865243"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>Zelfstudie: Azure Active Directory-integratie met Keeper Password Manager & Digital Vault
 
-In deze zelfstudie leert u hoe u Keeper Password Manager & Digital Vault kunt integreren met Azure AD (Active Directory).
+In deze zelfstudie leert u hoe u Keeper Password Manager & Digital Vault kunt integreren met Azure Active Directory (Azure AD).
 De integratie van Keeper Password Manager & Digital Vault met Azure AD heeft de volgende voordelen:
 
 * U kunt in Azure AD bepalen wie er toegang heeft tot Keeper Password Manager & Digital Vault.
-* U kunt instellen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij Keeper Password Manager & Digital Vault (eenmalige aanmelding).
+* U kunt instellen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij Keeper Password Manager & Digital Vault (eenmalige aanmelding of SSO).
 * U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
 Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
@@ -36,7 +36,7 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt het volgende nodig om Azure AD-integratie te configureren met Keeper Password Manager & Digital Vault:
+Om Azure AD-integratie te configureren met Keeper Password Manager & Digital Vault hebt u het volgende nodig:
 
 * Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
 * Een abonnement op Keeper Password Manager & Digital Vault waarvoor eenmalige aanmelding is ingeschakeld
@@ -45,15 +45,15 @@ U hebt het volgende nodig om Azure AD-integratie te configureren met Keeper Pass
 
 In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-* Keeper Password Manager & Digital Vault biedt ondersteuning voor met **IDP** geïnitieerde eenmalige aanmelding
+* Keeper Password Manager & Digital Vault ondersteunt door **SP** geïnitieerde eenmalige aanmelding
 
 * Keeper Password Manager & Digital Vault ondersteunt **just in time** inrichten van gebruikers
 
 ## <a name="adding-keeper-password-manager--digital-vault-from-the-gallery"></a>Keeper Password Manager & Digital Vault toevoegen vanuit de galerie
 
-Om de integratie van Keeper Password Manager & Digital Vault te configureren in Azure AD moet u Keeper Password Manager & Digital Vault vanuit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
+Om de integratie van Keeper Password Manager & Digital Vault te configureren in Azure AD, moet u Keeper Password Manager & Digital Vault vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Voer de volgende stappen uit om Keeper Password Manager & Digital Vault toe te voegen vanuit de galerie:**
+**Voer de volgende stappen uit om Keeper Password Manager & Digital Vault vanuit de galerie toe te voegen:**
 
 1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
@@ -76,7 +76,7 @@ Om de integratie van Keeper Password Manager & Digital Vault te configureren in 
 In dit gedeelte configureert en test u eenmalige aanmelding van Azure AD met Keeper Password Manager & Digital Vault op basis van een testgebruiker met de naam **Britta Simon**.
 Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Keeper Password Manager & Digital Vault tot stand is gebracht.
 
-Als u eenmalige aanmelding van Azure AD wilt configureren en testen met Keeper Password Manager & Digital Vault, moet u de volgende procedures uitvoeren:
+Om eenmalige aanmelding van Azure AD met Keeper Password Manager & Digital Vault te configureren en testen, moet u de volgende procedures voltooien:
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
 2. **Eenmalige aanmelding configureren voor Keeper Password Manager & Digital Vault configureren**: als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wilt configureren.
@@ -105,7 +105,7 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
 
 4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
-    ![Gegevens voor domein en URL's voor eenmalige aanmelding van Keeper Password Manager & Digital Vault](common/sp-identifier-reply.png)
+    ![Gegevens van domein en URL's voor eenmalige aanmelding van Keeper Password Manager & Digital Vault](common/sp-identifier-reply.png)
 
     a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://{SSO CONNECT SERVER}/sso-connect/saml/login`
 
@@ -187,7 +187,7 @@ In dit gedeelte geeft u Britta Simon de mogelijkheid om eenmalige aanmelding van
 
 ### <a name="create-keeper-password-manager--digital-vault-test-user"></a>Testgebruiker maken voor Keeper Password Manager & Digital Vault
 
-Als u wilt dat Azure AD-gebruikers zich kunnen aanmelden bij Keeper Password Manager & Digital Vault, moeten ze worden ingericht in Keeper Password Manager & Digital Vault. De toepassing biedt ondersteuning voor just in time-gebruikersinrichting. Dit betekent dat gebruikers na verificatie automatisch worden aangemaakt in de toepassing. Neem contact op met [Keeper Support](https://keepersecurity.com/contact.html) als u de gebruikers handmatig wilt instellen.
+Als u wilt dat Azure AD-gebruikers zich kunnen aanmelden bij Keeper Password Manager & Digital Vault, moeten ze worden ingericht bij Keeper Password Manager & Digital Vault. De toepassing biedt ondersteuning voor just in time-gebruikersinrichting. Dit betekent dat gebruikers na verificatie automatisch worden aangemaakt in de toepassing. Neem contact op met [Keeper Support](https://keepersecurity.com/contact.html) als u de gebruikers handmatig wilt instellen.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
@@ -197,9 +197,9 @@ Wanneer u in het toegangsvenster op de tegel Keeper Password Manager & Digital V
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -7,17 +7,17 @@ ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.openlocfilehash: 1ab6fe13df111b5f56da1f368fc0dacf0a6206fc
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.date: 02/21/2019
+ms.openlocfilehash: e87f9b4905abec2c00ed238445b3e36e41cfa2f6
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408830"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674868"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Quickstart: Een Azure Data Explorer-cluster en -database maken
 
-Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logboeken en telemetrie te verkennen. Als u Azure Data Explorer wilt gebruiken, maakt u eerst een *cluster*. Daarna maakt u een of meer *databases* in het cluster. De volgende stap is het *opnemen* (laden) van gegevens in een database, zodat er query's voor kunt uitvoeren. In deze snelstart maakt u een cluster en een database. In de volgende artikelen wordt uitgelegd hoe u gegevens opneemt.
+Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logboeken en telemetrie te verkennen. Als u Azure Data Explorer wilt gebruiken, maakt u eerst een cluster. Daarna maakt u een of meer databases in het cluster. De volgende stap is het opnemen (laden) van gegevens in een database, zodat u er query's op kunt uitvoeren. In deze snelstart maakt u een cluster en een database.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis Azure-account](https://azure.microsoft.com/free/) aan voordat u begint.
 
@@ -27,7 +27,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-cluster"></a>Een cluster maken
 
-U maakt een Azure Data Explorer-cluster in een Azure-resourcegroep, met een gedefinieerde set reken- en opslagresources.
+Maak een Azure Data Explorer-cluster met een gedefinieerde set met reken- en opslagresources in een Azure-resourcegroep.
 
 1. Selecteer de knop **Een resource maken** (+) in de linkerbovenhoek van de portal.
 
@@ -37,28 +37,22 @@ U maakt een Azure Data Explorer-cluster in een Azure-resourcegroep, met een gede
 
 1. Selecteer onder aan het scherm, onder **Azure Data Explorer**, de optie **Maken**.
 
-1. Voer een unieke naam in voor uw cluster, selecteer uw abonnement en maak een resourcegroep met de naam *test-resource-group*.
-
-    ![Een resourcegroep maken](media/create-cluster-database-portal/create-resource-group.png)
-
-1. Vul het formulier in met de volgende gegevens.
+1. Vul de basic-cluster in met de volgende informatie.
 
    ![Een clusterformulier maken](media/create-cluster-database-portal/create-cluster-form.png)
 
     **Instelling** | **Voorgestelde waarde** | **Beschrijving van veld**
     |---|---|---|
-    | Clusternaam | Een unieke clusternaam | Kies een unieke naam die uw cluster identificeert. Dit kan bijvoorbeeld *mytestcluster* zijn. De domeinnaam *[regio].kusto.windows.net* wordt toegevoegd aan de clusternaam die u opgeeft. De naam mag alleen kleine letters en cijfers bevatten. Het wachtwoord moet tussen 3 en 22 tekens lang zijn.
     | Abonnement | Uw abonnement | Selecteer het Azure-abonnement dat u wilt gebruiken voor uw cluster.|
-    | Resourcegroep | *test-resource-group* | Maak een nieuwe resourcegroep. |
+    | Resourcegroep | *test-resource-group* | Gebruik een bestaande resourcegroep of maak een nieuwe. |
+    | Clusternaam | Een unieke clusternaam | Kies een unieke naam die uw cluster identificeert. Bijvoorbeeld, *mydataexplorercluster*. De domeinnaam *[regio].kusto.windows.net* wordt toegevoegd aan de clusternaam die u opgeeft. De naam mag alleen kleine letters en cijfers bevatten. Het wachtwoord moet tussen 3 en 22 tekens lang zijn.
     | Locatie | *US - west* | Selecteer *US - west* voor deze snelstart. Selecteer voor een productiesysteem de regio die het beste voldoet aan uw behoeften.
     | Specificaties voor rekenkracht | *D13_v2* | Selecteer de laagste prijsspecificatie voor deze snelstart. Selecteer voor een productiesysteem de specificatie die het beste voldoet aan uw behoeften.
     | | |
 
-1. Selecteer **Maken** om het cluster in te richten. Het inrichten duurt doorgaans ongeveer tien minuten. Selecteer in de werkbalk de optie **Meldingen** om het inrichtingsproces te controleren.
+1. Selecteer **Bekijken + maken** om de gegevens van uw cluster te controleren, en **Maken** voor het inrichten van het cluster. Het inrichten duurt doorgaans ongeveer 10 minuten.
 
-    ![Meldingen](media/create-cluster-database-portal/notifications.png)
-
-1. Wanneer het proces is voltooid, selecteert u **Meldingen** en vervolgens **Ga naar resource**.
+1. Nadat de implementatie is voltooid, selecteert u **Ga naar resource**.
 
     ![Ga naar resource](media/create-cluster-database-portal/notification-resource.png)
 
@@ -68,9 +62,9 @@ U bent nu klaar voor de tweede stap in het proces: het maken van de database.
 
 1. Op het tabblad **Overzicht** selecteert u **Database maken**.
 
-    ![Stap twee: een database maken](media/create-cluster-database-portal/database-creation.png)
+    ![Stap 2: een database maken](media/create-cluster-database-portal/database-creation.png)
 
-1. Vul in het formulier de volgende gegevens in.
+1. Vul het formulier in met de volgende gegevens.
 
     ![Een databaseformulier maken](media/create-cluster-database-portal/create-database.png)
 
@@ -81,23 +75,19 @@ U bent nu klaar voor de tweede stap in het proces: het maken van de database.
     | Cacheperiode | *31* | De periode (in dagen) dat vaak opgevraagde gegevens beschikbaar blijven in de SSD-opslag of het RAM-geheugen in plaats van in de langetermijnopslag.
     | | | |
 
-1. Selecteer **Opslaan** om de database te maken. Het maakproces duurt meestal minder dan een minuut. Wanneer het proces is voltooid, keert u terug naar het tabblad **Overzicht** van het cluster.
+1. Selecteer **Maken** om het profiel te maken. Het maakproces duurt meestal minder dan een minuut. Wanneer het proces is voltooid, keert u terug naar het tabblad **Overzicht** van het cluster.
 
 ## <a name="run-basic-commands-in-the-database"></a>Basisopdrachten uitvoeren in de database
 
 Nu u beschikt over een cluster en een database kunt u query's en opdrachten uitvoeren. Er staan nog geen gegevens in de database, maar u kunt wel zien hoe de hulpprogramma's werken.
 
-1. Selecteer onder het cluster de optie **Query**.
-
-    ![Databasequery](media/create-cluster-database-portal/query-database.png)
-
-1. Kopieer de volgende opdracht en plak deze in het queryvenster: `.show databases`. Selecteer dan **Uitvoeren**.
+1. Selecteer onder het cluster de optie **Query**. Kopieer de opdracht `.show databases` en plak deze in het queryvenster. Selecteer daarna **Uitvoeren**.
 
     ![Databaseopdracht weergeven](media/create-cluster-database-portal/show-databases.png)
 
     In de resultatenset wordt **TestDatabase** weergegeven, de enige database in het cluster.
 
-1. Kopieer de volgende opdracht en plak deze in het queryvenster: `.show tables`. Selecteer dan die opdracht in het venster. Selecteer **Uitvoeren**.
+1. Kopieer de opdracht `.show tables` en plak deze in het queryvenster en selecteer **Uitvoeren**.
 
     Met deze opdracht wordt een lege resultatenset geretourneerd omdat er nog geen tabellen zijn. In het volgende artikel in deze reeks gaat u een tabel toevoegen.
 
@@ -111,21 +101,15 @@ U kunt een cluster stoppen en opnieuw opstarten, afhankelijk van de behoeften va
 
 1. Als u een cluster opnieuw wilt opstarten, selecteert u aan de bovenkant van het tabblad **Overzicht** de optie **Starten**.
 
-    Wanneer het cluster opnieuw is opgestart, duurt het ongeveer tien minuten voordat het weer beschikbaar is (zoals toen het cluster voor het eerst werd ingericht). Het kost meer tijd om de gegevens naar de dynamische cache te laden.  
+    Wanneer het cluster opnieuw is opgestart, duurt het ongeveer 10 minuten voordat het weer beschikbaar is (zoals toen het cluster voor het eerst werd ingericht). Het kost meer tijd om de gegevens naar de dynamische cache te laden.  
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u onze andere snelstarts en zelfstudies wilt volgen, behoudt u de gemaakte resources. Als u dit niet van plan bent, verwijdert u **test-resource-group** om kosten te vermijden.
+Als u onze andere quickstarts en zelfstudies wilt volgen, behoudt u de gemaakte resources. Als u dit niet van plan bent, verwijdert u uw testresourcegroep om kosten te vermijden.
 
-1. Selecteer in Azure Portal **Resourcegroepen** aan de linkerkant en selecteer vervolgens de resourcegroep die u hebt gemaakt.  
+1. Selecteer in de Azure Portal **Resourcegroepen** aan de linkerkant en selecteer vervolgens de resourcegroep die het Data Explorer-cluster bevat.  
 
-    Als het menu links is samengevouwen, selecteert u ![Knop Uitvouwen](media/create-cluster-database-portal/expand.png) om het menu uit te vouwen.
-
-   ![Resourcegroep selecteren die moet worden verwijderd](media/create-cluster-database-portal/delete-resources-select.png)
-
-1. Selecteer onder **test-resource-group** de optie **Resourcegroep verwijderen**.
-
-1. Typ in het nieuwe venster de naam van de resourcegroep die u wilt verwijderen (*test-resource-group*)en klik vervolgens op **Verwijderen**.
+1. Kies **Resourcegroep verwijderen** om de gehele resourcegroep te verwijderen. Als u een bestaande resourcegroep gebruikt, kunt u ervoor kiezen om alleen de Data Explorer-cluster te verwijderen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

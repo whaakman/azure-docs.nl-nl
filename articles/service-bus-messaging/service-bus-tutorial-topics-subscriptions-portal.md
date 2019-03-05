@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: fb3358775881f102ecea62fbd20a1e4d85dda308
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 10f3f7d6b878e8f1d4efee360e0f8a9967ac07bc
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001631"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886431"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Zelfstudie: Voorraad bijwerken met Azure Portal en onderwerpen/abonnementen
 
@@ -45,49 +45,11 @@ Het volgende moet zijn geïnstalleerd om deze zelfstudie te voltooien:
 
 Elk [abonnement op een onderwerp](service-bus-messaging-overview.md#topics) kan een kopie van elk bericht ontvangen. Onderwerpen zijn qua protocol en semantiek volledig compatibel met Service Bus-wachtrijen. Service Bus-onderwerpen ondersteunen een breed scala aan selectieregels met filtervoorwaarden, met optionele acties waarmee berichteigenschappen worden ingesteld of gewijzigd. Telkens wanneer een regel overeenkomt, wordt er een bericht gegenereerd. Volg deze [koppeling](topic-filters.md) voor meer informatie over regels, filters en acties.
 
-## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-Ga eerst naar [Azure Portal][Azure portal] en meld u aan met uw Azure-abonnement. De eerste stap bestaat uit het maken van een Service Bus-naamruimte van het type **Berichten**.
+[!INCLUDE [service-bus-create-topics-three-subscriptions-portal](../../includes/service-bus-create-topics-three-subscriptions-portal.md)]
 
-## <a name="create-a-service-bus-namespace"></a>Een Service Bus-naamruimte maken
 
-Een Service Bus-berichtennaamruimte biedt een unieke scoping container, waarnaar wordt verwezen met de [volledig gekwalificeerde domeinnaam][] (FQDN), waarin u een of meer wachtrijen, onderwerpen en abonnementen maakt. In het volgende voorbeeld wordt een Service Bus-berichtennaamruimte in een nieuwe of bestaande [resourcegroep](/azure/azure-resource-manager/resource-group-portal) gemaakt:
-
-1. Klik in het linkernavigatievenster van de portal achtereenvolgens op **+ Een resource maken**, **Bedrijfsintegratie** en **Service Bus**.
-2. Voer in het dialoogvenster **Naamruimte maken** een naam in voor de naamruimte. In het systeem wordt onmiddellijk gecontroleerd of de naam beschikbaar is.
-3. Nadat u hebt gecontroleerd of de naam van de naamruimte beschikbaar is, kiest u de prijscategorie (Standard of Premium).
-4. Kies in het veld **Abonnement** een Azure-abonnement waarin u de naamruimte maakt.
-5. Kies in het veld **Resourcegroep** een bestaande resourcegroep waarin de naamruimte zal zijn opgenomen of maak een nieuwe resourcegroep.      
-6. Kies in **Locatie** het land of regio waarin uw naamruimte moet worden gehost.
-7. Klik op **Create**. Uw naamruimte wordt nu gemaakt en ingeschakeld. U moet wellicht enkele minuten wachten terwijl de resources voor uw account worden ingericht.
-
-  ![naamruimte](./media/service-bus-tutorial-topics-subscriptions-portal/create-namespace.png)
-
-### <a name="obtain-the-management-credentials"></a>De beheerreferenties ophalen
-
-Bij het maken van een nieuwe naamruimte wordt automatisch een eerste SAS-regel (Shared Access Signature) gegenereerd met een bijbehorende primaire en secundaire sleutel die elk volledige controle over alle aspecten van de naamruimte bieden. Volg deze stappen om de eerste regel te kopiëren:
-
-1. Klik op **Alle resources** en klik vervolgens op de zojuist gemaakte naam voor de naamruimte.
-2. Klik in het venster van de naamruimte op **Beleid voor gedeelde toegang**.
-3. Klik in het scherm **Beleid voor gedeelde toegang** op **RootManageSharedAccessKey**.
-4. Klik in het venster **Beleid: RootManageSharedAccessKey** op de knop **Kopiëren** naast **Primaire verbindingsreeks** om de verbindingsreeks naar het klembord te kopiëren voor later gebruik. Plak deze waarde in Kladblok of een andere tijdelijke locatie.
-
-    ![connection-string][connection-string]
-5. Herhaal de vorige stap: het kopiëren en plakken van de waarde voor de **Primaire sleutel** voor een tijdelijke locatie zodat u deze later kunt gebruiken.
-
-## <a name="create-a-topic-and-subscriptions"></a>Een onderwerp en abonnementen maken
-
-Als u een Service Bus-wachtrij wilt maken, moet u de naamruimte opgeven waarin u de wachtrij wilt maken. Het volgende voorbeeld laat zien hoe u in de portal een wachtrij maakt:
-
-1. Klik in het navigatiedeelvenster links in de portal op **Service Bus** (als u geen **Service Bus** ziet, klik dan op **Alle services**).
-2. Klik op de naamruimte waarin u het onderwerp wilt maken.
-3. Klik in het venster voor de naamruimte op **Onderwerpen** en klik vervolgens in het venster **Onderwerpen** op **+ Onderwerpen**.
-4. Voer een waarde in voor **Onderwerpnaam** en hanteer voor de andere waarden de standaardinstellingen.
-5. Klik onder aan het venster op **Maken**.
-6. Noteer de naam van het onderwerp.
-7. Selecteer het onderwerp dat u zojuist hebt gemaakt.
-8. Klik op **+ Abonnement**, voer de naam van het abonnement in (**S1**) en laat verder de standaardwaarden staan.
-9. Herhaal de vorige stap nog tweemaal om abonnementen met de naam **S2** en **S3** te maken.
 
 ## <a name="create-filter-rules-on-subscriptions"></a>Filterregels voor abonnementen maken
 
@@ -105,7 +67,7 @@ Ga als volgt te werk om de code uit te voeren:
 
 2. Navigeer naar de voorbeeldmap `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveTutorialwithFilters`.
 
-3. Pak de verbindingsreeks erbij die u in de sectie [De beheerreferenties ophalen](#obtain-the-management-credentials) van deze zelfstudie naar Kladblok hebt gekopieerd. U hebt ook de naam nodig van het onderwerp dat u in de vorige sectie hebt gemaakt.
+3. Pak de verbindingsreeks erbij die u in de sectie De beheerreferenties ophalen van deze zelfstudie naar Kladblok hebt gekopieerd. U hebt ook de naam nodig van het onderwerp dat u in de vorige sectie hebt gemaakt.
 
 4. Typ de volgende opdracht bij de opdrachtprompt:
 
@@ -451,7 +413,7 @@ Ga naar de volgende zelfstudie voor meer informatie over het gebruik van de moge
 > [Voorraad bijwerken met behulp van PowerShell en onderwerpen/abonnementen](service-bus-tutorial-topics-subscriptions-powershell.md)
 
 [gratis account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[volledig gekwalificeerde domeinnaam]: https://wikipedia.org/wiki/Fully_qualified_domain_name
+[fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 
 [connection-string]: ./media/service-bus-tutorial-topics-subscriptions-portal/connection-string.png

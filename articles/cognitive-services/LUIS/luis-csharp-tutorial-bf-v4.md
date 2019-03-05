@@ -5,18 +5,18 @@ description: Bouw met behulp van C# een chatbot met ingebouwd taalbegrip (LUIS).
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
-manager: cjgronlund
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 98c65b7adfe35c1ca80846ff7619dad69c5ba266
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 028c06924e41606ba1d4e0b15fe26f2b7270db3c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219223"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960292"
 ---
 # <a name="tutorial-luis-bot-in-c-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>Zelfstudie: LUIS-bot in C# met Bot Framework 4.x en de Azure-web-app-bot
 Met C# kunt u een chatbot bouwen met ingebouwd taalbegrip (LUIS). Deze bot maakt gebruik van de app HomeAutomation om een botoplossing te implementeren. De bot is gebouwd aan de hand van de Azure-[web-app-bot](https://docs.microsoft.com/azure/bot-service/) en [Bot Framework versie](https://github.com/Microsoft/botbuilder-js) 4.
@@ -66,7 +66,7 @@ Met C# kunt u een chatbot bouwen met ingebouwd taalbegrip (LUIS). Deze bot maakt
     
 5. Selecteer **Maken**. Hiermee maakt u de botservice en implementeert u deze in Azure. Bij dit proces wordt een LUIS-app gemaakt met de naam `luis-csharp-bot-XXXX`. Deze naam is gebaseerd op de bot en de app-naam uit het vorige gedeelte.
 
-    [ ![Een web-app-bot maken](./media/bfv4-csharp/create-web-app-service.png) ](./media/bfv4-csharp/create-web-app-service.png#lightbox)
+    [![Een web-app-bot maken](./media/bfv4-csharp/create-web-app-service.png)](./media/bfv4-csharp/create-web-app-service.png#lightbox)
 
 6. Laat dit browsertabblad open. Voor alle stappen die u in de LUIS-portal moet uitvoeren, opent u een nieuw tabblad in de browser. Ga door naar het volgende gedeelte zodra de nieuwe botservice is geïmplementeerd.
 
@@ -106,7 +106,7 @@ Als u de code van de web-app-bot verder wilt ontwikkelen, downloadt u de code en
 
 3. Selecteer **Broncode bot downloaden**. 
 
-    [ ![Download de broncode van de web-app-bot voor de basisbot](../../../includes/media/cognitive-services-luis/bfv4/download-code.png) ](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
+    [![Download de broncode van de web-app-bot voor de basisbot](../../../includes/media/cognitive-services-luis/bfv4/download-code.png)](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
 
 4. Als de broncode is ingepakt, ziet u een bericht met een link voor het downloaden van de code. Selecteer de link. 
 
@@ -205,7 +205,7 @@ Voordat u code of instellingen wijzigt, controleert u of de bot werkt.
 
 2. In de botemulator selecteert u het *.bot-bestand in de hoofdmap van het project. Het `.bot`-bestand bevat het URL-eindpunt die de bot gebruikt voor berichten:
 
-    [ ![Botemulator versie 4](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png) ](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png#lightbox)
+    [![Botemulator versie 4](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png)](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png#lightbox)
 
 3. Voer het botgeheim in dat u hebt gekopieerd uit de toepassingsinstellingen van Azure Bot Service. Dit is gebeurd in stap 1 van het gedeelte **[De web-app-bot downloaden](#download-the-web-app-bot)**. Hiermee krijgt de emulator toegang tot alle versleutelde velden in het `.bot`-bestand.
 
@@ -213,7 +213,7 @@ Voordat u code of instellingen wijzigt, controleert u of de bot werkt.
 
 4. Voer `Hello` in de botemulator in en haal het juiste antwoord op bij de basisbot.
 
-    [ ![Antwoord van de basisbot in de emulator](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png) ](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png#lightbox)
+    [![Antwoord van de basisbot in de emulator](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png)](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png#lightbox)
 
 ## <a name="modify-bot-code"></a>Botcode wijzigen 
 

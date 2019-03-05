@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 549ef0d073a740edf700c54d02a0d9ef247db0b7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 8197d091763709282c42379a7ca0ea802e5c6fdf
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245084"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886768"
 ---
 # <a name="example-how-to-detect-language-with-text-analytics"></a>Voorbeeld: Taal detecteren met Text Analytics
 
@@ -29,7 +29,7 @@ Deze mogelijkheid is handig voor inhoudsarchieven die willekeurige tekst verzame
 
 U moet JSON-documenten in deze indeling hebben: id, tekst
 
-De documentgrootte moet onder maximaal 5000 tekens per document zijn, en u kunt maximaal 1000 items (id's) per verzameling hebben. De verzameling is in de hoofdtekst van de aanvraag ingediend. Hier volgt een voorbeeld van de inhoud die u voor taaldetectie kan indienen.
+De documentgrootte moet minder dan 5120 tekens per document bevatten en u kunt maximaal 1000 items (id's) per verzameling hebben. De verzameling is in de hoofdtekst van de aanvraag ingediend. Hier volgt een voorbeeld van de inhoud die u voor taaldetectie kan indienen.
 
    ```
     {

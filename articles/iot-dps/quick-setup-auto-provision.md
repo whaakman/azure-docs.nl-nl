@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 15d243218632ce9010d0f4542fb97f311e8a3166
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0b16c6da0066ac4e919c1bef031d3206a359aae6
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53182635"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818116"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>IoT Hub Device Provisioning Service instellen met Azure Portal
 
@@ -38,7 +38,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
     * **Naam:** Geef een unieke naam op voor uw nieuwe Device Provisioning Service-instantie. Als de door u opgegeven naam beschikbaar is, verschijnt er een groen vinkje.
     * **Abonnement:** Kies het abonnement dat u wilt gebruiken om deze Device Provisioning Service-instantie te maken.
-    * **Resourcegroep:** Dit veld kunt u gebruiken om een nieuwe resourcegroep te maken of de nieuwe instantie aan een bestaande resourcegroep toe te voegen. Kies dezelfde resourcegroep als die de IoT-hub bevat die u hierboven hebt gemaakt, zoals **TestResources**. Door alle gerelateerde resources samen in een groep te plaatsen, kunt u ze samen beheren. Als u bijvoorbeeld de resourcegroep verwijdert, worden alle resources verwijderd die deze groep bevat. Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-portal.md) voor meer informatie.
+    * **Resourcegroep:** Dit veld kunt u gebruiken om een nieuwe resourcegroep te maken of de nieuwe instantie aan een bestaande resourcegroep toe te voegen. Kies dezelfde resourcegroep als die de IoT-hub bevat die u hierboven hebt gemaakt, zoals **TestResources**. Door alle gerelateerde resources samen in een groep te plaatsen, kunt u ze samen beheren. Als u bijvoorbeeld de resourcegroep verwijdert, worden alle resources verwijderd die deze groep bevat. Zie [Azure Resource Manager-resourcegroepen beheren](../azure-resource-manager/manage-resource-groups-portal.md) voor meer informatie.
     * **Locatie:** Selecteer de dichtstbijzijnde locatie voor uw apparaten.
 
       ![Basisinformatie over uw Device Provisioning Service-exemplaar invoeren op de portalblade](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  

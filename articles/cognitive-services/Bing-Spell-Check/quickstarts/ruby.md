@@ -1,80 +1,88 @@
 ---
-title: 'Quickstart: Bing Spellingcontrole-API, Ruby'
+title: 'Quickstart: Spellingcontrole met de Bing Spellingcontrole-REST API en Ruby'
 titlesuffix: Azure Cognitive Services
-description: Haal informatie en codevoorbeelden op om u te helpen snel aan de slag te gaan met de Bing Spellingcontrole-API.
+description: Aan de slag met de Bing Spellingcontrole-REST API om de spelling en grammatica te controleren.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/14/2017
+ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: d3c273c7e5774e4f6d5b6984b77ff76bfb041343
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d488923f38a9c65cb117b4535b50bb9fdff2dbfc
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873169"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888845"
 ---
-# <a name="quickstart-for-bing-spell-check-api-with-ruby"></a>Quickstart voor Bing Spellingcontrole-API met Ruby 
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>Quickstart: Spellingcontrole met de Bing Spellingcontrole-REST API en Ruby
 
-In dit artikel leest u hoe u de [Bing Spellingcontrole-API](https://azure.microsoft.com/services/cognitive-services/spell-check/) kunt gebruiken in combinatie met Ruby. De Spellingcontrole-API retourneert een lijst met woorden die niet worden herkend, samen met voorgestelde vervangingen. Normaal gesproken zou u tekst naar deze API sturen en vervolgens de voorgestelde vervangingen in de tekst doorvoeren of deze weergeven aan de gebruikers van uw toepassing, zodat ze zelf kunnen beslissen of de vervangingen moeten worden doorgevoerd. Dit artikel laat zien hoe een aanvraag met de tekst "Hollo, wrld!" wordt verzonden. De voorgestelde vervangingen zijn "Hello" en "world".
+Gebruik deze quickstart om uw eerste aanroep naar de Bing Spellingcontrole-REST API te maken met behulp van Ruby. Deze eenvoudige toepassing verzendt een aanvraag naar de API en retourneert een lijst met woorden die niet werden herkend, gevolgd door voorgestelde correcties. Hoewel deze toepassing in Ruby is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal. De broncode voor deze toepassing is beschikbaar op [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingSpellCheckv7.rb)
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) of hoger nodig om deze code uit te voeren.
+* [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) of later.
 
-U moet een [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Bing Spellingcontrole-API voor Bing versie 7** hebben. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/#lang) is voldoende voor deze snelstartgids. U hebt de toegangssleutel nodig die wordt verstrekt bij het activeren van uw gratis proefversie of u gebruikt de sleutel van een betaald abonnement vanuit uw Azure-dashboard. Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+[!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
-## <a name="get-spell-check-results"></a>Resultaten van spellingcontrole ophalen
 
-1. Maak een nieuw Ruby-project in uw favoriete IDE.
-2. Voeg de onderstaande code toe.
-3. Vervang de waarde `key` door een geldige toegangssleutel voor uw abonnement.
-4. Voer het programma uit.
+## <a name="create-and-initialize-the-application"></a>De toepassing maken en initialiseren
 
-```ruby
-require 'net/http'
-require 'uri'
-require 'json'
+1. Maak een nieuw Ruby-bestand in uw favoriete editor of IDE en voeg de volgende vereisten toe. 
 
-uri = 'https://api.cognitive.microsoft.com'
-path = '/bing/v7.0/spellcheck?'
-params = 'mkt=en-us&mode=proof'
+    ```javascript
+    require 'net/http'
+    require 'uri'
+    require 'json'
+    ```
 
-uri = URI(uri + path + params)
-uri.query = URI.encode_www_form({
-    # Request parameters
-    'text' => 'Hollo, wrld!'
-})
+2. Maak variabelen voor uw abonnementssleutel, eindpunt-URI en pad. Maak uw aanvraagparameters door de parameter `mkt=` toe te voegen aan uw markt en `&mode` aan de `proof`-controlemodus.
 
-# NOTE: Replace this example key with a valid subscription key.
-key = 'ENTER KEY HERE'
+    ```ruby
+    key = 'ENTER YOUR KEY HERE'
+    uri = 'https://api.cognitive.microsoft.com'
+    path = '/bing/v7.0/spellcheck?'
+    params = 'mkt=en-us&mode=proof'
+    ```
 
-# The headers in the following example 
-# are optional but should be considered as required:
-#
-# X-MSEdge-ClientIP: 999.999.999.999  
-# X-Search-Location: lat: +90.0000000000000;long: 00.0000000000000;re:100.000000000000
-# X-MSEdge-ClientID: <Client ID from Previous Response Goes Here>
-#
-# See below for more information.
+## <a name="send-a-spell-check-request"></a>Een spellingcontroleaanvraag verzenden
 
-request = Net::HTTP::Post.new(uri)
-request['Content-Type'] = "application/x-www-form-urlencoded"
+1. Maak een URI op basis van uw host-URI, pad en parametertekenreeks. Voeg aan de query de tekst toe waarop u een spellingcontrole wilt uitvoeren.
 
-request['Ocp-Apim-Subscription-Key'] = key
+   ```ruby
+   uri = URI(uri + path + params)
+   uri.query = URI.encode_www_form({
+      # Request parameters
+   'text' => 'Hollo, wrld!'
+   })
+   ```
 
-response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
-    http.request(request)
-end
+2. Maak een aanvraag met behulp van de URI die hierboven is gemaakt. Voeg uw sleutel toe aan de `Ocp-Apim-Subscription-Key`-header.
 
-result = JSON.pretty_generate(JSON.parse(response.body))
-puts result
-```
+    ```ruby
+    request = Net::HTTP::Post.new(uri)
+    request['Content-Type'] = "application/x-www-form-urlencoded"
+    request['Ocp-Apim-Subscription-Key'] = key
+    ```
 
-**Antwoord**
+3. Verzend de aanvraag.
+
+    ```ruby
+    response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+        http.request(request)
+    end
+    ```
+
+4. Haal het JSON-antwoord op en druk het af naar de console. 
+
+    ```ruby
+    result = JSON.pretty_generate(JSON.parse(response.body))
+    puts result
+    ```
+
+## <a name="example-json-response"></a>Voorbeeld van JSON-antwoord
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
@@ -119,9 +127,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Zelfstudie over Bing Spellingcontrole](../tutorials/spellcheck.md)
+> [Een web-app met één pagina maken](../tutorials/spellcheck.md)
 
-## <a name="see-also"></a>Zie ook
-
-- [Overzicht van Bing Spellingcontrole](../proof-text.md)
+- [Wat is de Bing Spellingcontrole-API?](../overview.md)
 - [Referentie voor de Bing Spellingcontrole-API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)

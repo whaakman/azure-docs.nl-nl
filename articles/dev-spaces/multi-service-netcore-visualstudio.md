@@ -12,12 +12,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: b91fb86dfa8ca0d8e75be2c44f9821df84739790
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 6a9058d7f84b336b332ffdaf9b41abfb660433e6
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664934"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819851"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Ontwikkeling van meerdere services met Azure Dev Spaces
 
@@ -35,14 +35,14 @@ Omwille van de tijd downloaden we voorbeeldcode uit een GitHub-opslagplaats. Ga 
 1. Open het `mywebapi`-project in een *afzonderlijk Visual Studio-venster*.
 1. Selecteer **Azure Dev Spaces** in de vervolgkeuzelijst met opstartinstellingen zoals u eerder hebt gedaan voor het `webfrontend`-project. In plaats van een nieuw AKS-cluster te maken, kunt u nu de ontwikkelomgeving selecteren die u al hebt gemaakt. Laat ook hier de standaard bij Space ingesteld op `default` en klik op **OK**. In het uitvoervenster ziet u mogelijk dat deze nieuwe service in de ontwikkelomgeving wordt ‘opgewarmd’ in Visual Studio om ervoor te zorgen dat het proces sneller verloopt wanneer u begint met de foutopsporing.
 1. Druk op F5 en wacht tot de service is gebouwd en geïmplementeerd. Dit proces is voltooid, zodra de Visual Studio-statusbalk oranje wordt
-1. Noteer de eindpunt-URL die wordt weergegeven in het deelvenster **Azure Dev Spaces for AKS** in het **uitvoervenster**. Deze ziet er ongeveer als volgt uit: http://localhost:\<portnumber\>. Het lijkt misschien alsof de container lokaal wordt uitgevoerd, maar dat is niet zo. De container wordt uitgevoerd in de ontwikkelomgeving in Azure.
+1. Noteer de eindpunt-URL die wordt weergegeven in het deelvenster **Azure Dev Spaces for AKS** in het venster **Uitvoer**. Deze ziet er ongeveer als volgt uit: http://localhost:\<portnumber\>. Het lijkt misschien alsof de container lokaal wordt uitgevoerd, maar dat is niet zo. De container wordt uitgevoerd in de ontwikkelomgeving in Azure.
 2. Wanneer `mywebapi` klaar is, opent u de browser naar het localhost-adres en voegt u `/api/values` toe aan het eind van de URL om de standaard-GET API voor de `ValuesController` aan te roepen. 
 3. Als alle stappen zijn voltooid, ziet u een reactie van de `mywebapi`-service die er ongeveer als volgt uitziet.
 
     ![](media/get-started-netcore-visualstudio/WebAPIResponse.png)
 
 ### <a name="make-a-request-from-webfrontend-to-mywebapi"></a>Verzend een aanvraag van *webfrontend* naar *mywebapi*
-Nu gaan we code schrijven in `webfrontend` waarmee een aanvraag wordt verzonden naar `mywebapi`. Schakel over naar het Visual Studio-venster met het `webfrontend`-project. *Vervang* de code in het `HomeController.cs`-bestand voor de About-methode door de volgende code:
+Nu gaan we code schrijven in `webfrontend` waarmee een aanvraag wordt verzonden naar `mywebapi`. Schakel over naar het Visual Studio-venster met het `webfrontend`-project. *Vervang* de code voor de About-methode in het `HomeController.cs`-bestand door de volgende code:
 
    ```csharp
    public async Task<IActionResult> About()
@@ -85,7 +85,7 @@ Dat is dus gelukt. U hebt nu een toepassing met meerdere containers waarin elke 
 U hebt mogelijk opgemerkt dat, hoewel *webfrontend* geen speciale code bevat om de HTTP-aanroep af te drukken die deze naar *mywebapi* uitvoert, u kunt zien dat HTTP berichten in het uitvoervenster traceert:
 ```
 // The request from your browser
-webfrontend.<id>.<region>.aksapp.io --gyk-> webfrontend-668b7ddb9f-n5rhj:
+default.webfrontend.856bb3af715744c6810b.eus.azds.io --gyk-> webfrontend:
    GET /Home/About HTTP/1.1
 
 // *webfrontend* reaching out to *mywebapi*
@@ -98,7 +98,7 @@ webfrontend-668b7ddb9f-n5rhj <-pu5-- mywebapi:
    Hello from mywebapi
 
 // Response from *webfrontend* to your browser
-webfrontend.<id>.<region>.aksapp.io <-gyk-- webfrontend-668b7ddb9f-n5rhj:
+default.webfrontend.856bb3af715744c6810b.eus.azds.io <-gyk-- webfrontend:
    HTTP/1.1 200 OK
    <!DOCTYPE html>
    <html>

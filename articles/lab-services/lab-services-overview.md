@@ -13,21 +13,20 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 07/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 2f4bc3bc00d1a803ed678e49df23a78e6b063e50
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5c53c64c337cb2992b002ee02ceb9aab36e16de4
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957790"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958742"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>Een inleiding tot Azure Lab Services
-
 Met Azure Lab Services kunt u snel in de cloud een omgeving inrichten voor uw team (zoals een ontwikkelomgeving, testomgeving of labomgeving voor het leslokaal). De eigenaar van een lab maakt een lab, richt virtuele machines met Windows of Linux in, installeert de benodigde software en hulpprogramma's en maakt deze beschikbaar voor gebruikers van het lab. Labgebruikers maken verbinding met virtuele machines (VM's) in het lab en gebruiken deze voor hun dagelijkse werk, kortlopende projecten of voor het uitvoeren van oefeningen in het leslokaal. Zodra gebruikers aan de slag gaan met resources in het lab, kan een beheerder van het lab kosten en gebruik voor meerdere labs analyseren en overkoepelend beleid instellen om de kosten van uw organisatie of het team te optimaliseren.
 
 > [!IMPORTANT]
 > **Azure DevTest Labs** wordt uitgebreid met nieuwe typen labs (Azure Lab Services).
 >  
-> Met Azure Lab Services kunt u beheerde labs maken, zoals labs voor het leslokaal. De service zelf is verantwoordelijk voor het volledige beheer van de infrastructuur voor een beheerd lab, van het inrichten van VM's tot de afhandeling van fouten, en het schalen van de infrastructuur. De beheerde labs zijn momenteel beschikbaar als preview. Als de preview is afgelopen, komen de nieuwe labtypen en bestaande DevTest Labs beschikbaar onder de nieuwe algemene overkoepelende naam van Azure Lab Services. Hier worden alle labtypen voortdurend verbeterd.
+> Met Azure Lab Services kunt u beheerde labtypen maken, zoals labs voor het leslokaal. De service zelf is verantwoordelijk voor het volledige beheer van de infrastructuur voor een beheerd lab, van het inrichten van VM's tot de afhandeling van fouten, en het schalen van de infrastructuur. Voorlopig zijn [DevTest Labs](https://azure.microsoft.com/services/devtest-lab/) en [Azure Lab Services](https://azure.microsoft.com/services/lab-services/) nog steeds afzonderlijke services in Azure Portal. 
 
 ## <a name="key-capabilities"></a>Belangrijkste mogelijkheden
 
@@ -74,38 +73,52 @@ U kunt Azure DevTest Labs gebruiken voor het implementeren van allerlei scenario
 
 Zie [Use Azure DevTest Labs for testing](devtest-lab-test-env.md) (Azure DevTest Labs gebruiken voor testen) voor meer informatie.
 
-## <a name="user-profiles"></a>Gebruikersprofielen
+## <a name="types-of-labs"></a>Typen labs
+U kunt twee soorten labs maken: **beheerde labs** met Azure Lab Services en **aangepaste labs** met Azure Lab Services. Als u alleen in een lab wilt invoeren wat u nodig hebt en de service de voor het lab vereiste infrastructuur wilt laten instellen, dient u een van de **beheerde labtypen** te kiezen. Op dit moment is het **leslokaallab** het enige type beheerde lab dat u met Azure Lab Services kunt maken. Als u uw eigen infrastructuur wilt beheren, maakt u een lab met behulp van **Azure DevTest Labs**.
 
-In dit artikel worden de verschillende gebruikersprofielen in Azure Lab Services beschreven.
+De volgende secties bevatten meer informatie over deze labs. 
 
-### <a name="lab-account-owner"></a>Labeigenaar
+## <a name="managed-lab-types"></a>Beheerde labtypen
+Met Azure Lab Services kunt u labs maken waarvan de infrastructuur wordt beheerd door Azure. In dit artikel worden deze beheerde labs genoemd. Beheerde labs bieden verschillende soorten labs die geschikt zijn voor uw specifieke behoeften. Op dit moment is **leslokaallab** het enige type beheerde lab dat wordt ondersteund. 
 
-Meestal fungeert een IT-beheerder van de cloudresources van de organisatie, die ook eigenaar is van het Azure-abonnement, als de eigenaar van een lab-account. Deze persoon is verantwoordelijk voor de volgende taken:
+Met beheerde labs kunt u meteen aan de slag met een minimale installatie. De service zelf is verantwoordelijk voor het volledige beheer van de infrastructuur voor het lab, van het inrichten van de VM's tot de afhandeling van fouten, en het schalen van de infrastructuur. Als u een beheerd lab, bijvoorbeeld een leslokaallab, wilt maken, moet u eerst een labaccount voor uw organisatie maken. Het lab-account fungeert als het centrale account waarin alle labs in de organisatie worden beheerd. 
 
-- Een lab-account instellen voor uw organisatie.
-- Beleidsregels beheren en configureren voor alle labs.
-- Machtigingen verlenen aan personen binnen de organisatie voor het maken van een lab onder het lab-account.
+Wanneer u Azure-resources in deze beheerde labs maakt en gebruikt, worden deze door de service in interne abonnementen van Microsoft gemaakt en beheerd. Ze worden niet in uw eigen Azure-abonnement gemaakt. De service houdt het gebruik van deze resources bij in de interne Microsoft-abonnementen. Dit gebruik wordt weer in rekening gebracht op uw Azure-abonnement dat het lab-account bevat.   
 
-### <a name="lab-creator"></a>Labmaker
+Hier volgen enkele van de **gebruikscases voor beheerde labtypen**: 
 
-Normaal gesproken kunnen gebruikers zoals de leider of manager van een ontwikkelteam, een leraar of docent, de organisator van een hackathon of een onlinetrainer labs maken onder een lab-account. Een labmaker is verantwoordelijk voor de volgende taken:
+- Bied leerlingen en studenten een lab met virtuele machines die zijn geconfigureerd met exact wat nodig is voor een les of college. Geef elke leerling of student een beperkt aantal uren voor het gebruik van de VM's voor hun huiswerk of persoonlijke projecten.
+- Stel een pool in van hoogwaardige reken-VM’s om rekenintensief of grafisch-intensief onderzoek uit te voeren. Voer de virtuele machines uit, indien nodig, en schoon de machines op wanneer u klaar bent. 
+- Breng het fysieke computerlab van uw school over naar de cloud. U kunt het aantal VM's automatisch schalen tot de drempelwaarde voor gebruik en kosten die u instelt voor het lab.  
+- Richt snel een lab met virtuele machines in voor het hosten van een hackathon. Verwijder het lab met één muisklik als u klaar bent. 
 
-- Een lab maken.
-- Virtuele machines maken in het lab.
-- De juiste software installeren op virtuele machines.
-- Instellen wie toegang heeft tot het lab.
-- Een koppeling naar het lab verstrekken aan labgebruikers.
 
-### <a name="lab-user"></a>Labgebruiker
+## <a name="devtest-labs"></a>DevTest Labs
+Mogelijk hebt u scenario's waarin u alle infrastructuur en configuratie zelf wilt beheren binnen uw eigen abonnement. Hiervoor kunt u in Azure Portal een lab maken met Azure DevTest Labs. Voor deze labs hoeft u geen lab-account te maken. Deze labs worden niet weergegeven in het lab-account (wat voor de beheerde labs bestaat).  
 
-Een labgebruiker is verantwoordelijk voor de volgende taken:
+Hier volgen enkele **gebruikscases van DevTest Labs**: 
 
-- De registratiekoppeling volgen die is verstuurd door een labmaker om zich te registreren bij het lab.
-- Verbinding maken met een virtuele machine in het lab en deze gebruiken voor ontwikkeling, testen of school- of studiewerk.
+- Richt snel een lab met virtuele machines in voor het hosten van een hackathon of een praktische sessie op een conferentie. Verwijder het lab met één muisklik als u klaar bent. 
+- Maak een pool met virtuele machines die zijn geconfigureerd met uw toepassing en laat uw team eenvoudig gebruikmaken van een virtuele machine voor bug-bashes.  
+- Geef ontwikkelaars virtuele machines die zijn geconfigureerd met alle hulpprogramma's die ze nodig hebben. Maak een schema voor automatisch starten en afsluiten om kosten te minimaliseren. 
+- Maak herhaaldelijk een lab met testmachines als onderdeel van uw implementatie. Test uw meest recente bits en ruim de testmachines op wanneer u klaar bent. 
+- Stel tal van anders geconfigureerde virtuele machines en meerdere testagenten in voor het testen van de schaal en prestaties. 
+- Bied uw klanten trainingssessies aan met een lab dat is geconfigureerd met de nieuwste versie van uw product. Geef elke klant een beperkt aantal uren voor het gebruik van het lab. 
+
+
+## <a name="managed-lab-types-vs-devtest-labs"></a>Beheerde labtypen versus DevTest Labs
+In de volgende tabel worden twee soorten testlaboratoria vergeleken die worden ondersteund door Azure Lab Services: 
+
+| Functies | Beheerde labtypen | DevTest Labs |
+| -------- | ----------------- | ---------- |
+| Beheer van Azure-infrastructuur in het lab. |  Automatisch beheerd door de service | U beheert zelf  |
+| Ingebouwde tolerantie voor problemen in de infrastructuur | Automatisch afgehandeld door de service | U beheert zelf  |
+| Abonnementsbeheer | Service verwerkt de toewijzing van resources binnen Microsoft-abonnementen die de service ondersteunen. Schalen wordt automatisch afgehandeld door de service. | U beheert zelf in uw eigen Azure-abonnement. Er is geen automatische schaling van abonnementen. |
+| Implementatie van Azure Resource Manager in het lab | Niet beschikbaar | Beschikbaar |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Aan de slag met het installeren van een lab met Azure Lab Services:
+Zie de volgende artikelen: 
 
-- [Een leslokaallab instellen](classroom-labs/tutorial-setup-classroom-lab.md)
-- [Een lab instellen](tutorial-create-custom-lab.md)
+- [Over Leslokaallabs ](./classroom-labs/classroom-labs-overview.md)
+- [Over DevTest Labs](devtest-lab-overview.md)

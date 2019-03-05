@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ba23e9b8ac79a0a2a3899332bfc373665cf561af
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b4c484f3dd118a19291741b071432b09894e836c
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841160"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593298"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Zelfstudie: Azure Security Center gebruiken om virtuele Linux-machines te controleren
 
@@ -65,7 +65,7 @@ Een beveiligingsbeleid voor een volledig abonnement instellen:
 
 1. Selecteer in het Security Center-dashboard **Beveiligingsbeleid** en selecteer vervolgens uw abonnement.
 2. Selecteer op de blade **Beveiligingsbeleid** de optie **Beveiligingsbeleid**. 
-3. Op de blade ** Beveiligingsbeleid - Beveiligingsbeleid ** schakelt u de beleidsitems in die u wilt toepassen op het abonnement.
+3. Op de blade **Beveiligingsbeleid - Beveiligingsbeleid** schakelt u de beleidsitems in die u wilt toepassen op het abonnement.
 4. Wanneer u klaar bent met instellen, selecteert u bovenaan de blade de optie **Opslaan**. 
 
 ![Uniek beleid](./media/tutorial-azure-security/unique-policy.png)

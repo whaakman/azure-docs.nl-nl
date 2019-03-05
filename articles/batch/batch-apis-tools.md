@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 2a9c0cf36459a2d23b8af8f69937ab9ded7f9c04
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: a2959e6caefb09a22be4473f7da005c6f524aba0
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301499"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878350"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Overzicht van Batch-API's en -hulpprogramma's
 
@@ -40,7 +40,7 @@ Uw toepassingen en services kunnen direct REST-API-aanroepen verstrekken of een 
 | API | API-verwijzing | Downloaden | Zelfstudie | Codevoorbeelden | Meer informatie |
 | --- | --- | --- | --- | --- | --- |
 | **Batch REST** |[docs.microsoft.com][batch_rest] |N.v.t. |- |- | [Ondersteunde versies](/rest/api/batchservice/batch-service-rest-api-versioning) |
-| **Batch .NET** |[docs.microsoft.com][api_net] |[NuGet ][api_net_nuget] |[Zelfstudie](tutorial-parallel-dotnet.md) |[GitHub][api_sample_net] | [Releaseopmerkingen](https://aka.ms/batch-net-dataplane-changelog) |
+| **Batch .NET** |[docs.microsoft.com][api_net] |[NuGet][api_net_nuget] |[Zelfstudie](tutorial-parallel-dotnet.md) |[GitHub][api_sample_net] | [Releaseopmerkingen](https://aka.ms/batch-net-dataplane-changelog) |
 | **Batch Python** |[docs.microsoft.com][api_python] |[PyPI][api_python_pypi] |[Zelfstudie](tutorial-parallel-python.md)|[GitHub][api_sample_python] | [Leesmij](https://github.com/Azure/azure-sdk-for-python/blob/master/doc/batch.rst) |
 | **Batch Node.js** |[docs.microsoft.com][api_nodejs] |[npm][api_nodejs_npm] |[Zelfstudie](batch-nodejs-get-started.md) |- | [Leesmij](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
 | **Batch Java** |[docs.microsoft.com][api_java] |[Maven][api_java_jar] |- |[Leesmij][api_sample_java] | [Leesmij](https://github.com/Azure/azure-batch-sdk-for-java)|
@@ -52,7 +52,7 @@ De Azure Resource Manager-API's voor Batch bieden programmatisch toegang tot Bat
 | API | API-verwijzing | Downloaden | Zelfstudie | Codevoorbeelden |
 | --- | --- | --- | --- | --- |
 | **Batch Management REST** |[docs.microsoft.com][api_rest_mgmt] |N.v.t. |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
-| **Batch Management .NET** |[docs.microsoft.com][api_net_mgmt] |[NuGet ][api_net_mgmt_nuget] | [Zelfstudie](batch-management-dotnet.md) |[GitHub][api_sample_net] |
+| **Batch Management .NET** |[docs.microsoft.com][api_net_mgmt] |[NuGet][api_net_mgmt_nuget] | [Zelfstudie](batch-management-dotnet.md) |[GitHub][api_sample_net] |
 | **Batch Management Python** |[docs.microsoft.com][api_python_mgmt] |[PyPI][api_python_mgmt_pypi] |- |- |
 | **Batch Management Node.js** |[docs.microsoft.com][api_nodejs_mgmt] |[npm][api_nodejs_mgmt_npm] |- |- | 
 | **Batch Management Java** |- |[Maven][api_java_mgmt_jar] |- |- |
@@ -104,7 +104,7 @@ Hier volgen enkele extra hulpprogramma's die mogelijk nuttig zijn voor het bouwe
 [api_sample_net]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp
 [api_sample_python]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
 [api_sample_java]: https://github.com/Azure/azure-batch-samples/tree/master/Java/
-[batch_ps]: /powershell/module/azurerm.batch/
+[batch_ps]: /powershell/module/az.batch/
 [batch_rest]: /rest/api/batchservice/
 [free_account]: https://azure.microsoft.com/free/
 [github_samples]: https://github.com/Azure/azure-batch-samples

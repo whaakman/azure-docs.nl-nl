@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2018
 ms.author: dobett
-ms.openlocfilehash: 3f30b46138fc7753a1a4282497cbb06b6a4defbc
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 60876cb95e6efe4fbde55bd8a224eab658b10d66
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608354"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749984"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Quickstart: een cloudoplossing voor bewaking op afstand proberen
 
@@ -45,7 +45,7 @@ Voer een unieke **Oplossingsnaam** in voor de oplossingsverbetering voor externe
 Selecteer het **Abonnement** en de **Regio** die u wilt gebruiken om de oplossingsverbetering te implementeren. U kiest meestal de regio die zich het meest in uw buurt bevindt. Voor deze quickstart maken we gebruik van **US - oost**.
 U kunt **Visual Studio Enterprise** kiezen, maar u moet een [globale beheerder of gebruiker](iot-accelerators-permissions.md) zijn om dit te doen.
 
-Klik op **Oplossing maken** om de implementatie te starten. Het duurt minstens vijf minuten om dit proces uit te voeren:
+Klik op **Maken** om de implementatie te starten. Het duurt minstens vijf minuten om dit proces uit te voeren:
 
 ![Details voor de oplossing voor externe controle](./media/quickstart-remote-monitoring-deploy/createform.png)
 
@@ -57,7 +57,7 @@ Klik op de pagina **Ingerichte oplossingen** op de nieuwe oplossingsverbetering 
 
 ![Nieuwe oplossing kiezen](./media/quickstart-remote-monitoring-deploy/choosenew.png)
 
-In het deelvenster dat wordt weergegeven, kunt u informatie bekijken over de oplossingsverbetering voor externe controle. Kies **Oplossingsdashboard** om de oplossingsverbetering voor externe controle weer te geven:
+In het deelvenster dat wordt weergegeven, kunt u informatie bekijken over de oplossingsverbetering voor externe controle. Kies **Go to your solution accelerator** (Ga naar uw oplossingsversneller) om uw oplossingsversneller voor externe bewaking weer te geven:
 
 ![Deelvenster Oplossing](./media/quickstart-remote-monitoring-deploy/solutionpanel.png)
 
@@ -134,6 +134,9 @@ Als u van plan bent verder te gaan met de zelfstudies, laat u de oplossingsverbe
 Als u de oplossingsverbetering niet meer nodig hebt, verwijdert u deze op de pagina [Ingerichte oplossingen](https://www.azureiotsolutions.com/Accelerators#dashboard) door de oplossingsverbetering te selecteren en op **Oplossing verwijderen** te klikken:
 
 ![Oplossing verwijderen](media/quickstart-remote-monitoring-deploy/deletesolution.png)
+
+
+![Oplossing verwijderen](media/quickstart-remote-monitoring-deploy/deletesolution-page.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

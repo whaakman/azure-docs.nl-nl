@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: dea623684454d4b14a370251df10599eb03bbb34
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c17a74c81d9c9d2ac3f585ab17f0b7d2acc628f6
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856917"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873914"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Zelfstudie: Contextueel gerelateerde gegevens ophalen uit een utterance
 
@@ -74,7 +74,7 @@ De entiteit Hierarchical is geschikt voor dit type gegevens omdat het volgende g
     |Transfer Steve Standish from San Diego toward Bellevue |
     |lift Tanner Thompson from Kansas city and shift to Chicago|
 
-    [ ![Schermopname van LUIS met nieuwe utterances in de intentie MoveEmployee](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
+    [![Schermopname van LUIS met nieuwe uitingen in de intentie MoveEmployee](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
 
 ## <a name="create-a-location-entity"></a>Een entiteit Location maken
 LUIS moet kunnen vaststellen wat een locatie is door de herkomst en bestemming in de utterances van labels te voorzien. Als u de utterance in de tokenweergave (onbewerkte weergave) wilt zien, selecteert u de wisselknop op de balk boven de utterances met het label **Entities View**. Door de wisselknop te selecteren, kunt u ervoor zorgen dat voor het besturingselement het label **Entities View** wordt weergegeven.
@@ -91,7 +91,7 @@ Als slechts één onderliggend element (herkomst of bestemming) van een hiërarc
 
 1. Selecteer het woord `Seattle` in de utterance, `move John W. Smith leaving Seattle headed to Dallas`. Er wordt een vervolgkeuzelijst weergegeven met bovenaan een tekstvak. Typ de entiteitsnaam `Location` in het tekstvak en selecteer vervolgens **Create new entity** in de vervolgkeuzelijst. 
 
-    [![Schermopname van het maken van een nieuwe entiteit op de intentiepagina](media/luis-quickstart-intent-and-hier-entity/create-location-hierarchical-entity-from-example-utterance.png "Schermopname van het maken van een nieuwe entiteit op de intentiepagina")](media/luis-quickstart-intent-and-hier-entity/create-location-hierarchical-entity-from-example-utterance.png#lightbox)
+    [![Schermopname van het maken van een nieuwe entiteit op de intentiepagina](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-1.png "Schermopname van het maken van een nieuwe entiteit op de intentiepagina")](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-1.png#lightbox)
 
 1. Selecteer in het pop-upvenster het entiteittype **Hierarchical** met `Origin` en `Destination` als de onderliggende entiteiten. Selecteer **Done**.
 
@@ -99,7 +99,7 @@ Als slechts één onderliggend element (herkomst of bestemming) van een hiërarc
 
 1. Het label voor `Seattle` is gemarkeerd als `Location` omdat LUIS niet weet of de term verwijst naar de plaats van herkomst of van bestemming, of geen van beide. Selecteer `Seattle`, selecteer vervolgens **Location**, vouw het menu naar rechts uit en selecteer `Origin`.
 
-    [![Schermopname van het pop-upvenster voor het labelen van entiteiten om de onderliggende entiteit Locations te wijzigen](media/luis-quickstart-intent-and-hier-entity/choose-hierarchical-child-entity-from-example-utterance.png "Schermopname van het pop-upvenster voor het labelen van entiteiten om de onderliggende entiteit Locations te wijzigen")](media/luis-quickstart-intent-and-hier-entity/choose-hierarchical-child-entity-from-example-utterance.png#lightbox)
+    [![Schermopname van het pop-upvenster voor het labelen van entiteiten om de onderliggende entiteit Locations te wijzigen](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-2.png "Schermopname van het pop-upvenster voor het labelen van entiteiten om de onderliggende entiteit Locations te wijzigen")](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-2.png#lightbox)
 
 1. Geef de overige locaties in alle andere utterances een label. Wanneer alle locaties een label hebben, gaan de utterances eruitzien als een patroon. 
 

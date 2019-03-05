@@ -1,245 +1,220 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met GaggleAMP | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en GaggleAMP.
+description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active Directory en GaggleAMP.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 9cc1a4b7-964b-406b-9e0c-05cb1a7c9856
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/06/2018
+ms.topic: tutorial
+ms.date: 02/18/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce28f3667689134a2de177ed5c0dfae810dc1889
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: 79ad337affdddfb647937435cfa637be0e38f7bd
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173569"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869782"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gaggleamp"></a>Zelfstudie: Azure Active Directory-integratie met GaggleAMP
 
-In deze zelfstudie leert u hoe u GaggleAMP integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u GaggleAMP kunt integreren met Azure Active Directory (Azure AD).
+De integratie van GaggleAMP met Azure Active Directory biedt de volgende voordelen:
 
-GaggleAMP integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure Active Directory bepalen wie er toegang heeft tot GaggleAMP.
+* U kunt inschakelen dat gebruikers automatisch met hun Azure Active Directory-account worden aangemeld bij GaggleAMP (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot GaggleAMP heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij GaggleAMP (Single Sign-On) met hun Azure AD-accounts inschakelen
-- U kunt uw accounts in één centrale locatie - Azure portal beheren
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met GaggleAMP, moet u de volgende items:
+Om Azure Active Directory-integratie te configureren met GaggleAMP hebt u het volgende nodig:
 
-- Een Azure AD-abonnement
-- Een GaggleAMP eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op GaggleAMP waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. GaggleAMP uit de galerie toe te voegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-gaggleamp-from-the-gallery"></a>GaggleAMP uit de galerie toe te voegen
-Voor het configureren van de integratie van GaggleAMP in Azure AD, moet u GaggleAMP uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* GaggleAMP biedt ondersteuning voor met **SP** en **IDP** geïnitieerde eenmalige aanmelding
 
-**Als u wilt toevoegen GaggleAMP uit de galerie, moet u de volgende stappen uitvoeren:**
+* GaggleAMP biedt ondersteuning voor **Just-In-Time**-inrichting van gebruikers
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+## <a name="adding-gaggleamp-from-the-gallery"></a>GaggleAMP uit de galerie toevoegen
 
-    ![Active Directory][1]
+Voor het configureren van de integratie van GaggleAMP met Microsoft Azure Active Directory moet u GaggleAMP vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+**Als u GaggleAMP wilt toevoegen uit de galerie, moet u de volgende stappen uitvoeren:**
 
-    ![Applicaties][2]
-    
-1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![Applicaties][3]
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-1. Typ in het zoekvak **GaggleAMP**.
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-    ![Het maken van een Azure AD-testgebruiker](./media/gaggleamp-tutorial/tutorial_gaggleamp_search.png)
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Selecteer in het deelvenster resultaten **GaggleAMP**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![Het maken van een Azure AD-testgebruiker](./media/gaggleamp-tutorial/tutorial_gaggleamp_addfromgallery.png)
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met GaggleAMP op basis van een testgebruiker 'Julia steen' genoemd.
+4. Typ in het zoekvak **GaggleAMP**, selecteer **GaggleAMP** in het resultaatvenster en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in GaggleAMP is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in GaggleAMP tot stand worden gebracht.
+     ![GaggleAMP toevoegen vanuit de galerie](common/search-new-app.png)
 
-In GaggleAMP, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met GaggleAMP, moet u de volgende bouwstenen voltooien:
+In deze sectie gaat u eenmalige aanmelding met Azure Active Directory bij GaggleAMP configureren en testen op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tot stand is gebracht tussen een Azure Active Directory-gebruiker en de gerelateerde gebruiker in GaggleAMP.
 
-1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Het maken van een testgebruiker GaggleAMP](#creating-a-gaggleamp-test-user)**  : als u wilt een equivalent van Britta Simon in GaggleAMP die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+Om eenmalige aanmelding met Azure Active Directory bij GaggleAMP te configureren en testen, moet u de volgende bouwstenen voltooien:
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding bij GaggleAMP configureren](#configure-gaggleamp-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wilt configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Testgebruiker voor GaggleAMP maken](#create-gaggleamp-test-user)**: als u een tegenhanger van Britta Simon in GaggleAMP wilt hebben die is gekoppeld aan de Azure Active Directory-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing GaggleAMP.
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-**Voor het configureren van Azure AD eenmalige aanmelding met GaggleAMP, moet u de volgende stappen uitvoeren:**
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-1. In de Azure-portal op de **GaggleAMP** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+Voer de volgende stappen uit als u eenmalige aanmelding met Azure Active Directory bij GaggleAMP wilt configureren:
 
-    ![Eenmalige aanmelding configureren][4]
+1. In de [Azure Portal](https://portal.azure.com/) selecteert u **Eenmalige aanmelding** op de integratiepagina van de toepassing **GaggleAMP**.
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![Eenmalige aanmelding configureren](./media/gaggleamp-tutorial/tutorial_gaggleamp_samlbase.png)
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-1. Op de **GaggleAMP domein en URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in **IDP** modus gestart:
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-    ![Eenmalige aanmelding configureren](./media/gaggleamp-tutorial/tutorial_gaggleamp_url.png)
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-     In de **id** tekstvak typt u de URL: `https://accounts.gaggleamp.com/auth/saml/callback`
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-1. Controleer **geavanceerde URL-instellingen weergeven** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    ![Eenmalige aanmelding configureren](./media/gaggleamp-tutorial/tutorial_gaggleamp_url1.png)
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit als u de toepassing in de door **IDP** geïnitieerde modus wilt configureren:
 
-     Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://gaggleamp.com/i/<customerid>`
+    ![Informatie over eenmalige aanmelding bij GaggleAMP domein en URL's](common/idp-identifier.png)
+
+    In het tekstvak **Id** typt u een URL: `https://accounts.gaggleamp.com/auth/saml/callback`
+
+5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
+
+    ![image](common/both-preintegrated-signon.png)
+
+    In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://gaggleamp.com/i/<customerid>`
 
     > [!NOTE]
-    > De waarde voor de aanmeldings-URL is niet echt. Werk deze waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [GaggleAMP Client ondersteuningsteam](mailto:sales@gaggleamp.com) deze waarde op te halen.
- 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
+    > De waarde is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met het [clientondersteuningsteam van GaggleAMP](mailto:sales@gaggleamp.com) om de waarde te krijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-    ![Eenmalige aanmelding configureren](./media/gaggleamp-tutorial/tutorial_gaggleamp_certificate.png) 
+6. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
-1. Klik op de knop **Save**.
+    ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
-    ![Eenmalige aanmelding configureren](./media/gaggleamp-tutorial/tutorial_general_400.png)
+7. In het gedeelte **GaggleAMP instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
 
-1. Op de **GaggleAMP configuratie** sectie, klikt u op **configureren GaggleAMP** openen **aanmelding configureren** venster. Kopiëren de **SAML entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-    ![Eenmalige aanmelding configureren](./media/gaggleamp-tutorial/tutorial_gaggleamp_configure.png) 
+    a. Aanmeldings-URL
 
-1. In een ander browserexemplaar, Ga naar de SAML SSO-pagina voor u door de Gaggle ondersteuningsteam gemaakt (bijvoorbeeld: *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit*).
+    b. Azure AD-id
 
-1. Op uw **SAML SSO** pagina, voert u de volgende stappen uit:  
+    c. Afmeldings-URL
+
+### <a name="configure-gaggleamp-single-sign-on"></a>Eenmalige aanmelding bij GaggleAMP configureren
+
+1. Ga in een ander browserexemplaar naar de pagina Eenmalige aanmelding met SAML die voor u door het Gaggle-ondersteuningsteam is gemaakt (bijvoorbeeld: *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit*).
+
+2. Op uw pagina **Eenmalige aanmelding met SAML**, voert u de volgende stappen uit:  
    
-    ![GaggleAMP Single Sign-On](./media/gaggleamp-tutorial/tutorial_gaggleamp_06.png)
+    ![GaggleAMP Eenmalige aanmelding](./media/gaggleamp-tutorial/tutorial_gaggleamp_06.png)
 
-    a. Selecteer **andere** formulier de **id-provider** in het vervolgkeuzemenu.
+    a. Selecteer **Andere** als een optie in de **id-provider**-vervolgkeuzelijst.
     
-    b. In de **Identity Provider Issuer** tekstvak, plak de waarde van **URL-verlener** die u hebt gekopieerd vanuit Azure portal.
+    b. Plak de waarde van **Azure Active Directory-id**, die u hebt gekopieerd vanuit de Azure Portal, in het tekstvak **Identity Provider Issuer**.
     
-    c. In de **Identity Provider aanmeldings-URL voor eenmalige** tekstvak, plak de waarde van **Single Sign-On Service URL** die u hebt gekopieerd vanuit Azure portal.
+    c. Plak in het tekstvak **Eenmalige aanmeldings-URL van de ID-provider** de waarde van de **aanmeldings-URL** die u hebt gekopieerd uit de Azure Portal.
     
-    d. Open uw gedownloade **Certificate(Base64)** -bestand in Kladblok, Kopieer de inhoud ervan in het Klembord en plakt u deze naar de **X.509-certificaat** tekstvak.
+    d. Open het gedownloade bestand **Certificate(Base64)** in kladblok, kopieer de inhoud ervan naar het klembord, en plak deze vervolgens in het tekstvak **X.509 Certificate**.
     
     e. Klik op **Opslaan**.
 
-### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
+
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-![Azure AD-gebruiker maken][100]
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![Het maken van een Azure AD-testgebruiker](./media/gaggleamp-tutorial/create_aaduser_01.png) 
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
-    
-    ![Het maken van een Azure AD-testgebruiker](./media/gaggleamp-tutorial/create_aaduser_02.png) 
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/gaggleamp-tutorial/create_aaduser_03.png) 
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/gaggleamp-tutorial/create_aaduser_04.png) 
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    a. In de **naam** tekstvak, type **BrittaSimon**.
-
-    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
-
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="creating-a-gaggleamp-test-user"></a>Het maken van een testgebruiker GaggleAMP
 
-Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in GaggleAMP. GaggleAMP biedt ondersteuning voor just-in-time inrichting, dit is standaard ingeschakeld.
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot GaggleAMP als deze nog niet bestaat. 
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot GaggleAMP.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
+1. Selecteer **Bedrijfstoepassingen** in de Azure Portal, selecteer **Alle toepassingen** en selecteer vervolgens **GaggleAMP**.
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan GaggleAMP.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-![Gebruiker toewijzen][200] 
+2. Selecteer **GaggleAMP** in de lijst met toepassingen.
 
-**Als u wilt Britta Simon aan GaggleAMP toewijst, moet u de volgende stappen uitvoeren:**
+    ![De GaggleAMP-link in de lijst met toepassingen](common/all-applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![Gebruiker toewijzen][201] 
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-1. Selecteer in de lijst met toepassingen, **GaggleAMP**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![Eenmalige aanmelding configureren](./media/gaggleamp-tutorial/tutorial_gaggleamp_app.png) 
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Gebruiker toewijzen][202] 
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-    ![Gebruiker toewijzen][203]
+### <a name="create-gaggleamp-test-user"></a>GaggleAMP-testgebruiker maken
 
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+In dit gedeelte maakt u in GaggleAMP een gebruiker met de naam Britta Simon. GaggleAMP biedt ondersteuning voor Just-In-Time-inrichting van gebruikers, die standaard is ingeschakeld. Er is geen actie-item voor u in deze sectie. Als er nog geen gebruiker in GaggleAMP bestaat, wordt er een nieuwe gemaakt nadat deze is geverifieerd.
 
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-Het doel van deze sectie is het testen van de configuratie van uw Azure AD-eenmalige aanmelding via het toegangsvenster.
-
-Wanneer u op de tegel GaggleAMP in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing GaggleAMP.
+Wanneer u op de tegel GaggleAMP in het toegangsvenster klikt, wordt u automatisch aangemeld bij het GaggleAMP-exemplaar waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
-[1]: ./media/gaggleamp-tutorial/tutorial_general_01.png
-[2]: ./media/gaggleamp-tutorial/tutorial_general_02.png
-[3]: ./media/gaggleamp-tutorial/tutorial_general_03.png
-[4]: ./media/gaggleamp-tutorial/tutorial_general_04.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/gaggleamp-tutorial/tutorial_general_100.png
-
-[200]: ./media/gaggleamp-tutorial/tutorial_general_200.png
-[201]: ./media/gaggleamp-tutorial/tutorial_general_201.png
-[202]: ./media/gaggleamp-tutorial/tutorial_general_202.png
-[203]: ./media/gaggleamp-tutorial/tutorial_general_203.png

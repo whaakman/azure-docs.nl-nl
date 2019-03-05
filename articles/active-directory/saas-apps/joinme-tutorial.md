@@ -1,126 +1,117 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met join.me | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en join.me.
+description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active Directory en join.me.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: cda5ea0d-3270-4ba5-ad81-4df108eaad12
-ms.service: active-directory
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/08/2018
+ms.topic: tutorial
+ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f61520994bdeeab75b6d26731dee9af15b4ccda6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: d970ae91c0e5928cb03d0f14d590663aebd3d6b1
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209537"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984965"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-joinme"></a>Zelfstudie: Azure Active Directory-integratie met join.me
 
-In deze zelfstudie leert u hoe u join.me integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u join.me kunt integreren met Azure Active Directory (Azure AD).
+De integratie van join.me met Azure AD biedt de volgende voordelen:
 
-Join.me integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD bepalen wie er toegang heeft tot join.me.
+* U kunt instellen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij join.me (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot join.me heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij join.me (Single Sign-On) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met join.me, moet u de volgende items:
+Om Azure AD-integratie te configureren met join.me hebt u het volgende nodig:
 
-- Een Azure AD-abonnement
-- Een join.me eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op join.me waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Join.me uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-joinme-from-the-gallery"></a>Join.me uit de galerie toe te voegen
-Voor het configureren van de integratie van join.me in Azure AD, moet u join.me uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* join.me ondersteunt door **IDP** geïnitieerde eenmalige aanmelding
 
-**Als u wilt toevoegen join.me uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-joinme-from-the-gallery"></a>join.me toevoegen vanuit de galerie
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Om de integratie van join.me in Azure AD te configureren, moet u join.me vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-    ![image](./media/joinme-tutorial/selectazuread.png)
+**Voer de volgende stappen uit om join.me toe te voegen vanuit de galerie:**
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![image](./media/joinme-tutorial/a_select_app.png)
-    
+    ![De knop Azure Active Directory](common/select-azuread.png)
+
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
+
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
+
 3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![image](./media/joinme-tutorial/a_new_app.png)
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-4. Typ in het zoekvak **join.me**, selecteer **join.me** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+4. Typ **join.me** in het zoekvak, selecteer **join.me** in het deelvenster met resultaten en klik op de knop **Toevoegen** om de toepassing toe te voegen.
 
-     ![image](./media/joinme-tutorial/tutorial_joinme_addfromgallery.png)
+     ![join.me in de resultatenlijst](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met join.me op basis van een testgebruiker 'Julia steen' genoemd.
+In deze sectie gaat u Azure AD-eenmalige aanmelding bij join.me configureren en testen op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in join.me tot stand is gebracht.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in join.me is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in join.me tot stand worden gebracht.
-
-Om te configureren en testen van Azure AD eenmalige aanmelding met join.me, moet u de volgende bouwstenen voltooien:
+Als u eenmalige aanmelding van Azure AD met join.me wilt configureren en testen, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-3. **[Maak een testgebruiker join.me](#create-a-joinme-test-user)**  : als u wilt een equivalent van Britta Simon in join.me die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+2. **[Eenmalige aanmelding met join.me configureren](#configure-joinme-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wil configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+5. **[Testgebruiker maken voor join.me](#create-joinme-test-user)**: als u een tegenhanger van Britta Simon in join.me wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing join.me.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met join.me, moet u de volgende stappen uitvoeren:**
+Voer de volgende stappen uit als u Azure AD-eenmalige aanmelding wilt configureren met join.me:
 
-1. In de [Azure-portal](https://portal.azure.com/)op de **join.me** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
+1. In de [Azure-portal](https://portal.azure.com/) selecteert u **Eenmalige aanmelding** op de integratiepagina van de toepassing **join.me**.
 
-    ![image](./media/joinme-tutorial/b1_b2_select_sso.png)
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-2. Klik op **modus voor één wijziging aanmelding** boven op het scherm selecteren de **SAML** modus.
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-      ![image](./media/joinme-tutorial/b1_b2_saml_ssso.png)
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-3. Op de **selecteert u een methode voor eenmalige aanmelding** dialoogvenster, klikt u op **Selecteer** voor **SAML** modus voor eenmalige aanmelding inschakelen.
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    ![image](./media/joinme-tutorial/b1_b2_saml_sso.png)
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-4. Klik op de pagina **Eenmalige aanmelding met SAML instellen** u de knop **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
+4. In de sectie **SAML-basisconfiguratie** hoeft de gebruiker geen enkele stap uit te voeren omdat de app al vooraf is geïntegreerd met Azure.
 
-    ![image](./media/joinme-tutorial/b1-domains_and_urlsedit.png)
+    ![Gegevens van domein en URL's voor eenmalige aanmelding van join.me](common/preintegrated.png)
 
-5. In de sectie **SAML-basisconfiguratie** hoeft de gebruiker geen enkele stap uit te voeren omdat de app al vooraf is geïntegreerd met Azure.
+5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op de kopieerknop om de **URL voor federatieve metagegevens van de app** te kopiëren en slaat u deze op uw computer op.
 
-     ![image](./media/joinme-tutorial/tutorial_joinme_url.png)
- 
-6. Op de **instellen van eenmalige aanmelding met SAML** pagina, in de **SAML-handtekeningcertificaat** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en sla deze op uw computer.
+    ![De link om het certificaat te downloaden](common/copy-metadataurl.png)
 
-    ![image](./media/joinme-tutorial/certificatebase64.png) 
+### <a name="configure-joinme-single-sign-on"></a>Eenmalige aanmelding configureren voor join.me
 
-7. Het configureren van eenmalige aanmelding op **join.me** zijde, moet u voor het verzenden van de **App-Url voor federatieve metagegevens** die u hebt gekopieerd vanuit Azure portal om te [join.me ondersteuningsteam](https://help.join.me/s/?language). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+Als u eenmalige aanmelding wilt configureren in **e (vereist)**, moet u de **App-URL voor federatieve metagegevens** verzenden naar het [ondersteuningsteam van e (vereist)](https://help.join.me/s/?language). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
@@ -128,62 +119,66 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
 1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-    ![image](./media/joinme-tutorial/d_users_and_groups.png)
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
 2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![image](./media/joinme-tutorial/d_adduser.png)
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
 3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-    ![image](./media/joinme-tutorial/d_userproperties.png)
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
     b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
-    c. Selecteer **eigenschappen**, selecteer de **Show wachtwoord** selectievakje en noteer de waarde die wordt weergegeven in het wachtwoord.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
-    d. Selecteer **Maken**.
-  
-### <a name="create-a-joinme-test-user"></a>Maak een testgebruiker join.me
-
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in join.me. Werken met [join.me ondersteuningsteam](https://help.join.me/s/?language) om toe te voegen de gebruikers in het join.me-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
+    d. Klik op **Create**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon Azure eenmalige aanmelding gebruiken door het verlenen van toegang tot join.me.
+In deze sectie zorgt u ervoor dat Britta Simon gebruik kan maken van eenmalige aanmelding van Azure, door haar toegang te geven tot join.me.
 
-1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**.
+1. Selecteer **Bedrijfstoepassingen** in de Azure-portal, selecteer **Alle toepassingen** en selecteer vervolgens **join.me**.
 
-    ![image](./media/joinme-tutorial/d_all_applications.png)
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-2. Selecteer in de lijst met toepassingen, **join.me**.
+2. Selecteer **join.me** in de lijst met toepassingen.
 
-    ![image](./media/joinme-tutorial/tutorial_joinme_app.png)
+    ![De koppeling join.me in de lijst met toepassingen](common/all-applications.png)
 
 3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![image](./media/joinme-tutorial/d_leftpaneusers.png)
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-4. Selecteer de **toevoegen** knop en selecteer vervolgens **gebruikers en groepen** in de **toevoegen toewijzing** dialoogvenster.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![image](./media/joinme-tutorial/d_assign_user.png)
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-4. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-5. Selecteer in het dialoogvenster **Toewijzing toevoegen** de knop **Toewijzen**.
-    
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
+
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
+
+### <a name="create-joinme-test-user"></a>Join.me-testgebruiker maken
+
+In deze sectie gaat u in join.me een gebruiker maken met de naam Britta Simon. Neem contact op met het  [ondersteuningsteam van join.me](https://help.join.me/s/?language) om de gebruikers toe te voegen in het join.me-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
+
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-Wanneer u op de tegel join.me in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing join.me.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md). 
+Wanneer u in het toegangsvenster op de tegel join.me klikt, zou u automatisch moeten worden aangemeld bij het exemplaar van het join.me waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
+
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
+
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -1,41 +1,45 @@
 ---
-title: 'Quickstart: Een Azure-bestandsshare maken en gebruiken voor Windows | Microsoft Docs'
-description: Gebruik deze quickstart voor het maken en gebruiken van een Azure-bestandsshare voor Windows.
+title: Azure-quickstart - Een Azure-bestandsshare maken en gebruiken op virtuele Windows-machines | Microsoft Docs
+description: In deze quickstart stelt u in de Azure-portal een Azure-bestandsshare instellen in en koppelt u deze aan een virtuele Windows-machine. U maakt verbinding met de bestandsshare en uploadt een bestand naar de bestandsshare. Dan maakt u een momentopname van de bestandsshare, wijzigt u het bestand in de bestandsshare en zet u een eerdere momentopname van de bestandsshare terug.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/01/2019
-ms.author: wgries
-ms.component: files
-ms.openlocfilehash: 141a8c9d63d3f0fd615ec0648b15c669f28f7118
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.author: rogarana
+ms.subservice: files
+ms.openlocfilehash: 12dea044dab2aafad1d7597214d159011b5ab536
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663992"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652464"
 ---
-# <a name="quickstart-create-and-use-an-azure-file-share-for-windows"></a>Snelstart: Een Azure-bestandsshare maken en gebruiken voor Windows
+# <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Quickstart: Een Azure-bestandsshare maken en beheren met virtuele Windows-machines
+
 Dit artikel bevat de basisstappen voor het maken en gebruiken van een Azure-bestandsshare. In deze quickstart ligt de nadruk op het snel instellen van een Azure-bestandsshare, zodat u kunt ervaren hoe de service werkt. Als u meer gedetailleerde instructies nodig hebt voor het maken en gebruiken van Azure-bestandsshares in uw eigen omgeving, raadpleegt u [Een Azure-bestandsshare gebruiken met Windows](storage-how-to-use-files-windows.md).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
+
 Meld u aan bij [Azure Portal](https://portal.azure.com).
 
 ## <a name="prepare-your-environment"></a>Uw omgeving voorbereiden
-Voordat u een Azure-bestandsshare gaat maken, moet u de volgende items instellen voor deze quickstart:
+
+In deze quickstart stelt u de volgende items in:
 
 - Een Azure-opslagaccount
 - Een VM met Windows Server 2016 Datacenter
 
 ### <a name="create-a-storage-account"></a>Create a storage account
 
-Voordat u kunt gaan werken met een Azure-bestandsshare moet u een Azure-opslagaccount maken. Een opslagaccount is een gedeelde opslaggroep waarin u Azure-bestandsshares of andere opslagresources, zoals blobs of wachtrijen, kunt implementeren. Een opslagaccount kan een onbeperkt aantal shares bevatten. Een share kan een onbeperkt aantal bestanden opslaan, tot de capaciteitslimiet van het opslagaccount.
+Voordat u kunt gaan werken met een Azure-bestandsshare moet u een Azure-opslagaccount maken. Een v2-opslagaccount voor algemeen gebruik biedt toegang tot alle services van Azure Storage: blobs, bestanden, wachtrijen en tabellen. Met deze quickstart maakt u een v2-opslagaccount voor algemeen gebruik, maar de stappen voor het maken van elk type opslagaccount zijn vergelijkbaar. Een opslagaccount kan een onbeperkt aantal shares bevatten. Een share kan een onbeperkt aantal bestanden opslaan, tot de capaciteitslimiet van het opslagaccount.
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ### <a name="create-an-azure-file-share"></a>Een Azure-bestandsshare maken
+
 Vervolgens gaat u een bestandsshare maken.
 
 1. Als de implementatie van het Azure-opslagaccount is voltooid, selecteert u **Naar de resource gaan**.
@@ -58,6 +62,7 @@ Vervolgens gaat u een bestandsshare maken.
 U hebt nu een Azure-opslagaccount gemaakt en een bestandsshare met één bestand in Azure. U gaat nu de Azure-VM maken met Windows Server 2016 Datacenter, die de on-premises server in deze quickstart vormt.
 
 ### <a name="deploy-a-vm"></a>Een virtuele machine implementeren
+
 1. Vouw vervolgens het menu aan de linkerkant van de portal uit en kies **Een resource maken** in linkerbovenhoek van de Azure-portal.
 1. Zoek via het zoekvak boven de lijst met **Azure Marketplace**-resources naar **Windows Server 2016 Datacenter**, selecteer dit en kies **Maken**.
 1. Selecteer op het tabblad **Basis**, onder **Projectdetails**, de resourcegroep die u voor deze quickstart hebt gemaakt.
@@ -112,6 +117,7 @@ U hebt nu een nieuwe virtuele machine gemaakt en een gegevensschijf gekoppeld. U
       ![Het UNC-pad in het deelvenster Verbinding maken van Azure Files](./media/storage-files-quick-create-use-windows/portal_netuse_connect3.png)
 
 ## <a name="create-a-share-snapshot"></a>Een momentopname van de share maken
+
 Nu het station is toegewezen, kunt u een momentopname maken.
 
 1. Ga in de portal naar de bestandsshare en selecteer **Momentopname maken**.
@@ -132,7 +138,7 @@ Nu het station is toegewezen, kunt u een momentopname maken.
 
 ## <a name="restore-from-a-snapshot"></a>Terugzetten vanuit een momentopname
 
-1. Selecteer in de portal *qsTestFile* en selecteer de knop **Terugzetten**.
+1. Op de blade ‘Momentopnamen van bestandsshares’ klikt u met de rechtermuisknop op *qsTestFile* en selecteert u de knop **Terugzetten**.
 1. Selecteer **Oorspronkelijke bestand overschrijven**.
 
    ![De knoppen Downloaden en Terugzetten](./media/storage-files-quick-create-use-windows/snapshot-download-restore-portal.png)
@@ -147,6 +153,7 @@ Nu het station is toegewezen, kunt u een momentopname maken.
    ![De knop Verwijderen](./media/storage-files-quick-create-use-windows/portal-snapshots-delete.png)
 
 ## <a name="use-a-share-snapshot-in-windows"></a>Een momentopname van een share gebruiken in Windows
+
 Net als met on-premises VSS-momentopnamen kunt u de momentopnamen van de gekoppelde Azure-bestandsshare bekijken met behulp van het tabblad Vorige versies.
 
 1. Ga in Windows Verkenner naar de gekoppelde share.

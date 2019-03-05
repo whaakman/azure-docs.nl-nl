@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19039a6a1337c2ddc7494805b18f564466d4f1f8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 85e773d74231b0b0847dad41a071be499724e2d4
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168728"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872927"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-instavr-viewer"></a>Zelfstudie: Azure Active Directory-integratie met InstaVR Viewer
 
@@ -136,11 +136,11 @@ Voor het configureren van Azure AD-eenmalige aanmelding met InstaVR Viewer voert
 
 2. Klik op het **gebruikerspictogram** en selecteer **Account**.
 
-    ![Configuratie van InstaVR Viewer ](media/instavr-viewer-tutorial/tutorial-instavr-viewer-account.png)
+    ![Configuratie van InstaVR Viewer](media/instavr-viewer-tutorial/tutorial-instavr-viewer-account.png)
 
 3. Schuif omlaag naar de **SAML-verificatie** en voer de volgende stappen uit:
 
-    ![Configuratie van InstaVR Viewer ](media/instavr-viewer-tutorial/tutorial-instavr-viewer-configure.png)
+    ![Configuratie van InstaVR Viewer](media/instavr-viewer-tutorial/tutorial-instavr-viewer-configure.png)
 
     a. Plak in het tekstvak voor de **URL voor eenmalige aanmelding** de waarde van de **aanmeldings-URL** die u uit Azure Portal hebt gekopieerd.
 
@@ -215,22 +215,22 @@ In deze sectie wordt een gebruiker met de naam Britta Simon gemaakt in InstaVR V
 
 2. Selecteer **Package** (Pakket) in het linkernavigatievenster en selecteer **Make package for Web** (Pakket voor Web maken).
 
-    ![Configuratie van InstaVR Viewer ](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing1.png)
+    ![Configuratie van InstaVR Viewer](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing1.png)
 
 3. Selecteer **Download**.
 
-    ![Configuratie van InstaVR Viewer ](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing2.png)
+    ![Configuratie van InstaVR Viewer](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing2.png)
 
 4. Selecteer **Open Hosted Page** (Gehoste pagina openen). Vervolgens wordt u omgeleid naar Azure AD voor de aanmelding.
 
-    ![Configuratie van InstaVR Viewer ](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing3.png)
+    ![Configuratie van InstaVR Viewer](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing3.png)
 
 5. Voer uw Azure AD-referenties in om u aan te melden bij Azure AD via eenmalige aanmelding.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

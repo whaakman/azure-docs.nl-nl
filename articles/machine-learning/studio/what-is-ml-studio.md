@@ -2,7 +2,6 @@
 title: Wat is?
 titleSuffix: Azure Machine Learning Studio
 description: Azure Machine Learning Studio is een hulpprogramma waarmee u met slepen en neerzetten snel modellen kunt ontwikkelen met behulp van een kant-en-klare bibliotheek van algoritmen en modules.
-keywords: azure machine learning,azure ml, ml studio
 services: machine-learning
 documentationcenter: ''
 author: garyericson
@@ -16,19 +15,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: 4f69de744be3a9926e1c5d3e674966e24c3020dc
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 44f2c24f1fe53b6fadabf23f03a6feda75c87883
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455650"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738280"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Wat is Azure Machine Learning Studio?
 Microsoft Azure Machine Learning Studio is een hulpprogramma met functionaliteit op basis van slepen en neerzetten, waarmee u in samenwerkingsverband predictive analytics-oplossingen voor uw gegevens kunt ontwikkelen, testen en implementeren. Machine Learning Studio publiceert modellen als webservices die eenvoudig kunnen worden gebruikt door aangepaste apps of BI-hulpprogramma's zoals Excel.
 
 In Machine Learning Studio komen gegevens, wetenschap, predictive analytics, cloudresources en uw gegevens samen.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="the-machine-learning-studio-interactive-workspace"></a>De interactieve werkruimte van Machine Learning Studio
 Wanneer u een predictive analytics-model ontwikkelt, gebruikt u doorgaans gegevens uit een of meer bronnen. U transformeert en analyseert deze gegevens met diverse functies voor gegevensmanipulatie en statistische functies, en genereert een set resultaten. Het ontwikkelen van een model als dit is een iteratief proces. Terwijl u de verschillende functies en de bijbehorende parameters aanpast, worden de resultaten geconvergeerd tot u een afdoende getraind en doeltreffend model hebt.
@@ -39,14 +37,16 @@ U hoeft niets te programmeren. U hoeft alleen gegevenssets en modules visueel me
 
 ![Azure Machine Learning Studio-diagram: Zet experimenten op, lees gegevens uit verschillende bronnen, schrijf beoordeelde gegevens weg, maak modellen.](./media/what-is-ml-studio/azure-ml-studio-diagram.jpg)
 
+## <a name="download-the-machine-learning-studio-overview-diagram"></a>Het overzichtsdiagram voor Machine Learning Studio downloaden
+Download het diagram **Microsoft Azure Machine Learning Studio Capabilities Overview** (Overzicht van de mogelijkheden van Azure Machine Learning Studio) voor een algemeen overzicht van de mogelijkheden van Machine Learning Studio. Als u het diagram altijd bij de hand wilt hebben, kunt u het in A3-formaat afdrukken.
+
+**Download het diagram hier: [Overzicht van de mogelijkheden van Microsoft Azure Machine Learning Studio](http://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
+![Overzicht van de mogelijkheden van Microsoft Azure Machine Learning Studio](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)
+
 ## <a name="get-started-with-machine-learning-studio"></a>Aan de slag met Machine Learning Studio
 Wanneer u [Machine Learning Studio](https://studio.azureml.net) voor de eerste keer opent, wordt de pagina **Start** weergegeven. Vanaf deze pagina kunt u documentatie, video's en webinars bekijken en andere waardevolle informatie zoeken.
 
 Klik linksboven op ![Menu](./media/what-is-ml-studio/menu.png) om verschillende opties te bekijken.
-
-### <a name="cortana-intelligence"></a>Cortana Intelligence
-Klik op **Cortana Intelligence**. U gaat dan naar de startpagina van de [Cortana Intelligence Suite](https://www.microsoft.com/cloud-platform/cortana-intelligence-suite). De Cortana Intelligence Suite is een volledig beheerde oplossing voor big data en geavanceerde analyses waarmee u uw gegevens kunt omzetten in slimme acties. Bekijk de startpagina van de Suite voor alle documentatie, waaronder verhalen van klanten.
-
 ### <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio
 Hier staan twee opties: **Home**, de pagina waar u bent begonnen, en **Studio**.
 
@@ -78,7 +78,7 @@ U kunt een geheel nieuw experiment maken, maar u kunt ook een bestaand voorbeeld
 
 Voor een voorbeeld van het maken van een eenvoudig experiment raadpleegt u [Create a simple experiment in Azure Machine Learning Studio](create-experiment.md) (Een eenvoudig experiment maken in Azure Machine Learning Studio).
 
-Voor de volledige procedure voor het maken van een predictive analytics-oplossing raadpleegt u [Develop a predictive solution with Azure Machine Learning](tutorial-part1-credit-risk.md) (Een predictive analytics-oplossing maken met Azure Machine Learning).
+Zie [Een predictive analytics-oplossing maken met Azure Machine Learning Studio](tutorial-part1-credit-risk.md) voor de volledige procedure voor het maken van een predictive analytics-oplossing.
 
 ### <a name="datasets"></a>Gegevenssets
 Een gegevensset bestaat uit gegevens die zijn geüpload naar Machine Learning Studio, zodat ze kunnen worden gebruikt in het modelleringsproces. In Machine Learning Studio is een aantal voorbeeldgegevenssets opgenomen waarmee u kunt experimenteren. U kunt meer gegevenssets uploaden als dat nodig is. Hier volgen enkele voorbeelden van opgenomen gegevenssets:
@@ -103,59 +103,30 @@ Terwijl u een experiment maakt, kunt u links in het canvas kiezen uit de lijst m
 
 Een module kan een reeks parameters hebben waarmee u de interne algoritmen van de module kunt configureren. Wanneer u een module op het canvas selecteert, worden de parameters van de module weergegeven in het deelvenster **Properties**, rechts van het canvas. U kunt de parameters in dit deelvenster wijzigen om het model af te stemmen.
 
-Voor hulp bij het navigeren door het uitgebreide scala aan machine learning-algoritmen raadpleegt u [How to choose algorithms for Microsoft Azure Machine Learning](algorithm-choice.md) (Algoritmen kiezen voor Microsoft Azure Machine Learning).
+Zie [Algoritmen kiezen voor Microsoft Azure Machine Learning Studio](algorithm-choice.md) voor hulp bij het navigeren door het uitgebreide scala aan beschikbare machine learning-algoritmen.
 
 ## <a name="deploying-a-predictive-analytics-web-service"></a>Een predictive analytics-web service implementeren
 Wanneer uw predictive analytics-model klaar is, kunt u het direct vanuit Machine Learning Studio implementeren als webservice. Voor meer informatie over dit proces raadpleegt u [Deploy an Azure Machine Learning web service](publish-a-machine-learning-web-service.md) (Een Azure Machine Learning-webservice implementeren).
 
 
-## <a name="key-machine-learning-terms-and-concepts"></a>Belangrijkste termen en begrippen op het gebied van machine learning
-Termen op gebied van machine learning kunnen verwarrend zijn. Hier vindt u definities van de belangrijkste termen om u te helpen. Gebruik opmerkingen volgen om ons te laten weten welke andere termen u graag gedefinieerd zou zien.
+## <a name="how-is-machine-learning-studio-different-from-azure-machine-learning-service"></a>Waarin verschilt Azure Machine Learning Service van Azure Machine Learning Studio?
 
-### <a name="data-exploration-descriptive-analytics-and-predictive-analytics"></a>Gegevensverkenning, beschrijvende analyse en predictive analytics
+De [Azure Machine Learning Service](../service/overview-what-is-azure-ml.md) biedt SDK's en services waarmee u snel gegevens voorbereidt, en Machine Learning-modellen traint en implementeert. Verhoog de productiviteit en verlaag de kosten met automatische aanpassing van de rekenbehoefte en de pijplijnen. Gebruik deze mogelijkheden via open-source Python-frameworks, zoals PyTorch, TensorFlow en scikit-learn. 
 
-**Gegevensverkenning** is het verzamelen van gegevens over een grote en vaak ongestructureerde gegevensset om kenmerken te identificeren voor gerichte analyse.
+Gebruik Machine Learning Studio wanneer u snel en eenvoudig wilt experimenteren met machine learning-modellen en de ingebouwde machine learning-algoritmen voldoende zijn voor uw oplossingen.
 
-**Gegevensanalyse** verwijst naar geautomatiseerde gegevensverkenning.
+Gebruik Machine Learning-service als u werkt in een Python-omgeving, u meer controle wenst over uw machine learning-algoritmen of als u open-source machine learning-bibliotheken wilt gebruiken.
 
-**Beschrijvende analyse** is het analyseren van een gegevensset om een overzicht te maken van wat er is gebeurd. De meeste bedrijfsanalysen, zoals verkoopoverzichten, webmetrieken en sociale-netwerkanalysen, zijn beschrijvend.
+> [!NOTE]
+> Modellen die zijn gemaakt in Azure Machine Learning Studio kunnen niet worden geïmplementeerd of beheerd door Azure Machine Learning Service.
 
-**Predictive analytics** is het bouwen van modellen van historische of actuele gegevens om toekomstige resultaten te voorspellen.
+## <a name="free-trial"></a>Gratis proefversie
 
-### <a name="supervised-and-unsupervised-learning"></a>Leren met of zonder supervisie
- Algoritmen voor **leren met supervisie** zijn getraind met gelabelde gegevens. Dat wil zeggen: met gegevens die bestaan uit voorbeelden van de gewenste antwoorden. Een model voor het detecteren van frauduleus creditcardgebruik wordt bijvoorbeeld getraind met een gegevensset met gelabelde gegevenspunten van bekende frauduleuze of geldige afschrijvingen. De meeste machine learning vindt plaats met supervisie.
+[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
- **Leren zonder supervisie** wordt gebruikt voor gegevens zonder labels, met de bedoeling om relaties tussen gegevens te zoeken. U kunt bijvoorbeeld aan de hand van uw demografische klantgegevens groepen klanten met vergelijkbaar koopgedrag identificeren.
-
-### <a name="model-training-and-evaluation"></a>Modeltraining en -evaluatie
-Een machine learning-model is een abstractie van de vraag die u probeert te beantwoorden of van het resultaat dat u wilt voorspellen. Modellen worden getraind en geëvalueerd op basis van bestaande gegevens.
-
-#### <a name="training-data"></a>Trainingsgegevens
-Wanneer u een model voor data traint, gebruikt u een bekende gegevensset en past het model aan op basis van de gegevenskenmerken om het meest nauwkeurige antwoord te krijgen. In Azure Machine Learning wordt een model ontwikkeld op basis van een algoritmemodule die trainingsgegevens en functionele modules verwerkt, bijvoorbeeld een scoremodule.
-
-Als u bij leren met supervisie een model voor fraudedetectie traint, gebruikt u een reeks transacties die zijn gelabeld als frauduleus of geldig. U splitst de gegevensset willekeurig op. Vervolgens gebruikt u het ene deel om het model te trainen en het andere deel om het model te testen of te evalueren.
-
-#### <a name="evaluation-data"></a>Evaluatiegegevens
-Nadat uw model is getraind, kunt u het met de resterende testgegevens evalueren. U gebruikt gegevens waarvan u de resultaten al kent. U kunt dus controleren of de voorspellingen van het model nauwkeurig zijn.
-
-## <a name="other-common-machine-learning-terms"></a>Andere veelvoorkomende machine learning-termen
-* **algoritme**: Een onafhankelijke set regels voor het oplossen van problemen met behulp van gegevensverwerking, wiskunde of geautomatiseerde redenering.
-* **afwijkingsdetectie**: Een model dat ongebruikelijke gebeurtenissen of waarden aangeeft en u helpt om problemen op te sporen. Bij fraude met creditcards wordt bijvoorbeeld gekeken naar ongewone aankopen.
-* **categorische gegevens**: Gegevens die zijn ingedeeld in categorieën die in groepen kunnen worden verdeeld. Een categorische gegevensset voor auto's kan bijvoorbeeld informatie bevatten over bouwjaar, merk, model en prijs.
-* **classificatie**: Een model voor het ordenen van gegevenspunten in categorieën op basis van een gegevensset waarvan de categoriegroepen al bekend zijn.
-* **functie-engineering**: Het uitpakken of selecteren van functies voor een gegevensset om de gegevensset en de resultaten ervan te verbeteren. Zo kunnen vliegticketgegevens bijvoorbeeld worden uitgebreid met informatie over de dag van de week en het onderscheid werkdag versus feestdag. Zie [Feature selection and engineering in Azure Machine Learning](../team-data-science-process/create-features.md) (Functieselectie en -engineering in Azure Machine Learning).
-* **module**: Een functioneel onderdeel in een Machine Learning Studio-model, zoals de module Enter Data, waarmee kleine gegevenssets kunnen worden ingevoerd en bewerkt. Een algoritme is ook een type module in Machine Learning Studio.
-* **model**: Een model voor leren met supervisie is het product van een machine learning-experiment, bestaande uit trainingsgegevens, een algoritmemodule en functionele modules, zoals de module Score Model.
-* **numerieke gegevens**: Gegevens die een betekenis hebben als meetwaarden (doorlopende gegevens) of aantallen (discrete gegevens). Dit worden ook wel *kwantitatieve gegevens* genoemd.
-* **partitie**: De methode waarmee u gegevens in steekproeven verdeelt. Zie [Partition and Sample](https://msdn.microsoft.com/library/azure/dn905960.aspx) (Partitie en steekproef) voor meer informatie.
-* **voorspelling**: Een voorspelling is een prognose van een of meer waarden op basis van een machine learning-model. U ziet ook de term "voorspelde score." Voorspelde scores zijn echter niet de uiteindelijke uitvoer van een model. Een evaluatie van het model volgt de score.
-* **regressie**: Een model voor het voorspellen van een waarde op basis van onafhankelijke variabelen, zoals het voorspellen van de prijs van een auto op basis van het bouwjaar en het model.
-* **score**: Een voorspelde waarde, op basis van een getraind classificatie- of regressiemodel gegenereerd met behulp van de [module Score Model](https://msdn.microsoft.com/library/azure/dn905995.aspx) in Machine Learning Studio. Classificatiemodellen kunnen ook een score retourneren voor de waarschijnlijkheid van de voorspelde waarde. Wanneer u scores op basis van een model hebt gegenereerd, kunt u de nauwkeurigheid van het model evalueren met de [module Evaluate Model](https://msdn.microsoft.com/library/azure/dn905915.aspx).
-* **voorbeeld**: Een representatief gedeelte van een gegevensset. Steekproeven kunnen willekeurig worden geselecteerd, maar ook op basis van specifieke functies van de gegevensset.
 
 ## <a name="next-steps"></a>Volgende stappen
 U kunt zich de basiskennis van predictive analytics en machine learning eigen maken aan de hand van een [Stapsgewijze quickstart](create-experiment.md) en [door voorbeelden verder uit te werken](sample-experiments.md).
-
 
 <!-- Module References -->
 [convert-to-arff]: https://msdn.microsoft.com/library/azure/62d2cece-d832-4a7a-a0bd-f01f03af0960/

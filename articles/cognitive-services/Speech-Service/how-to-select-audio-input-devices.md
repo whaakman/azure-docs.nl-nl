@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 359606c6dfe75d9910565cffa555b1e52d29267d
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: e02c99edcc1774510f9d10a5d19f49c4fc0530a9
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448529"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594080"
 ---
-# <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>Een audio-invoerapparaat selecteren met de Speech-SDK 
+# <a name="select-an-audio-input-device-with-the-speech-sdk"></a>Een audio-invoerapparaat selecteren met de Speech-SDK
 
 In versie 1.3.0 van de Speech-SDK wordt een API geïntroduceerd om de audio-invoer te selecteren. In dit artikel wordt beschreven hoe u de id's kunt verkrijgen van de audio-apparaten die met een systeem zijn verbonden.
 Deze kunnen vervolgens worden gebruikt in de Speech-SDK door het audioapparaat via het `AudioConfig`-object te configureren:
@@ -366,4 +366,14 @@ Bijvoorbeeld: de instructie
     withOptions:AVAudioSessionCategoryOptionAllowBluetooth error:NULL];
 ```
 
- maakt het gebruik van een Bluetooth-headset voor een spraakgestuurde app mogelijk.
+maakt het gebruik van een Bluetooth-headset voor een spraakgestuurde app mogelijk.
+
+## <a name="next-steps"></a>Volgende stappen
+
+> [!div class="nextstepaction"]
+> [Onze C#-voorbeelden op GitHub bekijken](https://aka.ms/csspeech/samples)
+
+## <a name="see-also"></a>Zie ook
+
+- [Akoestische modellen aanpassen](how-to-customize-acoustic-models.md)
+- [Taalmodellen aanpassen](how-to-customize-language-model.md)

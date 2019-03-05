@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 2c0eb50e962af5b67ef9c01588df42f74dd44368
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: de83cc80d64fb1862f1fdec32b704d0948ef9fc8
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100292"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820515"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>Wat is Microsoft Flow, Logic Apps, Functions en WebJobs?
 
@@ -62,7 +62,7 @@ U kunt services combineren en matchen als u een indeling bouwt, waarbij u functi
 | Ontwikkeling | Code-first (imperatief) | Designer-first (declaratief) |
 | Connectiviteit | [Circa 15 bindingstypen](functions-triggers-bindings.md#supported-bindings); code schrijven voor aangepaste bindingen | [Grote verzameling connectors](../connectors/apis-list.md), [Enterprise Library Integration Pack voor B2B-scenario's](../logic-apps/logic-apps-enterprise-integration-overview.md); [aangepaste bindingen ontwikkelen](../logic-apps/custom-connector-overview.md) |
 | Acties | Elke activiteit is een Azure-functie; code schrijven voor de activiteitsfuncties |[Grote verzameling kant-en-klare acties](../logic-apps/logic-apps-workflow-actions-triggers.md)|
-| Bewaking | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
+| Bewaking | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Azure Monitor-Logboeken](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
 | Beheer | [REST API](durable/durable-functions-http-api.md), [Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [REST API](https://docs.microsoft.com/rest/api/logic/), [PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
 | Context voor uitvoering | Kan [lokaal](functions-runtime-overview.md) of in de cloud worden uitgevoerd | Wordt alleen in de cloud uitgevoerd|
 

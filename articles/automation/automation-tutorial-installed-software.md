@@ -11,12 +11,12 @@ ms.service: automation
 ms.subservice: change-inventory-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ffa14e3fb3fd41d6a30e1cf30713b26d7ecd255a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2cce925f4b3e1acc6c93019615b81983a5c95f6f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436005"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56815889"
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Uitvinden welke software is geïnstalleerd op uw Azure- en niet-Azure-computers
 
@@ -58,8 +58,10 @@ Om de oplossing in te schakelen configureert u de locatie, de Log Analytics-werk
 Een [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)-werkruimte wordt gebruikt om gegevens te verzamelen die worden gegenereerd door functies en services zoals Inventaris.
 De werkruimte biedt één locatie om gegevens uit meerdere bronnen te bekijken en te analyseren.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 Het inschakelen van de oplossing kan maximaal 15 minuten duren. Gedurende deze tijd mag u het browservenster niet sluiten.
-Nadat de oplossing is ingeschakeld, wordt informatie over geïnstalleerde software en wijzigingen op de virtuele machine naar Log Analytics verzonden.
+Nadat de oplossing is ingeschakeld, wordt informatie over geïnstalleerde software en wijzigingen aan de VM-stromen naar Azure Monitor-logboeken verzonden.
 Het duurt tussen 30 minuten en 6 uur voordat de gegevens beschikbaar zijn voor analyse.
 
 ## <a name="onboard-a-vm"></a>Onboarding van een VM
@@ -101,7 +103,7 @@ Als u bijvoorbeeld zoekt naar 'Contoso', wordt alle software met 'Contoso' in de
 
 ## <a name="search-inventory-logs-for-installed-software"></a>Inventarislogboeken doorzoeken op geïnstalleerde software
 
-Inventaris genereert logboekgegevens die naar Log Analytics worden verzonden. Als u de logboeken wilt doorzoeken door query's uit te voeren, selecteert u **Log Analytics** boven in het venster **Inventaris**.
+Inventaris genereert logboekgegevens die naar Azure Monitor-logboeken worden verzonden. Als u de logboeken wilt doorzoeken door query's uit te voeren, selecteert u **Log Analytics** boven in het venster **Inventaris**.
 
 Inventarisgegevens worden opgeslagen onder het type **ConfigurationData**.
 De volgende voorbeeldquery voor Log Analytics retourneert de inventarisatieresultaten waar de uitgever gelijk is aan "Microsoft Corporation".
@@ -113,11 +115,11 @@ ConfigurationData
 | summarize arg_max(TimeGenerated, *) by SoftwareName, Computer
 ```
 
-Zie [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) voor meer informatie over het uitvoeren en doorzoeken van logboekbestanden in Log Analytics.
+Zie [Azure Monitor-logboeken](../azure-monitor/log-query/log-query-overview.md) voor meer informatie over het uitvoeren en doorzoeken van logboekbestanden in Azure Monitor-logboeken.
 
 ### <a name="single-machine-inventory"></a>Inventaris van één computer
 
-Als u een overzicht van de software voor één computer wilt zien, kunt u Inventaris openen vanuit de pagina met VM-resources in Azure, of kunt u met behulp van de filterfunctie in Log Analytics naar de overeenkomstige computer gaan.
+Als u een overzicht van de software voor één computer wilt zien, kunt u Inventaris openen vanuit de pagina met VM-resources in Azure, of kunt u met behulp van de filterfunctie in Azure Monitor-logboeken naar de overeenkomstige computer gaan.
 De volgende voorbeeldquery van Log Analytics retourneert de lijst met software voor een computer met de naam ContosoVM.
 
 ```loganalytics

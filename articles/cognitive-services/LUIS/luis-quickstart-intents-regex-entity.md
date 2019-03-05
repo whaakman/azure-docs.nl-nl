@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 5ebd8875f14eef9a5febaf5356f0d2fadb0828bd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 012d77227e7c0283b565361dda32cb77e12fc62b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869633"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867266"
 ---
 # <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Zelfstudie: Correct opgemaakte gegevens ophalen uit utterances
 In deze zelfstudie maakt u een app voor het extraheren van consistent opgemaakte gegevens uit een utterance met behulp van de entiteit **Regular Expression (regex)**.
@@ -82,7 +82,7 @@ Een reguliere expressie is een goede keuze voor dit type gegevens wanneer:
     |author of hrf-546234?|
     |title of hrf-456234?|
 
-    [ ![Schermopname van de pagina Intent met de nieuwe utterances gemarkeerd](./media/luis-quickstart-intents-regex-entity/findform-intent.png) ](./media/luis-quickstart-intents-regex-entity/findform-intent.png#lightbox)
+    [![Schermopname van de pagina Intent met de nieuwe utterances gemarkeerd](./media/luis-quickstart-intents-regex-entity/findform-intent.png)](./media/luis-quickstart-intents-regex-entity/findform-intent.png#lightbox)
 
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 

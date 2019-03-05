@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: ebce27f3558661aca9e1bd6e7130c96c396d33ee
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bb173981e3f06c923fa7357eb64777493bd17b8c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257119"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958266"
 ---
 # <a name="what-is-azure-data-explorer"></a>Wat is Azure Data Explorer?
 
@@ -47,9 +47,9 @@ Werk in Azure Data Explorer volgt het volgende algemene patroon:
 
 1. **Database maken:** maak een *cluster* en maak vervolgens een of meer *databases* in dat cluster. [Snelstart: een Azure Data Explorer-cluster en -database maken](create-cluster-database-portal.md)
 
-1. **Gegevens opnemen:**  laad gegevens in databasetabellen zodat u er query's op kunt uitvoeren. [Snelstart: gegevens uit Event Hub opnemen in Azure Data Explorer](ingest-data-event-hub.md)
+1. **Gegevens opnemen:** laad gegevens in databasetabellen zodat u er query's op kunt uitvoeren. [Snelstart: Gegevens uit Event Hub opnemen in Azure Data Explorer](ingest-data-event-hub.md)
 
-1. **Query’s uitvoeren op de database:**  gebruik onze ​​webtoepassing om query's en resultaten uit te voeren, te beoordelen en te delen. Het is beschikbaar in Azure-portal en als op zichzelf staande toepassing. Bovendien kunt u query's ook programmatisch (met behulp van een SDK) of naar een REST API-eindpunt verzenden. [Snelstart: query’s uitvoeren op gegevens in Azure Data Explorer](web-query-data.md)
+1. **Query's uitvoeren op database:** gebruik onze ​​webtoepassing om query's en resultaten uit te voeren, te beoordelen en te delen. Het is beschikbaar in Azure-portal en als op zichzelf staande toepassing. Bovendien kunt u query's ook programmatisch (met behulp van een SDK) of naar een REST API-eindpunt verzenden. [Snelstart: query's uitvoeren op gegevens in Azure Data Explorer](web-query-data.md)
 
 ## <a name="query-experience"></a>Query-ervaring
 
@@ -57,7 +57,7 @@ Een query in Azure Data Explorer is een alleen-lezen aanvraag om gegevens te ver
 
 Azure Data Explorer verwerkt grote hoeveelheden gestructureerde, semi-gestructureerde (JSON-achtige geneste typen) en ongestructureerde (vrije tekst) gegevens even goed. Hiermee kunt u zoeken naar specifieke teksttermen, bepaalde gebeurtenissen lokaliseren en metrische berekeningen uitvoeren op gestructureerde gegevens. Azure Data Explorer overbrugt de wereld van ongestructureerde tekstlogboeken en gestructureerde getallen en dimensies door in runtime waarden uit vrije-tekstvelden te extraheren. Gegevensverkenning wordt vereenvoudigd door snelle tekstindexering, kolomopslag en tijdreeksbewerkingen te combineren.
 
-De mogelijkheden van Azure Data Explorer worden uitgebreid met andere services die zijn gebouwd op de krachtige querytaal, waaronder [Log Analytics](/azure/log-analytics/), [Application Insights](/azure/application-insights/), [Time Series Insights](/azure/time-series-insights/) en [Windows Defender Advanced Threat Protection](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection/).
+De mogelijkheden van Azure Data Explorer worden uitgebreid met andere services die zijn gebouwd op de krachtige querytaal, waaronder [Azure Monitor-logboeken](/azure/log-analytics/), [Application Insights](/azure/application-insights/), [Time Series Insights](/azure/time-series-insights/) en [Windows Defender Advanced Threat Protection](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection/).
 
 ## <a name="feedback"></a>Feedback
 
@@ -73,6 +73,6 @@ We willen graag uw feedback over Azure Data Explorer en de querytaal horen op:
 
 [Snelstart: een Azure Data Explorer-cluster en -database maken](create-cluster-database-portal.md)
 
-[Snelstart: gegevens uit Event Hub opnemen in Azure Data Explorer](ingest-data-event-hub.md)
+[Snelstart: Gegevens uit Event Hub opnemen in Azure Data Explorer](ingest-data-event-hub.md)
 
-[Snelstart: query’s uitvoeren op gegevens in Azure Data Explorer](web-query-data.md)
+[Snelstart: query's uitvoeren op gegevens in Azure Data Explorer](web-query-data.md)

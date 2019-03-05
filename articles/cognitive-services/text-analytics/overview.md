@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 0de4e0d750d8ae3061ed0b80d706dec545338a90
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 7623f98b9fd6c4bad8a41050e39b6e0e8650dccc
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242923"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889276"
 ---
 # <a name="what-is-text-analytics"></a>Wat is Text Analytics?
 
@@ -64,11 +64,11 @@ Deze sectie is voor betere zichtbaarheid verplaatst naar een afzonderlijk artike
 
 ## <a name="data-limits"></a>Gegevenslimieten
 
-Alle eindpunten van de Text Analytics-API accepteren onbewerkte tekstgegevens. De huidige limiet is 5000 tekens per document. Als u grotere documenten moet analyseren, kunt u deze splitsen in een aantal kleinere documenten. Als u toch een hogere limiet nodig hebt, [neem dan contact met ons op](https://azure.microsoft.com/overview/sales-number/) zodat we uw vereisten kunnen bespreken.
+Alle eindpunten van de Text Analytics-API accepteren onbewerkte tekstgegevens. De huidige limiet is 5120 tekens per document. Als u grotere documenten moet analyseren, kunt u deze splitsen in een aantal kleinere documenten. Als u toch een hogere limiet nodig hebt, [neem dan contact met ons op](https://azure.microsoft.com/overview/sales-number/) zodat we uw vereisten kunnen bespreken.
 
 | Limiet | Waarde |
 |------------------------|---------------|
-| Maximale grootte van één document | 5000 tekens, zoals wordt gemeten door [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
+| Maximale grootte van één document | 5120 tekens, zoals wordt gemeten door [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
 | Maximale grootte van de hele aanvraag | 1 MB |
 | Maximum aantal documenten in een aanvraag | 1000 documenten |
 
@@ -80,7 +80,7 @@ De Text Analytics-API maakt gebruik van Unicode-codering voor tekstweergave en h
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Probeer eerst de [interactieve demo](https://azure.microsoft.com/services/cognitive-services/text-analytics/). U kunt een tekstinvoer (maximaal 5000 tekens) plakken om de taal te bepalen (maximaal 120 talen), een gevoelsscore te berekenen of sleuteltermen te extraheren. U hoeft zich niet te registreren.
+Probeer eerst de [interactieve demo](https://azure.microsoft.com/services/cognitive-services/text-analytics/). U kunt een tekstinvoer (maximaal 5120 tekens) plakken om de taal te bepalen (maximaal 120 talen), een gevoelsscore te berekenen of sleuteltermen te extraheren. U hoeft zich niet te registreren.
 
 Wanneer u klaar bent om de API rechtstreeks aan te roepen:
 

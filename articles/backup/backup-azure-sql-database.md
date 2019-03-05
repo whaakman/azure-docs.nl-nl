@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 02/19/2018
 ms.author: raynew
-ms.openlocfilehash: 17ec7723044cec391ebe390bbcfba3aa6f2f29ca
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 61219fc4e1fc329708a7e58ee6a293e4e25cca31
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446848"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887808"
 ---
 # <a name="back-up-sql-server-databases-on-azure-vms"></a>Back-ups maken van SQL Server-databases in virtuele Azure-machines 
 
@@ -52,8 +52,7 @@ Deze openbare preview heeft een aantal beperkingen.
 - Back-up- en herstelbewerkingen voor gespiegelde FCI-databases, databasemomentopnamen en databases worden niet ondersteund.
 - Databases met zeer veel bestanden kunnen niet worden beveiligd. Het maximumaantal ondersteunde bestanden is niet deterministisch. Het hangt niet alleen af van het aantal bestanden, maar ook van de padlengte van de bestanden. 
 
-Raadpleeg het gedeelte [Veelgestelde vragen](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#faq) voor meer informatie over ondersteunde/niet-ondersteunde scenario's.
-
+Bekijk [veelgestelde vragen](faq-backup-sql-server.md) over het maken van back-ups van SQL Server-databases.
 ## <a name="scenario-support"></a>Scenario-ondersteuning
 
 **Ondersteuning** | **Details**
@@ -69,9 +68,9 @@ Raadpleeg het gedeelte [Veelgestelde vragen](https://docs.microsoft.com/azure/ba
 Voordat u een back-up van uw SQL Server-database maakt, controleert u de volgende voorwaarden:
 
 1. Identificeer of [maak](backup-azure-sql-database.md#create-a-recovery-services-vault) een Recovery Services-kluis in hetzelfde gebied of land als de virtuele machine die het SQL Server-exemplaar host.V
-2. [Controleer de VM-machtigingen](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms) die nodig zijn voor de back-up van de SQL-databases.
+2. [Controleer de VM-machtigingen](#fix-sql-sysadmin-permissions) die nodig zijn voor de back-up van de SQL-databases.
 3. Controleer of de virtuele machine [netwerkverbinding](backup-azure-sql-database.md#establish-network-connectivity) heeft.
-4. Controleer of de SQL Server-databases zijn benoemd in overeenstemming met de [naamgevingsrichtlijnen](backup-azure-sql-database.md#sql-database-naming-guidelines-for-azure-backup) van Azure Backup.
+4. Controleer of de SQL Server-databases zijn benoemd in overeenstemming met de [naamgevingsrichtlijnen](backup-azure-sql-database.md) van Azure Backup.
 5. Controleer of er geen andere back-upoplossingen zijn ingeschakeld voor de database. Schakel alle andere SQL Server-back-ups uit voordat u dit scenario instelt. U kunt zonder problemen Azure Backup inschakelen voor een Azure-VM en tegelijkertijd voor een SQL Server-database die wordt uitgevoerd op de virtuele machine.
 
 
@@ -197,7 +196,7 @@ Configureer de back-up als volgt:
 
     - Het standaardbeleid selecteren: **HourlyLogBackup**.
     - Een bestaand back-upbeleid kiezen dat u eerder hebt gemaakt voor SQL.
-    - [Een nieuw beleid definiëren](backup-azure-sql-database.md#define-a-backup-policy) op basis van uw RPO en retentiebereik.
+    - [Een nieuw beleid definiëren](backup-azure-sql-database.md#configure-a-backup-policy) op basis van uw RPO en retentiebereik.
     - In de Preview-versie kunt u geen back-upbeleid bewerken.
     
 9. In het **menu Back-up** selecteert u **Back-up inschakelen**.
@@ -326,7 +325,7 @@ Als u machtigingen nodig hebt i.v.m. een **UserErrorSQLNoSysadminMembership**-fo
 
     ![Bericht dat de implementatie is geslaagd](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
-U kunt ook [automatische beveiliging](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) inschakelen voor het hele exemplaar of de AlwaysOn-beschikbaarheidsgroep door de optie **ON** (AAN) te selecteren in de bijbehorende vervolgkeuzelijst in de kolom **AUTOPROTECT** (AUTOMATISCHE BEVEILIGING). Met de functie voor [automatische beveiliging](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) kunt u niet alleen alle bestaande databases in één keer beveiligen, maar ook automatisch nieuwe databases beveiligen die in de toekomst aan dat exemplaar of de beschikbaarheidsgroep worden toegevoegd.  
+U kunt ook [automatische beveiliging](backup-azure-sql-database.md#enable-auto-protection) inschakelen voor het hele exemplaar of de AlwaysOn-beschikbaarheidsgroep door de optie **ON** (AAN) te selecteren in de bijbehorende vervolgkeuzelijst in de kolom **AUTOPROTECT** (AUTOMATISCHE BEVEILIGING). Met de functie voor [automatische beveiliging](backup-azure-sql-database.md#enable-auto-protection) kunt u niet alleen alle bestaande databases in één keer beveiligen, maar ook automatisch nieuwe databases beveiligen die in de toekomst aan dat exemplaar of de beschikbaarheidsgroep worden toegevoegd.  
 
    ![Automatische beveiliging inschakelen voor de AlwaysOn-beschikbaarheidsgroep](./media/backup-azure-sql-database/enable-auto-protection.png)
 

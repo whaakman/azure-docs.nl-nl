@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 9704002a30556c76c65ddcad1cb576fbf4502b55
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 66ea269e2f29bfd39cdb81086391e0277474219d
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014298"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961347"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Inleiding tot Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -62,7 +62,7 @@ Wanneer de gegevens eenmaal aanwezig zijn in een gecentraliseerd gegevensarchief
 Nadat de onbewerkte gegevens zijn omgezet in gebruiksklare bedrijfsgegevens, laadt u de gegevens in Azure Data Warehouse, Azure SQL Database, Azure CosmosDB of een andere analyse-engine waar gebruikers in uw bedrijf naar kunnen verwijzen met hun hulpprogramma's voor business intelligence.
 
 ### <a name="monitor"></a>Controleren
-Nadat u uw pijplijn voor gegevensintegratie hebt gemaakt en geïmplementeerd, en op die manier toegevoegde waarde biedt met getransformeerde gegevens, controleert u hoe vaak de geplande activiteiten en pijplijnen slagen en mislukken. Azure Data Factory heeft ingebouwde ondersteuning voor pijplijnbewaking via Azure Monitor, API, PowerShell, Log Analytics en statusvensters in Azure Portal.
+Nadat u uw pijplijn voor gegevensintegratie hebt gemaakt en geïmplementeerd, en op die manier toegevoegde waarde biedt met getransformeerde gegevens, controleert u hoe vaak de geplande activiteiten en pijplijnen slagen en mislukken. Azure Data Factory heeft ingebouwde ondersteuning voor pijplijnbewaking via Azure Monitor, API, PowerShell, Azure Monitor-logboeken en statusvensters in de Azure-portal.
 
 ## <a name="top-level-concepts"></a>Concepten van het hoogste niveau
 Een Azure-abonnement kan een of meer Azure Data Factory-exemplaren (ofwel 'data factory's') hebben. Azure Data Factory bestaat uit vier hoofdonderdelen. Deze onderdelen werken samen om een platform te bieden waarop u gegevensgestuurde werkstromen kunt maken met stappen voor de verplaatsing en transformatie van gegevens.

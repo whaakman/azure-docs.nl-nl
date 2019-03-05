@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to build a Java application to access and manage Azure Cosmos DB resources so that customers can store key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: fc1505526ddff33c68b6d7a4030338dd7d712598
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b6876bf8210d47729ad8e765ccffe709a0fccacc
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994469"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958691"
 ---
 # <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>Zelfstudie: een Cassandra-API-account maken in Azure Cosmos DB met behulp van een Java-toepassing om sleutel-/waardegegevens op te slaan
 
@@ -43,7 +43,7 @@ Deze zelfstudie bestaat uit de volgende taken:
 
 1. Meld u aan bij de  [Azure-portal](https://portal.azure.com/). 
 
-2. Selecteer  **Een resource maken** > **Databases** > **Azure Cosmos DB**. 
+2. Selecteer **Een resource maken** > **Databases** > **Azure Cosmos DB**. 
 
 3. Voer in het deelvenster **Nieuw account** de instellingen in voor het nieuwe Azure Cosmos-account. 
 
@@ -52,12 +52,12 @@ Deze zelfstudie bestaat uit de volgende taken:
    |Id   |   Voer een unieke naam in    | Voer een unieke naam in om dit Azure Cosmos-account te identificeren. <br/><br/>Omdat cassandra.cosmosdb.azure.com wordt toegevoegd aan de id die u opgeeft om het contactpunt te maken, moet u een unieke, maar herkenbare id gebruiken.         |
    |API    |  Cassandra   |  De API bepaalt het type te maken account. <br/> Selecteer **Cassandra**, aangezien u in dit artikel u een wide-column-database maakt waarop een query kan worden uitgevoerd met de Cassandra Query Language (CQL)-syntaxis.  |
    |Abonnement    |  Uw abonnement        |  Selecteer het Azure-abonnement dat u wilt gebruiken voor dit Azure Cosmos-account.        |
-   |Resourcegroep   | Voer een naam in    |  Selecteer  **Nieuwe maken** en voer een naam voor de nieuwe resourcegroep voor uw account in. Gebruik dezelfde naam als uw id om het uzelf gemakkelijk te maken.    |
+   |Resourcegroep   | Voer een naam in    |  Selecteer **Nieuwe maken** en voer een naam voor de nieuwe resourcegroep voor uw account in. Gebruik dezelfde naam als uw id om het uzelf gemakkelijk te maken.    |
    |Locatie    |  Selecteer de regio het dichtst in de buurt van uw gebruikers    |  Selecteer de geografische locatie waar u het Azure Cosmos-account gaat hosten. Gebruik de locatie die zich het dichtst bij uw gebruikers bevindt, zodat ze de snelst mogelijke toegang tot de gegevens hebben.    |
 
    ![Account maken met portal](./media/create-cassandra-api-account-java/create-account.png)
 
-4. Selecteer  **Maken**. <br/>Het duurt enkele minuten om het account te maken. Als de resource is gemaakt, ziet u rechts in de portal de melding **Implementatie voltooid**.
+4. Selecteer **Maken**. <br/>Het duurt enkele minuten om het account te maken. Als de resource is gemaakt, ziet u rechts in de portal de melding **Implementatie voltooid**.
 
 ## <a name="get-the-connection-details-of-your-account"></a>De verbindingsgegevens van uw account ophalen  
 

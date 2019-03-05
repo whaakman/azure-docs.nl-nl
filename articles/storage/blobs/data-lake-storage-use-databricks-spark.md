@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: dineshm
-ms.openlocfilehash: b5d7be25ba18e256352d8793689bcb63a013e20b
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 14e8d54b7b9cf579bb5dcbce595e2591c158b841
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56452596"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585422"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Zelfstudie: Toegang tot Data Lake Storage Gen2-gegevens met Azure Databricks met behulp van Apache Spark
 
@@ -146,6 +146,9 @@ In deze sectie maakt u een bestandssysteem en een map in uw opslagaccount.
    * De tijdelijke aanduiding `tenant-id` is afkomstig van uw abonnement.
 
    * De tijdelijke aanduiding `storage-account-name` is de naam van uw Azure Data Lake Storage Gen2-opslagaccount.
+
+    > [!NOTE]
+    > In een productieomgeving kunt u de verificatiesleutel eventueel in Azure Databricks opslaan. Vervolgens voegt u een opzoeksleutel toe aan uw codeblok in plaats van de verificatiesleutel. Nadat u deze quickstart hebt afgerond, raadpleegt u het artikel [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) (Engelstalig) op de website van Azure Databricks voor voorbeelden van deze methode.
 
 19. Druk op de toetsen **Shift + Enter** om de code in dit blok uit te voeren.
 

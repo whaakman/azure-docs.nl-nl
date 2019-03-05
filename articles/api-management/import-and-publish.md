@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 02/24/2019
 ms.author: apimpm
-ms.openlocfilehash: 4173c0b26b2d176549d3a89cc6fdfa928b6cca5b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0e104f4cbdef7edc5c109781509e3924400e5ba4
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963841"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959728"
 ---
 # <a name="import-and-publish-your-first-api"></a>Uw eerste API importeren en publiceren 
 
@@ -48,7 +48,7 @@ In deze zelfstudie leert u het volgende:
 In deze sectie ziet u hoe u een back-end-API met de naam OpenAPI-specificatie kunt importeren en publiceren.
  
 1. Selecteer **API's** bij **API MANAGEMENT**.
-2. Selecteer **OpenAPI-specificatie** in de lijst.
+2. Selecteer **OpenAPI-specificatie** uit de lijst en klik op **Volledig** in het pop-upvenster.
 
     ![Een API maken](./media/api-management-get-started/create-api.png)
 
@@ -65,7 +65,8 @@ In deze sectie ziet u hoe u een back-end-API met de naam OpenAPI-specificatie ku
     | **URL-schema**            | *HTTPS*                                            | Bepaalt welke protocollen kunnen worden gebruikt om toegang te krijgen tot de API.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
     | **API-URL-achtervoegsel**        | *conference*                                       | Het achtervoegsel wordt toegevoegd aan de basis-URL voor de API Management-service. In API Management worden API's herkend aan hun achtervoegsel en daarom moet het achtervoegsel uniek zijn voor elke API voor een bepaalde uitgever.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
     | **Producten**              | *Onbeperkt*                                        | Producten zijn koppelingen van een of meer API's. U kunt een aantal API's opnemen in een product en deze beschikbaar stellen voor ontwikkelaars via de ontwikkelaarsportal. <br/>U publiceert de API door deze te koppelen aan een product (in dit voorbeeld *Onbeperkt*). Als u deze nieuwe API wilt toevoegen aan een product, typt u de productnaam (u kunt dit ook later doen op de pagina **Instellingen**). Deze stap kan meerdere keren worden herhaald om de API toe te voegen aan meerdere producten.<br/>Ontwikkelaars moeten zich eerst abonneren op een product om toegang tot de API te krijgen. Wanneer ontwikkelaars zich abonneren, ontvangen ze een abonnementssleutel die toegang biedt tot elke API in het betreffende product. <br/> Als u de APIM-instantie hebt gemaakt, bent u al een beheerder en bent u geabonneerd op elk product.<br/> Standaard wordt elk API Management-exemplaar geleverd met twee voorbeeldproducten: **Starter** en **Onbeperkt**. |
-    | Versie van deze API?         |                                                    | Zie [Publish multiple versions of your API](api-management-get-started-publish-versions.md) (Meerdere versies van uw API publiceren) voor meer informatie over versiebeheer                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+    | **Tags**                  |                                                    | Tags voor het ordenen van API's. Tags kunnen worden gebruikt voor zoeken, groeperen of filteren.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+    | **Versie van deze API?**     |                                                    | Zie [Publish multiple versions of your API](api-management-get-started-publish-versions.md) (Meerdere versies van uw API publiceren) voor meer informatie over versiebeheer                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 
     >[!NOTE]
     > Als u de API wilt publiceren, moet u deze koppelen aan een product. U kunt dit doen op de pagina **Instellingen**.

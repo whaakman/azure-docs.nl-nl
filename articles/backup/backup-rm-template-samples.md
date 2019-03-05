@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 96d4a61a14d3b1fac1c31c485edf66742c763673
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: c0b023b6bdd01bc64eb5a6deb5fafa8e3c34c616
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497754"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819017"
 ---
 # <a name="azure-resource-manager-templates-for-azure-backup"></a>Azure Resource Manager-sjablonen voor Azure Backup
 
@@ -31,6 +31,6 @@ De volgende tabel bevat koppelingen naar Azure Resource Manager-sjablonen voor g
 | [Beleid voor dagelijkse back-up voor IaaS VM's maken](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-daily-backup-policy-create) | Met de sjabloon wordt een Recovery Services-kluis en een beleid voor dagelijkse back-ups gemaakt dat wordt gebruikt voor het maken van back-ups van klassieke en Resource Manager-virtuele machines.|
 | [Windows Server-VM met back-up implementeren](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-create-vm-and-configure-backup) | Met de sjabloon wordt een Windows Server-VM en Recovery Services-kluis gemaakt met het standaard back-upbeleid ingeschakeld.|
 |**Back-uptaken controleren** |  |
-| [Log Analytics gebruiken voor het controleren van Azure Backup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-backup-oms-monitoring) | Met de sjabloon wordt Log Analytics-bewaking voor Azure Backup geïmplementeerd, waarmee u back-up- en hersteltaken, back-upwaarschuwingen en de cloudopslag in uw Recovery Services-kluizen kunt controleren.|  
+| [Logboeken van Azure Monitor gebruiken met Azure Backup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-backup-oms-monitoring) | Met de sjabloon worden Azure Monitor-logboeken voor Azure Backup geïmplementeerd, waarmee u back-up- en hersteltaken, back-upwaarschuwingen en de cloudopslag in uw Recovery Services-kluizen kunt controleren.|  
 |   |   |
 

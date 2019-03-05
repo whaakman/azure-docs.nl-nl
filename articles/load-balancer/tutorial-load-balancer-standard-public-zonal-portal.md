@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/17/2018
+ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 76e55c643378e689f12d485100a81ccefa4196f4
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 5f3b9b48fc5f15738c3de9928ca0bb220a66db12
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229809"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985985"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Zelfstudie: Met behulp van Azure Portal taakverdeling voor virtuele machines uitvoeren binnen een beschikbaarheidszone met Standard Load Balancer
 
@@ -48,18 +48,22 @@ Meld u aan bij de Azure Portal op [http://portal.azure.com](http://portal.azure.
 Standard Load Balancer biedt alleen ondersteuning voor een standaard, openbaar IP-adres. Wanneer u een nieuw openbaar IP-adres maakt tijdens het maken van de load balancer, wordt het automatisch geconfigureerd als een standaard SKU-versie. Het is ook automatisch zoneredundant.
 
 1. Selecteer **Een resource maken** > **Netwerken** > **Load Balancer** linksboven in het scherm.
-2. Voer op de pagina **Load balancer maken** deze waarden in voor de load balancer:
-    - **myLoadBalancer** als naam van de load balancer.
-    - **Openbaar** als het type load balancer.
-      - **myPublicIPZonal** voor het nieuwe, openbare IP-adres dat u maakt. Selecteer **Kies een openbaar IP-adres**. Selecteer vervolgens **Nieuw maken**. Voer voor de naam **myPublicIP** in. SKU is de standaard. Als **Beschikbaarheidszone** selecteert u **Zone 1**.
-    - Voer **myResourceGroupZLB** in als naam van de nieuwe resourcegroep die u maakt.
-    - Selecteer **westeurope** als locatie.
-3. Selecteer **Maken** om de load balancer te maken.
-   
-    ![Een Standard Load Balancer-instantie maken via Azure Portal](./media/tutorial-load-balancer-standard-zonal-portal/create-load-balancer-zonal-frontend.png)
+2. Voer op het tabblad **Basis** van de pagina **Load balancer maken** de volgende gegevens in of selecteer deze, accepteer de standaardwaarden voor de overige instellingen en selecteer **Controleren + maken**:
 
+    | Instelling                 | Waarde                                              |
+    | ---                     | ---                                                |
+    | Abonnement               | Selecteer uw abonnement.    |    
+    | Resourcegroep         | Selecteer **Nieuwe maken** en typ *MyResourceGroupZLB* in het tekstvak.|
+    | Naam                   | *myLoadBalancer*                                   |
+    | Regio         | Selecteer **Europa - west**.                                        |
+    | Type          | Selecteer **Openbaar**.                                        |
+    | SKU           | selecteer **Standaard**.                          |
+    | Openbaar IP-adres | Selecteer **Nieuw maken**. |
+    | Naam openbare IP-adres              | Typ *myPublicIP* in het tekstvak.   |
+    |Beschikbaarheidszone| Selecteer **1**.    |
+3. Klik op het tabblad **Controleren + Maken** op **Maken**.   
 
-## <a name="create-backend-servers"></a>Back-endservers maken
+ ## <a name="create-backend-servers"></a>Back-endservers maken
 
 In deze sectie gaat u een virtueel netwerk maken. U gaat ook twee virtuele machines maken in dezelfde zone (namelijk in zone 1) voor de regio die aan de back-endpool van de load balancer wordt toegevoegd. Vervolgens installeert u IIS op de virtuele machines om de zone-redundante Load Balancer te testen. Als u dit op één virtuele machine mislukt, mislukt de statustest voor de virtuele machine in dezelfde regio. Verkeer blijft worden aangeleverd door andere virtuele machines binnen dezelfde regio.
 

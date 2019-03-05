@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: e8efcbe080cc33cb6153d97d4435bcb477587980
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: b8cb84523288f45dfb719d69e4f7d227039598a9
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565850"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806909"
 ---
 # <a name="quickstart-run-a-container-application-in-azure-container-instances-with-azure-powershell"></a>Snelstartgids: Een containertoepassing uitvoeren in Azure Container Instances met Azure PowerShell
 
@@ -23,42 +23,44 @@ Gebruik Azure Container Instances om Docker-containers in Azure snel en eenvoudi
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Als u PowerShell lokaal wilt installeren en gebruiken, is voor deze zelfstudie versie 5.5 of later van de Azure PowerShell-module vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
+Als u PowerShell lokaal wilt installeren en gebruiken, is voor deze zelfstudie de Azure PowerShell-module vereist. Voer `Get-Module -ListAvailable Az` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-Az-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
 Azure Container Instances moeten, zoals alle Azure-resources, worden geïmplementeerd in een resourcegroep. Met resourcegroepen kunt u gerelateerde Azure-resources organiseren en beheren.
 
-Maak eerst een resourcegroep met de naam *myResourceGroup* op de locatie *eastus* met behulp van de volgende opdracht [New-AzureRmResourceGroup][New-AzureRmResourceGroup]:
+Maak eerst een resourcegroep met de naam *myResourceGroup* op de locatie *eastus* met behulp van de volgende opdracht [New-AzResourceGroup][New-AzResourceGroup]:
 
  ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
 ## <a name="create-a-container"></a>Een container maken
 
-Nu u een resourcegroep hebt, kunt u een container in Azure uitvoeren. Als u een containerinstantie wilt maken met Azure PowerShell, geeft u de naam van een resourcegroep, de naam van een containerinstantie en een Docker-containerinstallatiekopie op voor de cmndlet [New-AzureRmContainerGroup][New-AzureRmContainerGroup]. In deze quickstart gebruikt u de `microsoft/iis:nanoserver` Windows-installatiekopie uit het openbare Docker Hub-register. Deze installatiekopie is een pakket van Internet Information Services (IIS) om uit te voeren in Nano Server.
+Nu u een resourcegroep hebt, kunt u een container in Azure uitvoeren. Als u een containerinstantie wilt maken met Azure PowerShell, geeft u de naam van een resourcegroep, de naam van een containerinstantie en een Docker-containerinstallatiekopie op voor de cmdlet [New-AzContainerGroup][New-AzContainerGroup]. In deze quickstart gebruikt u de `microsoft/iis:nanoserver` Windows-installatiekopie uit het openbare Docker Hub-register. Deze installatiekopie is een pakket van Internet Information Services (IIS) om uit te voeren in Nano Server.
 
 Als u uw containers beschikbaar wilt maken op internet, moet u een of meer poorten om te openen of een DNS-naamlabel opgeven, of beide. In deze quickstart implementeert u een container met een DNS-naamlabel zodat IIS openbaar bereikbaar is.
 
 Voer de volgende opdracht uit om een exemplaar van de container te starten. De waarde `-DnsNameLabel` moet uniek zijn voor de Azure-regio waar u het exemplaar maakt. Als u een foutbericht 'DNS-naamlabel niet beschikbaar' ontvangt, probeert u een ander DNS-naamlabel.
 
  ```azurepowershell-interactive
-New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
+New-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
 ```
 
-U ontvangt binnen enkele seconden een reactie van Azure. De `ProvisioningState` van de container is in eerste instantie **Maken**, maar moet binnen twee minuten veranderen in **Geslaagd**. Controleer de implementatiestatus met behulp van de cmdlet [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup]:
+U ontvangt binnen enkele seconden een reactie van Azure. De `ProvisioningState` van de container is in eerste instantie **Maken**, maar moet binnen twee minuten veranderen in **Geslaagd**. Controleer de implementatiestatus met behulp van de cmdlet [Get-AzContainerGroup][Get-AzContainerGroup]:
 
  ```azurepowershell-interactive
-Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
+Get-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 ```
 
 De inrichtingsstatus van de container, FQDN (volledig gekwalificeerde domeinnaam) en het IP-adres worden weergegeven in de uitvoer van de cmdlet:
 
 ```console
-PS Azure:\> Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
+PS Azure:\> Get-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 
 
 ResourceGroupName        : myResourceGroup
@@ -87,10 +89,10 @@ Wanneer `ProvisioningState` van de container **Geslaagd** is, gaat u naar de `Fq
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer u klaar bent met de container, kunt u deze verwijderen met behulp van de cmdlet [Remove-AzureRmContainerGroup][Remove-AzureRmContainerGroup]:
+Wanneer u klaar bent met de container, kunt u deze verwijderen met behulp van de cmdlet [Remove-AzContainerGroup][Remove-AzContainerGroup]:
 
  ```azurepowershell-interactive
-Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
+Remove-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -104,7 +106,7 @@ In deze snelstart hebt u een Azure-containerinstantie van een installatiekopie g
 [qs-powershell-01]: ./media/container-instances-quickstart-powershell/qs-powershell-01.png
 
 <!-- LINKS -->
-[New-AzureRmResourceGroup]: /powershell/module/azurerm.resources/new-azurermresourcegroup
-[New-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
-[Get-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/get-azurermcontainergroup
-[Remove-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/remove-azurermcontainergroup
+[New-AzResourceGroup]: /powershell/module/az.resources/new-Azresourcegroup
+[New-AzContainerGroup]: /powershell/module/az.containerinstance/new-Azcontainergroup
+[Get-AzContainerGroup]: /powershell/module/az.containerinstance/get-Azcontainergroup
+[Remove-AzContainerGroup]: /powershell/module/az.containerinstance/remove-Azcontainergroup

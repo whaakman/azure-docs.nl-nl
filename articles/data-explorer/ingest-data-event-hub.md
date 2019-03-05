@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: gegevens uit Event Hub opnemen in Azure Data Explorer'
+title: 'Quickstart: gegevens uit Event Hub opnemen in Azure Data Explorer'
 description: In deze quickstart leert u hoe u gegevens uit Event Hub kunt opnemen (laden) in Azure Data Explorer.
 services: data-explorer
 author: orspod
@@ -7,15 +7,15 @@ ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.openlocfilehash: 5d9819d60e21c80b882db1d12b0318599fa54095
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/2/2018
+ms.openlocfilehash: 7b724219750154c5ec1410af64175bc70f5cbd6c
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729734"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805812"
 ---
-# <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Snelstart: gegevens uit Event Hub opnemen in Azure Data Explorer
+# <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Quickstart: gegevens uit Event Hub opnemen in Azure Data Explorer
 
 Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logboeken en telemetrie te verkennen. Azure Data Explorer biedt opname (laden van gegevens) vanuit Event Hubs, een big data-streamingplatform en service voor gebeurtenisopname. [Event Hubs](/azure/event-hubs/event-hubs-about) kunnen miljoenen gebeurtenissen per seconde in bijna realtime verwerken. In deze quickstart maakt u een Event Hub, maakt u verbinding met deze hub vanuit Azure Data Explorer, en ziet u de gegevens door het systeem stromen.
 
@@ -103,11 +103,7 @@ Nu kunt u vanuit Azure Data Explorer verbinding maken met de event hub. Wanneer 
 
     ![Testdatabase selecteren](media/ingest-data-event-hub/select-test-database.png)
 
-1. Selecteer **Gegevensopname** en vervolgens **Gegevensverbinding toevoegen**.
-
-    ![Gegevensopname](media/ingest-data-event-hub/data-ingestion-create.png)
-
-1. Vul het formulier in met de volgende gegevens en selecteer vervolgens **Maken**.
+1. Selecteer **Gegevensopname** en **Gegevensverbinding toevoegen**. Vul het formulier in met de volgende gegevens. Selecteer **Maken** wanneer u klaar bent.
 
     ![Event Hub-verbinding](media/ingest-data-event-hub/event-hub-connection.png)
 

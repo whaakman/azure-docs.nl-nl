@@ -7,16 +7,16 @@ ms.service: terraform
 ms.topic: quickstart
 ms.date: 02/04/2019
 ms.author: nepeters
-ms.openlocfilehash: 408e07e9b6214dbd223bd4ec7959b00ecc414f1e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b3d872008c95d94a8401e6f38665c3c88616a168
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869174"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736920"
 ---
 # <a name="create-a-terraform-configuration-for-azure"></a>Een Terraform-configuratie maken voor Azure
 
-In dit voorbeeld gaat u een Terraform-configuratie maken en deze vervolgens implementeren in Azure. Als het voorbeeld is voltooid, hebt u een exemplaar van Azure Cosmos DB geïmplementeerd, een Azure Container Instances en een toepassing die met deze twee resources werkt. In dit document wordt ervan uitgegaan dat alle werkzaamheden worden uitgevoerd in Azure Cloud Shell, waarin standaard tools van Terraform zijn geïnstalleerd. Als u het voorbeeld op uw eigen systeem wilt doornemen, kunt u Terraform installeren door [deze instructies](../virtual-machines/linux/terraform-install-configure.md) te volgen.
+In dit voorbeeld gaat u een Terraform-configuratie maken en deze vervolgens implementeren in Azure. Als het voorbeeld is voltooid, hebt u een exemplaar van Azure Cosmos DB geïmplementeerd, een Azure Container-instantie en een toepassing die met deze twee resources werkt. In dit document wordt ervan uitgegaan dat alle werkzaamheden worden uitgevoerd in Azure Cloud Shell, waarin standaard tools van Terraform zijn geïnstalleerd. Als u het voorbeeld op uw eigen systeem wilt doornemen, kunt u Terraform installeren door [deze instructies](../virtual-machines/linux/terraform-install-configure.md) te volgen.
 
 ## <a name="create-first-configuration"></a>Eerste configuratie maken
 

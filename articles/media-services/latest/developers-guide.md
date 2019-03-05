@@ -13,19 +13,19 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/16/2019
+ms.date: 02/22/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 2f0191bd181a8e10fa59f6d1d53da348e6440aba
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 97123ec795353073b912bd83e0abb45e23549a75
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343577"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749797"
 ---
 # <a name="start-developing-with-media-services-v3-api-using-sdkstools"></a>Beginnen met ontwikkelen met Media Services v3-API met behulp van SDK's/hulpprogramma's
 
-Als een ontwikkelaar kunt u de [REST-API](https://aka.ms/ams-v3-rest-sdk) van Media Services gebruiken, of clientbibliotheken waarmee u kunt communiceren met de REST-API, om eenvoudig aangepaste mediawerkstromen te maken, beheren en onderhouden. De API van Media Services versie 3 is gebaseerd op de OpenAPI-specificatie (voorheen bekend als een Swagger).
+Als een ontwikkelaar kunt u de [REST-API](https://aka.ms/ams-v3-rest-ref) van Media Services gebruiken, of clientbibliotheken waarmee u kunt communiceren met de REST-API, om eenvoudig aangepaste mediawerkstromen te maken, beheren en onderhouden. De API van [Media Services versie 3](https://aka.ms/ams-v3-rest-sdk) is gebaseerd op de OpenAPI-specificatie (voorheen bekend als een Swagger).
 
 In dit onderwerp vindt u koppelingen naar de SDK's, hulpprogramma's, documentatie. Het bevat ook nuttige informatie voor andere ontwikkelomgevingen.
 
@@ -95,6 +95,7 @@ Raadpleeg de [.NET-naslagdocumentatie](https://aka.ms/ams-v3-dotnet-ref) van Med
 - [Dynamische DRM-versleuteling en licentielevering gebruiken - .NET](protect-with-drm.md)
 - [Een ondertekeningssleutel ophalen uit het bestaand beleid - .NET](get-content-key-policy-dotnet-howto.md)
 - [Filters maken met Media Services - .NET](filters-dynamic-manifest-dotnet-howto.md)
+- [Voorbeelden van geavanceerde video on demand van Azure Functions-v2 met Media Services v3](http://aka.ms/ams3functions)
 
 ## <a name="java"></a>Java
 

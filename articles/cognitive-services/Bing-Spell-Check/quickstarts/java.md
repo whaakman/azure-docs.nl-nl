@@ -1,92 +1,121 @@
 ---
-title: 'Quickstart: Bing Spellingcontrole-API, Java'
+title: 'Quickstart: Spellingcontrole met de Bing Spellingcontrole-REST API en Java'
 titlesuffix: Azure Cognitive Services
-description: Haal informatie en codevoorbeelden op om u te helpen snel aan de slag te gaan met de Bing Spellingcontrole-API.
+description: Aan de slag met de Bing Spellingcontrole-REST API om de spelling en grammatica te controleren.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/14/2017
+ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 4a61e2a1c1457e0f64f4d1e1b11b98c26827481a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d2905d05dce48b705de44780425ed2b55b02555c
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55854877"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888981"
 ---
-# <a name="quickstart-for-bing-spell-check-api-with-java"></a>Snelstartgids voor Bing Spellingcontrole-API met Java 
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Quickstart: Spellingcontrole met de Bing Spellingcontrole-REST API en Java
 
-In dit artikel leest u hoe u de [Bing Spellingcontrole-API](https://azure.microsoft.com/services/cognitive-services/spell-check/) kunt gebruiken in combinatie met Java. De Spellingcontrole-API retourneert een lijst met woorden die niet worden herkend, samen met voorgestelde vervangingen. Normaal gesproken zou u tekst naar deze API sturen en vervolgens de voorgestelde vervangingen in de tekst doorvoeren of deze weergeven aan de gebruikers van uw toepassing, zodat ze zelf kunnen beslissen of de vervangingen moeten worden doorgevoerd. Dit artikel laat zien hoe een aanvraag met de tekst "Hollo, wrld!" wordt verzonden. De voorgestelde vervangingen zijn "Hello" en "world".
+Gebruik deze quickstart om uw eerste aanroep naar de Bing Spellingcontrole REST API te maken. Deze eenvoudige Java-toepassing verzendt een aanvraag naar de API en retourneert een lijst met voorgestelde correcties. Hoewel deze toepassing in Java is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal. De broncode voor deze toepassing is beschikbaar [op GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheckv7.java).
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt [JDK 7 of 8](https://aka.ms/azure-jdks) nodig om deze code te compileren en uit te voeren. U kunt een Java-IDE gebruiken als u daar graag mee werkt, maar een teksteditor volstaat.
+De Java Development Kit (JDK) 7 of hoger.
 
-U moet een [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Bing Spellingcontrole-API voor Bing versie 7** hebben. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/#lang) is voldoende voor deze snelstartgids. U hebt de toegangssleutel nodig die wordt verstrekt bij het activeren van uw gratis proefversie of u gebruikt de sleutel van een betaald abonnement vanuit uw Azure-dashboard.  Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+[!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
-## <a name="get-spell-check-results"></a>Resultaten van spellingcontrole ophalen
 
-1. Maak een nieuw Java-project in uw favoriete IDE.
-2. Voeg de onderstaande code toe.
-3. Vervang de waarde `subscriptionKey` door een geldige toegangssleutel voor uw abonnement.
-4. Voer het programma uit.
+## <a name="create-and-initialize-an-application"></a>De toepassing maken en initialiseren
 
-```java
-import java.io.*;
-import java.net.*;
-import javax.net.ssl.HttpsURLConnection;
+1. Maak een nieuw Java-project in uw favoriete IDE of editor en importeer de volgende pakketten.
 
-public class HelloWorld {
+    ```java
+    import java.io.*;
+    import java.net.*;
+    import javax.net.ssl.HttpsURLConnection;
+    ```
 
+2. Maak variabelen voor het eindpunt, de host en het pad van de API, en uw abonnementssleutel. Maak vervolgens variabelen voor uw markt, de tekst waarop u spellingcontrole wilt uitvoeren en een tekenreeks voor de spellingcontrolemodus.
+
+    ```java
     static String host = "https://api.cognitive.microsoft.com";
     static String path = "/bing/v7.0/spellcheck";
 
-    // NOTE: Replace this example key with a valid subscription key.
-    static String key = "ENTER KEY HERE";
+    static String key = "ENTER YOUR KEY HERE";
 
     static String mkt = "en-US";
     static String mode = "proof";
     static String text = "Hollo, wrld!";
+    ```
 
-    public static void check () throws Exception {
-        String params = "?mkt=" + mkt + "&mode=" + mode;
-        URL url = new URL(host + path + params);
-        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-        connection.setRequestMethod("POST");
-        connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-        connection.setRequestProperty("Content-Length", "" + text.length() + 5);
-        connection.setRequestProperty("Ocp-Apim-Subscription-Key", key);
-        connection.setDoOutput(true);
+## <a name="create-and-send-an-api-request"></a>Een API-aanvraag maken en verzenden
 
+1. Maak een functie met de naam `check()` om de API-aanvraag te maken en verzenden. Volg binnen de functie deze stappen. Maak een tekenreeks voor de aanvraagparameters. voeg de parameter `?mkt=` toe aan uw markttekenreeks en de parameter `&mode=` aan uw spellingcontrolemodus.  
+
+   ```java
+   public static void check () throws Exception {
+       String params = "?mkt=" + mkt + "&mode=" + mode;
+   //...
+   }
+   ```
+
+2. Maak een URL door het eindpunt, de host, het pad en de parametertekenreeks te combineren. Maak een nieuw `HttpsURLConnection`-object.
+
+    ```java
+    URL url = new URL(host + path + params);
+    HttpsURLConnection connection = (HttpsURLConnection) 
+    ```
+
+3. Open een verbinding met de URL. Stel de aanvraagmethode in op `POST`. Voeg uw aanvraagparameters toe. Vergeet niet om de abonnementssleutel toe te voegen aan de `Ocp-Apim-Subscription-Key`-header. 
+
+    ```java
+    url.openConnection();
+    connection.setRequestMethod("POST");
+    connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+    connection.setRequestProperty("Ocp-Apim-Subscription-Key", key);
+    connection.setDoOutput(true);
+    ```
+
+4. Maak een nieuw `DataOutputStream`-object en verzend de aanvraag naar de API.
+
+    ```java
         DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
         wr.writeBytes("text=" + text);
         wr.flush();
         wr.close();
+    ```
 
-        BufferedReader in = new BufferedReader(
-        new InputStreamReader(connection.getInputStream()));
-        String line;
-        while ((line = in.readLine()) != null) {
-            System.out.println(line);
-        }
-        in.close();
+## <a name="read-the-response"></a>Het antwoord lezen
+
+1. Maak een `BufferedReader` en lees het antwoord van de API. Druk het af naar de console.
+    
+    ```java
+    BufferedReader in = new BufferedReader(
+    new InputStreamReader(connection.getInputStream()));
+    String line;
+    while ((line = in.readLine()) != null) {
+        System.out.println(line);
     }
+    in.close();
+    ```
 
+2. Roep in de hoofdfunctie van uw toepassing de hierboven gemaakte functie aan. 
+
+    ```java
     public static void main(String[] args) {
         try {
-            check ();
+            check();
         }
         catch (Exception e) {
             System.out.println (e);
         }
     }
-}
-```
-
-**Antwoord**
+    ```
+    
+## <a name="example-json-response"></a>Voorbeeld van JSON-antwoord
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
@@ -131,9 +160,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Zelfstudie over Bing Spellingcontrole](../tutorials/spellcheck.md)
+> [Een web-app met één pagina maken](../tutorials/spellcheck.md)
 
-## <a name="see-also"></a>Zie ook
-
-- [Overzicht van Bing Spellingcontrole](../proof-text.md)
+- [Wat is de Bing Spellingcontrole-API?](../overview.md)
 - [Referentie voor de Bing Spellingcontrole-API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)

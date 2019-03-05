@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: Active
 ms.date: 06/21/2018
 ms.author: alehall
-ms.openlocfilehash: 16095dabb0e5e3e303e82126c7f57cb4ff3fe8dd
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 006286b492b7431ca15b8a2dc9ac5b4116f7d1b1
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200918"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876266"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Zelfstudie: Gegevens streamen naar Azure Databricks met behulp van Event Hubs
 
@@ -384,4 +384,4 @@ In deze zelfstudie heeft u het volgende geleerd:
 Ga verder naar de volgende zelfstudie voor meer informatie over het uitvoeren van sentimentanalyses op de gestreamde gegevens met behulp van Azure Databricks en [Microsoft Cognitive Services API](../cognitive-services/text-analytics/overview.md).
 
 > [!div class="nextstepaction"]
->[Sentimentanalyse voor streaminggegevens met behulp van Azure Databricks ](databricks-sentiment-analysis-cognitive-services.md)
+>[Sentimentanalyse over het streamen van gegevens met behulp van Azure Databricks](databricks-sentiment-analysis-cognitive-services.md)

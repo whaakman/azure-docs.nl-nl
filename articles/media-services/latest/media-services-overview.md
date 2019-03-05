@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/07/2019
+ms.date: 02/26/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 0f4fd963ce3649c901a76f6677be059ba5be25af
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: de1bd8599682baae860737401d02c7c1dec9e223
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337558"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960646"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Wat is Azure Media Services v3?
 
@@ -88,7 +88,7 @@ De Media Services v3-inhoud is ingedeeld op basis van de volgende structuur (wor
 | Snelstartgidsen | Basisinstructies voor nieuwe klanten die Media Services snel willen uitproberen.|
 | Zelfstudies | Op scenario's gebaseerde procedures weergeven voor een aantal veelgebruikte Media Services-taken.|
 | Voorbeelden | Links naar voorbeelden van code. |
-| Concepten | Bevat gedetailleerde uitleg van de Media Services v3-functionaliteit en diagrammen. Bekijk de basisconcepten die worden beschreven in de volgende onderwerpen voordat u start met de ontwikkeling.<br/><br/>* Uploaden naar en opslaan in de cloud<br/>* Codering<br/>* Media Analytics<br/>* Verpakking, levering, beveiliging<br/>* Live streamen<br/>* Doorlopende bewaking<br/>* Afspeel-clients<br/><br/>en meer. |
+| Concepten | Bevat gedetailleerde uitleg van [Media Services v3-concepten en functies](concepts-overview.md). Bekijk de basisconcepten die worden beschreven in de volgende onderwerpen voordat u start met de ontwikkeling.<br/><br/>* Uploaden naar en opslaan in de cloud<br/>* Codering<br/>* Media Analytics<br/>* Verpakking, levering, beveiliging<br/>* Live streamen<br/>* Bewaken<br/>* Afspeel-clients<br/><br/>en meer. |
 | Handleidingen | Laat zien hoe u een taak voltooit.|
 
 ## <a name="next-steps"></a>Volgende stappen

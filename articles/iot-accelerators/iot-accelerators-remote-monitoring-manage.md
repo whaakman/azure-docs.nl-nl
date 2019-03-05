@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/15/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: a2dc5653b7579d9c5db4667d84e6e5b5082abaab
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 869f6d2391632c77e01e4383c1457f88b9171c8b
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448071"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651189"
 ---
 # <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Zelfstudie: apparaten configureren en beheren die zijn verbonden met uw bewakingsoplossing
 
@@ -36,7 +36,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="add-a-simulated-device"></a>Een gesimuleerd apparaat toevoegen
 
-Navigeer naar de pagina **Apparaten** in de oplossing en klik op **+ Nieuw apparaat**:
+Navigeer naar de pagina **Device Explorer** in de oplossing en klik op **+ Nieuw apparaat**:
 
 [![Een gesimuleerd apparaat inrichten](./media/iot-accelerators-remote-monitoring-manage/devicesprovision-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesprovision-expanded.png#lightbox)
 
@@ -46,7 +46,7 @@ In het deelvenster **Nieuw apparaat** kiest u **Gesimuleerd**, laat u het aantal
 
 ## <a name="test-the-simulated-device"></a>Het gesimuleerde apparaat testen
 
-Om te testen of het gesimuleerde engine-apparaat telemetrie verzendt en eigenschapswaarden meldt, selecteert u het apparaat in de lijst met apparaten op de pagina **Apparaten**. Live informatie over uw apparaat wordt weergegeven in het deelvenster **Apparaatdetails**:
+Om te testen of het gesimuleerde engine-apparaat telemetrie verzendt en eigenschapswaarden meldt, selecteert u het apparaat in de lijst met apparaten op de pagina **Device Explorer**. Live informatie over uw apparaat wordt weergegeven in het deelvenster **Apparaatdetails**:
 
 [![Het gesimuleerde apparaat weergeven](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-expanded.png#lightbox)
 
@@ -60,7 +60,7 @@ Als u gedetailleerde diagnostische gegevens wilt zien, schuift u omlaag in het d
 
 ## <a name="reconfigure-a-device"></a>Een apparaat opnieuw configureren
 
-Als u wilt testen of u configuratie-eigenschappen van het apparaat kunt bijwerken, selecteert u het apparaat in de lijst met apparaten op de pagina **Apparaten**. Klik vervolgens op **Taken** en kies **Eigenschappen**. Het deelvenster Taken geeft voor het geselecteerde apparaat de eigenschapswaarden weer die kunnen worden bijgewerkt:
+Als u wilt testen of u configuratie-eigenschappen van het apparaat kunt bijwerken, selecteert u het apparaat in de lijst met apparaten op de pagina **Device Explorer**. Klik vervolgens op **Taken** en kies **Eigenschappen**. Het deelvenster Taken geeft voor het geselecteerde apparaat de eigenschapswaarden weer die kunnen worden bijgewerkt:
 
 [![Een apparaat opnieuw configureren](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-expanded.png#lightbox)
 
@@ -83,7 +83,7 @@ Om het als operator gemakkelijker te maken uw apparaten te organiseren en behere
 * Het team Smart Vehicle beheert trucks en prototypen van apparaten.
 * Het team Smart Building beheert koelers (chillers), liften (elevators) en motoren (engines).
 
-Als u al uw apparaten wilt weergeven, gaat u naar de pagina **Apparaten** en kiest u **Alle apparaten** als filter:
+Als u al uw apparaten wilt weergeven, gaat u naar de pagina **Device Explorer** en kiest u **Alle apparaten** als filter:
 
 [![Alle apparaten weergeven](./media/iot-accelerators-remote-monitoring-manage/devicesalldevices-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesalldevices-expanded.png#lightbox)
 
@@ -103,7 +103,7 @@ Selecteer in het scherm **Taken** de optie **Tag**, stel de naam van de taak in 
 
 ### <a name="create-filters"></a>Filters maken
 
-U kunt nu de tagwaarden gebruiken om filters te maken. Op de pagina **Apparaten** klikt u op **Apparaatgroepen beheren**:
+U kunt nu de tagwaarden gebruiken om filters te maken. Klik op de pagina **Device Explorer** op **Apparaatgroepen beheren**:
 
 [![Apparaatgroepen beheren](./media/iot-accelerators-remote-monitoring-manage/devicesmanagefilters-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmanagefilters-expanded.png#lightbox)
 

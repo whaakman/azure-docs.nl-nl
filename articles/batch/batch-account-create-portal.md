@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/25/2019
+ms.date: 02/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 04631431c03f6fdd378bfa99edb9b67f8d6a0cad
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cf47e3b48f1047af88a19c59459c19c078f71a63
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193914"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984472"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Een Batch-account maken met behulp van Azure Portal
 
@@ -42,19 +42,21 @@ Zie [Overzicht van de functies](batch-api-basics.md) voor achtergrondinformatie 
 
     ![Batch-account maken][account_portal]
 
-    a. **Accountnaam**: De naam die u kiest, moet uniek zijn in de Azure-regio waarin het account wordt gemaakt (zie **Locatie** hieronder). De accountnaam mag alleen kleine letters of cijfers bevatten en moet 3 tot 24 tekens lang zijn.
+    a. **Abonnement**: Het abonnement waarin het Batch-account moet worden gemaakt. Als u slechts één abonnement hebt, is het standaard geselecteerd.
 
-    b. **Abonnement**: Het abonnement waarin het Batch-account moet worden gemaakt. Als u slechts één abonnement hebt, is het standaard geselecteerd.
+    b. **Resourcegroep**: Een bestaande resourcegroep voor het nieuwe Batch-account. U kunt ook optioneel een nieuwe resourcegroep maken.
 
-    c. **Resourcegroep**: Een bestaande resourcegroep voor het nieuwe Batch-account. U kunt ook optioneel een nieuwe resourcegroep maken.
+    c. **Accountnaam**: De naam die u kiest, moet uniek zijn in de Azure-regio waarin het account wordt gemaakt (zie **Locatie** hieronder). De accountnaam mag alleen kleine letters of cijfers bevatten en moet 3 tot 24 tekens lang zijn.
 
     d. **Locatie**: De Azure-regio om het Batch-account in te maken. Alleen de regio's die door uw abonnement en resourcegroep worden ondersteund, worden als opties weergegeven.
 
-    e. **Opslagaccount** (optioneel): Een Azure Storage-account voor algemeen gebruik dat u koppelt aan het Batch-account. Dit wordt aanbevolen voor de meeste Batch-accounts. Zie voor opslagaccountopties in Batch het [Overzicht van Batch-functies](batch-api-basics.md#azure-storage-account). Selecteer in de portal een bestaand opslagaccount of maak desgewenst een nieuw opslagaccount.
+    e. **Opslagaccount**: Een optioneel Azure Storage-account voor algemeen gebruik dat u koppelt aan het Batch-account. Een v2-opslagaccount voor algemeen gebruik wordt aanbevolen voor de beste prestaties. Zie het [Overzicht van Batch-functies](batch-api-basics.md#azure-storage-account) voor alle opslagaccountopties in Batch. Selecteer in de portal een bestaand opslagaccount of maak een nieuw opslagaccount.
 
       ![Create a storage account][storage_account]
 
-    f. **Pooltoewijzingsmodus**: Voor de meeste scenario's kunt u de standaardinstelling **Batch-service** accepteren.
+    f. **Pooltoewijzingsmodus**: Op het tabblad met **Geavanceerde** instellingen kunt u de groepstoewijzingsmodus **Batch-service** of **Gebruikersabonnement** opgeven. Voor de meeste scenario's kunt u de standaardinstelling **Batch-service** accepteren.
+
+      ![Groepstoewijzingsmodus van Batch][pool_allocation]
 
 1. Selecteer **Maken** om het account te maken.
 
@@ -115,7 +117,7 @@ Als u het Batch-account maakt in de modus Gebruikersabonnement, geeft u de resou
 
 ### <a name="configure-subscription-quotas"></a>Abonnementquota configureren
 
-Kerngeheugenquota worden niet standaard ingesteld voor Batch-accounts van gebruikersabonnementen. Kerngeheugenquota moeten handmatig worden ingesteld, omdat gebruikelijke Batch-kerngeheugenquota niet van toepassing zijn voor accounts in de modus voor gebruikersabonnementen.
+Kerngeheugenquota worden niet standaard ingesteld voor Batch-accounts van gebruikersabonnementen. Kerngeheugenquota moeten handmatig worden ingesteld, omdat Batch-kerngeheugenquota standaard niet van toepassing zijn op accounts in de modus voor gebruikersabonnementen.
 
 1. Selecteer in de [Azure-portal][azure_portal] uw Batch-account in de modus voor gebruikersabonnementen om de instellingen en eigenschappen ervan weer te geven.
 
@@ -142,8 +144,8 @@ Naast het gebruik van Azure Portal kunt u met de volgende hulpprogramma's Batch-
 [marketplace_portal]: ./media/batch-account-create-portal/marketplace-batch.png
 [account_blade]: ./media/batch-account-create-portal/batch_blade.png
 [account_portal]: ./media/batch-account-create-portal/batch-account-portal.png
+[pool_allocation]: ./media/batch-account-create-portal/batch-pool-allocation.png
 [account_keys]: ./media/batch-account-create-portal/batch-account-keys.png
-[account_url]: ./media/batch-account-create-portal/account_url.png
 [storage_account]: ./media/batch-account-create-portal/storage_account.png
 [subscription_access]: ./media/batch-account-create-portal/subscription_iam.png
 [add_permission]: ./media/batch-account-create-portal/add_permission.png

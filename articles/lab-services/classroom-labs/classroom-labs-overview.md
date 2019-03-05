@@ -13,52 +13,26 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: e9c3cae7c7129cc489ddd38b5b2de18dd6f52e58
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 964f5624a3a588a1520a08365c5fa9c783114e48
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660496"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958827"
 ---
 # <a name="introduction-to-classroom-labs"></a>Inleiding tot leslokaallabs
 Met Azure Lab Services kunt u snel een omgeving voor een leslokaallab in de cloud instellen. Een docent maakt een leslokaallab, richt virtuele machines met Windows of Linux in, installeert de benodigde software en labhulpprogramma's in het leslokaal en maakt deze beschikbaar voor studenten. De studenten in het leslokaal maken verbinding met virtuele machines (VM's) in het lab en gebruiken deze voor hun projecten, opdrachten en klassikale oefeningen. 
 
-De leslokaallabs zijn beheerde labs die worden beheerd door Azure. De service zelf is verantwoordelijk voor het volledige beheer van de infrastructuur voor een beheerd lab, van het inrichten van VM's (virtuele machines) tot de afhandeling van fouten, en het schalen van de infrastructuur. U geeft op welke infrastructuur u nodig hebt en installeert alle hulpprogramma's of software die in het leslokaal nodig zijn. De beheerde labs zijn momenteel beschikbaar als preview.  
+De leslokaallabs zijn beheerde labtypen die worden beheerd door Azure. De service zelf is verantwoordelijk voor het volledige beheer van de infrastructuur voor een beheerd labtype, van het inrichten van VM's (virtuele machines) tot de afhandeling van fouten, en het schalen van de infrastructuur. U geeft op welke infrastructuur u nodig hebt en installeert alle hulpprogramma's of software die in het leslokaal nodig zijn. 
 
-## <a name="scenarios"></a>Scenario's
-Hier ziet u het hoofdscenario dat door leslokaallabs van Azure Lab Services wordt ondersteund: 
+## <a name="automatic-management-of-azure-infrastructure-and-scale"></a>Automatisch beheer van de infrastructuur en schaal van Azure 
+Azure Lab Services is een beheerde service. Dit betekent dat de service automatisch zorgt voor inrichting en beheer van de onderliggende infrastructuur van een lab. Zo hoeft u zich alleen bezig te houden met het voorbereiden van de juiste lab-ervaring voor uw gebruikers. Laat de service de rest afhandelen en implementeer de virtuele machines van uw lab voor uw doelgroep. Schaal uw testomgeving tot honderden virtuele machines met een enkele klik.
 
-### <a name="set-up-a-resizable-computer-lab-in-the-cloud-for-your-classroom"></a>Inrichten van een schaalbaar computerlab in de cloud voor uw leslokaal  
+## <a name="simple-experience-for-your-lab-users"></a>Eenvoudige ervaring voor uw labgebruikers 
+Gebruikers die zijn uitgenodigd voor uw lab krijgen onmiddellijk toegang tot de resources die u ze binnen uw labs geeft. Ze hoeven zich alleen maar aan te melden om de volledige lijst met virtuele machines te zien waartoe ze toegang in meerdere labs hebben. Met een klik op een enkele knop kunnen ze verbinding maken met de virtuele machines en aan de slag gaan. Gebruikers hebben geen Azure-abonnement nodig om de service te gebruiken. 
 
-- Maak een beheerd lab voor het leslokaal. U geeft precies aan wat u nodig hebt en de service zorgt er vervolgens voor dat de infrastructuur van het lab wordt gemaakt en beheerd. Hierdoor kunt u zich volledig richten op uw leerlingen of studenten en hoeft u zich niet bezig te houden met de technische details van een lab. 
-- Bied leerlingen en studenten een lab met virtuele machines die zijn geconfigureerd met exact wat nodig is voor een les of college. Geef elke leerling of student een beperkt aantal uren voor het gebruik van de VM's voor het uitvoeren van hun taken.  
-- Breng het fysieke computerlab van uw school over naar de cloud. U kunt het aantal VM's automatisch schalen tot de drempelwaarde voor gebruik en kosten die u instelt voor het lab. 
-- Verwijder het lab met één muisklik als u klaar bent. 
-
-## <a name="user-profiles"></a>Gebruikersprofielen
-In dit artikel worden de verschillende gebruikersprofielen in Azure Lab Services beschreven. 
-
-### <a name="lab-account-owner"></a>Labeigenaar
-Meestal fungeert een IT-beheerder van de cloudresources van de organisatie, die ook eigenaar is van het Azure-abonnement, als de eigenaar van een lab-account. Deze persoon is verantwoordelijk voor de volgende taken:   
-
-- Een lab-account instellen voor uw organisatie.
-- Beleidsregels beheren en configureren voor alle labs.
-- Machtigingen verlenen aan personen binnen de organisatie voor het maken van een lab onder het lab-account.
-
-### <a name="educator"></a>Docent
-Normaal gesproken maken gebruikers, bijvoorbeeld een leraar of onlinedocent leslokaallabs in een labaccount. Een docent voert de volgende taken uit: 
-
-- Leslokaallab maken.
-- Virtuele machines maken in het lab. 
-- De juiste software installeren op virtuele machines.
-- Instellen wie toegang heeft tot het lab.
-- Registratiekoppeling naar het lab doorgeven aan studenten.
-
-### <a name="student"></a>Student
-Een student voert de volgende taken uit:
-
-- De registratiekoppeling volgen die is verstuurd door een labmaker om zich te registreren bij het lab. 
-- Verbinding maken met een virtuele machine in het lab en deze gebruiken voor het maken van klassikale oefeningen, huiswerk en projecten. 
+## <a name="cost-optimization-and-tracking"></a>Kosten optimaliseren en bijhouden  
+Houd uw budget onder controle door exact te bepalen hoeveel uur uw labgebruikers de virtuele machines kunnen gebruiken. Stel schema’s in het lab in om gebruikers alleen toegang tot virtuele machines te bieden tijdens aangewezen tijdstippen of stel terugkerende tijdstippen voor automatisch afsluiten en starten in. Houd het gebruik van individuele gebruikers bij en stel limieten in.
 
 ## <a name="next-steps"></a>Volgende stappen
 Aan de slag met het instellen van een labaccount dat is vereist voor het maken van een leslokaallab met Azure Lab Services:

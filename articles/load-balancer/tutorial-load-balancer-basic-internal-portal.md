@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2018
+ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 16c9eea61391511f7515308131b3541e186cd7ae
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: b8600ed03140e302c730d44c6410d2020b7c48a3
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232614"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983180"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Zelfstudie: Interne-verkeersbelasting verdelen met een Basic-load balancer in Azure Portal
 
@@ -87,24 +87,27 @@ Maak met behulp van de portal een interne Basic-load balancer. De naam en het IP
 
 1. Selecteer **Een resource maken** > **Netwerken** > **Load Balancer** linksboven in het scherm.
    
-1. Typ of selecteer de volgende waarden in het deelvenster **Load balancer maken**:
+2. Voer op het tabblad **Basis** van de pagina **Load balancer maken** de volgende gegevens in of selecteer deze, accepteer de standaardwaarden voor de overige instellingen en selecteer vervolgens **Controleren + maken**:
+
+    | Instelling                 | Waarde                                              |
+    | ---                     | ---                                                |
+    | Abonnement               | Selecteer uw abonnement.    |    
+    | Resourcegroep         | Selecteer **Nieuwe maken** en typ *MyResourceGroupLB* in het tekstvak.|
+    | Naam                   | *myLoadBalancer*                                   |
+    | Regio         | Selecteer **Europa - west**.                                        |
+    | Type          | Selecteer **Openbaar**.                                        |
+    | SKU           | Selecteer **Basic**.                          |
+    | Virtueel netwerk           | Selecteer *MyVNet*.                          |    
+| Openbaar IP-adres | Selecteer **Nieuw maken**. |
+    | Toewijzing van openbaar IP-adres              | Selecteer **Statisch**.   |
+    | Privé IP-adres|Typ een adres dat zich in de adresruimte van uw virtuele netwerk en subnet bevindt, bijvoorbeeld *10.3.0.7*.  |
+
+3. Klik op het tabblad **Beoordelen en maken** op **Maken**. 
    
-   - **Naam**: Typ *MyLoadBalancer*.
-   - **Type**: selecteer **Intern**. 
-   - **SKU**: Selecteer **Basic**.
-   - **Virtueel netwerk**: selecteer **Een virtueel netwerk kiezen** en selecteer vervolgens **MyVNet**.
-   - **Subnet**: selecteer **Een subnet kiezen** en selecteer vervolgens **MyBackendSubnet**.
-   - **IP-adrestoewijzing**: selecteer **Statisch** indien niet geselecteerd.
-   - **Privé IP-adres**: typ een adres dat zich in de adresruimte van uw virtuele netwerk en subnet bevindt, bijvoorbeeld *10.3.0.7*.
-   - **Resourcegroep**: selecteer in de vervolgkeuzelijst **Bestaande selecteren** de optie **MyResourceGroupLB**. 
-   
-1. Selecteer **Maken**.
-   
-![Een load balancer maken](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
 
 ## <a name="create-basic-load-balancer-resources"></a>Resources voor een Basic-load balancer maken
 
-In deze sectie configureert u de instellingen van de load balancer voor een back-endadresgroep en een statustest en geeft u regels voor de load balancer op.
+In dit gedeelte configureert u de instellingen van de load balancer voor een back-endadresgroep en een statustest, en geeft u regels voor de load balancer op.
 
 ### <a name="create-a-back-end-address-pool"></a>Een back-endadresgroep maken
 

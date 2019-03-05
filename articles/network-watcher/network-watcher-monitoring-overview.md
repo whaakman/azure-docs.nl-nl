@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 8738ac52eeaf1f27df5f9cc21ffb0c683a912195
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0eb27e997d39ceb82098b63de607d3529ccc53b4
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427026"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984383"
 ---
 # <a name="what-is-azure-network-watcher"></a>Wat is Azure Network Watcher?
 
@@ -97,7 +97,7 @@ Lees meer over NSG-stroomlogboeken en het implementeren van [verkeersanalyse](tr
 
 ### <a name="view-diagnostic-logs-for-network-resources"></a>Diagnostische logboeken voor netwerkresources weergeven
 
-U kunt registratie in diagnoselogboek inschakelen voor Azure-netwerkresources, zoals netwerkbeveiligingsgroepen, openbare IP-adressen, load balancers, gateways van virtuele netwerken en toepassingsgateways. *Registratie in diagnoselogboek* biedt één interface voor het inschakelen en uitschakelen van diagnostische logboeken voor netwerkresources voor elke bestaande netwerkresource die een diagnoselogboek genereert. U kunt de logboeken met diagnostische gegevens weergeven met behulp van hulpprogramma's zoals Microsoft Power BI en Azure Log Analytics. Zie [Azure-netwerkoplossingen in logboekanalyse](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) voor meer informatie over het analyseren van diagnostische logboeken van Azure-netwerk.
+U kunt registratie in diagnoselogboek inschakelen voor Azure-netwerkresources, zoals netwerkbeveiligingsgroepen, openbare IP-adressen, load balancers, gateways van virtuele netwerken en toepassingsgateways. *Registratie in diagnoselogboek* biedt één interface voor het inschakelen en uitschakelen van diagnostische logboeken voor netwerkresources voor elke bestaande netwerkresource die een diagnoselogboek genereert. U kunt de logboeken met diagnostische gegevens weergeven met behulp van hulpprogramma's zoals Microsoft Power BI en Azure Monitor-logboeken. Zie [Azure-netwerkoplossingen in Azure Monitor-logboeken](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) voor meer informatie over het analyseren van diagnostische logboeken van Azure-netwerk.
 
 ## <a name="network-watcher-automatic-enablement"></a>Network Watcher automatisch inschakelen
 Wanneer u een virtueel netwerk in uw abonnement maakt of bijwerkt, wordt Network Watcher automatisch ingeschakeld in de regio van uw virtuele netwerk. Het automatisch inschakelen van Network Watcher heeft geen invloed op uw resources en er worden geen kosten in rekening gebracht. Zie [Network Watcher maken](network-watcher-create.md) voor meer informatie.

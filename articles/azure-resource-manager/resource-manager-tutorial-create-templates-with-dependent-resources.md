@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/13/2018
+ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c5bf56482534a55d24d8ca043e36c39cec99b1f0
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: be1249969fc50f5305dc5844f2578f8a24a6a220
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267526"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817946"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Zelfstudie: Azure Resource Manager-sjablonen met afhankelijke resources maken
 
@@ -122,22 +122,10 @@ Er bestaan meerdere methoden voor het implementeren van sjablonen.  In deze zelf
 
     ![Bestand uploaden in Cloud Shell in Azure Portal](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
 4. Selecteer de sjabloon die u eerder in de zelfstudie hebt opgeslagen. De standaardnaam is **azuredeploy.json**.  Als u een bestand met dezelfde bestandsnaam hebt, wordt het oude bestand zonder melding overschreven.
-5. Voer vanaf Cloud Shell de volgende opdracht uit om te verifiëren of het bestand is geüpload. 
 
-    ```bash
-    ls
-    ```
+    U kunt eventueel de opdracht **ls $HOME** en de opdracht **cat $HOME/azuredeploy.json** uitvoeren om te controleren of de bestanden zijn geüpload. 
 
-    ![Cloud Shell-lijstbestand in Azure Portal](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-list-file.png)
-
-    De bestandsnaam die in de schermafbeelding wordt weergegeven is azuredeploy.json.
-
-6. Voer vanaf Cloud Shell de volgende opdracht uit om de inhoud van het JSON-bestand te verifiëren:
-
-    ```bash
-    cat azuredeploy.json
-    ```
-7. Voer vanuit Cloud Shell de volgende PowerShell-opdrachten uit. Gebruik een gegenereerd wachtwoord voor het beheerdersaccount van de virtuele machine om de beveiliging te verhogen. Zie [Vereisten](#prerequisites).
+5. Voer vanuit Cloud Shell de volgende PowerShell-opdrachten uit. Gebruik een gegenereerd wachtwoord voor het beheerdersaccount van de virtuele machine om de beveiliging te verhogen. Zie [Vereisten](#prerequisites).
 
     ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -146,17 +134,14 @@ Er bestaan meerdere methoden voor het implementeren van sjablonen.  In deze zelf
     $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
     $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS label prefix"
 
-    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
     New-AzResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -adminUsername $adminUsername `
         -adminPassword $adminPassword `
         -dnsLabelPrefix $dnsLabelPrefix `
-        -TemplateFile azuredeploy.json
+        -TemplateFile "$HOME/azuredeploy.json"
     ```
-
-    > [!NOTE]
-    > Er is een bestands-IO-probleem met het gebruik van Azure PowerShell in de Cloud-shell.  Het foutbericht is *Kan de dynamische parameters voor de cmdlet niet ophalen. Kan pad 'Azure:/azuredeploy.json' niet vinden omdat het niet bestaat.*  Een tijdelijke oplossing is om de schakelaar **-TemplateFile** niet op te nemen in de opdracht `New-AzResourceGroupDeploy`. U wordt gevraagd om de bestandsnaam in te voeren.
 
 8. Voer de volgende PowerShell-opdracht uit om de nieuwe virtuele machine weer te geven:
 

@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: b1f1f8144ec5b65c21c5ddcecd278a018260047c
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: e22acc697e837bab91c8b9c32c1fe35f1a7bce1c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515983"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56824518"
 ---
 In deze sectie wordt beschreven hoe u een IoT-hub maakt met behulp van de [Azure-portal](https://portal.azure.com).
 
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com). 
+1. Meld u aan bij [Azure Portal](https://portal.azure.com). 
 
 2. Kies +**Een resource maken** en vervolgens **Internet of Things**.
 
@@ -27,17 +27,17 @@ In deze sectie wordt beschreven hoe u een IoT-hub maakt met behulp van de [Azure
 
    Vul de velden in.
 
-   **Abonnement**: selecteer het abonnement dat u voor de IoT-hub wilt gebruiken.
+   **Abonnement**: Selecteer het abonnement dat u voor de IoT-hub wilt gebruiken.
 
-   **Resourcegroep**: u kunt een nieuwe resourcegroep maken of een bestaande selecteren. Als u een nieuwe wilt maken, klikt u op **Nieuwe maken** en vult u de gewenste naam in. Als u een bestaande resourcegroep wilt gebruiken, klikt u op **Bestaande gebruiken** en selecteert u de resourcegroep in de vervolgkeuzelijst. Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../articles/azure-resource-manager/resource-group-portal.md) voor meer informatie.
+   **Resourcegroep**: Maak een nieuwe resourcegroep of gebruik een bestaande. Als u een nieuwe wilt maken, klikt u op **Nieuwe maken** en vult u de gewenste naam in. Als u een bestaande resourcegroep wilt gebruiken, klikt u op **Bestaande gebruiken** en selecteert u de resourcegroep in de vervolgkeuzelijst. Zie [Azure Resource Manager-resourcegroepen beheren](../articles/azure-resource-manager/manage-resource-groups-portal.md) voor meer informatie.
 
-   **Regio**: dit is de regio voor de locatie van uw hub. Selecteer in de vervolgkeuzelijst de locatie die het dichtst bij u in de buurt is.
+   **Regio**: Dit is de regio voor de locatie van uw hub. Selecteer in de vervolgkeuzelijst de locatie die het dichtst bij u in de buurt is.
 
-   **Naam IoT-hub**: vul de naam voor de IoT-hub in. Deze naam moet wereldwijd uniek zijn. Als de door u opgegeven naam beschikbaar is, verschijnt er een groen vinkje.
+   **Naam van de IoT Hub**: Vul de naam voor de IoT Hub in. Deze naam moet wereldwijd uniek zijn. Als de door u opgegeven naam beschikbaar is, verschijnt er een groen vinkje.
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-4. Klik op **Volgende: grootte en schaal** om verder te gaan met het maken van uw IoT-hub.
+4. Klik op **Next: Grootte en schaal** om verder te gaan met het maken van uw IoT-hub.
 
    ![Schermafbeelding waarop het instellen van de grootte en schaal voor een nieuwe IoT-hub in de Azure-portal](./media/iot-hub-include-create-hub/iot-hub-create-screen-size-scale.png)
 

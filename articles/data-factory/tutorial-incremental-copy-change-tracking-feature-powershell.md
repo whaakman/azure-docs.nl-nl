@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 3b09af19bd25ea3c64375869cd7db7f2b65923f6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a7dd8cd349703fc9009695e570b66c3a3e626d15
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423764"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593179"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Incrementeel gegevens kopiëren van Azure SQL Database naar Azure Blob Storage met behulp van technologie voor bijhouden van wijzigingen 
 In deze zelfstudie maakt u een Azure data factory met een pijplijn die gewijzigde gegevens laadt op basis van informatie over **wijzigingen** in de Azure SQL- brondatabase naar een Azure blob storage.  
@@ -232,7 +232,7 @@ Tijdens deze stap koppelt u uw Azure Storage-account aan de data factory.
 ### <a name="create-azure-sql-database-linked-service"></a>Maak een gekoppelde Azure SQL Database-service.
 In deze stap koppelt u uw Azure SQL Database aan uw gegevensfactory.
 
-1. Maak een JSON-bestand met de naam **AzureSQLDatabaseLinkedService.json** in de map **C:\ADFTutorials\IncCopyChangeTrackingTutorial** met de volgende inhoud: Vervang voordat u het bestand opslaat server database name **, &lt;user id&gt; en &lt;password&gt;** door de naam van uw Azure SQL-server, databasenaam, gebruikers-id en wachtwoord. 
+1. Maak een JSON-bestand met de naam **AzureSQLDatabaseLinkedService.json** in de map **C:\ADFTutorials\IncCopyChangeTrackingTutorial** met de volgende inhoud: Vervang voordat u het bestand opslaat **&lt;server&gt; &lt;database name **, &lt;user id&gt; en &lt;password&gt;** door de naam van uw Azure SQL-server, databasenaam, gebruikers-id en wachtwoord. 
 
     ```json
     {
@@ -661,10 +661,10 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 
     
 ## <a name="next-steps"></a>Volgende stappen
-Ga naar de volgende zelfstudie voor meer informatie over het transformeren van gegevens met behulp van een Spark-cluster in Azure:
+Ga naar de volgende zelfstudie voor meer informatie over het kopiëren van nieuwe en gewijzigde bestanden alleen op basis van hun LastModifiedDate:
 
 > [!div class="nextstepaction"]
->[Gegevens transformeren met behulp van een Spark-cluster in de cloud](tutorial-transform-data-spark-powershell.md)
+>[Nieuwe bestanden kopiëren op basis van lastmodifieddate](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
 
 
 

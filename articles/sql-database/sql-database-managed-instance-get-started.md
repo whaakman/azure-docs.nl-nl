@@ -1,6 +1,6 @@
 ---
-title: 'Azure Portal: Een SQL Managed Instance maken | Microsoft Docs'
-description: Een SQL Managed Instance, een netwerkomgeving en een client-VM maken om toegang te krijgen.
+title: 'Azure Portal: Een met SQL beheerd exemplaar maken | Microsoft Docs'
+description: Maak een met SQL beheerd exemplaar, een netwerkomgeving en een client-VM om toegang te krijgen.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,17 +11,17 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: Carlrab
 manager: craigg
-ms.date: 01/15/2019
-ms.openlocfilehash: a4e829f8ae89815c68d80a9f85dfbfd58a03b6a0
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.date: 02/18/2019
+ms.openlocfilehash: 481c82eb74bcf80c3d0546324009ec0bf6495cfb
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452187"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587052"
 ---
-# <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Snelstartgids: Een beheerd exemplaar van een Azure SQL-database maken
+# <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Quickstart: Een beheerd exemplaar van Azure SQL Database maken
 
-In deze snelstartgids leert u hoe u een [beheerd exemplaar](sql-database-managed-instance.md) van een Azure SQL-database maakt in de Azure-portal.
+In deze quickstart leert u hoe u een [beheerd exemplaar](sql-database-managed-instance.md) van Azure SQL Database maakt in de Azure-portal.
 
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -34,27 +34,27 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 In de volgende stappen wordt uitgelegd hoe u een beheerd exemplaar maakt.
 
 1. Kies in de linkerbovenhoek van Azure Portal **Een resource maken**.
-2. Zoek naar **Managed Instance** en selecteer vervolgens **Azure SQL Managed Instance**.
+2. Zoek naar **beheerd exemplaar** en selecteer vervolgens **Met Azure SQL beheerd exemplaar**.
 3. Selecteer **Maken**.
 
    ![Beheerd exemplaar maken](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
 
-4. Vul het formulier voor het **beheerde exemplaar** in met behulp van de gegevens in onderstaande tabel:
+4. Vul het formulier voor het **Met SQL beheerd exemplaar** in met behulp van de gegevens in onderstaande tabel:
 
    | Instelling| Voorgestelde waarde | Beschrijving |
    | ------ | --------------- | ----------- |
    | **Abonnement** | Uw abonnement | Een abonnement met toestemming voor het maken van nieuwe resources. |
-   |**Naam van het beheerde exemplaar**|Een geldige naam|Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige namen.|
-   |**Beheerdersaanmeldgegevens voor het beheerde exemplaar**|Een geldige gebruikersnaam|Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige namen. Maak geen gebruik van 'serverbeheerder' aangezien dit een rol is die op serverniveau is gereserveerd.|
+   |**Naam van het beheerde exemplaar**|Een geldige naam|Zie [naamconventies en beperkingen](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) voor geldige namen.|
+   |**Beheerdersaanmeldgegevens voor het beheerde exemplaar**|Een geldige gebruikersnaam|Zie [naamconventies en beperkingen](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) voor geldige namen. Maak geen gebruik van 'serverbeheerder' aangezien dit een rol is die op serverniveau is gereserveerd.|
    |**Wachtwoord**|Een geldig wachtwoord|Het wachtwoord moet minstens 16 tekens lang zijn en moet voldoen aan de [gedefinieerde complexiteitsvereisten](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
    |**Sortering**|De sortering die u wilt gebruiken voor uw beheerde exemplaar|Als u SQL Server-databases wilt migreren, moet u de bronsortering `SELECT SERVERPROPERTY(N'Collation')` controleren en die waarde gebruiken. Zie [Server-level collations](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) (Sorteringen op serverniveau) voor informatie over sorteringen.|
    |**Locatie**|De locatie waarop u het beheerde exemplaar wilt maken|Zie [Azure-regio's](https://azure.microsoft.com/regions/) voor informatie over regio's.|
-   |**Virtueel netwerk**|Selecteer **Nieuw virtueel netwerk maken** of een geldig virtueel netwerk en subnet.| Als een netwerk/subnet niet beschikbaar is, moet het worden [gewijzigd om te voldoen aan de netwerkvereisten](sql-database-managed-instance-configure-vnet-subnet.md) voordat u het als doel voor het nieuwe beheerde exemplaar kunt selecteren. Zie [Een VNet configureren voor een beheerd exemplaar van Azure SQL Database](sql-database-managed-instance-connectivity-architecture.md) voor informatie over de vereisten voor het configureren van de netwerkomgeving voor een beheerd exemplaar. |
+   |**Virtueel netwerk**|Selecteer **Nieuw virtueel netwerk maken** of een geldig virtueel netwerk en subnet.| Als een netwerk/subnet niet beschikbaar is, moet het worden [gewijzigd om te voldoen aan de netwerkvereisten](sql-database-managed-instance-configure-vnet-subnet.md) voordat u het als doel voor het nieuwe beheerde exemplaar kunt selecteren. Zie [Een VNet configureren voor een beheerd exemplaar](sql-database-managed-instance-connectivity-architecture.md) voor informatie over de vereisten voor het configureren van de netwerkomgeving voor een beheerd exemplaar. |
    |**Resourcegroep**|Een nieuwe of bestaande resourcegroep|Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige resourcegroepnamen.|
 
    ![formulier voor beheerd exemplaar](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
 
-5. Voor gebruik van het beheerde exemplaar als secundaire Exemplaarfailovergroep selecteert u het uitchecken en geeft u het beheerde exemplaar DnsAzurePartner op. Deze functie is beschikbaar als preview en wordt niet weergegeven in de bijbehorende schermafbeelding.
+5. Voor gebruik van het beheerde exemplaar als secundaire exemplaarfailovergroep schakelt u het selectievakje in en geeft u het beheerde exemplaar DnsAzurePartner op. Deze functie is beschikbaar als preview en wordt niet weergegeven in de bijbehorende schermafbeelding.
 6. Selecteer **Prijscategorie** om reken- en opslagresources toe te wijzen en de opties voor prijscategorieën te bekijken. De prijscategorie voor algemeen gebruik met 32 GB geheugen en 16 vCores is de standaardwaarde.
 7. Gebruik de schuifregelaars of tekstvakken om de hoeveelheid opslagruimte en het aantal virtuele kernen op te geven.
 8. Wanneer u klaar bent, kiest u **Toepassen** om uw selectie op te slaan.  
@@ -66,21 +66,39 @@ In de volgende stappen wordt uitgelegd hoe u een beheerd exemplaar maakt.
 11. Selecteer **Implementatie wordt uitgevoerd** om het venster Beheerd exemplaar te openen. Hier kunt u details van de voortgang van de implementatie controleren.
 
 > [!IMPORTANT]
-> Het eerste exemplaar in een subnet kent doorgaans een veel langere implementatietijd dan volgende exemplaren. Annuleer de implementatiebewerking niet omdat deze langer duurt dan verwacht. Het maken van het tweede beheerde exemplaar in het subnet duurt maar een paar minuten.
+> Het eerste exemplaar in een subnet kent doorgaans een veel langere implementatietijd dan volgende exemplaren. Annuleer de implementatiebewerking niet omdat deze langer duurt dan verwacht. Het tweede beheerde exemplaar in het subnet wordt in slechts enkele minuten gemaakt.
 
 ## <a name="review-resources-and-retrieve-your-fully-qualified-server-name"></a>Resources controleren en de volledig gekwalificeerde servernaam ophalen
 
 Als de implementatie is voltooid, controleert u de resources die zijn gemaakt en haalt u de volledig gekwalificeerde servernaam op voor gebruik in latere snelstartgidsen.
 
-1. Open de resourcegroep voor uw beheerde exemplaar opent en bekijk de resources die voor u zijn gemaakt in de snelstartgids [Een Azure SQL Managed Instance maken](#create-a-managed-instance).
+1. Open de resourcegroep voor uw beheerde exemplaar en bekijk de resources die voor u zijn gemaakt in de quickstart [Een beheerd exemplaar maken](#create-a-managed-instance).
 
-2. Selecteer uw beheerd exemplaar.
+   ![Resources voor beheerd exemplaar](./media/sql-database-managed-instance-get-started/resources.png)
 
-   ![Resources van beheerd exemplaar](./media/sql-database-managed-instance-get-started/resources.png)
+2. Selecteer de routetabel om de door de gebruiker gedefinieerde routetabel op te geven die voor u is gemaakt.
 
-3. Zoek op het tabblad **Overzicht** de eigenschap **Host** en kopieer het volledig gekwalificeerde hostadres voor het beheerde exemplaar.
+   ![Routetabel](./media/sql-database-managed-instance-get-started/route-table.png)
 
-   ![Resources van beheerd exemplaar](./media/sql-database-managed-instance-get-started/host-name.png)
+3. Bekijk de vermeldingen in de routetabel om verkeer vanaf en binnen het virtuele netwerk van het beheerde exemplaar door te sturen. Als u de routetabel handmatig maakt of configureert, moet u deze vermeldingen in de routetabel maken.
+
+   ![Vermelding voor MI-subnet naar lokaal adres](./media/sql-database-managed-instance-get-started/udr.png)
+
+4. Ga terug naar de resourcegroep en selecteer de netwerkbeveiligingsgroep om de beveiligingsregels te bekijken.
+
+   ![Netwerkbeveiligingsgroep](./media/sql-database-managed-instance-get-started/network-security-group.png)
+
+5. Bekijk de inkomende en uitgaande beveiligingsregels.
+
+   ![Beveiligingsregels](./media/sql-database-managed-instance-get-started/security-rules.png)
+
+6. Ga terug naar de resourcegroep en selecteer uw beheerde exemplaar.
+
+   ![Beheerd exemplaar](./media/sql-database-managed-instance-get-started/managed-instance.png)
+
+7. Zoek op het tabblad **Overzicht** de eigenschap **Host** en kopieer het volledig gekwalificeerde hostadres voor het beheerde exemplaar. U gebruikt deze in de volgende quickstart.
+
+   ![Hostnaam](./media/sql-database-managed-instance-get-started/host-name.png)
 
    De naam ziet er als volgt uit: **naam_van_uw_machine.a1b2c3d4e5f6.database.windows.net**.
 
@@ -88,7 +106,7 @@ Als de implementatie is voltooid, controleert u de resources die zijn gemaakt en
 
 - Zie de volgende onderwerpen voor meer informatie over het maken van verbinding met een beheerd exemplaar:
   - Zie [Verbinding maken tussen uw toepassing en het beheerde exemplaar van Azure SQL Database](sql-database-managed-instance-connect-app.md) voor een overzicht van de verbindingsopties voor toepassingen.
-  - Zie [Een verbinding vanaf een virtuele Azure-machine configureren](sql-database-managed-instance-configure-vm.md) voor een snelstartgids over het verbinding maken met een beheerd exemplaar vanaf een virtuele Azure-machine.
-  - Zie [Een punt-naar-site-verbinding naar een Azure SQL Database Managed Instance van on-premises configureren](sql-database-managed-instance-configure-p2s.md) voor een snelstartgids over het verbinding maken met een beheerd exemplaar vanaf een on-premises clientcomputer met behulp van een punt-naar-site-verbinding.
+  - Zie [Een verbinding vanaf een virtuele Azure-machine configureren](sql-database-managed-instance-configure-vm.md) voor een quickstart over het verbinding maken met een beheerd exemplaar vanaf een virtuele Azure-machine.
+  - Zie [Een punt-naar-site-verbinding configureren](sql-database-managed-instance-configure-p2s.md) voor een quickstart over verbinding maken met een beheerd exemplaar vanaf een on-premises clientcomputer met behulp van een punt-naar-site-verbinding.
 - Als u een bestaande SQL Server-database van on-premises wilt herstellen naar een beheerd exemplaar, kunt u de [Azure Database Migration Service (DMS) voor migratie](../dms/tutorial-sql-server-to-managed-instance.md) gebruiken om de database terug te zetten vanuit een back-upbestand van de database. U gebruikt de opdracht [T-SQL RESTORE](sql-database-managed-instance-get-started-restore.md) als u de database wilt terugzetten vanuit een back-upbestand van de database.
-- Zie [Azure SQL Database controleren met Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) voor geavanceerde controle van de databaseprestaties van het beheerde exemplaar met ingebouwde intelligentie voor het oplossen van problemen
+- Zie [Azure SQL Database bewaken met Azure SQL-analyse](../azure-monitor/insights/azure-sql.md) voor geavanceerde bewaking van de databaseprestaties van het beheerde exemplaar met ingebouwde intelligentie voor het oplossen van problemen

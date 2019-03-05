@@ -4,18 +4,18 @@ ms.service: service-bus-relay
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
-ms.openlocfilehash: 13ac2ec0569dc79791eca9efb2bd51e7b76ddd05
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: bbcf38ab54632144920b729f433c222f426d96dc
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572015"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56825402"
 ---
 1. Meld u aan bij [Azure Portal][Azure portal].
 2. Selecteer **+ Een resource maken** in het menu aan de linkerkant. Selecteer vervolgens **Integratie** > **Relay**. Als u **Relay** niet in de lijst ziet staan, selecteert u rechtsboven **Alles weergeven**. 
 3. Voer bij **Naamruimte maken** een naam in voor de naamruimte. In het systeem wordt onmiddellijk gecontroleerd of de naam beschikbaar is.
 4. Kies in het veld **Abonnement** een Azure-abonnement waarin u de naamruimte maakt.
-5. Kies in het veld [Resourcegroep](../articles/azure-resource-manager/resource-group-portal.md) een bestaande resourcegroep waarin de naamruimte moet worden opgenomen of maak een nieuwe resourcegroep.  
+5. Kies in het veld [Resourcegroep](../articles/azure-resource-manager/manage-resource-groups-portal.md) een bestaande resourcegroep waarin de naamruimte moet worden opgenomen of maak een nieuwe resourcegroep.  
 6. Kies bij **Locatie** het land of de regio waarin uw naamruimte moet worden gehost.
    
     ![Een naamruimte maken][create-namespace]

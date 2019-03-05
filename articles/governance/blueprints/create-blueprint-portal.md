@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0a41f038595524a9ffaa5134ca2fe53fc0ae83af
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 7aeb3cf2d56dbe20c85adca2243f5830575693e3
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338373"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818660"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Een Azure Blueprint definiëren en toewijzen in de portal
 
@@ -34,7 +34,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 De eerste stap bij het definiëren van een standaardpatroon voor naleving bestaat uit het samenstellen van een blauwdruk uit de beschikbare resources. In dit voorbeeld maakt u een nieuwe blauwdruk met de naam 'MyBlueprint' om rol- en beleidstoewijzingen voor het abonnement te configureren, een nieuwe resourcegroep toe te voegen en een Resource Manager-sjabloon en roltoewijzing voor de nieuwe resourcegroep te maken.
 
-1. Klik op **Alle services** en selecteer **Beleid** in het linkerdeelvenster. Klik op de pagina **Beleid** op **Blueprints**.
+1. Selecteer **Alle services** in het linkerdeelvenster. Zoek en selecteer **Blauwdrukken**.
 
 1. Selecteer **Blauwdrukdefinities** op de pagina aan de linkerkant en klik op de knop **+ Blauwdruk maken** aan de bovenkant van de pagina.
 
@@ -53,13 +53,13 @@ De eerste stap bij het definiëren van een standaardpatroon voor naleving bestaa
    > [!NOTE]
    > De meeste _artefacten_ ondersteunen parameters. Een parameter die wordt toegewezen tijdens het maken van een waarde is een **statische parameter**. Een parameter die wordt toegewezen tijdens het toewijzen van de blauwdruk, is een **dynamische parameter**. Zie [Blauwdrukparameters](./concepts/parameters.md) voor meer informatie.
 
-1. Beleidstoewijzing toevoegen aan een abonnement: klik in de rij **+ Artefact toevoegen...** , direct onder het **abonnement**. Selecteer Beleidstoewijzing als _Type artefact_. Wijzig _Type_ in Ingebouwd en typ 'tag' in _Zoeken_. Klik buiten het veld _Zoeken_ om de filtering weer te geven. Selecteer Tag met standaardwaarde op resourcegroepen toepassen door erop te klikken. Klik op **Toevoegen** om dit artefact toe te voegen aan de blauwdruk.
+1. Beleidstoewijzing toevoegen aan een abonnement: Klik met de linkermuisknop op de rij **+ Artefact toevoegen...** onder het artefact roltoewijzing. Selecteer Beleidstoewijzing als _Type artefact_. Wijzig _Type_ in Ingebouwd en typ 'tag' in _Zoeken_. Klik buiten het veld _Zoeken_ om de filtering weer te geven. Selecteer Tag met standaardwaarde op resourcegroepen toepassen door erop te klikken. Klik op **Toevoegen** om dit artefact toe te voegen aan de blauwdruk.
 
 1. Klik in de rij van de beleidstoewijzing Tag met standaardwaarde op resourcegroepen toepassen. Het venster waarin u parameters voor het artefact kunt opgeven als onderdeel van de blauwdrukdefinitie wordt geopend. Hier kunt u de parameters voor alle toewijzingen instellen (**statische parameters**) op basis van deze blauwdruk in plaats van tijdens de toewijzing (**dynamische parameters**). In dit voorbeeld worden **dynamische parameters** gebruikt tijdens de blauwdruktoewijzing. Laat daarom de standaardwaarden staan en klik op **Annuleren**.
 
-1. Resourcegroep toevoegen aan een abonnement: klik in de rij **+ Artefact toevoegen...** , direct onder **Abonnement**. Selecteer Resourcegroep als _Type artefact_. Laat de velden _Naam resourcegroep_ en _Locatie_ leeg, maar zorg dat het selectievakje voor elke eigenschap is ingeschakeld zodat het **dynamische parameters** zijn. Klik op **Toevoegen** om dit artefact toe te voegen aan de blauwdruk.
+1. Resourcegroep toevoegen aan een abonnement: klik in de rij **+ Artefact toevoegen...** , direct onder **Abonnement**. Selecteer Resourcegroep als _Type artefact_. Laat de velden _Weergavenaam van artefact_, _Resourcegroepnaam_ en _Locatie_leeg, maar zorg dat het selectievakje voor elke eigenschap is ingeschakeld zodat het **dynamische parameters** zijn. Klik op **Toevoegen** om dit artefact toe te voegen aan de blauwdruk.
 
-1. Sjabloon toevoegen aan een resourcegroep: klik op de rij **+ Artefact toevoegen..** direct onder de vermelding **ResourceGroup**. Selecteer Azure Resource Manager-sjabloon als _Type artefact_, stel _Weergavenaam van artefact_ in op StorageAccount en laat de eigenschap _Beschrijving_ leeg. Op het tabblad **Sjabloon** van het editorvak plakt u de volgende Resource Manager-sjabloon. Na het plakken van de sjabloon klikt u op het tabblad **Parameters** en u ziet dat de sjabloonparameter **storageAccountType** en de standaardwaarde **Standard_LRS** automatisch zijn gedetecteerd en ingevuld. Ze zijn echter geconfigureerd als een **dynamische parameter**. Wanneer u het vinkje uit het selectievakje verwijdert, ziet u dat de vervolgkeuzelijst alleen waarden bevat die in de Resource Manager-sjabloon onder **allowedValues** voorkomen. Schakel het selectievakje weer in om de parameters terug te zetten op een **dynamische parameter**. Klik op **Toevoegen** om dit artefact toe te voegen aan de blauwdruk.
+1. Sjabloon toevoegen aan een resourcegroep: klik op de rij **+ Artefact toevoegen..** onder de vermelding **ResourceGroup**. Selecteer Azure Resource Manager-sjabloon als _Type artefact_, stel _Weergavenaam van artefact_ in op StorageAccount en laat de eigenschap _Beschrijving_ leeg. Op het tabblad **Sjabloon** van het editorvak plakt u de volgende Resource Manager-sjabloon. Selecteer het tabblad **Parameters** na het plakken van de sjabloon. U ziet dat de sjabloonparameters **storageAccountType** en **location** zijn gedetecteerd. Elke parameter is automatisch gedetecteerd en gevuld, maar geconfigureerd als een **dynamische parameter**. Wanneer u het selectievakje **storageAccountType** uitschakelt, ziet u dat de vervolgkeuzelijst alleen waarden bevat die in de Resource Manager-sjabloon onder **allowedValues** voorkomen. Schakel het selectievakje weer in om de parameters terug te zetten op een **dynamische parameter**. Klik op **Toevoegen** om dit artefact toe te voegen aan de blauwdruk.
 
    > [!IMPORTANT]
    > Controleer bij het importeren van de sjabloon of het bestand alleen JSON is en geen HTML-code bevat. Wanneer u verwijst naar een URL op GitHub, zorg er dan voor dat u op **RAW** hebt geklikt om het zuivere JSON-bestand op te halen en niet het bestand met HTML, om weer te geven op GitHub. Er treedt een fout op als de geïmporteerde sjabloon geen zuivere JSON is.
@@ -81,20 +81,27 @@ De eerste stap bij het definiëren van een standaardpatroon voor naleving bestaa
                "metadata": {
                    "description": "Storage Account type"
                }
+           },
+           "location": {
+               "type": "string",
+               "defaultValue": "[resourceGroup().location]",
+               "metadata": {
+                   "description": "Location for all resources."
+               }
            }
        },
        "variables": {
-           "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'standardsa')]"
+           "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
        },
        "resources": [{
            "type": "Microsoft.Storage/storageAccounts",
            "name": "[variables('storageAccountName')]",
-           "apiVersion": "2016-01-01",
-           "location": "[resourceGroup().location]",
+           "location": "[parameters('location')]",
+           "apiVersion": "2018-07-01",
            "sku": {
                "name": "[parameters('storageAccountType')]"
            },
-           "kind": "Storage",
+           "kind": "StorageV2",
            "properties": {}
        }],
        "outputs": {
@@ -159,10 +166,27 @@ Wanneer een blauwdruk is gepubliceerd, kan deze worden toegewezen aan een abonne
 
 1. Op de pagina **Blauwdruk toewijzen** selecteert u in de vervolgkeuzelijst **Abonnement** de abonnementen waarin u deze blauwdruk wilt implementeren.
 
+   - Als er ondersteunde Enterprise-aanbiedingen beschikbaar zijn via [Azure Billing](../../billing/index.md), wordt de koppeling **Nieuw** onder het vak **Abonnement** geactiveerd.
+
+     1. Klik op de koppeling **Nieuw** om een nieuw abonnement te maken in plaats van een bestaand abonnement te selecteren.
+
+        ![Blauwdruktoewijzing: abonnement maken](./media/create-blueprint-portal/assignment-create-subscription.png)
+
+     1. Geef een **weergavenaam** voor het nieuwe abonnement op.
+
+     1. Selecteer de beschikbare **aanbieding** in de vervolgkeuzelijst.
+
+     1. Gebruik het beletselteken om de [beheergroep](../management-groups/index.md) te selecteren waaronder u het abonnement wilt maken.
+
+     1. Selecteer **Maken** onderaan de pagina.
+
+     > [!IMPORTANT]
+     > Het nieuwe abonnement wordt onmiddellijk gemaakt nadat u **Maken** hebt geselecteerd.
+
    > [!NOTE]
    > Er wordt voor elk abonnement dat u hebt geselecteerd een toewijzing gemaakt, zodat één abonnementtoewijzing later kan worden gewijzigd zonder dat de overige geselecteerde abonnementen ook worden gewijzigd.
 
-1. Geef voor **Naam Toegewezen** een unieke naam op voor deze toewijzing.
+1. Geef voor **Naam van toegewezen abonnement** een unieke naam op voor deze toewijzing.
 
 1. Selecteer in **Locatie** een regio waarin u de beheerde identiteit wilt maken. Azure Blueprint gebruikt deze beheerde identiteit om alle artefacten in de toegewezen blauwdruk te implementeren. Zie [Beheerde identiteiten voor Azure-resources](../../active-directory/managed-identities-azure-resources/overview.md) voor meer informatie.
 
@@ -198,7 +222,7 @@ Nu de blauwdruk is toegewezen aan een abonnement, kunt u de voortgang van de imp
 
    ![Toewijzingsdetails weergeven](./media/create-blueprint-portal/view-assignment-details.png)
 
-1. Valideer op de pagina **Implementatiedetails** of alle artefacten zijn geïmplementeerd en of er tijdens de implementatie geen fouten zijn opgetreden. Als er fouten zijn opgetreden, raadpleegt u [Blauwdrukproblemen oplossen](./troubleshoot/general.md) voor stappen om te bepalen wat er mis is gegaan.
+1. Valideer op de pagina **Blauwdruktoewijzing** of alle artefacten zijn geïmplementeerd en of er tijdens de implementatie geen fouten zijn opgetreden. Als er fouten zijn opgetreden, raadpleegt u [Blauwdrukproblemen oplossen](./troubleshoot/general.md) voor stappen om te bepalen wat er mis is gegaan.
 
 ## <a name="unassign-a-blueprint"></a>De toewijzing van een blauwdruk ongedaan maken
 

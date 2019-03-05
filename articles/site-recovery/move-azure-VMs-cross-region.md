@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: bbede01844f20c0240b154fd319b818a43463131
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: efa8f4fc604440b8c1396aa654834ce83a41844e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824489"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875808"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Virtuele Azure-machines verplaatsen naar een andere regio
 
@@ -27,8 +27,8 @@ Deze zelfstudie laat zien hoe u Azure-VM’s naar een andere regio verplaatst me
 > * [De doelregio voorbereiden](#prepare-the-target-region)
 > * [Gegevens kopiëren naar de doelregio](#copy-data-to-the-target-region)
 > * [De configuratie testen](#test-the-configuration)
-> * [De verplaatsing uitvoeren ](#perform-the-move-to-the-target-region-and-confirm)
-> * [Verwijder de resource in de bronregio ](#discard-the-resource-in-the-source-region)
+> * [De verplaatsing uitvoeren](#perform-the-move-to-the-target-region-and-confirm)
+> * [De resource in de bronregio verwijderen](#discard-the-resource-in-the-source-region)
 
 > [!IMPORTANT]
 > Dit document biedt hulp bij het ongewijzigd verplaatsen van Azure-VM’s van de ene regio naar een andere regio. Raadpleeg deze zelfstudie als u de beschikbaarheid van uw infrastructuur wilt verbeteren door VM’s naar beschikbaarheidszones te verplaatsen.

@@ -1,227 +1,197 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met Fuze | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Fuze.
+description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active Directory en Fuze.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 9780b4bf-1fd1-48c1-9ceb-f750225ae08a
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/31/2017
+ms.topic: tutorial
+ms.date: 02/18/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebad54fa93379cc3c445de660df4e86b997014c5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: 702b5fb7145d0312489bf0eae1a025e2277dd1df
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193353"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869272"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fuze"></a>Zelfstudie: Azure Active Directory-integratie met Fuze
 
-In deze zelfstudie leert u hoe u Fuze integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Fuze kunt integreren met Azure Active Directory (Azure AD).
+De integratie van Fuze met Azure AD biedt de volgende voordelen:
 
-Fuze integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD bepalen wie er toegang heeft tot Fuze.
+* U kunt inschakelen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij Fuze (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot Fuze heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Fuze (Single Sign-On) met hun Azure AD-accounts inschakelen
-- U kunt uw accounts in één centrale locatie - de Azure Management portal beheren
-
-Zie [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Fuze, moet u de volgende items:
+Om Azure AD-integratie te configureren met Fuze hebt u het volgende nodig:
 
-- Een Azure AD-abonnement
-- Een Fuze eenmalige aanmelding ingeschakeld abonnement
-
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- U moet uw productie-omgeving, niet gebruiken als dit nodig is.
-- Als u nog geen proefversie van Azure AD hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) een proefversie van één maand aanvragen.
-
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op Fuze waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Fuze uit de galerie toe te voegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
+* Fuze ondersteunt door **SP** geïnitieerde eenmalige aanmelding
 
-## <a name="adding-fuze-from-the-gallery"></a>Fuze uit de galerie toe te voegen
-Voor het configureren van de integratie van Fuze in Azure AD, moet u Fuze uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* Fuze ondersteunt het **Just-In-Time** inrichten van gebruikers
 
-**Als u wilt toevoegen Fuze uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-fuze-from-the-gallery"></a>Fuze toevoegen vanuit de galerie
 
-1. In de  **[Azure Management Portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Voor het configureren van de integratie van Fuze met Microsoft Azure Active Directory moet u Fuze vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-    ![Active Directory][1]
+**Voer de volgende stappen uit om Fuze toe te voegen vanuit de galerie:**
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![Applicaties][2]
-    
-1. Klik op **toevoegen** knop boven aan het dialoogvenster.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![Applicaties][3]
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-1. Typ in het zoekvak **Fuze**.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/fuze-tutorial/tutorial_fuze_000.png)
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-1. Selecteer in het deelvenster resultaten **Fuze**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/fuze-tutorial/tutorial_fuze_0001.png)
+4. Typ in het zoekvak **Fuze**, selecteer **Fuze** in het resultaatvenster en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
+     ![Fuze in de lijst met resultaten](common/search-new-app.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Fuze op basis van een testgebruiker 'Julia steen' genoemd.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Fuze is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Fuze tot stand worden gebracht.
+In deze sectie gaat u Azure AD-eenmalige aanmelding bij Fuze configureren en testen op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Fuze tot stand is gebracht.
 
-Deze relatie koppeling tot stand is gebracht door toe te wijzen de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** in Fuze.
+Voltooi de volgende bouwstenen om Azure AD-eenmalige aanmelding met Fuze te configureren en testen:
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met Fuze, moet u de volgende bouwstenen voltooien:
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Fuze-eenmalige aanmelding configureren](#configure-fuze-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wil configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Testgebruiker voor Fuze maken](#create-fuze-test-user)**: als u een tegenhanger van Britta Simon in Fuze wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Het maken van een testgebruiker Fuze](#creating-a-fuze-test-user)**  : als u wilt een equivalent van Britta Simon in Fuze die is gekoppeld aan de Azure AD-weergave van haar hebben.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure Management portal inschakelen en configureren van eenmalige aanmelding in uw toepassing Fuze.
+Voer de volgende stappen uit als u Azure AD-eenmalige aanmelding wilt configureren met Fuze:
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Fuze, moet u de volgende stappen uitvoeren:**
+1. Ga in de [Azure-portal](https://portal.azure.com/) naar de overzichtspagina van de integratie voor **Fuze** en selecteer **Eenmalige aanmelding**.
 
-1. In de Azure-beheerportal, op de **Fuze** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-    ![Eenmalige aanmelding configureren][4]
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-1. Op de **eenmalige aanmelding** dialoogvenster als **modus** Selecteer **SAML gebaseerde aanmelding** voor eenmalige aanmelding inschakelen.
- 
-    ![Eenmalige aanmelding configureren](./media/fuze-tutorial/tutorial_fuze_01.png)
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-1. Op de **Fuze domein en URL's** sectie, voert u de volgende stappen uit:
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    ![Eenmalige aanmelding configureren](./media/fuze-tutorial/tutorial_fuze_020.png)
-    
-    In de **aanmeldings-URL** tekstvak, type de aanmeldings-URL als: `https://www.thinkingphones.com/jetspeed/portal/`
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-1.  Klik op de knop **Save**.
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
-    ![Eenmalige aanmelding configureren](./media/fuze-tutorial/tutorial_general_400.png)
+    ![Informatie over domein en URL's voor eenmalige aanmelding met Fuze](common/sp-signonurl.png)
 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het xml-bestand op uw computer.
+    In het tekstvak **Aanmeldings-URL** typt u een URL: `https://www.thinkingphones.com/jetspeed/portal/`
 
-    ![Eenmalige aanmelding configureren](./media/fuze-tutorial/tutorial_fuze_05.png) 
+5. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
-1. Het configureren van eenmalige aanmelding op **Fuze** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [Fuze ondersteuningsteam](https://www.fuze.com/support). Ze stelt dit om de SAML SSO-verbinding instellen goed aan beide zijden.
+    ![De link om het certificaat te downloaden](common/metadataxml.png)
 
+6. In de sectie **Fuze instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
 
-### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
-Het doel van deze sectie is het maken van een testgebruiker in de Azure Management portal Britta Simon genoemd.
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-![Azure AD-gebruiker maken][100]
+    a. Aanmeldings-URL
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    b. Azure AD-id
 
-1. In de **Azure Management portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+    c. Afmeldings-URL
 
-    ![Het maken van een Azure AD-testgebruiker](./media/fuze-tutorial/create_aaduser_01.png) 
+### <a name="configure-fuze-single-sign-on"></a>Eenmalige aanmelding voor Fuze configureren
 
-1. Ga naar **gebruikers en groepen** en klikt u op **alle gebruikers** om de lijst met gebruikers weer te geven.
-    
-    ![Het maken van een Azure AD-testgebruiker](./media/fuze-tutorial/create_aaduser_02.png) 
+Als u eenmalige aanmelding aan de zijde van **Fuze** wilt configureren, moet u het gedownloade **XML-bestand met federatieve metagegevens** en de correcte uit de Microsoft Azure-portal gekopieerde URL's verzenden naar het [Fuze-ondersteuningsteam](https://www.fuze.com/support). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
-1. Aan de bovenkant van het dialoogvenster klikt u op **toevoegen** openen de **gebruiker** dialoogvenster.
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/fuze-tutorial/create_aaduser_03.png) 
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/fuze-tutorial/create_aaduser_04.png) 
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-    a. In de **naam** tekstvak, type **BrittaSimon**.
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    d. Klik op **Create**. 
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-### <a name="creating-a-fuze-test-user"></a>Het maken van een testgebruiker Fuze
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-Fuze toepassing ondersteunt volledig Just in tijd gebruiker inrichten, zodat gebruikers automatisch gemaakt wordt wanneer ze zich aanmelden bij. Voor alle andere informatie Neem contact op met Fuze [ondersteunen](https://www.fuze.com/support).
+    a. Voer in het veld **Naam****Britta Simon** in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door haar toegang verlenen tot Fuze.
+    d. Klik op **Create**.
 
-![Gebruiker toewijzen][200] 
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-**Als u wilt Britta Simon aan Fuze toewijst, moet u de volgende stappen uitvoeren:**
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot Fuze.
 
-1. Open de weergave toepassingen in de Azure-beheerportal, en vervolgens gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Selecteer **Bedrijfstoepassingen** in de Azure-portal, selecteer **Alle toepassingen** en selecteer vervolgens **Fuze**.
 
-    ![Gebruiker toewijzen][201] 
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Selecteer in de lijst met toepassingen, **Fuze**.
+2. Selecteer **Fuze** in de lijst met toepassingen.
 
-    ![Eenmalige aanmelding configureren](./media/fuze-tutorial/tutorial_fuze_50.png) 
+    ![Fuze in de lijst met toepassingen](common/all-applications.png)
 
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![Gebruiker toewijzen][202] 
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![Gebruiker toewijzen][203]
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst Gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+6. Als u een waarde voor een rol verwacht in de SAML-assertie, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onderaan het scherm klikken.
 
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
+### <a name="create-fuze-test-user"></a>Testgebruiker voor Fuze maken
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+De Fuze-toepassing ondersteunt just-in-time-gebruikersinrichting, zodat gebruikers automatisch gemaakt wordt wanneer ze zich aanmelden. Neem voor verdere informatie, contact op met het [Fuze-ondersteuningsteam](https://www.fuze.com/support).
 
-Wanneer u op de tegel Fuze in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing Fuze.
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+
+Wanneer u op de tegel Fuze in het toegangsvenster klikt, zou u automatisch moeten worden aangemeld bij de instantie van Fuze waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-<!--Image references-->
-
-[1]: ./media/fuze-tutorial/tutorial_general_01.png
-[2]: ./media/fuze-tutorial/tutorial_general_02.png
-[3]: ./media/fuze-tutorial/tutorial_general_03.png
-[4]: ./media/fuze-tutorial/tutorial_general_04.png
-
-[100]: ./media/fuze-tutorial/tutorial_general_100.png
-
-[200]: ./media/fuze-tutorial/tutorial_general_200.png
-[201]: ./media/fuze-tutorial/tutorial_general_201.png
-[202]: ./media/fuze-tutorial/tutorial_general_202.png
-[203]: ./media/fuze-tutorial/tutorial_general_203.png

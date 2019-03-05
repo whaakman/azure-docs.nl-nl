@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 2f6e8b40907d02e62ede95a44fa10168f7590bd5
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: d28a88efc1a9f980d74737936bb960ba13573fa3
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606245"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675089"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Zelfstudie: afwijkingen aan de rand detecteren met de oplossingsverbetering voor externe bewaking
 
@@ -55,12 +55,12 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 Er zijn twee stappen voor het toevoegen van een IoT Edge-apparaat aan de oplossingsverbetering voor Externe bewaking. In deze sectie leest u hoe u ze gebruikt:
 
-* Een IoT Edge-apparaat toevoegen op de pagina **Apparaten** in de webgebruikersinterface van Externe bewaking.
+* Een IoT Edge-apparaat toevoegen op de pagina **Device Explorer** in de webgebruikersinterface van externe bewaking.
 * De IoT Edge-runtime installeren op een Linux-VM.
 
 ### <a name="add-an-iot-edge-device-to-your-solution"></a>Een IoT Edge-apparaat toevoegen aan uw oplossing
 
-Als u een IoT Edge-apparaat wilt toevoegen aan de oplossingsverbetering voor Externe bewaking, gaat u naar de pagina **Apparaten** in de webgebruikersinterface en klikt u op **+ Nieuw apparaat**.
+Als u een IoT Edge-apparaat wilt toevoegen aan de oplossingsverbetering voor Externe bewaking, gaat u naar de pagina **Device Explorer** in de webgebruikersinterface en klikt u op **+ Nieuw apparaat**.
 
 In het deelvenster **Nieuw apparaat** kiest u **IoT Edge-apparaat** en voert u **oil-pump** in als de apparaat-id. Voor de overige instellingen kunt u de standaardwaarden gebruiken. Klik vervolgens op **Toepassen**:
 
@@ -68,13 +68,13 @@ In het deelvenster **Nieuw apparaat** kiest u **IoT Edge-apparaat** en voert u *
 
 Noteer de apparaatverbindingsreeks. U hebt deze nodig in de volgende sectie van de zelfstudie.
 
-Wanneer u een apparaat registreert bij de IoT hub in de oplossingsverbetering voor Externe controle, wordt het apparaat weergegeven op de pagina **Apparaten** in de webgebruikersinterface:
+Wanneer u een apparaat registreert bij de IoT-hub in de oplossingsverbetering voor externe controle, wordt het apparaat weergegeven op de pagina **Device Explorer** in de webgebruikersinterface:
 
 [![Nieuw IoT Edge-apparaat](./media/iot-accelerators-remote-monitoring-edge/newedgedevice-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newedgedevice-expanded.png#lightbox)
 
 Om het beheer van de IoT Edge-apparaten in de oplossing te vergemakkelijken, maakt u een apparaatgroep en voegt u daaraan het IoT Edge-apparaat toe:
 
-1. Selecteer het apparaat **oil-pump** in de lijst op de pagina **Apparaten** en klik op **Taken**.
+1. Selecteer het apparaat **oil-pump** in de lijst op de pagina **Device Explorer** en klik op **Taken**.
 
 1. Maak een taak om de tag **IsEdge** aan het apparaat toe te voegen met behulp van de volgende instellingen:
 
@@ -90,7 +90,7 @@ Om het beheer van de IoT Edge-apparaten in de oplossing te vergemakkelijken, maa
 
 1. Klik op **Toepassen** en op **Sluiten**.
 
-1. Klik op de pagina **Apparaten** op **Apparaatgroepen beheren**.
+1. Klik op de pagina **Device Explorer** op **Apparaatgroepen beheren**.
 
 1. Klik op **Nieuwe apparaatgroep maken**. Maak een nieuwe apparaatgroep met de volgende instellingen:
 
@@ -300,7 +300,7 @@ De pagina **Implementaties** bevat de volgende metrische gegevens:
 
 U kunt de temperatuurtelemetrie van de jaknikker bekijken in de webgebruikersinterface van Externe bewaking:
 
-1. Navigeer naar de pagina **Apparaten** en selecteer de jaknikker.
+1. Ga naar de pagina **Device Explorer** en selecteer de jaknikker.
 1. Klik in de sectie **Telemetrie** van het deelvenster **Apparaatdetails** op **Temperatuur**:
 
     [![Telemetrie bekijken](./media/iot-accelerators-remote-monitoring-edge/viewtelemetry-inline.png)](./media/iot-accelerators-remote-monitoring-edge/viewtelemetry-expanded.png#lightbox)

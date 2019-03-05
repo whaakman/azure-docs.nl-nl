@@ -11,12 +11,12 @@ ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 9fa1e3ffd92b3c375837c7b9a4a0e7fd1a80893a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 77dda5f113a10f0bfb59457b1059563c58db0dde
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433676"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816932"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Problemen met wijzigingen in uw omgeving oplossen
 
@@ -62,12 +62,14 @@ Tijdens het onboardingproces wordt de virtuele machine ingericht met Microsoft M
 Deze agent wordt gebruikt om te communiceren met de virtuele machine en om informatie op te vragen over geïnstalleerde software.
 
 Het inschakelen van de oplossing kan maximaal 15 minuten duren. Gedurende deze tijd mag u het browservenster niet sluiten.
-Nadat de oplossing is ingeschakeld, wordt informatie over geïnstalleerde software en wijzigingen op de virtuele machine naar Log Analytics verzonden.
+Nadat de oplossing is ingeschakeld, wordt informatie over geïnstalleerde software en wijzigingen aan de VM-stromen naar Azure Monitor-logboeken verzonden.
 Het duurt tussen 30 minuten en 6 uur voordat de gegevens beschikbaar zijn voor analyse.
 
-## <a name="using-change-tracking-in-log-analytics"></a>Wijzigingen bijhouden gebruiken in Log Analytics
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Wijzigingen bijhouden genereert logboekgegevens die naar Log Analytics worden verzonden.
+## <a name="using-change-tracking-in-azure-monitor-logs"></a>Wijzigingen bijhouden gebruiken in Azure Monitor-logboeken
+
+Wijzigingen bijhouden genereert logboekgegevens die naar Azure Monitor-logboeken worden verzonden.
 Als u de logboeken wilt doorzoeken door query's uit te voeren, selecteert u **Log Analytics** boven in het venster **Wijzigingen bijhouden**.
 Gegevens van Wijzigingen bijhouden worden opgeslagen onder het type **ConfigurationChange**.
 De volgende voorbeeldquery voor Log Analytics retourneert alle Windows-services die zijn gestopt.
@@ -77,7 +79,7 @@ ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
 
-Zie [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) voor meer informatie over het uitvoeren en doorzoeken van logboekbestanden in Log Analytics.
+Zie [Azure Monitor-logboeken](../azure-monitor/log-query/log-query-overview.md) voor meer informatie over het uitvoeren en doorzoeken van logboekbestanden in Azure Monitor-logboeken.
 
 ## <a name="configure-change-tracking"></a>Wijzigingen bijhouden configureren
 

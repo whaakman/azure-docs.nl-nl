@@ -1,5 +1,5 @@
 ---
-title: Een .NET Core-app maken op Linux - Azure App Service | Microsoft Docs
+title: Een ASP.NET Core-app maken op Linux - Azure App Service | Microsoft Docs
 description: U kunt uw eerste .NET Core-Hallo wereld-app in slechts enkele minuten implementeren in App Service on Linux.
 keywords: azure app service, web-app, dotnet, core, linux, oss
 services: app-service
@@ -16,14 +16,14 @@ ms.topic: quickstart
 ms.date: 04/11/2018
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: 047ed6026412cac7fc7c51135e1837a20decd910
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: af22473e0c9b56210b720ee5d122d96566689158
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633926"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889712"
 ---
-# <a name="create-a-net-core-app-in-app-service-on-linux"></a>Een .NET Core-app maken in App Service op Linux
+# <a name="create-an-aspnet-core-app-in-app-service-on-linux"></a>Een ASP.NET Core-app maken in App Service op Linux
 
 > [!NOTE]
 > In dit artikel gaat u een app implementeren in App Service onder Linux. Zie [Een ASP.NET Core-app maken in Azure](../app-service-web-get-started-dotnet.md) om een app te implementeren in App Service op _Windows_.

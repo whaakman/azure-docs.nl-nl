@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2018
+ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 64c0a42ac3cc074e5fd9e2824180009431b11e1e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 3ec4b8fb9ebb7a03983ce5da3dad56e0fe9917e8
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231968"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986325"
 ---
-# <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Quickstart: een openbare Basic Load Balancer maken met behulp van de Azure-portal
+# <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Quickstart: Een Basic load balancer maken met behulp van de Microsoft Azure-portal
 
 Taakverdeling zorgt voor een hogere beschikbaarheid en betere schaalbaarheid door binnenkomende aanvragen te spreiden over meerdere virtuele machines (VM's). U kunt de Azure-portal gebruiken om een load balancer te maken en verkeer over virtuele machines te verdelen. In deze quickstart wordt beschreven hoe u een load balancer, back-endservers en netwerkresources kunt maken in de prijscategorie Basic.
 
@@ -30,25 +30,27 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 Als u de taken in deze quickstart wilt uitvoeren, moet u zich aanmelden bij de [Azure-portal](http://portal.azure.com).
 
-## <a name="create-a-basic-load-balancer"></a>Een Basic Load Balancer maken
+## <a name="create-a-basic-load-balancer"></a>Een Basic load balancer maken
 
-Maak eerst een openbare Basic Load Balancer met behulp van de portal. De naam en het openbare IP-adres die u maakt, worden automatisch geconfigureerd als de front-end van de load balancer.
+Maak eerst een openbare basis load balancer met behulp van de portal. De naam en het openbare IP-adres die u maakt, worden automatisch geconfigureerd als de front-end van de load balancer.
 
-1. Selecteer **Een resource maken** > **Netwerken** > **Load Balancer** linksboven in het scherm.
-   
-1. Typ of selecteer de volgende waarden in het deelvenster **Load balancer maken**:
-   
-   - **Naam**: Typ *MyLoadBalancer*.
-   - **Type**: Select **Openbaar**. 
-   - **SKU**: Selecteer **Basic**.
-   - **Openbaar IP-adres:** Selecteer **Nieuw maken**. 
-     - Veld **Openbaar IP-adres**: Typ *MyPublicIP*.
-     - **Openbaar IP-adres configureren** > **Toewijzing**: selecteer **Dynamisch**.
-   - **ResourceGroup**: selecteer **Nieuwe maken**, voer vervolgens *MyResourceGroupLB* in en selecteer **OK**. 
-   
-1. Selecteer **Maken**.
-   
-![Een load balancer maken](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
+1. Klik linksboven in het scherm op **Een resource maken** > **Netwerken** > **Load balancer**.
+2. Voer op het tabblad **Basis** van de pagina **Load balancer maken** de volgende gegevens in of selecteer deze, accepteer de standaardwaarden voor de overige instellingen en selecteer **Controleren + maken**:
+
+    | Instelling                 | Waarde                                              |
+    | ---                     | ---                                                |
+    | Abonnement               | Selecteer uw abonnement.    |    
+    | Resourcegroep         | Selecteer **Nieuwe maken** en typ *MyResourceGroupLB* in het tekstvak.|
+    | Naam                   | *myLoadBalancer*                                   |
+    | Regio         | Selecteer **Europa - west**.                                        |
+    | Type          | Selecteer **Openbaar**.                                        |
+    | SKU           | Selecteer **Basic**.                          |
+    | Openbaar IP-adres | Selecteer **Nieuw maken**. |
+    | Naam openbare IP-adres              | *MyPublicIP*   |
+    | Toewijzing| Statisch|
+
+3. Klik op het tabblad **Controleren + Maken** op **Maken**.   
+
 
 ## <a name="create-back-end-servers"></a>Back-endservers maken
 

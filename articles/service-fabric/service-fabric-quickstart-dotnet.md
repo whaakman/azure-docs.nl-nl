@@ -15,12 +15,12 @@ ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: 3b7b70a5ac0c74cc920df823d1f9ae1152f86bff
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8e83da53d0b2f71abc1f74a0ca8fbc2405e75bda
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561192"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736580"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Quickstart: Een .NET Reliable Services-toepassing implementeren voor Service Fabric
 
@@ -55,10 +55,10 @@ Dit zijn de vereisten voor het voltooien van deze snelstartgids:
 
 Als u de runtime, SDK's en hulpprogramma's van Visual Studio Docker hebt geïnstalleerd en Docker wordt uitgevoerd, maakt u een lokaal ontwikkelcluster met vijf knooppunten.
 
-> [!IMPORTANT]
-> Docker **moet** worden uitgevoerd voordat u een cluster kunt bouwen.
+> [!Note]
+> De reden voor het uitvoeren van Docker bij het maken van het cluster is dat het cluster zo wordt gemaakt met de containerfuncties ingeschakeld. Als Docker niet actief is, moet u het cluster opnieuw maken om containerfuncties in te schakelen.
+> Hoewel het niet nodig is voor deze quickstart, zijn de instructies voor het uitvoeren van Docker bij het maken van het cluster opgenomen als best practice.
 > Test of Docker wordt uitgevoerd door een terminalvenster te openen en `docker ps` uit te voeren om te zien of er een fout optreedt. Als er geen fout wordt aangegeven, wordt Docker uitgevoerd en kunt u een cluster gaan bouwen.
-
 
 1. Open als beheerder een nieuw PowerShell-venster met verhoogde bevoegdheid.
 2. Voer de volgende PowerShell-opdracht uit om een ontwikkelcluster te maken:

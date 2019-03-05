@@ -6,14 +6,14 @@ author: jamesbak
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 02/07/2019
+ms.date: 02/21/2019
 ms.author: jamesbak
-ms.openlocfilehash: cfe06720d0afa0f9f5cf22552ba7ab21d4e617c0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 566af5d42b1b5b778db0a2014b238657ace7db5c
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993143"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672624"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>Zelfstudie: Gegevens extraheren, transformeren en laden met Apache Hive in Azure HDInsight
 
@@ -49,24 +49,22 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 ## <a name="download-the-flight-data"></a>De vluchtgegevens downloaden
 
-In deze zelfstudie worden vluchtgegevens van het Bureau of Transport Statistics gebruikt om te laten zien hoe u een ETL-bewerking kunt uitvoeren. U moet deze gegevens downloaden om de zelfstudie te kunnen voltooien.
+1. Blader naar [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time).
 
-1. Ga naar [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time).
-
-1. Selecteer de volgende waarden op de pagina:
+2. Selecteer de volgende waarden op de pagina:
 
    | Naam | Waarde |
    | --- | --- |
-   | **Filter Period** |Januari |
-   | **Fields** |FlightDate, OriginCityName, WeatherDelay |
+   | Filterjaar |2013 |
+   | Filterperiode |Januari |
+   | Velden |Year, FlightDate, Reporting_Airline, IATA_CODE_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
+   Wis alle andere velden.
 
-1. Wis alle andere velden.
-
-1. Selecteer **Download**. U krijgt een ZIP-bestand met de gegevensvelden die u hebt geselecteerd.
+3. Selecteer **Download**. U krijgt een ZIP-bestand met de gegevensvelden die u hebt geselecteerd.
 
 ## <a name="extract-and-upload-the-data"></a>De gegevens extraheren en uploaden
 
-In deze sectie uploadt u gegevens naar uw HDInsight-cluster. 
+In deze sectie gaat u gegevens uploaden in uw HDInsight-cluster en vervolgens die gegevens kopiëren in uw Data Lake Storage Gen2-account.
 
 1. Open een opdrachtprompt en gebruik de volgende Secure Copy-opdracht om het ZIP-bestand te uploaden naar het hoofdknooppunt van het HDInsight-cluster:
 
@@ -134,25 +132,67 @@ Als onderdeel van de Apache Hive-taak, importeert u de gegevens uit het CSV-best
 
 2. Vervang in de volgende tekst de tijdelijke aanduidingen `<file-system-name>` en `<storage-account-name>` door de naam van het bestandssysteem en de naam van het opslagaccount. Kopieer en plak de tekst in de nano-console, door de SHIFT-toets ingedrukt te houden en op de rechtermuisknop te klikken.
 
-   ```hiveql
-   DROP TABLE delays_raw;
+    ```hiveql
+    DROP TABLE delays_raw;
+    -- Creates an external table over the csv file
     CREATE EXTERNAL TABLE delays_raw (
-       FL_DATE string,
-       ORIGIN_CITY_NAME string,
-       WEATHER_DELAY float)
+        YEAR string,
+        FL_DATE string,
+        UNIQUE_CARRIER string,
+        CARRIER string,
+        FL_NUM string,
+        ORIGIN_AIRPORT_ID string,
+        ORIGIN string,
+        ORIGIN_CITY_NAME string,
+        ORIGIN_CITY_NAME_TEMP string,
+        ORIGIN_STATE_ABR string,
+        DEST_AIRPORT_ID string,
+        DEST string,
+        DEST_CITY_NAME string,
+        DEST_CITY_NAME_TEMP string,
+        DEST_STATE_ABR string,
+        DEP_DELAY_NEW float,
+        ARR_DELAY_NEW float,
+        CARRIER_DELAY float,
+        WEATHER_DELAY float,
+        NAS_DELAY float,
+        SECURITY_DELAY float,
+        LATE_AIRCRAFT_DELAY float)
+    -- The following lines describe the format and location of the file
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
     LINES TERMINATED BY '\n'
     STORED AS TEXTFILE
     LOCATION 'abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/data';
-   DROP TABLE delays;
-   CREATE TABLE delays
-   LOCATION 'abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/processed'
-   AS
-   SELECT FL_DATE AS FlightDate,
-       substring(ORIGIN_CITY_NAME, 2) AS OriginCityName,
-       WEATHER_DELAY AS WeatherDelay
-   FROM delays_raw;
-   ```
+
+    -- Drop the delays table if it exists
+    DROP TABLE delays;
+    -- Create the delays table and populate it with data
+    -- pulled in from the CSV file (via the external table defined previously)
+    CREATE TABLE delays
+    LOCATION 'abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/processed'
+    AS
+    SELECT YEAR AS year,
+        FL_DATE AS flight_date,
+        substring(UNIQUE_CARRIER, 2, length(UNIQUE_CARRIER) -1) AS unique_carrier,
+        substring(CARRIER, 2, length(CARRIER) -1) AS carrier,
+        substring(FL_NUM, 2, length(FL_NUM) -1) AS flight_num,
+        ORIGIN_AIRPORT_ID AS origin_airport_id,
+        substring(ORIGIN, 2, length(ORIGIN) -1) AS origin_airport_code,
+        substring(ORIGIN_CITY_NAME, 2) AS origin_city_name,
+        substring(ORIGIN_STATE_ABR, 2, length(ORIGIN_STATE_ABR) -1)  AS origin_state_abr,
+        DEST_AIRPORT_ID AS dest_airport_id,
+        substring(DEST, 2, length(DEST) -1) AS dest_airport_code,
+        substring(DEST_CITY_NAME,2) AS dest_city_name,
+        substring(DEST_STATE_ABR, 2, length(DEST_STATE_ABR) -1) AS dest_state_abr,
+        DEP_DELAY_NEW AS dep_delay_new,
+        ARR_DELAY_NEW AS arr_delay_new,
+        CARRIER_DELAY AS carrier_delay,
+        WEATHER_DELAY AS weather_delay,
+        NAS_DELAY AS nas_delay,
+        SECURITY_DELAY AS security_delay,
+        LATE_AIRCRAFT_DELAY AS late_aircraft_delay
+    FROM delays_raw;
+    ```
 
 3. Sla het bestand op met behulp van CTRL+X en typ vervolgens `Y` wanneer hierom wordt gevraagd.
 
@@ -170,15 +210,15 @@ Als onderdeel van de Apache Hive-taak, importeert u de gegevens uit het CSV-best
 
 6. Wanneer u de prompt `jdbc:hive2://localhost:10001/>` ziet, gebruikt u de volgende query om gegevens op te halen uit de geïmporteerde gegevens van vertraagde vluchten:
 
-   ```hiveql
-   INSERT OVERWRITE DIRECTORY 'abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output'
-   ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
-   SELECT regexp_replace(OriginCityName, '''', ''),
-       avg(WeatherDelay)
-   FROM delays
-   WHERE WeatherDelay IS NOT NULL
-   GROUP BY OriginCityName;
-   ```
+    ```hiveql
+    INSERT OVERWRITE DIRECTORY '/tutorials/flightdelays/output'
+    ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
+    SELECT regexp_replace(origin_city_name, '''', ''),
+        avg(weather_delay)
+    FROM delays
+    WHERE weather_delay IS NOT NULL
+    GROUP BY origin_city_name;
+    ```
 
    Met deze query haalt u een lijst op met plaatsen waar er vertragingen door het weer zijn ontstaan, samen met de gemiddelde vertragingstijd. Deze gegevens worden opgeslagen in `abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output`. Later worden de gegevens met Sqoop vanaf deze locatie gelezen en geëxporteerd naar Azure SQL Database.
 
@@ -209,7 +249,7 @@ Voor deze bewerking hebt u de servernaam van uw SQL-database nodig. Voer deze st
 6. Nadat de installatie is voltooid, gebruikt u de volgende opdracht om verbinding te maken met de SQL Database-server.
 
    ```bash
-   TDSVER=8.0 tsql -H <server-name>.database.windows.net -U <admin-login> -p 1433 -D <database-name>
+   TDSVER=8.0 tsql -H '<server-name>.database.windows.net' -U '<admin-login>' -p 1433 -D '<database-name>'
     ```
    * Vervang de tijdelijke aanduiding `<server-name>` door de naam van de SQL Database-server.
 

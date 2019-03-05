@@ -9,15 +9,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/21/2018
+ms.date: 02/22/2019
 ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: 20891b0d73783c9b68a42ecfed130e377b6f8eab
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: c387a7c10b962cfd27a7563c00ce58f58e97b9d5
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729809"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671825"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Zelfstudie: Een apparaatfirmware-updateproces implementeren
 
@@ -94,7 +94,8 @@ az iot hub device-identity show-connection-string --device-id MyFirmwareUpdateDe
 
 ```
 
-Als u deze opdrachten uitvoert bij een Windows-opdrachtprompt of Powershell-prompt, raadpleegt u de pagina [azure-iot-cli-extensietips](https://github.com/Azure/azure-iot-cli-extension/wiki/Tips
+> [!TIP]
+> Als u deze opdrachten uitvoert bij een Windows-opdrachtprompt of Powershell-prompt, raadpleegt u de pagina [azure-iot-cli-extensietips](https://github.com/Azure/azure-iot-cli-extension/wiki/Tips
 ) voor informatie over het citeren van JSON-strings.
 
 ## <a name="start-the-firmware-update"></a>De firmware-update starten
@@ -205,7 +206,7 @@ az group delete --name tutorial-iot-hub-rg
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd hoe u een firmware-updateproces voor uw verbonden apparaten kunt implementeren. Ga naar de volgende zelfstudie om te leren hoe u Azure IoT Hub-portalhulpmiddelen en Azure CLI-opdrachten kunt gebruiken om de connectiviteit te testen.
+In deze zelfstudie hebt u geleerd hoe u een firmware-updateproces voor uw verbonden apparaten kunt implementeren. Ga naar de volgende zelfstudie om te leren hoe u Azure IoT Hub-portalhulpmiddelen en Azure CLI-opdrachten kunt gebruiken om de apparaatconnectiviteit te testen.
 
 > [!div class="nextstepaction"]
 [Een gesimuleerd apparaat gebruiken om connectiviteit met uw IoT-hub te testen](tutorial-connectivity.md)

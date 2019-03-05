@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/17/2018
+ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: e83991f553d00af11cfc275137f8e73ebab2098c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2b37d77e00595be125490431694f4549f61fced6
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882634"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56982790"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Zelfstudie: Met behulp van Azure Portal taakverdeling uitvoeren van virtuele machines over beschikbaarheidszones met een standaard Load Balancer
 
@@ -50,16 +50,20 @@ Meld u aan bij de Azure Portal op [http://portal.azure.com](http://portal.azure.
 Standard Load Balancer biedt alleen ondersteuning voor een standaard, openbaar IP-adres. Wanneer u een nieuwe openbaar IP-adres maakt tijdens het maken van de load balancer, wordt het automatisch geconfigureerd als een standaard SKU-versie en is het ook automatisch zone-redundant.
 
 1. Klik linksboven in het scherm op **Een resource maken** > **Netwerken** > **Load balancer**.
-2. Voer op de pagina **Een load balancer maken** deze waarden in voor de load balancer:
-    - *myLoadBalancer* als naam van de load balancer.
-    - **Openbaar** als het type load balancer.
-     - *myPublicIP* voor het nieuwe, openbare IP-adres dat u maakt. Klik hiervoor op **Kies een openbaar IP-adres** en vervolgens op **Nieuw**. Voor het naamtype *myPublicIP* is SKU altijd standaard en wordt **Zone-redundant** geselecteerd voor **Beschikbaarheidszone**.
-    - *myResourceGroupLBAZ* als naam van de nieuwe resourcegroep die u maakt.
-    - **westeurope** als locatie.
-3. Klik op **Maken** om de load balancer te maken.
-   
-    ![Een load balancer maken](./media/load-balancer-standard-public-availability-zones-portal/1a-load-balancer.png)
+2. Voer op het tabblad **Basis** van de pagina **Load balancer maken** de volgende gegevens in of selecteer deze, accepteer de standaardwaarden voor de overige instellingen en selecteer **Controleren + maken**:
 
+    | Instelling                 | Waarde                                              |
+    | ---                     | ---                                                |
+    | Abonnement               | Selecteer uw abonnement.    |    
+    | Resourcegroep         | Selecteer **Nieuwe maken** en typ *MyResourceGroupLBAZ* in het tekstvak.|
+    | Naam                   | *myLoadBalancer*                                   |
+    | Regio         | Selecteer **Europa - west**.                                        |
+    | Type          | Selecteer **Openbaar**.                                        |
+    | SKU           | selecteer **Standaard**.                          |
+    | Openbaar IP-adres | Selecteer **Nieuw maken**. |
+    | Naam openbare IP-adres              | Typ *myPublicIP* in het tekstvak.   |
+    |Beschikbaarheidszone| Selecteer **Zone-redundant**.    |
+   
 
 ## <a name="create-backend-servers"></a>Back-endservers maken
 

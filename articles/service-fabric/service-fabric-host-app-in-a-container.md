@@ -3,7 +3,7 @@ title: Een .NET-toepassing in een container implementeren in Azure Service Fabri
 description: Informatie over hoe u een bestaande .NET-toepassing in een container plaatst met behulp van Visual Studio en lokaal fouten opspoort in containers in Service Fabric. De in een container geplaatste toepassing wordt naar een Azure-containerregister gepusht en geïmplementeerd in een Service Fabric-cluster. Wanneer de toepassing is geïmplementeerd in Azure, gebruikt deze Azure SQL DB voor het persistent maken van gegevens.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
-ms.author: twhitney
-ms.openlocfilehash: 5bd43378d626d48f2ce05423fc49f85305b5858b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.author: aljo
+ms.openlocfilehash: bd92ac2a36fdb15741799571d3ceff7fbbb36eef
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151444"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807521"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Zelfstudie: Een .NET-toepassing in een Windows-container implementeren in Azure Service Fabric
 
@@ -237,7 +237,7 @@ Volg de voortgang van de implementatie in het uitvoervenster.  Wanneer de toepas
 ![Fabrikam-webvoorbeeld][fabrikam-web-page-deployed]
 
 ## <a name="set-up-continuous-integration-and-deployment-cicd-with-a-service-fabric-cluster"></a>Continue integratie en implementatie (CI/CD) met een Service Fabric-cluster instellen
-Zie [Zelfstudie: Een toepassing met CI/CD implementeren in een Service Fabric-cluster](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) voor meer informatie over het gebruik van Azure DevOps om de implementatie van de toepassing van CI/CD in een Service Fabric-cluster te configureren. De procedure die in de zelfstudie is beschreven is dezelfde voor dit project (FabrikamFiber), maar sla het downloaden van het voorbeeld van de stemtoepassing gewoon over en vervang Voting als de naam van de opslagplaats door FabrikamFiber.
+Zie voor meer informatie over het gebruik van Azure DevOps om de implementatie van de toepassing van CI/CD in een Service Fabric-cluster te configureren de [Zelfstudie: Een toepassing met CI/CD implementeren in een Service Fabric-cluster](service-fabric-tutorial-deploy-app-with-cicd-vsts.md). De procedure die in de zelfstudie is beschreven is dezelfde voor dit project (FabrikamFiber), maar sla het downloaden van het voorbeeld van de stemtoepassing gewoon over en vervang Voting als de naam van de opslagplaats door FabrikamFiber.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 Vergeet als u klaar bent niet om alle resources die u hebt gemaakt te verwijderen.  De eenvoudigste manier hiervoor is om de resourcegroepen te verwijderen die het Service Fabric-cluster, Azure SQL DB en Azure Container Registry bevatten.

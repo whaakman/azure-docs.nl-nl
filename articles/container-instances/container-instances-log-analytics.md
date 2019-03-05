@@ -1,24 +1,26 @@
 ---
-title: Logboekregistratie van containerinstanties met Azure Log Analytics
-description: Leer hoe u containeruitvoer (STDOUT en STDERR) naar Azure Log Analytics kunt verzenden.
+title: Logboekregistratie van containerinstanties met Azure Monitor-logboeken
+description: Leer hoe u containeruitvoer (STDOUT en STDERR) naar Azure Monitor-logboeken kunt verzenden.
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
 ms.author: danlep
-ms.openlocfilehash: 4dbcccc1a4b23ca37918495dc536df08a70cade7
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 13f1fa92365c284ed10bd7c0a1b2fdefef50b29e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337883"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879701"
 ---
-# <a name="container-instance-logging-with-azure-log-analytics"></a>Logboekregistratie van containerinstanties met Azure Log Analytics
+# <a name="container-instance-logging-with-azure-monitor-logs"></a>Logboekregistratie van containerinstanties met Azure Monitor-logboeken
 
-Log Analytics-werkruimten bieden centrale locaties voor het opslaan van logboekgegevens en het uitvoeren van query's hierop. Deze logboekgegevens kunnen behalve van Azure-resources ook van on-premises resources en resources in andere clouds afkomstig zijn. Azure Container Instances bevat ingebouwde ondersteuning voor het verzenden van gegevens naar Log Analytics.
+Log Analytics-werkruimten bieden centrale locaties voor het opslaan van logboekgegevens en het uitvoeren van query's hierop. Deze logboekgegevens kunnen behalve van Azure-resources ook van on-premises resources en resources in andere clouds afkomstig zijn. Azure Container Instances bevat ingebouwde ondersteuning voor het verzenden van gegevens naar Azure Monitor-logboeken.
 
-Voordat u gegevens van containerinstanties naar Log Analytics kunt verzenden, moet u een containergroep maken met behulp van Azure CLI (of Cloud Shell) en een YAML-bestand. In de volgende secties wordt beschreven hoe u een containergroep kunt maken die geschikt is voor logboekregistratie en hoe u query's op logboeken kunt uitvoeren.
+Voordat u gegevens van containerinstanties naar Azure Monitor-logboeken kunt verzenden, moet u een containergroep maken met behulp van Azure CLI (of Cloud Shell) en een YAML-bestand. In de volgende secties wordt beschreven hoe u een containergroep kunt maken die geschikt is voor logboekregistratie en hoe u query's op logboeken kunt uitvoeren.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -96,7 +98,7 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 
 Kort nadat u de opdracht hebt opgegeven, zou u een reactie van Azure met implementatiedetails moeten ontvangen.
 
-## <a name="view-logs-in-log-analytics"></a>Logboeken bekijken in Log Analytics
+## <a name="view-logs-in-azure-monitor-logs"></a>Weergave van logboeken in Azure Monitor-logboeken
 
 Nadat u de containergroep hebt geïmplementeerd, kan het enkele minuten (wel tien minuten) duren voor de eerste logboekvermeldingen worden weergegeven in Azure Portal. Als u logboeken van de containergroep wilt bekijken, moet u uw Log Analytics-werkruimte openen en het volgende doen:
 
@@ -109,7 +111,7 @@ U ziet nu enkele resultaten die door de query `search *` worden weergegeven. Als
 
 ## <a name="query-container-logs"></a>Query's uitvoeren op containerlogbestanden
 
-Log Analytics bevat een uitgebreide [querytaal] [ query_lang] voor het ophalen van gegevens uit wel duizenden regels logboekuitvoer.
+Azure Monitor-logboeken bevat een uitgebreide [querytaal] [ query_lang] voor het ophalen van gegevens uit mogelijk duizenden regels aan logboekuitvoer.
 
 De logboekregistratieagent van Azure Container Instances verzendt gegevens naar de `ContainerInstanceLog_CL`-tabel in uw Log Analytics-werkruimte. De basisstructuur van een query wordt gevormd door de brontabel (`ContainerInstanceLog_CL`) gevolgd door een reeks operatoren gescheiden door het sluisteken (`|`). U kunt verschillende operatoren aan elkaar koppelen om de resultaten te verfijnen en geavanceerde functies uit te voeren.
 
@@ -130,11 +132,11 @@ ContainerInstanceLog_CL
 
 ## <a name="next-steps"></a>Volgende stappen
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="azure-monitor-logs"></a>Azure Monitor-logboeken
 
-Voor meer informatie over het uitvoeren van query's op logboeken en het configureren van waarschuwingen in Azure Log Analytics, zie:
+Voor meer informatie over het uitvoeren van query's op logboeken en het configureren van waarschuwingen in Azure Monitor-logboeken, zie:
 
-* [Zoekopdrachten in logboeken in Log Analytics begrijpen](../log-analytics/log-analytics-log-search.md)
+* [Zoekopdrachten in Azure Monitor-logboeken begrijpen](../log-analytics/log-analytics-log-search.md)
 * [Consistente waarschuwingen in Azure Monitor](../azure-monitor/platform/alerts-overview.md)
 
 

@@ -8,12 +8,12 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/15/2019
-ms.openlocfilehash: 9d00819143d9a8fc38bfc09844d55f088e732b46
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 1b5f05f3cddea986230327165399b0fe530e361b
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453023"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588072"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Quickstart: Gegevens in Azure Data Lake Storage Gen2 analyseren met behulp van Azure Databricks
 
@@ -124,6 +124,9 @@ In deze sectie maakt u een notitieblok in de Azure Databricks-werkruimte en voer
     > Dit codeblok heeft direct toegang tot het Data Lake Gen2-eindpunt door middel van OAuth, maar er zijn andere manieren om de Databricks-werkruimte aan uw Data Lake Storage Gen2-account te koppelen. U kunt bijvoorbeeld het bestandssysteem koppelen met behulp van OAuth of directe toegang met een gedeelde sleutel gebruiken. <br>Zie het artikel [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) (Engelstalig) op de website van Azure Databricks voor voorbeelden van deze methoden.
 
 5. In dit codeblok vervangt u de tijdelijke aanduidingen `storage-account-name`, `application-id`, `authentication-id` en `tenant-id` door de waarden die u hebt verzameld toen u de service-principal maakte. Stel de tijdelijke aanduiding `file-system-name` in op de naam die u het bestandssysteem wilt geven.
+
+    > [!NOTE]
+    > In een productieomgeving kunt u de verificatiesleutel eventueel in Azure Databricks opslaan. Vervolgens voegt u een opzoeksleutel toe aan uw codeblok in plaats van de verificatiesleutel. Nadat u deze quickstart hebt afgerond, raadpleegt u het artikel [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) (Engelstalig) op de website van Azure Databricks voor voorbeelden van deze methode.
 
 6. Druk op de toetsen **Shift + Enter** om de code in dit blok uit te voeren.
 

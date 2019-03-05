@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: assafi
-ms.openlocfilehash: 1ae1288c8efd138863d63fc6437115aeb5fe98c8
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9b56104934c1ddcc60222c988efdf173ca33d77b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865774"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871006"
 ---
 # <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Quickstart: C# gebruiken om de Text Analytics Cognitive Service aan te roepen
 <a name="HOLTop"></a>
@@ -43,7 +43,7 @@ U moet ook de [eindpunt- en toegangssleutel](../How-tos/text-analytics-how-to-ac
 >
 > Een paar handige koppelingen:
 > - [Pagina over het NuGet-pakket voor de SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
-> - [SDK-code ](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Language/TextAnalytics)
+> - [SDK-code](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Language/TextAnalytics)
 
 
 ## <a name="call-the-text-analytics-api-using-the-sdk"></a>De Text Analytics-API aanroepen met de SDK

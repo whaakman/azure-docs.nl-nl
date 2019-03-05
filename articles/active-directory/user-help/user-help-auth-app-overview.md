@@ -12,14 +12,18 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79abead77705d13df909703a234bf72ee121a5be
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 8585557672c7db15e07be6a5e663ba1811e07694
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301176"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961309"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Wat is de Microsoft Authenticator-app?
+
+>[!Important]
+>Deze inhoud is bedoeld voor gebruikers. Als u een beheerder bent, kunt u meer informatie vinden over hoe u uw Azure Active Directory-omgeving (Azure AD) instelt en beheert in de [documentatie voor Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+
 Met de Microsoft Authenticator-app kunt u zich aanmelden bij uw accounts als u gebruikmaakt van verificatie in twee stappen. Verificatie in twee stappen helpt u veiliger toegang te krijgen tot uw accounts, vooral als u gevoelige informatie bekijkt. Omdat wachtwoorden kunnen worden vergeten, gestolen of gewijzigd, is verificatie in twee stappen een extra beveiligingsstap waarmee u uw account beschermt door het voor anderen lastiger te maken om in te breken.
 
 U kunt de Microsoft Authenticator-app op meerdere manieren gebruiken, bijvoorbeeld:
@@ -31,7 +35,7 @@ U kunt de Microsoft Authenticator-app op meerdere manieren gebruiken, bijvoorbee
 >[!Important]
 >De app Microsoft Authenticator werkt met elke app die verificatie in twee stappen gebruikt en met elk account dat de TOTP-normen (Time-Based One-Time Passwords) ondersteunt.
 
->Deze inhoud is bedoeld voor gebruikers. Als u een beheerder bent, kunt u meer informatie vinden over hoe u uw Azure Active Directory-omgeving (Azure AD) instelt en beheert in de [documentatie voor Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+>Mogelijk moet u voor uw organisatie gebruikmaken van een verificator-app om u aan te melden en de gegevens en documenten van uw organisatie te openen. Hoewel uw gebruikersnaam mogelijk in de app wordt weergegeven, wordt het account pas echt ingesteld om te fungeren als een verificatiemethode wanneer u het registratieproces voltooit. Zie [Uw werk- of schoolaccount toevoegen](user-help-auth-app-overview.md) voor meer informatie.
 
 >Als u problemen ondervindt met aanmelden bij uw account, gaat u naar [Wanneer u zich niet kunt aanmelden bij uw Microsoft-account](https://support.microsoft.com/help/12429) voor hulp. Bekijk meer informatie over wat u kunt doen wanneer het bericht ['Dat Microsoft-account bestaat niet'](https://support.microsoft.com/help/13811) wordt weergegeven wanneer u zich aanmeldt bij uw Microsoft-account.
 

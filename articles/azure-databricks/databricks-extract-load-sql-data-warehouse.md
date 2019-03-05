@@ -7,13 +7,14 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 01/24/2019
-ms.openlocfilehash: b48ac9cf8eff001e62f54e41b5f76a9d006bc5ba
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.workload: Active
+ms.date: 02/15/2019
+ms.openlocfilehash: 6ec32a40cea4f95d9225134cfb36d4930245d1c5
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328925"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750596"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Zelfstudie: Gegevens extraheren, transformeren en laden met Azure Databricks
 
@@ -21,14 +22,19 @@ In deze zelfstudie voert u een ETL-bewerking (Extraction, Transformation, and Lo
 
 Voor de stappen in deze zelfstudie wordt gebruik gemaakt van de SQL Data Warehouse-connector voor Azure Databricks om gegevens over te dragen naar Azure Databricks. Op zijn beurt gebruikt deze connector Azure Blob Storage als tijdelijke opslag voor de gegevens die worden overgebracht tussen een Azure Databricks-cluster en Azure SQL Data Warehouse.
 
+In de volgende afbeelding wordt de stroom van de toepassing weergegeven:
+
+![Azure Databricks met Data Lake Store en SQL Data Warehouse](./media/databricks-extract-load-sql-data-warehouse/databricks-extract-transform-load-sql-datawarehouse.png "Azure Databricks met Data Lake Store en SQL Data Warehouse")
+
 Deze zelfstudie bestaat uit de volgende taken:
 
 > [!div class="checklist"]
 > * Een Azure Databricks-service maken.
 > * Een Apache Spark-cluster in Azure Databricks maken.
-> * Een bestandssysteem maken en gegevens uploaden naar Azure Data Lake Storage Gen2.
+> * Een bestandssysteem in uw Data Lake Storage Gen2-account maken.
+> * Voorbeeldgegevens in het Azure Data Lake Storage Gen2-account uploaden.
 > * Een service-principal maken.
-> * Gegevens extraheren uit de Data Lake Store.
+> * Gegevens uit het Azure Data Lake Storage Gen2-account extraheren.
 > * Gegevens transformeren in Azure Databricks.
 > * Gegevens laden in Azure SQL Data Warehouse.
 
@@ -42,11 +48,40 @@ Voltooi deze taken voordat u aan deze zelfstudie begint:
 
 * Maak een databasehoofdsleutel voor de Azure SQL-datawarehouse. Zie [Een databasehoofdsleutel maken](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 
-* Een Azure Data Lake Storage Gen2-account maken. Zie [Een Azure Data Lake Storage Gen2-account maken](../storage/blobs/data-lake-storage-quickstart-create-account.md).
-
 * Maak een Azure Blob-opslagaccount met daarin een container. Haal ook de toegangssleutel op voor toegang tot het opslagaccount. Zie [Quickstart: Een Azure Blob Storage-account maken](../storage/blobs/storage-quickstart-blobs-portal.md).
 
+* Een Azure Data Lake Storage Gen2-opslagaccount maken. Zie [Een Azure Data Lake Storage Gen2-account maken](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+
+*  Een service-principal maken. Raadpleeg [Uitleg: Gebruik de portal voor het maken van een Azure AD-toepassing en service-principal die toegang hebben tot resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+   Er zijn een paar specifieke zaken die u moet doen terwijl u de stappen in het artikel uitvoert.
+
+   * Wanneer u de stappen uitvoert in de sectie [De toepassing toewijzen aan een rol](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) van het artikel, moet u ervoor zorgen dat de rol **Gegevensbijdrager voor opslagblob** is toegewezen aan de service-principal.
+
+     > [!IMPORTANT]
+     > Zorg ervoor dat u de rol toewijst in het bereik van het Data Lake Storage Gen2-opslagaccount. U kunt een rol toewijzen aan de bovenliggende resourcegroep of het bovenliggende abonnement, maar u ontvangt machtigingsgerelateerde fouten tot die roltoewijzingen zijn doorgegeven aan het opslagaccount.
+
+   * Als u de stappen gaat uitvoeren in de sectie [Waarden ophalen voor het aanmelden](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) van het artikel, plakt u de waarden van de tenant-id, de toepassings-id en de verificatiesleutel in een tekstbestand. U hebt deze binnenkort nodig.
+
 * Meld u aan bij [Azure Portal](https://portal.azure.com/).
+
+## <a name="gather-the-information-that-you-need"></a>Verzamel de benodigde informatie
+
+Zorg dat u over alle vereisten voor deze zelfstudie beschikt.
+
+   Voor u begint, moet u de volgende gegevens hebben:
+
+   :heavy_check_mark:  de databasenaam, de naam van de databaseserver, de gebruikersnaam en het wachtwoord van uw Azure SQL Data Warehouse.
+
+   :heavy_check_mark:  de toegangssleutel van uw blob-opslagaccount.
+
+   :heavy_check_mark:  de naam van uw Azure Data Lake Storage Gen2-opslagaccount.
+
+   :heavy_check_mark:  de tenant-id van uw abonnement.
+
+   :heavy_check_mark:  de toepassings-id van de app die u voor Azure Active Directory (Azure AD) hebt geregistreerd.
+
+   :heavy_check_mark:  de verificatiesleutel van de app die u voor Azure Active Directory hebt geregistreerd.
 
 ## <a name="create-an-azure-databricks-service"></a>Een Azure Databricks-service maken
 
@@ -94,40 +129,9 @@ In dit gedeelte gaat u een Azure Databricks-service maken met behulp van de Azur
 
     * Selecteer **Cluster maken**. Als het cluster wordt uitgevoerd, kunt u notitieblokken koppelen aan het cluster en Apache Spark-taken uitvoeren.
 
-## <a name="create-a-file-system-and-upload-sample-data"></a>Een bestandssysteem maken en voorbeeldgegevens uploaden
+## <a name="create-a-file-system-in-the-azure-data-lake-storage-gen2-account"></a>Een bestandssysteem in uw Azure Data Lake Storage Gen2-account maken
 
-Eerst maakt u een bestandssysteem in uw Data Lake Storage Gen2-account. Vervolgens uploadt u een voorbeeldgegevensbestand naar Data Lake Store. Dit bestand gebruikt u later in Azure Databricks om enkele transformaties uit te voeren.
-
-1. Download het voorbeeldgegevensbestand [small_radio_json.json](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) naar uw lokale bestandssysteem.
-
-2. Vanuit de [Microsoft Azure-portal](https://portal.azure.com/) navigeert u naar het Data Lake Storage Gen2-account dat u als een vereiste voor deze zelfstudie hebt gemaakt.
-
-3. Selecteer vanaf de pagina **Overzicht** van het opslagaccount de optie **Openen in Explorer**.
-
-   ![Storage Explorer openen](./media/databricks-extract-load-sql-data-warehouse/data-lake-storage-open-storage-explorer.png "Storage Explorer openen")
-
-4. Selecteer **Azure Storage Explorer openen** om Storage Explorer te openen.
-
-   ![Tweede prompt van Storage Explorer openen](./media/databricks-extract-load-sql-data-warehouse/data-lake-storage-open-storage-explorer-2.png "Tweede prompt van Storage Explorer openen")
-
-   Storage Explorer wordt geopend. U kunt een bestandssysteem maken en de voorbeeldgegevens uploaden met behulp van de richtlijnen in dit onderwerp: [Snelstart: Azure Storage Explorer gebruiken voor het beheren van gegevens in een Azure Data Lake Storage Gen2-account](../storage/blobs/data-lake-storage-explorer.md).
-
-<a id="service-principal"/>
-
-## <a name="create-a-service-principal"></a>Een service-principal maken
-
-Maak een service-principal aan de hand van de instructies in dit onderwerp: [Procedure: Gebruik de portal voor het maken van een Azure AD-toepassing en service-principal die toegang hebben tot resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
-
-Er zijn een paar dingen die u moet doen terwijl u de stappen in het artikel uitvoert.
-
-:heavy_check_mark: Als u de stappen gaat uitvoeren in de sectie [De toepassing aan een rol toewijzen](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) van het artikel, moet u er voor zorgen dat u de toepassing toewijst aan de **rol van inzender voor Blob Storage**.
-
-:heavy_check_mark: Als u de stappen gaat uitvoeren in de sectie [Waarden ophalen voor het aanmelden](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) van het artikel, plakt u de waarden van de tenant-id, de toepassings-id en de verificatiesleutel in een tekstbestand. U hebt deze binnenkort nodig.
-Eerst maakt u een notitieblok in de Azure Databricks-werkruimte en vervolgens voert u codefragmenten uit om het bestandssysteem in uw opslagaccount te maken.
-
-## <a name="extract-data-from-the-data-lake-store"></a>Gegevens extraheren uit de Data Lake Store
-
-In deze sectie maakt u een notitieblok in de Azure Databricks-werkruimte en voert u codefragmenten uit om gegevens op te halen uit de Data Lake Store en deze vervolgens te laden in Azure Databricks.
+In deze sectie maakt u een notebook in de Azure Databricks-werkruimte en voert u vervolgens codefragmenten uit om het opslagaccount te configureren
 
 1. Ga in de [Azure-portal](https://portal.azure.com) naar de Azure Databricks-service die u hebt gemaakt en selecteer **Werkruimte starten**.
 
@@ -149,13 +153,40 @@ In deze sectie maakt u een notitieblok in de Azure Databricks-werkruimte en voer
    spark.conf.set("fs.azure.account.oauth2.client.id.<storage-account-name>.dfs.core.windows.net", "<application-id>")
    spark.conf.set("fs.azure.account.oauth2.client.secret.<storage-account-name>.dfs.core.windows.net", "<authentication-key>")
    spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
+   spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
+   dbutils.fs.ls("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/")
+   spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
    ```
 
-6. In dit codeblok vervangt u de tijdelijke aanduidingen `application-id`, `authentication-id` en `tenant-id` door de waarden die u hebt verkregen bij het uitvoeren van de stappen in configuratie Opslagaccount reserveren. Vervang de waarde van de tijdelijke plaatsaanduiding `storage-account-name` door de naam van uw opslagaccount.
+6. In dit codeblok vervangt u de tijdelijke aanduidingen `application-id`, `authentication-id`, `tenant-id` en `storage-account-name` door de waarden die u hebt verzameld bij het uitvoeren van de vereiste stappen voor deze zelfstudie. Vervang de tijdelijke aanduiding `file-system-name` door de naam die u het bestandssysteem wilt geven.
+
+   * De tijdelijke aanduidingen `application-id` en `authentication-id` zijn afkomstig uit de app die u bij Active Directory hebt geregistreerd tijdens het maken van een service-principal.
+
+   * De tijdelijke aanduiding `tenant-id` is afkomstig van uw abonnement.
+
+   * De tijdelijke aanduiding `storage-account-name` is de naam van uw Azure Data Lake Storage Gen2-opslagaccount.
 
 7. Druk op de toetsen **Shift + Enter** om de code in dit blok uit te voeren.
 
-8. U kunt nu het JSON-voorbeeldbestand laden als een dataframe in Azure Databricks. Plak de volgende code in de nieuwe cel. Vervang de tijdelijke aanduidingen tussen haken door uw eigen waarden.
+## <a name="ingest-sample-data-into-the-azure-data-lake-storage-gen2-account"></a>Voorbeeldgegevens in het Azure Data Lake Storage Gen2-account opnemen
+
+Voordat u met deze sectie begint, moet u eerst aan de volgende vereisten voldoen:
+
+Voer de volgende code in een notitieblokcel in:
+
+    %sh wget -P /tmp https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
+
+Druk in de cel op **SHIFT+ENTER** om de code uit te voeren.
+
+Voer nu in een cel onder deze cel de volgende code in, en vervang de waarden tussen haakjes door dezelfde waarden die u eerder hebt gebruikt:
+
+    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfss://<file-system>@<account-name>.dfs.core.windows.net/")
+
+Druk in de cel op **SHIFT+ENTER** om de code uit te voeren.
+
+## <a name="extract-data-from-the-azure-data-lake-storage-gen2-account"></a>Gegevens uit het Azure Data Lake Storage Gen2-account extraheren
+
+1. U kunt nu het JSON-voorbeeldbestand laden als een dataframe in Azure Databricks. Plak de volgende code in de nieuwe cel. Vervang de tijdelijke aanduidingen tussen haken door uw eigen waarden.
 
    ```scala
    val df = spark.read.json("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/small_radio_json.json")
@@ -165,9 +196,9 @@ In deze sectie maakt u een notitieblok in de Azure Databricks-werkruimte en voer
 
    * Vervang de tijdelijke plaatsaanduiding `storage-account-name` door de naam van uw opslagaccount.
 
-9. Druk op de toetsen **Shift + Enter** om de code in dit blok uit te voeren.
+2. Druk op de toetsen **Shift + Enter** om de code in dit blok uit te voeren.
 
-10. Voer de volgende code uit om de inhoud van het dataframe weer te geven:
+3. Voer de volgende code uit om de inhoud van het dataframe weer te geven:
 
     ```scala
     df.show()
@@ -300,8 +331,8 @@ Zoals eerder vermeld, maakt de SQL Data Warehouse-connector gebruik van Azure Bl
    val dwPass = "<password>"
    val dwJdbcPort =  "1433"
    val dwJdbcExtraOptions = "encrypt=true;trustServerCertificate=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;"
-   val sqlDwUrl = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass + ";$dwJdbcExtraOptions"
-   val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
+   val sqlDwUrl = "jdbc:sqlserver://" + dwServer + ":" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass + ";$dwJdbcExtraOptions"
+   val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ":" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
    ```
 
 5. Voer het volgende codefragment uit om het getransformeerde dataframe, **renamedColumnsDF**, als een tabel te laden in een SQL-datawarehouse. Met dit fragment wordt een tabel met de naam **SampleTable** gemaakt in de SQL-database.

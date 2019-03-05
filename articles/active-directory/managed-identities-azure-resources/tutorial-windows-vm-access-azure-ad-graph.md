@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/20/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed94b7571acb0ced124644dafc59d805d5112e8a
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 10b74b85235cc47375f6289b52371bc588105ad9
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268563"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890093"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Zelfstudie: Een door het Windows-VM-systeem toegewezen beheerde identiteit gebruiken voor toegang tot de Azure AD Graph API
 
@@ -43,10 +43,14 @@ Deze zelfstudie laat zien hoe u toegang krijgt tot de Microsoft Graph API met ee
 
 ## <a name="connect-to-azure-ad"></a>Verbinding maken met Azure AD
 
-U moet verbinding maken met Azure AD om de VM toe te wijzen aan een groep en om de VM toestemming te geven de groepslidmaatschappen op te halen.
+U moet verbinding maken met Azure AD om de VM toe te wijzen aan een groep en om de VM toestemming te geven de groepslidmaatschappen op te halen. U kunt de cmdlet Connect-AzureAD rechtstreeks gebruiken, of met Tenant-id-parameter als u meerdere tenants hebt.
 
 ```powershell
 Connect-AzureAD
+```
+OF
+```powershell
+Connect-AzureAD -TenantId "Object Id of the tenant"
 ```
 
 ## <a name="add-your-vm-identity-to-a-group-in-azure-ad"></a>Uw VM-identiteit in Azure AD toevoegen aan een groep
@@ -79,7 +83,13 @@ U hebt Azure AD PowerShell nodig om deze optie te gebruiken. Als u deze nog niet
    ```powershell
    Connect-AzureAD
    ```
+   Als u verbinding wilt maken met een specifieke omgeving van Azure Active Directory, gebruikt u de parameter _TenantId_ op de volgende manier:
 
+   ```PowerShell
+   Connect-AzureAD -TenantId "Object Id of the tenant"
+   ```
+
+   
 2. Voer de volgende PowerShell-opdrachten uit om de toepassingstoestemming ``Directory.Read.All`` toe te wijzen aan de service-principal die staat voor de identiteit van uw virtuele machine.
 
    ```powershell

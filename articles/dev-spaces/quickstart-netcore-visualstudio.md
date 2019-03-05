@@ -12,14 +12,14 @@ ms.date: 07/09/2018
 ms.topic: quickstart
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: 224b8fac3634e5ee9e5ffadc7664bd046467d2ce
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 89fd64be0ea7b5b02ed446f2ee6d4c6a9c69dd0e
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660847"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819681"
 ---
-# <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>Snelstart: Kubernetes-ontwikkelomgeving maken met Azure Dev Spaces (.NET Core en Visual Studio)
+# <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>Quickstart: Kubernetes-ontwikkelomgeving maken met Azure Dev Spaces (.NET Core en Visual Studio)
 
 In deze handleiding leert u het volgende:
 
@@ -32,9 +32,7 @@ In deze handleiding leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Een Kubernetes-cluster met Kubernetes 1.9.6 of hoger in de regio EastUS, EastUS2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral of CanadaEast met Routering van HTTP-toepassing ingeschakeld.
-
-  ![Zorg dat routering van HTTP-toepassing is ingeschakeld.](media/common/Kubernetes-Create-Cluster-3.PNG)
+- Een Kubernetes-cluster met Kubernetes 1.9.6 of hoger in de regio VS-Oost, VS-Oost2, VS-Centraal, VS-West2, Europa-West, Azië-Centraal, Canada-Centraal of Canada-Oost.
 
 - Visual Studio 2017 waarbij de workload Webontwikkeling is geïnstalleerd. Als u deze niet hebt geïnstalleerd, downloadt u deze [hier](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 

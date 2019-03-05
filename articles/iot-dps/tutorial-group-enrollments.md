@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 6447061e79946abf8070daf29eeb57bad7b6fa55
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 8e926c3ff7c3d7abc9467291e9b1de77781f664e
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184964"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805050"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Een gesimuleerd X.509-apparaat maken en inrichten voor IoT Hub Device Provisioning Service met de SDK voor Java-apparaten en -services en registratiegroepen
 
@@ -35,12 +35,12 @@ Voltooi de stappen in [Set up the IoT Hub Device Provisioning Service with the A
 1. Gebruik het volgende [certificaatoverzicht](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) om uw testcertificaten te maken.
 
     > [!NOTE]
-    > Deze stap vereist [OpenSSL](https://www.openssl.org/), dat ofwel kan worden gebouwd en geïnstalleerd vanuit de bron of van [derden](https://wiki.openssl.org/index.php/Binaries) worden gedownload en geïnstalleerd zoals [deze](https://sourceforge.net/projects/openssl/). Als u al het _hoofd_-, _tussen_- en _apparaat_certificaat hebt gemaakt, kunt u deze stap overslaan.
+    > Deze stap vereist [OpenSSL](https://www.openssl.org/), dat ofwel kan worden gebouwd en geïnstalleerd vanuit de bron ofwel via [een externe partij](https://wiki.openssl.org/index.php/Binaries) (zoals [deze](https://sourceforge.net/projects/openssl/)) kan worden gedownload en geïnstalleerd. Als u al het _hoofd_-, _tussen_- en _apparaat_certificaat hebt gemaakt, kunt u deze stap overslaan.
     >
 
     1. Voer de eerste twee stappen uit om uw _basis_- en _tussen_certificaat te maken.
 
-    1. Meld u aan bij Azure Portal, klik in het linkermenu op de knop **All resources** en open uw Provisioning-service.
+    1. Meld u aan bij Azure Portal, klik in het linkermenu op de knop **Alle resources** en open uw Provisioning-service.
 
         1. Selecteer **Certificaten** in de overzichtsblade Device Provisioning Service en klik op de knop **Toevoegen** bovenaan.
 
@@ -68,7 +68,7 @@ Voltooi de stappen in [Set up the IoT Hub Device Provisioning Service with the A
 ## <a name="create-a-device-enrollment-entry"></a>Een vermelding voor apparaatinschrijving maken
 
 1. Open een opdrachtprompt. Kloon de GitHub-opslagplaats voor Java SDK-codevoorbeelden:
-    
+
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
@@ -77,11 +77,11 @@ Voltooi de stappen in [Set up the IoT Hub Device Provisioning Service with the A
 
     1. Voeg de `[Provisioning Connection String]` voor de inrichtingsservice als volgt toe vanuit de portal:
 
-        1. Navigeer naar de inrichtingsservice in [Azure Portal](https://portal.azure.com). 
+        1. Navigeer naar de inrichtingsservice in [Azure Portal](https://portal.azure.com).
 
         1. Open **Gedeeld toegangsbeleid** en selecteer een beleid met de machtiging *EnrollmentWrite*.
-    
-        1. Kopieer de **Verbindingsreeks van de primaire sleutel**. 
+
+        1. Kopieer de **Verbindingsreeks van de primaire sleutel**.
 
             ![De verbindingsreeks voor de inrichting ophalen uit de portal](./media/tutorial-group-enrollments/provisioning-string.png)  
 
@@ -91,7 +91,9 @@ Voltooi de stappen in [Set up the IoT Hub Device Provisioning Service with the A
             private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
             ```
 
-    1. Open het bestand **_RootCA.pem_** in een teksteditor. Wijs de waarde van het **Basiscertificaat** toe aan de parameter **PUBLIC_KEY_CERTIFICATE_STRING** zoals hieronder wordt weergegeven:
+    1. Open het bestand voor het tussen-handtekeningcertificaat in een teksteditor. Werk de waarde `PUBLIC_KEY_CERTIFICATE_STRING` bij met de waarde van het tussen-handtekeningcertificaat.
+
+        Als u de apparaatcertificaten met Bash-shell hebt gegenereerd, bevat *./certs/azure-iot-test-only.intermediate.cert.pem* de sleutel van het tussencertificaat. Als uw certificaten zijn gegenereerd met PowerShell, is *./Intermediate1.pem* het bestand van het tussencertificaat.
 
         ```java
         private static final String PUBLIC_KEY_CERTIFICATE_STRING =
@@ -108,14 +110,14 @@ Voltooi de stappen in [Set up the IoT Hub Device Provisioning Service with the A
                 "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
                 "-----END CERTIFICATE-----\n";
         ```
- 
+
     1. Navigeer naar de IoT-hub die is gekoppeld aan de inrichtingsservice in [Azure Portal](https://portal.azure.com). Open het tabblad **Overzicht** voor de hub en kopieer de **Hostnaam**. Wijs deze **Hostnaam** toe aan de parameter *IOTHUB_HOST_NAME*.
 
         ```java
         private static final String IOTHUB_HOST_NAME = "[Host name].azure-devices.net";
         ```
 
-    1. Bestudeer de voorbeeldcode. Hiermee wordt een groepsinschrijving voor X.509-apparaten gemaakt, bijgewerkt, en verwijderd, en wordt voor deze inschrijving een query uitgevoerd. Markeer de volgende coderegels aan het einde van het bestand _ServiceEnrollmentGroupSample.java_ tijdelijk als commentaar voor een geslaagde inschrijving via de portal:
+    1. Bestudeer de voorbeeldcode. Hiermee wordt een groepsregistratie voor X.509-apparaten gemaakt, bijgewerkt, en verwijderd, en wordt voor deze registratie een query uitgevoerd. Markeer de volgende coderegels aan het einde van het bestand _ServiceEnrollmentGroupSample.java_ tijdelijk als commentaar voor een geslaagde inschrijving via de portal:
 
         ```java
         // ************************************** Delete info of enrollmentGroup ***************************************
@@ -123,7 +125,7 @@ Voltooi de stappen in [Set up the IoT Hub Device Provisioning Service with the A
         provisioningServiceClient.deleteEnrollmentGroup(enrollmentGroupId);
         ```
 
-    1. Sla het bestand _ServiceEnrollmentGroupSample.java_ op. 
+    1. Sla het bestand _ServiceEnrollmentGroupSample.java_ op.
 
 1. Open een opdrachtvenster en navigeer naar de map **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**.
 
@@ -144,8 +146,7 @@ Voltooi de stappen in [Set up the IoT Hub Device Provisioning Service with the A
 
     ![Geslaagde registratie](./media/tutorial-group-enrollments/enrollment.png) 
 
-1. Navigeer naar de inrichtingsservice in Azure Portal. Klik op **Inschrijvingen beheren**. U ziet dat de groep X.509-apparaten wordt weergegeven op het tabblad **Inschrijvingsgroepen** met een automatisch gegenereerde *GROEPSNAAM*. 
-
+1. Navigeer naar de inrichtingsservice in Azure Portal. Klik op **Inschrijvingen beheren**. U ziet dat de groep X.509-apparaten wordt weergegeven op het tabblad **Inschrijvingsgroepen** met een automatisch gegenereerde *GROEPSNAAM*.
 
 ## <a name="simulate-the-device"></a>Het apparaat simuleren
 
@@ -159,36 +160,79 @@ Voltooi de stappen in [Set up the IoT Hub Device Provisioning Service with the A
     cd azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-X509-sample
     ```
 
-1. Voer de informatie over de registratiegroep op de volgende manier in:
+1. Bewerk `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` om de eerder genoteerde waarden voor _Id-bereik_ en _Globaal eindpunt voor inrichtingsservice_ toe te voegen.
 
-    - Bewerk `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` om de eerder genoteerde waarden voor _Id-bereik_ en _Globaal eindpunt voor inrichtingsservice_ toe te voegen. Open het bestand **_{deviceName}-public.pem_** en voeg deze waarde toe als uw _clientcertificaat_. Open het bestand **_{deviceName}-all.pem_** bestand en kopieer de tekst van _-----BEGIN PRIVATE KEY-----_ tot _-----END PRIVATE KEY-----_.  Gebruik deze als de _persoonlijke sleutel voor het clientcertificaat_.
+    ```java
+    private static final String idScope = "[Your ID scope here]";
+    private static final String globalEndpoint = "[Your Provisioning Service Global Endpoint here]";
+    private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
+    private static final int MAX_TIME_TO_WAIT_FOR_REGISTRATION = 10000; // in milli seconds
+    private static final String leafPublicPem = "<Your Public PEM Certificate here>";
+    private static final String leafPrivateKey = "<Your Private PEM Key here>";
+    ```
 
-        ```java
-        private static final String idScope = "[Your ID scope here]";
-        private static final String globalEndpoint = "[Your Provisioning Service Global Endpoint here]";
-        private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
-        private static final String leafPublicPem = "<Your Public PEM Certificate here>";
-        private static final String leafPrivateKey = "<Your Private PEM Key here>";
-        ```
+1. Werk de variabelen `leafPublicPem` en `leafPrivateKey` bij met uw openbare en uw persoonlijke apparaatcertificaten.
 
-        - Gebruik de volgende notatie om uw certificaat en sleutel op te nemen:
-            
-            ```java
-            private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "-----END CERTIFICATE-----\n";
-            private static final String leafPrivateKey = "-----BEGIN PRIVATE KEY-----\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "XXXXXXXXXX\n" +
-                "-----END PRIVATE KEY-----\n";
-            ```
+    Als u de apparaatcertificaten met PowerShell hebt gegenereerd, bevatten de bestanden mydevice* de openbare sleutel, de persoonlijke sleutel en de PFX voor het apparaat.
 
-1. Bouw het voorbeeld. Navigeer naar de doelmap en voer het gemaakte JAR-bestand uit.
+    Als u de apparaatcertificaten met Bash-shell hebt gegenereerd, bevat ./certs/new-device.cert.pem de openbare sleutel. De persoonlijke apparaatsleutel bevindt zich in het bestand ./private/new-device.key.pem.
+
+    Open het bestand voor de openbare sleutel en werk de variabele `leafPublicPem` bij met de deze waarde. Kopieer de tekst vanaf _-----BEGIN PRIVATE KEY-----_ tot _-----END PRIVATE KEY-----_.
+
+    ```java
+    private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "-----END CERTIFICATE-----\n";
+    ```
+
+    Open het bestand voor de persoonlijke sleutel en werk de variabele `leafPrivatePem` bij met de deze waarde. Kopieer de tekst vanaf _-----BEGIN RSA PRIVATE KEY-----_ tot _-----END RSA PRIVATE KEY-----_.
+
+    ```java
+    private static final String leafPrivateKey = "-----BEGIN RSA PRIVATE KEY-----\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "-----END RSA PRIVATE KEY-----\n";
+    ```
+
+1. Voeg direct onder `leafPrivateKey` een nieuwe variabele toe voor het tussencertificaat. Geef deze nieuwe variabele de naam `intermediateKey`. Ken aan de variabele de waarde van het tussen-handtekeningcertificaat toe.
+
+    Als u de apparaatcertificaten met Bash-shell hebt gegenereerd, bevat *./certs/azure-iot-test-only.intermediate.cert.pem* de sleutel van het tussencertificaat. Als uw certificaten zijn gegenereerd met PowerShell, is *./Intermediate1.pem* het bestand van het tussencertificaat.
+
+    ```java
+    private static final String intermediateKey = "-----BEGIN CERTIFICATE-----\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "-----END CERTIFICATE-----\n";
+    ```
+
+1. Voeg in de functie `main` het element `intermediateKey` toe aan de verzameling `signerCertificates` vóór de initialisatie van `securityProviderX509`.
+
+    ```java
+    public static void main(String[] args) throws Exception
+    {
+        ...
+
+        try
+        {
+            ProvisioningStatus provisioningStatus = new ProvisioningStatus();
+
+            // Add intermediate certificate as part of the certificate key chain.
+            signerCertificates.add(intermediateKey);
+
+            SecurityProvider securityProviderX509 = new SecurityProviderX509Cert(leafPublicPem, leafPrivateKey, signerCertificates);
+    ```
+
+1. Sla uw wijzigingen op en bouw het voorbeeld. Navigeer naar de doelmap en voer het gemaakte JAR-bestand uit.
 
     ```cmd/sh
     mvn clean install

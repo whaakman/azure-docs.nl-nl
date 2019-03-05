@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 5174bb696b456a66cfc0666ac5c475437e441d82
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: d4f530e38b6fd69d814765f4133201dd12a87f22
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848849"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56668579"
 ---
 # <a name="tutorial-remove-a-service-fabric-cluster-running-in-azure"></a>Zelfstudie: Een Service Fabric-cluster dat in Azure wordt uitgevoerd, verwijderen
 
@@ -34,7 +34,7 @@ In deze zelfstudie leert u het volgende:
 
 In deze zelfstudiereeks leert u het volgende:
 > [!div class="checklist"]
-> * Een veilig [Windows-cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) of [Linux-cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) maken in Azure met behulp van een sjabloon
+> * Een beveiligd [Windows-cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) maken in Azure met behulp van een sjabloon
 > * [Een cluster in- of uitschalen](service-fabric-tutorial-scale-cluster.md)
 > * [De runtime van een cluster upgraden](service-fabric-tutorial-upgrade-cluster.md)
 > * Een cluster verwijderen
@@ -45,7 +45,7 @@ Voor u met deze zelfstudie begint:
 
 * Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Installeer de [Azure Powershell-module, versie 4.1 of hoger](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) of de [Azure CLI](/cli/azure/install-azure-cli).
-* Maak een veilig [Windows-cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) of [Linux-cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) in Azure
+* Een beveiligd [Windows-cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) maken in Azure
 
 ## <a name="delete-the-resource-group-containing-the-service-fabric-cluster"></a>Verwijder de resourcegroep die het Service Fabric-cluster bevat
 De eenvoudigste manier om het cluster en alle resources te verwijderen, is om de resourcegroep te verwijderen.
@@ -115,5 +115,5 @@ In deze zelfstudie heeft u het volgende geleerd:
 
 Nu u deze zelfstudie hebt voltooid, kunt de volgende zaken doen:
 * Ontdekken hoe u een Service Fabric-cluster inspecteert en beheer met [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
-* Ontdekken hoe u [het Windows-besturingssysteem patcht](service-fabric-patch-orchestration-application.md) of [het Linux-besturingssysteem patcht](service-fabric-patch-orchestration-application-linux.md) (voor de clusterknooppunten).
-* Ontdekken hoe u gebeurtenissen aggregeert en verzamelt voor [Windows-clusters](service-fabric-diagnostics-event-aggregation-wad.md) of [Linux-clusters](service-fabric-diagnostics-event-aggregation-lad.md) en hoe u [Log Analytics instelt](service-fabric-diagnostics-oms-setup.md) voor het bewaken van clustergebeurtenissen.
+* Ontdekken hoe u [het Windows-besturingssysteem patcht](service-fabric-patch-orchestration-application.md) voor de clusterknooppunten.
+* Ontdekken hoe u gebeurtenissen aggregeert en verzamelt voor [Windows-clusters](service-fabric-diagnostics-event-aggregation-wad.md) en hoe u [Log Analytics instelt](service-fabric-diagnostics-oms-setup.md) voor het bewaken van clustergebeurtenissen.

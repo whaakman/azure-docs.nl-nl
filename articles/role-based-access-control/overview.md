@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/14/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2d8f3ffb4f7d90b053c8a285d62007f5655d9adb
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: eb8791a4031eeeeeccddda024514af208ff66251
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338628"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806558"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Wat is op rollen gebaseerd toegangsbeheer (RBAC) voor Azure-resources?
 
@@ -108,7 +108,7 @@ Wat gebeurt er wanneer er meerdere overlappende roltoewijzingen zijn? RBAC is ee
 
 ## <a name="deny-assignments"></a>Weigeringstoewijzingen
 
-Voorheen was RBAC een model op basis van alleen-toestaan zonder de mogelijkheid tot weigeren, maar nu ondersteunt RBAC in beperkte mate weigeringstoewijzingen. Ongeveer op dezelfde manier als een roltoewijzing verbindt een *weigeringstoewijzing* een reeks acties aan een gebruiker, groep, service-principal of beheerde identiteit met een bepaald bereik met het doel toegang te weigeren. Een roltoewijzing definieert een set acties die zijn *toegestaan*, terwijl een weigeringstoewijzing een set acties definieert die *niet zijn toegestaan*. Met andere woorden, weigeringstoewijzingen voorkomen dat gebruikers opgegeven acties uitvoeren, zelfs als een roltoewijzing hen deze toegang verleent. Weigeringstoewijzingen hebben voorrang op roltoewijzingen. Op dit moment zijn weigeringstoewijzingen **alleen-lezen** en kunnen deze alleen worden ingesteld door Azure. Zie [Weigeringstoewijzingen voor Azure-resources begrijpen](deny-assignments.md) en [Weigeringstoewijzingen voor Azure-resources bekijken met behulp van de Azure-portal](deny-assignments-portal.md) voor meer informatie.
+Voorheen was RBAC een model op basis van alleen-toestaan zonder de mogelijkheid tot weigeren, maar nu ondersteunt RBAC in beperkte mate weigeringstoewijzingen. Ongeveer op dezelfde manier als een roltoewijzing verbindt een *weigeringstoewijzing* een reeks acties aan een gebruiker, groep, service-principal of beheerde identiteit met een bepaald bereik met het doel toegang te weigeren. Een roltoewijzing definieert een set acties die zijn *toegestaan*, terwijl een weigeringstoewijzing een set acties definieert die *niet zijn toegestaan*. Met andere woorden, weigeringstoewijzingen voorkomen dat gebruikers opgegeven acties uitvoeren, zelfs als een roltoewijzing hen deze toegang verleent. Weigeringstoewijzingen hebben voorrang op roltoewijzingen. Op dit moment hebben weigeringstoewijzingen het kenmerk **Alleen-lezen** en kunnen deze alleen worden ingesteld door Windows. Zie [Weigeringstoewijzingen voor Azure-resources begrijpen](deny-assignments.md) en [Weigeringstoewijzingen voor Azure-resources bekijken met behulp van de Azure-portal](deny-assignments-portal.md) voor meer informatie.
 
 ## <a name="how-rbac-determines-if-a-user-has-access-to-a-resource"></a>Hoe RBAC bepaalt of een gebruiker toegang tot een resource heeft
 

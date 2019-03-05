@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 2439244edcc1b7026a2cc8a62a946188e279f15f
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 4489fc82f836d8c311fcd776e211670897618b54
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245827"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889474"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Zelfstudie: Power BI Desktop integreren met de Text Analytics Cognitive service
 
@@ -94,7 +94,7 @@ De [Sleuteltermen-API](//westus.dev.cognitive.microsoft.com/docs/services/TextAn
 | | |
 | - | - |
 | `id`  | Een unieke ID voor dit document in de aanvraag. Het antwoord bevat dit veld ook. Zo kunt u bij het verwerken van meerdere documenten de geëxtraheerde sleuteltermen gemakkelijk koppelen aan het document waaruit ze kwamen. Omdat u in deze zelfstudie één document per aanvraag verwerkt kunt u de waarde van `id` als harde code invoeren om deze hetzelfde te laten zijn voor elke aanvraag.|
-| `text`  | De tekst die moet worden verwerkt. De waarde van dit veld komt uit de kolom `Merged` die u hebt gemaakt in de [vorige sectie](#PreparingData), die de gecombineerde onderwerpregel en opmerkingstekst bevat. De Key Phrases-API vereist dat deze gegevens niet langer dan ongeveer 5.000 tekens zijn.|
+| `text`  | De tekst die moet worden verwerkt. De waarde van dit veld komt uit de kolom `Merged` die u hebt gemaakt in de [vorige sectie](#PreparingData), die de gecombineerde onderwerpregel en opmerkingstekst bevat. De Key Phrases-API vereist dat deze gegevens niet langer dan ongeveer 5.120 tekens zijn.|
 | `language` | De code die de natuurlijke taal waarin het document is geschreven. Alle berichten in de voorbeeldgegevens zijn in het Engels, zodat u dit in code kunt zetten met de waarde `en` voor dit veld.|
 
 ## <a name="create-a-custom-function"></a>Maak een aangepaste functie

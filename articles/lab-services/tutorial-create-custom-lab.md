@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 0530dbac88fcfbfb05ab29d1c5934a468f263034
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: aff92e8dd45fecc3fabd005e8921eda7add07fb4
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096633"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804951"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Zelfstudie: Een lab maken met Azure DevTest Labs
 In deze zelfstudie maakt u een lab met Azure Portal. Een labbeheerder stelt in een organisatie een lab op, maakt virtuele machines in het lab en configureert beleidsregels. Labgebruikers (bijvoorbeeld ontwikkelaars en testers) claimen virtuele machines in het lab, maken hier verbinding mee en gebruiken deze. 
@@ -80,7 +80,7 @@ In de volgende stappen ziet u hoe u Azure Portal kunt gebruiken om een lab te ma
 1. Nadat de virtuele machine is gemaakt, ziet u deze in de lijst met **Claimbare virtuele machines**. 
 
     > [!NOTE] 
-    > Als u een Linux-VM toevoegt aan een lab, kunt u SSH- en RDP-toegang tot de virtuele machine inschakelen. Als u geen toegang inschakelt tijdens het maken van de virtuele machine, kunt u handmatig regels toevoegen aan de netwerkbeveiligingsgroep die gekoppeld is aan de virtuele machine om poorten te openen voor SSH en RDP.
+    > Op de pagina **Geavanceerde instellingen** kunt u een openbaar, persoonlijk of een gedeeld IP-adres configureren voor de virtuele machine. Wanneer de **gedeelde IP** is ingeschakeld, activeert Azure DevTest Labs automatisch RDP voor virtuele Windows-machines en SSH voor virtuele Linux-machines. Als u virtuele machines met **openbare IP**-adressen maakt, worden RDP en SSH ingeschakeld zonder wijzigingen van DevTest Labs.  
 
 ## <a name="add-a-user-to-the-lab-user-role"></a>Een gebruiker toevoegen aan de rol Labgebruiker
 

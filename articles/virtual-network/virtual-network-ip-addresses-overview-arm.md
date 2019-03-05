@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2019
 ms.author: jdial
-ms.openlocfilehash: e145642a12db941d52c55081032e247b6d65d38b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: a71870115c3ea5e64c8b365d6c4aa64920bc6ca3
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997326"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675038"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP-adrestypen en toewijzingsmethoden in Azure
 
@@ -121,7 +121,7 @@ Een [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fa
 
 ### <a name="application-gateways"></a>Toepassingsgateways
 
-U kunt een openbaar IP-adres koppelen aan een Azure-[toepassingsgateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) door het toe te wijzen aan de **front-end**-configuratie van de gateway. Dit openbare IP-adres doet dienst als een VIP met taakverdeling. U kunt alleen een *dynamisch* openbaar IP-adres uit de Basic-SKU toewijzen aan de front-end-configuratie van een toepassingsgateway.
+U kunt een openbaar IP-adres koppelen aan een Azure-[toepassingsgateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) door het toe te wijzen aan de **front-end**-configuratie van de gateway. Dit openbare IP-adres doet dienst als een VIP met taakverdeling. U kunt alleen een *dynamisch* openbaar IP-basisadres toewijzen aan een front-end-configuratie van toepassingsgateway V1 en alleen een statisch, basis- of standaard SKU-adres aan een front-end-configuratie voor V2.
 
 ### <a name="at-a-glance"></a>In een oogopslag
 De volgende tabel toont de specifieke eigenschap waarmee een openbaar IP-adres kan worden gekoppeld aan een resource op het hoogste niveau, evenals de mogelijke toewijzingsmethoden (dynamisch of statisch) die kunnen worden gebruikt.
@@ -131,7 +131,7 @@ De volgende tabel toont de specifieke eigenschap waarmee een openbaar IP-adres k
 | Virtuele machine |Netwerkinterface |Ja |Ja |
 | Internetgerichte load balancer |Front-end-configuratie |Ja |Ja |
 | VPN-gateway |Gateway-IP-configuratie |Ja |Ja |
-| Toepassingsgateway |Front-end-configuratie |Ja |Ja |
+| Toepassingsgateway |Front-end-configuratie |Ja (alleen V1) |Ja (alleen V2) |
 
 ## <a name="private-ip-addresses"></a>Privé-IP-adressen
 Privé-IP-adressen stellen Azure-resources in staat om via een VPN-gateway of een ExpressRoute-circuit te communiceren met andere resources in een [virtueel netwerk](virtual-networks-overview.md) of een on-premises netwerk, zonder gebruik te maken van een via internet bereikbaar IP-adres.

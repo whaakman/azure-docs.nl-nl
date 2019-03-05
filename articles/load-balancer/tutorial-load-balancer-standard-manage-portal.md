@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 7caddde5c7695d0c572dc139b52cd0743e39d778
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: fa40f4f666444209f70d3f49b7947450af01ec36
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671996"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983283"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Zelfstudie: Taakverdeling voor internetverkeer naar virtuele machines instellen met behulp van Azure Portal
 
@@ -45,21 +45,22 @@ Meld u aan bij de Azure Portal op [http://portal.azure.com](http://portal.azure.
 In deze sectie maakt u een openbare load balancer die helpt bij het laden van virtuele machines. Standard Load Balancer biedt alleen ondersteuning voor een standaard, openbaar IP-adres. Wanneer u een Standard Load Balancer maakt, moet u ook een nieuw, standaard, openbaar IP-adres maken dat als de front-end (standaard *LoadBalancerFrontend* genoemd) wordt geconfigureerd voor de Standard Load Balancer. 
 
 1. Klik linksboven in het scherm op **Een resource maken** > **Netwerken** > **Load balancer**.
-2. Voer op de pagina **Load balancer maken** de volgende gegevens in of selecteer deze, accepteer de standaardwaarden voor de overige instellingen en selecteer **Maken**:
-    
+2. Voer op het tabblad **Basis** van de pagina **Load balancer maken** de volgende gegevens in of selecteer deze, accepteer de standaardwaarden voor de overige instellingen en selecteer vervolgens **Controleren + maken**:
+
     | Instelling                 | Waarde                                              |
     | ---                     | ---                                                |
+    | Abonnement               | Selecteer uw abonnement.    |    
+    | Resourcegroep         | Selecteer **Nieuwe maken** en typ *MyResourceGroupSLB* in het tekstvak.|
     | Naam                   | *myLoadBalancer*                                   |
-    | Type          | Public                                        |
-    | SKU           | Standard                          |
-    | Openbaar IP-adres | Selecteer **Nieuwe maken** en typ *myPublicIP* in het tekstvak. De Standard SKU voor het openbare IP-adres is standaard geselecteerd. Als **Beschikbaarheidszone** selecteert u **Zone-redundant**. |
-    | Abonnement               | Selecteer uw abonnement.    |
-    |Resourcegroep | Selecteer **Nieuw** en typ *myResourceGroupSLB*.    |
-    | Locatie           | Selecteer **Europa - west**.                          |
-    
+    | Regio         | Selecteer **Europa - west**.                                        |
+    | Type          | Selecteer **Openbaar**.                                        |
+    | SKU           | selecteer **Standaard**.                          |
+    | Openbaar IP-adres | Selecteer **Nieuw maken**. |
+    | Naam openbaar IP-adres              | Typ *myPublicIP* in het tekstvak.   |
+    |Beschikbaarheidszone| Selecteer **Zone-redundant**.    |
+3. Klik op het tabblad **Beoordelen en maken** op **Maken**.   
 
-![Een load balancer maken](./media/load-balancer-standard-public-portal/create-load-balancer.png)
-   
+  
 ## <a name="create-backend-servers"></a>Back-endservers maken
 
 In deze sectie maakt u een virtueel netwerk en twee virtuele machines voor de back-endpool van de load balancer en installeert u IIS op de virtuele machines om de load balancer te testen.

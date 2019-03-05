@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7bc6b57122072c2fe0c063c1278cf11d97469b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0e86ede90a19d829e87b47d49fa4a12a17fe1d5c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191313"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867045"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Zelfstudie: Azure Active Directory-integratie met Snowflake
 
@@ -141,7 +141,7 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
     > [!NOTE]
     > Dit staat los van de context die u hebt geselecteerd in de rechterbovenhoek onder uw gebruikersnaam
     
-    ![De Snowflake-beheerder ](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+    ![De Snowflake-beheerder](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
 
 10. Open het **gedownloade Base 64-certificaat** in Kladblok. Kopieer de waarde tussen "---BEGIN CERTIFICATE---" en '---END CERTIFICATE---' en plak deze tussen de aanhalingstekens naast **certificate** hieronder. Plak in het veld **ssoUrl** de waarde van **Aanmeldings-URL** die u uit de Azure-portal hebt gekopieerd. Selecteer **All Queries** en klik op **Run**.
 
@@ -219,11 +219,11 @@ Als u wilt dat gebruikers van Azure AD zich kunnen aanmelden bij Snowflake, moet
 
 2. **Wijzig uw rol** in **ACCOUNTADMIN** door rechtsboven op de pagina te klikken op **profile**.  
 
-    ![De Snowflake-beheerder ](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+    ![De Snowflake-beheerder](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
 
 3. Maak de gebruiker door de onderstaande SQL-query uit te voeren. Stel 'LOGIN_NAME' in op de Azure AD-gebruikersnaam in het werkblad zoals hieronder wordt weergegeven.
 
-    ![De Snowflake-adminsql ](./media/snowflake-tutorial/tutorial_snowflake_usersql.png)
+    ![De Snowflake-adminsql](./media/snowflake-tutorial/tutorial_snowflake_usersql.png)
 
     ```
     use role accountadmin;
@@ -238,9 +238,9 @@ Wanneer u in het toegangsvenster op de tegel Snowflake klikt, wordt u automatisc
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

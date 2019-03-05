@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Een standaard load balancer maken - Azure Portal'
 titlesuffix: Azure Load Balancer
-description: In deze quickstart vindt u informatie over het maken van een standaard load balancer via Azure Portal.
+description: In deze snelstart vindt u informatie over het maken van een standaard load balancer via Azure Portal.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/21/2018
+ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 1395c79b9c39d7376f39446eac6da8ee80b2ef18
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 97d1cf2817ebfbf2eb1a6ba5a4d20d457b6369c6
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232665"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961734"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Quickstart: Een Standard load balancer maken om taken van VM's te verdelen via Azure Portal
 
-Taakverdeling zorgt voor een hogere beschikbaarheid en betere schaalbaarheid door binnenkomende aanvragen te spreiden over meerdere virtuele machines. U kunt in Azure Portal een load balancer maken om taken van virtuele machines (VM's) te verdelen. In deze quickstart wordt getoond hoe u taken van VM's kunt verdelen met een Standard Load Balancer.
+Taakverdeling zorgt voor een hogere beschikbaarheid en betere schaalbaarheid door binnenkomende aanvragen te spreiden over meerdere virtuele machines. U kunt in Azure Portal een load balancer maken om taken van virtuele machines (VM's) te verdelen. In deze snelstart wordt getoond hoe u taken van VM's kunt verdelen met een Standard Load Balancer.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint. 
 
@@ -40,21 +40,20 @@ Meld u aan bij de Azure Portal op [http://portal.azure.com](http://portal.azure.
 In deze sectie maakt u een openbare load balancer die helpt bij het laden van virtuele machines. Standard Load Balancer biedt alleen ondersteuning voor een standaard, openbaar IP-adres. Als u een Standard Load Balancer maakt, moet u ook een nieuw, standaard, openbaar IP-adres maken dat als de front-end (standaard *LoadBalancerFrontend* genoemd) wordt geconfigureerd voor de Standard Load Balancer. 
 
 1. Klik linksboven in het scherm op **Een resource maken** > **Netwerken** > **Load balancer**.
-2. Voer op de pagina **Load balancer maken** de volgende gegevens in of selecteer deze, accepteer de standaardwaarden voor de overige instellingen en selecteer **Maken**:
+2. Voer op het tabblad **Basis** van de pagina **Load balancer maken** de volgende gegevens in of selecteer deze, accepteer de standaardwaarden voor de overige instellingen en selecteer **Controleren + maken**:
 
     | Instelling                 | Waarde                                              |
     | ---                     | ---                                                |
+    | Abonnement               | Selecteer uw abonnement.    |    
+    | Resourcegroep         | Selecteer **Nieuwe maken** en typ *MyResourceGroupSLB* in het tekstvak.|
     | Naam                   | *myLoadBalancer*                                   |
-    | Type          | Public                                        |
-    | SKU           | Standard                          |
-    | Openbaar IP-adres | Selecteer **Nieuwe maken** en typ *myPublicIP* in het tekstvak. De Standard SKU voor het openbare IP-adres is standaard geselecteerd. Als **Beschikbaarheidszone** selecteert u **Zone-redundant**. |
-    | Abonnement               | Selecteer uw abonnement.    |
-    |Resourcegroep | Selecteer **Nieuw** en typ *myResourceGroupSLB*.    |
-    | Locatie           | Selecteer **Europa - west**.                          |
-    
-
-![Een load balancer maken](./media/load-balancer-standard-public-portal/create-load-balancer.png)
-
+    | Regio         | Selecteer **Europa - west**.                                        |
+    | Type          | Selecteer **Openbaar**.                                        |
+    | SKU           | selecteer **Standaard**.                          |
+    | Openbaar IP-adres | Selecteer **Nieuw maken**. |
+    | Naam openbaar IP-adres              | Typ *myPublicIP* in het tekstvak.   |
+    |Beschikbaarheidszone| Selecteer **Zone-redundant**.    |
+3. Klik op het tabblad **Beoordelen en maken** op **Maken**.   
 
 ## <a name="create-backend-servers"></a>Back-endservers maken
 
@@ -84,7 +83,7 @@ In deze sectie maakt u een virtueel netwerk, twee virtuele machines voor de back
         2. Op de pagina **Netwerkbeveiligingsgroep maken** voert u bij **Naam** *myNetworkSecurityGroup* in en selecteert vervolgens **OK**.
 5. Klik op **Uitgeschakeld** om diagnostische gegevens over opstarten uit te schakelen.
 6. Klik op **OK**, controleer de instellingen op de overzichtspagina en klik op **Maken**.
-7. Maak via stap 1 t/m 6 een tweede VM met de naam *VM2*, met *myAvailibilityset* als beschikbaarheidsset, *myVnet* als het virtuele netwerk, *myBackendSubnet* als het subnet en**myNetworkSecurityGroup* als de netwerkbeveiligingsgroep. 
+7. Maak met behulp van stap 1-6 een tweede VM met de naam *VM2*, met *myVnet* als het virtuele netwerk, *myBackendSubnet* als het subnet, en **myNetworkSecurityGroup* als de netwerkbeveiligingsgroep. 
 
 ### <a name="create-nsg-rule"></a>Een NSG-regel maken
 
@@ -183,7 +182,7 @@ Verwijder de resourcegroep, de load balancer en alle gerelateerde resources, wan
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze quickstart hebt u een standaard Load Balancer gemaakt, VM's daaraan gekoppeld, een regel voor het Load Balancer-verkeer geconfigureerd, een statustest gemaakt en vervolgens de load balancer getest. Voor meer informatie over Azure Load Balancer gaat u verder met de zelfstudies voor Azure Load Balancer.
+In deze snelstart hebt u een standaard Load Balancer gemaakt, VM's daaraan gekoppeld, een regel voor het Load Balancer-verkeer geconfigureerd, een statustest gemaakt en vervolgens de load balancer getest. Voor meer informatie over Azure Load Balancer gaat u verder met de zelfstudies voor Azure Load Balancer.
 
 > [!div class="nextstepaction"]
 > [Zelfstudies voor Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

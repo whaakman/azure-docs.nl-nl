@@ -1,282 +1,250 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met mensheid | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en de mensheid.
+title: 'Zelfstudie: Integratie van Azure Active Directory met Humanity | Microsoft Docs'
+description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active Directory en Humanity.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 6aa771e9-31c6-48d1-8dde-024bebc06943
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/10/2017
+ms.topic: tutorial
+ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 871fcd120ee1afa936723d63532c58b2cda34fb6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: 152efe1ec413b097ec57908d90ceecc0d6bf1407
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182201"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56865600"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-humanity"></a>Zelfstudie: Azure Active Directory-integratie met mensheid
+# <a name="tutorial-azure-active-directory-integration-with-humanity"></a>Zelfstudie: Azure Active Directory-integratie met Humanity
 
-In deze zelfstudie leert u hoe u mensheid integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Humanity kunt integreren met Azure Active Directory (Azure AD).
+De integratie van Humanity met Azure AD biedt de volgende voordelen:
 
-Mensheid integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD bepalen wie er toegang heeft tot Humanity.
+* U kunt inschakelen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij Humanity (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot de mensheid heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij de mensheid (Single Sign-On) met hun Azure AD-accounts inschakelen
-- U kunt uw accounts in één centrale locatie - Azure portal beheren
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met de mensheid, moet u de volgende items:
+Om Azure AD-integratie te configureren met Humanity hebt u het volgende nodig:
 
-- Een Azure AD-abonnement
-- Een mensheid eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u nog geen proefversie van Azure AD hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) een proefversie van één maand aanvragen.
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op Humanity waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Mensheid uit de galerie toe te voegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-humanity-from-the-gallery"></a>Mensheid uit de galerie toe te voegen
-Voor het configureren van de integratie van de mensheid in Azure AD, moet u de mensheid uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* Humanity ondersteunt door **SP** geïnitieerde eenmalige aanmelding
 
-**Als u wilt toevoegen de mensheid uit de galerie, moet u de volgende stappen uitvoeren:**
+## <a name="adding-humanity-from-the-gallery"></a>Humanity toevoegen vanuit de galerie
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+Voor het configureren van de integratie van Humanity met Azure AD moet u Humanity vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-    ![Active Directory][1]
+**Voer de volgende stappen uit als u Humanity wilt toevoegen vanuit de galerie:**
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![Applicaties][2]
-    
-1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![Applicaties][3]
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-1. Typ in het zoekvak **mensheid**.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/shiftplanning-tutorial/tutorial_humanity_search.png)
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-1. Selecteer in het deelvenster resultaten **mensheid**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-    ![Het maken van een Azure AD-testgebruiker](./media/shiftplanning-tutorial/tutorial_humanity_addfromgallery.png)
+4. Typ **Humanity** in het zoekvak, selecteer **Humanity** in het resultaatvenster en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met de mensheid op basis van een testgebruiker met de naam "Britta Simon."
+     ![Humanity in de lijst met resultaten](common/search-new-app.png)
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in de mensheid is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in de mensheid tot stand worden gebracht.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In de mensheid, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+In deze sectie gaat u Azure AD-eenmalige aanmelding voor Humanity configureren en testen op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Humanity tot stand is gebracht.
 
-Als u wilt configureren en testen van Azure AD eenmalige aanmelding met de mensheid, u nodig hebt voor de volgende bouwstenen:
+Als u Azure AD-eenmalige aanmelding wilt configureren en testen met Humanity, dient u de volgende bouwstenen te voltooien:
 
-1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Het maken van een testgebruiker mensheid](#creating-a-humanity-test-user)**  : als u wilt een equivalent van Britta Simon in mensheid die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Humanity-eenmalige aanmelding configureren](#configure-humanity-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wilt configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Testgebruiker voor Humanity maken](#create-humanity-test-user)**: als u een tegenhanger van Britta Simon in Humanity wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing mensheid.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met de mensheid, moet u de volgende stappen uitvoeren:**
+Voer de volgende stappen uit als u Azure AD-eenmalige aanmelding wilt configureren met Humanity:
 
-1. In de Azure-portal op de **mensheid** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. In de [Azure-portal](https://portal.azure.com/), op de integratiepagina van de **Humanity**-toepassing, selecteert u **Eenmalige aanmelding**.
 
-    ![Eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![Eenmalige aanmelding configureren](./media/shiftplanning-tutorial/tutorial_humanity_samlbase.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-1. Op de **mensheid domein en URL's** sectie, voert u de volgende stappen uit:
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    ![Eenmalige aanmelding configureren](./media/shiftplanning-tutorial/tutorial_humanity_url.png)
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://company.humanity.com/includes/saml/`
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    b. Typ in het tekstvak **Id** een URL met het volgende patroon: `https://company.humanity.com/app/`
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
-    > [!NOTE] 
-    > Dit zijn geen echte waarden. Werk deze waarden bij met de daadwerkelijke aanmeldings-URL en id. Neem contact op met [mensheid Client ondersteuningsteam](https://www.humanity.com/support/) om deze waarden te verkrijgen. 
- 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
+    ![Gegevens voor domein en URL's voor eenmalige aanmelding bij Humanity](common/sp-identifier.png)
 
-    ![Eenmalige aanmelding configureren](./media/shiftplanning-tutorial/tutorial_humanity_certificate.png) 
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://company.humanity.com/includes/saml/`
 
-1. Klik op de knop **Save**.
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://company.humanity.com/app/`
 
-    ![Eenmalige aanmelding configureren](./media/shiftplanning-tutorial/tutorial_general_400.png)
+    > [!NOTE]
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met het [Klantondersteuningsteam van Humanity](https://www.humanity.com/support/) (Engelstalig) om deze waarden op te halen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-1. Op de **mensheid configuratie** sectie, klikt u op **configureren mensheid** openen **aanmelding configureren** venster. Kopiëren de **SAML Single Sign-On Service-URL en afmelding URL** uit de **Naslaggids sectie.**
+4. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
-    ![Eenmalige aanmelding configureren](./media/shiftplanning-tutorial/tutorial_humanity_configure.png) 
+    ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
-1. In een ander browservenster aanmelden bij uw **mensheid** bedrijf site als beheerder.
+6. Kopieer in de sectie **Set up Humanity** de juiste URL('s) op basis van uw behoeften.
 
-1. Klik in het menu bovenaan op **Admin**.
-   
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
+
+    a. Aanmeldings-URL
+
+    b. Azure AD-id
+
+    c. Afmeldings-URL
+
+### <a name="configure-humanity-single-sign-on"></a>Eenmalige aanmelding van Humanity configureren
+
+1. Meld u in een ander browservenster als een beheerder aan bij de bedrijfssite van **Humanity**.
+
+2. Klik in het menu bovenaan op **Admin**.
+
     ![Admin](./media/shiftplanning-tutorial/iC786619.png "Admin")
+3. Klik onder **Integration** op **Single Sign-On**.
 
-1. Onder **integratie**, klikt u op **Single Sign-On**.
-   
     ![Single Sign-On](./media/shiftplanning-tutorial/iC786620.png "Single Sign-On")
 
-1. In de **Single Sign-On** sectie, voert u de volgende stappen uit:
-   
+4. Voer in het gedeelte **Single Sign-On** de volgende stappen uit:
+
     ![Single Sign-On](./media/shiftplanning-tutorial/iC786905.png "Single Sign-On")
-   
-    a. Selecteer **SAML ingeschakeld**.
 
-    b. Selecteer **wachtwoord aanmelden toestaan**.
+    a. Selecteer **SAML Enabled**.
 
-    c. Plak de **Single Sign-On Service URL voor SAML** waarde in de **URL voor SAML-verlener** tekstvak.
+    b. Selecteer **Allow Password Login**.
 
-    d. Plak de **afmelding URL** waarde in de **externe URL voor afmelden** tekstvak.
-   
-    e. Het base-64 gecodeerde certificaat openen in Kladblok, Kopieer de inhoud ervan in het Klembord en plakt u deze naar de **X.509-certificaat** tekstvak.
+    c. Plak in het tekstvak **SAML endpoint URL** de waarde van **Aanmeldings-URL** die u uit de Azure-portal hebt gekopieerd.
 
-1. Klik op **instellingen opslaan**.
+    d. Plak in het tekstvak **Remote Logout URL** de waarde van de **afmeldings-URL** die u uit de Azure-portal hebt gekopieerd.
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    e. Open in Kladblok het met Base 64 gecodeerde certificaat, kopieer de inhoud ervan naar het Klembord en plak deze vervolgens in het tekstvak **X.509 Certificate**.
 
-### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
+    f. Klik op **Save Settings** (Instellingen opslaan).
+
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-![Azure AD-gebruiker maken][100]
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![Het maken van een Azure AD-testgebruiker](./media/shiftplanning-tutorial/create_aaduser_01.png) 
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
-    
-    ![Het maken van een Azure AD-testgebruiker](./media/shiftplanning-tutorial/create_aaduser_02.png) 
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/shiftplanning-tutorial/create_aaduser_03.png) 
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/shiftplanning-tutorial/create_aaduser_04.png) 
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    a. In de **naam** tekstvak, type **BrittaSimon**.
-
-    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
-
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="creating-a-humanity-test-user"></a>Het maken van een testgebruiker mensheid
 
-Als u wilt dat Azure AD-gebruikers zich aanmelden bij de mensheid, moeten ze worden ingericht voor mensheid. In het geval van de mensheid is inrichten een handmatige taak.
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
+
+In deze sectie gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot Humanity.
+
+1. Selecteer in de Azure-portal achtereenvolgens **Bedrijfstoepassingen**, **Alle toepassingen** en **Humanity**.
+
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
+
+2. Selecteer **Humanity** in de lijst met toepassingen.
+
+    ![De koppeling Humanity in de lijst Toepassingen](common/all-applications.png)
+
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
+
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
+
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
+
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
+
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
+
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
+
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
+
+### <a name="create-humanity-test-user"></a>Humanity-testgebruiker maken
+
+Als u wilt dat Azure AD-gebruikers zich kunnen aanmelden bij Humanity, moeten ze worden ingericht in Humanity. In het geval van Humanity wordt het inrichten handmatig uitgevoerd.
 
 **Als u een gebruikersaccount wilt inrichten, voert u de volgende stappen uit:**
 
-1. Meld u aan bij uw **mensheid** bedrijf site als beheerder.
+1. Meld u als een beheerder aan bij de bedrijfssite van **Humanity**.
 
-1. Klik op **Admin**.
-   
+2. Klik op **Admin**.
+
     ![Admin](./media/shiftplanning-tutorial/iC786619.png "Admin")
 
-1. Klik op **personeel**.
-   
-    ![Personeel](./media/shiftplanning-tutorial/ic786623.png "personeel")
+3. Klik op **Staff**.
 
-1. Onder **acties**, klikt u op **werknemers toevoegen**.
-   
-    ![Werknemers toevoegen](./media/shiftplanning-tutorial/iC786624.png "werknemers toevoegen")
+    ![Staff](./media/shiftplanning-tutorial/ic786623.png "Staff")
 
-1. In de **werknemers toevoegen** sectie, voert u de volgende stappen uit:
-   
-    ![Opslaan van werknemers](./media/shiftplanning-tutorial/iC786625.png "werknemers opslaan")
-   
-    a. Type de **voornaam**, **achternaam**, en **e** van een geldige AAD-account dat u inrichten in de bijbehorende tekstvakken wilt.
+4. Klik onder **Actions** op **Add Employees**.
 
-    b. Klik op **opslaan werknemers**.
+    ![Add Employees](./media/shiftplanning-tutorial/iC786624.png "Add Employees")
 
->[!NOTE]
->U kunt elke andere mensheid gebruiker account hulpmiddelen voor het maken of API's die door de mensheid inrichten AAD-gebruikersaccounts.
+5. Voer in de sectie **Add Employees** de volgende stappen uit:
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
+    ![Save Employees](./media/shiftplanning-tutorial/iC786625.png "Save Employees")
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan de mensheid.
+    a. Typ voornaam, achternaam en e-mailadres in de desbetreffende tekstvakken **First Name**, **Last Name** en **Email** van een geldig AAD-account dat u wilt inrichten.
 
-![Gebruiker toewijzen][200] 
+    b. Klik op **Save Employees**.
 
-**Als u wilt toewijzen Britta Simon aan mensheid, moet u de volgende stappen uitvoeren:**
+> [!NOTE]
+> U kunt andere hulpmiddelen voor het maken van Humanity-gebruikersaccounts of door Humanity geleverde API's gebruiken om AAD-gebruikersaccounts in te richten.
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-    ![Gebruiker toewijzen][201] 
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-1. Selecteer in de lijst met toepassingen, **mensheid**.
-
-    ![Eenmalige aanmelding configureren](./media/shiftplanning-tutorial/tutorial_humanity_app.png) 
-
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
-
-    ![Gebruiker toewijzen][202] 
-
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
-
-    ![Gebruiker toewijzen][203]
-
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
-
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
-
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
-
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
-
-Wanneer u op de tegel mensheid in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing mensheid.
-Zie [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
+Wanneer u op de tegel Humanity in het toegangsvenster klikt, wordt u automatisch aangemeld bij de instantie van Humanity waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
-[1]: ./media/shiftplanning-tutorial/tutorial_general_01.png
-[2]: ./media/shiftplanning-tutorial/tutorial_general_02.png
-[3]: ./media/shiftplanning-tutorial/tutorial_general_03.png
-[4]: ./media/shiftplanning-tutorial/tutorial_general_04.png
-
-[100]: ./media/shiftplanning-tutorial/tutorial_general_100.png
-
-[200]: ./media/shiftplanning-tutorial/tutorial_general_200.png
-[201]: ./media/shiftplanning-tutorial/tutorial_general_201.png
-[202]: ./media/shiftplanning-tutorial/tutorial_general_202.png
-[203]: ./media/shiftplanning-tutorial/tutorial_general_203.png
-
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

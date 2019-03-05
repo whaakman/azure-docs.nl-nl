@@ -3,8 +3,8 @@ title: 'Zelfstudie: Een toepassing voor meerdere services maken, foutvrij maken,
 description: In deze zelfstudie maakt u een Azure Service Fabric Mesh-toepassing voor meerdere services, bestaande uit een ASP.NET Core-website die communiceert met een back-endwebservice. U spoort de fouten in de toepassing lokaal op en publiceert de toepassing in Azure.
 services: service-fabric-mesh
 documentationcenter: .net
-author: TylerMSFT
-manager: jeconnoc
+author: dkkapur
+manager: chakdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/18/2018
-ms.author: twhitney
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: eb68c7aacb4c62237fc4cd75ec430997b0145454
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 2053706aac2e6136e35e8574dcd19150fe3d3b6a
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888746"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805423"
 ---
 # <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Zelfstudie: Een Service Fabric Mesh-toepassing met meerdere services bouwen, foutvrij maken, implementeren en upgraden
 

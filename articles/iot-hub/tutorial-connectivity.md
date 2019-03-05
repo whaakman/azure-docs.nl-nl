@@ -6,15 +6,15 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.custom: mvc
-ms.date: 05/29/2018
+ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: bb9bcfcc5f78ee82f187d331055e8f2fd2ed9e64
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: ebd206f6de031ea73d621568e091632e2e8123b9
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745806"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674497"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Zelfstudie: Een gesimuleerd apparaat gebruiken om connectiviteit met uw IoT-hub te testen
 
@@ -122,7 +122,7 @@ Deze keer ziet u een verificatiefout wanneer de toepassing verbinding probeert t
 
 Als uw apparaat een van de SDK’s van de IoT Hub gebruikt, genereert de SDK-bibliotheekcode het SAS-toeken dat wordt gebruikt voor verificatie met de hub. Een SAS-token wordt gegenereerd uit de naam van uw hub, de naam van uw apparaat en de apparaatsleutel.
 
-In bepaalde scenario’s, zoals in een cloud-protocolgateway of als onderdeel van een aangepast verificatieschema, moet u mogelijk zelf het SAS-token genereren. Om problemen met uw SAS-generatiecode op te lossen, is het handig een bekend correct SAS-token te kunnen genereren om te gebruiken tijdens het testen.
+In bepaalde scenario’s, zoals in een cloud-protocolgateway of als onderdeel van een aangepast verificatieschema, moet u mogelijk zelf het SAS-token genereren. Om problemen met uw SAS-generatiecode op te lossen, is het handig om een bekend correct SAS-token te genereren voor gebruik tijdens het testen.
 
 > [!NOTE]
 > Het voorbeeld SimulatedDevice-2.js omvat voorbeelden van het genereren van een SAS-token, zowel met als zonder de SDK.
@@ -133,7 +133,7 @@ Om een bekend correct SAS-token te genereren met de CLI, voert u de volgende opd
 az iot hub generate-sas-token --device-id MyTestDevice --hub-name {YourIoTHubName}
 ```
 
-Noteer de volledige tekst van het gegenereerde SAS-token. Een SAS-token ziet er als volgt uit: `'SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307'`
+Noteer de volledige tekst van het gegenereerde SAS-token. Een SAS-token ziet er als volgt uit: `SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307`
 
 Navigeer in een terminalvenster op uw ontwikkelcomputer naar de hoofdmap van het voorbeeldproject in Node.js dat u hebt gedownload. Navigeer vervolgens naar de map **iot-hub\Tutorials\ConnectivityTests\simulated-device**.
 
@@ -189,13 +189,9 @@ Het terminalvenster geeft gegevens weer terwijl het telemetrie naar uw hub verze
 
 ![Gesimuleerd apparaat dat berichten verzendt](media/tutorial-connectivity/sim-3-sending.png)
 
-U kunt in de portal **Metrische gegevens** gebruiken om te verifiëren dat de telemetrieberichten uw IoT hub bereiken:
+U kunt **Metrische gegevens** in de portal gebruiken om te verifiëren dat de telemetrieberichten uw IoT hub bereiken. Selecteer in de vervolgkeuzelijst **Resource** uw IoT hub, selecteer **Verzonden telemetrieberichten** als metriek en stel het tijdsbereik in op **Afgelopen uur**. De kaart toont het totaal aantal berichten dat is verzonden door het gesimuleerd apparaat:
 
-![Navigeer naar Metrische gegevens voor IoT Hub](media/tutorial-connectivity/metrics-portal.png)
-
-Selecteer in de vervolgkeuzelijst **Resource** uw IoT hub, selecteer **Verzonden telemetrieberichten** als metriek en stel het tijdsbereik in op **Afgelopen uur**. De kaart toont het totaal aantal berichten dat is verzonden door het gesimuleerd apparaat:
-
-![Metrische gegevens voor IoT Hub weergeven](media/tutorial-connectivity/metrics-active.png)
+![Metrische gegevens voor IoT Hub weergeven](media/tutorial-connectivity/metrics-portal.png)
 
 Het duurt enkele minuten voordat de metrische gegevens beschikbaar zijn nadat u het gesimuleerd apparaat hebt gestart.
 

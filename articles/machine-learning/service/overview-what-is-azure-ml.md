@@ -11,12 +11,12 @@ author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 36e0ca360cfbdfc77ce0a1768222f43f8864537c
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: fd6ecb6cb45aef399a137c9eac2c8c6f845b610b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267254"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872485"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Wat is de Azure Machine Learning-service?
 
@@ -32,7 +32,7 @@ Prognoses of voorspellingen op basis van machine learning kunnen apps en apparat
 
 Azure Machine Learning Service biedt een omgeving in de cloud die u kunt gebruiken om machine learning-modellen te trainen, testen, implementeren, beheren en volgen en er gegevens voor voor te bereiden.
 
-[ ![Azure Machine Learning Service-workflow](./media/overview-what-is-azure-ml/aml.png)] (./media/overview-what-is-azure-ml/aml.png#lightbox)
+[![Azure Machine Learning Service-workflow](./media/overview-what-is-azure-ml/aml.png)] (./media/overview-what-is-azure-ml/aml.png#lightbox)
 
 Azure Machine Learning Service biedt volledige ondersteuning voor open-sourcetechnologieën. U kunt tienduizenden open source Python-pakketten met elementen van machine learning gebruiken. Voorbeelden zijn PyTorch, TensorFlow en scikit-learn.
 Dankzij de ondersteuning voor uitgebreide programma’s kunt u eenvoudig interactief gegevens verkennen en voorbereiden en vervolgens modellen ontwikkelen en testen. Voorbeelden zijn [Jupyter-notebooks](http://jupyter.org) of de extensie [Azure Machine Learning voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview).
@@ -70,7 +70,7 @@ Bekijk [Volgende stappen](#next-steps) om te beginnen met de Azure Machine Learn
 
 ## <a name="how-is-azure-machine-learning-service-different-from-machine-learning-studio"></a>Waarin verschilt Azure Machine Learning Service van Machine Learning Studio?
 
-Azure Machine Learning Studio is een visuele werkruimte voor samenwerking met slepen en neerzetten waar u machine learning-oplossingen kunt bouwen, testen en implementeren zonder dat u code hoeft te programmeren. Er wordt gebruikgemaakt van vooraf gebouwde en geconfigureerde machine learning-algoritmen en modules voor gegevensverwerking. 
+[Azure Machine Learning Studio](../studio/what-is-ml-studio.md) is een visuele werkruimte voor samenwerking met slepen en neerzetten waar u machine learning-oplossingen kunt bouwen, testen en implementeren zonder dat u code hoeft te programmeren. Er wordt gebruikgemaakt van vooraf gebouwde en geconfigureerde machine learning-algoritmen en modules voor gegevensverwerking.
 
 Gebruik Machine Learning Studio wanneer u snel en eenvoudig wilt experimenteren met machine learning-modellen en de ingebouwde machine learning-algoritmen voldoende zijn voor uw oplossingen.
 

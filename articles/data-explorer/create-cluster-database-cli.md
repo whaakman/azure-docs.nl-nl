@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Een Azure Data Explorer-cluster en -database maken met CLI'
-description: In deze quickstart leert u hoe u een Azure Data Explorer-cluster en -database maakt met Azure CLI
+title: 'Quickstart: een Azure Data Explorer-cluster en -database maken met de CLI'
+description: Ontdek hoe u een Azure Data Explorer-cluster en -database kunt maken met de Azure CLI
 services: data-explorer
 author: radennis
 ms.author: radennis
@@ -8,16 +8,16 @@ ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 2/4/2019
-ms.openlocfilehash: 9e0ae547df34594674dc03702310a1537717a4ed
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 357f0efcf7300545d10113c92702d9fed4aad049
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881113"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958011"
 ---
-# <a name="create-an-azure-data-explorer-cluster-and-database-using-cli"></a>Een Azure Data Explorer-cluster en -database maken met CLI
+# <a name="create-an-azure-data-explorer-cluster-and-database-by-using-the-cli"></a>Een Azure Data Explorer-cluster en -database maken met de CLI
 
-Deze quickstart toont u hoe u een Azure Data Explorer-cluster en -database maakt met Azure CLI.
+Deze quickstart laat zien hoe u een Azure Data Explorer-cluster en -database maakt met de Azure CLI.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -25,11 +25,11 @@ U hebt een Azure-abonnement nodig om deze snelstart te voltooien. Als u nog geen
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze quickstart versie 2.0.4 of hoger van Azure CLI uitvoeren. Voer `az --version` uit om uw versie te controleren. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren](/cli/azure/install-azure-cli).
+Als u ervoor kiest om de Azure CLI lokaal te installeren en te gebruiken, moet u voor deze quickstart versie 2.0.4 of hoger van Azure CLI uitvoeren. Voer `az --version` uit om uw versie te controleren. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="configure-the-cli-parameters"></a>De CLI-parameters configureren
 
-De volgende stappen zijn niet vereist als u opdrachten in Cloud Shell uitvoert. Als u de CLI lokaal uitvoert, moet u de volgende stappen uitvoeren om u aan te melden bij Azure en uw huidige abonnement in te stellen:
+De volgende stappen zijn niet vereist als u opdrachten in Azure Cloud Shell uitvoert. Als u de CLI lokaal uitvoert, volgt u deze stappen om u aan te melden bij Azure en uw huidige abonnement in te stellen:
 
 1. Voer de volgende opdracht uit om u aan te melden bij Azure:
 
@@ -37,7 +37,7 @@ De volgende stappen zijn niet vereist als u opdrachten in Cloud Shell uitvoert. 
     az login
     ```
 
-2. Het abonnement instellen waar u uw cluster wilt maken. Vervang `MyAzureSub` door de naam van het Azure-abonnement dat u wilt gebruiken:
+2. Stel het abonnement in waarin u uw cluster wilt maken. Vervang `MyAzureSub` door de naam van het Azure-abonnement dat u wilt gebruiken:
 
     ```azurecli-interactive
     az account set --subscription MyAzureSub
@@ -65,7 +65,7 @@ De volgende stappen zijn niet vereist als u opdrachten in Cloud Shell uitvoert. 
     az kusto cluster show --name azureclitest --resource-group testrg
     ```
 
-Als het resultaat "provisioningState" met waarde "Geslaagd" bevat, is het maken van het cluster geslaagd.
+Als het resultaat `provisioningState` met waarde `Succeeded` bevat, is het maken van het cluster geslaagd.
 
 ## <a name="create-the-database-in-the-azure-data-explorer-cluster"></a>De database in het Azure Data Explorer-cluster maken
 
@@ -77,13 +77,13 @@ Als het resultaat "provisioningState" met waarde "Geslaagd" bevat, is het maken 
 
    |**Instelling** | **Voorgestelde waarde** | **Beschrijving van veld**|
    |---|---|---|
-   | cluster-name | *azureclitest* | De naam van het cluster waar de database moet worden gemaakt.|
-   | naam | *clidatabase* | De gewenste naam van uw database.|
+   | cluster-name | *azureclitest* | De naam van het cluster waar de database wordt gemaakt.|
+   | naam | *clidatabase* | De naam van uw database.|
    | resource-group | *testrg* | Naam van de resourcegroep waar het cluster wordt gemaakt. |
-   | soft-delete-period | *3650:00:00:00* | Hoe lang gegevens moeten worden opgeslagen, zodat deze beschikbaar zijn om op te vragen. |
-   | hot-cache-period | *3650:00:00:00* | Hoe lang gegevens moeten worden opgeslagen in de cache. |
+   | soft-delete-period | *3650:00:00:00* | Hoe lang gegevens worden opgeslagen om query's erop te kunnen uitvoeren. |
+   | hot-cache-period | *3650:00:00:00* | Hoe lang gegevens worden opgeslagen in de cache. |
 
-2. Voer de volgende opdracht uit om de database te zien die u hebt gemaakt:
+2. Voer de volgende opdracht uit om de database te bekijken die u hebt gemaakt:
 
     ```azurecli-interactive
     az kusto database show --name clidatabase --resource-group testrg --cluster-name azureclitest
@@ -94,7 +94,7 @@ U hebt nu een cluster en een database.
 ## <a name="clean-up-resources"></a>Resources opschonen
 
 * Als u onze andere snelstarts en zelfstudies wilt volgen, behoudt u de gemaakte resources.
-* Als u resources wilt opschonen, moet u het cluster verwijderen. Wanneer u een cluster verwijdert, worden alle databases hierin ook verwijderd. Gebruik de onderstaande opdracht om uw cluster te verwijderen:
+* Als u resources wilt opschonen, moet u het cluster verwijderen. Wanneer u een cluster verwijdert, worden alle databases hierin ook verwijderd. Gebruik de volgende opdracht om uw cluster te verwijderen:
 
     ```azurecli-interactive
     az kusto cluster delete --name azureclitest --resource-group testrg

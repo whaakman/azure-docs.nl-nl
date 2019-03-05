@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ab920094561b9143945793ddd4ea3da877a7ae90
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 46dae28fd6c9eaa3d5e03f5f06c5e92449653679
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340532"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737719"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Failover en failback tussen Azure-regio's voor Azure-VM's
 
@@ -48,7 +48,7 @@ In deze zelfstudie wordt beschreven hoe u een failover van één virtuele Azure-
    * **Laatst verwerkt**: Met deze optie wordt de virtuele machine teruggezet naar het meest recente herstelpunt dat door de Site Recovery-service is verwerkt.
    * **Aangepast**: Gebruik deze optie om de failover naar een bepaald herstelpunt uit te voeren. Deze optie is handig voor het uitvoeren van een testfailover.
 
-3. Selecteer **Sluit de computer af voordat de failover wordt gestart** als u wilt dat Site Recovery probeert virtuele bronmachines af te sluiten voordat de failover wordt geactiveerd. De failover wordt voortgezet zelfs als het afsluiten is mislukt.
+3. Selecteer **Sluit de computer af voordat de failover wordt gestart** als u wilt dat Site Recovery probeert virtuele bronmachines af te sluiten voordat de failover wordt geactiveerd. De failover wordt voortgezet zelfs als het afsluiten is mislukt. Let op: Site Recovery schoont de bron niet op na een failover.
 
 4. Volg de voortgang van de failover op de pagina **Taken**.
 

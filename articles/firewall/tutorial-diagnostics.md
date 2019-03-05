@@ -7,18 +7,20 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 1354faad4abf9a8a4b56414628d39d9a6f90d721
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 2befbf66733430e6077f5e5ff3044c30a77b7e5c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426164"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958971"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Zelfstudie: Azure Firewall-logboeken en metrische gegevens bewaken
 
 U kunt Azure Firewall bewaken met behulp van firewall-logboeken. U kunt ook activiteitenlogboeken gebruiken om bewerkingen in Azure Firewall-resources te controleren. Met metrische gegevens kunt u prestatiemeteritems in de portal zien. 
 
-Via de portal kunt u toegang verkrijgen tot sommige van deze logboeken. Logboeken kunnen worden verzonden naar [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Storage en Event Hubs en kunnen worden geanalyseerd in Log Analytics of door verschillende hulpprogramma’s zoals Excel en Power BI.
+Via de portal kunt u toegang verkrijgen tot sommige van deze logboeken. Logboeken kunnen worden verzonden naar [Azure Monitor-logboeken](../azure-monitor/insights/azure-networking-analytics.md), Storage en Event Hubs en kunnen worden geanalyseerd in Azure Monitor-logboeken of door verschillende hulpprogramma's zoals Excel en Power BI.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 In deze zelfstudie leert u het volgende:
 
@@ -48,7 +50,7 @@ Nadat u deze procedure voor het inschakelen van diagnostische logboekregistratie
 
 3. Klik op **Diagnostische gegevens inschakelen** om te beginnen met het verzamelen van gegevens.
 4. Op de pagina **Diagnostische instellingen** staan de instellingen voor de diagnostische logboeken. 
-5. In dit voorbeeld worden de logboeken in Log Analytics opgeslagen, dus typ **Firewall Log Analytics** als naam.
+5. In dit voorbeeld worden de logboeken in Azure Monitor-logboeken opgeslagen, dus typ **Firewall Log Analytics** als naam.
 6. Klik op **Verzenden naar Log Analytics** om uw werkruimte te configureren. U kunt ook Event Hubs en een opslagaccount gebruiken om de diagnostische logboeken op te slaan.
 7. Klik onder **Log Analytics** op **Configureren**.
 8. Klik op de pagina Log Analytics-werkruimten op **Nieuwe werkruimte maken**.
@@ -89,12 +91,12 @@ Volg de onderstaande stappen om diagnostische logboekregistratie in te schakelen
 
 U kunt activiteitenlogboekgegevens bekijken en analyseren via een van de volgende methoden:
 
-* **Azure-hulpprogramma’s**: Haal informatie uit het activiteitenlogboek op via Azure PowerShell, de Azure CLI, de Azure REST-API of de Azure-portal. In het artikel [Activiteitsbewerkingen met Resource Manager](../azure-resource-manager/resource-group-audit.md) staan stapsgewijze instructies voor elke methode.
-* **Power BI**: Als u nog geen [Power BI](https://powerbi.microsoft.com/pricing)-account hebt, kunt u het gratis uitproberen. Door het [inhoudspakket voor Azure-activiteitenlogboeken voor Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) te gebruiken, kunt u uw gegevens analyseren met vooraf geconfigureerde dashboards die u kunt gebruiken zoals geleverd of kunt aanpassen.
+* **Azure-hulpprogramma's**: haal informatie uit het activiteitenlogboek op via Azure PowerShell, de Azure CLI, de Azure REST-API of de Azure-portal. In het artikel [Activiteitsbewerkingen met Resource Manager](../azure-resource-manager/resource-group-audit.md) staan stapsgewijze instructies voor elke methode.
+* **Power BI**: als u nog geen [Power BI](https://powerbi.microsoft.com/pricing)-account hebt, kunt u het gratis uitproberen. Door het [inhoudspakket voor Azure-activiteitenlogboeken voor Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) te gebruiken, kunt u uw gegevens analyseren met vooraf geconfigureerde dashboards die u kunt gebruiken zoals geleverd of kunt aanpassen.
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>De logboeken voor netwerk- en toepassingsregels bekijken en analyseren
 
-Azure [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md) verzamelt de teller- en gebeurtenislogboekbestanden. Het omvat visualisaties en krachtige zoekmogelijkheden om uw logboeken te analyseren.
+[Azure Monitor-logboeken](../azure-monitor/insights/azure-networking-analytics.md) verzamelt de teller- en gebeurtenislogboekbestanden. Het omvat visualisaties en krachtige zoekmogelijkheden om uw logboeken te analyseren.
 
 Zie [Voorbeelden van Azure Firewall Log Analytics](log-analytics-samples.md) voor voorbeeldquery’s van Azure Firewall Log Analytics.
 
@@ -108,10 +110,10 @@ Ga naar een Azure Firewall via **Bewaking** en klik op **Metrische gegevens**. O
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu u uw firewall hebt geconfigureerd om logboeken te verzamelen, kunt u Log Analytics verkennen om uw gegevens te bekijken.
+Nu u uw firewall hebt geconfigureerd om logboeken te verzamelen, kunt u Azure Monitor-logboeken verkennen om uw gegevens te bekijken.
 
 > [!div class="nextstepaction"]
-> [Netwerkbewakingsoplossingen in Log Analytics](../azure-monitor/insights/azure-networking-analytics.md)
+> [Netwerkbewakingsoplossingen in Azure Monitor-logboeken](../azure-monitor/insights/azure-networking-analytics.md)
 
 [1]: ./media/tutorial-diagnostics/figure1.png
 [2]: ./media/tutorial-diagnostics/figure2.png

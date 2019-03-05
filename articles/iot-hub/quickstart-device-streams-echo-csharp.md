@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: edd3912b3674f3a80a81fd47ed490479f663852c
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 7b3a8ac0500652b8c4250b4bc3b4f5514b62c4aa
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830822"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816929"
 ---
 # <a name="quickstart-communicate-to-device-applications-in-c-via-iot-hub-device-streams-preview"></a>Quickstart: Communicate to device applications in C# via IoT Hub device streams (preview) (Communiceren met apparaattoepassingen in C# via IoT Hub-apparaatstreams (preview))
 
@@ -39,8 +39,7 @@ Gebruik de volgende opdracht om de huidige versie van C# op uw ontwikkelcomputer
 dotnet --version
 ```
 
-Download het C#-voorbeeldproject van https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip en pak het ZIP-archief uit.
-
+Download het C#-voorbeeldproject van https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip en pak het ZIP-archief uit. U hebt het zowel aan de apparaat- als servicezijde nodig.
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
@@ -86,18 +85,17 @@ Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan m
     Noteer de geretourneerde waarde, die er als volgt uitziet:
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
-    
 
 ## <a name="communicate-between-device-and-service-via-device-streams"></a>Communicatie tussen apparaat en service via apparaatstreams
 
 ### <a name="run-the-service-side-application"></a>De toepassing aan de servicezijde uitvoeren
 
-Navigeer naar `device-streams-echo/service` in uw uitgepakte projectmap. Houd de volgende informatie bij de hand:
+Navigeer naar `iot-hub/Quickstarts/device-streams-echo/service` in uw uitgepakte projectmap. Houd de volgende informatie bij de hand:
 
 | Parameternaam | Parameterwaarde |
 |----------------|-----------------|
-| `ServiceConnectionString` | De serviceverbindingsreeks van uw IoT Hub. |
-| `DeviceId` | De id van het apparaat dat u eerder hebt gemaakt. |
+| `ServiceConnectionString` | Geef de serviceverbindingsreeks van uw IoT Hub op. |
+| `DeviceId` | Geef de id op van het apparaat dat u eerder hebt gemaakt, bijvoorbeeld MyDevice. |
 
 Compileer de code en voer deze als volgt uit:
 
@@ -109,19 +107,22 @@ dotnet build
 
 # Run the application
 # In Linux/MacOS
-dotnet run $ServiceConnectionString MyDevice
+dotnet run "<ServiceConnectionString>" "<MyDevice>"
 
 # In Windows
-dotnet run %ServiceConnectionString% MyDevice
+dotnet run <ServiceConnectionString> <MyDevice>
 ```
+
+> [!NOTE]
+> Er treedt een time-out op als de toepassing aan de apparaatzijde niet op tijd reageert.
 
 ### <a name="run-the-device-side-application"></a>De toepassing aan de apparaatzijde uitvoeren
 
-Navigeer naar de map `device-streams-echo/device` in uw uitgepakte projectmap. Houd de volgende informatie bij de hand:
+Navigeer naar de map `iot-hub/Quickstarts/device-streams-echo/device` in uw uitgepakte projectmap. Houd de volgende informatie bij de hand:
 
 | Parameternaam | Parameterwaarde |
 |----------------|-----------------|
-| `DeviceConnectionString` | De verbindingsreeks van het apparaat dat u eerder hebt gemaakt. |
+| `DeviceConnectionString` | Geef de apparaatverbindingsreeks van uw IoT Hub op. |
 
 Compileer de code en voer deze als volgt uit:
 
@@ -133,28 +134,23 @@ dotnet build
 
 # Run the application
 # In Linux/MacOS
-dotnet run $DeviceConnectionString
+dotnet run "<DeviceConnectionString>"
 
 # In Windows
-dotnet run %DeviceConnectionString%
+dotnet run <DeviceConnectionString>
 ```
 
 Aan het einde van de laatste stap initieert de toepassing aan de servicezijde een stream naar uw apparaat die vervolgens via de stroom een tekenreeksbuffer naar de service verzendt. In dit voorbeeld doet het programma aan de servicezijde niets meer dan dezelfde gegevens weer naar het apparaat echoën, wat een geslaagde bidirectionele communicatie tussen de twee toepassingen aantoont. Zie afbeelding hieronder.
 
 Console-uitvoer aan de apparaatzijde: ![alt-tekst](./media/quickstart-device-streams-echo-csharp/device-console-output.png "Console-uitvoer aan de apparaatzijde")
 
-
 Console-uitvoer aan de servicezijde: ![alt-tekst](./media/quickstart-device-streams-echo-csharp/service-console-output.png "Console-uitvoer aan de servicezijde")
 
-
-
 Het verkeer dat via de stream wordt verstuurd, wordt via IoT Hub gesluisd en niet rechtstreeks verzonden. Dit heeft [deze voordelen](./iot-hub-device-streams-overview.md#benefits).
-
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
-
 
 ## <a name="next-steps"></a>Volgende stappen
 

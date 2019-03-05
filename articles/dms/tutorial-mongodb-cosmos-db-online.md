@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 02/12/2019
-ms.openlocfilehash: 95286b7a63471ee07f76276d8b4b63ca5f2aecce
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.date: 02/27/2019
+ms.openlocfilehash: 06e76b8eed283c6ef09f38e876c60b05477cf0ce
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211996"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985815"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms-preview"></a>Zelfstudie: MongoDB migreren naar Azure Cosmos DB's API voor online MongoDB met behulp van DMS (preview-versie)
 Met Azure Database Migration Service kunt u een online migratie (met minimale downtime) van databases uitvoeren vanaf een on-premises of in de cloud aanwezig MongoDB -exemplaar naar Azure Cosmos DB's API voor MongoDB.
@@ -121,7 +121,18 @@ Nadat de service is gemaakt, zoek deze op in de Azure-portal, open hem en maak v
        * **Modus verbindingsreeks**: deze accepteert een MongoDB-verbindingsreeks, zoals beschreven in het artikel [Connection String URI Format](https://docs.mongodb.com/manual/reference/connection-string/) (URI-indeling van verbindingsreeks).
        * **Gegevens uit Azure-opslag**: deze accepteert een SAS-URL van de blob-container. Selecteer **Blob contains BSON dump** als de blob-container BSON-dumps bevat die zijn geproduceerd door het [bsondump-hulpprogramma](https://docs.mongodb.com/manual/reference/program/bsondump/) van MongoDB en deselecteer het als de container JSON-bestanden bevat.
 
-    U kunt het IP-adres gebruiken voor situaties waarin DNS-naamomzetting niet mogelijk is.
+      Als u deze optie selecteert, controleer dan of de verbindingsreeks van het opslagaccount wordt weergegeven in de volgende indeling:
+
+    ```
+    https://blobnameurl/container?SASKEY
+    ```
+      Vanwege het type dumpgegevens in Azure-opslag moet u ook rekening houden met het volgende.
+
+      * Voor BSON-dumps moeten de gegevens in de blob-container de bsondump-indeling hebben, zodat de gegevensbestanden worden geplaatst in mappen die worden genoemd naar de omvattende databases in de collection.bson-indeling. Metagegevensbestanden (indien aanwezig) moeten een naam krijgen op basis van de indeling *verzameling*.metadata.json.
+
+      * Voor JSON-dumps moeten de bestanden in de blob-container worden geplaatst in mappen die zijn genoemd naar de omvattende databases. In elke databasemap moeten gegevensbestanden worden geplaatst in een submap met de naam 'data' en ze moeten een naam krijgen op basis van de indeling *verzameling*.json. Metagegevensbestanden (indien aanwezig) moeten worden geplaatst in een submap met de naam 'metadata' en ze moeten een naam krijgen op basis van dezelfde indeling *verzameling*.json. De metagegevensbestanden moeten de indeling hebben die wordt geproduceerd door het MongoDB-hulpprogramma bsondump.
+
+   U kunt het IP-adres gebruiken voor situaties waarin DNS-naamomzetting niet mogelijk is.
 
    ![Geef brondetails op](media/tutorial-mongodb-to-cosmosdb-online/dms-specify-source1.png)
 

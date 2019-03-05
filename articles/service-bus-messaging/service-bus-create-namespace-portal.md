@@ -14,25 +14,20 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 02/12/2019
 ms.author: aschhab
-ms.openlocfilehash: 632ef45d4db5de03369e0abb8b16590911bdffdb
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 7543fb6aed2e63a998dae2b0a855a70197a282ac
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233299"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587205"
 ---
 # <a name="create-a-service-bus-namespace-using-the-azure-portal"></a>Een Service Bus-naamruimte maken met Azure Portal
 
-Een naamruimte is een scoping container voor alle berichtenonderdelen. Er kunnen zich meerdere wachtrijen en onderwerpen in één naamruimte bevinden, en naamruimten fungeren vaak als toepassingscontainers. Er zijn twee manieren om een Service Bus-naamruimte te maken:
-
-1. Azure Portal (dit artikel)
-2. [Resource Manager-sjablonen][create-namespace-using-arm]
-
-## <a name="create-a-namespace-in-the-azure-portal"></a>Een naamruimte in Azure Portal maken
+Een naamruimte is een scoping container voor alle berichtenonderdelen. Er kunnen zich meerdere wachtrijen en onderwerpen in één naamruimte bevinden, en naamruimten fungeren vaak als toepassingscontainers. In dit artikel vindt u instructies voor het maken van een naamruimte in de Microsoft Azure-portal. 
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-Gefeliciteerd. U hebt nu een naamruimte voor Service Bus-berichten gemaakt.
+Gefeliciteerd! U hebt nu een naamruimte voor Service Bus-berichten gemaakt.
 
 ## <a name="next-steps"></a>Volgende stappen
 

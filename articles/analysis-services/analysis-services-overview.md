@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 114dac10592213d3b2fdfff909913039b3dba344
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 53ce82a6e1180d4493e2d4014bf6e26e9bde2466
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429431"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731392"
 ---
 # <a name="what-is-azure-analysis-services"></a>Wat is Azure Analysis Services?
 
@@ -132,7 +132,7 @@ Totale kosten zijn afhankelijk van een aantal factoren; bijvoorbeeld uw gekozen 
 
 ## <a name="built-on-sql-server-analysis-services"></a>Gebaseerd op SQL Server Analysis Services
 
-Azure Analysis Services is compatibel met veel geweldige functies die al deel uitmaken van SQL Server Analysis Services Enterprise Edition. Azure Analysis Services ondersteunt tabellarische modellen met het [compatibiliteitsniveau](analysis-services-compat-level.md) 1200 of hoger. Tabellarische modellen zijn constructies voor relationele modellering (model, tabellen, kolommen), geformuleerd in tabellarische metagegevensobjectdefinities in TMSL- (Tabular Model Scripting Language) en TOM-code (Tabular Object Model. Partities, perspectieven, beveiliging op rijniveau, bidirectionele relaties en translaties worden allemaal ondersteund*. Multidimensionale modellen en PowerPivot voor SharePoint *worden niet* ondersteund in Azure Analysis Services.
+Azure Analysis Services is compatibel met veel geweldige functies die al deel uitmaken van SQL Server Analysis Services Enterprise Edition. Azure Analysis Services ondersteunt tabellarische modellen met het [compatibiliteitsniveau](analysis-services-compat-level.md) 1200 of hoger. Tabellarische modellen zijn constructies voor relationele modellering (model, tabellen, kolommen), geformuleerd in tabellarische metagegevensobjectdefinities in TMSL- (Tabular Model Scripting Language) en TOM-code (Tabular Object Model. Partities, perspectieven, beveiliging op rijniveau, bidirectionele relaties en vertalingen worden allemaal ondersteund\*. Multidimensionale modellen en PowerPivot voor SharePoint *worden niet* ondersteund in Azure Analysis Services.
 
 Tabellarische modellen in zowel in-memory- als DirectQuery-modi worden ondersteund. In de in-memory-modus (standaard) ondersteunen tabellarische modellen meerdere gegevensbronnen. Omdat modelgegevens in hoge mate worden gecomprimeerd en in het geheugen worden gecachet, biedt deze modus de snelste queryrespons op grote hoeveelheden gegevens. Deze modus biedt ook de meeste flexibiliteit voor complexe gegevenssets en query's. Partitionering maakt incrementele belastingen mogelijk, verhoogt de parallellisatie en vermindert het geheugenverbruik. Andere geavanceerde functies voor gegevensmodellering, zoals berekende tabellen, en alle DAX-functies worden ondersteund. Geheugenmodellen moeten worden vernieuwd (verwerkt) om gecachete gegevens uit gegevensbronnen bij te werken. Dankzij Azure-service-principal-ondersteuning bieden onbeheerde vernieuwingsbewerkingen met PowerShell, TOM, TMSL en REST flexibiliteit om ervoor te zorgen dat uw modelgegevens altijd up-to-date zijn. 
 
@@ -203,7 +203,7 @@ Servers en modeldatabases beheert u met behulp van [SQL Server Management Studio
 
 ### <a name="powershell"></a>PowerShell
 
-Gebruik AzureRM-cmdlets (Azure Resource Manager) om beheertaken voor serverresources uit te voeren, zoals serverresources maken, serverbewerkingen onderbreken of hervatten, of het serviceniveau (de servicelaag) te wijzigen. Voor andere databasebeheertaken, zoals het toevoegen of verwijderen van roltoewijzingen, het toepassen van bewerkingen of het uitvoeren van TMSL-scripts, gebruikt u de cmdlets van de SQL Server-module. Zie [Azure Analysis Services beheren met PowerShell](analysis-services-powershell.md) voor meer informatie.
+Beheertaken voor serverresources, zoals het maken van serverresources, het onderbreken of hervatten van serverbewerkingen of het wijzigen van het serviceniveau (de servicelaag), maken gebruik van Azure PowerShell-cmdlets. Voor andere databasebeheertaken, zoals het toevoegen of verwijderen van roltoewijzingen, het toepassen van bewerkingen of het uitvoeren van TMSL-scripts, gebruikt u de cmdlets van de SQL Server-module. Zie [Azure Analysis Services beheren met PowerShell](analysis-services-powershell.md) voor meer informatie.
 
 ### <a name="object-model-and-scripting"></a>Objectmodel en scripts
 

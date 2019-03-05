@@ -1,109 +1,109 @@
 ---
-title: Een Azure container registry geo-replicatie
-description: Aan de slag, het maken en beheren van geo-gerepliceerd Azure-containerregisters.
+title: Geo-replicatie van een Azure-containerregister
+description: Aan de slag met het maken en beheren van geo-replicatie van Azure-containerregisters.
 services: container-registry
 author: stevelas
 manager: jeconnoc
 ms.service: container-registry
-ms.topic: overview-article
+ms.topic: overview
 ms.date: 04/10/2018
 ms.author: stevelas
-ms.openlocfilehash: a83cf6b37a28ec38165778faa7a9ecc266cce7bd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: MT
+ms.openlocfilehash: d65267992876b3b3255a5eea22ff827522ddcdf1
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858253"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674698"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Geo-replicatie in Azure Container Registry
 
-Bedrijven die lokale aanwezigheid handhaaft, of een ' hot ' back-up wilt kiezen voor het uitvoeren van services van Azure-regio's. Als een best practice kunt een containerregister te brengen in elke regio waarin afbeeldingen worden uitgevoerd dichtbij het netwerk-bewerkingen, waardoor snelle, betrouwbare installatiekopie laag overdrachten. Geo-replicatie kunt een Azure container registry als één register functioneren in meerdere regio's met meerdere masters registers.
+Bedrijven die lokale aanwezigheid willen, of een back-up zonder opnieuw opstarten, kunnen services uitvoeren vanuit meerdere Azure-regio's. Het plaatsen van een containerregister in elke regio waarin installatiekopieën worden uitgevoerd, is een best practice die bewerkingen dicht bij het netwerk mogelijk maakt, wat zorgt voor snelle, betrouwbare overdrachten van installatiekopielagen. Met geo-replicatie kan een Azure-containerregister als één register functioneren en meerdere regio's bedienen met regionale registers voor meerdere masters.
 
-Een geo-gerepliceerde register biedt de volgende voordelen:
+Een geo-gerepliceerd register biedt de volgende voordelen:
 
-* Één register/afbeeldingscode namen kunnen worden gebruikt in meerdere regio 's
-* Toegang tot het register van dichtbij het netwerk van regionale implementaties
-* Geen kosten voor aanvullende uitgaand verkeer, als installatiekopieën worden opgehaald uit een lokale, gerepliceerde register in dezelfde regio als uw containerhost
-* Één management van een register in meerdere regio 's
+* Dezelfde register-/installatiekopie-/tagnamen kunnen worden gebruikt in meerdere regio's
+* Toegang tot het register dicht bij het netwerk via regionale implementaties
+* Geen extra kosten voor uitgaand verkeer, aangezien de installatiekopieën worden opgehaald uit een lokaal, gerepliceerd register in dezelfde regio als uw containerhost
+* Beheer van een enkel register voor meerdere regio's
 
 > [!NOTE]
-> Als u kopieën van containerinstallatiekopieën in meer dan één Azure container registry moet, Azure Container Registry biedt ook ondersteuning voor [image importeren](container-registry-import-images.md). Bijvoorbeeld in een DevOps-werkstroom, kunt u importeren een afbeelding uit een register ontwikkeling naar een register productie zonder gebruik van Docker-opdrachten.
+> Als u kopieën van containerinstallaties in meer dan één Azure-containerregister wilt behouden, kunt u met Azure Container Registry ook [installatiekopieën importeren](container-registry-import-images.md). U kunt bijvoorbeeld binnen een DevOps-werkstroom een installatiekopie uit een ontwikkelingsregister naar een productieregister importeren zonder Docker-opdrachten te gebruiken.
 >
 
-## <a name="example-use-case"></a>Voorbeeld van de use-case
-Contoso wordt uitgevoerd een aanwezigheid van openbare website zich in de VS, Canada en Europa. Als u wilt deze markten met inhoud van lokale en dichtbij het netwerk fungeren, Contoso wordt uitgevoerd [Azure Kubernetes Service](/azure/aks/) (AKS)-clusters in VS-West, VS-Oost, Canada-centraal en West-Europa. De websitetoepassing geïmplementeerd als een Docker-installatiekopie maakt gebruik van de code en de installatiekopie in alle regio's. Inhoud, lokale voor deze regio wordt opgehaald uit een database, die uniek is ingericht in elke regio. Elke regionale implementatie heeft de unieke configuratie voor resources, zoals de lokale database.
+## <a name="example-use-case"></a>Voorbeeld van een toepassing
+Contoso voert een website voor openbare aanwezigheid uit voor de VS, Canada en Europa. Contoso voert AKS-clusters ([Azure Kubernetes Service](/azure/aks/)) uit in US - west, US - oost, Canada - centraal en Europa - west om deze markten met lokale inhoud van dicht bij het netwerk te bedienen. De webtoepassing, geïmplementeerd als een Docker-installatiekopie, gebruikt dezelfde code en installatiekopie in alle regio's. Inhoud, die lokaal is voor een bepaalde regio, wordt opgehaald uit een database, die uniek is ingericht in elke regio. Elke regionale implementatie heeft een unieke configuratie voor resources zoals de lokale database.
 
-Het ontwikkelteam bevindt zich in Seattle, WA, met behulp van het datacentrum VS-West.
+Het ontwikkelteam bevindt zich in Seattle, WA en gebruikt het datacentrum US - west.
 
 ![Pushen naar meerdere registers](media/container-registry-geo-replication/before-geo-replicate.png)<br />*Pushen naar meerdere registers*
 
-Voordat u de functies voor geo-replicatie, had Contoso een register op basis van VS in VS-West, met een extra registry in West-Europa. Voor deze verschillende regio's, het ontwikkelteam installatiekopieën gepusht naar twee verschillende registers.
+Voordat Contoso de functies voor geo-replicatie ging gebruiken, had het bedrijf een in de VS gebaseerd register in US - west, met een extra register in Europa - west. Het ontwikkelteam pushte installatiekopieën naar twee verschillende registers om deze verschillende regio's te bedienen.
 
 ```bash
 docker push contoso.azurecr.io/public/products/web:1.2
 docker push contosowesteu.azurecr.io/public/products/web:1.2
 ```
-![Binnenhalen van meerdere registers](media/container-registry-geo-replication/before-geo-replicate-pull.png)<br />*Binnenhalen van meerdere registers*
+![Ophalen vanuit meerdere registers](media/container-registry-geo-replication/before-geo-replicate-pull.png)<br />*Ophalen vanuit meerdere registers*
 
-Typische uitdagingen van meerdere registers zijn onder andere:
+Typische uitdagingen van meerdere registers zijn onder meer:
 
-* VS-Oost, VS-West en Canada-centraal clusters die alle op te halen uit het register VS-West, waarbij extra kosten voor uitgaand verkeer kosten als elk van deze externe containerhosts pull installatiekopieën vanuit VS-West-datacenters.
-* Het ontwikkelteam moet installatiekopieën pushen naar VS-West en West-Europa registers.
-* Het ontwikkelteam moet configureren en onderhouden van elke regionale implementatie met namen van installatiekopieën die verwijst naar het lokale register.
-* Toegang tot het register moet worden geconfigureerd voor elke regio.
+* De clusters US - oost, US - west en Canada - centraal halen allemaal gegevens op uit het register US - west, waarbij extra kosten voor uitgaand verkeer worden gegenereerd omdat al deze externe containerhosts installatiekopieën ophalen vanuit datacenters in US - west.
+* Het ontwikkelteam moet installatiekopieën pushen naar registers in US - west en Europa - west.
+* Het ontwikkelteam moet elke regionale implementatie configureren en onderhouden met installatiekopienamen die verwijzen naar het lokale register.
+* Toegang tot het register moet voor elke regio worden geconfigureerd.
 
 ## <a name="benefits-of-geo-replication"></a>Voordelen van geo-replicatie
 
-![Vanuit een geo-gerepliceerde register](media/container-registry-geo-replication/after-geo-replicate-pull.png)
+![Ophalen vanuit een geo-gerepliceerd register](media/container-registry-geo-replication/after-geo-replicate-pull.png)
 
-Met behulp van de functie voor geo-replicatie van Azure Container Registry, deze voordelen gerealiseerd:
+De functie voor geo-replicatie van Azure Container Registry biedt de volgende voordelen:
 
-* Enkele registers beheren in alle regio's: `contoso.azurecr.io`
-* Een eenmalige configuratie van implementaties beheren als alle regio's de dezelfde afbeeldings-URL gebruikt: `contoso.azurecr.io/public/products/web:1.2`
+* Eén register beheren voor alle regio's: `contoso.azurecr.io`
+* Eén configuratie van installatiekopie-implementaties beheren, omdat voor alle regio's dezelfde installatiekopie-URL wordt gebruikt: `contoso.azurecr.io/public/products/web:1.2`
 * Pushen naar een enkel register, terwijl ACR de geo-replicatie beheert, met inbegrip van regionale webhooks voor lokale meldingen
 
 ## <a name="configure-geo-replication"></a>Geo-replicatie configureren
-Het configureren van geo-replicatie is net zo gemakkelijk als de regio's op een kaart te klikken.
+Het configureren van geo-replicatie is net zo gemakkelijk als regio's aanklikken op een kaart.
 
-Geo-replicatie is een functie van [Premium-registers](container-registry-skus.md) alleen. Als het register niet nog Premium, kunt u van Basic en Standard naar Premium in de [Azure-portal](https://portal.azure.com):
+De functie voor geo-replicatie is alleen voor [Premium-registers](container-registry-skus.md) beschikbaar. Als uw register nog niet Premium is, kunt u overstappen van Basic en Standard naar Premium in de [Azure-portal](https://portal.azure.com):
 
-![Switch-SKU's in Azure portal](media/container-registry-skus/update-registry-sku.png)
+![Van SKU wisselen in de Azure-portal](media/container-registry-skus/update-registry-sku.png)
 
-Voor het configureren van geo-replicatie voor de Premium-register, moet u zich aanmelden bij Azure portal op http://portal.azure.com.
+Als u geo-replicatie voor een Premium-register wilt configureren, moet u zich aanmelden bij de Azure-portal via http://portal.azure.com.
 
-Navigeer naar uw Azure Container Registry, en selecteer **replicaties**:
+Ga naar Azure Container Registry en selecteer **Replicaties**:
 
 ![Replicaties in de containerregister-UI van Azure Portal](media/container-registry-geo-replication/registry-services.png)
 
-Een kaart wordt weergegeven met alle huidige Azure-regio's:
+Er wordt een kaart weergegeven met alle huidige Azure-regio's:
 
  ![Kaart met regio's in Azure Portal](media/container-registry-geo-replication/registry-geo-map.png)
 
-* Blauwe Zeshoeken vertegenwoordigen huidige replica 's
-* Groene Zeshoeken vertegenwoordigen mogelijk replica regio 's
-* Grijze Zeshoeken vertegenwoordigen de Azure-regio's nog niet beschikbaar voor replicatie
+* Blauwe zeshoeken staan voor huidige replica's
+* Groene zeshoeken staan voor mogelijk replicatieregio's
+* Grijze zeshoeken staan voor Azure-regio's die nog niet beschikbaar zijn voor replicatie
 
-Voor het configureren van een replica, selecteert u een groene zeshoek en vervolgens **maken**:
+Als u een replica wilt configureren, selecteert u een groene zeshoek en selecteert u vervolgens **Maken**:
 
  ![Gebruikersinterface voor het maken van een replicatie in Azure Portal](media/container-registry-geo-replication/create-replication.png)
 
-Selecteer het groene Zeshoeken voor andere regio's voor het configureren van extra replica's, en klik op **maken**.
+Als u extra replica's wilt configureren, selecteert u de groene zeshoeken voor andere regio's en klikt u op **Maken**.
 
-ACR begint installatiekopieën via de geconfigureerde replica's synchroniseren. Als u klaar bent, geeft de portal *gereed*. De status van de replica in de portal wordt niet automatisch bijgewerkt. Gebruik de vernieuwknop om de bijgewerkte status te bekijken.
+ACR begint installatiekopieën te synchroniseren voor de geconfigureerde replica's. Zodra dit is voltooid, geeft de portal *Gereed* weer. De status van de replica in de portal wordt niet automatisch bijgewerkt. Gebruik de vernieuwknop om de bijgewerkte status te bekijken.
 
-## <a name="geo-replication-pricing"></a>Prijzen voor geo-replicatie
+## <a name="geo-replication-pricing"></a>Prijzen van geo-replicatie
 
-Geo-replicatie is een functie van de [Premium-SKU](container-registry-skus.md) van Azure Container Registry. Wanneer u een register naar de gewenste regio's repliceren, worden er kosten voor Premium-register voor elke regio.
+Geo-replicatie is een functie van de [Premium SKU](container-registry-skus.md) van Azure Container Registry. Wanneer u een register naar de gewenste regio's repliceert, worden er kosten voor het Premium-register voor elke regio gemaakt.
 
-In het voorgaande voorbeeld, Contoso geconsolideerd twee registers omlaag, replica's toe te voegen aan VS-Oost, Canada centraal en West-Europa. Contoso zou Premium vier keer per maand, zonder extra configuratie of management betalen. Elke regio haalt nu afbeeldingen lokaal, verbeterde prestaties, betrouwbaarheid zonder netwerk uitgaande kosten van VS-Canada West en VS-Oost.
+In het voorgaande voorbeeld ging Contoso van twee registers naar één en voegde het bedrijf replica's toe aan US - oost, Canada - centraal en Europa - west. Contoso zou vier keer per maand Premium betalen, zonder extra configuratie of beheer. Elke regio haalt nu installatiekopieën lokaal op, wat zorgt voor betere prestaties en een hogere betrouwbaarheid zonder kosten voor uitgaand netwerkverkeer voor US - west naar Canada en US - oost.
 
 ## <a name="summary"></a>Samenvatting
 
-Met geo-replicatie, kunt u uw regionale datacenters beheren als één globale cloud. Installatiekopieën door vele Azure-services heen worden gebruikt, kunt u profiteren van een enkel beheervlak terwijl dichtbij het netwerk, snelle en betrouwbare lokale installatiekopie ophaalt.
+Met geo-replicatie kunt u uw regionale datacenters als één globale cloud beheren. Aangezien installatiekopieën voor vele Azure-services worden gebruikt, kunt u profiteren van een enkel beheervlak terwijl u een snelle en betrouwbare voorziening van lokale installatiekopieën dicht bij het netwerk in stand houdt.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de driedelige zelfstudiereeks [Geo-replicatie in Azure Container Registry](container-registry-tutorial-prepare-registry.md). Helpen bij het maken van een geo-gerepliceerde register, het bouwen van een container en vervolgens implementeert u het met één `docker push` opdracht op meerdere regionale Web Apps for Containers-instanties.
+Bekijk de driedelige zelfstudiereeks [Geo-replicatie in Azure Container Registry](container-registry-tutorial-prepare-registry.md). Ontdek hoe u een geo-gerepliceerd register maakt, een container bouwt en het vervolgens met één `docker push`-opdracht implementeert naar meerdere regionale Web App for Containers-instanties.
 
 > [!div class="nextstepaction"]
 > [Geo-replicatie in Azure Container Registry](container-registry-tutorial-prepare-registry.md)

@@ -1,246 +1,224 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met Getabstract | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Getabstract.
+description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active Directory en Getabstract.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 2b63d048-b529-4fad-9e90-f244323409dd
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/15/2017
+ms.topic: tutorial
+ms.date: 02/19/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3725089c8b2e7dc71e652ddcbd20a757d9bbf726
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: 749a5dbe16746927b23523f8f44227f00abc4140
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169749"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872468"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getabstract"></a>Zelfstudie: Azure Active Directory-integratie met Getabstract
 
-In deze zelfstudie leert u hoe u Getabstract integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Getabstract kunt integreren met Azure Active Directory (Azure AD).
+De integratie van Getabstract met Azure Active Directory biedt de volgende voordelen:
 
-Getabstract integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure Active Directory bepalen wie er toegang heeft tot Getabstract.
+* U kunt inschakelen dat gebruikers automatisch met hun Azure Active Directory-account worden aangemeld bij Getabstract (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot Getabstract heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Getabstract (Single Sign-On) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Getabstract, moet u de volgende items:
+Om Azure Active Directory-integratie te configureren met Getabstract hebt u het volgende nodig:
 
-- Een Azure AD-abonnement
-- Een Getabstract eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op Getabstract waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Getabstract uit de galerie toe te voegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="adding-getabstract-from-the-gallery"></a>Getabstract uit de galerie toe te voegen
-Voor het configureren van de integratie van Getabstract in Azure AD, moet u Getabstract uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* Getabstract biedt ondersteuning voor met **SP** en **IDP** geïnitieerde eenmalige aanmelding
 
-**Als u wilt toevoegen Getabstract uit de galerie, moet u de volgende stappen uitvoeren:**
+* Getabstract biedt ondersteuning voor **Just-In-Time**-inrichting van gebruikers
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
-    ![De Azure Active Directory-knop][1]
+## <a name="adding-getabstract-from-the-gallery"></a>Getabstract toevoegen vanuit de galerie
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+Voor het configureren van de integratie van Getabstract met Azure Active Directory moet u Getabstract vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-    ![De blade Enterprise-toepassingen][2]
-    
-1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+**Als u Getabstract wilt toevoegen vanuit de galerie, moet u de volgende stappen uitvoeren:**
 
-    ![De knop Nieuwe toepassing][3]
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-1. Typ in het zoekvak **Getabstract**, selecteer **Getabstract** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![Getabstract in de lijst met resultaten](./media/getabstract-tutorial/tutorial_getabstract_addfromgallery.png)
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
+
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
+
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
+
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
+
+4. Typ in het zoekvak **Getabstract**, selecteer **Getabstract** in het resultaatvenster en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
+
+     ![Getabstract in de lijst met resultaten](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Getabstract op basis van een testgebruiker 'Julia steen' genoemd.
+In deze sectie gaat u eenmalige aanmelding van Azure Active Directory met Getabstract configureren en testen op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure Active Directory-gebruiker en de daaraan gerelateerde gebruiker in Getabstract tot stand is gebracht.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Getabstract is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Getabstract tot stand worden gebracht.
-
-In Getabstract, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
-
-Om te configureren en testen van Azure AD eenmalige aanmelding met Getabstract, moet u de volgende bouwstenen voltooien:
+Om eenmalige aanmelding van Azure Active Directory met Getabstract te configureren en testen, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-1. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-1. **[Maak een testgebruiker Getabstract](#create-a-getabstract-test-user)**  : als u wilt een equivalent van Britta Simon in Getabstract die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-1. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
+2. **[Eenmalige aanmelding voor Getabstract configureren](#configure-getabstract-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wil configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Testgebruiker voor Getabstract maken](#create-getabstract-test-user)**: als u een tegenhanger van Britta Simon in Getabstract wilt hebben die is gekoppeld aan de Azure Active Directory-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Getabstract.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Getabstract, moet u de volgende stappen uitvoeren:**
+Voer de volgende stappen uit als u eenmalige aanmelding van Azure Active Directory met Getabstract wilt configureren:
 
-1. In de Azure-portal op de **Getabstract** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. In de [Microsoft Azure-portal](https://portal.azure.com/) selecteert u **Eenmalige aanmelding** op de integratiepagina van de toepassing **Getabstract**.
 
-    ![Koppeling Eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/getabstract-tutorial/tutorial_getabstract_samlbase.png)
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-1. Op de **Getabstract domein en URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in **IDP** modus gestart:
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    ![Getabstract domein en URL's, eenmalige aanmelding informatie](./media/getabstract-tutorial/tutorial_getabstract_url.png)
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    a. Typ de URL in het tekstvak **Id**:
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    Voor de fase/pre_production: `https://int.getabstract.com`
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit als u de toepassing in de door **IDP** geïnitieerde modus wilt configureren:
 
-    Voor productie: `https://www.getabstract.com`
+    ![Informatie over eenmalige aanmelding van domeinen en URL’s van Getabstract](common/idp-intiated.png)
 
-    b. Typ de URL in het tekstvak **Antwoord-URL**:
+    a. In het tekstvak **Id** typt u een URL:
+
+    For Stage/pre_production: `https://int.getabstract.com`
+
+    For Production: `https://www.getabstract.com`
+
+    b. Typ een URL in het tekstvak **Antwoord-URL**:
     
-    Voor de fase/pre_production: `https://int.getabstract.com/ACS.do`
+    For Stage/pre_production: `https://int.getabstract.com/ACS.do`
     
-    Voor productie: `https://www.getabstract.com/ACS.do`
+    For Production: `https://www.getabstract.com/ACS.do`
 
-1. Controleer **geavanceerde URL-instellingen weergeven** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
+5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
-    ![Getabstract domein en URL's, eenmalige aanmelding informatie](./media/getabstract-tutorial/tutorial_getabstract_url1.png)
-
+    ![Informatie over eenmalige aanmelding van domeinen en URL’s van Getabstract](common/metadata-upload-additional-signon.png)
+    
     In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon:
+
+    For Stage/pre_production: `https://int.getabstract.com/portal/<org_username>`
     
-    Voor de fase/pre_production: `https://int.getabstract.com/portal/<org_username>`
-    
-    Voor productie: `https://www.getabstract.com/portal/<org_username>`
+    For Production: `https://www.getabstract.com/portal/<org_username>`
 
     > [!NOTE] 
-    > Deze waarde is niet echt. Werk deze waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [Getabstract Client ondersteuningsteam](https://www.getabstract.com/en/contact) deze waarde op te halen.
+    > Deze waarde is niet echt. Werk deze waarde bij met de werkelijke aanmeldings-URL. Neem contact op met het [Getabstract-klantondersteuningsteam](https://www.getabstract.com/en/contact) om deze waarde te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+4. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
-    ![De downloadkoppeling certificaat](./media/getabstract-tutorial/tutorial_getabstract_certificate.png) 
+    ![De link om het certificaat te downloaden](common/metadataxml.png)
 
-1. Klik op **opslaan** knop.
+6. In het gedeelte **Getabstract instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
 
-    ![De knop voor enkelvoudige aanmelding configureren](./media/getabstract-tutorial/tutorial_general_400.png)
-    
-1. Het configureren van eenmalige aanmelding op **Getabstract** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [Getabstract ondersteuningsteam](https://www.getabstract.com/en/contact). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+    a. Aanmeldings-URL
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+    b. Azure AD-id
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+    c. Afmeldings-URL
 
-   ![Maak een testgebruiker Azure AD][100]
+### <a name="configure-getabstract-single-sign-on"></a>Getabstract configureren voor eenmalige aanmelding
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+Als u eenmalige aanmelding aan de zijde van **Getabstract** wilt configureren, moet u het gedownloade **XML-bestand met federatieve metagegevens** en de correcte uit de Azure Portal gekopieerde URL's verzenden naar het [Getabstract-ondersteuningsteam](https://www.getabstract.com/en/contact). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-    ![De Azure Active Directory-knop](./media/getabstract-tutorial/create_aaduser_01.png)
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/getabstract-tutorial/create_aaduser_02.png)
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-1. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![De knop toevoegen](./media/getabstract-tutorial/create_aaduser_03.png)
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-    ![Het dialoogvenster gebruiker](./media/getabstract-tutorial/create_aaduser_04.png)
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    a. In de **naam** in het vak **BrittaSimon**.
+    a. Voer in het veld **Naam****Britta Simon** in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
-
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
     d. Klik op **Create**.
- 
-### <a name="create-a-getabstract-test-user"></a>Maak een testgebruiker Getabstract
-
-Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in Getabstract. Getabstract biedt ondersteuning voor just-in-time inrichting, dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot Getabstract als deze nog niet bestaat.
->[!Note]
->Als u wilt maken van een gebruiker handmatig, neem contact op met [Getabstract-ondersteuningsteam](https://www.getabstract.com/en/contact)
-
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Getabstract.
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot Getabstract.
 
-![De de gebruikersrol toewijzen][200] 
+1. Selecteer **Bedrijfstoepassingen** in de Microsoft Azure-portal, selecteer **Alle toepassingen** en selecteer vervolgens **Getabstract**.
 
-**Als u wilt Britta Simon aan Getabstract toewijst, moet u de volgende stappen uitvoeren:**
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+2. Selecteer **Getabstract** in de lijst met toepassingen.
 
-    ![Gebruiker toewijzen][201] 
+    ![De Getabstract-link in de lijst met toepassingen](common/all-applications.png)
 
-1. Selecteer in de lijst met toepassingen, **Getabstract**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![De koppeling Getabstract in de lijst met toepassingen](./media/getabstract-tutorial/tutorial_getabstract_app.png)  
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst Gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+6. Als u een waarde voor een rol verwacht in de SAML-assertie, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onderaan het scherm klikken.
 
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+### <a name="create-getabstract-test-user"></a>Getabstract-testgebruiker maken
 
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+In dit gedeelte wordt een gebruiker met de naam Britta Simon gemaakt in Getabstract. Getabstract biedt ondersteuning voor Just-In-Time-inrichting van gebruikers. Deze functie is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Als er nog geen gebruiker in Getabstract bestaat, wordt er een nieuwe gemaakt nadat deze is geverifieerd.
 
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+>[!Note]
+>Als u een gebruiker handmatig wilt maken, neemt u contact op met het [Getabstract-ondersteuningsteam](https://www.getabstract.com/en/contact)
 
-Wanneer u op de tegel Getabstract in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing Getabstract.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
+
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+
+Wanneer u op de tegel van Getabstract in het toegangsvenster klikt, zou u automatisch moeten worden aangemeld bij de instantie vanGetabstract waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
-[1]: ./media/getabstract-tutorial/tutorial_general_01.png
-[2]: ./media/getabstract-tutorial/tutorial_general_02.png
-[3]: ./media/getabstract-tutorial/tutorial_general_03.png
-[4]: ./media/getabstract-tutorial/tutorial_general_04.png
-
-[100]: ./media/getabstract-tutorial/tutorial_general_100.png
-
-[200]: ./media/getabstract-tutorial/tutorial_general_200.png
-[201]: ./media/getabstract-tutorial/tutorial_general_201.png
-[202]: ./media/getabstract-tutorial/tutorial_general_202.png
-[203]: ./media/getabstract-tutorial/tutorial_general_203.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -1,6 +1,6 @@
 ---
 title: Een inleiding tot Apache Kafka in HDInsight - Azure
-description: 'Meer informatie over Apache Kafka in HDInsight: wat het is, wat het doet en waar u voorbeelden en gegevens kunt vinden om aan de slag te gaan.'
+description: 'Meer informatie over Apache Kafka in HDInsight: Wat het is, wat het doet en waar u voorbeelden en gegevens kunt vinden om aan de slag te gaan.'
 services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 04/11/2018
-ms.openlocfilehash: 587279d247b945b787051721d256f00a090d56db
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 4d054542d600f2569170f40b8f6c053e005fc8af
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313959"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889185"
 ---
 # <a name="what-is-apache-kafka-on-hdinsight"></a>Wat is Apache Kafka in HDInsight?
 
@@ -38,7 +38,7 @@ Dit zijn specifieke kenmerken van Kafka in HDInsight:
 
     Zie [Hoge beschikbaarheid met Apache Kafka in HDInsight](apache-kafka-high-availability.md) voor meer informatie.
 
-* Azure Log Analytics kan worden gebruikt voor het monitoren van Kafka in HDInsight. Log Analytics haalt informatie op VM-niveau naar boven, zoals schijf- en NIC-gegevens en JMX-gegevens van Kafka.
+* Azure Monitor-logboeken kan worden gebruikt voor het bewaken van Kafka in HDInsight. Azure Monitor-logboeken geeft informatie op VM-niveau weer, zoals schijf- en NIC-gegevens en JMX-gegevens van Kafka.
 
     Zie [Logboeken voor Apache Kafka in HDInsight analyseren](apache-kafka-log-analytics-operations-management.md) voor meer informatie.
 
@@ -94,7 +94,7 @@ Hier volgen enkele algemene taken en patronen die kunnen worden uitgevoerd met K
 
 Gebruik de volgende koppelingen voor meer informatie over het gebruik van Apache Kafka in HDInsight:
 
-* [Quickstart: Een Apache Kafka-cluster maken in HDInsight](apache-kafka-get-started.md)
+* [Snelstart: Apache Kafka in HDInsight maken](apache-kafka-get-started.md)
 
 * [Zelfstudie: Apache Spark gebruiken met Apache Kafka in HDInsight](../hdinsight-apache-spark-with-kafka.md)
 

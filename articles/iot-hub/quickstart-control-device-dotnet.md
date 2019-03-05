@@ -8,16 +8,16 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 06/20/2018
+ms.date: 02/22/2019
 ms.author: dobett
-ms.openlocfilehash: c8ef958b2f39a9271b9fa344f61329d48eccdee4
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 5de2fa7e7ae18bf5a6212f6571acdf545116b88b
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514732"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673474"
 ---
-# <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Snelstartgids: Een apparaat beheren dat is verbonden met een IoT-hub (.NET)
+# <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Quickstart: Een apparaat beheren dat is verbonden met een IoT-hub (.NET)
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
@@ -49,21 +49,21 @@ Als u dit nog niet hebt gedaan, downloadt u het voorbeeldproject met C# van http
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
-U kunt deze stap overslaan na het afronden van de voorgaande [ snelstartgids: Telemetriegegevens vanaf een apparaat verzenden naar een IoT-hub](quickstart-send-telemetry-dotnet.md).
+Als u [Snelstart: Als u telemetrie vanaf een apparaat wilt verzenden naar een IoT-hub](quickstart-send-telemetry-dotnet.md), kunt u deze stap overslaan.
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Een apparaat registreren
 
-U kunt deze stap overslaan na het afronden van de voorgaande [ snelstartgids: Telemetriegegevens vanaf een apparaat verzenden naar een IoT-hub](quickstart-send-telemetry-dotnet.md).
+Als u [Snelstart: Als u telemetrie vanaf een apparaat wilt verzenden naar een IoT-hub](quickstart-send-telemetry-dotnet.md), kunt u deze stap overslaan.
 
 Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan maken. In deze snelstart gebruikt u Azure Cloud Shell om een gesimuleerd apparaat te registreren.
 
-1. Voer de volgende opdrachten uit in Azure Cloud Shell om de IoT Hub CLI-extensie toe te voegen en de apparaat-id te maken. 
+1. Voer de volgende opdrachten uit in Azure Cloud Shell om de IoT Hub CLI-extensie toe te voegen en de apparaat-id te maken.
 
    **YourIoTHubName**: vervang deze tijdelijke aanduiding door een door u gekozen naam voor de IoT-hub.
 
-   **MyDotnetDevice**: dit is de opgegeven naam van het geregistreerde apparaat. Gebruik MyDotnetDevice zoals weergegeven. Als u een andere naam voor het apparaat kiest, moet u deze naam ook in de rest van dit artikel gebruiken, en moet u de apparaatnaam bijwerken in de voorbeeldtoepassingen voordat u ze uitvoert.
+   **MyDotnetDevice**: de naam van het apparaat dat u gaat registreren. Gebruik **MyDotnetDevice** zoals weergegeven. Als u een andere naam voor het apparaat kiest, moet u deze naam in de rest van dit artikel gebruiken, en moet u de apparaatnaam bijwerken in de voorbeeldtoepassingen voordat u ze uitvoert.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext

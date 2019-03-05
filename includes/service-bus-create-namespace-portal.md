@@ -5,16 +5,17 @@ services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 02/12/2019
+ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: b38f66670ba29022713ae39824a190fcffb688c7
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: d976a1c5e9366069b82cff718593ce72d7ad8a08
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238716"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588939"
 ---
+## <a name="create-a-namespace-in-the-azure-portal"></a>Een naamruimte in Azure Portal maken
 Als u Service Bus-berichtenentiteiten wilt gebruiken in Azure, moet u eerst een naamruimte maken met een naam die uniek is binnen Azure. Een naamruimte biedt een scoping container voor het verwerken van Service Bus-resources in uw toepassing.
 
 Ga als volgt te werk om een naamruimte te maken:
@@ -27,7 +28,7 @@ Ga als volgt te werk om een naamruimte te maken:
     1. Voer een **naam in voor de naamruimte**. In het systeem wordt onmiddellijk gecontroleerd of de naam beschikbaar is.
     2. Selecteer de prijscategorie (Basic, Standard of Premium) voor de naamruimte. Kies Standard of Premium indien u gebruik wilt maken van [onderwerpen en abonnementen](../articles/service-bus-messaging/service-bus-queues-topics-subscriptions.md#topics-and-subscriptions). Onderwerpen/abonnementen worden niet ondersteund in de prijscategorie Basic.
     3. Als u de **Premium** prijscategorie hebt geselecteerd, gaat u als volgt te werk: 
-        1. Geef het aantal **Messaging-eenheden** op. De Premium-prijscategorie biedt isolatie van resources op het niveau van de CPU en het geheugen, zodat elke workload geïsoleerd wordt uitgevoerd. Deze resourcecontainer wordt een Messaging-eenheid genoemd. Aan elke Premium-naamruimte wordt ten minste één Messaging-eenheid toegewezen. U kunt voor elke Service Bus Premium-naamruimte 1, 2 of 4 Messaging-eenheden selecteren. Zie [Service Bus Premium Messaging](../articles/service-bus-messaging/service-bus-premium-messaging.md) voor meer informatie.
+        1. Geef het aantal **Messaging-eenheden** op. De Premium-prijscategorie biedt isolatie van resources op het niveau van de CPU en het geheugen, zodat elke workload geïsoleerd wordt uitgevoerd. Deze resourcecontainer wordt een Messaging-eenheid genoemd. Een Premium-naamruimte heeft ten minste één Messaging-eenheid. U kunt voor elke Service Bus Premium-naamruimte 1, 2 of 4 Messaging-eenheden selecteren. Zie [Service Bus Premium Messaging](../articles/service-bus-messaging/service-bus-premium-messaging.md) voor meer informatie.
         2. Geef aan of u de naamruimte **zone-redundant** wilt maken. Door zone-redundantie wordt de beschikbaarheid verbeterd door replica's te verspreiden over verschillende beschikbaarheidszones binnen één regio, zonder aanvullende kosten. Zie [Beschikbaarheidszones in Azure](../articles/availability-zones/az-overview.md) voor meer informatie.
     4. Kies voor **Abonnement** een Azure-abonnement waarin u de naamruimte maakt.
     5. Kies voor **Resourcegroep** een bestaande resourcegroep waarin de naamruimte moet worden opgenomen of maak een nieuwe resourcegroep.      
@@ -45,7 +46,7 @@ Ga als volgt te werk om een naamruimte te maken:
 
     ![Startpagina voor uw Service Bus-naamruimte](./media/service-bus-create-namespace-portal/service-bus-namespace-home-page.png)
 
-### <a name="get-the-management-credentials"></a>De beheerreferenties ophalen
+## <a name="get-the-connection-string"></a>De verbindingsreeks ophalen 
 Bij het maken van een nieuwe naamruimte wordt automatisch een eerste SAS-regel (Shared Access Signature) gegenereerd met een bijbehorende primaire en secundaire sleutel die elk volledige controle over alle aspecten van de naamruimte bieden. Raadpleeg [Service Bus-verificatie en -autorisatie](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) voor meer informatie over het maken van regels met beperktere rechten voor reguliere afzenders en ontvangers. Volg deze stappen voor het kopiëren van de primaire en secundaire sleutels voor de naamruimte: 
 
 1. Klik op **Alle resources** en klik vervolgens op de zojuist gemaakte naam voor de naamruimte.

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4768c38b2e76bfa8cdff3187c32c03fdaaf57bbf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a2c6b95d62f6210ecfdd560bc1c00a3e055be3ee
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207650"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880342"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dmarcian"></a>Zelfstudie: Azure Active Directory-integratie met dmarcian
 
@@ -123,7 +123,7 @@ Voer de volgende stappen uit als u Azure AD-eenmalige aanmelding bij dmarcian wi
 
     ![Domein- en URL-gegevens voor eenmalige aanmelding bij dmarcian](common/metadata-upload-additional-signon.png)
 
-    In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon:
+    Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon:
     | |
     |--|
     | `https://us.dmarcian.com/login/<ACCOUNT_ID>` |
@@ -143,15 +143,15 @@ Voer de volgende stappen uit als u Azure AD-eenmalige aanmelding bij dmarcian wi
 
 2. Klik op **Profiel** in de rechterbovenhoek hoek en navigeer naar **Voorkeuren**.
 
-    ![Voorkeuren ](./media/dmarcian-tutorial/tutorial_dmarcian_pref.png)
+    ![Voorkeuren](./media/dmarcian-tutorial/tutorial_dmarcian_pref.png)
 
 3. Schuif omlaag en klik op de sectie **Eenmalige aanmelding** en klik vervolgens op **Configureren**.
 
-    ![Eenmalig ](./media/dmarcian-tutorial/tutorial_dmarcian_sso.png)
+    ![Eenmalig](./media/dmarcian-tutorial/tutorial_dmarcian_sso.png)
 
 4. Zet op de **Eenmalige aanmelding op basis van SAML** de **Status** op **Ingeschakeld** en voer de volgende stappen uit:
 
-    ![Verificatie ](./media/dmarcian-tutorial/tutorial_dmarcian_auth.png)
+    ![Verificatie](./media/dmarcian-tutorial/tutorial_dmarcian_auth.png)
 
     * In de sectie **dmarcian aan uw id-provider toevoegen** klikt u op **Kopiëren** om de **ACS-URL** voor uw exemplaar te kopiëren, en plak deze in het tekstvak **Antwoord-URL** in de sectie **SAML-basisconfiguratie** in de Azure-portal.
 
@@ -229,15 +229,15 @@ Als u wilt dat Azure AD-gebruikers zich kunnen aanmelden bij dmarcian, moeten ze
 
 2. Klik op **Profiel** in de rechterbovenhoek hoek en navigeer naar **Gebruiker beheren**.
 
-    ![Gebruiker ](./media/dmarcian-tutorial/tutorial_dmarcian_user.png)
+    ![Gebruiker](./media/dmarcian-tutorial/tutorial_dmarcian_user.png)
 
 3. Aan de rechterkant van de sectie **SSO-gebruikers** klikt u op **Nieuwe gebruiker toevoegen**.
 
-    ![Gebruiker toevoegen ](./media/dmarcian-tutorial/tutorial_dmarcian_addnewuser.png)
+    ![Gebruiker toevoegen](./media/dmarcian-tutorial/tutorial_dmarcian_addnewuser.png)
 
 4. Voer in de pop-up **Nieuwe gebruiker toevoegen** de volgende stappen uit:
 
-    ![Nieuwe gebruiker ](./media/dmarcian-tutorial/tutorial_dmarcian_save.png)
+    ![Nieuwe gebruiker](./media/dmarcian-tutorial/tutorial_dmarcian_save.png)
 
     a. Voer in het tekstvak **Email nieuwe gebruiker** het e-mailadres van de gebruiker in, bijvoorbeeld **brittasimon@contoso.com**.
 
@@ -253,9 +253,9 @@ Wanneer u op de tegel dmarcian in het toegangsvenster klikt, wordt u automatisch
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

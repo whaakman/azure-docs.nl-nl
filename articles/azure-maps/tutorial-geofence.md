@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 55dc0fa31398bcc04d9793c8cffc9258dc29e4c7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 7bd4c261af4159429a91bd8b425180037eec8c23
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244450"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670890"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Een geofence instellen met behulp van Azure Maps
 
@@ -165,7 +165,7 @@ U kun alle [ondersteunde gebeurtenis-handlers](https://docs.microsoft.com/azure/
 
   ![Logic Apps maken](./media/tutorial-geofence/logic-app.png)
 
-2. Selecteer een HTTP-aanvraagtrigger en selecteer vervolgens de actie Verzenden en e-mailen in de outlook-connector
+2. Selecteer een HTTP-aanvraagtrigger en selecteer vervolgens de actie ‘E-mail verzenden’ in de outlook-connector
   
   ![Logic Apps-schema](./media/tutorial-geofence/logic-app-schema.png)
 

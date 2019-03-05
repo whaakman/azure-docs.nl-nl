@@ -11,14 +11,14 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 02/22/2019
 ms.author: rolyon
-ms.openlocfilehash: 41f1c6dc8904f167f34ea72aeb9b3866504b7087
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 9352130eeeb68a87947450cb5616aa59e8e99ae9
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341297"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807368"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Zelfstudie: Toegang tot Azure-resources verlenen aan een gebruiker met behulp van RBAC en de Azure-portal
 
@@ -38,9 +38,9 @@ Meld u aan bij Azure Portal op http://portal.azure.com.
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-1. Kies **Resourcegroepen** in de navigatielijst.
+1. Klik in de navigatielijst op **Resourcegroepen**.
 
-1. Selecteer **Toevoegen** om de blade **Resourcegroep** te openen.
+1. Klik op **Toevoegen** om de blade **Resourcegroep** te openen.
 
    ![Een nieuwe resourcegroep toevoegen](./media/quickstart-assign-role-user-portal/resource-group.png)
 
@@ -48,9 +48,9 @@ Meld u aan bij Azure Portal op http://portal.azure.com.
 
 1. Selecteer een abonnement en een locatie.
 
-1. Kies **Maken** om de resourcegroep te maken.
+1. Klik op **Maken** om de resourcegroep te maken.
 
-1. Kies **Vernieuwen** om de lijst met resourcegroepen te vernieuwen.
+1. Klik op **Vernieuwen** om de lijst met resourcegroepen te vernieuwen.
 
    De nieuwe resourcegroep wordt weergegeven in de lijst met resourcegroepen.
 
@@ -60,17 +60,19 @@ Meld u aan bij Azure Portal op http://portal.azure.com.
 
 In RBAC verleent u toegang door een roltoewijzing te maken.
 
-1. Kies in de lijst met **Resourcegroepen** de nieuwe resourcegroep **rbac-resource-group**.
+1. Klik in de lijst **Resourcegroepen** op de nieuwe resourcegroep **rbac-resource-group**.
 
-1. Kies **Toegangsbeheer (IAM)**.
+1. Klik op **Toegangsbeheer (IAM)**.
 
-1. Ga naar het tabblad **Roltoewijzingen** om de huidige lijst met roltoewijzingen te zien.
+1. Klik op het tabblad **Roltoewijzingen** om de huidige lijst met roltoewijzingen te zien.
 
    ![De blade Toegangsbeheer (IAM) voor een resourcegroep](./media/quickstart-assign-role-user-portal/access-control.png)
 
-1. Kies **Roltoewijzing toevoegen** om het deelvenster Roltoewijzing toevoegen te openen.
+1. Klik op **Toevoegen** > **Roltoewijzing toevoegen** om het deelvenster Roltoewijzing toevoegen te openen.
 
    Als u niet bent gemachtigd voor het toewijzen van rollen, is de optie Roltoewijzing toevoegen uitgeschakeld.
+
+   ![Menu Toevoegen](./media/role-assignments-portal/add-menu.png)
 
    ![Deelvenster Roltoewijzing toevoegen](./media/quickstart-assign-role-user-portal/add-role-assignment.png)
 
@@ -78,7 +80,7 @@ In RBAC verleent u toegang door een roltoewijzing te maken.
 
 1. Selecteer in de lijst **Selecteren** uzelf of een andere gebruiker.
 
-1. Kies **Opslaan** om de roltoewijzing te maken.
+1. Klik op **Opslaan** om de roltoewijzing te maken.
 
    Na enkele ogenblikken krijgt de gebruiker de rol Inzender voor virtuele machines toegewezen in het bereik van de resourcegroep rbac-resource-group.
 
@@ -90,25 +92,25 @@ Als u in RBAC de toegang wilt intrekken voor een rol, verwijdert u de roltoewijz
 
 1. Plaats in de lijst met roltoewijzingen een vinkje naast de gebruiker met de rol Inzender voor virtuele machines.
 
-1. Kies **Verwijderen**.
+1. Klik op **Verwijderen**.
 
    ![Bericht bij verwijderen van roltoewijzing](./media/quickstart-assign-role-user-portal/remove-role-assignment.png)
 
-1. Kies **Ja** om te bevestigen dat u de roltoewijzing inderdaad wilt verwijderen.
+1. Klik op **Ja** om te bevestigen dat u de roltoewijzing inderdaad wilt verwijderen.
 
 ## <a name="clean-up"></a>Opruimen
 
-1. Kies **Resourcegroepen** in de navigatielijst.
+1. Klik in de navigatielijst op **Resourcegroepen**.
 
-1. Kies **rbac-resource-group** om de resourcegroep te openen.
+1. Klik op **rbac-resource-group** om de resourcegroep te openen.
 
-1. Kies **Resourcegroep verwijderen** om de resourcegroep te verwijderen.
+1. Klik op **Resourcegroep verwijderen** om de resourcegroep te verwijderen.
 
    ![Resourcegroep verwijderen](./media/quickstart-assign-role-user-portal/delete-resource-group.png)
 
 1. Typ in de blade **Weet u zeker dat u wilt verwijderen** de naam van de resourcegroep: **rbac-resource-group**.
 
-1. Kies **Verwijderen** om de resourcegroep te verwijderen.
+1. Klik op **Verwijderen** om de resourcegroep te verwijderen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

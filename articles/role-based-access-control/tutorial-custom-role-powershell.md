@@ -11,18 +11,18 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 02/02/2019
+ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: 23ee8aef4ab9b7ea54dae0587e2caaafbf08e5b2
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 269bd74aca85ddbc2bafda30542c48f8ab391b32
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339155"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587359"
 ---
 # <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-powershell"></a>Zelfstudie: Een aangepaste rol maken voor Azure-resources met Azure PowerShell
 
-Als de [ingebouwde rollen voor Azure-resources](built-in-roles.md) niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen aangepaste rollen maken. Voor deze zelfstudie gaat u met behulp van Azure PowerShell een aangepaste rol maken met de naam Reader Support Tickets. De aangepaste rol stelt de gebruiker in staat om alles in het abonnement te zien en ook om ondersteuningstickets te openen.
+Als de [ingebouwde rollen voor Azure-resources](built-in-roles.md) niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen aangepaste rollen maken. Voor deze zelfstudie gaat u met behulp van Azure PowerShell een aangepaste rol maken met de naam Reader Support Tickets. De aangepaste rol stelt de gebruiker in staat om alles in het beheervenster van een abonnement te zien en ook om ondersteuningstickets te openen.
 
 In deze zelfstudie leert u het volgende:
 
@@ -41,7 +41,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 - Machtigingen voor het maken van aangepaste rollen, zoals [Eigenaar](built-in-roles.md#owner) of [Administrator voor gebruikerstoegang](built-in-roles.md#user-access-administrator)
-- [Azure PowerShell lokaal geïnstalleerd](/powershell/azure/install-az-ps)
+- [Azure Cloud Shell](../cloud-shell/overview.md) of [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="sign-in-to-azure-powershell"></a>Aanmelden bij Azure PowerShell
 

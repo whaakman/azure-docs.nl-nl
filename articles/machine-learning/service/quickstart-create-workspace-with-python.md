@@ -11,12 +11,12 @@ author: hning86
 ms.author: haining
 ms.date: 01/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1962cef85c5e663de640f296a6e8e9efd5a1f4d6
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 513df9f68fdd54b5dc90e57bd8389688c46bf615
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310352"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804243"
 ---
 # <a name="quickstart-use-the-python-sdk-to-get-started-with-azure-machine-learning"></a>Quickstart: de Python-SDK gebruiken om aan de slag te gaan met Azure Machine Learning
 
@@ -60,16 +60,18 @@ Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begin
 
 Voordat u de SDK installeert, raden we u aan om een geïsoleerde omgeving voor Python te maken. In dit artikel wordt [Miniconda](https://docs.conda.io/en/latest/miniconda.html) gebruikt, maar u kunt ook gebruikmaken van volledig geïnstalleerde [Anaconda](https://www.anaconda.com/) of [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
 
+Met de instructies in deze quickstart installeert u alle pakketten die u nodig hebt om de quickstart en zelfstudienotebooks uit te voeren.  Voor andere voorbeeldnotebooks moeten mogelijk extra onderdelen worden geïnstalleerd.  Zie [De Azure Machine Learning-SDK voor Python installeren](https://docs.microsoft.com/python/api/overview/azure/ml/install) voor meer informatie over deze onderdelen.
+
 ### <a name="install-miniconda"></a>Miniconda installeren
 
-[Download en installeer Miniconda](https://docs.conda.io/en/latest/miniconda.html). Selecteer Python versie 3.7 of een latere versie om te installeren. Selecteer niet Python 2.x.  
+[Download en installeer Miniconda](https://docs.conda.io/en/latest/miniconda.html). Selecteer de versie Python 3.7 of hoger voor installatie. Selecteer niet Python 2.x.  
 
 ### <a name="create-an-isolated-python-environment"></a>Een geïsoleerde omgeving voor Python maken
 
-1. Open een opdrachtregelvenster, maak een nieuwe conda-omgeving met de naam *myenv* en installeer Python 3.6. Azure Machine Learning SDK werkt met Python 3.5.2 of hoger, maar de geautomatiseerde Machine Learning-onderdelen zijn niet volledig functioneel in Python 3.7.
+1. Open een opdrachtregelvenster, maak een nieuwe conda-omgeving met de naam *myenv* en installeer Python 3.6.5. Azure Machine Learning SDK werkt met Python 3.5.2 of hoger, maar de geautomatiseerde Machine Learning-onderdelen zijn niet volledig functioneel in Python 3.7.  Het duurt enkele minuten om de omgeving te maken terwijl onderdelen en pakketten worden gedownload.
 
     ```shell
-    conda create -n myenv -y Python=3.6
+    conda create -n myenv python=3.6.5
     ```
 
 1. Activeer de omgeving.
@@ -78,18 +80,24 @@ Voordat u de SDK installeert, raden we u aan om een geïsoleerde omgeving voor P
     conda activate myenv
     ```
 
+1. Schakel omgevingsspecifieke ipython-kernels in:
+
+    ```shell
+    conda install notebook ipykernel
+    ```
+
+    Maak vervolgens de kernel:
+
+    ```shell
+    ipython kernel install --user
+    ```
+
 ### <a name="install-the-sdk"></a>De SDK installeren
 
 1. Installeer de kernonderdelen van de Machine Learning SDK met Jupyter-notebookmogelijkheden in de geactiveerde conda-omgeving.  Afhankelijk van de configuratie van de computer duurt het enkele minuten voordat de installatie is voltooid.
 
   ```shell
     pip install --upgrade azureml-sdk[notebooks]
-    ```
-
-1. Installeer een Jupyter Notebook-server in de conda-omgeving.
-
-  ```shell
-    conda install -y nb_conda
     ```
 
 1. Installeer deze pakketten als u deze omgeving wilt gebruiken voor de zelfstudies van Azure Machine Learning.

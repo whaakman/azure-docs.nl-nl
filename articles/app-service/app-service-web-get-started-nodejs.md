@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 02/15/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8d7bd808540ac697bde073201e88f49ace8b527a
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 917243ccaf4ef3759e02bb92cad6f9ef04514e4a
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308669"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650509"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Een Node.js-web-app maken in Azure
 
@@ -112,11 +112,11 @@ Wanneer de web-app is gemaakt, toont de Azure CLI soortgelijke uitvoer als in he
 
 ### <a name="set-nodejs-runtime"></a>Node.js-runtime instellen
 
-Stel de Node-runtime in op 8.11.1. Voer [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes) uit als u alle ondersteunde runtimes wilt zien.
+Stel de Node-runtime in op 10.14.1. Voer [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes) uit als u alle ondersteunde runtimes wilt zien.
 
 ```azurecli-interactive
 # Bash and Powershell
-az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
+az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=10.14.1
 ```
 
 Blader naar uw nieuwe web-app. Vervang `<app_name>` door een unieke app-naam.
@@ -149,13 +149,13 @@ De Node.js-voorbeeldcode wordt uitgevoerd in een web-app van Azure App Service.
 
 Open met een teksteditor het bestand `index.js` binnen de Node.js-app en breng een kleine wijziging aan in de tekst in de aanroep naar `response.end`:
 
-```nodejs
+```javascript
 response.end("Hello Azure!");
 ```
 
 Navigeer in het lokale terminalvenster naar de hoofdmap van uw toepassing en maak een nieuw ZIP-bestand voor uw bijgewerkte project.
 
-```
+```azurecli-interactive
 # Bash
 zip -r myUpdatedAppFiles.zip .
 

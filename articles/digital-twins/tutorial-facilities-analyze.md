@@ -8,12 +8,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: dkshir
-ms.openlocfilehash: 488b97074d74650ecf5602d25e2a90a1998e5585
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 8f8bdb4d601e35cf489c1c4c1db3574fb8c8f18f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883871"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730782"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Zelfstudie: Gebeurtenissen uit uw Azure Digital Twins-ruimten visualiseren en analyseren met Time Series Insights
 
@@ -67,7 +67,7 @@ Gebruik de service [Event Hubs](../event-hubs/event-hubs-about.md) om een pijpli
 
     ![Event Hub-consumentengroep](./media/tutorial-facilities-analyze/event-hub-consumer-group.png)
 
-   Nadat de consumentengroep is gemaakt, wordt deze weergegeven in de lijst onderaan het deelvenster **Overzicht** van de Event Hub.
+   Nadat de consumenten groep is gemaakt, wordt deze weergegeven in de lijst onderaan het deelvenster **Overzicht** van de Event Hub.
 
 1. Open het deelvenster **Beleid voor gedeelde toegang** voor de Event Hub en selecteer de knop **Toevoegen**. Voer **ManageSend** in als de naam van het beleid, controleer of alle selectievakjes zijn ingeschakeld en selecteer **Maken**.
 
@@ -90,13 +90,13 @@ Gebruik de service [Event Hubs](../event-hubs/event-hubs-about.md) om een pijpli
       - UdfCustom
       connectionString: Primary_connection_string_for_your_event_hub
       secondaryConnectionString: Secondary_connection_string_for_your_event_hub
-      path: Name_of_your_Event_Hubs_namespace
+      path: Name_of_your_Event_Hub
     - type: EventHub
       eventTypes:
       - DeviceMessage
       connectionString: Primary_connection_string_for_your_event_hub
       secondaryConnectionString: Secondary_connection_string_for_your_event_hub
-      path: Name_of_your_Event_Hubs_namespace
+      path: Name_of_your_Event_Hub
     ```
 
 1. Vervang de tijdelijke aanduidingen `Primary_connection_string_for_your_event_hub` door de waarde van **Verbindingsreeks: primaire sleutel** voor de Event Hub. Zorg ervoor dat de indeling van deze verbindingsreeks er als volgt uitziet:
@@ -111,7 +111,7 @@ Gebruik de service [Event Hubs](../event-hubs/event-hubs-about.md) om een pijpli
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey2GUID;EntityPath=nameOfYourEventHub
    ```
 
-1. Vervang de tijdelijke aanduidingen `Name_of_your_Event_Hubs_namespace` door de naam van de Event Hubs-naamruimte.
+1. Vervang de tijdelijke aanduidingen `Name_of_your_Event_Hub` door de naam van uw Event Hub.
 
     > [!IMPORTANT]
     > Voer alle waarden in zonder aanhalingstekens. Zorg dat de dubbele punten in het YAML-bestand worden gevolgd door minstens één spatie. U kunt de inhoud van het YAML-bestand ook valideren met behulp van een YAML-onlinevalidatie, zoals [dit hulpprogramma](https://onlineyamltools.com/validate-yaml).

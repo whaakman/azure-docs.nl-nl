@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 66640bd60f6ba8c2f612a6bc9b88a07b13012997
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 02/25/2019
+ms.openlocfilehash: 64d16073062c0fd7f0b97a64950ceab9efc0eacf
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990031"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984880"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Quickstart: Eén database maken in Azure SQL Database via de Azure-portal
 
@@ -29,7 +29,7 @@ Voor alle stappen in deze snelstartgids moet u zich aanmelden bij [Azure Portal]
 
 ## <a name="create-a-single-database"></a>Een individuele database maken
 
-Een individuele database bevat een gedefinieerde set reken-, geheugen-, IO- en opslagresources die gebruikmaakt van een van twee [aankoopmodel(sql-database-purchase-models.md). Wanneer u een individuele database maakt, definieert u ook een [SQL Database-server](sql-database-servers.md) om die te beheren en in een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) in een opgegeven regio te plaatsen.
+Een individuele database bevat een gedefinieerde set reken-, geheugen-, IO- en opslagresources die gebruikmaakt van één van twee [aankoopmodellen](sql-database-purchase-models.md). Wanneer u een individuele database maakt, definieert u ook een [SQL Database-server](sql-database-servers.md) om die te beheren en in een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) in een opgegeven regio te plaatsen.
 
 U maakt als volgt een individuele database met de voorbeeldgegevens van Adventure Works LT:
 
@@ -42,8 +42,8 @@ U maakt als volgt een individuele database met de voorbeeldgegevens van Adventur
    - **Resourcegroep**: Selecteer **Nieuwe maken**, typ *myResourceGroup* en selecteer **OK**.
    - **Bron selecteren**: Selecteer **Voorbeeld (AdventureWorksLT)** in de vervolgkeuzelijst.
 
-    >[!IMPORTANT]
-    >Selecteer de gegevens uit **Voorbeeld (AdventureWorksLT)** zodat u deze en andere quickstarts voor Azure SQL Database gemakkelijk kunt volgen waarbij deze gegevens ook worden gebruikt.
+    > [!IMPORTANT]
+    > Selecteer de gegevens uit **Voorbeeld (AdventureWorksLT)** zodat u deze en andere quickstarts voor Azure SQL Database gemakkelijk kunt volgen waarbij deze gegevens ook worden gebruikt.
   
    ![Individuele database maken](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -56,18 +56,18 @@ U maakt als volgt een individuele database met de voorbeeldgegevens van Adventur
    - **Wachtwoord bevestigen**: Voer het wachtwoord opnieuw in.
    - **Locatie**: Selecteer een geldige locatie in de vervolgkeuzelijst.  
 
-   >[!IMPORTANT]
-   >Vergeet niet de aanmeldgegevens en het wachtwoord van de server te noteren zodat u zich bij de server en databases voor deze en andere quickstarts kunt aanmelden. Als u uw aanmeldgegevens of wachtwoord vergeet, kunt u de aanmeldnaam ophalen of het wachtwoord opnieuw instellen op de pagina **SQL Server**. U kunt de pagina **SQL Server** openen door de servernaam te selecteren op de **Overzichtspagina** van de database nadat u de database hebt gemaakt.
+   > [!IMPORTANT]
+   > Vergeet niet de aanmeldgegevens en het wachtwoord van de server te noteren zodat u zich bij de server en databases voor deze en andere quickstarts kunt aanmelden. Als u uw aanmeldgegevens of wachtwoord vergeet, kunt u de aanmeldnaam ophalen of het wachtwoord opnieuw instellen op de pagina **SQL Server**. U kunt de pagina **SQL Server** openen door de servernaam te selecteren op de **Overzichtspagina** van de database nadat u de database hebt gemaakt.
 
     ![Server maken](./media/sql-database-get-started-portal/create-database-server.png)
 
 6. Kies **Selecteren**.
 7. Selecteer in het **SQL Database**-formulier de optie **Prijscategorie**. Bekijk de hoeveelheid DTU's en opslag die voor elke servicelaag beschikbaar zijn.
 
-   >[!NOTE]
-   >In deze snelstartgids wordt gebruik gemaakt van het [op DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md). Het [model op basis van vCore](sql-database-service-tiers-vcore.md) is echter ook beschikbaar.
-   >[!IMPORTANT]
-   >Voor de Premium-laag is er meer dan 1 TB aan opslagruimte beschikbaar in alle regio's, met uitzondering van: UK - noord, US - west-centraal, US - zuid 2, China - oost, USDoD - centraal, Duitsland - centraal, US DoD - oost, US Gov - zuid-west, US Gov - zuid-centraal, Duitsland - noordoost, China - noord en US Gov - oost. In deze regio’s is de maximale opslagruimte in de Premium-laag beperkt tot 1 TB. Raadpleeg [P11-P15 huidige beperkingen](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) voor meer informatie.  
+   > [!NOTE]
+   > In deze snelstartgids wordt gebruik gemaakt van het [op DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md). Het [model op basis van vCore](sql-database-service-tiers-vcore.md) is echter ook beschikbaar.
+   > [!IMPORTANT]
+   > Voor de Premium-laag is er meer dan 1 TB aan opslagruimte beschikbaar in alle regio's, met uitzondering van: China - oost, China - noord, Duitsland - centraal, Duitsland - noordoost, US - west-centraal, US - DoD-regio's en US Government - centraal. In deze regio’s is de maximale opslagruimte in de Premium-laag beperkt tot 1 TB.  Raadpleeg [P11-P15 huidige beperkingen](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) voor meer informatie.  
 
 8. Voor deze snelstart selecteert u de servicelaag **Standard** en gebruikt u vervolgens de schuifregelaar om **10 DTU's (S0)** en **1** GB aan opslagruimte te selecteren.
 9. Selecteer **Toepassen**.  

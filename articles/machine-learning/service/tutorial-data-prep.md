@@ -11,16 +11,16 @@ ms.author: cforbe
 ms.reviewer: trbye
 ms.date: 02/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4f6c1af2051d946b29e2022c90d0ad9820b4d283
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 1d483d14a08f589fc8d014a13a47008b9fb59690
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823498"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984948"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Zelfstudie: Gegevens voorbereiden voor regressiemodellering
 
-In deze zelfstudie leert u hoe u gegevens voorbereidt voor regressiemodellering met de Azure Machine Learning Data Prep SDK. U gaat verschillende transformaties uitvoeren om twee verschillende gegevenssets van NYC Taxi te filteren en combineren.
+In deze zelfstudie leert u hoe u gegevens voorbereidt voor regressiemodellering met de [Azure Machine Learning Data Prep SDK voor Python](https://aka.ms/data-prep-sdk). U gaat verschillende transformaties uitvoeren om twee verschillende gegevenssets van NYC Taxi te filteren en combineren.
 
 Deze zelfstudie is **deel één van een serie van twee**. Nadat u deze serie met zelfstudies hebt voltooid, kunt u de kosten van een taxirit voorspellen door een model te trainen op gegevenskenmerken. Deze kenmerken zijn onder andere de dag en het tijdstip van ophalen, het aantal passagiers en de vertreklocatie.
 
@@ -48,7 +48,7 @@ Haal al deze vereisten op uit een van de secties hieronder.
 
 ### <a name="azure"></a>Azure Notebooks gebruiken: Gratis Jupyter-notebooks in de cloud
 
-U kunt eenvoudig aan de slag met Azure Notebooks. De [Azure Machine Learning Data Prep SDK voor Python](https://aka.ms/data-prep-sdk) is al voor u geïnstalleerd en geconfigureerd in [Azure Notebooks](https://notebooks.azure.com/). De installatie en toekomstige updates worden automatisch beheerd via Azure-services.
+U kunt eenvoudig aan de slag met Azure Notebooks. De Azure Machine Learning Data Prep SDK is al voor u geïnstalleerd en geconfigureerd in [Azure Notebooks](https://notebooks.azure.com/). De installatie en toekomstige updates worden automatisch beheerd via Azure-services.
 
 Nadat u de onderstaande stappen hebt uitgevoerd, voert u het notebook **tutorials/regression-part1-data-prep.ipynb** in het project **Aan de slag** uit.
 

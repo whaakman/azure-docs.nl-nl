@@ -8,40 +8,41 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 2/5/2019
-ms.openlocfilehash: 145a56bee857debdbf028834a3ed378efd8671c8
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: c171962fd6177a01afdb8e9605b09574c99f485e
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447494"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889219"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Zelfstudie: Gegevens opnemen in Azure Data Explorer zonder één regel code
 
-In deze zelfstudie leert u hoe u zonder één regel code diagnostische gegevens en activiteitenlogboekgegevens in een Azure Data Explorer-cluster kunt opnemen. Met deze eenvoudige methode voor gegevensopname kunt u snel beginnen met het uitvoeren van query's voor Azure Data Explorer om gegevens te analyseren.
+In deze zelfstudie leert u hoe u zonder code te schrijven gegevens uit diagnostische logboeken en activiteitenlogboeken in een Azure Data Explorer-cluster kunt opnemen. Met deze eenvoudige methode voor gegevensopname kunt u snel beginnen met het uitvoeren van query's voor Azure Data Explorer om gegevens te analyseren.
 
 In deze zelfstudie leert u het volgende:
+
 > [!div class="checklist"]
 > * Maak tabellen en toewijzing van opname in een Azure Data Explorer-database.
 > * Maak de opgenomen gegevens op met behulp van updatebeleid.
-> * Maak een [Event Hub](/azure/event-hubs/event-hubs-about) en koppel deze aan Azure Data Explorer.
-> * Stream gegevens naar een Event Hub vanuit [diagnostische logboeken van Azure Monitor](/azure/azure-monitor/platform/diagnostic-logs-overview) en [activiteitenlogboeken van Azure Monitor](/azure/azure-monitor/platform/activity-logs-overview).
+> * Maak een [event hub](/azure/event-hubs/event-hubs-about) en koppel deze aan Azure Data Explorer.
+> * Stream gegevens naar een event hub vanuit [diagnostische logboeken van Azure Monitor](/azure/azure-monitor/platform/diagnostic-logs-overview) en [activiteitenlogboeken van Azure Monitor](/azure/azure-monitor/platform/activity-logs-overview).
 > * Vraag de opgenomen gegevens op met behulp van Azure Data Explorer.
 
 > [!NOTE]
-> Maak alle resources in dezelfde Azure-locatie/regio. Dit is een vereiste voor diagnostische logboeken van Azure Monitor.
+> Maak alle resources in dezelfde Azure-locatie of -regio. Dit is een vereiste voor diagnostische logboeken van Azure Monitor.
 
 ## <a name="prerequisites"></a>Vereisten
 
 * Als u nog geen abonnement op Azure hebt, maak dan een [gratis Azure-account](https://azure.microsoft.com/free/) aan voordat u begint.
-* [Een Azure Data Explorer-cluster en -database](create-cluster-database-portal.md). In deze zelfstudie is *AzureMonitoring* de databasenaam.
+* [Een Azure Data Explorer-cluster en -database](create-cluster-database-portal.md). In deze zelfstudie is *TestDatabase* de databasenaam.
 
-## <a name="azure-monitoring-data-provider---diagnostic-and-activity-logs"></a>Azure Monitoring-gegevensprovider - diagnostische logboeken en activiteitenlogboeken
+## <a name="azure-monitor-data-provider-diagnostic-and-activity-logs"></a>Azure Monitor-gegevensprovider - diagnostische logboeken en activiteitenlogboeken
 
-Bekijk en begrijp de gegevens die worden geleverd door de diagnostische logboeken en activiteitenlogboeken van Azure Monitoring. We gaan een opnamepijplijn maken op basis van deze gegevensschema's.
+Bekijk en begrijp de gegevens die worden geleverd door de diagnostische logboeken en activiteitenlogboeken van Azure Monitor. We gaan een opnamepijplijn maken op basis van deze gegevensschema's.
 
 ### <a name="diagnostic-logs-example"></a>Voorbeeld van diagnostische logboeken
 
-Diagnostische logboeken van Azure bevatten metrische gegevens afkomstig van een Azure-service die gegevens levert over de werking van die service. Gegevens worden samengevoegd met een tijdsinterval van 1 minuut. Elke gebeurtenis van diagnostische logboeken bevat één record. Hieronder volgt een voorbeeld van een metrisch gebeurtenisschema voor Azure Data Explorer, op basis van queryduur:
+Diagnostische logboeken van Azure bevatten metrische gegevens afkomstig van een Azure-service die gegevens levert over de werking van die service. Gegevens worden samengevoegd met een tijdsinterval van 1 minuut. Elke gebeurtenis in een diagnostisch logboek bevat één record. Hier volgt een voorbeeld van een metrisch gebeurtenisschema voor Azure Data Explorer, op basis van queryduur:
 
 ```json
 {
@@ -59,7 +60,7 @@ Diagnostische logboeken van Azure bevatten metrische gegevens afkomstig van een 
 
 ### <a name="activity-logs-example"></a>Voorbeeld van activiteitenlogboeken
 
-Azure-activiteitenlogboeken zijn aan een abonnement gekoppelde logboeken met een verzameling records. De logboeken bieden inzicht in de bewerkingen die worden uitgevoerd op resources in uw abonnement. In tegenstelling tot diagnostische logboeken bestaat een gebeurtenis in activiteitenlogboeken uit een matrix van records. Verderop in deze zelfstudie gaan we deze matrix van records opsplitsen. Hieronder volgt een voorbeeld van een gebeurtenis in een activiteitenlogboek voor het controleren van toegang:
+Azure-activiteitenlogboeken zijn aan een abonnement gekoppelde logboeken met een verzameling records. De logboeken bieden inzicht in de bewerkingen die worden uitgevoerd op resources in uw abonnement. In tegenstelling tot diagnostische logboeken bevat een gebeurtenis in een activiteitenlogboek een matrix van records. Verderop in deze zelfstudie gaan we deze matrix van records opsplitsen. Hier volgt een voorbeeld van een gebeurtenis in een activiteitenlogboek voor het controleren van toegang:
 
 ```json
 {
@@ -116,23 +117,23 @@ Azure-activiteitenlogboeken zijn aan een abonnement gekoppelde logboeken met een
 }
 ```
 
-## <a name="set-up-ingestion-pipeline-in-azure-data-explorer"></a>Opnamepijplijn instellen in Azure Data Explorer 
+## <a name="set-up-an-ingestion-pipeline-in-azure-data-explorer"></a>Een opnamepijplijn instellen in Azure Data Explorer
 
-Het instellen van een pijplijn in Azure Data Explorer bestaat uit verschillende stappen, waaronder [het maken van een tabel en het opnemen van gegevens](/azure/data-explorer/ingest-sample-data#ingest-data). U kunt de gegevens ook bewerken, toewijzen en bijwerken.
+Het instellen van een Azure Data Explorer-pijplijn omvat verschillende stappen, zoals [het maken van een tabel en gegevensopname](/azure/data-explorer/ingest-sample-data#ingest-data). U kunt de gegevens ook bewerken, toewijzen en bijwerken.
 
-### <a name="connect-to-azure-data-explorer-web-ui"></a>Verbinding maken met de web-UI van Azure Data Explorer
+### <a name="connect-to-the-azure-data-explorer-web-ui"></a>Verbinding maken met de web-UI van Azure Data Explorer
 
-1. Selecteer **Query** in uw *AzureMonitoring*-database van Azure Data Explorer om de web-UI van Azure Data Explorer te openen.
+Selecteer **Query** in uw *TestDatabase*-database van Azure Data Explorer om de web-UI van Azure Data Explorer te openen.
 
-    ![Query’s uitvoeren](media/ingest-data-no-code/query-database.png)
+![Querypagina](media/ingest-data-no-code/query-database.png)
 
-### <a name="create-target-tables"></a>Doeltabellen maken
+### <a name="create-the-target-tables"></a>De doeltabellen maken
 
 Gebruik de web-UI van Azure Data Explorer om de doeltabellen te maken in de Azure Data Explorer-database.
 
-#### <a name="diagnostic-logs-table"></a>Tabel met diagnostische logboeken
+#### <a name="the-diagnostic-logs-table"></a>De tabel met diagnostische logboeken
 
-1. Maak een tabel *DiagnosticLogsRecords* in de *AzureMonitoring*-database die records voor de diagnostische logboeken ontvangt en gebruik daarvoor de opdracht `.create table`:
+1. Maak in de *TestDatabase*-database een tabel met de naam *DiagnosticLogsRecords* om de diagnostische logboeken op te slaan. Gebruik de volgende `.create table`-besturingselementopdracht:
 
     ```kusto
     .create table DiagnosticLogsRecords (Timestamp:datetime, ResourceId:string, MetricName:string, Count:int, Total:double, Minimum:double, Maximum:double, Average:double, TimeGrain:string)
@@ -142,17 +143,17 @@ Gebruik de web-UI van Azure Data Explorer om de doeltabellen te maken in de Azur
 
     ![Query uitvoeren](media/ingest-data-no-code/run-query.png)
 
-#### <a name="activity-logs-tables"></a>Tabellen voor activiteitenlogboeken
+#### <a name="the-activity-logs-tables"></a>De tabellen voor activiteitenlogboeken
 
-Omdat de structuur van de activiteitenlogboeken geen tabelvorm heeft, moet u de gegevens manipuleren en elke gebeurtenis uitbreiden tot een of meer records. De onbewerkte gegevens worden opgenomen in de tussenliggende tabel *ActivityLogsRawRecords*. Dat is het moment waarop de gegevens worden bewerkt en uitgebreid. De uitgebreide gegevens worden vervolgens opgenomen in de tabel *ActivityLogsRecords* op basis van updatebeleid. Daarom moet u twee afzonderlijke tabellen maken voor het opnemen van activiteitenlogboeken.
+Omdat de structuur van de activiteitenlogboeken geen tabelvorm heeft, moet u de gegevens manipuleren en elke gebeurtenis uitbreiden tot een of meer records. De onbewerkte gegevens worden opgenomen in de tussenliggende tabel met de naam *ActivityLogsRawRecords*. Dat is het moment waarop de gegevens worden bewerkt en uitgebreid. De uitgebreide gegevens worden vervolgens opgenomen in de tabel *ActivityLogsRecords* met behulp van een updatebeleid. Dit betekent dat u twee afzonderlijke tabellen moet maken voor het opnemen van activiteitenlogboeken.
 
-1. Maak de tabel *ActivityLogsRecords* in de *AzureMonitoring*-database die records voor activiteitenlogboeken ontvangt. Voer de volgende Azure Data Explorer-query uit om de tabel te maken:
+1. Maak een tabel met de naam *ActivityLogsRecords* in de *TestDatabase*-database om records voor activiteitenlogboeken te ontvangen. Voer de volgende Azure Data Explorer-query uit om de tabel te maken:
 
     ```kusto
     .create table ActivityLogsRecords (Timestamp:datetime, ResourceId:string, OperationName:string, Category:string, ResultType:string, ResultSignature:string, DurationMs:int, IdentityAuthorization:dynamic, IdentityClaims:dynamic, Location:string, Level:string)
     ```
 
-1. Maak de tussenliggende gegevenstabel *ActivityLogsRawRecords* in de *AzureMonitoring*-database voor het manipuleren van gegevens:
+1. Maak de tussenliggende gegevenstabel met de naam *ActivityLogsRawRecords* in de *TestDatabase*-database voor het manipuleren van gegevens:
 
     ```kusto
     .create table ActivityLogsRawRecords (Records:dynamic)
@@ -166,25 +167,25 @@ Omdat de structuur van de activiteitenlogboeken geen tabelvorm heeft, moet u de 
 
 ### <a name="create-table-mappings"></a>Tabeltoewijzingen maken
 
- Vanwege de tabelindeling `json` is gegevenstoewijzing vereist. Met de `json`-toewijzingen wordt elk json-pad toegewezen aan de naam van een tabelkolom.
+ Omdat de tabelindeling `json` is, is gegevenstoewijzing vereist. Met de `json`-toewijzingen wordt elk json-pad toegewezen aan de naam van een tabelkolom.
 
-#### <a name="diagnostic-logs-table-mapping"></a>Toewijzing van tabel met diagnostische logboeken
+#### <a name="table-mapping-for-diagnostic-logs"></a>Tabeltoewijzing voor diagnostische logboeken
 
-Gebruik de volgende query om de gegevens toe te wijzen aan de tabel:
+Gebruik de volgende query om de gegevens uit de diagnostische logboeken toe te wijzen aan de tabel:
 
 ```kusto
 .create table DiagnosticLogsRecords ingestion json mapping 'DiagnosticLogsRecordsMapping' '[{"column":"Timestamp","path":"$.time"},{"column":"ResourceId","path":"$.resourceId"},{"column":"MetricName","path":"$.metricName"},{"column":"Count","path":"$.count"},{"column":"Total","path":"$.total"},{"column":"Minimum","path":"$.minimum"},{"column":"Maximum","path":"$.maximum"},{"column":"Average","path":"$.average"},{"column":"TimeGrain","path":"$.timeGrain"}]'
 ```
 
-#### <a name="activity-logs-table-mapping"></a>Toewijzing van tabel met activiteitenlogboeken
+#### <a name="table-mapping-for-activity-logs"></a>Tabeltoewijzing voor activiteitenlogboeken
 
-Gebruik de volgende query om de gegevens toe te wijzen aan de tabel:
+Gebruik de volgende query om de gegevens uit de activiteitenlogboeken toe te wijzen aan de tabel:
 
 ```kusto
 .create table ActivityLogsRawRecords ingestion json mapping 'ActivityLogsRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
-### <a name="create-update-policy"></a>Updatebeleid maken
+### <a name="create-the-update-policy-for-activity-logs-data"></a>Het updatebeleid maken voor de gegevens uit de activiteitenlogboeken
 
 1. Maak een [functie](/azure/kusto/management/functions) waarmee de verzameling records wordt uitgebreid zodat elke waarde in de verzameling een afzonderlijke rij ontvangt. Gebruik de operator [`mvexpand`](/azure/kusto/query/mvexpandoperator):
 
@@ -207,165 +208,169 @@ Gebruik de volgende query om de gegevens toe te wijzen aan de tabel:
     }
     ```
 
-2. Voeg [updatebeleid](/azure/kusto/concepts/updatepolicy) toe aan de doeltabel. De query wordt automatisch uitgevoerd op alle nieuw opgenomen gegevens in de tussenliggende gegevenstabel *ActivityLogsRawRecords* en de resultaten worden opgenomen in de tabel *ActivityLogsRecords*:
+2. Voeg het [updatebeleid](/azure/kusto/concepts/updatepolicy) toe aan de doeltabel. Dit beleid wordt automatisch uitgevoerd op alle nieuw opgenomen gegevens in de tussenliggende gegevenstabel *ActivityLogsRawRecords* en de resultaten worden opgenomen in de tabel *ActivityLogsRecords*:
 
     ```kusto
     .alter table ActivityLogsRecords policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
     ```
 
-## <a name="create-an-event-hub-namespace"></a>Een Event Hub-naamruimte maken
+## <a name="create-an-azure-event-hubs-namespace"></a>Een Azure Event Hubs-naamruimte maken
 
-Diagnostische logboeken in Azure maken het exporteren van metrische gegevens naar een opslagaccount of een Event Hub mogelijk. In deze zelfstudie sturen we metrische gegevens door via een Event Hub. In de volgen stappen gaat u een Event Hubs-naamruimte en een Event Hub voor diagnostische logboeken maken. Azure Monitoring maakt de Event Hub *insights-operational-logs* voor activiteitenlogboeken.
+Diagnostische logboeken in Azure maken het exporteren van metrische gegevens naar een opslagaccount of een event hub mogelijk. In deze zelfstudie sturen we de metrische gegevens door via een event hub. In de volgen stappen gaat u een Event Hubs-naamruimte en een event hub voor diagnostische logboeken maken. Azure Monitor maakt de event hub *insights-operational-logs* voor de activiteitenlogboeken.
 
-1. Maak een Event Hub met behulp van een Azure Resource Manager-sjabloon in de Azure-portal. Gebruik de volgende knop om de implementatie te starten. Klik met de rechtermuisknop en selecteer **In nieuw venster openen**, zodat u de rest van de stappen in dit artikel kunt volgen. Klik op de knop **Implementeren in Azure** om de Azure-portal te openen.
+1. Maak een event hub met behulp van een Azure Resource Manager-sjabloon in de Microsoft Azure-portal. Klik met de rechtermuisknop op **Implementeren in Azure** en selecteer **In nieuw venster openen** om de rest van de stappen in dit artikel te volgen. Klik op de knop **Implementeren in Azure** om de Azure-portal te openen.
 
-    [![Implementeren in Azure](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+    [![De knop Implementeren in Azure](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
-1. Maak een Event Hub-naamruimte en een Event Hub voor de diagnostische logboeken.
+1. Maak een Event Hubs-naamruimte en een event hub voor de diagnostische logboeken.
 
-    ![Een Event Hub maken](media/ingest-data-no-code/event-hub.png)
+    ![Een event hub maken](media/ingest-data-no-code/event-hub.png)
 
-    Vul het formulier in met de volgende gegevens. Gebruik de standaardwaarden voor alle instellingen die niet zijn vermeld in de volgende tabel.
+1. Vul het formulier in met de volgende gegevens. Gebruik de standaardwaarden voor alle instellingen die niet worden vermeld in de volgende tabel.
 
-    **Instelling** | **Voorgestelde waarde** | **Beschrijving van veld**
+    **Instelling** | **Voorgestelde waarde** | **Beschrijving**
     |---|---|---|
-    | Abonnement | Uw abonnement | Selecteer het Azure-abonnement dat u wilt gebruiken voor de Event Hub.|
-    | Resourcegroep | *test-resource-group* | Maak een nieuwe resourcegroep. |
-    | Locatie | Selecteer de regio die het beste voldoet aan uw behoeften. | Maak de Event Hub-naamruimte op dezelfde locatie als andere resources.
-    | Naam van naamruimte | *AzureMonitoringData* | Kies een unieke naam waarmee de naamruimte kan worden geïdentificeerd.
-    | Naam van Event Hub | *DiagnosticLogsData* | De Event Hub bevindt zich onder de naamruimte, wat een unieke bereikcontainer biedt. |
-    | Naam van consumentengroep | *adxpipeline* | Maak een naam voor een consumentengroep. Met consumentengroepen kunnen meerdere gebruikstoepassingen elk een afzonderlijke weergave van de gebeurtenisstroom hebben. |
+    | **Abonnement** | *Uw abonnement* | Selecteer het Azure-abonnement dat u wilt gebruiken voor de Event Hub.|
+    | **Resourcegroep** | *test-resource-group* | Maak een nieuwe resourcegroep. |
+    | **Locatie** | Selecteer de regio die het beste voldoet aan uw behoeften. | Maak de Event Hubs-naamruimte op dezelfde locatie als andere resources.
+    | **Naam van naamruimte** | *AzureMonitoringData* | Kies een unieke naam waarmee de naamruimte kan worden geïdentificeerd.
+    | **Event hub-naam** | *DiagnosticLogsData* | De Event Hub bevindt zich onder de naamruimte, wat een unieke bereikcontainer biedt. |
+    | **Naam van consumentengroep** | *adxpipeline* | Maak een naam voor een consumentengroep. Met consumentengroepen kunnen meerdere gebruikstoepassingen elk een afzonderlijke weergave van de gebeurtenisstroom hebben. |
     | | |
 
-## <a name="connect-azure-monitoring-logs-to-event-hub"></a>Azure Monitoring-logboeken verbinden met Event Hub
+## <a name="connect-azure-monitor-logs-to-your-event-hub"></a>Azure Monitor-logboeken verbinden met uw event hub
 
-### <a name="diagnostic-logs-connection-to-event-hub"></a>Verbinding van diagnostische logboeken met Event Hub
+U moet nu uw diagnostische logboeken en uw activiteitenlogboeken verbinden met de event hub.
 
-Selecteer een resource van waaruit u metrische gegevens wilt exporteren. Er zijn verschillende resourcetypen voor het exporteren van diagnostische logboeken, te weten de Event Hub-naam, KeyVault, IoT-Hub en Azure Data Explorer-cluster. In deze zelfstudie gebruiken we het Azure Data Explorer-cluster als resource.
+### <a name="connect-diagnostic-logs-to-your-event-hub"></a>Diagnostische logboeken verbinden met uw event hub
+
+Selecteer een resource van waaruit u metrische gegevens wilt exporteren. Verschillende resourcetypen ondersteunen het exporteren van diagnostische logboeken, waaronder de Event Hub-naamruimte, Azure Key Vault, Azure IoT Hub en Azure Data Explorer-clusters. In deze zelfstudie gebruiken we een Azure Data Explorer-cluster als resource.
 
 1. Selecteer uw Kusto-cluster in de Azure-portal.
+1. Selecteer **Diagnostische instellingen** en selecteer vervolgens de link **Diagnostische gegevens inschakelen**. 
 
     ![Diagnostische instellingen](media/ingest-data-no-code/diagnostic-settings.png)
 
-1. Selecteer **Diagnostische instellingen** in het menu links.
-1. Klik op de koppeling **Diagnostische gegevens inschakelen**. Het venster **Diagnostische instellingen** wordt geopend.
-
-    ![Venster Diagnostische instellingen](media/ingest-data-no-code/diagnostic-settings-window.png)
-
-1. Ga in het deelvenster **Diagnostische instellingen** als volgt te werk:
-    1. Geef uw diagnostische logboekgegevens een naam: *ADXExportedData*
-    1. Schakel het selectievakje **AllMetrics** in (optioneel).
+1. Het deelvenster **Diagnostische instellingen** wordt geopend. Voer de volgende stappen uit:
+    1. Geef de gegevens uit uw diagnostische logboeken de naam *ADXExportedData*.
+    1. Selecteer onder **METRIC** het selectievakje **AllMetrics** (optioneel).
     1. Schakel het selectievakje **Streamen naar een event hub** in.
-    1. Klik op **Configureren**
+    1. Selecteer **Configureren**.
 
-1. Configureer in het deelvenster **Een event hub selecteren** het exporteren naar de Event Hub die u hebt gemaakt:
-    1. **Selecteer de Event Hub-naamruimte** *AzureMonitoringData* in de vervolgkeuzelijst.
-    1. **Selecteer de Event Hub-naamruimte** *diagnosticlogsdata* in de vervolgkeuzelijst.
-    1. Selecteer **Naam van het Event Hub-beleid**  in de vervolgkeuzelijst.
-    1. Klik op **OK**.
+    ![Het deelvenster Diagnostische instellingen](media/ingest-data-no-code/diagnostic-settings-window.png)
 
-1. Klik op **Opslaan**. De naam en beleidsnaam van de Event hub-naamruimte worden weergegeven in het venster.
+1. Configureer in het deelvenster **Een event hub selecteren** hoe gegevens uit diagnostisch logboeken moeten worden geëxporteerd naar de event hub die u hebt gemaakt:
+    1. Selecteer in de lijst **Naamruimte van de Event Hub selecteren** de optie *AzureMonitoringData*.
+    1. Selecteer in de lijst **Naam van de Event Hub selecteren** de optie *diagnosticlogsdata*.
+    1. Selecteer in de lijst **Naam van het Event Hub-beleid selecteren** de optie **RootManagerSharedAccessKey**.
+    1. Selecteer **OK**.
 
-    ![Diagnostische instellingen opslaan](media/ingest-data-no-code/save-diagnostic-settings.png)
+1. Selecteer **Opslaan**.
 
-### <a name="activity-logs-connection-to-event-hub"></a>Verbinding van activiteitenlogboeken met Event Hub
+### <a name="connect-activity-logs-to-your-event-hub"></a>Activiteitenlogboeken verbinden met uw event hub
 
-1. Selecteer **Activiteitenlogboek** in het linkermenu van de Azure-portal.
-1. Het venster **Activiteitenlogboek** wordt geopend. **Klik op Exporteren naar Event Hub**
+1. Selecteer **Activiteitenlogboek** in het linkermenu van de Microsoft Azure-portal.
+1. Het venster **Activiteitenlogboek** wordt geopend. Selecteer **Exporteren naar Event Hub**.
 
-    ![Activiteitenlogboek](media/ingest-data-no-code/activity-log.png)
+    ![Het venster Activiteitenlogboek](media/ingest-data-no-code/activity-log.png)
 
-1. Ga in het venster **Activiteitenlogboek exporteren** als volgt te werk:
+1. Het venster **Activiteitenlogboek exporteren** wordt geopend:
  
-    ![Activiteitenlogboek exporteren](media/ingest-data-no-code/export-activity-log.png)
+    ![Het venster Activiteitenlogboek exporteren](media/ingest-data-no-code/export-activity-log.png)
 
-    1. Selecteer uw abonnement.
-    1. Kies in de vervolgkeuzelijst **Regio's** de optie **Alles selecteren**
-    1. Schakel het selectievakje **Exporteren naar een event hub** in.
-    1. Klik op **Selecteer een service bus-naamruimte** om het deelvenster **Een event hub selecteren** te openen.
-    1. Selecteer het volgende in de vervolgkeuzemenu's van het deelvenster **Een event hub selecteren**: uw abonnement, uw Event Hub-naamruimte *AzureMonitoringData* en de naam van het standaard Event Hub-beleid.
-    1. Klik op **OK**.
-    1. Klik op **Opslaan** rechtsboven in het venster. Er wordt een event hub met de naam van de *insights-operational-logs* gemaakt.
+1. Voer de volgende stappen uit in het venster **Activiteitenlogboek exporteren**:
+      1. Selecteer uw abonnement.
+      1. Kies in de lijst **Regio's** de optie **Alles selecteren**.
+      1. Selecteer het selectievakje **Exporteren naar een Event Hub**.
+      1. Kies **Selecteer een service bus-naamruimte** om het deelvenster **Een event hub selecteren** te openen.
+      1. Selecteer uw abonnement in het deelvenster **Event Hub selecteren**.
+      1. Selecteer in de lijst **Naamruimte van de Event Hub selecteren** de optie *AzureMonitoringData*.
+      1. Selecteer in de lijst **Naam van het Event Hub-beleid selecteren** de naam van het standaardbeleid voor de event hub.
+      1. Selecteer **OK**.
+      1. Selecteer **Opslaan** in de linkerbovenhoek van het venster.
+   Er wordt een event hub met de naam van de *insights-operational-logs* gemaakt.
 
-### <a name="see-data-flowing-to-your-event-hubs"></a>U ziet hoe gegevens naar uw event hubs gaan
+### <a name="see-data-flowing-to-your-event-hubs"></a>Zie hoe gegevens naar uw event hubs gaan
 
-1. Wacht een paar minuten totdat de verbinding is gedefinieerd en het exporteren van het activiteitenlogboek naar de Event Hub is voltooid. Ga naar uw Event Hubs-naamruimte om de event hubs te zien die u hebt gemaakt.
+1. Wacht een paar minuten totdat de verbinding is gedefinieerd en het exporteren van het activiteitenlogboek naar de event hub is voltooid. Ga naar uw Event Hubs-naamruimte om de event hubs te zien die u hebt gemaakt.
 
     ![Gemaakte event hubs](media/ingest-data-no-code/event-hubs-created.png)
 
 1. Zie hoe gegevens naar uw event hub gaan:
 
-    ![Event hubs-gegevens](media/ingest-data-no-code/event-hubs-data.png)
+    ![Gegevens van de event hub](media/ingest-data-no-code/event-hubs-data.png)
 
-## <a name="connect-event-hub-to-azure-data-explorer"></a>Event Hub verbinden met Azure Data Explorer
+## <a name="connect-an-event-hub-to-azure-data-explorer"></a>Een event hub verbinden met Azure Data Explorer
 
-### <a name="diagnostic-logs-data-connection"></a>Gegevensverbinding voor diagnostische logboeken
+Nu moet u de gegevensverbindingen voor uw diagnostische logboeken en activiteitenlogboeken maken.
 
-1. In het Azure Data Explorer-cluster *kustodocs* selecteert u **Databases** in het menu links.
-1. In het venster **Databases** selecteert u de databasenaam *AzureMonitoring*
+### <a name="create-the-data-connection-for-diagnostic-logs"></a>De gegevensverbinding maken voor diagnostische logboeken
+
+1. In het Azure Data Explorer-cluster met de naam *kustodocs* selecteert u **Databases** in het menu links.
+1. In het venster **Databases** selecteert u uw *TestDatabase*-database.
 1. Selecteer **Gegevensopname** in het menu links.
-1. Klik in het venster **Gegevensopname** op **+ Gegevensverbinding toevoegen**
+1. Klik in het venster **Gegevensopname** op **+ Gegevensverbinding toevoegen**.
 1. Voer in het venster **Gegevensverbinding** de volgende informatie in:
 
-    ![Event Hub-verbinding](media/ingest-data-no-code/event-hub-data-connection.png)
+    ![Event hub-gegevensverbinding](media/ingest-data-no-code/event-hub-data-connection.png)
 
     Gegevensbron:
 
     **Instelling** | **Voorgestelde waarde** | **Beschrijving van veld**
     |---|---|---|
-    | Naam van gegevensverbinding | *DiagnosticsLogsConnection* | De naam van de verbinding die u wilt maken in Azure Data Explorer.|
-    | Event hub-naamruimte | *AzureMonitoringData* | De naam die u eerder hebt gekozen om de naamruimte te identificeren. |
-    | Event Hub | *diagnosticlogsdata* | De Event Hub die u hebt gemaakt. |
-    | Consumentengroep | *adxpipeline* | De consumentengroep die u hebt gedefinieerd in de gemaakte Event Hub. |
+    | **Naam van gegevensverbinding** | *DiagnosticsLogsConnection* | De naam van de verbinding die u wilt maken in Azure Data Explorer.|
+    | **Event hub-naamruimte** | *AzureMonitoringData* | De naam die u eerder hebt gekozen om de naamruimte te identificeren. |
+    | **Event hub** | *diagnosticlogsdata* | De Event Hub die u hebt gemaakt. |
+    | **Consumentengroep** | *adxpipeline* | De consumentengroep die u hebt gedefinieerd in de gemaakte Event Hub. |
     | | |
 
     Doeltabel:
 
-    Er zijn twee opties voor de routering: *statische* en *dynamische*. Voor deze zelfstudie gebruikt u statische routering (standaardinstelling), waarbij u de tabelnaam, bestandsindeling en toewijzing opgeeft. Laat **Mijn gegevens omvatten routeringsgegevens** daarom uitgeschakeld.
+    Er zijn twee opties voor de routering: *statische* en *dynamische*. Voor deze zelfstudie gebruikt u statische routering (standaardinstelling), waarbij u de tabelnaam, gegevensindeling en toewijzing opgeeft. Laat **Mijn gegevens omvatten routeringsgegevens** uitgeschakeld.
 
      **Instelling** | **Voorgestelde waarde** | **Beschrijving van veld**
     |---|---|---|
-    | Tabel | *DiagnosticLogsRecords* | De tabel die u hebt gemaakt in de database *AzureMonitoring*. |
-    | Gegevensindeling | *JSON* | Opmaak in tabel. |
-    | Toewijzen van kolommen | *DiagnosticLogsRecordsMapping* | De toewijzing die u hebt gemaakt in de database *AzureMonitoring* en waarmee die binnenkomende JSON-gegevens worden toegewezen aan de kolomnamen en gegevenstypen van *DiagnosticLogsRecords*.|
+    | **Tabel** | *DiagnosticLogsRecords* | De tabel die u hebt gemaakt in de *TestDatabase*-database. |
+    | **Gegevensindeling** | *JSON* | De indeling die in de tabel wordt gebruikt. |
+    | **Toewijzen van kolommen** | *DiagnosticLogsRecordsMapping* | De toewijzing die u hebt gemaakt in de *TestDatabase*-database, waarmee binnenkomende JSON-gegevens worden toegewezen aan de kolomnamen en gegevenstypen van de tabel *DiagnosticLogsRecords*.|
     | | |
 
-1. Klik op **Maken**.  
+1. Selecteer **Maken**.  
 
-### <a name="activity-logs-data-connection"></a>Gegevensverbinding voor activiteitenlogboeken
+### <a name="create-the-data-connection-for-activity-logs"></a>De gegevensverbinding maken voor activiteitenlogboeken
 
-Herhaal de stappen in het gedeelte [Gegevensverbinding diagnostische logboeken](#diagnostic-logs-data-connection) om de gegevensverbinding voor activiteitenlogboeken te maken.
+Herhaal de stappen in de sectie De gegevensverbinding maken voor diagnostische logboeken om de gegevensverbinding voor uw activiteitenlogboeken te maken.
 
-1. Voer in het venster **Gegevensverbinding** de volgende instellingen in:
+1. Gebruik de volgende instellingen in het venster **Gegevensverbinding**:
 
     Gegevensbron:
 
     **Instelling** | **Voorgestelde waarde** | **Beschrijving van veld**
     |---|---|---|
-    | Naam van gegevensverbinding | *ActivityLogsConnection* | De naam van de verbinding die u wilt maken in Azure Data Explorer.|
-    | Event hub-naamruimte | *AzureMonitoringData* | De naam die u eerder hebt gekozen om de naamruimte te identificeren. |
-    | Event Hub | *insights-operational-logs* | De Event Hub die u hebt gemaakt. |
-    | Consumentengroep | *$Default* | De standaard consumentengroep. Zo nodig kunt u een andere consumentengroep maken. |
+    | **Naam van gegevensverbinding** | *ActivityLogsConnection* | De naam van de verbinding die u wilt maken in Azure Data Explorer.|
+    | **Event hub-naamruimte** | *AzureMonitoringData* | De naam die u eerder hebt gekozen om de naamruimte te identificeren. |
+    | **Event hub** | *insights-operational-logs* | De Event Hub die u hebt gemaakt. |
+    | **Consumentengroep** | *$Default* | De standaard consumentengroep. Zo nodig kunt u een andere consumentengroep maken. |
     | | |
 
     Doeltabel:
 
-    Er zijn twee opties voor de routering: *statische* en *dynamische*. Voor deze zelfstudie gebruikt u statische routering (standaardinstelling), waarbij u de tabelnaam, bestandsindeling en toewijzing opgeeft. Laat **Mijn gegevens omvatten routeringsgegevens** daarom uitgeschakeld.
+    Er zijn twee opties voor de routering: *statische* en *dynamische*. Voor deze zelfstudie gebruikt u statische routering (standaardinstelling), waarbij u de tabelnaam, gegevensindeling en toewijzing opgeeft. Laat **Mijn gegevens omvatten routeringsgegevens** uitgeschakeld.
 
      **Instelling** | **Voorgestelde waarde** | **Beschrijving van veld**
     |---|---|---|
-    | Tabel | *ActivityLogsRawRecords* | De tabel die u hebt gemaakt in de database *AzureMonitoring*. |
-    | Gegevensindeling | *JSON* | Opmaak in tabel. |
-    | Toewijzen van kolommen | *ActivityLogsRawRecordsMapping* | De toewijzing die u hebt gemaakt in de database *AzureMonitoring* en waarmee die binnenkomende JSON-gegevens worden toegewezen aan de kolomnamen en gegevenstypen van *ActivityLogsRawRecords*.|
+    | **Tabel** | *ActivityLogsRawRecords* | De tabel die u hebt gemaakt in de *TestDatabase*-database. |
+    | **Gegevensindeling** | *JSON* | De indeling die in de tabel wordt gebruikt. |
+    | **Toewijzen van kolommen** | *ActivityLogsRawRecordsMapping* | De toewijzing die u hebt gemaakt in de *TestDatabase*-database, waarmee binnenkomende JSON-gegevens worden toegewezen aan de kolomnamen en gegevenstypen van de tabel *ActivityLogsRawRecords*.|
     | | |
 
-1. Klik op **Maken**.  
+1. Selecteer **Maken**.  
 
 ## <a name="query-the-new-tables"></a>Query uitvoeren op de nieuwe tabellen
 
-U hebt een pijplijn met een gegevensstroom. Opname via het cluster duurt standaard 5 minuten. Laat de gegevensstroom daarom een paar minuten zijn gang gaan voordat u een query gaat uitvoeren.
+U hebt nu een pijplijn met een gegevensstroom. Opname via het cluster duurt standaard 5 minuten. Laat de gegevensstroom daarom een paar minuten zijn gang gaan voordat u een query gaat uitvoeren.
 
-### <a name="diagnostic-logs-table-query-example"></a>Voorbeeld van een query voor een tabel met diagnostische logboeken
+### <a name="an-example-of-querying-the-diagnostic-logs-table"></a>Een voorbeeld van het uitvoeren van query's in de tabel met diagnostische logboeken
 
 De volgende query analyseert de queryduur van de gegevens uit records van diagnostisch logboeken in Azure Data Explorer:
 
@@ -383,7 +388,7 @@ Queryresultaten:
 |   | 00:06.156 |
 | | |
 
-### <a name="activity-logs-table-query-example"></a>Voorbeeld van een query voor een tabel met activiteitenlogboeken
+### <a name="an-example-of-querying-the-activity-logs-table"></a>Een voorbeeld van het uitvoeren van query's in de tabel met activiteitenlogboeken
 
 De volgende query analyseert gegevens uit records van activiteitenlogboeken in Azure Data Explorer:
 

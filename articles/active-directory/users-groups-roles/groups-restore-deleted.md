@@ -1,72 +1,81 @@
 ---
 title: Een verwijderde Office 365-groep herstellen in Azure AD | Microsoft Docs
-description: Een verwijderde groep herstellen, groepen weergeven die kunnen worden hersteld, en een groep definitief verwijderen in Azure Active Directory
+description: Een verwijderde groep herstellen, groepen weergeven die kunnen worden hersteld en een groep definitief verwijderen in Azure Active Directory
 services: active-directory
-documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 08/28/2017
+ms.date: 02/21/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d2e756676ee1abde88f75a1629640239f3162ea
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: cacd4a24becab1dfe797fe29aea125c016527192
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430638"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734384"
 ---
 # <a name="restore-a-deleted-office-365-group-in-azure-active-directory"></a>Een verwijderde Office 365-groep herstellen in Azure Active Directory
-
 Wanneer u een Office 365-groep verwijdert in Azure AD (Azure Active Directory), blijft de verwijderde groep behouden maar is deze gedurende 30 dagen na de verwijderingsdatum niet meer zichtbaar. Zo kunnen de groep en bijbehorende inhoud indien nodig nog worden hersteld. Deze functionaliteit is exclusief beperkt tot Office 365-groepen in Azure AD. Het is niet beschikbaar voor beveiligingsgroepen en distributiegroepen.
 
 > [!NOTE]
-> Gebruik `Remove-MsolGroup` niet omdat de groep dan definitief wordt leeggemaakt. Gebruik `Remove-AzureADMSGroup` altijd om een O365-groep te verwijderen.
+> Gebruik `Remove-MsolGroup` niet omdat de groep dan definitief wordt leeggemaakt. Gebruik altijd `Remove-AzureADMSGroup` om een Office 365-groep te verwijderen.
 
 De machtigingen die zijn vereist om een groep te herstellen, kunnen zijn:
 
 Rol | Machtigingen
 --------- | ---------
-Bedrijfsbeheerder, Laag2-ondersteuning voor partner en InTune-servicebeheerders | Kan elke willekeurige Office 365-groep herstellen
-Beheerder van gebruikersaccounts en Laag1-ondersteuning voor partner | Kan elke verwijderde Office 365-groep herstellen behalve de groepen die zijn toegewezen aan de rol Bedrijfsbeheerder
+Bedrijfsbeheerder, Laag2-ondersteuning voor partner en Intune-servicebeheerders | Kan elke willekeurige Office 365-groep herstellen
+Beheerder van gebruikersaccounts en Laag1-ondersteuning voor partner | Kan elke verwijderde Office 365-groep herstellen, behalve de groepen die zijn toegewezen aan de rol Bedrijfsbeheerder
 Gebruiker | Kan elke willekeurige Office 365-groep herstellen waarvan ze eigenaar zijn
 
+## <a name="view-and-manage-the-deleted-office-365-groups-that-are-available-to-restore"></a>De verwijderde Office 365-groepen weergeven en beheren die beschikbaar zijn om te herstellen
 
-## <a name="view-the-deleted-office-365-groups-that-are-available-to-restore"></a>De verwijderde Office 365-groepen weergeven die beschikbaar zijn om te herstellen
+1. Meld u aan bij het [Azure AD-beheercentrum](https://aad.portal.azure.com) met een beheerdersaccount.
 
+2. Selecteer **Groepen** en vervolgens **Verwijderde groepen** om de verwijderde groepen weer te geven die beschikbaar zijn om te herstellen.
+
+    ![Blade Verwijderde groepen](media/groups-lifecycle/deleted-groups3.png)
+
+3. Op de blade **Verwijderde groepen** kunt u:
+
+  - De verwijderde groep en de inhoud ervan herstellen door **Groep herstellen** te selecteren.
+  - De verwijderde groep definitief verwijderen door **Definitief verwijderen** te selecteren. U kunt een groep alleen definitief verwijderen als u een beheerder bent.
+
+## <a name="view-the-deleted-office-365-groups-that-are-available-to-restore-using-powershell"></a>De verwijderde Office 365-groepen weergeven die beschikbaar zijn om te herstellen met behulp van Powershell
 De volgende cmdlets kunnen worden gebruikt om de verwijderde groepen weer te geven. Zo kunt u controleren of de groep of groepen waarin u geïnteresseerd bent, nog niet definitief zijn leeggemaakt. Deze cmdlets vormen onderdeel van de [Azure AD PowerShell-module](https://www.powershellgallery.com/packages/AzureAD/). In het artikel [Azure Active Directory PowerShell-versie 2](/powershell/azure/install-adv2?view=azureadps-2.0) vindt u meer informatie over deze module.
 
 1.  Voer de volgende cmdlet uit om alle verwijderde Office 365-groepen in de tenant weer te geven die nog beschikbaar zijn voor herstellen.
    
-  ```
-  Get-AzureADMSDeletedGroup
-  ```
+    ```
+    Get-AzureADMSDeletedGroup
+    ```
 
 2.  Als u de object-id van een specifieke groep weet (u kunt deze ophalen uit de cmdlet in stap 1) , kunt u de ook volgende cmdlet uitvoeren om te controleren dat de specifieke verwijderde groep nog niet definitief is leeggemaakt.
-  
-  ```
-  Get-AzureADMSDeletedGroup –Id <objectId>
-  ```
 
-## <a name="how-to-restore-your-deleted-office-365-group"></a>Uw verwijderde Office 365-groep herstellen
+    ```
+    Get-AzureADMSDeletedGroup –Id <objectId>
+    ```
+
+## <a name="how-to-restore-your-deleted-office-365-group-using-powershell"></a>Uw verwijderde Office 365-groep herstellen met behulp van Powershell
 Zodra u hebt gecontroleerd of de groep nog steeds beschikbaar is voor herstellen, herstelt u de verwijderde groep met een van de volgende stappen. Als de groep documenten, SP-sites of andere permanente objecten bevat, duurt het maximaal 24 uur om deze groep en de bijbehorende inhoud te herstellen.
 
-1.  Voer de volgende cmdlet uit om de groep en de bijbehorende inhoud te herstellen.
+1. Voer de volgende cmdlet uit om de groep en de bijbehorende inhoud te herstellen.
  
- ```
- Restore-AzureADMSDeletedDirectoryObject –Id <objectId>
- ``` 
+   ```
+    Restore-AzureADMSDeletedDirectoryObject –Id <objectId>
+    ``` 
 
-U kunt ook de volgende cmdlet uitvoeren om de verwijderde groep definitief te verwijderen.
- ```
- Remove-AzureADMSDeletedDirectoryObject –Id <objectId>
- ```
+2. U kunt ook de volgende cmdlet uitvoeren om de verwijderde groep definitief te verwijderen.
+    
+    ```
+    Remove-AzureADMSDeletedDirectoryObject –Id <objectId>
+    ```
 
 ## <a name="how-do-you-know-this-worked"></a>Hoe weet u of dit heeft gewerkt?
 

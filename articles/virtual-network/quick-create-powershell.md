@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: ade8329e6e42fae9f3232617488a6d4a69f8ef1f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 57c3b5099c24151794b27f4aeec7845495a4630a
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437382"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670400"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>Snelstart: Een virtueel netwerk maken met PowerShell
 
@@ -29,9 +29,9 @@ Als u nog geen abonnement op Azure hebt, maak dan nu een [gratis account](https:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
 
-Als u PowerShell lokaal wilt installeren en gebruiken, is voor deze snelstart AzureRM PowerShell-module versie 5.4.1 of hoger vereist. Voer `Get-Module -ListAvailable AzureRM` uit om na te gaan welke versie er is geïnstalleerd. Zie [Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps) voor installatie- en upgrade-informatie.
+Als u PowerShell lokaal wilt installeren en gebruiken, is voor deze quickstart Azure PowerShell-module versie 1.0.0 of hoger vereist. Voer `Get-Module -ListAvailable Az` uit om na te gaan welke versie er is geïnstalleerd. Zie [Azure PowerShell-module installeren](/powershell/azure/install-az-ps) voor installatie- en upgrade-informatie.
 
-Tenslotte moet u, als u PowerShell lokaal uitvoert, ook `Connect-AzureRmAccount` uitvoeren. Met deze opdracht wordt een verbinding met Azure gemaakt.
+Tenslotte moet u, als u PowerShell lokaal uitvoert, ook `Connect-AzAccount` uitvoeren. Met deze opdracht wordt een verbinding met Azure gemaakt.
 
 ## <a name="create-a-resource-group-and-a-virtual-network"></a>Een resourcegroep en een virtueel netwerk maken
 
@@ -39,18 +39,18 @@ U kunt de resourcegroep en het virtuele netwerk configureren door een aantal sta
 
 ### <a name="create-the-resource-group"></a>De resourcegroep maken
 
-Voordat u een virtueel netwerk kunt maken, moet u een resourcegroep maken die het virtuele netwerk host. Maak een resourcegroep met behulp van de opdracht [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). In dit voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *US - oost*:
+Voordat u een virtueel netwerk kunt maken, moet u een resourcegroep maken die het virtuele netwerk host. Maak een resourcegroep met behulp van de opdracht [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). In dit voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *US - oost*:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
 ### <a name="create-the-virtual-network"></a>Het virtuele netwerk maken
 
-Maak een virtueel netwerk met [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork). In dit voorbeeld wordt een standaard virtueel netwerk gemaakt met de naam *myVirtualNetwork* op de locatie *US - oost*:
+Maak een virtueel netwerk met [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). In dit voorbeeld wordt een standaard virtueel netwerk gemaakt met de naam *myVirtualNetwork* op de locatie *US - oost*:
 
 ```azurepowershell-interactive
-$virtualNetwork = New-AzureRmVirtualNetwork `
+$virtualNetwork = New-AzVirtualNetwork `
   -ResourceGroupName myResourceGroup `
   -Location EastUS `
   -Name myVirtualNetwork `
@@ -59,10 +59,10 @@ $virtualNetwork = New-AzureRmVirtualNetwork `
 
 ### <a name="add-a-subnet"></a>Een subnet toevoegen
 
-Azure implementeert resources in een subnet binnen een virtueel netwerk. U moet daarom een subnet maken. Maak een subnetconfiguratie genaamd *default* met [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig):
+Azure implementeert resources in een subnet binnen een virtueel netwerk. U moet daarom een subnet maken. Maak een subnetconfiguratie genaamd *default* met [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig):
 
 ```azurepowershell-interactive
-$subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
+$subnetConfig = Add-AzVirtualNetworkSubnetConfig `
   -Name default `
   -AddressPrefix 10.0.0.0/24 `
   -VirtualNetwork $virtualNetwork
@@ -70,10 +70,10 @@ $subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
 
 ### <a name="associate-the-subnet-to-the-virtual-network"></a>Het subnet aan het virtuele netwerk koppelen
 
-U kunt de subnetconfiguratie naar het virtuele netwerk schrijven met [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork). Met deze opdracht maakt u het subnet:
+U kunt de subnetconfiguratie naar het virtuele netwerk schrijven met [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork). Met deze opdracht maakt u het subnet:
 
 ```azurepowershell-interactive
-$virtualNetwork | Set-AzureRmVirtualNetwork
+$virtualNetwork | Set-AzVirtualNetwork
 ```
 
 ## <a name="create-virtual-machines"></a>Virtuele machines maken
@@ -82,10 +82,10 @@ Maak twee VM’s in het virtuele netwerk.
 
 ### <a name="create-the-first-vm"></a>De eerste VM maken
 
-Maak de eerste VM met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Wanneer u de volgende opdracht uitvoert, wordt u gevraagd referenties op te geven. Voer een gebruikersnaam en wachtwoord voor de virtuele machine in:
+Maak de eerste VM met [New-AzVM](/powershell/module/az.compute/new-azvm). Wanneer u de volgende opdracht uitvoert, wordt u gevraagd referenties op te geven. Voer een gebruikersnaam en wachtwoord voor de virtuele machine in:
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroup" `
     -Location "East US" `
     -VirtualNetworkName "myVirtualNetwork" `
@@ -101,7 +101,7 @@ Wanneer er op de achtergrond met het maken van de virtuele machine wordt begonne
 ```powershell
 Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
 --     ----            -------------   -----         -----------     --------             -------
-1      Long Running... AzureLongRun... Running       True            localhost            New-AzureRmVM
+1      Long Running... AzureLongRun... Running       True            localhost            New-AzVM
 ```
 
 ### <a name="create-the-second-vm"></a>De tweede VM maken
@@ -109,7 +109,7 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 Maak de tweede virtuele machine met de volgende opdracht:
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
   -ResourceGroupName "myResourceGroup" `
   -VirtualNetworkName "myVirtualNetwork" `
   -SubnetName "default" `
@@ -123,10 +123,10 @@ U moet een andere gebruiker en wachtwoord maken. Het duurt een paar minuten om d
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Verbinding maken met een virtuele machine via internet
 
-Gebruik [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) om het openbare IP-adres van een virtuele machine op te halen. In dit voorbeeld wordt het openbare IP-adres van de VM *myVm1* opgehaald:
+Gebruik [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) om het openbare IP-adres van een virtuele machine op te halen. In dit voorbeeld wordt het openbare IP-adres van de VM *myVm1* opgehaald:
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress `
+Get-AzPublicIpAddress `
   -Name myVm1 `
   -ResourceGroupName myResourceGroup `
   | Select IpAddress
@@ -135,7 +135,7 @@ Get-AzureRmPublicIpAddress `
 Open een opdrachtprompt op de lokale computer. Voer de opdracht `mstsc` uit. Vervang `<publicIpAddress>` door het openbare IP-adres dat in de laatste stap is geretourneerd:
 
 > [!NOTE]
-> Als u deze opdrachten vanuit een PowerShell-prompt op de lokale computer hebt uitgevoerd en u werkt met de AzureRM PowerShell-module versie 5.4.1 of hoger, kunt u doorgaan in die interface.
+> Als u deze opdrachten vanuit een PowerShell-prompt op de lokale computer hebt uitgevoerd en u met de Azure PowerShell-module versie 1.0 of hoger werkt, kunt u doorgaan in die interface.
 
 ```cmd
 mstsc /v:<publicIpAddress>
@@ -165,7 +165,7 @@ Er wordt een Remote Desktop Protocol-bestand (*.rdp*) naar uw computer geopend e
     ```powershell
     PS C:\Users\myVm1> ping myVm2
 
-    Pinging myVm2.ovvzzdcazhbu5iczfvonhg2zrb.bx.internal.cloudap
+    Pinging myVm2.ovvzzdcazhbu5iczfvonhg2zrb.bx.internal.cloudapp.net
     Request timed out.
     Request timed out.
     Request timed out.
@@ -214,10 +214,10 @@ Er wordt een Remote Desktop Protocol-bestand (*.rdp*) naar uw computer geopend e
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer u klaar bent met het virtuele netwerk en de VM's, gebruikt u [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) om de resourcegroep en alle resources die deze bevat te verwijderen:
+Wanneer u klaar bent met het virtuele netwerk en de VM's, gebruikt u [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) om de resourcegroep en alle resources die deze bevat te verwijderen:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

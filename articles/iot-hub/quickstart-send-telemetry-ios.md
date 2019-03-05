@@ -2,21 +2,21 @@
 title: 'Snelstart: telemetrie verzenden naar Azure IoT Hub | Microsoft Docs'
 description: In deze snelstart voert u een iOS-voorbeeldtoepassing uit om gesimuleerde telemetrie te verzenden naar een IoT-hub en telemetrie van de IoT-hub te lezen voor verwerking in de cloud.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/20/2018
+ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: c2cfe40afb2c855e600e103fc8b9bb0845b09aa3
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 05ae99425bbe16c27ca7efd475757499996e06b9
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515111"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672114"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Snelstart: Telemetrie verzenden van een apparaat naar een IoT-hub (iOS)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Quickstart: Telemetrie verzenden van een apparaat naar een IoT-hub (iOS)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -44,7 +44,7 @@ Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan m
 
 1. Voer de volgende opdrachten uit in Azure Cloud Shell om de IoT Hub CLI-extensie toe te voegen en de apparaat-id te maken. 
 
-   **YourIoTHubName**: vervang deze tijdelijke aanduiding door een door u gekozen naam voor de IoT-hub.
+   **YourIoTHubName** : vervang deze tijdelijke aanduiding door een door u gekozen naam voor de IoT-hub.
 
    **myiOSdevice**: dit is de naam van het geregistreerde apparaat. Gebruik myiOSdevice, zoals wordt weergegeven. Als u een andere naam voor het apparaat kiest, moet u deze naam ook in de rest van dit artikel gebruiken, en moet u de apparaatnaam bijwerken in de voorbeeldtoepassingen voordat u ze uitvoert.
 
@@ -136,7 +136,7 @@ In dit artikel stelt u een IoT-hub in, registreert u een apparaat, verzendt u ge
 Ga verder met de volgende snelstartgids als u wilt weten hoe u een gesimuleerd apparaat beheert vanuit een back-endtoepassing.
 
 > [!div class="nextstepaction"]
-> [Snelstartgids: Een apparaat beheren dat is verbonden met een IoT-hub](quickstart-control-device-node.md)
+> [Snelstart: Een apparaat beheren dat is verbonden met een IoT-hub](quickstart-control-device-node.md)
 
 <!-- Links -->
 [lnk-process-d2c-tutorial]: tutorial-routing.md

@@ -8,16 +8,16 @@ services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 06/22/2018
+ms.date: 02/22/2019
 ms.author: dobett
-ms.openlocfilehash: 454c3961cb31e147f647095c0a3a71a6c65630f1
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 30c5026c0f7c8fcce3cee8780622f4c835f043ce
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422114"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670941"
 ---
-# <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>Snelstartgids: Een apparaat beheren dat is verbonden met een IoT-hub (Java)
+# <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>Quickstart: Een apparaat beheren dat is verbonden met een IoT-hub (Java)
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
@@ -42,7 +42,7 @@ U kunt Java voor meerdere platforms downloaden van [Oracle](https://aka.ms/azure
 Gebruik de volgende opdracht om de huidige versie van Java op uw ontwikkelcomputer te controleren:
 
 ```cmd/sh
-java --version
+java -version
 ```
 
 U moet Maven 3 installeren om de voorbeelden te kunnen compileren. U kunt Maven voor meerdere platforms downloaden van [Apache Maven](https://maven.apache.org/download.cgi).
@@ -57,21 +57,21 @@ Als u dit nog niet hebt gedaan, downloadt u het voorbeeldproject met Java van ht
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
-U kunt deze stap overslaan na het afronden van de voorgaande [ snelstartgids: Telemetriegegevens vanaf een apparaat verzenden naar een IoT-hub](quickstart-send-telemetry-java.md).
+Als u [Snelstart: Als u telemetrie vanaf een apparaat wilt verzenden naar een IoT-hub](quickstart-send-telemetry-java.md), kunt u deze stap overslaan.
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Een apparaat registreren
 
-U kunt deze stap overslaan na het afronden van de voorgaande [ snelstartgids: Telemetriegegevens vanaf een apparaat verzenden naar een IoT-hub](quickstart-send-telemetry-java.md).
+Als u [Snelstart: Als u telemetrie vanaf een apparaat wilt verzenden naar een IoT-hub](quickstart-send-telemetry-java.md), kunt u deze stap overslaan.
 
 Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan maken. In deze snelstart gebruikt u Azure Cloud Shell om een gesimuleerd apparaat te registreren.
 
-1. Voer de volgende opdrachten uit in Azure Cloud Shell om de IoT Hub CLI-extensie toe te voegen en de apparaat-id te maken. 
+1. Voer de volgende opdrachten uit in Azure Cloud Shell om de IoT Hub CLI-extensie toe te voegen en de apparaat-id te maken.
 
    **YourIoTHubName**: vervang deze tijdelijke aanduiding door een door u gekozen naam voor de IoT-hub.
 
-   **MyJavaDevice**: deze waarde is de naam van het geregistreerde apparaat. Gebruik MyJavaDevice zoals weergegeven. Als u een andere naam voor het apparaat kiest, moet u deze naam ook in de rest van dit artikel gebruiken, en moet u de apparaatnaam bijwerken in de voorbeeldtoepassingen voordat u ze uitvoert.
+   **MyJavaDevice** : De naam van het apparaat dat u gaat registreren. Gebruik **MyJavaDevice** zoals wordt weergegeven. Als u een andere naam voor het apparaat kiest, moet u deze naam in de rest van dit artikel gebruiken, en moet u de apparaatnaam bijwerken in de voorbeeldtoepassingen voordat u ze uitvoert.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -98,8 +98,8 @@ Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan m
 
 ## <a name="retrieve-the-service-connection-string"></a>De verbindingsreeks voor de service ophalen
 
-U hebt ook een _serviceverbindingsreeks_ nodig, zodat de back-endtoepassing kan worden verbonden met de IoT-hub om de berichten op te halen. Met de volgende opdracht haalt u de serviceverbindingsreeks voor uw IoT-hub op:
-   
+U hebt ook een _service-verbindingsreeks_ nodig, zodat de back-end-toepassing verbinding kan maken met de IoT-hub en de berichten kan ophalen. Met de volgende opdracht haalt u de serviceverbindingsreeks voor uw IoT-hub op:
+
 **YourIoTHubName**: vervang deze tijdelijke aanduiding door een door u gekozen naam voor de IoT-hub.
 
 ```azurecli-interactive

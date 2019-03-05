@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 9da2f8fa345ad3447d7c3344772458c451cf427e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d333eb6baa41321fdf7daca3c545d5d5e3ed5fe4
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867236"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732701"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Zelfstudie: namen extraheren met de entiteit Simple en een woordenlijst
 
@@ -233,7 +233,9 @@ Open [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive-services-
 
     [![Schermopname van het pop-updialoogvenster voor het maken van een nieuwe woordgroepenlijst](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Schermopname van het pop-updialoogvenster voor het maken van een nieuwe woordgroepenlijst")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
-    Als u meer woorden aan de woordgroepenlijst wilt toevoegen, bekijkt u de **Gerelateerde waarden** en voegt u de woorden toe die relevant voor u zijn. 
+    Als u wilt dat meer woorden worden toegevoegd aan de woordgroepenlijst, selecteert u **Recommand**, bekijkt u vervolgens de nieuwe **Gerelateerde waarden** en voegt de relevante toe. 
+
+    Zorg ervoor dat **Deze waarden zijn verwisselbaar** aangevinkt is, omdat deze waarden allemaal als synoniemen voor taken moeten worden behandeld. Meer informatie over uitwisselbare en niet-uitwisselbare [Woordenlijstconcepten](luis-concept-feature.md#how-to-use-phrase-lists).
 
 1. Selecteer **Save** om de woordgroepenlijst te activeren.
 

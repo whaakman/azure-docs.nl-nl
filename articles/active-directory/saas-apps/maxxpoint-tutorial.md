@@ -1,232 +1,202 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met MaxxPoint | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en MaxxPoint.
+description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active Directory en MaxxPoint.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 15ba026e-96fc-4ae8-b135-0169da810e99
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/13/2017
+ms.topic: tutorial
+ms.date: 02/21/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23801a796473d7985c17ffcf8a9f1350c1b0e8e9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: e43f995e17a5dc9258e6fd0b5ede2c130a4a14e1
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187760"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805457"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-maxxpoint"></a>Zelfstudie: Azure Active Directory-integratie met MaxxPoint
 
-In deze zelfstudie leert u hoe u MaxxPoint integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u MaxxPoint kunt integreren met Azure Active Directory (Azure AD).
+De integratie van MaxxPoint met Azure Active Directory biedt de volgende voordelen:
 
-MaxxPoint integreren met Azure AD biedt u de volgende voordelen:
+* U kunt in Azure Active Directory bepalen wie er toegang heeft tot MaxxPoint.
+* U kunt instellen dat gebruikers automatisch met hun Azure Active Directory-account worden aangemeld bij MaxxPoint (eenmalige aanmelding).
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot MaxxPoint heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij MaxxPoint (Single Sign-On) met hun Azure AD-accounts inschakelen
-- U kunt uw accounts in één centrale locatie - Azure portal beheren
-
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met MaxxPoint, moet u de volgende items:
+Om Azure Active Directory-integratie te configureren met MaxxPoint hebt u het volgende nodig:
 
-- Een Azure AD-abonnement
-- Een MaxxPoint eenmalige aanmelding ingeschakeld abonnement
-
-> [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
-
-Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
-
-- U moet uw productie-omgeving, niet gebruiken als dit nodig is.
-- Als u nog geen proefversie van Azure AD hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) een proefversie van één maand aanvragen.
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op MaxxPoint waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. MaxxPoint uit de galerie toe te voegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
+* MaxxPoint ondersteunt door **SP** en **IDP** geïnitieerde eenmalige aanmelding
 
-## <a name="adding-maxxpoint-from-the-gallery"></a>MaxxPoint uit de galerie toe te voegen
-Voor het configureren van de integratie van MaxxPoint in Azure AD, moet u MaxxPoint uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+## <a name="adding-maxxpoint-from-the-gallery"></a>MaxxPoint uit de galerie toevoegen
 
-**Als u wilt toevoegen MaxxPoint uit de galerie, moet u de volgende stappen uitvoeren:**
+Voor het configureren van de integratie van MaxxPoint met Microsoft Azure Active Directory moet u MaxxPoint vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+**Als u MaxxPoint wilt toevoegen uit de galerie, moet u de volgende stappen uitvoeren:**
 
-    ![Active Directory][1]
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-    ![Applicaties][2]
-    
-1. Klik op **nieuwe toepassing** knop boven aan het dialoogvenster nieuwe toepassing toevoegen.
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-    ![Applicaties][3]
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-1. Typ in het zoekvak **MaxxPoint**.
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![Het maken van een Azure AD-testgebruiker](./media/maxxpoint-tutorial/tutorial_maxxpoint_001.png)
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-1. Selecteer in het deelvenster resultaten **MaxxPoint**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+4. Typ in het zoekvak **MaxxPoint**, selecteer **MaxxPoint** in het resultaatvenster en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-    ![Het maken van een Azure AD-testgebruiker](./media/maxxpoint-tutorial/tutorial_maxxpoint_0001.png)
+     ![MaxxPoint in de lijst met resultaten](common/search-new-app.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met MaxxPoint op basis van een testgebruiker 'Julia steen' genoemd.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in MaxxPoint is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in MaxxPoint tot stand worden gebracht.
+In deze sectie gaat u eenmalige aanmelding met Azure Active Directory bij MaxxPoint configureren en testen op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure Active Directory-gebruiker en de daaraan gerelateerde gebruiker in MaxxPoint tot stand is gebracht.
 
-Deze relatie koppeling tot stand is gebracht door toe te wijzen de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** in MaxxPoint.
+Om eenmalige aanmelding met Azure Active Directory bij MaxxPoint te configureren en testen, moet u de volgende bouwstenen voltooien:
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met MaxxPoint, moet u de volgende bouwstenen voltooien:
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding voor MaxxPoint configureren](#configure-maxxpoint-single-sign-on)**: de instellingen voor eenmalige aanmelding aan de toepassingszijde configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Testgebruiker voor MaxxPoint maken](#create-maxxpoint-test-user)**: als u een tegenhanger van Britta Simon in MaxxPoint wilt hebben die is gekoppeld aan de Azure Active Directory-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Het maken van een testgebruiker MaxxPoint](#creating-a-maxxpoint-test-user)**  : als u wilt een equivalent van Britta Simon in MaxxPoint die is gekoppeld aan de Azure AD-weergave van haar hebben.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing MaxxPoint.
+Voer de volgende stappen uit als u eenmalige aanmelding met Azure Active Directory wilt configureren voor MaxxPoint:
 
-**Voor het configureren van Azure AD eenmalige aanmelding met MaxxPoint, moet u de volgende stappen uitvoeren:**
+1. In de [Azure Portal](https://portal.azure.com/) selecteert u **Eenmalige aanmelding** op de integratiepagina van de toepassing **MaxxPoint**.
 
-1. In de Azure-portal op de **MaxxPoint** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-    ![Eenmalige aanmelding configureren][4]
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![Eenmalige aanmelding configureren](./media/maxxpoint-tutorial/tutorial_general_300.png)
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-1. Op de **MaxxPoint domein en URL's** sectie, als u wilt configureren van de toepassing in **IDP gestart door modus**, hoeft u niet alle stappen moeten worden uitgevoerd.
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    ![Eenmalige aanmelding configureren](./media/maxxpoint-tutorial/tutorial_maxxpoint_02.png)
-    
-1. Op de **MaxxPoint domein en URL's** sectie, als u wilt configureren van de toepassing in **SP geïnitieerde modus**, voer de volgende stappen uit:
-    
-    ![Eenmalige aanmelding configureren](./media/maxxpoint-tutorial/tutorial_maxxpoint_03.png)
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    a. Klik op **geavanceerde URL-instellingen weergeven** optie
+4. In de sectie **SAML-basisconfiguratie** als u wilt de toepassing in **IDP**-gestart modus configureren, hoeft de gebruiker geen stappen uit te voeren omdat de app al vooraf geïntegreerd is in Azure.
 
-    b. In de **aanmelding URL** tekstvak, een URL met behulp van het volgende patroon: `https://maxxpoint.westipc.com/default/sso/login/entity/<customer-id>-azure`
+    ![Domein- en URL-gegevens voor eenmalige aanmelding bij MaxxPoint](common/preintegrated.png)
 
-    > [!NOTE] 
-    > Houd er rekening mee dat dit niet de werkelijke waarde is. U moet deze waarde bijwerken met de werkelijke op URL. Bel MaxxPoint team op **888-728-0950** deze waarde op te halen.
+5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+    ![Domein- en URL-gegevens voor eenmalige aanmelding bij MaxxPoint](common/metadata-upload-additional-signon.png)
 
-    ![Eenmalige aanmelding configureren](./media/maxxpoint-tutorial/tutorial_maxxpoint_06.png) 
+    In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://maxxpoint.westipc.com/default/sso/login/entity/<customer-id>-azure`
 
-1. Klik op de knop **Save**.
+    >[!NOTE] 
+    >Dit is niet de echte waarde. Werk de waarde bij met de werkelijke aanmeldings-URL. Bel het MaxxPoint-team op 888-728-0950 om deze waarde te verkrijgen.
 
-    ![Eenmalige aanmelding configureren](./media/maxxpoint-tutorial/tutorial_general_400.png)
+6. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **XML-bestand met federatieve metagegevens**  te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 
-1. Als u eenmalige aanmelding configureren voor uw toepassing, MaxxPoint-ondersteuningsteam voor aanroepen **888-728-0950** en ze helpen u verder gaat over het bieden ze de gedownloade **Metadata XML** bestand. 
+    ![De link om het certificaat te downloaden](common/metadataxml.png)
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+7. Kopieer in de sectie **MaxxPoint instellen** de juiste URL('s) op basis van uw behoeften.
 
-### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
+
+    a. Aanmeldings-URL
+
+    b. Azure AD-id
+
+    c. Afmeldings-URL
+
+### <a name="configure-maxxpoint-single-sign-on"></a>MaxxPoint voor eenmalige aanmelding configureren
+
+Om eenmalige aanmelding voor uw toepassing te configureren, belt u het ondersteuningsteam van MaxxPoint op **888-728-0950**. Zij zullen u verder helpen bij het verstrekken van het gedownloade **Federatieve metagegevens-XML**-bestand.
+
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
+
 Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-![Azure AD-gebruiker maken][100]
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-    ![Het maken van een Azure AD-testgebruiker](./media/maxxpoint-tutorial/create_aaduser_01.png) 
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-1. Ga naar **gebruikers en groepen** en klikt u op **alle gebruikers** om de lijst met gebruikers weer te geven.
-    
-    ![Het maken van een Azure AD-testgebruiker](./media/maxxpoint-tutorial/create_aaduser_02.png) 
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-1. Aan de bovenkant van het dialoogvenster klikt u op **toevoegen** openen de **gebruiker** dialoogvenster.
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/maxxpoint-tutorial/create_aaduser_03.png) 
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
-    ![Het maken van een Azure AD-testgebruiker](./media/maxxpoint-tutorial/create_aaduser_04.png) 
+    a. Voer in het veld **Naam** **Britta Simon**in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    a. In de **naam** tekstvak, type **BrittaSimon**.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
-    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
+    d. Klik op **Create**.
 
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-    d. Klik op **Create**. 
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot MaxxPoint.
 
-### <a name="creating-a-maxxpoint-test-user"></a>Het maken van een testgebruiker MaxxPoint
+1. Selecteer **Bedrijfstoepassingen** in Azure Portal, selecteer **Alle toepassingen** en selecteer vervolgens **MaxxPoint**.
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in MaxxPoint. Neem contact op met het ondersteuningsteam MaxxPoint op **888-728-0950** om toe te voegen de gebruikers in de toepassing MaxxPoint.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
+2. Selecteer **MaxxPoint** in de lijst met toepassingen.
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door haar toegang verlenen tot MaxxPoint.
+    ![De MaxxPoint-link in de lijst met toepassingen](common/all-applications.png)
 
-![Gebruiker toewijzen][200] 
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-**Als u wilt Britta Simon aan MaxxPoint toewijst, moet u de volgende stappen uitvoeren:**
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-    ![Gebruiker toewijzen][201] 
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-1. Selecteer in de lijst met toepassingen, **MaxxPoint**.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-    ![Eenmalige aanmelding configureren](./media/maxxpoint-tutorial/tutorial_maxxpoint_50.png) 
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-    ![Gebruiker toewijzen][202] 
+### <a name="create-maxxpoint-test-user"></a>MaxxPoint-testgebruiker maken
 
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+In deze sectie gaat u in MaxxPoint een gebruiker maken met de naam Britta Simon. Neem contact op met het ondersteuningsteam van MaxxPoint op **888-728-0950** om de gebruikers toe te voegen in de MaxxPoint-toepassing.
 
-    ![Gebruiker toewijzen][203]
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
-
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
-### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
-
-In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
-
-Wanneer u op de tegel MaxxPoint in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing MaxxPoint.
-
+Wanneer u in het toegangsvenster op de tegel MaxxPoint klikt, wordt u automatisch aangemeld bij de instantie van MaxxPoint waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-<!--Image references-->
-
-[1]: ./media/maxxpoint-tutorial/tutorial_general_01.png
-[2]: ./media/maxxpoint-tutorial/tutorial_general_02.png
-[3]: ./media/maxxpoint-tutorial/tutorial_general_03.png
-[4]: ./media/maxxpoint-tutorial/tutorial_general_04.png
-
-[100]: ./media/maxxpoint-tutorial/tutorial_general_100.png
-
-[200]: ./media/maxxpoint-tutorial/tutorial_general_200.png
-[201]: ./media/maxxpoint-tutorial/tutorial_general_201.png
-[202]: ./media/maxxpoint-tutorial/tutorial_general_202.png
-[203]: ./media/maxxpoint-tutorial/tutorial_general_203.png

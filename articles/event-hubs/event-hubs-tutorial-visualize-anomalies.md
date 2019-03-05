@@ -8,13 +8,13 @@ ms.author: shvija
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
-ms.date: 12/06/2018
-ms.openlocfilehash: 5f9af39616e45983a7ec592f33c3f2ffd34ea34f
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.date: 02/26/2019
+ms.openlocfilehash: 4f72def4d81f51fcf1bedbeb83798b16ebb6eb32
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233400"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888658"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Zelfstudie: gegevensanomalieën binnen in realtime naar Azure Event Hubs verzonden gebeurtenissen visualiseren
 
@@ -324,6 +324,8 @@ Klik in de Stream Analytics-taak op **Start**, vervolgens op **Nu**  en daarna o
 
     ![Schermafbeelding van het opgeven van de titel en subtitel voor een dashboardtegel.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-tile-details.png)
 
+    > [!IMPORTANT]
+    > Wanneer u de voorbeeldtoepassing uitvoert en gegevens naar de hub van het evenement streamt, verandert het nummer op deze tegel snel (elke seconde). Dat komt doordat de Stream Analytics-query de waarde **elke seconde** bijwerkt. Update de query naar een tumblingvenster van 3 minuten om het totaal van de laatste minuten te zien. 
 11. Voeg nog een visualisatie toe. Herhaal de eerste paar stappen:
 
    * Klik op **Tegel toevoegen**.

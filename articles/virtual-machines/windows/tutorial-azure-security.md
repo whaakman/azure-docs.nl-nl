@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ebb1a3fba95ed5794b3737d75c4ec182163a32fb
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 4c54383df74d9cfd7941dc52d26856bc8da51457
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984423"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594709"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Zelfstudie: Azure Security Center gebruiken om virtuele Windows-machines te bewaken
 
@@ -65,7 +65,7 @@ Een beveiligingsbeleid voor een volledig abonnement instellen:
 
 1. Selecteer in het Security Center-dashboard **Beveiligingsbeleid** en selecteer vervolgens uw abonnement.
 2. Selecteer op de blade **Beveiligingsbeleid** de optie **Beveiligingsbeleid**. 
-3. Op de blade ** Beveiligingsbeleid - Beveiligingsbeleid ** schakelt u de beleidsitems in die u wilt toepassen op het abonnement.
+3. Op de blade **Beveiligingsbeleid - Beveiligingsbeleid** schakelt u de beleidsitems in die u wilt toepassen op het abonnement.
 4. Wanneer u klaar bent met instellen, selecteert u bovenaan de blade de optie **Opslaan**. 
 
 

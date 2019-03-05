@@ -13,14 +13,14 @@ ms.date: 11/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df5d42135c538ca3d0a63252805efb44cef7e8b0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 536edcf74bff6f89dade4a713c40c9bef12e18af
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190463"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881801"
 ---
-# <a name="what-is-hybrid-identity"></a>Wat is hybride identiteit? 
+# <a name="what-is-hybrid-identity"></a>Wat is hybride identiteit?
 
 Vandaag de dag maken organisaties en bedrijven steeds meer gebruik van een mix van on-premises toepassingen en cloudtoepassingen.  Gebruikers hebben zowel on-premises als in de cloud toegang tot deze toepassingen nodig. Deze vereiste is een uitdaging geworden. 
 
@@ -30,7 +30,7 @@ Voor het verwezenlijken van hybride identiteit kan, afhankelijk van uw scenario'
 
 - **[Synchronisatie van wachtwoord-hashes (PHS)](whatis-phs.md)**  
 - **[Pass-through-verificatie (PTA)](how-to-connect-pta.md)**  
-- **[Federatie](whatis-fed.md)** 
+- **[Federation (AD FS)](whatis-fed.md)** 
 
 Met deze verificatiemethoden is tevens [eenmalige aanmelding](how-to-connect-sso.md) mogelijk.  Met eenmalige aanmelding worden gebruikers aangemeld als hun bedrijfsapparaten zijn verbonden met het bedrijfsnetwerk.
 
@@ -47,7 +47,7 @@ Hieronder volgen enkele veelvoorkomende hybride identiteits- en beheerscenario's
 |mijn gebruikers in staat stellen zich aan te melden bij cloudservices met hun on-premises wachtwoord.|![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png)| ![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png) |![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png)| 
 |eenmalige aanmelding implementeren met bedrijfsreferenties.|![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png)| ![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png) |![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png)|  
 |ervoor zorgen dat er geen wachtwoord-hashes in de cloud worden opgeslagen.| |![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png)|![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png)| 
-|oplossingen voor meervoudige verificatie in de cloud mogelijk maken.| |![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png)|![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png)| 
+|Oplossingen voor meervoudige verificatie in de cloud mogelijk maken.|![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png)|![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png)|![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png)| 
 |oplossingen voor meervoudige verificatie on-premises mogelijk maken.| | |![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png)| 
 |verificatie van smartcards voor mijn gebruikers mogelijk maken.<sup>4</sup>| | |![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png)| 
 |meldingen voor verlopen wachtwoorden weergeven in de Office-portal en op het Windows 10-bureaublad.| | |![Aanbevolen](./media/whatis-hybrid-identity/ic195031.png)| 

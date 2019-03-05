@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 01bd8b5d1f8ed0d78f3331b4150df37ef0a1049e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 571cce2fafe1d19653dfa1e3d9a91042584621eb
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426774"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56735938"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>Snelstartgids: Een server maken - PowerShell
 
@@ -21,49 +21,51 @@ In deze snelstart wordt beschreven hoe u PowerShell vanaf de opdrachtregel kunt 
 
 ## <a name="prerequisites"></a>Vereisten
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 - **Azure-abonnement**: Ga naar [gratis proefversie van Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) om een account te maken.
 - **Azure Active Directory**: Uw abonnement moet zijn gekoppeld aan een Azure Active Directory-tenant en u moet een account hebben in de betreffende map. Raadpleeg voor meer informatie [Verificatie en gebruikersmachtigingen](analysis-services-manage-users.md).
-- **Azure PowerShell-moduleversie 4.0 of later**. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Zie [Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps) om de module te installeren of te upgraden.
+- **Azure PowerShell**. Voer `Get-Module -ListAvailable Az` uit om na te gaan welke versie er is geïnstalleerd. Zie [Azure PowerShell-module installeren](/powershell/azure/install-Az-ps) om de module te installeren of te upgraden.
 
-## <a name="import-azurermanalysisservices-module"></a>AzureRm.AnalysisServices-module importeren
+## <a name="import-azanalysisservices-module"></a>Az.AnalysisServices-module importeren
 
-U gebruikt de  [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices)-module om een server in het abonnement te maken. Laad de AzureRm.AnalysisServices-module in de PowerShell-sessie.
+U gebruikt de [Az.AnalysisServices](/powershell/module/az.analysisservices)-module om een server in het abonnement te maken. Laad de Az.AnalysisServices-module in de PowerShell-sessie.
 
 ```powershell
-Import-Module AzureRM.AnalysisServices
+Import-Module Az.AnalysisServices
 ```
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij uw Azure-abonnement met behulp van de opdracht [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount). Volg de aanwijzingen op het scherm.
+Meld u aan bij uw Azure-abonnement met behulp van de opdracht [Connect-AzAccount](/powershell/module/az.profile/connect-azaccount). Volg de aanwijzingen op het scherm.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) is een logische container waarin Azure-resources worden geïmplementeerd en als groep beheerd. Wanneer u de server maakt, moet u een resourcegroep opgeven in uw abonnement. Als u nog geen resourcegroep hebt, maakt u een nieuwe met behulp van de opdracht [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). In het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` gemaakt in de regio US - west.
+Een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) is een logische container waarin Azure-resources worden geïmplementeerd en als groep beheerd. Wanneer u de server maakt, moet u een resourcegroep opgeven in uw abonnement. Als u nog geen resourcegroep hebt, maakt u een nieuwe met behulp van de opdracht [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). In het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` gemaakt in de regio US - west.
 
 ```powershell
-New-AzureRmResourceGroup -Name "myResourceGroup" -Location "WestUS"
+New-AzResourceGroup -Name "myResourceGroup" -Location "WestUS"
 ```
 
 ## <a name="create-a-server"></a>Een server maken
 
-Maak een nieuwe server met behulp van de opdracht [New-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver). In het volgende voorbeeld wordt een server met de naam myServer gemaakt in myResourceGroup, in de regio VS - West, in de (gratis) D1-laag, en wordt philipc@adventureworks.com opgegeven als serverbeheerder.
+Maak een nieuwe server met behulp van de opdracht [New-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver). In het volgende voorbeeld wordt een server met de naam myServer gemaakt in myResourceGroup, in de regio VS - West, in de (gratis) D1-laag, en wordt philipc@adventureworks.com opgegeven als serverbeheerder.
 
 ```powershell
-New-AzureRmAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "myserver" -Location WestUS -Sku D1 -Administrator "philipc@adventure-works.com"
+New-AzAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "myserver" -Location WestUS -Sku D1 -Administrator "philipc@adventure-works.com"
 ```
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-U kunt de server uit het abonnement verwijderen met behulp van de opdracht [Remove-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver). Verwijder de server niet als u met andere snelstartgidsen en zelfstudies in deze verzameling doorgaat. In het volgende voorbeeld wordt de server die u in de vorige stap hebt gemaakt, verwijderd.
+U kunt de server uit het abonnement verwijderen met behulp van de opdracht [Remove-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver). Verwijder de server niet als u met andere snelstartgidsen en zelfstudies in deze verzameling doorgaat. In het volgende voorbeeld wordt de server die u in de vorige stap hebt gemaakt, verwijderd.
 
 
 ```powershell
-Remove-AzureRmAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceGroup"
+Remove-AzAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceGroup"
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
