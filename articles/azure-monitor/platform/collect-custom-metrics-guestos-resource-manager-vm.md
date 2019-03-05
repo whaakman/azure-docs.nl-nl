@@ -8,14 +8,16 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 1eaf73e1d8b3c60ea32fa7d4aaf51a212d24a18c
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 6e79aba5ae6d06c207b0070fd7741471db7d820c
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894595"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316911"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Verzenden van Guest OS metrische gegevens in de Azure Monitor-metriek opslaan met behulp van Resource Manager-sjabloon voor een virtuele machine van Windows
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Met behulp van de Azure Monitor [Diagnostics-extensie](diagnostics-extension-overview.md), kunt u metrische gegevens en logboeken verzamelen van het gastbesturingssysteem (Gastbesturingssysteem) die wordt uitgevoerd als onderdeel van een virtuele machine, een cloudservice of een Service Fabric-cluster. De extensie kunt telemetrie wordt verzonden naar [veel verschillende locaties.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
@@ -29,7 +31,7 @@ Als u geen ervaring met Resource Manager-sjablonen, meer informatie over [sjablo
 
 - Uw abonnement moet worden geregistreerd bij [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
 
-- U moet beschikken over een [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) of [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) geïnstalleerd.
+- U moet beschikken over een [Azure PowerShell](/powershell/azure) of [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) geïnstalleerd.
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Azure Monitor instellen als een gegevens-sink
@@ -237,17 +239,17 @@ Opslaan en sluiten van beide bestanden.
 Voor het implementeren van de Resource Manager-sjabloon, maken we gebruik van Azure PowerShell.
 
 1. Start PowerShell.
-1. Meld u aan bij Azure met `Login-AzureRmAccount`.
-1. Uw lijst met abonnementen ophalen met behulp van `Get-AzureRmSubscription`.
+1. Meld u aan bij Azure met `Login-AzAccount`.
+1. Uw lijst met abonnementen ophalen met behulp van `Get-AzSubscription`.
 1. Stel in het abonnement dat u gebruikt voor het maken/bijwerken van de virtuele machine in:
 
    ```PowerShell
-   Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>"
+   Select-AzSubscription -SubscriptionName "<Name of the subscription>"
    ```
 1. Voor het maken van een nieuwe resourcegroep voor de virtuele machine die wordt geïmplementeerd, moet u de volgende opdracht uitvoeren:
 
    ```PowerShell
-    New-AzureRmResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
+    New-AzResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
    ```
    > [!NOTE]
    > Houd er rekening mee te [gebruik van een Azure-regio die is ingeschakeld voor aangepaste metrische gegevens](metrics-custom-overview.md).
@@ -257,7 +259,7 @@ Voor het implementeren van de Resource Manager-sjabloon, maken we gebruik van Az
    > Als u bijwerken van een bestaande virtuele machine wilt, Voeg *-modus incrementele* aan het einde van de volgende opdracht uit.
 
    ```PowerShell
-   New-AzureRmResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your Resource Manager template>" -TemplateParameterFile "<File path of your parameters file>"
+   New-AzResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your Resource Manager template>" -TemplateParameterFile "<File path of your parameters file>"
    ```
 
 1. Nadat de implementatie is voltooid, moet de virtuele machine zich in de Azure-portal, metrische gegevens naar Azure Monitor genereren.

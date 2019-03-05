@@ -7,14 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 2babb6ff7b93ad9cf7c93565cadce9453a3b96ca
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 176e6804e6c98a1b9e9ffe4af04f02748c80928b
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103425"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310899"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Herschrijf de HTTP-headers met Application Gateway (openbare preview)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Via HTTP-headers kan vanaf de client en de server aanvullende informatie worden doorgegeven bij de aanvraag of het antwoord. Deze HTTP-headers kunt verschillende belangrijke scenario's zoals het toevoegen van koptekst beveiligingsgerelateerde herschrijven velden, zoals HSTS / X-XSS-beveiliging of response-header-velden is verwijderd, kan die gevoelige informatie, zoals de naam van de back-end-server weergeven.
 
@@ -27,7 +29,7 @@ Application Gateway ondersteunt nu de mogelijkheid om headers van zowel de inkom
 Application Gateway-header herschrijven-ondersteuning biedt:
 
 - **Algemene header herschrijven**: U kunt specifieke headers voor alle aanvragen en antwoorden die betrekking hebben op de site herschrijven.
-- **Kop op pad gebaseerde herschrijven**: dit type herschrijven kan herschrijven van de koptekst voor alleen deze aanvragen en antwoorden die betrekking hebben op alleen op het gebied van een specifieke site, bijvoorbeeld een winkelwagentje winkelwagen gebied aangeduid met/winkelwagen / *.
+- **Kop op pad gebaseerde herschrijven**: dit type herschrijven kan herschrijven van de koptekst voor alleen deze aanvragen en antwoorden die betrekking hebben op alleen op het gebied van een specifieke site, bijvoorbeeld een winkelwagentje winkelwagen gebied aangeduid met /cart/\*.
 
 Met deze wijziging moet u naar:
 
@@ -48,7 +50,7 @@ U kunt de waarde in de headers te herschrijven:
   *Voorbeeld:* 
 
   ```azurepowershell-interactive
-  $responseHeaderConfiguration = New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Strict-Transport-Security" -  HeaderValue "max-age=31536000")
+  $responseHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Strict-Transport-Security" -  HeaderValue "max-age=31536000")
   ```
 
 - De waarde van een andere koptekst. 
@@ -56,7 +58,7 @@ U kunt de waarde in de headers te herschrijven:
   *Voorbeeld 1:* 
 
   ```azurepowershell-interactive
-  $requestHeaderConfiguration= New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-RequestHeader" -HeaderValue {http_req_oldHeader}
+  $requestHeaderConfiguration= New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-RequestHeader" -HeaderValue {http_req_oldHeader}
   ```
 
   > [!Note] 
@@ -65,7 +67,7 @@ U kunt de waarde in de headers te herschrijven:
   *Voorbeeld 2*:
 
   ```azurepowershell-interactive
-  $responseHeaderConfiguration= New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-ResponseHeader" -HeaderValue {http_resp_oldHeader}
+  $responseHeaderConfiguration= New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-ResponseHeader" -HeaderValue {http_resp_oldHeader}
   ```
 
   > [!Note] 
@@ -76,7 +78,7 @@ U kunt de waarde in de headers te herschrijven:
   *Voorbeeld:* 
 
   ```azurepowershell-interactive
-  $requestHeaderConfiguration = New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Ciphers-Used" -HeaderValue "{var_ciphers_used}"
+  $requestHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Ciphers-Used" -HeaderValue "{var_ciphers_used}"
   ```
 
   > [!Note] 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: b0262ecbcc5a7f512c8779c230b2e2d4bb039842
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 29f838637a3881ab36d6edb58c215a55de422d68
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216676"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315007"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Voorbereiden en afbeeldingen uploaden naar uw Azure IoT Central-toepassing
 
@@ -74,17 +74,17 @@ Het uploaden van een installatiekopie moet worden gebruikt op de **mijn toepassi
 
 ![Afbeelding van de toepassing uploaden](media/howto-prepare-images-experimental/uploadapplicationmanager.png)
 
-Klik op de tegel de installatiekopie van toepassing op uw voorbereide installatiekopie uploaden (268 x 160 pixels) van uw lokale computer.
+Selecteer de tegel de installatiekopie van toepassing op uw voorbereide installatiekopie uploaden (268 x 160 pixels) van uw lokale computer.
 
 ### <a name="application-dashboard"></a>Toepassingsdashboard
 
-Als u wilt uploaden een afbeelding op het dashboard, gaat u naar de **Dashboard** pagina van uw toepassing en klik op **bewerken**. U moet een opbouwfunctie om deze taak te voltooien:
+Als u wilt uploaden een afbeelding op het dashboard, gaat u naar de **Dashboard** pagina van uw toepassing en selecteer **bewerken**. U moet een opbouwfunctie om deze taak te voltooien:
 
 ![Dashboard-installatiekopie uploaden](media/howto-prepare-images-experimental/uploadhomepage.png)
 
-Onder de afbeelding configureren, klikt u op de tegel de installatiekopie van het uploaden van uw voorbereide installatiekopie van uw lokale computer. De kleinste grootte tegel is 200 x 200 pixels, grotere tegels mag vierkant of rechthoekig veelvouden van kleine tegels. Bijvoorbeeld 200 x 400 px, 400 x 200 px of 400 x 400 px.
+Selecteer de tegel de installatiekopie van het uploaden van uw voorbereide installatiekopie van uw lokale computer onder installatiekopie configureren. De kleinste grootte tegel is 200 x 200 pixels, grotere tegels mag vierkant of rechthoekig veelvouden van kleine tegels. Bijvoorbeeld 200 x 400 px, 400 x 200 px of 400 x 400 px.
 
-**Sla** de geüploade installatiekopie. U kunt het formaat van het in de bewerkingsmodus. Klik op **Done** als u klaar bent.
+**Sla** de geüploade installatiekopie. U kunt het formaat van het in de bewerkingsmodus. Selecteer **gedaan** wanneer u klaar bent.
 
 ### <a name="device-template"></a>Apparaatsjabloon
 
@@ -92,7 +92,7 @@ Als u wilt uploaden een installatiekopie van een sjabloon van het apparaat, gaat
 
 ![Installatiekopie van het apparaat sjabloon uploaden](media/howto-prepare-images-experimental/uploaddevicetemplate.png)
 
-Klik op de tegel van de installatiekopie naar uw voorbereide installatiekopie uploaden (64 x 64 pixels) van uw lokale computer.
+Selecteer de tegel van de installatiekopie naar uw voorbereide installatiekopie uploaden (64 x 64 pixels) van uw lokale computer.
 
 ### <a name="device-dashboard"></a>Apparaatdashboard
 
@@ -100,19 +100,19 @@ Als u wilt uploaden een installatiekopie op een apparaatdashboard, gaat u naar *
 
 ![Installatiekopie van het dashboard apparaat uploaden](media/howto-prepare-images-experimental/uploaddevicedashboard.png)
 
-Onder de afbeelding configureren, klikt u op de tegel van de installatiekopie en kies vervolgens het bestand te uploaden vanaf uw lokale computer. De kleinste grootte tegel is 200 x 200 pixels, grotere tegels mag vierkant of rechthoekig veelvouden van kleine tegels. Bijvoorbeeld 200 x 400 px, 400 x 200 px of 400 x 400 px.
+Onder de afbeelding configureren, selecteert u de installatiekopie-tegel en kies vervolgens het bestand te uploaden vanaf uw lokale computer. De kleinste grootte tegel is 200 x 200 pixels, grotere tegels mag vierkant of rechthoekig veelvouden van kleine tegels. Bijvoorbeeld 200 x 400 px, 400 x 200 px of 400 x 400 px.
 
-**Sla** de geüploade installatiekopie. U kunt vergroten of verkleinen en de positie in de bewerkingsmodus. Klik op **Done** als u klaar bent.
+**Sla** de geüploade installatiekopie. U kunt vergroten of verkleinen en de positie in de bewerkingsmodus. Selecteer **gedaan** wanneer u klaar bent.
 
 ### <a name="device-set-dashboard"></a>Apparaat instellen dashboard
 
-Als u wilt uploaden een installatiekopie op een apparaat instellen-dashboard, gaat u naar **Apparaatsets** en kies de apparaatset en klik vervolgens op een apparaat. Kies vervolgens de **Dashboard** pagina en klik op **bewerken**:
+Als u wilt uploaden een installatiekopie op een apparaat instellen-dashboard, gaat u naar **Apparaatsets** en kies de apparaatset en klik vervolgens op een apparaat. Kies vervolgens de **Dashboard** pagina en selecteer **bewerken**:
 
 ![Uploaden van dashboard installatiekopie van het apparaat instellen](media/howto-prepare-images-experimental/uploaddevicesetdashboard.png)
 
-Onder de afbeelding configureren, klikt u op de tegel de installatiekopie van het uploaden van uw voorbereide installatiekopie van uw lokale computer. De kleinste grootte tegel is 200 x 200 pixels, grotere tegels mag vierkant of rechthoekig veelvouden van kleine tegels. Bijvoorbeeld 200 x 400 px, 400 x 200 px of 400 x 400 px.
+Selecteer de tegel de installatiekopie van het uploaden van uw voorbereide installatiekopie van uw lokale computer onder installatiekopie configureren. De kleinste grootte tegel is 200 x 200 pixels, grotere tegels mag vierkant of rechthoekig veelvouden van kleine tegels. Bijvoorbeeld 200 x 400 px, 400 x 200 px of 400 x 400 px.
 
-**Sla** de geüploade installatiekopie. U kunt vergroten of verkleinen en de positie in de bewerkingsmodus. Klik op **Done** als u klaar bent.
+**Sla** de geüploade installatiekopie. U kunt vergroten of verkleinen en de positie in de bewerkingsmodus. Selecteer **gedaan** wanneer u klaar bent.
 
 ## <a name="next-steps"></a>Volgende stappen
 

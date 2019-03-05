@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: 492b15bddad598d65c15c48f04d3148c41cd3c7e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: c71528ed8453bcde05e29eb609ca2cde64bad8de
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817526"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309414"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - waarschuwingen oplossen
 Dit artikel bevat de handleidingen voor probleemoplossing voor alle waarschuwingen die op uw beheerde domein optreden kunnen.
@@ -42,10 +42,10 @@ Kies de stappen voor probleemoplossing die overeenkomen met de ID of het bericht
 | AADDS108 | *Het abonnement dat is gebruikt door Azure AD Domain Services is verplaatst naar een andere map. Azure AD Domain Services moet een actief abonnement hebt in dezelfde map te laten functioneren.* | [Abonnement verplaatst mappen](#aadds108-subscription-moved-directories) |
 | AADDS109 | *Een resource die wordt gebruikt voor uw beheerde domein is verwijderd. Deze resource is nodig voor Azure AD Domain Services te laten functioneren.* | [Een resource is verwijderd](#aadds109-resources-for-your-managed-domain-cannot-be-found) |
 | AADDS110 | *Het subnet dat is geselecteerd voor de implementatie van Azure AD Domain Services is vol en heeft geen ruimte voor de extra domeincontroller die moet worden gemaakt.* | [Subnet is vol.](#aadds110-the-subnet-associated-with-your-managed-domain-is-full) |
-| AADDS111 | * Er is een service-principal die gebruikmaakt van Azure AD Domain Services voor uw domein is niet gemachtigd om resources op het Azure-abonnement te beheren. De service-principal moet machtigingen voor het afhandelen van uw beheerde domein te krijgen. * | Service-principal niet toegestaan |
+| AADDS111 | *Een service-principal die gebruikmaakt van Azure AD Domain Services voor uw domein is niet gemachtigd om resources op het Azure-abonnement te beheren. De service-principal moet machtigingen voor het afhandelen van uw beheerde domein te krijgen.* | [Service-principal niet toegestaan](#aadds111-service-principal-unauthorized) |
 | AADDS112 | *We hebben geïdentificeerd dat het subnet van het virtuele netwerk in dit domein mogelijk niet voldoende IP-adressen. Azure AD Domain Services moet ten minste twee beschikbare IP-adressen binnen het subnet is ingeschakeld in. We raden u aan ten minste 3 tot 5 extra IP-adressen binnen het subnet. Dit wordt mogelijk veroorzaakt als andere virtuele machines binnen het subnet, dus het toewijzen van het aantal beschikbare IP-adressen of als er een beperking voor het aantal beschikbare IP-adressen in het subnet is worden geïmplementeerd.* | [Er is onvoldoende IP-adressen](#aadds112-not-enough-ip-address-in-the-managed-domain) |
 | AADDS113 | *De resources die worden gebruikt door Azure AD Domain Services zijn gedetecteerd in een onverwachte status en kunnen niet worden hersteld.* | [Resources zijn niet kan worden hersteld](#aadds113-resources-are-unrecoverable) |
-| AADDS114 | * Het subnet dat is geselecteerd voor de implementatie van Azure AD Domain Services is ongeldig en kan niet worden gebruikt. * | [Ongeldig subnet](#aadds114-subnet-invalid) |
+| AADDS114 | *Het subnet dat is geselecteerd voor de implementatie van Azure AD Domain Services is ongeldig en kan niet worden gebruikt.* | [Ongeldig subnet](#aadds114-subnet-invalid) |
 | AADDS115 | *Een of meer van de netwerkresources die worden gebruikt door het beheerde domein kan niet worden uitgevoerd op als het doelbereik is vergrendeld.* | [Resources zijn vergrendeld](#aadds115-resources-are-locked) |
 | AADDS116 | *Een of meer van de netwerkresources die worden gebruikt door het beheerde domein kan niet worden uitgevoerd op vanwege beleid restriction(s).* | [Resources zijn onbruikbaar.](#aadds116-resources-are-unusable) |
 | AADDS500 | *Het beheerde domein voor het laatst is gesynchroniseerd met Azure AD op [datum]. Het is mogelijk dat gebruikers kan zich niet aanmelden bij het beheerde domein of groepslidmaatschappen kunnen niet worden gesynchroniseerd met Azure AD.* | [Synchronisatie nog niet heeft plaatsgevonden sinds langere tijd](#aadds500-synchronization-has-not-completed-in-a-while) |

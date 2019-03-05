@@ -12,12 +12,12 @@ ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 98d48659225d89f476ca1e3cc437245bc9e9f753
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 453a048bc9e7c2878c0730b9002b10bdeb8c22fa
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564813"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316214"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Multi-factor authentication voor SQL Server Management Studio en Azure AD configureren
 
@@ -28,7 +28,7 @@ Dit onderwerp ziet u hoe u Azure Active Directory multi-factor authentication (M
 
 ## <a name="configuration-steps"></a>Configuratiestappen
 
-1. **Configureren van een Azure Active Directory** - voor meer informatie, Zie [beheren van uw Azure AD-directory](https://msdn.microsoft.com/library/azure/hh967611.aspx), [uw on-premises identiteiten integreren met Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md), [ Uw eigen domeinnaam toevoegen aan Azure AD](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Microsoft Azure ondersteunt nu Federatie met Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), en [beheren Azure AD met behulp van Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
+1. **Configureren van een Azure Active Directory** - voor meer informatie, Zie [beheren van uw Azure AD-directory](https://msdn.microsoft.com/library/azure/hh967611.aspx), [uw on-premises identiteiten integreren met Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md), [ Uw eigen domeinnaam toevoegen aan Azure AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), [Microsoft Azure ondersteunt nu Federatie met Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), en [beheren Azure AD met behulp van Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
 2. **MFA configureren** - voor stapsgewijze instructies, Zie [wat is Azure multi-factor Authentication?](../active-directory/authentication/multi-factor-authentication.md), [voorwaardelijke toegang (MFA) met Azure SQL Database en Data Warehouse](sql-database-conditional-access.md). (Volledige voorwaardelijke toegang is vereist voor een Premium Azure Active Directory (Azure AD). Beperkte MFA is beschikbaar met een standaard Azure AD.)
 3. **SQL-Database of SQL Data Warehouse, Azure AD-verificatie configureren** - voor stapsgewijze instructies, Zie [verbinding maken met SQL-Database of SQL Data Warehouse door met behulp van Azure Active Directory-verificatie](sql-database-aad-authentication.md).
 4. **SSMS downloaden** : op de clientcomputer, download de nieuwste SSMS van [Download SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). Gebruik ten minste juli 2017, versie 17,2 voor de functies in dit onderwerp.  

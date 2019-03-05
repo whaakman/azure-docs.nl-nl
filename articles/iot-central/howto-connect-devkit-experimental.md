@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 1097d14c824bcdebb9062fcf63b04e9837b0d170
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 620ae30c684ad9105357d0d20bbde158d5ff0a5a
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811610"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308989"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Een apparaat MXChip IoT DevKit verbinden met uw Azure IoT Central-toepassing
 
@@ -43,14 +43,14 @@ Voor volledige informatie over de configuratie van de verwijzen naar [MXChip sja
 
 Voeg in uw Azure IoT Central-toepassing een echt apparaat uit de **MXChip** apparaat sjabloon en maak een notitie van de verbindingsgegevens van het apparaat (**bereik-ID, apparaat-ID en primaire sleutel**).
 
-1. Voeg een **echt apparaat** van Device Explorer, klikt u op **+ Nieuw > echte** om toe te voegen een echt apparaat.
+1. Voeg een **echt apparaat** Device Explorer, selecteer **+ Nieuw > echte** om toe te voegen een echt apparaat.
 
     * Voer de apparaat-Id **<span style="color:Red">(moet zich bevinden in kleine letters)</span>** of gebruikt u de voorgestelde apparaat-id.
     * Voer de naam van het apparaat of de voorgestelde naam gebruiken
 
     ![Apparaat toevoegen](media/howto-connect-devkit-experimental/add-device.png)
 
-1. Zoals Verbindingsdetails ophalen **bereik-ID, apparaat-ID en primaire sleutel** voor het apparaat door te klikken op **Connect** op de Apparaatpagina.
+1. Zoals Verbindingsdetails ophalen **bereik-ID, apparaat-ID en primaire sleutel** voor het apparaat door het selecteren van **Connect** op de Apparaatpagina.
 
     ![Verbindingsdetails](media/howto-connect-devkit-experimental/device-connect.png)
 

@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/15/2018
+ms.date: 02/27/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dad650ac1cc7ab8822925a4a9759b68ee0d0088
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b4015f99e9281285c530c6ae40dbda4e97846af8
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185992"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311030"
 ---
 # <a name="how-to-set-up-sharepoint-online-and-exchange-online-for-azure-active-directory-conditional-access"></a>Procedure: SharePoint Online en Exchange Online instellen voor voorwaardelijke toegang van Azure Active Directory 
 
@@ -77,7 +77,7 @@ Bij het instellen van beleid voor voorwaardelijke toegang voor Exchange Online, 
 
 Terwijl Exchange Active Sync biedt ondersteuning voor moderne verificatie, zijn er enkele beperkingen met betrekking tot de ondersteuning voor scenario's voor voorwaardelijke toegang:
 
-- U kunt alleen de voorwaarde van de platforms apparaat configureren  
+- Bij het selecteren van **Exchange Active Sync-clients** in uw beleid, u kunt andere voorwaarden niet configureren.  
 
     ![Apparaatplatformen](./media/conditional-access-for-exo-and-spo/05.png)
 
@@ -93,7 +93,7 @@ Als u wilt effectief toegang tot Exchange Online beveiligen van Exchange ActiveS
 
     ![Voorwaardelijke toegang](./media/conditional-access-for-exo-and-spo/04.png)
 
-    b. Selecteer **Exchange Active Sync** als **client-app**, en selecteer vervolgens **beleid toepassen op ondersteunde platformen**.  
+    b. Selecteer **Exchange Active Sync** als **client-app**.  
 
     ![Apparaatplatformen](./media/conditional-access-for-exo-and-spo/03.png)
 

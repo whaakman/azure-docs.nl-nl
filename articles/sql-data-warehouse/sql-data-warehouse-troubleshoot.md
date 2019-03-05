@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 12/04/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: d94d434f83e1a8507b1a98660e8169ff6be4ee24
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5c9d8330e857a8f76e143631f17e29ba44244a88
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244578"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307918"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Oplossen van problemen met Azure SQL datawarehouse
 In dit artikel geeft een lijst met veelgestelde vragen voor het oplossen van problemen.
@@ -52,7 +52,7 @@ In dit artikel geeft een lijst met veelgestelde vragen voor het oplossen van pro
 | Msg 40847: Kan de bewerking niet uitvoeren omdat de server hiermee het toegestane quotum van de Database Transaction Units van 45000 overschrijdt. | Verlaag de [DWU] [ DWU] van de database die u probeert te maken of [een verhoging aanvragen][request a quota increase]. |
 | Ruimteverbruik onderzoeken                              | Zie [tabel grootten] [ Table sizes] om te begrijpen van het ruimtegebruik van uw systeem. |
 | Het beheer van tabellen                                    | Zie de [tabeloverzicht] [ Overview] artikel voor meer informatie over het beheren van uw tabellen.  In dit artikel bevat ook koppelingen naar meer gedetailleerde onderwerpen zoals [gegevenstypes tabel][Data types], [distribueren van een tabel][Distribute], [Indexeren van een tabel][Index], [partitioneren van een tabel][Partition], [tabelstatistieken beheren] [ Statistics] en [tijdelijke tabellen][Temporary]. |
-| Transparent data encryption (TDE) voortgangsbalk wordt niet bijgewerkt in de Azure Portal | U kunt de status van TDE via weergeven [powershell](/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption). |
+| Transparent data encryption (TDE) voortgangsbalk wordt niet bijgewerkt in de Azure Portal | U kunt de status van TDE via weergeven [powershell](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption). |
 
 ## <a name="polybase"></a>PolyBase
 | Probleem                                           | Oplossing                                                   |

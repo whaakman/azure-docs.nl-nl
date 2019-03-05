@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 83225af7cb2cbdff4a264693e30b2a813f6ec9c7
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 69b941b97a533740322d9070497de6845e834a16
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214925"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315636"
 ---
 # <a name="how-to-use-analytics-to-analyze-your-device-data"></a>Analytics gebruiken om de apparaatgegevens van uw te analyseren
 
@@ -23,7 +23,7 @@ Azure IoT Central biedt uitgebreide analysemogelijkheden, zinvol zijn van grote 
 
 ## <a name="querying-your-data"></a>Uw gegevens opvragen
 
-U moet kiezen een **apparaat**, toevoegen een **filter** (optioneel), en selecteer een **periode** aan de slag. Als u klaar bent, klikt u op *resultaten weergeven* om te beginnen met het visualiseren van uw gegevens.
+U moet kiezen een **apparaat**, toevoegen een **filter** (optioneel), en selecteer een **periode** aan de slag. Als u klaar bent, selecteert u **resultaten weergeven** om te beginnen met het visualiseren van uw gegevens.
 
 * **Apparaat instellen:** Een [apparaat](howto-use-device-sets-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) is een door de gebruiker gedefinieerde groep van uw apparaten. Bijvoorbeeld, rev alle koelkasten in Oakland of alle 2.0 wind maar.
 

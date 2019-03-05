@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 7da813022527830a5ede62c9f4ce98645fe63d4b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 32a3ec7146e4dd43e0c5f522187856132745b539
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871590"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307085"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Data Warehouse Units (dwu's) en compute Data Warehouse Units (cDWUs)
 Aanbevelingen over het kiezen van het ideale aantal datawarehouse units (dwu's, cDWUs) om te optimaliseren prijs en prestaties en het wijzigen van het aantal eenheden. 
@@ -121,13 +121,16 @@ Dwu's of cDWUs wijzigen:
 
 2. Onder **schaal**, verplaats de schuifregelaar naar links of rechts om de DWU-instelling te wijzigen.
 
-3. Klik op **Opslaan**. Er verschijnt een bevestigingsbericht. Klik op **Ja** om te bevestigen of **Nee** om te annuleren.
+3. Klik op **Opslaan**. Er wordt een bevestigingsbericht weergegeven. Klik op **Ja** om te bevestigen of **Nee** om te annuleren.
 
 ### <a name="powershell"></a>PowerShell
-De dwu's of cDWUs wilt wijzigen, gebruikt u de [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) PowerShell-cmdlet. Het volgende voorbeeld wordt de serviceniveaudoelstelling naar DW1000 voor de database MySQLDW die wordt gehost op de server MijnServer.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+De dwu's of cDWUs wilt wijzigen, gebruikt u de [Set AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell-cmdlet. Het volgende voorbeeld wordt de serviceniveaudoelstelling naar DW1000 voor de database MySQLDW die wordt gehost op de server MijnServer.
 
 ```Powershell
-Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
+Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
 ```
 
 Zie voor meer informatie, [PowerShell-cmdlets voor SQL Data Warehouse](sql-data-warehouse-reference-powershell-cmdlets.md)

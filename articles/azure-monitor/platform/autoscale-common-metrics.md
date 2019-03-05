@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 736ff5565bb279d26e686421cc13f54a73b1c7e9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9da8e5fb88ff34e561b579b760973ecd23c884a3
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461090"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312049"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor autoscaling common metrics
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Automatisch schalen in Azure Monitor kunt u het aantal actieve instanties omhoog of omlaag schalen op basis van telemetrische gegevens (metrische gegevens). Dit document beschrijft algemene metrische gegevens die u wilt gebruiken. U kunt de metrische gegevens van de resource schalen door te kiezen in de Azure-portal. U kunt echter ook elke meetwaarde kiezen uit een andere resource om te schalen door.
 
 Automatisch schalen van Azure Monitor is alleen bedoeld voor [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloudservices](https://azure.microsoft.com/services/cloud-services/), [App Service - Web-Apps](https://azure.microsoft.com/services/app-service/web/), en [API Management-services](https://docs.microsoft.com/azure/api-management/api-management-key-concepts). Andere Azure-services gebruiken verschillende methoden voor vergroten/verkleinen.
@@ -43,7 +46,7 @@ Wanneer u een virtuele machine in Azure maakt, wordt de diagnostische gegevens i
 U kunt een lijst van de metrische gegevens genereren met behulp van de volgende opdracht uit in PowerShell.
 
 ```
-Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
+Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
 U kunt een waarschuwing voor de volgende metrische gegevens maken:
@@ -84,7 +87,7 @@ Wanneer u een virtuele machine in Azure maakt, is diagnostische gegevens standaa
 U kunt een lijst van de metrische gegevens genereren met behulp van de volgende opdracht uit in PowerShell.
 
 ```
-Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
+Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
  U kunt een waarschuwing voor de volgende metrische gegevens maken:
@@ -137,7 +140,7 @@ U kunt ook uitvoeren voor automatisch schalen op basis van gemeenschappelijke we
 U kunt een lijst van de metrische gegevens van Web-Apps genereren met behulp van de volgende opdracht uit in PowerShell.
 
 ```
-Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
+Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
 U kunt de waarschuwing op basis van of schalen door deze metrische gegevens.

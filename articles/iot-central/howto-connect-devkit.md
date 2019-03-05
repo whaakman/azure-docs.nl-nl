@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 6d2cb95efbff223aecf1f0525dbb93698639d41a
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 5412e0a7bae3667ceb29085da566ef3b73c82c35
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198725"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316622"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Een apparaat MXChip IoT DevKit verbinden met uw Azure IoT Central-toepassing
 
@@ -45,14 +45,14 @@ Voor volledige informatie over de configuratie van de verwijzen naar [MXChip sja
 
 Voeg in uw Azure IoT Central-toepassing een echt apparaat uit de **MXChip** apparaat sjabloon en maak een notitie van de verbindingsgegevens van het apparaat (**bereik-ID, apparaat-ID en primaire sleutel**).
 
-1. Voeg een **echt apparaat** van Device Explorer, klikt u op **+ Nieuw > echte** om toe te voegen een echt apparaat.
+1. Voeg een **echt apparaat** Device Explorer, selecteer **+ Nieuw > echte** om toe te voegen een echt apparaat.
     * Voer de apparaat-Id **<span style="color:Red">(moet zich bevinden in kleine letters)</span>** of gebruikt u de voorgestelde apparaat-id.
     * Voer de naam van het apparaat of de voorgestelde naam gebruiken
     
     ![Apparaat toevoegen](media/concepts-connectivity/add-device.png)
 
 
-1. Zoals Verbindingsdetails ophalen **bereik-ID, apparaat-ID en primaire sleutel** voor het apparaat door te klikken op **Connect** op de Apparaatpagina.
+1. Zoals Verbindingsdetails ophalen **bereik-ID, apparaat-ID en primaire sleutel** voor het apparaat door het selecteren van **Connect** op de Apparaatpagina.
  
     ![Verbindingsdetails](media/concepts-connectivity/device-connect.PNG)
 
@@ -189,7 +189,7 @@ Een toepassing gemaakt op basis van de sjabloon van de toepassing Devkits voorbe
 | Veldnaam     | Eenheden  | Minimum | Maximum | Aantal decimalen |
 | -------------- | ------ | ------- | ------- | -------------- |
 | vochtigheid       | %      | 0       | 100     | 0              |
-| TEMP           | ° C     | -40     | 120     | 0              |
+| temp           | °C     | -40     | 120     | 0              |
 | pressure       | hPa    | 260     | 1260    | 0              |
 | magnetometerX  | mgauss | -1000   | 1000    | 0              |
 | magnetometerY  | mgauss | -1000   | 1000    | 0              |
@@ -197,9 +197,9 @@ Een toepassing gemaakt op basis van de sjabloon van de toepassing Devkits voorbe
 | accelerometerX | mg     | -2000   | 2000    | 0              |
 | accelerometerY | mg     | -2000   | 2000    | 0              |
 | accelerometerZ | mg     | -2000   | 2000    | 0              |
-| gyroscopeX     | MDP 's   | -2000   | 2000    | 0              |
-| gyroscopeY     | MDP 's   | -2000   | 2000    | 0              |
-| gyroscopeZ     | MDP 's   | -2000   | 2000    | 0              |
+| gyroscopeX     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeY     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
 
 
 #### <a name="states"></a>States 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: 6a671744944527b64aab9a7b9afe05d6a9f2f27f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b41fbc3e834c7740d435e30a571d2a00671bfa64
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002080"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316401"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Een toepassingsgateway maken met de Azure Resource Manager-sjabloon
 
@@ -125,18 +125,20 @@ U kunt de bestaande Azure Resource Manager-sjabloon downloaden om een virtueel n
 
 ## <a name="deploy-the-azure-resource-manager-template-by-using-powershell"></a>De Azure Resource Manager-sjabloon implementeren met PowerShell
 
-Als u Azure PowerShell nog nooit hebt gebruikt, gaat u naar: [hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview) en volg de instructies om te melden bij Azure en selecteer uw abonnement.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Als u Azure PowerShell nog nooit hebt gebruikt, gaat u naar: [Hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview) en volg de instructies om te melden bij Azure en selecteer uw abonnement.
 
 1. Meld u aan bij PowerShell
 
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 
 1. Controleer de abonnementen voor het account.
 
     ```powershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
     U wordt gevraagd om u te verifiëren met uw referenties.
@@ -144,19 +146,19 @@ Als u Azure PowerShell nog nooit hebt gebruikt, gaat u naar: [hoe u Azure PowerS
 1. Kies welk Azure-abonnement u wilt gebruiken.
 
     ```powershell
-    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+    Select-AzSubscription -Subscriptionid "GUID of subscription"
     ```
 
 1. Indien nodig kunt u een resourcegroep maken met de cmdlet **New-AzureResourceGroup**. In het volgende voorbeeld maakt u een resourcegroep met de naam AppgatewayRG op de locatie US - oost.
 
     ```powershell
-    New-AzureRmResourceGroup -Name AppgatewayRG -Location "West US"
+    New-AzResourceGroup -Name AppgatewayRG -Location "West US"
     ```
 
-1. Voer de cmdlet **New-AzureRmResourceGroupDeployment** uit om het nieuwe virtuele netwerk te implementeren met de vorige sjabloon en parameterbestanden die u hebt gedownload en gewijzigd.
+1. Voer de **New-AzResourceGroupDeployment** cmdlet voor het implementeren van het nieuwe virtuele netwerk met behulp van de vorige sjabloon en parameterbestanden bestanden dat u hebt gedownload en gewijzigd.
     
     ```powershell
-    New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+    New-AzResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
     -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
     ```
 
@@ -222,7 +224,7 @@ Als u wilt verwijderen van alle resources die in dit artikel is gemaakt, voert u
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-Remove-AzureRmResourceGroup -Name appgatewayRG
+Remove-AzResourceGroup -Name appgatewayRG
 ```
 
 ### <a name="azure-cli"></a>Azure-CLI
@@ -233,9 +235,9 @@ az group delete --name appgatewayRG
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Ga naar: [Configure an application gateway for SSL offload](application-gateway-ssl.md) (Een toepassingsgateway voor SSL-offload configureren) als u SSL-offload wilt configureren.
+Als u configureren van SSL-offload wilt, gaat u naar: [Een toepassingsgateway voor SSL-offload configureren](application-gateway-ssl.md).
 
-Ga naar: [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md) (Een toepassingsgateway met een interne load balancer (ILB) maken) als u een toepassingsgateway wilt configureren voor gebruik met een interne load balancer.
+Als u configureren van een toepassingsgateway met een interne load balancer gebruiken wilt, gaat u naar: [Een toepassingsgateway maken met een interne load balancer (ILB)](application-gateway-ilb.md).
 
 Als u meer informatie wilt over de algemene opties voor taakverdeling, gaat u naar:
 

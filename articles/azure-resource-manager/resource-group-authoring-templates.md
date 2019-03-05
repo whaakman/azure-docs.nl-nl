@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7819dc62d766a6b35f5c2efe1179cb0adb0ab933
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 024a622484a83957c9ab5f4a684a346a55787ccf
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243547"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313358"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Informatie over de structuur en de syntaxis van Azure Resource Manager-sjablonen
 
@@ -31,13 +31,13 @@ In de meest eenvoudige structuur heeft een sjabloon voor de volgende elementen:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "",
-    "parameters": {  },
-    "variables": {  },
-    "functions": [  ],
-    "resources": [  ],
-    "outputs": {  }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "",
+  "parameters": {  },
+  "variables": {  },
+  "functions": [  ],
+  "resources": [  ],
+  "outputs": {  }
 }
 ```
 
@@ -55,106 +55,106 @@ Elk element heeft eigenschappen die u kunt instellen. Het volgende voorbeeld zie
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "",
-    "parameters": {  
-        "<parameter-name>" : {
-            "type" : "<type-of-parameter-value>",
-            "defaultValue": "<default-value-of-parameter>",
-            "allowedValues": [ "<array-of-allowed-values>" ],
-            "minValue": <minimum-value-for-int>,
-            "maxValue": <maximum-value-for-int>,
-            "minLength": <minimum-length-for-string-or-array>,
-            "maxLength": <maximum-length-for-string-or-array-parameters>,
-            "metadata": {
-                "description": "<description-of-the parameter>" 
-            }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "",
+  "parameters": {  
+    "<parameter-name>" : {
+      "type" : "<type-of-parameter-value>",
+      "defaultValue": "<default-value-of-parameter>",
+      "allowedValues": [ "<array-of-allowed-values>" ],
+      "minValue": <minimum-value-for-int>,
+      "maxValue": <maximum-value-for-int>,
+      "minLength": <minimum-length-for-string-or-array>,
+      "maxLength": <maximum-length-for-string-or-array-parameters>,
+      "metadata": {
+        "description": "<description-of-the parameter>" 
+      }
+    }
+  },
+  "variables": {
+    "<variable-name>": "<variable-value>",
+    "<variable-object-name>": {
+      <variable-complex-type-value>
+    },
+    "<variable-object-name>": {
+      "copy": [
+        {
+          "name": "<name-of-array-property>",
+          "count": <number-of-iterations>,
+          "input": <object-or-value-to-repeat>
         }
+      ]
     },
-    "variables": {
-        "<variable-name>": "<variable-value>",
-        "<variable-object-name>": {
-            <variable-complex-type-value>
-        },
-        "<variable-object-name>": {
-            "copy": [
-                {
-                    "name": "<name-of-array-property>",
-                    "count": <number-of-iterations>,
-                    "input": <object-or-value-to-repeat>
-                }
-            ]
-        },
-        "copy": [
-            {
-                "name": "<variable-array-name>",
-                "count": <number-of-iterations>,
-                "input": <object-or-value-to-repeat>
-            }
-        ]
-    },
-    "functions": [
+    "copy": [
       {
-        "namespace": "<namespace-for-your-function>",
-        "members": {
-          "<function-name>": {
-            "parameters": [
-              {
-                "name": "<parameter-name>",
-                "type": "<type-of-parameter-value>"
-              }
-            ],
-            "output": {
-              "type": "<type-of-output-value>",
-              "value": "<function-expression>"
+        "name": "<variable-array-name>",
+        "count": <number-of-iterations>,
+        "input": <object-or-value-to-repeat>
+      }
+    ]
+  },
+  "functions": [
+    {
+      "namespace": "<namespace-for-your-function>",
+      "members": {
+        "<function-name>": {
+          "parameters": [
+            {
+              "name": "<parameter-name>",
+              "type": "<type-of-parameter-value>"
             }
+          ],
+          "output": {
+            "type": "<type-of-output-value>",
+            "value": "<function-expression>"
           }
         }
       }
-    ],
-    "resources": [
-      {
-          "condition": "<boolean-value-whether-to-deploy>",
-          "apiVersion": "<api-version-of-resource>",
-          "type": "<resource-provider-namespace/resource-type-name>",
-          "name": "<name-of-the-resource>",
-          "location": "<location-of-resource>",
-          "tags": {
-              "<tag-name1>": "<tag-value1>",
-              "<tag-name2>": "<tag-value2>"
-          },
-          "comments": "<your-reference-notes>",
-          "copy": {
-              "name": "<name-of-copy-loop>",
-              "count": "<number-of-iterations>",
-              "mode": "<serial-or-parallel>",
-              "batchSize": "<number-to-deploy-serially>"
-          },
-          "dependsOn": [
-              "<array-of-related-resource-names>"
-          ],
-          "properties": {
-              "<settings-for-the-resource>",
-              "copy": [
-                  {
-                      "name": ,
-                      "count": ,
-                      "input": {}
-                  }
-              ]
-          },
-          "resources": [
-              "<array-of-child-resources>"
-          ]
-      }
-    ],
-    "outputs": {
-        "<outputName>" : {
-            "condition": "<boolean-value-whether-to-output-value>",
-            "type" : "<type-of-output-value>",
-            "value": "<output-value-expression>"
-        }
     }
+  ],
+  "resources": [
+    {
+      "condition": "<boolean-value-whether-to-deploy>",
+      "apiVersion": "<api-version-of-resource>",
+      "type": "<resource-provider-namespace/resource-type-name>",
+      "name": "<name-of-the-resource>",
+      "location": "<location-of-resource>",
+        "tags": {
+          "<tag-name1>": "<tag-value1>",
+          "<tag-name2>": "<tag-value2>"
+        },
+        "comments": "<your-reference-notes>",
+        "copy": {
+          "name": "<name-of-copy-loop>",
+          "count": "<number-of-iterations>",
+          "mode": "<serial-or-parallel>",
+          "batchSize": "<number-to-deploy-serially>"
+        },
+        "dependsOn": [
+          "<array-of-related-resource-names>"
+        ],
+        "properties": {
+          "<settings-for-the-resource>",
+          "copy": [
+            {
+              "name": ,
+              "count": ,
+              "input": {}
+            }
+          ]
+        },
+        "resources": [
+          "<array-of-child-resources>"
+        ]
+    }
+  ],
+  "outputs": {
+    "<outputName>" : {
+      "condition": "<boolean-value-whether-to-output-value>",
+      "type" : "<type-of-output-value>",
+      "value": "<output-value-expression>"
+    }
+  }
 }
 ```
 
@@ -170,7 +170,7 @@ Het volgende voorbeeld laat zien hoe u verschillende functies bij het maken van 
 
 ```json
 "variables": {
-    "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
+  "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
 }
 ```
 
@@ -180,20 +180,179 @@ Zie voor de volledige lijst van de sjabloonvariabelen [Azure Resource Manager-sj
 
 U opgeven welke waarden u invoeren kunt bij het implementeren van de resources in de parametersectie van de sjabloon. De parameterwaarden van deze kunnen u de implementatie aanpassen door het verstrekken van waarden die zijn aangepast voor een bepaalde omgeving (zoals ontwikkelen, testen en productie). U hoeft te bieden van parameters in de sjabloon, maar zonder parameters de sjabloon altijd dezelfde resources met dezelfde namen, locaties en eigenschappen wilt implementeren.
 
-Het volgende voorbeeld ziet u een eenvoudige parameterdefinitie:
+U bent beperkt tot 256 parameters in een sjabloon. U kunt het aantal parameters verminderen door middel van objecten die meerdere eigenschappen bevat, zoals weergegeven in dit artikel.
+
+### <a name="available-properties"></a>Beschikbare eigenschappen
+
+De beschikbare eigenschappen voor een parameter zijn:
 
 ```json
 "parameters": {
-  "siteNamePrefix": {
-    "type": "string",
+  "<parameter-name>" : {
+    "type" : "<type-of-parameter-value>",
+    "defaultValue": "<default-value-of-parameter>",
+    "allowedValues": [ "<array-of-allowed-values>" ],
+    "minValue": <minimum-value-for-int>,
+    "maxValue": <maximum-value-for-int>,
+    "minLength": <minimum-length-for-string-or-array>,
+    "maxLength": <maximum-length-for-string-or-array-parameters>,
     "metadata": {
-      "description": "The name prefix of the web app that you wish to create."
+      "description": "<description-of-the parameter>" 
+    }
+  }
+}
+```
+
+| De naam van element | Vereist | Description |
+|:--- |:--- |:--- |
+| parameterName |Ja |Naam van de parameter. Moet een geldige JavaScript-id. |
+| type |Ja |Het type van de waarde van parameter. De toegestane typen en de waarden zijn **tekenreeks**, **securestring**, **int**, **bool**, **object**, **secureObject**, en **matrix**. |
+| defaultValue |Nee |De standaardwaarde voor de parameter, als er geen waarde is opgegeven voor de parameter. |
+| allowedValues |Nee |Matrix van toegestane waarden voor de parameter om ervoor te zorgen dat de juiste waarde is opgegeven. |
+| minValue |Nee |De minimumwaarde voor de parameters van het type int, deze waarde wordt ook meegerekend. |
+| maxValue |Nee |De maximale waarde voor de parameters van het type int, deze waarde wordt ook meegerekend. |
+| minLength |Nee |De minimale lengte van tekenreeks, een beveiligde tekenreeks en parameters van het type matrix, deze waarde wordt ook meegerekend. |
+| maxLength |Nee |De maximale lengte voor string, beveiligde tekenreeks en parameters van het type matrix, deze waarde wordt ook meegerekend. |
+| description |Nee |Beschrijving van de parameter die wordt weergegeven voor gebruikers via de portal. Zie voor meer informatie, [opmerkingen in sjablonen](#comments). |
+
+### <a name="define-and-use-a-parameter"></a>Definiëren en gebruiken van een parameter
+
+Het volgende voorbeeld ziet een eenvoudige parameterdefinitie. De naam van de parameter definieert, en geeft aan dat het duurt een string-waarde voordat. De parameter accepteert alleen waarden die geschikt zijn voor het beoogde gebruik. Het geeft een standaardwaarde wanneer er geen waarde is opgegeven tijdens de implementatie. Ten slotte bevat de parameter een beschrijving van het gebruik ervan.
+
+```json
+"parameters": {
+  "storageSKU": {
+    "type": "string",
+    "allowedValues": [
+      "Standard_LRS",
+      "Standard_ZRS",
+      "Standard_GRS",
+      "Standard_RAGRS",
+      "Premium_LRS"
+    ],
+    "defaultValue": "Standard_LRS",
+    "metadata": {
+      "description": "The type of replication to use for the storage account."
+    }
+  }   
+}
+```
+
+In de sjabloon, verwijst u naar de waarde voor de parameter met de volgende syntaxis:
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Storage/storageAccounts",
+    "sku": {
+      "name": "[parameters('storageSKU')]"
+    },
+    ...
+  }
+]
+```
+
+### <a name="template-functions-with-parameters"></a>Sjabloonfuncties met parameters
+
+Wanneer u de standaardwaarde voor een parameter opgeeft, kunt u de meeste sjabloonfuncties. Een andere waarde voor de parameter kunt u een standaardwaarde te bouwen. De volgende sjabloon ziet u het gebruik van functies in de standaard-waarde:
+
+```json
+"parameters": {
+  "siteName": {
+    "type": "string",
+    "defaultValue": "[concat('site', uniqueString(resourceGroup().id))]",
+    "metadata": {
+      "description": "The site name. To use the default value, do not specify a new value."
     }
   },
+  "hostingPlanName": {
+    "type": "string",
+    "defaultValue": "[concat(parameters('siteName'),'-plan')]",
+    "metadata": {
+      "description": "The host name. To use the default value, do not specify a new value."
+    }
+  }
+}
+```
+
+U kunt geen gebruiken de `reference` functie in de parametersectie. Parameters worden geëvalueerd vóór de implementatie zodat de `reference` functie kan de runtimestatus van een resource niet ophalen. 
+
+### <a name="objects-as-parameters"></a>Objecten als parameters
+
+Kan het zijn beter te organiseren van gerelateerde waarden doordat ze worden doorgegeven als een object. Deze aanpak vermindert ook het aantal parameters in de sjabloon.
+
+De parameter in de sjabloon definieert en geeft u een JSON-object in plaats van een enkele waarde tijdens de implementatie. 
+
+```json
+"parameters": {
+  "VNetSettings": {
+    "type": "object",
+    "defaultValue": {
+      "name": "VNet1",
+      "location": "eastus",
+      "addressPrefixes": [
+        {
+          "name": "firstPrefix",
+          "addressPrefix": "10.0.0.0/22"
+        }
+      ],
+      "subnets": [
+        {
+          "name": "firstSubnet",
+          "addressPrefix": "10.0.0.0/24"
+        },
+        {
+          "name": "secondSubnet",
+          "addressPrefix": "10.0.1.0/24"
+        }
+      ]
+    }
+  }
 },
 ```
 
-Zie voor meer informatie over het definiëren van parameters [sectie opdrachtregelparameters van Azure Resource Manager-sjablonen](resource-manager-templates-parameters.md).
+Vervolgens, verwijzen naar de subeigenschappen van de parameter met behulp van de punt.
+
+```json
+"resources": [
+  {
+    "apiVersion": "2015-06-15",
+    "type": "Microsoft.Network/virtualNetworks",
+    "name": "[parameters('VNetSettings').name]",
+    "location": "[parameters('VNetSettings').location]",
+    "properties": {
+      "addressSpace":{
+        "addressPrefixes": [
+          "[parameters('VNetSettings').addressPrefixes[0].addressPrefix]"
+        ]
+      },
+      "subnets":[
+        {
+          "name":"[parameters('VNetSettings').subnets[0].name]",
+          "properties": {
+            "addressPrefix": "[parameters('VNetSettings').subnets[0].addressPrefix]"
+          }
+        },
+        {
+          "name":"[parameters('VNetSettings').subnets[1].name]",
+          "properties": {
+            "addressPrefix": "[parameters('VNetSettings').subnets[1].addressPrefix]"
+          }
+        }
+      ]
+    }
+  }
+]
+```
+
+### <a name="parameter-example-templates"></a>Voorbeeldsjablonen van parameter
+
+Deze voorbeeldsjablonen laten zien voor sommige scenario's voor het gebruik van parameters. Te testen hoe parameters worden verwerkt in verschillende scenario's implementeren.
+
+|Template  |Description  |
+|---------|---------|
+|[parameters met functies voor standaardwaarden](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Demonstreert hoe u sjabloonfuncties gebruiken bij het definiëren van de standaardwaarden voor parameters. De sjabloon implementeren niet alle resources. Deze parameterwaarden constructs en die waarden retourneert. |
+|[Parameter-object](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Ziet u met behulp van een object voor een parameter. De sjabloon implementeren niet alle resources. Deze parameterwaarden constructs en die waarden retourneert. |
 
 ## <a name="variables"></a>Variabelen
 
@@ -205,26 +364,26 @@ Het volgende voorbeeld ziet u de beschikbare opties voor het definiëren van een
 
 ```json
 "variables": {
-    "<variable-name>": "<variable-value>",
-    "<variable-name>": { 
-        <variable-complex-type-value> 
-    },
-    "<variable-object-name>": {
-        "copy": [
-            {
-                "name": "<name-of-array-property>",
-                "count": <number-of-iterations>,
-                "input": <object-or-value-to-repeat>
-            }
-        ]
-    },
+  "<variable-name>": "<variable-value>",
+  "<variable-name>": { 
+    <variable-complex-type-value> 
+  },
+  "<variable-object-name>": {
     "copy": [
-        {
-            "name": "<variable-array-name>",
-            "count": <number-of-iterations>,
-            "input": <object-or-value-to-repeat>
-        }
+      {
+        "name": "<name-of-array-property>",
+        "count": <number-of-iterations>,
+        "input": <object-or-value-to-repeat>
+      }
     ]
+  },
+  "copy": [
+    {
+      "name": "<variable-array-name>",
+      "count": <number-of-iterations>,
+      "input": <object-or-value-to-repeat>
+    }
+  ]
 }
 ```
 
@@ -256,16 +415,16 @@ U kunt complexe JSON-typen gebruiken om gerelateerde waarden voor een omgeving t
 
 ```json
 "variables": {
-    "environmentSettings": {
-        "test": {
-            "instanceSize": "Small",
-            "instanceCount": 1
-        },
-        "prod": {
-            "instanceSize": "Large",
-            "instanceCount": 4
-        }
+  "environmentSettings": {
+    "test": {
+      "instanceSize": "Small",
+      "instanceCount": 1
+    },
+    "prod": {
+      "instanceSize": "Large",
+      "instanceCount": 4
     }
+  }
 },
 ```
 
@@ -273,13 +432,13 @@ In de parameters maakt u een waarde die welke configuratiewaarden aangeeft te ge
 
 ```json
 "parameters": {
-    "environmentName": {
-        "type": "string",
-        "allowedValues": [
-          "test",
-          "prod"
-        ]
-    }
+  "environmentName": {
+    "type": "string",
+    "allowedValues": [
+      "test",
+      "prod"
+    ]
+  }
 },
 ```
 
@@ -289,7 +448,7 @@ Ophalen van de huidige instellingen met:
 "[variables('environmentSettings')[parameters('environmentName')].instanceSize]"
 ```
 
-### <a name="variables-example-templates"></a>Voorbeeldsjablonen van variabelen
+### <a name="variable-example-templates"></a>Van de variabele voorbeeldsjablonen
 
 Deze voorbeeldsjablonen laten zien voor sommige scenario's voor het gebruik van variabelen. Te testen hoe variabelen worden verwerkt in verschillende scenario's implementeren. 
 
@@ -384,11 +543,11 @@ Het volgende voorbeeld ziet u de structuur van de uitvoerdefinitie van een:
 
 ```json
 "outputs": {
-    "<outputName>" : {
-        "condition": "<boolean-value-whether-to-output-value>",
-        "type" : "<type-of-output-value>",
-        "value": "<output-value-expression>"
-    }
+  "<outputName>" : {
+    "condition": "<boolean-value-whether-to-output-value>",
+    "type" : "<type-of-output-value>",
+    "value": "<output-value-expression>"
+  }
 }
 ```
 
@@ -446,7 +605,7 @@ Het volgende voorbeeld ziet hoe u het IP-adres op een load balancer instellen me
 
 ```json
 "publicIPAddress": {
-    "id": "[reference('linkedTemplate').outputs.resourceID.value]"
+  "id": "[reference('linkedTemplate').outputs.resourceID.value]"
 }
 ```
 
@@ -471,24 +630,24 @@ U kunt toevoegen een `metadata` object vrijwel overal in uw sjabloon. Resource M
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "metadata": {
-        "comments": "This template was developed for demonstration purposes.",
-        "author": "Example Name"
-    },
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "comments": "This template was developed for demonstration purposes.",
+    "author": "Example Name"
+  },
 ```
 
 Voor **parameters**, Voeg een `metadata` object met een `description` eigenschap.
 
 ```json
 "parameters": {
-    "adminUsername": {
-      "type": "string",
-      "metadata": {
-        "description": "User name for the Virtual Machine."
-      }
-    },
+  "adminUsername": {
+    "type": "string",
+    "metadata": {
+      "description": "User name for the Virtual Machine."
+    }
+  },
 ```
 
 Bij het implementeren van de sjabloon die via de portal, wordt de tekst die u in de beschrijving opgeeft automatisch gebruikt als een tip voor deze parameter.
@@ -525,13 +684,13 @@ Voor **levert**, een metagegevensobject toevoegen aan de uitvoerwaarde.
 
 ```json
 "outputs": {
-    "hostname": {
-      "type": "string",
-      "value": "[reference(variables('publicIPAddressName')).dnsSettings.fqdn]",
-      "metadata": {
-        "comments": "Return the fully qualified domain name"
-      }
-    },
+  "hostname": {
+    "type": "string",
+    "value": "[reference(variables('publicIPAddressName')).dnsSettings.fqdn]",
+    "metadata": {
+      "comments": "Return the fully qualified domain name"
+    }
+  },
 ```
 
 U kunt een metagegevensobject niet toevoegen aan de gebruiker gedefinieerde functies.
@@ -545,8 +704,8 @@ Voor Inlineopmerkingen, kunt u `//` , maar deze syntaxis werkt niet met alle hul
   "location": "[parameters('location')]", //defaults to resource group location
   "apiVersion": "2018-10-01",
   "dependsOn": [ // storage account and network interface must be deployed first
-      "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
-      "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+    "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
+    "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
   ],
 ```
 

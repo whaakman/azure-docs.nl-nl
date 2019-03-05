@@ -8,12 +8,12 @@ ms.date: 1/3/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 971c01ec8002e73dbc6abfb66a0ede26f90a4d9c
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 8fd46bdc5971ce1e9bcee6599dd73f09cc3c00be
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453317"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314344"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-azure-logic-apps"></a>Werkstromen bouwen met de IoT Central-connector in Azure Logic Apps
 
@@ -32,13 +32,13 @@ U kunt de IoT Central-connector gebruiken in Microsoft Flow. Zowel Azure Logic A
 
 Deze sectie leest u hoe u een bericht in Microsoft Teams plaatsen wanneer een regel wordt geactiveerd. U kunt uw werkstroom voor het gebruik van andere connectors dingen doen zoals verzenden een gebeurtenis naar uw Event hub, een nieuwe Azure DevOps-werkitem maken of een nieuwe rij invoegen in SQL server configureren.
 
-1. Begin met [maken van een regel in IoT Central](howto-create-telemetry-rules.md). Nadat u de voorwaarden van de regel hebt opgeslagen, klikt u op de **Azure Logic Apps** tegel als een nieuwe actie. Klik op **maken in Azure portal**. U gaat naar de Azure-portal te maken van een nieuwe logische app. Mogelijk moet u zich aanmelden bij uw Azure-account.
+1. Begin met [maken van een regel in IoT Central](howto-create-telemetry-rules.md). Nadat u de voorwaarden van de regel hebt opgeslagen, selecteert u de **Azure Logic Apps** tegel als een nieuwe actie. Selecteer **maken in Azure portal**. U gaat naar de Azure-portal te maken van een nieuwe logische app. Mogelijk moet u zich aanmelden bij uw Azure-account.
 
-1. Voer de vereiste gegevens voor het maken van een nieuwe logische app. U kunt een Azure-abonnement voor het inrichten van de nieuwe logische app in. Het hoeft niet te zijn uw IoT Central-app is gemaakt in hetzelfde abonnement. Klik op **Create**.
+1. Voer de vereiste gegevens voor het maken van een nieuwe logische app. U kunt een Azure-abonnement voor het inrichten van de nieuwe logische app in. Het hoeft niet te zijn uw IoT Central-app is gemaakt in hetzelfde abonnement. Selecteer **Maken**.
 
     ![Logische app maken in Azure portal](./media/howto-build-azure-logic-apps/createinazureportal.PNG)
 
-1. Nadat uw logische app is gemaakt, wordt u automatisch naar de ontwerper van logische Apps gegaan. Klik op **lege logische App**. 
+1. Nadat uw logische app is gemaakt, wordt u automatisch naar de ontwerper van logische Apps gegaan. Selecteer **lege logische App**. 
 
     ![Een lege, logische app maken](./media/howto-build-azure-logic-apps/blanklogicapp.PNG)
 
@@ -54,11 +54,11 @@ Deze sectie leest u hoe u een bericht in Microsoft Teams plaatsen wanneer een re
 
 1. Kies in de actie, de **Team** en **kanaal**. Vul de **bericht** veld met wat u wilt dat elk bericht te zeggen hadden. U kunt opnemen *dynamische inhoud* van uw IoT Central-regel, geven belangrijke informatie zoals de naam van apparaat- en tijdstempel op de melding.
     > [!NOTE]
-    > Klik op de tekst 'Meer informatie' in het venster voor dynamische inhoud om op te halen van de meting en eigenschapswaarden die de regel geactiveerd.
+    > Selecteer de **meer** tekst in het venster met dynamische inhoud om op te halen van de meting en eigenschap waarden die de regel geactiveerd.
 
     ![Bewerken actie voor logische app met deelvenster met dynamische openen](./media/howto-build-azure-logic-apps/buildworkflow.PNG)
 
-1. Wanneer u klaar bent uw actie bewerken, klikt u op **opslaan**.
+1. Wanneer u klaar bent voor het bewerken van de actie selecteren **opslaan**.
 
 1. Als u terug naar uw IoT Central-app gaat, ziet u dat deze regel bevat een actie voor Azure Logic Apps onder acties.
 

@@ -8,14 +8,16 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 1e322c9bd6f78c4801c14e9982cc170b3af1971a
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: dba1f66be91d8fa8e151a2771bad70b721af02dc
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893575"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313069"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Verzenden van Guest OS metrische gegevens in de Azure Monitor-metriek opslaan klassieke Cloud Services 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Met de Azure Monitor [Diagnostics-extensie](diagnostics-extension-overview.md), kunt u metrische gegevens en logboeken van het gastbesturingssysteem (Gastbesturingssysteem) uitgevoerd als onderdeel van een virtuele machine, een cloudservice of een Service Fabric-cluster verzamelen. De extensie kunt telemetrie wordt verzonden naar [veel verschillende locaties.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
@@ -31,7 +33,7 @@ Het proces dat wordt beschreven in dit artikel geldt alleen voor prestatiemeteri
 
 - Uw abonnement moet worden geregistreerd bij [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- U moet beschikken over een [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) of [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) geïnstalleerd.
+- U moet beschikken over een [Azure PowerShell](/powershell/azure) of [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) geïnstalleerd.
 
 ## <a name="provision-a-cloud-service-and-storage-account"></a>Inrichten van een cloud service- en storage-account 
 
@@ -141,7 +143,7 @@ Sla dit bestand lokaal op diagnostische gegevens.
 Start PowerShell en meld u aan bij Azure. 
 
 ```PowerShell
-Login-AzureRmAccount 
+Login-AzAccount 
 ```
 
 Gebruik de volgende opdrachten voor het opslaan van de details van het opslagaccount dat u eerder hebt gemaakt. 

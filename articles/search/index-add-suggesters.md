@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 7128e4d3b0675775dc713451ef672b28a4991499
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: fd4b29134fd45ed2888fbc81ded413ecf7286959
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269923"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308649"
 ---
 # <a name="add-suggesters-to-an-azure-search-index"></a>Suggesties toevoegen aan een Azure Search-index
 
@@ -34,52 +34,52 @@ Hoewel een **suggestie** heeft een aantal eigenschappen, is het vooral een verza
 
 U kunt slechts één hebben **suggestie** resource voor elke index (met name een **suggestie** in de **suggesties** verzameling).
 
-## <a name="creating-a-suggester"></a>Het maken van een suggestie 
+## <a name="creating-a-suggester"></a>Het maken van een suggestie
 
-U kunt maken een **suggestie** op elk gewenst moment, maar de impact op uw index varieert op basis van de velden. 
+U kunt maken een **suggestie** op elk gewenst moment, maar de impact op uw index varieert op basis van de velden.
 
 + Nieuwe velden worden toegevoegd aan een suggestie als onderdeel van dezelfde update worden de minste indrukwekkende in dat er geen indexen vereist is.
 + Bestaande velden toegevoegd aan een suggestie echter Hiermee wijzigt u de definitie van het veld, blijkt volledig opnieuw opbouwen van de index.
 
- **Suggesties** werken het beste wanneer specifieke documenten in plaats van losse termen of zinnen voorstellen gebruikt. De beste kandidaat velden zijn titels, namen en andere relatief korte zinnen die een item kunnen identificeren. Minder effectief zijn terugkerende velden, zoals categorieën en -tags, of zeer lange velden, zoals velden met beschrijvingen of opmerkingen hebt.  
+**Suggesties** werken het beste wanneer specifieke documenten in plaats van losse termen of zinnen voorstellen gebruikt. De beste kandidaat velden zijn titels, namen en andere relatief korte zinnen die een item kunnen identificeren. Minder effectief zijn terugkerende velden, zoals categorieën en -tags, of zeer lange velden, zoals velden met beschrijvingen of opmerkingen hebt.
 
-Nadat een suggestie is gemaakt, voegt u toe de [suggesties API](https://docs.microsoft.com/rest/api/searchservice/suggestions) in uw querylogica voor het aanroepen van de functie.  
+Nadat een suggestie is gemaakt, voegt u toe de [suggesties API](https://docs.microsoft.com/rest/api/searchservice/suggestions) in uw querylogica voor het aanroepen van de functie.
 
-Eigenschappen die definieert een **suggestie** zijn onder andere het volgende:  
+Eigenschappen die definieert een **suggestie** zijn onder andere het volgende:
 
-|Eigenschap|Description|  
-|--------------|-----------------|  
-|`name`|De naam van de **suggestie**. Gebruik van de naam van de **suggestie** bij het aanroepen van de [suggesties &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/suggestions).|  
-|`searchMode`|De strategie gebruikt om te zoeken naar kandidaat zinnen. De enige modus die momenteel niet ondersteund is `analyzingInfixMatching`, die wordt uitgevoerd met het flexibele overeenkomende woordgroepen aan het begin of in het midden van zinnen.|  
-|`sourceFields`|Een lijst met een of meer velden die de bron van de inhoud voor suggesties. Alleen de velden van het type `Edm.String` en `Collection(Edm.String)` mogelijk bronnen voor suggesties. Alleen velden waarvoor een aangepaste taalanalyse ingesteld niet kunnen worden gebruikt. |  
+|Eigenschap|Description|
+|--------------|-----------------|
+|`name`|De naam van de **suggestie**. Gebruik van de naam van de **suggestie** bij het aanroepen van de [suggesties &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/suggestions).|
+|`searchMode`|De strategie gebruikt om te zoeken naar kandidaat zinnen. De enige modus die momenteel niet ondersteund is `analyzingInfixMatching`, die wordt uitgevoerd met het flexibele overeenkomende woordgroepen aan het begin of in het midden van zinnen.|
+|`sourceFields`|Een lijst met een of meer velden die de bron van de inhoud voor suggesties. Alleen de velden van het type `Edm.String` en `Collection(Edm.String)` mogelijk bronnen voor suggesties. Alleen velden waarvoor een aangepaste taalanalyse ingesteld niet kunnen worden gebruikt. |
 
-## <a name="suggester-example"></a>Voorbeeld van de suggestie  
- Een **suggestie** maakt deel uit van de indexdefinitie. Slechts één **suggestie** kan bestaan in de **suggesties** verzameling in de huidige versie, naast de **velden** verzameling en **scoringProfiles**.  
+## <a name="suggester-example"></a>Voorbeeld van de suggestie
+Een **suggestie** maakt deel uit van de indexdefinitie. Slechts één **suggestie** kan bestaan in de **suggesties** verzameling in de huidige versie, naast de **velden** verzameling en **scoringProfiles**.
 
-```  
-{  
-  "name": "hotels",  
-  "fields": [  
-     . . .   
-   ],  
-  "suggesters": [  
-    {  
-    "name": "sg",  
-    "searchMode": "analyzingInfixMatching",  
-    "sourceFields": ["hotelName", "category"]  
-    }  
-  ],  
-  "scoringProfiles": [  
-     . . .   
-  ]  
-}  
+```
+{
+  "name": "hotels",
+  "fields": [
+    . . .
+  ],
+  "suggesters": [
+    {
+      "name": "sg",
+      "searchMode": "analyzingInfixMatching",
+      "sourceFields": ["hotelName", "category"]
+    }
+  ],
+  "scoringProfiles": [
+    . . .
+  ]
+}
 
-```  
+```
 
-## <a name="see-also"></a>Zie ook  
- [Index maken &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)   
- [Index bijwerken &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/update-index)   
- [Suggesties &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/suggestions)   
- [Index-bewerkingen &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/index-operations)   
- [Azure Search Service REST](https://docs.microsoft.com/rest/api/searchservice/)   
- [Azure Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  
+## <a name="see-also"></a>Zie ook
+[Index maken &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
+[Index bijwerken &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/update-index)  
+[Suggesties &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/suggestions)  
+[Index-bewerkingen &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/index-operations)  
+[Azure Search Service REST](https://docs.microsoft.com/rest/api/searchservice/)  
+[Azure Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)

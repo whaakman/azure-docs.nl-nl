@@ -8,14 +8,16 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 2b032405a2fb3b8b608228d8a739bf91dcf439ef
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: afe1214299b7f1ecd741f992af75abedcfe77b84
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895938"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308700"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Gast-OS metrische gegevens verzenden naar de Azure Monitor metrische store met behulp van een Azure Resource Manager-sjabloon voor een virtuele-machineschaalset voor Windows
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Met behulp van de Azure Monitor [Windows Azure Diagnostics (WAD)-extensie](diagnostics-extension-overview.md), kunt u metrische gegevens en logboeken van het gastbesturingssysteem (als gast-OS) die wordt uitgevoerd als onderdeel van een virtuele machine, een cloudservice of een Azure Service Fabric-cluster verzamelen. De extensie kunt telemetrie verzenden naar verschillende locaties die worden vermeld in de eerder gekoppelde artikel.  
 
@@ -27,7 +29,7 @@ Als u geen ervaring met Resource Manager-sjablonen, meer informatie over [sjablo
 
 - Uw abonnement moet worden geregistreerd bij [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- U moet beschikken over [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) geïnstalleerd, of kunt u [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
+- U moet beschikken over [Azure PowerShell](/powershell/azure) geïnstalleerd, of kunt u [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Azure Monitor instellen als een gegevens-sink 
@@ -236,17 +238,17 @@ Opslaan en sluiten van beide bestanden.
 Voor het implementeren van de Resource Manager-sjabloon, kunt u Azure PowerShell gebruiken:  
 
 1. Start PowerShell. 
-1. Aanmelden bij Azure met `Login-AzureRmAccount`.
-1. Uw lijst met abonnementen ophalen met behulp van `Get-AzureRmSubscription`.
+1. Aanmelden bij Azure met `Login-AzAccount`.
+1. Uw lijst met abonnementen ophalen met behulp van `Get-AzSubscription`.
 1. Het abonnement dat u gaat maken of bijwerken van de virtuele machine instellen: 
 
    ```PowerShell
-   Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>" 
+   Select-AzSubscription -SubscriptionName "<Name of the subscription>" 
    ```
 1. Maak een nieuwe resourcegroep voor de virtuele machine wordt geïmplementeerd. Voer de volgende opdracht uit: 
 
    ```PowerShell
-    New-AzureRmResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
+    New-AzResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
    ```
 
    > [!NOTE]  
@@ -258,7 +260,7 @@ Voor het implementeren van de Resource Manager-sjabloon, kunt u Azure PowerShell
    > Als u bijwerken van een bestaande schaalset wilt, voegt u toe **-modus incrementele** aan het einde van de opdracht. 
  
    ```PowerShell
-   New-AzureRmResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
+   New-AzResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
    ```
 
 1. Nadat de implementatie is voltooid, moet u de virtuele-machineschaalset in Azure portal. Deze moet metrische gegevens naar Azure Monitor verzenden. 

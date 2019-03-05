@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/10/2018
+ms.date: 03/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc63eb792e58d960ae67138b5e58e6b705945030
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 2d81207195eb19a386d0d98fd4bfa6ba53ca972e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446389"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316639"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Installeren en configureren van SAP HANA (grote instanties) op Azure
 
@@ -50,7 +50,7 @@ De **eerste stap** nadat u de HANA grote instantie ontvangen en tot stand brenge
 
 De eenheid HANA grote instantie kan verbinding maken met dit SMT-exemplaar. (Zie voor meer informatie, [SMT-server instellen voor SUSE Linux](hana-setup-smt.md)). U kunt ook moet uw Red Hat-besturingssysteem worden geregistreerd met de Red Hat Doelabonnementbeheerder die u verbinding maken moet met. Voor meer informatie, Zie de opmerkingen in [wat SAP HANA op Azure (grote instanties) is?](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
-Deze stap is ook is nodig voor het patchen van het besturingssysteem, de verantwoordelijkheid van de klant is. Voor SUSE, de documentatie te vinden voor het installeren en configureren van SMT op deze pagina over [SMT installatie](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html).
+Deze stap is nodig voor het patchen van het besturingssysteem, de verantwoordelijkheid van de klant is. Voor SUSE, de documentatie te vinden voor het installeren en configureren van SMT op deze pagina over [SMT installatie](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html).
 
 De **tweede stap** is om te controleren op nieuwe patches en verbeteringen van de specifieke versie/versie van het besturingssysteem. Controleer of de patch-niveau van de HANA grote instantie is de meest recente status. Mogelijk zijn er gevallen waarbij de meest recente patches worden niet opgenomen. Na een HANA grote instantie-eenheid overname, is het verplicht om te controleren of patches moeten worden toegepast.
 
@@ -80,6 +80,7 @@ Als u meer exemplaren in uw tenant rangschikken, moet u aan te passen van de tij
 
 De **vijfde stap** is om te controleren op etc/hosts. Als de blades afgegeven ophalen, hebben ze verschillende IP-adressen die zijn toegewezen voor verschillende doeleinden. Controleer het bestand etc/hosts. Wanneer de eenheden worden toegevoegd aan een bestaande tenant, etc/hosts van de zojuist geïmplementeerde systemen correct onderhouden met de IP-adressen van systemen die eerder werden geleverd niet verwacht. Het is uw verantwoordelijkheid als de klant zorgt ervoor dat een zojuist geïmplementeerde exemplaar kan communiceren en omzetten van de namen van de eenheden op die u eerder hebt in uw tenant hebt geïmplementeerd. 
 
+
 ## <a name="operating-system"></a>Besturingssysteem
 
 > [!IMPORTANT] 
@@ -105,7 +106,7 @@ Hier volgen de SAP-opmerkingen voor ondersteuning die gelden voor het implemente
 - [SAP-ondersteuning Opmerking #171356 – SAP-software op Linux:  Algemene informatie](https://launchpad.support.sap.com/#/notes/1984787)
 - [SAP support Opmerking #1391070 – Linux UUID-oplossingen](https://launchpad.support.sap.com/#/notes/1391070)
 
-[Red Hat Enterprise Linux voor SAP HANA](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana) is een andere aanbieding voor het uitvoeren van SAP HANA op grote HANA-instanties. Versies van RHEL 6.7 en 7.2 zijn beschikbaar. Houd er rekening mee dat in plaats van systeemeigen Azure-VM's waarbij alleen RHEL 7.2 en meer recente versies worden ondersteund, HANA grote instanties bieden ondersteuning voor RHEL 6.7 ook. We raden echter aan met behulp van een versie van RHEL 7.x.
+[Red Hat Enterprise Linux voor SAP HANA](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana) is een andere aanbieding voor het uitvoeren van SAP HANA op grote HANA-instanties. Versies van RHEL 6.7 en 7.2 zijn beschikbaar. Houd er rekening mee in systeemeigen Azure-VM's, waarbij alleen RHEL 7.2 en meer recente versies worden ondersteund, dat HANA grote instanties bieden ondersteuning voor RHEL 6.7 ook. We raden echter aan met behulp van een versie van RHEL 7.x.
 
 Hieronder vindt u meer nuttige SAP op Red Hat verwante koppelingen:
 - [SAP HANA op Red Hat Linux site](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+Red+Hat).
@@ -140,7 +141,7 @@ Er zijn enkele details over de netwerken van de afzonderlijke eenheden opgemerkt
 
 Zie voor meer informatie over Ethernet-details voor uw architectuur, de [HLI scenario's ondersteund](hana-supported-scenario.md).
 
-## <a name="storage"></a>Opslag
+## <a name="storage"></a>Storage
 
 De opslagindeling voor SAP HANA op Azure (grote instanties) is geconfigureerd door SAP HANA op Azure-service-beheer via SAP aanbevolen richtlijnen. Deze richtlijnen worden beschreven in de [opslagvereisten voor SAP HANA](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) technisch document. 
 
@@ -200,6 +201,16 @@ Voor het optimaliseren van SAP HANA naar de opslag die onder gebruikt, moet u de
 Voor SAP HANA 1.0 versies tot SPS12, deze parameters worden ingesteld tijdens de installatie van de SAP HANA-database, zoals beschreven in [SAP-notitie #2267798 - configuratie van de SAP HANA-database](https://launchpad.support.sap.com/#/notes/2267798).
 
 U kunt ook de parameters na de installatie van de SAP HANA-database configureren met behulp van de hdbparam-framework. 
+
+De opslag die wordt gebruikt in HANA grote instanties heeft een maximale bestandsgrootte. De [formaat beperking is 16TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) per bestand. In tegenstelling tot in geval van beperkingen van de bestandsgrootte, zoals in EXT3 bestandssystemen, is HANA niet op de hoogte van de opslag-beperking afgedwongen door de opslag HANA grote instanties impliciet. Als gevolg hiervan wordt HANA niet automatisch gemaakt een nieuw bestand na het verstrijken van de maximale bestandsgrootte van 16TB. Als HANA probeert te uitbreiding van het bestand dan 16TB, rapporteert HANA fouten en de indexserver loopt vast aan het einde.
+
+> [!IMPORTANT]
+> Om te voorkomen dat een poging om te groeien gegevensbestanden voorbij de maximale bestandsgrootte 16 TB aan opslag van HANA grote instantie HANA, moet u de volgende parameters in het configuratiebestand global.ini van HANA instellen
+> 
+- datavolume_striping=true
+- datavolume_striping_size_gb = 15000
+- Zie ook SAP Opmerking [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
+
 
 Met SAP HANA 2.0, is het framework hdbparam afgeschaft. Als gevolg hiervan moeten de parameters worden ingesteld met behulp van SQL-opdrachten. Zie voor meer informatie, [SAP-notitie #2399079: Afschaffing van hdbparam in HANA 2](https://launchpad.support.sap.com/#/notes/2399079).
 

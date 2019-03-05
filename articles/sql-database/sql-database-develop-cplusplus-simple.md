@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/12/2018
-ms.openlocfilehash: 5a6f8328f6809a20b821f5b72106fa48fabf0e91
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 00a3904bd78f3bb76266c726af28582770b23921
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755149"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316486"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Verbinding maken met SQL Database met behulp van C en C++
 
@@ -37,7 +37,7 @@ SQL Azure is gebouwd op Microsoft SQL Server en is ontworpen voor een hoge besch
 Azure heeft momenteel twee opties voor het hosten van SQL server-workloads: Azure SQL database,-database as a service en SQL server op virtuele Machines (VM). Je krijgt geen informatie over de verschillen tussen deze twee, behalve dat Azure SQL-database de beste keuze voor nieuwe cloudgebaseerde toepassingen is om te profiteren van de kostenbesparingen en optimalisatie van prestaties die cloudservices bieden. Als u van plan te bent migreren of uitbreiden van uw on-premises toepassingen naar de cloud, kan SQL server op virtuele machine van Azure beter voor u werkt. Dingen om eenvoudig te houden voor in dit artikel, gaan we een Azure SQL-database maken.
 
 ## <a id="ODBC"></a>Data access-technologieën: ODBC- en OLE DB
-Verbinding maken met Azure SQL-database is niet anders en er zijn momenteel twee manieren verbinding maken met databases: ODBC (Open Database connectivity) en OLE DB (Object koppelen en Embedding-database). Microsoft heeft in de afgelopen jaren uitgelijnd met [ODBC voor toegang tot systeemeigen relationele gegevens](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC is relatief eenvoudig en ook veel sneller dan OLE DB. Hier het enige nadeel is dat een oude C-style-API maakt gebruik van ODBC.
+Verbinding maken met Azure SQL-database is niet anders en er zijn momenteel twee manieren verbinding maken met databases: ODBC (Open Database connectivity) en OLE DB (Object koppelen en Embedding-database). Microsoft heeft in de afgelopen jaren uitgelijnd met [ODBC voor toegang tot systeemeigen relationele gegevens](https://blogs.msdn.microsoft.com/sqlnativeclient/20../../microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC is relatief eenvoudig en ook veel sneller dan OLE DB. Hier het enige nadeel is dat een oude C-style-API maakt gebruik van ODBC.
 
 ## <a id="Create"></a>Stap 1:  Het maken van uw Azure SQL-Database
 Zie de [aan de slag pagina](sql-database-single-database-get-started.md) voor informatie over het maken van een voorbeelddatabase.  U kunt ook kunt u volgen dit [korte video van twee minuten](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) te maken van een Azure SQL-database met behulp van de Azure-portal.
@@ -78,7 +78,7 @@ U kunt ook een DSN-bestand met de wizard die wordt gestart wanneer er geen argum
 Gefeliciteerd! U hebt nu verbinding gemaakt met Azure SQL met C++ en ODBC op Windows. U kunt lezen om te doen voor Linux-platform hetzelfde blijven.
 
 ## <a id="Linux"></a>Stap 5: Verbinding maken vanaf een Linux-C/C++-toepassing
-Als u dit nog niet hebt op basis van het nieuws nog, kunt Visual Studio u nu ook Linux C++-toepassing te ontwikkelen. U kunt meer informatie over deze nieuwe scenario in de [Visual C++ voor ontwikkeling onder Linux](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/) blog. Als u wilt maken voor Linux, moet u een externe computer waarop uw Linux-distributie wordt uitgevoerd. Als u geen een beschikbaar is, u kunt een instellen snel met behulp van [Linux Azure Virtual machines](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Als u dit nog niet hebt op basis van het nieuws nog, kunt Visual Studio u nu ook Linux C++-toepassing te ontwikkelen. U kunt meer informatie over deze nieuwe scenario in de [Visual C++ voor ontwikkeling onder Linux](https://blogs.msdn.microsoft.com/vcblog/20../../visual-c-for-linux-development/) blog. Als u wilt maken voor Linux, moet u een externe computer waarop uw Linux-distributie wordt uitgevoerd. Als u geen een beschikbaar is, u kunt een instellen snel met behulp van [Linux Azure Virtual machines](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Voor deze zelfstudie laat het ons wordt ervan uitgegaan dat u een Ubuntu 16.04 Linux-distributie die u instelt. De stappen die hier moeten ook van toepassing op 15.10 Ubuntu, Red Hat 6 en 7 van Red Hat.
 

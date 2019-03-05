@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: Onderbreken en hervatten compute in Azure SQL Data Warehouse - PowerShell | Microsoft Docs'
+title: 'Quickstart: Onderbreken en hervatten compute in Azure SQL Data Warehouse - PowerShell | Microsoft Docs'
 description: Gebruik PowerShell om te onderbreken compute in Azure SQL Data Warehouse om kosten te besparen. Compute hervat wanneer u klaar bent voor het gebruik van het datawarehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,42 +10,42 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6e4b754c02e21954efaab03b942b6994fd1b7b4d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: aefb9b9f5da0f8fef5295b49fe0ee1431556e89f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472198"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308870"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>Quickstart: Onderbreken en hervatten compute in Azure SQL Data Warehouse met PowerShell
 Gebruik PowerShell om te onderbreken compute in Azure SQL Data Warehouse om kosten te besparen. [Compute hervatten](sql-data-warehouse-manage-compute-overview.md) wanneer u bent klaar voor gebruik van het datawarehouse.
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
-Voor deze zelfstudie is moduleversie 5.1.1 of hoger van Azure PowerShell vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om te zien welke versie u momenteel hebt. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps).
-
 ## <a name="before-you-begin"></a>Voordat u begint
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 In deze snelstartgids wordt ervan uitgegaan dat u hebt al een SQL datawarehouse die u kunt onderbreken en hervatten. Als u maken wilt, kunt u [maken en verbinden - portal](create-data-warehouse-portal.md) te maken van een datawarehouse met de naam **mySampleDataWarehouse**.
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Meld u aan bij uw Azure-abonnement met behulp van de opdracht [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) en volg de instructies op het scherm.
+Meld u aan bij uw Azure-abonnement met de [Connect AzAccount](/powershell/module/az.profile/connect-azaccount) opdracht en volgt u de op het scherm aanwijzingen.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
-Voer [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription) uit om te zien welk abonnement u gebruikt.
+Als u wilt zien welke abonnement dat u gebruikt, [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription).
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
-Als u een ander abonnement dan het standaardabonnement wilt gebruiken, voert u [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext) uit.
+Als u gebruiken een ander abonnement dan de standaard wilt, voert u [Set AzContext](/powershell/module/az.profile/set-azcontext).
 
 ```powershell
-Set-AzureRmContext -SubscriptionName "MySubscription"
+Set-AzContext -SubscriptionName "MySubscription"
 ```
 
 ## <a name="look-up-data-warehouse-information"></a>Datawarehousegegevens opzoeken
@@ -67,38 +67,38 @@ Volg deze stappen om de locatiegegevens voor uw datawarehouse op te zoeken.
 ## <a name="pause-compute"></a>De rekencapaciteit onderbreken
 Om kosten te besparen, kunt u onderbreken en hervatten van de compute-resources op de aanvraag. Bijvoorbeeld, als u de database niet tijdens de nacht en tijdens het weekend gebruikt, kunt u tijdens deze perioden onderbreken, en hervatten gedurende de dag. Er zijn geen kosten voor compute-resources, terwijl de database is onderbroken. U blijven echter in rekening gebracht voor opslag.
 
-Als u wilt onderbreken van een database, gebruikt u de [stand-by-AzureRmSqlDatabase](/powershell/module/azurerm.sql/suspend-azurermsqldatabase) cmdlet. Het volgende voorbeeld wordt een datawarehouse met de naam onderbroken **mySampleDataWarehouse** die worden gehost op een server met de naam **newserver-20171113**. De server zich in een Azure-resourcegroep met de naam **myResourceGroup**.
+Als u wilt onderbreken van een database, gebruikt u de [stand-by-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase) cmdlet. Het volgende voorbeeld wordt een datawarehouse met de naam onderbroken **mySampleDataWarehouse** die worden gehost op een server met de naam **newserver-20171113**. De server zich in een Azure-resourcegroep met de naam **myResourceGroup**.
 
 
 ```Powershell
-Suspend-AzureRmSqlDatabase –ResourceGroupName "myResourceGroup" `
+Suspend-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "newserver-20171113" –DatabaseName "mySampleDataWarehouse"
 ```
 
-Een Variant deze volgende voorbeeld wordt de database in het object $database. Deze geeft vervolgens het object [stand-by-AzureRmSqlDatabase](/powershell/module/azurerm.sql/suspend-azurermsqldatabase). De resultaten worden opgeslagen in de resultDatabase object. De laatste opdracht toont de resultaten.
+Een Variant deze volgende voorbeeld wordt de database in het object $database. Deze geeft vervolgens het object [stand-by-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase). De resultaten worden opgeslagen in de resultDatabase object. De laatste opdracht toont de resultaten.
 
 ```Powershell
-$database = Get-AzureRmSqlDatabase –ResourceGroupName "myResourceGroup" `
+$database = Get-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "newserver-20171113" –DatabaseName "mySampleDataWarehouse"
-$resultDatabase = $database | Suspend-AzureRmSqlDatabase
+$resultDatabase = $database | Suspend-AzSqlDatabase
 $resultDatabase
 ```
 
 
 ## <a name="resume-compute"></a>De rekencapaciteit hervatten
-Voor het starten van een database, gebruikt u de [Resume-AzureRmSqlDatabase](/powershell/module/azurerm.sql/resume-azurermsqldatabase) cmdlet. Het volgende voorbeeld wordt een database met de naam die wordt gehost op een server met de naam newserver-20171113 mySampleDataWarehouse gestart. De server zich in een Azure-resourcegroep met de naam myResourceGroup.
+Voor het starten van een database, gebruikt u de [hervatten AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase) cmdlet. Het volgende voorbeeld wordt een database met de naam die wordt gehost op een server met de naam newserver-20171113 mySampleDataWarehouse gestart. De server zich in een Azure-resourcegroep met de naam myResourceGroup.
 
 ```Powershell
-Resume-AzureRmSqlDatabase –ResourceGroupName "myResourceGroup" `
+Resume-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "newserver-20171113" -DatabaseName "mySampleDataWarehouse"
 ```
 
-Een Variant deze volgende voorbeeld wordt de database in het object $database. Deze geeft vervolgens het object [Resume-AzureRmSqlDatabase](/powershell/module/azurerm.sql/resume-azurermsqldatabase) en worden de resultaten opgeslagen in $resultDatabase. De laatste opdracht toont de resultaten.
+Een Variant deze volgende voorbeeld wordt de database in het object $database. Deze geeft vervolgens het object [hervatten AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase) en worden de resultaten opgeslagen in $resultDatabase. De laatste opdracht toont de resultaten.
 
 ```Powershell
-$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
+$database = Get-AzSqlDatabase –ResourceGroupName "ResourceGroup1" `
 –ServerName "Server01" –DatabaseName "Database02"
-$resultDatabase = $database | Resume-AzureRmSqlDatabase
+$resultDatabase = $database | Resume-AzSqlDatabase
 $resultDatabase
 ```
 

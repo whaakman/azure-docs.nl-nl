@@ -10,15 +10,15 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: f287648758d2883226132c0f45418dacaaf27652
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: acbd3c9ed55556ac792c3a98e6dbc1e4f7455fe1
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216319"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311301"
 ---
-# <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexeren van JSON-blobs met de indexeerfunctie Azure Search Blob
-In dit artikel leest u hoe het configureren van een indexeerfunctie Azure Search blob gestructureerde inhoud ophalen van JSON-documenten in Azure Blob-opslag en doorzoekbare in Azure Search. Deze werkstroom wordt een Azure Search-index gemaakt en wordt geladen met de bestaande tekst die is geëxtraheerd uit JSON-blobs. 
+# <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Indexeren van JSON-blobs met behulp van de indexeerfunctie Azure Search Blob
+Dit artikel leest u hoe het configureren van een Azure Search blob [indexeerfunctie](search-indexer-overview.md) gestructureerde inhoud ophalen van JSON-documenten in Azure Blob-opslag en kunt u in Azure Search kan worden doorzocht. Deze werkstroom wordt een Azure Search-index gemaakt en wordt geladen met de bestaande tekst die is geëxtraheerd uit JSON-blobs. 
 
 U kunt de [portal](#json-indexer-portal), [REST-API's](#json-indexer-rest), of [.NET SDK](#json-indexer-dotnet) naar JSON-inhoud indexeren. Gemeenschappelijke alle methoden is dat de JSON-documenten bevinden zich in een blob-container in een Azure Storage-account. Zie voor instructies over het pushen van JSON-documenten in andere niet-Azure-platforms, [gegevens importeren in Azure Search](search-what-is-data-import.md).
 
@@ -40,10 +40,10 @@ Het is raadzaam om met behulp van hetzelfde Azure-abonnement voor Azure Search e
 
 ### <a name="1---prepare-source-data"></a>1 - brongegevens voorbereiden
 
-U hebt een Azure storage-account, met Blob-opslag, en een container van JSON-documenten. Als u niet bekend met een van deze taken bent, controleert u de vereiste 'Set up Azure Blob-service en de belasting voorbeeldgegevens' de [cognitive search-quickstart](cognitive-search-quickstart-blob.md#set-up-azure-blob-service-and-load-sample-data).
+U hebt een Azure storage-account, met Blob-opslag, en een container van JSON-documenten. Als u niet bekend met een van deze vereisten bent, raadpleegt u 'Azure Blob-service en de belasting voorbeeldgegevens instellen' de [cognitive search-quickstart](cognitive-search-quickstart-blob.md#set-up-azure-blob-service-and-load-sample-data).
 
 > [!Important]
-> Op de container, zorg dat **openbaar toegangsniveau** is ingesteld op 'Container (anonieme leestoegang voor containers en blobs)'.
+> Op de container, zorg dat **openbaar toegangsniveau** is ingesteld op 'Container (anonieme leestoegang voor containers en blobs)'. Azure storage en Azure Search moet onder hetzelfde abonnement, en indien mogelijk in dezelfde regio. 
 
 ### <a name="2---start-import-data-wizard"></a>2 - de wizard gegevens importeren starten
 
@@ -83,11 +83,11 @@ Vanaf deze pagina kunt u verder naar de aanpassing van de index.
 
 ### <a name="5---set-index-attributes"></a>5 - set indexkenmerken
 
-In de **Index** pagina, ziet u een lijst met velden met een gegevenstype en een reeks selectievakjes in voor het instellen van indexkenmerken. De wizard kan een standaardindex op basis van metagegevens en door steekproeven van de brongegevens te genereren. 
+In de **Index** pagina, ziet u een lijst met velden met een gegevenstype en een reeks selectievakjes in voor het instellen van indexkenmerken. De wizard kan een lijst met velden op basis van metagegevens en door steekproeven van de brongegevens te genereren. 
 
-De standaardinstellingen produceren vaak een werkbare oplossing: als u een veld (cast als tekenreeks) om te fungeren als de sleutel of het document-ID als unieke identificatie van elk document, evenals de velden die goede kandidaten zijn voor zoeken in volledige tekst en worden opgehaald in een resultatenset. Voor blobs, de `content` veld is de beste kandidaat voor doorzoekbare inhoud.
+U kunt bulksgewijs: Selecteer de kenmerken door te klikken op het selectievakje aan de bovenkant van de kolom van een kenmerk. Kies **ophalen mogelijk** en **doorzoekbaar** voor elk veld dat moet worden geretourneerd naar een client-app en onderworpen aan de verwerking van de zoeken in volledige tekst. U zult zien dat gehele getallen niet volledige tekst zijn of fuzzy doorzoekbare (getallen bewoordingen worden geëvalueerd en zijn vaak nuttig zijn in de filters).
 
-U kunt de standaardwaarden accepteren of lees de beschrijving van [indexkenmerken](https://docs.microsoft.com/rest/api/searchservice/create-index#bkmk_indexAttrib) en [taalanalyse](https://docs.microsoft.com/rest/api/searchservice/language-support) overschrijven of vormen een aanvulling op de beginwaarden. 
+Lees de beschrijving van [indexkenmerken](https://docs.microsoft.com/rest/api/searchservice/create-index#bkmk_indexAttrib) en [taalanalyse](https://docs.microsoft.com/rest/api/searchservice/language-support) voor meer informatie. 
 
 Neem even de tijd om te controleren van uw selecties. Zodra u de wizard uitvoert, fysieke gegevensstructuren worden gemaakt en kunt u zich niet aan het bewerken van deze velden zonder te verwijderen en opnieuw maken van alle objecten.
 
@@ -114,7 +114,9 @@ Wanneer het indexeren is voltooid, kunt u [Search explorer](search-explorer.md) 
 
 ## <a name="use-rest-apis"></a>REST-API's gebruiken
 
-U kunt de REST-API gebruiken om te indexeren van JSON-blobs, een gemeenschappelijke driedelige-werkstroom te volgen voor alle indexeerfuncties in Azure Search: maken van een gegevensbron, een index maken, een indexeerfunctie maken. Ophalen van gegevens uit blob storage treedt op wanneer u de indexeerfunctie maken-aanvraag indienen. Nadat deze aanvraag is voltooid, hebt u een index waarin u kunt zoeken. Voorbeeld van de aanvragen die alle drie objecten maken, Zie [REST voorbeeld](#rest-example) aan het einde van deze sectie.
+U kunt de REST-API gebruiken om te indexeren van JSON-blobs, een gemeenschappelijke driedelige-werkstroom te volgen voor alle indexeerfuncties in Azure Search: maken van een gegevensbron, een index maken, een indexeerfunctie maken. Ophalen van gegevens uit blob storage treedt op wanneer u de indexeerfunctie maken-aanvraag indienen. Nadat deze aanvraag is voltooid, hebt u een index waarin u kunt zoeken. 
+
+U kunt bekijken [REST-voorbeeldcode](#rest-example) aan het einde van deze sectie die laat zien hoe u alle drie objecten te maken. Dit gedeelte bevat ook informatie over [modi het parseren van JSON](#parsing-modes), [enkele blobs](#parsing-single-blobs), [JSON-matrices](#parsing-arrays), en [geneste matrices](#nested-json-arrays).
 
 Gebruik voor de code op basis van JSON indexeren, [Postman](search-fiddler.md) en de REST-API voor het maken van deze objecten:
 
@@ -122,7 +124,7 @@ Gebruik voor de code op basis van JSON indexeren, [Postman](search-fiddler.md) e
 + [Gegevensbron](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
 + [indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
-In tegenstelling tot de wizard beheerportal een code-benadering vereist dat u een index hebt in-place, klaar om te accepteren van de JSON-documenten bij het verzenden van de **indexeerfunctie maken** aanvraag.
+De volgorde van bewerkingen is vereist dat u maakt en aanroepen van objecten in deze volgorde. In tegenstelling tot de portal-werkstroom, een code-benadering vereist een beschikbaar index om te accepteren van de JSON-documenten worden verzonden via de **indexeerfunctie maken** aanvraag.
 
 JSON-blobs in Azure Blob-opslag zijn doorgaans een enkele JSON-document of een JSON 'matrix'. De bouw, afhankelijk van hoe u ingesteld kan worden geparseerd in de blob-indexeerfunctie in Azure Search de **parsingMode** parameter voor de aanvraag.
 
@@ -211,147 +213,6 @@ Planning en parameters zijn optioneel. Als u ze niet opgeeft, de indexeerfunctie
 
 Deze specifieke indexeerfunctie bevat geen [veldtoewijzingen](#field-mappings). In het definitie van de indexeerfunctie, u kunt weglaten **veldtoewijzingen** als de eigenschappen van de bron-JSON-document overeenkomt met de velden van uw doel search-index. 
 
-### <a name="parsing-modes"></a>Parseermodi
-
-Tot nu toe zijn definities voor de gegevensbron en index parsingMode neutraal. Echter, in de stap voor de configuratie van de indexeerfunctie wordt het pad afwijkt, afhankelijk van hoe u wilt dat de JSON-blob inhoud zijn geparseerd en structuur in een Azure Search-index. U kunt kiezen uit `json` of `jsonArray`:
-
-+ Stel **parsingMode** naar `json` indexeren van elke blob als één document.
-
-+ Stel **parsingMode** naar `jsonArray` als uw blobs bestaan uit JSON-matrices en moet u elk element van de matrix om te worden van een afzonderlijke document in Azure Search. 
-
-+ Stel **parsingMode** naar `jsonLines` als uw blobs bestaan uit meerdere JSON-entiteiten, die worden gescheiden door een nieuwe regel, en moet u elke entiteit om te worden van een afzonderlijke document in Azure Search.
-
-U kunt een document zien als één item in de zoekresultaten. Als u wilt dat elk element in de matrix worden weergegeven in zoekresultaten als onafhankelijk item, gebruikt u de `jsonArray` of `jsonLines` optie waar nodig.
-
-In het definitie van de indexeerfunctie, kunt u eventueel gebruiken [veldtoewijzingen](search-indexer-field-mappings.md) om te kiezen welke eigenschappen van de bron-JSON-document worden gebruikt om uw doel search-index te vullen. Voor `jsonArray` parseermodus, als de matrix als een eigenschap op lager niveau bestaat, kunt u een document-basis waarmee wordt aangegeven waar de matrix wordt geplaatst in de blob instellen.
-
-> [!IMPORTANT]
-> Bij het gebruik `json`, `jsonArray` of `jsonLines` parseermodus, Azure Search wordt ervan uitgegaan dat alle blobs in uw gegevensbron JSON bevatten. Als u nodig hebt ter ondersteuning van een combinatie van JSON en niet-JSON-blobs in de dezelfde gegevensbron, laat het ons weten op [onze UserVoice-site](https://feedback.azure.com/forums/263029-azure-search).
-
-
-### <a name="how-to-parse-single-json-blobs"></a>Het parseren van één JSON-blobs
-
-Standaard [indexeerfunctie voor Azure Search blob](search-howto-indexing-azure-blob-storage.md) JSON-blobs worden geparseerd als een enkel segment van de tekst. Vaak wilt u de structuur van uw JSON-documenten behouden. Stel dat u hebt de volgende JSON-document in Azure Blob-opslag:
-
-    {
-        "article" : {
-            "text" : "A hopefully useful article explaining how to parse JSON blobs",
-            "datePublished" : "2016-04-13",
-            "tags" : [ "search", "storage", "howto" ]    
-        }
-    }
-
-De blob-indexeerfunctie parseert het JSON-document in een Azure Search-document. De indexeerfunctie wordt een index geladen door die overeenkomen met 'tekst', 'datePublished' en 'tags' van de bron op basis van de index met dezelfde naam en getypte doelvelden.
-
-Veldtoewijzingen zijn niet vereist, zoals is vermeld. Gegeven van een index met 'tekst', ' datePublished en 'tags' velden en de blob indexeerfunctie kunt afleiden van de juiste toewijzing zonder een veldtoewijzing aanwezig zijn in de aanvraag.
-
-### <a name="how-to-parse-json-arrays-in-a-well-formed-json-document"></a>Het parseren van JSON-matrices in een opgemaakte JSON-document
-
-U kunt ook kiezen voor de functie voor JSON-matrix. Deze mogelijkheid is nuttig wanneer blobs bevatten een *matrix met JSON-objecten*, en u wilt dat elk element om te worden van een afzonderlijke Azure Search-document. Bijvoorbeeld, kunt uitgaande van de volgende JSON-blob, u vullen uw Azure Search-index met drie afzonderlijke documenten, elk met velden 'id' en 'tekst'.  
-
-    [
-        { "id" : "1", "text" : "example 1" },
-        { "id" : "2", "text" : "example 2" },
-        { "id" : "3", "text" : "example 3" }
-    ]
-
-Voor een JSON-matrix, moet definitie van de indexeerfunctie lijken op het volgende voorbeeld. U ziet dat de parameter parsingMode geeft u de `jsonArray` parser. De juiste parser op te geven en met de juiste gegevens zijn invoer de slechts twee matrix-specifieke vereisten voor het indexeren van JSON-blobs.
-
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
-    Content-Type: application/json
-    api-key: [admin key]
-
-    {
-      "name" : "my-json-indexer",
-      "dataSourceName" : "my-blob-datasource",
-      "targetIndexName" : "my-target-index",
-      "schedule" : { "interval" : "PT2H" },
-      "parameters" : { "configuration" : { "parsingMode" : "jsonArray" } }
-    }
-
-Nogmaals, zoals u ziet dat veldtoewijzingen kunnen worden weggelaten. Ervan uitgaande dat een index met dezelfde naam 'id' en 'tekst' velden, kan de blob-indexeerfunctie de juiste toewijzing zonder een expliciete toewijzing van de veldenlijst afleiden.
-
-<a name="nested-json-arrays"></a>
-
-### <a name="nested-json-arrays"></a>Geneste JSON-matrices
-Wat gebeurt er als u wilt een matrix met JSON-objecten, maar die matrix indexeren ergens is ingesloten in het document? U kunt kiezen welke eigenschap bevat de matrix via de `documentRoot` configuratie-eigenschap. Bijvoorbeeld, als uw blobs als volgt uitzien:
-
-    {
-        "level1" : {
-            "level2" : [
-                { "id" : "1", "text" : "Use the documentRoot property" },
-                { "id" : "2", "text" : "to pluck the array you want to index" },
-                { "id" : "3", "text" : "even if it's nested inside the document" }  
-            ]
-        }
-    }
-
-Deze configuratie gebruiken om te indexeren van de matrix die is opgenomen in de `level2` eigenschap:
-
-    {
-        "name" : "my-json-array-indexer",
-        ... other indexer properties
-        "parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
-    }
-
-### <a name="how-to-parse-blobs-with-multiple-json-entities-separated-by-newlines"></a>Het parseren van blobs met meerdere JSON-entiteiten, gescheiden door nieuwe regels
-
-Als uw blob meerdere JSON-entiteiten bevat, gescheiden door een nieuwe regel en u voor elk element in om te worden van een afzonderlijke Azure Search-document wilt, kunt u zich voor de functie van de JSON-regels. Bijvoorbeeld, krijgt de volgende blob (indien er drie verschillende entiteiten in de JSON zijn), kunt u uw Azure Search-index met drie seprate documenten, elk met 'id' en 'tekst' velden invullen.
-
-    { "id" : "1", "text" : "example 1" }
-    { "id" : "2", "text" : "example 2" }
-    { "id" : "3", "text" : "example 3" }
-
-Voor een JSON-regels, moet definitie van de indexeerfunctie lijken op het volgende voorbeeld. U ziet dat de parameter parsingMode geeft u de `jsonLines` parser. 
-
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
-    Content-Type: application/json
-    api-key: [admin key]
-
-    {
-      "name" : "my-json-indexer",
-      "dataSourceName" : "my-blob-datasource",
-      "targetIndexName" : "my-target-index",
-      "schedule" : { "interval" : "PT2H" },
-      "parameters" : { "configuration" : { "parsingMode" : "jsonLines" } }
-    }
-
-Nogmaals, ziet u dat veldtoewijzingen weggelaten, vergelijkbaar met worden kunnen de `jsonArray` parseermodus.
-
-### <a name="using-field-mappings-to-build-search-documents"></a>U veldtoewijzingen voor het bouwen van documenten zoeken
-
-Als bron en doel-velden zijn niet perfect uitgelijnd, kunt u een sectie met toewijzing in de hoofdtekst van de aanvraag voor koppelingen met expliciete veld te definiëren.
-
-Op dit moment Azure Search kan niet worden geïndexeerd willekeurige JSON-documenten rechtstreeks omdat alleen primitieve gegevenstypen, tekenreeksmatrices en GeoJSON-punten ondersteunt. U kunt echter **veldtoewijzingen** te selecteren van onderdelen van uw JSON-document 'lift"deze in op het hoogste niveau van de velden van het zoekdocument. Zie voor meer informatie over de basisprincipes van veld toewijzingen, [veldtoewijzingen in Azure Search-indexeerfuncties](search-indexer-field-mappings.md).
-
-Opnieuw bezoeken onze voorbeeld-JSON-document:
-
-    {
-        "article" : {
-            "text" : "A hopefully useful article explaining how to parse JSON blobs",
-            "datePublished" : "2016-04-13"
-            "tags" : [ "search", "storage", "howto" ]    
-        }
-    }
-
-Wordt ervan uitgegaan dat een search-index met de volgende velden: `text` van het type `Edm.String`, `date` van het type `Edm.DateTimeOffset`, en `tags` van het type `Collection(Edm.String)`. U ziet het verschil tussen 'datePublished' in de bron en `date` veld in de index. Om toe te wijzen uw JSON de gewenste vorm te geven, gebruikt u de volgende veldtoewijzingen:
-
-    "fieldMappings" : [
-        { "sourceFieldName" : "/article/text", "targetFieldName" : "text" },
-        { "sourceFieldName" : "/article/datePublished", "targetFieldName" : "date" },
-        { "sourceFieldName" : "/article/tags", "targetFieldName" : "tags" }
-      ]
-
-De bron-veldnamen in de toewijzingen zijn opgegeven met behulp van de [JSON-aanwijzer](https://tools.ietf.org/html/rfc6901) notatie. U start met een slash om te verwijzen naar de hoofdmap van uw JSON-document en vervolgens de gewenste eigenschap (op het niveau van het nesten van willekeurige) kiezen met behulp van forward slash gescheiden pad.
-
-U kunt ook afzonderlijke matrixelementen verwijzen met behulp van een op nul gebaseerde index. Bijvoorbeeld, zodat het eerste element van de matrix 'tags' uit het bovenstaande voorbeeld, gebruikt u een veldtoewijzing als volgt:
-
-    { "sourceFieldName" : "/article/tags/0", "targetFieldName" : "firstTag" }
-
-> [!NOTE]
-> Als naam van een bron in het pad naar een veld toewijzing naar een eigenschap die niet bestaat in JSON verwijst, wordt deze toewijzing overgeslagen zonder fouten. Dit wordt gedaan zodat we kunnen documenten met een ander schema (dit is een gebruikelijk) ondersteunen. Omdat er geen validatie is, moet u voorzichtig zijn om te voorkomen dat typfouten in het veld toewijzing-specificatie.
->
->
 
 ### <a name="rest-example"></a>REST-voorbeeld
 
@@ -424,6 +285,154 @@ De .NET SDK is volledig pariteit met de REST-API. Het is raadzaam om de vorige s
 + [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
 + [microsoft.azure.search.models.index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
 + [microsoft.azure.search.models.indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
+
+<a name="parsing-modes"></a>
+
+### <a name="parsing-modes"></a>Parseermodi
+
+JSON-blobs kunnen ervan uitgaan dat meerdere formulieren. De **parsingMode** parameter in de JSON-indexeerfunctie bepaalt hoe de inhoud van de JSON-blob wordt geparseerd en een Azure Search-index zijn gestructureerd:
+
+| parsingMode | Description |
+|-------------|-------------|
+| `json`  | Elke blob worden geïndexeerd als één document. Dit is de standaardinstelling. |
+| `jsonArray` | Kies deze modus als uw blobs bestaan uit JSON-matrices en moet u elk element van de matrix om te worden van een afzonderlijke document in Azure Search. |
+|`jsonLines` | Kies deze modus als uw blobs bestaan uit meerdere JSON-entiteiten, die worden gescheiden door een nieuwe regel, en moet u elke entiteit om te worden van een afzonderlijke document in Azure Search. |
+
+U kunt een document zien als één item in de zoekresultaten. Als u wilt dat elk element in de matrix worden weergegeven in zoekresultaten als onafhankelijk item, gebruikt u de `jsonArray` of `jsonLines` optie waar nodig.
+
+In het definitie van de indexeerfunctie, kunt u eventueel gebruiken [veldtoewijzingen](search-indexer-field-mappings.md) om te kiezen welke eigenschappen van de bron-JSON-document worden gebruikt om uw doel search-index te vullen. Voor `jsonArray` parseermodus, als de matrix als een eigenschap op lager niveau bestaat, kunt u een document-basis waarmee wordt aangegeven waar de matrix wordt geplaatst in de blob instellen.
+
+> [!IMPORTANT]
+> Bij het gebruik `json`, `jsonArray` of `jsonLines` parseermodus, Azure Search wordt ervan uitgegaan dat alle blobs in uw gegevensbron JSON bevatten. Als u nodig hebt ter ondersteuning van een combinatie van JSON en niet-JSON-blobs in de dezelfde gegevensbron, laat het ons weten op [onze UserVoice-site](https://feedback.azure.com/forums/263029-azure-search).
+
+
+<a name="parsing-single-blobs"></a>
+
+## <a name="parse-single-json-blobs"></a>Parseren van één JSON-blobs
+
+Standaard [indexeerfunctie voor Azure Search blob](search-howto-indexing-azure-blob-storage.md) JSON-blobs worden geparseerd als een enkel segment van de tekst. Vaak wilt u de structuur van uw JSON-documenten behouden. Stel dat u hebt de volgende JSON-document in Azure Blob-opslag:
+
+    {
+        "article" : {
+            "text" : "A hopefully useful article explaining how to parse JSON blobs",
+            "datePublished" : "2016-04-13",
+            "tags" : [ "search", "storage", "howto" ]    
+        }
+    }
+
+De blob-indexeerfunctie parseert het JSON-document in een Azure Search-document. De indexeerfunctie wordt een index geladen door die overeenkomen met 'tekst', 'datePublished' en 'tags' van de bron op basis van de index met dezelfde naam en getypte doelvelden.
+
+Veldtoewijzingen zijn niet vereist, zoals is vermeld. Gegeven van een index met 'tekst', ' datePublished en 'tags' velden en de blob indexeerfunctie kunt afleiden van de juiste toewijzing zonder een veldtoewijzing aanwezig zijn in de aanvraag.
+
+<a name="parsing-arrays"></a>
+
+## <a name="parse-json-arrays"></a>Parseren van JSON-matrices
+
+U kunt ook de JSON-matrix-optie gebruiken. Deze optie is nuttig wanneer blobs bevatten een *matrix met opgemaakte JSON-objecten*, en u wilt dat elk element om te worden van een afzonderlijke Azure Search-document. Bijvoorbeeld, kunt uitgaande van de volgende JSON-blob, u vullen uw Azure Search-index met drie afzonderlijke documenten, elk met velden 'id' en 'tekst'.  
+
+    [
+        { "id" : "1", "text" : "example 1" },
+        { "id" : "2", "text" : "example 2" },
+        { "id" : "3", "text" : "example 3" }
+    ]
+
+Voor een JSON-matrix, moet definitie van de indexeerfunctie lijken op het volgende voorbeeld. U ziet dat de parameter parsingMode geeft u de `jsonArray` parser. De juiste parser op te geven en met de juiste gegevens zijn invoer de slechts twee matrix-specifieke vereisten voor het indexeren van JSON-blobs.
+
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      "name" : "my-json-indexer",
+      "dataSourceName" : "my-blob-datasource",
+      "targetIndexName" : "my-target-index",
+      "schedule" : { "interval" : "PT2H" },
+      "parameters" : { "configuration" : { "parsingMode" : "jsonArray" } }
+    }
+
+Nogmaals, zoals u ziet dat veldtoewijzingen kunnen worden weggelaten. Ervan uitgaande dat een index met dezelfde naam 'id' en 'tekst' velden, kan de blob-indexeerfunctie de juiste toewijzing zonder een expliciete toewijzing van de veldenlijst afleiden.
+
+<a name="nested-json-arrays"></a>
+
+## <a name="parse-nested-arrays"></a>Parseren van geneste matrices
+Voor JSON matrices die geneste elementen, kunt u een `documentRoot` om aan te geven van een structuur met meerdere niveaus. Bijvoorbeeld, als uw blobs als volgt uitzien:
+
+    {
+        "level1" : {
+            "level2" : [
+                { "id" : "1", "text" : "Use the documentRoot property" },
+                { "id" : "2", "text" : "to pluck the array you want to index" },
+                { "id" : "3", "text" : "even if it's nested inside the document" }  
+            ]
+        }
+    }
+
+Deze configuratie gebruiken om te indexeren van de matrix die is opgenomen in de `level2` eigenschap:
+
+    {
+        "name" : "my-json-array-indexer",
+        ... other indexer properties
+        "parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
+    }
+
+## <a name="parse-blobs-separated-by-newlines"></a>Blobs door nieuwe regels gescheiden parseren
+
+Als uw blob meerdere JSON-entiteiten bevat, gescheiden door een nieuwe regel en u voor elk element in om te worden van een afzonderlijke Azure Search-document wilt, kunt u zich voor de optie voor JSON-regels. Bijvoorbeeld, krijgt de volgende blob (indien er drie verschillende entiteiten in de JSON zijn), kunt u uw Azure Search-index met drie afzonderlijke documenten, elk met 'id' en 'tekst' velden invullen.
+
+    { "id" : "1", "text" : "example 1" }
+    { "id" : "2", "text" : "example 2" }
+    { "id" : "3", "text" : "example 3" }
+
+Voor JSON-regels, moet definitie van de indexeerfunctie lijken op het volgende voorbeeld. U ziet dat de parameter parsingMode geeft u de `jsonLines` parser. 
+
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      "name" : "my-json-indexer",
+      "dataSourceName" : "my-blob-datasource",
+      "targetIndexName" : "my-target-index",
+      "schedule" : { "interval" : "PT2H" },
+      "parameters" : { "configuration" : { "parsingMode" : "jsonLines" } }
+    }
+
+Nogmaals, ziet u dat veldtoewijzingen weggelaten, vergelijkbaar met worden kunnen de `jsonArray` parseermodus.
+
+## <a name="add-field-mappings"></a>Veldtoewijzingen toevoegen
+
+Als bron en doel-velden zijn niet perfect uitgelijnd, kunt u een sectie met toewijzing in de hoofdtekst van de aanvraag voor koppelingen met expliciete veld te definiëren.
+
+Op dit moment Azure Search kan niet worden geïndexeerd willekeurige JSON-documenten rechtstreeks omdat alleen primitieve gegevenstypen, tekenreeksmatrices en GeoJSON-punten ondersteunt. U kunt echter **veldtoewijzingen** te selecteren van onderdelen van uw JSON-document 'lift"deze in op het hoogste niveau van de velden van het zoekdocument. Zie voor meer informatie over de basisprincipes van veld toewijzingen, [veldtoewijzingen in Azure Search-indexeerfuncties](search-indexer-field-mappings.md).
+
+Opnieuw bezoeken onze voorbeeld-JSON-document:
+
+    {
+        "article" : {
+            "text" : "A hopefully useful article explaining how to parse JSON blobs",
+            "datePublished" : "2016-04-13"
+            "tags" : [ "search", "storage", "howto" ]    
+        }
+    }
+
+Wordt ervan uitgegaan dat een search-index met de volgende velden: `text` van het type `Edm.String`, `date` van het type `Edm.DateTimeOffset`, en `tags` van het type `Collection(Edm.String)`. U ziet het verschil tussen 'datePublished' in de bron en `date` veld in de index. Om toe te wijzen uw JSON de gewenste vorm te geven, gebruikt u de volgende veldtoewijzingen:
+
+    "fieldMappings" : [
+        { "sourceFieldName" : "/article/text", "targetFieldName" : "text" },
+        { "sourceFieldName" : "/article/datePublished", "targetFieldName" : "date" },
+        { "sourceFieldName" : "/article/tags", "targetFieldName" : "tags" }
+      ]
+
+De bron-veldnamen in de toewijzingen zijn opgegeven met behulp van de [JSON-aanwijzer](https://tools.ietf.org/html/rfc6901) notatie. U start met een slash om te verwijzen naar de hoofdmap van uw JSON-document en vervolgens de gewenste eigenschap (op het niveau van het nesten van willekeurige) kiezen met behulp van forward slash gescheiden pad.
+
+U kunt ook afzonderlijke matrixelementen verwijzen met behulp van een op nul gebaseerde index. Bijvoorbeeld, zodat het eerste element van de matrix 'tags' uit het bovenstaande voorbeeld, gebruikt u een veldtoewijzing als volgt:
+
+    { "sourceFieldName" : "/article/tags/0", "targetFieldName" : "firstTag" }
+
+> [!NOTE]
+> Als naam van een bron in het pad naar een veld toewijzing naar een eigenschap die niet bestaat in JSON verwijst, wordt deze toewijzing overgeslagen zonder fouten. Dit wordt gedaan zodat we kunnen documenten met een ander schema (dit is een gebruikelijk) ondersteunen. Omdat er geen validatie is, moet u voorzichtig zijn om te voorkomen dat typfouten in het veld toewijzing-specificatie.
+>
+>
 
 ## <a name="see-also"></a>Zie ook
 

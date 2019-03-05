@@ -4,17 +4,17 @@ description: Tekstinhoud verkennen in Azure Blob-opslag voor Azure Search indexe
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 10/17/2018
+ms.date: 03/01/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: 7bd7bcf66f0d91a87519a5d5bff7df7c73e2603f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: dcecb98d5e254e3fadd114c227e783a60fc6fa4e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310869"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316146"
 ---
 # <a name="searching-blob-storage-with-azure-search"></a>Blob-opslag doorzoeken met Azure Search
 
@@ -38,7 +38,7 @@ Een veelvoorkomend scenario waarmee u eenvoudig om te sorteren via blobs van elk
 ## <a name="image-search"></a>Afbeeldingen zoeken
 Zoeken in volledige tekst, meervoudige navigatie en sorteren mogelijkheden van Azure Search kunnen nu worden toegepast op de metagegevens van de installatiekopieën die zijn opgeslagen in blobs.
 
-Als deze installatiekopieën vooraf zijn verwerkt met behulp van de [Computer Vision-API](https://www.microsoft.com/cognitive-services/computer-vision-api) van Cognitive Services van Microsoft, is het mogelijk om te indexeren van de visuele inhoud die is gevonden in elke installatiekopie met inbegrip van OCR-en handschriftherkenning. Er wordt gewerkt aan toe te voegen OCR en andere mogelijkheden voor de verwerking van afbeelding rechtstreeks naar Azure Search, als u geïnteresseerd in deze mogelijkheden bent, een aanvraag indienen op onze [UserVoice](https://aka.ms/azsuv) of [Stuur ons een e-mail](mailto:azscustquestions@microsoft.com).
+Cognitieve zoekopdrachten omvat installatiekopie verwerking vaardigheden zoals [optische tekenherkenning (OCR)](cognitive-search-skill-ocr.md) en identificatie van [visuele kenmerken](cognitive-search-skill-image-analysis.md) die maken het mogelijk om te indexeren van de visuele inhoud die is gevonden in elk afbeelding.
 
 ## <a name="index-and-search-through-json-blobs"></a>Index en zoek via JSON-blobs
 Azure Search kan worden geconfigureerd om uit te pakken gestructureerde inhoud gevonden in de blobs die JSON bevatten. Azure Search kan lezen JSON-blobs en parseren van de gestructureerde inhoud naar de juiste velden van een Azure Search-document. Azure Search kan ook rekening houden met blobs die een matrix met JSON-objecten bevatten en toewijzen van elk element in een afzonderlijk Azure Search-document.

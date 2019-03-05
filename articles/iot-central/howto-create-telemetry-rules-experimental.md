@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: c8cba4006d1112ccc1529fc1769e046fe45468a7
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: f8af115824ec48492d0f53297a6e697f7011ff55
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214177"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316418"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Maak een regel Telemetrie en meldingen in uw Azure IoT Central-toepassing instellen
 
@@ -35,7 +35,7 @@ De apparaat-sjabloon moet ten minste één telemetrie meting gedefinieerd hebben
 
 1. Op de **regels** tabblad **+ nieuwe regel** om te zien welke typen regels die u kunt maken.
 
-1. Klik op **telemetrie** om een regel voor het controleren van telemetrie van apparaten te maken.
+1. Selecteer **telemetrie** om een regel voor het controleren van telemetrie van apparaten te maken.
 
     ![Regeltypen](media/howto-create-telemetry-rules-experimental/Rule_Types.png)
 
@@ -51,7 +51,7 @@ De apparaat-sjabloon moet ten minste één telemetrie meting gedefinieerd hebben
 
 Voorwaarde definieert de criteria die wordt bewaakt door de regel.
 
-1. Klik op **+** naast **voorwaarden** om toe te voegen een nieuwe voorwaarde.
+1. Selecteer **+** naast **voorwaarden** om toe te voegen een nieuwe voorwaarde.
 
 1. Selecteer de telemetrie die u controleren wilt in de **meting** vervolgkeuzelijst.
 

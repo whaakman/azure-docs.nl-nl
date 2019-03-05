@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: douglasl
-ms.openlocfilehash: c62581447cd395bd48a787fa7dc89659d5172486
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: a1071bb690fc5714890116c757c3036916bf1700
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192206"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314092"
 ---
 # <a name="copy-or-clone-a-data-factory-in-azure-data-factory"></a>Kopiëren of klonen van een data factory in Azure Data Factory
 
@@ -35,6 +35,8 @@ Hier volgen enkele van de omstandigheden waarin u wellicht vindt u het handig om
 1. De gebruikersinterface van Data Factory in Azure portal kunt u de volledige nettolading van uw data factory in Resource Manager-sjabloon, samen met een parameterbestand dat u alle waarden die u wijzigen kunt wilt wanneer u uw factory kloont exporteren.
 
 1. Als een vereiste moet u uw doel data factory maken vanuit Azure portal.
+
+1. Als u een SelfHosted IntegrationRuntime in uw bron-factory hebt, moet u vooraf te maken met dezelfde naam in de fabriek doel. Als u delen van de IRs zelfgehoste tussen verschillende factory's wilt, kunt u het patroon gepubliceerd [hier](author-visually.md#best-practices-for-git-integration).
 
 1. Als u in de GIT-modus, telkens wanneer u vanuit de portal publiceren, worden de fabrieksinstellingen van Resource Manager-sjabloon wordt opgeslagen in GIT in de vertakking adf_publish van de opslagplaats.
 

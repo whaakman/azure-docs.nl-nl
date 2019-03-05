@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: d81ab4283b408f7490f0dc40cce3199ca29c0af1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 92546e6aabdf43c2f9cb0339fb21dd2dfc641d44
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737226"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314310"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Vijf stappen voor het beveiligen van uw infrastructuur voor identiteiten
 
-Als u dit document leest, bent u op de hoogte van de betekenis van beveiliging. U waarschijnlijk uitvoeren de verantwoordelijkheid voor het beveiligen van uw organisatie al. Als u nodig hebt om ervan te overtuigen anderen van het belang van beveiliging, stuurt u hun lezen van de meest recente [Microsoft Security Intelligence report](https://www.microsoft.com/security/intelligence-report).
+Als u dit document leest, bent u op de hoogte van de betekenis van beveiliging. U waarschijnlijk uitvoeren de verantwoordelijkheid voor het beveiligen van uw organisatie al. Als u nodig hebt om ervan te overtuigen anderen van het belang van beveiliging, stuurt u hun lezen van de meest recente [Microsoft Security Intelligence report](https://go.microsoft.com/fwlink/p/?linkid=2073747).
 
 Dit document helpt u een beter beveiligde verbeteren met behulp van de mogelijkheden van Azure Active Directory met behulp van een controlelijst vijf stappen naar inenten van uw organisatie tegen cyberaanvallen.
 

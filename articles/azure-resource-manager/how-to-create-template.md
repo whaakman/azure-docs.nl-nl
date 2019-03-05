@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: a802b12f34c5fe16202f55416a698823e55c01bb
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 67ea9ece7ba0c71484e9117db13fd2c708d87baf
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245893"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312865"
 ---
 # <a name="create-azure-resource-manager-template"></a>Azure Resource Manager-sjabloon maken
 
@@ -38,7 +38,7 @@ Zie voor een zelfstudie over het installeren van de Resource Manager-extensie vo
 
 Laten we bekijken de onderdelen van de sjabloon om te begrijpen hoe de sjabloon werkt. De sjabloon hebben mogelijk niet elke sectie. De secties die u wilt zich richten op zijn:
 
-* De [parameters](resource-manager-templates-parameters.md) sectie waarin de waarden die u opgeven tijdens de implementatie van kunt het aanpassen van de infrastructuur die is geïmplementeerd. 
+* De [parameters](resource-group-authoring-templates.md#parameters) sectie waarin de waarden die u opgeven tijdens de implementatie van kunt het aanpassen van de infrastructuur die is geïmplementeerd. 
 
 * De [variabelen](resource-group-authoring-templates.md#variables) sectie waarin de waarden die worden gebruikt in de sjabloon.
 

@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 03/04/2019
 ms.author: magoedte
-ms.openlocfilehash: 41ffd7229383f1006bb846f975aeccf83256032a
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: a497662ac7a885b53e69bb8c86a646045bd2eef7
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807725"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314667"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway"></a>Verbinding maken met computers zonder toegang tot het internet met behulp van de Log Analytics-gateway
 
@@ -154,29 +154,39 @@ Volg deze stappen voor het installeren van een gateway.  (Als u een eerdere vers
 
 
 ## <a name="configure-network-load-balancing"></a>Netwerktaakverdeling 
-De gateway voor hoge beschikbaarheid configureren met behulp van network load balancing (NLB). Gebruik Microsoft Azure Load Balancer of op basis van hardware load balancers.  De load balancer beheert verkeer door te leiden van de aangevraagde verbindingen van de Log Analytics-agents of beheerservers van Operations Manager op de knooppunten. Als een gatewayserver uitvalt, wordt het verkeer wordt omgeleid naar andere knooppunten.
+U kunt de gateway voor hoge beschikbaarheid met behulp van netwerktaakverdeling (NLB) met behulp van Microsoft configureren [Network Load Balancing (NLB)](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing), [Azure Load Balancer](../../load-balancer/load-balancer-overview.md), of op basis van hardware load balancers. De load balancer beheert verkeer door te leiden van de aangevraagde verbindingen van de Log Analytics-agents of beheerservers van Operations Manager op de knooppunten. Als een Gateway-server uitvalt, wordt het verkeer wordt omgeleid naar andere knooppunten.
+
+### <a name="microsoft-network-load-balancing"></a>Microsoft Network Load Balancing
+Zie voor informatie over het ontwerpen en implementeren van een Windows Server 2016 network load balancing-cluster, [Network load balancing](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing). De volgende stappen wordt beschreven hoe u een Microsoft network load balancing-cluster configureren.  
+
+1. Meld u aan de Windows-server die deel uitmaakt van het NLB-cluster met een Administrator-account.  
+2. Beheer van netwerktaakverdeling in Serverbeheer openen, klikt u op **extra**, en klik vervolgens op **beheer van netwerktaakverdeling**.
+3. Als u wilt verbinding maken met een Log Analytics gateway-server met de Microsoft Monitoring Agent is geïnstalleerd, met de rechtermuisknop op het IP-adres van het cluster en klik vervolgens op **Host aan Cluster toevoegen**. 
+
+    ![Network Load Balancing Manager – toevoegen Host aan Cluster](./media/gateway/nlb02.png)
+ 
+4. Voer het IP-adres van de gateway-server waarmee u verbinding wilt maken. 
+
+    ![Network Load Balancing Manager – toevoegen Host aan Cluster: Verbinding maken](./media/gateway/nlb03.png) 
+
+### <a name="azure-load-balancer"></a>Azure Load Balancer
+Zie voor informatie over het ontwerpen en implementeren van een Azure Load Balancer, [wat is Azure Load Balancer?](../../load-balancer/load-balancer-overview.md). Voor het implementeren van een basic load balancer, volg de stappen in deze [snelstartgids](../../load-balancer/quickstart-create-basic-load-balancer-portal.md) met uitzondering van de stappen die worden beschreven in de sectie **maken van back-endservers**.   
+
+> [!NOTE]
+> Configureren van de de Azure Load Balancer met behulp van de **basis-SKU**, vereist dat virtuele Azure-machines deel uitmaken van een Beschikbaarheidsset. Zie voor meer informatie over beschikbaarheidssets, [de beschikbaarheid van Windows virtuele machines in Azure beheren](../../virtual-machines/windows/manage-availability.md). Bestaande virtuele machines toevoegen aan een beschikbaarheidsset, verwijzen naar [ingesteld Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4).
+> 
+
+Nadat de load balancer is gemaakt, moet een back-endgroep worden gemaakt, die wordt gedistribueerd naar een of meer gatewayservers. Volg de stappen in de sectie quickstart-artikel [resources maken voor de load balancer](../../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-resources-for-the-load-balancer).  
 
 >[!NOTE]
->Zie voor informatie over het ontwerpen en implementeren van een Windows Server 2016 NLB-cluster, [Network load balancing](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing). 
+>Bij het configureren van de statustest moet deze worden geconfigureerd voor het gebruik van de TCP-poort van de gateway-server. De statustest voegt dynamisch of verwijdert u de gateway-servers uit de load balancer-rotatie op basis van hun reactie op statuscontroles. 
 >
 
-Volg deze stappen voor het configureren van een Microsoft Load Balancer-cluster:  
-
-1. Gebruik een administrator-account om aan te melden bij de Windows-Server die deel uitmaakt van de Load Balancer-cluster.
-1. In Serverbeheer, open **beheer van netwerktaakverdeling**, selecteer **extra**, en selecteer vervolgens **beheer van netwerktaakverdeling**.
-1. Als u wilt verbinding maken met een Log Analytics-gatewayserver die Microsoft Monitoring Agent geïnstalleerd is, met de rechtermuisknop op het IP-adres van het cluster en klik vervolgens op **Host aan Cluster toevoegen**.
-
-   ![Schermafbeelding van beheer van netwerktaakverdeling, met de Host aan Cluster toevoegen geselecteerd](./media/gateway/nlb02.png)
-
-1. Voer het IP-adres van de gateway-server waarmee u verbinding wilt maken.
-
-   ![Schermafbeelding van beheer van netwerktaakverdeling, van de pagina Host aan Cluster toevoegen: Verbinding maken](./media/gateway/nlb03.png)
-    
 ## <a name="configure-the-log-analytics-agent-and-operations-manager-management-group"></a>De Log Analytics-agent en Operations Manager-beheergroep configureren
 In deze sectie ziet u hoe u rechtstreeks verbonden zijn met Log Analytics-agents, een beheergroep van Operations Manager of Azure Automation Hybrid Runbook Workers configureren met de Log Analytics-gateway om te communiceren met Azure Automation of Log Analytics.  
 
 ### <a name="configure-a-standalone-log-analytics-agent"></a>Een zelfstandige Log Analytics-agent configureren
-Bij het configureren van de Log Analytics-agent, vervang u de waarde van de proxy door het IP-adres van de Log Analytics gateway-server en het poortnummer. Als u meerdere gatewayservers achter een NLB hebt geïmplementeerd, is de configuratie van de Log Analytics-agent-proxy in het virtuele IP-adres van de NLB.  
+Bij het configureren van de Log Analytics-agent, vervang u de waarde van de proxy door het IP-adres van de Log Analytics gateway-server en het poortnummer. Als u meerdere gatewayservers achter een load balancer hebt geïmplementeerd, is de configuratie van de Log Analytics-agent-proxy in het virtuele IP-adres van de load balancer.  
 
 >[!NOTE]
 >Zie voor informatie over het installeren van de Log Analytics-agent op de gateway en de Windows-computers die rechtstreeks verbinding met Log Analytics maken [verbinding maken met Windows-computers naar de Log Analytics-service in Azure](agent-windows.md). Zie voor Linux-computers verbinding, [configureren van een Log Analytics-agent voor Linux-computers in een hybride omgeving](../../azure-monitor/learn/quick-collect-linux-computer.md). 
@@ -200,7 +210,7 @@ Voor het gebruik van OMS-Gateway voor de ondersteuning van Operations Manager, m
 > Als u geen waarde voor de gateway opgeeft, worden lege waarden worden gepusht naar alle agents.
 >
 
-Als uw Operations Manager-beheergroep voor het eerst bij een Log Analytics-werkruimte registreren is, ziet u de optie om op te geven van de configuratie van de proxy voor de beheergroep die u in de Operations-console.  Deze optie is alleen beschikbaar als de beheergroep is geregistreerd bij de service.  
+Als uw Operations Manager-beheergroep voor het eerst bij een Log Analytics-werkruimte registreren is, ziet u de optie om op te geven van de configuratie van de proxy voor de beheergroep die u in de Operations-console. Deze optie is alleen beschikbaar als de beheergroep is geregistreerd bij de service.  
 
 Bijwerken om integratie te configureren, de systeemconfiguratie van de proxyserver met behulp van Netsh op het systeem waarop u de Operations-console wordt uitgevoerd en op alle beheerservers in de beheergroep. Volg deze stappen:
 
@@ -220,7 +230,7 @@ Na het voltooien van de integratie met Log Analytics, verwijdert u de wijziging 
 
    ![Schermafbeelding van Operations Manager, waarin de selectie van Proxy-Server configureren](./media/gateway/scom01.png)
 
-1. Selecteer **een proxyserver gebruiken voor toegang tot de Operations Management Suite** en voer het IP-adres van de Log Analytics-gatewayserver of virtueel IP-adres van de NLB. Zorg ervoor dat u beginnen met het voorvoegsel `http://`.
+1. Selecteer **een proxyserver gebruiken voor toegang tot de Operations Management Suite** en voer het IP-adres van de Log Analytics-gatewayserver of virtueel IP-adres van de load balancer. Zorg ervoor dat u beginnen met het voorvoegsel `http://`.
 
    ![Schermafbeelding van Operations Manager, waarin de proxy-serveradres](./media/gateway/scom02.png)
 

@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/20/2018
+ms.date: 03/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e692cc1fd8670cc14b42e4714d84356d4d4c53a2
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 364b0bf611581f88fc87f163acbbb7529862d096
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275987"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309567"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Architectuur voor SAP HANA (grote instanties)
 
@@ -29,7 +29,7 @@ De HANA grote instantie van het Type ik klasse wordt geleverd met vier keer het 
 
 Zie de volgende tabel in termen van Opslagtoewijzing. De tabel bevat de ruwe capaciteit voor de verschillende volumes die zijn opgegeven met de verschillende HANA grote instantie-eenheden.
 
-| HANA grote instantie SKU | Hana/gegevens | Hana/log | Hana/gedeeld | Hana/logbackups |
+| HANA Large Instance SKU | hana/data | Hana/log | Hana/gedeeld | Hana/logbackups |
 | --- | --- | --- | --- | --- |
 | S72 | 1,280 GB | 512 GB | 768 GB | 512 GB |
 | S72m | 3,328 GB | 768 GB |1,280 GB | 768 GB |
@@ -42,9 +42,9 @@ Zie de volgende tabel in termen van Opslagtoewijzing. De tabel bevat de ruwe cap
 | S384xm | 16.000 GB | 2.050 GB | 2.050 GB | 2040 GB |
 | S384xxm |  20.000 GB | 3100 GB | 2.050 GB | 3100 GB |
 | S576m | 20.000 GB | 3100 GB | 2.050 GB | 3100 GB |
-| S576xm | 31.744 GB | 4096 GB | 2.048 GB | 4096 GB |
+| S576xm | 31.744 GB | 4096 GB | 2,048 GB | 4096 GB |
 | S768m | 28.000 GB | 3100 GB | 2.050 GB | 3100 GB |
-| S768xm | 40.960 GB | 6.144 GB | 4096 GB | 6.144 GB |
+| S768xm | 40,960 GB | 6.144 GB | 4096 GB | 6.144 GB |
 | S960m | 36.000 GB | 4,100 GB | 2.050 GB | 4,100 GB |
 
 
@@ -52,7 +52,7 @@ Werkelijke geïmplementeerde volumes kunnen verschillen op basis van de implemen
 
 Als u een HANA grote instantie SKU onderverdelen, enkele voorbeelden van mogelijke deling onderdelen als volgt uitzien:
 
-| Geheugenpartitie in GB | Hana/gegevens | Hana/log | Hana/gedeeld | Hana/log/back-up |
+| Geheugenpartitie in GB | hana/data | Hana/log | Hana/gedeeld | Hana/log/back-up |
 | --- | --- | --- | --- | --- |
 | 256 | 400 GB | 160 GB | 304 GB | 160 GB |
 | 512 | 768 GB | 384 GB | 512 GB | 384 GB |
@@ -82,7 +82,7 @@ Enkele voorbeelden van het uitvoeren van meerdere SAP HANA-instanties ziet er al
 | SKU | Geheugengrootte | Opslaggrootte | Grootten met meerdere databases |
 | --- | --- | --- | --- |
 | S72 | 768 GB | 3 TB | 1 x 768 GB HANA-instantie<br /> of 1 x 512 GB exemplaar + 1 x 256 GB-exemplaar<br /> of exemplaren van 3 x 256 GB | 
-| S72m | 1,5 TB | 6 TB OPSLAGRUIMTE | 3x512GB HANA-instanties<br />of 1 x 512 GB exemplaar + 1 x 1 TB exemplaar<br />of 6 x 256 GB-exemplaren<br />of het exemplaar 1x1.5 TB | 
+| S72m | 1,5 TB | 6 TB | 3x512GB HANA-instanties<br />of 1 x 512 GB exemplaar + 1 x 1 TB exemplaar<br />of 6 x 256 GB-exemplaren<br />of het exemplaar 1x1.5 TB | 
 | S192m | 4 TB | 16 TB | 8 x 512 GB-instanties<br />of exemplaren van 4 x 1 TB<br />of exemplaren van 4 x 512 GB + 2 x 1 TB exemplaren<br />of exemplaren van 4 x 768 GB + 2 x 512 GB-instanties<br />of het exemplaar van 1 x 4 TB |
 | S384xm | 8 TB | 22 TB | exemplaren van 4 x 2 TB<br />of 2 x 4 TB-exemplaren<br />of exemplaren van 2 x 3 TB + 1 x 2 TB exemplaren<br />of instanties 2x2.5 TB + 1 x 3 TB exemplaren<br />of het exemplaar van 1 x 8 TB |
 
@@ -93,6 +93,19 @@ Er zijn ook andere verschillen.
 De opslag die wordt gebruikt voor HANA grote instantie kunt een transparante versleuteling van de gegevens zoals deze wordt opgeslagen op de schijven. Als een eenheid HANA grote instantie is geïmplementeerd, kunt u dit type versleuteling inschakelen. U kunt ook wijzigen met versleutelde volumes na de implementatie plaatsvindt. De overstap van niet-versleutelde versleutelde volumes is transparant en vereist geen downtime. 
 
 Met het Type ik klasse van SKU's, het volume de LUN wordt opgeslagen, worden opnieuw opgestart, worden versleuteld. Voor het Type II-klasse van SKU's van HANA grote instantie moet u voor het versleutelen van het bestand Boot.ini LUN met besturingssysteem-methoden. Voor meer informatie contact op met het Microsoft-Service Management-team.
+
+## <a name="required-settings-for-larger-hana-instances-on-hana-large-instances"></a>Vereiste instellingen voor grotere HANA-instanties op HANA grote instanties
+De opslag die wordt gebruikt in HANA grote instanties heeft een maximale bestandsgrootte. De [formaat beperking is 16TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) per bestand. In tegenstelling tot in geval van beperkingen van de bestandsgrootte, zoals in EXT3 bestandssystemen, is HANA niet op de hoogte van de opslag-beperking afgedwongen door de opslag HANA grote instanties impliciet. Als gevolg hiervan wordt HANA niet automatisch gemaakt een nieuw bestand na het verstrijken van de maximale bestandsgrootte van 16TB. Als HANA probeert te uitbreiding van het bestand dan 16TB, rapporteert HANA fouten en de indexserver loopt vast aan het einde.
+
+> [!IMPORTANT]
+> Om te voorkomen dat een poging om te groeien gegevensbestanden voorbij de maximale bestandsgrootte 16 TB aan opslag van HANA grote instantie HANA, moet u de volgende parameters in het configuratiebestand global.ini van HANA instellen
+> 
+- datavolume_striping=true
+- datavolume_striping_size_gb = 15000
+- Zie ook SAP Opmerking [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
+
+
+
 
 **Volgende stappen**
 - Raadpleeg [scenario's ondersteund voor HANA grote instanties](hana-supported-scenario.md)

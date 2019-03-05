@@ -10,22 +10,25 @@ ms.subservice: manage
 ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
-ms.openlocfilehash: 70a59ddc1b15693cb2a50c1dc2da6dd9233e0811
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 8ec6ffaba8056eacf44d8e1bd911eb1f22daad84
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990014"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314837"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Prestaties optimaliseren door bijwerken van SQL Data Warehouse
+
 Azure SQL Data Warehouse een upgrade uitvoert naar de nieuwste generatie van Azure hardware- en storage-architectuur.
 
 ## <a name="why-upgrade"></a>Waarom een upgrade uitvoeren?
+
 U kunt nu naadloos upgraden naar de SQL Data Warehouse Compute geoptimaliseerd Gen2 laag in de Azure-portal voor [ondersteunde regio's](gen2-migration-schedule.md#automated-schedule-and-region-availability-table). Als uw regio biedt geen ondersteuning voor het zelf een upgrade uitvoert, kunt u een upgrade uitvoert naar een ondersteunde regio of wachten op Automatische upgrade beschikbaar zijn in uw regio. Upgrade nu om te profiteren van de nieuwste generatie van Azure-hardware- en verbeterde opslagarchitectuur zoals snellere prestaties, hogere schaalbaarheid en onbeperkte opslag in kolommen. 
 
 > [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
 ## <a name="applies-to"></a>Van toepassing op
+
 Deze upgrade is van toepassing op geoptimaliseerd Gen1 Compute-laag voor datawarehouses in [ondersteunde regio's](gen2-migration-schedule.md#automated-schedule-and-region-availability-table).
 
 ## <a name="before-you-begin"></a>Voordat u begint
@@ -49,10 +52,15 @@ Deze upgrade is van toepassing op geoptimaliseerd Gen1 Compute-laag voor datawar
    |           DW2000            |           DW2000c           |
    |           DW3000            |           DW3000c           |
    |           DW6000            |           DW6000c           |
->[!Note]
->Voorgestelde prestatieniveaus zijn niet een directe conversie. Bijvoorbeeld, beste de continuïteit van DW600 DW500c.
+
+> [!Note]
+> Voorgestelde prestatieniveaus zijn niet een directe conversie. Bijvoorbeeld, beste de continuïteit van DW600 DW500c.
 
 ## <a name="upgrade-in-a-supported-region-using-the-azure-portal"></a>Een upgrade uitvoert in een ondersteunde regio met Azure portal
+
+## <a name="before-you-begin"></a>Voordat u begint
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!NOTE]
 > Migratie van Gen1 naar Gen2 via Azure portal is definitief. Er is een proces voor het retourneren van Gen1.  
@@ -73,13 +81,13 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
    Oorspronkelijke Gen1 PowerShell-opdracht uit:
 
    ```powershell
-   Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
+   Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
    ```
 
    Gewijzigd op:
 
    ```powershell
-   Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300c"
+   Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300c"
    ```
 
    > [!NOTE] 
@@ -100,8 +108,6 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
    > [!NOTE] 
    > SERVICE_OBJECTIVE = 'DW300' wordt gewijzigd naar SERVICE_OBJECTIVE = ' DW300**c**'
 
-
-
 ## <a name="start-the-upgrade"></a>Start de upgrade
 
 1. Ga naar uw datawarehouse geoptimaliseerd Gen1 Compute-laag in Azure portal. Als het datawarehouse geoptimaliseerd Gen1 Compute-laag moet worden bijgewerkt is onderbroken, [hervatten van het datawarehouse](pause-and-resume-compute-portal.md). 
@@ -110,7 +116,6 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
     > [!NOTE]
     > Als u niet ziet de **upgraden naar Gen2** kaart op het tabblad taken, uw abonnementstype is beperkt in de huidige regio.
     > [Verzend een ondersteuningsticket](sql-data-warehouse-get-started-create-support-ticket.md) aan uw abonnement in de whitelist opgenomen.
-
 
 3. Zorg ervoor dat uw workload vóór de upgrade wordt uitgevoerd en stilgelegd is voltooid. U zult uitvaltijd moeten ervaren over een paar minuten voordat uw datawarehouse weer online is als een datawarehouse geoptimaliseerd Gen2 Compute-laag is. **Selecteer Upgrade**:
 
@@ -173,6 +178,7 @@ FROM   sys.indexes idx
                        AND idx.object_id = part.object_id 
 WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE'; 
 ```
+
 ## <a name="upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal"></a>Een upgrade uitvoert van een Azure-geografische regio met herstellen via Azure portal
 
 ## <a name="create-a-user-defined-restore-point-using-the-azure-portal"></a>Een gebruiker gedefinieerde herstelpunt met behulp van de Azure portal maken
@@ -190,6 +196,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
     ![Naam van het herstelpunt](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_1.png)
 
 ## <a name="restore-an-active-or-paused-database-using-the-azure-portal"></a>Herstellen van een actieve of onderbroken database met behulp van de Azure portal
+
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Navigeer naar de SQL datawarehouse die u herstellen wilt uit.
 3. Selecteer aan de bovenkant van de sectie overzicht **herstellen**.
@@ -205,11 +212,13 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
     ![Herstelpunten gebruiker gedefinieerd](./media/sql-data-warehouse-restore-database-portal/restoring_2_udrp.png)
 
 ## <a name="restore-from-an-azure-geographical-region-using-powershell"></a>Herstellen van een Azure-geografische regio met behulp van PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Als u wilt een database herstelt, gebruikt u de [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) cmdlet.
 
 > [!NOTE]
 > U kunt een geo-herstel naar Gen2 uitvoeren! Om dit te doen, Geef een ServiceObjectiveName Gen2 (bijvoorbeeld DW1000**c**) als een optionele parameter.
->
 
 1. Open Windows PowerShell.
 2. Verbinding maken met uw Azure-account en alle abonnementen die zijn gekoppeld aan uw account vermelden.
@@ -235,7 +244,6 @@ $GeoRestoredDatabase.status
 
 > [!NOTE]
 > Zie configureren van uw database nadat het herstel is voltooid, [configureren van uw database na het herstel](../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
->
 
 De herstelde database worden TDE is ingeschakeld als de brondatabase TDE is ingeschakeld is.
 
@@ -243,4 +251,5 @@ De herstelde database worden TDE is ingeschakeld als de brondatabase TDE is inge
 Als u problemen met uw datawarehouse ondervindt, maakt u een [ondersteuningsaanvraag](sql-data-warehouse-get-started-create-support-ticket.md) en verwijzen naar "Gen2 upgrade' als mogelijke oorzaak.
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Uw bijgewerkte datawarehouse is online. Als u wilt profiteren van de verbeterde architectuur, Zie [resourceklassen voor het beheer van de werkbelasting](resource-classes-for-workload-management.md).

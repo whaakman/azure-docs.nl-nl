@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: d833d6ea695c05f80f7823f391142fee28872c40
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 69ca51776a61b43768ce7cb1565451c4f118de6e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300248"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316520"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Multi-modeldatabase mogelijkheden van Azure SQL Database
 
@@ -124,7 +124,7 @@ CREATE TABLE Collection (
 
 U kunt deze sleutel / waarde-structuur aan uw behoeften zonder enige beperkingen aan aanpassen. Als u bijvoorbeeld de waarde in plaats van XML-document kan zijn `nvarchar(max)` type, als de waarde is een JSON-document, kunt u plaatsen `CHECK` beperking die controleert of de geldigheid van de JSON-inhoud. U kunt plaatsen van een willekeurig aantal waarden die betrekking hebben op één sleutel in de extra kolommen, toevoegen van berekende kolommen en indexen te vereenvoudigen en gegevenstoegang te optimaliseren, de tabel hebt gedefinieerd als geoptimaliseerd voor geheugen/alleen-schema-tabel ophalen voor betere prestaties, enzovoort.
 
-Zie [hoe BWin gebruikt In-Memory OLTP voor ongeëvenaarde prestaties en schaal](https://blogs.msdn.microsoft.com/sqlcat/2016/10/26/how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) voor het opslaan van de ASP.NET-oplossing die 1.200.000 bereikt batches per seconde, als een voorbeeld van hoe relationele model effectief kan worden gebruikt als sleutel / waarde-paar oplossing in de praktijk.
+Zie [hoe BWin gebruikt In-Memory OLTP voor ongeëvenaarde prestaties en schaal](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) voor het opslaan van de ASP.NET-oplossing die 1.200.000 bereikt batches per seconde, als een voorbeeld van hoe relationele model effectief kan worden gebruikt als sleutel / waarde-paar oplossing in de praktijk.
 
 ## <a name="next-steps"></a>Volgende stappen
 Multi-modeldatabase mogelijkheden in Azure SQL-Databases zijn ook de belangrijkste SQL Server Database Engine-functies die worden gedeeld tussen Azure SQL Database en SQL Server. Meer informatie over deze functies, gaat u naar de relationele SQL database-documentatiepagina's:

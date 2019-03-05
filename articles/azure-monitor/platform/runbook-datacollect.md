@@ -13,14 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 75ed69d749e23f39c03afb09f70a18cc1aed600b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 5de5191ee616f38404e2423c23f4e8b363240b0e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078572"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308326"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Gegevens verzamelen in Log Analytics met een Azure Automation-runbook
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 U kunt een aanzienlijke hoeveelheid gegevens in Log Analytics verzamelt uit diverse bronnen, zoals [gegevensbronnen](../../azure-monitor/platform/agent-data-sources.md) op agents en ook [gegevens verzameld van Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md). Er zijn een's al waar moet u het verzamelen van gegevens die niet worden geopend via deze standaard bronnen. In dergelijke gevallen kunt u de [HTTP Data Collector API](../../azure-monitor/platform/data-collector-api.md) gegevens schrijven naar Log Analytics vanuit elke client REST-API. Een veelgebruikte methode voor het uitvoeren van deze gegevensverzameling wordt met behulp van een runbook in Azure Automation.
 
 Deze zelfstudie leidt u door het proces voor het maken en plannen van een runbook in Azure Automation om gegevens te schrijven naar Log Analytics.
@@ -62,9 +65,9 @@ De PowerShell Gallery kunt u echter een snelle optie voor het implementeren van 
 
 | Eigenschap | De waarde van de werkruimte-ID | Werkruimte-sleutelwaarde |
 |:--|:--|:--|
-| Name | Werkruimte-id | WorkspaceKey |
-| Type | Reeks | Reeks |
-| Waarde | Plak in de werkruimte-ID van uw Log Analytics-werkruimte. | Plakken aan met de primaire of secundaire sleutel van uw Log Analytics-werkruimte. |
+| Name | WorkspaceId | WorkspaceKey |
+| Type | String | String |
+| Value | Plak in de werkruimte-ID van uw Log Analytics-werkruimte. | Plakken aan met de primaire of secundaire sleutel van uw Log Analytics-werkruimte. |
 | Versleuteld | Nee | Ja |
 
 ## <a name="3-create-runbook"></a>3. Runbook maken
@@ -92,7 +95,7 @@ Azure Automation heeft een editor in de portal waar u kunt bewerken en test uw r
     # Code copied from the runbook AzureAutomationTutorial.
     $connectionName = "AzureRunAsConnection"
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName
-    Connect-AzureRmAccount `
+    Connect-AzAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -109,7 +112,7 @@ Azure Automation heeft een editor in de portal waar u kunt bewerken en test uw r
     $logType = "AutomationJob"
     
     # Get the jobs from the past hour.
-    $jobs = Get-AzureRmAutomationJob -ResourceGroupName $resourceGroupName -AutomationAccountName $automationAccountName -StartTime (Get-Date).AddHours(-1)
+    $jobs = Get-AzAutomationJob -ResourceGroupName $resourceGroupName -AutomationAccountName $automationAccountName -StartTime (Get-Date).AddHours(-1)
     
     if ($jobs -ne $null) {
         # Convert the job data to json
@@ -176,9 +179,9 @@ De meest voorkomende manier om een runbook die worden verzameld van bewakingsgeg
 2. Klik op **toevoegen van een schema** > **een planning koppelen aan uw runbook** > **maakt u een nieuwe planning**.
 5. Typ de volgende waarden voor de planning en klik op **maken**.
 
-| Eigenschap | Waarde |
+| Eigenschap | Value |
 |:--|:--|
-| Name | AutomationJobs-uur |
+| Name | AutomationJobs-Hourly |
 | Start | Selecteer altijd ten minste 5 minuten na de huidige tijd. |
 | Terugkeerpatroon | Terugkerend |
 | Herhalen elke | 1 uur |

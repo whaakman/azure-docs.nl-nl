@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 704c12bc2ea16fcad5672dde4181f63495fbe967
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 07ea18a767044f0f74249859bb46d8285d52d7ab
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870836"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310179"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Verzamelen en gebruiken van logboekgegevens van uw Azure-resources
 
@@ -113,12 +113,14 @@ Diagnostische instellingen voor tenant kunnen alleen worden geconfigureerd in de
 
 ### <a name="enable-collection-of-resource-diagnostic-logs-via-powershell"></a>Inschakelen van verzamelen van diagnostische logboeken van de resource via PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Om het verzamelen van diagnostische logboeken van de resource via Azure PowerShell mogelijk, gebruik de volgende opdrachten:
 
 Om in te schakelen opslag van logboeken met diagnostische gegevens in een opslagaccount, gebruikt u deze opdracht:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
 ```
 
 De storage-account-ID is de resource-ID voor het opslagaccount waarnaar u wilt de logboeken te zenden.
@@ -126,7 +128,7 @@ De storage-account-ID is de resource-ID voor het opslagaccount waarnaar u wilt d
 Als u wilt inschakelen voor streaming van logboeken met diagnostische gegevens naar een event hub, gebruikt u deze opdracht:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
 ```
 
 De regel-ID van service bus is een tekenreeks zijn met deze indeling: `{Service Bus resource ID}/authorizationrules/{key name}`.
@@ -134,13 +136,13 @@ De regel-ID van service bus is een tekenreeks zijn met deze indeling: `{Service 
 Als u wilt inschakelen met het verzenden van diagnostische logboeken naar Log Analytics-werkruimte, moet u deze opdracht gebruiken:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
 ```
 
 U vindt de resource-ID van uw Log Analytics-werkruimte met de volgende opdracht:
 
 ```powershell
-(Get-AzureRmOperationalInsightsWorkspace).ResourceId
+(Get-AzOperationalInsightsWorkspace).ResourceId
 ```
 
 U kunt deze parameters voor het inschakelen van meerdere uitvoeropties combineren.

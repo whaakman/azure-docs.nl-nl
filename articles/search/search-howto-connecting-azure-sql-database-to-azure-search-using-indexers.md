@@ -1,7 +1,7 @@
 ---
 title: Verbinding maken en Azure SQL Database-inhoud met de indexeerfuncties - Azure Search-index
 description: Leer hoe u gegevens in Azure SQL Database met de indexeerfuncties voor zoeken in volledige tekst in Azure Search verkennen. In dit artikel bevat informatie over verbindingen, configuratie van de indexeerfunctie en opname van gegevens.
-ms.date: 10/17/2018
+ms.date: 03/01/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 7df785d1493ad2df698ff197d72824ceb15d39ad
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 5453bcdd371c0639cb1d3568f05a1768e6204d3d
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752889"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315211"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Verbinding maken met en inhoud met behulp van Azure Search-indexeerfuncties van Azure SQL Database indexeren
 

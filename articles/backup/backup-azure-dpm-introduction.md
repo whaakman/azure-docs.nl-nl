@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
-ms.openlocfilehash: bb13e507e7992f4cd4d767a7a18850739b8dccf2
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: f119d128b35b93d7e18d514c09d187689d8dffe9
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270195"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57306898"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Voorbereiden op back-up van workloads naar Azure met System Center DPM
 
@@ -48,20 +48,17 @@ DPM op een Azure-VM | System Center 2012 R2 met DPM 2012 R2 updatepakket 3 of ho
 DPM op een fysieke server | System Center 2012 SP1 of hoger. System Center 2012 R2.
 DPM op een Hyper-V-VM | System Center 2012 SP1 of hoger. System Center 2012 R2.
 DPM op een VMware-VM | System Center 2012 R2 met Update Rollup 5 of hoger.
-Onderdelen | De DPM-server moet Windows PowerShell en .net Framework 4.5 geïnstalleerd.
+Onderdelen | De DPM-server moet Windows PowerShell en .NET Framework 4.5 geïnstalleerd hebben.
 Ondersteunde apps | [Ontdek](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) waar DPM een back-up van kan maken.
 Ondersteunde bestandstypen | Deze bestandstypen kunnen een back-worden gemaakt met Azure Backup: Versleuteld (volledige back-ups alleen); Gecomprimeerd (incrementele back-ups ondersteund). Sparse (incrementele back-ups ondersteund); Gecomprimeerd en sparse (behandeld als sparse).
 Niet-ondersteunde bestandstypen | Servers op hoofdlettergevoelige bestandssystemen; vaste koppelingen (overgeslagen); reparsepunten (overgeslagen); versleuteld en gecomprimeerd (overgeslagen); versleuteld en sparse (overgeslagen); Gecomprimeerde stream; stream parseren.
-Lokale opslag | Elke machine die u back wilt-up moet lokale vrije opslagruimte die ten minste 5% van de grootte van de gegevens die back-up hebben.  Bijvoorbeeld, vereist back-ups van 100 GB aan gegevens een minimum van 5 GB aan vrije ruimte in de nieuwe locatie.
+Lokale opslag | Elke machine die u back wilt-up moet lokale vrije opslagruimte die ten minste 5% van de grootte van de gegevens die back-up hebben. Bijvoorbeeld, vereist back-ups van 100 GB aan gegevens een minimum van 5 GB aan vrije ruimte in de nieuwe locatie.
 Kluis-opslag | Er is geen limiet voor de hoeveelheid gegevens die u kunt back-up naar een Azure Backup-kluis, maar de grootte van een gegevensbron (bijvoorbeeld een virtuele machine of een database) mag niet groter zijn dan 54400 GB.
 Azure Backup-agent | Als DPM wordt uitgevoerd op System Center 2012 SP1, installeert u updatepakket 2 of hoger voor DPM SP1. Dit is vereist voor de installatie van agent.<br/><br/> In dit artikel wordt beschreven hoe u de nieuwste versie van de Azure Backup-agent, ook wel bekend als de Microsoft Azure Recovery Service agent (MARS) implementeren. Hebt u een eerdere versie is geïmplementeerd, kunt u bijwerken naar de nieuwste versie om ervoor te zorgen dat back-up werkt zoals verwacht.
 
-
 Voordat u begint, moet u een Azure-account met de Azure Backup-functie is ingeschakeld. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Meer informatie over [prijzen van Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
 
-
 [!INCLUDE [backup-create-rs-vault.md](../../includes/backup-create-rs-vault.md)]
-
 
 ## <a name="modify-storage-settings"></a>Opslaginstellingen wijzigen
 
@@ -82,7 +79,6 @@ De instelling voor opslagreplicatie bewerken:
 
     ![Lijst met back-upkluizen](./media/backup-azure-dpm-introduction/choose-storage-configuration-rs-vault.png)
 
-
 ## <a name="download-vault-credentials"></a>Kluisreferenties downloaden
 
 U kluisreferenties gebruiken wanneer u de DPM-server in de kluis registreert.
@@ -98,7 +94,7 @@ Voor de referenties kunt u het kluisreferentiebestand via een beveiligd kanaal d
 
 - De kluisreferenties worden gebruikt alleen tijdens de registratiewerkstroom.
 - Het is uw verantwoordelijkheid om ervoor te zorgen dat het bestand met kluisreferenties veilig en niet waarmee is geknoeid is.
-    -  Als de controle van de referenties verloren is gegaan, kunnen de kluisreferenties worden gebruikt om andere machines naar de kluis te registreren.
+    - Als de controle van de referenties verloren is gegaan, kunnen de kluisreferenties worden gebruikt om andere machines naar de kluis te registreren.
     - Echter worden back-upgegevens versleuteld met een wachtwoordzin die deel uitmaakt van de klant, zodat bestaande back-upgegevens kunnen niet worden aangetast.
 - Zorg ervoor dat bestand wordt opgeslagen in een locatie die toegankelijk is vanaf de DPM-server. Als deze is opgeslagen in een bestand share/SMB, controleert de toegangsmachtigingen.
 - De kluisreferenties verlopen na 48 uur. U kunt download nieuwe kluisreferenties zo vaak als nodig is. Alleen de meest recente kluisreferentiebestand kan echter worden gebruikt tijdens de registratiewerkstroom.
@@ -138,8 +134,7 @@ Elke machine die wordt ondersteund door Azure Backup moet de backup-agent (ook w
 7. De Azure backup-agent installeert .NET Framework 4.5 en Windows PowerShell (als deze zijn niet geïnstalleerd) om de installatie te voltooien.
 8. Nadat de agent is geïnstalleerd, **sluiten** het venster.
 
-   ![Sluiten](../../includes/media/backup-install-agent/dpm_FinishInstallation.png)
-
+    ![Sluiten](../../includes/media/backup-install-agent/dpm_FinishInstallation.png)
 
 ## <a name="register-the-dpm-server-in-the-vault"></a>De DPM-server in de kluis registreren
 
@@ -175,8 +170,7 @@ Elke machine die wordt ondersteund door Azure Backup moet de backup-agent (ook w
     > De wachtwoordzin voor versleuteling van jou en Microsoft biedt geen inzicht hebben in deze.
     > Als de wachtwoordzin kwijtraakt of vergeet; Microsoft kan niet helpen bij het herstellen van de back-upgegevens.
 
-13. Klik op **registreren** de DPM-server naar de kluis registreren.  
-
+13. Klik op **registreren** de DPM-server naar de kluis registreren.
 
 Nadat de server is geregistreerd, is naar bent de kluis en u nu klaar om te starten van back-ups op Microsoft Azure.
 

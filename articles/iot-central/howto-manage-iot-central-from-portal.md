@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 01/14/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 8c5b32464a9c6253dc34d070d64a1645f523a80c
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: f58d06cd191166f47d864241564bc57019b59132
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804430"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316571"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>IoT Central beheren vanuit Azure portal
 
@@ -23,7 +23,7 @@ In plaats van het maken en beheren van IoT Central-toepassingen van de IoT Centr
 
 ## <a name="create-iot-central-applications"></a>IoT Central-toepassingen maken
 
-Voor het maken van een toepassing, gaat u naar de [Azure-portal](https://ms.portal.azure.com) en klikt u op **een resource maken** in het hoofdgedeelte voor navigatie-menu aan de linkerkant.
+Voor het maken van een toepassing, gaat u naar de [Azure-portal](https://ms.portal.azure.com) en selecteer **een resource maken** in het hoofdgedeelte voor navigatie-menu aan de linkerkant.
 
 ![Beheerportal: nav-menu](media/howto-manage-iot-central-from-portal/image0.png)
 
@@ -31,11 +31,11 @@ Typ in de zoekbalk typt, **IoT Central**.
 
 ![Beheerportal: zoeken](media/howto-manage-iot-central-from-portal/image0a.png)
 
-Klik op de **IoT Central Application** regelitem in de lijst met zoekresultaten.
+Selecteer de **IoT Central Application** regelitem in de lijst met zoekresultaten.
 
 ![Beheerportal: zoekresultaten](media/howto-manage-iot-central-from-portal/image0b.png)
 
-Klik nu op de **maken** knop.
+Selecteer nu **maken**.
 
 ![Beheerportal: IoT Central-resource](media/howto-manage-iot-central-from-portal/image0c.png)
 
@@ -43,7 +43,7 @@ Vul de velden in het formulier. Dit formulier is vergelijkbaar met het formulier
 
 ![Beheerportal: IoT Central-resource maken](media/howto-manage-iot-central-from-portal/image1.png)  
 
-Nadat u alle velden invullen, klikt u op de **maken** knop.
+Na het invullen van alle velden, selecteer **maken**.
 
 ## <a name="manage-existing-iot-central-applications"></a>Bestaande IoT Central toepassingen beheren
 
@@ -52,19 +52,19 @@ Als u al een Azure IoT Central-toepassing verwijderen of verplaatsen naar een an
 > [!NOTE]
 > U kunt proefversie toepassingen in Azure portal niet zien, omdat ze niet gekoppeld aan uw abonnement zijn.
 
-Als u wilt beginnen, klikt u op **alle resources** in het hoofdgedeelte voor navigatie-menu aan de linkerkant. Gebruik het zoekvak typt de naam van uw toepassing te vinden in de lijst met resources. Klik vervolgens op het IoT Central-toepassing die u wilt beheren.
+Selecteer om te beginnen, **alle resources** in het hoofdgedeelte voor navigatie-menu aan de linkerkant. Gebruik het zoekvak typt de naam van uw toepassing te vinden in de lijst met resources. Selecteer vervolgens de IoT Central-toepassing die u wilt beheren.
 
 ![Beheerportal: resourcebeheer](media/howto-manage-iot-central-from-portal/image2.png)
 
-Ga naar de toepassing, klikt u op de URL van IoT Central-toepassing.
+Ga naar de toepassing, selecteert u de URL van IoT Central-toepassing.
 
 ![Beheerportal: resourcebeheer](media/howto-manage-iot-central-from-portal/image3.png)
 
-Voor het verplaatsen van de toepassing naar een andere resourcegroep, klikt u op **wijzigen** naast de resourcegroep. Op de **resources verplaatsen** pagina, kies de resourcegroep die u wilt migreren van deze toepassing.
+Om de toepassing naar een andere resourcegroep verplaatsen, selecteert u **wijzigen** naast de resourcegroep. Op de **resources verplaatsen** pagina, kies de resourcegroep die u wilt migreren van deze toepassing.
 
 ![Beheerportal: resourcebeheer](media/howto-manage-iot-central-from-portal/image4.png)
 
-Voor het verplaatsen van de toepassing naar een ander abonnement, klikt u op de **wijzigen** koppeling naast het abonnement. Kies het abonnement waarvoor u wilt migreren van deze toepassing in het dialoogvenster dat wordt weergegeven.
+Selecteer voor het verplaatsen van de toepassing naar een ander abonnement, de **wijzigen** koppeling naast het abonnement. Kies het abonnement waarvoor u wilt migreren van deze toepassing in het dialoogvenster dat wordt weergegeven.
 
 ![Beheerportal: resourcebeheer](media/howto-manage-iot-central-from-portal/image5.png)
 

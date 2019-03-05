@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 8f4b39141a9509990525769833e2cd193419752c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 3d187851fda9054bbfbae245ef34440b66ad017e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469369"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309312"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Diagnostische logboeken naar Log Analytics in Azure Stream
 
@@ -65,10 +65,13 @@ De Log Analytics-werkruimte heeft geen zich in hetzelfde abonnement als de resou
 Na enkele ogenblikken wordt de nieuwe instelling wordt weergegeven in de lijst met instellingen voor deze resource en logboeken met diagnostische gegevens worden gestreamd naar deze werkruimte zodra de gegevens van een nieuwe gebeurtenis wordt gegenereerd. Houd er rekening mee dat er maximaal vijftien minuten tussen wanneer een gebeurtenis wordt verzonden en wanneer deze wordt weergegeven in Log Analytics kan zijn.
 
 ### <a name="via-powershell-cmdlets"></a>Via PowerShell-Cmdlets
-Om in te schakelen streaming via de [Azure PowerShell-Cmdlets](../../azure-monitor/platform/powershell-quickstart-samples.md), kunt u de `Set-AzureRmDiagnosticSetting` cmdlet met de volgende parameters:
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Om in te schakelen streaming via de [Azure PowerShell-Cmdlets](../../azure-monitor/platform/powershell-quickstart-samples.md), kunt u de `Set-AzDiagnosticSetting` cmdlet met de volgende parameters:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -WorkspaceID [resource ID of the Log Analytics workspace] -Categories [list of log categories] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource ID] -WorkspaceID [resource ID of the Log Analytics workspace] -Categories [list of log categories] -Enabled $true
 ```
 
 Houd er rekening mee dat de werkruimte-id-eigenschap duurt de volledige Azure-resource-ID van de werkruimte, niet de werkruimte-ID/sleutel wordt weergegeven in de Log Analytics-portal voordat.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
 ms.author: aljo
-ms.openlocfilehash: 047e058fee6cd72a7eeaecdde976b1b9d49aeb5c
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 534335b15d61d1e411ec2e7fb96123eb4701878e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958946"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315266"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Toevoegen of verwijderen van certificaten voor een Service Fabric-cluster in Azure
 Het verdient aanbeveling dat u raken met het Service Fabric maakt gebruik van x.509-certificaten en vertrouwd met zijn de [clusterbeveiligingsscenario's](service-fabric-cluster-security.md). U moet begrijpen wat een clustercertificaat is en wat wordt gebruikt voor, voordat u verder gaat.
@@ -259,7 +259,7 @@ Voor snelle naslag volgt de opdracht voor het ophalen van de clusterstatus
 Get-ServiceFabricClusterHealth 
 ```
 
-## <a name="deploying-application-certificates-to-the-cluster"></a>Certificaten van de toepassing implementeren naar het cluster.
+## <a name="deploying-client-certificates-to-the-cluster"></a>Clientcertificaten implementeren met het cluster.
 
 U kunt dezelfde stappen gebruiken zoals wordt beschreven in de voorgaande stap 5 om de certificaten die zijn geïmplementeerd in een Key Vault op de knooppunten. U moet alleen definiëren en gebruiken van verschillende parameters.
 

@@ -11,22 +11,26 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 96b22a6e44142fef8d47dc228d5491c31c65478f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 14a9e369f3366fc103cde2f0faafb570de409de7
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823056"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311862"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java-handleiding voor ontwikkelaars
 
 Biedt ondersteuning voor de Azure Functions-runtime [Java SE 8 LTS (zulu8.31.0.2 jre8.0.181 win_x64)](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/).
 
-## <a name="programming-model"></a>Programmeermodel
+Deze handleiding bevat informatie over de complexiteit van het schrijven van Azure Functions met behulp van Java.
+
+Een Java-functie is een `public` methode voorzien van aantekeningen `@FunctionName`. Deze methode bepaalt de vermelding voor een java-functie en moet uniek zijn in een opgegeven pakket. 
+
+In dit artikel wordt ervan uitgegaan dat u al hebt gelezen de [referentie voor ontwikkelaars van Azure Functions](functions-reference.md). U moet ook uitvoeren met de Snelstartgids voor Functions voor het maken van uw eerste functie, met behulp van [Visual Studio Code](functions-create-first-function-vs-code.md) of [met behulp van maven](functions-create-first-java-maven.md).
+
+## <a name="programming-model"></a>Programmeermodel 
 
 De concepten van [triggers en bindingen](functions-triggers-bindings.md) zijn essentieel voor Azure Functions. Triggers start de uitvoering van code. Bindingen kunnen u een manier om gegevens aan doorgeven en als resultaat de gegevens van een functie zonder te hoeven schrijven van aangepaste code voor gegevenstoegang.
-
-Een functie moet een stateless methode voor het verwerken van invoer en uitvoer produceren. De functie moet niet afhankelijk van de exemplaarvelden van een van de klasse. Alle methoden voor de functie moet `public` en de methode met aantekening @FunctionName moet uniek zijn als de naam van methode de vermelding voor een functie definieert.
 
 ## <a name="folder-structure"></a>mapstructuur
 

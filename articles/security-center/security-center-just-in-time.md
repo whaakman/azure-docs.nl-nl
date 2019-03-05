@@ -3,7 +3,7 @@ title: Just-in-time-VM-toegang in Azure Security Center | Microsoft Docs
 description: Dit document laat zien hoe just-in-time-VM-toegang in Azure Security Center helpt u bepalen de toegang tot uw Azure virtual machines.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/4/2018
-ms.author: rkarlin
-ms.openlocfilehash: 2bfa3b6001d714da39ebeb709600504f9d7331c5
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.date: 2/28/2019
+ms.author: monhaber
+ms.openlocfilehash: 9cdcfbc6074f8e343e2571063cc5dafe54072753
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733654"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314769"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Beheer van de virtuele machine toegang met just-in-time
 
@@ -144,11 +144,11 @@ Hiermee kunt just-in-time-toegang voor de virtuele machine met behulp van de vol
 - Windows-servers:
     - RDP-poort 3389
     - drie uur van de maximale toegestane toegang
-    - Toegestane bron-IP-adressen is ingesteld op Per aanvraag
+    - Toegestane bron-IP-adressen is ingesteld op een
 - Linux-servers:
     - SSH-poort 22
     - drie uur van de maximale toegestane toegang
-    - Toegestane bron-IP-adressen is ingesteld op Per aanvraag
+    - Toegestane bron-IP-adressen is ingesteld op een
      
 Als een virtuele machine al just is-in-time ingeschakeld, wanneer u gaat u naar de configuratiepagina zich kunt u kunt zien dat just-in-time is ingeschakeld en kunt u de koppeling te openen van het beleid in Azure Security Center te bekijken en wijzigen van de instellingen.
 

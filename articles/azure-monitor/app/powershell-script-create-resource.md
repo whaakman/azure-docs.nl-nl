@@ -12,15 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/19/2016
 ms.author: mbullwin
-ms.openlocfilehash: 3fe6a89073da731332a91ece40a6ea6f667d150a
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 91790f372dce4322d316b42c4bfa7ad36625c91d
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54003380"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315568"
 ---
 # <a name="powershell-script-to-create-an-application-insights-resource"></a>PowerShell-script om een Application Insights-resource te maken
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Indien u wenst te bewaken van een nieuwe toepassing- of een nieuwe versie van een toepassing - met [Azure Application Insights](https://azure.microsoft.com/services/application-insights/), instellen van een nieuwe resource in Microsoft Azure. Deze resource is waar de telemetriegegevens van uw app is geanalyseerd en weergegeven. 
 
@@ -36,8 +37,8 @@ Bijvoorbeeld, als u een mobiel apparaat-app ontwikkelt, waarschijnlijk dat op el
 ## <a name="script-to-create-an-application-insights-resource"></a>Script voor het maken van een Application Insights-resource
 Zie de specificaties van de desbetreffende cmdlet:
 
-* [New-AzureRmResource](https://msdn.microsoft.com/library/mt652510.aspx)
-* [New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt678995.aspx)
+* [New-AzResource](https://msdn.microsoft.com/library/mt652510.aspx)
+* [New-AzRoleAssignment](https://msdn.microsoft.com/library/mt678995.aspx)
 
 *PowerShell-Script*  
 
@@ -51,7 +52,7 @@ Zie de specificaties van de desbetreffende cmdlet:
 # If running manually, uncomment before the first 
 # execution to login to the Azure Portal:
 
-# Connect-AzureRmAccount / Connect-AzureRmAccount
+# Connect-AzAccount / Connect-AzAccount
 
 # Set the name of the Application Insights Resource
 
@@ -75,7 +76,7 @@ Select-AzureSubscription -SubscriptionName "MySubscription"
 # Create the App Insights Resource
 
 
-$resource = New-AzureRmResource `
+$resource = New-AzResource `
   -ResourceName $appInsightsName `
   -ResourceGroupName $resourceGroupName `
   -Tag @{ applicationType = "web"; applicationName = $applicationTagName} `
@@ -86,7 +87,7 @@ $resource = New-AzureRmResource `
 
 # Give owner access to the team
 
-New-AzureRmRoleAssignment `
+New-AzRoleAssignment `
   -SignInName "myteam@fabrikam.com" `
   -RoleDefinitionName Owner `
   -Scope $resource.ResourceId 
@@ -104,7 +105,7 @@ Elke resource wordt geïdentificeerd door de instrumentatiesleutel (iKey). De iK
 Er zijn twee manieren om de iKey beschikbaar te maken met de SDK:
 
 * In [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md): 
-  * `<instrumentationkey>`*iKey*`</instrumentationkey>`
+  * `<instrumentationkey>`*ikey*`</instrumentationkey>`
 * Of in [initialisatiecode](../../azure-monitor/app/api-custom-events-metrics.md): 
   * `Microsoft.ApplicationInsights.Extensibility.
     TelemetryConfiguration.Active.InstrumentationKey = "`*iKey*`";`

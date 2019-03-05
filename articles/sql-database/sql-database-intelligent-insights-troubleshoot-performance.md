@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 34e4371902095c5802bf4fc180e09ce189c110fc
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: fff4aa947f878974d2d0f18f373b8c0917ed7d70
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214007"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316044"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Oplossen van prestatieproblemen met de Azure SQL Database met intelligente inzichten
 
@@ -73,7 +73,7 @@ De logboekbestanden met diagnostische gegevens voert query-hashes van query's di
 
 Als u de beschikbare limieten zijn bereikt, kunt u uw toepassingen optimaliseren door het aantal aanmeldingen die zijn aangebracht in de database te verminderen. Als u niet te verminderen van het aantal aanmeldingen van uw toepassingen met de database, houd rekening met de prijscategorie van uw database te verhogen. Of u kunt splitsen en verplaatsen van uw database in meerdere databases voor een meer evenwichtige verdeling van de werkbelasting.
 
-Zie voor meer suggesties voor het oplossen van sessielimieten, [omgaan met de beperkingen van de SQL-Database maximale aanmeldingen](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Zie [overzicht van de resource op een SQL-databaseserver beperkt](sql-database-resource-limits-database-server.md) voor informatie over de beperkingen op het niveau van de server en -abonnement.
+Zie voor meer suggesties voor het oplossen van sessielimieten, [omgaan met de beperkingen van de SQL-Database maximale aanmeldingen](https://blogs.technet.microsoft.com/latam/20../../how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Zie [overzicht van de resource op een SQL-databaseserver beperkt](sql-database-resource-limits-database-server.md) voor informatie over de beperkingen op het niveau van de server en -abonnement.
 
 ## <a name="workload-increase"></a>Toename van de werkbelasting
 
@@ -109,7 +109,7 @@ U kunt optimaliseren of verwijderen van query's met betrekking tot de clerks met
 
 U kunt ook de werkbelasting beperken door optimaliseren of te verdelen over meerdere databases. Of u uw werkbelasting tussen meerdere databases kunt verdelen. Als deze oplossingen niet mogelijk is, kunt u overwegen de prijscategorie van uw SQL database-abonnement te verhogen van de hoeveelheid geheugenresources beschikbaar zijn voor de database te verhogen.
 
-Zie voor meer suggesties voor probleemoplossing, [geheugen verleent meditation: De verwarrende SQL Server-geheugen consument met veel namen](https://blogs.msdn.microsoft.com/sqlmeditation/2013/01/01/memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/).
+Zie voor meer suggesties voor probleemoplossing, [geheugen verleent meditation: De verwarrende SQL Server-geheugen consument met veel namen](https://blogs.msdn.microsoft.com/sqlmeditation/20../../memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/).
 
 ## <a name="locking"></a>Vergrendelen
 
@@ -259,7 +259,7 @@ Dit patroon detecteerbare prestaties combineert drie andere gevallen van regress
 
 Het nieuwe abonnement regressie voorwaarde verwijst naar een status waarin SQL-Database wordt uitgevoerd van een nieuwe query uitvoeringsplan die niet zo efficiënt als het oude plan. De oude plan regressie voorwaarde verwijst naar de status als SQL-Database stapt over van het gebruik van een nieuwe, efficiënter-abonnement op het oude plan, dat niet zo efficiënt als het nieuwe abonnement. De bestaande abonnementen gewijzigd werkbelasting regressie verwijst naar de status waarin de oude en de nieuwe plannen continu alternatieve, met de balans meer gaat naar het plan slechte prestaties.
 
-Zie voor meer informatie over planning regressie [wat plan regressie in SQL Server is?](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/06/09/what-is-plan-regression-in-sql-server/). 
+Zie voor meer informatie over planning regressie [wat plan regressie in SQL Server is?](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../what-is-plan-regression-in-sql-server/). 
 
 ### <a name="troubleshooting"></a>Problemen oplossen
 
@@ -267,7 +267,7 @@ De logboekbestanden met diagnostische gegevens levert de query-hashes, goede pla
 
 U kunt analyseren welk plan is het beter uitvoeren voor uw specifieke query's die u met de opgegeven query-hashes identificeren kunt. Nadat u hebt vastgesteld welke werkt dit plan beter voor uw query's, kunt u het handmatig afdwingt. 
 
-Zie voor meer informatie, [informatie over hoe SQL-Server voorkomt voor plan regressie](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/04/25/you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/).
+Zie voor meer informatie, [informatie over hoe SQL-Server voorkomt voor plan regressie](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/).
 
 > [!TIP]
 > Wist u dat de best presterende query-uitvoering plannen voor uw databases automatisch door SQL Database ingebouwde intelligentie kunt beheren?

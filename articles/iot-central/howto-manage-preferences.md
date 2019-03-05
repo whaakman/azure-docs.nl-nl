@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 21814ddf6af5e65725f5e0e6ebdf31206565baa2
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: dd6148d2d817b1f2465b6beaba5fd488b16ead21
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57218002"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315959"
 ---
 # <a name="manage-your-application-preferences"></a>Uw Toepassingsvoorkeuren voor de beheren
 
@@ -27,7 +27,7 @@ IoT Central wordt ondersteund in meerdere talen. U kunt uw voorkeurstaal schakel
 
 ## <a name="changing-theme"></a>Thema wijzigen
 
-We hebben ondersteuning voor zowel donker thema en lichte thema. Terwijl het lichte thema de standaardinstelling is, kunt u dit wijzigen door te klikken op het Instellingenpictogram op de bovenste navigatiebalk.
+We hebben ondersteuning voor zowel donker thema en lichte thema. Terwijl het lichte thema de standaardinstelling is, kunt u dit wijzigen door het Instellingenpictogram op de bovenste navigatiebalk te selecteren.
 
 ![Themakiezer IoT Central](media/howto-manage-preferences/settings.png)
 

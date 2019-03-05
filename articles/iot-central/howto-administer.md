@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: feaedff2cb9f8eae30fd17c497b4a2f6de490b07
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d325c30173955ff7c08099a125094ffe620c7ee3
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822592"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313375"
 ---
 # <a name="administer-your-iot-central-application"></a>Uw IoT Central-toepassing beheren
 
@@ -46,7 +46,7 @@ Als u wilt wijzigen van de installatiekopie van de toepassing, Zie [voorbereiden
 ### <a name="copy-an-application"></a>Kopiëren van een toepassing
 U kunt een kopie van een toepassing, verminderd met elk apparaatexemplaren, de geschiedenis van apparaat en de gebruikersgegevens kunt maken. De kopie zich een betalen per gebruik-toepassing die u in rekening gebracht. U kunt een toepassing proefversie kan niet maken op deze manier.
 
-Klik op de **kopie** knop. Geef de details voor de nieuwe betalen per gebruik-toepassing in het dialoogvenster. Klik vervolgens op de **kopie** knop om te bevestigen dat u wilt doorgaan. Meer informatie over de velden in dit formulier in [maken van een toepassing](quick-deploy-iot-central.md) Quick Start.
+Selecteer **kopie**. Geef de details voor de nieuwe betalen per gebruik-toepassing in het dialoogvenster. Selecteer vervolgens **kopie** om te bevestigen dat u wilt doorgaan. Meer informatie over de velden in dit formulier in [maken van een toepassing](quick-deploy-iot-central.md) Quick Start.
 
 ![De instellingenpagina van toepassing](media/howto-administer/appCopy2.png)
 
@@ -131,13 +131,13 @@ Volg deze stappen voor het voltooien van deze Self-serviceproces:
 
     ![De status van de proefversie](media/howto-administer/freetrialbilling.png)
 
-1. Klik op **converteren naar betalen per gebruik**. 
+1. Selecteer **converteren naar betalen per gebruik**. 
 
     ![Evaluatieversie converteren](media/howto-administer/convert.png)
 
 1. Selecteer de juiste Azure Active Directory, en vervolgens het Azure-abonnement moet worden gebruikt voor uw toepassing betalen per gebruik.
 
-1. Nadat u op **converteren**, uw toepassing is nu een betalen per gebruik-toepassing en u wordt gefactureerd.
+1. Nadat u hebt geselecteerd **converteren**, uw toepassing is nu een betalen per gebruik-toepassing en u wordt gefactureerd.
 
 ## <a name="export-data"></a>Gegevens exporteren
 

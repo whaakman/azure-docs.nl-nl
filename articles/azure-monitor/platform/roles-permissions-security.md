@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 4ca5803ca410e3250e025eb60b5c1ff9fc7216b1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 55a7a26815dac1140d100c05a47057f8d5000f9d
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465238"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317812"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Aan de slag met rollen, machtigingen en beveiliging met Azure Monitor
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Veel teams moeten strikt regelen de toegang tot gegevens en instellingen controleren. Bijvoorbeeld, als u de teamleden die uitsluitend over het bewaken van (ondersteuningstechnici, devops-technici) werken hebt of als u een provider van beheerde services gebruikt, kunt u ze om toegang te verlenen tot alleen bewakingsgegevens tijdens het beperken van de mogelijkheid om te maken, wijzigen, of resources verwijderen. In dit artikel laat zien hoe snel een ingebouwde bewaking RBAC-rol van toepassing op een gebruiker in Azure of bouw uw eigen aangepaste rol voor een gebruiker bent en beperkte machtigingen voor bewaking. Hierin worden vervolgens beveiligingsoverwegingen voor uw resources met betrekking tot Azure Monitor en het beperken van toegang tot de gegevens die ze bevatten.
 
 ## <a name="built-in-monitoring-roles"></a>Ingebouwde bewaking rollen
@@ -49,8 +52,8 @@ Mensen de rol Lezer bewaking toe kunt alle controlegegevens weergeven in een abo
 Mensen de rol Inzender bewaking toegewezen kan alle controlegegevens weergeven in een abonnement en maak of controle-instellingen wijzigen, maar alle andere resources kunnen niet worden gewijzigd. Deze rol is een superset van de rol van lezer bewaking en geschikt is voor leden van de controle-team van een organisatie of de providers van beheerde services die naast de bovenstaande, machtigingen en ook moet kunnen:
 
 * Monitoring dashboards als een gedeeld dashboard publiceren.
-* Stel [diagnostische instellingen](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) voor een resource.*
-* Stel de [logboekprofiel](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) voor een wijzigen.*
+* Stel [diagnostische instellingen](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) voor een resource.\*
+* Stel de [logboekprofiel](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) voor een abonnement.\*
 * Activiteit van de regels voor waarschuwingen en-instellingen via [Azure-waarschuwingen](../../azure-monitor/platform/alerts-overview.md).
 * Application Insights-webtests en -onderdelen maken.
 * Lijst met Log Analytics-werkruimte gedeelde sleutels.
@@ -58,7 +61,7 @@ Mensen de rol Inzender bewaking toegewezen kan alle controlegegevens weergeven i
 * Maken en verwijderen en Log Analytics opgeslagen zoekopdrachten uitvoeren.
 * Maak en verwijder de opslagconfiguratie voor logboekanalyse.
 
-* de gebruiker moet ook afzonderlijk worden verleend ListKeys machtiging voor de doelresource (storage-account of event hub-naamruimte) een logboekprofiel of de diagnostische instelling in te stellen.
+\*de gebruiker moet ook afzonderlijk worden verleend ListKeys machtiging voor de doelresource (storage-account of event hub-naamruimte) een logboekprofiel of de diagnostische instelling in te stellen.
 
 > [!NOTE]
 > Deze rol heeft geen leestoegang geven tot logboekgegevens die zijn gestreamd naar een event hub of die zijn opgeslagen in een storage-account. [Zie hieronder](#security-considerations-for-monitoring-data) voor informatie over het configureren van toegang tot deze bronnen.
@@ -98,7 +101,7 @@ Als de bovenstaande ingebouwde rollen niet voldoen aan de exacte behoeften van u
 Bijvoorbeeld, met behulp van de bovenstaande tabel die u kunt een aangepaste RBAC-rol maken voor een 'activiteit Log Reader' als volgt:
 
 ```powershell
-$role = Get-AzureRmRoleDefinition "Reader"
+$role = Get-AzRoleDefinition "Reader"
 $role.Id = $null
 $role.Name = "Activity Log Reader"
 $role.Description = "Can view activity logs."
@@ -106,7 +109,7 @@ $role.Actions.Clear()
 $role.Actions.Add("Microsoft.Insights/eventtypes/*")
 $role.AssignableScopes.Clear()
 $role.AssignableScopes.Add("/subscriptions/mySubscription")
-New-AzureRmRoleDefinition -Role $role 
+New-AzRoleDefinition -Role $role 
 ```
 
 ## <a name="security-considerations-for-monitoring-data"></a>Beveiligingsoverwegingen voor het bewaken van gegevens
@@ -127,8 +130,8 @@ Alle drie van de volgende gegevenstypen kunnen worden opgeslagen in een opslagac
 Wanneer een gebruiker of toepassing moet toegang tot gegevens in een storage-account te controleren, moet u [genereren van een Account-SAS](https://msdn.microsoft.com/library/azure/mt584140.aspx) op het opslagaccount waarin gegevens met service level alleen-lezen toegang tot blob-opslag. In PowerShell, dit als volgt uitzien:
 
 ```powershell
-$context = New-AzureStorageContext -ConnectionString "[connection string for your monitoring Storage Account]"
-$token = New-AzureStorageAccountSASToken -ResourceType Service -Service Blob -Permission "rl" -Context $context
+$context = New-AzStorageContext -ConnectionString "[connection string for your monitoring Storage Account]"
+$token = New-AzStorageAccountSASToken -ResourceType Service -Service Blob -Permission "rl" -Context $context
 ```
 
 U kunt vervolgens het token naar de entiteit geven dat moet leesrechten voor deze opslag-account en het kunt weergeven en uit alle blobs in dat opslagaccount lezen.
@@ -136,7 +139,7 @@ U kunt vervolgens het token naar de entiteit geven dat moet leesrechten voor dez
 U kunt ook als u nodig hebt voor het beheren van deze machtiging met RBAC, kunt u die entiteit de Microsoft.Storage/storageAccounts/listkeys/action machtiging verlenen voor die bepaalde storage-account. Dit is nodig voor gebruikers die nodig kunnen een diagnostische instelling instellen of logboekprofiel te archiveren naar een opslagaccount. U kunt bijvoorbeeld de volgende aangepaste RBAC-rol voor een gebruiker of toepassing die moet alleen lezen uit een opslagaccount maken:
 
 ```powershell
-$role = Get-AzureRmRoleDefinition "Reader"
+$role = Get-AzRoleDefinition "Reader"
 $role.Id = $null
 $role.Name = "Monitoring Storage Account Reader"
 $role.Description = "Can get the storage account keys for a monitoring storage account."
@@ -145,7 +148,7 @@ $role.Actions.Add("Microsoft.Storage/storageAccounts/listkeys/action")
 $role.Actions.Add("Microsoft.Storage/storageAccounts/Read")
 $role.AssignableScopes.Clear()
 $role.AssignableScopes.Add("/subscriptions/mySubscription/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myMonitoringStorageAccount")
-New-AzureRmRoleDefinition -Role $role 
+New-AzRoleDefinition -Role $role 
 ```
 
 > [!WARNING]
@@ -160,7 +163,7 @@ Een vergelijkbaar patroon kan worden gevolgd met eventhubs, maar u moet eerst ee
 2. Als de consument kunnen om op te halen van de belangrijkste ad-hoc moet, verleent u de gebruiker de actie ListKeys voor die event hub. Dit is ook nodig zijn voor gebruikers die willen kunnen een diagnostische instelling instellen of logboekprofiel te streamen naar eventhubs. U kunt bijvoorbeeld een regel voor RBAC maken:
    
    ```powershell
-   $role = Get-AzureRmRoleDefinition "Reader"
+   $role = Get-AzRoleDefinition "Reader"
    $role.Id = $null
    $role.Name = "Monitoring Event Hub Listener"
    $role.Description = "Can get the key to listen to an event hub streaming monitoring data."
@@ -169,7 +172,7 @@ Een vergelijkbaar patroon kan worden gevolgd met eventhubs, maar u moet eerst ee
    $role.Actions.Add("Microsoft.ServiceBus/namespaces/Read")
    $role.AssignableScopes.Clear()
    $role.AssignableScopes.Add("/subscriptions/mySubscription/resourceGroups/myResourceGroup/providers/Microsoft.ServiceBus/namespaces/mySBNameSpace")
-   New-AzureRmRoleDefinition -Role $role 
+   New-AzRoleDefinition -Role $role 
    ```
 
 ## <a name="monitoring-within-a-secured-virtual-network"></a>Bewaking in een beveiligde Virtueelnetwerk

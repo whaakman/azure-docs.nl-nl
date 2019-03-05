@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 1ef779e64995c6996538b68b892cb45f11788067
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: b5299af375646e7759d0770139df2cd6d7ce105c
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54477461"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314074"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Stream Azure diagnostische logboeken naar een event hub
 **[Diagnostische logboeken in Azure](diagnostic-logs-overview.md)**  kan worden gestreamd in bijna realtime voor elke toepassing met behulp van de ingebouwde 'Exporteren naar Event Hubs'-optie in de Portal of door in te schakelen van de Event Hub autorisatie regel-ID in een diagnostische instelling via de Azure PowerShell-Cmdlets of Azure CLI.
@@ -83,10 +83,12 @@ Na enkele ogenblikken wordt de nieuwe instelling wordt weergegeven in de lijst m
 
 ### <a name="via-powershell-cmdlets"></a>Via PowerShell-Cmdlets
 
-Om in te schakelen streaming via de [Azure PowerShell-Cmdlets](../../azure-monitor/platform/powershell-quickstart-samples.md), kunt u de `Set-AzureRmDiagnosticSetting` cmdlet met de volgende parameters:
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Om in te schakelen streaming via de [Azure PowerShell-Cmdlets](../../azure-monitor/platform/powershell-quickstart-samples.md), kunt u de `Set-AzDiagnosticSetting` cmdlet met de volgende parameters:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizationRuleId [your Event Hub namespace auth rule ID] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizationRuleId [your Event Hub namespace auth rule ID] -Enabled $true
 ```
 
 Regel-ID voor de Event Hub-autorisatie is een tekenreeks zijn met deze indeling: `{Event Hub namespace resource ID}/authorizationrules/{key name}`, bijvoorbeeld `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`. U selecteren de naam van een specifieke event hub met PowerShell op dit moment niet.

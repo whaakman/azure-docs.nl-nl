@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: b903d20136beb306d3f38fbebdb70562b3634d31
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 55aed5d1133756789c3ed8979f0a9599f465e5d9
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749780"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315092"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Gegevens weergeven vanuit Azure Monitor
 In dit artikel bevat een samenvatting van de beschikbare methoden voor het visualiseren van logboek- en metrische gegevens die zijn opgeslagen in Azure Monitor.
@@ -53,7 +53,7 @@ Visualisaties, zoals diagrammen en grafieken kunt u bij het analyseren van uw ge
 ## <a name="azure-monitor-views"></a>Azure Monitor-weergaven
 [Weergaven in Azure Monitor](platform/view-designer.md) kunt u aangepaste visualisaties maken met logboekgegevens. Ze worden gebruikt door [bewakingsoplossingen](insights/solutions.md) om de gegevens die zij verzamelen te presenteren.
 
-![Weergeven](media/visualizations/view.png)
+![Weergave](media/visualizations/view.png)
 
 ### <a name="advantages"></a>Voordelen
 - Uitgebreide visualisaties voor logboekgegevens.
@@ -71,9 +71,8 @@ Visualisaties, zoals diagrammen en grafieken kunt u bij het analyseren van uw ge
 - Query's worden in Antwoordgrootte beperkt tot 8MB en query uitvoeringstijd van 110 seconden.
 
 
-
-## <a name="application-insights-workbooks"></a>Application Insights-werkmappen
-[Werkmappen](../application-insights/app-insights-usage-workbooks.md) interactieve documenten die inzicht in uw gegevens, onderzoek en samenwerking binnen het team bieden. Specifieke voorbeelden waarin werkmappen nuttig zijn zijn voor probleemoplossing handleidingen en postmortem incident.
+## <a name="workbooks"></a>Werkmappen
+[Werkmappen](../azure-monitor/app/usage-workbooks.md) interactieve documenten die inzicht in uw gegevens, onderzoek en samenwerking binnen het team bieden. Specifieke voorbeelden waarin werkmappen nuttig zijn zijn voor probleemoplossing handleidingen en postmortem incident.
 
 ![Werkmap](media/visualizations/workbook.png)
 
@@ -122,7 +121,6 @@ Visualisaties, zoals diagrammen en grafieken kunt u bij het analyseren van uw ge
 - Biedt ondersteuning voor parameters.
 
 ### <a name="limitations"></a>Beperkingen
-- Ondersteunt metrische gegevens, maar niet de logboeken.
 - Geen integratie van Azure. Dashboards en -modellen via Azure Resource Manager kan niet beheren.
 - Kosten voor de ondersteuning voor Grafana Cloud extra Grafana infrastructuur of extra kosten.
 
@@ -142,6 +140,7 @@ U kunt gegevens in Logboeken en metrische gegevens in Azure Monitor openen via h
 - Meer informatie over de [gegevens verzameld door Azure Monitor](platform/data-collection.md).
 - Meer informatie over [Azure-dashboards](../azure-portal/azure-portal-dashboards.md).
 - Meer informatie over [weergaven in Azure Monitor](platform/view-designer.md).
-- Meer informatie over [werkmappen in Application Insights](app/usage-workbooks.md).
-- Meer informatie over [logboekgegevens importeren in Power BI](platform/powerbi.md).
-- Meer informatie over de [Grafana Azure Monitor-gegevensbron invoegtoepassing](platform/grafana-plugin.md).
+- Meer informatie over [werkmappen](../azure-monitor/app/usage-workbooks.md).
+- Meer informatie over [logboekgegevens importeren in Power BI](../azure-monitor/platform/powerbi.md).
+- Meer informatie over de [Grafana Azure Monitor-gegevensbron invoegtoepassing](../azure-monitor/platform/grafana-plugin.md).
+

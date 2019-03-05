@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 861a4d4d64f970a13aba68f831d2148f8a354ef4
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: bddfccaf0749bbb5eaf206e5961c713efa5eea17
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732155"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311896"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Problemen oplossen met "functions-runtime is niet bereikbaar"
 
@@ -66,7 +66,7 @@ In de vorige stap, als u geen verbindingsreeks voor opslag account zijn ze waars
 ### <a name="guidance"></a>Richtlijnen
 
 * 'Site-instelling' niet controleren voor een van deze instellingen. Wanneer u sleuven implementatie van de functie wordt verbroken.
-* Stel deze instellingen niet bij het gebruik van geautomatiseerde implementaties.
+* Deze instellingen als onderdeel van geautomatiseerde implementaties mag niet worden gewijzigd.
 * Deze instellingen moeten zijn opgegeven en geldig tijdens de aanmaak. Een geautomatiseerde implementatie die deze instellingen niet bevat resulteert in een niet-functionele App, zelfs als de instellingen worden toegevoegd na de gebeurtenis.
 
 ## <a name="storage-account-credentials-invalid"></a>Opslagaccountreferenties is ongeldig

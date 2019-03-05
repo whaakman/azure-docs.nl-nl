@@ -13,14 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 5e3ef7782f805e07e24783a987f2753e4e889946
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 1c145f100e22dbb268a7cd491eb8a43b51988c69
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313030"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315806"
 ---
 # <a name="log-analytics-faq"></a>Veelgestelde vragen over Log Analytics
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Dit Microsoft-FAQ is een lijst met veelgestelde vragen over Log Analytics in Microsoft Azure. Als u aanvullende vragen over Log Analytics hebt, gaat u naar de [discussieforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) en plaats uw vraag. Wanneer u een vraag is vaak wordt gevraagd, toevoegen we deze aan dit artikel zodat snel en eenvoudig kunnen worden gevonden.
 
 
@@ -81,7 +84,7 @@ A: De lijst met geïnstalleerde oplossingen en weergaven zijn beschikbaar in Azu
 
 ### <a name="q-why-i-cant-create-workspaces-in-west-central-us-region"></a>V. Waarom kan ik werkruimten maken in de regio West-Centraal VS? 
 
-A: Deze regio heeft tijdelijk de capaciteitslimiet bereikt. Deze limiet zal in de eerste helft van 2019 worden aangepakt.
+A: Deze regio heeft tijdelijk de capaciteitslimiet bereikt. De limiet is gepland om te worden behandeld in de eerste helft van 2019.
 
 
 ### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>V. Log Analytics maakt gebruik dezelfde agent als Azure Security Center?
@@ -168,7 +171,7 @@ Verkeer naar Log Analytics maakt gebruik van het ExpressRoute-circuit voor openb
 
 ### <a name="q-is-there-a-simple-and-easy-way-to-move-an-existing-log-analytics-workspace-to-another-log-analytics-workspaceazure-subscription"></a>V. Is er een eenvoudige en eenvoudige manier om een bestaande Log Analytics-werkruimte verplaatsen naar een andere Log Analytics-werkruimte/Azure-abonnement?
 
-A. De `Move-AzureRmResource` cmdlet kunt u een Log Analytics-werkruimte en een Automation-account van één Azure-abonnement verplaatsen naar een andere. Zie voor meer informatie, [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx).
+A. De `Move-AzResource` cmdlet kunt u een Log Analytics-werkruimte en een Automation-account van één Azure-abonnement verplaatsen naar een andere. Zie voor meer informatie, [verplaatsen AzResource](https://msdn.microsoft.com/library/mt652516.aspx).
 
 Deze wijziging kan ook worden gemaakt in Azure portal.
 
@@ -196,7 +199,7 @@ Onder **Azure Log Analytics (OMS)**, verwijder alle werkruimten die worden verme
 
 ### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>V: Waarom krijg ik een foutbericht wanneer ik wil mijn werkruimte van één Azure-abonnement verplaatsen naar een andere?
 
-A: Om een werkruimte naar een ander abonnement of resourcegroep verplaatsen, moet u eerst het Automation-account in de werkruimte ontkoppelen. Bezig met ontkoppelen van een Automation-account is vereist op het verwijderen van deze oplossingen als ze in de werkruimte zijn geïnstalleerd: Updatebeheer, wijzigingen bijhouden of VM's starten/stoppen buiten kantooruren worden verwijderd. Nadat deze oplossingen zijn verwijderd, het Automation-account loskoppelen door te selecteren **gekoppeld werkruimten** resource in het linkerdeelvenster in de Automation-account in en klikt u op **werkruimte ontkoppelen** op het lint.
+A: Om een werkruimte naar een ander abonnement of resourcegroep verplaatsen, moet u eerst het Automation-account in de werkruimte ontkoppelen. Voor het ontkoppelen van een Automation-account moeten de volgende oplossingen worden verwijderd, als deze in de werkruimte zijn geïnstalleerd: Updatebeheer, wijzigingen bijhouden of VM's starten/stoppen buiten kantooruren worden verwijderd. Nadat deze oplossingen zijn verwijderd, het Automation-account loskoppelen door te selecteren **gekoppeld werkruimten** resource in het linkerdeelvenster in de Automation-account in en klikt u op **werkruimte ontkoppelen** op het lint.
  > Oplossingen hoeft te worden geïnstalleerd in de werkruimte verwijderd en het Automation-koppeling naar de werkruimte moet na de verplaatsing worden aangepast.
 
 Zorg ervoor dat u gemachtigd in zowel Azure-abonnementen.

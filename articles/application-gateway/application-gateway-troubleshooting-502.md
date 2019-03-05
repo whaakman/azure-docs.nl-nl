@@ -15,16 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: 1db16f203755f9afc265495daba056313138a5dc
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d50f25fbe10fc5ac4e834141fe7ac45fbed918ab
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819442"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309023"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Het oplossen van fouten over ongeldige gateways in Application Gateway
 
 Informatie over het oplossen van fouten over ongeldige gateways (502) ontvangen bij het gebruik van de toepassingsgateway.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Overzicht
 
@@ -50,21 +52,21 @@ NSG, UDR en DNS-configuratie valideren door te gaan via de volgende stappen uit:
 * Controleer de UDR die zijn gekoppeld aan Application Gateway-subnet. Zorg ervoor dat UDR verkeer van back endsubnet niet leidt - bijvoorbeeld controleren voor de routering van virtuele apparaten of standaardroutes worden geadverteerd voor Application Gateway-subnet via ExpressRoute/VPN-netwerk.
 
 ```powershell
-$vnet = Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName
-Get-AzureRmVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
+$vnet = Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName
+Get-AzVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
 ```
 
 * Effectieve NSG en route met de back-end van de virtuele machine controleren
 
 ```powershell
-Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
-Get-AzureRmEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
+Get-AzEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
+Get-AzEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
 ```
 
 * Controleer de aanwezigheid van aangepaste DNS-server in het VNet. DNS kan worden gecontroleerd door te kijken details van de VNet-eigenschappen in de uitvoer.
 
 ```json
-Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName 
+Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName 
 DhcpOptions            : {
                            "DnsServers": [
                              "x.x.x.x"
@@ -132,7 +134,7 @@ Wanneer een aanvraag wordt ontvangen, kan Application Gateway de geconfigureerde
 Application Gateway kan gebruikers deze instelling via BackendHttpSetting, die vervolgens kan worden toegepast op verschillende groepen wilt configureren. Verschillende back-end-pools kunnen verschillende BackendHttpSetting en kan daarom verschillende aanvraagtime geconfigureerd hebben.
 
 ```powershell
-    New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
+    New-AzApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
 ```
 
 ## <a name="empty-backendaddresspool"></a>Lege BackendAddressPool
@@ -146,7 +148,7 @@ Als de Application Gateway heeft geen virtuele machines of virtuele-machineschaa
 Zorg ervoor dat de back-end-adresgroep is niet leeg zijn. Dit kan worden gedaan via PowerShell, CLI of -portal.
 
 ```powershell
-Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
+Get-AzApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
 ```
 
 De uitvoer van de vorige cmdlet moet niet-lege back-end-adresgroep bevatten. Hieronder volgt een voorbeeld waarin twee groepen worden geretourneerd die zijn geconfigureerd met de FQDN-naam of IP-adressen voor back-end VM's. De Inrichtingsstatus van de BackendAddressPool moet 'geslaagd'.

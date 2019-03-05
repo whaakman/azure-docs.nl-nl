@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: b1f6024538c6807fd68a0d7b0b7ae2776938055b
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 71e70962a8c55d397b6261571cfef4a126d3e8b4
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888184"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307816"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Telemetrie exporteren vanuit Application Insights
 Wilt u uw telemetrie langer dan de standaard bewaarperiode houden? Of op een bepaalde gespecialiseerde manier te verwerken? Continue Export is ideaal voor dit. De gebeurtenissen die u in de Application Insights-portal ziet kunnen worden geëxporteerd naar de opslag in Microsoft Azure in JSON-indeling. Van daaruit kunt u uw gegevens downloaden en wat u code schrijven moet verwerken.  
@@ -29,7 +29,7 @@ Voordat u continue export instelt, zijn er enkele alternatieven die u wilt gebru
 * [Analytics](../../azure-monitor/app/analytics.md) biedt een krachtige querytaal voor telemetrie. Het kan ook resultaten exporteren.
 * Als u op zoek bent naar [Verken uw gegevens in Power BI](../../azure-monitor/app/export-power-bi.md ), kunt u dat doen zonder gebruik van continue Export.
 * De [REST-API voor gegevenstoegang](https://dev.applicationinsights.io/) kunt u via een programma toegang krijgen tot uw telemetrie.
-* U kunt setup ook openen [continue export via Powershell](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0).
+* U kunt setup ook openen [continue export via Powershell](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
 
 Nadat de continue Export uw gegevens worden gekopieerd naar de opslag (waar deze kan blijven voor als u wilt), is het nog steeds beschikbaar in Application Insights voor de gebruikelijke [bewaarperiode](../../azure-monitor/app/data-retention-privacy.md).
 

@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: CarlRabeler
 ms.author: carlrab
-ms.reviewer: sashan,moslake
+ms.reviewer: sashan,moslake,josack
 manager: craigg
 ms.date: 03/01/2019
-ms.openlocfilehash: 011aa97d44a92feced7328b2bd014395d2c5b765
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 00b20b3f144a2e98fb028e3db7c50af61330d721
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246695"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316452"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>SQL Database-resourcebeperkingen voor Azure SQL Database-server
 
@@ -55,7 +55,7 @@ Als hoge compute-gebruik worden aangetroffen, wordt een risicobeperking opties z
 - Het compute vergroten van de database of elastische pool voor de database met meer rekenresources. Zie [schalen van één database-resources](sql-database-single-database-scale.md) en [resources voor elastische pool schalen](sql-database-elastic-pool-scale.md).
 - Query's te verminderen van het Resourcegebruik van elke query te optimaliseren. Zie voor meer informatie, [Query afstemmen/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
-### <a name="storage"></a>Opslag
+### <a name="storage"></a>Storage
 
 Wanneer ruimte in database gebruikt de maximaal toegestane grootte is bereikt, database ingevoegd en niet bijwerken waarmee u de grootte van de gegevens te verhogen en -clients ontvangen een [foutbericht](sql-database-develop-error-messages.md). Database selecteren en doorgaan met verwijderen te voltooien.
 
@@ -74,7 +74,7 @@ Als hoog gebruik van sessie- of werkrollen worden aangetroffen, wordt een risico
 - Vergroten van de service tier of compute-grootte van de database of elastische pool. Zie [schalen van één database-resources](sql-database-single-database-scale.md) en [resources voor elastische pool schalen](sql-database-elastic-pool-scale.md).
 - Optimaliseren query's om te verlagen van het Resourcegebruik van elke query als de oorzaak van het toegenomen worker-gebruik is vanwege conflicten over rekenresources. Zie voor meer informatie, [Query afstemmen/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
-### <a name="transaction-log-rate-governance"></a>Transaction Log tarief Governance 
+## <a name="transaction-log-rate-governance"></a>Transaction Log tarief Governance 
 Transaction log tarief governance is een proces in Azure SQL Database gebruikt voor het beperken van hoge opname-tarieven voor workloads zoals bulksgewijs invoegen, SELECT INTO en indexbuilds. Deze limieten worden bijgehouden en worden afgedwongen op het niveau dan een seconde voor het aantal records genereren van logboekbestanden, beperkende doorvoer, ongeacht hoeveel IOs kan worden uitgegeven voor de gegevensbestanden.  Transactietarieven log generatie op dit moment worden lineair geschaald tot een tijdstip dat is afhankelijk van de hardware, snelheid toegestaan met de maximumgrootte van het logboek wordt 48 MB/s met de vCore model kopen. 
 
 > [!NOTE]

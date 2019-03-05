@@ -12,16 +12,16 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: df83149126c439aae6256cd65473470461810bca
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 96b6b4866b17e15f544a10124d07e651d747b58b
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961224"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57306439"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Poorten boven 1433 voor ADO.NET 4.5
 
-Dit onderwerp beschrijft het gedrag van de Azure SQL Database-verbindingen voor clients die gebruikmaken van ADO.NET 4.5 of hoger. 
+Dit onderwerp beschrijft het gedrag van de Azure SQL Database-verbindingen voor clients die gebruikmaken van ADO.NET 4.5 of hoger.
 
 > [!IMPORTANT]
 > Zie voor meer informatie over de connectiviteitsarchitectuur van [Azure SQL Database-connectiviteitsarchitectuur](sql-database-connectivity-architecture.md).
@@ -31,18 +31,18 @@ Dit onderwerp beschrijft het gedrag van de Azure SQL Database-verbindingen voor 
 
 Voor verbindingen met Azure SQL Database, moet eerst vragen we uw clientprogramma wordt uitgevoerd of *buiten* of *binnen* de grens van de Azure-cloud. De subsecties worden twee algemene scenario's besproken.
 
-#### <a name="outside-client-runs-on-your-desktop-computer"></a>*Buiten:* Client wordt uitgevoerd op uw desktopcomputer
+### <a name="outside-client-runs-on-your-desktop-computer"></a>*Buiten:* Client wordt uitgevoerd op uw desktopcomputer
 
 Poort 1433 is de enige poort die moet worden geopend op uw computer die als host fungeert voor de clienttoepassing van uw SQL-Database.
 
-#### <a name="inside-client-runs-on-azure"></a>*In:* Client wordt uitgevoerd op Azure
+### <a name="inside-client-runs-on-azure"></a>*In:* Client wordt uitgevoerd op Azure
 
 Wanneer de client wordt uitgevoerd binnen de grenzen van de Azure-cloud, gebruikt deze kunt zogeheten een *direct route* om te communiceren met de SQL Database-server. Nadat een verbinding tot stand is gebracht, verdere interactie tussen de client en de database hebben betrekking op geen Azure SQL Database-Gateway.
 
 De volgorde is als volgt:
 
 1. ADO.NET 4.5 (of hoger) initieert een korte interactie met de Azure-cloud, en ontvangt een dynamisch geïdentificeerde poortnummer.
-   
+
    * Het dynamisch geïdentificeerde poortnummer is in het bereik van 11000 11999 of 14000 14999.
 2. ADO.NET maakt vervolgens verbinding met de SQL Database-server rechtstreeks met geen middleware tussenin.
 3. Query's rechtstreeks naar de database worden verzonden en resultaten rechtstreeks naar de client worden geretourneerd.
@@ -55,23 +55,27 @@ Zorg ervoor dat de poort bereik van 11000 11999 en 14000-14999 op uw Azure-clien
   * Kunt u de [gebruikersinterface van de firewall](https://msdn.microsoft.com/library/cc646023.aspx) om toe te voegen een regel die u opgeeft de **TCP** protocol samen met een bereik met de syntaxis zoals **11000 11999**.
 
 ## <a name="version-clarifications"></a>Versie verduidelijkingen
+
 In deze sectie wordt uitleg gegeven over de monikers die naar versies van het product verwijzen. Het bevat ook enkele testpunten versies van producten.
 
-#### <a name="adonet"></a>ADO.NET
+### <a name="adonet"></a>ADO.NET
+
 * ADO.NET 4.0 ondersteunt het TDS-7.3-protocol, maar niet 7.4.
 * ADO.NET 4.5 en hoger ondersteunt het TDS-7.4-protocol.
 
-#### <a name="odbc"></a>ODBC
+### <a name="odbc"></a>ODBC
+
 * Microsoft SQL Server ODBC 11 of hoger
 
-#### <a name="jdbc"></a>JDBC
+### <a name="jdbc"></a>JDBC
+
 * Microsoft SQL Server JDBC 4.2 of hoger (JDBC 4.0 daadwerkelijk biedt ondersteuning voor TDS-7.4 maar implementeert geen "omleiding")
 
-
 ## <a name="related-links"></a>Verwante koppelingen
-* ADO.NET 4.6 is uitgebracht op 20 juli 2015. Een aankondiging blog van het team van .NET is beschikbaar [hier](https://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
-* ADO.NET 4.5 is uitgebracht op 15 augustus 2012. Een aankondiging blog van het team van .NET is beschikbaar [hier](https://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx). 
-  * Er is een blogbericht over ADO.NET 4.5.1 beschikbaar [hier](https://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx).
+
+* ADO.NET 4.6 is uitgebracht op 20 juli 2015. Een aankondiging blog van het team van .NET is beschikbaar [hier](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-net-framework-4-6.aspx).
+* ADO.NET 4.5 is uitgebracht op 15 augustus 2012. Een aankondiging blog van het team van .NET is beschikbaar [hier](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx).
+  * Er is een blogbericht over ADO.NET 4.5.1 beschikbaar [hier](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-the-net-framework-4-5-1-preview.aspx).
 
 * Microsoft® ODBC Driver 17 voor SQL Server® - Windows, Linux en macOS https://www.microsoft.com/download/details.aspx?id=56567
 

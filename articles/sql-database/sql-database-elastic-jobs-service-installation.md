@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: fb405d40458461fbdff8a7720425ff352bfc61de
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 67b9be6f7788acd44ac60fe0c71133d69a2c122e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565476"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313834"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Overzicht van de taken van Elastic Database installeren
 
@@ -90,13 +90,13 @@ De parameters op voor dit voorbeeld-aanroepen die kunnen worden gewijzigd voor d
 </tr>
     <tr>
     <td>ServiceVmSize</td>
-    <td>Biedt de VM-grootte voor gebruik binnen de Service in de Cloud. Deze parameter wordt standaard ingesteld op A0. Parameterwaarden van A0/A1/A2/A3, waardoor de werkrol te gebruiken een grootte ExtraSmall/kleine/gemiddeld/groot, respectievelijk worden geaccepteerd. Voor meer informatie over de rolgrootten werknemer, Zie [elastische taken onderdelen en prijzen](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Biedt de VM-grootte voor gebruik binnen de Service in de Cloud. Deze parameter wordt standaard ingesteld op A0. De parameterwaarden van... /.. / A3, waardoor de werkrol te gebruiken een grootte ExtraSmall/kleine/gemiddeld/groot, respectievelijk worden geaccepteerd. Voor meer informatie over de rolgrootten werknemer, Zie [elastische taken onderdelen en prijzen](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
 </tr>
     <tr>
     <td>SqlServerDatabaseSlo</td>
-    <td>Biedt de compute-grootte voor een Standard-editie. Deze parameter standaard S0. Parameterwaarden van S0/S1/S2/S3/S4/S6/S9/S12 zijn geaccepteerd dit leidt ertoe de Azure SQL Database dat om de grootte van het respectieve compute gebruiken. Zie voor meer informatie over SQL Database-compute-grootten [elastische taken onderdelen en prijzen](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Biedt de compute-grootte voor een Standard-editie. Deze parameter standaard S0. Parameterwaarden van... /.. /.. /.. / S9/S12 zijn geaccepteerd dit leidt ertoe dat de Azure SQL Database om de grootte van het respectieve compute gebruiken. Zie voor meer informatie over SQL Database-compute-grootten [elastische taken onderdelen en prijzen](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
 </tr>
@@ -148,7 +148,7 @@ Voer het volgende script met de parameters die zijn bijgewerkt met de waarden va
 
     <tr>
     <td>ServiceVmSize</td>
-    <td>Biedt de VM-grootte voor gebruik binnen de Service in de Cloud. Deze parameter wordt standaard ingesteld op A0. Parameterwaarden van A0/A1/A2/A3, waardoor de werkrol te gebruiken een grootte ExtraSmall/kleine/gemiddeld/groot, respectievelijk worden geaccepteerd. Voor meer informatie over de rolgrootten werknemer, Zie [elastische taken onderdelen en prijzen](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Biedt de VM-grootte voor gebruik binnen de Service in de Cloud. Deze parameter wordt standaard ingesteld op A0. De parameterwaarden van... /.. / A3, waardoor de werkrol te gebruiken een grootte ExtraSmall/kleine/gemiddeld/groot, respectievelijk worden geaccepteerd. Voor meer informatie over de rolgrootten werknemer, Zie [elastische taken onderdelen en prijzen](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
 </table>

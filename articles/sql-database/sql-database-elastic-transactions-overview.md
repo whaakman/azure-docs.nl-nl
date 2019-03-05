@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: ae9f4d1ebcb84748b665579104f63dab3ee6f076
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 65940aa07c532ae3bc708d475b2d6ac60cf8d636
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463868"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308921"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Over clouddatabases gedistribueerde transacties
 
@@ -126,13 +126,15 @@ Houd er rekening mee dat het installatieprogramma voor .NET 4.6.1 meer tijdelijk
 
 ## <a name="transactions-across-multiple-servers"></a>Transacties op meerdere servers
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Elastische transacties worden ondersteund in verschillende SQL Database-servers in Azure SQL Database. Als transacties cross-grenzen voor SQL Database-server, moeten de deelnemende servers eerst worden ingevoerd in een relatie wederzijdse communicatie. Wanneer is de relatie communicatie tot stand is gebracht, deel elke database in een van de twee servers uitmaken van elastische transacties met databases van de andere server. Met transacties die meer dan twee SQL Database-servers zijn verspreid, moet een communicatie-relatie voor elke combinatie van een SQL Database-servers.
 
 Gebruik de volgende PowerShell-cmdlets voor het beheren van relaties voor elastische databasetransacties communicatie tussen servers:
 
-* **New-AzureRmSqlServerCommunicationLink**: Gebruik deze cmdlet voor het maken van een nieuwe relatie van de communicatie tussen de twee SQL Database-servers in Azure SQL Database. De relatie is symmetrische dat beide servers transacties met de andere server tot stand kunnen brengen.
-* **Get-AzureRmSqlServerCommunicationLink**: Deze cmdlet gebruiken om op te halen van de bestaande communicatie relaties en hun eigenschappen.
-* **Remove-AzureRmSqlServerCommunicationLink**: Gebruik deze cmdlet voor het verwijderen van een bestaande relatie voor de communicatie. 
+* **New-AzSqlServerCommunicationLink**: Gebruik deze cmdlet voor het maken van een nieuwe relatie van de communicatie tussen de twee SQL Database-servers in Azure SQL Database. De relatie is symmetrische dat beide servers transacties met de andere server tot stand kunnen brengen.
+* **Get-AzSqlServerCommunicationLink**: Deze cmdlet gebruiken om op te halen van de bestaande communicatie relaties en hun eigenschappen.
+* **Remove-AzSqlServerCommunicationLink**: Gebruik deze cmdlet voor het verwijderen van een bestaande relatie voor de communicatie. 
 
 ## <a name="monitoring-transaction-status"></a>Controlestatus van transactie
 

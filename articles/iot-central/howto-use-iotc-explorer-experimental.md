@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ace8eedf4b6f03c839fc2da7469e5e9c36bc5cae
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 167a7b008af521c5f4e403a3786b004138d69da9
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213327"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311148"
 ---
 # <a name="monitor-device-connectivity-using-the-azure-iot-central-explorer"></a>Apparaat-connectiviteit controleren met behulp van Azure IoT Central Explorer
 
@@ -48,10 +48,10 @@ De volgende secties worden veelgebruikte opdrachten en opties die u gebruiken ku
 Voordat u aan de slag gaat, moet u een beheerder van uw IoT Central-toepassing in een toegangstoken voor gebruik. De beheerder heeft de volgende stappen uit:
 
 1. Navigeer naar **beheer** vervolgens **toegangstokens**.
-1. Klik op **Token genereren**.
+1. Selecteer **Token genereren**.
     ![Schermafbeelding van pagina-token toegang](media/howto-use-iotc-explorer-experimental/accesstokenspage.png)
 
-1. Voer de Tokennaam van een, klikt u op **volgende**, en vervolgens **kopie**.
+1. Voer de Tokennaam van een, selecteert u **volgende**, en vervolgens **kopie**.
     > [!NOTE]
     > De waarde voor token wordt alleen slechts één keer worden weergegeven, zodat deze moet worden gekopieerd voordat u het dialoogvenster te sluiten. Na het sluiten van het dialoogvenster, wordt deze nooit opnieuw weergegeven.
 

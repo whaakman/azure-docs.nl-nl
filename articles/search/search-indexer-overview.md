@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/17/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 754bd06e6033b49d24112cb20686e1c9b200d0d0
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 0a6c894b08fd76a018035a824b463e41e31c2f2f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875477"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310196"
 ---
 # <a name="indexers-in-azure-search"></a>Indexeerfuncties in Azure Search
 
@@ -48,14 +48,16 @@ Indexeerfuncties verkennen gegevensarchieven in Azure.
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md) 
-    * Houd er rekening mee dat Azure Table Storage wordt niet ondersteund voor [cognitief zoeken](cognitive-search-concept-intro.md)
 
+> [!Note]
+> Azure Table Storage wordt niet ondersteund voor [cognitief zoeken](cognitive-search-concept-intro.md).
+>
 
 ## <a name="basic-configuration-steps"></a>Basisconfiguratiestappen
 Indexeerfuncties kunnen functies bieden die uniek voor de gegevensbron zijn. In dit opzicht variëren bepaalde aspecten van de configuratie van de indexeerfunctie of de gegevensbron al naar gelang het type indexeerfunctie. Alle indexeerfuncties hebben echter dezelfde basissamenstelling en voor alle indexeerfuncties gelden dezelfde vereisten. Hieronder vindt u de stappen die voor alle indexeerfuncties gemeenschappelijk zijn.
 
 ### <a name="step-1-create-a-data-source"></a>Stap 1: Een gegevensbron maken
-Een indexeerfunctie haalt gegevens op uit een *gegevensbron* die informatie bevat, zoals een verbindingsreeks en mogelijk aanmeldingsgegevens. Roep de [Datasource maken](https://docs.microsoft.com/rest/api/searchservice/create-data-source) REST-API of [DataSource-klasse](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource) om de resource te maken.
+Een indexeerfunctie haalt verbinding met de gegevensbron van een *gegevensbron* object. De definitie van de gegevensbron bevat een verbindingsreeks en mogelijk referenties. Roep de [Datasource maken](https://docs.microsoft.com/rest/api/searchservice/create-data-source) REST-API of [DataSource-klasse](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource) om de resource te maken.
 
 Gegevensbronnen worden geconfigureerd en onafhankelijk van de indexeerfuncties beheerd die gebruikmaken van de gegevensbronnen. Dit betekent dat een gegevensbron door meerdere indexeerfuncties kan worden gebruikt om tegelijkertijd meer dan één index te laden.
 
@@ -67,6 +69,59 @@ Een indexeerfunctie automatiseert bepaalde taken met betrekking tot de opname va
 
 ### <a name="step-3-create-and-schedule-the-indexer"></a>Stap 3: Maken en plannen van de indexeerfunctie
 De definitie van de indexeerfunctie is een constructie die de index, gegevensbron en een planning specificeert. Een indexeerfunctie kan verwijzen naar een gegevensbron van een andere service, zolang die gegevensbron maar uit hetzelfde abonnement komt. Zie [Create Indexer (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer) (Een indexeerfunctie maken (Azure Search REST API)) voor meer informatie over het structureren van een indexeerfunctie.
+
+<a id="RunIndexer"></a>
+
+## <a name="run-indexers-on-demand"></a>Indexeerfuncties op aanvraag uitvoeren
+
+Het is gebruikelijk om te plannen indexeren, kan ook een indexeerfunctie worden aangeroepen op aanvraag met de opdracht uitvoeren:
+
+    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2017-11-11
+    api-key: [Search service admin key]
+
+> [!NOTE]
+> Wanneer uitvoeren API is geretourneerd, het aanroepen van de indexeerfunctie is gepland, maar de werkelijke verwerking verloopt asynchroon. 
+
+U kunt de status van de indexeerfunctie in de portal of met behulp van ophalen indexeerfunctie Status API, die we vervolgens beschrijven bewaken. 
+
+<a name="GetIndexerStatus"></a>
+
+## <a name="get-indexer-status"></a>Status van de indexeerfunctie ophalen
+
+U kunt de status en uitvoering van de geschiedenis van een indexeerfunctie via de REST-API ophalen:
+
+    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2017-11-11
+    api-key: [Search service admin key]
+
+Het antwoord bevat de algemene status van de indexeerfunctie, het laatste (of in uitvoering) indexer-aanroepen en de geschiedenis van recente indexeerfunctie aanroepen.
+
+    {
+        "status":"running",
+        "lastResult": {
+            "status":"success",
+            "errorMessage":null,
+            "startTime":"2014-11-26T03:37:18.853Z",
+            "endTime":"2014-11-26T03:37:19.012Z",
+            "errors":[],
+            "itemsProcessed":11,
+            "itemsFailed":0,
+            "initialTrackingState":null,
+            "finalTrackingState":null
+         },
+        "executionHistory":[ {
+            "status":"success",
+             "errorMessage":null,
+            "startTime":"2014-11-26T03:37:18.853Z",
+            "endTime":"2014-11-26T03:37:19.012Z",
+            "errors":[],
+            "itemsProcessed":11,
+            "itemsFailed":0,
+            "initialTrackingState":null,
+            "finalTrackingState":null
+        }]
+    }
+
+Uitvoeringsgeschiedenis bevat maximaal de 50 meest recente voltooide uitvoeringen die in omgekeerde volgorde worden gesorteerd (zodat de meest recente uitvoering in het antwoord eerste komt).
 
 ## <a name="next-steps"></a>Volgende stappen
 Nu u het uitgangspunt hebt begrepen, is de volgende stap de vereisten en taken te bekijken die specifiek zijn voor elk gegevensbrontype.

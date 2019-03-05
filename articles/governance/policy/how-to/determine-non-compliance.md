@@ -1,5 +1,5 @@
 ---
-title: Vaststellen van oorzaken van niet-naleving
+title: Oorzaken van niet-naleving bepalen
 description: Wanneer een resource niet-compatibele is, zijn er veel mogelijke oorzaken. Leer hoe u meer informatie over de oorzaak van de niet-naleving.
 services: azure-policy
 author: DCtheGeek
@@ -8,14 +8,14 @@ ms.date: 02/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: bdc7e635537eb4f836f0d4b5e2c18cc62b7fd310
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: dba8d9413229a0fa236b082e2e11dbd1a9fe5a5f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890439"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314123"
 ---
-# <a name="determine-causes-of-non-compliance"></a>Vaststellen van oorzaken van niet-naleving
+# <a name="determine-causes-of-non-compliance"></a>Oorzaken van niet-naleving bepalen
 
 Wanneer een Azure-resource blijkt dat het niet-compatibel is op een beleidsregel, is het handig om te begrijpen welk deel van de regel voor de resource is niet compatibel zijn met. Het is ook handig om te begrijpen welke wijziging gewijzigd een voorheen compliant bron uit voor niet-compatibel te maken. Er zijn twee manieren om deze informatie te vinden:
 
@@ -108,7 +108,7 @@ De volgende matrix wijst elke mogelijke _reden_ naar de verantwoordelijk [voorwa
 
 ## <a name="change-history-preview"></a>Wijzigingsoverzicht (Preview)
 
-Als onderdeel van een nieuwe **openbare preview**, de afgelopen 14 dagen van de wijziging geschiedenis is beschikbaar voor alle Azure-resource die ondersteuning bieden voor [modus verwijdering voltooien](../../../azure-resource-manager/complete-mode-deletion.md). Wijzigingsoverzicht biedt meer informatie over wanneer een wijziging is gedetecteerd en een _visual diff_ voor elke wijziging. De detectie van een wijziging wordt geactiveerd wanneer de Resource Manager-eigenschappen zijn toegevoegd, verwijderd of gewijzigd.
+Als onderdeel van een nieuwe **openbare preview**, de afgelopen 14 dagen van de wijziging geschiedenis is beschikbaar voor alle Azure-resources die ondersteuning bieden voor [modus verwijdering voltooien](../../../azure-resource-manager/complete-mode-deletion.md). Wijzigingsoverzicht biedt meer informatie over wanneer een wijziging is gedetecteerd en een _visual diff_ voor elke wijziging. De detectie van een wijziging wordt geactiveerd wanneer de Resource Manager-eigenschappen zijn toegevoegd, verwijderd of gewijzigd.
 
 1. Start de Azure Policy-service in Azure Portal door **Alle services** te selecteren en dan **Beleid** te zoeken en te selecteren.
 

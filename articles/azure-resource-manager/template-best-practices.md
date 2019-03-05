@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 121011555d0ba6fdae392275495b89a9759f3978
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: d40fcacc4612761b2c43b0dd3658042c38a0df75
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244261"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309516"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure Resource Manager sjabloon aanbevolen procedures
 
@@ -29,7 +29,7 @@ Zie voor aanbevelingen over het bouwen van sjablonen die in alle Azure-cloud-omg
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="parameters"></a>Parameters
-De informatie in deze sectie kan nuttig zijn wanneer u met werkt [parameters](resource-manager-templates-parameters.md).
+De informatie in deze sectie kan nuttig zijn wanneer u met werkt [parameters](resource-group-authoring-templates.md#parameters).
 
 ### <a name="general-recommendations-for-parameters"></a>Algemene aanbevelingen voor de parameters
 

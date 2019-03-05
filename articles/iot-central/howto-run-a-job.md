@@ -8,12 +8,12 @@ ms.author: sahubbar
 ms.date: 09/15/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: ac5accc72369d811c0d36c4ef64cd8d523a061f3
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f08167b4f37193c9a04da02fdd31e066a97aec66
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724499"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317659"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Maken en uitvoeren van een taak in uw Azure IoT Central-toepassing
 
@@ -25,7 +25,7 @@ Deze sectie leest u hoe u maken en een taak uitvoert. Elke stap verloopt via een
 
 1. Navigeer naar de taken in het navigatiedeelvenster.
 
-1. Klik op **+ nieuw** om te beginnen met het maken van een nieuwe taak.
+1. Selecteer **+ nieuw** om te beginnen met het maken van een nieuwe taak.
 
     ![Nieuwe taak maken](./media/howto-run-a-job/createnewjob.png)
 
@@ -33,11 +33,11 @@ Deze sectie leest u hoe u maken en een taak uitvoert. Elke stap verloopt via een
 
 1. Selecteer die het apparaat zo ingesteld dat u wilt dat de taak moet worden toegepast op. Nadat het apparaat te selecteren hebt ingesteld, ziet u de rechterkant te vullen met de apparaten binnen het geselecteerde apparaat. Als u een apparaatset verbroken selecteert, er zijn geen apparaten worden weergegeven en ziet u een bericht waarin wordt uitgelegd dat het instellen van uw apparaat verbroken is.
 
-1. Kies vervolgens het type taak dat is gedefinieerd (een instelling, eigenschap of opdracht). Klik op **+** naast het type taak ingeschakeld en de gewenste bewerkingen toevoegen.
+1. Kies vervolgens het type taak dat is gedefinieerd (een instelling, eigenschap of opdracht). Selecteer **+** naast het type taak ingeschakeld en de gewenste bewerkingen toevoegen.
 
     ![Taak configureren](./media/howto-run-a-job/configurejob.png)
 
-1. Aan de rechterkant, kies de apparaten die u wilt de taak wordt uitgevoerd. Door te klikken op het bovenste selectievakje, zijn alle apparaten in de hele apparaat geselecteerd. Door te klikken op het selectievakje in de buurt van de naam, worden alle apparaten in de huidige pagina geselecteerd.
+1. Aan de rechterkant, kies de apparaten die u wilt de taak wordt uitgevoerd. Als u het selectievakje boven selecteert, worden alle apparaten geselecteerd in het hele apparaat instellen. Als u het selectievakje in de buurt van de naam selecteert, worden alle apparaten in de huidige pagina geselecteerd.
 
 1. Zodra uw gewenste apparaten zijn geselecteerd, kiest u **uitvoeren**. De taak wordt nu weergegeven op de hoofdpagina **taken** pagina. In deze weergave bent u kan uw huidige actieve taak en de geschiedenis van een eerder taken uitvoeren. De actieve taak wordt altijd weergegeven boven aan de lijst.
 
@@ -48,19 +48,19 @@ Deze sectie leest u hoe u maken en een taak uitvoert. Elke stap verloopt via een
     > [!NOTE]
     > U kunt zich de geschiedenis van uw eerder uitgevoerde taken weergeven voor 30 dagen.
 
-1. Als u een overzicht van uw taak, klikt u op de naam van de taak die u wilt weergeven in de lijst. In dit overzicht bevat de taakdetails, apparaten en apparaatstatussen.
+1. Als u een overzicht van uw project, selecteer de naam van de taak die u wilt weergeven in de lijst. In dit overzicht bevat de taakdetails, apparaten en apparaatstatussen.
 
     ![Apparaatstatus weergeven](./media/howto-run-a-job/viewdevicestatus.png)
 
 ### <a name="stop-a-running-job"></a>Een actieve taak stoppen
 
-Als u stoppen van een taak die momenteel wordt uitgevoerd wilt, klikt u op de naam van de actieve taak die u wilt stoppen. Kies de **stoppen** knop in het deelvenster. U ziet dat de status van de taak is gewijzigd om aan te geven dat de taak is gestopt.
+Als u stoppen van een taak die momenteel wordt uitgevoerd wilt, selecteert u de naam van de actieve taak die u wilt stoppen. Kies de **stoppen** knop in het deelvenster. U ziet dat de status van de taak is gewijzigd om aan te geven dat de taak is gestopt.
 
    ![Taak stoppen](./media/howto-run-a-job/stopjob.png)
 
 ### <a name="run-a-stopped-job"></a>Een gestopte taak uitvoeren
 
-Als u uitvoeren van een taak die momenteel gestopt wilt is, klikt u op de naam van de gestopte taak die u wilt uitvoeren. Kies de **uitvoeren** knop in het deelvenster. U ziet dat de taak de status is gewijzigd om aan te geven dat de taak is nu nogmaals uit te voeren.
+Als u uitvoeren van een taak die momenteel gestopt wilt is, selecteert u de naam van de gestopte taak die u wilt uitvoeren. Kies de **uitvoeren** knop in het deelvenster. U ziet dat de taak de status is gewijzigd om aan te geven dat de taak is nu nogmaals uit te voeren.
 
    ![Taak hervatten](./media/howto-run-a-job/resumejob.png)
 
@@ -85,7 +85,7 @@ Het statusbericht wordt gevolgd door een overzicht van de apparaten in de taak. 
 
 ### <a name="view-the-device-status"></a>Status van het apparaat weergeven
 
-Als u wilt de status van elk apparaat weergeven in de taak, klikt u op de taaknaam. Hier ziet u de details van de job en alle van de apparaten die een deel van deze specifieke taak zijn. Naast de naam van elk apparaat ziet u een van de volgende statusberichten:
+Als u wilt de status van elk apparaat weergeven in de taak, selecteren de taaknaam. Hier ziet u de details van de job en alle van de apparaten die een deel van deze specifieke taak zijn. Naast de naam van elk apparaat ziet u een van de volgende statusberichten:
 
 | Statusbericht       | Betekenis van status                                                                |
 | -------------------- | ----------------------------------------------------------------------------- |

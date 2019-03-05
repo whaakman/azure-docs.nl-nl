@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: bd2f675fe646395b60aeb687f67269b0184563bd
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 85fba27c856561eb1270e719dcf24b88d2d5a01f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193395"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309907"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Een Windows IoT Core-apparaat verbinden met uw Azure IoT Central-toepassing
 
@@ -72,10 +72,10 @@ De clienttoepassing uit de vorige stap op uw Windows 10 IoT-apparaat om te kunne
 Zodra u dat hebt gedaan, moet u opent de [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal) door te typen in http://[device-IP-address]:8080 in elke browser.
 
 Vanaf daar en, zoals weergegeven in de als hieronder, moet u doen:
-1. Vouw het knooppunt 'Apps' aan de linkerkant.
-2. Klik op 'voorbeelden snel uitvoeren'.
-3. Klik op 'Azure IoT Hub-Client'.
-4. Klik op 'Implementeren en uitvoeren'.
+1. Vouw de **Apps** knooppunt aan de linkerkant.
+2. Selecteer **snel uitvoeren voorbeelden**.
+3. Selecteer **Azure IoT Hub-Client**.
+4. Selecteer **implementeren en uitvoeren**.
 
 ![Afbeelding van Azure IoT Hub-Client op Windows Device Portal](./media/howto-connect-windowsiotcore/iothubapp.gif)
 

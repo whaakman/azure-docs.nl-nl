@@ -7,14 +7,14 @@ manager: shivamg
 keywords: herstel op itemniveau; herstel van bestanden uit back-up van virtuele Azure-machine. bestanden herstellen vanaf Azure VM
 ms.service: backup
 ms.topic: conceptual
-ms.date: 2/26/2019
+ms.date: 3/01/2019
 ms.author: pullabhk
-ms.openlocfilehash: 4bae9a09dad217b8d805a64372ed404eb7ada723
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 6c2ade276e43f5e40d334a62c62a1abaa42b1b78
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874155"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308938"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Bestanden herstellen vanuit back-up van virtuele Azure-machine
 
@@ -74,13 +74,15 @@ Als u bestanden of mappen herstellen vanaf het herstelpunt, gaat u naar de virtu
     - uitgaande poort 3260
 
 > [!Note]
-> De bestandsnaam van het gedownloade script heeft de 'geo-naam' de URL zijn ingevuld. Voor bijvoorbeeld: Naam van het gedownloade script begint met \'VMname\'\_\'geoname\'_\'GUID\', zoals ContosoVM_wcus_12345678... De URL 'https://pod01-rec2.wcus.backup.windowsazure.com"
-> 
+>
+* De bestandsnaam van het gedownloade script heeft de **geo-name** de URL zijn ingevuld. Voor bijvoorbeeld: Naam van het gedownloade script begint met \'VMname\'\_\'geoname\'_\'GUID\', zoals ContosoVM_wcus_12345678...<br><br>
+* De URL 'https://pod01-rec2.wcus.backup.windowsazure.com"
+
 
    Het script vereist voor Linux, onderdelen voor 'openen met iscsi-' en 'lshw' verbinding maken met het herstelpunt. Als de componenten nog niet bestaan op de computer waarop het script wordt uitgevoerd, wordt het script vraagt om machtiging om de onderdelen te installeren. Geef toestemming om de benodigde onderdelen te installeren.
-   
+
    De toegang tot download.microsoft.com is vereist voor het downloaden van de onderdelen die worden gebruikt voor het bouwen van een beveiligd kanaal tussen de computer waarop het script wordt uitgevoerd en de gegevens in het herstelpunt.
-   
+
    U kunt het script uitvoeren op elke computer waarop het besturingssysteem hetzelfde (of compatibel) als de VM waarvan een back-up is gemaakt. Zie de [compatibel besturingssysteem tabel](backup-azure-restore-files-from-vm.md#system-requirements) voor besturingssystemen die compatibel is. Als de beveiligde virtuele machine van Azure gebruikmaakt van Windows Storage Spaces (voor Windows Azure-VM's) of LVM/RAID-matrices (voor Linux-VM's), kunt u het uitvoerbare bestand of script niet uitvoeren op dezelfde virtuele machine. In plaats daarvan het uitvoerbare bestand of script uitvoeren op elke andere computer met een compatibel besturingssysteem.
 
 ### <a name="identifying-volumes"></a>Identificeren van Volumes
@@ -96,7 +98,7 @@ Wanneer u het uitvoerbare bestand uitvoert, wordt het besturingssysteem koppelt 
 In Linux, worden de volumes van het herstelpunt gekoppeld naar de map waarin het script wordt uitgevoerd. De gekoppelde schijven, volumes en de bijbehorende koppelpunt paden worden dienovereenkomstig weergegeven. Deze paden koppelen zijn zichtbaar voor gebruikers met toegang tot de hoofdmap op. Blader door de volumes die worden vermeld in de uitvoer van het script.
 
   ![Menu voor herstel van de Linux-bestand](./media/backup-azure-restore-files-from-vm/linux-mount-paths.png)
-  
+
 ## <a name="closing-the-connection"></a>De verbinding wordt gesloten
 
 Verwijderen (of ontkoppelen) nadat de bestanden te identificeren en ze kopiëren naar een locatie voor de lokale opslag, op de extra stations. De schijven ontkoppelen op de **bestandsherstel** in Azure portal, klik daarna op **schijven ontkoppelen**.
@@ -113,8 +115,8 @@ In Linux, nadat de verbinding met het herstelpunt is verbroken, verwijderen het 
 
 Als de beveiligde Azure-VM volumes met één of beide van de volgende kenmerken heeft, kunt u het uitvoerbare bestand script niet uitvoeren op dezelfde virtuele machine.
 
-    - Volumes met betrekking meerdere schijven tot (spanned en striped volumes)
-    - Fouttolerante volumes (volumes met gespiegelde en RAID-5) op de dynamische schijven
+- Volumes met betrekking meerdere schijven tot (spanned en striped volumes)
+- Fouttolerante volumes (volumes met gespiegelde en RAID-5) op de dynamische schijven
 
 In plaats daarvan de uitvoerbare script uitvoeren op een andere computer met een compatibel besturingssysteem.
 
@@ -230,3 +232,41 @@ Als u problemen hebt bij het herstellen van bestanden van de virtuele machines, 
 | Exe-uitvoer: Script met succes is uitgevoerd, maar 'Nieuwe volumes die zijn gekoppeld' wordt niet weergegeven op de uitvoer van het script |    Dit is een tijdelijke fout    | De volumes zou zijn al gekoppeld. Open Verkenner om te bladeren. Als u dezelfde computer gebruikt voor het uitvoeren van scripts telkens, houd rekening met de machine opnieuw opstarten en de lijst moet worden weergegeven in de volgende exe wordt uitgevoerd. |
 | Linux-specifieke: Kan niet de gewenste volumes bekijken | Het onderliggende bestandssysteem van de beveiligde virtuele machine mogelijk niet herkend door het besturingssysteem van de machine waarop het script wordt uitgevoerd | Controleer of het herstelpunt dat crash-consistente of bestandsconsistente is. Als het bestand consistent is, het script uitvoert op een andere computer met OS herkend bestandssysteem van de beveiligde virtuele machine |
 | Specifieke Windows: Kan niet de gewenste volumes bekijken | De schijven zijn gekoppeld, maar de volumes zijn niet geconfigureerd | Identificeer de extra schijven met betrekking tot het herstelpunt dat van het scherm voor het beheren van schijf. Als een van deze schijven offline status kunt u deze online maken met de rechtermuisknop op de schijf en klikt u op 'Online'|
+
+## <a name="security"></a>Beveiliging
+
+Deze sectie wordt besproken de verschillende beveiligingsmaatregelen getroffen voor de uitvoering van een bestand herstellen vanuit back-ups van virtuele machine van Azure, zodat gebruikers zich bewust zijn van de beveiligingsaspecten van de functie.
+
+### <a name="feature-flow"></a>Functie-stroom
+
+Deze functie is ontwikkeld om toegang tot de VM-gegevens zonder de noodzaak voor de hele VM of virtuele machine herstellen schijven en in de minimale stappen. Toegang tot gegevens van de virtuele machine wordt geleverd door een script (hiermee het herstelvolume wanneer uitvoert, zoals hieronder weergegeven) en kan daarom vormt de hoeksteen van alle implementaties voor beveiliging
+
+  ![Beveiliging functie stroom](./media/backup-azure-restore-files-from-vm/vm-security-feature-flow.png)
+
+### <a name="security-implementations"></a>Beveiliging-implementaties
+
+#### <a name="select-recovery-point-who-can-generate-script"></a>Selecteer een herstelpunt (die kunt-script genereren)
+
+Het script geeft toegang tot gegevens van de virtuele machine, het is belangrijk te reguleren die deze in de eerste plaats kunnen genereren. Een zich aanmeldt bij Azure-portal en moet [RBAC geautoriseerd](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) kunnen voor het genereren van het script.
+
+Het herstellen van bestanden moet dezelfde mate van autorisatie zoals vereist voor de virtuele machine terugzetten en herstellen van schijven. Met andere woorden, alleen geautoriseerde gebruikers kan de VM-gegevens weergeven kunt het script genereren.
+
+Het gegenereerde script is ondertekend met officiële Microsoft-certificaat voor Azure Backup-service. Alle knoeien met het script dat betekent dat de handtekening verbroken is en wordt elke poging om uit te voeren van het script is gemarkeerd als een potentieel risico door het besturingssysteem.
+
+#### <a name="mount-recovery-volume-who-can-run-script"></a>Koppelpunt herstelvolume (die script kan worden uitgevoerd)
+
+Alleen-beheerder kan het script worden uitgevoerd en moet deze uitvoeren met verhoogde bevoegdheden. Het script wordt alleen wordt uitgevoerd een vooraf gegenereerde reeks stappen en accepteert geen invoer van een externe bron.
+
+Het script wordt uitgevoerd, is een vereist een wachtwoord dat alleen voor de gemachtigde gebruiker op het moment van aanmaak van script in de Azure portal of PowerShell/CLI weergegeven wordt. Dit is om ervoor te zorgen dat de gemachtigde gebruiker die het script downloadt, hebben ook verantwoordelijk voor het script is uitgevoerd.
+
+#### <a name="browse-files-and-folders"></a>Bladeren door bestanden en mappen
+
+Als u bestanden en mappen, het script maakt gebruik van de iSCSI-initiator op de machine en verbinding maken met het herstelpunt dat is geconfigureerd als een iSCSI-doel. Hier een kunt ervan uitgaan dat het scenario's waarbij een probeert te imiteren/vervalsen ofwel/alle onderdelen.
+
+We gebruiken wederzijdse CHAP-verificatiemechanisme zodat elk onderdeel de andere verifieert. Dit betekent dat het is zeer moeilijk voor een valse initiator verbinding maken met het iSCSI-doel en een valse doel zijn verbonden met de machine waarop het script wordt uitgevoerd.
+
+De gegevensstroom tussen de recovery-service en de machine wordt beveiligd door het bouwen van een beveiligde SSL-tunnel via TCP ([TLS 1.2 moet worden ondersteund](#system-requirements) in de machine waarop het script wordt uitgevoerd)
+
+Elk bestand lijst met ACL (Access Control) in de bovenliggende/back-ups van virtuele machine aanwezig blijven ook behouden in het gekoppelde bestandssysteem.
+
+Het script geeft alleen-lezen toegang tot een herstelpunt en alleen 12 uur geldig is. Als de gebruiker wil de toegang eerder verwijderen, meldt u zich in Azure Portal/PowerShell/CLI en voer de **schijven ontkoppelen** voor die bepaalde herstelpunt. Het script wordt direct ongeldig worden gemaakt.

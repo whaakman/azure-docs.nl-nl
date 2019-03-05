@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: be3843dc8dfbb45ebb981123bf3df4bb741c82d8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 96f6da7e081430768b5a6f8fd874e289b8256271
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466079"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308479"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>Het ontwerpen van een strategie laden voor Azure SQL Data Warehouse PolyBase-gegevens
 
@@ -40,7 +40,7 @@ De basisstappen voor het implementeren van een ELT PolyBase voor SQL Data Wareho
 
 Zie voor een zelfstudie laden [gebruik PolyBase om gegevens te laden vanuit Azure blob storage naar Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
 
-Zie voor meer informatie, [het laden van patronen blog](https://blogs.msdn.microsoft.com/sqlcat/2017/05/17/azure-sql-data-warehouse-loading-patterns-and-strategies/). 
+Zie voor meer informatie, [het laden van patronen blog](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/). 
 
 
 ## <a name="1-extract-the-source-data-into-text-files"></a>1. De brongegevens extraheren in tekstbestanden
@@ -106,7 +106,7 @@ Voor het laden van gegevens met PolyBase kunt u een van deze opties voor het lad
 Als uw gegevens niet compatibel met PolyBase is, kunt u [bcp](/sql/tools/bcp-utility) of de [SqlBulkCopy uitvoert API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). BCP wordt rechtstreeks naar SQL Data Warehouse wordt geladen zonder tussenkomst van Azure Blob-opslag, en is alleen bedoeld voor kleine geladen. Opmerking: de prestaties van de belasting van deze opties is aanzienlijk langzamer dan PolyBase. 
 
 
-## <a name="5-transform-the-data"></a>5. De gegevens transformeren
+## <a name="5-transform-the-data"></a>5. De gegevens te transformeren
 
 Terwijl de gegevens zich in de faseringstabel, uitvoeren van transformaties die uw workload. Verplaats de gegevens in een productietabel.
 

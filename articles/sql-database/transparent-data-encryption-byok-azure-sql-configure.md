@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/15/2019
-ms.openlocfilehash: f2c7fde7b4834457f84ecaa3ce0fdd5f65dd03b5
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: b2c3e4067fd8e08440f9fe6e15212160aef002f0
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430315"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312917"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell en CLI: Transparent Data Encryption inschakelen met de klant beheerde sleutel uit Azure Key Vault
 
@@ -25,9 +25,11 @@ Dit artikel helpt bij het gebruik van een sleutel uit Azure Key Vault voor trans
 
 ## <a name="prerequisites-for-powershell"></a>Vereisten voor PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 - U moet een Azure-abonnement hebt en een beheerder zijn op dat aan het abonnement.
 - [Aanbevolen maar niet vereist] Een hardware security module (HSM) of de lokale sleutel opslaan voor het maken van een lokale kopie van het sleutelmateriaal TDE-beveiliging hebben.
-- U moet Azure PowerShell versie 4.2.0 of hoger zijn geïnstalleerd en uitgevoerd. 
+- Azure PowerShell installeren en uitvoeren, moet u hebben. 
 - Maak een Azure Key Vault en de sleutel moet worden gebruikt voor TDE.
    - [PowerShell-instructies uit Key Vault](../key-vault/key-vault-overview.md)
    - [Instructies voor het gebruik van een hardware security module (HSM) en Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
@@ -39,21 +41,21 @@ Dit artikel helpt bij het gebruik van een sleutel uit Azure Key Vault voor trans
    - Niet uitgeschakeld
    - Kan uitvoeren *ophalen*, *sleutel inpakken*, *sleutel uitpakken* bewerkingen
 
-## <a name="step-1-assign-an-azure-ad-identity-to-your-server"></a>Step 1. Een Azure AD-identiteit toewijzen aan uw server 
+## <a name="step-1-assign-an-azure-ad-identity-to-your-server"></a>Stap 1. Een Azure AD-identiteit toewijzen aan uw server 
 
 Als u een bestaande server hebt, gebruikt u de volgende in een Azure AD-identiteit toevoegen aan uw server:
 
    ```powershell
-   $server = Set-AzureRmSqlServer `
+   $server = Set-AzSqlServer `
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -ServerName <LogicalServerName> `
    -AssignIdentity
    ```
 
-Als u een server maakt, gebruikt u de [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) cmdlet met de tag-identiteit van een Azure AD-identiteit toevoegen tijdens het maken van de server:
+Als u een server maakt, gebruikt u de [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) cmdlet met de tag-identiteit van een Azure AD-identiteit toevoegen tijdens het maken van de server:
 
    ```powershell
-   $server = New-AzureRmSqlServer `
+   $server = New-AzSqlServer `
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -Location <RegionName> `
    -ServerName <LogicalServerName> `
@@ -64,10 +66,10 @@ Als u een server maakt, gebruikt u de [New-AzureRmSqlServer](/powershell/module/
 
 ## <a name="step-2-grant-key-vault-permissions-to-your-server"></a>Stap 2. Key Vault-machtigingen verlenen aan uw server
 
-Gebruik de [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) cmdlet uw servertoegang verlenen tot de sleutel voordat u een sleutel van het voor TDE-kluis.
+Gebruik de [Set AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet uw servertoegang verlenen tot de sleutel voordat u een sleutel van het voor TDE-kluis.
 
    ```powershell
-   Set-AzureRmKeyVaultAccessPolicy  `
+   Set-AzKeyVaultAccessPolicy  `
    -VaultName <KeyVaultName> `
    -ObjectId $server.Identity.PrincipalId `
    -PermissionsToKeys get, wrapKey, unwrapKey
@@ -75,9 +77,9 @@ Gebruik de [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault
 
 ## <a name="step-3-add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Stap 3. De Key Vault-sleutel toevoegen aan de server en stel de TDE-beveiliging
 
-- Gebruik de [toevoegen AzureRmSqlServerKeyVaultKey](/powershell/module/azurerm.sql/add-azurermsqlserverkeyvaultkey) cmdlet om toe te voegen van de sleutel van de Key Vault met de server.
-- Gebruik de [Set-azurermsqlservertransparentdataencryptionprotector geeft](/powershell/module/azurerm.sql/set-azurermsqlservertransparentdataencryptionprotector) cmdlet om in te stellen van de sleutel als de TDE-beveiliging voor alle serverresources.
-- Gebruik de [Get-azurermsqlservertransparentdataencryptionprotector geeft](/powershell/module/azurerm.sql/get-azurermsqlservertransparentdataencryptionprotector) cmdlet om te bevestigen dat de TDE-beveiliging is geconfigureerd zoals bedoeld.
+- Gebruik de [toevoegen AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) cmdlet om toe te voegen van de sleutel van de Key Vault met de server.
+- Gebruik de [Set AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet om in te stellen van de sleutel als de TDE-beveiliging voor alle serverresources.
+- Gebruik de [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) cmdlet om te bevestigen dat de TDE-beveiliging is geconfigureerd zoals bedoeld.
 
 > [!Note]
 > De gecombineerde lengte voor de key vault-naam en de naam mag maximaal 94 tekens bevatten.
@@ -89,30 +91,30 @@ Gebruik de [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault
 
    ```powershell
    <# Add the key from Key Vault to the server #>
-   Add-AzureRmSqlServerKeyVaultKey `
+   Add-AzSqlServerKeyVaultKey `
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -ServerName <LogicalServerName> `
    -KeyId <KeyVaultKeyId>
 
    <# Set the key as the TDE protector for all resources under the server #>
-   Set-AzureRmSqlServerTransparentDataEncryptionProtector `
+   Set-AzSqlServerTransparentDataEncryptionProtector `
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -ServerName <LogicalServerName> `
    -Type AzureKeyVault `
    -KeyId <KeyVaultKeyId> 
 
    <# To confirm that the TDE protector was configured as intended: #>
-   Get-AzureRmSqlServerTransparentDataEncryptionProtector `
+   Get-AzSqlServerTransparentDataEncryptionProtector `
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -ServerName <LogicalServerName> 
    ```
 
 ## <a name="step-4-turn-on-tde"></a>Stap 4. TDE inschakelen 
 
-Gebruik de [Set AzureRMSqlDatabaseTransparentDataEncryption](/powershell/module/azurerm.sql/set-azurermsqldatabasetransparentdataencryption) cmdlet TDE inschakelen.
+Gebruik de [Set AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) cmdlet TDE inschakelen.
 
    ```powershell
-   Set-AzureRMSqlDatabaseTransparentDataEncryption `
+   Set-AzSqlDatabaseTransparentDataEncryption `
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -ServerName <LogicalServerName> `
    -DatabaseName <DatabaseName> `
@@ -123,17 +125,17 @@ De database of het datawarehouse is nu TDE is ingeschakeld met een versleuteling
 
 ## <a name="step-5-check-the-encryption-state-and-encryption-activity"></a>Stap 5. Controleer de status van de versleuteling en versleuteling activiteit
 
-Gebruik de [Get-AzureRMSqlDatabaseTransparentDataEncryption](/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption) om op te halen van de status van de versleuteling en de [Get-AzureRMSqlDatabaseTransparentDataEncryptionActivity](/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryptionactivity) om te controleren of de voortgang van de versleuteling voor een database of het datawarehouse.
+Gebruik de [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption) om op te halen van de status van de versleuteling en de [Get-AzSqlDatabaseTransparentDataEncryptionActivity](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryptionactivity) om de voortgang van de versleuteling voor een database te controleren of het datawarehouse.
 
    ```powershell
    # Get the encryption state
-   Get-AzureRMSqlDatabaseTransparentDataEncryption `
+   Get-AzSqlDatabaseTransparentDataEncryption `
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -ServerName <LogicalServerName> `
    -DatabaseName <DatabaseName> `
 
    <# Check the encryption progress for a database or data warehouse #>
-   Get-AzureRMSqlDatabaseTransparentDataEncryptionActivity `
+   Get-AzSqlDatabaseTransparentDataEncryptionActivity `
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -ServerName <LogicalServerName> `
    -DatabaseName <DatabaseName>  
@@ -141,30 +143,30 @@ Gebruik de [Get-AzureRMSqlDatabaseTransparentDataEncryption](/powershell/module/
 
 ## <a name="other-useful-powershell-cmdlets"></a>Andere nuttige PowerShell-cmdlets
 
-- Gebruik de [Set AzureRMSqlDatabaseTransparentDataEncryption](/powershell/module/azurerm.sql/set-azurermsqldatabasetransparentdataencryption) cmdlet TDE uitschakelen.
+- Gebruik de [Set AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) cmdlet TDE uitschakelen.
 
    ```powershell
-   Set-AzureRMSqlDatabaseTransparentDataEncryption `
+   Set-AzSqlDatabaseTransparentDataEncryption `
    -ServerName <LogicalServerName> `
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -DatabaseName <DatabaseName> `
    -State "Disabled”
    ```
  
-- Gebruik de [Get-AzureRmSqlServerKeyVaultKey](/powershell/module/azurerm.sql/get-azurermsqlserverkeyvaultkey) cmdlet om te retourneren van de lijst met Key Vault sleutels die zijn toegevoegd aan de server.
+- Gebruik de [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) cmdlet om te retourneren van de lijst met Key Vault sleutels die zijn toegevoegd aan de server.
 
    ```powershell
    <# KeyId is an optional parameter, to return a specific key version #>
-   Get-AzureRmSqlServerKeyVaultKey `
+   Get-AzSqlServerKeyVaultKey `
    -ServerName <LogicalServerName> `
    -ResourceGroupName <SQLDatabaseResourceGroupName>
    ```
  
-- Gebruik de [Remove-AzureRmSqlServerKeyVaultKey](/powershell/module/azurerm.sql/remove-azurermsqlserverkeyvaultkey) te verwijderen van een Key Vault-sleutel van de server.
+- Gebruik de [Remove-AzSqlServerKeyVaultKey](/powershell/module/az.sql/remove-azsqlserverkeyvaultkey) te verwijderen van een Key Vault-sleutel van de server.
 
    ```powershell
    <# The key set as the TDE Protector cannot be removed. #>
-   Remove-AzureRmSqlServerKeyVaultKey `
+   Remove-AzSqlServerKeyVaultKey `
    -KeyId <KeyVaultKeyId> `
    -ServerName <LogicalServerName> `
    -ResourceGroupName <SQLDatabaseResourceGroupName>   
@@ -173,10 +175,10 @@ Gebruik de [Get-AzureRMSqlDatabaseTransparentDataEncryption](/powershell/module/
 ## <a name="troubleshooting"></a>Problemen oplossen
 
 Controleer het volgende als er een probleem optreedt:
-- Als de key vault kan niet worden gevonden, controleert u of u bent in het juiste abonnement met de [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription) cmdlet.
+- Als de key vault kan niet worden gevonden, controleert u of u bent in het juiste abonnement met de [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription) cmdlet.
 
    ```powershell
-   Get-AzureRmSubscription `
+   Get-AzSubscription `
    -SubscriptionId <SubscriptionId>
    ```
 
@@ -205,7 +207,7 @@ Controleer het volgende als er een probleem optreedt:
    - Niet uitgeschakeld
    - Kan uitvoeren *ophalen*, *sleutel inpakken*, *sleutel uitpakken* bewerkingen
    
-## <a name="step-1-create-a-server-with-an-azure-ad-identity"></a>Step 1. Een server maken met een Azure AD-identiteit
+## <a name="step-1-create-a-server-with-an-azure-ad-identity"></a>Stap 1. Een server maken met een Azure AD-identiteit
       cli
       # create server (with identity) and database
       az sql server create --name <servername> --resource-group <rgname>  --location <location> --admin-user <user> --admin-password <password> --assign-identity

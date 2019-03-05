@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/23/2018
 ms.author: victorh
-ms.openlocfilehash: 92d0e079f9fafbb6c000c6b1746f37a16add4cf7
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 3b9108e08e1b1ad13fac75d00816755043d84672
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417344"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308717"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Een toepassingsgateway met een interne load balancer (ILB) maken
 
@@ -29,7 +29,9 @@ In dit artikel worden de stappen beschreven voor het configureren van een toepas
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-1. Installeer de nieuwste versie van de Azure PowerShell-cmdlets via het webplatforminstallatieprogramma. U kunt de nieuwste versie downloaden en installeren via het gedeelte **Windows PowerShell** op de pagina [Downloads](https://azure.microsoft.com/downloads/).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+1. Installeer de nieuwste versie van de Azure PowerShell-module door de [installatie-instructies](/powershell/azure/install-az-ps).
 2. U maakt een virtueel netwerk en een subnet voor de toepassingsgateway. Zorg ervoor dat er geen virtuele machines en cloudimplementaties zijn die gebruikmaken van het subnet. De toepassingsgateway moet afzonderlijk in een subnet van een virtueel netwerk staan.
 3. De servers die u voor gebruik van de toepassingsgateway configureert, moeten al bestaan in het virtuele netwerk of hier hun eindpunten hebben. Een andere optie is om er een openbaar IP- of VIP-adres aan toe te wijzen.
 
@@ -60,7 +62,7 @@ Zorg ervoor dat u overschakelt naar de PowerShell-modus om de Azure Resource Man
 ### <a name="step-1"></a>Stap 1
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 ### <a name="step-2"></a>Stap 2
@@ -68,7 +70,7 @@ Connect-AzureRmAccount
 Controleer de abonnementen voor het account.
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 U wordt gevraagd om u te verifiëren met uw referenties.
@@ -78,7 +80,7 @@ U wordt gevraagd om u te verifiëren met uw referenties.
 Kies welk Azure-abonnement u wilt gebruiken.
 
 ```powershell
-Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+Select-AzSubscription -Subscriptionid "GUID of subscription"
 ```
 
 ### <a name="step-4"></a>Stap 4
@@ -86,7 +88,7 @@ Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 Maak een nieuwe resourcegroep (u kunt deze stap overslaan als u een bestaande resourcegroep gebruikt).
 
 ```powershell
-New-AzureRmResourceGroup -Name appgw-rg -location "West US"
+New-AzResourceGroup -Name appgw-rg -location "West US"
 ```
 
 Azure Resource Manager vereist dat er voor alle resourcegroepen een locatie wordt opgegeven. Deze locatie wordt gebruikt als de standaardlocatie voor resources in die resourcegroep. Zorg ervoor dat bij alle opdrachten voor het maken van een toepassingsgateway dezelfde resourcegroep wordt gebruikt.
@@ -100,7 +102,7 @@ In het volgende voorbeeld ziet u hoe u een virtueel netwerk maakt met Resource M
 ### <a name="step-1"></a>Stap 1
 
 ```powershell
-$subnetconfig = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
+$subnetconfig = New-AzVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 ```
 
 Deze stap wijst het netwerkadresbereik 10.0.0.0/24 toe aan een subnetvariabele om te worden gebruikt voor het maken van een virtueel netwerk.
@@ -108,7 +110,7 @@ Deze stap wijst het netwerkadresbereik 10.0.0.0/24 toe aan een subnetvariabele o
 ### <a name="step-2"></a>Stap 2
 
 ```powershell
-$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnetconfig
+$vnet = New-AzVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnetconfig
 ```
 
 Deze stap maakt u een virtueel netwerk met de naam 'appgwvnet' in de resource group 'appgw-rg' voor de regio VS-West, waarbij het voorvoegsel 10.0.0.0/16 met het subnet 10.0.0.0/24.
@@ -126,7 +128,7 @@ Deze stap wijst u het subnetobject toe aan de variabele $subnet voor de volgende
 ### <a name="step-1"></a>Stap 1
 
 ```powershell
-$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
+$gipconfig = New-AzApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 ```
 
 Deze stap maakt u een toepassingsgateway IP-configuratie met de naam 'gatewayIP01'. Wanneer de toepassingsgateway wordt geopend, wordt er een IP-adres opgehaald via het geconfigureerde subnet en wordt het netwerkverkeer omgeleid naar de IP-adressen in de back-end-IP-pool. Onthoud dat elk exemplaar één IP-adres gebruikt.
@@ -134,7 +136,7 @@ Deze stap maakt u een toepassingsgateway IP-configuratie met de naam 'gatewayIP0
 ### <a name="step-2"></a>Stap 2
 
 ```powershell
-$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.1.1.8,10.1.1.9,10.1.1.10
+$pool = New-AzApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.1.1.8,10.1.1.9,10.1.1.10
 ```
 
 Deze stap configureert u de back-end IP-adresgroep met de naam 'pool01' met IP-adressen '10.1.1.8, 10.1.1.9, 10.1.1.10'. Dit zijn de IP-adressen waardoor het netwerkverkeer van het front-end-IP-eindpunt binnenkomt. U vervangt de bovenstaande IP-adressen met de IP-adreseindpunten van uw eigen toepassing.
@@ -142,7 +144,7 @@ Deze stap configureert u de back-end IP-adresgroep met de naam 'pool01' met IP-a
 ### <a name="step-3"></a>Stap 3
 
 ```powershell
-$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
+$poolSetting = New-AzApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 ```
 
 Deze stap configureert u netwerkverkeer van application gateway-instelling 'poolsetting01' voor de belasting met gelijke taakverdeling in de back-endpool.
@@ -150,7 +152,7 @@ Deze stap configureert u netwerkverkeer van application gateway-instelling 'pool
 ### <a name="step-4"></a>Stap 4
 
 ```powershell
-$fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 80
+$fp = New-AzApplicationGatewayFrontendPort -Name frontendport01  -Port 80
 ```
 
 Deze stap configureert u de front-end-IP-poort met de naam 'frontendport01' voor de ILB.
@@ -158,7 +160,7 @@ Deze stap configureert u de front-end-IP-poort met de naam 'frontendport01' voor
 ### <a name="step-5"></a>Stap 5
 
 ```powershell
-$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -Subnet $subnet
+$fipconfig = New-AzApplicationGatewayFrontendIPConfig -Name fipconfig01 -Subnet $subnet
 ```
 
 Deze stap maakt u de front-end-IP-configuratie met de naam 'fipconfig01' en associeert deze met een privé-IP-adres van een subnet voor de huidige virtueel netwerk.
@@ -166,7 +168,7 @@ Deze stap maakt u de front-end-IP-configuratie met de naam 'fipconfig01' en asso
 ### <a name="step-6"></a>Stap 6
 
 ```powershell
-$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
+$listener = New-AzApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 ```
 
 Deze stap maakt u een listener met de naam 'listener01' en koppelt u de front-endpoort aan de front-end-IP-configuratie.
@@ -174,7 +176,7 @@ Deze stap maakt u een listener met de naam 'listener01' en koppelt u de front-en
 ### <a name="step-7"></a>Stap 7
 
 ```powershell
-$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
+$rule = New-AzApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 ```
 
 Deze stap maakt u de load balancer-routeringsregel met de naam 'rule01"waarmee het gedrag van de load balancer worden geconfigureerd.
@@ -182,7 +184,7 @@ Deze stap maakt u de load balancer-routeringsregel met de naam 'rule01"waarmee h
 ### <a name="step-8"></a>Stap 8
 
 ```powershell
-$sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
+$sku = New-AzApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 ```
 
 Deze stap configureert u de exemplaargrootte van de toepassingsgateway.
@@ -195,7 +197,7 @@ Deze stap configureert u de exemplaargrootte van de toepassingsgateway.
 Hiermee maakt een toepassingsgateway met alle configuratie-items uit de bovenstaande stappen. In dit voorbeeld heeft de toepassingsgateway de naam appgwtest.
 
 ```powershell
-$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
+$appgw = New-AzApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 ```
 
 Deze stap maakt u een toepassingsgateway met alle configuratie-items uit de bovenstaande stappen. In dit voorbeeld heeft de toepassingsgateway de naam appgwtest.
@@ -204,8 +206,8 @@ Deze stap maakt u een toepassingsgateway met alle configuratie-items uit de bove
 
 Als u wilt verwijderen van een application gateway, moet u de volgende stappen in volgorde uit:
 
-1. Gebruik de cmdlet `Stop-AzureRmApplicationGateway` om de gateway te stoppen.
-2. Gebruik de cmdlet `Remove-AzureRmApplicationGateway` om de gateway te verwijderen.
+1. Gebruik de cmdlet `Stop-AzApplicationGateway` om de gateway te stoppen.
+2. Gebruik de cmdlet `Remove-AzApplicationGateway` om de gateway te verwijderen.
 3. Gebruik de cmdlet `Get-AzureApplicationGateway` om te controleren of de gateway is verwijderd.
 
 ### <a name="step-1"></a>Stap 1
@@ -213,15 +215,15 @@ Als u wilt verwijderen van een application gateway, moet u de volgende stappen i
 Haal het toepassingsgatewayobject op en koppel dit aan de variabele $getgw.
 
 ```powershell
-$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
+$getgw =  Get-AzApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 ```
 
 ### <a name="step-2"></a>Stap 2
 
-Gebruik `Stop-AzureRmApplicationGateway` om de toepassingsgateway te stoppen. Dit voorbeeld laat zien de `Stop-AzureRmApplicationGateway` cmdlet uit op de eerste regel weergegeven, gevolgd door de uitvoer.
+Gebruik `Stop-AzApplicationGateway` om de toepassingsgateway te stoppen. Dit voorbeeld laat zien de `Stop-AzApplicationGateway` cmdlet uit op de eerste regel weergegeven, gevolgd door de uitvoer.
 
 ```powershell
-Stop-AzureRmApplicationGateway -ApplicationGateway $getgw  
+Stop-AzApplicationGateway -ApplicationGateway $getgw  
 ```
 
 ```
@@ -232,10 +234,10 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
 ```
 
-Nadat de toepassingsgateway is gestopt, gebruikt u de cmdlet `Remove-AzureRmApplicationGateway` om de service te verwijderen.
+Nadat de toepassingsgateway is gestopt, gebruikt u de cmdlet `Remove-AzApplicationGateway` om de service te verwijderen.
 
 ```powershell
-Remove-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Force
+Remove-AzApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Force
 ```
 
 ```
@@ -249,10 +251,10 @@ Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 > [!NOTE]
 > U kunt de switch **-force** gebruiken om het bevestigingsbericht voor de verwijdering niet te laten weergeven.
 
-Gebruik de cmdlet `Get-AzureRmApplicationGateway` als u wilt controleren of de service is verwijderd. Deze stap is niet vereist.
+Gebruik de cmdlet `Get-AzApplicationGateway` als u wilt controleren of de service is verwijderd. Deze stap is niet vereist.
 
 ```powershell
-Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
+Get-AzApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 ```
 
 ```

@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: bbf04104d70ecb6ea8d83c6167b5b9b0dfe2c2dc
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 38a5434d4b6f27aacdf1861fa0b005501ad1e28b
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217441"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308887"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Aan de slag met SQL Database Auditing
 
@@ -79,13 +79,13 @@ Het volgende gedeelte bevat de configuratie van de controle met Azure portal.
 
 3. Als u liever het instellen van een controlebeleid server, kunt u de **serverinstellingen weergeven** koppeling op de pagina voor het controleren van database. U kunt vervolgens weergeven of wijzigen van de server controle-instellingen. Server controlebeleid van toepassing op alle bestaande en nieuwe databases op deze server.
 
-    ![Navigatievenster][2]
+    ![Navigatiedeelvenster][2]
 
 4. Als u liever controle op databaseniveau inschakelen, schakelt u over **controle** naar **ON**.
 
     Als servercontrole is ingeschakeld, wordt de database is geconfigureerd-controle side-by-side met de controle van de server bestaat.
 
-    ![Navigatievenster][3]
+    ![Navigatiedeelvenster][3]
 
 5. **Nieuwe** -u hebt nu meerdere opties voor het configureren van waarnaar de auditlogboeken worden geschreven. U kunt Logboeken schrijven naar een Azure storage-account, een Log Analytics-werkruimte voor gebruik door Azure Monitor-Logboeken of naar event hub voor gebruik met behulp van event hub. U kunt een willekeurige combinatie van deze opties configureren en auditlogboeken worden geschreven naar elk.
 
@@ -138,7 +138,7 @@ Als u auditlogboeken schrijven naar een Azure storage-account, zijn er verschill
 
 - Gebruik de [Azure-portal](https://portal.azure.com).  Open de betreffende database. Aan de bovenkant van de database **controle** pagina, klikt u op **auditlogboeken weergeven**.
 
-    ![Navigatievenster][7]
+    ![Navigatiedeelvenster][7]
 
     **Controlerecords** wordt geopend, waarin zal het mogelijk om de logboeken weer te geven.
 
@@ -146,21 +146,21 @@ Als u auditlogboeken schrijven naar een Azure storage-account, zijn er verschill
   - U kunt schakelen tussen controlerecords die zijn gemaakt door de *server controlebeleid* en de *database controlebeleid* door het omschakelen van **bron controleren**.
   - Vindt u alleen SQL-injectie controlerecords door het controleren van gerelateerde **tonen alleen controlerecords voor SQL-injecties** selectievakje.
 
-       ![Navigatievenster][8]
+       ![Navigatiedeelvenster][8]
 
 - Gebruik de systeemfunctie **sys.fn_get_audit_file** (T-SQL) om te retourneren van de audit log-gegevens in tabelvorm. Zie voor meer informatie over het gebruik van deze functie [sys.fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 - Gebruik **controlebestanden samenvoegen** in SQL Server Management Studio (te beginnen met SSMS 17):
     1. Selecteer in het menu SSMS **bestand** > **Open** > **controlebestanden samenvoegen**.
 
-        ![Navigatievenster][9]
+        ![Navigatiedeelvenster][9]
     2. De **controlebestanden toevoegen** in het dialoogvenster wordt geopend. Selecteer een van de **toevoegen** opties te kiezen of u wilt samenvoegen auditbestanden van een lokale schijf of ze importeren uit Azure Storage. U moet uw Azure Storage-gegevens en de accountsleutel.
 
     3. Nadat alle bestanden samenvoegen zijn toegevoegd, klikt u op **OK** om de samenvoegbewerking te voltooien.
 
     4. Het samengevoegde bestand wordt geopend in SSMS, waar u kunt weergeven en analyseren, evenals het exporteren naar een xel-bestand of een CSV-bestand, of naar een tabel.
 
-- Power BI gebruiken. U kunt bekijken en analyseren van logboekgegevens audit in Power BI. Zie voor meer informatie en voor toegang tot een sjabloon downloaden [analyseren audit log-gegevens in Power BI](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
+- Power BI gebruiken. U kunt bekijken en analyseren van logboekgegevens audit in Power BI. Zie voor meer informatie en voor toegang tot een sjabloon downloaden [analyseren audit log-gegevens in Power BI](https://blogs.msdn.microsoft.com/azuresqldbsupport/20../../sql-azure-blob-auditing-basic-power-bi-dashboard/).
 - Downloaden van de logboekbestanden van uw Azure Storage blob-container via de portal of met behulp van een hulpprogramma zoals [Azure Storage Explorer](http://storageexplorer.com/).
   - Nadat u een logboekbestand lokaal hebt gedownload, dubbelklikt u op het bestand te openen, weergeven en analyseren van de logboeken in SSMS.
   - U kunt ook meerdere bestanden tegelijkertijd via Azure Storage Explorer downloaden. Om dit te doen met de rechtermuisknop op een specifieke submap en selecteer **opslaan als** om op te slaan in een lokale map.
@@ -170,8 +170,8 @@ Als u auditlogboeken schrijven naar een Azure storage-account, zijn er verschill
   - Nadat u hebt meerdere bestanden of een submap met de logboekbestanden gedownload, kunt u deze lokaal zoals beschreven in de controlebestanden SSMS-samenvoegen-instructies die eerder zijn beschreven samenvoegen.
   - Controlefunctie voor blobs weergeven logboeken via een programma:
 
-    - Gebruik de [uitgebreide gebeurtenissen-lezer](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/) C#-bibliotheek.
-    - [Uitgebreide gebeurtenissen querybestanden](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) met behulp van PowerShell.
+    - Gebruik de [uitgebreide gebeurtenissen-lezer](https://blogs.msdn.microsoft.com/extended_events/20../../introducing-the-extended-events-reader/) C#-bibliotheek.
+    - [Uitgebreide gebeurtenissen querybestanden](https://sqlscope.wordpress.com/20../../reading-extended-event-files-using-client-side-tools-only/) met behulp van PowerShell.
 
 ## <a id="subheading-5"></a>Procedures voor productie
 
@@ -197,10 +197,10 @@ In de productieomgeving bent u waarschijnlijk uw opslagsleutels periodiek te ver
 
 1. Open **opslaggegevens**. In de **toegangssleutel voor opslag** Schakel **secundaire**, en klikt u op **OK**. Klik vervolgens op **opslaan** aan de bovenkant van de configuratiepagina van de controle.
 
-    ![Navigatievenster][5]
+    ![Navigatiedeelvenster][5]
 2. Ga naar de configuratiepagina van de opslag en de primaire toegangssleutel opnieuw genereren.
 
-    ![Navigatievenster][6]
+    ![Navigatiedeelvenster][6]
 3. Ga terug naar de configuratiepagina van controle, schakelen de toegangssleutel voor opslag van de secundaire naar primaire en klik vervolgens op **OK**. Klik vervolgens op **opslaan** aan de bovenkant van de configuratiepagina van de controle.
 4. Ga terug naar de configuratiepagina van de opslag en genereer de secundaire toegangssleutel (ter voorbereiding op de volgende sleutel vernieuwingscyclus) opnieuw.
 

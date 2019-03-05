@@ -1,6 +1,6 @@
 ---
 title: Inzicht in de querytaal
-description: Hierin wordt beschreven hoe de Kusto-querytaal die wordt gebruikt door Azure Resource Graph werkt.
+description: Beschrijft de beschikbare Kusto-operators en kan worden gebruikt met Azure Resource Graph-functies.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: cc792d27890b5d994b62784eaa511df990f9b5ec
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 618445c5b792317d4de4b668e7ea1a186707007c
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339971"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317914"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Inzicht krijgen in de querytaal van Azure Resource Graph
 

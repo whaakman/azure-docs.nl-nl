@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: b3bd157f06c922d96f71627f885fe6de2537987a
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 935c9bbbb3e3d66eeef7258299677b44a32f7a13
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215283"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311019"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Hiermee stelt u apparaten gebruikt in uw Azure IoT Central-toepassing
 
@@ -27,7 +27,7 @@ Voor het maken van een apparaat instellen:
 
 1. Kies **Apparaatsets** in het navigatiemenu links.
 
-1. Klik op **+ New**.
+1. Selecteer **+ nieuw**.
 
     ![Nieuw apparaat instellen](media/howto-use-device-sets-experimental/image1.png)
 
@@ -50,9 +50,9 @@ Nadat u uw apparaat instellen hebt gemaakt, kunt u configureren de **Dashboard**
 
 1. Selecteer uw apparaat.
 
-1. Selecteer het tabblad **Dashboard**.
+1. Selecteer het tabblad **Dashboard** .
 
-1. Klik op **Bewerken**.
+1. Selecteer **Bewerken**.
 
     ![Ontwerpmodus op](media/howto-use-device-sets-experimental/image3.png)
 
@@ -61,7 +61,7 @@ Nadat u uw apparaat instellen hebt gemaakt, kunt u configureren de **Dashboard**
 1. Een tegel koppeling toevoegen:
     1. Kies **koppeling** in het rechterdeelvenster.
     1. Geef uw koppeling een **titel**.
-    1. Kies een URL worden geopend wanneer de koppeling wordt geklikt.
+    1. Kies een URL worden geopend wanneer de koppeling is geselecteerd.
     1. Geef uw koppeling een beschrijving waarin wordt weergegeven onder de **titel**.
     1. Kies **Opslaan**.
 
@@ -83,7 +83,7 @@ Nadat u uw apparaat instellen hebt gemaakt, kunt u configureren de **Dashboard**
         > [!NOTE]
         > U kunt meerdere afbeeldingen, koppelingen en rasters toevoegen.
   
-    1. Klik op **Gereed**.
+    1. Selecteer **Done**.
 
 ### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Dashboard instellen locatiekaart configureren in uw apparaat
 
@@ -97,7 +97,7 @@ Als u wilt toevoegen aan een locatiekaart op uw apparaat wordt ingesteld dashboa
 4. Nu als een operator weergaven dashboard Hiermee stelt u het apparaat, de operator alle tegels die u hebt geconfigureerd ziet, met inbegrip van de locatie van de kaart voor het visualiseren van alle apparaten-locatie in een oogopslag!
 
 > [!NOTE]
-> U kunt zich grootte van de kaart om de gewenste grootte te wijzigen. Te klikken op een pincode op de kaart wordt weergegeven de apparaatgegevens, naam en locatie. U kunt klikken op het pop-upvenster om naar de eigenschappenpagina van het apparaat te gaan.
+> U kunt zich grootte van de kaart om de gewenste grootte te wijzigen. Als u een pincode op de kaart wordt weergegeven de apparaatgegevens, naam en locatie. U kunt het pop-upvenster naar de eigenschappenpagina van het apparaat selecteren.
 
 ## <a name="configure-the-list-for-your-device-set"></a>De lijst voor het instellen van uw apparaat configureren
 

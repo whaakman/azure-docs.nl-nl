@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8d638743b3cb07b0d060e754ecb76e74bd02719d
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 512956d2de0f9a838cc6378345a334e489d1d120
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215010"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57306864"
 ---
 # <a name="trigger-azure-functions-using-webhooks-in-azure-iot-central"></a>Azure Functions activeren met behulp van webhooks in Azure IoT Central
 
@@ -31,7 +31,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
     ![Een nieuwe functie-app maken in Azure Portal](media/howto-trigger-azure-functions/createfunction.png)
 
-2. Vouw uw functie-app en klikt u op de **knop +** naast functies. Als dit de eerste functie in de functie-app is, selecteert u **Aangepaste functie**. U ziet nu de volledige set het functiesjablonen.
+2. Vouw uw functie-app en selecteer de **knop +** naast functies. Als dit de eerste functie in de functie-app is, selecteert u **Aangepaste functie**. U ziet nu de volledige set het functiesjablonen.
 
     ![Aangepaste functie in de functie-app kiezen](media/howto-trigger-azure-functions/customfunction.png)
 
@@ -39,7 +39,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
     ![Generieke webhook-trigger selecteren](media/howto-trigger-azure-functions/genericwebhooktrigger.png)
 
-4. Klik in de nieuwe functie op **</> Functie-URL ophalen**, kopieer de waarde en sla deze op. U gebruikt deze waarde om de webhook te configureren.
+4. Selecteer in de nieuwe functie **<> / functie-URL ophalen**, kopieer vervolgens de waarde en sla. U gebruikt deze waarde om de webhook te configureren.
 
     ![De URL van de functie ophalen](media/howto-trigger-azure-functions/getfunctionurl.png)
 
@@ -49,7 +49,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
     ![De functie-URL invoeren in het veld van de callback-URL](media/howto-trigger-azure-functions/configurewebhook.PNG)
 
-6. De regel niet opslaan. Wanneer de regel wordt geactiveerd, roept de webhook nu de functie-app om uit te voeren. In uw functie-app kunt u **Monitor** om te zien van de functie aanroepen geschiedenis. U kunt App Insights of de klassieke weergave gebruiken om te kijken naar de geschiedenis.
+6. De regel niet opslaan. Wanneer de regel wordt geactiveerd, roept de webhook nu de functie-app om uit te voeren. U kunt in uw functie-app selecteren **Monitor** om te zien van de functie aanroepen geschiedenis. U kunt App Insights of de klassieke weergave gebruiken om te kijken naar de geschiedenis.
 
     ![De geschiedenis van de aanroep van de functie bewaken](media/howto-trigger-azure-functions/monitorfunction.PNG)
 

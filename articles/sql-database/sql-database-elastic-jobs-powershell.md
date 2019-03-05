@@ -12,20 +12,18 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 6ec0742c205204ee74ac9f9474af0394f9d1ab31
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: dc9b58402ed0fcc48d60b51d30f891ffcadddbe0
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472641"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315619"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>SQL Database elastische taken met behulp van PowerShell (preview) maken en beheren
 
-
-[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
-
-
 De PowerShell-APIs voor **taken voor Elastic Database** (in preview), kunt u bij het definiëren van een groep databases op basis waarvan de scripts worden uitgevoerd. Dit artikel wordt beschreven hoe u kunt maken en beheren van **taken voor Elastic Database** met behulp van PowerShell-cmdlets. Zie [overzicht van elastische taken](sql-database-elastic-jobs-overview.md). 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 * Een Azure-abonnement. Zie voor een gratis proefversie [gratis proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
@@ -34,9 +32,9 @@ De PowerShell-APIs voor **taken voor Elastic Database** (in preview), kunt u bij
 * **Taken voor elastic Database** PowerShell pakket: Zie [taken voor Elastic Database installeren](sql-database-elastic-jobs-service-installation.md)
 
 ### <a name="select-your-azure-subscription"></a>Selecteer uw Azure-abonnement
-Selecteer het abonnement dat u uw abonnements-Id moet (**- SubscriptionId**) of de naam van abonnement (**- SubscriptionName**). Als u meerdere abonnementen hebt kunt u uitvoeren de **Get-AzureRmSubscription** cmdlet en kopieert u de informatie over het gewenste abonnement van het resultaat is ingesteld. Wanneer u gegevens van uw abonnement hebt, kunt u de volgende cmdlet om in te stellen van dit abonnement als de standaard, namelijk het doel voor het maken en beheren van taken uitvoeren:
+Selecteer het abonnement dat u uw abonnements-Id moet (**- SubscriptionId**) of de naam van abonnement (**- SubscriptionName**). Als u meerdere abonnementen hebt kunt u uitvoeren de **Get-AzSubscription** cmdlet en kopieert u de informatie over het gewenste abonnement van het resultaat is ingesteld. Wanneer u gegevens van uw abonnement hebt, kunt u de volgende cmdlet om in te stellen van dit abonnement als de standaard, namelijk het doel voor het maken en beheren van taken uitvoeren:
 
-    Select-AzureRmSubscription -SubscriptionId {SubscriptionID}
+    Select-AzSubscription -SubscriptionId {SubscriptionID}
 
 De [PowerShell ISE](https://technet.microsoft.com/library/dd315244.aspx) wordt aanbevolen voor gebruik voor ontwikkelen en uitvoeren van PowerShell-scripts op basis van de taken voor Elastic Database.
 

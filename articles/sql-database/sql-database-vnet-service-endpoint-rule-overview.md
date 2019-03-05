@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 6ded590ac5a9c30655d8ed19c370ce476d1c9631
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 15ca464e8e44183b445bfdabe9abf5dd560a4f70
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456279"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312253"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Gebruik virtual network-service-eindpunten en regels voor database-servers
 
@@ -174,6 +174,8 @@ PolyBase wordt meestal gebruikt om gegevens te laden in Azure SQL Data Warehouse
 
 #### <a name="prerequisites"></a>Vereisten
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1.  Installeer Azure PowerShell volgens dit [handleiding](https://docs.microsoft.com/powershell/azure/install-az-ps).
 2.  Als u een voor algemeen gebruik v1- of blob storage-account hebt, moet u eerst upgraden naar algemeen gebruik v2 met behulp van dit [handleiding](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 3.  U moet hebben **vertrouwde Microsoft-services voor toegang tot dit storage-account toestaan** onder Azure Storage-account ingeschakeld **Firewalls en virtuele netwerken** instellingenmenu. Verwijzen naar dit [handleiding](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) voor meer informatie.
@@ -182,9 +184,9 @@ PolyBase wordt meestal gebruikt om gegevens te laden in Azure SQL Data Warehouse
 1.  In PowerShell **registreren van uw SQL Database-server** met Azure Active Directory (AAD):
 
     ```powershell
-    Add-AzureRmAccount
-    Select-AzureRmSubscription -SubscriptionId your-subscriptionId
-    Set-AzureRmSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
+    Connect-AzAccount
+    Select-AzSubscription -SubscriptionId your-subscriptionId
+    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
     ```
     
  1. Maak een **voor algemeen gebruik v2-Opslagaccount** met behulp van dit [handleiding](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
@@ -273,7 +275,7 @@ Deze sectie wordt beschreven hoe u kunt de [Azure-portal] [ http-azure-portal-li
 
 ## <a name="powershell-alternative"></a>Alternatieve van PowerShell
 
-Een PowerShell-script kunt ook regels voor virtueel netwerk maken. De essentiële cmdlet **New-azurermsqlservervirtualnetworkrule toegevoegd om**. Als u nodig hebt, Zie [PowerShell voor het maken van een service-eindpunt voor Virtueelnetwerk en een regel voor Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
+Een PowerShell-script kunt ook regels voor virtueel netwerk maken. De essentiële cmdlet **New-AzSqlServerVirtualNetworkRule**. Als u nodig hebt, Zie [PowerShell voor het maken van een service-eindpunt voor Virtueelnetwerk en een regel voor Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
 ## <a name="rest-api-alternative"></a>Alternatieve REST-API
 

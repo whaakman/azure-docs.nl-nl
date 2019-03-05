@@ -4,14 +4,14 @@ description: Biedt een overzicht van bekende problemen in de Azure Migrate-servi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: cb1bed847f5b7afe7c1eff0243c64e8c25ddb814
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: e85608c411c0aea7b7bf71be19939f6859139c56
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992553"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314362"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Problemen met Azure Migrate oplossen
 
@@ -163,10 +163,34 @@ Dit probleem kan optreden vanwege een probleem met de installatie van VMware Pow
         C:\Program Files (x86)\WindowsPowerShell\Modules
 
    d. Start de 'Azure Migrate Collector-service in Windows Service Manager (Open 'Uitvoeren' en typ services.msc om Windows Service Manager te openen). Klik met de rechtermuisknop op de Azure Migrate Collector-Service en klik op Start.
-   
-   e. Dubbelklik op het bureaublad een snelkoppeling 'Collector uitvoeren' om de collector-toepassing te starten. De collector-toepassing automatisch download en installeer de vereiste versie fo PowerCLI.
 
-3. Als de bovenstaande het probleem niet verhelpen, handmatig installeren [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) en controleer of het probleem opgelost is.
+   e. Dubbelklik op het bureaublad een snelkoppeling 'Collector uitvoeren' om de collector-toepassing te starten. De collector-toepassing moet automatisch downloaden en installeren van de vereiste versie van PowerCLI.
+
+3. Als de bovenstaande het probleem niet verhelpen, voert u stappen een naar c hierboven en installeer vervolgens handmatig PowerCLI in het apparaat met behulp van de volgende stappen uit:
+
+   a. Opschonen van alle onvolledige PowerCLI bestanden voor installatie door de volgende stappen #a naar #c in stap #2 hierboven.
+
+   b. Ga naar Start > uitvoeren > Open Windows PowerShell(x86) in de beheerdersmodus
+
+   c. Voer de opdracht uit:  Install-Module "VMWare.VimAutomation.Core" - RequiredVersion "6.5.2.6234650" ("A" wanneer deze wordt gevraagd om bevestiging type)
+
+   d. Start de 'Azure Migrate Collector-service in Windows Service Manager (Open 'Uitvoeren' en typ services.msc om Windows Service Manager te openen). Klik met de rechtermuisknop op de Azure Migrate Collector-Service en klik op Start.
+
+   e. Dubbelklik op het bureaublad een snelkoppeling 'Collector uitvoeren' om de collector-toepassing te starten. De collector-toepassing moet automatisch downloaden en installeren van de vereiste versie van PowerCLI.
+
+4. Als u zich niet voor het downloaden van de module in het toestel vanwege problemen met een firewall, downloaden en installeren van de module op een virtuele machine die toegang heeft tot internet met behulp van de volgende stappen uit:
+
+    a. Opschonen van alle onvolledige PowerCLI bestanden voor installatie door de volgende stappen #a naar #c in stap #2 hierboven.
+
+    b. Ga naar Start > uitvoeren > Open Windows PowerShell(x86) in de beheerdersmodus
+
+    c. Voer de opdracht uit:  Install-Module "VMWare.VimAutomation.Core" - RequiredVersion "6.5.2.6234650" ("A" wanneer deze wordt gevraagd om bevestiging type)
+
+    d. Kopieer alle modules die beginnen met "VMware" van 'C:\Program Files (x86) \WindowsPowerShell\Modules' naar dezelfde locatie op de collector-VM.
+
+    e. Start de 'Azure Migrate Collector-service in Windows Service Manager (Open 'Uitvoeren' en typ services.msc om Windows Service Manager te openen). Klik met de rechtermuisknop op de Azure Migrate Collector-Service en klik op Start.
+
+    f. Dubbelklik op het bureaublad een snelkoppeling 'Collector uitvoeren' om de collector-toepassing te starten. De collector-toepassing moet automatisch downloaden en installeren van de vereiste versie van PowerCLI.
 
 ### <a name="error-unabletoconnecttoserver"></a>Error UnableToConnectToServer
 

@@ -8,14 +8,16 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: a65aabc7b56c4dd5f2d22974756f5f3e54cebb31
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5552ca80059b4aa7ef96caf7984b4c15ec177d38
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867708"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316588"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Veelgestelde vragen over Application Gateway
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general"></a>Algemeen
 
@@ -41,10 +43,10 @@ Ondersteuning voor HTTP/2-protocol is beschikbaar voor clients verbinding maken 
 
 Ondersteuning voor HTTP/2 is standaard uitgeschakeld. De volgende Azure PowerShell-codefragment codevoorbeeld laat zien hoe u deze kunt inschakelen:
 
-```powershell
-$gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
+```azurepowershell
+$gw = Get-AzApplicationGateway -Name test -ResourceGroupName hm
 $gw.EnableHttp2 = $true
-Set-AzureRmApplicationGateway -ApplicationGateway $gw
+Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
 ### <a name="what-resources-are-supported-today-as-part-of-backend-pool"></a>Welke bronnen worden momenteel ondersteund als onderdeel van de back-endpool?
@@ -70,6 +72,10 @@ Listeners worden verwerkt in de volgorde waarin die ze worden weergegeven. Om di
 ### <a name="where-do-i-find-application-gateways-ip-and-dns"></a>Waar vind ik het IP- en DNS-Application-Gateway?
 
 Wanneer u een openbaar IP-adres gebruikt als een eindpunt, deze informatie kan worden gevonden op het openbare IP-adresresource of op de pagina overzicht voor application gateway in de portal. Voor interne IP-adressen, kan dit worden gevonden op de pagina overzicht.
+
+### <a name="what-is-keep-alive-timeout-and-tcp-idle-timeout-setting-on-application-gateway"></a>Wat is Keep-Alive-out en TCP-time-out voor inactiviteit instellen in Application Gateway?
+
+Keep-Alive-out in v1-SKU is 120 sec. Keep-Alive-out op v2 SKU 75 sec. TCP-inactiviteit wordt standaard op het front-end VIP van de toepassingsgateway 4 min.
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>Wordt het IP- of DNS-naam gewijzigd gedurende de levensduur van de Application Gateway?
 
@@ -126,7 +132,7 @@ Netwerkbeveiligingsgroepen (nsg's) worden ondersteund op het subnet van de gatew
 
 * Uitzonderingen moeten in worden geplaatst voor binnenkomend verkeer op poort 65503 65534 voor Application Gateway v1-SKU en poorten 65200-65535 voor de v2-SKU. Dit poortbereik is vereist voor communicatie met Azure-infrastructuur. Ze zijn beveiligd (vergrendeld) met Azure-certificaten. Zonder de juiste certificaten zijn niet externe entiteiten, inclusief de klanten van deze gateways kunnen initiëren wijzigingen op de eindpunten.
 
-* Uitgaande verbinding met internet kan niet worden geblokkeerd.
+* Uitgaande verbinding met internet kan niet worden geblokkeerd. Standaard regels voor uitgaand verkeer in de NSG toestaan al verbinding met internet. U wordt aangeraden dat u de standaardregels voor uitgaand niet verwijderen, en dat u andere regels voor uitgaand verkeer die uitgaande verbinding met internet weigeren niet maken.
 
 * Verkeer van de tag AzureLoadBalancer moet worden toegestaan.
 
@@ -342,7 +348,7 @@ Er zijn drie logboeken beschikbaar voor Application Gateway. Zie voor meer infor
 
 ### <a name="how-do-i-know-if-my-backend-pool-members-are-healthy"></a>Hoe weet ik of Mijn back-endpoolleden in orde zijn?
 
-U kunt de PowerShell-cmdlet `Get-AzureRmApplicationGatewayBackendHealth` of status via de portal controleren door naar de pagina [Application Gateway Diagnostics](application-gateway-diagnostics.md)
+U kunt de PowerShell-cmdlet `Get-AzApplicationGatewayBackendHealth` of status via de portal controleren door naar de pagina [Application Gateway Diagnostics](application-gateway-diagnostics.md)
 
 ### <a name="what-is-the-retention-policy-on-the-diagnostics-logs"></a>Wat is het bewaarbeleid voor de diagnostische logboeken?
 

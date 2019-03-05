@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: d70b7acb906c60001ad005a0fe9361950bc029b7
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 8f5c1755462d2bbd28dd7f8db427cda141817588
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895853"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308853"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Service Bus-toegangsbeheer met handtekeningen voor gedeelde toegang
 
@@ -84,7 +84,7 @@ De berekening van de hash op de volgende pseudocode lijkt en retourneert een 256
 SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 ```
 
-Het token bevat de waarden niet gehasht, zodat de ontvanger kan opnieuw van de hash met dezelfde parameters, gecontroleerd of de uitgever in het bezit is van een geldige ondertekeningssleutel is. 
+Het token bevat de waarden niet gehasht, zodat de ontvanger kan opnieuw van de hash met dezelfde parameters, gecontroleerd of de uitgever in het bezit is van een geldige ondertekeningssleutel is.
 
 De resource-URI is de volledige URI van de Service Bus-resource waaraan toegang is aangevraagd. Bijvoorbeeld, `http://<namespace>.servicebus.windows.net/<entityPath>` of `sb://<namespace>.servicebus.windows.net/<entityPath>`; dat wil zeggen, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. De URI moet [procent gecodeerde](https://msdn.microsoft.com/library/4fkewx0t.aspx).
 
@@ -156,7 +156,7 @@ helloMessage.MessageId = "SAS-Sample-Message";
 sendClient.Send(helloMessage);
 ```
 
-U kunt ook de tokenprovider rechtstreeks voor het uitgeven van tokens gebruiken om door te geven aan andere clients. 
+U kunt ook de tokenprovider rechtstreeks voor het uitgeven van tokens gebruiken om door te geven aan andere clients.
 
 Verbindingsreeksen kunnen bestaan uit een regelnaam (*SharedAccessKeyName*) en de sleutel van de regel (*SharedAccessKey*) of een eerder uitgegeven tokens (*SharedAccessSignature*). Wanneer die aanwezig in de verbindingsreeks die is doorgegeven aan een constructor of factory methode accepteert een verbindingsreeks zijn, wordt de SAS-tokenprovider automatisch gemaakt en ingevuld.
 
@@ -171,7 +171,7 @@ POST https://<yournamespace>.servicebus.windows.net/<yourentity>/messages
 Content-Type: application/json
 Authorization: SharedAccessSignature sr=https%3A%2F%2F<yournamespace>.servicebus.windows.net%2F<yourentity>&sig=<yoursignature from code above>&se=1438205742&skn=KeyName
 ContentType: application/atom+xml;type=entry;charset=utf-8
-``` 
+```
 
 Denk eraan dat dit voor van alles werkt. U kunt een SAS maken voor een wachtrij, onderwerp of abonnement.
 
@@ -183,7 +183,7 @@ In de vorige sectie hebt u gezien hoe u met het SAS-token met een HTTP POST-aanv
 
 Voordat u begint met het verzenden van gegevens naar Service Bus, moet de uitgever van de SAS-token in een AMQP-bericht verzenden naar een goed gedefinieerde AMQP-knooppunt met de naam **$cbs** (u kunt zien dit als een 'speciale' wachtrij gebruikt door de service te verkrijgen en alle SAS te valideren tokens). De uitgever moet opgeven de **ReplyTo** veld in het bericht AMQP; dit is het knooppunt waarin de service met de publisher met het resultaat van de validatie van tokens (een eenvoudige aanvraag/antwoord patroon tussen publisher en de service antwoorden ). Dit knooppunt antwoord wordt gemaakt 'op elk gewenst moment,"spreken over 'dynamische maken van het externe knooppunt', zoals is beschreven in de AMQP 1.0-specificatie. Nadat u hebt gecontroleerd dat de SAS-token geldig is, de uitgever vooruit en beginnen met het verzenden van gegevens naar de service.
 
-De volgende stappen laten zien hoe u voor het verzenden van de SAS-token met het gebruik van AMQP-protocol de [AMQP.Net Lite](https://github.com/Azure/amqpnetlite) bibliotheek. Dit is handig als u niet de officiële Service Bus-SDK gebruiken (bijvoorbeeld op WinRT, .net Compact Framework, .net Framework Micro en Mono) ontwikkeling in C\#. Deze bibliotheek is natuurlijk nuttig voor meer informatie over hoe op claims gebaseerde beveiliging op het niveau van AMQP werkt zoals u hebt gezien hoe het werkt op het niveau van HTTP (met een HTTP POST-aanvraag en de SAS-token verzonden in de header "Autorisatie"). Als u geen grondige kennis over AMQP nodig hebt, kunt u de officiële SDK van Service Bus gebruiken met .net Framework-toepassingen, die het voor u doen.
+De volgende stappen laten zien hoe u voor het verzenden van de SAS-token met het gebruik van AMQP-protocol de [AMQP.NET Lite](https://github.com/Azure/amqpnetlite) bibliotheek. Dit is handig als u niet kunt gebruiken met de officiële Service Bus-SDK (bijvoorbeeld op WinRT, .NET Compact Framework, .NET Micro Framework en Mono) ontwikkeling in C\#. Deze bibliotheek is natuurlijk nuttig voor meer informatie over hoe op claims gebaseerde beveiliging op het niveau van AMQP werkt zoals u hebt gezien hoe het werkt op het niveau van HTTP (met een HTTP POST-aanvraag en de SAS-token verzonden in de header "Autorisatie"). Als u geen grondige kennis over AMQP nodig hebt, kunt u de officiële Service Bus-SDK gebruiken met .NET Framework-toepassingen, die het voor u doen.
 
 ### <a name="c35"></a>C&#35;
 
@@ -236,12 +236,12 @@ private bool PutCbsToken(Connection connection, string sasToken)
 }
 ```
 
-De `PutCbsToken()` methode ontvangt de *verbinding* (AMQP-verbinding klasse-instantie worden geleverd door de [AMQP .NET Lite-bibliotheek](https://github.com/Azure/amqpnetlite)) die staat voor de TCP-verbinding naar de service en de *sasToken* parameter die de SAS-token voor het verzenden van. 
+De `PutCbsToken()` methode ontvangt de *verbinding* (AMQP-verbinding klasse-instantie worden geleverd door de [AMQP .NET Lite-bibliotheek](https://github.com/Azure/amqpnetlite)) die staat voor de TCP-verbinding naar de service en de *sasToken* parameter die de SAS-token voor het verzenden van.
 
 > [!NOTE]
 > Het is belangrijk dat de verbinding wordt gemaakt met **SASL verificatiemechanisme ingesteld op anoniem** (en niet de standaard zonder opmaak met gebruikersnaam en wachtwoord dat wordt gebruikt wanneer u niet nodig hebt voor het verzenden van de SAS-token).
-> 
-> 
+>
+>
 
 De uitgever maakt vervolgens twee AMQP koppelingen voor het SAS-token verzenden en ontvangen van het antwoord (het resultaat van de validatie van tokens) van de service.
 
@@ -295,7 +295,7 @@ De volgende tabel toont de toegangsrechten nodig zijn voor verschillende bewerki
 | **Regels** | | |
 | Een regel maken |Beheren |../myTopic/Subscriptions/mySubscription |
 | Een regel verwijderen |Beheren |../myTopic/Subscriptions/mySubscription |
-| Regels opsommen |Beheren of luisteren |../myTopic/Subscriptions/mySubscription/Rules 
+| Regels opsommen |Beheren of luisteren |../myTopic/Subscriptions/mySubscription/Rules
 
 ## <a name="next-steps"></a>Volgende stappen
 

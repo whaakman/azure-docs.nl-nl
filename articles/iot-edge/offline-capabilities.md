@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 7bf672715b45233807ab848c78aeb1bed2d352e9
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: e82c842ec8fce703c48c98eaf09ea5c8d91be9be
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699343"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307986"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Meer informatie over uitgebreide offline mogelijkheden voor IoT Edge-apparaten, modules en onderliggende apparaten (preview)
 
@@ -73,7 +73,7 @@ Het verdient ter verbetering van robuustheid biedt u de adressen van de DNS-serv
 
 ```json
 {
-    "dns": [“1.1.1.1”]
+    "dns": ["1.1.1.1"]
 }
 ```
 
@@ -136,7 +136,7 @@ U kunt omgevingsvariabelen en de opties voor het maken van de IoT Edge hub-modul
 
 Vervang `<HostStoragePath>` en `<ModuleStoragePath>` opslagpad pad; de host en de module moet met uw storage-host en de module een absoluut pad zijn. In de opties voor het maken, de host en de module opslagpaden samen te binden. Vervolgens maakt u een omgevingsvariabele die naar het opslagpad van de module verwijst.  
 
-Bijvoorbeeld, `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` betekent dat de map **/etc/iotedge/storage** op uw host systeem is gekoppeld aan de map **/iotedge/opslag/** voor de container. Of een ander voorbeeld voor Windows-systemen, `"Binds":["C:\\temp:C:\\contemp]"` betekent dat de map **C:\\temp** op uw host systeem is gekoppeld aan de map **C:\\contemp** voor de container. 
+Bijvoorbeeld, `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` betekent dat de map **/etc/iotedge/storage** op uw host systeem is gekoppeld aan de map **/iotedge/opslag/** voor de container. Of een ander voorbeeld voor Windows-systemen, `"Binds":["C:\\temp:C:\\contemp"]` betekent dat de map **C:\\temp** op uw host systeem is gekoppeld aan de map **C:\\contemp** voor de container. 
 
 U vindt ook meer informatie over het maken van opties van [docker docs](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
 

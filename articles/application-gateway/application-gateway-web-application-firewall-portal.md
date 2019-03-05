@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 7a090a068984a71c917cf5c33761dd78ac1ad2c8
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: d89e5d6fd21fdc37bffcc730fb20bae30ecc4f7c
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453253"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315024"
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Een toepassingsgateway maken met een firewall voor webtoepassingen met behulp van de Azure portal
 
@@ -30,6 +30,8 @@ In dit artikel leert u het volgende:
 > * Een opslagaccount maken en diagnostische gegevens configureren
 
 ![Voorbeeld van een WAF (Web Application Firewall)](./media/application-gateway-web-application-firewall-portal/scenario-waf.png)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
@@ -103,7 +105,7 @@ In dit voorbeeld maakt u twee virtuele machines die worden gebruikt als back-end
 2. Voer de volgende opdracht uit om IIS op de virtuele machine te installeren: 
 
     ```azurepowershell-interactive
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
       -VMName myVM `
@@ -114,7 +116,7 @@ In dit voorbeeld maakt u twee virtuele machines die worden gebruikt als back-end
       -Location EastUS
     ```
 
-3. Maak een tweede virtuele machine en installeer IIS met behulp van de stappen die u zojuist hebt voltooid. Voer *myVM2* in als de naam ervan en als VMName in Set-AzureRmVMExtension.
+3. Maak een tweede virtuele machine en installeer IIS met behulp van de stappen die u zojuist hebt voltooid. Voer *myVM2* voor de naam en VMName in Set-AzVMExtension.
 
 ### <a name="add-backend-servers"></a>Back-endservers toevoegen
 
@@ -130,7 +132,7 @@ In dit voorbeeld maakt u twee virtuele machines die worden gebruikt als back-end
 
 ## <a name="create-a-storage-account"></a>Create a storage account
 
-In deze zelfstudie gebruikt de toepassingsgateway een opslagaccount voor het opslaan van gegevens voor detectie- en preventiedoeleinden. U kunt ook logboeken van Azure Monitor of Event Hub gebruiken om vast te leggen van de gegevens.
+In deze zelfstudie gebruikt de toepassingsgateway een opslagaccount voor het opslaan van gegevens voor detectie- en preventiedoeleinden. U kunt ook Azure Monitor of Event Hub gebruiken om gegevens vast te leggen.
 
 1. Klik op **nieuw** gevonden in de linkerbovenhoek van Azure portal.
 2. Selecteer **Storage** en selecteer vervolgens **Opslagaccount - blob, bestand, tabel, wachtrij**.

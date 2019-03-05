@@ -8,17 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: sogup
-ms.openlocfilehash: b08e8ea6a8768510177f1ea664f3036813e1a890
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 47acccf0cdb246683314322ed73f21446e3a9345
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009916"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310026"
 ---
 # <a name="manage-azure-vm-backups"></a>Back-ups van Azure-VM's beheren
 
 In dit artikel wordt beschreven hoe u voor het beheren van virtuele Azure-machines met back-ups van de [Azure Backup-service](backup-overview.md) back-ups, en bevat een overzicht van back-upwaarschuwingen informatie beschikbaar in de portal-dashboard.
-
 
 In de Azure-portal bevat het dashboard van de Recovery Services-kluis toegang tot informatie over de kluis, waaronder:
 
@@ -42,20 +41,17 @@ U kunt back-ups met behulp van het dashboard, beheren en te verkrijgen van toega
 4. Open het dashboard van de kluis.
     ![Open het dashboard van de kluis en de blade instellingen](./media/backup-azure-manage-vms/full-view-rs-vault.png)
 
-4. Op de **back-Upitems** tegel, klikt u op **Azure Virtual Machines**.
+5. Op de **back-Upitems** tegel, klikt u op **Azure Virtual Machines**.
 
     ![Back-upitems van Open-tegel](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
-5. In **back-Upitems** blade ziet u de laatste back-uptaak voor elk item. In dit voorbeeld is er één virtuele machine, demovm-markgal, beveiligd door deze kluis.  
+6. In **back-Upitems** blade ziet u de laatste back-uptaak voor elk item. In dit voorbeeld is er één virtuele machine, demovm-markgal, beveiligd door deze kluis.  
 
     ![Back-upitems van tegel](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
-
-6. Van het kluisdashboard item, kunt u maken of wijzigen van de back-upbeleid, herstelpunten weergeven uitvoeren van een on-demand back-up stoppen en hervatten van de beveiliging van virtuele machines, herstelpunten verwijderen en een herstelbewerking worden uitgevoerd.
+7. Van het kluisdashboard item, kunt u maken of wijzigen van de back-upbeleid, herstelpunten weergeven uitvoeren van een on-demand back-up stoppen en hervatten van de beveiliging van virtuele machines, herstelpunten verwijderen en een herstelbewerking worden uitgevoerd.
 
     ![Back-upitems dashboard met de blade instellingen](./media/backup-azure-manage-vms/item-dashboard-settings.png)
-
-
 
 ## <a name="manage-backup-policies"></a>Back-upbeleid beheren
 1. Op de [item kluisdashboard](#view-vms-in-the-dashboard), klikt u op **alle instellingen** .
@@ -71,7 +67,9 @@ U kunt back-ups met behulp van het dashboard, beheren en te verkrijgen van toega
 
 
 ## <a name="run-an-on-demand-backup"></a>Een on-demand back-up uitvoeren
+
 U kunt een on-demand back-up van een virtuele machine nemen nadat deze is geconfigureerd voor beveiliging.
+
 - Als de eerste back-up in behandeling is, maakt back-up op aanvraag een volledige kopie van de virtuele machine in de Recovery Services-kluis.
 - Als de eerste back-up is voltooid, verzendt een on-demand back-up alleen wijzigingen van de vorige momentopname naar de Recovery Services-kluis. Dat wil zeggen, zijn volgende back-ups altijd incrementeel.
 - De bewaartermijn voor een on-demand back-up is de waarde voor de bewaarperiode opgegeven op het moment van de back-uptaak wordt geactiveerd.
@@ -101,7 +99,7 @@ Er zijn twee manieren om te stoppen met het beveiligen van virtuele machines:
 
 >[!NOTE]
 >
-* Als u **back-up stoppen** met **back-upgegevens behouden**, de herstelpunten verlopen niet in overeenstemming met de back-upbeleid. U betaalt voor de beveiligde instanties en de verbruikte opslag. Alleen wordt de herstelpunten worden opgeschoond, na het hervatten van back-up (beveiliging opnieuw in te schakelen) conform het beleid of back-upgegevens handmatig verwijderen.
+* Als u **back-up stoppen** met **back-upgegevens behouden**, de herstelpunten verloopt niet in overeenstemming met de back-upbeleid omdat de Garbage Collection (GC) wordt niet uitgevoerd voor de inactieve gegevensbronnen. U betaalt voor de beveiligde instanties en de verbruikte opslag. Alleen wordt de herstelpunten worden opgeschoond, na het hervatten van back-up (beveiliging opnieuw in te schakelen) conform het beleid of back-upgegevens handmatig verwijderen.
 * Als u een gegevensbron zonder back-up stoppen verwijdert, nieuwe back-ups zullen mislukken. Nogmaals, de oude herstelpunten verlopen volgens het beleid, maar één laatste herstelpunt altijd bewaard totdat u back-up stoppen en verwijderen van de gegevens.
 
 Beveiliging voor een virtuele machine stoppen:
@@ -112,7 +110,6 @@ Beveiliging voor een virtuele machine stoppen:
     ![Beveiliging stoppen](./media/backup-azure-manage-vms/retain-or-delete-option.png)
 
  Een melding laat u weten dat de back-uptaken zijn gestopt.
-
 
 ## <a name="resume-protection-of-a-vm"></a>De beveiliging van een virtuele machine hervatten
 
@@ -145,7 +142,7 @@ Deze procedure wordt ervan uitgegaan dat de back-uptaak voor de virtuele machine
 
     ![Controle stoppen](./media/backup-azure-manage-vms/item-verification-box.png)
 
-4. Als u wilt verwijderen van de back-upgegevens voor het huidige item, klikt u op ![back-knop stoppen](./media/backup-azure-manage-vms/delete-button.png)
+3. Als u wilt verwijderen van de back-upgegevens voor het huidige item, klikt u op ![back-knop stoppen](./media/backup-azure-manage-vms/delete-button.png)
 
     Een melding laat u weten dat de back-upgegevens is verwijderd.
 

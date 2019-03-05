@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: b882c31f40f177b81fc84eb7071f396bddeaa0dd
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 21c29d90d8ed149062f24b470603b0e0e03cc6ab
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658111"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315602"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Beheer van apparaten in uw Azure IoT Central-toepassing
 
@@ -67,7 +67,7 @@ Bulk-apparaten in uw toepassing registreren:
  >   [!NOTE] 
     Als u de sjabloon voor een apparaat niet hebben, maar vervolgens kunt u apparaten onder importeren **niet-gekoppelde apparaten** en registreer ze zonder een sjabloon. Zodra apparaten zijn geïmporteerd, kunt u vervolgens koppelen ze met een sjabloon in een latere stap.
 
-1. Klik op **Import**.
+1. Selecteer **importeren**.
 
     [![Actie importeren](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightbox)
 
@@ -79,7 +79,7 @@ Bulk-apparaten in uw toepassing registreren:
 
     [![Importeren geslaagd](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
 
-Als het apparaat mislukt importeren, ziet u een foutbericht weergegeven in het raster apparaat. Een logboekbestand voor het vastleggen van alle fouten wordt gegenereerd en kan worden gedownload door te klikken op het foutbericht.
+Als het apparaat mislukt importeren, ziet u een foutbericht weergegeven in het raster apparaat. Een logboekbestand voor het vastleggen van alle fouten wordt gegenereerd en kan worden gedownload door het selecteren van het foutbericht.
 
 
 **Apparaten koppelen met een sjabloon**
@@ -89,9 +89,9 @@ Als u apparaten registreren met het starten van de import onder **niet-gekoppeld
 1. Kies in het linkerdeelvenster **niet-gekoppelde apparaten**.
     [![Niet-gekoppelde apparaten](./media/howto-manage-devices/UnassociatedDevices1.png)](./media/howto-manage-devices/UnassociatedDevices1.png#lightbox)
 1. Selecteer de apparaten die u wilt koppelen aan een sjabloon.
-1. Klik op **koppelen** optie.
+1. Selecteer **koppelen** optie.
     [![Apparaten koppelen](./media/howto-manage-devices/UnassociatedDevices2.png)](./media/howto-manage-devices/UnassociatedDevices2.png#lightbox)
-1. Kies de sjabloon uit de lijst met beschikbare sjablonen en klik op **koppelen** knop.
+1. Kies de sjabloon uit de lijst met beschikbare sjablonen en selecteer **koppelen**.
 1. De geselecteerde apparaten wordt onder de respectieve apparaat sjabloon verplaatst.
 
  >   [!NOTE] 
@@ -106,7 +106,7 @@ Bulksgewijs export-apparaten van uw toepassing:
 
 1. In het linkerdeelvenster, kiest u de sjabloon van het apparaat waarvoor u wilt exporteren van de apparaten.
 
-1. Selecteer de apparaten die u wilt exporteren en klik vervolgens op de **exporteren** actie.
+1. Selecteer de apparaten die u wilt exporteren en selecteer vervolgens de **exporteren** actie.
 
     [![Exporteren](./media/howto-manage-devices/Export1.png)](./media/howto-manage-devices/Export1.png#lightbox)
 
@@ -114,7 +114,7 @@ Bulksgewijs export-apparaten van uw toepassing:
 
 1. Nadat de export is voltooid, wordt een bericht weergegeven samen met een koppeling voor het downloaden van het gegenereerde bestand.
 
-1. Klik op de **bericht** voor het downloaden van het bestand naar een lokale map op de schijf.
+1. Selecteer de **bericht** voor het downloaden van het bestand naar een lokale map op de schijf.
 
     [![Exporteren geslaagd](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
 

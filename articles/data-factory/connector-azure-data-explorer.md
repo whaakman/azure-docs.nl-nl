@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 03/04/2019
 ms.author: orspod
-ms.openlocfilehash: d30eab024fa988b3341c5efc9fe188ee4802720a
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 41cdae310fb9c2fc66ec9ed78ddc21596c9a5ba9
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961071"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317846"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Data Explorer met behulp van Azure Data Factory
 
@@ -137,6 +137,9 @@ Instellen om gegevens te kopiëren van Azure Data Explorer, de **type** eigensch
 | type | De **type** eigenschap van de bron voor kopiëren-activiteit moet worden ingesteld op: **AzureDataExplorerSource** | Ja |
 | query | Een alleen-lezen-aanvraag die in een [KQL indeling](/azure/kusto/query/). Gebruik de aangepaste KQL query als uitgangspunt. | Ja |
 | queryTimeout | Er is een time-out opgetreden voor de wachttijd voordat de queryaanvraag. Standaardwaarde is 10 minuten (00: 10:00); toegestane maximale waarde is 1 uur (01: 00:00). | Nee |
+
+>[!NOTE]
+>Azure Data Explorer bron standaard heeft een maximale grootte van 500.000 records of 64 MB. Als u wilt ophalen van alle records zonder afkapping, kunt u `set notruncation;` aan het begin van de query. Raadpleeg [Query limieten](https://docs.microsoft.com/en-us/azure/kusto/concepts/querylimits) op meer informatie.
 
 **Voorbeeld:**
 

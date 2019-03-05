@@ -4,19 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: ''
 author: diberry
 manager: nitinme
-displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 02/26/2019
 ms.author: diberry
-ms.openlocfilehash: 93e735958669dd39deaf88d1d468a9148b7db3d1
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: cff4199663bce39353f8c10c68f51f15d6a72a22
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960295"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314820"
 ---
 # <a name="use-active-learning-to-improve-knowledge-base"></a>Actief leren gebruiken om uw knowledge base te verbeteren
 
@@ -33,13 +32,13 @@ QnA Maker leert nieuwe vraag variaties met impliciete en expliciete feedback.
 
 Een van beide methoden biedt de kerntechnologie met vergelijkbare query's die zijn geclusterd.
 
-Wanneer dezelfde query's zijn geclusterd, voorgesteld QnA Maker vragen naar de knowledge base-ontwerpfunctie te accepteren of weigeren op basis van gebruikers.
-
 ## <a name="how-active-learning-works"></a>Hoe actief leren werken
 
 Actief leren wordt geactiveerd op basis van de scores van hoogste aantal antwoorden die door de QnA Maker wordt geretourneerd voor een bepaalde query. Als de score verschillen binnen een kleine bereik liggen, wordt de query wordt beschouwd als een mogelijke _suggestie_ voor elk van de mogelijke antwoorden. 
 
 Alle suggesties samen die vergelijkbaar zijn geclusterd en bovenste suggesties voor alternatieve vragen worden weergegeven op basis van de frequentie van de bepaalde query's door eindgebruikers. Actief leren biedt de best mogelijke suggesties in gevallen waar de eindpunten zijn aan een redelijk aantal en de verschillende query's voor gebruik.
+
+Als u vragen worden voorgesteld in de portal voor QnA Maker, moet u beoordeelt en accepteert of weigert die suggesties. 
 
 ## <a name="upgrade-version-to-use-active-learning"></a>Versie van de upgrade actief leren gebruiken
 
@@ -58,6 +57,8 @@ De algoritme om te bepalen van de service is niet een eenvoudige berekening. De 
 ## <a name="turn-on-active-learning"></a>Actief leren inschakelen
 
 Actief leren is standaard uitgeschakeld. Inschakelen om te zien van de voorgestelde vragen. 
+
+1. Selecteer **publiceren** voor het publiceren van de knowledge base. Actief leren query's worden verzameld van het alleen GenerateAnswer API voorspelling-eindpunt. De query's naar het deelvenster in de portal voor Qna Maker is niet van invloed op actief leren.
 
 1. Als u actieve learning in, klikt u op uw **naam**, gaat u naar [ **Service-instellingen** ](https://www.qnamaker.ai/UserSettings) in de rechterbovenhoek van de portal QnA Maker.  
 
@@ -88,6 +89,9 @@ Actief leren is standaard uitgeschakeld. Inschakelen om te zien van de voorgeste
 
 1. Selecteer **opslaan en trainen** aan Sla de wijzigingen in de knowledge base.
 
+1. Selecteer **publiceren** om toe te staan de wijzigingen die door de API GenerateAnswer beschikbaar zijn.
+
+    Wanneer 5 of meer vergelijkbaar query's zijn geclusterd, stelt om de 30 minuten, QnA Maker de op basis van gebruiker vragen naar de knowledge base-ontwerpfunctie te accepteren of weigeren.
 
 ## <a name="determine-best-choice-when-several-questions-have-similar-scores"></a>Beste keuze bepalen wanneer de volgende vragen vergelijkbare scores hebben
 

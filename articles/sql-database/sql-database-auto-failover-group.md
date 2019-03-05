@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 5afd5020b060961d215b922c9e49466b73f2a69e
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 862cc4da99aed02b81b6fd12913736bf30866f72
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889882"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313596"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Automatische failover-groepen gebruiken voor het inschakelen van transparante en gecoördineerd failover van meerdere databases
 
@@ -304,14 +304,16 @@ Zoals eerder besproken automatische failover-groepen en actieve kan geo-replicat
 
 ### <a name="powershell-manage-sql-database-failover-with-single-databases-and-elastic-pools"></a>PowerShell: Failover van de SQL-database met individuele databases en elastische pools beheren
 
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
+
 | Cmdlet | Description |
 | --- | --- |
-| [New-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |Met deze opdracht wordt een failovergroep gemaakt en geregistreerd op de primaire en secundaire servers|
-| [Remove-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | Hiermee verwijdert u de failovergroep van de server en verwijdert alle secundaire databases opgenomen in de groep |
-| [Get-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup) | Hiermee haalt de configuratie van de failover |
-| [Set-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |Hiermee wijzigt u de configuratie van de failovergroep |
-| [Switch-AzureRMSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | Triggers failover van de failovergroep naar de secundaire server |
-| [Add-AzureRmSqlDatabaseToFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/add-azurermsqldatabasetofailovergroup)|Een of meer databases toegevoegd aan een Azure SQL Database-failovergroep|
+| [New-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |Met deze opdracht wordt een failovergroep gemaakt en geregistreerd op de primaire en secundaire servers|
+| [Remove-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | Hiermee verwijdert u de failovergroep van de server en verwijdert alle secundaire databases opgenomen in de groep |
+| [Get-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Hiermee haalt de configuratie van de failover |
+| [Set-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |Hiermee wijzigt u de configuratie van de failovergroep |
+| [Switch-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/switch-azsqldatabasefailovergroup) | Triggers failover van de failovergroep naar de secundaire server |
+| [Add-AzSqlDatabaseToFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/add-azsqldatabasetofailovergroup)|Een of meer databases toegevoegd aan een Azure SQL Database-failovergroep|
 |  | |
 
 > [!IMPORTANT]
@@ -341,11 +343,11 @@ Zoals eerder besproken automatische failover-groepen en actieve kan geo-replicat
 
 | API | Description |
 | --- | --- |
-| New-AzureRmSqlDatabaseInstanceFailoverGroup |Met deze opdracht wordt een failovergroep gemaakt en geregistreerd op de primaire en secundaire servers|
-| Set-AzureRmSqlDatabaseInstanceFailoverGroup |Hiermee wijzigt u de configuratie van de failovergroep|
-| Get-AzureRmSqlDatabaseInstanceFailoverGroup |Hiermee haalt de configuratie van de failover|
-| Switch-AzureRmSqlDatabaseInstanceFailoverGroup |Triggers failover van de failovergroep naar de secundaire server|
-| Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Hiermee verwijdert u een failovergroep|
+| New-AzSqlDatabaseInstanceFailoverGroup |Met deze opdracht wordt een failovergroep gemaakt en geregistreerd op de primaire en secundaire servers|
+| Set-AzSqlDatabaseInstanceFailoverGroup |Hiermee wijzigt u de configuratie van de failovergroep|
+| Get-AzSqlDatabaseInstanceFailoverGroup |Hiermee haalt de configuratie van de failover|
+| Switch-AzSqlDatabaseInstanceFailoverGroup |Triggers failover van de failovergroep naar de secundaire server|
+| Remove-AzSqlDatabaseInstanceFailoverGroup | Hiermee verwijdert u een failovergroep|
 
 ### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>REST-API: SQL database failover-groepen met één en gepoolde databases beheren
 

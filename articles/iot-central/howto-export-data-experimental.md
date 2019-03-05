@@ -8,12 +8,12 @@ ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: c595627275848de5489fe11e1327a72bf6251199
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 80ba612bf0f76fb0c1e202bec0bf88fa75fb2c98
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213259"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314004"
 ---
 # <a name="export-your-data-from-azure-iot-central"></a>Uw gegevens exporteren uit Azure IoT Central
 
@@ -85,14 +85,14 @@ Nu dat u een opslag/Event Hubs-Service Bus-doel hebt voor het exporteren van geg
 
 1. Meld u aan uw IoT Central-toepassing.
 
-2. Klik in het menu links op **continue gegevensexport**.
+2. Selecteer in het menu links **continue gegevensexport**.
 
     > [!Note]
     > Als er geen continue Export van gegevens in het menu links, bent u niet een beheerder in uw app. Neem contact op met een beheerder voor het instellen van het exporteren van gegevens.
 
     ![Nieuwe Event Hub maken](media/howto-export-data-experimental/export_menu.png)
 
-3. Klik op de **+ nieuw** knop in de rechterbovenhoek. Kies een van de **Azure Blob Storage**, **Azure Event Hubs**, of **Azure Service Bus** als de bestemming of het exporteren.
+3. Selecteer de **+ nieuw** knop in de rechterbovenhoek. Kies een van de **Azure Blob Storage**, **Azure Event Hubs**, of **Azure Service Bus** als de bestemming of het exporteren.
 
     > [!NOTE]
     > Het maximum aantal uitvoer per app is vijf.
@@ -111,10 +111,10 @@ Nu dat u een opslag/Event Hubs-Service Bus-doel hebt voor het exporteren van geg
 
 5. (Optioneel) Als u ervoor hebt gekozen **een verbindingsreeks invoeren**, een nieuwe verschijnt u plak de verbindingsreeks. Om op te halen van de verbindingsreeks voor uw:
     - Storage-account, gaat u naar het opslagaccount in de Azure-Portal.
-        - Onder **instellingen**, klikt u op **toegangssleutels**
+        - Onder **instellingen**, selecteer **toegangssleutels**
         - Kopieer de verbindingsreeks key1 of de key2-verbindingsreeks
     - Eventhubs of Service Bus, gaat u naar de naamruimte in de Azure Portal.
-        - Onder **instellingen**, klikt u op **beleid voor gedeelde toegang**
+        - Onder **instellingen**, selecteer **beleid voor gedeelde toegang**
         - Kies de standaardwaarden voor **RootManageSharedAccessKey** of een nieuw wachtwoord maken
         - Kopieer de primaire of secundaire verbindingsreeks
 

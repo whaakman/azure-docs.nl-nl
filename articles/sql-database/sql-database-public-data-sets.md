@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/01/2018
-ms.openlocfilehash: 8aad3cf0bfeb2f8586bca1072f3e395e196f3e0c
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 4963114f3646453510e20c7071157c952e52c40f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098490"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307136"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Openbare gegevenssets voor het testen en ontwikkelen van prototypen
 
@@ -46,7 +46,7 @@ Deze lijst van openbare gegevenssets voor gegevens die u om prototype en test op
 | [Open data-Science gegevens Cloud](https://www.opensciencedatacloud.org/) | "Open wetenschappelijke gegevens biedt de Cloud de wetenschappelijke community met resources voor het opslaan, delen en terabyte en petabyte-schaal wetenschappelijke gegevenssets analyseren."| Gegevenssets zijn in verschillende indelingen. |
 | [Gegevens van de globale klimaat - WorldClim](http://worldclim.org/) | "WorldClim is een set algemene klimaat-lagen (gridded klimaat gegevens) met een ruimtelijke resolutie van ongeveer 1 km2. Deze gegevens kunnen worden gebruikt voor toewijzing en ruimtelijke modellen." | Deze bestanden bevatten georuimtelijke gegevens. Zie voor meer informatie, [gegevensindeling](http://worldclim.org/formats1). |
 | [Gegevens over menselijke society - de GDELT Project](http://www.gdeltproject.org/data.html) | "Het Project GDELT is het grootst, is het meest uitgebreide, en de hoogste resolutie open database van menselijke samenleving ooit gemaakt." | De bestanden van de onbewerkte gegevens zijn in CSV-indeling. |
-| [Reclame voorspellingsgegevens voor machine learning van Criteo klikt u op](http://labs.criteo.com/2013/12/download-terabyte-click-logs/) | "Het grootste ooit openbaar vrijgegeven ML gegevensset." Zie voor meer informatie, [Criteo van 1 TB klikt u op voorspelling gegevensset](https://blogs.technet.microsoft.com/machinelearning/2015/04/01/now-available-on-azure-ml-criteos-1tb-click-prediction-dataset/). | |
+| [Reclame voorspellingsgegevens voor machine learning van Criteo klikt u op](http://labs.criteo.com/2013/12/download-terabyte-click-logs/) | "Het grootste ooit openbaar vrijgegeven ML gegevensset." Zie voor meer informatie, [Criteo van 1 TB klikt u op voorspelling gegevensset](https://blogs.technet.microsoft.com/machinelearning/20../../now-available-on-azure-ml-criteos-1tb-click-prediction-dataset/). | |
 | [ClueWeb09 tekst gegevensanalyse-gegevensset uit de Lemur Project](http://www.lemurproject.org/clueweb09.php/) | "De ClueWeb09 gegevensset is gemaakt ter ondersteuning van onderzoek over ophalen van gegevens en verwante menselijke taal technologieën. Deze bestaat uit ongeveer 1 miljard webpagina's in 10 talen die zijn verzameld in januari-februari 2009." | Zie [Gegevenssetinformatie](http://www.lemurproject.org/clueweb09/datasetInformation.php).|
 
 ## <a name="online-service-data"></a>Online service-gegevens

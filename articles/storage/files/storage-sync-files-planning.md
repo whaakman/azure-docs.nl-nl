@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 7b6a5a46e311fa54d6957c45d35ef20d94cf7632
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 97508c05ea26df1aaae7f41738835380767c81d2
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200493"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312712"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planning voor de implementatie van Azure Files Sync
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -235,6 +235,7 @@ Azure File Sync is alleen beschikbaar in de volgende regio's:
 |--------|---------------------|
 | Australië - oost | New South Wales |
 | Australië - zuidoost | Victoria |
+| Brazilië - zuid | Sao Paolo State |
 | Canada - midden | Toronto |
 | Canada - oost | Quebec |
 | India - centraal | Pune |
@@ -242,6 +243,8 @@ Azure File Sync is alleen beschikbaar in de volgende regio's:
 | Azië - oost | Hongkong SAR |
 | US - oost | Virginia |
 | US - oost 2 | Virginia |
+| Japan - oost | Tokyo, Saitama |
+| Japan - west | Osaka |
 | US - noord-centraal | Illinois |
 | Europa - noord | Ierland |
 | US - zuid-centraal | Texas |

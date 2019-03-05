@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: vidarmsft
-ms.openlocfilehash: fe4d332859b3ec0ba03e64f9a830b7710586aa17
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: c5ffe3ec2ec3cb06297df6be4ba7021f692633bf
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158814"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312481"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Oplossingenoverzicht van StorSimple-gegevensbeheer
 
@@ -31,7 +31,7 @@ De StorSimple-gegevensbeheer kunt u naadloos toegang tot en gebruik van de gegev
 
 Dit artikel bevat een overzicht van de oplossing StorSimple Data Manager. Hierin wordt ook uitgelegd hoe u deze service kunt u toepassingen schrijft die gebruikmaken van StorSimple-gegevens en andere Azure-services kunt gebruiken in de cloud.
 
-## <a name="how-it-works"></a>Hoe het werkt?
+## <a name="how-it-works"></a>Hoe werkt het?
 
 De service StorSimple Data Manager identificeert een StorSimple-gegevens in de cloud uit een on-premises apparaat van de StorSimple 8000-serie. De StorSimple-gegevens in de cloud is ontdubbelde, StorSimple-indeling gecomprimeerd. De Data Manager-service biedt API's voor de StorSimple-indeling-gegevens ophalen en transformeren naar andere indelingen, zoals Azure-blobs en Azure Files. Dit getransformeerde gegevens vervolgens gemakkelijk wordt gebruikt door Azure HDInsight en Azure Media services. De gegevenstransformatie, dus kan deze services worden de getransformeerde gegevens StorSimple uit de StorSimple 8000-serie on-premises apparaat. Deze stroom wordt weergegeven in het volgende diagram.
 
@@ -43,7 +43,7 @@ De service StorSimple Data Manager identificeert een StorSimple-gegevens in de c
 U kunt het gegevensbeheer met Azure Functions, Azure Automation en Azure Data Factory gebruiken dat werkstromen die worden uitgevoerd op uw gegevens er naar StorSimple. Het is raadzaam voor het verwerken van uw media-inhoud opslaan op StorSimple met Azure Media Services, of een Machine Learning-algoritme worden uitgevoerd op die gegevens of een Hadoop-cluster openen om de gegevens die u op StorSimple opslaat te analyseren. Met de groot scala aan services die beschikbaar zijn op Azure in combinatie met de gegevens op StorSimple, kunt u de kracht van uw gegevens ontgrendelen.
 
 
-## <a name="region-availability"></a>Beschikbaarheid voor de regio
+## <a name="region-availability"></a>Beschikbaarheid in regio’s
 
 De StorSimple-gegevensbeheer is beschikbaar in de volgende 7 regio's:
 
@@ -68,7 +68,9 @@ We raden aan dat:
  - Uw bron-storage-account (het account dat is gekoppeld aan uw StorSimple-apparaat) en doel-opslagaccount (waar u de gegevens in de oorspronkelijke indeling) zich in dezelfde Azure-regio.
  - U kunt brengen van de definitie van de gegevens en taakplanning in de regio die het StorSimple-opslagaccount bevat. Als dit niet mogelijk is, brengen van de Data Manager in de dichtstbijzijnde Azure-regio en vervolgens de definitie van de taak te maken in dezelfde regio als uw StorSimple-opslagaccount. 
 
-    Als uw StorSimple-storage-account zich niet in de 26 regio's die ondersteuning bieden voor de definitie van het maken van taken, raden wij dat u StorSimple Data Manager niet uitvoeren doet omdat er lang latentie en kosten voor potentieel grote uitgaand verkeer.
+    Als uw StorSimple-storage-account zich niet in de 26 regio's die ondersteuning bieden voor de definitie van het maken van taken, raden wij dat u StorSimple Data Manager niet uitvoeren doet omdat er lang latenties en mogelijke kosten voor uitgaand verkeer.
+    
+Microsoft streeft ernaar om ervoor te zorgen dat Azure-services altijd beschikbaar in alle regio's zijn. Niet-geplande storingen kunnen echter gedurende korte perioden optreden in een bepaalde regio. U kunt in dergelijke gevallen kan de definitie van een Data Manager en de taak openen in een regio die wordt niet beïnvloed door de storing en de taak voor gegevenstransformatie uitvoeren. U enkele extra latentie in een dergelijk scenario optreden, maar dit kan zijn dat uw strategie voor herstel in het zeldzame geval van een regionale onderbreking.
 
 ## <a name="security-considerations"></a>Beveiligingsoverwegingen
 

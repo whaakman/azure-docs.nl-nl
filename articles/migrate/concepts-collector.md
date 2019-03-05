@@ -4,15 +4,15 @@ description: Bevat informatie over het Collector-apparaat in Azure Migrate.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/04/2019
+ms.date: 03/04/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 0568df92db2114c57a0aa027ade369e4b256af84
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 3d9106fb682a370e18fc78d35ca31662bae44524
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813327"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310638"
 ---
 # <a name="about-the-collector-appliance"></a>Over het Collector-apparaat
 
@@ -32,7 +32,7 @@ Het collector-apparaat continu is verbonden met het Azure Migrate-project en con
 - Dit model afhankelijk niet van de instellingen voor statistieken vCenter-Server om prestatiegegevens te verzamelen.
 - U kunt stoppen continue profilering op elk gewenst moment van de Collector.
 
-**Snelle evaluaties:** Met het continue detectie-apparaat, wanneer de detectie voltooid is (het duurt enkele uren, afhankelijk van het aantal virtuele machines), u kunt onmiddellijk een evaluatie maken. Omdat de verzameling van prestatiegegevens wordt gestart wanneer u detectie, een vliegende start als u snelle evaluaties zoekt, moet u het criterium voor het instellen in de evaluatie als *zoals on-premises*. Voor evaluaties op basis van prestaties is het raadzaam om ten minste een dag te wachten na het activeren van de detectie om betrouwbare aanbevelingen voor de schaal te krijgen.
+**Snelle evaluaties:** Met het continue detectie-apparaat, wanneer de detectie voltooid is (het duurt enkele uren, afhankelijk van het aantal virtuele machines), u kunt onmiddellijk een evaluatie maken. Omdat het verzamelen van prestatiegegevens wordt gestart wanneer u detectie activeert, moet u het schaalcriterium in de evaluatie instellen als *as on-premises* wanneer u direct resultaat wilt. Voor evaluaties op basis van prestaties is het raadzaam om ten minste een dag te wachten na het activeren van de detectie om betrouwbare aanbevelingen voor de schaal te krijgen.
 
 Alleen verzamelt prestatiegegevens continu het toestel, detecteert niet elke configuratiewijziging in de on-premises-omgeving (dat wil zeggen VM toevoegen, verwijderen en schijf toevoegen, enz.). Als er een configuratiewijziging in de on-premises omgeving is, kunt u het volgende doen om de wijzigingen door te voeren in de portal:
 
@@ -111,7 +111,7 @@ De connectiviteitscontrole is gevalideerd door verbinding te maken met een lijst
 --- | --- | ---
 *.portal.azure.com | Van toepassing op Azure wereldwijd. Controleert de connectiviteit met de Azure-service en tijdsynchronisatie. | Toegang tot URL vereist.<br/><br/> Controle van vereisten mislukt als er geen verbinding.
 *.portal.azure.us | Alleen van toepassing op Azure Government. Controleert de connectiviteit met de Azure-service en tijdsynchronisatie. | Toegang tot URL vereist.<br/><br/> Controle van vereisten mislukt als er geen verbinding.
-*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Voor het downloaden van de PowerShell-module voor vCenter PowerCLI. | Toegang tot URL's is optioneel.<br/><br/> Controle van vereisten wordt niet mislukken.<br/><br/> Installatie van de automatische module op de Collector-VM mislukt. U moet de module handmatig installeren.
+*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Voor het downloaden van de PowerShell-module voor vCenter PowerCLI. | Toegang tot URL's is vereist.<br/><br/> Controle van vereisten wordt niet mislukken.<br/><br/> Installatie van de automatische module op de Collector-VM mislukt. U moet de module handmatig installeren op een computer die verbinding heeft met internet en kopieer vervolgens de modules naar het apparaat. [Meer informatie door te gaan naar stap 4 in deze handleiding voor probleemoplossing](https://docs.microsoft.com/azure/migrate/troubleshooting-general#error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception).
 
 
 ### <a name="install-vmware-powercli-module-manually"></a>VMware PowerCLI-module handmatig installeren
@@ -181,7 +181,7 @@ De volledige lijst met items van VMware die zijn verzameld door Azure Migrate vi
 
 **Categorie** |  **Metadata** | **vCenter datapoint**
 --- | --- | ---
-MachineDetails | Id van de VM | vm.Config.InstanceUuid
+MachineDetails | VM-ID | vm.Config.InstanceUuid
 MachineDetails | VM-naam | vm.Config.Name
 MachineDetails | vCenter Server-ID | VMwareClient.InstanceUuid
 MachineDetails |  Beschrijving van de virtuele machine |  vm.Summary.Config.Annotation

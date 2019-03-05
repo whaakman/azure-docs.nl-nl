@@ -11,12 +11,12 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 2/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: aeda7377a2d5d070a2e36126d53f8f5c203a8256
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: d72676d7eaad539fc6e023bc96ccbb16f0958a7a
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991390"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311369"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Releaseopmerkingen Azure Machine Learning-service
 
@@ -47,7 +47,6 @@ In dit artikel meer informatie over de versies van de Azure Machine Learning-ser
 
 + **Nieuwe functies**
     + Nieuwe slepen en neerzetten van tabel editor-ervaring voor rapporten. Gebruikers kunnen een kolom uit de bron slepen naar de tabelgebied waar een Preview-versie van de tabel wordt weergegeven. De kolommen kunnen opnieuw worden gerangschikt.
-    + Nieuwe knop uitvoeren voor verzonden met ScriptRunConfig worden uitgevoerd. Gebruikers kunnen opnieuw uitvoeren voor een bestaande uitvoeren op een externe compute cluster van hun keuze.
     + Nieuwe logboeken bestandsviewer
     + Koppelingen om te experimenteren wordt uitgevoerd, berekening, modellen, afbeeldingen en implementaties van het tabblad activiteiten
 

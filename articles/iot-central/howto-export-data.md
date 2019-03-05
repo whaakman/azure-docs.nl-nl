@@ -8,12 +8,12 @@ ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: cba0bad2e81ffddedfc4ca04e82e17e4286b389b
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: ecfd9671587c0544cf82aa7ddbccef975e1fe5c6
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312116"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310417"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Uw gegevens in Azure IoT Central exporteren
 
@@ -34,7 +34,7 @@ Metingen, apparaten en sjablonen apparaatgegevens worden geëxporteerd naar uw o
 
 Meer informatie over [exporteren naar een blobopslag](howto-export-data-blob-storage.md).
 
-## <a name="export-to-event-hubs-and-service-bus"></a>Exporteren naar Eventhubs en Servicebus
+## <a name="export-to-event-hubs-and-service-bus"></a>Exporteren naar Event Hubs en Service Bus
 
 Metingen, apparaten en sjablonen apparaatgegevens worden geëxporteerd naar uw event hub of de Service Bus-wachtrij of onderwerp. Geëxporteerde metingen gegevens in bijna realtime binnenkomt en het geheel van het bericht bevat de apparaten verzonden naar IoT Central, niet alleen de waarden van de metingen zelf. Geëxporteerde apparaten gegevens binnenkomt in batches van één keer per minuut en wijzigingen in de eigenschappen en instellingen van alle apparaten bevat en geëxporteerde apparaatsjablonen bevat wijzigingen aan alle apparaatsjablonen.
 
@@ -54,7 +54,7 @@ Als u een bestaande opslag/Event Hubs-Service Bus om te exporteren naar niet heb
     > [!Note] 
     > U kunt nu gegevens exporteren naar andere abonnementen die zijn **niet hetzelfde** als voor uw betalen per gebruik IoT Central-toepassing. U verbinding maakt met een verbindingsreeks in dit geval.
 
-4. Maak een container in uw opslagaccount. Ga naar uw storage-account. Onder **Blob-Service**, selecteer **door Blobs Bladeren**. Selecteer **+ Container** aan de bovenkant om een nieuwe container te maken.
+4. Maak een container in uw opslagaccount. Ga naar uw opslagaccount. Onder **Blob-Service**, selecteer **door Blobs Bladeren**. Selecteer **+ Container** aan de bovenkant om een nieuwe container te maken.
 
 ### <a name="create-event-hubs-namespace"></a>Event Hubs-naamruimte maken
 
@@ -81,14 +81,14 @@ Nu dat u een opslag/Event Hubs-Service Bus-doel hebt voor het exporteren van geg
 
 1. Meld u aan uw IoT Central-toepassing.
 
-2. Klik in het menu links op **continue gegevensexport**.
+2. Selecteer in het menu links **continue gegevensexport**.
 
     > [!Note]
     > Als er geen continue Export van gegevens in het menu links, bent u niet een beheerder in uw app. Neem contact op met een beheerder voor het instellen van het exporteren van gegevens.
 
     ![Nieuwe cde Event Hub maken](media/howto-export-data/export_menu.PNG)
 
-3. Klik op de **+ nieuw** knop in de rechterbovenhoek. Kies een van de **Azure Blob Storage**, **Azure Event Hubs**, of **Azure Service Bus** als de bestemming of het exporteren. 
+3. Selecteer de **+ nieuw** knop in de rechterbovenhoek. Kies een van de **Azure Blob Storage**, **Azure Event Hubs**, of **Azure Service Bus** als de bestemming of het exporteren. 
 
     > [!NOTE] 
     > Het maximum aantal uitvoer per app is vijf. 
@@ -107,10 +107,10 @@ Nu dat u een opslag/Event Hubs-Service Bus-doel hebt voor het exporteren van geg
 
 5. (Optioneel) Als u ervoor hebt gekozen **een verbindingsreeks invoeren**, een nieuwe verschijnt u plak de verbindingsreeks. Om op te halen van de verbindingsreeks voor uw:
     - Storage-account, gaat u naar het opslagaccount in de Azure-Portal.
-        - Onder **instellingen**, klikt u op **toegangssleutels**
+        - Onder **instellingen**, selecteer **toegangssleutels**
         - Kopieer de verbindingsreeks key1 of de key2-verbindingsreeks
     - Eventhubs of Service Bus, gaat u naar de naamruimte in de Azure Portal.
-        - Onder **instellingen**, klikt u op **beleid voor gedeelde toegang**
+        - Onder **instellingen**, selecteer **beleid voor gedeelde toegang**
         - Kies de standaardwaarden voor **RootManageSharedAccessKey** of een nieuw wachtwoord maken
         - Kopieer de primaire of secundaire verbindingsreeks
  

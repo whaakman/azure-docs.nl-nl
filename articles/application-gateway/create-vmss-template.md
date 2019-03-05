@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: f7050514d5f0de0cade09c6be672d7dfd3568da3
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 0f3bdaaa038dcd0ef2a0ad6466cbb7a09ec7c2bc
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037409"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312440"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Een toepassingsgateway maken met de Azure Resource Manager-sjabloon
 
@@ -27,6 +27,8 @@ Azure Application Gateway is een load balancer in laag 7. De gateway biedt optie
 In dit artikel wordt u begeleid bij het downloaden en wijzigen van een bestaande [Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-authoring-templates.md) van GitHub en het implementeren van de sjabloon vanuit GitHub, PowerShell en de Azure CLI.
 
 Als u de sjabloon rechtstreeks vanuit GitHub zonder wijzigingen aan te implementeren, gaat u als u wilt een sjabloon implementeren vanuit GitHub.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scenario"></a>Scenario
 
@@ -123,13 +125,13 @@ Als u Azure PowerShell nog nooit hebt gebruikt, gaat u naar: [Hoe u Azure PowerS
 1. Meld u aan bij PowerShell
 
     ```powershell
-    Login-AzureRmAccount
+    Login-AzAccount
     ```
 
 1. Controleer de abonnementen voor het account.
 
     ```powershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
     U wordt gevraagd om u te verifiëren met uw referenties.
@@ -137,19 +139,19 @@ Als u Azure PowerShell nog nooit hebt gebruikt, gaat u naar: [Hoe u Azure PowerS
 1. Kies welk Azure-abonnement u wilt gebruiken.
 
     ```powershell
-    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+    Select-AzSubscription -Subscriptionid "GUID of subscription"
     ```
 
 1. Indien nodig kunt u een resourcegroep maken met de cmdlet **New-AzureResourceGroup**. In het volgende voorbeeld maakt u een resourcegroep met de naam AppgatewayRG op de locatie US - oost.
 
     ```powershell
-    New-AzureRmResourceGroup -Name AppgatewayRG -Location "West US"
+    New-AzResourceGroup -Name AppgatewayRG -Location "West US"
     ```
 
-1. Voer de cmdlet **New-AzureRmResourceGroupDeployment** uit om het nieuwe virtuele netwerk te implementeren met de vorige sjabloon en parameterbestanden die u hebt gedownload en gewijzigd.
+1. Voer de **New-AzResourceGroupDeployment** cmdlet voor het implementeren van het nieuwe virtuele netwerk met behulp van de vorige sjabloon en parameterbestanden bestanden dat u hebt gedownload en gewijzigd.
     
     ```powershell
-    New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+    New-AzResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
     -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
     ```
 
@@ -215,7 +217,7 @@ Als u wilt verwijderen van alle resources die in dit artikel is gemaakt, voert u
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-Remove-AzureRmResourceGroup -Name appgatewayRG
+Remove-AzResourceGroup -Name appgatewayRG
 ```
 
 ### <a name="azure-cli"></a>Azure-CLI

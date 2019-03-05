@@ -12,12 +12,12 @@ ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 4f8ee5a3a72fc143822a71bcb933f34e2f371019
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 1318cd3d1c0c51889cc70b6836d06d6d6ee70c24
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453134"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308377"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Azure Active Directory-verificatie gebruiken voor verificatie met behulp van SQL
 
@@ -81,7 +81,7 @@ Als u wilt een ingesloten databasegebruiker maken in Azure SQL Database Managed 
 - De volgende leden van Azure AD kunnen worden ingericht in Azure SQL-server of SQL Data Warehouse:
 
   - Systeemeigen leden: Een lid in Azure AD hebt gemaakt in het beheerde domein of in het domein van een klant. Zie voor meer informatie, [uw eigen domeinnaam toevoegen aan Azure AD](../active-directory/active-directory-domains-add-azure-portal.md).
-  - Leden van een federatief domein: Een lid gemaakt in Azure AD met een federatief domein. Zie voor meer informatie, [Microsoft Azure ondersteunt nu Federatie met Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/).
+  - Leden van een federatief domein: Een lid gemaakt in Azure AD met een federatief domein. Zie voor meer informatie, [Microsoft Azure ondersteunt nu Federatie met Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/).
   - Geïmporteerde leden van andere Azure AD die leden van een systeemeigen of federatieve domein zijn.
   - Active Directory-groepen gemaakt als beveiligingsgroepen.
 
@@ -105,11 +105,11 @@ Als u wilt een ingesloten databasegebruiker maken in Azure SQL Database Managed 
 - Instellen van Azure AD server-principals (aanmeldingen) toegewezen aan een Azure AD-groep als de eigenaar van database wordt niet ondersteund in [beheerde instanties](sql-database-managed-instance.md).
     - Een extensie hiervan is dat wanneer een groep wordt toegevoegd als onderdeel van de `dbcreator` serverfunctie, gebruikers van deze groep kunnen verbinding maken met het beheerde exemplaar en nieuwe databases maken, maar pas weer toegang tot de database. Dit komt doordat de nieuwe database-eigenaar SA, en niet de Azure AD-gebruiker is. Dit probleem heeft geen manifest als afzonderlijke gebruiker is toegevoegd aan de `dbcreator` serverfunctie.
 - Uitvoering van de beheer- en taken van de SQL Agent wordt ondersteund voor Azure AD server-principals (aanmeldingen).
-- Database-back-up en herstelbewerkingen kan worden uitgevoerd door Azure AD server-principals (aanmeldingen).
+- Database-back-up en herstelbewerkingen kunnen worden uitgevoerd door Azure AD-server-principals (aanmeldingen).
 - Controle van alle instructies met betrekking tot Azure AD server-principals (aanmeldingen) en verificatiegebeurtenissen wordt ondersteund.
 - Exclusieve beheerdersverbinding voor Azure AD server-principals (aanmeldingen) die lid van de serverrol sysadmin zijn wordt ondersteund.
     - Ondersteund via het hulpprogramma SQLCMD en SQL Server Management Studio.
-- Aanmeldingstriggers worden ondersteund voor aanmeldingsgebeurtenissen die afkomstig zijn van Azure AD server-principals (aanmeldingen).
+- Aanmeldingstriggers worden ondersteund voor aanmeldingsgebeurtenissen die afkomstig zijn van Azure AD-server-principal s(aanmeldingen).
 - Service Broker en DB e-mail kan de installatie met behulp van een Azure AD-server-principal (aanmelden) zijn.
 
 

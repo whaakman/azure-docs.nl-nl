@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 69c7da1a529e46c054d9c824c2aee71fa67bd8ff
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 8fbad5350170d0e5434dfc2db3c85c04c2807726
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768637"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311471"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application-new-ui-design"></a>Beheer van apparaten in uw Azure IoT Central-toepassing (nieuwe gebruikersinterface ontwerp)
 
@@ -66,7 +66,7 @@ Bulk-apparaten in uw toepassing registreren:
     > [!NOTE]
     > Als u de sjabloon voor een apparaat niet hebben, maar vervolgens kunt u apparaten onder importeren **niet-gekoppelde apparaten** en registreer ze zonder een sjabloon. Nadat apparaten zijn geïmporteerd, kunt u deze vervolgens koppelen met een sjabloon.
 
-1. Klik op **Import**.
+1. Selecteer **importeren**.
 
     ![Actie importeren](./media/howto-manage-devices-experimental/BulkImport1.png)
 
@@ -92,11 +92,11 @@ Als u apparaten registreren met het starten van de import onder **niet-gekoppeld
 
 1. Selecteer de apparaten die u wilt koppelen aan een sjabloon:
 
-1. Klik op **koppelen**:
+1. Selecteer **koppelen**:
 
     ![Apparaten koppelen](./media/howto-manage-devices-experimental/UnassociatedDevices2.png)
 
-1. Kies de sjabloon uit de lijst met beschikbare sjablonen en klik op **koppelen** knop.
+1. Kies de sjabloon uit de lijst met beschikbare sjablonen en selecteer **koppelen**.
 
 1. De geselecteerde apparaten zijn gekoppeld aan de apparaat-sjabloon die u hebt gekozen.
 
@@ -113,7 +113,7 @@ Bulksgewijs export-apparaten van uw toepassing:
 
 1. Kies de apparaat-sjabloon van waaruit u wilt exporteren van de apparaten in het linkerdeelvenster.
 
-1. Selecteer de apparaten die u wilt exporteren en klik vervolgens op de **exporteren** actie.
+1. Selecteer de apparaten die u wilt exporteren en selecteer vervolgens de **exporteren** actie.
 
     ![Exporteren](./media/howto-manage-devices-experimental/Export1.png)
 
@@ -121,7 +121,7 @@ Bulksgewijs export-apparaten van uw toepassing:
 
 1. Wanneer de export is voltooid, wordt een bericht weergegeven samen met een koppeling voor het downloaden van het gegenereerde bestand.
 
-1. Klik op de **bericht** voor het downloaden van het bestand naar een lokale map op de schijf.
+1. Selecteer de **bericht** voor het downloaden van het bestand naar een lokale map op de schijf.
 
     ![Exporteren geslaagd](./media/howto-manage-devices-experimental/Export2.png)
 

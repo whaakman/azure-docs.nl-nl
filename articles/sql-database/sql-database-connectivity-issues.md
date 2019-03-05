@@ -13,12 +13,12 @@ ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/14/2018
-ms.openlocfilehash: 1a13f5f038afed914fd2b2a178974a0ba2e7255f
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 0377f192ea9bc6502065fa037704ec8461ce1447
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984217"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311098"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Werken met SQL Database-verbindingsproblemen en tijdelijke fouten
 
@@ -211,7 +211,7 @@ Als uw programma maakt gebruik van ADO.NET-klassen, zoals **System.Data.SqlClien
 
 Wanneer u een verbindingsobject van een verbindingsgroep wordt gebruikt, wordt u aangeraden dat uw programma tijdelijk de verbinding wordt gesloten wanneer het niet onmiddellijk wordt gebruikt. Is het niet duur om opnieuw een verbinding te openen, maar het is om een nieuwe verbinding te maken.
 
-Als u werkt met ADO.NET 4.0 of eerder gebruikt, raden wij aan dat u een upgrade uitvoert naar de meest recente ADO.NET. Vanaf augustus 2018, kunt u [downloaden ADO.NET 4.6.2](https://blogs.msdn.microsoft.com/dotnet/2018/04/30/announcing-the-net-framework-4-7-2/).
+Als u werkt met ADO.NET 4.0 of eerder gebruikt, raden wij aan dat u een upgrade uitvoert naar de meest recente ADO.NET. Vanaf augustus 2018, kunt u [downloaden ADO.NET 4.6.2](https://blogs.msdn.microsoft.com/dotnet/20../../announcing-the-net-framework-4-7-2/).
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
 

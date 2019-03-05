@@ -12,14 +12,17 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: 74da56b5e90512f8b903d5a62f7dde4e903560b8
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: ea4bc61dec59308b2c2311e8300e44aae78fc041
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817861"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313511"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Application Insights-resources maken met PowerShell
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Dit artikel leest u hoe u voor het automatiseren van het maken en bijwerken van de [Application Insights](../../azure-monitor/app/app-insights-overview.md) resources automatisch met behulp van Azure Resource Management. U kunt bijvoorbeeld doen als onderdeel van een buildproces. Samen met de basic Application Insights-resource, kunt u [webtests voor beschikbaarheid](../../azure-monitor/app/monitor-web-app-availability.md)Stel [waarschuwingen](../../azure-monitor/app/alerts.md), stel de [prijzen schema](pricing.md), en andere Azure-resources maken .
 
 De sleutel voor het maken van deze resources is JSON-sjablonen voor [Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md). Kortom, de procedure is: downloaden van de JSON-definities van bestaande resources. bepaalde waarden, zoals namen; parameteriseren en voer vervolgens de sjabloon wanneer u wilt maken van een nieuwe resource. Kunt u verschillende bronnen samen verpakken, om ze te maken in een Ga - bijvoorbeeld een app bewaken met betrekking tot beschikbaarheidstests, waarschuwingen en opslag voor continue export. Er zijn enkele finesses tot een aantal van de parameteriseringen, wordt hier uitgelegd.
@@ -154,12 +157,12 @@ Maak een nieuw .json-bestand - noemen we deze `template1.json` in dit voorbeeld.
 ## <a name="create-application-insights-resources"></a>Application Insights-resources maken
 1. In PowerShell, moet u zich aanmelden bij Azure:
    
-    `Connect-AzureRmAccount`
+    `Connect-AzAccount`
 2. Voer een opdracht als volgt uit:
    
     ```PS
    
-        New-AzureRmResourceGroupDeployment -ResourceGroupName Fabrikam `
+        New-AzResourceGroupDeployment -ResourceGroupName Fabrikam `
                -TemplateFile .\template1.json `
                -appName myNewApp
 
@@ -175,8 +178,8 @@ U kunt andere parameters toevoegen - bijbehorende beschrijvingen vindt u in de p
 Na het maken van de bron van een toepassing, moet u de instrumentatiesleutel: 
 
 ```PS
-    $resource = Find-AzureRmResource -ResourceNameEquals "<YOUR APP NAME>" -ResourceType "Microsoft.Insights/components"
-    $details = Get-AzureRmResource -ResourceId $resource.ResourceId
+    $resource = Find-AzResource -ResourceNameEquals "<YOUR APP NAME>" -ResourceType "Microsoft.Insights/components"
+    $details = Get-AzResource -ResourceId $resource.ResourceId
     $ikey = $details.Properties.InstrumentationKey
 ```
 
@@ -189,7 +192,7 @@ U kunt instellen dat de [prijsplan](pricing.md).
 Een resource-app maken met het Enterprise prijs-plan met de bovenstaande sjabloon:
 
 ```PS
-        New-AzureRmResourceGroupDeployment -ResourceGroupName Fabrikam `
+        New-AzResourceGroupDeployment -ResourceGroupName Fabrikam `
                -TemplateFile .\template1.json `
                -priceCode 2 `
                -appName myNewApp
@@ -198,7 +201,7 @@ Een resource-app maken met het Enterprise prijs-plan met de bovenstaande sjabloo
 |priceCode|plan|
 |---|---|
 |1|Basic|
-|2|Enterprise|
+|2|Zakelijk|
 
 * Als u wilt dat alleen gebruik van de prijscategorie Basic standaard, kunt u de CurrentBillingFeatures-resource in de sjabloon weglaten.
 * Als u het prijsplan is gewijzigd wilt nadat de onderdeel-resource is gemaakt, kunt u een sjabloon die de resource 'microsoft.insights/components' wordt weggelaten. Laat ook de `dependsOn` knooppunt van de facturering-resource. 

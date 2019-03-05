@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a5475ad2f487bca90f600406ca9bb8f0925a4988
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: aee31f54ddf4e71dd9b9391ec93d0f2319addc3f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964812"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307954"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Maak een regel Telemetrie en meldingen in uw Azure IoT Central-toepassing instellen
 
@@ -29,9 +29,9 @@ De apparaat-sjabloon moet ten minste één telemetrie meting gedefinieerd hebben
 
 1. Gebruik Device Explorer, Ga naar de sjabloon van het apparaat waarvoor u de regel voor het toevoegen.
 
-1. Klik op een bestaand apparaat onder de geselecteerde sjabloon. 
+1. Selecteer een bestaand apparaat onder de geselecteerde sjabloon.
 
-    >[!TIP] 
+    >[!TIP]
     >Als de sjabloon niet apparaten hebt en voeg eerst een nieuw apparaat toe.
 
 1. Als u geen regels nog gemaakt nog, ziet u het volgende scherm:
@@ -40,7 +40,7 @@ De apparaat-sjabloon moet ten minste één telemetrie meting gedefinieerd hebben
 
 1. Op de **regels** tabblad **sjabloon bewerken** en vervolgens **+ nieuwe regel** om te zien welke typen regels die u kunt maken.
 
-1. Klik op **telemetrie** om een regel voor het controleren van telemetrie van apparaten te maken.
+1. Selecteer **telemetrie** om een regel voor het controleren van telemetrie van apparaten te maken.
 
     ![Regeltypen](media/howto-create-telemetry-rules/Rule_Types.png)
 
@@ -57,7 +57,7 @@ De apparaat-sjabloon moet ten minste één telemetrie meting gedefinieerd hebben
 
 Voorwaarde definieert de criteria die wordt bewaakt door de regel.
 
-1. Klik op **+** naast **voorwaarden** om toe te voegen een nieuwe voorwaarde.
+1. Selecteer **+** naast **voorwaarden** om toe te voegen een nieuwe voorwaarde.
 
 1. Selecteer de telemetrie die u controleren wilt in de **meting** vervolgkeuzelijst.
 

@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
-ms.openlocfilehash: 785ccba6766b6a4f7400f3fdacf7ac24a234adf5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: c3148ebe11ba0e23cbded5965234ece9fb6082aa
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192767"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317693"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Azure Key Vault-analyse-oplossing in Log Analytics
 
 ![Key Vault-symbool](media/azure-key-vault/key-vault-analytics-symbol.png)
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Met de oplossing Azure Key Vault in Log Analytics kunt u de AuditEvent-logboeken van Azure Key Vault controleren.
 
@@ -55,13 +57,13 @@ Gebruik de volgende instructies om te installeren en configureren van de oplossi
 8. Klik op *opslaan* om in te schakelen van de logboekregistratie van diagnostische gegevens naar Log Analytics
 
 ### <a name="enable-key-vault-diagnostics-using-powershell"></a>Key Vault diagnostische gegevens met behulp van PowerShell inschakelen
-De volgende PowerShell-script geeft een voorbeeld van hoe u `Set-AzureRmDiagnosticSetting` Diagnostische logboekregistratie inschakelen voor Key Vault:
+De volgende PowerShell-script geeft een voorbeeld van hoe u `Set-AzDiagnosticSetting` Diagnostische logboekregistratie inschakelen voor Key Vault:
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
-$kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
+$kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 
-Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId  -WorkspaceId $workspaceId -Enabled $true
+Set-AzDiagnosticSetting -ResourceId $kv.ResourceId  -WorkspaceId $workspaceId -Enabled $true
 ```
 
 
@@ -105,15 +107,15 @@ De oplossing Azure Key Vault analyseert records met het type van **KeyVaults** d
 |:--- |:--- |
 | Type |*AzureDiagnostics* |
 | SourceSystem |*Azure* |
-| callerIpAddress |IP-adres van de client die de aanvraag heeft ingediend |
+| CallerIpAddress |IP-adres van de client die de aanvraag heeft ingediend |
 | Categorie | *AuditEvent* |
 | CorrelationId |Een optionele GUID die de client kan doorgeven om de logboeken aan de clientzijde te relateren aan (Sleutelkluis-)logboeken aan de servicezijde. |
-| durationMs |De tijd die nodig was om de REST-API-aanvraag af te handelen in milliseconden. Deze tijd omvat niet de netwerklatentie, zodat de tijd die u aan de clientzijde meet mogelijk niet overeenkomt met de tijd. |
+| DurationMs |De tijd die nodig was om de REST-API-aanvraag af te handelen in milliseconden. Deze tijd omvat niet de netwerklatentie, zodat de tijd die u aan de clientzijde meet mogelijk niet overeenkomt met de tijd. |
 | httpStatusCode_d |HTTP-statuscode is geretourneerd door de aanvraag (bijvoorbeeld *200*) |
 | id_s |De unieke ID van de aanvraag |
 | identity_claim_appid_g | GUID voor de toepassings-id |
 | OperationName |Naam van de bewerking, zoals beschreven in [logboekregistratie van Azure Key Vault](../../key-vault/key-vault-logging.md) |
-| operationVersion |REST-API-versie door de client aangevraagde (bijvoorbeeld *2015-06-01*) |
+| OperationVersion |REST-API-versie door de client aangevraagde (bijvoorbeeld *2015-06-01*) |
 | requestUri_s |URI van de aanvraag |
 | Resource |Naam van de key vault |
 | ResourceGroup |Resourcegroep van de key vault |
@@ -121,7 +123,7 @@ De oplossing Azure Key Vault analyseert records met het type van **KeyVaults** d
 | ResourceProvider |*MICROSOFT.KEYVAULT* |
 | ResourceType | *VAULTS* |
 | resultSignature |HTTP-status (bijvoorbeeld *OK*) |
-| resultType |Resultaat van de REST-API-aanvraag (bijvoorbeeld *succes*) |
+| ResultType |Resultaat van de REST-API-aanvraag (bijvoorbeeld *succes*) |
 | SubscriptionId |Azure-abonnement-ID van het abonnement met de Key Vault |
 
 ## <a name="migrating-from-the-old-key-vault-solution"></a>Migreren van de oude Key Vault-oplossing

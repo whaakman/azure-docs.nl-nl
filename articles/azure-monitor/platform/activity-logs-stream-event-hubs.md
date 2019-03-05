@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: aaaec6e02c9280801fbf7e3b5a8eaa1ae4a1ff43
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3d4c1029315e754410f31b13042d1d6acb105da1
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429766"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309686"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Stream het Azure-activiteitenlogboek naar Eventhubs
 U kunt streamen de [Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md) in bijna realtime voor elke toepassing door een van beide:
@@ -58,21 +58,24 @@ Voor het bijwerken van het activiteitenlogboek logboekprofiel om op te nemen str
 6. Als u meerdere abonnementen hebt, herhaalt u deze actie en alle gegevens verzenden naar de dezelfde event hub.
 
 ### <a name="via-powershell-cmdlets"></a>Via PowerShell-cmdlets
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Als een logboekprofiel al bestaat, moet u eerst de bestaande logboekprofiel verwijderen en maak vervolgens een nieuwe logboekprofiel.
 
-1. Gebruik `Get-AzureRmLogProfile` om te identificeren als een logboekprofiel bestaat.  Als een logboekprofiel bestaat, gaat u naar de *naam* eigenschap.
-2. Gebruik `Remove-AzureRmLogProfile` te verwijderen van het logboekprofiel met de waarde van de *naam* eigenschap.
+1. Gebruik `Get-AzLogProfile` om te identificeren als een logboekprofiel bestaat.  Als een logboekprofiel bestaat, gaat u naar de *naam* eigenschap.
+2. Gebruik `Remove-AzLogProfile` te verwijderen van het logboekprofiel met de waarde van de *naam* eigenschap.
 
     ```powershell
     # For example, if the log profile name is 'default'
-    Remove-AzureRmLogProfile -Name "default"
+    Remove-AzLogProfile -Name "default"
     ```
-3. Gebruik `Add-AzureRmLogProfile` om een nieuwe logboekprofiel te maken:
+3. Gebruik `Add-AzLogProfile` om een nieuwe logboekprofiel te maken:
 
    ```powershell
    # Settings needed for the new log profile
    $logProfileName = "default"
-   $locations = (Get-AzureRmLocation).Location
+   $locations = (Get-AzLocation).Location
    $locations += "global"
    $subscriptionId = "<your Azure subscription Id>"
    $resourceGroupName = "<resource group name your event hub belongs to>"
@@ -81,7 +84,7 @@ Als een logboekprofiel al bestaat, moet u eerst de bestaande logboekprofiel verw
    # Build the service bus rule Id from the settings above
    $serviceBusRuleId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.EventHub/namespaces/$eventHubNamespace/authorizationrules/RootManageSharedAccessKey"
 
-   Add-AzureRmLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
+   Add-AzLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
    ```
 
 ### <a name="via-azure-cli"></a>Via Azure CLI

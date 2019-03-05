@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: b5ec8df9ff08aace69680c188f9ab05e944ce891
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 80c98d151c1b42b0c6106d4fa1af921bbb5ef55f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734569"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308394"
 ---
 # <a name="set-up-a-device-template-new-ui-design"></a>Instellen van een apparaat-sjabloon (nieuwe gebruikersinterface ontwerp)
 
@@ -46,7 +46,7 @@ Met deze sjabloon apparaat een operator kunt maken en verbinding maken met echte
 
 1. Navigeer naar de **Apparaatsjablonen** pagina.
 
-2. Klik op om een lege sjabloon **+**, en voer een naam, zoals **koelkast** voor uw nieuwe apparaat-sjabloon. Selecteer vervolgens **maken**:
+2. Voor het maken van een lege sjabloon selecteert **+**, en voer een naam, zoals **koelkast** voor uw nieuwe apparaat-sjabloon. Selecteer vervolgens **maken**:
 
    ![Pagina met details met 'Koelkast' als de naam van het apparaat](./media/howto-set-up-template-experimental/devicedetailspage.png)
 
@@ -64,7 +64,7 @@ Metingen zijn de gegevens die afkomstig zijn van uw apparaat. U kunt meerdere me
 
 ### <a name="create-a-telemetry-measurement"></a>Maken van een meting telemetrie
 
-U voegt een nieuwe meting met telemetrie, op **+ nieuwe meting**, kiest u **telemetrie** als de meting, te typen en de details in het formulier.
+Selecteren om toe te voegen een nieuwe meting met telemetrie, **+ nieuwe meting**, kiest u **telemetrie** als de meting, te typen en de details in het formulier.
 
 > [!NOTE]
 > De veldnamen in de sjabloon van het apparaat moeten overeenkomen met de namen van eigenschappen in de bijbehorende apparaatcode in volgorde voor de meting telemetrie moet worden weergegeven in de toepassing wanneer een echt apparaat is verbonden. Doe hetzelfde bij het configureren van instellingen voor apparaateigenschappen opdrachten, en als u doorgaat met het definiëren van de sjabloon van het apparaat in de volgende secties.
@@ -77,14 +77,14 @@ U kunt bijvoorbeeld een nieuwe meting van de temperatuur-telemetrie toevoegen:
 
 ![Formulier met details voor de temperatuurmeting 'Telemetrie maken'](./media/howto-set-up-template-experimental/measurementsform.png)
 
-Nadat u op **opslaan**, wordt de **temperatuur** meting wordt weergegeven in de lijst met metingen. In enkele ogenblikken ziet u de visualisatie van de temperatuurgegevens van het gesimuleerde apparaat.
+Nadat u hebt geselecteerd **opslaan**, wordt de **temperatuur** meting wordt weergegeven in de lijst met metingen. In enkele ogenblikken ziet u de visualisatie van de temperatuurgegevens van het gesimuleerde apparaat.
 
 > [!NOTE]
 > Het gegevenstype van de meting telemetrie is een drijvende-kommagetal zijn.
 
 ### <a name="create-an-event-measurement"></a>Een gebeurtenis meting maken
 
-Als u wilt een nieuwe gebeurtenis meting toevoegen, klikt u op **+ nieuwe meting** en selecteer **gebeurtenis** als het type meting. Voer de details voor de **gebeurtenis maken** formulier.
+Selecteer om een nieuwe meting van de gebeurtenis toe **+ nieuwe meting** en selecteer **gebeurtenis** als het type meting. Voer de details voor de **gebeurtenis maken** formulier.
 
 Geef de **weergavenaam**, **veldnaam**, en **ernst** details voor de gebeurtenis. U kunt kiezen uit de drie beschikbare niveaus van ernst: **Fout**, **waarschuwing**, en **informatie**.
 
@@ -96,9 +96,9 @@ Bijvoorbeeld, u kunt toevoegen van een nieuwe **ventilator Motor fout** gebeurte
 
 !['Gebeurtenis maken' formulier met details voor een motor gebeurtenis ventilator](./media/howto-set-up-template-experimental/eventmeasurementsform.png)
 
-Nadat u op **opslaan**, wordt de **ventilator Motor fout** meting wordt weergegeven in de lijst met metingen. In enkele ogenblikken ziet u de visualisatie van de gegevens van de gebeurtenis van het gesimuleerde apparaat.
+Nadat u hebt geselecteerd **opslaan**, wordt de **ventilator Motor fout** meting wordt weergegeven in de lijst met metingen. In enkele ogenblikken ziet u de visualisatie van de gegevens van de gebeurtenis van het gesimuleerde apparaat.
 
-Als u wilt meer informatie over een gebeurtenis bekijken, klikt u op het pictogram van de gebeurtenis in de grafiek:
+Als u wilt meer informatie over een gebeurtenis bekijken, selecteert u het pictogram van de gebeurtenis in de grafiek:
 
 ![Details voor de gebeurtenis "Ventilator Motor Error"](./media/howto-set-up-template-experimental/eventmeasurementsdetail.png)
 
@@ -107,7 +107,7 @@ Als u wilt meer informatie over een gebeurtenis bekijken, klikt u op het pictogr
 
 ### <a name="create-a-state-measurement"></a>Maken van een meting staat
 
-Als u wilt toevoegen van een nieuwe meting van de status, klikt u op de **+ nieuwe meting** en selecteer **status** als het type meting. Voer de details voor de **maken status** formulier.
+Selecteren om toe te voegen een nieuwe meting van de status, de **+ nieuwe meting** en selecteer **status** als het type meting. Voer de details voor de **maken status** formulier.
 
 Geef de details voor **weergavenaam**, **veldnaam**, en **waarden** van de status. Elke waarde kan ook een weergavenaam die wordt gebruikt als de waarde wordt weergegeven in de grafieken en tabellen hebben.
 
@@ -119,9 +119,9 @@ Bijvoorbeeld, u kunt toevoegen van een nieuwe **ventilator modus** status waaraa
 
 !['Bewerkstatus' formulier met details voor de ventilator modus](./media/howto-set-up-template-experimental/statemeasurementsform.png)
 
-Nadat u op **opslaan**, wordt de **ventilator modus** meting van de status wordt weergegeven in de lijst met metingen. In een korte tijd wordt u door de visualisatie van de statusgegevens van het gesimuleerde apparaat te bekijken.
+Nadat u hebt geselecteerd **opslaan**, wordt de **ventilator modus** meting van de status wordt weergegeven in de lijst met metingen. In een korte tijd wordt u door de visualisatie van de statusgegevens van het gesimuleerde apparaat te bekijken.
 
-Als het apparaat te veel gegevenspunten in een kleine duur verzendt, wordt de meting van de status weergegeven met een ander visueel element. Klik op de grafiek om weer te geven van alle gegevenspunten in die periode in chronologische volgorde. U kunt ook het tijdsbereik voor het weergeven van de meting in de grafiek getekend verfijnen.
+Als het apparaat te veel gegevenspunten in een kleine duur verzendt, wordt de meting van de status weergegeven met een ander visueel element. Selecteer de grafiek om weer te geven van alle gegevenspunten in die periode in chronologische volgorde. U kunt ook het tijdsbereik voor het weergeven van de meting in de grafiek getekend verfijnen.
 
 > [!NOTE]
 > Het gegevenstype van de meting van de status is een tekenreeks.
@@ -138,7 +138,7 @@ Instellingen kunnen zich in een van drie statussen. Het apparaat meldt deze stat
 
 - **Fout**: Het apparaat heeft een fout geretourneerd.
 
-U kunt bijvoorbeeld een nieuwe ventilator snelheid-instelling toevoegen door te klikken op **instellingen** en in te voeren in de nieuwe **getal** instelling:
+U kunt bijvoorbeeld een nieuwe ventilator snelheid-instelling toevoegen door te selecteren **instellingen** en in te voeren in de nieuwe **getal** instelling:
 
 | Weergavenaam  | Veldnaam    |  Eenheden  | Aantal decimalen |Oorspronkelijk|
 | --------------| ------------- |---------| ---------|---- |
@@ -198,7 +198,7 @@ U kunt een locatie-eigenschap maken als een eigenschap van de toepassing met beh
    - **Locatie als een adres**
    - **Locatie als coördinaten**
 
-4. Klik op **Opslaan**. Een operator kan werk de locatiewaarde in de **Device Explorer**.
+4. Selecteer **Opslaan**. Een operator kan werk de locatiewaarde in de **Device Explorer**.
 
 #### <a name="add-location-as-a-device-property"></a>Locatie als de apparaateigenschap van een toevoegen
 
@@ -231,7 +231,7 @@ Wat is een opdracht verschil met een instelling?
 
 * **Opdracht**: Opdrachten kunt u direct een opdracht uitvoeren op het apparaat op afstand van IoT Central. Als een apparaat niet is verbonden, wordt de opdracht een time-out optreedt en mislukt. U wilt bijvoorbeeld een apparaat opnieuw start.
 
-Bijvoorbeeld, u kunt toevoegen van een nieuwe **Echo** opdracht door het selecteren van de **opdrachten** tabblad en vervolgens te klikken op **+ nieuwe opdracht**, en de opdrachtdetails van de nieuwe in te voeren:
+Bijvoorbeeld, u kunt toevoegen van een nieuwe **Echo** opdracht door het selecteren van de **opdrachten** tabblad en selecteer vervolgens **+ nieuwe opdracht**, en de opdrachtdetails van de nieuwe in te voeren:
 
 | Weergavenaam  | Veldnaam | Standaardtime-out | Gegevenstype |
 | --------------| -----------|---------------- | --------- |

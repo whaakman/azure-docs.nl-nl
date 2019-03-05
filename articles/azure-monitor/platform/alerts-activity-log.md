@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: c88fe7051519440056fe85e7ff9172ae0239bd41
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: da7556b909ec4eb544a6b4e4fab7af4a0919a158
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234234"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308173"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van waarschuwingen voor activiteitenlogboeken met behulp van Azure Monitor  
 
@@ -204,13 +204,26 @@ Het bovenstaande voorbeeld-json als (bijvoorbeeld) sampleActivityLogAlert.json t
 
 ## <a name="powershell"></a>PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+### <a name="deploy-resource-manager-template-with-powershell"></a>Implementatie van Resource Manager-sjabloon met PowerShell
+PowerShell gebruiken voor het implementeren van het voorbeeld Resource-sjabloon wordt weergegeven in een vorige [Resourcesjabloon sectie] (#resource-manager-sjabloon, gebruikt u de volgende opdracht:
+
+```powershell
+New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
+```
+
+de sampleActivityLogAlert.parameters.json bevat waarin de waarden voor de parameters die nodig zijn voor het maken van waarschuwingsregel.
+
+### <a name="use-activity-log-powershell-cmdlets"></a>Activiteit Log PowerShell-cmdlets gebruiken
+
 Waarschuwingen voor activiteitenlogboeken zijn speciaal bestemd voor PowerShell-cmdlets beschikbaar:
 
-- [Set-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/set-azurermactivitylogalert): Maak een nieuwe of bestaande resource van het logboek waarschuwingsregel activiteit bijwerken
-- [Get-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermactivitylogalert): Een of meer activiteiten log waarschuwingsregel resources ophalen
-- [Remove-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/remove-azurermactivitylogalert): Activiteit log waarschuwingsregel resource met de bevestiging van de gebruiker verwijderen
-- [Enable-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/enable-azurermactivitylogalert): Om in te schakelen van een bestaande activiteit log waarschuwingsregel resource
-- [Disable-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/disable-azurermactivitylogalert): Een bestaande resource van activiteit log waarschuwingsregel uitschakelen
+- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert?view=azps-1.3.0) : Maakt u een nieuwe of bestaande waarschuwing voor een activiteitenlogboek bijwerken.
+- [Get-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert?view=azps-1.3.0) : Hiermee haalt u een of meer activiteiten waarschuwingsresources log.
+- [Enable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert?view=azps-1.3.0) : Hiermee kunt een bestaande waarschuwing voor activiteitenlogboek en stelt de labels.
+- [Disable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert?view=azps-1.3.0) : Schakelt een bestaande waarschuwing voor activiteitenlogboek en stelt de labels.
+- [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert?view=azps-1.3.0)    : Hiermee verwijdert u een waarschuwing voor activiteitenlogboek.
 
 ## <a name="cli"></a>CLI
 

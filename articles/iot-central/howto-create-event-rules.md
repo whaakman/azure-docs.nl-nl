@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: af85ff8272853be82bae5c79622295fddfc60ade
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 84610c94621e887e20bb903385e2d6ddbe67189d
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337271"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307850"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Maken van een regel voor gebeurtenissen en meldingen in uw Azure IoT Central-toepassing instellen
 
@@ -29,7 +29,7 @@ De apparaat-sjabloon moet ten minste één gebeurtenis meting gedefinieerd hebbe
 
 1. Gebruik Device Explorer, Ga naar de sjabloon van het apparaat waarvoor u de regel voor het toevoegen.
 
-1. Klik op een bestaand apparaat onder de geselecteerde sjabloon. 
+1. Selecteer een bestaand apparaat onder de geselecteerde sjabloon.
 
     >[!TIP] 
     >Als de sjabloon niet apparaten hebt en voeg eerst een nieuw apparaat toe.
@@ -42,7 +42,7 @@ De apparaat-sjabloon moet ten minste één gebeurtenis meting gedefinieerd hebbe
 1. Op de **regels** tabblad **sjabloon bewerken** en vervolgens **+ nieuwe regel** om te zien welke typen regels die u kunt maken.
 
 
-1. Klik op de **gebeurtenis** tegel om een gebeurtenis bewaking van de regel te maken.
+1. Selecteer de **gebeurtenis** tegel om een gebeurtenis bewaking van de regel te maken.
 
     ![Regeltypen](media/howto-create-event-rules/Rule_Types.png)
 

@@ -12,22 +12,22 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: ff7e15579bfb0edfe9229238c6a4d5672700d0ef
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 6c77bb1f17f93e25605d251c717c2a4d61f940dd
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567006"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313957"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Aan de slag met taken voor Elastic Database
-
-[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
 
 Taken voor elastic Database (preview) voor Azure SQL Database kunt u T-SQL-scripts die meerdere databases omvatten tijdens het automatisch opnieuw te proberen en die uiteindelijke voltooiing waarborgen biedt betrouwbaar uit te voeren. Zie voor meer informatie over de functie Elastic Database taak [elastische taken](sql-database-elastic-jobs-overview.md).
 
 In dit artikel wordt het voorbeeld dat is gevonden in uitgebreid [aan de slag met elastische Databasehulpprogramma's](sql-database-elastic-scale-get-started.md). Wanneer dit is voltooid, leert u hoe u taken die voor het beheren van een groep gerelateerde databases maken en beheren. Het is niet vereist voor het gebruik van de hulpprogramma's voor elastisch schalen om te profiteren van de voordelen van elastische taken.
 
 ## <a name="prerequisites"></a>Vereisten
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Downloaden en uitvoeren van de [aan de slag met hulpprogramma's elastische Database voor klantorders](sql-database-elastic-scale-get-started.md).
 
@@ -55,7 +55,7 @@ Hier wordt meestal maken we een shard-toewijzing als doel, met behulp van de **N
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     $ResourceGroupName = "ddove_samples"
     $ServerName = "samples"
-    $dbsinserver = Get-AzureRMSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName
+    $dbsinserver = Get-AzSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName
     $dbsinserver | %{
     $currentdb = $_.DatabaseName
     $ErrorActionPreference = "Stop"

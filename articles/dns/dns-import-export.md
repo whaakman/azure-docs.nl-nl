@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: victorh
-ms.openlocfilehash: 3dac11ac4409ddde5264307439533bd583d75a9d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: d41ad3232fef57d1008f1e15d5d7d5ee1e106e9b
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993048"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312644"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importeren en exporteren van een DNS-zone-bestand met de Azure CLI 
 
@@ -90,7 +90,7 @@ Waarden:
 Als een zone met deze naam niet in de resourcegroep bestaat, wordt deze voor u gemaakt. Als de zone al bestaat, worden de geïmporteerde recordsets worden samengevoegd met bestaande recordsets. 
 
 
-### <a name="step-1-import-a-zone-file"></a>Step 1. Een zonebestand importeren
+### <a name="step-1-import-a-zone-file"></a>Stap 1. Een zonebestand importeren
 
 Voor het importeren van een zonebestand voor de zone **contoso.com**.
 
@@ -120,7 +120,7 @@ Als u wilt controleren of de DNS-zone nadat u het bestand importeert, kunt u een
 * U kunt `nslookup` om te controleren of de naamomzetting voor de records. Omdat de zone nog niet is toegewezen, moet u de juiste DNS-naamservers expliciet opgeven. Het volgende voorbeeld laat zien hoe de namen van de naam toegewezen aan de zone worden opgehaald. Dit ook wordt uitgelegd hoe u de record 'www' query's uitvoeren met behulp van `nslookup`.
 
     ```azurecli
-    az network dns record-set ns list -g myresourcegroup -z  --output json 
+    az network dns record-set ns list -g myresourcegroup -z contoso.com  --output json 
     ```
 
     ```json

@@ -12,14 +12,16 @@ ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 02/25/2019
-ms.openlocfilehash: 3a937af5fba2c534e291a51c33c50434ab166ee0
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5401c852decf0bcae3e86d1914b7cb6b47b4422a
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868762"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317506"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Alleen-lezen replica's gebruiken om te laden saldo alleen-lezen query workloads (preview)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 **Read Scale-Out** kunt u saldo Azure SQL Database alleen-lezen-werkbelastingen met behulp van de capaciteit van een alleen-lezen-replica.
 
@@ -29,7 +31,7 @@ Elke database in de Premium-laag ([DTU gebaseerde aankoopmodel](sql-database-ser
 
 Deze replica's worden ingericht met de dezelfde compute-grootte als de alleen-lezen-replica die worden gebruikt door de normale databaseverbindingen. De **Read Scale-Out** functie kunt u saldo SQL-Database alleen-lezen-werkbelastingen met behulp van de capaciteit van een van de alleen-lezen replica's in plaats van het delen van de replica voor lezen / schrijven. Op deze manier de alleen-lezen-werkbelasting worden geïsoleerd van de belangrijkste workload voor lezen / schrijven en heeft geen invloed op de prestaties. De functie is bedoeld voor de toepassingen die logisch zijn gescheiden van de alleen-lezen werkbelastingen, zoals analytics, en daarom kunnen krijgen prestatievoordelen met behulp van deze extra capaciteit zonder extra kosten.
 
-Voor het gebruik van de functie Read Scale-Out met een bepaalde database, moet u expliciet inschakelen dit bij het maken van de database of later door het wijzigen van de configuratie met behulp van PowerShell door het aanroepen van de [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) of de [ Nieuwe-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets of via de REST-API van Azure Resource Manager met behulp de [Databases - maken of bijwerken](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) methode.
+Voor het gebruik van de functie Read Scale-Out met een bepaalde database, moet u expliciet inschakelen dit bij het maken van de database of later door het wijzigen van de configuratie met behulp van PowerShell door het aanroepen van de [Set AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) of de [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlets of via de REST-API van Azure Resource Manager met behulp de [Databases - maken of bijwerken](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) methode.
 
 Nadat Read Scale-Out is ingeschakeld voor een database, toepassingen die verbinding maken met deze database worden omgeleid naar de alleen-lezen-replica of naar een alleen-lezen replica van die database volgens de `ApplicationIntent` eigenschap geconfigureerd in van de toepassing de verbindingsreeks. Voor meer informatie over de `ApplicationIntent` eigenschap, Zie [Toepassingsintentie op te geven](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
 
@@ -82,24 +84,24 @@ Read Scale-Out is standaard ingeschakeld in [Managed Instance](sql-database-mana
 
 De December 2016 beheren Read Scale-Out in Azure PowerShell vereist Azure PowerShell versie of hoger. Zie voor de nieuwste versie van PowerShell, [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
-In- of uitschakelen van lezen scale-out in Azure PowerShell door het aanroepen van de [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) cmdlet en aan te in de gewenste waarde – `Enabled` of `Disabled` --voor de `-ReadScale` parameter. U kunt ook de [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlet voor het maken van een nieuwe database met lezen scale-out is ingeschakeld.
+In- of uitschakelen van lezen scale-out in Azure PowerShell door het aanroepen van de [Set AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) cmdlet en aan te in de gewenste waarde – `Enabled` of `Disabled` --voor de `-ReadScale` parameter. U kunt ook de [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet voor het maken van een nieuwe database met lezen scale-out is ingeschakeld.
 
 Bijvoorbeeld, lezen om in te schakelen uitschaling voor een bestaande database (de items in de punthaken vervangen door de juiste waarden voor uw omgeving en de punthaken neerzetten):
 
 ```powershell
-Set-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled
+Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled
 ```
 
 Om uit te schakelen lezen scale-out voor een bestaande database (de items in de punthaken vervangen door de juiste waarden voor uw omgeving en de punthaken neerzetten):
 
 ```powershell
-Set-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Disabled
+Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Disabled
 ```
 
 Een nieuwe database maken met meer scale-out ingeschakeld (de items in de punthaken vervangen door de juiste waarden voor uw omgeving en de punthaken neerzetten):
 
 ```powershell
-New-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
+New-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
 ```
 
 ### <a name="rest-api-enable-and-disable-read-scale-out"></a>REST-API: In- en uitschakelen van Read Scale-Out
@@ -129,5 +131,5 @@ Als u gebruikmaakt van lezen scale-out laden saldo alleen-lezen-workloads op een
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over het gebruik van PowerShell om in te stellen lezen scale-out, de [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) of de [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets.
+- Zie voor meer informatie over het gebruik van PowerShell om in te stellen lezen scale-out, de [Set AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) of de [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlets.
 - Zie voor meer informatie over het gebruik van de REST-API om in te stellen lezen scale-out [Databases - maken of bijwerken](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).

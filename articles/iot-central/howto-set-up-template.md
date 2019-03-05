@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: fc18262326a8474cac417b67a37df35d91d75439
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 99fce821c903a9638575eba9fe4a17d294bcbd60
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657736"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310502"
 ---
 # <a name="set-up-a-device-template"></a>Een sjabloon van het apparaat instellen
 
@@ -65,7 +65,7 @@ Metingen zijn de gegevens die afkomstig zijn van uw apparaat. U kunt meerdere me
 - **Status** metingen vertegenwoordigt de status van het apparaat of de bijbehorende onderdelen gedurende een bepaalde periode. Bijvoorbeeld, een ventilator-modus kan worden gedefinieerd als **besturingssysteem** en **gestopt** als de twee mogelijke statussen.
 
 ### <a name="create-a-telemetry-measurement"></a>Maken van een meting telemetrie
-Selecteren om toe te voegen een nieuwe meting met telemetrie, **sjabloon bewerken**, en klik vervolgens op de **+ nieuwe meting** knop. Selecteer **telemetrie** als de meting, te typen en de details op de **maken telemetrie** formulier.
+Selecteren om toe te voegen een nieuwe meting met telemetrie, **sjabloon bewerken**, en selecteer vervolgens de **+ nieuwe meting** knop. Selecteer **telemetrie** als de meting, te typen en de details op de **maken telemetrie** formulier.
 
 > [!NOTE]
 > De veldnamen in de sjabloon van het apparaat moeten overeenkomen met de namen van eigenschappen in de bijbehorende apparaatcode in volgorde voor de meting telemetrie moet worden weergegeven in de toepassing wanneer een echt apparaat is verbonden. Doe hetzelfde bij het configureren van instellingen voor apparaateigenschappen opdrachten, en als u doorgaat met het definiëren van de sjabloon van het apparaat in de volgende secties.
@@ -84,7 +84,7 @@ Nadat u hebt geselecteerd **gedaan**, wordt de **temperatuur** meting wordt weer
   Het gegevenstype van de meting telemetrie is een drijvende-kommagetal zijn.
 
 ### <a name="create-an-event-measurement"></a>Een gebeurtenis meting maken
-Selecteer om een nieuwe meting van de gebeurtenis toe **sjabloon bewerken**, en klik vervolgens op de **+ nieuwe meting** knop. Selecteer **gebeurtenis** als de meting, te typen en de details op de **gebeurtenis maken** formulier.
+Selecteer om een nieuwe meting van de gebeurtenis toe **sjabloon bewerken**, en selecteer vervolgens de **+ nieuwe meting** knop. Selecteer **gebeurtenis** als de meting, te typen en de details op de **gebeurtenis maken** formulier.
 
 Geef de **weergavenaam**, **veldnaam**, en **ernst** details voor de gebeurtenis. U kunt kiezen uit de drie beschikbare niveaus van ernst: **Fout**, **waarschuwing**, en **informatie**.  
 
@@ -108,7 +108,7 @@ Als u wilt meer informatie over de gebeurtenis weergeven, selecteert u het picto
   Het gegevenstype van de meting van de gebeurtenis is een tekenreeks.
 
 ### <a name="create-a-state-measurement"></a>Maken van een meting staat
-Selecteren om toe te voegen een nieuwe meting van de status, **sjabloon bewerken**, en klik vervolgens op de **+ nieuwe meting** knop. Selecteer **status** als de meting, te typen en de details op de **maken status** formulier.
+Selecteren om toe te voegen een nieuwe meting van de status, **sjabloon bewerken**, en selecteer vervolgens de **+ nieuwe meting** knop. Selecteer **status** als de meting, te typen en de details op de **maken status** formulier.
 
 Geef de details voor **weergavenaam**, **veldnaam**, en **waarden** van de status. Elke waarde kan ook een weergavenaam die wordt gebruikt als de waarde wordt weergegeven in de grafieken en tabellen hebben.
 
@@ -125,7 +125,7 @@ Nadat u hebt geselecteerd **gedaan**, wordt de **ventilator modus** meting van d
 
 ![Status meting grafiek](./media/howto-set-up-template/statemeasurementschart.png)
 
-Als het apparaat te veel gegevenspunten in een kleine duur verzendt, is de meting van de status wordt weergegeven met een ander visueel element, zoals wordt weergegeven in de volgende schermafbeelding. Als u op de grafiek klikt, worden alle gegevenspunten binnen deze periode worden in chronologische volgorde weergegeven. U kunt ook het tijdsbereik voor het weergeven van de meting in de grafiek getekend verfijnen.
+Als het apparaat te veel gegevenspunten in een kleine duur verzendt, is de meting van de status wordt weergegeven met een ander visueel element, zoals wordt weergegeven in de volgende schermafbeelding. Als u de grafiek selecteert, worden alle gegevenspunten binnen deze periode worden in chronologische volgorde weergegeven. U kunt ook het tijdsbereik voor het weergeven van de meting in de grafiek getekend verfijnen.
 
 > [!NOTE]
   Het gegevenstype van de meting van de status is een tekenreeks.
@@ -241,7 +241,7 @@ Wat is een opdracht verschil met een instelling?
 * **Opdracht**: Opdrachten kunt u direct een opdracht uitvoeren op het apparaat op afstand van IoT Central. Als een apparaat niet is verbonden, wordt de opdracht een time-out optreedt en mislukt. U wilt bijvoorbeeld een apparaat opnieuw start.  
 
 
-Bijvoorbeeld, u kunt toevoegen van een nieuwe **Echo** opdracht door het selecteren van **sjabloon bewerken**, vervolgens te klikken op **+ nieuwe opdracht**, en in te voeren in de nieuwe opdracht:
+Bijvoorbeeld, u kunt toevoegen van een nieuwe **Echo** opdracht door het selecteren van **sjabloon bewerken**, vervolgens de optie **+ nieuwe opdracht**, en in te voeren in de nieuwe opdracht:
 
 | Weergavenaam  | Veldnaam | Standaardtime-out | Gegevenstype |
 | --------------| -----------|---------------- | --------- | 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8989d6ef54961f5f8eea7c6d8c9d941319bd917a
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 8a3e90488558335ca5d186e6ff1dbab6abf5aaee
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215401"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313171"
 ---
 # <a name="administer-your-iot-central-application"></a>Uw IoT Central-toepassing beheren
 
@@ -46,7 +46,7 @@ Als u wilt wijzigen van de installatiekopie van de toepassing, Zie [voorbereiden
 ### <a name="copy-an-application"></a>Kopiëren van een toepassing
 U kunt een kopie van een toepassing, verminderd met elk apparaatexemplaren, de geschiedenis van apparaat en de gebruikersgegevens kunt maken. Het exemplaar is een betalen per gebruik-toepassing die u in rekening gebracht. U kunt een toepassing proefversie kan niet maken op deze manier.
 
-Klik op de **kopie** knop. Geef de details voor de nieuwe betalen per gebruik-toepassing in het dialoogvenster. Klik vervolgens op de **kopie** knop om te bevestigen dat u wilt doorgaan. Meer informatie over de velden in dit formulier in [maken van een toepassing](quick-deploy-iot-central-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) Quick Start.
+Selecteer **kopie**. Geef de details voor de nieuwe betalen per gebruik-toepassing in het dialoogvenster. Selecteer vervolgens **kopie** om te bevestigen dat u wilt doorgaan. Meer informatie over de velden in dit formulier in [maken van een toepassing](quick-deploy-iot-central-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) Quick Start.
 
 ![De instellingenpagina van toepassing](media/howto-administer-experimental/appCopy2.png)
 
@@ -130,13 +130,13 @@ Volg deze stappen voor het voltooien van deze Self-serviceproces:
 
     ![De status van de proefversie](media/howto-administer-experimental/freetrialbilling.png)
 
-1. Klik op **converteren naar betalen per gebruik**.
+1. Selecteer **converteren naar betalen per gebruik**.
 
     ![Evaluatieversie converteren](media/howto-administer-experimental/convert.png)
 
 1. Selecteer de juiste Azure Active Directory, en vervolgens het Azure-abonnement moet worden gebruikt voor uw toepassing betalen per gebruik.
 
-1. Nadat u op **converteren**, uw toepassing is nu een betalen per gebruik-toepassing en u wordt gefactureerd.
+1. Nadat u hebt geselecteerd **converteren**, uw toepassing is nu een betalen per gebruik-toepassing en u wordt gefactureerd.
 
 ## <a name="export-data"></a>Gegevens exporteren
 

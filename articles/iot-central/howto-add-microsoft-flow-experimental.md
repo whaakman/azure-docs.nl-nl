@@ -8,12 +8,12 @@ ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: ba6b8c76b31f09eb8f04097f935f865728a4e893
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: c2c172dc5f03aee8b167cd65562de3329c54d563
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217492"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313001"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Werkstromen bouwen met de IoT Central-connector in Microsoft Flow
 
@@ -30,24 +30,24 @@ Microsoft Flow gebruiken voor het automatiseren van werkstromen in de vele toepa
 
 Deze sectie leest u hoe u voor het activeren van een mobiele melding ontvangen in de mobiele Flow-app wanneer een regel wordt geactiveerd in IoT Central.
 
-1. Begin met [maken van een regel in IoT Central](howto-create-telemetry-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json). Nadat u de voorwaarden van de regel hebt opgeslagen, klikt u op de **Microsoft Flow-actie** als een nieuwe actie. Een nieuw tabblad of venster te openen in uw browser, die u in Microsoft Flow.
+1. Begin met [maken van een regel in IoT Central](howto-create-telemetry-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json). Nadat u de voorwaarden van de regel hebt opgeslagen, selecteert u de **Microsoft Flow-actie** als een nieuwe actie. Een nieuw tabblad of venster te openen in uw browser, die u in Microsoft Flow.
 
     ![Maak een nieuwe Microsoft Flow-actie](media/howto-add-microsoft-flow-experimental/createflowaction.png)
 
 1. Meld u aan bij Microsoft Flow. Dit hoeft niet te worden van hetzelfde account zijn als het account waarmee u IoT-centraal-India. U komt op een overzichtspagina weergegeven van een verbinding te maken met een aangepaste actie IoT Central-connector.
 
-1. Meld u aan bij de IoT Central-connector en klik op **doorgaan**. U gaat naar de Microsoft Flow-ontwerpfunctie te maken van uw werkstroom. De werkstroom heeft een IoT Central activeringsopdracht met uw toepassing en de regel al ingevuld.
+1. Meld u aan bij de IoT Central-connector en selecteer **doorgaan**. U gaat naar de Microsoft Flow-ontwerpfunctie te maken van uw werkstroom. De werkstroom heeft een IoT Central activeringsopdracht met uw toepassing en de regel al ingevuld.
 
 1. Kies **+ nieuwe stap** en **een actie toevoegen**. U kunt op dit moment geen actie die u uw werkstroom wilt toevoegen. Als voorbeeld gaan we sturen een mobiele melding ontvangen. Zoeken naar **melding**, en kies **meldingen - ik wil een mobiele melding ontvangen**.
 
 1. Vul in de actie in het tekstveld met wat u uw aanmelding wilt te zeggen hadden. U kunt opnemen *dynamische inhoud* van uw IoT Central-regel, geven belangrijke informatie zoals de naam van apparaat- en tijdstempel op de melding.
 
     > [!NOTE]
-    > Klik op de tekst 'Meer informatie' in het venster voor dynamische inhoud om op te halen van de meting en eigenschapswaarden die de regel geactiveerd.
+    > Selecteer de **meer** tekst in het venster met dynamische inhoud om op te halen van de meting en eigenschap waarden die de regel geactiveerd.
 
     ![Flow actie met deelvenster met dynamische open bewerken](./media/howto-add-microsoft-flow-experimental/flowdynamicpane.png)
 
-1. Wanneer u klaar bent uw actie bewerken, klikt u op **opslaan**. U wordt omgeleid naar de pagina overzicht van uw werkstroom. Hier ziet u de uitvoeringsgeschiedenis en delen met andere collega's.
+1. Wanneer u klaar bent voor het bewerken van de actie selecteren **opslaan**. U wordt omgeleid naar de pagina overzicht van uw werkstroom. Hier ziet u de uitvoeringsgeschiedenis en delen met andere collega's.
 
     > [!NOTE]
     > Als u wilt dat andere gebruikers in uw IoT Central-app met deze regel bewerken, moet u deze met hen delen in Microsoft Flow. De Microsoft Flow-accounts toevoegen als eigenaren in uw werkstroom.

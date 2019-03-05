@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 5d769de62ccae1b1480e4da9e9643b63633073a4
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 9834feed7ee3139f70e481bafb301b2003c2e2b6
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215554"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317285"
 ---
 # <a name="configure-the-application-dashboard"></a>Configureren van het dashboard
 
@@ -24,15 +24,15 @@ De **Dashboard** is de pagina waarop wordt geladen wanneer gebruikers die toegan
 
 ## <a name="add-tiles"></a>Tegels toevoegen
 
-De volgende schermafbeelding ziet u het dashboard in een toepassing gemaakt op basis van de **voorbeeld Contoso** sjabloon. De standaard-dashboard voor uw toepassing aanpassen, klikt u op **bewerken** aan de bovenkant van de pagina.
+De volgende schermafbeelding ziet u het dashboard in een toepassing gemaakt op basis van de **voorbeeld Contoso** sjabloon. Voor het aanpassen van de standaard-dashboard voor uw toepassing, selecteert u **bewerken** aan de bovenkant van de pagina.
 
 ![Dashboard voor toepassingen op basis van de sjabloon 'Contoso voorbeeld'](media/howto-configure-homepage-experimental/image1.png)
 
-Te klikken op **bewerken**, wordt het deelvenster van de bibliotheek dashboard geopend. De bibliotheek bevat de tegels en dashboard primitieven die kunt u het dashboard aanpassen.
+Selecteren **bewerken**, wordt het deelvenster van de bibliotheek dashboard geopend. De bibliotheek bevat de tegels en dashboard primitieven die kunt u het dashboard aanpassen.
 
 ![Bibliotheek voor het dashboard](media/howto-configure-homepage-experimental/image2.png)
 
-Bijvoorbeeld, u kunt toevoegen een **apparaatinstellingen en eigenschappen** tegel om een selectie van de huidige instellingen en eigenschappen van de waarden voor een apparaat weer te geven. Om dit te doen, selecteert u eerst een **apparaat sjabloon** Selecteer vervolgens een **apparaatexemplaar**. Nadat u dat de tegel geeft een titel en selecteer een **instelling** of een **eigenschap** om weer te geven. De volgende schermafbeelding ziet u instellingen en eigenschappen die zijn geselecteerd om toe te voegen aan de tegel. Klik op **gedaan** om op te slaan van de wijziging aan het dashboard.
+Bijvoorbeeld, u kunt toevoegen een **apparaatinstellingen en eigenschappen** tegel om een selectie van de huidige instellingen en eigenschappen van de waarden voor een apparaat weer te geven. Om dit te doen, selecteert u eerst een **apparaat sjabloon** Selecteer vervolgens een **apparaatexemplaar**. Nadat u dat de tegel geeft een titel en selecteer een **instelling** of een **eigenschap** om weer te geven. De volgende schermafbeelding ziet u instellingen en eigenschappen die zijn geselecteerd om toe te voegen aan de tegel. Selecteer **gedaan** om op te slaan van de wijziging aan het dashboard.
 
 !['Apparaatdetails configureren' formulier met details voor instellingen en eigenschappen](media/howto-configure-homepage-experimental/image3.png)
 

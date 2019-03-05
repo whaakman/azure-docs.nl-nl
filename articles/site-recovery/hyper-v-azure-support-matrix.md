@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 15d85d30f73a9880a6a68a62ab208bb0bdbf5402
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 325df38cfea0c87cda8b7fb5ab37dca4a6a529fd
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788035"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315670"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Ondersteuningsmatrix voor herstel na noodgevallen van on-premises Hyper-V-machines naar Azure
 
@@ -33,7 +33,7 @@ Hyper-V zonder Virtual Machine Manager | U kunt herstel na noodgevallen naar Azu
 
 **Server** | **Vereisten** | **Details**
 --- | --- | ---
-Hyper-V (uitgevoerd zonder Virtual Machine Manager) | Windows Server 2016 (inclusief server core-installatie), Windows Server 2012 R2 met de meest recente updates | Voor virtuele machines zich op een host met Windows Server 2016, wordt niet herstel naar een alternatieve locatie ondersteund.<br/><br/> Als u Windows Server 2012 R2 met al hebt geconfigureerd / of SCVMM 2012 R2 met Azure Site Recovery en werk het besturingssysteem, kunt u de richtlijnen [documentatie.](upgrade-2012R2-to-2016.md) 
+Hyper-V (uitgevoerd zonder Virtual Machine Manager) | Windows Server 2016 (inclusief server core-installatie), Windows Server 2012 R2 met de meest recente updates | Als u Windows Server 2012 R2 met al hebt geconfigureerd / of SCVMM 2012 R2 met Azure Site Recovery en werk het besturingssysteem, kunt u de richtlijnen [documentatie.](upgrade-2012R2-to-2016.md) 
 Hyper-V (die wordt uitgevoerd met Virtual Machine Manager) | Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Als Virtual Machine Manager wordt gebruikt, moeten Windows Server 2016-hosts worden beheerd in Virtual Machine Manager 2016.<br/><br/>
 
 
@@ -110,9 +110,9 @@ Versleutelde schijf | Nee | Nee
 NFS | N.v.t. | N.v.t.
 SMB 3.0 | Nee | Nee
 RDM | N.v.t. | N.v.t.
-Schijf > 1 TB | Ja, maximaal 4095 GB | Ja, maximaal 4095 GB
-Schijf: 4K logische en fysieke sector | Niet ondersteund: Generatie 1/Gen 2 | Niet ondersteund: Generatie 1/Gen 2
-Schijf: 4K logische en fysieke sector van 512 bytes | Ja |  Ja
+Disk >1 TB | Ja, maximaal 4095 GB | Ja, maximaal 4095 GB
+Disk: 4K logische en fysieke sector | Niet ondersteund: Generatie 1/Gen 2 | Niet ondersteund: Generatie 1/Gen 2
+Disk: 4K logische en fysieke sector van 512 bytes | Ja |  Ja
 Logische volumebeheer (LVM). LVM wordt op gegevensschijven alleen ondersteund. Azure biedt alleen een besturingssysteemschijf. | Ja | Ja
 Volume met striped schijf > 1 TB | Ja | Ja
 Opslagruimten | Ja | Ja

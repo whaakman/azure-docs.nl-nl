@@ -12,12 +12,12 @@ ms.author: jodebrui
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 235d6174153e32b40885811350d967af5b98ecc4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: fcfe8ed0bc132377fbaefaccb03e1d6a9374b8d6
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478352"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312471"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Prestaties optimaliseren met behulp van technologieën In het geheugen in SQL-Database
 
@@ -88,7 +88,7 @@ Een snelle introductie op de In-Memory OLTP: [Snelstartgids 1: In-Memory OLTP-te
 Uitgebreide video's over de technologieën:
 
 - [In-Memory OLTP in Azure SQL Database](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (bevat een demo van prestatievoordelen en stappen voor het reproduceren van deze resultaten zelf)
-- [Video's in-Memory OLTP: Wat dat inhoudt en ze wanneer/hoe te gebruiken](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/03/in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)
+- [Video's in-Memory OLTP: Wat dat inhoudt en ze wanneer/hoe te gebruiken](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)
 
 Er is een programmatische manier om te begrijpen of In-Memory OLTP ondersteuning biedt voor een bepaalde database. U kunt de volgende Transact-SQL-query uitvoeren:
 ```
@@ -150,7 +150,7 @@ Er zijn twee soorten columnstore-modellen die u gebruiken kunt om uw gegevens te
 
 Uitgebreide video over de technologie:
 
-- [Columnstore-Index: Video's in-Memory analyse van Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/04/columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
+- [Columnstore-Index: Video's in-Memory analyse van Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>Gegevensgrootte van en opslag voor columnstore-indexen
 
