@@ -51,10 +51,9 @@ We hebben deze inhoud gemaakt om u te helpen aan de slag te gaan en beveiligings
                         <p>
                         <a href="/azure/active-directory/user-help/myprofile-portal-overview">Overzicht</a><br/>
                         <a href="/azure/active-directory/user-help/user-help-security-info-overview">Uw beveiligingsgegevens beheren</a><br/>
-                        <a href="/azure/active-directory/user-help/myprofile-portal-recent-activity-page">Recente aanmeldingsactiviteiten bekijken</a><br/>
                         <a href="/azure/active-directory/user-help/myprofile-portal-organizations-page">Uw organisaties beheren</a><br/>
                         <a href="/azure/active-directory/user-help/myprofile-portal-devices-page">Uw verbonden apparaten beheren</a><br/>
-                        <a href="/azure/active-directory/user-help/myprofile-portal-privacy-page">Uw aan privacy gerelateerde informatie bekijken</a><br/>                       
+                        <a href="/azure/active-directory/user-help/myprofile-portal-privacy-page">Uw privacygerelateerde informatie bekijken</a>
                         </p>
                     </div>
                 </div>

@@ -1314,7 +1314,7 @@ Azure-taken automatiseren met behulp van PowerShell-scripts </a>
                                         <li>
                                             <a href="/azure/iot-fundamentals">
                                                 <img src="media/index/IoTHub.svg" alt="" />
-                                                <p>Basisprincipes van IoT</p>
+                                                <p>Azure IoT</p>
                                             </a>
                                         </li>
                                         <li>
@@ -3929,12 +3929,12 @@ Azure-taken automatiseren met behulp van PowerShell-scripts </a>
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/iothub.svg" alt="" />
+                                                        <img src="media/index/question-mark-grey.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Basisprincipes van IoT</h3>
-                                                    <p>Aan de slag met het verbinden van uw apparaten</p>
+                                                    <h3>Bent u nieuw bij Azure IoT?</h3>
+                                                    <p>Ontdek hier welke service aan uw behoeften voldoet</p>
                                                 </div>
                                             </div>
                                         </div>
