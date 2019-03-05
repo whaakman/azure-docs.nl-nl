@@ -11,13 +11,13 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 02/20/2019
-ms.openlocfilehash: ced83fc31e9e4944f7392169b703056dc5b4fd98
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.date: 03/04/2019
+ms.openlocfilehash: e4ccb9be5d13ea72086fbaae2ffb2ec63ad55786
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454834"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340317"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configureren en beheren van Azure Active Directory-verificatie met behulp van SQL
 
@@ -28,11 +28,13 @@ Dit artikel leest u hoe u kunt maken en vullen van Azure AD en vervolgens Azure 
 > [!IMPORTANT]  
 > Verbinding maken met SQL Server die wordt uitgevoerd op een Azure-VM wordt niet ondersteund met behulp van Azure Active Directory-account. Gebruik in plaats daarvan een domein Active Directory-account.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="create-and-populate-an-azure-ad"></a>Maken en vullen van een Azure AD
 
 Maak een Azure AD en deze vullen met gebruikers en groepen. Azure AD kan de eerste Azure AD worden beheerde domein. Azure AD kan ook worden voor een on-premises Active Directory Domain Services die is gefedereerd met Azure AD.
 
-Zie [Uw on-premises identiteiten integreren met Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md), [Uw domeinnaam toevoegen in Azure AD](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure ondersteunt nu federatie met Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Uw Azure AD-adreslijst beheren](../active-directory/fundamentals/active-directory-administer.md), [Azure AD beheren met Windows PowerShell](/powershell/azure/overview?view=azureadps-2.0) en [Poorten en protocollen waarvoor hybride identiteit is vereist](../active-directory/hybrid/reference-connect-ports.md) voor meer informatie.
+Zie [Uw on-premises identiteiten integreren met Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md), [Uw domeinnaam toevoegen in Azure AD](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure ondersteunt nu federatie met Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), [Uw Azure AD-adreslijst beheren](../active-directory/fundamentals/active-directory-administer.md), [Azure AD beheren met Windows PowerShell](/powershell/azure/overview?view=azureadps-2.0) en [Poorten en protocollen waarvoor hybride identiteit is vereist](../active-directory/hybrid/reference-connect-ports.md) voor meer informatie.
 
 ## <a name="associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Koppelen of een Azure-abonnement toevoegen aan Azure Active Directory
 
@@ -186,35 +188,35 @@ Later verwijderen van een beheerder, aan de bovenkant van de **Active Directory-
 
 PowerShell-cmdlets, hebt u nodig hebt van Azure PowerShell installeren en uitvoeren. Zie voor gedetailleerde informatie [Installeren en configureren van Azure PowerShell](/powershell/azure/overview). Voor het inrichten van een Azure AD-beheerder, voert u de volgende Azure PowerShell-opdrachten uit:
 
-- Connect-AzureRmAccount
-- Select-AzureRmSubscription
+- Connect-AzAccount
+- Select-AzSubscription
 
 Cmdlets gebruikt voor het inrichten en beheren van Azure AD-beheerder:
 
 | Naam van cmdlet | Description |
 | --- | --- |
-| [Set-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/set-azurermsqlserveractivedirectoryadministrator) |Richt een Azure Active Directory-beheerder voor Azure SQL-server of Azure SQL Data Warehouse. (Moet zich in het huidige abonnement.) |
-| [Remove-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/remove-azurermsqlserveractivedirectoryadministrator) |Hiermee verwijdert u een Azure Active Directory-beheerder voor Azure SQL-server of Azure SQL Data Warehouse. |
-| [Get-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/get-azurermsqlserveractivedirectoryadministrator) |Retourneert informatie over een Azure Active Directory-beheerder die momenteel zijn geconfigureerd voor de Azure SQL-server of Azure SQL Data Warehouse. |
+| [Set-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |Richt een Azure Active Directory-beheerder voor Azure SQL-server of Azure SQL Data Warehouse. (Moet zich in het huidige abonnement.) |
+| [Remove-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |Hiermee verwijdert u een Azure Active Directory-beheerder voor Azure SQL-server of Azure SQL Data Warehouse. |
+| [Get-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator) |Retourneert informatie over een Azure Active Directory-beheerder die momenteel zijn geconfigureerd voor de Azure SQL-server of Azure SQL Data Warehouse. |
 
-Gebruik PowerShell-opdracht get-help voor meer informatie voor elk van deze opdrachten, bijvoorbeeld ``get-help Set-AzureRmSqlServerActiveDirectoryAdministrator``.
+Gebruik PowerShell-opdracht get-help voor meer informatie voor elk van deze opdrachten, bijvoorbeeld ``get-help Set-AzSqlServerActiveDirectoryAdministrator``.
 
 Het volgende script bepalingen een Azure AD-beheerder-groep met de naam **DBA_Group** (object-ID `40b79501-b343-44ed-9ce7-da4c8cc7353f`) voor de **demo_server** -server in een resourcegroep met de naam **23-groep**:
 
 ```powershell
-Set-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23"
+Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23"
 -ServerName "demo_server" -DisplayName "DBA_Group"
 ```
 
 De **DisplayName** invoerparameter accepteert u de weergavenaam van de Azure AD of de User Principal-naam. Bijvoorbeeld, ``DisplayName="John Smith"`` en ``DisplayName="johns@contoso.com"``. Weergavenaam wordt ondersteund voor Azure AD-beveiligingsgroepen alleen de Azure AD.
 
 > [!NOTE]
-> De Azure PowerShell-opdracht ```Set-AzureRmSqlServerActiveDirectoryAdministrator``` voorkomt niet dat u Azure AD-beheerders voor niet-ondersteunde gebruikers inrichten. Een niet-ondersteunde gebruiker kan worden ingericht, maar kan geen verbinding maken met een database.
+> De Azure PowerShell-opdracht ```Set-AzSqlServerActiveDirectoryAdministrator``` voorkomt niet dat u Azure AD-beheerders voor niet-ondersteunde gebruikers inrichten. Een niet-ondersteunde gebruiker kan worden ingericht, maar kan geen verbinding maken met een database.
 
 Het volgende voorbeeld wordt de optionele **ObjectID**:
 
 ```powershell
-Set-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23"
+Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23"
 -ServerName "demo_server" -DisplayName "DBA_Group" -ObjectId "40b79501-b343-44ed-9ce7-da4c8cc7353f"
 ```
 
@@ -224,16 +226,16 @@ Set-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23"
 Het volgende voorbeeld retourneert informatie over de huidige Azure AD-beheerder voor Azure SQL-server:
 
 ```powershell
-Get-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server" | Format-List
+Get-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server" | Format-List
 ```
 
 Het volgende voorbeeld verwijdert u een Azure AD-beheerder:
 
 ```powershell
-Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server"
+Remove-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server"
 ```
 
-U kunt ook Azure Active Directory-beheerder inrichten met behulp van de REST API's. Zie voor meer informatie, [Service Management REST API-verwijzing en bewerkingen voor Azure SQL Database-bewerkingen voor Azure SQL Database](https://msdn.microsoft.com/library/azure/dn505719.aspx)
+U kunt ook Azure Active Directory-beheerder inrichten met behulp van de REST API's. Zie voor meer informatie, [Service Management REST API-verwijzing en bewerkingen voor Azure SQL Database-bewerkingen voor Azure SQL Database](https://docs.microsoft.com/rest/api/sql/)
 
 ### <a name="cli"></a>CLI  
 
@@ -308,7 +310,7 @@ Voor meer informatie over het maken van die database-gebruikers op basis van Azu
 > [!NOTE]
 > Verwijderen van de Azure Active Directory-beheerder voor Azure SQL-server wordt voorkomen dat een gebruiker van Azure AD-verificatie verbinding te maken met de server. Indien nodig, onbruikbaar Azure AD-gebruikers kunnen handmatig worden verwijderd door de beheerder van een SQL-Database.
 > [!NOTE]
-> Als u ontvangt een **verbinding is een time-out**, moet u instellen de `TransparentNetworkIPResolution` parameter van de verbindingsreeks op false. Zie voor meer informatie, [time-out verbindingsprobleem met .NET Framework 4.6.1 - TransparentNetworkIPResolution](https://blogs.msdn.microsoft.com/dataaccesstechnologies/2016/05/07/connection-timeout-issue-with-net-framework-4-6-1-transparentnetworkipresolution/).
+> Als u ontvangt een **verbinding is een time-out**, moet u instellen de `TransparentNetworkIPResolution` parameter van de verbindingsreeks op false. Zie voor meer informatie, [time-out verbindingsprobleem met .NET Framework 4.6.1 - TransparentNetworkIPResolution](https://blogs.msdn.microsoft.com/dataaccesstechnologies/20../../connection-timeout-issue-with-net-framework-4-6-1-transparentnetworkipresolution/).
 
 Wanneer u een gebruiker van een database maakt, krijgt die gebruiker de **CONNECT** machtiging en verbinding kunt maken aan die database als een lid van de **openbare** rol. In eerste instantie alleen machtigingen voor het beschikbaar voor de gebruiker zijn geen machtigingen verleend aan de **openbare** rol of machtigingen verleend aan de Azure AD-groepen dat ze lid van zijn. Wanneer u een Azure AD-gebruiker op basis van die database inricht, kunt u de gebruiker aanvullende machtigingen verlenen, dezelfde manier als u machtigingen aan een ander type gebruiker verlenen. Normaal gesproken machtigingen te verlenen, en gebruikers toevoegen aan rollen. Zie voor meer informatie, [Database-Engine machtiging Basics](https://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). Zie voor meer informatie over de speciale SQL-Database-functies, [Databases en aanmeldingen in Azure SQL Database beheren](sql-database-manage-logins.md).
 Een federatief domein-gebruikersaccount dat is geïmporteerd in een beheerd domein als een externe gebruiker moet de identiteit van de beheerde domein gebruiken.
@@ -403,7 +405,7 @@ conn.AccessToken = "Your JWT token"
 conn.Open();
 ```
 
-Zie voor meer informatie, [SQL Server Security-Blog](https://blogs.msdn.microsoft.com/sqlsecurity/2016/02/09/token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/). Zie voor meer informatie over het toevoegen van een certificaat [aan de slag met verificatie op basis van certificaten in Azure Active Directory](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md).
+Zie voor meer informatie, [SQL Server Security-Blog](https://blogs.msdn.microsoft.com/sqlsecurity/20../../token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/). Zie voor meer informatie over het toevoegen van een certificaat [aan de slag met verificatie op basis van certificaten in Azure Active Directory](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md).
 
 ### <a name="sqlcmd"></a>sqlcmd
 

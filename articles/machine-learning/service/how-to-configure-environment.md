@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: e055ddc49120d77047fa349b7e58c612eb724b41
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 6a51e57cfac326663d41b545c9f2883a446467d3
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881546"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340759"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Een ontwikkelomgeving configureren voor Azure Machine Learning
 
@@ -42,7 +42,7 @@ Als u al een Python 3-omgeving hebt, of alleen de basisstappen voor het installe
 
 - Een werkruimte van Azure Machine Learning-service. Zie voor het maken van de werkruimte, [aan de slag met Azure Machine Learning-service](quickstart-get-started.md).
 
-- Een van beide de [Zorgcontinuüm Anaconda](https://www.anaconda.com/download/) of [Miniconda](https://conda.io/miniconda.html) Pakketbeheer.
+- Een van beide de [Anaconda](https://www.anaconda.com/download/) of [Miniconda](https://conda.io/miniconda.html) Pakketbeheer.
 
     > [!IMPORTANT]
     > Anaconda en Miniconda zijn niet vereist als u Azure-notitieblokken.

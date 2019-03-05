@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6b97968540914bf1edf5624d04e8f47956de7f0d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 28227ce9ebc5680f68c05cb1296a8ba35eac2c74
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822252"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338345"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Naar of van Oracle on-premises gegevens kopiëren met behulp van Azure Data Factory
 
@@ -183,7 +183,7 @@ In de Kopieeractiviteit, wanneer de bron is de **OracleSource** type, de volgend
 | writeBatchTimeout |De wachttijd voor de batch invoegen bewerking is voltooid voordat er een optreedt time-out. |**timespan**<br/><br/> Voorbeeld: 00:30:00 uur (30 minuten) |Nee |
 | WriteBatchSize |Gegevens invoegen in de SQL-tabel wanneer de waarde van de buffergrootte is bereikt **writeBatchSize**. |Geheel getal (aantal rijen) |Nee (standaard: 100) |
 | sqlWriterCleanupScript |Hiermee geeft u een query voor de Kopieeractiviteit om uit te voeren zodat de gegevens van een bepaald segment wordt opgeschoond. |Een query-instructie. |Nee |
-| sliceIdentifierColumnName |Hiermee geeft u de naam van de kolom voor de Kopieeractiviteit in te vullen met een automatisch gegenereerde segment-id.  De waarde voor **sliceIdentifierColumnName** wordt gebruikt voor het opschonen van gegevens van een bepaald segment wanneer opnieuw uitgevoerd. |De naam van de kolom van een kolom met gegevenstype van **binary(32)**. |Nee |
+| sliceIdentifierColumnName |Hiermee geeft u de naam van de kolom voor de Kopieeractiviteit in te vullen met een automatisch gegenereerde segment-id. De waarde voor **sliceIdentifierColumnName** wordt gebruikt voor het opschonen van gegevens van een bepaald segment wanneer opnieuw uitgevoerd. |De naam van de kolom van een kolom met gegevenstype van **binary(32)**. |Nee |
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>JSON-voorbeelden voor het kopiëren van gegevens naar en van de Oracle-database
 
@@ -557,7 +557,7 @@ De pijplijn bevat een kopieeractiviteit die is geconfigureerd voor het gebruik v
 
 **Foutbericht**
 
-    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .Net Framework Data Provider. It may not be installed.
+    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .NET Framework Data Provider. It may not be installed.
 
 **Mogelijke oorzaken**
 
@@ -568,8 +568,8 @@ De pijplijn bevat een kopieeractiviteit die is geconfigureerd voor het gebruik v
 
 * Als u de .NET-Provider voor Oracle, nog niet hebt geïnstalleerd [installeren](http://www.oracle.com/technetwork/topics/dotnet/downloads/), en probeer het scenario.
 * Als u het foutbericht ziet, zelfs nadat u de provider hebt geïnstalleerd, kunt u de volgende stappen:
-   1. Open het configuratiebestand van de machine voor .NET 2.0 uit de map < systeemschijf\>: \Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
-   2. Zoeken naar **Oracle-gegevensprovider voor .NET**. U moet kunnen geen vermelding vinden, zoals wordt weergegeven in het volgende voorbeeld onder **systeem.gegevens** > **DbProviderFactories**: `<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
+    1. Open het configuratiebestand van de machine voor .NET 2.0 uit de map < systeemschijf\>: \Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
+    2. Zoeken naar **Oracle-gegevensprovider voor .NET**. U moet kunnen geen vermelding vinden, zoals wordt weergegeven in het volgende voorbeeld onder **systeem.gegevens** > **DbProviderFactories**: `<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
 * Deze vermelding kopiëren naar het bestand machine.config in de volgende .NET 4.0-map: < systeemschijf\>: \Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config. Wijzig de versie in 4.xxx.x.x.
 * Installeer < ODP.NET geïnstalleerd pad\>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll in de global assembly-cache (GAC) door te voeren **gacutil /i [providerpad]**.
 
@@ -617,7 +617,7 @@ Wanneer u gegevens van Oracle hebt verplaatst, worden de volgende toewijzingen v
 | TIMESTAMP |DateTime |
 | TIJDSTEMPEL MET DE LOKALE TIJDZONE |DateTime |
 | TIJDSTEMPEL MET TIJDZONE |DateTime |
-| GEHEEL GETAL ZONDER TEKEN |Aantal |
+| GEHEEL GETAL ZONDER TEKEN |Getal |
 | VARCHAR2 |String |
 | XML |String |
 

@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4f89fab47cf07538d1915d359fc29a21deb1e560
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: f402aeb82271d4e0f5023f05b0d61713c4ab73c1
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986072"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338464"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementeer modellen met de Azure Machine Learning-service
 
@@ -482,7 +482,7 @@ sudo ./deploymodel <ContainerRegistryName> <username> <password> <imageLocationU
 U kunt ook u kunt de stappen in de [implementeren Azure IoT Edge-modules van de Azure-portal](../../iot-edge/how-to-deploy-modules-portal.md) document naar de installatiekopie implementeert op uw apparaat. Bij het configureren van de __registerinstellingen__ gebruiken voor het apparaat, de __aanmeldingsserver__, __gebruikersnaam__, en __wachtwoord__ voor uw werkruimte container registry.
 
 > [!NOTE]
-> Als u niet bekend met Azure IoT bent, ziet u de volgende documenten voor meer informatie over aan de slag met de service:
+> Als u niet bekend met Azure IoT Edge bent, ziet u de volgende documenten voor meer informatie over aan de slag met de service:
 >
 > * [Snelstart: Uw eerste IoT Edge-module implementeert op een Linux-apparaat](../../iot-edge/quickstart-linux.md)
 > * [Snelstart: Uw eerste IoT Edge-module implementeert op een Windows-apparaat](../../iot-edge/quickstart.md)

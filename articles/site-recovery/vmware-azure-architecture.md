@@ -1,18 +1,18 @@
 ---
 title: VMware naar Azure disaster recovery-architectuur in Azure Site Recovery | Microsoft Docs
 description: In dit artikel biedt een overzicht van de onderdelen en architectuur die worden gebruikt bij het instellen van herstel na noodgevallen van on-premises VMware-machines naar Azure met Azure Site Recovery
-author: rayne-wiselman
+author: mayurigupta13
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 12/31/2018
-ms.author: raynew
-ms.openlocfilehash: 3d91788544c49c260eff051185950bdfd164b802
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 3/3/2019
+ms.author: mayg
+ms.openlocfilehash: 5f9ead8df3d0dfb2695def46087d2ea994b8b75b
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217948"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340429"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware naar Azure disaster recovery-architectuur
 
@@ -25,7 +25,7 @@ De volgende tabel en afbeelding vindt een weergave op hoog niveau van de onderde
 
 **Onderdeel** | **Vereiste** | **Details**
 --- | --- | ---
-**Azure** | Een Azure-abonnement, Azure Storage-account en Azure-netwerk. | Gerepliceerde gegevens van on-premises VM's worden opgeslagen in de storage-account. Azure VM's worden gemaakt met de gerepliceerde gegevens wanneer u een failover van on-premises naar Azure uitvoert. De Azure-VM's maken verbinding met het virtuele Azure-netwerk wanneer ze worden gemaakt.
+**Azure** | Een Azure-abonnement, Azure Storage-account voor cache, beheerde schijf en Azure-netwerk. | Gerepliceerde gegevens van on-premises VM's worden opgeslagen in Azure storage. Azure VM's worden gemaakt met de gerepliceerde gegevens wanneer u een failover van on-premises naar Azure uitvoert. De Azure-VM's maken verbinding met het virtuele Azure-netwerk wanneer ze worden gemaakt.
 **Configuratie van server-machine** | Een enkele on-premises computer. Het is raadzaam dat u uitvoert als een VMware-VM die kan worden geïmplementeerd vanaf een gedownloade OVF-sjabloon.<br/><br/> De machine wordt uitgevoerd van alle on-premises Site Recovery-onderdelen, waaronder de configuratieserver, processerver en hoofddoelserver. | **Configuratieserver**: Coördineert de communicatie tussen on-premises en Azure, en beheert de gegevensreplicatie.<br/><br/> **Processerver**: standaard geïnstalleerd op de configuratieserver. Deze ontvangt replicatiegegevens; Met caching, compressie en versleuteling, optimaliseert en verzendt dit naar Azure Storage. De processerver installeert ook Azure Site Recovery Mobility Service op virtuele machines die u repliceren wilt, en wordt automatische detectie van on-premises machines uitgevoerd. Naarmate uw implementatie groeit, kunt u extra, afzonderlijk processervers voor het afhandelen van grotere hoeveelheden replicatieverkeer kunt toevoegen.<br/><br/> **Hoofddoelserver**: standaard geïnstalleerd op de configuratieserver. Replicatiegegevens worden verwerkt tijdens de failback vanuit Azure. U kunt een afzonderlijke hoofddoelserver voor failback toevoegen voor grote implementaties.
 **VMware-servers** | Virtuele VMware-machines worden gehost op on-premises vSphere ESXi-servers. U wordt aangeraden een vCenter-server voor het beheren van de hosts. | Tijdens de implementatie van Site Recovery kunt u VMware-servers toevoegen aan de Recovery Services-kluis.
 **Gerepliceerde machines** | Mobility-Service is geïnstalleerd op elke VMware-VM die u wilt repliceren. | Het is raadzaam dat u de automatische installatie van de processerver toestaan. U kunt ook de service handmatig installeren of gebruiken van een methode geautomatiseerde implementatie, zoals System Center Configuration Manager.

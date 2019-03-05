@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 02/28/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 2255f14d026d406dc41802c321d0a673ee2f2f23
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 6a26b4c08915b44d24290fde2c74d71b9362c11c
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766857"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338566"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Zelfstudie: De kosten van aanbevelingen optimaliseren
 
@@ -29,7 +29,7 @@ In deze zelfstudie leert u het volgende:
 > * Controleer of de actie om ervoor te zorgen dat de virtuele machine met succes is gewijzigd
 
 ## <a name="prerequisites"></a>Vereisten
-Aanbevelingen zijn beschikbaar voor verschillende typen Azure-account, met inbegrip van [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) klanten. De volledige lijst met ondersteunde accounttypen Zie [gegevens van kostenbeheer begrijpen](understand-cost-mgt-data.md). U moet minimaal leestoegang hebben tot een of meer van de volgende bereiken om kostengegevens te kunnen bekijken.
+Aanbevelingen zijn beschikbaar voor verschillende bereiken en typen van de Azure-account, inclusief [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) klanten. Zie voor de volledige lijst met ondersteunde accounttypen [Gegevens van Azure Cost Management begrijpen](understand-cost-mgt-data.md). U moet minimaal leestoegang hebben tot een of meer van de volgende bereiken om kostengegevens te kunnen bekijken. Zie voor meer informatie over bereiken [begrijpen en werk met een bereik](understand-work-scopes.md).
 
 - Abonnement
 - Resourcegroep

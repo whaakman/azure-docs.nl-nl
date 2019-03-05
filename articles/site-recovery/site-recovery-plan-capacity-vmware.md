@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 29e01177d4b096449cd906a22b47223078c6493e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 8325e2d1dccf1184c5297a60161200b41fc1d412
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107817"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338277"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Plannen van capaciteit en schaalbaarheid voor noodherstel van VMware naar Azure
 
@@ -42,7 +42,7 @@ CPU | Geheugen | Cachegrootte van de schijf | Veranderingssnelheid van gegevens 
 12 vcpu's (2-sockets * 6 kernen \@ 2,5 GHz) | 18 GB | 600 GB | 501 GB tot 1 TB | Gebruik voor het repliceren van 100-150-machines.
 16 vcpu's (2-sockets * 8 kernen \@ 2,5 GHz) | 32 GB | 1 TB | > 1 TB tot 2 TB | Gebruiken om te repliceren 151 tot 200 computers.
 Een andere configuratieserver implementeren met behulp van een [OVF-sjabloon](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template). | | | | Een nieuwe configuratieserver implementeren als u meer dan 200 machines repliceert.
-Implementatie van een andere [processerver](vmware-azure-set-up-process-server-scale.md#download-installation-file). | | | &GT; 2 TB| Een nieuwe uitbreidbare processerver implementeren als de totale dagelijkse veranderingssnelheid van gegevens groter dan 2 TB is.
+Implementatie van een andere [processerver](vmware-azure-set-up-process-server-scale.md#download-installation-file). | | | >2 TB| Een nieuwe uitbreidbare processerver implementeren als de totale dagelijkse veranderingssnelheid van gegevens groter dan 2 TB is.
 
 In deze configuraties:
 
@@ -114,7 +114,7 @@ Voordat u de Site Recovery-infrastructuur hebt ingesteld, toegang krijgen tot de
 1. Als u wilt deze parameters meten, Site Recovery Deployment Planner in uw omgeving worden uitgevoerd. Zie voor nuttige richtlijnen [over Site Recovery Deployment Planner voor VMware naar Azure](site-recovery-deployment-planner.md).
 2. Implementeren van een configuratieserver die voldoet aan de [aanbevolen waarden voor de configuratieserver](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server-and-inbuilt-process-server). Als uw productie-werkbelasting groter is dan 650 virtuele machines, implementeert u een andere configuratieserver.
 3. Implementeren op basis van de gemeten dagelijkse veranderingssnelheid van gegevens, [scale-out processervers](vmware-azure-set-up-process-server-scale.md#download-installation-file) met behulp van [richtlijnen grootte](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-process-server).
-4. Als u verwacht dat de gegevenswijzigingssnelheid voor een virtuele machine van schijf 2 MBps, overschrijden [instellen van een Premium storage-account](tutorial-prepare-azure.md#create-a-storage-account). Site Recovery Deployment Planner wordt uitgevoerd voor een bepaalde periode. Pieken in de veranderingssnelheid van gegevens op andere momenten kunnen niet worden vastgelegd in het rapport.
+4. Als u verwacht dat de gegevenswijzigingssnelheid voor een schijf virtuele machine meer dan 2 MBps dat, zorgt u ervoor dat u premium-beheerde schijven gebruiken. Site Recovery Deployment Planner wordt uitgevoerd voor een bepaalde periode. Pieken in de veranderingssnelheid van gegevens op andere momenten kunnen niet worden vastgelegd in het rapport.
 5. [Instellen van de netwerkbandbreedte](site-recovery-plan-capacity-vmware.md#control-network-bandwidth) op basis van de RPO die u wilt bereiken.
 6. Wanneer de infrastructuur is ingesteld, schakelt u herstel na noodgevallen voor uw workload. Voor meer informatie Zie [de bronomgeving instellen voor VMware naar Azure-replicatie](vmware-azure-set-up-source.md).
 

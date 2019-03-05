@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/06/2019
 ms.author: spelluru
-ms.openlocfilehash: a15797e9b181aa877b6dfa3350e69b210af5885e
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 69c26ab522a925032c5a255d07489de0052756c0
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731764"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340845"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Dead-letter en beleid voor opnieuw proberen
 
@@ -21,6 +21,9 @@ Bij het maken van een gebeurtenisabonnement, kunt u de instellingen voor de bezo
 ## <a name="set-dead-letter-location"></a>Dead-letter uitvoeren voor locatie instellen
 
 Als u wilt een dead-letter-locatie instellen, moet u een opslagaccount voor de opslag van gebeurtenissen die naar een eindpunt kunnen niet worden bezorgd. De voorbeelden Haal de resource-ID van een bestaand opslagaccount. Ze maken een gebeurtenisabonnement die gebruikmaakt van een container in het storage-account voor het eindpunt dead-letter uitvoeren.
+
+> [!NOTE]
+> Maak een opslagaccount en een blob-container in de opslag voordat u opdrachten in dit artikel uitvoert.
 
 ### <a name="azure-cli"></a>Azure-CLI
 
@@ -40,7 +43,7 @@ az eventgrid event-subscription create \
 Als u wilt uitschakelen onbestelbare, opnieuw de opdracht om het gebeurtenisabonnement te maken, maar geen waarde opgeeft voor `deadletter-endpoint`. U hoeft niet te verwijderen van het gebeurtenisabonnement.
 
 > [!NOTE]
-> Als u van Azure CLI op uw lokale computer gebruikmaakt, gebruikt u Azure CLI versie 2.0.56 of hoger. Zie voor instructies over het installeren van de meest recente versie van Azure CLI [Azure CLI installeren](/cli/azure/install-azure-cli).
+> Als u werkt met Azure CLI op uw lokale computer, gebruikt u Azure CLI versie 2.0.56 of hoger. Zie [De Azure CLI installeren](/cli/azure/install-azure-cli) voor instructies over het installeren van de meest recente versie van Azure CLI.
 
 ### <a name="powershell"></a>PowerShell
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: d3127b7f9bea9a35d9ac25d0724700cad72fa509
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: b5bca3b4c9f5fbe4c9d7dd917b4e2f0767abf145
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857145"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341014"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>De beschikbaarheid en reactiesnelheid van een website bewaken
 Nadat u uw webtoepassing of website hebt geïmplementeerd op een server, kunt u tests instellen om de beschikbaarheid en responsiviteit te bewaken. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) verzendt regelmatig webaanvragen naar uw toepassing vanaf verschillende punten over de hele wereld. U wordt gewaarschuwd als uw toepassing niet of langzaam reageert.
@@ -329,7 +329,8 @@ Wanneer de test voltooid is, worden de responstijden en succespercentages weerge
 
 * *Wordt HTTPS ondersteund?*
 
-    ondersteunen TLS 1.1 en TLS 1.2.
+    ondersteunen TLS 1.1 en TLS 1.2. We controleren op dit moment niet op fouten voor HTTPS-certificaat.  
+
 * *Is er een verschil tussen webtests en beschikbaarheidstests?*
 
     De twee voorwaarden kunnen door elkaar worden gebruikt. 'Beschikbaarheidstest' is een algemenere term waar niet alleen webtests met meerdere stappen, maar ook tests met enkele URL-ping onder vallen.

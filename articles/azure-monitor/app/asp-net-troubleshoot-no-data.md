@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 532121f4e9a3c658e544a8d322ac0f17fa22a2b0
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9b94445d3053f036510baf7945c1086558d28188
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875902"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341677"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Problemen met ontbrekende gegevens oplossen - Application Insights voor .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Aantal van mijn telemetrie ontbreekt
 *In Application Insights Zie ik slechts een fractie van de gebeurtenissen die worden gegenereerd door mijn app.*
 
-* Als u het gedeelte van het dezelfde consistent ziet, is het waarschijnlijk vanwege adaptieve [steekproeven](../../azure-monitor/app/sampling.md). U kunt dit controleren zoeken (op de overzichtsblade) openen en zoek naar een exemplaar van een aanvraag of een andere gebeurtenis. Aan de onderkant van de sectie met eigenschappen klikt u op '...' voor volledige informatie. Als aantal > 1 aanvragen en vervolgens steekproeven worden uitgevoerd. 
+* Als u het gedeelte van het dezelfde consistent ziet, is het waarschijnlijk vanwege adaptieve [steekproeven](../../azure-monitor/app/sampling.md). U kunt dit controleren zoeken (op de overzichtsblade) openen en zoek naar een exemplaar van een aanvraag of een andere gebeurtenis. Aan de onderkant van de sectie met eigenschappen klikt u op '...' voor volledige informatie. Als aantal > 1 aanvragen en vervolgens steekproeven worden uitgevoerd.
 * Anders is het mogelijk dat u ondervindt een [limiet](../../azure-monitor/app/pricing.md#limits-summary) voor uw prijsplan. Deze limieten gelden per minuut.
 
 ## <a name="no-data-from-my-server"></a>Er zijn geen gegevens van mijn server
@@ -34,7 +34,7 @@ ms.locfileid: "56875902"
 
 *Ik [geïnstalleerd Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md) op de webserver voor het bewaken van bestaande apps. Geen resultaten weergegeven niet.*
 
-* Zie [statusmonitor oplossen](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshoot). 
+* Zie [statusmonitor oplossen](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshoot).
 
 ## <a name="q01"></a>Geen optie 'Application Insights toevoegen' in Visual Studio
 *Wanneer ik met de rechtermuisknop op een bestaand project in Solution Explorer, weergegeven niet alle opties voor Application Insights.*
@@ -55,10 +55,10 @@ Mogelijke oorzaken:
 
 FIX:
 
-* Controleer dat u hebt opgegeven aanmeldingsreferenties voor de juiste Azure-account. 
+* Controleer dat u hebt opgegeven aanmeldingsreferenties voor de juiste Azure-account.
 * In uw browser, Controleer of u toegang tot hebt de [Azure-portal](https://portal.azure.com). Instellingen openen en kijk of er verder geen beperkingen.
 * [Application Insights toevoegen aan een bestaand project](../../azure-monitor/app/asp-net.md): Klik met de rechtermuisknop op uw project in Solution Explorer en kies 'Add Application Insights'.
-* Als deze nog steeds niet werkt, volgt u de [handmatige procedure](../../azure-monitor/app/windows-services.md) toevoegen van een resource in de portal en vervolgens de SDK toevoegen aan uw project. 
+* Als deze nog steeds niet werkt, volgt u de [handmatige procedure](../../azure-monitor/app/windows-services.md) toevoegen van een resource in de portal en vervolgens de SDK toevoegen aan uw project.
 
 ## <a name="emptykey"></a>Ik krijg de foutmelding 'instrumentatiesleutel mag niet leeg zijn'
 Er is iets fout gegaan tijdens installatie Application Insights of misschien een adapter voor logboekregistratie.
@@ -76,7 +76,7 @@ Raadpleeg [NuGet-pakket herstellen](https://docs.nuget.org/Consume/Package-Resto
 Mogelijke oorzaken:
 
 * Als u de Application Insights-resource die handmatig zijn gemaakt, of als het project is van een type dat wordt niet ondersteund door de Application Insights-hulpprogramma's.
-* De hulpprogramma's voor analyses voor ontwikkelaars zijn uitgeschakeld in uw Visual Studio. 
+* De hulpprogramma's voor analyses voor ontwikkelaars zijn uitgeschakeld in uw Visual Studio.
 * Uw Visual Studio is ouder dan 2013 Update 3.
 
 FIX:
@@ -90,13 +90,11 @@ Anders, dat het projecttype rechtstreeks wordt niet ondersteund door de Applicat
 ## <a name="access-denied-on-opening-application-insights-from-visual-studio"></a>'Toegang geweigerd' op de Application Insights openen vanuit Visual Studio
 *De opdracht 'Open Application Insights' kom ik bij de Azure-portal, maar ik krijg de foutmelding 'toegang geweigerd'.*
 
-De aanmelding voor Microsoft die u hebt voor het laatst op uw standaardbrowser gebruikt heeft geen toegang tot [de resource die is gemaakt bij de Application Insights is toegevoegd aan deze app](../../azure-monitor/app/asp-net.md). Er zijn twee waarschijnlijke oorzaken: 
+De aanmelding voor Microsoft die u hebt voor het laatst op uw standaardbrowser gebruikt heeft geen toegang tot [de resource die is gemaakt bij de Application Insights is toegevoegd aan deze app](../../azure-monitor/app/asp-net.md). Er zijn twee waarschijnlijke oorzaken:
 
-* U hebt meer dan één Microsoft-account - misschien een werk- en een persoonlijk Microsoft-account? De aanmelding die u hebt voor het laatst op uw standaardbrowser gebruikt is voor een ander account dan het account dat toegang tot heeft [Application Insights toevoegen aan het project](../../azure-monitor/app/asp-net.md). 
-  
+* U hebt meer dan één Microsoft-account - misschien een werk- en een persoonlijk Microsoft-account? De aanmelding die u hebt voor het laatst op uw standaardbrowser gebruikt is voor een ander account dan het account dat toegang tot heeft [Application Insights toevoegen aan het project](../../azure-monitor/app/asp-net.md).
   * FIX: Klik op de naam op van uw rechtsboven in het browservenster en meld u af. Meld u vervolgens aan met het account dat toegang heeft. Klik vervolgens op de linker navigatiebalk op Application Insights en selecteer uw app.
-* Iemand anders Application Insights hebt toegevoegd aan het project en ze bent vergeten om u te bieden [toegang tot de resourcegroep](../../azure-monitor/app/resources-roles-access-control.md) waarin deze is gemaakt. 
-  
+* Iemand anders Application Insights hebt toegevoegd aan het project en ze bent vergeten om u te bieden [toegang tot de resourcegroep](../../azure-monitor/app/resources-roles-access-control.md) waarin deze is gemaakt.
   * FIX: Als ze een organisatie-account gebruikt, kunnen ze u toevoegen aan het team; of ze kunnen u afzonderlijke toegang verlenen tot de resourcegroep.
 
 ## <a name="asset-not-found-on-opening-application-insights-from-visual-studio"></a>'Asset niet gevonden' op de Application Insights openen vanuit Visual Studio
@@ -105,9 +103,9 @@ De aanmelding voor Microsoft die u hebt voor het laatst op uw standaardbrowser g
 Mogelijke oorzaken:
 
 * De Application Insights-resource voor uw toepassing is verwijderd; of
-* De instrumentatiesleutel is ingesteld of gewijzigd in ApplicationInsights.config door rechtstreeks te bewerken zonder het projectbestand worden bijgewerkt. 
+* De instrumentatiesleutel is ingesteld of gewijzigd in ApplicationInsights.config door rechtstreeks te bewerken zonder het projectbestand worden bijgewerkt.
 
-De instrumentatiesleutel in ApplicationInsights.config besturingselementen waarbij de telemetrie wordt verzonden. Een regel in het projectbestand bepaalt welke resource wordt geopend wanneer u de opdracht in Visual Studio gebruiken. 
+De instrumentatiesleutel in ApplicationInsights.config besturingselementen waarbij de telemetrie wordt verzonden. Een regel in het projectbestand bepaalt welke resource wordt geopend wanneer u de opdracht in Visual Studio gebruiken.
 
 FIX:
 
@@ -117,25 +115,21 @@ FIX:
 ## <a name="where-do-i-find-my-telemetry"></a>Waar vind ik mijn telemetrie?
 *Ik aangemeld bij de [Microsoft Azure portal](https://portal.azure.com), en ik ben kijken naar de Azure home-dashboard. Dus waar vind ik mijn gegevens Application Insights?*
 
-* Klik in de linker navigatiebalk op Application Insights en vervolgens de appnaam van uw. Als u alle projecten er geen hebt, moet u [toevoegen of configureren van Application Insights in uw webproject](../../azure-monitor/app/asp-net.md).
-  
-    Daar ziet u enkele samenvatting grafieken. U kunt klikken voor meer details door.
+* Klik in de linker navigatiebalk op Application Insights en vervolgens de appnaam van uw. Als u alle projecten er geen hebt, moet u [toevoegen of configureren van Application Insights in uw webproject](../../azure-monitor/app/asp-net.md).  
+  Daar ziet u enkele samenvatting grafieken. U kunt klikken voor meer details door.
 * Klik op de knop Application Insights in Visual Studio, tijdens de foutopsporing van uw app.
 
 ## <a name="q03"></a> Er is geen server-gegevens (of geen gegevens op alle)
 *Kan ik mijn app wordt uitgevoerd en vervolgens de Application Insights-service opent in Microsoft Azure, maar alle grafieken weergeven 'Meer informatie over het verzamelen van...' of 'Niet geconfigureerd.'* Of, *alleen paginaweergave en gebruikersgegevens, maar geen servergegevens.*
 
-* Voer uw toepassing uit in de foutopsporingsmodus in Visual Studio (F5). Gebruik de toepassing om telemetrie te genereren. Controleer of u gebeurtenissen vastgelegd in het uitvoervenster van Visual Studio kunt zien. 
-  
-    ![](./media/asp-net-troubleshoot-no-data/output-window.png)
+* Voer uw toepassing uit in de foutopsporingsmodus in Visual Studio (F5). Gebruik de toepassing om telemetrie te genereren. Controleer of u gebeurtenissen vastgelegd in het uitvoervenster van Visual Studio kunt zien.  
+  ![](./media/asp-net-troubleshoot-no-data/output-window.png)
 * Open in de Application Insights-webportal [diagnostische gegevens doorzoeken](../../azure-monitor/app/diagnostic-search.md). Gegevens weergegeven meestal hier eerst.
 * Klik op de knop vernieuwen. De blade wordt vernieuwd periodiek, maar u kunt ook dit handmatig doen. Het interval voor vernieuwen is langer voor grotere tijdsbereik.
-* Controleer dat de instrumentatiesleutels overeenkomen. Op de hoofdblade voor uw app in de Application Insights-portal, in de **Essentials** vervolgkeuzelijst, kijkt u naar **instrumentatiesleutel**. Vervolgens in uw project in Visual Studio, opent u ApplicationInsights.config en zoek de `<instrumentationkey>`. Controleer of de twee sleutels gelijk zijn. Als dit niet het:
-  
+* Controleer dat de instrumentatiesleutels overeenkomen. Op de hoofdblade voor uw app in de Application Insights-portal, in de **Essentials** vervolgkeuzelijst, kijkt u naar **instrumentatiesleutel**. Vervolgens in uw project in Visual Studio, opent u ApplicationInsights.config en zoek de `<instrumentationkey>`. Controleer of de twee sleutels gelijk zijn. Als dit niet het:  
   * In de portal, klikt u op de Application Insights en zoek naar de app-resource met de juiste sleutel; of
   * In Visual Studio Solution Explorer met de rechtermuisknop op het project en kies Application Insights kunt configureren. Opnieuw instellen van de app om telemetrie te verzenden naar de juiste bron.
   * Als u de bijbehorende sleutels niet kunt vinden, controleer dan of u dezelfde referenties aanmelden in Visual Studio als in de portal.
-    
 * In de [home Microsoft Azure-dashboard](https://portal.azure.com), bekijk de servicestatus-kaart. Als er enkele waarschuwingen indicaties zijn, wacht u totdat ze weer terug bent op OK en vervolgens sluiten en uw Application Insights-toepassing-blade opnieuw open.
 * Controleer ook [onze blog status](https://blogs.msdn.microsoft.com/servicemap-status/).
 * Hebt u een code te schrijven voor de [server-side SDK](../../azure-monitor/app/api-custom-events-metrics.md) die veranderen de instrumentatiesleutel in `TelemetryClient` exemplaren of in `TelemetryContext`? Of hebt u schrijft een [filter of steekproeven](../../azure-monitor/app/api-filtering-sampling.md) die kan worden gefilterd te veel?
@@ -167,9 +161,9 @@ Prestatiegegevens (CPU, IO-snelheid, enzovoort) is beschikbaar voor [Java-web-se
 * Hebt u uw maandelijkse quotum van gegevenspunten bereikt? Open de instellingen/quotum en prijzen om erachter te komen. Als dit het geval is, kunt u uw abonnement upgraden of betalen voor extra capaciteit. Zie de [prijzen schema](https://azure.microsoft.com/pricing/details/application-insights/).
 
 ## <a name="i-dont-see-all-the-data-im-expecting"></a>Ik zie niet alle gegevens die ik verwacht
-Als uw toepassing grote hoeveelheden gegevens verzendt en u de Application Insights-SDK voor ASP.NET-versie 2.0.0-beta3 of hoger, gebruikt de [adaptieve steekproeven](../../azure-monitor/app/sampling.md) functie kan werken en slechts een percentage van uw telemetrie te verzenden. 
+Als uw toepassing grote hoeveelheden gegevens verzendt en u de Application Insights-SDK voor ASP.NET-versie 2.0.0-beta3 of hoger, gebruikt de [adaptieve steekproeven](../../azure-monitor/app/sampling.md) functie kan werken en slechts een percentage van uw telemetrie te verzenden.
 
-U kunt deze uitschakelen, maar dit wordt niet aanbevolen. Steekproeven is zo ontworpen dat gerelateerde telemetrie correct wordt verzonden, voor diagnostische doeleinden. 
+U kunt deze uitschakelen, maar dit wordt niet aanbevolen. Steekproeven is zo ontworpen dat gerelateerde telemetrie correct wordt verzonden, voor diagnostische doeleinden.
 
 ## <a name="client-ip-address-is-0000"></a>Client-IP-adres is 0.0.0.0
 
@@ -178,7 +172,6 @@ Op 5 februari 2018 hebben we aangekondigd dat we het vastleggen van de Client-IP
 > [!NOTE]
 > Als u de eerste 3 octetten van het IP-adres nodig hebt, kunt u een [telemetrische initializer](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer) een aangepast kenmerk toe te voegen.
 > Dit heeft geen invloed op gegevens die zijn verzameld vóór 5 februari 2018.
-
 
 ## <a name="wrong-geographical-data-in-user-telemetry"></a>Onjuiste geografische gegevens in de telemetrie van de gebruiker
 De plaats, regio en land dimensies zijn afgeleid van IP-adressen en niet altijd nauwkeurig. Deze IP-adressen zijn voor de locatie als eerste verwerkt en vervolgens worden gewijzigd op 0.0.0.0 worden opgeslagen.
@@ -190,27 +183,27 @@ Hebt u uw app ontwikkeld voor .NET 4.6? 4.6 wordt niet automatisch ondersteund i
 
 Volg deze instructies voor het vastleggen van logboeken met probleemoplossing voor uw framework.
 
-### <a name="net-framework"></a>.Net Framework
+### <a name="net-framework"></a>.NET Framework
 
 1. Installeer de [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) pakket van NuGet. De versie die u installeert, moet overeenkomen met de huidige geïnstalleerde versie van `Microsoft.ApplicationInsighs`
 
 2. Wijzig het bestand applicationinsights.config zodanig dat het volgende:
 
-   ```xml
-   <TelemetryModules>
+    ```xml
+    <TelemetryModules>
       <Add Type="Microsoft.ApplicationInsights.Extensibility.HostingStartup.FileDiagnosticsTelemetryModule, Microsoft.AspNet.ApplicationInsights.HostingStartup">
         <Severity>Verbose</Severity>
         <LogFileName>mylog.txt</LogFileName>
         <LogFilePath>C:\\SDKLOGS</LogFilePath>
       </Add>
-   </TelemetryModules>
-   ```
-   Uw toepassing moet schrijfmachtigingen hebben op de geconfigureerde locatie
- 
- 3. Het proces opnieuw starten zodat deze nieuwe instellingen worden bemerkt door SDK
- 
- 4. Wanneer u klaar bent, kunt u deze wijzigingen ongedaan maken.
-  
+    </TelemetryModules>
+    ```
+    Uw toepassing moet schrijfmachtigingen hebben op de geconfigureerde locatie
+
+3. Het proces opnieuw starten zodat deze nieuwe instellingen worden bemerkt door SDK
+
+4. Wanneer u klaar bent, kunt u deze wijzigingen ongedaan maken.
+
 ### <a name="net-core"></a>.NET core
 
 1. Installeer de [Microsoft.AspNetCore.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.ApplicationInsights.HostingStartup) pakket van NuGet. De versie die u installeert, moet overeenkomen met de huidige geïnstalleerde versie van `Microsoft.ApplicationInsights`
@@ -225,13 +218,11 @@ Volg deze instructies voor het vastleggen van logboeken met probleemoplossing vo
         module.Severity = "Verbose";
     } );
     ```
-   Uw toepassing moet schrijfmachtigingen hebben op de geconfigureerde locatie
- 
- 3. Het proces opnieuw starten zodat deze nieuwe instellingen worden bemerkt door SDK
- 
- 4. Wanneer u klaar bent, kunt u deze wijzigingen ongedaan maken.
-  
+    Uw toepassing moet schrijfmachtigingen hebben op de geconfigureerde locatie
+
+3. Het proces opnieuw starten zodat deze nieuwe instellingen worden bemerkt door SDK
+
+4. Wanneer u klaar bent, kunt u deze wijzigingen ongedaan maken.
 
 ## <a name="still-not-working"></a>Nog steeds werkt niet...
 * [Application Insights-forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
-

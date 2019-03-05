@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 918cee41fed7cb6a8b7f347778c4f98c2f0df421
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 4992ca9d1a09fa751697d6608400eb4dda688108
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217322"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340487"
 ---
 # <a name="ordinal-prebuilt-entity-for-a-luis-app"></a>Rangtelwoord vooraf gedefinieerde entiteit voor een LUIS-app
 Rangtelwoord is een numerieke representatie van een object in een set: `first`, `second`, `third`. Omdat deze entiteit wordt al getraind, hoeft u niet om toe te voegen van de voorbeeld-uitingen met rangtelwoord voor de toepassing intents. Rangtelwoord entiteit wordt ondersteund in [veel culturen](luis-reference-prebuilt-entities.md). 

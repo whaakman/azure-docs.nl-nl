@@ -15,12 +15,12 @@ ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: a075fdceaf57625280ef73499d868d5c3724426c
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 1211edde43d802a4c48cbd936473b1a6f83af705
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236478"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342085"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Aanbiedingen in Azure Stack delegeren
 
@@ -78,7 +78,7 @@ Als u wilt gebruiken in dit scenario, moet u twee Azure AD-accounts naast uw Azu
 | Gebruiker |Gebruiker |
 
  > [!NOTE]
-   > In het geval van een CSP-reseller, voor het maken van deze gedelegeerde provider worden moet deze gebruikers in de Tenant-map (de gebruiker AAD). De Azure Stack-Operator moet [eerste onboarding](https://docs.microsoft.com/azure/azure-stack/azure-stack-enable-multitenancy) die AAD-tenant en vervolgens gebruik en facturering configureren door het volgende [stappen](https://docs.microsoft.com/azure/azure-stack/azure-stack-csp-howto-register-tenants).
+ > In het geval van een CSP-reseller vereist het maken van deze gedelegeerde provider deze gebruikers in de tenantmap (de gebruiker AAD). De Azure Stack-operator moet [eerste onboarding](azure-stack-enable-multitenancy.md) die AAD-tenant en configureer vervolgens gebruik en facturering in door de volgende [stappen](azure-stack-csp-howto-register-tenants.md).
 
 ### <a name="identify-the-delegated-provider"></a>De gedelegeerde provider identificeren
 

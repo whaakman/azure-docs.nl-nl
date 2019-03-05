@@ -2,18 +2,18 @@
 title: 'Azure Site Recovery: Veelgestelde vragen | Microsoft Docs'
 description: Dit artikel worden besproken populaire vragen over Azure Site Recovery.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/27/2018
-ms.author: raynew
-ms.openlocfilehash: 1300ac9b6ba0eee8698e268fb9cc613955deb74e
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.date: 3/3/2019
+ms.author: mayg
+ms.openlocfilehash: c63a5205f58d014d06b79b075b3d3d9328502e48
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321910"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338039"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: veelgestelde vragen (FAQ)
 Dit artikel bevat veelgestelde vragen over Azure Site Recovery. Als u vragen hebt na het lezen van dit artikel, plaatst u deze op de [Azure Recovery Services-Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -88,10 +88,10 @@ Voor virtuele machines en fysieke servers wordt repliceren tussen on-premises si
 ## <a name="replication"></a>Replicatie
 
 ### <a name="can-i-replicate-over-a-site-to-site-vpn-to-azure"></a>Kan ik repliceren via een VPN-site-naar-site naar Azure?
-Azure Site Recovery repliceert gegevens naar een Azure storage-account via een openbaar eindpunt. Replicatie is niet via een site-naar-site-VPN. U kunt een VPN-site-naar-site maken met een Azure-netwerk. Dit niet leiden tot problemen met Site Recovery-replicatie.
+Azure Site Recovery repliceert gegevens naar Azure storage-account of beheerde schijven, via een openbaar eindpunt. Replicatie is niet via een site-naar-site-VPN. U kunt een VPN-site-naar-site maken met een Azure-netwerk. Dit niet leiden tot problemen met Site Recovery-replicatie.
 
 ### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>Kan ik ExpressRoute gebruiken voor het repliceren van virtuele machines naar Azure?
-Ja, [ExpressRoute kan worden gebruikt](concepts-expressroute-with-site-recovery.md) voor het repliceren van on-premises virtuele machines naar Azure. Azure Site Recovery repliceert gegevens naar een Azure Storage-Account via een openbaar eindpunt. U moet instellen [openbare peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) of [Microsoft-peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) ExpressRoute gebruiken voor Site Recovery-replicatie. Microsoft-peering is de aanbevolen routeringsdomein voor replicatie. Nadat de virtuele machines een failover zijn naar een Azure virtual network kunt u ze openen met behulp van de [privépeering](../expressroute/expressroute-circuit-peerings.md#privatepeering) installatie met behulp van Azure virtual network. Replicatie wordt niet ondersteund via persoonlijke peering. In het geval u VMware-machines of fysieke machines beveiligt, zorg ervoor dat de [vereisten voor netwerken](vmware-azure-configuration-server-requirements.md#network-requirements) ook voor replicatie wordt voldaan. 
+Ja, [ExpressRoute kan worden gebruikt](concepts-expressroute-with-site-recovery.md) voor het repliceren van on-premises virtuele machines naar Azure. Azure Site Recovery repliceert gegevens naar een Azure Storage via een openbaar eindpunt. U moet instellen [openbare peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) of [Microsoft-peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) ExpressRoute gebruiken voor Site Recovery-replicatie. Microsoft-peering is de aanbevolen routeringsdomein voor replicatie. Nadat de virtuele machines een failover zijn naar een Azure virtual network kunt u ze openen met behulp van de [privépeering](../expressroute/expressroute-circuit-peerings.md#privatepeering) installatie met behulp van Azure virtual network. Replicatie wordt niet ondersteund via persoonlijke peering. In het geval u VMware-machines of fysieke machines beveiligt, zorg ervoor dat de [vereisten voor netwerken](vmware-azure-configuration-server-requirements.md#network-requirements) ook voor replicatie wordt voldaan. 
 
 ### <a name="are-there-any-prerequisites-for-replicating-virtual-machines-to-azure"></a>Zijn er vereisten voor het repliceren van virtuele machines naar Azure?
 [Virtuele VMware-machines](vmware-physical-azure-support-matrix.md#replicated-machines) en [Hyper-V-machines](hyper-v-azure-support-matrix.md#replicated-vms) u wilt repliceren naar Azure, moet voldoen aan de vereisten voor Azure.
@@ -111,8 +111,8 @@ Ja. U kunt Site Recovery-werkstromen automatiseren met de Rest API-, PowerShell-
 * [Virtuele Hyper-V-machines zonder VMM repliceren naar Azure PowerShell Resource Manager](hyper-v-azure-powershell-resource-manager.md)
 * [Het repliceren van VMware naar Azure met PowerShell Resource Manager](vmware-azure-disaster-recovery-powershell.md)
 
-### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-do-i-need"></a>Als ik repliceer naar Azure, wat voor opslagaccount heb ik dan nodig?
-U moet een LRS of GRS-opslagaccount. GRS wordt aanbevolen, omdat de gegevens dan flexibel zijn te gebruiken als er sprake is van regionale uitval of als de primaire regio niet kan worden hersteld. Het account moet zich in dezelfde regio bevinden als de Recovery Services-kluis. Premium storage wordt ondersteund voor VMware-VM, Hyper-V-VM en fysieke servers repliceren, bij het implementeren van Site Recovery in Azure portal.
+### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-or-managed-disk-do-i-need"></a>Als ik naar Azure repliceer, wat voor soort storage-account of een beheerde schijf heb ik nodig?
+U moet een LRS of GRS-opslag. GRS wordt aanbevolen, omdat de gegevens dan flexibel zijn te gebruiken als er sprake is van regionale uitval of als de primaire regio niet kan worden hersteld. Het account moet zich in dezelfde regio bevinden als de Recovery Services-kluis. Premium storage wordt ondersteund voor VMware-VM, Hyper-V-VM en fysieke servers repliceren, bij het implementeren van Site Recovery in Azure portal. Beheerde schijven alleen ondersteunen LRS.
 
 ### <a name="how-often-can-i-replicate-data"></a>Hoe vaak kan ik gegevens repliceren?
 * **Hyper-V:** Hyper-V-machines kunnen elke 30 seconden (met uitzondering van premium storage), 5 minuten of 15 minuten worden gerepliceerd. Als u de SAN-replicatie hebt ingesteld zijn replicatie is synchroon.
@@ -183,7 +183,7 @@ Als u naar Azure repliceert, worden er toepassingsgegevens verzonden naar Azure-
 Nee. Azure-services worden rechtstreeks aan de serviceprovider gefactureerd. Serviceproviders zijn zelf verantwoordelijk voor het genereren van facturen voor hun tenants.
 
 ### <a name="if-im-replicating-to-azure-do-we-need-to-run-virtual-machines-in-azure-at-all-times"></a>Als ik naar Azure repliceer, moet ik dan altijd een virtuele machine in Azure uitvoeren?
-Nee, de gegevens worden gerepliceerd naar een Azure storage-account in uw abonnement. Wanneer u een failovertest (details voor DR) of een werkelijke failover uitvoert, maakt Site Recovery automatisch virtuele machines in uw abonnement.
+Nee, de gegevens worden gerepliceerd naar Azure-opslag in uw abonnement. Wanneer u een failovertest (details voor DR) of een werkelijke failover uitvoert, maakt Site Recovery automatisch virtuele machines in uw abonnement.
 
 ### <a name="do-you-ensure-tenant-level-isolation-when-i-replicate-to-azure"></a>Wordt er gezorgd voor isolatie op tenantniveau wanneer ik naar Azure repliceer?
 Ja.

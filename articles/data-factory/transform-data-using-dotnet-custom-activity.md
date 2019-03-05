@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: douglasl
-ms.openlocfilehash: 408776b0b0053b2b2d45112568a2e28467123768
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: ba59ca4ac9a200c4579a4f71ff94be6bd554f180
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805372"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341558"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -102,17 +102,18 @@ De volgende tabel beschrijft de namen en beschrijvingen van eigenschappen die sp
 | description           | Tekst die beschrijft wat de activiteit doet.  | Nee       |
 | type                  | Voor aangepaste activiteit, het activiteitstype is **aangepaste**. | Ja      |
 | linkedServiceName     | Gekoppelde Azure Batch-Service. Zie voor meer informatie over deze gekoppelde service, [gekoppelde services berekenen](compute-linked-services.md) artikel.  | Ja      |
-| command               | Opdracht van de aangepaste toepassing moet worden uitgevoerd. Als de toepassing al beschikbaar op de Azure Batch Pool Node, de resourceLinkedService is en folderPath worden overgeslagen. Bijvoorbeeld, kunt u de opdracht om te worden `cmd /c dir`, systeemeigen worden ondersteund door de Batch-Pool van Windows-knooppunt. | Ja      |
+| Opdracht               | Opdracht van de aangepaste toepassing moet worden uitgevoerd. Als de toepassing al beschikbaar op de Azure Batch Pool Node, de resourceLinkedService is en folderPath worden overgeslagen. Bijvoorbeeld, kunt u de opdracht om te worden `cmd /c dir`, systeemeigen worden ondersteund door de Batch-Pool van Windows-knooppunt. | Ja      |
 | resourceLinkedService | Azure Storage gekoppelde Service naar het opslagaccount waarin de aangepaste toepassing is opgeslagen | Nee&#42;       |
 | folderPath            | Pad naar de map van de aangepaste toepassing en alle bijbehorende afhankelijkheden<br/><br/>Als u beschikt over afhankelijkheden in submappen - dat wil zeggen, opgeslagen in een hiërarchische mapstructuur onder *folderPath* -de mapstructuur wordt momenteel afgevlakt wanneer de bestanden zijn gekopieerd naar de Azure Batch. Dat wil zeggen, worden alle bestanden gekopieerd naar één map zonder submappen. Als tijdelijke oplossing voor dit gedrag, houd rekening met de bestanden te comprimeren, het gecomprimeerde bestand kopiëren en deze vervolgens uitpakken met aangepaste code in de gewenste locatie. | Nee&#42;       |
 | referenceObjects      | Een matrix van bestaande gekoppelde Services en gegevenssets. De waarnaar wordt verwezen, gekoppelde Services en gegevenssets worden doorgegeven aan de aangepaste toepassing in JSON-indeling, zodat uw aangepaste code kan verwijzen naar resources van de Data Factory | Nee       |
 | extendedProperties    | Gebruiker gedefinieerde eigenschappen die kunnen worden doorgegeven aan de aangepaste toepassing in JSON-indeling, zodat uw aangepaste code kan verwijzen naar aanvullende eigenschappen | Nee       |
+| retentionTimeInDays | De retentietijd voor de bestanden die zijn ingediend voor aangepaste activiteit. Standaardwaarde is 30 dagen. | Nee |
 
 &#42;De eigenschappen `resourceLinkedService` en `folderPath` moeten beide worden opgegeven of beide worden weggelaten.
 
 > [!NOTE]
 > Als u gekoppelde services als referenceObjects in aangepaste activiteit doorgeeft, is een goede gewoonte om door te geven van een Azure Key Vault ingeschakeld gekoppelde service (omdat deze geen alle beveiligde tekenreeksen bevat) en ophalen op de referenties met behulp van de geheime naam rechtstreeks uit de sleutel Kluis uit de code. U vindt een voorbeeld [hier](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) dat verwijst naar Azure Sleutelkluis ingeschakeld gekoppelde service, haalt u de referenties van de Key Vault en vervolgens toegang tot het opslagaccount in de code.  
- 
+
 ## <a name="custom-activity-permissions"></a>Machtigingen voor aangepaste activiteit
 
 De aangepaste activiteit wordt de Azure Batch-account automatisch-gebruiker ingesteld op *zonder beheerdersrechten toegang met een bereik van de taak* (de standaard automatisch gebruiker specification). U kunt het machtigingsniveau van het automatische-gebruikersaccount niet wijzigen. Zie voor meer informatie, [taken onder gebruikersaccounts uitvoeren in Batch | Automatisch gebruikersaccounts](../batch/batch-user-accounts.md#auto-user-accounts).
@@ -321,7 +322,7 @@ Eigenschappen van het type toegang *SecureString* van een aangepaste activiteit 
 
 ## <a name="compare-v2-v1"></a> Aangepaste v2-activiteit vergelijken met versie 1 (aangepaste) DotNet-activiteit
 
-In Azure Data Factory versie 1, implementeert u een (aangepaste) DotNet-activiteit door het maken van een .net-klassenbibliotheek vormt project met een klasse die de `Execute` -methode van de `IDotNetActivity` interface. De gekoppelde Services, gegevenssets en uitgebreide eigenschappen in de JSON-nettolading van de activiteit van een (aangepaste) DotNet worden doorgegeven aan de methode kan worden uitgevoerd als sterk getypeerde objecten. Zie voor meer informatie over het gedrag van versie 1 [(aangepaste) DotNet in versie 1](v1/data-factory-use-custom-activities.md). Vanwege deze implementatie de DotNet-activiteitscode versie 1 is gericht op .net Framework 4.5.2. De versie 1 DotNet-activiteit heeft ook moet worden uitgevoerd op Azure Batch-Pool op basis van een Windows-knooppunten.
+In Azure Data Factory versie 1, implementeert u een (aangepaste) DotNet-activiteit door het maken van een .net-klassenbibliotheek vormt project met een klasse die de `Execute` -methode van de `IDotNetActivity` interface. De gekoppelde Services, gegevenssets en uitgebreide eigenschappen in de JSON-nettolading van de activiteit van een (aangepaste) DotNet worden doorgegeven aan de methode kan worden uitgevoerd als sterk getypeerde objecten. Zie voor meer informatie over het gedrag van versie 1 [(aangepaste) DotNet in versie 1](v1/data-factory-use-custom-activities.md). Vanwege deze implementatie is uw versie 1-DotNet-activiteitscode voor .NET Framework 4.5.2. De versie 1 DotNet-activiteit heeft ook moet worden uitgevoerd op Azure Batch-Pool op basis van een Windows-knooppunten.
 
 In de Azure Data Factory V2 aangepaste activiteit, zijn u niet verplicht een .net-interface te implementeren. U kunt nu rechtstreeks uitvoeren opdrachten, scripts en uw eigen aangepaste code als een uitvoerbaar bestand is gecompileerd. Voor het configureren van deze implementatie, geeft u de `Command` eigenschap in combinatie met de `folderPath` eigenschap. De aangepaste activiteit wordt geüpload voor het uitvoerbare bestand en de bijbehorende afhankelijkheden te `folderpath` en voert u de opdracht voor u.
 
@@ -335,7 +336,7 @@ De volgende tabel beschrijft de verschillen tussen de aangepaste Data Factory V2
 |Verschillen      | Aangepaste activiteit      | versie 1 (aangepaste) DotNet-activiteit      |
 | ---- | ---- | ---- |
 |Hoe aangepaste logica wordt gedefinieerd      |Door op te geven van een uitvoerbaar bestand      |Door het implementeren van een .net-DLL-bestand      |
-|De uitvoeringsomgeving van de aangepaste logica      |Windows- of Linux      |Windows (.Net Framework 4.5.2)      |
+|De uitvoeringsomgeving van de aangepaste logica      |Windows- of Linux      |Windows (.NET Framework 4.5.2)      |
 |Uitvoeren van scripts      |Ondersteunt het uitvoeren van scripts rechtstreeks (bijvoorbeeld "cmd /c echo Hallo wereld" op Windows-VM)      |Implementatie in de .net-DLL-bestand is vereist      |
 |Gegevensset vereist      |Optioneel      |Vereist voor het koppelen van activiteiten en informatie doorgeven      |
 |Informatie van de activiteit doorgeven aan de aangepaste logica      |Via ReferenceObjects (LinkedServices en gegevenssets) en ExtendedProperties (aangepaste eigenschappen)      |Via ExtendedProperties (aangepaste eigenschappen), invoer en Uitvoergegevenssets      |

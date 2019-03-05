@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: danlep
-ms.openlocfilehash: 2cbfb21469df45f29a70b5d10d8c99ecd894c30c
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: adb893a9d37219409f81b2fb402f2d4afd36aa34
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53755016"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338855"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Containerinstanties die gebruikmaken van GPU-resources implementeren
 
@@ -24,17 +24,17 @@ Zoals u in dit artikel, kunt u GPU resources toevoegen wanneer u een containergr
 > [!IMPORTANT]
 > Deze functie is momenteel in preview en sommige [gelden beperkingen](#preview-limitations). Preview-versies worden beschikbaar gesteld op voorwaarde dat u akkoord gaat met de [aanvullende gebruiksvoorwaarden][terms-of-use]. Sommige aspecten van deze functie worden mogelijk nog gewijzigd voordat de functie algemeen beschikbaar wordt.
 
-## <a name="preview-limitations"></a>Beperkingen voor Preview
+## <a name="preview-limitations"></a>Preview-beperkingen
 
 Preview-versie gelden de volgende beperkingen bij het gebruik van GPU-bronnen in groepen met containers. 
 
 **Ondersteunde regio's**:
 
 * VS-Oost (VS-Oost)
-* VS-West 2 (westus2)
+* West US 2 (westus2)
 * Zuid-centraal VS (southcentralus)
-* West-Europa (Europa West)
-* Noord-Europa (northeurope)
+* West Europe (westeurope)
+* North Europe (northeurope)
 * Oost-Azië (Oost-Aziatische)
 * Centraal-India (centralindia)
 
@@ -85,6 +85,10 @@ Bij het implementeren van resources voor GPU, stelt u CPU en geheugenbronnen ges
 
 * **CUDA-stuurprogramma's** - Container instances met GPU-resources zijn al ingericht met NVIDIA CUDA-stuurprogramma's en verbeteren van de container, zodat u containerinstallatiekopieën kunt gebruiken die is ontwikkeld voor CUDA-werkbelastingen.
 
+  CUDA 9.0 bieden we ondersteuning tijdens deze fase. U kunt bijvoorbeeld basisinstallatiekopieën voor uw Docker-bestand te volgen:
+  * [nvidia/cuda:9.0-base-ubuntu16.04](https://hub.docker.com/r/nvidia/cuda/)
+  * [tensorflow/tensorflow: 1.12.0-gpu-py3](https://hub.docker.com/r/tensorflow/tensorflow)
+    
 ## <a name="yaml-example"></a>YAML-voorbeeld
 
 Een manier om toe te voegen GPU-resources is het een containergroep implementeren met behulp van een [YAML-bestand](container-instances-multi-container-yaml.md). De volgende YAML kopiëren naar een nieuw bestand met de naam *gpu-implementeren-aci.yaml*, sla het bestand. Deze YAML wordt gemaakt van de containergroep van een met de naam *gpucontainergroup* een containerinstantie met een K80-GPU op te geven. Het exemplaar wordt uitgevoerd een voorbeeldtoepassing CUDA vector toevoegen. De resourceaanvragen zijn voldoende zijn om uit te voeren van de werkbelasting.

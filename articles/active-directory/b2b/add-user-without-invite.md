@@ -1,5 +1,5 @@
 ---
-title: Gebruikers van B2B-samenwerking zonder uitnodiging - Azure Active Directory toevoegen | Microsoft Docs
+title: Gebruikers van B2B-samenwerking zonder een uitnodigingskoppeling of het e - Azure Active Directory toevoegen | Microsoft Docs
 description: U kunt een gastgebruiker andere gastgebruikers toevoegen aan uw Azure AD zonder het inwisselen van een uitnodiging in Azure Active Directory B2B-samenwerking.
 services: active-directory
 documentationcenter: ''
@@ -12,14 +12,14 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a75656eec8e2c79c48ab48bd96a504d6e5dbac3a
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 8c33d9a3755f2fb5397dd013c88ab542e727e125
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672233"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337665"
 ---
-# <a name="add-b2b-collaboration-guest-users-without-an-invitation"></a>B2B-samenwerking gastgebruikers toevoegen zonder uitnodiging
+# <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>B2B-samenwerking gastgebruikers toevoegen zonder een uitnodigingskoppeling of het e-mailbericht
 
 U kunt nu gastgebruikers uitnodigen door het verzenden van een directe koppeling naar een gedeelde app. Met deze methode wilt gastgebruikers ook kunnen niet meer gebruiken de uitnodiging per e-mail, behalve in sommige gevallen speciale. Een gastgebruiker klikt op de app-koppeling, beoordeelt en accepteert de voorwaarden van de privacyverklaring en vervolgens naadloos toegang heeft tot de app. Zie voor meer informatie, [B2B-samenwerking uitnodiging inwisselen](redemption-experience.md).   
 

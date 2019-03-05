@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 735c3dc4764f45512386a0c53a389f355f069aa3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 03/04/2019
+ms.openlocfilehash: f4d6826d13f92db7a430f668c56825926d198235
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998105"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340096"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Azure SQL Database vCore gebaseerde model limieten voor één database aanschaffen
 
@@ -47,8 +47,9 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 |Opslagtype|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|
 |I/o-latentie (bij benadering)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|
 |Doel-IOPS (van 64 KB)|500|1000|1500|2000|2500|3000|
+|Meld u frequentielimieten (MBps)|2.5|5|7.5|10|12.5|15|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|600|800|1000|1200|
-|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
+|Maximaal toegestane sessies|30000|30000|30000|30000|30000|30000|
 |Aantal replica's|1|1|1|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|000
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -69,8 +70,9 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 |Opslagtype|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|
 |I/o-latentie (bij benadering)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)
 |Doel-IOPS (van 64 KB)|3500|4000|4500|5000|7000|7000|
+|Meld u frequentielimieten (MBps)|17.5|20|20|20|20|20|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|1400|1600|1800|2000|3200|4800|
-|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
+|Maximaal toegestane sessies|30000|30000|30000|30000|30000|30000|
 |Aantal replica's|1|1|1|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -85,14 +87,15 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 |Geheugen (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
 |Ondersteuning voor Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |In-memory OLTP-opslag (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
-|Maximumgrootte van gegevens (GB)|1024|1024|1024|1536|1536|1536|1536|
+|Maximumgrootte van gegevens (GB)|1024|1024|1536|1536|1536|3072|3072|
 |Maximale logboekgrootte (GB)|307|307|307|461|461|461|461|
 |TempDB-grootte (GB)|64|128|192|256|320|384|384|
 |Opslagtype|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|
 |I/o-latentie (bij benadering)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|
 |Doel-IOPS (van 64 KB)|500|1000|1500|2000|2500|3000|3500|
+|Meld u frequentielimieten (MBps)|2.5|56|7.5|10|12.5|15|17.5|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|600|800|1000|1200|1400|
-|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
+|Maximaal toegestane sessies|30000|30000|30000|30000|30000|30000|30000|
 |Aantal replica's|1|1|1|1|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -113,8 +116,9 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 |Opslagtype|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|
 |I/o-latentie (bij benadering)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|
 |Doel-IOPS (van 64 KB)|4000|4500|5000|6000|7000|7000|7000|
+|Meld u frequentielimieten (MBps)|20|20|20|20|20|20|20|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|1600|1800|2000|2400|3200|4000|8000|
-|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
+|Maximaal toegestane sessies|30000|30000|30000|30000|30000|30000|30000|
 |Aantal replica's|1|1|1|1|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -129,16 +133,18 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 |H/W genereren|4|4|4|4|4|4|
 |vCores|1|2|3|4|5|6|
 |Geheugen (GB)|7|14|21|28|35|42|
-|Ondersteuning voor Columnstore|N/A|N/A|N/A|N/A|N/A|N/A|
+|Ondersteuning voor Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|
 |In-memory OLTP-opslag (GB)|1|2|3|4|5|6|
 |Opslagtype|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|
-|Maximumgrootte van gegevens (GB)|1024|1024|1024|1024|1024|1024|
-|Maximale logboekgrootte (GB)|307|307|307|307|307|307|
+|Maximumgrootte van gegevens (GB)|650|650|650|650|650|650|
+|Maximale logboekgrootte (GB)|195|195|195|195|195|195|
 |TempDB-grootte (GB)|32|64|96|128|160|192|
 |I/o-latentie (bij benadering)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|
-|Doel-IOPS (van 64 KB)|5000|10.000|15.000|20000|25000|30.000|
+|Doel-IOPS (van 64 KB)|5000|10.000|15.000|20000|25000|30000|
+|Meld u frequentielimieten (MBps)|6|12|18|24|30|36|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|600|800|1000|1200|
-|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
+|Maximaal aantal gelijktijdige aanmeldingen|200|400|600|800|1000|1200|
+|Maximaal toegestane sessies|30000|30000|30000|30000|30000|30000|
 |Aantal replica's|4|4|4|4|4|4|
 |Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|
@@ -151,16 +157,18 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 |H/W genereren|4|4|4|4|4|4|
 |vCores|7|8|9|10|16|24|
 |Geheugen (GB)|49|56|63|70|112|168|
-|Ondersteuning voor Columnstore|N/A|N/A|N/A|N/A|N/A|N/A|
+|Ondersteuning voor Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|
 |In-memory OLTP-opslag (GB)|7|8|9.5|11|20|36|
 |Opslagtype|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|
-|Maximumgrootte van gegevens (GB)|1024|1024|1024|1024|1024|1024|
-|Maximale logboekgrootte (GB)|307|307|307|307|307|307|
+|Maximumgrootte van gegevens (GB)|650|650|650|650|1024|1024|
+|Maximale logboekgrootte (GB)|195|195|195|195|307|307|
 |TempDB-grootte (GB)|224|256|288|320|384|384|
 |I/o-latentie (bij benadering)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|
 |Doel-IOPS (van 64 KB)|35000|40000|45000|50000|80000|120000|
+|Meld u frequentielimieten (MBps)|42|48|48|48|48|48|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|1400|1600|1800|2000|3200|4800|
-|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
+|Maximaal aantal gelijktijdige aanmeldingen (aanvragen)|1400|1600|1800|2000|3200|4800|
+|Maximaal toegestane sessies|30000|30000|30000|30000|30000|30000|
 |Aantal replica's|4|4|4|4|4|4|
 |Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|
@@ -175,14 +183,16 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 |Geheugen (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
 |Ondersteuning voor Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |In-memory OLTP-opslag (GB)|1.571|3.142|4.713|6.284|8.655|11.026|13.397|
-|Maximumgrootte van gegevens (GB)|1024|1024|1024|1536|1536|1536|1536|
-|Maximale logboekgrootte (GB)|307|307|307|461|461|461|461|
+|Maximumgrootte van gegevens (GB)|1024|1024|1536|1536|1536|3072|3072|
+|Maximale logboekgrootte (GB)|307|307|307|461|461|922|922|
 |TempDB-grootte (GB)|64|128|192|256|320|384|384|
 |Opslagtype|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|
 |I/o-latentie (bij benadering)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|
-|Doel-IOPS (van 64 KB)|5000|10.000|15.000|20000|25000|30.000|35000|
+|Doel-IOPS (van 64 KB)|5000|10.000|15.000|20000|25000|30000|35000|
+|Meld u frequentielimieten (MBps)|6|12|18|24|30|36|42|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|600|800|1000|1200|1400|
-|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
+|Maximaal aantal gelijktijdige aanmeldingen|200|400|600|800|1000|1200|1400|
+|Maximaal toegestane sessies|30000|30000|30000|30000|30000|30000|30000|
 |Aantal replica's|4|4|4|4|4|4|4|
 |Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -203,10 +213,12 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 |Opslagtype|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|
 |I/o-latentie (bij benadering)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|
 |Doel-IOPS (van 64 KB)|40000|45000|50000|60000|80000|100000|200000|
+|Meld u frequentielimieten (MBps)|48|48|48|48|48|48|48|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|1600|1800|2000|2400|3200|4000|8000|
-|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
-|Aantal replica's|4|4|4|4|4|4|
-|Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
+|Maximaal aantal gelijktijdige aanmeldingen|1600|1800|2000|2400|3200|4000|8000|
+|Maximaal toegestane sessies|30000|30000|30000|30000|30000|30000|30000|
+|Aantal replica's|4|4|4|4|4|4|4|
+|Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 
@@ -228,7 +240,7 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 |Doel-IOPS (van 64 KB)|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|
 |I/o-latentie (bij benadering)|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|800|1600|3200|4800|
-|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
+|Maximaal toegestane sessies|30000|30000|30000|30000|30000|30000|
 |Aantal replica's|2|2|2|2|2|2|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|
@@ -251,7 +263,7 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 |Doel-IOPS (van 64 KB)|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|
 |I/o-latentie (bij benadering)|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|800|1600|2400|3200|4000|8000|
-|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
+|Maximaal toegestane sessies|30000|30000|30000|30000|30000|30000|30000|30000|
 |Aantal replica's|2|2|2|2|2|2|2|2|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
@@ -262,7 +274,7 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 
 - Zie voor DTU resourcelimieten voor een individuele database, [resourcelimieten voor individuele databases met behulp van het op DTU gebaseerde aankoopmodel](sql-database-dtu-resource-limits-single-databases.md)
 - Zie voor vCore resourcelimieten voor elastische pools, [resourcelimieten voor elastische pools met behulp van de vCore-aanschafmodel](sql-database-vcore-resource-limits-elastic-pools.md)
-- Zie voor DTU resource limites voor elastische pools, [resourcelimieten voor elastische pools met behulp van het op DTU gebaseerde aankoopmodel](sql-database-dtu-resource-limits-elastic-pools.md)
+- Zie voor DTU resource-limieten voor elastische pools, [resourcelimieten voor elastische pools met behulp van het op DTU gebaseerde aankoopmodel](sql-database-dtu-resource-limits-elastic-pools.md)
 - Zie voor resourcelimieten voor beheerde exemplaren, [beheerd exemplaar resourcelimieten](sql-database-managed-instance-resource-limits.md).
 - Zie voor meer informatie over algemene Azure-limieten [Azure-abonnement en Servicelimieten, quotums en beperkingen](../azure-subscription-service-limits.md).
 - Zie voor meer informatie over de resourcelimieten op een databaseserver [overzicht van resourcelimieten voor een SQL-databaseserver](sql-database-resource-limits-database-server.md) voor informatie over de beperkingen op het niveau van de server en -abonnement.

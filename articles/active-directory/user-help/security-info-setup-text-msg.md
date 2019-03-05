@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00236a810fb85be6af914021acec2d2b87698e1d
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: ea9e4ae21ecc6538b33aed1566c10ddcd22b86c7
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588582"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341031"
 ---
 # <a name="set-up-security-info-preview-to-use-text-messaging"></a>Beveiligingsgegevens (preview) instellen voor het gebruik van SMS-berichten verzenden
 U kunt deze stappen om toe te voegen uw tweeledige verificatie en methoden voor wachtwoord opnieuw instellen. Nadat u hebt dit tijdens de eerste keer hebt ingesteld, kunt u terugkeren naar de **beveiligingsgegevens** pagina toevoegen, bijwerken of verwijderen van uw beveiligingsgegevens.
@@ -39,11 +39,11 @@ Afhankelijk van instellingen van uw organisatie, kunt u mogelijk gebruik van SMS
 
 1. Meld u aan bij uw werk- of schoolaccount en gaat u naar uw https://myprofile.microsoft.com/ pagina.
 
-    ![Mijn profiel-pagina, met gemarkeerde Security info koppelingen](media/security-info/securityinfo-myprofile.png)
+    ![Mijn profiel-pagina, met gemarkeerde Security info koppelingen](media/security-info/securityinfo-myprofile-page.png)
 
 2. Selecteer **beveiligingsgegevens** vanuit het navigatiedeelvenster links in of via de koppeling in de **beveiligingsgegevens** blokkeren, en selecteer vervolgens **-methode toevoegen** uit de **beveiligingsgegevens**  pagina.
 
-    ![Pagina beveiligingsgegevens met optie van de methode gemarkeerde toevoegen](media/security-info/securityinfo-myprofile-addmethod.png)
+    ![Pagina beveiligingsgegevens met optie van de methode gemarkeerde toevoegen](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. Op de **toevoegen van een methode** weergeeft, schakelt **Phone** uit de vervolgkeuzelijst en selecteer vervolgens **toevoegen**.
 
@@ -108,6 +108,6 @@ Hebt u extra opties voor hoe uw organisatie contactpersonen u om te controleren 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Uw wachtwoord opnieuw instellen als u hebt verloren of bent vergeten, uit de [portal voor wachtwoordherstel](https://passwordreset.microsoftonline.com/) of volg de stappen in de [uw werk- of schoolaccount wachtwoord opnieuw instellen](user-help-reset-password.md) artikel.
+- Stel uw wachtwoord opnieuw in als u dit hebt verloren of bent vergeten, uit het [Portal voor wachtwoordherstel](https://passwordreset.microsoftonline.com/) of volg de stappen in het artikel [Uw werk- of schoolaccount wachtwoord opnieuw instellen](user-help-reset-password.md).
 
-- Problemen oplossen met tips en Help-informatie voor problemen met aanmelden in de [niet kunt aanmelden bij uw Microsoft-account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) artikel.
+- Krijg tips voor het oplossen van problemen en hulp met problemen met aanmelden in het artikel [U kunt niet aanmelden bij uw Microsoft-account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: d2093c5b4c07e6e62df4d1f52a7fbe6e12a91ea0
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: d9a911dccf3d59bf1159cf8576b95d86ef26657b
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217050"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314242"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Auditing in Azure SQL datawarehouse
 
@@ -65,13 +65,13 @@ Het volgende gedeelte bevat de configuratie van de controle met Azure portal.
 1. Ga naar de [Azure Portal](https://portal.azure.com).
 2. Ga naar de **SQL server** die u wilt controleren (belangrijk is, zorg ervoor dat u de SQL-server, niet een bepaalde database/DW bekijkt). In de **Security** in het menu **controle en detectie van bedreigingen**.
 
-    ![Navigatievenster][6]
+    ![Navigatiedeelvenster][6]
 4. In de *controle en detectie van bedreigingen* blade voor **controle** Selecteer **ON**. Deze controle beleid wordt toegepast op alle bestaande en nieuwe databases op deze server.
 
-    ![Navigatievenster][7]
+    ![Navigatiedeelvenster][7]
 5. Om te openen de **Audit Logs opslag** Selecteer **opslaggegevens**. Selecteer of maak de Azure storage-account waar de logboeken worden opgeslagen en selecteer vervolgens de bewaarperiode (oude logboeken worden verwijderd). Klik vervolgens op **OK**.
 
-    ![Navigatievenster][8]
+    ![Navigatiedeelvenster][8]
 
     > [!IMPORTANT]
     > Auditlogboeken worden geschreven naar **toevoeg-Blobs** in Azure Blob-opslag in uw Azure-abonnement.
@@ -133,7 +133,7 @@ Er zijn verschillende methoden die u gebruiken kunt om blob auditing logboeken w
 
 * Gebruik de [toepassing synchroniseren](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) die we hebben gemaakt. Het wordt uitgevoerd in Azure en maakt gebruik van logboekanalyse openbare API's om de push-SQL-controlelogboeken in Azure Monitor-Logboeken. De synchronisatie-toepassing pushes SQL-controlelogboeken in Azure Monitor-logboeken voor gebruik via de log analytics-dashboard.
 
-* Power BI gebruiken. U kunt bekijken en analyseren van logboekgegevens audit in Power BI. Meer informatie over [Power BI en toegang tot een sjabloon downloaden](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
+* Power BI gebruiken. U kunt bekijken en analyseren van logboekgegevens audit in Power BI. Meer informatie over [Power BI en toegang tot een sjabloon downloaden](https://blogs.msdn.microsoft.com/azuresqldbsupport/20../../sql-azure-blob-auditing-basic-power-bi-dashboard/).
 
 * Downloaden van de logboekbestanden van uw Azure Storage blob-container via de portal of met behulp van een hulpprogramma zoals [Azure Storage Explorer](http://storageexplorer.com/).
     * Nadat u een logboekbestand lokaal hebt gedownload, kunt u dubbelklikken op het bestand te openen, weergeven en analyseren van de logboeken in SSMS.
@@ -144,8 +144,8 @@ Er zijn verschillende methoden die u gebruiken kunt om blob auditing logboeken w
 
    * Controlefunctie voor blobs weergeven logboeken via een programma:
 
-     * Gebruik de [uitgebreide gebeurtenissen-lezer](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/) C#-bibliotheek.
-     * [Uitgebreide gebeurtenissen querybestanden](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) met behulp van PowerShell.
+     * Gebruik de [uitgebreide gebeurtenissen-lezer](https://blogs.msdn.microsoft.com/extended_events/20../../introducing-the-extended-events-reader/) C#-bibliotheek.
+     * [Uitgebreide gebeurtenissen querybestanden](https://sqlscope.wordpress.com/20../../reading-extended-event-files-using-client-side-tools-only/) met behulp van PowerShell.
 
 
 
@@ -169,17 +169,20 @@ In de productieomgeving bent u waarschijnlijk uw opslagsleutels periodiek te ver
 4. Ga terug naar de gebruikersinterface van de opslag en **opnieuw genereren** de *secundaire toegangssleutel* (als voorbereiding op de volgende sleutels vernieuwen cyclus.
 
 ## <a id="subheading-5"></a>Automation (PowerShell/REST API)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 U kunt ook configureren om controle in Azure SQL Data Warehouse met behulp van de volgende hulpprogramma's voor automation:
 
 * **PowerShell-cmdlets**:
 
-   * [Get-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy)
-   * [Get-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy)
-   * [Remove-AzureRMSqlDatabaseAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing)
-   * [Remove-AzureRMSqlServerAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing)
-   * [Set-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy)
-   * [Set-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy)
-   * [Use-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy)
+   * [Get-AzSqlDatabaseAuditingPolicy](/powershell/module/az.sql/get-azsqldatabaseauditingpolicy)
+   * [Get-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Get-azSqlServerAuditingPolicy)
+   * [Remove-AzSqlDatabaseAuditing](/powershell/module/az.sql/Remove-azSqlDatabaseAuditing)
+   * [Remove-AzSqlServerAuditing](/powershell/module/az.sql/Remove-azSqlServerAuditing)
+   * [Set-AzSqlDatabaseAuditingPolicy](/powershell/module/az.sql/Set-azSqlDatabaseAuditingPolicy)
+   * [Set-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Set-azSqlServerAuditingPolicy)
+   * [Use-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Use-azSqlServerAuditingPolicy)
 
 
 ## <a name="downlevel-clients-support-for-auditing-and-dynamic-data-masking"></a>Ondersteuning voor downlevel-clients voor controle en dynamische gegevensmaskering

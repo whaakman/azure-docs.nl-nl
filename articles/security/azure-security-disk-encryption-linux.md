@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 02/27/2019
+ms.date: 03/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: d81b6066ce0dbabdf164e69a1f8dd6190653fdbc
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: bf61c2752c17244921d694842ac8da13d95ea989
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990472"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338209"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>Schakel Azure Disk Encryption voor Linux IaaS-VM 's 
 
@@ -46,13 +46,13 @@ Gebruik de [az vm encryption inschakelen](/cli/azure/vm/encryption#az-vm-encrypt
 -  **Een actieve virtuele machine versleutelen:**
 
      ```azurecli-interactive
-     az vm encryption enable --resource-group "MySecureRg" --name "MySecureVM" --disk-encryption-keyvault "MySecureVault" --volume-type [All|OS|Data]
+     az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault "MySecureVault" --volume-type [All|OS|Data]
      ```
 
 - **Een actieve virtuele machine met behulp van de KEK versleutelen:**
 
      ```azurecli-interactive
-     az vm encryption enable --resource-group "MySecureRg" --name "MySecureVM" --disk-encryption-keyvault  "MySecureVault" --key-encryption-key "MyKEK_URI" --key-encryption-keyvault "MySecureVaultContainingTheKEK" --volume-type [All|OS|Data]
+     az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault  "MySecureVault" --key-encryption-key "MyKEK_URI" --key-encryption-keyvault "MySecureVaultContainingTheKEK" --volume-type [All|OS|Data]
      ```
 
     >[!NOTE]
@@ -62,45 +62,47 @@ De syntaxis voor de waarde van de encryptiesleutel parameter is de volledige URI
 - **Controleer of dat de schijven worden versleuteld:** Als u wilt controleren op de status voor schijfversleuteling van een IaaS-VM, gebruikt u de [az vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show) opdracht. 
 
      ```azurecli-interactive
-     az vm encryption show --name "MySecureVM" --resource-group "MySecureRg"
+     az vm encryption show --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup"
      ```
 
 - **Schakel versleuteling uit:** Als u wilt uitschakelen versleuteling, gebruikt u de [az vm encryption uitschakelen](/cli/azure/vm/encryption#az-vm-encryption-disable) opdracht. Als u versleuteling uitschakelt is alleen toegestaan op gegevensvolumes voor virtuele Linux-machines.
 
      ```azurecli-interactive
-     az vm encryption disable --name "MySecureVM" --resource-group "MySecureRg" --volume-type DATA
+     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type DATA
      ```
 
 ### <a name="bkmk_RunningLinuxPSH"> </a> Schakelt u versleuteling op een bestaande of actieve Linux-VM met behulp van PowerShell
 Gebruik de [Set AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) cmdlet schakelt u versleuteling op een actieve IaaS-virtuele machine in Azure. Duren voordat een [momentopname](../virtual-machines/windows/snapshot-copy-managed-disk.md) en/of back-up van de virtuele machine met [Azure Backup](../backup/backup-azure-vms-encryption.md) voordat de schijven worden versleuteld. De parameter - skipVmBackup is al opgegeven in de PowerShell-scripts voor het versleutelen van een actieve Linux-VM.
 
--  **Een actieve virtuele machine versleutelen:** Het onderstaande script wordt uw variabelen geïnitialiseerd en wordt de cmdlet Set-AzVMDiskEncryptionExtension uitgevoerd. De resourcegroep, de virtuele machine en de key vault, moeten al zijn gemaakt voor de vereisten. MySecureRg, MySecureVM en MySecureVault vervangen door uw waarden. Wijzig de parameter - VolumeType om op te geven welke schijven die u aan het versleutelen bent.
+-  **Een actieve virtuele machine versleutelen:** Het onderstaande script wordt uw variabelen geïnitialiseerd en wordt de cmdlet Set-AzVMDiskEncryptionExtension uitgevoerd. De resourcegroep, de virtuele machine en de key vault, moeten al zijn gemaakt voor de vereisten. MyVirtualMachineResourceGroup, MySecureVM en MySecureVault vervangen door uw waarden. Wijzig de parameter - VolumeType om op te geven welke schijven die u aan het versleutelen bent.
 
-     ```azurepowershell-interactive
-      $rgName = 'MySecureRg';
+     ```azurepowershell
+      $KVRGname = 'MyKeyVaultResourceGroup';
+      $VMRGName = 'MyVirtualMachineResourceGroup';
       $vmName = 'MySecureVM';
       $KeyVaultName = 'MySecureVault';
-      $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname;
+      $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGname;
       $diskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
       $KeyVaultResourceId = $KeyVault.ResourceId;
       $sequenceVersion = [Guid]::NewGuid();  
 
-      Set-AzVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType '[All|OS|Data]' -SequenceVersion $sequenceVersion -skipVmBackup;
-    ```
+      Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType '[All|OS|Data]' -SequenceVersion $sequenceVersion -skipVmBackup;
+     ```
 - **Een actieve virtuele machine met behulp van de KEK versleutelen:** Mogelijk moet u de parameter - VolumeType toevoegen als u het versleutelen bent gegevensschijven en niet de besturingssysteemschijf. 
 
-     ```azurepowershell-interactive
-     $rgName = 'MySecureRg';
-     $vmName = 'MyExtraSecureVM';
-     $KeyVaultName = 'MySecureVault';
-     $keyEncryptionKeyName = 'MyKeyEncryptionKey';
-     $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname;
-     $diskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
-     $KeyVaultResourceId = $KeyVault.ResourceId;
-     $keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
-     $sequenceVersion = [Guid]::NewGuid();  
+     ```azurepowershell
+      $KVRGname = 'MyKeyVaultResourceGroup';
+      $VMRGName = 'MyVirtualMachineResourceGroup';
+      $vmName = 'MyExtraSecureVM';
+      $KeyVaultName = 'MySecureVault';
+      $keyEncryptionKeyName = 'MyKeyEncryptionKey';
+      $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGname;
+      $diskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
+      $KeyVaultResourceId = $KeyVault.ResourceId;
+      $keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
+      $sequenceVersion = [Guid]::NewGuid();  
 
-     Set-AzVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId -VolumeType '[All|OS|Data]' -SequenceVersion $sequenceVersion -skipVmBackup;
+      Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId -VolumeType '[All|OS|Data]' -SequenceVersion $sequenceVersion -skipVmBackup;
      ```
 
     >[!NOTE]
@@ -109,13 +111,13 @@ Gebruik de [Set AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-a
 - **Controleer of dat de schijven worden versleuteld:** Als u wilt controleren op de status voor schijfversleuteling van een IaaS-VM, gebruikt u de [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) cmdlet. 
     
      ```azurepowershell-interactive 
-     Get-AzVmDiskEncryptionStatus -ResourceGroupName MySecureRg -VMName MySecureVM
+     Get-AzVmDiskEncryptionStatus -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
      ```
     
 - **Schijfversleuteling uitschakelen:** Als u wilt de versleuteling uitschakelen, gebruikt u de [uitschakelen AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) cmdlet. Als u versleuteling uitschakelt is alleen toegestaan op gegevensvolumes voor virtuele Linux-machines.
      
      ```azurepowershell-interactive 
-     Disable-AzVMDiskEncryption -ResourceGroupName 'MySecureRG' -VMName 'MySecureVM'
+     Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
      ```
 
 
@@ -132,7 +134,7 @@ De volgende tabel bevat de parameters van de Resource Manager-sjabloon voor best
 | Parameter | Description |
 | --- | --- |
 | vmName | De naam van de virtuele machine om uit te voeren van de versleutelingsbewerking. |
-| keyVaultName | De naam van de sleutelkluis waarin de BitLocker-sleutel moet worden geüpload naar. U kunt deze ophalen met behulp van de cmdlet `(Get-AzKeyVault -ResourceGroupName <MyResourceGroupName>). Vaultname` of de Azure CLI-opdracht `az keyvault list --resource-group "MySecureGroup" |ConvertFrom-JSON`|
+| keyVaultName | De naam van de sleutelkluis waarin de BitLocker-sleutel moet worden geüpload naar. U kunt deze ophalen met behulp van de cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` of de Azure CLI-opdracht ' az keyvault list--resourcegroep 'MyKeyVaultResourceGroupName" |ConvertFrom-JSON'|
 | keyVaultResourceGroup | Naam van de resourcegroep waarin de key vault|
 |  KeyEncryptionKeyURL | URL van de sleutel van versleutelingssleutel die wordt gebruikt voor het versleutelen van de gegenereerde BitLocker-sleutel. Deze parameter is optioneel als u selecteert **nokek** in de vervolgkeuzelijst UseExistingKek. Als u selecteert **kek** in de vervolgkeuzelijst UseExistingKek voert u de _keyEncryptionKeyURL_ waarde. |
 | VolumeType | Het type volume dat de versleutelingsbewerking wordt uitgevoerd op. Geldige waarden zijn _OS_, _gegevens_, en _alle_. 
@@ -166,12 +168,12 @@ Gebruik de [az vmss versleuteling inschakelen](/cli/azure/vmss/encryption#az-vms
 
 -  **Versleutelen van een actieve virtuele-machineschaalset**
     ```azurecli-interactive
-     az vmss encryption enable --resource-group "MySecureRG" --name "MySecureVmss" --disk-encryption-keyvault "MySecureVault" 
+    az vmss encryption enable --resource-group "MyVMScaleSetResourceGroup" --name "MySecureVmss" --disk-encryption-keyvault "MySecureVault" 
     ```
 
 -  **Versleutelen van een actieve virtuele-machineschaalset met behulp van de KEK-sleutel voor de sleutel Inpakken**
-    ```azurecli-interactive
-     az vmss encryption enable --resource-group "MySecureRG" --name "MySecureVmss" --disk-encryption-keyvault "MySecureVault" --key-encryption-key "MyKEK" --key-encryption-keyvault "MySecureVault" 
+     ```azurecli-interactive
+     az vmss encryption enable --resource-group "MyVMScaleSetResourceGroup" --name "MySecureVmss" --disk-encryption-keyvault "MySecureVault" --key-encryption-key "MyKEK" --key-encryption-keyvault "MySecureVault" 
      ```
 
     >[!NOTE]
@@ -180,12 +182,12 @@ Gebruik de [az vmss versleuteling inschakelen](/cli/azure/vmss/encryption#az-vms
 - **Status voor schijfversleuteling voor een virtuele-machineschaalset ophalen:** Gebruik [az vmss encryption show](/cli/azure/vmss/encryption#az-vmss-encryption-show)
 
     ```azurecli-interactive
-     az vmss encryption show --resource-group "MySecureRG" --name "MySecureVmss"
+    az vmss encryption show --resource-group "MyVMScaleSetResourceGroup" --name "MySecureVmss"
     ```
 
 - **Schakel versleuteling uit op een virtuele-machineschaalset**: Gebruik [az vmss-versleuteling uitschakelen](/cli/azure/vmss/encryption#az-vmss-encryption-disable)
     ```azurecli-interactive
-     az vmss encryption disable --resource-group "MySecureRG" --name "MySecureVmss"
+    az vmss encryption disable --resource-group "MyVMScaleSetResourceGroup" --name "MySecureVmss"
     ```
 
 ### <a name="register-for-disk-encryption-preview-using-azure-powershell"></a>Meld u aan voor schijf versleuteling preview met behulp van Azure Powershell
@@ -208,28 +210,30 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 Gebruik de [Set-AzureRmVmssDiskEncryptionExtension](/powershell/module/azurerm.compute/set-azurermvmssdiskencryptionextension) cmdlet schakelt u versleuteling op een virtuele-machineschaalset voor Windows. De resourcegroep, de virtuele machine en de sleutelkluis moeten al zijn gemaakt voor de vereisten.
 
 -  **Versleutelen van een actieve virtuele-machineschaalset**:
-    ```powershell
-     $rgName= "MySecureRg";
-     $VmssName = "MySecureVmss";
-     $KeyVaultName= "MySecureVault";
-     $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgName;
-     $DiskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
-     $KeyVaultResourceId = $KeyVault.ResourceId;
-     Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId;
-    ```
+      ```powershell
+     $KVRGname = 'MyKeyVaultResourceGroup';
+     $VMSSRGname = 'MyVMScaleSetResourceGroup';
+      $VmssName = "MySecureVmss";
+      $KeyVaultName= "MySecureVault";
+      $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGname;
+      $DiskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
+      $KeyVaultResourceId = $KeyVault.ResourceId;
+      Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $VMSSRGname -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId;
+      ```
 
 -  **Versleutelen van een actieve virtuele-machineschaalset met behulp van de KEK-sleutel voor de sleutel inpakken**:
-    ```powershell
-     $rgName= "MySecureRg";
-     $VmssName = "MySecureVmss";
-     $KeyVaultName= "MySecureVault";
-     $keyEncryptionKeyName = "MyKeyEncryptionKey";
-     $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgName;
-     $DiskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
-     $KeyVaultResourceId = $KeyVault.ResourceId;
-     $KeyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
-     Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $KeyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
-    ```
+      ```powershell
+     $KVRGname = 'MyKeyVaultResourceGroup';
+     $VMSSRGname = 'MyVMScaleSetResourceGroup';
+      $VmssName = "MySecureVmss";
+      $KeyVaultName= "MySecureVault";
+      $keyEncryptionKeyName = "MyKeyEncryptionKey";
+      $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGname;
+      $DiskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
+      $KeyVaultResourceId = $KeyVault.ResourceId;
+      $KeyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
+      Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $VMSSRGname -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl  -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $KeyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
+      ```
 
     >[!NOTE]
     > De syntaxis voor de waarde van de schijf-versleuteling-keyvault-parameter is de volledige id-reeks: / subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> De syntaxis voor de waarde van de encryptiesleutel parameter is de volledige URI naar de KEK-sleutel in: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
@@ -237,13 +241,13 @@ Gebruik de [Set-AzureRmVmssDiskEncryptionExtension](/powershell/module/azurerm.c
 - **Versleutelingsstatus ophalen voor een virtuele machine**: Gebruik de [Get-AzureRmVmssVMDiskEncryption](/powershell/module/azurerm.compute/get-azurermvmssvmdiskencryption) cmdlet.
     
     ```powershell
-    get-AzureRmVmssVMDiskEncryption -ResourceGroupName "MySecureRG" -VMScaleSetName "MySecureVmss"
+    get-AzureRmVmssVMDiskEncryption -ResourceGroupName "MyVMScaleSetResourceGroup" -VMScaleSetName "MySecureVmss"
     ```
 
 - **Schakel versleuteling uit op een virtuele-machineschaalset**: Gebruik de [Disable-AzureRmVmssDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmssdiskencryption) cmdlet. 
 
     ```powershell
-    Disable-AzureRmVmssDiskEncryption -ResourceGroupName "MySecureRG" -VMScaleSetName "MySecureVmss"
+    Disable-AzureRmVmssDiskEncryption -ResourceGroupName "MyVMScaleSetResourceGroup" -VMScaleSetName "MySecureVmss"
     ```
 
 ### <a name="azure-resource-manager-templates-for-linux-virtual-machine-scale-sets"></a>Hiermee stelt u Azure Resource Manager-sjablonen voor virtuele-machineschaalset in Linux
@@ -284,24 +288,25 @@ Gebruik de [az vm encryption inschakelen](/cli/azure/vm/encryption#az-vm-encrypt
 -  **Een actieve virtuele machine met behulp van EncryptFormatAll versleutelen:**
 
      ```azurecli-interactive
-     az vm encryption enable --resource-group "MySecureRg" --name "MySecureVM" --disk-encryption-keyvault "MySecureVault" --encrypt-format-all
+     az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault "MySecureVault" --encrypt-format-all
      ```
 
 ### <a name="bkmk_EFAPSH"> </a> Gebruik de parameter EncryptFormatAll met een PowerShell-cmdlet
 Gebruik de [Set AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) cmdlet met de parameter EncryptFormatAll. 
 
-**Een actieve virtuele machine met behulp van EncryptFormatAll versleutelen:** Als u bijvoorbeeld het onderstaande script wordt uw variabelen geïnitialiseerd en wordt de cmdlet Set-AzVMDiskEncryptionExtension uitgevoerd met de parameter EncryptFormatAll. De resourcegroep, de virtuele machine en de sleutelkluis moeten al zijn gemaakt voor de vereisten. MySecureRg, MySecureVM en MySecureVault vervangen door uw waarden.
+**Een actieve virtuele machine met behulp van EncryptFormatAll versleutelen:** Als u bijvoorbeeld het onderstaande script wordt uw variabelen geïnitialiseerd en wordt de cmdlet Set-AzVMDiskEncryptionExtension uitgevoerd met de parameter EncryptFormatAll. De resourcegroep, de virtuele machine en de sleutelkluis moeten al zijn gemaakt voor de vereisten. MyVirtualMachineResourceGroup, MySecureVM en MySecureVault vervangen door uw waarden.
   
-   ```azurepowershell-interactive
-     $rgName = 'MySecureRg';
-     $vmName = 'MySecureVM';
-     $KeyVaultName = 'MySecureVault';
-     $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname;
-     $diskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
-     $KeyVaultResourceId = $KeyVault.ResourceId;
-      
-     Set-AzVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -EncryptFormatAll
-   ```
+```azurepowershell
+$KVRGname = 'MyKeyVaultResourceGroup';
+$VMRGName = 'MyVirtualMachineResourceGroup';
+$vmName = 'MySecureVM';
+$KeyVaultName = 'MySecureVault';
+$KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGname;
+$diskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
+$KeyVaultResourceId = $KeyVault.ResourceId;
+
+Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -EncryptFormatAll
+```
 
 
 ### <a name="bkmk_EFALVM"> </a> Gebruik de parameter EncryptFormatAll met logische Volume Manager (LVM) 
@@ -347,10 +352,10 @@ Volg de instructies in de bijlage voor het maken van vooraf gecodeerde-installat
 ### <a name="bkmk_VHDprePSH"> </a> Azure PowerShell gebruiken voor het versleutelen van IaaS-VM's met vooraf gecodeerde VHD 's 
 U kunt schijfversleuteling op uw versleutelde VHD inschakelen met behulp van de PowerShell-cmdlet [Set AzVMOSDisk](/powershell/module/Az.Compute/Set-AzVMOSDisk#examples). Het onderstaande voorbeeld hebt u enkele algemene parameters. 
 
-```azurepowershell-interactive
+```azurepowershell
 $VirtualMachine = New-AzVMConfig -VMName "MySecureVM" -VMSize "Standard_A1"
 $VirtualMachine = Set-AzVMOSDisk -VM $VirtualMachine -Name "SecureOSDisk" -VhdUri "os.vhd" Caching ReadWrite -Windows -CreateOption "Attach" -DiskEncryptionKeyUrl "https://mytestvault.vault.azure.net/secrets/Test1/514ceb769c984379a7e0230bddaaaaaa" -DiskEncryptionKeyVaultId "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mytestvault"
-New-AzVM -VM $VirtualMachine -ResourceGroupName "MySecureRG"
+New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 ```
 
 ## <a name="enable-encryption-on-a-newly-added-data-disk"></a>Schakelt u versleuteling op een nieuw toegevoegde gegevensschijf
@@ -366,51 +371,52 @@ In tegenstelling tot de Powershell-syntaxis vereist de CLI niet de gebruiker voo
 -  **Gegevensvolumes van een actieve virtuele machine versleutelen:**
 
      ```azurecli-interactive
-     az vm encryption enable --resource-group "MySecureRg" --name "MySecureVM" --disk-encryption-keyvault "MySecureVault" --volume-type "Data"
+     az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault "MySecureVault" --volume-type "Data"
      ```
 
 - **Gegevensvolumes van een actieve virtuele machine met behulp van de KEK versleutelen:**
 
      ```azurecli-interactive
-     az vm encryption enable --resource-group "MySecureRg" --name "MySecureVM" --disk-encryption-keyvault  "MySecureVault" --key-encryption-key "MyKEK_URI" --key-encryption-keyvault "MySecureVaultContainingTheKEK" --volume-type "Data"
+     az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault  "MySecureVault" --key-encryption-key "MyKEK_URI" --key-encryption-keyvault "MySecureVaultContainingTheKEK" --volume-type "Data"
      ```
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-powershell"></a>Schakelt u versleuteling op een nieuw toegevoegde schijf met Azure PowerShell
  Wanneer u Powershell gebruikt voor het versleutelen van een nieuwe schijf voor Linux, moet een nieuwe versie van de takenreeks worden opgegeven. De versie van de reeks moet uniek zijn. Het onderstaande script genereert een GUID voor de versie van de reeks. Duren voordat een [momentopname](../virtual-machines/windows/snapshot-copy-managed-disk.md) en/of back-up van de virtuele machine met [Azure Backup](../backup/backup-azure-vms-encryption.md) voordat de schijven worden versleuteld. De parameter - skipVmBackup is al opgegeven in de PowerShell-scripts voor het versleutelen van een toegevoegde gegevensschijf.
  
 
--  **Gegevensvolumes van een actieve virtuele machine versleutelen:** Het onderstaande script wordt uw variabelen geïnitialiseerd en wordt de cmdlet Set-AzVMDiskEncryptionExtension uitgevoerd. De resourcegroep, de virtuele machine en de sleutelkluis moeten al zijn gemaakt voor de vereisten. MySecureRg, MySecureVM en MySecureVault vervangen door uw waarden. Acceptabele waarden voor de parameter - VolumeType zijn alle, OS- en gegevens. Als de virtuele machine is versleuteld met een volumetype 'BS' of 'Alle', moet klikt u vervolgens de parameter - VolumeType worden gewijzigd in alle zodat zowel het besturingssysteem en de nieuwe gegevensschijf opgenomen worden.
+-  **Gegevensvolumes van een actieve virtuele machine versleutelen:** Het onderstaande script wordt uw variabelen geïnitialiseerd en wordt de cmdlet Set-AzVMDiskEncryptionExtension uitgevoerd. De resourcegroep, de virtuele machine en de sleutelkluis moeten al zijn gemaakt voor de vereisten. MyVirtualMachineResourceGroup, MySecureVM en MySecureVault vervangen door uw waarden. Acceptabele waarden voor de parameter - VolumeType zijn alle, OS- en gegevens. Als de virtuele machine is versleuteld met een volumetype 'BS' of 'Alle', moet klikt u vervolgens de parameter - VolumeType worden gewijzigd in alle zodat zowel het besturingssysteem en de nieuwe gegevensschijf opgenomen worden.
 
-     ```azurepowershell-interactive
-      $rgName = 'MySecureRg';
+      ```azurepowershell
+      $KVRGname = 'MyKeyVaultResourceGroup';
+      $VMRGName = 'MyVirtualMachineResourceGroup';
       $vmName = 'MySecureVM';
       $KeyVaultName = 'MySecureVault';
-      $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname;
+      $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGname;
       $diskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
       $KeyVaultResourceId = $KeyVault.ResourceId;
       $sequenceVersion = [Guid]::NewGuid();
 
-      Set-AzVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType 'data' –SequenceVersion $sequenceVersion -skipVmBackup;
-    ```
+      Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType 'data' –SequenceVersion $sequenceVersion -skipVmBackup;
+      ```
 - **Gegevensvolumes van een actieve virtuele machine met behulp van de KEK versleutelen:** Acceptabele waarden voor de parameter - VolumeType zijn alle, OS- en gegevens. Als de virtuele machine is versleuteld met een volumetype 'BS' of 'Alle', moet klikt u vervolgens de parameter - VolumeType worden gewijzigd in alle zodat zowel het besturingssysteem en de nieuwe gegevensschijf opgenomen worden.
 
-     ```azurepowershell-interactive
-      $rgName = 'MySecureRg';
+     ```azurepowershell
+      $KVRGname = 'MyKeyVaultResourceGroup';
+      $VMRGName = 'MyVirtualMachineResourceGroup';
       $vmName = 'MyExtraSecureVM';
       $KeyVaultName = 'MySecureVault';
       $keyEncryptionKeyName = 'MyKeyEncryptionKey';
-      $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname;
+      $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGname;
       $diskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
       $KeyVaultResourceId = $KeyVault.ResourceId;
       $keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
       $sequenceVersion = [Guid]::NewGuid();
 
-      Set-AzVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId -VolumeType 'data' –SequenceVersion $sequenceVersion -skipVmBackup;
-
+      Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId -VolumeType 'data' –SequenceVersion $sequenceVersion -skipVmBackup;
      ```
 
     >[!NOTE]
-    > De syntaxis voor de waarde van de schijf-versleuteling-keyvault-parameter is de volledige id-reeks: / subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> De syntaxis voor de waarde van de encryptiesleutel parameter is de volledige URI naar de KEK-sleutel in: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
+    > De syntaxis voor de waarde van de schijf-versleuteling-keyvault-parameter is de volledige id-reeks: / subscriptions/[subscription-id-guid]/resourceGroups/[KVresource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> De syntaxis voor de waarde van de encryptiesleutel parameter is de volledige URI naar de KEK-sleutel in: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
 
 ## <a name="disable-encryption-for-linux-vms"></a>Versleuteling voor Linux-VM's uitschakelen
@@ -421,12 +427,12 @@ U kunt versleuteling met Azure PowerShell, de Azure CLI, uitschakelen of met een
 
 - **Schijfversleuteling met Azure PowerShell uitschakelen:** Als u wilt de versleuteling uitschakelen, gebruikt u de [uitschakelen AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) cmdlet. 
      ```azurepowershell-interactive
-     Disable-AzVMDiskEncryption -ResourceGroupName 'MySecureRG' -VMName 'MySecureVM' [--volume-type {ALL, DATA, OS}]
+     Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM' [--volume-type {ALL, DATA, OS}]
      ```
 
 - **Met de Azure CLI-versleuteling uitschakelen:** Als u wilt uitschakelen versleuteling, gebruikt u de [az vm encryption uitschakelen](/cli/azure/vm/encryption#az-vm-encryption-disable) opdracht. 
      ```azurecli-interactive
-     az vm encryption disable --name "MySecureVM" --resource-group "MySecureRg" --volume-type [ALL, DATA, OS]
+     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type [ALL, DATA, OS]
      ```
 - **Schakel versleuteling met Resource Manager-sjabloon:** Gebruik de [Schakel versleuteling uit op een actieve Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) sjabloon om versleuteling te schakelen.
      1. Klik op **Implementeren in Azure**.

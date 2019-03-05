@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/22/2018
-ms.openlocfilehash: ec91eec9baba1f337f18e1927a87971bf1499040
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 363a4bd4be5e175aad346486b56c4f6efd877143
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724132"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340521"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Bekende problemen/migratiebeperkingen met online migratie naar Azure DB voor PostgreSQL
 
 Bekende problemen en beperkingen die zijn gekoppeld aan online migraties van PostgreSQL met Azure Database for PostgreSQL worden in de volgende secties beschreven. 
 
 ## <a name="online-migration-configuration"></a>Configuratie voor de online migratie
-- De bron PostgreSQL-Server versie 9.5.11, 9.6.7 of 10.3 moet worden uitgevoerd of hoger. Zie voor meer informatie het artikel [PostgreSQL-Database-versies ondersteund](../postgresql/concepts-supported-versions.md).
+- De bron PostgreSQL-Server versie 9.5.11, 9.6.7 of 10.3 moet worden uitgevoerd of hoger. Zie voor meer informatie het artikel [Supported PostgreSQL Database Versions](../postgresql/concepts-supported-versions.md) (Ondersteunde versies van de PostgreSQL-database).
 - Alleen dezelfde versie migraties worden ondersteund. Bijvoorbeeld: migreren PostgreSQL 9.5.11 met Azure Database for PostgreSQL 9.6.7 wordt niet ondersteund.
 - Om logische replicatie in te schakelen de **source PostgreSQL postgresql.conf** bestand, stelt u de volgende parameters:
     - **wal_level** = logische
@@ -97,7 +97,7 @@ Grote Object (LOB)-kolommen zijn kolommen die grote kunnen groeien. Voorbeelden 
     SELECT max(length(cast(body as text))) as body FROM customer_mail
     ```
 
-    **Tijdelijke oplossing**: Als u LOB-object dat groter is dan 32 KB hebt, neem dan contact op met de engineering-team op [ dmsfeedback@microsoft.com ](mailto:dmsfeedback@microsoft.com).
+    **Tijdelijke oplossing**: Als u LOB-object dat groter is dan 32 KB hebt, neem dan contact op met de engineering-team op [Azure Databasemigraties vragen](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 - **Beperking**: Als er LOB-kolommen in de tabel, en er geen primaire sleutel ingesteld voor de tabel is, kan gegevens niet worden gemigreerd voor deze tabel.
 

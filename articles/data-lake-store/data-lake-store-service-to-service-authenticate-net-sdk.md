@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 3075f515b8095451a873727fef696fd523664d0a
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 5ec6325f3fae21e62fe4a3fb6452aa11158047a4
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891702"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340232"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Service-naar-serviceverificatie met Azure Data Lake Storage Gen1 met .NET SDK
 > [!div class="op_single_selector"]
@@ -24,11 +24,10 @@ ms.locfileid: "55891702"
 > * [.NET-SDK gebruiken](data-lake-store-service-to-service-authenticate-net-sdk.md)
 > * [Python gebruiken](data-lake-store-service-to-service-authenticate-python.md)
 > * [REST-API gebruiken](data-lake-store-service-to-service-authenticate-rest-api.md)
-> 
->  
+>
+>
 
 In dit artikel leert u over het gebruik van de .NET SDK-service-naar-serviceverificatie met Azure Data Lake Storage Gen1 doen. Zie voor verificatie van eindgebruikers met Data Lake Storage Gen1 met .NET SDK, [eindgebruikersverificatie met Data Lake Storage Gen1 met .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md).
-
 
 ## <a name="prerequisites"></a>Vereisten
 * **Visual Studio 2013, 2015 of 2017**. In onderstaande instructies wordt Visual Studio 2017 gebruikt.
@@ -80,11 +79,11 @@ using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
 ## <a name="service-to-service-authentication-with-client-secret"></a>Service-naar-serviceverificatie met clientgeheim
-Dit codefragment in uw .NET-client-toepassing toevoegen. Vervang de tijdelijke aanduiding door de waarden die zijn opgehaald uit een Azure AD-webtoepassing (weergegeven als een vereiste).  Dit codefragment kunt u verifiëren van uw toepassing **niet-interactief** met Data Lake Storage Gen1 met behulp van de client-geheim/sleutel voor Azure AD-webtoepassing. 
+Dit codefragment in uw .NET-client-toepassing toevoegen. Vervang de tijdelijke aanduiding door de waarden die zijn opgehaald uit een Azure AD-webtoepassing (weergegeven als een vereiste). Dit codefragment kunt u verifiëren van uw toepassing **niet-interactief** met Data Lake Storage Gen1 met behulp van de client-geheim/sleutel voor Azure AD-webtoepassing.
 
 ```csharp
 private static void Main(string[] args)
-{    
+{
     // Service principal / application authentication with client secret / key
     // Use the client ID of an existing AAD "Web App" application.
     string TENANT = "<AAD-directory-domain>";
@@ -125,5 +124,3 @@ In dit artikel hebt u geleerd hoe u service-naar-serviceverificatie gebruiken om
 
 * [Accountbeheerbewerkingen in Data Lake Storage Gen1 met .NET SDK](data-lake-store-get-started-net-sdk.md)
 * [Bewerkingen van de gegevens in Data Lake Storage Gen1 met .NET SDK](data-lake-store-data-operations-net-sdk.md)
-
-

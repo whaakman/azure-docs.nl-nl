@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efd6db6b8dbbe051dba129b0d9f3e87f293d6706
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: bea9a987078799436c9dcad650ee56d5d6d81512
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458068"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341337"
 ---
 # <a name="manage-your-connected-devices-from-the-my-profile-preview-portal"></a>Beheren van uw verbonden apparaten vanuit de portal Mijn profiel (preview)
 U kunt de apparaten waarmee u met uw werk of school-account uit te schakelen die u niet langer eigenaar bent verbonden bent, kunt beheren vanuit de **apparaten** pagina van de **Mijn profiel** portal.
@@ -29,7 +29,7 @@ U kunt de apparaten waarmee u met uw werk of school-account uit te schakelen die
 
 2. Selecteer **apparaten** van het navigatiedeelvenster links in of Selecteer de **apparaten beheren** koppelen vanuit de **apparaten** blokkeren.
 
-    ![Mijn profiel-pagina, met koppelingen apparaten gemarkeerd](media/myprofile-portal/myprofile-portal-devices-links.png)
+    ![Mijn profiel-pagina, met koppelingen apparaten gemarkeerd](media/myprofile-portal/myprofile-portal-devices.png)
 
 3. Controleer de gegevens voor uw verbonden apparaten, te zorgen dat u ze allemaal herkent. 
 
@@ -49,4 +49,4 @@ U kunt een van uw verbonden apparaten op elk gewenst moment uitschakelen. Dit is
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Na het weergeven van uw recente activiteit voor aanmelden, kunt u selecteren om te bekijken of beheren van uw [beveiligingsgegevens](user-help-security-info-overview.md), [recente aanmeldingsactiviteiten](myprofile-portal-recent-activity-page.md), uw verbonden [organisaties](myprofile-portal-organizations-page.md), of om weer te geven hoe uw organisatie [maakt gebruik van uw gegevens](myprofile-portal-privacy-page.md).
+- Na het weergeven van uw verbonden apparaten, kunt u selecteren om te bekijken of beheren van uw [beveiligingsgegevens](user-help-security-info-overview.md), uw [organisaties](myprofile-portal-organizations-page.md), of de weergave hoe uw organisatie [maakt gebruik van uw gegevens](myprofile-portal-privacy-page.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: 89c2f380fb4007256273b10b1fcc0fc99627ccb4
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 7c93911ce824bc1111e0c348070cc11817c5b45c
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249011"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341847"
 ---
 # <a name="create-an-additional-azure-subscription-for-microsoft-customer-agreement"></a>Een extra Azure-abonnement voor Microsoft-KLANTOVEREENKOMST maken
 
@@ -27,7 +27,7 @@ Als u meer abonnementen voor uw factureringsrekening voor het instellen van afzo
 
 In dit artikel is van toepassing op een rekening voor een Microsoft-KLANTOVEREENKOMST. [Controleer of u toegang tot een Microsoft-KLANTOVEREENKOMST hebt](#check-access-to-a-microsoft-customer-agreement). Als u wilt maken van abonnementen voor andere rekeningen, Zie [een extra abonnement maken in Azure portal](billing-create-subscription.md).
 
-Voor het maken van een abonnement, moet u een **factuur sectie eigenaar**, **factuur sectie Inzender**, of **de maker van de Azure-abonnement**. Zie voor meer informatie, [abonnement rollen en taken](billing-understand-mca-roles.md#subscription-billing-roles-and-tasks). Zie voor andere machtiging voor het maken van Azure-abonnementen voor uw factureringsrekening, [Geef anderen toestemming voor het maken van Azure-abonnementen](#give-others-permission-to-create-azure-subscriptions).
+Voor het maken van een abonnement, moet u een **factuur sectie eigenaar**, **factuur sectie Inzender**, of **de maker van de Azure-abonnement**. Zie voor meer informatie, [abonnement facturering rollen en taken](billing-understand-mca-roles.md#subscription-billing-roles-and-tasks). Zie voor andere machtiging voor het maken van Azure-abonnementen voor uw factureringsrekening, [Geef anderen toestemming voor het maken van Azure-abonnementen](#give-others-permission-to-create-azure-subscriptions).
 
 ## <a name="create-a-subscription-in-the-azure-portal"></a>Een abonnement maken in Azure portal
 
@@ -80,7 +80,7 @@ Gebruikers toevoegen als ontwikkelaars van Azure-abonnement op een gedeelte van 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Toegang tot een Microsoft-KLANTOVEREENKOMST controleren
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
+## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning
 
 Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

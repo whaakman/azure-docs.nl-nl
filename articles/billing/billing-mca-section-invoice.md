@@ -11,22 +11,22 @@ ms.topic: conceptual
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: a9fa2ed58cbd84c83d3109fe173515b07d93db30
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: f903f85dfafb61562698a437465f8421aaf3a3d8
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57248896"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339484"
 ---
 # <a name="create-sections-on-your-invoice-to-organize-your-costs"></a>Secties maken op uw factuur voor het ordenen van uw kosten
 
-Secties maken op uw factuur voor het ordenen van uw kosten door een afdeling, ontwikkelomgeving, of op basis van de behoeften van uw organisatie. Vervolgens anderen toestemming geven om te maken van Azure-abonnementen voor de sectie. Alle kosten voor het gebruik of aankopen voor de abonnementen weergeven in de sectie factuur. De totale kosten voor de sectie weergeven op uw factuur, in de Azure-portal of bekijk deze in Azure kostenanalyse. Zie voor meer informatie, [transacties per factuur secties bekijken](billing-mca-understand-your-bill.md#view-transactions-by-invoice-sections).
+Secties maken op uw factuur voor het ordenen van uw kosten door een afdeling, ontwikkelomgeving, of op basis van de behoeften van uw organisatie. Vervolgens anderen toestemming geven om te maken van Azure-abonnementen voor de sectie. Alle kosten voor het gebruik of aankopen voor de abonnementen weer in de sectie factuur. De totale kosten voor de sectie weergeven op uw factuur, in de Azure-portal of bekijk deze in Azure kostenanalyse. Zie voor meer informatie, [transacties per factuur secties bekijken](billing-mca-understand-your-bill.md#view-transactions-by-invoice-sections).
 
 In dit artikel is van toepassing op een rekening voor een Microsoft-KLANTOVEREENKOMST. [Controleer of u toegang tot een Microsoft-KLANTOVEREENKOMST hebt](#check-access-to-a-microsoft-customer-agreement).
 
 ## <a name="create-an-invoice-section-in-the-azure-portal"></a>Een gedeelte van de factuur maken in Azure portal
 
-Voor het maken van een gedeelte van de factuur, moet u een **facturering profieleigenaar** of een **facturering profiel Inzender**. Zie voor meer informatie, [beheren factuur secties voor de facturering van profiel](billing-understand-mca-roles.md#manage-invoice-sections-for-billing-profile).
+Voor het maken van een gedeelte van de factuur, moet u een **facturering profieleigenaar** of een **facturering profiel Inzender**. Zie voor meer informatie, [factuur secties voor de facturering van profiel beheren](billing-understand-mca-roles.md#manage-invoice-sections-for-billing-profile).
 
 1. Meld u aan bij [Azure Portal](http://portal.azure.com).
 
@@ -57,6 +57,6 @@ Voor het maken van een gedeelte van de factuur, moet u een **facturering profiel
 - [Geef anderen toestemming voor het maken van Azure-abonnement](billing-mca-create-subscription.md#give-others-permission-to-create-azure-subscriptions)
 - [Eigendom van Azure-abonnementen ophalen van gebruikers in andere facturering-accounts](billing-mca-request-billing-ownership.md)
 
-## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
+## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning
 
 Als u hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.

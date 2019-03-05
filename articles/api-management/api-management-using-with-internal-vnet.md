@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 9a2cf35203c673d6296754360ac4f794241d4c43
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 0fe4da13e8242d858d553e0532b82cf1adca450a
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008675"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338756"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Met behulp van Azure API Management-service met een intern virtueel netwerk
 Met virtuele netwerken van Azure beheren Azure API Management API's die niet toegankelijk is via internet. Een aantal VPN-technologieën zijn beschikbaar voor het maken van de verbinding. API Management kan worden geïmplementeerd in twee belangrijke modi binnen een virtueel netwerk:
@@ -59,7 +59,7 @@ De API Management-service in een intern virtueel netwerk wordt gehost achter een
 
 4. Selecteer **Opslaan**.
 
-Nadat de implementatie is gelukt, ziet u de interne virtuele IP-adres van uw service op het dashboard.
+Nadat de implementatie is voltooid, ziet u **persoonlijke** virtuele IP-adres en **openbare** virtuele IP-adres van uw API Management-service op de overzichtsblade. De **persoonlijke** virtuele IP-adres is een load balanced IP-adres van de API Management overgedragen subnet waarover `gateway`, `portal`, `management` en `scm` eindpunten kunnen worden geopend. De **openbare** virtuele IP-adres wordt gebruikt **alleen** voor het besturingselement vlak van het verkeer naar `management` eindpunt meer dan poort 3443 en kan worden vergrendeld omlaag naar de [ApiManagement] [ ServiceTags] servicetag.
 
 ![API Management-dashboard met een intern virtueel netwerk geconfigureerd][api-management-internal-vnet-dashboard]
 
@@ -83,25 +83,25 @@ Wanneer er is een API Management in de modus voor extern virtueel netwerk, worde
 > API Management-service niet luisteren naar aanvragen die afkomstig zijn van IP-adressen. Alleen reageert op aanvragen voor de hostnaam die is geconfigureerd op de service-eindpunten. Deze eindpunten zijn gateway, de Azure-portal en de portal voor ontwikkelaars, direct beheereindpunt en Git.
 
 ### <a name="access-on-default-host-names"></a>Toegang op standaard hostnamen
-Bij het maken van een API Management-service, bijvoorbeeld met de naam 'contoso' worden standaard de volgende service-eindpunten geconfigureerd:
+Bij het maken van een API Management-service, bijvoorbeeld met de naam "contosointernalvnet" worden standaard de volgende service-eindpunten geconfigureerd:
 
-   * Gateway of proxy: contoso.azure-api.net
+   * Gateway of proxy: contosointernalvnet.azure-api.net
 
-   * De Azure-portal en de portal voor ontwikkelaars: contoso.portal.azure-api.net
+   * De Azure-portal en de portal voor ontwikkelaars: contosointernalvnet.portal.azure-api.net
 
-   * Direct beheereindpunt: contoso.management.azure-api.net
+   * Direct beheereindpunt: contosointernalvnet.management.azure-api.net
 
-   * GIT: contoso.scm.azure-api.net
+   * GIT: contosointernalvnet.scm.azure-api.net
 
-Voor toegang tot deze API Management service-eindpunten, kunt u een virtuele machine maken in een subnet dat is verbonden met het virtuele netwerk waarin API Management is geïmplementeerd. Ervan uitgaande dat de interne virtuele IP-adres voor uw service 10.0.0.5 is, kunt u toewijzen het hosts-bestand % SystemDrive%\drivers\etc\hosts, als volgt:
+Voor toegang tot deze API Management service-eindpunten, kunt u een virtuele machine maken in een subnet dat is verbonden met het virtuele netwerk waarin API Management is geïmplementeerd. Ervan uitgaande dat de interne virtuele IP-adres voor uw service 10.1.0.5 is, kunt u toewijzen het hosts-bestand % SystemDrive%\drivers\etc\hosts, als volgt:
 
-   * 10.0.0.5 contoso.azure-api.net
+   * 10.1.0.5     contosointernalvnet.azure-api.net
 
-   * 10.0.0.5     contoso.portal.azure-api.net
+   * 10.1.0.5     contosointernalvnet.portal.azure-api.net
 
-   * 10.0.0.5 contoso.management.azure-api.net
+   * 10.1.0.5 contosointernalvnet.management.azure-api.net
 
-   * 10.0.0.5 contoso.scm.azure-api.net
+   * 10.1.0.5 contosointernalvnet.scm.azure-api.net
 
 U kunt vervolgens toegang tot alle service-eindpunten van de virtuele machine die u hebt gemaakt. Als u een aangepaste DNS-server in een virtueel netwerk gebruikt, kunt u ook een DNS-records maken en toegang hebben tot deze eindpunten vanaf elke locatie in uw virtuele netwerk. 
 
@@ -125,10 +125,12 @@ Zie de volgende artikelen voor meer informatie:
 * [Virtueel netwerk Veelgestelde vragen](../virtual-network/virtual-networks-faq.md)
 * [Het maken van een record in DNS](https://msdn.microsoft.com/library/bb727018.aspx)
 
-[api-management-using-internal-vnet-menu]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-menu.png
+[api-management-using-internal-vnet-menu]: ./media/api-management-using-with-internal-vnet/api-management-using-with-internal-vnet.png
 [api-management-internal-vnet-dashboard]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-dashboard.png
 [api-management-custom-domain-name]: ./media/api-management-using-with-internal-vnet/api-management-custom-domain-name.png
 
 [Create API Management service]: get-started-create-service-instance.md
 [Common network configuration problems]: api-management-using-with-vnet.md#network-configuration-issues
+
+[ServiceTags]: ../virtual-network/security-overview.md#service-tags
 

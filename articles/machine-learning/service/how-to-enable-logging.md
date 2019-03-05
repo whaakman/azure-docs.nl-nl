@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 02/20/2019
-ms.openlocfilehash: 08e83cdcadabdcf7234d0bbd0fb7e6d103c8369c
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 8e39734a6f5fa13240d24eb35c431f746e540484
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447528"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342119"
 ---
 # <a name="enable-logging-in-azure-machine-learning-service"></a>Logboekregistratie inschakelen in Azure Machine Learning-service
 
@@ -41,7 +41,7 @@ run = exp.start_logging()
 run.log("test-val", 10)
 ```
 
-Zie de naslaginformatie [documentatie](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) voor de `Run` klasse voor aanvullende logboekregistratiefuncties.
+Zie de referentiedocumentatie voor de [uitvoeren](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) klasse voor aanvullende logboekregistratiefuncties.
 
 Om in te schakelen lokale logboekregistratie van de status van toepassing tijdens de training wordt uitgevoerd, gebruikt u de `show_output` parameter. Uitgebreide logboekregistratie inschakelen, kunt u informatie van de trainingsproces, evenals informatie over externe bronnen of compute-doelen. Gebruik de volgende code om in te schakelen van logboekregistratie van het experiment verzenden.
 

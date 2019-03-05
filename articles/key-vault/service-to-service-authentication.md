@@ -2,20 +2,20 @@
 title: Service-naar-serviceverificatie naar Azure Key Vault met behulp van .NET
 description: De bibliotheek Microsoft.Azure.Services.AppAuthentication gebruiken om te verifiëren bij Azure Key Vault met behulp van .NET.
 keywords: verificatie van Azure sleutelkluis lokale referenties
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 services: key-vault
-ms.author: bryanla
+ms.author: mbaldwin
 ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: key-vault
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: 4d572472cfab36ac252878195a526c9ad05c813b
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: d0ccf25ed0071e9d89b3728048435b0b657026c0
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670125"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342311"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Service-naar-serviceverificatie naar Azure Key Vault met behulp van .NET
 
@@ -29,7 +29,6 @@ De `Microsoft.Azure.Services.AppAuthentication` bibliotheek beheert verificatie 
 
 De `Microsoft.Azure.Services.AppAuthentication` bibliotheek biedt ondersteuning voor lokale ontwikkeling met Microsoft Visual Studio, Azure CLI of Azure AD-geïntegreerde verificatie. Wanneer geïmplementeerd voor een Azure-resource die ondersteuning biedt voor een beheerde identiteit, gebruikt de bibliotheek automatisch [beheerde identiteiten voor een Azure-resources](/azure/active-directory/msi-overview). Er zijn geen wijzigingen code of configuratie nodig. De bibliotheek ondersteunt ook direct gebruik van Azure AD [clientreferenties](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal) wanneer een beheerde identiteit is niet beschikbaar, of wanneer de beveiligingscontext van de ontwikkelaar kan niet worden bepaald tijdens de lokale ontwikkeling.
 
-<a name="asal"></a>
 ## <a name="using-the-library"></a>Met behulp van de bibliotheek
 
 Voor .NET-toepassingen, de eenvoudigste manier om te werken met een beheerde identiteit is via de `Microsoft.Azure.Services.AppAuthentication` pakket. Hier wordt aan de slag:
@@ -55,8 +54,6 @@ De `AzureServiceTokenProvider` klasse in de cache van het token in het geheugen 
 
 De `GetAccessTokenAsync` methode vereist een resource-id. Zie voor meer informatie, [welke Azure-services ondersteunen beheerde identiteiten voor Azure-resources](https://docs.microsoft.com/azure/active-directory/msi-overview).
 
-
-<a name="samples"></a>
 ## <a name="samples"></a>Voorbeelden
 
 De volgende voorbeelden tonen de `Microsoft.Azure.Services.AppAuthentication` bibliotheek in actie:
@@ -67,8 +64,6 @@ De volgende voorbeelden tonen de `Microsoft.Azure.Services.AppAuthentication` bi
 
 3. [Voorbeeld van .NET Core en een beheerde identiteit gebruiken voor het aanroepen van Azure-services van een Azure Linux VM](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/).
 
-
-<a name="local"></a>
 ## <a name="local-development-authentication"></a>Lokale ontwikkeling-verificatie
 
 Er zijn twee scenario's voor primaire verificatie voor lokale ontwikkeling:
@@ -157,13 +152,12 @@ Zodra u zich hebt aangemeld bij Azure, `AzureServiceTokenProvider` de service-pr
 
 Dit geldt alleen voor lokale ontwikkeling. Wanneer uw oplossing is geïmplementeerd in Azure, schakelt u de bibliotheek naar een beheerde identiteit voor de verificatie.
 
-<a name="msi"></a>
-## <a name="running-the-application-using-managed-identity"></a>Uitvoeren van de toepassing met behulp van beheerde identiteit 
+## <a name="running-the-application-using-managed-identity-or-user-assigned-identity"></a>Uitvoeren van de toepassing met behulp van beheerde identiteit of de gebruiker toegewezen identiteit 
 
 Wanneer u de code op een Azure App Service of een Azure-VM met een beheerde identiteit is ingeschakeld uitvoeren, wordt automatisch de beheerde identiteit in de bibliotheek gebruikt. Er zijn geen codewijzigingen vereist. 
 
+U kunt ook kan u verifiëren met een gebruiker toegewezen identiteit. Zie voor meer informatie over de gebruiker toegewezen identiteiten [over het beheren van identiteiten voor een Azure-resources](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-worka-namehow-does-it-worka). De verbindingsreeks is opgegeven in de [tekenreeks-Verbindingsondersteuning](#connection-string-support) onderstaande sectie.
 
-<a name="sp"></a>
 ## <a name="running-the-application-using-a-service-principal"></a>Uitvoeren van de toepassing met behulp van een Service-Principal 
 
 Het is mogelijk nodig om u te maken van een Azure AD-Client-referentie om te verifiëren. Algemene voorbeelden zijn onder meer:
@@ -207,7 +201,6 @@ Om aan te melden met behulp van een Azure gedeelde AD geheime referentie:
 
 Als alles goed, geen verdere wijzigingen in de code ingesteld zijn nodig.  `AzureServiceTokenProvider` maakt gebruik van de omgevingsvariabele en het certificaat te verifiëren met Azure AD. 
 
-<a name="connectionstrings"></a>
 ## <a name="connection-string-support"></a>Ondersteuning voor tekenreeks-verbindingen
 
 Standaard `AzureServiceTokenProvider` meerdere methoden gebruikt voor het ophalen van een token. 
@@ -220,11 +213,13 @@ De volgende opties worden ondersteund:
 |:--------------------------------|:------------------------|:----------------------------|
 | `RunAs=Developer; DeveloperTool=AzureCli` | Lokale ontwikkeling | AzureServiceTokenProvider maakt gebruik van Azure CLI-token ophalen. |
 | `RunAs=Developer; DeveloperTool=VisualStudio` | Lokale ontwikkeling | AzureServiceTokenProvider maakt gebruik van Visual Studio-token ophalen. |
-| `RunAs=CurrentUser;` | Lokale ontwikkeling | AzureServiceTokenProvider maakt gebruik van geïntegreerde verificatie van Azure AD-token ophalen. |
-| `RunAs=App;` | beheerde identiteiten voor Azure-resources | AzureServiceTokenProvider maakt gebruik van een beheerde identiteit ophalen-token. |
-| `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint`<br>`   ={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`  | Service-principal | `AzureServiceTokenProvider` maakt gebruik van certificaten aan van Azure AD-token ophalen. |
-| `RunAs=App;AppId={AppId};TenantId={TenantId};`<br>`   CertificateSubjectName={Subject};CertificateStoreLocation=`<br>`   {LocalMachine or CurrentUser}` | Service-principal | `AzureServiceTokenProvider` certificaat wordt gebruikt om op te halen token uit Azure AD|
+| `RunAs=CurrentUser` | Lokale ontwikkeling | AzureServiceTokenProvider maakt gebruik van geïntegreerde verificatie van Azure AD-token ophalen. |
+| `RunAs=App` | [Beheerde identiteiten voor Azure-resources](../active-directory/managed-identities-azure-resources/index.yml) | AzureServiceTokenProvider maakt gebruik van een beheerde identiteit ophalen-token. |
+| `RunAs=App;AppId={ClientId of user-assigned identity}` | [De gebruiker toegewezen identiteit voor Azure-resources](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-worka-namehow-does-it-worka) | AzureServiceTokenProvider maakt gebruik van een gebruiker toegewezen id ophalen-token. |
+| `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`   | Service-principal | `AzureServiceTokenProvider` maakt gebruik van certificaten aan van Azure AD-token ophalen. |
+| `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateSubjectName={Subject};CertificateStoreLocation={LocalMachine or CurrentUser}` | Service-principal | `AzureServiceTokenProvider` certificaat wordt gebruikt om op te halen token uit Azure AD|
 | `RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}` | Service-principal |`AzureServiceTokenProvider` maakt gebruik van geheim aan van Azure AD-token ophalen. |
+
 
 
 ## <a name="next-steps"></a>Volgende stappen

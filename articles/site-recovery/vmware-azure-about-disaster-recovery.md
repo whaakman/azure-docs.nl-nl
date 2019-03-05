@@ -1,18 +1,18 @@
 ---
 title: Over herstel na noodgevallen van virtuele VMware-machines naar Azure met behulp van Azure Site Recovery | Microsoft Docs
 description: Dit artikel bevat een overzicht van herstel na noodgevallen van virtuele VMware-machines naar Azure met behulp van de Azure Site Recovery-service.
-author: rayne-wiselman
+author: mayurigupta13
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 12/31/2018
-ms.author: raynew
-ms.openlocfilehash: 38f344ef9e24816a17975c60a5863be46da1364b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 3/3/2019
+ms.author: mayg
+ms.openlocfilehash: aa7ea43f3c41c6200e4cf796b0f09dca995791df
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210332"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339671"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Over herstel na noodgevallen van virtuele VMware-machines naar Azure
 
@@ -34,7 +34,7 @@ Een strategie voor zakelijke continuïteit en noodherstel (BCDR) recovery helpt 
     - De analyse zorgt ervoor dat de failover werkt zoals verwacht wanneer een echte noodzaak daartoe zich voordoet.
     - De analyse voert een testfailover zonder enige impact op uw productieomgeving.
 5. Als er een storing optreedt, moet u een volledige failover naar Azure uitvoert. Kunt u een failover uitgevoerd voor een enkele machine, of u een herstelplan waarin meerdere virtuele machines op hetzelfde moment een failover kunt maken.
-6. Bij failover worden virtuele Azure-machines gemaakt vanuit de VM-gegevens in Azure Storage. Gebruikers kunnen doorgaan met het openen van toepassingen en workloads van de Azure VM
+6. Bij failover worden virtuele Azure-machines gemaakt vanuit de VM-gegevens in de beheerde schijven of storage-accounts. Gebruikers kunnen doorgaan met het openen van toepassingen en workloads van de Azure VM
 7. Als uw on-premises site weer beschikbaar is, schakelt u van Azure.
 8. Nadat u een failback uitvoeren en vanaf uw primaire locatie zodra er meer werken, start u voor het repliceren van on-premises machines naar Azure is het opnieuw.
 
@@ -56,13 +56,12 @@ Site Recovery kan elke workload die worden uitgevoerd op een ondersteunde VMware
 U moet de volgende voorbereidingen in Azure:
 
 1. Controleer of uw Azure-account heeft machtigingen voor het maken van virtuele machines in Azure.
-2. Maak een opslagaccount voor het opslaan van installatiekopieën van gerepliceerde machines.
-3. Maak een Azure-netwerk dat Azure-VM's deel uitmaken gaan wanneer ze worden gemaakt uit de opslag na een failover.
-4. Instellen van een Azure Recovery Services-kluis voor Site Recovery. De kluis zich bevindt in de Azure-portal en wordt gebruikt om te implementeren, configureren, beheren, controleren en oplossen van uw implementatie van Site Recovery.
+2. Maak een Azure-netwerk dat Azure-VM's deel uitmaken gaan wanneer ze na een failover uit storage-accounts of beheerde schijven worden gemaakt.
+3. Instellen van een Azure Recovery Services-kluis voor Site Recovery. De kluis zich bevindt in de Azure-portal en wordt gebruikt om te implementeren, configureren, beheren, controleren en oplossen van uw implementatie van Site Recovery.
 
 *Meer hulp nodig?*
 
-Meer informatie over het instellen van Azure door [verificatie van uw account](tutorial-prepare-azure.md#verify-account-permissions), maken een [opslagaccount](tutorial-prepare-azure.md#create-a-storage-account) en [netwerk](tutorial-prepare-azure.md#set-up-an-azure-network), en [instellen van een kluis](tutorial-prepare-azure.md#create-a-recovery-services-vault).
+Meer informatie over het instellen van Azure door [verificatie van uw account](tutorial-prepare-azure.md#verify-account-permissions), maken een [netwerk](tutorial-prepare-azure.md#set-up-an-azure-network), en [instellen van een kluis](tutorial-prepare-azure.md#create-a-recovery-services-vault).
 
 
 
@@ -94,10 +93,10 @@ Nadat u uw infrastructuur van Azure en on-premises geïmplementeerd hebt, kunt u
     - De configuratieserver is een één on-premises machine. Voor herstel na noodgevallen VMware, wordt u aangeraden als een VMware-VM die kunnen worden geïmplementeerd vanaf een downloadbare OVF-sjabloon te implementeren.
     - De configuratieserver coördineert de communicatie tussen on-premises en Azure
     - Een aantal andere onderdelen die worden uitgevoerd op de servercomputer van de configuratie.
-        - De processerver ontvangt, optimaliseert en replicatiegegevens verzendt naar Azure storage. Ook verwerkt deze automatische installatie van de Mobility-service op computers die u repliceren wilt, en voert automatische detectie van virtuele machines op VMware-servers.
+        - De processerver ontvangt, optimaliseert en replicatiegegevens naar de cache-opslagaccount in Azure worden verzonden. Ook verwerkt deze automatische installatie van de Mobility-service op computers die u repliceren wilt, en voert automatische detectie van virtuele machines op VMware-servers.
         - Op de hoofddoelserver worden de replicatiegegevens tijdens de failback vanuit Azure afgehandeld.
     - Instellen bevat de configuratieserver registreren in de kluis, MySQL-Server en VMware PowerCLI, downloaden en op te geven de accounts die zijn gemaakt voor automatische detectie en installatie van de Mobility-service.
-4. **Doelomgeving**: Instellen van het doel-Azure-omgeving door op te geven uw Azure-abonnement, opslag- en netwerkinstellingen.
+4. **Doelomgeving**: Instellen van het doel-Azure-omgeving door uw Azure-abonnement en de netwerkinstellingen op te geven.
 5. **Beleid voor wachtwoordreplicatie**: U opgeven hoe replicatie moet worden uitgevoerd. Instellingen omvatten onder meer hoe vaak herstelpunten worden gemaakt en opgeslagen, en of u toepassingsconsistente momentopnamen moeten worden gemaakt.
 6. **Replicatie inschakelen**. U schakelt replicatie voor on-premises computers. Als u een account voor het installeren van de Mobility-service hebt gemaakt, wordt wordt deze geïnstalleerd wanneer u replicatie voor een machine inschakelt. 
 

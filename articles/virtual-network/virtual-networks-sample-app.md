@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: a8e52af1a1feb8a01ed5556efb6e153c56b25cca
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 52058469b531383b32974ccc5bc77b31783583bd
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700584"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339944"
 ---
 # <a name="sample-application-for-use-with-dmzs"></a>Voorbeeldtoepassing voor gebruik met DMZ 's
 [Ga terug naar de grens Best Practices pagina][HOME]
@@ -42,7 +42,7 @@ Als u de volgende scripts gebruikt, is deze toevoeging firewall-regel voor de ee
 Met dit script wordt:
 
 1. Open IMCPv4 (Ping) op de lokale server windows firewall voor het testen gemakkelijker te maken
-2. Installatie van IIS en .net Framework v4.5
+2. Installatie van IIS en .NET Framework v4.5
 3. Een ASP.NET-webpagina en een Web.config-bestand maken
 4. Wijzigen van de groep van toepassingen standaard toegang tot het bestand om eenvoudiger te maken
 5. De anonieme gebruiker ingesteld op uw beheerdersaccount en het wachtwoord
@@ -152,12 +152,12 @@ Met dit script stelt u de back-end voor deze eenvoudige toepassing. Met dit scri
 2. Maak een map voor de website
 3. Maak een tekstbestand worden op afstand toegang op basis van de webpagina wordt weergegeven
 4. Machtigingen instellen voor de map en bestand anonieme toegang toestaan
-5. Verbeterde beveiliging van Internet Explorer om toe te staan eenvoudiger kunt bladeren vanaf deze server uitschakelen 
+5. Verbeterde beveiliging van Internet Explorer om toe te staan eenvoudiger kunt bladeren vanaf deze server uitschakelen
 
 > [!IMPORTANT]
 > **Best Practice**: Verbeterde beveiliging van Internet Explorer nooit uitschakelen op een productieserver, plus het is doorgaans een goed idee surfen op Internet vanaf een productieserver. Openen van bestandsshares voor anonieme toegang is ook een goed idee, maar gedaan hier voor het gemak.
-> 
-> 
+>
+>
 
 Dit PowerShell-script moet lokaal worden uitgevoerd terwijl er op RDP in AppVM01 was. PowerShell is vereist om te worden uitgevoerd als beheerder om te controleren of de uitvoering is geslaagd.
 

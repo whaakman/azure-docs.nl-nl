@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b797cc6e1c0ef0df61c4d1384d2beb12c37112ba
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 336b30a8e8687b3a2bdd05a17e558f44905f135e
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456857"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338838"
 ---
 # <a name="set-up-security-info-preview-to-use-an-authenticator-app"></a>Beveiligingsgegevens (preview) ingesteld voor het gebruik van een verificator-app
 U kunt deze stappen om toe te voegen uw tweeledige verificatie en methoden voor wachtwoord opnieuw instellen. Nadat u hebt dit tijdens de eerste keer hebt ingesteld, kunt u terugkeren naar de **beveiligingsgegevens** pagina toevoegen, bijwerken of verwijderen van uw beveiligingsgegevens.
@@ -36,11 +36,11 @@ Afhankelijk van instellingen van uw organisatie, kunt u mogelijk een verificatie
 
 1. Meld u aan bij uw werk- of schoolaccount en gaat u naar uw https://myprofile.microsoft.com/ pagina.
 
-    ![Mijn profiel-pagina, met gemarkeerde Security info koppelingen](media/security-info/securityinfo-myprofile.png)
+    ![Mijn profiel-pagina, met gemarkeerde Security info koppelingen](media/security-info/securityinfo-myprofile-page.png)
 
 2. Selecteer **beveiligingsgegevens** vanuit het navigatiedeelvenster links in of via de koppeling in de **beveiligingsgegevens** blokkeren, en selecteer vervolgens **-methode toevoegen** uit de **beveiligingsgegevens**  pagina.
 
-    ![Pagina beveiligingsgegevens met optie van de methode gemarkeerde toevoegen](media/security-info/securityinfo-myprofile-addmethod.png)
+    ![Pagina beveiligingsgegevens met optie van de methode gemarkeerde toevoegen](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. Op de **toevoegen van een methode** weergeeft, schakelt **Authenticator-app** uit de vervolgkeuzelijst en selecteer vervolgens **toevoegen**.
 
@@ -48,42 +48,42 @@ Afhankelijk van instellingen van uw organisatie, kunt u mogelijk een verificatie
 
 4. Op de **beginnen met het ophalen van de app** weergeeft, schakelt **nu downloaden** te downloaden en installeren van de Microsoft Authenticator-app op uw mobiele apparaat en selecteer vervolgens **volgende**.
 
-    Zie voor meer informatie over het downloaden en installeren van de app [Download en installeer de Microsoft Authenticator-app](user-help-auth-app-download-install.md).
+    Zie voor meer informatie over het downloaden en installeren van de app, [De Microsoft Authenticator-app downloaden en installeren](user-help-auth-app-download-install.md).
 
     ![Beginnen met het ophalen van de app-pagina](media/security-info/securityinfo-myprofile-getauthapp.png)
 
     >[!Note]
-    >Als u een verificator-app dan de Microsoft Authenticator-app gebruiken wilt, selecteert u de **ik wil een andere verificator-app gebruiken** koppeling.
+    >Als u een andere verificator-app dan de Microsoft Authenticator-app gebruiken wilt, selecteert u de koppeling **Ik wil een andere verificator-app gebruiken**.
     
-    >Als uw organisatie u een andere methode dan de authenticator-app kiezen kunt, kunt u de **ik wil instellen van een andere methode koppeling**.
+    >Als u van uw organisatie u een andere methode dan de authenticator-app kiezen mag, kunt u de **Ik wil andere methode instellen-koppeling** selecteren.
 
-5. Blijven op de **instellen van uw account** pagina tijdens het instellen van de Microsoft Authenticator-app op uw mobiele apparaat.
+5. Blijven op de **Uw account instellen**-pagina tijdens het instellen van de Microsoft Authenticator-app op uw mobiele apparaat.
 
     ![De authenticator-app-pagina instellen](media/security-info/securityinfo-myprofile-setupauthapp.png)
 
-6. Open de Microsoft Authenticator-app, selecteer deze optie om meldingen (als u hierom wordt gevraagd), selecteer **account toevoegen** uit de **aanpassen en controle** pictogram in de rechterbovenhoek en selecteer vervolgens **werk of schoolaccount**.
+6. Open de Microsoft Authenticator-app, selecteer dat u meldingen toestaat (als u hierom wordt gevraagd), selecteer **Account toevoegen** uit het pictogram **Aanpassen en controle** in de rechterbovenhoek en selecteer vervolgens **Werk- of schoolaccount**.
 
 7. Ga terug naar de **instellen van uw account** pagina op uw, en selecteer vervolgens **volgende**.
 
-    De **QR-code scannen** pagina wordt weergegeven.
+    De pagina **QR-code scannen** wordt weergegeven.
 
-    ![Scan de QR-code met behulp van de Authenticator-app](media/security-info/securityinfo-myprofile-qrcodeauthapp.png)
+    ![De QR-code scannen met behulp van de Authenticator-app](media/security-info/securityinfo-myprofile-qrcodeauthapp.png)
 
 6. De opgegeven code scannen met de Microsoft Authenticator app QR-code lezer, die op uw mobiele apparaat wordt weergegeven nadat u uw werk of school-account hebt gemaakt in stap 6.
 
-    De authenticator-app moet is uw werk of schoolaccount toevoegen zonder aanvullende informatie van u. Echter, als de lezer QR-code de code niet lezen kan, kunt u de **kan de koppeling QR-code niet scannen** en voer handmatig de code en URL in de Microsoft Authenticator-app. Zie voor meer informatie over het handmatig toevoegen van een code [handmatig een account toevoegen aan de app](user-help-auth-app-add-account-manual.md).
+    De verificator-app moet nu uw werk of schoolaccount toevoegen zonder aanvullende informatie van u. Als de QR-codelezer de code echter niet lezen kan, kunt u de **Koppeling kan QR-code niet scannen** selecteren en handmatig de code en URL in de Microsoft Authenticator-app invoeren. Zie voor meer informatie over het handmatig toevoegen van een code [Handmatig een account toevoegen aan de app](user-help-auth-app-add-account-manual.md).
 
 7. Selecteer **volgende** op de **QR-code scannen** pagina op uw.
 
     Een melding wordt verzonden naar de Microsoft Authenticator-app op uw mobiele apparaat voor het testen van uw account.
 
-    ![Uw account met de authenticator-app testen](media/security-info/securityinfo-myprofile-tryitauthapp.png)
+    ![Uw account met de verificator-app testen](media/security-info/securityinfo-myprofile-tryitauthapp.png)
 
-8. De melding in de Microsoft Authenticator-app goed te keuren en selecteer vervolgens **volgende**.
+8. Keur de melding in de Microsoft Authenticator-app goed en selecteer vervolgens **Volgende**.
 
     ![Melding van geslaagd, met verbinding van de app en uw account](media/security-info/securityinfo-myprofile-successauthapp.png)
 
-    Je beveiligingsgegevens is bijgewerkt voor het gebruik van de Microsoft Authenticator-app standaard je identiteit te verifiëren bij het gebruik van verificatie in twee stappen verificatie of het wachtwoord opnieuw instellen.
+    Uw beveiligingsgegevens zijn bijgewerkt voor het standaard gebruik van de Microsoft Authenticator-app om uw identiteit te verifiëren bij het gebruik van verificatie in twee stappen of opnieuw instellen van het wachtwoord.
 
 ## <a name="delete-your-authenticator-app-from-your-security-info-methods"></a>De authenticator-app verwijderen uit uw gegevens beveiligingsmethoden
 Als u niet meer gebruiken de authenticator-app als een methode-info wilt, kunt u het verwijderen van de **beveiligingsgegevens** pagina. Dit werkt voor alle verificator-apps, niet alleen de Microsoft Authenticator-app. Nadat u de app verwijdert, hebt u de authenticator-app op uw mobiele apparaat en het account verwijderen.
@@ -136,6 +136,6 @@ Hebt u extra opties voor hoe uw organisatie contactpersonen u om te controleren 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Uw wachtwoord opnieuw instellen als u hebt verloren of bent vergeten, uit de [portal voor wachtwoordherstel](https://passwordreset.microsoftonline.com/) of volg de stappen in de [uw werk- of schoolaccount wachtwoord opnieuw instellen](user-help-reset-password.md) artikel.
+- Stel uw wachtwoord opnieuw in als u dit hebt verloren of bent vergeten, uit het [Portal voor wachtwoordherstel](https://passwordreset.microsoftonline.com/) of volg de stappen in het artikel [Uw werk- of schoolaccount wachtwoord opnieuw instellen](user-help-reset-password.md).
 
-- Problemen oplossen met tips en Help-informatie voor problemen met aanmelden in de [niet kunt aanmelden bij uw Microsoft-account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) artikel.
+- Krijg tips voor het oplossen van problemen en hulp met problemen met aanmelden in het artikel [U kunt niet aanmelden bij uw Microsoft-account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

@@ -5,15 +5,15 @@ services: storage
 author: kuhussai
 ms.service: storage
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/05/2019
 ms.author: kuhussai
 ms.subservice: blobs
-ms.openlocfilehash: 3e89f5de247cf18abdb710577ce55c6e2cb5765e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4660a45014e6afdb091fb40b8fe7f03fdb647aab
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251891"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339195"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob-opslag: Premium (preview), Hot, Cool en Archive storage-lagen
 
@@ -56,16 +56,6 @@ BLOB storage en GPv2-accounts geven het **Toegangslaag** kenmerk op het accountn
 Beschikbaar in preview is een Premium-toegangslaag, waardoor gegevens beschikbaar zijn via krachtige hardware vaak worden gebruikt. Gegevens die zijn opgeslagen in deze laag is opgeslagen op SSD-schijven die zijn geoptimaliseerd voor lagere latentie en hogere transactionele tarieven vergeleken met traditionele harde schijven. De laag Premium is beschikbaar via de blok-Blob opslagaccounttype alleen.
 
 Deze laag is ideaal voor workloads waarvoor snelle en consistente reactietijden. Gegevens die betrekking heeft op eindgebruikers, zoals interactieve videobewerking, statische webinhoud, online transacties en dergelijke zijn goede kandidaten zijn voor de laag Premium. Deze laag is geschikt voor werkbelastingen die veel kleine transacties, zoals het vastleggen van telemetriegegevens, berichten en gegevenstransformatie van uitvoeren.
-
-Voor het gebruik van deze laag, een nieuw blok-Blob storage-account en begin met het maken van containers en blobs met de [REST API voor Blob Service](/rest/api/storageservices/blob-service-rest-api), [AzCopy](/azure/storage/common/storage-use-azcopy), of [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
-
-Tijdens de Preview-versie, de Premium-laag voor access:
-
-- Is beschikbaar als lokaal redundante opslag (LRS)
-- Is alleen beschikbaar in de volgende regio's: VS Oost 2, VS-centraal en VS West
-- Biedt geen ondersteuning voor object level tiering of automatische lagen met beheer van de gegevenslevenscyclus
-
-Zie voor meer informatie over het registreren voor de preview van Premium access tier [Maak kennis met blobopslag van Azure Premium](https://aka.ms/premiumblob).
 
 ## <a name="hot-access-tier"></a>Hot Storage-toegangslaag
 

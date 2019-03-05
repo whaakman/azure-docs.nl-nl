@@ -1,19 +1,19 @@
 ---
 title: Schijven uitsluiten van replicatie voor noodherstel van VMware naar Azure met behulp van Azure Site Recovery | Microsoft Docs
 description: Hierin wordt beschreven waarom en hoe u VM-schijven uitsluiten van replicatie voor noodherstel van VMware naar Azure.
-author: Rajeswari-Mamilla
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
-ms.date: 11/27/2018
-ms.author: ramamill
+ms.date: 3/3/2019
+ms.author: mayg
 ms.topic: conceptual
-ms.openlocfilehash: af610aaec238e1b2ae8ec2387e5a8f71225cab8c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b281531e76ecb73947597bb97110dc18d4e99c59
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848159"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339756"
 ---
 # <a name="exclude-disks-from-replication-of-vmware-vms-to-azure"></a>Schijven uitsluiten van replicatie van virtuele VMware-machines naar Azure
 
@@ -56,8 +56,8 @@ Volg de werkstroom [Replicatie inschakelen](vmware-azure-enable-replication.md) 
 > * Alleen standaardschijven kunnen worden uitgesloten van replicatie. Besturingssystemen en dynamische schijven kunt u niet uitsluiten.
 > * Nadat u de replicatie hebt ingeschakeld, kunt u geen schijven meer toevoegen of verwijderen voor replicatie. Als u een schijf wilt toevoegen of uitsluiten, moet u de beveiliging voor de machine uitschakelen en vervolgens weer inschakelen.
 > * Als u een schijf uitsluit die nodig is voor de werking van een toepassing, moet u deze na een failover naar Azure handmatig maken in Azure, zodat de gerepliceerde toepassing kan worden uitgevoerd. U kunt ook Azure Automation integreren in een herstelplan om de schijf te maken tijdens failover van de machine.
-> * Virtuele Windows-machines: voor schijven die u handmatig hebt gemaakt in Azure, wordt geen failback uitgevoerd. Als u bijvoorbeeld een failover hebt uitgevoerd voor drie schijven en er twee rechtstreeks in virtuele Azure-machines maakt, wordt alleen voor de drie schijven waarvoor een failover is uitgevoerd, een failback uitgevoerd. U kunt geen schijven toevoegen die handmatig zijn gemaakt in de failback of bij het opnieuw beveiligen van on-premises naar Azure.
-> * Virtuele Linux-machines: voor schijven die u handmatig hebt gemaakt in Azure, wordt een failback uitgevoerd. Als u bijvoorbeeld een failover hebt uitgevoerd voor drie schijven en er twee rechtstreeks in virtuele Azure-machines maakt, wordt voor alle vijf een failback uitgevoerd. U kunt geen schijven die handmatig zijn gemaakt, uitsluiten van failback.
+> * Venster virtuele machine: Schijven die u handmatig hebt gemaakt in Azure wordt geen failback. Als u bijvoorbeeld een failover hebt uitgevoerd voor drie schijven en er twee rechtstreeks in virtuele Azure-machines maakt, wordt alleen voor de drie schijven waarvoor een failover is uitgevoerd, een failback uitgevoerd. U kunt geen schijven toevoegen die handmatig zijn gemaakt in de failback of bij het opnieuw beveiligen van on-premises naar Azure.
+> * Virtuele Linux-machine: Schijven die u handmatig hebt gemaakt in Azure zijn failback uitgevoerd. Als u bijvoorbeeld een failover hebt uitgevoerd voor drie schijven en er twee rechtstreeks in virtuele Azure-machines maakt, wordt voor alle vijf een failback uitgevoerd. U kunt geen schijven die handmatig zijn gemaakt, uitsluiten van failback.
 >
 
 
@@ -67,7 +67,7 @@ We leggen het uitsluiten van schijven uit aan de hand van twee scenario's:
 - tempdb-schijf in SQL Server
 - Schijf van het wisselbestand (pagefile.sys)
 
-## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>Voorbeeld 1: de tempdb-schijf in SQL Server uitsluiten
+## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>Voorbeeld 1: De tempdb-schijf in SQL Server uitsluiten
 We gaan uit van een virtuele SQL Server-machine met een tempdb die kan worden uitgesloten.
 
 De naam van de virtuele schijf is SalesDB.
@@ -168,12 +168,12 @@ DISK0 | C:\ | Besturingssysteemschijf
 Disk1 | D:\ | SQL-systeemdatabase en gebruikersdatabase1
 Disk2 | G:\ | Gebruikersdatabase2
 
-## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>Voorbeeld 2: schijf van het wisselbestand (pagefile.sys) uitsluiten
+## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>Voorbeeld 2: Schijf van het wisselbestand (pagefile.sys) uitsluiten
 
 We gaan uit van een virtuele machine met een wisselbestandschijf die kan worden uitgesloten.
 Er zijn twee mogelijke situaties.
 
-### <a name="case-1-the-paging-file-is-configured-on-the-d-drive"></a>Situatie 1: het wisselbestand is geconfigureerd op de D:-schijf
+### <a name="case-1-the-paging-file-is-configured-on-the-d-drive"></a>Geval 1: Het wisselbestand is geconfigureerd op de D:-schijf
 Dit is de schijfconfiguratie:
 
 **Schijfnaam** | **Gastbesturingssysteemschijf#** | **Stationsletter** | **Gegevenstype op de schijf**
@@ -203,7 +203,7 @@ Dit zijn de instellingen voor het wisselbestand op de virtuele Azure-machine:
 
 ![Instellingen voor het wisselbestand op de virtuele Azure-machine](./media/vmware-azure-exclude-disk/pagefile-on-azure-vm-after-failover.png)
 
-### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>Situatie 2: het wisselbestand is geconfigureerd op een ander station (met uitzondering van de D:-schijf)
+### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>Geval 2: Het wisselbestand is geconfigureerd op een ander station (met uitzondering van D:-schijf)
 
 Dit is de schijfconfiguratie voor de virtuele bronmachine:
 

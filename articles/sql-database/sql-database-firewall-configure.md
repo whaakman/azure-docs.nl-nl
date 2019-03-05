@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: dcd0c7073f2126e001a65e2142ea54a229553ebd
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.date: 03/04/2019
+ms.openlocfilehash: 58eb7729dd0d2dda728d2008d5bb674f5222c08e
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894697"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337835"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>Azure SQL-Database en SQL Data Warehouse IP-firewall-regels
 
@@ -82,7 +82,7 @@ Azure-verbindingen moeten zijn ingeschakeld opdat toepassingen vanuit Azure verb
 
 ## <a name="creating-and-managing-ip-firewall-rules"></a>Het maken en beheren van IP-firewallregels
 
-De eerste firewallinstelling op serverniveau kan worden gemaakt met de [Azure-portal](https://portal.azure.com/) of programmatisch met [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create), of de [ REST-API](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate). Volgende niveau van de server IP-firewall-regels kunnen worden gemaakt en beheerd met behulp van deze methoden en via Transact-SQL.
+De eerste firewallinstelling op serverniveau kan worden gemaakt met de [Azure-portal](https://portal.azure.com/) of programmatisch met [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create), of de [ REST-API](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate). Volgende niveau van de server IP-firewall-regels kunnen worden gemaakt en beheerd met behulp van deze methoden en via Transact-SQL.
 
 > [!IMPORTANT]
 > IP-firewallregels op databaseniveau kunnen alleen worden gemaakt en beheerd met behulp van Transact-SQL.
@@ -149,17 +149,19 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 
 ## <a name="manage-server-level-ip-firewall-rules-using-azure-powershell"></a>IP-firewallregels op serverniveau met behulp van Azure PowerShell beheren
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 | Cmdlet | Niveau | Description |
 | --- | --- | --- |
-| [Get-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule) |Server |Retourneert de huidige niveau van de server IP-firewall-regels |
-| [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) |Server |Hiermee maakt u een nieuwe op serverniveau IP-firewallregel |
-| [Set-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/set-azurermsqlserverfirewallrule) |Server |De eigenschappen van een bestaande op serverniveau IP-firewallregel |
-| [Remove-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/remove-azurermsqlserverfirewallrule) |Server |Hiermee verwijdert u de IP-firewallregels op serverniveau |
+| [Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |Server |Retourneert de huidige firewallregels op serverniveau |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) |Server |Maakt een nieuwe firewallregel op serverniveau |
+| [Set-AzSqlServerFirewallRule](/powershell/module/az.sql/set-azsqlserverfirewallrule) |Server |Werkt de eigenschappen van een bestaande firewallregel op serverniveau bij |
+| [Remove-AzSqlServerFirewallRule](/powershell/module/az.sql/remove-azsqlserverfirewallrule) |Server |Verwijdert firewallregels op serverniveau |
 
 Het volgende voorbeeld wordt een niveau van de server IP-firewall-regel met behulp van PowerShell:
 
 ```powershell
-New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
+New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
     -ServerName $servername `
     -FirewallRuleName "AllowSome" -StartIpAddress "0.0.0.0" -EndIpAddress "0.0.0.0"
 ```

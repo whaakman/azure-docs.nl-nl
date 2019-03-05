@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 3c5f5778d68b8df4d4b3132ff96bedb9d5da24ee
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 9e43d122bfb758e2e9e14db2ef200cbf3adbefcb
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249007"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340402"
 ---
 # <a name="understand-the-charges-on-your-microsoft-customer-agreements-invoice"></a>Meer informatie over de kosten op uw Microsoft-KLANTOVEREENKOMST factuur
 
-Door het analyseren van de afzonderlijke transacties op de factuur, kunt u de kosten afstemmen op uw factuur.
+U kunt meer informatie over de kosten op uw factuur door het analyseren van de afzonderlijke transacties.
 
-In de facturering-account voor een Microsoft-KLANTOVEREENKOMST, wordt een factuur per maand voor elke factureringsprofiel gegenereerd. De factuur bevat alle kosten van de vorige maand. U kunt uw facturen weergeven in Azure portal. Zie voor meer informatie, [weergeven en downloaden van uw Microsoft Azure-factuur](billing-download-azure-invoice.md).
+In de facturering-account voor een Microsoft-KLANTOVEREENKOMST, wordt een factuur per maand voor elke factureringsprofiel gegenereerd. De factuur bevat alle kosten van de vorige maand. U kunt uw facturen weergeven in Azure portal. Zie voor meer informatie, [facturen downloaden voor een Microsoft-KLANTOVEREENKOMST](billing-download-azure-invoice-daily-usage-date.md#download-invoices-for-a-microsoft-customer-agreement).
 
 In dit artikel is van toepassing op een rekening voor een Microsoft-KLANTOVEREENKOMST. [Controleer of u toegang tot een Microsoft-KLANTOVEREENKOMST hebt](#check-access-to-a-microsoft-customer-agreement).
 
@@ -59,13 +59,13 @@ In dit artikel is van toepassing op een rekening voor een Microsoft-KLANTOVEREEN
 
 ### <a name="view-transactions-by-invoice-sections"></a>Transacties per factuur secties weergeven
 
-Factuur secties kunnen u de kosten op een factureringsprofiel factuur organiseren. Zie voor meer informatie, [gedeelte van de factuur begrijpen](billing-mca-overview.md#understand-invoice-sections). Wanneer een factuur wordt gegenereerd, weergegeven kosten in rekening gebracht voor alle secties in het profiel van de facturering op de factuur.
+Factuur secties kunnen u de kosten op een factureringsprofiel factuur organiseren. Zie voor meer informatie, [gedeelte factuur begrijpen](billing-mca-overview.md#understand-invoice-sections). Wanneer een factuur wordt gegenereerd, zijn de kosten in rekening gebracht voor alle secties in het profiel voor facturering op de factuur.
 
-De volgende afbeelding ziet u de kosten voor IT-afdeling factuur sectie op de factuur voor een voorbeeld.
+De volgende afbeelding ziet de kosten voor een gedeelte van de factuur schuld Accounting op de factuur voor een voorbeeld.
 
 ![Voorbeeldafbeelding van de details van de door de sectie factuurgegevens](./media/billing-understand-your-bill-mca/invoicesection-details.png)
 
-Nadat u hebt vastgesteld dat de kosten voor een gedeelte van de factuur, kunt u de transacties weergeven in Azure portal om af te stemmen, de kosten in rekening gebracht.
+Als u hebt vastgesteld dat de kosten voor een gedeelte van de factuur, kunt u de transacties bekijken in de Azure portal voor meer informatie over de kosten.
 
 1. Ga naar de pagina alle transacties in de Azure-portal transacties voor een factuur wilt weergeven. Zie voor meer informatie, [transacties voor een factuur weergeven in Azure portal](#view-transactions-for-an-invoice-in-the-azure-portal).
 
@@ -73,9 +73,9 @@ Nadat u hebt vastgesteld dat de kosten voor een gedeelte van de factuur, kunt u 
 
 ## <a name="understand-pending-charges-to-estimate-your-next-invoice"></a>In behandeling zijnde kosten in rekening gebracht om in te schatten van de volgende factuur begrijpen
 
-In de facturering-account voor een Microsoft-KLANTOVEREENKOMST, totdat de kosten worden gefactureerd, zijn schatting en beschouwd als in behandeling. Ze zijn voltooid en beschouwd als gefactureerd wanneer ze worden weergegeven op de factuur. U kunt in behandeling zijnde kosten in rekening gebracht voor een profiel voor facturering om een schatting van de kosten op uw volgende factuur te bekijken.
+In de facturering-account voor een Microsoft-KLANTOVEREENKOMST, totdat de kosten worden gefactureerd, zijn schatting en beschouwd als in behandeling. U kunt in behandeling zijnde kosten in rekening gebracht in de Azure-portal om een schatting van uw volgende factuur te bekijken. De kosten van in behandeling zijn schatting en zijn exclusief btw, zodat de werkelijke kosten in rekening gebracht op uw volgende factuur afhankelijk van de in behandeling zijnde kosten in rekening gebracht.
 
-### <a name="view-charges-summary"></a>Overzicht van de kosten weergeven
+### <a name="view-summary-of-pending-charges"></a>Samenvatting van de weergave van in behandeling zijnde kosten in rekening gebracht
 
 1. Meld u aan bij [Azure Portal](https://www.azure.com).
 
@@ -91,11 +91,11 @@ In de facturering-account voor een Microsoft-KLANTOVEREENKOMST, totdat de kosten
 
    ![Schermafbeelding van Azure portal zoeken voor kostenbeheer en facturering](./media/billing-understand-your-bill-mca/mca-billing-profile-summary.png)
 
-De kosten maand tot heden zijn de kosten van in behandeling voor de huidige maand en worden in rekening gebracht wanneer de factuur is gegenereerd voor de maand. Als de factuur voor de afgelopen maand nog steeds niet worden gegenereerd, wordt de kosten afgelopen maand ook zijn in behandeling.
+De kosten maand tot heden zijn de kosten van in behandeling voor de huidige maand en worden in rekening gebracht wanneer de factuur is gegenereerd voor de maand. Als de factuur voor de afgelopen maand nog steeds niet worden gegenereerd, wordt de kosten afgelopen maand ook zijn in behandeling en wordt weergegeven op de volgende factuur.
 
 ### <a name="view-pending-transactions"></a>In behandeling transacties weergeven
 
-Wanneer u geïdentificeerd in behandeling zijnde kosten in rekening gebracht, kunt u afzonderlijke transacties die aan de kosten in rekening gebracht op de pagina met alle transacties bijdragen weergeven. Op dit moment in behandeling zijnde gebruik worden kosten niet weergegeven op de pagina alle transactie. U kunt de in behandeling gebruikskosten weergeven op de pagina Azure-abonnementen. Zie voor meer informatie, [in de wachtrij kosten voor het gebruik weergeven](#view-pending-usage-charges)
+Wanneer u geïdentificeerd in behandeling zijnde kosten in rekening gebracht, kunt u meer informatie over de kosten door het analyseren van de individuele transacties die hebben bijgedragen aan de kosten in rekening gebracht. Op dit moment in behandeling zijnde gebruik worden kosten niet weergegeven op de pagina alle transactie. U kunt de in behandeling gebruikskosten weergeven op de pagina Azure-abonnementen. Zie voor meer informatie, [in de wachtrij kosten voor het gebruik weergeven](#view-pending-usage-charges)
 
 1. Meld u aan bij [Azure Portal](https://www.azure.com).
 
@@ -127,11 +127,9 @@ Wanneer u geïdentificeerd in behandeling zijnde kosten in rekening gebracht, ku
 
     ![Schermafbeelding van de lijst met Azure-abonnementen voor factureringsprofiel](./media/billing-understand-your-bill-mca/mca-billing-profile-subscriptions-list.png)
 
-U kunt de gedetailleerde gebruikskosten met het Azure-gebruik en de kosten-bestand kunt weergeven. Zie de volgende sectie voor meer informatie.
-
 ## <a name="analyze-your-azure-usage-charges"></a>Analyseren van uw Azure-gebruikskosten
 
-De Azure-gebruik en kosten csv-bestand gebruiken voor het analyseren van uw gebruikskosten op basis van. U kunt het bestand voor een factuur of voor downloaden in behandeling zijnde kosten in rekening gebracht. Zie voor meer informatie, [ophalen van uw Azure-factuur en de dagelijkse gebruiksgegevens](billing-download-azure-invoice-daily-usage-date.md).
+De Azure-gebruik en kosten csv-bestand gebruiken voor het analyseren van uw kosten in rekening gebracht op basis van gebruik. U kunt het bestand voor een factuur of voor downloaden in behandeling zijnde kosten in rekening gebracht. Zie voor meer informatie, [ophalen van uw Azure-factuur en de dagelijkse gebruiksgegevens](billing-download-azure-invoice-daily-usage-date.md).
 
 ### <a name="view-detailed-usage-by-invoice-section"></a>Gedetailleerd gebruik door gedeelte factuur weergeven
 
@@ -143,9 +141,9 @@ De volgende stappen helpen u bij het afstemmen van rekenkosten in rekening gebra
 
  | Factuur PDF | Azure-gebruik en kosten CSV |
  | --- | --- |
- |IT-afdeling |invoiceSectionName |
- |Gebruikskosten - Azure Standard |productOrderName |
- |Opslag |serviceFamily |
+ |De afdeling boekhouding |invoiceSectionName |
+ |Kosten voor het gebruik - abonnement voor Microsoft Azure |productOrderName |
+ |Compute |serviceFamily |
 
 1. Filter de **invoiceSectionName** kolom in het CSV-bestand naar **Accounting schuld**.
 2. Filter de **productOrderName** kolom in het CSV-bestand naar **Microsoft Azure-abonnement**.
@@ -173,7 +171,7 @@ Filter de **subscriptionName** kolom in de Azure-gebruik en kosten CSV-bestand n
 
 Instructies voor het betalen van uw factuur worden weergegeven aan de onderkant van de factuur. [Meer informatie over het betalen](billing-mca-understand-your-invoice.md#how-to-pay).
 
-Als u uw factuur al hebt betaald, kunt u de status van de betaling op de pagina facturen in Azure portal controleren. 
+Als u uw factuur al hebt betaald, kunt u de status van de betaling op de pagina facturen in Azure portal controleren.
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Toegang tot een Microsoft-KLANTOVEREENKOMST controleren
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]

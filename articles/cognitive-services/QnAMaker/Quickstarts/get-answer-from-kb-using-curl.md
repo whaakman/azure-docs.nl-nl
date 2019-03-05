@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: Gebruik cURL antwoord ophalen uit knowledge base - QnA Maker'
+title: 'Quickstart: Gebruik cURL antwoord ophalen uit knowledge base - QnA Maker'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstartgids helpt u bij het ophalen van een antwoord uit uw knowledge base met cURL.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: b269785d41931ce68827e2b48cc543d35ee47597
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3b728984b2bda836d3d4924b93f1b11a5d05d8bb
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870279"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342459"
 ---
-# <a name="quickstart-get-answer-from-knowledge-base-using-curl"></a>Snelstart: Antwoord ophalen uit knowledge base met cURL
+# <a name="quickstart-get-answer-from-knowledge-base-using-curl"></a>Quickstart: Antwoord ophalen uit knowledge base met cURL
 
 In deze snelstartgids op basis van een cURL begeleidt u bij het ophalen van een antwoord uit uw knowledge base.
 

@@ -5,24 +5,24 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 2/28/2018
 ms.author: mayg
-ms.openlocfilehash: b52bdd5948676c09c433cbda249248ce26ce8a48
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c4309b20664520bc1912adadee72d614a085f573
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866025"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338950"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Instellen van netwerktoewijzing en IP-adressering voor vnet 's
 
-Dit artikel wordt beschreven hoe u kunt twee exemplaren van virtuele Azure-netwerken (VNets) zich in verschillende Azure-regio's toewijzen, en over het instellen van het IP-adressering tussen netwerken. Netwerktoewijzing zorgt ervoor dat een gerepliceerde virtuele machine is gemaakt in de doel-Azure-regio in het VNet dat toegewezen aan het VNet van de bron-VM wordt gemaakt.
+Dit artikel wordt beschreven hoe u kunt twee exemplaren van virtuele Azure-netwerken (VNets) zich in verschillende Azure-regio's toewijzen, en over het instellen van het IP-adressering tussen netwerken. Netwerktoewijzing biedt een standaardgedrag voor het doel netwerk selecteren op basis van de bron-netwerk op het moment van het inschakelen van replicatie.
 
 ## <a name="prerequisites"></a>Vereisten
 
 Voordat u netwerken toewijzen, moet u beschikken over [Azure VNets](../virtual-network/virtual-networks-overview.md) in de bron en doel-Azure-regio's. 
 
-## <a name="set-up-network-mapping"></a>Netwerktoewijzing instellen
+## <a name="set-up-network-mapping-manually-optional"></a>Instellen van netwerktoewijzing handmatig (optioneel)
 
 Netwerken als volgt toewijzen:
 
@@ -44,8 +44,13 @@ Als u dit nog niet hebt voorbereid netwerktoewijzing voordat u herstel na noodge
 
 - Op basis van het doel dat u selecteert, maakt Site Recovery automatisch Netwerktoewijzingen van de bron naar doelregio, en het doel naar de bronregio.
 - Site Recovery maakt standaard een netwerk in de doelregio die identiek is aan het Bronnetwerk. Site Recovery voegt **-asr** als achtervoegsel aan de naam van het Bronnetwerk. U kunt het doelnetwerk kunt aanpassen.
-- Als de netwerktoewijzing al is gebeurd, kunt u het virtuele netwerk niet wijzigen wanneer u replicatie inschakelt. Als u wilt wijzigen van het virtuele doelnetwerk, moet u de bestaande netwerktoewijzing wijzigt.
-- Als u een netwerktoewijzing van de A-regio naar regio B wijzigt, zorgt u ervoor dat u ook de netwerktoewijzing van de B-regio naar regio A. wijzigen]
+- Als de netwerktoewijzing al heeft plaatsgevonden voor een Bronnetwerk, worden het toegewezen netwerk standaard altijd op het moment van het inschakelen van replicaties voor meer virtuele machines. U kunt het virtuele doelnetwerk wijzigen door het kiezen van andere beschikbare opties in de vervolgkeuzelijst. 
+- Als u wilt wijzigen van het virtuele doelnetwerk standaard voor nieuwe replicaties, moet u de bestaande netwerktoewijzing wijzigt.
+- Als u wilt een netwerktoewijzing van de A-regio naar regio B wijzigt, zorg ervoor dat u eerst de netwerktoewijzing verwijderen van de B-regio naar regio A. Na het verwijderen van de omgekeerde toewijzing wijzigen van de netwerktoewijzing van de A-regio naar regio B en maak vervolgens de relevante omgekeerde toewijzing.
+
+>[!NOTE]
+>* De standaardinstellingen voor nieuwe VM-replicaties wijzigen van de netwerktoewijzing alleen worden gewijzigd. Dit heeft geen invloed op de selecties voor het virtuele netwerk van doel voor bestaande replicaties. 
+>* Als u wijzigen van het doelnetwerk voor een bestaande replicatie wilt, gaat u naar de reken- en netwerkinstellingen van het gerepliceerde item.
 
 ## <a name="specify-a-subnet"></a>Geef een subnet
 

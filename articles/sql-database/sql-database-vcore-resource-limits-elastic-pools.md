@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/15/2019
-ms.openlocfilehash: b0bd5c0ba8641bd287951168485be715a0b46224
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.date: 03/04/2019
+ms.openlocfilehash: a372a955578f3621c1b8a9226809671927c9bfd3
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328670"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342748"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Resourcelimieten voor elastische pools met behulp van de limieten aankopen model op basis van vCore
 
@@ -50,8 +50,10 @@ U kunt de servicelaag, rekencapaciteit en opslag met behulp van bedrag instellen
 |Opslagtype|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|
 |I/o-latentie (bij benadering)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|
 |Doel-IOPS (van 64 KB)|500|1000|1500|2000|2500|3000|
+|Meld u frequentielimieten (MBps)|2.5|5|7.5|10|12.5|15|
 |Maximaal aantal gelijktijdige werknemers per pool (aanvragen) * |210|420|630|840|1050|1260|
-|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
+|Maximaal aantal gelijktijdige aanmeldingen per pool * |210|420|630|840|1050|1260|
+|Maximaal toegestane sessies|30000|30000|30000|30000|30000|30000|
 |Maximaal aantal databases per pool|100|200|300|500|500|500|
 |Min./Max. elastische pool vCore-opties per database|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
 |Aantal replica's|1|1|1|1|1|1|
@@ -76,8 +78,10 @@ U kunt de servicelaag, rekencapaciteit en opslag met behulp van bedrag instellen
 |Opslagtype|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|
 |I/o-latentie (bij benadering)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|
 |Doel-IOPS (van 64 KB)|3500|4000|4500|5000|7000|7000|
+|Meld u frequentielimieten (MBps)|17.5|20|20|20|20|20|
 |Maximaal aantal gelijktijdige werknemers per pool (aanvragen) *|1470|1680|1890|2100|3360|5040|
-|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
+|Maximum aantal gelijktijdige aanmeldingen pool (aanvragen) *|1470|1680|1890|2100|3360|5040|
+|Maximaal toegestane sessies|30000|30000|30000|30000|30000|30000|
 |Maximaal aantal databases per pool|200|500|500|500|500|500|
 |Min./Max. elastische pool vCore-opties per database|0, 0.25, 0.5, 1...7|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...9|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...10, 16|0, 0.25, 0.5, 1...10, 16, 24|
 |Aantal replica's|1|1|1|1|1|1|
@@ -102,8 +106,10 @@ U kunt de servicelaag, rekencapaciteit en opslag met behulp van bedrag instellen
 |Opslagtype|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|
 |I/o-latentie (bij benadering)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|
 |Doel-IOPS (van 64 KB)|500|1000|1500|2000|2500|3000|3500|
+|Meld u frequentielimieten (MBps)|2.5|56|7.5|10|12.5|15|17.5|
 |Maximaal aantal gelijktijdige werknemers per pool (aanvragen) *|210|420|630|840|1050|1260|1470|
-|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
+|Maximaal aantal gelijktijdige aanmeldingen per pool (aanvragen) *|210|420|630|840|1050|1260|1470|
+|Maximaal toegestane sessies|30000|30000|30000|30000|30000|30000|30000|
 |Maximaal aantal databases per pool|200|500|500|500|500|500|500|
 |Min./Max. elastische pool vCore-opties per database|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
 |Aantal replica's|1|1|1|1|1|1|1|
@@ -128,7 +134,9 @@ U kunt de servicelaag, rekencapaciteit en opslag met behulp van bedrag instellen
 |Opslagtype|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|
 |I/o-latentie (bij benadering)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|
 |Doel-IOPS (van 64 KB)|4000|4500|5000|6000|7000|7000|7000|
+|Meld u frequentielimieten (MBps)|20|20|20|20|20|20|20|
 |Maximaal aantal gelijktijdige werknemers per pool (aanvragen) *|1680|1890|2100|2520|33600|4200|8400|
+|Maximaal aantal gelijktijdige aanmeldingen per pool (aanvragen) *|1680|1890|2100|2520|33600|4200|8400|
 |Maximaal aantal databases per pool|500|500|500|500|500|500|500|
 |Min./Max. elastische pool vCore-opties per database|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...16, 24, 32, 40|0, 0.25, 0.5, 1...16, 24, 32, 40, 80|
 |Aantal replica's|1|1|1|1|1|1|1|
@@ -146,17 +154,19 @@ U kunt de servicelaag, rekencapaciteit en opslag met behulp van bedrag instellen
 |:--- | --: |--: |--: |--: |--: |--: |
 |H/W genereren|4|4|4|4|4|4|
 |vCores|1|2|3|4|5|6|
-|Geheugen (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
-|Ondersteuning voor Columnstore|N/A|N/A|N/A|N/A|N/A|N/A|
+|Geheugen (GB)|7|14|21|28|35|42|
+|Ondersteuning voor Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|
 |In-memory OLTP-opslag (GB)|1|2|3|4|5|6|
 |Opslagtype|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|
-|Maximumgrootte van gegevens (GB)|1024|1024|1024|1024|1024|1024|
-|Maximale logboekgrootte (GB)|307|307|307|307|307|307|
+|Maximumgrootte van gegevens (GB)|650|650|650|650|650|650|
+|Maximale logboekgrootte (GB)|195|195|195|195|195|195|
 |TempDB-grootte (GB)|32|64|96|128|160|192|
 |I/o-latentie (bij benadering)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|
-|Doel-IOPS (van 64 KB)|5000|10.000|15.000|20000|25000|30.000|
+|Doel-IOPS (van 64 KB)|5000|10.000|15.000|20000|25000|30000|
+|Meld u frequentielimieten (MBps)|6|12|18|24|30|36|
 |Maximaal aantal gelijktijdige werknemers per pool (aanvragen) *|210|420|630|840|1050|1260|
-|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
+|Maximaal aantal gelijktijdige aanmeldingen per pool (aanvragen) *|210|420|630|840|1050|1260|
+|Maximaal toegestane sessies|30000|30000|30000|30000|30000|30000|
 |Maximaal aantal databases per pool|Slechts één DB's worden ondersteund voor deze compute-grootte|50|100|100|100|100|
 |Min./Max. elastische pool vCore-opties per database|N/A|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
 |Aantal replica's|4|4|4|4|4|4|
@@ -176,13 +186,15 @@ U kunt de servicelaag, rekencapaciteit en opslag met behulp van bedrag instellen
 |Ondersteuning voor Columnstore|N/A|N/A|N/A|N/A|N/A|N/A|
 |In-memory OLTP-opslag (GB)|7|8|9.5|11|20|36|
 |Opslagtype|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|
-|Maximumgrootte van gegevens (GB)|1024|1024|1024|1024|1024|1024|
-|Maximale logboekgrootte (GB)|307|307|307|307|307|307|
+|Maximumgrootte van gegevens (GB)|650|650|650|650|1024|1024|
+|Maximale logboekgrootte (GB)|195|195|195|195|307|307|
 |TempDB-grootte (GB)|224|256|288|320|384|384|
 |I/o-latentie (bij benadering)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|
 |Doel-IOPS (van 64 KB)|35000|40000|45000|50000|80000|120000|
+|Meld u frequentielimieten (MBps)|
 |Maximaal aantal gelijktijdige werknemers per pool (aanvragen) *|1470|1680|1890|2100|3360|5040|
-|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
+|Maximaal aantal gelijktijdige aanmeldingen per pool (aanvragen) *|1470|1680|1890|2100|3360|5040|
+|Maximaal toegestane sessies|30000|30000|30000|30000|30000|30000|
 |Maximaal aantal databases per pool|100|100|100|100|100|100|
 |Min./Max. elastische pool vCore-opties per database|0, 0.25, 0.5, 1...7|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...9|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...10, 16|0, 0.25, 0.5, 1...10, 16, 24|
 |Aantal replica's|4|4|4|4|4|4|
@@ -201,14 +213,16 @@ U kunt de servicelaag, rekencapaciteit en opslag met behulp van bedrag instellen
 |Geheugen (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
 |Ondersteuning voor Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |In-memory OLTP-opslag (GB)|1.571|3.142|4.713|6.284|8.655|11.026|13.397|
-|Maximumgrootte van gegevens (GB)|1024|1024|1024|1536|1536|1536|1536|
-|Maximale logboekgrootte (GB)|307|307|307|461|461|461|461|
+|Maximumgrootte van gegevens (GB)|1024|1024|1536|1536|1536|3072|3072|
+|Maximale logboekgrootte (GB)|307|307|307|461|461|922|922|
 |TempDB-grootte (GB)|64|128|192|256|320|384|384|
 |Opslagtype|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|
 |I/o-latentie (bij benadering)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|
-|Doel-IOPS (van 64 KB)|5000|10.000|15.000|20000|25000|30.000|35000|
+|Doel-IOPS (van 64 KB)|5000|10.000|15.000|20000|25000|30000|35000|
+|Meld u frequentielimieten (MBps)|48|48|48|48|48|48|48|
 |Maximaal aantal gelijktijdige werknemers per pool (aanvragen) *|210|420|630|840|1050|1260|1470|
-|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
+|Maximaal aantal gelijktijdige aanmeldingen per pool (aanvragen) *|210|420|630|840|1050|1260|1470|
+|Maximaal toegestane sessies|30000|30000|30000|30000|30000|30000|30000|
 |Maximaal aantal databases per pool|Slechts één DB's worden ondersteund voor deze compute-grootte|50|100|100|100|100|100|
 |Min./Max. elastische pool vCore-opties per database|N/A|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
 |Aantal replica's|4|4|4|4|4|4|4|
@@ -233,12 +247,14 @@ U kunt de servicelaag, rekencapaciteit en opslag met behulp van bedrag instellen
 |Opslagtype|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|
 |I/o-latentie (bij benadering)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|
 |Doel-IOPS (van 64 KB)|40000|45000|50000|60000|80000|100000|200000|
+|Meld u frequentielimieten (MBps)|48|48|48|48|48|48|48|
 |Maximaal aantal gelijktijdige werknemers per pool (aanvragen) *|1680|1890|2100|2520|3360|4200|8400|
-|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
+|Maximaal aantal gelijktijdige aanmeldingen per pool (aanvragen) *|1680|1890|2100|2520|3360|4200|8400|
+|Maximaal toegestane sessies|30000|30000|30000|30000|30000|30000|30000|
 |Maximaal aantal databases per pool|100|100|100|100|100|100|100|
 |Min./Max. elastische pool vCore-opties per database|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...20, 24, 32, 40|0, 0.25, 0.5, 1...20, 24, 32, 40, 80|
 |Aantal replica's|4|4|4|4|4|4|4|
-|Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
+|Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 

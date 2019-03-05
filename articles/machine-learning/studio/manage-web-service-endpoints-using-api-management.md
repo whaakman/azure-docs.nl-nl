@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: b15fddcace19abcd1cd08d059c497c1c209f74d0
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: d4029d7f15918ea75ebcb10bfa8f8f7657eb11ca
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823430"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342578"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Azure Machine Learning Studio-webservices met API Management beheren
 ## <a name="overview"></a>Overzicht
@@ -23,9 +23,6 @@ Deze handleiding laat zien hoe u snel aan de slag met API Management voor het be
 
 ## <a name="what-is-azure-api-management"></a>Wat is Azure API Management?
 Azure API Management is een Azure-service waarmee u uw REST API-eindpunten beheren met het definiëren van gebruikerstoegang, beperking en bewaking van dashboard. Klik op [hier](https://azure.microsoft.com/services/api-management/) voor meer informatie over Azure API Management. Klik op [hier](/azure/api-management/import-and-publish) voor richtlijnen voor hoe u aan de slag met Azure API Management. Deze andere gids, die in deze handleiding is gebaseerd op, vindt u meer onderwerpen, waaronder melding configuraties, prijzen, antwoord verwerking, gebruikersverificatie, producten, developer-abonnementen en gebruik dashboarding maken.
-
-## <a name="what-is-azureml"></a>Wat is AzureML?
-AzureML is een Azure-service voor machine learning waarmee u eenvoudig bouwen, implementeren en delen van geavanceerde analyseoplossingen. Klik op [hier](https://azure.microsoft.com/services/machine-learning/) voor meer informatie over AzureML.
 
 ## <a name="prerequisites"></a>Vereisten
 Voor deze handleiding, hebt u het volgende nodig:

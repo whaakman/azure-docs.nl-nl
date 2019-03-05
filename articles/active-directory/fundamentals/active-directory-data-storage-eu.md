@@ -9,49 +9,37 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/17/2018
+ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3a2f243b1a8b891419de7e3ca949e7591f55879
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b21f82dc0a1eb8edf571da13e0d34fecae5f401b
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211356"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337682"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Identiteit gegevensopslag voor Europese klanten in Azure Active Directory
 Azure Active Directory (Azure AD) helpt u bij het beheren van gebruikers-id's en informatie gebaseerd toegangsbeleid die helpen bij het beveiligen van resources van uw organisatie maken. Identiteitsgegevens worden opgeslagen op een locatie die uw bedrijf heeft opgegeven toen u zich hebt aangemeld bij de service. Bijvoorbeeld bij het abonneren op Office 365 of Azure. Voor specifieke informatie over waar uw identiteitsgegevens worden opgeslagen, kunt u het gedeelte [Waar bevinden uw gegevens zich?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) van het Microsoft Trust Center gebruiken.
 
-De meeste Azure Active Directory-gerelateerde Europese identiteitsgegevens blijven in Europese datacenters, maar er zijn vijf kenmerken voor gebruikers die meestal in Amerikaanse datacentra opgeslagen worden. Deze kenmerken zijn GivenName, Surname, userPrincipalName, Domain en PasswordHash. Het kenmerk PasswordHash kan een uitzondering zijn en niet in de Verenigde Staten zijn opgeslagen als iemand gebruikmaakt van een on-premises, federatieve verificatiemethode waarmee het synchroniseren van de waarde PasswordHash met Azure Active Directory kan worden gestopt. Er zijn bovendien nog operationele, servicegebonden gegevens die zijn vereist om Azure Active Directory normaal te laten werken die worden opgeslagen in de Verenigde Staten en geen persoonlijke gegevens bevatten.
+De meeste Azure AD-gerelateerde Europese identiteitsgegevens blijft in Europese datacenters, maar er zijn enkele operationele, servicespecifieke gegevens die zijn voor normale vereist Azure AD-bewerking, die worden opgeslagen in de Verenigde Staten en bevat geen persoonlijke gegevens.
 
 ## <a name="data-stored-outside-of-european-datacenters-for-european-customers"></a>Gegevens die zijn opgeslagen buiten de Europese datacenters voor Europese klanten
 
 De meeste Azure Active Directory-gerelateerde Europese identiteitsgegevens, voor organisaties met adressen in Europa, blijven in Europese datacenters. Azure AD-gegevens die worden opgeslagen in Europese datacenters, en tevens worden gerepliceerd naar de datacenters in de Verenigde Staten, omvat:
-
-- **Identiteitsgerelateerde kenmerken**
-
-    De volgende identiteitsgerelateerde kenmerken worden gerepliceerd naar de Verenigde Staten:
-
-    - GivenName
-    - Achternaam
-    - userPrincipalName
-    - Domain
-    - PasswordHash
-    - SourceAnchor
-    - AccountEnabled
-    - PasswordPolicies
-    - StrongAuthenticationRequirement
-    - ApplicationPassword
-    - PUID
 
 - **Microsoft Azure Multi-Factor Authentication (MFA) en Azure AD Self-Service Password Reset (SSPR)**
     
     MFA slaat alle gebruikersgegevens in rust op in Europese datacenters. Bepaalde gegevens die specifiek zijn voor MFA worden echter opgeslagen in de Verenigde Staten, met inbegrip van:
     
     - Tweeledige verificatie en de bijbehorende persoonlijke gegevens worden mogelijk opgeslagen in de VS als u MFA of SSPR gebruikt.
+
         - Alle tweeledige verificatie met behulp van telefoongesprekken of SMS kan worden uitgevoerd door Amerikaanse providers.
+    
         - Pushmeldingen verzenden met behulp van de Microsoft Authenticator-app vereist meldingen van een notificatieservice van de fabrikant (Apple of Google), die zich mogelijk buiten Europa bevindt.
+    
         - OATH-codes worden altijd gevalideerd in de Verenigde Staten. 
+    
     - Sommige MFA- en SSPR-logboeken worden voor 30 dagen opgeslagen in de Verenigde Staten, ongeacht het verificatietype.
 
 - **Microsoft Azure Active Directory B2C (Azure AD B2C)**
@@ -75,7 +63,11 @@ De meeste Azure Active Directory-gerelateerde Europese identiteitsgegevens, voor
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende artikelen voor meer informatie over een van de functies en functionaliteit die hierboven worden beschreven:
 - [Wat is Multi-Factor Authentication?](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication)
+
 - [Azure Active Directory Self-Service Password Reset](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-overview)
+
 - [Wat is Azure Active Directory B2C?](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)
+
 - [Wat is Azure AD B2B-samenwerking?](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+
 - [Azure Active Directory (AD) Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview)

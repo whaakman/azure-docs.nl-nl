@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 23bbcbf6947100db26f31562c44f8073e16e986f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c7bf766dc0f73b37fc7de537537c7a885a50c30a
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239338"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339569"
 ---
 # <a name="deploy-the-local-agent"></a>De lokale agent implementeren
 
@@ -78,7 +78,7 @@ Azure Stack wordt het systeem onder testen. De computer mag geen deel uit van Az
 
     **Parameters**
 
-    | Parameter | Beschrijving |
+    | Parameter | Description |
     | --- | --- |
     | aadServiceAdminUser | De globale beheerder voor uw Azure AD-tenant. Zo kan het zijn, vaasadmin@contoso.onmicrosoft.com. |
     | aadServiceAdminPassword | Het wachtwoord voor de globale beheerder. |
@@ -120,7 +120,7 @@ De tests zijn externe acties uitgevoerd. De machine waarop de tests moet toegang
     ```
 
       **Parameters**  
-    | Parameter | Beschrijving |
+    | Parameter | Description |
     | --- | --- |
     | VaaSUserId | Gebruikers-ID gebruikt om aan te melden bij de VaaS Portal (bijvoorbeeld UserName@Contoso.com) |
     | VaaSTenantId | Azure AD-tenant-ID voor het Azure-account is geregistreerd bij validatie uit als een Service. |

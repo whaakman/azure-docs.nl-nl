@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 98d8f530b91c2b2483d00838cd4001be88e18a6c
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 6ace19339eb3f89c3b0cde6f5b9b0ecc783e2597
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011208"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341609"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Azure API Management gebruiken met virtuele netwerken
 Azure-netwerken (VNETs) kunt u een van uw Azure-resources in een niet-internet routeerbare netwerk dat u toegang tot te plaatsen. Deze netwerken kunnen vervolgens worden verbonden met uw on-premises netwerken met behulp van verschillende VPN-technologieën. Voor meer informatie over Azure Virtual Networks beginnen met de informatie hier: [Overzicht van Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -112,16 +112,16 @@ Wanneer een exemplaar van API Management-service wordt gehost in een VNET, worde
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / 80, 443                  | Inkomend            | TCP                | INTERNET / VIRTUAL_NETWORK            | Communicatie van clients met API Management                      | Extern             |
 | * / 3443                     | Inkomend            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Beheereindpunt voor Azure-portal en Powershell         | Externe en interne  |
-| * / 80, 443                  | Uitgaand           | TCP                | VIRTUAL_NETWORK / Storage             | **Afhankelijkheid van Azure Storage**                             | Externe en interne  |
-| * / 80, 443                  | Uitgaand           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | Azure Active Directory (indien van toepassing)                   | Externe en interne  |
-| * / 1433                     | Uitgaand           | TCP                | VIRTUAL_NETWORK / SQL                 | **Toegang tot Azure SQL-eindpunten**                           | Externe en interne  |
-| * / 5672                     | Uitgaand           | TCP                | VIRTUAL_NETWORK / EventHub            | Afhankelijkheid voor logboek naar Event Hub-beleid en de monitoring agent | Externe en interne  |
-| * / 445                      | Uitgaand           | TCP                | VIRTUAL_NETWORK / Storage             | Afhankelijkheid van Azure-bestandsshare voor GIT                      | Externe en interne  |
-| * / 1886                     | Uitgaand           | TCP                | VIRTUAL_NETWORK / INTERNET            | Die nodig zijn voor het publiceren van de Integriteitsstatus van de op Resource Health          | Externe en interne  |
-| * / 443                     | Uitgaand           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Publiceren van diagnostische logboeken en metrische gegevens                        | Externe en interne  |
-| * / 25                       | Uitgaand           | TCP                | VIRTUAL_NETWORK / INTERNET            | Verbinding maken met de SMTP-Relay voor het verzenden van e-mailberichten                    | Externe en interne  |
-| * / 587                      | Uitgaand           | TCP                | VIRTUAL_NETWORK / INTERNET            | Verbinding maken met de SMTP-Relay voor het verzenden van e-mailberichten                    | Externe en interne  |
-| * / 25028                    | Uitgaand           | TCP                | VIRTUAL_NETWORK / INTERNET            | Verbinding maken met de SMTP-Relay voor het verzenden van e-mailberichten                    | Externe en interne  |
+| * / 80, 443                  | Uitgaande           | TCP                | VIRTUAL_NETWORK / Storage             | **Afhankelijkheid van Azure Storage**                             | Externe en interne  |
+| * / 80, 443                  | Uitgaande           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | Azure Active Directory (indien van toepassing)                   | Externe en interne  |
+| * / 1433                     | Uitgaande           | TCP                | VIRTUAL_NETWORK / SQL                 | **Toegang tot Azure SQL-eindpunten**                           | Externe en interne  |
+| * / 5672                     | Uitgaande           | TCP                | VIRTUAL_NETWORK / EventHub            | Afhankelijkheid voor logboek naar Event Hub-beleid en de monitoring agent | Externe en interne  |
+| * / 445                      | Uitgaande           | TCP                | VIRTUAL_NETWORK / Storage             | Afhankelijkheid van Azure-bestandsshare voor GIT                      | Externe en interne  |
+| * / 1886                     | Uitgaande           | TCP                | VIRTUAL_NETWORK / INTERNET            | Die nodig zijn voor het publiceren van de Integriteitsstatus van de op Resource Health          | Externe en interne  |
+| * / 443                     | Uitgaande           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Publiceren van diagnostische logboeken en metrische gegevens                        | Externe en interne  |
+| * / 25                       | Uitgaande           | TCP                | VIRTUAL_NETWORK / INTERNET            | Verbinding maken met de SMTP-Relay voor het verzenden van e-mailberichten                    | Externe en interne  |
+| * / 587                      | Uitgaande           | TCP                | VIRTUAL_NETWORK / INTERNET            | Verbinding maken met de SMTP-Relay voor het verzenden van e-mailberichten                    | Externe en interne  |
+| * / 25028                    | Uitgaande           | TCP                | VIRTUAL_NETWORK / INTERNET            | Verbinding maken met de SMTP-Relay voor het verzenden van e-mailberichten                    | Externe en interne  |
 | * / 6381 - 6383              | Inkomende en uitgaande | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Toegang tot Azure Cache voor instanties van Redis tussen RoleInstances          | Externe en interne  |
 | * / *                        | Inkomend            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure Infrastructure Load Balancer                          | Externe en interne  |
 
@@ -140,26 +140,25 @@ Wanneer een exemplaar van API Management-service wordt gehost in een VNET, worde
     | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
     | Azure China       | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
 
-+ **SMTP-Relay**: Uitgaande netwerkconnectiviteit voor de SMTP-Relay wordt omgezet in de host `ies.global.microsoft.com`.
++ **SMTP-Relay**: Uitgaande netwerkconnectiviteit voor de SMTP-Relay wordt omgezet in de host `smtpi-co1.msn.com`, `smtpi-ch1.msn.com`, `smtpi-db3.msn.com`, `smtpi-sin.msn.com` en `ies.global.microsoft.com`
 
 + **Portal voor ontwikkelaars CAPTCHA**: Uitgaande netwerkconnectiviteit voor de ontwikkelaarsportal CAPTCHA, die wordt omgezet in de host `client.hip.live.com`.
 
 + **Azure-portal Diagnostics**: De stroom van diagnostische logboeken van Azure portal inschakelen bij het gebruik van de API Management-extensie van binnen een virtueel netwerk, uitgaande toegang tot `dc.services.visualstudio.com` op poort 443 is vereist. Dit helpt bij het oplossen van problemen die u tegenkomen kan bij het gebruik van extensie.
 
-+ **Snelle installatie van de Route**: Er is een algemene configuratie van de klant voor het definiëren van hun eigen standaardroute (0.0.0.0/0) die ervoor zorgt uitgaand internetverkeer dat naar in plaats daarvan flow on-premises. Connectiviteit met Azure API Management verbroken met deze verkeersstroom altijd omdat het uitgaande verkeer geblokkeerd on-premises wordt en NAT wilt een onherkenbare set met adressen die niet meer met verschillende Azure-eindpunten werken. De oplossing is voor het definiëren van een (of meer) gebruiker gedefinieerde routes ([udr's][UDRs]) op het subnet waarin de Azure API Management. Een UDR definieert de subnet-specifieke routes die worden gebruikt in plaats van de standaardroute.
++ **Geforceerde Tunneling van verkeer naar On-premises Firewall met Express Route of netwerk virtueel apparaat**: Een veelvoorkomende configuratie van de klant is voor het definiëren van hun eigen standaardroute (0.0.0.0/0) waardoor al het verkeer van de API Management gedelegeerd subnet aan de stroom door een firewall voor on-premises of aan een virtueel netwerkapparaat. Connectiviteit met Azure API Management verbroken met deze verkeersstroom altijd omdat het uitgaande verkeer geblokkeerd on-premises wordt en NAT wilt een onherkenbare set met adressen die niet meer met verschillende Azure-eindpunten werken. De oplossing moet u een aantal dingen doen:
 
-    Het verdient indien mogelijk, gebruik de volgende configuratie:
+    * Schakel de service-eindpunten op het subnet waarin de API Management-service is geïmplementeerd. [Service-eindpunten] [ ServiceEndpoints] moet worden ingeschakeld voor Azure Sql, Azure Storage, Azure Event hub en Azure Service bus. Inschakelen van rechtstreeks vanuit de API Management gedelegeerde subnet in op deze services kan ze gebruik van het Microsoft Azure-backbone-netwerk bieden van optimale routering voor verkeer van service-eindpunten. Als u een geforceerde tunnel Api Management Service-eindpunten gebruikt, wordt de bovenstaande Azure-services verkeer niet gedwongen tunnel. De andere API Management service afhankelijkheid verkeer geforceerd tunnels en kan niet verloren gaan of de API Management-service kan niet naar behoren.
+    
+    * Alle het besturingselement vlak verkeer van Internet naar het eindpunt van uw API Management-service worden gerouteerd via een specifieke set inkomende IP-adressen die worden gehost door de API Management. Wanneer het verkeer geforceerde tunnels te gebruiken is wordt de antwoorden niet symmetrisch toegewezen terug naar deze binnenkomende bron-IP-adressen. Om te strijden tegen de beperking, moeten we de volgende door de gebruiker gedefinieerde routes toevoegen ([udr's][UDRs]) om door te sturen verkeer terug naar Azure door in te stellen van de bestemming van deze hostroutes naar 'Internet'. De set inkomende IP-adressen voor beheer op vlak van het verkeer is als volgt:
+    
+    > 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 13.64.39.16/32, 40.81.47.216/32, 51.145.179.78/32, 52.142.95.35/32, 40.90.185.46/32, 20.40.125.155/32
 
-     * De ExpressRoute-configuratie adverteert 0.0.0.0/0 en standaard geforceerde tunnels al het uitgaande verkeer on-premises.
-     * De UDR toegepast op het subnet met de Azure API Management definieert 0.0.0.0/0 met een volgend hoptype van Internet.
-
-    Het gecombineerde effect van deze stappen is dat het subnetniveau UDR voorrang boven de ExpressRoute geforceerde tunneling, dus ervoor te zorgen dat uitgaande toegang tot Internet vanaf de Azure API Management.
-
-+ **Routering via virtuele netwerkapparaten**: Configuraties die een UDR met een standaardroute (0.0.0.0/0) gebruiken voor het routeren van internet bestemd verkeer van de API Management subnet via een virtueel netwerkapparaat uitvoeren in Azure die afkomstig zijn van Internet naar de API Management-service voor het beheer van verkeer wordt geblokkeerd het exemplaar dat wordt geïmplementeerd binnen een subnet van het virtuele netwerk. Deze configuratie wordt niet ondersteund.
-
->[!WARNING]
->Met Azure API Management wordt niet ondersteund met ExpressRoute-configuraties die **onjuist advertentieoverschrijdende routes van de openbare-peeringpad naar het pad voor persoonlijke peering**. ExpressRoute-configuraties waarvoor openbare peering is geconfigureerd, ontvangen routeadvertenties van Microsoft voor een groot aantal Microsoft Azure IP-adresbereiken. Als deze adresbereiken onjuist advertentieoverschrijdend op het pad voor persoonlijke peering zijn, is het eindresultaat dat alle uitgaande netwerkpakketten vanuit het subnet van de Azure API Management-instantie onjuist geforceerde aan van een klant on-premises netwerk infrastructuur. Deze netwerkstroom wordt verbroken Azure API Management. De oplossing voor dit probleem is om te stoppen advertentieoverschrijdende routes van het pad voor openbare peering naar het pad voor persoonlijke peering.
-
+    * Voor andere van API Management service-afhankelijkheden die geforceerde tunnels te gebruiken zijn, hun manier om de hostnaam niet omzetten en contact opnemen met het eindpunt moet zijn. Deze omvatten
+        - Metrische gegevens en statuscontrole
+        - Azure-portal diagnostische gegevens
+        - SMTP-Relay
+        - CAPTCHA-portal voor ontwikkelaars
 
 ## <a name="troubleshooting"> </a>Problemen oplossen
 * **Instellingen voor de eerste**: Wanneer de eerste implementatie van API Management-service in een subnet niet gelukt is, is het raadzaam eerst een virtuele machine implementeren in hetzelfde subnet bevinden. Extern bureaublad van de volgende bij de virtuele machine en controleren of er verbinding met een van elke resource hieronder in uw azure-abonnement
@@ -170,7 +169,7 @@ Wanneer een exemplaar van API Management-service wordt gehost in een VNET, worde
  > [!IMPORTANT]
  > Nadat u de connectiviteit hebt gevalideerd, zorg ervoor dat alle resources die zijn geïmplementeerd in het subnet voor het implementeren van API Management in het subnet te verwijderen.
 
-* **Incrementele Updates**: Als u wijzigingen aanbrengt aan uw netwerk, verwijzen naar [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus), om te verifiëren dat de API Management-service niet tot een van de kritieke resources die dit is afhankelijk van is verbroken. De verbindingsstatus van de moet worden bijgewerkt om de 15 minuten.
+* **Incrementele Updates**: Als u wijzigingen aanbrengt aan uw netwerk, verwijzen naar [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus), om te verifiëren dat de API Management-service niet tot een van de kritieke resources, dit is afhankelijk van is verbroken. De verbindingsstatus van de moet worden bijgewerkt om de 15 minuten.
 
 * **Resourcenavigatiekoppelingen**: Wanneer u deze implementeert in Resource Manager stijl vnet-subnet, API Management het subnet gereserveerd door het maken van een koppeling-resourcenavigatie. Als het subnet al een resource in een andere provider bevat, implementatie zal **mislukken**. Wanneer u een API Management-service naar een ander subnet verplaatsen of verwijderen, zullen we op dezelfde manier dat resourcenavigatiekoppeling verwijderen.
 
@@ -179,7 +178,7 @@ Azure reserveert bepaalde IP-adressen binnen elk subnet, en deze adressen kunnen
 
 Naast de IP-adressen die worden gebruikt door de Azure-VNET-infrastructuur, gebruikt elk exemplaar van Api Management in het subnet twee IP-adressen per eenheid van de Premium-SKU of een IP-adres voor de Developer-SKU. Elk exemplaar een extra IP-adres voor de externe load balancer gereserveerd. Wanneer u deze implementeert in interne vnet, is een extra IP-adres voor de interne load balancer vereist.
 
-Gezien de berekening boven de minimale grootte van het subnet waarin API Management kunnen worden geïmplementeerd is het /29 waarmee 3 IP-adressen.
+Gezien de berekening boven de minimale grootte van het subnet waarin API Management kunnen worden geïmplementeerd is het /29 waarmee drie IP-adressen.
 
 ## <a name="routing"> </a> Routing
 + Een gelijke openbare IP-adres (VIP) wordt gereserveerd voor toegang tot alle service-eindpunten.
@@ -213,3 +212,5 @@ Gezien de berekening boven de minimale grootte van het subnet waarin API Managem
 
 [UDRs]: ../virtual-network/virtual-networks-udr-overview.md
 [Network Security Group]: ../virtual-network/security-overview.md
+[ServiceEndpoints]: ../virtual-network/virtual-network-service-endpoints-overview.md
+[ServiceTags]: ../virtual-network/security-overview.md#service-tags

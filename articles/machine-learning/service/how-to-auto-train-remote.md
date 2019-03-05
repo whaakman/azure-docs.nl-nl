@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 95c495bf3a8ad7b82c42d4071899d045cb49f27b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b45f48289eda9096c84537eaaa7bc2df74c9d05d
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247541"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341398"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Trainen van modellen met geautomatiseerde machine learning in de cloud
 
@@ -80,8 +80,8 @@ U kunt ook een bestaande Linux-DSVM koppelen als de compute-doel. In dit voorbee
 
 > [!NOTE]
 >
-> De volgende code gebruikt de `RemoteCompute` target-klasse om te koppelen van een bestaande virtuele machine als uw compute-doel.
-> De `DsvmCompute` klasse worden afgeschaft in toekomstige releases en vervangen door dit ontwerppatroon.
+> De volgende code gebruikt de [RemoteCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.remote.remotecompute?view=azure-ml-py) target-klasse om te koppelen van een bestaande virtuele machine als uw compute-doel.
+> De [DsvmCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.dsvmcompute?view=azure-ml-py) klasse worden afgeschaft in toekomstige releases en vervangen door dit ontwerppatroon.
 
 Voer de volgende code voor het maken van de compute-doel van een bestaande Linux-DSVM.
 

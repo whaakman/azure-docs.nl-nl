@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67a8c4d4fe5476d00677c08bef9668066c4ec4f3
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: c6053313c6971f1bcf66bc447b4f4f5fe5817666
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458061"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339739"
 ---
 # <a name="manage-your-organizations-from-the-my-profile-preview-portal"></a>Uw organisatie beheren via de portal Mijn profiel (preview)
 U kunt uw organisaties van beheren de **organisaties** pagina van de **Mijn profiel** portal.
@@ -35,7 +35,7 @@ Er zijn twee soorten organisaties weergegeven op de **organisaties** pagina:
 
 2. Selecteer **organisaties** van het navigatiedeelvenster links in of Selecteer de **organisaties beheren** koppelen vanuit de **organisaties** blokkeren.
 
-    ![Mijn profiel-pagina, met koppelingen voor organisaties gemarkeerd](media/myprofile-portal/myprofile-portal-organizations-links.png)
+    ![Mijn profiel-pagina, met koppelingen voor organisaties gemarkeerd](media/myprofile-portal/myprofile-portal-organizations.png)
 
 3. Controleer de gegevens voor uw **Home-organisatie**. 
 
@@ -57,4 +57,4 @@ U kunt elke organisatie die uw organisatie startpagina niet laten.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Na het weergeven van uw recente activiteit voor aanmelden, kunt u selecteren om te bekijken of beheren van uw [beveiligingsgegevens](user-help-security-info-overview.md), [recente aanmeldingsactiviteiten](myprofile-portal-recent-activity-page.md), verbonden [apparaten](myprofile-portal-devices-page.md), of om weer te geven hoe uw organisatie [maakt gebruik van uw gegevens](myprofile-portal-privacy-page.md).
+- Na het weergeven van uw organisatie, kunt u selecteren om te bekijken of beheren van uw [beveiligingsgegevens](user-help-security-info-overview.md), verbonden [apparaten](myprofile-portal-devices-page.md), of de weergave hoe uw organisatie [maakt gebruik van uw gegevens](myprofile-portal-privacy-page.md).

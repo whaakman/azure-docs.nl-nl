@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 1d7f58780819202eb02e3a48b4b5e0ac108a0432
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: e418cf8d619b55fde56a4d6d7d7cd9a8b36a112e
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447460"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339229"
 ---
 # <a name="understand-cost-management-data"></a>Inzicht in gegevens van Cost Management
 
@@ -62,8 +62,9 @@ De volgende tabel ziet u niet-ondersteunde aanbiedingen.
 | **Ondersteuningsabonnementen** | Azure Government Pro-direct Support | MS-AZR-USGOV-0042P |
 | **Ondersteuningsabonnementen** | Azure gov-Developer Support | MS-AZR-USGOV-0043P |
 
-Voor klanten met categorieën van aanbieding voor betalen per gebruik, MSDN en Visual Studio is de gegevens beschikbaar in Cost Management vanaf 02-10-2018.
+Voor klanten met categorieën van aanbieding voor betalen per gebruik, MSDN en Visual Studio is de gegevens beschikbaar in Cost Management vanaf 02-10-2018. Voor toegang tot gegevens voor uw abonnement voordat 02-10-2018, kunt u de [Azure-Accountcentrum](https://account.azure.com/subscriptions) voor het downloaden van uw gebruik van de gegevens in een CSV-bestand of kunt u de [Usage Details API](/rest/api/consumption/usagedetails).
 
+## <a name="determine-your-offer-type"></a>Bepalen van het aanbiedingstype
 Als er geen gegevens voor een abonnement en u bepalen wilt als het abonnement onder de ondersteunde biedt valt, kunt u valideren dat uw abonnement wordt ondersteund. Als u wilt valideren of een Azure-abonnement wordt ondersteund, aanmelden bij de [Azure-portal](https://portal.azure.com). Selecteer vervolgens **alle Services** in het menu links. Selecteer in de lijst met services, **abonnementen**. Klik op het abonnement dat u wilt controleren in het menu van de lijst met abonnementen. Uw abonnement wordt weergegeven op het tabblad Overzicht en ziet u de **bieden** en **aanbiedings-ID**. In de volgende afbeelding ziet u een voorbeeld.
 
 ![Voorbeeld van het tabblad van het abonnement overzicht weergegeven van de aanbieding en aanbiedings-ID](./media/understand-cost-mgt-data/offer-and-offer-id.png)

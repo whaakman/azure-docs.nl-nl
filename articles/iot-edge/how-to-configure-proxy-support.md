@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 58a51fd90eb0b89048eca7c95272523ffd10c24a
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: d1ad1f34f51adbc177e5b4163d528dbe45ce03af
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982315"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339144"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Een IoT Edge-apparaat om te communiceren via een proxyserver configureren
 
@@ -72,7 +72,7 @@ Raadpleeg de documentatie voor Docker de Docker-daemon configureren met omgeving
 
 Kies het artikel dat van toepassing op uw Docker-versie: 
 
-* [Docker](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
+* [Docker for Linux](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
 * [Docker voor Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon#proxy-configuration)
 
 ### <a name="iot-edge-daemon"></a>IoT Edge-daemon

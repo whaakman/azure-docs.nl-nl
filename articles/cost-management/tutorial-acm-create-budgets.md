@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 02/28/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: b41d086c092f3b18715d8fb70cd1a487a97c6869
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1db3fbbd39418504f98469c7b4999c5a91b5d6de
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814041"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342176"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Zelfstudie: Maken en beheren van Azure budgetten
 
@@ -35,11 +35,11 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
-Budgetten worden ondersteund voor verschillende typen Azure-account. De volledige lijst met ondersteunde accounttypen Zie [gegevens van kostenbeheer begrijpen](understand-cost-mgt-data.md). Als u wilt weergeven van budgetten, moet u minimaal leestoegang voor uw Azure-account.
+Budgetten worden ondersteund voor verschillende typen Azure-account. Zie voor de volledige lijst met ondersteunde accounttypen [Gegevens van Azure Cost Management begrijpen](understand-cost-mgt-data.md). Als u wilt weergeven van budgetten, moet u minimaal leestoegang voor uw Azure-account.
 
  Voor Azure EA-abonnementen, moet u leestoegang tot het weergeven van budgetten hebben. Als u wilt maken en beheren van budgetten, moet u de machtiging Inzender hebt. U kunt afzonderlijke budgetten voor EA-abonnementen en resourcegroepen. U kan echter budgetten maken voor facturering van accounts EA.
 
-De volgende Azure-machtigingen worden per abonnement voor budgetten door gebruikers en groepen ondersteund:
+De volgende Azure-machtigingen of bereiken, worden ondersteund per abonnement voor budgetten per gebruiker en groep. Zie voor meer informatie over bereiken [begrijpen en werk met een bereik](understand-work-scopes.md).
 
 - Eigenaar: eigenaren kunnen budgetten voor een abonnement instellen, wijzigen en verwijderen.
 - Inzender en Inzender van Cost Management – kunt maken, wijzigen of verwijderen van hun eigen budgetten. Inzenders kunnen ook de budgetbedragen aanpassen voor budgetten die zijn gemaakt door anderen.
@@ -53,7 +53,7 @@ Zie voor meer informatie over het toewijzen van machtigingen aan gegevens van Co
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Maken van een budget in de Azure portal
 
-U kunt het budget van een Azure-abonnement maken voor een bepaalde maand, kwartaal of jaar. Uw navigeerbare inhoud in de Azure-portal bepaalt u of u een budget voor een abonnement of voor een resourcegroep maken. Bijvoorbeeld, in de Azure-portal, Ga naar **abonnementen** &gt; Selecteer een abonnement &gt; **budgetten**. In dit voorbeeld is het budget dat u hebt gemaakt voor het abonnement dat u hebt geselecteerd. Als u maken van een budget voor een resourcegroep wilt, gaat u naar **resourcegroepen** > Selecteer een resourcegroep > **budgetten**.
+U kunt het budget van een Azure-abonnement maken voor een bepaalde maand, kwartaal of jaar. Uw navigeerbare inhoud in de Azure-portal bepaalt u of u een budget voor een abonnement of voor een resourcegroep maken. Bijvoorbeeld, in de Azure-portal, Ga naar **abonnementen** &gt; Selecteer een abonnement &gt; **budgetten**. In dit voorbeeld is het budget dat u hebt gemaakt voor het abonnement dat u hebt geselecteerd. Als u maken van een budget voor een resourcegroep wilt, gaat u naar **resourcegroepen** > Selecteer een resourcegroep > **budgetten**...
 
 Nadat u budgetten maakt, worden ze een eenvoudige weergave van uw huidige uitgaven op basis hiervan weergegeven.
 
@@ -85,6 +85,28 @@ Afhankelijk van het toegangsniveau dat u hebt, kunt u een budget om de eigenscha
 
 ![Voorbeeld van het bewerken van een budget om verschillende eigenschappen te wijzigen](./media/tutorial-acm-create-budgets/edit-budget.png)
 
+## <a name="trigger-an-action-group"></a>Een actiegroep activeren
+
+Wanneer u maakt of een budget voor een abonnement of een resource groepsbereik bewerkt, kunt u configureren om aan te roepen een actiegroep. De actiegroep kunt tal van verschillende acties uitvoeren als uw budgetdrempelwaarde is bereikt. Zie voor meer informatie over actiegroepen [maken en beheren van actiegroepen in Azure portal](../azure-monitor/platform/action-groups.md). Zie voor meer informatie over het gebruik van automation op basis van budget met actiegroepen [kosten beheren met Azure budgetten](../billing/billing-cost-management-budget-scenario.md).
+
+Als u wilt maken of bijwerken van actiegroepen, klikt u op **beheren actiegroepen** terwijl u het maken of bewerken van een budget.
+
+![Voorbeeld van het maken van een budget beheren actiegroepen weergeven](./media/tutorial-acm-create-budgets/manage-action-groups01.png)
+
+Klik vervolgens op **actiegroep toevoegen** en de actiegroep te maken.
+
+
+![Afbeelding van het vak toevoegen actie groep](./media/tutorial-acm-create-budgets/manage-action-groups02.png)
+
+Na de actie groep is gemaakt, sluit het vak om terug te keren naar uw budget.
+
+Configureer uw budget voor het gebruik van de actiegroep als een afzonderlijke drempelwaarde is bereikt. Er worden maximaal vijf verschillende drempelwaarden ondersteund.
+
+![Voorbeeld van groepsselectie actie voor de voorwaarde voor een waarschuwing](./media/tutorial-acm-create-budgets/manage-action-groups03.png)
+
+Het volgende voorbeeld ziet budgetdrempels ingesteld op 50%, 75% en 100%. Elk is geconfigureerd voor het activeren van de opgegeven acties in de aangewezen actiegroep.
+
+![Voorbeeld van waarschuwing bepalingen die zijn geconfigureerd met verschillende actiegroepen en type van acties](./media/tutorial-acm-create-budgets/manage-action-groups04.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

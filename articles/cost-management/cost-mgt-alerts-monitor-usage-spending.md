@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 02/28/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: alavital
 ms.custom: ''
-ms.openlocfilehash: 813ec8f74371b6ae76ac306aea2c462f0beea1fb
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: d6f7a597ff5737bb5e9a3f07122ece313bd432ff
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55773670"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337770"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Gebruik waarschuwingen van de kosten voor gebruik en uitgaven bewaken
 
@@ -23,7 +23,7 @@ Dit artikel helpt u begrijpen en gebruiken van Cost Management waarschuwingen vo
 
 ## <a name="budget-alerts"></a>Budget waarschuwingen
 
-Budget waarschuwingen een melding wanneer uitgaven, op basis van gebruik of kosten, is bereikt of hoger is dan de hoeveelheid die is gedefinieerd in de [waarschuwen voorwaarde van het budget](tutorial-acm-create-budgets.md). Budgetten voor kosten Management worden gemaakt met behulp van de Azure portal of de [Azure Consumption](https://docs.microsoft.com/rest/api/consumption) API. 
+Budget waarschuwingen een melding wanneer uitgaven, op basis van gebruik of kosten, is bereikt of hoger is dan de hoeveelheid die is gedefinieerd in de [waarschuwen voorwaarde van het budget](tutorial-acm-create-budgets.md). Budgetten voor kosten Management worden gemaakt met behulp van de Azure portal of de [Azure Consumption](https://docs.microsoft.com/rest/api/consumption) API.
 
 In de Azure-portal, worden budgetten gedefinieerd door kosten. Met de Azure-verbruik-API, zijn budgetten gedefinieerd door de kosten of door hun verbruik. Budget waarschuwingen ondersteunt zowel op basis van kosten en gebruik op basis van budgetten. Budget waarschuwingen worden automatisch gegenereerd wanneer de waarschuwing budget-voorwaarden wordt voldaan. U kunt alle kosten waarschuwingen weergeven in Azure portal. Wanneer een waarschuwing wordt gegenereerd, wordt deze weergegeven in de kosten waarschuwingen. Een e-mailwaarschuwing is ook verzonden naar de mensen in de lijst met ontvangers van het budget.
 
@@ -34,6 +34,18 @@ Tegoed waarschuwingen een melding wanneer uw Azure-tegoed monetaire toezeggingen
 ## <a name="department-spending-quota-alerts"></a>Afdeling bestedingslimiet quotum waarschuwingen
 
 Afdeling bestedingslimiet quotum waarschuwingen een melding wanneer een vaste drempelwaarde van de quota voor afdeling bestedingslimiet bereikt. De bestedingslimiet quota worden geconfigureerd in de EA-portal. Wanneer een drempelwaarde wordt voldaan genereert een e-mailbericht voor eigenaars van de afdeling en wordt weergegeven in de kosten voor waarschuwingen. Bijvoorbeeld 50% of 75% van het quotum.
+
+## <a name="supported-alert-features-by-offer-categories"></a>Waarschuwing functies ondersteund door categorieën van aanbieding
+
+Ondersteuning voor waarschuwingstypen, is afhankelijk van het type Azure-account dat u hebt (aanbieding van Microsoft). De volgende tabel ziet u de waarschuwing functies die worden ondersteund door verschillende Microsoft-aanbiedingen. U vindt de volledige lijst met Microsoft-aanbiedingen [gegevens van kostenbeheer begrijpen](understand-cost-mgt-data.md).
+
+| Waarschuwingstype | Enterprise Agreement | Microsoft-klantovereenkomst | Web direct/Pay-As-You-Go |
+|---|---|---|---|
+| Budget | ✔ | ✔ | ✔ |
+| Tegoed | ✔ |✘ | ✘ |
+| Bestedingsquotum van afdeling | ✔ | ✘ | ✘ |
+
+
 
 ## <a name="view-cost-alerts"></a>Waarschuwingen weergeven
 

@@ -5,26 +5,26 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 2cf9a98a2f27c9088266a976118acdb56f8a65d7
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 43f3a55bc820a232ccebc3a940faa86f9eb730f7
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300819"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338260"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Dynamisch maken en gebruiken van een permanent volume met Azure Files in Azure Kubernetes Service (AKS)
 
 Een permanent volume vertegenwoordigt een stukje opslag die is ingericht voor gebruik met Kubernetes-schillen. Een permanent volume kan worden gebruikt door een of meer schillen en kan worden dynamisch of statisch ingericht. Als meerdere schillen gelijktijdige toegang tot de dezelfde opslagvolume moeten, kunt u Azure Files verbinding maken met behulp van de [Server Message Block (SMB)-protocol][smb-overview]. Dit artikel ziet u hoe u dynamisch maakt een Azure-bestandsshare voor gebruik door meerdere schillen in een cluster Azure Kubernetes Service (AKS).
 
-Zie voor meer informatie over Kubernetes permanente volumes [Kubernetes permanente volumes][kubernetes-volumes].
+Zie voor meer informatie over Kubernetes volumes [opslagopties voor toepassingen in AKS][concepts-storage].
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
 In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de Quick Start voor AKS [met de Azure CLI] [ aks-quickstart-cli] of [met behulp van de Azure-portal][aks-quickstart-portal].
 
-Ook moet de Azure CLI-versie 2.0.46 of later zijn geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u de Azure CLI wilt installeren of upgraden, raadpleegt u  [Azure CLI installeren][install-azure-cli].
+U ook moet de Azure CLI versie 2.0.59 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u de Azure CLI wilt installeren of upgraden, raadpleegt u  [Azure CLI installeren][install-azure-cli].
 
 ## <a name="create-a-storage-class"></a>Maak een opslagklasse
 
@@ -127,7 +127,7 @@ kubectl apply -f azure-file-pvc.yaml
 
 Als voltooid, kunt u de bestandsshare wordt gemaakt. Een Kubernetes-geheim wordt ook gemaakt met verbindingsgegevens en referenties. U kunt de [kubectl ophalen] [ kubectl-get] opdracht om de status van de PVC weer te geven:
 
-```
+```console
 $ kubectl get pvc azurefile
 
 NAME        STATUS    VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
@@ -180,7 +180,7 @@ Containers:
     Image:          nginx:1.15.5
     Image ID:       docker-pullable://nginx@sha256:d85914d547a6c92faa39ce7058bd7529baacab7e0cd4255442b04577c4d1f424
     State:          Running
-      Started:      Wed, 15 Aug 2018 22:22:27 +0000
+      Started:      Fri, 01 Mar 2019 23:56:16 +0000
     Ready:          True
     Mounts:
       /mnt/azure from volume (rw)
@@ -223,32 +223,11 @@ parameters:
   skuName: Standard_LRS
 ```
 
-Als een cluster van versie 1.8.5 of hoger en het maken van het object permanent volume statisch, koppelingsopties moeten worden opgegeven op de *PersistentVolume* object. Zie voor meer informatie over het maken van een permanent volume statisch [statische permanente Volumes][pv-static].
-
-```yaml
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: azurefile
-spec:
-  capacity:
-    storage: 5Gi
-  accessModes:
-    - ReadWriteMany
-  azureFile:
-    secretName: azure-secret
-    shareName: azurefile
-    readOnly: false
-  mountOptions:
-  - dir_mode=0777
-  - file_mode=0777
-  - uid=1000
-  - gid=1000
-```
-
 Als een cluster van versie 1.8.0 - 1.8.4, een beveiligingscontext kan worden opgegeven met de *uitvoerenals* waarde ingesteld op *0*. Zie voor meer informatie over de beveiligingscontext Pod [configureren van een beveiligingscontext][kubernetes-security-context].
 
 ## <a name="next-steps"></a>Volgende stappen
+
+Zie voor de bijbehorende best practices, [aanbevolen procedures voor opslag en back-ups in AKS][operator-best-practices-storage].
 
 Meer informatie over Kubernetes permanente volumes met behulp van Azure Files.
 
@@ -266,7 +245,6 @@ Meer informatie over Kubernetes permanente volumes met behulp van Azure Files.
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/#azure-file
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
 [pv-static]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#static
-[kubernetes-rbac]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 [smb-overview]: /windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview
 
 <!-- LINKS - internal -->
@@ -283,3 +261,6 @@ Meer informatie over Kubernetes permanente volumes met behulp van Azure Files.
 [install-azure-cli]: /cli/azure/install-azure-cli
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [storage-skus]: ../storage/common/storage-redundancy.md
+[kubernetes-rbac]: concepts-identity.md#role-based-access-controls-rbac
+[operator-best-practices-storage]: operator-best-practices-storage.md
+[concepts-storage]: concepts-storage.md

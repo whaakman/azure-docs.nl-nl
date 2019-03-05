@@ -11,16 +11,16 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: e5528cdfc2efa2d5c257732c8b6b6df117421839
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4f1c4e7695e0c260b6486b3c3d4d0bd8b3f951f6
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250024"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342612"
 ---
 # <a name="train-pytorch-models-with-azure-machine-learning-service"></a>Trainen PyTorch-modellen met Azure Machine Learning-service
 
-Azure Machine Learning biedt voor deep neural network (DNN) training over het gebruik van PyTorch, een aangepaste `PyTorch` klasse van de `Estimator`. De Azure SDK `PyTorch` estimator kunt u eenvoudig indienen PyTorch trainingstaken voor één knooppunt en het gedistribueerde wordt uitgevoerd op Azure-rekenen.
+Azure Machine Learning biedt voor deep neural network (DNN) training over het gebruik van PyTorch, een aangepaste [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) klasse van de `Estimator`. De Azure SDK `PyTorch` estimator kunt u eenvoudig indienen PyTorch trainingstaken voor één knooppunt en het gedistribueerde wordt uitgevoerd op Azure-rekenen.
 
 ## <a name="single-node-training"></a>Training voor één knooppunt
 Training met de `PyTorch` estimator is vergelijkbaar met de [basis `Estimator` ](how-to-train-ml-models.md), dus eerst Lees het artikel met instructies en zorg ervoor dat u er de concepten begrijpen.

@@ -11,16 +11,16 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: b06151b9cb5603ef54c8e84d261bb7a4e7885e1b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b41098907f801f7dae839a470249834b02c8d519
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880458"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338549"
 ---
 # <a name="train-tensorflow-and-keras-models-with-azure-machine-learning-service"></a>Train TensorFlow en Keras-modellen met Azure Machine Learning-service
 
-Azure Machine Learning biedt voor deep neural network (DNN) training over het gebruik van TensorFlow, een aangepaste `TensorFlow` klasse van de `Estimator`. De Azure SDK `TensorFlow` estimator (niet te worden conflated met de [ `tf.estimator.Estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator) klasse) kunt u eenvoudig TensorFlow-trainingstaken voor één knooppunt en het gedistribueerde wordt uitgevoerd op Azure-rekenen indienen.
+Azure Machine Learning biedt voor deep neural network (DNN) training over het gebruik van TensorFlow, een aangepaste `TensorFlow` klasse van de `Estimator`. De Azure SDK [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) estimator (niet te worden conflated met de [ `tf.estimator.Estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator) klasse) kunt u eenvoudig verzenden van taken voor TensorFlow-training voor één knooppunt en het gedistribueerde wordt uitgevoerd op Azure COMPUTE.
 
 ## <a name="single-node-training"></a>Training voor één knooppunt
 Training met de `TensorFlow` estimator is vergelijkbaar met de [basis `Estimator` ](how-to-train-ml-models.md), dus eerst Lees het artikel met instructies en zorg ervoor dat u er de concepten begrijpen.

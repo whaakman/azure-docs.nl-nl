@@ -5,15 +5,15 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 02/13/2019
+ms.date: 03/03/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 84f53b0ddf2d9dfbf25eabbe028c2cfaa0c3fb55
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 038716161845e94011688e8af80a5d4830ac1a5b
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880050"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338141"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Veelgestelde vragen - VMware naar Azure-replicatie
 
@@ -33,13 +33,10 @@ Tijdens de replicatie, gegevens worden gerepliceerd naar Azure storage en betaal
 
 ## <a name="azure"></a>Azure
 ### <a name="what-do-i-need-in-azure"></a>Wat moet ik in Azure?
-U moet een Azure-abonnement, een Recovery Services-kluis, een storage-account en een virtueel netwerk. De kluis, de storage-account en het netwerk moeten zich in dezelfde regio bevinden.
-
-### <a name="what-azure-storage-account-do-i-need"></a>Welke Azure-opslagaccount heb ik nodig?
-U moet een LRS of GRS-opslagaccount. GRS wordt aanbevolen, omdat de gegevens dan flexibel zijn te gebruiken als er sprake is van regionale uitval of als de primaire regio niet kan worden hersteld. Premium storage wordt ondersteund.
+U moet een Azure-abonnement, een Recovery Services-kluis, een cache-opslagaccount, beheerde schijven en een virtueel netwerk. De kluis, cache-opslagaccount, beheerde schijven en netwerk moet zich in dezelfde regio bevinden.
 
 ### <a name="does-my-azure-account-need-permissions-to-create-vms"></a>Mijn Azure-account moet machtigingen voor het maken van virtuele machines?
-Als u een abonnementsbeheerder bent, hebt u de replicatiemachtigingen die u nodig hebt. Als u niet bent, moet u machtigingen voor het maken van een Azure-VM in de resourcegroep en het virtuele netwerk dat u opgeeft bij het configureren van Site Recovery en machtigingen voor het schrijven naar het geselecteerde opslagaccount. [Meer informatie](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
+Als u een abonnementsbeheerder bent, hebt u de replicatiemachtigingen die u nodig hebt. Als u niet bent, moet u machtigingen voor het maken van een Azure-VM in de resourcegroep en het virtuele netwerk dat u opgeeft wanneer u Site Recovery- en schrijfmachtigingen voor het geselecteerde opslagaccount configureren of een beheerde schijf op basis van uw configuratie. [Meer informatie](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
 ### <a name="can-i-use-guest-os-server-license-on-azure"></a>Kan ik Gastbesturingssysteem server-licentie gebruiken op Azure?
 Ja, Microsoft Software Assurance-klanten kunnen gebruikmaken van [Azure Hybrid Benefit](https://azure.microsoft.com/en-in/pricing/hybrid-benefit/) om op te slaan op de licentiekosten voor **Windows Server-machines** die zijn gemigreerd naar Azure of naar het gebruik van Azure voor herstel na noodgevallen.
@@ -107,7 +104,7 @@ De on-premises configuratieserver kan als volgt worden geïmplementeerd:
 
 
 ### <a name="where-do-on-premises-vms-replicate-to"></a>Waar repliceer on-premises machines naar?
-Gegevens worden gerepliceerd naar Azure storage. Wanneer u een failover uitvoert, maakt Site Recovery automatisch virtuele Azure-machines uit de storage-account.
+Gegevens worden gerepliceerd naar Azure storage. Wanneer u een failover uitvoert, Site Recovery automatisch virtuele Azure-machines maakt van het storage-account of een beheerde schijf op basis van uw configuratie.
 
 ## <a name="replication"></a>Replicatie
 
@@ -122,15 +119,19 @@ Nee, dit is een niet-ondersteund scenario.
 Site Recovery repliceert gegevens van on-premises naar Azure storage via een openbaar eindpunt of met behulp van openbare ExpressRoute-peering. Replicatie via een site-naar-site VPN-netwerk wordt niet ondersteund.
 
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>Kan ik repliceren naar Azure met ExpressRoute?
-Ja, ExpressRoute kan worden gebruikt voor het repliceren van virtuele machines naar Azure. Site Recovery repliceert gegevens naar een Azure Storage-Account via een openbaar eindpunt. U moet instellen [openbare peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) of [Microsoft-peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) ExpressRoute gebruiken voor Site Recovery-replicatie. Microsoft-peering is de aanbevolen routeringsdomein voor replicatie. Zorg ervoor dat de [vereisten voor netwerken](vmware-azure-configuration-server-requirements.md#network-requirements) ook voor replicatie wordt voldaan. Nadat de virtuele machines een failover uitvoeren naar een Azure-netwerk, kunt u ze openen met behulp van [privépeering](../expressroute/expressroute-circuit-peerings.md#privatepeering).
+Ja, ExpressRoute kan worden gebruikt voor het repliceren van virtuele machines naar Azure. Site Recovery repliceert gegevens naar Azure Storage via een openbaar eindpunt. U moet instellen [openbare peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) of [Microsoft-peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) ExpressRoute gebruiken voor Site Recovery-replicatie. Microsoft-peering is de aanbevolen routeringsdomein voor replicatie. Zorg ervoor dat de [vereisten voor netwerken](vmware-azure-configuration-server-requirements.md#network-requirements) ook voor replicatie wordt voldaan. Nadat de virtuele machines een failover uitvoeren naar een Azure-netwerk, kunt u ze openen met behulp van [privépeering](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
 ### <a name="how-can-i-change-storage-account-after-machine-is-protected"></a>Hoe kan ik storage-account wijzigen nadat de machine is beveiligd?
 
-Storage-account kan alleen worden bijgewerkt naar premium. Als u gebruiken een ander opslagaccount wilt, moet u de replicatie van uw broncomputer uitschakelen en de beveiliging met een nieuw opslagaccount opnieuw inschakelen. Naast dit is er een geen andere manier om te wijzigen van het storage-account nadat bescherming is ingeschakeld.
+Voor een doorlopende replicatie, kan alleen storage-account worden bijgewerkt naar premium. Als u gebruiken standaard-prijzen wilt, moet u de replicatie van uw broncomputer uitschakelen en de beveiliging met een standaard beheerde schijf opnieuw inschakelen. Naast dit is er een geen andere manier om te wijzigen van het storage-account nadat bescherming is ingeschakeld.
+
+### <a name="how-can-i-change-managed-disk-type-after-machine-is-protected"></a>Hoe kan ik Managed Disk-type wijzigen nadat de machine is beveiligd?
+
+Ja, kunt u eenvoudig het type beheerde schijf wijzigen. [Meer informatie](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage).
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Waarom kan ik niet repliceren via VPN?
 
-Wanneer u naar Azure repliceren, replicatieverkeer bereikt de openbare eindpunten van een Azure Storage-account, dus u kunt alleen repliceren via het openbare internet met ExpressRoute (openbare peering) en VPN werkt niet.
+Wanneer u naar Azure repliceren, replicatieverkeer bereikt de openbare eindpunten van een Azure Storage, dus u kunt alleen repliceren via het openbare internet met ExpressRoute (openbare peering) en VPN werkt niet.
 
 ### <a name="what-are-the-replicated-vm-requirements"></a>Wat zijn de vereisten van de gerepliceerde VM's?
 
@@ -150,6 +151,9 @@ Nee, dit wordt niet ondersteund. Aanvragen van deze functie in de [Feedbackforum
 
 ### <a name="can-i-exclude-disks"></a>Kan ik schijven uitsluiten?
 Ja, kunt u schijven uitsluiten van replicatie.
+
+### <a name="can-i-change-the-target-vm-size-or-vm-type-before-failover"></a>Kan ik de doel-VM-grootte of het type van de virtuele machine voordat de failover wijzigen?
+Ja, kunt u het type of de grootte van de virtuele machine elk gewenst moment voordat de failover door te gaan naar berekening en netwerk-instellingen van het item replicatie vanaf de portal.
 
 ### <a name="can-i-replicate-vms-with-dynamic-disks"></a>Kan ik virtuele machines met dynamische schijven repliceren?
 Dynamische schijven kunnen worden gerepliceerd. De besturingssysteemschijf moet een standaardschijf.
@@ -267,6 +271,9 @@ Ja, zowel versleuteling-in-transit en [versleuteling in Azure](https://docs.micr
 
 
 ## <a name="failover-and-failback"></a>Failover en failback
+### <a name="can-i-use-the-process-server-at-on-premises-for-failback"></a>Kan ik de processerver op on-premises voor failback gebruiken?
+Het is raadzaam een processerver maken in Azure voor failback doel om te voorkomen dat gegevensoverdracht latenties. Bovendien, als u het Bronnetwerk met virtuele machines met de Azure-gerichte netwerk op de configuratieserver gescheiden, is essentieel is voor het gebruik van de processerver voor failback gemaakt in Azure.
+
 ### <a name="how-far-back-can-i-recover"></a>Hoe ver terug kan ik gegevens herstellen?
 Voor VMware naar Azure is het oudste herstelpunt dat u kunt gebruiken dit 72 uur.
 

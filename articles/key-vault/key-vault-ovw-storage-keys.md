@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: pryerram
 manager: barbkess
 ms.date: 10/03/2018
-ms.openlocfilehash: 9b1a4e23ed0da0637b44ac52dd4d1baeb22cd6ce
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 684d6a87b5cf33a3ebed36381d2db21b285a6f0c
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118051"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338804"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure Key Vault beheerd opslagaccount - CLI
 
@@ -55,42 +55,36 @@ In de onderstaande instructies volgen, zijn we Key Vault toewijzen als een servi
 > [!NOTE]
 > . Houd er rekening mee dat zodra u hebt ingesteld met Azure Key Vault beheerde opslag accountsleutels ze moet **geen** meer behalve gewijzigd via Key Vault. Storage-accountsleutels betekent dat Key Vault beheren de opslagaccountsleutel draaien beheerd
 
+> [!IMPORTANT]
+> Een Azure AD-tenant biedt elke geregistreerde toepassing met een  **[service-principal](/azure/active-directory/develop/developer-glossary#service-principal-object)**, die fungeert als de identiteit van de toepassing. Toepassings-ID van de service-principal wordt gebruikt wanneer u deze machtiging voor toegang tot andere Azure-resources via op rollen gebaseerd toegangsbeheer (RBAC). Omdat de Key Vault is een Microsoft-toepassing, het vooraf geregistreerd in alle Azure AD-tenants onder dezelfde toepassings-ID, binnen elk Azure-cloud:
+> - Toepassings-ID in Azure government-cloud Azure AD-tenants gebruiken `7e7c393b-45d0-48b1-a35e-2905ddf8183c`.
+> - Azure AD-tenants in de openbare cloud van Azure en alle andere toepassings-ID gebruiken `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`.
+
+
 1. Na het maken van een storage-account de volgende opdracht om op te halen van de resource-ID van het opslagaccount dat wilt u beheren
 
     ```
     az storage account show -n storageaccountname 
     ```
-    ID-veld van de resultaten van de bovenstaande opdracht kopiëren
-    
-2. Object-ID van Azure Key Vault-service principal ophalen door het uitvoeren van de onderstaande opdracht
-
+    ID-veld van de resultaten van de bovenstaande opdracht ziet eruit als hieronder kopiëren
     ```
-    az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
+    /subscriptions/0xxxxxx-4310-48d9-b5ca-0xxxxxxxxxx/resourceGroups/ResourceGroup/providers/Microsoft.Storage/storageAccounts/StorageAccountName
     ```
-    
-    Na voltooiing van deze opdracht de Object-ID niet vinden in het resultaat:
-    ```console
-        {
-            ...
             "objectId": "93c27d83-f79b-4cb2-8dd4-4aa716542e74"
-            ...
-        }
+    
+2. RBAC-rol 'Storage Account Key Operator Service rol' toewijzen aan Key Vault, beperken van het toegangsbereik tot uw opslagaccount. Gebruik voor een klassiek opslagaccount 'Klassieke Storage Account Key Operator Service rol.'
+    ```
+    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope 93c27d83-f79b-4cb2-8dd4-4aa716542e74
     ```
     
-3. De opslag sleutel Operator-rol toewijzen aan de identiteit van de Azure Key Vault.
-
-    ```
-    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope <IdOfStorageAccount>
-    ```
+    '93c27d83-f79b-4cb2-8dd4-4aa716542e74' is de Object-ID voor Key Vault in openbare Cloud. Als u Zie de Object-ID voor Key Vault in nationale clouds de bovenstaande belangrijk sectie
     
-4. Maken van een Key Vault beheerde Storage-Account.     <br /><br />
+3. Maken van een Key Vault beheerde Storage-Account.     <br /><br />
    Hieronder, zijn we een periode van 90 dagen voor opnieuw regenereren instellen. Na 90 dagen wordt Key Vault opnieuw genereren 'key1' en de actieve sleutel uit 'key2' naar 'key1' wisselen. Er wordt nu Key1 markeren als de actieve sleutel. 
    
     ```
     az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key1 --auto-regenerate-key --regeneration-period P90D --resource-id <Id-of-storage-account>
     ```
-    In het geval de gebruiker het storage-account hebt gemaakt en heeft geen machtigingen voor de storage-account, stel de volgende stappen uit de machtigingen voor uw account om ervoor te zorgen dat u alle opslagmachtigingen voor de in de Key Vault kunt beheren.
-    
 
 <a name="step-by-step-instructions-on-how-to-use-key-vault-to-create-and-generate-sas-tokens"></a>Voor stap door stapsgewijze instructies over het gebruik van Key Vault maken en genereren van SAS-tokens
 --------------------------------------------------------------------------------

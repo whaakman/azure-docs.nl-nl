@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: 8927213dc4f1cf01eccdd8f54a946f9dbbaaa04d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c173152d0a59e391fe77ee855311a867a1b2b6c0
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869956"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338430"
 ---
 # <a name="model-and-usage-statistics-in-the-dashboard"></a>Model en het gebruik van statistieken in het dashboard
 Het app-dashboard kunt u uw app in één oogopslag controleren. De **Dashboard** wordt weergegeven wanneer u een app openen door te klikken op de naam van de toepassing op **mijn Apps** pagina selecteert **Dashboard** uit boven in het venster. 
@@ -69,21 +69,8 @@ De **uitsplitsing van de intentie** geeft een overzicht van de intenties op basi
 
 ![Uitsplitsing van de intentie](./media/luis-how-to-use-dashboard/intent-breakdown.png)
 
-Om te bepalen of de uitsplitsing van de is gebaseerd op gelabelde uitingen of eindpunt treffers:
-
-1. Klik op **extra instellingen** ![extra instellingen knop aan de toegangslijst](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) voor toegang tot de lijst met zoals in de volgende afbeelding:
-
-    ![Uitsplitsing van de intentie-lijst](./media/luis-how-to-use-dashboard/intent-breakdown-based-on.png)
-2. Selecteer een waarde in de lijst en klik vervolgens op de pijl-terug ![Pijl-terug](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) de grafiek weergeven.
-
 ## <a name="entity-breakdown"></a>Uitsplitsing van de entiteit
 Het dashboard geeft een overzicht van de entiteiten op basis van gelabelde uitingen of eindpunt treffers weer. Deze overzichtsgrafiek toont u het relatieve belang van elke entiteit in de app. Als u de muisaanwijzer boven een segment, ziet u de naam van de entiteit en het percentage treffers in gelabelde uitingen/het eindpunt. 
 
 ![Uitsplitsing van de entiteit](./media/luis-how-to-use-dashboard/entity-breakdown.png)
 
-Om te bepalen of de uitsplitsing van de is gebaseerd op gelabelde uitingen of eindpunt treffers:
-
-1. Klik op **extra instellingen** ![knop Extra instellingen voor lijst](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) voor toegang tot de lijst met zoals in de volgende afbeelding:
-
-    ![Uitsplitsing van de entiteitenlijst](./media/luis-how-to-use-dashboard/entity-breakdown-based-on.png)
-2. Selecteer een waarde in de lijst en klik vervolgens op de pijl-terug ![Pijl-terug](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) de grafiek dienovereenkomstig weergeven.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/31/2019
 ms.author: alkohli
-ms.openlocfilehash: e3412e31ae976efc8164076b30ad61360a030db4
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: ea8a6d604187a25e5186d7200feba6aaab1f676a
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511935"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339450"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Opties voor het migreren van gegevens uit StorSimple 5000-7000 serie 
 
@@ -54,6 +54,10 @@ StorSimple 5000-7000-klanten kunnen kiezen om te migreren naar Panzura vrijheid 
 #### <a name="migrate-to-cohesity"></a>Migreren naar Cohesity
 
 Cohesity kunt u gegevens van uw huidige StorSimple 5000-7000 migreren naar de Cohesity Data Platform op Azure. Het gegevensplatform Cohesity is een door software gedefinieerde webschaal-oplossing die bestanden, back-ups, objecten en VM's naar één cloud-eigen oplossing consolideert. Na de migratie naar de Data-Platform, kunt u beheren, beveiligen en gegevens en apps van cloud naar core via een enkel glazen inrichten. Beginnen met Cohesity, met slechts drie knooppunten. Meer informatie over [migratie naar de Cohesity DataPlatform](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html).
+
+#### <a name="migrate-to-nasuni"></a>Migreren naar Nasuni
+
+Nasuni maakt het eenvoudig voor klanten van de StorSimple 5000-7000 om te migreren en ze de gegevens bewaren in Azure.  Nasuni is een toonaangevende NAS op basis van een Azure storage-oplossing, zodat klanten de prestaties en beveiliging die ze van on-premises oplossingen, met cloudvoordelen en schaal verwachten.  Naast het bestandsopslag met hoge prestaties, Nasuni en Azure-ingang back-up en herstel na Noodgevallen, terwijl u om te delen en samenwerken aan uw gegevens over de hele wereld met Centraal beheer van opslag. Nasuni heeft de ervaring voor de migratie vereenvoudigen: vandaag nog aan de slag: https://info.nasuni.com/nasuni-storsimple-migration
 
 ## <a name="migration---frequently-asked-questions"></a>Migratie - Veelgestelde vragen
 

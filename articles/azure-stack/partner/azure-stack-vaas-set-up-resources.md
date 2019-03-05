@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: c866bb1ff5603f08377ed96ddd81eedf71e243bf
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: ef46df4d5162a08d9dc4d8674cf5867f863ce332
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593231"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342476"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Zelfstudie: Resources voor validatie als een Service instellen
 
@@ -50,7 +50,7 @@ Een tenant maken specifiek voor gebruik met VaaS met een beschrijvende naam, bij
  
     Toestaan dat gebruikers in uw tenant om uit te voeren van acties in VaaS door toe te wijzen op een van de volgende rollen:
 
-    | Naam van rol | Description |
+    | Rolnaam | Description |
     |---------------------|------------------------------------------|
     | Eigenaar | Heeft volledige toegang tot alle resources. |
     | Lezer | Alle resources weergeven, maar niet maken of te beheren. |
@@ -74,7 +74,7 @@ Dit proces wordt geautoriseerd voor uw tenant met de **Azure Stack-validatieserv
 
     | Gegevens | Description |
     |--------------------------------|---------------------------------------------------------------------------------------------|
-    | Naam van organisatie | De naam van de officiële organisatie. |
+    | De naam van organisatie | De naam van de officiële organisatie. |
     | De naam van de map Azure AD-Tenant | De naam van de Azure AD-Tenant-map wordt geregistreerd. |
     | Azure AD-Tenant map-ID | De Azure AD-Tenant-Directory GUID die is gekoppeld aan de directory. Zie voor meer informatie over het vinden van uw Azure AD-Tenant-ID van de Directory [tenant-ID ophalen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-tenant-id). |
 

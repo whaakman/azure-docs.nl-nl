@@ -2,19 +2,19 @@
 title: bestand opnemen
 description: bestand opnemen
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: include
-ms.date: 09/06/2018
-ms.author: raynew
+ms.date: 02/28/2019
+ms.author: mayg
 ms.custom: include file
-ms.openlocfilehash: 2ca4916d48da6fe8a2c061056a1ea0fed9a78bb6
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 7c682105113dac7c1d457489cf926210ead77993
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44058345"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57343561"
 ---
 1. Voer het installatiebestand voor de geïntegreerde Setup uit.
 2. In **voordat u begint**, selecteer **de configuratieserver en processerver installeren**.
@@ -43,7 +43,7 @@ ms.locfileid: "44058345"
 9. Selecteer bij **Installatielocatie** waar u de binaire bestanden wilt installeren en de cache wilt opslaan. Het station dat u selecteert, moet ten minste 5 GB vrije schijfruimte bevatten, maar wij raden u aan een cachestation te gebruiken met minstens 600 GB vrije ruimte.
 
     ![Installatielocatie](./media/site-recovery-add-configuration-server/combined-wiz8.png)
-10. Geef bij **Netwerk selecteren** de listener op (netwerkadapter en SSL-poort) met behulp waarvan de configuratieserver replicatiegegevens verzendt en ontvangt. Poort 9443 is de standaardpoort voor het verzenden en ontvangen van replicatieverkeer, maar u kunt dit poortnummer aanpassen aan de vereisten van de omgeving. Naast poort 9443 wordt ook poort 443 geopend. Deze wordt door een webserver gebruikt om replicatiebewerkingen in te delen. Gebruik poort 443 niet voor het verzenden of ontvangen van replicatieverkeer.
+10. In **Netwerkselectie**, selecteert u eerst de NIC die gebruikmaakt van de ingebouwde processerver voor detectie en push-installatie van de mobility-service op de bronmachines, en selecteer vervolgens de NIC die gebruikmaakt van de configuratieserver voor connectiviteit met Azure. Poort 9443 is de standaardpoort voor het verzenden en ontvangen van replicatieverkeer, maar u kunt dit poortnummer aanpassen aan de vereisten van de omgeving. Naast poort 9443 wordt ook poort 443 geopend. Deze wordt door een webserver gebruikt om replicatiebewerkingen in te delen. Gebruik poort 443 niet voor het verzenden of ontvangen van replicatieverkeer.
 
     ![Netwerk selecteren](./media/site-recovery-add-configuration-server/combined-wiz9.png)
 

@@ -2,18 +2,18 @@
 title: De configuratieserver voor VMware-noodherstel met Azure Site Recovery implementeren | Microsoft Docs
 description: In dit artikel wordt beschreven hoe u een configuratieserver voor VMware-noodherstel met Azure Site Recovery implementeren
 services: site-recovery
-author: Rajeswari-Mamilla
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/05/2018
-ms.author: ramamill
-ms.openlocfilehash: 4260aaf814b344c1a30106651959d4e4e9ad2335
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.date: 02/28/2019
+ms.author: mayg
+ms.openlocfilehash: e7ee8f58e42f99ebc087f21837511979c578fb89
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594216"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340079"
 ---
 # <a name="deploy-a-configuration-server"></a>Een configuratieserver implementeren
 
@@ -121,7 +121,7 @@ Als u toevoegen van een extra NIC aan de configuratieserver wilt, moet u het toe
 
 ### <a name="configure-settings"></a>Instellingen configureren
 
-1. Selecteer in de wizard voor het beheer van de configuratieserver **Connectiviteit instellen** en selecteer vervolgens de NIC die door de processerver wordt gebruikt voor het ontvangen van replicatieverkeer van VM's. Selecteer vervolgens **Opslaan**. U kunt deze instelling niet wijzigen nadat deze is geconfigureerd. Het wordt sterk aanbevolen de IP-adres van een configuratieserver niet wijzigen. Zorg ervoor dat IP-adres toegewezen aan de configuratieserver is statisch IP-adres en niet DHCP IP.
+1. Selecteer in de configuratie van wizard voor het beheer, **connectiviteit instellen**. In de vervolgkeuzelijsten, selecteert u eerst de NIC die gebruikmaakt van de ingebouwde processerver voor detectie en push-installatie van de mobility-service op bronmachines en selecteer vervolgens de NIC die gebruikmaakt van de configuratieserver voor connectiviteit met Azure. Selecteer vervolgens **Opslaan**. U kunt deze instelling niet wijzigen nadat deze is geconfigureerd. Het wordt sterk aanbevolen de IP-adres van een configuratieserver niet wijzigen. Zorg ervoor dat IP-adres toegewezen aan de configuratieserver is statisch IP-adres en niet DHCP IP.
 2. In **Selecteer Recovery Services-kluis**, aanmelden bij Microsoft Azure met de referenties die worden gebruikt **stap 6** van '[configuratieserver registreren met Azure Site Recovery Services](#register-the-configuration-server-with-azure-site-recovery-services)" .
 3. Na het aanmelden, selecteer uw Azure-abonnement en de relevante resourcegroep en kluis.
 
@@ -194,7 +194,7 @@ Om te voorkomen onderbrekingen in de lopende replicatie, zorg ervoor dat IP-adre
 
 Raadpleeg voor meer veelgestelde vragen over configuratieserver, onze [documentatie over veelgestelde vragen over configuratie server](vmware-azure-common-questions.md#configuration-server) .
 
-## <a name="troubleshoot-deployment-issues"></a>Oplossen van implementatieproblemen
+## <a name="troubleshoot-deployment-issues"></a>Problemen met implementatie
 
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
 

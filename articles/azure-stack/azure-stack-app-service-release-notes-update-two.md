@@ -16,12 +16,12 @@ ms.date: 05/18/2018
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 05/18/2018
-ms.openlocfilehash: 0fa938b02b24bd79017bede5346b882e6587bd5d
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 8126397dfb3b02778413ab6ee696a8138c792c15
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766921"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342561"
 ---
 # <a name="app-service-on-azure-stack-update-2-release-notes"></a>App Service op de opmerkingen bij de release van de Azure Stack update 2
 
@@ -56,7 +56,7 @@ Azure App Service op Azure Stack Update 2 omvat de volgende verbeteringen en opl
 - Updates voor core-service om de betrouwbaarheid en foutberichten eenvoudiger diagnose van algemene problemen waardoor te verbeteren.
 
 - **Updates voor de volgende App-frameworks en hulpmiddelen**:
-  - Toegevoegde .net Framework 4.7.1
+  - Toegevoegde .NET Framework 4.7.1
   - Toegevoegd **Node.JS** versies:
     - NodeJS 6.12.3
     - NodeJS 8.9.4
@@ -84,15 +84,15 @@ Azure App Service op Azure Stack Update 2 omvat de volgende verbeteringen en opl
 - Werknemers kunnen geen bestandsserver bereiken wanneer App Service is geïmplementeerd in een bestaand virtueel netwerk en de bestandsserver alleen beschikbaar op het particuliere netwerk is.
 
 Als u wilt implementeren in een bestaand virtueel netwerk en een interne IP-adres verbinding maken met de bestandsserver, moet u een uitgaande beveiligingsregel toevoegen voor het inschakelen van SMB-verkeer tussen de worker-subnet en de bestandsserver aan te geven. Om dit te doen, gaat u naar de WorkersNsg in de beheerportal en voeg een uitgaande beveiligingsregel met de volgende eigenschappen toe:
- * Bron: Alle
- * Poortbereik van bron: *
- * Bestemming: IP-adressen
- * Doel-IP-adresbereik: Bereik van IP-adressen voor uw bestandsserver
- * Poortbereik van doel: 445
- * Protocol: TCP
- * Actie: Toestaan
- * Prioriteit: 700
- * Naam: Outbound_Allow_SMB445
+* Bron: Alle
+* Poortbereik van bron: *
+* Bestemming: IP-adressen
+* Doel-IP-adresbereik: Bereik van IP-adressen voor uw bestandsserver
+* Poortbereik van doel: 445
+* Protocol: TCP
+* Actie: Toestaan
+* Prioriteit: 700
+* Naam: Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Bekende problemen voor Cloud-beheerders die Azure App Service in Azure Stack
 

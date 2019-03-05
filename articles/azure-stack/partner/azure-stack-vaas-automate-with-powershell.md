@@ -10,23 +10,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/17/2018
+ms.date: 03/04/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 99a1b218919380dcdb0c1dba4540d9f8219d2df3
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 7d675eb55e7ecda1dcf79859e85821c4e86ccbdd
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593638"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338515"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>Azure Stack-validatie met PowerShell automatiseren
 
 Validatie uit als een Service (VaaS) biedt de mogelijkheid voor het automatiseren van het uitvoeren van tests met behulp van de **LaunchVaaSTests.ps1** script.
 
-> [!NOTE]
+> [!NOTE]  
 > Automation is alleen beschikbaar voor de werkstroom testronde. De validatie van het pakket en validatie van de oplossing werkstromen worden alleen ondersteund via de portal VaaS.
 
 In deze zelfstudie leert u hoe u het maken van een script dat:

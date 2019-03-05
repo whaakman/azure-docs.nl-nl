@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: cf8525d4cc829805532210bf09e9ea9da240405d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e06fd7a4b2d072e5528643c2c8517d7545c36ef3
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857746"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338651"
 ---
 # <a name="create-a-visual-search-single-page-web-app"></a>Een visuele zoekopdrachten één pagina web-app maken 
 
-Bing Visual Search-API biedt een ervaring die lijkt op de afbeeldingsdetails die worden getoond op Bing.com/images. Met Visual Search kunt u een afbeelding opgeven en inzichten over de afbeelding terugkrijgen, zoals visueel vergelijkbare afbeeldingen, winkelbronnen, webpagina's met de afbeelding en meer. 
+De Bing visuele zoekopdrachten-API biedt een ervaring die vergelijkbaar is met de details van de afbeelding op Bing.com/images weergegeven. Met Visual Search kunt u een afbeelding opgeven en inzichten over de afbeelding terugkrijgen, zoals visueel vergelijkbare afbeeldingen, winkelbronnen, webpagina's met de afbeelding en meer. 
 
 In dit artikel wordt uitgelegd hoe u een één pagina WebApp voor de Bing afbeeldingen zoeken-API uit te breiden. Als u wilt weergeven die zelfstudie of haal de broncode hier gebruikt, Zie [zelfstudie: Een app met één pagina maken voor de Bing afbeeldingen zoeken-API](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md). 
 

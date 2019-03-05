@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2018
+ms.date: 03/04/2018
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: c16f218903557a6d3a10f3ef201587d2885fffa9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b8df87e5d5091219b9b44a6b957250e254c97fec
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239100"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341787"
 ---
 # <a name="azure-monitor-on-azure-stack"></a>Azure Monitor op Azure Stack
 
@@ -27,7 +27,7 @@ ms.locfileid: "55239100"
 
 Dit artikel bevat een overzicht van de Azure Monitor-service in Azure Stack. Hierin worden de werking van Azure Monitor en aanvullende informatie over het gebruik van Azure Monitor in Azure Stack. 
 
-Voor een introductie, overzicht en hoe u aan de slag met Azure Monitor, raadpleegt u de globale Azure-artikel [aan de slag met Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started).
+Voor een introductie, overzicht en hoe u aan de slag met Azure Monitor, raadpleegt u de globale Azure-artikel [aan de slag met Azure Monitor in Azure Stack](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started).
 
 ![Azure Stack-Monitor-blade](./media/azure-stack-metrics-azure-data/azs-monitor.png)
 
@@ -36,7 +36,7 @@ Azure Monitor is de platformservice die één bron biedt voor het bewaken van Az
 > [!Note]  
 Diagnostische logboeken en metrische gegevens zijn niet beschikbaar voor de Azure Stack Development Kit.
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites-for-azure-monitor-on-azure-stack"></a>Vereisten voor Azure Monitor op Azure Stack
 
 Registreert de **Microsoft.insights** resourceprovider op uw abonnement aanbieding broninstellingen providers. U kunt controleren of de resourceprovider beschikbaar in uw aanbieding is gekoppeld aan uw abonnement is:
 
@@ -46,13 +46,13 @@ Registreert de **Microsoft.insights** resourceprovider op uw abonnement aanbiedi
 4. Selecteer **resourceproviders** onder **instellingen.** 
 5. Zoek **Microsoft.Insights** in de lijst en controleer of de status **geregistreerd.**.
 
-## <a name="overview"></a>Overzicht
+## <a name="overview-of-azure-monitor-on-azure-stack"></a>Overzicht van Azure Monitor op Azure Stack
 
 Zoals Azure Monitor op Azure biedt Azure Monitor in Azure Stack-infrastructuur op basisniveau metrische gegevens en logboeken voor de meeste services.
 
-## <a name="azure-monitor-sources-compute-subset"></a>Met Azure monitor bronnen: compute subset
+## <a name="azure-monitor-sources-compute-subset"></a>Azure Monitor-bronnen: compute subset
 
-![Met Azure monitor gegevensbronnen - compute subset](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.png)
+![Azure Monitor in Azure Stack gegevensbronnen - compute subset](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.png)
 
 De **Microsoft.Compute** resourceprovider in Azure Stack bevat:
  - Virtuele machines 
@@ -86,7 +86,7 @@ U kunt de activiteitenlogboeken voor meer informatie zoeken over de compute-reso
 
 ## <a name="azure-monitor-sources-everything-else"></a>Met Azure monitor bronnen: alles wat anders
 
-![Bronnen van Azure monitor - rest](media//azure-stack-metrics-azure-data/azs-monitor-othersubset.png)
+![Azure Monitor op bronnen van Azure Stack - rest](media//azure-stack-metrics-azure-data/azs-monitor-othersubset.png)
 
 ### <a name="resources---metrics-and-diagnostics-logs"></a>Bronnen - metrische gegevens en diagnostische logboeken
 

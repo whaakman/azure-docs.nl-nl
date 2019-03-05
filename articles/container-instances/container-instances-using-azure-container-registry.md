@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f577a7dd9f517be6ab7b632a82227e4807862ba5
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: b596af8ae9fbbaee6964622df44d316a11582cb9
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727905"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337920"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implementeren in Azure Container Instances vanuit Azure Container Registry
 
@@ -33,7 +33,7 @@ In de volgende sectie, kunt u een Azure-sleutelkluis en een service-principal ma
 
 ### <a name="create-key-vault"></a>Sleutelkluis maken
 
-Als u nog geen kluis hebt in [Azure Key Vault](/azure/key-vault/), kunt u met de volgende opdrachten één maken met de Azure CLI.
+Als u nog geen kluis hebt in [Azure Key Vault](../key-vault/key-vault-overview.md), kunt u met de volgende opdrachten één maken met de Azure CLI.
 
 Update de `RES_GROUP` variabele met de naam van een bestaande resourcegroep waarin u wilt maken van de key vault en `ACR_NAME` met de naam van het containerregister. Geef een naam voor uw nieuwe key vault in `AKV_NAME`. De naam van de kluis moet uniek zijn binnen Azure en moet 3 tot 24 alfanumerieke tekens lang zijn, beginnen met een letter, eindigen met een letter of cijfer, en mag geen opeenvolgende afbreekstreepjes bevatten.
 

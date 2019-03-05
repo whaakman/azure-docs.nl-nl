@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2018
 ms.author: banders
-ms.openlocfilehash: 58a84848c8a0ccfe906cde7027129e2ca022ec0f
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 9004802220f6aeb867e8a9880336416573c795fb
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244890"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341523"
 ---
 # <a name="view-your-billing-accounts-in-azure-portal"></a>Bekijk uw facturering accounts in Azure portal  
 
-Factureringsaccount is gemaakt voor elke overeenkomst dat u zich aanmelden met Microsoft om Azure te gebruiken. U gebruikt uw factureringsrekening voor het beheren van uw facturen en betalingen methoden en kosten voor Azure-services bijhouden. U kunt hebben toegang tot meerdere accounts voor facturering. Bijvoorbeeld, u mogelijk hebben geregistreerd voor Azure voor uw persoonlijke projecten. U kunt ook toegang via een Enterprise Agreement of een Microsoft-KLANTOVEREENKOMST van uw organisatie hebben.
+Factureringsaccount is gemaakt voor elke overeenkomst dat u zich aanmelden met Microsoft om Azure te gebruiken. U gebruikt uw factureringsrekening voor het beheren van uw facturen en betalingen methoden en kosten voor Azure-services bijhouden. U kunt hebben toegang tot meerdere accounts voor facturering. Bijvoorbeeld, u mogelijk hebben geregistreerd voor Azure voor uw persoonlijke projecten. U kunt ook toegang via een Enterprise Agreement of een Microsoft-KLANTOVEREENKOMST van uw organisatie hebben. Voor elk van deze scenario's moet u een afzonderlijke rekening.
 
 Azure portal ondersteunt momenteel het volgende type facturering accounts:
 
@@ -33,17 +33,21 @@ Azure portal ondersteunt momenteel het volgende type facturering accounts:
 
 - **Microsoft KLANTOVEREENKOMST**: Een facturering voor de KLANTOVEREENKOMST van een Microsoft-account wordt gemaakt wanneer uw organisatie zich een KLANTOVEREENKOMST van Microsoft om Azure te gebruiken. Beheerders in de facturering-account voor een Microsoft-KLANTOVEREENKOMST facturering profielen gebruiken en secties bereiken om te beheren en te organiseren dat facturering voor hun organisatie facturering factuur. Zie voor meer informatie, [aan de slag met uw factureringsrekening voor Microsoft-KLANTOVEREENKOMST](billing-mca-overview.md).
 
-## <a name="change-billing-account-view"></a>Facturering Accountweergave wijzigen
+## <a name="change-billing-account-view-in-the-azure-portal"></a>Weergave van de account in Azure portal facturering wijzigen
+
+Een scope is een knooppunt binnen een factureringsaccount die gebruikers gebruiken voor het weergeven en beheren van facturering. Facturering van accounts voor het programma Microsoft Online Services heeft bijvoorbeeld alleen scope - account, facturering, terwijl de facturering van accounts voor Enterprise Agreement heeft factureringsaccount, afdeling en accountbereiken. Als u toegang tot meerdere facturering bereiken, standaard hebt, een van de bereiken wordt weergegeven in de Azure-kostenbeheer + pagina facturering. U kunt het bereik wijzigen door de onderstaande instructies te volgen:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
 2. Zoeken op **kosten Management en facturering**.
 
-   ![Schermafbeelding van zoeken in Azure portal](./media/billing-mca-section-invoice/billing-search-cost-management-billing.png)
+   ![Schermafbeelding van zoeken in Azure portal](./media/billing-view-all-accounts/billing-search-cost-management-billing.png)
 
-3. Standaard ziet u de details van een van de facturering bereik, zoals factureringsaccount, afdeling in een Enterprise Agreement of factureringsprofiel in Microsoft-overeenkomst voor de klant.
+3. Selecteer **alle facturering bereiken** vanaf de linkerzijde.
 
-4. U kunt het bereik wijzigen door te selecteren **facturering scopes** vanaf de linkerkant ziet en selecteer vervolgens een bereik.
+   ![Schermafbeelding van alle facturering bereiken](./media/billing-view-all-accounts/billing-list-of-accounts.png)
+
+4. Selecteer een bereik om details weer te geven.
 
 ## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 

@@ -11,22 +11,22 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 66137f01672820584f97273ddca26a66ada781ba
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 92859667e1dc53b9c6ca9e46a2db1c6dc335ae37
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312521"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339008"
 ---
 # <a name="detect-domain-specific-content"></a>Domeinspecifieke inhoud detecteren
 
-Daarnaast categorisatie tagging en op hoog niveau, Computer Vision biedt ook ondersteuning voor verdere domeinspecifieke analyse met behulp van modellen die zijn getraind op speciale gegevens. 
+Daarnaast categorisatie tagging en op hoog niveau, Computer Vision biedt ook ondersteuning voor verdere domeinspecifieke analyse met behulp van modellen die zijn getraind op speciale gegevens.
 
 Er zijn twee manieren waarop u met de domeinspecifieke modellen: zelf (analyse van binnen het bereik) of als een uitbreiding op de functie voor categorisatie.
 
 ### <a name="scoped-analysis"></a>Analyse van binnen het bereik
 
-U kunt een installatiekopie met behulp van het gekozen domeinspecifieke model door het aanroepen van analyseren de [modellen /\<model\>/het analyseren](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) API. 
+U kunt een installatiekopie met behulp van het gekozen domeinspecifieke model door het aanroepen van analyseren de [modellen /\<model\>/het analyseren](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) API.
 
 Hieronder volgt een voorbeeld van een JSON-antwoord geretourneerd door de **modellen/beroemdheden/analyseren** API voor de opgegeven installatiekopie:
 
@@ -55,28 +55,28 @@ Hieronder volgt een voorbeeld van een JSON-antwoord geretourneerd door de **mode
 }
 ```
 
-### <a name="enhanced-categorization-analysis"></a>Verbeterde categorisatie-analyse  
+### <a name="enhanced-categorization-analysis"></a>Verbeterde categorisatie-analyse
 
-U kunt ook domeinspecifieke modellen gebruiken om te voorzien in algemene installatiekopie analyse. U doet dit als onderdeel van [op hoog niveau categorisatie](concept-categorizing-images.md) door te geven van domeinspecifieke modellen in de *details* parameter van de [analyseren](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API-aanroep. 
+U kunt ook domeinspecifieke modellen gebruiken om te voorzien in algemene installatiekopie analyse. U doet dit als onderdeel van [op hoog niveau categorisatie](concept-categorizing-images.md) door te geven van domeinspecifieke modellen in de *details* parameter van de [analyseren](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API-aanroep.
 
-In dit geval wordt de classificatie 86 categorietaxonomie eerst genoemd. Als een van de gedetecteerde categorieën beschikt over een overeenkomende domeinspecifieke-model, wordt de installatiekopie doorgegeven dat ook model en de resultaten worden toegevoegd. 
+In dit geval wordt de classificatie 86 categorietaxonomie eerst genoemd. Als een van de gedetecteerde categorieën beschikt over een overeenkomende domeinspecifieke-model, wordt de installatiekopie doorgegeven dat ook model en de resultaten worden toegevoegd.
 
 De volgende JSON-antwoord bevat hoe domeinspecifieke analyse kunnen worden opgenomen als de `detail` knooppunt in een breder categorisatie-analyse.
 
 ```json
-"categories":[  
-  {  
+"categories":[
+  {
     "name":"abstract_",
     "score":0.00390625
   },
-  {  
+  {
     "name":"people_",
     "score":0.83984375,
-    "detail":{  
-      "celebrities":[  
-        {  
+    "detail":{
+      "celebrities":[
+        {
           "name":"Satya Nadella",
-          "faceRectangle":{  
+          "faceRectangle":{
             "left":597,
             "top":162,
             "width":248,
@@ -85,8 +85,8 @@ De volgende JSON-antwoord bevat hoe domeinspecifieke analyse kunnen worden opgen
           "confidence":0.999028444
         }
       ],
-      "landmarks":[  
-        {  
+      "landmarks":[
+        {
           "name":"Forbidden City",
           "confidence":0.9978346
         }
@@ -108,20 +108,20 @@ Computer Vision ondersteunt momenteel de volgende domeinspecifieke modellen:
 Aanroepen van de [modellen](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) API retourneert deze informatie, samen met de categorieën die elk model kunt toepassen:
 
 ```json
-{  
-  "models":[  
-    {  
+{
+  "models":[
+    {
       "name":"celebrities",
-      "categories":[  
+      "categories":[
         "people_",
         "人_",
         "pessoas_",
         "gente_"
       ]
     },
-    {  
+    {
       "name":"landmarks",
-      "categories":[  
+      "categories":[
         "outdoor_",
         "户外_",
         "屋外_",

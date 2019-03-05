@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 9c5879474568885d9a705e7bfd16e2a4e2304b96
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 02a863a4ddf59fb36c5f2ae7f3092896d2e1d860
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068177"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337988"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Handmatig maken en gebruiken van een volume met de Azure-schijven in Azure Kubernetes Service (AKS)
 
@@ -21,13 +21,13 @@ Op containers gebaseerde toepassingen moeten vaak voor toegang tot en behoud van
 > [!NOTE]
 > Een Azure-schijf kan alleen worden gekoppeld aan één pod op een tijdstip. Als u een permanent volume delen tussen meerdere schillen zijn wilt, gebruikt u [Azure Files][azure-files-volume].
 
-Zie voor meer informatie over Kubernetes volumes [Kubernetes volumes][kubernetes-volumes].
+Zie voor meer informatie over Kubernetes volumes [opslagopties voor toepassingen in AKS][concepts-storage].
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
 In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de Quick Start voor AKS [met de Azure CLI] [ aks-quickstart-cli] of [met behulp van de Azure-portal][aks-quickstart-portal].
 
-U ook moet de Azure CLI versie 2.0.46 of later geïnstalleerd en geconfigureerd. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][install-azure-cli].
+U ook moet de Azure CLI versie 2.0.59 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u de Azure CLI wilt installeren of upgraden, raadpleegt u  [Azure CLI installeren][install-azure-cli].
 
 ## <a name="create-an-azure-disk"></a>Maken van een Azure-schijf
 
@@ -35,7 +35,7 @@ Wanneer u een Azure-schijf voor gebruik met AKS maakt, kunt u de resource van de
 
 In dit artikel de schijf te maken in de resourcegroep van het knooppunt. Haal eerst de naam van de resourcegroep met de [az aks show] [ az-aks-show] opdracht en voeg de `--query nodeResourceGroup` queryparameter. Het volgende voorbeeld wordt de resourcegroep van het knooppunt voor de naam van het AKS-cluster *myAKSCluster* in naam van de resourcegroep *myResourceGroup*:
 
-```azurecli
+```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
 
 MC_myResourceGroup_myAKSCluster_eastus
@@ -52,7 +52,7 @@ az disk create \
 ```
 
 > [!NOTE]
-> Azure-schijven worden gefactureerd op basis van de SKU voor een specifieke grootte. Deze SKU's variëren van 32GiB voor S4 of P4 schijven tot 8TiB voor S60 of P60 schijven. De doorvoer en IOPS-prestaties van een Premium-beheerde schijf is afhankelijk van de SKU en de exemplaargrootte van de knooppunten in het AKS-cluster. Zie [prijzen en de prestaties van beheerde schijven][managed-disk-pricing-performance].
+> Azure-schijven worden gefactureerd op basis van de SKU voor een specifieke grootte. Deze SKU's variëren van 32GiB voor S4 of P4 schijven tot 32TiB voor S80 of P80 schijven (in Preview-versie). De doorvoer en IOPS-prestaties van een Premium-beheerde schijf is afhankelijk van de SKU en de exemplaargrootte van de knooppunten in het AKS-cluster. Zie [prijzen en de prestaties van beheerde schijven][managed-disk-pricing-performance].
 
 De schijf resource-ID wordt weergegeven wanneer de opdracht is voltooid, zoals wordt weergegeven in de volgende voorbeelduitvoer. Deze schijf-ID wordt gebruikt voor het koppelen van de schijf in de volgende stap.
 
@@ -126,6 +126,8 @@ Events:
 
 ## <a name="next-steps"></a>Volgende stappen
 
+Zie voor de bijbehorende best practices, [aanbevolen procedures voor opslag en back-ups in AKS][operator-best-practices-storage].
+
 Voor meer informatie over AKS clusters communiceren met Azure-schijven, Zie de [Kubernetes-invoegtoepassing voor Azure Disks][kubernetes-disks].
 
 <!-- LINKS - external -->
@@ -143,3 +145,5 @@ Voor meer informatie over AKS clusters communiceren met Azure-schijven, Zie de [
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [install-azure-cli]: /cli/azure/install-azure-cli
 [azure-files-volume]: azure-files-volume.md
+[operator-best-practices-storage]: operator-best-practices-storage.md
+[concepts-storage]: concepts-storage.md

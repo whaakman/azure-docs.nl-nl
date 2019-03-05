@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: f8844f0a53b1c9595ce2766da23c385f75fed3ff
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 01d34ef722034ef5b56c842bab97a3415a02b0bb
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249051"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341864"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-users"></a>Ophalen van eigendom van Azure-abonnementen van andere gebruikers
 
@@ -158,7 +158,7 @@ SaaS-producten worden niet overgedragen aan de abonnementen. Vraag de gebruiker 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Toegang tot een Microsoft-KLANTOVEREENKOMST controleren
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
+## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning
 
 Als u hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.
 
