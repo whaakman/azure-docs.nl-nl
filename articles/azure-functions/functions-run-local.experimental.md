@@ -11,18 +11,29 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 2e2a388b399ff34e36ab65a734593704cf274dc0
+ms.openlocfilehash: 401cd6b2a78072c8299f32f60f1ac3677f05557c
 ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312083"
+ms.locfileid: "57318745"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Werken met Azure Functions Core Tools
 
 Azure Functions Core Tools kunt u ontwikkelen en testen van uw functies op uw lokale computer vanuit de opdrachtprompt of terminal. Uw lokale functies kunnen verbinding maken met live Azure-services, en u kunt fouten opsporen in uw functies op uw lokale computer met behulp van de volledige Functions-runtime. U kunt ook een functie-app implementeren naar uw Azure-abonnement.
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
+
+Ontwikkelen van functies op uw lokale computer en ze publiceren naar Azure met behulp van Core Tools volgt deze eenvoudige stappen:
+
+> [!div class="checklist"]
+> * [Installeer de Core-hulpprogramma's en afhankelijkheden.](#v2)
+> * [Een functie-app-project met een specifieke taal-sjabloon maken.](#create-a-local-functions-project)
+> * [Trigger en binding extensies registreren.](#register-extensions)
+> * [Opslag en andere verbindingen definiëren.](#local-settings-file)
+> * [Een functie maken vanuit een trigger en taalspecifieke sjabloon.](#create-func)
+> * [De functie lokaal uitvoeren](#start)
+> * [Het project publiceren naar Azure](#publish)
 
 ## <a name="core-tools-versions"></a>Core-versies van de hulpprogramma 's
 
@@ -427,7 +438,7 @@ Met deze opdracht publiceert naar een bestaande functie-app in Azure. Een fout o
 De `publish` opdracht wordt de inhoud van de projectmap functies geüpload. Als u bestanden lokaal, verwijdert de `publish` opdracht worden niet verwijderd van Azure. U kunt bestanden in Azure verwijderen met behulp van de [Kudu hulpprogramma](functions-how-to-use-azure-function-app-settings.md#kudu) in de [Azure-portal].
 
 >[!IMPORTANT]
-> Wanneer u een functie-app in Azure portal maakt, wordt versie 2.x van de runtime van de functies standaard. Om te maken van de functie app-gebruik versie 1.x van de runtime, volg de instructies in [worden uitgevoerd op versie 1.x](functions-versions.md#creating-1x-apps).
+> Wanneer u een functie-app in Azure-portal maakt, wordt versie 2.x van de runtime van de functies standaard. Om te maken van de functie app-gebruik versie 1.x van de runtime, volg de instructies in [worden uitgevoerd op versie 1.x](functions-versions.md#creating-1x-apps).
 > U kunt de runtimeversie voor een functie-app met bestaande functies niet wijzigen.
 
 Opties voor het volgende project publiceren voor zowel versies, 1.x en 2.x van toepassing:
