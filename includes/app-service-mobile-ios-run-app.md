@@ -4,12 +4,12 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: 1d1d593b7305e0cd9899f4ec388cb441ced90b10
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 8146489a913ce863cee7534331231a248a3ea7ac
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50134120"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890976"
 ---
 1. Ga op uw Mac naar de [Azure Portal]. Klik op **Alle Services** > **App Services** > en op de back-end die u zojuist hebt gemaakt. Kies de taal van uw voorkeur in de instellingen van de mobiele app:
 
@@ -20,7 +20,7 @@ ms.locfileid: "50134120"
 
 1. Druk op de knop **Uitvoeren** om het project te bouwen en de app te starten in de iOS-emulator.
 
-1. Typ in de app een stukje zinvolle tekst, zoals *Voltooi de zelfstudie* en klik vervolgens op het plusteken (**+**). Er wordt nu een POST-aanvraag verzonden naar de back-end van Azure die u eerder hebt geïmplementeerd. De back-end voegt gegevens van de aanvraag toe aan de SQL-takentabel en stuurt informatie over de nieuw opgeslagen items terug naar de mobiele app. Deze gegevens worden in de lijst in de mobiele app weergegeven.
+1. Klik in de app op het plusteken (**+**), typ zinvolle tekst, zoals *Voltooi de zelfstudie* en klik vervolgens op de knop Opslaan. Er wordt nu een POST-aanvraag verzonden naar de back-end van Azure die u eerder hebt geïmplementeerd. De back-end voegt gegevens van de aanvraag toe aan de SQL-takentabel en stuurt informatie over de nieuw opgeslagen items terug naar de mobiele app. Deze gegevens worden in de lijst in de mobiele app weergegeven.
 
    ![Snelstartgids-app uitgevoerd op iOS](./media/app-service-mobile-ios-quickstart/mobile-quickstart-startup-ios.png)
 
