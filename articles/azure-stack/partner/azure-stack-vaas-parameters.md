@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 03/04/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/19/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 59adaed427eb0d791e18438826aff4f6477e831a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9802184ebef764e9e493b8477fcca72e308987d0
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247269"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337223"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Werkstroom algemene parameters voor Azure Stack-validatie als een Service
 
@@ -58,7 +58,7 @@ Omgeving parameterwaarden kunnen ook handmatig aanwezig zijn in de **EEG configu
 
 Algemene testparameters gevoelige gegevens bevatten die in configuratiebestanden kan niet worden opgeslagen. Dit moeten handmatig opgegeven.
 
-Parameter    | Beschrijving
+Parameter    | Description
 -------------|-----------------
 Tenant-beheerder                            | Azure Active Directory Tenant-beheerder die is ingericht met de servicebeheerder in de AAD-directory. Deze gebruiker wordt uitgevoerd op tenantniveau acties, zoals sjablonen voor het instellen van resources (virtuele machines, opslagaccounts, enz.) implementeren en uitvoeren van workloads. Zie voor meer informatie over het inrichten van de tenantaccount [toevoegen van een nieuwe Azure Stack-tenant](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-new-user-aad).
 Service-beheerder             | Azure Active Directory Administrator van de AAD-Directory-Tenant opgegeven tijdens de implementatie van Azure Stack. Zoeken naar `AADTenant` in de configuratie van EEG-bestand en selecteer de waarde in de `UniqueName` element.

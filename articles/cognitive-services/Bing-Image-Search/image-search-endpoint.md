@@ -8,19 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 03/04/2019
 ms.author: v-gedod
-ms.openlocfilehash: 5e5cf9fcf6f70449fef8237fc004332e36bcd3b4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: fcae25ea0ef3f48beac6c221a11ca8a91443f7ce
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860266"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57336137"
 ---
 # <a name="endpoints-for-the-bing-image-search-api"></a>Eindpunten voor de Bing afbeeldingen zoeken-API
 
 De **afbeeldingen zoeken-API** bevat drie eindpunten.  Eindpunt 1 geeft als resultaat van installatiekopieën van het Web op basis van een query. Eindpunt 2 retourneert [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsightsresponse).  3-eindpunt retourneert trending afbeeldingen.
+
 ## <a name="endpoints"></a>Eindpunten
+
 Als u de resultaten van de installatiekopie met behulp van de Bing-API, een aanvraag te verzenden naar een van de volgende eindpunten. De kop- en URL-parameters gebruiken om te definiëren verder specificaties.
 
 **Eindpunt 1:** Retourneert de installatiekopieën die relevant voor de zoekquery van de gebruiker gedefinieerd zijn door `?q=""`.

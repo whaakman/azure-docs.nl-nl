@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: c263669d7f74d8abebcd84e818ae2ccf2dcac0f0
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: ea625a61ed600dbaa22fef85987e9570a6fb7dbc
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249018"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337410"
 ---
 # <a name="get-started-with-your-billing-account-for-a-microsoft-customer-agreement"></a>Aan de slag met uw factureringsrekening voor een Microsoft-KLANTOVEREENKOMST
 
@@ -28,13 +28,13 @@ In dit artikel is van toepassing op een rekening voor een Microsoft-KLANTOVEREEN
 
 ## <a name="understand-billing-account"></a>Factureringsaccount begrijpen
 
-Uw factureringsrekening voor de klant Microsoft overeenkomst bevat een of meer profielen voor facturering. Elke factureringsprofiel heeft een eigen factuur- en -methoden. De facturering profiel bevat een of meer factuur secties waarmee u kosten voor de facturering van het profiel factuur kunt indelen.
+Uw factureringsrekening voor de klant Microsoft overeenkomst bevat een of meer facturering profielen waarmee u uw facturen en betalingswijzen beheren. Elke factureringsprofiel bevat een of meer factuur secties waarmee u kosten voor de facturering van het profiel factuur kunt indelen.
 
 Het volgende diagram toont de relatie tussen een factureringsaccount, de profielen voor facturering en de factuur secties.
 
 ![Diagram met facturering hiërarchie voor KLANTOVEREENKOMST van Microsoft](./media/billing-mca-overview/mca-billing-hierarchy.png)
 
-Rollen op de rekening zijn het hoogste niveau van machtigingen. Deze rollen toewijzen aan gebruikers die nodig hebt om facturen te bekijken en de kosten voor uw hele organisatie, zoals de afdeling Financiën of IT-managers bijhouden. Zie voor meer informatie, [facturering account rollen en taken](billing-understand-mca-roles.md#billing-account-roles-and-tasks).
+Rollen op de rekening zijn het hoogste niveau van machtigingen. Standaard krijgen alleen globale beheerders in uw organisatie Azure Active Directory toegang tot de factureringsaccount. Deze rollen moeten worden toegewezen aan gebruikers die willen facturen weergeven en de kosten voor uw hele organisatie, zoals de afdeling Financiën of IT-managers bijhouden. Zie voor meer informatie, [facturering account rollen en taken](billing-understand-mca-roles.md#billing-account-roles-and-tasks).
 
 ## <a name="understand-billing-profiles"></a>Inzicht in facturering-profielen
 
@@ -50,7 +50,7 @@ Rollen op de facturering profielen hebben machtigingen voor facturen en betaling
 
 Een maandelijkse factuur wordt gegenereerd op de datum voor elk profiel facturering. De factuur bevat alle kosten voor de vorige maand.
 
-U kunt de factuur bekijken, documenten downloaden en instellen om op te halen van toekomstige facturen per e-mail, in de Azure-portal. Zie voor meer informatie, [ophalen van uw factuur in e-mailbericht](billing-download-azure-invoice-daily-usage-date.md#get-your-invoice-in-email-pdf).
+U kunt de factuur bekijken, documenten downloaden en instellen om op te halen van toekomstige facturen per e-mail, in de Azure-portal. Zie voor meer informatie, [facturen downloaden voor een Microsoft-KLANTOVEREENKOMST](billing-download-azure-invoice-daily-usage-date.md#download-invoices-for-a-microsoft-customer-agreement).
 
 ### <a name="invoices-paid-through-payment-methods"></a>Facturen betaald via betalingsmethoden
 
@@ -58,7 +58,7 @@ Elke factureringsprofiel heeft een eigen betalingswijzen die worden gebruikt om 
 
 | Type             | Definitie  |
 |------------------|-------------|
-|Azure-tegoed    |  Tegoeden worden automatisch toegepast op het totaal aantal gefactureerde bedrag op uw factuur voor het berekenen van de hoeveelheid die u nodig hebt om te betalen. Zie voor meer informatie, [bijhouden Azure saldo van uw factureringsprofiel](billing-mca-check-azure-credits-balance.md). |
+|Azure-tegoed    |  Tegoeden worden automatisch toegepast op het totaal aantal gefactureerde bedrag op uw factuur voor het berekenen van de hoeveelheid die u nodig hebt om te betalen. Zie voor meer informatie, [saldo van de Azure-tegoed voor uw factureringsprofiel volgen](billing-mca-check-azure-credits-balance.md). |
 |Cheque of directe overboeking | U kunt het verschuldigde bedrag betalen voor uw factuur overdragen via het selectievakje of -bedrading. De instructies voor de betaling worden gegeven op de factuur |
 
 ### <a name="control-azure-marketplace-and-reservation-purchases-by-applying-policies"></a>Besturingselement voor Azure Marketplace en reservering aankopen door het toepassen van beleid
@@ -72,7 +72,7 @@ Azure-abonnementen zijn automatisch ingeschakeld wanneer u een facturering profi
 | Plannen             | Definitie  |
 |------------------|-------------|
 |Microsoft Azure Plan   | Gebruikers toestaan te maken van abonnementen die werkbelastingen kunnen worden uitgevoerd. Zie voor meer informatie, [plannen van Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g/) |
-|Microsoft Azure-abonnement voor ontwikkelen en testen | Visual Studio-abonnees die abonnementen maken die beperkt voor de ontwikkeling van zijn toestaan of testworkloads. Deze abonnementen Profiteer van voordelen zoals lagere tarieven en toegang tot exclusieve virtuele machine-installatiekopieën in Azure portal. Zie voor meer informatie, [voor DevTest plannen Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0148g/)| <!--- TODO - Add the link to plan details page -->
+|Microsoft Azure-abonnement voor ontwikkelen en testen | Visual Studio-abonnees die abonnementen maken die beperkt voor de ontwikkeling van zijn toestaan of testworkloads. Deze abonnementen Profiteer van voordelen zoals lagere tarieven en toegang tot exclusieve virtuele machine-installatiekopieën in Azure portal. Zie voor meer informatie, [voor DevTest plannen Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0148g/)|
 
 ## <a name="understand-invoice-sections"></a>Secties factuur begrijpen
 
@@ -85,7 +85,7 @@ Rollen in de sectie factuur beschikken over machtigingen om te bepalen wie Azure
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Toegang tot een Microsoft-KLANTOVEREENKOMST controleren
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
+## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning
 
 Als u hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.
 
@@ -94,5 +94,5 @@ Als u hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?
 Zie de volgende artikelen voor meer informatie over uw factureringsrekening:
 
 - [Informatie over Microsoft KLANTOVEREENKOMST beheerdersrollen in Azure](billing-understand-mca-roles.md)
-- [Een Azure-abonnement voor uw factureringsrekening voor Microsoft-KLANTOVEREENKOMST maken](billing-mca-create-subscription.md)
-- [Kosten met factuur secties organiseren](billing-mca-section-invoice.md)
+- [Een extra Azure-abonnement voor Microsoft-KLANTOVEREENKOMST maken](billing-mca-create-subscription.md)
+- [Secties maken op uw factuur voor het ordenen van uw kosten](billing-mca-section-invoice.md)

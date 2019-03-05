@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/19/2018
-ms.openlocfilehash: b8001729c85c8447ab22bafffe24a32524a0662a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 03/05/2019
+ms.openlocfilehash: 99200e521ea844d20ef00ef70ad65ac0ab3bcddd
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714692"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337291"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Veelgestelde vragen over het gebruik van de Azure Database Migration Service
 In dit artikel geeft een lijst met veelgestelde vragen over het gebruik van de Azure Database Migration Service, samen met verwante antwoorden.
@@ -90,7 +90,7 @@ Tijdens het meerdere Microsoft-zelfstudies die u bij het proces helpen kunnen va
 Als de gebruiker expliciet het Azure Database Migration Service (DMS stopt) of als de service niet actief gedurende een periode van 24 uur is, wordt de service zich in een gestopte of automatisch de status onderbroken ingeschakeld. In elk geval wordt is de service niet beschikbaar en in een gestopte status.  Als u wilt hervatten active migraties, door de service opnieuw te starten.
 
 ### <a name="q-where-can-i-leave-feedback-about-the-azure-database-migration-service"></a>V. Waar kan ik feedback geven over de Azure Database Migration Service?
-We horen graag van u. Stuur alle feedback en / ideeën die u hebt over de Azure Database Migration Service via User Voice, [hier](https://feedback.azure.com/forums/906100-azure-database-migration-service).
+We horen graag van u. Stuur alle feedback en / ideeën die u hebt over de Azure Database Migration Service via User Voice, [hier](https://feedback.azure.com/forums/906100-azure-database-migration-service), of neem contact op met het team via [Azure Databasemigraties vragen](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie het artikel voor een overzicht van de Azure Database Migration Service en de regionale beschikbaarheid [wat is de Azure Database Migration Service](dms-overview.md). 

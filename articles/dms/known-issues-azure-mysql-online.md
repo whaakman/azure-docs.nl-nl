@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2018
-ms.openlocfilehash: ebe2af858aafaff62a7e3b629c0a8c84bbf49584
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 03/05/2019
+ms.openlocfilehash: be6c31840abcf2503293c381aad2848afebe3d9b
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721645"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337121"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>Bekende problemen/migratiebeperkingen met online migratie naar Azure DB voor MySQL
 
@@ -80,7 +80,7 @@ Grote Object (LOB)-kolommen zijn kolommen die kunnen worden vergroot groot. Voor
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **Tijdelijke oplossing**: Als u LOB-object dat groter is dan 32 KB hebt, neem dan contact op met de engineering-team op [ dmsfeedback@microsoft.com ](mailto:dmsfeedback@microsoft.com). 
+    **Tijdelijke oplossing**: Als u LOB-object dat groter is dan 32 KB hebt, neem dan contact op met de engineering-team op [Azure Databasemigraties vragen](mailto:AskAzureDatabaseMigrations@service.microsoft.com). 
 
 ## <a name="other-limitations"></a>Andere beperkingen
 - Een wachtwoord met openen en sluiten accolades {} aan het begin en einde van de tekenreeks van het wachtwoord wordt niet ondersteund. Deze beperking geldt voor zowel verbinden met MySQL bron en doel-Azure Database voor MySQL.

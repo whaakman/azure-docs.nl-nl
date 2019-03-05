@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/11/2019
-ms.openlocfilehash: b066c7f6c32b6e9fe1c1f63b5db88b4deaa2edae
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.date: 03/05/2019
+ms.openlocfilehash: a5f44e5f7f19507723eeb75518a9a573d6563e2b
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231815"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337206"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Bekende problemen/migratiebeperkingen met online migratie naar Azure SQL DB
 
@@ -28,7 +28,7 @@ Bekende problemen en beperkingen die zijn gekoppeld aan online migraties van SQL
 
 Als uw brondatabase uit een of meer tijdelijke tabellen bestaat, uw databasemigratie is mislukt tijdens de 'alle gegevens worden geladen'-bewerking en ziet u mogelijk het volgende bericht:
 
-{"resourceId": "/subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>", "errorType": "Database migratie error", "errorEvents": "[" vastleggen functies kunnen niet worden ingesteld. Retcode is: SqlState SQL_ERROR geretourneerd: 42000 NativeError: 13570 bericht: [Microsoft] [SQL Server Native Client 11.0] [SQL Server] op het gebruik van replicatie wordt niet ondersteund met de tijdelijke systeemversietabel ' [-toepassing. Steden], regel: 1 kolom: -1 "]"}
+{"resourceId": "/subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>", "errorType": "Database migratie error", "errorEvents": "[" vastleggen functies kunnen niet worden ingesteld. Retcode is: SQL_ERROR SqlState: 42000 NativeError: 13570 bericht: [Microsoft] [SQL Server Native Client 11.0] [SQL Server] op het gebruik van replicatie wordt niet ondersteund met de tijdelijke systeemversietabel ' [-toepassing. Steden], regel: 1 kolom: -1 "]"}
  
  ![Voorbeeld van de tijdelijke tabel fouten](media/known-issues-azure-sql-online/dms-temporal-tables-errors.png)
 
@@ -42,7 +42,7 @@ Als uw brondatabase uit een of meer tijdelijke tabellen bestaat, uw databasemigr
 
 3. De migratieactiviteit opnieuw.
 
-**Bronnen**
+**Resources**
 
 Zie voor meer informatie het artikel [tijdelijke tabellen](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables?view=sql-server-2017).
  
@@ -89,7 +89,7 @@ SELECT max(DATALENGTH(ColumnName)) as LEN from TableName
 
 **Tijdelijke oplossing**
 
-Als u een LOB-kolom die groter is dan 32 KB, neem dan contact op met het technische team op [ dmsfeedback@microsoft.com ](mailto:dmsfeedback@microsoft.com).
+Als u een LOB-kolom die groter is dan 32 KB, neem dan contact op met het technische team op [Azure Databasemigraties vragen](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ### <a name="issues-with-timestamp-columns"></a>Problemen met de timestamp-kolommen
 
@@ -99,7 +99,7 @@ DMS migreren de waarde timestamp; niet DMS genereert in plaats daarvan een nieuw
 
 **Tijdelijke oplossing**
 
-Als u DMS voor het migreren van de waarde van de exacte tijdstempel opgeslagen in de brontabel nodig hebt, neem dan contact op met het technische team op [ dmsfeedback@microsoft.com ](mailto:dmsfeedback@microsoft.com).
+Als u DMS voor het migreren van de waarde van de exacte tijdstempel opgeslagen in de brontabel nodig hebt, neem dan contact op met het technische team op [Azure Databasemigraties vragen](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ### <a name="data-migration-errors-do-not-provide-additional-details-on-the-database-detailed-status-blade"></a>Fouten bij de migratie van gegevens bieden aanvullende informatie op de blade Database gedetailleerde status weergegeven.
 

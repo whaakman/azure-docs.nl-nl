@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/6/2018
 ms.author: victorh
-ms.openlocfilehash: 884775fc2783256d9fff43e8bc6b26cc4f638648
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 15481706d56af6cd9565e8c475b4770e432c1838
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998617"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337359"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Application Gateway overzicht van statuscontrole
 
@@ -22,6 +22,8 @@ Azure Application Gateway standaard controleert de status van alle resources in 
 ![Voorbeeld van Application gateway-test][1]
 
 Naast het gebruik van standaard health test controle, kunt u ook de statustest aan de behoeften van de vereisten van uw toepassing aanpassen. In dit artikel worden zowel standaard als aangepaste statustests besproken.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="default-health-probe"></a>Standaard-statustest
 
@@ -33,20 +35,20 @@ Als de test standaard controle voor server A mislukt, de application gateway wor
 
 ### <a name="probe-matching"></a>Overeenkomen Probe
 
-Standaard wordt een antwoord HTTP (S) met de statuscode 200 als in orde beschouwd. Daarnaast ondersteuning voor aangepaste statustests twee overeenkomende criteria. Die overeenkomen met criteria kan worden gebruikt om te wijzigen (optioneel) de standaardinterpretatie van wat wordt verstaan onder een reactie in orde.
+Standaard wordt een antwoord HTTP (S) met de statuscode tussen 200 en 399 als in orde beschouwd. Daarnaast ondersteuning voor aangepaste statustests twee overeenkomende criteria. Die overeenkomen met criteria kan worden gebruikt om te wijzigen (optioneel) de standaardinterpretatie van wat wordt verstaan onder een reactie in orde.
 
 De volgende zijn die overeenkomen met criteria: 
 
 - **HTTP-antwoord status code overeenkomst** - test die overeenkomt met het criterium voor het accepteren van de gebruiker opgegeven bereiken uit de HTTP-antwoord code of antwoord-code. Afzonderlijke door komma's gescheiden antwoordstatuscodes of een bereik van de statuscode wordt ondersteund.
 - **HTTP-antwoord hoofdtekst van de overeenkomst** - test die overeenkomen met criteria die er ongeveer zo uitziet op HTTP-antwoordtekst en overeenkomende gegevens met een gebruiker in de opgegeven tekenreeks. De overeenkomst alleen zoekt aanwezigheid van de gebruiker die is opgegeven tekenreeks in de hoofdtekst van antwoord en is niet een komt overeen met de volledige reguliere expressie.
 
-Overeenkomen met criteria die kunnen worden opgegeven met behulp van de `New-AzureRmApplicationGatewayProbeHealthResponseMatch` cmdlet.
+Overeenkomen met criteria die kunnen worden opgegeven met behulp van de `New-AzApplicationGatewayProbeHealthResponseMatch` cmdlet.
 
 Bijvoorbeeld:
 
-```powershell
-$match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
-$match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
+```azurepowershell
+$match = New-AzApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
+$match = New-AzApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 ```
 Zodra de overeenkomen met criteria die is opgegeven, wordt deze kan worden gekoppeld als u wilt testen met behulp van configuratie van een `-Match` parameter in PowerShell.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 76976fef7d5372ad5ebbb063f7af12342b001467
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 47fde9099ed8172b83f9f12085c5aee219c4716c
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193769"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57318016"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Connectiviteit van apparaten in Azure IoT Central
 
@@ -90,9 +90,9 @@ De volgende stappen wordt beschreven hoe u apparaten kunt verbinden met IoT Cent
       Als er een schending van de beveiliging of het primaire certificaat is ingesteld op verlopen, moet u het secundaire certificaat gebruiken om uitvaltijd te verlagen. U kunt blijven voor het inrichten van apparaten met behulp van het secundaire certificaat tijdens het bijwerken van het primaire certificaat.
 
     - Eigendom van het certificaat te verifiëren, zorgt u ervoor dat de uploader van het certificaat een persoonlijke sleutel van het certificaat heeft. Om te controleren of het certificaat:
-        - Klik op de knop naast **verificatiecode** om een code te genereren.
+        - Selecteer de knop naast **verificatiecode** om een code te genereren.
         - Maak een X.509-certificaat voor verificatie met de verificatiecode in die u hebt gegenereerd in de vorige stap. Sla het certificaat als een cer-bestand.
-        - Upload het ondertekende verificatiecertificaat en klikt u op verifiëren.
+        - Upload het ondertekende verificatiecertificaat en selecteer **controleren**.
 
           ![Verbindingsinstellingen](media/concepts-connectivity-experimental/verify-cert.png)
 
@@ -173,7 +173,7 @@ Wanneer een echt apparaat verbinding maakt met uw IoT Central-toepassing, de inr
 
 De volgende stappen wordt beschreven hoe u een verbindingsreeks voor een apparaat kan krijgen:
 
-1. Klik op **Connect** op de **Device Explorer** pagina voor de verbindingsdetails: **Scope-ID**, **apparaat-ID**, en **apparaat primaire sleutel**:
+1. Selecteer **Connect** op de **Device Explorer** pagina voor de verbindingsdetails: **Scope-ID**, **apparaat-ID**, en **apparaat primaire sleutel**:
 
     ![Verbindingsdetails](media/concepts-connectivity-experimental/device-connect.png)
 
