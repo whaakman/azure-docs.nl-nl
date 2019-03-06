@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/17/2019
 ms.author: srrengar
-ms.openlocfilehash: bb4ffe959fd3b973f55b08908ea603839222365d
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 71bff5473abe9f53804d702625b871f41309a787
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243259"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441828"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Bewaking en diagnose voor Azure Service Fabric
 
@@ -73,7 +73,7 @@ Nu dat we de diagnostische gegevens in uw toepassing en het platform besproken h
 
 Een lijst met prestatiemeteritems die moeten worden verzameld op het niveau van de infrastructuur kan worden gevonden op [maatstaven voor prestaties](service-fabric-diagnostics-event-generation-perf.md). 
 
-Service Fabric alsp biedt een set prestatiemeteritems voor de programmeermodellen Reliable Services en actoren. Als u een van deze modellen worden gebruikt, kunnen deze prestatiemeteritems gegevens om ervoor te zorgen dat uw actors zijn draaiende omhoog en omlaag correct, of dat uw betrouwbare serviceaanvragen snel genoeg worden verwerkt. Zie voor meer informatie, [bewaking voor externe communicatie Reliable Service](service-fabric-reliable-serviceremoting-diagnostics.md#performance-counters) en [prestatiecontrole voor betrouwbare actoren](service-fabric-reliable-actors-diagnostics.md#performance-counters). 
+Service Fabric biedt ook een set prestatiemeteritems voor de programmeermodellen Reliable Services en actoren. Als u een van deze modellen worden gebruikt, kunnen deze prestatiemeteritems gegevens om ervoor te zorgen dat uw actors zijn draaiende omhoog en omlaag correct, of dat uw betrouwbare serviceaanvragen snel genoeg worden verwerkt. Zie voor meer informatie, [bewaking voor externe communicatie Reliable Service](service-fabric-reliable-serviceremoting-diagnostics.md#performance-counters) en [prestatiecontrole voor betrouwbare actoren](service-fabric-reliable-actors-diagnostics.md#performance-counters). 
 
 De oplossing Azure Monitor voor het verzamelen van deze is Logboeken van Azure Monitor net als platform niveau bewaking. Moet u de [Log Analytics-agent](service-fabric-diagnostics-oms-agent.md) naar de juiste prestatiemeteritems verzamelen en ze weergeven in Azure Monitor-Logboeken.
 

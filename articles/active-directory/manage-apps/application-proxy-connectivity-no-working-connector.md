@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6004feaa4b720b1745fbbbeaab1cddb0a46a7498
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 96608853d2eec3cf90f1425992d755cbe6c2e8dd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170615"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437901"
 ---
 # <a name="no-working-connector-group-found-for-an-application-proxy-application"></a>Geen werkende connector-groep voor een toepassing Application Proxy gevonden
 
@@ -32,7 +32,7 @@ Als er geen werkende Connector in een Connectorgroep voor uw toepassing, zijn er
 
 -   Als u geen connectors in de groep hebt, kunt u het volgende doen:
 
-    -   Een nieuwe Connector op de juiste on-premises server downloaden en deze toewijzen aan deze groep
+    -   Een nieuwe Connector aan de rechterkant op lokale server downloaden en deze toewijzen aan deze groep
 
     -   Een actieve Connector verplaatsen naar de groep
 

@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a60f95bc8a98ea15c174f48bc3c3e63eae534d1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 88fc78a1263ac4587a98288dc71df26385bc81ce
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164054"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453640"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referentie voor auditactiviteiten van Azure AD
 
@@ -66,10 +66,10 @@ In dit artikel worden de auditactiviteiten vermeld die in uw auditlogboeken kunn
 |Toegangsbeoordelingen|Toegangsbeoordeling bijwerken|
 |Toegangsbeoordelingen|De status van Azure AD Access beoordelingen Onboarding bijwerken|
 |Toegangsbeoordelingen|Instellingen voor de e-mailmelding van de toegangsbeoordeling bijwerken|
-|Toegangsbeoordelingen|Instelling voor aantal herhalingen toegangsbeoordeling bijwerken|
-|Toegangsbeoordelingen|Instelling voor duur herhalingen toegangsbeoordeling bijwerken|
-|Toegangsbeoordelingen|Instelling voor eindtype herhalingen toegangsbeoordeling bijwerken|
-|Toegangsbeoordelingen|Instelling voor type herhalingen toegangsbeoordeling bijwerken|
+|Toegangsbeoordelingen|Instelling voor toegangsbeoordeling van aantal terugkeerpatronen bijwerken|
+|Toegangsbeoordelingen|Instelling voor toegangsbeoordeling van duur van terugkeerpatroon in dagen bijwerken|
+|Toegangsbeoordelingen|Instelling voor toegangsbeoordeling van eindtype van terugkeerpatroon bijwerken|
+|Toegangsbeoordelingen|Instelling voor toegangsbeoordeling van type terugkeerpatroon bijwerken|
 |Toegangsbeoordelingen|Herinneringsinstellingen toegangsbeoordeling bijwerken|
 |Toegangsbeoordelingen|Programma bijwerken|
 |Toegangsbeoordelingen|Aanvraaggoedkeuring bijwerken|

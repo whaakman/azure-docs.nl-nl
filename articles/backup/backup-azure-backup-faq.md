@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: bfc1c419d5d58b4528b76dbed6fd0060f6b2833d
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 914dcd02f2d35d56b50169967ca1f5c251a6e6f3
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446661"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408612"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - Veelgestelde vragen
 In dit artikel vindt u antwoorden op veelgestelde vragen over de Azure Backup-service.
@@ -101,7 +101,8 @@ Windows 8.1 64-bits | Enterprise, Pro | Machines moeten worden uitgevoerd, de me
 Windows 8 64-bits | Enterprise, Pro | Machines moeten worden uitgevoerd, de meest recente servicepacks en updates.
 Windows 7 64-bits | Ultimate, Enterprise, Professional, Home Premium Home Basic, Starter | Machines moeten worden uitgevoerd, de meest recente servicepacks en updates.
 Server | |
-Windows Server 2016, 64-bits | Standard, Datacenter, Essentials | Dat de meest recente service packs/updates.
+Windows Server 2019 64-bits | Standard, Datacenter, Essentials | Met de nieuwste service packs/updates.
+Windows Server 2016, 64-bits | Standard, Datacenter, Essentials | Met de nieuwste service packs/updates.
 Windows Server 2012 R2 64-bits | Standard, Datacenter, Foundation | Met de nieuwste service packs/updates.
 Windows Server 2012, 64-bits | Datacenter, Foundation, Standard | Met de nieuwste service packs/updates.
 Windows Storage Server 2016, 64-bits | Standard, Workgroup | Met de nieuwste service packs/updates.

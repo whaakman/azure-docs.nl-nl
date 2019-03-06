@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 1345a5814faefd4074e7d9548d374bd79d977514
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: e704a2595130a2a815388447ac482ab96789d64a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015582"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453980"
 ---
-# <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>Exchange-gebeurtenissen tussen consumenten en producenten die gebruikmaken van verschillende protocollen: AMQP, Kafka en HTTPS
+# <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>Exchange-gebeurtenissen tussen consumenten en producenten die gebruikmaken van verschillende protocollen: AMQP-, Kafka- en HTTPS
 Azure Event Hubs ondersteunt drie protocollen voor consumenten en producenten: AMQP, Kafka en HTTPS. Elk van deze protocollen heeft zijn eigen manier voor het weergeven van een bericht, dus op een natuurlijke manier rijst de vraag van de volgende: als een toepassing gebeurtenissen naar een Event Hub met één protocol verzonden en met een ander protocol worden verbruikt, wat doet de verschillende onderdelen en waarden van de gebeurtenis er als volgt uitzien wanneer ze binnenkomen bij de consument? In dit artikel wordt beschreven aanbevolen procedures voor de producent en consument om ervoor te zorgen dat de waarden in een gebeurtenis correct worden geïnterpreteerd door de betreffende toepassing.
 
 Het advies in dit artikel specifiek betrekking heeft op deze clients met de vermelde versies die worden gebruikt bij het ontwikkelen van de codefragmenten:
@@ -68,7 +68,7 @@ Met deze code maakt een pijplijn transparante bytes tussen de twee helften van d
 
 Toepassingen waarvoor een enkele, vaste instantie van het gebeurtenistype mogelijk gebruik van andere Kafka objectserializers en deserializers transparant om gegevens te converteren. Neem bijvoorbeeld een toepassing die gebruikmaakt van JSON. Bouw en interpretatie van de JSON-tekenreeks gebeurt op het toepassingsniveau van de. De hoofdtekst van de gebeurtenis is op het niveau van de Event Hubs, altijd een tekenreeks, een reeks tekens in de UTF-8-codering voor bytes. In dit geval kan de Kafka producer of de consument profiteren van de opgegeven StringSerializer of StringDeserializer zoals wordt weergegeven in de volgende code:
 
-### <a name="kafka-utf-8-string-producer"></a>Producent van Kafka UTF-8-tekenreeks
+### <a name="kafka-utf-8-string-producer"></a>Kafka UTF-8 string producer
 ```java
 final Properties properties = new Properties();
 // add other properties
@@ -81,7 +81,7 @@ ProducerRecord<Long, String> pr =
     new ProducerRecord<Long, String>(myTopic, myPartitionId, myTimeStamp, exampleJson);
 ```
 
-### <a name="kafka-utf-8-string-consumer"></a>Kafka UTF-8 tekenreeks consumenten
+### <a name="kafka-utf-8-string-consumer"></a>Kafka UTF-8 string consumer
 ```java
 final Properties properties = new Properties();
 // add other properties
@@ -95,13 +95,13 @@ final String receivedJson = cr.value();
 
 Voor de AMQP-zijde bieden zowel Java als .NET ingebouwde manieren om tekenreeksen te zetten naar en van UTF-8-byte-reeksen. Een klasse met de naam EventData staat gebeurtenissen voor de Microsoft AMQP-clients. De volgende voorbeelden ziet u het serialiseren van een tekenreeks UTF-8 in de hoofdcode van een EventData-gebeurtenis in een AMQP-producent en hoe u een instantie van de gebeurtenis EventData deserialiseren naar een UTF-8-tekenreeks in een AMQP-gebruiker.
 
-### <a name="java-amqp-utf-8-string-producer"></a>Producent van Java AMQP UTF-8-tekenreeks
+### <a name="java-amqp-utf-8-string-producer"></a>Java AMQP UTF-8 string producer
 ```java
 final String exampleJson = "{\"name\":\"John\", \"number\":9001}";
 final EventData ed = EventData.create(exampleJson.getBytes(StandardCharsets.UTF_8));
 ```
 
-### <a name="java-amqp-utf-8-string-consumer"></a>Java AMQP UTF-8 tekenreeks consumenten
+### <a name="java-amqp-utf-8-string-consumer"></a>Java AMQP UTF-8 string consumer
 ```java
 EventData ed = /* receive event */
 String receivedJson = new String(ed.getBytes(), StandardCharsets.UTF_8);
@@ -344,5 +344,5 @@ In dit artikel hebt u geleerd u hoe u kunt streamen naar Event Hubs waarvoor Kaf
 * [Meer informatie over Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Meer informatie over Event Hubs for Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 * [Meer voorbeelden van de Event Hubs for Kafka-GitHub verkennen](https://github.com/Azure/azure-event-hubs-for-kafka)
-* Gebruik [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) om [gebeurtenissen van Kafka on-premises te streamen naar Event Hubs waarvoor Kafka is ingeschakeld in de cloud](event-hubs-kafka-mirror-maker-tutorial.md).
+* Gebruik [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) naar [gebeurtenissen voor het streamen van Kafka on-premises met Kafka ingeschakeld Event Hubs in de cloud.](event-hubs-kafka-mirror-maker-tutorial.md)
 * Meer informatie over het streamen naar Kafka ingeschakelde Event Hubs met behulp [systeemeigen Kafka toepassingen](event-hubs-quickstart-kafka-enabled-event-hubs.md), [Apache Flink](event-hubs-kafka-flink-tutorial.md), of [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)

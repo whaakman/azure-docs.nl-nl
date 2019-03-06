@@ -16,12 +16,12 @@ ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: 453cb838792ff5e80b0dbbe8e90f96792f9c5484
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 81805188c72bce6a7ea89496c8036743b29e9075
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890127"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452756"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Een schijf toevoegen aan een virtuele Linux-machine
 Dit artikel ziet u hoe u een permanente schijf koppelen aan uw virtuele machine zodat u kunt uw gegevens - behouden, zelfs als uw virtuele machine is ingericht vanwege onderhoud vergroten of verkleinen.
@@ -122,6 +122,10 @@ The partition table has been altered!
 
 Calling ioctl() to re-read partition table.
 Syncing disks.
+```
+Gebruik de onderstaande opdracht voor het bijwerken van de kernel:
+```
+partprobe 
 ```
 
 Schrijf u nu een bestandssysteem naar de partitie met de `mkfs` opdracht. Geef het type bestandssysteem en de naam van het apparaat. Het volgende voorbeeld wordt een *ext4* bestandssysteem op het */dev/sdc1* partitie die is gemaakt in de voorgaande stappen:

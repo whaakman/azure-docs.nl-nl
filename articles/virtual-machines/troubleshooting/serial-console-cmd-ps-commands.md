@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 6eb0ce9098b5cc5f66035851c6837e9e46fcf2df
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 69aecf3d107000408f98f8ae53968355943c2881
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47413731"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440808"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Windows-opdrachten - CMD en PowerShell
 
@@ -118,7 +118,7 @@ Als beperkt tot de methoden die beschikbaar zijn in Windows standaard worden Pow
 ### <a name="disable-windows-firewall"></a>Windows Firewall uitschakelen
 `netsh advfirewall set allprofiles state off`
 
-U kunt deze opdracht gebruiken bij het oplossen van om tijdelijk uit de Windows-Firewall. Het zal worden inschakelen op het systeem opnieuw is opgestart of wanneer u enaable met behulp van de onderstaande opdracht. Het Windows Firewall-service (MPSVC) of de Base Filtering Engine (BFE)-service niet worden gestopt als manier om uit de Windows Firewall. MPSSVC of BFE stoppen resulteert in alle verbindingen worden geblokkeerd.
+U kunt deze opdracht gebruiken bij het oplossen van om tijdelijk uit de Windows-Firewall. Dit is op het systeem opnieuw is opgestart of wanneer u deze met de volgende opdracht inschakelt. Het Windows Firewall-service (MPSVC) of de Base Filtering Engine (BFE)-service niet worden gestopt als manier om uit de Windows Firewall. MPSSVC of BFE stoppen resulteert in alle verbindingen worden geblokkeerd.
 ### <a name="enable-windows-firewall"></a>Windows Firewall inschakelen
 `netsh advfirewall set allprofiles state on`
 ## <a name="manage-users-and-groups"></a>Gebruikers en groepen beheren

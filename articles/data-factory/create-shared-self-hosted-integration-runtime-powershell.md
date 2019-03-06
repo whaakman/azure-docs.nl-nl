@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: 76b0d1728b46834270e9a5b53709de62b4a8b3fa
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: cc1a0905c97e76c481283363f095087b5fdcba3f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429375"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455850"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory-with-powershell"></a>Een gedeelde zelf-hostende integratieruntime maken in Azure Data Factory met PowerShell
 
@@ -30,9 +30,11 @@ Deze stapsgewijze handleiding laat zien hoe u een gedeelde zelf-hostende integra
 
 ## <a name="prerequisites"></a>Vereisten 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 - **Azure-abonnement**. Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint. 
 
-- **Azure PowerShell**. Volg de instructies in [Azure PowerShell installeren op Windows met PowerShellGet](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.11.0). U kunt PowerShell gebruiken om uit te voeren een script voor het maken van een zelf-hostende integratieruntime die kan worden gedeeld met andere data factory's. 
+- **Azure PowerShell**. Volg de instructies in [Azure PowerShell installeren op Windows met PowerShellGet](https://docs.microsoft.com/powershell/azure/install-az-ps). U kunt PowerShell gebruiken om uit te voeren een script voor het maken van een zelf-hostende integratieruntime die kan worden gedeeld met andere data factory's. 
 
 > [!NOTE]  
 > Voor een lijst van Azure-regio's waarin Data Factory momenteel beschikbaar is is, selecteert u de regio's waarin u geïnteresseerd bent in [producten beschikbaar per regio](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
@@ -65,8 +67,8 @@ Deze stapsgewijze handleiding laat zien hoe u een gedeelde zelf-hostende integra
 1. Meld u aan en selecteer een abonnement. Voeg de volgende code aan het script om te melden en selecteer uw Azure-abonnement:
 
     ```powershell
-    Connect-AzureRmAccount
-    Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+    Connect-AzAccount
+    Select-AzSubscription -SubscriptionName $SubscriptionName
     ```
 
 1. Maak een resourcegroep en een data factory.
@@ -74,16 +76,16 @@ Deze stapsgewijze handleiding laat zien hoe u een gedeelde zelf-hostende integra
     > [!NOTE]  
     > Deze stap is optioneel. Als u al een data factory hebt, kunt u deze stap overslaan. 
 
-    Maak een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) met behulp van de [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-6.11.0) opdracht. Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en groepsgewijs worden beheerd. Het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` op de locatie Europa West: 
+    Maak een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) met behulp van de [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azurermps-6.11.0) opdracht. Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en groepsgewijs worden beheerd. Het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` op de locatie Europa West: 
 
     ```powershell
-    New-AzureRmResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
+    New-AzResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
     ```
 
     Voer de volgende opdracht uit om een data factory te maken: 
 
     ```powershell
-    Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
+    Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
                              -Location $DataFactoryLocation `
                              -Name $SharedDataFactoryName
     ```
@@ -96,7 +98,7 @@ Deze stapsgewijze handleiding laat zien hoe u een gedeelde zelf-hostende integra
 Voer de volgende opdracht om een zelf-hostende integratieruntime maken:
 
 ```powershell
-$SharedIR = Set-AzureRmDataFactoryV2IntegrationRuntime `
+$SharedIR = Set-AzDataFactoryV2IntegrationRuntime `
     -ResourceGroupName $ResourceGroupName `
     -DataFactoryName $SharedDataFactoryName `
     -Name $SharedIntegrationRuntimeName `
@@ -109,7 +111,7 @@ $SharedIR = Set-AzureRmDataFactoryV2IntegrationRuntime `
 Voer de volgende opdracht uit om op te halen van de verificatiesleutel voor de zelf-hostende integratieruntime:
 
 ```powershell
-Get-AzureRmDataFactoryV2IntegrationRuntimeKey `
+Get-AzDataFactoryV2IntegrationRuntimeKey `
     -ResourceGroupName $ResourceGroupName `
     -DataFactoryName $SharedDataFactoryName `
     -Name $SharedIntegrationRuntimeName
@@ -133,7 +135,7 @@ Het antwoord bevat de verificatiesleutel voor deze zelf-hostende integratierunti
 > Deze stap is optioneel. Als u de data factory die u delen wilt met al hebt, kunt u deze stap overslaan.
 
 ```powershell
-$factory = Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
+$factory = Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
     -Location $DataFactoryLocation `
     -Name $LinkedDataFactoryName
 ```
@@ -145,7 +147,7 @@ Toekennen aan de gegevensfactory die toegang nodig heeft tot de zelf-hostende in
 > Sla deze stap niet!
 
 ```powershell
-New-AzureRMRoleAssignment `
+New-AzRoleAssignment `
     -ObjectId $factory.Identity.PrincipalId ` #MSI of the Data Factory with which it needs to be shared
     -RoleDefinitionId 'b24988ac-6180-42a0-ab88-20f7382dd24c' ` #This is the Contributor role
     -Scope $SharedIR.Id
@@ -156,7 +158,7 @@ New-AzureRMRoleAssignment `
 Voer de volgende opdracht om een gekoppelde zelf-hostende integratieruntime maken:
 
 ```powershell
-Set-AzureRmDataFactoryV2IntegrationRuntime `
+Set-AzDataFactoryV2IntegrationRuntime `
     -ResourceGroupName $ResourceGroupName `
     -DataFactoryName $LinkedDataFactoryName `
     -Name $LinkedIntegrationRuntimeName `
@@ -172,7 +174,7 @@ U kunt nu deze gekoppelde integratieruntime gebruiken in een gekoppelde service.
 Om in te trekken van de toegang van een data factory uit de gedeelde integratieruntime, voer de volgende opdracht:
 
 ```powershell
-Remove-AzureRMRoleAssignment `
+Remove-AzRoleAssignment `
     -ObjectId $factory.Identity.PrincipalId `
     -RoleDefinitionId 'b24988ac-6180-42a0-ab88-20f7382dd24c' `
     -Scope $SharedIR.Id
@@ -181,7 +183,7 @@ Remove-AzureRMRoleAssignment `
 Als u wilt verwijderen van de bestaande gekoppelde integratieruntime, moet u de volgende opdracht uitvoeren op basis van de gedeelde integratieruntime:
 
 ```powershell
-Remove-AzureRmDataFactoryV2IntegrationRuntime `
+Remove-AzDataFactoryV2IntegrationRuntime `
     -ResourceGroupName $ResourceGroupName `
     -DataFactoryName $SharedDataFactoryName `
     -Name $SharedIntegrationRuntimeName `

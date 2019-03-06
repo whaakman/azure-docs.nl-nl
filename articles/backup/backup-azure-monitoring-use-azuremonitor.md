@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: e7b1b3e3fba04276fc284fd71adabedc01185251
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 7daf76605d40495d6c9cb5076f0403a78819adfc
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984812"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439160"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Bewaking op schaal met Azure Monitor
 
@@ -254,7 +254,7 @@ De resource als volgt de kluis RS zelf en daarom moet u dezelfde actie voor alle
 
 ***Alle waarschuwingen die zijn gemaakt van activiteitenlogboeken en LA werkruimten in Azure Monitor kunnen worden weergegeven in het deelvenster 'Waarschuwingen' aan de linkerkant.***
 
-Tijdens de melding via activiteitenlogboeken kan worden gebruikt, ***Azure Backup-service wordt ten zeerste aangeraden naar [LA gebruiken voor bewaking op schaal](#monitoring-at-scale) en niet activiteitenlogboeken voor de volgende redenen***.
+Hoewel de melding via activiteitenlogboeken kan worden gebruikt, ***Azure Backup-service wordt ten zeerste aangeraden LA gebruiken voor de bewaking op schaal en niet de activiteitenlogboeken van de volgende redenen***.
 
 - **Beperkte scenario's:** Alleen van toepassing op virtuele Azure-machines en voor elke kluis RS moet worden herhaald.
 - **Definitie van past:** De geplande back-activiteit niet voldoen aan de meest recente definitie van activiteitenlogboeken en conform de [diagnostische logboeken](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-are-azure-monitor-diagnostic-logs). Deze leiden tot onverwachte gevolgen wanneer de gegevens die via een activiteit log kanaal pompen wordt gewijzigd zoals hieronder.

@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be5220c5f28505bd83110705e08a6b1c7fb12529
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b2346c0631bb4540aef27623f82f72f4eabd0d23
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210693"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433549"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Het oplossen van Azure Active Directory-activiteitenlogboek registreert inhoudspakketfouten 
 
@@ -71,6 +71,6 @@ In dit artikel vindt u informatie over de mogelijke oorzaken en over het oplosse
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Installeer Power BI contect pack voor Azure AD-rapporten](quickstart-install-power-bi-content-pack.md).
+* [Installeren van Power BI-inhoudspakket voor Azure AD-rapporten](quickstart-install-power-bi-content-pack.md).
 * [Gebruik Power BI content pack voor Azure AD-rapporten om uw gegevens te visualiseren](howto-power-bi-content-pack.md)
 * [Ondersteuning voor Azure Active Directory verkrijgen](../fundamentals/active-directory-troubleshooting-support-howto.md)

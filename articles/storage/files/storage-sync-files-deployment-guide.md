@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 23f1f4e8b6a3b71c3792a08645122779e4e629b2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f871174982e965a32d5f2dca5e2e53c5dc436055
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465823"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405484"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure Files SYNC implementeren
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -83,7 +83,7 @@ De implementatie van Azure File Sync begint met het plaatsen van een **Opslagsyn
 > De Opslagsynchronisatieservice overgenomen machtigingen van het abonnement en de resourcegroep die is geïmplementeerd in. Het is raadzaam dat u zorgvuldig controleren wie toegang heeft tot deze. Entiteiten met schrijftoegang kunnen beginnen met het synchroniseren van nieuwe sets met bestanden van servers die zijn geregistreerd bij deze opslag synchronisatieservice en ervoor zorgen dat gegevens naar de Azure-opslag die toegankelijk is voor deze stromen.
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
-Voor het implementeren van een Opslagsynchronisatieservice, gaat u naar de [Azure-portal](https://portal.azure.com/), klikt u op *nieuw* en zoek vervolgens naar Azure File Sync. Selecteer in de lijst met zoekresultaten **Azure File Sync**, en selecteer vervolgens **maken** openen de **Opslagsynchronisatieservice implementeren** tabblad.
+Voor het implementeren van een Opslagsynchronisatieservice, gaat u naar de [Azure-portal](https://portal.azure.com/), klikt u op *een resource maken* en zoek vervolgens naar Azure File Sync. Selecteer in de lijst met zoekresultaten **Azure File Sync**, en selecteer vervolgens **maken** openen de **Opslagsynchronisatieservice implementeren** tabblad.
 
 Voer de volgende gegevens in in het deelvenster dat verschijnt:
 
@@ -265,7 +265,7 @@ Voer in het deelvenster dat verschijnt de volgende gegevens in om een synchronis
 
 - **Naam van synchronisatiegroep**: De naam van de groep voor synchronisatie moet worden gemaakt. Deze naam moet uniek zijn binnen de opslagsynchronisatieservice, maar het mag een willekeurige naam zijn die u makkelijk kunt onthouden.
 - **Abonnement**: Het abonnement waarin u de Opslagsynchronisatieservice in geïmplementeerd [implementeren de Opslagsynchronisatieservice](#deploy-the-storage-sync-service).
-- **Storage-account**: Als u selecteert **storage-account selecteren**, een andere deelvenster wordt weergegeven waarin u het opslagaccount met de Azure-bestandsshare die u synchroniseren wilt met kunt selecteren.
+- **Opslagaccount**: Als u selecteert **storage-account selecteren**, een andere deelvenster wordt weergegeven waarin u het opslagaccount met de Azure-bestandsshare die u synchroniseren wilt met kunt selecteren.
 - **Azure-bestandsshare**: De naam van de Azure-bestandsshare die u wilt synchroniseren.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)

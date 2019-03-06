@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: aefb9b9f5da0f8fef5295b49fe0ee1431556e89f
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 6dd378f69dbf0c7cffe04d4b6a18fd3e6cda6b8b
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308870"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409972"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>Quickstart: Onderbreken en hervatten compute in Azure SQL Data Warehouse met PowerShell
 Gebruik PowerShell om te onderbreken compute in Azure SQL Data Warehouse om kosten te besparen. [Compute hervatten](sql-data-warehouse-manage-compute-overview.md) wanneer u bent klaar voor gebruik van het datawarehouse.
@@ -30,7 +30,7 @@ In deze snelstartgids wordt ervan uitgegaan dat u hebt al een SQL datawarehouse 
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Meld u aan bij uw Azure-abonnement met de [Connect AzAccount](/powershell/module/az.profile/connect-azaccount) opdracht en volgt u de op het scherm aanwijzingen.
+Meld u aan bij uw Azure-abonnement met de [Connect AzAccount](/powershell/module/az.accounts/connect-azaccount) opdracht en volgt u de op het scherm aanwijzingen.
 
 ```powershell
 Connect-AzAccount

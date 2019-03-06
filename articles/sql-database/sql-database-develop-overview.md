@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 01c4bcfcea038f3e69620cdce78719c8c5128faf
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 6ad8079985925d4b9bf74b22971ca3c387af199a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964794"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455612"
 ---
 # <a name="sql-database-application-development-overview"></a>Overzicht van SQL Database-toepassing voor ontwikkelaars
 
@@ -58,7 +58,7 @@ Zie voor meer informatie over het voorbereiden voor gelijktijdige onderhoudsgebe
 - Zorg er op de computer die als host fungeert voor uw clientprogramma voor dat de firewall uitgaande TCP-communicatie toestaat via poort 1433.  Meer informatie: [Een Azure SQL Database-firewall configureren](sql-database-configure-firewall-settings.md).
 - Als uw clientprogramma verbinding maakt met SQL-Database terwijl de client wordt uitgevoerd op een Azure-machine (VM), moet u bepaalde poortbereiken op de virtuele machine openen. Meer informatie: [Poorten boven 1433 voor ADO.NET 4.5 en SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Clientverbindingen met Azure SQL Database soms de proxyserver wordt overgeslagen en communiceren rechtstreeks met de database. Andere poorten dan poort 1433 worden belangrijk. Voor meer informatie, [Azure SQL Database-connectiviteitsarchitectuur](sql-database-connectivity-architecture.md) en [poorten boven 1433 voor ADO.NET 4.5 en SQL-Database](sql-database-develop-direct-route-ports-adonet-v12.md).
-- Zie voor netwerken configation voor een beheerd exemplaar [netwerkconfiguratie voor beheerde exemplaren](sql-database-howto-managed-instance.md#network-configuration).
+- Zie voor de configuratie van de netwerken voor een beheerd exemplaar, [netwerkconfiguratie voor beheerde exemplaren](sql-database-howto-managed-instance.md#network-configuration).
 
 ## <a name="next-steps"></a>Volgende stappen
 

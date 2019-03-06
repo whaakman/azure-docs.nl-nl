@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: 434f0639baa45dc83ee2fae4ec8b67a80517db14
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: b49df76bc5b9c4d5f469e702b65ffd5762e49a39
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035910"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455833"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>DNS-Service in Azure Service Fabric
 De DNS-Service is een optionele systeemservice waarmee u in uw cluster inschakelen kunt voor het detecteren van andere services met behulp van het DNS-protocol. 
@@ -53,7 +53,7 @@ Wanneer u een cluster met behulp van de portal maakt, de DNS-service is standaar
 Als u niet de portal gebruikt om uw cluster te maken of als u een bestaand cluster bijwerkt, moet u de DNS-service in een sjabloon inschakelen:
 
 - Als u wilt een nieuw cluster hebt geïmplementeerd, kunt u ofwel de [-voorbeeldsjablonen](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) of maak uw eigen Resource Manager-sjabloon. 
-- Voor het bijwerken van een bestaand cluster, kunt u navigeren naar de resourcegroep van het cluster in de portal en klik op **automatiseringsscript** te werken met een sjabloon die overeenkomt met de huidige status van het cluster en andere resources in de groep. Zie voor meer informatie, [de sjabloon exporteren uit resourcegroep](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template#export-the-template-from-resource-group).
+- Voor het bijwerken van een bestaand cluster, kunt u navigeren naar de resourcegroep van het cluster in de portal en klik op **automatiseringsscript** te werken met een sjabloon die overeenkomt met de huidige status van het cluster en andere resources in de groep. Zie voor meer informatie, [de sjabloon exporteren uit resourcegroep](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template).
 
 Nadat u een sjabloon hebt, kunt u de DNS-service met de volgende stappen inschakelen:
 

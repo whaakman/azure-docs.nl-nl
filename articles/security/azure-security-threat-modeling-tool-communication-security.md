@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: d451b53868dcd3253aba2a1c3118ddcc140445c3
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 3f4e87e5602b3c77178ab5bc842705cfedf64af2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882991"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448370"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Beveiliging-Frame: Communicatiebeveiliging | Oplossingen 
 | Product/Service | Artikel |

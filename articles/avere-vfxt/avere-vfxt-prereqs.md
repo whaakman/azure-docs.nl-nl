@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 045b010736f8cecf877408f23530022af1f94f14
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 0fedfdbb04dd7aa3ff077c13653a22ed710aff9f
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991419"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405314"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Voorbereiden op het maken van de Avere vFXT
 
@@ -152,7 +152,7 @@ Voordat u de vFXT Avere voor Azure-cluster kunt maken, moet u de rol van de clus
 
 Naam van de rol wordt gebruikt bij het maken van het cluster. In dit voorbeeld wordt de naam is ``avere-operator``.
 
-## <a name="optional-create-a-storage-service-endpoint-in-your-virtual-network"></a>(Optioneel) Een service-eindpunt voor opslag in uw virtuele netwerk maken
+## <a name="create-a-storage-service-endpoint-in-your-virtual-network-if-needed"></a>Maken van een service-eindpunt voor opslag in uw virtuele netwerk (indien nodig)
 
 Een [service-eindpunt](../virtual-network/virtual-network-service-endpoints-overview.md) houdt Azure Blob-verkeer lokale in plaats van deze routering buiten het virtuele netwerk. Het wordt aanbevolen voor alle vFXT Avere voor Azure-cluster die gebruikmaakt van Azure Blob voor back-end-gegevensopslag. 
 

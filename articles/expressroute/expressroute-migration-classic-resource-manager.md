@@ -8,18 +8,21 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 7b95c8b230714e1ba9306620e58628104cd676c9
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 5fab6c6d6af7b0f7c61fcff269a214aff96c7a1e
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401638"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407320"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>ExpressRoute-gekoppelde virtuele netwerken migreren van klassiek naar Resource Manager
 
 In dit artikel wordt uitgelegd hoe u virtuele netwerken gekoppeld met een ExpressRoute van het klassieke implementatiemodel migreren naar de Azure Resource Manager-implementatiemodel na het verplaatsen van uw ExpressRoute-circuit. 
 
 ## <a name="before-you-begin"></a>Voordat u begint
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 * Controleer of u de nieuwste versie van de Azure PowerShell-modules. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) voor meer informatie.
 * Zorg ervoor dat u hebt bekeken de [vereisten](expressroute-prerequisites.md), [routeringsvereisten](expressroute-routing.md), en [werkstromen](expressroute-workflows.md) voordat u begint met de configuratie.
 * Lees de informatie die is opgegeven onder [een ExpressRoute-circuit verplaatsen van klassiek naar Resource Manager](expressroute-move.md). Zorg ervoor dat u volledig inzicht in limieten en beperkingen.
@@ -61,9 +64,9 @@ In deze sectie beschrijft de stappen worden gevolgd voor het migreren van een vi
 3. Registreer uw abonnement voor de Resourcemigratie. Gebruik de volgende PowerShell-codefragment voor het registreren van uw abonnement voor de Resourcemigratie:
 
   ```powershell 
-  Select-AzureRmSubscription -SubscriptionName <Your Subscription Name>
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
-  Get-AzureRmResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
+  Select-AzSubscription -SubscriptionName <Your Subscription Name>
+  Register-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
+  Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
   ```
 4. Valideren, voorbereiden en migreren. Gebruik de volgende PowerShell-codefragment voor het verplaatsen van het virtuele netwerk:
 

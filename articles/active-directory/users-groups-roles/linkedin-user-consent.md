@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e96c7da9ac53927ed48003370f40f5861f48d3d6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 71eeed62c6de2a3771909e8489ca816930993435
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204763"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442219"
 ---
 # <a name="linkedin-integration-data-sharing-and-consent"></a>Delen van gegevens van LinkedIn integratie en toestemming
 
@@ -76,7 +76,7 @@ Als u verbinding maakt met uw Microsoft en LinkedIn-accounts, kunt u Microsoft v
 
 Gegevens die toegankelijk is vanuit Microsoft is niet permanent opgeslagen met LinkedIn, met uitzondering van de contactpersonen. Microsoft Contacts worden opgeslagen op LinkedIn totdat deze gebruikers verwijderen. Meer informatie over [geïmporteerde contactpersonen verwijderen uit de LinkedIn](https://www.linkedin.com/help/linkedin/answer/43377).
 
-Zie voor meer informatie over de LinkedIn-gebruik van persoonlijke gegevens, de [LinkedIn-privacybeleid](https://www.linkedin.com/legal/privacy-policy). Voor LinkedIn-services, overdracht van gegevens en opslag, gegevens uit de Europese Unie naar de Verenigde Staten en weer kan stromen en uw privacy is beveiligd als die in [gegevensoverdracht van de Europese Unie](https://www.linkedin.com/help/linkedin/answer/62533).
+Zie voor meer informatie over de LinkedIn-gebruik van persoonlijke gegevens, de [LinkedIn-privacybeleid](https://www.linkedin.com/legal/privacy-policy). Voor LinkedIn-services, overdracht van gegevens en opslag, gegevens uit de Europese Unie naar de Verenigde Staten en weer kan stromen en uw privacy is beveiligd zoals beschreven in [gegevensoverdracht van de Europese Unie](https://www.linkedin.com/help/linkedin/answer/62533).
 
 ## <a name="next-steps"></a>Volgende stappen
 

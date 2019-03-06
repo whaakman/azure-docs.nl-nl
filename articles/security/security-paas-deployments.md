@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 03/05/2019
 ms.author: terrylan
-ms.openlocfilehash: 497fc1dd5691b5aa33207c6a3943a51c473d2f6c
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: e833317fa16576fa0006a774226d12974fd93ed8
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247202"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404804"
 ---
 # <a name="securing-paas-deployments"></a>PaaS-implementaties beveiligen
 
@@ -85,7 +85,7 @@ Beginselen en patronen voor de netwerkverbinding zijn beschikbaar voor tientalle
 Hier volgen de aanbevolen procedures voor het beheren van de perimeter identiteit.
 
 **Beste**: Beveilig uw sleutels en referenties voor het beveiligen van uw PaaS-implementatie.   
-**Details**: Verlies van sleutels en referenties is een veelvoorkomend probleem. U kunt een gecentraliseerde oplossing waarbij de sleutels en geheimen kunnen worden opgeslagen in hardware security modules gebruiken. Azure biedt u een HSM in de cloud met [Azure Key Vault](../key-vault/key-vault-whatis.md).
+**Details**: Verlies van sleutels en referenties is een veelvoorkomend probleem. U kunt een gecentraliseerde oplossing waarbij de sleutels en geheimen kunnen worden opgeslagen in hardware security modules (HSM's) gebruiken. [Azure Key Vault](../key-vault/key-vault-whatis.md) beschermt u uw sleutels en geheimen door het versleutelen van verificatiesleutels, opslagaccountsleutels, gegevensversleutelingssleutels, pfx-bestanden en wachtwoorden met sleutels die zijn beveiligd met HSM's.
 
 **Beste**: Plaats geen referenties en andere geheimen in de broncode of GitHub.   
 **Details**: Het enige wat slechter dan een onbevoegde partij verlies van uw sleutels en referenties heeft er toegang toe hebben. Aanvallers kunnen profiteren van bot technologieën om sleutels en geheimen in broncodeopslagruimte zoals GitHub te vinden. Plaats niet sleutel en geheimen in deze openbare opslagplaatsen voor codes.

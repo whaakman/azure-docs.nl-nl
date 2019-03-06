@@ -17,12 +17,12 @@ ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05e245bb55747b9415c16386cff48e5ac758f529
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fd57b753a4e59f2fb9590f081345d7af0de9124d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177883"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451466"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Over het beheren van apparaten met behulp van de Azure-portal
 
@@ -152,7 +152,7 @@ Als u wilt inschakelen / uitschakelen van een apparaat, hebt u twee opties:
 **Opmerking:**
 
 - U moet een globale beheerder in Azure AD inschakelen / uitschakelen van een apparaat. 
-- Als u een apparaat uitschakelt, wordt voorkomen dat een apparaat is verificatie met Azure AD, therby zo wordt voorkomen dat het apparaat toegang krijgen tot uw Azure AD-resources die zijn beveiligd door apparaat CA of met behulp van de referenties van uw WH4B. 
+- Als u een apparaat uitschakelt, wordt voorkomen dat een apparaat is verificatie met Azure AD, waardoor het apparaat toegang krijgen tot uw Azure AD-resources die zijn beveiligd door apparaat CA of met behulp van de referenties van uw WH4B. 
 
 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7c64bfa2d02e4c65f3be60a1b11a8d1eb5d54afa
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 552d78869a9b4b7eb65497bd0c5e6efe5f7aa8c9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242442"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57434705"
 ---
 # <a name="connect-your-f5-appliance"></a>Verbinding maken met uw apparaat F5
 
@@ -34,7 +34,7 @@ U kunt Azure Sentinel verbinden met een apparaat F5 door op te slaan van de logb
 
 ## <a name="step-1-connect-your-f5-appliance-using-an-agent"></a>Stap 1: Verbinding maken met uw F5-apparaat met behulp van een agent
 
-Als u wilt verbinden met uw apparaat F5 Sentinel van Azure, moet u een agent op een specifieke virtuele machine (VM of on-premises) voor de ondersteuning van de communicatie tussen het apparaat en de Azure-Sentinel implementeren. U kunt de agent deploly automatisch of handmatig. Automatische implementatie is alleen beschikbaar als uw toegewezen machine is een nieuwe virtuele machine die u in Azure maken wilt. 
+Als u wilt verbinden met uw apparaat F5 Sentinel van Azure, moet u een agent op een specifieke virtuele machine implementeren (virtuele machine of on-premises) om de communicatie tussen het apparaat en de Azure-Sentinel te ondersteunen. U kunt de agent deploly automatisch of handmatig. Automatische implementatie is alleen beschikbaar als uw toegewezen machine is een nieuwe virtuele machine die u in Azure maken wilt. 
 
 U kunt ook kunt u de agent handmatig op een bestaande VM in Azure, op een virtuele machine in een andere cloud of op een on-premises machine implementeren.
 
@@ -74,7 +74,7 @@ Zie voor een diagram van een van beide opties [verbinding maken met gegevensbron
       2. Start opnieuw op de Syslog-agent met de volgende opdracht: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
       1. Bevestig dat er geen fouten in het logboek van de agent zijn door het uitvoeren van deze opdracht: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
 
-### <a name="deploy-the-agent-on-an-on-prem-linux-server"></a>De agent op een on-premises Linux-server implementeren
+### <a name="deploy-the-agent-on-an-on-premises-linux-server"></a>De agent op een op lokale Linux-server implementeren
 
 Als u Azure niet gebruikt, moet u handmatig de agent Azure Sentinel om uit te voeren op een eigen Linux-server implementeren.
 

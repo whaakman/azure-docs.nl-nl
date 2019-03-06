@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 73cba950a159bd1f70fc231f0923e55332af0199
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: a19baa0726f999a0478d290c0cdf895a20867f8f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108803"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432716"
 ---
 # <a name="move-data-from-a-odata-source-using-azure-data-factory"></a>Verplaatsen van gegevens uit een OData-bron met Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -69,7 +69,7 @@ De volgende tabel bevat een beschrijving op voor JSON-elementen die specifiek zi
 | gebruikersnaam |Geef de gebruikersnaam op als u basisverificatie gebruikt. |Ja (alleen als u basisverificatie gebruikt) |
 | wachtwoord |Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. |Ja (alleen als u basisverificatie gebruikt) |
 | authorizedCredential |Als u van OAuth gebruikmaakt, klikt u op **autoriseren** knop in de Kopieerwizard van Data Factory of Editor en voer uw referenties, en vervolgens de waarde van deze eigenschap wordt niet automatisch wordt gegenereerd. |Ja (alleen als u met behulp van OAuth-verificatie) |
-| gatewayName |De naam van de gateway die de Data Factory-service gebruiken moet voor verbinding met de on-premises OData-service. Geef alleen als u gegevens van on-premises OData-bron kopieert. |Nee |
+| gatewayName |De naam van de gateway die de Data Factory-service gebruiken moet voor verbinding met de on-premises OData-service. Geef alleen als u gegevens uit on-premises OData-bron kopieert. |Nee |
 
 ### <a name="using-basic-authentication"></a>Met behulp van basisverificatie
 ```json

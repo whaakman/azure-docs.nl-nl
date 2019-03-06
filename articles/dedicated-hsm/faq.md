@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: barclayn
-ms.openlocfilehash: cd84607f426d8a54ca21302b9a612f5ec09c9a1e
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 2c77f5abac69a1bade523d2a4b6793c2a9df8cf2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670380"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447860"
 ---
 # <a name="frequently-asked-questions-faq"></a>Veelgestelde vragen
 
@@ -164,7 +164,7 @@ Ja. U kunt Logboeken van de HSM-apparaat verzenden naar een syslog-server
 
 ### <a name="q-is-it-possible-to-configure-high-availability-in-the-same-region-or-across-multiple-regions"></a>V: Is het mogelijk voor het configureren van hoge beschikbaarheid in dezelfde regio of in meerdere regio's?
 
-Ja. Hoge beschikbaarheid, configuratie en installatie uitgevoerd binnen de HSM-clientsoftware die is geleverd door Gemalto. HSM's in hetzelfde VNET of andere VNETs in dezelfde regio of meerdere regio's of on-premises HSM's zijn verbonden met een VNET maken via site-naar-site of point-to-point VPN kan worden toegevoegd aan dezelfde configuratie voor hoge beschikbaarheid.
+Ja. Hoge beschikbaarheid, configuratie en installatie uitgevoerd binnen de HSM-clientsoftware die is geleverd door Gemalto. HSM's in hetzelfde VNET of andere VNETs in dezelfde regio of tussen regio's, of on-premises HSM's die zijn verbonden met een VNET maken via site-naar-site of point-to-point VPN kan worden toegevoegd aan dezelfde configuratie voor hoge beschikbaarheid.
 
 ### <a name="can-i-add-hsms-from-my-on-premises-network-to-a-high-availability-group-with-azure-dedicated-hsm"></a>Kan ik HSM's van mijn on-premises netwerk aan een groep met hoge beschikbaarheid met Azure toegewezen HSM toevoegen?
 

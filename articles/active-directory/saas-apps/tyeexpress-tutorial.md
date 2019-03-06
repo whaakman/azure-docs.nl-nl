@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/03/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97e294a8b0e34e1fac24d0cbe01791e2eb290a43
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 334f5fa2309c44bebe8583f497fdaa3c7578e5ae
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162575"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433413"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Zelfstudie: Azure Active Directory-integratie met T & E Express
 
@@ -134,7 +134,7 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure Management port
 
     ![Eenmalige aanmelding configureren](./media/tyeexpress-tutorial/tye-SAML.png)
 
-1. Selecteer de **Activar(Activate)** optie van **Nee** naar **SI(Yes)**. In de **Identity Provider metagegevens** tekstvak, plakt u de metagegevens-XML die u hebt donwloaded vanuit Azure portal.
+1. Selecteer de **Activar(Activate)** optie van **Nee** naar **SI(Yes)**. In de **Identity Provider metagegevens** tekstvak, plakt u de metagegevens-XML die u hebt gedownload vanuit Azure portal.
 
     ![Eenmalige aanmelding configureren](./media/tyeexpress-tutorial/tyeAdmin.png)
 
@@ -234,7 +234,7 @@ Wanneer u op de tegel T & E Express in het toegangsvenster, u moet u automatisch
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

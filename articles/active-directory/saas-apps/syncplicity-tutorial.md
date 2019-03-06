@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3df48fd42ca998e2a64f2fbe685047da16a8bae7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5f6fcc4d2920841c730ef179497f9184b1f6649d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193476"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451949"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-syncplicity"></a>Zelfstudie: Azure Active Directory-integratie met Syncplicity
 
@@ -204,9 +204,9 @@ Voor AAD-gebruikers kunnen zich aanmelden, moeten ze worden ingericht tot Syncpl
 
 1. Klik op **toevoegen van een gebruiker**.
    
-    ![Gebruikers beheren](./media/syncplicity-tutorial/ic769764.png "gebruikers beheren")
+    ![Gebruikers beheren](./media/syncplicity-tutorial/ic769764.png "Gebruikers beheren")
 
-1. Type de **e-adressen** van een AAD-account dat u inrichten wilt, selecteer **gebruiker** als **rol**, en klik vervolgens op **volgende**.
+1. Type de **e-mailadressen** van een AAD-account dat u inrichten wilt, selecteer **gebruiker** als **rol**, en klik vervolgens op **volgende**.
    
     ![Accountgegevens](./media/syncplicity-tutorial/ic769765.png "accountgegevens")
    
@@ -266,7 +266,7 @@ Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding conf
 Wanneer u op de tegel Syncplicity in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing Syncplicity.
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

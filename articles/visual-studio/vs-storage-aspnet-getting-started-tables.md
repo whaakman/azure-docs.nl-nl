@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
-ms.openlocfilehash: 518e14b991aa110a6ed55f984a66cd386a618f0f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1a35d1cbd49a55b0c25f5e2b993358130589c125
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228960"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444630"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Aan de slag met Azure table storage en Visual Studio verbonden Services (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -114,7 +114,7 @@ De volgende stappen laten zien hoe u een tabel maken:
     }
     ```
 
-1. Binnen de **CreateTable** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (wijziging  *&lt;storage-account-name >* op de naam van de Azure storage-account dat u bent toegang tot.)
+1. Binnen de **CreateTable** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (Wijziging  *&lt;storage-account-name >* op de naam van de Azure-opslagaccount u toegang wilt krijgen tot.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -169,7 +169,7 @@ De volgende stappen laten zien hoe u een tabel maken:
     <li>@Html.ActionLink("Create table", "CreateTable", "Tables")</li>
     ```
 
-1. Voer de toepassing uit en selecteer **Create table** om te zien die vergelijkbaar is met de volgende schermopname resultaten:
+1. Voer de toepassing uit en selecteer **Create table** om te zien van de resultaten die vergelijkbaar is met de volgende schermafbeelding:
   
     ![Tabel maken](./media/vs-storage-aspnet-getting-started-tables/create-table-results.png)
 
@@ -203,7 +203,7 @@ De entiteitsklasse *moet* declareren van een openbare parameterloze constructor 
     }
     ```
 
-1. Binnen de **AddEntity** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (wijziging  *&lt;storage-account-name >* op de naam van de Azure storage-account dat u bent toegang tot.)
+1. Binnen de **AddEntity** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (Wijziging  *&lt;storage-account-name >* op de naam van de Azure-opslagaccount u toegang wilt krijgen tot.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -271,7 +271,7 @@ De entiteitsklasse *moet* declareren van een openbare parameterloze constructor 
     <li>@Html.ActionLink("Add entity", "AddEntity", "Tables")</li>
     ```
 
-1. Voer de toepassing uit en selecteer **entiteit toevoegen** om te zien die vergelijkbaar is met de volgende schermopname resultaten:
+1. Voer de toepassing uit en selecteer **entiteit toevoegen** om te zien van de resultaten die vergelijkbaar is met de volgende schermafbeelding:
   
     ![Entiteit toevoegen](./media/vs-storage-aspnet-getting-started-tables/add-entity-results.png)
 
@@ -298,7 +298,7 @@ Naast het [een entiteit toevoegen aan een tabel één bewerking tegelijk](#add-a
     }
     ```
 
-1. Binnen de **AddEntities** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (wijziging  *&lt;storage-account-name >* op de naam van de Azure storage-account dat u bent toegang tot.)
+1. Binnen de **AddEntities** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (Wijziging  *&lt;storage-account-name >* op de naam van de Azure-opslagaccount u toegang wilt krijgen tot.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -391,7 +391,7 @@ Naast het [een entiteit toevoegen aan een tabel één bewerking tegelijk](#add-a
     <li>@Html.ActionLink("Add entities", "AddEntities", "Tables")</li>
     ```
 
-1. Voer de toepassing uit en selecteer **entiteiten toevoegen** om te zien die vergelijkbaar is met de volgende schermopname resultaten:
+1. Voer de toepassing uit en selecteer **entiteiten toevoegen** om te zien van de resultaten die vergelijkbaar is met de volgende schermafbeelding:
   
     ![Entiteiten toevoegen](./media/vs-storage-aspnet-getting-started-tables/add-entities-results.png)
 
@@ -418,7 +418,7 @@ In deze sectie ziet u hoe u één entiteit ophalen uit een tabel met behulp van 
     }
     ```
 
-1. Binnen de **GetSingle** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (wijziging  *&lt;storage-account-name >* op de naam van de Azure storage-account dat u bent toegang tot.)
+1. Binnen de **GetSingle** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (Wijziging  *&lt;storage-account-name >* op de naam van de Azure-opslagaccount u toegang wilt krijgen tot.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -493,7 +493,7 @@ In deze sectie ziet u hoe u één entiteit ophalen uit een tabel met behulp van 
     <li>@Html.ActionLink("Get single", "GetSingle", "Tables")</li>
     ```
 
-1. Voer de toepassing uit en selecteer **één ophalen** om te zien die vergelijkbaar is met de volgende schermopname resultaten:
+1. Voer de toepassing uit en selecteer **één ophalen** om te zien van de resultaten die vergelijkbaar is met de volgende schermafbeelding:
   
     ![Één ophalen](./media/vs-storage-aspnet-getting-started-tables/get-single-results.png)
 
@@ -518,7 +518,7 @@ Zoals vermeld in de sectie [een entiteit toevoegen aan een tabel](#add-an-entity
     }
     ```
 
-1. Binnen de **GetPartition** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (wijziging  *&lt;storage-account-name >* op de naam van de Azure storage-account dat u bent toegang tot.)
+1. Binnen de **GetPartition** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (Wijziging  *&lt;storage-account-name >* op de naam van de Azure-opslagaccount u toegang wilt krijgen tot.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -603,7 +603,7 @@ Zoals vermeld in de sectie [een entiteit toevoegen aan een tabel](#add-an-entity
     <li>@Html.ActionLink("Get partition", "GetPartition", "Tables")</li>
     ```
 
-1. Voer de toepassing uit en selecteer **partitie ophalen** om te zien die vergelijkbaar is met de volgende schermopname resultaten:
+1. Voer de toepassing uit en selecteer **partitie ophalen** om te zien van de resultaten die vergelijkbaar is met de volgende schermafbeelding:
   
     ![Partitie ophalen](./media/vs-storage-aspnet-getting-started-tables/get-partition-results.png)
 
@@ -628,7 +628,7 @@ In deze sectie ziet u hoe u een entiteit verwijderen uit een tabel.
     }
     ```
 
-1. Binnen de **DeleteEntity** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (wijziging  *&lt;storage-account-name >* op de naam van de Azure storage-account dat u bent toegang tot.)
+1. Binnen de **DeleteEntity** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (Wijziging  *&lt;storage-account-name >* op de naam van de Azure-opslagaccount u toegang wilt krijgen tot.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -703,7 +703,7 @@ In deze sectie ziet u hoe u een entiteit verwijderen uit een tabel.
     <li>@Html.ActionLink("Delete entity", "DeleteEntity", "Tables")</li>
     ```
 
-1. Voer de toepassing uit en selecteer **entiteit verwijderen** om te zien die vergelijkbaar is met de volgende schermopname resultaten:
+1. Voer de toepassing uit en selecteer **entiteit verwijderen** om te zien van de resultaten die vergelijkbaar is met de volgende schermafbeelding:
   
     ![Één ophalen](./media/vs-storage-aspnet-getting-started-tables/delete-entity-results.png)
 

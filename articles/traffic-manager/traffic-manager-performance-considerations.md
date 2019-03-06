@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 1bf2222e09644520bbfc6c5424c7f29d05b3c799
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 454d06912c34a07b0b2617936769888e92adaba1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257694"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453657"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Prestatieoverwegingen voor Traffic Manager
 
@@ -58,7 +58,7 @@ De hulpprogramma's voor deze sites meting DNS latenties en weergave van de opgel
 
 * [CA-App synthetische Monitor](https://asm.ca.com/en/checkit.php)
 
-    Voorheen bekend als het hulpprogramma Watchmouse selectievakje Website, deze site ziet u de DNS-omzettingstijd van meerdere geografische regio's tegelijkertijd. Voer de URL om te zien van de DNS-omzettingstijd, verbindingstijd en snelheid van verschillende geografische locaties. Gebruik deze test om te zien welke gehoste service wordt geretourneerd voor verschillende locaties over de hele wereld.
+    Voorheen bekend als het hulpprogramma voor controle van de muis selectievakje Website, deze site ziet u de DNS-omzettingstijd van meerdere geografische regio's tegelijkertijd. Voer de URL om te zien van de DNS-omzettingstijd, verbindingstijd en snelheid van verschillende geografische locaties. Gebruik deze test om te zien welke gehoste service wordt geretourneerd voor verschillende locaties over de hele wereld.
 
     ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-watchmouse.png)
 
@@ -70,7 +70,7 @@ De hulpprogramma's voor deze sites meting DNS latenties en weergave van de opgel
 
     Deze site heeft een DNS-zoekopdracht vanuit 20 verschillende locaties en de resultaten worden weergegeven op een kaart.
 
-* [Webinterface graven](http://www.digwebinterface.com)
+* [Dig Web Interface](http://www.digwebinterface.com)
 
     Deze site bevat dat meer gedetailleerde DNS-informatie, met inbegrip van CNAME-records en A-records. Zorg ervoor dat u de 'Vullen met kleur uitvoer' en 'Statistieken' onder opties controleren, en selecteer 'All' onder naamservers.
 

@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 0ffb9b9105ee455d35d080bb45063c158cadce1e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 45a391f45d11d968818bafc97a705411a133b273
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463392"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57430846"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-may-2018"></a>Wat is er nieuw in Azure SQL Data Warehouse? Mei 2018 
 Azure SQL Data Warehouse ontvangt voortdurend verbeteringen. Dit artikel beschrijft de nieuwe functies en wijzigingen die zijn geïntroduceerd in mei 2018. 
@@ -26,7 +26,7 @@ Azure SQL Data Warehouse ontvangt voortdurend verbeteringen. Dit artikel beschri
 Zie de [Turbocharge cloud analytics met Azure SQL Data Warehouse](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) blogbericht van Rohan Kumar, Corporate Vice President, Azure Data.
 
 ## <a name="auto-statistics"></a>Automatische statistieken
-Statistieken zijn essentieel voor het genereren van de query-plan in moderne kostengebaseerd-optimalisatieprogramma's, zoals de engine van SQL Data Warehouse te optimaliseren. Wanneer alle query's die vooraf bekend zijn, is waarmee wordt bepaald wat statistieken objecten moeten worden gemaakt een haalbare taak. Echter, wanneer het systeem wordt geconfronteerd met ad-hoc en willekeurige query die is gebruikelijk voor de werklast voor gegevensopslag, systeembeheerders mogelijk is het moeilijk te voorspellen wat statistieken moeten dit zou leiden tot uitvoering van potentieel suboptimale queryplannen worden gemaakt en meer query reactietijden. Er is een manier om dit probleem verhelpen statistieken om objecten te maken voor alle tabelkolommen vooraf. Maar dit proces wordt geleverd met een boete omdat statistieken objecten worden onderhouden tijdens tabel tijdens het laden moeten, waardoor langere tijden voor het laden.
+Statistieken zijn essentieel voor het genereren van de query-plan in moderne kostengebaseerd-optimalisatieprogramma's, zoals de engine van SQL Data Warehouse te optimaliseren. Wanneer alle query's die vooraf bekend zijn, is waarmee wordt bepaald wat statistieken objecten moeten worden gemaakt een haalbare taak. Wanneer het systeem wordt geconfronteerd met ad hoc en willekeurige query's, dit is normaal dat voor de datawarehousing-workloads, systeembeheerders mogelijk moeilijk te voorspellen welke statistieken moeten echter worden gemaakt die moeten leiden tot uitvoering van potentieel suboptimale queryplannen en meer reactietijden van de query. Er is een manier om dit probleem verhelpen statistieken om objecten te maken voor alle tabelkolommen vooraf. Maar dit proces wordt geleverd met een boete omdat statistieken objecten worden onderhouden tijdens tabel tijdens het laden moeten, waardoor langere tijden voor het laden.
 
 SQL Data Warehouse biedt nu ondersteuning voor automatisch maken van statistieken objecten zorgt voor meer flexibiliteit, productiviteit en gebruiksgemak voor systeembeheerders en ontwikkelaars, en ervoor te zorgen dat het systeem blijft kwaliteit uitvoering plannen en de beste bieden reactietijden.
 

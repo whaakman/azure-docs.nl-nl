@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 86b33bfa0f5383ac68080e2f8f7f9a004a1364a0
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 618414331ab22cff41c7ac02c78f4bef333d0c84
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652600"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433447"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Voorbereidingen voor het implementeren van uw IoT Edge-oplossing in productie
 
@@ -167,12 +167,12 @@ Deze controlelijst is een beginpunt voor firewall-regels:
 
    | URL (\* = jokertekens) | Uitgaande TCP-poorten | Gebruik |
    | ----- | ----- | ----- |
-   | MCR.Microsoft.com  | 443 | Microsoft-containerregister |
-   | Global.Azure-apparaten-provisioning.net  | 443 | DPS-toegang (optioneel) |
-   | \*. azurecr.io | 443 | Persoonlijke en 3e partij container Registry |
+   | mcr.microsoft.com  | 443 | Microsoft-containerregister |
+   | global.azure-devices-provisioning.net  | 443 | DPS-toegang (optioneel) |
+   | \*.azurecr.io | 443 | Persoonlijke en 3e partij container Registry |
    | \*.blob.core.windows.net | 443 | Het downloaden van de installatiekopie van delta 's | 
-   | \*.Azure-devices.net | 5671, 8883, 443 | IoT Hub-toegang |
-   | \*. docker.io  | 443 | Docker-toegang (optioneel) |
+   | \*.azure-devices.net | 5671, 8883, 443 | IoT Hub-toegang |
+   | \*.docker.io  | 443 | Docker-toegang (optioneel) |
 
 ### <a name="configure-communication-through-a-proxy"></a>Communicatie via een proxy configureren
 
@@ -186,7 +186,7 @@ Als uw apparaten worden geïmplementeerd op een netwerk dat gebruikmaakt van een
 
 ### <a name="set-up-logs-and-diagnostics"></a>Instellen van Logboeken en diagnostische gegevens
 
-Op Linux gebruikt de IoT Edge-daemon journald als het standaard-stuurprogramma voor logboekregistratie. U kunt het opdrachtregelhulpprogramma `journalctl` query uitvoeren op de daemon-Logboeken. Op Windows gebruikt de IoT Edge-daemon PowerShell diagnostische gegevens. Gebruik `Get-WinEvent` naar Logboeken vanuit de daemon voor query's. IoT Edge-modules gebruiken de JSON-stuurprogramma voor logboekregistratie, dit de standaardinstelling voor Docker is.  
+Op Linux gebruikt de IoT Edge-daemon tijdschriften als de standaard logboekregistratie stuurprogramma. U kunt het opdrachtregelhulpprogramma `journalctl` query uitvoeren op de daemon-Logboeken. Op Windows gebruikt de IoT Edge-daemon PowerShell diagnostische gegevens. Gebruik `Get-WinEvent` naar Logboeken vanuit de daemon voor query's. IoT Edge-modules gebruiken de JSON-stuurprogramma voor logboekregistratie, dit de standaardinstelling voor Docker is.  
 
 Wanneer u een IoT Edge-implementatie test, kunt u uw apparaten op te halen van Logboeken en oplossen van meestal openen. In een implementatiescenario, hebt u mogelijk geen die optie. Houd rekening met hoe u gegevens verzamelen over uw apparaten in productie gaat. Een optie is het gebruik van een logboekregistratiemodule die u verzamelt gegevens van de andere modules en verzendt dit naar de cloud. Een voorbeeld van een logboekregistratiemodule is [logspout loganalytics](https://github.com/veyalla/logspout-loganalytics), of u kunt ze zelf kunt ontwerpen. 
 
@@ -194,7 +194,7 @@ Als u bang over Logboeken te groot is op een apparaat resource beperkt bent, heb
 
 * U kunt de grootte van alle docker-logboekbestanden in de Docker-daemon zelf specifiek beperken. Voor Linux, configureert u de daemon op `/etc/docker/daemon.json`. Voor Windows, `C:\ProgramData\docker\confige\daemon.json`. 
 * Als u de grootte van het logboekbestand voor elke container aanpassen wilt, kunt u dit doen in de CreateOptions van elke module. 
-* Docker voor het beheren van logboeken automatisch door de instelling journald als de standaard stuurprogramma logboekregistratie voor Docker configureren. 
+* Docker voor het beheren van logboeken automatisch door in te stellen tijdschriften als de standaard-stuurprogramma van de logboekregistratie voor Docker configureren. 
 * Oude logboeken van uw apparaat periodiek verwijderen door het installeren van een logrotate-hulpprogramma voor Docker. Gebruik de specificatie van het volgende bestand: 
 
    ```

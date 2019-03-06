@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: af90a946f12e11602d45300a2796787f839dcf02
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 6b16b6c4de8c8d2d7a821dd476f07c8ab1135408
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811083"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433430"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Gegevenssets in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -238,7 +238,7 @@ De volgende tabel beschrijft de eigenschappen die u in de beschikbaarheidssectie
 | frequency |Hiermee geeft u de tijdseenheid voor de gegevensset segment productie.<br/><br/><b>Ondersteunde frequentie</b>: Minuut, uur, dag, Week, maand |Ja |N.v.t. |
 | interval |Hiermee geeft u een vermenigvuldiger voor de frequentie.<br/><br/>"X Synchronisatiefrequentie-interval" bepaalt hoe vaak het segment wordt geproduceerd. Bijvoorbeeld, als u de gegevensset om te worden gesegmenteerd op uurbasis, moet u instellen <b>frequentie</b> naar <b>uur</b>, en <b>interval</b> naar <b>1</b>.<br/><br/>Houd er rekening mee dat als u opgeeft **frequentie** als **minuut**, moet u het interval instellen op niet kleiner zijn dan 15. |Ja |N.v.t. |
 | stijl |Hiermee geeft u op of het segment aan het begin of einde van het interval moet worden gemaakt.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Als **frequentie** is ingesteld op **maand**, en **stijl** is ingesteld op **EndOfInterval**, het segment op de laatste dag van maand wordt geproduceerd. Als **stijl** is ingesteld op **StartOfInterval**, het segment op de eerste dag van maand wordt geproduceerd.<br/><br/>Als **frequentie** is ingesteld op **dag**, en **stijl** is ingesteld op **EndOfInterval**, in het afgelopen uur van de dag het segment wordt geproduceerd.<br/><br/>Als **frequentie** is ingesteld op **uur**, en **stijl** is ingesteld op **EndOfInterval**, het segment aan het einde van het uur wordt geproduceerd. Het segment wordt bijvoorbeeld voor een segment voor de periode van 1-2 uur worden geproduceerd om 2 uur. |Nee |EndOfInterval |
-| anchorDateTime |Hiermee definieert u de absolute positie in de tijd die door de scheduler wordt gebruikt voor het berekenen van de grenzen van de gegevensset-segment. <br/><br/>Houd er rekening mee dat als deze propoerty onderdelen van een datum die meer gedetailleerde dan de opgegeven frequentie heeft, de gedetailleerdere onderdelen worden genegeerd. Bijvoorbeeld, als de **interval** is **per uur** (frequentie: uur en interval: 1), en de **anchorDateTime** bevat **minuten en seconden**, en vervolgens de minuten en seconden delen van **anchorDateTime** worden genegeerd. |Nee |01/01/0001 |
+| anchorDateTime |Hiermee definieert u de absolute positie in de tijd die door de scheduler wordt gebruikt voor het berekenen van de grenzen van de gegevensset-segment. <br/><br/>Houd er rekening mee dat als deze eigenschap de onderdelen van de datum die meer gedetailleerde dan de opgegeven frequentie heeft, de gedetailleerdere onderdelen worden genegeerd. Bijvoorbeeld, als de **interval** is **per uur** (frequentie: uur en interval: 1), en de **anchorDateTime** bevat **minuten en seconden**, en vervolgens de minuten en seconden delen van **anchorDateTime** worden genegeerd. |Nee |01/01/0001 |
 | offset |TimeSpan waarmee het begin en einde van alle segmenten van de gegevensset worden verschoven. <br/><br/>Houd er rekening mee dat als beide **anchorDateTime** en **offset** zijn opgegeven, wordt het resultaat is de gecombineerde verschuiving. |Nee |N.v.t. |
 
 ### <a name="offset-example"></a>Voorbeeld van de offset

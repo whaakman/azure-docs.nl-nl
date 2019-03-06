@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b94c5f712469183d64704307316f8bbdaa3d5a11
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 0ef6d258be0165c7a73ce060879f55f1c7f404f9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751630"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453517"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Batchverwerking gebruiken voor het verbeteren van de prestaties van toepassingen voor SQL-Database
 
@@ -94,7 +94,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 Transacties worden daadwerkelijk in deze voorbeelden gebruikt. In het eerste voorbeeld is elke afzonderlijke aanroep een impliciete transactie. In het tweede voorbeeld wordt verpakt een expliciete transactie alle van de aanroepen. Per de documentatie voor de [write-ahead transactielogboek](https://msdn.microsoft.com/library/ms186259.aspx), logboekrecords worden weggeschreven naar de schijf als de transactie wordt doorgevoerd. Door op te nemen meer aanroepen in een transactie, kan het schrijven naar het transactielogboek dus uitstellen totdat de transactie doorgevoerd wordt. U stelt in feite batchverwerking voor het schrijven naar het transactielogboek van de server.
 
-De volgende tabel ziet enkele tests ad-hoc-resultaten. De tests uitgevoerd de opeenvolgende invoegt met en zonder transacties. Voor meer perspectief, de eerste set met tests die worden uitgevoerd op afstand van een laptop met de database in Microsoft Azure. De tweede reeks tests uit vanaf een service in de cloud en de database dat beide zich in hetzelfde Microsoft Azure datacenter (VS West bevinden) uitgevoerd. De volgende tabel ziet u de duur in milliseconden van opeenvolgende ingevoegd met en zonder transacties.
+De volgende tabel toont de resultaten van een ad-hoc testen. De tests uitgevoerd de opeenvolgende invoegt met en zonder transacties. Voor meer perspectief, de eerste set met tests die worden uitgevoerd op afstand van een laptop met de database in Microsoft Azure. De tweede reeks tests uit vanaf een service in de cloud en de database dat beide zich in hetzelfde Microsoft Azure datacenter (VS West bevinden) uitgevoerd. De volgende tabel ziet u de duur in milliseconden van opeenvolgende ingevoegd met en zonder transacties.
 
 **On-Premises naar Azure**:
 
@@ -192,7 +192,7 @@ cmd.CommandType = CommandType.StoredProcedure;
 
 In de meeste gevallen hebben tabelwaardeparameters equivalent of betere prestaties dan andere batchverwerkingsindeling technieken. Tabelwaardeparameters zijn vaak beter, omdat ze meer flexibiliteit dan andere opties zijn. Andere methoden, zoals bulkgewijs kopiëren voor SQL, kunnen bijvoorbeeld alleen het invoegen van nieuwe rijen. Maar met tabelwaardeparameters, kunt u logische gebruiken in de opgeslagen procedure om te bepalen welke rijen zijn updates en die zijn ingevoegd. Het tabeltype kan ook worden gewijzigd als u wilt een 'Bewerking' kolom bevatten die wordt aangegeven of de opgegeven rij moet worden ingevoegd, bijgewerkt of verwijderd.
 
-De volgende tabel ziet de resultaten van ad-hoc voor het gebruik van tabelwaardeparameters in milliseconden.
+De volgende tabel ziet u ad-hoc testresultaten voor het gebruik van tabelwaardeparameters in milliseconden.
 
 | Bewerkingen | On-Premises naar Azure (ms) | Azure hetzelfde datacenter (ms) |
 | --- | --- | --- |
@@ -232,7 +232,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 Er zijn enkele gevallen waarbij bulksgewijs kopiëren heeft de voorkeur boven tabelwaardeparameters. Zie de vergelijkingstabel met tabelwaardeparameters versus BULK INSERT-bewerkingen in het artikel [Table-Valued Parameters](https://msdn.microsoft.com/library/bb510489.aspx).
 
-De resultaten van de volgende ad-hoc geven de prestaties van de batchverwerking met **SqlBulkCopy uitvoert** in milliseconden.
+De volgende ad-hoc testresultaten geven de prestaties van de batchverwerking met **SqlBulkCopy uitvoert** in milliseconden.
 
 | Bewerkingen | On-Premises naar Azure (ms) | Azure hetzelfde datacenter (ms) |
 | --- | --- | --- |
@@ -277,7 +277,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 In dit voorbeeld is bedoeld om het basisconcept weer te geven. Een realistischer scenario zou de vereiste entiteiten te maken van de query-tekenreeks en de opdrachtparameters tegelijkertijd doorlopen. U bent beperkt tot een totaal van 2100 queryparameters, zodat dit beperkt het totale aantal rijen dat op deze manier kan worden verwerkt.
 
-De resultaten van de volgende ad-hoc geven de prestaties van dit type insert-instructie in milliseconden.
+De volgende ad-hoc testresultaten geven de prestaties van dit type insert-instructie in milliseconden.
 
 | Bewerkingen | Tabelwaardeparameters (ms) | Één instructie INSERT (ms) |
 | --- | --- | --- |

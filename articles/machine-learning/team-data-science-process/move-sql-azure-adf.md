@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 85edaeab67c7b5164dabbc817429e2ab82f5ea11
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 08c3511b3efc7ee2e21ef5847976357292bf95bb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56864665"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446849"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Gegevens verplaatsen van een on-premises SQL server naar SQL Azure met Azure Data Factory
 
@@ -71,7 +71,7 @@ De instructies voor het maken van een nieuwe Azure Data Factory en een resourceg
 ## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Installeren en configureren van Azure Data Factory Integration Runtime
 De Integration Runtime is een klant beheerde gegevensintegratie-infrastructuur door Azure Data Factory gebruikt om u te bieden mogelijkheden voor gegevensintegratie in verschillende netwerkomgevingen. Deze runtime heette voorheen 'Data Management Gateway'.
 
-Om in te stellen, [volgt u de instrutions voor het maken van een pijplijn](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
+Om in te stellen, [Volg de instructies voor het maken van een pijplijn](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
 
 ## <a name="adflinkedservices"></a>Maak gekoppelde services verbinding maken met de gegevensbronnen
 De informatie die nodig zijn voor Azure Data Factory verbinding maken met een Gegevensresource definieert de gekoppelde service. We hebben drie resources in dit scenario waarvoor gekoppelde services nodig zijn:

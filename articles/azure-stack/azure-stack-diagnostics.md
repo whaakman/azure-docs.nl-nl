@@ -11,12 +11,12 @@ ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: bd1994aca3dbbc23977b01d3511f87b5ec08b96d
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 41609a75efec6c15d894b61867fb9d3ae727dc8c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251857"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440553"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack diagnostische hulpprogramma 's
 
@@ -139,7 +139,7 @@ Volg deze stappen om uit te voeren van Get-AzureStackLog op een hostcomputer ASD
  |ACSSettingsService    |ECE                            |KeyVaultNamingService          |SLB|
  |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL|
  |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP   |
- |ACSWac                |ExternalDNS                    |MetricsRP                      |Storage|
+ |ACSWac                |ExternalDNS                    |MetricsRP                      |Opslag|
  |ADFS                  |FabricRing                     |MetricsServer                  |StorageController   |
  |ApplicationController |FabricRingServices             |MetricsStoreService            |URP   |
  |ASAppGateway          |FirstTierAggregationService    |MonAdminRP                     |UsageBridge|
@@ -163,7 +163,7 @@ Volg deze stappen om uit te voeren van Get-AzureStackLog op een hostcomputer ASD
     -   ACS-logboeken worden verzameld de *opslag* en *ACS* rollen.
 
 > [!NOTE]
-> Limieten voor grootte en leeftijd worden afgedwongen voor de logboeken die worden verzameld, is het essentieel om ervoor te zorgen efficiënte benutting van uw opslagruimte om te controleren of dat deze overspoeld met Logboeken niet ophalen. Bij het oplossen van een probleem moet u echter soms logboeken die niet meer vanwege deze limieten bestaat mogelijk. Het is dus **ten zeerste aangeraden** dat u uw logboeken naar een externe opslagruimte (een opslagaccount in Azure, een extra on-premises-opslagapparaat enz.)-offload elke 8 tot 12 uur en houd ze daar voor 1-3 maanden, afhankelijk van uw vereisten. Zorg er ook voor dat deze locatie voor de opslag is versleuteld.
+> Limieten voor grootte en leeftijd worden afgedwongen voor de logboeken die worden verzameld, is het essentieel om ervoor te zorgen efficiënte benutting van uw opslagruimte om te controleren of dat deze overspoeld met Logboeken niet ophalen. Bij het oplossen van een probleem moet u echter soms logboeken die niet meer vanwege deze limieten bestaat mogelijk. Het is dus **ten zeerste aangeraden** elke 8 tot 12 uur voor uw logboeken naar een externe opslagruimte (een opslagaccount in Azure, een extra on premises opslagapparaat enz.) offload uit te voeren en houd ze daar voor 1-3 maanden, afhankelijk van uw vereisten. Zorg er ook voor dat deze locatie voor de opslag is versleuteld.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Het oplossen van Microsoft Azure Stack](azure-stack-troubleshooting.md)

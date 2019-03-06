@@ -3,7 +3,7 @@ title: Een bestaand uitvoerbaar bestand implementeren naar Azure Service Fabric 
 description: Informatie over het verpakken van een bestaande toepassing als gast uitvoerbare bestanden, zodat deze kan worden geïmplementeerd in een Service Fabric-cluster.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
-ms.author: mfussell
-ms.openlocfilehash: d8b78e42dc5909e6c80f100c9337880b1ad2d9e6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.author: aljo
+ms.openlocfilehash: 2035ee27aecdf2ec1ab8bf1166f667b5595a7cbb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168410"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439482"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Pakket maken en implementeren van een bestaand uitvoerbaar bestand naar Service Fabric
 Bij het verpakken van een bestaand uitvoerbaar bestand als een [Gast kan worden uitgevoerd](service-fabric-guest-executables-introduction.md), kunt u ofwel een Visual Studio-projectsjabloon gebruiken of [handmatig maken van het toepassingspakket](#manually). Met behulp van Visual Studio, worden de toepassing pakketstructuur en de manifest-bestanden door de nieuwe projectsjabloon, maken voor u gemaakt.
@@ -73,7 +73,7 @@ Het proces van het inpakken van handmatig een Gast kan worden uitgevoerd, is geb
 -->
 
 ### <a name="create-the-package-directory-structure"></a>De mapstructuur pakket maken
-U kunt beginnen met het maken van de directory-structuur, zoals beschreven in de vorige sectie, "Toepassing pakket bestandsstructuur."
+U kunt beginnen met het maken van de directory-structuur, zoals beschreven in [inpakken van een Azure Service Fabric-toepassing](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps).
 
 ### <a name="add-the-applications-code-and-configuration-files"></a>De code en configuratiebestanden van de toepassing toevoegen
 Nadat u de mapstructuur hebt gemaakt, kunt u de code van de toepassing en configuratiebestanden onder de code en config-mappen toevoegen. U kunt ook extra mappen of submappen onder de code of configuratieversie mappen maken.

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: ab72091c58420459620352c8169773111149316d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: a81bcf26234f3b7840a75e7134596cb777071e8f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245725"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432769"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Problemen met configuratie-server
 
@@ -82,7 +82,7 @@ Een certificaat dat is vereist voor het verifiëren van Site Recovery kan niet w
 
 ## <a name="failure-to-activate-windows-licence-from-server-standard-evaluation-to-server-standard"></a>Windows-licentie van Standard evaluatie van de Server naar Server Standard activeren is mislukt
 
-1. Als onderdeel van de implementatie van configuratieserver via OVF, wordt een evaluatie-certificaat gebruikt, wordt die 180 dagen geldig is. U moet deze licentie activeren voordat deze verloopt. Anders kan dit leiden tot frequente afsluiten van de configuratieserver en waardoor hinderance replicatie activiteiten.
+1. Als onderdeel van de implementatie van configuratieserver via OVF, wordt een evaluatielicentie gebruikt die 180 dagen geldig is. U moet deze licentie activeren voordat deze verloopt. Anders kan dit leiden tot frequente afsluiten van de configuratieserver en waardoor hinderance replicatie activiteiten.
 2. Als u geen licentie voor Windows activeren, contact op met [Windows ondersteuningsteam](https://aka.ms/Windows_Support) om het probleem te verhelpen.
 
 ## <a name="register-source-machine-with-configuration-server"></a>Broncomputer met de configuratieserver registreren

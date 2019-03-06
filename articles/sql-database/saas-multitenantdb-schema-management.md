@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: b3855386f89eda71e145df6dd83d1b1e7e093735
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 55e414a35574f8437a30ffb75aebd82eded14fa9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563640"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447913"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Het schema in een SaaS-toepassing die gebruikmaakt van shard SQL-databases van meerdere tenants beheren
 
@@ -173,5 +173,5 @@ In deze zelfstudie hebt u het volgende geleerd:
 > * Naslaginformatie over gegevens in alle tenantdatabases bijwerken
 > * Een index in een tabel maken in alle tenantdatabases
 
-Probeer vervolgens de [reporting zelfstudie Ad-hoc](saas-multitenantdb-adhoc-reporting.md) verkennen gedistribueerde query's uitvoeren voor de tenant van databases.
+Probeer vervolgens de [Ad-hocrapportage zelfstudie](saas-multitenantdb-adhoc-reporting.md) verkennen gedistribueerde query's uitvoeren voor de tenant van databases.
 

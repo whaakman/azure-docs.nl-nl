@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 1629e08d4ba1a7fd7cedb40b1e46d1bfd2766497
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 731b87d7958bb461466b16f2ff724ea33f234ba8
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215537"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439805"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Prestaties van shard Azure SQL-database met meerdere tenants in een multitenant SaaS-app controleren en beheren
 
@@ -78,10 +78,10 @@ De *Demo-PerformanceMonitoringAndManagement.ps1* script is opgegeven dat een wer
 
 | Demo | Scenario |
 |:--|:--|
-| 2 | Belasting met normale intensiteit genereren (ongeveer 30 DTU) |
+| 2 | Belasting met normale intensiteit (ongeveer 30 DTU) genereren |
 | 3 | Load genereren met langere bursts per tenant|
-| 4 | Load genereren met meer DTU-bursts per tenant (ongeveer 70 DTU)|
-| 5 | Een hoge intensiteit genereren (ongeveer 90 DTU) belasting op één tenant plus een normale intensiteit van alle andere tenants |
+| 4 | Load genereren met meer DTU-bursts per tenant (ongeveer 70 dtu's)|
+| 5 | Genereren van een hoge intensiteit genereren (ongeveer 90 dtu's) op één tenant plus een belasting met normale intensiteit van alle andere tenants |
 
 De load-generator past een *synthetische* load alleen voor CPU toe op elke tenantdatabase. De generator start voor elke tenantdatabase een taak, die periodiek een opgeslagen procedure aanroept die de load genereert. De load-niveaus (in dtu's), duur en intervallen zijn verschillend voor alle databases, simuleert onvoorspelbare tenantactiviteit.
 
@@ -168,7 +168,7 @@ Als één tenant in een multitenant-database optreedt in een duurzame hoge belas
 In deze oefening simuleert het effect van Salix Salsa ondervindt een hoge belasting wanneer kaartjes voor verkoop voor een populair evenement.
 
 1. Open de... \\ *Demo-PerformanceMonitoringAndManagement.ps1* script.
-1. Stel **$DemoScenario = 5**, _genereren van een normale load en hoge load op één tenant (ongeveer 90 DTU)._
+1. Stel **$DemoScenario = 5**, _genereren van een normale load en hoge load op één tenant (ongeveer 90 dtu's)._
 1. Stel **$SingleTenantName Salix Salsa =**
 1. Voer het script uit met **F5**.
 

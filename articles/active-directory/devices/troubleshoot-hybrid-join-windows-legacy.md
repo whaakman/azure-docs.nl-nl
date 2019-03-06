@@ -16,12 +16,12 @@ ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7054946a15ca27f4b5a36d3d2ac712cba2fd68d8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ea658f18af7ae44d73f78cb5fe4f7ae1316ea901
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185125"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439111"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Het oplossen van hybride Azure Active Directory gekoppelde downlevel-apparaten 
 
@@ -95,7 +95,7 @@ Als het apparaat niet toegevoegd aan hybrid Azure AD is, kunt u proberen te doen
      
      - Problemen met de netwerkverbinding kunnen verhinderen **autoworkplace.exe** van AD FS of de Azure AD-URL's wordt bereikt. 
      
-     - **Autoworkplace.exe** vereist dat de client hebt directe verbinding van de client naar de orgnanization van on-premises AD-domeincontroller, wat betekent dat hybrid Azure AD join slaagt alleen wanneer de client is verbonden met het intranet van organisatie .
+     - **Autoworkplace.exe** vereist dat de client hebt directe verbinding van de client naar de organisatie on-premises AD-domeincontroller, wat betekent dat hybrid Azure AD join slaagt alleen wanneer de client is verbonden met het intranet van de organisatie.
      
      - Uw organisatie gebruikt Azure AD naadloze eenmalige aanmelding, `https://autologon.microsoftazuread-sso.com` of `https://aadg.windows.net.nsatc.net` bevinden zich niet op van het apparaat-instellingen voor het intranet van Internet Explorer, en **toestaan van updates op de statusbalk via script** is niet ingeschakeld voor de intranetzone.
 

@@ -16,12 +16,12 @@ ms.date: 02/25/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: f81a781bf3d1232c0af519b81f38c1d27fa6b2df
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: ed149398a1244ad0cb09c3e0fe128973c6caa00d
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818388"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408000"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>Zelfstudie: Maximaal beschikbare SQL-databases bieden
 
@@ -44,7 +44,7 @@ Voordat u de stappen in deze zelfstudie begint, zorg ervoor dat de [SQL Server-r
 > Alle van de volgende opties zijn vereist voor de Azure Stack-quickstart-sjabloon moet worden gebruikt.
 
 - [Windows Server 2016 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) marketplace-installatiekopie.
-- SQL Server 2016 SP1 of SP2 (Enterprise, Standard of ontwikkelaar) op Windows Server 2016 server-installatiekopie. In deze zelfstudie wordt de [SQL Server 2016 SP2 Enterprise op Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.sqlserver2016sp2enterprisewindowsserver2016) marketplace-installatiekopie.
+- SQL Server 2016 SP1 of SP2 (Enterprise, Standard of ontwikkelaar) op Windows Server 2016 server-installatiekopie. In deze zelfstudie wordt de [SQL Server 2016 SP2 Enterprise op Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) marketplace-installatiekopie.
 - [SQL Server IaaS-extensie](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) versie 1.2.30 of hoger. De SQL IaaS-extensie installeert de vereiste onderdelen die voor de Marketplace SQL Server-items voor alle Windows-versies vereist zijn. Hiermee kunt specifieke SQL-instellingen worden geconfigureerd op SQL-machines. Als de extensie is niet geïnstalleerd op de lokale markt, mislukt inrichting van SQL.
 - [Aangepaste scriptextensie voor Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension) versie 1.9.1 of hoger. Aangepaste Scriptextensie is een hulpprogramma dat kan worden gebruikt voor het automatisch starten na de implementatie van VM-aanpassingstaken.
 - [PowerShell Desired State Configuration (DSC)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.DSC-arm) versie 2.76.0.0 of hoger. DSC is een beheerplatform in Windows PowerShell waarmee implementeren en beheren van configuratiegegevens voor softwareservices en beheren van de omgeving waarin de services worden uitgevoerd.

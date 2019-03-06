@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 19a4f8fc41ed4d6850f114e19f49f239befe08d0
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 8050027bac3d2f13ac457edcdad9275c040305da
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242646"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431853"
 ---
 # <a name="grant-access-to-azure-containers-and-queues-with-rbac-in-the-azure-portal-preview"></a>Toegang verlenen tot Azure-containers en wachtrijen met RBAC in Azure portal (preview)
 
@@ -62,16 +62,16 @@ De procedure hieronder wijst een rol binnen het bereik van een container, maar u
 1. Zoek naar de container die u wilt een rol toewijzen en weergeven van de instellingen van de container. 
 1. Selecteer **toegangsbeheer (IAM)** om instellingen voor toegangsbeheer voor de container weer te geven. Selecteer de **roltoewijzingen** tabblad om te bekijken van de lijst van roltoewijzingen.
 
-    ![Instellingen voor toegangsbeheer container schermopname van het scherm](media/storage-auth-aad-rbac/portal-access-control-container.png)
+    ![Schermafbeelding van de instellingen voor toegangsbeheer container](media/storage-auth-aad-rbac/portal-access-control-container.png)
 
 1. Klik op de **roltoewijzing toevoegen** knop een nieuwe rol toe te voegen.
 1. In de **roltoewijzing toevoegen** venster, selecteer de Azure Storage-rol die u wilt toewijzen. Vervolgens zoekt u naar de beveiligings-principal die u wilt toewijzen die rol.
 
-    ![Schermopname waarin een RBAC-rol toewijzen](media/storage-auth-aad-rbac/add-rbac-role.png)
+    ![Schermopname die laat zien hoe u een RBAC-rol toewijzen](media/storage-auth-aad-rbac/add-rbac-role.png)
 
 1. Klik op **Opslaan**. De identiteit aan wie u de rol is toegewezen, wordt weergegeven onder die rol. Bijvoorbeeld, de volgende afbeelding ziet u dat de gebruiker is toegevoegd nu heeft tot gegevens in de container met de naam leesmachtigingen *voorbeeldcontainer*.
 
-    ![Schermopname met een lijst van gebruikers die zijn toegewezen aan een rol](media/storage-auth-aad-rbac/container-scoped-role.png)
+    ![Schermafbeelding met een lijst van gebruikers die zijn toegewezen aan een rol](media/storage-auth-aad-rbac/container-scoped-role.png)
 
 U kunt vergelijkbare stappen volgen om een rol binnen het bereik van de storage-account, resourcegroep of abonnement toewijzen.
 

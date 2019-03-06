@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 9760e6b9cdcd6f03f4377277f3426189b1fe0a61
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.lastreviewed: 02/21/2019
+ms.openlocfilehash: f58d4e4f8b0e095fe64489fb42f78ef82c5af359
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182014"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407813"
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Geïntegreerde Azure Stack-systemen verbinding modellen
 Als u geïnteresseerd bent in een geïntegreerde Azure Stack-systeem aanschaffen, moet u om te begrijpen [overwegingen met betrekking tot verschillende datacenter-integratie](azure-stack-datacenter-integration.md) voor Azure Stack-implementatie om te bepalen hoe het systeem past in uw datacenter. Bovendien moet u bepalen hoe u Azure Stack wordt integreren in uw hybride cloudomgeving. Dit artikel bevat een overzicht van deze belangrijke beslissingen, waaronder Azure-verbinding, opslag, identiteit, en het facturering modelbeslissingen.
@@ -38,12 +38,14 @@ U kunt implementeren Azure Stack is verbonden met internet (en naar Azure) of de
 
 
 |Opties|Met Azure bent verbonden|Niet verbonden met Azure|
-|-----|-----|-----|
+|-----|:-----:|:-----:|
 |Azure AD|![Ondersteund](media/azure-stack-connection-models/check.png)| |
 |AD FS|![Ondersteund](media/azure-stack-connection-models/check.png)|![Ondersteund](media/azure-stack-connection-models/check.png)|
 |Facturering op basis van gebruik|![Ondersteund](media/azure-stack-connection-models/check.png)| |
 |Facturering op basis van capaciteit|![Ondersteund](media/azure-stack-connection-models/check.png)|![Ondersteund](media/azure-stack-connection-models/check.png)|
-|Updatepakketten rechtstreeks naar Azure Stack downloaden|![Ondersteund](media/azure-stack-connection-models/check.png)|  |
+|Licentieverlening| Enterprise Agreement of een Cloud Solution Provider | Enterprise Agreement |
+|Voor patches en updates|Updatepakket kan rechtstreeks vanuit het Internet worden gedownload met Azure Stack |  Vereist<br><br>Vereist ook verwisselbare media<br> en een afzonderlijke verbonden apparaat |
+| Registratie | Geautomatiseerd | Vereist<br><br>Vereist ook verwisselbare media<br> en een afzonderlijke verbonden apparaat |
 
 Nadat u hebt besloten op de verbinding met het Azure-model moet worden gebruikt voor Azure Stack-implementatie, moeten aanvullende, afhankelijk van het verbinding beslissingen voor het identiteitsarchief en factureringsmethode worden gemaakt. 
 

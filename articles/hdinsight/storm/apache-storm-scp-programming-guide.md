@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: d017a2758ccd1530c4558f3dc92559f807df36b9
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 848663c509fd3635b33b8e7735feb940da215bfa
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332095"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441811"
 ---
 # <a name="scp-programming-guide"></a>SCP-programmeergids
 SCP is een platform voor het bouwen van realtime, betrouwbare en consistente en hoogwaardige gegevensverwerking toepassing. Het is gebouwd boven [Apache Storm](https://storm.incubator.apache.org/) --een verwerkingssysteem die is ontworpen door de OSS-community's. Storm is ontworpen door Nathan Marz en is open source op Twitter. Hierbij wordt gebruikgemaakt van [Apache ZooKeeper](https://zookeeper.apache.org/), een ander Apache-project om in te schakelen zeer betrouwbare gedistribueerd beheer coördinatie en status. 
@@ -431,7 +431,7 @@ Twee methoden voor het SCP.NET-Context-object er zijn toegevoegd. Ze worden gebr
 Het verzenden van naar een niet-bestaande stream zorgt ervoor dat de runtime-uitzonderingen.
 
 ### <a name="fields-grouping"></a>Velden groeperen
-De ingebouwde die velden groeperen in Strom niet goed in SCP.NET werkt. Alle gegevenstypen van de velden daadwerkelijk byte [] zijn aan de Java-Proxy en de velden groeperen van de hash-code voor byte []-object gebruikt voor het uitvoeren van de groepering. De byte [] object hash-code is het adres van dit object in het geheugen. Dus is de groepering onjuist voor twee-byte [] objecten die dezelfde inhoud, maar niet hetzelfde adres delen.
+De ingebouwde die velden groeperen in Storm niet goed in SCP.NET werkt. Alle gegevenstypen van de velden daadwerkelijk byte [] zijn aan de Java-Proxy en de velden groeperen van de hash-code voor byte []-object gebruikt voor het uitvoeren van de groepering. De byte [] object hash-code is het adres van dit object in het geheugen. Dus is de groepering onjuist voor twee-byte [] objecten die dezelfde inhoud, maar niet hetzelfde adres delen.
 
 SCP.NET een groeperingsmethode met de aangepaste toegevoegd en wordt de inhoud van de byte [] voor de groepering gebruikt. In **SPEC** -bestand, de syntaxis is, zoals:
 
@@ -573,7 +573,7 @@ Er zijn twee bestanden spec **HelloWorld.spec** en **HelloWorld\_EnableAck.spec*
     }
     Context.Logger.Info("enableAck: {0}", enableAck);
 
-Als ack is ingeschakeld, wordt een woordenlijst in de spout gebruikt de tuples die niet bevestigd zijn in de cache. Als Fail() wordt aangeroepen, wordt de mislukte tuple replay:
+Als ack is ingeschakeld, wordt een woordenlijst in de spout gebruikt de tuples die niet zijn bevestigd in de cache. Als Fail() wordt aangeroepen, wordt de mislukte tuple replay:
 
     public void Fail(long seqId, Dictionary<string, Object> parms)
     {

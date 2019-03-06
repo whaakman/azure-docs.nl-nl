@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 2f747eb09fd13647c4b6764ce3cc4fe72c00bcf0
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 39c4884fcca2b041603305d73526e3310ab99a21
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054843"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441879"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Het schema in een SaaS-toepassing met behulp van het patroon van de database-per-tenant met Azure SQL Database beheren
  
@@ -73,7 +73,7 @@ De *Demo-SchemaManagement.ps1* script aanroepen de *Deploy-SchemaManagement.ps1*
 
 ## <a name="create-a-job-to-deploy-new-reference-data-to-all-tenants"></a>Een taak maken om nieuwe referentiegegevens te implementeren voor alle tenants
 
-In de app Wingtip Tickets bevat elke tenantdatabase een reeks locatietypen ondersteund. Elke venue is van een specifieke locatietype, waarmee wordt gedefinieerd welke soorten evenementen die kan worden gehost, en bepaalt van de achtergrondafbeelding gebruikt in de app. Voor de toepassing voor de ondersteuning van nieuwe soorten gebeurtenissen, moet deze verwijzingsgegevens bijgewerkt en nieuwe locatietypen toegevoegd.  In deze oefening implementeert u een update voor alle tenantdatabases waarbij twee nieuwe locatietypen worden toegevoegd: *Motorcycle Racing* en *Swimming Club*.
+In de app Wingtip Tickets bevat elke tenantdatabase een reeks locatietypen ondersteund. Elke venue is van een specifieke locatietype, waarmee wordt gedefinieerd welke soorten evenementen die kan worden gehost, en bepaalt van de achtergrondafbeelding gebruikt in de app. Voor de toepassing voor de ondersteuning van nieuwe soorten gebeurtenissen, moet deze verwijzingsgegevens bijgewerkt en nieuwe locatietypen toegevoegd.  In deze oefening maakt implementeert u een update op alle tenantdatabases twee nieuwe locatietypen toevoegen: *Motorcycle Racing* en *Swimming Club*.
 
 Bekijk eerst de typen venues is opgenomen in elke tenantdatabase. Verbinding maken met een van de tenant-databases in SQL Server Management Studio (SSMS) en controleren van de tabel venuetypes bij.  U kunt ook een query in deze tabel in de Query-editor in Azure portal, toegankelijk via de pagina van de database. 
 
@@ -86,8 +86,8 @@ Als u wilt een nieuw project maakt, gebruikt u een reeks taken systeem opgeslage
 
 1. In SSMS verbinding maken met de catalog-server: *catalogus-dpt -&lt;gebruiker&gt;. database.windows.net* server 
 1. Open het bestand in SSMS... \\Learning Modules\\Schemabeheer\\DeployReferenceData.sql
-1. Wijzigen van de instructie: Stel @wtpUser = &lt;gebruiker&gt; en vervang de waarde van de gebruiker die wordt gebruikt tijdens de implementatie van de app Wingtip Tickets SaaS Database Per Tenant
-1. Zorg ervoor dat u bent verbonden met de _jobagent_ database en druk op **F5** het script uitvoeren
+1. Wijzig de instructie: Stel @wtpUser = &lt;gebruiker&gt; en vervang de waarde van de gebruiker die wordt gebruikt tijdens de implementatie van de app Wingtip Tickets SaaS Database Per Tenant
+1. Zorg ervoor dat u bent verbonden met de _jobagent_ database en druk op **F5** het script uitvoeren
 
 Bekijk de volgende elementen in de *DeployReferenceData.sql* script:
 * **SP\_toevoegen\_doel\_groep** maakt de doelgroepnaam DemoServerGroup.
@@ -127,7 +127,7 @@ In deze zelfstudie hebt u het volgende geleerd:
 > * Naslaginformatie over gegevens in alle tenantdatabases bijwerken
 > * Een index in een tabel maken in alle tenantdatabases
 
-Probeer vervolgens de [reporting zelfstudie Ad-hoc](saas-tenancy-cross-tenant-reporting.md) verkennen gedistribueerde query's uitvoeren voor de tenant van databases.
+Probeer vervolgens de [Ad-hocrapportage zelfstudie](saas-tenancy-cross-tenant-reporting.md) verkennen gedistribueerde query's uitvoeren voor de tenant van databases.
 
 
 ## <a name="additional-resources"></a>Aanvullende resources
