@@ -9,8 +9,7 @@ items:
     href: deep-learning-dsvm-overview.md
   - name: Wat is de Geo AI Data Science VM?
     href: geo-ai-dsvm-overview.md
-  expanded: true
-- name: Aan de slag
+- name: Snelstartgidsen
   items:
   - name: Een Windows Data Science VM maken
     href: provision-vm.md
@@ -22,27 +21,8 @@ items:
     href: provision-deep-learning-dsvm.md
   - name: Een Geo AI Data Science VM maken
     href: provision-geo-ai-dsvm.md
-- name: Procedures
-  items:
-  - name: Een Windows Data Science VM gebruiken
-    href: vm-do-ten-things.md
-  - name: Een Linux Data Science VM gebruiken
-    href: linux-dsvm-walkthrough.md
-  - name: Een Deep Learning VM gebruiken
-    href: use-deep-learning-dsvm.md
-  - name: Een Geo AI Data Science VM gebruiken
-    href: use-geo-ai-dsvm.md
-- name: Richtlijnen voor bedrijven
-  items:
-  - name: Overzicht
-    href: dsvm-enterprise-overview.md
-  - name: Schalen
-    href: dsvm-pools.md
-  - name: Integratie in Active Directory
-    href: dsvm-common-identity.md
-  - name: Referenties voor resourcetoegang beveiligen
-    href: dsvm-secure-access-keys.md
-- name: Naslaginformatie
+  expanded: true
+- name: Concepten
   items:
   - name: DSVM ontdekken
     href: dsvm-tools-overview.md
@@ -62,10 +42,29 @@ items:
     href: dsvm-data-platforms.md
   - name: Voorbeelden en stapsgewijze handleidingen
     href: dsvm-samples-and-walkthroughs.md
-  expanded: true
+- name: Handleidingen
+  items:
+  - name: Een Windows Data Science VM gebruiken
+    href: vm-do-ten-things.md
+  - name: Een Linux Data Science VM gebruiken
+    href: linux-dsvm-walkthrough.md
+  - name: Een Deep Learning VM gebruiken
+    href: use-deep-learning-dsvm.md
+  - name: Een Geo AI Data Science VM gebruiken
+    href: use-geo-ai-dsvm.md
+  - name: Richtlijnen voor bedrijven
+    items:
+    - name: Overzicht
+      href: dsvm-enterprise-overview.md
+    - name: Schalen
+      href: dsvm-pools.md
+    - name: Active Directory-integratie
+      href: dsvm-common-identity.md
+    - name: Referenties voor resourcetoegang beveiligen
+      href: dsvm-secure-access-keys.md
 - name: Resources
   items:
-  - name: Gids voor R-ontwikkelaars
+  - name: R-ontwikkelaarsgids
     href: ../r-developers-guide.md
   - name: Blog
     href: https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/
@@ -73,9 +72,9 @@ items:
     href: https://social.microsoft.com/Forums/en-US/home?forum=dsvm
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=dsvm
-ms.openlocfilehash: e1617f3f5c36a5b006003e2f375dfac4143af7cd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: eddadfc7b10cea364f8235bbd8ba378d9aeaf362
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032561"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431628"

@@ -25,6 +25,9 @@
 #### [2 - Ontwikkeling van meerdere services](multi-service-nodejs.md)
 #### [3 - Teamontwikkeling](team-development-nodejs.md)
 
+## Concepten
+### [Hoe Dev Spaces werkt](how-dev-spaces-works.md)
+
 ## Procedures
 ### [Een Kubernetes-cluster maken met behulp van Azure Cloud Shell](how-to/create-cluster-cloud-shell.md)
 ### [Azure Dev Spaces delen](how-to/share-dev-spaces.md)
