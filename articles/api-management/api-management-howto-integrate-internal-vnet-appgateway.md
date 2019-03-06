@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: a88ea248f1db90916c5dbcaefc24131eb976e2f6
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 9e36ac41fb42d7c0e00dca6dc82f2f5daee1278b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728323"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435538"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>API Management in een intern VNET integreren met Application Gateway
 
@@ -354,7 +354,7 @@ Get-AzPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ```
 
 ## <a name="summary"> </a> Samenvatting
-Azure API Management geconfigureerd in een VNET biedt een interface voor één gateway voor alle geconfigureerde API's, ongeacht of deze gehoste on-premises of in de cloud. Application Gateway integreren met API Management biedt de flexibiliteit van selectief inschakelen van bepaalde API's toegankelijk zijn via het Internet, evenals een Web Application Firewall biedt een frontend naar uw API Management-exemplaar.
+Azure API Management geconfigureerd in een VNET biedt een interface voor één gateway voor alle geconfigureerde API's, of ze on-premises of in de cloud worden gehost. Application Gateway integreren met API Management biedt de flexibiliteit van selectief inschakelen van bepaalde API's toegankelijk zijn via het Internet, evenals een Web Application Firewall biedt een frontend naar uw API Management-exemplaar.
 
 ##<a name="next-steps"> </a> De volgende stappen
 * Meer informatie over Azure Application Gateway

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 70f8533843668a86607e31a551e6ebf9abeab6c4
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 62c9a8e6375f6ac7db86ae81cdd4e5c9eb445770
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016627"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432818"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Maken van een trigger die een pijplijn volgens een schema wordt uitgevoerd
 In dit artikel bevat informatie over schematriggers en de stappen voor het maken, starten en controleren van een planningstrigger. Zie voor andere soorten triggers, [pijplijnen uitvoeren en triggers](concepts-pipeline-execution-triggers.md).
@@ -66,6 +66,9 @@ U kunt maken een **schematrigger** voor het plannen van een pijplijn periodiek w
     ![Triggeruitvoeringen controleren](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Deze sectie leest u hoe u Azure PowerShell gebruiken om te maken, starten en controleren van een planningstrigger. In dit voorbeeld werken eerst Ga via de [Quick Start: Een data factory maken met behulp van Azure PowerShell](quickstart-create-data-factory-powershell.md). Voeg de volgende code aan de belangrijkste methode, die wordt gemaakt en een planningstrigger die wordt uitgevoerd om de 15 minuten wordt gestart. De trigger is gekoppeld aan een pijplijn met de naam **Adfv2QuickStartPipeline** die u maakt als onderdeel van de Quick Start.
 
 1. Maak een JSON-bestand met de naam **MyTrigger.json** in de map C:\ADFv2QuickStartPSH\ met de volgende inhoud:
@@ -108,34 +111,34 @@ Deze sectie leest u hoe u Azure PowerShell gebruiken om te maken, starten en con
     - De trigger is gekoppeld aan de **Adfv2QuickStartPipeline** pijplijn. Als u wilt koppelen meerdere pijplijnen met een trigger, meer toevoegen **pipelineReference** secties.
     - De pijplijn in de Quick Start worden twee **parameters** waarden: **inputPath** en **outputPath**. Daarom geeft u de waarden voor deze parameters van de trigger.
 
-2. Een trigger maken met behulp van de **Set-AzureRmDataFactoryV2Trigger** cmdlet:
+2. Een trigger maken met behulp van de **Set AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
-    Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
+    Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
 
-3. Controleer of de status van de trigger **gestopt** met behulp van de **Get-AzureRmDataFactoryV2Trigger** cmdlet:
+3. Controleer of de status van de trigger **gestopt** met behulp van de **Get-AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-4. Start de trigger met behulp van de **Start-AzureRmDataFactoryV2Trigger** cmdlet:
+4. Start de trigger met behulp van de **Start AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
-    Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
+    Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-5. Controleer of de status van de trigger **gestart** met behulp van de **Get-AzureRmDataFactoryV2Trigger** cmdlet:
+5. Controleer of de status van de trigger **gestart** met behulp van de **Get-AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-6.  Ontvang de trigger wordt uitgevoerd in Azure PowerShell met behulp van de **Get-AzureRmDataFactoryV2TriggerRun** cmdlet. Als u de informatie over de trigger wordt uitgevoerd, moet u de volgende opdracht periodiek uitvoeren. Update de **TriggerRunStartedAfter** en **TriggerRunStartedBefore** waarden zodat deze overeenkomen met de waarden in de Triggerdefinitie van de:
+6.  Ontvang de trigger wordt uitgevoerd in Azure PowerShell met behulp van de **Get-AzDataFactoryV2TriggerRun** cmdlet. Als u de informatie over de trigger wordt uitgevoerd, moet u de volgende opdracht periodiek uitvoeren. Update de **TriggerRunStartedAfter** en **TriggerRunStartedBefore** waarden zodat deze overeenkomen met de waarden in de Triggerdefinitie van de:
 
     ```powershell
-    Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
+    Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
     ```
     
     Voor het bewaken van de trigger wordt uitgevoerd en de pijplijn wordt uitgevoerd in Azure portal, Zie [pijplijnuitvoeringen controleren](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
@@ -324,10 +327,10 @@ De volgende tabel bevat een overzicht van de belangrijkste schema-elementen die 
 
 | JSON-eigenschap | Type | Vereist | Standaardwaarde | Geldige waarden | Voorbeeld |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | Reeks | Ja | Geen | Datums en tijden volgens ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **startTime** | String | Ja | Geen | Datums en tijden volgens ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recurrence** | Object | Ja | Geen | Recurrence-object | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | Aantal | Nee | 1 | 1 tot 1000 | `"interval":10` |
-| **endTime** | Reeks | Ja | Geen | Een datum/tijdwaarde die een toekomstig tijdstip voorstelt. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **endTime** | String | Ja | Geen | Een datum/tijdwaarde die een toekomstig tijdstip voorstelt. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **schedule** | Object | Nee | Geen | Schedule-object | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Eigenschap startTime

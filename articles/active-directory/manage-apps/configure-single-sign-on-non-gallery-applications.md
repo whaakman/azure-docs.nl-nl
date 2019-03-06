@@ -12,12 +12,12 @@ ms.date: 01/08/2019
 ms.author: celested
 ms.reviewer: asmalser,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2804ebdbeb72bd35c7e63553184157066f9cfd32
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 93e33ea311a064058e739bfcf6d63dc2d5462110
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177291"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435062"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>Single sign-on bij niet-galerietoepassingen in Azure Active Directory configureren
 
@@ -60,7 +60,7 @@ Als u Azure AD instelt, voer de basisconfiguratie van SAML. U kunt handmatig de 
 
   ![Litware domein en URL 's](./media/configure-single-sign-on-non-gallery-applications/customapp4.png)
 
-- **Meld u URL (SP geïnitieerde alleen)** – wanneer de gebruiker naartoe om aan te melden bij deze toepassing. Als de toepassing is geconfigureerd voor het uitvoeren van service provider geïnitieerde eenmalige aanmelding, en wanneer een gebruiker naar deze URL navigeert, de serviceprovider naar Azure AD om te verifiëren en meld u aan de gebruiker in de benodigde omleiding doet. Als dit veld is ingevuld, klikt u vervolgens Azure AD gebruikt deze URL om de toepassing uit Office 365 en Azure AD-Toegangsvenster te starten. Als dit veld wordt weggelaten, wordt de id-provider in plaats daarvan door Azure AD uitvoeren wordt-aanmelding wordt gestart wanneer de app wordt gestart vanuit Office 365, de Azure AD-Toegangsvenster, of vanuit de Azure AD aanmeldings-URL met eenmalige (kopieerbare op het tabblad Dashboard).
+- **Meld u URL (SP geïnitieerde alleen)** – wanneer de gebruiker naartoe om aan te melden bij deze toepassing. Als de toepassing is geconfigureerd voor het uitvoeren van service provider geïnitieerde eenmalige aanmelding, en wanneer een gebruiker naar deze URL navigeert, de serviceprovider naar Azure AD om te verifiëren en meld u aan de gebruiker in de benodigde omleiding doet. Als dit veld is ingevuld, klikt u vervolgens Azure AD gebruikt deze URL om de toepassing uit Office 365 en Azure AD-Toegangsvenster te starten. Als dit veld wordt weggelaten, wordt de id-provider in plaats daarvan door Azure AD uitvoeren wordt-aanmelding wordt gestart wanneer de app wordt gestart vanuit Office 365, de Azure AD-Toegangsvenster, of vanuit de Azure AD eenmalige aanmeldings-URL (kan worden gekopieerd vanaf het tabblad Dashboard).
 - **Id** -moet uniek zijn voor de toepassing waarvoor eenmalige aanmelding wordt geconfigureerd. U vindt deze waarde als het element verlener in de AuthRequest (SAML-aanvraag) die is verzonden door de toepassing. Deze waarde wordt ook weergegeven als de **entiteit-ID** in alle SAML-metagegevens geleverd door de toepassing. Controleer de SAML-documentatie voor meer informatie over wat de entiteit-ID of doelgroep waarde is van de toepassing. 
 
     Hier volgt een voorbeeld van hoe de id of de uitgever wordt weergegeven in de SAML-aanvraag verzonden door de toepassing naar Azure AD:

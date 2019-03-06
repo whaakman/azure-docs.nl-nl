@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2019
 ms.author: monhaber
-ms.openlocfilehash: 312e6c3c102946bcd19247f0730369dc7d0c8aba
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: e42deed992496cc28bdf92c01934d74361f2de6f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247423"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444018"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Veelgestelde vragen over Azure Security Center
 Deze Veelgestelde vragen vindt u antwoorden op vragen over Azure Security Center, een service die u bij het voorkomen helpt, detecteren en direct reageren op bedreigingen met verbeterde zichtbaarheid en controle over de beveiliging van uw Microsoft Azure-resources.
@@ -42,7 +42,7 @@ Security Center wordt aangeboden in twee lagen:
 
 De **gratis laag** biedt meer inzicht in de beveiligingsstatus van uw Azure-resources, beleid van de basisvereisten voor beveiliging, aanbevelingen voor beveiliging en integratie met beveiligingsproducten en -diensten van partners.
 
-De **Standard-laag** geavanceerde threat detectiemogelijkheden, waaronder threat intelligence, gedragsanalyse, anomaliedetectie, beveiligingsincidenten en attribution rapporten van bedreigingen wordt toegevoegd. U kunt een standaard tierfree proefversie starten. Als u wilt bijwerken, selecteert u [prijscategorie](https://docs.microsoft.com/azure/security-center/security-center-pricing) in het beveiligingsbeleid. Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie.
+De **Standard-laag** geavanceerde threat detectiemogelijkheden, waaronder threat intelligence, gedragsanalyse, anomaliedetectie, beveiligingsincidenten en attribution rapporten van bedreigingen wordt toegevoegd. U kunt een Standard-laag gratis proefversie starten. Als u wilt bijwerken, selecteert u [prijscategorie](https://docs.microsoft.com/azure/security-center/security-center-pricing) in het beveiligingsbeleid. Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie.
 
 ## <a name="permissions"></a>Machtigingen
 Het Azure Beveiligingscentrum gebruikt [op rollen gebaseerd toegangsbeheer (RBAC)](../role-based-access-control/role-assignments-portal.md), dat [ingebouwde rollen](../role-based-access-control/built-in-roles.md) biedt die kunnen worden toegewezen aan gebruikers, groepen en services in Azure.

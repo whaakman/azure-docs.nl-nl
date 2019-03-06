@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: cf258637311cd22964723da6bad3451dff6cccf6
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 1bcb50829dca59f8a467c2c1d2381b5463ef9471
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632006"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437391"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>C#-topologieën ontwikkelen voor Apache Storm met behulp van de Data Lake-tools voor Visual Studio
 
@@ -233,7 +233,7 @@ Zie voor een voorbeeldtopologie die gebruikmaakt van dit onderdeel en werkt met 
      > [!NOTE]  
      > Deze bolts lezen en schrijven naar stromen, maar u kunt ook een bolt gebruiken om te communiceren met bronnen, zoals een database of de service.
 
-3. Open **Splitter.cs**. Er wordt slechts één methode standaard: **Voer**. De Execute-methode wordt aangeroepen wanneer de bolt een tuple voor verwerking ontvangt. U kunt hier lezen en verwerken van inkomende tuples en verzenden van uitgaande tuples.
+3. Open **Splitter.cs**. Er wordt slechts één methode standaard: **Execute**. De Execute-methode wordt aangeroepen wanneer de bolt een tuple voor verwerking ontvangt. U kunt hier lezen en verwerken van inkomende tuples en verzenden van uitgaande tuples.
 
 4. Vervang de inhoud van de **splitsen** klasse met de volgende code:
 
@@ -433,7 +433,7 @@ Transactionele topologieën implementeren de volgende ter ondersteuning van de h
 
 * **Metagegevens opslaan in cache**: De spout moet slaan metagegevens over de gegevens die worden geproduceerd, zodat de gegevens kunnen worden opgehaald en opnieuw verzonden als er een fout optreedt. Omdat de gegevens die door het voorbeeld klein is, wordt de onbewerkte gegevens voor elke tuple opgeslagen in een woordenlijst voor opnieuw afspelen.
 
-* **ACK**: Elke bolt in de topologie kunt aanroepen `this.ctx.Ack(tuple)` om te bevestigen dat deze is een tuple verwerkt. Wanneer alle bolts bevestigd de tuple hebt, het `Ack` -methode van de spout wordt aangeroepen. De `Ack` methode kunt u de spout het verwijderen van gegevens die in cache is opgeslagen voor opnieuw afspelen.
+* **ACK**: Elke bolt in de topologie kunt aanroepen `this.ctx.Ack(tuple)` om te bevestigen dat deze is een tuple verwerkt. Wanneer alle bolts hebt bevestigd de tuple, het `Ack` -methode van de spout wordt aangeroepen. De `Ack` methode kunt u de spout het verwijderen van gegevens die in cache is opgeslagen voor opnieuw afspelen.
 
 * **Mislukken**: Elke bolt kunt aanroepen `this.ctx.Fail(tuple)` om aan te geven dat de verwerking is mislukt voor een tuple. De fout doorgegeven aan de `Fail` -methode van de spout, waar de tuple kan opnieuw worden afgespeeld met behulp van metagegevens in de cache opgeslagen.
 
@@ -455,9 +455,9 @@ Voor een voorbeeld van een hybride-topologie, maak een project en selecteer **St
 
     * Een transactionele versie is gedefinieerd in **HybridTopologyTx_javaSpout_csharpBolt**.
 
-* **C#spout** en **Java bolt**: Gedefinieerd in **HybridTopology_csharpSpout_javaBolt**.
+* **C#spout** en **Java bolt**: Defined in **HybridTopology_csharpSpout_javaBolt**.
 
-    * Een transactionele versie is gedefinieerd in **HybridTopologyTx_csharpSpout_javaBolt**.
+    * A transactional version is defined in **HybridTopologyTx_csharpSpout_javaBolt**.
 
   > [!NOTE]  
   > Deze versie laat ook zien hoe u Clojure code uit een tekstbestand gebruiken als een Java-component.
@@ -684,7 +684,7 @@ Hoewel het is eenvoudig te implementeren van een topologie in een cluster, in so
 
 2. Sla de wijzigingen op en klik vervolgens op **F5** of selecteer **Debug** > **Start Debugging** om het project te starten. Een consolevenster moet worden weergegeven en meld u aan de status als de tests uitgevoerd. Wanneer **Tests voltooid** wordt weergegeven, drukt u op een willekeurige toets om het venster te sluiten.
 
-3. Gebruik **Windows Explorer** te vinden van de map waarin het project. Bijvoorbeeld: **C:\Users\<gebruikersnaam > \Documents\Visual Studio 2013\Projects\WordCount\WordCount**. In deze map openen **Bin**, en klik vervolgens op **Debug**. U ziet de tekstbestanden die zijn gemaakt als de tests uitgevoerd: sentences.txt counter.txt en splitter.txt. Open elk tekstbestand en controleren van de gegevens.
+3. Gebruik **Windows Explorer** te vinden van de map waarin het project. Bijvoorbeeld: **C:\Users\<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. In deze map openen **Bin**, en klik vervolgens op **Debug**. U ziet de tekstbestanden die zijn gemaakt als de tests uitgevoerd: sentences.txt counter.txt en splitter.txt. Open elk tekstbestand en controleren van de gegevens.
 
    > [!NOTE]  
    > Tekenreeksgegevens zich blijft voordoen als een matrix met decimale waarden in deze bestanden. Bijvoorbeeld, \[[97,103,111]] in de **splitter.txt** bestand is het woord *en*.

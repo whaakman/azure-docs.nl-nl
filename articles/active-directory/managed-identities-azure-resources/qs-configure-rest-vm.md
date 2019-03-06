@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e3933f10a777a1aa10a4e04f8901e7fd1af5c48
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 09bdffbceafc11d99889cbda1461e4af4d89168e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195631"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444613"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configureren van beheerde identiteiten voor een Azure-resources op een Azure-VM met behulp van REST-API aanroepen
 
@@ -294,7 +294,7 @@ Als u wilt uitschakelen door het systeem toegewezen beheerde identiteit op een v
 
    Als u het systeem toegewezen beheerde identiteit van een virtuele machine die beheerde identiteiten gebruiker toegewezen heeft, wilt verwijderen `SystemAssigned` uit de `{"identity":{"type:" "}}` waarde terwijl de `UserAssigned` waarde en de `userAssignedIdentities` woordenlijst als u de waarden **API-versie 2018-01-06**. Als u **API-versie 2017-12-01** of eerder, houden de `identityIds` matrix.
 
-## <a name="user-assigned-managed-identity"></a>de gebruiker toegewezen beheerde identiteit
+## <a name="user-assigned-managed-identity"></a>Door een gebruiker toegewezen beheerde identiteit
 
 In deze sectie leert u hoe u toevoegen en verwijderen van beheerde identiteit op een Azure-VM met CURL aanroepen met de Azure Resource Manager REST-eindpunt door de gebruiker toegewezen.
 
@@ -511,7 +511,7 @@ Als u wilt een gebruiker toegewezen identiteit toewijzen aan een virtuele machin
    |---------|---------|
    |*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken.
 
-    Als u een gebruiker of systeem toegewezen beheerde identiteiten die aan de virtuele machine is toegewezen, zoals vermeld in de `identity` waarde in het antwoord, gaat u verder met stap 5, waarin wordt uitgelegd hoe u beheerde identiteit passthr systeem toegewezen behouden tijdens het toevoegen van een gebruiker toegewezen beheerde identiteit op uw virtuele machine.
+    Als u een gebruiker of systeem toegewezen beheerde identiteiten die aan de virtuele machine is toegewezen, zoals vermeld in de `identity` waarde in het antwoord, gaat u verder met stap 5, waarin wordt uitgelegd hoe u de door het systeem toegewezen beheerde identiteit behouden tijdens het toevoegen van een gebruiker toegewezen beheerde identiteit op uw virtuele machine.
 
 4. Als u geen gebruiker toegewezen beheerde identiteiten die aan uw virtuele machine is toegewezen hebt, gebruikt u de volgende CURL-opdracht uit om aan te roepen van het Azure Resource Manager REST-eindpunt voor de eerste gebruiker toegewezen beheerde identiteit toewijzen aan de virtuele machine.
 

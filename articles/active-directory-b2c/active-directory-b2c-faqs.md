@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: cef6f47b62a500737e5b01865f73253f18fa470c
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 12b8fc2fb8df7fd730e220a3c1b60097ed7748a2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55960595"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433719"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Veelgestelde vragen 
 Deze pagina vindt u antwoorden op veelgestelde vragen over de Azure Active Directory (Azure AD) B2C. Houd regelmatig op updates controleren.
@@ -64,7 +64,7 @@ U kunt de [functie huisstijl van bedrijf](../active-directory/fundamentals/custo
 * **Logo banner**: Weergegeven in de rechterbenedenhoek.
 * **De achtergrondkleur**: Weergegeven aan de bovenkant.
 
-    ![Schermopname van een aangepaste verificatie-e-mailbericht](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
+    ![Schermafbeelding van een aangepaste verificatie-e-mailbericht](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
 
 De e-handtekening bevat de naam van de Azure AD B2C-tenant die u hebt opgegeven tijdens het maken van de Azure AD B2C-tenant. U kunt de naam van deze instructies wijzigen:
 

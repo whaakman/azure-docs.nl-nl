@@ -1,5 +1,5 @@
 ---
-title: Azure MFA aanmelding met verificatie in twee stappen | Microsoft Docs
+title: Azure MFA aanmelding met verificatie in twee stappen - Azure Active Directory | Microsoft Docs
 description: Deze pagina vindt u richtlijnen op waar u om te zien van de verschillende aanmelden methoden beschikbaar met Azure MFA.
 keywords: verificatie van de gebruiker, aanmelden, aanmelding met telefoon, aanmelding met telefoon (werk)
 services: active-directory
@@ -13,13 +13,14 @@ ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: lizross
 ms.reviewer: librown
+ms.custom: end-user, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 153b3d61324d504fe260b104bf412913f9692627
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: cd109637379f1fd2cdb108fbbb6c6c47224e00a2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957535"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431764"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>De ervaring van aanmelding met Azure multi-factor Authentication
 > [!NOTE]
@@ -32,8 +33,8 @@ Uw aanmeldingsprocedure is afhankelijk van wat u wilt gebruiken als de tweede fa
 | --- |
 | [Met een telefonische oproep naar mijn telefoon mobile- of office](#signing-in-with-a-phone-call) |
 | [Met een tekst naar mijn mobiele telefoon](#signing-in-with-a-text-message)
-| Dankzij de meldingen van de Microsoft Authenticator-app |
-| Met verificatiecodes uit de Microsoft Authenticator-app |
+| [Dankzij de meldingen van de Microsoft Authenticator-app](#to-sign-in-with-a-notification-from-the-microsoft-authenticator-app) |
+| [Met verificatiecodes uit de Microsoft Authenticator-app](#to-sign-in-using-a-verification-with-the-microsoft-authenticator-app) |
 | [Met een alternatieve methode, omdat ik mijn voorkeursmethode nu niet kan gebruiken](#signing-in-with-an-alternate-method) |
 
 ## <a name="signing-in-with-a-phone-call"></a>Aanmelden met een telefonische oproep

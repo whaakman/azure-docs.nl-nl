@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 18cd27ae8bf0a395fa351cf283bc1d40f94dac53
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 72238db8322132f42e14656c106b82d8604af21f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100103"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435096"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Informatie over IoT Edge-automatische implementaties voor individuele apparaten of op schaal
 
@@ -62,7 +62,7 @@ Als de module-installatiekopie is opgeslagen in een privécontainerregister, bev
 
 ### <a name="target-condition"></a>Doelvoorwaarde
 
-De doelvoorwaarde wordt voortdurend geëvalueerd throughtout de levensduur van de implementatie. Nieuwe apparaten die voldoen aan de vereisten zijn opgenomen en alle bestaande apparaten die niet langer worden verwijderd. De implementatie opnieuw wordt geactiveerd als de service wordt gedetecteerd door elke wijziging van de voorwaarde doel. 
+De doelvoorwaarde wordt voortdurend geëvalueerd, gedurende de levensduur van de implementatie. Nieuwe apparaten die voldoen aan de vereisten zijn opgenomen en alle bestaande apparaten die niet langer worden verwijderd. De implementatie opnieuw wordt geactiveerd als de service wordt gedetecteerd door elke wijziging van de voorwaarde doel. 
 
 Bijvoorbeeld, hebt u een A-implementatie met een doel voorwaarde tags.environment = 'prod'. Wanneer u een vliegende start de implementatie, zijn er 10 productieapparaten. De modules zijn geïnstalleerd in deze 10-apparaten. De Status van de IoT Edge-Agent wordt weergegeven als het totaal aantal apparaten 10, 10 gelukt-antwoorden, 0 mislukte reacties en 0 in behandeling-antwoorden. Nu u bij het toevoegen van vijf meer apparaten met tags.environment = 'prod'. De service detecteert de wijziging en de Status van de IoT Edge-Agent wordt 15 totaal aantal apparaten, 10 gelukt-antwoorden, 0 mislukte reacties en 5 in behandeling-antwoorden als er wordt geprobeerd om in de vijf nieuwe apparaten te implementeren.
 

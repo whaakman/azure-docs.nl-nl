@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 7550eac600f5b504d80bcc6b5465e24e8d423d2a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c4d694621e4ac5428256346e3994bc3233d399a2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015080"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441403"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Salesforce met behulp van Azure Data Factory
-> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](v1/data-factory-salesforce-connector.md)
 > * [Huidige versie](connector-salesforce.md)
 
@@ -32,7 +32,7 @@ U kunt gegevens uit Salesforce kopiëren naar een ondersteunde sink-gegevensopsl
 
 Om precies ondersteunt deze Salesforce-connector:
 
-- SalesForce-ontwikkelaar, Professional, Enterprise of onbeperkt-edities.
+- Salesforce Developer, Professional, Enterprise, or Unlimited editions.
 - Kopiëren van gegevens van en naar Salesforce-productie, sandbox- en aangepaste domein.
 
 De Salesforce-connector is gebaseerd op de REST API voor Salesforce, met [v39](https://developer.salesforce.com/docs/atlas.en-us.206.0.api_rest.meta/api_rest/resources_list.htm) voor gegevens kopiëren van en [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) om gegevens te kopiëren.
@@ -238,7 +238,7 @@ Om gegevens te kopiëren naar Salesforce, stelt u het sink-type in de kopieeract
 | WriteBehavior | Het gedrag van het schrijven voor de bewerking.<br/>Toegestane waarden zijn **invoegen** en **Upsert**. | Nee (de standaardinstelling is invoegen) |
 | externalIdFieldName | De naam van de externe ID-veld voor de upsert-bewerking. Het opgegeven veld moet worden gedefinieerd als 'Externe Id-veld' in het Salesforce-object. Er kan geen NULL-waarden in de bijbehorende invoergegevens. | Ja voor "Upsert" |
 | WriteBatchSize | Het aantal rijen van de gegevens die naar Salesforce is geschreven in elke batch. | Nee (de standaardinstelling is 5.000) |
-| ignoreNullValues | Hiermee wordt aangegeven of NULL-waarden van invoergegevens tijdens een schrijfactie negeren.<br/>Toegestane waarden zijn **waar** en **false**.<br>- **De waarde True**: Laat de gegevens in het doelobject ongewijzigd wanneer u een upsert of update-bewerking. Voeg een gedefinieerde standaardwaarde wanneer u een insert-bewerking.<br/>- **De waarde False**: Als u een upsert of update-bewerking doet, moet u de gegevens in het doelobject bijwerken op NULL. Voeg een NULL-waarde als u een insert-bewerking. | Nee (de standaardinstelling is false) |
+| ignoreNullValues | Hiermee wordt aangegeven of NULL-waarden van invoergegevens tijdens een schrijfactie negeren.<br/>Toegestane waarden zijn **waar** en **false**.<br>- **True**: Laat de gegevens in het doelobject ongewijzigd wanneer u een upsert of update-bewerking. Voeg een gedefinieerde standaardwaarde wanneer u een insert-bewerking.<br/>- **False**: Als u een upsert of update-bewerking doet, moet u de gegevens in het doelobject bijwerken op NULL. Voeg een NULL-waarde als u een insert-bewerking. | Nee (de standaardinstelling is false) |
 
 **Voorbeeld: SalesForce-sink in een kopieeractiviteit**
 
@@ -311,25 +311,25 @@ Wanneer u gegevens van Salesforce worden gekopieerd, worden de volgende toewijzi
 
 | SalesForce-gegevenstype | Data Factory tussentijdse gegevenstype |
 |:--- |:--- |
-| Automatisch nummer |Reeks |
+| Automatisch nummer |String |
 | Selectievakje |Booleaans |
-| Valuta |Decimaal |
+| Valuta |Decimal |
 | Date |DateTime |
 | Datum/tijd |DateTime |
-| Email |Reeks |
-| Id |Reeks |
-| Opzoekrelatie |Reeks |
-| Met meerdere keuzemogelijkheden |Reeks |
-| Aantal |Decimaal |
-| Procent |Decimaal |
-| Telefoon |Reeks |
-| Selectielijst |Reeks |
-| Tekst |Reeks |
-| Tekstgebied |Reeks |
-| Tekstgebied (lang) |Reeks |
-| Tekstgebied (uitgebreid) |Reeks |
-| Tekst (versleuteld) |Reeks |
-| URL |Reeks |
+| Email |String |
+| Id |String |
+| Opzoekrelatie |String |
+| Met meerdere keuzemogelijkheden |String |
+| Aantal |Decimal |
+| Procent |Decimal |
+| Telefoon |String |
+| Picklist |String |
+| Tekst |String |
+| Tekstgebied |String |
+| Tekstgebied (lang) |String |
+| Tekstgebied (uitgebreid) |String |
+| Tekst (versleuteld) |String |
+| URL |String |
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen en sinks door de kopieeractiviteit in Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).

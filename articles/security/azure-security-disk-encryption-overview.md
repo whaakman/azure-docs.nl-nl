@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/07/2018
+ms.date: 03/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: c07fbccdcf77e68f497fe940fa730f294b5c34a1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 67f1488af330ac666aa3f9fe83e5b5ee42e6df2f
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727860"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410040"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>Azure Disk Encryption voor IaaS-VM 's
 
@@ -72,7 +72,7 @@ De oplossing ondersteunt de volgende scenario's voor IaaS-VM's wanneer deze zijn
    > [!NOTE]
    > OS-stationsversleuteling voor bepaalde Linux-distributies wordt niet ondersteund. Zie voor meer informatie de [Veelgestelde vragen over Azure Disk Encryption](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) artikel.
    
-* Hiermee schakelt u versleuteling op Windows-VM's die zijn geconfigureerd met Windows Storage Spaces.
+* Hiermee schakelt u versleuteling op virtuele machines die zijn geconfigureerd met Windows Storage Spaces begin in Windows Server 2016.
 * Versleutelingsinstellingen voor een bestaande versleutelde Premium en niet - Premium Storage VM bijwerken.
 * Back-up en herstel van versleutelde virtuele machines voor zowel de sleutel van versleutelingssleutel (KEK-sleutel) als de niet-KEK-scenario's.
 * Alle openbare Azure- en Azure Government-regio's worden ondersteund.

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: fbb7ae2e741ab6f2c5045f412e18cd9ce1d5b812
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d9d2b58ff249e765620e2fbae5c9677e9412f1ea
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870921"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432053"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Tips voor betere prestaties voor Azure Cosmos DB en .NET
 
@@ -38,7 +38,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
 
    * De modus direct
 
-     De modus direct biedt ondersteuning voor connectiviteit via TCP- en HTTPS-protocollen. Direct wordt momenteel ondersteund in .NET Standard 2.0. Als u Direct gebruikt, moet u er twee protocolopties die beschikbaar zijn:
+     De modus direct biedt ondersteuning voor connectiviteit via TCP- en HTTPS-protocollen. Als u de nieuwste versie van .net SDK gebruikt, worden direct connectiviteitsmodus wordt ondersteund in .NET Standard 2.0 en .net framework. Als u Direct gebruikt, moet u er twee protocolopties die beschikbaar zijn:
 
     * TCP
     * HTTPS

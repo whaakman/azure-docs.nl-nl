@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e27ecc73c19b92f8dcf77849c2f91a5eb57ac8e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e5085acad8a82394340892a3a67a3d1e5d85384b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168033"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442168"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Procedure: SSO voor cross-app op Android met behulp van ADAL inschakelen
 
@@ -119,7 +119,7 @@ AuthenticationSettings.Instance.setUseBroker(true);
 
 #### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>Stap 2: Tot stand brengen van een nieuwe omleidings-URI met de URL-schema
 
-Om ervoor te zorgen dat de juiste toepassing recevies de geretourneerde de referentie op die tokens, er is een nodig om te controleren of de aanroep naar de toepassing op een manier die de Android-besturingssysteem kunt controleren. Het besturingssysteem Android maakt gebruik van de hash van het certificaat in de Google Play store. Deze hash van het certificaat kan niet door een rogue-toepassing worden vervalst. Samen met de URI van de broker-toepassing, zorgt Microsoft ervoor dat de tokens terug naar de juiste toepassing keert. Een unieke redirect URI is vereist om te worden geregistreerd op de toepassing.
+Om ervoor te zorgen dat de juiste toepassing de geretourneerde ontvangt de referentie op die tokens, er is een nodig om te controleren of de aanroep naar de toepassing op een manier die de Android-besturingssysteem kunt controleren. Het besturingssysteem Android maakt gebruik van de hash van het certificaat in de Google Play store. Deze hash van het certificaat kan niet door een rogue-toepassing worden vervalst. Samen met de URI van de broker-toepassing, zorgt Microsoft ervoor dat de tokens terug naar de juiste toepassing keert. Een unieke redirect URI is vereist om te worden geregistreerd op de toepassing.
 
 De omleidings-URI moet zich in de juiste vorm van:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 22160a46b0c1d8fe53abe20b3d8a1b83891de5da
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: aa003d5c56e374c99b26beb884fce27b9b16298e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247576"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440060"
 ---
 # <a name="azure-security-technical-capabilities"></a>Technische mogelijkheden van Azure-beveiliging
 
@@ -192,7 +192,7 @@ Ondersteuning voor ten minste één van de aanbevolen versleuteling modellen in 
 | Versleuteling modellen |  |  |  |
 | ----------------  | ----------------- | ----------------- | --------------- |
 | Server-versleuteling | Server-versleuteling | Server-versleuteling | Client-versleuteling
-| Server-Side-versleuteling door de Service beheerde sleutels | Server-side-versleuteling met Customer-Managed sleutels in Azure Key Vault | Server-side-codering met on-premises klanten beheerde sleutels |
+| Server-Side-versleuteling door de Service beheerde sleutels | Server-side-versleuteling met Customer-Managed sleutels in Azure Key Vault | Server-side-codering met on premises klant beheerde sleutels |
 | • Azure Resourceproviders de versleuteling en ontsleuteling bewerkingen uitvoeren <br> • Microsoft beheert de sleutels <br>• Volledige cloudfunctionaliteit | • Azure Resourceproviders de versleuteling en ontsleuteling bewerkingen uitvoeren<br>• Klant Hiermee bepaalt u sleutels via Azure Key Vault<br>• Volledige cloudfunctionaliteit | • Azure Resourceproviders de versleuteling en ontsleuteling bewerkingen uitvoeren <br>• Klant Hiermee bepaalt u sleutels On-premises <br> • Volledige cloudfunctionaliteit| • Azure-services geen ontsleutelde gegevens zien. <br>• Klanten sleutels on-premises houden (of in andere beveiligde winkels). Sleutels zijn niet beschikbaar voor Azure-services <br>• Verminderd cloudfunctionaliteit|
 
 ### <a name="enabling-encryption-at-rest"></a>Inschakelen van versleuteling at-rest
@@ -406,11 +406,11 @@ Operationele beveiliging in Azure is gebouwd op een framework waarin de kennis o
 
 Met Azure Monitor kunt u een instantie in elke cloud, met inbegrip van on-premises, Azure, AWS, Windows Server, Linux, VMware en OpenStack, tegen lagere kosten dan concurrerende, door oplossingen te beheren. Azure Monitor is ontwikkeld voor de cloudgeoriënteerde wereld en biedt een nieuwe benadering voor het beheren van uw bedrijf dat is de snelste en meest rendabele manier om te voldoen aan de nieuwe zakelijke uitdagingen en geschikt voor de nieuwe werkbelastingen, toepassingen en cloudomgevingen.
 
-### <a name="azure-monitor-logs"></a>Logboeken in Azure Monitor
+### <a name="azure-monitor-logs"></a>Azure Monitor-logboeken
 
 [Logboeken in Azure Monitor](https://azure.microsoft.com/documentation/services/log-analytics) bewakingsservices biedt door het verzamelen van gegevens van beheerde resources in een centrale opslagplaats. Deze gegevens kunnen gebeurtenissen, prestatiegegevens en aangepaste gegevens omvatten die via de API worden geleverd. Na verzameling zijn de gegevens beschikbaar voor waarschuwingen, analyse en export.
 
-![Logboeken in Azure Monitor](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
+![Azure Monitor-logboeken](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
 
 Met deze methode kunt u gegevens uit een groot aantal bronnen consolideren, zodat u kunt combineren gegevens uit uw Azure-services met uw bestaande on-premises omgeving. De methode maakt ook een duidelijk onderscheid tussen het verzamelen van gegevens en het bewerken hiervan. Zo zijn alle bewerkingen beschikbaar voor alle soorten gegevens.
 

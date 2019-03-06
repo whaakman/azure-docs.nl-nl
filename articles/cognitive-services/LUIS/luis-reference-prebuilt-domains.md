@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: 964a0e0d4dd7ebae9f2881230fec921c3740ac39
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: e1e579233a5ad1af1ef8ee84019cd995959d3b2b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340589"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433770"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Naslaginformatie voor vooraf gedefinieerde voor uw LUIS-app
 Deze referentie bevat informatie over de [vooraf gemaakte domeinen](luis-how-to-use-prebuilt-domains.md), die zijn vooraf gemaakte verzamelingen van intenties en entiteiten die LUIS biedt.
@@ -62,7 +62,7 @@ Het domein van de agenda biedt intenties en entiteiten met betrekking tot de age
 | Toevoegen | Een nieuwe eenmalige item toevoegen aan de agenda.| Een afspraak met Lisa om 2 uur op zondag <br/><br/>Ik wil een vergadering plannen<br/><br/>Ik wil een vergadering instellen|
 | CheckAvailability | Beschikbaarheid voor een afspraak of vergadering agenda van de gebruiker of een andere persoon kalender niet vinden.| Wanneer is Jim beschikbaar om te voldoen? <br/><br/>Weergeven als Carola morgen beschikbaar is<br/><br/>Chris vrij is op zaterdag?|
 | Verwijderen | Aanvraag voor het verwijderen van een agenda-item.| Mijn afspraak met Carola annuleren. <br/><br/>Mijn 9: 00-vergadering verwijderen<br/>|
-| Bewerken | De aanvraag voor het wijzigen van een bestaande vergadering of een agenda-item.| Mijn 9: 00-vergadering verplaatsen naar 10 uur.<br/><br/>Ik wil mijn planning bijwerken.<br/><br/>Reschdule Mijn vergadering met Ryan.|
+| Bewerken | De aanvraag voor het wijzigen van een bestaande vergadering of een agenda-item.| Mijn 9: 00-vergadering verplaatsen naar 10 uur.<br/><br/>Ik wil mijn planning bijwerken.<br/><br/>Mijn vergadering met Ryan plannen.|
 | Find | Mijn wekelijkse agenda weergeven.| Zoek de tandarts afspraak bekijken. <br/><br/>Mijn agenda weergeven<br/>|
 
 ### <a name="entities"></a>Entiteiten
@@ -106,7 +106,7 @@ Het domein communicatie biedt intenties en entiteiten die betrekking hebben op e
 | Bevestigen| Controleer of een actie.|Ja<br/>OK<br/>OK<br/>Ik bevestig dat ik wil dit e-mailbericht verzenden.<br/>|
 | Inbelverbinding| Een telefoongesprek.|Jim aanroepen<br/>Neem 311 kiezen<br/>|
 | FindContact| De contactgegevens op naam vinden.|Carola van nummer zoeken<br/>Carola van getal weergeven<br/>|
-| FindSpeedDial| Zoek de speedial nummer een telefoonnummer in dat is ingesteld op en vice versa.|Wat is mijn telefoonnummer 5?<br/>Heb ik snelheid set kiezen?<br/>Wat is het telefoonnummer van 941-5555-333?|
+| FindSpeedDial| Zoek de snelheid kiezen nummer een telefoonnummer in dat is ingesteld op en vice versa.|Wat is mijn telefoonnummer 5?<br/>Heb ik snelheid set kiezen?<br/>Wat is het telefoonnummer van 941-5555-333?|
 | GetForwardingsStatus| De huidige status van de oproep doorschakelen ophalen.|Wordt mijn doorschakelen ingeschakeld?<br/>Meer informatie als de status van de aanroep in- of uitschakelen is<br/>|
 | GoBack| Ga terug naar de vorige stap.|Ga terug naar twitter<br/>Een stap terug<br/>Terug|
 | Negeren| Een binnenkomende oproep negeren.|Geen antwoord<br/>Aanroep negeren|
@@ -252,7 +252,7 @@ Het domein MovieTickets biedt intenties en entiteiten met betrekking tot reserve
 ### <a name="intents"></a>Intents
 | De naam van de intentie | Description | Voorbeelden |
 | ---------------- |-----------------------|----|
-| Book | Film tickets kopen.|Boek me twee tickets voor kapitein Omar en de twee musketeers<br/>Ik wil een ticket voor morgen film kopen<br/>Ik wilt een ticket Captian Omar deel 2 volgende woensdag|
+| Book | Film tickets kopen.|Boek me twee tickets voor kapitein Omar en de twee musketeers<br/>Ik wil een ticket voor morgen film kopen<br/>Ik wilt een ticket kapitein Omar deel 2 volgende woensdag|
 |GetShowTime| Haal de showtime van een film.|Wanneer wordt kapitein Omar weergegeven?|
 
 
@@ -412,7 +412,7 @@ Het domein locaties biedt intents voor het verwerken van query's die betrekking 
 |GetMenu|Vragen om het menu-items voor een restaurant.|Zucca biedt fungeren iets Veganistische?<br/>Wat is er in het menu Sizzler<br/>Toon Applebee van menu|
 |GetPhoneNumber| Vragen om het telefoonnummer van een centrale locatie.|Wat is het telefoonnummer van de dichtstbijzijnde ergens?<br/>Geeft het aantal voor Start Depot| 
 |GetPriceRange| Wordt u gevraagd voor het prijsbereik van een centrale locatie.|Zucca goedkoop is?<br/>Is de halve prijs aangeboden Cineplex op woensdag?<br/>Wat kost een hele lobster diner op Sizzler?|
-|GetReviews|Beoordelingen van een plaats om vragen.|Beoordelingen voor Cheesecase Factory weergeven<br/>Cineplex beoordelingen in Yelp lezen|
+|GetReviews|Beoordelingen van een plaats om vragen.|Beoordelingen voor Cheesecake Factory weergeven<br/>Cineplex beoordelingen in Yelp lezen|
 |GetRoute|Vragen in een locatie.|Hoe worden uitgelegd op Bellevue vierkant<br/>De kortste manier om de 8 en 59th hier weergeven<br/>Hoe kom ik routebeschrijving uitzicht op CA|
 |GetStarRating|Vragen om de beoordeling van een centrale locatie.|Hoe wordt Zucca beoordeeld op basis van Yelp?<br/>Hoeveel sterren is er in het Frans wasgoed?<br/>Het aquarium in Monterrey goed is?|
 |GetTransportationSchedule|De planning bus ophalen voor een plaats.|Welk moment is het volgende bus centrum?<br/>De bussen in King County weergeven|

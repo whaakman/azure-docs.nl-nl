@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 197762255a1a693821b8416227b4abf52755eb31
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 0d601df7914b7280de4b3c16c8b00c96cb5427e4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015743"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435981"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - beveiligingsoverwegingen voor het verplaatsen van gegevens
 
@@ -45,6 +45,8 @@ In dit artikel bekijken we beveiligingsoverwegingen in de volgende twee verkeer 
 
 - **Cloudscenario**-In dit scenario, de bron- en doelserver zijn openbaar toegankelijk zijn via internet. Het gaat hierbij om beheerde cloud storage services zoals Azure Storage, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, SaaS-services zoals Salesforce en web-protocollen, zoals FTP- en OData. U vindt een volledige lijst met ondersteunde gegevensbronnen [hier](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
 - **Hybride scenario**: In dit scenario, de bron- of doelservers zich achter een firewall of in een on-premises zakelijke netwerk of de gegevens opslag bevindt zich in een particulier netwerk / virtuele netwerk (meestal de bron) en is niet openbaar toegankelijk is. Databaseservers die worden gehost op virtuele machines kunnen ook worden onderverdeeld in dit scenario.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="cloud-scenarios"></a>Cloud-scenario 's
 ### <a name="securing-data-store-credentials"></a>Referenties opslaan, het beveiligen van gegevens
@@ -93,7 +95,7 @@ De referenties voor uw on-premises gegevensarchieven worden lokaal opgeslagen (n
 - Met behulp van **tekst zonder opmaak** (minder veilig) via HTTPS van Azure Portal / Wizard kopiëren. De referenties worden in tekst zonder opmaak doorgegeven aan de on-premises gateway.
 - Met behulp van **cryptografie met JavaScript-bibliotheek van de Wizard kopiëren**.
 - Met behulp van **klikt u op-als op basis van referenties manager app**. De Klik-zodra de toepassing wordt uitgevoerd op de on-premises computer die toegang heeft tot de gateway en stelt de aanmeldingsgegevens voor de gegevensopslag. Deze optie en de volgende zijn de meest veilige keuzes. De app credential manager standaard, gebruikt de poort 8050 op de machine met de gateway voor veilige communicatie.  
-- Gebruik [New-AzureRmDataFactoryEncryptValue](/powershell/module/azurerm.datafactories/New-AzureRmDataFactoryEncryptValue) PowerShell-cmdlet voor het versleutelen van referenties. De cmdlet maakt gebruik van het certificaat dat de gateway is geconfigureerd om te gebruiken voor het versleutelen van de referenties. U kunt de versleutelde referenties die zijn geretourneerd door deze cmdlet gebruiken en deze toe te voegen **EncryptedCredential** element van de **connectionString** in het JSON-bestand dat u met gebruikt de [ New-AzureRmDataFactoryLinkedService](/powershell/module/azurerm.datafactories/new-azurermdatafactorylinkedservice) cmdlet of in de JSON-codefragment in de Data Factory Editor in de portal. Deze optie en klik op-zodra de veiligste opties-toepassing zijn. 
+- Gebruik [New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/New-azDataFactoryEncryptValue) PowerShell-cmdlet voor het versleutelen van referenties. De cmdlet maakt gebruik van het certificaat dat de gateway is geconfigureerd om te gebruiken voor het versleutelen van de referenties. U kunt de versleutelde referenties die zijn geretourneerd door deze cmdlet gebruiken en deze toe te voegen **EncryptedCredential** element van de **connectionString** in het JSON-bestand dat u met gebruikt de [ Nieuwe AzDataFactoryLinkedService](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) cmdlet of in de JSON-codefragment in de Data Factory Editor in de portal. Deze optie en klik op-zodra de veiligste opties-toepassing zijn. 
 
 #### <a name="javascript-cryptography-library-based-encryption"></a>Versleuteling op basis van een bibliotheek met JavaScript cryptografie
 U kunt de referenties van de gegevensopslag met behulp van versleutelen [cryptografie met JavaScript-bibliotheek](https://www.microsoft.com/download/details.aspx?id=52439) uit de [Wizard kopiëren](data-factory-copy-wizard.md). Wanneer u deze optie selecteert, wordt de Wizard kopiëren opgehaald van de openbare sleutel van de gateway en gebruikt voor het versleutelen van de referenties van de gegevensopslag. De referenties worden door de gatewaycomputer ontsleuteld en worden beschermd door Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx).

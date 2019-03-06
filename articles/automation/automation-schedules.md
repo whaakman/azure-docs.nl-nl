@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c1c36736e9d023ab1bd2ed607638b600bc468f2c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: d6677733339babf45e7351e10d6de1c002a6ea93
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437213"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436499"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Een runbook in Azure Automation plannen
 
@@ -52,7 +52,7 @@ U kunt een nieuw schema voor runbooks maken in Azure portal of met Windows Power
 1. Op de **nieuwe planning** deelvenster, typ een **naam** en eventueel een **beschrijving** voor het nieuwe schema.
 1. Selecteer of het schema wordt één keer uitgevoerd of volgens een terugkerende planning door te schakelen **eenmaal** of **periodiek**. Als u selecteert **eenmaal** geven een **begintijd**, en klik vervolgens op **maken**. Als u selecteert **periodiek**, Geef een **begintijd** en voor **herhalen elke**, selecteert u de frequentie voor hoe vaak u wilt dat het runbook moet worden herhaald - door **uur**, **dag**, **week**, of door **maand**.
     1. Als u selecteert **week**, vindt u een lijst van de dagen van de week om uit te kiezen. Aantal dagen als u wilt selecteren. De eerste uitvoering van het schema gebeurt op de eerste dag na de starttijd hebt geselecteerd.
-    2. Als u selecteert **maand**, krijgt u verschillende opties. Voor de **maandelijkse als** optie, selecteert u **maanddagen** of **weekdagen**. Als u ervoor kiest **maanddagen** een agenda wordt weergegeven waarmee u zoveel dagen als u wilt kiezen. Als u ervoor een datum, bijvoorbeeld de 31e die niet wordt uitgevoerd in de huidige maand kiest, wordt de planning wordt niet uitgevoerd. Als u wilt dat het schema uit te voeren op de laatste dag, kiest u **Ja** onder **worden uitgevoerd op de laatste dag van maand**. Als u ervoor kiest **weekdagen**, wordt de **herhalen elke** optie wordt weergegeven. Kies **eerste**, **tweede**, **derde**, **vierde**, of **laatste**. Kies ten slotte een dag moet worden herhaald op.
+    2. Als u selecteert **maand**, krijgt u verschillende opties. Voor de **voorvallen in de maand** optie, selecteert u **maanddagen** of **weekdagen**. Als u ervoor kiest **maanddagen** een agenda wordt weergegeven waarmee u zoveel dagen als u wilt kiezen. Als u ervoor een datum, bijvoorbeeld de 31e die niet wordt uitgevoerd in de huidige maand kiest, wordt de planning wordt niet uitgevoerd. Als u wilt dat het schema uit te voeren op de laatste dag, kiest u **Ja** onder **worden uitgevoerd op de laatste dag van maand**. Als u ervoor kiest **weekdagen**, wordt de **herhalen elke** optie wordt weergegeven. Kies **eerste**, **tweede**, **derde**, **vierde**, of **laatste**. Kies ten slotte een dag moet worden herhaald op.
 1. Klik wanneer klaar **maken**.
 
 ### <a name="to-create-a-new-schedule-with-windows-powershell"></a>Een nieuw schema maken met Windows PowerShell
