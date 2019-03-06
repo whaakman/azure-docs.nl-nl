@@ -6,14 +6,14 @@ services: site-recovery
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 68892faf707a767ba9c25ce7317f775708e61a90
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 28b28dc15809aa5d37eb9347ff3bc7eecccc9a20
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217982"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452705"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installeren van een Linux-hoofddoelserver voor failback
 Nadat u uw virtuele machines naar Azure failover, kunt u de virtuele machines om de on-premises site weer failover. Als u wilt uitvoeren van een failback, moet u opnieuw beveiligen van de virtuele machine van Azure naar de on-premises site. Voor dit proces moet u een on-premises hoofddoelserver om het verkeer te ontvangen. 
@@ -62,7 +62,7 @@ De volgende ondersteunde Ubuntu-kernels worden ondersteund.
 
 Met het volgende de stappen voor het installeren van de Ubuntu 16.04.2 64-bits besturingssysteem.
 
-1.   Ga naar de [downloadkoppeling](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), kies de dichtstbijzijnde mirror anddownload een Ubuntu 16.04.2 minimaal 64-bit ISO.
+1.   Ga naar de [downloadkoppeling](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), kies de dichtstbijzijnde mirror en downloaden van een Ubuntu 16.04.2 minimaal 64-bit ISO.
 Een Ubuntu 16.04.2 minimaal 64-bit ISO behouden in het DVD-station en start het systeem.
 
 1.  Selecteer **Engels** als uw voorkeurstaal en selecteer vervolgens **Enter**.
@@ -287,7 +287,6 @@ Gebruik de volgende stappen uit om te maken van een bewaarschijf:
 2. Noteer de IP-adres van de configuratieserver. Voer de volgende opdracht op de hoofddoelserver installeren en registreren van de server met de configuratieserver.
 
     ```
-    ./install -q -d /usr/local/ASR -r MT -v VmWare
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
     ```
 

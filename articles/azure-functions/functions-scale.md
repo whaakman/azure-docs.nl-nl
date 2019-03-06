@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 02/28/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1d385fd8c8388e3ce54b89ff2ac863cd5a1aa0df
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 5cd3f7f1f1f17d6dedea0157760b03c7e55e3d8a
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216132"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410091"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions-schaal en hosting
 
@@ -43,9 +43,6 @@ U kunt op een App Service-plan schalen tussen lagen verschillende hoeveelheid re
 
 Wanneer u een verbruiksabonnement gebruikt, worden instanties van de Azure Functions-host dynamisch toegevoegd en verwijderd op basis van het aantal binnenkomende gebeurtenissen. Dit plan serverloze automatisch wordt geschaald en u betaalt voor computerresources alleen wanneer uw functies worden uitgevoerd. In een verbruiksabonnement verloopt een functie-uitvoering na een periode die is geconfigureerd.
 
-> [!NOTE]
-> De standaardtime-out voor functies in een verbruiksabonnement is 5 minuten. De waarde voor de functie-App tot een maximum van tien minuten kan worden verhoogd met het wijzigen van de eigenschap `functionTimeout` in de [host.json](functions-host-json.md#functiontimeout) projectbestand.
-
 Facturering is gebaseerd op aantal uitvoeringen, uitvoeringstijd en geheugen dat wordt gebruikt. Facturering wordt samengevoegd voor alle functies in een functie-app. Zie voor meer informatie de [Pagina prijzen voor Azure Functions].
 
 Het verbruiksabonnement is de standaardinstelling hostingabonnement en biedt de volgende voordelen:
@@ -62,7 +59,7 @@ Houd rekening met een App Service-plan in de volgende gevallen:
 * U hebt bestaande, weinig gebruikte virtuele machines die al een andere App Service-exemplaren worden uitgevoerd.
 * Uw functie-apps voortdurend of vrijwel continu uitvoeren. In dit geval mag een App Service-Plan rendabeler.
 * U moet meer opties voor de CPU of geheugen dan op het abonnement Consumption wordt geleverd.
-* Uw code moet langer zijn dan de maximale uitvoeringstijd toegestaan op het plan verbruik, dat maximaal tien minuten wordt uitgevoerd.
+* Uw code moet langer zijn dan de [maximale uitvoeringstijd toegestaan](#timeout) op het verbruiksabonnement.
 * Gewenste functies die alleen beschikbaar op een App Service-plan, zoals ondersteuning voor App Service-omgeving, VNET-VPN-connectiviteit en grotere VM-grootten zijn.
 * U wilt uitvoeren van uw functie-app op Linux of u wilt mogelijk een aangepaste installatiekopie op voor het uitvoeren van uw functies.
 
@@ -77,6 +74,8 @@ Bij het uitvoeren van JavaScript-functies op een App Service-plan, moet u een pl
 ###<a name="always-on"></a> Altijd ingeschakeld
 
 Als u op een App Service-plan uitvoert, moet u inschakelen de **altijd op** instellen zodat uw functie-app correct wordt uitgevoerd. Op een App Service-plan gaat de functions-runtime niet-actieve na een paar minuten van inactiviteit, zodat alleen HTTP-triggers '' uw functies inschakelt. Altijd is op alleen beschikbaar op een App Service-plan. Functie-apps die het automatisch door het platform wordt geactiveerd op een verbruiksabonnement.
+
+[!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
 ## <a name="what-is-my-hosting-plan"></a>Wat is mijn hostingabonnement
 

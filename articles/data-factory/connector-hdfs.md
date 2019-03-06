@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: jingwang
-ms.openlocfilehash: d0f22360a36105e5bfb877d7478b58c37fcc4353
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 4a1b1a32a488395c6a0b3f19de727802a329930a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213769"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439856"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Gegevens uit HDFS met Azure Data Factory kopiëren
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -138,6 +138,7 @@ Als u wilt kopiëren van gegevens uit HDFS, stel de eigenschap type van de gegev
         },
         "typeProperties": {
             "folderPath": "folder/subfolder/",
+            "fileName": "*",
             "modifiedDatetimeStart": "2018-12-01T05:00:00Z",
             "modifiedDatetimeEnd": "2018-12-01T06:00:00Z",
             "format": {
@@ -203,7 +204,7 @@ Meer informatie over het gebruik van DistCp gegevens uit HDFS efficiënt in de v
 
 DistCp gebruiken om te kopiëren van bestanden als ondersteuning voor activiteit kopiëren-is in Azure Blob (met inbegrip van [gefaseerd kopiëren](copy-activity-performance.md) of Azure Data Lake Store, in welk geval het kan volledig benut de kracht van uw cluster in plaats van die worden uitgevoerd op de zelfgehoste Cloudintegratieruntime . Met name als uw cluster is een zeer krachtig en biedt betere doorvoer van de kopie. Op basis van uw configuratie in Azure Data Factory, kopieeractiviteit automatisch maken van een opdracht distcp indienen bij uw Hadoop-cluster en de kopiestatus controleren.
 
-### <a name="prerequsites"></a>Prerequsites
+### <a name="prerequisites"></a>Vereisten
 
 DistCp gebruiken om te kopiëren bestanden als-is van HDFS tot Azure-Blob (met inbegrip van gefaseerd kopiëren) of Azure Data Lake Store, zorg ervoor dat uw Hadoop-cluster voldoet aan de volgende vereisten:
 

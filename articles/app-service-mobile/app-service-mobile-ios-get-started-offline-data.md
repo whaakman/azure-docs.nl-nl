@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: bc0afcf1ac7d9e7a777d850e1b6df7b915837f3a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 1283f812799fe71ef6987dbc7fab092aed4d3417
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956871"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435130"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Offline synchroniseren met mobiele iOS-apps inschakelen
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -48,7 +48,7 @@ Voordat u een tabelbewerkingen kunnen worden uitgevoerd, moet het lokale archief
    MSCoreDataStore *store = [[MSCoreDataStore alloc] initWithManagedObjectContext:context];
    self.client.syncContext = [[MSSyncContext alloc] initWithDelegate:nil dataSource:store callback:nil];
    ```    
-* **SWIFT**. In de **ToDoTableViewController.viewDidLoad** methode:
+* **Swift**. In de **ToDoTableViewController.viewDidLoad** methode:
 
    ```swift
    let client = MSClient(applicationURLString: "http:// ...") // URI of the Mobile App
@@ -89,7 +89,7 @@ Nu gaan we de werkelijke synchronisatiebewerking uitvoeren en gegevens ophalen u
        }];
    }
    ```
-* **SWIFT**:
+* **Swift**:
    ```swift
    func onRefresh(sender: UIRefreshControl!) {
       UIApplication.sharedApplication().networkActivityIndicatorVisible = true
@@ -101,7 +101,7 @@ Nu gaan we de werkelijke synchronisatiebewerking uitvoeren en gegevens ophalen u
 
           if error != nil {
               // A real application would handle various errors like network conditions,
-              // server conflicts, etc via the MSSyncContextDelegate
+              // server conflicts, etc. via the MSSyncContextDelegate
               print("Error: \(error!.description)")
 
               // We will discard our changes and keep the server's copy for simplicity
@@ -141,9 +141,9 @@ Omdat de app wordt gesynchroniseerd wanneer de gegevens zijn gewijzigd (Objectiv
 Wanneer u de belangrijkste gegevens offline store gebruikt, moet u bepaalde tabellen en velden definiëren in het gegevensmodel. De voorbeeld-app bevat al een gegevensmodel met de juiste indeling. In deze sectie behandelen we deze tabellen om weer te geven hoe ze worden gebruikt.
 
 Open **QSDataModel.xcdatamodeld**. Vier tabellen zijn gedefinieerd--drie die worden gebruikt door de SDK en één die wordt gebruikt voor de taak zelf items:
-  * MS_TableOperations: Houdt bij of de items die moeten worden gesynchroniseerd met de server.
-  * MS_TableOperationErrors: Houdt bij of eventuele fouten die tijdens het offline synchroniseren optreden.
-  * MS_TableConfig: Sporen te wissen in de laatste bijgewerkt voor de laatste synchronisatiebewerking voor alle pull-bewerkingen.
+  * MS_TableOperations: De items die moeten worden gesynchroniseerd met de server wordt bijgehouden.
+  * MS_TableOperationErrors: Eventuele fouten die tijdens het offline synchroniseren optreden wordt bijgehouden.
+  * MS_TableConfig: Houdt de laatste bijgewerkt voor de laatste synchronisatiebewerking voor alle pull-bewerkingen.
   * TodoItem: Slaat de to-do-items. De systeemkolommen **createdAt**, **updatedAt**, en **versie** zijn optioneel Systeemeigenschappen.
 
 > [!NOTE]
@@ -162,9 +162,9 @@ Wanneer u de functie voor offlinesynchronisatie, definieert u de drie tabellen e
 | Kenmerk | Type |
 | --- | --- |
 | id | Geheel getal 64 |
-| artikel-id | Reeks |
+| itemId | String |
 | properties | Binaire gegevens |
-| tabel | Reeks |
+| tabel | String |
 | tableKind | Geheel getal 16 |
 
 
@@ -174,7 +174,7 @@ Wanneer u de functie voor offlinesynchronisatie, definieert u de drie tabellen e
 
 | Kenmerk | Type |
 | --- | --- |
-| id |Reeks |
+| id |String |
 | operationId |Geheel getal 64 |
 | properties |Binaire gegevens |
 | tableKind |Geheel getal 16 |
@@ -185,11 +185,11 @@ Wanneer u de functie voor offlinesynchronisatie, definieert u de drie tabellen e
 
 | Kenmerk | Type |
 | --- | --- |
-| id |Reeks |
-| sleutel |Reeks |
-| Sleuteltype |Geheel getal 64 |
-| tabel |Reeks |
-| waarde |Reeks |
+| id |String |
+| sleutel |String |
+| keyType |Geheel getal 64 |
+| tabel |String |
+| waarde |String |
 
 ### <a name="data-table"></a>Gegevenstabel
 
@@ -199,10 +199,10 @@ Wanneer u de functie voor offlinesynchronisatie, definieert u de drie tabellen e
 | --- | --- | --- |
 | id | Tekenreeks, gemarkeerd als vereist |primaire sleutel in de externe opslag |
 | Voltooien | Booleaans | Veld to-do-item |
-| tekst |Reeks |Veld to-do-item |
+| tekst |String |Veld to-do-item |
 | createdAt | Date | (optioneel) Toegewezen aan **createdAt** systeemeigenschap |
 | updatedAt | Date | (optioneel) Toegewezen aan **updatedAt** systeemeigenschap |
-| versie | Reeks | (optioneel) Voor het detecteren van conflicten, toegewezen aan versie |
+| versie | String | (optioneel) Voor het detecteren van conflicten, toegewezen aan versie |
 
 ## <a name="setup-sync"></a>Het gedrag van de synchronisatie van de app wijzigen
 In deze sectie maakt wijzigen u de app zodat deze wordt niet gesynchroniseerd op de app start of als u invoegen en bijwerken van items. Deze synchroniseert alleen als de knop Vernieuwen gebaar wordt uitgevoerd.
@@ -224,7 +224,7 @@ In deze sectie maakt wijzigen u de app zodat deze wordt niet gesynchroniseerd op
    }
    ```
 
-**SWIFT**:
+**Swift**:
 
 In `viewDidLoad`in **ToDoTableViewController.swift**, een opmerking bij de twee regels die hieronder om te synchroniseren op het startscherm van de app stoppen. Op het moment van dit artikel is geschreven, komt de Swift-taken-app niet de service bijwerken wanneer iemand toevoegt of een item is voltooid. De service alleen op het startscherm van de app worden bijgewerkt.
 
@@ -242,7 +242,7 @@ In deze sectie maakt verbinding u met een ongeldige URL voor het simuleren van e
    ```objc
    self.client = [MSClient clientWithApplicationURLString:@"https://sitename.azurewebsites.net.fail"];
    ```
-   **SWIFT**. In ToDoTableViewController.swift:
+   **Swift**. In ToDoTableViewController.swift:
    ```swift
    let client = MSClient(applicationURLString: "https://sitename.azurewebsites.net.fail")
    ```

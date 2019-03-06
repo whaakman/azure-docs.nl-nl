@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 503e056a3fa87e48f61d26661110b9bb89456a51
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 0bed75090e82287e1239342884b5acea64e69bf0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338519"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444001"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Hoge beschikbaarheid van SAP HANA op Azure Virtual machines van Red Hat Enterprise Linux
 
@@ -187,9 +187,9 @@ Lees voor meer informatie over de vereiste poorten voor SAP HANA, het hoofdstuk 
 
 De stappen in deze sectie gebruikt u de volgende voorvoegsels:
 
-* **[A]** : De stap is van toepassing op alle knooppunten.
-* **[1]** : De stap is van toepassing op knooppunt 1 alleen.
-* **[2]** : De stap is van toepassing op knooppunt 2 van het cluster Pacemaker alleen.
+* **[A]**: De stap is van toepassing op alle knooppunten.
+* **[1]**: De stap is van toepassing op knooppunt 1 alleen.
+* **[2]**: De stap is van toepassing op knooppunt 2 van het cluster Pacemaker alleen.
 
 1. **[A]**  Instellen van de schijfindeling: **Logical Volume Manager (LVM)**.
 
@@ -348,9 +348,9 @@ De stappen in deze sectie gebruikt u de volgende voorvoegsels:
 
 De stappen in deze sectie gebruikt u de volgende voorvoegsels:
 
-* **[A]** : De stap is van toepassing op alle knooppunten.
-* **[1]** : De stap is van toepassing op knooppunt 1 alleen.
-* **[2]** : De stap is van toepassing op knooppunt 2 van het cluster Pacemaker alleen.
+* **[A]**: De stap is van toepassing op alle knooppunten.
+* **[1]**: De stap is van toepassing op knooppunt 1 alleen.
+* **[2]**: De stap is van toepassing op knooppunt 2 van het cluster Pacemaker alleen.
 
 1. **[A]**  Firewall configureren
 
@@ -439,9 +439,9 @@ sudo firewall-cmd --zone=public --add-port=30342/tcp
 
 De stappen in deze sectie gebruikt u de volgende voorvoegsels:
 
-* **[A]** : De stap is van toepassing op alle knooppunten.
-* **[1]** : De stap is van toepassing op knooppunt 1 alleen.
-* **[2]** : De stap is van toepassing op knooppunt 2 van het cluster Pacemaker alleen.
+* **[A]**: De stap is van toepassing op alle knooppunten.
+* **[1]**: De stap is van toepassing op knooppunt 1 alleen.
+* **[2]**: De stap is van toepassing op knooppunt 2 van het cluster Pacemaker alleen.
 
 1. **[A]**  Firewall configureren
 
@@ -643,7 +643,7 @@ Resource Group: g_ip_HN1_03
 </code></pre>
 
 U kunt de installatie van de agent voor de eerste optie Azure testen door het uitschakelen van de netwerkinterface op het knooppunt waarop de SAP HANA-master wordt uitgevoerd.
-Zie [Red Hat Knowledgebase-artikel 79523](https://access.redhat.com/solutions/79523) voor een descricption over het simuleren van een netwerkfout. In dit voorbeeld gebruiken we het script net_breaker alle toegang tot het netwerk blokkeren.
+Zie [Red Hat Knowledgebase-artikel 79523](https://access.redhat.com/solutions/79523) voor een beschrijving voor het simuleren van een netwerkfout. In dit voorbeeld gebruiken we het script net_breaker alle toegang tot het netwerk blokkeren.
 
 <pre><code>[root@hn1-db-1 ~]# sh ./net_breaker.sh BreakCommCmd 10.0.0.6
 </code></pre>
