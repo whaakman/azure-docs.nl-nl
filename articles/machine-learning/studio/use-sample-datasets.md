@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: 22b3480093b85507123cab886340713747433928
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: e4e29f4b714fe187622d778db58743ca4f02e84e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818354"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445582"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>De voorbeeldgegevenssets in Azure Machine Learning Studio gebruiken
 [top]: #machine-learning-sample-datasets
@@ -233,7 +233,7 @@ Dit is mogelijk de beste bekende database kunnen worden gevonden in de documenta
 <tr>
   <td>Tweets van de film</td>
   <td>
-De gegevensset is een uitgebreide versie van de film Tweetings-gegevensset. De gegevensset heeft 170K beoordelingen van films, geëxtraheerd uit gestructureerde tweets op Twitter. Elk exemplaar een tweet vertegenwoordigt en is een tuple: gebruikers-ID, IMDB film-ID, classificatie, timestamp, aantal favorieten voor deze tweet en het aantal retweets van deze tweet. De gegevensset is beschikbaar gesteld door A. gezegd, S. Dooms, B. Loni en D. Tikk voor Recommender systemen Challenge 2014.
+De gegevensset is een uitgebreide versie van de film Tweetings-gegevensset. De gegevensset heeft 170K beoordelingen van films, geëxtraheerd uit gestructureerde tweets op Twitter. Elk exemplaar een tweet vertegenwoordigt en is een tuple: gebruikers-ID, IMDB film-ID, classificatie, timestamp, aantal favorieten van deze tweet en het aantal retweets van deze tweet. De gegevensset is beschikbaar gesteld door A. gezegd, S. Dooms, B. Loni en D. Tikk voor Recommender systemen Challenge 2014.
   </td>
 </tr>
 

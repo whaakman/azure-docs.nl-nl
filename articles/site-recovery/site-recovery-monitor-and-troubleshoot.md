@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: bsiva
-ms.openlocfilehash: 48e53bcc542b9a0e00a544f80ec796082fa71f7b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7deea91a016616d9015004857ad9e5ae70e24111
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210417"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432869"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>Bewaken en problemen oplossen van Site Recovery
 
@@ -84,7 +84,7 @@ De **Foutensamenvatting** sectie ziet u momenteel actieve fout problemen die mog
 De **infrastructuurweergave** ziet u de infrastructuuronderdelen die betrokken zijn in de replicatie en de status van de connectiviteit tussen servers en de Azure-services.
 
 - Een groene lijn geeft aan of de verbinding in orde is.
-- Een rode lijn met het pictogram verlaid fout geeft aan dat het bestaan van een of meer fout symptomen die invloed op de connectiviteit.
+- Een rode lijn met de overlappende foutpictogram geeft aan dat het bestaan van een of meer fout symptomen die invloed op de connectiviteit.
 -  Beweeg de muisaanwijzer op het foutpictogram van de om de fout en het aantal betrokken entiteiten weer te geven. Klik op het pictogram voor een gefilterde lijst met betrokken entiteiten.
 
     ![Weergave van de infrastructuur voor site Recovery (kluis)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)

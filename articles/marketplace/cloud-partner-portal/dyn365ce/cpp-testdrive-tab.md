@@ -14,18 +14,18 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/25/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 664a2c6bfc4a73b7d792b71c4b81df54b05fcd74
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 373312b4c7f05fe41c9ca8165b8ff6f1b0e56f1b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54082817"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454966"
 ---
 # <a name="dynamics-365-for-customer-engagement-application-test-drive-tab"></a>Dynamics 365 voor Customer Engagement toepassing Test Drive-tabblad
 
-Gebruik de **Test Drive** tabblad om te maken van een evaluatieversie voor uw klanten.  Daardoor kunnen klanten met een praktische, zelfgestuurd evaluatieversie van de belangrijke functies en voordelen, gedemonstreerd in een implementatiescenario voor het werkelijke van uw aanbieding.  Test Drive is van de proefversie opties die beschikbaar is, de meest effectief bij het genereren van hoge kwaliteit potentiële klanten en hogere conversie van deze leads.  Zie voor meer informatie, [wat is Test Drive?](../../cloud-partner-portal-orig/what-is-test-drive.md)
+Gebruik de **Test Drive** tabblad om te maken van een evaluatieversie voor uw klanten.  Daardoor kunnen klanten met een praktische, zelfgestuurd evaluatieversie van de belangrijke functies en voordelen, gedemonstreerd in een implementatiescenario voor het werkelijke van uw aanbieding.  Test Drive is van de proefversie opties die beschikbaar is, de meest effectief bij het genereren van hoge kwaliteit potentiële klanten en hogere conversie van deze leads.  Zie voor meer informatie, [wat is Test Drive?](../test-drive/what-is-test-drive.md)
 
-De Test Drive-ervaring voor Dynamics 365-toepassingen wordt automatisch uitgevoerd als een Microsoft gehoste oplossing.  Zie voor meer informatie, [gehoste Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/hosted-test-drive).
+De Test Drive-ervaring voor Dynamics 365-toepassingen wordt automatisch uitgevoerd als een Microsoft gehoste oplossing.  Zie voor meer informatie, [gehoste Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/hosted-test-drive).
 
 Het tabblad Test Drive heeft drie mogelijke secties: **U kunt uitproberen**, **Details**, en **technische configuratie**.  De laatste twee secties worden alleen weergegeven nadat u de functionaliteit van de Test Drive inschakelen.  Een sterretje (*) toegevoegd aan de naam van het veld geeft aan dat dit is verplicht. 
 
@@ -66,9 +66,9 @@ Waarin de velden hebben de volgende doeleinden:
 | Test Drive duur (uren)   | Maximum aantal uren van de gebruiker Test Drive-exemplaar zijn. Na deze periode wordt overschreden, wordt het exemplaar van uw tenant inrichting ongedaan gemaakt. Aanbevolen waarde van 2 tot 24 uur, afhankelijk van de complexiteit van uw app. De gebruiker kan een andere Test Drive altijd aanvragen als ze weinig tijd en u wilt opnieuw te evalueren.  |
 | URL van instantie                  | URL die de Test Drive in eerste instantie u naar gaat. Dit is meestal de URL van uw Dynamics 365-exemplaar waarop uw app en voorbeeldgegevens op geïnstalleerd.  |
 | Azure AD-Tenant-ID            | De GUID van de Azure-tenant voor uw exemplaar van Dynamics 365. Voor het ophalen van deze waarde, meld u aan bij Azure portal en gaat u naar **Azure Active Directory** > **eigenschappen selecteren** > **kopiëren van de map-ID**.  |
-| Azure AD-App-ID               | GUID van uw Azure AD-toepassing  |
+| Azure AD App ID               | GUID van uw Azure AD-toepassing  |
 | Azure AD-App-sleutel              | Geheim van uw Azure AD-toepassing, bijvoorbeeld: `IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=` |
-| De naam van de Azure AD-Tenant          | De naam van de Azure-tenant voor uw exemplaar van Dynamics 365. Gebruik de indeling van < tenantname. > onmicrosoft.com, bijvoorbeeld: `testdrive.onmicrosoft.com`  |
+| Azure AD Tenant Name          | De naam van de Azure-tenant voor uw exemplaar van Dynamics 365. Gebruik de indeling van < tenantname. > onmicrosoft.com, bijvoorbeeld: `testdrive.onmicrosoft.com`  |
 | Web-API-URL van instantie          | De URL van de web-API voor uw exemplaar van Dynamics 365. U kunt deze waarde wordt opgehaald door te melden bij uw Microsoft Dynamics 365-exemplaar en te navigeren naar **instellingen** > **aanpassing** > **Developer Resources** > **Web-API (deze URL kopiëren)-exemplaar**. Voorbeeldwaarde: `https://testdrive.crm.dynamics.com/api/data/v9.0`  |
 | Rolnaam                     | Naam van de aangepaste beveiligingsrol van Dynamics 365 u voor uw Test Drive hebt gemaakt en wordt toegewezen aan de gebruikers wanneer ze het uitvoert, bijvoorbeeld `testdriveuser`. |
 |  |  |

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 514242eb759a2349d96b38ebe54bb98cf0e83423
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6838f4db240a0712eece7a97bc2cfe99efb87215
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468815"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454941"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Scenario's voor geavanceerde analyses in Azure Machine Learning
 In dit artikel bevat een overzicht van de verschillende gegevensbronnen van voorbeeld en doelscenario's mogelijk die kunnen worden verwerkt door de [Team Data Science Process (TDSP)](overview.md). De TDSP biedt een systematische benadering voor teams kunnen samenwerken op het bouwen van intelligente toepassingen. De scenario's die hier wordt gepresenteerd illustreren opties beschikbaar zijn in de werkstroom gegevensverwerking die afhankelijk van de gegevenskenmerken, bronlocaties en doel-opslagplaatsen in Azure zijn.
@@ -154,7 +154,7 @@ Elk van de volgende secties geeft een voorbeeldscenario. Voor elk scenario, een 
 1. Gebruik een van de gegevens exporteren methoden om de gegevens exporteren uit SQL Server naar dumpbestanden.
    
    > [!NOTE]
-   > Als u besluit om te verplaatsen van alle gegevens van de on-premises database, een alternatieve (sneller) methode de volledige database verplaatsen naar de SQL Server-exemplaar in Azure. Sla de stappen voor het exporteren van gegevens, -database maken en laden/importeren van gegevens naar de doeldatabase en volgt u de alternatieve methode.
+   > Als u besluit te verplaatsen van alle gegevens van de on-premises-database, een alternatieve (sneller) methode de volledige database verplaatsen naar de SQL Server-exemplaar in Azure. Sla de stappen voor het exporteren van gegevens, -database maken en laden/importeren van gegevens naar de doeldatabase en volgt u de alternatieve methode.
    > 
    > 
 1. Dumpbestanden uploaden naar Azure storage-container.

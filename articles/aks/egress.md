@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 03/04/2019
 ms.author: iainfou
-ms.openlocfilehash: aeffe172fd422f18e2828c5274e9a2ed13cc546a
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 6612d801804cdd1e092b50977230f24b378e64ba
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103357"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407133"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>Gebruik een statisch openbaar IP-adres voor uitgaand verkeer in Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Dit artikel leest u hoe het maken en gebruiken van een statisch openbaar IP-adre
 
 In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de Quick Start voor AKS [met de Azure CLI] [ aks-quickstart-cli] of [met behulp van de Azure-portal][aks-quickstart-portal].
 
-Ook moet de Azure CLI-versie 2.0.46 of later zijn geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u de Azure CLI wilt installeren of upgraden, raadpleegt u  [Azure CLI installeren][install-azure-cli].
+U ook moet de Azure CLI versie 2.0.59 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u de Azure CLI wilt installeren of upgraden, raadpleegt u  [Azure CLI installeren][install-azure-cli].
 
 ## <a name="egress-traffic-overview"></a>Overzicht van uitgaand verkeer
 
@@ -36,7 +36,7 @@ Zodra een Kubernetes-service van het type `LoadBalancer` is gemaakt, agent knoop
 
 Wanneer u een statisch openbaar IP-adres voor gebruik met AKS maakt, de IP-adresresource moet worden gemaakt in de **knooppunt** resourcegroep. De naam van de resource met de [az aks show] [ az-aks-show] opdracht en voeg de `--query nodeResourceGroup` queryparameter. Het volgende voorbeeld wordt de resourcegroep van het knooppunt voor de naam van het AKS-cluster *myAKSCluster* in naam van de resourcegroep *myResourceGroup*:
 
-```azurecli
+```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
 
 MC_myResourceGroup_myAKSCluster_eastus
@@ -44,7 +44,7 @@ MC_myResourceGroup_myAKSCluster_eastus
 
 Maak nu een statisch openbaar IP-adres met de [az network public-ip maken] [ az-network-public-ip-create] opdracht. Geef de naam van de resourcegroep knooppunt verkregen in de vorige opdracht, en vervolgens een naam op voor het IP-adres betrekking op resource, zoals *myAKSPublicIP*:
 
-```azurecli
+```azurecli-interactive
 az network public-ip create \
     --resource-group MC_myResourceGroup_myAKSCluster_eastus \
     --name myAKSPublicIP \
@@ -67,7 +67,7 @@ Het IP-adres wordt weergegeven, zoals wordt weergegeven in de volgende verkorte 
 
 U kunt later ophalen voor het openbare IP-adres met de [az network public-IP-lijst] [ az-network-public-ip-list] opdracht. Geef de naam van de resourcegroep van het knooppunt en klik vervolgens op te vragen voor de *ipAddress* zoals wordt weergegeven in het volgende voorbeeld:
 
-```azurecli
+```azurecli-interactive
 $ az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastus --query [0].ipAddress --output tsv
 
 40.121.183.52
@@ -104,7 +104,7 @@ Om te controleren of de statische openbare IP-adres wordt gebruikt, kunt u DNS-r
 Starten en te koppelen aan een eenvoudige *Debian* pod:
 
 ```console
-kubectl run -it --rm aks-ip --image=debian
+kubectl run -it --rm aks-ip --image=debian --generator=run-pod/v1
 ```
 
 Gebruiken voor toegang tot een website vanuit de container, `apt-get` voor het installeren van `curl` naar de container.
@@ -118,7 +118,7 @@ Curl nu gebruiken voor toegang tot de *checkip.dyndns.org* site. De uitgaande IP
 ```console
 $ curl -s checkip.dyndns.org
 
-<html><head><title>Current IP Check</title></head><body>Current IP Address: 23.101.128.81</body></html>
+<html><head><title>Current IP Check</title></head><body>Current IP Address: 40.121.183.52</body></html>
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

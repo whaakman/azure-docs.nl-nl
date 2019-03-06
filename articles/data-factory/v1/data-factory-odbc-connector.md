@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c05c2e8941790dd30c42aca8d434a3b914d79de7
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 83de0046a56788e40b9224823af0411a18dea5eb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107279"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449934"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Verplaatsen van gegevens van ODBC-gegevensopslag met Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,6 +32,8 @@ ms.locfileid: "56107279"
 In dit artikel wordt uitgelegd hoe u de Kopieeractiviteit in Azure Data Factory gebruiken om gegevens te verplaatsen uit een on-premises ODBC-gegevensopslag. Dit is gebaseerd op de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel een algemeen overzicht van de verplaatsing van gegevens met de kopieeractiviteit geeft.
 
 U kunt gegevens uit een ODBC-gegevensopslag kopiëren naar een ondersteunde sink-gegevensopslag. Zie voor een lijst met gegevensarchieven die worden ondersteund als sink voor de kopieeractiviteit, de [ondersteunde gegevensarchieven](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabel. Data factory ondersteunt momenteel alleen gegevens te verplaatsen van een ODBC-gegevensopslag naar andere gegevensarchieven, maar niet voor het verplaatsen van gegevens uit andere gegevensarchieven naar een ODBC-gegevensopslag.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="enabling-connectivity"></a>Verbindingen inschakelen
 Data Factory-service ondersteunt een verbinding met on-premises ODBC-bronnen met behulp van de Data Management Gateway. Zie [om gegevens te verplaatsen tussen on-premises locaties en cloud](data-factory-move-data-between-onprem-and-cloud.md) artikel voor meer informatie over Data Management Gateway en stapsgewijze instructies over het instellen van de gateway. De gateway gebruiken om te verbinden met een ODBC-gegevensopslag, zelfs als deze wordt gehost in een Azure IaaS-VM.
@@ -93,7 +95,7 @@ De volgende tabel bevat de beschrijving voor JSON-elementen die specifiek zijn v
 }
 ```
 ### <a name="using-basic-authentication-with-encrypted-credentials"></a>Met behulp van basisverificatie wordt gebruikt met de versleutelde referenties
-Kunt u de referenties met behulp van versleutelen de [New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) cmdlet (versie 1.0 van Azure PowerShell) of [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0,9 of een eerdere versie van Azure PowerShell).
+Kunt u de referenties met behulp van versleutelen de [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) cmdlet (versie 1.0 van Azure PowerShell) of [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0,9 of een eerdere versie van Azure PowerShell).
 
 ```json
 {

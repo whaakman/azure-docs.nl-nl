@@ -10,12 +10,12 @@ ms.date: 01/25/2019
 ms.author: zarhoads
 ms.custom: mvc
 keywords: Cosmos DB, Open Service Broker, Open Service Broker for Azure
-ms.openlocfilehash: 3146d11f33809391d93305d63bad757ed281fb70
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 0655176a044da6b4dd6b7327aedf5eb17d79f04a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977012"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432785"
 ---
 # <a name="integrate-existing-mongodb-application-with-azure-cosmos-db-api-for-mongodb-and-open-service-broker-for-azure-osba"></a>Integratie van bestaande MongoDB-toepassing met Azure Cosmos DB API voor MongoDB en Open Service Broker for Azure (OSBA)
 
@@ -189,7 +189,7 @@ Navigeer naar http://localhost:8080 in uw browser. U ziet dat de gegevens die st
 
 ## <a name="run-your-application-on-your-aks-cluster"></a>Uw toepassing uitvoeren in uw AKS-cluster
 
-U kunt [Azure Dev spaties](../dev-spaces/azure-dev-spaces.md) om de toepassing naar uw AKS-cluster te implementeren. Azure Dev spaties helpt u bij het genereren van artefacten, zoals Dockefiles en Helm-grafieken en implementeren en uitvoeren van een toepassing in AKS.
+U kunt [Azure Dev spaties](../dev-spaces/azure-dev-spaces.md) om de toepassing naar uw AKS-cluster te implementeren. Azure Dev spaties helpt u bij het genereren van artefacten, zoals docker-bestanden en Helm-grafieken en implementeren en uitvoeren van een toepassing in AKS.
 
 Om in te schakelen Azure Dev spaties in uw AKS-cluster:
 

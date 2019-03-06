@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
-ms.openlocfilehash: e3bfc3d0f444bece0afe7b7f5bcdac343a693a13
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: fa10ff14bf893c268d6b6b1a0d181d11a3f27dc4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243700"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451872"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-fedramp"></a>Azure-beveiliging en naleving blauwdruk: Analytics voor FedRAMP
 
@@ -140,7 +140,7 @@ Zie voor meer informatie over het gebruik van de beveiligingsfuncties van Azure 
 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) is essentieel voor het beheren van de implementatie en inrichting van toegang tot personeel interactie met de omgeving. Een bestaande Windows Server Active Directory kunnen worden geïntegreerd met AAD in [vier klikken](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-express). Klanten kunnen ook de geïmplementeerde Active Directory-infrastructuur (domeincontrollers) koppelen aan een bestaande AAD doordat de geïmplementeerde Active Directory-infrastructuur een subdomein van een AAD-forest.
 
 ### <a name="additional-services"></a>Extra services
-#### <a name="iaas---vm-vonsiderations"></a>IaaS - VM vonsiderations
+#### <a name="iaas---vm-considerations"></a>IaaS - overwegingen omtrent virtuele machines
 Deze PaaS-oplossing niet is opgenomen met een Azure IaaS VM's. Een klant kan een Azure-VM om uit te voeren veel van deze PaaS-services maken. In dit geval kunnen specifieke functies en services voor zakelijke continuïteit en logboeken van Azure Monitor worden gebruikt:
 
 ##### <a name="business-continuity"></a>Bedrijfscontinuïteit

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3eb68c4394afeb4719d92fb56d3ae9028d8566c9
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: b53cb65ec99637dadb16ed9d97c495571be956d7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456109"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451192"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Voorbeeld van gebruik: Continue implementatie voor virtuele Machines met behulp van de configuratie van de Automation-status en Chocolatey
 
@@ -51,7 +51,7 @@ Een belangrijke functie van een Resource Manager-sjabloon is de mogelijkheid voo
 ## <a name="quick-trip-around-the-diagram"></a>Snelle reis rond het diagram
 
 Vanaf de bovenkant, schrijft u uw code bouwen, testen en vervolgens een installatiepakket maken.
-Chocolatey kan verschillende soorten installatiepakketten, zoals een MSI-bestand, MSU, ZIP worden verwerkt. En u hebt de volledige kracht van PowerShell kunt u de werkelijke installatie doen als Chocolateys systeemeigen mogelijkheden zijn niet helemaal tot aan het. Het pakket in een bereikbaar – een pakketopslagplaats plaatsen. In dit voorbeeld gebruik gebruikmaakt van een openbare map in een Azure blob storage-account, maar deze kan overal worden. Chocolatey werkt systeemeigen met NuGet-servers en enkele andere voor het beheren van de pakketmetagegevens van het. [In dit artikel](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) worden de opties beschreven. In dit voorbeeld gebruik maakt gebruik van NuGet. Een Nuspec is metagegevens over uw pakketten. Van de Nuspec worden in de NuPkg "gecompileerd' en opgeslagen in een NuGet-server. Wanneer de configuratie van aanvragen van een pakket met de naam en verwijst naar een NuGet-server, wordt de Chocolatey DSC-Resource (nu beschikbaar op de virtuele machine) pakt het pakket en installeert deze voor u. U kunt ook een specifieke versie van een pakket aanvragen.
+Chocolatey kan verschillende soorten installatiepakketten, zoals een MSI-bestand, MSU, ZIP worden verwerkt. En u hebt de volledige kracht van PowerShell kunt u de werkelijke installatie doen als Chocolateys systeemeigen mogelijkheden zijn niet helemaal tot aan het. Het pakket in een bereikbaar: plaats een pakketopslagplaats plaatsen. In dit voorbeeld gebruik gebruikmaakt van een openbare map in een Azure blob storage-account, maar deze kan overal worden. Chocolatey werkt systeemeigen met NuGet-servers en enkele andere voor het beheren van de pakketmetagegevens van het. [In dit artikel](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) worden de opties beschreven. In dit voorbeeld gebruik maakt gebruik van NuGet. Een Nuspec is metagegevens over uw pakketten. Van de Nuspec worden in de NuPkg "gecompileerd' en opgeslagen in een NuGet-server. Wanneer de configuratie van aanvragen van een pakket met de naam en verwijst naar een NuGet-server, wordt de Chocolatey DSC-Resource (nu beschikbaar op de virtuele machine) pakt het pakket en installeert deze voor u. U kunt ook een specifieke versie van een pakket aanvragen.
 
 In het onderste links gedeelte van de afbeelding is er een Azure Resource Manager-sjabloon. In dit voorbeeld gebruik registreert de VM-extensie de virtuele machine met de Azure Automation-staat configuratie Pull-Server (dat wil zeggen, een pull-server) als een knooppunt. De configuratie is opgeslagen in de pull-server.
 Dat deze twee keer worden opgeslagen: eenmaal als tekst zonder opmaak en zodra gecompileerd als een MOF-bestand (voor die dergelijke dingen weten.) In de portal is het MOF een 'knooppuntconfiguratie' (in plaats van gewoon ' configuration'). Het is de artefacten die is gekoppeld aan een knooppunt, zodat het knooppunt wordt de configuratie ervan weet. Details hieronder laten zien hoe de knooppuntconfiguratie toewijzen aan het knooppunt.

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f62a87343ea0dc8d5d3818ee8516f0d8e8f607c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 38a8cac6508777abe676e243496c792f87131483
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206715"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432291"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Gebruikers en groepen toewijzen aan een toepassing in Azure Active Directory
 Dit artikel leest u hoe gebruikers of groepen toewijzen aan een toepassing in Azure Active Directory (Azure AD). Gebruikers moeten eerst worden toegewezen aan een toepassing voordat u een beheerder kan hun toegang wordt verleend om het volgende doen:
@@ -32,7 +32,7 @@ Dit artikel leest u hoe gebruikers of groepen toewijzen aan een toepassing in Az
 
 -   Zie een toepassing worden weergegeven op hun [startprogramma voor toepassingen van Office 365](https://support.office.com/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a).
 
-## <a name="prerequisties"></a>Prerequisties
+## <a name="prerequisites"></a>Vereisten
 Voordat u gebruikers en groepen aan een toepassing toewijzen kunt, moet u de Gebruikerstoewijzing vereisen. Gebruikerstoewijzing vereist:
 
 1. Meld u aan bij Azure portal met een administrator-account.

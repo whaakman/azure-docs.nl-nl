@@ -1,6 +1,6 @@
 ---
 title: Beheer de toegang tot Azure-resources met behulp van RBAC en Azure PowerShell | Microsoft Docs
-description: Informatie over het beheren van toegang tot Azure resoruces voor gebruikers, groepen en toepassingen die gebruikmaken van op rollen gebaseerd toegangsbeheer (RBAC) en Azure PowerShell. U vindt hier instructies voor het weergeven van toegang, het verlenen van toegang en het intrekken van toegang.
+description: Informatie over het beheren van toegang tot Azure-resources voor gebruikers, groepen en toepassingen die gebruikmaken van op rollen gebaseerd toegangsbeheer (RBAC) en Azure PowerShell. U vindt hier instructies voor het weergeven van toegang, het verlenen van toegang en het intrekken van toegang.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 7e7d92b2995d8d68b08b78ee02549fe5e713c4dd
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: ace70dea5277b4e9d8c8b0e6e0cdc49da0b674e0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817164"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432223"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Toegang tot Azure-resources met behulp van RBAC en Azure PowerShell beheren
 
-[Op rollen gebaseerd toegangsbeheer (RBAC)](overview.md) is de manier waarop dat u de toegang tot Azure-resources beheren. Dit artikel wordt beschreven hoe u de toegang voor gebruikers, groepen en toepassingen die gebruikmaken van RBAC en Azure PowerShell beheren.
+[Op rollen gebaseerd toegangsbeheer (RBAC)](overview.md) is de manier waarop u de toegang tot Azure-resources beheert. Dit artikel wordt beschreven hoe u de toegang voor gebruikers, groepen en toepassingen die gebruikmaken van RBAC en Azure PowerShell beheren.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 

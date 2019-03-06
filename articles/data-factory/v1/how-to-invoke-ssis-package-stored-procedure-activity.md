@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: c7731de810dab8b252294d694ace5df3f5d0a185
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 859cd6cfd3db68dad2607f1dc8905facb43dd290
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427556"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453768"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Aanroepen van een SSIS-pakket met behulp van opgeslagen procedure-activiteit in Azure Data Factory
 In dit artikel wordt beschreven hoe u een SSIS-pakket van een Azure Data Factory-pijplijn aanroepen met behulp van een opgeslagen procedure-activiteit. 
@@ -165,7 +165,9 @@ Zie voor meer informatie over het controleren van pijplijnen [bewaken en beheren
 ## <a name="azure-powershell"></a>Azure PowerShell
 In deze sectie kunt u Azure PowerShell gebruiken voor het maken van een Data Factory-pijplijn met een opgeslagen procedure-activiteit die een SSIS-pakket aanroept.
 
-Installeer de nieuwste Azure PowerShell-modules met de instructies in [Azure PowerShell installeren en configureren](/powershell/azure/azurerm/install-azurerm-ps).
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Installeer de nieuwste Azure PowerShell-modules met de instructies in [Azure PowerShell installeren en configureren](/powershell/azure/install-az-ps).
 
 ### <a name="create-a-data-factory"></a>Een gegevensfactory maken
 De volgende procedure bevat stappen voor het maken van een data factory. U maakt een pijplijn met een activiteit opgeslagen procedure in deze data factory. De activiteit opgeslagen procedure wordt een opgeslagen procedure uitgevoerd in de SSISDB-database om uit te voeren van uw SSIS-pakket.
@@ -180,7 +182,7 @@ De volgende procedure bevat stappen voor het maken van een data factory. U maakt
 2. Voer de volgende opdracht uit om de resourcegroep te maken: 
 
     ```powershell
-    $ResGrp = New-AzureRmResourceGroup $resourceGroupName -location 'eastus'
+    $ResGrp = New-AzResourceGroup $resourceGroupName -location 'eastus'
     ``` 
     Als de resourcegroep al bestaat, wilt u waarschijnlijk niet dat deze wordt overschreven. Wijs een andere waarde toe aan de `$ResourceGroupName`-variabele en voer de opdracht opnieuw uit. 
 3. Definieer een variabele voor de naam van de data factory. 
@@ -192,10 +194,10 @@ De volgende procedure bevat stappen voor het maken van een data factory. U maakt
     $DataFactoryName = "ADFTutorialFactory";
     ```
 
-5. Voor het maken van de data factory, voer de volgende **New-AzureRmDataFactory** cmdlet, met behulp van de eigenschap Location en ResourceGroupName van de variabele $ResGrp: 
+5. Voor het maken van de data factory, voer de volgende **New-AzDataFactory** cmdlet, met behulp van de eigenschap Location en ResourceGroupName van de variabele $ResGrp: 
     
     ```powershell       
-    $df = New-AzureRmDataFactory -ResourceGroupName $ResourceGroupName -Name $dataFactoryName -Location "East US"
+    $df = New-AzDataFactory -ResourceGroupName $ResourceGroupName -Name $dataFactoryName -Location "East US"
     ```
 
 Houd rekening met de volgende punten:
@@ -227,10 +229,10 @@ Een gekoppelde service koppelt uw Azure SQL-database die als host fungeert de SS
         }
     ```
 2. In **Azure PowerShell**, Ga naar de **C:\ADF\RunSSISPackage** map.
-3. Voer de cmdlet **New-AzureRmDataFactoryLinkedService** uit om de gekoppelde service te maken: **AzureSqlDatabaseLinkedService**. 
+3. Voer de **New-AzDataFactoryLinkedService** cmdlet voor het maken van de gekoppelde service: **AzureSqlDatabaseLinkedService**. 
 
     ```powershell
-    New-AzureRmDataFactoryLinkedService $df -File ".\AzureSqlDatabaseLinkedService.json"
+    New-AzDataFactoryLinkedService $df -File ".\AzureSqlDatabaseLinkedService.json"
     ```
 
 ### <a name="create-an-output-dataset"></a>Een uitvoergegevensset maken
@@ -252,10 +254,10 @@ Dit wordt een dummy-gegevensset die het schema van de pijplijn stuurt. U ziet da
         }
     }
     ```
-2. Voer de **New-AzureRmDataFactoryDataset** cmdlet om een gegevensset te maken. 
+2. Voer de **New-AzDataFactoryDataset** cmdlet om een gegevensset te maken. 
 
     ```powershell
-    New-AzureRmDataFactoryDataset $df -File ".\OutputDataset.json"
+    New-AzDataFactoryDataset $df -File ".\OutputDataset.json"
     ```
 
 ### <a name="create-a-pipeline-with-stored-procedure-activity"></a>Een pijplijn maken met de opgeslagen procedure-activiteit 
@@ -294,24 +296,24 @@ In deze stap maakt maken u een pijplijn met een opgeslagen procedure-activiteit.
     }    
     ```
 
-2. Maak de pijplijn: **RunSSISPackagePipeline**, voert de **New-AzureRmDataFactoryPipeline** cmdlet.
+2. De pijplijn maken: **RunSSISPackagePipeline**, voert de **New-AzDataFactoryPipeline** cmdlet.
 
     ```powershell
-    $DFPipeLine = New-AzureRmDataFactoryPipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "RunSSISPackagePipeline" -DefinitionFile ".\RunSSISPackagePipeline.json"
+    $DFPipeLine = New-AzDataFactoryPipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "RunSSISPackagePipeline" -DefinitionFile ".\RunSSISPackagePipeline.json"
     ```
 
 ### <a name="monitor-the-pipeline-run"></a>De pijplijnuitvoering controleren.
 
-2. Voer **Get-AzureRmDataFactorySlice** voor meer informatie over alle segmenten van de uitvoer gegevensset **, is de uitvoertabel van de pijplijn.
+2. Voer **Get-AzDataFactorySlice** voor meer informatie over alle segmenten van de uitvoer gegevensset **, is de uitvoertabel van de pijplijn.
 
     ```PowerShell
-    Get-AzureRmDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
+    Get-AzDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
     De StartDateTime die u hier opgeeft, is dezelfde begintijd die u hebt opgegeven in de JSON van de pijplijn. 
-3. Voer **Get-AzureRmDataFactoryRun** uit om voor een bepaald segment gegevens over het uitvoeren van de activiteit op te halen.
+3. Voer **Get-AzDataFactoryRun** om op te halen van de details van activiteit actief is gedurende een bepaald segment.
 
     ```PowerShell
-    Get-AzureRmDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
+    Get-AzDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
 
     U kunt deze cmdlet blijven uitvoeren tot u ziet dat het segment de status **Gereed** of **Mislukt** heeft gekregen. 

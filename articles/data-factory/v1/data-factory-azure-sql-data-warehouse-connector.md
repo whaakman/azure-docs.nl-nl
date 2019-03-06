@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 72a666db6157300942b966b88d9c3369495b9fd4
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 4c431b149edb0677585da3c84e37d64873478ccf
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331231"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432733"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Gegevens kopiëren naar en van Azure SQL Data Warehouse met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -228,7 +228,7 @@ Als niet aan de vereisten wordt voldaan, wordt Azure Data Factory controleert of
 Als de brongegevens niet voldoet aan de criteria die zijn geïntroduceerd in de vorige sectie, kunt u kopiëren van gegevens via een tussentijdse staging Azure Blob-opslag (Premium-opslag kan niet worden) inschakelen. In dit geval voert Azure Data Factory automatisch transformaties op de gegevens om te voldoen aan de vereisten voor het opmaken van PolyBase gegevens en gebruik vervolgens PolyBase om gegevens te laden in SQL Data Warehouse en op de laatste opschoning uw tijdelijke gegevens uit de Blob-opslag. Zie [gefaseerd kopiëren](data-factory-copy-activity-performance.md#staged-copy) voor meer informatie over de werking kopiëren van gegevens via een gefaseerde installatie Azure-Blob in het algemeen.
 
 > [!NOTE]
-> Wanneer kopiëren van gegevens vanuit een on-premises gegevens opslaan in Azure SQL Data Warehouse met PolyBase en fasering, als uw versie van Data Management Gateway lager dan 2,4 is Java Runtime Environment (Java Runtime Environment) is vereist op de gatewaycomputer die wordt gebruikt om uw brongegevens te transformeren in de juiste indeling. Stelt dat u de gateway naar de nieuwste versie om te voorkomen dat deze afhankelijkheid upgraden.
+> Wanneer kopiëren van gegevens uit een on-premises gegevens opslaan in Azure SQL Data Warehouse met PolyBase en fasering, als uw versie van Data Management Gateway lager dan 2,4 is Java Runtime Environment (Java Runtime Environment) is vereist op de gatewaycomputer die wordt gebruikt voor het transformeren van de bron gegevens naar de juiste indeling. Stelt dat u de gateway naar de nieuwste versie om te voorkomen dat deze afhankelijkheid upgraden.
 >
 
 Deze functie wilt gebruiken, maakt u een [gekoppelde Azure Storage-service](data-factory-azure-blob-connector.md#azure-storage-linked-service) die verwijst naar de Azure Storage-Account waarvoor de tussentijdse blob-opslag, geeft u de `enableStaging` en `stagingSettings` eigenschappen voor de Kopieeractiviteit, zoals wordt weergegeven in de volgende code:
@@ -307,8 +307,8 @@ Data Factory maakt de tabel in het doelarchief met de naam van de dezelfde tabel
 | SmallInt | SmallInt |
 | TinyInt | TinyInt |
 | Bit | Bit |
-| Decimaal | Decimaal |
-| Numeriek | Decimaal |
+| Decimal | Decimal |
+| Numeriek | Decimal |
 | Float | Float |
 | geld | geld |
 | Real | Real |

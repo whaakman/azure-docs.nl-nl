@@ -6,16 +6,16 @@ author: msmbaldwin
 manager: barbkess
 services: key-vault
 ms.author: mbaldwin
-ms.date: 01/04/2019
+ms.date: 03/05/2019
 ms.topic: conceptual
 ms.service: key-vault
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: d0ccf25ed0071e9d89b3728048435b0b657026c0
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 4436fc3c1bec4cdb8e301edd185f4416c931e24f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342311"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456496"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Service-naar-serviceverificatie naar Azure Key Vault met behulp van .NET
 
@@ -27,7 +27,7 @@ Met de ontwikkelaarsreferenties van tijdens het ontwikkelen van lokale is veilig
 
 De `Microsoft.Azure.Services.AppAuthentication` bibliotheek beheert verificatie automatisch, op zijn beurt waarmee u zich richten op uw oplossing in plaats van uw referenties.
 
-De `Microsoft.Azure.Services.AppAuthentication` bibliotheek biedt ondersteuning voor lokale ontwikkeling met Microsoft Visual Studio, Azure CLI of Azure AD-geïntegreerde verificatie. Wanneer geïmplementeerd voor een Azure-resource die ondersteuning biedt voor een beheerde identiteit, gebruikt de bibliotheek automatisch [beheerde identiteiten voor een Azure-resources](/azure/active-directory/msi-overview). Er zijn geen wijzigingen code of configuratie nodig. De bibliotheek ondersteunt ook direct gebruik van Azure AD [clientreferenties](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal) wanneer een beheerde identiteit is niet beschikbaar, of wanneer de beveiligingscontext van de ontwikkelaar kan niet worden bepaald tijdens de lokale ontwikkeling.
+De `Microsoft.Azure.Services.AppAuthentication` bibliotheek biedt ondersteuning voor lokale ontwikkeling met Microsoft Visual Studio, Azure CLI of Azure AD-geïntegreerde verificatie. Wanneer geïmplementeerd voor een Azure-resource die ondersteuning biedt voor een beheerde identiteit, gebruikt de bibliotheek automatisch [beheerde identiteiten voor een Azure-resources](../active-directory/msi-overview.md). Er zijn geen wijzigingen code of configuratie nodig. De bibliotheek ondersteunt ook direct gebruik van Azure AD [clientreferenties](../azure-resource-manager/resource-group-authenticate-service-principal.md) wanneer een beheerde identiteit is niet beschikbaar, of wanneer de beveiligingscontext van de ontwikkelaar kan niet worden bepaald tijdens de lokale ontwikkeling.
 
 ## <a name="using-the-library"></a>Met behulp van de bibliotheek
 
@@ -52,7 +52,7 @@ Voor .NET-toepassingen, de eenvoudigste manier om te werken met een beheerde ide
 
 De `AzureServiceTokenProvider` klasse in de cache van het token in het geheugen opgeslagen en opgehaald uit Azure AD net voordat het verloopt. Als gevolg hiervan, u hoeft niet langer om te controleren is verlopen voordat de `GetAccessTokenAsync` methode. Roept de methode als u wilt dat het token wordt gebruikt. 
 
-De `GetAccessTokenAsync` methode vereist een resource-id. Zie voor meer informatie, [welke Azure-services ondersteunen beheerde identiteiten voor Azure-resources](https://docs.microsoft.com/azure/active-directory/msi-overview).
+De `GetAccessTokenAsync` methode vereist een resource-id. Zie voor meer informatie, [welke Azure-services ondersteunen beheerde identiteiten voor Azure-resources](../active-directory/msi-overview.md).
 
 ## <a name="samples"></a>Voorbeelden
 
@@ -71,9 +71,6 @@ Er zijn twee scenario's voor primaire verificatie voor lokale ontwikkeling:
 - [Verificatie bij Azure-services](#authenticating-to-azure-services)
 - [Verificatie bij aangepaste services](#authenticating-to-custom-services)
 
-Hier kunt u meer informatie over de vereisten voor elk scenario en de ondersteunde hulpprogramma's.
-
-
 ### <a name="authenticating-to-azure-services"></a>Verificatie bij Azure-Services
 
 Lokale machines bieden geen ondersteuning voor beheerde identiteiten voor Azure-resources.  Als gevolg hiervan de `Microsoft.Azure.Services.AppAuthentication` bibliotheek maakt gebruik van uw ontwikkelaarsreferenties om uit te voeren in uw lokale ontwikkelomgeving. Wanneer de oplossing wordt geïmplementeerd naar Azure, de bibliotheek maakt gebruik van een beheerde identiteit overschakelen naar een stroom voor de referentie verlenen van OAuth 2.0-client.  Dit betekent dat u kunt dezelfde code testen lokaal en extern zonder zorgen.
@@ -82,17 +79,17 @@ Voor lokale ontwikkeling `AzureServiceTokenProvider` worden opgehaald met behulp
 
 ### <a name="authenticating-with-visual-studio"></a>Verificatie met Visual Studio
 
-Voor het gebruik van Visual Studio, controleert u of:
+Verificatie met Visual Studio heeft de volgende vereisten:
 
-1. U hebt geïnstalleerd [Visual Studio 2017 v15.5](https://blogs.msdn.microsoft.com/visualstudio/2017/10/11/visual-studio-2017-version-15-5-preview/) of hoger.
+1. [Visual Studio 2017 v15.5](https://blogs.msdn.microsoft.com/visualstudio/2017/10/11/visual-studio-2017-version-15-5-preview/) of hoger.
 
-2. De [App verificatie-extensie voor Visual Studio](https://go.microsoft.com/fwlink/?linkid=862354) is geïnstalleerd.
+2. De [App verificatie-extensie voor Visual Studio](https://go.microsoft.com/fwlink/?linkid=862354), beschikbaar als een afzonderlijke-extensie voor Visual Studio 2017 Update 5 en bundel met het product in Update 6 en hoger. Met Update 6 of hoger, kunt u de installatie van de App-verificatie-extensie controleren door te selecteren van de hulpmiddelen van Azure-ontwikkeling in het installatieprogramma voor Visual Studio.
  
-3. U aangemeld bij Visual Studio en een account kunt gebruiken voor lokale ontwikkeling hebt geselecteerd. Gebruik **extra**&nbsp;>&nbsp;**opties**&nbsp;>&nbsp;**Azure Service-verificatie**kiezen van een account met lokale ontwikkeling. 
+Aanmelden bij Visual Studio en gebruik **extra**&nbsp;>&nbsp;**opties**&nbsp;>&nbsp;**Azure-Service Verificatie** om te selecteren van een account voor lokale ontwikkeling. 
 
 Als u problemen bij het gebruik van Visual Studio, zoals fouten met betrekking tot het bestand tokenprovider zorgvuldig door deze stappen. 
 
-Het is mogelijk ook die nodig zijn voor het verifiëren van uw developer-token.  Om dit te doen, gaat u naar **extra**&nbsp;>&nbsp;**opties**>**Azure&nbsp;Service&nbsp;verificatie**  en zoek naar een **zich opnieuw verifiëren** koppeling onder het geselecteerde account.  Selecteer deze om te verifiëren. 
+Het is mogelijk ook die nodig zijn voor het verifiëren van uw developer-token. Om dit te doen, gaat u naar **extra**&nbsp;>&nbsp;**opties**>**Azure&nbsp;Service&nbsp;verificatie**  en zoek naar een **zich opnieuw verifiëren** koppeling onder het geselecteerde account.  Selecteer deze om te verifiëren. 
 
 ### <a name="authenticating-with-azure-cli"></a>Verificatie met Azure CLI
 
@@ -122,7 +119,7 @@ az account list
 
 Voor het gebruik van Azure AD-verificatie, moet u controleren of:
 
-- Uw on-premises active directory [wordt gesynchroniseerd met Azure AD](/azure/active-directory/connect/active-directory-aadconnect).
+- Uw on-premises active directory [wordt gesynchroniseerd met Azure AD](../active-directory/connect/active-directory-aadconnect.md).
 
 - Uw code wordt uitgevoerd op een computer voor het domein.
 
@@ -162,7 +159,7 @@ U kunt ook kan u verifiëren met een gebruiker toegewezen identiteit. Zie voor m
 
 Het is mogelijk nodig om u te maken van een Azure AD-Client-referentie om te verifiëren. Algemene voorbeelden zijn onder meer:
 
-1. Uw code wordt uitgevoerd op een lokale ontwikkelingsomgeving, maar niet onder de identiteit van de ontwikkelaar.  Service Fabric gebruikt bijvoorbeeld de [NetworkService-account](/azure/service-fabric/service-fabric-application-secret-management) voor lokale ontwikkeling.
+1. Uw code wordt uitgevoerd op een lokale ontwikkelingsomgeving, maar niet onder de identiteit van de ontwikkelaar.  Service Fabric gebruikt bijvoorbeeld de [NetworkService-account](../service-fabric/service-fabric-application-secret-management.md) voor lokale ontwikkeling.
  
 2. Uw code wordt uitgevoerd op een lokale ontwikkelingsomgeving en u aanmelden bij een aangepaste service, zodat u uw developer-identiteit niet gebruiken. 
  
@@ -170,7 +167,7 @@ Het is mogelijk nodig om u te maken van een Azure AD-Client-referentie om te ver
 
 Een certificaat aan te melden bij Azure AD gebruiken:
 
-1. Maak een [principal servicecertificaat](/azure/azure-resource-manager/resource-group-authenticate-service-principal). 
+1. Maak een [principal servicecertificaat](../azure-resource-manager/resource-group-authenticate-service-principal.md). 
 
 2. Implementeren van het certificaat aan de *LocalMachine /* of *CurrentUser* opslaan. 
 
@@ -187,7 +184,7 @@ Een certificaat aan te melden bij Azure AD gebruiken:
 
 Om aan te melden met behulp van een Azure gedeelde AD geheime referentie:
 
-1. Maak een [service-principal met een wachtwoord](/azure/azure-resource-manager/resource-group-authenticate-service-principal) en het toegang geven tot de Key Vault. 
+1. Maak een [service-principal met een wachtwoord](../azure-resource-manager/resource-group-authenticate-service-principal.md) en het toegang geven tot de Key Vault. 
 
 2. Stel een omgevingsvariabele met de naam **AzureServicesAuthConnectionString** aan:
 
@@ -224,5 +221,5 @@ De volgende opties worden ondersteund:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [beheerde identiteiten voor een Azure-resources](/azure/active-directory/managed-identities-azure-resources/).
-- Meer informatie over [scenario's Azure AD-verificatie](/azure/active-directory/develop/active-directory-authentication-scenarios).
+- Meer informatie over [beheerde identiteiten voor een Azure-resources](../active-directory/managed-identities-azure-resources/index.yml).
+- Meer informatie over [scenario's Azure AD-verificatie](../active-directory/develop/active-directory-authentication-scenarios.md).

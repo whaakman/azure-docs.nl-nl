@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/11/2018
+ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 940a5839fe2c2eea11d9570d3dca48cd514e21af
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 7a3990366814beda83852fc7c07c896445388c23
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417241"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454898"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation-runbooktypen
 
@@ -22,10 +22,10 @@ Azure Automation biedt ondersteuning voor verschillende typen runbooks die worde
 
 | Type | Description |
 |:--- |:--- |
-| [Grafisch](#graphical-runbooks) |Op basis van Windows PowerShell en gemaakt en bewerkt volledig in grafische editor in Azure portal. |
-| [Grafische PowerShell-werkstroom](#graphical-runbooks) |Op basis van Windows PowerShell-werkstroom en gemaakt en bewerkt volledig in de grafische editor in Azure portal. |
+| [Grafisch](#graphical-runbooks)|Op basis van Windows PowerShell en gemaakt en bewerkt volledig in grafische editor in Azure portal. |
+| [Grafische PowerShell-werkstroom](#graphical-runbooks)|Op basis van Windows PowerShell-werkstroom en gemaakt en bewerkt volledig in de grafische editor in Azure portal. |
 | [PowerShell](#powershell-runbooks) |Tekstrunbook op basis van Windows PowerShell-script. |
-| [PowerShell-werkstroom](#powershell-workflow-runbooks) |Tekstrunbook op basis van Windows PowerShell-werkstroom. |
+| [PowerShell-werkstroom](#powershell-workflow-runbooks)|Tekstrunbook op basis van Windows PowerShell-werkstroom. |
 | [Python](#python-runbooks) |Tekstrunbook op basis van Python. |
 
 ## <a name="graphical-runbooks"></a>Grafische runbooks
@@ -45,6 +45,7 @@ Azure Automation biedt ondersteuning voor verschillende typen runbooks die worde
 * Kan runbook buiten Azure-portal niet bewerken.
 * Een activiteit met PowerShell-code voor het uitvoeren van complexe logica mogelijk.
 * Kan bekijken of de PowerShell-code die is gemaakt door de grafische workflow rechtstreeks bewerken. U kunt de code die u in een Code-activiteiten maakt weergeven.
+* Kan niet worden uitgevoerd op een Hybrid Runbook Worker in Linux
 
 ## <a name="powershell-runbooks"></a>PowerShell-runbooks
 
@@ -54,6 +55,7 @@ PowerShell-runbooks zijn gebaseerd op Windows PowerShell.  Rechtstreeks bewerkt 
 
 * Implementeer alle complexe logica met PowerShell-code zonder de extra complexiteit van de PowerShell-werkstroom.
 * Runbook start sneller dan PowerShell Workflow-runbooks omdat hoeft niet te worden gecompileerd voordat wordt uitgevoerd.
+* Kan worden uitgevoerd in Azure of op Linux- en Windows Hybrid Runbook Workers
 
 ### <a name="limitations"></a>Beperkingen
 
@@ -88,6 +90,7 @@ PowerShell Workflow-runbooks zijn tekst-runbooks op basis van [Windows PowerShel
 * Runbook moet omgaan met extra complexiteit van de PowerShell-werkstroom, zoals [gedeserialiseerd objecten](automation-powershell-workflow.md#code-changes).
 * Runbook langer duurt om te beginnen dan PowerShell-runbooks omdat ze moeten worden gecompileerd voordat wordt uitgevoerd.
 * PowerShell-runbooks kunnen alleen worden opgenomen als onderliggende runbooks met behulp van de cmdlet Start-AzureAutomationRunbook, waarmee een nieuwe taak wordt gemaakt.
+* Kan niet worden uitgevoerd op een Hybrid Runbook Worker in Linux
 
 ## <a name="python-runbooks"></a>Python-runbooks
 
@@ -96,6 +99,7 @@ Python-runbooks worden gecompileerd onder Python 2.  U kunt de code van het runb
 ### <a name="advantages"></a>Voordelen
 
 * Gebruikmaken van de robuuste Python-bibliotheken.
+* Kan worden uitgevoerd in Azure of op beide Linux Hybrid Runbook Workers. Hybrid Runbook Workers van Windows worden ondersteund met [python2.7](https://www.python.org/downloads/release/latest/python2) geïnstalleerd.
 
 ### <a name="limitations"></a>Beperkingen
 

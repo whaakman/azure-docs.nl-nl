@@ -1,5 +1,5 @@
 ---
-title: 'Opnieuw instellen van circuitpeering - ExpressRoute: Azure | Microsoft Docs'
+title: 'Opnieuw instellen van circuitpeering - ExpressRoute:  Azure | Microsoft Docs'
 description: Het ExpressRoute-circuitpeerings in- en uitschakelen.
 services: expressroute
 author: charwen
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/15/2018
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: ad050e11c98139af00ad752f8960d55a58ca2f34
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f856753ae74b43e257cb222422f4d4eb27ee099c
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53132583"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404872"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>Opnieuw instellen van ExpressRoute-circuitpeerings
 
@@ -25,6 +25,8 @@ Er zijn een aantal scenario's waarin u mogelijk nuttig opnieuw instellen van uw 
 
 ### <a name="working-with-azure-powershell"></a>Werken met Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ## <a name="reset-a-peering"></a>Opnieuw instellen van een peering
@@ -32,22 +34,22 @@ Er zijn een aantal scenario's waarin u mogelijk nuttig opnieuw instellen van uw 
 1. Als u PowerShell lokaal uitvoert, opent u de PowerShell-console met verhoogde bevoegdheden en verbinding maken met uw account. Gebruik het volgende voorbeeld als hulp bij het maken van de verbinding:
 
   ```azurepowershell
-  Connect-AzureRmAccount
+  Connect-AzAccount
   ```
 2. Als u meerdere Azure-abonnementen hebt, controleert u de abonnementen voor het account.
 
   ```azurepowershell-interactive
-  Get-AzureRmSubscription
+  Get-AzSubscription
   ```
 3. Geef het abonnement op dat u wilt gebruiken.
 
   ```azurepowershell-interactive
-  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
   ```
 4. Voer de volgende opdrachten om op te halen van uw ExpressRoute-circuit.
 
   ```azurepowershell-interactive
-  $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+  $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
 5. Identificeer de peering die u wilt in- of uitschakelen. *Peerings* is een matrix. In het volgende voorbeeld is Peerings [0] persoonlijke Azure-Peering en Microsoft-Peering Peerings [1].
 
@@ -136,7 +138,7 @@ GatewayManagerEtag               :
 
   ```azurepowershell-interactive
   $ckt.Peerings[0].State = "Disabled"
-  Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
 De peering moet zich in een status die u instelt. 
 

@@ -10,12 +10,12 @@ ms.author: jehunte
 ms.date: 02/06/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c0caece57885dfa3c26d368990a6af8e5b14eed6
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 59f36595e0b6cc8b9d9ea0669c9ecb5be1e74b42
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823991"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441386"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Een virtuele Azure-machine met inventarisverzameling beheren
 
@@ -105,7 +105,7 @@ Een computergroep selecteren in de lijst, wordt de pagina van de groepen Machine
 
 Klik op de **+ kloon** knop voor het klonen van de Machinegroep. Hier moet u geven de groep een nieuwe naam en een alias voor de groep. De definitie van de kan op dit moment worden gewijzigd. Na het wijzigen van de query drukt u op **valideren query** om een voorbeeld van de machines die zouden worden geselecteerd. Wanneer u tevreden met de groep bent klikt u op **maken** om de Machinegroep te maken
 
-Als u maken van een nieuwe mchine-groep wilt, selecteert u **+ maken van een computergroep**. Deze knop opent u de **maakt u een pagina van de groep machine** waar u de nieuwe groep kunt definiëren. Klik op **maken** om de groep te maken.
+Als u maken van een nieuwe Machinegroep wilt, selecteert u **+ maken van een computergroep**. Deze knop opent u de **maakt u een pagina van de groep machine** waar u de nieuwe groep kunt definiëren. Klik op **maken** om de groep te maken.
 
 ![Nieuwe computergroep maken](./media/automation-vm-inventory/create-new-group.png)
 

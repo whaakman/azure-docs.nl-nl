@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 1a55a4e3f25bc5afef30e325ccdd38615ba7cc2b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: de9c79d09c400aa95775b332580c3658c349ede7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820739"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449084"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Verwijzing van lokale bedrijven zoeken-API voor Bing versie 7
 
@@ -73,7 +73,7 @@ De aanvraag kan de volgende queryparameters bevatten. Zie de vereiste kolom voor
   
 |Name|Value|Type|Vereist|  
 |----------|-----------|----------|--------------|
-|<a name="count" />count|Het aantal resuts moeten worden geretourneerd vanaf de index opgegeven door de `offset` parameter.|String|Nee|   
+|<a name="count" />count|Het aantal resultaten dat moet worden geretourneerd, beginnend met de index opgegeven door de `offset` parameter.|String|Nee|   
 |<a name="localCategories" />localCategories|Lijst met opties die zoeken op categorie zakelijke definiëren.  Zie [categorieën van lokale bedrijven zoeken](local-categories.md)|String|Nee|  
 |<a name="mkt" />mkt|De markt waaruit de resultaten afkomstig zijn. <br /><br />Zie voor een lijst van mogelijke waarden van de markt, markt-Codes.<br /><br /> **OPMERKING:** De lokale bedrijven zoeken-API ondersteunt momenteel alleen en-us markt en taal.<br /><br />|String|Ja|
 |<a name="offset"/>offset|De index om te starten van de resultaten die zijn opgegeven door de `count` parameter.|Geheel getal|Nee|  

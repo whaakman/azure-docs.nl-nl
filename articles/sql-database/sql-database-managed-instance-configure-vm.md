@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, srbozovi, bonova
 manager: craigg
 ms.date: 02/18/2019
-ms.openlocfilehash: 640182b50492ed21cd604423fe1cef7301095941
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: 66ac3cf786abeebc2579a937d8670d639c1af270
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408796"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446993"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Quickstart: Azure virtuele machine verbinding maken met een Azure SQL Database Managed Instance configureren
 
@@ -84,7 +84,7 @@ De eenvoudigste manier om een client virtuele machine maken met alle benodigde h
    |**Wachtwoord**|Een geldig wachtwoord|Het wachtwoord moet minstens 12 tekens lang zijn en moet voldoen aan de [gedefinieerde complexiteitsvereisten](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>U gebruikt dit wachtwoord telkens wanneer u [verbinding maken met de virtuele machine](#connect-to-virtual-machine).|
    | **Grootte van virtuele Machine** | Een geldige grootte | De standaardwaarde in deze sjabloon van **Standard_B2s** is voldoende voor deze Quick Start. |
    | **Locatie**|[resourceGroup () .location].| Deze waarde niet te wijzigen. |
-   | **Virtuele-netwerknaam**|De virtuele netword waarin u het beheerde exemplaar gemaakt.|
+   | **Virtuele-netwerknaam**|Het virtuele netwerk waarin u het beheerde exemplaar gemaakt.|
    | **Subnetnaam**|De naam van het subnet dat u in de vorige procedure hebt gemaakt| Kies geen het subnet waarin u het beheerde exemplaar gemaakt.|
    | **artefacten locatie** | [.properties.templateLink.uri implementatie ()] | Deze waarde niet te wijzigen. |
    | **artefacten locatie Sas-token** | Leeg laten | Deze waarde niet te wijzigen. |

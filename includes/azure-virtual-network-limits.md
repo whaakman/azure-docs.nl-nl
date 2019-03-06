@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: fe1993a914ea4d3bd8ab9116748198cbb0c1c43c
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: d43424e1377f7fa9cb8b272cc4ffbf3e5323f2ba
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55904997"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57457796"
 ---
 <a name="virtual-networking-limits-classic"></a>De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via het klassieke implementatiemodel voor elk abonnement. Meer informatie over het [weergeven van uw huidige brongebruik op basis van uw abonnementen](../articles/networking/check-usage-against-limits.md).
 
@@ -23,7 +23,7 @@ ms.locfileid: "55904997"
 | Lokale netwerksites |20 |contact met ondersteuning |
 | DNS-servers per virtueel netwerk |20 |20 |
 | Privé-IP-adressen per virtueel netwerk |4096 |4096 |
-| Gelijktijdige TCP of UDP-stromen per NIC van een virtuele machine of rolinstantie |500.000 |500.000 |
+| Gelijktijdige TCP of UDP-stromen per NIC van een virtuele machine of rolinstantie |500K, tot wel 1000 K voor twee of meer NIC 's |500K, tot wel 1000 K voor twee of meer NIC 's |
 | Netwerkbeveiligingsgroepen (NSG's) |100 |200 |
 | NSG-regels per NSG |200 |1000 |
 | Door de gebruiker gedefinieerde routetabellen |100 |200 |

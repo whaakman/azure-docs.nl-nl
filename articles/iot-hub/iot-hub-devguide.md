@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: 0246b19c0155fe2707ac780c7acb61be424d2caf
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 1ff7d430edd3f638ad5efcc5a89604e4ed732211
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008928"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450988"
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Handleiding voor ontwikkelaars van Azure IoT Hub
 
@@ -55,7 +55,7 @@ Deze IoT Hub developer guide bevat de volgende artikelen:
 
 * [Toegang tot IoT Hub regelen](iot-hub-devguide-security.md) beschrijving van het beveiligingsmodel dat wordt gebruikt voor het verlenen van toegang tot IoT Hub-functionaliteit voor beide apparaten en onderdelen in de cloud. Het artikel bevat informatie over het gebruik van tokens en X.509-certificaten en details van de machtigingen die u kunt verlenen.
 
-* [Apparaatdubbels gebruiken voor het synchroniseren van de status en configuraties](iot-hub-devguide-device-twins.md) beschrijft de *apparaatdubbel* concept. Het artikel ook de functionaliteit van apparaatdubbels descibes weergegeven, zoals een apparaat synchroniseren met de apparaatdubbel. Het artikel bevat informatie over de gegevens die zijn opgeslagen in een apparaatdubbel.
+* [Apparaatdubbels gebruiken voor het synchroniseren van de status en configuraties](iot-hub-devguide-device-twins.md) beschrijft de *apparaatdubbel* concept. Het artikel beschrijft ook de functionaliteit van apparaat dubbels beschikbaar maken, zoals een apparaat synchroniseren met de apparaatdubbel. Het artikel bevat informatie over de gegevens die zijn opgeslagen in een apparaatdubbel.
 
 * [Een rechtstreekse methode aanroepen op een apparaat](iot-hub-devguide-direct-methods.md) beschrijving van de levenscyclus van een rechtstreekse methode. Het artikel wordt beschreven hoe u methoden aanroepen op een apparaat van de back-end-app en het verwerken van de directe methode die op uw apparaat.
 

@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
-ms.openlocfilehash: 5234f5c82e98fcb402cadf9a8a469a15bbb7ac6d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ac36502a67f9deddf14b5eeae64df6f799d25e97
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250812"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446075"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Aan de slag met Azure queue storage en Visual Studio verbonden Services (ASP.NET)
 
@@ -83,7 +83,7 @@ De volgende stappen laten zien hoe u een wachtrij maken:
     }
     ```
 
-1. Binnen de **CreateQueue** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (wijziging  *&lt;storage-account-name >* op de naam van de Azure storage-account dat u bent toegang tot.)
+1. Binnen de **CreateQueue** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (Wijziging  *&lt;storage-account-name >* op de naam van de Azure-opslagaccount u toegang wilt krijgen tot.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -137,7 +137,7 @@ De volgende stappen laten zien hoe u een wachtrij maken:
     <li>@Html.ActionLink("Create queue", "CreateQueue", "Queues")</li>
     ```
 
-1. Voer de toepassing uit en selecteer **wachtrij maken** om te zien die vergelijkbaar is met de volgende schermopname resultaten:
+1. Voer de toepassing uit en selecteer **wachtrij maken** om te zien van de resultaten die vergelijkbaar is met de volgende schermafbeelding:
   
     ![Wachtrij maken](./media/vs-storage-aspnet-getting-started-queues/create-queue-results.png)
 
@@ -164,7 +164,7 @@ Nadat u hebt [een wachtrij gemaakt](#create-a-queue), u kunt berichten naar die 
     }
     ```
  
-1. Binnen de **AddMessage** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (wijziging  *&lt;storage-account-name >* op de naam van de Azure storage-account dat u bent toegang tot.)
+1. Binnen de **AddMessage** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (Wijziging  *&lt;storage-account-name >* op de naam van de Azure-opslagaccount u toegang wilt krijgen tot.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -226,7 +226,7 @@ Nadat u hebt [een wachtrij gemaakt](#create-a-queue), u kunt berichten naar die 
     <li>@Html.ActionLink("Add message", "AddMessage", "Queues")</li>
     ```
 
-1. Voer de toepassing uit en selecteer **bericht toevoegen** om te zien die vergelijkbaar is met de volgende schermopname resultaten:
+1. Voer de toepassing uit en selecteer **bericht toevoegen** om te zien van de resultaten die vergelijkbaar is met de volgende schermafbeelding:
   
     ![Bericht toevoegen](./media/vs-storage-aspnet-getting-started-queues/add-message-results.png)
 
@@ -253,7 +253,7 @@ In deze sectie ziet u hoe u kunt bekijken van een bericht in de wachtrij (het ee
     }
     ```
  
-1. Binnen de **PeekMessage** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (wijziging  *&lt;storage-account-name >* op de naam van de Azure storage-account dat u bent toegang tot.)
+1. Binnen de **PeekMessage** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (Wijziging  *&lt;storage-account-name >* op de naam van de Azure-opslagaccount u toegang wilt krijgen tot.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -312,7 +312,7 @@ In deze sectie ziet u hoe u kunt bekijken van een bericht in de wachtrij (het ee
     <li>@Html.ActionLink("Peek message", "PeekMessage", "Queues")</li>
     ```
 
-1. Voer de toepassing uit en selecteer **message Peek** om te zien die vergelijkbaar is met de volgende schermopname resultaten:
+1. Voer de toepassing uit en selecteer **message Peek** om te zien van de resultaten die vergelijkbaar is met de volgende schermafbeelding:
   
     ![Bericht bekijken](./media/vs-storage-aspnet-getting-started-queues/peek-message-results.png)
 
@@ -337,7 +337,7 @@ In deze sectie leert u hoe u om te lezen en verwijderen van een bericht van een 
     }
     ```
  
-1. Binnen de **gelezenBericht** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (wijziging  *&lt;storage-account-name >* op de naam van de Azure storage-account dat u bent toegang tot.)
+1. Binnen de **gelezenBericht** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (Wijziging  *&lt;storage-account-name >* op de naam van de Azure-opslagaccount u toegang wilt krijgen tot.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -403,7 +403,7 @@ In deze sectie leert u hoe u om te lezen en verwijderen van een bericht van een 
     <li>@Html.ActionLink("Read/Delete message", "ReadMessage", "Queues")</li>
     ```
 
-1. Voer de toepassing uit en selecteer **lezen/verwijderen bericht** om te zien die vergelijkbaar is met de volgende schermopname resultaten:
+1. Voer de toepassing uit en selecteer **lezen/verwijderen bericht** om te zien van de resultaten die vergelijkbaar is met de volgende schermafbeelding:
   
     ![Lezen en verwijderen van bericht](./media/vs-storage-aspnet-getting-started-queues/read-message-results.png)
 
@@ -428,7 +428,7 @@ In deze sectie ziet u hoe u aan de lengte van de wachtrij (aantal berichten).
     }
     ```
  
-1. Binnen de **gelezenBericht** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (wijziging  *&lt;storage-account-name >* op de naam van de Azure storage-account dat u bent toegang tot.)
+1. Binnen de **gelezenBericht** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (Wijziging  *&lt;storage-account-name >* op de naam van de Azure-opslagaccount u toegang wilt krijgen tot.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -490,7 +490,7 @@ In deze sectie ziet u hoe u aan de lengte van de wachtrij (aantal berichten).
     <li>@Html.ActionLink("Get queue length", "GetQueueLength", "Queues")</li>
     ```
 
-1. Voer de toepassing uit en selecteer **ophalen wachtrijlengte** om te zien die vergelijkbaar is met de volgende schermopname resultaten:
+1. Voer de toepassing uit en selecteer **ophalen wachtrijlengte** om te zien van de resultaten die vergelijkbaar is met de volgende schermafbeelding:
   
     ![Lengte van de wachtrij ophalen](./media/vs-storage-aspnet-getting-started-queues/get-queue-length-results.png)
 
@@ -515,7 +515,7 @@ In deze sectie ziet u hoe u een wachtrij verwijderen.
     }
     ```
  
-1. Binnen de **DeleteQueue** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (wijziging  *&lt;storage-account-name >* op de naam van de Azure storage-account dat u bent toegang tot.)
+1. Binnen de **DeleteQueue** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (Wijziging  *&lt;storage-account-name >* op de naam van de Azure-opslagaccount u toegang wilt krijgen tot.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -570,7 +570,7 @@ In deze sectie ziet u hoe u een wachtrij verwijderen.
     <li>@Html.ActionLink("Delete queue", "DeleteQueue", "Queues")</li>
     ```
 
-1. Voer de toepassing uit en selecteer **ophalen wachtrijlengte** om te zien die vergelijkbaar is met de volgende schermopname resultaten:
+1. Voer de toepassing uit en selecteer **ophalen wachtrijlengte** om te zien van de resultaten die vergelijkbaar is met de volgende schermafbeelding:
   
     ![Wachtrij verwijderen](./media/vs-storage-aspnet-getting-started-queues/delete-queue-results.png)
 

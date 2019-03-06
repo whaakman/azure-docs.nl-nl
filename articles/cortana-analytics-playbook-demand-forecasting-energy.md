@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: 40bff35c1136d55e968a287d259f2304252f5248
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: bb5ef610e55495c372a47ff78e3252c9d8ec7055
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078777"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435913"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Sjabloon Playbook van Cortana Intelligence-oplossing voor vraagprognose van energie
 ## <a name="executive-summary"></a>Managementsamenvatting
@@ -187,7 +187,7 @@ Dit wordt geïllustreerd in het volgende diagram:
 
 De volgende alinea beschrijving van dit proces stap 4:
 
-1. **Het verzamelen van gegevens** : een geavanceerde op basis van analyseoplossing is gebaseerd op gegevens (Zie **gegevens wat**). Met name als het gaat om predictive analytics en prognoses, we zijn afhankelijk van continue, dynamische stroom van gegevens. In het geval van energie vraagprognose, deze gegevens kan worden opgevraagd rechtstreeks van slimme meters of al op een on-premises database worden samengesteld. We zijn ook afhankelijk van andere externe gegevensbronnen, zoals weer en temperatuur. Deze continue stroom van gegevens moet worden georganiseerd, gepland en opgeslagen. [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) (ADF) is onze belangrijkste werkpaard voor het uitvoeren van deze taak.
+1. **Het verzamelen van gegevens** : een geavanceerde op basis van analyseoplossing is gebaseerd op gegevens (Zie **gegevens wat**). Met name als het gaat om predictive analytics en prognoses, we zijn afhankelijk van continue, dynamische stroom van gegevens. In het geval van energie vraagprognose, deze gegevens kan worden opgevraagd rechtstreeks van slimme meters of al op een on-premises-database worden samengesteld. We zijn ook afhankelijk van andere externe gegevensbronnen, zoals weer en temperatuur. Deze continue stroom van gegevens moet worden georganiseerd, gepland en opgeslagen. [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) (ADF) is onze belangrijkste werkpaard voor het uitvoeren van deze taak.
 2. **Modellering** – voor nauwkeurige en betrouwbare energie prognoses, moet een (train) ontwikkelen en onderhouden van een geweldige model dat maakt gebruik van de historische gegevens en de betekenis en voorspellende patronen in de gegevens worden geëxtraheerd. Het gebied van Machine Learning (ML) heeft snel groeien met meer geavanceerde algoritmen die regelmatig worden ontwikkeld. Azure ML Studio biedt een optimale ervaring waarmee u kunt gebruikmaken van de meest geavanceerde algoritmen binnen een volledige werkstroom. Werkstroom wordt weergegeven in een diagram van een intuïtieve stroom en de gegevens voor te bereiden, het ophalen van functies, modelleren en model evaluatie bevat. De gebruiker kan op te halen in honderden verschillende modellen die zijn opgenomen in deze omgeving. Aan het einde van deze fase heeft een gegevenswetenschapper een werkende-model dat zich volledig geëvalueerd en klaar voor implementatie.
 
    Het volgende diagram wordt een afbeelding van een werkstroom:

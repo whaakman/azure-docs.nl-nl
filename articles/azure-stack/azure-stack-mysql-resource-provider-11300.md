@@ -16,12 +16,12 @@ ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 1bfdaef4523a714aed0f1b7bbdb5a600f7775ffb
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5934d075378df9f04130b79eb43131d71eaa25af
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244807"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449458"
 ---
 # <a name="mysql-resource-provider-11300--release-notes"></a>MySQL resource provider 1.1.30.0 release-opmerkingen
 
@@ -49,7 +49,7 @@ Deze versie van de Azure Stack-MySQL-resourceprovider bevat de volgende verbeter
 
 ### <a name="fixes"></a>Oplossingen
 
-- **MySQL resource provider PowerShell voor Azure Stack compatibiliteit**. De MySQL-resourceprovider is bijgewerkt naar werk met de Azure Stack-2018-03-01-hybride PowerShell-profiel en voor compatibiliteit met AzureRM 1.3.0 en hoger.
+- **MySQL-resourceprovider PowerShell voor Azure Stack-compatibiliteit**. De MySQL-resourceprovider is bijgewerkt naar werk met de Azure Stack-2018-03-01-hybride PowerShell-profiel en voor compatibiliteit met AzureRM 1.3.0 en hoger.
 
 - **MySQL-aanmelding wijzigen wachtwoord blade**. Een probleem opgelost waarbij het wachtwoord kan niet worden gewijzigd op de blade van het wachtwoord wijzigen. Verwijderde koppelingen van wachtwoord wijzigingsmeldingen.
 

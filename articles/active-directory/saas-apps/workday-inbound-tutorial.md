@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 722fc5366d8f6863d19d09bd6e555fcc9a73d570
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 73c921df493eeda25c50047e861d3d30e6dc52a8
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868116"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456479"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Zelfstudie: Workday voor het automatisch inrichten van gebruikers configureren
 
@@ -853,12 +853,12 @@ Vervang de variabelen [proxyserver] en [proxypoort] met de naam van uw proxy-ser
 
 #### <a name="how-do-i-ensure-that-the-provisioning-agent-is-able-to-communicate-with-the-azure-ad-tenant-and-no-firewalls-are-blocking-ports-required-by-the-agent"></a>Hoe kan ik ervoor zorgen dat de Agent ingericht kan communiceren met de Azure AD-tenant en geen firewalls zijn door de agent vereiste poorten blokkeren?
 
-U kunt ook controleren of u beschikt over alle vereiste poorten door het openen van openen de [verbindingslijn poorten Test](https://aadap-portcheck.connectorporttest.msappproxy.net/) vanaf uw on-premises netwerk. Meer een groen vinkje betekent meer flexibiliteit.
+U kunt ook controleren of u beschikt over alle vereiste poorten door het openen van openen de [verbindingslijn poorten Test](https://aadap-portcheck.connectorporttest.msappproxy.net/) vanuit uw on-premises netwerk. Meer een groen vinkje betekent meer flexibiliteit.
 
 Als u wilt controleren of dat het hulpprogramma biedt u de juiste resultaten, moet u:
 
 * Open het hulpprogramma op een browser van de server waar u de inrichting-Agent hebt geïnstalleerd.
-* Zorg ervoor dat alle proxy's of firewalls van toepassing zijn op uw Provisioning-Agent ook worden toegepast op deze pagina. Dit kan in Internet Explorer worden gedaan door te gaan naar **instellingen -> Internet-opties -> verbindingen Lan-instellingen ->**. Op deze pagina ziet u het veld 'Met een Proxy-Server voor uw LAN'. Schakel dit selectievakje in en plaats het proxyadres in het veld "Adres".
+* Zorg ervoor dat alle proxy's of firewalls van toepassing zijn op uw Provisioning-Agent ook worden toegepast op deze pagina. Dit kan in Internet Explorer worden gedaan door te gaan naar **instellingen -> Internet-opties -> verbindingen LAN-instellingen ->**. Op deze pagina ziet u het veld 'Met een Proxy-Server voor uw LAN'. Schakel dit selectievakje in en plaats het proxyadres in het veld "Adres".
 
 #### <a name="can-one-provisioning-agent-be-configured-to-provision-multiple-ad-domains"></a>Kan één inrichting Agent worden geconfigureerd voor het inrichten van meerdere AD-domeinen?
 

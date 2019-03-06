@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/18/2019
-ms.openlocfilehash: 06c74aa85bda13ccd6849056ccc031ae6f1c12c2
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/05/2019
+ms.openlocfilehash: 09ee74ef661a3c60ecb617e14b4b05365298a93c
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315551"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407473"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>Quickstart: Een BACPAC-bestand importeren in een database in Azure SQL Database
 
@@ -79,7 +79,7 @@ SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 ## <a name="import-into-a-single-database-from-a-bacpac-file-using-powershell"></a>Importeren in een individuele database vanuit een BACPAC-bestand met behulp van PowerShell
 
 > [!NOTE]
-> [Een beheerd exemplaar](sql-database-managed-instance.md) biedt momenteel geen ondersteuning voor het migreren van een database in een exemplaar in de database vanuit een BACPAC-bestand met behulp van Azure PowerShell]. Als u wilt importeren in een beheerd exemplaar, SQL Server Management Studio of SQLPackage te gebruiken.
+> [Een beheerd exemplaar](sql-database-managed-instance.md) biedt momenteel geen ondersteuning voor het migreren van een database in een exemplaar in de database vanuit een BACPAC-bestand met behulp van Azure PowerShell. Als u wilt importeren in een beheerd exemplaar, SQL Server Management Studio of SQLPackage te gebruiken.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

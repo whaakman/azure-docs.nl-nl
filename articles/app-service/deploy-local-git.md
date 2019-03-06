@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2c547eba931e23b6ffc7cae176e19959d43bcf5e
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: b879036dcd79901cb634fa197932e833cb22d12a
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602491"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405021"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Lokale Git-implementatie op de Azure App Service
 
@@ -44,9 +44,9 @@ git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="deploy-from-local-git-with-kudu-builds"></a>Implementeren vanuit lokale Git met Kudu builds
+## <a name="deploy-with-kudu-builds"></a>Implementeren met Kudu builds
 
-De eenvoudigste manier om in te schakelen van lokale Git-implementatie voor uw app met de Kudu-build-server is met de Cloud Shell.
+De eenvoudigste manier om lokale Git-implementatie voor uw app met de Kudu-build-server in te schakelen, is met de Cloud Shell.
 
 ### <a name="configure-a-deployment-user"></a>Een implementatiegebruiker configureren
 
@@ -54,19 +54,19 @@ De eenvoudigste manier om in te schakelen van lokale Git-implementatie voor uw a
 
 ### <a name="enable-local-git-with-kudu"></a>Lokale Git met Kudu inschakelen
 
-Als u lokale Git-implementatie voor uw app met de Kudu-build-server, voert u [ `az webapp deployment source config-local-git` ](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) in de Cloud Shell.
+Als u lokale Git-implementatie voor uw app met de Kudu-build-server wilt inschakelen, voert u [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) in de Cloud Shell uit.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>
 ```
 
-Voer voor het maken een app met Git in plaats daarvan [ `az webapp create` ](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) in de Cloud Shell met de `--deployment-local-git` parameter.
+Voer voor het maken van een app met Git in plaats daarvan [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) in de Cloud Shell uit met de parameter `--deployment-local-git`.
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group <group_name> --plan <plan_name> --deployment-local-git
 ```
 
-De `az webapp create` opdracht geeft u er ongeveer uitzien als in de volgende uitvoer:
+De uitvoer na opdracht `az webapp create` moet er ongeveer uitzien zoals hieronder is weergegeven:
 
 ```json
 Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
@@ -86,7 +86,7 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 
 ### <a name="deploy-your-project"></a>Uw project implementeren
 
-Voeg, eenmaal terug in het _lokale terminalvenster_, een externe Azure-instantie toe aan uw lokale Git-opslagplaats. Vervang  _\<url >_ met de URL van de externe Git-instantie die u hebt verkregen via [Git inschakelen voor uw app](#enable-local-git-with-kudu).
+Voeg, eenmaal terug in het _lokale terminalvenster_, een externe Azure-instantie toe aan uw lokale Git-opslagplaats. Vervang _\<url >_ met de URL van de externe Git-instantie die u hebt verkregen via [Git inschakelen voor uw app](#enable-local-git-with-kudu).
 
 ```bash
 git remote add azure <url>
@@ -98,11 +98,11 @@ Push naar de externe Azure-instantie om uw app te implementeren met de volgende 
 git push azure master
 ```
 
-Runtime-specifieke automatisering in de uitvoer, zoals MSBuild voor ASP.NET, ziet u mogelijk `npm install` voor Node.js, en `pip install` voor Python. 
+U ziet mogelijk runtime-specifieke automatisering in de uitvoer, zoals MSBuild voor ASP.NET, `npm install` voor Node.js, en `pip install` voor Python. 
 
 Blader naar uw app om te controleren dat de inhoud wordt geïmplementeerd.
 
-## <a name="deploy-from-local-git-with-azure-devops-services-builds"></a>Implementeren vanuit lokale Git met Azure DevOps-Services-builds
+## <a name="deploy-with-azure-devops-builds"></a>Implementeren met Azure DevOps-builds
 
 > [!NOTE]
 > Voor App Service voor het maken van de benodigde Azure-pijplijnen in uw organisatie Azure DevOps-Services, moet uw Azure-account de rol van **eigenaar** in uw Azure-abonnement.
@@ -110,20 +110,18 @@ Blader naar uw app om te controleren dat de inhoud wordt geïmplementeerd.
 
 Om in te schakelen lokale Git-implementatie voor uw app met de Kudu-build-server, gaat u naar uw app in de [Azure-portal](https://portal.azure.com).
 
-In het linkernavigatievenster van de app-pagina, klikt u op **Implementatiecentrum** > **lokale Git** > **doorgaan**. 
+In het linkernavigatievenster van de app-pagina, klikt u op **Implementatiecentrum** > **lokale Git** > **doorgaan**.
 
 ![](media/app-service-deploy-local-git/portal-enable.png)
 
-Klik op **Azure DevOps-Services continue levering** > **blijven**.
+Klik op **Azure pijplijnen (Preview)** > **blijven**.
 
-![](media/app-service-deploy-local-git/vsts-build-server.png)
+![](media/app-service-deploy-local-git/pipeline-builds.png)
 
-In de **configureren** pagina, een nieuwe organisatie van Azure DevOps-Services configureren of een bestaande organisatie opgeven. Wanneer u klaar bent, klikt u op **Doorgaan**.
+In de **configureren** pagina, configureren van een nieuwe Azure DevOps-organisatie of een bestaande organisatie opgeven. Wanneer u klaar bent, klikt u op **Doorgaan**.
 
 > [!NOTE]
-> Als u gebruiken van een bestaande organisatie van Azure DevOps-Services die niet wordt vermeld wilt, moet u [de Services van Azure DevOps-organisatie koppelen aan uw Azure-abonnement](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
-
-In de **Test** pagina, kies of u wilt inschakelen load tests uit en klik vervolgens op **doorgaan**.
+> Als u gebruiken van een bestaande Azure DevOps-organisatie die niet wordt vermeld wilt, moet u [de Services van Azure DevOps-organisatie koppelen aan uw Azure-abonnement](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
 Afhankelijk van de [prijscategorie](https://azure.microsoft.com/pricing/details/app-service/plans/) van uw App Service-plan, ziet u mogelijk ook een **implementeren voor fasering** pagina. Kies of u wilt inschakelen implementatiesites gebruiken en klik vervolgens op **doorgaan**.
 
@@ -160,21 +158,21 @@ Hier volgen algemene fouten of problemen bij het publiceren naar een App Service
 
 **Oorzaak**: Deze fout kan optreden als de app niet actief en werkend.
 
-**Resolutie**: De app te starten in Azure portal. GIT-implementatie is niet beschikbaar wanneer de Web-App is gestopt.
+**Oplossing**: De app te starten in Azure portal. GIT-implementatie is niet beschikbaar wanneer de Web-App is gestopt.
 
 ---
 **Symptoom**: `Couldn't resolve host 'hostname'`
 
 **Oorzaak**: Deze fout kan optreden als de gegevens hebt ingevoerd bij het maken van de 'azure' remote onjuist is.
 
-**Resolutie**: Gebruik de `git remote -v` opdracht om een lijst van alle remotes, samen met de bijbehorende URL. Controleer of dat de URL voor de externe 'azure' juist is. Indien nodig, verwijderen en opnieuw maken van deze externe met behulp van de juiste URL.
+**Oplossing**: Gebruik de `git remote -v` opdracht om een lijst van alle remotes, samen met de bijbehorende URL. Controleer of dat de URL voor de externe 'azure' juist is. Indien nodig, verwijderen en opnieuw maken van deze externe met behulp van de juiste URL.
 
 ---
 **Symptoom**: `No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`
 
 **Oorzaak**: Deze fout kan optreden als u geen dat een vertakking tijdens opgeeft `git push`, of als u dit nog niet hebt ingesteld de `push.default` waarde in de `.gitconfig`.
 
-**Resolutie**: Voer `git push` opnieuw op te geven van de master-vertakking. Bijvoorbeeld:
+**Oplossing**: Voer `git push` opnieuw op te geven van de master-vertakking. Bijvoorbeeld:
 
 ```bash
 git push azure master
@@ -185,7 +183,7 @@ git push azure master
 
 **Oorzaak**: Deze fout kan optreden als u probeert te pushen naar een vertakking dan master in de 'azure' remote.
 
-**Resolutie**: Voer `git push` opnieuw op te geven van de master-vertakking. Bijvoorbeeld:
+**Oplossing**: Voer `git push` opnieuw op te geven van de master-vertakking. Bijvoorbeeld:
 
 ```bash
 git push azure master
@@ -196,7 +194,7 @@ git push azure master
 
 **Oorzaak**: Deze fout kan optreden als u probeert een grote git-opslagplaats pushen via HTTPS.
 
-**Resolutie**: Wijzigen van de git-configuratie op de lokale computer naar de postBuffer groter maken
+**Oplossing**: Wijzigen van de git-configuratie op de lokale computer naar de postBuffer groter maken
 
 ```bash
 git config --global http.postBuffer 524288000
@@ -207,7 +205,7 @@ git config --global http.postBuffer 524288000
 
 **Oorzaak**: Deze fout kan optreden als u een Node.js-app met implementeert een _package.json_ -bestand dat aanvullende vereiste modules specificeert.
 
-**Resolutie**: Extra berichten met "npm ERR!" voordat u deze fout moet worden vastgelegd en kunt aanvullende context te bieden over de fout. Hier volgen enkele bekende oorzaken van deze fout en de bijbehorende 'npm ERR!" Bericht:
+**Oplossing**: Extra berichten met "npm ERR!" voordat u deze fout moet worden vastgelegd en kunt aanvullende context te bieden over de fout. Hier volgen enkele bekende oorzaken van deze fout en de bijbehorende 'npm ERR!" Bericht:
 
 * **Onjuist gevormd package.json-bestand**: npm ERR! Afhankelijkheden kan niet worden gelezen.
 * **Systeemeigen module die een binaire distributie voor Windows geen**:

@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 12589d9fa4623dbb6ebfd12d2e007eb9303ecdbf
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4f06af8044a79a7dc54d6fde55992111d24d22a7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008326"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441557"
 ---
 # <a name="simple-query-syntax-in-azure-search"></a>Vereenvoudigde querysyntaxis in Azure Search
 Azure Search worden twee op basis van Lucene querytalen geïmplementeerd: [De eenvoudige Queryparser](https://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) en de [Lucene-Queryparser](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). In Azure Search sluit de vereenvoudigde querysyntaxis de fuzzy/slop-opties.  
@@ -46,7 +46,7 @@ Normaal gesproken waarschijnlijk u sneller om te zien van deze problemen in gebr
 
 ## <a name="operators-in-simple-search"></a>Operators in eenvoudige zoekopdrachten
 
-U kunt operators insluiten in een queryreeks aan het bouwen van een riche set criteria op basis waarvan de overeenkomende documenten zijn gevonden. 
+U kunt operators insluiten in een queryreeks aan het bouwen van een grote verscheidenheid aan de criteria op basis waarvan de overeenkomende documenten zijn gevonden. 
 
 ## <a name="and-operator-"></a>EN de operator `+`
 

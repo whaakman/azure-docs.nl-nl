@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: 67d86ca7ed79f431bf762d4a3679e18a7b4bc373
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7fa2dad124b5ef9e93402d6d4c03d956b00184af
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990213"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442365"
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Live streamen met on-premises coderingsprogramma's die multi-bitrate streams maken
 
@@ -45,7 +45,7 @@ Beginnen met de release van Media Services 2.10 wanneer u een kanaal maakt, kunt
 > [!NOTE]
 > Dit artikel worden de kenmerken van kanalen die niet geschikt zijn voor het uitvoeren van realtime codering. Zie voor meer informatie over het werken met kanalen die geschikt zijn voor het uitvoeren van realtime codering [Live streamen met Azure Media Services om multi-bitrate streams te maken](media-services-manage-live-encoder-enabled-channels.md).
 >
->Zie voor meer informatie over aanbevolen on-premises encoders [aanbevolen on-premises encoders](media-services-recommended-encoders.md).
+>Raadpleeg voor meer informatie over aanbevolen on premises coderingsprogramma's, [aanbevolen on premises coderingsprogramma's](media-services-recommended-encoders.md).
 
 Het volgende diagram staat voor een live-streaming-werkstroom die gebruikmaakt van een on-premises live coderingsprogramma om multi-bitrate RTMP- of gefragmenteerde MP4 (Smooth Streaming)-streams als uitvoer.
 
@@ -229,7 +229,7 @@ Hier volgen andere overwegingen met betrekking tot het werken met kanalen en ger
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Verwante onderwerpen
-[Aanbevolen on-premises encoders](media-services-recommended-encoders.md)
+[Aanbevolen on premises coderingsprogramma 's](media-services-recommended-encoders.md)
 
 [Azure Media Services gefragmenteerde MP4-leven specificatie-liveopname](media-services-fmp4-live-ingest-overview.md)
 

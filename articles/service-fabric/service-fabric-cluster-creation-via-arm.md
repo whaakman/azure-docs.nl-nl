@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: feebafdb87ec9f7b913d3c29340d378b20caa3ab
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 715b0f9c5a5a68bb1fc42ed4206ca81ad85b844f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308805"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450682"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Maken van een Service Fabric-cluster met behulp van Azure Resource Manager 
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
+> * [Azure-portal](service-fabric-cluster-creation-via-portal.md)
 >
 >
 
@@ -295,4 +295,4 @@ Zie voor de JSON-syntaxis en de eigenschappen van een sjabloon wilt gebruiken, [
 [azure-powershell]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
-[customize-your-cluster-template]: service-fabric-cluster-creation-via-arm.md
+[customize-your-cluster-template]: service-fabric-cluster-creation-create-template.md

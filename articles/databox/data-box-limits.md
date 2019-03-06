@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 02/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 5849611ad346fc5ef1f0efd1e262d2ace8097520
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2776433f01cae6c32eddc262ab9d42dad1c3936f
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723449"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407252"
 ---
 # <a name="azure-data-box-limits"></a>Azure Data Box-limieten
 
@@ -22,8 +22,8 @@ Houd rekening met deze limieten bij het implementeren en uitvoeren van uw Micros
 
 ## <a name="data-box-service-limits"></a>Data Box-service-limieten
 
- - Als u meerdere opslagaccounts met Data Box-service gebruikt, moeten alle opslagaccounts behoren tot dezelfde Azure-regio alleen.
- - U wordt aangeraden dat u niet meer dan drie opslagaccounts. Met behulp van meer storage-accounts kan mogelijk gevolgen hebben voor de prestaties.
+ - Als u meerdere opslagaccounts met de Data Box-service gebruikt, moeten de opslagaccounts behoren tot dezelfde Azure-regio.
+ - U wordt aangeraden dat u niet meer dan drie opslagaccounts. Met behulp van meer storage-accounts, kan dit mogelijk invloed op de prestaties.
 
 ## <a name="data-box-limits"></a>Data Box-limieten
 
@@ -40,18 +40,18 @@ Voor de meest recente informatie over limieten voor Azure storage-service en aan
 - [Blok-blobs en pagina-blob-conventies](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 
 > [!IMPORTANT]
-> Als er bestanden of mappen die groter zijn dan de grenzen van de service Azure Storage of niet voldoen aan de naamgevingsconventies Azure bestanden/Blob, worden klikt u vervolgens deze bestanden of mappen niet opgenomen in de Azure Storage via de Data Box-service.
+> Als er bestanden of mappen die groter zijn dan de grenzen van de service Azure Storage, of die niet voldoen aan de naamgevingsconventies voor Azure-bestanden/Blob, worden niet klikt u vervolgens deze bestanden of mappen opgenomen in de Azure Storage via de Data Box-service.
 
 ## <a name="data-upload-caveats"></a>Onder voorbehoud het uploaden van gegevens
 
-- Gegevens rechtstreeks onder een van de precreated shares niet kopiëren. U moet een map in de bestandsshare maken en kopieert u gegevens naar die map.
+- Kopieer de bestanden rechtstreeks aan een van de precreated shares niet. U moet een map in de bestandsshare maken en kopieer vervolgens bestanden naar die map.
 - Een map onder de *StorageAccount_BlockBlob* en *StorageAccount_PageBlob* is een container. Bijvoorbeeld, containers worden gemaakt als *StorageAccount_BlockBlob/container* en *StorageAccount_PageBlob/container*.
 - Elke gemaakt direct onder de map *StorageAccount_AzureFiles* wordt omgezet in een Azure-bestandsshare.
 - Hebt u een bestaande Azure-object (zoals een blob of een bestand) in de cloud met dezelfde naam als het object dat wordt gekopieerd, overschrijft de gegevens in het bestand in de cloud.
 - Alle bestanden die worden weggeschreven naar *StorageAccount_BlockBlob* en *StorageAccount_PageBlob* shares respectievelijk als een blok-blobs en pagina-blob is geüpload.
 - Azure blob-opslag biedt geen ondersteuning voor mappen. Als u een map onder de *StorageAccount_BlockBlob* map, en vervolgens virtuele mappen worden gemaakt in de blob-naam. Voor Azure Files, wordt de werkelijke mapstructuur behouden.
 - Een directory-hiërarchie (zonder bestanden) gemaakt op basis van lege *StorageAccount_BlockBlob* en *StorageAccount_PageBlob* mappen is niet geüpload.
-- Als er fouten optreden tijdens het uploaden van gegevens naar Azure, wordt een foutenlogboek gemaakt in het doelopslagaccount. Het pad naar dit foutenlogboek is beschikbaar wanneer het uploaden voltooid is en kunt u corrigerende maatregelen nemen in het logboek bekijken. Verwijder geen gegevens van de bron zonder de geüploade gegevens te verifiëren.
+- Als er fouten optreden tijdens het uploaden van gegevens naar Azure, wordt een foutenlogboek gemaakt in het doelopslagaccount. Het pad naar dit foutenlogboek is beschikbaar wanneer het uploaden voltooid is en kunt u corrigerende maatregelen nemen in het logboek bekijken. Geen gegevens verwijderen uit de bron zonder de geüploade gegevens te verifiëren.
 
 ## <a name="azure-storage-account-size-limits"></a>Maximale grootte van Azure storage-account
 
@@ -70,13 +70,14 @@ Hier vindt u de grootte van de Azure-objecten die kunnen worden geschreven. Zorg
 |-------------------|-----------------------------------------------------------|
 | Blok-blob        | ~ 4.75 TiB                                                 |
 | Pagina-blobs         | 8 TiB <br> Elk bestand dat is geüpload in de indeling van pagina-blob moet zijn uitgelijnd 512 bytes (een integraal meerdere), anders het uploaden is mislukt. <br> VHD- en VHDX zijn dan 512 bytes uitgelijnd. |
-| Azure-bestand        | 1 TiB                                                      |
+| Azure Files        | 1 TiB                                                      |
+| Managed Disks     | 4 TiB <br> Zie voor meer informatie over de grootte en beperkingen: <li>[Schaalbaarheidsdoelen van Standard-SSD 's](../virtual-machines/windows/disks-types.md#standard-ssd)</li><li>[Schaalbaarheidsdoelen van Premium SSD 's](../virtual-machines/windows/disks-types.md#standard-hdd)</li><li>[Schaalbaarheidsdoelen van Standard HDD 's](../virtual-machines/windows/disks-types.md#premium-ssd)</li><li>[Prijzen en facturering van beheerde schijven](../virtual-machines/windows/disks-types.md#billing)</li>                                                     |
 
 ## <a name="azure-block-blob-page-blob-and-file-naming-conventions"></a>Azure blok-blobs, pagina-blob en bestand naamgevingsregels
 
 | Entiteit                                       | Conventies                                                                                                                                                                                                                                                                                                               |
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Namen van containers voor blok-blobs en pagina-blobs | Moet een geldige DNS-naam die tussen de 3 en 63 tekens lang zijn. <br>  Moet beginnen met een letter of cijfer. <br> Mag alleen kleine letters, cijfers en afbreekstreepjes (-). <br> Elk koppelteken (-) moet direct worden voorafgegaan en gevolgd door een letter of cijfer. <br> In namen worden geen opeenvolgende koppeltekens toegestaan. |
+| Namen van containers voor blok-blobs en pagina-blobs | Moet een geldige DNS-naam die tussen de 3 en 63 tekens lang zijn. <br>  Moet beginnen met een letter of cijfer. <br> Mag alleen kleine letters, cijfers en afbreekstreepjes (-). <br> Elk koppelteken (-) moet direct worden voorafgegaan en gevolgd door een letter of cijfer. <br> Opeenvolgende streepjes zijn niet toegestaan in namen. |
 | De namen van shares voor Azure files                  | Hetzelfde als hierboven                                                                                                                                                                                                                                                                                                             |
-| Directory- en bestandsnamen voor Azure files     |<li> Aanvraag te behouden, niet-hoofdlettergevoelige en mag niet groter zijn dan 255 tekens. </li><li> Mag niet eindigen met de schuine streep (/). </li><li>Indien opgegeven, worden deze automatisch verwijderd. </li><li> Volgende tekens zijn niet toegestaan: ' "\ /: | in combinatie *? "</li><li> Gereserveerde tekens voor URL's moeten op de juiste wijze van een escape-teken zijn voorzien. </li><li> Ongeldige tekens voor URL-pad zijn niet toegestaan. Codepunten zoals \uE000 zijn geen geldige Unicode-tekens. Sommige ASCII of Unicode-tekens, zoals stuurcodes (0x00-0x1F \u0081, enzovoort), zijn ook niet toegestaan. Tekenreeksen in HTTP/1.1 Zie RFC 2616, sectie 2.2 voor regels voor Unicode: Eenvoudige regels en RFC 3987. </li><li> Volgende bestandsnamen zijn niet toegestaan: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, punt-teken (.), en twee punten tekens (.).</li>|
+| Directory- en bestandsnamen voor Azure files     |<li> Aanvraag te behouden, niet-hoofdlettergevoelige en mag niet groter zijn dan 255 tekens. </li><li> Mag niet eindigen met de schuine streep (/). </li><li>Indien opgegeven, worden deze automatisch verwijderd. </li><li> Volgende tekens zijn niet toegestaan: ' "\ /: | < > * ?`</li><li> Gereserveerde tekens voor URL's moeten op de juiste wijze van een escape-teken zijn voorzien. </li><li> Ongeldige tekens voor URL-pad zijn niet toegestaan. Codepunten zoals \uE000 zijn niet geldig Unicode-tekens. Sommige ASCII of Unicode-tekens, zoals stuurcodes (0x00-0x1F \u0081, enzovoort), zijn ook niet toegestaan. Tekenreeksen in HTTP/1.1 Zie RFC 2616, sectie 2.2 voor regels voor Unicode: Eenvoudige regels en RFC 3987. </li><li> Volgende bestandsnamen zijn niet toegestaan: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, punt-teken (.), en twee punten tekens (.).</li>|
 | Blobnamen voor blok-blob en pagina-blob      | </li><li>Blobnamen zijn hoofdlettergevoelig en kunnen elke combinatie van tekens bevatten. </li><li>Een blobnaam moet 1 tot 1024 tekens bevatten. </li><li>Gereserveerde tekens voor URL's moeten op de juiste wijze van een escape-teken zijn voorzien. </li><li>Het aantal padsegmenten dat de blobnaam omvat, mag niet meer dan 254 zijn. Een padsegment is de tekenreeks tussen opeenvolgende scheidingstekens (bijvoorbeeld de slash '/') die overeenkomt met de naam van een virtuele map.</li> |

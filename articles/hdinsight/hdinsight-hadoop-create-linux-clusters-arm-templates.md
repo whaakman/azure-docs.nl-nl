@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: b8264e4f69a7561865f5d14087bc81bc933a6c59
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: cd02930394fd4cd09808a808765e54ff9ea6b4ea
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821401"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57434298"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Apache Hadoop-clusters in HDInsight maken met behulp van Resource Manager-sjablonen
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -30,7 +30,7 @@ Als u wilt de instructies in dit artikel hebt u het volgende nodig:
 * Azure PowerShell en/of Azure klassieke CLI.
 
 ### <a name="resource-manager-templates"></a>Resource Manager-sjablonen
-Resource Manager-sjabloon kunt gemakkelijk maken van de volgende resoruces voor uw toepassing in een enkele, gecoördineerde bewerking:
+Resource Manager-sjabloon kunt gemakkelijk maken van de volgende bronnen voor uw toepassing in een enkele, gecoördineerde bewerking:
 * HDInsight-clusters en de bijbehorende afhankelijke bronnen (zoals het standaardopslagaccount).
 * Andere bronnen (zoals Azure SQL Database gebruiken [Apache Sqoop](https://sqoop.apache.org/)).
 

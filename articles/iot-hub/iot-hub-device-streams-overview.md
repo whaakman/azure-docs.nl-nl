@@ -8,12 +8,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 7b436acb937216ad02289282f4a7ac5f88df2eea
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: b5e42585178505ee4c23ca4054e83f61ee1254b8
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245145"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436133"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IoT Hub apparaat-Streams (preview)
 

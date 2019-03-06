@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: f4559c05a9f3d09feef12b0391e313ecd9a88142
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: b03b787e245129e5e51304a2bcc8740ebf3f6196
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241235"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57406138"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Downloaden of uw Azure-factuur en de dagelijkse gebruiksgegevens weergeven
 
@@ -65,7 +65,7 @@ Facturen worden gegenereerd voor elke [facturering profiel](billing-mca-overview
 5. Klik op het weglatingsteken (`...`) aan het einde van de rij.
 6. Selecteer in het contextmenu downloaden **factuur**.
 
-Als er geen een factuur voor de afgelopen betalingsperiode, Zie [aanvullende informatie]() <!-- Fix this -->
+Als er geen een factuur voor de afgelopen betalingsperiode, Zie **aanvullende informatie**. <!-- Fix this -->
 ### <a name="noinvoice"></a> Waarom zie ik een factuur niet voor de afgelopen betalingsperiode?
 
 Er kunnen verschillende redenen voor zijn dat u geen factuur ziet:
@@ -100,7 +100,7 @@ Als u niet een e-mail ontvangen nadat de stappen hebt uitgevoerd, controleert u 
 
 ### <a name="opt-out-of-getting-your-subscriptions-invoices-in-email"></a>Afmelden voor facturen van uw abonnement ophalen in e-mailbericht
 
-U kunt uw factuur per e-mail aan met de volgende stappen hierboven en klik op Afmelden **afmelden voor facturen per e-mail**. Deze optie verwijdert alle e-mailadressen die is ingesteld op facturen in e-mailbericht ontvangt. U kunt de ontvangers opnieuw te configureren als u zich opnieuw aan.
+U kunt uw factuur per e-mail aan met de volgende stappen hierboven en klik op Afmelden **afmelden voor facturen per e-mail**. Met deze optie worden alle e-mailadressen verwijderd die zijn ingesteld voor het ontvangen van facturen via e-mail. U kunt de ontvangers opnieuw te configureren als u zich opnieuw aan.
 
  ![Schermafbeelding van de stroom opt-out](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
 

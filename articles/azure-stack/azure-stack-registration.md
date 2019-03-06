@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 03/04/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: 1fb9917e30a88cf5a68c9e170d66eeaa1d477deb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.lastreviewed: 03/04/2019
+ms.openlocfilehash: 12edea505ba3b0c8009512a52e3eea9ecea5bb26
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877143"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405195"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack registreren bij Azure
 
@@ -303,7 +303,7 @@ U kunt de cmdlet Get-inhoud (optioneel) gebruiken om te verwijzen naar een besta
 
 ## <a name="verify-azure-stack-registration"></a>Controleer of de registratie van de Azure Stack
 
-U kunt de **regiobeheer** tegel om te controleren of de Azure Stack-registratie geslaagd is. Deze tegel is beschikbaar op de standaard-dashboard in de beheerdersportal. De status kan geregistreerd of niet geregistreerd. Als geregistreerd, ook ziet u de ID van de Azure-abonnement dat u gebruikt voor het registreren van uw Azure-Stack samen met de registratie-resourcegroep en de naam.
+U kunt de **regiobeheer** tegel om te controleren of de Azure Stack-registratie geslaagd is. Deze tegel is beschikbaar op de standaard-dashboard in de beheerportal. De status kan geregistreerd of niet geregistreerd. Als geregistreerd, ook ziet u de ID van de Azure-abonnement dat u gebruikt voor het registreren van uw Azure-Stack samen met de registratie-resourcegroep en de naam.
 
 1. Aanmelden bij de [Azure Stack-beheerportal](https://adminportal.local.azurestack.external).
 
@@ -325,7 +325,7 @@ U kunt de **regiobeheer** tegel om te controleren of de Azure Stack-registratie 
 
     Azure Stack-app-registraties worden voorafgegaan door **Azure Stack**.
 
-U kunt ook kunt u controleren of uw registratie geslaagd is met behulp van de Marketplace-management-functie. Als u een lijst met items voor de marketplace in de Marketplace-beheerblade ziet, is uw registratie is gelukt. Echter in niet-verbonden omgevingen zal u niet mogelijk om te zien van marketplace-items in beheer van Marketplace. Echter, kunt u het hulpprogramma voor offline om te controleren of de registratie.
+U kunt ook kunt u controleren of uw registratie geslaagd is met behulp van de Marketplace-management-functie. Als u een lijst met items voor de marketplace in de Marketplace-beheerblade ziet, is uw registratie is gelukt. Echter in niet-verbonden omgevingen zal u niet mogelijk om te zien van marketplace-items in beheer van Marketplace.
 
 > [!NOTE]
 > Nadat de registratie is voltooid, wordt de actieve waarschuwing voor het registreren van niet langer worden weergegeven. In niet-verbonden scenario's ziet u een bericht waarin wordt gevraagd u te registreren en activeren van uw Azure Stack, zelfs als u hebt geregistreerd voor beheer van Marketplace.

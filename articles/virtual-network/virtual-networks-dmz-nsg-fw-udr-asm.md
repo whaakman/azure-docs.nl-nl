@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 93402f9124a5c2f6a251cb0e3b3dab21386fa5ff
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: c3a5cb540843c5ec4ceaf8522e9148cc7171149c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965253"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456462"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Voorbeeld 3: een DMZ netwerken met een Firewall, UDR en NSG beschermen bouwen
 [Ga terug naar de grens Best Practices pagina][HOME]
@@ -356,7 +356,7 @@ De details van elke regel vereist voor het voltooien van dit voorbeeld worden al
   
     Met deze regel Pass kunnen elke IIS-server op het subnet Frontend naar de AppVM01 bereiken (IP-adres 10.0.2.5) met behulp van elk Protocol voor toegang tot gegevens die nodig zijn voor de web-App op een willekeurige poort.
   
-    In deze schermopname een "\<expliciete-dest\>' in het veld bestemming wordt gebruikt om aan te duiden 10.0.2.5 als doel. Dit kan zijn expliciete zoals wordt weergegeven of een met de naam netwerkobject (zoals is gedaan in de vereisten voor de DNS-server). Dit is aan de beheerder van de firewall in welke methode wordt gebruikt. Als u wilt toevoegen 10.0.2.5 als een doel Explict, dubbelklikt u op de eerste lege rij onder \<expliciete-dest\> en voer het adres in het venster dat verschijnt.
+    In deze schermafbeelding een "\<expliciete-dest\>' in het veld bestemming wordt gebruikt om aan te duiden 10.0.2.5 als doel. Dit kan zijn expliciete zoals wordt weergegeven of een met de naam netwerkobject (zoals is gedaan in de vereisten voor de DNS-server). Dit is aan de beheerder van de firewall in welke methode wordt gebruikt. Als u wilt toevoegen 10.0.2.5 als een expliciete doel, dubbelklikt u op de eerste lege rij onder \<expliciete-dest\> en voer het adres in het venster dat verschijnt.
   
     Met deze regel doorgeeft, is geen NAT omdat dit intern verkeer, zodat de verbindingsmethode kan worden ingesteld op 'Geen SNAT' nodig.
   
@@ -381,7 +381,7 @@ De details van elke regel vereist voor het voltooien van dit voorbeeld worden al
   
     ![DNS-firewallregel][15]
   
-    **Opmerking**: In dit scherm is de verbindingsmethode shot opgenomen. Omdat met deze regel voor interne IP-adres op het interne IP-adres verkeer is, wordt geen NATing is vereist, wordt dit de verbindingsmethode is ingesteld op "Geen SNAT" voor deze regel Pass.
+    **Opmerking**: In deze schermafbeelding is de verbindingsmethode opgenomen. Omdat met deze regel voor interne IP-adres op het interne IP-adres verkeer is, wordt geen NATing is vereist, wordt dit de verbindingsmethode is ingesteld op "Geen SNAT" voor deze regel Pass.
 * **Subnet naar Subnet regel**: Deze regel Pass is een standaardregel die is geactiveerd en gewijzigd, zodat elke server in de back-end-subnet verbinding maken met elke server in de front-end-subnet. Deze regel is alle intern verkeer, zodat de verbindingsmethode kan worden ingesteld op Nee SNAT.
   
     ![Intra-VNet-firewallregel][16]

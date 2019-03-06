@@ -12,17 +12,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 8e8a4cabd948783278981c61fa718e51b679ad72
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 65518e7515f9e233b12ae5406819c91e8e3f2a77
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014162"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453164"
 ---
 # <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Referenties voor on-premises gegevensarchieven in Azure Data Factory coderen
 U kunt versleutelen en opslaan van referenties voor uw on-premises gegevensopslagexemplaren (gekoppelde services met gevoelige informatie) op een computer met de zelf-hostende integratieruntime. 
 
-Doorgeven van een JSON-definitie-bestand met de referenties voor de <br/>[**Nieuwe AzureRmDataFactoryV2LinkedServiceEncryptedCredential** ](https://docs.microsoft.com/powershell/module/azurerm.datafactoryv2/New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential?view=azurermps-4.4.0) cmdlet voor het produceren van een uitvoer JSON-definitie-bestand met de versleutelde referenties. Vervolgens gebruikt u de bijgewerkte JSON-definitie de gekoppelde services te maken.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Doorgeven van een JSON-definitie-bestand met de referenties voor de <br/>[**Nieuwe AzDataFactoryV2LinkedServiceEncryptedCredential** ](/powershell/module/az.datafactory/New-AzDataFactoryV2LinkedServiceEncryptedCredential) cmdlet voor het produceren van een uitvoer JSON-definitie-bestand met de versleutelde referenties. Vervolgens gebruikt u de bijgewerkte JSON-definitie de gekoppelde services te maken.
 
 ## <a name="author-sql-server-linked-service"></a>De auteur van gekoppelde SQL Server-service
 Maak een JSON-bestand met de naam **SqlServerLinkedService.json** in een map met de volgende inhoud:  
@@ -49,17 +51,17 @@ Vervang `<servername>`, `<databasename>`, `<username>`, en `<password>` met waar
 ```
 
 ## <a name="encrypt-credentials"></a>Referenties versleutelen
-Voer voor het versleutelen van de gevoelige gegevens uit de JSON-nettolading in een on-premises zelf-hostende integratieruntime **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential**, en de JSON-nettolading doorgeven. Deze cmdlet zorgt ervoor dat de referenties zijn versleuteld met behulp van DPAPI en op het zelf-hostende integration runtime-knooppunt lokaal opgeslagen. De uitvoerpayload kan worden omgeleid naar een andere JSON-bestand (in dit geval 'encryptedLinkedService.json'), die bevat de versleutelde referenties.
+Voer voor het versleutelen van de gevoelige gegevens uit de JSON-nettolading in een on-premises zelf-hostende integratieruntime **New-AzDataFactoryV2LinkedServiceEncryptedCredential**, en de JSON-nettolading doorgeven. Deze cmdlet zorgt ervoor dat de referenties zijn versleuteld met behulp van DPAPI en op het zelf-hostende integration runtime-knooppunt lokaal opgeslagen. De uitvoerpayload kan worden omgeleid naar een andere JSON-bestand (in dit geval 'encryptedLinkedService.json'), die bevat de versleutelde referenties.
 
 ```powershell
-New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "SqlServerLinkedService" -DefinitionFile ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
+New-AzDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "SqlServerLinkedService" -DefinitionFile ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
 ```
 
 ## <a name="use-the-json-with-encrypted-credentials"></a>De JSON met versleutelde referenties gebruiken
 Gebruik nu het JSON-bestand voor uitvoer van de vorige opdracht met de versleutelde referentie voor het instellen van de **SqlServerLinkedService**.
 
 ```powershell
-Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -DefinitionFile ".\encryptedSqlServerLinkedService.json" 
+Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -DefinitionFile ".\encryptedSqlServerLinkedService.json" 
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
