@@ -8,18 +8,18 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 03/05/2019
 ms.author: carlrab
-ms.openlocfilehash: af0fd591393f9f187a75f79fea980d41085df5cb
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 9bd330c2be2b543bd7238dd1641df0d092a8a17d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342442"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57434898"
 ---
 # <a name="sql-database-release-notes"></a>Opmerkingen bij de release van SQL-Database
 
-In dit artikel bevat de nieuwe functies en verbeteringen in de service SQL Database en in de documentatie van SQL-Database. Zie voor verbeteringen aan andere Azure-services, [Service-updates](https://azure.microsoft.com/updates).
+In dit artikel bevat de nieuwe functies en verbeteringen in de service SQL Database en in de documentatie van SQL-Database. Zie voor verbetering van SQL Database-service ook [updates van de service SQL Database](https://azure.microsoft.com/updates/?product=sql-database). Zie voor verbeteringen aan andere Azure-services, [Service-updates](https://azure.microsoft.com/updates).
 
 ## <a name="march-2019"></a>Maart 2019
 
@@ -27,15 +27,17 @@ In dit artikel bevat de nieuwe functies en verbeteringen in de service SQL Datab
 
 | Verbeteringen van de services | Details |
 | --- | --- |
+| &nbsp; |
 
 ### <a name="documentation-improvements"></a>Verbeteringen in de documentatie bij
 
 | Verbeteringen in de documentatie bij | Details |
 | --- | --- |
-| Toegevoegde log-limieten voor individuele databases|Zie voor meer informatie, [Single database vCore-resourcebeperkingen](sql-database-vcore-resource-limits-single-databases.md)|
-| Toegevoegde log-limieten voor elastische pools en gepoolde databases|Zie voor meer informatie, [vCore resourcelimieten elastische pools](sql-database-vcore-resource-limits-elastic-pools.md)|
-| Toegevoegde Transaction log tarief governance| Nieuwe inhoud toegevoegd [Transaction log tarief governance](sql-database-resource-limits-database-server.md#transaction-log-rate-governance)|
-| Bijgewerkte PowerShell-voorbeelden voor individuele databases en elastische pools az.sql modules gebruiken | Zie voor meer informatie, [PowerShell-voorbeelden voor individuele databases en elastische pools](sql-database-powershell-samples.md#single-database-and-elastic-pools).
+| Toegevoegde log-limieten voor individuele databases|Zie voor meer informatie, [Single database vCore-resourcebeperkingen](sql-database-vcore-resource-limits-single-databases.md).|
+| Toegevoegde log-limieten voor elastische pools en gepoolde databases|Zie voor meer informatie, [vCore resourcelimieten elastische pools](sql-database-vcore-resource-limits-elastic-pools.md).|
+| Toegevoegde Transaction log tarief governance| Nieuwe inhoud toegevoegd [Transaction log tarief governance](sql-database-resource-limits-database-server.md#transaction-log-rate-governance).|
+| Bijgewerkte PowerShell-voorbeelden voor individuele databases en elastische pools az.sql modules gebruiken | Zie voor meer informatie, [PowerShell-voorbeelden voor individuele databases en elastische pools](sql-database-powershell-samples.md#single-database-and-elastic-pools).|
+| &nbsp; |
 
 ## <a name="february-2019"></a>Februari 2019
 
@@ -43,16 +45,24 @@ In dit artikel bevat de nieuwe functies en verbeteringen in de service SQL Datab
 
 | Verbeteringen van de services | Details |
 | --- | --- |
-|Het maken van een hervatbare index online is nu algemeen beschikbaar| Zie voor meer informatie, [Index maken](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql)|
-|Ondersteuning voor beheerd exemplaar voor routetabellen verbeterd| Zie voor meer informatie, [vereisten](sql-database-managed-instance-connectivity-architecture.md#network-requirements)|
+|Het maken van een hervatbare index online is nu algemeen beschikbaar| Zie voor meer informatie, [Create Index](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql).|
+|Ondersteuning voor beheerd exemplaar voor routetabellen verbeterd| Zie voor meer informatie, [vereisten voor de](sql-database-managed-instance-connectivity-architecture.md#network-requirements).|
+|Naam van database ondersteund in het beheerde exemplaar | Zie voor meer informatie de [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) en [sp_rename](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql) syntaxis.|
+|SQL-Database als een bron van referentiegegevens voor Stream Analytics. | Zie voor meer informatie, [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/).|
+|Data Migration Assistance voegt ondersteuning toe voor beheerd exemplaar. |Zie voor meer informatie, [wat is er nieuw in DMA](https://docs.microsoft.com/sql/dma/dma-whatsnew?view=sql-server-2017).|
+|SQL Server Migration Assistant voegt ondersteuning toe voor evaluatie van gereedheid doel voor het beheerde exemplaar. | Zie voor meer informatie, [SQL Server Migration Assistant](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant).
+|Data migratieservice ondersteunt migreren van Amazon extern bureaublad-services naar beheerd exemplaar | Zie [Zelfstudie: SQL-Server voor extern bureaublad-services migreren naar Azure SQL Database of een Azure SQL-Database beheerd exemplaar online met behulp van DMS](../dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md).|
+| &nbsp; |
 
 ### <a name="documentation-improvements"></a>Verbeteringen in de documentatie bij
 
 | Verbeteringen in de documentatie bij | Details |
 | --- | --- |
-|Toevoegen voor het beheerde exemplaar implementatie optie verduidelijkingen|Groot aantal artikelen voor het verduidelijken van toepasselijkheid op individuele databases, elastische pool en implementatieopties voor beheerd exemplaar bijgewerkt |
-|Bijgewerkte tempdb-grootten voor DTU gebaseerde aankoopmodel | Zie voor meer informatie, [Tempdb-database in SQL-Database](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database)|
-|Bijgewerkte importeren en exporteren met bacpac-bestand voor de ondersteuning van het beheerde exemplaar| Zie voor meer informatie, [importeren vanuit BACPAC](sql-database-import.md) en [exporteren naar BACPAC](sql-database-export.md) |
+|Toevoegen voor het beheerde exemplaar implementatie optie verduidelijkingen|Groot aantal artikelen voor het verduidelijken van toepasselijkheid op individuele databases, elastische pool en implementatieopties voor beheerd exemplaar bijgewerkt. |
+|Bijgewerkte tempdb-grootten voor DTU gebaseerde aankoopmodel | Zie voor meer informatie, [Tempdb-database in SQL-Database](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).|
+|Bijgewerkte importeren en exporteren met bacpac-bestand voor de ondersteuning van het beheerde exemplaar| Zie voor meer informatie, [importeren vanuit BACPAC](sql-database-import.md) en [exporteren naar BACPAC](sql-database-export.md). |
+| &nbsp; |
+
 
 ## <a name="january-2019"></a>Januari 2019
 
@@ -62,7 +72,7 @@ In dit artikel bevat de nieuwe functies en verbeteringen in de service SQL Datab
 | --- | --- |
 | Als u meer granulatie opties voor compute-resources | Servicelagen voor algemeen gebruik en bedrijfskritiek [enkelvoudige databases](sql-database-vcore-resource-limits-single-databases.md) en [elastische pools](sql-database-vcore-resource-limits-elastic-pools.md) beschikt nu over meer fijnmazig compute-opties.|
 | Controlerecords bekijken voor het beheerde exemplaar in de Azure-portal | Weergeven van [controlerecords voor beheerde exemplaren](sql-database-managed-instance-auditing.md) in Azure portal nu wordt ondersteund.|
-| Geavanceerde threat detectiefunctie gewijzigd in de geavanceerde beveiliging van gegevens | Geavanceerde threat detectiefunctie gewijzigd in [gegevensbeveiliging geavanceerde](sql-advanced-threat-protection.md) voor individuele databases, elastische pools en beheerde exemplaren |
+| Geavanceerde threat detectiefunctie gewijzigd in de geavanceerde beveiliging van gegevens | Geavanceerde threat detectiefunctie gewijzigd in [gegevensbeveiliging geavanceerde](sql-advanced-threat-protection.md) voor individuele databases, elastische pools en beheerde exemplaren. |
 | &nbsp; |
 
 ### <a name="documentation-improvements"></a>Verbeteringen in de documentatie bij

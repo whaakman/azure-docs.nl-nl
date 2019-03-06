@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 03/03/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 038716161845e94011688e8af80a5d4830ac1a5b
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 9e15f2e1b064ec2e64bfa8254075eac5bc801115
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338141"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442610"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Veelgestelde vragen - VMware naar Azure-replicatie
 
@@ -165,7 +165,7 @@ Ja, kunt u nieuwe virtuele machines toevoegen aan een bestaande replicatiegroep 
 
 U kunt de schijfgrootte wijzigen voor VMware-replicatie naar Azure. Als u wilt toevoegen van nieuwe schijven moet u de schijf toevoegen en weer inschakelen van beveiliging voor de virtuele machine.
 
-### <a name="can-i-migrate-on-prem-machines-to-a-new-vcenter-without-impacting-ongoing-replication"></a>Kan ik on-premises machines migreren naar een nieuwe Vcenter zonder enige impact op de doorlopende replicatie?
+### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-without-impacting-ongoing-replication"></a>Kan ik migreren op lokale machines met een Vcenter-nieuwe zonder enige impact op de doorlopende replicatie?
 Wijziging van de Vcenter- of de migratie is niet het geval is, van invloed op doorlopende replicatie. U moet instellen voor automatisch Systeemherstel met de nieuwe Vcenter en replicatie inschakelen voor machines.
 
 ### <a name="can-i-replicate-to-cachetarget-storage-account-which-has-a-vnet-with-azure-storage-firewalls-configured-on-it"></a>Kan ik repliceren naar cache/doel-opslagaccount met een Vnet (met Azure storage-firewalls) geconfigureerd voor?

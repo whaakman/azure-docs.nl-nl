@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3465a891d91bc54bfe39b9501a7ad0e970932860
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 62d8236abb2b5f21bdb4111480d95376faa2e379
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309621"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432597"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Een virtuele machine maken vanaf een gespecialiseerde VHD in een storage-account
 
@@ -271,7 +271,7 @@ $vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
     ```powershell
     $osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"
     ```
-2. De OS-schijf toevoegen. Als de besturingssysteemschijf is gemaakt, is de term 'osDisk' in dit voorbeeld appened op de naam van de VM te maken van de naam van de OS-schijf. In dit voorbeeld geeft u ook dat deze op basis van een Windows VHD moet worden gekoppeld aan de virtuele machine als de besturingssysteemschijf.
+2. De OS-schijf toevoegen. Als de besturingssysteemschijf is gemaakt, wordt de term 'osDisk' in dit voorbeeld wordt toegevoegd aan de naam van de VM te maken van de naam van de OS-schijf. In dit voorbeeld geeft u ook dat deze op basis van een Windows VHD moet worden gekoppeld aan de virtuele machine als de besturingssysteemschijf.
     
     ```powershell
     $osDiskName = $vmName + "osDisk"

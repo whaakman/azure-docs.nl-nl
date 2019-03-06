@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 395b0cadf3ba3313a9a1304d9244f1fe72a8209c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 1534a3f010183cd91c444b577d26e3f21e296d27
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016875"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57434316"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor geavanceerde scheduler-functies in Azure Kubernetes Service (AKS)
 
@@ -151,11 +151,11 @@ Zie voor meer informatie, [affiniteit en anti-affiniteit][k8s-affinity].
 
 Laatste benadering voor de scheduler Kubernetes logisch om workloads te isoleren maakt gebruik van de affiniteit tussen pod of anti-affiniteit. De instellingen definiëren die schillen *mag niet* worden gepland op een knooppunt dat een bestaande overeenkomende pod bevat, of dat ze *moet* worden gepland. Standaard probeert de Kubernetes-scheduler meerdere schillen in een replica die is ingesteld op knooppunten te plannen. U kunt meer specifieke regels om dit gedrag definiëren.
 
-Een goed voorbeeld is een webtoepassing die ook gebruikmaakt van een Azure-Cache voor Redis. U kunt pod anti-affiniteit regels gebruiken om aan te vragen die de Kubernetes-scheduler wordt replica's verspreid over de knooppunten. Vervolgens kunt u regels voor ise processoraffiniteit om ervoor te zorgen dat elk onderdeel van web-app op dezelfde host als een bijbehorende cache is gepland. De distributie van schillen over knooppunten ziet eruit als in het volgende voorbeeld:
+Een goed voorbeeld is een webtoepassing die ook gebruikmaakt van een Azure-Cache voor Redis. U kunt pod anti-affiniteit regels gebruiken om aan te vragen die de Kubernetes-scheduler wordt replica's verspreid over de knooppunten. U kunt regels voor processoraffiniteit vervolgens gebruiken om ervoor te zorgen dat elk onderdeel van web-app op dezelfde host als een bijbehorende cache is gepland. De distributie van schillen over knooppunten ziet eruit als in het volgende voorbeeld:
 
-| **Knooppunt 1** | **Knooppunt 2** | **Knooppunt 3** |
+| **Node 1** | **Knooppunt 2** | **Knooppunt 3** |
 |------------|------------|------------|
-| Web-App-1   | Web-App-2   | Web-App-3   |
+| webapp-1   | webapp-2   | webapp-3   |
 | cache-1    | cache-2    | cache-3    |
 
 In dit voorbeeld is een meer complexe implementatie dan het gebruik van selectoren knooppunt of knooppuntsaffiniteit. De implementatie geeft u controle over hoe Kubernetes de schillen op knooppunten plant en kunt het logische isolatie van resources. Zie voor een compleet voorbeeld van deze webtoepassing met Azure Cache voor Redis-voorbeeld, [schillen op hetzelfde knooppunt plaatsen][k8s-pod-affinity].

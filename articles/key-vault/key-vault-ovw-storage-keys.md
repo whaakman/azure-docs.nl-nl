@@ -8,13 +8,13 @@ ms.service: key-vault
 author: prashanthyv
 ms.author: pryerram
 manager: barbkess
-ms.date: 10/03/2018
-ms.openlocfilehash: 684d6a87b5cf33a3ebed36381d2db21b285a6f0c
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.date: 03/01/2019
+ms.openlocfilehash: dc743f7e8ebaebf2b253a1c2c199133bc4266dd5
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338804"
+ms.locfileid: "57404362"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure Key Vault beheerd opslagaccount - CLI
 
@@ -24,12 +24,25 @@ ms.locfileid: "57338804"
 > - Gebruik een [Azure AD beheerde identiteit](/azure/active-directory/managed-identities-azure-resources/) bij het uitvoeren op Azure. Beheerde identiteiten verwijderen de noodzaak voor clientverificatie samen en opslaan van referenties in of met uw toepassing.
 > - Gebruik rollen gebaseerd toegangsbeheer (RBAC) voor het beheren van autorisatie, die ook wordt ondersteund door Key Vault.
 
-- Azure Key Vault beheert sleutels van een Azure Storage-Account (ASA).
-    - Azure Key Vault kan intern (sync) sleutels met een Azure Storage-Account weergeven.    
-    - Azure Key Vault wordt opnieuw gegenereerd (gedraaid) periodiek de sleutels.
-    - Sleutelwaarden worden nooit geretourneerd in antwoord op de oproepende functie.
-    - Azure Key Vault beheert sleutels van Opslagaccounts en klassieke Storage-Accounts.
-    
+Een [Azure storage-account](/azure/storage/storage-create-storage-account) maakt gebruik van een referentie die uit een accountnaam en een sleutel bestaat. De sleutel is gegenereerd, en fungeert als een 'wachtwoord' in plaats van een cryptografische sleutel. Key Vault deze opslagaccountsleutels kunt beheren door op te slaan als [Key Vault-geheimen](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-secrets). 
+
+## <a name="overview"></a>Overzicht
+
+De Key Vault beheerde functie voert verschillende functies voor beheer namens uw storage-account:
+
+- Een lijst met (synchronisatie) sleutels met een Azure storage-account.
+- Hiermee wordt opnieuw gegenereerd (gedraaid) periodiek de sleutels.
+- Hiermee beheert u de sleutels voor storage-accounts en klassieke opslagaccounts.
+- Sleutelwaarden worden nooit geretourneerd in antwoord op de oproepende functie.
+
+Wanneer u de belangrijkste functie van beheerde opslag account gebruikt:
+
+- **Alleen toestaan Key Vault voor het beheren van uw opslagaccountsleutels.** Niet proberen ze om zelf te beheren, zoals u leiden tot met de processen van de Sleutelkluis problemen zult.
+- **Opslagaccountsleutels worden beheerd door meer dan een Key Vault-object niet toestaan**.
+- **Niet handmatig uw storage-accountsleutels opnieuw genereren**. Het is raadzaam dat u ze via Key Vault genereren.
+
+Het volgende voorbeeld ziet u hoe u Key Vault voor het beheren van uw storage-accountsleutels toestaan.
+
 > [!IMPORTANT]
 > Een Azure AD-tenant biedt elke geregistreerde toepassing met een  **[service-principal](/azure/active-directory/develop/developer-glossary#service-principal-object)**, die fungeert als de identiteit van de toepassing. Toepassings-ID van de service-principal wordt gebruikt wanneer u deze machtiging voor toegang tot andere Azure-resources via op rollen gebaseerd toegangsbeheer (RBAC). Omdat de Key Vault is een Microsoft-toepassing, het vooraf geregistreerd in alle Azure AD-tenants onder dezelfde toepassings-ID, binnen elk Azure-cloud:
 > - Toepassings-ID in Azure government-cloud Azure AD-tenants gebruiken `7e7c393b-45d0-48b1-a35e-2905ddf8183c`.

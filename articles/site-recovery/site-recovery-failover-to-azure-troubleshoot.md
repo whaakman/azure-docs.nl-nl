@@ -7,14 +7,14 @@ ms.service: site-recovery
 services: site-recovery
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 1/29/2019
+ms.date: 03/04/2019
 ms.author: mayg
-ms.openlocfilehash: 62b69364f0b3d3e14d0b2d877604cecfcc346dce
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 811d75ec2246199662a25afd6b96b23035444211
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207493"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436031"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Fouten bij het uitvoeren van een failover VM met VMware of fysieke machine naar Azure oplossen
 
@@ -110,7 +110,50 @@ Als de **Connect** knop op de failover-VM in Azure beschikbaar is (niet lichter 
 
 Bij het opstarten van een Windows VM na failover, als u een bericht is onverwacht afgesloten op de herstelde virtuele machine ontvangt, betekent dit dat de status van een virtuele machine afsluiten niet is opgenomen in het herstelpunt dat wordt gebruikt voor de failover. Dit gebeurt wanneer u naar een beheerpunt herstellen wanneer de virtuele machine is niet volledig afgesloten.
 
-Dit is normaal gesproken geen aanleiding en kan meestal worden genegeerd voor niet-geplande failovers. In het geval van een geplande failover, zorg ervoor dat de virtuele machine correct wordt afgesloten voordat u een failover en geef voldoende tijd voor in behandeling zijnde replicatie gegevens on-premises naar Azure worden verzonden. Gebruik vervolgens de **nieuwste** kiezen op de [Failover scherm](site-recovery-failover.md#run-a-failover) zodat alle in behandeling gegevens in Azure worden verwerkt in een herstelpunt, die vervolgens wordt gebruikt voor VM-failover.
+Dit is normaal gesproken geen aanleiding en kan meestal worden genegeerd voor niet-geplande failovers. Als de failover is gepland, zorg ervoor dat de virtuele machine correct wordt afgesloten voordat u een failover en geef voldoende tijd voor in behandeling zijnde replicatie gegevens on-premises naar Azure worden verzonden. Gebruik vervolgens de **nieuwste** kiezen op de [Failover scherm](site-recovery-failover.md#run-a-failover) zodat alle in behandeling gegevens in Azure worden verwerkt in een herstelpunt, die vervolgens wordt gebruikt voor VM-failover.
+
+## <a name="unable-to-select-the-datastore"></a>Kan de gegevensopslag selecteren
+
+Dit probleem wordt aangegeven wanneer u zich niet zien de gegevensopslag in Azure wanneer wordt geprobeerd om opnieuw te beveiligen van de virtuele machine die een failover is opgetreden in de portal. Dit komt doordat de Master target wordt niet herkend als een virtuele machine onder vCenters toegevoegd aan Azure Site Recovery.
+
+Zie voor meer informatie over het opnieuw beveiligen van een virtuele machine, [opnieuw beveiligen en mislukt de back-machines naar een on-premises site na een failover naar Azure](vmware-azure-reprotect.md).
+
+Het probleem kunt oplossen:
+
+Handmatig maken van de Master-doel in het vCenter waarmee de bronmachine wordt beheerd. Het gegevensarchief worden beschikbaar na de volgende vCenter-detectie en vernieuw fabric bewerkingen.
+
+> [!Note]
+> 
+> De detectie en vernieuw fabric bewerkingen kunnen tot 30 minuten duren. 
+
+## <a name="linux-master-target-registration-with-cs-fails-with-an-ssl-error-35"></a>Linux-hoofddoel registratie bij CS is mislukt met een SSL-fout 35 
+
+De Azure Site Recovery-Masterdoel registratie bij de configuratieserver is mislukt vanwege de geverifieerde Proxy wordt ingeschakeld op de Hoofddoelserver. 
+ 
+Deze fout wordt aangegeven door de volgende tekenreeksen in het installatielogboek: 
+
+RegisterHostStaticInfo opgetreden uitzondering config/talwrapper.cpp(107) [post] CurlWrapper bericht is mislukt: server: 10.38.229.221, poort: 443, phpUrl: request_handler.php, beveiligde: true, ignoreCurlPartialError: false met de volgende fout: [op curlwrapperlib/curlwrapper.cpp:processCurlResponse:231] kan niet aanvraag: (35) - SSL verbinding maken met de fout. 
+ 
+Het probleem kunt oplossen:
+ 
+1. Open een opdrachtprompt op de configuratieserver virtuele machine en controleer of de proxy-instellingen met de volgende opdrachten:
+
+    CAT /etc/environment echo $gebruikt $https_proxy echo 
+
+2. Als de uitvoer van de vorige opdrachten ziet u dat de gebruikt of https_proxy instellingen zijn gedefinieerd, kunt u een van de volgende methoden om de blokkering van de Masterdoelserver-communicatie met de configuratieserver te gebruiken:
+   
+   - Download de [PsExec-hulpprogramma](https://aka.ms/PsExec).
+   - Het hulpprogramma gebruiken voor toegang tot de systeemcontext van de gebruiker en bepalen of de proxy-adres is geconfigureerd. 
+   - Als de proxy is geconfigureerd, opent u Internet Explorer in de context van een systeem-gebruiker met het PsExec-hulpprogramma.
+  
+     **psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"**
+
+   - Om ervoor te zorgen dat de hoofddoelserver met de configuratieserver communiceren kan:
+  
+     - Wijzig de proxy-instellingen in Internet Explorer het hoofddoel IP-adres van de server via de proxy overslaan.   
+     of
+     - Schakel de proxy op de hoofddoelserver. 
+
 
 ## <a name="next-steps"></a>Volgende stappen
 - Problemen oplossen [RDP-verbinding met Windows-VM](../virtual-machines/windows/troubleshoot-rdp-connection.md)

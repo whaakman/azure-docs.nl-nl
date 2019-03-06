@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 145a1d24e877cc4083706310694005c01c8c8fbf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 727a503a2fd942e6fbef9009c760a39f90828d2f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020146"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433124"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>1 TB laden in Azure SQL Data Warehouse minder dan 15 minuten met Data Factory
 > [!NOTE]
@@ -117,7 +117,7 @@ Met de vereiste stappen voltooid, zijn er nu klaar om te configureren van de kop
 3. In de **nieuwe data factory** deelvenster:
 
    1. Voer **LoadIntoSQLDWDataFactory** voor de **naam**.
-       De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als u de foutmelding weergegeven: **Naam gegevensfactory 'LoadIntoSQLDWDataFactory' is niet beschikbaar**, wijzigt u de naam van de data factory (bijvoorbeeld yournameLoadIntoSQLDWDataFactory) en probeert u het opnieuw. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.  
+       De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als de volgende foutmelding wordt weergegeven: **Naam gegevensfactory 'LoadIntoSQLDWDataFactory' is niet beschikbaar**, wijzigt u de naam van de data factory (bijvoorbeeld yournameLoadIntoSQLDWDataFactory) en probeert u het opnieuw. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.  
    2. Selecteer uw Azure-**abonnement**.
    3. Voer een van de volgende stappen uit voor de resourcegroep:
       1. Selecteer **Bestaande gebruiken** om een bestaande resourcegroep te selecteren.
@@ -199,7 +199,7 @@ Deze sectie leest u hoe u het configureren van de bestemming: `lineitem` tabel i
 
     Vindt u de kopie details van de uitvoering de **Activiteitsvensterverkenner** in het rechter deelvenster, met inbegrip van het gegevensvolume bron gelezen en geschreven naar de bestemming, de duur en de gemiddelde doorvoer voor de uitvoering.
 
-    Zoals u in de volgende schermopname zien kunt, duurde 1 TB kopiëren van Azure Blob Storage naar SQL Data Warehouse 14 minuten, effectief bereiken 1,22 GBps doorvoer!
+    Zoals u in de volgende schermafbeelding ziet, duurde 1 TB kopiëren van Azure Blob Storage naar SQL Data Warehouse 14 minuten, effectief bereiken 1,22 GBps doorvoer!
 
     ![Wizard - geslaagd dialoogvenster kopiëren](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
 

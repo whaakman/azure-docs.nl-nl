@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: jingwang
-ms.openlocfilehash: d464fc6dd67e036348b6de74c8920895cf99e113
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 16ac5684d519dc41326ada4afd1bb2965a738070
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663840"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404991"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Gegevens kopiëren van of naar Azure File Storage met behulp van Azure Data Factory
 
@@ -43,7 +43,7 @@ De volgende eigenschappen worden ondersteund voor Azure File Storage gekoppelde 
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **FileServer**. | Ja |
 | host | Hiermee geeft u het eindpunt van de Azure File Storage als: <br/>-Met UI: Geef `\\<storage name>.file.core.windows.net\<file service name>`<br/>-Met behulp van JSON: `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Ja |
-| gebruikers-id | Geef de gebruiker voor toegang tot de Azure File Storage als: <br/>-Met UI: Geef `AZURE\<storage name>`<br/>-Met behulp van JSON: `"userid": "AZURE\\<storage name>"`. | Ja |
+| userid | Geef de gebruiker voor toegang tot de Azure File Storage als: <br/>-Met UI: Geef `AZURE\<storage name>`<br/>-Met behulp van JSON: `"userid": "AZURE\\<storage name>"`. | Ja |
 | wachtwoord | Geef de toegangssleutel voor opslag. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt Azure Integration Runtime of zelfgehoste Cloudintegratieruntime gebruiken (als het gegevensarchief bevindt zich in een particulier netwerk). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee voor bron, Ja voor sink |
 
@@ -109,6 +109,7 @@ Om gegevens te kopiëren van/naar Azure File Storage, stel de eigenschap type va
         },
         "typeProperties": {
             "folderPath": "folder/subfolder/",
+            "fileName": "*",
             "modifiedDatetimeStart": "2018-12-01T05:00:00Z",
             "modifiedDatetimeEnd": "2018-12-01T06:00:00Z",
             "format": {

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: e616df772bf11d1247f96c78bea2392252f5e5d0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d3a02a850059dc96e4e4ba306fed7cded2f7dd7d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259748"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454184"
 ---
 # <a name="view-the-monthly-estimated-lab-cost-trend-in-azure-devtest-labs"></a>De maandelijkse trend voor lab geschatte kosten weergeven in Azure DevTest Labs
 De functie Cost Management van DevTest Labs kunt u de kosten van uw lab bijhouden. In dit artikel laat zien hoe u de **maandelijkse geschatte Kostentrend** grafiek om de huidige kalendermaand geschatte kosten-tot-datum en het geplande einde van maand kosten voor de huidige kalendermaand weer te geven. In dit artikel leest u ook hoe labkosten beter te beheren door in te stellen de bestedingslimiet doelen en drempelwaarden die, na het verstrijken, trigger DevTest Labs om te rapporteren de resultaten aan u.
@@ -76,8 +76,8 @@ DevTest Labs kunt u beter de kosten in uw testomgeving door in te stellen van ee
       - **Vaste**: kosten doelen worden bijgehouden voor het datumbereik dat u in de begin- en einddatumvelden opgeeft. Dit kan normaal gesproken komen overeen met hoe lang het project is gepland om uit te voeren.
    - Geef een **doel kosten**. Dit kan bijvoorbeeld zijn hoeveel u van plan bent om te besteden in voor dit lab in de periode die u hebt gedefinieerd.
    - Selecteer deze optie in- of uitschakelen van een drempelwaarde dat u wilt, gerapporteerd: in stappen van 25% – maximaal 125% van de opgegeven **doel kosten**.
-      - **Op de hoogte stellen**: als deze drempelwaarde wordt voldaan, u krijgt een melding van een webhook-URL die u opgeeft.
-      - **Vykreslit v grafu**: als deze drempelwaarde wordt voldaan, de resultaten worden weergegeven op de kosten trend grafiek die u weergeven kunt, zoals beschreven in [de grafiek maandelijkse Trend voor de geschatte kosten weergeven](#viewing-the-monthly-estimated-cost-trend-chart).
+      - **Op de hoogte stellen**: Als deze drempelwaarde wordt voldaan, wordt u gewaarschuwd door een webhook-URL die u opgeeft.
+      - **Vykreslit v grafu**: Als deze drempelwaarde wordt voldaan, de resultaten worden weergegeven op de kosten trend grafiek die u weergeven kunt, zoals beschreven in [de grafiek maandelijkse Trend voor de geschatte kosten weergeven](#viewing-the-monthly-estimated-cost-trend-chart).
    - Als u wilt **waarschuwen** wanneer de drempelwaarde is bereikt, moet u een webhook-URL opgeven. Selecteer in het gebied van de integratie van kosten **Klik hier als u wilt toevoegen van een integratie**.
 
       Een Webhook-URL opgeven in het deelvenster van de melding configureren en selecteer vervolgens **OK**.

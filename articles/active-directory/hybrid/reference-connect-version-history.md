@@ -16,12 +16,12 @@ ms.date: 12/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca5dc106d3a524f9bdd6f2d989ef1189032cd60f
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: fd90cd18be1fdbac5948fb076a3358b070bad8eb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195520"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455068"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Releasegeschiedenis van versie
 Azure AD Connect het team van Azure Active Directory (Azure AD) regelmatig bijgewerkt met nieuwe functies en functionaliteit. Niet alle toevoegingen gelden voor alle doelgroepen.
@@ -154,7 +154,7 @@ Azure AD Connect upgraden mislukt als altijd op beschikbaarheid van SQL is gecon
 - Verschillende toegankelijkheidsproblemen opgelost voor de regeleditor synchronisatie en de Sync-Service Manager  
 - Een bug opgelost waarbij Azure AD Connect kan geen toestemming krijgen instelling registergegevens
 - Er is een fout die problemen gemaakt wanneer de gebruiker doorsturen/terug in de wizard gaat opgelost
-- Een probleem opgelost om te voorkomen dat een fout opgetreden vanwege een onjuiste multi-thread verwerking in de wizard gebeurt
+- Een probleem opgelost om te voorkomen dat een fout opgetreden vanwege een onjuist meerdere threads verwerken in de wizard gebeurt
 - Pagina synchronisatiefilters groep, wordt er een LDAP-fout optreedt bij het omzetten van beveiligingsgroepen, Azure AD Connect nu is, retourneert de uitzondering met volledige betrouwbaarheid.  De hoofdoorzaak voor de referentie-uitzondering is nog steeds onbekend en wordt verholpen door een andere fout.
 -  Een bug opgelost waarbij de machtigingen voor de BEURS en NGC sleutels (ms-DS-KeyCredentialLink kenmerk op objecten voor WHfB gebruiker/apparaat) zijn niet juist ingesteld.     
 - Een bug opgelost waarbij 'Set-ADSyncRestrictedPermissions' is niet correct aangeroepen
@@ -833,7 +833,7 @@ Uitgebracht: Maart 2017
 Azure AD Connect-synchronisatie
 * Een probleem waardoor Azure AD Connect-wizard mislukken als de weergavenaam van de Azure AD-Connector, de initiële onmicrosoft.com-domein dat is toegewezen aan de Azure AD-tenant niet bevat is opgelost.
 * Er is een probleem waardoor Azure AD Connect-wizard mislukken tijdens het maken van verbinding met SQL-database als het wachtwoord van het synchronisatieserviceaccount speciale tekens zoals apostrof, dubbele punt en ruimte bevat opgelost.
-* Er is een probleem die ervoor zorgt de fout dat "de dimage heeft een anker die anders is dan de installatiekopie" opgelost worden uitgevoerd op een Azure AD Connect-server in de faseringsmodus bevindt, nadat u hebt tijdelijk een on-premises uitgesloten AD object kunnen worden gesynchroniseerd en vervolgens opnieuw uit voor het synchroniseren van opgenomen.
+* Er is een probleem die ervoor zorgt de fout dat "de afbeelding heeft een anker die anders is dan de installatiekopie" opgelost worden uitgevoerd op een Azure AD Connect-server in de faseringsmodus bevindt, nadat u hebt tijdelijk een on-premises uitgesloten AD object kunnen worden gesynchroniseerd en vervolgens opnieuw uit voor het synchroniseren van opgenomen.
 * Er is een probleem die ervoor zorgt de fout dat 'het object zich bevindt door de DN-naam is een phantomstuklijst' opgelost worden uitgevoerd op een Azure AD Connect-server in de faseringsmodus bevindt, nadat u hebt tijdelijk een on-premises uitgesloten AD object wordt gesynchroniseerd en vervolgens opnieuw opgenomen voor het synchroniseren.
 
 AD FS-management

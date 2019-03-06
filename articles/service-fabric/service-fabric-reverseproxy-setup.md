@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/13/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 52d6781f83262162f261d094d4818f803e5f3866
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 8c405941417ad1a4e877cfd8fd0bdb53e186f6d0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670210"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452297"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Instellen en configureren van omgekeerde proxy's in Azure Service Fabric
 Omgekeerde proxy is een optionele Azure Service Fabric-service waarmee microservices in een Service Fabric-cluster uitgevoerd detecteren en te communiceren met andere services die http-eindpunten hebben. Zie voor meer informatie, [omgekeerde proxy in Azure Service Fabric](service-fabric-reverseproxy.md). Dit artikel ziet u hoe u kunt instellen en configureren van omgekeerde proxy in het cluster. 
@@ -47,7 +47,7 @@ Voor een nieuw cluster, kunt u [een aangepaste Resource Manager-sjabloon maken](
 
 U vindt een voorbeeld van Resource Manager-sjablonen waarmee u bij het configureren van beveiligde omgekeerde proxy voor een Azure-cluster in de [beveiligde Reverse Proxy-voorbeeldsjablonen](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample) op GitHub. Raadpleeg [HTTPS Reverse Proxy configureren in een beveiligd cluster](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) in de Leesmij-bestand voor instructies en de sjablonen kunnen gebruiken voor veilige omgekeerde proxy configureren met een certificaat en om af te handelen rollover van certificaten.
 
-Voor een bestaand cluster, kunt u de Resource Manager-sjabloon voor de resource van het cluster exporteren groeperen met behulp van de [Azure-portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template#export-the-template-from-resource-group), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell#export-resource-group-as-template), of de [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli#export-resource-group-as-template).
+Voor een bestaand cluster, kunt u de Resource Manager-sjabloon voor de resource van het cluster exporteren groeperen met behulp van de [Azure-portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell), of de [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli).
 
 Nadat u een Resource Manager-sjabloon hebt, kunt u inschakelen de omgekeerde proxy met de volgende stappen uit:
 
@@ -334,7 +334,7 @@ Bijvoorbeeld, stelt u de waarde van **DefaultHttpRequestTimeout** in te stellen 
 
 Zie voor meer informatie over het bijwerken van de fabric-instellingen voor Azure-clusters [aanpassen met behulp van Resource Manager-sjablonen clusterinstellingen](service-fabric-cluster-config-upgrade-azure.md). Zie voor zelfstandige clusters, [clusterinstellingen voor zelfstandige clusters aanpassen](service-fabric-cluster-config-upgrade-windows-server.md). 
 
-Verschillende infrastructuurinstellingen worden gebruikt voor het tot stand te brengen veilige communicatie tussen de reverse proxy- en -services. Zie voor gedetailleerde informatie over deze instellingen, [verbinding maken met een beveiligd service met de omgekeerde proxy](service-fabric-reverseproxy-configure-secure-communication.md).
+Verschillende infrastructuurinstellingen worden gebruikt voor het tot stand te brengen veilige communicatie tussen de reverse proxy- en -services. Zie voor gedetailleerde informatie over deze instellingen [verbinding maken met een beveiligd service met de omgekeerde proxy](service-fabric-reverseproxy-configure-secure-communication.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Doorsturen naar beveiligde HTTP-service met de omgekeerde proxy instellen](service-fabric-reverseproxy-configure-secure-communication.md)

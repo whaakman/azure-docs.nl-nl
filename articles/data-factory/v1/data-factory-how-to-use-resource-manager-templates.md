@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 9fb63ae141665dbeb64ee7046427098d4482aa55
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 904b5db35281ed07745b33c364c03e3f4c4bfd2b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111319"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449203"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Gebruik sjablonen om aan te maken van Azure Data Factory-entiteiten
 > [!NOTE]
@@ -28,7 +28,7 @@ ms.locfileid: "56111319"
 ## <a name="overview"></a>Overzicht
 Tijdens het gebruik van Azure Data Factory voor uw Gegevensbehoeften integratie, u zult zien dat hetzelfde patroon voor verschillende omgevingen of dezelfde taak binnen dezelfde oplossing herhaaldelijk implementeren. Met sjablonen kunt u implementeren en beheren van deze scenario's op een eenvoudige manier. Sjablonen in Azure Data Factory zijn ideaal voor scenario's voor hergebruik en herhaling.
 
-Houd rekening met de situatie waarbij een organisatie 10 fabrieken over de hele wereld heeft. De logboeken van elke plant worden opgeslagen in een afzonderlijke on-premises SQL Server-database. Het bedrijf wil een enkel datawarehouse in de cloud voor ad-hocanalyses opzetten. Het wil ook hebben de dezelfde logica maar verschillende configuraties voor ontwikkeling, testen en productie-omgevingen.
+Houd rekening met de situatie waarbij een organisatie 10 fabrieken over de hele wereld heeft. De logboeken van elke plant worden opgeslagen in een afzonderlijke on-premises SQL Server-database. Het bedrijf wil een enkel datawarehouse in de cloud voor ad-hoc analytics opzetten. Het wil ook hebben de dezelfde logica maar verschillende configuraties voor ontwikkeling, testen en productie-omgevingen.
 
 In dit geval moet een taak worden herhaald in dezelfde omgeving, maar met verschillende waarden voor de 10 data factory's voor elke fabriek. In feite **herhaling** aanwezig is. Templating kan de abstractie van deze algemene stroom (dat wil zeggen, pijplijnen die dezelfde activiteiten in elke data factory), maar maakt gebruik van een afzonderlijke parameterbestand voor elke fabriek.
 

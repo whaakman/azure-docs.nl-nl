@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: ff905f34ab63027e9708082c4690e4275220854f
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: fc2333b6bd41b9efdd1fcafd6168906525cb537a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53406790"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440570"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>MapReduce-taken uitvoeren met Apache Hadoop op HDInsight met behulp van REST
 
@@ -36,7 +36,7 @@ Informatie over het gebruik van de REST API Apache Hive-WebHCat MapReduce-taken 
 >
 > De REST-API is beveiligd met behulp van [eenvoudige verificatie](https://en.wikipedia.org/wiki/Basic_access_authentication). U moet aanvragen altijd uitvoeren met behulp van HTTPS om ervoor te zorgen dat uw referenties veilig worden verzonden naar de server.
 
-1. Om in te stellen de aanmelding bij cluster dat wordt gebruikt door de scripts in dit document, moet u een van de followig-opdrachten gebruiken:
+1. Om in te stellen de aanmelding bij cluster dat wordt gebruikt door de scripts in dit document, gebruikt u een van de volgende opdrachten:
 
     ```bash
     read -p "Enter your cluster login account name: " LOGIN

@@ -16,12 +16,12 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57f7d72be86a05b9785f7714380363d9c6ddb5c6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c0afc31bf08a5037d91885bc6a85c6aeaf858825
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205695"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436652"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Verbindingsproblemen met Azure AD Connect oplossen
 In dit artikel wordt uitgelegd hoe connectiviteit tussen Azure AD Connect en Azure AD werkt en het oplossen van problemen met de netwerkverbinding. Deze problemen zijn ondergebracht in een omgeving met een proxyserver worden weergegeven.
@@ -76,7 +76,7 @@ Deze fout treedt op als het eindpunt **https://secure.aadcdn.microsoftonline-p.c
 
 ### <a name="the-password-cannot-be-verified"></a>Het wachtwoord kan niet worden geverifieerd.
 Als de installatiewizard voltooid is in de verbinding te maken met Azure AD, maar het wachtwoord zelf kan niet worden geverifieerd op dat deze fout wordt weergegeven:  
-![badpassword](./media/tshoot-connect-connectivity/badpassword.png)
+![Onjuist wachtwoord.](./media/tshoot-connect-connectivity/badpassword.png)
 
 * Het wachtwoord is een tijdelijk wachtwoord en moet worden gewijzigd? Is het daadwerkelijk het juiste wachtwoord? Probeer te melden bij https://login.microsoftonline.com (op een andere computer dan de Azure AD Connect-server) en controleer of het account kan worden gebruikt.
 
@@ -165,7 +165,7 @@ Uw referenties zijn verlopen. Uw wachtwoord wijzigen.
 ### <a name="authorization-failure"></a>Autorisatiefout
 Kan geen gebruiker actie uit te voeren in Azure AD te verlenen.
 
-### <a name="authentication-cancelled"></a>Verificatie is geannuleerd
+### <a name="authentication-canceled"></a>Verificatie geannuleerd
 De uitdaging multi-factor authentication (MFA) is geannuleerd.
 
 <div id="connect-msolservice-failed">

@@ -13,18 +13,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: c41f03494720c9283bb3ce91fda6e3981f305084
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 053cabfa29bd5e436fecd922e4bcdbca9483d25a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023019"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455680"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Problemen met Data Factory oplossen
 > [!NOTE]
 > Dit artikel is van toepassing op versie 1 van Azure Data Factory. 
 
 In dit artikel vindt u tips voor probleemoplossing voor problemen bij het gebruik van Azure Data Factory. In dit artikel de lijst bevat niet alle mogelijke problemen bij het gebruik van de service, maar het geeft sommige problemen en algemene tips voor probleemoplossing.   
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="troubleshooting-tips"></a>Tips voor probleemoplossing
 ### <a name="error-the-subscription-is-not-registered-to-use-namespace-microsoftdatafactory"></a>Fout: Het abonnement is niet geregistreerd voor het gebruik van de naamruimte 'Microsoft.DataFactory'
@@ -34,20 +36,20 @@ Als u dit foutbericht ontvangt, is de resourceprovider van Azure Data Factory ni
 2. Meld u aan bij uw Azure-account met de volgende opdracht.
 
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 3. Voer de volgende opdracht om de Azure Data Factory-provider te registreren.
 
     ```powershell        
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 
 ### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Probleem: Niet gemachtigd om een Data Factory-cmdlet uit te voeren
 Waarschijnlijk gebruikt u een verkeerd Azure-account of -abonnement met de Azure PowerShell. Gebruik de volgende cmdlets om het juiste Azure-account en -abonnement te selecteren voor gebruik met de Azure PowerShell.
 
-1. Connect-AzureRmAccount: Gebruik de juiste gebruikers-ID en wachtwoord
-2. Get-AzureRmSubscription - weergeven van alle abonnementen voor het account.
-3. SELECT-AzureRmSubscription &lt;abonnementsnaam&gt; -Selecteer het juiste abonnement. Gebruik hetzelfde account dat u gebruikt om te maken van een data factory in Azure portal.
+1. Verbinding maken-AzAccount - gebruik de juiste gebruikers-ID en wachtwoord
+2. Get-AzSubscription - weergeven van alle abonnementen voor het account.
+3. Selecteer AzSubscription &lt;abonnementsnaam&gt; -Selecteer het juiste abonnement. Gebruik hetzelfde account dat u gebruikt om te maken van een data factory in Azure portal.
 
 ### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>Probleem: Niet Express-installatie van Data Management Gateway gestart vanuit Azure portal
 Voor de snelle installatie voor Data Management Gateway is Internet Explorer vereist of een webbrowser die compatibel is met Microsoft ClickOnce. Als u de snelle installatie niet kunt starten, voert u een van de volgende handelingen uit:

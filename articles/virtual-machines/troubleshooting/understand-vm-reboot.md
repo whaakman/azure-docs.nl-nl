@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 734889905719e0b15b32988e90b48721372076cc
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 70a6845349b90cf614a84e13680ebb6fc6b3e2a9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329146"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433158"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Meer informatie over een systeem opnieuw is opgestart voor de virtuele machine van Azure
 
@@ -102,7 +102,7 @@ Alle virtuele machines op die host worden automatisch verplaatst naar een andere
 
 In uitzonderlijk gevallen moet het team van Azure-bewerkingen mogelijk onderhoudsactiviteiten om te controleren of de algemene status van het Azure-platform uit te voeren. Dit probleem mogelijk invloed op de VM-beschikbaarheid en het meestal resulteert in dezelfde automatisch herstel actie, zoals eerder beschreven.  
 
-Niet-geplande maintenances omvatten het volgende:
+Niet-gepland onderhoud omvatten het volgende:
 
 - Dringende knooppunt defragmentatie
 - Updates van de switch urgente netwerken

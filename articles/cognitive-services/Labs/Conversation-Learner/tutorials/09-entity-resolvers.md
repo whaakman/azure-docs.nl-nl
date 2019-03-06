@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: e6a671470a87f4509e466bcdfe7845b7bf7ec8dc
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ebe555bfd7b34efd87d400d786049964665c76e6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209144"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451056"
 ---
 # <a name="entity-resolvers"></a>Entiteit Resolvers
 
@@ -80,7 +80,7 @@ In deze zelfstudie is vereist dat de algemene zelfstudie bot wordt uitgevoerd
 8. Label ook de tekst 'Zondag volgende week' als 'return'
 9. Klik op de knop 'Acties Score'.
     - U ziet hoe het deelvenster 'Geheugen' bevat de datums vertrek en keer terug.
-    - Beweeg de muisaanwijzer over elkaar en bekijk hoe de entiteiten date-objecten die duidelijk vastleggen van de datum van de werkelijke kalender opgeven in plaats van "Zondag" of 'morgen' zijn.
+    - Beweeg de muisaanwijzer over elkaar en bekijk hoe de entiteiten date-objecten die duidelijk vastleggen van de werkelijke datum in plaats van "Zondag" of 'morgen' zijn.
 10. Selecteer de "u verlaat op...' Bot-antwoord.
 11. Klik op de knop 'Opslaan'.
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: abnarain
-ms.openlocfilehash: 68878a68b5f0051c1ee9beda96293dd7cd00eaf1
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: dc9f24f948e32d1b87745016852a875d440323de
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493585"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443691"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Maken en configureren van een zelf-hostende integratieruntime
 De integratieruntime (IR) is de rekeninfrastructuur die Azure Data Factory gebruikt zodat de mogelijkheden van de integratie van gegevens in verschillende netwerkomgevingen. Zie voor meer informatie over IR [overzicht van Integration runtime](concepts-integration-runtime.md).
@@ -25,11 +25,13 @@ Een zelf-hostende integratieruntime kan worden uitgevoerd kopieeractiviteiten tu
 
 Dit document wordt beschreven hoe u kunt maken en configureren van een zelf-hostende IR
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="high-level-steps-to-install-a-self-hosted-ir"></a>De stappen op hoog niveau voor het installeren van een zelf-hostende IR
 1. Een zelf-hostende Integration Runtime maken. Voor deze taak kunt u de Azure Data Factory-UI. Hier volgt een voorbeeld van PowerShell:
 
     ```powershell
-    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ```
   
 2. [Download](https://www.microsoft.com/download/details.aspx?id=39717) en de zelf-hostende integratieruntime installeren op een lokale computer.
@@ -37,7 +39,7 @@ Dit document wordt beschreven hoe u kunt maken en configureren van een zelf-host
 3. Haal de verificatiesleutel en de zelf-hostende integratieruntime registreren met de sleutel. Hier volgt een voorbeeld van PowerShell:
 
     ```powershell
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
+    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
     ```
 
 ## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template-automation"></a>Instellen van een zelf-hostende IR op een Azure-VM met behulp van een Azure Resource Manager-sjabloon (automatisering)
@@ -96,7 +98,7 @@ U kunt de zelf-hostende integratieruntime installeren met het downloaden van een
 9. De verificatiesleutel ophalen met behulp van Azure PowerShell. Hier volgt een PowerShell-voorbeeld voor het ophalen van de verificatiesleutel:
 
     ```powershell
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
+    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
     ```
 11. Op de **registreert Integration Runtime (zelf-hostend)** pagina van Microsoft Integration Runtime Configuration Manager die worden uitgevoerd op uw computer, voert de volgende stappen uit:
 
@@ -112,7 +114,7 @@ Een zelf-hostende integratieruntime kan worden gekoppeld aan meerdere on-premise
 * Hogere beschikbaarheid van de zelf-hostende integratieruntime zodat het niet meer het enige storingspunt in uw big data-oplossing of cloud gegevensintegratie met Azure Data Factory, ervoor te zorgen dat bedrijfscontinuïteit met maximaal vier knooppunten.
 * Verbeterde prestaties en de doorvoer tijdens de verplaatsing van gegevens tussen on-premises en cloud gegevensarchieven. Meer informatie opvragen over [prestaties vergelijkingen](copy-activity-performance.md).
 
-U kunt meerdere knooppunten koppelen door het installeren van de zelf-hostende integration runtime-software van de [Downloadcentrum](https://www.microsoft.com/download/details.aspx?id=39717). Vervolgens, registreren met behulp van een van de verificatiesleutels verkregen uit de **New-AzureRmDataFactoryV2IntegrationRuntimeKey** cmdlet, zoals beschreven in de [zelfstudie](tutorial-hybrid-copy-powershell.md).
+U kunt meerdere knooppunten koppelen door het installeren van de zelf-hostende integration runtime-software van de [Downloadcentrum](https://www.microsoft.com/download/details.aspx?id=39717). Vervolgens, registreren met behulp van een van de verificatiesleutels verkregen uit de **New-AzDataFactoryV2IntegrationRuntimeKey** cmdlet, zoals beschreven in de [zelfstudie](tutorial-hybrid-copy-powershell.md).
 
 > [!NOTE]
 > U hoeft te maken van nieuwe zelf-hostende integratieruntime voor het koppelen van elk knooppunt. U kunt de zelf-hostende integratieruntime op een andere computer installeren en registreren met behulp van de dezelfde verificatiesleutel. 
@@ -197,8 +199,6 @@ Bekijk de volgende video voor een 12 minuten durende inleiding en demonstratie v
 * De data factory waarin een gekoppelde IR wordt gemaakt moet hebben een [MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). Standaard de data factory's die zijn gemaakt in Azure portal of PowerShell-cmdlets hebben een MSI-bestand impliciet gemaakt. Maar wanneer een data factory is gemaakt via een Azure Resource Manager-sjabloon of SDK gebruikt, de **identiteit** eigenschap expliciet moet worden ingesteld om ervoor te zorgen dat een gegevensfactory met een MSI-bestand wordt gemaakt door Azure Resource Manager. 
 
 * De Azure Data Factory .NET SDK die ondersteuning biedt voor deze functie is versie 1.1.0 of hoger.
-
-* De Azure PowerShell-versie die ondersteuning biedt voor deze functie is 6.6.0 of hoger (AzureRM.DataFactoryV2, 0.5.7 of hoger).
 
 * Als u wilt machtigen, moet de gebruiker de rol eigenaar of de overgenomen rol van eigenaar in de data factory waar de gedeelde IR bestaat.
 
@@ -343,7 +343,7 @@ msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 > [!NOTE]
 > De toepassing Referentiebeheer is nog niet beschikbaar voor het versleutelen van de referenties in Azure Data Factory V2.  
 
-Als u ervoor geen open poort 8060 op de zelf-hostende integration runtime-machine kiest, kunt u methoden dan de instelling referenties toepassing gebruiken voor het configureren van de referenties van de gegevensopslag. Bijvoorbeeld, kunt u de **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential** PowerShell-cmdlet.
+Als u ervoor geen open poort 8060 op de zelf-hostende integration runtime-machine kiest, kunt u methoden dan de instelling referenties toepassing gebruiken voor het configureren van de referenties van de gegevensopslag. Bijvoorbeeld, kunt u de **New-AzDataFactoryV2LinkedServiceEncryptCredential** PowerShell-cmdlet.
 
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: shlo
-ms.openlocfilehash: e5910d08cf7ea5e1da094a0313513123d7c7813c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 6fbdee71ab1123c258a5191a78e38f51eb41cbab
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567026"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433226"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Een trigger die een pijplijn op een tumblingvenster uitvoert maken
 In dit artikel bevat stappen voor het maken, starten en controleren van een tumblingvenstertrigger. Raadpleeg voor algemene informatie over triggers en de ondersteunde typen [pijplijnen uitvoeren en triggers](concepts-pipeline-execution-triggers.md).
@@ -120,7 +120,7 @@ U kunt de **WindowStart** en **WindowEnd** systeemvariabelen van de tumblingvens
 Gebruik de **WindowStart** en **WindowEnd** systeemwaarden van variabelen in het pijplijndefinitie van de gebruiken de parameters "MyWindowStart" en "MyWindowEnd" dienovereenkomstig.
 
 ### <a name="execution-order-of-windows-in-a-backfill-scenario"></a>De volgorde van uitvoering van windows in een backfill-scenario
-Wanneer er meerdere vensters voor uitvoering (met name in een backfill-scenario), is de volgorde van de uitvoering voor windows is deterministisch, van oudste naar nieuwste intervallen. Dit gedrag worden niet op dit moment gewijzigd.
+Wanneer er meerdere vensters voor uitvoering (met name in een backfill-scenario), is de volgorde van de uitvoering voor windows is deterministisch, van oudste naar nieuwste intervallen. Dit gedrag kan op dit moment niet worden aangepast.
 
 ### <a name="existing-triggerresource-elements"></a>Bestaande TriggerResource elementen
 De volgende punten van toepassing op bestaande **TriggerResource** elementen:
@@ -129,6 +129,9 @@ De volgende punten van toepassing op bestaande **TriggerResource** elementen:
 * Als de waarde voor de **endTime** element van de trigger wijzigingen (toegevoegd of bijgewerkt), de status van de windows die al zijn verwerkt *niet* opnieuw instellen. De trigger zich houdt aan de nieuwe **endTime** waarde. Als de nieuwe **endTime** waarde is voordat u de vensters die al worden uitgevoerd, de trigger reageert. Anders wordt de trigger reageert wanneer de nieuwe **endTime** waarde is aangetroffen.
 
 ## <a name="sample-for-azure-powershell"></a>Voorbeeld van Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Deze sectie leest u hoe u Azure PowerShell gebruiken om te maken, starten en controleren van een trigger.
 
 1. Maak een JSON-bestand met de naam **MyTrigger.json** in de map C:\ADFv2QuickStartPSH\ met de volgende inhoud:
@@ -167,34 +170,34 @@ Deze sectie leest u hoe u Azure PowerShell gebruiken om te maken, starten en con
     }
     ```
 
-2. Een trigger maken met behulp van de **Set-AzureRmDataFactoryV2Trigger** cmdlet:
+2. Een trigger maken met behulp van de **Set AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
-    Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
+    Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
     
-3. Controleer of de status van de trigger **gestopt** met behulp van de **Get-AzureRmDataFactoryV2Trigger** cmdlet:
+3. Controleer of de status van de trigger **gestopt** met behulp van de **Get-AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-4. Start de trigger met behulp van de **Start-AzureRmDataFactoryV2Trigger** cmdlet:
+4. Start de trigger met behulp van de **Start AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
-    Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
+    Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-5. Controleer of de status van de trigger **gestart** met behulp van de **Get-AzureRmDataFactoryV2Trigger** cmdlet:
+5. Controleer of de status van de trigger **gestart** met behulp van de **Get-AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-6. Ontvang de trigger wordt uitgevoerd in Azure PowerShell met behulp van de **Get-AzureRmDataFactoryV2TriggerRun** cmdlet. Voor informatie over de trigger wordt uitgevoerd, moet u de volgende opdracht periodiek uitvoeren. Update de **TriggerRunStartedAfter** en **TriggerRunStartedBefore** waarden zodat deze overeenkomen met de waarden in de Triggerdefinitie van de:
+6. Ontvang de trigger wordt uitgevoerd in Azure PowerShell met behulp van de **Get-AzDataFactoryV2TriggerRun** cmdlet. Voor informatie over de trigger wordt uitgevoerd, moet u de volgende opdracht periodiek uitvoeren. Update de **TriggerRunStartedAfter** en **TriggerRunStartedBefore** waarden zodat deze overeenkomen met de waarden in de Triggerdefinitie van de:
 
     ```powershell
-    Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
+    Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
     ```
     
 Voor het bewaken van de trigger wordt uitgevoerd en de pijplijn wordt uitgevoerd in Azure portal, Zie [pijplijnuitvoeringen controleren](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).

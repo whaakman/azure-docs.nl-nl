@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 220a95f1bc95a8866a459eb878047e7f47920bd1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4652f23bdf30e1b9e582cd1e83dc95f7716c8394
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175089"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436405"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Een profiel van de technische definiëren in een aangepast beleid voor Azure Active Directory B2C
 
@@ -52,7 +52,7 @@ De **ValidationTechnicalProfile** element bevat het volgende kenmerk:
 | Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | referenceId | Ja | Een id van een technisch profiel al gedefinieerd in het beleid of het bovenliggende beleid. |
-|ContinueOnError|Nee| Geeft aan of validatie van de validatie van de volgende technische profielen blijven moet als deze validaiton technisch profiel wordt een fout gegenereerd. Mogelijke waarden: `true` of `false` (standaard de verwerking van verdere validatie profielen wordt gestopt en is een fout geretourneerd). |
+|ContinueOnError|Nee| Geeft aan of validatie van de validatie van de volgende technische profielen blijven moet als deze validatie technisch profiel wordt een fout gegenereerd. Mogelijke waarden: `true` of `false` (standaard de verwerking van verdere validatie profielen wordt gestopt en is een fout geretourneerd). |
 |ContinueOnSuccess | Nee | Geeft aan of validatie van de validatie van de volgende profielen blijven moet als deze technische validatieprofiel is geslaagd. Mogelijke waarden: `true` of `false`. De standaardwaarde is `true`, wat inhoudt dat de verwerking van verdere validatie profielen blijft. |
 
 De **ValidationTechnicalProfile** element bevat het volgende element:
@@ -72,7 +72,7 @@ De **voorwaarde** element bevat de volgende elementen:
 
 | Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
-| Waarde | 1: n | De gegevens die wordt gebruikt door de controle. Als het type van deze controle is `ClaimsExist`, dit veld geeft aan dat een ClaimTypeReferenceId om op te vragen. Als het type van controle is `ClaimEquals`, dit veld geeft aan dat een ClaimTypeReferenceId om op te vragen. Terwijl een andere waarde-element de waarde bevat moet worden gecontroleerd.|
+| Value | 1: n | De gegevens die wordt gebruikt door de controle. Als het type van deze controle is `ClaimsExist`, dit veld geeft aan dat een ClaimTypeReferenceId om op te vragen. Als het type van controle is `ClaimEquals`, dit veld geeft aan dat een ClaimTypeReferenceId om op te vragen. Terwijl een andere waarde-element de waarde bevat moet worden gecontroleerd.|
 | Bewerking | 1:1 | De actie die moet worden uitgevoerd als de controle van de voorwaarde in een orchestration-stap ingesteld op true is. De waarde van de **actie** is ingesteld op `SkipThisValidationTechnicalProfile`. Hiermee geeft u de gekoppelde validatieregels technisch profiel moet niet worden uitgevoerd. |
 
 ### <a name="example"></a>Voorbeeld

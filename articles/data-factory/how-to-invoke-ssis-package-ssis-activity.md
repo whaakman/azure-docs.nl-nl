@@ -13,17 +13,19 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 2a948a75ce3f6c21d7e92e3e1ccb1ef98dbe2ea0
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 846fc5de6470326fbd51d19397503e4eee2ee15b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114379"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436082"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Uitvoeren van een SSIS-pakket met de activiteit uitvoeren van SSIS-pakket in Azure Data Factory
 In dit artikel wordt beschreven hoe u een SSIS-pakket in Azure Data Factory (ADF) pijplijn uitvoeren met behulp van de activiteit uitvoeren van SSIS-pakket. 
 
 ## <a name="prerequisites"></a>Vereisten
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Een Azure-SSIS Integration Runtime (IR) maken als u nog geen al door de stapsgewijze instructies in de [zelfstudie: SSIS-pakketten implementeren in Azure](tutorial-create-azure-ssis-runtime-portal.md).
 
@@ -111,7 +113,7 @@ U kunt ook een geplande trigger maken voor uw pijplijn, zodat de pijplijn wordt 
 ## <a name="run-a-package-with-powershell"></a>Uitvoeren van een pakket met PowerShell
 In deze sectie kunt u Azure PowerShell gebruiken voor het maken van een ADF-pijplijn met de SSIS-pakket uitvoeren-activiteit die uw SSIS-pakket wordt uitgevoerd. 
 
-Installeer de nieuwste Azure PowerShell-modules door de stapsgewijze instructies in [hoe u Azure PowerShell installeren en configureren](/powershell/azure/azurerm/install-azurerm-ps).
+Installeer de nieuwste Azure PowerShell-modules door de stapsgewijze instructies in [hoe u Azure PowerShell installeren en configureren](/powershell/azure/install-az-ps).
 
 ### <a name="create-an-adf-with-azure-ssis-ir"></a>Een ADF met Azure-SSIS IR maken
 U kunt gebruiken van een bestaande ADF die al op Azure-SSIS IR is ingericht of maak een nieuwe ADF met Azure-SSIS IR de stapsgewijze instructies in de [zelfstudie: SSIS-pakketten implementeren in Azure via PowerShell](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure-powershell).
@@ -198,10 +200,10 @@ In deze stap maakt maken u een pijplijn met een activiteit uitvoeren van SSIS-pa
 
 2. Ga in Azure PowerShell, naar de `C:\ADF\RunSSISPackage` map.
 
-3. Maak de pijplijn **RunSSISPackagePipeline**, voert de **Set-AzureRmDataFactoryV2Pipeline** cmdlet.
+3. Maak de pijplijn **RunSSISPackagePipeline**, voert de **Set AzDataFactoryV2Pipeline** cmdlet.
 
    ```powershell
-   $DFPipeLine = Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
+   $DFPipeLine = Set-AzDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
                                                   -ResourceGroupName $ResGrp.ResourceGroupName `
                                                   -Name "RunSSISPackagePipeline"
                                                   -DefinitionFile ".\RunSSISPackagePipeline.json"
@@ -218,10 +220,10 @@ In deze stap maakt maken u een pijplijn met een activiteit uitvoeren van SSIS-pa
    ```
 
 ### <a name="run-the-pipeline"></a>De pijplijn uitvoeren
-Gebruik de **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet uit te voeren van de pijplijn. De cmdlet retourneert de id voor de pijplijnuitvoering voor toekomstige controle.
+Gebruik de **Invoke-AzDataFactoryV2Pipeline** cmdlet uit te voeren van de pijplijn. De cmdlet retourneert de id voor de pijplijnuitvoering voor toekomstige controle.
 
 ```powershell
-$RunId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
+$RunId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
                                              -ResourceGroupName $ResGrp.ResourceGroupName `
                                              -PipelineName $DFPipeLine.Name
 ```
@@ -232,7 +234,7 @@ Voer het volgende PowerShell-script uit om continu de status van de pijplijnuitv
 
 ```powershell
 while ($True) {
-    $Run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $ResGrp.ResourceGroupName `
+    $Run = Get-AzDataFactoryV2PipelineRun -ResourceGroupName $ResGrp.ResourceGroupName `
                                                -DataFactoryName $DataFactory.DataFactoryName `
                                                -PipelineRunId $RunId
 
@@ -280,31 +282,31 @@ In de vorige stap hebt u de pijplijn op aanvraag uitgevoerd. U kunt ook een plan
    }    
    ```
 2. In **Azure PowerShell**, Ga naar de **C:\ADF\RunSSISPackage** map.
-3. Voer de **Set-AzureRmDataFactoryV2Trigger** cmdlet, waarmee de trigger wordt gemaakt. 
+3. Voer de **Set AzDataFactoryV2Trigger** cmdlet, waarmee de trigger wordt gemaakt. 
 
    ```powershell
-   Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
+   Set-AzDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
                                    -DataFactoryName $DataFactory.DataFactoryName `
                                    -Name "MyTrigger" -DefinitionFile ".\MyTrigger.json"
    ```
-4. Standaard wordt de trigger is gestopt. De trigger starten door het uitvoeren van de **Start-AzureRmDataFactoryV2Trigger** cmdlet. 
+4. Standaard wordt de trigger is gestopt. De trigger starten door het uitvoeren van de **Start AzDataFactoryV2Trigger** cmdlet. 
 
    ```powershell
-   Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
+   Start-AzDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
                                      -DataFactoryName $DataFactory.DataFactoryName `
                                      -Name "MyTrigger" 
    ```
-5. Bevestig dat de trigger is gestart door het uitvoeren van de **Get-AzureRmDataFactoryV2Trigger** cmdlet. 
+5. Bevestig dat de trigger is gestart door het uitvoeren van de **Get-AzDataFactoryV2Trigger** cmdlet. 
 
    ```powershell
-   Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName `
+   Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName `
                                    -DataFactoryName $DataFactoryName `
                                    -Name "MyTrigger"     
    ```    
 6. Voer de volgende opdracht uit na het volgende uur. Bijvoorbeeld, als de huidige tijd 3:25 uur UTC is, voer de opdracht uit om 16: 00 UTC. 
     
    ```powershell
-   Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName `
+   Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName `
                                       -DataFactoryName $DataFactoryName `
                                       -TriggerName "MyTrigger" `
                                       -TriggerRunStartedAfter "2017-12-06" `

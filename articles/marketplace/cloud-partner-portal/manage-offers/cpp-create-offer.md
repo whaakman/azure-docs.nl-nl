@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 9b53a26f5163eae17198302fc26c079185cb7bd8
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: af9b34d90098409135020fa8a45ecd0253f25b22
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355529"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454541"
 ---
 # <a name="create-azure-marketplace-and-appsource-offers"></a>Azure Marketplace en AppSource aanbiedingen maken
 
@@ -55,7 +55,7 @@ Bij het maken van een aanbieding, u opgeven dat de vereiste en optionele gegeven
 |      --------       |   -------                                                            |
 | **Aanbiedingsinstellingen**  | Verzamelt aanbieding en uitgever identiteitsgegevens.                    |
 | **SKU's**            | Definieert de technische en zakelijke kenmerken voor elke versie voorraadeenheid (SKU) van uw aanbieding |
-| **Test Drive**      | Voor deze typen die ondersteuning bieden voor deze optionele functie, definieert een demonstratie van uw aanbieding.  Zie voor meer informatie, [wat is Test Drive?](../../cloud-partner-portal-orig/what-is-test-drive.md)  |
+| **Test Drive**      | Voor deze typen die ondersteuning bieden voor deze optionele functie, definieert een demonstratie van uw aanbieding.  Zie voor meer informatie, [wat is Test Drive?](../test-drive/what-is-test-drive.md)  |
 | **Marketplace** of **webwinkel** | Verzamelt tekenreeksen, documenten en afbeeldingen die worden gebruikt om de aanbieding op marketplace weer te geven |
 | **Ondersteuning**         | Verzamelt contactgegevens van de klant, engineering en Onlineondersteuning  |
 |  |  |

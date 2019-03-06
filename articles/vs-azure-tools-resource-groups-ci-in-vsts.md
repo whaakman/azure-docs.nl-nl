@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: a3dfca48b52af39e7a536b3012a3f4cdac4e9a94
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d7859572b090913db13fe9bb7f3ed67619fe5521
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955164"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456343"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Continue integratie in Azure DevOps-Services met behulp van Azure Resource Group deployment projecten
-Voor het implementeren van een Azure-sjabloon, u taken kunt uitvoeren in verschillende stadia: bouw, Test, kopiëren naar Azure (ook wel "Staging"), en implementeren van sjablonen. Er zijn twee verschillende manieren om sjablonen te implementeren met Azure DevOps-Services. Beide methoden bieden dezelfde resultaten, daarom kiest die het beste past bij uw werkstroom.
+Voor het implementeren van een Azure-sjabloon, kunt u taken uitvoeren in verschillende fasen: Bouw, Test, kopiëren naar Azure (ook wel "Staging"), en implementeren van sjablonen. Er zijn twee verschillende manieren om sjablonen te implementeren met Azure DevOps-Services. Beide methoden bieden dezelfde resultaten, daarom kiest die het beste past bij uw werkstroom.
 
 1. Één stap toevoegen aan uw build-pijplijn met de PowerShell-script dat opgenomen in het implementatieproject Azure-resourcegroep (implementeren-AzureResourceGroup.ps1) wordt uitgevoerd. Het script artefacten worden gekopieerd en vervolgens de sjabloon wordt geïmplementeerd.
 2. Voeg dat meerdere Azure DevOps-Services bouwen stappen, elk ervan een fase-taak uit te voeren.
@@ -78,7 +78,7 @@ De volgende procedures helpen u bij de benodigde stappen voor het configureren v
       
       * Abonnements-id
       * Abonnementsnaam
-      * Service-Principal-Id
+      * Service-principal-id
       * Service-Principal-sleutel
       * Tenant-id
    6. Toevoegen van een naam van uw keuze op de **abonnement** naamvak. Deze waarde wordt later in de **Azure-abonnement** vervolgkeuzelijst in Azure DevOps-Services. 
@@ -107,14 +107,14 @@ De volgende procedures helpen u bij de benodigde stappen voor het configureren v
     ![Pad naar script bewerken][10]
 8. In de **scriptargumenten** voert u de volgende parameters (op één regel). Wanneer u het script in Visual Studio uitvoeren, kunt u zien hoe Visual Studio maakt gebruik van de parameters in de **uitvoer** venster. U kunt dit gebruiken als uitgangspunt voor het instellen van de parameterwaarden in uw build-stap.
    
-   | Parameter | Beschrijving |
+   | Parameter | Description |
    | --- | --- |
    | -ResourceGroupLocation |De waarde van de geo-locatie waar de resourcegroep zich bevindt, zoals **eastus** of **'VS-Oost'**. (Enkele aanhalingstekens toevoegen als er een ruimte in de naam). Zie [Azure-regio's](https://azure.microsoft.com/regions/) voor meer informatie. |
    | -ResourceGroupName |De naam van de resourcegroep die is gebruikt voor deze implementatie. |
    | -UploadArtifacts |Deze parameter, indien aanwezig, geeft aan dat artefacten die moeten worden geüpload naar Azure uit het lokale systeem. U hoeft in te stellen deze switch als uw sjabloonimplementatie vereist extra artefacten die u wilt om te zetten met behulp van de PowerShell-script (zoals configuratiescripts of geneste sjablonen). |
    | -StorageAccountName |De naam van het opslagaccount dat wordt gebruikt voor de fase artefacten voor deze implementatie. Deze parameter wordt alleen gebruikt als u bij het Faseren van artefacten voor implementatie. Als deze parameter is opgegeven, wordt een nieuw opslagaccount gemaakt als het script niet tijdens een eerdere implementatie gemaakt is. Als de parameter is opgegeven, worden de storage-account moet al bestaan. |
    | -StorageAccountResourceGroupName |De naam van de resourcegroep die is gekoppeld aan de storage-account. Deze parameter is vereist, alleen als u een waarde voor de parameter StorageAccountName opgeven. |
-   | -Sjabloonbestand |Het pad naar het sjabloonbestand in het implementatieproject voor Azure-resourcegroep. Ter verbetering van de flexibiliteit, moet u een pad gebruiken voor deze parameter die is gebaseerd op de locatie van de PowerShell-script in plaats van een absoluut pad zijn. |
+   | -TemplateFile |Het pad naar het sjabloonbestand in het implementatieproject voor Azure-resourcegroep. Ter verbetering van de flexibiliteit, moet u een pad gebruiken voor deze parameter die is gebaseerd op de locatie van de PowerShell-script in plaats van een absoluut pad zijn. |
    | -TemplateParametersFile |Het pad naar het parameterbestand in het implementatieproject voor Azure-resourcegroep. Ter verbetering van de flexibiliteit, moet u een pad gebruiken voor deze parameter die is gebaseerd op de locatie van de PowerShell-script in plaats van een absoluut pad zijn. |
    | -ArtifactStagingDirectory |Deze parameter kunt het PowerShell script weet in de map waar binaire bestanden van het project moeten worden gekopieerd. Deze waarde overschrijft de standaardwaarde gebruikt door het PowerShell-script. Voor Azure DevOps-Services gebruikt, stelt u de waarde in op: - ArtifactStagingDirectory $(Build.StagingDirectory) |
    

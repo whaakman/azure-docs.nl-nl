@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/09/2016
 ms.author: cjiang
-ms.openlocfilehash: 08009ca7f9faaa75e593670c22cf864c12236e8b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 9fea914fdf9b025fd5d38219a6bfc81b4a9cc584
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47413673"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450277"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Probleemoplossing voor implementatieproblemen bij het maken van een nieuwe virtuele Linux-machine in Azure Resource Manager
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -43,23 +43,23 @@ Als u wilt gaan met het oplossen van problemen, de activiteitenlogboeken voor he
 
 [!INCLUDE [virtual-machines-linux-troubleshoot-deployment-new-vm-table](../../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-table.md)]
 
-**Y:** als het besturingssysteem gegeneraliseerd is, Linux en deze is geüpload en/of vastgelegd met de algemene instelling, wordt er niet eventuele fouten. Op dezelfde manier als het besturingssysteem Linux gespecialiseerd, en deze is geüpload en/of vastgelegd met de instelling van gespecialiseerde en eventuele fouten niet.
+**Y:** Als het besturingssysteem gegeneraliseerd Linux is, en deze is geüpload en/of vastgelegd met de algemene instelling, klik zich er niet eventuele fouten. Op dezelfde manier als het besturingssysteem Linux gespecialiseerd, en deze is geüpload en/of vastgelegd met de instelling van gespecialiseerde en eventuele fouten niet.
 
 **Uploadfouten:**
 
-**N<sup>1</sup>:** als het besturingssysteem Linux gegeneraliseerd en is geüpload als gespecialiseerd, krijgt u een inrichting time-outfout omdat de virtuele machine is vastgelopen bij het inrichtingsproces fase.
+**N<sup>1</sup>:** Als het besturingssysteem Linux gegeneraliseerd en is geüpload als gespecialiseerd, krijgt u een inrichting time-outfout omdat de virtuele machine is vastgelopen bij het inrichtingsproces fase.
 
-**N<sup>2</sup>:** als het besturingssysteem is Linux, en is geüpload als gegeneraliseerd, krijgt u een inrichting is mislukt omdat de nieuwe virtuele machine wordt uitgevoerd met de oorspronkelijke de computernaam, gebruikersnaam en wachtwoord.
+**N<sup>2</sup>:** Als het besturingssysteem is Linux, en is geüpload als gegeneraliseerd, wordt er een inrichten is mislukt omdat de nieuwe virtuele machine wordt uitgevoerd met de oorspronkelijke de computernaam, gebruikersnaam en wachtwoord.
 
 **Oplossing:**
 
-Uploaden om op te lossen beide deze fouten, de oorspronkelijke VHD, beschikbare on-premises, met dezelfde instelling als die voor het besturingssysteem (gegeneraliseerde/specifieke). Als u wilt uploaden als gegeneraliseerd, vergeet niet om uit te voeren - eerst de inrichting.
+Uploaden om op te lossen beide deze fouten, de oorspronkelijke VHD, on-premises, met dezelfde instelling als die voor het besturingssysteem (gegeneraliseerde/specifieke) beschikbaar. Als u wilt uploaden als gegeneraliseerd, vergeet niet om uit te voeren - eerst de inrichting.
 
 **Vastleggen fouten:**
 
-**N<sup>3</sup>:** als het besturingssysteem gegeneraliseerd Linux is, en deze wordt vastgelegd als gespecialiseerd, krijgt u een inrichting time-outfout omdat de oorspronkelijke virtuele machine kan niet worden gebruikt omdat het is gemarkeerd als gegeneraliseerd.
+**N<sup>3</sup>:** Als het besturingssysteem gegeneraliseerd Linux is, en deze wordt vastgelegd als gespecialiseerd, krijgt u een inrichting time-outfout omdat de oorspronkelijke virtuele machine kan niet worden gebruikt omdat het is gemarkeerd als gegeneraliseerd.
 
-**N<sup>4</sup>:** als het besturingssysteem is Linux, en deze wordt vastgelegd als gegeneraliseerd, krijgt u een inrichting is mislukt omdat de nieuwe virtuele machine wordt uitgevoerd met de oorspronkelijke de computernaam, gebruikersnaam en wachtwoord. De oorspronkelijke virtuele machine is ook niet kan worden gebruikt omdat deze is gemarkeerd als gespecialiseerde.
+**N<sup>4</sup>:** Als het besturingssysteem is Linux, en deze wordt vastgelegd als gegeneraliseerd, wordt er een inrichten is mislukt omdat de nieuwe virtuele machine wordt uitgevoerd met de oorspronkelijke de computernaam, gebruikersnaam en wachtwoord. De oorspronkelijke virtuele machine is ook niet kan worden gebruikt omdat deze is gemarkeerd als gespecialiseerde.
 
 **Oplossing:**
 
@@ -68,7 +68,7 @@ Beide deze fouten oplossen, verwijdert u de huidige installatiekopie vanuit de p
 ## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>Probleem: Aangepaste / galerie / marketplace-installatiekopie; Toewijzingsfout
 Deze fout zich voordoet in situaties als de nieuwe VM-aanvraag is vastgemaakt aan een cluster die op de VM-grootte wordt aangevraagd niet kan ondersteunen, of heeft geen beschikbare vrije ruimte voor de aanvraag.
 
-**1 oorzaak:** het cluster kan niet de aangevraagde VM-grootte ondersteunt.
+**1 oorzaak:** Het cluster kan niet de aangevraagde VM-grootte ondersteunt.
 
 **Oplossing 1:**
 
@@ -79,7 +79,7 @@ Deze fout zich voordoet in situaties als de nieuwe VM-aanvraag is vastgemaakt aa
   * Nadat alle virtuele machines stoppen, moet u de nieuwe virtuele machine maken in de gewenste grootte.
   * Start de nieuwe virtuele machine eerst, en vervolgens selecteert u elk van de gestopte VM's en klik op **Start**.
 
-**2 oorzaak:** het cluster heeft geen gratis resources.
+**2 oorzaak:** Het cluster heeft geen gratis resources.
 
 **Oplossing 2:**
 

@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/05/2019
 ms.author: diberry
-ms.openlocfilehash: cff4199663bce39353f8c10c68f51f15d6a72a22
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 7281fb15e91195e1dd20095d9fdf80d3d9894a26
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314820"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433056"
 ---
 # <a name="use-active-learning-to-improve-knowledge-base"></a>Actief leren gebruiken om uw knowledge base te verbeteren
 
@@ -37,6 +37,8 @@ Een van beide methoden biedt de kerntechnologie met vergelijkbare query's die zi
 Actief leren wordt geactiveerd op basis van de scores van hoogste aantal antwoorden die door de QnA Maker wordt geretourneerd voor een bepaalde query. Als de score verschillen binnen een kleine bereik liggen, wordt de query wordt beschouwd als een mogelijke _suggestie_ voor elk van de mogelijke antwoorden. 
 
 Alle suggesties samen die vergelijkbaar zijn geclusterd en bovenste suggesties voor alternatieve vragen worden weergegeven op basis van de frequentie van de bepaalde query's door eindgebruikers. Actief leren biedt de best mogelijke suggesties in gevallen waar de eindpunten zijn aan een redelijk aantal en de verschillende query's voor gebruik.
+
+Wanneer 5 of meer vergelijkbaar query's zijn geclusterd, stelt om de 30 minuten, QnA Maker de op basis van gebruiker vragen naar de knowledge base-ontwerpfunctie te accepteren of weigeren.
 
 Als u vragen worden voorgesteld in de portal voor QnA Maker, moet u beoordeelt en accepteert of weigert die suggesties. 
 
@@ -162,6 +164,31 @@ Content-Type: application/json
 ```
 
 Meer informatie over het gebruik van actief leren met een [Azure Bot C# voorbeeld](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot)
+
+## <a name="active-learning-is-saved-in-the-exported-apps-tsv-file"></a>Actief leren wordt opgeslagen in de geëxporteerde app tsv-bestand
+
+Wanneer uw app actief leren ingeschakeld is, en u de app exporteren de `SuggestedQuestions` kolom in de tsv-bestand worden de gegevens actief leren bewaard. 
+
+De `SuggestedQuestions` kolom is een JSON-object van informatie van de impliciete (`autosuggested`) en expliciet (`usersuggested`) [feedback](#active-learning). Een voorbeeld van dit JSON-object voor een enkele gebruiker ingediend vraag van `help` is:
+
+```JSON
+[
+    {
+        "clusterHead": "help",
+        "totalAutoSuggestedCount": 1,
+        "totalUserSuggestedCount": 0,
+        "alternateQuestionList": [
+            {
+                "question": "help",
+                "autoSuggestedCount": 1,
+                "userSuggestedCount": 0
+            }
+        ]
+    }
+]
+```
+
+Wanneer u deze app opnieuw importeren, blijft de actief leren te verzamelen en aan te bevelen suggesties voor uw knowledge base. 
 
 ## <a name="next-steps"></a>Volgende stappen
  

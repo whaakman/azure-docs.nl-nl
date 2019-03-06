@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: aac59e087ba106bc20d94fea85cb8a3cd9273482
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 9e485797dcc40c426b208971c04acffa168e528a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233069"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455901"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Uitvoeren van acties op basis van status van de groep met een bereik in Azure Logic Apps
 
@@ -65,7 +65,7 @@ U kunt uw logische app op elk gewenst moment opslaan, zo vaak Sla uw werk.
 
    1. Als u nog een verbinding met Bing kaarten hebt, wordt u gevraagd om een verbinding te maken.
 
-      | Instelling | Waarde | Beschrijving |
+      | Instelling | Waarde | Description |
       | ------- | ----- | ----------- |
       | **Verbindingsnaam** | BingMapsConnection | Geef een naam op voor uw verbinding. | 
       | **API-sleutel** | <*your-Bing-Maps-key*> | Voer de sleutel voor Bing Kaarten in die u eerder hebt ontvangen. | 
@@ -77,7 +77,7 @@ U kunt uw logische app op elk gewenst moment opslaan, zo vaak Sla uw werk.
 
       Zie [Een route berekenen](https://msdn.microsoft.com/library/ff701717.aspx) voor meer informatie over deze parameters.
 
-      | Instelling | Waarde | Beschrijving |
+      | Instelling | Waarde | Description |
       | ------- | ----- | ----------- |
       | **Routepunt 1** | <*Start*> | Voer beginpunt van uw route. | 
       | **Routepunt 2** | <*end*> | Voer de bestemming van uw route. | 
@@ -91,7 +91,7 @@ U kunt uw logische app op elk gewenst moment opslaan, zo vaak Sla uw werk.
 
 1. [Een voorwaarde toevoegen](../logic-apps/logic-apps-control-flow-conditional-statement.md) die controleert of de actuele reistijd met verkeer hoger is dan een opgegeven periode. Volg deze stappen in dit voorbeeld:
 
-   1. Wijzig de naam van de voorwaarde in deze beschrijving: **als verkeer tijd meer dan een opgegeven periode**
+   1. Wijzig de naam van de voorwaarde in deze beschrijving: **Als u verkeer tijd is meer dan een opgegeven periode**
 
    1. Klik in de meest linkse kolom in de **een waarde kiezen** vak, zodat de lijst met dynamische inhoud wordt weergegeven. Uit de lijst, selecteer de **reistijd in huidige verkeerssituatie** veld, in seconden. 
 
@@ -99,7 +99,7 @@ U kunt uw logische app op elk gewenst moment opslaan, zo vaak Sla uw werk.
 
    1. Selecteer in het middelste vak, deze operator: **is groter dan**
 
-   1. Geef deze vergelijkingswaarde, in seconden en equivlent tot 10 minuten in de meest rechtse kolom: **600**
+   1. Geef deze vergelijkingswaarde, in seconden, en is gelijk aan 10 minuten in de meest rechtse kolom: **600**
 
       Wanneer u klaar bent, ziet de voorwaarde eruit zoals in dit voorbeeld:
 
@@ -142,7 +142,7 @@ U kunt uw logische app op elk gewenst moment opslaan, zo vaak Sla uw werk.
 
       ![Expressie voltooien](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-3.png)  
 
-   1. Wanneer u klaar bent, kiest u **OK**.
+   1. Als u klaar bent, kiest u **Done**.
 
   1. Nadat de expressie wordt omgezet, deze tekst met een toonaangevende spatie toevoegen: ``` minutes```
   
@@ -179,7 +179,7 @@ Voeg vervolgens een bereik zodat u kunt specifieke acties te groeperen en hun st
 
    ![Bereik toegevoegd](./media/logic-apps-control-flow-run-steps-group-scopes/scope-added.png)
 
-1. Onder het bereik, moet u een voorwaarde waarmee wordt gecontroleerd of de status van de scope toevoegen. Wijzig de naam van de voorwaarde in deze beschrijving: **als bereik is mislukt**
+1. Onder het bereik, moet u een voorwaarde waarmee wordt gecontroleerd of de status van de scope toevoegen. Wijzig de naam van de voorwaarde in deze beschrijving: **Als bereik is mislukt**
 
    ![Voorwaarde om te controleren of de status van het bereik toevoegen](./media/logic-apps-control-flow-run-steps-group-scopes/add-condition-check-scope-status.png)
   

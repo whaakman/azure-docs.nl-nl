@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 47fde9099ed8172b83f9f12085c5aee219c4716c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 46e8c0185ec94d0ea3429f761b3760dcbccc25aa
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57318016"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432614"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Connectiviteit van apparaten in Azure IoT Central
 
@@ -33,9 +33,9 @@ Met DPS kunnen:
 In dit artikel beschrijft de volgende vier gebruiksvoorbeelden:
 
 1. [Snel verbinding maken met een enkel apparaat met behulp van SAS](#connect-a-single-device)
-1. [Verbinding maken met apparaten op schaal met behulp van SAS](#connect-devices-at-scale-using-shared-access-signatures)
+1. Verbinding maken met apparaten op schaal met behulp van SAS
 1. [Verbinding maken met apparaten op schaal met behulp van X.509-certificaten](#connect-devices-using-x509-certificates) dit is de aanbevolen aanpak voor productieomgevingen.
-1. [Verbinding maken zonder eerst registreren apparaten](#connect-without-first-registering-devices) 
+1. Verbinding maken zonder eerst registreren apparaten
 
 ## <a name="connect-a-single-device"></a>Verbinding maken met een enkel apparaat
 
@@ -69,7 +69,7 @@ Voor het registreren van een groot aantal apparaten met uw IoT Central-toepassin
 Om op te halen van de verbindingsgegevens voor de geïmporteerde apparaten [exporteren van een CSV-bestand van uw toepassing IoT Central](howto-manage-devices-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json#export-devices).
 
 > [!NOTE]
-> Zie voor meer informatie hoe u apparaten kunt verbinden zonder het eerst in IoT Central registreren, [verbinden zonder eerst registreren apparaten](#connect-without-first-registering-devices).
+> Zie voor meer informatie hoe u apparaten kunt verbinden zonder het eerst in IoT Central registreren, verbinding maken zonder eerst registreren apparaten.
 
 ### <a name="set-up-your-devices"></a>Instellen van uw apparaten
 

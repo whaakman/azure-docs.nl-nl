@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 4ec662cd60e2ca8e5db76a3fda4c68df6f3164e4
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: b5c43215ce1800ac162c8b5d19ba4d4c987a3bac
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893678"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445803"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>Key Vault in Azure Stack met behulp van PowerShell beheren
 
@@ -33,7 +33,7 @@ U kunt Key Vault in Azure Stack met behulp van PowerShell beheren. Meer informat
 * Toestaan dat gebruikers of toepassingen voor het aanroepen van bewerkingen in de kluis.
 
 >[!NOTE]
->De Key Vault PowerShell-cmdlets die in dit artikel vindt u in de Azure PowerShell SDK.
+>De Key Vault PowerShell-cmdlets die worden beschreven in dit artikel vindt u in de Azure PowerShell SDK.
 
 ## <a name="prerequisites"></a>Vereisten
 

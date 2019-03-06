@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: bwren
-ms.openlocfilehash: 7e5d04f3ead4353c88a6b56ab530f41ff15022d1
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0a29e453c723ecc9ac378ee337365525587aaef2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005383"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444120"
 ---
-# <a name="computer-groups-in-azure-monitor-log-quereies"></a>Computergroepen in Azure Monitor log quereies
+# <a name="computer-groups-in-azure-monitor-log-queries"></a>Computergroepen in Logboeken-query's van Azure Monitor
 Computergroepen in Azure Monitor kunnen u aan het bereik [query's bijgehouden](../log-query/log-query-overview.md) aan een bepaalde set computers.  Elke groep wordt gevuld met computers met behulp van een query die u definieert of door het importeren van groepen van verschillende bronnen.  Wanneer de groep is opgenomen in een logboekquery, worden de resultaten beperkt tot de records die voldoen aan de computers in de groep.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]

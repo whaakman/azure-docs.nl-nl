@@ -1,5 +1,5 @@
 ---
-title: 'Controleer de verbinding - problemen oplossen met ExpressRoute: Azure | Microsoft Docs'
+title: 'Controleer de verbinding - problemen oplossen met ExpressRoute: Azure| Microsoft Docs'
 description: Deze pagina vindt instructies voor het oplossen van problemen en valideren van end-to-end-connectiviteit van een ExpressRoute-circuit.
 services: expressroute
 author: rambk
@@ -8,19 +8,19 @@ ms.topic: article
 ms.date: 09/26/2017
 ms.author: rambala
 ms.custom: seodec18
-ms.openlocfilehash: a64aa59b205e8986b80a575c50041f826606e16f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: c4b20b4007a4824ee2dea0e1b22f1ea886218885
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272806"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453606"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Connectiviteit ExpressRoute controleren
 Dit artikel helpt u bij het controleren en oplossen van ExpressRoute-connectiviteit. ExpressRoute, wat een on-premises netwerk naar de Microsoft cloud via een persoonlijke verbinding die mogelijk gemaakt door een connectiviteitsprovider uitbreidt wordt, omvat de volgende drie afzonderlijke network-zones:
 
 -   Klantnetwerk
 -   Provider-netwerk
--   Microsoft-datacentrum
+-   Microsoft Datacenter
 
 Het doel van dit document is voor de gebruiker kan aangeven wat waar u (of zelfs als) een probleem met de netwerkverbinding bestaat en in welke zone, waardoor te zoeken naar Help-informatie van het juiste team om het probleem te verhelpen. Als Microsoft-ondersteuning is vereist om een probleem te verhelpen, open een ondersteuningsticket met [Microsoft Support][Support].
 
@@ -28,6 +28,8 @@ Het doel van dit document is voor de gebruiker kan aangeven wat waar u (of zelfs
 > Dit document is bedoeld om u te helpen bij het vaststellen en eenvoudige problemen oplossen. Het is niet bedoeld om te worden van een vervanging voor ondersteuning van Microsoft. Open een ondersteuningsticket met [Microsoft Support] [ Support] als u niet het probleem met behulp van de richtlijnen op te lossen.
 >
 >
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Overzicht
 Het volgende diagram toont de logische connectiviteit van het netwerk van een klant met Microsoft-netwerk met behulp van ExpressRoute.
@@ -72,7 +74,7 @@ Een ExpressRoute-circuit moet worden gemaakt, ongeacht het model connectiviteit 
 >
 
 ### <a name="verification-via-the-azure-portal"></a>Verificatie via Azure portal
-In de Azure-portal, de status van een ExpressRoute-circuit kan worden gecontroleerd door het selecteren van ![2][2] in het menu links zijbalk en selecteer vervolgens het ExpressRoute-circuit. Selecteren van een ExpressRoute opent circuit vermeld onder 'Alle resources' u de blade van ExpressRoute-circuit. In de ![3][3] sectie van de blade, de ExpressRoute essentials worden vermeld, zoals wordt weergegeven in de volgende schermopname:
+In de Azure-portal, de status van een ExpressRoute-circuit kan worden gecontroleerd door het selecteren van ![2][2] in het menu links zijbalk en selecteer vervolgens het ExpressRoute-circuit. Selecteren van een ExpressRoute opent circuit vermeld onder 'Alle resources' u de blade van ExpressRoute-circuit. In de ![3][3] sectie van de blade, de ExpressRoute essentials worden vermeld, zoals wordt weergegeven in de volgende schermafbeelding:
 
 ![4][4]    
 
@@ -88,16 +90,16 @@ Voor een ExpressRoute-circuit operationeel is, worden de *Circuit status* moet *
 ### <a name="verification-via-powershell"></a>Verificatie via PowerShell
 Als u de ExpressRoute-circuits in een resourcegroep, gebruik de volgende opdracht:
 
-    Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
+    Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
 
 >[!TIP]
->U kunt de naam van resourcegroep ophalen via de Azure. Zie de vorige subsectie van dit document en houd er rekening mee dat de naam van de resourcegroep wordt vermeld in de voorbeeld schermafbeelding.
+>U kunt de naam van resourcegroep ophalen via de Azure. Zie de vorige subsectie van dit document en houd er rekening mee dat de naam van de resource is opgenomen in de schermopname.
 >
 >
 
 Selecteer een bepaalde ExpressRoute-circuit in een resourcegroep, gebruik de volgende opdracht:
 
-    Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
+    Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
 
 Een van het voorbeeldantwoord is:
 
@@ -155,7 +157,7 @@ Een van het voorbeeldantwoord is:
     Sku                              : Standard
     Status                           : Enabled
 
-Om te bevestigen of een ExpressRoute-circuit operationele speciale aandacht besteden aan de volgende velden: ServiceProviderProvisioningState: Ingerichte Status: Ingeschakeld
+Om te bevestigen of een ExpressRoute-circuit operationele speciale aandacht besteden aan de volgende velden: ServiceProviderProvisioningState : Ingerichte Status: Ingeschakeld
 
 >[!NOTE]
 >Als de *Status* is niet ingeschakeld, neem contact op met [Microsoft Support][Support]. Als de *ServiceProviderProvisioningState* is niet ingericht, neem contact op met uw serviceprovider.
@@ -172,7 +174,7 @@ Nadat de service-provider is voltooid de inrichting van het ExpressRoute-circuit
 >
 >
 
-In Azure portal, de status van een ExpressRoute-circuit kan worden gecontroleerd door het selecteren van ![2][2] in het menu links zijbalk en selecteer vervolgens het ExpressRoute-circuit. Het selecteren van een ExpressRoute zou circuit vermeld onder 'Alle resources' de ExpressRoute-circuit blade geopend. In de ![3][3] sectie van de blade, de ExpressRoute essentials worden vermeld zoals wordt weergegeven in de volgende schermopname:
+In Azure portal, de status van een ExpressRoute-circuit kan worden gecontroleerd door het selecteren van ![2][2] in het menu links zijbalk en selecteer vervolgens het ExpressRoute-circuit. Het selecteren van een ExpressRoute zou circuit vermeld onder 'Alle resources' de ExpressRoute-circuit blade geopend. In de ![3][3] sectie van de blade, de ExpressRoute essentials worden vermeld zoals wordt weergegeven in de volgende schermafbeelding:
 
 ![5][5]
 
@@ -186,8 +188,8 @@ In het voorgaande voorbeeld als vermelde Azure is private peering routering cont
 ### <a name="verification-via-powershell"></a>Verificatie via PowerShell
 Als u de configuratiedetails Azure privé-peering, gebruikt u de volgende opdrachten:
 
-    $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-    Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
+    $ckt = Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
+    Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
 
 Een van het voorbeeldantwoord, voor een correct geconfigureerde privé-peering, is:
 
@@ -210,21 +212,21 @@ Een van het voorbeeldantwoord, voor een correct geconfigureerde privé-peering, 
 
 Als u de Azure configuratiedetails voor openbare peering, gebruikt u de volgende opdrachten:
 
-    $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-    Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
+    $ckt = Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
+    Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
 
 Als u de configuratiegegevens van de Microsoft-peering, gebruikt u de volgende opdrachten:
 
-    $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-     Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
+    $ckt = Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
+     Get-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 
 Als u een peering niet is geconfigureerd, zou er een foutbericht weergegeven. Een voorbeeldantwoord, wanneer de vermelde peering (openbare Azure-peering in dit voorbeeld) is niet geconfigureerd in het circuit:
 
-    Get-AzureRmExpressRouteCircuitPeeringConfig : Sequence contains no matching element
+    Get-AzExpressRouteCircuitPeeringConfig : Sequence contains no matching element
     At line:1 char:1
-        + Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering ...
+        + Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering ...
         + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-            + CategoryInfo          : CloseError: (:) [Get-AzureRmExpr...itPeeringConfig], InvalidOperationException
+            + CategoryInfo          : CloseError: (:) [Get-AzExpr...itPeeringConfig], InvalidOperationException
             + FullyQualifiedErrorId : Microsoft.Azure.Commands.Network.GetAzureExpressRouteCircuitPeeringConfigCommand
 
 

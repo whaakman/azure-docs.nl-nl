@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 4d6838ecdbf1a33a4f3ee1562f26db7952fdfb83
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 596bc86033fdeaf872f1facfebbf47780893b7d2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734231"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455935"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimalisatie van uw omgeving met de oplossing System Center Operations Manager Health Check (Preview)
 
@@ -240,7 +240,7 @@ Als u aanbevelingen die u wilt negeren hebt, kunt u een tekstbestand met Log Ana
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
-    Hier volgt een schermopname van de zoeken in Logboeken-query:<br><br> ![zoeken in logboeken](./media/scom-assessment/scom-log-search.png)<br>
+    Hier volgt een schermafbeelding van de zoeken in Logboeken-query:<br><br> ![zoeken in logboeken](./media/scom-assessment/scom-log-search.png)<br>
 
 3. Kies de aanbevelingen die u wilt negeren. U gebruikt de waarden voor RecommendationId in de volgende procedure.
 

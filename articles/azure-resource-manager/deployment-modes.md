@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: 618412f27efb71caf6e044b4768d7be00f0d0f47
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 5213affe953636c46486614ee2a020d7727e1478
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009237"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407509"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager-implementatiemodi
 
@@ -26,7 +26,7 @@ Voor beide modi wordt geprobeerd de Resource Manager om alle resources die zijn 
 
 ## <a name="complete-mode"></a>Volledige modus
 
-In de volledige modus Resource Manager **verwijdert** resources die aanwezig zijn in de resourcegroep, maar niet zijn opgegeven in de sjabloon. Resources die zijn opgegeven in de sjabloon, maar niet geïmplementeerd omdat een [voorwaarde](resource-manager-templates-resources.md#condition) wordt geëvalueerd als onwaar, worden niet verwijderd.
+In de volledige modus Resource Manager **verwijdert** resources die aanwezig zijn in de resourcegroep, maar niet zijn opgegeven in de sjabloon. Resources die zijn opgegeven in de sjabloon, maar niet geïmplementeerd omdat een [voorwaarde](resource-group-authoring-templates.md#condition) wordt geëvalueerd als onwaar, worden niet verwijderd.
 
 Er zijn enkele verschillen in hoe resourcetypen omgaan met volledige modus verwijderingen. Bovenliggende resources worden automatisch verwijderd wanneer het niet in een sjabloon die in de modus voor volledig geïmplementeerd. Sommige onderliggende resources worden niet automatisch verwijderd als deze niet in de sjabloon. Deze onderliggende resource worden echter verwijderd als de bovenliggende resource wordt verwijderd. 
 

@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: luleon, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9396fbc470f25e3cf6fad883ab525af1f96e96a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 23ce02bd35d9cd4afd881ec276fabb0720b61c09
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188746"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444035"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedure: In het SAML-token voor bedrijfstoepassingen uitgegeven claims aanpassen
 
@@ -65,7 +65,7 @@ Selecteer de gewenste bron voor de `NameIdentifier` (of NameID) claim. U kunt ki
 | userprincipalName | De UPN (user principal name) van de gebruiker |
 | onpremisessamaccount | SAM-accountnaam die zijn gesynchroniseerd van on-premises Azure AD |
 | objectID | De object-id van de gebruiker in Azure AD |
-| Werknemer-id | De werknemer-id van de gebruiker |
+| EmployeeID | De werknemer-id van de gebruiker |
 | Uitbreidingen van de directory | Mapextensies [vanuit on-premises Active Directory met behulp van Azure AD Connect Sync gesynchroniseerd](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
 | Extensiekenmerken 1-15 | On-premises extensiekenmerken gebruikt de Azure AD-schema uit te breiden |
 
@@ -82,7 +82,7 @@ U kunt ook de speciale claims transformaties-functies gebruiken.
 
 ## <a name="adding-claims"></a>Claims toevoegen
 
-Wanneer een claim toevoegen, kunt u de naam van het kenmerk (die strikt hoeft niet te volgen een patroon URI aan de hand van de SAML-specificatie) opgeven. Stel de waarde voor elk gebruikerskenmerk die zijn opgeslagen in de map of gebruik de waarde van een constante geretourneerd als een statische vermelding voor alle gebruikers in uw organisatie.
+Wanneer een claim toevoegen, kunt u de naam van het kenmerk (die strikt hoeft niet te volgen een patroon URI aan de hand van de SAML-specificatie) opgeven. Stel de waarde voor elk gebruikerskenmerk die zijn opgeslagen in de map of een constante waarde gebruiken als een statische-vermelding voor alle gebruikers in uw organisatie.
 
 ![Gebruikerskenmerk toevoegen][7]
 

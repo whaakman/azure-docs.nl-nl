@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 03/05/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 430aa6e60efe63e6741436e53152126bc15798fc
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: c95fcd2e6369fae920481db2623124342c34a730
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327847"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447627"
 ---
 # <a name="azure-storage-account-overview"></a>Overzicht van Azure storage-account
 
@@ -60,11 +60,9 @@ Hoewel voor algemeen gebruik v2-accounts in de meeste gevallen aanbevolen zijn, 
 
 * U gebruikt een versie van de [REST API voor Storage Services](https://msdn.microsoft.com/library/azure/dd894041.aspx) die ouder is dan 2014-02-14 of een clientbibliotheek met een lagere versie dan 4.x en u uw toepassing niet kunt upgraden.
 
-### <a name="blob-storage-accounts"></a>Blob Storage-accounts
+### <a name="block-blob-storage-accounts"></a>Block blob storage-accounts
 
-Een Blob storage-account is een gespecialiseerd opslagaccount voor het opslaan van ongestructureerde objectgegevens als blok-blobs. BLOB storage-accounts bieden de dezelfde duurzaamheid, beschikbaarheid, schaalbaarheid en prestatieverhogende functies die beschikbaar met opslagaccounts voor algemeen gebruik v2 zijn. BLOB storage-accounts ondersteunen opslaan blok-blobs en toevoeg-blobs, maar niet voor pagina-blobs.
-
-BLOB storage-accounts bieden meerdere toegangslagen voor het opslaan van gegevens op basis van uw gebruikspatronen. Zie voor meer informatie, [toegangslagen voor blok-blobgegevens](#access-tiers-for-block-blob-data).
+Een block blob storage-account is een gespecialiseerd opslagaccount voor het opslaan van ongestructureerde objectgegevens als blok-blobs of toevoeg-blobs. Block blob storage-accounts bieden meerdere toegangslagen voor het opslaan van gegevens op basis van uw gebruikspatronen. Zie voor meer informatie, [toegangslagen voor blok-blobgegevens](#access-tiers-for-block-blob-data).
 
 ## <a name="naming-storage-accounts"></a>Naamgeving van opslagaccounts
 

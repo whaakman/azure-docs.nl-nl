@@ -13,26 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: ''
+ms.date: 02/02/2019
 ms.author: haroldw
-ms.openlocfilehash: 6a4af0efb14d8ad45add906262ffd2121e8b78d0
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: f94189e8f39771e0c3d7856ccbb8a23ba81d94aa
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085791"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447271"
 ---
 # <a name="troubleshoot-openshift-deployment-in-azure"></a>OpenShift-implementatie in Azure oplossen
 
 Als het cluster OpenShift niet succesvol zijn geïmplementeerd, wordt de Azure-portal foutuitvoer opgeven. De uitvoer kan lastig zijn om te lezen, waardoor het lastig om het probleem te identificeren. Snel scan deze uitvoer voor afsluitcode 3, 4 of 5. Het volgende bevat informatie over deze drie afsluitcodes:
 
-- Afsluitcode 3: uw Red Hat-abonnement-gebruikersnaam / wachtwoord of organisatie-ID / activeringscode is onjuist
-- Afsluitcode 4: uw Red Hat groeps-ID is onjuist of er zijn geen rechten beschikbaar
-- Afsluitcode 5: kan niet worden ingericht Docker Thin Pool Volume
+- Afsluitcode 3: Uw Red Hat-abonnement-gebruikersnaam / wachtwoord of organisatie-ID / activeringscode is onjuist
+- Afsluitcode 4: Uw Red Hat groeps-ID is onjuist of er zijn geen rechten beschikbaar
+- Afsluitcode 5: Kan niet worden ingericht Docker Thin Pool Volume
 
 Voor alle andere afsluitcodes, verbinding maken met de host (s) via ssh als de logboekbestanden wilt weergeven.
 
-**OpenShift Containerplatform**
+**OpenShift Container Platform**
 
 SSH naar de ansible-playbook-host. Voor de sjabloon of de Marketplace-aanbieding, gebruikt u de bastionhost. In de bastionomgeving kunt u SSH naar alle andere knooppunten in het cluster (master, infra, CNS, rekenen). U moet dit de hoofdmap om de logboekbestanden te raadplegen. Hoofdmap is uitgeschakeld voor de SSH-toegang standaard gebruik dus geen hoofdmap SSH naar andere knooppunten.
 

@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 3/3/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 043a49e679f2b8ec48213e28d229121d3f0e070d
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 47cd1c8e7a8ea02175f1f35eaf8c1658e03a2a53
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338634"
+ms.locfileid: "57403308"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Schakel replicatie naar Azure voor VMware-VM 's
 
@@ -51,12 +51,15 @@ Bij het repliceren van virtuele VMware-machines:
 
 7. Selecteer het Azure-netwerk en -subnet waarmee virtuele Azure-machines verbinding maken wanneer ze na een failover worden geactiveerd. Het netwerk moet zich in dezelfde regio bevinden als de Recovery Services-kluis. Selecteer **Nu configureren voor geselecteerde machines** om de netwerkinstelling toe te passen op alle machines die u voor beveiliging selecteert. Selecteer **Later configureren** om per machine een Azure-netwerk te selecteren. Als u een netwerk hebt, moet u er een maken. Voor het maken van een netwerk met behulp van Resource Manager, klikt u op **nieuw**. Selecteer een subnet, indien van toepassing, en klik vervolgens op **OK**.
 
-    ![Instelling voor het doel van replicatie inschakelen](./media/vmware-azure-enable-replication/enable-rep3.png)
+>[!NOTE]
+>Azure Site Recovery repliceert nu rechtstreeks naar Managed Disks voor alle nieuwe replicaties. Bestaande replicaties heeft geen invloed. Replicatie naar storage-accounts voor een nieuwe virtuele machine is alleen beschikbaar via REST-API en Powershell. 
+
+    ![Enable replication target setting](./media/vmware-azure-enable-replication/enable-rep3.png)
 8. Selecteer in **Virtuele machines** > **Virtuele machines selecteren** alle machines die u wilt repliceren. U kunt alleen machines selecteren waarvoor replicatie kan worden ingeschakeld. Klik vervolgens op **OK**. Als u een bepaalde virtuele machine niet kunt weergeven of selecteren, klikt u [hier](https://aka.ms/doc-plugin-VM-not-showing) om het probleem te verhelpen.
 
     ![Inschakelen van replicatie virtuele machines selecteren](./media/vmware-azure-enable-replication/enable-replication5.png)
-9. In **eigenschappen** > **eigenschappen configureren**, selecteert u de account die door de processerver wordt gebruikt voor het installeren van de Mobility-Service automatisch op de machine.  
-10. Standaard worden alle schijven worden gerepliceerd. Als u wilt schijven uitsluiten van replicatie, klikt u op **alle schijven** en schakel alle schijven die u niet wilt repliceren.  Klik vervolgens op **OK**. Later kunt u eventueel extra eigenschappen instellen. [Meer informatie](vmware-azure-exclude-disk.md) over het uitsluiten van schijven.
+9. In **eigenschappen** > **eigenschappen configureren**, selecteert u de account die door de processerver wordt gebruikt voor het installeren van de Mobility-Service automatisch op de machine. Kies ook het type beheerde schijf die u repliceren wilt naar op basis van uw gegevens verloop patronen.
+10. Standaard worden alle schijven van een bron-VM gerepliceerd. Als u wilt schijven uitsluiten van replicatie, schakel het selectievakje **opnemen** selectievakje op basis van alle schijven die u niet wilt repliceren.  Klik vervolgens op **OK**. Later kunt u eventueel extra eigenschappen instellen. [Meer informatie](vmware-azure-exclude-disk.md) over het uitsluiten van schijven.
 
     ![Inschakelen replicatie-eigenschappen configureren](./media/vmware-azure-enable-replication/enable-replication6.png)
 

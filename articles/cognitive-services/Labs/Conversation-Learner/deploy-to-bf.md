@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 56dab93087249082330c0f685e5457bc2585664c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: bc04afead8742c9f384287ecb8d33c54770456b6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55237928"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447384"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Over het implementeren van een bot Conversatiecursist
 
@@ -94,7 +94,7 @@ De bot wordt nu lokaal uitgevoerd.  U kunt openen met de emulator Bot Framework.
 
 Publiceer uw bot Conversatiecursist die vergelijkbaar is met dezelfde manier als die u een andere bot wilt publiceren. Op hoog niveau, uw code te uploaden naar een gehoste website, de juiste configuratie-waarden instellen en vervolgens de bot registreren met verschillende kanalen. Gedetailleerde instructies vindt u in deze video waarin wordt getoond hoe uw bot met behulp van Azure Bot Service publiceren.
 
-Zodra de bot wordt geïmplementeerd en uitgevoerd u verschillende kanalen verbinding mee kan maken, zoals Facebook, Teams, Skype enzovoort met behulp van een Azure Bot kanaal te registreren. Voor documentatie over dit proces Zie: https://docs.microsoft.com/bot-framework/bot-service-quickstart-registration
+Zodra de bot wordt geïmplementeerd en uitgevoerd u verschillende kanalen verbinding mee, zoals Facebook, Teams, Skype enzovoort maken kan. met behulp van een Azure Bot kanaal te registreren. Voor documentatie over dit proces Zie: https://docs.microsoft.com/bot-framework/bot-service-quickstart-registration
 
 Hieronder vindt u stapsgewijze instructies voor het implementeren van een cursist conversatie Bot naar Azure.  Deze instructies wordt ervan uitgegaan dat uw bot-bron is beschikbaar via een cloud-gebaseerde bron, zoals Azure DevOps-Services, GitHub, BitBucket of OneDrive, configureert u uw bot voor continue implementatie.
 

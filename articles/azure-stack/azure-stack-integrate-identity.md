@@ -6,29 +6,19 @@ author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 03/04/2019
 ms.author: patricka
 ms.reviewer: thoroet
-ms.lastreviewed: 01/23/19
-ms.openlocfilehash: 86a7f98f8232d4fb3e915efee6d9b53f1fae6e7e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.lastreviewed: 03/04/2019
+ms.openlocfilehash: 65e5a678b4619897930873e77208005e14c054d2
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737702"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410278"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Datacenter-integratie Azure Stack - identiteit
-U kunt Azure Stack met behulp van Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS) implementeren als de id-providers. Voordat u Azure Stack implementeren, moet u de keuze maken. Implementatie met behulp van AD FS is ook aangeduid als Azure Stack implementeren in de niet-verbonden modus.
-
-De volgende tabel ziet u de verschillen tussen de twee identity-opties:
-
-||Niet verbonden met het internet|Verbonden met internet|
-|---------|---------|---------|
-|Billing|Capaciteit moet worden<br> Alleen Enterprise Agreement (EA)|Capaciteit of betalen als u-gebruik<br>EA- of Cloud Solution Provider (CSP)|
-|Identiteit|Moet de AD FS|Azure AD of AD FS|
-|Marketplace |Ondersteund<br>BYOL-licentieverlening|Ondersteund<br>BYOL-licentieverlening|
-|Registratie|Vereist, verwisselbare media vereist<br> en een afzonderlijke verbonden apparaten.|Geautomatiseerd|
-|Voor patches en updates|Vereist, verwisselbare media vereist<br> en een afzonderlijke verbonden apparaten.|Updatepakket kan rechtstreeks worden gedownload.<br> vanaf het Internet met Azure Stack.|
+U kunt Azure Stack met behulp van Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS) implementeren als de id-providers. Voordat u Azure Stack implementeren, moet u de keuze maken. In een verbonden scenario, kunt u Azure AD of AD FS. Voor een niet-verbonden scenario wordt alleen AD FS ondersteund.
 
 > [!IMPORTANT]
 > U kunt niet de id-provider overstappen zonder de gehele Azure Stack-oplossing opnieuw te implementeren.
@@ -43,7 +33,7 @@ Verificatie is een deel van de identiteit. Als u wilt beheren op rollen gebaseer
 
 De bestaande AD FS is de account beveiligingstokenservice (STS) waarmee claims voor de Azure Stack AD FS (de resource STS) worden verzonden. In Azure Stack maakt automation de claims provider vertrouwensrelatie met het eindpunt van de metagegevens voor de bestaande AD FS.
 
-Op de bestaande AD FS, moet een relying party trust worden geconfigureerd. Deze stap niet wordt uitgevoerd door de automatisering en moet worden geconfigureerd door de operator. Het eindpunt van de Azure Stack-metagegevens wordt beschreven in het bestand AzureStackStampDeploymentInfo.JSON of via het eindpunt van de bevoegdheden met de opdracht `Get-AzureStackInfo`.
+Op de bestaande AD FS, moet een relying party trust worden geconfigureerd. Deze stap niet wordt uitgevoerd door de automatisering en moet worden geconfigureerd door de operator. De Azure Stack-VIP-eindpunt voor AD FS kan worden gemaakt met behulp van het patroon `https://adfs.<Region>.<ExternalFQDN>/`.
 
 De configuratie van de relying party trust moet u de claim transformatie regels configureren die worden geleverd door Microsoft.
 

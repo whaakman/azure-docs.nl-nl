@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: c60022d43af1601359ab5de8b4d3e4eb06dd239a
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: da165634f5323183b633ee3c8a59e0d2607e8ef1
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243224"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409744"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Aanbevolen beveiligingsprocedures voor IaaS-workloads in Azure
 
@@ -153,7 +153,7 @@ Hieronder vindt u aanbevolen procedures voor het gebruik van Azure Disk Encrypti
 **Details**: Azure Disk Encryption genereert en schrijft de versleutelingssleutels in uw key vault. Beheer van versleutelingssleutels in uw key vault, vereist Azure AD-verificatie. Maak een Azure AD-toepassing voor dit doel. Voor verificatiedoeleinden wordt gebruikt, kunt u een van beide verificaties client op basis van een geheim of [Azure AD op basis van certificaten clientverificatie](../active-directory/active-directory-certificate-based-authentication-get-started.md).
 
 **Beste**: Gebruik een sleutel van versleutelingssleutel (KEK-sleutel) voor een extra beveiligingslaag voor versleutelingssleutels. Een KEK-sleutel toevoegen aan uw key vault.   
-**Details**: Gebruik de [toevoegen AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azurekeyvaultkey) cmdlet voor het maken van een sleutel van versleutelingssleutel in de key vault. U kunt ook een KEK importeren uit uw on-premises hardware security module (HSM) voor sleutelbeheer. Zie voor meer informatie de [Key Vault-documentatie](../key-vault/key-vault-hsm-protected-keys.md). Wanneer een sleutel van versleutelingssleutel is opgegeven, gebruikt Azure Disk Encryption die sleutel het verpakken van de geheimen van de versleuteling voor het schrijven naar de Key Vault. Bewaren van een escrow-kopie van deze sleutel in een on-premises biedt Sleutelbeheer HSM extra beveiliging tegen per ongeluk verwijderen van sleutels.
+**Details**: Gebruik de [toevoegen AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet voor het maken van een sleutel van versleutelingssleutel in de key vault. U kunt ook een KEK importeren uit uw on-premises hardware security module (HSM) voor sleutelbeheer. Zie voor meer informatie de [Key Vault-documentatie](../key-vault/key-vault-hsm-protected-keys.md). Wanneer een sleutel van versleutelingssleutel is opgegeven, gebruikt Azure Disk Encryption die sleutel het verpakken van de geheimen van de versleuteling voor het schrijven naar de Key Vault. Bewaren van een escrow-kopie van deze sleutel in een on-premises biedt Sleutelbeheer HSM extra beveiliging tegen per ongeluk verwijderen van sleutels.
 
 **Beste**: Duren voordat een [momentopname](../virtual-machines/windows/snapshot-copy-managed-disk.md) en/of back-up voordat de schijven worden versleuteld. Back-ups bieden een optie voor siteherstel als het geval is een onverwachte fout opgetreden tijdens het versleutelen.   
 **Details**: Virtuele machines met beheerde schijven moeten u een back-up voordat versleuteling plaatsvindt. Nadat een back-up is gemaakt, kunt u de **Set AzVMDiskEncryptionExtension** cmdlet voor het versleutelen van beheerde schijven door op te geven de *- skipVmBackup* parameter. Zie voor meer informatie over hoe u een back-up en herstel van versleutelde virtuele machines, de [Azure Backup](../backup/backup-azure-vms-encryption.md) artikel.

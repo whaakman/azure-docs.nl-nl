@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
+ms.date: 03/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: d40fcacc4612761b2c43b0dd3658042c38a0df75
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: bcc529b02505359e6e4e320d4991a082797c5261
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309516"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440469"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure Resource Manager sjabloon aanbevolen procedures
 
@@ -26,7 +26,25 @@ Zie voor aanbevelingen over het beheren van uw Azure-abonnementen, [Azure enterp
 
 Zie voor aanbevelingen over het bouwen van sjablonen die in alle Azure-cloud-omgevingen werken [ontwikkelen van Azure Resource Manager-sjablonen voor de consistentie van de cloud](templates-cloud-consistency.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## <a name="template-limits"></a>Limieten voor sjabloon
+
+Beperkt de grootte van uw sjabloon 1 MB en elk parameterbestand aan 64 KB. De limiet van 1 MB is van toepassing op de laatste status van de sjabloon nadat deze is uitgebreid met iteratieve resourcedefinities en waarden voor parameters en variabelen. 
+
+U bent ook beperkt tot:
+
+* 256-parameters
+* 256 variabelen
+* 800 bronnen (zoals aantal kopieën)
+* 64 uitvoerwaarden
+* 24.576 tekens in een sjabloonexpressie voor een
+
+U kunt sommige limieten sjabloon met behulp van een geneste sjabloon overschrijdt. Zie voor meer informatie, [gekoppelde sjablonen gebruiken bij het implementeren van Azure-resources](resource-group-linked-templates.md). Als u wilt verkleinen het aantal parameters, variabelen of uitvoer, kunt u verschillende waarden combineren in een object. Zie voor meer informatie, [objecten als parameters](resource-manager-objects-as-parameters.md).
+
+## <a name="resource-group"></a>Resourcegroep
+
+Wanneer u resources in een resourcegroep implementeert, wordt de resourcegroep slaat metagegevens over de resources. De metagegevens worden opgeslagen in de locatie van de resourcegroep.
+
+Als de resourcegroep regio tijdelijk niet beschikbaar is, kunt u resources in de resourcegroep niet bijwerken omdat de metagegevens niet beschikbaar is. De resources in andere regio's wordt nog steeds werken zoals verwacht, maar kan niet worden bijgewerkt. Zoeken om risico te beperken, de resourcegroep en resources in dezelfde regio.
 
 ## <a name="parameters"></a>Parameters
 De informatie in deze sectie kan nuttig zijn wanneer u met werkt [parameters](resource-group-authoring-templates.md#parameters).
@@ -155,7 +173,7 @@ Wanneer u beslist wat [afhankelijkheden](resource-group-define-dependencies.md) 
 
 * Een onderliggende resource instellen als afhankelijk van de bovenliggende resource.
 
-* Resources met de [voorwaarde element](resource-manager-templates-resources.md#condition) ingesteld op false, worden automatisch verwijderd uit de volgorde van de afhankelijkheid. De afhankelijkheden instellen als de resource is altijd geïmplementeerd.
+* Resources met de [voorwaarde element](resource-group-authoring-templates.md#condition) ingesteld op false, worden automatisch verwijderd uit de volgorde van de afhankelijkheid. De afhankelijkheden instellen als de resource is altijd geïmplementeerd.
 
 * Laat afhankelijkheden cascade zonder expliciet instelt. Bijvoorbeeld: uw virtuele machine is afhankelijk van een virtuele netwerkinterface en de virtuele netwerkinterface is afhankelijk van een virtueel netwerk en openbare IP-adressen. Daarom wordt de virtuele machine is geïmplementeerd nadat alle drie resources, maar de virtuele machine niet expliciet worden ingesteld als afhankelijk is van alle drie resources. Deze aanpak wordt uitleg gegeven over de volgorde van de afhankelijkheid en kunt u gemakkelijker de sjabloon later wijzigen.
 
@@ -163,7 +181,7 @@ Wanneer u beslist wat [afhankelijkheden](resource-group-define-dependencies.md) 
 
 ## <a name="resources"></a>Resources
 
-De volgende informatie kan nuttig zijn wanneer u met werkt [resources](resource-manager-templates-resources.md):
+De volgende informatie kan nuttig zijn wanneer u met werkt [resources](resource-group-authoring-templates.md#resources):
 
 * Geef andere inzenders leert wat het doel van de resource, zodat **opmerkingen** voor elke resource in de sjabloon:
    

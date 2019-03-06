@@ -14,15 +14,15 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
-ms.openlocfilehash: 6d31cd66138bd20cf09b3dc569d0ac83addaaa95
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 03b74f5a931e1cfbf09433af76c250607b7fc80c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426771"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444434"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-php-application-on-azure"></a>Hoe u een telefonische oproep met behulp van Twilio in een PHP-toepassing op Azure
-Het volgende voorbeeld ziet u hoe u Twilio kunt gebruiken om een aanroep van een PHP-webpagina wordt gehost in Azure te maken. De resulterende toepassing wordt de gebruiker gevraagd om telefonische oproep waarden, zoals wordt weergegeven in de volgende schermopname.
+Het volgende voorbeeld ziet u hoe u Twilio kunt gebruiken om een aanroep van een PHP-webpagina wordt gehost in Azure te maken. De resulterende toepassing wordt de gebruiker gevraagd om telefonische oproep waarden, zoals wordt weergegeven in de volgende schermafbeelding.
 
 ![De aanroep van de Azure-formulier met behulp van Twilio en PHP][twilio_php]
 

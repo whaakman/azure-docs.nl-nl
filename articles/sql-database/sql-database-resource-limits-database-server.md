@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan,moslake,josack
 manager: craigg
 ms.date: 03/01/2019
-ms.openlocfilehash: 00b20b3f144a2e98fb028e3db7c50af61330d721
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 801b7de4b82c37503f2a14619112cbf46ca60a43
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316452"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447078"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>SQL Database-resourcebeperkingen voor Azure SQL Database-server
 
@@ -55,7 +55,7 @@ Als hoge compute-gebruik worden aangetroffen, wordt een risicobeperking opties z
 - Het compute vergroten van de database of elastische pool voor de database met meer rekenresources. Zie [schalen van één database-resources](sql-database-single-database-scale.md) en [resources voor elastische pool schalen](sql-database-elastic-pool-scale.md).
 - Query's te verminderen van het Resourcegebruik van elke query te optimaliseren. Zie voor meer informatie, [Query afstemmen/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Opslag
 
 Wanneer ruimte in database gebruikt de maximaal toegestane grootte is bereikt, database ingevoegd en niet bijwerken waarmee u de grootte van de gegevens te verhogen en -clients ontvangen een [foutbericht](sql-database-develop-error-messages.md). Database selecteren en doorgaan met verwijderen te voltooien.
 
@@ -96,6 +96,11 @@ Vormgeven van logboek tarief resourceregeling verkeer wordt opgehaald via de vol
 | HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Besturingselement voor feedback, beschikbaarheid van groep fysieke replicatie in Premium/bedrijfskritiek niet kunnen |  
 | HADR_THROTTLE_LOG_RATE_LOG_SIZE | Feedback-besturingselement, beperken tarieven om te voorkomen dat een out-of ruimte-logboekvoorwaarde |
 ||||
+
+Als een frequentielimiet van logboekbestanden die de gewenste schaalbaarheid is die worden aangetroffen, houd rekening met de volgende opties:
+- Schaal omhoog naar een grotere laag om op te halen van de maximale 48 MB/s log snelheid. 
+- Als gegevens worden geladen tijdelijke, kan dat wil zeggen staging-gegevens in een ETL-proces, deze worden geladen in tempdb (die minimaal wordt geregistreerd). 
+- Voor analytische scenario's door in een geclusterde columnstore gedekt-tabel te laden. Dit beperkt de vereiste log snelheid vanwege compressie. Deze techniek neemt CPU-gebruik en is alleen van toepassing op gegevenssets die baat bij een geclusterde columnstore-indexen hebben. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

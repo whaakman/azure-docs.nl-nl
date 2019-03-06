@@ -12,12 +12,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
-ms.openlocfilehash: 80b99880362c3979ae5ead6d1cdff4091d23d065
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 5945be210812a6cbc24c9a3bb12414be5212be17
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118972"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437595"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Informatie over veelvoorkomende foutberichten bij het beheren van virtuele machines in Azure
 
@@ -172,12 +172,12 @@ Deze sectie vindt u de algemene foutberichten die optreden kunnen bij het behere
 |  OperationNotAllowed  |  Kan grootte van de virtuele machine omdat de aangevraagde grootte {0} is niet beschikbaar in het cluster waar de virtuele machine momenteel is toegewezen. Om het formaat van uw virtuele machine te {1} toewijzing ongedaan maken (dit is Stop-bewerking in Azure portal) en voer de grootte van de bewerking opnieuw uit. Lees meer over VM-grootte strategy bij https://aka.ms/azure-resizevm.  |
 |  OSProvisioningClientError  |  Besturingssysteem inrichten is mislukt voor de virtuele machine '{0}' omdat het gastbesturingssysteem wordt momenteel ingericht.  |
 |  OSProvisioningClientError  |  Inrichting van het besturingssysteem voor de virtuele machine '{0}' is mislukt. Foutdetails: {1} Zorg ervoor dat de installatiekopie juist is voorbereid (gegeneraliseerd). <ul><li>Instructies voor Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/  </li></ul> |
-|  OSProvisioningClientError  |  Sleutel genereren voor SSH-host is mislukt. Details van fout: {0}. Om op te lossen dit probleem controleren als Linux-agent juist is ingesteld. <ul><li>U kunt de instructies op controleren: https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux/ </li></ul> |
-|  OSProvisioningClientError  |  Gebruikersnaam is opgegeven voor de virtuele machine is ongeldig voor deze distributie Linux. Details van fout: {0}.  |
+|  OSProvisioningClientError  |  Sleutel genereren voor SSH-host is mislukt. Foutdetails: {0}. Om op te lossen dit probleem controleren als Linux-agent juist is ingesteld. <ul><li>U kunt de instructies op controleren: https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux/ </li></ul> |
+|  OSProvisioningClientError  |  Gebruikersnaam is opgegeven voor de virtuele machine is ongeldig voor deze distributie Linux. Foutdetails: {0}.  |
 |  OSProvisioningInternalError  |  Besturingssysteem inrichten is mislukt voor de virtuele machine '{0}' vanwege een interne fout.  |
-|  Osprovisioningtimedout geretourneerd  |  Inrichting van het besturingssysteem voor de virtuele machine '{0}' is niet binnen de toegewezen tijd voltooid. De virtuele machine mogelijk nog steeds wordt inrichten is voltooid. Controleer de Inrichtingsstatus later.  |
-|  Osprovisioningtimedout geretourneerd  |  Inrichting van het besturingssysteem voor de virtuele machine '{0}' is niet binnen de toegewezen tijd voltooid. De virtuele machine mogelijk nog steeds wordt inrichten is voltooid. Controleer de Inrichtingsstatus later. Controleer ook of de installatiekopie juist is voorbereid (gegeneraliseerd).   <ul><li>Instructies voor Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Instructies voor Linux: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
-|  Osprovisioningtimedout geretourneerd  |  Inrichting van het besturingssysteem voor de virtuele machine '{0}' is niet binnen de toegewezen tijd voltooid. De VM-gastagent is echter gedetecteerd uitgevoerd. Dit kan erop wijzen het gastbesturingssysteem is niet correct voorbereid om te worden gebruikt als een VM-installatiekopie (met CreateOption = FromImage). U lost dit probleem, gebruikt u de VHD met CreateOption = Attach of juist voorbereiden voor gebruik als een installatiekopie:   <ul><li>Instructies voor Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Instructies voor Linux: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
+|  OSProvisioningTimedOut  |  Inrichting van het besturingssysteem voor de virtuele machine '{0}' is niet binnen de toegewezen tijd voltooid. De virtuele machine mogelijk nog steeds wordt inrichten is voltooid. Controleer de Inrichtingsstatus later.  |
+|  OSProvisioningTimedOut  |  Inrichting van het besturingssysteem voor de virtuele machine '{0}' is niet binnen de toegewezen tijd voltooid. De virtuele machine mogelijk nog steeds wordt inrichten is voltooid. Controleer de Inrichtingsstatus later. Controleer ook of de installatiekopie juist is voorbereid (gegeneraliseerd).   <ul><li>Instructies voor Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Instructies voor Linux: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
+|  OSProvisioningTimedOut  |  Inrichting van het besturingssysteem voor de virtuele machine '{0}' is niet binnen de toegewezen tijd voltooid. De VM-gastagent is echter gedetecteerd uitgevoerd. Dit kan erop wijzen het gastbesturingssysteem is niet correct voorbereid om te worden gebruikt als een VM-installatiekopie (met CreateOption = FromImage). U lost dit probleem, gebruikt u de VHD met CreateOption = Attach of juist voorbereiden voor gebruik als een installatiekopie:   <ul><li>Instructies voor Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Instructies voor Linux: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
 |  OverConstrainedAllocationRequest  |  Het vereiste VM-grootte is momenteel niet beschikbaar in de geselecteerde locatie.  |
 |  ResourceUpdateBlockedOnPlatformUpdate  |  Resource kan niet worden bijgewerkt vanwege een lopende platformupdate. Probeer het later opnieuw.  |
 |  StorageAccountLimitation  |  Storage-account '{0}' biedt geen ondersteuning voor pagina-blobs die zijn vereist voor het maken van schijven.  |

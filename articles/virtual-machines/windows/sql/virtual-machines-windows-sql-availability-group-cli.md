@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fd33966a7c7d2ea72cdc98a23f601687d9577dde
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 058ed349e1aeb17dea7d550b9760082b464453f1
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825211"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404125"
 ---
 # <a name="use-azure-sql-vm-cli-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Azure SQL VM CLI gebruiken voor het configureren van AlwaysOn-beschikbaarheidsgroep voor SQL Server op een Azure VM
 In dit artikel wordt beschreven hoe u [Azure SQL VM CLI](https://docs.microsoft.com/mt-mt/cli/azure/ext/sqlvm-preview/sqlvm?view=azure-cli-2018-03-01-hybrid) voor het implementeren van een Windows Failover Cluster (WSFC), en SQL Server-VM's toevoegen aan het cluster, evenals de interne Load Balancer en voor een AlwaysOn-beschikbaarheidsgroep-listener maken.  De werkelijke implementatie van de AlwaysOn-beschikbaarheidsgroep is nog steeds handmatig uitgevoerd via SQL Server Management Studio (SSMS). 
@@ -151,6 +151,6 @@ Raadpleeg voor meer informatie de volgende artikelen:
 * [Overzicht van de Always On Availability Groups &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)   
 * [Configuratie van een Server-exemplaar voor Always On Availability Groups &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/configuration-of-a-server-instance-for-always-on-availability-groups-sql-server)   
 * [Beheer van een beschikbaarheidsgroep &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/administration-of-an-availability-group-sql-server)   
-* [Bewaking van beschikbaarheidsgroepen &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/monitoring-of-availability-groups-sql-server.md)
+* [Bewaking van beschikbaarheidsgroepen &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/monitoring-of-availability-groups-sql-server)
 * [Overzicht van Transact-SQL-instructies voor Always On Availability Groups &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/transact-sql-statements-for-always-on-availability-groups)   
 * [Overzicht van PowerShell-Cmdlets voor Always On Availability Groups &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/overview-of-powershell-cmdlets-for-always-on-availability-groups-sql-server)  

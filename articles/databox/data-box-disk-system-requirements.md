@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 0effc6af1ddc3273f0c6e2bf9cbfd0f2ecadf0a2
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 067bb6b806ddd9b83d4ea755876a980ca45d76e9
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747319"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407622"
 ---
 # <a name="azure-data-box-disk-system-requirements"></a>Azure Data Box-schijf-systeemvereisten
 
@@ -52,7 +52,7 @@ Voor Linux-client installeert de Data Box-schijf-toolset van de volgende vereist
 
 ## <a name="supported-connection"></a>Ondersteunde verbinding
 
-De clientcomputer met de gegevens moet hebben een USB-3.0 of hoger poort. De schijven verbinding worden gemaakt met deze met behulp van de opgegeven kabel. 
+De clientcomputer met de gegevens moet hebben een USB-3.0 of hoger poort. De schijven verbinding worden gemaakt met deze met behulp van de opgegeven kabel.
 
 ## <a name="supported-storage-accounts"></a>Ondersteunde opslagaccounts
 
@@ -62,19 +62,22 @@ Hier volgt een lijst van de typen ondersteunde opslag voor de Data Box-schijf.
 | --- | --- |
 | Klassiek | Standard |
 | Algemeen doel  |Standaard; zowel V1 als V2 worden ondersteund. Warme en koude lagen worden ondersteund. |
+| BLOB storage-account | |
 
 >[!NOTE]
 > Azure Data Lake Storage Gen 2-accounts worden niet ondersteund.
 
 
-## <a name="supported-storage-types"></a>Ondersteunde opslagtypen
+## <a name="supported-storage-types-for-upload"></a>Ondersteunde opslagtypen voor uploaden
 
-Hier volgt een lijst van de typen ondersteunde opslag voor de Data Box-schijf.
+Hier volgt een lijst van de opslag die worden ondersteund voor geüpload naar Azure met behulp van Data Box-schijf.
 
 | **Bestandsindeling** | **Opmerkingen** |
 | --- | --- |
 | Azure blok-blob | |
 | Azure-pagina-blobs  | |
+| Azure Files  | |
+| Beheerde schijven | |
 
 
 ## <a name="next-step"></a>Volgende stap

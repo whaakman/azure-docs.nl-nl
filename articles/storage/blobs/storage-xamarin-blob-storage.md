@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: michaelhauss
-ms.openlocfilehash: b35bec31035c0219bf34a31cb34e20f7dc3a72c5
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: cac889b83bb0e7a7aab12ff4097556abf60663b6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397026"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449118"
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>Het Blob Storage gebruiken met Xamarin
 
@@ -29,7 +29,7 @@ Voor deze zelfstudie maakt we een app die is gericht op Android, iOS en Windows.
 Volg deze stappen om uw toepassing te maken:
 
 1. Als u dat nog niet gedaan hebt, downloadt en installeert [Xamarin for Visual Studio](https://www.xamarin.com/download).
-2. Open Visual Studio en maakt een lege App (systeemeigen draagbare): **bestand > Nieuw > Project > platformoverschrijdende > lege App(Native Portable)**.
+2. Open Visual Studio en maakt een lege App (systeemeigen draagbare): **Bestand > Nieuw > Project > platformoverschrijdende > lege App (systeemeigen Portable)**.
 3. Met de rechtermuisknop op uw oplossing in het deelvenster Solution Explorer en selecteer **NuGet-pakketten beheren voor oplossing**. Zoeken naar **WindowsAzure.Storage** en installeer de nieuwste stabiele versie voor alle projecten in uw oplossing.
 4. Ontwikkel en voer uw project.
 
@@ -155,7 +155,7 @@ namespace XamarinApp.iOS
             public override void DidReceiveMemoryWarning ()
             {
                 base.DidReceiveMemoryWarning ();
-                // Release any cached data, images, etc that aren't in use.
+                // Release any cached data, images, etc. that aren't in use.
             }
         }
     }

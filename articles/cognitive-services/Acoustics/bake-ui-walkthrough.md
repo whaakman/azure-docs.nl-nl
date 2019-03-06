@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: ce377234cceb22bc2c6979bedd92d800355e75da
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3f567e66a1e84dccaa18db550f30d6bb34ad8162
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872081"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442933"
 ---
 # <a name="bake-acoustics"></a>Akoestische maken
 
@@ -243,7 +243,7 @@ Een voorbeeld: op een 8-core-machine met Intel Xeon E5-1660 @ 3 GHz en 32 GB RAM
 ### <a name="setup-docker"></a>Docker instellen
 Installeren en configureren van Docker op de computer die de simulatie - verwerkt
 1. Installeer de [Docker toolset](https://www.docker.com/products/docker-desktop).
-2. Start de Docker-instellingen, navigeer naar de opties voor 'Geavanceerd' en -resources als u wilt dat met de minste 8 GB RAM-geheugen configureren. De meer CPU's die u kunt toewijzen aan Docker, hoe sneller de bake wordt voltooid. ![Voorbeeld van Docker-instellingen](media/DockerSettings.png)
+2. Start de Docker-instellingen, gaat u naar de opties 'Geavanceerd' en configureren van resources op ten minste 8 GB RAM-geheugen. De meer CPU's die u kunt toewijzen aan Docker, hoe sneller de bake wordt voltooid. ![Voorbeeld van Docker-instellingen](media/DockerSettings.png)
 3. Ga naar "Gedeelde stations" en delen van het station gebruikt voor de verwerking van inschakelen.![DockerDriveSharing](media/DockerSharedDrives.png)
 
 ### <a name="run-local-bake"></a>Lokale bake uitvoeren

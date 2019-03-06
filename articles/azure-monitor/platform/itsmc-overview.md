@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: f0d3641800d8ec2f9fd403b006e81af04444c143
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a6e4f816d3c5be9d3a4f4824ad7ed26d48763034
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813123"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433263"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Azure verbinden met ITSM-hulpprogramma's met behulp van IT Service Management-Connector
 
@@ -289,7 +289,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
     - Zorg ervoor dat u de gebruikersnaam, wachtwoord, client-ID en clientgeheim correct voor elk van de verbindingen ingevoerd.  
     - Controleer of u voldoende bevoegdheden hebt in het bijbehorende ITSM-product om de verbinding te maken.  
  - Voor Service Manager-verbindingen  
-    - Zorg ervoor dat de Web-app is geïmplementeerd en hybride verbinding wordt gemaakt. Als u wilt controleren of de verbinding is tot stand gebracht met de Service Manager on-premises machine, gaat u naar de URL van de Web-app zoals beschreven in de documentatie voor het maken van de [hybride verbinding](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
+    - Zorg ervoor dat de Web-app is geïmplementeerd en hybride verbinding wordt gemaakt. Als u wilt controleren of de verbinding is tot stand gebracht met de on premises Service Manager-machine, gaat u naar de URL van de Web-app zoals beschreven in de documentatie voor het maken van de [hybride verbinding](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
 
 2.  Als u niet ophalen van gegevens van ServiceNow is gesynchroniseerd met Log Analytics, zorg ervoor dat het ServiceNow exemplaar niet in de slaapstand staat. Exemplaren van ServiceNow Dev gaat soms u naar de slaapstand als niet-actieve gedurende een lange periode. Anders, meld u het probleem.
 3.  Als Log Analytics-waarschuwingen worden geactiveerd, maar werkt items worden niet gemaakt in de ITSM-product of configuratie-items zijn niet gemaakt/gekoppeld aan werkitems of voor andere algemene informatie, zoekt u in de volgende locaties:

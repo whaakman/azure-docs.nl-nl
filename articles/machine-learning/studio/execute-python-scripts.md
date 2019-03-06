@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: ca1487bea969703fddffd664b899d4e2f47b4277
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 15aa3921703871b9403ed4c01e800e4ae61594ea
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56824042"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432394"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Python-scripts voor Machine Learning uitvoeren in Azure Machine Learning Studio
 
@@ -58,7 +58,7 @@ De primaire interface voor Python in Azure Machine Learning Studio is via de [Ex
 
 Afbeelding 1. De **Execute Python Script** module.
 
-De [Execute Python Script] [ execute-python-script] module in Azure ML Studio maximaal drie invoer accepteert en maximaal twee uitvoer (beschreven in de volgende sectie), zoals de R-analoog, produceert de [R uitvoeren Script] [ execute-r-script] module. De Python-code moet worden uitgevoerd in het parametervak als een speciaal benoemde wordt ingevoerd toegangspunt aangeroepen functie `azureml_main`. Hier volgen de belangrijkste ontwerpprincipes voor het implementeren van deze module wordt gebruikt:
+De [Execute Python Script] [ execute-python-script] module in Azure ML Studio maximaal drie invoer accepteert en maximaal twee uitvoer (beschreven in de volgende sectie), zoals de R-analoog, produceert de [R-Script uitvoeren ] [ execute-r-script] module. De Python-code moet worden uitgevoerd in het parametervak als een speciaal benoemde wordt ingevoerd toegangspunt aangeroepen functie `azureml_main`. Hier volgen de belangrijkste ontwerpprincipes voor het implementeren van deze module wordt gebruikt:
 
 1. *Moet idiomatisch voor Python-gebruikers.* De meeste Python gebruikers rekening met de code als functies in modules. Dus veel uitvoerbare instructies plaatsen in een module op het hoogste niveau is relatief zeldzaam. Als gevolg hiervan wordt het script ook een speciaal benoemde Python-functie in plaats van alleen een reeks instructies. De objecten die beschikbaar zijn in de functie zijn standaard Python-bibliotheek typen zoals [Pandas](http://pandas.pydata.org/) gegevensframes en [NumPy](http://www.numpy.org/) matrices.
 2. *Hoogwaardige tussen lokale moet hebben en uitvoeringen in de cloud.* De back-end gebruikt voor het uitvoeren van de Python-code is gebaseerd op [Anaconda](https://store.continuum.io/cshop/anaconda/), een platformoverschrijdende wetenschappelijke Python-distributie veelvuldig worden gebruikt. Het wordt geleverd met bijna 200 van de meest voorkomende Python-pakketten. Gegevenswetenschappers kunnen daarom fouten opsporen en hun code op hun lokale Azure Machine Learning Studio-compatibel is met Anaconda-omgeving in aanmerking komen. Gebruik vervolgens een bestaande ontwikkelomgeving, zoals [IPython](http://ipython.org/) laptop of [Python Tools for Visual Studio](https://aka.ms/ptvs), uit te voeren als onderdeel van een Azure ML-experiment. De `azureml_main` beginpunt is een vanille Python-functie en zijn er dus *** functies zonder Azure ML-specifieke code of de SDK is geïnstalleerd kunnen worden geschreven.

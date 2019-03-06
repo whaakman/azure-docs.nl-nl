@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: cb85d09a1d5dee6cb54254baac4698cdad093785
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e6814224827aac0da9c6faf5108ecf585bae7c35
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457663"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445378"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Kosten van de query in Azure Cosmos DB optimaliseren
 
@@ -53,7 +53,7 @@ while (queryable.HasMoreResults)
 
 ## <a name="factors-influencing-request-unit-charge-for-a-query"></a>Factoren die invloed op verzoek-eenheid in rekening gebracht voor een query
 
-Aanvraageenheden voor query's zijn afhankelijk van een aantal factoren. Bijvoorbeeld, het aantal items van Azure Cosmos geladen/geretourneerd, het aantal lookups op basis van de index, de Querytijd compilatie details enzovoort. Azure Cosmos DB garandeert dat dezelfde query bij het op dezelfde gegevens altijd hetzelfde aantal aanvraageenheden zelfs met herhalingen uitvoeringen wordt verbruikt. De query-profiel met behulp van de query uitvoering van metrische gegevens biedt u een goed inzicht in hoe de basis van aanvraageenheden worden gebruikt.  
+Aanvraageenheden voor query's zijn afhankelijk van een aantal factoren. Bijvoorbeeld, het aantal items van Azure Cosmos geladen/geretourneerd, het aantal lookups op basis van de index, het opstellen van query tijd, enz. meer informatie. Azure Cosmos DB garandeert dat dezelfde query bij het op dezelfde gegevens altijd hetzelfde aantal aanvraageenheden zelfs met herhalingen uitvoeringen wordt verbruikt. De query-profiel met behulp van de query uitvoering van metrische gegevens biedt u een goed inzicht in hoe de basis van aanvraageenheden worden gebruikt.  
 
 In sommige gevallen ziet u een reeks van 200 en 429 antwoorden en variabele aanvraageenheden in een resultatenpagina's uitvoering van query's, omdat de query's zo snel mogelijk op basis van de beschikbare ru's worden uitgevoerd. Mogelijk ziet u de uitvoering van een query op te splitsen in meerdere pagina's / retouren tussen server en client. Bijvoorbeeld kunnen 10.000 items worden geretourneerd als meerdere pagina's, elk in rekening gebracht op basis van de berekening uitgevoerd voor die pagina. Als u op deze pagina's telt, krijgt u moet hetzelfde aantal ru's, u voor de hele query krijgt.  
 

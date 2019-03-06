@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: aa884f2df76c20d3119022069179b08ba2f2a6b7
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: ada0a54f014e4e896c0e91d1eeafb94e6d254d5b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565210"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445075"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Leer hoe u nieuwe tenants inrichten en deze in de catalogus registreren
 
@@ -46,7 +46,7 @@ De catalogus kan de naam of locatie van de database met minimale gevolgen voor d
 
 De catalogus kunt ook opslaan extra tenant of metagegevens van een database, zoals de versie van het schema, service-plan of sla's die worden aangeboden aan tenants. De catalogus kan andere gegevens waarmee toepassingsbeheer, klantenondersteuning of DevOps opslaan. 
 
-Naast de SaaS-toepassing, kunt de catalogus Databasehulpprogramma's inschakelen. In het voorbeeld van Wingtip Tickets SaaS-database-per-tenant, de catalogus wordt gebruikt voor query's tussen tenants, wat is verkend in de [reporting zelfstudie Ad-hoc](saas-tenancy-cross-tenant-reporting.md). Taakbeheer cross-database wordt verkend de [Schemabeheer](saas-tenancy-schema-management.md) en [Tenant-analytics](saas-tenancy-tenant-analytics.md) zelfstudies. 
+Naast de SaaS-toepassing, kunt de catalogus Databasehulpprogramma's inschakelen. In het voorbeeld van Wingtip Tickets SaaS-database-per-tenant, de catalogus wordt gebruikt voor query's tussen tenants, wat is verkend in de [Ad-hocrapportage zelfstudie](saas-tenancy-cross-tenant-reporting.md). Taakbeheer cross-database wordt verkend de [Schemabeheer](saas-tenancy-schema-management.md) en [Tenant-analytics](saas-tenancy-tenant-analytics.md) zelfstudies. 
 
 De catalogus is in de voorbeelden Wingtip Tickets SaaS geïmplementeerd met behulp van de functies van Shard Management van de [Elastic Database-clientbibliotheek (EDCL)](sql-database-elastic-database-client-library.md). De EDCL is beschikbaar in Java en .NET Framework. De EDCL kan een toepassing te maken, beheren en gebruiken van een database-ondersteuning shard-toewijzing. 
 

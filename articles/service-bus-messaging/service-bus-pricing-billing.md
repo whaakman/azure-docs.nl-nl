@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 5b9aae979a25a1f175b3d5a5e24960d6f392b9b4
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 859add6c9310cf5f18ed7090c8e93d4896b59a0b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852929"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433379"
 ---
 # <a name="service-bus-pricing-and-billing"></a>Service Bus prijzen en facturering
 
@@ -74,7 +74,7 @@ De Standard-laag Hiermee verwijdert u de limiet van de verwerkte verbindingen pe
 <br />
 
 > [!NOTE]
-> De facturering is gebaseerd op het hoogste aantal gelijktijdige verbindingen en wordt per uur naar rato bepaald op basis van 744 uur per maand.
+> De facturering is gebaseerd op het hoogste aantal gelijktijdige verbindingen en wordt pro rata per uur op basis van 730 uur per maand.
 >
 >
 
@@ -91,12 +91,12 @@ Een verwerkte verbinding wordt gedefinieerd als:
 1. Een AMQP-verbinding van een client naar een Service Bus-wachtrij of onderwerp/abonnement.
 2. Een HTTP-oproep om een bericht te ontvangen van een Service Bus-onderwerp of -wachtrij waarvoor een time-out voor ontvangen geldt met waarde die hoger is dan nul.
 
-Service Bus-kosten voor het hoogste aantal gelijktijdige brokered verbindingen die groter zijn dan het inbegrepen aantal (1000 in de Standard-laag). Pieken worden berekend op uurbasis, pro rata door te delen door 744 uur in een maand en opgeteld gedurende de maandelijkse factureringsperiode. Het inbegrepen aantal (1.000 Brokered Connections per maand) wordt toegepast aan het einde van de factureringsperiode tegen het totaal van de pieken per uur pro rata.
+Service Bus-kosten voor het hoogste aantal gelijktijdige brokered verbindingen die groter zijn dan het inbegrepen aantal (1000 in de Standard-laag). Pieken worden berekend op uurbasis, pro rata door te delen door 730 uur per maand en opgeteld gedurende de maandelijkse factureringsperiode. Het inbegrepen aantal (1.000 Brokered Connections per maand) wordt toegepast aan het einde van de factureringsperiode tegen het totaal van de pieken per uur pro rata.
 
 Bijvoorbeeld:
 
-1. Elk van 10.000 apparaten verbindt via één AMQP-verbinding en daarvan opdrachten ontvangt van een Service Bus-onderwerp. De apparaten verstuurt telemetriegebeurtenissen naar een Event Hub. Als alle apparaten elke dag 12 uur verbinding maken, zijn van toepassing de volgende verbindingskosten berekend (naast eventuele andere Service Bus-onderwerp kosten): 10.000 verbindingen * 12 uur * 31 dagen / 744 = 5.000 brokered verbindingen. Na aftrek van de maandelijkse 1.000 brokered connections, u kosten in rekening worden gebracht 4.000 brokered Connections, tegen het tarief van $0,03 per brokered connection, met een totaal van $120.
-2. 10.000 apparaten ontvangen berichten van een Service Bus-wachtrij via HTTP, een time-out van nul seconden op te geven. Als alle apparaten elke dag 12 uur verbinding maken, ziet u de volgende verbindingskosten berekend (naast eventuele andere Service Bus-kosten): 10.000 verbindingen HTTP voor ontvangen * 12 uur per dag * 31 dagen / 744 uur = 5000 brokered verbindingen.
+1. Elk van 10.000 apparaten verbindt via één AMQP-verbinding en daarvan opdrachten ontvangt van een Service Bus-onderwerp. De apparaten verstuurt telemetriegebeurtenissen naar een Event Hub. Als alle apparaten elke dag 12 uur verbinding maken, zijn van toepassing de volgende verbindingskosten berekend (naast eventuele andere Service Bus-onderwerp kosten): 10.000 verbindingen * 12 uur * 30 dagen / 730 = 4,931 brokered verbindingen. Na aftrek van de maandelijkse 1.000 brokered connections, u kosten in rekening worden gebracht 4.000 brokered Connections, tegen het tarief van $0,03 per brokered connection, met een totaal van $120.
+2. 10.000 apparaten ontvangen berichten van een Service Bus-wachtrij via HTTP, een time-out van nul seconden op te geven. Als alle apparaten elke dag 12 uur verbinding maken, ziet u de volgende verbindingskosten berekend (naast eventuele andere Service Bus-kosten): 10.000 verbindingen HTTP voor ontvangen * 12 uur per dag * 30 dagen / 730 uur = 4,931 brokered verbindingen.
 
 ### <a name="do-brokered-connection-charges-apply-to-queues-and-topicssubscriptions"></a>Zijn kosten voor Brokered Connection van toepassing op wachtrijen en onderwerpen/abonnementen?
 

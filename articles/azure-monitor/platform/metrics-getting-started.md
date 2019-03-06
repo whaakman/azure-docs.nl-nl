@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: a94e53644b2032af7be1575cd13807e0484eb182
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 9d23d4b30ca4d394fb4afd0bb6620be6df179600
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57344777"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444936"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Aan de slag met Azure Metrics Explorer
 
@@ -26,7 +26,7 @@ U kunt de metrics explorer gebruiken als u voor het onderzoeken van de status en
 
 1. Begin met [verzamelen van een resource en een metrische waarde](#creating-your-first-metric-chart) en ziet u een eenvoudige grafiek. Vervolgens [Selecteer een tijdsbereik](#picking-time-range) die relevant is voor uw onderzoek.
 
-1. Nadat u meer over eenvoudige grafieken, kunt u proberen [dimensiefilters zijn toegepast en splitsen](#applying-dimension-filters-and-splitting). De filters en splitsen kunt u voor het analyseren van welke segmenten van de metrische gegevens van bijdragen aan de algemene metrische waarde en mogelijke uitbijters te identificeren.
+1. Probeer [dimensiefilters zijn toegepast en splitsen](#applying-dimension-filters-and-splitting). De filters en splitsen kunt u voor het analyseren van welke segmenten van de metrische gegevens van bijdragen aan de algemene metrische waarde en mogelijke uitbijters te identificeren.
 
 1. Gebruik [geavanceerde instellingen](#advanced-chart-settings-and-next-steps) om aan te passen van de grafiek voordat u kunt vastmaken aan dashboards. [Waarschuwingen configureren](alerts-metric-overview.md) meldingen ontvangen wanneer de metrische waarde groter is dan of onder een drempelwaarde komt.
 
@@ -59,7 +59,7 @@ De grafiek toont standaard de meest recente 24 uur van metrische gegevens. Gebru
 
 [Filteren](metrics-charts.md#apply-filters-to-charts) en [splitsen](metrics-charts.md#apply-splitting-to-a-chart) zijn krachtige diagnostische hulpprogramma's voor de metrische gegevens die dimensies hebben. Deze functie laten zien hoe verschillende metrische segmenten ("dimensiewaarden') van invloed zijn op de totale waarde van de metrische gegevens en kunnen u mogelijke uitbijters te identificeren.
 
-- **Filteren** Hiermee kunt u opgeven welke dimensiewaarden zijn opgenomen in de grafiek. U wilt bijvoorbeeld weergeven van geslaagde aanvragen bij het uitzetten van de *serverreactietijd* metrische gegevens. U moet de filer toepassen op de *succes van aanvraag* dimensie. 
+- **Filteren** Hiermee kunt u opgeven welke dimensiewaarden zijn opgenomen in de grafiek. U wilt bijvoorbeeld weergeven van geslaagde aanvragen bij het uitzetten van de *serverreactietijd* metrische gegevens. U moet het filter toepassen op de *succes van aanvraag* dimensie. 
 
 - **Splitsen** besturingselementen of het diagram toont de afzonderlijke regels voor elke waarde van een dimensie of waarden samen tot één regel. U kunt bijvoorbeeld zien van één regel voor een gemiddelde reactietijd voor alle serverinstanties of Zie afzonderlijke regels voor elke server. U moet toepassen splitsen op de *server-exemplaar* dimensie om te zien van afzonderlijke regels.
 

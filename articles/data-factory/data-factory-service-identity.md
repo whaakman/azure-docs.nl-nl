@@ -11,16 +11,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: c49cff297404174a6331eaa82ab5efd585a345c4
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: daafac3cd89b2af7f6d7fa9a8ae28eecd334b623
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671808"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438462"
 ---
 # <a name="managed-identity-for-data-factory"></a>Beheerde identiteit voor Data Factory
 
 Dit artikel helpt u inzicht in wat er beheerde identiteit voor de Data Factory (voorheen bekend als Managed Service Identity/MSI) en hoe het werkt.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Overzicht
 
@@ -54,10 +56,10 @@ Als u uw data factory beschikt niet over een beheerde identiteit die is gekoppel
 
 ### <a name="generate-managed-identity-using-powershell"></a>Genereren van beheerde identiteit met behulp van PowerShell
 
-Bel **Set-AzureRmDataFactoryV2** opdracht nogmaals, ziet u 'Id' velden pas wordt gegenereerd:
+Bel **Set AzDataFactoryV2** opdracht nogmaals, ziet u 'Id' velden pas wordt gegenereerd:
 
 ```powershell
-PS C:\WINDOWS\system32> Set-AzureRmDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName> -Location <region>
+PS C:\WINDOWS\system32> Set-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName> -Location <region>
 
 DataFactoryName   : ADFV2DemoFactory
 DataFactoryId     : /subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/ADFV2DemoFactory
@@ -167,7 +169,7 @@ U vindt de beheerde identiteitsgegevens uit Azure portal -> uw data factory -> I
 De beheerde identiteit principal-ID en tenant-ID wordt geretourneerd wanneer u een specifieke data factory als volgt:
 
 ```powershell
-PS C:\WINDOWS\system32> (Get-AzureRmDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName>).Identity
+PS C:\WINDOWS\system32> (Get-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName>).Identity
 
 PrincipalId                          TenantId
 -----------                          --------
@@ -177,7 +179,7 @@ PrincipalId                          TenantId
 De principal-ID kopiëren en vervolgens uitvoeren onder Azure Active Directory-opdracht met de principal-ID als parameter aan de **ApplicationId**, die u gebruiken om toegang te verlenen:
 
 ```powershell
-PS C:\WINDOWS\system32> Get-AzureRmADServicePrincipal -ObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
+PS C:\WINDOWS\system32> Get-AzADServicePrincipal -ObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
 
 ServicePrincipalNames : {76f668b3-XXXX-XXXX-XXXX-1b3348c75e02, https://identity.azure.net/P86P8g6nt1QxfPJx22om8MOooMf/Ag0Qf/nnREppHkU=}
 ApplicationId         : 76f668b3-XXXX-XXXX-XXXX-1b3348c75e02

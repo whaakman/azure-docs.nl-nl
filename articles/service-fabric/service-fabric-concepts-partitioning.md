@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: 0012304412b343918ab69abf6eababc033cddc6f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 492afcdd5143aa5a6597ba8c296d15059f9c7d64
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198211"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453266"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Betrouwbare Service Fabric-services partitioneren
 In dit artikel bevat een inleiding tot de basisconcepten van Azure Service Fabric reliable services partitioneren. De broncode die wordt gebruikt in het artikel is ook beschikbaar op [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -59,7 +59,7 @@ Voordat u een service implementeert, moet u altijd rekening houden met de strate
 
 Er is een goede aanpak om na te denken over de structuur van de status die moet worden gepartitioneerd als de eerste stap.
 
-We nemen een eenvoudig voorbeeld. Als u een service voor een countywide poll bouwt, kunt u een partitie voor elke plaats kunt maken in de regio. Vervolgens kunt u de stemmen voor elke persoon opslaan in de plaats in de partitie die overeenkomt met die plaats. Afbeelding 3 ziet u een set personen en de plaats waarin ze zich bevinden.
+We nemen een eenvoudig voorbeeld. Als u een service voor een hele regio poll bouwt, kunt u een partitie voor elke plaats kunt maken in de regio. Vervolgens kunt u de stemmen voor elke persoon opslaan in de plaats in de partitie die overeenkomt met die plaats. Afbeelding 3 ziet u een set personen en de plaats waarin ze zich bevinden.
 
 ![Eenvoudige partitie](./media/service-fabric-concepts-partitioning/cities.png)
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4d770e091c8786972e3f15a03fc5af9ec9445002
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: da9aec6c449802ee9296ea4e60efe47650176212
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327796"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433345"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>SAP MaxDB liveCache en implementatie van de Server voor webinhoud op Azure Virtual machines
 
@@ -440,7 +440,7 @@ Ondersteunde Windows-versie voor de Server voor webinhoud SAP op Azure, Zie:
 Het is raadzaam de nieuwste versie van Microsoft Windows Server gebruiken.
 
 ### <a name="sap-content-server-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Richtlijnen voor Content Server SAP voor SAP-installaties in Azure VM 's
-#### <a name="storage-configuration-foir-content-server-in-azure"></a>Opslag configuratie foir Server voor webinhoud in Azure
+#### <a name="storage-configuration-for-content-server-in-azure"></a>De opslagconfiguratie voor de Server voor webinhoud in Azure
 Als u inhoud SAP-Server voor het opslaan van bestanden in de database SAP MaxDB configureert, zijn alle Azure storage aanbevolen procedures voor aanbevelingen voor SAP MaxDB vermeld in dit document ook geldig voor de SAP-Server voor webinhoud-scenario. 
 
 Als u inhoud SAP-Server voor het opslaan van bestanden in het bestandssysteem is geconfigureerd, wordt het aanbevolen een specifieke logische station wilt gebruiken. Windows Storage Spaces, kunt u zodat ook de grootte van de logische schijf en doorvoer, IOP's, zoals beschreven in [overwegingen voor Azure Virtual Machines DBMS-implementatie voor de werkbelasting van SAP](dbms_guide_general.md). 

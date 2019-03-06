@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46bd7b265be204a70989fe0c726514485ac8c39c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 03f1172b20442799ed9aeb395526d4cbbb3bcfb7
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163799"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875426"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-collaborative-innovation"></a>Zelfstudie: Azure Active Directory-integratie met Collaborative Innovation
 
@@ -160,7 +160,7 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
 
 ### <a name="configure-collaborative-innovation-single-sign-on"></a>Eenmalige aanmelding voor Collaborative Innovation configureren
 
-Als u eenmalige aanmelding wilt configureren in **Collaborative Innovation**, moet u het gedownloade XML-bestand met federatieve metagegevens**** en de juiste, uit de Azure-portal gekopieerde URL's verzenden naar het [ondersteuningsteam van Collaborative Innovation](https://www.unilever.com/contact/). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+Als u eenmalige aanmelding wilt configureren in **Collaborative Innovation**, moet u het gedownloade XML-bestand met federatieve metagegevens en de juiste **,** uit de Azure-portal gekopieerde URL's verzenden naar het [ondersteuningsteam van Collaborative Innovation](https://www.unilever.com/contact/). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
@@ -227,9 +227,9 @@ Wanneer u in het toegangsvenster op de tegel van Collaborative Innovation klikt,
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

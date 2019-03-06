@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53eb0c4ad5c0a21f46985062ef8202a87dc0d5e6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c23f16f5d3c665cb74e9e0460d2e5658fa716d72
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189358"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452858"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Zelfstudie: Azure Active Directory-integratie met oneindige Campus
 
@@ -48,8 +48,8 @@ Voor het configureren van Azure AD-integratie met oneindige Campus, moet u de vo
 Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
 - Gebruik niet de productieomgeving, tenzij dit echt nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
-- Ten minste moet u een Azure Active Directory-beheerder om de configuratie te voltooien.
+- Als u niet beschikt over een evaluatieomgeving in Azure AD, kunt u [een gratis proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+- Ten minste moet u een Azure Active Directory-beheerder, en over de beveiligingsrol van een Campus-Product van "Student Information System (SIS)" om de configuratie te voltooien.
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
@@ -112,7 +112,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](common/editconfigure.png)
 
-4. Op de **SAML-basisconfiguratie** sectie, hebt u een **Service Provider-bestand met metagegevens**volledige 4. via 4.d stappen en ga vervolgens verder 11.c stap wilt uitvoeren. Als u een bestand met metagegevens voor Service Provider geen hebt, gaat u naar stap 5.
+4. Op de **SAML-basisconfiguratie** sectie, hebt u een **Service Provider-bestand met metagegevens** van oneindige Campus geëxporteerd, voltooien 4. via 4.d stappen en ga vervolgens verder 11.c stap wilt uitvoeren. Als u een bestand met metagegevens voor Service Provider geen hebt, gaat u naar stap 5.
 
     a. Klik op **metagegevensbestand uploaden**.
 
@@ -168,13 +168,15 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     a. Selecteer **inschakelen SAML-eenmalige aanmelding**.
     
-    b. Op de **een optie voor het ophalen van gegevens van de id-Provider (IDP)-server** sectie, selecteer **metagegevens-URL**, plak de **App-Url voor federatieve metagegevens** in het vak en vervolgens Klik op **synchronisatie**.
+    b. Bewerken de **optionele kenmerknaam** bevat **naam**
+    
+    c. Op de **een optie voor het ophalen van gegevens van de id-Provider (IDP)-server** sectie, selecteer **metagegevens-URL**, plak de **App-Url voor federatieve metagegevens** (uit stap 6 hierboven) in het vak en klik vervolgens op **synchronisatie**.
 
-    c. Klikt u op **Service Provider metagegevens** koppeling op te slaan de **Service Provider-bestand met metagegevens** op uw computer, en upload dit in **SAML-basisconfiguratie** sectie automatisch Vul de **id** en **antwoord-URL** waarden in de Azure-portal (Zie stap 4 voor uploaden en automatische populatie van waarden of stap 5 voor handmatige invoer).
+    d. Klikt u op **Service Provider metagegevens** koppeling op te slaan de **Service Provider-bestand met metagegevens** op uw computer, en upload dit in **SAML-basisconfiguratie** sectie automatisch Vul de **id** en **antwoord-URL** waarden in de Azure-portal (Zie stap 4 voor uploaden en automatische populatie van waarden of stap 5 voor handmatige invoer).
 
-    d. Nadat u hebt geklikt **synchronisatie** de waarden ophalen automatisch ingevuld in **SSO-configuratie van serviceprovider** pagina.
+    e. Nadat u hebt geklikt **synchronisatie** de waarden ophalen automatisch ingevuld in **SSO-configuratie van serviceprovider** pagina.
 
-    e. Klik op **Opslaan**.
+    f. Klik op **Opslaan**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
 
@@ -233,11 +235,11 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Wanneer u op de tegel oneindige Campus in het toegangsvenster, u moet u automatisch aangemeld bij uw oneindige Campus-toepassing. Als u zich bij de toepassing oneindige Camnpus in de browser die u bij het beheer van Azure AD, controleert u of dat u bent aangemeld bij Azure AD als de testgebruiker. Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
+Wanneer u op de tegel oneindige Campus in het toegangsvenster, u moet u automatisch aangemeld bij uw oneindige Campus-toepassing. Als u zich bij de oneindige Campus-toepassing in de browser die u bij het beheer van Azure AD, controleert u of dat u bent aangemeld bij Azure AD als de testgebruiker. Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 <!--Image references-->

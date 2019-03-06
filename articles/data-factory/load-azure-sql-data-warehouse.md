@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: b8b07db6e21fb685ed76409336c98bb5f4ce5bde
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 7a478a9f73edae463a5dace1b1a28180e5d09bdc
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009433"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437731"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Gegevens laden in Azure SQL Data Warehouse met behulp van Azure Data Factory
 
@@ -26,9 +26,9 @@ Aan de slag met Azure SQL Data Warehouse is nu eenvoudiger dan ooit bij het gebr
 
 Azure Data Factory biedt de volgende voordelen voor het laden van gegevens in Azure SQL Data Warehouse:
 
-* **Eenvoudig**: een intuïtieve wizard 5-stap geen scripts vereist.
-* **Uitgebreide ondersteuning voor gegevensopslag**: ingebouwde ondersteuning voor een uitgebreide set on-premises en cloud-gebaseerde gegevensarchieven. Zie de tabel van voor een gedetailleerde lijst [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).
-* **Beveiligd en compatibel**: gegevens worden overgedragen via HTTPS of ExpressRoute. De aanwezigheid van de algemene service zorgt ervoor dat uw gegevens nooit de geografische grens verlaat.
+* **Eenvoudig**: Een intuïtieve 5-stap-wizard met geen scripts vereist.
+* **Uitgebreide gegevens store ondersteunen**: Ingebouwde ondersteuning voor een uitgebreide set on-premises en cloud-gebaseerde gegevensarchieven. Zie de tabel van voor een gedetailleerde lijst [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).
+* **Beveiligd en compatibel**: Gegevens worden overgedragen via HTTPS of ExpressRoute. De aanwezigheid van de algemene service zorgt ervoor dat uw gegevens nooit de geografische grens verlaat.
 * **Ongeëvenaarde prestaties met behulp van PolyBase**: Polybase is de meest efficiënte manier om gegevens te verplaatsen naar Azure SQL Data Warehouse. De staging blob-functie gebruiken om een halen van hoge belasting van alle soorten gegevensarchieven, met inbegrip van Azure Blob-opslag en Data Lake Store. (Polybase Azure Blob storage en Azure Data Lake Store biedt standaard ondersteuning voor.) Zie voor meer informatie, [prestaties van de Kopieeractiviteit](copy-activity-performance.md).
 
 Dit artikel laat u het gebruik van het hulpprogramma Data Factory kopiëren van gegevens naar _gegevens uit Azure SQL Database laden in Azure SQL Data Warehouse_. U kunt uitvoeren van gelijksoortige stappen als u wilt kopiëren van gegevens van andere soorten gegevensarchieven.
@@ -38,10 +38,10 @@ Dit artikel laat u het gebruik van het hulpprogramma Data Factory kopiëren van 
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Azure-abonnement: als u geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
-* Azure SQL datawarehouse: Het datawarehouse bevat de gegevens die uit de SQL-database gekopieerd. Als u een Azure SQL Data Warehouse hebt, raadpleegt u de instructies in [maken van een SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
+* Azure-abonnement: Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
+* Azure SQL Data Warehouse: Het datawarehouse bevat de gegevens die uit de SQL-database gekopieerd. Als u een Azure SQL Data Warehouse hebt, raadpleegt u de instructies in [maken van een SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
 * Azure SQL Database: In deze zelfstudie worden gegevens gekopieerd van een Azure SQL-database met Adventure Works LT-voorbeeldgegevens. U kunt een SQL-database maken door de instructies in [maken van een Azure SQL database](../sql-database/sql-database-get-started-portal.md). 
-* Azure storage-account: Azure Storage wordt gebruikt als de _staging_ blob in de bulksgewijze kopieerbewerking. Als u geen Azure-opslagaccount hebt, raadpleegt u de instructies in [Een opslagaccount maken](../storage/common/storage-quickstart-create-account.md).
+* Azure Storage-account: Azure Storage wordt gebruikt als de _staging_ blob in de bulksgewijze kopieerbewerking. Als u geen Azure-opslagaccount hebt, raadpleegt u de instructies in [Een opslagaccount maken](../storage/common/storage-quickstart-create-account.md).
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 
@@ -55,7 +55,7 @@ Dit artikel laat u het gebruik van het hulpprogramma Data Factory kopiëren van 
     * **Naam**: Voer een unieke naam op voor uw Azure-gegevensfactory. Als u de foutmelding ' naam Data factory \"LoadSQLDWDemo\" is niet beschikbaar, "Voer een andere naam voor de data factory. Bijvoorbeeld, kunt u de naam van de  _**uwnaam**_**ADFTutorialDataFactory**. Probeer het opnieuw maken van de data factory. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
     * **Abonnement**: Selecteer uw Azure-abonnement waarin u wilt maken van de data factory. 
     * **Resourcegroep**: Selecteer een bestaande resourcegroep in de vervolgkeuzelijst of Selecteer de **nieuw** optie en voer de naam van een resourcegroep. Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-overview.md) voor meer informatie.  
-    * **Versie**: Selecteer **V2**.
+    * **Version**: Selecteer **V2**.
     * **Locatie**: Selecteer de locatie voor de data factory. In de vervolgkeuzelijst worden alleen ondersteunde locaties weergegeven. De gegevensarchieven die worden gebruikt door data factory, kunnen zich in andere locaties of regio's. Deze gegevensarchieven bevatten Azure Data Lake Store, Azure Storage en Azure SQL Database.
 
 1. Selecteer **Maken**.
@@ -84,7 +84,7 @@ Dit artikel laat u het gebruik van het hulpprogramma Data Factory kopiëren van 
 
     ![Azure SQL DB selecteren](./media/load-azure-sql-data-warehouse/select-azure-sql-db-source.png)
 
-    c. In de **nieuwe gekoppelde Service** pagina, selecteer uw servernaam en databasenaam in de vervolgkeuzelijst en geef de gebruikersnaam en het passworkd. Klik op **verbinding testen** voor het valideren van de instellingen, selecteer **voltooien**.
+    c. In de **nieuwe gekoppelde Service** pagina, selecteer uw servernaam en databasenaam in de vervolgkeuzelijst en geef de gebruikersnaam en wachtwoord. Klik op **verbinding testen** voor het valideren van de instellingen, selecteer **voltooien**.
    
     ![Azure SQL DB configureren](./media/load-azure-sql-data-warehouse/configure-azure-sql-db.png)
 
@@ -106,7 +106,7 @@ Dit artikel laat u het gebruik van het hulpprogramma Data Factory kopiëren van 
 
     ![Selecteer Azure SQL DW](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
 
-    c. In de **nieuwe gekoppelde Service** pagina, selecteer uw servernaam en databasenaam in de vervolgkeuzelijst en geef de gebruikersnaam en het passworkd. Klik op **verbinding testen** voor het valideren van de instellingen, selecteer **voltooien**.
+    c. In de **nieuwe gekoppelde Service** pagina, selecteer uw servernaam en databasenaam in de vervolgkeuzelijst en geef de gebruikersnaam en wachtwoord. Klik op **verbinding testen** voor het valideren van de instellingen, selecteer **voltooien**.
    
     ![Configureren van Azure SQL DW](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
 

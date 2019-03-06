@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 1f3168cef503fed0aea09228c9bc11dfb456f2ab
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5f477cf20b817d7a6c8be856636bf1e3755b5424
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848473"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443484"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Instellen van herstel na noodgevallen voor een toepassing met meerdere lagen SharePoint voor herstel na noodgevallen met Azure Site Recovery
 
@@ -109,7 +109,7 @@ Ga als volgt [deze richtlijnen](site-recovery-vmware-to-azure.md) om te beginnen
 Voor sites, internetgerichte [maken van een Traffic Manager-profiel van het type 'Prioriteit'](../traffic-manager/traffic-manager-create-profile.md) in het Azure-abonnement. En configureer vervolgens uw DNS- en Traffic Manager-profiel in de volgende manier.
 
 
-| **waar** | **Bron** | **Doel**|
+| **waar** | **Bron** | **Target**|
 | --- | --- | --- |
 | Openbare DNS | Openbare DNS voor SharePoint-sites <br/><br/> Bijvoorbeeld: sharepoint.contoso.com | Traffic Manager <br/><br/> contososharepoint.trafficmanager.net |
 | On-premises DNS | sharepointonprem.contoso.com | Openbaar IP-adres op de on-premises-farm |
@@ -153,7 +153,7 @@ U kunt de meestgebruikte scripts voor de Azure Site Recovery implementeren in uw
 
 2. Toevoegen van een script van de actie bericht als u wilt koppelen van een load balancer op de failover van virtuele machines van de weblaag (groep 2). Gebruik het script 'ASR-AddSingleLoadBalancer' gepubliceerd in de voorbeelden van scripts. Zorg ervoor dat u Volg de instructies in het script en breng de benodigde wijzigingen in het script op de juiste wijze.
 
-    ![Toevoegen-LB-Script-stap-1](./media/site-recovery-sharepoint/add-lb-script-step1.png)
+    ![Add-LB-Script-Step-1](./media/site-recovery-sharepoint/add-lb-script-step1.png)
 
     ![Toevoegen-LB-Script-stap-2](./media/site-recovery-sharepoint/add-lb-script-step2.png)
 

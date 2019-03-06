@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 03/05/2019
-ms.openlocfilehash: 99200e521ea844d20ef00ef70ad65ac0ab3bcddd
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: f66babf5ee72876692a5ae1b371f811534db6875
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337291"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452323"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Veelgestelde vragen over het gebruik van de Azure Database Migration Service
 In dit artikel geeft een lijst met veelgestelde vragen over het gebruik van de Azure Database Migration Service, samen met verwante antwoorden.
@@ -28,7 +28,7 @@ Azure Database Migration Service is een volledig beheerde service die is ontworp
 - Voortdurende investeringen in migraties te leren kennen.
 
 ### <a name="q-what-source-target-pairs-does-the-azure-database-migration-service-currently-support"></a>V. Welke bron-doelparen Azure Database Migration Service momenteel ondersteunt?
-De service ondersteunt momenteel een verscheidenheid aan scenario's voor migratie. Zie het artikel voor een volledige lijst met de status van elke beschikbare migratiescenario, [Status van het migratiescenario's ondersteund door de Azure Database Migration Service](https://docs.microsoft.com/azure/dms/resource-scenario-status). Andere scenario's voor migratie zijn beperkte Preview-versie en vereisen een nominatie via de DMS-Preview-site verzenden. Zie voor een volledige lijst van de scenario's in de beperkte Preview-versie en om u te registreren naar particpate in een van deze aanbiedingen, de [DMS voorbeeldsite](https://aka.ms/dms-preview/).
+De service ondersteunt momenteel een verscheidenheid aan scenario's voor migratie. Zie het artikel voor een volledige lijst met de status van elke beschikbare migratiescenario, [Status van het migratiescenario's ondersteund door de Azure Database Migration Service](https://docs.microsoft.com/azure/dms/resource-scenario-status). Andere scenario's voor migratie zijn beperkte Preview-versie en vereisen een nominatie via de DMS-Preview-site verzenden. Zie voor een volledige lijst van de scenario's in de beperkte Preview-versie en om u te registreren om deel te nemen in een van deze aanbiedingen, de [DMS voorbeeldsite](https://aka.ms/dms-preview/).
 
 ### <a name="q-how-does-the-azure-database-migration-service-compare-to-other-microsoft-database-migration-tools-such-as-the-database-migration-assistant-dma-or-sql-server-migration-assistant-ssma"></a>V. Hoe laat de Azure Database Migration Service zich vergelijken met andere Microsoft hulpprogramma's voor databasemigratie, zoals de Database Migration Assistant (DMA) of SQL Server Migration Assistant (SSMA)?
 Azure Database Migration Service is de voorkeursmethode voor databasemigratie naar Microsoft Azure op schaal. Voor meer informatie over hoe de Azure Database Migration Service met andere Microsoft vergelijkt-hulpprogramma's voor migratie van de database en voor aanbevelingen over het gebruik van de service voor verschillende scenario's, Zie het blog-boeken [differentiëren de Database van Microsoft Hulpprogramma's voor migratie en Services](https://blogs.msdn.microsoft.com/datamigration/2017/10/13/differentiating-microsofts-database-migration-tools-and-services/).

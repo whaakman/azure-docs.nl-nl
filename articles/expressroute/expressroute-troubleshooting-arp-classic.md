@@ -1,5 +1,5 @@
 ---
-title: 'ARP-tabellen - probleemoplossing ExpressRoute ophalen: klassiek: Azure | Microsoft Docs'
+title: 'ARP-tabellen - probleemoplossing ExpressRoute ophalen: klassiek: Azure| Microsoft Docs'
 description: Deze pagina vindt u instructies voor het ophalen van de ARP-tabellen voor een ExpressRoute-circuit - klassieke implementatiemodel.
 services: expressroute
 author: ganesr
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 367a79b04a8736e2eafb6851b682f2c244e80522
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3e49a1da0e8ea83faf5fc5a10d4c01a41d62fa88
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272283"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439635"
 ---
 # <a name="getting-arp-tables-in-the-classic-deployment-model"></a>ARP-tabellen ophalen in het klassieke implementatiemodel
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ De volgende sectie bevat informatie over het weergeven van de ARP-tabellen die z
 Zorg ervoor dat u het volgende hebt voordat u doorgaat:
 
 * Een geldige ExpressRoute-circuit dat geconfigureerd met ten minste één peering. Het circuit moet volledig worden geconfigureerd door de connectiviteitsprovider. U (of uw connectiviteitsprovider) moet configureren ten minste één van de peerings (Azure privé, Azure openbaar of Microsoft) op dit circuit.
-* IP-adresbereiken die worden gebruikt voor het configureren van de peerings (Azure privé, Azure openbaar en Microsoft). Bekijk de voorbeelden IP-adres toewijzing in de [pagina voor ExpressRoute routing requirements](expressroute-routing.md) om op te halen van een goed begrip van hoe IP-adressen zijn toegewezen aan de interfaces op uw aise en aan de ExpressRoute. U krijgt informatie over de configuratie voor peering aan de hand van de [configuratiepagina van de ExpressRoute-peering](expressroute-howto-routing-classic.md).
+* IP-adresbereiken die worden gebruikt voor het configureren van de peerings (Azure privé, Azure openbaar en Microsoft). Bekijk de voorbeelden IP-adres toewijzing in de [pagina voor ExpressRoute routing requirements](expressroute-routing.md) om op te halen van een goed begrip van hoe IP-adressen zijn toegewezen aan de interfaces op uw kant- en aan de ExpressRoute. U krijgt informatie over de configuratie voor peering aan de hand van de [configuratiepagina van de ExpressRoute-peering](expressroute-howto-routing-classic.md).
 * Gegevens uit uw netwerken team of connectivity provider over de MAC-adressen van de interfaces die worden gebruikt met deze IP-adressen.
 * De meest recente Windows PowerShell-module voor Azure (versie 1,50 of hoger).
 

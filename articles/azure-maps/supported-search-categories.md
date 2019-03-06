@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: b2bb5e0f9b138af5ff69599b7ba35457788c8a65
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 64b28fc0db56be77bce9c22f9332110205a42b1d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968444"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437340"
 ---
 # <a name="azure-maps-supported-categories"></a>Azure Maps ondersteunde categorieën
 
@@ -31,21 +31,21 @@ Bij het uitvoeren van een [categorie zoeken](https://docs.microsoft.com/rest/api
 | AMUSEMENT\_PARK | amusement arcade, amusement plaats, pretparken |
 | AUTO\_DEALER | ATV/snowmobile, Boot, bus, motor, vrachtwagen, van, campers, auto, autobranche dealer |
 | BANK | Bank, banken, bank(s) |
-| STRAND | Beach, stranden |
+| BEACH | Beach, stranden |
 | HET BOUWEN VAN\_PUNT | het bouwen van (punt). |
 | ZAKELIJKE\_PARK | zakelijke park, industriële gebied |
 | CAFE\_PUB | internetcafé, thee house, café, internetcafé, café, restaurant, microbrewery/smaakt garden, pub, pub/pub, pub/pub |
 | KAMPEER\_GROND | recreatie, caravan site kampeer grond |
 | AUTO\_WAS | Auto was |
 | GELD\_DISPENSER | Automatische betaalautomaten machine, geld dispenser |
-| CASINO | Casino |
-| BIOSCOOPVERTONINGEN | Drive-in bioscoopvertoningen, bioscoopvertoningen |
+| CASINO | casino |
+| CINEMA | Drive-in bioscoopvertoningen, bioscoopvertoningen |
 | PLAATS\_CENTER | netwerkomgeving, administratieve gebied, plaats center, midden |
 | CLUB\_KOPPELING | strand club, ijshockey club, club koppeling |
 | COLLEGE\_UNIVERSITEIT | Junior middelbare school/beroepsopleiding, middelbare school/universiteit, hogeschool, universiteit prep school, universiteit |
 | COMMERCIËLE\_BOUWEN | het bouwen van het bouwen, park-headquarters commerciële Office |
 | COMMUNITY\_CENTER | community-center |
-| BEDRIJF | BTW-Electronics, productie, computer-gegevensservices, technologieën voor de volksgezondheid, gediversifieerde financials, dieren beschermen, luchtvaartmaatschappij, apparatuur verhuur, service, e-mail/pakket/vrachtkosten levering, bus regels, home-apparaat herstellen, reiniging, oem, Services, olie natuurlijke gas, juridisch, bouw, tele communicatie, transport, productie van auto's, chemisch, Begrafenis service mortuaries, bridge-tunnel operations, auto, mechanische engineering, services, investering adviseurs, reclame/marketing, het verplaatsen van opslag, besparingen instelling, verzekeringen, computersoftware, bus pharmaceuticals catering, bruiloft services, agricultural technologie, onroerend goed, taxi, limousine shuttle service Handvest huren, mijnbouw, publiceren technologieën, kabel telefoon, import/export-distributie, bedrijf, behandeling, steenkool mine(s), estate(s), brewery, gold mine(s) |
+| BEDRIJF | BTW-Electronics, productie, computer-gegevensservices, technologieën voor de volksgezondheid, gediversifieerde financials, dieren beschermen, luchtvaartmaatschappij, apparatuur verhuur, service, e-mail/pakket/vrachtkosten levering, bus regels, home-apparaat herstellen, reiniging, oem, Services, olie natuurlijke gas, juridisch, bouw, telecommunicatie, transport, productie van auto's, chemisch, Begrafenis service mortuaries, bridge-tunnel operations, auto, mechanische engineering, services, investering adviseurs, reclame/marketing, het verplaatsen van opslag, besparingen instelling, verzekeringen, computersoftware, bus pharmaceuticals catering, bruiloft services, agricultural technologie, onroerend goed, taxi, limousine shuttle service Handvest huren, mijnbouw, publiceren technologieën, kabel telefoon, import/export-distributie, bedrijf, behandeling, steenkool mine(s), estate(s), brewery, gold mine(s) |
 | COURTHOUSE | courthouse |
 | CULTURELE\_CENTER | culturele center |
 | TANDARTS | tandarts |
@@ -81,7 +81,7 @@ Bij het uitvoeren van een [categorie zoeken](https://docs.microsoft.com/rest/api
 | LEGER\_INSTALLATIE | leger base, westkust guard station, Militaire installatie, Marine base |
 | MOTORING\_ORGANISATIE\_OFFICE | motoring organisatie office |
 | MOUNTAIN\_DOORGEVEN | Mountain pass |
-| MUSEUM | Museum |
+| MUSEUM | museum |
 | SYSTEEMEIGEN\_RESERVERING | systeemeigen reservering reservering |
 | NIGHTLIFE | balk, karaoke club, jazz club, persoonlijke club, wijn balk, comedy club, cocktail balk, discotheque, nightlife |
 | NIET\_GOVERNMENTAL\_ORGANISATIE | niet-gouvernementele organisatie |
@@ -101,7 +101,7 @@ Bij het uitvoeren van een [categorie zoeken](https://docs.microsoft.com/rest/api
 | OPENBARE\_TRANSPORT\_STOPPEN | coach stoppen, bus stoppen, taxi zelfstandige, tram stoppen, openbaar vervoer stoppen, metro station, railroad station, busstation, railroad stoppen |
 | SPOOR\_STATION | nationale, spoor beplating, metro, stad, spoor-station (sub) |
 | HUUR\_A\_AUTO\_FACILITEIT | rent-a-CAR faciliteit |
-| HUUR\_A\_AUTO\_VAN DE VERVANGENDE DOMEINPAGINA | rent-a-car-vervangende domeinpagina |
+| HUUR\_A\_AUTO\_VAN DE VERVANGENDE DOMEINPAGINA | rent-a-car-parking |
 | REPARATIE\_FACILITEIT | bodyshops, band (band)-services, herstel winkels, auto glas vervanging winkels, algemene auto herstellen onderhoud van de installatie van de verkoop van Autoaccessoires, motor herstellen, vrachtwagen repair-service, herstellen faciliteit |
 | ONDERZOEK\_FACILITEIT | onderzoek faciliteit |
 | WOONADRES\_ACCOMMODATIE | buiten gebruik stellen community, townhouse complexe, appartementen/appartementencomplex, condominium complexe, woonadres goed, woonadres accommodatie |
@@ -113,7 +113,7 @@ Bij het uitvoeren van een [categorie zoeken](https://docs.microsoft.com/rest/api
 | KIEZEN | Factory uitgang, security-producten, Christmas/feestdagen store, opticians, house-garden: belichting loterij shop, muziek instrumenten spijker salon, garden bevatten: tekenen met het inrichten, hobby/vrije tijd, newsagents: tabakswinkels, Kledingaccessoires: speciale, testmodus mag zakken leatherwear, leveringen, kleding accessoires dierverzorgers: kinderen, bouw materiaal apparatuur, sieraden, klokken kijkt naar kleding accessoires: schoeisel schoen reparaties, house-garden: gordijnen/textiel, elektrisch, office het: consumenten Electronics, elektrisch, office het: camera&#39;s fotografie, cd&#39;s, DVD-video's, wasgoed, Kledingaccessoires: mannen, bloemenwinkels, pion shop, book winkels, zee elektronische apparatuur, food drank: food markten, house-garden: tapijt/floor vloerbedekking , fotokopie, varen apparatuur accessoires, mobiele telefoon shop, toys games, specialiteiten, Kledingaccessoires: Algemeen, food drank: bakers, maat shop, cadeaus, kaarten, schertsartikelen souvenirs, de services, sport apparatuur kleding, stempel winkelen elektrische toestel elektrische, office het: kantoorartikelen, foto lab/ontwikkeling, Groothandel stadions, house-garden: meubels toebehoren, lokale specialiteiten, food drank: butchers, verschillende winkel, food drank: food winkels, food drank: wijn alcohol, drug store , meubels en thuis meubels, elektrisch, office het: computer leveringen, cd/video verhuur, leveringen medische apparatuur, de voorraad strekt, mooie salon, house-garden: garden centers services, food drank: fishmongers, mooie leveringen, kleding Bureau-accessoires: vrouwen, reizen agents, detailhandel, recycling shop, house-garden: windows, hardware, makelaars, gebruikt/keramische, Mama's delicatessen bevat, house-garden glas: keukens badkamer, station, gokken hairdressers barbers, food drank: grocers, voedsel drank: groen grocers, gemak winkels, station via bottle winkelen house-garden: doe datacenters, antieke/illustraties, shop, store |
 | WINKELEN\_CENTER | kleine, winkelen center |
 | SPORT\_CENTER | thematische sport squash rechtbank worden behandeld, geschiktheid club center, sport center |
-| STADION | netball, football, baseball, circuit, meerdere doeleinden, motor sport, cricket grond, succesvolle internationale rugbyteam grond, ijshockey, sport, paard racing basketbal, soccer, stadion, sport veld, ovaal |
+| STADIUM | netball, football, baseball, circuit, meerdere doeleinden, motor sport, cricket grond, succesvolle internationale rugbyteam grond, ijshockey, sport, paard racing basketbal, soccer, stadion, sport veld, ovaal |
 | ZWEMMEN\_POOL | zwemmen van toepassingen |
 | TENNIS\_RECHTBANK WORDEN BEHANDELD | Tennis rechtbank worden behandeld |
 | THEATER | amphitheater, concert hall, diner theater, muziek center, opera, cabaret, theater, opera house |
@@ -124,7 +124,7 @@ Bij het uitvoeren van een [categorie zoeken](https://docs.microsoft.com/rest/api
 | AUDITTRAIL\_SYSTEM | Adventure voertuig, knal stijgt, paard hing, mountain fiets, rondtrekken, system forum |
 | TRANSPORT\_INSTANTIE VEHICLE\_REGISTRATIE | registratie van de instantie/vehicle transport |
 | VRACHTWAGEN\_STOPPEN | vrachtwagen stoppen |
-| DIERENARTS | veterinaire faciliteit, dierenarts |
+| VETERINARIAN | veterinaire faciliteit, dierenarts |
 | WATER\_SPORT | water sport |
 | WEEG\_STATION | Weeg worden geschaald, wegen station |
 | WELZIJN\_ORGANISATIE | welzijn van organisatie |

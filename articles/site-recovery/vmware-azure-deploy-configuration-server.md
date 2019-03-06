@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/28/2019
-ms.author: mayg
-ms.openlocfilehash: e7ee8f58e42f99ebc087f21837511979c578fb89
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.date: 03/06/2019
+ms.author: ramamill
+ms.openlocfilehash: 3f500abe0ea37b35236547824c655adc1a4c4d93
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340079"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448829"
 ---
 # <a name="deploy-a-configuration-server"></a>Een configuratieserver implementeren
 
@@ -74,7 +74,7 @@ Als u meer dan een VMware-VM repliceert, leest u [overwegingen voor capaciteitsp
 >U kunt ook de meest recente versie van de configuratieserversjabloon rechtstreeks vanuit downloaden [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
 
 >[!NOTE]
-Het certificaat dat is opgegeven met OVA-sjabloon is een geldig gedurende 180 dagen evaluatie-certificaat. Na deze periode klant nodig heeft om de windows met een geleverde certificaat te activeren.
+De licentie die is opgegeven met OVA-sjabloon is een van de evaluatielicentie is geldig gedurende 180 dagen. Na deze periode klant nodig heeft om de windows met een licentie voor geleverde te activeren.
 
 ## <a name="import-the-template-in-vmware"></a>De sjabloon in VMware importeren
 
@@ -113,8 +113,8 @@ Als u toevoegen van een extra NIC aan de configuratieserver wilt, moet u het toe
 3. Meld u nadat de installatie is voltooid bij de virtuele machine aan als de administrator.
 4. De eerste keer dat u zich aanmeldt, binnen een paar seconden de Azure Site Recovery Configuration Tool wordt gestart.
 5. Voer een naam in die wordt gebruikt voor het registreren van de configuratieserver bij Site Recovery. Selecteer vervolgens **Volgende**.
-6. Het hulpprogramma controleert of de VM verbinding kan maken met Azure. Nadat de verbinding tot stand is gebracht, selecteert u **Aanmelden** om u aan te melden bij uw Azure-abonnement.
-    a. De referenties moeten toegang hebben tot de kluis waarin u de configuratieserver wilt registreren.
+6. Het hulpprogramma controleert of de VM verbinding kan maken met Azure. Nadat de verbinding tot stand is gebracht, selecteert u **Aanmelden** om u aan te melden bij uw Azure-abonnement.</br>
+    a. De referenties moeten toegang hebben tot de kluis waarin u de configuratieserver wilt registreren.</br>
     b. Zorg ervoor dat gekozen gebruikersaccount machtigingen voor het maken van een toepassing in Azure heeft. Om in te schakelen vereiste machtigingen, richtlijnen gegeven [hier](#azure-active-directory-permission-requirements).
 7. Het hulpprogramma voert enkele configuratietaken uit en start opnieuw op.
 8. Meld u opnieuw aan bij de machine. Start de wizard voor het beheer configuratie **automatisch** in enkele seconden.
@@ -155,7 +155,7 @@ Om te voorkomen onderbrekingen in de lopende replicatie, zorg ervoor dat IP-adre
 
 1. Hoe lang is het certificaat dat is opgegeven op de configuratieserver geïmplementeerd via OVF is geldig? Wat gebeurt er als ik de licentie niet opnieuw activeren?
 
-    Het certificaat dat is opgegeven met OVA-sjabloon is een geldig gedurende 180 dagen evaluatie-certificaat. Vóór de verloopdatum moet u de licentie activeren. Anders kan dit leiden tot frequente afsluiten van de configuratieserver en waardoor hinderance replicatie activiteiten.
+    De licentie die is opgegeven met OVA-sjabloon is een van de evaluatielicentie is geldig gedurende 180 dagen. Vóór de verloopdatum moet u de licentie activeren. Anders kan dit leiden tot frequente afsluiten van de configuratieserver en waardoor hinderance replicatie activiteiten.
 
 2. Kan ik de virtuele machine, waarop de configuratieserver is geïnstalleerd, voor verschillende doeleinden gebruiken?
 
@@ -194,7 +194,7 @@ Om te voorkomen onderbrekingen in de lopende replicatie, zorg ervoor dat IP-adre
 
 Raadpleeg voor meer veelgestelde vragen over configuratieserver, onze [documentatie over veelgestelde vragen over configuratie server](vmware-azure-common-questions.md#configuration-server) .
 
-## <a name="troubleshoot-deployment-issues"></a>Problemen met implementatie
+## <a name="troubleshoot-deployment-issues"></a>Oplossen van implementatieproblemen
 
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
 

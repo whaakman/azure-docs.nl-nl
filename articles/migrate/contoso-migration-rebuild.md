@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: a4e5087e53d4505d54b5ff4b8d17ad6166c6174b
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: c0e953434e947703308ff8d796107838df8cc979
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002498"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437311"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Migratie van Contoso: Opnieuw opbouwen van een on-premises-app naar Azure
 
@@ -95,7 +95,7 @@ Contoso evalueert het ontwerp van de voorgestelde door het samenstellen van een 
 
 **Overweging** | **Details**
 --- | ---
-**Professionals** | Met behulp van PaaS en serverloze oplossingen voor de end-to-end implementatie aanzienlijk minder beheer hoelang Contoso moet opgeven.<br/><br/> Verplaatsen naar een microservice-architectuur, kunt Contoso eenvoudig uitbreiden van de oplossing na verloop van tijd.<br/><br/> Nieuwe functionaliteit kan online worden gebracht zonder dat een van de bestaande oplossingen codebases gegevenscentrum worden verstoord.<br/><br/> De Web-App worden geconfigureerd met meerdere exemplaren met geen enkel storingspunt.<br/><br/> Automatisch schalen worden ingeschakeld zodat de app kan verschillende verkeer volumes worden verwerkt.<br/><br/> Met de overgang naar de PaaS-services Contoso buiten gebruik stellen verouderde oplossingen die worden uitgevoerd op Windows Server 2008 R2-besturingssysteem.<br/><br/> Cosmos DB heeft ingebouwde fouttolerantie, waarvoor geen configuratie door Contoso. Dit betekent dat de gegevenslaag niet langer een single point of failover is.
+**Pros** | Met behulp van PaaS en serverloze oplossingen voor de end-to-end implementatie aanzienlijk minder beheer hoelang Contoso moet opgeven.<br/><br/> Verplaatsen naar een microservice-architectuur, kunt Contoso eenvoudig uitbreiden van de oplossing na verloop van tijd.<br/><br/> Nieuwe functionaliteit kan online worden gebracht zonder dat een van de bestaande oplossingen codebases gegevenscentrum worden verstoord.<br/><br/> De Web-App worden geconfigureerd met meerdere exemplaren met geen enkel storingspunt.<br/><br/> Automatisch schalen worden ingeschakeld zodat de app kan verschillende verkeer volumes worden verwerkt.<br/><br/> Met de overgang naar de PaaS-services Contoso buiten gebruik stellen verouderde oplossingen die worden uitgevoerd op Windows Server 2008 R2-besturingssysteem.<br/><br/> Cosmos DB heeft ingebouwde fouttolerantie, waarvoor geen configuratie door Contoso. Dit betekent dat de gegevenslaag niet langer een single point of failover is.
 **Nadelen** | Containers zijn complexer dan andere opties voor de migratie. Het leerproces is mogelijk een probleem voor Contoso.  Ze introduceren een nieuw niveau van complexiteit waarmee veel van de waarde er de curve.<br/><br/> Het operationele team bij Contoso moet aan de slag om te begrijpen en ondersteuning voor Azure, containers en microservices voor de app.<br/><br/> Contoso is niet volledig DevOps geïmplementeerd voor de gehele oplossing. Contoso heeft nodig om na te denken over die voor de implementatie van services met AKS, functies en App-Services.
 
 
@@ -154,7 +154,7 @@ Beheerders van Contoso implementatie een script voor het maken van de beheerde K
 
 ### <a name="prerequisites"></a>Vereisten
 
-1. Voordat ze, Contoso-beheerders ervoor te zorgen dat alle prerequisitie software geïnstalleerd op de dev-machine dat wordt gebruikt voor de implementatie.
+1. Voordat ze, Contoso-beheerders ervoor te zorgen dat alle vereiste software in geïnstalleerd op de dev-machine dat wordt gebruikt voor de implementatie.
 2. Ze kloon de opslagplaats die lokaal op de dev-machine met behulp van Git: **git-kloon https://github.com/Microsoft/SmartHotel360-Azure-backend.git**
 
 
@@ -204,7 +204,7 @@ De Contoso-beheerders inrichten gaat als volgt:
 
 11. Ze worden uitgevoerd de volgende opdracht start het Kubernetes-Dashboard: 
 
-    **AZ aks bladeren--resourcegroep ContosoRG--naam smarthotelakseus2**
+    **az aks browse --resource-group ContosoRG --name smarthotelakseus2**
 
 12. Er wordt een browsertabblad geopend op het Dashboard. Dit is een via een tunnel verbinding met de Azure CLI. 
 
@@ -291,7 +291,7 @@ Ze implementeren als volgt:
 1. Ze open een opdrachtprompt voor ontwikkelaars en de opdracht az aanmelding gebruiken voor het Azure-abonnement.
 2. Ze het bestand deploy.cmd gebruiken voor het implementeren van de Azure-resources in de resourcegroep ContosoRG en EUS2 regio, door de volgende opdracht te typen:
 
-    **.\deploy.cmd azuredeploy - c eastus2 ContosoRG**
+    **.\deploy.cmd azuredeploy ContosoRG -c eastus2**
 
     ![Back-end implementeren](./media/contoso-migration-rebuild/backend1.png)
 
@@ -374,15 +374,15 @@ Instructies voor deze sectie de [SmartHotel360-openbare-web](https://github.com/
 1.  Ze open in Azure portal het opslagaccount dat is gemaakt en klikt op **Blobs**.
 2.  Ze een nieuwe container maken (**huisdieren**) waarbij het niveau van de openbare toegang is ingesteld op de container. Gebruikers wordt hun huisdier foto's uploaden naar deze container.
 
-    ![Storage-blob](./media/contoso-migration-rebuild/blob1.png)
+    ![Opslagblob](./media/contoso-migration-rebuild/blob1.png)
 
 3. Maken van een tweede nieuwe container met de naam **instellingen**. Een bestand met de instellingen voor de app-front-end wordt in deze container worden geplaatst.
 
-    ![Storage-blob](./media/contoso-migration-rebuild/blob2.png)
+    ![Opslagblob](./media/contoso-migration-rebuild/blob2.png)
 
 4. Het vastleggen van de toegangsgegevens voor het opslagaccount in een tekstbestand, voor toekomstig gebruik.
 
-    ![Storage-blob](./media/contoso-migration-rebuild/blob2.png)
+    ![Opslagblob](./media/contoso-migration-rebuild/blob2.png)
 
 ### <a name="provision-a-cosmos-database"></a>Een Cosmos-database inrichten
 
@@ -501,7 +501,7 @@ Nu configureren beheerders van Contoso de Web-App voor het gebruik van Contoso-r
 
 6. Ze klikt u op het bestand om de URL te verkrijgen. De URL wordt gebruikt door de app wanneer deze wordt deze de configuratiebestanden.
 
-    ![App-URL](./media/contoso-migration-rebuild/configure-webapp4.png)
+    ![App URL](./media/contoso-migration-rebuild/configure-webapp4.png)
 
 7. In de **appsettings. Production.JSON** -bestand, dat ze werken de **SettingsURL** naar de URL van het nieuwe bestand.
 
@@ -527,7 +527,7 @@ Contoso-beheerders kunnen nu de website publiceren.
 7. Nadat de build is voltooid, ze configureren van een release-pijplijn met de **Azure App Service-implementatie**.
 8. Ze bieden een fasenaam **fasering**.
 
-    ![Omgevingsnaam](./media/contoso-migration-rebuild/vsts-publishfront4.png)
+    ![Naam van de omgeving](./media/contoso-migration-rebuild/vsts-publishfront4.png)
 
 9. Ze een artefact toevoegen en selecteer de build die ze zojuist hebt geconfigureerd.
 
@@ -548,7 +548,7 @@ Contoso-beheerders kunnen nu de website publiceren.
 14. Ze selecteren **Azure App Service-implementatie met de sleuf**, en de naam van de omgeving **Prod**.
 15. Ze klikt u op **1 en 2 taken**, en selecteer het abonnement, de naam van app service, en de **staging** sleuf.
 
-    ![Omgevingsnaam](./media/contoso-migration-rebuild/vsts-publishfront10.png)
+    ![Naam van de omgeving](./media/contoso-migration-rebuild/vsts-publishfront10.png)
 
 16. Ze verwijderen de **Azure App Service implementeren in sleuf** vanuit de pipeline. Het is er tijdens de vorige stappen geplaatst.
 

@@ -11,18 +11,18 @@ ms.custom: REST, seodec18
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: KumudD
-ms.openlocfilehash: 5f92ae386730032e7da278b9dd2b0effef313741
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 0d8ac22679bc4e789c22396c21c51dacee201302
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752055"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433838"
 ---
 # <a name="get-load-balancer-utilization-metrics-using-the-rest-api"></a>Load Balancer-gebruik metrische gegevens met behulp van de REST-API ophalen
 
 Hoe u deze instructies voor het verzamelen van het aantal bytes dat is verwerkt door een [Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview) voor een interval van het gebruik van de tijd de [REST API van Azure](/rest/api/azure/).
 
-Documentatie bij de volledige verwijzing en meer voorbeelden voor de REST-API zijn beschikbaar in de [naslaginformatie over de Azure Monitor REST](/rest/api/monitor). 
+Volledige documentatie en meer voorbeelden voor de REST-API zijn beschikbaar in de [naslaginformatie over de Azure Monitor REST](/rest/api/monitor). 
 
 ## <a name="build-the-request"></a>De aanvraag maken
 

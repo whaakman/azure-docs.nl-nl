@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7278eba1c9039c180f75cdd2dfd1e18a77baf423
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: dc30b28203ad416370f1304436e7e6e642921be9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416782"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441505"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Beheren van scripts voor vóór en na (Preview)
 
-Scripts voor vóór en na kunnen u PowerShell-runbooks uitvoeren in uw Automation-Account voordat (vooraf taak) en na de (na taak) een update-implementatie. Scripts voor vóór en na uitvoeren in de context van Azure en niet lokaal. Pre-scripts uitgevoerd aan het begin van de update-implementatie. Post-scripts uitgevoerd aan het einde van de implementatie en na een opnieuw opstarten die zijn geconfigureerd.
+Scripts voor vóór en na kunnen u PowerShell-runbooks uitvoeren in uw Automation-Account voordat (vooraf taak) en na de (na taak) een update-implementatie. Scripts voor vóór en na uitvoeren in de context van Azure en niet lokaal. Scripts die voorafgaan aan uitvoeren vanaf het begin van de update-implementatie. Post-scripts uitgevoerd aan het einde van de implementatie en na een opnieuw opstarten die zijn geconfigureerd.
 
 ## <a name="runbook-requirements"></a>Runbook-vereisten
 

@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19ea76f28995dfa7f7dd5a6f280f8319f5b4ca26
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b82f32477efb2e45eb95651dd21ccd2ae3095e7c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180757"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431306"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Beperkte Kerberos-delegering voor single sign-on bij uw apps met Application Proxy
 
@@ -30,15 +30,15 @@ U kunt eenmalige aanmelding bieden voor on-premises toepassingen worden gepublic
 U kunt eenmalige aanmelding inschakelen voor uw toepassingen met behulp van geïntegreerde Windows-verificatie (IWA) door middel van een Application Proxy connectors machtiging in Active Directory gebruikers te imiteren. De connectors gebruiken deze machtiging om te verzenden en ontvangen van tokens in hun naam.
 
 ## <a name="how-single-sign-on-with-kcd-works"></a>Hoe eenmalige aanmelding met KCD werkt
-In dit diagram wordt de stroom uitgelegd wanneer een gebruiker probeert te krijgen tot een on-premises toepassing die gebruikmaakt van IWA.
+In dit diagram wordt de stroom uitgelegd wanneer een gebruiker probeert te krijgen tot een op lokale toepassing die gebruikmaakt van IWA.
 
 ![Stroomdiagram van Microsoft AAD-verificatie](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
-1. De gebruiker voert de URL voor toegang tot de on-premises toepassing via Application Proxy.
+1. De gebruiker voert de URL voor toegang tot de on-premises-toepassing via Application Proxy.
 2. Application Proxy stuurt de aanvraag naar Azure AD authentication-services kunnen worden. Azure AD van toepassing op dit moment voor alle van toepassing verificatie en autorisatiebeleid, zoals meervoudige verificatie. Als de gebruiker is gevalideerd, wordt Azure AD wordt een token gemaakt en verzendt ze naar de gebruiker.
 3. De gebruiker wordt het token doorgegeven aan Application Proxy.
 4. Valideert het token Application Proxy en de User Principal Name (UPN) opgehaald uit het en stuurt de aanvraag, de UPN en de Service Principal Name (SPN) naar de Connector via een beveiligd kanaal voor zowel geverifieerde.
-5. De Connector voert Kerberos-beperkte delegatie (KCD)-onderhandeling met de on-premises AD, het imiteren van de gebruiker om op te halen van een Kerberos-token naar de toepassing.
+5. De Connector wordt Kerberos-beperkte delegatie (KCD)-onderhandeling met de on-premises AD, het imiteren van de gebruiker om op te halen van een Kerberos-token naar de toepassing uitgevoerd.
 6. Active Directory, verzendt de Kerberos-token voor de toepassing naar de Connector.
 7. De Connector verzendt de oorspronkelijke aanvraag naar de application server, met behulp van het Kerberos-token dat het ontvangen van AD.
 8. De toepassing stuurt het antwoord op de Connector, die vervolgens wordt geretourneerd naar de Application Proxy-service en ten slotte naar de gebruiker.

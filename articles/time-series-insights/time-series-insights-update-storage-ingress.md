@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6f0002c6aa98aaaddf50e4aac8929e8ddd379fd8
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: eba4c70a25cba2e456ed418a98b938f2029c4c1f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301669"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438360"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Opslag van gegevens en de inkomende gegevens in Azure Time Series Insights-Preview
 
@@ -116,7 +116,7 @@ Het is belangrijk om te selecteren van een juiste ID in de reeks tijd, omdat het
 
 Wanneer u een betalen per gebruik Time Series Insights-omgeving maakt, maakt u twee resources: een Time Series Insights-omgeving en een Azure Storage voor algemeen gebruik V1-account waar de gegevens worden opgeslagen. We hebben gekozen Azure-opslag voor algemeen gebruik V1 van de standaardbron maken vanwege de interoperabiliteit, de prijs en prestaties. 
 
-Time Series Insights publiceert maximaal twee exemplaren van elke gebeurtenis in uw Azure storage-account. De eerste kopie altijd behouden, zodat u kunt een query het sommen met behulp van andere services. Eenvoudig kunt u Spark, Hadoop en andere vertrouwde hulpprogramma's voor Time Series-id's via onbewerkte Parquet-bestanden, omdat deze engines standaardfilters bestandsnaam ondersteunen. Groeperen van blobs op jaar en maand is een handige manier om de lijst met blobs in een bepaalde periode voor een aangepaste taak. 
+Time Series Insights publiceert maximaal twee exemplaren van elke gebeurtenis in uw Azure storage-account. De eerste kopie altijd behouden, zodat u het snel opvragen kunt met behulp van andere services. Eenvoudig kunt u Spark, Hadoop en andere vertrouwde hulpprogramma's voor Time Series-id's via onbewerkte Parquet-bestanden, omdat deze engines standaardfilters bestandsnaam ondersteunen. Groeperen van blobs op jaar en maand is een handige manier om de lijst met blobs in een bepaalde periode voor een aangepaste taak. 
 
 Time Series Insights repartitions bovendien de Parquet-bestanden om te optimaliseren voor de Time Series Insights API's. Het meest recent repartitioned bestand wordt ook opgeslagen.
 

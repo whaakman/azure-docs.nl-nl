@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 66f41ffef5d72f5d574bb78d3b810f4a4dc2c4c1
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 5ade16bbd45203892cd9a3117dd52471884cf700
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098728"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455816"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Setup voor de Azure-SSIS integratieruntime aanpassen
 
@@ -42,6 +42,8 @@ U kunt gratis of niet-gelicentieerde onderdelen en een betaalde versie of gelice
 
 ## <a name="prerequisites"></a>Vereisten
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Voor het aanpassen van uw Azure-SSIS-IR, moet u de volgende zaken:
 
 -   [Azure-abonnement](https://azure.microsoft.com/)
@@ -54,7 +56,7 @@ Voor het aanpassen van uw Azure-SSIS-IR, moet u de volgende zaken:
 
 ## <a name="instructions"></a>Instructies
 
-1.  Download en installeer [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v5.5.0-March2018) (versie 5,4 of hoger).
+1.  Download en installeer [Azure PowerShell](/powershell/azure/install-az-ps).
 
 1.  Bereid uw aangepaste setup-script en de bijbehorende bestanden (bijvoorbeeld, .bat, .cmd, .exe, .dll, MSI- of .ps1-bestanden).
 
@@ -103,15 +105,15 @@ Voor het aanpassen van uw Azure-SSIS-IR, moet u de volgende zaken:
 
        ![Voer de Shared Access Signature](media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)
 
-       Wanneer u inrichten of opnieuw configureren van uw Azure-SSIS IR met PowerShell, voordat u begint met uw Azure-SSIS-IR, voert de `Set-AzureRmDataFactoryV2IntegrationRuntime` cmdlet met de SAS-URI van de container als de waarde voor nieuwe `SetupScriptContainerSasUri` parameter. Bijvoorbeeld:
+       Wanneer u inrichten of opnieuw configureren van uw Azure-SSIS IR met PowerShell, voordat u begint met uw Azure-SSIS-IR, voert de `Set-AzDataFactoryV2IntegrationRuntime` cmdlet met de SAS-URI van de container als de waarde voor nieuwe `SetupScriptContainerSasUri` parameter. Bijvoorbeeld:
 
        ```powershell
-       Set-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
+       Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
                                                   -Name $MyAzureSsisIrName `
                                                   -ResourceGroupName $MyResourceGroupName `
                                                   -SetupScriptContainerSasUri $MySetupScriptContainerSasUri
 
-       Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
+       Start-AzDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
                                                     -Name $MyAzureSsisIrName `
                                                     -ResourceGroupName $MyResourceGroupName
        ```
@@ -160,7 +162,7 @@ Voor het aanpassen van uw Azure-SSIS-IR, moet u de volgende zaken:
 
     ![Mappen in de map van de gebruiker-scenario 's](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png)
 
-    e. Als u wilt proberen deze voorbeelden van aangepaste installatie, kopieer en plak de inhoud van de geselecteerde map in de container. Wanneer u inrichten of opnieuw configureren van uw Azure-SSIS IR met PowerShell, voer de `Set-AzureRmDataFactoryV2IntegrationRuntime` cmdlet met de SAS-URI van de container als de waarde voor nieuwe `SetupScriptContainerSasUri` parameter.
+    e. Als u wilt proberen deze voorbeelden van aangepaste installatie, kopieer en plak de inhoud van de geselecteerde map in de container. Wanneer u inrichten of opnieuw configureren van uw Azure-SSIS IR met PowerShell, voer de `Set-AzDataFactoryV2IntegrationRuntime` cmdlet met de SAS-URI van de container als de waarde voor nieuwe `SetupScriptContainerSasUri` parameter.
 
 ## <a name="next-steps"></a>Volgende stappen
 

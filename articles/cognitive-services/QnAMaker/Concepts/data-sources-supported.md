@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: tulasim
-ms.openlocfilehash: d41c7a24d72cdafac953e0215a6cbd2d9e8bba01
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 0e9e8456bb493ad4591c0f2a22d28bdf342f09e1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316469"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433107"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Gegevensbronnen voor QnA Maker-inhoud
 
@@ -25,7 +25,7 @@ De onderstaande tabel bevat een overzicht van de typen inhoud en bestandsindelin
 
 |Brontype|Inhoudstype| Voorbeelden|
 |--|--|--|
-|URL|Veelgestelde vragen<br> (Vast, met secties of met een startpagina onderwerpen)<br>Ondersteuning voor pagina 's <br> (Één pagina artikelen met procedures, het oplossen van artikelen enz.)|[Veelgestelde vragen over de gewone](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), <br>[Veelgestelde vragen over met koppelingen](https://www.microsoft.com/software-download/faq),<br> [Veelgestelde vragen over met onderwerpen startpagina](https://support.microsoft.com/products/windows?os=windows-10)<br>[Support-artikel](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
+|URL|Veelgestelde vragen<br> (Vast, met secties of met een startpagina onderwerpen)<br>Ondersteuning voor pagina 's <br> (Één pagina artikelen met procedures, het oplossen van artikelen enz.)|[Veelgestelde vragen over de gewone](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), <br>[Veelgestelde vragen over met koppelingen](https://www.microsoft.com/software-download/faq),<br> [Veelgestelde vragen over met onderwerpen startpagina](https://www.microsoft.com/Licensing/servicecenter/Help/Faq.aspx)<br>[Support-artikel](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
 |PDF / DOC-BESTAND|Veelgestelde vragen,<br> Handleiding voor product<br> Brochures,<br> Papier<br> Beleid voor Folder<br> Ondersteuningshandleiding voor<br> Gestructureerde QnA<br> Enzovoort.|[Gestructureerd QnA.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Voorbeeld van een Product Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Voorbeeld van semi-structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Voorbeeld van een wit paper.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
 |Excel|Gestructureerd QnA-bestand<br> (met inbegrip van RTF, HTML ondersteuning)|[Voorbeeld QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |TXT/TSV|Gestructureerd QnA-bestand|[Voorbeeld chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|

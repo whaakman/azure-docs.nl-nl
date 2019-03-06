@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 18dc82880830b6f8d14a7fc01930f75e9e61e5b0
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: daeff897cf284df6e820afbcdd35ee54bf88db08
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300547"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405399"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Resources implementeren met Resource Manager-sjablonen en Azure PowerShell
 
@@ -34,7 +34,7 @@ Deze implementatiemethode verificatie in twee stappen wordt in dit artikel gebru
 
 Tenzij u de [Azure Cloud shell](#deploy-templates-from-azure-cloud-shell) voor het implementeren van sjablonen, moet u Azure PowerShell installeren en verbinding maken met Azure:
 - **Azure PowerShell-cmdlets installeren op uw lokale computer.** Zie [Aan de slag met Azure PowerShell](/powershell/azure/get-started-azureps) voor meer informatie.
-- **Verbinding maken met Azure met behulp van [Connect AZAccount](/powershell/module/az.accounts/connect-azaccount.md)**. Als u meerdere Azure-abonnementen hebt, mogelijk moet u ook om uit te voeren [Set AzContext](/powershell/module/Az.Accounts/Set-AzContext.md). Zie voor meer informatie, [meerdere Azure-abonnementen gebruiken](/powershell/azure/manage-subscriptions-azureps).
+- **Verbinding maken met Azure met behulp van [Connect AZAccount](/powershell/module/az.accounts/connect-azaccount)**. Als u meerdere Azure-abonnementen hebt, mogelijk moet u ook om uit te voeren [Set AzContext](/powershell/module/Az.Accounts/Set-AzContext). Zie voor meer informatie, [meerdere Azure-abonnementen gebruiken](/powershell/azure/manage-subscriptions-azureps).
 - * Downloaden en opslaan een [quickstart-sjabloon](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) . De lokale bestandsnaam gebruikt in dit artikel is **c:\MyTemplates\azuredeploy.json**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

@@ -1,6 +1,6 @@
 ---
 title: Beheren van een toepassing met Azure IoT Central | Microsoft Docs
-description: Als een beheerder, het beheren van uw Azure IoT Central-toepassing
+description: Als beheerder, het beheren van uw Azure IoT Central-toepassing
 author: viv-liu
 ms.author: viviali
 ms.date: 02/20/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8a3e90488558335ca5d186e6ff1dbab6abf5aaee
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: d9b4779ed6c0e59de3b85560a4236528385a3849
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313171"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445038"
 ---
 # <a name="administer-your-iot-central-application"></a>Uw IoT Central-toepassing beheren
 
@@ -148,7 +148,7 @@ Verbind apparaten op schaal in uw toepassing met behulp van de sleutels en certi
 
 ## <a name="use-access-tokens"></a>Toegangstokens gebruiken
 
-Toegangstokens voor het gebruik ervan in hulpprogramma's voor ontwikkelaars genereren. Er is momenteel een developer-programma beschikbaar waarmee de explorer IoT Central is voor het bewaken van apparaat-berichten en wijzigingen in propreties en instellingen. Meer informatie over de explorer IoT Central. 
+Toegangstokens voor het gebruik ervan in hulpprogramma's voor ontwikkelaars genereren. Er is momenteel een developer-programma beschikbaar waarmee de explorer IoT Central is voor het bewaken van apparaat-berichten en wijzigingen in de eigenschappen en instellingen. Meer informatie over de explorer IoT Central. 
 
 ## <a name="use-the-azure-sdks-for-control-plane-operations"></a>Gebruik de Azure SDK's voor bewerkingen voor de controlelaag
 

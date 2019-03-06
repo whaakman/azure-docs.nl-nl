@@ -17,12 +17,12 @@ ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66506a8abf130f27950fd958ba1a7c291e55a5a5
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 8b113dd3e354e778d2cf16182665afff5440d2e5
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674184"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408527"
 ---
 # <a name="control-the-hybrid-azure-ad-join-of-your-devices"></a>De hybride Azure AD-deelname van uw apparaten beheren
 
@@ -99,16 +99,16 @@ U kunt het gedrag van de registratie van apparaten van uw huidige apparaten behe
 
 De client-instelling configureren:
 
-1.  Open **Configuration Manager**, en ga vervolgens naar **Cloudservices**.
+1.  Open **Configuration Manager**, selecteer **beheer**, en ga vervolgens naar **clientinstellingen**.
 
-2.  Onder **apparaatinstellingen**, selecteer een van de volgende instellingen voor **nieuwe Windows 10 domein apparaten automatisch wordt geregistreerd bij Azure Active Directory**:
+2.  Open de eigenschappen voor **Standaardclientinstellingen** en selecteer **Cloudservices**.
+
+3.  Onder **apparaatinstellingen**, selecteer een van de volgende instellingen voor **nieuwe Windows 10 domein apparaten automatisch wordt geregistreerd bij Azure Active Directory**:
 
     - **Geen**: Om te voorkomen dat automatische apparaatregistratie.
     - **Ja**: Automatische apparaatregistratie inschakelen.
 
-
-3.  Selecteer **OK**.
-    
+4.  Selecteer **OK**.
 
 U moet deze clientinstelling instelt op een locatie van uw keuze te koppelen. Bijvoorbeeld, voor het configureren van deze client-instelling voor alle huidige Windows-apparaten in uw organisatie, koppelt u de clientinstelling voor het domein. Als u wilt een gecontroleerde implementatie doen, kunt u de clientinstelling voor Windows domein apparaten die deel uitmaken van een organisatie-eenheid of een beveiligingsgroep configureren.
 

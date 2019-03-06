@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b49ec91af0c2b55185d7f750420825bb174c4b6d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 82c4bca1c72d5440385e3fda6208b1e74a5444a1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473728"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453147"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Overzicht van gegevenswetenschap met Spark op Azure HDInsight
 
@@ -132,7 +132,7 @@ We hebben gemaakt van een steekproef 0,1% van deze bestanden en lid is van de fi
 | dropoff_longitude |Dropoff lengtegraad |
 | dropoff_latitude |Dropoff breedtegraad |
 | direct_distance |Afstand tussen het kiezen van directe en dropoff locaties |
-| payment_type |Betalingstype (CA's, creditcard enz.) |
+| payment_type |Betalingstype (geld, creditcard enz.) |
 | fare_amount |Fare bedrag in |
 | Toeslag |Toeslag |
 | mta_tax |MTA belasting |

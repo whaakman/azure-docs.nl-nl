@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: ''
+ms.date: 02/02/2019
 ms.author: haroldw
-ms.openlocfilehash: 8436b530ac01f03e071604e5023b50f8de6989fd
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: b2a2e0ed48004a731ca15b3fb1d985bbee7e0c29
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034804"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440656"
 ---
 # <a name="post-deployment-tasks"></a>Taken na de implementatie
 
@@ -39,10 +39,10 @@ Voor het gebruik van Azure Active Directory voor verificatie, moet u eerst de re
 
 Deze stappen wordt de Azure CLI gebruiken om de app-registratie en de grafische gebruikersinterface (portal) om in te stellen de machtigingen te maken. Voor het maken van de app-registratie, moet u de volgende vijf stukjes informatie:
 
-- Weergavenaam: naam van App-registratie (bijvoorbeeld OCPAzureAD)
-- Startpagina: OpenShift console URL (bijvoorbeeld: https://masterdns343khhde.westus.cloudapp.azure.com/console)
+- Weergavenaam: Naam van App-registratie (bijvoorbeeld OCPAzureAD)
+- Startpagina: OpenShift-console-URL (bijvoorbeeld: https://masterdns343khhde.westus.cloudapp.azure.com/console)
 - Id-URI: OpenShift-console-URL (bijvoorbeeld: https://masterdns343khhde.westus.cloudapp.azure.com/console)
-- Antwoord-URL: Openbare URL en de naam van de app-registratie (bijvoorbeeld Master https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
+- Antwoord-URL: Openbare URL en de naam van de app-registratie (bijvoorbeeld master https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
 - Wachtwoord: Beveiligd wachtwoord (gebruik een sterk wachtwoord)
 
 Het volgende voorbeeld wordt een app-registratie met behulp van de voorgaande informatie:
@@ -83,11 +83,11 @@ In Azure Portal:
 
   ![App-registratie](media/openshift-post-deployment/app-registration.png)
 
-6.  Klik op stap 1: Selecteer API en klik vervolgens op **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Klik op **Selecteer** aan de onderkant.
+6.  Klik op stap 1: API selecteren en klik vervolgens op **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Klik op **Selecteer** aan de onderkant.
 
   ![Selecteer API App-registratie](media/openshift-post-deployment/app-registration-select-api.png)
 
-7.  In stap 2: Machtigingen selecteert, selecteert u **aanmelden en gebruikersprofiel lezen** onder **gedelegeerde machtigingen**, en klik vervolgens op **Selecteer**.
+7.  In stap 2: Machtigingen selecteren, selecteert u **aanmelden en gebruikersprofiel lezen** onder **gedelegeerde machtigingen**, en klik vervolgens op **Selecteer**.
 
   ![Toegang tot de App-registratie](media/openshift-post-deployment/app-registration-access.png)
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: 8c12190e3c34c3294d2735fdd228aafbf6073f12
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: c8b32e1d52768ea8450a2256d92d8cdb09f9fe8b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820110"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445633"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>PowerShell gebruiken om een Azure VM te maken met een rapportserver in systeemeigen modus
 > [!IMPORTANT] 
@@ -124,8 +124,8 @@ Een zelfondertekend certificaat is gemaakt op de virtuele machine wanneer de vir
       
        Bijvoorbeeld, in de volgende afbeelding, de naam van de virtuele machine is **ssrsnativecloud** en de gebruikersnaam van de is **testuser**.
       
-       ![aanmeldingsnaam is inclusief vm](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
-   2. Mmc.exe worden uitgevoerd. Zie voor meer informatie, [het: Certificaten met de MMC-module weergeven](https://msdn.microsoft.com/library/ms788967.aspx).
+       ![aanmelding bevat vm-naam](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+   2. Mmc.exe worden uitgevoerd. Zie voor meer informatie [Procedure: Certificaten met de MMC-module weergeven](https://msdn.microsoft.com/library/ms788967.aspx).
    3. In de consoletoepassing **bestand** in het menu toevoegen de **certificaten** -module, selecteer **computeraccount** wanneer u hierom wordt gevraagd en klik vervolgens op **volgende**.
    4. Selecteer **lokale Computer** beheren en klik vervolgens op **voltooien**.
    5. Klik op **Ok** en vouw vervolgens de **certificaten - persoonlijke** knooppunten en klik vervolgens op **certificaten**. Het certificaat is de naam van de DNS-naam van de virtuele machine en eindigt met **cloudapp.net**. Met de rechtermuisknop op de naam van het certificaat en klik op **kopie**.
@@ -160,7 +160,7 @@ Voor het gebruik van de Windows PowerShell-script voor het configureren van de r
    
     Bijvoorbeeld, in de volgende afbeelding, de naam van de virtuele machine is **ssrsnativecloud** en de gebruikersnaam van de is **testuser**.
    
-    ![aanmeldingsnaam is inclusief vm](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+    ![aanmelding bevat vm-naam](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 2. Open op de virtuele machine, **Windows PowerShell ISE** met beheerdersbevoegdheden. De PowerShell ISE is standaard geïnstalleerd op Windows server 2012. Het verdient aanbeveling om dat u de ISE gebruiken in plaats van een standaard Windows PowerShell-venster, zodat u kunt het script in de ISE plakken, wijzigen van het script en voer het script.
 3. In Windows PowerShell ISE, klikt u op de **weergave** menu en klik vervolgens op **scriptvenster weergeven**.
 4. Kopieer het volgende script en plak het script in het scriptvenster Windows PowerShell ISE.
@@ -294,7 +294,7 @@ Als u Windows PowerShell wilt configureren van de report server, moet u de volge
    
     Bijvoorbeeld, in de volgende afbeelding, de naam van de virtuele machine is **ssrsnativecloud** en de gebruikersnaam van de is **testuser**.
    
-    ![aanmeldingsnaam is inclusief vm](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+    ![aanmelding bevat vm-naam](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 2. Open op de virtuele machine, **Windows PowerShell ISE** met beheerdersbevoegdheden. De PowerShell ISE is standaard geïnstalleerd op Windows server 2012. Het verdient aanbeveling om dat u de ISE gebruiken in plaats van een standaard Windows PowerShell-venster, zodat u kunt het script in de ISE plakken, wijzigen van het script en voer het script.
 3. Als u actieve scripts, voert u de volgende Windows PowerShell-opdracht:
    

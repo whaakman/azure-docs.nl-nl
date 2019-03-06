@@ -3,7 +3,7 @@ title: Het maken van certificaten controleren en beheren
 description: Scenario's om aan te tonen een scala aan opties voor het maken, verwerken bewaken en voor interactie met het maken van het certificaat met Key Vault.
 services: key-vault
 documentationcenter: ''
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 0d0995aa-b60d-4811-be12-ba0a45390197
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: bryanla
-ms.openlocfilehash: 60095520fac55fb695f7c987d27e07a7a2af422a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.author: mbaldwin
+ms.openlocfilehash: 854d0e8f6927c9ce4855435a02b4819055111ceb
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114889"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407898"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>Het maken van certificaten controleren en beheren
 Van toepassing op: Azure

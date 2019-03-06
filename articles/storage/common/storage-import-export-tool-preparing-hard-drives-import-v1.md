@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 185e243838d2ccdc920fa5b5714995801567a24f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5ea510d8335437cb43f3e8824ec73175c35dcd03
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454671"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452365"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Harde schijven voorbereiden voor een importtaak
 Als u wilt een of meer harde schijven voorbereiden voor een importtaak, de volgende stappen uit:
@@ -108,7 +108,7 @@ Als u wilt een of meer harde schijven voorbereiden voor een importtaak, de volge
 |**/csas:**<ContainerSas\>|`Optional`. De container SAS gebruiken om gegevens te importeren naar het opslagaccount. U moet een bevatten **/sk:**< StorageAccountKey\> of **/csas:**< ContainerSas\> in de opdracht.<br /><br /> De waarde voor deze parameter moet beginnen met de containernaam van de, gevolgd door een vraagteken (?) en de SAS-token. Bijvoorbeeld:<br /><br /> `mycontainer?sv=2014-02-14&sr=c&si=abcde&sig=LiqEmV%2Fs1LF4loC%2FJs9ZM91%2FkqfqHKhnz0JM6bqIqN0%3D&se=2014-11-20T23%3A54%3A14Z&sp=rwdl`<br /><br /> De machtigingen of opgegeven op de URL of in een opgeslagen toegangsbeleid, lezen, moet bevatten schrijven en verwijderen voor de taken van gegevensimport, en lezen, schrijven en lijst voor export-taken.<br /><br /> Als deze parameter is opgegeven, worden alle blobs moeten worden geïmporteerd of geëxporteerd moeten zich binnen de container die in de shared access signature is opgegeven.|
 |**/t:**<TargetDriveLetter\>|`Required.` De stationsletter van de harde schijf van het doel voor de huidige sessie kopiëren zonder de afsluitende dubbele punt.|
 |**/ Format**|`Optional.` Deze parameter opgeeft als het station worden geformatteerd moet. anders achterwege. Voordat u het hulpprogramma voor het station is geformatteerd, wordt u gevraagd om een bevestiging van de console. Als u wilt de bevestiging onderdrukken, moet u voor de parameter /silentmode opgeven.|
-|**/silentmode**|`Optional.` Geef deze parameter als u wilt de bevestiging voor het opmaken van het station targert onderdrukken.|
+|**/silentmode**|`Optional.` Geef deze parameter als u wilt onderdrukken van de bevestiging voor de opmaak van de doel-station.|
 |**/ versleutelen**|`Optional.` Deze parameter opgegeven wanneer het station nog niet is versleuteld met BitLocker en moet worden versleuteld door het hulpprogramma. Als het station al is versleuteld met BitLocker, klikt u vervolgens deze parameter niet opgeeft en geeft u de `/bk` parameter, die de bestaande BitLocker-sleutel.<br /><br /> Als u opgeeft de `/format` parameter, dan hebt u moet ook opgeven de `/encrypt` parameter.|
 |**/bk:**<BitLockerKey\>|`Optional.` Als `/encrypt` is opgegeven, wordt deze parameter niet opgeeft. Als `/encrypt` wordt weggelaten, moet u beschikken over hebt versleuteld al het station met BitLocker. Gebruik deze parameter om op te geven van de BitLocker-sleutel. BitLocker-versleuteling is vereist voor alle harde schijven voor de taken van gegevensimport.|
 |**/logdir:**<LogDirectory\>|`Optional.` De logboekmap Hiermee geeft u een map moet worden gebruikt voor het opslaan van uitgebreide Logboeken, evenals tijdelijke manifestbestanden. Als niet is opgegeven, wordt de huidige map worden gebruikt als de logboekmap.|

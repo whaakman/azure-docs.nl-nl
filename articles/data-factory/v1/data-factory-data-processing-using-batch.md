@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: adb9fb649d934d08ea546759bcf4733a1c6d9080
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a0d5f42fa6725ba23a89904779040f379f31e59e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822745"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454150"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Grootschalige gegevenssets verwerken met behulp van Data Factory en Batch
 > [!NOTE]
@@ -26,9 +26,12 @@ ms.locfileid: "55822745"
 
 In dit artikel beschrijft een architectuur van een Voorbeeldoplossing die wordt verplaatst en grootschalige gegevenssets in een automatische en geplande wijze verwerkt. Het biedt ook een end-to-end-scenario voor het implementeren van de oplossing met behulp van Data Factory en Azure Batch.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 In dit artikel is langer dan een typische artikel omdat deze een overzicht van een volledige oplossing bevat. Als u geen ervaring met Batch en Data Factory, vindt u informatie over deze services en hoe ze samenwerken. Als u over de services weet en zijn ontwerpen/architectuur met een oplossing, kunt u zich richten op de architectuur-sectie van het artikel. Als u een prototype of een oplossing ontwikkelt, is het raadzaam om te proberen de stapsgewijze instructies in deze stapsgewijze kennismaking. Wij willen graag uw opmerkingen over deze inhoud en hoe u deze gebruikt.
 
 Eerst laten we kijken hoe Data Factory en Batch-services u kunt grote gegevenssets proces in de cloud.     
+
 
 ## <a name="why-azure-batch"></a>Waarom Azure Batch?
  U kunt Batch gebruiken voor het uitvoeren van grootschalige parallelle en high performance computing (HPC) toepassingen efficiënt in de cloud. Het is een platformservice die rekenintensief werk inplant voor uitvoering op een beheerde verzameling virtuele machines (VM's). Deze compute-resources om te voldoen aan de behoeften van uw taken kan automatisch worden geschaald.
@@ -40,7 +43,7 @@ Met de Batch-service definieert u Azure-rekenresources om uw toepassingen parall
 * [Basisprincipes van Batch](../../batch/batch-technical-overview.md)
 * [Overzicht van de functies van Batch](../../batch/batch-api-basics.md)
 
-(Optioneel) voor meer informatie over Batch, Zie [de Batch-documentatnion](https://docs.microsoft.com/azure/batch/).
+(Optioneel) voor meer informatie over Batch, Zie [de Batch-documentatie](https://docs.microsoft.com/azure/batch/).
 
 ## <a name="why-azure-data-factory"></a>Waarom Azure Data Factory?
 Een Data Factory is een cloudgebaseerde gegevensintegratieservice waarmee de verplaatsing en transformatie van gegevens wordt beheerd en geautomatiseerd. Data Factory kunt u beheerde gegevenspijplijnen maken die gegevens verplaatsen van on-premises en gegevensarchieven naar een centrale gegevensopslagplaats in de cloud. Een voorbeeld is de Azure Blob-opslag. U kunt Data Factory gebruiken om te verwerken/transformeren gegevens met behulp van services zoals Azure HDInsight en Azure Machine Learning. U kunt ook gegevenspijplijnen om uit te voeren op een geplande wijze (bijvoorbeeld elk uur, dagelijks en wekelijks) plannen. U kunt controleren en beheren van de pijplijnen in een oogwenk om problemen te identificeren en actie ondernemen.
@@ -93,7 +96,7 @@ Als u geen Azure-abonnement hebt, kunt u snel een gratis proefaccount maken. Zie
 U kunt een storage-account gebruiken voor het opslaan van de gegevens in deze zelfstudie. Als u geen een storage-account hebt, raadpleegt u [een opslagaccount maken](../../storage/common/storage-quickstart-create-account.md). De Voorbeeldoplossing maakt gebruik van blob-opslag.
 
 #### <a name="azure-batch-account"></a>Azure Batch-account
-Een Batch-account maken met behulp van de [Azure-portal](http://portal.azure.com/). Zie voor meer informatie, [maken en beheren van een Batch-account](../../batch/batch-account-create-portal.md). Houd er rekening mee de Batch-account naam en de accountsleutel. Ook kunt u de [New-AzureRmBatchAccount](https://docs.microsoft.com/powershell/module/azurerm.batch/new-azurermbatchaccount) cmdlet voor het maken van een Batch-account. Zie voor instructies over het gebruik van deze cmdlet [aan de slag met Batch PowerShell-cmdlets](../../batch/batch-powershell-cmdlets-get-started.md).
+Een Batch-account maken met behulp van de [Azure-portal](http://portal.azure.com/). Zie voor meer informatie, [maken en beheren van een Batch-account](../../batch/batch-account-create-portal.md). Houd er rekening mee de Batch-account naam en de accountsleutel. Ook kunt u de [New-AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) cmdlet voor het maken van een Batch-account. Zie voor instructies over het gebruik van deze cmdlet [aan de slag met Batch PowerShell-cmdlets](../../batch/batch-powershell-cmdlets-get-started.md).
 
 De Voorbeeldoplossing maakt gebruik van Batch (indirect via een data factory-pijplijn) om gegevens te verwerken in een parallelle manier op een pool van rekenknooppunten (een beheerde verzameling virtuele machines).
 
@@ -201,7 +204,7 @@ De methode heeft enkele belangrijke onderdelen die u nodig hebt om te begrijpen:
 1. Importeren van de **Azure Storage** NuGet-pakket in het project. Omdat u de API voor Blob-opslag in dit voorbeeld gebruiken moet u dit pakket:
 
     ```powershell
-    Install-Package Azure.Storage
+    Install-Package Az.Storage
     ```
 1. Voeg de volgende using-instructies aan het bronbestand in het project:
 

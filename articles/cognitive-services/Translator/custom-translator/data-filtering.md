@@ -9,12 +9,12 @@ ms.subservice: custom-translator
 ms.date: 02/21/2019
 ms.author: v-jansko
 ms.topic: conceptual
-ms.openlocfilehash: 5fab0446fe28cc279a732f48ca7560792f611e86
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 46af936cc479770fe5db8085106c9da310a9717e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731477"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452399"
 ---
 # <a name="data-filtering"></a>Gegevens filteren
 
@@ -23,7 +23,7 @@ Wanneer u documenten kunnen worden gebruikt voor het trainen van een aangepast s
 ## <a name="sentence-alignment"></a>Uitlijning van zinnen
 Als het document niet in XLIFF, TMX of uitlijnen-indeling, wordt de zinnen van uw bron- en -documenten met elkaar, per zin door aangepaste Translator uitgelijnd. Translator document uitlijning niet uitvoeren: volgt de naamgeving van de documenten te vinden van de overeenkomende document van de andere taal. In het document, aangepaste Translator gezocht naar de bijbehorende zin in de andere taal. Hierbij document markeringen, zoals ingesloten HTML-codes om te helpen bij de uitlijning.  
 
-Als u een groot verschil tussen het aantal zinnen in de bron ziet en doel aan documenten, kan het document niet zijn parallelle in de eerste plaats, of om andere redenen niet goed alignable. Het document paren met een groot verschil (> 10%) garandeert een tweede bekijken om te controleren of ze inderdaad parallelle van zinnen op elke zijde. Aangepaste Translator ziet u een waarschuwing naast het document als het aantal zin verdacht gedraagt verschilt.  
+Als u een groot verschil tussen het aantal zinnen in de bron ziet en doel aan documenten, het document kan niet zijn parallelle in de eerste plaats, of om andere redenen niet kan worden afgestemd. Het document paren met een groot verschil (> 10%) garandeert een tweede bekijken om te controleren of ze inderdaad parallelle van zinnen op elke zijde. Aangepaste Translator ziet u een waarschuwing naast het document als het aantal zin verdacht gedraagt verschilt.  
 
 
 ## <a name="deduplication"></a>Ontdubbeling

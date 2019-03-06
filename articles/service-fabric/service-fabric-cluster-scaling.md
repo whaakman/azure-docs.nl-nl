@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/13/2018
 ms.author: ryanwi
-ms.openlocfilehash: d93ebb01c905be6bf799ed6e4a037e3ddfdc2430
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 527ab4ee0edaf3ac2048403d7063edef8fc58ae8
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094169"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451974"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Schalen van Azure Service Fabric-clusters
 Een Service Fabric-cluster is een netwerk verbonden reeks virtuele of fysieke machines waarop uw microservices worden geïmplementeerd en beheerd. Een machine of virtuele machine die deel uitmaakt van een cluster, heet een knooppunt. Clusters kunnen mogelijk duizenden knooppunten bevatten. Na het maken van een Service Fabric-cluster, kunt u het cluster horizontaal schalen (het aantal knooppunten wijzigen) of verticaal (de resources van de knooppunten wijzigen).  U kunt het cluster schalen op elk gewenst moment, zelfs wanneer workloads worden uitgevoerd op het cluster.  Als het cluster wordt geschaald, wordt uw toepassingen automatisch ook schalen.
@@ -81,7 +81,7 @@ Wanneer u een Azure-cluster, houd rekening met de volgende richtlijn:
 Het proces voor het schalen van een knooppunttype omhoog of omlaag verschilt afhankelijk van of het een niet-primaire of de primaire knooppunttype.
 
 ### <a name="scaling-non-primary-node-types"></a>Typen niet-primaire knooppunten schalen
-Maak een nieuw knooppunttype met de bronnen die u nodig.  Werk de plaatsingsbeperkingen van het uitvoeren van services om op te nemen van het nieuwe knooppunttype.  Geleidelijk (één voor één), verminderen het aantal exemplaren van de oude exemplaren van het type voor knooppunt op nul, zodat de betrouwbaarheid van het cluster wordt niet beïnvloed.  Services wordt geleidelijk migreren naar het nieuwe knooppunttype als het oude knooppunttype decommisioned is.
+Maak een nieuw knooppunttype met de bronnen die u nodig.  Werk de plaatsingsbeperkingen van het uitvoeren van services om op te nemen van het nieuwe knooppunttype.  Geleidelijk (één voor één), verminderen het aantal exemplaren van de oude exemplaren van het type voor knooppunt op nul, zodat de betrouwbaarheid van het cluster wordt niet beïnvloed.  Services wordt geleidelijk migreren naar het nieuwe knooppunttype als het oude knooppunttype is uit bedrijf genomen.
 
 ### <a name="scaling-the-primary-node-type"></a>Het primaire knooppunttype schalen
 We raden u aan de VM-SKU van het primaire knooppunttype niet te wijzigen. Als u meer clustercapaciteit nodig hebt, kunt u het beste meer instanties toevoegen. 

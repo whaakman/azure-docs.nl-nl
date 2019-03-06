@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 273b0f1105d8b71b90a06e2627e201b97f12a754
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 4500fcfa6fbfb346a6e5c7fd045ba0046a901b91
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095392"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454252"
 ---
 # <a name="redeploy-a-vm-in-a-lab-in-azure-devtest-labs"></a>Een virtuele machine in een lab in Azure DevTest Labs opnieuw implementeren
-Als u geen verbinding met een virtuele machine (VM) in een testomgeving via een verbinding met extern bureaublad maken, de virtuele machine opnieuw implementeren en probeer het opnieuw conencting toe. Wanneer u een virtuele machine opnieuw implementeren, wordt de virtuele machine in DevTest Labs verplaatst vanaf het knooppunt waarop deze wordt uitgevoerd naar een nieuw knooppunt in de Azure-infrastructuur. Vervolgens wordt de virtuele machine gestart en behoud van alle configuratie-opties en bijbehorende resources. Deze functie bespaart u de tijd besteed aan bij het oplossen van uw verbinding met extern bureaublad of de toepassing toegang tot Windows-VM's in het lab. 
+Als u geen verbinding met een virtuele machine (VM) in een testomgeving via een verbinding met extern bureaublad maken, de virtuele machine opnieuw implementeren en maak verbinding met het opnieuw. Wanneer u een virtuele machine opnieuw implementeren, wordt de virtuele machine in DevTest Labs verplaatst vanaf het knooppunt waarop deze wordt uitgevoerd naar een nieuw knooppunt in de Azure-infrastructuur. Vervolgens wordt de virtuele machine gestart en behoud van alle configuratie-opties en bijbehorende resources. Deze functie bespaart u de tijd besteed aan bij het oplossen van uw verbinding met extern bureaublad of de toepassing toegang tot Windows-VM's in het lab. 
 
 ## <a name="steps-to-redeploy-a-vm-in-a-lab"></a>Stappen voor het implementeren van een virtuele machine in een testomgeving 
 Als u wilt implementeren op een virtuele machine in een lab in Azure DevTest Labs, moet u de volgende stappen uitvoeren: 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 03/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 305a5c5d4f82c732dd796f5c5140c0da04fe7b13
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 14804de1d8507a49cda2ce1dd8ee97dc56c0223b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245213"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439550"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk Encryption voor IaaS-VM's Veelgestelde vragen
 
@@ -145,7 +145,7 @@ Als deze werkstroom niet mogelijk is, is afhankelijk [Storage Service Encryption
 
 ## <a name="what-encryption-method-does-azure-disk-encryption-use"></a>Welke versleutelingsmethode maakt gebruik van Azure Disk Encryption?
 
-Op Windows, ADE de versleutelingsmethode BitLocker AES256 gebruikt (AES256WithDiffuser in versies vóór Windows Server 2012). Op Linux, ADE gebruikmaakt van de dmcrypt van xts-aes-plain64 met een 256-bits volumehoofdsleutel.
+Op Windows, ADE de versleutelingsmethode BitLocker AES256 gebruikt (AES256WithDiffuser in versies vóór Windows Server 2012). Op Linux, ADE gebruikmaakt van de decoderen van xts-aes-plain64 met een 256-bits volumehoofdsleutel.
 
 ## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>Als ik EncryptFormatAll gebruiken en alle typen opgeeft, wordt deze de gegevens op de schijven die we al versleuteld wissen?
 Nee, wordt niet gegevens worden gewist van schijven die al zijn versleuteld met Azure Disk Encryption. Net als bij hoe EncryptFormatAll opnieuw de besturingssysteemschijf niet versleutelen, deze wordt niet het station al versleutelde gegevens opnieuw versleutelen. Zie voor meer informatie de [EncryptFormatAll criteria](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        

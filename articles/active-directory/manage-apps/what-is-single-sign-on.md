@@ -12,12 +12,12 @@ ms.date: 02/21/2019
 ms.author: celested
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93d5a08d08a67a14d2e78f414fc40e7391653951
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 186bc220778ed669672bfbc689dad6471195f4ce
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593689"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448557"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Eenmalige aanmelding voor toepassingen in Azure Active Directory
 Eenmalige aanmelding (SSO) voegt beveiliging en gemak wanneer gebruikers zich aanmelden bij toepassingen in Azure Active Directory (Azure AD). Dit artikel beschrijft de methoden voor eenmalige aanmelding en helpt u bij het kiezen van de meest geschikte methode voor eenmalige aanmelding bij het configureren van uw toepassingen.
@@ -153,7 +153,7 @@ In dit diagram wordt de stroom uitgelegd wanneer een gebruiker toegang heeft tot
 
 ![Stroomdiagram van Microsoft AAD-verificatie](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
-1. De gebruiker voert de URL voor toegang tot de on-premises toepassing via Application Proxy.
+1. De gebruiker voert de URL voor toegang tot de on-premises-toepassing via Application Proxy.
 2. Application Proxy stuurt de aanvraag naar Azure AD authentication-services kunnen worden. Azure AD van toepassing op dit moment voor alle van toepassing verificatie en autorisatiebeleid, zoals meervoudige verificatie. Als de gebruiker is gevalideerd, wordt Azure AD wordt een token gemaakt en verzendt ze naar de gebruiker.
 3. De gebruiker wordt het token doorgegeven aan Application Proxy.
 4. Application Proxy valideert het token en de User Principal Name (UPN) opgehaald uit het token. Deze stuurt de aanvraag, de UPN en de Service Principal Name (SPN) naar de Connector via een beveiligd kanaal voor zowel geverifieerde.

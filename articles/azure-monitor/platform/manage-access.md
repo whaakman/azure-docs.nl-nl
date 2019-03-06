@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: magoedte
-ms.openlocfilehash: b42eb963e33c14b003c053bb0f7fca6361dbd555
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: d09ce810605055b5be53219f254beb6660addbee
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985101"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445701"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Logboekgegevens en toegang tot werkruimten in Azure Monitor beheren
 Azure Monitor-winkels vastleggen gegevens in een Log Analytics-werkruimte is in wezen een container die gegevens en configuratie-informatie bevat. Voor het beheren van toegang tot gegevens vastleggen, kunt u verschillende beheertaken met betrekking tot werkruimten uitvoeren. U of andere leden van uw organisatie kunnen meerdere werkruimten gebruiken om verschillende gegevenssets te beheren die worden verzameld uit de gehele of delen van uw IT-infrastructuur.
@@ -153,7 +153,7 @@ Voor het configureren van de toegangsmodus voor in een Azure Resource Manager-sj
 
 
 ## <a name="manage-accounts-and-users"></a>Accounts en gebruikers beheren
-De machtigingen voor de werkruimte die worden toegepast op een bepaalde gebruiker zijn gedefinieerd door hun [toegangsmodus](#access-mode) en de [besturingselement toegangsmodus](#access-control-mode) van de werkruimte. **Machtigingen voor de werkruimte** worden toegepast wanneer een gebruiker toegang heeft tot een werkruimte met behulp van **werkruimte gerichte** in [werkruimte gerichte modus](#access-modes). **Machtigingen voor resources** worden toegepast wanneer een gebruiker toegang heeft tot een werkruimte met **resource of werkruimte machtigingen gebruiken** [besturingselement toegangsmodus](#access-control-mode) met behulp van [resource-georiënteerde modus ](#access-modes).
+De machtigingen voor de werkruimte die worden toegepast op een bepaalde gebruiker zijn gedefinieerd door de toegangsmodus en de [besturingselement toegangsmodus](#access-control-mode) van de werkruimte. **Machtigingen voor de werkruimte** worden toegepast wanneer een gebruiker toegang heeft tot een werkruimte met behulp van **werkruimte gerichte** in [werkruimte gerichte modus](#access-modes). **Machtigingen voor resources** worden toegepast wanneer een gebruiker toegang heeft tot een werkruimte met **resource of werkruimte machtigingen gebruiken** [besturingselement toegangsmodus](#access-control-mode) met behulp van [resource-georiënteerde modus ](#access-modes).
 
 ### <a name="workspace-permissions"></a>Machtigingen voor de werkruimte
 Elke werkruimte kunnen meerdere accounts worden gekoppeld, en elk account kan toegang hebben tot meerdere werkruimten. Toegang wordt beheerd [Azure op rollen gebaseerde toegang](../../role-based-access-control/role-assignments-portal.md). 

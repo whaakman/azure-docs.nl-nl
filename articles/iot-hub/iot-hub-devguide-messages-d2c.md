@@ -8,14 +8,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: dd811a48d6f3f1061bad49a81b7e833dcb40e1e3
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 20e7f8f5d2c0eb9fbfb231adfd20ff54d9eda20a
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241286"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404192"
 ---
-# <a name="use-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Berichtroutering gebruik apparaat-naar-cloud-berichten te verzenden naar verschillende eindpunten
+# <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Gebruik IoT Hub-berichtroutering apparaat-naar-cloud-berichten te verzenden naar verschillende eindpunten
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -35,19 +35,39 @@ Een IoT-hub is een ingebouwde-in-eindpunt (**berichten/gebeurtenissen**) die com
 
 ### <a name="built-in-endpoint"></a>Ingebouwd eindpunt
 
-U kunt standard [Event Hubs-integratie en SDK's](iot-hub-devguide-messages-read-builtin.md) apparaat-naar-cloud om berichten te ontvangen van het geïntegreerde eindpunt (**berichten/gebeurtenissen**). Houd er rekening mee dat wanneer een Route is gemaakt, gegevens niet naar het ingebouwde-in-eindpunt wordt geleid, tenzij er een Route naar dit eindpunt is gemaakt.
+U kunt standard [Event Hubs-integratie en SDK's](iot-hub-devguide-messages-read-builtin.md) apparaat-naar-cloud om berichten te ontvangen van het geïntegreerde eindpunt (**berichten/gebeurtenissen**). Zodra een Route is gemaakt, stopt gegevens naar het ingebouwde-in-eindpunt wordt geleid, tenzij er een Route naar dit eindpunt is gemaakt.
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 
-IoT Hub biedt alleen ondersteuning voor het schrijven van gegevens naar Azure Blob-opslag in de [Apache Avro](http://avro.apache.org/) indeling. IoT Hub berichten batches en schrijft gegevens naar een blob telkens wanneer een bepaalde grootte heeft bereikt van de batch of een bepaalde hoeveelheid tijd is verstreken.
+IoT Hub worden ondersteund voor het schrijven van gegevens naar Azure Blob-opslag in de [Apache Avro](http://avro.apache.org/) en JSON-indeling. De mogelijkheid voor het coderen van JSON-indeling is in preview in alle regio's die IOT Hub verkrijgbaar in, met uitzondering van VS-Oost, VS-West en West-Europa is. De standaardwaarde is AVRO. U kunt de coderingsindeling met behulp van de IoT Hub maken of bijwerken REST API, specifiek selecteren de [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), de Azure-Portal [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest#optional-parameters) of de [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0#optional-parameters). De coderingsindeling kan alleen worden ingesteld als het eindpunt van blob storage is geconfigureerd. De indeling kan niet worden bewerkt voor een bestaand eindpunt. Het volgende diagram toont hoe u de coderingsindeling selecteert in de Azure Portal.
 
-IoT Hub wordt standaard op de volgende naamconventie voor bestand:
+![BLOB storage endpoint codering](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
+
+IoT Hub berichten batches en schrijft gegevens naar een blob telkens wanneer een bepaalde grootte heeft bereikt van de batch of een bepaalde hoeveelheid tijd is verstreken. IoT Hub wordt standaard op de volgende naamconventie voor bestand:
 
 ```
 {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
 ```
 
 U kunt een naamgevingsconventie voor bestanden, maar u moet alle vermelde tokens gebruiken. IoT Hub worden geschreven naar een lege blob als er zijn geen gegevens om te schrijven.
+
+Wanneer Routering BLOB storage, raden wij de blobs opnemen en vervolgens iteratie van deze, om ervoor te zorgen dat voor alle containers worden gelezen zonder een veronderstellingen van de partitie. Het partitiebereik kan mogelijk wijzigen tijdens een [Microsoft geïnitieerde failover](iot-hub-ha-dr.md#microsoft-initiated-failover) of IoT-Hub [handmatige failover](iot-hub-ha-dr.md#manual-failover-preview). U kunt de [lijst met Blobs API](https://docs.microsoft.com/rest/api/storageservices/list-blobs) opsommen van de lijst met blobs. Raadpleeg het volgende voorbeeld als richtlijn.
+
+   ```csharp
+        public void ListBlobsInContainer(string containerName, string iothub)
+        {
+            var storageAccount = CloudStorageAccount.Parse(this.blobConnectionString);
+            var cloudBlobContainer = storageAccount.CreateCloudBlobClient().GetContainerReference(containerName);
+            if (cloudBlobContainer.Exists())
+            {
+                var results = cloudBlobContainer.ListBlobs(prefix: $"{iothub}/");
+                foreach (IListBlobItem item in results)
+                {
+                    Console.WriteLine(item.Uri);
+                }
+            }
+        }
+   ```
 
 ### <a name="service-bus-queues-and-service-bus-topics"></a>Service Bus-wachtrijen en Service Bus-onderwerpen
 
@@ -56,8 +76,6 @@ Service Bus-wachtrijen en onderwerpen die worden gebruikt als IoT Hub-eindpunten
 ### <a name="event-hubs"></a>Event Hubs
 
 Naast de ingebouwde-Event Hubs compatibele eindpunt, kunt u ook gegevens doorsturen naar aangepaste eindpunten van het type Event Hubs. 
-
-Wanneer u Routering en aangepaste eindpunten, worden alleen berichten met het ingebouwde eindpunt geleverd als ze geen regels komen niet overeen. Om berichten te leveren voor het ingebouwde eindpunt en aangepaste eindpunten, moet u een route waarmee berichten worden verzonden naar het eindpunt gebeurtenissen toevoegen.
 
 ## <a name="reading-data-that-has-been-routed"></a>Lezen van gegevens dat wordt gerouteerd
 
@@ -77,7 +95,7 @@ Gebruik de volgende zelfstudies voor informatie over het lezen van bericht van e
 
 ## <a name="fallback-route"></a>Alternatieve route
 
-De alternatieve route verzendt alle berichten die niet voldoen aan de queryvoorwaarden op een van de bestaande routes naar de ingebouwde-Event Hubs (**berichten/gebeurtenissen**), dat wil zeggen compatibel is met [Event Hubs](/azure/event-hubs/). Als de routering van berichten is ingeschakeld, kunt u de mogelijkheid alternatieve route inschakelen. Houd er rekening mee dat wanneer een route is gemaakt, gegevens niet naar het ingebouwde-in-eindpunt geleid, tenzij er een route naar dit eindpunt wordt gemaakt. Als er geen routes met het ingebouwde-in-eindpunt zijn en een alternatieve route is ingeschakeld, wordt alleen de berichten die niet overeenkomen met de queryvoorwaarden van een op routes met het ingebouwde-in-eindpunt worden verzonden. Als alle bestaande routes worden verwijderd, moet er ook alternatieve route worden ingeschakeld voor het ontvangen van alle gegevens op het ingebouwde-in-eindpunt. 
+De alternatieve route verzendt alle berichten die niet voldoen aan de queryvoorwaarden op een van de bestaande routes naar de ingebouwde-Event Hubs (**berichten/gebeurtenissen**), dat wil zeggen compatibel is met [Event Hubs](/azure/event-hubs/). Als de routering van berichten is ingeschakeld, kunt u de mogelijkheid alternatieve route inschakelen. Zodra een route is gemaakt, gegevens stopt naar het ingebouwde-in-eindpunt geleid, tenzij er een route naar dit eindpunt wordt gemaakt. Als er geen routes met het ingebouwde-in-eindpunt zijn en een alternatieve route is ingeschakeld, wordt alleen de berichten die niet overeenkomen met de queryvoorwaarden van een op routes met het ingebouwde-in-eindpunt worden verzonden. Als alle bestaande routes worden verwijderd, moet er ook alternatieve route worden ingeschakeld voor het ontvangen van alle gegevens op het ingebouwde-in-eindpunt. 
 
 U kunt in-of uitschakelen de alternatieve route in Azure Portal-blade berichtroutering >. U kunt ook gebruiken met Azure Resource Manager voor [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) met een aangepast eindpunt voor alternatieve route.
 
@@ -95,7 +113,7 @@ Wanneer u een nieuwe route maken of bewerken van een bestaande route, moet u de 
 
 Wanneer u berichten over telemetrie voor apparaat-naar-cloud met behulp van ingebouwde eindpunten versturen, moet u er een lichte toename van de end-to-end-latentie is na het maken van de eerste route.
 
-In de meeste gevallen is de gemiddelde toename in latentie van minder dan 500ms. U kunt controleren de latentie **routering: bericht latentie voor berichten/gebeurtenissen** of **d2c.endpoints.latency.builtIn.events** metrische gegevens van IoT-Hub. Maken of verwijderen van een route na de eerste map heeft geen invloed op de end-to-end-latentie.
+In de meeste gevallen is de gemiddelde toename in latentie van minder dan 500 ms. U kunt controleren de latentie **routering: bericht latentie voor berichten/gebeurtenissen** of **d2c.endpoints.latency.builtIn.events** metrische gegevens van IoT-Hub. Maken of verwijderen van een route na de eerste map heeft geen invloed op de end-to-end-latentie.
 
 ## <a name="monitoring-and-troubleshooting"></a>Bewaking en probleemoplossing
 

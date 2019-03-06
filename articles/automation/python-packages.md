@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f14d29ef3d03a0899fe208d801e127ecfc28168b
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 81ce9cb2667ce9f21d7c18a92e417e47768d7efb
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889134"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407931"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Python 2-pakketten in Azure Automation beheren
 
@@ -40,7 +40,7 @@ Azure automation tijdens het importproces kan afhankelijkheden voor python-pakke
 
 ### <a name="manually-download"></a>Handmatig downloaden
 
-Op een Windows 64-bits computer met [python2.7](https://www.python.org/downloads/release/latest/python2) en [pip](https://pip.pypa.io/stable/installing/) geïnstalleerd, voer de volgende opdracht om een pakket en alle afhankelijkheden ervan te downloaden:
+Op een Windows 64-bits computer met [python2.7](https://www.python.org/downloads/release/latest/python2) en [pip](https://pip.pypa.io/en/stable/) geïnstalleerd, voer de volgende opdracht om een pakket en alle afhankelijkheden ervan te downloaden:
 
 ```
 C:\Python27\Scripts\pip2.7.exe download -d <output dir> <package name>

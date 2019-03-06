@@ -5,45 +5,39 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 03/22/2018
+ms.date: 02/21/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 7e33d4ed7100287ef6b22aa4c90fd52671363902
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c50e2b082c3181c37e9d129766d4bf400075d5a8
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31613616"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410667"
 ---
-De stappen voor deze taak wordt een VNet op basis van de waarden in de volgende configuratielijst gebruikt. Extra instellingen en namen worden ook beschreven in deze lijst. We niet deze lijst gebruiken in een van de stappen, hoewel er variabelen op basis van de waarden in deze lijst toevoegen. U kunt de lijst om te worden gebruikt als referentie, waarbij de waarden vervangt door uw eigen kopiëren.
+De stappen voor deze taak gebruik van een VNet op basis van de waarden in de volgende lijst voor de configuratie-verwijzing. Extra instellingen en de namen worden ook beschreven in deze lijst. We gebruik geen deze lijst rechtstreeks in een van de stappen, hoewel we variabelen op basis van de waarden in deze lijst toevoegen. U kunt de lijst om te gebruiken als uitgangspunt, vervang de waarden door uw eigen kopiëren.
 
-**Lijst van configuratie-verwijzing**
-
-* Virtuele-netwerknaam = "TestVNet"
-* Virtuele adresruimte van het netwerk 192.168.0.0/16 =
+* Virtuele-netwerknaam 'TestVNet' =
+* Virtuele netwerkadresruimte = 192.168.0.0/16
 * Resourcegroep = "TestRG"
-* Subnet1 Name = 'FrontEnd' 
-* Adresruimte Subnet1 = '192.168.1.0/24'
-* De naam van de gateway-Subnet: 'GatewaySubnet' u moet altijd een gatewaysubnet de naam *GatewaySubnet*.
-* Gateway-Subnet-adresruimte = "192.168.200.0/26"
+* Subnet1 naam = 'FrontEnd' 
+* Subnet1-adresruimte = "192.168.1.0/24"
+* Naam Gatewaysubnet: 'GatewaySubnet' u moet altijd een gatewaysubnet de naam *GatewaySubnet*.
+* Gateway Subnet een adresruimte = "192.168.200.0/26"
 * Regio = 'VS-Oost'
-* Gatewaynaam = 'GW'
-* De naam van de IP-gateway = "GWIP"
-* IP-gatewayconfiguratie Name = "gwipconf"
-* Type = "ExpressRoute" dit type is vereist voor een ExpressRoute-configuratie.
-* Gateway openbare IP-naam = 'gwpip'
+* Gateway Name = "GW"
+* De naam van de gateway-IP = "GWIP"
+* De naam van de gateway-IP-configuratie = "gwipconf"
+* Type = 'ExpressRoute' in dit type is vereist voor een ExpressRoute-configuratie.
+* Gatewaynaam van openbare IP = "gwpip"
 
 ## <a name="add-a-gateway"></a>Een gateway toevoegen
 1. Verbinding maken met uw Azure-abonnement.
 
-  ```powershell 
-  Connect-AzureRmAccount
-  Get-AzureRmSubscription 
-  Select-AzureRmSubscription -SubscriptionName "Name of subscription"
-  ```
-2. De variabelen voor deze oefening declareren. Zorg ervoor dat het bewerken van het voorbeeld zodat de instellingen die u wilt gebruiken.
+  [!INCLUDE [Sign in](expressroute-cloud-shell-connect.md)]
+2. Declareer de variabelen voor deze oefening. Zorg ervoor dat het bewerken van het voorbeeld in overeenstemming met de instellingen die u wilt gebruiken.
 
-  ```powershell 
+  ```azurepowershell-interactive 
   $RG = "TestRG"
   $Location = "East US"
   $GWName = "GW"
@@ -51,65 +45,65 @@ De stappen voor deze taak wordt een VNet op basis van de waarden in de volgende 
   $GWIPconfName = "gwipconf"
   $VNetName = "TestVNet"
   ```
-3. Het virtuele netwerkobject opslaan als een variabele.
+3. Het virtuele netwerkobject Store als een variabele.
 
-  ```powershell
-  $vnet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG
+  ```azurepowershell-interactive
+  $vnet = Get-AzVirtualNetwork -Name $VNetName -ResourceGroupName $RG
   ```
-4. Een gatewaysubnet toevoegen aan het virtuele netwerk. Het gatewaysubnet moet de naam 'GatewaySubnet'. U moet een gatewaysubnet toe van/27 of groter (/ 26/25 enz.).
+4. Een gatewaysubnet toevoegen aan uw Virtueelnetwerk. Het gatewaysubnet moet de naam 'GatewaySubnet'. U moet een gatewaysubnet/27 of groter (/ 26/25 enz.).
 
-  ```powershell
-  Add-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26
+  ```azurepowershell-interactive
+  Add-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26
   ```
 5. Stel de configuratie in.
 
-  ```powershell
-  $vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+  ```azurepowershell-interactive
+  $vnet = Set-AzVirtualNetwork -VirtualNetwork $vnet
   ```
-6. Het gatewaysubnet opslaan als een variabele.
+6. Het gatewaysubnet Store als een variabele.
 
-  ```powershell
-  $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
+  ```azurepowershell-interactive
+  $subnet = Get-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
   ```
-7. Vraag een openbaar IP-adres aan. Het IP-adres is aangevraagd voordat het maken van de gateway. U opgeven niet dat de IP-adres dat u gebruiken wilt. het wordt dynamisch toegewezen. U gebruikt dit IP-adres in de volgende configuratiesectie. De toewijzingsmethode gedefinieerd moet dynamisch zijn.
+7. Vraag een openbaar IP-adres aan. Het IP-adres is aangevraagd voordat het maken van de gateway. Kan geen u het IP-adres dat u gebruiken wilt. het wordt dynamisch toegewezen. U gebruikt dit IP-adres in de volgende configuratiesectie. De AllocationMethod moet dynamisch zijn.
 
-  ```powershell
-  $pip = New-AzureRmPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
+  ```azurepowershell-interactive
+  $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
   ```
-8. Maak de configuratie voor uw gateway. De gatewayconfiguratie bepaalt welk subnet en openbaar IP-adres moeten worden gebruikt. In deze stap geeft u de configuratie die wordt gebruikt bij het maken van de gateway. Deze stap maakt het gateway-object niet daadwerkelijk. Gebruik het voorbeeld hieronder om de gatewayconfiguratie te maken.
+8. Maak de configuratie voor uw gateway. De gatewayconfiguratie bepaalt welk subnet en openbaar IP-adres moeten worden gebruikt. In deze stap geeft u de configuratie die wordt gebruikt bij het maken van de gateway. Deze stap maakt geen daadwerkelijk het gateway-object. Gebruik het voorbeeld hieronder om de gatewayconfiguratie te maken.
 
-  ```powershell
-  $ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
+  ```azurepowershell-interactive
+  $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
   ```
-9. De gateway te maken. In deze stap de **- GatewayType** is vooral van belang. Moet u de waarde **ExpressRoute**. De gateway kan na het uitvoeren van deze cmdlets duren 45 minuten of langer maken.
+9. Maak de gateway. In deze stap is het **- GatewayType** is vooral van belang. Moet u de waarde **ExpressRoute**. Na het uitvoeren van deze cmdlets, kan de gateway duren 45 minuten of langer te maken.
 
-  ```powershell
-  New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
+  ```azurepowershell-interactive
+  New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
   ```
 
 ## <a name="verify-the-gateway-was-created"></a>Controleer of dat de gateway is gemaakt
 Gebruik de volgende opdrachten om te controleren of de gateway is gemaakt:
 
-```powershell
-Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG
+```azurepowershell-interactive
+Get-AzVirtualNetworkGateway -ResourceGroupName $RG
 ```
 
-## <a name="resize-a-gateway"></a>Een gateway vergroten of verkleinen
-Er zijn een aantal [Gateway-SKU's](../articles/expressroute/expressroute-about-virtual-network-gateways.md). De volgende opdracht kunt u de Gateway-SKU op elk moment wijzigen.
+## <a name="resize-a-gateway"></a>Het formaat van een gateway wijzigen
+Er zijn een aantal [Gateway-SKU's](../articles/expressroute/expressroute-about-virtual-network-gateways.md). De volgende opdracht kunt u de Gateway-SKU op elk gewenst moment wijzigen.
 
 > [!IMPORTANT]
-> Met deze opdracht werkt niet voor UltraPerformance gateway. Als u wilt uw gateway uit naar een gateway UltraPerformance wijzigen, verwijdert u eerst de bestaande ExpressRoute-gateway en maak vervolgens een nieuwe UltraPerformance-gateway. Als u wilt uw gateway van een gateway UltraPerformance downgraden, verwijdert u eerst de gateway UltraPerformance en maak vervolgens een nieuwe gateway.
+> Met deze opdracht werkt niet voor UltraPerformance-gateway. Als u wilt wijzigen van de gateway naar een UltraPerformance-gateway, verwijdert u eerst de bestaande ExpressRoute-gateway en maak vervolgens een nieuwe UltraPerformance-gateway. Als u wilt downgraden van de gateway van een UltraPerformance-gateway, verwijdert u eerst de UltraPerformance-gateway en maak vervolgens een nieuwe gateway.
 > 
 > 
 
-```powershell
-$gw = Get-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
-Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
+```azurepowershell-interactive
+$gw = Get-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
+Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 ```
 
 ## <a name="remove-a-gateway"></a>Een gateway verwijderen
 Gebruik de volgende opdracht om een gateway te verwijderen:
 
-```powershell
-Remove-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
+```azurepowershell-interactive
+Remove-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
 ```

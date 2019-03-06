@@ -1,5 +1,5 @@
 ---
-title: Registreren van uw persoonlijke apparaat op het netwerk van uw organisatie - Azure Active Directory | Microsoft Docs
+title: Persoonlijke apparaten in een organisatienetwerk - Azure Active Directory registreren | Microsoft Docs
 description: Informatie over het registreren van uw persoonlijke apparaat op het netwerk van uw organisatie, zodat u krijgt beveiligde resources van uw organisatie tot toegang.
 services: active-directory
 author: eross-msft
@@ -12,13 +12,14 @@ ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: lizross
 ms.reviewer: jairoc
+ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70cae464531dee86f7a4c9ec2396b90787825ec2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 041c8bb6b4de2bbe2cbeb4c1a89e452239ae57bd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172294"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439737"
 ---
 # <a name="register-your-personal-device-on-your-organizations-network"></a>Registreren van uw persoonlijke apparaat op het netwerk van uw organisatie
 Registreer uw persoonlijke apparaat (meestal een telefoon of tablet) op het netwerk van uw organisatie. Nadat het apparaat is geregistreerd, is het mogelijk zijn voor toegang tot beperkte resources van uw organisatie.

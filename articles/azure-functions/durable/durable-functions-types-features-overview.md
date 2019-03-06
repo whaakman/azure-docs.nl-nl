@@ -1,6 +1,6 @@
 ---
-title: Overzicht van de functietypen en -functies voor duurzame functies - Azure
-description: Meer informatie over de typen van functies en functies die voor de communicatie functie als onderdeel van een indeling duurzame functie zorgen.
+title: Functietypen en -functies in de extensie duurzame functies van Azure Functions
+description: Meer informatie over de typen van functies en rollen die ondersteuning bieden voor functie communicatie in een indeling duurzame functies in Azure Functions.
 services: functions
 author: jeffhollan
 manager: jeconnoc
@@ -10,78 +10,94 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 2885ce740fab58e675c529dfab8d0dadeed2904c
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 76b6f013333113d5a24b744bc962d36b1c0e21b3
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301618"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455731"
 ---
-# <a name="overview-of-function-types-and-features-for-durable-functions-azure-functions"></a>Overzicht van de functietypen en -functies voor duurzame functies (Azure Functions)
+# <a name="durable-functions-types-and-features-azure-functions"></a>Typen voor duurzame functies en onderdelen (Azure Functions)
 
-Duurzame functies zorgt voor een stateful indeling van een functie wordt uitgevoerd. Een duurzame functie is een oplossing die bestaat uit verschillende Azure-functies. Elk van deze functies kan verschillende rollen als onderdeel van een indeling worden afgespeeld. Het volgende document bevat een overzicht van de typen van functies die betrokken zijn bij een duurzame functie-indeling. Dit omvat ook sommige algemene patronen in het met elkaar verbinden van functies.  Om te beginnen nu, maak uw eerste duurzame functie in [ C# ](durable-functions-create-first-csharp.md) of [JavaScript](quickstart-js-vscode.md).
+Duurzame functies is een uitbreiding van [Azure Functions](../functions-overview.md). U kunt duurzame functies gebruiken voor stateful indeling van een functie wordt uitgevoerd. Een duurzame functie is een oplossing die uit verschillende Azure-functies bestaat. Functies kunnen verschillende rollen in een indeling duurzame functie afspelen. 
 
-![Typen duurzame functies][1]  
+In dit artikel biedt een overzicht van de typen van functies die u in een indeling duurzame functies kunt gebruiken. Dit artikel bevat een aantal algemene patronen die u gebruiken kunt om functies. Leer hoe duurzame functies helpen u bij het oplossen van uw app ontwikkelingsuitdagingen.
 
-## <a name="types-of-functions"></a>Typen functies
+![Een afbeelding die laat zien van de typen duurzame functies][1]  
+
+## <a name="types-of-durable-functions"></a>Typen duurzame functies
+
+U kunt drie duurzame functietypen gebruiken in Azure Functions: activiteit, de orchestrator en de client.
 
 ### <a name="activity-functions"></a>Activiteitsfuncties
 
-Activiteit functions is de basiseenheid voor werk in een duurzame orchestration.  Activiteitsfuncties zijn de functies en taken die in het proces wordt georganiseerd.  U kunt bijvoorbeeld een duurzame functie maken om te verwerken van een order - Controleer de voorraad, de klant in rekening en maken van een verzending.  Elk van deze taken een zijn een functie van de activiteit.  Activiteitsfuncties geen beperkingen in het type werk dat u erin kunt doen.  Ze kunnen worden geschreven in een [taal die wordt ondersteund door duurzame functies](durable-functions-overview.md#language-support). Het duurzame taak Framework zorgt ervoor dat elke functie aangeroepen activiteit ten minste één keer worden uitgevoerd tijdens een indeling.
+Activiteit functions is de basiseenheid voor werk in een indeling duurzame functie. Activiteitsfuncties zijn de functies en taken die worden ingedeeld in het proces. U kunt bijvoorbeeld een duurzame functie voor het verwerken van een order maken. De taken betrekking hebben op het controleren van de voorraad, de klant in rekening gebracht en het maken van een verzending. Elke taak is een functie van de activiteit. 
 
-De functie van een activiteit moet worden geactiveerd door een [activiteit trigger](durable-functions-bindings.md#activity-triggers).  .NET-functies, ontvangen een [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) als parameter. U kunt ook de trigger binden aan een ander object om door te geven in de invoer voor de functie. Invoer in JavaScript, kan worden geopend via de `<activity trigger binding name>` eigenschap op de [ `context.bindings` object](../functions-reference-node.md#bindings).
+Activiteitsfuncties zijn niet beperkt in het type werk dat u erin kunt doen. U kunt de functie van een activiteit schrijven in een [taal die ondersteuning bieden voor duurzame functies](durable-functions-overview.md#language-support). Het framework duurzame taak zorgt ervoor dat ten minste eenmaal opent gedurende een orchestration elke functie aangeroepen activiteit wordt uitgevoerd.
 
-De functie activiteit kan ook waarden retourneren terug naar de orchestrator.  Als het verzenden of die veel waarden van een functie van de activiteit retourneert, kunt u [gebruikmaken van tuples of matrices](durable-functions-bindings.md#passing-multiple-parameters).  Activiteitsfuncties kunnen alleen worden geactiveerd vanuit een orchestration-exemplaar.  Terwijl de code kan worden gedeeld tussen een functie van de activiteit en een andere functie (zoals een door HTTP geactiveerde functie), kan elke functie slechts één trigger hebben.
+Gebruik een [activiteit trigger](durable-functions-bindings.md#activity-triggers) om een activiteit-functie te activeren. .NET-functies ontvangen een [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) als parameter. U kunt ook de trigger binden aan een ander object om door te geven in de invoer voor de functie. In JavaScript, opent u een invoer via de `<activity trigger binding name>` eigenschap op de [ `context.bindings` object](../functions-reference-node.md#bindings).
 
-Meer informatie over en voorbeelden vindt u de [duurzame functies binding artikel](durable-functions-bindings.md#activity-triggers).
+De functie activiteit kunt ook waarden terugkeren naar de orchestrator. Als u een groot aantal waarden van de functie van een activiteit retourneren of verzendt, kunt u [tuples of matrices](durable-functions-bindings.md#passing-multiple-parameters). U kunt de functie van een activiteit alleen uit een exemplaar van de orchestration activeren. Hoewel de functie van een activiteit en een andere functie (zoals een HTTP-geactiveerde functie) code delen kunnen, kan elke functie slechts één trigger hebben.
+
+Zie voor meer informatie en voorbeelden, [activiteitsfuncties](durable-functions-bindings.md#activity-triggers).
 
 ### <a name="orchestrator-functions"></a>Orchestrator-functies
 
-Orchestrator-functies zijn de kern van een duurzame functie.  Orchestrator-functies worden beschreven de manier en de volgorde die acties worden uitgevoerd.  Orchestrator-functies beschrijven de indelen in code (C# of JavaScript) zoals weergegeven in de [duurzame functies patronen en technische concepten](durable-functions-concepts.md).  Een indeling kunt hebben verschillende soorten acties, zoals [activiteitsfuncties](#activity-functions), [onderliggende indelingen](#sub-orchestrations), [wachten op externe gebeurtenissen](#external-events), en [ timers](#durable-timers).  
+Orchestrator-functies wordt beschreven hoe acties worden uitgevoerd en de volgorde waarin acties worden uitgevoerd. Orchestrator-functies beschrijven de indelen in code (C# of JavaScript) zoals weergegeven in [duurzame functies patronen en technische concepten](durable-functions-concepts.md). Een indeling kan hebben veel verschillende soorten acties, met inbegrip van [activiteitsfuncties](#activity-functions), [onderliggende indelingen](#sub-orchestrations), [wachten op externe gebeurtenissen](#external-events), en [timers](#durable-timers). 
 
 Een orchestrator-functie moet worden geactiveerd door een [orchestration trigger](durable-functions-bindings.md#orchestration-triggers).
 
-Een orchestrator wordt gestart door een [orchestrator client](#client-functions) die kan zelf worden geactiveerd vanuit een bron (http-, wachtrijen, gebeurtenisstromen).  Elk exemplaar van een indeling heeft een exemplaar-id, die kan worden automatisch gegenereerde (aanbevolen) of door gebruikers gegenereerde.  Deze id kan worden gebruikt om [exemplaren beheren](durable-functions-instance-management.md) van de indeling.
+Een orchestrator wordt gestart door een [orchestrator client](#client-functions). U kunt de orchestrator van elke bron (http-, wachtrij, gebeurtenisstroom) activeren. Elk exemplaar van een indeling heeft een exemplaar-id. De exemplaar-id kan automatisch gegenereerde (aanbevolen) of door de gebruiker is gegenereerd. U kunt de exemplaar-id aan [exemplaren beheren](durable-functions-instance-management.md) van de indeling.
 
-Meer informatie over en voorbeelden vindt u de [duurzame functies binding artikel](durable-functions-bindings.md#orchestration-triggers).
+Zie voor meer informatie en voorbeelden, [Orchestration triggers](durable-functions-bindings.md#orchestration-triggers).
 
 ### <a name="client-functions"></a>Clientfuncties
 
-Clientfuncties zijn de geactiveerde functies u nieuwe instanties van een indeling maakt.  Ze zijn het uitgangspunt voor het maken van een exemplaar van een duurzame orchestration.  Clientfuncties kunnen worden geactiveerd door een trigger (HTTP, wachtrijen, gebeurtenisstreams, enzovoort) en die zijn geschreven in elke taal die wordt ondersteund door de app.  Naast de trigger, clientfuncties hebben een [orchestration-client](durable-functions-bindings.md#orchestration-client) die binding kunt maken en beheren van duurzame indelingen.  De meest eenvoudige voorbeeld van een client-functie is een door HTTP geactiveerde functie die een orchestrator-functie wordt gestart en retourneert een reactie op de status als [wordt weergegeven in het volgende voorbeeld](durable-functions-http-api.md#http-api-url-discovery).
+Clientfuncties zijn de nieuwe instanties van een indeling geactiveerde functies. Clientfuncties zijn het uitgangspunt voor het maken van een exemplaar van een indeling duurzame functies. U kunt een client-functie van elke bron (http-, wachtrij, gebeurtenisstroom) activeren. U kunt een functie van de client schrijven in elke taal die ondersteuning biedt voor de app. 
 
-Meer informatie over en voorbeelden vindt u de [duurzame functies binding artikel](durable-functions-bindings.md#orchestration-client).
+Clientfuncties hebben ook een [orchestration-client](durable-functions-bindings.md#orchestration-client) binding. Een client-functie kunnen de orchestration-client binding maken en beheren van duurzame indelingen worden gebruikt. 
+
+De meest eenvoudige voorbeeld van een client-functie is een HTTP-geactiveerde functie die een orchestrator-functie wordt gestart en retourneert vervolgens een reactie op de status. Zie voor een voorbeeld [HTTP API-URL detectie](durable-functions-http-api.md#http-api-url-discovery).
+
+Zie voor meer informatie en voorbeelden, [Orchestration-client](durable-functions-bindings.md#orchestration-client).
 
 ## <a name="features-and-patterns"></a>Functies en -patronen
 
+De volgende secties worden de functies en -patronen van duurzame functies typen.
+
 ### <a name="sub-orchestrations"></a>Onderliggende indelingen
 
-Naast het aanroepen van activiteitsfuncties, kunnen orchestrator-functies aanroepen van andere orchestrator-functies. U kunt bijvoorbeeld een grotere orchestration uit een bibliotheek van orchestrator-functies bouwen. Of u kunt meerdere exemplaren van een orchestrator-functie parallel uitvoeren.
+Orchestrator-functies kunnen aanroepen activiteitsfuncties, maar ze ook andere orchestrator-functies kunnen aanroepen. U kunt bijvoorbeeld een grotere orchestration uit een bibliotheek van orchestrator-functies bouwen. Of u kunt meerdere exemplaren van een orchestrator-functie parallel uitvoeren.
 
-Meer informatie over en voorbeelden vindt u de [onderliggende orchestration artikel](durable-functions-sub-orchestrations.md).
+Zie voor meer informatie en voorbeelden, [onderliggende indelingen](durable-functions-sub-orchestrations.md).
 
 ### <a name="durable-timers"></a>Duurzame timers
 
-[Duurzame functies](durable-functions-overview.md) biedt *duurzame timers* voor gebruik in orchestrator-functies voor het implementeren van vertragingen of voor het instellen van time-outs op async-acties. Duurzame timers moeten worden gebruikt in de orchestrator-functies in plaats van `Thread.Sleep` en `Task.Delay` (C#) of `setTimeout()` en `setInterval()` (JavaScript).
+[Duurzame functies](durable-functions-overview.md) biedt *duurzame timers* die u in de orchestrator-functies kunt gebruiken voor het implementeren van vertragingen of voor het instellen van time-outs op async-acties. Duurzame timers gebruiken in de orchestrator-functies in plaats van `Thread.Sleep` en `Task.Delay` (C#) of `setTimeout()` en `setInterval()` (JavaScript).
 
-Meer informatie over en voorbeelden van duurzame timers kunnen worden gevonden in de [duurzame timers artikel](durable-functions-timers.md)
+Zie voor meer informatie en voorbeelden, [duurzame timers](durable-functions-timers.md).
 
 ### <a name="external-events"></a>Externe gebeurtenissen
 
-Orchestrator-functies kunnen wachten op externe gebeurtenissen bijwerken van een orchestration-exemplaar. Deze functie van duurzame functies is vaak handig voor het afhandelen van menselijke tussenkomst of andere externe callbacks.
+Orchestrator-functies kunnen wachten op externe gebeurtenissen bijwerken van een orchestration-exemplaar. Deze functie duurzame functies is vaak handig voor het afhandelen van een menselijke tussenkomst of andere externe callbacks.
 
-Meer informatie over en voorbeelden vindt u de [externe gebeurtenissen artikel](durable-functions-external-events.md).
+Zie voor meer informatie en voorbeelden, [externe gebeurtenissen](durable-functions-external-events.md).
 
 ### <a name="error-handling"></a>Foutafhandeling
 
-Duurzame functie indelingen zijn geïmplementeerd in de code en de foutafhandeling functies van de programmeertaal kunnen gebruiken.  Dit betekent dat patronen, zoals "try/catch" in uw orchestration werkt.  Duurzame functies worden ook geleverd met enkele beleidsregels automatisch opnieuw geprobeerd.  Een actie kan vertraging en probeer activiteiten automatisch over uitzonderingen.  Nieuwe pogingen kunnen u voor het afhandelen van tijdelijke uitzonderingen zonder te hoeven verlaten van de indeling.
+Gebruik code voor het implementeren van duurzame functies indelingen. U kunt de foutafhandeling functies van de programmeertaal gebruiken. Patronen, zoals `try` / `catch` werk in uw orchestration. 
 
-Meer informatie over en voorbeelden vindt u de [foutafhandeling artikel](durable-functions-error-handling.md).
+Duurzame functies worden ook geleverd met beleid voor automatisch opnieuw geprobeerd. Een actie kan vertraging en activiteiten automatisch opnieuw wanneer er een uitzondering optreedt. U kunt nieuwe pogingen voor het afhandelen van tijdelijke uitzonderingen zonder dat de indeling wordt afgebroken.
+
+Zie voor meer informatie en voorbeelden, [foutafhandeling](durable-functions-error-handling.md).
 
 ### <a name="cross-function-app-communication"></a>Cross-functie-app-communicatie
 
-Een duurzame orchestration is algemeen zich bevinden in een context van een enkele functie-app, maar er zijn patronen waarmee u kunt de indelingen coördinatie van veel functie-apps.  Hoewel de communicatie van de verschillende Apps kan dat gebeurt via HTTP, met behulp van de duurzame framework voor elke activiteit betekent dat u kunt nog steeds een duurzame proces onderhouden in twee apps.
+Hoewel een duurzame indeling in de context van een enkele functie-app wordt uitgevoerd, kunt u patronen gebruiken voor de coördinatie van indelingen voor veel functie-apps. Communicatie van de verschillende Apps optreden via HTTP, maar kunt u nog steeds een duurzame proces in twee apps beheren met behulp van de duurzame framework voor elke activiteit betekent.
 
-Voorbeelden van het indelen van een cross-functie-app in C# en JavaScript vindt u hieronder.  De externe orchestration, één activiteit wordt gestart. Een andere activiteit wordt vervolgens ophalen en de status retourneren.  De orchestrator wacht tot de status om te worden voltooid voordat u doorgaat.
+De volgende voorbeelden ziet u cross-functie-app indelen in C# en JavaScript. In elk voorbeeld wordt de externe orchestration gestart door één activiteit. Een andere activiteit opgehaald en wordt de status. De orchestrator wacht tot de status moet `Complete` voordat deze wordt hervat.
+
+Hier volgen enkele voorbeelden van cross-functie-app-indeling:
 
 #### <a name="c"></a>C#
 
@@ -92,11 +108,11 @@ public static async Task RunRemoteOrchestrator(
 {
     // Do some work...
 
-    // Call a remote orchestration
+    // Call a remote orchestration.
     string statusUrl = await context.CallActivityAsync<string>(
         "StartRemoteOrchestration", "OrchestratorB");
 
-    // Wait for the remote orchestration to complete
+    // Wait for the remote orchestration to complete.
     while (true)
     {
         bool isComplete = await context.CallActivityAsync<bool>("CheckIsComplete", statusUrl);
@@ -108,7 +124,7 @@ public static async Task RunRemoteOrchestrator(
         await context.CreateTimer(context.CurrentUtcDateTime.AddMinutes(1), CancellationToken.None);
     }
 
-    // B is done. Now go do more work...
+    // B is done. Now, go do more work...
 }
 
 [FunctionName("StartRemoteOrchestration")]
@@ -143,10 +159,10 @@ const moment = require("moment");
 module.exports = df.orchestrator(function*(context) {
     // Do some work...
 
-    // Call a remote orchestration
+    // Call a remote orchestration.
     const statusUrl = yield context.df.callActivity("StartRemoteOrchestration", "OrchestratorB");
 
-    // Wait for the remote orchestration to complete
+    // Wait for the remote orchestration to complete.
     while (true) {
         const isComplete = yield context.df.callActivity("CheckIsComplete", statusUrl);
         if (isComplete) {
@@ -157,7 +173,7 @@ module.exports = df.orchestrator(function*(context) {
         yield context.df.createTimer(waitTime);
     }
 
-    // B is done. Now go do more work...
+    // B is done. Now, go do more work...
 });
 ```
 
@@ -194,8 +210,10 @@ module.exports = async function(context, statusUrl) {
 
 ## <a name="next-steps"></a>Volgende stappen
 
+Maak uw eerste duurzame functie in om te beginnen, [ C# ](durable-functions-create-first-csharp.md) of [JavaScript](quickstart-js-vscode.md).
+
 > [!div class="nextstepaction"]
-> [Lees ook documentatie duurzame functies](durable-functions-bindings.md)
+> [Lees meer over duurzame functies](durable-functions-bindings.md)
 
 <!-- Media references -->
 [1]: media/durable-functions-types-features-overview/durable-concepts.png

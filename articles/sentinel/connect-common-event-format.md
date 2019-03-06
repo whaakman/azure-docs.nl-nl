@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: c09e999779ddc384cf70d20c9368f9d93d695e2a
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: b1065c583bb7f10f2a584f77b182e4e53084073b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243530"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440197"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Verbinding maken met de externe oplossing met behulp van Common Event Format
 
@@ -48,7 +48,7 @@ De verbinding tussen Azure Sentinel en uw apparaat CEF vindt plaats in drie stap
 
 ## <a name="step-1-connect-to-your-cef-appliance-via-dedicated-azure-vm"></a>Stap 1: Verbinding maken met uw apparaat CEF via speciale Azure-VM
 
-U moet een agent op een specifieke Linux-machine (VM of on-premises) voor de ondersteuning van de communicatie tussen het apparaat en Azure Sentinel implementeren. U kunt de agent automatisch of handmatig implementeren. Automatische implementatie is gebaseerd op Resource Manager-sjablonen en kan alleen worden gebruikt als de specifieke Linux-machine is een nieuwe virtuele machine die u in Azure maken wilt.
+U moet een agent op een specifieke Linux-machine implementeren (virtuele machine of on-premises) om de communicatie tussen het apparaat en de Azure-Sentinel te ondersteunen. U kunt de agent automatisch of handmatig implementeren. Automatische implementatie is gebaseerd op Resource Manager-sjablonen en kan alleen worden gebruikt als de specifieke Linux-machine is een nieuwe virtuele machine die u in Azure maken wilt.
 
  ![CEF in Azure](./media/connect-cef/cef-syslog-azure.png)
 
@@ -91,7 +91,7 @@ U kunt ook kunt u de agent handmatig op een bestaande VM in Azure, op een virtue
       2. Start opnieuw op de Syslog-agent met de volgende opdracht: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
       1. Bevestig dat er geen fouten in het logboek van de agent zijn door het uitvoeren van deze opdracht: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
 
-### <a name="deploy-the-agent-on-an-on-prem-linux-server"></a>De agent op een on-premises Linux-server implementeren
+### <a name="deploy-the-agent-on-an-on-premises-linux-server"></a>De agent op een op lokale Linux-server implementeren
 
 Als u Azure niet gebruikt, moet u handmatig de agent Azure Sentinel om uit te voeren op een eigen Linux-server implementeren.
 

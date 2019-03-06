@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: 8a711596140340b5e6e69d04959abfef36332869
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: ffc8bd21468847a71a44be2244c72af7016cd65f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813786"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432019"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows bevat 'Kritieke SERVICE is mislukt' in blauw scherm bij het opstarten van een Azure-VM
 Dit artikel beschrijft de fout 'Kritieke SERVICE is mislukt', die optreden kunnen tijdens het opstarten van een Windows virtuele Machine (VM) in Microsoft Azure. Het biedt oplossen van problemen met stappen om u te helpen bij het oplossen van problemen. 
@@ -106,7 +106,7 @@ Als u wilt inschakelen en dump seriële Console, voer het volgende script.
 
 ### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>Optioneel: De logboeken van de dump in de modus Crash Dump analyseren
 
-Als u wilt analyseren de logboeken van de dump zelf, de volgende stappen uit:
+Logboeken voor het analyseren van de dump zelf, als volgt te werk:
 
 1. Koppel de besturingssysteemschijf aan een virtuele machine voor herstel.
 2. Blader op een schijf met het besturingssysteem die u hebt gekoppeld, naar **\windows\system32\config**. Kopieer de bestanden die als een back-up als een terugdraaiactie moet uitgevoerd worden.

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 5c5a42908198b3a8f473efbe4f54bc481e250efa
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 29ec50a1d2e0aebb1aeb73b38c662f4a18624754
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875991"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431985"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Veelgestelde vragen over spraak naar tekst
 
@@ -63,7 +63,7 @@ De oude gegevensset en de nieuwe gegevensset moeten worden gecombineerd in één
 
 **A**: Implementaties wordt niet automatisch worden bijgewerkt.
 
-Als u hebt aangepast en een model met basislijn V1.0 geïmplementeerd, blijft deze implementatie is. Klanten kunnen decommision het gedistribueerde model opnieuw aan te passen met behulp van de nieuwere versie van de basislijn en opnieuw implementeren.
+Als u hebt aangepast en een model met basislijn V1.0 geïmplementeerd, blijft deze implementatie is. Klanten kunnen de geïmplementeerd model uit bedrijf nemen, opnieuw aan te passen met behulp van de nieuwere versie van de basislijn en opnieuw implementeren.
 
 **V: Wat gebeurt er als ik hogere gelijktijdigheid nodig voor mijn geïmplementeerde model dan wat wordt aangeboden in de portal?**
 

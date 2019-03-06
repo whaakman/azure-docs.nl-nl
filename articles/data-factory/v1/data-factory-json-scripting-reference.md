@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f65b9904b15815c997c1608940109ad296ee6007
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 7b32a493dc7dc8aa3ac2bbf1f195a43621c7449a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822864"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447180"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON-scriptverwerking van verwijzing
 > [!NOTE]
@@ -26,6 +26,8 @@ ms.locfileid: "55822864"
 
 
 In dit artikel bevat JSON-schema's en voorbeelden voor het definiëren van Azure Data Factory-entiteiten (pipeline, activiteit, gegevensset en gekoppelde service).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="pipeline"></a>Pijplijn
 De structuur van de op hoog niveau voor de pijplijndefinitie van een is als volgt:
@@ -50,7 +52,7 @@ Volgende tabel beschrijft de eigenschappen in de pijplijn-JSON-definitie:
 | naam | Naam van de pijplijn. Geef een naam op die staat voor de actie die de activiteit of de pijplijn is geconfigureerd om te doen<br/><ul><li>Maximum aantal tekens: 260</li><li>Moet beginnen met een letter, cijfer of een onderstrepingsteken (\_)</li><li>De volgende tekens zijn niet toegestaan: '. ', '+ ','?', '/', '< ',' >', ' * ', '%', '&', ': ','\\"</li></ul> |Ja |
 | description |Beschrijving van het doel waarvoor de activiteit of een pijplijn wordt gebruikt | Nee |
 | activities | Bevat een lijst van activiteiten. | Ja |
-| start |Startdatum en-tijd voor de pijplijn. Moet zich in [ISO-indeling](http://en.wikipedia.org/wiki/ISO_8601). Bijvoorbeeld: 2014-10-14T16:32:41. <br/><br/>Het is mogelijk om op te geven een plaatselijke tijd, bijvoorbeeld een geschatte tijd. Hier volgt een voorbeeld: `2016-02-27T06:00:00**-05:00`, die is 6 AM EST.<br/><br/>De begin- en -eigenschappen opgeven samen actieve periode voor de pijplijn. Uitvoersegmenten worden alleen gemaakt met deze actieve periode. |Nee<br/><br/>Als u een waarde voor de end-eigenschap opgeeft, moet u de waarde voor de eigenschap QueryDefinition opgeven.<br/><br/>De begin- en eindtijden kunnen beide niet leeg zijn om een pijplijn te maken. U moet beide waarden om in te stellen van een actieve periode voor de pijplijn om uit te voeren. Als u geen begin- en eindtijden opgeeft wanneer u een pijplijn maakt, kunt u instellen met behulp van de cmdlet Set-AzureRmDataFactoryPipelineActivePeriod later opnieuw. |
+| start |Startdatum en-tijd voor de pijplijn. Moet zich in [ISO-indeling](http://en.wikipedia.org/wiki/ISO_8601). Bijvoorbeeld: 2014-10-14T16:32:41. <br/><br/>Het is mogelijk om op te geven een plaatselijke tijd, bijvoorbeeld een geschatte tijd. Hier volgt een voorbeeld: `2016-02-27T06:00:00**-05:00`, die is 6 AM EST.<br/><br/>De begin- en -eigenschappen opgeven samen actieve periode voor de pijplijn. Uitvoersegmenten worden alleen gemaakt met deze actieve periode. |Nee<br/><br/>Als u een waarde voor de end-eigenschap opgeeft, moet u de waarde voor de eigenschap QueryDefinition opgeven.<br/><br/>De begin- en eindtijden kunnen beide niet leeg zijn om een pijplijn te maken. U moet beide waarden om in te stellen van een actieve periode voor de pijplijn om uit te voeren. Als u geen begin- en eindtijden opgeeft wanneer u een pijplijn maakt, kunt u instellen met behulp van de cmdlet Set-AzDataFactoryPipelineActivePeriod later opnieuw. |
 | einde |Einddatum en-tijd voor de pijplijn. Als u opgeeft moet zich in de ISO-indeling. Bijvoorbeeld: 2014-10-14T17:32:41 <br/><br/>Het is mogelijk om op te geven een plaatselijke tijd, bijvoorbeeld een geschatte tijd. Hier volgt een voorbeeld: `2016-02-27T06:00:00**-05:00`, die is 6 AM EST.<br/><br/>Als u wilt de pijplijn voor onbepaalde tijd worden uitgevoerd, geef 9999-09-09 als de waarde voor de end-eigenschap. |Nee <br/><br/>Als u een waarde voor de eigenschap QueryDefinition opgeeft, moet u de waarde voor de end-eigenschap opgeven.<br/><br/>Zie de opmerkingen voor de **start** eigenschap. |
 | isPaused |Als is ingesteld op waar de pijplijn wordt niet uitgevoerd. Standaardwaarde = false. Deze eigenschap kunt u in- of uitschakelen. |Nee |
 | pipelineMode |De methode voor de planning wordt uitgevoerd voor de pijplijn. Toegestane waarden zijn: (standaard), gepland eenmalig.<br/><br/>'Gepland' geeft aan dat de pijplijn met een opgegeven tijdsinterval op basis van de actieve periode (begin- en -tijd) wordt uitgevoerd. 'Eenmalige' geeft aan dat de pijplijn slechts één keer wordt uitgevoerd. Eenmalige pijplijnen eenmaal gemaakt kunnen niet worden gewijzigd/bijgewerkt op dit moment. Zie [Onetime pijplijn](data-factory-create-pipelines.md#onetime-pipeline) voor meer informatie over eenmalige instelling. |Nee |
@@ -2458,7 +2460,7 @@ De volgende tabel bevat een beschrijving op voor JSON-elementen die specifiek zi
 | gebruikersnaam |Geef de gebruikersnaam op als u van Windows-verificatie gebruikmaakt. Voorbeeld: **domainname\\gebruikersnaam**. |Nee |
 | wachtwoord |Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. |Nee |
 
-U kunt versleutelen referenties met behulp van de **New-AzureRmDataFactoryEncryptValue** cmdlet te gebruiken in de verbindingsreeks, zoals wordt weergegeven in het volgende voorbeeld (**EncryptedCredential** eigenschap):
+U kunt versleutelen referenties met behulp van de **New-AzDataFactoryEncryptValue** cmdlet te gebruiken in de verbindingsreeks, zoals wordt weergegeven in het volgende voorbeeld (**EncryptedCredential** eigenschap):
 
 ```json
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -3319,7 +3321,7 @@ U kunt een on-premises bestandssysteem koppelen aan een Azure-gegevensfactory me
 | host |Hiermee geeft u het pad naar de hoofdmap van de map die u wilt kopiëren. Gebruik het escape-teken ' \ ' voor speciale tekens in de tekenreeks. Zie voorbeeld gekoppelde service en de gegevensset definities voor voorbeelden. |Ja |
 | gebruikers-id |Geef de ID van de gebruiker die toegang tot de server heeft. |Nee (als u ervoor encryptedCredential kiest) |
 | wachtwoord |Geef het wachtwoord voor de gebruiker (gebruikersnaam). |Nee (als u ervoor encryptedCredential kiest |
-| encryptedCredential |Geef de versleutelde referenties die u krijgen kunt door de cmdlet New-AzureRmDataFactoryEncryptValue uit te voeren. |Nee (als u ervoor kiest om op te geven van gebruikers-id en wachtwoord in tekst zonder opmaak) |
+| encryptedCredential |Geef de versleutelde referenties die u krijgen kunt door de cmdlet New-AzDataFactoryEncryptValue uit te voeren. |Nee (als u ervoor kiest om op te geven van gebruikers-id en wachtwoord in tekst zonder opmaak) |
 | gatewayName |Hiermee geeft u de naam van de gateway die Data Factory moet worden gebruikt verbinding maken met de on-premises bestandsserver. |Ja |
 
 #### <a name="sample-folder-path-definitions"></a>Voorbeeld van map pad definities
@@ -3732,7 +3734,7 @@ Gekoppelde service voor het definiëren van een HDFS, stelt u de **type** van de
 | Gebruikersnaam |Gebruikersnaam voor Windows-verificatie. |Ja (voor Windows-verificatie) |
 | wachtwoord |Wachtwoord voor Windows-verificatie. |Ja (voor Windows-verificatie) |
 | gatewayName |De naam van de gateway die de Data Factory-service gebruiken moet voor verbinding met het HDFS. |Ja |
-| encryptedCredential |[Nieuwe AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) uitvoer van de referentie op die toegang. |Nee |
+| encryptedCredential |[New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) output of the access credential. |Nee |
 
 #### <a name="example-using-anonymous-authentication"></a>Voorbeeld: Met behulp van anonieme verificatie
 
@@ -4272,7 +4274,7 @@ Gekoppelde voor het definiëren van een OData-service, stelt u de **type** van d
 | gebruikersnaam |Geef de gebruikersnaam op als u basisverificatie gebruikt. |Ja (alleen als u basisverificatie gebruikt) |
 | wachtwoord |Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. |Ja (alleen als u basisverificatie gebruikt) |
 | authorizedCredential |Als u van OAuth gebruikmaakt, klikt u op **autoriseren** knop in de Kopieerwizard van Data Factory of Editor en voer uw referenties, en vervolgens de waarde van deze eigenschap wordt niet automatisch wordt gegenereerd. |Ja (alleen als u met behulp van OAuth-verificatie) |
-| gatewayName |De naam van de gateway die de Data Factory-service gebruiken moet voor verbinding met de on-premises OData-service. Geef alleen als u gegevens van on-premises OData-bron kopieert. |Nee |
+| gatewayName |De naam van de gateway die de Data Factory-service gebruiken moet voor verbinding met de on-premises OData-service. Geef alleen als u gegevens uit on-premises OData-bron kopieert. |Nee |
 
 #### <a name="example---using-basic-authentication"></a>Voorbeeld: met behulp van basisverificatie
 ```json
@@ -4462,7 +4464,7 @@ Gekoppelde service voor het definiëren van een ODBC, stelt u de **type** van de
 }
 ```
 #### <a name="example---using-basic-authentication-with-encrypted-credentials"></a>Voorbeeld: met behulp van basisverificatie wordt gebruikt met de versleutelde referenties
-Kunt u de referenties met behulp van versleutelen de [New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) cmdlet (versie 1.0 van Azure PowerShell) of [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0,9 of een eerdere versie van Azure PowerShell).
+U kunt de referenties met behulp van het versleutelen de [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) cmdlet.
 
 ```json
 {
@@ -5062,7 +5064,7 @@ De volgende tabel bevat een beschrijving op voor JSON-elementen die specifiek zi
 | gebruikersnaam |Geef de gebruikersnaam op als u van Windows-verificatie gebruikmaakt. Voorbeeld: **domainname\\gebruikersnaam**. |Nee |
 | wachtwoord |Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. |Nee |
 
-U kunt versleutelen referenties met behulp van de **New-AzureRmDataFactoryEncryptValue** cmdlet te gebruiken in de verbindingsreeks, zoals wordt weergegeven in het volgende voorbeeld (**EncryptedCredential** eigenschap):
+U kunt versleutelen referenties met behulp van de **New-AzDataFactoryEncryptValue** cmdlet te gebruiken in de verbindingsreeks, zoals wordt weergegeven in het volgende voorbeeld (**EncryptedCredential** eigenschap):
 
 ```JSON
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -5125,7 +5127,7 @@ U kunt de volgende eigenschappen opgeven in een Hive-activiteit JSON-definitie. 
 
 | Eigenschap | Description | Vereist |
 | --- | --- | --- |
-| script |Geef de inline Hive-script |Nee |
+| Script |Geef de inline Hive-script |Nee |
 | pad naar script |Het Hive-script Store in een Azure blob-opslag en het pad naar het bestand opgeven. Gebruik de eigenschap 'script' of 'scriptPath'. Beide kunnen niet samen worden gebruikt. De bestandsnaam is hoofdlettergevoelig. |Nee |
 | Hiermee worden gedefinieerd |Geef parameters op als sleutel/waarde-paren voor verwijzende binnen het Hive-script met behulp van 'hiveconf' |Nee |
 
@@ -5171,7 +5173,7 @@ U kunt de volgende eigenschappen opgeven in een Pig-activiteit JSON-definitie. D
 
 | Eigenschap | Description | Vereist |
 | --- | --- | --- |
-| script |Geef de inline Pig-script |Nee |
+| Script |Geef de inline Pig-script |Nee |
 | pad naar script |Store de Pig-script in een Azure blob-opslag en het pad naar het bestand opgeven. Gebruik de eigenschap 'script' of 'scriptPath'. Beide kunnen niet samen worden gebruikt. De bestandsnaam is hoofdlettergevoelig. |Nee |
 | Hiermee worden gedefinieerd |Geef parameters op als sleutel/waarde-paren voor verwijzende binnen de Pig-script |Nee |
 
@@ -5283,7 +5285,7 @@ U kunt de volgende eigenschappen opgeven in de definitie van een Hadoop Streamin
 | --- | --- |
 | toewijzen | De naam van het uitvoerbare bestand toewijzen. In het voorbeeld is cat.exe het toewijzen van de uitvoerbare.|
 | reducer | De naam van het uitvoerbare bestand reducer. In het voorbeeld is wc.exe de uitvoerbare reducer. |
-| invoer | Invoerbestand (met inbegrip van locatie) voor het toewijzen van de. In het voorbeeld: `"wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt"`: adfsample is de blob-container, gegevens-voorbeeld/Gutenberg is de map en davinci.txt wordt de blob. |
+| input | Invoerbestand (met inbegrip van locatie) voor het toewijzen van de. In het voorbeeld: `"wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt"`: adfsample is de blob-container, gegevens-voorbeeld/Gutenberg is de map en davinci.txt wordt de blob. |
 | output | Bestand voor uitvoer (met inbegrip van locatie) voor de reducer. De uitvoer van de Hadoop-Streaming-taak is geschreven naar de locatie die is opgegeven voor deze eigenschap. |
 | filePaths | Paden voor de toewijzing en reducer uitvoerbare bestanden. In het voorbeeld: "adfsample/example/apps/wc.exe" adfsample wordt de blob-container, voorbeeld-apps is de map en wc.exe is het uitvoerbare bestand. |
 | fileLinkedService | Gekoppelde Azure Storage-service die de Azure-opslag met de bestanden die zijn opgegeven in de sectie filePaths vertegenwoordigt. |
@@ -5525,7 +5527,7 @@ U kunt de volgende eigenschappen opgeven in een U-SQL-activiteit JSON-definitie.
 |:--- |:--- |:--- |
 | scriptPath |Pad naar map met de U-SQL-script. Naam van het bestand is hoofdlettergevoelig. |Nee (als u een script gebruiken) |
 | scriptLinkedService |Gekoppelde service die is gekoppeld aan de opslag met het script aan de data factory |Nee (als u een script gebruiken) |
-| script |Geef inline script in plaats van scriptPath en scriptLinkedService op te geven. Bijvoorbeeld: "script": "CREATE DATABASE test". |Nee (als u gebruik scriptPath en scriptLinkedService) |
+| Script |Geef inline script in plaats van scriptPath en scriptLinkedService op te geven. Bijvoorbeeld: "script": "CREATE DATABASE test". |Nee (als u gebruik scriptPath en scriptLinkedService) |
 | degreeOfParallelism |Het maximale aantal knooppunten dat tegelijk wordt gebruikt voor het uitvoeren van de taak. |Nee |
 | priority |Hiermee bepaalt u welke taken uit in de wachtrij moeten worden geselecteerd moeten eerst worden uitgevoerd. Des te lager het nummer, hoe hoger de prioriteit. |Nee |
 | parameters |Parameters voor de U-SQL-script |Nee |

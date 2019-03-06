@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: ec23d4cec5ec1dbcaba5eca73ae6aba8391f2742
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 55949da97f58f1d8c1670f69d25e92d6bb4e9eef
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242136"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447299"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>Verbinding maken met de externe oplossing met behulp van Syslog
 
@@ -27,7 +27,7 @@ ms.locfileid: "57242136"
 > Azure Sentinel is momenteel in openbare preview.
 > Deze preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Misschien worden bepaalde functies niet ondersteund of zijn de mogelijkheden ervan beperkt. Zie [Supplemental Terms of Use for Microsoft Azure Previews (Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
-U kunt een on-premises apparaat die ondersteuning biedt voor Syslog naar Azure Sentinel verbinden. Dit wordt gedaan met behulp van een agent die is gebaseerd op een Linux-machine tussen het apparaat en Azure Sentinel. Als uw Linux-machine in Azure, kunt u de logboeken van uw apparaat of toepassing naar een toegewezen werkruimte voor u maken in Azure en verbindt dit streamen. Als uw Linux-machine zich niet in Azure, kunt u de logboeken van uw apparaat streamen naar een toegewezen on-premises virtuele machine of de computer waarop u de Agent voor Linux installeren. 
+U kunt een on-premises apparaat die ondersteuning biedt voor Syslog naar Azure Sentinel verbinden. Dit wordt gedaan met behulp van een agent die is gebaseerd op een Linux-machine tussen het apparaat en Azure Sentinel. Als uw Linux-machine in Azure, kunt u de logboeken van uw apparaat of toepassing naar een toegewezen werkruimte voor u maken in Azure en verbindt dit streamen. Als uw Linux-machine zich niet in Azure, kunt u de logboeken van uw apparaat streamen naar een toegewezen on-premises virtuele machine of computer waarop u de Agent voor Linux installeren. 
 
 > [!NOTE]
 > Als uw apparaat Syslog CEF ondersteunt, de verbinding volledig is en u moet deze optie kiest en volg de instructies in [verzamelen van gegevens van CEF](connect-common-event-format.md).

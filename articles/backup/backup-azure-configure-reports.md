@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: adigan
-ms.openlocfilehash: 945d8690ccb61916455ba4137f59c67c9a3d9f76
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: dbfe33d062c4609ba29adbaa2d9956687115cb5a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237685"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440995"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup-rapporten configureren
 In dit artikel ziet u stappen te volgen voor het configureren van rapporten voor Azure Backup met behulp van een Recovery Services-kluis. U ziet ook hoe u toegang tot rapporten met behulp van Power BI. Nadat u deze stappen hebt voltooid, gaat u rechtstreeks naar Power BI om te bekijken, aanpassen en rapporten maken.
@@ -29,7 +29,7 @@ Download de meest recente App (versie 1.8) om dit probleem te voorkomen.
 - Azure Backup-rapporten worden ondersteund voor virtuele machine van Azure back-up en bestands- en back-up naar de cloud met behulp van de Azure Recovery Services-Agent.
 - Rapporten voor Azure SQL Database, Azure-bestandsshares, Data Protection Manager en Azure Backup server worden niet ondersteund op dit moment.
 - U kunt rapporten weergeven in kluizen en abonnementen, als het opslagaccount is geconfigureerd voor elk van de kluizen. Het geselecteerde opslagaccount moet zich in dezelfde regio als de Recovery Services-kluis.
-- De frequentie van geplande vernieuwing voor de rapporten is 24 uur in Power BI. U kunt ook een ad-hoc-vernieuwing van de rapporten in Power BI uitvoeren. In dit geval wordt de meest recente gegevens in het opslagaccount van de klant gebruikt om rapporten weer te geven.
+- De frequentie van geplande vernieuwing voor de rapporten is 24 uur in Power BI. U kunt ook een ad-hoc vernieuwing van de rapporten in Power BI uitvoeren. In dit geval wordt de meest recente gegevens in het opslagaccount van de klant gebruikt om rapporten weer te geven.
 
 ## <a name="prerequisites"></a>Vereisten
 - Maak een [Azure storage-account](../storage/common/storage-quickstart-create-account.md) te configureren voor rapporten. Dit opslagaccount wordt gebruikt voor het opslaan van gegevens met betrekking tot de rapporten.

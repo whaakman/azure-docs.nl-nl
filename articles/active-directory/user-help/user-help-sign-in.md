@@ -1,5 +1,5 @@
 ---
-title: Hoe u zich aanmelden met verificatie in twee stappen verificatie of beveiliging info - Azure Active Directory | Microsoft Docs
+title: Meld u aan met verificatie in twee stappen verificatie of beveiliging info - Azure Active Directory | Microsoft Docs
 description: Meer informatie over hoe u zich aanmelden met de verschillende verificatiemethoden voor de identiteit in beveiligingsgegevens.
 services: active-directory
 author: eross-msft
@@ -11,13 +11,14 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
+ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2aca321ac0902d115f4fc7622992d29183c1d35c
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: c892d616609151b5ad6025b4d0b535c494e6af82
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56452590"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454218"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Meld u aan met behulp van verificatie of verificatie in twee stappen de beveiligingsgegevens
 Na het instellen van verificatie in twee stappen of -beveiligingsgegevens, kunt u moet zich aanmelden bij uw account met behulp van de opgegeven verificatiemethode.
@@ -62,4 +63,4 @@ Na het instellen van verificatie in twee stappen of -beveiligingsgegevens, kunt 
 
 - Uw wachtwoord opnieuw instellen als u hebt verloren of bent vergeten, uit de [portal voor wachtwoordherstel](https://passwordreset.microsoftonline.com/)
 
-- Problemen oplossen met tips en Help-informatie voor problemen met aanmelden in de [niet kunt aanmelden bij uw Microsoft-account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) artikel.
+- Krijg tips voor het oplossen van problemen en hulp met problemen met aanmelden in het artikel [U kunt niet aanmelden bij uw Microsoft-account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

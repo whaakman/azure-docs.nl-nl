@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/10/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: f72f75013d69533eeda0e69acbff1c4f7047f509
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 67f87729dbfb792b88f28a772f15e233f0fa60dc
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193680"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452110"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: Regionale beschikbaarheid en opslaglocaties
 Beschikbaarheid in regio's en gegevensopslag zijn twee zeer verschillende concepten die anders van toepassing op Azure AD B2C van de rest van Azure. In dit artikel worden de verschillen tussen deze twee concepten uitgelegd en hoe ze van toepassing op Azure ten opzichte van Azure AD B2C vergelijken.
@@ -37,7 +37,7 @@ Azure AD B2C slaat gebruikersgegevens in de Verenigde Staten of Europa.
 
 Gegevensresidentie wordt bepaald op basis van welke land/regio is geselecteerd als [het maken van een Azure AD B2C-tenant](active-directory-b2c-get-started.md).
 
-![Schermopname van een preview-tenant](./media/active-directory-b2c-reference-tenant-type/data-residency-b2c-tenant.png)
+![Schermafbeelding van een preview-tenant](./media/active-directory-b2c-reference-tenant-type/data-residency-b2c-tenant.png)
 
 Gegevens zich bevinden in de Verenigde Staten voor de volgende landen/regio's:
 
@@ -58,4 +58,4 @@ Als u een B2C-tenant hebt gemaakt tijdens de preview-periode van Azure AD B2C, i
 > Er is geen migratiepad van een preview van B2C-tenant naar productieschaal B2C-tenant. Let op: Er zijn bekende problemen wanneer u een preview van B2C-tenant verwijderen en opnieuw maken van een productieschaal B2C-tenant met dezelfde domeinnaam. U moet een productieschaal B2C-tenant maken met de naam van een ander domein.
 
 
-![Schermopname van een preview-tenant](./media/active-directory-b2c-reference-tenant-type/preview-b2c-tenant.png)
+![Schermafbeelding van een preview-tenant](./media/active-directory-b2c-reference-tenant-type/preview-b2c-tenant.png)

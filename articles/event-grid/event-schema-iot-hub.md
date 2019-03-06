@@ -10,12 +10,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/17/2019
 ms.author: kgremban
-ms.openlocfilehash: df1c0f8256b49e23b720df47c513fba8c62677b5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 5fcd7c10002e7e1ae9683fdd89d3af14a1500050
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475200"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449186"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>Azure Event Grid-gebeurtenisschema voor IoT-Hub
 
@@ -141,7 +141,7 @@ De inhoud van het gegevensobject zijn verschillend voor elke uitgever van gebeur
 
 | Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| twin | object | Informatie over het dubbele apparaat, de cloud represenation van metagegevens van apparaten van toepassing is. | 
+| twin | object | Informatie over het dubbele apparaat, de cloud-weergave van de metagegevens van apparaten van toepassing is. | 
 | deviceID | string | De unieke id van het dubbele apparaat. | 
 | etag | string | Een validator om ervoor te zorgen consistentie van updates voor een apparaatdubbel. Elke etag is gegarandeerd uniek zijn per apparaatdubbel. |  
 | deviceEtag| string | Een validator om ervoor te zorgen consistentie van updates voor een apparaatregister. Elke deviceEtag is gegarandeerd uniek per apparaatregister. |

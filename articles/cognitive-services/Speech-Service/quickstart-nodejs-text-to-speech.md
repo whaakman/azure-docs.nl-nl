@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: e44b4a2c21cf340683ffbca71f609db58c8f363b
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 5e25de83ddec2884d4bd10ea85f4708d534b8e3f
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337036"
+ms.locfileid: "57403240"
 ---
 # <a name="quickstart-convert-text-to-speech-using-nodejs"></a>Quickstart: Converteert tekst naar spraak met behulp van Node.js
 
@@ -136,7 +136,7 @@ function textToSpeech(accessToken, text) {
 
 ## <a name="put-it-all-together"></a>Alles samenvoegen
 
-U bent bijna klaar. De laatste stap is het om een asynchrone functie te maken. Deze functie worden uw abonnementssleutel gelezen uit een omgevingsvariabele de prompt voor tekst, een token verkrijgen en wacht tot de aanvraag hebt voltooid, vervolgens de Text to Speech converteren en opslaan van de audio als een .wav.
+U bent bijna klaar. De laatste stap is het maken van een asynchrone-functie. Deze functie worden uw abonnementssleutel gelezen uit een omgevingsvariabele de prompt voor tekst, een token verkrijgen en wacht tot de aanvraag hebt voltooid, vervolgens de Text to Speech converteren en opslaan van de audio als een .wav.
 
 Als u niet bekend met omgevingsvariabelen bent of wil testen met uw abonnement sleutel vastgelegd als een tekenreeks, vervangt u `process.env.SPEECH_SERVICE_KEY` met uw abonnementssleutel als een tekenreeks.
 

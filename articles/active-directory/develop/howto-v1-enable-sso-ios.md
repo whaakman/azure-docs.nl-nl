@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 602fba95b3cc69521fe3fe17d8c89cc332131566
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e79b73123b33a012c062a89fb9748fa101fabcea
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190225"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448676"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Procedure: SSO voor cross-app voor iOS met behulp van ADAL inschakelen
 
@@ -231,7 +231,7 @@ Als u over rechten instellen correct u ziet een bestand in uw projectmap, hebben
 </plist>
 ```
 
-Nadat u de rechten van een sleutelhanger ingeschakeld in elk van uw toepassingen, en u klaar bent voor gebruik van eenmalige aanmelding, vertelt u de odentity SDK over uw sleutelketen met behulp van de volgende instelling uw `ADAuthenticationSettings` met de volgende instellingen:
+Nadat u de rechten van een sleutelhanger ingeschakeld in elk van uw toepassingen, en u klaar bent voor gebruik van eenmalige aanmelding, vertelt u de identiteit van de SDK over uw sleutelketen met behulp van de volgende instelling uw `ADAuthenticationSettings` met de volgende instellingen:
 
 ```
 defaultKeychainSharingGroup=@"com.myapp.mycache";

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewers: billgib,ayolubek
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: ccf6ff75cb041c7d9998f67d579d1b392f83cee9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 39ff70670d628ca672022b84e59ed3cc8a17d925
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476244"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447017"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Cross-tenant-rapportage met behulp van gedistribueerde query 's
 
@@ -61,7 +61,7 @@ Voor query's uitvoeren op een interessante verzameling, verkoopgegevens ticket t
 
 1. In de *PowerShell ISE*, open de... \\Learning Modules\\Operational Analytics\\ad-hoc Reporting\\*Demo-AdhocReporting.ps1* script en de volgende waarde instellen:
    * **$DemoScenario** = 1, **tickets kopen voor voorstellingen bij alle theaters**.
-2. Druk op **F5** voor het uitvoeren van het script en ticket verkoop genereren. Terwijl het script wordt uitgevoerd, blijven de stappen in deze zelfstudie. De gegevens van het ticket query wordt uitgevoerd in de *ad-hoc gedistribueerde query's uitvoeren* sectie, dus wacht totdat de ticket-generator om te voltooien.
+2. Druk op **F5** voor het uitvoeren van het script en ticket verkoop genereren. Terwijl het script wordt uitgevoerd, blijven de stappen in deze zelfstudie. De gegevens van het ticket query wordt uitgevoerd in de *ad hoc gedistribueerde query's uitvoeren* sectie, dus wacht totdat de ticket-generator om te voltooien.
 
 ## <a name="explore-the-global-views"></a>Verken de algemene weergaven
 
@@ -106,7 +106,7 @@ In deze oefening implementeert de _ad-hoc reporting_ database. Dit is de hoofdda
 
 1. in *PowerShell ISE*, openen... \\Learning Modules\\Operational Analytics\\ad-hoc Reporting\\*Demo-AdhocReporting.ps1*. 
 
-1. Stel **$DemoScenario = 2**, _implementeren Ad-hoc rapportagedatabase_.
+1. Stel **$DemoScenario = 2**, _implementeren Ad hoc rapportagedatabase_.
 
 1. Druk op **F5** en voer het script uit de *ad-hoc reporting* database.
 

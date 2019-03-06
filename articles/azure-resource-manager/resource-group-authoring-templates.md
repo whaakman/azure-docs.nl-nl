@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/01/2019
+ms.date: 03/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 024a622484a83957c9ab5f4a684a346a55787ccf
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: f67741417c6d31c4adf1d063aac3bd3ccc310fde
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313358"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440247"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Informatie over de structuur en de syntaxis van Azure Resource Manager-sjablonen
 
@@ -33,6 +33,7 @@ In de meest eenvoudige structuur heeft een sjabloon voor de volgende elementen:
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "",
+  "apiProfile": "",
   "parameters": {  },
   "variables": {  },
   "functions": [  ],
@@ -45,120 +46,14 @@ In de meest eenvoudige structuur heeft een sjabloon voor de volgende elementen:
 |:--- |:--- |:--- |
 | $schema |Ja |Locatie van het JSON-schema-bestand dat de versie van de taal van de sjabloon beschrijft.<br><br> Voor implementaties van resource-groep, gebruiken: `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Gebruik voor abonnementimplementaties van: `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
 | contentVersion |Ja |De versie van de sjabloon (bijvoorbeeld 1.0.0.0). U kunt een waarde opgeven voor dit element. Gebruik deze waarde aan aanzienlijke wijzigingen in het document in de sjabloon. Bij het implementeren van resources met behulp van de sjabloon, kan deze waarde kan worden gebruikt om ervoor te zorgen dat de juiste sjabloon wordt gebruikt. |
-| parameters |Nee |De waarden die zijn opgegeven wanneer de implementatie wordt uitgevoerd om aan te passen van de resource-implementatie. |
-| Variabelen |Nee |De waarden die worden gebruikt als JSON-fragmenten in de sjabloon voor het vereenvoudigen van sjabloontaalexpressies. |
-| functions |Nee |Gebruiker gedefinieerde functies die beschikbaar in de sjabloon zijn. |
-| bronnen |Ja |De resourcetypen die worden geïmplementeerd of bijgewerkt in een resourcegroep of abonnement. |
-| uitvoer |Nee |De waarden die zijn geretourneerd na de implementatie. |
+| apiProfile |Nee | Een API-versie die als een verzameling van API-versies voor het woord brontypen fungeert. Gebruik deze waarde om te voorkomen dat om op te geven van API-versies voor elke resource in de sjabloon. Wanneer u de versie van een API-profiel opgeven en een API-versie voor het resourcetype niet opgeeft, wordt de API-versie van het profiel in Resource Manager gebruikt voor dat resourcetype. Zie voor meer informatie, [versies met behulp van API-profielen bijhouden](templates-cloud-consistency.md#track-versions-using-api-profiles). |
+| [parameters](#parameters) |Nee |De waarden die zijn opgegeven wanneer de implementatie wordt uitgevoerd om aan te passen van de resource-implementatie. |
+| [Variabelen](#variables) |Nee |De waarden die worden gebruikt als JSON-fragmenten in de sjabloon voor het vereenvoudigen van sjabloontaalexpressies. |
+| [Functies](#functions) |Nee |Gebruiker gedefinieerde functies die beschikbaar in de sjabloon zijn. |
+| [resources](#resources) |Ja |De resourcetypen die worden geïmplementeerd of bijgewerkt in een resourcegroep of abonnement. |
+| [uitvoer](#outputs) |Nee |De waarden die zijn geretourneerd na de implementatie. |
 
-Elk element heeft eigenschappen die u kunt instellen. Het volgende voorbeeld ziet u de volledige syntaxis voor een sjabloon:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "",
-  "parameters": {  
-    "<parameter-name>" : {
-      "type" : "<type-of-parameter-value>",
-      "defaultValue": "<default-value-of-parameter>",
-      "allowedValues": [ "<array-of-allowed-values>" ],
-      "minValue": <minimum-value-for-int>,
-      "maxValue": <maximum-value-for-int>,
-      "minLength": <minimum-length-for-string-or-array>,
-      "maxLength": <maximum-length-for-string-or-array-parameters>,
-      "metadata": {
-        "description": "<description-of-the parameter>" 
-      }
-    }
-  },
-  "variables": {
-    "<variable-name>": "<variable-value>",
-    "<variable-object-name>": {
-      <variable-complex-type-value>
-    },
-    "<variable-object-name>": {
-      "copy": [
-        {
-          "name": "<name-of-array-property>",
-          "count": <number-of-iterations>,
-          "input": <object-or-value-to-repeat>
-        }
-      ]
-    },
-    "copy": [
-      {
-        "name": "<variable-array-name>",
-        "count": <number-of-iterations>,
-        "input": <object-or-value-to-repeat>
-      }
-    ]
-  },
-  "functions": [
-    {
-      "namespace": "<namespace-for-your-function>",
-      "members": {
-        "<function-name>": {
-          "parameters": [
-            {
-              "name": "<parameter-name>",
-              "type": "<type-of-parameter-value>"
-            }
-          ],
-          "output": {
-            "type": "<type-of-output-value>",
-            "value": "<function-expression>"
-          }
-        }
-      }
-    }
-  ],
-  "resources": [
-    {
-      "condition": "<boolean-value-whether-to-deploy>",
-      "apiVersion": "<api-version-of-resource>",
-      "type": "<resource-provider-namespace/resource-type-name>",
-      "name": "<name-of-the-resource>",
-      "location": "<location-of-resource>",
-        "tags": {
-          "<tag-name1>": "<tag-value1>",
-          "<tag-name2>": "<tag-value2>"
-        },
-        "comments": "<your-reference-notes>",
-        "copy": {
-          "name": "<name-of-copy-loop>",
-          "count": "<number-of-iterations>",
-          "mode": "<serial-or-parallel>",
-          "batchSize": "<number-to-deploy-serially>"
-        },
-        "dependsOn": [
-          "<array-of-related-resource-names>"
-        ],
-        "properties": {
-          "<settings-for-the-resource>",
-          "copy": [
-            {
-              "name": ,
-              "count": ,
-              "input": {}
-            }
-          ]
-        },
-        "resources": [
-          "<array-of-child-resources>"
-        ]
-    }
-  ],
-  "outputs": {
-    "<outputName>" : {
-      "condition": "<boolean-value-whether-to-output-value>",
-      "type" : "<type-of-output-value>",
-      "value": "<output-value-expression>"
-    }
-  }
-}
-```
-
-Dit artikel wordt beschreven in de secties van de sjabloon in meer detail.
+Elk element heeft eigenschappen die u kunt instellen. Dit artikel wordt beschreven in de secties van de sjabloon in meer detail.
 
 ## <a name="syntax"></a>Syntaxis
 
@@ -515,23 +410,274 @@ U kunt de functie met aanroepen:
 ```
 
 ## <a name="resources"></a>Resources
-In de sectie resources definieert u de resources die worden geïmplementeerd of bijgewerkt. In deze sectie krijgt ingewikkeld omdat u de typen die u implementeert zodat de juiste waarden moet begrijpen.
+In de sectie resources definieert u de resources die worden geïmplementeerd of bijgewerkt.
+
+### <a name="available-properties"></a>Beschikbare eigenschappen
+
+Definieert u resources met de volgende structuur:
 
 ```json
 "resources": [
   {
-    "apiVersion": "2016-08-01",
-    "name": "[variables('webSiteName')]",
-    "type": "Microsoft.Web/sites",
-    "location": "[resourceGroup().location]",
-    "properties": {
-      "serverFarmId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Web/serverFarms/<plan-name>"
-    }
+      "condition": "<true-to-deploy-this-resource>",
+      "apiVersion": "<api-version-of-resource>",
+      "type": "<resource-provider-namespace/resource-type-name>",
+      "name": "<name-of-the-resource>",
+      "location": "<location-of-resource>",
+      "tags": {
+          "<tag-name1>": "<tag-value1>",
+          "<tag-name2>": "<tag-value2>"
+      },
+      "comments": "<your-reference-notes>",
+      "copy": {
+          "name": "<name-of-copy-loop>",
+          "count": <number-of-iterations>,
+          "mode": "<serial-or-parallel>",
+          "batchSize": <number-to-deploy-serially>
+      },
+      "dependsOn": [
+          "<array-of-related-resource-names>"
+      ],
+      "properties": {
+          "<settings-for-the-resource>",
+          "copy": [
+              {
+                  "name": ,
+                  "count": ,
+                  "input": {}
+              }
+          ]
+      },
+      "sku": {
+          "name": "<sku-name>",
+          "tier": "<sku-tier>",
+          "size": "<sku-size>",
+          "family": "<sku-family>",
+          "capacity": <sku-capacity>
+      },
+      "kind": "<type-of-resource>",
+      "plan": {
+          "name": "<plan-name>",
+          "promotionCode": "<plan-promotion-code>",
+          "publisher": "<plan-publisher>",
+          "product": "<plan-product>",
+          "version": "<plan-version>"
+      },
+      "resources": [
+          "<array-of-child-resources>"
+      ]
   }
-],
+]
 ```
 
-Voorwaardelijk opnemen of uitsluiten van een resource tijdens de implementatie, gebruikt u de [voorwaarde element](resource-manager-templates-resources.md#condition). Zie voor meer informatie over de sectie met resources [bronnensectie van Azure Resource Manager-sjablonen](resource-manager-templates-resources.md).
+| De naam van element | Vereist | Description |
+|:--- |:--- |:--- |
+| voorwaarde | Nee | Booleaanse waarde die aangeeft of de resource tijdens deze implementatie worden ingericht. Wanneer `true`, de resource is gemaakt tijdens de implementatie. Wanneer `false`, de bron voor deze implementatie wordt overgeslagen. |
+| apiVersion |Ja |De versie van de REST-API moet worden gebruikt voor het maken van de resource. Zie het vaststellen van de beschikbare waarden [sjabloonverwijzing](/azure/templates/). |
+| type |Ja |Het type van de resource. Deze waarde is een combinatie van de naamruimte van de resourceprovider en het resourcetype (zoals **Microsoft.Storage/storageAccounts**). Zie het vaststellen van de beschikbare waarden [sjabloonverwijzing](/azure/templates/). |
+| naam |Ja |Naam van de resource De naam moet URI-onderdeel beperkingen gedefinieerd in RFC3986 volgen. Azure-services die beschikbaar maken van de naam van de resource buiten partijen valideren de naam om te controleren of het is bovendien een poging tot het vervalsen van een andere identiteit niet. |
+| location |Varieert |Geografische locaties van de opgegeven resource wordt ondersteund. U kunt een van de beschikbare locaties selecteren, maar meestal is het zinvol om te kiezen die zich in de buurt van uw gebruikers. Meestal is het ook verstandig om de resources die met elkaar in dezelfde regio communiceren te plaatsen. De meeste resourcetypen een locatie vereist, maar sommige typen (zoals een roltoewijzing) vereisen een locatie. |
+| tags |Nee |Tags die gekoppeld aan de resource zijn. Labels toevoegen om in te delen logisch resources in uw abonnement. |
+| opmerkingen |Nee |Uw notities voor het documenteren van de resources in uw sjabloon. Zie voor meer informatie, [opmerkingen in sjablonen](resource-group-authoring-templates.md#comments). |
+| kopiëren |Nee |Als meer dan één exemplaar is vereist, het aantal resources om te maken. Er is de standaardmodus voor parallelle. Seriële modus wanneer u niet dat alle wilt of de resources om te implementeren op hetzelfde moment opgeven. Zie voor meer informatie, [verschillende exemplaren van resources maken in Azure Resource Manager](resource-group-create-multiple.md). |
+| dependsOn |Nee |Resources die moeten worden geïmplementeerd voordat deze resource is geïmplementeerd. Resource Manager evalueert de afhankelijkheden tussen resources en ze implementeert in de juiste volgorde. Als resources niet van elkaar afhankelijk zijn, zijn ze parallel geïmplementeerd. De waarde kan een door komma's gescheiden lijst van een resource zijn namen of resource-id's uniek. Alleen lijst met resources die in deze sjabloon zijn geïmplementeerd. Resources die niet zijn gedefinieerd in deze sjabloon moeten al bestaan. Vermijd onnodige afhankelijkheden toevoegen als ze kunnen uw implementatie vertragen en circulaire afhankelijkheden maken. Zie voor meer informatie over de afhankelijkheden van de instelling [afhankelijkheden definiëren in Azure Resource Manager-sjablonen](resource-group-define-dependencies.md). |
+| properties |Nee |Resource-specifieke configuratie-instellingen. De waarden voor de eigenschappen zijn hetzelfde als de waarden die u in de hoofdtekst van de aanvraag voor de REST-API-bewerking (PUT-methode opgeeft) om de resource te maken. U kunt ook een matrix kopiëren voor het maken van meerdere exemplaren van een eigenschap opgeven. Zie het vaststellen van de beschikbare waarden [sjabloonverwijzing](/azure/templates/). |
+| sku | Nee | Sommige resources zijn waarden toegestaan die definiëren van de SKU om het te implementeren. Bijvoorbeeld, kunt u het type redundantie voor een opslagaccount. |
+| type | Nee | Sommige resources kunnen een waarde die bepaalt het type resource dat u implementeert. Bijvoorbeeld, kunt u het type van de Cosmos DB te maken. |
+| plan | Nee | Sommige resources zijn waarden toegestaan die in de planning definiëren wilt implementeren. U kunt bijvoorbeeld opgeven dat de marketplace-installatiekopie voor een virtuele machine. | 
+| bronnen |Nee |Onderliggende resources die afhankelijk zijn van de resource wordt gedefinieerd. Geef alleen resourcetypen die zijn toegestaan door het schema van de bovenliggende resource. De volledig gekwalificeerde type van de onderliggende resource bevat het type van de bovenliggende resource, zoals **Microsoft.Web/sites/extensions**. Afhankelijkheid van de bovenliggende resource is niet impliciet. Afhankelijkheid zijn opgetreden, moet u expliciet definiëren. |
+
+### <a name="condition"></a>Voorwaarde
+
+Wanneer u tijdens de implementatie van al dan niet om een resource te maken beslissen moet, gebruikt u de `condition` element. De waarde voor dit element wordt omgezet in waar of ONWAAR. Wanneer de waarde true is, wordt de resource is gemaakt. Wanneer de waarde false is, wordt de resource is niet gemaakt. De waarde kan alleen worden toegepast op de hele resource.
+
+Meestal gebruikt u deze waarde als u wilt maken van een nieuwe resource of gebruik een bestaande resourcegroep. Bijvoorbeeld, om op te geven of een nieuw opslagaccount wordt geïmplementeerd of een bestaand opslagaccount wordt gebruikt, gebruikt u het:
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
+
+Voor een compleet voorbeeld-sjabloon die gebruikmaakt van de `condition` -element, Zie [VM met een nieuwe of bestaande Virtueelnetwerk, opslag- en openbare IP-adres](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions).
+
+### <a name="resource-names"></a>Namen van voorbeeldresources
+
+In het algemeen, werkt u met drie typen resourcenamen in Resource Manager:
+
+* Namen van voorbeeldresources die moeten uniek zijn.
+* Namen van voorbeeldresources die niet zijn vereist voor het uniek zijn, maar u kiest een naam waarmee u identificeren van de resource op te geven.
+* Namen van voorbeeldresources die algemene worden kunnen.
+
+Geef een **unieke resourcenaam** voor elk resourcetype dat een eindpunt van de toegang tot gegevens heeft. Sommige algemene resourcetypen waarvoor een unieke naam zijn onder andere:
+
+* Azure Storage<sup>1</sup> 
+* Web Apps-functie van Azure App Service
+* SQL Server
+* Azure Key Vault
+* Azure Cache voor Redis
+* Azure Batch
+* Azure Traffic Manager
+* Azure Search
+* Azure HDInsight
+
+<sup>1</sup> opslagaccountnamen ook moet een kleine letter, 24 tekens of korter is, en niet alle afbreekstreepjes bevatten.
+
+Bij het instellen van de naam, u kunt handmatig maken van een unieke naam of gebruik de [uniqueString()](resource-group-template-functions-string.md#uniquestring) functie voor het genereren van een naam. Ook kunt u voegt u een voorvoegsel of achtervoegsel aan de **uniqueString** resultaat. De unieke naam wijzigen, kunt u eenvoudig kunt identificeren het brontype van de naam. U kunt bijvoorbeeld een unieke naam voor een opslagaccount genereren met behulp van de volgende variabele:
+
+```json
+"variables": {
+  "storageAccountName": "[concat(uniqueString(resourceGroup().id),'storage')]"
+}
+```
+
+Voor sommige resourcetypen, kunt u voor een **naam voor de identificatie**, maar de naam hoeft niet uniek te zijn. Geef een naam met een beschrijving ervan gebruik of de kenmerken voor deze resourcetypen.
+
+```json
+"parameters": {
+  "vmName": { 
+    "type": "string",
+    "defaultValue": "demoLinuxVM",
+    "metadata": {
+      "description": "The name of the VM to create."
+    }
+  }
+}
+```
+
+Voor resource die u voornamelijk toegang via een andere resource gegevenstypen, kunt u een **algemene naam** die is vastgelegd in de sjabloon. U kunt bijvoorbeeld een algemene naam voor de firewall-regels instellen op een SQL server:
+
+```json
+{
+  "type": "firewallrules",
+  "name": "AllowAllWindowsAzureIps",
+  ...
+}
+```
+
+### <a name="resource-location"></a>Resourcelocatie
+
+Bij het implementeren van een sjabloon, moet u een locatie voor elke resource opgeven. Andere resource-typen worden ondersteund op verschillende locaties. Als u de ondersteunde locaties voor een resourcetype, Zie [Azure resourceproviders en typen](resource-manager-supported-services.md).
+
+Gebruik een parameter om op te geven van de locatie voor resources en de standaardwaarde ingesteld op `resourceGroup().location`.
+
+Het volgende voorbeeld ziet u een opslagaccount dat wordt geïmplementeerd op een locatie die is opgegeven als parameter:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountType": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_GRS",
+        "Standard_ZRS",
+        "Premium_LRS"
+      ],
+      "metadata": {
+        "description": "Storage Account type"
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
+    }
+  },
+  "variables": {
+    "storageAccountName": "[concat('storage', uniquestring(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageAccountName')]",
+      "location": "[parameters('location')]",
+      "apiVersion": "2018-07-01",
+      "sku": {
+        "name": "[parameters('storageAccountType')]"
+      },
+      "kind": "StorageV2",
+      "properties": {}
+    }
+  ],
+  "outputs": {
+    "storageAccountName": {
+      "type": "string",
+      "value": "[variables('storageAccountName')]"
+    }
+  }
+}
+```
+
+### <a name="child-resources"></a>Onderliggende resources
+
+In sommige resourcetypen, kunt u ook een reeks onderliggende resources definiëren. Onderliggende resources zijn resources die alleen zijn opgeslagen in de context van een andere resource. Een SQL-database niet kan bijvoorbeeld bestaan zonder een SQL-server, zodat de database een onderliggend element van de server is. U kunt de database in de definitie voor de server definiëren.
+
+```json
+{
+  "name": "exampleserver",
+  "type": "Microsoft.Sql/servers",
+  "apiVersion": "2014-04-01",
+  ...
+  "resources": [
+    {
+      "name": "exampledatabase",
+      "type": "databases",
+      "apiVersion": "2014-04-01",
+      ...
+    }
+  ]
+}
+```
+
+Wanneer genest, het type is ingesteld op `databases` , maar het type volledige resource `Microsoft.Sql/servers/databases`. U geen opgeeft `Microsoft.Sql/servers/` omdat ervan wordt uitgegaan van het type van de bovenliggende resource. De naam van de onderliggende bron is ingesteld op `exampledatabase` , maar de volledige naam bevat de naam van de bovenliggende. U geen opgeeft `exampleserver` omdat ervan wordt uitgegaan van de bovenliggende resource.
+
+De indeling van het type van de onderliggende bron is: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
+
+De indeling van de naam van de onderliggende bron is: `{parent-resource-name}/{child-resource-name}`
+
+Maar u hoeft de database in de server. U kunt de onderliggende resource op het hoogste niveau definiëren. U kunt deze methode gebruiken als de bovenliggende resource is niet geïmplementeerd in dezelfde sjabloon of wilt gebruiken `copy` om meer dan één onderliggende resource te maken. Met deze methode moet u het type volledige resource en omvatten de naam van de bovenliggende resource in de naam van de onderliggende resource.
+
+```json
+{
+  "name": "exampleserver",
+  "type": "Microsoft.Sql/servers",
+  "apiVersion": "2014-04-01",
+  "resources": [ 
+  ],
+  ...
+},
+{
+  "name": "exampleserver/exampledatabase",
+  "type": "Microsoft.Sql/servers/databases",
+  "apiVersion": "2014-04-01",
+  ...
+}
+```
+
+Bij het maken van een volledig gekwalificeerde verwijzing naar een resource, is de volgorde te combineren segmenten van het type en de naam niet gewoon een samenvoeging van de twee. In plaats daarvan nadat de naamruimte van het gebruik van een reeks *typenaam/* paren van minst specifiek voor meest specifieke:
+
+```json
+{resource-provider-namespace}/{parent-resource-type}/{parent-resource-name}[/{child-resource-type}/{child-resource-name}]*
+```
+
+Bijvoorbeeld:
+
+`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` klopt `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` is niet correct
 
 ## <a name="outputs"></a>Uitvoer
 
@@ -716,20 +862,6 @@ In VS Code, kunt u de taalmodus instellen naar JSON met opmerkingen. De Inlineop
 1. Selecteer **JSON met opmerkingen**.
 
    ![Taalmodus selecteren](./media/resource-group-authoring-templates/select-json-comments.png)
-
-## <a name="template-limits"></a>Limieten voor sjabloon
-
-Beperkt de grootte van uw sjabloon 1 MB en elk parameterbestand aan 64 KB. De limiet van 1 MB is van toepassing op de laatste status van de sjabloon nadat deze is uitgebreid met iteratieve resourcedefinities en waarden voor parameters en variabelen. 
-
-U bent ook beperkt tot:
-
-* 256-parameters
-* 256 variabelen
-* 800 bronnen (zoals aantal kopieën)
-* 64 uitvoerwaarden
-* 24.576 tekens in een sjabloonexpressie voor een
-
-U kunt sommige limieten sjabloon met behulp van een geneste sjabloon overschrijdt. Zie voor meer informatie, [gekoppelde sjablonen gebruiken bij het implementeren van Azure-resources](resource-group-linked-templates.md). Als u wilt verkleinen het aantal parameters, variabelen of uitvoer, kunt u verschillende waarden combineren in een object. Zie voor meer informatie, [objecten als parameters](resource-manager-objects-as-parameters.md).
 
 [!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: b76162606c4d21cb6979d410fbaaaafc539cf403
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: b53e052182e3d775bdd3309bfd1e986c4f5896ed
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56668647"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432257"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>AD FS toevoegen als een SAML-id-provider met behulp van aangepaste beleidsregels in Azure Active Directory B2C
 
@@ -167,7 +167,7 @@ Open een browser en navigeer naar de URL. Controleer of u typt u de juiste URL e
 10. In **claimregelsjabloon**, selecteer **verzenden LDAP-kenmerken als claims**.
 11. Geef een **naam van Claimregel**. Voor de **kenmerkopslag**, selecteer **Active Directory selecteren**, voegt u de volgende claims en klik vervolgens op **voltooien** en **OK**.
 
-    | LDAP-attrubute | Type uitgaande claim |
+    | LDAP-kenmerk | Type uitgaande claim |
     | -------------- | ------------------- |
     | User-Principal-Name | userPrincipalName |
     | Achternaam | family_name |

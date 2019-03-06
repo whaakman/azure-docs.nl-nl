@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 87c624e0fc5eac60b309a2535afc7508f1b6b3ac
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 946af124c5e16620c5052ac32d47ddb5fe4537d2
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986104"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57406013"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Veelgestelde vragen over Traffic Analytics
 
@@ -83,6 +83,7 @@ U kunt traffic analytics gebruiken voor nsg's in een van de volgende ondersteund
 - India - centraal
 - India - zuid
 - Japan - oost
+- VS (overheid) - Virginia
 
 De Log Analytics-werkruimte moet bestaan in de volgende regio's:
 - Canada - midden
@@ -94,6 +95,7 @@ De Log Analytics-werkruimte moet bestaan in de volgende regio's:
 - Azië - zuidoost 
 - India - centraal
 - Japan - oost
+- VS (overheid) - Virginia
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>Kan de nsg's ik stroom inschakelen Logboeken voor zich in verschillende regio's dan mijn werkruimte?
 

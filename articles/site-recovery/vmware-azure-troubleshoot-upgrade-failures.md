@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 02/05/2019
 ms.author: v-doglov
-ms.openlocfilehash: 9423fc844e766129ad81a8a286cb5bbdc722e2ca
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 3a3e9da66cf9ca6e08bb25b4f4b9d09aa0c5b6e7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989308"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431934"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Problemen met het upgraden van de Microsoft Azure Site Recovery-provider oplossen
 
@@ -42,9 +42,9 @@ Als u wilt bijwerken, gebruikt u de volgende stappen uit:
 
 1. Terug naar de map waarin u de geïntegreerde Setup gedownload en MicrosoftAzureSiteRecoveryUnifiedSetup.exe voor het voltooien van de upgrade worden uitgevoerd. 
 
-## <a name="upgrade-failure-due-to-the-thirdparty-folder-being-renamed"></a>Upgrade mislukt vanwege de thirdparty-map wordt gewijzigd
+## <a name="upgrade-failure-due-to-the-3rd-party-folder-being-renamed"></a>Upgrade mislukt vanwege de 3rd derden-map wordt gewijzigd
 
-Voor de upgrade te voltooien, moet de map thirdparty niet worden gewijzigd.
+Voor de upgrade te voltooien, moet de map 3rd derden niet worden gewijzigd.
 
 Het probleem kunt oplossen.
 

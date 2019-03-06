@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a80ed6af005f04ec48729e918543b2de67810eba
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 16f7dc81d8174e3d8da39d3af95b945f8034cecd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738586"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452009"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Codes van verificatie- en autorisatiefouten
 
@@ -68,7 +68,7 @@ Zoek naar informatie over de AADSTS foutcodes die zijn geretourneerd door de sec
 | AADSTS50032 | WeakRsaKey - geeft aan dat de foutieve gebruiker probeert een zwakke RSA-sleutel te gebruiken. |
 | AADSTS50033 | RetryableError - geeft aan dat een tijdelijke fout die niet gerelateerd aan de databasebewerkingen. |
 | AADSTS50034 | UserAccountNotFound - zich aanmelden bij deze toepassing, het account moet worden toegevoegd aan de directory. |
-| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt - de salt vereist voor het genereren van een pairwise id ontbreekt in de principal. Neem contact op met de beheerder van de tenant. |
+| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt - de salt vereist voor het genereren van een pairwise id ontbreekt in principe. Neem contact op met de beheerder van de tenant. |
 | AADSTS50043 | UnableToGeneratePairwiseIdentifierWithMultipleSalts |
 | AADSTS50048 | SubjectMismatchesIssuer - onderwerp verschillen verlener claim in de client-assertie. Neem contact op met de beheerder van de tenant. |
 | AADSTS50049 | NoSuchInstanceForDiscovery - onbekende of ongeldige exemplaar. |
@@ -140,7 +140,7 @@ Zoek naar informatie over de AADSTS foutcodes die zijn geretourneerd door de sec
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS65001 | DelegationDoesNotExist - de gebruiker of beheerder heeft niet toegestaan voor het gebruik van de toepassing met ID X. Send een interactieve autorisatieaanvraag voor deze gebruiker en de resource. |
 | AADSTS65004 | UserDeclinedConsent - gebruiker geen toestemming voor toegang tot de app. Laat de gebruiker zich opnieuw aanmelden en toestemming geven voor de app|
-| AADSTS65005 | MisconfiguredApplication - de app vereiste resourcetoegangslijst bevat geen apps kunnen worden gedetecteerd door de resource of de client-app heeft toegang tot een resource, die niet is opgegeven in de vereiste resourcetoegangslijst of -grafiek service geretourneerd ongeldig aangevraagd aanvraag of resource is niet gevonden. Als de app SAML ondersteunt, hebt u mogelijk de app geconfigureerd met de juiste id (entiteit). Probeer de oplossing voor SAML via de koppeling hieronder: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list) |
+| AADSTS65005 | MisconfiguredApplication - de app vereiste resourcetoegangslijst bevat geen apps kunnen worden gedetecteerd door de resource of de client-app heeft toegang tot een resource, die niet is opgegeven in de vereiste resourcetoegangslijst of -grafiek service geretourneerd ongeldig aangevraagd aanvraag of resource is niet gevonden. Als de app SAML ondersteunt, hebt u mogelijk de app geconfigureerd met de juiste id (entiteit). Probeer de oplossing voor SAML via de koppeling hieronder: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant - verificatie is mislukt. Het vernieuwingstoken dat is niet geldig. Fout kan worden veroorzaakt door de volgende redenen:<ul><li>Token binding-header is leeg</li><li>Token binding hash komt niet overeen</li></ul> |
 | AADSTS70001 | UnauthorizedClient - de toepassing is uitgeschakeld. |

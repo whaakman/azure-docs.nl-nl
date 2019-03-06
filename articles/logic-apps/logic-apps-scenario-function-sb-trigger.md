@@ -9,12 +9,12 @@ ms.reviewer: jehollan, klam, LADocs
 ms.topic: article
 ms.assetid: 19cbd921-7071-4221-ab86-b44d0fc0ecef
 ms.date: 08/25/2018
-ms.openlocfilehash: 69a4e4c59038599a7375466c46878bdd017582fa
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 3a72689be1902a05a2df409366bc5caba94d6a77
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231607"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436099"
 ---
 # <a name="scenario-trigger-logic-apps-with-azure-functions-and-azure-service-bus"></a>Scenario: Trigger logische apps met Azure Functions en Azure Service Bus
 
@@ -34,9 +34,9 @@ In dit voorbeeld hebt u een functie die wordt uitgevoerd voor elke logische app 
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com), en maken van lege, logische app. 
 
-   Als u geen ervaring met logische apps, raadpleegt u [Snelstartgids: uw eerste logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+   Als u geen ervaring met logische apps, raadpleegt u [Quick Start: Maak uw eerste logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. Voer in het zoekvak, "http-aanvraag. Selecteer deze trigger onder de lijst met triggers: **wanneer een HTTP-aanvraag wordt ontvangen**
+1. Voer in het zoekvak, "http-aanvraag. Selecteer deze trigger onder de lijst met triggers: **Wanneer een HTTP-aanvraag wordt ontvangen**
 
    ![Trigger selecteren](./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger.png)
 
@@ -98,7 +98,7 @@ Maak vervolgens de functie die fungeert als de trigger en luistert naar de wacht
 
 1. In de Azure-portal openen en vouw uw functie-app, als dat niet is geopend. 
 
-1. Vouw onder de naam van uw functie-app **functies**. Op de **functies** deelvenster Kies **nieuwe functie**. Selecteer deze sjabloon: **Service Bus-wachtrij-trigger - C#**
+1. Vouw onder de naam van uw functie-app **functies**. Op de **functies** deelvenster Kies **nieuwe functie**. Deze sjabloon selecteren: **Service Bus Queue trigger - C#**
    
    ![Selecteer Azure Functions-portal](./media/logic-apps-scenario-function-sb-trigger/newqueuetriggerfunction.png)
 
@@ -114,14 +114,14 @@ Maak vervolgens de functie die fungeert als de trigger en luistert naar de wacht
    
    private static string logicAppUri = @"https://prod-05.westus.logic.azure.com:443/.........";
    
+   // Re-use instance of http clients if possible - https://docs.microsoft.com/en-us/azure/azure-functions/manage-connections
+   private static HttpClient httpClient = new HttpClient();
+   
    public static void Run(string myQueueItem, TraceWriter log)
    {
        log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
 
-       using (var client = new HttpClient())
-       {
-           var response = client.PostAsync(logicAppUri, new StringContent(myQueueItem, Encoding.UTF8, "application/json")).Result;
-       }
+       var response = httpClient.PostAsync(logicAppUri, new StringContent(myQueueItem, Encoding.UTF8, "application/json")).Result;
    }
    ```
 

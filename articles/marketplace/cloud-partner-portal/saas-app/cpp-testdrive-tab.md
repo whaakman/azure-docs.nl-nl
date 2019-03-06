@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9d6b72a994b034b0bbc735e5cca2ce987a02af61
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0fa3638ef47fb8cb1d0237a2ab9530ab76d316dc
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196872"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449265"
 ---
 # <a name="saas-application-test-drive-tab"></a>SaaS-toepassing Test Drive-tabblad
 
@@ -33,7 +33,7 @@ Test drive biedt klanten een praktische Zelfgestuurde evaluatieversie van de bel
 
 ## <a name="how-a-test-drive-works"></a>De werking van een test uit
 
-Een potentiële klant wordt gezocht en detecteert de toepassing op de Marketplace. De klant zich heeft aangemeld en gaat akkoord met de gebruiksvoorwaarden. Op dit moment ontvangt de klant uw vooraf geconfigureerde omgeving om te proberen voor een vast aantal uren, terwijl u een zeer gekwalificeerde lead te ontvangen. Zie voor meer informatie, [wat is Test Drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/what-is-test-drive)
+Een potentiële klant wordt gezocht en detecteert de toepassing op de Marketplace. De klant zich heeft aangemeld en gaat akkoord met de gebruiksvoorwaarden. Op dit moment ontvangt de klant uw vooraf geconfigureerde omgeving om te proberen voor een vast aantal uren, terwijl u een zeer gekwalificeerde lead te ontvangen. Zie voor meer informatie, [wat is Test Drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
 
 ## <a name="publishing-steps"></a>Publiceren stappen
 
@@ -49,9 +49,9 @@ De belangrijkste publishing stappen voor het toevoegen van een test Drive zijn:
 Er zijn vier verschillende typen Test Drives beschikbaar, elk op basis van het type van het product, scenario en u bent op marketplace.
 |  **Type**          |  **Beschrijving**  |  **Installatie-instructies**  |
 |  ---------------   |  ---------------  |  ---------------  |
-|     Azure Resource Manager               |    Een Azure Resource Manager Test Drive is een sjabloon voor de implementatie met alle Azure-resources die deel uitmaken van een oplossing wordt gemaakt door de uitgever. Producten die geschikt zijn voor dit type Test Drive zijn die alleen Azure-bronnen.               |       [Test Drive voor Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/azure-resource-manager-test-drive)            |
-|       Gehost             |       Een gehost Test Drive wordt de complexiteit van de installatie door Microsoft hosting en onderhouden van de service die de gebruiker Test Drive-inrichting en ongedaan maken van inrichting uitvoert.             |         [Gehoste Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/hosted-test-drive)          |
-|      Logische apps              |       Een logische App Test Drive is een sjabloon voor de implementatie die is bedoeld om alle complexe architecturen omvatten. Alle Dynamics-toepassingen of aangepaste producten moeten gebruiken voor dit type Test Drive.            |      [Logische App Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/logic-app-test-drive)             |
+|     Azure Resource Manager               |    Een Azure Resource Manager Test Drive is een sjabloon voor de implementatie met alle Azure-resources die deel uitmaken van een oplossing wordt gemaakt door de uitgever. Producten die geschikt zijn voor dit type Test Drive zijn die alleen Azure-bronnen.               |       [Test Drive voor Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)            |
+|       Gehost             |       Een gehost Test Drive wordt de complexiteit van de installatie door Microsoft hosting en onderhouden van de service die de gebruiker Test Drive-inrichting en ongedaan maken van inrichting uitvoert.             |         [Gehoste Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/hosted-test-drive)          |
+|      Logische apps              |       Een logische App Test Drive is een sjabloon voor de implementatie die is bedoeld om alle complexe architecturen omvatten. Alle Dynamics-toepassingen of aangepaste producten moeten gebruiken voor dit type Test Drive.            |      [Logische App Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)             |
 |       Power BI             |         Een Power BI Test Drive bestaat uit een ingesloten koppeling naar een op maat gemaakte dashboard. Alle producten die wil ter illustratie van dat een interactieve Power BI-visualisatie dit type Test Drive moet gebruiken. U moet uploaden, is de URL van uw ingesloten Power BI.          |        [Power BI-Test Drive](#Power-BI-test-drive)           |
 
 ### <a name="power-bi-test-drive"></a>Power BI uitproberen
@@ -83,4 +83,4 @@ Gebruik de volgende stappen uit om te configureren van een test uit.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Tabblad StoreFront Details](./cpp-storefront-tab.md)
+[Tabblad Details van webwinkel](./cpp-storefront-tab.md)

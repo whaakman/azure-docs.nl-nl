@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: 62dffffee411519cdcafe80a11404f9e273dd9dd
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 65713ed9c2d0635e776a7a7e5f205b6d55438ed4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880781"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451617"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>Geavanceerde query's in Azure Monitor schrijven
 
@@ -76,7 +76,7 @@ Event
 ```
 
 ## <a name="print"></a>Afdrukken
-`print` retourneert een tabel met één kolom en een enkele rij weergegeven, het resultaat van een berekening. Dit wordt vaak gebruikt in gevallen waarin u een eenvoudige calcuation. Als u bijvoorbeeld wilt zoeken naar het huidige tijdstip in PST en een kolom met EST toevoegen:
+`print` retourneert een tabel met één kolom en een enkele rij weergegeven, het resultaat van een berekening. Dit wordt vaak gebruikt in gevallen waarin u een eenvoudige berekening. Als u bijvoorbeeld wilt zoeken naar het huidige tijdstip in PST en een kolom met EST toevoegen:
 
 ```Kusto
 print nowPst = now()-8h

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3bae6d93ffe7ea028d3329dcc69c2f33bdf7aa2a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: ce458328967337976ed713f78ead24e2f1fcdb96
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635456"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451270"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Wat is Apache Storm in Azure HDInsight?
 
@@ -48,7 +48,7 @@ Storm op HDInsight biedt de volgende functies:
 
 Zie [deze Engelstalige site](https://storm.apache.org/documentation/Powered-By.html) voor een lijst met bedrijven die Apache Storm gebruiken voor hun oplossingen voor realtime analyse.
 
-Als u wilt aan de slag met Storm, Zie [aan de slag met Storm op HDInsight pache][gettingstarted].
+Als u wilt aan de slag met Storm, Zie [aan de slag met Apache Storm op HDInsight][gettingstarted].
 
 ## <a name="how-does-apache-storm-work"></a>Hoe werkt de Apache Storm
 
@@ -142,7 +142,7 @@ Zie [Guarantees on data processing](https://storm.apache.org/about/guarantees-da
 
 ### <a name="ibasicbolt"></a>IBasicBolt
 
-Het patroon voor het lezen van een invoer-tuple, het verzenden van nul of meer tuples om de invoer-tuple vervolgens onmiddellijk aan het einde van de uitvoeringsmethode te bevestigen, is een veelgebruikte methode. Storm biedt de [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html)-interface voor het automatiseren van dit patroon.
+Het patroon voor het lezen van een invoer-tuple, verzenden van nul of meer tuples en vervolgens de invoer-tuple onmiddellijk aan het einde van de methode execute daar begrip voor tonen is gebruikelijk. Storm biedt de [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html)-interface voor het automatiseren van dit patroon.
 
 ### <a name="joins"></a>Samenvoegingen
 

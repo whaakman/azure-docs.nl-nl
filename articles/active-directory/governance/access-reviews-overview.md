@@ -16,12 +16,12 @@ ms.date: 01/18/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 419a07ff6d423f363d6973da3df00fd4aa3f6278
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: d5fa81e564cf28f8b5478abe9ec5bb63d0f11bd3
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727261"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449662"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Wat zijn Azure AD-Toegangsbeoordelingen?
 
@@ -42,12 +42,12 @@ Azure AD kunt u intern samenwerken binnen uw organisatie en gebruikers van exter
 
 ## <a name="when-to-use-access-reviews"></a>Wanneer u de toegang beoordeelt?
 
-- **Te veel gebruikers in bevoorrechte rollen:** Er is een goed idee om te controleren hoeveel gebruikers met beheerdersrechten toegang hebben, hoeveel hiervan zijn algemene Admininistrators en of er een zijn uitgenodigd gasten of partners die zijn niet verwijderd nadat ze zijn toegewezen aan het doen van een beheertaak. U kunt opnieuw certificeren voor de rol van toewijzing van gebruikers in [Azure AD-maprollen](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) zoals globale beheerders of [Azure-resources-rollen](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) zoals Administrator voor gebruikerstoegang in de [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) optreden.
+- **Te veel gebruikers in bevoorrechte rollen:** Er is een goed idee om te controleren hoeveel gebruikers met beheerdersrechten toegang hebben, hoeveel hiervan zijn globale beheerders, en als er een uitgenodigd gasten of partners die zijn niet verwijderd nadat ze zijn toegewezen aan het doen van een beheertaak. U kunt opnieuw certificeren voor de rol van toewijzing van gebruikers in [Azure AD-maprollen](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) zoals globale beheerders of [Azure-resources-rollen](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) zoals Administrator voor gebruikerstoegang in de [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) optreden.
 - **Automation is wanneer onbruikbare:** U kunt regels voor dynamisch lidmaatschap voor beveiligingsgroepen of Office 365-groepen, maar wat gebeurt er als de HR-gegevens zijn niet in Azure AD of als gebruikers nog steeds toegang nodig na het verlaten van de groep hun vervanging van de trein maken? Vervolgens kunt u een evaluatie maken voor de groep om ervoor te zorgen die nog steeds toegang nodig blijvende toegang moeten hebben.
 - **Wanneer een groep wordt gebruikt voor een nieuw doel:** Als u een groep die u wilt worden gesynchroniseerd met Azure AD hebt, of als u van plan bent om in te schakelen van de Salesforce-toepassing voor iedereen in de groep Sales-team, is het handig om te vragen van de eigenaar van de groep om te controleren van het groepslidmaatschap voorafgaand aan de groep wordt gebruikt in een co verschillende risico 's inhoud.
 - **Toegang tot kritieke gegevens van zakelijke:** voor bepaalde resources, kan het worden vereist om aan te vragen mensen buiten IT regelmatig afmelden en geef een reden op waarom ze toegang nodig hebben voor controledoeleinden.
 - **Lijst met uitzonderingen van een beleid onderhouden:** In een ideaal volgt alle gebruikers de toegang tot de beleidsregels voor beveiligde toegang tot resources van uw organisatie. Soms zijn er echter bedrijfsscenario's waarvoor u uitzonderingen maken. Als de IT-beheerder, kunt u deze taak beheren, te voorkomen dat toezicht van uitzonderingen en auditors voorzien van bewijs dat deze uitzonderingen regelmatig worden gecontroleerd.
-- **Eigenaren van groepen om te bevestigen moeten nog steeds gasten in hun groepen vragen:** Toegang van werknemers kan worden geautomatiseerd met sommige IAM on-premises, maar niet uitgenodigd. Als een groep Gasten toegang geeft tot zakelijke gevoelige inhoud wordt beschreven, worden de verantwoordelijkheid van de Groepseigenaar om te bevestigen van de gasten hebben nog steeds een legitieme zakelijke behoeften om toegang te krijgen.
+- **Eigenaren van groepen om te bevestigen moeten nog steeds gasten in hun groepen vragen:** Toegang van werknemers kan worden geautomatiseerd met bepaalde on-premises IAM, maar niet uitgenodigd. Als een groep Gasten toegang geeft tot zakelijke gevoelige inhoud wordt beschreven, worden de verantwoordelijkheid van de Groepseigenaar om te bevestigen van de gasten hebben nog steeds een legitieme zakelijke behoeften om toegang te krijgen.
 - **Beoordelingen regelmatig terugkerende hebben:** U kunt terugkerende toegangsbeoordelingen van gebruikers bij set-frequenties, zoals instellen wekelijks, maandelijks, per kwartaal of jaar en de revisoren ontvangt een melding aan het begin van elke beoordeling. Revisoren kunnen goedkeuren of weigeren van toegang met een gebruiksvriendelijke interface en met behulp van intelligente aanbevelingen.
 
 ## <a name="where-do-you-create-reviews"></a>Waar ik u beoordelingen maken?

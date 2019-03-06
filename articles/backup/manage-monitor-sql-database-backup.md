@@ -1,6 +1,6 @@
 ---
-title: Beheren en controleren van SQL Server-databases op een Azure-VM back-up gemaakt door Azure Backup | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u SQL Server-databases die worden uitgevoerd op een virtuele machine van Azure die worden ondersteund met Azure Backup herstellen
+title: Beheren en controleren van SQL Server-databases op een Azure-VM die wordt ondersteund door Azure Backup | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u SQL Server-databases die worden uitgevoerd op een Azure VM en die worden ondersteund door Azure Backup herstellen.
 services: backup
 author: rayne-wiselman
 manager: carmonm
@@ -8,44 +8,40 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2018
 ms.author: raynew
-ms.openlocfilehash: 1c2ce0ba42f0bc3efd1dcc951113b05ab6941b98
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: da4264047830b21b3ac4dae723dd1fd2f9d7a8f4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430799"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432852"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Beheren en bewaken back-ups van SQL Server-databases 
 
 
-In dit artikel worden algemene taken beschreven voor het beheren en controleren van SQL Server-databases die worden uitgevoerd op een virtuele machine van Azure die worden back-ups op een Azure Backup Recovery Services-kluis door het [Azure Backup](backup-overview.md) service. Taken met inbegrip van taken en waarschuwingen bewaken, stoppen en hervatten van databasebeveiliging, back-uptaken uitgevoerd en registratie van een virtuele machine vanuit back-up.
+In dit artikel worden algemene taken beschreven voor het beheren en controleren van SQL Server-databases die worden uitgevoerd op een Azure-machine (VM) en die zijn back-ups op een Azure Backup Recovery Services-kluis door het [Azure Backup](backup-overview.md) service. U leert hoe u taken en waarschuwingen bewaken, stoppen en hervatten van databasebeveiliging, back-uptaken uitvoeren en een virtuele machine uit de back-ups van de registratie ongedaan maken.
 
 
 > [!NOTE]
-> Back-up van SQl Server-databases die worden uitgevoerd op een Azure-VM met Azure Backup is momenteel in openbare preview.
+> De back-up van SQL Server-databases die worden uitgevoerd op een Azure-VM met Azure Backup is momenteel in openbare preview.
 
 
-TIf u nog niet hebt, maar geconfigureerde back-up voor de SQL Server-databases en volg de instructies in [in dit artikel](backup-azure-sql-database.md)
+Als u dit nog niet hebt nog back-ups is geconfigureerd voor uw SQL Server-databases, [maakt u een Back-up van SQL Server-databases op Azure Virtual machines](backup-azure-sql-database.md)
 
-## <a name="monitor-backup-jobs"></a>Back-uptaken controleren
+##  <a name="monitor-manual-backup-jobs-in-the-portal"></a>Handmatige back-uptaken in de portal bewaken
 
-###  <a name="monitor-ad-hoc-jobs-in-the-portal"></a>Ad-hoc taken in de portal controleren
+Azure Backup worden alle handmatig geactiveerde taken in de **back-uptaken** portal. De taken u weergeven in deze portal opnemen database detecteren en registreren en back-up en herstelbewerkingen.
 
-Azure Backup worden alle handmatig geactiveerde taken in de **back-uptaken** portal, onder andere detecteren en registreren van databases en back-up en herstelbewerkingen.
-
-![De portal Back-uptaken](./media/backup-azure-sql-database/jobs-list.png)
+![De portal voor back-up-taken](./media/backup-azure-sql-database/jobs-list.png)
 
 > [!NOTE]
-> Geplande back-uptaken worden niet weergegeven in de **back-uptaken** portal. Geplande back-uptaken kunt u bewaken met SQL Server Management Studio, zoals wordt beschreven in het volgende gedeelte.
+> De **back-uptaken** portal geplande back-uptaken wordt niet weergegeven. Geplande back-uptaken kunt u bewaken met SQL Server Management Studio, zoals wordt beschreven in het volgende gedeelte.
 >
 
-### <a name="monitor-backup-jobs-with-sql-server-management-studio"></a>Back-uptaken controleren met SQL Server Management Studio 
+## <a name="monitor-scheduled-backup-jobs-in-sql-server-management-studio"></a>Geplande back-uptaken in SQL Server Management Studio controleren 
 
-Azure Backup maakt gebruik van systeemeigen SQL-API's voor alle back-upbewerkingen.
+Azure Backup maakt gebruik van systeemeigen SQL-API's voor alle back-upbewerkingen. Gebruik de systeemeigen API's om alle taakgegevens op te halen uit de [SQL-tabel met back-ups](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) in de msdb-database.
 
-Gebruik de systeemeigen API's om alle taakgegevens op te halen uit de [SQL-tabel met back-ups](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) in de msdb-database.
-
-Het volgende voorbeeld is een query waarmee alle back-uptaken voor een database met de naam **DB1** worden opgehaald. Pas de query voor geavanceerde bewaking naar wens aan.
+Het volgende voorbeeld wordt een query waarmee alle back-uptaken voor een database met de naam worden opgehaald **DB1**. Pas de query voor geavanceerde bewaking naar wens aan.
 
 ```
 select CAST (
@@ -70,21 +66,21 @@ backup_size AS BackupSizeInBytes
 
 ## <a name="view-backup-alerts"></a>Waarschuwingen voor back-ups weergeven
 
-Omdat logboekback-ups worden uitgevoerd om de 15 minuten, kan back-uptaken bewaking worden omslachtig. Azure Backup vereenvoudigt de bewaking met e-mailwaarschuwingen.
+Omdat logboekback-ups worden uitgevoerd om de 15 minuten, kan back-uptaken bewaking worden omslachtig. Azure Backup vereenvoudigt de bewaking in door te verzenden van e-mailwaarschuwingen. E-mailwaarschuwingen zijn:
 
-- Er worden waarschuwingen gegenereerd voor alle mislukte back-ups.
-- Waarschuwingen worden geconsolideerd op databaseniveau per foutcode.
-- Er wordt alleen een e-mailmelding verzonden voor de eerste back-upfout voor een database. 
+- Alle mislukte back-ups wordt geactiveerd.
+- Geconsolideerd op het databaseniveau van de-foutcode.
+- Alleen voor een database de eerste back-upfouten verzonden. 
 
-Ga als volgt te werk om back-uptaken te controleren:
+Voor het bewaken van de back-upwaarschuwingen database:
 
-1. Aanmelden bij uw Azure-abonnement in de [Azure-portal](https://portal.azure.com) voor het bewaken van databasewaarschuwingen.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-2. Selecteer op het kluisdashboard **waarschuwingen en gebeurtenissen**.
+1. Selecteer op het kluisdashboard **waarschuwingen en gebeurtenissen**.
 
    ![Waarschuwingen en gebeurtenissen selecteren](./media/backup-azure-sql-database/vault-menu-alerts-events.png)
 
-4. In **waarschuwingen en gebeurtenissen**, selecteer **waarschuwingen voor back-up**.
+1. In **waarschuwingen en gebeurtenissen**, selecteer **waarschuwingen voor back-up**.
 
    ![Waarschuwingen voor back-ups selecteren](./media/backup-azure-sql-database/backup-alerts-dashboard.png)
 
@@ -93,49 +89,50 @@ Ga als volgt te werk om back-uptaken te controleren:
 U kunt stoppen back-ups van een SQL Server-database in een aantal manieren:
 
 * Alle toekomstige back-uptaken stoppen en verwijderen van alle herstelpunten.
-* Alle toekomstige back-uptaken stoppen maar de herstelpunten behouden.
+* Alle toekomstige back-uptaken stoppen en de herstelpunten te behouden.
 
-Houd rekening met het volgende:
+Als u ervoor kiest om te laten herstelpunten, houd rekening met deze details:
 
-Als u de herstelpunten laat, wordt de punten worden opgeschoond in overeenstemming met de back-upbeleid. U betaalt kosten voor het beveiligde exemplaar en de verbruikte opslag totdat alle herstelpunten worden opgeschoond. [Meer informatie](https://azure.microsoft.com/pricing/details/backup/) over prijzen.
-- Als u herstelpunten behouden, laat hoewel ze zijn verlopen volgens het bewaarbeleid, houdt Azure Backup altijd een laatste herstelpunt totdat u expliciet back-upgegevens verwijdert.
-- Als u een gegevensbron zonder back-up stoppen verwijdert, nieuwe back-ups zullen mislukken. Nogmaals, de oude herstelpunten verlopen volgens het beleid, maar één laatste herstelpunt altijd bewaard totdat u back-up stoppen en verwijderen van de gegevens.
-- U kunt geen back-up voor een database is ingeschakeld voor automatische beveiliging, totdat de automatische beveiliging is uitgeschakeld stoppen.
+* U laat herstelpunten worden opgeschoond op basis van het back-upbeleid. 
+* Totdat alle herstelpunten worden opgeschoond, in rekening gebracht voor het beveiligde exemplaar en de verbruikte opslag. Zie voor meer informatie, [prijzen van Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
+* Azure Backup blijft altijd één laatste herstelpunt totdat u de back-upgegevens verwijdert. 
+* Als u een gegevensbron verwijdert zonder back-ups wordt gestopt, worden nieuwe back-ups mislukken. 
+* Als uw database is ingeschakeld voor autoprotection, kunt u back-ups kan niet stoppen, tenzij u autoprotection uitschakelen.
 
 Ga als volgt te werk om de beveiliging van een database te stoppen:
 
-1. In het dashboard van de kluis onder **gebruik**, selecteer **back-Upitems**.
+1. Op het kluisdashboard onder **gebruik**, selecteer **back-Upitems**.
 
-    ![Het menu Back-upitems openen](./media/backup-azure-sql-database/restore-sql-vault-dashboard.png).
-
-2. In **Type back-upbeheer**, selecteer **SQL in Azure VM**.
+1. Onder **Type back-upbeheer**, selecteer **SQL in Azure VM**.
 
     ![SQL in Azure VM selecteren](./media/backup-azure-sql-database/sql-restore-backup-items.png)
 
 
-3. Selecteer de database waarvoor u wenst te beveiliging stoppen.
+1. Selecteer de database waarvoor u wenst te beveiliging stoppen.
 
     ![De database selecteren waarvoor u de beveiliging wilt stoppen](./media/backup-azure-sql-database/sql-restore-sql-in-vm.png)
 
 
-5. Selecteer in het databasemenu **back-up stoppen**.
+1. Selecteer in het databasemenu **back-up stoppen**.
 
     ![Back-up stoppen selecteren](./media/backup-azure-sql-database/stop-db-button.png)
 
 
-6. In **back-up stoppen** in het menu selecteren of u wilt behouden of verwijderen van gegevens. (Optioneel) Geef een reden en opmerking.
+1. Op de **back-up stoppen** in het menu selecteren of u wilt behouden of verwijderen van gegevens. Als u wilt, Geef een reden en de opmerking.
 
-    ![Het menu Back-up stoppen](./media/backup-azure-sql-database/stop-backup-button.png)
+    ![Behouden of verwijderen van gegevens in het menu back-up stoppen](./media/backup-azure-sql-database/stop-backup-button.png)
 
-7. Klik op **back-up stoppen** .
+1. Selecteer **back-up stoppen**.
 
   
 
-### <a name="resume-protection-for-a-sql-database"></a>Beveiliging voor een SQL-database hervatten
+## <a name="resume-protection-for-a-sql-database"></a>Beveiliging voor een SQL-database hervatten
 
-Als u de optie **Back-upgegevens behouden** hebt geselecteerd bij het stoppen van de beveiliging voor de SQL-database, kunt u de beveiliging hervatten. Als u de back-upgegevens niet hebt behouden, kan de beveiliging niet worden hervat.
+Wanneer u de beveiliging voor de SQL-database stoppen als u selecteert de **back-upgegevens behouden** optie, kunt u later beveiliging hervatten. Als u niet de back-upgegevens behouden, kunt u de beveiliging niet hervatten.
 
-1. Als u de beveiliging voor de SQL-database wilt hervatten, opent u het back-upitem en selecteert u **Back-up hervatten**.
+Beveiliging voor een SQL-database hervatten:
+
+1. Open het back-upitem en selecteer **back-up hervatten**.
 
     ![Back-up hervatten selecteren om de databasebeveiliging te hervatten](./media/backup-azure-sql-database/resume-backup-button.png)
 
@@ -150,11 +147,11 @@ U kunt verschillende typen back-ups op aanvraag uitvoeren:
 * Differentiële back-up
 * Logboekback-up
 
-[Meer informatie](backup-architecture.md#sql-server-backup-types) over SQL Server back-up van typen.
+Zie voor meer informatie, [SQL Server-back-uptypen](backup-architecture.md#sql-server-backup-types).
 
 ## <a name="unregister-a-sql-server-instance"></a>Registratie van een SQL Server-exemplaar ongedaan maken
 
-Registratie van een exemplaar van SQL Server nadat u de beveiliging hebt uitgeschakeld, maar voordat u de kluis verwijderen:
+Registratie van een exemplaar van SQL Server nadat u de beveiliging uitschakelen, maar voordat u de kluis verwijderen:
 
 1. Op het kluisdashboard onder **beheren**, selecteer **back-upinfrastructuur**.  
 
@@ -167,11 +164,11 @@ Registratie van een exemplaar van SQL Server nadat u de beveiliging hebt uitgesc
 
 3. In **beschermde Servers**, de server om de registratie te selecteren. Als u de kluis wilt verwijderen, moet u de registratie van alle servers ongedaan maken.
 
-4. Met de rechtermuisknop op de beveiligde server > **verwijderen**.
+4. Met de rechtermuisknop op de beveiligde server en selecteer **verwijderen**.
 
    ![Verwijderen selecteren](./media/backup-azure-sql-database/delete-protected-server.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Beoordeling](backup-sql-server-azure-troubleshoot.md) probleemoplossingsinformatie voor back-up van SQL Server-database.
+Zie voor meer informatie, [back-ups op een SQL Server-database oplossen](backup-sql-server-azure-troubleshoot.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: 5e665cd0bcfdea436c2f493187c5bbea756f8f09
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 43f2694f597d99edaf127a6afd64376cca33dad2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248300"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448149"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Een load balancer voor een AlwaysOn-beschikbaarheidsgroep configureren in Azure
 In dit artikel wordt uitgelegd hoe u een load balancer voor een SQL Server Always On-beschikbaarheidsgroep maken in Azure virtuele machines die worden uitgevoerd met Azure Resource Manager. Een beschikbaarheidsgroep is een load balancer vereist bij de SQL Server-exemplaren op Azure virtual machines zijn. De load balancer slaat het IP-adres voor de beschikbaarheidsgroep-listener. Als een beschikbaarheidsgroep meerdere regio's omvat, moet elke regio een load balancer.
@@ -50,7 +50,7 @@ In dit gedeelte van de taak, het volgende doen:
 > 
 > 
 
-### <a name="step-1-create-the-load-balancer-and-configure-the-ip-address"></a>Stap 1: Maak de load balancer en het IP-adres configureren
+### <a name="step-1-create-the-load-balancer-and-configure-the-ip-address"></a>Stap 1: De load balancer maken en configureren van het IP-adres
 Maak eerst de load balancer. 
 
 1. Open de resourcegroep met de SQL Server-machines in Azure portal. 
@@ -63,11 +63,11 @@ Maak eerst de load balancer.
 
 5. In de **load balancer maken** dialoogvenster vak, configureer de load balancer als volgt:
 
-   | Instelling | Waarde |
+   | Instelling | Value |
    | --- | --- |
    | **Naam** |Een naam voor de load balancer. Bijvoorbeeld, **sqlLB**. |
-   | **Type** |**Interne**: de meeste implementaties maken gebruik van een interne load balancer, waardoor toepassingen binnen hetzelfde virtuele netwerk verbinding maken met de beschikbaarheidsgroep.  </br> **Externe**: zorgt ervoor dat toepassingen verbinding maken met de beschikbaarheidsgroep via een openbare internetverbinding. |
-   | **Virtueel netwerk** |Selecteer het virtuele netwerk dat de exemplaren van SQL Server toegangsbeoordelingen zijn in. |
+   | **Type** |**Interne**: De meeste implementaties gebruikt een interne load balancer, waardoor toepassingen binnen hetzelfde virtuele netwerk verbinding maken met de beschikbaarheidsgroep.  </br> **Externe**: Zorgt ervoor dat toepassingen verbinding maken met de beschikbaarheidsgroep via een openbare internetverbinding. |
+   | **Virtueel netwerk** |Selecteer het virtuele netwerk die de SQL Server-exemplaren in. |
    | **Subnet** |Selecteer het subnet die de SQL Server-exemplaren in. |
    | **IP-adrestoewijzing** |**Statische** |
    | **Privé IP-adres** |Geef een beschikbaar IP-adres van het subnet. Gebruik dit IP-adres wanneer u een listener op het cluster maakt. In een PowerShell-script, verderop in dit artikel gebruikt u dit adres voor de `$ILBIP` variabele. |
@@ -109,7 +109,7 @@ De test wordt gedefinieerd hoe Azure controleert of welke van de SQL Server-exem
 
 3. De test configureren op de **test toevoegen** blade. Gebruik de volgende waarden voor de test configureren:
 
-   | Instelling | Waarde |
+   | Instelling | Value |
    | --- | --- |
    | **Naam** |Een naam voor de test. Bijvoorbeeld, **SQLAlwaysOnEndPointProbe**. |
    | **Protocol** |**TCP** |
@@ -126,7 +126,7 @@ De test wordt gedefinieerd hoe Azure controleert of welke van de SQL Server-exem
 
 Azure wordt de test gemaakt en vervolgens gebruikt om te testen die SQL Server-exemplaar de listener voor de beschikbaarheidsgroep heeft.
 
-### <a name="step-4-set-the-load-balancing-rules"></a>Stap 4: De load balancer-regels instellen
+### <a name="step-4-set-the-load-balancing-rules"></a>Stap 4: Instellen van de load balancer-regels
 De regels voor taakverdeling configureren hoe de load balancer verkeer routeert naar de SQL Server-exemplaren. Voor deze load balancer inschakelen u direct server return, omdat er slechts één van de twee SQL Server-exemplaren is eigenaar van de listener voor de beschikbaarheidsgroepresource tegelijk.
 
 1. Op de load balancer **instellingen** blade, klikt u op **Taakverdelingsregels**. 
@@ -135,13 +135,13 @@ De regels voor taakverdeling configureren hoe de load balancer verkeer routeert 
 
 3. Op de **taakverdelingsregels toevoegen** blade configureren van de load balancer-regel. Gebruik de volgende instellingen: 
 
-   | Instelling | Waarde |
+   | Instelling | Value |
    | --- | --- |
    | **Naam** |Een naam voor de load balancer-regels. Bijvoorbeeld, **SQLAlwaysOnEndPointListener**. |
    | **Protocol** |**TCP** |
    | **Poort** |*1433* |
    | **Back-Endpoort** |*1433*. Deze waarde wordt genegeerd omdat deze regel maakt gebruik van **zwevend IP (direct server return)**. |
-   | **Test** |Gebruik de naam van de test die u hebt gemaakt voor deze load balancer. |
+   | **Probe** |Gebruik de naam van de test die u hebt gemaakt voor deze load balancer. |
    | **Sessiepersistentie** |**Geen** |
    | **Time-out voor inactiviteit (minuten)** |*4* |
    | **Zwevend IP (direct server return)** |**Ingeschakeld** |
@@ -221,12 +221,12 @@ Een IP-adres toevoegen aan een load balancer met de Azure-portal, het volgende d
 
 7. Een statustest toevoegen met behulp van de volgende instellingen:
 
-   |Instelling |Waarde
+   |Instelling |Value
    |:-----|:----
    |**Naam** |Een unieke naam voor de test.
    |**Protocol** |TCP
    |**Poort** |Een niet-gebruikte TCP-poort, die beschikbaar zijn op alle virtuele machines moet zijn. Het kan niet worden gebruikt voor andere doeleinden. Er zijn geen twee listeners kunnen dezelfde testpoort gebruiken. 
-   |**Interval** |De tijdsduur tussen testpogingen. Gebruik de standaardwaarde (5).
+   |**Interval** |Tijdsduur tussen testpogingen. Gebruik de standaardwaarde (5).
    |**Drempelwaarde voor onjuiste status** |Het aantal opeenvolgende drempelwaarden die er mislukken moeten voordat een virtuele machine als slecht beschouwd.
 
 8. Klik op **OK** om op te slaan van de test. 
@@ -235,7 +235,7 @@ Een IP-adres toevoegen aan een load balancer met de Azure-portal, het volgende d
 
 10. De nieuwe load balancer-regel met behulp van de volgende instellingen configureren:
 
-   |Instelling |Waarde
+   |Instelling |Value
    |:-----|:----
    |**Naam** |Een unieke naam voor de load balancer-regel. 
    |**Frontend-IP-adres** |Selecteer het IP-adres dat u hebt gemaakt. 
@@ -284,7 +284,7 @@ Als een beschikbaarheidsgroep maakt deel uit van een gedistribueerde beschikbaar
 
 1. Maak de load balancer-regel met de volgende instellingen:
 
-   |Instelling |Waarde
+   |Instelling |Value
    |:-----|:----
    |**Naam** |Een unieke naam voor de load balancer-regel voor de gedistribueerde beschikbaarheidsgroep. 
    |**Frontend-IP-adres** |Gebruik de dezelfde frontend-IP-adres als de beschikbaarheidsgroep.

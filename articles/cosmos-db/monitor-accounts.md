@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 9c307bbbef7b9eecc980dc6013c317f1ee231a0c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: a12e0f567747b67c67f7bc825df1079d852e2f16
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034298"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448235"
 ---
 # <a name="monitor-performance-and-storage-metrics-in-azure-cosmos-db"></a>Controleer metrische gegevens voor prestaties en opslag in Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Metrische gegevens kunnen worden gecontroleerd op de pagina met het Account voor
 
    De Azure portal wordt weergegeven de suite van verzameling metrische gegevens beschikbaar. Houd er rekening mee dat de doorvoer, opslag, beschikbaarheid, latentie en consistentie van metrische gegevens worden geleverd op een afzonderlijk tabblad. Meteen aanvullende details over de gegevens hebt opgegeven, klikt u op de dubbele pijl in de rechterbovenhoek van elk deelvenster metrische gegevens.
 
-   ![Schermopname van de lens bewaking waarin de suite metrische gegevens](./media/monitor-accounts/metrics-suite.png)
+   ![Schermafbeelding van de lens bewaking waarin de suite metrische gegevens](./media/monitor-accounts/metrics-suite.png)
 
 ## <a name="view-performance-metrics-by-using-azure-monitoring"></a>Metrische gegevens over prestaties weergeven met behulp van Azure Monitoring
 1. In de [Azure-portal](https://portal.azure.com/), klikt u op **Monitor** op de linkerbalk.
@@ -43,14 +43,14 @@ Metrische gegevens kunnen worden gecontroleerd op de pagina met het Account voor
    * Totaal aantal aanvragen voor de huidige dag.
    * Opslag die wordt gebruikt.
    
-   ![Schermopname van de lens bewaking waarin de aanvragen en het opslaggebruik](./media/monitor-accounts/documentdb-total-requests-and-usage.png)
+   ![Schermafbeelding van de lens bewaking waarin de aanvragen en het opslaggebruik](./media/monitor-accounts/documentdb-total-requests-and-usage.png)
 3. Te klikken op de dubbele pijl in de rechterbovenhoek van de **aanvragen** tegel wordt geopend op een een gedetailleerde **Metric** pagina.
 4. De **Metric** pagina ziet u details over het totaal aantal aanvragen. 
 
 ## <a name="set-up-alerts-in-the-portal"></a>Stel waarschuwingen in de portal
 1. In de [Azure-portal](https://portal.azure.com/), klikt u op **alle services**, klikt u op **Azure Cosmos DB**, en klik vervolgens op de naam van de Azure Cosmos DB-account waarvoor u wilt instellen van prestaties metrische waarschuwingen.
 2. Klik in het resourcemenu op **waarschuwingsregels** om de pagina regels voor waarschuwingen te openen.  
-   ![Schermopname van de waarschuwing regels geselecteerd](./media/monitor-accounts/madocdb10.5.png)
+   ![Schermafbeelding van het onderdeel waarschuwingsregels geselecteerd](./media/monitor-accounts/madocdb10.5.png)
 3. In de **waarschuwingsregels** pagina, klikt u op **waarschuwing toevoegen**.  
    ![Schermafbeelding van de pagina regels voor waarschuwingen met de knop van het type waarschuwing toevoegen gemarkeerd](./media/monitor-accounts/madocdb11.png)
 4. In de **een waarschuwingsregel toevoegen** pagina:
@@ -61,7 +61,7 @@ Metrische gegevens kunnen worden gecontroleerd op de pagina met het Account voor
    * De voorwaarde, drempelwaarde en periode die bepalen wanneer de waarschuwing wordt geactiveerd. Bijvoorbeeld, een server aantal fouten groter is dan 5 in de afgelopen 15 minuten.
    * Of de servicebeheerder en medebeheerders per e-mail verzonden worden wanneer de waarschuwing wordt geactiveerd.
    * Aanvullende e-mailadressen voor meldingen van waarschuwingen.  
-     ![Schermopname van de toevoegen een waarschuwingsregel-pagina](./media/monitor-accounts/madocdb12.png)
+     ![Schermafbeelding van het toevoegen van een waarschuwingsregel-pagina](./media/monitor-accounts/madocdb12.png)
 
 ## <a name="monitor-azure-cosmos-db-programmatically"></a>Azure Cosmos DB controleren via een programma
 De account metingen op het niveau beschikbaar in de portal, zoals account opslag gebruik en totaal aantal aanvragen, zijn niet beschikbaar via de SQL-API's. U kunt echter gebruiksgegevens op het niveau verzameling ophalen met behulp van de SQL-API's. Om op te halen op gegevens te verzamelen, het volgende doen:

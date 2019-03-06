@@ -15,12 +15,12 @@ ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: 44fc096fa95be3a469ada7c7dc212ce4fc04e83b
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: ff07d2197f1a0bd67a3c152941e7c9f466e5e414
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57218053"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441522"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack-opslag: Verschillen en overwegingen
 
@@ -41,7 +41,7 @@ In dit artikel bevat een overzicht van de bekende Azure Stack Storage verschille
 |Premium Storage|Volledig ondersteund|Kan worden ingericht, maar er is geen prestatielimiet voor of garanderen.
 |Managed Disks|Premium en standaard worden ondersteund|Als u versie 1808 of hoger ondersteund.
 |Blobnaam|1024 tekens (2048 bytes)|880 tekens (1,760 bytes)
-|Maximale grootte voor blok-blob|4.75 TB (100 MB X 50.000 blokken)|4.75 TB (100 MB x 50.000 blokken) voor de update 1802 of een nieuwere versie. 50.000 x 4 MB (CA. 195 GB) voor eerdere versies.
+|Maximale grootte voor blok-blob|4.75 TB (100 MB X 50.000 blokken)|4.75 TB (100 MB x 50.000 blokken) voor de update 1802 of een nieuwere versie. 50.000 x 4 MB (ongeveer 195 GB) voor eerdere versies.
 |Pagina-blob-momentopname kopiëren|Back-up Azure niet-beheerde VM-schijven die zijn gekoppeld aan een actieve virtuele machine die wordt ondersteund|Nog niet ondersteund.
 |Pagina blob-momentopname van incrementele kopie|Premium en standard-pagina in Azure blobs ondersteund|Nog niet ondersteund.
 |Pagina-blob-facturering|Kosten worden berekend voor unieke's, ongeacht of deze in de blob of in de momentopname. Kan geen extra kosten voor momentopnamen die zijn gekoppeld aan een blob, totdat het basis-blob wordt bijgewerkt.|Kosten worden berekend voor basis-blob en assiociated momentopnamen. Extra kosten in rekening voor elke afzonderlijke momentopname rekening worden gebracht.

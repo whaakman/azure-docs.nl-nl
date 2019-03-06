@@ -12,12 +12,12 @@ ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: 95103ec7438a01e73617587bf919404e2bdcc686
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8e7e72236abdaeb77a6bfe3dd85c9ab0c8fbe40e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567193"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442695"
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Voorwaardelijke toegang (MFA) met Azure SQL Database en datawarehouse  
 
@@ -42,7 +42,7 @@ De volgende stappen laten zien hoe SQL Database configureren voor het afdwingen 
 
 4.  Selecteer **Cloud-apps**, klikt u op **apps selecteren**. Ziet u alle beschikbare apps voor voorwaardelijke toegang. Selecteer **Azure SQL Database**, klik onderaan op **Selecteer**, en klik vervolgens op **gedaan**.  
   ![SQL-Database selecteren](./media/sql-database-conditional-access/select-sql-database.png)  
-  Als u niet kunt vinden **Azure SQL Database** wordt vermeld in de volgende derde schermopname, de volgende stappen uitvoeren:   
+  Als u niet kunt vinden **Azure SQL Database** wordt vermeld in de volgende schermafbeelding van de derde, de volgende stappen uitvoeren:   
   - Aanmelden bij uw Azure SQL DB/DW-exemplaar met behulp van SSMS met een AAD-beheerdersaccount.  
   - Voer `CREATE USER [user@yourtenant.com] FROM EXTERNAL PROVIDER`.  
   - Aanmelden bij AAD en controleer of dat Azure SQL Database en datawarehouse worden weergegeven in de toepassingen in uw AAD.  

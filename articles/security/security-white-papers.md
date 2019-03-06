@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2018
 ms.author: tomsh
-ms.openlocfilehash: 01688c120a8302da4903302ab8bcd2d1fa4ab351
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 3fb6e42e55119684ace8547a55297d38dbb9a26e
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113410"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57402373"
 ---
 # <a name="azure-security-white-papers"></a>Azure Security technische documenten
 | | |
@@ -42,4 +42,4 @@ ms.locfileid: "56113410"
 |[Overzicht van Azure-naleving](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)|Deze downloadbare document worden de Azure compliance-aanbiedingen, met inbegrip van officiële certificeringen, verklaringen, validaties, machtigingen en beoordelingen die worden geproduceerd door onafhankelijke externe controle ondernemingen, evenals de contractuele wijzigingen zelfcontroles en documenten die richtlijnen voor klanten die door Microsoft zijn geproduceerd. <br/> Elke aanbieding beschrijving Staten welke Azure klantgerichte services binnen het bereik voor de evaluatie en vindt u koppelingen naar downloadbare resources om u te helpen van klanten met hun eigen verplichtingen.|
 |[Beveiligingsbeheer in Azure](azure-security-management.md)|Worden problemen beschreven in de externe toegang van Azure-resources. De aard van de cloud eisen RAS-beheer en daarom beveiliging is cruciaal. Bevat informatie over algemene beveiligingsrichtlijnen, clientconfiguratie, aanbevolen procedures en operationele principes en procedures. |
 |[Azure AD-gegevens en beveiliging](https://aka.ms/aaddatawhitepaper) | De downloadbare document wordt uitgelegd dat de verschillende onderdelen van Azure Active Directory en de interactie met elkaar. Het bevat een overzicht van hoe de verschillende onderdelen beveiligen, beveiligen, versleutelen of hash-hun gegevens die onderweg zijn (bijvoorbeeld via Internet) en hoe deze wordt beveiligd in rust. Hierin wordt uitgelegd de verschillende locaties voor Azure AD-datacenter en de interactie met on-premises directory's, evenals de stromen naar en van Azure AD. Ten slotte wordt de operationele procedures, door het technische team van Azure AD gebruikt om te beheren en beveiligen van de service beschreven.|
-
+|[Een overzicht van de verificatie zonder wachtwoord](https://aka.ms/pwdless-whitepaper)|Dit document is een overzicht van de belangrijkste voordelen van een wachtwoord zonder verificatie met behulp van Windows Hello voor bedrijven, FIDO2 beveiligingssleutels en de Microsoft Authenticator-App. Het wordt aanbevolen voor beveiligingsprofessionals en gebied die geïnteresseerd zijn in de informatie over hoe u met Microsoft kunt verder gaan dan wachtwoorden en implementeren van de volgende generatie verificatiereferenties.|

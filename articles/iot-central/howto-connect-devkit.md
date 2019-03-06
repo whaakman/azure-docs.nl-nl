@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 5412e0a7bae3667ceb29085da566ef3b73c82c35
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 6c9f128a046904eb8df90625ce1043b3d42e8be4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316622"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448540"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Een apparaat MXChip IoT DevKit verbinden met uw Azure IoT Central-toepassing
 
@@ -31,7 +31,7 @@ U hebt het volgende nodig om de stappen in dit artikel uit te voeren:
 
 Een toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon bevat een **MXChip** apparaat sjabloon met de volgende kenmerken: 
 
-- Telemetrie waarin de metingen voor het apparaat **vochtigheid**, **temperatuur**, **druk te verlichten**, **Magnometer** (gemeten langs de X Y, Z-as), **Accelorometer** (gemeten langs de X, Y, Z-as) en **gyroscoop** (gemeten langs de X, Y, Z-as).
+- Telemetrie waarin de metingen voor het apparaat **vochtigheid**, **temperatuur**, **druk te verlichten**, **Magnometer** (gemeten langs de X Y, Z-as), **versnellingsmeter** (gemeten langs de X, Y, Z-as) en **gyroscoop** (gemeten langs de X, Y, Z-as).
 - Status die bevat een voorbeeld van de meting voor **Apparaatstatus**.
 - Gebeurtenis-meting met een **B gedrukt** gebeurtenis. 
 - Instellingen van **spanning**, **huidige**, **ventilatorsnelheid**, en een **IR** in-/ uitschakelen.
@@ -56,7 +56,7 @@ Voeg in uw Azure IoT Central-toepassing een echt apparaat uit de **MXChip** appa
  
     ![Verbindingsdetails](media/concepts-connectivity/device-connect.PNG)
 
-3. Zorg ervoor dat deze details op te slaan als u temporaritly verbinding verbroken via internet bij het voorbereiden van het apparaat DevKit. 
+3. Als u tijdelijk de verbinding via internet verbroken bij het voorbereiden van het apparaat DevKit, zorg ervoor dat deze details op te slaan. 
 
 
 ### <a name="prepare-the-devkit-device"></a>Het apparaat DevKit voorbereiden

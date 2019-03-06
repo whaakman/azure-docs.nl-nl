@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: de4c8aecefce334889c3fa6790c0ba42673896c7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d51c7330acd37d8a861c136ea85a2ff456eb264e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196793"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446483"
 ---
 # <a name="azure-applications-test-drive-tab"></a>Azure-toepassingen Test Drive-tabblad
 
@@ -33,7 +33,7 @@ Daardoor kunnen klanten met een praktische, zelfgestuurd evaluatieversie van de 
 
 ## <a name="how-a-test-drive-works"></a>De werking van een test uit
 
-Een potentiële klant wordt gezocht en detecteert de toepassing op de Marketplace. De klant zich heeft aangemeld en gaat akkoord met de gebruiksvoorwaarden. Op dit moment ontvangt de klant uw vooraf geconfigureerde omgeving om te proberen voor een vast aantal uren, terwijl u een zeer gekwalificeerde lead te ontvangen. Zie voor meer informatie, [wat is Test Drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/what-is-test-drive)
+Een potentiële klant wordt gezocht en detecteert de toepassing op de Marketplace. De klant zich heeft aangemeld en gaat akkoord met de gebruiksvoorwaarden. Op dit moment ontvangt de klant uw vooraf geconfigureerde omgeving om te proberen voor een vast aantal uren, terwijl u een zeer gekwalificeerde lead te ontvangen. Zie voor meer informatie, [wat is Test Drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
 
 ## <a name="setting-up-a-test-drive"></a>Instellen van een test uit
 
@@ -65,12 +65,12 @@ De volgende tabel beschrijft de velden die vereist zijn voor het instellen van t
 |      Description              |   Wat kan worden uitgevoerd op uw Test Drive wordt beschreven. U kunt eenvoudige HTML-codes gebruiken om deze beschrijving. Bijvoorbeeld, &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt;, en koppen.                |
 |    Gebruikershandleiding                |     Een gebruiker handmatig die uw klanten gebruiken kunnen om te zien hoe Test Drive uploaden. Dit document moet een PDF-bestand.              |
 |         Test Drive demovideo (optioneel)           |       U kunt een video-overzicht van uw Test Drive opgeven. Een klant kan deze video kunt bekijken voordat ze een test uitvoeren. Geef een URL naar de video op YouTube of Vimeo. Als u selecteert **+ Video toevoegen**, wordt u gevraagd om de volgende informatie te geven:<ul><li>Name</li><li>URL</li><li>Miniatuur (in PNG-indeling hebben, 533 x 324 pixels)</li></ul>            |
-|       Exemplaren             |        Hoeveel exemplaren u wilt configureren, in welke regio('s), en hoe snel uw klanten de Test Drive krijgen. Zie voor meer informatie, [het publiceren van een Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/azure-resource-manager-test-drive#how-to-publish-a-test-drive).           |
+|       Exemplaren             |        Hoeveel exemplaren u wilt configureren, in welke regio('s), en hoe snel uw klanten de Test Drive krijgen. Zie voor meer informatie, [het publiceren van een Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive#how-to-publish-a-test-drive).           |
 |       Test Drive duur (uren)             |       Voer een geheel getal voor het aantal uren. Het toegestane bereik ligt tussen 1 en 999 liggen.            |
-|        Test Drive ARM-sjabloon            |        Upload een gecomprimeerd bestand (.zip) met uw Azure Resource Manager-sjablonen voor uw app. Zie voor meer informatie, [Azure Resource Manager Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/azure-resource-manager-test-drive).            |
+|        Test Drive ARM-sjabloon            |        Upload een gecomprimeerd bestand (.zip) met uw Azure Resource Manager-sjablonen voor uw app. Zie voor meer informatie, [Azure Resource Manager Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive).            |
 |        Toegang tot informatie            |         Toegang tot informatie opgeven nadat de wordt de Test Drive van uw klant. Bijvoorbeeld, een URL voor toegang tot het station test en meld u informatie. . U kunt eenvoudige HTML-codes gebruiken om deze beschrijving. Bijvoorbeeld, &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt;, en koppen.          |
 |       Toegang tot abonnements-Id             |       Dit verleent toegang tot Azure-services en de Azure-portal. Het abonnement is waarbij Resourcegebruik wordt gerapporteerd, en services worden in rekening gebracht. Als u nog een afzonderlijke Azure-abonnement hebt voor de Test Drives alleen, maakt u een abonnement.             |
-|          Azure AD-Tenant-Id          |        Geef een bestaande Tenant in Azure Active Directory of een tenant voor deze test drive maken.           |
+|          Azure AD Tenant Id          |        Geef een bestaande Tenant in Azure Active Directory of een tenant voor deze test drive maken.           |
 |         Azure AD-App-Id           |       Maak en registreer een nieuwe toepassing. Microsoft gebruikt deze toepassing voor het uitvoeren van bewerkingen op uw Test Drive-exemplaar.            |
 |          Azure AD-App-sleutel          |         Maak een verificatiesleutel voor de app en plak deze in dit veld.          |
 

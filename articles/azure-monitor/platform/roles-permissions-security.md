@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 55a7a26815dac1140d100c05a47057f8d5000f9d
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 591b30d0147e427e8a0dbc2d25276bdcd3b54be6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317812"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445480"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Aan de slag met rollen, machtigingen en beveiliging met Azure Monitor
 
@@ -160,7 +160,7 @@ New-AzRoleDefinition -Role $role
 Een vergelijkbaar patroon kan worden gevolgd met eventhubs, maar u moet eerst een toegewezen Listen-autorisatieregel. Als u wilt verlenen, toegang tot een toepassing die alleen nodig heeft om te luisteren naar bewaking-gerelateerde eventhubs, het volgende doen:
 
 1. Maak een beleid voor gedeelde toegang op de event hub die zijn gemaakt voor het streamen van gegevens met alleen Listen-claims. Dit kan worden gedaan in de portal. Bijvoorbeeld, kunt u deze aanroepen "monitoringReadOnly." U wilt, indien mogelijk, geven deze sleutel rechtstreeks naar de gebruiker en de volgende stap overslaan.
-2. Als de consument kunnen om op te halen van de belangrijkste ad-hoc moet, verleent u de gebruiker de actie ListKeys voor die event hub. Dit is ook nodig zijn voor gebruikers die willen kunnen een diagnostische instelling instellen of logboekprofiel te streamen naar eventhubs. U kunt bijvoorbeeld een regel voor RBAC maken:
+2. Als de consument de sleutel ad hoc krijgen moet, verleent u de gebruiker de actie ListKeys voor die event hub. Dit is ook nodig zijn voor gebruikers die willen kunnen een diagnostische instelling instellen of logboekprofiel te streamen naar eventhubs. U kunt bijvoorbeeld een regel voor RBAC maken:
    
    ```powershell
    $role = Get-AzRoleDefinition "Reader"

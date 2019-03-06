@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 8693c5e255020e30c2e8ed52a3199712089e4503
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 24e2d7be0dfc32e499bc864f2fdf7e2b1c108969
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119081"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440205"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Een Azure-SSIS integratieruntime toevoegen aan een virtueel netwerk
 Uw Azure-SSIS integratieruntime (IR) toevoegen aan een Azure-netwerk in de volgende scenario's: 
@@ -83,9 +83,9 @@ De gebruiker die de Azure-SSIS Integration Runtime maakt, moet de volgende macht
 
 - Als u uw SSIS-IR aan een virtueel netwerk van Azure Resource Manager toevoegen bent, hebt u twee opties:
 
-  - Gebruik de ingebouwde *Inzender voor netwerken* rol. Deze rol wordt geleverd met de *Microsoft.Network/\**  machtiging een veel groter bereik dan nodig heeft.
+  - Gebruik de ingebouwde *Inzender voor netwerken* rol. Deze rol wordt geleverd met de _Microsoft.Network/\*_  machtiging een veel groter bereik dan nodig heeft.
 
-  - Een aangepaste rol maken die alleen de benodigde bevat *Microsoft.Network/virtualNetworks/\*/join/actie* machtiging. 
+  - Een aangepaste rol maken die alleen de benodigde bevat _Microsoft.Network/virtualNetworks/\*/join/actie_ machtiging. 
 
 - Als u uw SSIS-IR aan een klassiek virtueel netwerk toevoegen bent, raden wij aan dat u de ingebouwde *Inzender voor klassieke virtuele machines* rol. Anders moet u een aangepaste rol met de machtigingen om lid van het virtuele netwerk te definiëren.
 
@@ -96,7 +96,7 @@ De gebruiker die de Azure-SSIS Integration Runtime maakt, moet de volgende macht
 
 -   Gebruik niet een subnet dat uitsluitend wordt ingenomen door andere Azure-services (bijvoorbeeld SQL Database Managed Instance, App Service, enzovoort). 
 
-### <a name="dns_server"></a> Domain Name Services-server 
+### <a name="dns_server"></a> Domain Name Services server 
 Als u nodig hebt voor gebruik met uw eigen Services DNS (Domain Name)-server in een virtueel netwerk dat is gekoppeld met uw Azure-SSIS integratieruntime, zorg ervoor dat het openbare Azure-hostnamen kan omzetten (bijvoorbeeld een naam voor Azure Storage blob `<your storage account>.blob.core.windows.net`). 
 
 De volgende stappen worden aanbevolen: 
@@ -115,7 +115,7 @@ Als u nodig hebt voor het implementeren van een netwerkbeveiligingsgroep (NSG) v
 | Inkomend | TCP | AzureCloud<br/>(of een groter bereik, zoals Internet) | * | VirtualNetwork | 29876, 29877 (als u de IR aan een virtueel netwerk van Azure Resource Manager toevoegen) <br/><br/>10100, 20100, 30100 (als u de IR aan een klassiek virtueel netwerk toevoegen)| De Data Factory-service gebruikt deze poorten om te communiceren met de knooppunten van uw Azure-SSIS integratieruntime in het virtuele netwerk. <br/><br/> Of u een NSG op subnetniveau of niet maakt, Data Factory altijd Hiermee configureert u een NSG op het niveau van de netwerkinterfacekaarten (NIC's) die is gekoppeld aan de virtuele machines die als host fungeren van de Azure-SSIS-IR. Alleen inkomend verkeer van Data Factory-IP-adressen op de opgegeven poorten is toegestaan door deze NSG NIC-niveau. Zelfs als u deze poorten voor verkeer van Internet op het subnetniveau opent, wordt verkeer van IP-adressen die geen Data Factory-IP-adressen wordt geblokkeerd op NIC-niveau. |
 | Uitgaand | TCP | VirtualNetwork | * | AzureCloud<br/>(of een groter bereik, zoals Internet) | 443 | De knooppunten van uw Azure-SSIS integratieruntime in het virtuele netwerk gebruiken deze poort voor toegang tot Azure-services, zoals Azure Storage en Azure Event Hubs. |
 | Uitgaand | TCP | VirtualNetwork | * | Internet | 80 | De knooppunten van uw Azure-SSIS integratieruntime in het virtuele netwerk gebruikt deze poort certificaatintrekkingslijst downloaden van Internet. |
-| Uitgaand | TCP | VirtualNetwork | * | SQL<br/>(of een groter bereik, zoals Internet) | 1433, 11000 11999, 14000 14999 | De knooppunten van uw Azure-SSIS integratieruntime in het virtuele netwerkgebruik deze poorten voor toegang tot SSISDB wordt gehost door uw Azure SQL Database-server, dit doel is niet van toepassing op SSISDB wordt gehost door beheerde exemplaar. |
+| Uitgaand | TCP | VirtualNetwork | * | SQL<br/>(of een groter bereik, zoals Internet) | 1433, 11000-11999, 14000-14999 | De knooppunten van uw Azure-SSIS integratieruntime in het virtuele netwerkgebruik deze poorten voor toegang tot SSISDB wordt gehost door uw Azure SQL Database-server, dit doel is niet van toepassing op SSISDB wordt gehost door beheerde exemplaar. |
 ||||||||
 
 ### <a name="route"></a> Gebruik Azure ExpressRoute of de gebruiker gedefinieerde Route
@@ -280,6 +280,8 @@ U moet een virtueel netwerk configureren voordat u een Azure-SSIS IR aan deze to
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ### <a name="configure-a-virtual-network"></a>Een virtueel netwerk configureren
 U moet een virtueel netwerk configureren voordat u uw Azure-SSIS IR aan deze toevoegen kunt. Toevoegen als u wilt configureren automatisch machtigingen/instellingen van virtuele netwerken voor uw Azure-SSIS integratieruntime voor deelname aan het virtuele netwerk, het volgende script:
 
@@ -289,16 +291,16 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
     # Register to the Azure Batch resource provider
     $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
-    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
-    while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
+    $BatchObjectId = (Get-AzADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
+    Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
+    while(!(Get-AzResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
     {
     Start-Sleep -s 10
     }
     if($VnetId -match "/providers/Microsoft.ClassicNetwork/")
     {
         # Assign the VM contributor role to Microsoft.Batch
-        New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+        New-AzRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
     }
 }
 ```
@@ -326,7 +328,7 @@ $SubnetName = "<the name of subnet in your virtual network>"
 De Azure-SSIS integratieruntime te stoppen voordat u deze naar een virtueel netwerk kan worden toegevoegd. Met deze opdracht alle knooppunten worden vrijgegeven en stopt facturering:
 
 ```powershell
-Stop-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+Stop-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                             -DataFactoryName $DataFactoryName `
                                             -Name $AzureSSISName `
                                             -Force 
@@ -339,25 +341,25 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
     # Register to the Azure Batch resource provider
     $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
-    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
-    while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
+    $BatchObjectId = (Get-AzADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
+    Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
+    while(!(Get-AzResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
     {
         Start-Sleep -s 10
     }
     if($VnetId -match "/providers/Microsoft.ClassicNetwork/")
     {
         # Assign VM contributor role to Microsoft.Batch
-        New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+        New-AzRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
     }
 }
 ```
 
 ### <a name="configure-the-azure-ssis-ir"></a>De Azure-SSIS IR configureren
-Voor het configureren van de Azure-SSIS integratieruntime om deel te nemen van het virtuele netwerk, voer de `Set-AzureRmDataFactoryV2IntegrationRuntime` opdracht: 
+Voor het configureren van de Azure-SSIS integratieruntime om deel te nemen van het virtuele netwerk, voer de `Set-AzDataFactoryV2IntegrationRuntime` opdracht: 
 
 ```powershell
-Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                            -DataFactoryName $DataFactoryName `
                                            -Name $AzureSSISName `
                                            -Type Managed `
@@ -369,7 +371,7 @@ Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName
 Voer de volgende opdracht voor het starten van de Azure-SSIS integratieruntime: 
 
 ```powershell
-Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                              -DataFactoryName $DataFactoryName `
                                              -Name $AzureSSISName `
                                              -Force

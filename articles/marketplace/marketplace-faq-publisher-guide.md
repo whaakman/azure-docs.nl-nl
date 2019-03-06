@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: ellacroi
-ms.openlocfilehash: 25349593bd45949f662581160fa23d30b4682710
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 3ad38b215cf33bda0c9f9d0bcd7403b6201282ee
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214194"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437153"
 ---
 # <a name="marketplace-faqs"></a>Veelgestelde vragen over Marketplace
 
@@ -114,7 +114,7 @@ Voor het migreren van een abonnement op Azure Marketplace Virtual Machine (VM) a
 
 **Hoe kan ik Azure Marketplace-abonnementen prijs?**
 
-Prijs varieert op basis van het producttype en de specificaties van de uitgever. Kosten voor softwarelicenties en Azure-gebruikskosten worden afzonderlijk in rekening gebracht via uw Azure-abonnement.
+Prijzen zijn afhankelijk van het producttype en de specificaties van de uitgever. Kosten voor softwarelicenties en Azure-gebruikskosten worden afzonderlijk in rekening gebracht via uw Azure-abonnement.
 
 *Zonder:*
 
@@ -541,7 +541,7 @@ Voor het migreren van virtuele machines met BYOL naar EA-abonnement, moet u niet
 
 **Hoe kan ik Azure Marketplace-abonnementen prijs?**
 
-Prijs varieert op basis van het producttype en de specificaties van de uitgever. Kosten voor softwarelicenties en Azure-gebruikskosten worden afzonderlijk in rekening gebracht via uw Azure-abonnement. Prijsmodellen zijn inclusief:
+Prijzen zijn afhankelijk van het producttype en de specificaties van de uitgever. Kosten voor softwarelicenties en Azure-gebruikskosten worden afzonderlijk in rekening gebracht via uw Azure-abonnement. Enkele prijsmodellen:
 
 * **BYOL-Model**: Bring-your-own-license. Wanneer u rechtstreeks vanuit de uitgever of een reseller een softwarelicentie voor gebruik op Azure Marketplace hebt verkregen, betaalt u geen eventuele extra kosten met betrekking tot software voor het gebruik.
 

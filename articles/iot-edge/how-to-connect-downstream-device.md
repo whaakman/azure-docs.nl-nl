@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d41ec0bc959eb264564d49ae6ac31aa30b3be98a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 32b9a00aa943813bec3c518c3c9dbf0e37a9bc63
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492756"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445922"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Een downstream-apparaat verbinden met Azure IoT Edge-gateway
 
@@ -40,7 +40,10 @@ Voordat u de stappen in dit artikel te volgen, hebt u twee apparaten klaar om te
 2. Een downstream-apparaat met een apparaat-id van IoT Hub. 
     U kunt een IoT Edge-apparaat niet gebruiken als de downstream-apparaat. Gebruik in plaats daarvan een apparaat is geregistreerd als een normale IoT-apparaat in IoT Hub. In de portal, registreert u een nieuwe apparaat in de **IoT-apparaten** sectie. Of u kunt de Azure CLI voor [Registreer een apparaat](../iot-hub/quickstart-send-telemetry-c.md#register-a-device). Kopieer de verbindingsreeks en deze beschikbaar voor gebruik in latere secties. 
 
-    Op dit moment kunnen alleen downstream apparaten met verificatie met een symmetrische sleutel verbinding maken via IoT Edge-gateways. X.509-CA's en zelf-ondertekend X.509-certificaten worden momenteel niet ondersteund. 
+    Op dit moment kunnen alleen downstream apparaten met verificatie met een symmetrische sleutel verbinding maken via IoT Edge-gateways. X.509-CA's en zelf-ondertekend X.509-certificaten worden momenteel niet ondersteund.
+    
+> [!NOTE]
+> De "gatewaynaam" gebruikt voor het maken van de certificaten in deze instructie moet dezelfde naam als gebruikt als de hostnaam in uw IoT Edge config.yaml-bestand en als GatewayHostName in de verbindingsreeks van de downstream-apparaat. De gatewaynaam"" moet worden omgezet naar een IP-adres, hetzij met behulp van DNS- of een hostbestandvermelding. Communicatie op basis van het protocol dat wordt gebruikt (MQTTS:8883 / AMQPS:5671 / HTTPS:433) moet mogelijk tussen downstream-apparaat en het transparant IoT Edge. Als een firewall tussen is, moet de respectieve poort geopend.
 
 ## <a name="prepare-a-downstream-device"></a>Een downstream apparaat voorbereiden
 

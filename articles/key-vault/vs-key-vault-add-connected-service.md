@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: ghogen
-ms.openlocfilehash: a6de5385046918c48b3f606477727ca4623a784c
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 098958cd729f1c616a93bbb5264445cb6d877f8b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998622"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441981"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Key Vault toevoegen aan uw web-App met behulp van Visual Studio verbonden Services
 
@@ -49,7 +49,7 @@ Zie voor meer informatie over de wijzigingen Connected Services voor het inschak
 
    ![Wijzig de naam van de Key Vault en kies een resourcegroep](media/vs-key-vault-add-connected-service/KeyVaultConnectedService-Edit.PNG)
 
-1. Selecteer een bestaande resourcegroep of een nieuwe maken met een automatisch gegenereerde unieke naam.  Als u een nieuwe groep maken met een andere naam wilt, kunt u de [Azure Portal](https://portal.azure.com), en de pagina te sluiten en opnieuw opstarten om opnieuw te laden van de lijst met resourcegroepen.
+1. Selecteer een bestaande resourcegroep of maak een nieuw bestand met een automatisch gegenereerde unieke naam.  Als u een nieuwe groep maken met een andere naam wilt, kunt u de [Azure Portal](https://portal.azure.com), en de pagina te sluiten en opnieuw opstarten om opnieuw te laden van de lijst met resourcegroepen.
 1. Kies de regio waarin u wilt maken van de Key Vault. Als uw webtoepassing wordt gehost in Azure, kiest u de regio die als host fungeert voor de web-App voor optimale prestaties.
 1. Kies een prijsmodel. Zie voor meer informatie, [prijzen van Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 1. Klik op OK om te accepteren van de configuratie-opties.

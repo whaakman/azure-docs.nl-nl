@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: ce65f71349ae6d7e86ebae1ee2067653a63b89b4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e464787919577b89b1cfec11e579cb17c18e2878
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161056"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404214"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>De resource-eigenaar wachtwoord referentiestroom configureren in Azure AD B2C
 
@@ -40,7 +40,7 @@ De volgende stromen worden niet ondersteund:
 1.  Meld u aan de Azure-portal als globale beheerder van uw Azure AD B2C-tenant.
 2.  Als u wilt overschakelen naar de Azure AD B2C-tenant, selecteert u de B2C-map in de rechterbovenhoek van de portal.
 3.  Klik op **gebruikersstromen**, en selecteer **nieuwe gebruikersstroom**.
-4.  Klik op de **alle** tabblad en selecteer **Resource-eigenaar**.
+4.  Klik op de **alle** tabblad en selecteer **Meld u aan met behulp van ROPC**.
 5.  Geef een naam voor de gebruikersstroom zoals *ROPC_Auth*.
 6.  Onder **toepassingsclaims**, klikt u op **meer weergeven**.
 7.  Selecteer de toepassingsclaims die u nodig hebt voor uw toepassing, zoals naam, e-mailadres en id-Provider.
@@ -69,7 +69,7 @@ Gebruik uw favoriete API-ontwikkeling-toepassing voor het genereren van een API-
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| Sleutel | Waarde |
+| Sleutel | Value |
 | --- | ----- |
 | gebruikersnaam | leadiocl@outlook.com |
 | wachtwoord | Passxword1 |
@@ -83,7 +83,7 @@ Gebruik uw favoriete API-ontwikkeling-toepassing voor het genereren van een API-
 De werkelijke POST-aanvraag ziet er als volgt uit:
 
 ```
-POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
+POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth HTTP/1.1
 Host: yourtenant.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
@@ -109,7 +109,7 @@ Bouw een POST-aanroep zoals hier wordt weergegeven met de informatie in de volge
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| Sleutel | Waarde |
+| Sleutel | Value |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |

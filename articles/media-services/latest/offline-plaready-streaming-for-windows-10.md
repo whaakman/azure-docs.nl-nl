@@ -2,7 +2,7 @@
 title: Uw account voor het streamen van offline PlayReady beveiligde inhoud - Azure configureren
 description: In dit artikel laat zien hoe het configureren van Azure Media Services-account voor offline PlayReady voor Windows 10-streaming.
 services: media-services
-keywords: DASH, DRM, Widevine Offline modus, ExoPlayer, Android
+keywords: DASH, DRM, Widevine Offline Mode, ExoPlayer, Android
 documentationcenter: ''
 author: willzhan
 manager: steveng
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: aab0e5eab0edcbc0a26b673730f9fef5a5b01fde
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 6960f6da2eb8c867d36ba4073d1a0fcafe8d75bf
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54122289"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443198"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Offline PlayReady Streaming voor Windows 10
 
@@ -63,7 +63,7 @@ Asset #1:
 Asset #2:
 
 * Progressieve download-URL: [http://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](http://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
-* PlayReady LA_URL (on-premises): [https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
+* PlayReady LA_URL (on premises): [https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
 
 Voor het testen van afspelen, hebben we een universele Windows-toepassing op Windows 10 gebruikt. In [Windows 10 Universal-voorbeelden](https://github.com/Microsoft/Windows-universal-samples), er is een eenvoudige player-voorbeeld met de naam [adaptieve Streaming voorbeeld](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming). We moeten doen, is de code voor ons gedownloade video ophalen en deze gebruiken als de bron, in plaats van adaptieve streaming gegevensbron toevoegen. De wijzigingen zijn in de knop klikt u op gebeurtenis-handler:
 

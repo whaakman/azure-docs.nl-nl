@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/16/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7a6fd51ad14395b3c195ae1ceb5a188dd2c708c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fa3a3dbda3f184b0c2541dc9df6c39afa86458e4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162506"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437629"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Zelfstudie: Azure Active Directory-integratie met Pega systemen
 
@@ -119,7 +119,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Pega systemen domein en URL's, eenmalige aanmelding informatie](./media/pegasystems-tutorial/tutorial_pegasystems_url1.png)
 
-    In de **Relaystatus** tekstvak, een URL met behulp van het volgende patroon: `https://<CUSTOMERNAME>.pegacloud.io/prweb/sso`
+    In het tekstvak **Relaystatus** typt u een URL met het volgende patroon: `https://<CUSTOMERNAME>.pegacloud.io/prweb/sso`
      
     > [!NOTE] 
     > Dit zijn geen echte waarden. Werk deze waarden met de werkelijke-id, de antwoord-URL en Relay status URL. Hier vindt u de waarden van de id en antwoord-URL van Pega-toepassing die verderop in deze zelfstudie wordt uitgelegd. Voor de Relay-status, neem contact op met [Pega systemen Client ondersteuningsteam](https://www.pega.com/contact-us) om de waarde. 
@@ -170,7 +170,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![De knop voor enkelvoudige aanmelding configureren](./media/pegasystems-tutorial/tutorial_pegasystems_admin.png)
     
-1. De volgende acties uitvoeren op **Aauthentication Service maken** scherm:
+1. De volgende acties uitvoeren op **verificatieservice maken** scherm:
 
     ![De knop voor enkelvoudige aanmelding configureren](./media/pegasystems-tutorial/tutorial_pegasystems_admin1.png)
 
@@ -281,7 +281,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

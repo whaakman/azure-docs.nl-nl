@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 933506e732926b0f3827f039a65e78acd3a6932b
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 52b52cce1e93e55563cf695f06bd7821ebcfc585
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653812"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444902"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Apache HBase-cluster-replicatie in virtuele Azure-netwerken instellen
 
@@ -67,10 +67,10 @@ Enkele van de vastgelegde waarden in de sjabloon:
 
 **VNet-1**
 
-| Eigenschap | Waarde |
+| Eigenschap | Value |
 |----------|-------|
 | Locatie | US - west |
-| VNET-naam | &lt;ClusterNamePrevix >-vnet1 |
+| VNET-naam | &lt;ClusterNamePrevix>-vnet1 |
 | Adresruimtevoorvoegsel | 10.1.0.0/16 |
 | Subnetnaam | subnet 1 |
 | Het subnetvoorvoegsel | 10.1.0.0/24 |
@@ -84,10 +84,10 @@ Enkele van de vastgelegde waarden in de sjabloon:
 
 **VNet 2**
 
-| Eigenschap | Waarde |
+| Eigenschap | Value |
 |----------|-------|
 | Locatie | US - oost |
-| VNET-naam | &lt;ClusterNamePrevix >-vnet2 |
+| VNET-naam | &lt;ClusterNamePrevix>-vnet2 |
 | Adresruimtevoorvoegsel | 10.2.0.0/16 |
 | Subnetnaam | subnet 1 |
 | Het subnetvoorvoegsel | 10.2.0.0/24 |
@@ -136,7 +136,7 @@ Gebruik de volgende procedure voor het installeren van de binding voor:
     sudo apt-get install bind9 -y
     ```
 
-3. Binding voor het doorsturen van aanvragen voor naamomzetting met uw on-premises DNS-server configureren. Om dit te doen, gebruikt u de volgende tekst als de inhoud van de `/etc/bind/named.conf.options` bestand:
+3. Binding voor het doorsturen van aanvragen naar uw op lokale DNS-server naamomzetting configureren. Om dit te doen, gebruikt u de volgende tekst als de inhoud van de `/etc/bind/named.conf.options` bestand:
 
     ```
     acl goodclients {
@@ -262,7 +262,7 @@ Maak een [Apache HBase](https://hbase.apache.org/) -cluster in elk van de twee v
 
 - **De naam van resourcegroep**: naam van de dezelfde resourcegroep gebruiken als u de virtuele netwerken die zijn gemaakt.
 - **Clustertype**: HBase
-- **Versie**: HBase 1.1.2 (HDI 3.6)
+- **Version**: HBase 1.1.2 (HDI 3.6)
 - **Locatie**: Gebruik de dezelfde locatie als het virtuele netwerk.  Vnet1 is standaard *VS-West*, en vnet2 is *VS-Oost*.
 - **Opslag**: Maak een nieuw opslagaccount voor het cluster.
 - **Virtueel netwerk** (van de geavanceerde instellingen op de portal): Selecteer vnet1 die in de laatste procedure hebt gemaakt.
@@ -313,12 +313,12 @@ Optionele argumenten:
 
 |Name|Description|
 |----|-----------|
-|-su,--src-ambari-gebruiker | Hiermee geeft u de beheerdersnaam voor de Ambari op de bron HBase-cluster. De standaardwaarde is **admin**. |
-|-database-eenheid,--dst-ambari-gebruiker | Hiermee geeft u de beheerdersnaam voor de Ambari op de bestemming HBase-cluster. De standaardwaarde is **admin**. |
+|-su, --src-ambari-user | Hiermee geeft u de beheerdersnaam voor de Ambari op de bron HBase-cluster. De standaardwaarde is **admin**. |
+|-du, --dst-ambari-user | Hiermee geeft u de beheerdersnaam voor de Ambari op de bestemming HBase-cluster. De standaardwaarde is **admin**. |
 |-t-,--lijst van de tabel | Hiermee geeft u de tabellen worden gerepliceerd. Bijvoorbeeld:--lijst van de tabel = "table1, table2; Tabel3". Als u geen tabellen opgeeft, worden alle bestaande HBase-tabellen worden gerepliceerd.|
 |-m-,--computer | Hiermee geeft u het hoofdknooppunt waarop de scriptactie wordt uitgevoerd. De waarde is een **hn0** of **hn1** en moet worden gekozen op basis van die het hoofdknooppunt van het actief is. Gebruik deze optie als u nu het script $0 worden uitgevoerd als een scriptactie van de HDInsight-portal of Azure PowerShell.|
-|-cp - copydata | Hiermee kunt de migratie van bestaande gegevens op de tabellen waarin de replicatie is ingeschakeld. |
-|-rpm, -replicatie-phoenix-metagegevens | Hiermee schakelt u replicatie voor Phoenix systeemtabellen. <br><br>*Gebruik deze optie Wees voorzichtig.* U wordt aangeraden Phoenix-tabellen op clusters van de replica opnieuw te maken voordat u dit script gebruiken. |
+|-cp, -copydata | Hiermee kunt de migratie van bestaande gegevens op de tabellen waarin de replicatie is ingeschakeld. |
+|-rpm, -replicate-phoenix-meta | Hiermee schakelt u replicatie voor Phoenix systeemtabellen. <br><br>*Gebruik deze optie Wees voorzichtig.* U wordt aangeraden Phoenix-tabellen op clusters van de replica opnieuw te maken voordat u dit script gebruiken. |
 |-h,--Help-informatie | Geeft informatie over het gebruik. |
 
 De `print_usage()` sectie van de [script](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh) heeft een gedetailleerde beschrijving van parameters.

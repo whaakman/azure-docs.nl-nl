@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: a45ed3ad5360f613a4949799c60ec09f4a30afb9
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 7a02fff5a727bd0a3be762e9e458a71f66b87ba2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56427765"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452671"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>SQL Data Warehouse business intelligence-partners
 Kiezen uit een groot aantal toonaangevende hulpprogramma's voor het maken van uw end-to-end datawarehouse-oplossing.  In dit artikel ziet u Microsoft partnerbedrijven met business intelligence (BI)-oplossingen is ondersteuning van Azure SQL Data Warehouse.
@@ -34,7 +34,7 @@ Kiezen uit een groot aantal toonaangevende hulpprogramma's voor het maken van uw
 | ![SiSense][9] |**SiSense**<br>SiSense is een volledige stack Business Intelligence-software die wordt geleverd met hulpprogramma's die een bedrijf nodig heeft om te analyseren en visualiseren van gegevens: een krachtige analytische database, de mogelijkheid om toe te voegen van meerdere bronnen, eenvoudige gegevensextractie (ETL) en gegevens op het web visualisatie. Beginnen met het analyseren en visualiseren van grote gegevenssets met SiSense BI en Analytics vandaag nog. |[Website][sisense_website]<br>[Gegevensblad][sisense_datasheet]<br>[Twitter][sisense_twitter]<br>[YouTube][sisense_youtube] |[![sisense video](./media/sql-data-warehouse-partner-business-intelligence/sisense_video.jpg)](https://www.youtube.com/watch?v=6N3mkTWI5R4) |
 | ![Tableau][10] |**Tableau**<br>Tableau van selfservice-analyses kunt iedereen en begrijpen van hun gegevens, op allerlei gegevens uit platte bestanden naar databases. Tableau heeft een eigen, geoptimaliseerde connector naar Microsoft Azure SQL Data Warehouse die ondersteuning biedt voor zowel dynamische gegevens en in-memory analyse. |[Marketplace][tableau_marketplace]<br>[Website][tableau_website]<br>[Gegevensblad][tableau_datasheet]<br>[Twitter][tableau_twitter]<br>[YouTube][tableau_youtube] |[![tableau video](./media/sql-data-warehouse-partner-business-intelligence/tableau_video.jpg)](https://www.youtube.com/watch?v=TwbkI3ZzCHE) |
 | ![Targit][11] |**Targit**<br>Targit besluit Suite biedt BI en Analytics platform dat voorziet in realtime-dashboards, selfservice-analyses, gebruiksvriendelijke reporting, verbluffende mobiele mogelijkheden en eenvoudige gegevensdetectie technologie in een enkele, samenhangend-oplossing. Targit biedt bedrijven de durft uit te dagen om te fungeren. |[Marketplace][targit_marketplace]<br>[Website][targit_website]<br>[Twitter][targit_twitter]<br>[YouTube][targit_youtube] |[![targit video](./media/sql-data-warehouse-partner-business-intelligence/targit_video.jpg)](https://www.youtube.com/watch?v=A0vET80Ker4) |
-| ![Yellowfin als beste][12] |**Yellowfin als beste**<br>Yellowfin is een Best beoordeeld van Cloud-BI leverancier voor ad-hoc-rapporten en Dashboards op uit; De enquête BI. Verbinding maken met Azure SQL Data Warehouse, en vervolgens maken en delen van geweldige rapporten en dashboards met bekroonde samenwerkende BI en de locatie intelligentiefuncties. |[Marketplace][yellowfin_marketplace]<br>[Website][yellowfin_website]<br>[Gegevensblad][yellowfin_datasheet]<br>[Twitter][yellowfin_twitter]<br>[YouTube][yellowfin_youtube] |[![yellowfin als beste video](./media/sql-data-warehouse-partner-business-intelligence/yellowfin_video.jpg)](https://www.youtube.com/watch?v=i1q33AftI0A) |
+| ![Yellowfin als beste][12] |**Yellowfin als beste**<br>Yellowfin is een Best beoordeeld van Cloud-BI leverancier voor ad-hoc rapporten en Dashboards op uit; De enquête BI. Verbinding maken met Azure SQL Data Warehouse, en vervolgens maken en delen van geweldige rapporten en dashboards met bekroonde samenwerkende BI en de locatie intelligentiefuncties. |[Marketplace][yellowfin_marketplace]<br>[Website][yellowfin_website]<br>[Gegevensblad][yellowfin_datasheet]<br>[Twitter][yellowfin_twitter]<br>[YouTube][yellowfin_youtube] |[![yellowfin als beste video](./media/sql-data-warehouse-partner-business-intelligence/yellowfin_video.jpg)](https://www.youtube.com/watch?v=i1q33AftI0A) |
 
 <!--https://img.youtube.com/vi/0b8sPW2UHrU/0.jpg-->
 

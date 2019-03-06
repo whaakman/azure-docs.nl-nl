@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.openlocfilehash: 5378151d01418a81977f2fc2f562a6540bbb665d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 6659b49ecfbcb6bf571fccc258a65aa547f72f86
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663183"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453810"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Implementatie van virtuele Azure-machine automatiseren met Chef
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -175,7 +175,7 @@ knife[:azure_publish_settings_file] = "yourfilename.publishsettings"
 Volgende [download en installeer](https://downloads.chef.io/chef-workstation/) Chef werkstation.
 Installeer Chef werkstation de standaardlocatie. Deze installatie kan enkele minuten duren.
 
-Op het bureaublad ziet u een 'gewicht PowerShell', dit een omgeving die is geladen met het hulpprogramma die u nodig hebt is voor interactie met de Chef-producten. Het gewicht PowerShell zijn nieuwe ad-hoc-opdrachten beschikbaar, zoals `chef-run` ook als traditionele Chef CLI-opdrachten, zoals `chef`. Zie de geïnstalleerde versie van Chef werkstation en de Chef-hulpprogramma's met `chef -v`. U kunt ook uw werkstation versie controleren door 'Over Chef werkstation' in de Chef-werkstation-App te selecteren.
+Op het bureaublad ziet u een 'gewicht PowerShell', dit een omgeving die is geladen met het hulpprogramma die u nodig hebt is voor interactie met de Chef-producten. Het gewicht PowerShell zijn nieuwe ad-hoc opdrachten beschikbaar, zoals `chef-run` ook als traditionele Chef CLI-opdrachten, zoals `chef`. Zie de geïnstalleerde versie van Chef werkstation en de Chef-hulpprogramma's met `chef -v`. U kunt ook uw werkstation versie controleren door 'Over Chef werkstation' in de Chef-werkstation-App te selecteren.
 
 `chef --version` moeten er ongeveer als:
 

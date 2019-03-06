@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: d684ec56c7dfcc28d1057d0b20905db49bce9723
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: a996703f3719c2be90851241c1fe23c89f24e606
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498061"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447945"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Beveiligingsoverwegingen voor het verplaatsen van gegevens in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -51,6 +51,8 @@ In dit artikel bekijken we beveiligingsoverwegingen in de volgende twee verkeer 
 
 - **Cloudscenario**: In dit scenario zijn zowel de bron en bestemming voor de openbaar toegankelijk is via het internet. Het gaat hierbij om beheerde cloud storage-services zoals Azure Storage, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, SaaS-services zoals Salesforce en web-protocollen, zoals FTP- en OData. Een volledige lijst met ondersteunde gegevensbronnen in [ondersteunde gegevensarchieven en indelingen](copy-activity-overview.md#supported-data-stores-and-formats).
 - **Hybride scenario**: In dit scenario is de bron of bestemming voor de achter een firewall of binnen een bedrijfsnetwerk on-premises. Of het gegevensarchief is in een particulier netwerk of een virtueel netwerk (meestal de bron) en is niet openbaar toegankelijk is. Databaseservers die worden gehost op virtuele machines kunnen ook worden onderverdeeld in dit scenario.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="cloud-scenarios"></a>Cloud-scenario 's
 
@@ -109,9 +111,9 @@ De referenties voor uw on-premises gegevensarchieven worden altijd versleuteld e
 
 - **Referenties lokaal Store**. Als u wilt coderen en lokaal opslaan van referenties in de zelf-hostende integratieruntime, volgt u de stappen in [versleutelen referenties voor on-premises gegevensarchieven in Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md). Deze optie worden alle connectors ondersteund. De zelf-hostende integratieruntime maakt gebruik van Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) voor het versleutelen van de gevoelige gegevens en referentie-informatie. 
 
-   Gebruik de **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** cmdlet voor het versleutelen van gekoppelde Servicereferenties en gevoelige gegevens in de gekoppelde service. Vervolgens kunt u de JSON geretourneerd (met de **EncryptedCredential** element in de connection string) te maken van een gekoppelde service met behulp van de **Set-AzureRmDataFactoryV2LinkedService** cmdlet.  
+   Gebruik de **New-AzDataFactoryV2LinkedServiceEncryptedCredential** cmdlet voor het versleutelen van gekoppelde Servicereferenties en gevoelige gegevens in de gekoppelde service. Vervolgens kunt u de JSON geretourneerd (met de **EncryptedCredential** element in de connection string) te maken van een gekoppelde service met behulp van de **Set AzDataFactoryV2LinkedService** cmdlet.  
 
-- **Store in Azure Data Factory beheerde opslag**. Als u rechtstreeks de **Set-AzureRmDataFactoryV2LinkedService** cmdlet met de verbinding verbindingsreeksen en referenties inline in de JSON, de gekoppelde service is versleuteld en opgeslagen in Azure Data Factory beheerde opslag. De gevoelige gegevens is nog steeds versleuteld met certificaten en Microsoft beheert deze certificaten.
+- **Store in Azure Data Factory beheerde opslag**. Als u rechtstreeks de **Set AzDataFactoryV2LinkedService** cmdlet met de verbinding verbindingsreeksen en referenties inline in de JSON, de gekoppelde service is versleuteld en opgeslagen in Azure Data Factory beheerde opslag. De gevoelige gegevens is nog steeds versleuteld met certificaten en Microsoft beheert deze certificaten.
 
 
 

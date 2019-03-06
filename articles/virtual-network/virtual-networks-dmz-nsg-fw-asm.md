@@ -1,6 +1,6 @@
 ---
-title: Voorbeeld van DMZ – een DMZ toepassingen met een Firewall en nsg's te beschermen bouwen | Microsoft Docs
-description: Bouw een DMZ met Firewall en Netwerkbeveiligingsgroepen (NSG)
+title: "Perimeter network voorbeeld: Build een perimeternetwerk ter bescherming van toepassingen met een firewall en nsg's | Microsoft Docs"
+description: Bouw een perimeternetwerk met een firewall en Netwerkbeveiligingsgroepen (nsg's)
 services: virtual-network
 documentationcenter: na
 author: tracsman
@@ -14,263 +14,274 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 31d945f64cccd0c811d4dc45163583224102fb8a
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: c1c64945aaa0bc4cd83cc769dab1c2a755896c01
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965236"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442475"
 ---
-# <a name="example-2--build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>Voorbeeld 2: een DMZ toepassingen met een Firewall en nsg's te beschermen bouwen
-[Ga terug naar de grens Best Practices pagina][HOME]
+# <a name="example-2-build-a-perimeter-network-to-protect-applications-with-a-firewall-and-nsgs"></a>Voorbeeld 2: Een perimeternetwerk ter bescherming van toepassingen met een firewall en nsg's maken
+[Ga terug naar de Microsoft-cloudservices en beveiligingspagina netwerk][HOME]
 
-In dit voorbeeld wordt een DMZ met firewall, vier windows-servers en Netwerkbeveiligingsgroepen maken. Het helpt ook bij elk van de relevante opdrachten voor een beter begrip van elke stap. Er is ook een sectie verkeer Scenario voor een gedetailleerde stapsgewijze hoe verkeer wordt uitgevoerd in de defensieve in het Perimeternetwerk. Ten slotte in de verwijzingen is sectie de volledige code en instructies voor het bouwen van deze omgeving om te testen en te experimenteren met verschillende scenario's. 
+Dit voorbeeld wordt het maken van een perimeternetwerk (ook wel bekend als *DMZ*, *gedemilitariseerde zone*, en *screened subnet genoemd*) met een firewall, vier Windows Server-computers en Netwerkbeveiligingsgroepen (nsg's). Het bevat details over elk van de relevante opdrachten voor een beter begrip van elke stap. De sectie 'Scenario's voor verkeer' biedt een stapsgewijze uitleg van hoe verkeer wordt uitgevoerd in de defensieve in het perimeternetwerk. Ten slotte biedt de sectie "Verwijzingen" de volledige code en instructies voor het bouwen van deze omgeving om te testen en te experimenteren met verschillende scenario's.
 
-![DMZ met NVA en in de Netwerkbeveiligingsgroep inkomende][1]
+![Inkomende perimeternetwerk met NVA en nsg 's][1]
 
-## <a name="environment-description"></a>Beschrijving van de omgeving
-In dit voorbeeld is er een abonnement dat u het volgende bevat:
+## <a name="environment"></a>Omgeving 
+In dit voorbeeld is gebaseerd op een scenario met een Azure-abonnement dat bevat de volgende items:
 
-* Twee cloudservices: "FrontEnd001" en "BackEnd001"
-* Een Virtueelnetwerk 'CorpNetwork', met twee subnetten: 'FrontEnd' en 'Back-end'
-* Een één Netwerkbeveiligingsgroep die is toegepast op beide subnetten
-* Een virtueel netwerkapparaat, in dit voorbeeld een Barracuda NextGen Firewall, die is verbonden met het subnet Frontend
-* Een Windows-Server die staat voor een toepassing webserver ("IIS01")
-* Twee windows-servers die staan voor toepassing back end servers ("AppVM01", "AppVM02")
-* Een Windows-server die staat voor een DNS-server ("DNS01")
+* Twee cloudservices: FrontEnd001 and BackEnd001.
+* Een virtueel netwerk met de naam CorpNetwork met twee subnetten: Front-end- en back-end.
+* Een NSG die is één dat wordt toegepast op beide subnetten.
+* Een virtueel netwerkapparaat: Barracuda NextGen Firewall verbonden aan het FrontEnd-subnet.
+* Een Windows Server-computer die een web application server vertegenwoordigt: IIS01.
+* Twee Windows Server-computers die staan voor back-end-toepassingsservers: AppVM01 en AppVM02.
+* Een Windows Server-computer met een DNS-server: DNS01.
 
 > [!NOTE]
-> Hoewel dit voorbeeld wordt een Barracuda NextGen Firewall gebruikt, kunnen veel van de verschillende virtuele netwerkapparaten worden gebruikt voor dit voorbeeld.
+> Hoewel dit voorbeeld wordt een Barracuda NextGen Firewall gebruikt, kunnen veel virtuele netwerkapparaten worden gebruikt.
 > 
 > 
 
-In het gedeelte hieronder met verwijzingen wordt er een PowerShell-script dat wordt gemaakt van de meeste van de omgeving die hierboven worden beschreven. Het bouwen van de virtuele machines en virtuele netwerken, maar moeten worden uitgevoerd door het voorbeeldscript worden niet beschreven in dit document.
+Het PowerShell-script in de sectie "Verwijzingen" van dit artikel maakt de meeste van de omgeving die hier wordt beschreven. De virtuele machines en virtuele netwerken zijn gebouwd door het script, maar deze processen worden niet in dit document gedetailleerd beschreven.
 
 De omgeving bouwen:
 
-1. Het netwerk config XML-bestand zijn opgenomen in de sectie Verwijzingen (bijgewerkt met de naam, locatie en IP-adressen zodat deze overeenkomt met het gegeven scenario)
-2. Bijwerken van de Gebruikersvariabelen voor de in het script moet overeenkomen met de omgeving die het script uitgevoerd op basis van wordt (abonnementen, servicenamen, enzovoort)
-3. Voer het script uit in PowerShell
+1. Het netwerk config XML-bestand zijn opgenomen in de sectie "Verwijzingen" (bijgewerkt met de namen, locaties en IP-adressen zodat deze overeenkomt met uw scenario).
+2. Update de gebruiker gedefinieerde variabelen in het PowerShell-script, zodat deze overeenkomen met de omgeving van het script wordt uitgevoerd op (abonnementen, servicenamen, enzovoort).
+3. Voer het script in PowerShell.
 
-**Opmerking**: De regio aangegeven in het PowerShell-script moet overeenkomen met de regio aangegeven in het netwerk van het XML-configuratiebestand.
+> [!NOTE]
+> De regio die is opgegeven in het PowerShell-script moet overeenkomen met de regio die is opgegeven in het netwerk van het XML-configuratiebestand.
+>
+>
 
-Nadat het script is uitgevoerd, de volgende stappen van script dat volgt uit kunnen worden genomen:
+Nadat het script is uitgevoerd, kunt u deze stappen voltooien:
 
-1. De firewall-regels hebt ingesteld, wordt dit in de onderstaande sectie met de titel behandeld: Firewall-regels.
-2. (Optioneel) zijn in de sectie Verwijzingen twee scripts voor het instellen van de webserver en appserver met een eenvoudige webtoepassing waarmee de testen met deze configuratie DMZ.
+1. Instellen van de firewall-regels. Zie de sectie 'Firewall-regels' van dit artikel.
+2. Als u wilt, kunt u de webserver en appserver met een eenvoudige webtoepassing waarmee de testen met de configuratie van het perimeternetwerk instellen. U kunt de twee toepassingsscripts vindt u in de sectie "Verwijzingen" gebruiken.
 
-De volgende sectie wordt uitgelegd dat de meeste scripts instructies ten opzichte van Netwerkbeveiligingsgroepen.
+De volgende sectie wordt uitgelegd dat de meeste van de instructies van het script die gerelateerd aan de nsg's zijn.
 
-## <a name="network-security-groups-nsg"></a>Netwerkbeveiligingsgroepen (NSG's)
-In dit voorbeeld is een NSG-groep gemaakt en vervolgens geladen met zes regels. 
+## <a name="nsgs"></a>NSG's
+In dit voorbeeld is een NSG-groep gemaakt en vervolgens geladen met zes regels.
 
 > [!TIP]
-> In het algemeen moet u eerst uw specifieke 'Toestaan'-regels maken en vervolgens de algemene regels voor "Deny" laatste. De toegewezen prioriteit bepaalt welke regels worden eerst geëvalueerd. Wanneer verkeer toe te passen op een specifieke regel wordt gevonden, wordt er geen verdere regels worden geëvalueerd. NSG-regels kunnen toepassen in beide in de richting binnenkomend of uitgaand (vanuit het perspectief van het subnet).
+> In het algemeen moet u eerst uw specifieke 'Toestaan'-regels maken en de algemene regels voor "Deny" laatste. De toegewezen prioriteit bepaalt welke regels worden eerst geëvalueerd. Nadat het verkeer wordt gevonden die van toepassing is op een specifieke regel, wordt er geen verdere regels worden geëvalueerd. NSG-regels kunnen toepassen in het inkomende of in de uitgaande richting (vanuit het perspectief van het subnet).
 > 
 > 
 
-De volgende regels zijn declaratief, gebouwd voor binnenkomend verkeer:
+Deze regels zijn declaratief, gebouwd voor binnenkomend verkeer:
 
-1. Interne DNS-verkeer (poort 53) is toegestaan
-2. RDP-verkeer (poort 3389) van het Internet op elke virtuele machine is toegestaan
-3. HTTP-verkeer (poort 80) van het Internet naar de NVA (firewall) is toegestaan
-4. Al het verkeer (alle poorten) van IIS01 naar AppVM1 is toegestaan
-5. Al het verkeer (alle poorten) van het Internet naar de volledige VNet (beide subnetten) is geweigerd
-6. Al het verkeer (alle poorten) vanaf het subnet Frontend naar de back-end-subnet wordt geweigerd
+1. Interne DNS-verkeer (poort 53) is toegestaan.
+2. RDP-verkeer (poort 3389) van het internet op elke virtuele machine is toegestaan.
+3. HTTP-verkeer (poort 80) van het internet naar de NVA (firewall) is toegestaan.
+4. Alle verkeer (alle poorten) van IIS01 naar AppVM01 is toegestaan.
+5. Al het verkeer (alle poorten) van het internet naar het hele virtuele netwerk (beide subnetten) is geweigerd.
+6. Al het verkeer (alle poorten) vanaf het subnet FrontEnd naar de back-end-subnet wordt geweigerd.
 
-Met deze regels gekoppeld aan elk subnet, als een HTTP-aanvraag binnenkomend verkeer van Internet naar de webserver, beide regels 3 is (toestaan) en 5 (weigeren) wilt toepassen, maar aangezien regel 3 een hogere prioriteit heeft alleen zou worden toegepast en regel 5 niet aan de orde komt. De HTTP-aanvraag zou dus worden toegestaan aan de firewall. Als dat dezelfde verkeer is probeert te bereiken van de server DNS01, regel 5 (weigeren) is de eerste om toe te passen en het verkeer niet mogen worden doorgegeven aan de server. Regel 6 (weigeren) Hiermee blokkeert u de front-endsubnet van de communicatie met de back-end-subnet (met uitzondering van toegestaan verkeer in regels 1 en 4), dit beveiligt de back-end-netwerk als een aanvaller inbreuk de web-App op het front-end, de aanvaller zou hebben beperkte toegang tot de back-end '-beveiliging gebruiken' netwerk (alleen voor resources weergegeven op de server AppVM01).
+Met deze regels die zijn gekoppeld aan elk subnet, als een HTTP-aanvraag binnenkomend verkeer van internet naar de webserver zijn beide regel 3 (toestaan) en regel 5 (weigeren) lijkt om toe te passen, maar omdat regel 3 een hogere prioriteit heeft, alleen wordt toegepast. Regel 5 wordt niet aan de orde komen. De HTTP-aanvraag wordt zo mag worden de firewall.
 
-Er is een uitgaande standaardregel waarmee uitgaand verkeer naar internet. In dit voorbeeld zijn we uitgaand verkeer wordt toegestaan en alle regels voor uitgaand verkeer niet wordt gewijzigd. Om verkeer in beide richtingen, de gebruiker gedefinieerde routering is vereist, dit is verkend in een ander voorbeeld die te vinden in de [belangrijkste security grens document][HOME].
+Als dat dezelfde verkeer is probeert te bereiken van de server DNS01, regel 5 (weigeren) is de eerste om toe te passen, zodat het verkeer wouldn't mag worden doorgegeven aan de server. Regel 6 (weigeren) blokkeert het subnet FrontEnd communiceert met de back-end-subnet (met uitzondering van verkeer dat is toegestaan in regels 1 en 4). Dit beveiligt de back-end-netwerk als een aanvaller de web-App op de front-end wordt aangetast. In dat geval zou de aanvaller hebben beperkte toegang tot de back-end 'beveiligd' netwerk. (De aanvaller zou kunnen alleen toegang tot de bronnen weergegeven op de server AppVM01.)
 
-De hierboven besproken NSG-regels zijn vergelijkbaar met de NSG-regels in [voorbeeld 1: een eenvoudige DMZ met nsg's bouwen][Example1]. Controleer de beschrijving van de NSG in dit document voor een gedetailleerde Kijk op elke NSG-regel en de kenmerken.
+Er is een uitgaande standaardregel waarmee uitgaand verkeer naar internet. In dit voorbeeld zijn we uitgaand verkeer wordt toegestaan en alle regels voor uitgaand verkeer niet wordt gewijzigd. Als u wilt vergrendelen verkeer in beide richtingen, moet u de gebruiker gedefinieerde routering. U kunt meer informatie over deze techniek in een ander voorbeeld in de [belangrijkste security grens document][HOME].
 
-## <a name="firewall-rules"></a>Firewallregels
-Een management-client moet worden geïnstalleerd op een PC voor het beheren van de firewall en het maken van de configuraties die nodig zijn. Zie de documentatie van uw firewall (of andere NVA)-leverancier over het beheren van het apparaat. De rest van deze sectie beschrijft de configuratie van de firewall zelf, via de leveranciers management-client (dat wil zeggen niet in de Azure portal of PowerShell).
+De NSG-regels die hier worden beschreven zijn vergelijkbaar met de NSG-regels in [voorbeeld 1: een eenvoudige DMZ met nsg's bouwen][Example1]. Lees de beschrijving van de NSG in dit artikel voor een gedetailleerde Kijk op elke NSG-regel en de bijbehorende kenmerken.
 
-Instructies voor de client downloaden en verbinding maken met de Barracuda gebruikt in dit voorbeeld kunt u hier vinden: [Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin)
+## <a name="firewall-rules"></a>Firewall-regels
+U moet een management-client installeren op een computer voor het beheren van de firewall en het maken van de configuraties die nodig zijn. Zie de documentatie van uw firewall (of andere NVA) leverancier over het beheren van het apparaat. De rest van deze sectie beschrijft de configuratie van de firewall zelf, door middel van de leverancier management-client (niet in de Azure portal of PowerShell).
 
-Op de firewall moet regels voor doorsturen worden gemaakt. Omdat in dit voorbeeld worden alleen verkeer van internet in-gebonden aan de firewall en vervolgens naar de webserver routes, wordt slechts één doorsturen NAT-regel die nodig zijn. Op de Barracuda NextGen Firewall gebruikt in dit voorbeeld zou de regel een bestemming NAT-regel ("Dst NAT') om door te geven dat het verkeer.
+Zie [Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin) voor instructies voor het downloaden van de client en verbinding maken met de Barracuda-firewall in dit voorbeeld gebruikt.
 
-Als u wilt maken met de volgende regel (of Controleer of de bestaande standaardregels die), vanaf het dashboard van de client Barracuda NG beheerder gaat u naar het tabblad configuratie, in de configuratie van de operationele sectie klikt u op Ruleset. Een raster met de naam 'Main-regels worden de bestaande regels die actief is en gedeactiveerd weergegeven op de firewall. In de rechterbovenhoek van dit raster is een kleine groene '+' knop, klik hierop om een nieuwe regel te maken (Opmerking: uw firewall mogelijk "vergrendeld" wijzigingen zijn aangebracht, als er een knop gemarkeerd als 'Vergrendelen' en u zich niet maken of bewerken van regels, klik op deze knop om het ruleset 'ontgrendelen' en bewerken toestaan). Als u een bestaande regel bewerken wilt, selecteert u deze regel, met de rechtermuisknop op en selecteer regel bewerken.
+U moet maken van regels voor het doorsturen voor de firewall. Omdat het scenario in dit voorbeeld alleen internetverkeer routeert binnenkomende verbindingen naar de firewall en vervolgens naar de webserver, hoeft u alleen een doorsturen NAT-regel. Op de Barracuda-firewall gebruikt in dit voorbeeld, zou de regel een bestemming NAT-regel (zomertijd NAT) om door te geven dat het verkeer.
 
-Maak een nieuwe regel en geef een naam, zoals 'WebTraffic'. 
+De volgende regel maken (of om te controleren of de bestaande standaardregels die), voert u deze stappen uit:
+1. De Barracuda NG-client-Beheerdashboard op het tabblad configuratie in de **operationele configuratie** sectie, selecteer **Ruleset**. 
+
+   Een raster met de naam **Main regels** active ziet u de bestaande en regels op de firewall gedeactiveerd.
+
+2. Voor het maken van een nieuwe regel, selecteer de kleine groene **+** knop in de rechterbovenhoek van dit raster. (Uw firewall kan worden vergrendeld. Als u een knop gemarkeerd ziet **vergrendeling** en kan niet worden gemaakt of regels bewerken, selecteert u de knop om te ontgrendelen van het ruleset en bewerken.)
+  
+3. Als u wilt een bestaande regel wilt bewerken, selecteert u de regel, klik met de rechtermuisknop en selecteer vervolgens **regel bewerken**.
+
+Maak een nieuwe regel met de naam er ongeveer als **WebTraffic.** 
 
 Het pictogram van de bestemming NAT-regel ziet er als volgt: ![Bestemming NAT-pictogram][2]
 
-De regel zelf zou er ongeveer als volgt uit:
+De regel zelf ziet er ongeveer als volgt uit:
 
 ![Firewall-regel][3]
 
-Hier een adres dat komt binnen via de Firewall inkomend probeert te bereiken HTTP (poort 80 en 443 voor HTTPS) worden verzonden van de Firewall 'DHCP1 lokale IP'-interface en omgeleid naar de webserver met het IP-adres van 10.0.1.5. Omdat het verkeer wordt binnenkort op poort 80 en Ga naar de webserver op poort 80 is geen poortwijziging nodig. Echter, de doellijst kan zijn 10.0.1.5:8080 als onze webserver geluisterd op poort 8080 dus vertalen van de binnenkomende poort 80 op de firewall op de binnenkomende poort 8080 op de webserver.
+Alle inkomende adres dat komt binnen via de firewall probeert te bereiken HTTP (poort 80 en 443 voor HTTPS) wordt omgeleid naar de webserver met het IP-adres 10.0.1.5 zijn en worden verzonden buiten de firewall van DHCP1 lokale IP-interface. Omdat het verkeer op poort 80 is beschikbaar en gaat naar de webserver op poort 80, er is geen poortwijziging is vereist. Maar de lijst met doelservers kan zijn 10.0.1.5:8080 als de webserver geluisterd op poort 8080, de binnenkomende poort 80 op de firewall op de binnenkomende poort 8080 op de webserver vertaalt.
 
-Een verbindingsmethode moet ook worden aangegeven, voor de doel-regel van het Internet "Dynamische SNAT" is het meest geschikt. 
+U moet ook een methode voor verbinding opgeven. Voor de doel-regel van het internet is dynamische SNAT het meest geschikte methode.
 
-Hoewel u slechts één regel is gemaakt is het belangrijk dat de prioriteit correct is ingesteld. Als in het raster van alle regels op de firewall voor dat deze nieuwe regel is op de onderste (hieronder de regel 'BLOCKALL') er nooit aan de orde komen. Zorg ervoor dat de nieuwe regel voor webverkeer hoger is dan de BLOCKALL-regel.
+Hoewel u slechts één regel hebt gemaakt, is het belangrijk dat u de prioriteit correct ingesteld. In het raster met alle regels op de firewall, als deze nieuwe regel aan de onderkant (hieronder de regel BLOCKALL), is komen deze nooit aan de orde. Zorg ervoor dat de nieuwe regel voor webverkeer hoger is dan de BLOCKALL-regel.
 
-Als de regel is gemaakt, moet worden gepusht naar de firewall en wordt geactiveerd, als dit niet is gedaan de wijziging van de regel niet door te voeren. Het proces van push- en -activering wordt in de volgende sectie beschreven.
+Nadat de regel is gemaakt, moet u deze naar de firewall pushen en vervolgens te activeren. Als u deze stappen niet uitvoeren, worden de regel wijziging pas van kracht. De volgende sectie worden de push- en -activering beschreven.
 
 ## <a name="rule-activation"></a>Activering van de regel
-Met het ruleset om toe te voegen met deze regel is gewijzigd, moet de regelset worden geüpload naar de firewall en geactiveerd.
+Nu dat de regel is toegevoegd aan de regelset, moet u het ruleset uploaden naar de firewall en activeer deze.
 
 ![Activering van Firewall-regel][4]
 
-In de rechterbovenhoek van de management-client zijn een cluster van de knoppen. Klik op de knop 'Wijzigingen verzenden' voor het verzenden van de gewijzigde regels aan de firewall en klik vervolgens op de knop 'Activeren'.
+In de rechterbovenhoek van de management-client ziet u een groep keuzerondjes. Selecteer **wijzigingen verzenden** voor het verzenden van de gewijzigde ruleset aan de firewall, en selecteer vervolgens **activeren**.
 
-Met de activering van de regelset van de firewall zijn in dit voorbeeld omgeving build is voltooid. (Optioneel) de post-build-scripts in de sectie Verwijzingen kunnen worden uitgevoerd voor een toepassing toevoegen aan deze omgeving voor het testen van de onderstaande scenario's voor verkeer.
+Nu dat u de firewall ruleset hebt geactiveerd, wordt de omgeving is voltooid. Als u wilt, kunt u de toepassing voorbeeldscripts kunt uitvoeren in de sectie "Verwijzingen" voor een toepassing toevoegen aan de omgeving. Als u een toepassing hebt toegevoegd, kunt u het verkeer-scenario's beschreven in de volgende sectie testen.
 
 > [!IMPORTANT]
-> Het is essentieel om te profiteren van dat niet u de webserver rechtstreeks bereikt. Wanneer een browser een HTTP-pagina van FrontEnd001.CloudApp.Net aanvraagt, geeft het HTTP-eindpunt (poort 80) dit verkeer aan de firewall niet op de webserver. De firewall vervolgens, op basis van de regel hierboven gemaakte NAT's die naar de webserver aanvragen.
+> U moet realiseren dat u de webserver rechtstreeks niet bereikt. Wanneer een browser een HTTP-pagina van FrontEnd001.CloudApp.Net aanvraagt, wordt het verkeer in het HTTP-eindpunt (poort 80) doorgegeven aan de firewall, niet op de webserver. De firewall wordt, vanwege de regel die u eerder hebt gemaakt, NAT om toe te wijzen van de aanvraag naar de webserver.
 > 
 > 
 
 ## <a name="traffic-scenarios"></a>Scenario's voor verkeer
-#### <a name="allowed-web-to-web-server-through-firewall"></a>(Toegestaan) Web op het Web Server via Firewall
-1. Internet gebruiker aanvragen HTTP-pagina van FrontEnd001.CloudApp.Net (Internet Facing Cloud Service)
-2. Cloud service-passen verkeer via de open-eindpunt op poort 80 op de lokale firewall-interface op 10.0.1.4:80
-3. Front-endsubnet begint verwerking van inkomende regel:
-   1. NSG regel 1 (DNS) niet van toepassing, verplaatsen naar de volgende regel
-   2. NSG regel 2 (RDP) niet van toepassing, verplaatsen naar de volgende regel
-   3. NSG-regel 3 (Internet aan Firewall) is van toepassing, verkeer is toegestaan, stop regelverwerking
-4. Verkeer komt binnen via het interne IP-adres van de firewall (10.0.1.4)
-5. Regel voor doorsturen via een firewall zien dit netwerkverkeer via poort 80 is, wordt omgeleid naar de webserver IIS01
-6. IIS01 luistert voor webverkeer te genereren, ontvangt deze aanvraag en begint met de verwerking van de aanvraag
-7. IIS01 vraagt de SQL-Server op AppVM01 voor meer informatie
-8. Er is geen uitgaande regels op de front-endsubnet, verkeer is toegestaan
+#### <a name="allowed-web-to-web-server-through-the-firewall"></a>(Toegestaan) Web met webserver via de firewall
+1. Een internetgebruiker vraagt een HTTP-pagina van FrontEnd001.CloudApp.Net (een internetgerichte cloudservice).
+2. De cloudservice wordt verkeer via een eindpunt geopend op poort 80 doorgegeven aan de lokale interface van de firewall op 10.0.1.4:80.
+3. Het subnet FrontEnd begint verwerking van inkomende regel:
+   1. NSG-regel 1 (DNS) is niet van toepassing. Verplaatsen naar de volgende regel.
+   2. NSG-regel 2 (RDP) niet van toepassing. Verplaatsen naar de volgende regel.
+   3. NSG-regel 3 (internet aan firewall) is van toepassing. Verkeer toestaan. Regelverwerking stoppen.
+4. Verkeer komt binnen via het interne IP-adres van de firewall (10.0.1.4).
+5. Een regel voor doorsturen firewall bepaalt dat deze netwerkverkeer via de poort 80 en wordt omgeleid naar de webserver IIS01.
+6. IIS01 luistert voor webverkeer te genereren, ontvangt de aanvraag en begint met de verwerking van de aanvraag.
+7. IIS01 vraagt informatie op van de SQL Server-exemplaar op AppVM01.
+8. Er zijn geen regels voor uitgaand verkeer op de front-end-subnet, zodat verkeer is toegestaan.
 9. De back-end-subnet begint verwerking van inkomende regel:
-   1. NSG regel 1 (DNS) niet van toepassing, verplaatsen naar de volgende regel
-   2. NSG regel 2 (RDP) niet van toepassing, verplaatsen naar de volgende regel
-   3. NSG-regel 3 (Internet aan Firewall) niet van toepassing, verplaatsen naar de volgende regel
-   4. NSG-regel 4 (IIS01 naar AppVM01) is van toepassing, verkeer is toegestaan, stopt u regelverwerking
-10. AppVM01 ontvangt van de SQL-Query en reageert
-11. Omdat er geen regels voor uitgaand verkeer op de back-end-subnet is het antwoord toegestaan
-12. Front-endsubnet begint verwerking van inkomende regel:
-    1. Er is geen NSG-regel voor binnenkomend verkeer van het back-end-subnet aan het Frontend-subnet, zodat geen van de NSG-regels toepassen
-    2. De standaardregel systeem voor het verkeer tussen subnetten zou dit verkeer toestaan, zodat het verkeer is toegestaan.
-13. De IIS-server, SQL-antwoord is ontvangen en het HTTP-antwoord is voltooid en wordt verzonden naar de aanvrager
-14. Omdat dit een NAT-sessie van de firewall, is het doel van het antwoord (in eerste instantie) voor de Firewall
-15. De firewall-antwoord is ontvangen van de webserver en doorgestuurd naar de Internet-gebruiker
-16. Omdat er geen regels voor uitgaand verkeer op het subnet Frontend het antwoord is toegestaan en de Internet-gebruiker ontvangt de webpagina die is aangevraagd.
+   1. NSG-regel 1 (DNS) is niet van toepassing. Verplaatsen naar de volgende regel.
+   2. NSG-regel 2 (RDP) niet van toepassing. Verplaatsen naar de volgende regel.
+   3. NSG-regel 3 (internet aan firewall) is niet van toepassing. Verplaatsen naar de volgende regel.
+   4. NSG-regel 4 (IIS01 naar AppVM01) is van toepassing. Verkeer toestaan. Regelverwerking stoppen.
+10. De SQL Server-exemplaar op AppVM01 ontvangt de aanvraag en reageert.
+11. Omdat er geen regels voor uitgaand verkeer op de back-end-subnet, wordt het antwoord is toegestaan.
+12. Het subnet FrontEnd begint verwerking van inkomende regel:
+    1. Er is geen NSG-regel voor binnenkomend verkeer van de back-end-subnet aan het FrontEnd-subnet, zodat geen van de NSG-regels van toepassing.
+    2. De standaardregel systeem voor het verkeer tussen subnetten kunt dit verkeer, zodat verkeer is toegestaan.
+13. IIS01-antwoord is ontvangen van AppVM01, voltooit het HTTP-antwoord en verzendt dit naar de aanvrager.
+14. Omdat dit een NAT-sessie van de firewall, is het doel van de reactie in eerste instantie voor de firewall.
+15. De firewall-antwoord is ontvangen van de webserver en doorgestuurd naar de internet-gebruiker.
+16. Omdat er geen regels voor uitgaand verkeer op de front-endsubnet, het antwoord is toegestaan en de internet-gebruiker ontvangt de webpagina wordt weergegeven.
 
 #### <a name="allowed-rdp-to-backend"></a>(Toegestaan) RDP naar back-end
-1. De serverbeheerder op internet vraagt RDP-sessie naar AppVM01 op BackEnd001.CloudApp.Net:xxxxx waarbij xxxxx het willekeurig toegewezen poort voor RDP-verbinding AppVM01 is (de toegewezen poort kan worden gevonden in de Azure Portal of via PowerShell)
-2. Omdat de Firewall alleen op het adres FrontEnd001.CloudApp.Net luistert, is niet verbonden met deze verkeersstroom
-3. Back-end-subnet begint verwerking van inkomende regel:
-   1. NSG regel 1 (DNS) niet van toepassing, verplaatsen naar de volgende regel
-   2. NSG regel 2 (RDP) is van toepassing, verkeer is toegestaan, stop regelverwerking
-4. Er zijn geen regels voor uitgaand verkeer, standaardregels toepassen en retourverkeer is toegestaan
-5. RDP-sessie is ingeschakeld
-6. AppVM01 vraagt om wachtwoord van de naam van gebruiker
-
-#### <a name="allowed-web-server-dns-lookup-on-dns-server"></a>(Toegestaan) Web Server-DNS-zoekactie op DNS-server
-1. Web Server, IIS01, een gegevensfeed op www.data.gov behoeften, maar moet het adres omzetten.
-2. De netwerkconfiguratie voor de VNet-lijsten DNS01 (10.0.2.4 op de back-end-subnet) als de primaire DNS-server, IIS01 verzendt de DNS-aanvraag naar DNS01
-3. Er is geen uitgaande regels op de front-endsubnet, verkeer is toegestaan
-4. Back-end-subnet begint verwerking van inkomende regel:
-   1. NSG regel 1 (DNS) is van toepassing, verkeer is toegestaan, stop regelverwerking
-5. DNS-server ontvangt de aanvraag
-6. DNS-server beschikt niet over het adres in de cache opgeslagen en wordt u gevraagd een basis-DNS-server op het internet
-7. Er is geen uitgaande regels op back-end-subnet, verkeer is toegestaan
-8. Internet-DNS-server reageert, omdat deze sessie intern is gestart, is het antwoord toegestaan
-9. DNS-server plaatst het antwoord en reageert op de eerste aanvraag terug naar IIS01
-10. Er is geen uitgaande regels op back-end-subnet, verkeer is toegestaan
-11. Front-endsubnet begint verwerking van inkomende regel:
-    1. Er is geen NSG-regel voor binnenkomend verkeer van het back-end-subnet aan het Frontend-subnet, zodat geen van de NSG-regels toepassen
-    2. De standaardregel systeem voor het verkeer tussen subnetten zou dit verkeer toestaan, zodat het verkeer is toegestaan
-12. IIS01-antwoord is ontvangen van DNS01
-
-#### <a name="allowed-web-server-access-file-on-appvm01"></a>(Toegestaan) Web Server-databasebestand op AppVM01
-1. IIS01 vraagt om een bestand op AppVM01
-2. Er is geen uitgaande regels op de front-endsubnet, verkeer is toegestaan
+1. Een serverbeheerder op het internet vraagt een RDP-sessie naar AppVM01 op BackEnd001.CloudApp.Net:*xxxxx*, waarbij *xxxxx* is het aantal willekeurig toegewezen poort voor RDP-verbinding AppVM01. (U vindt de toegewezen poort op de Azure-portal of met behulp van PowerShell.)
+2. Omdat de firewall alleen op het adres FrontEnd001.CloudApp.Net luistert, het niet betrokken bij dit netwerkverkeer.
 3. De back-end-subnet begint verwerking van inkomende regel:
-   1. NSG regel 1 (DNS) niet van toepassing, verplaatsen naar de volgende regel
-   2. NSG regel 2 (RDP) niet van toepassing, verplaatsen naar de volgende regel
-   3. NSG-regel 3 (Internet aan Firewall) niet van toepassing, verplaatsen naar de volgende regel
-   4. NSG-regel 4 (IIS01 naar AppVM01) is van toepassing, verkeer is toegestaan, stopt u regelverwerking
-4. AppVM01 ontvangt de aanvraag en reageert met een bestand (ervan uitgaande dat de toegang geautoriseerd)
-5. Omdat er geen regels voor uitgaand verkeer op de back-end-subnet is het antwoord toegestaan
-6. Front-endsubnet begint verwerking van inkomende regel:
-   1. Er is geen NSG-regel voor binnenkomend verkeer van het back-end-subnet aan het Frontend-subnet, zodat geen van de NSG-regels toepassen
-   2. De standaardregel systeem voor het verkeer tussen subnetten zou dit verkeer toestaan, zodat het verkeer is toegestaan.
-7. De IIS-server ontvangt het bestand
+   1. NSG-regel 1 (DNS) is niet van toepassing. Verplaatsen naar de volgende regel.
+   2. NSG-regel 2 (RDP) is van toepassing. Verkeer toestaan. Regelverwerking stoppen.
+4. Omdat er geen regels voor uitgaand verkeer, wordt de standaardregels toepassen en retourneren verkeer is toegestaan.
+5. De RDP-sessie is ingeschakeld.
+6. AppVM01 vraagt om een gebruikersnaam en wachtwoord.
+
+#### <a name="allowed-web-server-dns-lookup-on-dns-server"></a>(Toegestaan) Web server DNS-zoekactie op DNS-server
+1. De web server, IIS01, moeten een feed op www.data.gov maar nodig heeft om het omzetten van het adres.
+2. De netwerkconfiguratie voor het virtuele netwerk bevat DNS01 (10.0.2.4 op de back-end-subnet) als de primaire DNS-server. IIS01 verzendt de DNS-aanvraag naar DNS01.
+3. Omdat er geen regels voor uitgaand verkeer op de front-endsubnet, is verkeer toegestaan.
+4. De back-end-subnet begint verwerking van inkomende regel:
+   1. NSG-regel 1 (DNS) is van toepassing. Verkeer toestaan. Regelverwerking stoppen.
+5. De DNS-server ontvangt de aanvraag.
+6. De DNS-server beschikt niet over het adres in de cache opgeslagen en vraagt een basis-DNS-server op het internet.
+7. Omdat er geen regels voor uitgaand verkeer op de back-end-subnet, wordt verkeer toegestaan.
+8. De internet-DNS-server reageert. Omdat de sessie intern is gestart, wordt het antwoord is toegestaan.
+9. De DNS-server plaatst het antwoord en reageert op de aanvraag van IIS01.
+10. Omdat er geen regels voor uitgaand verkeer op de back-end-subnet, wordt verkeer toegestaan.
+11. Het subnet FrontEnd begint verwerking van inkomende regel:
+    1. Er is geen NSG-regel voor binnenkomend verkeer van de back-end-subnet aan het FrontEnd-subnet, zodat geen van de NSG-regels van toepassing.
+    2. De standaardregel systeem voor het verkeer tussen subnetten kunt dit verkeer, zodat het verkeer is toegestaan.
+12. IIS01 ontvangt het antwoord van DNS01.
+
+#### <a name="allowed-web-server-file-access-on-appvm01"></a>(Toegestaan) Toegang tot bestand op AppVM01 webserver
+1. IIS01 vraagt een bestand op AppVM01.
+2. Omdat er geen regels voor uitgaand verkeer op de front-endsubnet, is verkeer toegestaan.
+3. De back-end-subnet begint verwerking van inkomende regel:
+   1. NSG-regel 1 (DNS) is niet van toepassing. Verplaatsen naar de volgende regel.
+   2. NSG-regel 2 (RDP) niet van toepassing. Verplaatsen naar de volgende regel.
+   3. NSG-regel 3 (internet aan firewall) is niet van toepassing. Verplaatsen naar de volgende regel.
+   4. NSG-regel 4 (IIS01 naar AppVM01) is van toepassing. Verkeer toestaan. Regelverwerking stoppen.
+4. AppVM01 ontvangt de aanvraag en reageert met het bestand (ervan uitgaande dat de toegang geautoriseerd).
+5. Omdat er geen regels voor uitgaand verkeer op de back-end-subnet, wordt het antwoord is toegestaan.
+6. Het subnet FrontEnd begint verwerking van inkomende regel:
+   1. Er is geen NSG-regel voor binnenkomend verkeer van de back-end-subnet aan het FrontEnd-subnet, zodat geen van de NSG-regels van toepassing.
+   2. De standaardregel systeem voor het verkeer tussen subnetten kunt dit verkeer, zodat het verkeer is toegestaan.
+7. IIS01 ontvangt het bestand.
 
 #### <a name="denied-web-direct-to-web-server"></a>(Geweigerd) Web direct naar de webserver
-Omdat de webserver, IIS01 en de Firewall in dezelfde Cloudservice zijn delen ze het hetzelfde openbare IP-adres. Zo zou een HTTP-verkeer worden omgeleid naar de firewall. Terwijl de aanvraag zou met succes worden uitgevoerd, het kan geen Ga rechtstreeks naar de webserver, wordt doorgegeven, zoals ingesteld, via de Firewall eerst. Zie het eerste Scenario in deze sectie voor het netwerkverkeer.
+Omdat de webserver IIS01 en de firewall zich in dezelfde cloudservice, delen ze hetzelfde openbare IP-adres. Dus wordt een HTTP-verkeer omgeleid naar de firewall. Wanneer een aanvraag zou met succes worden uitgevoerd, kan niet deze Ga rechtstreeks naar de webserver. Dit wordt doorgegeven, zoals ingesteld, via de firewall eerst. Zie het eerste scenario in deze sectie voor het netwerkverkeer.
 
 #### <a name="denied-web-to-backend-server"></a>(Geweigerd) Web naar back-endserver
-1. Internet-gebruiker probeert te krijgen van een bestand op AppVM01 via de service BackEnd001.CloudApp.Net
-2. Omdat er geen eindpunten openen voor bestandsshare zijn, dit zou de Cloudservice niet doorgeven en wouldn't de server niet bereiken
-3. Als de eindpunten geopend voor een of andere reden zijn, blokkeren NSG-regel 5 (Internet naar VNet) dat het verkeer
+1. Een internet-gebruiker probeert te krijgen tot een bestand op AppVM01 via de BackEnd001.CloudApp.Net-service.
+2. Omdat er geen eindpunten openen voor het delen van bestanden zijn, wordt dit de cloudservice wordt niet doorgegeven en wordt niet de server niet bereiken.
+3. Als de eindpunten geopend voor een of andere reden zijn, worden het verkeer geblokkeerd door NSG-regel 5 (internet met virtual network).
 
-#### <a name="denied-web-dns-lookup-on-dns-server"></a>(Geweigerd) DNS-zoekactie web op DNS-server
-1. Internet-gebruiker probeert voor het opzoeken van een interne DNS-record op DNS01 via de service BackEnd001.CloudApp.Net
-2. Omdat er geen eindpunten openen voor DNS zijn, dit zou de Cloudservice niet doorgeven en wouldn't de server niet bereiken
-3. Als de eindpunten geopend voor een of andere reden zijn, NSG-regel 5 (Internet naar VNet) dit verkeer wilt blokkeren (Opmerking: deze regel 1 (DNS) is niet van toepassing voor twee doeleinden, eerst het bron-adres is het internet, met deze regel is alleen van toepassing op de lokale VNet als de bron Dit is ook een regel voor toestaan, zodat deze zouden nooit verkeer weigeren)
+#### <a name="denied-web-dns-lookup-on-the-dns-server"></a>(Geweigerd) Web DNS-zoekopdracht op de DNS-server
+1. Een internet-gebruiker probeert om te controleren of een interne DNS-record op DNS01 via de BackEnd001.CloudApp.Net-service.
+2. Omdat er geen eindpunten openen voor DNS zijn, moet dit de cloudservice wordt niet doorgegeven en wordt niet de server niet bereiken.
+3. Als de eindpunten geopend voor een of andere reden zijn, worden het verkeer geblokkeerd door NSG-regel 5 (internet met virtual network). (Regel 1 [DNS] geldt voor twee redenen waarom niet. Eerst het bron-adres is het internet en deze regel geldt alleen als het lokale virtuele netwerk de bron is. Ten tweede wordt met deze regel een regel voor toestaan, zodat deze nooit verkeer weigert.)
 
-#### <a name="denied-web-to-sql-access-through-firewall"></a>(Geweigerd) Web toegang tot SQL via Firewall
-1. Internetgebruiker opvraagt SQL gegevens uit FrontEnd001.CloudApp.Net (Internet Facing Cloud Service)
-2. Omdat er geen eindpunten openen voor SQL zijn, dit zou niet doorgeven voor de Cloudservice en de firewall wouldn't bereiken
-3. Als u eindpunten zijn geopend voor een of andere reden, begint het subnet Frontend verwerking van inkomende regel:
-   1. NSG regel 1 (DNS) niet van toepassing, verplaatsen naar de volgende regel
-   2. NSG regel 2 (RDP) niet van toepassing, verplaatsen naar de volgende regel
-   3. NSG-regel 2 (Internet aan Firewall) is van toepassing, verkeer is toegestaan, stop regelverwerking
-4. Verkeer komt binnen via het interne IP-adres van de firewall (10.0.1.4)
-5. Firewall heeft geen regels voor het doorsturen voor SQL en het verkeer komt
+#### <a name="denied-web-to-sql-access-through-the-firewall"></a>(Geweigerd) Web op SQL-toegang via de firewall
+1. Een internetgebruiker vraagt SQL-gegevens van FrontEnd001.CloudApp.Net (een internetgerichte cloudservice).
+2. Omdat er geen eindpunten openen voor SQL zijn, dit wordt niet doorgeven van de cloudservice en de firewall wordt niet bereiken.
+3. Als de eindpunten geopend voor een of andere reden zijn, begint het subnet FrontEnd verwerking van inkomende regel:
+   1. NSG-regel 1 (DNS) is niet van toepassing. Verplaatsen naar de volgende regel.
+   2. NSG-regel 2 (RDP) niet van toepassing. Verplaatsen naar de volgende regel.
+   3. NSG-regel 3 (internet aan firewall) is van toepassing. Verkeer toestaan. Regelverwerking stoppen.
+4. Verkeer komt binnen via het interne IP-adres van de firewall (10.0.1.4).
+5. De firewall heeft geen regels voor het doorsturen voor SQL en het verkeer komt.
 
 ## <a name="conclusion"></a>Conclusie
-Dit is een relatief eenvoudig voorwaarts manier van het beveiligen van uw toepassing met een firewall en het back-end-subnet van het binnenkomende verkeer isoleren.
+In dit voorbeeld ziet u een relatief eenvoudige manier voor het beveiligen van uw toepassing met een firewall en de back-end-subnet van het binnenkomende verkeer isoleren.
 
-Meer voorbeelden en een overzicht van beveiliging netwerkgrenzen vindt [hier][HOME].
+U vindt meer voorbeelden en een overzicht van network beveiligingsgrenzen [hier][HOME].
 
 ## <a name="references"></a>Verwijzingen
-### <a name="main-script-and-network-config"></a>Belangrijkste Script en de netwerkconfiguratie
-Het volledige Script opslaan in een PowerShell-scriptbestand. Sla de netwerk-configuratie in een bestand met de naam 'NetworkConf2.xml'.
-De gebruiker gedefinieerde variabelen zo nodig wijzigen. Voer het script uit en volg de bovenstaande voor setup instructies van Firewall-regel.
+### <a name="full-script-and-network-config"></a>Volledige script en netwerk-configuratie
+Het volledige script opslaan in een PowerShell-scriptbestand. Sla het script van de configuratie van netwerk in een bestand met de naam NetworkConf2.xml.
+De gebruiker gedefinieerd-variabelen desgewenst wijzigen. Voer het script uit en volg de instructies in de sectie 'Firewall-regels' van dit artikel.
 
-#### <a name="full-script"></a>Volledige Script
-Met dit script wordt op basis van de gebruiker gedefinieerde variabelen:
+#### <a name="full-script"></a>Volledige script
+Met dit script, op basis van de gebruiker gedefinieerde variabelen, wordt de volgende stappen uitvoeren:
 
-1. Verbinding maken met een Azure-abonnement
-2. Een nieuw opslagaccount maken
-3. Een nieuw VNet en twee subnetten, zoals gedefinieerd in het netwerk-configuratiebestand maken
-4. 4 windows server-VM's bouwen
-5. Configureren van NSG met inbegrip van:
-   * Het maken van een NSG
-   * Het vullen met regels
-   * De NSG-binding aan de juiste subnetten
+1. Verbinding maken met een Azure-abonnement.
+2. Een opslagaccount maken.
+3. Maak een virtueel netwerk en twee subnetten gemaakt, zoals gedefinieerd in het configuratiebestand van het netwerk.
+4. Bouw vier Windows Server-VM's.
+5. Configureer de NSG. Configuratie is voltooid als volgt:
+   * Hiermee maakt u een NSG.
+   * Vult de NSG met regels.
+   * De Netwerkbeveiligingsgroep koppelt aan de juiste subnetten.
 
-Dit PowerShell-script moet lokaal op worden uitgevoerd dat een internet verbonden PC of de server.
+U moet dit PowerShell-script lokaal uitvoeren op een computer met internetverbinding of de server.
 
 > [!IMPORTANT]
-> Wanneer dit script wordt uitgevoerd, zijn er mogelijk andere informatieve berichten die de pop-in PowerShell of waarschuwingen worden gegenereerd. Alleen foutberichten worden weergegeven in het rood zijn oorzaak zouden kunnen gaan maken.
+> Wanneer u dit script uitvoert, waarschuwingen en andere informatieve berichten kunnen worden weergegeven in PowerShell. U hoeft alleen te worden betrokken over foutberichten die worden weergegeven in het rood.
 > 
 > 
 
 ```powershell
     <# 
      .SYNOPSIS
-      Example of DMZ and Network Security Groups in an isolated network (Azure only, no hybrid connections)
+      Example of a perimeter network and Network Security Groups in an isolated network. (Azure only. No hybrid connections.)
 
      .DESCRIPTION
-      This script will build out a sample DMZ setup containing:
-       - A default storage account for VM disks
-       - Two new cloud services
-       - Two Subnets (FrontEnd and BackEnd subnets)
-       - A Network Virtual Appliance (NVA), in this case a Barracuda NextGen Firewall
-       - One server on the FrontEnd Subnet (plus the NVA on the FrontEnd subnet)
-       - Three Servers on the BackEnd Subnet
-       - Network Security Groups to allow/deny traffic patterns as declared
+      This script will build out a sample perimeter network setup containing:
+       - A default storage account for VM disks.
+       - Two new cloud services.
+       - Two subnets (the FrontEnd and BackEnd subnets).
+       - A network virtual appliance (NVA): a Barracuda NextGen Firewall.
+       - One server on the FrontEnd subnet (plus the NVA on the FrontEnd subnet).
+       - Three servers on the BackEnd subnet.
+       - Network Security Groups to allow/deny traffic patterns as declared.
 
-      Before running script, ensure the network configuration file is created in
-      the directory referenced by $NetworkConfigFile variable (or update the
+      Before running the script, ensure the network configuration file is created in
+      the directory referenced by the $NetworkConfigFile variable (or update the
       variable to reflect the path and file name of the config file being used).
 
      .Notes
-      Security requirements are different for each use case and can be addressed in a
-      myriad of ways. Please be sure that any sensitive data or applications are behind
+      Security requirements are different for each use case and can be addressed in many ways. Be sure that any sensitive data or applications are behind
       the appropriate layer(s) of protection. This script serves as an example of some
-      of the techniques that can be used, but should not be used for all scenarios. You
-      are responsible to assess your security needs and the appropriate protections
-      needed, and then effectively implement those protections.
+      of the techniques that you can use, but it should not be used for all scenarios. You
+      are responsible for assessing your security needs and the appropriate protections
+      and then effectively implementing those protections.
 
       FrontEnd Service (FrontEnd subnet 10.0.1.0/24)
        myFirewall - 10.0.1.4
@@ -293,9 +304,9 @@ Dit PowerShell-script moet lokaal op worden uitgevoerd dat een internet verbonde
         $SubnetName = @()
         $VMIP = @()
 
-    # User Defined Global Variables
-      # These should be changes to reflect your subscription and services
-      # Invalid options will fail in the validation section
+    # User-Defined Global Variables
+      # These should be changed to reflect your subscription and services.
+      # Invalid options will fail in the validation section.
 
       # Subscription Access Details
         $subID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -324,15 +335,15 @@ Dit PowerShell-script moet lokaal op worden uitgevoerd dat een internet verbonde
       # NSG Details
         $NSGName = "MyVNetSG"
 
-    # User Defined VM Specific Config
-        # Note: To ensure proper NSG Rule creation later in this script:
-        #       - The Web Server must be VM 1
-        #       - The AppVM1 Server must be VM 2
-        #       - The DNS server must be VM 4
+    # User-Defined VM-Specific Config
+        # To ensure proper NSG rule creation later in this script:
+        #       - The web server must be VM 1.
+        #       - The AppVM1 server must be VM 2.
+        #       - The DNS server must be VM 4.
         #
         #       Otherwise the NSG rules in the last section of this
         #       script will need to be changed to match the modified
-        #       VM array numbers ($i) so the NSG Rule IP addresses
+        #       VM array numbers ($i) so the NSG rule IP addresses
         #       are aligned to the associated VM IP addresses.
 
         # VM 0 - The Network Virtual Appliance (NVA)
@@ -381,8 +392,8 @@ Dit PowerShell-script moet lokaal op worden uitgevoerd dat een internet verbonde
           $VMIP += "10.0.2.4"
 
     # ----------------------------- #
-    # No User Defined Variables or   #
-    # Configuration past this point #
+    # No user-defined variables or   #
+    # configuration past this point #
     # ----------------------------- #
 
       # Get your Azure accounts
@@ -390,14 +401,14 @@ Dit PowerShell-script moet lokaal op worden uitgevoerd dat een internet verbonde
         Set-AzureSubscription –SubscriptionId $subID -ErrorAction Stop
         Select-AzureSubscription -SubscriptionId $subID -Current -ErrorAction Stop
 
-      # Create Storage Account
+      # Create storage account
         If (Test-AzureName -Storage -Name $StorageAccountName) { 
             Write-Host "Fatal Error: This storage account name is already in use, please pick a diffrent name." -ForegroundColor Red
             Return}
         Else {Write-Host "Creating Storage Account" -ForegroundColor Cyan 
               New-AzureStorageAccount -Location $DeploymentLocation -StorageAccountName $StorageAccountName}
 
-      # Update Subscription Pointer to New Storage Account
+      # Update subscription pointer to new storage account
         Write-Host "Updating Subscription Pointer to New Storage Account" -ForegroundColor Cyan 
         Set-AzureSubscription –SubscriptionId $subID -CurrentStorageAccountName $StorageAccountName -ErrorAction Stop
 
@@ -432,11 +443,11 @@ Dit PowerShell-script moet lokaal op worden uitgevoerd dat een internet verbonde
         Return}
     Else { Write-Host "Validation passed, now building the environment." -ForegroundColor Green}
 
-    # Create VNET
+    # Create virtual network
         Write-Host "Creating VNET" -ForegroundColor Cyan 
         Set-AzureVNetConfig -ConfigurationPath $NetworkConfigFile -ErrorAction Stop
 
-    # Create Services
+    # Create services
         Write-Host "Creating Services" -ForegroundColor Cyan
         New-AzureService -Location $DeploymentLocation -ServiceName $FrontEndService -ErrorAction Stop
         New-AzureService -Location $DeploymentLocation -ServiceName $BackEndService -ErrorAction Stop
@@ -452,16 +463,16 @@ Dit PowerShell-script moet lokaal op worden uitgevoerd dat een internet verbonde
                     Set-AzureSubnet  –SubnetNames $SubnetName[$i] | `
                     Set-AzureStaticVNetIP -IPAddress $VMIP[$i] | `
                     New-AzureVM –ServiceName $ServiceName[$i] -VNetName $VNetName -Location $DeploymentLocation
-                # Set up all the EndPoints we'll need once we're up and running
-                # Note: Web traffic goes through the firewall, so we'll need to set up a HTTP endpoint.
-                #       Also, the firewall will be redirecting web traffic to a new IP and Port in a
+                # Set up all the endpoints we'll need once we're up and running.
+                # Note: Web traffic goes through the firewall, so we'll need to set up an HTTP endpoint.
+                #       Also, the firewall will be redirecting web traffic to a new IP and port in a
                 #       forwarding rule, so the HTTP endpoint here will have the same public and local
                 #       port and the firewall will do the NATing and redirection as declared in the
                 #       firewall rule.
                 Add-AzureEndpoint -Name "MgmtPort1" -Protocol tcp -PublicPort 801  -LocalPort 801  -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | Update-AzureVM
                 Add-AzureEndpoint -Name "MgmtPort2" -Protocol tcp -PublicPort 807  -LocalPort 807  -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | Update-AzureVM
                 Add-AzureEndpoint -Name "HTTP"      -Protocol tcp -PublicPort 80   -LocalPort 80   -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | Update-AzureVM
-                # Note: A SSH endpoint is automatically created on port 22 when the appliance is created.
+                # Note: An SSH endpoint is automatically created on port 22 when the appliance is created.
                 }
             Else
                 {
@@ -484,7 +495,7 @@ Dit PowerShell-script moet lokaal op worden uitgevoerd dat een internet verbonde
         Write-Host "Building the NSG" -ForegroundColor Cyan
         New-AzureNetworkSecurityGroup -Name $NSGName -Location $DeploymentLocation -Label "Security group for $VNetName subnets in $DeploymentLocation"
 
-      # Add NSG Rules
+      # Add NSG rules
         Write-Host "Writing rules into the NSG" -ForegroundColor Cyan
         Get-AzureNetworkSecurityGroup -Name $NSGName | Set-AzureNetworkSecurityRule -Name "Enable Internal DNS" -Type Inbound -Priority 100 -Action Allow `
             -SourceAddressPrefix VIRTUAL_NETWORK -SourcePortRange '*' `
@@ -516,15 +527,15 @@ Dit PowerShell-script moet lokaal op worden uitgevoerd dat een internet verbonde
             -DestinationAddressPrefix $BEPrefix -DestinationPortRange '*' `
             -Protocol *
 
-        # Assign the NSG to the Subnets
+        # Assign the NSG to the subnets
             Write-Host "Binding the NSG to both subnets" -ForegroundColor Cyan
             Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName -SubnetName $FESubnet -VirtualNetworkName $VNetName
             Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName -SubnetName $BESubnet -VirtualNetworkName $VNetName
 
-    # Optional Post-script Manual Configuration
-      # Configure Firewall
-      # Install Test Web App (Run Post-Build Script on the IIS Server)
-      # Install Backend resource (Run Post-Build Script on the AppVM01)
+    # Optional Post-Script Manual Configuration
+      # Configure firewall
+      # Install test web app (run post-build script on the IIS server)
+      # Install back-end resources (run post-build script on AppVM01)
       Write-Host
       Write-Host "Build Complete!" -ForegroundColor Green
       Write-Host
@@ -536,7 +547,7 @@ Dit PowerShell-script moet lokaal op worden uitgevoerd dat een internet verbonde
 ```
 
 #### <a name="network-config-file"></a>Netwerk-configuratiebestand
-Dit xml-bestand opslaan met bijgewerkte locatie en de koppeling naar dit bestand naar de variabele $NetworkConfigFile in het bovenstaande script toevoegen.
+Dit XML-bestand opslaan met bijgewerkte locaties en voegt u een koppeling naar dit bestand in de variabele $NetworkConfigFile in het vorige script.
 
 ```xml
     <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
@@ -571,7 +582,7 @@ Dit xml-bestand opslaan met bijgewerkte locatie en de koppeling naar dit bestand
 ```
 
 #### <a name="sample-application-scripts"></a>Voorbeeldscripts voor toepassing
-Als u een voorbeeldtoepassing voor deze en andere voorbeelden DMZ installeren wilt, is een opgegeven op de volgende koppeling: [Voorbeeldscript voor toepassing][SampleApp]
+Als u installeren van een voorbeeldtoepassing voor deze en andere perimeter network-voorbeelden wilt, raadpleegt u de [toepassing voorbeeldscript][SampleApp].
 
 <!--Image References-->
 [1]: ./media/virtual-networks-dmz-nsg-fw-asm/example2design.png "Inkomende DMZ met NSG"

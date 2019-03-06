@@ -1,5 +1,5 @@
 ---
-title: Store-sendgrid-Java-How-to-Send-email-example
+title: store-sendgrid-java-how-to-send-email-example
 description: Hoe u e-mail verzenden via SendGrid van Java in een Azure-implementatie
 services: ''
 documentationcenter: java
@@ -14,19 +14,19 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
-ms.openlocfilehash: c2f2a6e5f2dd551cfb300d333081874fef2f405c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: fecc3b411211ceb8aa6db5a0e0c0c6b07f19a63f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52421944"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442458"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Hoe u E-mail verzenden via SendGrid van Java in een Azure-implementatie
-Het volgende voorbeeld ziet u hoe u SendGrid kunt gebruiken voor het verzenden van e-mailberichten van een webpagina die wordt gehost in Azure. De resulterende toepassing krijgt de gebruiker voor e-waarden, zoals wordt weergegeven in de volgende schermopname.
+Het volgende voorbeeld ziet u hoe u SendGrid kunt gebruiken voor het verzenden van e-mailberichten van een webpagina die wordt gehost in Azure. De resulterende toepassing krijgt de gebruiker voor e-waarden, zoals wordt weergegeven in de volgende schermafbeelding.
 
 ![E-formulier][emailform]
 
-Het e-mailbericht ziet eruit als de volgende schermopname.
+Het e-mailbericht ziet eruit als in de volgende schermafbeelding.
 
 ![E-mailbericht][emailsent]
 
@@ -204,7 +204,7 @@ De volgende code, die wordt aangeroepen wanneer u het formulier in emailform.jsp
     </body>
     </html>
 
-Naast het e-mailbericht verzendt, biedt emailform.jsp een resultaat voor de gebruiker. een voorbeeld is de volgende schermopname:
+Naast het e-mailbericht verzendt, biedt emailform.jsp een resultaat voor de gebruiker. een voorbeeld is de volgende schermafbeelding:
 
 ![Resultaat van de e-mail verzenden][emailresult]
 

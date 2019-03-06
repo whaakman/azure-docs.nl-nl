@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: roiyz
-ms.openlocfilehash: f8b0955afa1705dd8e3c01a943cc5e5d885f9c71
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: b8f343c2293df6a1dec808addf8881c27514fc06
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456959"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436644"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>De versie 2 van Azure Custom Script-extensie gebruiken met virtuele Linux-machines
 De Custom Script Extension versie 2 downloads en scripts uitvoeren op Azure virtual machines. Deze uitbreiding is handig voor post-implementatieconfiguratie, software-installatie of een andere Configuratiebeheer /-taak. U kunt scripts downloaden via Azure Storage of een andere toegankelijke internetlocatie of u ze aan de extensie-runtime kunt leveren. 
@@ -364,7 +364,7 @@ De Scriptextensie van Azure produceert een logboek dat u hier kunt vinden:
 /var/log/azure/custom-script/handler.log
 ```
 
-U ziet er voor het uitvoeren van induvidual, ziet het er ongeveer als volgt:
+U ziet er voor de uitvoering van de afzonderlijke, ziet het er ongeveer als volgt:
 ```text
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=start
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=pre-check

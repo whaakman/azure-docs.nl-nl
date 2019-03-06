@@ -99,12 +99,12 @@
 #### [Aanbieding verwijderen](./cloud-partner-portal/manage-offers/cpp-delete-offer.md) 
 
 ### Test Drive
-#### [Wat is Test Drive?](./cloud-partner-portal-orig/what-is-test-drive.md)
-#### [Test Drive voor Azure Resource Manager](./cloud-partner-portal-orig/azure-resource-manager-test-drive.md)
-#### [Gehoste Test Drive](./cloud-partner-portal-orig/hosted-test-drive.md)
-#### [Logische app voor Test Drive](./cloud-partner-portal-orig/logic-app-test-drive.md)
-#### [Transformatievoorbeelden voor Test Drive](./cloud-partner-portal-orig/transforming-examples-for-test-drive.md)
-#### [Marketing en aanbevolen procedures](./cloud-partner-portal-orig/marketing-and-best-practices.md)
+#### [Wat is Test Drive?](./cloud-partner-portal/test-drive/what-is-test-drive.md)
+#### [Test Drive voor Azure Resource Manager](./cloud-partner-portal/test-drive/azure-resource-manager-test-drive.md)
+#### [Gehoste Test Drive](./cloud-partner-portal/test-drive/hosted-test-drive.md)
+#### [Logische app voor Test Drive](./cloud-partner-portal/test-drive/logic-app-test-drive.md)
+#### [Transformatievoorbeelden voor Test Drive](./cloud-partner-portal/test-drive/transforming-examples-for-test-drive.md)
+#### [Marketing en aanbevolen procedures](./cloud-partner-portal/test-drive/marketing-and-best-practices.md)
 
 ### [Aanbieding voor Azure-toepassing](./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md)
 #### [Vereisten](./cloud-partner-portal/azure-applications/cpp-prerequisites.md)

@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef9dbe1bb0ed9e5aad545453c409b0959bdd3fd4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7bb9fc806779565581fa7667749402f5608edd80
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207225"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438071"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Beveiligingsoverwegingen voor het openen van apps op afstand met Azure AD-toepassingsproxy
 
@@ -69,7 +69,7 @@ Zie voor meer informatie over connectors [over Azure AD Application Proxy connec
 
 Geavanceerde beveiliging en bescherming krijgen.
 
-Omdat deze deel uitmaakt van Azure Active Directory, Application Proxy kan gebruikmaken van [Azure AD Identity Protection](../active-directory-identityprotection.md), met gegevens van de Microsoft Security Response Center en de Digital Crimes Unit. Samen we proactief identificeren accounts waarmee is geknoeid en bieden van bescherming tegen riskante aanmeldingen. We houden rekening talloze factoren om te bepalen welke probeert aanmelding goed met een hoog risico. Deze factoren omvatten markeringen geïnfecteerde apparaten, anoniem netwerken en ongewone of onwaarschijnlijk locaties.
+Omdat deze deel uitmaakt van Azure Active Directory, Application Proxy kan gebruikmaken van [Azure AD Identity Protection](../active-directory-identityprotection.md), met gegevens van de Microsoft Security Response Center en de Digital Crimes Unit. Samen we proactief identificeren accounts waarmee is geknoeid en bieden van bescherming tegen riskante aanmeldingen. We houden rekening talloze factoren om te bepalen welke aanmeldingspogingen zijn met een hoog risico. Deze factoren omvatten markeringen geïnfecteerde apparaten, anoniem netwerken en ongewone of onwaarschijnlijk locaties.
 
 Veel van deze rapporten en gebeurtenissen zijn al beschikbaar via een API voor integratie met uw security information en event management (SIEM) systemen.
 

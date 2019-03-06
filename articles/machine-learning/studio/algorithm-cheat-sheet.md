@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
-ms.date: 12/18/2017
-ms.openlocfilehash: 8d0b123045ace223dbea6c8fa98980091cfe73e1
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.date: 03/04/2019
+ms.openlocfilehash: 4adcef601ca84b94d88ed65278310a94c7273353
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819987"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433312"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Machine learning-overzichtskaart voor Azure Machine Learning Studio
 
@@ -36,7 +36,7 @@ Downloaden en afdrukken van het Machine Learning Studio-algoritme referentiemate
 
 ## <a name="notes-and-terminology-definitions-for-the-machine-learning-studio-algorithm-cheat-sheet"></a>Notities en termen die voor het algoritme voor Machine Learning Studio Cheatsheet
 
-* De aangeboden in deze overzichtskaart suggesties zijn bij benadering regels van de miniatuur. Sommige kunt worden verbogen en sommige flagrantly kunt worden geschonden. Dit is bedoeld om een beginpunt voorstellen. Wees niet bang voor het uitvoeren van een man competitie tussen verschillende algoritmen voor uw gegevens. Er is gewoon geen vervanging voor informatie over de beginselen van elk algoritme en inzicht in het systeem dat uw gegevens gegenereerd.
+* De aangeboden in deze overzichtskaart suggesties zijn bij benadering regels van de miniatuur. Sommige kunt worden verbogen en sommige flagrantly kunt worden geschonden. Dit is bedoeld om een beginpunt voorstellen. Wees niet bang voor het uitvoeren van een man competitie tussen verschillende algoritmen voor uw gegevens. Er is gewoon geen vervanging voor informatie over de beginselen van elk algoritme en het systeem dat uw gegevens gegenereerd.
 
 * Elke machine learning-algoritme heeft een eigen stijl of *inductieve vertekening*. Verschillende algoritmen is wellicht beter voor een specifiek probleem, en één algoritme mogelijk beter geschikt dan andere. Maar het is niet altijd mogelijk tevoren weten wat het meest geschikt is. In dergelijke gevallen worden verschillende algoritmes samen weergegeven in het referentiemateriaal voor. Een geschikte strategie zou worden omgezet naar één algoritme, en als de resultaten nog niet voldoende zijn, probeer de andere. Hier volgt een voorbeeld van de [Azure AI Gallery](http://gallery.azure.ai/) van een experiment dat probeert verschillende algoritmes op basis van dezelfde gegevens en vergelijkt de resultaten: [Vergelijk ROC classificaties: Herkenning letter](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
 
@@ -69,7 +69,7 @@ Downloaden en afdrukken van het Machine Learning Studio-algoritme referentiemate
 
 
 <!-- Module References -->
-[a-z-list]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list
-[initialize-model]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model
-[k-means-clustering]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/k-means-clustering
-[one-vs-all-multiclass]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/one-vs-all-multiclass
+[a-z-list]: /azure/machine-learning/studio-module-reference/a-z-module-list
+[initialize-model]: /azure/machine-learning/studio-module-reference/machine-learning-initialize-model
+[k-means-clustering]: /azure/machine-learning/studio-module-reference/k-means-clustering
+[one-vs-all-multiclass]: /azure/machine-learning/studio-module-reference/one-vs-all-multiclass

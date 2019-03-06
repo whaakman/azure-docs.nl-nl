@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 0cc9c8dc214589e03e5a6a5405c07c9f6b3e53e6
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 373d7d4b421b3e679a5bb0f843db47e28eebbcc1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895836"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451923"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Herstel na noodgevallen van on-premises virtuele VMware-machines of fysieke servers naar een secundaire site instellen
 
@@ -159,7 +159,7 @@ Scout Update 7 is een volledige installatieprogramma die kan worden gebruikt voo
 #### <a name="manual-upgrade-for-php-and-mysql-on-csps-and-rx"></a>Handmatige Upgrade voor PHP en MySQL in CS-, PS- en RX
 De PHP-scriptplatform dat moet worden bijgewerkt naar versie 7.2.10 op de configuratieserver, processerver en RX-Server.
 Het MySQL-database management systeem moet worden bijgewerkt naar versie 5.7.23 op de configuratieserver, processerver en RX-Server.
-Volg de manaual stappen die in de [handleiding voor snelle installatie](https://aka.ms/asr-scout-quick-install-guide) om bij te werken van PHP en MySQL-versies.
+Volg de handmatige stappen die in de [handleiding voor snelle installatie](https://aka.ms/asr-scout-quick-install-guide) om bij te werken van PHP en MySQL-versies.
 
 ### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 Update 6 
 Bijgewerkt: 12 oktober 2017

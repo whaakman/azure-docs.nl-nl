@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e3632fdb3b4d5c1d2b5465671f36a201c5ff990
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 63fdd60c4c462626cc43a7a453bddc0b020b92cf
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193293"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409887"
 ---
 # <a name="preview-azure-ad-password-protection-troubleshooting"></a>Preview: Azure AD-wachtwoordbeveiliging oplossen
 
@@ -55,13 +55,13 @@ Zorg ervoor dat de proxy-computer is verbonden met de eindpunten die worden verm
 
 Dit probleem kan het manifest met tal van problemen, maar heeft meestal een veelvoorkomende oorzaak van de hoofdmap.
 
-Azure AD-wachtwoord beveiliging heeft een kritieke afhankelijkheid van de versleuteling en ontsleuteling functionaliteit verstrekt door de Microsoft Key Distribution-Service is beschikbaar op domeincontrollers met Windows Server 2012 en hoger. De KDS-service moet zijn ingeschakeld en functioneel op alle Windows Server 2012 en hoger domeincontrollers in een domein.  
+Azure AD-wachtwoord beveiliging heeft een kritieke afhankelijkheid van de versleuteling en ontsleuteling functionaliteit verstrekt door de Microsoft Key Distribution-Service is beschikbaar op domeincontrollers met Windows Server 2012 en hoger. De KDS-service moet zijn ingeschakeld en functioneel op alle Windows Server 2012 en hoger domeincontrollers in een domein.
 
-Standaard de KDS is startmodus van service-service geconfigureerd als handmatige (Trigger starten). Deze configuratie betekent dat de eerste keer dat een client probeert de service, gebruiken deze is gestart op aanvraag. De startmodus van deze standaard-service is geschikt voor de beveiliging met Azure AD-wachtwoord. 
+Standaard de KDS is startmodus van service-service geconfigureerd als handmatige (Trigger starten). Deze configuratie betekent dat de eerste keer dat een client probeert de service, gebruiken deze is gestart op aanvraag. De startmodus van deze standaard-service is geschikt voor de beveiliging met Azure AD-wachtwoord.
 
 Als de startmodus van de KDS-service is geconfigureerd op uitgeschakeld, kan deze configuratie moet worden opgelost voordat de beveiliging van Azure AD-wachtwoord werkt goed.
 
-Een eenvoudige test voor dit probleem is handmatig starten van de KDS-service, via de de Service management MMC-console of met behulp van andere hulpprogramma's voor service management (bijvoorbeeld 'net start kdssvc' vanaf een opdrachtprompt-console worden uitgevoerd). De KDS-service wordt gestart en blijven altijd werken verwacht.
+Een eenvoudige test voor dit probleem is de KDS-service, via de Service management MMC-console handmatig te starten of met behulp van andere hulpprogramma's voor service management (bijvoorbeeld 'net start kdssvc' vanaf een opdrachtprompt-console worden uitgevoerd). De KDS-service wordt gestart en blijven altijd werken verwacht.
 
 De meest voorkomende oorzaak is dat de Active Directory domain controller object bevindt zich buiten de standaard-domeincontrollers. Deze configuratie wordt niet ondersteund door de KDS-service en is niet beperkt tot die zijn opgelegd door Azure AD-wachtwoord beveiliging. De oplossing voor dit probleem is de domain controller object verplaatsen naar een locatie in de standaard-domeincontrollers.
 
@@ -118,7 +118,7 @@ Als deze wordt besloten dat u wilt de openbare preview-software en opschonen all
 
    Voer het sterretje niet weglaten ("*") aan het einde van de variabele waarde $keywords.
 
-   De resulterende objecten gevonden de `Get-ADObject` opdracht kan worden doorgesluisd naar `Remove-ADObject`, of handmatig verwijderd. 
+   De resulterende objecten gevonden de `Get-ADObject` opdracht kan worden doorgesluisd naar `Remove-ADObject`, of handmatig verwijderd.
 
 4. Verwijder handmatig alle connection points van de DC-agent in elke naamgevingscontext voor domein. Er kan ook een deze objecten per domeincontroller in het forest, afhankelijk van hoe ver de openbare preview-software is geïmplementeerd. De locatie van het object kan worden gedetecteerd met de volgende Active Directory PowerShell-opdracht:
 

@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: garyericson
 ms.author: garye
 ms.custom: seodc18
-ms.date: 12/18/2017
-ms.openlocfilehash: 0d7210bfd333a5941d25f72dc0af0743ed234f8c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.date: 03/04/2019
+ms.openlocfilehash: e29e4713cb01fcf894e09631ecca91ff07587751
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818898"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455187"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Downloadbare Infographic: Machine learning-basisbeginselen met algoritmevoorbeelden
 
@@ -23,7 +23,7 @@ Download dit overzicht infographic eenvoudig te begrijpen van de basisprincipes 
 
 ## <a name="popular-algorithms-in-machine-learning-studio"></a>Populaire algoritmen in Machine Learning Studio
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) wordt geleverd met een grote bibliotheek met algoritmen voor voorspellende analyses. De infographic vier populaire families van algoritmen - regressie, detectie van afwijkingen, clustering en classificatie - identificeert en vindt u koppelingen naar voorbeelden werken in de [Azure AI Gallery](https://gallery.azure.ai/). De galerie bevat voorbeeldexperimenten en zelfstudies die laten zien hoe deze algoritmen in veel werkelijke oplossingen kunnen worden toegepast.
+[Azure Machine Learning Studio](https://studio.azureml.net/) wordt geleverd met een grote bibliotheek met algoritmen voor voorspellende analyses. Deze infographic vier populaire families van algoritmen - regressie, detectie van afwijkingen, clustering en classificatie - identificeert en vindt u koppelingen naar voorbeelden werken in de [Azure AI Gallery](https://gallery.azure.ai/). De galerie bevat voorbeeldexperimenten en zelfstudies die laten zien hoe deze algoritmen in veel werkelijke oplossingen kunnen worden toegepast.
 
 ## <a name="download-the-infographic-with-algorithm-examples"></a>Download de infographic met algoritmevoorbeelden
 
@@ -40,7 +40,7 @@ Download dit overzicht infographic eenvoudig te begrijpen van de basisprincipes 
 
 
 <!-- Module References -->
-[a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx
-[initialize-model]: https://msdn.microsoft.com/library/azure/0c67013c-bfbc-428b-87f3-f552d8dd41f6/
-[k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
-[one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
+[a-z-list]: /azure/machine-learning/studio-module-reference/a-z-module-list
+[initialize-model]: /azure/machine-learning/studio-module-reference/machine-learning-initialize-model
+[k-means-clustering]: /azure/machine-learning/studio-module-reference/k-means-clustering
+[one-vs-all-multiclass]: /azure/machine-learning/studio-module-reference/one-vs-all-multiclass

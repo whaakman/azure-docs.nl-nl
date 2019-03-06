@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 8115994d1e4ac116a410cfa69824dc800717ab6f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 9aebe878be97b489b460fff96001e2908cdb7b87
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819231"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432376"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Aangepaste R-modules voor Azure Machine Learning Studio definieert
 
@@ -123,7 +123,7 @@ Regels voor de limieten van de tekens in de Module-elementen:
 * De inhoud van de **beschrijving** element mag niet groter zijn dan 128 tekens.
 * De inhoud van de **eigenaar** element mag niet groter zijn dan 32 tekens lang.
 
-Resultaten van een module kunnen deterministische of nondeterministic.* * standaard, alle modules worden beschouwd als deterministisch. Dat wil zeggen, moet een onveranderlijke set invoerparameters en gegevens opgegeven, de module retourneren de dezelfde resultaten eacRAND of een functionh terwijl die deze wordt uitgevoerd. Dit gedrag, Azure Machine Learning Studio wordt alleen opnieuw uitgevoerd modules die zijn gemarkeerd als deterministisch als een parameter of de ingevoerde gegevens is gewijzigd. Retourneren van de resultaten in de cache levert ook veel sneller uitvoeren van experimenten.
+Resultaten van een module kunnen deterministische of nondeterministic.* * standaard, alle modules worden beschouwd als deterministisch. Dat wil zeggen, moet een onveranderlijke set invoerparameters en gegevens opgegeven, de module retourneren de dezelfde resultaten eacRAND of een functie terwijl die deze wordt uitgevoerd. Dit gedrag, Azure Machine Learning Studio wordt alleen opnieuw uitgevoerd modules die zijn gemarkeerd als deterministisch als een parameter of de ingevoerde gegevens is gewijzigd. Retourneren van de resultaten in de cache levert ook veel sneller uitvoeren van experimenten.
 
 Er zijn functies die niet-deterministisch, zoals RAND of een functie die de huidige datum of tijd retourneert. Als de module een niet-deterministische functie gebruikt, kunt u opgeven of de module niet-deterministisch is door de optionele instelling **isDeterministic** kenmerk **FALSE**. Hierdoor weet u zeker dat de module wordt opnieuw uitgevoerd wanneer het experiment wordt uitgevoerd, zelfs als de invoer-module en de parameters zijn niet gewijzigd. 
 

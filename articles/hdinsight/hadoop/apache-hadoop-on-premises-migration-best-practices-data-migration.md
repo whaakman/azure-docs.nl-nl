@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5d0259726a45346f1e9b891cb235531d6c24d4a2
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 488e1adb6d533dc88994e1dc08513870f56bd9c0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53433420"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433039"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>On-premises Apache Hadoop-clusters migreren naar Azure HDInsight - gegevens migratie aanbevolen procedures
 
@@ -94,7 +94,7 @@ Het hive-metastore kan worden gemigreerd met behulp van de scripts of met behulp
 
 #### <a name="hive-metastore-migration-using-scripts"></a>Hive-metastore migratie met behulp van scripts
 
-1. Het Hive-DDLs van on-premises Hive-metastore genereren. Deze stap kan worden gedaan met behulp van een [wrapper bash-script](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md).
+1. De DDLs Hive uit op de lokale Hive-metastore genereren. Deze stap kan worden gedaan met behulp van een [wrapper bash-script](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md).
 1. Bewerk het gegenereerde DDL ter vervanging van HDFS-url met ADLS-WASB/ABFS URL's.
 1. Voer de bijgewerkte DDL op de metastore uit het HDInsight-cluster.
 1. Zorg ervoor dat de versie van de Hive-metastore compatibel tussen on-premises en cloud.

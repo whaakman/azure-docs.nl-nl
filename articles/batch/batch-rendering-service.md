@@ -6,18 +6,18 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: bc8c96345aeb1886696326edd230666ac8b6c41d
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: dbe3fe59fd2674cf3475fc5b589a2c938e706ab2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542192"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441335"
 ---
 # <a name="rendering-using-azure"></a>Weergeven met Azure
 
 Rendering is het proces van 3D-modellen maken en deze omzetten in 2D-afbeeldingen. 3D-scènebestanden zijn ontworpen en in toepassingen als Autodesk 3ds Max, Autodesk Maya en Blender.  Rendering-toepassingen als Autodesk Maya, Autodesk Arnold, Chaos Group V-Ray en Blender cycli produceren 2D-afbeeldingen.  Soms enkele afbeeldingen zijn gemaakt op basis van de scènebestanden. Het is echter gebruikelijk modelleren en meerdere afbeeldingen weergeven en ze vervolgens combineren in een animatie.
 
-De renderingswerklast wordt intensief gebruikt voor speciale effecten (VFX) in de Media en Entertainment. Rendering wordt ook gebruikt in veel andere industires zoals reclame, detailhandel, olie en gas- en productie.
+De renderingswerklast wordt intensief gebruikt voor speciale effecten (VFX) in de Media en Entertainment. Rendering wordt ook gebruikt in veel bedrijfstakken, zoals advertenties, detailhandel, olie en gas- en productie.
 
 Het proces van rendering is rekenintensief zijn; kunnen er veel frames/images voor het produceren en elke afbeelding kunnen vele uren om weer te geven.  Rendering is daarom een perfecte batch verwerkt-werkbelasting die kan gebruikmaken van Azure en Azure Batch om u te veel renders parallel worden uitgevoerd.
 
@@ -77,19 +77,19 @@ Azure Batch is gebruikt voor veel werkbelastingen, maar de volgende mogelijkhede
 
 Er zijn verschillende manieren waarop u met Azure Batch, die allemaal ook van toepassing op Azure Batch rendering.
 
-* API's:
+* APIs:
   * Schrijf code met behulp van de [REST](https://docs.microsoft.com/rest/api/batchservice), [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/batch), [Python](https://docs.microsoft.com/python/api/overview/azure/batch), [Java](https://docs.microsoft.com/java/api/overview/azure/batch), of andere API's ondersteund.  Ontwikkelaars kunnen Azure Batch-mogelijkheden integreren in hun bestaande toepassingen of de werkstroom, of cloud of op basis van on-premises.  Bijvoorbeeld, de [Autodesk Maya invoegtoepassing](https://github.com/Azure/azure-batch-maya) maakt gebruik van de Batch Python-API voor het aanroepen van Batch, maken en beheren van pools, jobs en taken indienen en bewaken van status.
 * Opdrachtregelprogramma's:
   * De [Azure vanaf de opdrachtregel](https://docs.microsoft.com/cli/azure/) of [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) kan worden gebruikt voor het gebruik van de Batch script.
   * In het bijzonder gemakkelijker de ondersteuning van de sjabloon Batch CLI veel te maken van pools en taken verzendt.
-* UI:
+* UIs:
   * [Batch Explorer](https://github.com/Azure/BatchExplorer) is een platformoverschrijdende clienthulpprogramma waarmee ook Batch-accounts worden beheerd en bewaakt, maar sommige uitgebreidere mogelijkheden ten opzichte van de gebruikersinterface van Azure portal biedt.  Een aantal toepassingen en -taak zijn opgegeven die speciaal geschikt zijn voor elke ondersteunde toepassing en kan worden gebruikt om eenvoudig te maken van toepassingen en voor het verzenden van taken.
   * De Azure-portal kan worden gebruikt voor het beheren en controleren van Azure Batch.
 * Client-toepassing plug-in de:
   * Invoegtoepassingen zijn beschikbaar die Batch rendering worden gebruikt als rechtstreeks in het ontwerp van de client en ontwerptoepassingen toestaan. De plug-ins aanroepen voornamelijk van de Batch Explorer-toepassing met contextuele informatie over de huidige 3D-model.
   * De volgende invoegtoepassingen zijn beschikbaar:
     * [Azure Batch voor Maya](https://github.com/Azure/azure-batch-maya)
-    * [3DS Max.](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
+    * [3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
     * [Blender](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
 
 ## <a name="getting-started-with-azure-batch-rendering"></a>Aan de slag met Azure Batch rendering

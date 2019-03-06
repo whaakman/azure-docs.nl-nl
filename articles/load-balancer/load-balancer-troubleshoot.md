@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 495325696dad79a6cc1a77b9a87f6db0af4c1156
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 26f60a6f1796b080df3294737ce93bfb43029bf1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253252"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439112"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Problemen met Azure Load Balancer oplossen
 
@@ -77,7 +77,7 @@ Als de voorgaande oorzaken lijken te worden gevalideerd en omgezet correct en de
     - Voer een gelijktijdige Netsh-tracering op de back-endpool voor doel-VM en een andere test-VM in hetzelfde VNet. Nu, voert u een test PsPing gedurende een bepaalde periode, sommige Netwerktraceringen verzamelen en stop vervolgens de test. 
     - Het vastleggen van netwerk analyseren en te zien of er zowel inkomende als uitgaande pakketten met betrekking tot de ping-query. 
         - Als er geen inkomende pakketten zijn waargenomen op de back-endpool-VM, is er mogelijk een netwerkbeveiligingsgroepen of UDR foutieve configuratie van het verkeer blokkeren. 
-        - Als er geen uitgaande pakketten zijn waargenomen op de back-endpool-VM, moet de virtuele machine moet worden gecontroleerd voor niet-gerelateerde problemen (voor bijvoorbeeld, toepassing de testpoort blokkeren). 
+        - Als er geen uitgaande pakketten zijn waargenomen op de back-endpool-VM, moet de virtuele machine moet worden gecontroleerd voor niet-gerelateerde problemen (bijvoorbeeld de toepassing de testpoort blokkeren). 
     - Controleer of als de testpakketten wordt gedwongen naar een andere bestemming (mogelijk via de UDR-instellingen) voordat de load balancer wordt bereikt. Hierdoor kan het verkeer naar de back-end van de virtuele machine nooit te bereiken. 
 * De test-type (bijvoorbeeld HTTP naar TCP) wijzigen en de bijbehorende poort configureren voor netwerkbeveiligingsgroepen ACL's en firewall om te controleren of het probleem met de configuratie van test-antwoord is. Zie voor meer informatie over de configuratie van de health test [Testconfiguratie health Endpoint Load Balancing](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/).
 

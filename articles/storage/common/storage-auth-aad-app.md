@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 4c39f47169071ceb9430f419a144e11f425d65b0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6d283840116a5e1f996602fd792456d3b8e8d9a0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240723"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456088"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues-preview"></a>Verifiëren met Azure Active Directory vanaf een aanvraag voor toegang tot blobs en wachtrijen (Preview)
 
@@ -39,7 +39,7 @@ Als u uw toepassing registreert, kunt u informatie opgeven over uw toepassing na
 
 Voor het registreren van uw Azure Storage-toepassing, volg de stappen in de [toevoegen van een toepassing](../../active-directory/develop/quickstart-v1-add-azure-ad-app.md) in sectie [toepassingen integreren met Azure Active Directory](../../active-directory/active-directory-integrating-applications.md). Als u uw toepassing als een systeemeigen toepassing registreert, kunt u een geldige URI voor de **omleidings-URI**. De waarde hoeft niet te worden geen echt eindpunt.
 
-![Schermopname waarin uw storage-toepassing registreren bij Azure AD](./media/storage-auth-aad-app/app-registration.png)
+![Schermopname die laat zien hoe u uw storage-toepassing registreren bij Azure AD](./media/storage-auth-aad-app/app-registration.png)
 
 Nadat u uw toepassing hebt geregistreerd, ziet u de toepassings-ID (of de client-ID) onder **instellingen**:
 
@@ -57,7 +57,7 @@ Vervolgens moet u uw toepassing machtigen voor het aanroepen van Azure Storage-A
 4. In de **vereiste machtigingen** blade, klikt u op de **toevoegen** knop.
 5. Onder **Select an API**, zoek naar 'Azure-opslag' en selecteer **Azure Storage** uit de lijst met resultaten.
 
-    ![Schermopname waarin machtigingen voor opslag](media/storage-auth-aad-app/registered-app-permissions-1.png)
+    ![Schermopname die laat zien machtigingen voor opslag](media/storage-auth-aad-app/registered-app-permissions-1.png)
 
 6. Onder **machtigingen selecteren**, schakel het selectievakje in naast **toegang tot Azure Storage**, en klikt u op **Selecteer**.
 7. Klik op **Gereed**.
@@ -101,7 +101,7 @@ Als u de tenant-ID, de volgende stappen uit:
 2. Klik op **Eigenschappen**.
 3. Kopieer de GUID-waarde opgegeven voor de **map-ID**. Deze waarde wordt ook aangeroepen voor de tenant-ID.
 
-![Schermopname waarin het kopiëren van de tenant-ID](./media/storage-auth-aad-app/aad-tenant-id.png)
+![Schermopname van het kopiëren van de tenant-ID](./media/storage-auth-aad-app/aad-tenant-id.png)
 
 ### <a name="add-references-and-using-statements"></a>Verwijzingen toevoegen en met behulp van instructies  
 

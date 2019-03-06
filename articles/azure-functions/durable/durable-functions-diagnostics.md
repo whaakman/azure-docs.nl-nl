@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4f6d49a60df09e78c3cbeee22d43827ecc9f9f64
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: ac9abaaea7f33627332a9bc7563745b5efdf3d12
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118418"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436237"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnostische gegevens in duurzame functies in Azure
 
-Er zijn verschillende opties voor het oplossen van problemen met [duurzame functies](durable-functions-overview.md). Sommige van deze opties zijn hetzelfde voor reguliere functies en sommige zijn uniek voor duurzame functies.
+Er zijn verschillende opties voor het oplossen van problemen met [duurzame functies](durable-functions-overview.md). Sommige van deze opties zijn hetzelfde voor gewone functies en sommige zijn uniek voor Durable Functions.
 
 ## <a name="application-insights"></a>Application Insights
 
@@ -323,11 +323,11 @@ Azure Functions ondersteunt functiecode rechtstreeks foutopsporing, en die onder
 > [!TIP]
 > Bij het instellen van onderbrekingspunten, als u wilt alleen verbreken op niet opnieuw kan worden uitgevoerd, stelt u een voorwaardelijke onderbrekingspunt die alleen als regeleinden zijn opgesplitst `IsReplaying` is `false`.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Opslag
 
 Duurzame functies slaat staat standaard in Azure Storage. Dit betekent dat u kunt de status van uw indelingen met behulp van hulpprogramma's zoals inspecteren [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
-![Azure Storage Explorer-schermafbeelding](./media/durable-functions-diagnostics/storage-explorer.png)
+![Schermopname van Azure Storage Explorer](./media/durable-functions-diagnostics/storage-explorer.png)
 
 Dit is handig voor foutopsporing omdat u precies welke status een indeling mogelijk ziet in. Berichten in wachtrijen kunnen ook worden onderzocht als u wilt weten welke werk in behandeling (of vastgelopen in sommige gevallen).
 

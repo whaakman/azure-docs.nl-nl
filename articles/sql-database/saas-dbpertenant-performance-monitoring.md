@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 902fbde0eca8db9113dda51e5d912fa9d94644ee
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: df54f9dd4047fffb578a1a95a2edc47cba711ba1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215163"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433515"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Prestaties van Azure SQL-databases en pools in een multitenant SaaS-app controleren en beheren
 
@@ -83,10 +83,10 @@ De *Demo-PerformanceMonitoringAndManagement.ps1* script is opgegeven dat een wer
 
 | Demo | Scenario |
 |:--|:--|
-| 2 | Belasting met normale intensiteit genereren (ongeveer 40 DTU's) |
+| 2 | Genereren van belasting met normale intensiteit (ongeveer 40 dtu's) |
 | 3 | Load genereren met langere en frequentere bursts per database|
-| 4 | Load genereren met meer DTU-bursts per database (ongeveer 80 DTU's)|
-| 5 | Een normale load en hoge load genereren op één tenant (ongeveer 95 DTU's)|
+| 4 | Load genereren met meer DTU-bursts per database (ongeveer 80 dtu's)|
+| 5 | Genereren van een normale load en hoge load op één tenant (ongeveer 95 dtu's)|
 | 6 | Niet-gebalanceerde load genereren voor meerdere pools|
 
 De load-generator past een *synthetische* load alleen voor CPU toe op elke tenantdatabase. De generator start voor elke tenantdatabase een taak, die periodiek een opgeslagen procedure aanroept die de load genereert. De load-niveaus (in eDTU's), duur en intervallen zijn verschillend voor alle databases. Dit simuleert onvoorspelbare tenantactiviteit.
@@ -196,7 +196,7 @@ Als een afzonderlijke database in een pool optreedt in een duurzame hoge belasti
 Deze oefening simuleert het effect van een hoge load voor Contoso Concert Hall wanneer kaartjes voor een populair concert in de verkoop gaan.
 
 1. In de **PowerShell ISE**, open de... \\ *Demo-PerformanceMonitoringAndManagement.ps1* script.
-1. Stel het volgende in: **$DemoScenario = 5, Een normale load en hoge load genereren op één tenant (ongeveer 95 DTU's).**
+1. Stel **$DemoScenario = 5, genereren een normale load en hoge load op één tenant (ongeveer 95 dtu's).**
 1. Stel **$SingleTenantDatabaseName = contosoconcerthall** in
 1. Voer het script uit met **F5**.
 

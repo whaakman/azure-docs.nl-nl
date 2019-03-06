@@ -11,12 +11,12 @@ ms.topic: conceptual
 manager: yuvalm
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, containers
-ms.openlocfilehash: b614a517874363be95ff17d802995a927a15af2f
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: ba5032e5d52d1fd70d0bfd4f1d677e17df7deffd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194620"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437442"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>CI/CD met Azure Dev opslagruimten gebruiken
 
@@ -46,6 +46,17 @@ azds space select -n dev
 
 Wanneer u wordt gevraagd een bovenliggende dev-ruimte te selecteren, selecteert u _\<geen\>_.
 
+Nadat uw dev-ruimte is gemaakt, moet u bepalen het achtervoegsel van de host. Gebruik de `azds show-context` opdracht om het achtervoegsel voor de host van de Controller voor binnenkomend verkeer van Azure Dev spaties weer te geven.
+
+```cmd
+$ azds show-context
+Name   ResourceGroup    DevSpace  HostSuffix
+-----  ---------------  --------  ----------------------
+MyAKS  MyResourceGroup  dev       fedcba098.eus.azds.io
+```
+
+In het bovenstaande voorbeeld is het achtervoegsel van de host _fedcba098.eus.azds.io_. Deze waarde wordt later gebruikt bij het maken van uw release-definitie.
+
 De _dev_ ruimte bevat altijd de meest recente status van de opslagplaats, een basislijn, zodat ontwikkelaars kunnen maken _onderliggende spaties_ van _dev_ voor het testen van hun geïsoleerde wijzigingen in de context van de grotere app. Dit concept wordt in meer detail beschreven in de zelfstudies Dev spaties.
 
 ## <a name="creating-the-build-definition"></a>Het maken van de build-definitie
@@ -65,17 +76,17 @@ In de _azds_updates_ vertakking die we hebben een eenvoudige opgenomen [Azure pi
 Afhankelijk van de taal die u hebt gekozen, is de pijplijn YAML ingecheckt in een pad vergelijkbaar met: `samples/dotnetcore/getting-started/azure-pipelines.dotnetcore.yml`
 
 Een pijplijn te maken van dit bestand:
-1. Navigeer in uw DevOps-project hoofdpagina aan pijplijnen > bouwt
-1. Selecteer de optie voor het maken van een **nieuw** build-pijplijn
-1. Selecteer **GitHub** als de bron autoriseren met uw GitHub-account indien nodig, en selecteer de _azds_updates_ vertakking van uw Gevorkte versie van de opslagplaats van de sampleapp dev-opslagruimten
-1. Selecteer **configuratie als code**, of **YAML**, als uw sjabloon
-1. Nu krijgt u een pagina van de configuratie van uw build-pijplijn. Zoals hierboven vermeld voert u de taalspecifieke pad voor de **YAML-bestandspad**. Bijvoorbeeld: `samples/dotnetcore/getting-started/azure-pipelines.dotnetcore.yml`
-1. Ga naar het tabblad variabelen
+1. Navigeer in uw DevOps-project hoofdpagina aan pijplijnen > bouwt.
+1. Selecteer de optie voor het maken van een **nieuw** build-pijplijn.
+1. Selecteer **GitHub** als de bron autoriseren met uw GitHub-account indien nodig, en selecteer de _azds_updates_ vertakking van uw Gevorkte versie van de dev-spaces sampleapp-opslagplaats.
+1. Selecteer **configuratie als code**, of **YAML**, als uw sjabloon.
+1. Nu krijgt u een pagina van de configuratie van uw build-pijplijn. Zoals hierboven vermeld bladert u naar de taalspecifieke pad voor de **YAML-bestandspad** met behulp van de **...**  knop. Bijvoorbeeld `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
+1. Ga naar de **variabelen** tabblad.
 1. Handmatig toevoegen _dockerId_ als een variabele, is dat de gebruikersnaam van uw [administrator-account voor Azure Container Registry](../../container-registry/container-registry-authentication.md#admin-account). (Wordt vermeld in de vereisten van het artikel)
 1. Handmatig toevoegen _dockerPassword_ als een variabele, is dat het wachtwoord van uw [administrator-account voor Azure Container Registry](../../container-registry/container-registry-authentication.md#admin-account). Zorg ervoor dat u opgeeft _dockerPassword_ als een geheim (door het vergrendelingspictogram) om veiligheidsredenen.
-1. Selecteer **opslaan en in de wachtrij**
+1. Selecteer **opslaan en in de wachtrij**.
 
-U hebt nu een CI-oplossing die u automatisch bouwt *mywebapi* en *webfrontend* voor elke update gepusht naar de _azds_updates_ vertakking van uw GitHub-fork. U kunt controleren of de Docker-installatiekopieën zijn gepusht te navigeren naar de Azure-portal, selecteert u uw Azure Container Registry en bladeren door de _opslagplaatsen_ tabblad:
+U hebt nu een CI-oplossing die u automatisch bouwt *mywebapi* en *webfrontend* voor elke update gepusht naar de _azds_updates_ vertakking van uw GitHub-fork. U kunt controleren of de Docker-installatiekopieën zijn gepusht te navigeren naar de Azure-portal, selecteert u uw Azure Container Registry en bladeren door de **opslagplaatsen** tabblad. Het duurt enkele minuten voor de afbeeldingen te worden weergegeven in het containerregister.
 
 ![Azure Container Registry-opslagplaatsen](../media/common/ci-cd-images-verify.png)
 
@@ -83,31 +94,44 @@ U hebt nu een CI-oplossing die u automatisch bouwt *mywebapi* en *webfrontend* v
 
 1. Navigeer in uw DevOps-project hoofdpagina aan pijplijnen > Releases
 1. Als u in een gloednieuwe DevOps-Project dat de definitie van een release nog geen bevat werkt, moet u eerst maken een definitie van een lege release voordat u doorgaat. De optie importeren wordt niet weergegeven in de gebruikersinterface, totdat u een bestaande release-definitie.
-1. Aan de linkerkant, klik op de **+ nieuw** knop en klik vervolgens op **importeren van een pijplijn**
-1. Selecteer het .json-bestand op `samples/release.json`
-1. Klik op Ok. U ziet het deelvenster van de pijplijn is geladen met de release-definitie bewerken-pagina. Er zijn ook enkele rode waarschuwing pictogrammen die wijzen op cluster-specifieke gegevens die nog moeten worden geconfigureerd.
+1. Aan de linkerkant, klik op de **+ nieuw** knop en klik vervolgens op **importeren van een pijplijn**.
+1. Klik op **Bladeren** en selecteer `samples/release.json` van uw project.
+1. Klik op **OK**. U ziet het deelvenster van de pijplijn is geladen met de release-definitie bewerken-pagina. Er zijn ook enkele rode waarschuwing pictogrammen die wijzen op cluster-specifieke gegevens die nog moeten worden geconfigureerd.
 1. Aan de linkerkant van de pijplijn-deelvenster, klikt u op de **toevoegen van een artefact** Bel.
-1. In de **bron** vervolgkeuzelijst, selecteer de build-pijplijn we iets eerder in dit document hebt gemaakt.
-1. Voor de **standaardversie**, het is raadzaam kiezen **nieuwste vanuit de hoofdvertakking van de build-pijplijn**. U hoeft niet alle tags worden opgegeven.
-1. Stel de **alias van de gegevensbron** naar `drop`. De vooraf gedefinieerde release taken gebruik **alias van de gegevensbron** , zodat deze moet worden ingesteld.
+1. In de **bron** vervolgkeuzelijst, selecteer de build pipeline u eerder hebt gemaakt.
+1. Voor de **standaardversie**, kiest u **nieuwste uit de standaardvertakking build-pijplijn met tags**.
+1. Laat **Tags** leeg zijn.
+1. Stel de **alias van de gegevensbron** naar `drop`. De **alias van de gegevensbron** waarde wordt gebruikt door de taken vooraf gedefinieerde release, zodat deze moet worden ingesteld.
 1. Klik op **Add**.
 1. Klik nu op het bliksempictogram bolt op het zojuist gemaakte `drop` artefact bron, zoals hieronder wordt weergegeven:
 
     ![Release artefact continue implementatie instellen](../media/common/release-artifact-cd-setup.png)
-1. Schakel de **trigger voor continue implementatie**
-1. Nu gaat u naar het deelvenster Taken. De _dev_ fase moet worden geselecteerd en u moet worden gepresenteerd met drie rode vervolgkeuzelijst besturingselementen, zoals hieronder:
-
-    ![Release-definitie instellen](../media/common/release-setup-tasks.png)
-1. Geef de Azure-abonnement, resourcegroep en cluster die u met Azure Dev spaties.
-1. Er mag slechts één sectie op dit moment; rood weergegeven de **Agent-taak** sectie. U kunt daar en geef **gehost Ubuntu 1604** als de agent-pool voor deze fase.
-1. Beweeg de muisaanwijzer over de lijst met taken aan de bovenkant, selecteer _prod_.
-1. Geef de Azure-abonnement, resourcegroep en cluster die u met Azure Dev spaties.
-1. Onder **Agent-taak**, Configureer **gehost Ubuntu 1604** als de agent-pool.
+1. Schakel de **trigger voor continue implementatie**.
+1. Beweeg de muisaanwijzer over de **taken** tabblad naast **pijplijn** en klikt u op _dev_ bewerken de _dev_ fase-taken.
+1. Controleer of **Azure Resource Manager** is geselecteerd onder **verbindingstype.** en ziet u de drie vervolgkeuzelijsten rood gemarkeerd: ![Release-definitie instellen](../media/common/release-setup-tasks.png)
+1. Selecteer het Azure-abonnement u met Azure Dev spaties. Ook moet u mogelijk klikt u op **autoriseren**.
+1. Selecteer de resourcegroep en het cluster dat u met Azure Dev spaties.
+1. Klik op **Agent-taak**.
+1. Selecteer **gehost Ubuntu 1604** onder **agentpool**.
+1. Beweeg de muisaanwijzer over de **taken** kiezer boven, klikt u op _prod_ bewerken de _prod_ fase-taken.
+1. Controleer of **Azure Resource Manager** is geselecteerd onder **verbindingstype.** en selecteer de Azure-abonnement, resourcegroep en cluster die u met Azure Dev spaties.
+1. Klik op **Agent-taak**.
+1. Selecteer **gehost Ubuntu 1604** onder **agentpool**.
+1. Klik op de **variabelen** tabblad om bij te werken van de variabelen voor uw versie.
+1. Werk de waarde van **DevSpacesHostSuffix** van **UPDATE_ME** op uw host-achtervoegsel. Het achtervoegsel van de host wordt weergegeven bij het uitvoeren van de `azds show-context` eerder opdracht.
 1. Klik op **opslaan** in de rechterbovenhoek en **OK**.
 1. Klik op **+ Release** (naast de knop Opslaan), en **maken van een release**.
-1. Controleer of de nieuwste build van uw build-pijplijn is geselecteerd in de sectie artefacten en druk op **maken**.
+1. Onder **artefacten**, Controleer of de nieuwste build van uw build-pijplijn is geselecteerd.
+1. Klik op **Create**.
 
-Een proces voor geautomatiseerde release nu, de implementatie begint de *mywebapi* en *webfrontend* grafieken voor uw Kubernetes-cluster in de _dev_ ruimte op het hoogste niveau. U kunt de voortgang van uw versie van het Azure DevOps-webportal.
+Een proces voor geautomatiseerde release nu, de implementatie begint de *mywebapi* en *webfrontend* grafieken voor uw Kubernetes-cluster in de _dev_ ruimte op het hoogste niveau. U kunt de voortgang van uw versie op de webportal van Azure DevOps:
+
+1. Navigeer naar de **Releases** sectie onder **pijplijnen**.
+1. Klik op de release-pijplijn voor de voorbeeldtoepassing.
+1. Klik op de naam van de meest recente versie.
+1. Beweeg de muisaanwijzer over **dev** vak onder **fasen** en klikt u op **logboeken**.
+
+De versie wordt uitgevoerd wanneer alle taken voltooid zijn.
 
 > [!TIP]
 > Als uw versie is mislukt met een foutbericht weergegeven zoals *bijwerken is mislukt: time-out voor de voorwaarde*, probeert de schillen in uw cluster inspecteren [met behulp van het Kubernetes-dashboard](../../aks/kubernetes-dashboard.md). Als u de schillen zijn mislukt bij foutberichten worden weergegeven, zoals *is mislukt voor het ophalen van de installatiekopie "azdsexample.azurecr.io/mywebapi:122": rpc-fout: code = onbekend desc = foutbericht van daemon: Ophalen https://azdsexample.azurecr.io/v2/mywebapi/manifests/122: niet-geautoriseerde: verificatie is vereist*, kan het zijn dat uw cluster is niet geautoriseerd om op te halen uit uw Azure Container Registry. Zorg ervoor dat u hebt de [autoriseren van uw AKS-cluster om op te halen uit uw Azure Container Registry](../../container-registry/container-registry-auth-aks.md) vereiste.
@@ -115,31 +139,37 @@ Een proces voor geautomatiseerde release nu, de implementatie begint de *mywebap
 U hebt nu een volledig geautomatiseerde CI/CD-pijplijn voor uw GitHub-fork van de voorbeeld-apps ontwikkelen spaties. Telkens wanneer die u doorvoeren en push-code, de build-pijplijn bouwt en push de *mywebapi* en *webfrontend* afbeeldingen aan uw aangepaste ACR-exemplaar. Klik de release-pijplijn implementeert het Helm-diagram voor elke app in de _dev_ ruimte op het cluster opslagruimten Dev-functionaliteit.
 
 ## <a name="accessing-your-dev-services"></a>Toegang tot uw _dev_ services
-Na de implementatie, de _dev_ versie van *webfrontend* kunnen worden geopend met een openbare URL, zoals: `http://dev.webfrontend.<hash>.<region>.aksapp.io`.
+Na de implementatie, de _dev_ versie van *webfrontend* kunnen worden geopend met een openbare URL, zoals: `http://dev.webfrontend.fedcba098.eus.azds.io`. U vindt deze URL door het uitvoeren van de `azds list-uri` opdracht: 
 
-U vindt deze URL met behulp van de *kubectl* CLI:
 ```cmd
-kubectl get ingress -n dev webfrontend -o=jsonpath="{.spec.rules[0].host}"
+$ azds list-uris
+
+Uri                                           Status
+--------------------------------------------  ---------
+http://dev.webfrontend.fedcba098.eus.azds.io  Available
 ```
 
 ## <a name="deploying-to-production"></a>In productie wilt nemen
-Klik op **bewerken** op uw release-definitie en u ziet dat er een _prod_ fase gedefinieerd:
-
-![Productiefase](../media/common/prod-env.png)
 
 Handmatig een specifieke versie te promoveren _prod_ met behulp van de CI/CD-systeem in deze zelfstudie hebt gemaakt:
-1. Open een eerdere versie van de DevOps-portal
-1. Beweeg de muisaanwijzer over de fase 'prod'
-1. Selecteer implementeren
+1. Navigeer naar de **Releases** sectie onder **pijplijnen**.
+1. Klik op de release-pijplijn voor de voorbeeldtoepassing.
+1. Klik op de naam van de meest recente versie.
+1. Beweeg de muisaanwijzer over de **prod** vak onder **fasen** en klikt u op **implementeren**.
+    ![Niveau verhogen naar productie](../media/common/prod-promote.png)
+1. Beweeg de muisaanwijzer over **prod** vak opnieuw onder **fasen** en klikt u op **logboeken**.
 
-![Niveau verhogen naar productie](../media/common/prod-promote.png)
+De versie wordt uitgevoerd wanneer alle taken voltooid zijn.
 
-Ons CI/CD-pipeline-voorbeeld maakt gebruik van variabelen te wijzigen van de DNS-voorvoegsel voor *webfrontend* , afhankelijk van welke omgeving wordt geïmplementeerd. Dus voor toegang tot uw services 'prod', kunt u een URL, zoals: `http://prod.webfrontend.<hash>.<region>.aksapp.io`.
+De _prod_ fase van de CI/CD-pijplijn kunt u een load balancer in plaats van de Dev-ruimten ingangscontroller gebruikt voor toegang tot _prod_ services. Services die zijn geïmplementeerd de _prod_ fase zijn toegankelijk als IP-adressen in plaats van DNS-namen. In een productieomgeving besluiten kunt u om te maken van uw eigen controller voor binnenkomend verkeer voor het hosten van uw services op basis van uw eigen DNS-configuratie.
 
-Na de implementatie, u vindt deze URL met behulp van de *kubectl* CLI: <!-- TODO update below to use list-uris when the product has been updated to list non-azds ingresses #769297 -->
+Om te bepalen het IP-adres van de service webfrontend, klikt u op de **webfrontend openbaar IP-adres afdrukken** stap om uit te breiden de logboekuitvoer. Gebruik het IP-adres weergegeven in het logboek voor uitvoer voor toegang tot de **webfrontend** toepassing.
 
 ```cmd
-kubectl get ingress -n prod webfrontend -o=jsonpath="{.spec.rules[0].host}"
+...
+2019-02-25T22:53:02.3237187Z webfrontend can be accessed at http://52.170.231.44
+2019-02-25T22:53:02.3320366Z ##[section]Finishing: Print webfrontend public IP
+...
 ```
 
 ## <a name="dev-spaces-instrumentation-in-production"></a>Ontwikkel spaties instrumentatie in productie

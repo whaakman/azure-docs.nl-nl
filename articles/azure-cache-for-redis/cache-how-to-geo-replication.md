@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: yegu
-ms.openlocfilehash: e5e60e3370cc813685403cc979e6ef8dc043b7ac
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 383ea07005d7dae47cd0ef1da8a4a57d8b20d613
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233265"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435810"
 ---
 # <a name="how-to-configure-geo-replication-for-azure-cache-for-redis"></a>Geo-replicatie configureren voor Azure Cache voor Redis
 
@@ -175,7 +175,7 @@ In het algemeen is het aanbevolen voor uw cache in dezelfde Azure-regio als de t
 
 ### <a name="how-does-failing-over-to-the-secondary-linked-cache-work"></a>Hoe werkt de failover wordt uitgevoerd naar de secundaire gekoppelde cache?
 
-In de eerste release van Geo-replicatie ondersteunt Azure Cache voor Redis geen automatische failover Azure-regio's. Geo-replicatie wordt voornamelijk gebruikt in een noodherstelscenario. In een scenario voor het herstel van distater moeten klanten de volledige toepassingsstack in een back-up regio tevoorschijn in een gecoördineerde manier samenwerken in plaats van afzonderlijke toepassingsonderdelen bepalen wanneer u overschakelen naar de back-ups op hun eigen laten. Dit is vooral relevant zijn voor Redis. Een van de belangrijkste voordelen van Redis is een zeer lage latentie-store. Als Redis wordt gebruikt door een toepassing wordt overgenomen door een andere Azure-regio, maar niet voor de compute-laag, zouden toegevoegd round trip time een merkbare invloed hebben op prestaties. Om deze reden graag willen we Redis mislukt via automatisch voorkomen vanwege problemen met de tijdelijke beschikbaarheid.
+In de eerste release van Geo-replicatie ondersteunt Azure Cache voor Redis geen automatische failover Azure-regio's. Geo-replicatie wordt voornamelijk gebruikt in een noodherstelscenario. In een noodherstelscenario moeten klanten de volledige toepassingsstack in een back-up regio tevoorschijn in een gecoördineerde manier samenwerken in plaats van afzonderlijke toepassingsonderdelen bepalen wanneer u overschakelen naar de back-ups op hun eigen laten. Dit is vooral relevant zijn voor Redis. Een van de belangrijkste voordelen van Redis is een zeer lage latentie-store. Als Redis wordt gebruikt door een toepassing wordt overgenomen door een andere Azure-regio, maar niet voor de compute-laag, zouden toegevoegd round trip time een merkbare invloed hebben op prestaties. Om deze reden graag willen we Redis mislukt via automatisch voorkomen vanwege problemen met de tijdelijke beschikbaarheid.
 
 Op dit moment voor het starten van de failover, moet u de koppeling Geo-replicatie verwijderen in Azure portal, en wijzig vervolgens het eindpunt van de verbinding in de Redis-client uit de primaire gekoppelde cache in de (voorheen gekoppelde) secundaire cache. Wanneer de twee caches zijn losgekoppeld, wordt de replica een reguliere lezen / schrijven-cache opnieuw wordt en accepteert aanvragen rechtstreeks vanuit de Redis-clients.
 

@@ -9,22 +9,22 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 7e135432ce8490c505e7d3a1022407dd5d9b9776
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 0699686338a14ed6cc1ddcb076e14de86d0249d9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584391"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438600"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Cluster op HDInsight van Azure ML-Services beheren
 
-In dit artikel leert u hoe u voor het beheren van een bestaand cluster ML-Services op Azure HDInsight om uit te voeren taken zoals het toevoegen van meerdere gelijktijdige gebruikers, op afstand verbinding maken met een cluster ML-Services, het wijzigen van compute-context, enzovoort.
+In dit artikel leert u hoe u voor het beheren van een bestaand cluster ML-Services op Azure HDInsight om uit te voeren taken, zoals het toevoegen van meerdere gelijktijdige gebruikers, op afstand verbinding maken met een ML-Services-cluster wijzigen compute-context, enzovoort.
 
 ## <a name="prerequisites"></a>Vereisten
 
 * **Een ML-Services-cluster in HDInsight**: Zie voor instructies [aan de slag met ML-Services op HDInsight](r-server-get-started.md).
 
-* **Een Secure Shell (SSH)-client**: Een SSH-client wordt gebruikt om op afstand verbinding maken met het HDInsight-cluster en opdrachten rechtstreeks op het cluster uitvoeren. Zie voor meer informatie, [SSH gebruiken met HDInsight.](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Een SSH-client (Secure Shell)**: Een SSH-client wordt gebruikt om op afstand verbinding maken met het HDInsight-cluster en opdrachten rechtstreeks op het cluster uitvoeren. Zie voor meer informatie, [SSH gebruiken met HDInsight.](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 
 ## <a name="enable-multiple-concurrent-users"></a>Meerdere gelijktijdige gebruikers inschakelen

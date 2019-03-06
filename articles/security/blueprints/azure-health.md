@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: 509d529c7e860f4c46bc3368028a4e8d24812051
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: ed43a376dd5bb3279fd7e6aa6522980234db3c5f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242816"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441794"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure-beveiliging en naleving blauwdruk - HIPAA/HITRUST Health Data en AI
 
@@ -48,7 +48,7 @@ Deze blauwdruk is bedoeld om te fungeren als een modulaire basis voor klanten om
 
 -   **Architecturaal diagram.** Het diagram toont de referentiearchitectuur gebruikt voor de blauwdruk en het voorbeeld van de use-casescenario.
 
--   [IaaS-extensie](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) deze oplossing wordt gedemonstreerd hoe u een on-premises op basis van SQL-oplossing migreren naar Azure, en voor het implementeren van een Privileged Access Workstation voor het veilig beheren van cloud-bsed services en oplossingen. 
+-   [IaaS-extensie](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) deze oplossing wordt gedemonstreerd hoe u een on-premises op basis van SQL-oplossing migreren naar Azure, en voor het implementeren van een Privileged Access Workstation voor het veilig beheren van cloud-gebaseerde services en oplossingen. 
 
 ## <a name="solution-components"></a>Oplossingsonderdelen
 
@@ -361,7 +361,7 @@ De oplossing biedt ondersteuning voor Azure Event Grid, een geïntegreerde servi
 ### <a name="azure-alerts"></a>Azure-waarschuwingen
 - [Waarschuwingen bieden een methode van de bewaking van Azure-services en kunnen u voorwaarden configureren voor gegevens. Waarschuwingen bieden ook meldingen wanneer de voorwaarde voor een waarschuwing overeenkomt met de gegevens.
 
-### <a name="azure-monitor-logs"></a>Logboeken in Azure Monitor
+### <a name="azure-monitor-logs"></a>Azure Monitor-logboeken
 [Logboeken in Azure Monitor](/azure/operations-management-suite/operations-management-suite-overview) is een verzameling beheerservices.
 
 -   Werkruimte is ingeschakeld voor Security Center

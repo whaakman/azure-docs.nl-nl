@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: df062869687d756eb04b11603247c62b3671f0bd
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: f6d3fd32245c52d3fa3321dad8ef1545e9d2d84c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881835"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444817"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>Excel verbinden met Apache Hadoop met Power Query
 Een belangrijke functie van de Microsoft big data-oplossing is de integratie van Microsoft business intelligence (BI)-onderdelen met Apache Hadoop-clusters in Azure HDInsight. Een voorbeeld van een primaire is de mogelijkheid om Excel verbinden met de Azure Storage-account met de gegevens die zijn gekoppeld aan uw Hadoop-cluster met behulp van de Microsoft Power Query voor Excel-invoegtoepassing. Dit artikel helpt u bij het instellen en gebruiken van Power Query om gegevens te doorzoeken die zijn gekoppeld aan een beheerd met HDInsight Hadoop-cluster.
@@ -52,7 +52,7 @@ De Power Query-invoegtoepassing voor Excel kunt u eenvoudig gegevens importeren 
    
         ![HDI.PowerQuery.SelectHdiSource][image-hdi-powerquery-hdi-source]
        
-        **Opmerking:** Als er geen de **Power Query** menu, gaat u naar **bestand** > **opties** > **Add-Ins**, en selecteer  **COM-invoegtoepassingen** in de vervolgkeuzelijst **beheren** vak aan de onderkant van de pagina. Selecteer de **gaan...**  knop en controleer of het selectievakje in voor de Power Query voor Excel-invoegtoepassing is ingeschakeld.
+        **Opmerking:** Als er geen de **Power Query** menu, gaat u naar **bestand** > **opties** > **-invoegtoepassingen**, en selecteer  **COM-invoegtoepassingen** in de vervolgkeuzelijst **beheren** vak aan de onderkant van de pagina. Selecteer de **gaan...**  knop en controleer of het selectievakje in voor de Power Query voor Excel-invoegtoepassing is ingeschakeld.
        
         **Opmerking:** Power Query kunt u gegevens importeren uit HDFS door te klikken op ook **van andere bronnen**.
 4. Voor **accountnaam**, voer de naam van de Azure Blob storage-account dat is gekoppeld aan het cluster en klik vervolgens op **OK**. Dit account mag de [storage-account standaard](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account) of een gekoppelde storage-account.  De indeling is *https://&lt;StorageAccountName >.blob.core.windows.net/*.

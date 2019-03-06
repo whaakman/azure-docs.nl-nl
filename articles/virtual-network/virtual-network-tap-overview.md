@@ -13,35 +13,36 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 03/04/2019
 ms.author: kaanan
-ms.openlocfilehash: 7270ab6203cfa3602fc36bc6fa7d30cd622ce3a3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5532174b6fc72f51e7ba7a946e601e7d97c7808e
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946592"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408439"
 ---
-# <a name="virtual-network-tap"></a>Virtueel netwerk-TAP
+# <a name="virtual-network-tap"></a>Virtual Network TAP
 
 Met Azure virtual network TAP (Terminal Access Point) kunt u continu stroom netwerkverkeer van uw virtuele machine naar een netwerk-pakket collector of analytics-hulpprogramma. De collector of analytics-hulpprogramma wordt geleverd door een [virtueel netwerkapparaat](https://azure.microsoft.com/solutions/network-appliances/) partner. Zie voor een lijst met oplossingen van partners die zijn gevalideerd om te werken met het virtuele netwerk-TAP's [partneroplossingen](#virtual-network-tap-partner-solutions).
 
 > [!IMPORTANT]
-> Virtueel netwerk Tik is momenteel in developer preview in de WestCentralUS Azure-regio. Voor het gebruik van virtueel netwerk-TAP, moet u zich inschrijven in de Preview-versie door te sturen een e-mail naar <azurevnettap@microsoft.com> met uw abonnements-ID. U ontvangt een e-mailbevestiging zodra uw abonnement is geregistreerd. U niet de mogelijkheid gebruiken totdat u een e-mail ter bevestiging ontvangt. Deze developer preview wordt aangeboden zonder een service level agreement, en mag niet worden gebruikt voor werkbelastingen voor productie. Bepaalde functies worden mogelijk niet ondersteund, zijn mogelijk beperkt of zijn mogelijk niet beschikbaar in alle Azure-locaties. Raadpleeg voor meer informatie de [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Virtueel netwerk Tik is momenteel in developer preview in de WestCentralUS Azure-regio. Voor het gebruik van virtueel netwerk-TAP, moet u zich inschrijven in de Preview-versie door te sturen een e-mail naar <azurevnettap@microsoft.com> met uw abonnements-ID. U ontvangt een e-mailbevestiging zodra uw abonnement is geregistreerd. U niet de mogelijkheid gebruiken totdat u een e-mail ter bevestiging ontvangt. Deze developer preview wordt aangeboden zonder een service level agreement, en mag niet worden gebruikt voor werkbelastingen voor productie. Bepaalde functies worden mogelijk niet ondersteund, zijn mogelijk beperkt of zijn mogelijk niet beschikbaar in alle Azure-locaties. Zie de [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
 ## <a name="virtual-network-tap-partner-solutions"></a>Virtueel netwerk-TAP partneroplossingen
 
 ### <a name="network-packet-brokers"></a>Netwerk-pakket brokers
 
 - [Grote Switch Big Fabric controleren](https://www.bigswitch.com/products/big-monitoring-fabric/public-cloud/microsoft-azure)
-- [Flowmon](https://www.flowmon.com/blog/azure-vtap)
 - [Gigamon GigaSECURE](https://blog.gigamon.com/2018/09/13/why-microsofts-new-vtap-service-works-even-better-with-gigasecure-for-azure)
 - [Ixia CloudLens](https://www.ixiacom.com/cloudlens/cloudlens-azure)
 
 ### <a name="security-analytics-networkapplication-performance-management"></a>Beveiligingsanalyses, netwerk-/ prestatiebeheer
 
+- [Actief beveiliging](https://awakesecurity.com/technology-partners/microsoft-azure/)
 - [ExtraHop Reveal(x)](https://www.extrahop.com/company/tech-partners/microsoft/)
 - [Fidelis Cyberbeveiliging](https://www.fidelissecurity.com/technology-partners/microsoft-azure )
+- [Flowmon](https://www.flowmon.com/blog/azure-vtap)
 - [Netscout vSTREAM]( https://www.netscout.com/technology-partners/microsoft/azure-vtap)
 - [Nubeva Prisms](https://www.nubeva.com/azurevtap)
 - [RSA NetWitness® Platform](https://www.rsa.com/azure)
@@ -59,7 +60,7 @@ Voordat u een virtueel netwerk-TAP maakt, u moet hebben ontvangen een bevestigin
 
 De accounts die u gebruiken om door te TIKKEN configuratie toepassen op netwerkinterfaces moeten worden toegewezen aan de [Inzender voor netwerken](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rol of een [aangepaste rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) die de noodzakelijke acties op basis van de volgende tabel is toegewezen:
 
-| Bewerking | Naam |
+| Bewerking | Name |
 |---|---|
 | Microsoft.Network/virtualNetworkTaps/* | Vereist voor het maken, bijwerken, lezen en verwijderen van een virtueel netwerk-TAP-resource |
 | Microsoft.Network/networkInterfaces/read | Vereist voor het lezen van de network interface-resource waarop de Tik wordt geconfigureerd |

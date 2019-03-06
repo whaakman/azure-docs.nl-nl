@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c1b653ee16864f5076cdad9d1dbc33e63b175ca
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bf1dc33276c10a9b7fe7c7ebb6619b8c47d66bfb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167588"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447826"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Veelgestelde vragen over Azure AD Connect Health
 In dit artikel bevat antwoorden op veelgestelde vragen over Azure Active Directory (Azure AD) Connect Health. Deze Veelgestelde vragen hebben betrekking op vragen over het gebruik van de service, waaronder het facturering model, mogelijkheden, beperkingen en ondersteuning.
@@ -155,7 +155,7 @@ Azure AD Connect Health voor AD FS wordt deze waarschuwing gegenereerd wanneer d
 
 Deze test mislukt meestal omdat de Health-Agent niet kan omzetten van de naam van de AD FS-farm. Dit kan gebeuren als de AD FS-servers achter een load balancers voor het netwerk en de aanvraag wordt gestart vanaf een knooppunt dat achter de load balancer (in plaats van een reguliere-client die is voor de load balancer). Dit kan worden hersteld door het bijwerken van het Hostsbestand '' onder 'C:\Windows\System32\drivers\etc"het IP-adres van de AD FS-server of een loopback-IP-adres (127.0.0.1) voor de naam van de AD FS-farm (bijvoorbeeld sts.contoso.com) op te nemen. Het bestand met de host toe te voegen, wordt de netwerkaanroep, waardoor de Health-Agent om op te halen van het token kortsluiting.
 
-**V: Er treedt een e-mailbericht dat aangeeft dat mijn machines zijn niet gevuld voor de recente aanvallen met ransomeware. Waarom krijg ik dit e-mailbericht?**
+**V: Er treedt een e-mailbericht dat aangeeft dat mijn machines zijn niet gevuld voor de recente aanvallen met ransomware. Waarom krijg ik dit e-mailbericht?**
 
 Azure AD Connect Health-service gescand alle computers die wordt bewaakt om te controleren of de vereiste patches zijn geïnstalleerd. Het e-mailbericht is verzonden naar de tenantbeheerders als ten minste één computer beschikt niet over de kritieke patches. De volgende logica is gebruikt om dit te bepalen.
 1. Alle hotfixes die zijn geïnstalleerd op de machine vinden.

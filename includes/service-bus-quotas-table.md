@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: e2335beba521a612d03b1d12cd4bf6139e1330fb
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 1123f16e11dd5e35f49e1435eef097f0d53f613b
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410869"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57350493"
 ---
 De volgende tabel bevat quotumgegevens die specifiek zijn voor Service Bus-berichten. Zie voor informatie over prijzen en andere quota's voor Service Bus, de [prijzen van Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) overzicht.
 
-| Naam van quotum | Bereik | Opmerkingen | Waarde |
+| Naam van quotum | Bereik | Opmerkingen | Value |
 | --- | --- | --- | --- | --- |
 | Maximum aantal basic / standard-naamruimten per Azure-abonnement |Naamruimte |De volgende aanvragen voor extra basic / standard-naamruimten worden geweigerd door de portal. |100|
-| Maximum aantal premium-naamruimten per Azure-abonnement |Naamruimte |De volgende aanvragen voor extra premium-naamruimten worden geweigerd door de portal. |10 |
+| Maximum aantal premium-naamruimten per Azure-abonnement |Naamruimte |De volgende aanvragen voor extra premium-naamruimten worden geweigerd door de portal. |25 |
 | Grootte van de wachtrij/onderwerp |Entiteit |Bij het maken van de wachtrij/onderwerp van gedefinieerd. <br/><br/> Binnenkomende berichten worden geweigerd en een uitzondering is ontvangen door de aanroepende code. |1, 2, 3, 4 of 5 GB.<br /><br />In de Premium-SKU, evenals de Standard met [partitioneren](/azure/service-bus-messaging/service-bus-partitioning) ingeschakeld, wordt de grootte van de wachtrij/onderwerp van maximaal 80 GB. |
 | Aantal gelijktijdige verbindingen voor een naamruimte |Naamruimte |De volgende aanvragen voor extra verbindingen worden geweigerd en een uitzondering is ontvangen door de aanroepende code. REST-bewerkingen tellen niet mee voor gelijktijdige TCP-verbindingen. |NetMessaging: 1000<br /><br />AMQP: 5.000 |
 | Aantal gelijktijdige aanvragen voor een entiteit wachtrij/onderwerp/abonnement ontvangen |Entiteit |Volgende ontvangen aanvragen zijn afgewezen en een uitzondering is ontvangen door de aanroepende code. Dit quotum is van toepassing op het gecombineerde aantal gelijktijdige bewerkingen voor alle abonnementen op een onderwerp ontvangen. |5.000 |
@@ -32,7 +32,7 @@ De volgende tabel bevat quotumgegevens die specifiek zijn voor Service Bus-beric
 | Maximale grootte van een bericht [sessie-id](/dotnet/api/microsoft.azure.servicebus.message.sessionid) | Entiteit |- | 128 |
 | Grootte van het bericht voor een wachtrij/onderwerp/abonnement-entiteit |Entiteit |Binnenkomende berichten die groter zijn dan deze quota worden geweigerd en een uitzondering is ontvangen door de aanroepende code. |Maximale berichtgrootte: 256 KB ([Standard-laag](../articles/service-bus-messaging/service-bus-premium-messaging.md)) / 1 MB ([Premium-laag](../articles/service-bus-messaging/service-bus-premium-messaging.md)). <br /><br />Vanwege de systeembelasting is deze limiet kleiner dan deze waarden.<br /><br />Maximale header-grootte: 64 kB<br /><br />Maximum aantal eigenschappen van de koptekst in eigenschappenverzameling: **byte/int. Maximumwaarde**<br /><br />Maximale grootte van de eigenschap in de eigenschappenverzameling: Er is geen expliciete limiet. Beperkt door de maximale header-grootte. |
 | De eigenschap berichtgrootte voor een wachtrij/onderwerp/abonnement-entiteit |Entiteit |Een **SerializationException** uitzondering wordt gegenereerd. |Maximale berichtgrootte eigenschap voor elke eigenschap is 32 K. cumulatieve grootte van alle eigenschappen niet langer zijn dan 64 K. Deze limiet geldt voor de hele koptekst van de [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage), die is voorzien van beide eigenschappen van gebruikers, evenals eigenschappen (zoals [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber), [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label), [ MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid), enzovoort). |
-| Aantal abonnementen per onderwerp |Entiteit |De volgende aanvragen voor het maken van aanvullende abonnementen voor het onderwerp worden geweigerd. Als gevolg hiervan als geconfigureerd via de portal, wordt een foutbericht weergegeven. Als met de naam van de API management is een uitzondering ontvangen door de aanroepende code. |Standard-laag - elk abonnement telt mee voor het quotum van 1000 entiteiten (wachtrijen, onderwerpen en abonnementen) per naamruimte. <br/> <br/> Premium-laag - 2000 |
+| Aantal abonnementen per onderwerp |Entiteit |De volgende aanvragen voor het maken van aanvullende abonnementen voor het onderwerp worden geweigerd. Als gevolg hiervan als geconfigureerd via de portal, wordt een foutbericht weergegeven. Als met de naam van de API management is een uitzondering ontvangen door de aanroepende code. |Standard-laag - elk abonnement in mindering gebracht op het quotum van 1000 entiteiten (wachtrijen, onderwerpen en abonnementen) per naamruimte. <br/> <br/> Premium-laag - 2000 |
 | Het aantal SQL-filters per onderwerp |Entiteit |De volgende aanvragen voor het maken van aanvullende filters op het onderwerp worden geweigerd en een uitzondering wordt ontvangen door de aanroepende code. |2,000 |
 | Aantal correlatiefilters per onderwerp |Entiteit |De volgende aanvragen voor het maken van aanvullende filters op het onderwerp worden geweigerd en een uitzondering wordt ontvangen door de aanroepende code. |100.000 |
 | Grootte van de SQL-filters/acties |Naamruimte |De volgende aanvragen voor het maken van extra filters worden geweigerd en een uitzondering is ontvangen door de aanroepende code. |Maximale lengte van de filtertekenreeks voor de voorwaarde: 1024 (1 K).<br /><br />Maximale lengte van de regel actie tekenreeks: 1024 (1 K).<br /><br />Maximum aantal expressies per regelactie: 32. |

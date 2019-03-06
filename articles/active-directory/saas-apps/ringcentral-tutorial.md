@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e01b06b2031da20ee9349588bd4a7ee757fbc22c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d86dc27822c91bd6b2b1cb3ec53b07978061cc7d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173297"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437357"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ringcentral"></a>Zelfstudie: Azure Active Directory-integratie met RingCentral
 
@@ -191,7 +191,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     d. Klik op **Opslaan**.
 
-    e. Van **stap 2** klikt u op **downloaden** voor het downloaden van de **Service Provider-bestand met metagegevens** en upload dit in **SAML-basisconfiguratie** sectie polulate automatisch de **id** en **antwoord-URL** waarden in Azure portal.
+    e. Van **stap 2** klikt u op **downloaden** voor het downloaden van de **Service Provider-bestand met metagegevens** en upload dit in **SAML-basisconfiguratie** sectie voor het automatisch vullen de **id** en **antwoord-URL** waarden in Azure portal.
 
     ![image](./media/ringcentral-tutorial/ringcentral6.png) 
 
@@ -267,7 +267,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

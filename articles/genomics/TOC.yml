@@ -1,41 +1,50 @@
+items:
 - name: Documentatie voor Microsoft Genomics
   href: index.yml
 - name: Overzicht
   items:
-    - name: Wat is Microsoft Genomics?
-      href: overview-what-is-genomics.md
+  - name: Wat is Microsoft Genomics?
+    href: overview-what-is-genomics.md
 - name: Snelstartgidsen
-  expanded: true
   items:
-    - name: Een voorbeeldwerkstroom in Genomics uitvoeren
-      href: quickstart-run-genomics-workflow-portal.md
-    - name: Diverse bestandsindelingen als invoer gebruiken
-      items:
-        - name: Twee FASTQ-bestanden
-          href: quickstart-input-pair-fastq.md
-        - name: Een BAM-bestand
-          href: quickstart-input-bam.md
-        - name: Meerdere FASTQ- of BAM-bestanden
-          href: quickstart-input-multiple.md
-    - name: Een SAS-token in plaats van een accountsleutel invoeren
-      href: quickstart-input-sas.md
+  - name: Een voorbeeldwerkstroom in Genomics uitvoeren
+    href: quickstart-run-genomics-workflow-portal.md
+  expanded: true
+- name: Handleidingen
+  items:
+  - name: Diverse bestandsindelingen als invoer gebruiken
+    items:
+    - name: Twee FASTQ-bestanden
+      href: quickstart-input-pair-fastq.md
+    - name: Een BAM-bestand
+      href: quickstart-input-bam.md
+    - name: Meerdere FASTQ- of BAM-bestanden
+      href: quickstart-input-multiple.md
+  - name: Een SAS-token in plaats van een accountsleutel invoeren
+    href: quickstart-input-sas.md
 - name: Resources
   items:
-    - name: Veelgestelde vragen
-      href: frequently-asked-questions-genomics.md
-    - name: Handleiding voor het oplossen van problemen
-      href: troubleshooting-guide-genomics.md
-    - name: Een ondersteuningsaanvraag indienen
-      href: file-support-ticket-genomics.md
-    - name: Releasegeschiedenis van versie
-      href: version-release-history-genomics.md
-    - name: Bedrijfscontinuïteit
-      href: business-continuity-genomics.md
-    - name: Azure-roadmap
-      href: 'https://azure.microsoft.com/roadmap/?category=cognitive-services'
-    - name: Prijzen
-      href: 'https://azure.microsoft.com/pricing/details/genomics/'
-    - name: Beschikbaarheid in regio’s
-      href: 'https://azure.microsoft.com/regions/services/'
-    - name: Ondersteuningsopties
-      href: 'https://azure.microsoft.com/support/options/'
+  - name: Veelgestelde vragen
+    href: frequently-asked-questions-genomics.md
+  - name: Handleiding voor het oplossen van problemen
+    href: troubleshooting-guide-genomics.md
+  - name: Een ondersteuningsaanvraag indienen
+    href: file-support-ticket-genomics.md
+  - name: Releasegeschiedenis van versie
+    href: version-release-history-genomics.md
+  - name: Bedrijfscontinuïteit
+    href: business-continuity-genomics.md
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/?category=cognitive-services
+  - name: Prijzen
+    href: https://azure.microsoft.com/pricing/details/genomics/
+  - name: Beschikbaarheid in regio’s
+    href: https://azure.microsoft.com/regions/services/
+  - name: Ondersteuningsopties
+    href: https://azure.microsoft.com/support/options/
+ms.openlocfilehash: aaeaa293d6ceed3281db2cde59ada94d44ddc217
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446727"

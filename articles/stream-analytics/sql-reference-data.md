@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 79f0e58ea11d8bdb8c30ca1e50fae2635f719681
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: cc6e4083ba952eb9799aa91f76cf6e5ab75c7f64
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118017"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449577"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Gebruik van referentiegegevens uit een SQL-Database voor een Azure Stream Analytics-taak (Preview)
 
@@ -158,7 +158,7 @@ Er zijn geen extra [kosten per eenheid streaming](https://azure.microsoft.com/pr
 
 **Hoe weet ik verwijzing momentopname van de gegevens worden opgevraagd uit de SQL-database en gebruikt in de Azure Stream Analytics-taak?**
 
-Er zijn twp metrische gegevens die zijn gefilterd op logische naam (onder de metrische gegevens over Azure-Portal) die u gebruiken kunt voor het bewaken van de status van de SQL database-referentiegegevens invoer.
+Er zijn twee metrische gegevens die zijn gefilterd op logische naam (onder de metrische gegevens over Azure-Portal) die u gebruiken kunt voor het bewaken van de status van de SQL database-referentiegegevens invoer.
 
    * Invoergebeurtenissen groter is dan: Met deze metriek wordt het aantal records in van de SQL-database referentiegegevensset geladen.
    * InputEventBytes: Met deze metriek wordt de grootte van de momentopname van verwijzing gegevens geladen in het geheugen van de Stream Analytics-taak. 

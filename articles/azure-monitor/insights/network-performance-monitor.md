@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: cff96ecb4f4b20e7e3542f6ae6e3e7740b750235
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: d35918659acb899e43f76e94168abcba080aa006
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729792"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452127"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Prestatiemeter-oplossing in Azure-netwerk
 
@@ -119,19 +119,13 @@ Network Performance Monitor maakt gebruik van synthetische transacties voor het 
 
    **ExpressRoute Monitor**: Selecteer **nu detecteren** voor het detecteren van alle ExpressRoute particuliere peerings die zijn verbonden met de virtuele netwerken in het Azure-abonnement is gekoppeld met deze Log Analytics-werkruimte. 
 
-   >[!NOTE] 
-   > De oplossing wordt momenteel alleen ExpressRoute privé-peerings. 
-
-   >[!NOTE] 
-   > Alleen worden persoonlijke peerings die zijn verbonden met de virtuele netwerken die zijn gekoppeld aan het abonnement is gekoppeld met deze Log Analytics-werkruimte gedetecteerd. Als ExpressRoute is verbonden met virtuele netwerken buiten het abonnement dat is gekoppeld aan deze werkruimte, moet u een Log Analytics-werkruimte maken in deze abonnementen. Network Performance Monitor gebruiken voor het bewaken van deze peerings.
-
    ![ExpressRoute Monitor weergeven](media/network-performance-monitor/npm-express-route.png)
 
-   Nadat de detectie is voltooid, worden de gedetecteerde privé-peerings worden weergegeven in een tabel. 
+   Nadat de detectie is voltooid, worden de gedetecteerde circuits en -peerings worden vermeld in een tabel. 
 
    ![De pagina configuratie van netwerkprestaties netwerk](media/network-performance-monitor/npm-private-peerings.png)
     
-De bewaking voor deze peerings is in eerste instantie een uitgeschakelde status. Selecteer elke peering die u wilt bewaken en controle voor deze uit de detailweergave aan de rechterkant configureren. Selecteer **opslaan** aan de configuratie op te slaan. Zie het artikel "Configureren ExpressRoute-controle" voor meer informatie. 
+De bewaking voor deze circuits en -peerings is in eerste instantie een uitgeschakelde status. Selecteer elke bron die u wilt bewaken en controle voor deze uit de detailweergave aan de rechterkant configureren. Selecteer **opslaan** aan de configuratie op te slaan. Zie het artikel "Configureren ExpressRoute-controle" voor meer informatie. 
 
 Nadat de installatie is voltooid, wordt het 30 minuten duurt een uur voor de gegevens om in te vullen. Terwijl de oplossing gegevens van uw netwerk verzamelt, ziet u het bericht *oplossing is aanvullende configuratie vereist* op de Network Performance Monitor **overzicht** tegel. Nadat de gegevens worden verzameld en in een index, de **overzicht** tegel wordt gewijzigd en informeert u over de netwerkstatus van uw in een samenvatting. Vervolgens kunt u de bewaking van de knooppunten op welke Log Analytics-agents zijn geïnstalleerd, evenals de subnetten van uw omgeving gedetecteerd.
 
@@ -269,7 +263,7 @@ Als u een NPM-gebruiker die het maken van een waarschuwing via Azure Portal:
 3. Als u ervoor actiegroepen gebruiken kiest, moet u een eerder gemaakte actiegroep selecteren. U kunt informatie over het maken van een actiegroep [hier.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
 4. Als de waarschuwing is gemaakt, kunt u waarschuwingen beheren koppeling gebruiken om uw waarschuwingen te beheren. 
 
-Telkens wanneer die u een waarschuwing maakt maakt NPM een query op basis van waarschuwingsregel in Azure Monitor. Deze query is triggerred om de standaard 5 minuten. Met Azure monitor niet in rekening voor de eerste 250 waarschuwingsregels die zijn gemaakt aanmelden en geen waarschuwingsregels bovenstaande beperken van de 250 logboekwaarschuwingsregels wordt gefactureerd volgens [waarschuwingen in Azure Monitor-pagina met prijzen prijzen](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+Telkens wanneer die u een waarschuwing maakt maakt NPM een query op basis van waarschuwingsregel in Azure Monitor. Deze query wordt geactiveerd om de standaard 5 minuten. Met Azure monitor niet in rekening voor de eerste 250 waarschuwingsregels die zijn gemaakt aanmelden en geen waarschuwingsregels bovenstaande beperken van de 250 logboekwaarschuwingsregels wordt gefactureerd volgens [waarschuwingen in Azure Monitor-pagina met prijzen prijzen](https://azure.microsoft.com/en-us/pricing/details/monitor/).
 Meldingen worden afzonderlijk in rekening gebracht volgens [meldingen prijzen in Azure Monitor-pagina met prijzen](https://azure.microsoft.com/en-us/pricing/details/monitor/).
 
 

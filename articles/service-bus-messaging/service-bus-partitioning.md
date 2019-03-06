@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 02/06/2019
 ms.author: aschhab
-ms.openlocfilehash: aaa8615c0358b89c02aad8241262320771e426a8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: ea5f0e1ad6af6f301b684337941c7d9bce8590c1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818070"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444469"
 ---
 # <a name="partitioned-queues-and-topics"></a>Gepartitioneerde wachtrijen en onderwerpen
 
@@ -27,9 +27,9 @@ Het is niet mogelijk om te wijzigen van de partitionering optie op een bestaande
 
 ## <a name="how-it-works"></a>Hoe werkt het?
 
-Elke gepartitioneerde wachtrij of onderwerp bestaat uit meerdere fragmenten. Elk fragment wordt opgeslagen in een verschillende berichten-store en verwerkt door een ander bericht-broker. Wanneer een bericht wordt verzonden naar een gepartitioneerde wachtrij of onderwerp, wijst Service Bus het bericht toe aan een van de fragmenten. De selectie wordt willekeurig gedaan door Service Bus of met behulp van een partitiesleutel waarmee de afzender kunt opgeven.
+Elke gepartitioneerde wachtrij of onderwerp bestaat uit meerdere partities. Elke partitie wordt opgeslagen in een andere berichten-store en verwerkt door een ander bericht-broker. Wanneer een bericht wordt verzonden naar een gepartitioneerde wachtrij of onderwerp, wijst Service Bus het bericht toe aan een van de partities. De selectie wordt willekeurig gedaan door Service Bus of met behulp van een partitiesleutel waarmee de afzender kunt opgeven.
 
-Wanneer een client wil ontvangen een bericht van een gepartitioneerde wachtrij of van een abonnement op een gepartitioneerde query's voor Service Bus-onderwerp alle fragmenten voor berichten, retourneert vervolgens het eerste bericht dat wordt opgehaald uit een van de berichten-stores voor de ontvanger. Service Bus-caches de andere berichten en retourneert ze als er aanvullende ontvangen aanvragen. Een ontvangende client is niet op de hoogte van de partities; het gedrag clientgerichte van een gepartitioneerde wachtrij of onderwerp (bijvoorbeeld lezen, is voltooid, uitstellen, onbestelbare berichten, veelgevraagde) moet identiek zijn aan het gedrag van een reguliere-entiteit.
+Wanneer een client wil ontvangen een bericht van een gepartitioneerde wachtrij of van een abonnement op een gepartitioneerde query's voor Service Bus-onderwerp alle partities voor berichten, retourneert vervolgens het eerste bericht dat wordt opgehaald uit een van de berichten-stores voor de ontvanger. Service Bus-caches de andere berichten en retourneert ze als er aanvullende ontvangen aanvragen. Een ontvangende client is niet op de hoogte van de partities; het gedrag clientgerichte van een gepartitioneerde wachtrij of onderwerp (bijvoorbeeld lezen, is voltooid, uitstellen, onbestelbare berichten, veelgevraagde) moet identiek zijn aan het gedrag van een reguliere-entiteit.
 
 Er is geen extra kosten bij het verzenden van een bericht naar of ontvangen van een bericht van een gepartitioneerde wachtrij of onderwerp.
 
@@ -43,7 +43,7 @@ In de standaardlaag voor berichten, kunt u Service Bus-wachtrijen en onderwerpen
 
 ### <a name="premium"></a>Premium
 
-In een naamruimte van de laag Premium wordt entiteiten partitioneren niet ondersteund. U kunt Service Bus-wachtrijen en onderwerpen nog steeds maken in 1, 2, 3, 4, 5, 10, 20, 40 of 80 GB-grootten (de standaardwaarde is 1 GB). U kunt de grootte van uw wachtrij of onderwerp zien door te kijken op de vermelding ervan op de [Azure-portal][Azure portal], in de **overzicht** blade voor die entiteit.
+Partitionering entiteiten worden niet ondersteund in een naamruimte van de laag Premium. U kunt Service Bus-wachtrijen en onderwerpen nog steeds maken in 1, 2, 3, 4, 5, 10, 20, 40 of 80 GB-grootten (de standaardwaarde is 1 GB). U kunt de grootte van uw wachtrij of onderwerp zien door te kijken op de vermelding ervan op de [Azure-portal][Azure portal], in de **overzicht** blade voor die entiteit.
 
 ### <a name="create-a-partitioned-entity"></a>Een gepartitioneerde eenheid maken
 
@@ -61,11 +61,11 @@ U kunt ook maken een gepartitioneerde wachtrij of onderwerp in de [Azure-portal]
 
 ## <a name="use-of-partition-keys"></a>Gebruik van partitiesleutels
 
-Wanneer een bericht in de wachtrij in een gepartitioneerde wachtrij of onderwerp is, controleert de aanwezigheid van een partitiesleutel op Service Bus. Als er een wordt gevonden, selecteert u het fragment op basis van die sleutel. Als een partitiesleutel niet wordt gevonden, selecteert u het fragment op basis van een interne algoritme.
+Wanneer een bericht in de wachtrij in een gepartitioneerde wachtrij of onderwerp is, controleert de aanwezigheid van een partitiesleutel op Service Bus. Als er een wordt gevonden, wordt de partitie op basis van die sleutel geselecteerd. Als een partitiesleutel niet wordt gevonden, wordt de partitie op basis van een interne algoritme geselecteerd.
 
 ### <a name="using-a-partition-key"></a>Met behulp van een partitiesleutel
 
-Sommige scenario's, zoals sessies of transacties, nodig berichten worden opgeslagen in een specifieke fragment hebt. Alle deze scenario's vereisen het gebruik van een partitiesleutel. Alle berichten die gebruikmaken van dezelfde partitiesleutel worden toegewezen aan de hetzelfde fragment. Als het fragment tijdelijk niet beschikbaar is, betekent dit dat Service Bus een fout geretourneerd.
+Sommige scenario's, zoals sessies of transacties, nodig berichten worden opgeslagen in een specifieke partitie hebt. Alle deze scenario's vereisen het gebruik van een partitiesleutel. Alle berichten die gebruikmaken van dezelfde partitiesleutel worden toegewezen aan dezelfde partitie. Als de partitie tijdelijk niet beschikbaar is is, betekent dit dat Service Bus een fout geretourneerd.
 
 Eigenschappen van verschillende berichten zijn afhankelijk van het scenario, als een partitiesleutel gebruikt:
 
@@ -77,13 +77,13 @@ Eigenschappen van verschillende berichten zijn afhankelijk van het scenario, als
 
 ### <a name="not-using-a-partition-key"></a>Niet met behulp van een partitiesleutel
 
-In de afwezigheid van een partitiesleutel distribueert Service Bus berichten in een round robin besturingsaanvraag aan alle fragmenten van de gepartitioneerde wachtrij of onderwerp. Als de gekozen fragment niet beschikbaar is, wijst Service Bus het bericht toe aan een andere fragment. Op deze manier wordt de bewerking voor het verzenden slaagt ondanks tijdelijk ontbreken van een berichten-store. U wordt echter niet bereiken het gegarandeerde ordenen waarmee een partitiesleutel.
+In de afwezigheid van een partitiesleutel distribueert Service Bus berichten in een round robin besturingsaanvraag alle partities van de gepartitioneerde wachtrij of onderwerp. Als de gekozen partitie niet beschikbaar is, wijst Service Bus het bericht toe aan een andere partitie. Op deze manier wordt de bewerking voor het verzenden slaagt ondanks tijdelijk ontbreken van een berichten-store. U wordt echter niet bereiken het gegarandeerde ordenen waarmee een partitiesleutel.
 
 Zie voor een uitgebreidere bespreking van de verhouding tussen de beschikbaarheid (geen partitiesleutel) en consistentie (met behulp van een partitiesleutel) [in dit artikel](../event-hubs/event-hubs-availability-and-consistency.md). Deze informatie is evenveel van toepassing op gepartitioneerde Service Bus-entiteiten.
 
-Service Bus geven genoeg tijd heeft in de wachtrij plaatsen het bericht in een andere fragment, de [OperationTimeout](/dotnet/api/microsoft.azure.servicebus.queueclient.operationtimeout) waarde die is opgegeven door de client waarmee het bericht moet groter zijn dan 15 seconden worden verzonden. Het verdient aanbeveling in te stellen de [OperationTimeout](/dotnet/api/microsoft.azure.servicebus.queueclient.operationtimeout) eigenschap op de standaardwaarde van 60 seconden.
+Service Bus geven genoeg tijd heeft in de wachtrij plaatsen het bericht in een andere partitie de [OperationTimeout](/dotnet/api/microsoft.azure.servicebus.queueclient.operationtimeout) waarde die is opgegeven door de client waarmee het bericht moet groter zijn dan 15 seconden worden verzonden. Het verdient aanbeveling in te stellen de [OperationTimeout](/dotnet/api/microsoft.azure.servicebus.queueclient.operationtimeout) eigenschap op de standaardwaarde van 60 seconden.
 
-Een partitiesleutel kledingwinkelketen' "een bericht naar een specifieke fragment. Als het berichtenarchief waarin dit fragment niet beschikbaar is, betekent dit dat Service Bus een fout geretourneerd. In de afwezigheid van een partitiesleutel, Service Bus een verschillende fragment kunt kiezen en de bewerking is geslaagd. Het verdient daarom een partitiesleutel niet te leveren, tenzij dit vereist is.
+Een partitiesleutel kledingwinkelketen' "een bericht naar een specifieke partitie. Als het berichtenarchief waarin deze partitie niet beschikbaar is, betekent dit dat Service Bus een fout geretourneerd. Service Bus kunt ervoor kiezen een andere partitie in de afwezigheid van een partitiesleutel, en de bewerking is geslaagd. Het verdient daarom een partitiesleutel niet te leveren, tenzij dit vereist is.
 
 ## <a name="advanced-topics-use-transactions-with-partitioned-entities"></a>Geavanceerde onderwerpen: transacties gebruiken met gepartitioneerde entiteiten
 
@@ -101,7 +101,7 @@ using (TransactionScope ts = new TransactionScope(committableTransaction))
 committableTransaction.Commit();
 ```
 
-Als een van de eigenschappen die als een partitiesleutel fungeren zijn ingesteld, kledingwinkelketen Service Bus het bericht naar een specifieke fragment. Dit gedrag is echter al dan niet een transactie wordt gebruikt. Het is raadzaam dat u geen een partitiesleutel opgeeft als het is niet nodig.
+Als een van de eigenschappen die als een partitiesleutel fungeren zijn ingesteld, kledingwinkelketen Service Bus het bericht naar een specifieke partitie. Dit gedrag is echter al dan niet een transactie wordt gebruikt. Het is raadzaam dat u geen een partitiesleutel opgeeft als het is niet nodig.
 
 ## <a name="using-sessions-with-partitioned-entities"></a>Sessies gebruiken met gepartitioneerde entiteiten
 
@@ -126,9 +126,9 @@ committableTransaction.Commit();
 Service Bus ondersteunt automatische bericht doorsturen van, op, of tussen gepartitioneerde entiteiten. Instellen om in te schakelen automatisch bericht doorsturen, de [QueueDescription.ForwardTo] [ QueueDescription.ForwardTo] eigenschap op de bronwachtrij of abonnement. Als het bericht een partitiesleutel bevat ([SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid), [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey), of [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid)), die partitiesleutel wordt gebruikt voor de doelentiteit.
 
 ## <a name="considerations-and-guidelines"></a>Overwegingen en richtlijnen
-* **Hoge consistentie functies**: Als een entiteit maakt gebruik van functies zoals sessies, detectie van duplicaten of expliciete controle van de partitiesleutel, zijn de berichtbewerkingen altijd doorgestuurd naar specifieke fragmenten. Als een van de fragmenten intensief verkeer of de onderliggende opslag niet in orde is, mislukt deze bewerkingen en beschikbaarheid wordt beperkt. Over het algemeen is de consistentie nog steeds veel hoger dan voor niet-gepartitioneerde entiteiten; alleen een subset van verkeer ondervindt problemen, in plaats van al het verkeer. Zie voor meer informatie dit [bespreking van de beschikbaarheid en consistentie](../event-hubs/event-hubs-availability-and-consistency.md).
-* **Beheer**: Bewerkingen zoals het maken, bijwerken en verwijderen moeten worden uitgevoerd op alle fragmenten van de entiteit. Als een fragment niet in orde is, kan dit resulteren in fouten voor deze bewerkingen. Voor de Get-bewerking moet gegevens zoals bericht telt worden samengevoegd uit alle fragmenten. Als een fragment niet in orde is, wordt de status van de entiteit-beschikbaarheid gerapporteerd als beperkt.
-* **Laag volume bericht scenario's**: Voor dergelijke scenario's met name wanneer u het HTTP-protocol, moet u mogelijk uitvoeren van meerdere bewerkingen voor het verkrijgen van alle berichten ontvangen. Ontvangen aanvragen, de front-end wordt uitgevoerd een ontvangen voor alle fragmenten en alle antwoorden ontvangen in de cache opslaat. Een aanvraag van de volgende ontvangen op dezelfde verbinding wilt profiteren van deze cache en ontvang latenties zijn lager. Als u meerdere verbindingen of HTTP gebruiken, maakt die een nieuwe verbinding voor elke aanvraag. Hierdoor is er geen garantie dat deze op hetzelfde knooppunt zou land. Alle bestaande berichten worden vergrendeld als in de cache opgeslagen in een andere front-end, de receive-bewerking retourneert **null**. Berichten uiteindelijk verlopen en kunt u ze opnieuw ontvangen. HTTP-keepalive wordt aanbevolen.
+* **Hoge consistentie functies**: Als een entiteit maakt gebruik van functies zoals sessies, detectie van duplicaten of expliciete controle van de partitiesleutel, zijn de berichtbewerkingen altijd doorgestuurd naar specifieke partitie. Als een van de partities intensief verkeer of de onderliggende opslag niet in orde is, mislukt deze bewerkingen en beschikbaarheid wordt beperkt. Over het algemeen is de consistentie nog steeds veel hoger dan voor niet-gepartitioneerde entiteiten; alleen een subset van verkeer ondervindt problemen, in plaats van al het verkeer. Zie voor meer informatie dit [bespreking van de beschikbaarheid en consistentie](../event-hubs/event-hubs-availability-and-consistency.md).
+* **Beheer**: Bewerkingen zoals het maken, bijwerken en verwijderen moeten worden uitgevoerd op alle partities van de entiteit. Als elke partitie niet in orde is, kan dit resulteren in fouten voor deze bewerkingen. Voor de Get-bewerking moet gegevens zoals bericht telt worden samengevoegd uit alle partities. Als een partitie niet in orde is, wordt de status van de entiteit-beschikbaarheid gerapporteerd als beperkt.
+* **Laag volume bericht scenario's**: Voor dergelijke scenario's met name wanneer u het HTTP-protocol, moet u mogelijk uitvoeren van meerdere bewerkingen voor het verkrijgen van alle berichten ontvangen. Ontvangen aanvragen, de front-end wordt uitgevoerd een ontvangen voor alle partities en alle antwoorden ontvangen in de cache opslaat. Een aanvraag van de volgende ontvangen op dezelfde verbinding wilt profiteren van deze cache en ontvang latenties zijn lager. Als u meerdere verbindingen of HTTP gebruiken, maakt die een nieuwe verbinding voor elke aanvraag. Hierdoor is er geen garantie dat deze op hetzelfde knooppunt zou land. Alle bestaande berichten worden vergrendeld als in de cache opgeslagen in een andere front-end, de receive-bewerking retourneert **null**. Berichten uiteindelijk verlopen en kunt u ze opnieuw ontvangen. HTTP-keepalive wordt aanbevolen.
 * **Bladeren/Peek berichten**: Alleen beschikbaar in de oudere [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) bibliotheek. [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) niet altijd retourneert het aantal berichten dat is opgegeven de [MessageCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.messagecount) eigenschap. Er zijn twee gangbare redenen voor dit gedrag. Eén reden is dat de cumulatieve grootte van de verzameling van berichten is groter dan de maximale grootte van 256 KB. Een andere reden is dat als de wachtrij of onderwerp heeft de [EnablePartitioning eigenschap](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning) ingesteld op **waar**, een partitie mogelijk niet voldoende berichten naar het aangevraagde aantal berichten te voltooien. In het algemeen als een toepassing wil ontvangen van een bepaald aantal berichten, deze moet aanroepen [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) herhaaldelijk totdat het aantal berichten opgehaald, of er zijn geen berichten meer om te bekijken. Zie voor meer informatie, codevoorbeelden, waaronder de [QueueClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) of [SubscriptionClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.peekbatch) API-documentatie.
 
 ## <a name="latest-added-features"></a>Meest recente extra functies

@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 785c02a0187cf02df3bb3cf5d248f97a3edf74c6
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: b1b1fd5976189c4c74791bf2e6a80a494a2fccc6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961751"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433294"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Met behulp van systeem voor meerdere domeinen Identity Management (SCIM) voor het automatisch inrichten van gebruikers en groepen uit Azure Active Directory voor toepassingen
 
@@ -51,7 +51,7 @@ In dit artikel is opgesplitst in vier secties:
 * **[Gebruikers en groepen-schemaverwijzing](#user-and-group-schema-reference)**  -beschrijving van de gebruiker en groep-schema wordt ondersteund door de implementatie van de Azure AD SCIM voor buiten de galerie-apps. 
 
 ## <a name="provisioning-users-and-groups-to-applications-that-support-scim"></a>Inrichten van gebruikers en groepen met toepassingen die SCIM ondersteunen
-Azure AD kan worden geconfigureerd om automatisch inrichten toegewezen gebruikers en groepen met toepassingen die voor het implementeren van een specifiek profiel van de [SCIM 2.0-protocol](https://tools.ietf.org/html/rfc7644). De details van het profiel zijn gedocumenteerd in [inzicht in de implementatie van Azure AD SCIM](#implementing-a-scim-endpoint-that-works-with-azure-ad-user-provisioning).
+Azure AD kan worden geconfigureerd om automatisch inrichten toegewezen gebruikers en groepen met toepassingen die voor het implementeren van een specifiek profiel van de [SCIM 2.0-protocol](https://tools.ietf.org/html/rfc7644). De details van het profiel zijn gedocumenteerd in inzicht in de Azure AD SCIM-implementatie.
 
 Neem contact op met de provider van uw toepassing of de documentatie van de toepassingsprovider van uw voor overzichten van compatibiliteit met deze vereisten.
 

@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e70a74be372e4374fac5aaa2bfda8ca955e6d305
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 1ee08e4dc2f6a4616c4b427ad7d33f56e135b27a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671859"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442492"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B-samenwerking Veelgestelde vragen
 
@@ -107,7 +107,7 @@ Als de partner een Azure AD-tenant die is gefedereerd naar de on-premises infras
 De verschillen tussen B2B- en business-to-consumer (B2C) samenwerking in termen van welke identiteiten worden ondersteund worden verwijderd. De identiteit die wordt gebruikt, is een goede reden om te kiezen tussen met behulp van B2B of B2C niet. Zie voor meer informatie over het kiezen van de optie voor samenwerking [vergelijken B2B-samenwerking en B2C in Azure Active Directory](compare-with-b2c.md).
 
 ### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>Welke toepassingen en services ondersteuning voor Azure B2B-gastgebruikers?
-Alle Azure AD geïntegreerde toepassingen kunnen ondersteuning bieden voor Azure B2B-gastgebruikers, maar ze moeten een tenants-eindpunt gebruiken voor verificatie van gastgebruikers. Mogelijk moet u ook aan [aanpassen van de claims](claims-mapping.md) in het SAML-token dat is uitgegeven als een gastgebruiker zich bij de app verifieert. 
+Alle Azure AD geïntegreerde toepassingen kunnen ondersteuning bieden voor Azure B2B-gastgebruikers, maar ze moeten een eindpunt dat is ingesteld als een tenant gebruiken voor verificatie van gastgebruikers. Mogelijk moet u ook aan [aanpassen van de claims](claims-mapping.md) in het SAML-token dat is uitgegeven als een gastgebruiker zich bij de app verifieert. 
 
 ### <a name="can-we-force-multi-factor-authentication-for-b2b-guest-users-if-our-partners-dont-have-multi-factor-authentication"></a>Kunnen we multi-factor authentication voor B2B-gastgebruikers afdwingen als onze partners geen meervoudige verificatie?
 Ja. Zie voor meer informatie, [voorwaardelijke toegang voor gebruikers van B2B-samenwerking](conditional-access.md).

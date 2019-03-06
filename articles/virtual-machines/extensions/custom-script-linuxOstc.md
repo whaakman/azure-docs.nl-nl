@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: b88d850b708a10d0e0fdff2f54b68cb9b39988f5
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 8638b788762a56813c622c0abffe2a8eae3c70c2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42057563"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437102"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>De versie 1 van Azure Custom Script-extensie gebruiken met virtuele Linux-machines
 
@@ -34,9 +34,9 @@ Dit artikel wordt uitgelegd hoe u de aangepaste Scriptextensie van Azure CLI, en
 
 Er zijn twee Custom Script-extensies van Linux:
 
-* Versie 1 - Microsoft.OSTCExtensions.CustomScriptForLinux
+* Version 1 - Microsoft.OSTCExtensions.CustomScriptForLinux
 
-* Versie 2 - Microsoft.Azure.Extensions.CustomScript
+* Version 2 - Microsoft.Azure.Extensions.CustomScript
 
 Ga op nieuwe en bestaande implementaties voor het gebruik van de nieuwe versie ([Microsoft.Azure.Extensions.CustomScript](custom-script-linux.md)) in plaats daarvan. De nieuwe versie is bedoeld als een vervangende drop-in. Daarom de migratie is net zo gemakkelijk als het wijzigen van de naam en versie, u hoeft niet te wijzigen van de configuratie van de extensie.
 
@@ -119,17 +119,17 @@ Deze items moeten worden beschouwd als vertrouwelijke gegevens en opgegeven in d
 
 ### <a name="property-values"></a>Waarden van eigenschappen
 
-| Naam | Waarde / voorbeeld | Gegevenstype |
+| Name | Waarde / voorbeeld | Gegevenstype |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | datum |
-| Uitgever | Microsoft.OSTCExtensions | tekenreeks |
-| type | CustomScriptForLinux | tekenreeks |
+| apiVersion | 2015-06-15 | date |
+| Uitgever | Microsoft.OSTCExtensions | string |
+| type | CustomScriptForLinux | string |
 | typeHandlerVersion | 1.5 | int |
-| fileUris (bijvoorbeeld) | https://github.com/MyProject/Archive/MyPythonScript.py | matrix |
-| commandToExecute (bijvoorbeeld) | Python MyPythonScript.py \<mijn param1\> | tekenreeks |
+| fileUris (bijvoorbeeld) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
+| commandToExecute (bijvoorbeeld) | python MyPythonScript.py \<my-param1\> | string |
 | enableInternalDNSCheck | true | booleaans |
-| storageAccountName (bijvoorbeeld) | examplestorageacct | tekenreeks |
-| storageAccountKey (bijvoorbeeld) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | tekenreeks |
+| storageAccountName (bijvoorbeeld) | examplestorageacct | string |
+| storageAccountKey (bijvoorbeeld) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
 ### <a name="property-value-details"></a>Details van eigenschap
 
@@ -305,7 +305,7 @@ Volgende stap is om te gaan een controle van het logboekbestand, dit is de indel
 /var/log/azure/<extension-name>/<version>/extension.log file.
 ```
 
-U ziet er voor het uitvoeren van induvidual, ziet het er ongeveer als volgt:
+U ziet er voor de uitvoering van de afzonderlijke, ziet het er ongeveer als volgt:
 
 ```text
 2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Enable,transitioning,0,Launching the script...

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 72d6784eec847d610c4dfecea2f73953a9ed8615
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 5e53c427564e37e04045d59d35c0d5d5ff285d05
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312660"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403941"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Een IoT Edge-apparaat met een virtuele TPM op een Linux-machine maken en inrichten
 
@@ -76,7 +76,7 @@ Nadat de virtuele machine is gemaakt, opent u de instellingen voor de virtuele v
 
 1. Selecteer de virtuele machine en open vervolgens de **instellingen**.
 
-2. Navigeer naar **Security**. 
+2. Navigeer naar **Beveiliging**. 
 
 3. Schakel het selectievakje **beveiligd opstarten inschakelen**.
 
@@ -95,7 +95,7 @@ In de virtuele machine, bouwt u een C-SDK-hulpprogramma dat u gebruiken kunt om 
 3. Meld u aan met uw virtuele machine en vervolgens de stappen in [een Linux-ontwikkelomgeving instellen](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) te installeren en het bouwen van de Azure IoT-device-SDK voor c 
 
    >[!TIP]
-   >In dit artikel wordt u naar kopieert en plakt uit van de virtuele machine, dit is geen eenvoudig via de Hyper-V-beheer verbinding-toepassing. U kunt verbinding maken met virtuele machine via Hyper-V Manager eenmaal populatieregel voor het IP-adres: `ifconfig`. Vervolgens kunt u het IP-adres verbinding maken via SSH: `ssh <username>@<ipaddress>`.
+   >In dit artikel wordt u naar kopieert en plakt uit van de virtuele machine, dit is geen eenvoudig via de Hyper-V-beheer verbinding-toepassing. U kunt verbinding maken met virtuele machine met Hyper-V Manager eenmaal om op te halen van het IP-adres: `ifconfig`. Vervolgens kunt u het IP-adres verbinding maken via SSH: `ssh <username>@<ipaddress>`.
 
 4. Voer de volgende opdrachten voor het bouwen van een C-SDK-hulpprogramma dat uw device provisioning-gegevens worden opgehaald. 
 

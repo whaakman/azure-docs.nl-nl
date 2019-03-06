@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8fb1b5e06e694368cf80029fe5ce2dcf0749cc62
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 0e38e921121f9b44356a33641bea4c2666412cca
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818371"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456190"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Resources in uw datacentrum en de cloud automatiseren met behulp van Hybrid Runbook Worker
 
@@ -101,7 +101,7 @@ De Hybrid Runbook Worker verbinding maken met en registreren met Azure Monitor-L
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Als u een proxyserver voor communicatie tussen de agent en de service Azure Monitor gebruikt, moet u controleren of de juiste resources toegankelijk zijn. Als u een firewall gebruikt voor toegang tot internet te beperken, moet u uw firewall zodanig toegang configureren. Als u de Log Analytics-gateway als een proxy gebruikt, controleert u of dat deze is geconfigureerd voor hybrid workers. Zie voor instructies over hoe u dit doet, [de Log Analytics-gateway configureren voor Automation Hybrid Workers](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers).
+Als u een proxyserver voor communicatie tussen de agent en de service Azure Monitor gebruikt, moet u controleren of de juiste resources toegankelijk zijn. Als u een firewall gebruikt voor toegang tot internet te beperken, moet u uw firewall zodanig toegang configureren. Als u de Log Analytics-gateway als een proxy gebruikt, controleert u of dat deze is geconfigureerd voor hybrid workers. Zie voor instructies over hoe u dit doet, [de Log Analytics-gateway configureren voor Automation Hybrid Workers](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway).
 
 De volgende poort en URL's zijn vereist voor de Hybrid Runbook Worker-rol om te communiceren met Automation:
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 8c3883ae6dd2928fb6cc4f22510e7992daac7793
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 60d4d9224a6a70c8fa2702dede8721f742fa6256
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015301"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57434943"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Een integratieruntime in Azure Data Factory controleren  
 **Integratieruntime** is de rekeninfrastructuur die door Azure Data Factory wordt gebruikt voor verschillende mogelijkheden voor gegevensintegratie in verschillende netwerkomgevingen. Er zijn drie typen integration runtime die worden aangeboden door Data Factory:
@@ -26,16 +26,18 @@ ms.locfileid: "54015301"
 - Zelf-hostende Integration Runtime
 - Azure-SSIS-integratie-runtime
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Als u de status van een instantie van integratieruntime (IR), moet u de volgende PowerShell-opdracht uitvoeren: 
 
 ```powershell
-Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -ResourceGroupName MyResourceGroup -Name MyAzureIR -Status
+Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -ResourceGroupName MyResourceGroup -Name MyAzureIR -Status
 ``` 
 
 De cmdlet retourneert verschillende gegevens voor verschillende typen integratieruntime. In dit artikel wordt uitgelegd voor de eigenschappen en -statussen voor elk type van integratieruntime.  
 
 ## <a name="azure-integration-runtime"></a>Azure Integration Runtime
-De compute-resource voor een Azure integratieruntime is volledig beheerde, Elastisch in Azure. De volgende tabel bevat beschrijvingen van eigenschappen die zijn geretourneerd door de **Get-AzureRmDataFactoryV2IntegrationRuntime** opdracht:
+De compute-resource voor een Azure integratieruntime is volledig beheerde, Elastisch in Azure. De volgende tabel bevat beschrijvingen van eigenschappen die zijn geretourneerd door de **Get-AzDataFactoryV2IntegrationRuntime** opdracht:
 
 ### <a name="properties"></a>Properties
 De volgende tabel bevat beschrijvingen van de eigenschappen die worden geretourneerd door de cmdlet voor een Azure integratieruntime:
@@ -58,7 +60,7 @@ De volgende tabel bevat de mogelijke statussen van een Azure integratieruntime:
 | Offline | De Azure integratieruntime is offline vanwege een interne fout. |
 
 ## <a name="self-hosted-integration-runtime"></a>Zelf-hostende Integration Runtime
-In deze sectie bevat beschrijvingen van eigenschappen die door de cmdlet Get-AzureRmDataFactoryV2IntegrationRuntime geretourneerd. 
+In deze sectie bevat beschrijvingen van eigenschappen die door de cmdlet Get-AzDataFactoryV2IntegrationRuntime geretourneerd. 
 
 > [!NOTE] 
 > De geretourneerde eigenschappen en de status bevatten informatie over de algehele zelf-hostende integratieruntime en op elk knooppunt in de runtime.  
@@ -70,7 +72,7 @@ De volgende tabel bevat beschrijvingen van de eigenschappen voor bewaking **elk 
 | Eigenschap | Description | 
 | -------- | ----------- | 
 | Name | De naam van de zelf-hostende integratieruntime en de knooppunten die zijn gekoppeld. Knooppunt is een on-premises Windows-computer met de zelf-hostende integratieruntime is geïnstalleerd. |  
-| Status | De status van de algehele zelf-hostende integratieruntime en elk knooppunt. Voorbeeld: Online/Offline/Limited/enz. Zie voor meer informatie over deze statussen van de volgende sectie. | 
+| Status | De status van de algehele zelf-hostende integratieruntime en elk knooppunt. Voorbeeld: Online/Offline/Limited/etc. Zie voor meer informatie over deze statussen van de volgende sectie. | 
 | Versie | De versie van de zelf-hostende integratieruntime en elk knooppunt. De versie van de zelf-hostende integratieruntime wordt bepaald op basis van de versie van het merendeel van de knooppunten in de groep. Als er knooppunten met verschillende versies in de installatie van de zelf-hostende integration runtime zijn, alleen de knooppunten met het versienummer hetzelfde als de logische zelf-hostende integratie-runtime-functie goed. Anderen in de beperkte modus zijn en moeten handmatig worden bijgewerkt (alleen als automatisch bijwerken is mislukt). | 
 | Beschikbaar geheugen | Beschikbaar geheugen op een zelf-hostende integration runtime-knooppunt. Deze waarde is een momentopname van een bijna realtime. | 
 | CPU-gebruik | CPU-gebruik van een zelf-hostende integration runtime-knooppunt. Deze waarde is een momentopname van een bijna realtime. |
@@ -86,7 +88,7 @@ De standaardwaarde van de gelijktijdige taken limiet is ingesteld, is afhankelij
 
 U schalen opwaarts door het aantal knooppunten te verhogen. Als u het aantal knooppunten verhoogt, is de limiet voor gelijktijdige taken de som van de waarden van de limiet voor gelijktijdige taak van alle beschikbare knooppunten.  Bijvoorbeeld, als één knooppunt u maximaal twaalf gelijktijdige taken uitvoeren kunt, kunt vervolgens drie meer lijken knooppunten toe te voegen u maximaal 48 gelijktijdige taken (dat wil zeggen, 4 x 12) worden uitgevoerd. Het is raadzaam om de limiet voor gelijktijdige taken te verhogen, alleen wanneer er brongebruik laag met de standaardwaarden op elk knooppunt.
 
-U kunt de waarde in de Azure-portal berekende standaard overschrijven. Selecteer Auteur > verbindingen > Integratieruntimes > Bewerken > knooppunten > gelijktijdige taak waarde per knooppunt wijzigen. U kunt ook de PowerShell [update azurermdatafactoryv2integrationruntimenode](https://docs.microsoft.com/powershell/module/azurerm.datafactoryv2/update-azurermdatafactoryv2integrationruntimenode?view=azurermps-6.4.0#examples) opdracht.
+U kunt de waarde in de Azure-portal berekende standaard overschrijven. Selecteer Auteur > verbindingen > Integratieruntimes > Bewerken > knooppunten > gelijktijdige taak waarde per knooppunt wijzigen. U kunt ook de PowerShell [update Azdatafactoryv2integrationruntimenode](https://docs.microsoft.com/powershell/module/az.datafactory/update-Azdatafactoryv2integrationruntimenode#examples) opdracht.
   
 ### <a name="status-per-node"></a>Status (per knooppunt)
 De volgende tabel bevat de mogelijke statussen van een zelf-hostende integration runtime-knooppunt:
@@ -111,10 +113,10 @@ De volgende tabel bevat de mogelijke statussen van een zelf-hostende integratier
 | Offline | Kan geen knooppunt is online. |
 | Beperkt | Niet alle knooppunten in deze zelf-hostende integratieruntime zijn in een foutloze toestand bevindt. Deze status is een waarschuwing weergegeven dat sommige knooppunten is mogelijk niet beschikbaar. Deze status kan worden veroorzaakt door een synchronisatieprobleem in de referentie op knooppunt verzender/werknemer. |
 
-Gebruik de **Get-AzureRmDataFactoryV2IntegrationRuntimeMetric** cmdlet voor het ophalen van de JSON-nettolading met de gedetailleerde zelf-hostende integration runtime-eigenschappen en hun momentopname waarden tijdens het ophalen van de uitvoering van de de cmdlet.
+Gebruik de **Get-AzDataFactoryV2IntegrationRuntimeMetric** cmdlet voor het ophalen van de JSON-nettolading met de gedetailleerde zelf-hostende integration runtime-eigenschappen en hun momentopname waarden tijdens het ophalen van de uitvoering van de cmdlet.
 
 ```powershell
-Get-AzureRmDataFactoryV2IntegrationRuntimeMetric -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName  | | ConvertTo-Json 
+Get-AzDataFactoryV2IntegrationRuntimeMetric -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName  | | ConvertTo-Json 
 ```
 
 Voorbeeld van uitvoer (wordt ervan uitgegaan dat er twee knooppunten die zijn gekoppeld aan deze zelf-hostende integratieruntime):
@@ -213,7 +215,7 @@ De volgende schermafbeeldingen laten zien hoe om te selecteren van de Azure-SSIS
 Gebruik van een script, zoals in het volgende voorbeeld om te controleren of de status van de Azure-SSIS-IR.
 
 ```powershell
-Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Status
+Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Status
 ```
 
 ### <a name="more-info-about-the-azure-ssis-integration-runtime"></a>Meer informatie over de Azure-SSIS integratieruntime
@@ -222,7 +224,7 @@ Zie de volgende artikelen voor meer informatie over Azure-SSIS integratieruntime
 
 - [Azure-SSIS Integratieruntime](concepts-integration-runtime.md#azure-ssis-integration-runtime). In dit artikel bevat algemene informatie over integratieruntimes in het algemeen met inbegrip van de Azure-SSIS-IR. 
 - [Zelfstudie: SSIS-pakketten implementeren in Azure](tutorial-create-azure-ssis-runtime-portal.md). Dit artikel biedt stapsgewijze instructies voor het maken van een Azure-SSIS IR en maakt gebruik van een Azure SQL database voor het hosten van de SSIS-catalogus. 
-- [Procedures: Een Azure-SSIS integratieruntime maken](create-azure-ssis-integration-runtime.md). In dit artikel gaat verder in op de zelfstudie en bevat instructies over het gebruik van Azure SQL Database Managed Instance en toevoegen van de IR aan een virtueel netwerk. 
+- [Procedure: Een Azure-SSIS integratieruntime maken](create-azure-ssis-integration-runtime.md). In dit artikel gaat verder in op de zelfstudie en bevat instructies over het gebruik van Azure SQL Database Managed Instance en toevoegen van de IR aan een virtueel netwerk. 
 - [Een Azure-SSIS IR beheren](manage-azure-ssis-integration-runtime.md). In dit artikel leest u hoe u een Azure-SSIS IR stopt, start of verwijdert. Er wordt ook uitgelegd hoe u een Azure-SSIS IR kunt uitschalen door meer knooppunten toe te voegen aan de IR. 
 - [Een Azure-SSIS-integratieruntime toevoegen aan een virtueel netwerk](join-azure-ssis-integration-runtime-virtual-network.md). Dit artikel bevat algemene informatie over het toevoegen van een Azure-SSIS IR aan een virtueel netwerk van Azure. Het bevat ook stappen voor het gebruik van Azure portal het virtuele netwerk zodanig configureren dat de Azure-SSIS IR kunt deelnemen aan het virtuele netwerk. 
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6576366df214304bb30c46fa65a4bc8bc783cedf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c65f8e023e087c3ca49e0d53f5760fbcd9a5f4d9
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182099"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869204"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iprova"></a>Zelfstudie: Azure Active Directory-integratie met iProva
 
@@ -191,7 +191,7 @@ Voer deze stappen uit om eenmalige aanmelding van Azure AD bij iProva te configu
 
 12. Selecteer de pijlknop om de metagegevens te downloaden uit Azure AD.
 
-13. Wanneer het**** downloaden is voltooid, wordt er een bevestigingsberichtweergegeven.
+13. Wanneer het downloaden is voltooid **,** wordt er een bevestigingsberichtweergegeven.
 
 14. Selecteer **Volgende**.
 
@@ -286,7 +286,7 @@ Wanneer u de tegel iProva selecteert in het toegangsvenster, zou u automatisch m
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-- [ Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
+- [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 - [iProva - Configuration of single sign-on with SAML2](https://webshare.iprova.nl/0wqwm45yn09f5poh/Document.aspx)

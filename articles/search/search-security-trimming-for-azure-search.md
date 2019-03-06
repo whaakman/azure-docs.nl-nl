@@ -9,12 +9,12 @@ author: brjohnstmsft
 ms.author: brjohnst
 manager: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: 84147b250ea17df9af67cc8a9025cdf6ec59a705
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 326a449d3992d22a4be2d365061c99ef8b13aef9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314224"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453487"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-search"></a>Beveiligingsfilters voor trimming resulteert in Azure Search
 
@@ -111,7 +111,7 @@ Voor volledige informatie over het toevoegen of bijwerken van documenten, u kunt
    
 ## <a name="apply-the-security-filter"></a>Het beveiligingsfilter toepassen
 
-Als u wilt knippen documenten op basis van `group_ids` toegang, moet u een zoekopdracht met de opdracht een `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))` worden gefilterd, waarbij 'group_id1, group_id2...' zijn de groepen waartoe de verlener van de aanvraag zoeken behoort.
+Als u wilt documenten op basis van trim `group_ids` toegang, moet u een zoekopdracht met de opdracht een `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))` worden gefilterd, waarbij 'group_id1, group_id2...' zijn de groepen waartoe de verlener van de aanvraag zoeken behoort.
 Dit filter komt overeen met alle documenten waarvoor de `group_ids` veld bevat een van de opgegeven id's.
 Voor volledige informatie over het zoeken naar documenten met behulp van Azure Search, u kunt lezen [documenten zoeken](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 Houd er rekening mee dat dit voorbeeld laat zien hoe u om te zoeken naar documenten met behulp van een POST-aanvraag.
@@ -152,7 +152,7 @@ Krijgt u de documenten terug wanneer `group_ids` "group_id1" of "group_id2" beva
 ```
 ## <a name="conclusion"></a>Conclusie
 
-Dit is hoe u resultaten op basis van gebruikers-id en Azure Search kunt filteren `search.in()` functie. U kunt deze functie gebruiken om door te geven in de principal-id's voor de aanvragende gebruiker om te vergelijken met de principal-id's die zijn gekoppeld aan elk doeldocument dat. Wanneer u een search-aanvraag wordt verwerkt, de `search.in` functie filtert zoekresultaten waarvoor geen van de beveiligings-principals van de gebruiker leestoegang hebben. De principal-id kunnen bestaan uit zoals beveiligingsgroepen, rollen of zelfs de identiteit van gebruikers.
+Dit is hoe u resultaten op basis van gebruikers-id en Azure Search kunt filteren `search.in()` functie. U kunt deze functie gebruiken om door te geven in principe-id's voor de aanvragende gebruiker om te vergelijken met de principal-id's die zijn gekoppeld aan elk doeldocument dat. Wanneer u een search-aanvraag wordt verwerkt, de `search.in` functie filtert zoekresultaten waarvoor geen van de beveiligings-principals van de gebruiker leestoegang hebben. De principal-id kunnen bestaan uit zoals beveiligingsgroepen, rollen of zelfs de identiteit van gebruikers.
  
 ## <a name="see-also"></a>Zie ook
 

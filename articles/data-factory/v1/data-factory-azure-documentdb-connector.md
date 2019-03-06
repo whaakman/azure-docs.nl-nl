@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 54e78496b98fffefd2932a2ce7625f8b325fb32a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: bda3df3ce869d7717f572f72c38472e7eae4a0ef
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812647"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437425"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Gegevens verplaatsen naar en van Azure Cosmos DB met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -139,7 +139,7 @@ In het geval van kopieeractiviteit als bron van het type **DocumentDbCollectionS
 Met deze connector Cosmos DB kunt u eenvoudig
 
 * JSON-documenten uit verschillende bronnen importeren in Cosmos DB, Azure-Blob, met inbegrip van Azure Data Lake, on-premises bestandssysteem of andere bestandsgebaseerde winkels die wordt ondersteund door Azure Data Factory.
-* JSON-documenten uit Cosmos DB gewijzigd in verschillende archieven op basis van een bestand exporteren.
+* JSON-documenten uit Cosmos DB-verzameling in verschillende archieven op basis van een bestand exporteren.
 * Gegevens migreren tussen twee Cosmos DB-verzamelingen as-is.
 
 Voor dit exemplaar schema-agnostische

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 1807bda35f6bfcc9dbbb30f054cedb9454a88a7f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 01eac27b63f9eaaf62e863cd023201c3eab4b74e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158567"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432138"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>ARP-tabellen ophalen in het Resource Manager-implementatiemodel
 > [!div class="op_single_selector"]
@@ -28,6 +28,8 @@ In dit artikel leidt u door de stappen voor meer informatie over de ARP-tabellen
 > Dit document is bedoeld om u te helpen u eenvoudige problemen vaststellen en oplossen. Het is niet bedoeld om te worden van een vervanging voor ondersteuning van Microsoft. U moet een ondersteuningsticket met [Microsoft ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) als u niet de volgens de richtlijnen die hieronder worden beschreven probleem op te lossen.
 > 
 > 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="address-resolution-protocol-arp-and-arp-tables"></a>Adres ARP (Resolution Protocol) en ARP-tabellen
 Protocol ARP (Address Resolution) is een layer 2-protocol die is gedefinieerd in [RFC 826](https://tools.ietf.org/html/rfc826). ARP wordt gebruikt om het Ethernet-adres (MAC-adres) met een ip-adres worden toegewezen.
@@ -69,10 +71,10 @@ De volgende cmdlet biedt de ARP tabellen voor persoonlijke Azure-peering
         $Name = "<Your ExpressRoute Circuit Name Here>"
 
         # ARP table for Azure private peering - Primary path
-        Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePrivatePeering -DevicePath Primary
+        Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePrivatePeering -DevicePath Primary
 
         # ARP table for Azure private peering - Secondary path
-        Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePrivatePeering -DevicePath Secondary 
+        Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePrivatePeering -DevicePath Secondary 
 
 Voorbeeld van de uitvoer wordt hieronder weergegeven voor een van de paden
 
@@ -90,10 +92,10 @@ De volgende cmdlet biedt de ARP tabellen voor openbare Azure-peering
         $Name = "<Your ExpressRoute Circuit Name Here>"
 
         # ARP table for Azure public peering - Primary path
-        Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePublicPeering -DevicePath Primary
+        Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePublicPeering -DevicePath Primary
 
         # ARP table for Azure public peering - Secondary path
-        Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePublicPeering -DevicePath Secondary 
+        Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePublicPeering -DevicePath Secondary 
 
 
 Voorbeeld van de uitvoer wordt hieronder weergegeven voor een van de paden
@@ -112,10 +114,10 @@ De volgende cmdlet biedt de ARP tabellen voor Microsoft-peering
         $Name = "<Your ExpressRoute Circuit Name Here>"
 
         # ARP table for Microsoft peering - Primary path
-        Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType MicrosoftPeering -DevicePath Primary
+        Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType MicrosoftPeering -DevicePath Primary
 
         # ARP table for Microsoft peering - Secondary path
-        Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType MicrosoftPeering -DevicePath Secondary 
+        Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType MicrosoftPeering -DevicePath Secondary 
 
 
 Voorbeeld van de uitvoer wordt hieronder weergegeven voor een van de paden
@@ -141,7 +143,7 @@ De ARP-tabel van een peering kan worden gebruikt om te bepalen valideren layer 2
           0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
 ### <a name="arp-table-when-on-premises--connectivity-provider-side-has-problems"></a>ARP-tabel wanneer on-premises / connectivity provider kant heeft problemen
-Als er problemen met de on-premises zijn of u u ziet mogelijk dat beide slechts één vermelding wordt weergegeven in de ARP-tabel of het MAC-adres van het on-premises connectiviteitsprovider onvolledig ziet. Hiermee wordt de toewijzing tussen de MAC-adres en het IP-adres dat wordt gebruikt in de Microsoft-kant weergegeven. 
+Als er problemen met de on-premises zijn of connectiviteitsprovider ziet u mogelijk dat een van beide slechts één vermelding wordt weergegeven in de ARP-tabel of het on premises MAC-adres niet volledig worden weergegeven. Hiermee wordt de toewijzing tussen de MAC-adres en het IP-adres dat wordt gebruikt in de Microsoft-kant weergegeven. 
   
        Age InterfaceProperty IpAddress  MacAddress    
        --- ----------------- ---------  ----------    

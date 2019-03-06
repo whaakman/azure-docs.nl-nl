@@ -9,12 +9,12 @@ ms.subservice: custom-translator
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 6cab76a1169469853a4eb82a934bdc665e07ef8d
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 3442e322ac75f7757d7a59f6035fc35d77e70702
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217509"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431577"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Hub-werkruimte en projecten migreren naar aangepaste Translator
 
@@ -31,7 +31,7 @@ Voor een training te voltooien, aangepaste Translator minimaal 10.000 unieke uit
 
 ## <a name="enable-account-migration"></a>Migratie inschakelen
 
-Als u wilt gebruiken van het hulpprogramma voor migratie, moet u hebt de migratie van uw Hub-account is ingeschakeld. U doet dit door e- [ custommt@microsoft.com ](mailto:custommt@microsoft.com) met een lijst van alle-liveid accounts die u graag ingeschakeld. Deze accounts moet het e-mailadressen die u Meld u aan met zijn.
+Als u wilt gebruiken van het hulpprogramma voor migratie, moet u hebt de migratie van uw Hub-account is ingeschakeld. U doet dit door e- [ custommt@microsoft.com ](mailto:custommt@microsoft.com) met een lijst van alle het live ID-accounts die u graag ingeschakeld. Deze accounts moet het e-mailadressen die u Meld u aan met zijn.
 
 ## <a name="find-custom-translator-workspace-id"></a>Aangepaste Translator werkruimte-ID vinden
 
@@ -141,6 +141,10 @@ Deze tabel vergelijkt de functies tussen Microsoft Translator-Hub en aangepaste 
 | NMT aanpassen | Nee    | Ja |
 | Nieuwe uniforme spraakherkenning services aanpassen | Nee    | Ja |
 | Geen tracering | Ja | Ja |
+
+## <a name="new-languages"></a>Nieuwe talen
+
+Als u een community of organisatie Bezig met het maken van een nieuwe taal voor Microsoft Translator, contact op met [ custommt@microsoft.com ](mailto:custommt@microsoft.com) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 

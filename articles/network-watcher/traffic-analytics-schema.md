@@ -1,6 +1,6 @@
 ---
 title: Azure traffic analytics schema | Microsoft Docs
-description: Krijg inzicht in het schema van Traffic Analytics analyseert stroomlogboeken van Azure-netwerk.
+description: Krijg inzicht in het schema van Traffic Analytics voor het analyseren van stroomlogboeken van Azure-netwerk.
 services: network-watcher
 documentationcenter: na
 author: vinynigam
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: 34c455b5bf77906d9b6525731c09b62f15e4ccd2
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b46a89e331c63aadc76b856b56b7b40bbc626193
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313222"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453062"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Schema en voor gegevensaggregatie in Traffic Analytics
 
@@ -58,7 +58,7 @@ Hieronder ziet u de velden in het schema en wat ze geven
 | FlowEndTime_t | Datum en tijd in UTC | Laatste exemplaar van de stroom (die wordt ophalen samengevoegd) in de stroom log verwerkingsinterval tussen "FlowIntervalStartTime_t" en 'FlowIntervalEndTime_t'. In termen van flow log v2 bevat dit veld het tijdstip waarop de laatste stroom met de dezelfde 4-tuple gestart (gemarkeerd als "B" in de onbewerkte stroom-record) |
 | FlowType_s |  * IntraVNet <br> * InterVNet <br> * S2S <br> * P2S <br> * AzurePublic <br> * ExternalPublic <br> * MaliciousFlow <br> * Onbekend privé <br> * Onbekend | Definitie van de opmerkingen bij de onder de tabel |
 | SrcIP_s | IP-adres van bron | In het geval van AzurePublic leeg en ExternalPublic stromen |
-| DestIP_s | Doel-IP-adres | In het geval van AzurePublic leeg en ExternalPublic stromen |
+| DestIP_s | IP-adres van doel | In het geval van AzurePublic leeg en ExternalPublic stromen |
 | VMIP_s | IP-adres van de virtuele machine | Gebruikt voor AzurePublic en ExternalPublic stromen |
 | PublicIP_S | Openbare IP-adressen | Gebruikt voor AzurePublic en ExternalPublic stromen |
 | DestPort_d | |Doelpoort| Poort waarmee verkeer inkomend is | 
@@ -91,7 +91,7 @@ Hieronder ziet u de velden in het schema en wat ze geven
 | LoadBalancer2_s | \<SubscriptionID>/\<ResourceGroupName>/\<LoadBalancerName> | Load balancer gekoppeld met de doel-IP-adres in de stroom |
 | LocalNetworkGateway1_s | \<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Lokale netwerkgateway die is gekoppeld aan de bron-IP-adres in de stroom |
 | LocalNetworkGateway2_s | \<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Lokale netwerkgateway die is gekoppeld aan de doel-IP-adres in de stroom |
-| ConnectionType_s | Mogelijke waarden zijn VNetPeering, VPN-gateway en ExpressRoute |    Verbindingstype |
+| ConnectionType_s | Mogelijke waarden zijn VNetPeering, VPN-gateway en ExpressRoute |    Type verbinding |
 | ConnectionName_s | \<SubscriptionID>/\<ResourceGroupName>/\<ConnectionName> | Verbindingsnaam |
 | ConnectingVNets_s | Ruimte gescheiden lijst met namen van virtueel netwerk | In het geval van hub en spoke-topologie, worden virtuele netwerken hub hier ingevuld |
 | Country_s | Landcode (ISO 3166-1-alfa-2) van twee letters | Voor stroomtype ExternalPublic wordt gevuld. Alle IP-adressen in het veld PublicIPs_s delen de dezelfde landcode |

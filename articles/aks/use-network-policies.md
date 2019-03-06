@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: iainfou
-ms.openlocfilehash: 250c4fc6e51bacc68c965394b9fd430b1b75a52c
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: d7d23300936cd512466e5c4b18f1f0922c81ceff
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447171"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408187"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Beveiliging van verkeer tussen schillen met behulp van beleid voor netwerken in Azure Kubernetes Service (AKS)
 
 Wanneer u een moderne, op basis van microservices-toepassingen in Kubernetes uitvoeren, wilt u meestal om te bepalen welke onderdelen met elkaar kunnen communiceren. Het principe van minimale bevoegdheden moet worden toegepast op de manier waarop verkeer tussen schillen in een AKS-cluster kan stromen. Bijvoorbeeld, wilt u waarschijnlijk verkeer rechtstreeks naar de back-endtoepassingen blokkeert. In Kubernetes, de *netwerkbeleid* functie kunt u regels definiëren voor inkomend en uitgaand verkeer tussen de schillen in een cluster.
 
-Dit artikel ziet u hoe u beleid voor netwerken gebruiken voor het beheren van de verkeersstroom tussen de schillen in AKS.
+Calico, een open-source-netwerk- en netwerk-beveiligingsoplossing die is opgericht door Tigera, biedt een netwerk groepsbeleid-engine die beleidsregels voor Kubernetes netwerk kunt implementeren. Dit artikel leest u hoe de beleidsengine Calico netwerk installeren en Kubernetes netwerk beleid om te bepalen van de verkeersstroom tussen de schillen in AKS.
 
 > [!IMPORTANT]
 > Deze functie is momenteel beschikbaar als preview-product. Preview-versies worden beschikbaar gesteld op voorwaarde dat u akkoord gaat met de [aanvullende gebruiksvoorwaarden][terms-of-use]. Sommige aspecten van deze functie worden mogelijk nog gewijzigd voordat de functie algemeen beschikbaar wordt.

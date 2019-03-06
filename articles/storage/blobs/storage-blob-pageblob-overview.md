@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: a61e78ff54cdc2a3db6c166686c2c51a19856a9c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b03da04c97475dcb9ce15f2ed69d7ca333d6f431
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252301"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456207"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Overzicht van Azure-pagina-blobs
 
@@ -29,7 +29,7 @@ Laten we bespreken enkele gebruiksvoorbeelden voor pagina-blobs die beginnen met
 
 Eerste partij Microsoft-services zoals Azure Site Recovery, Azure Backup, evenals veel ontwikkelaars van derden hebben toonaangevende innovaties met behulp van pagina-blob REST-interface geïmplementeerd. Hier volgen enkele van de unieke scenario's geïmplementeerd op Azure: 
 * Beheer van incrementele momentopnamen toepassing omgeleid: Toepassingen kunnen gebruikmaken van pagina-blob-momentopnamen en REST-API's voor het opslaan van de controlepunten van de toepassing zonder kostbare duplicatie van gegevens. Azure Storage biedt ondersteuning voor lokale momentopnamen voor pagina-blobs, die geen kopiëren van de gehele blob is vereist. Deze momentopname van de openbare API's kunnen ook toegang tot en het kopiëren van de verschillen tussen momentopnamen.
-* Live migratie van toepassingen en gegevens van on-premises naar de cloud: De on-premises gegevens kopiëren en REST-API's gebruiken om te schrijven rechtstreeks naar een Azure-pagina-blob, terwijl de on-premises virtuele machine blijft om uit te voeren. Wanneer het doel is bijgewerkt, kunt u snel een failover voor Azure-VM met behulp van die gegevens. Op deze manier kunt u uw virtuele machines migreren en virtuele schijven van on-premises naar de cloud met minimale downtime, omdat de migratie van gegevens op de achtergrond treedt op wanneer u echter ook doorgaan met de virtuele machine en de downtime die nodig is voor failover zijn kort (in minuten).
+* Livemigratie van de toepassing en gegevens van on-premises naar de cloud: Kopieer de on-premises-gegevens en REST-API's gebruiken om te schrijven rechtstreeks naar een Azure-pagina-blob tijdens de on-premises die virtuele machine blijft om uit te voeren. Wanneer het doel is bijgewerkt, kunt u snel een failover voor Azure-VM met behulp van die gegevens. Op deze manier kunt u uw virtuele machines migreren en virtuele schijven van on-premises naar de cloud met minimale downtime, omdat de migratie van gegevens op de achtergrond treedt op wanneer u echter ook doorgaan met de virtuele machine en de downtime die nodig is voor failover zijn kort (in minuten).
 * [Op basis van een SAS](../common/storage-dotnet-shared-access-signature-part-1.md) gedeelde toegang, waardoor scenario's met meerdere lezers en één-schrijver met ondersteuning voor gelijktijdigheidsbeheer.
 
 ## <a name="page-blob-features"></a>Functies voor pagina-blobs

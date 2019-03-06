@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: c62560d2f80375a725464607f38b9e8adf221d16
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 530bb83d753d27db4869b5725bc6d4c4e020e179
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875596"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446602"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup oplossen: Problemen met de agent of de extensie
 
@@ -229,11 +229,11 @@ Uitvoeren van deze stappen zorgt ervoor dat de uitbreiding moet worden geïnstal
 
 ### <a name="clean_up_restore_point_collection"></a> Herstelpuntverzameling opschonen
 Nadat de vergrendeling is verwijderd, moeten de herstelpunten worden opgeschoond. Als u wilt opschonen van de herstelpunten, gaat u als volgt een van de methoden:<br>
-* [Opschonen van de verzameling van herstelpunt door actieve ad-hoc back-up](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
+* [Wijs opschonen terugzetten verzameling door het uitvoeren van ad-hoc back-up](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
 * [Opschonen van terugzetten wijst u het verzamelen van Azure portal](#clean-up-restore-point-collection-from-azure-portal)<br>
 
-#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Opschonen van de verzameling van herstelpunt door actieve ad-hoc back-up
-Na het verwijderen van vergrendeling-trigger voor een ad-hoc/handmatige back-up. Dit zorgt ervoor dat de herstelpunten worden automatisch opgeschoond. Met deze bewerking ad-hoc/handmatige mislukken van de eerste keer; verwacht het wordt echter voor zorgen automatisch op te schonen in plaats van handmatig verwijderen van herstelpunten. De volgende geplande back-up moet na opschonen slaagt.
+#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Wijs opschonen terugzetten verzameling door het uitvoeren van ad-hoc back-up
+Na het verwijderen van vergrendeling-trigger voor een ad-hoc/handmatige back-up. Dit zorgt ervoor dat de herstelpunten worden automatisch opgeschoond. Met deze bewerking ad hoc/handmatige mislukken van de eerste keer; verwacht het wordt echter voor zorgen automatisch op te schonen in plaats van handmatig verwijderen van herstelpunten. De volgende geplande back-up moet na opschonen slaagt.
 
 > [!NOTE]
     > Automatisch op te schonen gebeurt na een paar uur van de ad-hoc/handmatige back-up activeren. Als uw geplande back-up nog steeds mislukt, wordt geprobeerd handmatig verwijderen van de verzameling van herstelpunt met behulp van de stappen die worden vermeld [hier](#clean-up-restore-point-collection-from-azure-portal).

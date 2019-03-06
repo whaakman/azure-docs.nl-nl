@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7c7279f1895764c2a3ed73e824d44c2eed68240c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 299ea79a7a344a57bf302aae049ba87234427343
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244570"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442780"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Zelfstudie: Een geografisch gedistribueerde app-oplossing maken met Azure en Azure Stack
 
@@ -533,7 +533,7 @@ De **aangepast domein** pagina wordt bijgewerkt met de nieuwe, specifieke IP-adr
 
 #### <a name="test-https"></a>HTTPS testen
 
-Blader naar https://<your.custom.domain>to in verschillende browsers, zorg ervoor dat het web Azië en Stille Oceaan wordt geleverd.
+In verschillende browsers, blader naar https://<your.custom.domain>to Zorg ervoor dat de web-app wordt geleverd.
 
 ![Alternatieve tekst](media/azure-stack-solution-geo-distributed/image42.png)
 

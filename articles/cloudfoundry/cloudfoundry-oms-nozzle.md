@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 6f23b103f1715d567792e162d62d69f13fc08968
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 468de59408ae3403fb16e6272bb2f7517e0c2190
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243872"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445497"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Azure Log Analytics-pijp voor Cloud Foundry systeemcontrole implementeren
 
@@ -49,7 +49,7 @@ De Nozzle ook toegang heeft toestemming nodig voor de firehose loggregator en de
 
 * [Cloud Foundry UAA opdrachtregel-client installeren](https://github.com/cloudfoundry/cf-uaac/blob/master/README.md)
 
-Voordat u de opdrachtregelclient UAA instelt, zorg dat Rubygems is geïnstalleerd.
+Voordat u de opdrachtregelclient UAA instelt, zorg dat RubyGems is geïnstalleerd.
 
 ### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Een Log Analytics-werkruimte maken in Azure
 

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: 70d1e08b1b81fd3aba159e18de3ee8829bc36548
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 600b2796f1cca5d6ac2c478a5eb30e12f30b670a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331007"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449747"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Apache Zeppelin-notebooks gebruiken met Apache Spark-cluster in Azure HDInsight
 
@@ -103,7 +103,7 @@ HDInsight Spark-clusters omvatten [Apache Zeppelin](https://zeppelin.apache.org/
     ![Start interpreter](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Hive-uitvoer")
 1. Schuif naar Livy-interpreter instellingen en klik vervolgens op **opnieuw**.
    
-    ![Opnieuw opstarten van de intepreter Livy](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "opnieuw opstarten van de intepreter Zeppelin")
+    ![Opnieuw opstarten van de Livy-interpreter](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "opnieuw opstarten van de Zeppelin-interpreter")
 
 ## <a name="how-do-i-use-external-packages-with-the-notebook"></a>Hoe ik externe pakketten gebruiken met de notebook?
 U kunt de Zeppelin-notitieblok in Apache Spark-cluster in HDInsight (Linux) configureren voor het gebruik van externe, door de community geleverde pakketten die niet opgenomen out-of-the-box in het cluster zijn. U kunt zoeken naar de [Maven-opslagplaats](https://search.maven.org/) voor de volledige lijst met pakketten die beschikbaar zijn. U kunt ook een lijst met beschikbare pakketten ophalen uit andere bronnen. Bijvoorbeeld, een volledige lijst van door de community geleverde pakketten is beschikbaar op [Spark pakketten](https://spark-packages.org/).
@@ -150,7 +150,7 @@ In dat geval moet u de volgende stappen uitvoeren voordat u kunt beginnen met he
     ![Start interpreter](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Hive-uitvoer")
 1. Schuif naar Livy-interpreter instellingen en klik vervolgens op **opnieuw**.
    
-    ![Opnieuw opstarten van de intepreter Livy](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "opnieuw opstarten van de intepreter Zeppelin")
+    ![Opnieuw opstarten van de Livy-interpreter](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "opnieuw opstarten van de Zeppelin-interpreter")
 1. Voer een codecel uit een bestaand Zeppelin-notitieblok. Hiermee maakt u een nieuwe Livy-sessie in het HDInsight-cluster.
 
 ## <a name="seealso"></a>Zie ook

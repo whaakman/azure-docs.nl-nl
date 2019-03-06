@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 781a897c99a28fbd1b695876f477b140521068e3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 25a088686c739c53feadd6354baf75f3147bdc33
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244876"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431187"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Schalen van uw infrastructuur voor Azure DevTest Labs
 Vóór de implementatie van DevTest Labs op grote schaal, zijn er enkele belangrijke beslissingspunten. Informatie over deze certificaattoewijzing op hoog niveau, kunt een organisatie met ontwerpbeslissingen in de toekomst. Maar moeten deze punten niet bevatten terug vanaf een bewijs van concept van een organisatie. De drie belangrijkste gebieden voor het eerste omhoog plannen zijn:
@@ -46,7 +46,7 @@ Vervolgens selecteren we de experts van elke methode.
 De aanpak van één abonnement is vaak niet kan worden beheerd in een grote onderneming. Echter, het aantal abonnementen te beperken, biedt de volgende voordelen:
 
 - **Prognose** kosten voor enterprise.  Ook beter budgetteren wordt veel eenvoudiger in één abonnement, omdat alle resources in één groep. Deze aanpak kunt u eenvoudiger maken van beslissingen bij op wanneer kostenbeheer uitoefenen op een bepaald moment in een factureringsperiode meet.
-- **Beheerbaarheid** van virtuele machines, artefacten, formules, netwerkconfiguratie, machtigingen, beleid, enzovoort is eenvoudiger omdat alle updates zijn alleen vereist in één abonnement in plaats van updates voor veel abonnementen maken.
+- **Beheerbaarheid** van virtuele machines, artefacten, formules, netwerkconfiguratie, machtigingen, beleid, enz. is eenvoudiger omdat alle updates zijn alleen vereist in één abonnement in plaats van updates voor veel abonnementen maken.
 - **Netwerken** inspanning sterk vereenvoudigd in één abonnement voor ondernemingen waarbij on-premises connectiviteit vereist is. Virtuele netwerken met elkaar verbinden in abonnementen (hub-spoke-model) is vereist als u meer abonnementen waarvoor aanvullende configuratie, beheer, IP-adresruimten, enzovoort.
 - **Samen met collega** wordt eenvoudiger wanneer iedereen in hetzelfde abonnement werkt – bijvoorbeeld, is het gemakkelijker om te opnieuw toewijzen van een virtuele machine naar een collega, delen van teamresources, enzovoort.
 

@@ -9,12 +9,12 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: 26eccfd2a144d5bfcb285e6b52af246c3eefde75
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: c1343326b6db18608eb6a8994957d560124116ce
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822031"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450699"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Verbinding maken met een Node.js Mongoose-toepassing met Azure Cosmos DB
 
@@ -183,7 +183,7 @@ Standaard maakt Mongoose telkens wanneer u een objectmodel maakt een MongoDB-ver
 
 1. Nu ziet u twee verzamelingen die zijn gemaakt in Cosmos DB in Azure portal gaat.
 
-    ![Node.js-zelfstudie - schermopname van Azure Portal met een Azure Cosmos DB-account met meerdere verzamelingsnamen gemarkeerd - knooppuntdatabase][multiple-coll]
+    ![Node.js-zelfstudie - schermopname van de Azure-portal met een Azure Cosmos DB-account met meerdere verzamelingsnamen gemarkeerd - knooppunt-database][multiple-coll]
 
 1. Tot slot lezen we de gegevens van Cosmos DB. Aangezien we gebruikmaken van het standaardmodel van Mongoose, zijn de leesbewerkingen hetzelfde als alle andere leesbewerkingen met Mongoose.
 
@@ -288,7 +288,7 @@ Hier maken we een basisobjectmodel, definiëren we een onderscheidende sleutel e
 
 1. Als u nu terug naar Azure Portal gaat, ziet u dat er slechts één verzameling met de naam ```alldata``` met zowel 'Family'- als 'VacationDestinations'-gegevens heeft.
 
-    ![Node.js-zelfstudie - schermopname van Azure Portal met een Azure Cosmos DB-account met de verzamelingsnaam gemarkeerd - knooppuntdatabase][alldata]
+    ![Node.js-zelfstudie - schermopname van de Azure-portal met een Azure Cosmos DB-account met de verzamelingsnaam gemarkeerd - knooppunt-database][alldata]
 
 1. U ziet ook dat elk object een ander kenmerk heeft dat wordt aangeroepen als ```__type```, waarmee u onderscheid tussen de twee verschillende objectmodellen kunt maken.
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 55b6e6db14f3847eb659f9bee05b12585a613693
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5cb3a029795dd69c80cfa580aa1bd135c67e609e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477213"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451941"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Het Team Data Science Process in de praktijk - met behulp van een Azure HDInsight Hadoop-Cluster op een gegevensset van 1 TB
 
@@ -417,7 +417,7 @@ Voor het bouwen van het aantal tabellen op de gegevens over het aantal, de gegev
 Ons model voor het proces in Azure Machine Learning bouwen met de volgende stappen:
 
 1. [De gegevens in Hive-tabellen ophalen in Azure Machine Learning](#step1)
-2. [Maken van het experiment: opschonen van de gegevens en parametriseer met aantal tabellen](#step2)
+2. [Maken van het experiment: alleen de gegevens opgeschoond en geef deze als een functie met een aantal tabellen](#step2)
 3. [Bouwen, te trainen en het model beoordelen](#step3)
 4. [Het model evalueren](#step4)
 5. [Publiceer het model als een webservice](#step5)
@@ -451,7 +451,7 @@ Met de rechtermuisknop op de uitvoerpoort van de **importgegevens** module. Hier
 
 Schakel de opgeslagen gegevensset voor gebruik in een machine learning-experiment, zoek de gegevenssets met behulp van de **zoeken** vak weergegeven in de volgende afbeelding. Typ vervolgens de naam hebt u de gegevensset gedeeltelijk te openen en sleep de gegevensset naar het hoofdpaneel gegeven. Slepen en neerzetten naar het hoofdpaneel selecteert voor gebruik in machine learning-modellen.
 
-![Drage gegevensset naar het hoofdpaneel](./media/hive-criteo-walkthrough/cl5tpGw.png)
+![Gegevensset naar het hoofdpaneel slepen](./media/hive-criteo-walkthrough/cl5tpGw.png)
 
 > [!NOTE]
 > Doe dit voor zowel de trein en de test-gegevenssets. Vergeet ook niet om de databasenaam en tabelnamen maken die u hebt opgegeven voor dit doel te gebruiken. De waarden die worden gebruikt in de afbeelding zijn uitsluitend ter illustratie purposes.* *

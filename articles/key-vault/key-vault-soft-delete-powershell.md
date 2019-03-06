@@ -1,18 +1,18 @@
 ---
 title: Azure Key Vault - functie voor voorlopig verwijderen gebruiken met PowerShell
 description: De aanvraag voorbeelden van voorlopig verwijderen gebruiken met PowerShell-codefragmenten
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2018
-ms.author: bryanla
-ms.openlocfilehash: 70437403d3b78b7f8b9eef921c933a68793450da
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.author: mbaldwin
+ms.openlocfilehash: 3d199442564964d4eb70878e7e6460fe550cd4c2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113580"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452485"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Key Vault-functie voor voorlopig verwijderen gebruiken met PowerShell
 
@@ -205,7 +205,7 @@ Undo-AzKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
 > [!IMPORTANT]
 > Een key vault of een van de daarin opgenomen objecten verwijderen, verwijderd definitief, wat betekent dat deze niet worden hersteld.
 
-De Today opschonen wordt gebruikt om een sleutelkluis-object of een hele sleutelkluis, die is eerder voorlopig verwijderde definitief te verwijderen. Zoals in de vorige sectie wordt gedemonstreerd, kunnen objecten die zijn opgeslagen in een key vault met de functie voor voorlopig verwijderen ingeschakeld, gaat u door meerdere statussen:
+De functie opschonen wordt gebruikt om een sleutelkluis-object of een hele sleutelkluis, die is eerder voorlopig verwijderde definitief te verwijderen. Zoals in de vorige sectie wordt gedemonstreerd, kunnen objecten die zijn opgeslagen in een key vault met de functie voor voorlopig verwijderen ingeschakeld, gaat u door meerdere statussen:
 - **Actieve**: voordat u deze verwijdert.
 - **Voorlopig verwijderde**: nadat u hebt verwijderd, kunnen worden weergegeven en hersteld op actieve status.
 - **Definitief verwijderd**: na het opschonen van Logboeken, kan niet worden hersteld.

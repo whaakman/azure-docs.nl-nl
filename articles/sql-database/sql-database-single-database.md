@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: e8af73c955305c54efc478290608e627acb431ea
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: ad164e150b22af7d5a0c91fa0a8a80156952cfd0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099323"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431112"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Wat is een individuele database in Azure SQL Database
 
@@ -28,7 +28,7 @@ De Implementatieoptie voor één database maakt u een database in Azure SQL Data
 > [!NOTE]
 > Zie voor een verklarende woordenlijst van termen in Azure SQL Database, [SQL-Database verklarende woordenlijst](sql-database-glossary-terms.md)
 
-## <a name="dynamic-scalabilty"></a>Dynamische schaalbaarheid
+## <a name="dynamic-scalability"></a>Dynamische schaalbaarheid
 
 U kunt uw eerste app ontwikkelen op een kleine, één database tegen lage kosten per maand in de servicelaag lage prijs-prestatieverhouding en vervolgens [de servicelaag wijzigen](sql-database-single-database-scale.md) handmatig of via een programma op elk gewenst moment thehigher prijs-prestatieverhouding service laag om te voldoen aan de behoeften van uw oplossing. U kunt het prestatieniveau aanpassen zonder uitvaltijd voor uw app of voor uw klanten. Dankzij dynamische schaalbaarheid kan uw database op een transparante manier snel reageren op veranderende resourcevereisten en betaalt u alleen voor de resources die u nodig hebt wanneer u ze nodig.
 
@@ -42,7 +42,7 @@ U gebruikt de ingebouwde [prestatiebewaking](sql-database-performance.md) en [me
 
 ## <a name="availability-capabilities"></a>Beschikbaarheid
 
-Individuele databases, elastische pools en beheerde exemplaren bieden veel beschikbaarheid characterics. Zie voor meer informatie, [beschikbare kenmerken](sql-database-technical-overview.md#availability-capabilities).
+Individuele databases, elastische pools en beheerde exemplaren bieden veel beschikbare kenmerken. Zie voor meer informatie, [beschikbare kenmerken](sql-database-technical-overview.md#availability-capabilities).
 
 ## <a name="transact-sql-differences"></a>Verschillen Transact-SQL
 

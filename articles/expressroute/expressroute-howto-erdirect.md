@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 9157466f0768b052f55f6d225e72ae7a036f8b9c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: c5bae17008e2d664a09999daf3244213dfa2364f
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822169"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57406742"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>ExpressRoute Direct configureren
 
@@ -24,14 +24,14 @@ ExpressRoute Direct biedt de mogelijkheid om rechtstreeks in het wereldwijde net
 1. Aanmelden bij Azure en selecteer het abonnement. De resource Direct van ExpressRoute en ExpressRoute-circuits moeten zich in hetzelfde abonnement.
 
   ```powershell
-  Connect-AzureRMAccount 
+  Connect-AzAccount 
 
-  Select-AzureRMSubscription -Subscription “<SubscriptionID or SubscriptionName>”
+  Select-AzSubscription -Subscription “<SubscriptionID or SubscriptionName>”
   ```
 2. Lijst met alle locaties waar ExpressRoute Direct wordt ondersteund.
   
   ```powershell
-  Get-AzureRmExpressRoutePortsLocation
+  Get-AzExpressRoutePortsLocation
   ```
 
   **Voorbeeld van uitvoer**
@@ -64,7 +64,7 @@ ExpressRoute Direct biedt de mogelijkheid om rechtstreeks in het wereldwijde net
 3. Bepalen of een locatie die hierboven vermeld beschikbare bandbreedte heeft
 
   ```powershell
-  Get-AzureRmExpressRoutePortsLocation -LocationName "Equinix-San-Jose-SV1"
+  Get-AzExpressRoutePortsLocation -LocationName "Equinix-San-Jose-SV1"
   ```
 
   **Voorbeeld van uitvoer**
@@ -94,7 +94,7 @@ ExpressRoute Direct biedt de mogelijkheid om rechtstreeks in het wereldwijde net
   > 
  
   ```powershell 
-  $ERDirect = New-AzureRMExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName -PeeringLocation $PeeringLocationName -BandwidthInGbps 100.0 -Encapsulation QinQ | Dot1Q -Location $AzureRegion
+  $ERDirect = New-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName -PeeringLocation $PeeringLocationName -BandwidthInGbps 100.0 -Encapsulation QinQ | Dot1Q -Location $AzureRegion
   ```
 
   > [!NOTE]
@@ -156,7 +156,7 @@ ExpressRoute Direct biedt de mogelijkheid om rechtstreeks in het wereldwijde net
 1. ExpressRoute Direct details ophalen.
 
   ```powershell
-  $ERDirect = Get-AzureRmExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
+  $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
   ```
 2. Koppeling naar ingeschakelde instellen. Herhaal deze stap voor het instellen van elke koppeling ingeschakeld.
 
@@ -164,10 +164,10 @@ ExpressRoute Direct biedt de mogelijkheid om rechtstreeks in het wereldwijde net
 
   ```powershell
   $ERDirect.Links[0].AdminState = “Enabled”
-  Set-AzureRmExpressRoutePort -ExpressRoutePort $ERDirect
-  $ERDirect = Get-AzureRmExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
+  Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
+  $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
   $ERDirect.Links[1].AdminState = “Enabled”
-  Set-AzureRmExpressRoutePort -ExpressRoutePort $ERDirect
+  Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
   ```
   **Voorbeeld van uitvoer:**
 
@@ -231,7 +231,7 @@ Standard- of premium circuits kunnen worden gemaakt. Standard-circuits zijn opge
 Een circuit maken op de resource ExpressRoute Direct.
 
   ```powershell
-  New-AzureRmExpressRouteCircuit -Name $Name -ResourceGroupName $ResourceGroupName -ExpressRoutePort $ERDirect -BandwidthinGbps 100.0  -Location $AzureRegion -SkuTier Premium -SkuFamily MeteredData 
+  New-AzExpressRouteCircuit -Name $Name -ResourceGroupName $ResourceGroupName -ExpressRoutePort $ERDirect -BandwidthinGbps 100.0  -Location $AzureRegion -SkuTier Premium -SkuFamily MeteredData 
   ```
 
   Andere bandbreedten zijn onder andere: 5.0, 10.0 en 40,0

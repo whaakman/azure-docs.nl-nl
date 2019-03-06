@@ -9,15 +9,15 @@ ms.author: johndeu
 ms.date: 02/09/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: f07b2d128bd770854b7c240fd3c964d880029d3c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 76c5c5d90045e1697f698895e522ffda47d47565
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999008"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447718"
 ---
 # <a name="recommended-on-premises-encoders"></a>Aanbevolen on-premises coderingsprogramma 's
-Wanneer een live streamen met Azure Media Services, kunt u opgeven hoe u wilt dat het kanaal voor het ontvangen van de invoerstroom. Als u gebruiken van een on-premises coderingsprogramma met een live codering wilt, moet uw encoder een hoge kwaliteit single-bitrate stream pushen als uitvoer. Als u kiest voor het gebruik van een on-premises coderingsprogramma met een pass through-kanaal, moet uw encoder een multi-bitrate stream pushen als uitvoer met alle kenmerken van de gewenste uitvoer. Zie voor meer informatie, [Live streamen met on-premises coderingsprogramma's](media-services-live-streaming-with-onprem-encoders.md).
+Wanneer een live streamen met Azure Media Services, kunt u opgeven hoe u wilt dat het kanaal voor het ontvangen van de invoerstroom. Als u gebruiken van een on-premises-codering met een live codering wilt, moet uw encoder een hoge kwaliteit single-bitrate stream pushen als uitvoer. Als u kiest voor het gebruik van een on-premises-codering met een pass through-kanaal, moet uw encoder een multi-bitrate stream pushen als uitvoer met alle kenmerken van de gewenste uitvoer. Zie voor meer informatie, [Live streamen met-premises coderingsprogramma's](media-services-live-streaming-with-onprem-encoders.md).
 
 Azure Media Services raadt u aan met behulp van een van de volgende live coderingsprogramma's die RTMP als uitvoer zijn:
 - Adobe Flash Media Live Encoder 3.2
@@ -44,8 +44,8 @@ Azure Media Services raadt u aan met een van de volgende live coderingsprogramma
 > [!NOTE]
 > Een live coderingsprogramma kan een single-bitrate stream naar een pass through-kanaal verzenden, maar deze configuratie wordt niet aanbevolen omdat deze niet is toegestaan voor adaptive bitrate streaming aan de client.
 
-## <a name="how-to-become-an-on-prem-encoder-partner"></a>Hoe u een on-premises coderingsprogramma partner
-Als een Azure Media Services on-premises coderingsprogramma partner verhogen Media Services uw product door uw encoder aanbeveelt voor zakelijke klanten. Een on-premises coderingsprogramma als partner wilt worden, moet u controleren of de compatibiliteit van uw on-premises coderingsprogramma met Media Services. Voer de volgende verificaties om dit te doen:
+## <a name="how-to-become-an-on-premises-encoder-partner"></a>Hoe u een partner on premises coderingsprogramma
+Als een Azure Media Services op lokale encoder-partner verhogen Media Services uw product door uw encoder aanbeveelt voor zakelijke klanten. Als u wilt een partner on premises codering, moet u controleren of compatibiliteit van uw on-premises-codering met Media Services. Voer de volgende verificaties om dit te doen:
 
 Verificatie van kanaal doorgeven
 1. Maken of Ga naar uw Azure Media Services-account

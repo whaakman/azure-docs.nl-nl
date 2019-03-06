@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: bf9d8e6d3aa8d1995c705ecdec95b6f3dea028ff
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 8a67b94c7f2355872b243a05a7908604e88cf778
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242340"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433787"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight met behulp van een Azure-netwerk uitbreiden
 
@@ -235,7 +235,7 @@ Als u van plan over het gebruik van bent **netwerkbeveiligingsgroepen** of **geb
 3. Maak of wijzig de netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes voor het subnet dat u van plan bent voor het installeren van HDInsight in.
 
     * __Netwerkbeveiligingsgroepen__: toestaan __inkomende__ verkeer op poort __443__ uit het IP-adressen. Dit zorgt ervoor dat HDI-beheerservices van VNET buiten het cluster kunnen bereiken.
-    * __Gebruiker gedefinieerde routes__: Als u van plan bent te gebruiken van udr's, een route voor elk IP-adres en stel de __volgende hoptype__ naar __Internet__. U moet ook andere uitgaand verkeer toestaan van het VNET zonder beperking. Bijvoorbeeld, kunt u al het andere verkeer doorsturen naar uw Azure firwall of netwerk virtueel apparaat (die wordt gehost in Azure) voor bewakingsdoeleinden, maar het uitgaande verkeer mag niet worden geblokkeerd.
+    * __Gebruiker gedefinieerde routes__: Als u van plan bent te gebruiken van udr's, een route voor elk IP-adres en stel de __volgende hoptype__ naar __Internet__. U moet ook andere uitgaand verkeer toestaan van het VNET zonder beperking. Bijvoorbeeld, kunt u al het andere verkeer doorsturen naar uw Azure firewall of netwerk virtueel apparaat (die wordt gehost in Azure) voor bewakingsdoeleinden, maar het uitgaande verkeer mag niet worden geblokkeerd.
 
 Zie voor meer informatie over netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes, de volgende documentatie:
 
@@ -245,7 +245,7 @@ Zie voor meer informatie over netwerkbeveiligingsgroepen of de gebruiker gedefin
 
 #### <a name="forced-tunneling-to-on-premise"></a>Geforceerde tunneling on-premises
 
-Geforceerde tunneling vindt een door de gebruiker gedefinieerde routering configuratie waarin al het verkeer van een subnet naar een specifieke netwerk- of -locatie, zoals uw on-premises netwerk wordt geforceerd. HDInsight biedt __niet__ ondersteuning geforceerde tunneling naar de on-premises netwerken. Als u gebruikmaakt van Azure-Firewall of een virtuele netweken-toepassing die wordt gehost in Azure, kunt u udr's gebruiken voor het verkeer te routeren voor controledoeleinden en al het uitgaande verkeer toestaan.
+Geforceerde tunneling vindt een door de gebruiker gedefinieerde routering configuratie waarin al het verkeer van een subnet naar een specifieke netwerk- of -locatie, zoals uw on-premises netwerk wordt geforceerd. HDInsight biedt __niet__ ondersteuning geforceerde tunneling naar de on-premises netwerken. Als u gebruikmaakt van Azure-Firewall of een virtueel netwerkapparaat die wordt gehost in Azure, kunt u udr's gebruiken voor het verkeer te routeren voor controledoeleinden en al het uitgaande verkeer toestaan.
 
 ## <a id="hdinsight-ip"></a> Vereiste IP-adressen
 

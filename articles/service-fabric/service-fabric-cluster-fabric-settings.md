@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: c8cfa0174d3e3300bdc3cfbc68ca416d9b736300
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: cefdc8819162a19a9b73b99a38f7028aa5fbacac
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674902"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438139"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Instellingen voor Service Fabric-cluster aanpassen
 In dit artikel beschrijft de verschillende fabric-instellingen voor uw Service Fabric-cluster die u kunt aanpassen. Voor clusters die worden gehost in Azure, kunt u instellingen via de [Azure-portal](https://portal.azure.com) of met behulp van een Azure Resource Manager-sjabloon. Zie voor meer informatie, [Upgrade van de configuratie van een Azure-cluster](service-fabric-cluster-config-upgrade-azure.md). Voor zelfstandige clusters kunt u instellingen aanpassen door het bijwerken van de *ClusterConfig.json* bestands- en een configuratie uit te voeren een upgrade uitvoeren op uw cluster. Zie voor meer informatie, [Upgrade van de configuratie van een zelfstandige cluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -327,7 +327,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |EndpointProviderEnabled| BOOL, standaard is ingesteld op FALSE|Statisch| Hiermee kunt beheer van resources door Fabric eindpunt. Vereist specificatie van de begin- en poortbereik voor toepassingen in FabricNode. |
 |FabricContainerAppsEnabled| BOOL, standaard is ingesteld op FALSE|Statisch| |
 |FirewallPolicyEnabled|BOOL, standaard is ingesteld op FALSE|Statisch| Hiermee firewall-poorten voor eindpunt resources te openen met expliciete poorten die zijn opgegeven in het ServiceManifest |
-|GetCodePackageActivationContextTimeout|Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(120)|Dynamisch|Interval in seconden opgeven. De time-outwaarde voor de CodePackageActivationContext-aanroepen. Dit is niet van toepassing op ad-hoc-services. |
+|GetCodePackageActivationContextTimeout|Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(120)|Dynamisch|Interval in seconden opgeven. De time-outwaarde voor de CodePackageActivationContext-aanroepen. Dit is niet van toepassing op ad hoc-services. |
 |GovernOnlyMainMemoryForProcesses|BOOL, standaard is ingesteld op FALSE|Statisch|Standaardgedrag van resourcebeheer is limiet opgegeven in MemoryInMB op de hoeveelheid van het totale geheugen (RAM-geheugen + swap) waarmee wordt verwerkt. Als de limiet wordt overschreden; het proces ontvangt OutOfMemory uitzondering. Als deze parameter is ingesteld op ' True '; limiet wordt alleen toegepast op de hoeveelheid RAM-geheugen dat door een proces wordt gebruikt. Als deze limiet wordt overschreden; en als deze instelling true is. Besturingssysteem wordt vervolgens het hoofdgeheugen naar schijf te wisselen. |
 |IPProviderEnabled|BOOL, standaard is ingesteld op FALSE|Statisch|Hiermee is het beheer van IP-adressen. |
 |IsDefaultContainerRepositoryPasswordEncrypted|BOOL, standaard is ingesteld op FALSE|Statisch|Of de DefaultContainerRepositoryPassword is versleuteld of niet.|
@@ -374,7 +374,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |SharedLogId |tekenreeks, standaardwaarde is "" |Statisch|De unieke guid voor gedeelde log-container. Gebruik ' ' als standaardpad onder fabric-gegevenshoofdmap. |
 |SharedLogPath |tekenreeks, standaardwaarde is "" |Statisch|Pad en de naam naar de locatie voor gedeelde log-container. Gebruik ' ' voor het gebruik van standaardpad onder fabric-gegevenshoofdmap. |
 |SharedLogSizeInMB |Int, de standaardwaarde is 8192 liggen |Statisch|Het aantal MB om toe te wijzen in de gedeelde log-container. |
-|SharedLogThrottleLimitInPercentUsed|int, standaard is 0 | Statisch | Het percentage van het gebruik van de gedeelde logboek dat wordt een beperking. Waarde moet liggen tussen 0 en 100 liggen. Een waarde van 0 geeft aan met behulp van de standaardwaarde voor het percentage is. Een waarde van 100 impliceert dat er geen beperking op. Een waarde tussen 1 en 99 geeft het percentage van logboek gebruik bij meer dan welke beperking wordt uitgevoerd; bijvoorbeeld als de gedeelde logboek 10GB en de waarde is is 90 vervolgens optreden throttleing wanneer 9GB gebruikt wordt. Gebruik de standaardwaarde wordt aanbevolen.|
+|SharedLogThrottleLimitInPercentUsed|int, standaard is 0 | Statisch | Het percentage van het gebruik van de gedeelde logboek dat wordt een beperking. Waarde moet liggen tussen 0 en 100 liggen. Een waarde van 0 geeft aan met behulp van de standaardwaarde voor het percentage is. Een waarde van 100 impliceert dat er geen beperking op. Een waarde tussen 1 en 99 geeft het percentage van logboek gebruik bij meer dan welke beperking wordt uitgevoerd; bijvoorbeeld als de gedeelde logboek 10GB en de waarde is is 90 en vervolgens de beperking wordt uitgevoerd zodra 9GB gebruikt wordt. Gebruik de standaardwaarde wordt aanbevolen.|
 |WriteBufferMemoryPoolMaximumInKB | int, standaard is 0 |Dynamisch|Het aantal KB om toe te staan de schrijven geheugen buffergroep tot groeien. Gebruik 0 om aan te geven geen limiet. |
 |WriteBufferMemoryPoolMinimumInKB |Int, de standaardwaarde is 8388608 |Dynamisch|Het aantal KB in eerste instantie voor het schrijven voor buffergroep in het geheugen toewijzen. Gebruik 0 om aan te geven geen limiet standaard moet consistent zijn met SharedLogSizeInMB hieronder. |
 
@@ -671,7 +671,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |InvokeInfrastructureCommand |tekenreeks, standaard is 'Admin' |Dynamisch| De beveiligingsconfiguratie voor infrastructuur-opdrachten voor het beheer van taak. |
 |InvokeInfrastructureQuery |tekenreeks, standaardwaarde is ' Admin\|\|gebruiker " | Dynamisch|Beveiligingsconfiguratie voor het uitvoeren van query's infrastructuurtaken. |
 |Lijst |tekenreeks, standaardwaarde is ' Admin\|\|gebruiker " | Dynamisch|Beveiligingsconfiguratie voor de installatiekopie van clientbewerking bestand lijst opslaan. |
-|MoveNextFabricUpgradeDomain |tekenreeks, standaard is 'Admin' |Dynamisch| Beveiligingsconfiguratie voor het upgraden van clusters met een expliciet is het upgraden van domein wordt hervat. |
+|MoveNextFabricUpgradeDomain |tekenreeks, standaard is 'Admin' |Dynamisch| Beveiligingsconfiguratie voor het upgraden van clusters met een expliciete Upgrade domein wordt hervat. |
 |MoveNextUpgradeDomain |tekenreeks, standaard is 'Admin' |Dynamisch| De beveiligingsconfiguratie voor upgrades van toepassingen met een expliciete Upgrade domein wordt hervat. |
 |MoveReplicaControl |tekenreeks, standaard is 'Admin' | Dynamisch|De replica is verplaatst. |
 |NameExists |tekenreeks, standaardwaarde is ' Admin\|\|gebruiker " | Dynamisch|Beveiligingsconfiguratie naamgevings-URI aanwezigheid controleert. |

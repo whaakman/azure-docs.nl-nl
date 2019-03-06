@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d05661c131d981538dada988131c39d4fd956ee9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 8f333b626fa51fa60f80350547ee53f346d6cc3a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016730"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436764"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Maken, bewaken en beheren van Azure data factory's met behulp van Azure Data Factory .NET SDK
 > [!NOTE]
@@ -31,6 +31,9 @@ U kunt maken, bewaken en beheren van Azure data factory's programmatisch met beh
 > Dit artikel behandelt niet de volledige Data Factory .NET API. Zie [Data Factory .NET API-verwijzing](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) voor uitgebreide documentatie over .NET API voor Data Factory. 
 
 ## <a name="prerequisites"></a>Vereisten
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Visual Studio 2012 of 2013 of 2015
 * Download en installeer [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 * Azure PowerShell. Volg de instructies in [Azure PowerShell installeren en configureren](/powershell/azure/overview) om Azure PowerShell te installeren op uw computer. Azure PowerShell wordt gebruikt om een Azure Active Directory-toepassing te maken.
@@ -42,17 +45,17 @@ Maak een Azure Active Directory-toepassing, maak een service-principal voor de t
 2. Voer de volgende opdracht uit en geef de gebruikersnaam en het wachtwoord op waarmee u zich aanmeldt bij Azure Portal.
 
     ```PowerShell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 3. Voer de volgende opdracht uit om alle abonnementen voor dit account weer te geven.
 
     ```PowerShell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 4. Voer de volgende opdracht uit om het abonnement te selecteren waarmee u wilt werken. Vervang **&lt;NameOfAzureSubscription**&gt; door de naam van uw Azure-abonnement.
 
     ```PowerShell
-    Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+    Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
     ```
 
    > [!IMPORTANT]
@@ -61,7 +64,7 @@ Maak een Azure Active Directory-toepassing, maak een service-principal voor de t
 5. Maak een Azure-resourcegroep met de naam **ADFTutorialResourceGroup** door de volgende opdracht uit te voeren in PowerShell.
 
     ```PowerShell
-    New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
 
     Als de resourcegroep al bestaat, geeft u aan of u deze wilt bijwerken (Y) of ongewijzigd wilt laten (N).
@@ -70,7 +73,7 @@ Maak een Azure Active Directory-toepassing, maak een service-principal voor de t
 6. Maak een Azure Active Directory-toepassing.
 
     ```PowerShell
-    $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFDotNetWalkthroughApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfdotnetwalkthroughapp.org/example" -Password "Pass@word1"
+    $azureAdApplication = New-AzADApplication -DisplayName "ADFDotNetWalkthroughApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfdotnetwalkthroughapp.org/example" -Password "Pass@word1"
     ```
 
     Als u de volgende fout ziet, geeft u een andere URL op en voert u de opdracht opnieuw uit.
@@ -81,12 +84,12 @@ Maak een Azure Active Directory-toepassing, maak een service-principal voor de t
 7. Maak de AD-service-principal.
 
     ```PowerShell
-    New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+    New-AzADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
     ```
 8. Voeg de service-principal toe aan de rol **Inzender Data Factory**.
 
     ```PowerShell
-    New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+    New-AzRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
     ```
 9. Haal de toepassings-id op.
 
@@ -175,7 +178,7 @@ Met de kopieeractiviteit wordt de gegevensverplaatsing in Azure Data Factory uit
     ```
 
    > [!IMPORTANT]
-   > Vervang de waarde van **resourceGroupName** door de naam van uw Azure-resourcegroep. U kunt maken met een resource-groep met de [New-AzureResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet.
+   > Vervang de waarde van **resourceGroupName** door de naam van uw Azure-resourcegroep. U kunt maken met een resource-groep met de [New-AzureResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet.
    >
    > Werk de naam van de data factory (dataFactoryName) zodanig bij dat deze uniek is. De naam van de gegevensfactory moet wereldwijd uniek zijn. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
 7. Voeg de volgende code die een **gegevensfactory** maakt toe aan de methode **Main**.

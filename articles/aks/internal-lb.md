@@ -5,21 +5,27 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 03/04/2019
 ms.author: iainfou
-ms.openlocfilehash: e4b5b6085dbe9a09c90e059a5db8bee5d6d7a004
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: a26eab83f567a46f613e3bfda95fd99aba2b79c0
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699311"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404311"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Een interne load balancer gebruiken met Azure Kubernetes Service (AKS)
 
 Om toegang te beperken tot uw toepassingen in Azure Kubernetes Service (AKS), kunt u maken en gebruiken van een interne load balancer. Een interne load balancer maakt een Kubernetes-service alleen toegankelijk is voor toepassingen die worden uitgevoerd in hetzelfde virtuele netwerk bevinden als het Kubernetes-cluster. Dit artikel leest u hoe het maken en gebruiken van een interne load balancer met Azure Kubernetes Service (AKS).
 
 > [!NOTE]
-> Azure Load Balancer is beschikbaar in twee SKU's - *Basic* en *Standard*. Zie voor meer informatie, [vergelijking van Azure load balancer SKU][azure-lb-comparison]. AKS ondersteunt momenteel de *Basic* SKU. Als u wilt gebruiken de *Standard* SKU, kunt u de upstream [aks-engine][aks-engine].
+> Azure Load Balancer is beschikbaar in twee SKU's - *Basic* en *Standard*. AKS ondersteunt momenteel de *Basic* SKU. Als u wilt gebruiken de *Standard* SKU, kunt u de upstream [aks-engine][aks-engine]. Zie voor meer informatie, [vergelijking van Azure load balancer SKU][azure-lb-comparison].
+
+## <a name="before-you-begin"></a>Voordat u begint
+
+In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de Quick Start voor AKS [met de Azure CLI] [ aks-quickstart-cli] of [met behulp van de Azure-portal][aks-quickstart-portal].
+
+U ook moet de Azure CLI versie 2.0.59 of later geïnstalleerd en geconfigureerd. Voer  `az --version` uit om de versie te bekijken. Als u de Azure CLI wilt installeren of upgraden, raadpleegt u  [Azure CLI installeren][install-azure-cli].
 
 ## <a name="create-an-internal-load-balancer"></a>Een interne load balancer maken
 
@@ -40,9 +46,15 @@ spec:
     app: internal-app
 ```
 
-Eenmaal is geïmplementeerd met `kubectl apply -f internal-lb.yaml`, een Azure load balancer is gemaakt en beschikbaar gemaakt in hetzelfde virtuele netwerk bevinden als het AKS-cluster.
+Implementatie van de interne load balancer met behulp van de [kubectl toepassen] kubectl-toepassen] en geef de naam van uw YAML-manifest:
 
-Wanneer u de details van de service bekijkt, het IP-adres van de interne load balancer wordt weergegeven in de *externe IP-adres* kolom. Het duurt een minuut of twee voor het IP-adres te wijzigen van *\<in behandeling\>* naar een werkelijke intern IP-adres, zoals weergegeven in het volgende voorbeeld:
+```console
+kubectl apply -f internal-lb.yaml
+```
+
+Een Azure load balancer is gemaakt in de resourcegroep van het knooppunt en verbonden met hetzelfde virtuele netwerk bevinden als het AKS-cluster.
+
+Wanneer u de details van de service bekijkt, het IP-adres van de interne load balancer wordt weergegeven in de *externe IP-adres* kolom. In deze context *externe* zich ten opzichte van de externe interface van de load balancer, niet dat het een openbare, externe IP-adres ontvangt. Het duurt een minuut of twee voor het IP-adres te wijzigen van *\<in behandeling\>* naar een werkelijke intern IP-adres, zoals weergegeven in het volgende voorbeeld:
 
 ```
 $ kubectl get service internal-app
@@ -71,7 +83,7 @@ spec:
     app: internal-app
 ```
 
-Wanneer u de details van de service bekijkt, het IP-adres de *externe IP-adres* kolom geeft de opgegeven IP-adres:
+Bij de implementatie en weergeven van details van de service, het IP-adres in de *externe IP-adres* kolom geeft de opgegeven IP-adres:
 
 ```
 $ kubectl get service internal-app
@@ -82,7 +94,7 @@ internal-app   LoadBalancer   10.0.184.168   10.240.0.25   80:30225/TCP   4m
 
 ## <a name="use-private-networks"></a>Particuliere netwerken gebruikt
 
-Wanneer u uw AKS-cluster maakt, kunt u geavanceerde netwerkinstellingen. Deze aanpak kunt u het cluster implementeren in een bestaande Azure-netwerk en subnetten. Een scenario is het implementeren van uw AKS-cluster in een particulier netwerk verbonden met uw on-premises omgeving en services die alleen toegankelijk zijn intern uitvoeren. Zie voor meer informatie, [geavanceerde netwerkconfiguratie in AKS][advanced-networking].
+Wanneer u uw AKS-cluster maakt, kunt u geavanceerde netwerkinstellingen. Deze aanpak kunt u het cluster implementeren in een bestaande Azure-netwerk en subnetten. Een scenario is het implementeren van uw AKS-cluster in een particulier netwerk verbonden met uw on-premises omgeving en services die alleen toegankelijk zijn intern uitvoeren. Zie voor meer informatie, configureren van uw eigen virtuele subnetten met [Kubenet] [ use-kubenet] of [Azure CNI][advanced-networking].
 
 Geen wijzigingen aangebracht in de vorige stappen zijn nodig voor het implementeren van een interne load balancer in een AKS-cluster dat gebruik maakt van een particulier netwerk. De load balancer is gemaakt in dezelfde resourcegroep bevinden als uw AKS-cluster, maar verbonden met uw persoonlijke virtueel netwerk en subnet, zoals wordt weergegeven in het volgende voorbeeld:
 
@@ -135,3 +147,7 @@ Meer informatie over Kubernetes-services op de [documentatie voor Kubernetes ser
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [azure-lb-comparison]: ../load-balancer/load-balancer-overview.md#skus
+[use-kubenet]: configure-kubenet.md
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: /cli/azure/install-azure-cli
