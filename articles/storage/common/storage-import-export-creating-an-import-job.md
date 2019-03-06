@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 15ec4f006147cdffb46598d22a937aec429fd8ac
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 42246a5d2c8515c26ed399f041476c8ad70decfe
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729401"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442134"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Een importtaak voor de Azure Import/Export-service maken
 
@@ -33,7 +33,7 @@ Het maken van een import-taak voor de Microsoft Azure Import/Export-service met 
 
 ## <a name="preparing-drives-with-the-azure-importexport-tool"></a>Schijven met het hulpprogramma Azure Import/Export voorbereiden
 
-De stappen voor het voorbereiden van schijven voor een importtaak zijn hetzelfde, of u nu de jobvia de portal maakt of via de REST-API.
+De stappen voor het voorbereiden van schijven voor een importtaak zijn hetzelfde, of u de taak via de portal of via de REST-API maakt.
 
 Hieronder volgt een kort overzicht van de voorbereiding van station. Raadpleeg de [naslaginformatie voor Azure Import-ExportTool](storage-import-export-tool-how-to-v1.md) voor volledige instructies. U kunt het hulpprogramma Azure Import/Export downloaden [hier](https://go.microsoft.com/fwlink/?LinkID=301900).
 

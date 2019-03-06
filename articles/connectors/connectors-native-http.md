@@ -11,12 +11,12 @@ ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 1c30f77c061ec25c88186caee3f60e65f3afb3de
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 01da06ca55199989a3a27012bec101580f5ef853
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232865"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442202"
 ---
 # <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Aanroepen van HTTP of HTTPS-eindpunten met Azure Logic Apps
 
@@ -46,7 +46,7 @@ Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps?](.
 
    ![HTTP-trigger selecteren](./media/connectors-native-http/select-http-trigger.png)
 
-1. Geef de [HTTP-trigger parameters en waarden](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) u wilt opnemen in de aanroep naar de doel-eindpunt. Terugkeerpatroon voor hoe vaak u wilt dat de trigger instellen om te controleren of de doel-voor.
+1. Geef de [HTTP-trigger parameters en waarden](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) u wilt opnemen in de aanroep naar de doel-eindpunt. Terugkeerpatroon voor hoe vaak u wilt dat de trigger instellen om te controleren of de doel-eindpunt.
 
    ![HTTP-trigger parameters invoeren](./media/connectors-native-http/http-trigger-parameters.png)
 
@@ -77,7 +77,7 @@ Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps?](.
 
 1. Wanneer u klaar bent, zorg ervoor dat u uw logische app opslaat. Kies **Opslaan** op de werkbalk van de ontwerper. 
 
-## <a name="authentication"></a>Verificatie
+## <a name="authentication"></a>Authentication
 
 Om verificatie, kies **geavanceerde opties weergeven** in de actie of trigger. Zie voor meer informatie over beschikbare verificatietypen voor HTTP-triggers en acties [Trigger en actie typen verwijzing](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 

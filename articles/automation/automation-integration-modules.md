@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9122cf5cc908d578d8b781c6fdc49d7b04b0ab58
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 2800385581ea3f08fc1013e980f8c133a2f7241e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990339"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443729"
 ---
 # <a name="azure-automation-integration-modules"></a>Azure Automation-integratiemodules
 
@@ -227,7 +227,7 @@ Hoewel integratiemodules PowerShell-modules zijn, is er nog steeds een aantal za
     }
     ```
 
-6. De module moet volledig zijn opgenomen in een pakket waarvoor Xcopy kan worden gebruikt. Azure Automation-modules zijn distributd naar de Automation-sandboxes wanneer runbooks moeten worden uitgevoerd. De modules moeten werken onafhankelijk van de host die ze op worden uitgevoerd. U moet kunnen zippen vergroten en het verplaatsen van een module-pakket en het laten functioneren wanneer geïmporteerd in een andere host PowerShell-omgeving. In de volgorde voor die worden uitgevoerd, mag niet afhankelijk van de module van bestanden buiten de modulemap. Dit is de map die wordt gezipt wanneer de module wordt geïmporteerd in Azure Automation. De module moet ook niet afhankelijk zijn van unieke registerinstellingen op een host, zoals deze instellingen worden ingesteld wanneer een product is geïnstalleerd. Als deze aanbevolen procedure niet wordt gevolgd, is de module niet bruikbaar in Azure Automation.  
+6. De module moet volledig zijn opgenomen in een pakket waarvoor Xcopy kan worden gebruikt. Azure Automation-modules worden gedistribueerd naar de Automation-sandboxes wanneer runbooks moeten worden uitgevoerd. De modules moeten werken onafhankelijk van de host die ze op worden uitgevoerd. U moet kunnen zippen vergroten en het verplaatsen van een module-pakket en het laten functioneren wanneer geïmporteerd in een andere host PowerShell-omgeving. In de volgorde voor die worden uitgevoerd, mag niet afhankelijk van de module van bestanden buiten de modulemap. Dit is de map die wordt gezipt wanneer de module wordt geïmporteerd in Azure Automation. De module moet ook niet afhankelijk zijn van unieke registerinstellingen op een host, zoals deze instellingen worden ingesteld wanneer een product is geïnstalleerd. Als deze aanbevolen procedure niet wordt gevolgd, is de module niet bruikbaar in Azure Automation.  
 
 7. Als u verwijst naar een [Az van Azure Powershell-modules](/powershell/azure/new-azureps-module-az?view=azps-1.1.0) in uw module, zorg ervoor dat u niet zijn ook verwijzen naar `AzureRM`. De `Az` module kan niet worden gebruikt in combinatie met de `AzureRM` modules. `Az` wordt ondersteund in runbooks, maar worden niet standaard geïmporteerd. Voor meer informatie over de `Az` modules en overwegingen bij het rekening mee dat, Zie [Az-module-ondersteuning in Azure Automation](az-modules.md).
 

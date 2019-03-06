@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0760d850bdc6dab84722f00f1061d53f9b95cfcf
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 0d57c65c93ffcd6c4c5249a1e5effeb457ed1736
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912415"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440893"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Meerdere HDInsight-clusters met een Azure Data Lake Storage-account gebruiken
 
@@ -30,7 +30,7 @@ In dit artikel bevat aanbevelingen voor de Data Lake Storage-beheerder voor het 
 De rest van dit artikel wordt ervan uitgegaan dat u een goede kennis van bestanden en mappen niveau ACL's in Azure Data Lake Storage, die wordt beschreven op [toegangsbeheer in Azure Data Lake Storage](../data-lake-store/data-lake-store-access-control.md).
 
 ## <a name="data-lake-storage-setup-for-multiple-hdinsight-clusters"></a>Setup van Data Lake-opslag voor meerdere HDInsight-clusters
-We gaan een maphiërarchie met twee niveaus om uit te leggen van de aanbevelingen voor het gebruik van bevat meerdere HDInsight-clusters met een Data Lake Storage-account. U hebt een Data Lake Storage-account met de mapstructuur overwegen **/clusters/financiën**. Met deze structuur, de clusters die zijn vereist voor de financiële organisatie /clusters/finance gebruiken als de opslaglocatie. In de toekomst, als er een andere organisatie, bijvoorbeeld Marketing, wil maken van HDInsight-clusters met behulp van hetzelfde Data Lake Storage-account, kunnen ze/clusters/marketing maken. Nu dit voorbeeld gebruiken we **/clusters/financiën**.
+We gaan een maphiërarchie met twee niveaus om uit te leggen van de aanbevelingen voor het gebruik van meerdere HDInsight-clusters met een Data Lake Storage-account. U hebt een Data Lake Storage-account met de mapstructuur overwegen **/clusters/financiën**. Met deze structuur, de clusters die zijn vereist voor de financiële organisatie /clusters/finance gebruiken als de opslaglocatie. In de toekomst, als er een andere organisatie, bijvoorbeeld Marketing, wil maken van HDInsight-clusters met behulp van hetzelfde Data Lake Storage-account, kunnen ze/clusters/marketing maken. Nu dit voorbeeld gebruiken we **/clusters/financiën**.
 
 Om in te schakelen deze mapstructuur kunnen effectief worden gebruikt door HDInsight-clusters, moet de beheerder van de Data Lake Storage relevante machtigingen toewijzen zoals beschreven in de tabel. De machtigingen die wordt weergegeven in de tabel overeen met de toegangs-ACL-'s en niet standaard-ACL's. 
 
@@ -54,7 +54,7 @@ Enkele belangrijke punten om te overwegen.
 - De twee niveau mapstructuur (**/clusters/financiën/**) moeten worden gemaakt en kan worden ingericht met de juiste machtigingen door de beheerder van de Data Lake Storage **voordat** voor clusters met behulp van het storage-account. Deze structuur wordt niet automatisch gemaakt tijdens het maken van clusters.
 - Het bovenstaande voorbeeld wordt aanbevolen voor het instellen van de groep die eigenaar is van **/clusters/financiën** als **FINGRP** en waardoor **l-** toegang tot FINGRP aan de hiërarchie van de hele map starten in de hoofdmap. Dit zorgt ervoor dat de leden van FINGRP de mapstructuur starten vanaf de basis kunnen navigeren.
 - In het geval wanneer andere AAD-Service-Principals kunt clusters onder maken **/clusters/financiën**, de vergrendelde bit (wanneer ingesteld op de **financiën** map) zorgt ervoor dat mappen door een Service-Principal gemaakt kan niet worden verwijderd door de andere.
-- Nadat de mapstructuur en de machtigingen gemaakt zijn, proces voor het maken van HDInsight-cluster maakt een cluster-specifieke storage loaction onder **/clusters/financiën/**. Bijvoorbeeld, de opslag voor een cluster met de naam fincluster01 mogelijk **/clusters/finance/fincluster01**. De eigenaar en de machtigingen voor de mappen die zijn gemaakt door HDInsight-cluster wordt weergegeven in de tabel hier.
+- Nadat de mapstructuur en de machtigingen gemaakt zijn, proces voor het maken van HDInsight-cluster maakt een cluster-specifieke opslaglocatie onder **/clusters/financiën/**. Bijvoorbeeld, de opslag voor een cluster met de naam fincluster01 mogelijk **/clusters/finance/fincluster01**. De eigenaar en de machtigingen voor de mappen die zijn gemaakt door HDInsight-cluster wordt weergegeven in de tabel hier.
 
     |Map  |Machtigingen  |Gebruiker die eigenaar is  |Groep die eigenaar is  | Benoemde gebruiker | Benoemde gebruikersmachtigingen | De benoemde groep | De benoemde groepsmachtigingen |
     |---------|---------|---------|---------|---------|---------|---------|---------|

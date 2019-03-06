@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 204898026dc55e7111d3810d4938101ffaddc3f9
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 5f6cb29d8fb3fd1c3b75e18330e3ad2711a61aab
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698323"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444919"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms"></a>Migratie van Contoso: Een on-premises Linux-app op Azure VM's opnieuw hosten
 
@@ -408,7 +408,7 @@ Beheerders van Contoso zijn nu gereed voor het uitvoeren van een failover op het
 
 ### <a name="connect-the-vm-to-the-database"></a>De virtuele machine verbinding met de database
 
-Als de laatste stap in het migratieproces, Contoso adins bijwerken van de verbindingsreeks van de toepassing om te verwijzen naar de app-database op de **OSTICKETMYSQL** VM. 
+Als de laatste stap in het migratieproces, beheerders van Contoso bijwerken de verbindingsreeks van de toepassing om te verwijzen naar de app-database op de **OSTICKETMYSQL** VM. 
 
 1. Ze maken van een SSH-verbinding met de **OSTICKETWEB** VM met behulp van Putty of een andere SSH-client. De virtuele machine is privé, zodat ze verbinding maken met het particuliere IP-adres.
 

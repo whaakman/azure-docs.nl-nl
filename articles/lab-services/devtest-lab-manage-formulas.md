@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 60790f0f31915a50829df09d039a4f74860a47d7
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: d8f2ae64e2f8e694de5a7cf5aa9049e63998dca0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076431"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452654"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Azure DevTest Labs formules beheren
 
@@ -69,7 +69,7 @@ De volgende stappen begeleiden u bij het proces voor het maken van een formule v
     - **IP-adresconfiguratie** -opgeven of u de openbare, persoonlijke of gedeelde IP-adressen wilt. Zie voor meer informatie over gedeelde IP-adressen, [begrijpen gedeelde IP-adressen in Azure DevTest Labs](./devtest-lab-shared-ip.md).
     - **Datum en tijd** : Geef de vervaldatum en tijd voor de virtuele machine, zodat de virtuele machine wordt automatisch verwijderd. 
     - **Zorg dat deze machine claimbare** -maken van een virtuele machine 'claimbare' betekent dat het zal niet worden toegewezen eigendom op het moment van maken. In plaats daarvan is labgebruikers mogelijk eigenaar ("claim") de machine op de pagina van het lab.     
-    - **Aantal claimbare exemplaren** -opgeven hoeveel claimbare instacnes dat u wilt maken. 
+    - **Aantal claimbare exemplaren** -opgeven hoeveel claimbare instanties dat u wilt maken. 
 8. Selecteer **indienen** om de formule te maken.
 
 9. Wanneer de formule is gemaakt, wordt weergegeven in de lijst op de **formules** pagina.

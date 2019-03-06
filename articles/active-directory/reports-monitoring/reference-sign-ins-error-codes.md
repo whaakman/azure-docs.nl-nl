@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7f3c50a272ef5cc0d4980cb4a623ac043d764dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0f1ce786b748fedd1ec4c722b28bc11c28672c2f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190905"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443399"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Foutcodes voor aanmeldingsactiviteiten rapport 
 
@@ -79,7 +79,7 @@ U kunt ook programmatisch toegang verkrijgen tot de aanmelding via de [rapportag
 |50027|Ongeldig JWT-token om de volgende redenen:<ul><li>bevat geen nonceclaim, subclaim</li><li>onderwerp-id komt niet overeen</li><li>duplicaatclaim in idToken-claims</li><li>onverwachte certificaatverlener</li><li>onverwachte doelgroep</li><li>niet binnen geldig tijdsbereik </li><li>indeling van het token is niet juist</li><li>Handtekeningverificatie van extern ID-token van de verlener is mislukt.</li></ul>Neem contact op met de eigenaar van de toepassing|
 |50029|Ongeldige URI: domeinnaam bevat ongeldige tekens. Neem contact op met de tenantbeheerder.|
 |50034|De gebruiker bestaat niet in de lijst. Neem contact op met uw tenantbeheerder.|
-|50042|De salt vereist voor het genereren van een pairwise-id ontbreekt in de principal. Neem contact op met de tenantbeheerder.|
+|50042|De salt vereist voor het genereren van een pairwise id ontbreekt in principe. Neem contact op met de tenantbeheerder.|
 |50048|Onderwerpverschillen verlenerclaim in de clientverklaring. Neem contact op met de tenantbeheerder.|
 |50050|De aanvraag is onjuist gevormd. Neem contact op met de eigenaar van de toepassing.|
 |50053|Account is vergrendeld omdat de gebruiker heeft geprobeerd aan te melden te vaak hebt aangemeld met een onjuiste gebruikersnaam of wachtwoord.|
@@ -129,7 +129,7 @@ U kunt ook programmatisch toegang verkrijgen tot de aanmelding via de [rapportag
 |50180|Geïntegreerde Windows-verificatie is vereist. Schakel de tenant in voor een naadloze eenmalige aanmelding (SSO).|
 |51001|Domeinhint is niet aanwezig zijn met On-Premises beveiligings-id - On-Premises UPN.|
 |51004|Gebruikersaccount bestaat niet in de map.|
-|51006|Geïntegreerde Windows-verificatie is vereist. De gebruiker is aangemeld met sessietoken waarin wia-claim ontbreekt. Vraag de gebruiker zich opnieuw aan te melden.|
+|51006|Geïntegreerde Windows-verificatie is vereist. De gebruiker is aangemeld met behulp van de sessietoken dat via claim ontbreekt. Vraag de gebruiker zich opnieuw aan te melden.|
 |52004|Gebruiker heeft geen toestemming gegeven voor toegang tot LinkedIn-resources. |
 |53000|Voor beleid voor voorwaardelijke toegang is een compatibel apparaat vereist. Het apparaat is niet compatibel. Laat de gebruiker die hun apparaat inschrijven bij een goedgekeurde MDM-provider, zoals Intune.|
 |53001|Voor beleid voor voorwaardelijke toegang is een domeindeelname-apparaat vereist en het apparaat neemt niet deel. Apparaat lid zijn van de gebruiker gebruikt een domein.|
@@ -138,7 +138,7 @@ U kunt ook programmatisch toegang verkrijgen tot de aanmelding via de [rapportag
 |53004|Gebruiker moet multi-factor authentication-registratieproces voltooien om toegang te krijgen tot deze inhoud. Gebruiker moet zich registreren voor multi-factor authentication.|
 |65001|Toepassing X heeft geen toegangsmachtiging voor toepassing Y of de machtiging is ingetrokken. Of de gebruiker of beheerder heeft niet toegestaan dat de toepassing wordt gebruikt met id X. Stuur een interactieve autorisatieaanvraag voor deze gebruiker en resource. Of de gebruiker of beheerder heeft niet toegestaan voor het gebruik van de toepassing met ID X. Send een autorisatieaanvraag naar uw tenant-beheerder om te handelen namens de App: Y voor Resource: Z.|
 |65004|Gebruiker heeft geweigerd toestemming te geven app-toegang. Laat de gebruiker zich opnieuw aanmelden en toestemming geven voor de app|
-|65005|De voor de toepassing vereiste resourcetoegangslijst bevat geen toepassingen die kunnen worden gedetecteerd door de resource, de clienttoepassing heeft toegang aangevraagd tot een resource die niet is opgegeven in de vereiste resourcetoegangslijst, de Graph-service heeft een onjuiste aanvraag geretourneerd of de resource is niet gevonden. Als de toepassing SAML ondersteunt, hebt u mogelijk de toepassing met de verkeerde id (entiteit) geconfigureerd. Probeer de oplossing voor SAML via de koppeling hieronder: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list)|
+|65005|De voor de toepassing vereiste resourcetoegangslijst bevat geen toepassingen die kunnen worden gedetecteerd door de resource, de clienttoepassing heeft toegang aangevraagd tot een resource die niet is opgegeven in de vereiste resourcetoegangslijst, de Graph-service heeft een onjuiste aanvraag geretourneerd of de resource is niet gevonden. Als de toepassing SAML ondersteunt, hebt u mogelijk de toepassing met de verkeerde id (entiteit) geconfigureerd. Probeer de oplossing voor SAML via de koppeling hieronder: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)|
 |70000|Ongeldige toekenning om de volgende redenen:<ul><li>Aangevraagde SAML 2.0-verklaring heeft een ongeldige bevestigingsmethode voor onderwerpen</li><li>App OnBehalfOf flow wordt niet ondersteund op V2</li><li>Primaire vernieuwingstoken is niet ondertekend met sessiesleutel</li><li>Ongeldig extern vernieuwingstoken</li><li>Het verlenen van toegang is verkregen voor een andere tenant.</li></ul>|
 |70001|De toepassing X is niet gevonden in de tenant Y. Dit kan gebeuren als de toepassing X niet is geïnstalleerd door de beheerder van de tenant of er geen toestemming voor is verleend door een gebruiker in de tenant. U mogelijk de id-waarde voor de toepassing onjuist geconfigureerd of de verificatieaanvraag naar de verkeerde tenant verzonden.|
 |70002|De toepassing heeft ongeldige clientreferenties geretourneerd. Neem contact op met de eigenaar van de toepassing.|

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 85a326c97ecf8476bdd802a718e082d0e5c7a89c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 3700fb90318da3787830f9b6c202436c0e45e2fe
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467351"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454099"
 ---
 # <a name="best-practices-for-autoscale"></a>Aanbevolen procedures voor Automatisch schalen
 Automatisch schalen van Azure Monitor is alleen bedoeld voor [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloudservices](https://azure.microsoft.com/services/cloud-services/), [App Service - Web-Apps](https://azure.microsoft.com/services/app-service/web/), en [API Management-services](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
@@ -38,7 +38,7 @@ Hebt u een instelling met minimale = 2, maximum = 2 en het huidige aantal exempl
 Als u handmatig het aantal exemplaren op een waarde boven of onder de maximale bijwerkt, wordt automatisch de engine voor automatisch schalen geschaald terug naar de minimale (als hieronder) of het maximum (indien hierboven). Bijvoorbeeld, instellen u het bereik tussen 3 en 6. Als u een actief exemplaar hebt, de engine voor automatisch schalen kan worden geschaald naar drie exemplaren op de volgende keer wordt uitgevoerd. Op dezelfde manier als u de schaal handmatig op acht instanties instelt, op de volgende uitvoering voor automatisch schalen wordt de schaal terug zes exemplaren van de volgende keer wordt uitgevoerd.  Handmatig schalen is tijdelijk, tenzij u de regels voor automatisch schalen ook opnieuw instellen.
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Gebruik altijd de combinatie van een scale-out en schaal in regel die een vergroten en verkleinen
-Als u alleen een deel van de combinatie gebruikt, wordt voor automatisch schalen alleen actie ondernemen in één richting (schaal uit of in) totdat het maximum is bereikt of minimale _A telt van gedefinieerd in het profiel. Dit is niet optimaal, in het ideale geval wilt u uw resource om omhoog te schalen op tijdstippen met een hoog gebruik om beschikbaarheid te garanderen. Op dezelfde manier soms van laag gebruik die u wilt dat uw resource om omlaag te schalen, zodat u kunt kosten besparen.
+Als u alleen een deel van de combinatie gebruikt, wordt voor automatisch schalen alleen actie ondernemen in één richting (schaal uit of in) totdat het maximum is bereikt of minimum aantal exemplaren wordt geteld van gedefinieerd in het profiel. Dit is niet optimaal, in het ideale geval wilt u uw resource om omhoog te schalen op tijdstippen met een hoog gebruik om beschikbaarheid te garanderen. Op dezelfde manier soms van laag gebruik die u wilt dat uw resource om omlaag te schalen, zodat u kunt kosten besparen.
 
 ### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>Kies de juiste statistieken voor uw diagnostische gegevens over metrische gegevens
 Voor metrische gegevens, kunt u kiezen tussen *gemiddelde*, *Minimum*, *maximale* en *totale* als een metrische waarde om te schalen door. De meest voorkomende statistiek is *gemiddelde*.

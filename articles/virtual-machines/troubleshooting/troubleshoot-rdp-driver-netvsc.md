@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
-ms.openlocfilehash: 777d5cb9449bcf9424e2514b2b8f90a9ca6c479c
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: c6918126c36e1940daf564ee7eae562e31b280c3
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285448"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449101"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>Kan niet extern verbinding maken met een Windows 10 of Windows Server 2016-VM in Azure vanwege netvsc.sys
 
@@ -26,7 +26,7 @@ In dit artikel wordt uitgelegd hoe u een probleem waarbij er geen netwerkverbind
 
 ## <a name="symptoms"></a>Symptomen
 
-U kan geen verbinding maken met een Azure Windows 10 of Windows Server 2016-VM met behulp van Rmote Desktop Protocol (RDP). In [diagnostische gegevens over opstarten](boot-diagnostics.md), het scherm ziet u een rode x via de netwerkinterfacekaart (NIC). Hiermee wordt aangegeven dat de virtuele machine geen verbinding heeft nadat het besturingssysteem volledig geladen is.
+U kan geen verbinding maken met een Azure Windows 10 of Windows Server 2016-VM met behulp van Remote Desktop Protocol (RDP). In [diagnostische gegevens over opstarten](boot-diagnostics.md), het scherm ziet u een rode x via de netwerkinterfacekaart (NIC). Hiermee wordt aangegeven dat de virtuele machine geen verbinding heeft nadat het besturingssysteem volledig geladen is.
 
 Dit probleem treedt meestal, op in Windows [bouwen 14393](http://support.microsoft.com/help/4093120/) en [15063 bouwen](http://support.microsoft.com/help/4015583/). Als de versie van het besturingssysteem hoger dan deze versies is, geldt dit artikel niet op uw scenario. Om te controleren of de versie van het systeem, opent u een CMD-sessie in [de toegang tot de seriële Console-functie](serial-console-windows.md), en voer **Ver**.
 

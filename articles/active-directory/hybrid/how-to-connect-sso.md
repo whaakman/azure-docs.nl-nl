@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94b027900a3be4a43d6524fa595a5b4dc2909fa7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 00d0332e44b76cc3b883fd0472567f74cfde21b2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186213"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444970"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory naadloze eenmalige aanmelding
 
@@ -54,7 +54,7 @@ Naadloze eenmalige aanmelding kan worden gecombineerd met ofwel de [wachtwoord-H
 - Aanmeldnaam mag ofwel de standaardgebruikersnaam van on-premises (`userPrincipalName`) of een ander kenmerk in Azure AD Connect hebt geconfigureerd (`Alternate ID`). Beide gevallen werken niet gebruiken omdat naadloze eenmalige aanmelding gebruikt de `securityIdentifier` claim in de Kerberos-ticket om te controleren of het overeenkomstige gebruikersobject in Azure AD.
 - Naadloze eenmalige aanmelding is een functie van opportunistisch. Als het om een bepaalde reden mislukt, gaat de gebruiker aanmelden ervaring terug naar het normale gedrag - Internet Explorer, de gebruiker moet het wachtwoord invoeren op de aanmeldingspagina.
 - Als een toepassing (bijvoorbeeld https://myapps.microsoft.com/contoso.com) stuurt een `domain_hint` (OpenID Connect) of `whr` (SAML)-parameter - identificatie van uw tenant, of `login_hint` parameter - identificatie van de gebruiker in de Azure AD-aanmelden-aanvraag, gebruikers zijn automatisch wordt aangemeld zonder dat ze binnenkomen gebruikersnamen of wachtwoorden.
-- Gebruikers krijgen ook een op de achtergrond aanmelding als een toepassing (bijvoorbeeld https://contoso.sharepoint.com) aanmeldingsaanvragen naar Azure AD-tenants eindpunten - dat wil zeggen, verzendt https://login.microsoftonline.com/contoso.com/<..> of https://login.microsoftonline.com/<tenant_ID>/<..> : in plaats van Azure AD gemeenschappelijk eindpunt - dat wil zeggen, https://login.microsoftonline.com/common/<...>.
+- Gebruikers krijgen ook een op de achtergrond aanmelding als een toepassing (bijvoorbeeld https://contoso.sharepoint.com) aanmeldingsaanvragen verzendt naar Azure AD-eindpunten instellen als tenants - dat wil zeggen, https://login.microsoftonline.com/contoso.com/<..> of https://login.microsoftonline.com/<tenant_ID>/<..> : in plaats van Azure AD gemeenschappelijk eindpunt - dat wil zeggen, https://login.microsoftonline.com/common/<...>.
 - Meld u af wordt ondersteund. Hiermee kunnen gebruikers zich aanmelden met, in plaats van dat automatisch wordt aangemeld bij het gebruik van naadloze eenmalige aanmelding automatisch een andere Azure AD-account kiezen.
 - Office 365 Win32-clients (Outlook, Word, Excel en andere) met versies 16.0.8730.xxxx en hoger worden ondersteund met behulp van een niet-interactieve stroom. Voor OneDrive, hebt u activeren, de [OneDrive op de achtergrond config functie](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) voor een ervaring voor op de achtergrond.
 - Dit kan worden ingeschakeld via Azure AD Connect.

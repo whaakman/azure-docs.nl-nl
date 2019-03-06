@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: acbd3c9ed55556ac792c3a98e6dbc1e4f7455fe1
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: d70ad65f5bbc4424b4224cf601d903ad7ec10691
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311301"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405110"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Indexeren van JSON-blobs met behulp van de indexeerfunctie Azure Search Blob
 Dit artikel leest u hoe het configureren van een Azure Search blob [indexeerfunctie](search-indexer-overview.md) gestructureerde inhoud ophalen van JSON-documenten in Azure Blob-opslag en kunt u in Azure Search kan worden doorzocht. Deze werkstroom wordt een Azure Search-index gemaakt en wordt geladen met de bestaande tekst die is geëxtraheerd uit JSON-blobs. 
@@ -288,7 +288,7 @@ De .NET SDK is volledig pariteit met de REST-API. Het is raadzaam om de vorige s
 
 <a name="parsing-modes"></a>
 
-### <a name="parsing-modes"></a>Parseermodi
+## <a name="parsing-modes"></a>Parseermodi
 
 JSON-blobs kunnen ervan uitgaan dat meerdere formulieren. De **parsingMode** parameter in de JSON-indexeerfunctie bepaalt hoe de inhoud van de JSON-blob wordt geparseerd en een Azure Search-index zijn gestructureerd:
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 67ea9ece7ba0c71484e9117db13fd2c708d87baf
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b198f860c10bd207a191057e21a8a159c5ebde26
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312865"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403512"
 ---
 # <a name="create-azure-resource-manager-template"></a>Azure Resource Manager-sjabloon maken
 
@@ -44,7 +44,7 @@ Laten we bekijken de onderdelen van de sjabloon om te begrijpen hoe de sjabloon 
 
 * De [functies](resource-group-authoring-templates.md#functions) sectie, waaruit blijkt aangepast sjabloon-expressies die worden gebruikt in uw sjabloon.
 
-* De [resources](resource-manager-templates-resources.md) sectie waarin de Azure-resources die zijn geïmplementeerd voor uw abonnement.
+* De [resources](resource-group-authoring-templates.md#resources) sectie waarin de Azure-resources die zijn geïmplementeerd voor uw abonnement.
 
 * De [levert](resource-group-authoring-templates.md#outputs) sectie waarin de waarden die worden geretourneerd na de implementatie is voltooid.
 
@@ -98,7 +98,7 @@ U kunt labels toevoegen aan uw resources om een logische manier te organiseren p
 }
 ```
 
-U kunt codes ook dynamisch toepassen van parameters. Zie voor meer informatie, [codes in de sjabloon](resource-manager-templates-resources.md#tags).
+U kunt codes ook dynamisch toepassen van parameters. Zie voor meer informatie, [codes in de sjabloon](resource-group-using-tags.md#templates).
 
 ## <a name="review-template-functions"></a>Sjabloonfuncties bekijken
 
@@ -176,7 +176,7 @@ Het volgende voorbeeld wordt voorwaardelijk geïmplementeerd voor een storage-ac
 }
 ```
 
-Zie voor meer informatie de [voorwaarde element](resource-manager-templates-resources.md#condition).
+Zie voor meer informatie de [voorwaarde element](resource-group-authoring-templates.md#condition).
 
 ## <a name="review-dependencies"></a>Afhankelijkheden controleren
 

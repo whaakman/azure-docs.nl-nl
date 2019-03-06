@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 135b684c67776da7d722074abe185b5ed2a860fa
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 5e614d7fc1b45e5a1e1c11d04ed80fbb66bfbd28
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889406"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441607"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Herkenning van entiteit met de naam gebruiken in Text Analytics (Preview)
 
@@ -23,7 +23,7 @@ De [entiteit Recognition-API](https://westus.dev.cognitive.microsoft.com/docs/se
 
 ## <a name="entity-linking-and-named-entity-recognition"></a>Entiteiten koppelen en herkenning van benoemde entiteiten
 
-De Text Analytics `entities` eindpunt supprts, beide met de naam van entiteit recognition (NER) en het koppelen van de entiteit.
+De Text Analytics `entities` eindpunt ondersteunt zowel met de naam van entiteit recognition (NER) en entiteiten koppelen.
 
 ### <a name="entity-linking"></a>Entiteiten koppelen
 Entiteiten koppelen, is de mogelijkheid om te bepalen en dubbelzinnigheid van de identiteit van een entiteit in de tekst (bijvoorbeeld, waarmee wordt bepaald of de "Mars ' wordt gebruikt als de planeet of als de Roman overmacht van war) gevonden. Dit proces vereist de aanwezigheid van een knowledge base die herkend entiteiten zijn gekoppeld: Wikipedia wordt gebruikt als de knowledge base voor de `entities` eindpunt Text Analytics.
@@ -74,7 +74,7 @@ U moet JSON-documenten in deze indeling hebben: id, tekst, taal
 
 Zie voor ondersteunde talen, [deze lijst](../text-analytics-supported-languages.md).
 
-De documentgrootte van het moet onder 5.120 tekens per document, en u kunt maximaal 1000 hebben items (id's) per verzameling. De verzameling is in de hoofdtekst van de aanvraag ingediend. Het volgende voorbeeld wordt een afbeelding van inhoud die u naar de gekoppelde entiteit-end verzenden kan.
+De documentgrootte moet minder dan maximaal 5120 tekens per document zijn, en u kunt maximaal 1000 items (id's) per verzameling hebben. De verzameling is in de hoofdtekst van de aanvraag ingediend. Het volgende voorbeeld wordt een afbeelding van inhoud die u naar de gekoppelde entiteit-end verzenden kan.
 
 ```
 {"documents": [{"id": "1",

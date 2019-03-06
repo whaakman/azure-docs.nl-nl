@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 53061d4d09ac2769e59269701467a22f292cd919
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 5902ba86b51ca1998364e393ac02bbb0d0a23a28
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959762"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432631"
 ---
 # <a name="aks-troubleshooting"></a>Het oplossen van AKS
 
@@ -89,4 +89,4 @@ Deze fout treedt op wanneer clusters een foutstatus voor meerdere redenen invoer
 Bewerkingen voor een cluster worden beperkt wanneer actieve upgrade bewerkingen plaatsvinden of een upgrade is uitgevoerd, maar later is mislukt. Voor het vaststellen van het probleem uitvoeren `az aks show -g myResourceGroup -n myAKSCluster -o table` om op te halen van gedetailleerde status van uw cluster. Op basis van het resultaat:
 
 * Als het cluster is actief bijwerkt, wacht u totdat de bewerking wordt beëindigd. Als deze is geslaagd, probeert u de eerder mislukte bewerking opnieuw uit.
-* Als het cluster is de upgrade mislukt, volgt u stappen die worden beschreven [boven](#im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade-directed-from-httpsakamsaks-pending-upgrade)
+* Als het cluster is de upgrade mislukt, volgt u stappen die hierboven worden beschreven

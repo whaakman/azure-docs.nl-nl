@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: efaa9101fbe46e0db2f582fe5a208dd8b16f095f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 2b480df0100690a7a5064044d435a34845516fa6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003581"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442100"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Met behulp van PowerShell voor het beheren van Traffic Manager
 
@@ -208,7 +208,7 @@ New-AzTrafficManagerEndpoint -Name child-endpoint -ProfileName parent -ResourceG
 
 ## <a name="adding-endpoints-from-another-subscription"></a>Eindpunten toevoegen vanuit een ander abonnement
 
-Traffic Manager kunt werken met eindpunten uit verschillende abonnementen. U moet overschakelen naar het abonnement met het eindpunt dat u wilt toevoegen als u wilt ophalen van de benodigde invoer op Traffic Manager. Vervolgens moet u overschakelen naar de abonnementen, met Traffic Manager-profiel en de encpoint aan toe te voegen. Het onderstaande voorbeeld laat zien hoe u dit doet met een openbaar IP-adres.
+Traffic Manager kunt werken met eindpunten uit verschillende abonnementen. U moet overschakelen naar het abonnement met het eindpunt dat u wilt toevoegen als u wilt ophalen van de benodigde invoer op Traffic Manager. Vervolgens moet u overschakelen naar de abonnementen, met Traffic Manager-profiel en het eindpunt aan toe te voegen. Het onderstaande voorbeeld laat zien hoe u dit doet met een openbaar IP-adres.
 
 ```powershell
 Set-AzContext -SubscriptionId $EndpointSubscription

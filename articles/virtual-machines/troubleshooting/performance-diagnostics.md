@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: 67778a269aa962b3184bf55c692154570e8357ba
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: c2089f9f6267f318dafe641a6a5b22e7e87427ca
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387381"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441063"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Diagnostische gegevens over prestaties voor virtuele Azure-machines
 
@@ -42,7 +42,7 @@ Prestaties van diagnostische gegevens wordt geïnstalleerd voor een VM-extensie 
     ![Schermopname van het Azure-portal met installatie performance diagnostics knop gemarkeerd](media/performance-diagnostics/performance-diagnostics-install.png)
 
     > [!NOTE]
-    > In deze schermafbeelding, is de blade van de namen van de virtuele machine verborgen.
+    > In deze schermafbeelding is is de blade van de namen van de virtuele machine verborgen.
 1. Selecteer een opslagaccount (optioneel)
 
     Als u een enkel opslagaccount gebruiken voor het opslaan van de prestatieresultaten van de diagnostische gegevens voor meerdere virtuele machines wilt, kunt u een opslagaccount selecteren door te klikken op de **instellingen** knop op de werkbalk. Klik op de **OK** knop nadat u de storage-account selecteren.
@@ -143,10 +143,10 @@ U kunt de gegevens over het opslagaccount weergeven met behulp van de knop inste
 ### <a name="how-do-i-share-this-data-with-microsoft-customer-support"></a>Hoe moet ik deze gegevens delen met de klantondersteuning van Microsoft? 
 Er zijn meerdere manieren om het rapport diagnostische gegevens delen met Microsoft.
 
-**Optie 1:** automatisch de meest recente rapport delen  
+**Optie 1:** Automatisch de meest recente rapport delen  
 Wanneer u een ondersteuningsticket met Microsoft opent, is het belangrijk dat u het prestatierapport diagnostische gegevens delen. Als u ervoor hebt gekozen voor het delen van deze gegevens met Microsoft tijdens het uitvoeren van de diagnostische gegevens (door het selecteren van de '**ik ga akkoord met de diagnostische gegevens delen met Microsoft**"selectievakje), Microsoft mogelijk toegang tot het rapport van uw opslag een account met behulp van een SAS-koppeling naar het zip-bestand voor uitvoer voor 30 dagen na het uitvoeren. Alleen het laatste rapport is beschikbaar voor de ondersteuningstechnicus. 
 
-**Optie 2:** een Shared Access Signature genereren voor de diagnostische gegevens gecomprimeerd bestand rapporteren  
+**Optie 2:** Een Shared Access Signature voor het diagnostische rapport gecomprimeerde bestand genereren  
 U kunt een koppeling naar het gecomprimeerde bestand rapporten delen met behulp van handtekeningen voor gedeelde toegang. Voer de volgende stappen uit om dit te doen: 
 1.  Blader naar het opslagaccount waarin de diagnostische gegevens worden opgeslagen in de Azure-portal.
 1.  Selecteer **Blobs** onder de **Blob-service** sectie. 
@@ -156,7 +156,7 @@ U kunt een koppeling naar het gecomprimeerde bestand rapporten delen met behulp 
 1.  Klik op **blob SAS-token en URL genereren**.
 1.  Kopieer de **Blob SAS-URL**, en deze delen met de ondersteuningstechnicus. 
 
-**Optie 3:** downloaden van het rapport van de storage-account
+**Optie 3:** Het rapport downloaden van het storage-account
 
 U kunt ook de prestaties van diagnostische gegevens rapport gecomprimeerd bestand vinden met behulp van de stappen 1 tot 4 in optie 2. Selecteer om te downloaden van het bestand en vervolgens via e-mail of vraag de ondersteuningstechnicus voor instructies om het bestand te uploaden.  
 

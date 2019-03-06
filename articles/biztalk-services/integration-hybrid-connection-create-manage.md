@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 1c05a50f82f5c235c76ff234efe183172e0863bf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0a9197c8c46cc480f5f096f1d2ef98c0d5823f35
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232977"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455782"
 ---
 # <a name="create-and-manage-hybrid-connections"></a>Hybride verbindingen maken en beheren
 
@@ -42,7 +42,7 @@ In dit onderwerp vindt u deze stappen.
 > Bijvoorbeeld (pseudocode), definieert u **10.4.5.6** als uw on-premises host:
 > 
 > **De volgende scenario werkt als volgt:**  
-> `Application code -> GetHostByName("10.4.5.6") -> Resolves to 127.0.0.3 -> Connect("127.0.0.3") -> Hybrid Connection -> on-prem host`
+> `Application code -> GetHostByName("10.4.5.6") -> Resolves to 127.0.0.3 -> Connect("127.0.0.3") -> Hybrid Connection -> on premises host`
 > 
 > **De volgende scenario werkt niet:**  
 > `Application code -> Connect("10.4.5.6") -> ?? -> No route to host`
@@ -55,8 +55,8 @@ Een hybride verbinding kan worden gemaakt in [Azure App Service Hybrid Connectio
 <!-- **To create Hybrid Connections using Web Apps**, see [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md). You can also install the Hybrid Connection Manager (HCM) from your web app, which is the preferred method.  -->
 
 #### <a name="additional"></a>Aanvullend
-* Meerdere hybride verbindingen kunnen worden gemaakt. Zie de [BizTalk Services: grafiek van edities](biztalk-editions-feature-chart.md) voor het aantal toegestane verbindingen. 
-* Elke hybride verbinding wordt gemaakt met een combinatie van tekenreeksen voor databaseverbindingen: toepassing sleutels die verzenden en On-premises sleutels die LUISTEREN. Elk paar heeft een primaire en secundaire sleutel. 
+* Meerdere hybride verbindingen kunnen worden gemaakt. Zie de [BizTalk Services: Grafiek van edities](biztalk-editions-feature-chart.md) voor het aantal toegestane verbindingen. 
+* Elke hybride verbinding is gemaakt met een combinatie van verbindingsreeksen: Sleutels van de toepassing die On-premises-sleutels die LUISTEREN en verzenden. Elk paar heeft een primaire en secundaire sleutel. 
 
 ## <a name="LinkWebSite"></a>Uw Azure App Service-Web-App of mobiele App koppelen
 Als u wilt een Web-App of mobiele App in Azure App Service koppelen aan een bestaande hybride verbinding, selecteer **gebruik een bestaande hybride verbinding** in de blade Hybrid Connections. 
@@ -119,9 +119,9 @@ Eenmaal zijn gekopieerd, kunt u Editor voor Groepsbeleid om het beleid te wijzig
 
 ## <a name="see-also"></a>Zie ook
 [REST API voor het beheren van BizTalk Services op Microsoft Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
-[BizTalk Services: grafiek van edities](biztalk-editions-feature-chart.md)  
+[BizTalk Services: Grafiek van edities](biztalk-editions-feature-chart.md)  
 [Een BizTalk Service maken](biztalk-provision-services.md)  
-[BizTalk Services: de tabbladen Dashboard, Bewaken en Schalen](biztalk-dashboard-monitor-scale-tabs.md)
+[BizTalk Services: Tabbladen dashboard, bewaken en schalen](biztalk-dashboard-monitor-scale-tabs.md)
 
 [HybridConnectionTab]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png

@@ -13,18 +13,20 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 2012ccf4d9fd3e62ba248f29f922f868077e4061
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: dea0153b9ca6d8e751fd94cc558abd44b2591907
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42061332"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453028"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>De Azure-SSIS Integration Runtime met Azure SQL Database geo-replicatie en failover configureren
 
 In dit artikel wordt beschreven hoe u de Azure-SSIS-Integratieruntime configureren met Azure SQL Database geo-replicatie voor de SSISDB-database. Wanneer er een failover optreedt, kunt u ervoor zorgen dat de Azure-SSIS-IR met de secundaire database werken blijft.
 
-Zie voor meer informatie over geo-replicatie en failover voor SQL-Database [overzicht: actieve geo-replicatie en automatische failover-groepen](../sql-database/sql-database-geo-replication-overview.md).
+Zie voor meer informatie over geo-replicatie en failover voor SQL-Database [overzicht: Actieve geo-replicatie en automatische failover-groepen](../sql-database/sql-database-geo-replication-overview.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scenario-1---azure-ssis-ir-is-pointing-to-read-write-listener-endpoint"></a>Scenario 1: Azure-SSIS IR verwijst voor listener-eindpunt voor lezen / schrijven
 
@@ -87,7 +89,7 @@ Volg deze stappen voor uw Azure-SSIS IR stopt, de IR overschakelen naar een nieu
 2. Roep de volgende opdracht uit in PowerShell om bij te werken van de IR met de nieuwe instellingen.
 
     ```powershell
-    Set-AzureRmDataFactoryV2IntegrationRuntime -Location "new region" `
+    Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
                     -CatalogServerEndpoint "Azure SQL Database server endpoint" `
                     -CatalogAdminCredential "Azure SQL Database server admin credentials" `
                     -VNetId "new VNet" `

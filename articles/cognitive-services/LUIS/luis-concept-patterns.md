@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: diberry
-ms.openlocfilehash: 1c408a77f0bdd097db1fb462fa06245133773b71
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: af73d78b911d59f68c5e824931b5634d8c69f309
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195384"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448999"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Patronen verbeteren nauwkeurigheid
 Patronen zijn ontworpen voor betere nauwkeurigheid wanneer verschillende uitingen vergelijkbaar zijn.  Een patroon kunt u meer nauwkeurigheid voor een doel zonder op te geven veel meer uitingen krijgen. 
@@ -62,7 +62,7 @@ Entiteiten in de patronen zijn omgeven door accolades, `{}`. Patronen kunnen bes
 
 Patroon-syntaxis ondersteunt de volgende syntaxis:
 
-|Function|Syntaxis|[Genest niveau](#nesting-syntax)|Voorbeeld|
+|Function|Syntaxis|Genest niveau|Voorbeeld|
 |--|--|--|--|
 |entiteit| {} -accolades|2|Waar bevindt zich formulier {entiteitnaam}?|
 |optioneel|[] - vierkante haken<BR><BR>Er is een limiet van 3 voor geneste niveaus van een combinatie van optioneel en groeperen |2|Het vraagteken is optioneel [?]|
@@ -167,7 +167,7 @@ Optionele tekst in de utterance met behulp van de syntaxis van reguliere express
 |Patroon met optionele tekst|Betekenis|
 |--|--|
 |`[find] email about {subject} [from {person}]`|`find` en `from {person}` zijn optioneel|
-|' U me kan helpen [?] | De markering interpunctie is optioneel|
+|' U me kan helpen [?]|De markering interpunctie is optioneel|
 
 Leestekens (`?`, `!`, `.`) moeten worden genegeerd en u moet deze met behulp van de syntaxis van de vierkant haakje in patronen genegeerd. 
 

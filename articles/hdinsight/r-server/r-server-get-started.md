@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 46791468e094ffb17a6dc9993b2cf8623a72b9b3
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: dce345c39918e7471531710051797c848a3c7cde
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53968805"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444069"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Aan de slag met ML Services in Azure HDInsight
 
@@ -23,7 +23,7 @@ Met Azure HDInsight kunt u een cluster met ML Services maken. Deze optie kan R-s
 ## <a name="prerequisites"></a>Vereisten
 
 * **Een Azure-abonnement**: Voordat u met deze zelfstudie begint, moet u een Azure-abonnement hebben. Zie [Get Microsoft Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) (Gratis proefversie van Microsoft Azure downloaden) voor meer informatie.
-* **Een Secure Shell (SSH)-client**: Een SSH-client wordt gebruikt om op afstand verbinding maken met het HDInsight-cluster en opdrachten rechtstreeks op het cluster uitvoeren. Zie [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
+* **Een SSH-client (Secure Shell)**: Een SSH-client wordt gebruikt om op afstand verbinding maken met het HDInsight-cluster en opdrachten rechtstreeks op het cluster uitvoeren. Zie [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
 
 <a name="create-hdi-custer-with-aure-portal"></a>
@@ -50,7 +50,7 @@ Met Azure HDInsight kunt u een cluster met ML Services maken. Deze optie kan R-s
 
     * **Besturingssysteem**: Linux
 
-    * **Versie**: ML Server 9.3 (HDI 3.6). Releaseopmerkingen voor ML Server 9.3 zijn beschikbaar op [docs.microsoft.com](https://docs.microsoft.com/machine-learning-server/whats-new-in-machine-learning-server).
+    * **Version**: ML Server 9.3 (HDI 3.6). Releaseopmerkingen voor ML Server 9.3 zijn beschikbaar op [docs.microsoft.com](https://docs.microsoft.com/machine-learning-server/whats-new-in-machine-learning-server).
 
     * **R Studio community-editie voor ML Server**: Deze IDE op basis van een browser wordt standaard geïnstalleerd op het edge-knooppunt. Schakel het selectievakje uit als u de IDE niet wilt installeren. Als u ervoor kiest deze wel te laten installeren, is de URL naar de aanmeldingspagina voor RStudio Server beschikbaar op een portaltoepassingsblade voor het cluster nadat het is gemaakt.
 
@@ -88,7 +88,7 @@ Vanuit de portal:
     ![De instellingen van het opslagaccount voor HDInsight configureren](./media/r-server-get-started/r-studio-server-dashboard.png)
 
    > [!IMPORTANT]  
-   > Ongeacht welke methode u kiest, de eerste keer dat u zich aanmeldt moet u zich twee keer verifiëren.  Bij de eerste verificatieprompt geeft u de *gebruikers-id* en het *wachtwoord* voor de beheerder op voor het cluster. Bij de tweede verificatieprompt geeft u de *gebruikers-id* en het *wachtwoord* voor SSH op. Bij alle volgende aanmeldingen zijn alleen SSH-referenties vereist.
+   > Ongeacht welke methode u kiest, de eerste keer dat u zich aanmeldt moet u zich twee keer verifiëren.  Bij de eerste verificatieprompt geeft u de *gebruikers-id* en het *wachtwoord* voor de beheerder op voor het cluster. Bij de tweede verificatieprompt geeft u de *gebruikers-id* en het *wachtwoord* voor SSH op. Volgende log-modules is alleen vereist voor de SSH-referenties.
 
 Zodra u verbonden bent, moet het scherm vergelijkbaar zijn met de volgende schermafbeelding:
 

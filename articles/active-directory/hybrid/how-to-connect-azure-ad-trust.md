@@ -18,12 +18,12 @@ ms.author: billmath
 author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a45d776ea241e04aacf39e45f7bf6d2cc58c689
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8bd46bb820c7127c4fa6105fcc0be73bb66024c6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172162"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446636"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>AD FS-vertrouwensrelatie met Azure AD met behulp van Azure AD Connect beheren
 
@@ -105,7 +105,7 @@ Azure AD Connect zorgt ervoor dat de Azure AD-vertrouwensrelatie altijd is gecon
 
 Azure AD Connect versie 1.1.873.0 of hoger maakt vertrouwt een back-up van de Azure AD instellingen wanneer er een update is aangebracht in de instellingen van Azure AD-vertrouwensrelatie. De instellingen van Azure AD-vertrouwensrelatie back-ups op **%ProgramData%\AADConnect\ADFS**. Naam van het bestand is in de volgende indeling AadTrust -&lt;datum&gt;-&lt;tijd&gt;.txt, bijvoorbeeld - AadTrust-20180710-150216.txt
 
-![Een sanpshot van voorbeeld van de back-ups van Azure AD-vertrouwensrelatie](./media/how-to-connect-azure-ad-trust/backup.png)
+![Een schermopname van voorbeeld van de back-ups van Azure AD-vertrouwensrelatie](./media/how-to-connect-azure-ad-trust/backup.png)
 
 U kunt de transformatieregels voor uitgifte met behulp van de voorgestelde stappen hieronder herstellen
 

@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37d34d6df23b22466f3016841685ec2797a5c9ea
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 45983a4aecd61babf4e4262d708ac323f9773546
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177948"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443950"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Releasegeschiedenis van versie
 Azure AD Connect Health het team van Azure Active Directory regelmatig bijgewerkt met nieuwe functies en functionaliteit. In dit artikel bevat de versies en functies die zijn uitgebracht.
@@ -39,7 +39,7 @@ Azure AD Connect Health for Sync is geïntegreerd met Azure AD Connect-installat
 *   Azure AD Connect Health-agent voor AD FS (versie 3.1.24.0)
 1. Transport Layer Security (TLS)-protocol versie 1.2 naleving en gedwongen uitvoering
 2. Ondersteuning van Test-ADFSRequestToken voor gelokaliseerd besturingssysteem
-3. Disgnostic agent EventHandler vergrendelingsprobleem opgelost
+3. Diagnostische agent EventHandler vergrendelingsprobleem opgelost
 4. Health-agent registratie oplossingen voor problemen
 
 ## <a name="august-2018"></a>Augustus 2018 

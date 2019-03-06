@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d980bf28fb9248cc88c4b0802817e85992ef9ee
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 4091b20e97ca76629260a7420beecb77412b0d39
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869697"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453011"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Zelfstudie: Azure Active Directory-integratie met Shmoop voor scholen
 
@@ -47,7 +47,7 @@ Voor het configureren van Azure AD-integratie met Shmoop voor scholen, moet u de
 
 Als u wilt testen van de stappen in deze zelfstudie, raden we het volgende aan:
 
-- Met behulp van de productie-evironment alleen als het nodig is.
+- Met behulp van uw productieomgeving alleen als het nodig is.
 - Ophalen van een [gratis proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/) als u nog een proefversie Azure AD-omgeving hebt.
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -114,7 +114,7 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure-portal inschake
     b. In de **id** vak, typ een URL met het volgende patroon: `https://schools.shmoop.com/<uniqueid>`
 
     > [!NOTE] 
-    > Dit zijn geen echte waarden. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met de [Shmoop voor scholen Client ondersteuningsteam](mailto:support@shmoop.com) om deze waarden te verkrijgen. 
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met de [Shmoop voor scholen Client ondersteuningsteam](mailto:support@shmoop.com) om deze waarden te verkrijgen. 
  
 4. De toepassing Shmoop voor scholen wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken** op de integratiepagina van de toepassing-beheren. De volgende schermafbeelding ziet u hoe de asserties configureren:
 

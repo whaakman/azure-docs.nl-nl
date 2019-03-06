@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 1e714faa04717ac8e6687db3c074b8a77d649fb2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 65104503af2e177f1898d8509c2d82bd9b58c266
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217204"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446959"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Service Fabric-toepassingslevenscyclus
 Wanneer een toepassing in Azure Service Fabric met andere platforms, meestal niet via de volgende fasen: ontwerp, ontwikkeling, testen, implementeren, upgraden, onderhoud en verwijderen. Service Fabric biedt uitstekende ondersteuning voor de volledige levenscyclus van cloudtoepassingen, van ontwikkeling tot implementatie, dagelijkse beheer en onderhoud en uiteindelijk buiten gebruik stellen. Het service-model kunt meerdere verschillende rollen om deel te nemen onafhankelijk van elkaar in de levensduur van toepassingen. Dit artikel bevat een overzicht van de API's en hoe ze worden gebruikt door de verschillende rollen in de fasen van de levensduur van de Service Fabric-toepassingen.
@@ -29,7 +29,7 @@ Wanneer een toepassing in Azure Service Fabric met andere platforms, meestal nie
 ## <a name="service-model-roles"></a>Service model-rollen
 De service model-rollen zijn:
 
-* **Service-ontwikkelaar**: Modulaire en algemene services die kunnen worden opnieuw ondertussen en gebruikt in meerdere aanvragen van hetzelfde type of verschillende typen ontwikkelt. Bijvoorbeeld, kan een queue-service worden gebruikt voor het maken van een ticketsysteem toepassing (helpdesk) of een e-commerce-toepassing (winkelwagen).
+* **Service-ontwikkelaar**: Modulaire en algemene services die kunnen worden nieuwe bestemming krijgen en gebruikt in meerdere aanvragen van hetzelfde type of verschillende typen ontwikkelt. Bijvoorbeeld, kan een queue-service worden gebruikt voor het maken van een ticketsysteem toepassing (helpdesk) of een e-commerce-toepassing (winkelwagen).
 * **Toepassingsontwikkelaar**: Hiermee maakt u toepassingen door de integratie van een verzameling van services om te voldoen aan bepaalde specifieke vereisten of scenario's. Bijvoorbeeld in een e-commerce-website kan worden geïntegreerd met 'JSON staatloze Front-End Service', 'Aanbieding Stateful Service' en 'Wachtrij Stateful Service' om een auctioning oplossing te bouwen.
 * **Toepassingsbeheerder**: Beslissingen over de configuratie van de toepassing (invullen in de sjabloonparameters configuratie), implementatie (toewijzing met de beschikbare bronnen) en quality of service. Bijvoorbeeld, besluit een beheerder van de toepassing de taalinstelling van de toepassing (in het Engels voor de Verenigde Staten) of voor Japan, bijvoorbeeld de Japanse versie. Een andere geïmplementeerde toepassing kan verschillende instellingen hebben.
 * **Operator**: Toepassingen op basis van de configuratie van de toepassing en die zijn opgegeven door de beheerder van de toepassing implementeert. Bijvoorbeeld, een operator bepalingen en implementeert de toepassing en zorgt ervoor dat deze wordt uitgevoerd in Azure. Operators informatie over de status en prestaties van toepassingen bewaken en onderhouden van de fysieke infrastructuur, indien nodig.

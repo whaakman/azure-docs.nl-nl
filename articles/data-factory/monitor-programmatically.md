@@ -12,19 +12,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: e004dc6b7d78849705f8d3fa3545efe7318d3911
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 938392cea3e6fe001e662a60e17b936415e7e4f2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022798"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439278"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Een Azure data factory programmatisch bewaken
 In dit artikel wordt beschreven hoe u een pijplijn in een data factory bewaken met behulp van verschillende software development kits (SDK's). 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="data-range"></a>Het bereik
 
-Data Factory worden alleen gegevens voor pijplijnuitvoering voor 45 dagen opgeslagen. Wanneer u een query via een programma voor gegevens over pijplijnuitvoeringen Data Factory - bijvoorbeeld: met de PowerShell-opdracht `Get-AzureRmDataFactoryV2PipelineRun` -er zijn geen maximale datums voor de optionele `LastUpdatedAfter` en `LastUpdatedBefore` parameters. Maar als u een query uitvoeren voor gegevens van het afgelopen jaar, bijvoorbeeld de query geen fout retourneert, maar alleen retourneert pijplijn uitvoeren gegevens van de afgelopen 45 dagen.
+Data Factory worden alleen gegevens voor pijplijnuitvoering voor 45 dagen opgeslagen. Wanneer u een query via een programma voor gegevens over pijplijnuitvoeringen Data Factory - bijvoorbeeld: met de PowerShell-opdracht `Get-AzDataFactoryV2PipelineRun` -er zijn geen maximale datums voor de optionele `LastUpdatedAfter` en `LastUpdatedBefore` parameters. Maar als u een query uitvoeren voor gegevens van het afgelopen jaar, bijvoorbeeld de query geen fout retourneert, maar alleen retourneert pijplijn uitvoeren gegevens van de afgelopen 45 dagen.
 
 Als u wilt om vast te leggen van de pijplijnuitvoering gegevens langer dan 45 dagen, instellen van uw eigen Diagnostische logboekregistratie met [Azure Monitor](monitor-using-azure-monitor.md).
 
@@ -119,7 +121,7 @@ Zie voor een volledige procedure voor het maken en controleren van een pijplijn 
 
     ```powershell
     while ($True) {
-        $run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
+        $run = Get-AzDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
 
         if ($run) {
             if ($run.Status -ne 'InProgress') {
@@ -137,7 +139,7 @@ Zie voor een volledige procedure voor het maken en controleren van een pijplijn 
 
     ```powershell
     Write-Host "Activity run details:" -foregroundcolor "Yellow"
-    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+    $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
     $result
     
     Write-Host "Activity 'Output' section:" -foregroundcolor "Yellow"
@@ -147,7 +149,7 @@ Zie voor een volledige procedure voor het maken en controleren van een pijplijn 
     $result.Error -join "`r`n"
     ```
 
-Zie voor volledige documentatie over PowerShell-cmdlets [naslaginformatie over Data Factory PowerShell-cmdlets](/powershell/module/azurerm.datafactoryv2/?view=azurermps-4.4.1).
+Zie voor volledige documentatie over PowerShell-cmdlets [naslaginformatie over Data Factory PowerShell-cmdlets](/powershell/module/az.datafactory).
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie [pijplijnen bewaken met Azure Monitor](monitor-using-azure-monitor.md) artikel voor meer informatie over het gebruik van Azure Monitor om Data Factory-pijplijnen te bewaken. 

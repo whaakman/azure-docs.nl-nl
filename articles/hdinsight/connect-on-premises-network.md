@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/28/2018
 ms.author: hrasheed
-ms.openlocfilehash: 59d32657b3f65ee3e087ea8da3b95fff8a79a6fd
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 3041fba89ef29cb40cbdfdf9cd3d261ffeae816f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975420"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450002"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>HDInsight verbinden met uw on-premises netwerk
 
@@ -59,7 +59,7 @@ Deze stappen wordt gebruikgemaakt van de [Azure-portal](https://portal.azure.com
   
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
   
-1. Selecteer in het menu links **+ een resource maken**.
+1. Selecteer **+ Een resource maken** in het menu aan de linkerkant.
  
 1. Selecteer **Compute**.
 
@@ -69,7 +69,7 @@ Deze stappen wordt gebruikgemaakt van de [Azure-portal](https://portal.azure.com
 
 1. Uit de __basisbeginselen__ tabblad, voer de volgende informatie:  
   
-    | Veld | Waarde |
+    | Veld | Value |
     | --- | --- |
     |Abonnement |Selecteer het juiste abonnement.|
     |Resourcegroep |Selecteer de resourcegroep waarin het virtuele netwerk eerder hebt gemaakt.|
@@ -88,7 +88,7 @@ Deze stappen wordt gebruikgemaakt van de [Azure-portal](https://portal.azure.com
 
 1. Uit de **netwerken** tabblad, voer de volgende informatie: 
 
-    | Veld | Waarde |
+    | Veld | Value |
     | --- | --- |
     |Virtueel netwerk | Selecteer het virtuele netwerk dat u eerder hebt gemaakt.|
     |Subnet | Selecteer de standaard-subnet voor het virtuele netwerk dat u eerder hebt gemaakt. Voer __niet__ selecteert u het subnet dat wordt gebruikt door de VPN-gateway.|
@@ -135,7 +135,7 @@ Zodra de virtuele machine is gemaakt, ontvangt u een **implementatie is voltooid
     sudo apt-get install bind9 -y
     ```
 
-3. Voor het configureren van de binding voor het doorsturen van aanvragen voor naamomzetting met uw on-premises DNS-server, gebruikt u de volgende tekst als de inhoud van de `/etc/bind/named.conf.options` bestand:
+3. Binding voor het doorsturen van aanvragen naar uw op lokale DNS-server naamomzetting configureren, gebruikt u de volgende tekst als de inhoud van de `/etc/bind/named.conf.options` bestand:
 
         acl goodclients {
             10.0.0.0/16; # Replace with the IP address range of the virtual network

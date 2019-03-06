@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: v-jansko
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 111adad627ffd830d69efc61bc7a06a99fee30f3
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 7498ba08b9ce7b6aae10f38a393eb8cba37f3f4e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673321"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435759"
 ---
 # <a name="translator-speech-api-languages"></a>Translator Speech-API: Languages
 
@@ -65,7 +65,7 @@ De waarde die is opgegeven met elke eigenschap is als volgt.
 De waarde die is gekoppeld met de spraak-naar-tekst-eigenschap, `speech`, is een dictionary van (sleutel, waarde) paren. Elke sleutel identificeert een taal die wordt ondersteund voor spraak-naar-tekst. De sleutel is de id die client wordt doorgegeven aan de API. De waarde die is gekoppeld aan de sleutel is een object met de volgende eigenschappen:
 
 * `name`: Weergavenaam van de taal.
-* `language`: De taalcode van de bijbehorende taal geschreven. Zie 'Tekst line transactie' hieronder.
+* `language`: De taalcode van de bijbehorende taal geschreven. Zie 'Tekst transactie' hieronder.
 Er is een voorbeeld:
 
 ```

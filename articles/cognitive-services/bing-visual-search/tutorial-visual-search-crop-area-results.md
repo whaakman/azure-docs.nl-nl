@@ -9,12 +9,12 @@ ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: rosh
-ms.openlocfilehash: 6444a49a95ee53fb624501bc464f6378423e6e26
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2f7de10eeb65b36823d6c4cc84b0032913638889
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863020"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444596"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Zelfstudie: Een afbeelding met de Bing Visual Search SDK voor bijsnijdenC#
 
@@ -28,7 +28,7 @@ In deze zelfstudie laat zien hoe u:
 > * Een aanvraag met behulp van de Bing Visual Search SDK verzenden
 > * Een gedeelte van de afbeelding om te zoeken met Bing visuele zoekopdrachten bijsnijden
 > * Ontvangen en verwerken van het antwoord
-> * De URL's van de actie-items niet vinden in de resposne
+> * De URL's van de actie-items niet vinden in het antwoord
 
 ## <a name="prerequisites"></a>Vereisten
 

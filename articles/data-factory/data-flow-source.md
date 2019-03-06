@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 80f0aa3158ce4f3eeafaeb5c7834dc820e8ba75b
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: e33606e0b5be0db5306cfd42f87baf59671eb2a8
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886585"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451726"
 ---
 # <a name="mapping-data-flow-source-transformation"></a>Gegevenstransformatie stroom bron toewijzen
 
@@ -74,7 +74,7 @@ U kunt eventueel kiezen voor het partitioneren van de verbindingen op basis van 
 ## <a name="source-file-management"></a>Beheer van bron
 ![Nieuwe instellingen voor gegevensbron](media/data-flow/source2.png "nieuwe instellingen")
 
-* Jokerteken pad naar het kiezen van een reeks van bestanden uit de bronmap die overeenkomen met een patroon. Dit overschrijft elk bestand dat u hebt ingesteld in de definitie van uw gegevensset.
+* Jokerteken pad naar het kiezen van een reeks van bestanden uit de bronmap die overeenkomen met een patroon. Dit overschrijft elk bestand dat u hebt ingesteld in de gegevenssetdefinitie van de.
 * Lijst met bestanden. Hetzelfde als een bestandsset. Verwijzen naar een tekstbestand dat u met een lijst van bestanden maakt voor het verwerken van relatief pad.
 * Kolom voor het opslaan van bestandsnaam slaat de naam van het bestand van de bron in een kolom in uw gegevens. Voer hier een nieuwe naam voor het opslaan van de tekenreeks met de bestandsnaam.
 * Na voltooiing (u kunt niets met het bronbestand doen nadat de gegevensstroom wordt uitgevoerd, de bron-bestanden verwijderen of verplaatsen van de bronbestanden. De paden voor verplaatsing zijn relatieve paden.

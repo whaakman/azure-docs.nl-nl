@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2018
 ms.author: kumud
-ms.openlocfilehash: dc22f1392d14529c2944dde67315a278fca4fa73
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 913693e684ba8640a93f50d21dd3df6a6295e1c5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195333"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450444"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer-tests voor status
 
@@ -212,7 +212,7 @@ Schakel geen [TCP tijdstempels](https://tools.ietf.org/html/rfc1323).  Inschakel
 
 ## <a name="monitoring"></a>Bewaking
 
-Openbare en interne [Standard Load Balancer](load-balancer-standard-overview.md) weergeven per eindpunt en de back-end-exemplaar de integriteitsstatus test van als multi-dimensionale metrische gegevens via Azure Monitor. Deze metrische gegevens kunnen worden gebruikt door andere Azure-services of toepassingen van derden arty. 
+Openbare en interne [Standard Load Balancer](load-balancer-standard-overview.md) weergeven per eindpunt en de back-end-exemplaar de integriteitsstatus test van als multi-dimensionale metrische gegevens via Azure Monitor. Deze metrische gegevens kunnen worden gebruikt door andere Azure-services of partnertoepassingen. 
 
 Basic openbare Load Balancer wordt aangegeven dat de integriteitsstatus test van samengevat per back-endpool via Azure Monitor-Logboeken.  Logboeken in Azure Monitor zijn niet beschikbaar voor interne Basic Load Balancers.  U kunt [logboeken van Azure Monitor](load-balancer-monitor-log.md) om te controleren op de status van openbare load balancer-test en count-test. Logboekregistratie kan worden gebruikt met Power BI of Azure Operational Insights voor statistische gegevens over de integriteitsstatus van de load balancer.
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 02/07/2019
 ms.author: snehaa
-ms.openlocfilehash: c0fc4fa0bdd58b8ecdf4f26051d60324118c4b21
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 74dabc49dd3d0e38f43dc758204c35ea1c0efd99
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55896671"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438479"
 ---
 # <a name="scale-migration-of-vms-using-azure-site-recovery"></a>Migratie van de schaal van virtuele machines met Azure Site Recovery
 
@@ -59,7 +59,7 @@ Zodra de CSV gereed is, kunt u de volgende stappen uit om uit te voeren van de m
 4 | asr_propertiescheck.ps1 | Controleer of als de eigenschappen op de juiste wijze zijn bijgewerkt
 5 | asr_testmigration.ps1 |  Start de testfailover van de virtuele machines die worden vermeld in de csv, het script maakt u een CSV-uitvoer met de taakdetails voor elke virtuele machine
 6 | asr_cleanuptestmigration.ps1 | Wanneer u handmatig controleren of de virtuele machines die zijn failover testen, kunt u dit script gebruiken voor het opschonen van de testfailover-VM 's
-7 | asr_migration.ps1 | Een niet-geplande failover uitvoeren voor de virtuele machines die worden vermeld in de csv, het script maakt u een CSV-uitvoer met de taakdetails voor elke virtuele machine. Het script wordt niet afgesloten de on-premises VM's voordat u de failover, voor consistentie van toepassingen, activeert het wordt aanbevolen dat u handmatig de VM's af voordat het script wordt uitgevoerd.
+7 | asr_migration.ps1 | Een niet-geplande failover uitvoeren voor de virtuele machines die worden vermeld in de csv, het script maakt u een CSV-uitvoer met de taakdetails voor elke virtuele machine. Het script wordt niet afgesloten de on-premises VM's voordat u activeert de failover, voor consistentie van toepassingen, is het raadzaam dat u handmatig de VM's af voordat het script wordt uitgevoerd.
 8 | asr_completemigration.ps1 | Voer de doorvoerbewerking is op de virtuele machines en de ASR-entiteiten verwijderen
 9 | asr_postmigration.ps1 | Als u van plan bent om toe te wijzen netwerkbeveiligingsgroepen op de NIC's nadat failover is uitgevoerd, kunt u dit script gebruiken om dat te doen. Een NSG wilt toewijzen aan een één-NIC's in de doel-VM.
 

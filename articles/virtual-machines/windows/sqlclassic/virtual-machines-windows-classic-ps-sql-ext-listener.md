@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 449df8e49eb63cb6e52cd4ec25dafc2bb0851347
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 89623adbddce07cbc3c3ead811f5174d108c9b0e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241756"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444783"
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Een externe listener configureren voor Always On Availability Groups in Azure
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ U moet een load balancing-eindpunt maken voor elke virtuele machine die als host
 3. Controleer de **naam** en **openbare poort** van de listener-eindpunt u wilt gebruiken niet wordt al gebruikt. In het onderstaande voorbeeld is de naam 'MyEndpoint' en de poort "1433".
 4. Op uw lokale client, download en installeer [de meest recente PowerShell-module](https://azure.microsoft.com/downloads/).
 5. Start **Azure PowerShell**. Een nieuwe PowerShell-sessie wordt geopend met de Azure-administratieve modules geladen.
-6. Voer **Get-AzurePublishSettingsFile**. Deze cmdlet wordt u naar een browser voor het downloaden van een publish settings-bestand naar een lokale map. U mogelijk gevraagd de referenties van uw aanmelding voor uw Azure-abonnement.
+6. Run **Get-AzurePublishSettingsFile**. Deze cmdlet wordt u naar een browser voor het downloaden van een publish settings-bestand naar een lokale map. U mogelijk gevraagd de referenties van uw aanmelding voor uw Azure-abonnement.
 7. Voer de **importeren AzurePublishSettingsFile** opdracht met het pad van het publish settings-bestand dat u hebt gedownload:
    
         Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
@@ -123,7 +123,7 @@ Maak de beschikbaarheidsgroep-listener in twee stappen. Eerst de clusterresource
 [!INCLUDE [Test-Listener-Within-VNET](../../../../includes/virtual-machines-ag-listener-test.md)]
 
 ## <a name="test-the-availability-group-listener-over-the-internet"></a>Testen van de beschikbaarheidsgroep-listener (via het internet)
-Voor toegang tot de listener van buiten het virtuele netwerk, moet u extern/openbare taakverdeling (beschreven in dit onderwerp) in plaats van de ILB, dit is alleen toegankelijk binnen hetzelfde VNet. In de connection string geeft u de naam van de cloudservice. Bijvoorbeeld, als u een cloudservice met de naam van de had *mycloudservice*, de sqlcmd-instructie zijn als volgt:
+Voor toegang tot de listener van buiten het virtuele netwerk, moet u extern/openbare taakverdeling (beschreven in dit onderwerp) in plaats van de ILB, die is alleen toegankelijk binnen hetzelfde VNet. In de connection string geeft u de naam van de cloudservice. Bijvoorbeeld, als u een cloudservice met de naam van de had *mycloudservice*, de sqlcmd-instructie zijn als volgt:
 
     sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
 
