@@ -1,6 +1,6 @@
 ---
-title: Instellen en gebruiken van metrische gegevens en diagnostische logboeken met een Azure IoT-hub | Microsoft Docs
-description: Instellen en gebruiken van metrische gegevens en diagnostische logboeken met een Azure IoT-hub
+title: Metrische gegevens en diagnostische logboeken instellen en gebruiken met een Azure IoT-hub | Microsoft Docs
+description: Metrische gegevens en diagnostische logboeken instellen en gebruiken met een Azure IoT-hub
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -16,9 +16,9 @@ ms.contentlocale: nl-NL
 ms.lasthandoff: 01/12/2019
 ms.locfileid: "54248485"
 ---
-# <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Zelfstudie: Instellen en gebruiken van metrische gegevens en diagnostische logboeken met een IoT-hub
+# <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Zelfstudie: Metrische gegevens en diagnostische logboeken instellen en gebruiken met een IoT-hub
 
-Als u een IoT Hub-oplossing in productie hebt, wilt u metrische gegevens instellen en diagnostische logboeken inschakelen. Als er dan een probleem optreedt, hebt u gegevens die u kunt bekijken om het probleem te diagnosticeren en sneller op te lossen. In dit artikel ziet u hoe u de diagnostische logboeken met diagnostische gegevens kunt inschakelen en op fouten controleren. U gaat ook wat metrische gegevens instellen om in de gaten te houden, en waarschuwingen die worden geactiveerd wanneer de metrische gegevens een bepaalde grens raken. U kunt bijvoorbeeld een e-mail naar u laten verzenden wanneer het aantal verzonden telemetrieberichten een bepaalde grens overschrijdt, of wanneer het aantal gebruikte berichten de hoeveelheid toegestane berichten per dag voor de IoT Hub nadert. 
+Als u een IoT Hub-oplossing in een productieomgeving gebruikt, wilt u metrische gegevens instellen en diagnostische logboeken inschakelen. Als er dan een probleem optreedt, hebt u gegevens die u kunt bekijken om het probleem te diagnosticeren en sneller op te lossen. In dit artikel ziet u hoe u de diagnostische logboeken met diagnostische gegevens kunt inschakelen en op fouten controleren. U gaat ook wat metrische gegevens instellen om in de gaten te houden, en waarschuwingen die worden geactiveerd wanneer de metrische gegevens een bepaalde grens raken. U kunt bijvoorbeeld een e-mail naar u laten verzenden wanneer het aantal verzonden telemetrieberichten een bepaalde grens overschrijdt, of wanneer het aantal gebruikte berichten de hoeveelheid toegestane berichten per dag voor de IoT-hub nadert. 
 
 Een voorbeeld van een use-case is een tankstation waar de pompen IoT-apparaten zijn die communiceren met een IoT-hub. Creditcards worden gevalideerd en de uiteindelijke transactie wordt naar een gegevensopslag geschreven. Als de IoT-apparaten stoppen met verbinding maken met de hub en het verzenden van berichten, is het veel moeilijker om dit op te lossen als u geen zicht hebt op wat er aan de hand is.
 
@@ -27,7 +27,7 @@ In deze zelfstudie wordt gebruikgemaakt van het Azure-voorbeeld van de [IoT Hub-
 In deze zelfstudie voert u de volgende taken uit:
 
 > [!div class="checklist"]
-> * Azure-CLI gebruiken om een IoT-hub, een gesimuleerd apparaat en een opslagaccount te maken.  
+> * Azure CLI gebruiken om een IoT-hub, een gesimuleerd apparaat en een opslagaccount te maken.  
 > * Diagnostische logboeken inschakelen.
 > * Metrische gegevens inschakelen.
 > * Waarschuwingen voor de metrische gegevens instellen. 
@@ -145,7 +145,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
    ![Schermafbeelding van het instellen van de diagnostische gegevens om te worden gearchiveerd naar een opslagaccount.](./media/tutorial-use-metrics-and-diags/03-diagnostic-settings-storage.png)
 
-    Klik op **Configureren** om naar het scherm **Een opslagaccount selecteren** te gaan, selecteer het juiste account (*contosostoragemon*), en klik op **OK** om terug te gaan naar het deelvenster Diagnostische instellingen. 
+    Klik op **Configureren** om naar het scherm **Een opslagaccount selecteren** te gaan, selecteer het juiste account (*contosostoragemon*) en klik op **OK** om terug te gaan naar het deelvenster Diagnostische instellingen. 
 
    ![Schermafbeelding van het instellen van de diagnostische-gegevenslogboeken om te worden gearchiveerd naar een opslagaccount.](./media/tutorial-use-metrics-and-diags/04-diagnostic-settings-after-storage.png)
 
@@ -188,11 +188,11 @@ IoT Hub is nog niet gemigreerd naar de [metrische gegevens in Azure Monitor](/az
 
 1. Klik onder **Bewaking** op **Waarschuwingen**. Hierdoor wordt het hoofdscherm met waarschuwingen weergegeven. 
 
-   ![Schermopname die laat zien hoe klassieke meldingen te vinden zijn.](./media/tutorial-use-metrics-and-diags/08-find-classic-alerts.png)
+   ![Schermafbeelding die laat zien hoe klassieke waarschuwingen te vinden zijn.](./media/tutorial-use-metrics-and-diags/08-find-classic-alerts.png)
 
 2. Klik van hieruit op **Klassieke waarschuwingen weergeven** om naar de klassieke waarschuwingen te gaan. 
 
-    ![Schermopname van klassieke waarschuwingenscherm.](./media/tutorial-use-metrics-and-diags/09-view-classic-alerts.png)
+    ![Schermafbeelding van scherm voor klassieke waarschuwingen.](./media/tutorial-use-metrics-and-diags/09-view-classic-alerts.png)
 
     Vul de velden in: 
 
@@ -210,17 +210,17 @@ IoT Hub is nog niet gemigreerd naar de [metrische gegevens in Azure Monitor](/az
 
     Vul de velden in:
 
-    **Naam**: Geef een naam voor de waarschuwingsregel, zoals *telemetrieberichten*.
+    **Naam**: Geef een naam op voor de waarschuwingsregel, zoals *telemetrieberichten*.
 
-    **Beschrijving**: Geef een beschrijving van de waarschuwing, zoals *waarschuwen wanneer er 1000 telemetrieberichten zijn verzonden*. 
+    **Beschrijving**: Geef een beschrijving op voor de waarschuwing, zoals *waarschuwen wanneer er 1000 telemetrieberichten zijn verzonden*. 
 
     **Bron**: Stel dit in op *Metrische gegevens*.
 
-    **Abonnement**, **Resourcegroep**, en **Resource** moet worden ingesteld op de waarden die u hebt geselecteerd in het scherm **Klassieke waarschuwingen weergeven**. 
+    **Abonnement**, **Resourcegroep** en **Resource** moeten worden ingesteld op de waarden die u hebt geselecteerd in het scherm **Klassieke waarschuwingen weergeven**. 
 
     Stel **Metrische gegevens** in op *Verzonden telemetrieberichten*.
 
-    ![Schermopname van het instellen van een klassieke waarschuwing voor verzonden telemetrieberichten.](./media/tutorial-use-metrics-and-diags/10-alerts-add-rule-telemetry-top.png)
+    ![Schermafbeelding van het instellen van een klassieke waarschuwing voor verzonden telemetrieberichten.](./media/tutorial-use-metrics-and-diags/10-alerts-add-rule-telemetry-top.png)
 
 4. Stel na de grafiek de volgende velden in:
 
@@ -230,23 +230,23 @@ IoT Hub is nog niet gemigreerd naar de [metrische gegevens in Azure Monitor](/az
 
    **Periode**: Stel in op *In de afgelopen 5 minuten*.
 
-   **Ontvangers van e-mailmeldingen**: Plaats hier uw e-mailadres. 
+   **Ontvangers van e-mailmeldingen**: Voeg hier uw e-mailadres toe. 
 
-   ![Schermopname van de onderste helft van het waarschuwingenscherm.](./media/tutorial-use-metrics-and-diags/11-alerts-add-rule-bottom.png)
+   ![Schermafbeelding van de onderste helft van het waarschuwingenscherm.](./media/tutorial-use-metrics-and-diags/11-alerts-add-rule-bottom.png)
 
    Klik op **OK** om de waarschuwing op te slaan. 
 
-5. Stel nu een andere waarschuwing in voor het *Totale aantal gebruikte berichten*. Deze waarde is handig als u een waarschuwing wilt verzenden wanneer het aantal gebruikte berichten het quotum voor de IoT-hub nadert, om u te laten weten dat de hub binnenkort berichten zal gaan weigeren.
+5. Stel nu een andere waarschuwing in voor het *totale aantal gebruikte berichten*. Deze waarde is handig als u een waarschuwing wilt verzenden wanneer het aantal gebruikte berichten het quotum voor de IoT-hub nadert, om u te laten weten dat de hub binnenkort berichten zal gaan weigeren.
 
-   Klik in het scherm **Klassieke waarschuwingen weergeven** op **Waarschuwing voor metrische gegevens toevoegen (klassiek)**, en vul vervolgens in het deelvenster **Regel toevoegen** deze velden in.
+   Klik in het scherm **Klassieke waarschuwingen weergeven** op **Waarschuwing voor metrische gegevens toevoegen (klassiek)** en vul vervolgens in het deelvenster **Regel toevoegen** deze velden in.
 
-   **Naam**: Geef een naam voor de waarschuwingsregel, zoals *aantal gebruikte berichten*.
+   **Naam**: Geef een naam op voor de waarschuwingsregel, zoals *aantal gebruikte berichten*.
 
-   **Beschrijving**: Geef een beschrijving van de waarschuwing, zoals *waarschuwen wanneer het quotum bijna op is*.
+   **Beschrijving**: Geef een beschrijving op voor de waarschuwing, zoals *waarschuwen wanneer het quotum bijna op is*.
 
    **Bron**: Stel dit veld in op *Metrische gegevens*.
 
-    **Abonnement**, **Resourcegroep**, en **Resource** moet worden ingesteld op de waarden die u hebt geselecteerd in het scherm **Klassieke waarschuwingen weergeven**. 
+    **Abonnement**, **Resourcegroep** en **Resource** moeten worden ingesteld op de waarden die u hebt geselecteerd in het scherm **Klassieke waarschuwingen weergeven**. 
 
     Stel **Metrische waarde** in op *Totaal aantal gebruikte berichten*.
 
@@ -258,13 +258,13 @@ IoT Hub is nog niet gemigreerd naar de [metrische gegevens in Azure Monitor](/az
 
    **Periode**: Stel dit veld in op *In de afgelopen 5 minuten*. 
 
-   **Ontvangers van e-mailmeldingen**: Plaats hier uw e-mailadres. 
+   **Ontvangers van e-mailmeldingen**: Voeg hier uw e-mailadres toe. 
 
    Klik op **OK** om de regel op te slaan. 
 
-5. U ziet nu twee waarschuwingen in het deelvenster met klassieke waarschuwingen: 
+5. U ziet nu twee waarschuwingen in het deelvenster voor klassieke waarschuwingen: 
 
-   ![Schermopname van het klassieke waarschuwingenscherm met de nieuwe waarschuwingsregels.](./media/tutorial-use-metrics-and-diags/12-alerts-done.png)
+   ![Schermafbeelding van het scherm voor klassieke waarschuwingen met de nieuwe waarschuwingsregels.](./media/tutorial-use-metrics-and-diags/12-alerts-done.png)
 
 6. Sluit het waarschuwingenvenster. 
     
@@ -274,7 +274,7 @@ IoT Hub is nog niet gemigreerd naar de [metrische gegevens in Azure Monitor](/az
 
 Eerder in het scriptinstellingsgedeelte stelt u een apparaat in voor de simulatie via een IoT-apparaat. In deze sectie downloadt u een .NET-consoletoepassing die een apparaat simuleert dat apparaat-naar-cloud-berichten naar een IoT Hub verzendt.  
 
-Download de oplossing voor de [IoT-apparaatsimulatie](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Met deze koppeling downloadt u een opslagplaats die meerdere toepassingen bevat. De oplossing die u zoekt bevindt zich in iot-hub/Tutorials/Routing/SimulatedDevice/.
+Download de oplossing voor de [IoT-apparaatsimulatie](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Met deze koppeling downloadt u een opslagplaats die meerdere toepassingen bevat. De oplossing die u zoekt, bevindt zich in iot-hub/Tutorials/Routing/SimulatedDevice/.
 
 Dubbelklik op het oplossingsbestand (SimulatedDevice.sln om de code in Visual Studio) te openen en open vervolgens Program.cs. Vervang `{iot hub hostname}` door de hostnaam van de IoT Hub. De indeling van de hostnaam van de IoT Hub is **{iot-hub-name} .azure-devices.net**. Voor deze zelfstudie is de naam van de hubhost **ContosoTestHub.azure devices.net**. Vervang vervolgens `{device key}` door de apparaatsleutel die u eerder hebt opgeslagen bij het instellen van het gesimuleerde apparaat. 
 
@@ -288,7 +288,7 @@ Dubbelklik op het oplossingsbestand (SimulatedDevice.sln om de code in Visual St
 
 ## <a name="run-and-test"></a>Uitvoeren en testen 
 
-Wijzig in Program.cs de `Task.Delay` van 1000 in 10, waardoor de tijd tussen het verzenden van berichten verandert van 1 seconde in 0,01 seconden. Door deze vertraging te verkorten wordt het aantal verzonden berichten vergroot.
+Wijzig in Program.cs de `Task.Delay` van 1000 in 10, waardoor de tijd tussen het verzenden van berichten verandert van 1 seconde in 0,01 seconden. Door deze vertraging te verkorten, wordt het aantal verzonden berichten vergroot.
 
 ```csharp
 await Task.Delay(10);
@@ -308,17 +308,17 @@ Ga terug naar waarschuwingen. Klik op **Resourcegroepen** en selecteer *ContosoR
 
 Wanneer het aantal verzonden berichten de limiet overschrijdt, begint u e-mailwaarschuwingen te krijgen. Als u wilt zien of er actieve waarschuwingen zijn, gaat u naar uw hub en selecteert u **Waarschuwingen**. Hier ziet u de meldingen die actief zijn, en of er waarschuwingen zijn. 
 
-   ![Schermopname die laat zien dat de waarschuwingen zijn geactiveerd.](./media/tutorial-use-metrics-and-diags/14-alerts-firing.png)
+   ![Schermafbeelding die laat zien dat de waarschuwingen zijn geactiveerd.](./media/tutorial-use-metrics-and-diags/14-alerts-firing.png)
 
 Klik op de waarschuwing voor telemetrieberichten. Het resultaat van de metrische gegevens en een grafiek met de resultaten worden weergegeven. Het e-mailbericht dat wordt verzonden om u te waarschuwen ziet eruit als in deze afbeelding:
 
-   ![Schermopname van het e-mailbericht dat laat zien dat de waarschuwingen zijn geactiveerd.](./media/tutorial-use-metrics-and-diags/15-alert-email.png)
+   ![Schermafbeelding van het e-mailbericht dat laat zien dat de waarschuwingen zijn geactiveerd.](./media/tutorial-use-metrics-and-diags/15-alert-email.png)
 
 ### <a name="see-the-diagnostic-logs"></a>De diagnostische logboeken bekijken
 
-U hebt uw diagnostische logboeken zo ingesteld dat ze naar blob-opslag worden geëxporteerd. Ga naar de resourcegroep en selecteer uw opslagaccount *contosostoragemon*. Selecteer Blobs en open de container *insights-logs-connections*. Zoom in tot u bij de huidige datum bent, en selecteer het meest recente bestand. 
+U hebt uw diagnostische logboeken zo ingesteld dat ze naar blob-opslag worden geëxporteerd. Ga naar de resourcegroep en selecteer uw opslagaccount *contosostoragemon*. Selecteer Blobs en open de container *insights-logs-connections*. Zoom in tot u bij de huidige datum bent en selecteer het meest recente bestand. 
 
-   ![Schermopname van het inzoomen op de opslagcontainer voor de diagnostische logboeken.](./media/tutorial-use-metrics-and-diags/16-diagnostics-logs-list.png)
+   ![Schermafbeelding van het inzoomen op de opslagcontainer voor de diagnostische logboeken.](./media/tutorial-use-metrics-and-diags/16-diagnostics-logs-list.png)
 
 Klik op **Downloaden** om het downloaden en te openen. U ziet de logboekitems van het apparaat dat verbinding maakt en verbreekt bij het verzenden van berichten naar de hub. Hier ziet u een voorbeeld:
 
@@ -374,7 +374,7 @@ az group delete --name $resourceGroup
 In deze zelfstudie hebt u geleerd metrische gegevens en logboeken met diagnostische gegevens te gebruiken door de volgende taken uitvoeren:
 
 > [!div class="checklist"]
-> * Azure-CLI gebruiken om een IoT-hub, een gesimuleerd apparaat en een opslagaccount te maken.  
+> * Azure CLI gebruiken om een IoT-hub, een gesimuleerd apparaat en een opslagaccount te maken.  
 > * Diagnostische logboeken inschakelen. 
 > * Metrische gegevens inschakelen.
 > * Waarschuwingen voor de metrische gegevens instellen. 
