@@ -20,8 +20,10 @@ items:
       href: azure-to-azure-tutorial-enable-replication.md
     - name: Noodherstelanalyse uitvoeren
       href: azure-to-azure-tutorial-dr-drill.md
-    - name: Failover en failback uitvoeren
+    - name: Failover uitvoeren en bescherming opnieuw toepassen
       href: azure-to-azure-tutorial-failover-failback.md
+    - name: Failback uitvoeren
+      href: azure-to-azure-tutorial-failback.md
   - name: Herstel na noodgevallen van virtuele VMware-machines naar Azure
     items:
     - name: Azure voorbereiden
@@ -82,6 +84,8 @@ items:
       href: azure-vm-disaster-recovery-with-accelerated-networking.md
     - name: ExpressRoute met herstel na noodgevallen voor Azure VM's
       href: azure-vm-disaster-recovery-with-expressroute.md
+    - name: Interoperabiliteit van herstel na noodgevallen van virtuele Azure-machines en Azure-back-up
+      href: site-recovery-backup-interoperability.md
   - name: Over herstel na noodgevallen van virtuele VMware-machines naar Azure
     items:
     - name: Overzicht van herstel na noodgevallen voor VMware
@@ -464,9 +468,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service-updates
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: 04547a737cc05b3f1049d76e536366e608ee665a
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 749a7483167e3ddf3e1c15af17ee7aa9aa93fde0
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866433"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730999"

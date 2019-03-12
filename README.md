@@ -1,6 +1,14 @@
+---
+ms.openlocfilehash: 2690a01535365ba097e0c058858f24e8c9d80aac
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588734"
+---
 # <a name="microsoft-azure-documentation"></a>Documentatie voor Microsoft Azure
 
-> Tussen 5 en 9 maart 2019 wordt de opslagplaats MicrosoftDocs/azure-docs gemigreerd van zijn huidige Markdown-engine naar de markdown-engine [Markdig](https://github.com/lunet-io/markdig). Gedurende deze tijd schakelen we de mogelijkheid uit om samenvoegingen van openbare pull-aanvragen te onderbreken, zodat we de migratie kunnen voltooien.
+> Tussen 5 en 9 maart 2019 wordt de opslagplaats MicrosoftDocs/azure-docs gemigreerd van zijn huidige Markdown-engine naar de markdown-engine [Markdig](https://github.com/lunet-io/markdig). Gedurende deze tijd schakelen we de mogelijkheid voor samenvoegingen van openbare pull-aanvragen uit, zodat we de migratie kunnen voltooien.
 
 Welkom bij de open source-[documentatie](https://docs.microsoft.com/azure) van [Microsoft Azure](https://azure.microsoft.com). Raadpleeg dit LEESMIJ-bestand om erachter te komen hoe u kunt bijdragen aan de documentatie van Microsoft Azure.
 

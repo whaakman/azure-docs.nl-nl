@@ -63,33 +63,41 @@ items:
       href: how-to-search-for-address.md
     - name: Aangepaste gegevens weergeven op een statische kaart
       href: how-to-render-custom-data.md
-  - name: JavaScript-kaarten maken
+  - name: Ontwikkelen met de Web SDK
     items:
-    - name: Map Control gebruiken
-      href: how-to-use-map-control.md
-    - name: Een kaart maken
-      href: map-create.md
-    - name: Een kaartstijl kiezen
-      href: choose-map-style.md
-    - name: Kaartbesturingselementen toevoegen
-      href: map-add-controls.md
-    - name: Een symboollaag toevoegen
-      href: map-add-pin.md
-    - name: Een pop-up toevoegen
-      href: map-add-popup.md
-    - name: Een bubbellaag toevoegen
-      href: map-add-bubble-layer.md
-    - name: Een vorm toevoegen
-      href: map-add-shape.md
-    - name: Een heatmap-laag toevoegen
-      href: map-add-heat-map-layer.md
-    - name: Een afbeeldingslaag toevoegen
-      href: map-add-image-layer.md
-    - name: Een titellaag toevoegen
-      href: map-add-tile-layer.md
-    - name: HTML-markeringen toevoegen
-      href: map-add-custom-html.md
-    - name: Services
+    - name: Kaartbesturingselement
+      items:
+      - name: Map Control gebruiken
+        href: how-to-use-map-control.md
+      - name: Een kaart maken
+        href: map-create.md
+      - name: Een kaartstijl kiezen
+        href: choose-map-style.md
+      - name: Besturingselementen toevoegen aan de kaart
+        href: map-add-controls.md
+      - name: Een symboollaag toevoegen
+        href: map-add-pin.md
+      - name: Een pop-up toevoegen
+        href: map-add-popup.md
+      - name: Een bubbellaag toevoegen
+        href: map-add-bubble-layer.md
+      - name: Vormen toevoegen
+        href: map-add-shape.md
+      - name: Een heatmap-laag toevoegen
+        href: map-add-heat-map-layer.md
+      - name: Een overlay aan een afbeelding toevoegen
+        href: map-add-image-layer.md
+      - name: Tegellagen toevoegen
+        href: map-add-tile-layer.md
+      - name: HTML-markeringen
+        href: map-add-custom-html.md
+      - name: Verkeer weergeven
+        href: map-show-traffic.md
+      - name: Interactie met muisgebeurtenissen
+        href: map-events.md
+      - name: Uw app toegankelijk maken
+        href: map-accessibility.md
+    - name: Services-module
       items:
       - name: Zoekresultaten tonen
         href: map-search-location.md
@@ -97,13 +105,7 @@ items:
         href: map-get-information-from-coordinate.md
       - name: Routebeschrijving van A naar B
         href: map-route.md
-    - name: Verkeer weergeven
-      href: map-show-traffic.md
-    - name: Interactie met muisgebeurtenissen
-      href: map-events.md
-    - name: Toegankelijke kaarttoepassingen
-      href: map-accessibility.md
-  - name: Android-kaarten maken
+  - name: Ontwikkelen met de Android SDK
     items:
     - name: Een Android-kaartbesturingselement gebruiken
       href: how-to-use-android-map-control-library.md
@@ -150,7 +152,7 @@ items:
 - name: Resources
   items:
   - name: Azure Maps-gebruiksvoorwaarden
-    href: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31.
+    href: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31.
   - name: Prijzen
     href: https://azure.microsoft.com/pricing/details/azure-maps
   - name: Prijscalculator
@@ -197,9 +199,9 @@ items:
       href: /azure/iot-edge
     - name: IoT Device-SDK's
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
-ms.openlocfilehash: b0584c77ed7d8b3ed6c6962d02b75e061a97bf14
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 2d974c96dd953c7a2727bcd5b1bcc3b60ad807a0
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336730"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569226"

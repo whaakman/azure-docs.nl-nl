@@ -124,8 +124,6 @@ items:
     href: monitor.md
   - name: Back-ups maken en herstellen
     href: backup-recovery.md
-  - name: High Performance Computing
-    href: high-performance-computing.md
   - name: Overwegingen bij de implementatie
     items:
     - name: Richtlijnen voor infrastructuur
@@ -398,7 +396,7 @@ items:
       - name: MS SQL in Linux
         href: /sql/linux/sql-server-linux-azure-virtual-machine
     - name: HPC (High Performance Computing)
-      href: https://docs.microsoft.com/powershell/high-performance-computing/overview
+      href: https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/
     - name: IBM Db2 pureScale
       items:
       - name: Architectuur
@@ -407,49 +405,52 @@ items:
         href: deploy-ibm-db2-purescale-azure.md
   - name: Opslag beheren
     items:
-    - name: Veelgestelde vragen over schijven
-      href: faq-for-disks.md
     - name: Een schijf toevoegen
       items:
       - name: Azure-CLI
         href: add-disk.md
       - name: Azure Portal
         href: attach-disk-portal.md
-    - name: Een benchmark-test uitvoeren op een schijf
-      href: disks-benchmarks.md
     - name: Een schijf loskoppelen
       href: detach-disk.md
+    - name: Schijven implementeren met sjabloon
+      href: using-managed-disks-template-deployments.md
     - name: De grootte van een schijf wijzigen
       href: expand-disks.md
     - name: Een momentopname maken van een schijf
       href: snapshot-copy-managed-disk.md
     - name: Back-up maken van niet-beheerde schijven
       href: incremental-snapshots.md
-    - name: Converteren naar Managed Disks
-      href: convert-unmanaged-to-managed-disks.md
-    - name: Een schijf converteren van Standard naar Premium
-      href: convert-disk-storage.md
+    - name: Migratie en conversie
+      items:
+      - name: Migreren naar Premium Storage met Azure Site Recovery
+        href: migrate-to-premium-storage-using-azure-site-recovery.md
+      - name: Converteren naar Managed Disks
+        href: convert-unmanaged-to-managed-disks.md
+      - name: Een schijf converteren van Standard naar Premium
+        href: convert-disk-storage.md
     - name: Bestanden kopiëren naar een virtuele machine
       href: copy-files-to-linux-vm-using-scp.md
-    - name: Migreren naar Premium Storage met Azure Site Recovery
-      href: migrate-to-premium-storage-using-azure-site-recovery.md
-    - name: Niet-gekoppelde schijven zoeken
-      href: find-unattached-disks.md
-    - name: Bestandsopslag gebruiken
-      href: mount-azure-file-storage-on-linux-using-smb.md
-    - name: Schijven implementeren met sjabloon
-      href: using-managed-disks-template-deployments.md
-    - name: Write Accelerator gebruiken
-      href: how-to-enable-write-accelerator.md
-    - name: Ultra SSD inschakelen
-      href: disks-enable-ultra-ssd.md
-    - name: Prestaties optimaliseren
-      href: optimization.md
+    - name: Prestaties
       items:
+      - name: Write Accelerator gebruiken
+        href: how-to-enable-write-accelerator.md
+      - name: Ultra SSD inschakelen
+        href: disks-enable-ultra-ssd.md
+      - name: Een benchmark-test uitvoeren op een schijf
+        href: disks-benchmarks.md
+      - name: Prestaties optimaliseren
+        href: optimization.md
       - name: Software-RAID configureren
         href: configure-raid.md
       - name: LVM configureren
         href: configure-lvm.md
+    - name: Niet-gekoppelde schijven zoeken
+      href: find-unattached-disks.md
+    - name: Bestandsopslag gebruiken
+      href: mount-azure-file-storage-on-linux-using-smb.md
+    - name: Veelgestelde vragen over schijven
+      href: faq-for-disks.md
   - name: Netwerken beheren
     items:
     - name: Virtueel netwerk maken
@@ -559,9 +560,9 @@ items:
     href: faq.md
 - name: Problemen oplossen
   href: ../troubleshooting/index.md
-ms.openlocfilehash: 776adc5310db7c4a7762409a53c57e896cc95360
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ade43488288949aa22942c8df2d6900e4522615a
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438286"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57732025"

@@ -7,11 +7,11 @@ items:
     href: container-instances-overview.md
 - name: Snelstartgidsen
   items:
-  - name: Container maken - CLI
+  - name: Een containerinstantie implementeren - CLI
     href: container-instances-quickstart.md
-  - name: Container maken - Portal
+  - name: Een containerinstantie implementeren - Portal
     href: container-instances-quickstart-portal.md
-  - name: Container maken - PowerShell
+  - name: Een containerinstantie implementeren - PowerShell
     href: container-instances-quickstart-powershell.md
   expanded: true
 - name: Zelfstudies
@@ -30,12 +30,14 @@ items:
     href: container-instances-samples-rm.md
 - name: Concepten
   items:
-  - name: Quota en regionale limieten
-    href: container-instances-quotas.md
-  - name: Relatie met orchestrators
-    href: container-instances-orchestrator-relationship.md
   - name: Containergroepen
     href: container-instances-container-groups.md
+  - name: Quota en limieten
+    href: container-instances-quotas.md
+  - name: Beschikbaarheid in regio’s
+    href: container-instances-region-availability.md
+  - name: Relatie met orchestrators
+    href: container-instances-orchestrator-relationship.md
 - name: Handleidingen
   items:
   - name: Implementeren
@@ -44,48 +46,50 @@ items:
       href: container-instances-multi-container-yaml.md
     - name: Groep met meerdere containers - Resource Manager
       href: container-instances-multi-container-group.md
-    - name: Virtueel netwerk implementeren (preview)
+    - name: Implementeren in een virtueel netwerk (preview)
       href: container-instances-vnet.md
-    - name: Implementeren met GPU-resources (preview)
-      href: container-instances-gpu.md
     - name: Implementeren vanuit Azure Container Registry
       href: container-instances-using-azure-container-registry.md
+  - name: Containerscenario's
+    items:
+    - name: Beleid voor opnieuw opstarten instellen voor taken die eenmalig worden uitgevoerd
+      href: container-instances-restart-policy.md
     - name: Omgevingsvariabelen instellen (env)
       href: container-instances-environment-variables.md
-    - name: Activiteitstests configureren
-      href: container-instances-liveness-probe.md
-  - name: Beheren
-    items:
-    - name: Actieve containers bijwerken
-      href: container-instances-update.md
     - name: Een opdracht uitvoeren (exec)
       href: container-instances-exec.md
-    - name: CPU en geheugengebruik bewaken
-      href: container-instances-monitor.md
-    - name: Registreren met Azure Monitor-logboeken
-      href: container-instances-log-analytics.md
-  - name: Workloads uitvoeren
-    items:
-    - name: Taken uitvoeren met beleid voor opnieuw opstarten
-      href: container-instances-restart-policy.md
-    - name: Build-agents voor Jenkins in ACI
+    - name: Een Jenkins build-taak uitvoeren
       href: container-instances-jenkins.md
     - name: Een beheerde identiteit gebruiken (preview)
       href: container-instances-managed-identity.md
-  - name: Gegevensvolumes configureren
+    - name: GPU-resources gebruiken (preview)
+      href: container-instances-gpu.md
+  - name: Gegevensvolumes koppelen
     items:
-    - name: Azure Files
+    - name: Azure-bestandsshare
       href: container-instances-volume-azure-files.md
-    - name: emptyDir
-      href: container-instances-volume-emptydir.md
-    - name: gitRepo
-      href: container-instances-volume-gitrepo.md
-    - name: geheim
+    - name: Geheim
       href: container-instances-volume-secret.md
-  - name: Problemen oplossen
+    - name: Lege map
+      href: container-instances-volume-emptydir.md
+    - name: Gekloonde Git-opslagplaats
+      href: container-instances-volume-gitrepo.md
+  - name: Actieve containers beheren
     items:
+    - name: Activiteitstests configureren
+      href: container-instances-liveness-probe.md
+    - name: Actieve containers bijwerken
+      href: container-instances-update.md
+  - name: Bewaken en logboeken bijhouden
+    items:
+    - name: CPU en geheugengebruik bewaken
+      href: container-instances-monitor.md
     - name: Containerlogbestanden en gebeurtenissen ophalen
       href: container-instances-get-logs.md
+    - name: Logboekregistratie met Azure Log Analytics
+      href: container-instances-log-analytics.md
+  - name: Problemen oplossen
+    items:
     - name: Algemene problemen
       href: container-instances-troubleshooting.md
 - name: Naslaginformatie
@@ -119,12 +123,12 @@ items:
   - name: Productfeedback geven
     href: https://feedback.azure.com/forums/602224-azure-container-instances
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-container-instances
+    href: https://stackoverflow.com/questions/tagged/azure-container-instances
   - name: Video's
     href: https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest
-ms.openlocfilehash: 062c4f2b196ab587577ef4703f79af2f7259c776
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: fcee083f7d98aba1856cf204f5c2d559d1b5925b
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871703"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731196"
