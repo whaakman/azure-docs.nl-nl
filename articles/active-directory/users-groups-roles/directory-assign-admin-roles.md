@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31b65dc7a73d24066bee8088b3177a1300186eba
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 98330152d8d88d538424c52b1bc5f49462010302
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316656"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727243"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Rol beheerdersmachtigingen in Azure Active Directory
 
@@ -155,6 +155,10 @@ De volgende beheerdersrollen zijn beschikbaar:
 * **[Power BI Administrator](#power-bi-service-administrator)**: Gebruikers met deze rol hebben algemene machtigingen in Microsoft Online Power BI, wanneer de service aanwezig is, evenals de mogelijkheid om ondersteuningstickets te beheren en de servicestatus te controleren. Meer informatie op [inzicht in de Power BI-beheerdersrol](https://docs.microsoft.com/power-bi/service-admin-role).
   > [!NOTE]
   > In Microsoft Graph API, Azure AD Graph API en Azure AD PowerShell, wordt deze rol aangeduid als ' Power BI-servicebeheerder '. ' Power BI-beheerder ' is in de [Azure-portal](https://portal.azure.com).
+
+* **[Authentication-beheerder in beschermde modus](#privileged-authentication-administrator)**: Gebruikers met deze rol kunnen instellen of referenties voor alle gebruikers, met inbegrip van globale beheerders niet-wachtwoord opnieuw instellen. Bevoegde verificatie-beheerders kunnen afdwingen dat gebruikers kunnen opnieuw worden geregistreerd op basis van bestaande niet-wachtwoord referentie (bijvoorbeeld MFA, FIDO) en intrekken 'MFA herinneren op het apparaat', dat u wordt gevraagd voor MFA op de volgende aanmelding van alle gebruikers. Beheerders met bevoorrechte verificatie kunt doen:
+  * Afdwingen dat gebruikers opnieuw registreren op basis van bestaande niet-wachtwoord referentie (bijvoorbeeld MFA, FIDO)
+  * Intrekken 'MFA herinneren op het apparaat', dat u wordt gevraagd voor MFA op de volgende aanmelding
 
 * **[Rol van beheerder in beschermde modus](#privileged-role-administrator)**: Gebruikers met deze rol kunnen roltoewijzingen in Azure Active Directory, evenals in Azure AD Privileged Identity Management beheren. Bovendien kan deze rol beheer van alle aspecten van Privileged Identity Management.
 
@@ -299,7 +303,7 @@ Kan toepassingsregistraties onafhankelijk van de 'gebruikers kunnen toepassingen
 | microsoft.aad.directory/servicePrincipals/createAsOwner | Maak servicePrincipals in Azure Active Directory. Maker wordt toegevoegd als de eigenaar van de eerste en het gemaakte object in mindering gebracht op de maker van 250 gemaakte objecten quotum. |
 
 ### <a name="authentication-administrator"></a>Verificatiebeheerder
-Mag weergeven, instellen en opnieuw instellen van verificatie methode-informatie voor elke gebruiker die geen beheerder.
+Toegestaan wilt weergeven, instellen en opnieuw instellen van verificatie methode-informatie voor elke gebruiker die geen beheerder.
 
 | **Acties** | **Beschrijving** |
 | --- | --- |
@@ -322,7 +326,6 @@ Kan algemene taken met betrekking tot facturering uitvoeren, zoals betalingsgege
 | **Acties** | **Beschrijving** |
 | --- | --- |
 | microsoft.aad.directory/organization/basic/update | Werk de basiseigenschappen voor een organisatie bij in Azure Active Directory. |
-| microsoft.aad.directory/organization/trustedCAsForPasswordlessAuth/update | Werk de eigenschap organization.trustedCAsForPasswordlessAuth bij in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lees en configureer Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Azure-ondersteuning. |
 | microsoft.commerce.billing/allEntities/allTasks | Beheer alle aspecten van Office 365-facturering. |
@@ -451,14 +454,12 @@ Kan alle aspecten beheren van Azure AD en Microsoft-services die Azure AD-identi
 | microsoft.azure.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Azure-ondersteuning. |
 | microsoft.commerce.billing/allEntities/allTasks | Beheer alle aspecten van Office 365-facturering. |
 | microsoft.intune/allEntities/allTasks | Beheer alle aspecten van Intune. |
-| microsoft.office365.webPortal/allEntities/basic/read | De basiseigenschappen van alle resources lezen in microsoft.office365.webPortal. |
 | microsoft.office365.complianceManager/allEntities/allTasks | Beheer alle aspecten van Office 365 Compliancebeheer |
 | microsoft.office365.desktopAnalytics/allEntities/allTasks | Alle aspecten van Desktop Analytics beheren. |
 | microsoft.office365.exchange/allEntities/allTasks | Beheer alle aspecten van Exchange Online. |
 | microsoft.office365.lockbox/allEntities/allTasks | Beheer alle aspecten van Office 365 Klanten-lockbox |
 | microsoft.office365.messageCenter/messages/read | Berichten lezen in microsoft.office365.messageCenter. |
 | microsoft.office365.messageCenter/securityMessages/read | securityMessages lezen in microsoft.office365.messageCenter. |
-| microsoft.powerApps.powerBI/allEntities/allTasks | Beheer alle aspecten van Power BI. |
 | microsoft.office365.protectionCenter/allEntities/allTasks | Beheer alle aspecten van Office 365 Protection Center. |
 | microsoft.office365.securityComplianceCenter/allEntities/allTasks | Alle resources maken en verwijderen, de standaardeigenschappen in microsoft.office365.securityComplianceCenter lezen en bijwerken. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
@@ -466,7 +467,9 @@ Kan alle aspecten beheren van Azure AD en Microsoft-services die Azure AD-identi
 | microsoft.office365.skypeForBusiness/allEntities/allTasks | Beheer alle aspecten van Skype voor bedrijven Online. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
 | microsoft.office365.usageReports/allEntities/read | Lees Office 365-gebruiksrapporten. |
+| microsoft.office365.webPortal/allEntities/basic/read | De basiseigenschappen van alle resources lezen in microsoft.office365.webPortal. |
 | microsoft.powerApps.dynamics365/allEntities/allTasks | Beheer alle aspecten van Dynamics 365. |
+| microsoft.powerApps.powerBI/allEntities/allTasks | Beheer alle aspecten van Power BI. |
 | microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | Alle resources lezen in microsoft.windows.defenderAdvancedThreatProtection. |
 
 ### <a name="compliance-administrator"></a>Beheerder voor naleving
@@ -520,8 +523,8 @@ Kan alle aspecten van het Dynamics 365-product beheren.
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
 
-### <a name="customer-lockbox-access-approver"></a>Klanten-Lockbox toegang goedkeurder
-Kan Microsoft-ondersteuningsaanvragen voor toegang tot bedrijfsgegevens van klanten goedkeuren. Deze rol heeft geen toegang tot weergeven, maken of ondersteuningstickets beheren.
+### <a name="customer-lockbox-access-approver"></a>Toegangsfiatteur voor Klanten-lockbox
+Kan Microsoft-ondersteuningsaanvragen voor toegang tot bedrijfsgegevens van klanten goedkeuren.
 
   > [!NOTE]
   > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
@@ -785,7 +788,7 @@ Kan alle aspecten van het product Skype voor Bedrijven beheren.
 | microsoft.office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
 
 ### <a name="message-center-reader"></a>Berichtencentrum-lezer
-Kan berichten en updates voor hun organisatie alleen in het Office 365-berichtencentrum lezen. Deze rol heeft geen toegang tot weergeven, maken of ondersteuningstickets beheren.
+Kan berichten en updates voor hun organisatie alleen in het Office 365-berichtencentrum lezen. 
 
   > [!NOTE]
   > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
@@ -848,7 +851,6 @@ Gebruik geen - niet bedoeld voor algemeen gebruik.
 | microsoft.aad.directory/groups/members/update | Werk de eigenschap groups.members bij in Azure Active Directory. |
 | microsoft.aad.directory/groups/restore | Herstel groepen in Azure Active Directory. |
 | microsoft.aad.directory/organization/basic/update | Werk de basiseigenschappen voor een organisatie bij in Azure Active Directory. |
-| microsoft.aad.directory/organization/trustedCAsForPasswordlessAuth/update | Werk de eigenschap organization.trustedCAsForPasswordlessAuth bij in Azure Active Directory. |
 | microsoft.aad.directory/users/appRoleAssignments/update | Werk de eigenschap users.appRoleAssignments bij in Azure Active Directory. |
 | microsoft.aad.directory/users/assignLicense | Beheer licenties voor gebruikers in Azure Active Directory. |
 | microsoft.aad.directory/users/basic/update | Werk de basiseigenschappen voor gebruikers bij in Azure Active Directory. |
@@ -877,6 +879,19 @@ Kan alle aspecten van het Power BI-product beheren.
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lees en configureer Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Azure-ondersteuning. |
 | microsoft.powerApps.powerBI/allEntities/allTasks | Beheer alle aspecten van Power BI. |
+| microsoft.office365.webPortal/allEntities/basic/read | De basiseigenschappen van alle resources lezen in microsoft.office365.webPortal. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
+
+### <a name="privileged-authentication-administrator"></a>Bevoorrechte verificatiebeheerder
+Is gemachtigd voor het weergeven, instellen en opnieuw instellen van de gegevens voor de verificatiemethode van elke gebruiker (beheerder of niet-beheerder).
+
+| **Acties** | **Beschrijving** |
+| --- | --- |
+| microsoft.aad.directory/users/invalidateAllRefreshTokens | Maak alle vernieuwingstokens voor gebruikers ongeldig in Azure Active Directory. |
+| microsoft.aad.directory/users/strongAuthentication/update | De eigenschappen van sterke verificatie bijwerken, bijvoorbeeld MFA-referentiegegevens. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Lees en configureer Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Azure-ondersteuning. |
 | microsoft.office365.webPortal/allEntities/basic/read | De basiseigenschappen van alle resources lezen in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
@@ -1044,7 +1059,7 @@ Kan communicatieproblemen in Teams oplossen met basishulpprogramma's.
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 
 ### <a name="teams-service-administrator"></a>Teams-servicebeheerder
-Kan de service Microsoft Teams beheren. 
+Kan de service Microsoft Teams beheren.
 
   > [!NOTE]
   > Deze rol heeft machtigingen voor aanvullende buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.

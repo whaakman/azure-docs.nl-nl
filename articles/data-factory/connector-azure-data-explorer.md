@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 03/06/2019
 ms.author: orspod
-ms.openlocfilehash: 94cf153d7d88e0589edfb3c126c18e04e25e2ef2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4e2448b3043c194bda884963975d85536c329baf
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431917"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531637"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Data Explorer met behulp van Azure Data Factory
 
@@ -68,9 +68,9 @@ De volgende eigenschappen worden ondersteund voor Azure Data Explorer gekoppelde
 | type | De **type** eigenschap moet worden ingesteld op **AzureDataExplorer** | Ja |
 | endpoint | Eindpunt-URL van het cluster Azure Data Explorer, klikt u met de indeling als `https://<clusterName>.<regionName>.kusto.windows.net `. | Ja |
 | database | De naam van de database. | Ja |
-| tenant | De tenantgegevens (domain name of tenant-ID) opgeven in uw toepassing zich bevindt. Deze ophalen door de muiswijzer met de muis in de rechterbovenhoek van de Azure-portal. | Ja |
-| servicePrincipalId | Opgeven van de toepassing client-ID. | Ja |
-| servicePrincipalKey | Geef de sleutel van de toepassing. Dit veld als markeert een **SecureString** voor het veilig opslaan in de Data Factory of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| tenant | De tenantgegevens (domain name of tenant-ID) opgeven in uw toepassing zich bevindt. Dit is wat u normaal gesproken kent als '**certificeringsinstantie-ID**"in [Kusto-verbindingsreeks](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Deze ophalen door de muiswijzer met de muis in de rechterbovenhoek van de Azure-portal. | Ja |
+| servicePrincipalId | Opgeven van de toepassing client-ID. Dit is wat u normaal gesproken kent als '**client-ID voor AAD-toepassing**"in [Kusto-verbindingsreeks](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Ja |
+| servicePrincipalKey | Geef de sleutel van de toepassing. Dit is wat u normaal gesproken kent als '**AAD Toepassingssleutel**"in [Kusto-verbindingsreeks](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Dit veld als markeert een **SecureString** voor het veilig opslaan in de Data Factory of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 
 **Voorbeeld van de gekoppelde Service-eigenschappen:**
 
@@ -139,7 +139,7 @@ Instellen om gegevens te kopiëren van Azure Data Explorer, de **type** eigensch
 | queryTimeout | Er is een time-out opgetreden voor de wachttijd voordat de queryaanvraag. Standaardwaarde is 10 minuten (00: 10:00); toegestane maximale waarde is 1 uur (01: 00:00). | Nee |
 
 >[!NOTE]
->Azure Data Explorer bron standaard heeft een maximale grootte van 500.000 records of 64 MB. Als u wilt ophalen van alle records zonder afkapping, kunt u `set notruncation;` aan het begin van de query. Raadpleeg [Query limieten](https://docs.microsoft.com/en-us/azure/kusto/concepts/querylimits) op meer informatie.
+>Azure Data Explorer bron standaard heeft een maximale grootte van 500.000 records of 64 MB. Als u wilt ophalen van alle records zonder afkapping, kunt u `set notruncation;` aan het begin van de query. Raadpleeg [Query limieten](https://docs.microsoft.com/azure/kusto/concepts/querylimits) op meer informatie.
 
 **Voorbeeld:**
 

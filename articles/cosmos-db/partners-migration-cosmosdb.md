@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/07/2018
-ms.openlocfilehash: 255182fe5e6c5576077dc97831628e4a13dfc026
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 748f4562e1efd613b87dd5ab44a83d3d50171f67
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453517"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539918"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB NoSQL migratie en application development-partners
 
@@ -22,34 +22,34 @@ Van de migratie van de NoSQL ontwikkeling van toepassingen, kunt u kiezen uit ta
 |**Partner**  |**Mogelijkheden en ervaring**  |**Ondersteunde landen/regio's**  |**Neem contact op met**  |
 |---------|---------|---------|---------|
 |![ImanisData][1]   | [Gegevensmigratie](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) van MongoDB met Azure Cosmos DB. <br/> Imanis gegevens kunt wereldwijd opererende ondernemingen snel en eenvoudig migreren van hun on-premises of in de cloud met Azure Cosmos DB MongoDB-databases. Imanis gegevens biedt een benadering van de migratie zonder agent, incrementele permanent cloud voor MongoDB-gegevensarchieven die vereenvoudigt de migratie en hebt u aanzienlijk minder uitvaltijd.|  USA  |   [Website](http://www.imanisdata.com/)      |
-|![Realtimeplatform][2]    |  [Realtime gegevens verplaatsen met Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) uit een groot aantal gegevensbronnen. <br/> Realtimeplatform vereenvoudigt het realtime verzamelen en het verplaatsen van gegevens uit een groot aantal on-premises bronnen, met inbegrip van enterprise-document en relationele databases, sensoren en logboekbestanden in Azure Cosmos DB. |   USA   |  [Website](http://www.striim.com/)       |
+|![Realtimeplatform][2]    |  [Realtime gegevens verplaatsen met Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) uit een groot aantal gegevensbronnen. <br/> Realtimeplatform vereenvoudigt het realtime verzamelen en het verplaatsen van gegevens uit een groot aantal on-premises bronnen, met inbegrip van enterprise-document en relationele databases, sensoren en logboekbestanden in Azure Cosmos DB. |   USA   |  [Website](https://www.striim.com/)       |
 
 ## <a name="systems-integrator-partners"></a>Systeemintegratorpartners
 
 |**Partner**  |**Mogelijkheden en ervaring**  |**Ondersteunde landen/regio's**  |**Neem contact op met**  |
 |---------|---------|---------|---------|
 | ![10thMagnitude][13] | NoSQL-migratie; Nieuwe app-ontwikkeling | USA | [Website](https://www.10thmagnitude.com/)|
-|![Altoros ontwikkeling, LLC][3]    |  NoSQL-migratie <br/> Innovatie van apps (bestaande apps) <br/> Nieuwe app-ontwikkeling |   Verenigde Staten, Noorwegen, Finland, Belarus, Argentinië |  [Website](http://www.altoros.com/)     |
-|![Attunix Redapt][4]     |   NoSQL-migratie <br/> Innovatie van apps (bestaande apps) <br/> Nieuwe app-ontwikkeling      |    USA     |  [Website](http://www.attunix.com/)       |
+|![Altoros ontwikkeling, LLC][3]    |  NoSQL-migratie <br/> Innovatie van apps (bestaande apps) <br/> Nieuwe app-ontwikkeling |   Verenigde Staten, Noorwegen, Finland, Belarus, Argentinië |  [Website](https://www.altoros.com/)     |
+|![Attunix Redapt][4]     |   NoSQL-migratie <br/> Innovatie van apps (bestaande apps) <br/> Nieuwe app-ontwikkeling      |    USA     |  [Website](https://www.attunix.com/)       |
 | ![Avanade][26] | Nieuwe appontwikkeling <br/> Innovatie van apps (bestaande apps) | Oostenrijk, Duitsland, Zwitserland, Italië, Noorwegen, Spanje, Verenigd Koninkrijk | [Website](https://www.avanade.com/)
 |![Bluemetal Architects][5]     |  NoSQL-migratie <br/> Innovatie van apps (bestaande apps) <br/> Nieuwe app-ontwikkeling       |    Noord-Amerika, Azië en Stille Oceaan     |  [Website](http://www.bluemetal.com/)       |
-|![Globale LLC Capax][6]     |  NoSQL-migratie <br/> Innovatie van apps (bestaande apps) <br/> Nieuwe app-ontwikkeling       |    USA     |  [Website](http://www.capaxglobal.com/)       |
+|![Globale LLC Capax][6]     |  NoSQL-migratie <br/> Innovatie van apps (bestaande apps) <br/> Nieuwe app-ontwikkeling       |    USA     |  [Website](https://www.capaxglobal.com/)       |
 | ![Voor Capgemini][14] | NoSQL-migratie; Innovatie van apps (bestaande apps); Nieuwe app-ontwikkeling | Verenigde Staten, Frankrijk, Verenigd Koninkrijk, Nederland, Finland  | [Website](https://www.capgemini.com/) | 
 |![Coeo][7]     |   Innovatie van apps (bestaande apps) <br/> Nieuwe app-ontwikkeling |    VK     |  [Website](http://www.coeo.com/)       |
 | ![Cognizant][15] | NoSQL-migratie |Verenigde Staten, Canada, Verenigd Koninkrijk, Denemarken, Nederland, Zwitserland, Australië, Japan | [Website](https://www.cognizant.com/)|
-|![Infosys][8]     |  NoSQL-migratie       |    Wereldwijd     |  [Website](http://www.infosys.com/)       |
+|![Infosys][8]     |  NoSQL-migratie       |    Wereldwijd     |  [Website](https://www.infosys.com/)       |
 | ![Lagash][16] | NoSQL-migratie <br/> Nieuwe app-ontwikkeling | Argentinië, Chili, Colombia, Mexico| [Website](https://www.lagash.com/)|
 | ![Lambda3 informatica][17] | NoSQL-migratie <br/> Nieuwe app-ontwikkeling | Brazilië| [Website](https://www.lambda3.com.br/)|
-|![Neal Analytics][9]     |     App-ontwikkeling (nieuwe apps)    |    USA     |  [Website](http://www.nealanalytics.com/)       |
-|![Betrouwbare werkt Software Inc][10]    |   NoSQL-migratie      |   USA      |  [Website](http://www.pragmaticworks.com/)       |
+|![Neal Analytics][9]     |     App-ontwikkeling (nieuwe apps)    |    USA     |  [Website](https://www.nealanalytics.com/)       |
+|![Betrouwbare werkt Software Inc][10]    |   NoSQL-migratie      |   USA      |  [Website](https://www.pragmaticworks.com/)       |
 | ![Website van Ricoh globale][18] | NoSQL-migratie <br/> Innovatie van apps (bestaande apps)| VK  | [Website](https://www.ricoh.com/)|
 | ![SNP technologieën][19] | NoSQL-migratie| VS | [Website](https://www.snp.com/)|
 | ![Solidsoft antwoord][20] | NoSQL-migratie | Kroatië, Zweden, Denemarken, Ierland, Bulgarije, Slovenië, Cyprus, Malta, Litouwen, de Tsjechische Republiek, IJsland en Zwitserland en Liechtenstein| [Website](https://www.reply.com/solidsoft-reply/)|
 | ![Spaans wijst technologieën][21] | NoSQL-migratie| Ierland| [Website](https://www.spanishpoint.ie/)|
 | ![Syone][22] | NoSQL-migratie| Portugal| [Website](https://www.syone.com/)|
-|![Tallan][11]    |  NoSQL-migratie <br/> Innovatie van apps (bestaande apps) <br/> Nieuwe app-ontwikkeling       |    USA     |  [Website](http://www.tallan.com/)       |
+|![Tallan][11]    |  NoSQL-migratie <br/> Innovatie van apps (bestaande apps) <br/> Nieuwe app-ontwikkeling       |    USA     |  [Website](https://www.tallan.com/)       |
 | ![TELEVISIECAMERASYSTEMEN][23] | Innovatie van apps (bestaande apps) <br/> Nieuwe app-ontwikkeling | Verenigde Staten, Verenigd Koninkrijk, Frankrijk, Maleisië, Denemarken, Noorwegen, Zweden| [Website](https://www.tcs.com/)|
-|![VTeamLabs][12]    | NoSQL-migratie       |  USA      | [Website](http://www.vteamlabs.com/)       |
+|![VTeamLabs][12]    | NoSQL-migratie       |  USA      | [Website](https://www.vteamlabs.com/)       |
 | ![Witte Duck][24] |NoSQL-migratie <br/> Nieuwe app-ontwikkeling | Duitsland | [Website](https://whiteducksoftware.com/)|
 | ![Uitvouwen IT][25] | Nieuwe app-ontwikkeling | Portugal, Verenigd Koninkrijk| [Website](https://www.xpand-it.com/)|
 

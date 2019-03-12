@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 01/07/2019
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 20a48e67a24763af7bcce9e8831e2a1d1846d094
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: d3db8ea8639f73f3522ddaa358195e7c9ef2f9a9
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594301"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765999"
 ---
 # <a name="interactive-feature-verification-testing"></a>Functie voor interactieve verificatie testen  
 
@@ -35,13 +35,13 @@ Dit artikel wordt een eenvoudig scenario handmatige beschreven. De test controle
 
 ## <a name="overview-of-interactive-testing"></a>Overzicht van interactieve testen
 
-Een test voor de nieuwe schijf is een veelvoorkomend scenario. In dit voorbeeld heeft de test zeven stappen:
+Een test voor de nieuwe schijf is een veelvoorkomend scenario. In dit voorbeeld heeft de test vijf stappen:
 
-1. Maak een nieuwe **testronde** werkstroom
-1. Selecteer de **schijf-ID-Test**
-1. Voert u de handmatige stap wanneer u hierom wordt gevraagd
-1. Controleer het resultaat van het scenario
-1. Het testresultaat naar Microsoft verzenden
+1. Maak een nieuwe **testronde** werkstroom.
+2. Selecteer de **schijf-ID Test**.
+3. Voer de handmatige stap wanneer u hierom wordt gevraagd.
+4. Controleer het resultaat van het scenario.
+5. Het testresultaat naar Microsoft verzonden.
 
 ## <a name="create-a-new-test-pass"></a>Maak een nieuwe testronde
 

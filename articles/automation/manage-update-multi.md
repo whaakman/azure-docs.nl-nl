@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/10/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 864e93dcd94fd36b0e34495e0ea27f22d8b0dd0c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 65ea01047743c5894ac2ae8b38a197b57cb6971c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817674"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531316"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Updates voor meerdere machines beheren
 
@@ -70,7 +70,7 @@ Zodra de voorbereiding is voltooid, wordt updatebeheer is ingeschakeld voor uw v
 
 ## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Updatebeheer inschakelen voor niet-Azure virtuele machines en computers
 
-Zie voor informatie over het inschakelen van updatebeheer voor virtuele machines van Azure Windows- en -computers, [verbinding maken met Windows-computers naar de Log Analytics-service in Azure](../log-analytics/log-analytics-windows-agent.md).
+Zie voor informatie over het inschakelen van updatebeheer voor virtuele machines van Azure Windows- en -computers, [verbinding maken met Windows-computers naar de Azure Monitor-service in Azure](../log-analytics/log-analytics-windows-agent.md).
 
 Zie voor informatie over het inschakelen van updatebeheer voor virtuele Azure Linux-machines en computers, [uw Linux-computers verbinden met Azure Monitor logboeken](../log-analytics/log-analytics-agent-linux.md).
 
@@ -132,7 +132,7 @@ In de **nieuwe update-implementatie** in het deelvenster de volgende informatie 
 - **Naam**: Voer een unieke naam voor het identificeren van de update-implementatie.
 - **Besturingssysteem**: Selecteer **Windows** of **Linux**.
 - **Groepen om bij te werken (preview)**: definieer een query op basis van een combinatie van abonnement, resourcegroepen, locaties en tags om een dynamische groep virtuele Azure-machines te bouwen voor opname in uw implementatie. Zie [Dynamische groepen](automation-update-management.md#using-dynamic-groups) voor meer informatie
-- **Bij te werken computers**: Selecteer een opgeslagen zoekopdracht, geïmporteerd groep, of selecteer Machines om te kiezen op de computers die u wilt bijwerken. Als u **Computers** selecteert, wordt de gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**. U ziet de status van de machine voordat u de update-implementatie plannen. Zie voor meer informatie over de verschillende methoden voor het maken van computergroepen in Azure Monitor-Logboeken, [computergroepen in Logboeken van Azure Monitor](../azure-monitor/platform/computer-groups.md)
+- **Bij te werken computers**: Selecteer een opgeslagen zoekopdracht, geïmporteerd groep, of selecteer Machines om te kiezen op de computers die u wilt bijwerken. Als u **Computers** selecteert, wordt de gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**. U ziet de status van de machine voordat u de update-implementatie plannen. Zie [Computergroepen in Azure Monitorlogboeken](../azure-monitor/platform/computer-groups.md) voor meer informatie over de verschillende manieren waarop u computergroepen kunt maken in Azure Monitor-logboeken
 
   ![Deelvenster met nieuwe update-implementatie](./media/manage-update-multi/update-select-computers.png)
 

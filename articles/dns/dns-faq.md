@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/16/2019
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: a83ded660b56028ea311992ba6161e8a8e43f65d
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: b8240f69649e9bcb9a705f2c9fcbb819cf119356
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511969"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761409"
 ---
 # <a name="azure-dns-faq"></a>Veelgestelde vragen over Azure DNS
 
@@ -239,7 +239,7 @@ Ja. Als u wilt ontkoppelen van een virtueel netwerk van de registratie van een p
 
 Ja. Wanneer u een registratie- of Resolutienetwerken virtueel netwerk zonder deze eerst ontkoppelen van een privé-zone verwijdert, wordt de verwijderingsbewerking slaagt. Maar het virtuele netwerk wordt niet automatisch ontkoppeld van uw persoonlijke zone, indien van toepassing. U moet het virtuele netwerk van de persoonlijke zone handmatig ontkoppelen. Om deze reden, het virtuele netwerk van uw privé-zone te ontkoppelen voordat u deze verwijdert.
 
-### <a name="will-dns-resolution-by-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-contosolocal-is-linked-to-a-virtual-network"></a>DNS-omzetting met behulp van de standaard FQDN-naam (internal.cloudapp.net) nog steeds werken, zelfs wanneer een privézone (bijvoorbeeld contoso.local) is gekoppeld aan een virtueel netwerk?
+### <a name="will-dns-resolution-by-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-privatecontosocom-is-linked-to-a-virtual-network"></a>DNS-omzetting met behulp van de standaard FQDN-naam (internal.cloudapp.net) nog steeds werken, zelfs wanneer een privézone (bijvoorbeeld private.contoso.com) is gekoppeld aan een virtueel netwerk?
 
 Ja. Privézones wordt de standaard DNS-oplossingen met behulp van de zone Azure verschafte internal.cloudapp.net niet vervangen. Het wordt aangeboden als een extra functie of een uitbreiding. Of u op de Azure verschafte internal.cloudapp.net of op uw eigen privé-zone vertrouwen, gebruikt u de FQDN-naam van de zone die u wilt oplossen op basis van. 
 
@@ -262,7 +262,7 @@ Ja. Tijdens de openbare preview bestaat de volgende beperkingen.
 
 ### <a name="are-there-any-quotas-or-limits-on-zones-or-records-for-private-zones"></a>Zijn er quota's of limieten voor zones of records voor privézones?
 
-Er zijn geen beperkingen voor het aantal zones per abonnement voor privézones toegestaan. Er zijn geen beperkingen voor het aantal recordsets per zone voor privézones. Openbare en private zones tellen mee voor de algemene DNS-limieten. Zie voor meer informatie de [Azure-abonnement en Servicelimieten](../azure-subscription-service-limits.md#dns-limits)
+Er zijn geen beperkingen voor het aantal zones per abonnement voor privézones toegestaan. Er zijn geen beperkingen voor het aantal recordsets per zone voor privézones. Openbare en private zones tellen mee voor de algemene DNS-limieten. Zie voor meer informatie de [Azure-abonnement en Servicelimieten](../azure-subscription-service-limits.md#azure-dns-limits)
 
 ### <a name="is-there-portal-support-for-private-zones"></a>Is er portal ondersteuning voor privézones?
 

@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5895ad1f1452b5a0c13765821c5b623472a0bb1e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 65bc0c0ee1ccc1e1f3da5e364582534dfbc0d425
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447112"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530702"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Controleactiviteitenrapporten in Azure Active Directory Portal 
 
@@ -41,7 +41,7 @@ In dit artikel biedt een overzicht van het controlerapport.
  
 ## <a name="who-can-access-the-data"></a>Wie heeft er toegang tot de gegevens?
 
-* Gebruikers in de **beveiligingsbeheerder**, **Beveiligingslezer** of **hoofdbeheerder** rollen
+* Gebruikers in de **Security beheerder**, **Beveiligingslezer**, **rapportlezer** of **hoofdbeheerder** rollen
 * Bovendien kunnen hun eigen auditactiviteiten zien in alle gebruikers (niet-beheerders)
 
 ## <a name="audit-logs"></a>Controlelogboeken
@@ -53,38 +53,93 @@ De Azure AD-audit-logboeken bieden records van systeemactiviteiten voor naleving
 Een controlelogboek heeft een standaardlijstweergave die het volgende laat zien:
 
 - de datum en tijd van de gebeurtenis
-- de initiator/actor (*wie*) van een activiteit 
-- de activiteit (*wat*) 
+- de service die de gebeurtenis vastgelegd
+- de categorie en de naam van de activiteit (*wat*) 
+- de status van de activiteit (slagen of mislukken)
 - het doel
+- De initiator / actor (wie) van een activiteit
 
-![Controlelogboeken](./media/concept-audit-logs/18.png "Controlelogboeken")
+![Controlelogboeken](./media/concept-audit-logs/listview.png "Controlelogboeken")
 
 U kunt de lijstweergave aanpassen door te klikken op **Kolommen** op de werkbalk.
 
-![Controlelogboeken](./media/concept-audit-logs/19.png "Controlelogboeken")
+![Controlelogboeken](./media/concept-audit-logs/columns.png "Controlelogboeken")
 
 Hiermee kunt u extra velden weergeven of velden verwijderen die al worden weergegeven.
 
-![Controlelogboeken](./media/concept-audit-logs/21.png "Controlelogboeken")
+![Controlelogboeken](./media/concept-audit-logs/columnselect.png "Controlelogboeken")
 
 Selecteer een item in de lijstweergave voor meer gedetailleerde informatie.
 
-![Controlelogboeken](./media/concept-audit-logs/22.png "Controlelogboeken")
+![Controlelogboeken](./media/concept-audit-logs/details.png "Controlelogboeken")
 
 
 ## <a name="filtering-audit-logs"></a>Controlelogboeken filteren
 
 U kunt de controlegegevens op de volgende velden filteren:
 
-- Datumbereik
-- Gestart door (actor)
+- Service
 - Categorie
-- Resourcetype van activiteit
 - Activiteit
+- Status
+- Doel
+- Gestart door (actor)
+- Datumbereik
 
-![Controlelogboeken](./media/concept-audit-logs/23.png "Controlelogboeken")
+![Controlelogboeken](./media/concept-audit-logs/filter.png "Controlelogboeken")
 
-Met het filter **datumbereik** kunt u een tijdsbestek opgeven voor de geretourneerde gegevens.  
+De **Service** filter kunt u selecteren in een vervolgkeuzelijst van de volgende services:
+
+- Alle
+- Toegangsbeoordelingen
+- Account inrichten 
+- Toepassing eenmalige aanmelding
+- Verificatiemethoden
+- B2C
+- Voorwaardelijke toegang
+- Hoofddirectory
+- Beheer van rechten
+- Identiteitsbeveiliging
+- Uitgenodigde gebruikers
+- PIM
+- Self-service voor groepsbeheer
+- Self-servicegebruikers Passord Management
+- Gebruiksvoorwaarden
+
+De **categorie** filter kunt u een van de volgende filters selecteren:
+
+- Alle
+- AdministrativeUnit
+- Programmeert
+- Authentication
+- Autorisatie
+- Contactpersoon
+- Apparaat
+- Apparaatconfiguratie
+- DirectoryManagement
+- EntitlementManagement
+- GroupManagement
+- Overige
+- Beleid
+- ResourceManagement
+- RoleManagement
+- UserManagement
+
+De **activiteit** filteren is gebaseerd op de categorie en activiteit resource type selectie die u maakt. U kunt een specifieke activiteit of alle activiteiten selecteren. 
+
+U kunt de lijst met alle controleactiviteiten opvragen met behulp van de Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, waarbij u $tenantdomain vervangt door de naam van uw domein. U kunt ook het artikel [Controlerapportgebeurtenissen](reference-audit-activities.md) raadplegen.
+
+De **Status** filter kunt u filteren op basis van de status van een audit-bewerking. De status kan zijn dat een van de volgende:
+
+- Alle
+- Geslaagd
+- Fout
+
+De **doel** filter kunt u zoeken naar een bepaald doel met de naam of user principal name (UPN). De naam van de doel- en UPN zijn hoofdlettergevoelig. 
+
+De **gestart door** filter kunt u voor het definiëren van een actor-naam of een universal principal name (UPN). De naam en het UPN-zijn hoofdlettergevoelig.
+
+De **datumbereik** filter kunt u een tijdsbestek opgeven voor de geretourneerde gegevens.  
 Mogelijke waarden zijn:
 
 - 1 maand
@@ -94,41 +149,9 @@ Mogelijke waarden zijn:
 
 Wanneer u een aangepast tijdsbestek selecteert, kunt u een begintijd en eindtijd configureren.
 
-De **gestart door** filter kunt u voor het definiëren van een actor-naam of een universal principal name (UPN).
+U kunt ook kiezen voor het downloaden van de gefilterde gegevens, maximaal 250.000 records, door het selecteren van de **downloaden** knop. U kunt kiezen om de logboeken in CSV of JSON-indeling te downloaden. Het aantal records die u kunt downloaden wordt beperkt door de [bewaarbeleid Azure Active Directory-rapporten](reference-reports-data-retention.md).
 
-Met het filter **aanmeldingsstatus** kunt u een van de volgende filters selecteren:
-
-- Alle
-- Hoofdcategorie
-- Hoofddirectory
-- Wachtwoordbeheer via selfservice
-- Groepsbeheer via selfservice
-- Account inrichten - Automatische wachtwoordoverschakeling
-- Uitgenodigde gebruikers
-- MIM-service
-- Identiteitsbeveiliging
-- B2C
-
-Met het filter **type activiteitsresource** kunt u een van de volgende filters selecteren:
-
-- Alle 
-- Groep
-- Directory
-- Gebruiker
-- Toepassing
-- Beleid
-- Apparaat
-- Overige
-
-Wanneer u **Groep** selecteert als **type activiteitsresource**, krijgt u een extra filtercategorie waarmee u ook een **Bron** kunt opgeven:
-
-- Azure AD
-- O365
-
-
-De **activiteit** filteren is gebaseerd op de categorie en activiteit resource type selectie die u maakt. U kunt een specifieke activiteit of alle activiteiten selecteren. 
-
-U kunt de lijst met alle controleactiviteiten opvragen met behulp van de Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, waarbij u $tenantdomain vervangt door de naam van uw domein. U kunt ook het artikel [Controlerapportgebeurtenissen](reference-audit-activities.md) raadplegen.
+![Controlelogboeken](./media/concept-audit-logs/download.png "Controlelogboeken")
 
 ## <a name="audit-logs-shortcuts"></a>Snelkoppelingen naar controlelogboeken
 
@@ -157,9 +180,13 @@ Met de controlerapporten op basis van gebruikers en groepen krijgt u antwoord op
 
 - Welke licenties zijn toegewezen aan een groep of een gebruiker?
 
-Als u alleen controlegegevens wilt bekijken die aan gebruikers en groepen zijn gerelateerd, kunt u een gefilterde weergave openen via **Controlelogboeken** in het gedeelte **Activiteit** van **Gebruikers en groepen**. Dit beginpunt heeft **Gebruikers en groepen** als vooraf geselecteerd **Type activiteitsresource**.
+Als u alleen bekijken van controlegegevens die is gerelateerd aan gebruikers wilt, vindt u een gefilterde weergave openen via **auditlogboeken** in de **activiteit** sectie van de **gebruikers** tabblad. Dit beginpunt heeft **UserManagement** als vooraf geselecteerde categorie.
 
-![Controlelogboeken](./media/concept-audit-logs/93.png "Controlelogboeken")
+![Controlelogboeken](./media/concept-audit-logs/users.png "Controlelogboeken")
+
+Als u alleen bekijken van controlegegevens met betrekking tot groepen wilt, vindt u een gefilterde weergave openen via **auditlogboeken** in de **activiteit** sectie van de **groepen** tabblad. Dit beginpunt heeft **GroupManagement** als vooraf geselecteerde categorie.
+
+![Controlelogboeken](./media/concept-audit-logs/groups.png "Controlelogboeken")
 
 ### <a name="enterprise-applications-audit-logs"></a>Controlelogboeken voor bedrijfstoepassingen
 
@@ -171,13 +198,9 @@ Met de controlerapporten op basis van toepassingen krijgt u antwoord op vragen z
 * Zijn de namen van toepassingen gewijzigd?
 * Wie heeft toestemming gegeven voor een toepassing?
 
-Als u bekijken van controlegegevens die betrekking hebben op uw toepassingen wilt, vindt u een gefilterde weergave openen via **auditlogboeken** in de **activiteit** sectie van de **bedrijfstoepassingen** de blade. Dit beginpunt heeft **bedrijfstoepassingen** vooraf zijn geselecteerd als de **resourcetype van activiteit**.
+Als u bekijken van controlegegevens die betrekking hebben op uw toepassingen wilt, vindt u een gefilterde weergave openen via **auditlogboeken** in de **activiteit** sectie van de **bedrijfstoepassingen** de blade. Dit beginpunt heeft **bedrijfstoepassingen** vooraf zijn geselecteerd als de **toepassingstype**.
 
-![Controlelogboeken](./media/concept-audit-logs/134.png "Controlelogboeken")
-
-U kunt deze weergave omlaag naar filteren **groepen** of **gebruikers**.
-
-![Controlelogboeken](./media/concept-audit-logs/25.png "Controlelogboeken")
+![Controlelogboeken](./media/concept-audit-logs/enterpriseapplications.png "Controlelogboeken")
 
 ## <a name="office-365-activity-logs"></a>Office 365-activiteitenlogboeken
 

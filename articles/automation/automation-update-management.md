@@ -9,18 +9,20 @@ ms.author: gwallace
 ms.date: 03/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 33a01c7bfeacd57d2bea13318d054514daba008c
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: c8b25c0caf71835ccb5a055956d73a713efa5da0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410244"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541210"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
 U kunt de oplossing Update Management in Azure Automation gebruiken voor het beheren van besturingssysteemupdates voor uw Windows- en Linux-computers die zijn geïmplementeerd in Azure, on-premises omgevingen of andere cloudproviders. U kunt snel de status van de beschikbare updates op alle agentcomputers beoordelen en de procedure voor het installeren van vereiste updates voor servers beheren.
 
 U kunt updatebeheer inschakelen voor virtuele machines rechtstreeks vanuit uw Azure Automation-account. Zie voor informatie over het inschakelen van updatebeheer voor virtuele machines vanaf uw Automation-account, [beheren van updates voor meerdere virtuele machines](manage-update-multi.md). U kunt ook de updatebeheer inschakelen voor een virtuele machine op de pagina van de virtuele machine in Azure portal. In dit scenario is beschikbaar voor [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) en [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) virtuele machines.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="solution-overview"></a>Oplossingenoverzicht
 
@@ -155,12 +157,12 @@ Heartbeat
 | where OSType == "Windows" | summarize arg_max(TimeGenerated, *) by SourceComputerId | top 500000 by Computer asc | render table
 ```
 
-Op een Windows-computer, kunt u de volgende informatie om te controleren of agents verbonden zijn met Log Analytics bekijken:
+Op een Windows-computer, kunt u de volgende informatie om te controleren of agents verbonden zijn met Azure Monitor logboeken bekijken:
 
 1. Open in het Configuratiescherm, **Microsoft Monitoring Agent**. Op de **Azure Log Analytics** tabblad en de agent het volgende bericht weergegeven: **De Microsoft Monitoring Agent is verbonden met Log Analytics**.
 2. Open het Windows-gebeurtenislogboek. Ga naar **toepassings- en servicelogboeken\operations Manager** en zoek naar gebeurtenis-ID 3000 en 5002 van de gebeurtenis-ID van de bron **serviceconnector**. Deze gebeurtenissen geven aan dat de computer is geregistreerd bij de Log Analytics-werkruimte en of deze configuratie ontvangt.
 
-Als de agent kan niet met Log Analytics communiceren en de agent is geconfigureerd om te communiceren met internet via een firewall of proxyserver, Controleer of dat de firewall of proxyserver correct is geconfigureerd. Zie voor informatie over het controleren of de firewall of proxyserver correct is geconfigureerd, [netwerkconfiguratie voor Windows-agent](../azure-monitor/platform/agent-windows.md) of [netwerkconfiguratie voor Linux-agent](../log-analytics/log-analytics-agent-linux.md).
+Als de agent kan niet met communiceren Azure Monitor-logboeken en de agent is geconfigureerd om te communiceren met internet via een firewall of proxyserver, Controleer of de firewall of proxyserver correct is geconfigureerd. Zie voor informatie over het controleren of de firewall of proxyserver correct is geconfigureerd, [netwerkconfiguratie voor Windows-agent](../azure-monitor/platform/agent-windows.md) of [netwerkconfiguratie voor Linux-agent](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
 > Als uw Linux-systemen zijn geconfigureerd om te communiceren met een proxy of Log Analytics-Gateway en u bent onboarding van deze oplossing, update de *proxy.conf* machtigingen voor het verlenen van de groep omiuser leesmachtigingen voor het bestand met behulp van de de volgende opdrachten:
@@ -170,7 +172,7 @@ Als de agent kan niet met Log Analytics communiceren en de agent is geconfiguree
 
 Toegevoegde Linux-agents weer de status van **bijgewerkt** nadat een evaluatie is uitgevoerd. Dit proces kan maximaal zes uur duren.
 
-Om te bevestigen dat een Operations Manager-beheergroep met Log Analytics communiceert, Zie [valideren Operations Manager-integratie met Log Analytics](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-log-analytics).
+Om te bevestigen dat een Operations Manager-beheergroep met Azure Monitor-logboeken communiceert, Zie [valideren Operations Manager-integratie met Azure Monitor logboeken](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-log-analytics).
 
 ## <a name="data-collection"></a>Gegevensverzameling
 
@@ -182,7 +184,7 @@ De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door de
 | --- | --- | --- |
 | Windows-agents |Ja |De oplossing verzamelt informatie over systeemupdates van Windows-agents en start vervolgens de installatie van vereiste updates. |
 | Linux-agents |Ja |De oplossing verzamelt informatie over systeemupdates van Linux-agents en start vervolgens de installatie van vereiste updates op ondersteunde distributies. |
-| Beheergroep Operations Manager |Ja |De oplossing verzamelt informatie over systeemupdates van agents in een verboden beheergroep.<br/>Er is een directe verbinding van de Operations Manager-agent naar Log Analytics niet vereist. Gegevens uit de beheergroep doorgestuurd naar de Log Analytics-werkruimte. |
+| Beheergroep Operations Manager |Ja |De oplossing verzamelt informatie over systeemupdates van agents in een verboden beheergroep.<br/>Een directe verbinding van Operations Manager-agent naar Logboeken van Azure Monitor is niet vereist. Gegevens uit de beheergroep doorgestuurd naar de Log Analytics-werkruimte. |
 
 ### <a name="collection-frequency"></a>Verzamelingsfrequentie
 
@@ -192,7 +194,7 @@ Voor elke Linux-computer beheerde, wordt elke drie uur aan een scan uitgevoerd.
 
 Duurt tussen 30 minuten en 6 uur voor het dashboard bijgewerkte gegevens van beheerde computers worden weergegeven.
 
-Het gemiddelde gebruik van Log Analytics-gegevens voor een virtuele machine met updatebeheer is ongeveer 25MB per maand. Deze waarde is slechts een schatting en kan worden gewijzigd op basis van uw omgeving. Het raadzaam dat u uw omgeving om te zien van de exacte syntaxis die u hebt gecontroleerd.
+Het gemiddelde gebruik van Azure Monitor Logboeken gegevens voor een virtuele machine met updatebeheer is ongeveer 25MB per maand. Deze waarde is slechts een schatting en kan worden gewijzigd op basis van uw omgeving. Het raadzaam dat u uw omgeving om te zien van de exacte syntaxis die u hebt gecontroleerd.
 
 ## <a name="viewing-update-assessments"></a>Update-evaluaties weergeven
 
@@ -206,7 +208,7 @@ Als u wilt een logboekzoekopdracht die informatie over de machine retourneert ui
 
 ## <a name="install-updates"></a>Updates installeren
 
-Nadat updates zijn beoordeeld voor alle Linux- en Windows-computers in uw werkruimte, kunt u de vereiste updates installeren door het maken van een *update-implementatie*. Een update-implementatie is een geplande installatie van vereiste updates voor een of meer computers. U geeft de datum en tijd voor de implementatie en een computer of groep computers die u wilt opnemen in het bereik van een implementatie. Zie [Computergroepen in Log Analytics](../azure-monitor/platform/computer-groups.md) voor meer informatie over computergroepen.
+Nadat updates zijn beoordeeld voor alle Linux- en Windows-computers in uw werkruimte, kunt u de vereiste updates installeren door het maken van een *update-implementatie*. Een update-implementatie is een geplande installatie van vereiste updates voor een of meer computers. U geeft de datum en tijd voor de implementatie en een computer of groep computers die u wilt opnemen in het bereik van een implementatie. Zie voor meer informatie over computergroepen, [computergroepen in Logboeken van Azure Monitor](../azure-monitor/platform/computer-groups.md).
 
  Wanneer u in uw update-implementatie computergroepen, wordt het lidmaatschap van slechts één keer geëvalueerd op het moment van schema maken. Wijzigingen aan een groep worden niet weergegeven. Om op te halen om deze [dynamische groepen](#using-dynamic-groups), deze groepen worden omgezet tijdens de implementatie en zijn gedefinieerd door een query.
 
@@ -224,7 +226,7 @@ Voor het maken van een nieuwe update-implementatie selecteert **update-implement
 | Name |Unieke naam voor het identificeren van de update-implementatie. |
 |Besturingssysteem| Linux of Windows|
 | Groepen om bij te werken (preview)|definieer een query op basis van een combinatie van abonnement, resourcegroepen, locaties en tags om een dynamische groep virtuele Azure-machines te bouwen voor opname in uw implementatie. Zie [Dynamische groepen](automation-update-management.md#using-dynamic-groups) voor meer informatie|
-| Bij te werken computers |selecteer een opgeslagen zoekopdracht of geïmporteerde groep, of kies Computer in de vervolgkeuzelijst en selecteer de afzonderlijke computers. Als u **Computers** selecteert, wordt de gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**.</br> Zie [Computergroepen in Log Analytics](../azure-monitor/platform/computer-groups.md) voor meer informatie over de verschillende manieren waarop u computergroepen kunt maken in Log Analytics |
+| Bij te werken computers |selecteer een opgeslagen zoekopdracht of geïmporteerde groep, of kies Computer in de vervolgkeuzelijst en selecteer de afzonderlijke computers. Als u **Computers** selecteert, wordt de gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**.</br> Zie [Computergroepen in Azure Monitorlogboeken](../azure-monitor/platform/computer-groups.md) voor meer informatie over de verschillende manieren waarop u computergroepen kunt maken in Azure Monitor-logboeken |
 |Updateclassificaties|Selecteer de updateclassificaties die u nodig hebt|
 |Updates opnemen/uitsluiten|Hiermee opent u de **opnemen/uitsluiten** pagina. Updates die moeten worden opgenomen of uitgesloten, worden op afzonderlijke tabbladen weergegeven. Zie [Werking van opname](automation-update-management.md#inclusion-behavior) voor meer informatie over hoe de opname wordt verwerkt |
 |Planningsinstellingen|Selecteer de tijd om te starten, en selecteer een van beide eenmaal of terugkerende voor het terugkeerpatroon|
@@ -353,7 +355,7 @@ De volgende secties bevatten voorbeeld logboeken-query's voor updaterecords die 
 
 #### <a name="single-azure-vm-assessment-queries-windows"></a>Enkele query's de evaluatie van de Azure-VM (Windows)
 
-Vervang de waarde VMUUID met de VM-GUID van de virtuele machine die u query's. U vindt de VMUUID die moet worden gebruikt door het uitvoeren van de volgende query in Log Analytics: `Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
+Vervang de waarde VMUUID met de VM-GUID van de virtuele machine die u query's. U vindt de VMUUID die moet worden gebruikt door de volgende query uit te voeren in Azure Monitor-Logboeken: `Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
 
 ##### <a name="missing-updates-summary"></a>Ontbrekende updates samenvatting
 
@@ -382,7 +384,7 @@ Update
 
 #### <a name="single-azure-vm-assessment-queries-linux"></a>Één virtuele machine van Azure evaluatie van de query's (Linux)
 
-Voor sommige Linux-distributies, er is een [endianness](https://en.wikipedia.org/wiki/Endianness) komt niet overeen met de waarde VMUUID die afkomstig zijn van Azure Resource Manager en wat wordt opgeslagen in Log Analytics. De volgende query uit controleert een overeenkomst op een van beide endianness. Vervang de waarden VMUUID door de big endian en weinig-endian-indeling van de GUID juist de resultaten worden geretourneerd. U vindt de VMUUID die moet worden gebruikt door het uitvoeren van de volgende query in Log Analytics: `Update | where Computer == "<machine name>"
+Voor sommige Linux-distributies, er is een [endianness](https://en.wikipedia.org/wiki/Endianness) komt niet overeen met de waarde VMUUID die afkomstig zijn van Azure Resource Manager en wat wordt opgeslagen in Azure Monitor-Logboeken. De volgende query uit controleert een overeenkomst op een van beide endianness. Vervang de waarden VMUUID door de big endian en weinig-endian-indeling van de GUID juist de resultaten worden geretourneerd. U vindt de VMUUID die moet worden gebruikt door de volgende query uit te voeren in Azure Monitor-Logboeken: `Update | where Computer == "<machine name>"
 | summarize by Computer, VMUUID`
 
 ##### <a name="missing-updates-summary"></a>Ontbrekende updates samenvatting
@@ -623,7 +625,7 @@ Doorgaan naar de zelfstudie voor informatie over het beheren van updates voor uw
 > [!div class="nextstepaction"]
 > [Updates en patches voor uw Azure Windows VM's beheren](automation-tutorial-update-management.md)
 
-* Gebruik logboekzoekopdrachten in [Log Analytics](../log-analytics/log-analytics-log-searches.md) om gedetailleerde updategegevens weer te geven.
+* Gebruik logboekzoekopdrachten in [logboeken van Azure Monitor](../log-analytics/log-analytics-log-searches.md) om gedetailleerde updategegevens weer te geven.
 * [Waarschuwingen maken](automation-tutorial-update-management.md#configure-alerts) voor de status van de implementatie.
 
 * Zie voor meer informatie over de communicatie met updatebeheer via de REST-API, [configuraties van Software-Update](/rest/api/automation/softwareupdateconfigurations)

@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/14/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 01/14/2019
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b7fa03cdf52fc3218e9556c9664daafdc60243f3
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: ad9d5057c18d316dcf3254dc57a3184c1b75fc50
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593214"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780831"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Valideren van software-updates van Microsoft
 
@@ -56,7 +56,7 @@ De volgende tests moeten worden uitgevoerd in de volgende volgorde voor maandeli
 1. Geef de locatie voor het OEM-uitbreidingspakket die momenteel zijn geïmplementeerd op het stempel en de locatie voor het pakket met de uitbreiding OEM die worden toegepast tijdens het bijwerken. Zie configureren van de URL's voor deze pakketten [beheren van pakketten voor validatie](azure-stack-vaas-validate-oem-package.md#managing-packages-for-validation).
 1. Volg de stappen in de gebruikersinterface van de geselecteerde agent.
 
-Als u vragen of opmerkingen hebt, kunt u contact op met [VaaS Help](mailto:vaashelp@microsoft.com).
+Als u vragen of opmerkingen hebt, neem dan contact op met [VaaS Help](mailto:vaashelp@microsoft.com).
 
 ## <a name="next-steps"></a>Volgende stappen
 

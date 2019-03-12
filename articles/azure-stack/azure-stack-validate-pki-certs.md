@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 9300e60902b9234af01a64173eefcfb1bc033c61
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 1e5154f4f6c77e9a024ced58f3b75a0111a614c3
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410193"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769368"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Valideren van Azure Stack PKI-certificaten
 
@@ -75,7 +75,7 @@ Volg deze stappen om voor te bereiden en voor het valideren van de Azure Stack P
     ```PowerShell  
     New-Item C:\Certificates -ItemType Directory
     
-    $directories = 'ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal','Admin Extension Host','Public Extension Host'
+    $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'Admin Extension Host', 'Admin Portal', 'api_appservice', 'ARM Admin', 'ARM Public', 'ftp_appservice', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal', 'sso_appservice', 'wildcard_dbadapter', 'wildcard_sso_appservice'
     
     $destination = 'c:\certificates'
     
@@ -86,7 +86,7 @@ Volg deze stappen om voor te bereiden en voor het valideren van de Azure Stack P
     > AD FS en een graaf zijn vereist als u AD FS worden gebruikt als uw identiteitssysteem. Bijvoorbeeld:
     >
     > ```PowerShell  
-    > $directories = 'ADFS','Graph','ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal','Admin Extension Host','Public Extension Host'
+    > $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'ADFS', 'Admin Extension Host', 'Admin Portal', 'api_appservice', 'ARM Admin', 'ARM Public', 'ftp_appservice', 'Graph', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal', 'sso_appservice', 'wildcard_dbadapter', 'wildcard_sso_appservice'
     > ```
     
      - Plaats uw certificaten in de juiste mappen in de vorige stap hebt gemaakt. Bijvoorbeeld:  
@@ -254,17 +254,17 @@ Volg deze stappen voor het voorbereiden en valideren van de Azure Stack PKI-cert
 
 | Directory | Certificaat |
 | ---    | ----        |
-| acsBlob | wildcard_blob_\< regio >\< externalFQDN > |
-| ACSQueue  |  wildcard_queue\< regio >\< externalFQDN > |
-| ACSTable  |  wildcard_table\< regio >\< externalFQDN > |
-| Beheerdersuitbreiding Host  |  wildcard_adminhosting\< regio >\< externalFQDN > |
-| Beheerportal  |  adminportal\< regio >\< externalFQDN > |
-| ARM-beheerder  |  adminmanagement\< regio >\< externalFQDN > |
-| ARM-algemeen  |  Management\< regio >\< externalFQDN > |
-| KeyVault  |  wildcard_vault\< regio >\< externalFQDN > |
-| KeyVaultInternal  |  wildcard_adminvault\< regio >\< externalFQDN > |
-| Host van de openbare-extensie  |  wildcard_hosting\< regio >\< externalFQDN > |
-| Openbare-Portal  |  Portal\< regio > _\< externalFQDN > |
+| acsBlob | wildcard_blob_\<regio > _\<externalFQDN > |
+| ACSQueue  |  wildcard_queue_\<regio > _\<externalFQDN > |
+| ACSTable  |  wildcard_table_\<regio > _\<externalFQDN > |
+| Beheerdersuitbreiding Host  |  wildcard_adminhosting_\<regio > _\<externalFQDN > |
+| Beheerportal  |  adminportal_\<regio > _\<externalFQDN > |
+| ARM-beheerder  |  adminmanagement_\<regio > _\<externalFQDN > |
+| ARM-algemeen  |  management_\<regio > _\<externalFQDN > |
+| KeyVault  |  wildcard_vault_\<regio > _\<externalFQDN > |
+| KeyVaultInternal  |  wildcard_adminvault_\<regio > _\<externalFQDN > |
+| Host van de openbare-extensie  |  wildcard_hosting_\<regio > _\<externalFQDN > |
+| Openbare-Portal  |  portal_\<regio > _\<externalFQDN > |
 
 ## <a name="using-validated-certificates"></a>Met behulp van gevalideerde certificaten
 

@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: df949b65ac4a193c9e7bdb6ee3c32d7026f7c93d
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 573c6d3ded8fea58e0c9ba1afa7da2d8dd0fce91
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782961"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531829"
 ---
 # <a name="use-service-management-from-python"></a>Gebruik de servicebeheer van Python
 Deze handleiding laat zien hoe u via een programma uitvoeren algemene servicebeheertaken vanuit Python. De **ServiceManagementService** klasse de [Azure SDK voor Python](https://github.com/Azure/azure-sdk-for-python) ondersteunt programmatische toegang tot veel van de service-gerelateerde functies die beschikbaar is in de [Azure Portal][management-portal]. U kunt deze functionaliteit gebruiken om te maken, bijwerken en verwijderen van cloudservices, implementaties, data management-services en virtuele machines. Deze functionaliteit is handig bij het bouwen van toepassingen waarvoor programmatische toegang tot de service management.
@@ -44,7 +44,7 @@ Voor verbinding met het service management-eindpunt, moet u uw Azure-abonnement-
 >
 
 ### <a name="management-certificates-on-windowsmaclinux-openssl"></a>Certificaten voor op Windows, Mac en Linux (OpenSSL)
-U kunt [OpenSSL](http://www.openssl.org/) om uw beheercertificaat te maken. U moet twee certificaten, één voor de server maken (een `.cer` bestand) en één voor de client (een `.pem` bestand). Maakt de `.pem` bestand, worden uitgevoerd:
+U kunt [OpenSSL](https://www.openssl.org/) om uw beheercertificaat te maken. U moet twee certificaten, één voor de server maken (een `.cer` bestand) en één voor de client (een `.pem` bestand). Maakt de `.pem` bestand, worden uitgevoerd:
 
     openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
 
@@ -52,7 +52,7 @@ Maakt de `.cer` certificaat, uitvoeren:
 
     openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 
-Zie voor meer informatie over Azure-certificaten, [overzicht van certificaten voor Azure Cloud Services](cloud-services-certs-create.md). Zie de documentatie op voor een volledige beschrijving van OpenSSL-parameters, [ http://www.openssl.org/docs/apps/openssl.html ](http://www.openssl.org/docs/apps/openssl.html).
+Zie voor meer informatie over Azure-certificaten, [overzicht van certificaten voor Azure Cloud Services](cloud-services-certs-create.md). Zie de documentatie op voor een volledige beschrijving van OpenSSL-parameters, [ https://www.openssl.org/docs/apps/openssl.html ](https://www.openssl.org/docs/apps/openssl.html).
 
 Nadat u deze bestanden hebt gemaakt, uploadt u de `.cer` bestand naar Azure. In de [Azure-portal][management-portal]op de **instellingen** tabblad **uploaden**. Houd er rekening mee opslaglocatie de `.pem` bestand.
 
@@ -399,8 +399,8 @@ Zie voor meer informatie over het vastleggen van een virtuele Linux-machine in h
 
 Zie voor meer informatie over het vastleggen van een Windows-machine in het klassieke implementatiemodel, [Windows-machine vastleggen](../virtual-machines/windows/classic/capture-image-classic.md).
 
-## <a name="What's Next"> </a>De volgende stappen
-Nu dat u de basisprincipes van servicebeheer hebt geleerd, kunt u toegang tot de [volledige API-referentiedocumentatie voor de Azure Python SDK](http://azure-sdk-for-python.readthedocs.org/) en complexe taken eenvoudig voor het beheren van uw Python-toepassing uit te voeren.
+## <a name="What's Next"> </a>Volgende stappen
+Nu dat u de basisprincipes van servicebeheer hebt geleerd, kunt u toegang tot de [volledige API-referentiedocumentatie voor de Azure Python SDK](https://azure-sdk-for-python.readthedocs.org/) en complexe taken eenvoudig voor het beheren van uw Python-toepassing uit te voeren.
 
 Raadpleeg het [Python Developer Center](https://azure.microsoft.com/develop/python/) voor meer informatie.
 
@@ -423,7 +423,7 @@ Raadpleeg het [Python Developer Center](https://azure.microsoft.com/develop/pyth
 [Delete a virtual machine]: #DeleteVM
 [Next steps]: #NextSteps
 [management-portal]: https://portal.azure.com/
-[svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[svc-mgmt-rest-api]: https://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
 [cloud service]:/azure/cloud-services/

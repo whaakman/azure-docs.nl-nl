@@ -6,12 +6,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4c7fdbfcc34cdb6e10177d50bea707f1fa5f223e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 6714d8d2a086980fce37cd2912f8ff6360558d15
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53534750"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542753"
 ---
 # <a name="rendering-applications"></a>Toepassingen weergeven
 
@@ -58,7 +58,7 @@ Naast de renderers die is ingebouwd in Maya, worden de volgende renderers zijn b
 
 ### <a name="task-command-line"></a>Taak vanaf de opdrachtregel
 
-De `renderer.exe` opdrachtregel renderer wordt gebruikt in de opdrachtregel van de taak. De renderer voor de opdrachtregel wordt gedocumenteerd in [Maya help](http://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-EB558BC0-5C2B-439C-9B00-F97BCB9688E4).
+De `renderer.exe` opdrachtregel renderer wordt gebruikt in de opdrachtregel van de taak. De renderer voor de opdrachtregel wordt gedocumenteerd in [Maya help](https://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-EB558BC0-5C2B-439C-9B00-F97BCB9688E4).
 
 In het volgende voorbeeld wordt een jobvoorbereidingstaak wordt gebruikt om te kopiëren van de scènebestanden en assets naar de werkmap van de taak-voorbereiding, een map voor uitvoer wordt gebruikt voor het opslaan van de installatiekopie van het rendering en frame 10 wordt weergegeven.
 

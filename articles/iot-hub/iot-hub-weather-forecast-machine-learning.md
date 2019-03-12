@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: a331f8a8a69ffe41a368c1b36f1680890aaac8bf
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7fdd2a96044acdae223243d751bfcffb7a99da78
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38666871"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534256"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Weersvoorspelling met behulp van de sensorgegevens uit IoT hub in Azure Machine Learning
 
@@ -79,13 +79,13 @@ Leert u hoe u Azure Machine Learning gebruiken om u te weerbericht prognose (kan
 1. Klik [in de Azure Portal](https://portal.azure.com/) op **Een resource maken** > **Internet of Things** > **Stream Analytics-taak**.
 1. Voer de volgende informatie in voor de taak.
 
-   **Taaknaam**: de naam van de taak. De naam moet wereldwijd uniek zijn.
+   **Taaknaam**: De naam van de taak. De naam moet wereldwijd uniek zijn.
 
-   **Resourcegroep**: gebruik dezelfde resourcegroep die gebruikmaakt van uw IoT-hub.
+   **Resourcegroep**: Gebruik dezelfde resourcegroep bevinden die gebruikmaakt van uw IoT-hub.
 
-   **Locatie**: gebruik dezelfde locatie als uw resourcegroep.
+   **Locatie**: Gebruik de dezelfde locatie als uw resourcegroep.
 
-   **Vastmaken aan dashboard**: vink deze optie aan voor eenvoudige toegang tot uw IoT-hub vanuit het dashboard.
+   **Vastmaken aan dashboard**: Schakel deze optie voor eenvoudige toegang voor uw IoT-hub vanuit het dashboard.
 
    ![Een Stream Analytics-taak maken in Azure](media/iot-hub-weather-forecast-machine-learning/7_create-stream-analytics-job-azure.png)
 
@@ -97,11 +97,11 @@ Leert u hoe u Azure Machine Learning gebruiken om u te weerbericht prognose (kan
 1. Klik onder **Taaktopologie** op **Invoer**.
 1. In de **invoer** deelvenster, klikt u op **toevoegen**, en voer de volgende informatie:
 
-   **De invoeralias**: de unieke alias voor de invoer.
+   **Invoeralias**: De unieke alias voor de invoer.
 
    **Bron**: Selecteer **IoT-hub**.
 
-   **Consumentengroep**: Selecteer de consumentengroep die u hebt gemaakt.
+   **Consumentengroep**: Selecteer de consumergroep die u hebt gemaakt.
 
    ![Invoer voor de Stream Analytics-taak toevoegen in Azure](media/iot-hub-weather-forecast-machine-learning/8_add-input-stream-analytics-job-azure.png)
 
@@ -112,13 +112,13 @@ Leert u hoe u Azure Machine Learning gebruiken om u te weerbericht prognose (kan
 1. Klik onder **Taaktopologie** op **Uitvoer**.
 1. In de **uitvoer** deelvenster, klikt u op **toevoegen**, en voer de volgende informatie:
 
-   **Uitvoeralias**: de alias die uniek is voor de uitvoer.
+   **Uitvoeralias**: De alias die uniek is voor de uitvoer.
 
-   **Sink-**: Selecteer **Blob Storage**.
+   **Sink**: Selecteer **Blob Storage**.
 
-   **Storage-account**: het opslagaccount voor de blob-opslag. U kunt een storage-account maken of gebruik een bestaande resourcegroep.
+   **Opslagaccount**: Het opslagaccount voor de blob-opslag. U kunt een storage-account maken of gebruik een bestaande resourcegroep.
 
-   **Container**: de container waar de blob is opgeslagen. U kunt een container maken of gebruik een bestaande resourcegroep.
+   **Container**: De container waar de blob is opgeslagen. U kunt een container maken of gebruik een bestaande resourcegroep.
 
    **Serialisatie-indeling voor gebeurtenissen**: Selecteer **CSV**.
 
@@ -131,7 +131,7 @@ Leert u hoe u Azure Machine Learning gebruiken om u te weerbericht prognose (kan
 1. Onder **Taaktopologie**, klikt u op **functies** > **toevoegen**.
 1. Voer de volgende informatie in:
 
-   **Functie Alias**: Voer `machinelearning`.
+   **Functie Alias**: Voer `machinelearning` in.
 
    **Functietype**: Selecteer **Azure ML**.
 
@@ -139,7 +139,7 @@ Leert u hoe u Azure Machine Learning gebruiken om u te weerbericht prognose (kan
 
    **URL**: Voer de URL van de WEBSERVICE die u hebt genoteerd uit de Excel-werkmap.
 
-   **Sleutel**: Voer de TOEGANGSSLEUTEL die u hebt genoteerd uit de Excel-werkmap.
+   **sleutel**: Voer de TOEGANGSSLEUTEL die u hebt genoteerd uit de Excel-werkmap.
 
    ![Een functie toevoegen aan de Stream Analytics-taak in Azure](media/iot-hub-weather-forecast-machine-learning/10_add-function-stream-analytics-job-azure.png)
 
@@ -165,19 +165,19 @@ Leert u hoe u Azure Machine Learning gebruiken om u te weerbericht prognose (kan
 
 1. Klik op **Opslaan**.
 
-### <a name="run-the-stream-analytics-job"></a>Voer de Stream Analytics-taak uit
+### <a name="run-the-stream-analytics-job"></a>De Stream Analytics-taak uitvoeren
 
 Klik in de Stream Analytics-taak op **Start** > **Nu** > **Start**. Zodra de taak kan worden gestart, wordt de taakstatus veranderd van **Gestopt** naar **In uitvoering**.
 
-![Voer de Stream Analytics-taak uit](media/iot-hub-weather-forecast-machine-learning/11_run-stream-analytics-job-azure.png)
+![De Stream Analytics-taak uitvoeren](media/iot-hub-weather-forecast-machine-learning/11_run-stream-analytics-job-azure.png)
 
 ## <a name="use-microsoft-azure-storage-explorer-to-view-the-weather-forecast"></a>Microsoft Azure Storage Explorer gebruiken om de weersvoorspelling weer te geven
 
 Voer de clienttoepassing om te beginnen met het verzamelen van en temperatuur en vochtigheid gegevens te verzenden naar uw IoT-hub uit. Voor elk bericht dat uw IoT-hub ontvangt, wordt de Stream Analytics-taak de weersvoorspelling-webservice om de kans op regen produceren. Het resultaat wordt vervolgens opgeslagen in de Azure blob-opslag. Azure Storage Explorer is een hulpprogramma dat u gebruiken kunt om het resultaat weer te geven.
 
-1. [Download en installeer Microsoft Azure Storage Explorer](http://storageexplorer.com/).
+1. [Download en installeer Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 1. Open Azure Storage Explorer.
-1. Aanmelden bij uw Azure-account.
+1. Meld u aan bij uw Azure-account.
 1. Selecteer uw abonnement.
 1. Klik op uw abonnement > **Opslagaccounts** > uw storage-account > **Blobcontainers** > uw container.
 1. Open een CSV-bestand als het resultaat wilt weergeven. De laatste kolom registreert de kans op regen.

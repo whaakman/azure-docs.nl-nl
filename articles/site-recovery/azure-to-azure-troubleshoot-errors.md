@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: fdeef8be1cfaabde326f68a1207f7c38d037a502
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: b4359a90bb511b538499848effea7be22a23fac0
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313293"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570620"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Problemen met Azure-naar-Azure-VM-replicatie oplossen
 
@@ -173,7 +173,9 @@ Voor Site Recovery-replicatie met werk, uitgaande connectiviteit voor bepaalde U
   - Azure Site Recovery toegang tot Office 365-IP-adressen bereiken zijn vereist voor verificatie.
     Als u van Azure Network security group (NSG) regels/firewall-proxy gebruikmaakt voor het beheren van uitgaande netwerkverbindingen op de virtuele machine, controleert u of dat u communicatie met O365-IP-bereiken toestaan. Maak een [Azure Active Directory (AAD)-servicetag](../virtual-network/security-overview.md#service-tags) op basis van NSG-regel voor het toestaan van toegang tot alle IP-adressen die overeenkomen met AAD
         - Als er nieuwe adressen worden toegevoegd aan de Azure Active Directory (AAD) in de toekomst, moet u nieuwe NSG-regels maken.
-
+>[!NOTE]
+> Als de virtuele machines achter **Standard** interne load balancer dan geen toegang tot O365-IP-adressen Internet Explorer Login.micorsoftonline.com standaard. Wijzig het **Basic** interne type load balancer of uitgaande toegang maken, zoals vermeld in de [artikel] (https://aka.ms/lboutboundrulescli).
+>
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Probleem 3: Configuratie van site Recovery is mislukt (151197)
 - **Mogelijke oorzaak** </br>

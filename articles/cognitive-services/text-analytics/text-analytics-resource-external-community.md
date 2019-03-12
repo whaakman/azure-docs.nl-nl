@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 751b8b72683d9c7e779191511cb2824d34997c32
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: b46acb2f0fe04c37e73a69a09ee6ede9110864ca
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244312"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543539"
 ---
 # <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>Externe en community-inhoud voor de Text Analytics-Cognitive Service
 
@@ -50,4 +50,4 @@ Zoekt u informatie over een functie of use-casescenario die we hebben geen betre
 ## <a name="see-also"></a>Zie ook
 
  [StackOverflow: Azure Text Analytics API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
- [StackOverflow: Azure Cognitive Services](http://stackoverflow.com/questions/tagged/microsoft-cognitive)
+ [StackOverflow: Azure Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

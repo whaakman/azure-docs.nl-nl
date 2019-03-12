@@ -10,12 +10,12 @@ ms.date: 01/31/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 56f3573bbab059aed78608209cb2815413876bb0
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 3f812c1142b5cd40169f7340163295b0f7ea6a4d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308720"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779144"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Fouten en uitzonderingen in Azure Logic Apps verwerken
 
@@ -23,7 +23,7 @@ De manier waarop de integratiearchitectuur van een op de juiste wijze verwerkt d
 
 <a name="retry-policies"></a>
 
-## <a name="retry-policies"></a>Beleid voor opnieuw proberen
+## <a name="retry-policies"></a>Beleid opnieuw proberen
 
 Voor de meest eenvoudige uitzondering en de foutafhandeling, kunt u een *beleid voor opnieuw proberen* in een actie of trigger waar dit wordt ondersteund. Een beleid voor opnieuw proberen geeft aan of en hoe de actie of trigger probeert om opnieuw een aanvraag als de oorspronkelijke aanvraag een optreedt time-out of mislukt, dit is een aanvraag die in een 408, 429 en 5xx-antwoord resulteert. Als er geen andere beleid voor opnieuw proberen wordt gebruikt, wordt het standaardbeleid gebruikt. 
 
@@ -223,9 +223,9 @@ Zie voor de limieten voor scopes [limieten en configuratie](../logic-apps/logic-
 
 Hoewel het afvangen van fouten van een scope nuttig is, kunt u ook context, zodat u inzicht in de precies welke acties mislukt plus eventuele fouten of statuscodes die zijn geretourneerd. De `@result()` expressie biedt context over het resultaat van alle acties in een bereik.
 
-De `@result()` expressie accepteert één parameter (naam van de scope) en retourneert een matrix met alle actie resultaten uit binnen dat bereik. Deze actie-objecten bevatten dezelfde kenmerken als de  **@actions()** object, zoals van de actie begintijd, eindtijd, status, invoer, correlatie-id's en uitvoer. Voor het verzenden van context voor alle acties die niet binnen een bereik, u gemakkelijk kunt combineren een  **@result()** werken met een **runAfter** eigenschap.
+De `@result()` expressie accepteert één parameter (naam van de scope) en retourneert een matrix met alle actie resultaten uit binnen dat bereik. Deze actie-objecten bevatten dezelfde kenmerken als de  **\@actions()** object, zoals van de actie begintijd, eindtijd, status, invoer, correlatie-id's en uitvoer. Voor het verzenden van context voor alle acties die niet binnen een bereik, u gemakkelijk kunt combineren een  **\@result()** werken met een **runAfter** eigenschap.
 
-Voor het uitvoeren van een actie voor elke actie in een bereik dat is een **mislukt** resultaat, en om te filteren op de matrix van de resultaten naar de mislukte acties, kan u worden gekoppeld  **@result()** met een **[Matrix filteren](../connectors/connectors-native-query.md)** actie en een [ **voor elk** ](../logic-apps/logic-apps-control-flow-loops.md) lus. U kunt de gefilterde resultaat matrix en een actie uitvoeren voor elke fout met behulp van de **voor elk** lus. 
+Voor het uitvoeren van een actie voor elke actie in een bereik dat is een **mislukt** resultaat, en om te filteren op de matrix van de resultaten naar de mislukte acties, kan u worden gekoppeld  **\@result()** met een **[ Matrix filteren](../connectors/connectors-native-query.md)** actie en een [ **voor elk** ](../logic-apps/logic-apps-control-flow-loops.md) lus. U kunt de gefilterde resultaat matrix en een actie uitvoeren voor elke fout met behulp van de **voor elk** lus. 
 
 Hier volgt een voorbeeld, gevolgd door een gedetailleerde uitleg, waarmee een HTTP POST-aanvraag met de antwoordtekst voor alle acties die niet binnen het bereik 'My_Scope' worden verzonden:
 
@@ -317,7 +317,7 @@ Ter referentie, Hier volgt een voorbeeld van een enkel `@result()` artikel, waar
 }
 ```
 
-U kunt om uit te voeren verschillende patronen van afhandelingsservice voor uitzondering, de expressies die eerder in dit artikel wordt beschreven. U mogelijk kiezen voor het uitvoeren van een enkele uitzonderingsverwerking actie buiten het bereik dat de volledige gefilterde matrix van fouten accepteert en verwijdert de **voor elk** actie. U kunt ook andere nuttige eigenschappen van de  **@result()** zoals eerder beschreven.
+U kunt om uit te voeren verschillende patronen van afhandelingsservice voor uitzondering, de expressies die eerder in dit artikel wordt beschreven. U mogelijk kiezen voor het uitvoeren van een enkele uitzonderingsverwerking actie buiten het bereik dat de volledige gefilterde matrix van fouten accepteert en verwijdert de **voor elk** actie. U kunt ook andere nuttige eigenschappen van de  **\@result()** zoals eerder beschreven.
 
 ## <a name="azure-diagnostics-and-metrics"></a>Azure Diagnostics en metrische gegevens
 

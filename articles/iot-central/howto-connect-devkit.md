@@ -3,17 +3,17 @@ title: Een apparaat DevKit verbinden met uw Azure IoT Central-toepassing | Micro
 description: Leer hoe u een apparaat MXChip IoT DevKit verbinden met uw Azure IoT Central-toepassing als een apparaat-ontwikkelaar.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/16/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 6c9f128a046904eb8df90625ce1043b3d42e8be4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 150f2b9155d5e920a7394e2fa55ce28701497868
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448540"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763007"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Een apparaat MXChip IoT DevKit verbinden met uw Azure IoT Central-toepassing
 
@@ -26,19 +26,17 @@ U hebt het volgende nodig om de stappen in dit artikel uit te voeren:
 1. Een Azure IoT Central-toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon. Zie voor meer informatie de [snelstart over het maken van een toepassing](quick-deploy-iot-central.md).
 1. Een apparaat DevKit. Als u wilt een apparaat DevKit kopen, gaat u naar [MXChip IoT DevKit](http://mxchip.com/az3166).
 
+## <a name="sample-devkits-application"></a>Voorbeeldtoepassing Devkits
 
-## <a name="sample-devkits-application"></a>**Voorbeeld van een Devkits** toepassing
+Een toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon bevat een **MXChip** apparaat sjabloon met de volgende kenmerken:
 
-Een toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon bevat een **MXChip** apparaat sjabloon met de volgende kenmerken: 
-
-- Telemetrie waarin de metingen voor het apparaat **vochtigheid**, **temperatuur**, **druk te verlichten**, **Magnometer** (gemeten langs de X Y, Z-as), **versnellingsmeter** (gemeten langs de X, Y, Z-as) en **gyroscoop** (gemeten langs de X, Y, Z-as).
+- Telemetrie waarin de metingen voor het apparaat **vochtigheid**, **temperatuur**, **druk te verlichten**, **Magnetometer** (gemeten langs de X, Y, Z-as), **versnellingsmeter** (gemeten langs de X, Y, Z-as) en **gyroscoop** (gemeten langs de X, Y, Z-as).
 - Status die bevat een voorbeeld van de meting voor **Apparaatstatus**.
 - Gebeurtenis-meting met een **B gedrukt** gebeurtenis. 
 - Instellingen van **spanning**, **huidige**, **ventilatorsnelheid**, en een **IR** in-/ uitschakelen.
 - Eigenschappen van de apparaateigenschappen **die nummer** en **locatie van het apparaat** is een locatie-eigenschap ook als in een **geproduceerd In** eigenschap in de cloud. 
 
-
-Voor volledige informatie over de configuratie van de verwijzen naar [MXChip sjabloon Apparaatdetails](howto-connect-devkit.md#mxchip-device-template-details)
+Voor volledige informatie over de configuratie van de verwijzen naar [MXChip sjabloon Apparaatdetails](#mxchip-device-template-details)
 
 
 ## <a name="add-a-real-device"></a>Echt apparaat toevoegen
@@ -46,28 +44,24 @@ Voor volledige informatie over de configuratie van de verwijzen naar [MXChip sja
 Voeg in uw Azure IoT Central-toepassing een echt apparaat uit de **MXChip** apparaat sjabloon en maak een notitie van de verbindingsgegevens van het apparaat (**bereik-ID, apparaat-ID en primaire sleutel**).
 
 1. Voeg een **echt apparaat** Device Explorer, selecteer **+ Nieuw > echte** om toe te voegen een echt apparaat.
+
     * Voer de apparaat-Id **<span style="color:Red">(moet zich bevinden in kleine letters)</span>** of gebruikt u de voorgestelde apparaat-id.
     * Voer de naam van het apparaat of de voorgestelde naam gebruiken
-    
-    ![Apparaat toevoegen](media/concepts-connectivity/add-device.png)
 
+    ![Apparaat toevoegen](media/howto-connect-devkit/add-device.png)
 
 1. Zoals Verbindingsdetails ophalen **bereik-ID, apparaat-ID en primaire sleutel** voor het apparaat door het selecteren van **Connect** op de Apparaatpagina.
- 
-    ![Verbindingsdetails](media/concepts-connectivity/device-connect.PNG)
 
-3. Als u tijdelijk de verbinding via internet verbroken bij het voorbereiden van het apparaat DevKit, zorg ervoor dat deze details op te slaan. 
+    ![Verbindingsdetails](media/howto-connect-devkit/device-connect.png)
 
+1. Als u tijdelijk de verbinding via internet verbroken bij het voorbereiden van het apparaat DevKit, zorg ervoor dat deze details op te slaan.
 
 ### <a name="prepare-the-devkit-device"></a>Het apparaat DevKit voorbereiden
 
 > [!NOTE]
 > Als u het apparaat eerder hebt gebruikt en Wi-Fi referenties opgeslagen en wilt configureren van het apparaat voor het gebruik van een ander Wi-Fi-netwerk, een verbindingsreeks of een telemetrie-meting hebt, drukt u op zowel de **A** en **B** tegelijkertijd knoppen op het bord. Als dit niet werkt, drukt u op **opnieuw** knop en probeer het opnieuw.
 
-
-
-#### <a name="to-prepare-the-devkit-device"></a>Het apparaat DevKit voorbereiden:
-
+#### <a name="to-prepare-the-devkit-device"></a>Het apparaat DevKit voorbereiden
 
 1. Download de meest recente vooraf gebouwde Azure IoT Central firmware voor de MXChip uit de [releases](https://aka.ms/iotcentral-docs-MXChip-releases) pagina op GitHub.
 1. Verbind het apparaat DevKit naar uw ontwikkelmachine met behulp van een USB-kabel. In Windows, wordt een bestand explorer-venster geopend op een station dat is toegewezen aan de opslag op het apparaat DevKit. Bijvoorbeeld: het station kan worden aangeroepen **AZ3166 (D:)**.
@@ -78,12 +72,12 @@ Voeg in uw Azure IoT Central-toepassing een echt apparaat uit de **MXChip** appa
     ```
     Connect HotSpot:
     AZ3166_??????
-    go-> 192.168.0.1 
+    go-> 192.168.0.1
     PIN CODE xxxxx
     ```
 
     > [!NOTE]
-    > Als het scherm wordt weergegeven iets anders, opnieuw instellen van het apparaat en druk op de **A** en **B** knoppen op het apparaat op hetzelfde moment opnieuw opstarten van het apparaat. 
+    > Als het scherm wordt weergegeven iets anders, opnieuw instellen van het apparaat en druk op de **A** en **B** knoppen op het apparaat op hetzelfde moment opnieuw opstarten van het apparaat.
 
 1. Het apparaat is nu in de toegangsmodus punt (AP). U kunt met dit Wi-Fi-toegangspunt voor het verbinden van uw computer of mobiel apparaat.
 
@@ -178,7 +172,7 @@ De code in de **iotHubClient.cpp** bronbestand gebruikmaakt van functies van de 
 
 Zie voor meer informatie over het wijzigen, bouwen en de voorbeeldcode uploaden naar uw apparaat, de **readme.md** -bestand in de `AZ3166` map.
 
-## <a name="mxchip-device-template-details"></a>MXChip sjabloon Apparaatdetails 
+## <a name="mxchip-device-template-details"></a>MXChip sjabloon Apparaatdetails
 
 Een toepassing gemaakt op basis van de sjabloon van de toepassing Devkits voorbeeld bevat een sjabloon voor het apparaat van MXChip met de volgende kenmerken:
 

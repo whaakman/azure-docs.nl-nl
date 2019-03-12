@@ -11,15 +11,15 @@ ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: fe56b84b881b2afce9da9a7f7dfe4637c3494aa8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: d47aab9e3d083cd7f51b1c3ba613f421fc1777a6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261958"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57764095"
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>BizTalk Services maken met de Azure Portal
 
@@ -143,8 +143,8 @@ Wanneer er een Azure BizTalk Service wordt gemaakt, wordt er ook een HTTPS-URL m
 <br/>
 
 <ul>
-<li><strong>Verbeterd sleutelgebruik</strong>: voor Azure BizTalk Services is minimaal serververificatie vereist.</li>
-<li><strong>Algemene naam</strong>: voer de FQDN (Fully Qualified Domain Name) van uw Azure BizTalk Service-URL in. Zie <a HREF="#CreateService">Een BizTalk Service maken</a> in dit artikel.</li>
+<li><strong>Enhanced Key Usage</strong>: Azure BizTalk Services is minimaal serververificatie vereist.</li>
+<li><strong>Algemene naam</strong>: Voer de volledig gekwalificeerde domeinnaam (FQDN) van uw Azure BizTalk Service-URL. Zie <a HREF="#CreateService">Een BizTalk Service maken</a> in dit artikel.</li>
 </ul>
 <br/>
 Er kan een nieuw of ander certificaat worden toegevoegd nadat de BizTalk Service is gemaakt.
@@ -165,14 +165,14 @@ Hybride verbindingen worden gebruikt om verbinding te maken tussen een Azure-web
  Zie [Hybride verbindingen](integration-hybrid-connection-overview.md) voor meer informatie, waaronder het maken en beheren van hybride verbindingen.
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu u een BizTalk Service hebt gemaakt, is het tijd om uzelf bekend te maken met [de tabbladen Dashboard, Bewaken en Schalen van BizTalk Services](biztalk-dashboard-monitor-scale-tabs.md). U kunt nu toepassingen maken met uw BizTalk Service. Ga naar [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197) om te beginnen met het maken van toepassingen.
+Nu er een BizTalk Service is gemaakt, raken met de verschillende [BizTalk Services: Tabbladen dashboard, bewaken en schalen](biztalk-dashboard-monitor-scale-tabs.md). U kunt nu toepassingen maken met uw BizTalk Service. Ga naar [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197) om te beginnen met het maken van toepassingen.
 
 ## <a name="see-also"></a>Zie ook
-* [BizTalk Services: grafiek van edities](biztalk-editions-feature-chart.md)<br/>
-* [BizTalk Services: statusgrafiek](biztalk-service-state-chart.md)<br/>
-* [BizTalk Services: back-ups maken en herstellen](biztalk-backup-restore.md)<br/>
-* [BizTalk Services: beperking](biztalk-throttling-thresholds.md)<br/>
-* [BizTalk Services: naam en sleutel van verlener](biztalk-issuer-name-issuer-key.md)<br/>
+* [BizTalk Services: Grafiek van edities](biztalk-editions-feature-chart.md)<br/>
+* [BizTalk Services: Statusgrafiek](biztalk-service-state-chart.md)<br/>
+* [BizTalk Services: Back-up en herstel](biztalk-backup-restore.md)<br/>
+* [BizTalk Services: Beperking](biztalk-throttling-thresholds.md)<br/>
+* [BizTalk Services: Naam en sleutel van verlener](biztalk-issuer-name-issuer-key.md)<br/>
 * [De Azure BizTalk Services SDK gaan gebruiken](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 * [Hybride verbindingen](integration-hybrid-connection-overview.md)
 

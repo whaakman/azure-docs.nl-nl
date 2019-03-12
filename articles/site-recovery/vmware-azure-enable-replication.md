@@ -3,15 +3,15 @@ title: Inschakelen van replicatie van VMware-VM's voor noodherstel van VMware na
 description: In dit artikel wordt beschreven hoe u de replicatie van VMware-VM's voor herstel na noodgevallen naar Azure met behulp van Azure Site Recovery inschakelt.
 author: mayurigupta13
 ms.service: site-recovery
-ms.date: 3/3/2019
+ms.date: 3/6/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 47cd1c8e7a8ea02175f1f35eaf8c1658e03a2a53
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 26b0370af900e1c29bf11606339487cf27f88039
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403308"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533422"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Schakel replicatie naar Azure voor VMware-VM 's
 
@@ -39,6 +39,12 @@ Bij het repliceren van virtuele VMware-machines:
 
 ## <a name="enable-replication"></a>Replicatie inschakelen
 
+>[!NOTE]
+>* Azure Site Recovery repliceert nu rechtstreeks naar Managed Disks voor alle nieuwe replicaties. Processerver schrijft de replicatielogboeken naar een cache-opslagaccount in de doelregio. Deze logboeken worden gebruikt voor het maken van herstelpunten op beheerde replicaschijven. 
+>* Het herstelpunt dat is geselecteerd door de klant wordt op het moment van failover gebruikt om de beheerde schijf maken.
+>* Virtuele machines die eerder zijn geconfigureerd om te repliceren naar de doelopslagaccounts wordt niet beïnvloed. 
+>* Replicatie naar storage-accounts voor een nieuwe virtuele machine is alleen beschikbaar via REST-API en Powershell. API-versie 2016-08-10- of 2018-01-10 gebruiken voor het repliceren naar storage-accounts.
+
 1. Klik op **stap 2: Toepassing repliceren** > **bron**. Wanneer u replicatie voor het eerst inschakelt, klikt u in de kluis op **+Repliceren** om replicatie in te schakelen voor aanvullende machines.
 2. In de **bron** pagina > **bron**, selecteer de configuratieserver.
 3. In **type Machine**, selecteer **virtuele Machines** of **fysieke Machines**.
@@ -50,14 +56,13 @@ Bij het repliceren van virtuele VMware-machines:
 6. In **doel**, selecteer het abonnement en de resourcegroep waar u de failover-virtuele machines maken. Kies het implementatiemodel dat u wilt gebruiken in Azure voor de failover-virtuele machines.
 
 7. Selecteer het Azure-netwerk en -subnet waarmee virtuele Azure-machines verbinding maken wanneer ze na een failover worden geactiveerd. Het netwerk moet zich in dezelfde regio bevinden als de Recovery Services-kluis. Selecteer **Nu configureren voor geselecteerde machines** om de netwerkinstelling toe te passen op alle machines die u voor beveiliging selecteert. Selecteer **Later configureren** om per machine een Azure-netwerk te selecteren. Als u een netwerk hebt, moet u er een maken. Voor het maken van een netwerk met behulp van Resource Manager, klikt u op **nieuw**. Selecteer een subnet, indien van toepassing, en klik vervolgens op **OK**.
+   
+   ![Instelling voor het doel van replicatie inschakelen](./media/vmware-azure-enable-replication/enable-rep3.png)
 
->[!NOTE]
->Azure Site Recovery repliceert nu rechtstreeks naar Managed Disks voor alle nieuwe replicaties. Bestaande replicaties heeft geen invloed. Replicatie naar storage-accounts voor een nieuwe virtuele machine is alleen beschikbaar via REST-API en Powershell. 
-
-    ![Enable replication target setting](./media/vmware-azure-enable-replication/enable-rep3.png)
 8. Selecteer in **Virtuele machines** > **Virtuele machines selecteren** alle machines die u wilt repliceren. U kunt alleen machines selecteren waarvoor replicatie kan worden ingeschakeld. Klik vervolgens op **OK**. Als u een bepaalde virtuele machine niet kunt weergeven of selecteren, klikt u [hier](https://aka.ms/doc-plugin-VM-not-showing) om het probleem te verhelpen.
 
     ![Inschakelen van replicatie virtuele machines selecteren](./media/vmware-azure-enable-replication/enable-replication5.png)
+
 9. In **eigenschappen** > **eigenschappen configureren**, selecteert u de account die door de processerver wordt gebruikt voor het installeren van de Mobility-Service automatisch op de machine. Kies ook het type beheerde schijf die u repliceren wilt naar op basis van uw gegevens verloop patronen.
 10. Standaard worden alle schijven van een bron-VM gerepliceerd. Als u wilt schijven uitsluiten van replicatie, schakel het selectievakje **opnemen** selectievakje op basis van alle schijven die u niet wilt repliceren.  Klik vervolgens op **OK**. Later kunt u eventueel extra eigenschappen instellen. [Meer informatie](vmware-azure-exclude-disk.md) over het uitsluiten van schijven.
 
@@ -72,9 +77,8 @@ Bij het repliceren van virtuele VMware-machines:
     >    * Verzamelen van virtuele machines en fysieke servers samen zodat ze uw workloads. Inschakelen van multi-VM-consistentie kan invloed hebben op prestaties van de werkbelastingen. Gebruik alleen als machines dezelfde werkbelasting worden uitgevoerd en u consistentie.
 
     ![Replicatie inschakelen](./media/vmware-azure-enable-replication/enable-replication7.png)
+    
 13. Klik op **Replicatie inschakelen**. U kunt de voortgang van de taak **Beveiliging inschakelen** volgen via **Instellingen** > **Taken** > **Site Recovery-taken**. Nadat de taak **Beveiliging voltooien** is uitgevoerd, is de machine klaar voor een mogelijke failover.
-
-
 
 ## <a name="view-and-manage-vm-properties"></a>Eigenschappen van virtuele machines weergeven en beheren
 

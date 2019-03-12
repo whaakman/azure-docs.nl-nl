@@ -10,12 +10,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: carlrab
-ms.openlocfilehash: 9bd330c2be2b543bd7238dd1641df0d092a8a17d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 9a461f84577997ff976956b7f2f50500e9b3d323
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57434898"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548061"
 ---
 # <a name="sql-database-release-notes"></a>Opmerkingen bij de release van SQL-Database
 
@@ -27,6 +27,7 @@ In dit artikel bevat de nieuwe functies en verbeteringen in de service SQL Datab
 
 | Verbeteringen van de services | Details |
 | --- | --- |
+| Binnenkort beschikbaar ||
 | &nbsp; |
 
 ### <a name="documentation-improvements"></a>Verbeteringen in de documentatie bij

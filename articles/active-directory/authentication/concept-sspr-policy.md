@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fed31d07f4bbe9fc47ce0d2c31f45fed288c4c4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e5639984c6eef7d1c081fd52061988d3535c00fa
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218020"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576987"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Wachtwoordbeleid en beperkingen in Azure Active Directory
 
@@ -50,6 +50,8 @@ Het beleid voor twee-gate vereist twee soorten verificatiegegevens, zoals een **
   * Servicebeheerder voor toepassingsproxy
   * CRM-servicebeheerder
   * Power BI-servicebeheerder
+  * Verificatiebeheerder
+  * Beheerder met bevoorrechte verificatie
 
 * Als de 30 dagen zijn verstreken in een proefabonnement; of
 * Een aangepast domein is aanwezig, zoals contoso.com; of
@@ -75,13 +77,13 @@ Elke gebruikersaccount die u zich moet aanmelden bij Azure AD moet een unieke ge
 
 ## <a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Wachtwoordbeleid die alleen van toepassing op cloud-gebruikersaccounts
 
-De volgende tabel beschrijft de beschikbare wachtwoord-beleidsinstellingen die kunnen worden toegepast op gebruikersaccounts die zijn gemaakt en beheerd in Azure AD:
+De volgende tabel beschrijft de instellingen voor het beleid toegepast op gebruikersaccounts die zijn gemaakt en beheerd in Azure AD:
 
 | Eigenschap | Vereisten |
 | --- | --- |
 | Toegestane tekens |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
-| Zijn niet toegestaan |<ul><li>Unicode-tekens.</li><li>Spaties.</li><li> Alleen sterke wachtwoorden: Mag een punt-teken niet bevatten "." Direct vóór de '\@ \" symbool ".</li></ul> |
-| Wachtwoordbeperkingen |<ul><li>Ten minste 8 tekens en maximaal 16 tekens bestaan.</li><li>Alleen sterke wachtwoorden: Moet drie van vier van de volgende opties:<ul><li>Kleine letters.</li><li>Hoofdletters.</li><li>Cijfers (0-9).</li><li>De symbolen (Zie de vorige wachtwoordbeperkingen).</li></ul></li></ul> |
+| Zijn niet toegestaan |<ul><li>Unicode-tekens.</li><li>Spaties.</li><li> Mag een punt-teken niet bevatten "." direct vóór de '\@ \" symbool ".</li></ul> |
+| Wachtwoordbeperkingen |<ul><li>Ten minste 8 tekens en maximaal 16 tekens bestaan.</li><li>Moet drie van vier van de volgende opties:<ul><li>Kleine letters.</li><li>Hoofdletters.</li><li>Cijfers (0-9).</li><li>De symbolen (Zie de vorige wachtwoordbeperkingen).</li></ul></li></ul> |
 | Duur van de wachtwoord-vervaldatum |<ul><li>Standaardwaarde: **90** dagen.</li><li>De waarde kan worden geconfigureerd met behulp van de `Set-MsolPasswordPolicy` cmdlet uit de Azure Active Directory-Module voor Windows PowerShell.</li></ul> |
 | Melding van wachtwoord-vervaldatum |<ul><li>Standaardwaarde: **14** dagen (voordat wachtwoord is verlopen).</li><li>De waarde kan worden geconfigureerd met behulp van de `Set-MsolPasswordPolicy` cmdlet.</li></ul> |
 | Wachtwoord verloopt |<ul><li>Standaardwaarde: **false** dagen (geeft aan dat wachtwoord-vervaldatum is ingeschakeld).</li><li>De waarde voor afzonderlijke gebruikersaccounts kan worden geconfigureerd met behulp van de `Set-MsolUser` cmdlet.</li></ul> |

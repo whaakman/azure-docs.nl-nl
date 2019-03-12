@@ -3,7 +3,7 @@ title: KRITIEKE SERVICE is mislukt bij het opstarten van een Azure-VM | Microsof
 description: Informatie over het oplossen van de '0x0000005A kritieke SERVICE mislukt'-fout die optreedt bij het opstarten | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genlin
+author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: ffc8bd21468847a71a44be2244c72af7016cd65f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4d450bc4e05a70ff8c1698dd2760d0f71140db21
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432019"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763637"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows bevat 'Kritieke SERVICE is mislukt' in blauw scherm bij het opstarten van een Azure-VM
 Dit artikel beschrijft de fout 'Kritieke SERVICE is mislukt', die optreden kunnen tijdens het opstarten van een Windows virtuele Machine (VM) in Microsoft Azure. Het biedt oplossen van problemen met stappen om u te helpen bij het oplossen van problemen. 

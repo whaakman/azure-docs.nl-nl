@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 3a1d363e08d4c7e9899f034b2260e764d07ed79d
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: c7eb490bdf484651613c5c7a72d2a31be5306634
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57344756"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773789"
 ---
-# <a name="understand-and-work-with-scopes"></a>Begrijpen en gebruiken met scopes
+# <a name="understand-and-work-with-scopes"></a>Bereiken begrijpen en gebruiken
 
 In dit artikel krijgt u inzicht in facturering en resource management bereiken die beschikbaar zijn in Azure en het gebruik van de bereiken in Cost Management en API's.
 
@@ -145,6 +145,10 @@ Facturering-gebruikers hebben geen toegang tot van beheergroepen omdat ze explic
 ## <a name="cloud-solution-provider-csp-scopes"></a>Cloud Solution Provider (CSP) bereiken
 
 Cloud Solution Provider (CSP) partners worden niet ondersteund in Cost Management vandaag nog. In plaats daarvan kunt u [Partner Center](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
+
+## <a name="how-to-switch-between-scopes-within-cost-management"></a>Schakelen tussen bereiken in Cost Management
+
+Alle Cost Management ervaringen in Azure portal omvatten een **bereik** pill in de linkerbovenhoek van de blade, waarmee u toegang hebt om snel bereik wijzigen. Te klikken op de **bereik** pill Hiermee opent u een bereik kiezen waarin facturering accounts, de root management-groep en alle abonnementen die niet worden genest onder het root-beheergroep. Als u wilt een bereik selecteert, klikt u op de achtergrond Markeer deze en klik vervolgens op de **Selecteer** knop aan de onderkant. Als u wilt inzoomen op geneste bereiken (bijvoorbeeld resourcegroepen binnen een abonnement), klikt u op de koppeling van de naam van bereik. Als u wilt het bovenliggende bereik op het niveau van alle geneste selecteren, klikt u op de **Selecteer deze optie <scope>**  knop aan de bovenkant van de bereikskiezer voor.
 
 ## <a name="identify-the-resource-id-for-a-scope"></a>Identificeren van de resource-ID voor een bereik
 

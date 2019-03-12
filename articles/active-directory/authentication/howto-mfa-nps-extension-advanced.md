@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b236cc799a4ff84c3833f181ebec6305f1ec6942
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2690cb4243597c942b6679b5864016bf14fcbad1
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171313"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57732434"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Geavanceerde configuratieopties voor de NPS-extensie voor meervoudige verificatie
 
@@ -46,7 +46,7 @@ Als u wilt een goedgekeurde IP-adressen configureren, gaat u naar `HKLM\SOFTWARE
 
 | Name | Type | Standaardwaarde | Description |
 | ---- | ---- | ------------- | ----------- |
-| IP_WHITELIST | string | Leeg | Geef een door puntkomma's gescheiden lijst met IP-adressen. Neem het IP-adressen van machines waar aanvragen afkomstig, zoals de NAS/VPN-server zijn. IP-bereiken zijn subnetten worden niet ondersteund. <br><br> Bijvoorbeeld, *10.0.0.1;10.0.0.2;10.0.0.3*.
+| IP_WHITELIST | string | Leeg | Geef een door puntkomma's gescheiden lijst met IP-adressen. Neem het IP-adressen van machines waar aanvragen afkomstig, zoals de NAS/VPN-server zijn. IP-bereiken en subnetten worden niet ondersteund. <br><br> Bijvoorbeeld, *10.0.0.1;10.0.0.2;10.0.0.3*.
 
 Wanneer een aanvraag gaat vanaf een IP-adres dat in de whitelist staan bestaat, wordt verificatie in twee stappen wordt overgeslagen. De goedgekeurde IP-adressen wordt vergeleken met het IP-adres dat is opgegeven in de *ratNASIPAddress* kenmerk van de RADIUS-aanvraag. Als een RADIUS-aanvraag zonder het kenmerk ratNASIPAddress komt, wordt de volgende waarschuwing vastgelegd: "P_WHITE_LIST_WARNING::IP Whitelist wordt genegeerd als de bron-IP ontbreekt in de RADIUS-aanvraag in NasIpAddress kenmerk."
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 7ab63b869d9cd8a5b1f2b60429c5b54d0da5761f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: cd2eb3ba1d3207f4f210aa259e938bb42b44d37a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002071"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535447"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(AFGESCHAFT) Microservices canary-release met Vamp op een Azure Container Service DC/OS-cluster
 
@@ -31,7 +31,7 @@ In dit scenario wordt ingesteld Vamp in Azure Container Service met een DC/OS-cl
 
 [Canary vrijgeven](https://martinfowler.com/bliki/CanaryRelease.html) is een slimme implementatie-strategie door innovatieve organisaties zoals Netflix, Facebook en Spotify vastgesteld. Het is een benadering die zinvol, omdat deze problemen vermindert, veiligheid-netten introduceert en verhoogt de innovatie. Dus waarom niet alle bedrijven gebruikt? Uitbreiden van een CI/CD-pijplijn om op te nemen canary strategieën voegt complexiteit toe en uitgebreide devops kennis en ervaring voor nodig. Dat is voldoende zijn voor het blokkeren van kleinere bedrijven en ondernemingen die zowel voordat ze zelfs aan de slag. 
 
-[Vamp](http://vamp.io/) een open-source-systeem dat is ontworpen voor het vereenvoudigen van deze overgang en breng Canarische functies aan uw voorkeur container scheduler brengt. Canary functionaliteit van vamp gaat dan implementaties op basis van een percentage. Verkeer kan worden gefilterd en splitsen op een breed scala aan de voorwaarden, bijvoorbeeld voor richten op specifieke gebruikers, IP-adresbereiken of apparaten. Vamp worden bijgehouden en maatstaven voor prestaties, waardoor het automation op basis van echte gegevens analyseert. U kunt instellen van automatisch herstel op fouten of afzonderlijke service varianten op basis van de belasting of latentie te schalen.
+[Vamp](https://vamp.io/) een open-source-systeem dat is ontworpen voor het vereenvoudigen van deze overgang en breng Canarische functies aan uw voorkeur container scheduler brengt. Canary functionaliteit van vamp gaat dan implementaties op basis van een percentage. Verkeer kan worden gefilterd en splitsen op een breed scala aan de voorwaarden, bijvoorbeeld voor richten op specifieke gebruikers, IP-adresbereiken of apparaten. Vamp worden bijgehouden en maatstaven voor prestaties, waardoor het automation op basis van echte gegevens analyseert. U kunt instellen van automatisch herstel op fouten of afzonderlijke service varianten op basis van de belasting of latentie te schalen.
 
 ## <a name="set-up-azure-container-service-with-dcos"></a>Azure Container Service met DC/OS instellen
 
@@ -93,7 +93,7 @@ Elasticsearch vereist vamp voor het verzamelen van metrische gegevens en aggrega
   ```
   
 
-3. Klik op **implementeren**.
+3. Klik op **Implementeren**.
 
   DC/OS implementeert de Elasticsearch-container. U kunt de voortgang volgen op de **Services** pagina.  
 
@@ -122,14 +122,14 @@ Als Elasticsearch als rapporteert **met**, kunt u de DC/OS-universum Vamp-pakket
 
   ![Vamp-service op DC/OS](./media/container-service-dcos-vamp-canary-release/07_deploy_vamp_complete.png)
   
-  ![Gebruikersinterface vamp](./media/container-service-dcos-vamp-canary-release/08_vamp_ui.png)
+  ![Vamp UI](./media/container-service-dcos-vamp-canary-release/08_vamp_ui.png)
 
 
 ## <a name="deploy-your-first-service"></a>Uw eerste service implementeren
 
 Nu dat Vamp actief en werkend is een service implementeren vanuit een blauwdruk. 
 
-In de meest eenvoudige vorm een [Vamp blauwdruk](http://vamp.io/documentation/using-vamp/blueprints/) beschrijving van de eindpunten (gateways), clusters en services te implementeren. Vamp maakt gebruik van clusters op verschillende varianten van dezelfde service te groeperen in logische groepen voor canary vrijgeven of A / B-tests.  
+In de meest eenvoudige vorm een [Vamp blauwdruk](https://vamp.io/documentation/using-vamp/blueprints/) beschrijving van de eindpunten (gateways), clusters en services te implementeren. Vamp maakt gebruik van clusters op verschillende varianten van dezelfde service te groeperen in logische groepen voor canary vrijgeven of A / B-tests.  
 
 In dit scenario maakt gebruik van een voorbeeld van een monolithische toepassing met de naam [ **sava**](https://github.com/magneticio/sava), die versie 1.0 is. De monoliet bevindt zich in een Docker-container in Docker Hub onder magneticio/sava:1.0.0 is. De app wordt normaal uitgevoerd op poort 8080, maar u wilt om in dit geval onder poort 9050 zichtbaar te maken. Implementeer de app via Vamp met behulp van een eenvoudige blauwdruk.
 
@@ -187,7 +187,7 @@ Als alles is gemaakt, gaat u naar de **overzicht** blade van de load balancer vo
 
 ![Azure portal - openbare IP-adres ophalen](./media/container-service-dcos-vamp-canary-release/18_public_ip_address.png)
 
-![Sava](./media/container-service-dcos-vamp-canary-release/19_sava100.png)
+![sava](./media/container-service-dcos-vamp-canary-release/19_sava100.png)
 
 
 ## <a name="run-a-canary-release"></a>Canary-release uitvoeren
@@ -200,7 +200,7 @@ Samenvoegen van de nieuwe sava 1.1-service met de actieve implementatie:
 
 1. Klik in de gebruikersinterface Vamp **blauwdrukken**.
 
-2. Klik op **toevoegen** en plak deze in de volgende YAML-blauwdruk: deze blauwdruk wordt een nieuwe service-variant (sava: 1.1.0) te implementeren binnen het bestaande cluster (sava_cluster) beschreven.
+2. Klik op **toevoegen** en plak deze in de volgende YAML-blauwdruk: Deze blauwdruk wordt een nieuwe service-variant (sava: 1.1.0) te implementeren binnen het bestaande cluster (sava_cluster) beschreven.
 
   ```YAML
   name: sava:1.1.0      # blueprint name
@@ -291,9 +291,9 @@ We ook ingaan op enkele krachtige functies van Vamp: samenvoegen van een nieuwe 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over het beheren van Vamp acties via de [REST-API Vamp](http://vamp.io/documentation/api/api-reference/).
+* Meer informatie over het beheren van Vamp acties via de [REST-API Vamp](https://vamp.io/documentation/api/api-reference/).
 
 * Vamp automatiseringsscripts in Node.js bouwen en uitvoeren als [Vamp werkstromen](https://vamp.io/documentation/using-vamp/v1.0.0/workflows/#create-a-workflow).
 
-* Zie de aanvullende [VAMP zelfstudies](http://vamp.io/documentation/tutorials/).
+* Zie de aanvullende [VAMP zelfstudies](https://vamp.io/documentation/tutorials/).
 

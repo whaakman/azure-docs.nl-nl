@@ -12,18 +12,24 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5b3a77a28945b597fe4fdd57aadfc3e05196a353
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 30a16c2a8b82ff4b32b95b14937166b94aba06b5
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478250"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726954"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Automatisch instellen voor het bewaken van query's en verbeteren de prestaties van de werkbelastingen inschakelen
 
 Azure SQL Database is een automatisch beheerde service waarmee voortdurend uw query's worden gecontroleerd en geeft de actie die u uitvoeren kunt voor betere prestaties van uw workload. U kunt Bekijk aanbevelingen en handmatig toepassen of laat Azure SQL Database automatisch corrigerende maatregelen treffen: dit staat bekend als **modus voor automatisch afstemmen**.
 
 Automatisch afstemmen kan worden ingeschakeld op de server of het databaseniveau van de via de [Azure-portal](sql-database-automatic-tuning-enable.md#azure-portal), [REST-API](sql-database-automatic-tuning-enable.md#rest-api) aanroepen en [T-SQL](sql-database-automatic-tuning-enable.md#t-sql) opdrachten.
+
+> [!NOTE]
+> Voor beheerd exemplaar, de ondersteunde optie FORCE_LAST_GOOD_PLAN kan worden geconfigureerd via [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) alleen. Portal op basis van de configuratie en opties voor automatische index afstemmen die worden beschreven in dit artikel niet van toepassing op Managed Instance.
+
+> [!NOTE]
+> Configureren van opties voor automatisch afstemmen via (Azure Resource Manager) voor ARM-sjabloon wordt niet ondersteund op dit moment.
 
 ## <a name="enable-automatic-tuning-on-server"></a>Automatisch instellen op server inschakelen
 
@@ -51,7 +57,7 @@ Meer informatie over het gebruik van REST-API voor het inschakelen van automatis
 
 De Azure SQL Database kunt u de configuratie voor automatisch afstemmen voor elke database afzonderlijk opgeven. U kunt kiezen configuratie voor automatisch afstemmen overgenomen van de bovenliggende server, 'Azure standaard' of niet over te nemen van de configuratie op het databaseniveau van de. Standaardinstellingen van Azure zijn ingesteld op FORCE_LAST_GOOD_PLAN is ingeschakeld, CREATE_INDEX is ingeschakeld en DROP_INDEX is uitgeschakeld.
 
-> [!NOTE]
+> [!TIP]
 > De algemene aanbeveling is voor het beheren van de configuratie voor automatisch afstemmen op **serverniveau** zodat dezelfde configuratie-instellingen kunnen worden toegepast op elke database automatisch. Configureren van automatisch afstemmen op een afzonderlijke database alleen als u andere instellingen dan de andere database neemt instellingen over van dezelfde server.
 >
 

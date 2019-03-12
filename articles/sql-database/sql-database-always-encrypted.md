@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 manager: craigg
-ms.date: 11/07/2018
-ms.openlocfilehash: a54fa92e248cb75be315327f7389e62904c7c777
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 03/08/2019
+ms.openlocfilehash: 5226ec05af95cf305008968cf945070532274ee5
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754864"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726937"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Altijd versleuteld: Bescherming van gevoelige gegevens en opslag van versleutelingssleutels in het Windows-certificaatarchief
 
@@ -37,6 +37,7 @@ Volg de stappen in dit artikel voor meer informatie over het instellen van altij
 * Maak een toepassing die wordt ingevoegd, selecteert en gegevens uit de versleutelde kolommen worden weergegeven.
 
 ## <a name="prerequisites"></a>Vereisten
+
 Voor deze zelfstudie hebt u het volgende nodig:
 
 * Een Azure-account en -abonnement. Als u niet hebt, kunt u zich aanmelden voor een [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/).
@@ -45,30 +46,33 @@ Voor deze zelfstudie hebt u het volgende nodig:
 * [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 
 ## <a name="create-a-blank-sql-database"></a>Een lege SQL-database maken
+
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Klik op **een resource maken** > **gegevens en opslag** > **SQL-Database**.
 3. Maak een **leeg** database met de naam **Clinic** op een nieuwe of bestaande server. Zie voor gedetailleerde instructies over het maken van een database in Azure portal [uw eerste Azure SQL-database](sql-database-single-database-get-started.md).
-   
+
     ![Een lege database maken](./media/sql-database-always-encrypted/create-database.png)
 
 U moet de verbindingsreeks later in de zelfstudie. Nadat de database is gemaakt, gaat u naar de nieuwe Clinic-database en kopieer de verbindingsreeks. U kunt de verbindingsreeks ophalen op elk gewenst moment, maar het is gemakkelijk om deze te kopiëren wanneer u zich in de Azure-portal.
 
 1. Klik op **SQL-databases** > **Clinic** > **databaseverbindingsreeksen tonen**.
 2. Kopieer de verbindingsreeks voor **ADO.NET**.
-   
+
     ![De verbindingsreeks kopiëren](./media/sql-database-always-encrypted/connection-strings.png)
 
 ## <a name="connect-to-the-database-with-ssms"></a>Verbinding maken met de database via SQL Server Management Studio
+
 Open SSMS en maak verbinding met de server met de Clinic-database.
 
 1. Open SQL Server Management Studio. (Klik op **Connect** > **Database-Engine** openen de **verbinding maken met Server** venster als deze niet geopend is).
 2. Voer uw servernaam en referenties. Naam van de server kan worden gevonden op de blade SQL-database en in de connection string u eerder hebt gekopieerd. Typ de volledige naam, waaronder *database.windows.net*.
-   
+
     ![De verbindingsreeks kopiëren](./media/sql-database-always-encrypted/ssms-connect.png)
 
 Als de **nieuwe firewallregel** venster wordt geopend, aanmelden bij Azure en laat SSMS een nieuwe firewallregel maken voor u.
 
 ## <a name="create-a-table"></a>Een tabel maken
+
 In deze sectie maakt u een tabel voor het opslaan van de gegevens. Dit is een normale tabel in eerste instantie--u versleuteling configureert in de volgende sectie.
 
 1. Vouw **Databases**.
@@ -89,18 +93,19 @@ In deze sectie maakt u een tabel voor het opslaan van de gegevens. Dit is een no
          PRIMARY KEY CLUSTERED ([PatientId] ASC) ON [PRIMARY] );
          GO
 
-
 ## <a name="encrypt-columns-configure-always-encrypted"></a>Versleutelen van de kolommen (Always Encrypted configureren)
+
 SSMS bevat een wizard voor het configureren van eenvoudig altijd versleuteld door het instellen van de CMK, CEK en versleutelde kolommen voor u.
 
 1. Vouw **Databases** > **Clinic** > **tabellen**.
 2. Met de rechtermuisknop op de **patiënten** tabel en selecteer **versleutelen kolommen** om de wizard Always Encrypted te openen:
-   
+
     ![Versleutelen van kolommen](./media/sql-database-always-encrypted/encrypt-columns.png)
 
 De wizard Always Encrypted bevat de volgende secties: **Kolom selecteren**, **hoofdsleutel configuratie** (CMK), **validatie**, en **samenvatting**.
 
 ### <a name="column-selection"></a>Kolom selecteren
+
 Klik op **volgende** op de **inleiding** pagina wordt geopend de **kolomselectie** pagina. Op deze pagina, selecteert u welke kolommen u versleutelen wilt, [het type versleuteling, en welke kolomversleutelingssleutel (CEK)](https://msdn.microsoft.com/library/mt459280.aspx#Anchor_2) te gebruiken.
 
 Versleutelen **SSN** en **geboortedatum** informatie voor elke patiënt. De **SSN** kolom gebruikt deterministische versleuteling, die ondersteuning biedt voor gelijkheid zoekacties, joins en groeperen op. De **geboortedatum** kolom willekeurige versleuteling, die geen ondersteuning biedt voor bewerkingen wordt gebruikt.
@@ -110,6 +115,7 @@ Instellen de **versleutelingstype** voor de **SSN** kolom **Deterministic** en d
 ![Versleutelen van kolommen](./media/sql-database-always-encrypted/column-selection.png)
 
 ### <a name="master-key-configuration"></a>Configuratie van de hoofdsleutel
+
 De **hoofdsleutel configuratie** pagina is waar u uw CMK instellen en selecteert u de sleutel van de opslagprovider waar de CMK worden opgeslagen. U kunt op dit moment een CMK opslaan in het certificaatarchief van Windows, Azure Key Vault of een hardware security module (HSM). Deze zelfstudie laat zien hoe uw sleutels worden opgeslagen in het Windows-certificaatarchief.
 
 Controleer **Windows-certificaatarchief** is geselecteerd en klik op **volgende**.
@@ -117,14 +123,17 @@ Controleer **Windows-certificaatarchief** is geselecteerd en klik op **volgende*
 ![Configuratie van de hoofdsleutel](./media/sql-database-always-encrypted/master-key-configuration.png)
 
 ### <a name="validation"></a>Validatie
+
 U kunt nu de kolommen versleutelen of opslaan van een PowerShell-script later uit te voeren. Selecteer voor deze zelfstudie **gaat u verder met de nu voltooien** en klikt u op **volgende**.
 
 ### <a name="summary"></a>Samenvatting
+
 Controleer of de instellingen juist zijn en klik op **voltooien** om de instellingen voor altijd versleuteld.
 
 ![Samenvatting](./media/sql-database-always-encrypted/summary.png)
 
 ### <a name="verify-the-wizards-actions"></a>Controleer of de acties van de wizard
+
 Nadat de wizard voltooid is, wordt uw database instellen voor altijd versleuteld. De wizard zijn de volgende acties uitgevoerd:
 
 * Een CMK gemaakt.
@@ -134,12 +143,11 @@ Nadat de wizard voltooid is, wordt uw database instellen voor altijd versleuteld
 U kunt het maken van de sleutels in SSMS controleren door te gaan naar **Clinic** > **Security** > **sleutels altijd versleuteld**. U ziet nu de nieuwe sleutels die de wizard voor u gegenereerd.
 
 ## <a name="create-a-client-application-that-works-with-the-encrypted-data"></a>Een clienttoepassing die geschikt is voor de versleutelde gegevens maken
+
 Nu dat Always Encrypted is ingesteld, kunt u een toepassing die wordt uitgevoerd bouwen *voegt* en *selecteert* voor versleutelde kolommen. Als u wilt de voorbeeldtoepassing is uitgevoerd, moet u uitvoeren op dezelfde computer waarop u de wizard Always Encrypted werden uitgevoerd. Als u wilt de toepassing uitvoert op een andere computer, moet u uw certificaten altijd versleuteld met de computer waarop de client-app implementeren.  
 
 > [!IMPORTANT]
 > Uw toepassing moet gebruikmaken van [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) objecten als tekst zonder opmaak gegevens wordt doorgegeven aan de server met Always Encrypted kolommen. Doorgeven van letterlijke waarden zonder SqlParameter objecten leidt tot een uitzondering.
-> 
-> 
 
 1. Open Visual Studio en maak een nieuwe C#-consoletoepassing. Zorg ervoor dat uw project is ingesteld op **.NET Framework 4.6** of hoger.
 2. Noem het project **AlwaysEncryptedConsoleApp** en klikt u op **OK**.
@@ -147,6 +155,7 @@ Nu dat Always Encrypted is ingesteld, kunt u een toepassing die wordt uitgevoerd
 ![Nieuwe consoletoepassing](./media/sql-database-always-encrypted/console-app.png)
 
 ## <a name="modify-your-connection-string-to-enable-always-encrypted"></a>Wijzigen van de verbindingsreeks om in te schakelen Always Encrypted
+
 Deze sectie wordt uitgelegd hoe u voor het inschakelen van altijd versleuteld in de verbindingsreeks van uw database. Wijzigt u de console-app die u zojuist hebt gemaakt in de volgende sectie, "Always Encrypted-console-voorbeeldtoepassing."
 
 Om in te schakelen Always Encrypted, dat u wilt toevoegen de **kolom Versleutelingsinstelling** trefwoord dat u wilt uw verbinding tekenreeks en stel deze in op **ingeschakeld**.
@@ -155,16 +164,15 @@ U kunt deze rechtstreeks in de verbindingsreeks instellen en kunt u dit instelle
 
 > [!NOTE]
 > Dit is de enige wijziging vereist in een specifieke clienttoepassing altijd versleuteld. Als u een bestaande toepassing waarin extern diens verbindingsreeks hebben (dat wil zeggen, in een configuratiebestand), kunt u mogelijk om in te schakelen Always Encrypted zonder een code te wijzigen.
-> 
-> 
 
 ### <a name="enable-always-encrypted-in-the-connection-string"></a>Inschakelen van altijd versleuteld in de connection string
+
 De volgende trefwoord toevoegen aan uw verbindingsreeks:
 
     Column Encryption Setting=Enabled
 
-
 ### <a name="enable-always-encrypted-with-a-sqlconnectionstringbuilder"></a>Altijd versleuteld met een SqlConnectionStringBuilder inschakelen
+
 De volgende code laat zien hoe u om in te schakelen van altijd versleuteld door in te stellen de [SqlConnectionStringBuilder.ColumnEncryptionSetting](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting.aspx) naar [ingeschakeld](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectioncolumnencryptionsetting.aspx).
 
     // Instantiate a SqlConnectionStringBuilder.
@@ -175,9 +183,8 @@ De volgende code laat zien hoe u om in te schakelen van altijd versleuteld door 
     connStringBuilder.ColumnEncryptionSetting =
        SqlConnectionColumnEncryptionSetting.Enabled;
 
-
-
 ## <a name="always-encrypted-sample-console-application"></a>Altijd versleutelde console voorbeeldtoepassing
+
 Dit voorbeeld laat zien hoe u:
 
 * Wijzig de verbindingsreeks om in te schakelen altijd versleuteld.
@@ -188,20 +195,19 @@ Vervang de inhoud van **Program.cs** door de volgende code. De verbindingsreeks 
 
 De app om te zien van altijd versleuteld in actie uitvoeren.
 
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.Data;
-    using System.Data.SqlClient;
+```cs
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Globalization;
 
-    namespace AlwaysEncryptedConsoleApp
-    {
+namespace AlwaysEncryptedConsoleApp
+{
     class Program
     {
         // Update this line with your Clinic database connection string from the Azure portal.
-        static string connectionString = @"Replace with your connection string";
+        static string connectionString = @"Data Source = SPE-T640-01.sys-sqlsvr.local; Initial Catalog = Clinic; Integrated Security = true";
 
         static void Main(string[] args)
         {
@@ -224,7 +230,6 @@ De app om te zien van altijd versleuteld in actie uitvoeren.
             Console.WriteLine(Environment.NewLine + "Enter server password:");
             connStringBuilder.Password = Console.ReadLine();
 
-
             // Assign the updated connection string to our global variable.
             connectionString = connStringBuilder.ConnectionString;
 
@@ -235,16 +240,42 @@ De app om te zien van altijd versleuteld in actie uitvoeren.
             // Add sample data to the Patients table.
             Console.Write(Environment.NewLine + "Adding sample patient data to the database...");
 
-            InsertPatient(new Patient() {
-                SSN = "999-99-0001", FirstName = "Orlando", LastName = "Gee", BirthDate = DateTime.Parse("01/04/1964") });
-            InsertPatient(new Patient() {
-                SSN = "999-99-0002", FirstName = "Keith", LastName = "Harris", BirthDate = DateTime.Parse("06/20/1977") });
-            InsertPatient(new Patient() {
-                SSN = "999-99-0003", FirstName = "Donna", LastName = "Carreras", BirthDate = DateTime.Parse("02/09/1973") });
-            InsertPatient(new Patient() {
-                SSN = "999-99-0004", FirstName = "Janet", LastName = "Gates", BirthDate = DateTime.Parse("08/31/1985") });
-            InsertPatient(new Patient() {
-                SSN = "999-99-0005", FirstName = "Lucy", LastName = "Harrington", BirthDate = DateTime.Parse("05/06/1993") });
+            CultureInfo culture = CultureInfo.CreateSpecificCulture("en-US");
+            InsertPatient(new Patient()
+            {
+                SSN = "999-99-0001",
+                FirstName = "Orlando",
+                LastName = "Gee",
+                BirthDate = DateTime.Parse("01/04/1964", culture)
+            });
+            InsertPatient(new Patient()
+            {
+                SSN = "999-99-0002",
+                FirstName = "Keith",
+                LastName = "Harris",
+                BirthDate = DateTime.Parse("06/20/1977", culture)
+            });
+            InsertPatient(new Patient()
+            {
+                SSN = "999-99-0003",
+                FirstName = "Donna",
+                LastName = "Carreras",
+                BirthDate = DateTime.Parse("02/09/1973", culture)
+            });
+            InsertPatient(new Patient()
+            {
+                SSN = "999-99-0004",
+                FirstName = "Janet",
+                LastName = "Gates",
+                BirthDate = DateTime.Parse("08/31/1985", culture)
+            });
+            InsertPatient(new Patient()
+            {
+                SSN = "999-99-0005",
+                FirstName = "Lucy",
+                LastName = "Harrington",
+                BirthDate = DateTime.Parse("05/06/1993", culture)
+            });
 
 
             // Fetch and display all patients.
@@ -294,7 +325,7 @@ De app om te zien van altijd versleuteld in actie uitvoeren.
             int returnValue = 0;
 
             string sqlCmdText = @"INSERT INTO [dbo].[Patients] ([SSN], [FirstName], [LastName], [BirthDate])
-         VALUES (@SSN, @FirstName, @LastName, @BirthDate);";
+     VALUES (@SSN, @FirstName, @LastName, @BirthDate);";
 
             SqlCommand sqlCmd = new SqlCommand(sqlCmdText);
 
@@ -465,10 +496,11 @@ De app om te zien van altijd versleuteld in actie uitvoeren.
         public string LastName { get; set; }
         public DateTime BirthDate { get; set; }
     }
-    }
-
+}
+```
 
 ## <a name="verify-that-the-data-is-encrypted"></a>Controleer of dat de gegevens worden versleuteld
+
 U kunt snel controleren dat de werkelijke gegevens op de server is versleuteld door het opvragen van de **patiënten** gegevens met SSMS. (Gebruik de huidige verbinding waarbij de versleutelingsinstelling voor de kolom is nog niet ingeschakeld.)
 
 Voer de volgende query uit op de Clinic-database.
@@ -484,24 +516,21 @@ Als u SSMS wilt krijgen tot de gegevens als tekst zonder opmaak, kunt u toevoege
 1. In SSMS, met de rechtermuisknop op uw server in **Objectverkenner**, en klik vervolgens op **verbinding verbreken**.
 2. Klik op **Connect** > **Database-Engine** openen de **verbinding maken met Server** venster en klik vervolgens op **opties**.
 3. Klik op **extra verbindingsparameters** en het type **Versleutelingsinstelling kolom = ingeschakeld**.
-   
+
     ![Nieuwe consoletoepassing](./media/sql-database-always-encrypted/ssms-connection-parameter.png)
 4. Voer de volgende query uit op de **Clinic** database.
-   
+
         SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
-   
+
      U ziet nu de gegevens als tekst zonder opmaak in het versleutelde kolommen.
 
     ![Nieuwe consoletoepassing](./media/sql-database-always-encrypted/ssms-plaintext.png)
 
-
-
 > [!NOTE]
 > Als u verbinding met SSMS (of een willekeurige client) vanaf een andere computer maken, geen toegang tot de versleutelingssleutels en is niet mogelijk om de gegevens te ontsleutelen.
-> 
-> 
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Nadat u een database die gebruikmaakt van altijd versleuteld hebt gemaakt, kunt u het volgende doen:
 
 * In dit voorbeeld worden uitgevoerd vanaf een andere computer. Deze geen toegang heeft tot de versleutelingssleutels, zodat deze geen toegang tot de gegevens als tekst zonder opmaak en kan niet worden uitgevoerd.
@@ -510,9 +539,9 @@ Nadat u een database die gebruikmaakt van altijd versleuteld hebt gemaakt, kunt 
 * [Altijd versleuteld certificaten implementeren op andere clientcomputers](https://msdn.microsoft.com/library/mt723359.aspx#Anchor_1) (Zie de sectie 'Waardoor certificaten beschikbaar voor toepassingen en-gebruikers').
 
 ## <a name="related-information"></a>Gerelateerde informatie
+
 * [Altijd versleuteld (clientontwikkeling)](https://msdn.microsoft.com/library/mt147923.aspx)
 * [Transparent Data Encryption](https://msdn.microsoft.com/library/bb934049.aspx)
 * [SQL Server-versleuteling](https://msdn.microsoft.com/library/bb510663.aspx)
 * [Altijd versleuteld Wizard](https://msdn.microsoft.com/library/mt459280.aspx)
 * [Blog van altijd versleuteld](https://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
-

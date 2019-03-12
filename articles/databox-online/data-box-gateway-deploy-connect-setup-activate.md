@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 03/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 887c1d554cd5bd2b935178a77a2de19e687ca3f2
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 84eb458c68c7accf1b638b8e21907516328cb892
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450401"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545087"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Zelfstudie: Verbinding maken, instellen, het activeren van Azure Data Box-Gateway (Preview) 
 
@@ -43,7 +43,6 @@ Voordat u configureren en van uw Data Box-Gateway instellen, controleert u of:
 * U hebt een virtueel apparaat ingericht en verkregen van een verbonden URL toe zoals beschreven in de [inrichten van een Data Box-Gateway in Hyper-V](data-box-gateway-deploy-provision-hyperv.md) of [inrichten van een Data Box-Gateway in VMware](data-box-gateway-deploy-provision-vmware.md).
 * U hebt de activeringssleutel van de gegevens in het Gateway-service die u hebt gemaakt om gegevens in het Gateway-apparaten te beheren. Ga voor meer informatie naar [voorbereidingen voor het implementeren van Azure Data Box Gateway](data-box-gateway-deploy-prep.md).
 
-<!--* If this is the second or subsequent virtual device that you are registering with an existing StorSimple Device Manager service, you should have the service data encryption key. This key was generated when the first device was successfully registered with this service. If you have lost this key, see [Get the service data encryption key](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) for your Data Box Gateway.-->
 
 ## <a name="connect-to-the-local-web-ui-setup"></a>Verbinding maken met de installatie van de lokale web-UI 
 
@@ -53,15 +52,15 @@ Voordat u configureren en van uw Data Box-Gateway instellen, controleert u of:
    
    Gebruik de verbindings-URL die u hebt genoteerd in de vorige zelfstudie. U ziet een foutbericht dat aangeeft dat er een probleem met het beveiligingscertificaat van de website is. Klik op **doorgaan naar deze webpagina**. (Deze stappen kunnen afwijken op basis van de browser die wordt gebruikt.)
    
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image2.png)
+    ![Fout tijdens de verbinding](./media/data-box-gateway-deploy-connect-setup-activate/image2.png)
 
 2. Aanmelden bij de webgebruikersinterface van uw virtuele apparaat. Is het standaardwachtwoord *Wachtwoord1*. 
    
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image3.png)
+    ![Aanmelden bij de lokale web-UI](./media/data-box-gateway-deploy-connect-setup-activate/image3.png)
 
 3. U wordt gevraagd het beheerderswachtwoord voor het apparaat te wijzigen. Typ in een nieuw wachtwoord op dat tussen 8 en 16 tekens bevat. Het wachtwoord moet 3 van de volgende bevatten: hoofdletters, kleine letters, cijfers en speciale tekens.
 
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image4.png)
+    ![Beheerderswachtwoord voor het apparaat wijzigen](./media/data-box-gateway-deploy-connect-setup-activate/image4.png)
 
 U bent nu op de **Dashboard** van uw apparaat.
 
@@ -69,15 +68,15 @@ U bent nu op de **Dashboard** van uw apparaat.
  
 1. Vanuit het dashboard, kunt u verschillende instellingen vereist voor het configureren en het virtuele apparaat registreren bij de gegevens in het Gateway-service gaan. De **netwerkinstellingen**, **Web proxyinstellingen**, en **tijdinstellingen** zijn optioneel. De enige vereiste instellingen zijn **apparaatnaam** en **Cloudinstellingen**.
    
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image5.png)
+    ![Lokale web-UI 'Dashboard' pagina](./media/data-box-gateway-deploy-connect-setup-activate/image5.png)
 
 2. In de **apparaatnaam** pagina, een beschrijvende naam voor uw apparaat configureren. De beschrijvende naam kan 1 tot en met 15 tekens lang zijn en mag letters, cijfers en afbreekstreepjes bevatten.
 
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image6.png)
+    ![Lokale web-UI 'Apparaatnaam' pagina](./media/data-box-gateway-deploy-connect-setup-activate/image6.png)
 
 3. (Optioneel) Configureer uw **netwerkinstellingen**. Er is ten minste 1 netwerkinterface en meer, afhankelijk van hoeveel u hebt geconfigureerd in de onderliggende virtuele machine. De **netwerkinstellingen** pagina voor een virtueel apparaat met één netwerkinterface ingeschakeld is, zoals hieronder weergegeven.
     
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image7.png)
+    ![Lokale web-UI "Netwerkinstellingen" pagina](./media/data-box-gateway-deploy-connect-setup-activate/image7.png)
    
     Bij het configureren van netwerkinstellingen, houd rekening met het volgende:
 
@@ -90,7 +89,7 @@ U bent nu op de **Dashboard** van uw apparaat.
 
 4. (Optioneel) Configureer uw webproxyserver. Hoewel webproxyconfiguratie optioneel is, er rekening mee dat als u een webproxy gebruikt, u alleen deze hier configureren kunt.
    
-   ![](./media/data-box-gateway-deploy-connect-setup-activate/image8.png)
+   ![Lokale web-UI 'Webproxy-instellingen' pagina](./media/data-box-gateway-deploy-connect-setup-activate/image8.png)
    
    In de **Web proxy** pagina:
    
@@ -101,7 +100,7 @@ U bent nu op de **Dashboard** van uw apparaat.
 
 5. (Optioneel) Configureer de tijdinstellingen voor uw apparaat, zoals tijdzone en de primaire en secundaire NTP-servers. NTP-servers zijn vereist, omdat het apparaat de tijd synchroniseren moet zodat deze kan worden geverifieerd met uw cloud-serviceproviders.
     
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image9.png)
+    ![Lokale web-UI "Tijdinstellingen" pagina](./media/data-box-gateway-deploy-connect-setup-activate/image9.png)
     
     In de **tijdinstellingen** pagina:
     
@@ -116,10 +115,17 @@ U bent nu op de **Dashboard** van uw apparaat.
 
     2. Klik op **Activeren**. 
        
-         ![](./media/data-box-gateway-deploy-connect-setup-activate/image10.png)
+         ![Lokale web-UI ' Cloud ' instellingenpagina](./media/data-box-gateway-deploy-connect-setup-activate/image10a.png)
     
-    3. U moet mogelijk Wacht een minuut voordat het apparaat wordt geactiveerd. Na het activeren van, wordt de pagina bijgewerkt om aan te geven dat het apparaat wordt geactiveerd.
+    3. Eerst wordt het apparaat geactiveerd. Het apparaat wordt vervolgens gescand voor alle essentiële updates en indien beschikbaar, de updates automatisch worden toegepast. U ziet een melding in die zin. 
 
+        Het dialoogvenster heeft ook een herstelsleutel of moet u kopiëren en sla deze op een veilige locatie. Deze sleutel wordt gebruikt voor het herstellen van uw gegevens in het geval dat het apparaat niet kan opstarten.
+
+        ![Lokale web-UI ' Cloud ' instellingenpagina](./media/data-box-gateway-deploy-connect-setup-activate/image12.png)    
+
+    4. U moet mogelijk Wacht enkele minuten nadat de update is voltooid. De pagina bijgewerkt om aan te geven dat het apparaat wordt geactiveerd.
+
+        ![Lokale web-UI ' Cloud ' instellingenpagina bijgewerkt](./media/data-box-gateway-deploy-connect-setup-activate/image13.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

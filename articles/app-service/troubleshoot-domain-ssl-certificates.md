@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 6f88079c5baac8cef677fd3afc5696cec5c00d92
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: d007f688483366f2f714a78b5bf9b56a67c55490
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653659"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730096"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Problemen met domein en SSL-certificaat oplossen in Azure App Service
 
@@ -95,6 +95,77 @@ Dit probleem kan optreden voor het gebruik van de volgende redenen:
     1. Meld u aan bij [Azure Portal](https://portal.azure.com).
     2. Ga naar **App Service-certificaten**, en selecteer het certificaat.
     3. Selecteer **configuratie van het certificaat** > **stap 2: Controleer of** > **domeinverificatie**. Deze stap verzendt een e-mailbericht naar de provider van het certificaat van Azure om het probleem te verhelpen.
+
+## <a name="custom-domain-problems"></a>Problemen met aangepast domein
+
+### <a name="a-custom-domain-returns-a-404-error"></a>Een aangepast domein retourneert een 404-fout 
+
+#### <a name="symptom"></a>Symptoom
+
+Wanneer u naar de site bladert met behulp van de aangepaste domeinnaam, ontvangt u de volgende strekking weergegeven:
+
+"Fout 404-Web-app niet vinden."
+
+#### <a name="cause-and-solution"></a>Oorzaak en oplossing
+
+**Oorzaak 1** 
+
+Het aangepaste domein die u hebt geconfigureerd, een CNAME- of A-record ontbreekt. 
+
+**Oplossing voor oorzaak 1**
+
+- Als u een A-record hebt toegevoegd, zorg ervoor dat er ook een TXT-record wordt toegevoegd. Zie voor meer informatie, [A-record maken](./app-service-web-tutorial-custom-domain.md#create-the-a-record).
+- Als u geen gebruik van het hoofddomein voor uw app, wordt u aangeraden dat u een CNAME-record in plaats van een A-record gebruiken.
+- Een CNAME-record en een A-record niet gebruiken voor hetzelfde domein bevinden. Dit probleem kan een conflict veroorzaken en te voorkomen dat het domein worden omgezet. 
+
+**Oorzaak 2** 
+
+De browser internet mogelijk nog steeds de oude IP-adres voor uw domein caching. 
+
+**Oplossing voor oorzaak 2**
+
+Schakel de browser. Voor Windows-apparaten, kunt u de opdracht uitvoeren `ipconfig /flushdns`. Gebruik [WhatsmyDNS.net](https://www.whatsmydns.net/) om te controleren of uw domein naar het IP-adres van de app verwijst. 
+
+### <a name="you-cant-add-a-subdomain"></a>U kunt geen een subdomein toevoegen 
+
+#### <a name="symptom"></a>Symptoom
+
+U kunt een nieuwe hostnaam niet toevoegen aan een app een subdomein toewijzen.
+
+#### <a name="solution"></a>Oplossing
+
+- Neem contact op met de beheerder van abonnement om ervoor te zorgen dat u gemachtigd bent de naam van een host toevoegt aan de app.
+- Als u meer subdomeinen nodig hebt, raden wij u wijzigt de domeinen te hosten op Azure Domain Name Service (DNS). U kunt met behulp van Azure DNS, 500 hostnamen toevoegen aan uw app. Zie voor meer informatie, [een subdomein toevoegen](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/).
+
+### <a name="dns-cant-be-resolved"></a>DNS kan niet worden omgezet
+
+#### <a name="symptom"></a>Symptoom
+
+U hebt ontvangen het volgende foutbericht:
+
+"De DNS-record kan niet worden gevonden."
+
+#### <a name="cause"></a>Oorzaak
+Dit probleem doet zich voor een van de volgende redenen:
+
+- Time to live (TTL) periode niet is verlopen. Controleer de DNS-configuratie voor uw domein om te bepalen van de TTL-waarde, en wacht totdat de periode is verlopen.
+- De DNS-configuratie is onjuist.
+
+#### <a name="solution"></a>Oplossing
+- Wacht tot 48 uur voor dit probleem op te lossen zelf.
+- Als u de TTL-instelling in de DNS-configuratie wijzigen kunt, wijzigt u de waarde in vijf minuten om te zien of hiermee het probleem is opgelost.
+- Gebruik [WhatsmyDNS.net](https://www.whatsmydns.net/) om te controleren of uw domein naar het IP-adres van de app verwijst. Als dat niet het geval is, configureert u de A-record naar het juiste IP-adres van de app.
+
+### <a name="you-need-to-restore-a-deleted-domain"></a>U moet een verwijderde domein herstellen 
+
+#### <a name="symptom"></a>Symptoom
+Uw domein is niet meer zichtbaar in de Azure portal.
+
+#### <a name="cause"></a>Oorzaak 
+De eigenaar van het abonnement heeft mogelijk per ongeluk het domein verwijderd.
+
+#### <a name="solution"></a>Oplossing
+Als uw domein is minder dan zeven dagen geleden hebt verwijderd, is de verwijdering niet nog gestart door het domein. In dit geval kunt u hetzelfde domein opnieuw op de Azure-portal onder hetzelfde abonnement kopen. (Zorg ervoor dat de exacte domeinnaam in het zoekvak typt.) U wordt niet in rekening gebracht opnieuw voor dit domein. Als het domein is meer dan zeven dagen geleden hebt verwijderd, neem dan contact op met [ondersteuning van Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) voor hulp bij het herstellen van het domein.
 
 ## <a name="domain-problems"></a>Problemen met domein
 
@@ -196,105 +267,62 @@ Dit probleem doet zich voor een van de volgende redenen:
     |Recordtype|Host|Wijs|
     |------|------|-----|
     |A|@|IP-adres voor een app|
-    |TXT|@|< app-naam >. azurewebsites.net|
-    |CNAME|www|< app-naam >. azurewebsites.net|
+    |TXT|@|<app-name>.azurewebsites.net|
+    |CNAME|www|<app-name>.azurewebsites.net|
 
-### <a name="dns-cant-be-resolved"></a>DNS kan niet worden omgezet
+## <a name="faq"></a>Veelgestelde vragen
 
-#### <a name="symptom"></a>Symptoom
+**Heb ik mijn aangepaste domein configureren voor mijn website wanneer ik het kopen?**
 
-U hebt ontvangen het volgende foutbericht:
+Wanneer u een domein van de portal voor Azure koopt, wordt de App-servicetoepassing wordt automatisch geconfigureerd voor het gebruik van het aangepaste domein. U hebt geen eventuele extra stappen uitvoeren. Bekijk voor meer informatie, [Azure App Service zelf helpen: Een aangepaste domeinnaam toevoegen](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name) op Channel 9.
 
-"De DNS-record kan niet worden gevonden."
+**Kan ik een domein hebt aangeschaft in de Azure-portal gebruiken om te verwijzen naar een Azure-VM in plaats daarvan?**
 
-#### <a name="cause"></a>Oorzaak
-Dit probleem doet zich voor een van de volgende redenen:
+Ja, kunt u het domein verwijzen naar een virtuele machine, opslag enzovoort. Zie voor meer informatie, [een aangepaste FQDN-naam voor een Windows-VM maken in Azure portal](../virtual-machines/windows/portal-create-fqdn.md).
 
-- Time to live (TTL) periode niet is verlopen. Controleer de DNS-configuratie voor uw domein om te bepalen van de TTL-waarde, en wacht totdat de periode is verlopen.
-- De DNS-configuratie is onjuist.
+**Wordt mijn domein gehost door GoDaddy of Azure DNS?**
 
-#### <a name="solution"></a>Oplossing
-- Wacht tot 48 uur voor dit probleem op te lossen zelf.
-- Als u de TTL-instelling in de DNS-configuratie wijzigen kunt, wijzigt u de waarde in vijf minuten om te zien of hiermee het probleem is opgelost.
-- Gebruik [WhatsmyDNS.net](https://www.whatsmydns.net/) om te controleren of uw domein naar het IP-adres van de app verwijst. Als dat niet het geval is, configureert u de A-record naar het juiste IP-adres van de app.
+App Service-domeinen worden GoDaddy voor domeinregistratie en Azure DNS gebruiken voor het hosten van de domeinen. 
 
-### <a name="you-need-to-restore-a-deleted-domain"></a>U moet een verwijderde domein herstellen 
+**Ik heb voor automatisch verlengen ingeschakeld, maar nog steeds een verlenging kennisgeving voor mijn domein via e-mail te ontvangen. Wat moet ik doen?**
 
-#### <a name="symptom"></a>Symptoom
-Uw domein is niet meer zichtbaar in de Azure portal.
+Als u hebt voor automatisch verlengen ingeschakeld, u niet hoeft geen actie te ondernemen. De melding wordt geboden om u te informeren dat het domein is bijna verloopt en handmatig vernieuwen als u automatisch verlengen niet is ingeschakeld.
 
-#### <a name="cause"></a>Oorzaak 
-De eigenaar van het abonnement heeft mogelijk per ongeluk het domein verwijderd.
+**Moet ik betalen voor Azure DNS hosten van mijn domein?**
 
-#### <a name="solution"></a>Oplossing
-Als uw domein is minder dan zeven dagen geleden hebt verwijderd, is de verwijdering niet nog gestart door het domein. In dit geval kunt u hetzelfde domein opnieuw op de Azure-portal onder hetzelfde abonnement kopen. (Zorg ervoor dat de exacte domeinnaam in het zoekvak typt.) U wordt niet in rekening gebracht opnieuw voor dit domein. Als het domein is meer dan zeven dagen geleden hebt verwijderd, neem dan contact op met [ondersteuning van Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) voor hulp bij het herstellen van het domein.
+De initiële kosten van inkoop domein geldt voor domeinregistratie alleen. Naast de kosten voor registratie zijn er er kosten in rekening gebracht voor Azure DNS op basis van uw gebruik. Zie voor meer informatie, [prijzen voor Azure DNS](https://azure.microsoft.com/pricing/details/dns/) voor meer informatie.
 
-### <a name="a-custom-domain-returns-a-404-error"></a>Een aangepast domein retourneert een 404-fout 
+**Kan ik mijn domein eerder vanuit Azure portal hebt aangeschaft en wilt overstappen van GoDaddy die als host fungeert voor het beheren van Azure DNS. Hoe kan ik dit doen?**
 
-#### <a name="symptom"></a>Symptoom
+Het is niet verplicht om te migreren naar Azure DNS hosten. Als u migreren naar Azure DNS, de ervaring in Azure portal domein wilt over vindt informatie over de stappen die nodig zijn om te verplaatsen naar Azure DNS. Als het domein is gekocht via App Service, is de migratie van GoDaddy naar Azure DNS hosten relatief naadloze procedure.
 
-Wanneer u naar de site bladert met behulp van de aangepaste domeinnaam, ontvangt u de volgende strekking weergegeven:
+**Ik wil mijn domein van App Service-domein kopen, maar kan ik mijn domein op GoDaddy in plaats van Azure DNS hosten?**
 
-"Fout 404-Web-app niet vinden."
+Vanaf 24 juli 2017, worden App Service-domeinen die zijn aangeschaft in de portal gehost op Azure DNS. Als u liever een andere hosting provider gebruikt, moet u gaan naar de website van verkrijgen van een oplossing voor hosting-domein.
 
+**Heb ik betalen voor privacybescherming voor mijn domein?**
 
-#### <a name="cause-and-solution"></a>Oorzaak en oplossing
+Wanneer u een domein via Azure portal hebt gekocht, kunt u kiezen privacy toevoegen zonder extra kosten. Dit is een van de voordelen van het aanschaffen van uw domein door middel van Azure App Service.
 
-**Oorzaak 1** 
+**Als ik besluit dat ik mijn domein niet meer wilt, vind ik mijn geld terug?**
 
-Het aangepaste domein die u hebt geconfigureerd, een CNAME- of A-record ontbreekt. 
+Wanneer u een domein koopt, betaalt u geen gedurende een periode van vijf dagen, gedurende die tijd u bepalen kunt dat u niet dat het domein wilt. Als u dat u niet wilt dat het domein in die periode van vijf dagen besluit, u betaalt geen. (.uk domeinen vormen een uitzondering hierop. Als u een domein .uk koopt, in rekening worden gebracht direct en kan niet worden terugbetaald.)
 
-**Oplossing voor oorzaak 1**
+**Kan ik het domein in een andere Azure App Service-app gebruiken in mijn abonnement?**
 
-- Als u een A-record hebt toegevoegd, zorg ervoor dat er ook een TXT-record wordt toegevoegd. Zie voor meer informatie, [A-record maken](./app-service-web-tutorial-custom-domain.md#create-the-a-record).
-- Als u geen gebruik van het hoofddomein voor uw app, wordt u aangeraden dat u een CNAME-record in plaats van een A-record gebruiken.
-- Een CNAME-record en een A-record niet gebruiken voor hetzelfde domein bevinden. Dit kan een conflict veroorzaken en te voorkomen dat het domein worden omgezet. 
+Ja. Wanneer u de blade voor aangepaste domeinen en SSL in Azure portal opent, ziet u de domeinen die u hebt aangeschaft. U kunt uw app voor het gebruik van een van deze domeinen configureren.
 
-**Oorzaak 2** 
+**Kan ik een domein in één abonnement overbrengen naar een ander abonnement?**
 
-De browser internet mogelijk nog steeds de oude IP-adres voor uw domein caching. 
+U kunt een domein verplaatsen naar een ander abonnement/resource-groep met de [Move-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Move-AzureRmResource?view=azurermps-6.13.0) PowerShell-cmdlet.
 
-**Oplossing voor oorzaak 2**
+**Hoe kan ik mijn aangepaste domein beheren als ik een Azure App Service-app op dit moment geen?**
 
-Schakel de browser. Voor Windows-apparaten, kunt u de opdracht uitvoeren `ipconfig /flushdns`. Gebruik [WhatsmyDNS.net](https://www.whatsmydns.net/) om te controleren of uw domein naar het IP-adres van de app verwijst. 
+Zelfs als u een App Service Web-App niet hebt, kunt u uw domein beheren. Domein kan worden gebruikt voor Azure-services zoals virtuele machine, opslag enzovoort. Als u van plan bent met het domein voor App Service Web Apps, moet u een Web-App die zich niet in de gratis App Service-plan als u het domein koppelen aan uw web-app wilt opnemen.
 
-### <a name="you-cant-add-a-subdomain"></a>U kunt geen een subdomein toevoegen 
+**Kan ik een web-app met een aangepast domein naar een ander abonnement of verplaatsen van App Service Environment v1 in V2?**
 
-#### <a name="symptom"></a>Symptoom
+Ja, kunt u uw web-app verplaatsen tussen abonnementen. Volg de instructies in [over het verplaatsen van resources in Azure](../azure-resource-manager/resource-group-move-resources.md). Er zijn enkele beperkingen bij het verplaatsen van de web-app. Zie voor meer informatie, [beperkingen voor het verplaatsen van resources van App Service](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations
+).
 
-U kunt een nieuwe hostnaam niet toevoegen aan een app een subdomein toewijzen.
-
-#### <a name="solution"></a>Oplossing
-
-- Neem contact op met de beheerder van abonnement om ervoor te zorgen dat u gemachtigd bent de naam van een host toevoegt aan de app.
-- Als u meer subdomeinen nodig hebt, raden wij u wijzigt de hosting van domein naar Azure DNS. U kunt met behulp van Azure DNS, 500 hostnamen toevoegen aan uw app. Zie voor meer informatie, [een subdomein toevoegen](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/).
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Na het verplaatsen van de web-app, moeten de host naam bindingen van de domeinen in de aangepaste domeinen instellen blijven hetzelfde. Geen extra stappen zijn vereist om de bindingen van de naam host configureren.

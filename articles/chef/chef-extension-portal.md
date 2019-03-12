@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: d7728dd5c025a88f8912dca708abc45ab519ce2c
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 02a2e9a6d513db5ac82b7bde5c8d3f0ca187ad15
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327541"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533949"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>De Chef-client installeren vanuit de Azure-portal
 U kunt de uitbreiding voor de Chef-client rechtstreeks naar een Linux- of Windows-machine toevoegen vanuit de Azure-portal. Dit artikel begeleidt u bij het proces met behulp van een nieuwe virtuele Linux-machine.
@@ -30,7 +30,7 @@ U kunt de uitbreiding voor de Chef-client rechtstreeks naar een Linux- of Window
 ## <a name="install-the-chef-extension-on-a-new-linux-virtual-machine"></a>De Chef-extensie installeren op een nieuwe virtuele Linux-machine
 In deze sectie gaat u eerst de Azure-portal gebruiken om een Linux-machine te maken. Gedurende dit proces ook ziet u hoe u de Chef-extensie op de nieuwe virtuele machine installeert.
 
-1. Blader naar de [Azure-portal](http://portal.azure.com).
+1. Blader naar de [Azure-portal](https://portal.azure.com).
 
 1. Selecteer in het menu aan de linkerkant de **virtuele machines** optie. Als de **virtuele machines** optie is niet aanwezig zijn, selecteer **alle services** en selecteer vervolgens **virtuele machines**.
 

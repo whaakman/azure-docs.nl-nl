@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: c9f0707f6d24ba899c89bf19066994ae860a69d5
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 2aa32d75edbacdfff6428a6526d9898cb6732d6b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620984"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534732"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Veelvoorkomende opstarttaken voor Cloud-Service
 Dit artikel bevat enkele voorbeelden van veelvoorkomende opstarttaken die u wilt uitvoeren in uw cloudservice. U kunt opstarttaken gebruiken bewerkingen uit te voeren voordat een rol wordt gestart. Bewerkingen die u wilt uitvoeren zijn onder meer een onderdeel installeren, het registreren van COM-onderdelen, registersleutels instellen of starten van een langlopende proces. 
@@ -186,7 +186,7 @@ powershell -ExecutionPolicy Unrestricted -command "Install-WindowsFeature Web-IP
 
 Met deze taak wordt de **startup.cmd** batch-bestand om te worden uitgevoerd telkens als de Webrol is geïnitialiseerd, ervoor zorgen dat de vereiste **ipSecurity** sectie is ontgrendeld.
 
-Wijzig tot slot de [system.webServer sectie](http://www.iis.net/configreference/system.webserver/security/ipsecurity#005) uw Webrol **web.config** bestand om toe te voegen een lijst met IP-adressen die toegang, zoals wordt weergegeven in het volgende voorbeeld:
+Wijzig tot slot de [system.webServer sectie](https://www.iis.net/configreference/system.webserver/security/ipsecurity#005) uw Webrol **web.config** bestand om toe te voegen een lijst met IP-adressen die toegang, zoals wordt weergegeven in het volgende voorbeeld:
 
 Deze voorbeeld-configuratie **kunt** alle IP-adressen voor toegang tot de server met uitzondering van de twee gedefinieerd
 
@@ -306,7 +306,7 @@ U kunt de verschillende stappen uitvoeren wanneer deze wordt uitgevoerd in de cl
 
 Dit kunnen verschillende acties uitvoeren op de rekenemulator en de cloud kan worden bereikt door het maken van een omgevingsvariabele in de [ServiceDefinition.csdef] bestand. U test deze omgevingsvariabele voor een waarde in de opstarttaak.
 
-Voor het maken van de omgevingsvariabele toevoegen de [variabele]/[RoleInstanceValue] element en het maken van een XPath-waarde van `/RoleEnvironment/Deployment/@emulated`. De waarde van de **ComputeEmulatorRunning %** omgevingsvariabele is `true` wanneer u gebruikmaakt van de rekenemulator en `false` wanneer u gebruikmaakt van de cloud.
+Voor het maken van de omgevingsvariabele toevoegen de [Variable]/[RoleInstanceValue] element en het maken van een XPath-waarde van `/RoleEnvironment/Deployment/@emulated`. De waarde van de **ComputeEmulatorRunning %** omgevingsvariabele is `true` wanneer u gebruikmaakt van de rekenemulator en `false` wanneer u gebruikmaakt van de cloud.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -511,7 +511,7 @@ Meer informatie over hoe u [taken](cloud-services-startup-tasks.md) werken.
 [Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Omgeving]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
-[Variabele]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
+[Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
 [Eindpunten]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints

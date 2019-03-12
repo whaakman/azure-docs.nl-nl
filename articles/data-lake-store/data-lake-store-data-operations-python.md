@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 33abaf7488579a501dc7e2d0b63645726b86c28b
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: ed28c502bb407c65b388704c177fca13cecc38d6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390719"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548623"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-python"></a>Bestandssysteembewerkingen in Azure Data Lake Storage Gen1 met behulp van Python
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Werken met Data Lake Storage Gen1 met behulp van Python, u moet drie modules ins
 
 * Module `azure-mgmt-resource`, die Azure-modules bevat voor Active Directory enzovoort.
 * De `azure-mgmt-datalake-store` module, deze de accountbeheerbewerkingen voor Azure Data Lake Storage Gen1 bevat. Zie voor meer informatie over deze module de [azure-mgmt-datalake-store Moduleverwijzing](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
-* De `azure-datalake-store` module, deze de bestandssysteembewerkingen voor Azure Data Lake Storage Gen1 bevat. Zie voor meer informatie over deze module de [azure-datalake-store-bestandssysteem Moduleverwijzing](http://azure-datalake-store.readthedocs.io/en/latest/).
+* De `azure-datalake-store` module, deze de bestandssysteembewerkingen voor Azure Data Lake Storage Gen1 bevat. Zie voor meer informatie over deze module de [azure-datalake-store-bestandssysteem Moduleverwijzing](https://azure-datalake-store.readthedocs.io/en/latest/).
 
 Gebruik de volgende opdrachten om de modules te installeren.
 
@@ -86,7 +86,7 @@ pip install azure-datalake-store
 
 3. Sla de wijzigingen in mysample.py op.
 
-## <a name="authentication"></a>Verificatie
+## <a name="authentication"></a>Authentication
 
 In deze sectie bespreken we de verschillende manieren om te verifiëren met Azure AD. De beschikbare opties zijn:
 
@@ -131,5 +131,5 @@ Het volgende fragment maakt u eerst de client Gen1 van Data Lake Storage-account
 
 ## <a name="see-also"></a>Zie ook
 
-* [Naslaginformatie voor Azure Data Lake Storage Gen1 Python (bestandssysteem)](http://azure-datalake-store.readthedocs.io/en/latest)
+* [Naslaginformatie voor Azure Data Lake Storage Gen1 Python (bestandssysteem)](https://azure-datalake-store.readthedocs.io/en/latest)
 * [Open Source Big Data-toepassingen die compatibel zijn met Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)

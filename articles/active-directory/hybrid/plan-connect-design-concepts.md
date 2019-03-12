@@ -17,12 +17,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01cc85f7eba2aefd08192c4e3f4e5151e7645238
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 311ba489073805fdb034b435ab9e5e1ddc2c4e3c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269107"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535039"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Ontwerpconcepten
 Het doel van dit document is om te beschrijven van de gebieden die moeten worden beschouwd door tijdens het implementatieontwerp van de van Azure AD Connect. Dit document is een gedetailleerde informatie over bepaalde gebieden en deze concepten worden kort beschreven in andere documenten.
@@ -157,7 +157,7 @@ Tijdens de analyse (stap 4), als het kenmerk is geconfigureerd op een of meer ob
 
 ![ConsistencyGuid inschakelen voor bestaande implementatie - fout](./media/plan-connect-design-concepts/consistencyguidexistingdeploymenterror.png)
 
- Als u er zeker van zijn dat het kenmerk wordt niet door andere bestaande toepassingen gebruikt, kunt u de fout onderdrukken door opnieuw starten van de Azure AD Connect-wizard met de **/SkipLdapSearchcontact** opgegeven. Voer de volgende opdracht in de opdrachtprompt om dit te doen:
+ Als u er zeker van zijn dat het kenmerk wordt niet door andere bestaande toepassingen gebruikt, kunt u de fout onderdrukken door opnieuw starten van de Azure AD Connect-wizard met de **/SkipLdapSearch** switch opgegeven. Voer de volgende opdracht in de opdrachtprompt om dit te doen:
 
 ```
 "c:\Program Files\Microsoft Azure Active Directory Connect\AzureADConnect.exe" /SkipLdapSearch
@@ -171,7 +171,7 @@ Als u AD FS buiten Azure AD Connect beheert of als u externe federation-servers 
 ![Externe federation-configuratie](./media/plan-connect-design-concepts/consistencyGuid-03.png)
 
 ### <a name="adding-new-directories-to-existing-deployment"></a>Nieuwe mappen toevoegen aan bestaande implementatie
-Stel dat u Azure AD Connect hebt geïmplementeerd met de functie ConsistencyGuid is ingeschakeld, en nu u wilt een andere map toevoegen aan de implementatie. Wanneer u probeert toe te voegen van de map, controleert Azure AD Connect-wizard in de status van het kenmerk ms-DS-ConsistencyGuid in de map. Als het kenmerk is geconfigureerd op een of meer objecten in de map, wordt de wizard concludeert het kenmerk wordt gebruikt door andere toepassingen en een foutmelding zoals wordt geïllustreerd in het onderstaande diagram. Als u er zeker van zijn dat het kenmerk wordt niet door bestaande toepassingen gebruikt, kunt u de fout onderdrukken door opnieuw starten van de Azure AD Connect-wizard met de **/SkipLdapSearchcontact** , zoals hierboven beschreven opgegeven of moet u contact opnemen met Ondersteuning voor meer informatie.
+Stel dat u Azure AD Connect hebt geïmplementeerd met de functie ConsistencyGuid is ingeschakeld, en nu u wilt een andere map toevoegen aan de implementatie. Wanneer u probeert toe te voegen van de map, controleert Azure AD Connect-wizard in de status van het kenmerk ms-DS-ConsistencyGuid in de map. Als het kenmerk is geconfigureerd op een of meer objecten in de map, wordt de wizard concludeert het kenmerk wordt gebruikt door andere toepassingen en een foutmelding zoals wordt geïllustreerd in het onderstaande diagram. Als u er zeker van zijn dat het kenmerk wordt niet door bestaande toepassingen gebruikt, kunt u de fout onderdrukken door opnieuw starten van de Azure AD Connect-wizard met de **/SkipLdapSearch** switch opgegeven, zoals hierboven beschreven, of u moet contact opnemen met Ondersteuning voor meer informatie.
 
 ![Nieuwe mappen toevoegen aan bestaande implementatie](./media/plan-connect-design-concepts/consistencyGuid-04.png)
 

@@ -14,12 +14,12 @@ ms.date: 11/09/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09914de48df09dabd4069cd33e7acbea328fa89d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 26e94c9b56ba65e3a7c51c1a85e97f7521377bae
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193149"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546854"
 ---
 # <a name="start-using-pim"></a>Beginnen met PIM
 
@@ -106,7 +106,6 @@ Nadat het PIM is ingesteld, kunt u taken voor identiteitsbeheer kunt uitvoeren.
 | --- | --- |
 | **Mijn rollen**  | Geeft een lijst van in aanmerking komende en actieve rollen aan u toegewezen. Hier kunt u alle in aanmerking komende toegewezen rollen activeren. |
 | **Mijn aanvragen** | Geeft de in behandeling zijnde aanvragen voor het activeren van in aanmerking komende roltoewijzingen. |
-| **Toegang tot toepassingen** | Hiermee kunt u potentiële vertragingen verminderen en het gebruik van een rol onmiddellijk na de activering. |
 | **Aanvragen goedkeuren** | Geeft een lijst weer van aanvragen voor het activeren van in aanmerking komende rollen door gebruikers in uw directory die u hebt aangewezen om goed te keuren. |
 | **Toegang beoordelen** | Een lijst met actieve toegangsbeoordelingen die u zijn toegewezen om te voltooien, of u de toegang voor uzelf of iemand anders beoordeelt nu. |
 | **Azure AD-rollen** | Geeft een dashboard en de instellingen voor beheerders met bevoegdheid voor het beheren van roltoewijzingen voor Azure AD-directory. Dit dashboard is uitgeschakeld voor iedereen die geen beheerder met een bevoorrechte rol is. Deze gebruikers hebben toegang tot een speciaal dashboard met de titel Mijn weergave. Het dashboard Mijn weergave bevat alleen informatie over de gebruiker die toegang heeft tot het dashboard, niet de gehele tenant. |

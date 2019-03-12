@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: bc52c4eaf77b9441683eea8e5f899c6ef34d62e8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8d70fca5820dbd2152ca378916bfbcdbad4a027f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002354"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776745"
 ---
 # <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
@@ -158,6 +158,10 @@ Access tokens verlopen elk uur, dus u moet voor het genereren van een nieuw toeg
 
 Video Indexer maakt gebruik van een eenvoudige betalen per gebruik prijsmodel op basis van de duur van de inhoud invoer die u met de index. Extra kosten in rekening kunnen passen voor codering, streaming, opslag, netwerkgebruik en media gereserveerde eenheden. Zie voor meer informatie de [prijzen](https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/) pagina.
 
+### <a name="when-am-i-billed-for-using-video-indexer"></a>Wanneer Word ik gefactureerd voor het gebruik van Video Indexer?
+
+Bij het verzenden van een video worden geïndexeerd, definieert de gebruiker het indexeren om video-analyse, audioanalyse of beide. Hierdoor kunt u bepalen welke SKU's wordt in rekening gebracht. Als er een kritieke fout tijdens de verwerking, wordt een foutcode worden geretourneerd als antwoord. In dat geval geen facturering vindt plaats.  Een kritieke fout kan zijn veroorzaakt door een fout in de code of heeft een kritieke fout in een interne afhankelijkheid van de service. Fouten, zoals onjuiste-id of het inzicht extractie worden niet beschouwd als kritiek en een antwoord wordt geretourneerd. Wanneer een reactie geldig (niet-foutcode) wordt geretourneerd, wordt in elk geval facturering plaatsvindt.
+ 
 ### <a name="does-video-indexer-offer-a-free-trial"></a>Biedt Video Indexer een gratis proefversie?
 
 Ja, Video Indexer biedt een gratis proefversie waarmee u de volledige-service en de API-functionaliteit. Er is een quotum van 600 minuten video's voor gebruikers webgebaseerde interface en 2.400 minuten voor API-gebruikers. 

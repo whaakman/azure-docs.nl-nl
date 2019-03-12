@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 2/12/2019
+ms.date: 3/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 2bbac21b9ac3e07cbb41ea8aa4cf93dcbd636d15
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f2f109b6861e54cc613fd06f26983897f7c1a9bb
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181776"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727124"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Opmerkingen bij de release voor de Azure File Sync-agent
 Met Azure File Sync kunt u bestandsshares van uw organisatie in Azure Files centraliseren zonder in te leveren op de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Uw installaties van Windows Server worden getransformeerd in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is in Windows Server gebruiken voor lokale toegang tot uw gegevens (inclusief SMB, NFS en FTPS) en u kunt zoveel caches hebben als u waar ook ter wereld nodig hebt.
@@ -25,7 +25,8 @@ De volgende versies worden ondersteund voor de Azure File Sync-agent:
 
 | Mijlpaal | Versienummer agent | Releasedatum | Status |
 |----|----------------------|--------------|------------------|
-| Versie 5 Release - [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 12 februari 2019 | Ondersteunde (aanbevolen versie) |
+| Maart 2019 updatepakket - [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | Op 7 maart 2019 | Ondersteunde (aanbevolen versie) |
+| Versie 5 Release - [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 12 februari 2019 | Ondersteund |
 | Januari 2019 updatepakket - [KB4481059](https://support.microsoft.com/help/4481059)| 4.3.0.0 | 14 januari 2019 | Ondersteund |
 | December 2018 update rollup - [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | 10 december 2018 | Ondersteund |
 | Updatepakket van december 2018 | 4.1.0.0 | 4 december 2018 | Ondersteund |
@@ -37,6 +38,16 @@ De volgende versies worden ondersteund voor de Azure File Sync-agent:
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Updatebeleid Azure File Sync-agent
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-5100"></a>Agentversie 5.1.0.0
+De volgende releaseopmerkingen zijn voor versie 5.1.0.0 van de Azure File Sync-agent die zijn uitgebracht op 7 maart 2019. Deze opmerkingen zijn naast de releaseopmerkingen voor versie 5.0.2.0.
+
+Lijst met problemen opgelost in deze release:  
+- Bestanden mogelijk niet kunnen synchroniseren met de volgende fout 0x80c8031d (ECS_E_CONCURRENCY_CHECK_FAILED) als de opsomming van wijzigingen op de server is mislukt
+- Als een bestand of de synchronisatiesessie ontvangt een foutbericht 0x80072f78 (WININET_E_INVALID_SERVER_RESPONSE), probeer synchronisatie nu het opnieuw
+- Bestanden mogelijk niet kunnen synchroniseren met de volgende fout 0x80c80203 (ECS_E_SYNC_INVALID_STAGED_FILE)
+- Hoog geheugengebruik treedt op wanneer bestanden intrekken
+- Warmtemeting telemetrie verbeteringen in de cloud 
 
 ## <a name="agent-version-5020"></a>Agentversie 5.0.2.0
 De volgende releaseopmerkingen zijn voor versie 5.0.2.0 van de Azure File Sync-agent (vrijgegeven 12 februari 2019).

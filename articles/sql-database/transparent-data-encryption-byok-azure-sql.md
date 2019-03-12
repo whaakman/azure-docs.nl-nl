@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/20/2019
-ms.openlocfilehash: a0f909dcb78a782945517b6691805ea66f2d0cfd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.date: 03/07/2019
+ms.openlocfilehash: 13642827a6a0f6524a1f9222b72e75f51a5442a3
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456377"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576902"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Azure SQL Transparent Data Encryption met de klant beheerde sleutels in Azure Key Vault: Bring Your Own Key-ondersteuning
 
@@ -88,11 +88,11 @@ Wanneer TDE is eerst geconfigureerd voor gebruik van een TDE-beveiliging uit Key
 
 - Een sleutel zonder een vervaldatum: wordt gebruikt en een vervaldatum niet instellen op een sleutel al in gebruik: **zodra de sleutel is verlopen, de versleutelde databases op hun TDE-beveiliging voor de toegang kwijtraakt en binnen 24 uur niet toegankelijk zijn**.
 - Zorg ervoor dat de sleutel is ingeschakeld en is gemachtigd om uit te voeren *ophalen*, *sleutel inpakken*, en *sleutel uitpakken* bewerkingen.
-- Een sleutel back-up voor Azure Key Vault maken voordat u met behulp van de sleutel voor de eerste keer in Azure Key Vault. Meer informatie over de [back-up-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1) opdracht.
+- Een sleutel back-up voor Azure Key Vault maken voordat u met behulp van de sleutel voor de eerste keer in Azure Key Vault. Meer informatie over de [back-up-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey) opdracht.
 - Een nieuwe back-up maken wanneer er wijzigingen worden aangebracht aan de sleutel (bijvoorbeeld: ACL's, toevoegen tags toevoegen, belangrijke kenmerken toevoegen).
 - **Vorige versies behouden** van de sleutel in de key vault wanneer u sleutels, zodat oudere back-ups kunnen worden hersteld. Wanneer de TDE-beveiliging voor een database, de oude back-ups van de database wordt gewijzigd **worden niet bijgewerkt** gebruik van de meest recente TDE-beveiliging.  Elke back-up moet de TDE-beveiliging is gemaakt met tijdens het terugzetten. Sleutelrotaties kunnen worden uitgevoerd op de instructies op [draaien de Transparent Data Encryption Protector met behulp van PowerShell](transparent-data-encryption-byok-azure-sql-key-rotation.md).
 - Houd alle eerder gebruikte sleutels in Azure Key Vault na het wijzigen van terug naar de service beheerde sleutels.  Dit zorgt ervoor databaseback-ups kunnen worden hersteld met de TDE-beveiligingstoepassingen die zijn opgeslagen in Azure Key Vault.  TDE beveiligingstoepassingen gemaakt met Azure Key Vault moeten worden onderhouden totdat alle opgeslagen back-ups zijn gemaakt met de service beheerde sleutels.  
-- Herstelbare back-ups van deze sleutels met behulp van [back-up-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1).
+- Herstelbare back-ups van deze sleutels met behulp van [back-up-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey).
 - Als u wilt verwijderen een potentieel aangetast sleutel tijdens een beveiligingsincident zonder het risico van gegevensverlies, volg de stappen in [een potentieel aangetast sleutel verwijderen](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md).
 
 ## <a name="high-availability-geo-replication-and-backup--restore"></a>Hoge beschikbaarheid, Geo-replicatie en back-up / herstellen
@@ -126,7 +126,7 @@ De volgende sectie gaat over de installatie- en configuratiestappen in meer deta
   - RSA/RSA-HSA 2048 key
   - Er is geen vervaldatum
   - Sleutel is ingeschakeld en machtigingen heeft voor het uitvoeren van get, sleutel Inpakken en uitpakken sleutelbewerkingen
-- Back-up van de primaire sleutel en de sleutel herstellen naar de tweede key vault.  Zie [BackupAzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1) en [terugzetten AzKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-5.5.0).
+- Back-up van de primaire sleutel en de sleutel herstellen naar de tweede key vault.  Zie [BackupAzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey) en [terugzetten AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey).
 
 ### <a name="azure-sql-database-configuration-steps"></a>Configuratiestappen voor Azure SQL Database
 

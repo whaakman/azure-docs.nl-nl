@@ -14,25 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2018
 ms.author: barclayn
-ms.openlocfilehash: bfe289e29a6a2bb048d9fd42323f32ce8c12792c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 8835c4534b6dab1e8dbfb3546257ae4bc3b9d7af
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110605"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588649"
 ---
-# <a name="pen-testing"></a>Pen testen
-Een van de voordelen van het gebruik van Azure voor het testen van toepassingen en -implementatie, is dat u snel omgevingen die zijn gemaakt.  U hoeft te breken over de aanschaf, ophalen, en "gestapel en stapelen ' uw eigen on-premises hardware.
+# <a name="penetration-testing"></a>Indringingstests
+Een van de voordelen van het gebruik van Azure voor het testen van toepassingen en -implementatie, is dat u snel omgevingen die zijn gemaakt. U hoeft te breken over de aanschaf, ophalen, en "gestapel en stapelen ' uw eigen on-premises hardware.
 
-Dit is fantastisch uit, maar u nog steeds nodig om ervoor te zorgen dat u de beveiliging van uw normale uitvoeren vanwege de zorgvuldigheid. Een van de dingen die u moet doen is indringingstests testen van de toepassingen die u implementeert in Azure.
+Dit is fantastisch uit, maar u nog steeds nodig om ervoor te zorgen dat u de beveiliging van uw normale uitvoeren vanwege de zorgvuldigheid. Een van de dingen die u wilt waarschijnlijk doen indringingstests is het testen van de toepassingen die u implementeert in Azure.
 
 U al kent die Microsoft uitvoert [indringingstests van onze Azure-omgeving](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e). Dit helpt het station verbeteringen in Azure.
 
-We geen pen testen van uw toepassing, maar we begrijpen dat u wilt en hoeft uit te voeren pen testen op uw eigen toepassingen. Dat is een goed, omdat wanneer u de beveiliging van uw toepassingen verbeteren, u helpen u de volledige Azure-ecosysteem beter te beveiligen.
+We penetratietest niet uw toepassing, maar we begrijpen dat u wilt en wilt testen op uw eigen toepassingen uit te voeren. Dat is een goed, omdat wanneer u de beveiliging van uw toepassingen verbeteren u helpen u de volledige Azure-ecosysteem beter te beveiligen.
 
-Hoe pakt u dit aan?
-
-Vanaf 15 juni 2017, Microsoft vereist niet langer voorafgaande goedkeuring voor het uitvoeren van een indringing tests bij Azure-resources. Klanten die willen formeel document toekomstige indringingstests engagements op basis van Microsoft Azure worden uitgevers aangemoedigd om in te vullen de [testen-melding van Azure Service Indringingstests formulier](https://portal.msrc.microsoft.com/en-us/engage/pentest). Dit proces heeft alleen betrekking op Microsoft Azure en niet van toepassing op een andere Microsoft-Cloudservice.
+Microsoft vereist niet langer voorafgaande goedkeuring voor het uitvoeren van een penetratietest bij Azure-resources vanaf 15 juni 2017 gebruikt. Klanten die willen formeel document toekomstige indringingstests engagements op basis van Microsoft Azure worden uitgevers aangemoedigd om in te vullen de [testen-melding van Azure Service Indringingstests formulier](https://portal.msrc.microsoft.com/en-us/engage/pentest). Dit proces heeft alleen betrekking op Microsoft Azure en niet van toepassing op een andere Microsoft-Cloudservice.
 
 >[!IMPORTANT]
 >Terwijl de hoogte te brengen Microsoft van activiteiten voor pentests niet langer vereist is klanten nog steeds moeten voldoen aan de [Microsoft Cloud Unified Indringingstests testen regels van Engagement](https://technet.microsoft.com/mt784683).
@@ -47,4 +45,4 @@ Een type van de test die u niet kunt uitvoeren is een soort [Denial of Service (
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- U kunt aan de slag met pen Test uw toepassingen die worden gehost in Microsoft Azure Als dit het geval is, gaat u op naar de [Indringingstests testen regels van Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=2) en vul het formulier voor testen aanmelding.
+- Als u graag zou willen formeel document een aanstaande indringingstests op uw toepassingen die worden gehost in Microsoft Azure, gaat u op naar de [Indringingstests testen regels van Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=2) en vul het formulier voor testen aanmelding.

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/6/2019
 ms.author: rkarlin
-ms.openlocfilehash: 8d44c1448296df16e9dd58a486d4cfb21bb053de
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 7c4994863f3c145c7095bcc12dd69ff02fab8455
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244193"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540226"
 ---
 # <a name="tutorial-investigate-cases-with-azure-sentinel-preview"></a>Zelfstudie: Aanvragen met Azure Sentinel Preview onderzoeken
 
@@ -42,7 +42,7 @@ Een aanvraag kan meerdere waarschuwingen bevatten. Het is een samenloop van alle
 
 1. Selecteer **gevallen**. De **gevallen** pagina laat u weten hoe vaak u hebt, hoeveel zijn geopend, hoeveel u hebt ingesteld op **Bezig**, en hoeveel worden gesloten. Voor elke aanvraag ziet u de tijd die het is opgetreden en de status van de aanvraag. Bekijk de ernst om te bepalen wat u moet eerst worden verwerkt. In de **gevallen** pagina, klikt u op de **waarschuwingen** tabblad om alle waarschuwingen die zijn gerelateerd aan een aanvraag te zien. Entiteiten die u hebt toegewezen eerder als onderdeel van de aanvraag kan worden weergegeven in de **entiteiten** tabblad.  U kunt de gevallen kunt filteren, indien nodig, bijvoorbeeld op status of ernst. Wanneer u kijkt de **gevallen** tabblad ziet u openstaande aanvragen die waarschuwingen geactiveerd door uw detectieregels die is gedefinieerd bevatten in **Analytics**. Aan de bovenzijde ziet u uw actieve aanvragen, nieuwe aanvragen en in gevallen wordt uitgevoerd. U ziet ook een overzicht van alle aanvragen op basis van ernst.
 
-  ![Een waarschuwingendashboard](./media/tutorial-detect-threats/alert-dashboard.png)
+  ![Een waarschuwingendashboard](./media/tutorial-investigate-cases/cases.png)
 
 2. Als u wilt een onderzoek, klikt u op een specifieke aanvraag. Aan de rechterkant ziet u gedetailleerde informatie voor de aanvraag met inbegrip van de ernst, overzicht van het aantal entiteiten die betrokken zijn (op basis van uw toewijzing). Elk geval heeft een unieke ID. De ernst van de aanvraag wordt bepaald op basis van de meest ernstige waarschuwing die is opgenomen in het geval is.  
 

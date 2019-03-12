@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
+ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: f5550b5a81c59faaad4521049b31000fc1f83ce0
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 9551f07efa9d388da69b6474f6a2dd5af947ff2c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309618"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767648"
 ---
 # <a name="in-memory-sample"></a>In-Memory-voorbeeld
 
@@ -414,7 +414,7 @@ In een database met de prijscategorie P2, kunt u verwachten dat ongeveer negen k
 
 #### <a name="tools"></a>Hulpprogramma's
 
-- [Azure Portal](https://portal.azure.com/)
+- [Azure-portal](https://portal.azure.com/)
 
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 

@@ -11,15 +11,15 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 08/30/2018
+ms.topic: conceptual
+ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: ae35f73e601cfa83fc960c5331f9956863677941
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 9e9c8918556b7ff003bcfed062ea1e15233b2845
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855292"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761953"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Prijscategorieën voor Service Bus Premium en Standard Messaging
 
@@ -54,6 +54,21 @@ Gepartitioneerde wachtrijen en onderwerpen worden niet ondersteund in Premium Me
 Omdat Premium Messaging wordt uitgevoerd in een volledig geïsoleerde runtime-omgeving, worden Express-entiteiten niet ondersteund in Premium-naamruimten. Zie de eigenschap [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) voor meer informatie over de Express-functie.
 
 Als u code uitvoert onder Standard Messaging en deze wilt overzetten naar de Premium-prijscategorie, moet de eigenschap [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) zijn ingesteld op **false** (de standaardwaarde).
+
+## <a name="premium-messaging-resource-usage"></a>Gebruik Premium Messaging
+In het algemeen mogelijk een bewerking op een entiteit CPU- en geheugengebruik. Hier volgen enkele van deze bewerkingen: 
+
+- Management-bewerkingen zoals CRUD-bewerkingen (maken, ophalen, bijwerken en verwijderen) van wachtrijen, onderwerpen en abonnementen.
+- Runtime-bewerkingen (berichten verzenden en ontvangen)
+- Bewerkingen en waarschuwingen bewaken
+
+De extra CPU en geheugengebruik niet de prijs is bovendien echter. Er is een enkele prijs voor de berichteenheid voor de laag Premium Messaging.
+
+Het gebruik van de CPU en geheugen worden bijgehouden en worden weergegeven voor de u de volgende oorzaken hebben: 
+
+- Geef transparantie over de inhoud van het systeem
+- Krijg inzicht in de capaciteit van bronnen die zijn aangeschaft.
+- Het gebied van capaciteitsplanning die kunt u bepalen omhoog/omlaag schalen.
 
 ## <a name="get-started-with-premium-messaging"></a>Aan de slag met Premium Messaging
 

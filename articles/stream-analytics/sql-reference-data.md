@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: cc6e4083ba952eb9799aa91f76cf6e5ab75c7f64
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: efd450edb87316e75fc240cac80eda93151a22b3
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449577"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765081"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Gebruik van referentiegegevens uit een SQL-Database voor een Azure Stream Analytics-taak (Preview)
 
@@ -134,19 +134,44 @@ Voordat u de taak implementeert naar Azure, kunt u de querylogica lokaal tegen l
 
 Bij het gebruik van de delta-query [tijdelijke tabellen in Azure SQL Database](../sql-database/sql-database-temporal-tables.md) worden aanbevolen.
 
-1. De auteur van de momentopname-query. 
+1. Een tijdelijke tabel maken in Azure SQL Database.
+   
+   ```SQL 
+      CREATE TABLE DeviceTemporal 
+      (  
+         [DeviceId] int NOT NULL PRIMARY KEY CLUSTERED 
+         , [GroupDeviceId] nvarchar(100) NOT NULL
+         , [Description] nvarchar(100) NOT NULL 
+         , [ValidFrom] datetime2 (0) GENERATED ALWAYS AS ROW START
+         , [ValidTo] datetime2 (0) GENERATED ALWAYS AS ROW END
+         , PERIOD FOR SYSTEM_TIME (ValidFrom, ValidTo)
+      )  
+      WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.DeviceHistory));  -- DeviceHistory table will be used in Delta query
+   ```
+2. De auteur van de momentopname-query. 
 
-   Gebruik de **@snapshotTime** parameter om op te geven van de runtime van Stream Analytics om te verkrijgen van de referentiegegevensset van SQL database tijdelijke tabel in de systeemtijd geldig zijn. Als u deze parameter niet opgeeft, kunt u dat een onjuist basis referentiegegevensset gevolg van tijdsverschillen te verkrijgen. Hieronder ziet u een voorbeeld van volledige momentopname query:
-
-   ![Stream Analytics snapshot-query](./media/sql-reference-data/snapshot-query.png)
+   Gebruik de  **\@snapshotTime** parameter om op te geven van de runtime van Stream Analytics om te verkrijgen van de referentiegegevensset van SQL database tijdelijke tabel in de systeemtijd geldig zijn. Als u deze parameter niet opgeeft, kunt u dat een onjuist basis referentiegegevensset gevolg van tijdsverschillen te verkrijgen. Hieronder ziet u een voorbeeld van volledige momentopname query:
+   ```SQL
+      SELECT DeviceId, GroupDeviceId, [Description]
+      FROM dbo.DeviceTemporal
+      FOR SYSTEM_TIME AS OF @snapshotTime
+   ```
  
 2. De auteur van de delta-query. 
    
-   Deze query haalt alle rijen in uw SQL-database die zijn ingevoegd of verwijderd binnen een begintijd **@deltaStartTime**, en een eindtijd **@deltaEndTime**. De delta-query moet retourneren dezelfde kolommen als de momentopname-query, evenals de kolom  **_bewerking_**. Deze kolom wordt gedefinieerd als de rij is ingevoegde of tussen verwijderde **@deltaStartTime** en **@deltaEndTime**. De resulterende rijen worden gemarkeerd als **1** als de records zijn ingevoegd, of **2** als verwijderd. 
+   Deze query haalt alle rijen in uw SQL-database die zijn ingevoegd of verwijderd binnen een begintijd  **\@deltaStartTime**, en een eindtijd  **\@deltaEndTime**. De delta-query moet retourneren dezelfde kolommen als de momentopname-query, evenals de kolom  **_bewerking_**. Deze kolom wordt gedefinieerd als de rij is ingevoegde of tussen verwijderde  **\@deltaStartTime** en  **\@deltaEndTime**. De resulterende rijen worden gemarkeerd als **1** als de records zijn ingevoegd, of **2** als verwijderd. 
 
    Records die zijn bijgewerkt, wordt de tijdelijke tabel boekhouding door het vastleggen van een bewerking voor invoegen en verwijderen. De runtime van Stream Analytics worden de resultaten van de delta-query toepassen op de vorige momentopname naar de referentiegegevens up-to-date te houden. Een voorbeeld van delta-query is hieronder weergeven:
 
-   ![Stream Analytics delta-query](./media/sql-reference-data/delta-query.png)
+   ```SQL
+      SELECT DeviceId, GroupDeviceId, Description, 1 as _operation_
+      FROM dbo.DeviceTemporal
+      WHERE ValidFrom BETWEEN @deltaStartTime AND @deltaEndTime   -- records inserted
+      UNION
+      SELECT DeviceId, GroupDeviceId, Description, 2 as _operation_
+      FROM dbo.DeviceHistory   -- table we created in step 1
+      WHERE ValidTo BETWEEN @deltaStartTime AND @deltaEndTime     -- record deleted
+   ```
  
   Houd er rekening mee dat door Stream Analytics runtime periodiek de snapshot-query naast de delta-query voor het opslaan van controlepunten kan worden uitgevoerd.
 

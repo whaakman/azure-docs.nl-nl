@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 10/30/2018
-ms.openlocfilehash: 0d9192e5ca4dba202ca5287481072bb0f8ae5621
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 27a873fac8bf2b53ee06780b8a348eaaa5c94e97
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598516"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768022"
 ---
 # <a name="best-practices-for-managing-u-sql-assemblies-in-a-cicd-pipeline"></a>Aanbevolen procedures voor het beheren van U-SQL-assembly's in een CI/CD-pijplijn
 
@@ -56,9 +56,9 @@ Volg deze stappen voor het maken van projecten en voeg verwijzingen toe.
 
     ![Data Lake Tools voor Visual Studio - maken assembly van verwijzing](./media/data-lake-analytics-cicd-manage-assemblies/data-lake-tools-create-assembly-from-reference.png)
 
-7. Voeg **beheerde afhankelijkheden** en **aanvullende bestanden**, indien aanwezig. Wanneer u extra bestanden toevoegen, gebruikt het hulpprogramma voor het relatieve pad om te controleren of dat deze later kunt terugvinden de assembly's op uw lokale computer en op de build-machine. 
+7. Voeg **beheerde afhankelijkheden** en **aanvullende bestanden**, indien aanwezig. Wanneer u extra bestanden toevoegen, gebruikt het hulpprogramma voor het relatieve pad om te controleren of dat deze later kunt terugvinden de assembly's op uw lokale computer en op de build-machine.
 
-**@_DeployTempDirectory** in de editor is venster onder een vooraf gedefinieerde variabele die het hulpprogramma naar de uitvoermap build verwijst. Onder de uitvoermap build heeft elke assembly een submap met de naam van de assembly. Alle dll's en andere bestanden zijn in de submap. 
+**\@_DeployTempDirectory** in de editor-venster onderaan is een vooraf gedefinieerde variabele die het hulpprogramma naar de uitvoermap build verwijst. Onder de uitvoermap build heeft elke assembly een submap met de naam van de assembly. Alle dll's en andere bestanden zijn in de submap.
 
 ## <a name="build-a-u-sql-database-project"></a>Bouw een U-SQL-database-project
 
