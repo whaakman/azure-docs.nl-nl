@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 8de155eb0c53a07c88d996e2545be9da3159653f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 6cc5e3f8f188c60a129f6ad6575b348616bdad9b
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565578"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569745"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Clientbibliotheek voor elastic database gebruiken met Dapper
 Dit document is bedoeld voor ontwikkelaars die afhankelijk zijn van Dapper om toepassingen te bouwen, maar ook wilt Profiteer [elastische database tooling](sql-database-elastic-scale-introduction.md) om toepassingen te maken die sharding implementeren om uit de gegevenslaag te schalen.  Dit document ziet u de wijzigingen in Dapper gebaseerde toepassingen die nodig zijn om te integreren met hulpmiddelen voor elastic database. Onze focus ligt op het samenstellen van de elastische database shard management en gegevensafhankelijke routering met Dapper. 
@@ -64,8 +64,8 @@ Deze opmerkingen maken het eenvoudig door de elastische database-clientbibliothe
 Dit codevoorbeeld (van het bijbehorende voorbeeld) ziet u de aanpak waarbij de sharding-sleutel wordt geleverd door de toepassing aan de bibliotheek als Broker optreden voor de verbinding met de juiste shard.   
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
-                     key: tenantId1, 
-                     connectionString: connStrBldr.ConnectionString, 
+                     key: tenantId1,
+                     connectionString: connStrBldr.ConnectionString,
                      options: ConnectionOptions.Validate))
     {
         var blog = new Blog { Name = name };
@@ -87,13 +87,13 @@ Het object shard-kaart maakt een verbinding met de shard die de shardlet voor de
 Query's bijna dezelfde manier werken - opent u eerst de verbinding met [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) van de client-API. Vervolgens u de gewone Dapper uitbreidingsmethoden gebruikt om toe te wijzen de resultaten van uw SQL-query naar .NET-objecten:
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
-                    key: tenantId1, 
-                    connectionString: connStrBldr.ConnectionString, 
+                    key: tenantId1,
+                    connectionString: connStrBldr.ConnectionString,
                     options: ConnectionOptions.Validate ))
-    {    
+    {
            // Display all Blogs for tenant 1
            IEnumerable<Blog> result = sqlconn.Query<Blog>(@"
-                                SELECT * 
+                                SELECT *
                                 FROM Blog
                                 ORDER BY Name");
 
@@ -112,8 +112,8 @@ Dapper wordt geleverd met een ecosysteem van de aanvullende extensies die verder
 DapperExtensions gebruiken in uw toepassing verandert niet hoe databaseverbindingen worden gemaakt en beheerd. Het is nog steeds de verantwoordelijkheid van de toepassing verbindingen openen en normale SQL-Client verbindingsobjecten zijn door de uitbreidingsmethoden wordt verwacht. We kunnen afhankelijk zijn van de [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) als hierboven beschreven. Zoals de volgende codevoorbeelden laten zien, is de enige wijziging die u niet meer hebt voor de T-SQL-instructies schrijven:
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
-                    key: tenantId2, 
-                    connectionString: connStrBldr.ConnectionString, 
+                    key: tenantId2,
+                    connectionString: connStrBldr.ConnectionString,
                     options: ConnectionOptions.Validate))
     {
            var blog = new Blog { Name = name2 };
@@ -123,8 +123,8 @@ DapperExtensions gebruiken in uw toepassing verandert niet hoe databaseverbindin
 En het codevoorbeeld voor de query als volgt: 
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
-                    key: tenantId2, 
-                    connectionString: connStrBldr.ConnectionString, 
+                    key: tenantId2,
+                    connectionString: connStrBldr.ConnectionString,
                     options: ConnectionOptions.Validate))
     {
            // Display all Blogs for tenant 2
@@ -143,7 +143,7 @@ De voorbeeldcode is afhankelijk van de bibliotheek tijdelijke fouten om te bevei
 
     SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
     {
-       using (SqlConnection sqlconn = 
+       using (SqlConnection sqlconn =
           shardingLayer.ShardMap.OpenConnectionForKey(tenantId2, connStrBldr.ConnectionString, ConnectionOptions.Validate))
           {
               var blog = new Blog { Name = name2 };

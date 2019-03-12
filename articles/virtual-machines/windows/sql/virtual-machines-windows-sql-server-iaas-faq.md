@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 46d51e787a388f0963788c6419a2d9e3af89bc4f
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: f308b814da06598b95337708f7a8c84d506eed78
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456653"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781796"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Veelgestelde vragen over SQL Server wordt uitgevoerd op Windows-machines in Azure
 
@@ -50,7 +50,7 @@ In dit artikel vindt u antwoorden op enkele veelgestelde vragen over het uitvoer
    Ja. Azure heeft slechts één afbeelding per primaire versie en editie. Bijvoorbeeld, wanneer een nieuw servicepack van SQL Server wordt uitgebracht, voegt Azure een nieuwe installatiekopie naar de galerie voor die servicepack. De SQL Server-installatiekopie voor de voorafgaande servicepack wordt onmiddellijk verwijderd uit de Azure-portal. Het is echter nog steeds beschikbaar voor het inrichten van PowerShell voor de komende drie maanden. De vorige installatiekopie met service pack is niet meer beschikbaar na drie maanden. Dit verwijderingsbeleid is ook van toepassing als een SQL Server-versie niet ondersteund wordt wanneer het einde van de levenscyclus is bereikt.
 
 
-1. **Is het mogelijk om de installatiekopie van een oudere van SQL Server die wordt niet weergegeven in de Azure Portal implementeren?**
+1. **Is het mogelijk om de installatiekopie van een oudere van SQL Server die wordt niet weergegeven in de Azure-portal implementeren?**
 
    Ja, met behulp van PowerShell. Zie voor meer informatie over het implementeren van SQL Server-VM's met behulp van PowerShell [over het inrichten van SQL Server-machines met Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
 
@@ -82,7 +82,7 @@ In dit artikel vindt u antwoorden op enkele veelgestelde vragen over het uitvoer
 
 1. **Heb ik betalen voor de licentie voor SQL Server op een Azure-VM als deze alleen wordt gebruikt voor de stand-by/failover?**
 
-   Als u Software Assurance en License Mobility gebruiken zoals wordt beschreven in de virtuele Machine Veelgestelde vragen over licenties,] (https://azure.microsoft.com/pricing/licensing-faq/) en u niet hoeft te betalen voor een licentie op één SQL Server die als een passieve secundaire replica in de implementatie van een HA deelneemt. Anders moet u deze licentie te betalen.
+   Als u Software Assurance en License Mobility gebruiken zoals wordt beschreven in [virtuele Machine Veelgestelde vragen over licenties](https://azure.microsoft.com/pricing/licensing-faq/), en u niet hoeft te betalen voor een licentie op één SQL Server die als een passieve secundaire replica in de implementatie van een HA deelneemt. Anders moet u deze licentie te betalen.
 
 1. **Kan ik een virtuele machine voor het gebruik van mijn eigen SQL Server-licentie, als deze is gemaakt op basis van een van de galerie met betalen per gebruik-installatiekopieën wijzigen?**
 
@@ -121,21 +121,30 @@ In dit artikel vindt u antwoorden op enkele veelgestelde vragen over het uitvoer
 
 1. **Is het mogelijk zelf geïmplementeerde VM's voor SQL-Server registreren bij de resourceprovider van SQL-VM?**
 
-   Ja. Als u SQL Server vanuit uw eigen media geïmplementeerd en de SQL IaaS-extensie die kunt u uw SQL Server-machine registreren met de resourceprovider om op te halen van de beheerbaarheidsvoordelen geleverd door de SQL IaaS-extensie geïnstalleerd. U bent echter kan niet worden geconverteerd van een zelf geïmplementeerde SQL-VM naar betalen per gebruik.  
+   Ja. Als u SQL Server vanuit uw eigen media geïmplementeerd en de SQL IaaS-extensie die kunt u uw SQL Server-machine registreren met de resourceprovider om op te halen van de beheerbaarheidsvoordelen geleverd door de SQL IaaS-extensie geïnstalleerd. U bent echter kan niet worden geconverteerd van een zelf geïmplementeerde SQL-VM naar betalen per gebruik.
 
 ## <a name="administration"></a>Beheer
 
 1. **Kan ik een tweede exemplaar van SQL Server installeren op dezelfde virtuele machine? Kan ik de geïnstalleerde functies van het standaardexemplaar wijzigen?**
 
-   Ja. De SQL Server-installatiemedia bevindt zich in een map op de **C** station. Voer **Setup.exe** vanaf die locatie naar het nieuwe SQL Server-exemplaren toe te voegen of te wijzigen andere geïnstalleerd functies van SQL Server op de machine. Houd er rekening mee dat sommige functies, zoals geautomatiseerde back-ups, automatisch patchen en Azure Key Vault-integratie, alleen moet worden uitgevoerd op basis van het standaardexemplaar plaatst.
+   Ja. De SQL Server-installatiemedia bevindt zich in een map op de **C** station. Voer **Setup.exe** vanaf die locatie naar het nieuwe SQL Server-exemplaren toe te voegen of te wijzigen andere geïnstalleerd functies van SQL Server op de machine. Houd er rekening mee dat sommige functies, zoals geautomatiseerde back-ups, automatisch patchen en Azure Key Vault-integratie, alleen op basis van het standaardexemplaar werken of een benoemd exemplaar als waarvan correct is geconfigureerd (Zie vraag 3). 
 
 1. **Kan ik het standaardexemplaar van SQL Server verwijderen?**
 
-   Ja, maar er zijn enkele overwegingen. Zoals vermeld in het vorige antwoord, functies die afhankelijk zijn van de [SQL Server IaaS Agent-extensie](virtual-machines-windows-sql-server-agent-extension.md) werken alleen op het standaardexemplaar plaatst. Als u het standaardexemplaar verwijdert, wordt de extensie blijft het zoeken naar en gebeurtenislogboek kunt genereren. Deze fouten zijn van de volgende twee bronnen: **Microsoft SQL Server-Referentiebeheer** en **Microsoft SQL Server IaaS Agent**. Het is mogelijk dat een van de fouten die vergelijkbaar is met het volgende:
+   Ja, maar er zijn enkele overwegingen. Zoals vermeld in het vorige antwoord, er zijn functies die afhankelijk van zijn de [SQL Server IaaS Agent-extensie](virtual-machines-windows-sql-server-agent-extension.md).  Als u het standaardexemplaar zonder te verwijderen van de IaaS-extensie ook verwijdert, wordt de extensie blijft het zoeken naar en gebeurtenislogboek kunt genereren. Deze fouten zijn van de volgende twee bronnen: **Microsoft SQL Server-Referentiebeheer** en **Microsoft SQL Server IaaS Agent**. Het is mogelijk dat een van de fouten die vergelijkbaar is met het volgende:
 
       Er is een netwerk- of instantiefout-fout opgetreden tijdens het maken van een verbinding met SQL Server. De server is niet gevonden of is niet toegankelijk.
 
    Als u besluit het standaardexemplaar verwijderen, verwijdert ook de [SQL Server IaaS Agent-extensie](virtual-machines-windows-sql-server-agent-extension.md) ook.
+
+1. **Kan ik een benoemd exemplaar van SQL Server gebruiken met de extensie IaaS**?
+   
+   Ja, als het benoemde exemplaar is het enige exemplaar op de SQL Server, en als de oorspronkelijke standaardexemplaar correct is verwijderd. Voor het gebruik van een benoemd exemplaar, het volgende doen:
+    1. Implementeer een SQL Server-VM vanuit de marketplace. 
+    1. De IaaS-extensie verwijderen.
+    1. SQL Server volledig worden verwijderd.
+    1. Installeer SQL Server in een benoemd exemplaar. 
+    1. De IaaS-extensie installeren. 
 
 1. **Kan ik SQL Server geheel verwijderen uit een SQL-VM?**
 
@@ -143,9 +152,9 @@ In dit artikel vindt u antwoorden op enkele veelgestelde vragen over het uitvoer
    
 ## <a name="updating-and-patching"></a>Updates en patches
 
-1. **Hoe voer ik een upgrade naar een nieuwe versie/editie van SQL Server in een Azure VM?**
+1. **Hoe wijzig ik naar een nieuwe versie/editie van SQL Server in een Azure VM?**
 
-   er wordt momenteel geen upgrade uitgevoerd voor SQL Server in een virtuele machine van Azure. Een nieuwe Azure-machine maken met de gewenste versie/editie van SQL Server en migreer de databases naar de nieuwe server met behulp van standaard [gegevensmigratietechnieken](virtual-machines-windows-migrate-sql.md).
+   Klanten met Software Assurance kunnen in-place upgrades van de SQL-Server die wordt uitgevoerd op een virtuele Azure-machine met behulp van de installatiemedia in de Portal voor Volume Licensing. Echter is, er momenteel geen manier om te wijzigen van de editie van een exemplaar van SQL Server. Een nieuwe Azure-machine maken met de gewenste editie van SQL Server en migreer de databases naar de nieuwe server met behulp van standaard [gegevensmigratietechnieken](virtual-machines-windows-migrate-sql.md).
 
 1. **Hoe worden updates en servicepacks toegepast op een SQL Server-VM?**
 

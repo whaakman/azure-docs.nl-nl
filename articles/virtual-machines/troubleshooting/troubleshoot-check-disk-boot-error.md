@@ -3,7 +3,7 @@ title: Bestandssysteem controleren bij het opstarten van een Azure-VM | Microsof
 description: Informatie over het oplossen van het probleem dat de virtuele machine bestandssysteem controleren weergeven bij het opstarten | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genlin
+author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
-ms.openlocfilehash: 91285fd3bf42158068040833146377cb6c48e4e8
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 51a97443f6b9ba2a37fa2db708b8520a9c450000
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47413642"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776441"
 ---
 # <a name="windows-shows-checking-file-system-when-booting-an-azure-vm"></a>Windows bevat 'bestandssysteem controleren' wanneer een Azure-VM wordt opgestart
 
 Dit artikel beschrijft de fout 'Bestandssysteem controleren', die optreden kunnen tijdens het opstarten van een Windows virtuele Machine (VM) in Microsoft Azure.
 
 > [!NOTE] 
-> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en klassieke](../../azure-resource-manager/resource-manager-deployment-model.md). Dit artikel wordt beschreven met behulp van de Resource Manager-implementatiemodel, dat wordt u aangeraden voor nieuwe implementaties in plaats van het klassieke implementatiemodel.
+> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../../azure-resource-manager/resource-manager-deployment-model.md). Dit artikel wordt beschreven met behulp van de Resource Manager-implementatiemodel, dat wordt u aangeraden voor nieuwe implementaties in plaats van het klassieke implementatiemodel.
 
 ## <a name="symptom"></a>Symptoom 
 

@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b709851a0b8b4a095b5b1bf5e0f1008359b1f426
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 1f1fbc49a42ec9b72ebe74a96ee099630d7416b1
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317404"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570645"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>Syntaxis voor OData-expressie voor filters en order by-componenten in Azure Search
 
@@ -36,21 +36,21 @@ Een **$filter** expressie zelfstandige als een volledig uitgedrukt query uitvoer
 
 
 ```POST
-POST /indexes/hotels/docs/search?api-version=2017-11-11  
-    {  
-      "filter": "(baseRate ge 60 and baseRate lt 300) or hotelName eq 'Fancy Stay'"  
-    }  
+POST /indexes/hotels/docs/search?api-version=2017-11-11
+    {
+      "filter": "(baseRate ge 60 and baseRate lt 300) or hotelName eq 'Fancy Stay'"
+    }
 ```
 
 Een ander gebruikelijk is filters gecombineerd facetten, waarbij het filter vermindert het query-gebied op basis van een selectie van de navigatie door gebruikers geïnitieerde facet:
 
 ```POST
-POST /indexes/hotels/docs/search?api-version=2017-11-11  
-    {  
-      "search": "test",  
-      "facets": [ "tags", "baseRate,values:80|150|220" ],  
-      "filter": "rating eq 3 and category eq 'Motel'"  
-    }  
+POST /indexes/hotels/docs/search?api-version=2017-11-11
+    {
+      "search": "test",
+      "facets": [ "tags", "baseRate,values:80|150|220" ],
+      "filter": "rating eq 3 and category eq 'Motel'"
+    }
 ```
 
 ### <a name="filter-operators"></a>Voor de filteroperators  
@@ -89,9 +89,9 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
     Deze derde parameter is een tekenreeks waarin elk teken van de tekenreeks of een subset van deze tekenreeks wordt beschouwd als scheidingsteken bij het parseren van de lijst met waarden in de tweede parameter.
 
     > [!NOTE]   
-    >  Sommige scenario's vereist een veld op basis van een groot aantal constante waarden vergelijken. Bijvoorbeeld: implementatie van security trimming wordt geregeld met filters mogelijk vergelijken van het document-ID-veld op basis van een lijst met id's waarvoor de aanvragende gebruiker leestoegang wordt verleend. In scenario's zoals dit is het raadzaam met behulp van de `search.in` functie in plaats van een meer complexe scheiding van gelijkheid expressies. Gebruik bijvoorbeeld `search.in(Id, '123, 456, ...')` in plaats van `Id eq 123 or Id eq 456 or ....`. 
-
->  Als u `search.in`, u krijgt dan een seconde reactietijd wanneer de tweede parameter een lijst met honderden of duizenden waarden bevat. Houd er rekening mee dat er geen expliciete limiet voor het aantal items dat u kunt doorgeven is aan `search.in`, hoewel u nog steeds worden beperkt door de grootte van de maximale aanvraag. Echter, de latentie zal toenemen naarmate het aantal waarden groeit.
+    > Sommige scenario's vereist een veld op basis van een groot aantal constante waarden vergelijken. Bijvoorbeeld: implementatie van security trimming wordt geregeld met filters mogelijk vergelijken van het document-ID-veld op basis van een lijst met id's waarvoor de aanvragende gebruiker leestoegang wordt verleend. In scenario's zoals dit is het raadzaam met behulp van de `search.in` functie in plaats van een meer complexe scheiding van gelijkheid expressies. Gebruik bijvoorbeeld `search.in(Id, '123, 456, ...')` in plaats van `Id eq 123 or Id eq 456 or ....`. 
+    >
+    > Als u `search.in`, u krijgt dan een seconde reactietijd wanneer de tweede parameter een lijst met honderden of duizenden waarden bevat. Houd er rekening mee dat er geen expliciete limiet voor het aantal items dat u kunt doorgeven is aan `search.in`, hoewel u nog steeds worden beperkt door de grootte van de maximale aanvraag. Echter, de latentie zal toenemen naarmate het aantal waarden groeit.
 
 -   De `search.ismatch` functie zoekopdracht wordt geëvalueerd als onderdeel van een filterexpressie. De documenten die overeenkomen met de zoekopdracht worden geretourneerd in de resultatenset. De volgende overloads van deze functie zijn beschikbaar:
     - `search.ismatch(search)`
@@ -130,106 +130,106 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 
  Zoek alle hotels met een basistarief kleiner is dan $100 die worden beoordeeld op of boven de 4:  
 
-```  
-$filter=baseRate lt 100.0 and rating ge 4  
-```  
+```
+$filter=baseRate lt 100.0 and rating ge 4
+```
 
  Zoek alle hotels dan "Roach Motel" hebben is renovated sinds 2010:  
 
-```  
-$filter=hotelName ne 'Roach Motel' and lastRenovationDate ge 2010-01-01T00:00:00Z  
-```  
+```
+$filter=hotelName ne 'Roach Motel' and lastRenovationDate ge 2010-01-01T00:00:00Z
+```
 
  Zoek alle hotels met een basistarief kleiner is dan $200 die u hebt zijn renovated sinds 2012, met een letterlijke datetime-waarde die informatie over de tijdzone voor Pacific (standaardtijd bevat):  
 
-```  
-$filter=baseRate lt 200 and lastRenovationDate ge 2012-01-01T00:00:00-08:00  
-```  
+```
+$filter=baseRate lt 200 and lastRenovationDate ge 2012-01-01T00:00:00-08:00
+```
 
  Zoek alle hotels die van de vervangende domeinpagina opgenomen en soorten niet toestaan:  
 
-```  
-$filter=parkingIncluded and not smokingAllowed  
-```  
+```
+$filter=parkingIncluded and not smokingAllowed
+```
 
  \- OR-  
 
-```  
-$filter=parkingIncluded eq true and smokingAllowed eq false  
-```  
+```
+$filter=parkingIncluded eq true and smokingAllowed eq false
+```
 
  Alle hotels die luxe of vervangende domeinpagina bevatten en hebben een classificatie van 5 zoeken:  
 
-```  
-$filter=(category eq 'Luxury' or parkingIncluded eq true) and rating eq 5  
-```  
+```
+$filter=(category eq 'Luxury' or parkingIncluded eq true) and rating eq 5
+```
 
  Zoek alle hotels met het label 'Wi-Fi' (waarbij elke hotel heeft voor labels die zijn opgeslagen in een veld Collection(Edm.String)):  
 
-```  
-$filter=tags/any(t: t eq 'wifi')  
-```  
+```
+$filter=tags/any(t: t eq 'wifi')
+```
 
  Zoek alle hotels zonder de tag "motel":  
 
-```  
-$filter=tags/all(t: t ne 'motel')  
-```  
+```
+$filter=tags/all(t: t ne 'motel')
+```
 
  Alle hotels met alle tags vinden:  
 
-```  
-$filter=tags/any()  
-```  
+```
+$filter=tags/any()
+```
 
 Zoek alle hotels waarvoor geen codes:  
 
-```  
-$filter=not tags/any()  
-```  
+```
+$filter=not tags/any()
+```
 
 
  Zoek alle hotels binnen 10 kilometer van een opgegeven punt (locatie is een veld van het type Edm.GeographyPoint):  
 
-```  
-$filter=geo.distance(location, geography'POINT(-122.131577 47.678581)') le 10  
-```  
+```
+$filter=geo.distance(location, geography'POINT(-122.131577 47.678581)') le 10
+```
 
  Zoek alle hotels binnen een bepaalde viewport beschreven als een veelhoek (locatie is een veld van het type Edm.GeographyPoint). Houd er rekening mee dat de veelhoek is gesloten (de eerste en laatste punt sets moet hetzelfde) en [de punten moeten worden weergegeven in tegen de klok in volgorde](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
 
-```  
-$filter=geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')  
-```  
+```
+$filter=geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')
+```
 
  Zoek alle hotels die geen waarde in het veld 'description' hebben of waarde expliciet is ingesteld op null:  
 
-```  
-$filter=description eq null  
-```  
+```
+$filter=description eq null
+```
 
 Zoek alle hotels met de naam gelijk is aan een van beide Roach motel' of 'Budget hotel'):  
 
-```  
-$filter=search.in(name, 'Roach motel,Budget hotel', ',') 
+```
+$filter=search.in(name, 'Roach motel,Budget hotel', ',')
 ```
 
 Zoek alle hotels met de naam gelijk is aan een van beide Roach motel' of 'Budget hotel' gescheiden door ' |'):  
 
-```  
-$filter=search.in(name, 'Roach motel|Budget hotel', '|') 
+```
+$filter=search.in(name, 'Roach motel|Budget hotel', '|')
 ```
 
 Zoek alle hotels met de tag 'Wi-Fi' of 'groep':  
 
-```  
-$filter=tags/any(t: search.in(t, 'wifi, pool'))  
+```
+$filter=tags/any(t: search.in(t, 'wifi, pool'))
 ```
 
 Alle hotels zonder de tag 'motel' en 'handbagage' niet vinden:  
 
-```  
-$filter=tags/all(t: not search.in(t, 'motel, cabin'))  
-```  
+```
+$filter=tags/all(t: not search.in(t, 'motel, cabin'))
+```
 
 Documenten met het woord "afgebakend" zoeken. Dit filterquery is gelijk aan een [zoekaanvraag](https://docs.microsoft.com/rest/api/searchservice/search-documents) met `search=waterfront`.
 

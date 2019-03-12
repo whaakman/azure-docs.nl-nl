@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 0fe4da13e8242d858d553e0532b82cf1adca450a
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 04712b1ba1eccd71dcfcc9012ebcbdfcbdcd2404
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338756"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773667"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Met behulp van Azure API Management-service met een intern virtueel netwerk
 Met virtuele netwerken van Azure beheren Azure API Management API's die niet toegankelijk is via internet. Een aantal VPN-technologieën zijn beschikbaar voor het maken van de verbinding. API Management kan worden geïmplementeerd in twee belangrijke modi binnen een virtueel netwerk:
@@ -32,7 +32,7 @@ U kunt de volgende scenario's met behulp van API Management in de modus voor int
 
 * API's die worden gehost in uw privéverbindingen voor datacenters veilig toegankelijk worden gemaakt door derde partijen buiten deze met behulp van site-naar-site of Azure ExpressRoute-VPN-verbindingen maken
 * Hybride cloud-scenario's inschakelen bij het blootstellen van uw cloud-gebaseerde API's en on-premises API's via een gateway.
-* Beheer uw API's die worden gehost in meerdere geografische locaties met behulp van een enkele gateway-eindpunt. 
+* Beheer uw API's die worden gehost in meerdere geografische locaties met behulp van een enkele gateway-eindpunt.
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
@@ -47,7 +47,7 @@ Als u de stappen in dit artikel, moet u het volgende hebben:
 + **Een Azure API Management-exemplaar**. Zie voor meer informatie, [maken van een Azure API Management-exemplaar](get-started-create-service-instance.md).
 
 ## <a name="enable-vpn"> </a>Het maken van een API Management in een intern virtueel netwerk
-De API Management-service in een intern virtueel netwerk wordt gehost achter een interne load balancer (ILB).
+De API Management-service in een intern virtueel netwerk wordt gehost achter een [interne load balancer (klassiek)](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). Dit is de enige beschikbare optie en kan niet worden gewijzigd.
 
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>De verbinding van een virtueel netwerk met behulp van de Azure-portal inschakelen
 
@@ -103,11 +103,12 @@ Voor toegang tot deze API Management service-eindpunten, kunt u een virtuele mac
 
    * 10.1.0.5 contosointernalvnet.scm.azure-api.net
 
-U kunt vervolgens toegang tot alle service-eindpunten van de virtuele machine die u hebt gemaakt. Als u een aangepaste DNS-server in een virtueel netwerk gebruikt, kunt u ook een DNS-records maken en toegang hebben tot deze eindpunten vanaf elke locatie in uw virtuele netwerk. 
+U kunt vervolgens toegang tot alle service-eindpunten van de virtuele machine die u hebt gemaakt.
+Als u een aangepaste DNS-server in een virtueel netwerk gebruikt, kunt u ook een DNS-records maken en toegang hebben tot deze eindpunten vanaf elke locatie in uw virtuele netwerk.
 
 ### <a name="access-on-custom-domain-names"></a>Toegang tot aangepaste domeinnamen
 
-   1. Als u toegang tot de API Management-service met de standaard-hostnamen niet wilt, kunt u aangepaste domeinnamen voor alle uw service-eindpunten zoals wordt weergegeven in de volgende afbeelding kunt instellen: 
+   1. Als u toegang tot de API Management-service met de standaard-hostnamen niet wilt, kunt u aangepaste domeinnamen voor alle uw service-eindpunten zoals wordt weergegeven in de volgende afbeelding kunt instellen:
 
    ![Instellen van een aangepast domein voor API Management][api-management-custom-domain-name]
 

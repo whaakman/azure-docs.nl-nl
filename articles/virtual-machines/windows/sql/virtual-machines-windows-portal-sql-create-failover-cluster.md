@@ -3,7 +3,7 @@ title: SQL Server FCI - virtuele Machines van Azure | Microsoft Docs
 description: In dit artikel wordt uitgelegd hoe u SQL Server Failover Cluster Instance maken op Azure Virtual Machines.
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
+author: MikeRayMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 778984d4d34d3b63d92378781d377fee557c7148
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 7e0dea82614363883bbfb4a34894a2248faeb176
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821914"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769656"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configureren van SQL Server-failovercluster-exemplaar op Azure Virtual Machines
 
@@ -163,7 +163,7 @@ Met deze voorwaarden is voldaan, kunt u doorgaan met het ontwikkelen van uw fail
 1. Als u van een van de virtuele machine op basis van SQL Server-installatiekopieën gebruikmaakt, verwijdert u de SQL Server-exemplaar.
 
    - In **programma's en onderdelen**, met de rechtermuisknop op **Microsoft SQL Server 2016 (64-bits)** en klikt u op **verwijderen/wijzigen**.
-   - Klik op **verwijderen**.
+   - Klik op **Verwijderen**.
    - Selecteer het standaardexemplaar plaatst.
    - Verwijder alle onderdelen onder **Database-Engineservices**. Verwijder niet **gedeelde onderdelen**. Zie de volgende afbeelding:
 

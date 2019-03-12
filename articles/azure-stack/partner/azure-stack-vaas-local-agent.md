@@ -10,36 +10,36 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: c7bf766dc0f73b37fc7de537537c7a885a50c30a
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 09b8556a83dec286ce8d67fa5fd6d27e027325bf
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339569"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769213"
 ---
 # <a name="deploy-the-local-agent"></a>De lokale agent implementeren
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Meer informatie over het gebruik van de validatie als een lokale agent Service (VaaS) om te controleren of uw hardware. De lokale agent moet worden geïmplementeerd op de Azure Stack-oplossing vóór het uitvoeren van de validatietests worden gevalideerd.
+Informatie over het gebruik van de validatie als een lokale agent Service (VaaS) om validatietests uit te voeren. De lokale agent moet worden geïmplementeerd voordat u validatietests uitvoert.
 
 > [!Note]  
-> U moet ervoor zorgen dat de computer waarop de lokale agent wordt uitgevoerd geen uitgaande gebonden geen toegang meer tot het internet. Deze machine moet uitsluitend toegankelijk voor gebruikers die u hebt geautoriseerd gebruik van VaaS namens uw tenant.
+> Zorg ervoor dat de computer waarop de lokale agent wordt uitgevoerd geen uitgaande geen toegang meer tot het internet. Deze machine moet uitsluitend toegankelijk voor gebruikers die zijn gemachtigd voor het gebruik van VaaS namens uw tenant.
 
 De lokale agent implementeren:
 
-1. De lokale agent installeren
-2. Uitvoeren van bevestigingen
-3. De lokale agent uitvoeren
+1. De lokale agent installeren.
+2. Bevestigingen uitvoeren.
+3. De lokale agent worden uitgevoerd.
 
 ## <a name="download-and-start-the-local-agent"></a>Downloaden en de lokale agent starten
 
-Download de agent op een computer die voldoet aan de vereisten in uw datacenter die geen deel uitmaakt van het Azure Stack-systeem, maar dat toegang heeft tot alle Azure Stack-eindpunten.
+Download de agent op een computer die voldoet aan de vereisten in uw datacenter en toegang heeft tot alle Azure Stack-eindpunten. Deze computer mag geen deel uit van de Azure Stack-systeem of gehost in de Azure Stack-cloud.
 
 ### <a name="machine-prerequisites"></a>Vereisten voor de machines
 
@@ -51,8 +51,6 @@ Controleer of uw computer voldoet aan de volgende criteria:
 - Minimaal 8-coreprocessors
 - Minimaal 200 GB schijfruimte
 - Stabiele netwerkverbinding met het internet
-
-Azure Stack wordt het systeem onder testen. De computer mag geen deel uit van Azure Stack of gehost in de Azure Stack-cloud.
 
 ### <a name="download-and-install-the-agent"></a>De agent downloaden en installeren
 
@@ -95,7 +93,7 @@ De opdracht downloadt een installatiekopie van de openbare opslagplaats (PIR)-in
 
 ## <a name="checks-before-starting-the-tests"></a>Controles voordat u begint met de tests
 
-De tests zijn externe acties uitgevoerd. De machine waarop de tests moet toegang hebben tot de Azure Stack-eindpunten, anders de tests werkt niet. Als u van de lokale agent VaaS gebruikmaakt, gebruikt u de computer waar de agent wordt uitgevoerd. U kunt controleren of uw computer toegang tot de Azure Stack-eindpunten heeft door het uitvoeren van controles op de volgende:
+De tests zijn uitgevoerd externe bewerkingen. De machine waarop de tests moet toegang hebben tot de Azure Stack-eindpunten, anders de tests werkt niet. Als u van de lokale agent VaaS gebruikmaakt, gebruikt u de computer waar de agent wordt uitgevoerd. U kunt controleren of uw computer toegang tot de Azure Stack-eindpunten heeft door het uitvoeren van controles op de volgende:
 
 1. Controleer of de basis-URI kan worden bereikt. Open een opdrachtprompt of bash-shell en voer de volgende opdracht, vervangt `<EXTERNALFQDN>` met de externe FQDN-naam van uw omgeving:
 

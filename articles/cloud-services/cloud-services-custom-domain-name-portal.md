@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: e339d50a379015d7aebe19b25127e9804d8efc52
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5321ab80440e59be42b6354fda47cd78041b9078
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237244"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781541"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Een aangepaste domeinnaam voor een Azure-cloudservice configureren
 Wanneer u een Cloudservice maakt, Azure toegewezen aan een subdomein van **cloudapp.net**. Bijvoorbeeld, als uw Cloudservice is de naam "contoso", uw gebruikers zich toegang tot uw toepassing op een URL, zoals http://contoso.cloudapp.net. Azure wijst ook een virtueel IP-adres.
@@ -47,7 +47,7 @@ CNAME (of aliasrecords) en een records, kunt u de naam van een domein koppelen a
 Een CNAME-record verwijst een *specifieke* domein, zoals **contoso.com** of **www.contoso.com**, naar een canonieke domeinnaam. In dit geval de canonieke domeinnaam is de **[Mijntoep] .cloudapp .net** domeinnaam van uw Azure-toepassing die wordt gehost. Nadat u hebt gemaakt, de CNAME maakt u een alias voor de **[Mijntoep] .cloudapp .net**. De CNAME-vermelding wordt omgezet in het IP-adres van uw **[Mijntoep] .cloudapp .net** service automatisch, zodat als het IP-adres van de cloudservice wordt gewijzigd, u hoeft geen actie te ondernemen.
 
 > [!NOTE]
-> Sommige registratieservices domein kunnen u alleen subdomeinen toewijzen bij het gebruik van een CNAME-record, bijvoorbeeld www.contoso.com en geen hoofdmap namen, zoals contoso.com. Zie voor meer informatie over CNAME-records, de documentatie van uw registrar [de Wikipedia-vermelding op CNAME-record](http://en.wikipedia.org/wiki/CNAME_record), of de [IETF-domeinnamen - implementatie en -specificatie](http://tools.ietf.org/html/rfc1035) document.
+> Sommige registratieservices domein kunnen u alleen subdomeinen toewijzen bij het gebruik van een CNAME-record, bijvoorbeeld www.contoso.com en geen hoofdmap namen, zoals contoso.com. Zie voor meer informatie over CNAME-records, de documentatie van uw registrar [de Wikipedia-vermelding op CNAME-record](https://en.wikipedia.org/wiki/CNAME_record), of de [IETF-domeinnamen - implementatie en -specificatie](https://tools.ietf.org/html/rfc1035) document.
 > 
 > 
 
@@ -66,7 +66,7 @@ Voor het maken van een CNAME-record, moet u een nieuwe vermelding in de DNS-tabe
 
 1. Gebruik een van deze methoden om te zoeken de **. cloudapp.net** domeinnaam toegewezen aan uw cloudservice.
    
-   * Meld u aan bij de [Azure Portal], selecteert u uw cloudservice, kijken naar de **Essentials** sectie en gaat u naar de **Site-URL** vermelding.
+   * Meld u aan bij de [Azure-portal], selecteert u uw cloudservice, kijken naar de **Essentials** sectie en gaat u naar de **Site-URL** vermelding.
      
        ![snelle weergave-sectie van de site-URL][csurl]
      
@@ -80,7 +80,7 @@ Voor het maken van een CNAME-record, moet u een nieuwe vermelding in de DNS-tabe
      Sla de naam van het domein in de URL die is geretourneerd door een van beide methoden wordt gebruikt als u deze nodig heeft bij het maken van een CNAME-record.
 2. Meld u aan bij uw DNS-registratieservice-website en Ga naar de pagina voor het beheren van DNS. Zoek koppelingen of gebieden van de site met het label **domeinnaam**, **DNS**, of **Serverbeheernaam**.
 3. Nu kunt u selecteren of invoeren van de CNAME vinden. Mogelijk moet u het recordtype in een vervolgkeuzelijst omlaag selecteren of Ga naar een pagina met geavanceerde instellingen. U ziet er voor de woorden **CNAME**, **Alias**, of **subdomeinen**.
-4. U moet ook opgeven het domein of subdomein alias voor de CNAME, zoals **www** als u wilt maken van een alias voor **www.customdomain.com**. Als u een alias maken voor het hoofddomein wilt, kan deze worden vermeld als de '**@**' symbool in hulpprogramma's van uw registrar voor DNS.
+4. U moet ook opgeven het domein of subdomein alias voor de CNAME, zoals **www** als u wilt maken van een alias voor **www.customdomain.com**. Als u een alias maken voor het hoofddomein wilt, kan deze worden vermeld als de '**\@**' symbool in hulpprogramma's van uw registrar voor DNS.
 5. Vervolgens kunt u een canonieke hostnaam, van uw toepassing moet opgeven **cloudapp.net** domein in dit geval.
 
 Bijvoorbeeld, de volgende CNAME-record verzendt al het verkeer van **www.contoso.com** naar **contoso.cloudapp.net**, de aangepaste domeinnaam van uw geïmplementeerde toepassing:
@@ -101,7 +101,7 @@ Voor het maken van een A-record, moet u eerst het virtuele IP-adres van uw cloud
 
 1. Gebruik een van de volgende methoden om het IP-adres van uw cloudservice.
    
-   * Meld u aan bij de [Azure Portal], selecteert u uw cloudservice, kijken naar de **Essentials** sectie en gaat u naar de **openbare IP-adressen** vermelding.
+   * Meld u aan bij de [Azure-portal], selecteert u uw cloudservice, kijken naar de **Essentials** sectie en gaat u naar de **openbare IP-adressen** vermelding.
      
        ![snelle weergave-sectie van de VIP][vip]
      
@@ -115,9 +115,9 @@ Voor het maken van een A-record, moet u eerst het virtuele IP-adres van uw cloud
      Sla het IP-adres als u deze nodig heeft bij het maken van een A-record.
 2. Meld u aan bij uw DNS-registratieservice-website en Ga naar de pagina voor het beheren van DNS. Zoek koppelingen of gebieden van de site met het label **domeinnaam**, **DNS**, of **Serverbeheernaam**.
 3. Nu kunt u selecteren of invoeren van een record vinden. Mogelijk moet u het recordtype in een vervolgkeuzelijst omlaag selecteren of Ga naar een pagina met geavanceerde instellingen.
-4. Selecteer of Voer het domein of subdomein dat door deze A-record wordt gebruikt. Selecteer bijvoorbeeld **www** als u wilt maken van een alias voor **www.customdomain.com**. Als u maken van een jokerteken-vermelding voor alle subdomeinen wilt, voert u ' *****'. Deze bestrijken alle subdomeinen zoals **mail.customdomain.com**, **login.customdomain.com**, en **www.customdomain.com**.
+4. Selecteer of Voer het domein of subdomein dat door deze A-record wordt gebruikt. Selecteer bijvoorbeeld **www** als u wilt maken van een alias voor **www.customdomain.com**. Als u maken van een jokerteken-vermelding voor alle subdomeinen wilt, voert u ' ***'. Deze bestrijken alle subdomeinen zoals **mail.customdomain.com**, **login.customdomain.com**, en **www.customdomain.com**.
    
-    Als u maken van een A-record voor het hoofddomein wilt, kan deze worden vermeld als de '**@**' symbool in hulpprogramma's van uw registrar voor DNS.
+    Als u maken van een A-record voor het hoofddomein wilt, kan deze worden vermeld als de '**\@**' symbool in hulpprogramma's van uw registrar voor DNS.
 5. Voer het IP-adres van uw cloudservice in het opgegeven veld. Hiermee wordt de domein-vermelding in de A-record met het IP-adres van uw cloud service-implementatie gebruikt.
 
 Bijvoorbeeld, de volgende een record al het verkeer van verzendt **contoso.com** naar **137.135.70.239**, het IP-adres van uw geïmplementeerde toepassing:
@@ -126,7 +126,7 @@ Bijvoorbeeld, de volgende een record al het verkeer van verzendt **contoso.com**
 | --- | --- |
 | \@ |137.135.70.239 |
 
-In dit voorbeeld ziet u het maken van een A-record voor het hoofddomein. Als u een jokerteken-vermelding aan zodat alle subdomeinen maken wilt, voert u dus ' *****' als het subdomein.
+In dit voorbeeld ziet u het maken van een A-record voor het hoofddomein. Als u een jokerteken-vermelding aan zodat alle subdomeinen maken wilt, voert u dus ' ***' als het subdomein.
 
 > [!WARNING]
 > IP-adressen in Azure zijn standaard dynamisch. Wilt u waarschijnlijk gebruik van een [gereserveerd IP-adres](../virtual-network/virtual-networks-reserved-public-ip.md) om ervoor te zorgen dat uw IP-adres niet verandert.
@@ -145,6 +145,6 @@ In dit voorbeeld ziet u het maken van een A-record voor het hoofddomein. Als u e
 [Expose Your Data on a Custom Domain]: #access-data
 [VIP swaps]: cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 [Create a CNAME record that associates the subdomain with the storage account]: #create-cname
-[Azure Portal]: https://portal.azure.com
+[Azure-portal]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png

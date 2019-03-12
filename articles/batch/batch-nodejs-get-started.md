@@ -7,16 +7,16 @@ manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: conceptual
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: 8844260c4364776ad0fc828dcd66932d37474ecf
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
-ms.translationtype: HT
+ms.openlocfilehash: bb0bfa5eac3dd9031718fb12f270f5fc03bbaea6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164616"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772171"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Aan de slag met de Batch-SDK voor Node.js
 
@@ -260,7 +260,7 @@ Een Azure Batch-taak is een logische groep vergelijkbare taken. In dit scenario 
 Deze taken worden gelijktijdig uitgevoerd en op verschillende knooppunten geïmplementeerd, of ingedeeld door de Azure Batch-service.
 
 > [!Tip]
-> U kunt de eigenschap [maxTasksPerNode](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) gebruiken om aan te geven hoeveel taken maximaal tegelijk mogen worden uitgevoerd op één knooppunt.
+> U kunt de eigenschap [maxTasksPerNode](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) gebruiken om aan te geven hoeveel taken maximaal tegelijk mogen worden uitgevoerd op één knooppunt.
 >
 >
 
@@ -273,7 +273,7 @@ Met het [Shell-script](https://github.com/shwetams/azure-batchclient-sample-node
 U kunt het script uploaden naar een Azure Storage-account en een SAS-URI genereren om toegang tot het script te verkrijgen. Dit proces kan ook worden geautomatiseerd met de Azure Storage Node.js-SDK.
 
 > [!Tip]
-> Er wordt alleen een voorbereidingstaak voor een taak uitgevoerd op de VM-knooppunten waarop de specifieke taak moet worden uitgevoerd. Als u wilt dat de vereiste onderdelen op alle knooppunten worden geïnstalleerd, ongeacht de taken die erop worden uitgevoerd, kunt u de eigenschap [startTask](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) gebruiken tijdens het toevoegen van een pool. Ter referentie kunt u de volgende voorbereidingstaakdefinitie gebruiken.
+> Er wordt alleen een voorbereidingstaak voor een taak uitgevoerd op de VM-knooppunten waarop de specifieke taak moet worden uitgevoerd. Als u wilt dat de vereiste onderdelen op alle knooppunten worden geïnstalleerd, ongeacht de taken die erop worden uitgevoerd, kunt u de eigenschap [startTask](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) gebruiken tijdens het toevoegen van een pool. Ter referentie kunt u de volgende voorbereidingstaakdefinitie gebruiken.
 >
 >
 
@@ -349,7 +349,7 @@ var container_list = ["con1","con2","con3","con4"]
 
 Met de code worden meerdere taken aan de pool toegevoegd. Alle taken worden uitgevoerd op een knooppunt in de pool gemaakte VM's. Als het aantal taken het aantal VM's in een pool overschrijdt, of als de eigenschap maxTasksPerNode wordt overschreven, wordt er gewacht tot een aanvullend knooppunt beschikbaar is gemaakt. Azure Batch deelt alles automatisch in.
 
-De portal biedt een gedetailleerd overzicht van de taken en de taakstatus. U kunt ook de lijst- en ophaalfuncties in de Azure Node-SDK gebruiken. U vindt meer informatie in de documentatie ([koppeling](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html)).
+De portal biedt een gedetailleerd overzicht van de taken en de taakstatus. U kunt ook de lijst- en ophaalfuncties in de Azure Node-SDK gebruiken. U vindt meer informatie in de documentatie ([koppeling](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html)).
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: fd7308e7ecb6e086dffb4bae0cc99c57dd699861
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 5548a62218aaac2e4da3853e8e5d43a584922bc0
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729814"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569889"
 ---
 # <a name="azure-data-factory-mapping-data-flow-pivot-transformation"></a>Azure Data Factory gegevenstransformatie stroom Pivot toewijzen
 
@@ -42,7 +42,7 @@ Ten slotte, kiest u de aggregatie die u wilt gebruiken voor de gedraaide waarden
 
 (Optioneel) U kunt een specifiek naamgevingspatroon: met een voorvoegsel, midden en achtervoegsel om te worden toegevoegd aan elke nieuwe kolomnaam van de rijwaarden instellen.
 
-Bijvoorbeeld zou 'Verkoop' door 'Regio' draaien leiden tot nieuwe kolomwaarden van elke waarde van de verkopen, dat wil zeggen "25", "50", "1000", etc. Echter, als u een waarde van het aanpassingsvoorvoegsel van 'Verkoop' instellen 
+Bijvoorbeeld zou 'Verkoop' door 'Regio' draaien leiden tot nieuwe kolomwaarden van elke waarde van de verkopen, dat wil zeggen "25", "50", "1000", etc. Echter als u een waarde van het aanpassingsvoorvoegsel van 'Sales-' instellen, toevoegen elke waarde in de kolom 'Sales-' aan het begin van de waarde.
 
 ![Opties van draaipunt](media/data-flow/pivot5.png "5 van draaipunt")
 
@@ -56,4 +56,8 @@ De ADF gegevens Flow expressietaal gebruiken om te beschrijven van de transforma
 
 ### <a name="how-to-rejoin-original-fields"></a>Het oorspronkelijke velden weer
 > [!NOTE]
-> De Pivot-transformatie wordt alleen de kolommen die worden gebruikt in de aggregatie, de groepering en de pivot actie van het project. Als u opnemen van de andere kolommen uit de vorige stap in de stroom wilt, gebruikt u een nieuwe vertakking in de vorige stap en het patroon self-join om de stroom verbinding met de oorspronkelijke metagegevens te gebruiken
+> De Pivot-transformatie wordt alleen de kolommen die worden gebruikt in de aggregatie, de groepering en de pivot actie van het project. Als u opnemen van de andere kolommen uit de vorige stap in de stroom wilt, gebruikt u een nieuwe vertakking in de vorige stap en het patroon self-join om de stroom verbinding met de oorspronkelijke metagegevens te gebruiken.
+
+## <a name="next-steps"></a>Volgende stappen
+
+Probeer de [draaitabel opheffen voor transformatie](data-flow-unpivot.md) met kolomwaarden in rijwaarden. 

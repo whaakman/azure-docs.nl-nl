@@ -4,16 +4,16 @@ description: Leer hoe u een Azure-oplossing voor de overdracht van kiezen wannee
 services: storage
 author: alkohli
 ms.service: storage
-ms.subservice: blob
+ms.subservice: blobs
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: alkohli
-ms.openlocfilehash: bc5668d826395fb71ee70907f095303a43f1ec7f
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 4a8a014b365974bb8c138c74197d3d89cc63e42e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214314"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771977"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Gegevensoverdracht voor grote gegevenssets met gemiddeld naar hoogste netwerkbandbreedte
  
@@ -65,14 +65,14 @@ Als u offline gegevensoverdracht, gebruik de volgende tabel om te weten wat de v
 |                                     |    Data Box-schijf (preview)    |    Data Box                                      |    Gegevens in het zware (preview)              |    Import/Export                       |
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
 |    Gegevensgrootte                        |    Tot 35 TB                 |    Maximaal 80 TB per apparaat                       |    Maximaal 800 TB per apparaat               |    Variabele                            |
-|    Gegevenstype                        |    Azure-Blobs                  |    Azure-Blobs<br>Azure Files                    |    Azure-Blobs<br>Azure Files            |    Azure-Blobs<br>Azure Files          |
-|    Vormfactor                      |    5 SSD's per order             |    1 x 50-lbs. Desktop-formaat apparaat per order    |    1 X ~ 500-lbs. grote apparaat per order    |    Maximaal 10 HDD's / SSD's per order        |
-|    Initiële insteltijd               |    Laag <br>(15 minuten)            |    Lage tot gemiddelde <br> (< 30 minuten)               |    Gemiddeld<br>(1-2 uur)               |    Gemiddelde tot moeilijk<br>(variabele) |
+|    Gegevenstype                        |    Azure Blobs                  |    Azure Blobs<br>Azure Files                    |    Azure Blobs<br>Azure Files            |    Azure Blobs<br>Azure Files          |
+|    Vormfactor                      |    5 SSD's per order             |    1 x 50-lbs. Desktop-formaat apparaat per order    |    1 X ~500-lbs. grote apparaat per order    |    Maximaal 10 HDD's / SSD's per order        |
+|    Initiële insteltijd               |    Laag <br>(15 minuten)            |    Lage tot gemiddelde <br> (<30 mins)               |    Gemiddeld<br>(1-2 uur)               |    Gemiddelde tot moeilijk<br>(variabele) |
 |    Gegevens verzenden naar Azure               |    Ja                          |    Ja                                           |    Ja                                   |    Ja                                 |
 |    Gegevens exporteren van Azure           |    Nee                           |    Nee                                            |    Nee                                    |    Ja                                 |
-|    Versleuteling                       |    AES 128-bits                  |    AES 256-bits                                   |    AES 256-bits                           |    AES 128-bits                         |
+|    Versleuteling                       |    AES 128-bit                  |    AES 256-bit                                   |    AES 256-bit                           |    AES 128-bit                         |
 |    Hardware                         |     Microsoft geleverd          |    Microsoft geleverd                            |    Microsoft geleverd                    |    De klant worden verstrekt                   |
-|    Netwerkinterface                |    USB-3.1/SATA                 |    RJ-45, SFP +                                   |    RJ-45, QSFP +                           |    SATA II/SATA III                    |
+|    Netwerkinterface                |    USB-3.1/SATA                 |    RJ 45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |
 |    Partnerintegratie              |    Sommige                         |    [Hoog](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                          |    [Hoog](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                  |    Sommige                                |
 |    Verzenden                         |    Beheerd door Microsoft            |    Beheerd door Microsoft                             |    Beheerd door Microsoft                     |    Beheerd door de klant                    |
 | Gebruik deze sjabloon wanneer gegevens worden verplaatst         |Binnen een grens commerce|Binnen een grens commerce|Binnen een grens commerce|Over de geografische grenzen, bijvoorbeeld VS EU|
@@ -83,7 +83,7 @@ Als u online gegevensoverdracht, gebruikt u de tabel in de volgende sectie voor 
 
 ### <a name="high-network-bandwidth"></a>Hoge netwerkbandbreedte
 
-|                                     |    Hulpprogramma's-AzCopy <br>Azure PowerShell <br>Azure-CLI             |    Azure Storage REST API's en SDK 's                   |    Data Box-Gateway of gegevens in Edge (preview)           |    Azure Data Factory                                            |
+|                                     |    Hulpprogramma's-AzCopy <br>Azure PowerShell, <br>Azure-CLI             |    Azure Storage REST API's en SDK 's                   |    Data Box-Gateway of gegevens in Edge (preview)           |    Azure Data Factory                                            |
 |-------------------------------------|------------------------------------|----------------------------------------------|----------------------------------|-----------------------------------------------------------------------|
 |    Gegevenstype                  |    Azure-Blobs, Azure Files, Azure-tabellen    |    Azure-Blobs, Azure Files, Azure-tabellen    |    Azure-Blobs, Azure Files                           |   Biedt ondersteuning voor 70 gegevensconnectors voor data-archieven en indelingen    |
 |    Vormfactor                |    Opdrachtregelprogramma's                        |    Programma-interface                    |    Microsoft levert een virtuele <br>of het fysieke apparaat     |    -Service in Azure portal                                            |

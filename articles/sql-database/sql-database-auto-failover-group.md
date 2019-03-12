@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 862cc4da99aed02b81b6fd12913736bf30866f72
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/07/2019
+ms.openlocfilehash: 3c65d4360e3a20b7c2228e42fb4b4db1eecc75ff
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313596"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774793"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Automatische failover-groepen gebruiken voor het inschakelen van transparante en gecoördineerd failover van meerdere databases
 
@@ -215,7 +215,7 @@ Als uw toepassing gebruikmaakt van beheerd exemplaar als de gegevenslaag, volgt 
   > [!NOTE]
   > In bepaalde Servicelagen, Azure SQL Database ondersteunt het gebruik van [alleen-lezen replica's](sql-database-read-scale-out.md) laden saldo alleen-lezen querywerkbelastingen met behulp van de capaciteit van een alleen-lezen replica en het gebruik van de `ApplicationIntent=ReadOnly` parameter in de verbinding tekenreeks. Wanneer u een secundaire geo-replicatie hebt geconfigureerd, kunt u deze mogelijkheid verbinding maken met een alleen-lezen replica op de primaire locatie of in de geografisch gerepliceerde locatie.
   > - Gebruiken voor verbinding met een alleen-lezen replica op de primaire locatie, `failover-group-name.zone_id.database.windows.net`.
-  > - Gebruiken voor verbinding met een alleen-lezen replica op de primaire locatie, `failover-group-name.secondary.zone_id.database.windows.net`.
+  > - Gebruiken voor verbinding met een alleen-lezen replica op de secundaire locatie, `failover-group-name.secondary.zone_id.database.windows.net`.
 
 - **Worden voorbereid voor verslechtering van prestaties**
 
@@ -282,7 +282,9 @@ Bij het instellen van een failover-groepen tussen primaire en secundaire beheerd
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Het upgraden of downgraden van een primaire database
 
-U kunt upgraden en downgraden van een primaire database op een andere compute-grootte (in dezelfde servicelaag, niet tussen algemeen gebruik en bedrijfskritiek) zonder te verbreken alle secundaire databases. Bij een upgrade uitvoert, wordt het aanbevolen dat u eerst de secundaire database upgraden en werk vervolgens de primaire. Wanneer de Downgrade uitvoert, de volgorde omgekeerd: eerst downgraden van de primaire en vervolgens gebruik maken van de secundaire server. Wanneer u upgraden en downgraden van de database naar een andere service-laag, worden deze aanbeveling wordt afgedwongen.
+U kunt upgraden en downgraden van een primaire database op een andere compute-grootte (in dezelfde servicelaag, niet tussen algemeen gebruik en bedrijfskritiek) zonder te verbreken alle secundaire databases. Bij een upgrade uitvoert, wordt het aanbevolen dat u eerst een upgrade alle secundaire databases uitvoert en werk vervolgens de primaire. Wanneer de Downgrade uitvoert, de volgorde omgekeerd: eerst downgraden van de primaire en vervolgens gebruik maken van alle secundaire databases. Wanneer u upgraden en downgraden van de database naar een andere service-laag, worden deze aanbeveling wordt afgedwongen.
+
+Deze reeks wordt aanbevolen speciaal om te voorkomen dat het probleem waarbij de secundaire server op een lagere SKU wordt overbelast en moet opnieuw geseede tijdens een upgrade of downgrade. U kunt dit probleem ook voorkomen door de primaire ten koste van invloed op alle werkbelastingen voor lezen / schrijven op basis van de primaire alleen-lezen. 
 
 > [!NOTE]
 > Het verdient aanbeveling niet downgraden van de secundaire database als u een secundaire database als onderdeel van de configuratie van de failover gemaakt. Dit is om te controleren of dat uw gegevenslaag heeft onvoldoende capaciteit voor het verwerken van uw reguliere werkbelasting nadat failover is geactiveerd.
@@ -303,8 +305,6 @@ Zie voor meer informatie over het gebruik van point in time restore met failover
 Zoals eerder besproken automatische failover-groepen en actieve kan geo-replicatie ook worden beheerd via een programma met behulp van Azure PowerShell en de REST-API. De volgende tabellen beschrijven de reeks opdrachten die beschikbaar zijn. Actieve geo-replicatie bevat een set met Azure Resource Manager-API's voor beheer, met inbegrip van de [REST-API van Azure SQL Database](https://docs.microsoft.com/rest/api/sql/) en [Azure PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/overview). Deze API's vereisen het gebruik van resourcegroepen en ondersteuning voor beveiliging op basis van rollen (RBAC). Zie voor meer informatie over het implementeren van toegang tot rollen [toegangsbeheer](../role-based-access-control/overview.md).
 
 ### <a name="powershell-manage-sql-database-failover-with-single-databases-and-elastic-pools"></a>PowerShell: Failover van de SQL-database met individuele databases en elastische pools beheren
-
-[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 | Cmdlet | Description |
 | --- | --- |

@@ -9,43 +9,29 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 03/01/2019
 ms.author: diberry
-ms.openlocfilehash: 7c9f3c72d94955286d05cf68dbe698a46df3cdf3
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 7315c80ad74eae07e41577fb2ac13742002e729e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867028"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781694"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>Abonnementssleutels gebruiken met uw LUIS-app
 
-U hoeft niet te maken van abonnementssleutels voor het gebruik van uw gratis eindpunt van de eerste 1000 query's. Wanneer de eindpunt-query's worden gebruikt, maakt u een Azure-resource in de [Azure-portal](http://portal.azure.com), die resource vervolgens toewijzen aan een LUIS-app in de [LUIS portal](https://www.luis.ai).
+U hoeft niet te maken van abonnementssleutels voor het gebruik van uw gratis eindpunt van de eerste 1000 query's. Wanneer de eindpunt-query's worden gebruikt, maakt u een Azure-resource in de [Azure-portal](https://portal.azure.com), die resource vervolgens toewijzen aan een LUIS-app in de [LUIS portal](https://www.luis.ai).
 
 Als u ontvangt een _buiten het quotum_ fout opgetreden in de vorm van een HTTP 403 of 429, moet u een sleutel maken en toewijzen aan uw app. 
 
 Gebruik voor testen en prototype alleen de gratis laag van (F0). Gebruik voor productiesystemen, een [betaalde](https://aka.ms/luis-price-tier) laag. Gebruik niet de [ontwerpen sleutel](luis-concept-keys.md#authoring-key) voor eindpunt query's in de productieomgeving.
 
 <a name="create-luis-service"></a>
+<a name="create-language-understanding-endpoint-key-in-the-azure-portal"/>
 
-## <a name="create-language-understanding-endpoint-key-in-the-azure-portal"></a>Language Understanding-eindpuntsleutel maken in Azure portal
+## <a name="create-prediction-endpoint-runtime-resource-in-the-azure-portal"></a>Voorspelling endpoint runtime-resource maken in Azure portal
 
-Deze procedure maakt u een **Language Understanding** resource. Als u een informatiebron die kan worden gebruikt voor Cognitive Services wilt, de alles-in-één-sleutel maken **[Cognitive Service](../cognitive-services-apis-create-account.md)** in plaats van de Language Understanding-resource. 
-
-Deze sleutel moet alleen worden gebruikt voor eindpunt voorspelling query's. Gebruik deze sleutel niet voor wijzigingen in het model of de app. 
-
-1. Aanmelden bij de  **[Azure-portal](https://ms.portal.azure.com/)**. 
-1. Selecteer het groene **+** zich in het bovenste linkerdeelvenster en zoek naar de `Language Understanding` in de marketplace, schakelt u vervolgens op **Language Understanding** en volg de  **aan die conferenties** een LUIS-abonnement-account maken. 
-
-    ![Azure Search](./media/luis-azure-subscription/azure-search.png) 
-
-1. Het abonnement configureren met instellingen die de accountnaam, zoals prijzen van lagen, enzovoort. 
-
-    ![Azure API kiezen](./media/luis-azure-subscription/azure-api-choice.png) 
-
-1. Als u de Language Understanding-resource maakt, kunt u de toegangssleutel die is gegenereerd in bekijken **Resourcemanagement -> sleutels**. De volgende sectie wordt beschreven hoe deze nieuwe resources verbinden met een LUIS-app in de LUIS-portal. U moet de naam van de resource LUIS in stap 3.
-
-    ![Azure-sleutels](./media/luis-azure-subscription/azure-keys.png)
+Meer informatie in de [een app bouwen](get-started-portal-build-app.md) Quick Start.
 
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
@@ -63,23 +49,7 @@ Deze sleutel moet alleen worden gebruikt voor eindpunt voorspelling query's. Geb
 
 ## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>Resource toewijzen aan een LUIS-app in de Portal LUIS
 
-1. Aanmelden bij de portal LUIS, kiest u een app om toe te voegen van de nieuwe sleutel en selecteer de **beheren** in het menu rechtsboven en selecteer **sleutels en eindpunten**.
-
-    [![De pagina sleutels en eindpunten](./media/luis-manage-keys/keys-and-endpoints.png)](./media/luis-manage-keys/keys-and-endpoints.png#lightbox)
-
-1. Als u wilt toevoegen de LUIS, selecteert u **Resource toewijzen +**.
-
-    ![Een resource toewijzen aan uw app](./media/luis-manage-keys/assign-key.png)
-
-1. Selecteer een Tenant in het dialoogvenster dat is gekoppeld aan het e-mailbericht adres uw gebruikt om aan te melden met de LUIS-website.  
-
-1. Kies de **abonnementsnaam** die zijn gekoppeld aan de Azure-resource toe te voegen.
-
-1. Selecteer de **LUIS resourcenaam**. 
-
-1. Selecteer **resource toewijzen**. 
-
-1. De nieuwe rij in de tabel zoeken en kopieer de eindpunt-URL. Het is goed samengesteld om te maken van een HTTP GET-aanvraag naar de LUIS-eindpunt voor een voorspelling. 
+Meer informatie in de [implementatie](get-started-portal-deploy-app.md) Quick Start.
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>

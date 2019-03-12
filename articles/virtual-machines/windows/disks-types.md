@@ -9,22 +9,15 @@ ms.topic: article
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: windows
 ms.subservice: disks
-ms.openlocfilehash: 56e262a90f8ef5cda2fa076eab6c030a9cb4af1a
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: f537e6d31950ce66b7b218ec449276108b80220e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749355"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768720"
 ---
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-overview.md)]
 
 Zie de sectie voor meer informatie over momentopnamen van momentopnamen in de [beheerde schijf overzicht](managed-disks-overview.md).
 
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-billing-and-fees.md)]
-
-## <a name="next-steps"></a>Volgende stappen
-
-Als u geïnteresseerd bent in probeert ultra SSD's, raadpleegt u de voor het over dit onderwerp.
-
-> [!div class="nextstepaction"]
-> [Het inschakelen en Ultra SSD's gebruiken](disks-enable-ultra-ssd.md)

@@ -8,14 +8,14 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam
 ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: f1f7e67fbd5d8a9ebfae03c00eb0de36e86d9a97
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 7e5abf1100c09f8f28d268b3f2defe953c5f36f0
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949584"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57770132"
 ---
 # <a name="create-and-schedule-your-first-job-with-azure-scheduler---azure-portal"></a>Uw eerste taak plannen en maken met Azure Scheduler - Azure Portal
 
@@ -38,7 +38,7 @@ Als u nog geen abonnement op Azure hebt, <a href="https://azure.microsoft.com/fr
 
 1. Voer onder **Scheduler-taak** deze informatie in:
 
-   | Eigenschap | Voorbeeldwaarde | Beschrijving |
+   | Eigenschap | Voorbeeldwaarde | Description |
    |----------|---------------|-------------| 
    | **Naam** | getMicrosoft | De naam van uw taak | 
    | **Jobverzameling** | <*job-collection-name*> | Maak een taakverzameling of selecteer een bestaande verzameling. | 
@@ -47,7 +47,7 @@ Als u nog geen abonnement op Azure hebt, <a href="https://azure.microsoft.com/fr
 
 1. Selecteer **Actie-instellingen - Configureren**, verstrek deze informatie en kies vervolgens **OK** als u klaar bent:
 
-   | Eigenschap | Voorbeeldwaarde | Beschrijving |
+   | Eigenschap | Voorbeeldwaarde | Description |
    |----------|---------------|-------------| 
    | **Actie** | **Http** | Het type actie dat moet worden uitgevoerd | 
    | **Methode** | **Get** | De aan te roepen methode | 
@@ -60,7 +60,7 @@ Als u nog geen abonnement op Azure hebt, <a href="https://azure.microsoft.com/fr
 
    U kunt maar een taak per keer maken, maar in dit voorbeeld wordt een terugkerend schema ingesteld.
 
-   | Eigenschap | Voorbeeldwaarde | Beschrijving |
+   | Eigenschap | Voorbeeldwaarde | Description |
    |----------|---------------|-------------| 
    | **Terugkeerpatroon** | **Terugkerend** | Voer een eenmalige of terugkerende taak in | 
    | **Beginnen op** | <*datum van vandaag*> | De begindatum van de taak | 
@@ -93,7 +93,7 @@ Selecteer een gebied voor meer informatie over deze gebieden:
 
 <a name="properties"></a>
 
-### <a name="properties"></a>Eigenschappen
+### <a name="properties"></a>Properties
 
 Selecteer **Eigenschappen** om alleen-lezeneigenschappen te bekijken die de beheermetagegevens voor uw taak beschrijven.
 
@@ -107,7 +107,7 @@ Selecteer **Actie-instellingen** om de geavanceerde instellingen van uw taak te 
 
 ![Actie-instellingen controleren](./media/scheduler-get-started-portal/scheduler-v2-portal-job-action-settings.png)
 
-| Actietype | Beschrijving | 
+| Actietype | Description | 
 |-------------|-------------| 
 | Alle typen | U kunt het **Beleid voor opnieuw proberen** en de instellingen voor **foutacties** wijzigen. | 
 | HTTP en HTTPS | U kunt **Methode** wijzigen naar elke toegestane methode. U kunt ook de koptekst en elementaire verificatiegegevens toevoegen, verwijderen of wijzigen. | 

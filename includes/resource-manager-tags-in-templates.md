@@ -2,16 +2,16 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 11/25/2018
+ms.date: 03/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5e483ecfcbddfcf5aa7f8a41c1ee75136c86b656
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 104bd13a0cf97a8605670adde479c2a2eeb29c15
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52440085"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57786325"
 ---
-Als u een resource wilt taggen tijdens de implementatie, voegt u het element `tags` toe aan de resource die u wilt implementeren. Geef de naam en waarde van de tag op.
+Als u wilt een bron tijdens de implementatie van labels, toevoegen de `tags` element aan de resource die u implementeert. Geef de naam en waarde van de tag op.
 
 ### <a name="apply-a-literal-value-to-the-tag-name"></a>Een letterlijke waarde toepassen op de tagnaam
 In het volgende voorbeeld wordt een opslagaccount weergegeven met twee tags (`Dept` en `Environment`) die zijn ingesteld op letterlijke waarden:
@@ -39,6 +39,8 @@ In het volgende voorbeeld wordt een opslagaccount weergegeven met twee tags (`De
     ]
 }
 ```
+
+Als u wilt een tag op een datum / tijdwaarde, gebruikt de [utcNow functie](../articles/azure-resource-manager/resource-group-template-functions-string.md#utcnow).
 
 ### <a name="apply-an-object-to-the-tag-element"></a>Een object toepassen op het tagelement
 U kunt een objectparameter definiëren waarmee verschillende tags worden opgeslagen en dit object vervolgens toepassen op het tagelement. Elke eigenschap in het object wordt een afzonderlijke tag voor de resource. Het volgende voorbeeld heeft een parameter met de naam `tagValues` die wordt toegepast op het tagelement.

@@ -3,25 +3,25 @@ title: Gegevens transformeren met behulp van U-SQL-script - Azure | Microsoft Do
 description: Meer informatie over verwerken of transformeren door het U-SQL-scripts uitvoeren op Azure Data Lake Analytics compute-service.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.assetid: e17c1255-62c2-4e2e-bb60-d25274903e80
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/01/2017
-ms.author: douglasl
+author: nabhishek
+ms.author: abnarain
+manager: craigg
 robots: noindex
-ms.openlocfilehash: 7631b103d6d14cceb2c320d56e9f68d9ea57e4d8
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 5835c37363c7e9d2dd3253c08ab97f17852725f5
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020843"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777291"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Gegevens transformeren met U-SQL-scripts uitgevoerd op Azure Data Lake Analytics 
-> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](data-factory-usql-activity.md)
 > * [Versie 2 (huidige versie)](../transform-data-using-data-lake-analytics.md)
 
@@ -41,7 +41,7 @@ U-SQL-activiteit ondersteunt hieronder verificatietypen op basis van Data Lake A
 
 U wordt aangeraden gebruik te maken van service-principal verificatie, met name voor een geplande U-SQL-uitvoering. Geldigheidsduur van het token gedrag kan optreden met verificatie van gebruikersreferenties. Zie voor configuratiedetails de [gekoppelde service-eigenschappen](#azure-data-lake-analytics-linked-service) sectie.
 
-## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics gekoppelde Service
+## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics Linked Service
 U maakt een **Azure Data Lake Analytics** gekoppelde service om te koppelen van een Azure Data Lake Analytics compute-service aan een Azure data factory. De Data Lake Analytics U-SQL-activiteit in de pijplijn verwijst naar deze gekoppelde service. 
 
 De volgende tabel bevat beschrijvingen van de algemene eigenschappen in de JSON-definitie gebruikt. U kunt verder tussen service-principal en verificatie van gebruikersreferenties.
@@ -51,7 +51,7 @@ De volgende tabel bevat beschrijvingen van de algemene eigenschappen in de JSON-
 | **type** |De eigenschap type moet worden ingesteld op: **AzureDataLakeAnalytics**. |Ja |
 | **accountName** |Azure Data Lake Analytics-accountnaam. |Ja |
 | **dataLakeAnalyticsUri** |Azure Data Lake Analytics-URI. |Nee |
-| **Abonnements-id** |Azure-abonnement-id |Geen (indien niet opgegeven, abonnement van de data factory wordt gebruikt). |
+| **subscriptionId** |Azure-abonnement-id |Geen (indien niet opgegeven, abonnement van de data factory wordt gebruikt). |
 | **resourceGroupName** |Naam van Azure-resourcegroep |Geen (indien niet opgegeven, de resourcegroep van de data factory wordt gebruikt). |
 
 ### <a name="service-principal-authentication-recommended"></a>Service-principal verificatie (aanbevolen)
@@ -93,7 +93,7 @@ U kunt ook gebruikersverificatie referentie voor Data Lake Analytics gebruiken d
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | **Autorisatie** | Klik op de **autoriseren** knop in de Data Factory-Editor en voer uw referenties op waarmee de automatisch gegenereerde autorisatie-URL worden toegewezen aan deze eigenschap. | Ja |
-| **sessie-id** | OAuth-sessie-ID van de OAuth-autorisatie-sessie. Elke sessie-ID is uniek en kan slechts één keer worden gebruikt. Deze instelling wordt automatisch gegenereerd wanneer u de Data Factory-Editor gebruiken. | Ja |
+| **sessionId** | OAuth-sessie-ID van de OAuth-autorisatie-sessie. Elke sessie-ID is uniek en kan slechts één keer worden gebruikt. Deze instelling wordt automatisch gegenereerd wanneer u de Data Factory-Editor gebruiken. | Ja |
 
 **Voorbeeld: Verificatie van gebruikersreferenties**
 ```json
@@ -212,7 +212,7 @@ De volgende tabel beschrijft de namen en beschrijvingen van eigenschappen die sp
 | linkedServiceName   | Verwijzing naar de Azure Data Lake Analytics geregistreerd als een gekoppelde service in Data Factory | Ja                                      |
 | scriptPath          | Pad naar map met de U-SQL-script. Naam van het bestand is hoofdlettergevoelig. | Nee (als u een script gebruiken)                   |
 | scriptLinkedService | Gekoppelde service die is gekoppeld aan de opslag met het script aan de data factory | Nee (als u een script gebruiken)                   |
-| script              | Geef inline script in plaats van scriptPath en scriptLinkedService op te geven. Bijvoorbeeld: `"script": "CREATE DATABASE test"`. | Nee (als u gebruik scriptPath en scriptLinkedService) |
+| Script              | Geef inline script in plaats van scriptPath en scriptLinkedService op te geven. Bijvoorbeeld: `"script": "CREATE DATABASE test"`. | Nee (als u gebruik scriptPath en scriptLinkedService) |
 | degreeOfParallelism | Het maximale aantal knooppunten dat tegelijk wordt gebruikt voor het uitvoeren van de taak. | Nee                                       |
 | priority            | Hiermee bepaalt u welke taken uit in de wachtrij moeten worden geselecteerd moeten eerst worden uitgevoerd. Des te lager het nummer, hoe hoger de prioriteit. | Nee                                       |
 | parameters          | Parameters voor de U-SQL-script          | Nee                                       |
@@ -317,7 +317,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-De waarden voor **@in** en **@out** parameters in de U-SQL-script worden doorgegeven dynamisch door ADF met behulp van het gedeelte 'parameters'. Zie de sectie 'parameters' in het pijplijndefinitie van de.
+De waarden voor  **\@in** en  **\@uit** parameters in de U-SQL-script worden doorgegeven dynamisch door ADF met behulp van het gedeelte 'parameters'. Zie de sectie 'parameters' in het pijplijndefinitie van de.
 
 U kunt ook andere eigenschappen zoals degreeOfParallelism en prioriteit opgeven in de pijplijndefinitie van de voor de taken die worden uitgevoerd op de Azure Data Lake Analytics-service.
 
