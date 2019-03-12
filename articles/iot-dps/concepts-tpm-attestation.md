@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: cb763327eb292feb9d58fb21b1ca808a3f2909aa
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: e4a86585fbf1e00512e9e8e111a9a259663f8a26
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42055116"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536775"
 ---
 # <a name="tpm-attestation"></a>TPM-attestation
 
 IoT Hub Device Provisioning Service is een helper-service voor IoT Hub die u met zero-touch-apparaatinrichting voor een opgegeven IoT hub configureren. Met de Device Provisioning Service, kunt u miljoenen apparaten inrichten op een veilige manier.
 
-In dit artikel beschrijft de attestation-proces identiteit bij het gebruik van een [TPM](./concepts-device.md). TPM staat voor Trusted Platform Module en is een hardware security module (HSM). In dit artikel wordt ervan uitgegaan dat u gebruikmaakt van een aparte, firmware of TPM geïntegreerd. Software geëmuleerde TPM's zijn zeer geschikt voor het ontwikkelen van prototypen of testen, maar ze bieden hetzelfde niveau van beveiliging als discrete, firmware of geïntegreerde TPM's doen. We raden niet met behulp van software TPM's in de productieomgeving. Zie voor meer informatie over de typen van TPM's [een korte inleiding op TPM](http://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf).
+In dit artikel beschrijft de attestation-proces identiteit bij het gebruik van een [TPM](./concepts-device.md). TPM staat voor Trusted Platform Module en is een hardware security module (HSM). In dit artikel wordt ervan uitgegaan dat u gebruikmaakt van een aparte, firmware of TPM geïntegreerd. Software geëmuleerde TPM's zijn zeer geschikt voor het ontwikkelen van prototypen of testen, maar ze bieden hetzelfde niveau van beveiliging als discrete, firmware of geïntegreerde TPM's doen. We raden niet met behulp van software TPM's in de productieomgeving. Zie voor meer informatie over de typen van TPM's [een korte inleiding op TPM](https://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf).
 
 In dit artikel is alleen relevant voor apparaten met behulp van TPM 2.0 en belangrijke ondersteuning voor HMAC en hun endorsement sleutels. Het is niet voor apparaten die gebruikmaken van X.509-certificaten voor verificatie. TPM is een sectorbreed, ISO-norm voor de Trusted Computing Group en vindt u meer over de TPM op de [volledige TPM 2.0-specificatie](https://trustedcomputinggroup.org/tpm-library-specification/) of de [ISO/IEC 11889 spec](https://www.iso.org/standard/66510.html). In dit artikel ook wordt ervan uitgegaan dat u bekend bent met openbare en persoonlijke sleutelparen en hoe ze worden gebruikt voor versleuteling.
 
@@ -35,7 +35,7 @@ Wanneer een apparaat is ingesteld en klaar voor gebruik, is er een EK zowel een 
 
 ![Eigenaar worden van een TPM](./media/concepts-tpm-attestation/tpm-ownership.png)
 
-Een opmerking op de eigenaar van de TPM: eigendom van een TPM is afhankelijk van veel factoren, met inbegrip van TPM-fabrikant, de set met TPM-hulpprogramma's wordt gebruikt en het besturingssysteem van het apparaat. Volg de instructies die relevant zijn voor uw systeem om eigenaar te worden.
+Een opmerking op de eigenaar van de TPM: Eigenaar worden van een TPM, hangt af van veel factoren, met inbegrip van TPM-fabrikant, de set met TPM-hulpprogramma's wordt gebruikt en het besturingssysteem van het apparaat. Volg de instructies die relevant zijn voor uw systeem om eigenaar te worden.
 
 De Device Provisioning Service maakt gebruik van het openbare deel van de EK (EK_pub) om te bepalen en -apparaten inschrijven. Leverancier van het apparaat kan de EK_pub lezen tijdens de productie- of hierop de laatste testen en de EK_pub uploaden naar de inrichtingsservice, zodat het apparaat wordt herkend wanneer verbinding wordt gemaakt om in te richten. De Device Provisioning Service controleert niet of de SRK of de eigenaar, dus 'wissen' van de TPM wist u de gegevens van de klant, maar de EK (en andere leveranciersgegevens) behouden blijven en het apparaat wordt nog steeds worden herkend door de Device Provisioning Service wanneer deze verbinding om in te richten maakt.
 

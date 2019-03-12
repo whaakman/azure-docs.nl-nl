@@ -12,12 +12,12 @@ ms.date: 12/13/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 806d060cd58322d745ea6ebdaa59eb85c6a35cbd
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d522b0740b144c39da81a9838f9d6e259fe62d22
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867125"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532776"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migreren van Federatie naar wachtwoord-hashsynchronisatie voor Azure Active Directory
 
@@ -78,7 +78,7 @@ Om te controleren of de huidige gebruiker aanmelden instellingen:
 
 #### <a name="verify-the-azure-ad-connect-configuration"></a>Controleer of de Azure AD Connect-configuratie
 
-1. Open op uw Azure AD Connect-server, Azure AD Connect. Selecteer **configureren**.
+1. Open op uw Azure AD Connect-server, Azure AD Connect. Selecteer **Configureren**.
 2. Op de **extra taken** weergeeft, schakelt **de huidige configuratie weergeven**, en selecteer vervolgens **volgende**.<br />
 
    ![Schermafbeelding van de huidige configuratie-optie van weergave, geselecteerd op de pagina extra taken](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image2.png)<br />
@@ -139,9 +139,9 @@ Voordat u van federatieve identiteiten naar beheerde identiteit converteren, nau
 |-|-|
 | U wilt AD FS met andere toepassingen blijven gebruiken (anders dan Azure AD en Office 365). | Nadat u uw domeinen converteren, gebruikt u zowel AD FS en Azure AD. Houd rekening met de gebruikerservaring. In sommige scenario's mogelijk gebruikers worden gevraagd zich twee keer verifiëren: één keer naar Azure AD (waarbij een gebruiker opgehaald voor toegang via eenmalige aanmelding voor andere toepassingen, zoals Office 365) en voor alle toepassingen die nog steeds zijn gebonden aan de AD FS als een relying party. |
 | Uw exemplaar van AD FS kan sterk worden aangepast en is afhankelijk van aanpassingsinstellingen voor specifieke in het bestand OnLoad.js (bijvoorbeeld, als u de aanmeldingsprocedure hebt gewijzigd, zodat gebruikers met alleen een **SamAccountName** indeling voor hun gebruikersnaam in plaats van een gebruiker heeft Principal Name (UPN) of uw organisatie sterk merkproducten van de aanmeldingservaring). Het bestand OnLoad.js kan niet worden gedupliceerd in Azure AD. | Voordat u doorgaat, moet u controleren of Azure AD kunt voldoen aan de aanpassingsvereisten van uw huidige. Voor meer informatie en richtlijnen, Zie de secties van de huisstijl van de AD FS en AD FS-aanpassing.|
-| AD FS kunt u eerdere versies van verificatieclients blokkeren.| Houd rekening met het vervangen van AD FS-besturingselementen die blokkeren van eerdere versies van verificatieclients op basis van een combinatie van [besturingselementen voor voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) en [toegangsregels voor Exchange Online clients](http://aka.ms/EXOCAR). |
+| AD FS kunt u eerdere versies van verificatieclients blokkeren.| Houd rekening met het vervangen van AD FS-besturingselementen die blokkeren van eerdere versies van verificatieclients op basis van een combinatie van [besturingselementen voor voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) en [toegangsregels voor Exchange Online clients](https://aka.ms/EXOCAR). |
 | U vereisen dat gebruikers multi-factor authentication tegen een on-premises multi-factor authentication server-oplossing uitvoeren wanneer gebruikers bij AD FS authenticeren.| In een domein beheerde identiteit kan niet u een vraag met meervoudige verificatie via de on-premises multi-factor authentication-oplossing invoeren in de verificatie-stroom. U kunt echter de Azure multi-factor Authentication-service voor meervoudige verificatie gebruiken nadat het domein is geconverteerd.<br /><br /> Als uw gebruikers geen momenteel van Azure multi-factor Authentication gebruikmaakt, is een eenmalige gebruiker registratiestap vereist. U moet voorbereiden en de registratie van de geplande aan uw gebruikers communiceren. |
-| U gebruikt momenteel beleid voor toegangsbeheer (AuthZ-regels) in AD FS voor het beheren van toegang tot Office 365.| Houd rekening met het beleid vervangen door de equivalente Azure AD [beleid voor voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) en [toegangsregels voor Exchange Online clients](http://aka.ms/EXOCAR).|
+| U gebruikt momenteel beleid voor toegangsbeheer (AuthZ-regels) in AD FS voor het beheren van toegang tot Office 365.| Houd rekening met het beleid vervangen door de equivalente Azure AD [beleid voor voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) en [toegangsregels voor Exchange Online clients](https://aka.ms/EXOCAR).|
 
 ### <a name="common-ad-fs-customizations"></a>Algemene AD FS-aanpassingen
 
@@ -400,7 +400,7 @@ Wanneer u uw tenant federatieve identiteit gebruikt, zijn gebruikers van de Azur
 Wachtwoord-hashsynchronisatie testen:
 
 1. Open Internet Explorer in InPrivate-modus zodat naadloze eenmalige aanmelding niet je automatisch aanmelden.
-2. Ga naar de aanmeldingspagina van Office 365 ([http://portal.office.com](http://portal.office.com/)).
+2. Ga naar de aanmeldingspagina van Office 365 ([https://portal.office.com](https://portal.office.com/)).
 3. Voer de UPN van een gebruiker en selecteer vervolgens **volgende**. Zorg ervoor dat u de UPN van een hybride-gebruiker die is gesynchroniseerd vanuit uw on-premises Active Directory-exemplaar en die eerder federatieve verificatie gebruikt. Er verschijnt een pagina waarop u de gebruikersnaam en wachtwoord invoeren:
 
    ![Schermafbeelding van de aanmeldingspagina-opgeven waarin u een gebruikersnaam invoeren](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image18.png)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: jingwang
-ms.openlocfilehash: d6a6d9b352db61d98e85c840a3ebc5cb6a832a3f
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: ba268806dccb7c2671825c794383396a2ff20299
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352458"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548810"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>Gegevens kopiëren van SAP ECC met Azure Data Factory
 
@@ -121,7 +121,7 @@ Om gegevens te kopiëren uit SAP ECC, stelt u het brontype in de kopieeractivite
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **SapEccSource** | Ja |
-| query | OData-queryopties om gegevens te filteren. Example: "$select=Name,Description&$top=10".<br/><br/>SAP ECC-connector worden gegevens gekopieerd van de gecombineerde URL: (url opgegeven in de gekoppelde service) / (pad opgegeven in de gegevensset)? (de query is opgegeven in de bron voor kopiëren-activiteit). Raadpleeg [OData-URL-onderdelen](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nee |
+| query | OData-queryopties om gegevens te filteren. Example: "$select=Name,Description&$top=10".<br/><br/>SAP ECC-connector worden gegevens gekopieerd van de gecombineerde URL: (url opgegeven in de gekoppelde service) / (pad opgegeven in de gegevensset)? (de query is opgegeven in de bron voor kopiëren-activiteit). Raadpleeg [OData-URL-onderdelen](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nee |
 
 **Voorbeeld:**
 
@@ -161,19 +161,19 @@ Het kopiëren van gegevens vanaf SAP ECC, worden de volgende toewijzingen gebrui
 
 | OData-gegevenstype | Data factory tussentijdse gegevenstype |
 |:--- |:--- |:--- |
-| Edm.Binary | Reeks |
-| Edm.Boolean | BOOL |
-| Edm.Byte | Reeks |
+| Edm.Binary | String |
+| Edm.Boolean | Bool |
+| Edm.Byte | String |
 | Edm.DateTime | DateTime |
-| Edm.Decimal | Decimaal |
-| Edm.Double | Double-waarde |
-| Edm.Single | Enkelvoudig |
-| Edm.Guid | Reeks |
+| Edm.Decimal | Decimal |
+| Edm.Double | Double |
+| Edm.Single | Single |
+| Edm.Guid | String |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
-| Edm.String | Reeks |
+| Edm.String | String |
 | Edm.Time | TimeSpan |
 | Edm.DateTimeOffset | DateTimeOffset |
 

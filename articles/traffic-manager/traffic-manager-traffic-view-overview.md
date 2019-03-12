@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 9f818715895c2ff2c5d0e1758aaf17a2393287d2
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 70ac4319e2ea0081f7805c2fb936af1310d57d8f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050641"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534937"
 ---
 # <a name="traffic-manager-traffic-view"></a>Traffic Manager Traffic View
 
@@ -35,6 +35,8 @@ Bijvoorbeeld, kunt u Traffic View te begrijpen welke regio's hebben een groot aa
 
 Traffic View werkt met Traffic Manager kijken naar de inkomende query's ontvangen in de afgelopen zeven dagen op basis van een profiel dat u deze functie is ingeschakeld. Traffic View geëxtraheerd uit de binnenkomende gegevens van de query's de bron-IP-adres van de DNS-resolver die wordt gebruikt als een weergave van de locatie van de gebruikers. Deze worden vervolgens samen gegroepeerd op een op het niveau resolver DNS-gebruiker basis regio's maken met behulp van de geografische informatie van IP-adressen van Traffic Manager beheerd. Vervolgens kijkt Traffic Manager naar de Azure-regio's waarop de query is doorgestuurd en bouwt een overzicht van de stroom verkeer voor gebruikers van deze regio's.  
 In de volgende stap, Traffic Manager overeenkomt met de basis regio van de gebruiker de toewijzing van de Azure-regio met het netwerk intelligence latentie tabellen wordt bijgehouden voor verschillende eindgebruikers netwerken om te begrijpen van de gemiddelde latentie die wordt ervaren gebruikers van deze regio's als verbinding maken met Azure-regio's. Deze berekeningen vervolgens worden gecombineerd met een niveau van lokale DNS-resolver IP voordat deze aan u gepresenteerd. U kunt de gegevens op verschillende manieren gebruiken.
+
+De frequentie van verkeer weergave gegevens bijwerken, is afhankelijk van meerdere interne variabelen. De gegevens worden echter meestal elke 24 uur bijgewerkt.
 
 >[!NOTE]
 >De latentie die wordt beschreven in de Traffic View is een representatieve latentie tussen de eindgebruiker en de Azure-regio's waarnaar ze met verbonden was en is niet de DNS-lookup-latentie. Traffic View maakt een schatting van de inspanningen van de latentie tussen de lokale DNS-resolver en de Azure-regio die de query is doorgestuurd naar, als er onvoldoende gegevens beschikbaar en de latentie vervolgens geretourneerd worden niet null zijn. 

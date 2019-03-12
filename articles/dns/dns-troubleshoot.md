@@ -1,5 +1,5 @@
 ---
-title: Azure DNS-probleemoplossingsgids | Microsoft Docs
+title: Probleemoplossingsgids voor Azure DNS | Microsoft Docs
 description: Het oplossen van veelvoorkomende problemen met Azure DNS
 services: dns
 documentationcenter: na
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/20/2017
 ms.author: genli
-ms.openlocfilehash: 816ad6c0079e9272286cdc072ff71bf15313eb8e
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 535e7604915555f32a7636b739c49f72cb0220c8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069096"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541567"
 ---
-# <a name="azure-dns-troubleshooting-guide"></a>Azure DNS-probleemoplossingsgids
+# <a name="azure-dns-troubleshooting-guide"></a>Probleemoplossingsgids voor Azure DNS
 
 Deze pagina bevat informatie over probleemoplossing voor veelgestelde vragen voor Azure DNS.
 
-Als deze stappen uw probleem niet verhelpen, kunt u ook zoeken naar of uw probleem post een bericht op onze [ondersteuning communityforum op MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork). U kunt ook een Azure ondersteuningsaanvraag openen.
+Als deze stappen het probleem niet verhelpen, u kunt ook zoeken naar of uw probleem plaatsen op onze [ondersteuningsforum op MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork). U kunt ook een Azure-ondersteuningsaanvraag openen.
 
 
-## <a name="i-cant-create-a-dns-zone"></a>Ik kan een DNS-zone niet maken.
+## <a name="i-cant-create-a-dns-zone"></a>Kan ik een DNS-zone niet maken
 
 Probeer een of meer van de volgende stappen om veelvoorkomende problemen op te lossen:
 
-1.  Controleer de auditlogboeken van Azure DNS om de reden van de fout vast te stellen.
+1.  Bekijk de auditlogboeken van Azure DNS om reden van de fout vast te stellen.
 2.  Elke DNS-zonenaam moet uniek zijn binnen de resourcegroep. Een resourcegroep kan dus niet twee DNS-zones met dezelfde naam bevatten. Gebruik een andere zonenaam of een andere resourcegroep.
 3.  U ziet mogelijk de foutmelding 'Het maximumaantal zones in abonnement {abonnements-id} is bereikt of overschreden'. Gebruik een ander Azure-abonnement, verwijder enkele zones of neem contact op met de ondersteuning van Azure om uw abonnementslimiet te verhogen.
 4.  U ziet mogelijk de foutmelding 'De zone {zonenaam} is niet beschikbaar'. Dit betekent dat Azure DNS geen naamservers kan toewijzen voor deze DNS-zone. Gebruik dan een andere zonenaam. Als u de eigenaar van de domeinnaam bent, kunt u ook de ondersteuning van Azure vragen naamservers voor u toe te wijzen.
@@ -48,7 +48,7 @@ Probeer een of meer van de volgende stappen om veelvoorkomende problemen op te l
 
 Probeer een of meer van de volgende stappen om veelvoorkomende problemen op te lossen:
 
-1.  Controleer de auditlogboeken van Azure DNS om de reden van de fout vast te stellen.
+1.  Bekijk de auditlogboeken van Azure DNS om reden van de fout vast te stellen.
 2.  Bestaat de recordset al?  Azure DNS beheert records als *recordsets*. Hierin zijn records met dezelfde naam en van hetzelfde type opgenomen. Als er al een record met dezelfde naam en van hetzelfde type bestaat, kunt u nog een dergelijke record toevoegen door de bestaande recordset te bewerken.
 3.  Probeert u een record te maken in de apex (het hoofdniveau) van de DNS-zone? Dan is het de DNS-conventie om het @-teken te gebruiken als recordnaam. De DNS-standaarden staan CNAME-records in de apex van de zone niet toe.
 4.  Is er sprake van een CNAME-conflict?  De DNS-standaarden staan niet toe dat een CNAME-record dezelfde naam heeft als een record van een ander type. Als u een bestaande CNAME hebt, kunt u geen record maken met dezelfde naam maar van een ander type.  Op dezelfde manier kunt u ook geen CNAME maken als de naam overeenkomt met een bestaande record van een ander type. Verhelp het conflict door de andere record te verwijderen of een andere recordnaam te kiezen.
@@ -69,11 +69,11 @@ De DNS-naamomzetting vereist meerdere stappen en kan om verschillende redenen mi
 
 1.  Controleer of de DNS-records correct zijn geconfigureerd in Azure DNS. Controleer of de zonenaam, de naam en het type van de DNS-records in Azure Portal correct zijn.
 2.  Controleer of de DNS-records correct zijn omgezet in de Azure DNS-naamservers.
-    - Als u DNS-query's maakt op uw lokale pc, tonen de resultaten in de cache mogelijk niet de huidige status van de naamservers.  Daarnaast maken bedrijfsnetwerken vaak gebruik van DNS-proxyservers, waardoor DNS-query's niet worden doorgestuurd naar specifieke naamservers.  U kunt deze problemen voorkomen door een webservice voor naamomzetting te gebruiken, zoals [digwebinterface](http://digwebinterface.com).
+    - Als u DNS-query's maakt op uw lokale pc, tonen de resultaten in de cache mogelijk niet de huidige status van de naamservers.  Daarnaast maken bedrijfsnetwerken vaak gebruik van DNS-proxyservers, waardoor DNS-query's niet worden doorgestuurd naar specifieke naamservers.  U kunt deze problemen voorkomen door een webservice voor naamomzetting te gebruiken, zoals [digwebinterface](https://digwebinterface.com).
     - Zorg er wel voor dat u de juiste naamservers voor uw DNS-zone opgeeft, zoals weergegeven in Azure Portal.
     - Controleer of de DNS-naam (dit is de volledig gekwalificeerde naam, inclusief de zonenaam) en het recordtype kloppen.
 3.  Controleer of de DNS-domeinnaam juist is [gedelegeerd naar de Azure DNS-naamservers](dns-domain-delegation.md). Er zijn [veel websites van derden die de DNS-delegering kunnen valideren](https://www.bing.com/search?q=dns+check+tool). Dit is een delegeringstest voor de *zone*. Geef dus alleen de naam van de DNS-zone op en niet de volledig gekwalificeerde recordnaam.
-4.  Nadat u het bovenstaande hebt voltooid, zou uw DNS-record correct moeten worden omgezet. U kunt dit controleren door opnieuw [digwebinterface](http://digwebinterface.com) te gebruiken, maar nu met de standaardinstellingen van de naamserver.
+4.  Nadat u het bovenstaande hebt voltooid, zou uw DNS-record correct moeten worden omgezet. U kunt dit controleren door opnieuw [digwebinterface](https://digwebinterface.com) te gebruiken, maar nu met de standaardinstellingen van de naamserver.
 
 
 ### <a name="recommended-documents"></a>**Aanbevolen documenten**
@@ -95,14 +95,14 @@ Voorbeeld van SRV-recordnamen (servicenaam 'sip', protocol 'tcp'):
 
 [DNS-zones en -records](dns-zones-records.md)
 <br>
-[DNS-recordsets en records maken met behulp van de Azure-portal](dns-getstarted-create-recordset-portal.md)
+[DNS-recordsets en -records maken met Azure Portal](dns-getstarted-create-recordset-portal.md)
 <br>
-[Type van de SRV-record (Wikipedia (Engelstalig))](https://en.wikipedia.org/wiki/SRV_record)
+[SRV-recordtype (Wikipedia)](https://en.wikipedia.org/wiki/SRV_record)
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * Meer informatie over [Azure DNS-zones en records](dns-zones-records.md)
-* Om te starten met behulp van Azure DNS, informatie over hoe [maken van een DNS-zone](dns-getstarted-create-dnszone-portal.md) en [DNS-records maken](dns-getstarted-create-recordset-portal.md).
-* Voor het migreren van een bestaande DNS-zone meer informatie over hoe [importeren en exporteren van een DNS-zonebestand](dns-import-export.md).
+* Als u wilt gaan met behulp van Azure DNS, informatie over hoe u [maken van een DNS-zone](dns-getstarted-create-dnszone-portal.md) en [DNS-records maken](dns-getstarted-create-recordset-portal.md).
+* Als u wilt migreren van een bestaande DNS-zone, informatie over hoe u [importeren en exporteren van een DNS-zonebestand](dns-import-export.md).
 

@@ -12,24 +12,16 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 3ad33968107aec551ea99e503797382c7fcea0c5
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 08ec654ecdfe9764aefdde287c5a4c78022c108c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877078"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551684"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Transactionele replicatie met één, gegroepeerd en databases in Azure SQL Database-exemplaar
 
 Transactionele replicatie is een functie van Azure SQL Database en SQL-Server waarmee u voor het repliceren van gegevens uit een tabel in Azure SQL Database of SQL Server voor de tabellen die voor externe databases wordt geplaatst. Deze functie kunt u meerdere tabellen in verschillende databases synchroniseren.
-
-## <a name="when-to-use-transactional-replication"></a>Wanneer u transactionele replicatie
-
-Transactionele replicatie is handig in de volgende scenario's:
-
-- Publiceren van wijzigingen die u in een of meer tabellen in een database en deze toewijzen aan een of meer SQL Server of Azure SQL-databases die voor de wijzigingen die zijn geabonneerd.
-- Houd verschillende gedistribueerde databases gesynchroniseerde status.
-- Databases van een SQL Server of Managed Instance migreren naar een andere database door continu de wijzigingen publiceert.
 
 ## <a name="overview"></a>Overzicht
 
@@ -59,6 +51,9 @@ De **abonnee** is een exemplaar of een server waarop de wijzigingen op de Publis
 | **Push-abonnement**| Ja | Ja|
 | &nbsp; | &nbsp; | &nbsp; |
 
+  >[!NOTE]
+  > Een pull-abonnement wordt niet ondersteund wanneer de distributor een exemplaar in de database is en de abonnee niet. 
+
 Er zijn verschillende [replicatietypes](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication?view=sql-server-2017):
 
 
@@ -76,13 +71,44 @@ Er zijn verschillende [replicatietypes](https://docs.microsoft.com/sql/relationa
   >[!NOTE]
   > - -Replicatie configureren met een oudere versie willen kan resulteren in fout MSSQL_REPL20084 (het proces kan geen verbinding met abonneeserver.) en MSSQ_REPL40532 (server kan niet worden geopend \<naam > door de aanmelding is aangevraagd. De aanmelding is mislukt.)
   > - Voor het gebruik van alle functies van Azure SQL Database, moet u de nieuwste versies van [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) en [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017).
+  
+  ### <a name="supportabilty-matrix-for-instance-databases-and-on-premises-systems"></a>Supportabilty matrix voor exemplaar-Databases en On-premises systemen
+  De replicatie supportability matrix bijvoorbeeld-databases zijn hetzelfde als de waarde voor on-premises SQL Server. 
+  
+  | **Publisher**   | **Distributor** | **Abonnee** |
+| :------------   | :-------------- | :------------- |
+| SQL Server 2017 | SQL Server 2017 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 |
+| SQL Server 2016 | SQL Server 2017 <br/> SQL Server 2016 | SQL Server 2017 <br/>SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 |
+| SQL Server 2014 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>| SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |
+| SQL Server 2012 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> | SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 | 
+| SQL Server 2008 R2 <br/> SQL Server 2008 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 | SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 <br/>  |
+| &nbsp; | &nbsp; | &nbsp; |
 
 ## <a name="requirements"></a>Vereisten
 
 - Connectiviteit maakt gebruik van SQL-verificatie tussen replicatie deelnemers. 
 - Een bestandsshare in Azure Storage-Account voor de werkmap die wordt gebruikt door middel van replicatie. 
 - Poort 445 (TCP uitgaand) moet worden geopend in de regels van de Managed Instance-subnet voor toegang tot de Azure-bestandsshare. 
-- Poort 1433 (TCP uitgaand) moet worden geopend als de uitgever/Distributor zich op een beheerd exemplaar en de abonnee on-premises wordt. 
+- Poort 1433 (TCP uitgaand) moet worden geopend als de uitgever/Distributor zich op een beheerd exemplaar en de abonnee on-premises wordt.
+
+  >[!NOTE]
+  > Fout 53 kunnen optreden bij het verbinden met een Azure Storage-bestand als de uitgaande network security group (NSG)-poort 445 is geblokkeerd wanneer de distributor een exemplaar in de database is en de abonnee on-premises wordt. [Werk het vNet NSG](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) om dit probleem te verhelpen. 
+
+## <a name="when-to-use-transactional-replication"></a>Wanneer u transactionele replicatie
+
+Transactionele replicatie is handig in de volgende scenario's:
+
+- Publiceren van wijzigingen die u in een of meer tabellen in een database en deze toewijzen aan een of meer SQL Server of Azure SQL-databases die voor de wijzigingen die zijn geabonneerd.
+- Houd verschillende gedistribueerde databases gesynchroniseerde status.
+- Databases van een SQL Server of Managed Instance migreren naar een andere database door continu de wijzigingen publiceert.
+
+### <a name="compare-data-sync-with-transactional-replication"></a>Gegevens synchroniseren met transactionele replicatie vergelijken
+
+| | Gegevens synchroniseren | Transactionele replicatie |
+|---|---|---|
+| Voordelen | -Actief / actief-ondersteuning<br/>Bi-directioneel tussen on-premises en Azure SQL Database | -Lagere latentie<br/>-Transactionele consistentie<br/>-Bestaande topologie gebruiken na de migratie |
+| Nadelen | -5 min of meer latentie<br/>-Geen transactionele consistentie<br/>-Hogere invloed op de prestaties | -Uit Azure SQL Database single database of gegroepeerde database publiceren niet<br/>-Hoge onderhoudskosten |
+| | | |
 
 ## <a name="common-configurations"></a>Algemene configuraties
 
@@ -112,11 +138,13 @@ Uitgever en de distributor worden geconfigureerd op twee exemplaren die worden b
  
 In deze configuratie is een Azure SQL-Database (één, gegroepeerd en database-exemplaar) een abonnee. Deze configuratie biedt ondersteuning voor migratie van on-premises naar Azure. Als een abonnee zich op een enkele of gegroepeerde-database, moet deze in de pushmodus gebruikt.  
 
+
 ## <a name="next-steps"></a>Volgende stappen
 
 1. [Configureren van transactionele replicatie voor een beheerd exemplaar](replication-with-sql-database-managed-instance.md#configure-publishing-and-distribution-example). 
 1. [Maken van een publicatie](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
 1. [Maken van een push-abonnement](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) met behulp van de naam van de Azure SQL Database-server als de abonnee (bijvoorbeeld `N'azuresqldbdns.database.windows.net` en de naam van de Azure SQL Database als de doeldatabase (bijvoorbeeld **Adventureworks**. )
+
 
 
 ## <a name="see-also"></a>Zie ook  

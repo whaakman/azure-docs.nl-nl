@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: banders
-ms.openlocfilehash: 0d1d4358789cce4d393143e8a243ee9a3e06bf36
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 56d392a7df2a659cf457631ec5693766fd674f91
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652396"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727192"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Voorkomen van onverwachte kosten met Azure-facturering en -kostenbeheer
 
@@ -140,7 +140,7 @@ Zie voor meer informatie, [kosten van de Advisor-aanbevelingen](../advisor/advis
 
 ## <a name="reviewing-costs-at-the-end-of-your-billing-cycle"></a>Kosten controleren aan het einde van de factureringscyclus
 
-Na het einde van de factureringscyclus, wordt uw factuur beschikbaar gemaakt. U kunt ook [downloaden oude facturen en gebruiksgegevens details](billing-download-azure-invoice-daily-usage-date.md) om ervoor te zorgen dat u goed in zijn gebracht. Zie voor meer informatie over het vergelijken van uw dagelijkse gebruik met uw factuur [meer informatie over uw factuur voor Microsoft Azure](billing-understand-your-bill.md).
+Aan het einde van de factureringscyclus wordt uw factuur beschikbaar gemaakt. U kunt ook [downloaden oude facturen en gebruiksgegevens details](billing-download-azure-invoice-daily-usage-date.md) om ervoor te zorgen dat u goed in zijn gebracht. Zie voor meer informatie over het vergelijken van uw dagelijkse gebruik met uw factuur [meer informatie over uw factuur voor Microsoft Azure](billing-understand-your-bill.md).
 
 ### <a name="billing-api"></a>Billing-API
 
@@ -184,6 +184,26 @@ Als u wilt zien als u de accountbeheerder bent, gaat u naar [abonnementen in Azu
 Als u niet de accountbeheerder bent, wordt dat iemand waarschijnlijk heeft gestuurd gedeeltelijk toegang met behulp van [toegangsbeheer op basis van Azure Active Directory-rol](../role-based-access-control/role-assignments-portal.md) (RBAC). Voor het beheren van abonnementen en facturering informatie wijzigen [vinden van de accountbeheerder](billing-subscription-transfer.md#whoisaa). Vraag de accountbeheerder om het te doen of [het abonnement aan u overdragen](billing-subscription-transfer.md).
 
 Als uw beheerder van het Account niet meer met uw organisatie is en u moet voor het beheren van facturering, [contact met ons opnemen](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+
+### <a name="how-to-request-a-service-level-agreement-credit-for-a-service-incident"></a>Het aanvragen van een Service Level Agreement tegoed voor een service-incident
+
+In de SLA (Service Level Agreement) worden de toezeggingen van Microsoft voor bedrijfstijd en connectiviteit beschreven. Een service-incident wordt gerapporteerd bij het Azure-services ondervindt een probleem dat gevolgen voor actieve tijdsduur of connectiviteit, vaak aangeduid als een 'storing." Als we niet bereiken en onderhouden van de serviceniveaus voor elke Service, zoals beschreven in de SLA, klikt u mogelijk in aanmerking voor een gedeelte van uw maandelijkse servicetarief tegoed.
+
+Om aan te vragen een tegoed:
+
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/). Als u meerdere accounts hebt, zorg ervoor dat u de naam die werd beïnvloed door Azure downtime. Dit helpt ondersteuning automatisch verzamelen van de benodigde achtergrondinformatie en sneller kunt oplossen door het geval is.
+2. Maak een nieuwe ondersteuningsaanvraag.
+3. Onder **type probleem**, selecteer **facturering**.
+4. Onder **probleemtype**, selecteer **aanvraag restitutie**.
+5. Toevoegen van informatie om te geven dat vraagt u voor een SLA-credits, vermeld de datum/tijd/tijdzone-, evenals de betrokken services (virtuele machines, websites, enz.)
+6. Controleer of uw contactgegevens en selecteer de **maken** knop om uw aanvraag te verzenden.
+
+SLA drempels afhankelijk van de service. Bijvoorbeeld, de weblaag SQL beschikt over een SLA van 99,9%, virtuele machines hebben een SLA van 99,95% en SQL Standard-laag beschikt over een SLA van 99,99%.
+
+Voor sommige services zijn er vereisten voor de SLA te kunnen toepassen. Virtuele Machines moet bijvoorbeeld twee of meer instanties zijn geïmplementeerd in dezelfde Beschikbaarheidsset hebben.
+
+Zie voor meer informatie de [Service Level Agreements](https://azure.microsoft.com/en-us/support/legal/sla/) documentatie en de [samenvatting van SLA voor Azure-services](https://azure.microsoft.com/en-us/support/legal/sla/summary/) documentatie.
 
 ## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 

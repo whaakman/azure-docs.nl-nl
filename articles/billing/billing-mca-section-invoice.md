@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: f903f85dfafb61562698a437465f8421aaf3a3d8
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 21d6c1671c57341d785c002f360c05cc5c610657
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339484"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551616"
 ---
 # <a name="create-sections-on-your-invoice-to-organize-your-costs"></a>Secties maken op uw factuur voor het ordenen van uw kosten
 
@@ -28,7 +28,7 @@ In dit artikel is van toepassing op een rekening voor een Microsoft-KLANTOVEREEN
 
 Voor het maken van een gedeelte van de factuur, moet u een **facturering profieleigenaar** of een **facturering profiel Inzender**. Zie voor meer informatie, [factuur secties voor de facturering van profiel beheren](billing-understand-mca-roles.md#manage-invoice-sections-for-billing-profile).
 
-1. Meld u aan bij [Azure Portal](http://portal.azure.com).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
 2. Zoeken op **kosten Management en facturering**.
 
@@ -57,6 +57,6 @@ Voor het maken van een gedeelte van de factuur, moet u een **facturering profiel
 - [Geef anderen toestemming voor het maken van Azure-abonnement](billing-mca-create-subscription.md#give-others-permission-to-create-azure-subscriptions)
 - [Eigendom van Azure-abonnementen ophalen van gebruikers in andere facturering-accounts](billing-mca-request-billing-ownership.md)
 
-## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning
+## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
 
 Als u hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.

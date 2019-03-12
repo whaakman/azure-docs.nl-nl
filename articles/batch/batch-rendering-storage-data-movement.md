@@ -6,12 +6,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0d343ff5d7513500fa7803495dd42eb94b772935
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 15f5fe6e74cbe8cbffff31114e8aa588ec4a7ebb
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546093"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537997"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>Opslag en verkeer opties voor het renderen van activa- en uitvoer bestanden
 
@@ -25,7 +25,7 @@ Er zijn meerdere opties voor het maken van de scène en activa-bestanden beschik
   * Deze optie heeft als voordeel dat het is uiterst rendabele, als er geen virtuele machines zijn vereist voor het bestandssysteem, plus blobfuse opslaan in cache op de virtuele machines vermijdt u herhaalde downloads van dezelfde bestanden die meerdere jobs en taken.  Verplaatsing van gegevens is eveneens eenvoudig als de bestanden gewoon blobs zijn en standaard-API's en hulpprogramma's, zoals azcopy gebruikt, kunnen worden gebruikt om bestand tussen een on-premises bestandssysteem en de Azure storage te kopiëren.
 * Bestandssysteem of bestandsshare:
   * Afhankelijk van VM-besturingssysteem en prestaties/schaalvereisten, klikt u vervolgens opties zijn onder andere [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction), met behulp van een virtuele machine met gekoppelde schijven voor NFS, met behulp van meerdere virtuele machines met gekoppelde schijven voor een gedistribueerd bestandssysteem, zoals GlusterFS, of met behulp van een aanbieding van derden.
-  * [Avere systemen](http://www.averesystems.com/) maakt nu deel uit van Microsoft en oplossingen in de nabije toekomst die ideaal voor grote, hoogwaardige rendering zijn hebben.  De oplossing Avere wordt een NFS op basis van Azure in- of SMB-cache moet worden gemaakt die wordt gebruikt in combinatie met blob-opslag of met on-premises NAS-apparaten.
+  * [Avere systemen](https://www.averesystems.com/) maakt nu deel uit van Microsoft en oplossingen in de nabije toekomst die ideaal voor grote, hoogwaardige rendering zijn hebben.  De oplossing Avere wordt een NFS op basis van Azure in- of SMB-cache moet worden gemaakt die wordt gebruikt in combinatie met blob-opslag of met on-premises NAS-apparaten.
   * Met een bestandssysteem bestanden kunnen worden gelezen of geschreven rechtstreeks naar het bestandssysteem of tussen een bestandssysteem en de pool-VM's kunnen worden gekopieerd.
   * Een gedeeld bestandssysteem kunt een groot aantal activa gedeeld tussen projecten en taken kunnen worden gebruikt met het weergeven van taken die alleen toegang tot wat vereist is.
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 542fe0064de84e6266d2d0274809d7b2046b855c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c07f01acb95523171f0297f7e2fd531713f1facf
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874406"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550153"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensies voor virtuele machines en functies voor Windows
 
@@ -34,7 +34,7 @@ In dit artikel biedt een overzicht van VM-extensies, vereisten voor het gebruik 
 Meerdere verschillende Azure-VM-extensies beschikbaar zijn, elk met een specifieke use-case. Voorbeelden zijn:
 
 - PowerShell Desired State configuraties toepassen op een virtuele machine met de DSC-extensie voor Windows. Zie voor meer informatie, [Azure Desired State configuration-extensie](dsc-overview.md).
-- Bewaking van een virtuele machine met de Microsoft Monitoring Agent-VM-extensie configureren. Zie voor meer informatie, [Azure VM's verbinding maken met Log Analytics](../../log-analytics/log-analytics-azure-vm-extension.md).
+- Bewaking van een virtuele machine met de Microsoft Monitoring Agent-VM-extensie configureren. Zie voor meer informatie, [verbinding maken met virtuele Azure-machines naar Azure Monitor logboeken](../../log-analytics/log-analytics-azure-vm-extension.md).
 - Een Azure-VM configureren met behulp van Chef. Zie voor meer informatie, [implementatie van de Azure-VM automatiseren met Chef](../windows/chef-automation.md).
 - Bewaking van uw Azure-infrastructuur met de extensie Datadog configureren. Zie voor meer informatie de [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 0d601df7914b7280de4b3c16c8b00c96cb5427e4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 083770c24a6c8939f8d1ff9f0efd5d18aff9dcb0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435981"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539612"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - beveiligingsoverwegingen voor het verplaatsen van gegevens
 
@@ -74,10 +74,10 @@ Azure Data Lake store biedt ook versleuteling voor gegevens die zijn opgeslagen 
 Azure Blob Storage en Azure Table storage biedt ondersteuning voor Storage Service Encryption (SSE), die automatisch worden uw gegevens worden versleuteld voordat opgeslagen en ontsleutelt voordat ophalen. Zie voor meer informatie, [Azure Storage-Serviceversleuteling voor Data-at-Rest](../../storage/common/storage-service-encryption.md).
 
 #### <a name="amazon-s3"></a>Amazon S3
-Amazon S3 biedt ondersteuning voor de client- en versleuteling van data-at-Rest. Zie voor meer informatie, [gegevens beveiligen met behulp van versleuteling](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html). Data Factory biedt op dit moment geen ondersteuning voor Amazon S3 binnen een virtuele privécloud (VPC).
+Amazon S3 biedt ondersteuning voor de client- en versleuteling van data-at-Rest. Zie voor meer informatie, [gegevens beveiligen met behulp van versleuteling](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html). Data Factory biedt op dit moment geen ondersteuning voor Amazon S3 binnen een virtuele privécloud (VPC).
 
 #### <a name="amazon-redshift"></a>Amazon Redshift
-Amazon Redshift ondersteunt cluster versleuteling voor data-at-rest. Zie voor meer informatie, [Amazon Redshift-Databaseversleuteling](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html). Data Factory biedt op dit moment geen ondersteuning voor Amazon Redshift binnen een VPC. 
+Amazon Redshift ondersteunt cluster versleuteling voor data-at-rest. Zie voor meer informatie, [Amazon Redshift-Databaseversleuteling](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html). Data Factory biedt op dit moment geen ondersteuning voor Amazon Redshift binnen een VPC. 
 
 #### <a name="salesforce"></a>SalesForce
 SalesForce ondersteunt Shield Platform versleuteling waarmee het coderen van alle bestanden, bijlagen en aangepaste velden. Zie voor meer informatie, [inzicht in de Web Server OAuth-Verificatiestroom](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm).  
@@ -178,7 +178,7 @@ De volgende cloud-gegevensarchieven vereisen zwarte lijst plaatsen van IP-adres 
 - [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../../cosmos-db/firewall-support.md)
-- [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
+- [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 

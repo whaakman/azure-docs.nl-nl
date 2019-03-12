@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: ea550c0959f5de13f013f135926251bf9f8b450f
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 1e952e32142672946fa987b763032dad66f564a9
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124436"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537878"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Eindgebruikersverificatie met Azure Data Lake Storage Gen1 met behulp van REST-API
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ In dit artikel leert u over het gebruik van de REST-API voor verificatie van ein
 
 * **Maken van een Azure Active Directory-toepassing voor 'Native'**. U moet zijn voltooid de stappen in [eindgebruikersverificatie met Data Lake Storage Gen1 met behulp van Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
-* **[cURL](http://curl.haxx.se/)**. In dit artikel wordt cURL gebruikt om u te laten zien hoe u REST API-aanroepen op basis van een Data Lake Storage Gen1-account.
+* **[cURL](https://curl.haxx.se/)**. In dit artikel wordt cURL gebruikt om u te laten zien hoe u REST API-aanroepen op basis van een Data Lake Storage Gen1-account.
 
 ## <a name="end-user-authentication"></a>Verificatie van de eindgebruiker
 Verificatie van de eindgebruiker is de aanbevolen aanpak als u wilt dat een gebruiker zich aanmelden bij uw toepassing met behulp van Azure AD. Uw toepassing is toegang kunnen krijgen tot Azure-resources met dezelfde mate van toegang als de gebruiker is aangemeld. De gebruiker moet hun referenties periodiek in volgorde voor uw toepassing om toegang te behouden.

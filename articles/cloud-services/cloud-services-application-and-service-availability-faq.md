@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 68f3fe0dbd16d3d71dc66af05de6f90156d67dfa
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: fb4b5dde63d8c7c75419d3202d9848cd6fde8b8a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246358"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547636"
 ---
-# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Toepassings- en problemen met de servicebeschikbaarheid voor Azure Cloud Services: veelgestelde vragen
+# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Toepassings- en problemen met de servicebeschikbaarheid voor Azure Cloud Services: Veelgestelde vragen (FAQ's)
 
 Dit artikel bevat veelgestelde vragen over de toepassing en problemen met de servicebeschikbaarheid voor [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). U kunt ook raadpleegt u de [VM-grootte voor Cloud Services-pagina](cloud-services-sizes-specs.md) voor informatie over de grootte.
 
@@ -41,8 +41,8 @@ Wanneer de Server de eerste aanvraag ontvangt, eerst de code gecompileerd en ver
 Internet Information Services (IIS)-toepassing van toepassingen periodiek gerecycled worden kunnen om te voorkomen dat instabiel statussen die tot de toepassing leiden kunnen vastloopt, loopt vast, of geheugen lekt.
 
 De volgende documenten kunt u te begrijpen en oplossen van dit probleem:
-* [Trage laden oplossen voor IIS](http://stackoverflow.com/questions/13386471/fixing-slow-initial-load-for-iis)
-* [IIS 7.5 web application eerste aanvraag na het recyclen van app-pool erg traag](http://stackoverflow.com/questions/13917205/iis-7-5-web-application-first-request-after-app-pool-recycle-very-slow)
+* [Trage laden oplossen voor IIS](https://stackoverflow.com/questions/13386471/fixing-slow-initial-load-for-iis)
+* [IIS 7.5 web application eerste aanvraag na het recyclen van app-pool erg traag](https://stackoverflow.com/questions/13917205/iis-7-5-web-application-first-request-after-app-pool-recycle-very-slow)
 
 Als u wijzigen van het standaardgedrag van IIS wilt, moet u gebruik opstarttaken, omdat het als u handmatig wijzigingen op de Webrol-exemplaren toepast, de wijzigingen uiteindelijk verbroken worden.
 

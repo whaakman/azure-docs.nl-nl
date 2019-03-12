@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 90f7ef32a54f257a64942b37938cff5703112d6c
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.date: 03/07/2019
+ms.openlocfilehash: f54e715f555f01a265ed89ac633f207546a73904
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409848"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576358"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Een Azure SQL-database met behulp van geautomatiseerde databaseback-ups herstellen
 
@@ -141,7 +141,7 @@ Zoals eerder is besproken, naast de Azure portal, kan databaseherstel worden uit
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- Als u een zelfstandige of gegroepeerde-database herstellen, Zie [terugzetten AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase).
+- Als u een zelfstandige of gegroepeerde-database herstellen, Zie [terugzetten AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase).
 
   | Cmdlet | Description |
   | --- | --- |
@@ -153,7 +153,13 @@ Zoals eerder is besproken, naast de Azure portal, kan databaseherstel worden uit
   > [!TIP]
   > Zie voor een voorbeeld van PowerShell-script waarin wordt getoond hoe om uit te voeren van een point-in-time-terugzetten van een database, [herstellen van een SQL-database met behulp van PowerShell](scripts/sql-database-restore-database-powershell.md).
 
-- Als u een beheerd exemplaar in de database herstellen, Zie [Point-in-time-terugzetten van een database in Azure SQL Managed Instance met behulp van AzureRm.Sql PowerShell bibliotheek](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/28/point-in-time-restore-of-a-database-on-azure-sql-managed-instance-using-azurerm-sql-powershell-library/).
+- Als u een beheerd exemplaar in de database herstellen, Zie [terugzetten AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase).
+
+  | Cmdlet | Description |
+  | --- | --- |
+  | [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance) |Hiermee haalt u een of meer beheerde exemplaren. |
+  | [Get-AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | Hiermee haalt u een exemplaar van databases. |
+  | [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase) |Een exemplaar in de database herstelt. |
 
 ### <a name="rest-api"></a>REST-API
 
@@ -166,7 +172,8 @@ Een enkele of gegroepeerde om database te herstellen met behulp van de REST-API:
 
 ### <a name="azure-cli"></a>Azure-CLI
 
-Zie voor het herstellen van een enkele of gegroepeerde database met behulp van Azure CLI, [az sql db restore](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-restore).
+- Zie voor het herstellen van een enkele of gegroepeerde database met behulp van Azure CLI, [az sql db restore](/cli/azure/sql/db#az-sql-db-restore).
+- Zie voor het herstellen van een beheerd exemplaar met behulp van Azure CLI, [az sql DEELB herstellen](/cli/azure/sql/db#az-sql-midb-restore)
 
 ## <a name="summary"></a>Samenvatting
 

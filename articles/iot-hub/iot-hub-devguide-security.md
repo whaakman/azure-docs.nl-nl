@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: 5d360e0959a61cde763f5aafe62de38f6c03e806
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: bb402a5a059fb6f2836bddbd951220271ca77ba3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011174"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534358"
 ---
 # <a name="control-access-to-iot-hub"></a>Toegang tot IoT Hub regelen
 
@@ -74,7 +74,7 @@ Elke ondersteunde protocol, zoals het MQTT-, AMQP- en HTTPS, worden tokens op ve
 
 Bij het gebruik van MQTT, het pakket verbinding maken met de apparaat-id als de ClientId, heeft `{iothubhostname}/{deviceId}` in het veld gebruikersnaam en een SAS-token in het veld wachtwoord. `{iothubhostname}` moet u de volledige CName van de IoT-hub (bijvoorbeeld contoso.azure devices.net).
 
-Bij het gebruik van [AMQP](https://www.amqp.org/), IoT Hub worden ondersteund [SASL zonder opmaak](http://tools.ietf.org/html/rfc4616) en [AMQP Claims-beveiliging op basis van-](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc).
+Bij het gebruik van [AMQP](https://www.amqp.org/), IoT Hub worden ondersteund [SASL zonder opmaak](https://tools.ietf.org/html/rfc4616) en [AMQP Claims-beveiliging op basis van-](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc).
 
 Als u AMQP claims op basis van-beveiliging gebruikt, is de standaard Hiermee geeft u het verzenden van deze tokens.
 

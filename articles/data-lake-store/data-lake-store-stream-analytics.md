@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 0d9ddbeae3a666d3b3cf56f80ae633a7ecaa650a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e52cf99e3bdd1960ca361ccde50d85dfaa2209c0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294030"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544917"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Stream-gegevens uit Azure Storage-Blob in Azure Data Lake Storage Gen1 met behulp van Azure Stream Analytics
 In dit artikel leert u hoe u met Azure Data Lake Storage Gen1 als uitvoer voor een Azure Stream Analytics-taak. In dit artikel ziet u een eenvoudig scenario die gegevens van een Azure Storage-blob (invoer) leest en schrijft de gegevens naar Data Lake Storage Gen1 (uitvoer).
@@ -106,7 +106,7 @@ U begint met het maken van een Stream Analytics-taak die een invoerbron en een b
 
     Klik op **Start** om de taak te starten. Het kan enkele minuten duren start de taak.
 
-3. Voor het activeren van de taak voor het kiezen van de gegevens uit de blob, een bestand met voorbeeldgegevens te kopiëren naar de blob-container. Krijgt u een bestand met voorbeeldgegevens van de [Azure Data Lake Git-opslagplaats](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt). Kopieer het bestand voor deze zelfstudie **vehicle1_09142014.csv**. U kunt verschillende clients, zoals [Azure Storage Explorer](http://storageexplorer.com/), het uploaden van gegevens naar een blob-container.
+3. Voor het activeren van de taak voor het kiezen van de gegevens uit de blob, een bestand met voorbeeldgegevens te kopiëren naar de blob-container. Krijgt u een bestand met voorbeeldgegevens van de [Azure Data Lake Git-opslagplaats](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt). Kopieer het bestand voor deze zelfstudie **vehicle1_09142014.csv**. U kunt verschillende clients, zoals [Azure Storage Explorer](https://storageexplorer.com/), het uploaden van gegevens naar een blob-container.
 
 4. Uit de **overzicht** tabblad onder **bewaking**, Zie hoe de gegevens is verwerkt.
 

@@ -1,6 +1,6 @@
 ---
 title: Groepen met meerdere containers in Azure Container Instances implementeren
-description: Informatie over het implementeren van een containergroep met meerdere containers in Azure Container Instances.
+description: Informatie over het implementeren van een containergroep met meerdere containers in Azure Container Instances met behulp van een Azure Resource Manager-sjabloon.
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 06/08/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: adb284772291dc901dd5302124982948c1f37eea
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 2dfe1bbf01b7e1fae8c07602ac4faa40ae74ecc9
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856469"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729497"
 ---
-# <a name="deploy-a-container-group"></a>De containergroep van een implementeren
+# <a name="deploy-a-multi-container-group-with-a-resource-manager-template"></a>Een groep met meerdere containers met Resource Manager-sjabloon implementeren
 
 Azure Container Instances biedt ondersteuning voor de implementatie van meerdere containers op één host met behulp van een [containergroep](container-instances-container-groups.md). Dit is handig bij het bouwen van een toepassing sidecar voor logboekregistratie, bewaking of een andere configuratie waarbij een tweede gekoppelde proces in een service nodig heeft.
 
@@ -28,6 +28,8 @@ Implementatie met een Resource Manager-sjabloon wordt aanbevolen wanneer u nodig
 
 > [!NOTE]
 > Groepen met meerdere containers zijn momenteel beperkt tot Linux-containers. Terwijl we werken om alle functies op Windows-containers, vindt u de huidige platform verschillen in [quota en beschikbaarheid in regio's voor Azure Container Instances](container-instances-quotas.md).
+
+Zie voor aanvullende voorbeeldsjablonen, [Azure Resource Manager-sjablonen voor Azure Container Instances](container-instances-samples-rm.md). 
 
 ## <a name="configure-the-template"></a>De sjabloon configureren
 

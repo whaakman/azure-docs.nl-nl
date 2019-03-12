@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 13a1ed626e7741c90cf902c9ed01911985ca8424
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.date: 03/12/2019
+ms.openlocfilehash: 5a0fc99052b18dc1fa837147aa914a473d27d832
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453440"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730024"
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>SSL-connectiviteit configureren in Azure Database for PostgreSQL
 Azure Database voor PostgreSQL verkiest het verbinden van uw clienttoepassingen met de PostgreSQL-service met Secure Sockets Layer (SSL). Het afdwingen van SSL-verbindingen tussen uw databaseserver en clienttoepassingen zorgt dat u bent beschermt tegen 'man in the middle'-aanvallen omdat de gegevensstroom tussen de server en uw toepassing wordt versleuteld.
@@ -50,65 +50,21 @@ In sommige gevallen vereisen toepassingen een lokale certificaatbestand gegenere
 ### <a name="download-the-certificate-file-from-the-certificate-authority-ca"></a>Download het certificaatbestand van de certificeringsinstantie (CA) 
 Het certificaat nodig om te communiceren via SSL met uw Azure Database voor PostgreSQL-server zich bevindt [hier](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt). Download het certificaatbestand lokaal.
 
-### <a name="download-and-install-openssl-on-your-machine"></a>Download en installeer de OpenSSL op uw computer 
-Als u wilt decoderen het certificaatbestand dat nodig is voor uw toepassing veilig verbinding maken met uw databaseserver, moet u OpenSSL installeren op uw lokale computer.
+### <a name="install-a-cert-decoder-on-your-machine"></a>De decoder van een certificaat installeren op uw computer 
+U kunt [OpenSSL](https://github.com/openssl/openssl) moet worden gedecodeerd het certificaatbestand dat nodig is voor uw toepassing veilig verbinding maken met uw database-server. Als u wilt weten hoe u OpenSSL installeren, Zie de [OpenSSL installatie-instructies](https://github.com/openssl/openssl/blob/master/INSTALL). 
 
-#### <a name="for-linux-os-x-or-unix"></a>For Linux, OS X, or Unix
-De OpenSSL-bibliotheken zijn opgegeven in de broncode rechtstreeks vanuit de [OpenSSL Software Foundation](https://www.openssl.org). De volgende instructies leiden u door de benodigde stappen voor het OpenSSL installeren op uw Linux-computer. In dit artikel maakt gebruik van opdrachten om te werken op Ubuntu 12.04 bekende en hoger.
-
-Open een terminalsessie en downloaden van OpenSSL.
-```bash
-wget http://www.openssl.org/source/openssl-1.1.0e.tar.gz
-``` 
-Pak de bestanden uit het gedownloade pakket.
-```bash
-tar -xvzf openssl-1.1.0e.tar.gz
-```
-Geef de map waar de bestanden zijn uitgepakt. Standaard moet als volgt.
-
-```bash
-cd openssl-1.1.0e
-```
-OpenSSL configureren door de volgende opdracht wordt uitgevoerd. Als u wilt dat de bestanden in een map anders dan /usr/local/openssl, zorg ervoor dat de volgende zo nodig wijzigen.
-
-```bash
-./config --prefix=/usr/local/openssl --openssldir=/usr/local/openssl
-```
-Nu OpenSSL juist is geconfigureerd, moet u voor het compileren van het om te zetten van uw certificaat. Als u wilt compileren, voer de volgende opdracht:
-
-```bash
-make
-```
-Zodra de compilatie is voltooid, u kunt OpenSSL installeren als een uitvoerbaar bestand met de volgende opdracht:
-```bash
-make install
-```
-Om te bevestigen dat u OpenSSL hebt geïnstalleerd op uw systeem, moet u de volgende opdracht en controle om ervoor te zorgen dat u hetzelfde resultaat uitvoeren.
-
-```bash
-/usr/local/openssl/bin/openssl version
-```
-U ziet het volgende bericht weergegeven als dit lukt.
-```bash
-OpenSSL 1.1.0e 7 Apr 2014
-```
-
-#### <a name="for-windows"></a>Voor Windows
-OpenSSL installeren op een Windows-PC kan worden uitgevoerd in de volgende manieren:
-1. **(Aanbevolen)**  Met behulp van de ingebouwde Bash voor Windows-functionaliteit in Windows 10 en hoger, OpenSSL, wordt standaard geïnstalleerd. Instructies voor het inschakelen van Bash voor Windows-functionaliteit in Windows 10 vindt [hier](https://msdn.microsoft.com/commandline/wsl/install_guide).
-2. Via het downloaden van een Win32/64-toepassing die is opgegeven door de community. Hoewel de OpenSSL Software Foundation niet opgeven of enkele aanbeveling voor een specifieke Windows-installatieprogramma's, beschikt u over een lijst met beschikbare installatieprogramma's [hier](https://wiki.openssl.org/index.php/Binaries).
 
 ### <a name="decode-your-certificate-file"></a>Uw certificaatbestand decoderen
 Het gedownloade basis-CA-bestand is in een versleutelde indeling. Gebruikmaken van OpenSSL moet worden gedecodeerd het certificaatbestand. Om dit te doen, moet u deze OpenSSL-opdracht uitvoeren:
 
-```dos
+```
 openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
 ```
 
 ### <a name="connecting-to-azure-database-for-postgresql-with-ssl-certificate-authentication"></a>Verbinding maken met Azure Database for PostgreSQL met SSL-verificatie
-Nu dat u hebt uw certificaat is gedecodeerd, u kunt nu verbinding maken met uw databaseserver veilig via SSL. Om toe te staan certificaatcontrole server, moet het certificaat in het bestand ~/.postgresql/root.crt in de basismap van de gebruiker worden geplaatst. (In Microsoft Windows het bestand is met de naam % APPDATA%\postgresql\root.crt.). Hieronder vindt u instructies voor het verbinden met Azure Database voor PostgreSQL.
+Nu dat u hebt uw certificaat is gedecodeerd, u kunt nu verbinding maken met uw databaseserver veilig via SSL. Om toe te staan certificaatcontrole server, moet het certificaat in het bestand ~/.postgresql/root.crt in de basismap van de gebruiker worden geplaatst. (In Microsoft Windows het bestand is met de naam % APPDATA%\postgresql\root.crt.). 
 
-#### <a name="using-psql-command-line-utility"></a>Met behulp van psql-opdrachtregel-hulpprogramma
+#### <a name="connect-using-psql"></a>Verbinding maken met behulp van psql
 Het volgende voorbeeld ziet hoe u verbinding maken met de PostgreSQL-server met behulp van het opdrachtregelprogramma psql. Gebruik de `root.crt` -bestand hebt gemaakt en de `sslmode=verify-ca` of `sslmode=verify-full` optie.
 
 Met behulp van de PostgreSQL-opdrachtregelinterface, dan de volgende opdracht:
@@ -127,11 +83,6 @@ Type "help" for help.
 
 postgres=>
 ```
-
-#### <a name="using-pgadmin-gui-tool"></a>Met behulp van pgAdmin GUI-hulpprogramma
-Configureren van pgAdmin 4 veilig verbinding maken via SSL vereist dat u om in te stellen de `SSL mode = Verify-CA` of `SSL mode = Verify-Full` als volgt:
-
-![Schermafbeelding van pgAdmin - connection - SSL-modus vereist](./media/concepts-ssl-connection-security/2-pgadmin-ssl.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 Bekijk verschillende connectiviteitsopties van toepassing na [verbindingsbibliotheken voor Azure Database for PostgreSQL](concepts-connection-libraries.md).

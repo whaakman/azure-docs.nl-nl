@@ -12,16 +12,16 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1853ff4141a7af3260ef9575bb2457819ab2d4a9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 8bf61e6506e0d109b83fa323439348c3803bd5ce
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56735013"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731026"
 ---
-# <a name="write-data-using-the-azure-machine-learning-data-prep-sdk"></a>Schrijven van gegevens met behulp van de Azure Machine Learning Data Prep SDK
+# <a name="write-and-configure-data-using-azure-machine-learning"></a>Schrijven en configureren van gegevens met behulp van Azure Machine Learning
 
-In dit artikel leert u verschillende methoden voor het schrijven van gegevens met behulp van de [Azure Machine Learning Data Prep Python SDK](https://aka.ms/data-prep-sdk). Uitgevoerde gegevens kunnen worden geschreven op elk gewenst moment in een gegevensstroom en schrijfbewerkingen worden toegevoegd als stappen om de resulterende gegevensstroom en worden uitgevoerd telkens wanneer de gegevensstroom is. Gegevens worden naar meerdere partitiebestanden naar parallelle schrijfbewerkingen geschreven.
+In dit artikel leert u verschillende methoden voor het schrijven van gegevens met behulp van de [Azure Machine Learning Data Prep Python SDK](https://aka.ms/data-prep-sdk) en het configureren van die gegevens voor experimenteren met de [Azure Machine Learning-SDK voor Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Uitgevoerde gegevens kunnen op elk gewenst moment in een gegevensstroom worden geschreven. Schrijfbewerkingen worden toegevoegd als stappen om de resulterende gegevensstroom en deze stappen worden uitgevoerd telkens wanneer de gegevensstroom wordt uitgevoerd. Gegevens worden naar meerdere partitiebestanden naar parallelle schrijfbewerkingen geschreven.
 
 Aangezien er geen beperkingen voor het aantal schrijven stappen er zijn in een pijplijn, kunt u eenvoudig aanvullende schrijven stappen voor het ophalen van tussenliggende resultaten voor het oplossen van problemen of voor andere pijplijnen toevoegen.
 
@@ -90,7 +90,6 @@ Voorbeelduitvoer:
 |3| 10013.0 | 99999.0 | FOUT | NO | NO |     | NaN | NaN | NaN |
 |4| 10014.0 | 99999.0 | FOUT | NO | NO | ENSO |    59783.0 | 5350.0 |  500.0|
 
-
 In de uitvoer van de voorgaande weergegeven verschillende fouten in de numerieke kolommen vanwege de cijfers die zijn niet juist geparseerd. Wanneer geschreven naar CSV, null-waarden vervangen door de tekenreeks "ERROR" standaard.
 
 Parameters als onderdeel van uw schrijven aanroepen en geef een tekenreeks die moet worden gebruikt voor null-waarden toevoegen.
@@ -139,6 +138,51 @@ De bovenstaande code wordt deze uitvoer gegenereerd:
 |2| 10010.0 | 99999.0 | MiscreantData | NO| JN| ENJA|   70933.0|    -8667.0 |90.0|
 |3| 10013.0 | 99999.0 | MiscreantData | NO| NO| |   MiscreantData|    MiscreantData|    MiscreantData|
 |4| 10014.0 | 99999.0 | MiscreantData | NO| NO| ENSO|   59783.0|    5350.0| 500.0|
+
+## <a name="configure-data-for-automated-machine-learning-training"></a>Configureren van gegevens voor geautomatiseerde machine learning-cursussen
+
+Doorgeven van het gegevensbestand nieuw geschreven in een [ `AutoMLConfig` ](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#automlconfig) object ter voorbereiding op geautomatiseerde machine learning-cursussen. 
+
+Het volgende codevoorbeeld ziet u hoe u uw gegevensstroom converteren naar een Pandas dataframe en deze vervolgens te splitsen in trainings- en testset gegevenssets voor geautomatiseerde machine learning-cursussen.
+
+```Python
+from azureml.train.automl import AutoMLConfig
+from sklearn.model_selection import train_test_split
+
+dflow = dprep.auto_read_file(path="")
+X_dflow = dflow.keep_columns([feature_1,feature_2, feature_3])
+y_dflow = dflow.keep_columns("target")
+
+X_df = X_dflow.to_pandas_dataframe()
+y_df = y_dflow.to_pandas_dataframe()
+
+X_train, X_test, y_train, y_test = train_test_split(X_df, y_df, test_size=0.2, random_state=223)
+
+# flatten y_train to 1d array
+y_train.values.flatten()
+
+#configure 
+automated_ml_config = AutoMLConfig(task = 'regression',
+                               X = X_train.values,  
+                   y = y_train.values.flatten(),
+                   iterations = 30,
+                       Primary_metric = "AUC_weighted",
+                       n_cross_validation = 5
+                       )
+
+```
+
+Als u niet alle tussenliggende stappen voor gegevensvoorbereiding, zoals in het voorgaande voorbeeld hoeven, kunt u uw gegevensstroom rechtstreeks in doorgeven `AutoMLConfig`.
+
+```Python
+automated_ml_config = AutoMLConfig(task = 'regression', 
+                   X = X_dflow,   
+                   y = y_dflow, 
+                   iterations = 30, 
+                   Primary_metric = "AUC_weighted",
+                   n_cross_validation = 5
+                   )
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie de SDK [overzicht](https://aka.ms/data-prep-sdk) voor ontwerppatronen en voorbeelden van het gebruik 

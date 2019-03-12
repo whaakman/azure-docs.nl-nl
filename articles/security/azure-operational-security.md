@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 2f68156e593281acb46dbeb132f0f45db4b3dfb9
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 5a407db97803d3c3be898893b7da6c1cb4aa94bb
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244771"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536994"
 ---
 # <a name="azure-operational-security"></a>Azure operationele beveiliging
 ## <a name="introduction"></a>Inleiding
@@ -57,7 +57,7 @@ Dit technische document geeft een overzicht van de Microsoft-benadering tot oper
 
 Logboeken van de Microsoft Azure Monitor is de IT-beheeroplossing voor de hybride cloud. Alleen wordt gebruikt of om uit te breiden van uw bestaande System Center-implementatie, de logboeken van Azure Monitor, zodat u de maximale flexibiliteit en controle voor cloud-gebaseerd beheer van uw infrastructuur.
 
-![Logboeken in Azure Monitor](./media/azure-operational-security/azure-operational-security-fig1.png)
+![Azure Monitor-logboeken](./media/azure-operational-security/azure-operational-security-fig1.png)
 
 Met Azure Monitor-Logboeken, kunt u een instantie in elke cloud, met inbegrip van on-premises, Azure, AWS, Windows Server, Linux, VMware en OpenStack, tegen lagere kosten dan concurrerende oplossingen beheren. Ontwikkeld voor de cloudgeoriënteerde wereld en logboeken van Azure Monitor biedt een nieuwe benadering voor het beheren van uw bedrijf dat is de snelste en meest rendabele manier om te voldoen aan de nieuwe zakelijke uitdagingen en geschikt voor de nieuwe werkbelastingen, toepassingen en cloudomgevingen.
 
@@ -67,12 +67,12 @@ De kernfunctionaliteit van Azure Monitor-Logboeken wordt geleverd door een set m
 
 | Service  | Description|
 | :------------- | :-------------|
-| Logboeken in Azure Monitor | Bewaak en analyseer de beschikbaarheid en prestaties van verschillende resources, met inbegrip van fysieke en virtuele machines. |
+| Azure Monitor-logboeken | Bewaak en analyseer de beschikbaarheid en prestaties van verschillende resources, met inbegrip van fysieke en virtuele machines. |
 |Automation | Automatiseer handmatige processen en dwing configuraties af voor fysieke en virtuele machines. |
 | Backup | Back-up en herstellen van kritieke gegevens. |
 | Site Recovery | Bied hoge beschikbaarheid voor kritieke toepassingen. |
 
-### <a name="azure-monitor-logs"></a>Logboeken in Azure Monitor
+### <a name="azure-monitor-logs"></a>Azure Monitor-logboeken
 
 [Logboeken in Azure Monitor](https://azure.microsoft.com/documentation/services/log-analytics) bewakingsservices biedt door het verzamelen van gegevens van beheerde resources in een centrale opslagplaats. Deze gegevens kunnen gebeurtenissen, prestatiegegevens en aangepaste gegevens omvatten die via de API worden geleverd. Na verzameling zijn de gegevens beschikbaar voor waarschuwingen, analyse en export.
 
@@ -80,7 +80,7 @@ De kernfunctionaliteit van Azure Monitor-Logboeken wordt geleverd door een set m
 Deze methode kunt u gegevens uit verschillende bronnen consolideren, zodat u kunt combineren gegevens uit uw Azure-services met uw bestaande on-premises omgeving. De methode maakt ook een duidelijk onderscheid tussen het verzamelen van gegevens en het bewerken hiervan. Zo zijn alle bewerkingen beschikbaar voor alle soorten gegevens.
 
 
-![Logboeken in Azure Monitor](./media/azure-operational-security/azure-operational-security-fig2.png)
+![Azure Monitor-logboeken](./media/azure-operational-security/azure-operational-security-fig2.png)
 
 De Azure Monitor-service beheert uw cloud-gebaseerde gegevens veilig met behulp van de volgende methoden:
 -   scheiding van gegevens
@@ -135,7 +135,7 @@ Met Security Center worden gegevens van uw virtuele machines (VM's) verzameld om
 
 - Azure Security Center analyseert gegevens uit de volgende bronnen om inzicht in uw beveiligingsstatus te geven, beveiligingsproblemen te identificeren, oplossingen aan te raden en actieve bedreigingen te detecteren:
 
--   Azure Services: Maakt gebruik van informatie over de configuratie van Azure-services die u hebt geïmplementeerd door te communiceren met de resourceprovider van de service.
+-   Azure-services: Maakt gebruik van informatie over de configuratie van Azure-services die u hebt geïmplementeerd door te communiceren met de resourceprovider van de service.
 
 - Netwerkverkeer: Gebruikt steekproefgewijs netwerkverkeermetagegevens uit de infrastructuur van Microsoft, zoals bron-/ doel-IP/poort, pakketgrootte en netwerkprotocol.
 
@@ -164,7 +164,7 @@ Azure Security Center verzamelt tijdelijke kopieën van uw crashdumpbestanden en
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-De [Log Analytics Security](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) en controle-oplossing kunnen IT-actief Controleer alle resources, waarmee het effect van beveiligingsincidenten minimaliseren. Log Analytics-beveiliging en controle hebt beveiligingsdomeinen die kunnen worden gebruikt voor het bewaken van resources. Het beveiligingsdomein biedt snel toegang tot de opties, voor de beveiligingsbewaking de volgende domeinen worden behandeld in meer informatie:
+De [Azure Monitor-logboeken Security](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) en controle-oplossing kunnen IT-actief Controleer alle resources, waarmee het effect van beveiligingsincidenten minimaliseren. Azure Monitor-logboeken beveiliging en controle hebt beveiligingsdomeinen die kunnen worden gebruikt voor het bewaken van resources. Het beveiligingsdomein biedt snel toegang tot de opties, voor de beveiligingsbewaking de volgende domeinen worden behandeld in meer informatie:
 
 -   Malware-evaluatie
 -   Update-evaluatie

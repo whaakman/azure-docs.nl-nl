@@ -7,13 +7,13 @@ ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
-ms.openlocfilehash: 54336de291d01f3741c288756095e40a43800a7f
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.date: 03/11/2019
+ms.openlocfilehash: 23b53e852672c129ff148b0b493a44172f9baf9a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009984"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769741"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Azure IoT Hub-prijsinformatie
 
@@ -28,8 +28,8 @@ ms.locfileid: "57009984"
 | Registerbewerkingen voor identiteit <br/> (maken, ophalen, weergeven, bijwerken en verwijderen) | Niet in rekening gebracht. |
 | Apparaat-naar-cloud-berichten | Verzonden berichten worden gefactureerd in chunks van 4 KB voor inkomend verkeer naar IoT Hub. Een bericht van 6-KB wordt bijvoorbeeld in rekening gebracht 2 berichten. |
 | Cloud-naar-apparaat-berichten | Verzonden berichten worden gefactureerd in chunks van 4 KB, bijvoorbeeld een 6-KB-bericht 2 berichten in rekening wordt gebracht. |
-| Uploaden van bestanden | Bestandsoverdracht naar Azure Storage wordt geen datalimiet door IoT Hub. Bestand overdracht initialisatie- en -voltooiing berichten worden in rekening gebracht zoals mailberichten gemeten in intervallen van 4 KB. Bijvoorbeeld, het overbrengen van een bestand van 10 MB wordt in rekening gebracht twee berichten naast de kosten van Azure Storage. |
-| Directe methoden | Antwoorden met niet-lege instanties worden geslaagde methodeaanvragen worden gefactureerd in chunks van 4 KB, gefactureerd in chunks van 4 KB als extra berichten. Aanvragen voor niet-verbonden apparaten worden in rekening gebracht als berichten in chunks van 4 KB. Bijvoorbeeld, een methode met een 6-KB-instantie die in een reactie met geen hoofdtekst van het apparaat resulteert, wordt in rekening gebracht als twee berichten. Een methode met een 6-KB-instantie die in een 1 KB-reactie van het apparaat resulteert wordt in rekening gebracht als twee berichten voor de aanvraag een ander bericht voor het antwoord. |
+| Uploaden van bestanden | Bestandsoverdracht naar Azure Storage wordt geen datalimiet door IoT Hub. Bestand overdracht initialisatie- en -voltooiing berichten worden in rekening gebracht zoals mailberichten gemeten in intervallen van 4 KB. Bijvoorbeeld, het overbrengen van een bestand van 10 MB wordt in rekening gebracht als twee berichten naast de kosten van Azure Storage. |
+| Directe methoden | Geslaagde methodeaanvragen worden gefactureerd in chunks van 4 KB en antwoorden worden gefactureerd in chunks van 4 KB als extra berichten. Aanvragen voor niet-verbonden apparaten worden in rekening gebracht als berichten in chunks van 4 KB. Bijvoorbeeld, een methode met een 4 KB-instantie die in een reactie met geen hoofdtekst van het apparaat resulteert wordt in rekening gebracht als twee berichten. Een methode met een 6-KB-instantie die in een 1 KB-reactie van het apparaat resulteert wordt in rekening gebracht als twee berichten voor de aanvraag een ander bericht voor het antwoord. |
 | Apparaat- en -module dubbele leesbewerkingen | Dubbele leesbewerkingen van het apparaat of de module en de oplossing back end worden in rekening gebracht als berichten in 512-byte-segmenten. Bijvoorbeeld, een dubbel 6-KB lezen wordt in rekening gebracht als 12-berichten. |
 | Dubbel apparaat en de module-updates (tags en eigenschappen) | Apparaatdubbel werkt bij van het apparaat of de module en de back-end van de oplossing worden in rekening gebracht als berichten in 512-byte-segmenten. Bijvoorbeeld, een dubbel 6-KB lezen wordt in rekening gebracht als 12-berichten. |
 | Apparaat- en -module apparaatdubbel-query 's | Query's worden in rekening gebracht als berichten, afhankelijk van de grootte van het resultaat in 512-byte-segmenten. |
@@ -42,7 +42,7 @@ ms.locfileid: "57009984"
 
 ## <a name="example-1"></a># 1
 
-Een apparaat verzendt een 1 KB apparaat-naar-cloud bericht per minuut naar IoT Hub, die vervolgens kan worden gelezen door Azure Stream Analytics. De back-end oplossing roept een methode (met 512-byte-nettolading) op het apparaat om de 10 minuten voor het activeren van een specifieke actie. Het apparaat reageert op de methode met een resultaat van 200 bytes.
+Een apparaat verzendt een 1 KB apparaat-naar-cloud bericht per minuut naar IoT Hub, die vervolgens kan worden gelezen door Azure Stream Analytics. De back-end oplossing roept een methode (met een 512-byte-nettolading) op het apparaat om de 10 minuten voor het activeren van een specifieke actie. Het apparaat reageert op de methode met een resultaat van 200 bytes.
 
 Het apparaat is verbruikt:
 

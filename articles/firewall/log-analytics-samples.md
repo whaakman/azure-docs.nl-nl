@@ -7,24 +7,26 @@ ms.service: firewall
 ms.topic: article
 ms.date: 2/15/2019
 ms.author: victorh
-ms.openlocfilehash: f639f47997fc122efde2bc223bc24b5de7630710
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 21309060b7b4a93d798c444bd96bc21c62693a54
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240147"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534000"
 ---
 # <a name="azure-firewall-log-analytics-samples"></a>Azure log analytics-voorbeelden van Firewall
 
-De volgende voorbeelden van log analytics kunnen worden gebruikt voor het analyseren van uw Azure-Firewall-logboeken. Het voorbeeldbestand is ingebouwd in Log Analytics-ontwerper, de [Weergaveontwerper van Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) artikel vindt u meer informatie over het ontwerp van de weergave.
+De volgende voorbeelden voor Azure Monitor-logboeken kunnen worden gebruikt voor het analyseren van uw Azure-Firewall-logboeken. Het voorbeeldbestand is ingebouwd in de Designer bekijken in Azure Monitor, de [Designer bekijken in Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) artikel vindt u meer informatie over het ontwerp van de weergave.
 
-## <a name="log-analytics-view"></a>Log Analytics-weergave
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Hier ziet u hoe u een voorbeeld van de log analytics-visualisatie kunt configureren. U kunt downloaden de voorbeeld-visualisatie van de [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview) opslagplaats. De eenvoudigste manier is met de rechtermuisknop op de hyperlink op deze pagina en kies *opslaan als* en geef een naam, zoals **AzureFirewall.omsview**. 
+## <a name="azure-monitor-logs-view"></a>Azure Monitor-logboeken weergeven
 
-Voer de volgende stappen uit om de weergave toevoegen aan uw log analytics-werkruimte:
+Hier ziet u hoe u een voorbeeld van Azure Monitor logboeken visualisatie kunt configureren. U kunt downloaden de voorbeeld-visualisatie van de [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview) opslagplaats. De eenvoudigste manier is met de rechtermuisknop op de hyperlink op deze pagina en kies *opslaan als* en geef een naam, zoals **AzureFirewall.omsview**. 
 
-1. Open de log analytics-werkruimte in de Azure Portal.
+Voer de volgende stappen uit om de weergave aan uw Log Analytics-werkruimte:
+
+1. Open de Log Analytics-werkruimte in de Azure Portal.
 2. Open **Designer bekijken** hieronder **algemene**.
 3. Klik op **Import**.
 4. Blader en selecteer de **AzureFirewall.omsview** dat u hebt gedownload voordat.

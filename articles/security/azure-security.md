@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 7c76f7c5810370fa396b81bcc16e7e2204393bc1
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 934046ac4be6c0e85ee687cefb46b61ec8affca6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247542"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543356"
 ---
 # <a name="introduction-to-azure-security"></a>Inleiding tot Azure-beveiliging
 ## <a name="overview"></a>Overzicht
@@ -94,7 +94,7 @@ Als er crashes, fouten of prestatieproblemen, kunt u zoeken via de telemetrische
 ### <a name="azure-monitor"></a>Azure Monitor
 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) biedt visualisatie, query, routering, waarschuwingen, automatisch schalen en automatisering van gegevens, zowel van de Azure-infrastructuur ([activiteitenlogboek](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)) en elke afzonderlijke Azure-resource ([diagnostische Registreert](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)). U kunt Azure Monitor gebruiken om te waarschuwen wanneer u beveiligingsgerelateerde gebeurtenissen die worden gegenereerd in Logboeken in Azure.
 
-### <a name="azure-monitor-logs"></a>Logboeken in Azure Monitor
+### <a name="azure-monitor-logs"></a>Azure Monitor-logboeken
 [Logboeken in Azure Monitor](https://azure.microsoft.com/documentation/services/log-analytics/) : een IT-beheeroplossing biedt voor zowel on-premises en van derden cloud gebaseerde infrastructuur hebben (zoals AWS) naast de Azure-resources. Gegevens van Azure Monitor kan worden gerouteerd rechtstreeks naar Azure Monitor-Logboeken, zodat u metrische gegevens en logboeken voor uw gehele omgeving op één plek kunt zien.
 
 Logboeken in Azure Monitor is een handig hulpmiddel in forensische en andere beveiligingsanalyse, zoals het hulpprogramma kunt u snel zoeken in grote hoeveelheden beveiliging gerelateerde items met een flexibele querymogelijkheden benadering. Bovendien on-premises [firewall en proxy logboeken kunnen worden geëxporteerd naar Azure en beschikbaar gesteld voor analyse met behulp van Azure Monitor-Logboeken.](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)
@@ -287,7 +287,7 @@ U kunt de lijst met DNS-servers die worden gebruikt in een VNet in de Management
 
 ### <a name="azure-dns"></a>Azure DNS
 De [Domain Name System](https://technet.microsoft.com/library/bb629410.aspx), of DNS is verantwoordelijk voor het omzetten van (of het oplossen van) de naam van een website of -service naar het IP-adres. [Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview) is een hostingservice voor DNS-domeinen die naamomzetting met behulp van Microsoft Azure-infrastructuur biedt. Door uw domeinen in Azure te hosten, kunt u uw DNS-records met dezelfde referenties, API's, hulpprogramma's en facturering beheren als voor uw andere Azure-services. DNS biedt ondersteuning voor het aspect van de beschikbaarheid van de drie vakken 'CIA'-beveiliging.
-### <a name="log-analytics-nsgs"></a>Log Analytics NSGs
+### <a name="azure-monitor-logs-nsgs"></a>Azure Monitor-logboeken nsg 's
 U kunt de volgende categorieën van diagnostische logboeken inschakelen voor nsg's:
 -   Gebeurtenis: Bevat vermeldingen voor welke NSG regels worden toegepast op virtuele machines en rolinstanties op basis van MAC-adres. De status van deze regels worden elke 60 seconden worden verzameld.
 

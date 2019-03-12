@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: d976a1c5e9366069b82cff718593ce72d7ad8a08
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: HT
+ms.openlocfilehash: a95f5ee5105c45ba9e5b1705e83d60bf24b1dc12
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588939"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57457880"
 ---
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Een naamruimte in Azure Portal maken
 Als u Service Bus-berichtenentiteiten wilt gebruiken in Azure, moet u eerst een naamruimte maken met een naam die uniek is binnen Azure. Een naamruimte biedt een scoping container voor het verwerken van Service Bus-resources in uw toepassing.
@@ -25,7 +25,7 @@ Ga als volgt te werk om een naamruimte te maken:
 
     ![Een resource maken -> Integratie -> Service Bus](./media/service-bus-create-namespace-portal/create-resource-service-bus-menu.png)
 3. Voer in het dialoogvenster **Naamruimte maken** de volgende stappen uit: 
-    1. Voer een **naam in voor de naamruimte**. In het systeem wordt onmiddellijk gecontroleerd of de naam beschikbaar is.
+    1. Voer een **naam in voor de naamruimte**. In het systeem wordt onmiddellijk gecontroleerd of de naam beschikbaar is. Zie voor een lijst met regels voor naamgeving naamruimten [Namespace REST-API maken](/rest/api/servicebus/create-namespace).
     2. Selecteer de prijscategorie (Basic, Standard of Premium) voor de naamruimte. Kies Standard of Premium indien u gebruik wilt maken van [onderwerpen en abonnementen](../articles/service-bus-messaging/service-bus-queues-topics-subscriptions.md#topics-and-subscriptions). Onderwerpen/abonnementen worden niet ondersteund in de prijscategorie Basic.
     3. Als u de **Premium** prijscategorie hebt geselecteerd, gaat u als volgt te werk: 
         1. Geef het aantal **Messaging-eenheden** op. De Premium-prijscategorie biedt isolatie van resources op het niveau van de CPU en het geheugen, zodat elke workload geïsoleerd wordt uitgevoerd. Deze resourcecontainer wordt een Messaging-eenheid genoemd. Een Premium-naamruimte heeft ten minste één Messaging-eenheid. U kunt voor elke Service Bus Premium-naamruimte 1, 2 of 4 Messaging-eenheden selecteren. Zie [Service Bus Premium Messaging](../articles/service-bus-messaging/service-bus-premium-messaging.md) voor meer informatie.

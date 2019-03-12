@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 698962aa0e3d72b204c4e990aa1384b44bf3896f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 44e13a301117ffe11e978666a38897ffd878c223
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856886"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551214"
 ---
 # <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Migreren van de Custom Speech Service naar de Speech-Service
 
@@ -48,7 +48,7 @@ Uw bestaande resource sleutels migreren naar de Speech-Service op de Service voo
 > [!NOTE]
 > Resource-sleutels kunnen alleen worden gemigreerd binnen dezelfde regio.
 
-1. Aanmelden bij de [cris.ai](http://www.cris.ai) portal en selecteer het abonnement in het menu rechtsboven.
+1. Aanmelden bij de [cris.ai](https://www.cris.ai) portal en selecteer het abonnement in het menu rechtsboven.
 
 2. Selecteer **geselecteerde abonnement migreren**.
 

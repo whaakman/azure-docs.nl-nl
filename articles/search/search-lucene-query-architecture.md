@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: dedfc7db6aef6d55fd50c94a217bdc489b9615f3
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: d504635121c5153367cd0b89ce593b093bb3cd39
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633858"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537225"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Hoe vol tekstzoekopdrachten werkt in Azure Search
 
@@ -55,14 +55,14 @@ Het volgende voorbeeld wordt een zoekaanvraag die u met behulp van Azure Search 
 
 ~~~~
 POST /indexes/hotels/docs/search?api-version=2017-11-11 
-{  
-    "search": "Spacious, air-condition* +\"Ocean view\"",  
-    "searchFields": "description, title",  
+{
+    "search": "Spacious, air-condition* +\"Ocean view\"",
+    "searchFields": "description, title",
     "searchMode": "any",
-    "filter": "price ge 60 and price lt 300",  
+    "filter": "price ge 60 and price lt 300",
     "orderby": "geo.distance(location, geography'POINT(-159.476235 22.227659)')", 
     "queryType": "full" 
- } 
+}
 ~~~~
 
 Voor deze aanvraag zijn de zoekmachine doet het volgende:
@@ -117,7 +117,7 @@ Standaard (`searchMode=any`), de zoekmachine wordt ervan uitgegaan dat de breder
 Stel dat we nu `searchMode=all`. In dit geval wordt de ruimte geïnterpreteerd als een 'en'-bewerking. Elk van de overige voorwaarden moet beide aanwezig zijn in het document dat moet worden gekwalificeerd als een overeenkomst. De resulterende voorbeeldquery wordt geïnterpreteerd als volgt: 
 
 ~~~~
-+Spacious,+air-condition*+"Ocean view"  
++Spacious,+air-condition*+"Ocean view"
 ~~~~
 
 Een gewijzigde query-structuur voor deze query zou zijn als volgt, waarbij een overeenkomende document is het snijpunt van alle drie subquery's: 
@@ -155,7 +155,7 @@ Wanneer de analyzer standaard de term verwerkt, wordt "in de Indische Oceaan vie
 Het gedrag van een analyzer kan worden getest met de [analyseren API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer). Geef de tekst die u wilt analyseren om te zien wat vermeldingen analyzer wordt gegenereerd. Bijvoorbeeld, als u wilt zien hoe de standaard analyzer de tekst "air-condition" wilt verwerken, kunt u de volgende aanvraag uitgeven:
 
 ~~~~
-{ 
+{
     "text": "air-condition",
     "analyzer": "standard"
 }
@@ -164,7 +164,7 @@ Het gedrag van een analyzer kan worden getest met de [analyseren API](https://do
 De standaard analyzer verdeelt de invoertekst in de volgende twee tokens, ze aantekeningen te maken met kenmerken, zoals het begin en einde offsets (gebruikt voor treffers markeren), evenals hun positie (gebruikt voor het overeenkomende woordgroepen):
 
 ~~~~
-{  
+{
   "tokens": [
     {
       "token": "air",
@@ -195,11 +195,11 @@ Lexicale analyse geldt alleen voor de typen query's waarvoor volledige voorwaard
 Het ophalen van document verwijst naar het zoeken van documenten met de bijbehorende voorwaarden in de index. Deze fase is best begrepen door een voorbeeld. Laten we beginnen met een index hotels het volgende eenvoudige schema: 
 
 ~~~~
-{   
-    "name": "hotels",     
-    "fields": [     
-        { "name": "id", "type": "Edm.String", "key": true, "searchable": false },     
-        { "name": "title", "type": "Edm.String", "searchable": true },     
+{
+    "name": "hotels",
+    "fields": [
+        { "name": "id", "type": "Edm.String", "key": true, "searchable": false },
+        { "name": "title", "type": "Edm.String", "searchable": true },
         { "name": "description", "type": "Edm.String", "searchable": true }
     ] 
 } 
@@ -208,28 +208,28 @@ Het ophalen van document verwijst naar het zoeken van documenten met de bijbehor
 Verder wordt ervan uitgegaan dat deze index de volgende vier documenten bevat: 
 
 ~~~~
-{ 
+{
     "value": [
-        {         
-            "id": "1",         
-            "title": "Hotel Atman",         
-            "description": "Spacious rooms, ocean view, walking distance to the beach."   
-        },       
-        {         
-            "id": "2",         
-            "title": "Beach Resort",        
-            "description": "Located on the north shore of the island of Kauaʻi. Ocean view."     
-        },       
-        {         
-            "id": "3",         
-            "title": "Playa Hotel",         
+        {
+            "id": "1",
+            "title": "Hotel Atman",
+            "description": "Spacious rooms, ocean view, walking distance to the beach."
+        },
+        {
+            "id": "2",
+            "title": "Beach Resort",
+            "description": "Located on the north shore of the island of Kauaʻi. Ocean view."
+        },
+        {
+            "id": "3",
+            "title": "Playa Hotel",
             "description": "Comfortable, air-conditioned rooms with ocean view."
-        },       
-        {         
-            "id": "4",         
-            "title": "Ocean Retreat",         
+        },
+        {
+            "id": "4",
+            "title": "Ocean Retreat",
             "description": "Quiet and secluded"
-        }    
+        }
     ]
 }
 ~~~~
@@ -260,7 +260,7 @@ Teruggaan naar ons voorbeeld voor de **titel** veld, de omgekeerde index er als 
 | hotel | 1, 3 |
 | in de Indische Oceaan | 4  |
 | playa | 3 |
-| instantie | 3 |
+| resort | 3 |
 | Terugtrekken | 4 |
 
 In het titelveld alleen *hotel* wordt weergegeven in de twee documenten: 1, 3.
@@ -275,7 +275,7 @@ Voor de **beschrijving** veld, de index is als volgt:
 | voorwaarde | 3
 | vertrouwd | 3
 | afstand | 1
-| eiland | 2
+| island | 2
 | kauaʻi | 2
 | zich bevindt | 2
 | Noord | 2
@@ -327,7 +327,7 @@ De drie documenten die overeenkomen met onze voorbeeldquery intrekken:
 search=Spacious, air-condition* +"Ocean view"  
 ~~~~
 ~~~~
-{  
+{
   "value": [
     {
       "@search.score": 0.25610128,

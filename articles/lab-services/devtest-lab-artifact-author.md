@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 05abc61da7af02c56dacd632175d6fbfa64cb9e1
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: e4fd8d226ebe1cb993e11fb5c9617df3eef08bdc
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098558"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532573"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Maken van aangepaste artefacten voor uw virtuele machine van DevTest Labs
 
@@ -126,7 +126,7 @@ Het volgende voorbeeld laat zien hoe u expressies en functies te maken van een w
 
 ## <a name="related-articles"></a>Verwante artikelen:
 * [Hoe u met artefacten vaststellen in DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)
-* [Een VM toevoegen aan een bestaand Active Directory-domein met behulp van Resource Manager-sjabloon in DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+* [Een VM toevoegen aan een bestaand Active Directory-domein met behulp van Resource Manager-sjabloon in DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over het [een Git-opslagplaats voor artefacten toevoegen aan een lab](devtest-lab-add-artifact-repo.md).

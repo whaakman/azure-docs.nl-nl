@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
-ms.openlocfilehash: 426293dbb3650b5a2bb3809b1e808f640392791d
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 3c78aed2f30ea85f5bc16a8c0fb270bb1c761be8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241949"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539510"
 ---
 # <a name="azure-security-and-compliance-blueprint-data-warehouse-for-fedramp-automation"></a>Azure-beveiliging en naleving blauwdruk: Datawarehouse voor automatisering van FedRAMP
 
@@ -69,7 +69,7 @@ Recovery Services-kluis
 
 Azure Key Vault
 
-Logboeken in Azure Monitor
+Azure Monitor-logboeken
 
 ## <a name="deployment-architecture"></a>Implementatie-architectuur
 
@@ -83,7 +83,7 @@ De volgende sectie bevat de elementen van de ontwikkeling en implementatie.
 
 Een virtuele machine is gemaakt als een domein bastionhost met de volgende configuraties:
 -   [Antimalware-uitbreiding](https://docs.microsoft.com/azure/security/azure-security-antimalware)
--   [Log Analytics-extensie](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-oms)
+-   [Extensie van Azure Monitor-Logboeken](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-oms)
 -   [Azure Diagnostics-extensie](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
 -   [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) met behulp van Azure Key Vault (respecteert Azure Government, PCI DSS, HIPAA en andere vereisten)
 -   Een [beleid voor automatisch afsluiten](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) verkleind van resources van de virtuele machine als deze niet in gebruik

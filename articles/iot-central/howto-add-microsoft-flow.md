@@ -1,19 +1,19 @@
 ---
-title: Werkstromen bouwen met de IoT Central-connector in Microsoft Flow | Microsoft Docs
+title: Werkstromen bouwen met de Azure IoT Central-connector in Microsoft Flow | Microsoft Docs
 description: Gebruik van de IoT Central-connector in Microsoft Flow-trigger werkstromen en maken, bijwerken en verwijderen van apparaten in werkstromen.
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 09/18/2018
+ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: e0c4b90511da78ac5a8e454f653ab2a3819697c0
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 555fe54174c9e13319af676cab3a5d3dcfaf2fe5
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317591"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57770246"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Werkstromen bouwen met de IoT Central-connector in Microsoft Flow
 
@@ -26,13 +26,13 @@ Microsoft Flow gebruiken voor het automatiseren van werkstromen in de vele toepa
 - Een betalen per gebruik-toepassing
 - Een Microsoft persoonlijke of werk of school-account aan te melden bij Flow ([meer informatie over Microsoft Flow plannen](https://aka.ms/microsoftflowplans))
 
-## <a name="trigger-a-workflow-when-a-rule-is-triggered"></a>Een werkstroom wordt geactiveerd wanneer een regel wordt geactiveerd
+## <a name="trigger-a-workflow"></a>Een werkstroom wordt geactiveerd
 
-Deze sectie leest u hoe u kunt een mobiele melding ontvangen in de mobiele Flow-app activeren wanneer een regel wordt geactiveerd in IoT Central.
+Deze sectie leest u hoe u voor het activeren van een mobiele melding ontvangen in de mobiele Flow-app wanneer een regel wordt geactiveerd in IoT Central.
 
 1. Begin met [maken van een regel in IoT Central](howto-create-telemetry-rules.md). Nadat u de voorwaarden van de regel hebt opgeslagen, selecteert u de **Microsoft Flow-actie** als een nieuwe actie. Een nieuw tabblad of venster te openen in uw browser, die u in Microsoft Flow.
 
-    ![Maak een nieuwe Microsoft Flow-actie](media/howto-add-microsoft-flow/createflowaction.PNG)
+    ![Maak een nieuwe Microsoft Flow-actie](media/howto-add-microsoft-flow/createflowaction.png)
 
 1. Meld u aan bij Microsoft Flow. Dit hoeft niet te worden van hetzelfde account zijn als het account waarmee u IoT-centraal-India. U komt op een overzichtspagina weergegeven van een verbinding te maken met een aangepaste actie IoT Central-connector.
 
@@ -45,7 +45,7 @@ Deze sectie leest u hoe u kunt een mobiele melding ontvangen in de mobiele Flow-
     > [!NOTE]
     > Selecteer de **meer** tekst in het venster met dynamische inhoud om op te halen van de meting en eigenschap waarden die de regel geactiveerd.
 
-    ![Flow actie met deelvenster met dynamische open bewerken](./media/howto-add-microsoft-flow/flowdynamicpane.PNG)
+    ![Flow actie met deelvenster met dynamische open bewerken](./media/howto-add-microsoft-flow/flowdynamicpane.png)
 
 1. Wanneer u klaar bent voor het bewerken van de actie selecteren **opslaan**. U wordt omgeleid naar de pagina overzicht van uw werkstroom. Hier ziet u de uitvoeringsgeschiedenis en delen met andere collega's.
 
@@ -70,9 +70,10 @@ Deze sectie leest u hoe u een nieuw apparaat in IoT Central maken op de push-bew
 
 1. Kies uw toepassing en kies een apparaat-sjabloon voor het maken van een apparaat uit in de vervolgkeuzelijsten. Hier ziet u de actie uitvouwen om alle eigenschappen en instellingen van het apparaat weer te geven.
 
-1. Selecteer het veld met de naam van apparaat. Kies in het deelvenster met dynamische inhoud **apparaatnaam**. Deze waarde uit de invoer die de gebruiker invoert die worden doorgegeven via de mobiele app en de naam van het nieuwe apparaat in IoT Central. In dit voorbeeld is de enige vereiste veld de naam van het apparaat, aangegeven door de rode asterisk. Sjabloon voor een ander apparaat mogelijk meerdere vereiste velden die moeten worden ingevuld om een nieuwe apparaat te maken.
+1. Selecteer het veld met de naam van apparaat. Kies in het deelvenster met dynamische inhoud **apparaatnaam**. Deze waarde wordt doorgegeven vanuit de invoer van de gebruiker krijgt via de mobiele app en de naam van het nieuwe apparaat in IoT Central. In dit voorbeeld is de enige vereiste veld de naam van het apparaat, aangegeven door de rode asterisk. Sjabloon voor een ander apparaat mogelijk meerdere vereiste velden die moeten worden ingevuld om een nieuwe apparaat te maken.
 
-    ![Stroom dynamische actiedeelvenster apparaat maken](./media/howto-add-microsoft-flow/flowcreatedevice.PNG)
+    ![Stroom dynamische actiedeelvenster apparaat maken](./media/howto-add-microsoft-flow/flowcreatedevice.png)
+
 1. (Optioneel) Vul in de andere velden naar wens voor het maken van het nieuwe apparaten.
 
 1. Sla ten slotte uw werkstroom.
@@ -93,13 +94,13 @@ Deze sectie leest u hoe u instellingen voor apparaten en de eigenschappen in IoT
 
 1. Voeg een nieuwe actie toe. Zoek de **Azure IoT Central - een-apparaat bijwerken** actie.
 
-1. Kies uw toepassing in de vervolgkeuzelijst. U moet nu een ID van het bestaande apparaat dat u wilt bijwerken. U kunt de ID van het apparaat met IoT Central ophalen in de browser-URL.
+1. Kies uw toepassing in de vervolgkeuzelijst. U moet nu een ID van het bestaande apparaat dat u wilt bijwerken. Krijgt u de ID van het apparaat IoT Central uit de **Device Explorer**.
 
-    ![Apparaat-ID van IoT Central device explorer](./media/howto-add-microsoft-flow/iotcdeviceid.PNG)
+    ![Apparaat-ID van IoT Central device explorer](./media/howto-add-microsoft-flow/iotcdeviceid.png)
 
 1. U kunt de naam van het apparaat bijwerken. Voor het bijwerken van een van de eigenschappen en instellingen van het apparaat, moet u de sjabloon van het apparaat van het apparaat dat u bijwerken wilt de **apparaat sjabloon** vervolgkeuzelijst. De actie-tegel wordt uitgebreid om weer te geven van alle eigenschappen en instellingen die u kunt bijwerken.
 
-    ![Werkstroom voor apparaat-stroom updates](./media/howto-add-microsoft-flow/flowupdatedevice.PNG)
+    ![Werkstroom voor apparaat-stroom updates](./media/howto-add-microsoft-flow/flowupdatedevice.png)
 
 1. Selecteer elk van de eigenschappen en instellingen die u wilt bijwerken. Kies in het deelvenster met dynamische inhoud, de bijbehorende invoer door de trigger. In dit voorbeeld wordt de locatiewaarde omlaag doorgegeven aan het bijwerken van de locatie-eigenschap van het apparaat.
 
@@ -111,23 +112,25 @@ Deze sectie leest u hoe u instellingen voor apparaten en de eigenschappen in IoT
 
 U kunt een apparaat door de apparaat-ID gebruikt verwijderen de **Azure IoT Central - een apparaat verwijderen** actie. Hier volgt een voorbeeldwerkstroom die Hiermee verwijdert u een apparaat op de push-bewerking van een knop in de mobiele Microsoft Flow-app.
 
-   ![Werkstroom voor de apparaten van stroom verwijderen](./media/howto-add-microsoft-flow/flowdeletedevice.PNG)
-    
+   ![Werkstroom voor de apparaten van stroom verwijderen](./media/howto-add-microsoft-flow/flowdeletedevice.png)
+
 ## <a name="troubleshooting"></a>Problemen oplossen
 
 Als u problemen bij het maken van een verbinding met de Azure IoT Central-connector ondervindt, volgen hier enkele tips om u te helpen.
 
-1. Persoonlijke Microsoft-accounts (zoals @hotmail.com, @live.com, @outlook.com domeinen) worden niet ondersteund op dit moment. U moet een AAD-werk- of schoolaccount.
+1. Persoonlijke Microsoft-accounts (zoals @hotmail.com, @live.com, @outlook.com domeinen) worden niet ondersteund op dit moment. U moet een Azure Active Directory (AD)-werk- of schoolaccount.
 
 2. Voor het gebruik van de IoT Central-connector in Microsoft Flow, moet u zijn aangemeld bij de IoT Central-toepassing ten minste één keer. Anders wordt wordt niet de toepassing weergegeven in de vervolgkeuzelijsten van toepassing.
 
-3. Als u een fout opgetreden tijdens het gebruik van een AAD-account ontvangt, probeert te openen van Windows PowerShell en voer de volgende commandlets als beheerder.
+3. Als u een fout opgetreden tijdens het gebruik van een Azure AD-account ontvangt, probeert te openen van Windows PowerShell en voer de volgende commandlets als beheerder.
+
     ``` PowerShell
     Install-Module AzureAD
     Connect-AzureAD
     New-AzureADServicePrincipal -AppId 9edfcdd9-0bc5-4bd4-b287-c3afc716aac7 -DisplayName "Azure IoT Central"
     ```
-    
+
 ## <a name="next-steps"></a>Volgende stappen
-U hebt geleerd hoe u kunt Microsoft Flow gebruiken om werkstromen te bouwen, de voorgestelde volgende stap is het [apparaten beheren](howto-manage-devices.md).
+
+Nu dat u hebt geleerd hoe u kunt Microsoft Flow gebruiken om werkstromen te bouwen, de voorgestelde volgende stap is het [apparaten beheren](howto-manage-devices.md).
 

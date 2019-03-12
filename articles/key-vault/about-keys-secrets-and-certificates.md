@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: dccd685c240d6e007486be6a4f73e0fce0129a82
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: cb18b9063599520ccc6caec44053dc9780969f74
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405229"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532323"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Over sleutels, geheimen en certificaten
 
@@ -39,7 +39,7 @@ De volgende secties bieden algemene informatie die van toepassing zijn voor de i
 
 De JavaScript Object Notation (JSON) en de specificaties voor JavaScript Object ondertekening en versleuteling (JOSE) zijn belangrijke achtergrondinformatie.  
 
--   [JSON-Websleutel (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
+-   [JSON-Websleutel (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
 -   [JSON Web Encryption (JWE)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
 -   [JSON Web algoritmen (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
 -   [JSON Web handtekening (JWS)](http://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
@@ -166,7 +166,7 @@ Key Vault biedt geen ondersteuning voor exportbewerkingen. Zodra een sleutel is 
 
 Gebruikers kunnen een van de cryptografische bewerkingen die ondersteuning biedt voor Key Vault op basis van de key_ops-eigenschap van het object JWK per sleutel beperken.  
 
-Zie voor meer informatie over JWK objecten [JSON Web sleutel (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key).  
+Zie voor meer informatie over JWK objecten [JSON Web sleutel (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key).  
 
 ###  <a name="key-attributes"></a>Belangrijke kenmerken
 
@@ -189,7 +189,7 @@ Niet nog geldig en verlopen sleutels, buiten de *nbf* / *exp* venster werkt voor
 
 Zie voor meer informatie over gegevenstypen [gegevenstypen](#data-types).
 
-Zie voor meer informatie over andere kenmerken, het [JSON Web sleutel (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key).
+Zie voor meer informatie over andere kenmerken, het [JSON Web sleutel (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key).
 
 ### <a name="key-tags"></a>Sleutel-tags
 

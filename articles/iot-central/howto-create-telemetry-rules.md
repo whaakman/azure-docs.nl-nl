@@ -3,17 +3,17 @@ title: Maken en beheren van regels voor telemetrie in uw toepassing met Azure Io
 description: Azure IoT Central telemetrie regels zorgen ervoor dat u uw apparaten in bijna realtime controleren en automatisch aanroepen van acties, zoals een e-mailbericht verzenden wanneer de regel wordt geactiveerd.
 author: ankitgupta
 ms.author: ankitgup
-ms.date: 11/02/2018
+ms.date: 02/02/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: aee31f54ddf4e71dd9b9391ec93d0f2319addc3f
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 4668ffd30742f81552cd29f6cdba4c0f82549687
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307954"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773500"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Maak een regel Telemetrie en meldingen in uw Azure IoT Central-toepassing instellen
 
@@ -27,18 +27,13 @@ Apparaten kunnen telemetrie meting gebruiken voor het verzenden van numerieke ge
 
 De apparaat-sjabloon moet ten minste één telemetrie meting gedefinieerd hebben voor het maken van een telemetrie-regel. Dit voorbeeld wordt een gekoeld Verkoopautomaat-apparaat dat de temperatuur en vochtigheid telemetrie verzendt. De regel controleert de door het apparaat gemelde temperatuur en een e-mailbericht wordt verzonden wanneer het gaat dan 80 graden.
 
-1. Gebruik Device Explorer, Ga naar de sjabloon van het apparaat waarvoor u de regel voor het toevoegen.
+1. Met behulp van de **Apparaatsjablonen** pagina, gaat u naar de sjabloon van het apparaat waarvoor u de regel voor het toevoegen.
 
-1. Selecteer een bestaand apparaat onder de geselecteerde sjabloon.
-
-    >[!TIP]
-    >Als de sjabloon niet apparaten hebt en voeg eerst een nieuw apparaat toe.
-
-1. Als u geen regels nog gemaakt nog, ziet u het volgende scherm:
+1. Als u dit nog niet hebt nog geen regels gemaakt, ziet u het volgende scherm:
 
     ![Nog geen regels](media/howto-create-telemetry-rules/Rules_Landing_Page.png)
 
-1. Op de **regels** tabblad **sjabloon bewerken** en vervolgens **+ nieuwe regel** om te zien welke typen regels die u kunt maken.
+1. Op de **regels** tabblad **+ nieuwe regel** om te zien welke typen regels die u kunt maken.
 
 1. Selecteer **telemetrie** om een regel voor het controleren van telemetrie van apparaten te maken.
 
@@ -49,9 +44,8 @@ De apparaat-sjabloon moet ten minste één telemetrie meting gedefinieerd hebben
 1. Om in te schakelen direct de regel voor alle apparaten die zijn gemaakt voor deze sjabloon, in-/ uitschakelen **regel inschakelen voor alle apparaten voor deze sjabloon**.
 
    ![Details van de regel](media/howto-create-telemetry-rules/Rule_Detail.png)
-    
+
     De regel wordt automatisch toegepast op alle apparaten die onder de apparaat-sjabloon.
-    
 
 ### <a name="configure-the-rule-conditions"></a>Voorwaarden van de regel configureren
 
@@ -61,16 +55,14 @@ Voorwaarde definieert de criteria die wordt bewaakt door de regel.
 
 1. Selecteer de telemetrie die u controleren wilt in de **meting** vervolgkeuzelijst.
 
-   ![Voorwaarde](media/howto-create-telemetry-rules/Aggregate_Condition_Filled_Out.png)
-
 1. Kies vervolgens **aggregatie**, **Operator**, en geef een **drempelwaarde** waarde.
-    - Aggregatie is optioneel. Zonder aggregatie, de regel wordt geactiveerd voor elk gegevenspunt telemetrie die aan de voorwaarde voldoet. Bijvoorbeeld, als de regel is geconfigureerd om te activeren wanneer temperatuur hoger is dan 80 en vervolgens de regel wordt geactiveerd vrijwel direct wanneer het apparaat temperatuur > 80 rapporteert.
+    - Aggregatie is optioneel. Zonder aggregatie, de regel wordt geactiveerd voor elk gegevenspunt telemetrie die aan de voorwaarde voldoet. Bijvoorbeeld, als de regel is geconfigureerd voor de trigger wanneer de temperatuur hoger is dan 80 en de regel wordt geactiveerd, vervolgens bijna onmiddellijk wanneer het apparaat rapporteert temperatuur > 80.
     - Als een statistische functie, zoals gemiddelde, minimum, maximum, aantal gekozen vervolgens de gebruiker moet opgeven een **cumulatieve tijdvenster** over waarop de voorwaarde moet worden geëvalueerd. Als u de periode van '5 minuten' en de regel ziet er bijvoorbeeld voor de gemiddelde temperatuur hoger 80, de regel wordt geactiveerd wanneer de gemiddelde temperatuur hoger dan 80 voor ten minste vijf minuten is. De evaluatiefrequentie regel is hetzelfde als de **cumulatieve tijdvenster**, wat betekent dat, in dit voorbeeld wordt de regel is geëvalueerd om de 5 minuten.
+
+    ![Voorwaarde](media/howto-create-telemetry-rules/Aggregate_Condition_Filled_Out.png)
 
     >[!NOTE]
     >Meer dan één telemetrie meting kan worden toegevoegd onder **voorwaarde**. Wanneer meerdere voorwaarden zijn opgegeven, moeten aan de voorwaarden worden voldaan om de regel te activeren. Elke voorwaarde wordt impliciet gekoppeld door een 'En'-component. Wanneer u statistische functie gebruikt, moet elke meting worden geaggregeerd.
-    
-    
 
 ### <a name="configure-actions"></a>Configureren van acties
 
@@ -88,8 +80,6 @@ Deze sectie leest u over het instellen van acties moet worden uitgevoerd wanneer
    ![Actie configureren](media/howto-create-telemetry-rules/Configure_Action.png)
 
 1. Als u wilt de regel niet opslaan, kiest u **opslaan**. De regel meteen live binnen een paar minuten en start de bewaking van telemetrie wordt verzonden naar uw toepassing. Als de voorwaarde die is opgegeven in de regel wordt voldaan, wordt de geconfigureerde e-mailactie geactiveerd door de regel.
-
-1. Kies **Gereed** om de modus **Sjabloon bewerken** af te sluiten.
 
 U kunt andere acties toevoegen aan de regel, zoals Microsoft Flow en webhooks. U kunt maximaal 5 acties per regel toevoegen.
 

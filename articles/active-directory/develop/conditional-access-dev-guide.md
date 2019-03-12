@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 ms.author: celested
 ms.reviewer: dadobali
-ms.date: 09/24/2018
+ms.date: 02/28/2019
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2be77cdc4a5ad38a7d8c125fd95256e77cd92019
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c02f094def3828d0839025f4b7dea48ee64adcc8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202941"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543183"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Richtlijnen voor ontwikkelaars voor voorwaardelijke toegang van Azure Active Directory
 
@@ -44,7 +44,6 @@ In de meest voorkomende gevallen voor voorwaardelijke toegang niet verandert het
 
 Met name vereisen de volgende scenario's code voor het verwerken van voorwaardelijke toegang 'uitdagingen':
 
-* Apps die toegang tot Microsoft Graph
 * Apps uitvoeren van de stroom op-andere gebruikers-of
 * Apps die toegang tot meerdere services/resources
 * Apps van één pagina met behulp van ADAL.js
@@ -58,15 +57,28 @@ Afhankelijk van het scenario, een zakelijke klant toepassen en beleid voor voorw
 
 Sommige scenario's vereist wijzigingen in de code voor het afhandelen van voorwaardelijke toegang, terwijl anderen werken. Hier volgen enkele scenario's voor voorwaardelijke toegang met meervoudige verificatie waarbij inzicht in het verschil biedt te doen.
 
-* U een één tenant iOS-app bouwen en toepassen van beleid voor voorwaardelijke toegang. De app zich in een gebruiker en toegang tot een API niet vragen. Wanneer de gebruiker zich aanmeldt, wordt het beleid wordt automatisch geactiveerd en moet de gebruiker multi-factor authentication (MFA) uitvoeren.
-* U bouwt een multitenant-web-app die gebruikmaakt van Microsoft Graph voor toegang tot Exchange, onder andere services. Een enterprise-klant bent die deze app neemt Hiermee stelt u een beleid voor Exchange. Wanneer de web-app vraagt om een token voor MS Graph, wordt de app wordt niet gevraagd om te voldoen aan het beleid. De gebruiker is aangemeld met een geldige-tokens. Wanneer de app probeert dit token op basis van de Microsoft Graph gebruiken voor toegang tot Exchange-gegevens, een claims "uitdaging' wordt geretourneerd naar de web-app via de ```WWW-Authenticate``` header. De app kan vervolgens worden gebruikt de ```claims``` in een nieuwe aanvraag en de eindgebruiker gevraagd om te voldoen aan de voorwaarden.
+* U een één tenant iOS-app bouwen en toepassen van beleid voor voorwaardelijke toegang. De app zich in een gebruiker en toegang tot een API niet vragen. Wanneer de gebruiker zich aanmeldt, wordt het beleid wordt automatisch geactiveerd en moet de gebruiker multi-factor authentication (MFA) uitvoeren. 
 * U bouwt een systeemeigen app die gebruikmaakt van een middelste laag service voor toegang tot een downstream-API. Een enterprise-klant bent van het bedrijf met behulp van deze app is een beleid van toepassing op de downstream-API. Wanneer een eindgebruiker zich aanmeldt, wordt de systeemeigen app toegang tot de middelste laag en wordt het token verzonden. De middelste laag wordt uitgevoerd op namens-stroom voor het aanvragen van toegang tot de downstream-API. Op dit moment wordt een claims "uitdaging' weergegeven voor de middelste laag. De uitdaging wordt voor de middelste laag teruggestuurd naar de systeemeigen app, die moet overeenkomen met het beleid voor voorwaardelijke toegang.
+
+#### <a name="microsoft-graph"></a>Microsoft Graph
+
+Microsoft Graph is speciale overwegingen bij het bouwen van apps in omgevingen met voorwaardelijke toegang. Over het algemeen het mechanisme van voorwaardelijke toegang werken op dezelfde manier, maar het beleid voor die uw gebruikers zien wordt gebaseerd op de onderliggende gegevens van uw app in de grafiek aanvragen. 
+
+Alle scopes in Microsoft Graph vertegenwoordigen specifiek, sommige gegevensset waarvoor kan afzonderlijk beleid toegepast. Omdat het beleid voor voorwaardelijke toegang zijn toegewezen de specifieke gegevenssets, Azure AD wordt afdwingen van beleid voor voorwaardelijke toegang op basis van de gegevens achter Graph - in plaats van zelf een grafiek.
+
+Bijvoorbeeld, als een app vraagt de volgende Microsoft Graph-bereiken
+
+```
+scopes="Bookings.Read.All Mail.Read"
+```
+
+Een app kunt verwachten dat hun gebruikers om te voldoen aan alle beleidsregels die zijn ingesteld op Bookings en Exchange. Bepaalde bereiken kunnen worden toegewezen aan meerdere gegevenssets als deze toegang wordt verleend. 
 
 ### <a name="complying-with-a-conditional-access-policy"></a>Voldoen aan beleid voor voorwaardelijke toegang
 
 Beleid voor voorwaardelijke toegang wordt voor topologieën met meerdere verschillende app geëvalueerd wanneer de sessie tot stand is gebracht. Als een beleid voor voorwaardelijke toegang is van invloed op de granulatie van apps en services, het punt waarop de toepassing wordt aangeroepen, is afhankelijk van sterk op het scenario dat u probeert te bereiken.
 
-Wanneer uw app probeert te krijgen tot een service met een beleid voor voorwaardelijke toegang, ondervinden het een uitdaging voor voorwaardelijke toegang. Deze uitdaging wordt gecodeerd in de `claims` parameter die wordt geleverd in een reactie van Azure AD of Microsoft Graph. Hier volgt een voorbeeld van deze parameter challenge:
+Wanneer uw app probeert te krijgen tot een service met een beleid voor voorwaardelijke toegang, ondervinden het een uitdaging voor voorwaardelijke toegang. Deze uitdaging wordt gecodeerd in de `claims` parameter die wordt geleverd in een reactie van Azure AD. Hier volgt een voorbeeld van deze parameter challenge: 
 
 ```
 claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
@@ -84,70 +96,15 @@ Voorwaardelijke toegang van Azure AD is een functie die is opgenomen [Azure AD P
 
 De volgende informatie is alleen van toepassing in deze scenario's voor voorwaardelijke toegang:
 
-* Apps die toegang tot Microsoft Graph
 * Apps uitvoeren van de stroom op-andere gebruikers-of
 * Apps die toegang tot meerdere services/resources
 * Apps van één pagina met behulp van ADAL.js
 
-De volgende secties worden besproken algemene scenario's die, hoe complexer. De belangrijkste operationele principe is voorwaardelijke toegang beleidsregels worden geëvalueerd op het moment dat het token is aangevraagd voor de service een beleid voor voorwaardelijke toegang toegepast heeft, tenzij het wordt benaderd via Microsoft Graph.
-
-## <a name="scenario-app-accessing-microsoft-graph"></a>Scenario: App-toegang tot Microsoft Graph
-
-In dit scenario leert u hoe de toegang tot Microsoft Graph voor het aanvragen van een web-app. Het beleid voor voorwaardelijke toegang kan in dit geval worden toegewezen aan SharePoint, Exchange, of een andere service die wordt gebruikt als een werkbelasting via Microsoft Graph. In dit voorbeeld gaan we wordt ervan uitgegaan dat er is een beleid voor voorwaardelijke toegang voor SharePoint Online.
-
-![App-toegang tot Microsoft Graph-stroomdiagram](./media/conditional-access-dev-guide/app-accessing-microsoft-graph-scenario.png)
-
-De app de eerste keer aanvraagt autorisatie voor Microsoft Graph waarvoor toegang tot een downstream workload zonder voorwaardelijke toegang. De aanvraag is geslaagd zonder het aanroepen van een beleid en de app ontvangt tokens voor Microsoft Graph. De app kan het toegangstoken op dit moment gebruiken in een bearer-aanvraag voor het eindpunt dat is aangevraagd. De app moet nu toegang tot een SharePoint Online-eindpunt van Microsoft Graph, bijvoorbeeld: `https://graph.microsoft.com/v1.0/me/mySite`
-
-De app heeft al een geldig token voor Microsoft Graph, zodat deze de nieuwe aanvraag uitvoeren kunt zonder een nieuw token wordt uitgegeven. Deze aanvraag is mislukt en een uitdaging claims is uitgegeven door Microsoft Graph in de vorm van een HTTP 403-verboden met een ```WWW-Authenticate``` uitdaging.
-
-Hier volgt een voorbeeld van het antwoord:
-
-```
-HTTP 403; Forbidden
-error=insufficient_claims
-www-authenticate="Bearer realm="", authorization_uri="https://login.windows.net/common/oauth2/authorize", client_id="<GUID>", error=insufficient_claims, claims={"access_token":{"polids":{"essential":true,"values":["<GUID>"]}}}"
-```
-
-De uitdaging claims bevindt zich in de ```WWW-Authenticate``` koptekst, die kan worden geparseerd om op te halen van de claims-parameter voor de volgende aanvraag. Zodra deze wordt toegevoegd aan de nieuwe aanvraag, Azure AD kent om te evalueren van het beleid voor voorwaardelijke toegang bij de aanmelding bij de gebruiker en de app is nu in overeenstemming met het beleid voor voorwaardelijke toegang. De aanvraag voor het eindpunt van de SharePoint Online herhalende slaagt.
-
-De ```WWW-Authenticate``` header heeft een unieke structuur en is geen pretje om parseren om de waarden ophalen. Hier volgt een korte methode om u te helpen.
-
-```csharp
-        /// <summary>
-        /// This method extracts the claims value from the 403 error response from MS Graph.
-        /// </summary>
-        /// <param name="wwwAuthHeader"></param>
-        /// <returns>Value of the claims entry. This should be considered an opaque string.
-        /// Returns null if the wwwAuthheader does not contain the claims value. </returns>
-        private String extractClaims(String wwwAuthHeader)
-        {
-            String ClaimsKey = "claims=";
-            String ClaimsSubstring = "";
-            if (wwwAuthHeader.Contains(ClaimsKey))
-            {
-                int Index = wwwAuthHeader.IndexOf(ClaimsKey);
-                ClaimsSubstring = wwwAuthHeader.Substring(Index, wwwAuthHeader.Length - Index);
-                string ClaimsChallenge;
-                if (Regex.Match(ClaimsSubstring, @"}$").Success)
-                {
-                    ClaimsChallenge = ClaimsSubstring.Split('=')[1];
-                }
-                else
-                {
-                    ClaimsChallenge = ClaimsSubstring.Substring(0, ClaimsSubstring.IndexOf("},") + 1);
-                }
-                return ClaimsChallenge;
-            }
-            return null;
-        }
-```
-
-Voor codevoorbeelden die laten hoe u zien voor het afhandelen van de claims-uitdaging, raadpleegt u de [codevoorbeeld-op-andere gebruikers-of](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca) voor ADAL .NET.
+De volgende secties worden besproken algemene scenario's die, hoe complexer. De belangrijkste operationele principe is voorwaardelijke toegang beleidsregels worden geëvalueerd op het moment dat het token is aangevraagd voor de service een beleid voor voorwaardelijke toegang toegepast heeft.
 
 ## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Scenario: Uitvoeren van de stroom op-andere gebruikers-of App
 
-In dit scenario doorlopen we het geval waarin een systeemeigen app een webservice /-API-aanroepen. Op zijn beurt biedt deze service [hij 'op-andere gebruikers-of' stroom voor het aanroepen van een downstream-service. In ons geval we ons beleid voor voorwaardelijke toegang hebt toegepast op de downstream-service (Web API 2) en worden met behulp van een systeemeigen app in plaats van een server/daemon-app.
+In dit scenario doorlopen we het geval waarin een systeemeigen app een webservice /-API-aanroepen. Op zijn beurt biedt deze service [hij 'op-andere gebruikers-of' stroom voor het aanroepen van een downstream-service. In ons geval we ons beleid voor voorwaardelijke toegang hebt toegepast op de downstream-service (Web API 2) en worden met behulp van een systeemeigen app in plaats van een server/daemon-app. 
 
 ![Uitvoeren van het diagram van de stroom op-andere gebruikers-of App](./media/conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 
@@ -217,7 +174,6 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 Onze app nodig heeft om af te vangen de `error=interaction_required`. De toepassing kan vervolgens worden gebruikt een `acquireTokenPopup()` of `acquireTokenRedirect()` op dezelfde resource. De gebruiker wordt gedwongen om te doen van een multi-factor authentication. Nadat de gebruiker is voltooid de multi-factor authentication, kan de app een nieuwe toegangstoken voor de aangevraagde resource is uitgegeven.
 
 Als u wilt uitproberen in dit scenario, Zie onze [JS beveiligd-wachtwoordverificatie-op-andere gebruikers-of codevoorbeeld](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca). Dit codevoorbeeld maakt gebruik van het beleid voor voorwaardelijke toegang en de web-API die u eerder hebt geregistreerd bij een JS SPA ter illustratie van dit scenario. Het laat zien hoe goed de uitdaging claims verwerken en een toegangstoken die kunnen worden gebruikt voor uw Web-API. U kunt ook de algemene afhandeling [Angular.js-codevoorbeeld](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) voor hulp bij een Angular beveiligd-WACHTWOORDVERIFICATIE
-
 
 ## <a name="see-also"></a>Zie ook
 

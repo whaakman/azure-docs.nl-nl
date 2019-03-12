@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 1bf2ca22bf97ca1d4b91b52850ebe14225562f92
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 1be362a3e829beb6c8bb0a55f5ab02852549fbc3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409054"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537912"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Peering voor een ExpressRoute-circuit met behulp van PowerShell maken en wijzigen
 
@@ -171,7 +171,7 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de A
 
 1. Importeer de PowerShell-module voor ExpressRoute.
 
-  U moet het meest recente installatieprogramma installeren vanuit de [PowerShell Gallery](http://www.powershellgallery.com/) en de Azure Resource Manager-modules importeren in de PowerShell-sessie om de ExpressRoute-cmdlets te kunnen gebruiken. U moet PowerShell tevens uitvoeren als beheerder.
+  U moet het meest recente installatieprogramma installeren vanuit de [PowerShell Gallery](https://www.powershellgallery.com/) en de Azure Resource Manager-modules importeren in de PowerShell-sessie om de ExpressRoute-cmdlets te kunnen gebruiken. U moet PowerShell tevens uitvoeren als beheerder.
 
   ```azurepowershell-interactive
   Install-Module Az
@@ -306,7 +306,7 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de A
 
 1. Importeer de PowerShell-module voor ExpressRoute.
 
-  U moet het meest recente installatieprogramma installeren vanuit de [PowerShell Gallery](http://www.powershellgallery.com/) en de Azure Resource Manager-modules importeren in de PowerShell-sessie om de ExpressRoute-cmdlets te kunnen gebruiken. U moet PowerShell tevens uitvoeren als beheerder.
+  U moet het meest recente installatieprogramma installeren vanuit de [PowerShell Gallery](https://www.powershellgallery.com/) en de Azure Resource Manager-modules importeren in de PowerShell-sessie om de ExpressRoute-cmdlets te kunnen gebruiken. U moet PowerShell tevens uitvoeren als beheerder.
 
   ```azurepowershell-interactive
   Install-Module Az

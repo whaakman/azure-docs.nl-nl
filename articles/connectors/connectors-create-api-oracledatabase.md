@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 9d606dd4faf324d68e4365eae0802de2384471ab
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 06f65aef203b4f0d765f21b9d17b90081de85c94
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295354"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551752"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Aan de slag met de Oracle-Database-connector
 
@@ -40,7 +40,7 @@ Dit artikel leest u hoe het gebruik van de Oracle-Database-connector in een logi
 
 * Het Oracle-Client installeren op de computer waarop u de on-premises gegevensgateway hebt geïnstalleerd. Zorg ervoor dat de 64-bits Oracle-gegevensprovider voor .NET van Oracle te installeren:  
 
-  [64-bits ODAC 12c Release 4 (12.1.0.2.4) voor Windows x64](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
+  [64-bits ODAC 12c Release 4 (12.1.0.2.4) voor Windows x64](https://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
     > [!TIP]
     > Als de Oracle-client niet is geïnstalleerd, wordt er een fout optreedt wanneer u probeert te maken of de verbinding gebruiken. Zie de veelvoorkomende fouten in dit artikel.

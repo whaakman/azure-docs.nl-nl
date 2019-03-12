@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
-ms.openlocfilehash: dfd55ac12587cf99cc3fc3ff8eac4f4572229396
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 17f239dc3ba9714c01f55a88419df2d3416908fa
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753497"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539697"
 ---
 # <a name="troubleshooting-network-performance"></a>Oplossen van problemen met prestaties van het netwerk
 ## <a name="overview"></a>Overzicht
@@ -198,7 +198,7 @@ Instellingen testen:
 \* De latentie voor Brazilië is een goed voorbeeld waarbij de lineaire afstand aanzienlijk verschilt van de fiber afstand worden uitgevoerd. Kan ik verwachten dat de latentie in de groep van 160 ms worden zou, maar daadwerkelijk 189 ms is. Dit verschil op basis van de verwachting dat kan duiden op een netwerkprobleem ergens, maar zeer waarschijnlijk dat de fiber uitgevoerd niet naar Brazilië in een rechte lijn en heeft een extra 1000 km of zo manier van reizen om op te halen voor Brazilië uit Seattle.
 
 ## <a name="next-steps"></a>Volgende stappen
-1. De Azure Connectivity Toolkit downloaden vanuit GitHub op [http://aka.ms/AzCT][ACT]
+1. De Azure Connectivity Toolkit downloaden vanuit GitHub op [https://aka.ms/AzCT][ACT]
 2. Volg de instructies voor [koppeling Prestatietesten][Performance Doc]
 
 <!--Image References-->
@@ -212,7 +212,7 @@ Instellingen testen:
 [Availability Doc]: https://github.com/Azure/NetworkMonitoring/blob/master/AzureCT/AvailabilityTesting.md
 [Network Docs]: https://docs.microsoft.com/azure/index
 [Ticket Link]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview
-[ACT]: http://aka.ms/AzCT
+[ACT]: https://aka.ms/AzCT
 
 
 

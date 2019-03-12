@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: edd011509c9129e95bcf7ea49f5a84e17fffd176
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 7f3b6de64343137278895d92835f080f8844dda1
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310547"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588921"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Een aangepaste domeinnaam voor uw Azure storage-account configureren
 
@@ -26,7 +26,10 @@ U kunt een aangepast domein voor toegang tot blobgegevens in uw Azure storage-ac
 > [!NOTE]  
 > Storage-accounts ondersteunen momenteel slechts één aangepaste domeinnaam per account. U kunt een aangepaste domeinnaam kan niet toewijzen aan de web- en blob service-eindpunten.
 
-De volgende tabel ziet u enkele voorbeeld-URL's voor blob-gegevens die zich in een opslagaccount met de naam *mystorageaccount*. Het aangepaste domein dat geregistreerd voor het opslagaccount is *www.contoso.com*:
+> [!NOTE]  
+> De toewijzing kan alleen worden gebruikt voor subdomeinen die (bijvoorbeeld www.contoso.com). Als u wilt uw eindpunt op het web beschikbaar hebt voor het hoofddomein (bijvoorbeeld contoso.com), wordt u [Azure CDN gebruiken met aangepaste domeinen](storage-https-custom-domain-cdn.md)
+
+De volgende tabel ziet u enkele voorbeeld-URL's voor blob-gegevens die zich in een opslagaccount met de naam *mystorageaccount*. Het aangepaste subdomein dat geregistreerd voor het opslagaccount is *www.contoso.com*:
 
 | Resourcetype | Standaard-URL | Aangepaste domein-URL |
 | --- | --- | --- | --- |
@@ -38,9 +41,9 @@ De volgende tabel ziet u enkele voorbeeld-URL's voor blob-gegevens die zich in e
 > [!NOTE]  
 > Zoals u in de volgende secties, alle voorbeelden voor het eindpunt van blob service ook van toepassing op het web service-eindpunt.
 
-## <a name="direct-vs-intermediary-domain-mapping"></a>Versus tussenliggende domeintoewijzing direct
+## <a name="direct-vs-intermediary-cname-mapping"></a>Directe versus tussenliggende CNAME-toewijzing
 
-U kunt uw aangepaste domein verwijzen naar het blobeindpunt voor uw opslagaccount op twee manieren: 
+U kunt uw aangepaste domein voorafgegaan door een subdomein (bijvoorbeeld www.contoso.com) verwijzen naar het blobeindpunt voor uw opslagaccount op twee manieren: 
 * Gebruik direct CNAME-toewijzing.
 * Gebruik de *asverify* tussenliggende subdomein.
 
@@ -82,8 +85,8 @@ Meestal kunt u beheren van uw domein-DNS-instellingen op de website van uw domei
 1. Zoek het gedeelte voor het beheren van CNAME's.  
    Mogelijk hebt u om te gaan naar een pagina met geavanceerde instellingen en zoek naar **CNAME**, **Alias**, of **subdomeinen**.
 
-1. Maak een nieuwe CNAME-record, voer een subdomein alias zoals **www** of **foto's**, en geef vervolgens de naam van een host.  
-   De hostnaam is het eindpunt van de blob-service. De indeling  *\<mystorageaccount >. blob.core.windows.net*, waarbij *mystorageaccount* is de naam van uw storage-account. De naam van de host te gebruiken wordt weergegeven in item #1 van de **aangepast domein** deelvenster in de [Azure-portal](https://portal.azure.com).
+1. Maak een nieuwe CNAME-record, voer een subdomein alias zoals **www** of **foto's** (subdomein is vereist, hoofddomeinen worden niet ondersteund), en geef vervolgens de naam van een host.  
+   De hostnaam is het eindpunt van de blob-service. De indeling  *\<mystorageaccount >. blob.core.windows.net*, waarbij *mystorageaccount* is de naam van uw storage-account. De naam van de host te gebruiken wordt weergegeven in item #1 van de **aangepast domein** deelvenster in de [Azure-portal](https://portal.azure.com). 
 
 1. In de **aangepast domein** deelvenster in het tekstvak, voer de naam van uw aangepaste domein, met inbegrip van het subdomein.  
    Bijvoorbeeld, als uw domein is *contoso.com* en je alias subdomein is *www*, voer **www.contoso.com**. Als uw subdomein *foto's*, voer **photos.contoso.com**.

@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/05/2018
-ms.openlocfilehash: 5a9684605de9af1cd9006810d595ae846db01661
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 141859d155383b01cfea998c6b7158848517eac2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975156"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531949"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Visualiseer gegevens uit Azure Data Explorer in Grafana
 
@@ -23,11 +23,11 @@ Grafana is een platform voor streaminganalyse waarmee u query's uitvoeren en geg
 
 U moet deze het voltooien van de volgende:
 
-* [Grafana versie 5.3.0 of later](http://docs.grafana.org/installation/) voor uw besturingssysteem
+* [Grafana versie 5.3.0 of later](https://docs.grafana.org/installation/) voor uw besturingssysteem
 
 * De [Azure Data Explorer-invoegtoepassing](https://grafana.com/plugins/grafana-azure-data-explorer-datasource/installation) voor Grafana
 
-* Een cluster met de voorbeeldgegevens StormEvents. Zie voor meer informatie, [Quickstart: maken van een cluster van Azure Data Explorer en -database](create-cluster-database-portal.md) en [voorbeeldgegevens worden opgenomen in Azure Data Explorer](ingest-sample-data.md).
+* Een cluster met de voorbeeldgegevens StormEvents. Zie voor meer informatie, [Quick Start: Maak een Azure Data Explorer-cluster en de database](create-cluster-database-portal.md) en [voorbeeldgegevens worden opgenomen in Azure Data Explorer](ingest-sample-data.md).
 
     [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
@@ -51,7 +51,7 @@ U kunt de service-principal maken in de [Azure-portal](#azure-portal) of met beh
 
     1. In de [de toepassing toewijzen aan een rol](/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) sectie, een Roltype toewijzen **lezer** met uw Azure Data Explorer-cluster.
 
-    1. In de [waarden ophalen voor het aanmelden](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) sectie, Kopieer de waarden van de drie eigenschappen in de stappen besproken: **map-ID** (tenant-ID), **toepassings-ID**, en  **Wachtwoord**.
+    1. In de [waarden ophalen voor het aanmelden](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) sectie, Kopieer de waarden van de drie eigenschappen in de stappen besproken: **Map-ID** (tenant-ID), **toepassings-ID**, en **wachtwoord**.
 
 1. Selecteer in de Azure portal, **abonnementen** Kopieer vervolgens de ID voor het abonnement waarin u de service-principal gemaakt.
 
@@ -152,7 +152,7 @@ Met de service-principal die is toegewezen aan de *viewers* rol, nu u eigenschap
 
     ![Verbindingseigenschappen](media/grafana/connection-properties.png)
 
-    | Grafana-UI | Azure Portal | Azure-CLI |
+    | Grafana UI | Azure Portal | Azure-CLI |
     | --- | --- | --- |
     | Abonnements-id | ABONNEMENTS-ID | SubscriptionId |
     | Tenant-id | Map-id | tenant |
@@ -205,10 +205,10 @@ Nu u klaar bent met het Azure Data Explorer configureren als een gegevensbron vo
 
     ![Voltooide grafiek](media/grafana/finished-graph.png)
 
-1. Selecteer in het bovenste menu de opslaan pictogram: ![Pictogram opslaan](media/grafana/save-icon.png).
+1. Selecteer in het bovenste menu de opslaan pictogram: ![Het pictogram Save](media/grafana/save-icon.png).
 
 ## <a name="next-steps"></a>Volgende stappen
 
 [Query's schrijven voor Azure Data Explorer](write-queries.md)
 
-[Zelfstudie: Gegevens uit Azure Data Explorer in Power BI visualiseren](visualize-power-bi.md)
+[Zelfstudie: Visualiseer gegevens uit Azure Data Explorer in Power BI](visualize-power-bi.md)

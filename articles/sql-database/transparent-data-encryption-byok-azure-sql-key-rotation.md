@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: jhubbard
-ms.date: 03/04/2019
-ms.openlocfilehash: 05398f98bb92da8bf8436f2421beacdde3fd91c9
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.date: 03/07/2019
+ms.openlocfilehash: 4e7f344dfa0b5cf38d36cec786169c5c7a51af3b
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336561"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576511"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector-using-powershell"></a>De transparante gegevensversleuteling (TDE)-beveiliging met behulp van PowerShell draaien
 
@@ -43,7 +43,7 @@ Deze handleiding wordt beschreven twee opties voor het draaien van de TDE-beveil
 
 ## <a name="manual-key-rotation"></a>Handmatige sleutelroulatie
 
-Handmatige sleutelroulatie maakt gebruik van de [toevoegen AzKeyVaultKey](/powershell/module/az.keyvault/Add-AzKeyVaultKey), [toevoegen AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey), en [Set AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlets om toe te voegen een volledig nieuwe sleutel, die onder de naam van een nieuwe sleutel of zelfs een andere sleutelkluis worden kan. Met deze aanpak biedt ondersteuning voor dezelfde sleutel aan verschillende sleutelkluizen ter ondersteuning van hoge beschikbaarheid en geo-dr's toe te voegen.
+Handmatige sleutelroulatie maakt gebruik van de [toevoegen AzKeyVaultKey](/powershell/module/az.keyvault/Add-AzKeyVaultKey), [toevoegen AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey), en [Set AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlets om toe te voegen een volledig nieuwe sleutel, die onder de naam van een nieuwe sleutel of zelfs een andere sleutelkluis worden kan. Met deze aanpak biedt ondersteuning voor dezelfde sleutel aan verschillende sleutelkluizen ter ondersteuning van hoge beschikbaarheid en geo-dr's toe te voegen.
 
 >[!NOTE]
 >De gecombineerde lengte voor de key vault-naam en de naam mag maximaal 94 tekens bevatten.
@@ -71,7 +71,7 @@ Handmatige sleutelroulatie maakt gebruik van de [toevoegen AzKeyVaultKey](/power
 
 ## <a name="option-2-manual-rotation"></a>Optie 2: Handmatige draaien
 
-De optie gebruikt de [toevoegen AzKeyVaultKey](/powershell/module/az.keyvault/add-azurekeyvaultkey), [toevoegen AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey), en [Set AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlets om toe te voegen een volledig nieuwe sleutel, die onder de naam van een nieuwe sleutel of zelfs een andere sleutelkluis worden kan. 
+De optie gebruikt de [toevoegen AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey), [toevoegen AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey), en [Set AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlets om toe te voegen een volledig nieuwe sleutel, die onder de naam van een nieuwe sleutel of zelfs een andere sleutelkluis worden kan. 
 
 >[!NOTE]
 >De gecombineerde lengte voor de key vault-naam en de naam mag maximaal 94 tekens bevatten.

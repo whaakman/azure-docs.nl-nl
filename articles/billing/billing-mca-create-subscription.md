@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: 7c93911ce824bc1111e0c348070cc11817c5b45c
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 686543a322d1c87760060a1f4db1b26abca75cb8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341847"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539408"
 ---
 # <a name="create-an-additional-azure-subscription-for-microsoft-customer-agreement"></a>Een extra Azure-abonnement voor Microsoft-KLANTOVEREENKOMST maken
 
@@ -57,7 +57,7 @@ Voor het maken van een abonnement, moet u een **factuur sectie eigenaar**, **fac
 
 Gebruikers toevoegen als ontwikkelaars van Azure-abonnement op een gedeelte van de factuur ze om toestemming te geven aan Azure-abonnementen maken.
 
-1. Meld u aan bij [Azure Portal](http://portal.azure.com).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
 2. Zoeken op **kosten Management en facturering**.
 
@@ -80,7 +80,7 @@ Gebruikers toevoegen als ontwikkelaars van Azure-abonnement op een gedeelte van 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Toegang tot een Microsoft-KLANTOVEREENKOMST controleren
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning
+## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
 
 Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

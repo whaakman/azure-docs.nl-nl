@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/28/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: d881a5c0f994b627b4c7c3da362672b3b887cd5e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a094369d467b3b1f3d5fe93f870dccc9eae7519c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996144"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547208"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>(AFGESCHAFT) Een Azure Container Service DC/OS-cluster bewaken met Datadog
 
@@ -23,7 +23,7 @@ ms.locfileid: "52996144"
 In dit artikel implementeren we Datadog agents op alle agentknooppunten in uw Azure Container Service-cluster. Voor deze configuratie moet u een account met Datadog. 
 
 ## <a name="prerequisites"></a>Vereisten
-[Implementeer](container-service-deployment.md) en [verbind](../container-service-connect.md) een cluster dat door Azure Container Service is geconfigureerd. Verken de [Marathon-gebruikersinterface](container-service-mesos-marathon-ui.md). Ga naar [ http://datadoghq.com ](http://datadoghq.com) het instellen van een account met Datadog. 
+[Implementeer](container-service-deployment.md) en [verbind](../container-service-connect.md) een cluster dat door Azure Container Service is geconfigureerd. Verken de [Marathon-gebruikersinterface](container-service-mesos-marathon-ui.md). Ga naar [ https://datadoghq.com ](https://datadoghq.com) het instellen van een account met Datadog. 
 
 ## <a name="datadog"></a>Datadog
 Datadog is een bewakingsservice waarmee gegevens uit uw containers in uw Azure Container Service-cluster verzamelt. Datadog heeft een Docker-integratie-Dashboard waar u specifieke metrische gegevens in uw containers kunt zien. Metrische gegevens die zijn verzameld uit uw containers worden georganiseerd door CPU, geheugen, netwerk- en i/o. Datadog splitst metrische gegevens in containers en afbeeldingen. Een voorbeeld van de gebruikersinterface ziet er als CPU-gebruik lager is dan.

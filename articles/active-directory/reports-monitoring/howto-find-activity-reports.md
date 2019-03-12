@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ff5b998222f9a7320384edea1ed69e7a65e9139
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 46fc0a49ebae86a715685e1073b4eb7cc10e6032
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171295"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533405"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Activiteitenrapporten vinden in Azure portal
 
@@ -48,15 +48,46 @@ Het Audittrailrapport zijn gerapporteerd consolideert de volgende rapporten:
 
 ### <a name="filtering-on-audit-logs"></a>Filteren op auditlogboeken
 
-U kunt geavanceerde filters in het controlerapport gebruiken voor toegang tot een specifieke categorie audit-gegevens door op te geven in de **activiteitscategorie** filter. Bijvoorbeeld, als u wilt weergeven van alle activiteiten met betrekking tot de self-service voor wachtwoord opnieuw instellen, selecteert u de **selfservice wachtwoordbeheer** categorie. 
+U kunt geavanceerde filters in het controlerapport gebruiken voor toegang tot een specifieke categorie audit-gegevens door op te geven in de **categorie** filter. Bijvoorbeeld, als u wilt weergeven van alle activiteiten met betrekking tot gebruikers, selecteert u de **UserManagement** categorie. 
 
-Activiteitscategorieën zijn onder andere:
+Categorieën zijn onder andere:
 
+- Alle
+- AdministrativeUnit
+- Programmeert
+- Authentication
+- Autorisatie
+- Contactpersoon
+- Apparaat
+- Apparaatconfiguratie
+- DirectoryManagement
+- EntitlementManagement
+- GroupManagement
+- Overige
+- Beleid
+- ResourceManagement
+- RoleManagement
+- UserManagement
+
+U kunt ook filteren op een specifieke service met de **Service** vervolgkeuzelijst filteren. Bijvoorbeeld, als u alle gebeurtenissen voor beveiligingscontrole met betrekking tot selfservice wachtwoordbeheer, selecteer de **Self-service wachtwoordbeheer** filter.
+
+Services omvatten:
+
+- Alle
+- Toegangsbeoordelingen
+- Account inrichten 
+- Toepassing eenmalige aanmelding
+- Verificatiemethoden
+- B2C
+- Voorwaardelijke toegang
 - Hoofddirectory
-- Self-service voor wachtwoordbeheer
+- Beheer van rechten
+- Identiteitsbeveiliging
+- Uitgenodigde gebruikers
+- PIM
 - Self-service voor groepsbeheer
-- Account inrichten
-
+- Self-servicegebruikers Passord Management
+- Gebruiksvoorwaarden
 
 ## <a name="sign-ins-report"></a>Aanmeldingenrapport 
 

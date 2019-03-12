@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 8627f5bb704c963b628fb3dab29b6d2cfee0789b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 610ac10e757ef422ce130c0cfe8253af6ba4b7b9
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247321"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542468"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Veelgestelde vragen over schaalsets voor virtuele Azure-machine
 
@@ -660,7 +660,7 @@ Zie voor meer informatie, [beheren van alle virtuele machines in een virtuele-ma
 
 ### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>Is het mogelijk om schaalsets te integreren met Azure Monitor Logboeken?
 
-Ja, u kunt door de Log Analytics-extensie installeren op de schaal instellen VM's. Hier volgt een voorbeeld van Azure CLI:
+Ja, u kunt met het installeren van de Azure Monitor-extensie op de schaal instellen VM's. Hier volgt een voorbeeld van Azure CLI:
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```

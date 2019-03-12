@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/1/2019
+ms.date: 3/6/2019
 ms.author: victorh
-ms.openlocfilehash: c3ad62dd5f8af52ae9aed1f9469d4b00c4795fa7
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 9929b09280cea56a5fadcd4d0d9aba5b851f326e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215834"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544033"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Automatisch schalen en zoneredundante toepassingsgateway (openbare Preview)
 
@@ -50,7 +50,6 @@ Er zijn geen kosten tijdens Preview-versie. U wordt gefactureerd voor andere res
 |Billing|Er is momenteel geen facturering.|
 |FIPS-modus, WebSocket|Deze worden momenteel niet ondersteund.|
 |Alleen ILB-modus|Dit wordt momenteel niet ondersteund. Openbare en samen ILB-modus wordt ondersteund.|
-|Web application firewall automatisch schalen|Modus voor automatisch schalen biedt geen ondersteuning voor WAF. Modus vaste capaciteit wordt ondersteund.|
 |Integratie van het netwerk controleren|Niet ondersteund in de openbare Preview.|
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 43989ff9dac7cdad76117aaa6e3c862453b24813
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ea071b704c58383ce52615bb1dfd88df8017ef7f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865107"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544440"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Inrichten voor multitenancy 
 
@@ -86,7 +86,7 @@ In deze sectie maakt u een nieuwe registratiegroep voor de tenant-apparaten.
 
 Voor het gemak in dit artikel wordt [symmetrische sleutel attestation](concepts-symmetric-key-attestation.md) bij de inschrijving. Overweeg het gebruik van een veiligere oplossing [x.509-certificaat attestation](concepts-security.md#x509-certificates) met een keten van vertrouwen.
 
-1. Aanmelden bij de [Azure-portal](http://portal.azure.com), en open uw Device Provisioning Service-exemplaar.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com), en open uw Device Provisioning Service-exemplaar.
 
 2. Selecteer de **registraties beheren** tabblad en klik vervolgens op de **toevoegen registratiegroep** knop aan de bovenkant van de pagina. 
 

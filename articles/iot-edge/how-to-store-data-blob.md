@@ -5,21 +5,43 @@ author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: arduppal
-ms.date: 01/04/2019
+ms.date: 03/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 556ed3553185445432f9f95731ccfec0578fab62
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 6f82f50ebaa7ad4440078d1fd4658109cf0e19b6
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455663"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57571283"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Gegevens aan de rand met Azure Blob Storage Store op IoT Edge (preview)
 
 Azure Blob-opslag op IoT Edge biedt een [blok-blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) opslagoplossing aan de rand. Een blob storage-module op uw IoT Edge-apparaat zich gedraagt als een Azure blok-blob-service, maar de blok-blobs worden lokaal opgeslagen op uw IoT Edge-apparaat. U kunt toegang tot uw blobs met behulp van de methodes SDK van Azure storage of blob API-aanroepen die u al hebt gebruikt om te blokkeren. 
+
+Deze module wordt geleverd met **automatisch opslaglagen** en **automatisch verlopen** functies.
+
+> [!NOTE]
+> Automatische lagen en automatisch verlopen functionaliteit zijn momenteel alleen beschikbaar in Linux AMD64- en Linux ARM32.
+
+**Automatische lagen** is een configureerbare functionaliteit, zodat u kunt het automatisch uploaden van de gegevens van uw lokale blob-opslag naar Azure met onregelmatige connectiviteit-ondersteuning voor internet. Hiermee kunt u:
+- Schakel aan, / uit, van de toegangslagen
+- Kies de volgorde waarin de gegevens worden gekopieerd naar Azure, zoals NewestFirst of OldestFirst
+- Geef de Azure Storage-account die u wilt dat uw gegevens die zijn geüpload.
+- Geef de containers die u wilt uploaden naar Azure. Deze module kunt u zowel bron- en container-namen opgeven.
+- Volledig opslaglagen voor blob (met behulp van `Put Blob` bewerking) of te blokkeren op blobniveau (met behulp van `Put Block` en `Put Block List` operations).
+
+Deze module maakt gebruik van blok level tiering wanneer uw blob uit blokken bestaat. Hier volgen enkele algemene scenario's:
+- Uw toepassing blokken van een eerder geüploade blob updates, deze module wordt alleen de bijgewerkte blokken en niet de hele blob uploaden.
+- De module is blob uploaden en verbinding met internet wordt opgeslagen en wanneer de connectiviteit is weer opnieuw dat het wordt alleen de resterende blokken en niet de hele blob uploaden.
+
+Als het beëindigen van een onverwachte processen (zoals stroomstoring) tijdens het uploaden van een blob gebeurt, wordt alle blokken die vervallen voor het uploaden zijn geüpload, wanneer de module weer online komt.
+
+**Automatisch verlopen** is een configureerbare functionaliteit waar deze module wordt automatisch verwijderd uw blobs uit de lokale opslag wanneer Time to Live (TTL) is verlopen. Dit wordt gemeten in minuten. Hiermee kunt u:
+- Schakel aan, / uit, van de functie auto-vervaldatum
+- Geef de TTL-waarde in minuten
 
 Scenario's waarbij gegevens zoals video's, afbeeldingen, financiële gegevens, ziekenhuis gegevens of gegevens die moeten worden bewaard lokaal, later die kan worden lokaal verwerkt of verzonden naar de cloud zijn goede voorbeelden het gebruik van deze module.
 
@@ -27,6 +49,9 @@ In dit artikel vindt u instructies voor het implementeren van een Azure Blob-ops
 
 >[!NOTE]
 >Azure Blob-opslag op IoT Edge is in [preview-versie](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+
+Bekijk de video voor een korte inleiding in
+> [!VIDEO https://www.youtube.com/embed/wkprcfVidyM]
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -118,7 +143,9 @@ De Azure Marketplace biedt IoT Edge-modules die rechtstreeks naar uw IoT Edge-ap
 
       ![Update-module container opties - portal maken](./media/how-to-store-data-blob/edit-module.png)
 
-   4. Selecteer **Opslaan**.
+   4. Stel [auto-lagen en automatisch verlopen](#configure-auto-tiering-and-auto-expiration-via-azure-portal) in de gewenste eigenschappen. Lijst met [automatisch opslaglagen](#auto-tiering-properties) en [automatisch verlopen](#auto-expiration-properties) eigenschappen en hun mogelijke waarden. 
+
+   5. Selecteer **Opslaan**. 
 
 4. Selecteer **Volgende** om door te gaan naar de volgende stap van de wizard.
 5. In de **Routes opgeven** stap van de wizard de optie **volgende**.
@@ -174,26 +201,148 @@ Gebruik de volgende stappen voor het maken van een nieuwe IoT Edge-oplossing met
    > [!IMPORTANT]
    > De tweede die helft van de map storage binden waarde, die naar een specifieke locatie in de module verwijst niet wijzigen. De binding van de map storage altijd moet eindigen met **: / blobroot** voor Linux-containers en **: C: / BlobRoot** voor Windows-containers.
 
-5. Sla het bestand **deployment.template.json** op.
+5. Configureer [auto-lagen en automatisch verlopen](#configure-auto-tiering-and-auto-expiration-via-vscode). Lijst met [automatisch opslaglagen](#auto-tiering-properties) en [automatisch verlopen](#auto-expiration-properties) eigenschappen
 
-6. Open de **.env** bestand in de werkruimte van uw oplossing. 
+6. Sla het bestand **deployment.template.json** op.
 
-7. Het .env-bestand voor het ontvangen van container registerreferenties is ingesteld, maar u niet nodig hebt die voor de installatiekopie van het blob-opslag omdat het is openbaar beschikbaar. In plaats daarvan moet u het bestand vervangen door twee nieuwe omgevingsvariabelen: 
+7. Open de **.env** bestand in de werkruimte van uw oplossing. 
+
+8. Het .env-bestand voor het ontvangen van container registerreferenties is ingesteld, maar u niet nodig hebt die voor de installatiekopie van het blob-opslag omdat het is openbaar beschikbaar. In plaats daarvan moet u het bestand vervangen door twee nieuwe omgevingsvariabelen: 
 
    ```env
    STORAGE_ACCOUNT_NAME=
    STORAGE_ACCOUNT_KEY=
    ```
 
-8. Geef een waarde voor `STORAGE_ACCOUNT_NAME`, namen van drie naar 24 tekens lang zijn en kleine letters en cijfers moeten zijn. Geef een 64-byte base64-sleutel voor de `STORAGE_ACCOUNT_KEY`. U kunt een sleutel met de hulpprogramma's zoals genereren [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). U gebruikt deze referenties voor toegang tot de blob-opslag van andere modules. 
+9. Geef een waarde voor `STORAGE_ACCOUNT_NAME`, namen van drie naar 24 tekens lang zijn en kleine letters en cijfers moeten zijn. Geef een 64-byte base64-sleutel voor de `STORAGE_ACCOUNT_KEY`. U kunt een sleutel met de hulpprogramma's zoals genereren [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). U gebruikt deze referenties voor toegang tot de blob-opslag van andere modules. 
 
    Licentie omvatten geen spaties of aanhalingstekens rond de waarden die u opgeeft. 
 
-9. Sla het **.env**-bestand op. 
+10. Sla het **.env**-bestand op. 
 
-10. Met de rechtermuisknop op **deployment.template.json** en selecteer **genereren IoT Edge-implementatie manifest**. 
+11. Met de rechtermuisknop op **deployment.template.json** en selecteer **genereren IoT Edge-implementatie manifest**. 
 
-11. Visual Studio Code wordt de informatie die u in de deployment.template.json en .env en gebruikt voor het maken van een nieuwe implementatie-manifestbestand. Het manifest van de implementatie wordt gemaakt in een nieuwe **config** map in de werkruimte van uw oplossing. Zodra u dat bestand hebt, kunt u de stappen in [implementeren Azure IoT Edge-modules van Visual Studio Code](how-to-deploy-modules-vscode.md) of [implementeren Azure IoT Edge-modules met de Azure CLI 2.0](how-to-deploy-modules-cli.md).
+12. Visual Studio Code wordt de informatie die u in de deployment.template.json en .env en gebruikt voor het maken van een nieuwe implementatie-manifestbestand. Het manifest van de implementatie wordt gemaakt in een nieuwe **config** map in de werkruimte van uw oplossing. Zodra u dat bestand hebt, kunt u de stappen in [implementeren Azure IoT Edge-modules van Visual Studio Code](how-to-deploy-modules-vscode.md) of [implementeren Azure IoT Edge-modules met de Azure CLI 2.0](how-to-deploy-modules-cli.md).
+
+## <a name="auto-tiering-and-auto-expiration-properties-and-configuration"></a>Automatische lagen en automatisch verlopen eigenschappen en configuratie
+
+Gebruik de gewenste eigenschappen om in te stellen met automatische lagen voor en automatisch verlopen. Ze kunnen worden ingesteld tijdens de implementatie of later worden gewijzigd door het bewerken van de moduledubbel zonder de noodzaak om opnieuw te implementeren. We raden het "Moduledubbel' controleren voor `reported configuration` en `configurationValidation` om ervoor te zorgen waarden correct zijn doorgegeven.
+
+### <a name="auto-tiering-properties"></a>Eigenschappen van automatische lagen 
+De naam van deze instelling is `tieringSettings`
+| Veld | Mogelijke waarden | Uitleg |
+| ----- | ----- | ---- |
+| tieringOn | waar of ONWAAR | Standaard is ingesteld op `false`, als u wilt inschakelen op instellen op `true`|
+| backlogPolicy | NewestFirst, OldestFirst | Kunt u kiezen de volgorde waarin de gegevens worden gekopieerd naar Azure. Standaard is ingesteld op `OldestFirst`. De order wordt bepaald door de tijd voor laatst gewijzigd van Blob |
+| remoteStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"` een verbindingsreeks waarmee u om op te geven van de Azure Storage-account die u wilt dat uw gegevens geüpload. Geef `Azure Storage Account Name`, `Azure Storage Account Key`, `End point suffix`. Toevoegen van de juiste EndpointSuffix van Azure waar gegevens worden geüpload, dit varieert voor Global Azure, Azure Government en Microsoft Azure Stack. |
+| tieredContainers | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Hiermee kunt u opgeven van de containernamen van de die u wilt uploaden naar Azure. Deze module kunt u zowel bron- en container-namen opgeven. Als u de naam van de container niet opgeeft, wordt deze automatisch de containernaam van de als toegewezen `<IoTHubName>-<IotEdgeDeviceName>-<ModuleName>-<ContainerName>`. U kunt de sjabloon van tekenreeksen voor de naam van de doel-container, bekijk de kolom mogelijke waarden maken. <br>* %h -> naam van de IoT-Hub (3-50 tekens). <br>* %d -> IoT-apparaat-Id (1 tot 129 tekens). <br>* %m -> modulenaam (1 tot 64 tekens). <br>* %c -> naam van de Broncontainer (3 tot 63 tekens). <br><br>Maximale grootte van de containernaam van de is 63 tekens, bij het automatisch toewijzen van de naam van de container als de grootte van de container is groter dan 63 tekens lang, die deze wordt trim elke sectie (IoTHubName, IotEdgeDeviceName, modulenaam, ContainerName) tot 15 tekens. |
+
+### <a name="auto-expiration-properties"></a>Eigenschappen van auto-vervaldatum
+De naam van deze instelling is `ttlSettings`
+| Veld | Mogelijke waarden | Uitleg |
+| ----- | ----- | ---- |
+| ttlOn | waar of ONWAAR | Standaard is ingesteld op `false`, als u wilt inschakelen op instellen op `true`|
+| timeToLiveInMinutes | `<minutes>` | Geef de TTL-waarde in minuten. De module wordt automatisch uw blobs uit de lokale opslag verwijderd wanneer de TTL verloopt |
+
+### <a name="configure-auto-tiering-and-auto-expiration-via-azure-portal"></a>Configureren van automatische-lagen en automatisch verlopen via Azure portal
+
+Stel de gewenste eigenschappen om in te schakelen automatisch opslaglagen en automatisch verlopen, kunt u deze waarden instellen:
+
+- **Tijdens de initiële implementatie**: Kopieer de JSON in **de gewenste eigenschappen van de moduledubbel Set** vak. Elke eigenschap configureren met de juiste waarde, opslaan en doorgaan met de implementatie.
+
+   ```json
+   {
+     "properties.desired": {
+       "ttlSettings": {
+         "ttlOn": <true, false>, 
+         "timeToLiveInMinutes": <timeToLiveInMinutes> 
+       },
+       "tieringSettings": {
+         "tieringOn": <true, false>,
+         "backlogPolicy": "<NewestFirst, OldestFirst>",
+         "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
+         "tieredContainers": {
+           "<source container name1>": {
+             "target": "<target container name1>"
+           }
+         }
+       }
+     }
+   }
+
+   ```
+
+ ![stelt eigenschappen automatisch opslaglagen en automatisch verlopen](./media/how-to-store-data-blob/iotedge_custom_module.png)
+
+- **Nadat de module is geïmplementeerd via de functie "Identiteit Moduledubbel"**: Ga naar 'Een identiteit van een Moduledubbel' van deze module, kopieert u de JSON onder de gewenste eigenschappen en configureren van elke eigenschap met de juiste waarde opslaan. In de Json van de identiteit ' Moduledubbel"Zorg ervoor dat telkens wanneer u toevoegt of een bijwerkt gewenste eigenschap, de `reported configuration` gedeelte worden de wijzigingen en de `configurationValidation` sectie rapporten is geslaagd voor elke eigenschap.
+
+   ```json 
+    "ttlSettings": {
+        "ttlOn": <true, false>, 
+        "timeToLiveInMinutes": <timeToLiveInMinutes> 
+    },
+    "tieringSettings": {
+        "tieringOn": <true, false>,
+        "backlogPolicy": "<NewestFirst, OldestFirst>",
+        "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
+        "tieredContainers": {
+            "<source container name1>": {
+                "target": "<target container name1>"
+            }
+        }
+    }
+
+   ```
+
+![warmtemeting + ttl module_identity_twin](./media/how-to-store-data-blob/module_identity_twin.png) 
+
+### <a name="configure-auto-tiering-and-auto-expiration-via-vscode"></a>Automatische lagen en automatisch verlopen via VSCode configureren
+
+- **Tijdens de initiële implementatie**: Voeg de onderstaande JSON in uw deployment.template.json voor het definiëren van de gewenste eigenschappen voor deze module. Elke eigenschap configureren met de juiste waarde en sla deze op.
+
+   ```json
+   "<your azureblobstorageoniotedge module name>":{
+     "properties.desired": {
+       "ttlSettings": {
+         "ttlOn": <true, false>, 
+         "timeToLiveInMinutes": <timeToLiveInMinutes> 
+       },
+       "tieringSettings": {
+         "tieringOn": <true, false>,
+         "backlogPolicy": "<NewestFirst, OldestFirst>",
+         "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
+         "tieredContainers": {
+           "<source container name1>": {
+             "target": "<target container name1>"
+           }
+         }
+       }
+     }
+   }
+
+   ```
+
+Hier volgt een voorbeeld van de gewenste eigenschappen voor deze module: ![gewenste eigenschappen voor azureblobstorageoniotedge - VS Code instellen](./media/how-to-store-data-blob/tiering_ttl.png)
+
+- **Nadat de module is geïmplementeerd via 'Moduledubbel'**: [Bewerken van de Moduledubbel](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin) van deze module, kopieert u de JSON onder de gewenste eigenschappen, elke eigenschap met de juiste waarde configureren en opslaan. In de Json "Moduledubbel" Zorg ervoor dat telkens wanneer u toevoegt of een bijwerkt gewenste eigenschap, de `reported configuration` gedeelte worden de wijzigingen en de `configurationValidation` sectie rapporten is geslaagd voor elke eigenschap.
+
+   ```json 
+    "ttlSettings": {
+        "ttlOn": <true, false>, 
+        "timeToLiveInMinutes": <timeToLiveInMinutes> 
+    },
+    "tieringSettings": {
+        "tieringOn": <true, false>,
+        "backlogPolicy": "<NewestFirst, OldestFirst>",
+        "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
+        "tieredContainers": {
+            "<source container name1>": {
+                "target": "<target container name1>"
+            }
+        }
+    }
+
+   ```
 
 ## <a name="connect-to-your-blob-storage-module"></a>Verbinding maken met uw blob storage-module
 
@@ -204,14 +353,9 @@ Geef uw IoT Edge-apparaat als de blobeindpunt voor alle opslag aanvragen die u u
 1. Voor modules die zijn geïmplementeerd op de dezelfde edge-apparaat waarop de 'Azure Blob-opslag op IoT Edge' wordt uitgevoerd, het eindpunt van blob is: `http://<module name>:11002/<account name>`. 
 2. Voor modules die zijn geïmplementeerd op verschillende edge-apparaat, dan het edge-apparaat waar 'Azure Blob-opslag op IoT Edge' wordt uitgevoerd en is afhankelijk van uw installatie van de blob-eindpunt: `http://<device IP >:11002/<account name>` of `http://<IoT Edge device hostname>:11002/<account name>` of `http://<FQDN>:11002/<account name>`
 
-## <a name="logs"></a>Logboeken
-
-De logboeken in de container, kunt u vinden onder: 
-* Voor Linux: /blobroot/logs/platformblob.log
-
 ## <a name="deploy-multiple-instances"></a>Meerdere exemplaren implementeren
 
-Als u implementeren meerdere exemplaren van Azure Blob-opslag op IoT Edge wilt, moet u alleen de HostPort die de module wordt gebonden aan wijzigen. De blob-opslag-modules altijd poort 11002 in de container beschikbaar, maar u kunt aangeven welke poort gebonden aan op de host. 
+Als u implementeren meerdere exemplaren van Azure Blob-opslag op IoT Edge wilt, moet u verschillende opslagpad bieden en wijzig de HostPort die de module wordt gebonden aan. De blob-opslag-modules altijd poort 11002 in de container beschikbaar, maar u kunt aangeven welke poort gebonden aan op de host. 
 
 De module bewerken Opties voor het wijzigen van de waarde HostPort maken:
 
@@ -221,22 +365,39 @@ De module bewerken Opties voor het wijzigen van de waarde HostPort maken:
 
 Wanneer u verbinding met aanvullende blob storage-modules maken, wijzigt u het eindpunt om te verwijzen naar de bijgewerkte host-poort. 
 
-## <a name="try-it-out"></a>Probeer het
+## <a name="try-it-out"></a>Uitproberen
 
-De Azure Blob Storage-documentatie bevat snelstartgidsen die de voorbeeldcode in verschillende talen. U kunt deze voorbeelden als u wilt testen van Azure Blob-opslag op IoT Edge door het veranderen van de blob-eindpunt om te verwijzen naar uw blob storage-module kunt uitvoeren.
+### <a name="azure-blob-storage-quickstart-samples"></a>Azure Blob Storage-Quickstart-voorbeelden
+De Azure Blob Storage-documentatie bevat snelstartgidsen die de voorbeeldcode in verschillende talen. U kunt deze voorbeelden als u wilt testen van Azure Blob-opslag op IoT Edge door het veranderen van de blob-eindpunt om te verwijzen naar uw blob storage-module kunt uitvoeren. Volg de stappen voor het [verbinding maken met uw blob storage-module](#connect-to-your-blob-storage-module)
 
 De volgende quickstarts talen die ook worden ondersteund door de IoT Edge, zodat u ze als IoT Edge-modules samen met de blob storage-module implementeren kunt gebruiken:
 
 * [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
 * [Java](../storage/blobs/storage-quickstart-blobs-java.md)
 * [Python](../storage/blobs/storage-quickstart-blobs-python.md)
-* [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md)
+* [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md) 
+
+### <a name="azure-storage-explorer"></a>Azure Opslagverkenner
+U kunt ook proberen [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) verbinding maken met uw lokale storage-account. We hebben geprobeerd met [vorige versie 1.5.0](https://go.microsoft.com/fwlink/?LinkId=809306&clcid=0x409) van Azure Explorer.
+> [!NOTE]
+> U kunt er fouten optreden tijdens het uitvoeren van onderstaande stappen te volgen, negeren en vernieuwen. 
+
+1. Download en installeer Azure Storage Explorer
+2. Verbinding maken met Azure Storage met behulp van een verbindingsreeks
+3. Verbindingsreeks opgeven: `DefaultEndpointsProtocol=http;BlobEndpoint=http://<host device name>:11002/<your local account name>;AccountName=<your local account name>;AccountKey=<your local account key>;`
+4. Doorloop de stappen om verbinding te maken.
+5. Container in uw lokale storage-account maken
+6. Beginnen met uploaden van bestanden als blok-blobs.
+> [!NOTE]
+> Schakel het selectievakje uit als u wilt uploaden als pagina-blobs. Deze module biedt geen ondersteuning voor pagina-blobs. U krijgt deze vragen tijdens het uploaden van bestanden, zoals ISO, VHD, vhdx of een grote bestanden.
+
+7. U kunt verbinding maken met Azure storage-accounts waarbij u de gegevens wilt uploaden. Het biedt een weergave voor uw account met lokale opslag en de Azure storage-account
 
 ## <a name="supported-storage-operations"></a>Ondersteunde opslagbewerkingen
 
-BLOB storage-modules op IoT Edge gebruikt u de dezelfde Azure Storage-SDK's en consistent zijn met de 2018-03-28-versie van de API van Azure Storage voor blok-blob-eindpunten. Latere releases zijn afhankelijk van de behoeften van klanten. 
+BLOB storage-modules op IoT Edge gebruikt u de dezelfde Azure Storage-SDK's en consistent zijn met de versie van 17-04-2017 van de API van Azure Storage voor blok-blob-eindpunten. Latere releases zijn afhankelijk van de behoeften van klanten.
 
-Niet alle Azure Blob Storage-bewerkingen worden ondersteund door Azure Blob-opslag op IoT Edge. De volgende secties details over welke bewerkingen worden niet ondersteund. 
+Niet alle Azure Blob Storage-bewerkingen worden ondersteund door Azure Blob-opslag op IoT Edge. De volgende sectie vindt u de ondersteunde en niet-ondersteunde bewerkingen.
 
 ### <a name="account"></a>Account
 
@@ -255,11 +416,11 @@ Ondersteund:
 * Maken en verwijderen van container
 * Containereigenschappen en metagegevens ophalen
 * Blobs vermelden
-
-Niet-ondersteund: 
 * Ophalen en instellen van de container ACL
-* Lease-container
 * Metagegevens van de container set
+
+Niet-ondersteund:
+* Lease-container
 
 ### <a name="blobs"></a>Blobs
 
@@ -278,11 +439,16 @@ Niet-ondersteund:
 ### <a name="block-blobs"></a>Blok-blobs
 
 Ondersteund: 
-* Plaats blokkeren:-het blok moet kleiner dan of gelijk zijn aan 4 MB in grootte
+* Blok plaatsen
 * En lijst met geblokkeerde websites
 
 Niet-ondersteund:
 * Blokkeren van URL plaatsen
+
+##<a name="feedback"></a>Feedback:
+Uw feedback is zeer belangrijk voor ons, zodat deze module en de bijbehorende functies handig en eenvoudig te gebruiken. Deel uw feedback en laat het ons weten hoe we kunnen verbeteren.
+
+U kunt contact met ons op absiotfeedback@microsoft.com 
 
 ## <a name="next-steps"></a>Volgende stappen
 

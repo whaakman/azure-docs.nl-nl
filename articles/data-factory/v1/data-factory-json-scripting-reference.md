@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 7b32a493dc7dc8aa3ac2bbf1f195a43621c7449a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ee09f8defc7a10b153e910cb7208b0ddb21120b2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447180"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543949"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON-scriptverwerking van verwijzing
 > [!NOTE]
@@ -52,7 +52,7 @@ Volgende tabel beschrijft de eigenschappen in de pijplijn-JSON-definitie:
 | naam | Naam van de pijplijn. Geef een naam op die staat voor de actie die de activiteit of de pijplijn is geconfigureerd om te doen<br/><ul><li>Maximum aantal tekens: 260</li><li>Moet beginnen met een letter, cijfer of een onderstrepingsteken (\_)</li><li>De volgende tekens zijn niet toegestaan: '. ', '+ ','?', '/', '< ',' >', ' * ', '%', '&', ': ','\\"</li></ul> |Ja |
 | description |Beschrijving van het doel waarvoor de activiteit of een pijplijn wordt gebruikt | Nee |
 | activities | Bevat een lijst van activiteiten. | Ja |
-| start |Startdatum en-tijd voor de pijplijn. Moet zich in [ISO-indeling](http://en.wikipedia.org/wiki/ISO_8601). Bijvoorbeeld: 2014-10-14T16:32:41. <br/><br/>Het is mogelijk om op te geven een plaatselijke tijd, bijvoorbeeld een geschatte tijd. Hier volgt een voorbeeld: `2016-02-27T06:00:00**-05:00`, die is 6 AM EST.<br/><br/>De begin- en -eigenschappen opgeven samen actieve periode voor de pijplijn. Uitvoersegmenten worden alleen gemaakt met deze actieve periode. |Nee<br/><br/>Als u een waarde voor de end-eigenschap opgeeft, moet u de waarde voor de eigenschap QueryDefinition opgeven.<br/><br/>De begin- en eindtijden kunnen beide niet leeg zijn om een pijplijn te maken. U moet beide waarden om in te stellen van een actieve periode voor de pijplijn om uit te voeren. Als u geen begin- en eindtijden opgeeft wanneer u een pijplijn maakt, kunt u instellen met behulp van de cmdlet Set-AzDataFactoryPipelineActivePeriod later opnieuw. |
+| start |Startdatum en-tijd voor de pijplijn. Moet zich in [ISO-indeling](https://en.wikipedia.org/wiki/ISO_8601). Bijvoorbeeld: 2014-10-14T16:32:41. <br/><br/>Het is mogelijk om op te geven een plaatselijke tijd, bijvoorbeeld een geschatte tijd. Hier volgt een voorbeeld: `2016-02-27T06:00:00**-05:00`, die is 6 AM EST.<br/><br/>De begin- en -eigenschappen opgeven samen actieve periode voor de pijplijn. Uitvoersegmenten worden alleen gemaakt met deze actieve periode. |Nee<br/><br/>Als u een waarde voor de end-eigenschap opgeeft, moet u de waarde voor de eigenschap QueryDefinition opgeven.<br/><br/>De begin- en eindtijden kunnen beide niet leeg zijn om een pijplijn te maken. U moet beide waarden om in te stellen van een actieve periode voor de pijplijn om uit te voeren. Als u geen begin- en eindtijden opgeeft wanneer u een pijplijn maakt, kunt u instellen met behulp van de cmdlet Set-AzDataFactoryPipelineActivePeriod later opnieuw. |
 | einde |Einddatum en-tijd voor de pijplijn. Als u opgeeft moet zich in de ISO-indeling. Bijvoorbeeld: 2014-10-14T17:32:41 <br/><br/>Het is mogelijk om op te geven een plaatselijke tijd, bijvoorbeeld een geschatte tijd. Hier volgt een voorbeeld: `2016-02-27T06:00:00**-05:00`, die is 6 AM EST.<br/><br/>Als u wilt de pijplijn voor onbepaalde tijd worden uitgevoerd, geef 9999-09-09 als de waarde voor de end-eigenschap. |Nee <br/><br/>Als u een waarde voor de eigenschap QueryDefinition opgeeft, moet u de waarde voor de end-eigenschap opgeven.<br/><br/>Zie de opmerkingen voor de **start** eigenschap. |
 | isPaused |Als is ingesteld op waar de pijplijn wordt niet uitgevoerd. Standaardwaarde = false. Deze eigenschap kunt u in- of uitschakelen. |Nee |
 | pipelineMode |De methode voor de planning wordt uitgevoerd voor de pijplijn. Toegestane waarden zijn: (standaard), gepland eenmalig.<br/><br/>'Gepland' geeft aan dat de pijplijn met een opgegeven tijdsinterval op basis van de actieve periode (begin- en -tijd) wordt uitgevoerd. 'Eenmalige' geeft aan dat de pijplijn slechts één keer wordt uitgevoerd. Eenmalige pijplijnen eenmaal gemaakt kunnen niet worden gewijzigd/bijgewerkt op dit moment. Zie [Onetime pijplijn](data-factory-create-pipelines.md#onetime-pipeline) voor meer informatie over eenmalige instelling. |Nee |
@@ -4283,7 +4283,7 @@ Gekoppelde voor het definiëren van een OData-service, stelt u de **type** van d
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "http://services.odata.org/OData/OData.svc",
+            "url": "https://services.odata.org/OData/OData.svc",
             "authenticationType": "Basic",
             "username": "username",
             "password": "password"
@@ -4300,7 +4300,7 @@ Gekoppelde voor het definiëren van een OData-service, stelt u de **type** van d
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "http://services.odata.org/OData/OData.svc",
+            "url": "https://services.odata.org/OData/OData.svc",
             "authenticationType": "Anonymous"
         }
     }

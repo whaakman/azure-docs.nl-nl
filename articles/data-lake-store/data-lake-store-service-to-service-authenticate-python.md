@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: a51eb8f560d598f86caf57b7b24737b0a3574b68
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 4cad09877a3fc4f586db2d92ce97a64b6efe295e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957210"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537147"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Service-naar-serviceverificatie met Azure Data Lake Storage Gen1 met behulp van Python
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ Werken met Data Lake Storage Gen1 met behulp van Python, u moet drie modules ins
 
 * Module `azure-mgmt-resource`, die Azure-modules bevat voor Active Directory enzovoort.
 * De `azure-mgmt-datalake-store` module, deze de accountbeheerbewerkingen voor Data Lake Storage Gen1 bevat. Zie voor meer informatie over deze module [Azure Data Lake-opslagbeheer Gen1 Moduleverwijzing](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
-* De `azure-datalake-store` module, deze de bestandssysteembewerkingen voor Data Lake Storage Gen1 bevat. Zie voor meer informatie over deze module [Moduleverwijzing voor azure-datalake-store-bestandssysteem](http://azure-datalake-store.readthedocs.io/en/latest/).
+* De `azure-datalake-store` module, deze de bestandssysteembewerkingen voor Data Lake Storage Gen1 bevat. Zie voor meer informatie over deze module [Moduleverwijzing voor azure-datalake-store-bestandssysteem](https://azure-datalake-store.readthedocs.io/en/latest/).
 
 Gebruik de volgende opdrachten om de modules te installeren.
 

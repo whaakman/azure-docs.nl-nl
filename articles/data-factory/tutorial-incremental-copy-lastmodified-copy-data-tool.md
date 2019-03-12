@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: 22203a0e950a59cb255c8864218d4e03988e6634
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: e5e184e6dadfa993e0b758ad32b54ea6ccfcb272
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56647448"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546531"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Nieuwe en gewijzigde bestanden op basis van LastModifiedDate met behulp van het hulpprogramma Copy Data incrementeel kopiëren
 
@@ -43,9 +43,9 @@ In deze zelfstudie voert u de volgende stappen uit:
 
 De Blob-opslag voorbereiden voor de zelfstudie door deze stappen uit te voeren.
 
-1. Maak een container met de naam **bron**. U kunt verschillende hulpprogramma's gebruiken om deze taken uit te voeren, zoals [Azure Storage Explorer](http://storageexplorer.com/).
+1. Maak een container met de naam **bron**. U kunt verschillende hulpprogramma's gebruiken om deze taken uit te voeren, zoals [Azure Storage Explorer](https://storageexplorer.com/).
 
-2. Maak een container met de naam **bestemming**. U kunt verschillende hulpprogramma's gebruiken om deze taken uit te voeren, zoals [Azure Storage Explorer](http://storageexplorer.com/).
+2. Maak een container met de naam **bestemming**. U kunt verschillende hulpprogramma's gebruiken om deze taken uit te voeren, zoals [Azure Storage Explorer](https://storageexplorer.com/).
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 
@@ -174,7 +174,7 @@ De Blob-opslag voorbereiden voor de zelfstudie door deze stappen uit te voeren.
     
     ![Pijplijnuitvoeringen controleren](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3.png)
     
-12. Een leeg tekstbestand maken en geef deze de naam als Bestand1.txt. Upload het bestand Bestand1.txt naar de **bron** container in uw opslagaccount. U kunt verschillende hulpprogramma's gebruiken om deze taken uit te voeren, zoals [Azure Storage Explorer](http://storageexplorer.com/).    
+12. Een leeg tekstbestand maken en geef deze de naam als Bestand1.txt. Upload het bestand Bestand1.txt naar de **bron** container in uw opslagaccount. U kunt verschillende hulpprogramma's gebruiken om deze taken uit te voeren, zoals [Azure Storage Explorer](https://storageexplorer.com/).   
 
     ![Pijplijnuitvoeringen controleren](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png)
     
@@ -190,13 +190,13 @@ De Blob-opslag voorbereiden voor de zelfstudie door deze stappen uit te voeren.
     
     ![Pijplijnuitvoeringen controleren](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs6.png)
     
-15. Een ander leeg tekstbestand maken en geef deze de naam als Bestand2.txt samengevoegd. Upload het bestand Bestand2.txt samengevoegd naar de **bron** container in uw opslagaccount. U kunt verschillende hulpprogramma's gebruiken om deze taken uit te voeren, zoals [Azure Storage Explorer](http://storageexplorer.com/).   
+15. Een ander leeg tekstbestand maken en geef deze de naam als Bestand2.txt samengevoegd. Upload het bestand Bestand2.txt samengevoegd naar de **bron** container in uw opslagaccount. U kunt verschillende hulpprogramma's gebruiken om deze taken uit te voeren, zoals [Azure Storage Explorer](https://storageexplorer.com/).  
     
 16. Doe hetzelfde als stap 13 en 14, en u ziet alleen het nieuwe bestand (bestand2.txt samengevoegd) zijn gekopieerd vanuit de **bron** container naar de **bestemming** container van uw opslagaccount in de volgende pijplijn-run.  
     
     ![Pijplijnuitvoeringen controleren](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs7.png)
 
-    U kunt dezelfde ook controleren met behulp van Azure Storage Explorer (http://storageexplorer.com/) om de bestanden te scannen.
+    U kunt dezelfde ook controleren met behulp van Azure Storage Explorer (https://storageexplorer.com/) om de bestanden te scannen.
     
     ![Pijplijnuitvoeringen controleren](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs8.png)
 

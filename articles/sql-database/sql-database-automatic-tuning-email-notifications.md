@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 12/19/2018
-ms.openlocfilehash: f68097f7b97814bc24926b6fc1b0bb2a750855a2
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/07/2019
+ms.openlocfilehash: 8b82955d7a4bdecf71c9cb4545249a423a5b5dd4
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311267"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57577072"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>E-mailmeldingen voor automatisch afstemmen
 
@@ -65,8 +65,6 @@ Volg deze stappen voor het bijwerken van Azure PowerShell-modules:
 - Klik in het deelvenster met Modules op "**Update Azure-Modules**' aan de bovenkant en wacht totdat het bericht 'Azure-modules zijn bijgewerkt' wordt weergegeven. Dit proces kan enkele minuten duren.
 
 ![Azure automation-modules bijwerken](./media/sql-database-automatic-tuning-email-notifications/howto-email-02.png)
-
-Vereiste versie van AzureRM.Resources en AzureRM.Sql modules moet versie 4 en hoger.
 
 ## <a name="create-azure-automation-runbook"></a>Azure Automation-Runbook maken
 

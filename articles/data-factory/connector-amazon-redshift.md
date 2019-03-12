@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 7c790d03143eece9b0c827a033bdd46bfd1a8f45
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 7fcf08c36d8babd0a318ed5b912823c344f4ce64
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024362"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549949"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Gegevens kopiëren van Amazon Redshift met Azure Data Factory
-> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](v1/data-factory-amazon-redshift-connector.md)
 > * [Huidige versie](connector-amazon-redshift.md)
 
@@ -38,7 +38,7 @@ Deze Amazon Redshift-connector ondersteunt met name bij het ophalen van gegevens
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Als u kopieert de gegevens naar een on-premises gegevens opslaan met behulp van [zelfgehoste Cloudintegratieruntime](create-self-hosted-integration-runtime.md), geef Integration Runtime (Gebruik IP-adres van de machine) de toegang tot Amazon Redshift-cluster. Zie [verleent toegang tot het cluster](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) voor instructies.
+* Als u kopieert de gegevens naar een on-premises gegevens opslaan met behulp van [zelfgehoste Cloudintegratieruntime](create-self-hosted-integration-runtime.md), geef Integration Runtime (Gebruik IP-adres van de machine) de toegang tot Amazon Redshift-cluster. Zie [verleent toegang tot het cluster](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) voor instructies.
 * Als u gegevens naar een Azure data store kopieert, raadpleegt u [IP-bereiken van Azure Data Center](https://www.microsoft.com/download/details.aspx?id=41653) voor de Compute-IP-adres en de SQL-bereiken die worden gebruikt door de Azure data centers.
 
 ## <a name="getting-started"></a>Aan de slag
@@ -151,7 +151,7 @@ Meer informatie over het gebruik laden ongedaan maken om gegevens te kopiëren v
 
 ## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>Laden ongedaan maken om gegevens te kopiëren van Amazon Redshift gebruiken
 
-[GEHEUGEN](http://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) is een mechanisme dat wordt geleverd door Amazon Redshift, die de resultaten van een query op een of meer bestanden op de Amazon Simple Storage-Service (Amazon S3) kunt verwijderen. Dit is de aanbevolen door Amazon voor het kopiëren van grote gegevensset van Redshift manier.
+[GEHEUGEN](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) is een mechanisme dat wordt geleverd door Amazon Redshift, die de resultaten van een query op een of meer bestanden op de Amazon Simple Storage-Service (Amazon S3) kunt verwijderen. Dit is de aanbevolen door Amazon voor het kopiëren van grote gegevensset van Redshift manier.
 
 **Voorbeeld: gegevens kopiëren van Amazon Redshift naar Azure SQL Data Warehouse laden ongedaan maken, met behulp van gefaseerd kopiëren en PolyBase**
 
@@ -210,17 +210,17 @@ Het kopiëren van gegevens van Amazon Redshift, worden de volgende toewijzingen 
 | Amazon Redshift-gegevenstype | Data factory tussentijdse gegevenstype |
 |:--- |:--- |
 | BIGINT |Int64 |
-| BOOLEAANSE WAARDE |Reeks |
-| CHAR |Reeks |
+| BOOLEAANSE WAARDE |String |
+| CHAR |String |
 | DATE |DateTime |
-| DECIMAAL |Decimaal |
-| DUBBELE PRECISIE |Double-waarde |
+| DECIMAL |Decimal |
+| DUBBELE PRECISIE |Double |
 | GEHEEL GETAL ZIJN |Int32 |
-| ECHTE |Enkelvoudig |
+| ECHTE |Single |
 | SMALLINT |Int16 |
-| TEKST |Reeks |
-| TIJDSTEMPEL |DateTime |
-| VARCHAR |Reeks |
+| TEKST |String |
+| TIMESTAMP |DateTime |
+| VARCHAR |String |
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen en sinks door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md##supported-data-stores-and-formats).

@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 2530f6f59ef458d5a7c2de5850d8fab322798ba3
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: a05021255c6226329f1d7a3f0e7fa8c9be756646
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752656"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546718"
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>Zelfstudie: hybride cloud-connectiviteit configureren met Azure en Azure Stack
 
@@ -119,7 +119,7 @@ Gebruik de volgende stappen uit om te maken van een virtueel netwerk met behulp 
 
 Een vNet maken in Azure:
 
-1. Uw browser gebruiken voor verbinding met de [Azure-portal](http://portal.azure.com/) en meld u aan met uw Azure-account.
+1. Uw browser gebruiken voor verbinding met de [Azure-portal](https://portal.azure.com/) en meld u aan met uw Azure-account.
 2. Selecteer **een resource maken**. In de **marketplace doorzoeken** veld `virtual network`''. Zoek **virtueel netwerk** in de lijst met resultaten en selecteer vervolgens **Virtueelnetwerk**.
 3. Uit de **een implementatiemodel selecteren** Selecteer **Resource Manager**, en selecteer vervolgens **maken**.
 4. Op **virtueel netwerk maken**, configureer de VNet-instellingen. De namen van de vereiste velden worden voorafgegaan door een rood sterretje.  Wanneer u een geldige waarde invoert, wordt het sterretje verandert in een groen vinkje.
@@ -132,7 +132,7 @@ Een vNet maken in Azure Stack:
 
 Voordat u het virtuele netwerk verbindt met een gateway, moet u het gatewaysubnet maken voor het virtuele netwerk dat u verbinding wilt maken. De gatewayservices gebruiken de IP-adressen die u in het gatewaysubnet opgeeft.
 
-In de [Azure-portal](http://portal.azure.com/), gaat u naar het virtuele netwerk waar u om een virtuele netwerkgateway te maken van Resource Manager.
+In de [Azure-portal](https://portal.azure.com/), gaat u naar het virtuele netwerk waar u om een virtuele netwerkgateway te maken van Resource Manager.
 
 1. Selecteer het vNet te openen de **virtueel netwerk** pagina.
 2. In **instellingen**, selecteer **subnetten**.

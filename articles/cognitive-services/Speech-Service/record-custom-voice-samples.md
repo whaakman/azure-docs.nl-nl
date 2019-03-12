@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0ca82da43ea53aed3fbcf858b34a3ad94d712661
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d5d3d7031f9795db0ae04bc707bd9e7707137210
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864941"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530736"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Record stem voorbeelden voor het maken van een aangepaste spraak
 
@@ -150,7 +150,7 @@ Niveaus instellen, zodat die het beste van de beschikbare dynamisch bereik van d
 
 Hier wordt de meeste van het bereik (hoogte) wordt gebruikt, maar de hoogste pieken van het signaal niet bereiken boven of onder aan het venster. U ziet ook dat de stilte in de registratie een thin horizontale lijn benadert die wijzen op een verdieping lage ruis. Deze registratie heeft acceptabele dynamisch bereik en signaal ruis verhouding.
 
-Record rechtstreeks bij de computer via een goede audio-interface of een USB-poort, afhankelijk van de mic die u gebruikt. Voor de analoog, behoudt u de audio keten eenvoudige: mic, preamp, audio-interface, computer. U kunt beide licentiëren [Avid Pro Tools](http://www.avid.com/en/pro-tools) en [Adobe Audition](https://www.adobe.com/products/audition.html) maandelijkse tegen een redelijke prijs. Als uw budget zeer krachtige is, probeert u het gratis [Audacity](https://www.audacityteam.org/).
+Record rechtstreeks bij de computer via een goede audio-interface of een USB-poort, afhankelijk van de mic die u gebruikt. Voor de analoog, behoudt u de audio keten eenvoudige: mic, preamp, audio-interface, computer. U kunt beide licentiëren [Avid Pro Tools](https://www.avid.com/en/pro-tools) en [Adobe Audition](https://www.adobe.com/products/audition.html) maandelijkse tegen een redelijke prijs. Als uw budget zeer krachtige is, probeert u het gratis [Audacity](https://www.audacityteam.org/).
 
 Vastleggen met een 44,1 kHz 16-bits mono (kwaliteit CD) of hoger. Huidige status-of-the-art is 48 kHz 24-bits, als uw apparatuur wordt ondersteund. U wordt down-sampling van uw audio tot 16 kHz 16-bits voordat u deze bij de portal voor aangepaste spraak indient. Het loont nog steeds, hebben een hoge kwaliteit oorspronkelijke op te nemen in het geval van wijzigingen nodig zijn.
 
@@ -204,7 +204,7 @@ Moderne opname studios uitgevoerd op computers. Aan het einde van de sessie ontv
 
 De aangepaste spraak-portal moet elke opgegeven utterance zich in een eigen bestand. Elke audiobestand geleverd door de studio bevat meerdere uitingen. De primaire na productie-taak is dus het opsplitsen van de opnamen en bereid ze voor het indienen van. De opname-engineer mogelijk markeringen in het bestand geplaatst (of een spreadsheet afzonderlijke hint opgegeven) om aan te geven waarbij elke utterance wordt gestart.
 
-Gebruik uw notities vinden de exacte gaat u wilt en gebruik vervolgens een geluid hulpprogramma, zoals bewerken [Avid Pro Tools](http://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html), of de gratis [Audacity](https://www.audacityteam.org/), om te kopiëren utterance in een nieuw bestand.
+Gebruik uw notities vinden de exacte gaat u wilt en gebruik vervolgens een geluid hulpprogramma, zoals bewerken [Avid Pro Tools](https://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html), of de gratis [Audacity](https://www.audacityteam.org/), om te kopiëren utterance in een nieuw bestand.
 
 Laat u slechts circa 0,2 seconden stilte aan het begin en einde van elke clip, met uitzondering van de eerste. Dat bestand moet beginnen met een volledige vijf seconden stilte. Gebruik niet een audio-editor 'nul out' op de achtergrond delen van het bestand. Met inbegrip van de 'Toon ruimte', kunnen de aangepaste spraak algoritmen voor eventuele resterende achtergrondgeluiden compenseren.
 

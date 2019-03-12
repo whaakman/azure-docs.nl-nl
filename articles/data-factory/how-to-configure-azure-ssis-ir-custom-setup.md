@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 5ade16bbd45203892cd9a3117dd52471884cf700
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 27ebcee961cc81ad088cadfa8980b3bd51b3d7a4
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455816"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536918"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Setup voor de Azure-SSIS integratieruntime aanpassen
 
@@ -64,7 +64,7 @@ Voor het aanpassen van uw Azure-SSIS-IR, moet u de volgende zaken:
 
     1.  Als u wilt dat andere logboeken die worden gegenereerd door andere hulpprogramma's (bijvoorbeeld `msiexec.exe`) om te worden geüpload naar de container, geef de vooraf gedefinieerde omgevingsvariabele `CUSTOM_SETUP_SCRIPT_LOG_DIR` als de map voor het logboek in uw scripts (bijvoorbeeld `msiexec /i xxx.msi /quiet /lv %CUSTOM_SETUP_SCRIPT_LOG_DIR%\install.log`).
 
-1.  Downloaden, installeren en starten [Azure Storage Explorer](http://storageexplorer.com/).
+1.  Downloaden, installeren en starten [Azure Storage Explorer](https://storageexplorer.com/).
 
     1.  Onder **(lokaal en gekoppeld)**, selecteer met de rechtermuisknop **Opslagaccounts** en selecteer **verbinding maken met Azure storage**.
 
@@ -148,9 +148,9 @@ Voor het aanpassen van uw Azure-SSIS-IR, moet u de volgende zaken:
 
        1. Een `EXCEL` map een aangepaste instellingen bevat voor het installeren van open-source-assembly's (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll`, en `ExcelDataReader.dll`) op elk knooppunt van uw Azure-SSIS-IR.
 
-       1. Een `ORACLE ENTERPRISE` map, waarin een aangepaste setup-script (`main.cmd`) en config-bestand voor installatie op de achtergrond (`client.rsp`) voor het installeren van de Oracle-connectors en OCI stuurprogramma op elk knooppunt van uw Azure-SSIS IR Enterprise Edition. Deze instelling kunt u de Oracle Connection Manager, de bron en bestemming gebruiken. Download eerst Microsoft-Connectors 5.0 voor Oracle (`AttunitySSISOraAdaptersSetup.msi` en `AttunitySSISOraAdaptersSetup64.msi`) van [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55179) en de meest recente Oracle-client - bijvoorbeeld `winx64_12102_client.zip` - van [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html), upload vervolgens ze allemaal samen met `main.cmd` en `client.rsp` in de container. Als u verbinding maken met Oracle TNS, moet u ook downloaden `tnsnames.ora`, bewerken en uploaden naar de container, zodat deze kan worden gekopieerd naar de installatiemap van Oracle tijdens de installatie.
+       1. Een `ORACLE ENTERPRISE` map, waarin een aangepaste setup-script (`main.cmd`) en config-bestand voor installatie op de achtergrond (`client.rsp`) voor het installeren van de Oracle-connectors en OCI stuurprogramma op elk knooppunt van uw Azure-SSIS IR Enterprise Edition. Deze instelling kunt u de Oracle Connection Manager, de bron en bestemming gebruiken. Download eerst Microsoft-Connectors 5.0 voor Oracle (`AttunitySSISOraAdaptersSetup.msi` en `AttunitySSISOraAdaptersSetup64.msi`) van [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55179) en de meest recente Oracle-client - bijvoorbeeld `winx64_12102_client.zip` - van [Oracle](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html), upload vervolgens ze allemaal samen met `main.cmd` en `client.rsp` in de container. Als u verbinding maken met Oracle TNS, moet u ook downloaden `tnsnames.ora`, bewerken en uploaden naar de container, zodat deze kan worden gekopieerd naar de installatiemap van Oracle tijdens de installatie.
 
-       1. Een `ORACLE STANDARD ADO.NET` map, waarin een aangepaste setup-script (`main.cmd`) voor het installeren van de Oracle-ODP.NET-stuurprogramma op elk knooppunt van uw Azure-SSIS-IR. Deze instelling kunt u de ADO.NET Connection Manager, de bron en bestemming gebruiken. Download de meest recente Oracle ODP.NET-stuurprogramma - eerst bijvoorbeeld `ODP.NET_Managed_ODAC122cR1.zip` - van [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html), en upload het samen met `main.cmd` in de container.
+       1. Een `ORACLE STANDARD ADO.NET` map, waarin een aangepaste setup-script (`main.cmd`) voor het installeren van de Oracle-ODP.NET-stuurprogramma op elk knooppunt van uw Azure-SSIS-IR. Deze instelling kunt u de ADO.NET Connection Manager, de bron en bestemming gebruiken. Download de meest recente Oracle ODP.NET-stuurprogramma - eerst bijvoorbeeld `ODP.NET_Managed_ODAC122cR1.zip` - van [Oracle](https://www.oracle.com/technetwork/database/windows/downloads/index-090165.html), en upload het samen met `main.cmd` in de container.
        
        1. Een `ORACLE STANDARD ODBC` map, waarin een aangepaste setup-script (`main.cmd`) het Oracle ODBC-stuurprogramma installeren en configureren van DSN op elk knooppunt van uw Azure-SSIS-IR. Deze instelling kunt u de bron-Verbindingsbeheer ODBC-/ doel of de Power Query verbinding Manager/bron gebruiken met soort ODBC-gegevensbron verbinding maken met Oracle-server. Download eerst de meest recente Oracle-Instant Client (Basic of Basic Lite-pakket) en ODBC-pakket - bijvoorbeeld de 64-bits-pakketten uit [hier](https://www.oracle.com/technetwork/topics/winx64soft-089540.html) (Basic-pakket: `instantclient-basic-windows.x64-18.3.0.0.0dbru.zip`, Basic Lite-pakket: `instantclient-basiclite-windows.x64-18.3.0.0.0dbru.zip`, ODBC-pakket : `instantclient-odbc-windows.x64-18.3.0.0.0dbru.zip`) of de 32-bits-pakketten uit [hier](https://www.oracle.com/technetwork/topics/winsoft-085727.html) (Basic-pakket: `instantclient-basic-nt-18.3.0.0.0dbru.zip`, Basic Lite-pakket: `instantclient-basiclite-nt-18.3.0.0.0dbru.zip`, ODBC-pakket: `instantclient-odbc-nt-18.3.0.0.0dbru.zip`), en deze vervolgens uploaden samen met `main.cmd` in de container.
 

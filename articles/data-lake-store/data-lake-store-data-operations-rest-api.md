@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 62ecf3b1983853629f6bc5fd594231188aa67bcd
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 4c61d68a948cbc5638dab30713871d1aaf822f03
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391603"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57529242"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Bestandssysteembewerkingen in Azure Data Lake Storage Gen1 met behulp van REST-API
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ In dit artikel leert u hoe u WebHDFS REST-API's en Data Lake Storage Gen1 REST A
 
 * **Azure Data Lake Storage Gen1 account**. Volg de instructies op [aan de slag met Azure Data Lake Storage Gen1 met behulp van de Azure-portal](data-lake-store-get-started-portal.md).
 
-* **[cURL](http://curl.haxx.se/)**. In dit artikel wordt cURL gebruikt om u te laten zien hoe u REST API-aanroepen op basis van een Data Lake Storage Gen1-account.
+* **[cURL](https://curl.haxx.se/)**. In dit artikel wordt cURL gebruikt om u te laten zien hoe u REST API-aanroepen op basis van een Data Lake Storage Gen1-account.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Hoe verifieer ik met Azure Active Directory?
 Er zijn twee benaderingen voor verificatie met Azure Active Directory.
@@ -44,7 +44,7 @@ Er zijn twee benaderingen voor verificatie met Azure Active Directory.
 
 
 ## <a name="create-folders"></a>Mappen maken
-Deze bewerking is gebaseerd op de WebHDFS REST-API-aanroep die [hier](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Make_a_Directory) wordt gedefinieerd.
+Deze bewerking is gebaseerd op de WebHDFS REST-API-aanroep die [hier](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Make_a_Directory) wordt gedefinieerd.
 
 Gebruik de volgende cURL-opdracht: Vervang  **\<yourstorename >** met de naam van uw Data Lake Storage Gen1-account.
 
@@ -57,7 +57,7 @@ Als de bewerking is geslaagd, wordt er een antwoord weergegeven zoals in het vol
     {"boolean":true}
 
 ## <a name="list-folders"></a>Lijst met mappen
-Deze bewerking is gebaseerd op de WebHDFS REST-API-aanroep die [hier](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#List_a_Directory) wordt gedefinieerd.
+Deze bewerking is gebaseerd op de WebHDFS REST-API-aanroep die [hier](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#List_a_Directory) wordt gedefinieerd.
 
 Gebruik de volgende cURL-opdracht: Vervang  **\<yourstorename >** met de naam van uw Data Lake Storage Gen1-account.
 
@@ -85,7 +85,7 @@ Als de bewerking is geslaagd, wordt er een antwoord weergegeven zoals in het vol
     }
 
 ## <a name="upload-data"></a>Gegevens uploaden
-Deze bewerking is gebaseerd op de WebHDFS REST-API-aanroep die [hier](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Create_and_Write_to_a_File) wordt gedefinieerd.
+Deze bewerking is gebaseerd op de WebHDFS REST-API-aanroep die [hier](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Create_and_Write_to_a_File) wordt gedefinieerd.
 
 Gebruik de volgende cURL-opdracht: Vervang  **\<yourstorename >** met de naam van uw Data Lake Storage Gen1-account.
 
@@ -107,7 +107,7 @@ De uitvoer lijkt op die in het volgende codefragment:
     ...
 
 ## <a name="read-data"></a>Gegevens lezen
-Deze bewerking is gebaseerd op de WebHDFS REST-API-aanroep die [hier](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Open_and_Read_a_File) wordt gedefinieerd.
+Deze bewerking is gebaseerd op de WebHDFS REST-API-aanroep die [hier](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Open_and_Read_a_File) wordt gedefinieerd.
 
 Lezen van gegevens uit een Gen1 met Data Lake Storage is-account een proces in twee stappen.
 
@@ -131,7 +131,7 @@ Als het goed is, wordt ongeveer het volgende codefragment weergegeven:
     Hello, Data Lake Store user!
 
 ## <a name="rename-a-file"></a>De naam van een bestand wijzigen
-Deze bewerking is gebaseerd op de WebHDFS REST-API-aanroep die [hier](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Rename_a_FileDirectory) wordt gedefinieerd.
+Deze bewerking is gebaseerd op de WebHDFS REST-API-aanroep die [hier](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Rename_a_FileDirectory) wordt gedefinieerd.
 
 Als u de naam van een bestand wil wijzigen, gebruikt u de volgende cURL-opdracht. Vervang  **\<yourstorename >** met de naam van uw Data Lake Storage Gen1-account.
 
@@ -145,7 +145,7 @@ Als het goed is, wordt ongeveer het volgende codefragment weergegeven:
     {"boolean":true}
 
 ## <a name="delete-a-file"></a>Een bestand verwijderen
-Deze bewerking is gebaseerd op de WebHDFS REST-API-aanroep die [hier](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Delete_a_FileDirectory) wordt gedefinieerd.
+Deze bewerking is gebaseerd op de WebHDFS REST-API-aanroep die [hier](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Delete_a_FileDirectory) wordt gedefinieerd.
 
 Gebruik de volgende cURL-opdracht als u een bestand wilt verwijderen. Vervang  **\<yourstorename >** met de naam van uw Data Lake Storage Gen1-account.
 

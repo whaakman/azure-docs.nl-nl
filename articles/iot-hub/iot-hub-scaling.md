@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: wesmc
-ms.openlocfilehash: 26865acbf635f07db4799ab197e110d37cbe69e8
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 0d40bfa3a4215b671fcd01402a2cbceaea0cd75d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984336"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536280"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Kies de juiste IoT Hub-laag voor uw oplossing
 
@@ -33,7 +33,7 @@ De prijscategorie standard van IoT Hub kunt u alle functies en is vereist voor e
 
 Slechts één type [edition](https://azure.microsoft.com/pricing/details/iot-hub/) binnen een laag per IoT Hub kan worden gekozen. U kunt bijvoorbeeld een IoT-Hub maken met meerdere eenheden van S1, maar niet met een combinatie van eenheden van verschillende versies, zoals S1 en B3, of S1 en S2.
 
-| Mogelijkheid | Basislaag | Standaardlaag |
+| Mogelijkheid | Basislaag | Gratis/Standard-laag |
 | ---------- | ---------- | ------------- |
 | [Apparaat-naar-cloud telemetrie](iot-hub-devguide-messaging.md) | Ja | Ja |
 | [Per apparaat-id](iot-hub-devguide-identity-registry.md) | Ja | Ja |
@@ -67,7 +67,7 @@ De partitieconfiguratie van de blijft ongewijzigd wanneer u van basic-laag naar 
 
 Het verschil tussen de lagen basic en standard van IoT Hub-betekent dat sommige API-aanroepen die niet met hubs basic-laag werken in ondersteunde mogelijkheden. De volgende tabel ziet u welke API's zijn beschikbaar: 
 
-| API | Basislaag | Standaardlaag |
+| API | Basislaag | Gratis/Standard-laag |
 | --- | ---------- | ------------- |
 | [Apparaat verwijderen](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | Ja | Ja |
 | [Apparaat](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | Ja | Ja |

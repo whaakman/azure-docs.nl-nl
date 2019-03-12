@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 5e8aa310d518ff26d2d0224797b2feb0745896d1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5694f8eead2b0fd4be75ee858c3c124dd8c53e03
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56864903"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540371"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Een HDInsight-cluster met Azure Data Lake Storage Gen1 met behulp van Azure Resource Manager-sjabloon maken
 > [!div class="op_single_selector"]
@@ -88,7 +88,7 @@ Als u wilt controleren of de voorbeeldgegevens die u uploadt, is toegankelijk va
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-data-lake-storage-gen1"></a>Testtaken uitvoeren op het HDInsight-cluster te gebruiken van Data Lake Storage Gen1
 Nadat u een HDInsight-cluster hebt geconfigureerd, kunt u testtaken kunt uitvoeren op het cluster om te testen of Data Lake Storage Gen1 toegang hebt tot het HDInsight-cluster. Om dit te doen, wordt een voorbeeld-Hive-taak die u maakt een tabel met behulp van de voorbeeldgegevens die u eerder hebt geüpload naar uw Data Lake Storage Gen1-account uitgevoerd.
 
-In deze sectie wordt u SSH in een HDInsight Linux-cluster en voer de een voorbeeld-Hive-query. Als u van een Windows-client gebruikmaakt, wordt u aangeraden **PuTTY**, die kan worden gedownload vanaf [ http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html ](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+In deze sectie wordt u SSH in een HDInsight Linux-cluster en voer de een voorbeeld-Hive-query. Als u van een Windows-client gebruikmaakt, wordt u aangeraden **PuTTY**, die kan worden gedownload vanaf [ https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html ](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 Zie voor meer informatie over het gebruik van PuTTY [SSH gebruiken met Linux gebaseerde Hadoop op HDInsight vanaf Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
@@ -124,7 +124,7 @@ Zie voor meer informatie over het gebruik van PuTTY [SSH gebruiken met Linux geb
 ## <a name="access-data-lake-storage-gen1-using-hdfs-commands"></a>Toegang tot Data Lake Storage Gen1 met HDFS-opdrachten
 Nadat u het HDInsight-cluster voor het gebruik van Data Lake Storage Gen1 hebt geconfigureerd, kunt u de HDFS-shell-opdrachten kunt gebruiken voor toegang tot de store.
 
-In deze sectie wordt u SSH in een HDInsight Linux-cluster en de HDFS-opdrachten. Als u van een Windows-client gebruikmaakt, wordt u aangeraden **PuTTY**, die kan worden gedownload vanaf [ http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html ](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+In deze sectie wordt u SSH in een HDInsight Linux-cluster en de HDFS-opdrachten. Als u van een Windows-client gebruikmaakt, wordt u aangeraden **PuTTY**, die kan worden gedownload vanaf [ https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html ](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 Zie voor meer informatie over het gebruik van PuTTY [SSH gebruiken met Linux gebaseerde Hadoop op HDInsight vanaf Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 

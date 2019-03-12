@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/4/2018
 ms.author: sogup
-ms.openlocfilehash: efd069b90e2f085b7bacf4dfa72478e1232554bc
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: b4ecebc6bef7f49a23455c7a85f25680df087a95
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313357"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530753"
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Een back-upkluis upgraden naar een Recovery Services-kluis
 
@@ -80,7 +80,7 @@ Het PowerShell-script vraagt u uw referenties in te voeren. Voer uw referenties 
 ### <a name="pre-requisites-checking"></a>Vereisten controleren
 Nadat u uw Azure-referenties hebt ingevoerd, controleert Azure of uw omgeving voldoet aan de volgende vereisten:
 
-- **Minimale agentversie** -back-upkluizen upgraden naar Recovery Services-kluizen vereist dat de MARS-agent moet ten minste versie 2.0.9083.0. Als u items naar een Backup-kluis geregistreerd met een agent ouder is dan 2.0.9083.0 hebt, wordt de controle mislukt. Als de controle mislukt, de agent wordt bijgewerkt en probeer het opnieuw bijwerken van de kluis. U kunt de meest recente versie van de agent uit downloaden [ http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe ](https://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
+- **Minimale agentversie** -back-upkluizen upgraden naar Recovery Services-kluizen vereist dat de MARS-agent moet ten minste versie 2.0.9083.0. Als u items naar een Backup-kluis geregistreerd met een agent ouder is dan 2.0.9083.0 hebt, wordt de controle mislukt. Als de controle mislukt, de agent wordt bijgewerkt en probeer het opnieuw bijwerken van de kluis. U kunt de meest recente versie van de agent uit downloaden [ https://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe ](https://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
 - **Continue configuratie taken**: Als iemand configureert u de taak voor een back-upkluis instellen om te worden bijgewerkt of registreren van een item, de controle is mislukt. Voltooi de configuratie of klaar bent met het registreren van het item en start vervolgens het upgradeproces van de kluis.
 - **Opslag op basis van facturering van maandabonnementen**: Recovery Services-kluizen ondersteunen het exemplaar op basis van factureringsmodel. Als u de upgrade van de kluis op een back-upkluis die gebruikmaakt van de opslag op basis van facturering van maandabonnementen uitvoert, wordt u gevraagd om bij te werken uw factureringsmodel samen met de kluis. Anders kunt u uw factureringsmodel eerst, bijwerken en voer vervolgens de upgrade van de kluis.
 - Identificeer een resourcegroep voor de Recovery Services-kluis. Om te profiteren van de implementatiefuncties van de Resource Manager-, moet u een Recovery Services-kluis in een resourcegroep geplaatst. Als u niet welke resourcegroep u wilt gebruiken weet, Geef een naam en het upgradeproces de resourcegroep voor u gemaakt. Het upgradeproces worden ook de kluis koppelt aan de nieuwe resourcegroep.

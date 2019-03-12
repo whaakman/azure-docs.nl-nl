@@ -9,17 +9,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: How to
-ms.date: 03/04/2019
+ms.topic: conceptual
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: 4cd94a0d5891c2d34e152dad87d21cbb45a2ec39
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: 3fb5c3deeddb6f3ee381ca45df76feebf3405b21
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336866"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766562"
 ---
 # <a name="scheduling-a-test"></a>Plannen van een test
 
@@ -53,7 +53,7 @@ Meld u aan bij de portal, selecteert of het maken van een oplossing en selecteer
 
 ![Alternatieve tekst](media/vaas_test_pass_parameters.png)
 
-De werkstroom voor uw oplossing definieert. De werkstroom bevat de stappen die gebruikt voor het testen van uw oplossing.
+Geef parameters op die betrekking hebben op alle tests binnen de werkstroom.
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
 2. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
@@ -63,22 +63,23 @@ De werkstroom voor uw oplossing definieert. De werkstroom bevat de stappen die g
 
 ## <a name="select-tests-to-run"></a>Selecteer tests om uit te voeren
 
-Kies de tests die u wilt uitvoeren in uw werkstroom.
+De tests die u selecteert worden gepland zodra de werkstroom is gemaakt.
 
 1. Selecteer de (s) die u wilt uitvoeren in uw werkstroom.
 
     Als u overschrijven van de algemene parameters (dat wil zeggen, de parameters die is opgegeven in de vorige sectie) voor elke test wilt, selecteert u op de **bewerken** koppeling volgende om door te geven van de nieuwe waarden.
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_select-agent](includes/azure-stack-vaas-workflow-step_select-agent.md)]
+
 1. Selecteer **volgende** om te controleren van de werkstroom.
 
 ## <a name="review-and-submit"></a>Controleren en verzenden
 
-Bekijk, maken en plannen u werkstroom.
+Voltooi de werkstroom is gemaakt.
 
 1. Controleer de gegevens weergegeven.
 
-    De services maakt u uw werkstroom met de opgegeven informatie en de geselecteerde tests wordt gepland.
+    De service maakt u uw werkstroom met de opgegeven informatie en de geselecteerde tests wordt gepland.
 
     Als wordt onjuist weergegeven, gebruikt u de **vorige** knoppen om naar een eerdere sectie te gaan.
 

@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 02/20/2019
-ms.openlocfilehash: 98ca3478c3a8963c3bf57143354340d6ed14900e
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.date: 03/06/2019
+ms.openlocfilehash: 2f615214fb7b77614054841af7972eb814525dee
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594335"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549915"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL-verschillen van SQL Server
 
@@ -26,6 +26,7 @@ De Implementatieoptie Managed Instance biedt extra compatibiliteit met on-premis
 ![Migratie](./media/sql-database-managed-instance/migration.png)
 
 Omdat er nog steeds enkele verschillen in de syntaxis en het gedrag, wordt in dit artikel bevat een overzicht van en worden deze verschillen uitgelegd. <a name="Differences"></a>
+
 - [Beschikbaarheid](#availability) met inbegrip van de verschillen in [Always-On](#always-on-availability) en [back-ups](#backup),
 - [Beveiliging](#security) met inbegrip van de verschillen in [controle](#auditing), [certificaten](#certificates), [referenties](#credential), [cryptografische providers](#cryptographic-providers), [Aanmeldingen / gebruikers](#logins--users), [Service-sleutel en -service master key](#service-key-and-service-master-key),
 - [Configuratie](#configuration) met inbegrip van de verschillen in [extensie van de Buffer](#buffer-pool-extension), [sortering](#collation), [compatibiliteitsniveaus](#compatibility-levels),[Database spiegelen](#database-mirroring), [databaseopties](#database-options), [SQL Server Agent](#sql-server-agent), [Tabelopties](#tables),
@@ -61,10 +62,16 @@ Beheerde exemplaren automatische back-ups hebben en gebruikers in staat te maken
 Beperkingen:  
 
 - Met een Managed Instance kunt u back-up een exemplaar in de database naar een back-up met maximaal 32 striping, wat voldoende is voor de databases van maximaal 4 TB als back-compressie wordt gebruikt.
-- Maximumgrootte van de back-up stripe is 195 GB (maximaal blobgrootte). Verhoog het aantal streepjes in de back-opdracht voor het verkleinen van de afzonderlijke stripe en binnen deze limiet blijven.
+- Maximum aantal back-up stripe grootte gebruiken de `BACKUP` opdracht in een beheerd exemplaar is 195 GB (maximaal blobgrootte). Verhoog het aantal streepjes in de back-opdracht voor het verkleinen van de afzonderlijke stripe en binnen deze limiet blijven.
 
-> [!TIP]
-> Deze beperking on-premises back-up te omzeilen `DISK` in plaats van de back-up naar `URL`, back-upbestand voor blob-en zet vervolgens uploaden. Ondersteunt grotere bestanden herstellen, omdat een andere blob-type wordt gebruikt.  
+    > [!TIP]
+    > Deze beperking omzeilen wanneer back-ups van een database van SQL Server in een on-premises-omgeving of in een virtuele machine, kunt u het volgende doen:
+    >
+    > - Back-up naar `DISK` in plaats van de back-up `URL`
+    > - De back-upbestanden uploaden naar Blob storage
+    > - In het beheerde exemplaar herstellen
+    >
+    > De `Restore` opdracht in een beheerde exemplaren ondersteunt grotere blob-opslag in de back-upbestanden omdat een andere blob-type wordt gebruikt voor de opslag van de geüploade back-upbestanden.
 
 Zie voor meer informatie over back-ups met behulp van T-SQL [back-up](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql).
 
@@ -125,44 +132,51 @@ Een beheerd exemplaar heeft geen toegang tot bestanden, zodat de cryptografische
 
 - SQL-aanmeldingen die zijn gemaakt `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, en `FROM SID` worden ondersteund. Zie [maken aanmelding](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
 - Azure Active Directory (Azure AD)-server-principals (aanmeldingen) die zijn gemaakt met [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) syntaxis of de [maken van GEBRUIKERSAANMELDING [Azure AD-aanmelding]](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) syntaxis worden ondersteund (**openbare preview** ). Dit zijn aanmeldingen die zijn gemaakt op serverniveau.
-    - Beheerd exemplaar biedt ondersteuning voor Azure AD-database-principals met de syntaxis van de `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. Dit is ook wel bekend als Azure AD ingesloten databasegebruikers.
+
+    Beheerd exemplaar biedt ondersteuning voor Azure AD-database-principals met de syntaxis van de `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. Dit is ook wel bekend als Azure AD ingesloten databasegebruikers.
+
 - Windows-aanmeldingen die zijn gemaakt met `CREATE LOGIN ... FROM WINDOWS` syntaxis worden niet ondersteund. Gebruik Azure Active Directory-aanmeldingen en gebruikers.
 - Azure AD-gebruiker die heeft gemaakt van het exemplaar heeft [onbeperkte beheerdersbevoegdheden](sql-database-manage-logins.md#unrestricted-administrative-accounts).
 - Niet-Azure Active Directory (Azure AD) op databaseniveau beheerders kunnen worden gemaakt met `CREATE USER ... FROM EXTERNAL PROVIDER` syntaxis. Zie [gebruiker maken... VAN DE EXTERNE PROVIDER](sql-database-manage-logins.md#non-administrator-users).
 - Azure AD server-principals (aanmeldingen) ondersteuning voor SQL-functies in slechts één MI-instantie. Functies waarvoor de interactie met cross-exemplaar, ongeacht als binnen dezelfde Azure AD-tenant of andere tenant worden niet ondersteund voor Azure AD-gebruikers. Voorbeelden van dergelijke functies zijn:
-    - Transactionele replicatie van SQL en
-    - Link-Server
+
+  - Transactionele replicatie van SQL en
+  - Link-Server
+
 - Als u een Azure AD-aanmelding die is toegewezen aan een Azure AD-groep als eigenaar van de database wordt niet ondersteund.
 - Imitatie van Azure AD met behulp van andere Azure AD-principals op serverniveau-principals wordt ondersteund, zoals de [EXECUTE AS](/sql/t-sql/statements/execute-as-transact-sql) component. UITVOEREN als beperking:
-    - EXECUTE AS USER wordt niet ondersteund voor Azure AD-gebruikers als de naam van de wijkt af van de aanmeldingsnaam. Bijvoorbeeld, wanneer de gebruiker is gemaakt via de syntaxis van AANMELDINGSGEGEVENS maken de gebruiker [myAadUser] [john@contoso.com], en imitatie wordt uitgevoerd via EXEC AS USER = _myAadUser_. Bij het maken van een **gebruiker** uit een Azure AD server-principal (aanmelden), geeft u de gebruikersnaam als het dezelfde login_name van **aanmelding**.
-    - Alleen de principals op SQL-serverniveau (aanmeldingen) die deel uitmaken van de `sysadmin`-rol kunnen de volgende bewerkingen voor Azure AD-principals uitvoeren: 
-        - EXECUTE AS USER
-        - EXECUTE AS LOGIN
+
+  - EXECUTE AS USER wordt niet ondersteund voor Azure AD-gebruikers als de naam van de wijkt af van de aanmeldingsnaam. Bijvoorbeeld, wanneer de gebruiker is gemaakt via de syntaxis van AANMELDINGSGEGEVENS maken de gebruiker [myAadUser] [john@contoso.com], en imitatie wordt uitgevoerd via EXEC AS USER = _myAadUser_. Bij het maken van een **USER** op basis van een Azure AD-server-principal (aanmelding) is de user_name hetzelfde als de login_name van **LOGIN**.
+  - Alleen de principals op SQL-serverniveau (aanmeldingen) die deel uitmaken van de `sysadmin`-rol kunnen de volgende bewerkingen voor Azure AD-principals uitvoeren:
+
+    - EXECUTE AS USER
+    - EXECUTE AS LOGIN
+
 - **Openbare preview** beperkingen voor Azure AD server-principals (aanmeldingen):
-    - De beperkingen van het Active Directory-beheerder voor beheerd exemplaar:
-        - De Azure AD-beheerder gebruikt voor het instellen van het beheerde exemplaar kan niet worden gebruikt om te maken van een Azure AD-server principal (aanmelden) binnen het beheerde exemplaar. Moet u de eerste Azure AD-serverprincipal (aanmelden) met behulp van een SQL Server-account dat is een `sysadmin`. Dit is een tijdelijke beperking die wordt verwijderd zodra het Azure AD server-principals (aanmeldingen) worden algemene beschikbaarheid. Als u probeert een Azure AD-beheerdersaccount gebruiken om te maken van de aanmelding, krijgt u de volgende fout zien: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
-        - Op dit moment de eerste Azure AD-aanmelding gemaakt in master DB moet worden gemaakt met de standaard SQL Server-account (niet-Azure AD) dat is een `sysadmin` met behulp van de [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) van externe PROVIDER. Na algemene beschikbaarheid, deze beperking is verwijderd en een eerste Azure AD-aanmelding kan worden gemaakt met de Active Directory-beheerder voor de Managed Instance.
+
+  - De beperkingen van het Active Directory-beheerder voor beheerd exemplaar:
+
+    - De Azure AD-beheerder gebruikt voor het instellen van het beheerde exemplaar kan niet worden gebruikt om te maken van een Azure AD-server principal (aanmelden) binnen het beheerde exemplaar. U moet de eerste Azure AD-server-principal (aanmelding) maken met een SQL Server-account dat een `sysadmin` is. Dit is een tijdelijke beperking die wordt verwijderd zodra Azure AD-server-principals (aanmeldingen) algemeen beschikbaar zijn. Als u probeert een Azure AD-beheerdersaccount gebruiken om te maken van de aanmelding, krijgt u de volgende fout zien: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
+      - Op dit moment de eerste Azure AD-aanmelding gemaakt in master DB moet worden gemaakt met de standaard SQL Server-account (niet-Azure AD) dat is een `sysadmin` met behulp van de [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) van externe PROVIDER. Na algemene beschikbaarheid, deze beperking is verwijderd en een eerste Azure AD-aanmelding kan worden gemaakt met de Active Directory-beheerder voor de Managed Instance.
     - DacFx (exporteren/importeren) gebruikt in combinatie met SQL Server Management Studio (SSMS) of SqlPackage wordt niet ondersteund voor Azure AD-aanmeldingen. Deze beperking wordt verwijderd zodra het Azure AD server-principals (aanmeldingen) worden algemene beschikbaarheid.
     - Met behulp van Azure AD server-principals (aanmeldingen) met SSMS
-        - Scripts van Azure AD-aanmeldingen (met behulp van een geverifieerde aanmelding) wordt niet ondersteund.
-        - IntelliSense niet wordt herkend door de **maken van externe PROVIDER voor de aanmelding** instructie en een rood onderstreept wordt weergegeven.
+
+      - Scripts van Azure AD-aanmeldingen (met behulp van een geverifieerde aanmelding) wordt niet ondersteund.
+      - IntelliSense niet wordt herkend door de **maken van externe PROVIDER voor de aanmelding** instructie en een rood onderstreept wordt weergegeven.
+
 - Alleen de hoofdaanmelding op serverniveau (gemaakt door het beheerde exemplaar inrichtingsproces), de leden van de serverrollen (`securityadmin` of `sysadmin`), of andere aanmeldingen met ALTER ANY LOGIN-machtigingen op serverniveau kunnen Azure AD-server maken principals (aanmeldingen) in de hoofddatabase voor Managed Instance.
 - Als de aanmelding een SQL-principal is, kunnen alleen aanmeldingen die deel uitmaken van de `sysadmin`-rol van de opdracht create gebruiken om aanmeldingen te maken voor een Azure AD-account.
 - Azure AD-aanmelding moet een lid van een Azure AD in dezelfde map die wordt gebruikt voor Azure SQL Managed Instance.
 - Azure AD server-principals (aanmeldingen) zijn zichtbaar in object explorer beginnen met SSMS 18.0 preview 5.
 - Azure AD server-principals (aanmeldingen) met een Azure AD-beheerdersaccount overlappende is toegestaan. Azure AD server-principals (aanmeldingen) hebben voorrang op Azure AD-beheerder bij het omzetten van de machtigingen van de principal en die van toepassing op het beheerde exemplaar.
 - Om op te lossen de verificatie-principal wordt reeks te volgen tijdens verificatie toegepast:
+
     1. Als de Azure AD-account als rechtstreeks toegewezen bestaat aan de Azure AD server-principal (aanmelden) (aanwezig in sys.server_principals als het type 'E') toegang verlenen en machtigingen van de server-principal van Azure AD (aanmelden) toe te passen.
     2. Als de Azure AD-account is lid van een Azure AD-groep die is gekoppeld aan de Azure AD server-principal (aanmelden) (aanwezig in sys.server_principals als het type 'X'), toegang en machtigingen van de aanmelding van Azure AD-groep toe te passen.
     3. Als de Azure AD-account is een speciale portal geconfigureerd toepassen Azure AD-beheerder voor de Managed Instance (bestaat niet in de Managed Instance systeemweergaven), speciale vaste machtigingen van de Azure AD-beheerder voor de Managed Instance (legacy-modus).
     4. Als de Azure AD-account bestaat als rechtstreeks toegewezen aan een Azure AD-gebruiker in een database (in sys.database_principals als het type 'E'), toegang en machtigingen van de gebruiker van Azure AD-database toe te passen.
     5. Als de Azure AD-account is lid van een Azure AD-groep die is gekoppeld aan een Azure AD-gebruiker in een database (in sys.database_principals als het type 'X'), toegang en machtigingen van de aanmelding van Azure AD-groep toe te passen.
     6. Als er een Azure AD-aanmelding die is toegewezen aan een Azure AD-gebruikersaccount of een Azure AD-groep-account is, wordt het omzetten naar de gebruiker die heeft geverifieerd, alle machtigingen van deze Azure AD-aanmelding toegepast.
-
-
-
-
-
 
 ### <a name="service-key-and-service-master-key"></a>De hoofdsleutel van sleutels en service-service
 
@@ -320,7 +334,6 @@ Een beheerd exemplaar geen toegang tot gedeelde bestanden en mappen, Windows, zo
 - Alleen `CREATE ASSEMBLY FROM BINARY` wordt ondersteund. Zie [maken van de ASSEMBLY van binaire](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).  
 - `CREATE ASSEMBLY FROM FILE` is't ondersteund. Zie [ASSEMBLY maken vanuit bestand](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
 - `ALTER ASSEMBLY` kan niet verwijzen naar bestanden. Zie [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
-
 
 ### <a name="dbcc"></a>DBCC
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/09/2017
 ms.author: erikre
-ms.openlocfilehash: 79582e59d9ad9396acf29d6e35d640edcb20dca3
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: bae35f9e153227ddcca6e0d20ce862317b968eb1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275952"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536008"
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>Cloud Cruiser en Microsoft Azure Billing API-integratie
 Dit artikel wordt beschreven hoe de gegevens die worden verzameld van de nieuwe Microsoft Azure Billing API's in de Cloud Cruiser kan worden gebruikt voor de werkstroom kosten simulatie en analyse.
@@ -137,7 +137,7 @@ Met de nieuwe Azure Usage API Cloud Cruiser resource tagging informatie halen, e
 Aan de Bezig met laden Cloud Cruiser de factureringen/terugstortingen automatiseert en de informatie over de assettag kunt gebruiken om te koppelen van het gebruik moet de juiste gebruiker (afdeling, afdeling, Project, enz.). Deze automatisering biedt een enorme verbetering vormt en kunt controleren of een consistente en controleerbare Bezig met laden proces.
 
 ### <a name="creating-a-resource-group-with-tags-on-microsoft-azure"></a>Het maken van een resourcegroep met tags op Microsoft Azure
-De eerste stap in deze zelfstudie is het maken van een resourcegroep in Azure portal, maakt u nieuwe tags wilt koppelen aan de resources. In dit voorbeeld maken we de volgende codes: Project-afdeling, milieu, eigenaar.
+De eerste stap in deze zelfstudie is het maken van een resourcegroep in Azure portal, maakt u nieuwe tags wilt koppelen aan de resources. In dit voorbeeld maken we de volgende codes: Afdeling, milieu, de eigenaar, Project.
 
 De volgende schermafbeelding ziet een voorbeeld van resourcegroep met de bijbehorende labels.
 
@@ -200,7 +200,7 @@ Nu wilt we alleen toevoegen van een stap voor het publiceren van gegevens over g
 Het mooiste is dat u alleen aan de slag door dit proces eenmaal hebt. Als de werkmap is voltooid, moet u alleen toe te voegen aan de scheduler en deze op het geplande tijdstip wordt elk uur of dagelijks uitgevoerd. Is alleen een kwestie van nieuwe rapporten te maken of bestaande toepassingen aanpassen om te kunnen analyseren van de gegevens voor het ophalen van bruikbare inzichten uit uw gebruik van de cloud.
 
 ### <a name="next-steps"></a>Volgende stappen
-* Voor gedetailleerde instructies over het maken van Cloud Cruiser werkmappen en -rapporten verwijzen naar de Cloud Cruiser online [documentatie](http://docs.cloudcruiser.com/) (geldige aanmelding vereist).  Voor meer informatie over Cloud Cruiser, neem contact op met [ info@cloudcruiser.com ](mailto:info@cloudcruiser.com).
+* Voor gedetailleerde instructies over het maken van Cloud Cruiser werkmappen en -rapporten verwijzen naar de Cloud Cruiser online [documentatie](https://docs.cloudcruiser.com/) (geldige aanmelding vereist).  Voor meer informatie over Cloud Cruiser, neem contact op met [ info@cloudcruiser.com ](mailto:info@cloudcruiser.com).
 * Zie [inzicht in het gebruik van de Microsoft Azure-resources](billing-usage-rate-card-overview.md) voor een overzicht van het gebruik van Azure-resources en RateCard APIs.
 * Bekijk de [Azure Billing REST API-verwijzing](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) voor meer informatie over beide API's die deel uitmaken van de set API's die zijn opgegeven door de Azure Resource Manager.
 * Als u meteen in de voorbeeldcode wilt, bekijk dan onze Microsoft Azure Billing API-codevoorbeelden op [Azure-codevoorbeelden](https://azure.microsoft.com/documentation/samples/?term=billing).

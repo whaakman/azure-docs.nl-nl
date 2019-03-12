@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Met behulp van Azure BizTalk Services EDIFACT-facturen verwerken | Microsoft Docs'
+title: 'Zelfstudie: Verwerken van de EDIFACT-facturen met behulp van Azure BizTalk Services | Microsoft Docs'
 description: Het maken en configureren van de Connector in- of API-app en worden gebruikt in een logische app in Azure App Service
 services: biztalk-services
 documentationcenter: .net,nodejs,java
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-ms.openlocfilehash: bb07e3ab8043aab24d6d8c3e3db3f3674b28c6f3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5eb9740bdd0543556265f54a1a37b632f79ac861
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244488"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550119"
 ---
-# <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Zelfstudie: Proces EDIFACT-facturen met behulp van Azure BizTalk Services
+# <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Zelfstudie: EDIFACT-facturen verwerken met Azure BizTalk Services
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
@@ -55,13 +55,13 @@ Contoso maakt gebruik van de functies van Microsoft Azure BizTalk Services voor 
 Voor het voltooien van het scenario, we Service Bus-wachtrijen gebruiken om de factuur van Contoso Northwind verzenden of ontvangen van bevestiging van Northwind. Deze wachtrijen kunnen worden gemaakt met een clienttoepassing die is gedownload en is opgenomen in de Voorbeeldpakket dat beschikbaar is als onderdeel van deze zelfstudie.  
 
 ## <a name="prerequisites"></a>Vereisten
-* U moet een Service Bus-naamruimte hebben. Zie voor instructies over het maken van een naamruimte [How To: maken of wijzigen van een Service Bus-Service Namespace](https://msdn.microsoft.com/library/azure/hh674478.aspx). Laat het ons wordt ervan uitgegaan dat u al een Service Bus-naamruimte hebt ingericht, met de naam **edifactbts**.
+* U moet een Service Bus-naamruimte hebben. Zie voor instructies over het maken van een naamruimte [How To: Maken of wijzigen van een Service Bus-Service Namespace](https://msdn.microsoft.com/library/azure/hh674478.aspx). Laat het ons wordt ervan uitgegaan dat u al een Service Bus-naamruimte hebt ingericht, met de naam **edifactbts**.
 * U moet een BizTalk Services-abonnement hebben. Voor deze zelfstudie laat het ons wordt ervan uitgegaan dat u hebt een abonnement van BizTalk Services, met de naam **contosowabs**.
 * Registreer uw BizTalk Services-abonnement op de BizTalk Services-Portal. Zie voor instructies [registreren van een BizTalk Service-implementatie op de BizTalk Services-Portal](https://msdn.microsoft.com/library/hh689837.aspx)
 * Visual Studio is geïnstalleerd, moet u hebben.
-* BizTalk Services SDK is geïnstalleerd, moet u hebben. U kunt de SDK van downloaden [http://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057)  
+* BizTalk Services SDK is geïnstalleerd, moet u hebben. U kunt de SDK van downloaden [https://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057)  
 
-## <a name="step-1-create-the-service-bus-queues"></a>Stap 1: De Service Bus-wachtrijen maken
+## <a name="step-1-create-the-service-bus-queues"></a>Stap 1: Maken van de Service Bus-wachtrijen
 Deze oplossing maakt gebruik van Service Bus-wachtrijen voor het uitwisselen van berichten tussen handelspartners gerevolutionaliseerd. Contoso en Northwind verzenden berichten naar de wachtrijen van waar de EAI-en/of EDI-bruggen gebruiken. Voor deze oplossing moet u drie Service Bus-wachtrijen:
 
 * **northwindreceive** – Northwind ontvangt de factuur van Contoso via deze wachtrij.
@@ -106,7 +106,7 @@ Handelspartnerovereenkomsten worden gemaakt tussen de bedrijven-profielen van ha
    3. Op de **Protocol** tabblad onder de **schema's** gedeelte in en upload het **EFACT_D93A_INVOIC.xsd** schema. Dit schema is beschikbaar in het Voorbeeldpakket.
       
       ![][4]  
-   4. Op de **Transport** tabblad, geef de details op voor de Service Bus-wachtrijen. Voor de overeenkomst verzenden aan clientzijde, gebruiken we de **northwindreceive** wachtrij voor het verzenden van de EDIFACT-factuur naar Northwind, en de **onderbroken** wachtrij voor het routeren van berichten die tijdens de verwerking en zijn onderbroken. U hebt gemaakt met deze wachtrijen in **stap 1: de Service Bus-wachtrijen maken** (in dit onderwerp).
+   4. Op de **Transport** tabblad, geef de details op voor de Service Bus-wachtrijen. Voor de overeenkomst verzenden aan clientzijde, gebruiken we de **northwindreceive** wachtrij voor het verzenden van de EDIFACT-factuur naar Northwind, en de **onderbroken** wachtrij voor het routeren van berichten die tijdens de verwerking en zijn onderbroken. U hebt gemaakt met deze wachtrijen in **stap 1: Maken van de Service Bus-wachtrijen** (in dit onderwerp).
       
       ![][5]  
       
@@ -128,7 +128,7 @@ Handelspartnerovereenkomsten worden gemaakt tussen de bedrijven-profielen van ha
    * Op de **instellingen voor verzenden** tabblad onder **binnenkomende URL**, houd er rekening mee het eindpunt. Een bericht van Contoso om naar te verzenden met behulp van de EDI verzenden bridge Northwind, moet u een bericht verzenden naar dit eindpunt.
    * Op de **instellingen ontvangen** tabblad onder **Transport**, houd er rekening mee het eindpunt. Een bericht verzenden vanaf Northwind naar Contoso bridge, met de EDI ontvangt u een bericht naar dit eindpunt moet verzenden.  
 
-## <a name="step-3-create-and-deploy-the-biztalk-services-project"></a>Stap 3: Maken en implementeren van het BizTalk Services-project
+## <a name="step-3-create-and-deploy-the-biztalk-services-project"></a>Stap 3: De BizTalk Services-webproject maken en implementeren
 In de vorige stap hebt geïmplementeerd de EDI-verzenden en ontvangen van overeenkomsten voor het verwerken van de EDIFACT-facturen en bevestigingen. Deze overeenkomsten kunnen alleen verwerken van berichten die aan het standaard schema van de EDIFACT-bericht voldoen. Echter per het scenario voor deze oplossing verzendt Contoso een factuur naar Northwind in een eigen eigen schema. Dus voordat het bericht wordt verzonden naar de brug EDI-verzenden, moet deze worden omgezet in het interne schema naar het standaard schema van de EDIFACT-factuur. De BizTalk Services EAI-project doet.
 
 De BizTalk Services-project, **InvoiceProcessingBridge**, dat transformaties het bericht ook is opgenomen als onderdeel van het voorbeeld dat u hebt gedownload. Het project bevat de volgende artefacten:
@@ -223,11 +223,11 @@ De BizTalk Services-project, **InvoiceProcessingBridge**, dat transformaties het
    
    Kopieer het eindpunt waarop de brug EAI wordt geïmplementeerd, bijvoorbeeld in het deelvenster uitvoer `https://contosowabs.biztalk.windows.net/default/ProcessInvoiceBridge`. U kunt dit eindpunt-URL wordt later nodig.  
 
-## <a name="step-4-test-the-solution"></a>Stap 4: De oplossing testen
+## <a name="step-4-test-the-solution"></a>Stap 4: Testen van de oplossing
 In dit onderwerp wordt behandeld hoe u voor het testen van de oplossing met behulp van de **zelfstudie Client** toepassing geleverd als onderdeel van het voorbeeld.  
 
 1. Druk op F5 om te starten in Visual Studio, de **zelfstudie Client**.
-2. Het scherm moet de waarden die vooraf zijn ingevuld in de stap waar we de Service Bus-wachtrijen hebt gemaakt. Klik op **Volgende**.
+2. Het scherm moet de waarden die vooraf zijn ingevuld in de stap waar we de Service Bus-wachtrijen hebt gemaakt. Klik op **volgende**.
 3. Geef in het volgende venster ACS-referenties voor BizTalk Services-abonnement en de eindpunten waarbij EAI en EDI (ontvangen) bruggen worden geïmplementeerd.
    
    U hebt het eindpunt van de brug EAI had gekopieerd in de vorige stap. Ontvangen voor EDI bridge-eindpunt in de BizTalk Services-Portal, gaat u naar de overeenkomst > instellingen voor ontvangen > Transport > eindpunt.
@@ -246,17 +246,17 @@ In dit onderwerp wordt behandeld hoe u voor het testen van de oplossing met behu
    
    ![][16]  
 
-## <a name="step-5-optional-send-edifact-invoice-in-batches"></a>Stap 5 (optioneel): verzenden EDIFACT-facturen in batches
+## <a name="step-5-optional-send-edifact-invoice-in-batches"></a>Stap 5 (optioneel): EDIFACT-facturen in batches verzenden
 BizTalk Services EDI bruggen biedt ook ondersteuning voor batchverwerking van uitgaande berichten. Deze functie is handig voor het ontvangen van partners die liever een berichtenbatch (voldoen aan bepaalde criteria) in plaats van afzonderlijke berichten ontvangen.
 
 De belangrijkste aspecten bij het werken met batches is de daadwerkelijke versie van de batch, ook wel de releasecriteria. De releasecriteria kunnen worden gebaseerd op hoe de ontvangende partner wil om berichten te ontvangen. Indien batchverwerking is ingeschakeld, verzendt de EDI-brug geen uitgaande berichten aan de ontvangende partner totdat de releasecriteria wordt voldaan. Bijvoorbeeld, een batchverwerkingsindeling criteria op basis van bericht grootte verzendt een batch alleen wanneer "n" berichten in batch worden opgenomen. Een batchcriteria kunnen op basis van tijd, ook zijn, zodat een batch op een vaste tijd elke dag wordt verzonden. We proberen de grootte van het bericht op basis van criteria in deze oplossing.
 
 1. Klik op de overeenkomst die u eerder hebt gemaakt in de BizTalk Services-Portal. Klik op instellingen voor het verzenden > batchverwerking > Batch toevoegen.
 2. Voer voor de batchnaam van de, **InvoiceBatch**, Geef een beschrijving op en klik vervolgens op **volgende**.
-3. Geef de batchcriteria van een, waarmee wordt gedefinieerd welke berichten in batch moeten worden opgenomen. In deze oplossing batch we alle berichten. Dus, selecteert u de geavanceerde optie definities gebruiken en voer **1 = 1**. Dit is een voorwaarde die wordt altijd de waarde true en kan daarom alle berichten worden in batch worden opgenomen. Klik op **Volgende**.
+3. Geef de batchcriteria van een, waarmee wordt gedefinieerd welke berichten in batch moeten worden opgenomen. In deze oplossing batch we alle berichten. Dus, selecteert u de geavanceerde optie definities gebruiken en voer **1 = 1**. Dit is een voorwaarde die wordt altijd de waarde true en kan daarom alle berichten worden in batch worden opgenomen. Klik op **volgende**.
    
    ![][17]  
-4. Geef een criteria voor batch vrijgeven. Selecteer in de keuzelijst **MessageCountBased**, en voor **aantal**, geef **3**. Dit betekent dat een batch van drie berichten worden verzonden naar Northwind. Klik op **Volgende**.
+4. Geef een criteria voor batch vrijgeven. Selecteer in de keuzelijst **MessageCountBased**, en voor **aantal**, geef **3**. Dit betekent dat een batch van drie berichten worden verzonden naar Northwind. Klik op **volgende**.
    
    ![][18]  
 5. Bekijk de samenvatting en klik vervolgens op **opslaan**. Klik op **implementeren** om de overeenkomst opnieuw te implementeren.

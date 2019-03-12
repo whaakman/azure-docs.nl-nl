@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 03/5/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb2329a2a67e2e54084d2289cb8cb1a18663b329
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 02183abb60fe24b9ee9c769f7af696355966ab24
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593672"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551055"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>v2.0-protocollen - OAuth 2.0-autorisatiecodestroom
 
@@ -271,7 +271,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `grant_type`    | vereist    | Moet `refresh_token` voor deze kant van de autorisatiecodestroom. |
 | `scope`         | vereist    | Een door spaties gescheiden lijst met bereiken. De bereiken die in dit gedeelte wordt aangevraagd moet gelijk aan of een subset van de bereiken die in de oorspronkelijke authorization_code aanvraag arm wordt aangevraagd. Als de bereiken die is opgegeven in deze aanvraag meerdere resource-server omvatten, wordt een token voor de resource die is opgegeven in de eerste scope geretourneerd door het v2.0-eindpunt. Raadpleeg voor een meer gedetailleerde uitleg van bereiken, [machtigingen en toestemming scopes](v2-permissions-and-consent.md). |
 | `refresh_token` | vereist    | De refresh_token die u hebt verkregen in het tweede gedeelte van de stroom. |
-| `redirect_uri`  | vereist    | Dezelfde redirect_uri-waarde die is gebruikt voor het verkrijgen van de authorization_code. |
+| `redirect_uri`  | vereist    |  Een `redirect_uri`geregistreerd op de clienttoepassing. |
 | `client_secret` | vereist voor web-apps | Het toepassingsgeheim die u hebt gemaakt in de portal voor app-registratie voor uw app. Deze mag niet worden gebruikt in een systeemeigen app omdat client_secrets op betrouwbare wijze kunnen niet worden opgeslagen op apparaten. Dit is vereist voor de web-apps en web-API's, waarvoor de mogelijkheid om op te slaan de waarde voor client_secret veilig op de server.                                                                                                                                                    |
 
 #### <a name="successful-response"></a>Geslaagde reactie

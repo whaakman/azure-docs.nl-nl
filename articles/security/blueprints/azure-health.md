@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: ed43a376dd5bb3279fd7e6aa6522980234db3c5f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 92b7714e9f6635cf0b44a98a16ddb4616643ba81
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441794"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544559"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure-beveiliging en naleving blauwdruk - HIPAA/HITRUST Health Data en AI
 
@@ -272,7 +272,7 @@ Als u de demoscript. . \\HealthcareDemo.ps1 met de **BulkPatientadmission** scha
 
 **2. Key Vault** aangevraagd voor een geheim dat is gekoppeld aan het aangevraagde token.
 
-**3. Azure-rollen valideren van de aanvraag en autoriseren van de aanvraag voor toegang tot de Key Vault.
+**3. Azure-rollen** valideren van de aanvraag en autoriseren van aanvraag voor toegang tot de Key Vault.
 
 **4. Key Vault** retourneert het geheim in dit geval de SQL DB-verbindingsreeks.
 

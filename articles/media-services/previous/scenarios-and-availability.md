@@ -10,15 +10,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 731e8453c9735ef1e7819f1b851d0a13ceaec43a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: f62e2d482ca6258821cb800d2650a5f0c6a27e7c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996199"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762517"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenario's en de beschikbaarheid van Media Services-functies in datacenters
 
@@ -174,7 +174,7 @@ Media Services-klanten kunnen een **Standard**-streaming-eindpunt of een Premium
 
 #### <a name="availability"></a>Beschikbaarheid
 
-|Naam|Status|Datacenters
+|Name|Status|Datacenters
 |---|---|---|
 |Standard|Algemene beschikbaarheid|Alle|
 |Premium|Algemene beschikbaarheid|Alle|

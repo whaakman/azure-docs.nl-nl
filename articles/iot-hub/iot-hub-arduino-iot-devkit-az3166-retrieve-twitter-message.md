@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: f488f8aa991b3d4baae05097af9b6e2f2db481cc
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: d684493a3ede55c241c901bb0814630b1d204e0c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158921"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542876"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Schud, laat een Tweet--ophalen van een Twitter-bericht met Azure Functions
 
@@ -146,12 +146,12 @@ Na de initialisatie van de app, klikt u op en een release vervolgens voorzichtig
 
 ### <a name="display-a-random-tweet"></a>Een willekeurige tweet weergeven...
 
-![Weergave een willekeurige tweet](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-6.png)
+![Display-a-random-tweet](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-6.png)
 
 - Druk op de knop een opnieuw en klik vervolgens schudden voor een nieuwe tweet.
 - Druk op de knop B om door de rest van de tweet te bladeren.
 
-## <a name="how-it-works"></a>Hoe het werkt
+## <a name="how-it-works"></a>Hoe werkt het?
 
 ![Diagram](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/diagram.png)
 
@@ -195,13 +195,13 @@ Of, wanneer de code wordt uitgevoerd, er zijn enkele blips die ertoe leiden dat 
 
 2. In de [Azure-portal](https://portal.azure.com/), zoek de Azure Functions-app die u hebt gemaakt en start deze opnieuw:
 
-   ![Azure-functie-opnieuw opstarten](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function-restart.png)
+   ![azure-function-restart](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function-restart.png)
 
 ### <a name="feedback"></a>Feedback
 
 Als u andere problemen ondervindt, raadpleegt u de [IoT DevKit Veelgestelde vragen over](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) of neem contact op met ons opnemen met behulp van de volgende kanalen:
 
-* [Gitter.IM](http://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Volgende stappen

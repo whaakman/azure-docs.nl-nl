@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 7e08076364cef87ec27ad34ee9af17242245bbc6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 77908e24a19a48bf9b84d5d5b664bf0443159118
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455990"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537759"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Inschakelen en controleren van Kubernetes-hoofdknooppunt in Azure Kubernetes Service (AKS registreert)
 
@@ -88,7 +88,7 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Verzamelde logboeken bekijken
 
-Het duurt een paar minuten voor de diagnostische logboeken om te worden ingeschakeld en worden weergegeven in de Log Analytics-werkruimte. Selecteer in de Azure-portal, de resourcegroep voor uw Log Analytics-werkruimte, zoals *myResourceGroup*, kiest u uw Log Analytics-resource, zoals *myAKSLogs*.
+Het duurt een paar minuten voor de diagnostische logboeken om te worden ingeschakeld en worden weergegeven in de Log Analytics-werkruimte. Selecteer in de Azure-portal, de resourcegroep voor uw Log Analytics-werkruimte, zoals *myResourceGroup*, kiest u uw log analytics-resource, zoals *myAKSLogs*.
 
 ![Selecteer de Log Analytics-werkruimte voor uw AKS-cluster](media/view-master-logs/select-log-analytics-workspace.png)
 

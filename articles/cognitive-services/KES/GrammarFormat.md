@@ -10,16 +10,16 @@ ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 72dec3effe5e350818c01cf65c9140e778effd17
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 844bd9a88c52fd398fc66c71e59da513c0d7d90d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860283"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544321"
 ---
 # <a name="grammar-format"></a>Grammatica-indeling
 
-De grammatica is een XML-bestand dat Hiermee geeft u de gewogen set query's in natuurlijke taal die de service interpreteren kan, en hoe deze query's in natuurlijke taal worden vertaald in functionaliteit voor semantische query-expressies.  De syntaxis van de grammatica is gebaseerd op [SRGS](http://www.w3.org/TR/speech-grammar/), een W3C-standaard voor spraakherkenning grammatica's, met de extensies voor de ondersteuning van index gegevensintegratie en semantische functies.
+De grammatica is een XML-bestand dat Hiermee geeft u de gewogen set query's in natuurlijke taal die de service interpreteren kan, en hoe deze query's in natuurlijke taal worden vertaald in functionaliteit voor semantische query-expressies.  De syntaxis van de grammatica is gebaseerd op [SRGS](https://www.w3.org/TR/speech-grammar/), een W3C-standaard voor spraakherkenning grammatica's, met de extensies voor de ondersteuning van index gegevensintegratie en semantische functies.
 
 De volgende beschrijving van de syntactische elementen die kunnen worden gebruikt in een grammatica.  Zie [in dit voorbeeld](#example) voor een volledige grammatica waarmee ziet u het gebruik van deze elementen in de context.
 

@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: alinast
-ms.openlocfilehash: 897a350c345e6e284f30040c0d4fcf07d5a6f466
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 4db515a931bc7f423eb11ae31b7304a602f0da46
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106838"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531730"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Gegevensverwerking en door gebruikers gedefinieerde functies
 
@@ -40,7 +40,7 @@ Gegevens worden verwerkt in digitale dubbels Azure bestaat uit drie objecten te 
 
 ### <a name="matchers"></a>Vergelijkingsprogramma voor
 
-Vergelijkingsprogramma voor definiëren een set voorwaarden evalueren welke acties worden uitgevoerd op basis van binnenkomende telemetriegegevens van de sensor. Voorwaarden voor het bepalen van de overeenkomst kunnen eigenschappen van de sensor, van de sensor bovenliggende apparaat en van de sensor bovenliggende ruimte bevatten. De voorwaarden worden uitgedrukt als vergelijkingen op basis van een [JSON-pad](http://jsonpath.com/) zoals wordt beschreven in dit voorbeeld:
+Vergelijkingsprogramma voor definiëren een set voorwaarden evalueren welke acties worden uitgevoerd op basis van binnenkomende telemetriegegevens van de sensor. Voorwaarden voor het bepalen van de overeenkomst kunnen eigenschappen van de sensor, van de sensor bovenliggende apparaat en van de sensor bovenliggende ruimte bevatten. De voorwaarden worden uitgedrukt als vergelijkingen op basis van een [JSON-pad](https://jsonpath.com/) zoals wordt beschreven in dit voorbeeld:
 
 - Alle sensoren van gegevenstype **temperatuur** vertegenwoordigd door de tekenreekswaarde met escape-teken `\"Temperature\"`
 - Met `01` in hun poort

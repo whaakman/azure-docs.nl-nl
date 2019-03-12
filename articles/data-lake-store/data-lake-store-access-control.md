@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: eaabb29a492ec6a0ef4c85afe839a9df5f588958
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7c8553aed809290ea52fcb2e98fea48a30c109f6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087164"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539595"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Toegangsbeheer in Azure Data Lake Storage Gen1
 
@@ -27,9 +27,9 @@ Azure Data Lake Storage Gen1 implementeert een model voor toegangsbeheer die is 
 
 Er zijn twee soorten toegangsbeheerlijsten (ACL's): **Toegangs-ACL's** en **Standaard-ACL's**.
 
-* **Toegangs-ACL's**: deze beheren de toegang tot een object. Bestanden en mappen hebben Toegangs-ACL's.
+* **Toegangs-ACL's**: Deze beheren de toegang tot een object. Bestanden en mappen hebben Toegangs-ACL's.
 
-* **Standaard-ACL's**: een 'sjabloon' van ACL's die zijn gekoppeld aan een map die de Toegangs-ACL's bepaalt voor alle onderliggende items die zijn gemaakt onder die map. Bestanden hebben geen Standaard-ACL's.
+* **Standaard-ACL's**: Een 'sjabloon' van ACL's die zijn gekoppeld aan een map die de toegangs-ACL's voor alle onderliggende items die zijn gemaakt onder die map te bepalen. Bestanden hebben geen Standaard-ACL's.
 
 
 Toegangs-ACL's en Standaard-ACL's hebben dezelfde structuur.
@@ -132,8 +132,8 @@ Omdat er geen 'hoofdgroep' die is gekoppeld aan gebruikers in Data Lake Storage 
 
 **De groep die eigenaar is voor een nieuw bestand of map toewijzen**
 
-* **Voorbeeld 1**: de hoofdmap '/'. Deze map wordt gemaakt wanneer een Gen1 van Data Lake Storage-account is gemaakt. In dit geval is de groep die eigenaar ingesteld op een GUID alle gelijk is aan nul.  Deze waarde is niet toegestaan voor toegang.  Er is een tijdelijke aanduiding totdat die een groep is toegewezen.
-* **Voorbeeld 2** (alle andere gevallen): wanneer een nieuw item wordt gemaakt, wordt de groep die eigenaar is, gekopieerd van de bovenliggende map.
+* **Geval 1**: De hoofdmap '/'. Deze map wordt gemaakt wanneer een Gen1 van Data Lake Storage-account is gemaakt. In dit geval is de groep die eigenaar ingesteld op een GUID alle gelijk is aan nul.  Deze waarde is niet toegestaan voor toegang.  Er is een tijdelijke aanduiding totdat die een groep is toegewezen.
+* **Geval 2** (alle andere gevallen): Wanneer een nieuw item wordt gemaakt, wordt de groep die eigenaar is van de bovenliggende map gekopieerd.
 
 **De groep die eigenaar is wijzigen**
 
@@ -289,13 +289,13 @@ Nee, maar Standaard ACL's kunnen worden gebruikt voor het instellen van ACL's vo
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>Waar kan ik meer informatie over het POSIX-model voor toegangsbeheer?
 
 * [POSIX met behulp van toegangsbeheerlijsten op Linux](https://www.linux.com/news/posix-acls-linux)
-* [Handleiding voor HDFS-machtigingen](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
-* [Veelgestelde vragen over POSIX](http://www.opengroup.org/austin/papers/posix_faq.html)
-* [POSIX 1003.1 2008](http://standards.ieee.org/findstds/standard/1003.1-2008.html)
-* [POSIX 1003.1 2013](http://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
-* [POSIX 1003.1 2016](http://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
+* [Handleiding voor HDFS-machtigingen](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
+* [Veelgestelde vragen over POSIX](https://www.opengroup.org/austin/papers/posix_faq.html)
+* [POSIX 1003.1 2008](https://standards.ieee.org/findstds/standard/1003.1-2008.html)
+* [POSIX 1003.1 2013](https://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
+* [POSIX 1003.1 2016](https://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
 * [POSIX ACL in Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
-* [ACL met behulp van toegangsbeheerlijsten op Linux](http://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
+* [ACL met behulp van toegangsbeheerlijsten op Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
 ## <a name="see-also"></a>Zie ook
 

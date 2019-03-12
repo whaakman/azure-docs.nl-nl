@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 7e218cea543b48371647531cf6d62d8c10a07978
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5049e280b65a9f223ea577ee4fde973657682b4c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230747"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544633"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Gegevens kopiëren van Azure Storage-Blobs naar Azure Data Lake Storage Gen1
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Voordat u dit artikel gaat lezen, moet u beschikken over het volgende:
 * **Azure Storage-Blobs** container met gegevens.
 * **Een account met Azure Data Lake Storage Gen1**. Zie voor instructies over het maken van een [aan de slag met Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Azure Data Lake Analytics-account (optioneel)** -Zie [aan de slag met Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md) voor instructies over het maken van een Data Lake Analytics-account.
-* **AdlCopy hulpprogramma**. Installeer het hulpprogramma AdlCopy van [ http://aka.ms/downloadadlcopy ](https://aka.ms/downloadadlcopy).
+* **AdlCopy hulpprogramma**. Installeer het hulpprogramma AdlCopy van [ https://aka.ms/downloadadlcopy ](https://aka.ms/downloadadlcopy).
 
 ## <a name="syntax-of-the-adlcopy-tool"></a>Syntaxis van het hulpprogramma AdlCopy
 Gebruik de volgende syntaxis om te werken met het hulpprogramma AdlCopy
@@ -52,7 +52,7 @@ Gebruik de volgende syntaxis om te werken met het hulpprogramma AdlCopy
 
 De parameters in de syntaxis worden hieronder beschreven:
 
-| Optie | Beschrijving |
+| Optie | Description |
 | --- | --- |
 | Bron |Hiermee geeft u de locatie van de brongegevens in de Azure storage-blob. De bron mag een blob-container, een blob of een ander Gen1 van Data Lake Storage-account. |
 | Doel |Hiermee geeft u de Data Lake Storage Gen1 bestemming om naar te kopiëren. |
