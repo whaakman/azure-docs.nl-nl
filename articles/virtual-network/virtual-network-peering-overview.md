@@ -7,21 +7,21 @@ documentationcenter: na
 author: jimdial
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial
-ms.openlocfilehash: 3f308c38e9fa23c36f964b117f620a39e56c9bbd
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: HT
+ms.openlocfilehash: 5687075b8b63755b8b04f8c8fd0d0706ec8e27bc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958181"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774520"
 ---
 # <a name="virtual-network-peering"></a>Peering op virtueel netwerk
 
-Dankzij Virtual Network-peering kunt u naadloos twee [virtuele netwerken](virtual-networks-overview.md) in Azure met elkaar verbinden. Nadat de virtuele netwerken zijn gekoppeld via peering, worden ze voor verbindingsdoeleinden weergegeven als één netwerk. Het verkeer tussen de virtuele machines in de gekoppelde virtuele netwerken wordt doorgestuurd via de Microsoft-backbone-infrastructuur, vergelijkbaar met de manier waarop verkeer tussen virtuele machines in hetzelfde virtuele netwerk alleen wordt gerouteerd via *privé*-IP-adressen. Azure ondersteunt:
+Peering op virtueel netwerk kunt u naadloos verbinding maken met Azure [virtuele netwerken](virtual-networks-overview.md). Nadat de virtuele netwerken zijn gekoppeld via peering, worden ze voor verbindingsdoeleinden weergegeven als één netwerk. Het verkeer tussen de virtuele machines in de gekoppelde virtuele netwerken wordt doorgestuurd via de Microsoft-backbone-infrastructuur, vergelijkbaar met de manier waarop verkeer tussen virtuele machines in hetzelfde virtuele netwerk alleen wordt gerouteerd via *privé*-IP-adressen. Azure ondersteunt:
 * VNet-peering - VNets verbinden binnen dezelfde Azure-regio
 * Globale VNet-peering - VNets verbinden tussen Azure-regio's
 
@@ -78,7 +78,7 @@ U kunt ook de [Probleemoplosser voor virtueel netwerk peering problemen](https:/
 ## <a name="requirements-and-constraints"></a>Vereisten en beperkingen
 
 De volgende beperkingen zijn alleen van toepassing wanneer virtuele netwerken wereldwijd zijn gekoppeld:
-- Resources in het ene virtueel netwerk kunnen niet communiceren met het front-end IP-adres van een interne Azure load balancer in het wereldwijd gekoppelde virtuele netwerk. De load balancer en de resources die met het adres communiceren, moeten zich in dezelfde regio bevinden.
+- Resources in een virtueel netwerk kunnen niet communiceren met de front-end-IP-adres van een algemene interne load balancer in een wereldwijd gekoppelde virtuele netwerk. Ondersteuning voor de basisversie van Load Balancer bestaat alleen binnen dezelfde regio. Ondersteuning voor de standaardversie van Load Balancer bestaat voor beide, wereldwijde VNet-Peering en VNet-Peering. 
 - U kunt geen externe gateways gebruiken of gatewayoverdracht toestaan. Als u externe gateways wilt gebruiken of gatewayoverdracht wilt toestaan, moeten gekoppelde virtuele netwerken zich in dezelfde regio bevinden.
 
 Zie [Vereisten en beperkingen voor peering op een virtueel netwerk](virtual-network-manage-peering.md#requirements-and-constraints) voor meer informatie over vereisten en beperkingen. Zie [Azure-netwerklimieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) voor meer informatie over de limieten voor het aantal peerings dat u kunt maken voor een virtueel netwerk. 

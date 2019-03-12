@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 38a5434d4b6f27aacdf1861fa0b005501ad1e28b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 7069114a8cb63b8b166bc29e92d8f355c49824bb
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308887"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727141"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Aan de slag met SQL Database Auditing
 
@@ -79,13 +79,13 @@ Het volgende gedeelte bevat de configuratie van de controle met Azure portal.
 
 3. Als u liever het instellen van een controlebeleid server, kunt u de **serverinstellingen weergeven** koppeling op de pagina voor het controleren van database. U kunt vervolgens weergeven of wijzigen van de server controle-instellingen. Server controlebeleid van toepassing op alle bestaande en nieuwe databases op deze server.
 
-    ![Navigatiedeelvenster][2]
+    ![Navigatievenster][2]
 
 4. Als u liever controle op databaseniveau inschakelen, schakelt u over **controle** naar **ON**.
 
     Als servercontrole is ingeschakeld, wordt de database is geconfigureerd-controle side-by-side met de controle van de server bestaat.
 
-    ![Navigatiedeelvenster][3]
+    ![Navigatievenster][3]
 
 5. **Nieuwe** -u hebt nu meerdere opties voor het configureren van waarnaar de auditlogboeken worden geschreven. U kunt Logboeken schrijven naar een Azure storage-account, een Log Analytics-werkruimte voor gebruik door Azure Monitor-Logboeken of naar event hub voor gebruik met behulp van event hub. U kunt een willekeurige combinatie van deze opties configureren en auditlogboeken worden geschreven naar elk.
 
@@ -138,7 +138,7 @@ Als u auditlogboeken schrijven naar een Azure storage-account, zijn er verschill
 
 - Gebruik de [Azure-portal](https://portal.azure.com).  Open de betreffende database. Aan de bovenkant van de database **controle** pagina, klikt u op **auditlogboeken weergeven**.
 
-    ![Navigatiedeelvenster][7]
+    ![Navigatievenster][7]
 
     **Controlerecords** wordt geopend, waarin zal het mogelijk om de logboeken weer te geven.
 
@@ -146,14 +146,14 @@ Als u auditlogboeken schrijven naar een Azure storage-account, zijn er verschill
   - U kunt schakelen tussen controlerecords die zijn gemaakt door de *server controlebeleid* en de *database controlebeleid* door het omschakelen van **bron controleren**.
   - Vindt u alleen SQL-injectie controlerecords door het controleren van gerelateerde **tonen alleen controlerecords voor SQL-injecties** selectievakje.
 
-       ![Navigatiedeelvenster][8]
+       ![Navigatievenster][8]
 
 - Gebruik de systeemfunctie **sys.fn_get_audit_file** (T-SQL) om te retourneren van de audit log-gegevens in tabelvorm. Zie voor meer informatie over het gebruik van deze functie [sys.fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 - Gebruik **controlebestanden samenvoegen** in SQL Server Management Studio (te beginnen met SSMS 17):
     1. Selecteer in het menu SSMS **bestand** > **Open** > **controlebestanden samenvoegen**.
 
-        ![Navigatiedeelvenster][9]
+        ![Navigatievenster][9]
     2. De **controlebestanden toevoegen** in het dialoogvenster wordt geopend. Selecteer een van de **toevoegen** opties te kiezen of u wilt samenvoegen auditbestanden van een lokale schijf of ze importeren uit Azure Storage. U moet uw Azure Storage-gegevens en de accountsleutel.
 
     3. Nadat alle bestanden samenvoegen zijn toegevoegd, klikt u op **OK** om de samenvoegbewerking te voltooien.
@@ -197,10 +197,10 @@ In de productieomgeving bent u waarschijnlijk uw opslagsleutels periodiek te ver
 
 1. Open **opslaggegevens**. In de **toegangssleutel voor opslag** Schakel **secundaire**, en klikt u op **OK**. Klik vervolgens op **opslaan** aan de bovenkant van de configuratiepagina van de controle.
 
-    ![Navigatiedeelvenster][5]
+    ![Navigatievenster][5]
 2. Ga naar de configuratiepagina van de opslag en de primaire toegangssleutel opnieuw genereren.
 
-    ![Navigatiedeelvenster][6]
+    ![Navigatievenster][6]
 3. Ga terug naar de configuratiepagina van controle, schakelen de toegangssleutel voor opslag van de secundaire naar primaire en klik vervolgens op **OK**. Klik vervolgens op **opslaan** aan de bovenkant van de configuratiepagina van de controle.
 4. Ga terug naar de configuratiepagina van de opslag en genereer de secundaire toegangssleutel (ter voorbereiding op de volgende sleutel vernieuwingscyclus) opnieuw.
 
@@ -230,28 +230,28 @@ In de productieomgeving bent u waarschijnlijk uw opslagsleutels periodiek te ver
 
 **PowerShell-cmdlets (met inbegrip van WHERE-component ondersteuning voor het filteren van aanvullende)**:
 
-- [Maken of bijwerken van de Database Blob controlebeleid (Set-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
-- [Maken of bijwerken van de Server Blob controlebeleid (Set-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)
+- [Maken of bijwerken van de Database controlebeleid (Set-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
+- [Maken of bijwerken van controlebeleid van Server (Set-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)
 - [Database controlebeleid ophalen (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseauditing)
-- [Get Server Blob Auditing Policy (Get-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
+- [Get Server Auditing Policy (Get-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
 
 Zie voor een voorbeeldscript [controle en detectie van bedreigingen met behulp van PowerShell configureren](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
 ## <a id="subheading-9"></a>SQL database auditing met REST API's beheren
 
-**REST-API - controlefunctie voor blobs**:
+**REST API**:
 
-- [Maken of bijwerken van de Database Blob controlebeleid](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate)
-- [Maken of bijwerken van de Server Blob controlebeleid](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
-- [Database-Blob controlebeleid ophalen](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/get)
-- [Ophalen van Server Blob controlebeleid](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
+- [Maken of bijwerken van de Database controlebeleid](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate)
+- [Maken of bijwerken van de Server controlebeleid](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
+- [Controlebeleid Database ophalen](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/get)
+- [Van controlebeleid van Server ophalen](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 Uitgebreide beleid met waar component ondersteuning voor aanvullende filters:
 
-- [Maken of bijwerken van de Database *uitgebreid* controlebeleid voor Blob](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
-- [Maken of bijwerken van de Server *uitgebreid* controlebeleid voor Blob](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
-- [Database ophalen *uitgebreid* controlebeleid voor Blob](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
-- [Ophalen van Server *uitgebreid* controlebeleid voor Blob](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
+- [Maken of bijwerken van de Database *uitgebreid* controlebeleid](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
+- [Maken of bijwerken van de Server *uitgebreid* controlebeleid](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
+- [Database ophalen *uitgebreid* controlebeleid](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
+- [Ophalen van Server *uitgebreid* controlebeleid](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 ## <a id="subheading-10"></a>SQL database auditing met behulp van ARM-sjablonen beheren
 

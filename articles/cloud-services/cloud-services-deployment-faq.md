@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: d44cfc0164892c34bcbe16ca07e9ec67190ada24
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c961238d1fbce1ff590e0b0843ae1390aa7f1cd9
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415301"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534817"
 ---
-# <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemen bij de implementatie voor Azure Cloud Services: veelgestelde vragen
+# <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemen bij de implementatie voor Azure Cloud Services: Veelgestelde vragen (FAQ's)
 
 Dit artikel bevat veelgestelde vragen over problemen met de implementatie voor [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). U kunt ook raadpleegt u de [VM-grootte voor Cloud Services-pagina](cloud-services-sizes-specs.md) voor informatie over de grootte.
 
@@ -33,29 +33,29 @@ Als een service in de cloud een implementatie in een sleuf heeft, wordt het hele
 
 Toewijzingsfouten optreden wanneer het cluster waar uw cloudservice zich bevindt geen voldoende fysieke compute-resources om te voldoen aan de implementatieaanvraag.
 
-Zie voor meer informatie over het oplossen van dergelijke toewijzingsfouten [Cloudservice toewijzingsfout: oplossingen](cloud-services-allocation-failures.md#solutions).
+Zie voor meer informatie over het oplossen van dergelijke toewijzingsfouten [Cloudservice toewijzingsfout: Oplossingen](cloud-services-allocation-failures.md#solutions).
 
 ## <a name="why-does-scaling-up-or-scaling-out-a-cloud-service-deployment-sometimes-result-in-allocation-failure"></a>Waarom wordt omhoog of uit een cloud service-implementatie soms leiden tot toewijzingsfout schalen?
 Wanneer een service in de cloud wordt geïmplementeerd, wordt deze meestal vastgemaakt aan een specifieke cluster. Dit betekent dat nieuwe exemplaren binnen hetzelfde cluster omhoog/uit een bestaande cloudservice schalen moet toewijzen. Als het cluster heeft capaciteit bijna bereikt of de gewenste VM-instantiegrootte /-type niet beschikbaar is, kan het verzoek mislukken.
 
-Zie voor meer informatie over het oplossen van dergelijke toewijzingsfouten [Cloudservice toewijzingsfout: oplossingen](cloud-services-allocation-failures.md#solutions).
+Zie voor meer informatie over het oplossen van dergelijke toewijzingsfouten [Cloudservice toewijzingsfout: Oplossingen](cloud-services-allocation-failures.md#solutions).
 
 ## <a name="why-does-deploying-a-cloud-service-into-an-affinity-group-sometimes-result-in-allocation-failure"></a>Waarom voor het implementeren van een service in de cloud in een affiniteitsgroep is het soms resulteert in toewijzingsfout?
 Een nieuwe implementatie in een lege cloudservice kan worden toegewezen door de infrastructuur in een cluster in deze regio, tenzij de cloudservice is vastgemaakt aan een affiniteitsgroep. Implementaties naar dezelfde affiniteitsgroep bevinden worden geprobeerd in hetzelfde cluster. Als het cluster heeft capaciteit bijna bereikt, mislukken de aanvraag.
 
-Zie voor meer informatie over het oplossen van dergelijke toewijzingsfouten [Cloudservice toewijzingsfout: oplossingen](cloud-services-allocation-failures.md#solutions).
+Zie voor meer informatie over het oplossen van dergelijke toewijzingsfouten [Cloudservice toewijzingsfout: Oplossingen](cloud-services-allocation-failures.md#solutions).
 
 ## <a name="why-does-changing-vm-size-or-adding-a-new-vm-to-an-existing-cloud-service-sometimes-result-in-allocation-failure"></a>Waarom wijzigen van VM-grootte of voor het toevoegen van een nieuwe virtuele machine aan een bestaande cloudservice is het soms resulteert in toewijzingsfout?
 De clusters in een datacenter mogelijk verschillende configuraties van machine-typen (bijvoorbeeld, een serie, Av2-serie, D-serie, Dv2-serie, G-serie, H-serie, enzovoort). Maar niet alle clusters moet altijd alle typen virtuele machines. Als u probeert een virtuele machine uit de D-serie toevoegen aan een cloudservice die al in een A-serie alleen-lezen-cluster is geïmplementeerd, zult u bijvoorbeeld een toewijzingsfout ervaren. Dit wordt ook gebeuren als u probeert te wijzigen dat VM-SKU-grootten (bijvoorbeeld van een A-serie overschakelen naar een D-serie).
 
-Zie voor meer informatie over het oplossen van dergelijke toewijzingsfouten [Cloudservice toewijzingsfout: oplossingen](cloud-services-allocation-failures.md#solutions).
+Zie voor meer informatie over het oplossen van dergelijke toewijzingsfouten [Cloudservice toewijzingsfout: Oplossingen](cloud-services-allocation-failures.md#solutions).
 
-Om te controleren of de grootten die beschikbaar zijn in uw regio, Zie [Microsoft Azure: producten beschikbaar per regio](https://azure.microsoft.com/regions/services).
+U kunt de grootten die beschikbaar zijn in uw regio controleren [Microsoft Azure: Producten beschikbaar per regio](https://azure.microsoft.com/regions/services).
 
 ## <a name="why-does-deploying-a-cloud-service-sometime-fail-due-to-limitsquotasconstraints-on-my-subscription-or-service"></a>Waarom enige tijd opnieuw uit met het implementeren van een cloudservice mislukken vanwege quota-limieten/beperkingen op mijn abonnement of de service?
-Implementatie van een service in de cloud kan mislukken als de resources die nodig zijn om te worden toegewezen langer zijn dan de standaard- of maximumquotum voor uw service op het niveau van de regio/datacenter wordt toegestaan. Zie voor meer informatie, [Cloud Services beperkt](../azure-subscription-service-limits.md#cloud-services-limits).
+Implementatie van een service in de cloud kan mislukken als de resources die nodig zijn om te worden toegewezen langer zijn dan de standaard- of maximumquotum voor uw service op het niveau van de regio/datacenter wordt toegestaan. Zie voor meer informatie, [Cloud Services beperkt](../azure-subscription-service-limits.md#azure-cloud-services-limits).
 
-U kunt de huidige gebruiksquotum ook bijhouden voor uw abonnement in de portal: Azure portal = > abonnementen = > \<abonnement van toepassing > = > 'Gebruik + quota'.
+U kunt ook de huidige gebruiksquotum bijhouden voor uw abonnement in de portal: Azure-portal = > abonnementen = > \<abonnement van toepassing > = > 'Gebruik + quota'.
 
 Resource-gebruik/verbruik-gerelateerde informatie kan ook worden opgehaald via de Azure Billing API's. Zie [Azure Resourcegebruik-API (Preview)](../billing/billing-usage-rate-card-overview.md#azure-resource-usage-api-preview).
 

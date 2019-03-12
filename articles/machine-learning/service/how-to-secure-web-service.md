@@ -1,7 +1,7 @@
 ---
-title: Beveiligen met SSL-webservices
+title: Webservices beveiligen met SSL
 titleSuffix: Azure Machine Learning service
-description: Meer informatie over het beveiligen van een webservice die is geïmplementeerd met de Azure Machine Learning-service. U kunt de toegang beperken tot webservices en beveiligen van de gegevens die zijn ingediend door clients met behulp van secure socket Layer (SSL) en verificatie op basis van een sleutel.
+description: Meer informatie over het beveiligen van een webservice die is geïmplementeerd met de service Azure Machine Learning met inschakeling van HTTPS. HTTPS beveiligt de gegevens die zijn ingediend door clients die gebruikmaken van transport layer security (TLS), een vervanging voor secure socket Layer (SSL). Dit wordt ook gebruikt door clients om te controleren of de identiteit van de webservice.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,27 +11,34 @@ ms.author: aashishb
 author: aashishb
 ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 160bc0e67b2686d17357241887a207cb4a03002c
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 91958a76ffb3cafd818949c1475fd13bb978a928
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098099"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731891"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>SSL gebruiken voor het beveiligen van webservices met Azure Machine Learning-service
 
-In dit artikel leert u over het beveiligen van een webservice die is geïmplementeerd met de Azure Machine Learning-service. U kunt de toegang beperken tot webservices en beveiligen van de gegevens die zijn ingediend door clients met behulp van secure socket Layer (SSL) en verificatie op basis van een sleutel.
+In dit artikel leert u over het beveiligen van een webservice die is geïmplementeerd met de Azure Machine Learning-service. U kunt de toegang beperken tot webservices en beveiligen van de gegevens die zijn ingediend door clients met behulp van [Hypertext Transfer Protocol Secure (HTTPS)](https://en.wikipedia.org/wiki/HTTPS).
+
+HTTPS wordt gebruikt voor het beveiligen van communicatie tussen een client en de webservice door het versleutelen van communicatie tussen de twee. Versleuteling wordt verwerkt met behulp van [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). Dit is nog steeds aangeduid als SSL Secure Sockets Layer (), dat de voorloper van TLS is.
+
+> [!TIP]
+> De SDK van Azure Machine Learning wordt de term 'SSL' voor eigenschappen die betrekking hebben op het inschakelen van beveiligde communicatie. Dit betekent niet dat TLS wordt niet gebruikt door de webservice, alleen dat SSL is het beter herkenbaar term voor veel lezers.
+
+TLS en SSL beide zijn afhankelijk van __digitale certificaten__, die worden gebruikt om uit te voeren versleuteling en identiteit verifiëren. Zie voor meer informatie over hoe digitale certificaten werk de Wikipedia-vermelding op [openbare-sleutelinfrastructuur (PKI)](https://en.wikipedia.org/wiki/Public_key_infrastructure).
 
 > [!Warning]
-> Als u SSL niet inschakelt, kunnen elke gebruiker op het internet voor aanroepen met de webservice wordt mogelijk.
+> Als u niet inschakelen en het gebruik van HTTPS voor uw webservice, is het mogelijk dat gegevens die worden verzonden naar en van de service weergegeven bij andere gebruikers op het internet.
+>
+> HTTPS kan ook de client om te controleren of de authenticiteit van de server waarmee deze verbinding met maakt. Dit beschermt clients op basis van [man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) aanvallen.
 
-SSL versleuteld worden verzonden tussen de client en de webservice. Het wordt ook gebruikt door de client om te controleren of de identiteit van de server. Verificatie is alleen ingeschakeld voor services die een SSL-certificaat en de sleutel hebt opgegeven.  Als u SSL inschakelt, is een verificatiesleutel vereist bij het openen van de webservice.
-
-Of u een webservice die met SSL ingeschakeld implementeert of u SSL voor bestaande geïmplementeerde webservice inschakelen, zijn de stappen hetzelfde:
+Het proces van het beveiligen van een nieuwe webservice of een bestaand is als volgt:
 
 1. Een domeinnaam krijgen.
 
-2. Een SSL-certificaat ophalen.
+2. Een digitaal certificaat ophalen.
 
 3. Implementeren of bijwerken van de web-service met de SSL-instelling ingeschakeld.
 
@@ -45,7 +52,7 @@ Als u een domeinnaam niet al hebt kan, kunt u kopen van een __domeinnaamregistra
 
 ## <a name="get-an-ssl-certificate"></a>Een SSL-certificaat ophalen
 
-Er zijn veel manieren om op te halen van een SSL-certificaat. De meest voorkomende reden is het kopen van een __certificeringsinstantie__ (CA). Ongeacht waar u het certificaat hebt verkregen, moet u de volgende bestanden:
+Er zijn veel manieren om op te halen van een SSL-certificaat (digitale certificaat). De meest voorkomende reden is het kopen van een __certificeringsinstantie__ (CA). Ongeacht waar u het certificaat hebt verkregen, moet u de volgende bestanden:
 
 * Een __certificaat__. Het certificaat moet de volledige certificaatketen bevatten en moet PEM gecodeerd.
 * Een __sleutel__. De sleutel moet PEM gecodeerd.

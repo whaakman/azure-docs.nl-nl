@@ -7,17 +7,17 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 12/03/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: ef2d59393902194af3e257ce0fd5bf403b293af1
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d9a17bdad0bfa4965d36fbe2a2cf3a7890060e98
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245420"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772565"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>Snelstartgids: een virtuele Linux-server-machine maken met de Azure Stack-portal
 
@@ -43,7 +43,7 @@ U kunt een Ubuntu Server 16.04 LTS-machine maken met behulp van de Azure Stack-p
 
    Als u de Azure Stack Development Kit (ASDK) gebruikt, u mogelijk geen toegang tot een SSH-client. Als u een client moet, zijn er verschillende pakketten met een SSH-client. PuTTY bevat bijvoorbeeld een SSH-client en een SSH-sleutel generator (puttygen.exe). Lees de volgende Azure-artikel voor meer informatie over beschikbare pakketten: [Het SSH-sleutels gebruiken met Windows op Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
 
-   In deze snelstartgids maakt gebruik van PuTTY voor het genereren van de SSH-sleutels en verbinding maken met de virtuele machine voor Linux-server. Als u wilt downloaden en installeren van PuTTY, gaat u naar [ http://www.putty.org/ ](http://www.putty.org).
+   In deze snelstartgids maakt gebruik van PuTTY voor het genereren van de SSH-sleutels en verbinding maken met de virtuele machine voor Linux-server. Als u wilt downloaden en installeren van PuTTY, gaat u naar [ https://www.putty.org/ ](http://www.putty.org).
 
 ## <a name="create-an-ssh-key-pair"></a>Een SSH-sleutelpaar maken
 

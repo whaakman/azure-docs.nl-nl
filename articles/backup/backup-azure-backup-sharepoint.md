@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
-ms.openlocfilehash: 35f9b76e27a0977a25f6d060f7362bc417e0568e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 7e8043badbc0accd38ad618a7d455729ab6606b2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813854"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541282"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Een back-up maken in Azure van een SharePoint-farm
 U back-up van een SharePoint-farm naar Microsoft Azure met behulp van System Center Data Protection Manager (DPM) op ongeveer dezelfde manier dat u back-up van gegevens van andere bronnen. Azure Backup biedt flexibiliteit in de back-upschema maken het dagelijkse, wekelijkse, maandelijkse of jaarlijkse back-up verwijst en biedt u de bewaarperiode beleidsopties voor verschillende back-uppunten. DPM biedt de mogelijkheid voor het opslaan van kopieën van de lokale schijf voor snelle doelstellingen voor hersteltijd (RTO) en voor het opslaan van kopieën naar Azure voor het bewaren van voordelige, op de lange termijn.
@@ -47,7 +47,7 @@ Prestaties zijn afhankelijk van veel factoren zoals de grootte van de SharePoint
 
 ### <a name="dpm-update-rollup-5"></a>DPM-updatepakket 5
 Om te beginnen met beveiliging van een SharePoint-farm naar Azure, moet u DPM met Update Rollup 5 of hoger installeren. Updatepakket 5 biedt de mogelijkheid om een SharePoint-farm naar Azure als de farm met behulp van SQL AlwaysOn is geconfigureerd.
-Voor meer informatie, Zie de blog post introductie van [DPM Update Rollup 5](http://blogs.technet.com/b/dpm/archive/2015/02/11/update-rollup-5-for-system-center-2012-r2-data-protection-manager-is-now-available.aspx)
+Voor meer informatie, Zie de blog post introductie van [DPM Update Rollup 5](https://blogs.technet.com/b/dpm/archive/2015/02/11/update-rollup-5-for-system-center-2012-r2-data-protection-manager-is-now-available.aspx)
 
 ### <a name="whats-not-supported"></a>Wat wordt er niet ondersteund
 * DPM die worden beveiligd met een SharePoint-farm biedt geen bescherming zoekindexen of toepassingsservicedatabases. U moet de beveiliging van deze databases afzonderlijk configureren.
@@ -240,6 +240,6 @@ Ja, het item kan worden hersteld naar de oorspronkelijke SharePoint-site.
 Omdat SharePoint-databases zijn geconfigureerd in de SQL AlwaysOn, kan ze niet worden gewijzigd, tenzij de beschikbaarheidsgroep wordt verwijderd. DPM kan niet als gevolg hiervan, een database herstellen naar de oorspronkelijke locatie. U kunt een SQL Server-database naar een ander exemplaar van SQL Server herstellen.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over DPM-beveiliging van SharePoint - Zie [- Videoserie met DPM-beveiliging van SharePoint](http://channel9.msdn.com/Series/Azure-Backup/Microsoft-SCDPM-Protection-of-SharePoint-1-of-2-How-to-create-a-SharePoint-Protection-Group)
+* Meer informatie over DPM-beveiliging van SharePoint - Zie [- Videoserie met DPM-beveiliging van SharePoint](https://channel9.msdn.com/Series/Azure-Backup/Microsoft-SCDPM-Protection-of-SharePoint-1-of-2-How-to-create-a-SharePoint-Protection-Group)
 * Beoordeling [releaseopmerkingen voor System Center 2012 - Data Protection Manager](https://technet.microsoft.com/library/jj860415.aspx)
 * Beoordeling [opmerkingen bij de Release voor Data Protection Manager in System Center 2012 SP1](https://technet.microsoft.com/library/jj860394.aspx)

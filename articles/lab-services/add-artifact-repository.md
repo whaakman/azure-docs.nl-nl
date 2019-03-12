@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 393a5c0af5ff7ccaef8aa462391c5c9457aa9c08
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 85763a895b61d184db033c09a413cc897ef6eaa3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011108"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551599"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Een artefactopslagplaats toevoegen aan uw lab in DevTest Labs
 DevTest Labs kunt u opgeven van een artefact dat moet worden toegevoegd aan een virtuele machine op het moment van de VM is gemaakt of nadat de virtuele machine is gemaakt. Dit artefact is mogelijk een hulpprogramma of een toepassing die u wilt installeren op de virtuele machine. Artefacten worden gedefinieerd in een JSON-bestand geladen vanuit een GitHub- of VSTS Git-opslagplaats. 
@@ -377,7 +377,7 @@ if ($ArtifactRepositoryName -eq $null){
 
 Het script voegt een nieuwe resource toe aan het huidige abonnement. Gebruik [Get-AzContext](/powershell/module/az.accounts/get-azcontext) om deze informatie te bekijken. Gebruik [Set AzContext](/powershell/module/az.accounts/set-azcontext) om in te stellen de huidige tenant en hetzelfde abonnement.
 
-De beste manier voor het detecteren van de resourcenaam van de en resource-informatie is met de [Test Drive Azure REST-API's](https://azure.github.io/projects/apis/) website. Bekijk de [DevTest Labs-15-05-2016](http://aka.ms/dtlrestapis) provider om te controleren van de beschikbare REST-API's voor de DevTest Labs-provider. De scriptgebruikers de volgende resource-ID. 
+De beste manier voor het detecteren van de resourcenaam van de en resource-informatie is met de [Test Drive Azure REST-API's](https://azure.github.io/projects/apis/) website. Bekijk de [DevTest Labs-15-05-2016](https://aka.ms/dtlrestapis) provider om te controleren van de beschikbare REST-API's voor de DevTest Labs-provider. De scriptgebruikers de volgende resource-ID. 
 
 ```powershell
 "/subscriptions/$SubscriptionId/resourceGroups/$($LabResource.ResourceGroupName)/providers/Microsoft.DevTestLab/labs/$LabName/artifactSources/$ArtifactRepositoryName"

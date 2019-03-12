@@ -8,12 +8,12 @@ ms.assetid: 3aca9c49-45a4-4352-92e6-bd25ee3eacf7
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 12b8161cc5845bca749c34188835cef1d92b299a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 60c5b7b55e417a5703010ea34cf75dcb20146c37
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404548"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531676"
 ---
 # <a name="azure-data-catalog-release-notes"></a>Releaseopmerkingen voor Azure Data Catalog
 ## <a name="notes-for-the-november-20-2015-release-of-azure-data-catalog"></a>Informatie voor 20 November 2015-release van Azure Data Catalog
@@ -29,7 +29,7 @@ Voor elke situatie, het probleem kan worden omgezet door te downloaden en instal
 ### <a name="registering-and-connecting-to-teradata"></a>Registreren en verbinding maken met Teradata
 Wanneer u verbinding maakt met Teradata gegevensbronnen gebruikers moeten de juiste Teradata ODBC-stuurprogramma hebt geïnstalleerd die overeenkomen met de bitness (32-bits of 64-bits) van de software die wordt gebruikt.
 
-Vanaf deze releasedatum ADC, dat u de meest recente [Teradata ODBC-stuurprogramma voor windows (versie 15.10)](http://downloads.teradata.com/download/connectivity/odbc-driver/windows) is compatibel met Office 2013, maar niet met Office 2016.
+Vanaf deze releasedatum ADC, dat u de meest recente [Teradata ODBC-stuurprogramma voor windows (versie 15.10)](https://downloads.teradata.com/download/connectivity/odbc-driver/windows) is compatibel met Office 2013, maar niet met Office 2016.
 
 ## <a name="notes-for-the-july-13-2015-release-of-azure-data-catalog"></a>Informatie voor 13 juli 2015-release van Azure Data Catalog
 ### <a name="registering-and-connecting-to-oracle-database"></a>Registreren en verbinding maken met Oracle-Database
@@ -53,13 +53,13 @@ Gebruikers kunnen ondervinden wanneer ze zich aanmelden kunnen op de Azure Data 
 
 Er zijn twee mogelijke oorzaken voor het gedrag van dit probleem:
 
-**1 oorzaak: Active Directory Federation Services-configuratie** formulierverificatie valideren aanmeldingen van gebruikers op basis van Active Directory maakt gebruik van het hulpprogramma voor registratie. Voor geslaagde aanmelding, moet u formulierverificatie ingeschakeld in het globale verificatiebeleid door een Active Directory-beheerder.
+**1 oorzaak: Configuratie van Active Directory Federation Services** formulierverificatie valideren aanmeldingen van gebruikers op basis van Active Directory maakt gebruik van het hulpprogramma voor registratie. Voor geslaagde aanmelding, moet u formulierverificatie ingeschakeld in het globale verificatiebeleid door een Active Directory-beheerder.
 
 In sommige gevallen kan deze fout gebeuren wanneer de gebruiker op het bedrijfsnetwerk, of alleen wanneer de gebruiker verbinding maakt vanaf buiten het bedrijfsnetwerk bevindt. Het globale verificatiebeleid kunt verificatiemethoden afzonderlijk worden ingeschakeld voor intranet en extranet-verbindingen. Aanmeldingsfouten kunnen optreden als formulierverificatie niet is ingeschakeld voor het netwerk van waaruit de gebruiker verbinding maakt.
 
 Zie voor meer informatie, [verificatiebeleid configureren](https://technet.microsoft.com/library/dn486781.aspx).
 
-**Oorzaak 2: Proxy netwerkconfiguratie** als het bedrijfsnetwerk een proxyserver gebruikt, het hulpprogramma voor registratie wellicht geen verbinding maken met Azure Active Directory via de proxy. Gebruikers kunnen ervoor zorgen dat het hulpprogramma voor registratie door het configuratiebestand van het hulpprogramma, te bewerken in deze sectie toe te voegen aan het bestand:
+**2 oorzaak: Configuratie van de proxy netwerk** als het bedrijfsnetwerk een proxyserver gebruikt, het hulpprogramma voor registratie wellicht geen verbinding maken met Azure Active Directory via de proxy. Gebruikers kunnen ervoor zorgen dat het hulpprogramma voor registratie door het configuratiebestand van het hulpprogramma, te bewerken in deze sectie toe te voegen aan het bestand:
 
       <system.net>
         <defaultProxy useDefaultCredentials="true" enabled="true">

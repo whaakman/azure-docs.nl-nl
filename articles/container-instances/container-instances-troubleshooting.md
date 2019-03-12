@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/15/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: bfa616fb16470a3543f8c981a0104f6bda24cf4d
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: eb7a98d22e9005bb1d5db2f1fbd35a1279d84703
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823468"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537215"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Algemene problemen in Azure Container Instances oplossen
 
@@ -197,7 +197,7 @@ Vanwege de verschillende regionale resource laden in Azure, ontvangt u mogelijk 
 
 Deze fout geeft aan dat vanwege een zware belasting in de regio waarin u probeert te implementeren, de resources die zijn opgegeven voor de container kunnen niet worden toegewezen op dat moment. Een of meer van de volgende stappen voor risicobeperking gebruiken voor het oplossen van uw probleem.
 
-* Controleer of de implementatie-instellingen van uw container vallen binnen de gedefinieerde parameters in [quota en beschikbaarheid in regio's voor Azure Container Instances](container-instances-quotas.md#region-availability)
+* Controleer of de implementatie-instellingen van uw container vallen binnen de gedefinieerde parameters in [beschikbaarheid in regio's voor Azure Container Instances](container-instances-region-availability.md)
 * Geef instellingen op lagere CPU en geheugen voor de container
 * Implementeren naar een andere Azure-regio
 * Implementeren op een later tijdstip

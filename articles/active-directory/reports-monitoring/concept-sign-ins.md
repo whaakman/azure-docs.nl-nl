@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f47de0544d6d708d3c8b104be4edada86c11551
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 993a8ca48df40b400c21852d3d28941d9d62affb
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190361"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549014"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Aanmeldactiviteitenrapporten in Azure Active Directory Portal
 
@@ -149,23 +149,13 @@ Als u extra velden toevoegt aan uw aanmeldingsweergave, worden deze velden autom
 
 ## <a name="download-sign-in-activities"></a>Aanmeldactiviteiten downloaden
 
-U kunt [downloaden van de aanmeldingsgegevens](quickstart-download-sign-in-report.md) als u wilt werken met deze buiten de Azure-portal. Als u op **Downloaden** klikt, wordt er een CSV-bestand gemaakt met de vijfduizend meest recente records.  Naast de downloadknop, de Azure-portal biedt u ook een optie voor het [genereren van een script voor het downloaden van uw gegevens](tutorial-signin-logs-download-script.md).  
+U kunt [downloaden van de aanmeldingsgegevens](quickstart-download-sign-in-report.md) als u wilt werken met deze buiten de Azure-portal. Te klikken op **downloaden** biedt de mogelijkheid om een CSV-bestand of JSCON bestand van de meest recente 250.000 records te maken.  
 
 ![Downloaden](./media/concept-sign-ins/71.png "Downloaden")
-
-Als u meer flexibiliteit nodig hebt, kunt u kiezen voor de scriptoplossing. Te klikken op **Script** maakt u een PowerShell-script dat bevat alle filters die u hebt ingesteld. Downloaden en uitvoeren met dit script in **beheerdersmodus** voor het genereren van het CSV-bestand. 
 
 > [!IMPORTANT]
 > Het aantal records die u kunt downloaden wordt beperkt door de [bewaarbeleid Azure Active Directory-rapporten](reference-reports-data-retention.md).  
 
-### <a name="running-the-script-on-a-windows-10-machine"></a>Het script is uitgevoerd op een Windows 10-computer
-
-Als u het script uitvoert wilt op een **Windows 10** machine, moet u eerst een paar extra stappen uitvoeren. 
-
-1. Installeer de [Az module](/powershell/azure/install-az-ps).
-2. Importeer de module door een PowerShell-prompt openen en het uitvoeren van de opdracht **Import-Module Az**.
-3. Voer **Set-ExecutionPolicy unrestricted** en kies **Ja op Alles**. 
-4. U kunt nu het gedownloade PowerShell-script uitvoeren in de beheerdersmodus voor het genereren van het CSV-bestand.
 
 ## <a name="sign-ins-data-shortcuts"></a>Aanmeldingen gegevens snelkoppelingen
 

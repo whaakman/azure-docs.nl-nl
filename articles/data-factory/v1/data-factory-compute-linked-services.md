@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: fea90d273d156eec3bf29f376e4cf6668c68170f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 0e0a249c53c90d3d8d03dcdb5fbb4f11f31c54df
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697514"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545144"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>COMPUTE-omgevingen die worden ondersteund door Azure Data Factory
 > [!NOTE]
@@ -116,7 +116,7 @@ De volgende JSON definieert een service op aanvraag gekoppeld HDInsight op basis
 > [!IMPORTANT]
 > Het HDInsight-cluster maakt een *standaardcontainer* in de Azure Blob-opslag die u in de JSON opgeeft **linkedServiceName** eigenschap. Standaard verwijdert HDInsight deze container niet wanneer het cluster wordt verwijderd. In een gekoppelde HDInsight-service op aanvraag, een HDInsight-cluster gemaakt wanneer er een segment moet worden verwerkt, tenzij er een bestaand livecluster is (**timeToLive**). Het cluster wordt verwijderd wanneer de verwerking is voltooid. 
 >
-> Als er meer segmenten worden verwerkt, ziet u veel containers in uw Blob storage. Als u niet de containers nodig hebt voor het oplossen van taken, is het raadzaam om de containers om de opslagkosten te verlagen te verwijderen. De namen van deze containers volgen een patroon: `adf<your Data Factory name>-<linked service name>-<date and time>`. U kunt een hulpprogramma zoals [Microsoft Opslagverkenner](http://storageexplorer.com/) om containers in Blob-opslag te verwijderen.
+> Als er meer segmenten worden verwerkt, ziet u veel containers in uw Blob storage. Als u niet de containers nodig hebt voor het oplossen van taken, is het raadzaam om de containers om de opslagkosten te verlagen te verwijderen. De namen van deze containers volgen een patroon: `adf<your Data Factory name>-<linked service name>-<date and time>`. U kunt een hulpprogramma zoals [Microsoft Opslagverkenner](https://storageexplorer.com/) om containers in Blob-opslag te verwijderen.
 >
 > 
 
@@ -271,7 +271,7 @@ U kunt een gekoppelde batchservice voor het registreren van een Batch-pool van v
 Als u niet bekend bent met de Batch-service:
 
 * Meer informatie over [basisbeginselen van Azure Batch](../../batch/batch-technical-overview.md).
-* Meer informatie over de [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) cmdlet. Gebruik deze cmdlet voor het maken van een Batch-account. Of u kunt de Batch-account maken met behulp van de [Azure-portal](../../batch/batch-account-create-portal.md). Zie voor gedetailleerde informatie over het gebruik van de cmdlet [met behulp van PowerShell voor het beheren van een Batch-account](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
+* Meer informatie over de [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) cmdlet. Gebruik deze cmdlet voor het maken van een Batch-account. Of u kunt de Batch-account maken met behulp van de [Azure-portal](../../batch/batch-account-create-portal.md). Zie voor gedetailleerde informatie over het gebruik van de cmdlet [met behulp van PowerShell voor het beheren van een Batch-account](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
 * Meer informatie over de [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) cmdlet. Deze cmdlet gebruiken om een Batch-pool te maken.
 
 ### <a name="example"></a>Voorbeeld

@@ -8,14 +8,14 @@ ms.service: data-factory
 ms.workload: data-services
 author: swinarko
 ms.author: sawinark
-ms.reviewer: douglasl
+ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: 2592c81947f48c10891fe920647612d5c30af64f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 271da0a6ff443fcee28bc870821f4222b3018c91
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989073"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576868"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>De Azure-SSIS Integration Runtime voor hoge prestaties configureren
 
@@ -95,7 +95,7 @@ Gebruik de informatie in het volgende diagram als hebt u veel pakketten om uit t
 Wanneer u al een krachtige worker-knooppunt-pakketten uitvoeren, verhogen **AzureSSISMaxParallelExecutionsPerNode** verhogen de algehele doorvoer van de integratieruntime. Standard_D1_v2 knooppunten worden 1-4 parallelle uitvoeringen per knooppunt ondersteund. Voor alle andere soorten knooppunten, worden 1-8 parallelle uitvoeringen per knooppunt ondersteund.
 U kunt een schatting maken van de juiste waarde op basis van de kosten van het pakket en de volgende configuraties voor de worker-knooppunten. Zie voor meer informatie, [voor algemeen gebruik-VM-grootten](../virtual-machines/windows/sizes-general.md).
 
-| Grootte             | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Maximale tijdelijke opslagdoorvoer: IOPS / MBps lezen / MBps schrijven | Maximumaantal gegevensschijven / doorvoer: IOPS | Maximum aantal NIC's/verwachte netwerkprestaties (Mbps) |
+| Grootte             | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Maximale tijdelijke opslagdoorvoer: IOPS / MBps lezen / MBps schrijven | Max. aantal gegevensschijven / doorvoer: IOPS | Maximum aantal NIC's/verwachte netwerkprestaties (Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
 | Standard\_D1\_v2 | 1    | 3,5         | 50                     | 3000 / 46 / 23                                             | 2 / 2 x 500                         | 2 / 750                                        |
 | Standard\_D2\_v2 | 2    | 7           | 100                    | 6000 / 93 / 46                                             | 4 / 4 x 500                         | 2 / 1500                                       |

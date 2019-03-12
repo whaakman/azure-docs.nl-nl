@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/18/2019
-ms.openlocfilehash: ce5635c97d91514f3fca63162f5356cdf89a7ca6
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/11/2019
+ms.openlocfilehash: 27a65a871264fa13a42acfb5be2d4b5f99d31adc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307476"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57758689"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Een Azure SQL-database naar een BACPAC-bestand exporteren
 
@@ -28,6 +28,7 @@ Wanneer u nodig hebt voor het exporteren van een database voor het archiveren of
 - Exporteren van een transactioneel consistent, moet u ervoor zorgen die geen schrijven activiteit plaatsvindt tijdens het exporteren, of dat u wilt exporteren uit een [transactioneel consistente kopie](sql-database-copy.md) van uw Azure SQL-database.
 - Als u naar blob-opslag exporteert, is de maximale grootte van een BACPAC-bestand 200 GB. Als u wilt archiveren in een grotere BACPAC-bestand, exporteren naar de lokale opslag.
 - Een BACPAC-bestand exporteren naar Azure premium storage met behulp van de methoden die worden beschreven in dit artikel wordt niet ondersteund.
+- De opslag achter een firewall is momenteel niet ondersteund.
 - Als de exportbewerking uit Azure SQL-Database groter is dan 20 uur, kan worden geannuleerd. Voor betere prestaties tijdens het exporteren, kunt u het volgende doen:
 
   - Tijdelijk de grootte van uw compute vergroten.

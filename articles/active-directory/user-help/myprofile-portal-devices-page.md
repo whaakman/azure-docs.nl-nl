@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bea9a987078799436c9dcad650ee56d5d6d81512
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: b303a1cd3da7010573ce34dd4762616f4b6581d0
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341337"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729098"
 ---
 # <a name="manage-your-connected-devices-from-the-my-profile-preview-portal"></a>Beheren van uw verbonden apparaten vanuit de portal Mijn profiel (preview)
 U kunt de apparaten waarmee u met uw werk of school-account uit te schakelen die u niet langer eigenaar bent verbonden bent, kunt beheren vanuit de **apparaten** pagina van de **Mijn profiel** portal.
@@ -36,7 +36,7 @@ U kunt de apparaten waarmee u met uw werk of school-account uit te schakelen die
     ![Apparaatpagina, met verbonden apparaten](media/myprofile-portal/myprofile-portal-devices-page.png)
 
 ## <a name="disable-a-device"></a>Een apparaat uitschakelen
-U kunt een van uw verbonden apparaten op elk gewenst moment uitschakelen. Dit is vooral belangrijk als een apparaat wordt niet vertrouwd mee bent of als een apparaat is zoekgeraakt of gestolen.
+U kunt een van uw verbonden apparaten op elk gewenst moment uitschakelen. Dit is vooral belangrijk als een apparaat wordt niet vertrouwd mee bent of als een apparaat is zoekgeraakt of gestolen. Nadat u een apparaat uitschakelt, kan niet meer worden geverifieerd door uw organisatie en niet voor toegang tot alle bronnen van uw organisatie.
 
 >[!Important]
 >Als u per ongeluk een apparaat uitschakelt, is er geen manier om deze ongedaan te maken. Hebt u contact op met de beheerder van uw organisatie om toe te voegen van het apparaat opnieuw.

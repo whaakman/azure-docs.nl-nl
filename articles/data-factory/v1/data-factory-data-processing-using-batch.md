@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: a0d5f42fa6725ba23a89904779040f379f31e59e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 6ffed81390419898847ce1b1b9e6b2b48a749cdf
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454150"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548469"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Grootschalige gegevenssets verwerken met behulp van Data Factory en Batch
 > [!NOTE]
@@ -96,7 +96,7 @@ Als u geen Azure-abonnement hebt, kunt u snel een gratis proefaccount maken. Zie
 U kunt een storage-account gebruiken voor het opslaan van de gegevens in deze zelfstudie. Als u geen een storage-account hebt, raadpleegt u [een opslagaccount maken](../../storage/common/storage-quickstart-create-account.md). De Voorbeeldoplossing maakt gebruik van blob-opslag.
 
 #### <a name="azure-batch-account"></a>Azure Batch-account
-Een Batch-account maken met behulp van de [Azure-portal](http://portal.azure.com/). Zie voor meer informatie, [maken en beheren van een Batch-account](../../batch/batch-account-create-portal.md). Houd er rekening mee de Batch-account naam en de accountsleutel. Ook kunt u de [New-AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) cmdlet voor het maken van een Batch-account. Zie voor instructies over het gebruik van deze cmdlet [aan de slag met Batch PowerShell-cmdlets](../../batch/batch-powershell-cmdlets-get-started.md).
+Een Batch-account maken met behulp van de [Azure-portal](https://portal.azure.com/). Zie voor meer informatie, [maken en beheren van een Batch-account](../../batch/batch-account-create-portal.md). Houd er rekening mee de Batch-account naam en de accountsleutel. Ook kunt u de [New-AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) cmdlet voor het maken van een Batch-account. Zie voor instructies over het gebruik van deze cmdlet [aan de slag met Batch PowerShell-cmdlets](../../batch/batch-powershell-cmdlets-get-started.md).
 
 De Voorbeeldoplossing maakt gebruik van Batch (indirect via een data factory-pijplijn) om gegevens te verwerken in een parallelle manier op een pool van rekenknooppunten (een beheerde verzameling virtuele machines).
 
@@ -980,4 +980,4 @@ Nadat u gegevens verwerken, kunt u deze gebruiken met onlineprogramma's zoals Po
   * [Aan de slag met de Batch-clientbibliotheek voor .NET](../../batch/quick-run-dotnet.md)
 
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
-[batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
+[batch-explorer-walkthrough]: https://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx

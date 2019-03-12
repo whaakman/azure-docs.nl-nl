@@ -9,17 +9,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 9debcd121cbbde626758abccfe838abda12ad840
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1c59f092957704c44b5cda012aa7c471fdaa3275
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822830"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763364"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Storage explorer verbinden met een Azure Stack-abonnement of een storage-account
 
@@ -30,7 +30,7 @@ In dit artikel leert u hoe u verbinding maken met uw Azure Stack-abonnementen en
 > [!NOTE]  
 > Er zijn verschillende hulpprogramma's beschikbaar om gegevens te verplaatsen naar en van Azure Stack-opslag. Zie voor meer informatie, [hulpprogramma's voor Azure Stack-opslag voor gegevensoverdracht](azure-stack-storage-transfer.md).
 
-Als u Opslagverkenner nog niet hebt geïnstalleerd [Opslagverkenner downloaden](http://www.storageexplorer.com/) en installeer deze.
+Als u Opslagverkenner nog niet hebt geïnstalleerd [Opslagverkenner downloaden](https://www.storageexplorer.com/) en installeer deze.
 
 Nadat u verbinding met een Azure Stack-abonnement of een storage-account maken, kunt u de [Azure storage explorer artikelen](../../vs-azure-tools-storage-manage-with-storage-explorer.md) wilt werken met uw Azure Stack-gegevens. 
 

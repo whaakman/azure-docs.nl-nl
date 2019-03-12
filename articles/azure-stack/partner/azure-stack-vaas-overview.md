@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 12/20/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6126bacf50d47029c29772b35f6dc1d552d47029
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: ca22f29597cb452d6d33338b8ba0367c9377f6fb
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56592635"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772514"
 ---
 # <a name="what-is-validation-as-a-service-for-azure-stack"></a>Wat is gevalideerd als een Service voor Azure Stack?
 
@@ -65,7 +65,7 @@ Zie voor meer informatie [Snelstart: De validatie gebruiken als een serviceporta
 |----|------------|
 | [Nieuwe oplossing validatie](azure-stack-vaas-validate-solution-new.md) | Engine voor cloud-simulatie<br>COMPUTE operationele SDK-pakket<br>Test voor schijf-ID<br>KeyVault Extension SDK Operational Suite<br>KeyVault SDK Operational Suite<br>Network SDK Operational Suite<br>Storage-Account SDK operationele Suite<br> |
 | [Validatie van de OEM-pakket](azure-stack-vaas-validate-oem-package.md) | OEM-extensie pakket verificatie<br>Engine voor cloud-simulatie |
-| [Validatie van de maandelijkse update](azure-stack-vaas-validate-microsoft-updates.md) | Maandelijkse AzureStack Update-verificatie<br>Engine voor cloud-simulatie<br> |
+| [Validatie van de maandelijkse update](azure-stack-vaas-validate-microsoft-updates.md) | Maandelijks Azure Stack-Update-verificatie<br>Engine voor cloud-simulatie<br> |
 
 ## <a name="next-steps"></a>Volgende stappen
 

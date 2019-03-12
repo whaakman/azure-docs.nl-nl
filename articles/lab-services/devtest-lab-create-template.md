@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 9d009847856936d14a182b234910fb717c084d11
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 853c138c8cf73b41b0cebb6c1d349865e18eab6a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248058"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550102"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Een aangepaste installatiekopie van een VHD-bestand maken
 
@@ -61,8 +61,8 @@ De volgende stappen helpen u bij het maken van een aangepaste installatiekopie v
 1. U kunt ook een naam, abonnement en plan publisher invoeren als de installatiekopie die wordt gebruikt voor het maken van de aangepaste installatiekopie niet een gelicentieerde installatiekopie is (gepubliceerd door Microsoft).
 
    - **Naam van het plan:** Voer de naam van de Marketplace-installatiekopie (SKU) van deze aangepaste installatiekopie is gemaakt 
-   - **Plannen van aanbieding:** invoeren van het product (aanbieding) van de Marketplace-installatiekopie waaruit deze aangepaste installatiekopie is gemaakt 
-   - **Plannen van de uitgever:** invoeren van de uitgever van de Marketplace-installatiekopie waaruit deze aangepaste installatiekopie is gemaakt
+   - **Aanbieding voor abonnement:** Voer de productcode (aanbieding) van de Marketplace-installatiekopie waaruit deze aangepaste installatiekopie is gemaakt 
+   - **Plan uitgever:** Voer de uitgever van de Marketplace-installatiekopie waaruit deze aangepaste installatiekopie is gemaakt
 
    > [!NOTE]
    > Als de afbeelding die u gebruikt voor het maken van een aangepaste installatiekopie is **niet** een gelicentieerde installatiekopie en vervolgens deze velden leeg zijn en kunnen worden ingevuld indien gewenst. Als de afbeelding **is** een gelicentieerde installatiekopie en vervolgens de velden worden automatisch ingevuld met de planningsinformatie. Als u probeert te wijzigen in dit geval is, wordt er een waarschuwingsbericht weergegeven.
@@ -81,7 +81,7 @@ Na een paar minuten, wordt de aangepaste installatiekopie wordt gemaakt en wordt
 ## <a name="related-blog-posts"></a>Gerelateerde blogberichten
 
 - [Aangepaste installatiekopieën of formules?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
-- [Kopiëren van aangepaste installatiekopieën tussen Azure DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
+- [Kopiëren van aangepaste installatiekopieën tussen Azure DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## <a name="next-steps"></a>Volgende stappen
 

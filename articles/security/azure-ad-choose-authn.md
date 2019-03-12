@@ -9,18 +9,18 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: a05874e28c08087b6f82c3aa5a02e83d2629ffe5
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 7a90a0af8c6c7fd19b784d97e2ce30bea7910089
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728179"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550690"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Selecteer de juiste verificatiemethode voor uw Azure Active Directory-oplossing voor hybride identiteit 
 
 In dit artikel begint met een reeks artikelen waarmee organisaties implementeren van een complete hybride identiteitsoplossing met Azure Active Directory (Azure AD). Deze oplossing is beschreven als de [hybride identiteit digitale transformatie Framework](https://aka.ms/aadframework). Dit omvat de bedrijfsresultaten en doelstellingen organisaties kunnen zich concentreren op voor het implementeren van een robuuste en veilige hybride identiteitsoplossing. 
 
-De eerste bedrijfsuitkomst van het framework worden de vereisten voor organisaties die voor het beveiligen van het verificatieproces als gebruikers toegang hebben tot cloud-apps uitgeschreven. Het eerste bedrijf doel in het resultaat van de beveiligde bedrijven verificatie is de mogelijkheid voor aanmelding bij cloud-apps met behulp van de on-premises gebruikersnamen en wachtwoorden van gebruikers. Dit proces aanmelden op en hoe gebruikers worden geverifieerd maken alles in de cloud mogelijk.
+De eerste bedrijfsuitkomst van het framework worden de vereisten voor organisaties die voor het beveiligen van het verificatieproces als gebruikers toegang hebben tot cloud-apps uitgeschreven. Het eerste bedrijf doel in het resultaat van de beveiligde bedrijven verificatie is de mogelijkheid voor aanmelding bij cloud-apps met behulp van de on-premises gebruikersnamen en wachtwoorden van gebruikers. Dit proces verificatie- en stelt alles in de cloud.
 
 De juiste verificatiemethode kiezen, is het eerste aandachtspunt voor organisaties die willen hun apps verplaatsen naar de cloud. Geen Denk goed na voordat deze beslissing, om de volgende redenen:
 
@@ -161,7 +161,7 @@ De architectuur op hoog niveau onderdelen die vereist zijn voor elke methode voo
 
     ![Azure AD voor hybride identiteit met wachtwoord-hashsynchronisatie](media/azure-ad/azure-ad-authn-image2.png)
 
-* De agentvereisten van Pass through-verificatie:
+* De agentvereisten voor Pass through-verificatie met behulp van twee agents voor redundantie:
 
     ![Azure AD voor hybride identiteit met Pass through-verificatie](media/azure-ad/azure-ad-authn-image3.png)
 
@@ -204,7 +204,7 @@ Gebruik of inschakelen van wachtwoord-hashsynchronisatie voor welke verificatiem
 
    * Organisaties die eerder is ingeschakeld op de wachtwoord-hashsynchronisatie gewijzigd de verificatiemethode voor het gebruik van wachtwoord-hashsynchronisatie. Ze zijn weer online binnen een paar uur. Met behulp van toegang tot e-mail via Office 365, hebben ze voor het oplossen van problemen en andere werkbelastingen cloud-gebaseerde openen.
 
-   * Organisaties die niet eerder synchronisatie van wachtwoordhashes inschakelen moest gebruik te maken van niet-vertrouwde externe consumenten-e-mailsystemen voor communicatie en problemen oplossen. In deze gevallen nam ze weken of meer opnieuw actief zijn.
+   * Organisaties die niet eerder synchronisatie van wachtwoordhashes inschakelen moest gebruik te maken van niet-vertrouwde externe consumenten-e-mailsystemen voor communicatie met het oplossen van problemen. In deze gevallen nam ze weken om te herstellen van hun on-premises infrastructuur, voordat gebruikers kunnen aanmelden bij cloud-gebaseerde apps opnieuw zijn.
 
 3. **Identiteitsbeveiliging**. Een van de beste manieren om gebruikers in de cloud te beschermen is Azure AD Identity Protection met Azure AD Premium P2. Microsoft controleert voortdurend Internet voor de gebruiker en wachtwoord bevat dat ongewenste actoren verkopen en beschikbaar op de donkere web maken. Azure AD kunt u deze informatie gebruiken om te controleren of als een van de gebruikersnamen en wachtwoorden in uw organisatie zijn aangetast. Het is daarom essentieel om in te schakelen van wachtwoord-hashsynchronisatie, ongeacht welke verificatiemethode die u gebruikt, of die gefedereerd of Pass through-verificatie. Gelekte referenties worden weergegeven als een rapport. Gebruik deze informatie om te blokkeren of afdwingen dat gebruikers hun wachtwoord moeten wijzigen wanneer ze proberen zich aanmelden met gestolen wachtwoorden.
 

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 530bb83d753d27db4869b5725bc6d4c4e020e179
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3be2ab8bd4be56de945303bec9969f531be77864
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57446602"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535584"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup oplossen: Problemen met de agent of de extensie
 
@@ -220,7 +220,7 @@ Voor Linux-VM, als de VMSnapshot-extensie niet wordt weergegeven in de Azure-por
 Uitvoeren van deze stappen zorgt ervoor dat de uitbreiding moet worden geïnstalleerd tijdens de volgende back-up.
 
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Verwijder de vergrendeling van de resourcegroep van recovery point
-1. Meld u aan bij [Azure Portal](http://portal.azure.com/).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Ga naar **optie alle Resources**, selecteer de resourcegroep waarin u restore point verzameling in de volgende indeling AzureBackupRG_`<Geo>`_`<number>`.
 3. In de **instellingen** sectie, selecteer **vergrendelingen** om de vergrendelingen weer te geven.
 4. Als u wilt de vergrendeling verwijderen, selecteer het beletselteken en klik op **verwijderen**.
@@ -241,7 +241,7 @@ Na het verwijderen van vergrendeling-trigger voor een ad-hoc/handmatige back-up.
 #### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Opschonen van terugzetten wijst u het verzamelen van Azure portal <br>
 
 Schakelt u de terugzetbewerking handmatig verwijst verzameling die niet zijn uitgeschakeld vanwege de vergrendeling van de resourcegroep, probeert u de volgende stappen uit:
-1. Meld u aan bij [Azure Portal](http://portal.azure.com/).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Op de **Hub** menu, klikt u op **alle resources**, selecteer de resourcegroep met de volgende indeling AzureBackupRG_`<Geo>`_`<number>` waar uw virtuele machine zich bevindt.
 
     ![Vergrendeling voor verwijderen](./media/backup-azure-arm-vms-prepare/resource-group.png)

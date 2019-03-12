@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: cddc6ccd8360ef88c95cd33c0bc8e141d721042d
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 951f8f887a7b29aac67b50ff8f92ddfd4a66e26b
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010511"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766875"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Uw app integreren met een Azure-netwerk
 Dit document beschrijft de functie voor integratie met virtueel netwerk Azure App Service en laat zien hoe u om in te stellen met apps in [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Virtuele netwerken van Azure] [ VNETOverview] (VNets) kunt u veel van uw Azure-resources in een niet-routeerbare internetnetwerk plaatsen. Deze netwerken kunnen vervolgens worden verbonden met uw on-premises netwerken met behulp van VPN-technologieën. 
@@ -277,7 +277,8 @@ De nieuwe versie is in Preview en heeft de volgende kenmerken.
 * De nieuwe functie voor VNet-integratie werkt niet voor apps in een App Service Environment.
 * U kunt een VNet met een geïntegreerde app niet verwijderen.  
 * Routetabellen en wereldwijde peering zijn nog niet beschikbaar met de nieuwe VNet-integratie.  
-* Een adres wordt gebruikt voor elk exemplaar van App Service-plan. Omdat de grootte van het gatewaysubnet kan niet worden gewijzigd nadat de toewijzing, gebruikt u een subnet dat meer dan is voor de grootte van uw maximale schaal voldoende. Een/27 met 32 adressen is de aanbevolen grootte, zoals die overeenkomt met een App Service-plan die wordt geschaald naar 20 instanties.  U kunt beveiligde bronnen met behulp van de nieuwe functie van de VNet-integratie van Service-eindpunt verbruiken. Om dit te doen, moet u service-eindpunten op het subnet dat wordt gebruikt voor VNet-integratie inschakelen.
+* Een adres wordt gebruikt voor elk exemplaar van App Service-plan. Omdat de grootte van het gatewaysubnet kan niet worden gewijzigd nadat de toewijzing, gebruikt u een subnet dat meer dan is voor de grootte van uw maximale schaal voldoende. Een/27 met 32 adressen is de aanbevolen grootte, zoals die overeenkomt met een App Service-plan die wordt geschaald naar 20 instanties.
+* U kunt beveiligde bronnen met behulp van de nieuwe functie van de VNet-integratie van Service-eindpunt verbruiken. Om dit te doen, moet u service-eindpunten op het subnet dat wordt gebruikt voor VNet-integratie inschakelen.
 
 Met de nieuwe functie:
 

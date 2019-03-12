@@ -3,17 +3,16 @@ title: Bijlage - Azure Disk Encryption voor IaaS-VM's | Microsoft Docs
 description: Dit artikel is de bijlage voor Microsoft Azure Disk Encryption voor Windows en Linux IaaS-VM's.
 author: mestew
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 01/14/2019
+ms.date: 03/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: d23e6d00b77e69f7f3353938c52b450eebbfd142
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 6632647c7782411d0d124c325f9bf0afff7e699d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990677"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767785"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Bijlage voor Azure Disk Encryption 
 
@@ -164,14 +163,6 @@ De volgende tabel ziet u welke parameters kunnen worden gebruikt in het PowerShe
 
 - [Maak een nieuwe versleutelde Windows IaaS beheerde schijf VM van image z galerie](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image-managed-disks)
     - Deze sjabloon maakt een nieuwe versleutelde Windows-VM met beheerde schijven met behulp van de galerie met Windows Server 2012.
-
-- [Implementatie van RHEL 7.2 met volledige schijfversleuteling met beheerde schijven](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel)
-    - Deze sjabloon maakt een volledig versleutelde RHEL 7.2 in Azure met behulp van beheerde schijven. Het bevat een versleutelde 30 GB-OS-station en een versleutelde 200 GB-matrix (RAID-0) aan /mnt/raidencrypted gekoppeld. Zie de [Veelgestelde vragen over](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) artikel voor ondersteunde distributies van Linux-server. 
-
-- [Implementatie van RHEL 7.2 met volledige schijfversleuteling met niet-beheerde schijven](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel-unmanaged)
-    - Deze sjabloon maakt een volledig versleutelde RHEL 7.2 in Azure met een besturingssysteemschijf met een versleutelde versie van 30 GB en een versleutelde 200 GB-matrix (RAID-0) aan /mnt/raidencrypted gekoppeld. Zie de [Veelgestelde vragen over](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) artikel voor ondersteunde distributies van Linux-server. 
-
-- [Schijfversleuteling op een vooraf gecodeerde VHD voor Windows of Linux inschakelen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-pre-encrypted-vm)
 
 - [Maak een nieuwe versleutelde beheerde schijf van een vooraf gecodeerde VHD/opslag-blob](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
     - Maakt u een nieuwe versleutelde beheerde schijf die een vooraf gecodeerde VHD en de bijbehorende instellingen voor codering
@@ -555,7 +546,7 @@ Wanneer u versleutelt met behulp van een Azure AD-app (vorige versie), moet het 
 ``` 
 
 ### <a name="bkmk_SecretnoKEK"></a> Versleutelingsgeheim van schijf niet is versleuteld met een KEK-sleutel
-Als u het geheim in uw key vault instelt, gebruikt u [Set-AzureKeyVaultSecret](/powershell/module/az.keyvault/set-azurekeyvaultsecret). Als u een Windows-machine hebt, de bek-bestand is als een tekenreeks met Base 64-codering en vervolgens geüpload naar uw sleutelkluis met de `Set-AzureKeyVaultSecret` cmdlet. Voor Linux, is de wachtwoordzin in als een tekenreeks met Base 64 gecodeerde en vervolgens geüpload naar de key vault. Bovendien moet u ervoor dat de volgende codes zijn ingesteld wanneer u het geheim in de key vault maakt.
+Als u het geheim in uw key vault instelt, gebruikt u [Set AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret). Als u een Windows-machine hebt, de bek-bestand is als een tekenreeks met Base 64-codering en vervolgens geüpload naar uw sleutelkluis met de `Set-AzureKeyVaultSecret` cmdlet. Voor Linux, is de wachtwoordzin in als een tekenreeks met Base 64 gecodeerde en vervolgens geüpload naar de key vault. Bovendien moet u ervoor dat de volgende codes zijn ingesteld wanneer u het geheim in de key vault maakt.
 
 #### <a name="windows-bek-file"></a>De BEK Windows-bestand
 ```powershell
@@ -604,7 +595,7 @@ $SecretUrl
 Gebruik de `$secretUrl` in de volgende stap voor [de OS-schijf koppelen zonder KEK](#bkmk_URLnoKEK).
 
 ### <a name="bkmk_SecretKEK"></a> Versleutelingsgeheim van schijf versleuteld met een KEK-sleutel
-Voordat u het geheim naar de key vault uploaden, kunt u deze desgewenst versleutelen met behulp van een sleutel van versleutelingssleutel. Gebruik de wrap [API](https://msdn.microsoft.com/library/azure/dn878066.aspx) voor het eerst het geheim met behulp van de sleutel van versleutelingssleutel te versleutelen. De uitvoer van deze bewerking wrap is een tekenreeks met Base 64 URL-codering, die u vervolgens als een geheim uploaden met behulp van kunt de [ `Set-AzureKeyVaultSecret` ](/powershell/module/az.keyvault/set-azurekeyvaultsecret) cmdlet.
+Voordat u het geheim naar de key vault uploaden, kunt u deze desgewenst versleutelen met behulp van een sleutel van versleutelingssleutel. Gebruik de wrap [API](https://msdn.microsoft.com/library/azure/dn878066.aspx) voor het eerst het geheim met behulp van de sleutel van versleutelingssleutel te versleutelen. De uitvoer van deze bewerking wrap is een tekenreeks met Base 64 URL-codering, die u vervolgens als een geheim uploaden met behulp van kunt de [ `Set-AzKeyVaultSecret` ](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet.
 
 ```powershell
     # This is the passphrase that was provided for encryption during the distribution installation

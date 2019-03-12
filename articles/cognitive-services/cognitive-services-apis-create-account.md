@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 02/01/2018
 ms.author: garye
-ms.openlocfilehash: c69e8b7360774971316b5a060aff9e7057d3e9aa
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 21e1eb00f688f2e7061e876cc4375d6d780838fc
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873969"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534800"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Quickstart: Een Cognitive Services-account maken in Azure portal
 
@@ -35,7 +35,7 @@ De volgende secties helpen u bij het maken van een abonnement één of meerdere 
 
 ### <a name="single-service-subscription"></a>Enkele service-abonnement
 
-1. Aanmelden bij de [Azure-portal](http://portal.azure.com), en klikt u op **+ een resource maken**.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com), en klikt u op **+ een resource maken**.
 
     ![Cognitive Services API's selecteren](media/cognitive-services-apis-create-account/azurePortalScreen.png)
 
@@ -57,7 +57,7 @@ De volgende secties helpen u bij het maken van een abonnement één of meerdere 
 
 ### <a name="multi-service-subscription"></a>Meerdere service-abonnement
 
-1. Aanmelden bij de [Azure-portal](http://portal.azure.com), en klikt u op **+ een resource maken**.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com), en klikt u op **+ een resource maken**.
 
     ![Cognitive Services API's selecteren](media/cognitive-services-apis-create-account/azurePortalScreenMulti.png)
 

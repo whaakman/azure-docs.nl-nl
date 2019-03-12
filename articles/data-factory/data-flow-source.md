@@ -7,25 +7,25 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: e33606e0b5be0db5306cfd42f87baf59671eb2a8
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 20491981cb02e428ff4114b9456d74b0de651be8
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451726"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569022"
 ---
 # <a name="mapping-data-flow-source-transformation"></a>Gegevenstransformatie stroom bron toewijzen
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-De bron-transformatie configureert u een gegevensbron die u gebruiken wilt om gegevens in de gegevensstroom. Mogelijk hebt u meer dan één bron transformatie in een enkele gegevensstroom. Begin altijd het ontwerpen van uw gegevens stromen met de bron.
+De bron-transformatie configureert u een gegevensbron die u gebruiken wilt om gegevens in de gegevensstroom. Mogelijk hebt u meer dan één bron transformatie in een enkele gegevensstroom. Begin altijd het ontwerpen van uw gegevens stromen met een transformatie van de bron.
 
 > [!NOTE]
-> Elke gegevensstroom vereist ten minste één bron transformatie. Voeg zo veel extra bronnen die u nodig hebt om te voltooien, uw gegevenstransformaties. U kunt deelnemen aan deze bronnen, samen met een Join- of Union transformatie.
+> Elke gegevensstroom vereist ten minste één bron transformatie. Voeg zo veel extra bronnen die u nodig hebt om te voltooien, uw gegevenstransformaties. U kunt deelnemen aan deze bronnen, samen met een Join- of Union transformatie. Wanneer u fouten opsporen in uw gegevensstroom tijdens foutopsporing sessies, de gegevens worden gelezen uit de gegevensbron met behulp van de instelling van steekproeven of foutopsporing bron limieten. Echter worden, er worden geen gegevens naar een Sink moeten geschreven totdat u de gegevensstroom vanaf een pipeline-stroomactiviteit van gegevens uitvoert. 
 
 ![Opties voor transformatie](media/data-flow/source.png "bron")
 
-Elke bron gegevensstroom transformatie moet worden gekoppeld aan één Data Factory-gegevensset, die de vorm en de locatie van uw gegevens schrijven naar of lezen vanaf definieert. U kunt lijsten met jokertekens en bestand in uw bron om te werken met meer dan één bestand tegelijk.
+Elke bron gegevensstroom transformatie moet worden gekoppeld aan één Data Factory-gegevensset. De gegevensset definieert de vorm en de locatie van uw gegevens te schrijven naar of te lezen uit. U kunt lijsten met jokertekens en bestand in uw bron om te werken met meer dan één bestand tegelijk bij het gebruik van bestandsbronnen.
 
 ## <a name="data-flow-staging-areas"></a>Ruimten met tijdelijke bestanden van de gegevensstroom
 
@@ -43,7 +43,7 @@ Selecteer Schema Drift toestaan als de bronkolommen wordt vaak veranderen. Deze 
 Als de inkomende versie van de brongegevens komt niet overeen met het gedefinieerde schema, klikt u vervolgens mislukt de uitvoering van de gegevensstroom.
 
 ### <a name="sampling"></a>Steekproeven
-Steekproeven gebruiken om te beperken van het aantal rijen van de bron.  Dit is handig wanneer u slechts een voorbeeld van uw gegevens nodig hebt voor het testen en foutopsporing.
+Steekproeven gebruiken om te beperken van het aantal rijen van de bron.  Dit is handig bij het testen of steekproeven van gegevens vanuit de bron voor foutopsporing.
 
 ## <a name="define-schema"></a>Schema definiëren
 

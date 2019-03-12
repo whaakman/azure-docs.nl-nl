@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 03/05/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 214abd64232130dd3fd5fdde510f7545732ac82e
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 1dd488c2eb419b5e210a48d7a94f7d0bb423a2b1
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54082772"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731475"
 ---
 # <a name="dynamics-365-for-customer-engagement-technical-info-tab"></a>Dynamics 365 voor Customer Engagement technische Info-tabblad
 
@@ -58,7 +58,7 @@ De volgende tabel beschrijft deze velden.
 |  De bestandsnaam van het pakket     |  De bestandsnaam van het pakket (.zip).  Deze naam *niet* openbare en intern wordt gebruikt door het team van Dynamics 365-certificering.  |
 |  URL                          |  URL van een Azure Storage-account dat het bestand geüploade pakket bevat. Deze URL moet een alleen-lezen SAS-sleutel zodat ons team om op te halen uw pakket voor verificatie bevatten.  |
 | Meer dan één crm-pakket     | Selecteer Ja alleen als u ondersteuning voor meerdere versies van crm met verschillende pakketten bieden.  Elke versie heeft een bijbehorende pakket bestand tht die u moet afzonderlijk maken.  |
-| Scenario en gebruik case activa   | Hiermee kunt het uploaden van een functionele specificatiedocument voor uw toepassing, voor gebruik door het validatieteam van Dynamics 365.  De door u gewenste indeling voor deze specificatie is de [E2E Scenario gebruikerssjabloon](http://download.microsoft.com/download/5/1/8/51812AC9-BCD8-489F-937C-5D439C494EC1/E2E%20User%20Scenario%20Template.docx).  |
+| Scenario en gebruik case activa   | Hiermee kunt het uploaden van een functionele specificatiedocument voor uw toepassing, voor gebruik door het validatieteam van Dynamics 365.  De door u gewenste indeling voor deze specificatie is de [E2E Scenario gebruikerssjabloon](https://isvdocumentation.blob.core.windows.net/d365documentation/Power%20Platform%20E2E%20document.docx).  |
 |  |  |
 
 

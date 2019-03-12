@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2018
+ms.date: 03/05/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 0a4be349bfd8ce546ee2a27c206a7bd86306c27a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 91a776ba13ffaeeb4f8184371ae45a80d829ae46
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493555"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550619"
 ---
 # <a name="throttling-resource-manager-requests"></a>Beperking van Resource Manager-aanvragen
 
@@ -28,14 +28,14 @@ Aanvragen worden toegepast op uw abonnement of uw tenant. Verzoeken om abonnemen
 
 Deze limieten gelden voor elk exemplaar van Azure Resource Manager. Er zijn meerdere exemplaren in elke Azure-regio en Azure Resource Manager wordt geïmplementeerd voor alle Azure-regio's.  Dus in de praktijk limieten effectief veel hoger zijn dan deze limieten zijn, als gebruiker worden aanvragen doorgaans afgehandeld door veel verschillende exemplaren.
 
-Als uw toepassing of script deze limiet is bereikt, moet u uw aanvragen beperken. In dit artikel leest u hoe u bepaalt de resterende aanvragen die u hebt voordat de limiet wordt bereikt, en om te reageren wanneer u de limiet hebt bereikt.
+Als uw toepassing of script deze limiet is bereikt, moet u uw aanvragen beperken. In dit artikel leest u hoe u bepaalt de resterende aanvragen die u hebt voordat de limiet wordt bereikt, en om te reageren wanneer u de limiet is bereikt.
 
 Wanneer u de limiet is bereikt, ontvangt u de HTTP-statuscode **429 te veel aanvragen**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="remaining-requests"></a>Overige aanvragen
-U kunt het aantal resterende aanvragen bepalen door onderzoeken antwoordheaders. Elke aanvraag bevat de waarden voor het aantal resterende lees- en schrijfaanvragen. De volgende tabel beschrijft de reactieheaders die u voor deze waarden kunt bekijken:
+U kunt het aantal resterende aanvragen bepalen door onderzoeken antwoordheaders. Leesaanvragen retourneert een waarde in de header voor het aantal resterende lezen aanvragen. Aanvragen voor een waarde bevatten voor het aantal schrijfaanvragen voor de resterende worden geschreven. De volgende tabel beschrijft de reactieheaders die u voor deze waarden kunt bekijken:
 
 | Reactieheader | Description |
 | --- | --- |
@@ -82,7 +82,7 @@ OK
 
 Headers:
 Pragma                        : no-cache
-x-ms-ratelimit-remaining-subscription-reads: 14999
+x-ms-ratelimit-remaining-subscription-reads: 11999
 ```
 
 Als u limieten voor schrijven, gebruikt u een schrijfbewerking: 
@@ -121,7 +121,7 @@ msrest.http_logger :     'Content-Type': 'application/json; charset=utf-8'
 msrest.http_logger :     'Content-Encoding': 'gzip'
 msrest.http_logger :     'Expires': '-1'
 msrest.http_logger :     'Vary': 'Accept-Encoding'
-msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-reads': '14998'
+msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-reads': '11998'
 ```
 
 Als u limieten voor schrijven, gebruikt u een schrijfbewerking: 

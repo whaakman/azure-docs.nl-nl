@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 03/06/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47d28eb63ffb700dc0f20020ac4007c5485b0edb
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: fa9872ef76264956430bb69856a197042c196dfd
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56589003"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550187"
 ---
 # <a name="combined-security-information-registration-preview"></a>Gecombineerde security informatie registratie (preview)
 
@@ -33,6 +33,8 @@ Bekijk voordat u de nieuwe ervaring is ingeschakeld, deze beheerder gerichte doc
 
 > [!IMPORTANT]
 > Als een gebruiker is ingeschakeld voor zowel de oorspronkelijke Preview-versie en de uitgebreide gecombineerde registratie-ervaring, zien ze de nieuwe ervaring. Gebruikers die zijn ingeschakeld voor beide ervaringen zien alleen de nieuwe ervaring voor mijn profiel. De nieuwe Mijn profiel uitgelijnd met het uiterlijk van de gecombineerde inschrijving en biedt een naadloze ervaring voor gebruikers. Gebruikers kunnen mijn profiel bekijken door te gaan naar [ https://myprofile.microsoft.com ](https://myprofile.microsoft.com).
+
+De pagina Mijn profiel worden gelokaliseerd op basis van de huidige taalinstellingen op de computer die toegang tot de pagina. De meest recente taal gebruikt in de browser-cache, zodat de daaropvolgende pogingen worden gedaan om toegang te blijven moeten worden weergegeven in de laatste taal die wordt gebruikt door Microsoft wordt opgeslagen. De cache wissen zorgt ervoor dat de pagina's opnieuw te genereren. Als u wilt afdwingen dat een specifieke taal toe te voegen een `?lng=de-DE` aan het einde van de URL waar `de-DE` is ingesteld op de juiste taal code de pagina's om weer te geven in die taal wordt afgedwongen.
 
 ![Mijn profiel-interface van beveiligingsgegevens en de mogelijkheid voor gebruikers voor het instellen van SSPR of andere verificatiemethoden voor extra beveiliging.](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
 

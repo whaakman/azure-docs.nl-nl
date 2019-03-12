@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
-ms.openlocfilehash: 3c3d534392431e79feabe37fe940ea87f586c660
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: d3152eb4b2512e05cad60772f8c4c75dd929758a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051693"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535570"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Gebruik van RDMA of GPU-exemplaren in de Batch-pools
 
@@ -54,7 +54,7 @@ De RDMA of GPU-mogelijkheden van rekenintensieve grootten in Batch worden alleen
 
 | Grootte | Mogelijkheid | Besturingssystemen | Vereiste software | Poolinstellingen |
 | -------- | ------ | -------- | -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | WindowsServer 2016, 2012 R2, of<br/>2012 (azure Marketplace) | Microsoft MPI 2012 R2 of hoger, of<br/> Intel MPI 5<br/><br/>Windows RDMA-stuurprogramma 's | De communicatie tussen knooppunten inschakelen, uitschakelen van de uitvoering van gelijktijdige taken |
+| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | WindowsServer 2016, 2012 R2, of<br/>2012 (Azure Marketplace) | Microsoft MPI 2012 R2 of hoger, of<br/> Intel MPI 5<br/><br/>Windows RDMA-stuurprogramma 's | De communicatie tussen knooppunten inschakelen, uitschakelen van de uitvoering van gelijktijdige taken |
 | [NC, de NCv2, NCv3, ND, NDv2-serie](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (verschilt per serie) | WindowsServer 2016 of <br/>2012 R2 (Azure Marketplace) | Stuurprogramma's van NVIDIA CUDA of CUDA Toolkit| N/A | 
 | [NV, NVv2-serie](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | WindowsServer 2016 of<br/>2012 R2 (Azure Marketplace) | NVIDIA GRID-stuurprogramma 's | N/A |
 <sup>*</sup>RDMA-compatibele N-serie-grootten zijn ook NVIDIA Tesla GPU 's
@@ -100,18 +100,18 @@ U hebt verschillende mogelijkheden voor het installeren van vereiste software of
 
 CUDA-toepassingen op een pool van Windows NC knooppunten uitgevoerd, moet u NVDIA GPU-stuurprogramma's installeren. De volgende stappen uit voor voorbeeld gebruiken een toepassingspakket voor het installeren van de NVIDIA GPU-stuurprogramma's. U kunt deze optie selecteren als uw werkbelasting, is afhankelijk van een specifieke versie van de GPU-stuurprogramma.
 
-1. Download een installatiepakket voor de GPU-stuurprogramma's op Windows Server 2016 van de [NVIDIA website](https://www.nvidia.com/Download/index.aspx) - bijvoorbeeld [versie 411.82](http://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Sla het bestand lokaal via een korte naam, zoals *GPUDriverSetup.exe*.
+1. Download een installatiepakket voor de GPU-stuurprogramma's op Windows Server 2016 van de [NVIDIA website](https://www.nvidia.com/Download/index.aspx) - bijvoorbeeld [versie 411.82](https://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Sla het bestand lokaal via een korte naam, zoals *GPUDriverSetup.exe*.
 2. Maak een zipbestand van het pakket.
 3. Uploaden van het pakket aan uw Batch-account. Zie voor stappen de [toepassingspakketten](batch-application-packages.md) richtlijnen. Geef een toepassings-id bijvoorbeeld *GPUDriver*, en de versie zoals *411.82*.
 1. Met behulp van de Batch-API's of Azure-portal, een pool maakt in de configuratie van de virtuele machine met het gewenste aantal knooppunten en de schaal. De volgende tabel ziet u voorbeelden van instellingen voor het installeren van de NVIDIA GPU-stuurprogramma's op de achtergrond met behulp van een begintaak:
 
-| Instelling | Waarde |
+| Instelling | Value |
 | ---- | ----- | 
 | **Type installatiekopie** | Marketplace (Linux/Windows) |
 | **Publisher** | MicrosoftWindowsServer |
 | **Aanbieding** | WindowsServer |
 | **SKU** | 2016-Datacenter |
-| **Knooppuntgrootte** | Standard NC6 |
+| **Knooppuntgrootte** | NC6 Standard |
 | **Toepassingspakketverwijzingen** | GPUDriver, versie 411.82 |
 | **De begintaak is ingeschakeld** | True<br>**Vanaf de opdrachtregel** - `cmd /c "%AZ_BATCH_APP_PACKAGE_GPUDriver#411.82%\\GPUDriverSetup.exe /s"`<br/>**Gebruikers-id** -Pool van autouser, admin<br/>**Wachten op voltooiing** : True
 
@@ -126,12 +126,12 @@ CUDA-toepassingen op een pool met Linux NC knooppunten uitgevoerd, moet u die no
 4. Maak een Batch-account in een regio die ondersteuning biedt voor Netwerkcontroller-VM's.
 5. Een pool met de Batch-API's of Azure portal, maakt [met behulp van de aangepaste](batch-custom-images.md) en met het gewenste aantal knooppunten en de schaal. De volgende tabel ziet u voorbeelden van toepassingen van instellingen voor de installatiekopie:
 
-| Instelling | Waarde |
+| Instelling | Value |
 | ---- | ---- |
 | **Type installatiekopie** | Aangepaste installatiekopie |
 | **Aangepaste installatiekopie** | *Naam van de installatiekopie* |
 | **Knooppuntagent-SKU** | batch.node.ubuntu 16.04 |
-| **Knooppuntgrootte** | Standard NC6 |
+| **Knooppuntgrootte** | NC6 Standard |
 
 ## <a name="example-microsoft-mpi-on-a-windows-h16r-vm-pool"></a>Voorbeeld: Microsoft MPI op een Windows H16r VM-pool
 
@@ -145,12 +145,12 @@ Om uit te voeren Windows MPI-toepassingen op een pool van Azure H16r VM-knooppun
 1. Volg de stappen voor het maken van een [momentopname en aangepaste Windows-VM-installatiekopie](batch-custom-images.md) voor Batch.
 1. Een pool met de Batch-API's of Azure portal, maakt [met behulp van de aangepaste](batch-custom-images.md) en met het gewenste aantal knooppunten en de schaal. De volgende tabel ziet u voorbeelden van toepassingen van instellingen voor de installatiekopie:
 
-| Instelling | Waarde |
+| Instelling | Value |
 | ---- | ---- |
 | **Type installatiekopie** | Aangepaste installatiekopie |
 | **Aangepaste installatiekopie** | *Naam van de installatiekopie* |
 | **Knooppuntagent-SKU** | batch.node.Windows amd64 |
-| **Knooppuntgrootte** | Standaard H16r |
+| **Knooppuntgrootte** | H16r Standard |
 | **De communicatie tussen knooppunten is ingeschakeld** | True |
 | **Maximum aantal taken per knooppunt** | 1 |
 
@@ -160,13 +160,13 @@ Voor het uitvoeren van MPI-toepassingen op een pool van Linux H-serie knooppunte
 
 Een pool met behulp van deze installatiekopie met de Batch-API's of Azure portal, maken en met het gewenste aantal knooppunten en de schaal. De volgende tabel bevat instellingen voor voorbeeld van toepassingen:
 
-| Instelling | Waarde |
+| Instelling | Value |
 | ---- | ---- |
 | **Type installatiekopie** | Marketplace (Linux/Windows) |
 | **Publisher** | OpenLogic |
 | **Aanbieding** | CentOS-HPC |
 | **SKU** | 7.4 |
-| **Knooppuntgrootte** | Standaard H16r |
+| **Knooppuntgrootte** | H16r Standard |
 | **De communicatie tussen knooppunten is ingeschakeld** | True |
 | **Maximum aantal taken per knooppunt** | 1 |
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b7a785cc506f12360edc14555b7241a557dc400c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: dc72ec9bf2e7e7c5c77685368167357a0108f2d3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817332"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541924"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Gegevens verplaatsen van Amazon Redshift, met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ Data Factory ondersteunt momenteel alleen gegevens te verplaatsen van Amazon Red
 > Voor het bereiken van de beste prestaties bij het kopiëren van grote hoeveelheden gegevens van Amazon Redshift, overweeg het gebruik van de ingebouwde Redshift **UNLOAD** opdracht via de Amazon Simple Storage-Service (Amazon S3). Zie voor meer informatie, [gebruik laden ongedaan maken om gegevens te kopiëren van Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift).
 
 ## <a name="prerequisites"></a>Vereisten
-* Als u gegevens naar een on-premises-gegevensarchief verplaatst, installeert u [Data Management Gateway](data-factory-data-management-gateway.md) op een on-premises machine. Toegangsmachtigingen voor een gateway met de Amazon Redshift-cluster met behulp van de IP-adres van de lokale computer. Zie voor instructies [verleent toegang tot het cluster](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html).
+* Als u gegevens naar een on-premises-gegevensarchief verplaatst, installeert u [Data Management Gateway](data-factory-data-management-gateway.md) op een on-premises machine. Toegangsmachtigingen voor een gateway met de Amazon Redshift-cluster met behulp van de IP-adres van de lokale computer. Zie voor instructies [verleent toegang tot het cluster](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html).
 * Om gegevens te verplaatsen naar een Azure data store, Zie de [Compute IP-adres en de SQL-bereiken die worden gebruikt door de Microsoft Azure-Datacenters](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ## <a name="getting-started"></a>Aan de slag
@@ -100,7 +100,7 @@ U kunt ook kunt u de **RelationalSource** type, waaronder Amazon Redshift, met d
 
 ## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>Laden ongedaan maken om gegevens te kopiëren van Amazon Redshift gebruiken
 
-De Amazon Redshift [ **UNLOAD** ](http://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) opdracht wordt verwijderd van de resultaten van een query op een of meer bestanden op Amazon S3. Met deze opdracht wordt door Amazon aanbevolen voor het kopiëren van grote gegevenssets van Redshift.
+De Amazon Redshift [ **UNLOAD** ](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) opdracht wordt verwijderd van de resultaten van een query op een of meer bestanden op Amazon S3. Met deze opdracht wordt door Amazon aanbevolen voor het kopiëren van grote gegevenssets van Redshift.
 
 **Voorbeeld: Gegevens kopiëren van Amazon Redshift naar Azure SQL Data Warehouse**
 

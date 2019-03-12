@@ -15,12 +15,12 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a06b7f66742ad7e97e4ae2ab57aabf15f21faf3
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: cab5b9317102a86dd75d2cb7e5a820cf64d2e831
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957725"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535543"
 ---
 # <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Activiteitenlogboeken bekijken voor RBAC-wijzigingen in de Azure-resources
 
@@ -108,7 +108,7 @@ Met deze opdracht worden de activiteitenlogboeken voor de autorisatie-resourcepr
 az monitor activity-log list --resource-provider "Microsoft.Authorization" --start-time 2018-04-20T00:00:00Z
 ```
 
-## <a name="azure-monitor-logs"></a>Logboeken in Azure Monitor
+## <a name="azure-monitor-logs"></a>Azure Monitor-logboeken
 
 [Logboeken in Azure Monitor](../log-analytics/log-analytics-overview.md) is een ander hulpprogramma, kunt u het verzamelen en analyseren van RBAC-wijzigingen voor al uw Azure-resources. Logboeken in Azure Monitor biedt de volgende voordelen:
 
@@ -123,9 +123,9 @@ Hier volgen de basisstappen om te beginnen:
 
 1. [De oplossing Activity Log Analytics configureren](../azure-monitor/platform/collect-activity-logs.md#configuration) voor uw werkruimte.
 
-1. [Bekijk de activiteitenlogboeken](../azure-monitor/platform/collect-activity-logs.md#using-the-solution). Een snelle manier om te navigeren naar de pagina overzicht voor analyse van activiteit is om op de **Log Analytics** optie.
+1. [Bekijk de activiteitenlogboeken](../azure-monitor/platform/collect-activity-logs.md#using-the-solution). Een snelle manier om te navigeren naar de pagina overzicht van Activity Log Analytics-oplossing is om op de **Log Analytics** optie.
 
-   ![Log Analytics-optie in de portal](./media/change-history-report/azure-log-analytics-option.png)
+   ![Azure Monitor beschikbaar optie zijn in portal](./media/change-history-report/azure-log-analytics-option.png)
 
 1. (Optioneel) gebruik van de [zoeken in logboeken](../log-analytics/log-analytics-log-search.md) pagina of het [portal Advanced Analytics](../azure-monitor/log-query/get-started-portal.md) query's uitvoeren en bekijk de logboeken. Zie voor meer informatie over deze twee opties [pagina voor zoeken in Logboeken of de portal Advanced Analytics](../azure-monitor/log-query/portals.md).
 

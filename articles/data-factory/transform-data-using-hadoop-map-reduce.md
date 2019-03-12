@@ -3,23 +3,23 @@ title: Gegevens transformeren met behulp van Hadoop MapReduce-activiteit in Azur
 description: Informatie over het verwerken van gegevens door het uitvoeren van Hadoop MapReduce programma's op een Azure HDInsight-cluster uit een Azure data factory.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.author: douglasl
-ms.openlocfilehash: 4543982f731feb44a8f02581c11714dec2b206f9
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: ccc194dd4120762a30da3ad28cdabed6faf53ba2
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214501"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576392"
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Gegevens transformeren met behulp van Hadoop MapReduce-activiteit in Azure Data Factory
-> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](v1/data-factory-map-reduce.md)
 > * [Huidige versie](transform-data-using-hadoop-map-reduce.md)
 
@@ -66,7 +66,7 @@ Zie [Pig](transform-data-using-hadoop-pig.md) en [Hive](transform-data-using-had
 | description       | Beschrijving van het doel waarvoor de activiteit wordt gebruikt | Nee       |
 | type              | Voor MapReduce-activiteit wordt het activiteitstype HDinsightMapReduce | Ja      |
 | linkedServiceName | Verwijzing naar het HDInsight-cluster geregistreerd als een gekoppelde service in Data Factory. Zie voor meer informatie over deze gekoppelde service, [gekoppelde services berekenen](compute-linked-services.md) artikel. | Ja      |
-| Klassenaam         | Naam van de klasse moet worden uitgevoerd         | Ja      |
+| className         | Naam van de klasse moet worden uitgevoerd         | Ja      |
 | jarLinkedService  | Verwijzing naar een gekoppelde Azure Storage-Service gebruikt voor het opslaan van de Jar-bestanden. Als u deze gekoppelde Service niet opgeeft, wordt de Azure Storage gekoppelde Service gedefinieerd in de gekoppelde HDInsight-Service wordt gebruikt. | Nee       |
 | jarFilePath       | Geef het pad naar het Jar-bestanden die zijn opgeslagen in Azure Storage waarnaar wordt verwezen door jarLinkedService. De bestandsnaam is hoofdlettergevoelig. | Ja      |
 | jarlibs           | Matrix van het pad naar het Jar-bibliotheekbestanden waarnaar wordt verwezen door de taak die zijn opgeslagen in de Azure-opslag die is gedefinieerd in jarLinkedService de tekenreeks. De bestandsnaam is hoofdlettergevoelig. | Nee       |

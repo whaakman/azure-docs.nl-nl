@@ -4,20 +4,20 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 3c4b9f5b8533e24a5b7cee1d2b4e3a8c65473b6b
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: b3a610fd1c4da99d1e98a5caea9e1a4151fc1fea
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279567"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553367"
 ---
 | Resource | Standaardlimiet | Maximumaantal | 
 | --- | --- | --- |
-| CDN-profielen |25 |25 |
-| CDN-eindpunten per profiel |10 |25 |
+| Azure Content Delivery Network-profielen |25 |25 |
+| Content Delivery Network-eindpunten per profiel |10 |25 |
 | Aangepaste domeinen per eindpunt |10 |25 |
 
-Een CDN-abonnement mag een of meer CDN-profielen en een CDN-profiel kunnen een of meer CDN-eindpunten bevatten. Mogelijk wilt meerdere profielen gebruiken om de CDN-eindpunten te ordenen op basis van het internetdomein, de webtoepassing of andere criteria. 
+Een Content Delivery Network-abonnement kan een of meer Content Delivery Network-profielen bevatten. Een Content Delivery Network-profiel kan een of meer Content Delivery Network-eindpunten kan bevatten. U kunt meerdere profielen gebruiken om te organiseren van uw Content Delivery Network-eindpunten op internet domein, webtoepassing of andere criteria. 
 
-Om aan te vragen een update van uw abonnement standaardlimieten, door een ondersteuningsticket te openen. 
+Om aan te vragen een update van uw abonnement standaardlimieten, door een ondersteuningsticket te openen.
 

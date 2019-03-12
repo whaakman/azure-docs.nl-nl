@@ -1,5 +1,5 @@
 ---
-title: Problemen met uw Kubernetes-implementatie naar Azure Stackk oplossen | Microsoft Docs
+title: Problemen met uw Kubernetes-implementatie naar Azure Stack oplossen | Microsoft Docs
 description: Informatie over het oplossen van uw Kubernetes-implementatie naar Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -11,16 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2019
-ms.author: mabrigg
+ms.author: mabvrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 551958317249cbfa25e3af9922f9ded6850c2521
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 5436b562b4f9054e0e00e3cc6abb1724797437db
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752293"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729647"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Problemen met uw Kubernetes-implementatie naar Azure Stack oplossen
 
@@ -87,7 +86,7 @@ Het volgende diagram ziet u het algemene proces voor het implementeren van het c
 U kunt Logboeken verzamelen op de virtuele machines die ondersteuning bieden voor uw Kubernetes-cluster. U kunt ook het implementatielogbestand bekijken. U moet mogelijk om te communiceren met de Azure Stack-beheerder om te controleren of de versie van Azure-Stack die u nodig hebt om te gebruiken en logboeken ophalen uit de Azure-Stack die gerelateerd zijn aan uw implementatie.
 
 1. Controleer de [Implementatiestatus](#review-deployment-status) en [de logboeken kunt ophalen](#get-logs-from-a-vm) van het hoofdknooppunt in uw Kubernetes-cluster.
-2. Zorg ervoor dat u de meest recente versie van Azure Stack. Als u niet zeker weet welke versie u gebruikt, moet u contact op met uw Azure Stack-beheerder. De Kubernetes-cluster marketplace tijd 0.3.0 is Azure Stack-versie 1808 of hoger vereist.
+2. Zorg ervoor dat u de meest recente versie van Azure Stack. Als u niet zeker weet welke versie u gebruikt, moet u contact op met uw Azure Stack-beheerder.
 3.  Controleer uw virtuele machine maken van bestanden. U kunt de volgende problemen had:  
     - De openbare sleutel is mogelijk ongeldig. Bekijk de sleutel die u hebt gemaakt.  
     - Maken van VM mogelijk een interne fout hebben geactiveerd of een fout bij het maken gestart. Een aantal factoren kan fouten veroorzaken, met inbegrip van de beperkingen van de capaciteit voor uw Azure Stack-abonnement.
@@ -148,21 +147,26 @@ Als u zich aanmeldt, moet u de volgende stappen uitvoeren:
 3. Voer de volgende opdracht met de parameters bijgewerkt zodat deze overeenkomt met uw omgeving in de dezelfde sessie:
 
     ```Bash  
-    ./getkuberneteslogs.sh --identity-file id_rsa --user azureuser --vmdhost 192.168.102.37
+    ./getkuberneteslogs.sh --identity-file id_rsa --user azureuser --vmd-host 192.168.102.37
     ```
 
 4. Controleer de parameters en stel de waarden op basis van uw omgeving.
     | Parameter           | Description                                                                                                      | Voorbeeld                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -i,-identiteits-bestand | De RSA bestand met persoonlijke sleutel om de Kubernetes hoofd-VM verbinding te maken. De sleutel moeten beginnen met `-----BEGIN RSA PRIVATE KEY-----` | C:\data\privatekey.pem                                                        |
-    | h-,--host          | Het openbare IP-adres of de volledig gekwalificeerde domeinnaam (FQDN) van de hoofd-VM's van de cluster in Kubernetes. De naam van de virtuele machine wordt gestart met `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
+    | -d--vmd-host       | Het openbare IP-adres of de FQDN-naam van de DVM. De naam van de virtuele machine wordt gestart met `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
+    | -f-,--forceren | Niet vragen voordat u uploadt de persoonlijke sleutel. | |
+    | -i,-identiteits-bestand | De RSA bestand met persoonlijke sleutel om de Kubernetes hoofd-VM verbinding te maken. De sleutel moeten beginnen met: <br>`-----BEGIN RSA PRIVATE KEY-----` | C:\data\id_rsa.pem                                                        |
+    | -h,--Help-informatie  | Het gebruik van de opdracht voor afdrukken `getkuberneteslogs.sh` script. | |
+    | -m-,--host van master          | Het openbare IP-adres of de volledig gekwalificeerde domeinnaam (FQDN) van de hoofd-VM's van de cluster in Kubernetes. De naam van de virtuele machine wordt gestart met `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
     | -u-,--gebruiker          | De gebruikersnaam van de Kubernetes-cluster master VM. U stelt deze naam wanneer u de marketplace-item configureren.                                                                    | azureuser                                                                     |
-    | -d--vmdhost       | Het openbare IP-adres of de FQDN-naam van de DVM. De naam van de virtuele machine wordt gestart met `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
+
+
+
 
    Wanneer u uw parameterwaarden hebt toegevoegd, ziet deze er ongeveer als de volgende code uit:
 
     ```Bash  
-    ./getkuberneteslogs.sh --identity-file "C:\secretsecret.pem" --user azureuser --vmdhost 192.168.102.37
+    ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmdhost 192.168.102.37
      ```
 
     Een geslaagde uitvoering Hiermee maakt u de logboeken.

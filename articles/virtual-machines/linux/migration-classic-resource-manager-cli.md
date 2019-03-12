@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 0011ee646215c01e84aec71c7b992afca1ca3c2a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 34dad39e3784dd0bc73e3be108d6b31d4f479a1e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997162"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543267"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migreren IaaS-resources van klassiek naar Azure Resource Manager met behulp van Azure CLI
 Deze stappen ziet u hoe u Azure-opdrachtregelinterface (CLI)-opdrachten gebruikt voor het migreren van infrastructuur als een service (IaaS)-resources van het klassieke implementatiemodel naar het Azure Resource Manager-implementatiemodel. In het artikel moet de [Azure klassieke CLI](../../cli-install-nodejs.md). Omdat Azure CLI alleen van toepassing voor Azure Resource Manager-resources is, kan deze niet worden gebruikt voor de migratie.
@@ -85,7 +85,7 @@ Voor deze stap moet u overschakelen naar `arm` modus. Dit doen met de volgende o
 azure config mode arm
 ```
 
-U kunt de volgende CLI-opdracht gebruiken om te controleren of het huidige aantal vcpu's die u in Azure Resource Manager hebt. Zie voor meer informatie over vCPU-quota, [limieten en de Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager)
+U kunt de volgende CLI-opdracht gebruiken om te controleren of het huidige aantal vcpu's die u in Azure Resource Manager hebt. Zie voor meer informatie over vCPU-quota, [limieten en de Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-azure-resource-manager)
 
 ```
 azure vm list-usage -l "<Your VNET or Deployment's Azure region"
@@ -166,7 +166,7 @@ Als de vooraf gedefinieerde configuratie er goed uitziet, kunt u verder gaan en 
 
     azure network vnet commit-migration <virtualNetworkName>
 
-## <a name="step-5-migrate-a-storage-account"></a>Stap 5: Een storage-account migreren
+## <a name="step-5-migrate-a-storage-account"></a>Stap 5: Migreren van een storage-account
 Wanneer u klaar bent de virtuele machines migreert, wordt aangeraden migreren van de storage-account.
 
 Het opslagaccount voorbereiden voor migratie met behulp van de volgende opdracht uit

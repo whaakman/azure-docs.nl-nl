@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: dc798dc78ed0cdbf11bbe3bc2dd805433b127a4d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 7f43528c55cd22c2649ca0f1208da6f41695b98e
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976912"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569974"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Over het implementeren van Windows 10 op Azure met Multitenant Hosting-rechten 
 Voor klanten met Windows 10 Enterprise E3/E5 per gebruiker of Windows virtuele bureaublad toegang per gebruiker (abonnement gebruikerslicenties of Invoegtoepassingslicenties gebruiker abonnement) kunt u uw Windows 10-licenties naar de cloud brengen met Multitenant Hosting rechten voor Windows 10 en Windows 10 Virtual Machines uitvoeren in Azure zonder te hoeven betalen voor een andere licentie. Zie voor meer informatie, [Multitenant die als host fungeert voor Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
@@ -72,11 +72,11 @@ Add-AzVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.
 
 **Implementeren met behulp van Azure Resource Manager-sjabloonimplementatie** binnen uw Resource Manager-sjablonen, een extra parameter voor `licenseType` kan worden opgegeven. U kunt meer lezen over [Azure Resource Manager-sjablonen](../../resource-group-authoring-templates.md). Zodra u uw VHD die is geüpload naar Azure hebt, bewerkt u Resource Manager-sjabloon voor het licentietype opnemen als onderdeel van de compute-provider en de sjabloon als normale implementeren:
 ```json
-"properties": {  
-   "licenseType": "Windows_Client",
-   "hardwareProfile": {
+"properties": {
+    "licenseType": "Windows_Client",
+    "hardwareProfile": {
         "vmSize": "[variables('vmSize')]"
-   }
+    }
 ```
 
 **Implementeren via PowerShell** bij het implementeren van uw Windows Server-machine via PowerShell, hebt u een extra parameter voor `-LicenseType`. Zodra u uw VHD die is geüpload naar Azure hebt, maakt u een virtuele machine met `New-AzVM` en geef het type van de licentieverlening als volgt:

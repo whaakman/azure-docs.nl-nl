@@ -1,6 +1,6 @@
 ---
-title: Overzicht van de communicatie betrouwbare Services | Microsoft Docs
-description: Overzicht van de communicatiemodel Reliable Services, waaronder openen listeners van services, het omzetten van eindpunten en communicatie tussen services.
+title: Overzicht van Reliable Services communicatie | Microsoft Docs
+description: Overzicht van Reliable Services communicatiemodel, met inbegrip van openen listeners op services, het oplossen van eindpunten en communicatie tussen services.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 62c81368b8a3129b42262cb99cf23a5021744c1b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 49f5a74c2fcd45d03119bffbffad6fcf30e72440
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210756"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570552"
 ---
-# <a name="how-to-use-the-reliable-services-communication-apis"></a>Het gebruik van de communicatie met Reliable Services API 's
-Azure Service Fabric als platform is volledig agnostisch over de communicatie tussen services. Alle protocollen en stacks zijn aanvaardbaar van UDP naar HTTP. Het is aan de ontwikkelaar van de service om te kiezen hoe services moeten communiceren. Het framework Reliable Services biedt ingebouwde communicatie stacks, alsmede de API's die u gebruiken kunt voor het bouwen van uw aangepaste communicatie-onderdelen.
+# <a name="how-to-use-the-reliable-services-communication-apis"></a>Het gebruik van de communicatie Reliable Services API 's
+Azure Service Fabric als platform is volledig agnostische over de communicatie tussen services. Alle protocollen en stacks zijn aanvaardbaar van UDP naar HTTP. Het is aan de ontwikkelaar van de service om te kiezen hoe services moeten communiceren. Het framework van de toepassing betrouwbare Services bevat ingebouwde communicatie-stacks en API's die u gebruiken kunt om te maken van de Communicatieonderdelen van uw aangepaste.
 
-## <a name="set-up-service-communication"></a>Servicecommunicatie instellen
-De API voor betrouwbare Services maakt gebruik van een eenvoudige interface voor servicecommunicatie. U opent een eindpunt voor uw service door deze interface eenvoudig te implementeren:
+## <a name="set-up-service-communication"></a>Stelt u de servicecommunicatie
+De Reliable Services-API maakt gebruik van een eenvoudige interface voor servicecommunicatie. Als u wilt openen een eindpunt voor uw service, moet u gewoon deze interface implementeren:
 
 ```csharp
 
@@ -50,7 +50,7 @@ public interface CommunicationListener {
 }
 ```
 
-Vervolgens kunt u uw communicatie-listener-implementatie toevoegen door deze terug te geven in een onderdrukking van de methode op basis van een service-klasse.
+Vervolgens kunt u uw communicatie-listener-toepassing toevoegen door deze in een onderdrukking van de methode op basis van een service-klasse worden geretourneerd.
 
 Voor stateless services:
 
@@ -96,11 +96,11 @@ public class MyStatefulService : StatefulService
 }
 ```
 
-In beide gevallen moet u een verzameling van listeners retourneren. Hierdoor kan uw service luisteren op meerdere eindpunten, met mogelijk verschillende protocollen, met behulp van meerdere listeners. Bijvoorbeeld, wellicht u een HTTP-listener en een afzonderlijke WebSocket-listener. Elke listener haalt u een naam en de resulterende verzameling *naam: adres* paren worden weergegeven als een JSON-object als een client de luisterende adressen voor een service-exemplaar of een partitie vraagt.
+In beide gevallen moet u een verzameling van listeners geretourneerd. Hiermee wordt uw service om te luisteren op meerdere eindpunten, mogelijk met behulp van verschillende protocollen, met behulp van meerdere listeners. Bijvoorbeeld, u mogelijk een HTTP-listener en een afzonderlijke WebSocket-listener. Elke listener haalt een naam en de resulterende verzameling van *naam: adres* paren worden weergegeven als een JSON-object wanneer een client een aanvraag de luisterende adressen voor een service-exemplaar of een partitie.
 
-In een stateless service retourneert de onderdrukking een verzameling ServiceInstanceListeners. Een `ServiceInstanceListener` bevat een functie voor het maken een `ICommunicationListener(C#) / CommunicationListener(Java)` en hieraan een naam. De onderdrukking retourneert voor stateful services, een verzameling van ServiceReplicaListeners. Dit is enigszins afwijken van het bijbehorende equivalent staatloze omdat een `ServiceReplicaListener` heeft een optie om een `ICommunicationListener` op secundaire replica's. Niet alleen kunt u meerdere communicatielisteners gebruiken in een service, maar u kunt ook opgeven welke listeners accepteren van aanvragen op secundaire replica's en welke luistert alleen op primaire replica's.
+In een staatloze service retourneert de onderdrukking een verzameling van ServiceInstanceListeners. Een `ServiceInstanceListener` bevat een functie maken een `ICommunicationListener(C#) / CommunicationListener(Java)` en geeft deze een naam. Voor stateful services retourneert de onderdrukking een verzameling van ServiceReplicaListeners. Dit is enigszins afwijken van de stateless equivalent, omdat een `ServiceReplicaListener` heeft een optie om een `ICommunicationListener` op secundaire replica's. Niet alleen kunt u meerdere communicatielisteners gebruiken in een service, maar u kunt ook opgeven welke listeners accepteren van aanvragen voor secundaire replica's en welke alleen op de primaire replica's luistert.
 
-Bijvoorbeeld, u kunt een ServiceRemotingListener RPC-aanroepen krijgt alleen op primaire replica's hebben en een tweede, aangepaste listener lezen waarmee aanvragen op de secundaire replica's via HTTP:
+Bijvoorbeeld, u kunt een ServiceRemotingListener RPC-aanroepen wordt alleen op primaire replica's hebben en een tweede, aangepaste listener die met lezen op secundaire replica's via HTTP-aanvragen:
 
 ```csharp
 protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -121,11 +121,11 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 ```
 
 > [!NOTE]
-> Bij het maken van meerdere listeners voor een service wordt elke listener **moet** een unieke naam.
+> Bij het maken van meerdere listeners voor een service, elke listener **moet** een unieke naam.
 >
 >
 
-Ten slotte beschrijven de eindpunten die vereist zijn voor de service in de [servicemanifest](service-fabric-application-and-service-manifests.md) onder de sectie voor eindpunten.
+Ten slotte beschrijven de eindpunten die vereist zijn voor de service in de [servicemanifest](service-fabric-application-and-service-manifests.md) onder de sectie op eindpunten.
 
 ```xml
 <Resources>
@@ -137,7 +137,7 @@ Ten slotte beschrijven de eindpunten die vereist zijn voor de service in de [ser
 
 ```
 
-De listener communicatie toegang tot de eindpunt-resources toegewezen aan in de `CodePackageActivationContext` in de `ServiceContext`. De listener kunt vervolgens luisteren naar aanvragen wanneer deze wordt geopend starten.
+De communicatielistener toegang tot de eindpunt-resources toegewezen aan deze vanuit de `CodePackageActivationContext` in de `ServiceContext`. De listener kunt start luistert naar aanvragen wanneer deze wordt geopend.
 
 ```csharp
 var codePackageActivationContext = serviceContext.CodePackageActivationContext;
@@ -151,12 +151,12 @@ int port = codePackageActivationContext.getEndpoint("ServiceEndpoint").getPort()
 ```
 
 > [!NOTE]
-> Eindpunt bronnen voor het hele servicepakket gelden en ze worden toegewezen door de Service Fabric wanneer het servicepakket is geactiveerd. Meerdere service replica's die worden gehost in de dezelfde ServiceHost kunnen delen dezelfde poort. Dit betekent dat de communicatie-listener delen van de poort moet ondersteunen. De aanbevolen manier is voor de communicatie-listener voor de partitie-ID en replica-exemplaar-ID gebruiken bij het genereren van het adres luisteren.
+> Eindpunt resources gelden voor de hele service-pakket en ze worden toegewezen door de Service Fabric het servicepakket is geactiveerd. Meerdere service-replica's die worden gehost in de dezelfde ServiceHost kunnen delen dezelfde poort. Dit betekent dat de communicatielistener delen van de poort ondersteunen moet. De aanbevolen manier is voor de communicatielistener voor de partitie-ID en replica/exemplaar-ID gebruiken bij het genereren van de listen-adres.
 >
 >
 
-### <a name="service-address-registration"></a>Registratie van de service-adres
-Een systeemservice aangeroepen de *Naming Service* wordt uitgevoerd op de Service Fabric-clusters. De Naming Service is een registrar voor services en de adressen die op elk exemplaar of de replica van de service luistert. Wanneer de `OpenAsync(C#) / openAsync(Java)` methode van een `ICommunicationListener(C#) / CommunicationListener(Java)` is voltooid, wordt de return-waarde opgehaald geregistreerd in de Naming Service. Deze waarde die wordt gepubliceerd in de Naming Service is een tekenreeks waarvan de waarde van alles op alle zijn kan. Deze waarde is wat clients zien wanneer ze voor een adres voor de service uit de Naming Service vragen.
+### <a name="service-address-registration"></a>Registratie van service-adres
+Een system-service met de naam de *Naming-Service* wordt uitgevoerd op Service Fabric-clusters. De Naming-Service is een registrar voor services en de adressen die op elk exemplaar of de replica van de service luistert. Wanneer de `OpenAsync(C#) / openAsync(Java)` -methode van een `ICommunicationListener(C#) / CommunicationListener(Java)` is voltooid, wordt de return-waarde wordt geregistreerd in de Naming-Service. Deze waarde die wordt gepubliceerd in de Naming-Service is een tekenreeks waarvan de waarde van alles op alle zijn kan. Deze tekenreekswaarde is wat clients zien wanneer ze voor een adres voor de service uit de Naming-Service vragen.
 
 ```csharp
 public Task<string> OpenAsync(CancellationToken cancellationToken)
@@ -194,18 +194,18 @@ public CompletableFuture<String> openAsync(CancellationToken cancellationToken)
 }
 ```
 
-Service Fabric bevat API's waarmee clients en andere services kunnen vervolgens vraagt u voor dit adres met de servicenaam. Dit is belangrijk omdat het serviceadres niet statisch is. Services worden in het cluster voor netwerktaakverdeling en beschikbaarheid doeleinden van resource verplaatst. Dit is het mechanisme dat clientcomputers kunnen omzetten van het luisterende adres voor een service.
+Service Fabric biedt API's waarmee clients en andere services kunnen vervolgens vraagt u voor dit adres met de servicenaam. Dit is belangrijk omdat het serviceadres niet statisch is. Services zijn in het cluster voor de bron-balancing en de beschikbaarheid doeleinden verplaatst. Dit is het mechanisme waarmee clients kunnen omzetten van het luisteren naar adres voor een service.
 
 > [!NOTE]
-> Zie voor een volledig overzicht van het schrijven van een communicatie-listener [Service Fabric-Web-API-services met OWIN zelf hosting](service-fabric-reliable-services-communication-webapi.md) voor C#, dat u uw eigen HTTP-server-implementatie voor Java schrijven kunt, Zie EchoServer toepassing voorbeeld op https://github.com/Azure-Samples/service-fabric-java-getting-started.
+> Zie voor een volledig overzicht van het schrijven van een communicatielistener [Web-API voor Service Fabric-services met OWIN zelf die als host fungeert](service-fabric-reliable-services-communication-webapi.md) voor C#, terwijl voor Java kunt u uw eigen HTTP-server-implementatie Zie EchoServer Voorbeeld van de toepassing op https://github.com/Azure-Samples/service-fabric-java-getting-started.
 >
 >
 
-## <a name="communicating-with-a-service"></a>Communicatie met een service
-De betrouwbare Services API biedt de volgende bibliotheken voor het schrijven van clients die met de services communiceren.
+## <a name="communicating-with-a-service"></a>Communiceren met een service
+De Reliable Services-API biedt de volgende bibliotheken voor het schrijven van clients die met services communiceren.
 
 ### <a name="service-endpoint-resolution"></a>Service-eindpunt resolutie
-De eerste stap voor communicatie met een service is een eindpuntadres van de partitie of het exemplaar van de service die u wilt praten omzetten. De `ServicePartitionResolver(C#) / FabricServicePartitionResolver(Java)` hulpprogrammaklasse is een eenvoudige primitieve die helpt clients bij het bepalen van het eindpunt van een service tijdens runtime. In Service Fabric-terminologie, het proces voor het bepalen van het eindpunt van een service wordt aangeduid als de *service-eindpunt resolutie*.
+De eerste stap bij de communicatie met een service is een eindpuntadres van de partitie of het exemplaar van de service die u communiceren wilt met oplossen. De `ServicePartitionResolver(C#) / FabricServicePartitionResolver(Java)` hulpprogrammaklasse is een eenvoudige primitief waarmee clients bepalen het eindpunt van een service tijdens runtime. In de Service Fabric-terminologie, het proces voor het bepalen van het eindpunt van een service wordt aangeduid als de *service-eindpunt resolutie*.
 
 Als u wilt verbinding maken met services binnen een cluster, kunnen ServicePartitionResolver worden gemaakt met de standaardinstellingen. Dit is het aanbevolen gebruik voor de meeste situaties:
 
@@ -216,7 +216,7 @@ ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
 FabricServicePartitionResolver resolver = FabricServicePartitionResolver.getDefault();
 ```
 
-Als u wilt verbinding maken met services in een ander cluster, kan een ServicePartitionResolver worden gemaakt met een reeks cluster gateway eindpunten. Houd er rekening mee dat gateway eindpunten alleen verschillende eindpunten zijn voor de verbinding met hetzelfde cluster. Bijvoorbeeld:
+Als u wilt verbinding maken met services in een ander cluster, kan een ServicePartitionResolver worden gemaakt met een set eindpunten van de cluster-gateway. Houd er rekening mee dat eindpunten van de gateway alleen verschillende eindpunten voor de verbinding met hetzelfde cluster. Bijvoorbeeld:
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver("mycluster.cloudapp.azure.com:19000", "mycluster.cloudapp.azure.com:19001");
@@ -225,7 +225,7 @@ ServicePartitionResolver resolver = new  ServicePartitionResolver("mycluster.clo
 FabricServicePartitionResolver resolver = new  FabricServicePartitionResolver("mycluster.cloudapp.azure.com:19000", "mycluster.cloudapp.azure.com:19001");
 ```
 
-U kunt ook `ServicePartitionResolver` kan een functie worden opgegeven voor het maken van een `FabricClient` intern gebruik:
+U kunt ook `ServicePartitionResolver` een functie kan worden opgegeven voor het maken van een `FabricClient` intern gebruiken:
 
 ```csharp
 public delegate FabricClient CreateFabricClientDelegate();
@@ -240,7 +240,7 @@ public interface CreateFabricClient {
 }
 ```
 
-`FabricClient` het object dat wordt gebruikt om te communiceren met het Service Fabric-cluster voor verschillende bewerkingen op het cluster is. Dit is handig als u meer controle wilt over de interactie van een service-omzetter partitie met het cluster. `FabricClient` voert caching intern en is meestal duur voor het maken, dus is het belangrijk om opnieuw te `FabricClient` exemplaren zo veel mogelijk.
+`FabricClient` is het object dat wordt gebruikt om te communiceren met de Service Fabric-cluster voor verschillende bewerkingen op het cluster. Dit is handig als u meer controle wilt over hoe een service partitie resolver met uw cluster communiceert. `FabricClient` voert intern caching en is in het algemeen duur voor het maken, dus is het belangrijk om te gebruiken `FabricClient` exemplaren zo veel mogelijk.
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver(() => CreateMyFabricClient());
@@ -249,7 +249,7 @@ ServicePartitionResolver resolver = new  ServicePartitionResolver(() => CreateMy
 FabricServicePartitionResolver resolver = new  FabricServicePartitionResolver(() -> new CreateFabricClientImpl());
 ```
 
-Een methode resolve wordt vervolgens gebruikt voor het ophalen van het adres van een service of de partitie van een service voor gepartitioneerde services.
+Een methode resolve wordt vervolgens gebruikt om op te halen van het adres van een service of de servicepartitie van een voor gepartitioneerde services.
 
 ```csharp
 ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
@@ -264,16 +264,16 @@ CompletableFuture<ResolvedServicePartition> partition =
     resolver.resolveAsync(new URI("fabric:/MyApp/MyService"), new ServicePartitionKey());
 ```
 
-Een serviceadres kan worden omgezet eenvoudig met een ServicePartitionResolver, maar meer werk is vereist om te controleren of dat het omgezette adres correct kan worden gebruikt. De client moet detecteren of de verbindingspoging is mislukt vanwege een tijdelijke fout en kan opnieuw worden uitgevoerd (bijv, service verplaatst of is tijdelijk niet beschikbaar), of een permanente fout (bijv, service is verwijderd of de aangevraagde resource bestaat niet meer). Service-exemplaren of replica's kunnen verplaatsen van het knooppunt naar knooppunt op elk gewenst moment om verschillende redenen. Het adres van de omgezet via ServicePartitionResolver mogelijk verlopen op het moment dat de clientcode verbinding probeert te maken. In dat geval opnieuw de client moet opnieuw omzetten van het adres. De vorige bieden `ResolvedServicePartition` geeft aan dat de omzetter moet opnieuw wilt proberen in plaats van gewoon ophalen een adres in de cache.
+Een serviceadres kan worden omgezet eenvoudig met behulp van een ServicePartitionResolver, maar meer werk is vereist om te controleren of dat de omgezette adres correct kan worden gebruikt. De client moet detecteren of de verbindingspoging is mislukt vanwege een tijdelijke fout en kan opnieuw worden uitgevoerd (bijv, service verplaatst of is tijdelijk niet beschikbaar), of een permanente fout (bijvoorbeeld de service is verwijderd of de aangevraagde resource bestaat niet meer). Service-exemplaren of replica's kunnen verplaatsen van het knooppunt voor knooppunt op elk gewenst moment om verschillende redenen. Het adres van de service opgelost via ServicePartitionResolver mogelijk verouderd zijn op het moment dat de clientcode verbinding probeert te maken. In dat geval opnieuw de client moet het adres opnieuw omzetten. Leveren van de vorige `ResolvedServicePartition` geeft aan dat de conflictoplosser moet het opnieuw proberen in plaats van gewoon ophalen een adres in de cache.
 
-Normaal gesproken moet de clientcode werken niet met de ServicePartitionResolver rechtstreeks. Het is gemaakt en doorgegeven aan communicatie client fabrieken in de betrouwbare Services-API. De factory's gebruiken de resolver intern voor het genereren van een clientobject dat kan worden gebruikt om te communiceren met de services.
+Normaal gesproken moet de clientcode werken niet met de ServicePartitionResolver rechtstreeks. Het is gemaakt en doorgegeven aan communicatie client factory's in de betrouwbare Services-API. De fabrieken intern gebruikmaken van de conflictoplosser voor het genereren van een clientobject dat kan worden gebruikt om te communiceren met services.
 
-### <a name="communication-clients-and-factories"></a>Communicatie-clients en fabrieken
-De communicatie factory bibliotheek implementeert een typische opnieuw patroon voor afhandeling van fouten die gemakkelijker is bezig met opnieuw verbindingen met opgelost service-eindpunten. De factory-bibliotheek biedt een mechanisme voor het opnieuw proberen terwijl u de fout-handlers opgeven.
+### <a name="communication-clients-and-factories"></a>Communicatie-clients en Factory 's
+De communicatie factory-bibliotheek implementeert een patroon voor typische afhandeling van fouten opnieuw proberen die opnieuw proberen verbindingen met opgelost service-eindpunten gemakkelijker maakt. De factory-bibliotheek biedt het mechanisme voor opnieuw proberen terwijl u de foutenhandlers bieden.
 
-`ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)` Hiermee definieert u de basis-interface geïmplementeerd door een client-factory van communicatie waarmee clients die met een Service Fabric-service communiceren kunnen wordt geproduceerd. De uitvoering van de CommunicationClientFactory is afhankelijk van de communicatiestack gebruikt door de Service Fabric-service waar de client wil communiceren. De betrouwbare Services API biedt een `CommunicationClientFactoryBase<TCommunicationClient>`. Dit biedt een basisimplementatie van de interface CommunicationClientFactory en taken die gemeenschappelijk voor alle communicatie stapels zijn worden uitgevoerd. (Deze taken omvatten het gebruik van een ServicePartitionResolver om te bepalen van het service-eindpunt). Clients implementeren meestal de abstracte klasse CommunicationClientFactoryBase voor het afhandelen van logica die specifiek is voor de communicatiestack.
+`ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)` Hiermee definieert u de basis-interface geïmplementeerd door een clientfabriek van communicatie die door clients die met een Service Fabric-service communiceren kunnen gemaakt. De implementatie van de CommunicationClientFactory, is afhankelijk van de communicatiestack die wordt gebruikt door de Service Fabric-service waar de client wil om te communiceren. De Reliable Services-API biedt een `CommunicationClientFactoryBase<TCommunicationClient>`. Dit biedt een basis-implementatie van de interface CommunicationClientFactory en voert taken uit die gemeenschappelijk voor alle communicatie-stacks zijn. (Deze taken omvatten met behulp van een ServicePartitionResolver om te bepalen van het service-eindpunt). Clients implementeren gewoonlijk de abstracte klasse CommunicationClientFactoryBase voor het afhandelen van logica die specifiek is voor de communicatiestack.
 
-De client communicatie wordt alleen een adres ontvangt en gebruikt deze verbinding maken met een service. De client kan elk protocol dat deze wil gebruiken.
+De client communicatie wordt alleen een adres ontvangt en gebruikt deze verbinding maken met een service. De client kan de protocol software wil gebruiken.
 
 ```csharp
 public class MyCommunicationClient : ICommunicationClient
@@ -298,7 +298,7 @@ public class MyCommunicationClient implements CommunicationClient {
 }
 ```
 
-Clientfabriek van de is voornamelijk verantwoordelijk voor het maken van clients voor communicatie. Voor clients die een permanente verbinding, zoals een HTTP-client niet onderhouden moet de factory alleen maken en de client terug. Andere protocollen die een permanente verbinding, zoals sommige binaire protocollen onderhoudt worden ook gevalideerd door de factory om te bepalen of de verbinding moet opnieuw worden gemaakt.  
+De clientfabriek is primair verantwoordelijk is voor het maken van clients voor communicatie. Voor clients die geen van een permanente verbinding, zoals een HTTP-client onderhouden, moet de factory alleen maken en de client geretourneerd. Andere protocollen die een permanente verbinding, zoals sommige binaire protocollen onderhouden moeten ook worden gevalideerd door de factory om te bepalen of de verbinding moet opnieuw worden gemaakt.  
 
 ```csharp
 public class MyCommunicationClientFactory : CommunicationClientFactoryBase<MyCommunicationClient>
@@ -341,14 +341,14 @@ public class MyCommunicationClientFactory extends CommunicationClientFactoryBase
 }
 ```
 
-Ten slotte is een uitzonderings-handler verantwoordelijk voor het bepalen welke actie moet worden uitgevoerd wanneer een uitzondering optreedt. Uitzonderingen worden onderverdeeld in **herstelbare** en **niet-herstelbare**.
+Ten slotte is een uitzonderingshandler verantwoordelijk voor het bepalen welke actie moet worden uitgevoerd wanneer er een uitzondering optreedt. Uitzonderingen zijn onderverdeeld in **herstelbare** en **niet-herstelbare**.
 
-* **Niet-herstelbare** uitzonderingen ophalen gewoon terug naar de aanroeper opnieuw.
-* **herstelbare** uitzonderingen kunnen verder worden onderverdeeld in **tijdelijke** en **tijdelijke**.
-  * **Tijdelijke** uitzonderingen zijn die opnieuw kunnen eenvoudig worden verzonden zonder dat het adres van het service-eindpunt opnieuw op te lossen. Hierbij wordt tijdelijke netwerkproblemen of service-foutberichten dan degene die wijzen op dat het adres van het service-eindpunt bestaat niet.
-  * **Niet-tijdelijke** uitzonderingen zijn die het adres van het service-eindpunt worden opnieuw opgelost vereisen. Het gaat hierbij om uitzonderingen die wijzen op dat het service-eindpunt kan niet worden bereikt, is die aangeeft van de service verplaatst naar een ander knooppunt.
+* **Niet-herstelbare** uitzonderingen gewoon ophalen rethrown terug naar de oproepende functie.
+* **herstelbare** uitzonderingen kunnen verder worden onderverdeeld in **tijdelijke** en **niet-tijdelijke**.
+  * **Tijdelijke** uitzonderingen zijn die alleen kunnen worden verwerkt zonder dat het adres van het service-eindpunt opnieuw op te lossen. Hierbij wordt tijdelijke netwerkproblemen of service-foutberichten die wijzen op dat het adres van het service-eindpunt bestaat niet.
+  * **Niet-tijdelijke** uitzonderingen zijn die vereisen het adres van het service-eindpunt dat worden opnieuw opgelost. Deze omvatten uitzonderingen die wijzen op dat het service-eindpunt kan niet worden bereikt, is die wijzen op de service verplaatst naar een ander knooppunt.
 
-De `TryHandleException` maakt een beslissing over een bepaalde uitzondering. Als het **niet weet** welke beslissingen nemen over een uitzondering moet deze uitvoer retourneren **false**. Als het **weet** welke beslissen, moet het resultaat dienovereenkomstig ingesteld en geretourneerd **true**.
+De `TryHandleException` een beslissing heeft genomen over een bepaalde uitzonderingen. Als het **niet weet** welke beslissingen nemen over een uitzondering moet worden geretourneerd **false**. Als het **weet** welke besluit te maken, moet het resultaat dienovereenkomstig ingesteld en retourneren **waar**.
 
 ```csharp
 class MyExceptionHandler : IExceptionHandler
@@ -374,7 +374,7 @@ class MyExceptionHandler : IExceptionHandler
 public class MyExceptionHandler implements ExceptionHandler {
 
     @Override
-    public ExceptionHandlingResult handleException(ExceptionInformation exceptionInformation, OperationRetrySettings retrySettings) {        
+    public ExceptionHandlingResult handleException(ExceptionInformation exceptionInformation, OperationRetrySettings retrySettings) {
 
         /* if exceptionInformation.getException() is known and is transient (can be retried without re-resolving)
          */
@@ -395,8 +395,8 @@ public class MyExceptionHandler implements ExceptionHandler {
     }
 }
 ```
-### <a name="putting-it-all-together"></a>Kort samengevat
-Met een `ICommunicationClient(C#) / CommunicationClient(Java)`, `ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)`, en `IExceptionHandler(C#) / ExceptionHandler(Java)` gebaseerd op een communicatieprotocol een `ServicePartitionClient(C#) / FabricServicePartitionClient(Java)` helemaal verpakt en biedt de afhandeling van fouten en service partitie adres resolutie lus om deze onderdelen.
+### <a name="putting-it-all-together"></a>Alles samenvoegen
+Met een `ICommunicationClient(C#) / CommunicationClient(Java)`, `ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)`, en `IExceptionHandler(C#) / ExceptionHandler(Java)` gebaseerd op een communicatieprotocol een `ServicePartitionClient(C#) / FabricServicePartitionClient(Java)` alles bij elkaar verpakt en biedt de afhandeling van fouten en service partitie adres resolutie lus om deze onderdelen.
 
 ```csharp
 private MyCommunicationClientFactory myCommunicationClientFactory;
@@ -431,6 +431,6 @@ CompletableFuture<?> result = myServicePartitionClient.invokeWithRetryAsync(clie
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* [ASP.NET Core met Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md)
-* [Externe procedureaanroepen weer dat met Reliable Services voor externe toegang](service-fabric-reliable-services-communication-remoting.md)
-* [WCF-communicatie met behulp van Reliable Services](service-fabric-reliable-services-communication-wcf.md)
+* [ASP.NET Core met betrouwbare Services](service-fabric-reliable-services-communication-aspnetcore.md)
+* [Externe procedureaanroepen met externe communicatie Reliable Services](service-fabric-reliable-services-communication-remoting.md)
+* [WCF-communicatie via Reliable Services](service-fabric-reliable-services-communication-wcf.md)

@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: asrastog
-ms.openlocfilehash: 06b917c956507de3eb3b1536356285d7a954fb8b
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 5580d67f796efc809ef536818419ab91e8ee54a2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730073"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540008"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Order apparaat connection-gebeurtenissen van Azure IoT Hub met behulp van Azure Cosmos DB
 
@@ -315,7 +315,7 @@ Resultaten van de uitgevoerde opgeslagen procedure ziet u in uw Cosmos DB-docume
 
 ## <a name="use-the-azure-cli"></a>Azure CLI gebruiken
 
-In plaats van de [Azure-portal](http://portal.azure.com), kunt u de stappen van de IoT Hub met behulp van de Azure CLI uitvoeren. Zie voor meer informatie, de Azure CLI-pagina's voor [het maken van een gebeurtenisabonnement](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) en [het maken van een IoT-apparaat](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create).
+In plaats van de [Azure-portal](https://portal.azure.com), kunt u de stappen van de IoT Hub met behulp van de Azure CLI uitvoeren. Zie voor meer informatie, de Azure CLI-pagina's voor [het maken van een gebeurtenisabonnement](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) en [het maken van een IoT-apparaat](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create).
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

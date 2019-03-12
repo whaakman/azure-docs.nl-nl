@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: victorh
-ms.openlocfilehash: 4a9a1b5599468df6bc85cc1d535b577c508dd0a9
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: e162d838cb4895841428a827b56bec28e3e16b8a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995643"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533137"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Reverse-DNS voor services die worden gehost in Azure configureren
 
@@ -252,7 +252,7 @@ De technische mogelijkheid voor het verzenden van e-mailbericht rechtstreeks van
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over omgekeerde DNS [omgekeerde DNS-zoekactie voor Wikipedia](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
+Zie voor meer informatie over omgekeerde DNS [omgekeerde DNS-zoekactie voor Wikipedia](https://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
 Meer informatie over het [host voor de zone voor reverse lookup voor uw Internet-provider toegewezen IP-adresbereik in Azure DNS](dns-reverse-dns-for-azure-services.md).
 

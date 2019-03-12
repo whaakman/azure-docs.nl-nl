@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: c82717be3791a1bc397bbbdb369c55cd2ba04439
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: dfba8db87dab12f856fbd97d578321477e9f92b5
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56213010"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553659"
 ---
 | Resource | Doel | Vaste limiet |
 |----------|--------------|------------|
@@ -25,8 +25,8 @@ ms.locfileid: "56213010"
 | Servereindpunten per server | 30 servereindpunten | Ja |
 | Grootte van eindpunt | 4 TiB | Nee |
 | -Bestandssysteem (mappen en bestanden) per groep voor synchronisatie | 25 miljoen objecten | Nee |
-| Maximum aantal bestandssysteemobjecten (mappen en bestanden) in een map | 1.000.000 objecten | Ja |
+| Maximum aantal bestandssysteemobjecten (mappen en bestanden) in een map | 1 miljoen objecten | Ja |
 | Maximale grootte van object (mappen en bestanden) security descriptor | 4 KiB | Ja |
 | Bestandsgrootte | 100 GiB | Nee |
 | Minimale bestandsgrootte voor een bestand in tiers worden verdeeld | 64 KiB | Ja |
-| Gelijktijdige synchronisatiesessies | V4-agent en hoger: Limiet is afhankelijk van beschikbare systeemresources. <BR> V3-agent: 2 active synchronisatiesessies per processor- of maximaal 8 active synchronisatiesessies per server | Ja
+| Gelijktijdige synchronisatiesessies | V4-agent en hoger: De limiet is afhankelijk van beschikbare systeemresources. <BR> V3-agent: Twee ActiveSync-sessies per processor- of maximaal acht ActiveSync sessies per server. | Ja

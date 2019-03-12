@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: danlep
-ms.openlocfilehash: adb893a9d37219409f81b2fb402f2d4afd36aa34
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: f35b2cd8d360bd46913eaa34b91e1fd19bc1ba9b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338855"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533592"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Containerinstanties die gebruikmaken van GPU-resources implementeren
 
@@ -28,15 +28,7 @@ Zoals u in dit artikel, kunt u GPU resources toevoegen wanneer u een containergr
 
 Preview-versie gelden de volgende beperkingen bij het gebruik van GPU-bronnen in groepen met containers. 
 
-**Ondersteunde regio's**:
-
-* VS-Oost (VS-Oost)
-* West US 2 (westus2)
-* Zuid-centraal VS (southcentralus)
-* West Europe (westeurope)
-* North Europe (northeurope)
-* Oost-Azië (Oost-Aziatische)
-* Centraal-India (centralindia)
+[!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
 
 Ondersteuning wordt gedurende een periode voor extra regio's toegevoegd.
 
@@ -59,21 +51,9 @@ Geef voor het gebruik van GPU's in een containerexemplaar, een *GPU resource* me
   | P100 | [NCv2](../virtual-machines/linux/sizes-gpu.md#ncv2-series) |
   | V100 | [NCv3](../virtual-machines/linux/sizes-gpu.md#ncv3-series) |
 
-### <a name="cpu-and-memory"></a>CPU en geheugen
+[!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
 
-Bij het implementeren van resources voor GPU, stelt u CPU en geheugenbronnen geschikt is voor de werkbelasting, tot de maximale waarden in de volgende tabel weergegeven. Deze waarden zijn momenteel groter is dan de CPU en geheugenlimieten in containerexemplaren zonder GPU-resources.  
-
-| GPU-SKU | GPU-aantal | CPU |  Geheugen (GB) |
-| --- | --- | --- | --- |
-| K80 | 1 | 6 | 56 |
-| K80 | 2 | 12 | 112 |
-| K80 | 4 | 24 | 224 |
-| P100 | 1 | 6 | 112 |
-| P100 | 2 | 12 | 224 |
-| P100 | 4 | 24 | 448 |
-| V100 | 1 | 6 | 112 |
-| V100 | 2 | 12 | 224 |
-| V100 | 4 | 24 | 448 |
+Bij het implementeren van resources voor GPU, stelt u CPU en geheugenbronnen geschikt is voor de werkbelasting, tot de maximumwaarden die wordt weergegeven in de voorgaande tabel. Deze waarden zijn momenteel groter is dan de CPU en geheugen resources die beschikbaar zijn in de containergroepen zonder GPU-resources.  
 
 ### <a name="things-to-know"></a>Dingen die u moet weten
 

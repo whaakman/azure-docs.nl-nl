@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 5194fa73d246cee039e113207bbde277b06d7130
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: f8941f84e85f330713cb4b263f2154acb80b520c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753196"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532393"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quota en limieten voor Batch-service
 
@@ -67,7 +67,7 @@ Als u een Batch-account met de pooltoewijzingsmodus is ingesteld gemaakt op **ge
 | Toepassingspakketten per toepassing | 40 |
 | De maximale levensduur van taken | 180 dagen<sup>1</sup> |
 
-<sup>1</sup> de maximale levensduur van een taak, wanneer deze wordt toegevoegd aan de taak wanneer deze is voltooid, is 180 dagen. Voltooide taken blijven voor 7 dagen. gegevens voor taken is niet voltooid binnen de maximale levensduur zijn niet toegankelijk.
+<sup>1</sup> de maximale levensduur van een taak, wanneer deze wordt toegevoegd aan de taak wanneer deze is voltooid, is 180 dagen. Voltooide taken blijven gedurende zeven dagen aanwezig; gegevens voor taken die niet binnen de maximale levensduur zijn voltooid, zijn niet toegankelijk.
 
 ## <a name="view-batch-quotas"></a>Batch-quotums weergeven
 
@@ -135,6 +135,6 @@ Deze resources worden toegewezen in het abonnement waarin het virtuele netwerk d
 
 [portal]: https://portal.azure.com
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
-[support_sev]: http://aka.ms/supportseverity
+[support_sev]: https://aka.ms/supportseverity
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.png

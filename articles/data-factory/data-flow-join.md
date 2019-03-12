@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: f95edc881e26576df216c92ff0b94c5c19bf7fa8
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 204ee1b812949311258be968de387dc5b66c4fc0
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727924"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726869"
 ---
-# <a name="azure-data-factory-data-flow-join-transformation"></a>Azure Data Factory stroom Join transformatie
+# <a name="mapping-data-flow-join-transformation"></a>Toewijzing van Flow Join transformatie
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -24,11 +24,11 @@ Join gebruiken om gegevens uit twee tabellen in de gegevensstroom te combineren.
 
 ## <a name="join-types"></a>Typen koppelen
 
-Koppelingstype selecteren is vereist voor de Join-transformatie
+Koppelingstype selecteren is vereist voor de Join-transformatie.
 
 ### <a name="inner-join"></a>Inner Join
 
-Inner join worden alleen rijen die overeenkomen met de voorwaarden van de kolom uit beide tabellen doorgegeven
+Inner join worden doorgegeven aan alleen de rijen die overeenkomen met de voorwaarden van de kolom uit beide tabellen.
 
 ### <a name="left-outer"></a>Linker outer join
 
@@ -40,11 +40,11 @@ Alle rijen uit de juiste stroom die niet voldoen aan de join-voorwaarde worden d
 
 ### <a name="full-outer"></a>Volledige Outer
 
-Volledig Outer produceert alle kolommen en rijen van beide zijden met NULL-waarden voor kolommen die zijn niet aanwezig in de andere tabel
+Volledig Outer biedt alle kolommen en rijen van beide zijden met NULL-waarden voor kolommen die zijn niet aanwezig in de andere tabel.
 
 ### <a name="cross-join"></a>Cross Join
 
-Specifieke het vectorproduct van de twee stromen met een expressie
+Geef het vectorproduct van twee streams met een expressie. U kunt dit gebruiken om te maken van aangepaste join-voorwaarden.
 
 ## <a name="specify-join-conditions"></a>Join-voorwaarden opgeven
 
@@ -67,3 +67,7 @@ U kunt voorwaarden in ADF gegevensstroom self-join bereiken met behulp van de op
 ![Self-join](media/data-flow/selfjoin.png "Self-join")
 
 In het bovenstaande diagram, wordt de optie transformatie is aan de bovenkant. Alle Bezig aliasing is de oorspronkelijke stroom naar 'OrigSourceBatting'. In de gemarkeerde Join-transformatie eronder kunt u zien dat we deze stroom Selecteer alias als de rechter join gebruiken, zodat we om te verwijzen naar dezelfde sleutel in de linker & de rechterkant van de Inner Join.
+
+## <a name="next-steps"></a>Volgende stappen
+
+Na het koppelen van gegevens, kunt u vervolgens [nieuwe kolommen maken](data-flow-derived-column.md) en [sink van uw gegevens naar een doelgegevensarchief](data-flow-sink.md).

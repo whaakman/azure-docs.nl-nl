@@ -3,17 +3,17 @@ title: Afbeeldingen uploaden naar uw Azure IoT Central-toepassing | Microsoft Do
 description: Als een opbouwfunctie voor expressies, informatie over het voorbereiden en afbeeldingen uploaden naar uw Azure IoT Central-toepassing.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/31/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 4378ff4155cf0b2f9c4af8176f41fe35fc433792
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: c8444fd57fe939dfb212d88c22a071c13dac691e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310706"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767325"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Voorbereiden en afbeeldingen uploaden naar uw Azure IoT Central-toepassing
 
@@ -30,7 +30,7 @@ U hebt het volgende nodig om de stappen in dit artikel uit te voeren:
 
 U kunt aangepaste installatiekopieën toevoegen aan de volgende locaties in een Azure IoT Central-toepassing:
 
-* De **Toepassingsbeheer** pagina
+* De **mijn toepassingen** pagina
 
     ![Een installatiekopie op de pagina voor het beheer van toepassingen](media/howto-prepare-images/applicationmanager.png)
 
@@ -70,7 +70,7 @@ De volgende secties wordt beschreven hoe u de installatiekopieën in de verschil
 
 ### <a name="application-manager"></a>Toepassingsbeheer
 
-Een afbeelding uploaden op de **Toepassingsbeheer**, gaat u naar de **toepassingsinstellingen** pagina in de **beheer** sectie. U moet een beheerder om deze taak te voltooien:
+Het uploaden van een installatiekopie moet worden gebruikt op de **mijn toepassingen** pagina, gaat u naar de **toepassingsinstellingen** pagina in de **beheer** sectie. U moet een beheerder om deze taak te voltooien:
 
 ![Afbeelding van de toepassing uploaden](media/howto-prepare-images/uploadapplicationmanager.png)
 
@@ -78,9 +78,9 @@ Selecteer de tegel de installatiekopie van toepassing op uw voorbereide installa
 
 ### <a name="application-dashboard"></a>Toepassingsdashboard
 
-Als u wilt uploaden een afbeelding op het dashboard, gaat u naar de **Dashboard** van uw toepassing en selecteer **bewerken**. U moet een opbouwfunctie om deze taak te voltooien:
+Als u wilt uploaden een afbeelding op het dashboard, gaat u naar de **Dashboard** pagina van uw toepassing en selecteer **bewerken**. U moet een opbouwfunctie om deze taak te voltooien:
 
-![Toepassing dashboard installatiekopie uploaden](media/howto-prepare-images/uploadhomepage.png)
+![Dashboard-installatiekopie uploaden](media/howto-prepare-images/uploadhomepage.png)
 
 Selecteer de tegel de installatiekopie van het uploaden van uw voorbereide installatiekopie van uw lokale computer onder installatiekopie configureren. De kleinste grootte tegel is 200 x 200 pixels, grotere tegels mag vierkant of rechthoekig veelvouden van kleine tegels. Bijvoorbeeld 200 x 400 px, 400 x 200 px of 400 x 400 px.
 
@@ -88,15 +88,15 @@ Selecteer de tegel de installatiekopie van het uploaden van uw voorbereide insta
 
 ### <a name="device-template"></a>Apparaatsjabloon
 
-Als u wilt uploaden een installatiekopie van een sjabloon van het apparaat, gaat u naar **Device Explorer**, kiest u de sjabloon van het apparaat en klik vervolgens op een apparaat. U moet een opbouwfunctie om deze taak te voltooien:
+Als u wilt uploaden een installatiekopie van een sjabloon van het apparaat, gaat u naar **Apparaatsjablonen** en kies de sjabloon van het apparaat. U moet een opbouwfunctie om deze taak te voltooien:
 
 ![Installatiekopie van het apparaat sjabloon uploaden](media/howto-prepare-images/uploaddevicetemplate.png)
 
-Selecteer de tegel van de installatiekopie naar uw voorbereide installatiekopie uploaden (64 x 64 pixels) van uw lokale computer. 
+Selecteer de tegel van de installatiekopie naar uw voorbereide installatiekopie uploaden (64 x 64 pixels) van uw lokale computer.
 
 ### <a name="device-dashboard"></a>Apparaatdashboard
 
-Als u wilt uploaden een installatiekopie op een apparaatdashboard, gaat u naar **Device Explorer**, kiest u de sjabloon van het apparaat en klik vervolgens op een apparaat. Kies vervolgens de **Dashboard** pagina en selecteer **sjabloon bewerken**. U moet een opbouwfunctie om deze taak te voltooien:
+Als u wilt uploaden een installatiekopie op een apparaatdashboard, gaat u naar **Apparaatsjablonen** en kies de sjabloon van het apparaat. Kies vervolgens de **Dashboard** tabblad. U moet een opbouwfunctie om deze taak te voltooien:
 
 ![Installatiekopie van het dashboard apparaat uploaden](media/howto-prepare-images/uploaddevicedashboard.png)
 

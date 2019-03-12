@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 5f89077980cc36bb2fd08b100da4625c39302c35
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: eb16778e0e7050dfda92fcc1b92afffe5860268d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311930"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767580"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Connectiviteit van apparaten in Azure IoT Central
 
@@ -43,7 +43,7 @@ Deze methode is nuttig wanneer u experimenteren met IoT Central of testen van ap
 
 Voor een enkel apparaat verbinding met IoT Central met behulp van SAS, de volgende stappen uit:
 
-1. Als u wilt toevoegen echt apparaat, gaat u naar de **apparaten Explorer**, kies een apparaat-sjabloon en selecteer **+ Nieuw > echte**:
+1. Als u wilt toevoegen echt apparaat, gaat u naar de **Device Explorer**, kies een apparaat-sjabloon en selecteer **+ Nieuw > echte**:
     - Voer uw eigen (kleine letters) **apparaat-ID** of gebruikt u de voorgestelde-ID.
     - Voer een **apparaatnaam** of de voorgestelde naam gebruiken.
 

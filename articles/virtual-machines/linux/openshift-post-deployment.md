@@ -15,19 +15,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/02/2019
 ms.author: haroldw
-ms.openlocfilehash: b2a2e0ed48004a731ca15b3fb1d985bbee7e0c29
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b99490102dd4f2c08a11be066b2ddc5fd6b7ea7b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440656"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535832"
 ---
 # <a name="post-deployment-tasks"></a>Taken na de implementatie
 
 Nadat u een OpenShift-cluster implementeert, kunt u extra items configureren. In dit artikel bevat informatie over:
 
 - Het configureren van eenmalige aanmelding met behulp van Azure Active Directory (Azure AD)
-- Het configureren van Log Analytics voor het controleren van OpenShift
+- Het configureren van Azure Monitor-logboeken voor het controleren van OpenShift
 - Metrische gegevens en logboekregistratie configureren
 - Het installeren van Open Service Broker for Azure (OSBA)
 
@@ -179,11 +179,11 @@ sudo systemctl restart origin-master
 
 In de console van OpenShift ziet u nu twee opties voor verificatie: htpasswd_auth en [App-registratie].
 
-## <a name="monitor-openshift-with-log-analytics"></a>OpenShift bewaken met Log Analytics
+## <a name="monitor-openshift-with-azure-monitor-logs"></a>OpenShift bewaken met Azure Monitor-Logboeken
 
 Er zijn drie manieren om toe te voegen van de Log Analytics-agent voor OpenShift.
 - De Log Analytics-agent voor Linux installeren rechtstreeks op elk knooppunt van OpenShift
-- Log Analytics VM-extensie inschakelen op elk knooppunt van OpenShift
+- Azure Monitor VM-extensie inschakelen op elk knooppunt van OpenShift
 - De Log Analytics-agent installeren als een OpenShift-daemon-set
 
 De volledige instructies vindt u hier: https://docs.microsoft.com/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift.

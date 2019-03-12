@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 03/05/2019
 ms.author: diberry
-ms.openlocfilehash: af73d78b911d59f68c5e824931b5634d8c69f309
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 42ac75b6ed0d4489ccae014b9cfe3b08269c1218
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448999"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547415"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Patronen verbeteren nauwkeurigheid
 Patronen zijn ontworpen voor betere nauwkeurigheid wanneer verschillende uitingen vergelijkbaar zijn.  Een patroon kunt u meer nauwkeurigheid voor een doel zonder op te geven veel meer uitingen krijgen. 
@@ -41,8 +41,11 @@ Patronen oplossen van de volgende situaties:
 ## <a name="patterns-are-not-a-guarantee-of-intent"></a>Patronen zijn geen garantie van doel
 Patronen gebruiken een combinatie van technologieën voor voorspelling. Instellen van een doel voor de utterance van een sjabloon in een patroon is geen garantie van de intentie voorspelling maar het is een sterk signaal. 
 
-## <a name="patterns-do-not-improve-entity-detection"></a>Patronen de detectie van de entiteit niet zijn verbeteren
-Hoewel patronen entiteiten, een patroon helpt niet bij het detecteren van de entiteit. Een patroon is alleen bedoeld om u te helpen bij het voorspellen met intents en rollen.  
+<a name="patterns-do-not-improve-entity-detection"/>
+
+## <a name="patterns-do-not-improve-machine-learned-entity-detection"></a>Patronen verbetert niet entiteit hebt geleerd van machine-detectie
+
+Een patroon is voornamelijk bedoeld om u te helpen bij het voorspellen van intenties en rollen. De entiteit pattern.any wordt gebruikt om op te halen van vrije-entiteiten. Patronen gebruiken entiteiten, een patroon helpt niet bij het detecteren van een entiteit hebt geleerd van een machine.  
 
 Niet verwacht te zien verbeterde entiteit voorspelling als u meerdere uitingen in een enkel patroon samenvouwen. Voor eenvoudige entiteiten moet worden gestart, moet u utterances toevoegen of lijst met entiteiten gebruiken anders die het patroon wordt niet gestart.
 

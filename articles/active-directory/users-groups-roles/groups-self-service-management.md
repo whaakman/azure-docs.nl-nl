@@ -9,26 +9,36 @@ editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: get-started-article
-ms.date: 01/31/2019
+ms.topic: conceptual
+ms.date: 03/01/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 059746d0e3a277016f5d6b98fe0d0f90c9ee2b96
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b5584e4ecc78a8805135cb3f36bd5f5cd7079129
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217986"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767070"
 ---
-# <a name="set-up-azure-active-directory-for-self-service-group-management"></a>Azure Active Directory instellen voor groepsbeheer met self-service
+# <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Self-service groepsbeheer in Azure Active Directory instellen 
 
-Uw gebruikers kunnen hun eigen beveiligingsgroepen of Office 365-groepen maken en beheren in Azure Active Directory (Azure AD). Gebruikers kunnen ook vragen om lidmaatschap van een beveiligingsgroep of Office 365-groep en de eigenaar van de groep kan lidmaatschap goedkeuren of ontkennen. Het dagelijkse beheer van groepslidmaatschap kan worden overgedragen aan de mensen die de bedrijfscontext voor het desbetreffende lidmaatschap begrijpen. Functies van het zelfservicegroepsbeheer zijn enkel bechikbaar voor beveiligingsgroepen en Office 365-groepen, maar niet voor beveiligingsgroepen met mail of distributielijsten.
+U kunt gebruikers maken en beheren hun eigen beveiligingsgroepen of Office 365-groepen in Azure Active Directory (Azure AD) inschakelen. De eigenaar van de groep kunt goedkeuren of weigeren van aanvragen voor groepslidmaatschap en kunnen delegeren van beheer van groepslidmaatschap. Groepsbeheer met Self-service-beheerfuncties zijn niet beschikbaar voor beveiligingsgroepen die e-mail of voor distributielijsten. 
 
-Twee scenario's voor selfservice voor groepsbeheer: 
+## <a name="self-service-group-membership-defaults"></a>Standaardinstellingen voor groepsbeheer met Self-service lidmaatschap
 
-* **Gedelegeerd groepsbeheer** Een voorbeeld is een beheerder die toegang beheert tot een SaaS-toepassing die het bedrijf gebruikt. Het beheren van deze gebruiksrechten is omslachtig en daarom vraagt de beheerder de eigenaar van het bedrijf om een nieuwe groep te maken. De beheerder wijst de toegang voor de toepassing toe aan de nieuwe groep en voegt aan de groep alle personen die al toegang hebben tot de toepassing. De bedrijfseigenaar kan meer gebruikers toevoegen en deze gebruikers worden automatisch ingericht op de toepassing. De bedrijfseigenaar hoeft niet op de beheerder te wachten om de toegang voor gebruikers te beheren. Als de beheerder dezelfde toelating verleent aan een beheerder in ander ebedrijfsgroep, dan zal die persoon ook de toegang voor zijn eigen gebruikers kunnen beheren. Noch de bedrijfseigenaar, noch de beheerder kunnen elkaars gebruikers bekijken of beheren. De beheerder kan nog steeds alle gebruikers die toegang tot de toepassing hebben zien en zonodig de toegangsrechten blokkeren.
+Als beveiligingsgroepen worden gemaakt in Azure portal of met behulp van Azure AD PowerShell, alleen de eigenaren van de groep kunnen lidmaatschap bijwerken. Beveiligingsgroepen die zijn gemaakt in de [Toegangsvenster](https://account.activedirectory.windowsazure.com/r#/joinGroups) en alle Office 365-groepen zijn beschikbaar om toe te voegen voor alle gebruikers, of de eigenaar van goedgekeurd of automatisch goedgekeurd. In het toegangsvenster, kunt u opties voor lidmaatschap wijzigen bij het maken van de groep.
+
+Groepen die zijn gemaakt in | Standaardgedrag voor beveiliging groep | Standaardgedrag voor Office 365-groep
+------------------ | ------------------------------- | ---------------------------------
+[PowerShell voor Azure AD](groups-settings-cmdlets.md) | Alleen eigenaars kunnen leden toevoegen<br>Zichtbaar, maar niet beschikbaar zijn om toe te voegen in Toegangsvenster | Open om toe te voegen voor alle gebruikers
+[Azure-portal](https://portal.azure.com) | Alleen eigenaars kunnen leden toevoegen<br>Zichtbaar, maar niet beschikbaar zijn om toe te voegen in Toegangsvenster<br>De eigenaar wordt niet automatisch toegewezen tijdens het maken van groep | Open om toe te voegen voor alle gebruikers
+[Toegangsvenster](https://account.activedirectory.windowsazure.com/r#/joinGroups) | Open om toe te voegen voor alle gebruikers<br>Lidmaatschap van opties kunnen worden gewijzigd nadat de groep is gemaakt | Open om toe te voegen voor alle gebruikers<br>Lidmaatschap van opties kunnen worden gewijzigd nadat de groep is gemaakt
+
+## <a name="self-service-group-management-scenarios"></a>Scenario's voor het beheer van selfservicegroepen
+
+* **Gedelegeerd groepsbeheer** Een voorbeeld is een beheerder die toegang beheert tot een SaaS-toepassing die het bedrijf gebruikt. Het beheren van deze gebruiksrechten is omslachtig en daarom vraagt de beheerder de eigenaar van het bedrijf om een nieuwe groep te maken. De beheerder wijst de toegang voor de toepassing toe aan de nieuwe groep en voegt aan de groep alle personen die al toegang hebben tot de toepassing. De bedrijfseigenaar kan meer gebruikers toevoegen en deze gebruikers worden automatisch ingericht op de toepassing. De bedrijfseigenaar hoeft niet op de beheerder te wachten om de toegang voor gebruikers te beheren. Als de beheerder worden dezelfde toelating aan een beheerder in ander ebedrijfsgroep, verleent en vervolgens die persoon ook toegang voor hun eigen groepsleden beheren. Noch de bedrijfseigenaar, noch de beheerder kan bekijken of beheren van elkaars groepslidmaatschappen. De beheerder kan nog steeds alle gebruikers die toegang tot de toepassing hebben zien en zonodig de toegangsrechten blokkeren.
 * **Self-service voor groepsbeheer** Een voorbeeld van dit scenario zijn twee gebruikers die allebei SharePoint Online-sites hebben die ze onafhankelijk hebben ingesteld. Ze willen elkaars teams toegang geven tot hun sites. Hiervoor kunnen ze in Azure AD een groep maken en in SharePoint selecteert elk van hen de groep waartoe ze op hun sites toegang willen verlenen. Wanneer iemand toegang wil, kan dit worden aangevraagd bij het toegangspaneel en na goedkeuring wordt automatisch toegang verleend tot beide SharePoint Online-sites. Later beslist één van hen dat alle personen die de site openen ook toegang moeten krijgen tot een specifieke SaaS-toepassing. De beheerder van de SaaS-toepassing kan toegangsrechten toevoegen voor de toepassing aan de SharePoint Online-site. Vanaf dan verlenen alle goedgekeurde verzoeken toegang tot de twee SharePoint Online-sites en ook tot deze SaaS-toepassing.
 
 ## <a name="make-a-group-available-for-user-self-service"></a>Een groep beschikbaar maken voor self-service door gebruikers

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
-ms.openlocfilehash: edb2bbee8df24dc9f9747ff13f5e3526192d91b2
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5b80dcfa5cef116bb2558f154a54d343e467ae83
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874015"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546650"
 ---
 # <a name="azure-diagnostic-logs"></a>Diagnostische logboeken in Azure
 
@@ -45,11 +45,13 @@ Het volgende diagram toont een typische CDN core analytics-weergave van gegevens
 
 Zie voor meer informatie over diagnostische logboeken [diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## <a name="enable-logging-with-the-azure-portal"></a>Logboekregistratie inschakelen met de Azure-portal
 
 Volg deze stappen kunt registreren met CDN core analytics:
 
-Meld u aan bij [Azure Portal](http://portal.azure.com). Als u niet dat u al CDN hebt ingeschakeld voor uw werkstroom [maken van een Azure CDN-profiel en een eindpunt](cdn-create-new-endpoint.md) voordat u doorgaat.
+Meld u aan bij [Azure Portal](https://portal.azure.com). Als u niet dat u al CDN hebt ingeschakeld voor uw werkstroom [maken van een Azure CDN-profiel en een eindpunt](cdn-create-new-endpoint.md) voordat u doorgaat.
 
 1. In de Azure-portal, gaat u naar **CDN-profiel**.
 
@@ -168,7 +170,7 @@ Het volgende voorbeeld ziet het inschakelen van diagnostische logboeken via de A
 Deze sectie beschrijft het schema van CDN core analytics, hoe deze binnen een Azure storage-account is georganiseerd en wordt een voorbeeldcode om de logboeken in een CSV-bestand te downloaden.
 
 ### <a name="using-microsoft-azure-storage-explorer"></a>Met behulp van Microsoft Azure Storage Explorer
-Voordat u krijgt de core analytics-gegevens uit een Azure storage-account tot toegang, moet u eerst een hulpprogramma voor toegang tot de inhoud van een storage-account. Er zijn verschillende hulpprogramma's beschikbaar op de markt, is die het beste de Microsoft Azure Storage Explorer. Zie voor het downloaden van het hulpprogramma [Azure Storage Explorer](http://storageexplorer.com/). Na het downloaden en installeren van de software, moet u deze voor het gebruik van de Azure storage-account dat is geconfigureerd als een doel voor de diagnoselogboeken CDN configureren.
+Voordat u krijgt de core analytics-gegevens uit een Azure storage-account tot toegang, moet u eerst een hulpprogramma voor toegang tot de inhoud van een storage-account. Er zijn verschillende hulpprogramma's beschikbaar op de markt, is die het beste de Microsoft Azure Storage Explorer. Zie voor het downloaden van het hulpprogramma [Azure Storage Explorer](https://storageexplorer.com/). Na het downloaden en installeren van de software, moet u deze voor het gebruik van de Azure storage-account dat is geconfigureerd als een doel voor de diagnoselogboeken CDN configureren.
 
 1.  Open **Microsoft Azure Storage Explorer**
 2.  Zoek het opslagaccount
@@ -225,11 +227,11 @@ Voor het gebruik van Azure Monitor, moet u [logboekregistratie inschakelen](#ena
 
 U kunt de gegevens op verschillende manieren weergeven met behulp van oplossingen voor beheer. U vindt oplossingen uit de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions).
 
-U kunt oplossingen voor installeren via Azure marketplace door te selecteren de **nu downloaden** koppelen aan de onderkant van elke oplossing.
+U kunt bewakingsoplossingen installeren via Azure marketplace door te selecteren de **nu downloaden** koppelen aan de onderkant van elke oplossing.
 
-### <a name="add-a-azure-monitor-cdn-management-solution"></a>Toevoegen van een beheeroplossing voor CDN van Azure Monitor
+### <a name="add-a-azure-monitor-cdn-monitoring-solution"></a>Een oplossing voor de controle van Azure Monitor CDN toevoegen
 
-Volg deze stappen voor het toevoegen van een oplossing voor Azure Monitor:
+Volg deze stappen voor het toevoegen van een Azure-Monitor voor controle:
 
 1.   Aanmelden bij Azure portal met uw Azure-abonnement en Ga naar uw dashboard.
     ![Azure-dashboard](./media/cdn-diagnostics-log/13_Azure-dashboard.png)
@@ -443,7 +445,7 @@ Van de Voorbeeldeigenschappen:
 
 * [Diagnostische logboeken in Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Core analytics via de aanvullende portal van Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Logboeken in Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [Azure Monitor-logboeken](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 * [Azure Log Analytics REST API](https://docs.microsoft.com/rest/api/loganalytics)
 
 

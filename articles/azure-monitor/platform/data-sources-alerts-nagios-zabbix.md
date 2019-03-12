@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: ac8e214df6b6990e2b27b5897350c85e0a944e0c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: f0f156568eed5a1e8f3296ff7c37df7f050dbc33
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997954"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540042"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-azure-monitor-from-log-analytics-agent-for-linux"></a>Meldingen van Nagios en Zabbix in Azure Monitor verzamelen in Log Analytics-agent voor Linux 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-[Nagios](https://www.nagios.org/) en [Zabbix](http://www.zabbix.com/) zijn open-source hulpprogramma's voor controle. U kunt waarschuwingen verzamelen van deze hulpprogramma's in Azure Monitor om te kunnen analyseren met logboekgegevens uit andere bronnen.  In dit artikel wordt beschreven hoe u de Log Analytics-agent voor Linux voor het verzamelen van waarschuwingen van deze systemen configureren.
+[Nagios](https://www.nagios.org/) en [Zabbix](https://www.zabbix.com/) zijn open-source hulpprogramma's voor controle. U kunt waarschuwingen verzamelen van deze hulpprogramma's in Azure Monitor om te kunnen analyseren met logboekgegevens uit andere bronnen.  In dit artikel wordt beschreven hoe u de Log Analytics-agent voor Linux voor het verzamelen van waarschuwingen van deze systemen configureren.
 
 
 > [!NOTE]

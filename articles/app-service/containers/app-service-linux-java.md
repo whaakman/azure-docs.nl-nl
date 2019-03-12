@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: b28316242f608fcfc2b368170190a771c4abbc8e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 698e6fb861ab891a84aa43ca94769099a5c76943
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456105"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766815"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Java developer's guide for App Service op Linux
 
@@ -158,9 +158,6 @@ Volg de instructies in de [een bestaand aangepast SSL-certificaat binden](/azure
 ## <a name="data-sources"></a>Gegevensbronnen
 
 ### <a name="tomcat"></a>Tomcat
-
->[!NOTE]
-> Als uw toepassing gebruikmaakt van de Spring-Framework of Spring Boot, kunt u de database-verbindingsgegevens voor de Spring gegevens JPA als omgevingsvariabelen instellen [in uw toepassing eigenschappenbestand]. Gebruik vervolgens [app-instellingen](/azure/app-service/web-sites-configure#app-settings) voor het definiëren van deze waarden voor uw toepassing in de Azure portal of de CLI.
 
 Deze instructies zijn van toepassing op alle databaseverbindingen. U moet tijdelijke aanduidingen invullen met de gekozen database stuurprogramma klassenaam en het JAR-bestand. Opgegeven is een tabel met klassenamen en Stuurprogrammadownloads voor algemene databases.
 

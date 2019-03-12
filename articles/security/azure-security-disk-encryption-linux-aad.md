@@ -3,17 +3,16 @@ title: Azure Disk Encryption met Azure AD App Linux IaaS-VM's (vorige versie)
 description: In dit artikel vindt u instructies over het inschakelen van Microsoft Azure Disk Encryption voor Linux IaaS-VM's.
 author: mestew
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 03/04/2019
+ms.date: 03/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 292dafb88362d7f7d0ec07a2a7961b98e6518204
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 659530d1dcea5593e86edf85cb6c2b15da57618e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339382"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775625"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms-previous-release"></a>Azure Disk Encryption inschakelen voor Linux IaaS-VM's (vorige versie)
 
@@ -32,38 +31,8 @@ Duren voordat een [momentopname](../virtual-machines/windows/snapshot-copy-manag
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="bkmk_NewLinux"></a> Een nieuwe Linux IaaS-VM implementeren met schijfversleuteling is ingeschakeld 
-
-1. Gebruik de [Resource Manager-sjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel) Maak een nieuwe versleuteld Linux IaaS-VM. De sjabloon wordt een nieuwe Red Hat Linux 7.2 maken met een matrix van 200 GB RAID-0 en volledige schijfversleuteling met behulp van beheerde schijven. Op de [Veelgestelde vragen over](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) artikel, zult u merken dat sommige Linux-distributies versleuteling alleen ondersteuning voor gegevensschijven. Deze sjabloon bevat echter een kans om vertrouwd te raken met het implementeren van sjablonen en status voor schijfversleuteling met meerdere methoden of. 
- 
-1. Klik op **implementeren in Azure** op de Azure Resource Manager-sjabloon.
-
-2. Selecteer het abonnement, resourcegroep, locatie voor resourcegroep, parameters, juridische voorwaarden en -overeenkomst. Klik op **maken** versleuteling op de bestaande of actieve IaaS-VM inschakelen.
-
-3. Nadat u de sjabloon implementeert, controleert u of de status van de VM-versleuteling met behulp van de gewenste manier:
-     - Controleren met de Azure CLI met behulp van de [az vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show) opdracht. 
-
-         ```azurecli-interactive 
-         az vm encryption show --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup"
-         ```
-
-     - Met Azure PowerShell controleren met behulp van de [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) cmdlet. 
-
-         ```azurepowershell-interactive
-         Get-AzVmDiskEncryptionStatus -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
-         ```
-
-     - Selecteer de virtuele machine en klik vervolgens op **schijven** onder de **instellingen** kop om te controleren of de status voor schijfversleuteling in de portal. In de grafiek onder **versleuteling**, ziet u of deze ingeschakeld. 
-
-| Parameter | Description |
-| --- | --- |
-| AAD Client-ID | Client-ID van de Azure AD-toepassing met machtigingen voor geheimen schrijven naar de key vault. |
-| AAD-Clientgeheim | Clientgeheim van de Azure AD-toepassing met machtigingen voor het schrijven van geheimen voor uw key vault. |
-| Key Vault-naam | De naam van de key vault dat de sleutel moet worden geplaatst. |
-| Key Vault-resourcegroep | De resourcegroep van de key vault. |
-
-
 ## <a name="bkmk_RunningLinux"> </a> Schakelt u versleuteling op een bestaande of actieve IaaS virtuele Linux-machine
+
 In dit scenario kunt u versleuteling inschakelen met behulp van de Resource Manager-sjabloon, de PowerShell-cmdlets of de CLI-opdrachten. 
 
 >[!IMPORTANT]

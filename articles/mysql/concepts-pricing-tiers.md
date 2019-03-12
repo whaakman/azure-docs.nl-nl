@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: d84e3f834bd598bbd2cf84dfc46f6cd5507f6d8b
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 21ddeb9cb0621f0f11ca23a7b12a82df0b7aa8ca
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587120"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546668"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database voor MySQL Prijscategorieën
 
@@ -50,30 +50,30 @@ COMPUTE-resources worden verstrekt als vCores, die staan voor de logische CPU va
 |:---|:----------:|:--------------------:|
 | US - centraal |  | X |
 | US - oost |  | X |
-| US - oost 2 | X | X |
-| US - noord-centraal | X | X |
+| US - oost 2 |  | X |
+| US - noord-centraal |  | X |
 | US - zuid-centraal | X | X |
-| US - west | X | X |
+| US - west |  | X |
 | US - west 2 |  | X |
-| Brazilië - zuid | X | X |
-| Canada - midden | X | X |
-| Canada - oost | X | X |
+| Brazilië - zuid |  | X |
+| Canada - midden |  | X |
+| Canada - oost |  | X |
 | Europa - noord | X | X |
 | Europa -west |  | X |
 | Frankrijk - centraal |  | X |
 | Verenigd Koninkrijk Zuid |  | X |
 | Verenigd Koninkrijk West |  | X |
-| Azië - oost | X | X |
+| Azië - oost |  | X |
 | Azië - zuidoost | X | X |
 | Australië - oost |  | X |
 | Australië - centraal |  | X |
 | Australië - centraal 2 |  | X |
 | Australië - zuidoost |  | X |
-| India - centraal | X | X |
+| India - centraal |  | X |
 | India - zuid |  | X |
-| India - west | X | X |
+| India - west |  | X |
 | Japan - oost | X | X |
-| Japan - west | X | X |
+| Japan - west |  | X |
 | Korea - centraal |  | X |
 | Korea - zuid |  | X |
 | China Oost 1 | X |  |

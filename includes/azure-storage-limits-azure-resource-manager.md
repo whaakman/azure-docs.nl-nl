@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/18/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: a76e91eee14c8c1feca8178fec461cf71989d8a3
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 092b5696b97b73344a01af8103b24a01010f7a55
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46299102"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553709"
 ---
-De volgende beperkingen gelden alleen bij het uitvoeren van beheertaken uit te voeren met behulp van Azure Resource Manager met Azure Storage.
+De volgende limieten gelden alleen wanneer u beheerbewerkingen uitvoeren met behulp van Azure Resource Manager met Azure Storage.
 
 | Resource | Standaardlimiet |
 | --- | --- |

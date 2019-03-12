@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: d9ce2661fbdca0a28f917e27e27a3e3f954a9999
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: b0d6afbe2db4c95460aef96a9d918219bd4240e2
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488374"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769877"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor beveiliging van clusters en upgrades in Azure Kubernetes Service (AKS)
 
@@ -188,7 +188,7 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 U kunt vervolgens een upgrade uw AKS-cluster met de [az aks upgrade] [ az-aks-upgrade] opdracht. Het upgradeproces veilig cordons en verkeer naar één knooppunt tegelijk, schillen in de resterende knooppunten plant en implementeert vervolgens een nieuw knooppunt met de meest recente OS en Kubernetes-versies.
 
 ```azurecli-interactive
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.11.3
+az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.11.8
 ```
 
 Zie voor meer informatie over upgrades in AKS [ondersteund Kubernetes-versies in AKS] [ aks-supported-versions] en [een AKS-cluster upgraden][aks-upgrade].

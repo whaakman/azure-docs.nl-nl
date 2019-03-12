@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: f67741417c6d31c4adf1d063aac3bd3ccc310fde
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5c8ec54df0d578c6d12524a4128b9cc54e6464a0
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440247"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781898"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Informatie over de structuur en de syntaxis van Azure Resource Manager-sjablonen
 
@@ -46,7 +46,7 @@ In de meest eenvoudige structuur heeft een sjabloon voor de volgende elementen:
 |:--- |:--- |:--- |
 | $schema |Ja |Locatie van het JSON-schema-bestand dat de versie van de taal van de sjabloon beschrijft.<br><br> Voor implementaties van resource-groep, gebruiken: `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Gebruik voor abonnementimplementaties van: `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
 | contentVersion |Ja |De versie van de sjabloon (bijvoorbeeld 1.0.0.0). U kunt een waarde opgeven voor dit element. Gebruik deze waarde aan aanzienlijke wijzigingen in het document in de sjabloon. Bij het implementeren van resources met behulp van de sjabloon, kan deze waarde kan worden gebruikt om ervoor te zorgen dat de juiste sjabloon wordt gebruikt. |
-| apiProfile |Nee | Een API-versie die als een verzameling van API-versies voor het woord brontypen fungeert. Gebruik deze waarde om te voorkomen dat om op te geven van API-versies voor elke resource in de sjabloon. Wanneer u de versie van een API-profiel opgeven en een API-versie voor het resourcetype niet opgeeft, wordt de API-versie van het profiel in Resource Manager gebruikt voor dat resourcetype. Zie voor meer informatie, [versies met behulp van API-profielen bijhouden](templates-cloud-consistency.md#track-versions-using-api-profiles). |
+| apiProfile |Nee | Een API-versie die als een verzameling van API-versies voor het woord brontypen fungeert. Gebruik deze waarde om te voorkomen dat om op te geven van API-versies voor elke resource in de sjabloon. Wanneer u de versie van een API-profiel opgeven en een API-versie voor het resourcetype niet opgeeft, wordt de API-versie in Resource Manager gebruikt voor dat resourcetype die is gedefinieerd in het profiel.<br><br>De API-profiel-eigenschap is vooral handig bij het implementeren van een sjabloon in verschillende omgevingen, zoals Azure Stack en globale Azure. Gebruik de API-profiel-versie om te controleren of dat uw sjabloon maakt automatisch gebruik van versies die worden ondersteund in beide omgevingen. Zie voor een lijst van de huidige versies van de API-profiel en de API-versies die zijn gedefinieerd in het profiel van de resources, [API profiel](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>Zie voor meer informatie, [versies met behulp van API-profielen bijhouden](templates-cloud-consistency.md#track-versions-using-api-profiles). |
 | [parameters](#parameters) |Nee |De waarden die zijn opgegeven wanneer de implementatie wordt uitgevoerd om aan te passen van de resource-implementatie. |
 | [Variabelen](#variables) |Nee |De waarden die worden gebruikt als JSON-fragmenten in de sjabloon voor het vereenvoudigen van sjabloontaalexpressies. |
 | [Functies](#functions) |Nee |Gebruiker gedefinieerde functies die beschikbaar in de sjabloon zijn. |
@@ -57,17 +57,38 @@ Elk element heeft eigenschappen die u kunt instellen. Dit artikel wordt beschrev
 
 ## <a name="syntax"></a>Syntaxis
 
-De algemene syntaxis van de sjabloon is JSON. Expressies en functies echter uitbreiden de JSON-waarden die beschikbaar zijn in de sjabloon.  Expressies zijn geschreven in JSON-letterlijke waarvan de eerste en laatste tekens zijn de vierkante haken: `[` en `]`, respectievelijk. De waarde van de expressie wordt geëvalueerd wanneer de sjabloon wordt geïmplementeerd. Terwijl geschreven als een letterlijke tekenreeks, kan het resultaat van evaluatie van de expressie van een ander JSON-type, zoals een matrix of een geheel getal, afhankelijk van de werkelijke expressie zijn.  Moet een letterlijke tekenreeks begint met een haakje `[`, maar niet het geïnterpreteerd als een expressie, toevoegen van een extra haakje voor het starten van de tekenreeks met `[[`.
-
-Meestal gebruikt u expressies met functions bewerkingen voor het configureren van de implementatie uit te voeren. Net zoals in JavaScript-functieaanroepen die zijn opgemaakt als `functionName(arg1,arg2,arg3)`. U verwijzen naar eigenschappen met behulp van de operators stip en [index].
-
-Het volgende voorbeeld laat zien hoe u verschillende functies bij het maken van een waarde:
+De algemene syntaxis van de sjabloon is JSON. U kunt echter expressies gebruiken om uit te breiden de JSON-waarden die beschikbaar zijn in de sjabloon.  Expressies beginnen en eindigen met tussen haakjes: `[` en `]`, respectievelijk. De waarde van de expressie wordt geëvalueerd wanneer de sjabloon wordt geïmplementeerd. Een expressie kunt retourneert een tekenreeks, geheel getal, Booleaanse waarde, matrix of object. Het volgende voorbeeld ziet een expressie in de standaardwaarde van een parameter:
 
 ```json
-"variables": {
-  "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
-}
+"parameters": {
+  "location": {
+    "type": "string",
+    "defaultValue": "[resourceGroup().location]"
+  }
+},
 ```
+
+In de expressie, de syntaxis van de `resourceGroup()` roept een van de functies die Resource Manager voor gebruik in een sjabloon biedt. Net zoals in JavaScript-functieaanroepen die zijn opgemaakt als `functionName(arg1,arg2,arg3)`. De syntaxis van de `.location` één eigenschap opgehaald uit het object dat wordt geretourneerd door deze functie.
+
+Sjabloonfuncties en de bijbehorende parameters zijn niet hoofdlettergevoelig. Bijvoorbeeld: Resource Manager wordt omgezet **variables('var1')** en **VARIABLES('VAR1')** als hetzelfde. Wanneer geëvalueerd, tenzij de functie wijzigt uitdrukkelijk geval (zoals toUpper of toLower), de functie blijft behouden voor het geval is. Bepaalde resourcetypen mogelijk case-vereisten, ongeacht hoe de functies worden geëvalueerd.
+
+Moet een letterlijke tekenreeks begint met een haakje `[`, maar niet het geïnterpreteerd als een expressie, toevoegen van een extra haakje voor het starten van de tekenreeks met `[[`.
+
+Als u wilt een string-waarde als een parameter doorgeven aan een functie, gebruikt u enkele aanhalingstekens.
+
+```json
+"name": "[concat('storage', uniqueString(resourceGroup().id))]"
+```
+
+Gebruik de backslash om te escapen dubbele aanhalingstekens in een expressie, zoals het toevoegen van een JSON-object in de sjabloon.
+
+```json
+"tags": {
+    "CostCenter": "{\"Dept\":\"Finance\",\"Environment\":\"Production\"}"
+},
+```
+
+Een sjabloonexpressie voor een niet langer zijn dan 24.576 tekens.
 
 Zie voor de volledige lijst van de sjabloonvariabelen [Azure Resource Manager-sjabloonfuncties](resource-group-template-functions.md). 
 
