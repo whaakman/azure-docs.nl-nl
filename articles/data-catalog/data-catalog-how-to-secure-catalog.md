@@ -7,12 +7,12 @@ ms.author: maghan
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 9d80eddffaf376b6f6f0090dce74a4884b291531
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: de67ca0c209f9a61b00c5451a27a1198d0de3724
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405526"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532901"
 ---
 # <a name="how-to-secure-access-to-data-catalog-and-data-assets"></a>Over het beveiligen van toegang tot de gegevenscatalogus en gegevensassets
 > [!IMPORTANT]
@@ -23,7 +23,7 @@ Azure Data Catalog kunt u opgeven wie toegang heeft tot de catalogus met gegeven
 ## <a name="catalog-users-and-permissions"></a>Gebruikers van de catalogus en machtigingen
 Een gebruiker of groep de toegang geven tot een gegevenscatalogus en machtigingen instellen:
 
-1. Op de [startpagina van data catalog](http://www.azuredatacatalog.com), klikt u op **instellingen** op de werkbalk.
+1. Op de [startpagina van data catalog](https://www.azuredatacatalog.com), klikt u op **instellingen** op de werkbalk.
 
     ![Data catalog - instellingen](media/data-catalog-how-to-secure-catalog/data-catalog-settings.png)
 2. Vouw in de instellingenpagina van de **Catalogusgebruikers** sectie.

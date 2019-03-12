@@ -11,74 +11,58 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/25/2019
-ms.openlocfilehash: 8fc3db005d8297683bf663085106ab9c4f176b6c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/06/2019
+ms.openlocfilehash: d6de6e2752c16d95c81f47b9d14d53e0233a4ed6
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307748"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570796"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Schalen van één database-resources in Azure SQL Database
 
 In dit artikel wordt beschreven hoe u de reken- en opslagresources die beschikbaar zijn voor een individuele database schalen in Azure SQL Database.
 
-> [!IMPORTANT]
-> U worden in rekening gebracht voor elk uur bestaat in een database met behulp van de hoogste servicelaag + compute-grootte die tijdens dat uur, ongeacht het gebruik of of de database minder dan een uur actief is toegepast. Als u een individuele database maken en deze vijf minuten later verwijdert weerspiegelt uw factuur een post voor één database-uur.
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="vcore-based-purchasing-model-change-storage-size"></a>op vCore gebaseerde aankoopmodel: Opslaggrootte wijzigen
+## <a name="change-compute-resources-vcores-or-dtus"></a>Wijziging rekenresources (vCores of dtu's)
 
-- Opslag kan worden ingericht tot de maximale grootte is bereikt met behulp van de stappen van 1 GB. De minimale configureerbare gegevensopslag is 5 GB
-- Opslag voor een individuele database kan worden bevoorraad door vergroten of verkleinen van de maximale grootte met behulp van de [Azure-portal](https://portal.azure.com), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), de [Azure CLI](/cli/azure/sql/db#az-sql-db-update), of de [REST-API](https://docs.microsoft.com/rest/api/sql/databases/update).
-- SQL-Database wijst automatisch 30% van de extra opslag voor de logboekbestanden en 32GB per vCore voor TempDB, maar niet meer dan 384GB. TempDB bevindt zich op een gekoppelde SSD in alle service-lagen.
-- De prijs van opslag voor een individuele database is de som van de gegevens opslag- en logboekbestanden opslag bedragen vermenigvuldigd met de prijs per eenheid opslag van de servicelaag. De kosten van TempDB is opgenomen in de vCore-prijs. Zie voor meer informatie over de prijs van extra opslagruimte [prijzen van SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
-
-> [!IMPORTANT]
-> In sommige gevallen is het wellicht voor het verkleinen van een database voor het vrijmaken van ongebruikte ruimte. Zie voor meer informatie, [bestandsruimte in Azure SQL Database beheren](sql-database-file-space-management.md).
-
-## <a name="vcore-based-purchasing-model-change-compute-resources"></a>op vCore gebaseerde aankoopmodel: Rekenresources wijzigen
-
-Wanneer u hebt gekozen het aantal vCores, u kunt een individuele database omhoog of omlaag schalen dynamisch op basis van het feitelijke gebruik met behulp van de [Azure-portal](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), wordt de [Azure CLI](/cli/azure/sql/db#az-sql-db-update), of de [REST-API](https://docs.microsoft.com/rest/api/sql/databases/update).
-
-Wijzigen van de service tier en/of grootte van een database maakt u een replica van de oorspronkelijke database op de nieuwe compute-grootte en vervolgens de verbindingen overgeschakeld naar de replica. Er gaan geen gegevens verloren tijdens dit proces, maar tijdens het korte moment waarop we overschakelen naar de replica, worden verbindingen met de database uitgeschakeld, zodat sommige actieve transacties kunnen worden teruggedraaid. De tijdsduur voor de switch-meer dan verschilt, maar is in het algemeen minder dan 30 seconden 99% van de tijd. Als er veel transacties actief zijn op het moment dat de verbindingen zijn uitgeschakeld, wordt de tijdsduur voor de switch-meer dan mogelijk ook langer.
-
-De duur van het hele proces voor omhoog schalen in het algemeen is afhankelijk van de grootte en laag van de database vóór en na de wijziging. Bijvoorbeeld, elke grootte-database die wordt gewijzigd van de compute-grootte in het algemeen gebruik servicelaag, zou binnen enkele minuten voltooid aan de andere kant de latentie te wijzigen van de compute grootte binnen de bedrijfskritieke laag meestal 90 minuten is of minder per 100 GB.
-
-> [!TIP]
-> Als u wilt bewaken in voortgang van bewerkingen, Zie: [Beheren met behulp van de REST-API voor SQL operations](https://docs.microsoft.com/rest/api/sql/operations/list), [bewerkingen met behulp van CLI beheren](/cli/azure/sql/db/op), [bewaken van bewerkingen met behulp van T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) en deze twee PowerShell-opdrachten: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) en [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
-
-- Als u een upgrade naar een hogere servicelaag uitvoert of grootte van compute, wordt de maximale grootte van de database niet verhogen, tenzij u expliciet een groter formaat (maxsize) opgeeft.
-- Als u wilt downgraden van een database, moet de database die wordt gebruikt-ruimte kleiner zijn dan de maximaal toegestane grootte van de gewenste servicelaag en compute-grootte.
-- Bij het upgraden van een database met [geo-replicatie](sql-database-geo-replication-portal.md) is ingeschakeld, de secundaire databases upgraden naar de gewenste servicelaag en grootte compute vóór de upgrade van de primaire database (algemene richtlijnen voor de beste prestaties). Bij een upgrade naar een andere, is upgrade van de secundaire database eerst vereist.
-- Wanneer een database met downgraden [geo-replicatie](sql-database-geo-replication-portal.md) is ingeschakeld, de primaire databases aan de gewenste servicelaag downgraden en grootte compute voordat het downgraden van de secundaire database (algemene richtlijnen voor de beste prestaties). Wanneer de Downgrade uitvoert naar een andere editie, is downgraden van de primaire database eerst vereist.
-- De nieuwe eigenschappen voor de database worden pas toegepast nadat de wijzigingen zijn voltooid.
-
-## <a name="dtu-based-purchasing-model-change-storage-size"></a>DTU gebaseerde aankoopmodel: Opslaggrootte wijzigen
-
-- De prijs voor DTU voor een individuele database bevat een bepaalde hoeveelheid opslagruimte zonder extra kosten. Extra opslagruimte bovenop de inbegrepen hoeveelheid worden ingezet er gelden aanvullende kosten tot de maximale grootte is bereikt in stappen van 250 GB tot 1 TB, en klik vervolgens in stappen van 256 GB dan 1 TB. Zie voor de hoeveelheid inbegrepen opslag en limieten voor de maximale berichtgrootte [individuele database: Opslaggrootte en compute-grootten](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes).
-- Extra opslag voor een individuele database kan worden ingericht door de maximale grootte van de Azure Portal gebruikt, [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), wordt de [Azure CLI](/cli/azure/sql/db#az-sql-db-update), of de [ REST-API](https://docs.microsoft.com/rest/api/sql/databases/update).
-- De prijs voor extra opslagruimte voor een individuele database is de hoeveelheid extra opslagruimte vermenigvuldigd met de prijs voor extra opslagruimte per eenheid van de servicelaag. Zie voor meer informatie over de prijs van extra opslagruimte [prijzen van SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
-
-> [!IMPORTANT]
-> In sommige gevallen is het wellicht voor het verkleinen van een database voor het vrijmaken van ongebruikte ruimte. Zie voor meer informatie, [bestandsruimte in Azure SQL Database beheren](sql-database-file-space-management.md).
-
-## <a name="dtu-based-purchasing-model-change-compute-resources-dtus"></a>DTU gebaseerde aankoopmodel: Wijziging compute-resources (dtu's)
-
-Wanneer u hebt gekozen een servicelaag, rekencapaciteit en hoeveelheid opslagruimte, u kunt een individuele database omhoog of omlaag schalen dynamisch op basis van werkelijke ervaring met Azure portal, [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), wordt de [Azure CLI](/cli/azure/sql/db#az-sql-db-update), of de [REST-API](https://docs.microsoft.com/rest/api/sql/databases/update).
+Wanneer u hebt gekozen het aantal vCores of dtu's, u kunt een individuele database omhoog of omlaag schalen dynamisch op basis van het feitelijke gebruik met behulp van de [Azure-portal](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [ PowerShell](/powershell/module/az.sql/set-azsqldatabase), wordt de [Azure CLI](/cli/azure/sql/db#az-sql-db-update), of de [REST-API](https://docs.microsoft.com/rest/api/sql/databases/update).
 
 De volgende video ziet u dynamisch wijzigen van de service-laag en het berekenen van de grootte verhogen beschikbaar dtu's voor één database.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
 
-Wijzigen van de service tier en/of grootte van een database maakt u een replica van de oorspronkelijke database op de nieuwe compute-grootte en vervolgens de verbindingen overgeschakeld naar de replica. Er gaan geen gegevens verloren tijdens dit proces, maar tijdens het korte moment waarop we overschakelen naar de replica, worden verbindingen met de database uitgeschakeld, zodat sommige actieve transacties kunnen worden teruggedraaid. De tijdsduur voor de switch-meer dan verschilt, maar is minder dan 30 seconden 99% van de tijd. Als er veel transacties actief zijn op het moment dat de verbindingen zijn uitgeschakeld, wordt de tijdsduur voor de switch-meer dan mogelijk ook langer.
+### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>Gevolgen van de service tier of schaling aanpassen compute grootte te wijzigen
 
-De duur van het volledige proces voor omhoog schalen is afhankelijk van de grootte en de servicelaag van de database vóór en na de wijziging. Een 250 GB-database die wordt gewijzigd naar, vanuit of binnen een serviceniveau Standard, zou bijvoorbeeld binnen zes uur voltooid. Voor een database de dezelfde grootte die van compute-grootten in de Premium-servicelaag, zou de scale-up binnen drie uur voltooid.
+Wijzigen van de service tier of compute-grootte van een individuele database voornamelijk betrekking heeft op de service de volgende stappen uit:
+
+1. Nieuwe compute-instantie voor de database maken  
+
+    Een nieuwe compute-instantie voor de database wordt gemaakt met de aangevraagde service-laag en de rekencapaciteit. Voor sommige combinaties van-servicelaag en verkleiningen compute, een replica van de database moet worden gemaakt in de nieuwe compute-instantie die omvat het kopiëren van gegevens en kan sterke invloed uitoefenen op de totale latentie. Ongeacht de database online blijven tijdens deze stap, en verbindingen nog steeds worden omgeleid naar de database in de oorspronkelijke compute-instantie.
+
+2. Schakel over routering van verbindingen met de nieuwe compute-instantie
+
+    Bestaande verbindingen met de database in de oorspronkelijke compute-instantie worden verwijderd. Geen nieuwe verbindingen worden tot stand gebracht met de database in de nieuwe compute-instantie. Voor sommige combinaties van-servicelaag en verkleiningen compute, databasebestanden losgekoppeld en opnieuw gekoppeld tijdens de switch.  Ongeacht kan de switch leiden tot een korte serviceonderbreking wanneer de database niet beschikbaar in het algemeen voor minder dan 30 seconden en vaak slechts enkele seconden is. Als er langlopende transacties uitgevoerd wanneer verbindingen worden verwijderd, de duur van deze stap kan het langer duren om te herstellen van afgebroken transacties. [Versneld databaseherstel](sql-database-accelerated-database-recovery.md) de impact kunt beperken langlopende transacties afgebroken.
+
+> [!IMPORTANT]
+> Gegevens niet verloren tijdens een stap in de werkstroom.
+
+### <a name="latency-of-changing-service-tier-or-rescaling-compute-size"></a>Latentie van de service tier of schaling aanpassen compute grootte te wijzigen
+
+De latentie te wijzigen van de servicelaag of de compute-grootte van een individuele database of elastische pool oorspronkelijke met parameters als volgt:
+
+|Servicelaag|Één Basic-database,</br>Standard (S0-S1)|Basisbeperkingen voor elastische groepen,</br>Standard (S2-S12) </br>Zeer grootschalige, </br>Algemeen doel individuele database of elastische pool|Premium en bedrijfskritiek individuele database of elastische pool|
+|:---|:---|:---|:---|
+|**Één Basic-database,</br> Standard (S0-S1)**|&bull; &nbsp;Constante wachttijd onafhankelijk van de gebruikte ruimte</br>&bull; &nbsp;Meestal minder dan vijf minuten|&bull; &nbsp;Latentie in verhouding met databaseruimte gebruikt vanwege het kopiëren van gegevens</br>&bull; &nbsp;Meestal minder dan 1 minuut per GB aan ruimte die wordt gebruikt|&bull; &nbsp;Latentie in verhouding met databaseruimte gebruikt vanwege het kopiëren van gegevens</br>&bull; &nbsp;Meestal minder dan 1 minuut per GB aan ruimte die wordt gebruikt|
+|**Basisbeperkingen voor elastische groepen, </br>Standard (S2-S12) </br>zeer grootschalige, </br>algemeen gebruik één database of elastische pool**|&bull; &nbsp;Latentie in verhouding met databaseruimte gebruikt vanwege het kopiëren van gegevens</br>&bull; &nbsp;Meestal minder dan 1 minuut per GB aan ruimte die wordt gebruikt|&bull; &nbsp;Constante wachttijd onafhankelijk van de gebruikte ruimte</br>&bull; &nbsp;Meestal minder dan vijf minuten|&bull; &nbsp;Latentie in verhouding met databaseruimte gebruikt vanwege het kopiëren van gegevens</br>&bull; &nbsp;Meestal minder dan 1 minuut per GB aan ruimte die wordt gebruikt|
+|**Premium en bedrijfskritiek individuele database of elastische pool**|&bull; &nbsp;Latentie in verhouding met databaseruimte gebruikt vanwege het kopiëren van gegevens</br>&bull; &nbsp;Meestal minder dan 1 minuut per GB aan ruimte die wordt gebruikt|&bull; &nbsp;Latentie in verhouding met databaseruimte gebruikt vanwege het kopiëren van gegevens</br>&bull; &nbsp;Meestal minder dan 1 minuut per GB aan ruimte die wordt gebruikt|&bull; &nbsp;Latentie in verhouding met databaseruimte gebruikt vanwege het kopiëren van gegevens</br>&bull; &nbsp;Meestal minder dan 1 minuut per GB aan ruimte die wordt gebruikt|
 
 > [!TIP]
 > Als u wilt bewaken in voortgang van bewerkingen, Zie: [Beheren met behulp van de REST-API voor SQL operations](https://docs.microsoft.com/rest/api/sql/operations/list), [bewerkingen met behulp van CLI beheren](/cli/azure/sql/db/op), [bewaken van bewerkingen met behulp van T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) en deze twee PowerShell-opdrachten: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) en [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
+
+### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>Aanvullende overwegingen bij het wijzigen van grootte van laag of schaling aanpassen compute-service
 
 - Als u een upgrade naar een hogere servicelaag uitvoert of grootte van compute, wordt de maximale grootte van de database niet verhogen, tenzij u expliciet een groter formaat (maxsize) opgeeft.
 - Als u wilt downgraden van een database, moet de database die wordt gebruikt-ruimte kleiner zijn dan de maximaal toegestane grootte van de gewenste servicelaag en compute-grootte.
@@ -88,9 +72,34 @@ De duur van het volledige proces voor omhoog schalen is afhankelijk van de groot
 - De mogelijkheden om de service te herstellen verschillen voor de verschillende servicelagen. Als u een downgrade uitvoert op de **Basic** laag, wordt er een lagere bewaarperiode voor back-up. Zie [back-ups van Azure SQL Database](sql-database-automated-backups.md).
 - De nieuwe eigenschappen voor de database worden pas toegepast nadat de wijzigingen zijn voltooid.
 
+### <a name="billing-during-rescaling"></a>Facturering tijdens schaling aanpassen
+
+U worden in rekening gebracht voor elk uur bestaat in een database met behulp van de hoogste servicelaag + compute-grootte die tijdens dat uur, ongeacht het gebruik of of de database minder dan een uur actief is toegepast. Als u een individuele database maken en deze vijf minuten later verwijdert weerspiegelt uw factuur een post voor één database-uur.
+
+## <a name="change-storage-size"></a>Opslaggrootte wijzigen
+
+### <a name="vcore-based-purchasing-model"></a>Op vCore gebaseerd aanschafmodel
+
+- Opslag kan worden ingericht tot de maximale grootte is bereikt met behulp van de stappen van 1 GB. De minimale configureerbare gegevensopslag is 5 GB
+- Opslag voor een individuele database kan worden bevoorraad door vergroten of verkleinen van de maximale grootte met behulp van de [Azure-portal](https://portal.azure.com), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), de [Azure CLI](/cli/azure/sql/db#az-sql-db-update), of de [REST-API](https://docs.microsoft.com/rest/api/sql/databases/update).
+- SQL-Database wijst automatisch 30% van de extra opslag voor de logboekbestanden en 32GB per vCore voor TempDB, maar niet meer dan 384GB. TempDB bevindt zich op een gekoppelde SSD in alle service-lagen.
+- De prijs van opslag voor een individuele database is de som van de gegevens opslag- en logboekbestanden opslag bedragen vermenigvuldigd met de prijs per eenheid opslag van de servicelaag. De kosten van TempDB is opgenomen in de vCore-prijs. Zie voor meer informatie over de prijs van extra opslagruimte [prijzen van SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
+
+> [!IMPORTANT]
+> In sommige gevallen is het wellicht voor het verkleinen van een database voor het vrijmaken van ongebruikte ruimte. Zie voor meer informatie, [bestandsruimte in Azure SQL Database beheren](sql-database-file-space-management.md).
+
+### <a name="dtu-based-purchasing-model"></a>DTU gebaseerde aankoopmodel
+
+- De prijs voor DTU voor een individuele database bevat een bepaalde hoeveelheid opslagruimte zonder extra kosten. Extra opslagruimte bovenop de inbegrepen hoeveelheid worden ingezet er gelden aanvullende kosten tot de maximale grootte is bereikt in stappen van 250 GB tot 1 TB, en klik vervolgens in stappen van 256 GB dan 1 TB. Zie voor de hoeveelheid inbegrepen opslag en limieten voor de maximale berichtgrootte [individuele database: Opslaggrootte en compute-grootten](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes).
+- Extra opslag voor een individuele database kan worden ingericht door de maximale grootte van de Azure Portal gebruikt, [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), wordt de [Azure CLI](/cli/azure/sql/db#az-sql-db-update), of de [ REST-API](https://docs.microsoft.com/rest/api/sql/databases/update).
+- De prijs voor extra opslagruimte voor een individuele database is de hoeveelheid extra opslagruimte vermenigvuldigd met de prijs voor extra opslagruimte per eenheid van de servicelaag. Zie voor meer informatie over de prijs van extra opslagruimte [prijzen van SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
+
+> [!IMPORTANT]
+> In sommige gevallen is het wellicht voor het verkleinen van een database voor het vrijmaken van ongebruikte ruimte. Zie voor meer informatie, [bestandsruimte in Azure SQL Database beheren](sql-database-file-space-management.md).
+
 ## <a name="dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb"></a>DTU gebaseerde aankoopmodel: Beperkingen van P11 en P15 wanneer de maximale grootte van meer dan 1 TB
 
-Voor de Premium-laag is er meer dan 1 TB aan opslagruimte beschikbaar in alle regio's, met uitzondering van: China-Oost, China-Noord, Duitsland-centraal, Duitsland-Noordoost, West-Centraal VS, VS DoD-regio's en US Government-centraal. In deze regio’s is de maximale opslagruimte in de Premium-laag beperkt tot 1 TB. Raadpleeg [P11-P15 huidige beperkingen](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) voor meer informatie. De volgende overwegingen en beperkingen van toepassing op P11 en P15-databases met een maximale grootte die groter zijn dan 1 TB:
+Voor de Premium-laag is er meer dan 1 TB aan opslagruimte beschikbaar in alle regio's, met uitzondering van: China - oost, China - noord, Duitsland - centraal, Duitsland - noordoost, US - west-centraal, US - DoD-regio's en US Government - centraal. In deze regio’s is de maximale opslagruimte in de Premium-laag beperkt tot 1 TB. Raadpleeg [P11-P15 huidige beperkingen](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) voor meer informatie. De volgende overwegingen en beperkingen van toepassing op P11 en P15-databases met een maximale grootte die groter zijn dan 1 TB:
 
 - Als u ervoor kiest een maximale grootte die groter zijn dan 1 TB bij het maken van een database (met behulp van een waarde van 4 TB of 4096 GB), wordt de opdracht create mislukt met een fout als de database is ingericht in een niet-ondersteunde regio.
 - Voor bestaande P11 en P15-databases zich bevinden in een van de ondersteunde regio's, kunt u de maximale opslag voor de dan 1 TB in stappen van 256 GB verhogen tot 4 TB. Als u wilt zien als een groter formaat wordt ondersteund in uw regio, gebruikt u de [DATABASEPROPERTYEX](/sql/t-sql/functions/databasepropertyex-transact-sql) functie of de grootte van de database in Azure portal controleren. Upgraden van een bestaande P11 of P15 kan database alleen worden uitgevoerd door een principal-aanmelding op serverniveau of leden van de databaserol dbmanager.

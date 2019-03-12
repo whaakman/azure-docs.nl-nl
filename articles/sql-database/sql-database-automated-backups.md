@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 4a3b48be893c596f1a86bbf308a97868ed546006
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: fcd1868c1b17d6c1ad895757b32293d0abc79a24
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313919"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731558"
 ---
 # <a name="automated-backups"></a>Automatische back-ups
 
@@ -42,7 +42,7 @@ U kunt deze back-ups te gebruiken:
 
 ## <a name="how-long-are-backups-kept"></a>Hoe lang worden back-ups opgeslagen
 
-Elke SQL-Database heeft een back-up bewaartermijn tussen 7 en 35 dagen die afhankelijk zijn van de aankopen model en de servicelaag. U kunt de back-up bijwerken) de bewaarperiode voor een database op SQL Database-server. Zie voor meer informatie, [bewaarperiode voor back-up wijzigen](#how-to-change-the-pitr-backup-retention-period).
+Elke SQL-Database heeft een back-up bewaartermijn tussen 7 en 35 dagen die afhankelijk zijn van de aankopen model en de servicelaag. U kunt de bewaarperiode voor back-up voor een database op SQL Database-server bijwerken. Zie voor meer informatie, [bewaarperiode voor back-up wijzigen](#how-to-change-the-pitr-backup-retention-period).
 
 Als u een database verwijdert, blijven SQL-Database de back-ups op dezelfde manier als zou voor een online-database. Als u een Basic-database met een bewaarperiode van zeven dagen verwijdert, wordt bijvoorbeeld een back-up die vier dagen oud is drie dagen opgeslagen.
 
@@ -66,7 +66,7 @@ De bewaartermijn voor een database gemaakt met behulp van het op DTU gebaseerde 
 Als u de [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md), de bewaartermijn voor back-up is 7 dagen (voor één, gegroepeerd en databases-instantie). Voor alle Azure SQL-databases (één, gegroepeerd, en het exemplaar van databases, kunt u [wijzigen bewaarperiode voor back-tot 35 dagen](#how-to-change-the-pitr-backup-retention-period).
 
 > [!WARNING]
-> Als u de huidige bewaarperiode verkorten, zijn alle bestaande back-ups ouder is dan de nieuwe bewaarperiode periode niet meer beschikbaar zijn. Als u de huidige retentietermijn verhoogt, wordt SQL Database de bestaande back-ups behouden totdat de langere bewaarperiode is bereikt.
+> Als u de huidige bewaarperiode verkorten, zijn alle bestaande back-ups ouder is dan de nieuwe bewaarperiode niet meer beschikbaar. Als u de huidige retentietermijn verhoogt, wordt SQL Database de bestaande back-ups behouden totdat de langere bewaarperiode is bereikt.
 
 ## <a name="how-often-do-backups-happen"></a>Hoe vaak gebeurt er back-ups
 
@@ -144,9 +144,9 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 
 ```json
 {
-  "properties":{  
-      "retentionDays":28
-   }
+  "properties":{
+    "retentionDays":28
+  }
 }
 ```
 

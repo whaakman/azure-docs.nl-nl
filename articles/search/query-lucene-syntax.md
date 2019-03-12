@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 59362b28390556f12cce8813635894c9f06b9a20
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 5bb5993ea47bfcaca96662fbb3d34341e137b929
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008473"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544826"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Lucene-querysyntaxis in Azure Search
 U kunt ook query's voor Azure Search op basis van de uitgebreide schrijven [Lucene-Queryparser](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) syntaxis voor het vormen van de speciale query: jokertekens, fuzzy zoeken, zoeken op nabijheid, reguliere expressies zijn een aantal voorbeelden. Veel van de syntaxis van Lucene-Queryparser [intact geïmplementeerd in Azure Search](search-lucene-query-architecture.md), met uitzondering van *bereik zoekopdrachten* die zijn gebouwd in Azure Search via `$filter` expressies. 
@@ -41,20 +41,20 @@ Het volgende voorbeeld worden documenten gevonden in de index met behulp van de 
 
 De `searchMode=all` parameter is van belang voor dit voorbeeld. Wanneer operators op de query zijn, moet u in het algemeen instellen `searchMode=all` om ervoor te zorgen dat *alle* van de criteria overeenkomt.
 
-```  
-GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2015-02-28&querytype=full  
-```  
+```
+GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2015-02-28&querytype=full
+```
 
  U kunt ook gebruik POST:  
 
-```  
-POST /indexes/hotels/docs/search?api-version=2015-02-28  
-{  
-  "search": "category:budget AND \"recently renovated\"^3",  
-  "queryType": "full",  
-  "searchMode": "all"  
-}  
-```  
+```
+POST /indexes/hotels/docs/search?api-version=2015-02-28
+{
+  "search": "category:budget AND \"recently renovated\"^3",
+  "queryType": "full",
+  "searchMode": "all"
+}
+```
 
 Zie voor meer voorbeelden van [Lucene-queryvoorbeelden syntaxis voor het bouwen van query's in Azure Search](search-query-lucene-examples.md). Zie voor meer informatie over het opgeven van de volledige afhankelijk is van queryparameters [documenten zoeken &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
 

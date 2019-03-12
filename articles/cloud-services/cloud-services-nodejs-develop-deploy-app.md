@@ -11,15 +11,15 @@ ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 08/17/2017
 ms.author: jeconnoc
-ms.openlocfilehash: de78e70b30c4e0b03f87ad6b1bfe00356f897f43
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 270f400f78b971e022a59e5e9a04a76dfa929941
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698227"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761154"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Een Node.js-toepassing maken en implementeren in een Azure Cloud Service
 
@@ -167,9 +167,9 @@ Zie het [Node.js Developer Center] voor meer informatie.
 [Vergelijking van Azure Websites, Cloud Services en Virtual Machines]: ../app-service/overview-compare.md
 [een eenvoudige web-app-functie te gebruiken]: ../app-service/app-service-web-get-started-nodejs.md
 [Azure Powershell]: /powershell/azureps-cmdlets-docs
-[Azure SDK voor .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
+[Azure SDK voor .NET 2.7]: https://www.microsoft.com/en-us/download/details.aspx?id=48178
 [Koppel PowerShell]: /powershell/azureps-cmdlets-docs
-[nodejs.org]: http://nodejs.org/
+[nodejs.org]: https://nodejs.org/
 [Overzicht van het maken van een gehoste service voor Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
 [Node.js Developer Center]: https://azure.microsoft.com/develop/nodejs/
 

@@ -7,23 +7,23 @@ services: microsoft-genomics
 author: ruchir
 editor: jasonwhowell
 ms.author: ruchir
-ms.service: microsoft-genomics
+ms.service: genomics
 ms.workload: genomics
 ms.topic: article
 ms.date: 10/29/2018
-ms.openlocfilehash: 2c10259e4b9fa180d09ceef0359e7ec99e8200b1
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 01f4cca8e177d8f9c9325a7920eb7e72c005bbd6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239896"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760934"
 ---
 # <a name="troubleshooting-guide"></a>Handleiding voor het oplossen van problemen
 
 Hier volgen enkele tips voor probleemoplossing voor enkele van de algemene problemen die u bij het gebruik van de service Microsoft Genomics, MSGEN kan tegenkomen.
 
  Voor Zie veelgestelde vragen, niet met betrekking tot het oplossen van problemen [Veelgestelde vragen over](frequently-asked-questions-genomics.md).
-## <a name="step-1-locate-error-codes-associated-with-the-workflow"></a>Stap 1: Zoek foutcodes die zijn gekoppeld aan de werkstroom
+## <a name="step-1-locate-error-codes-associated-with-the-workflow"></a>Stap 1: Zoek de foutcodes die zijn gekoppeld aan de werkstroom
 
 U vindt de foutberichten die zijn gekoppeld aan de werkstroom door:
 
@@ -99,7 +99,7 @@ In deze sectie worden kort veelvoorkomende fouten uitvoer door Microsoft Genomic
 
 De service Microsoft Genomics (msgen) kan de volgende twee soorten fouten genereren:
 
-1. Interne servicefouten: Fouten die intern voor de service, die mogelijk niet worden omgezet zijn door parameters of de invoerbestanden op te lossen. Soms opnieuw de werkstroom kan deze fouten zijn opgelost.
+1. Interne fouten: Fouten die intern voor de service, die mogelijk niet worden omgezet zijn door parameters of de invoerbestanden op te lossen. Soms opnieuw de werkstroom kan deze fouten zijn opgelost.
 2. Invoerfouten: Fouten die kunnen worden opgelost met behulp van de juiste argumenten of vaststelling bestandsindelingen.
 
 ### <a name="1-internal-service-errors"></a>1. Interne servicefouten
@@ -137,7 +137,7 @@ Deze fouten worden bruikbare gebruiker. Op basis van het type van bestands- en f
 | FASTQ        | 308        |  FASTQ lezen fout bij. Leesbewerkingen van beide kanten anders heeft gereageerd. U de juiste FASTQ-bestanden kiezen?                                                                                       | Corrigeer de indeling van de FASTQ-bestand en de werkstroom opnieuw indienen.                                                                         |
 |        |       |                                                                                        |                                                                           |
 
-## <a name="step-3-contact-microsoft-genomics-support"></a>Stap 3: Neem contact op met Microsoft Genomics-ondersteuning
+## <a name="step-3-contact-microsoft-genomics-support"></a>Stap 3: Neem contact op met ondersteuning voor Microsoft Genomics
 
 Als u nog steeds taakfouten hebt, of als u andere vragen hebt, neem dan contact op met ondersteuning voor Microsoft Genomics in Azure portal. Meer informatie over hoe u een ondersteuningsaanvraag indienen vindt [hier](file-support-ticket-genomics.md).
 

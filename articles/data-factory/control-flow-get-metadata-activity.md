@@ -1,26 +1,27 @@
 ---
 title: Activiteit metagegevens ophalen in Azure Data Factory | Microsoft Docs
-description: Lees hoe u de SQL Server opgeslagen Procedure-activiteit kunt gebruiken om aan te roepen een opgeslagen procedure in een Azure SQL Database of Azure SQL Data Warehouse van een Data Factory-pijplijn.
+description: Lees hoe u de activiteit GetMetadata kunt gebruiken in een Data Factory-pijplijn.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
+author: linda33wj
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: ''
 ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/22/2019
-ms.author: shlo
-ms.openlocfilehash: ca77fa092e41534e0f18323014c9cea583c19758
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.date: 03/11/2019
+ms.author: jingwang
+ms.openlocfilehash: 78f63b4f46fe5479d4d0fd5849ad80536d8a137c
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671655"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730698"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Activiteit metagegevens ophalen in Azure Data Factory
+
 De GET metadata activity kan worden gebruikt om op te halen **metagegevens** van gegevens in Azure Data Factory. Deze activiteit kan worden gebruikt in de volgende scenario's:
 
 - De informatie over de metagegevens van de gegevens valideren
@@ -48,6 +49,7 @@ De activiteit GetMetadata duurt een gegevensset als een vereiste invoer en uitvo
 | Google Cloud Storage | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
 | Azure Blob | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
 | Azure Data Lake Storage Gen1 | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| Azure Data Lake Storage Gen2 | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | Azure File Storage | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | Bestandssysteem | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | SFTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |

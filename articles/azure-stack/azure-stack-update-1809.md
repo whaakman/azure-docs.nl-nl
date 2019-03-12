@@ -16,12 +16,12 @@ ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 251f61a0356f4e8f379c17b477e24a0cefce68e7
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: fd1e49a8bab3b6133a476bbafaa45e0e61fe1f1b
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984999"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730554"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 update
 
@@ -149,7 +149,7 @@ Klik op de hiervoor vermelde koppelingen voor meer informatie over deze beveilig
   Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
   ```
 
-- Wanneer Azure Stack wordt beheerd door System Center Operations Manager (SCOM), moet u het Management Pack voor Microsoft Azure Stack bijwerken naar versie 10.0.3.11 voordat u 1809 toepast.
+- Wanneer Azure Stack wordt beheerd door System Center Operations Manager (SCOM), moet u het Management Pack voor Microsoft Azure Stack bijwerken naar versie 1.0.3.11 voordat u 1809 toepast.
 
 ### <a name="known-issues-with-the-update-process"></a>Bekende problemen met het updateproces
 

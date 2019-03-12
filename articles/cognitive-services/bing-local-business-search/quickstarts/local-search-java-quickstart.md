@@ -6,16 +6,15 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: ada75f9ebe38615d17276c9e5b731924a45c8e75
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ed98d40987645fdadff8cc628cfd08feca41d01f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55148453"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768260"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Quickstart: Een query verzenden naar de Bing lokale bedrijven zoeken-API met behulp van Java
 
@@ -25,7 +24,7 @@ In dit voorbeeld van de toepassing lokaal antwoordgegevens worden opgehaald uit 
 
 ## <a name="prerequisites"></a>Vereisten
 
-* De [Kit(JDK) voor Java-ontwikkeling](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* De [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 U moet beschikken over een [account voor de Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met Bing Zoeken-API's. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is voldoende voor deze snelstartgids. U hebt de toegangssleutel nodig die is verstrekt tijdens het activeren van uw gratis proefversie.  Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 

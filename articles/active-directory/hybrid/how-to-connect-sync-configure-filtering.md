@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cc09756e30cec75a1a121c25f162aa0408fd7a9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 53c14ce92a422c2254a1e9b7fc4989b49790a88a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173688"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774435"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect-synchronisatie: Filtering configureren
 Met behulp van filteren, kunt u bepalen welke objecten worden weergegeven in Azure Active Directory (Azure AD) vanuit uw on-premises directory. De standaardconfiguratie wordt van alle objecten in alle domeinen in de geconfigureerde forests. Dit is in het algemeen is de aanbevolen configuratie. Gebruikers met behulp van Office 365-werkbelastingen, zoals Exchange Online en Skype voor bedrijven, profiteren van een volledige lijst met algemene adres zodat ze kunnen e-mailbericht verzenden en iedereen. Met de standaardconfiguratie, zouden ze hebben dezelfde ervaring die ze met een on-premises implementatie van Exchange- of Lync hebben zouden.
@@ -261,7 +261,7 @@ In dit voorbeeld wijzigt u de filteren zodanig dat alleen gebruikers die hebben 
 4. Afhankelijk van de versie van Connect u gebruikt, ofwel de regel met de naam vinden **Out voor AAD-gebruiker toevoegen** of **uit voor AAD - gebruiker toevoegen SOAInAD**, en klikt u op **bewerken**.
 5. In het pop-upvenster beantwoorden **Ja** om een kopie van de regel te maken.
 6. Op de **beschrijving** pagina, wijzigt u **prioriteit** op een niet-gebruikte waarde, zoals 50.
-7. Klik op **Scoping filter** op de navigatiebalk aan de linkerkant en klik vervolgens op **toevoegen component**. In **kenmerk**, selecteer **e-mail**. In **Operator**, selecteer **ENDSWITH**. In **waarde**, type **@contoso.com**, en klik vervolgens op **toevoegen component**. In **kenmerk**, selecteer **userPrincipalName**. In **Operator**, selecteer **ENDSWITH**. In **waarde**, type **@contoso.com**.
+7. Klik op **Scoping filter** op de navigatiebalk aan de linkerkant en klik vervolgens op **toevoegen component**. In **kenmerk**, selecteer **e-mail**. In **Operator**, selecteer **ENDSWITH**. In **waarde**, type  **\@contoso.com**, en klik vervolgens op **toevoegen component**. In **kenmerk**, selecteer **userPrincipalName**. In **Operator**, selecteer **ENDSWITH**. In **waarde**, type  **\@contoso.com**.
 8. Klik op **Opslaan**.
 9. De configuratie te voltooien, moet u uitvoeren een **Full sync**. Lees ook de sectie [toepassen en controleer of de wijzigingen](#apply-and-verify-changes).
 

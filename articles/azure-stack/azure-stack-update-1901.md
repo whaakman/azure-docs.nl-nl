@@ -16,12 +16,12 @@ ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 18c4fd3fff244ac180ac0129f100a7d5b2472cab
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 0bbf76e16334ae4847ec6f7fbf3aa88fb508e84d
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984829"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731142"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 update
 
@@ -71,7 +71,7 @@ Azure Stack-hotfixes zijn alleen van toepassing op Azure Stack-geïntegreerde sy
     Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
 
-- Wanneer Azure Stack wordt beheerd door System Center Operations Manager (SCOM), moet u het Management Pack voor Microsoft Azure Stack bijwerken naar versie 10.0.3.11 voordat u 1901 toepast.
+- Wanneer Azure Stack wordt beheerd door System Center Operations Manager (SCOM), moet u het Management Pack voor Microsoft Azure Stack bijwerken naar versie 1.0.3.11 voordat u 1901 toepast.
 
 ## <a name="new-features"></a>Nieuwe functies
 

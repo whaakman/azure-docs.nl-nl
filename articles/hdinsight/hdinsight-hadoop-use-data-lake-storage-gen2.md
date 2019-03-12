@@ -5,15 +5,15 @@ services: hdinsight
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 313d26e354589611b36ed7c273858de2f919566f
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 02d72ed5fcfb84796dfd4b967819c331bb384610
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889508"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57759965"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Azure Data Lake Storage Gen2 gebruiken met Azure HDInsight-clusters
 
@@ -36,7 +36,7 @@ Volg deze stappen om een Data Lake Storage Gen2-account te configureren voor het
 
     ![Een door de gebruiker toegewezen beheerde identiteit maken](./media/hdinsight-hadoop-data-lake-storage-gen2/create-user-assigned-managed-identity-portal.png)
 
-1. Maak een Azure Data Lake Storage Gen2 storage-account. Zorg ervoor dat de **hiërarchische naamruimte** optie is ingeschakeld. Zie voor meer informatie [Snelstart: Maken van een storage-account van Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+1. Een Azure Data Lake Storage Gen2-opslagaccount maken. Zorg ervoor dat de **hiërarchische naamruimte** optie is ingeschakeld. Zie voor meer informatie [Snelstart: Maken van een storage-account van Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
     ![Schermafbeelding van de opslagaccount is gemaakt in Azure portal](./media/hdinsight-hadoop-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
  

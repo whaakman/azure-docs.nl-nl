@@ -3,20 +3,20 @@ title: Triggers op basis van gebeurtenissen maken in Azure Data Factory | Micros
 description: Informatie over het maken van een trigger in Azure Data Factory die een pijplijn in reactie op een gebeurtenis wordt uitgevoerd.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.author: douglasl
-ms.openlocfilehash: fd7355c342a075f7b0c2e1173717c0345f1f94ba
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+author: sharonlo101
+ms.author: shlo
+manager: craigg
+ms.openlocfilehash: 94c9c3f997143d72262c1ba3d8dbfea90d6f920c
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428547"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576613"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Een trigger die een pijplijn in reactie op een gebeurtenis wordt uitgevoerd
 

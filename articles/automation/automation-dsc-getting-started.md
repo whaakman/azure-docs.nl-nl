@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 19e1721a638dfc750938e09e1626c4e291367723
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 234d59f9d625af6d0309b2995cc734fad6028b1e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432442"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767036"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Aan de slag met Azure Automation State Configuration
 
@@ -157,7 +157,6 @@ U kunt Azure Automation State Configuration gebruiken voor het beheren van Azure
    ![Schermafbeelding van de registratie-blade](./media/automation-dsc-getting-started/RegisterVM.png)
 
    De configuratie van de knooppunten die u hebt opgegeven, worden toegepast op de virtuele machine met intervallen opgegeven door de **configuratiemodus**, en de virtuele machine wordt gecontroleerd op updates voor de knooppuntconfiguratie met intervallen opgegeven door de **vernieuwen Frequentie**. Zie voor meer informatie over het gebruik van deze waarden [de Local Configuration Manager configureren](https://msdn.microsoft.com/PowerShell/DSC/metaConfig).
-1. In de **Azure-VM's toevoegen** blade, klikt u op **maken**.
 
 Azure begint met het proces van het onboarding van de virtuele machine. Wanneer deze voltooid is, de virtuele machine wordt weergegeven in de **knooppunten** tabblad van de **State configuration (DSC)** pagina in het Automation-account.
 

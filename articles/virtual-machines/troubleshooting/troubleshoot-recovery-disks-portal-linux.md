@@ -3,7 +3,7 @@ title: Gebruik van een Linux VM in de Azure portal voor probleemoplossing | Micr
 description: Informatie over het oplossen van problemen met Linux virtuele machine door verbinding te maken van de besturingssysteemschijf aan een virtuele machine met behulp van de Azure-portal voor herstel
 services: virtual-machines-linux
 documentationCenter: ''
-authors: genlin
+author: genlin
 manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/14/2016
 ms.author: genli
-ms.openlocfilehash: 817a3465c3e9f5d43bb49e20a443b8cf88293abd
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 65187c3ef6debfa27c8c4fea62bcd31b857b4171
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47413547"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776752"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Een Linux-VM oplossen door de besturingssysteemschijf koppelen aan een virtuele machine met behulp van de Azure-portal voor herstel
 Als uw Linux-machine (VM) een fout opstart- of schijffout optreedt, moet u mogelijk de stappen voor probleemoplossing uitvoeren op de virtuele harde schijf zelf. Een veelvoorkomend voorbeeld is een ongeldige waarde in `/etc/fstab` dat voorkomt dat de virtuele machine wordt het opstarten. Dit artikel wordt uitgelegd hoe u verbinding maken met de virtuele harde schijf met een andere Linux-VM op eventuele fouten te corrigeren en vervolgens de oorspronkelijke virtuele machine opnieuw te maken met de Azure-portal.

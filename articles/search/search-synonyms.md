@@ -10,12 +10,12 @@ ms.date: 04/20/2018
 manager: jlembicz
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: cea95756f115e9efd6dc184fc85a0485ab49d1b9
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 4383cc327d8058ca44acd892f41a7a256e3b1727
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634657"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570433"
 ---
 # <a name="synonyms-in-azure-search"></a>Synoniemen Azure Search
 
@@ -52,7 +52,7 @@ U kunt een nieuwe synoniemtoewijzing met behulp van HTTP POST, zoals in het volg
     POST https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
     api-key: [admin key]
 
-    {  
+    {
        "name":"mysynonymmap",
        "format":"solr",
        "synonyms": "
@@ -65,7 +65,7 @@ U kunt ook gebruik van PUT en geef de naam van de kaart synoniem op de URI. Als 
     PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
     api-key: [admin key]
 
-    {  
+    {
        "format":"solr",
        "synonyms": "
           USA, United States, United States of America\n

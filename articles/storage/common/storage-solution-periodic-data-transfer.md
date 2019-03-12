@@ -4,16 +4,16 @@ description: Informatie over het kiezen van een Azure-oplossing voor gegevensove
 services: storage
 author: alkohli
 ms.service: storage
-ms.subservice: blob
+ms.subservice: blobs
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: alkohli
-ms.openlocfilehash: 271be60bc26cf6bc9a64c459d030818d9e493a22
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: ba6d5e20f0d6a004fd85d7e9dc57584547d52ba3
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158445"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772854"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Oplossingen voor de overdracht van periodieke
  
@@ -42,26 +42,26 @@ De volgende tabel geeft een overzicht van de verschillen in de belangrijkste mog
 
 ### <a name="scriptedprogrammatic-network-data-transfer"></a>Gegevensoverdracht in een script vastgelegd/Programmatic netwerk
 
-| Mogelijkheid                  | AzCopy                                 | Azure Storage REST-API 's       |
+| Mogelijkheid                  | AzCopy                                 | Azure Storage REST APIs       |
 |-----------------------------|----------------------------------------|-------------------------------|
 | Vormfactor                 | Opdrachtregel-hulpprogramma van Microsoft       | Klanten ontwikkelen met betrekking tot opslag <br> REST-API's met behulp van Azure-clientbibliotheken |
 | Eerste eenmalige configuratie     | Minimaal                                | Gemiddeld, variabele-ontwikkeling    |
 | Gegevensindeling                 | Azure-Blobs, Azure Files, Azure-tabellen | Azure-Blobs, Azure Files, Azure-tabellen   |
 | Prestaties                 | Al geoptimaliseerd                      | Tijdens het ontwikkelen van optimaliseren                  |
-| Prijs                     | Gratis, kosten voor uitgaand verkeer toepassen      | Gratis, kosten voor uitgaand verkeer toepassen        |
+| Prijzen                     | Gratis, kosten voor uitgaand verkeer toepassen      | Gratis, kosten voor uitgaand verkeer toepassen        |
 
 ### <a name="continuous-data-ingestion-over-network"></a>Continue gegevensopname via netwerk
 
 | Functie                                       | Data Box-Gateway (preview) | Gegevens in Edge (preview)  | Azure Data Factory        |
 |----------------------------------|-----------------------------------------|--------------------------|---------------------------|
 | Vormfactor                                   | Virtueel apparaat             | Fysiek apparaat          | -Service in Azure portal, agent on-premises                                                            |
-| Hardware                                      | De hypervisor            | Geleverd door Microsoft    | N.V.T.                                                            |
-| Eerste configuratie inspanning                          | Laag (< 30 minuten.)            | Gemiddeld (~ Combineer uur) | Groot (~ dagen)                                                 |
+| Hardware                                      | De hypervisor            | Geleverd door Microsoft    | N.v.t.                                                            |
+| Eerste configuratie inspanning                          | Laag (< 30 minuten.)            | Gemiddeld (~ Combineer uur) | Large (~days)                                                 |
 | Gegevensindeling                                   | Azure-Blobs, Azure Files   | Azure-Blobs, Azure Files | [Biedt ondersteuning voor 70 gegevensconnectors voor data-archieven en indelingen](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
 | Gegevens vooraf verwerken                           | Nee                         | Ja, via Edge-Computing    | Ja                                                           |
 | Lokale cache<br>(voor het opslaan van on-premises gegevens)    | Ja                        | Ja                      | Nee                                                            |
 | Overdracht uit andere clouds                    | Nee                         | Nee                       | Ja                                                           |
-| Prijs                                       | [Prijzen](https://azure.microsoft.com/pricing/details/storage/databox/gateway/)                    | [Prijzen](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                  | [Prijzen](https://azure.microsoft.com/pricing/details/data-factory/)                                                       |
+| Prijzen                                       | [Prijzen](https://azure.microsoft.com/pricing/details/storage/databox/gateway/)                    | [Prijzen](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                  | [Prijzen](https://azure.microsoft.com/pricing/details/data-factory/)                                                       |
 
 ## <a name="next-steps"></a>Volgende stappen
 

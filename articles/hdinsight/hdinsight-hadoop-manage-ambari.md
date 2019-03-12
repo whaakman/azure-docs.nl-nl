@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5e2a9ae474aaacbf688103efce3cd5ae9b96acde
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 738ef5df0b2e2a7f31a7316a1d2ef4395168d41e
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216914"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576953"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>HDInsight-clusters beheren met behulp van de Apache Ambari-Webinterface
 
@@ -85,48 +85,6 @@ De volgende lijst bevat de algemene waarschuwing statussen die worden gebruikt d
 * **UNKNOWN**
 
 Anders dan een waarschuwing **OK** ertoe leiden dat de **# waarschuwingen** vermelding aan de bovenkant van de pagina om het aantal waarschuwingen weer te geven. Dit item selecteren, geeft de waarschuwingen en hun status weer.
-
-Ambari biedt verschillende vooraf gedefinieerde waarschuwingen. De volgende waarschuwingen helpen bij het beheren van de beschikbaarheid van een cluster:
-
-| Meldingnaam                               | Description                                                                                                                                                                                  |
-|------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Status van metrische gegevens controleren                    | Deze waarschuwing geeft aan dat de status van het proces van de metrische gegevens bewaken zoals wordt bepaald door het script van de status monitor.                                                                                   |
-| Ambari Agent Heartbeat                   | Deze waarschuwing wordt geactiveerd als de server contact met een agent is verbroken.                                                                                                                        |
-| ZooKeeper Server-proces                 | Deze waarschuwing hostniveau wordt geactiveerd als het ZooKeeper server-proces niet kan worden bepaald om te worden van is en luistert op het netwerk.                                                               |
-| Status van de Server IOCache metagegevens           | Deze waarschuwing hostniveau wordt geactiveerd als de Server van de metagegevens IOCache niet kan worden bepaald om te worden van en reageren op clientaanvragen                                                            |
-| JournalNode Web-UI                       | Deze waarschuwing hostniveau wordt geactiveerd als de Webgebruikersinterface JournalNode onbereikbaar is.                                                                                                                 |
-| Spark2 Thrift-Server                     | Deze waarschuwing hostniveau wordt geactiveerd als de Spark2 Thrift-Server kan niet worden bepaald uit.                                                                                                |
-| Geschiedenis van Server-proces                   | Deze waarschuwing hostniveau wordt geactiveerd als de geschiedenis van Server-proces kan niet tot stand gebrachte zodat u is en luistert op het netwerk.                                                                |
-| Geschiedenis van Server-Webgebruikersinterface                    | Deze waarschuwing hostniveau wordt geactiveerd als de Webgebruikersinterface van de geschiedenis-Server onbereikbaar is.                                                                                                              |
-| ResourceManager-Webgebruikersinterface                   | Deze waarschuwing hostniveau wordt geactiveerd als de ResourceManager-Webgebruikersinterface onbereikbaar is.                                                                                                             |
-| Samenvatting van status NodeManager               | Deze service level-waarschuwing wordt geactiveerd als er niet in orde NodeManagers                                                                                                                    |
-| App Timeline Web UI                      | Deze waarschuwing hostniveau wordt geactiveerd als de Webgebruikersinterface App tijdlijn Server onbereikbaar is.                                                                                                         |
-| Samenvatting van status DataNode                  | Deze service level-waarschuwing wordt geactiveerd als er niet in orde DataNodes                                                                                                                       |
-| NameNode Web-UI                          | Deze waarschuwing hostniveau wordt geactiveerd als de Webgebruikersinterface NameNode onbereikbaar is.                                                                                                                    |
-| ZooKeeper-Failover-Controller-proces    | Deze waarschuwing hostniveau wordt geactiveerd als het proces ZooKeeper Failover-Controller kan niet worden bevestigd zodat u is en luistert op het netwerk.                                                   |
-| Oozie Server Web-UI                      | Deze waarschuwing hostniveau wordt geactiveerd als de server Oozie-Webgebruikersinterface onbereikbaar is.                                                                                                                |
-| Oozie-serverstatus                      | Deze waarschuwing hostniveau wordt geactiveerd als de Oozie-server niet kan worden bepaald om te worden van en reageren op clientaanvragen.                                                                      |
-| Hive-Metastore proces                   | Deze waarschuwing hostniveau wordt geactiveerd als het proces van de Hive-Metastore kan niet worden bepaald om te worden van is en luistert op het netwerk.                                                                 |
-| Proces van HiveServer2                      | Deze waarschuwing hostniveau wordt geactiveerd als de HiveServer niet kan worden bepaald om te worden van en reageren op clientaanvragen.                                                                        |
-| WebHCat Server Status                    | Deze waarschuwing hostniveau wordt geactiveerd als de status van de templeton-server niet in orde is.                                                                                                            |
-| Percentage ZooKeeper-Servers die beschikbaar zijn      | Deze waarschuwing wordt geactiveerd als het aantal ZooKeeper-servers in het cluster groter dan de kritieke drempelwaarde is. Het combineert de resultaten van de controles van ZooKeeper-proces.     |
-| Spark2 Livy Server                       | Deze waarschuwing hostniveau wordt geactiveerd als de Server Livy2 kan niet worden bepaald uit.                                                                                                        |
-| Spark2 geschiedenis-Server                    | Deze waarschuwing hostniveau wordt geactiveerd als de Server van de geschiedenis Spark2 kan niet worden bepaald uit.                                                                                               |
-| Metrische gegevens Collector proces                | Deze waarschuwing wordt geactiveerd als de Collector metrische gegevens niet kan worden bevestigd uit en luistert op de geconfigureerde poort voor het aantal seconden gelijk zijn aan de drempelwaarde.                                 |
-| Metrische gegevens Collector - HBase Master proces | Deze waarschuwing wordt geactiveerd als van de metrische gegevens Collector HBase master processen niet kunnen worden bevestigd zodat u is en luistert op het netwerk voor de kritieke drempelwaarde, uitgedrukt in seconden. |
-| Percentage metrische gegevens over Monitors beschikbaar       | Deze waarschuwing wordt geactiveerd als een percentage van metrische gegevens controleren processen niet van zijn en luisteren op het netwerk naar de geconfigureerde waarschuwingen en kritieke drempelwaarden.                             |
-| Percentage NodeManagers beschikbaar           | Deze waarschuwing wordt geactiveerd als het aantal omlaag NodeManagers in het cluster groter dan de kritieke drempelwaarde is. Het combineert de resultaten van NodeManager proces controles.        |
-| De gezondheid van NodeManager                       | Deze waarschuwing hostniveau controleert de status knooppunteigenschap beschikbaar is via het onderdeel NodeManager.                                                                                              |
-| NodeManager Web-UI                       | Deze waarschuwing hostniveau wordt geactiveerd als de Webgebruikersinterface NodeManager onbereikbaar is.                                                                                                                 |
-| Status van de NameNode hoge beschikbaarheid        | Deze service level-waarschuwing wordt geactiveerd als de actieve NameNode of de stand-by NameNode niet worden uitgevoerd.                                                                                     |
-| DataNode proces                         | Deze waarschuwing hostniveau wordt geactiveerd als de afzonderlijke DataNode processen kunnen niet tot stand gebrachte zodat u is en luistert op het netwerk.                                                         |
-| DataNode Web-UI                          | Deze waarschuwing hostniveau wordt geactiveerd als de Webgebruikersinterface DataNode onbereikbaar is.                                                                                                                    |
-| Percentage JournalNodes beschikbaar           | Deze waarschuwing wordt geactiveerd als het aantal omlaag JournalNodes in het cluster groter dan de kritieke drempelwaarde is. Het combineert de resultaten van JournalNode proces controles.        |
-| Percentage DataNodes beschikbaar              | Deze waarschuwing wordt geactiveerd als het aantal omlaag DataNodes in het cluster groter dan de kritieke drempelwaarde is. Het combineert de resultaten van DataNode proces controles.              |
-| Zeppelin-serverstatus                   | Deze waarschuwing hostniveau wordt geactiveerd als de Zeppelin-server niet kan worden bepaald om te worden van en reageren op clientaanvragen.                                                                   |
-| Interactief proces HiveServer2          | Deze waarschuwing hostniveau wordt geactiveerd als de HiveServerInteractive niet kan worden bepaald om te worden van en reageren op clientaanvragen.                                                             |
-| LLAP toepassing                         | Deze waarschuwing wordt geactiveerd als de toepassing LLAP niet kan worden bepaald om te worden van en reageren op aanvragen.                                                                                    |
-
 
 Waarschuwingen worden ingedeeld in verschillende standaardgroepen, dat kunnen worden weergegeven in de **waarschuwingen** pagina.
 

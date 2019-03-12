@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 02/19/2019
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: f5b884ddda292b1c523a5364d34753ccb3a5bbdf
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: c2b0343ff472fe380750152712ca88d9ebb404e2
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194433"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57782782"
 ---
 # <a name="validate-oem-packages"></a>OEM-pakketten valideren
 
@@ -41,59 +41,98 @@ Wanneer u de **validatie van het pakket** werkstroom voor het valideren van een 
 
 Maak een container in uw storage-account voor pakket-blobs. Deze container kan worden gebruikt voor al uw validatie van het pakket wordt uitgevoerd.
 
-1. In de [Azure Portal](https://portal.azure.com), gaat u naar het storage-account hebt gemaakt in [instellen dat uw gevalideerd als een serviceresources](azure-stack-vaas-set-up-resources.md).
-2. Op de blade links onder **Blob-Service**selecteert op **Containers**.
-3. Selecteer **+ Container** in het menu van de balk en geef een naam voor de container, bijvoorbeeld `vaaspackages`.
+1. In de [Azure-portal](https://portal.azure.com), gaat u naar het storage-account hebt gemaakt in [instellen dat uw gevalideerd als een serviceresources](azure-stack-vaas-set-up-resources.md).
+
+2. Op de blade links onder **Blob-Service**, selecteer **Containers**.
+
+3. Selecteer **+ Container** in de menubalk.
+    1. Geef een naam op voor de container, bijvoorbeeld `vaaspackages`.
+    1. Selecteer de gewenste toegangsniveau voor niet-geverifieerde clients zoals VaaS. Zie voor meer informatie over het verlenen van toegang tot pakketten in elk scenario VaaS [afhandeling van container-toegangsniveau](#handling-container-access-level).
 
 ### <a name="upload-package-to-storage-account"></a>Pakket uploaden naar storage-account
 
-1. Bereid het pakket dat u wilt valideren. Als het pakket meerdere bestanden heeft, comprimeren in een `.zip` bestand.
-2. In de [Azure Portal](https://portal.azure.com), selecteert u de pakket-container en uploaden van het pakket door te selecteren op **uploaden** in de menubalk.
-3. Selecteer het pakket `.zip` dat u wilt uploaden. Laat de standaardwaarden staan **Blobtype** (dat wil zeggen, **blok-Blob**) en **blokgrootte**.
+1. Bereid het pakket dat u wilt valideren. Dit is een `.zip` bestand waarvan de inhoud moeten overeenkomen met de structuur wordt beschreven in [maken van een OEM-pakket](azure-stack-vaas-create-oem-package.md).
 
-> [!NOTE]
-> Zorg ervoor dat de `.zip` inhoud worden geplaatst in de hoofdmap van de `.zip` bestand. Er mogen zich geen submappen in het pakket.
+    > [!NOTE]
+    > Zorg ervoor dat de `.zip` inhoud worden geplaatst in de hoofdmap van de `.zip` bestand. Er mogen zich geen submappen in het pakket.
+
+1. In de [Azure-portal](https://portal.azure.com), selecteert u de pakket-container en uploaden van het pakket door te selecteren op **uploaden** in de menubalk.
+
+1. Selecteer het pakket `.zip` dat u wilt uploaden. Laat de standaardwaarden staan **Blobtype** (dat wil zeggen, **blok-Blob**) en **blokgrootte**.
 
 ### <a name="generate-package-blob-url-for-vaas"></a>URL van het pakket blob voor VaaS genereren
 
-Bij het maken van een **validatie van het pakket** werkstroom in de portal VaaS, moet u een URL naar de Azure Storage-blob met uw pakket opgeven.
+Bij het maken van een **validatie van het pakket** werkstroom in de portal VaaS, moet u een URL naar de Azure Storage-blob met uw pakket opgeven. Sommige *interactieve* tests, met inbegrip van **maandelijkse AzureStack Update verificatie** en **OEM-extensie pakket verificatie**, een URL naar pakket blobs zijn ook vereist.
 
-#### <a name="option-1-generating-a-blob-sas-url"></a>Optie 1: Genereren van een blob SAS-URL
+#### <a name="handling-container-access-level"></a>Toegangsniveau voor afhandeling van container
 
-Gebruik deze optie als u niet wilt dat deze openbare leestoegang tot uw storage-container of BLOB's inschakelen.
+Het minimale toegangsniveau vereist voor VaaS is afhankelijk van of u een werkstroom voor validatie van het pakket wordt gemaakt of plannen van een *interactieve* testen.
 
-1. In de [Azure-portal](https://portal.azure.com/), gaat u naar uw storage-account en navigeer naar de ZIP met uw pakket
+In het geval van **persoonlijke** en **Blob** toegangsniveaus, u moet tijdelijk toegang verlenen tot de blob pakket door middel van een VaaS een [handtekening voor gedeelde toegang](https://docs.microsoft.com/en-us/azure/storage/common/storage-dotnet-shared-access-signature-part-1?) (SAS). De **Container** toegangsniveau vereist niet dat u voor het genereren van SAS-URL's, maar niet-geverifieerde toegang tot de container en de blobs.
 
-2. Selecteer **SAS genereren** in het contextmenu
+|Toegangsniveau | Werkstroom-vereiste | Vereiste test |
+|---|---------|---------|
+|Privé | Genereren van een SAS-URL per pakket blob ([optie 1](#option-1-generate-a-blob-sas-url)). | Genereren van een SAS-URL op accountniveau en handmatig toevoegen van de blob-naam van het pakket ([optie 2](#option-2-construct-a-container-sas-url)). |
+|Blob | Geef de eigenschap van de blob-URL ([optie 3](#option-3-grant-public-read-access)). | Genereren van een SAS-URL op accountniveau en handmatig toevoegen van de blob-naam van het pakket ([optie 2](#option-2-construct-a-container-sas-url)). |
+|Container | Geef de eigenschap van de blob-URL ([optie 3](#option-3-grant-public-read-access)). | Geef de eigenschap van de blob-URL ([optie 3](#option-3-grant-public-read-access)).
 
-3. Selecteer **lezen** van **machtigingen**
+De opties voor het verlenen van toegang tot uw pakketten zijn gerangschikt op de minimale toegang grootste toegang krijgen tot.
 
-4. Instellen **begintijd** op de huidige tijd en **eindtijd** aan ten minste 48 uur vanaf **begintijd**. Als u andere tests worden uitgevoerd met hetzelfde pakket, kunt u overwegen verhogen **eindtijd** voor de lengte van de test. Alle tests gepland via VaaS na **eindtijd** zal mislukken en een nieuwe SAS moet worden gegenereerd.
+#### <a name="option-1-generate-a-blob-sas-url"></a>Optie 1: Genereren van een blob SAS-URL
+
+Gebruik deze optie als u het toegangsniveau van uw container voor opslag is ingesteld op **persoonlijke**, waar de container openbare leestoegang tot de container en blobs niet inschakelen.
+
+> [!NOTE]
+> Deze methode werkt niet voor *interactieve* tests. Zie [optie 2: Maken van een container SAS-URL](#option-2-construct-a-container-sas-url).
+
+1. In de [Azure-portal](https://portal.azure.com/), gaat u naar uw storage-account en navigeer naar de ZIP met uw pakket.
+
+2. Selecteer **SAS genereren** in het contextmenu.
+
+3. Selecteer **lezen** van **machtigingen**.
+
+4. Instellen **begintijd** op de huidige tijd en **eindtijd** aan ten minste 48 uur vanaf **begintijd**. Als u andere werkstromen worden maken met hetzelfde pakket, kunt u overwegen verhogen **eindtijd** voor de lengte van de test.
 
 5. Selecteer **Blob-SAS-token en -URL genereren**.
 
 Gebruik de **Blob SAS-URL** wanneer URL's bieden pakket blob naar de portal.
 
-#### <a name="option-2-grant-public-read-access"></a>Optie 2: Openbare leestoegang te verlenen
+#### <a name="option-2-construct-a-container-sas-url"></a>Optie 2: Maken van een container SAS-URL
+
+Gebruik deze optie als u het toegangsniveau van uw container voor opslag is ingesteld op **persoonlijke** en moet u opgeven van een pakket met blob-URL naar een *interactieve* testen. Deze URL kan ook worden gebruikt op het werkstroomniveau van de.
+
+1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
+
+1. Selecteer **Blob** van **toegestane Services opties**. Schakel alle overige opties uit.
+
+1. Selecteer **Container** en **Object** van **toegestane resourcetypen**.
+
+1. Selecteer **lezen** en **lijst** van **toegestane machtigingen**. Schakel alle overige opties uit.
+
+1. Selecteer **begintijd** als de huidige tijd en **eindtijd** aan ten minste veertien dagen vanaf de **begintijd**. Als u andere tests worden uitgevoerd met hetzelfde pakket, kunt u overwegen verhogen **eindtijd** voor de lengte van de test. Alle tests gepland via VaaS na **eindtijd** zal mislukken en een nieuwe SAS moet worden gegenereerd.
+
+1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
+    De indeling moet er als volgt uitzien: `https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
+
+1. Wijzigen van de gegenereerde SAS-URL om op te nemen van de container pakket `{containername}`, en de naam van uw blob pakket `{mypackage.zip}`, als volgt:  `https://storageaccountname.blob.core.windows.net/{containername}/{mypackage.zip}?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
+
+    Deze waarde wordt gebruikt wanneer het pakket biedt blob-URL's naar de portal.
+
+#### <a name="option-3-grant-public-read-access"></a>Optie 3: Openbare leestoegang te verlenen
+
+Gebruik deze optie als het is mogelijk om toegang tot afzonderlijke blobs of, in het geval van niet-geverifieerde clients toestaan *interactieve* tests, de container.
 
 > [!CAUTION]
 > Deze optie, opent u uw BLOB (s) voor anonieme toegang voor alleen-lezen.
 
-1. Verleen **openbare leestoegang voor blobs alleen** naar de container van het pakket door de instructies in de sectie [anonieme gebruikersmachtigingen verlenen voor containers en blobs](https://docs.microsoft.com/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs).
+1. Stel het toegangsniveau van de container pakket **Blob** of **Container** door de instructies in de sectie [anonieme gebruikersmachtigingen verlenen voor containers en blobs](https://docs.microsoft.com/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs).
 
-> [!NOTE]
-> Als u de URL van een pakket biedt een *interactieve test* (bijvoorbeeld maandelijks AzureStack Update verificatie of verificatie van OEM-extensie-pakket), moet u verlenen **volledig openbare leestoegang** naar Ga verder met het testen.
+    > [!NOTE]
+    > Als u de URL van een pakket biedt een *interactieve* test, moet u verlenen **volledig openbare leestoegang** naar de container om door te gaan met het testen.
 
-2. Selecteer in de container pakket, de blob pakket om het eigenschappendeelvenster te openen.
+1. Selecteer in de container pakket, de blob pakket om het eigenschappendeelvenster te openen.
 
-3. Kopieer de **URL**. Deze waarde wordt gebruikt wanneer het pakket biedt blob-URL's naar de portal.
-
-## <a name="apply-monthly-update"></a>Maandelijkse update van toepassing
-
-[!INCLUDE [azure-stack-vaas-workflow-section_update-azs](includes/azure-stack-vaas-workflow-section_update-azs.md)]
-
-> [!NOTE]
-> Nadat u de maandelijkse update hebt toegepast, wordt u aangeraden Test-AzureStack om te controleren of de update correct is toegepast en in orde is uit te voeren. Als de Test-AzureStack mislukt, moet u het probleem rapporteren aan Microsoft. Niet doorgaan met de testronde totdat het probleem opgelost is. Informatie over het uitvoeren van de Test Azure Stack-opdracht kan worden gevonden in deze [artikel](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test).
+1. Kopieer de **URL**. Deze waarde wordt gebruikt wanneer het pakket biedt blob-URL's naar de portal.
 
 ## <a name="create-a-package-validation-workflow"></a>Een werkstroom voor validatie van het pakket maken
 
@@ -123,7 +162,7 @@ Gebruik de **Blob SAS-URL** wanneer URL's bieden pakket blob naar de portal.
 
 ## <a name="required-tests"></a>Vereiste tests
 
-Volgende tests uit zijn vereist voor validatie van de OEM-pakket:
+De volgende tests uit zijn vereist voor validatie van de OEM-pakket:
 
 - OEM-extensie pakket verificatie
 - Engine voor cloud-simulatie
@@ -136,17 +175,44 @@ Volgende tests uit zijn vereist voor validatie van de OEM-pakket:
 
     > [!NOTE]
     > Een bestaand exemplaar van een validatietest planning maakt een nieuw exemplaar in plaats van het oude-exemplaar in de portal. Logboeken voor het oude exemplaar worden bewaard, maar zijn niet toegankelijk is vanaf de portal.  
-    Wanneer een test is voltooid en de **planning** actie wordt uitgeschakeld.
+    > Wanneer een test is voltooid en de **planning** actie wordt uitgeschakeld.
 
 2. Selecteer de agent die de test wordt uitgevoerd. Voor informatie over het toevoegen van lokale WebTest-agents worden uitgevoerd, Zie [implementeren van de lokale agent](azure-stack-vaas-local-agent.md).
 
-3. Volledige OEM-extensie pakket verificatie selecteren **planning** in het contextmenu om een prompt voor het plannen van de test-exemplaar te openen.
+3. OEM-extensie-pakket om verificatie te voltooien, selecteert u **planning** in het contextmenu om een prompt voor het plannen van de test-exemplaar te openen.
 
 4. Controleer de testparameters en selecteer vervolgens **indienen** OEM-extensie pakket verificatie plannen voor uitvoering.
 
+    OEM-extensie pakket verificatie is opgesplitst in twee stappen: Azure Stack-Update en OEM-Update.
+
+    1. **Selecteer** 'Uitvoeren' in de gebruikersinterface van de controle vooraf script wilt uitvoeren. Dit is een geautomatiseerde test die duurt ongeveer 5 minuten om te voltooien en is geen actie vereist.
+
+    1. Als de controle vooraf script is voltooid, de handmatige stap uitvoeren: **installeren** de meest recente beschikbare Azure Stack update met behulp van de Azure Stack-portal.
+
+    1. **Voer** Test-AzureStack op het stempel. Als er fouten optreden, ga niet verder met de test- en neem contact op met [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com).
+
+        Zie voor meer informatie over het uitvoeren van de opdracht Test-AzureStack [valideren Azure Stack-systeemstatus](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test).
+
+    1. **Selecteer** 'Volgende' om uit te voeren van het postcheck script. Dit is een geautomatiseerde test en markeert het einde van het updateproces voor de Azure Stack.
+
+    1. **Selecteer** "Uitvoeren" om uit te voeren van het script controle vooraf voor OEM-Update.
+
+    1. Als de controle is voltooid, de handmatige stap uitvoeren: **installeren** het OEM-uitbreidingspakket via de portal.
+
+    1. **Voer** Test-AzureStack op het stempel.
+
+        > [!NOTE]
+        > Als voorheen, ga niet verder met de test- en neem contact op met [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) als dit mislukt. Deze stap is kritiek omdat u bovendien een opnieuw implementeren bespaart.
+
+    1. **Selecteer** 'Volgende' om uit te voeren van het postcheck script. Hiermee markeert het einde van de OEM-update-stap.
+
+    1. Alle resterende beantwoorden aan het einde van de test en **Selecteer** "Verzenden".
+
+    1. Hiermee markeert het einde van de interactieve test.
+
 5. Bekijk de resultaten voor OEM-extensie pakket verificatie. Zodra de test is geslaagd, plannen dat Cloud simulatie Engine voor uitvoering.
 
-Wanneer alle tests zijn voltooid, stuurt u de naam van uw oplossing VaaS en validatie van het pakket naar [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) om aan te vragen pakket ondertekenen.
+Als u wilt een pakket aanvraag ondertekenen, verzenden [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) de naam van oplossing en de naam van de validatie van het pakket die zijn gekoppeld aan deze uitvoering.
 
 ## <a name="next-steps"></a>Volgende stappen
 

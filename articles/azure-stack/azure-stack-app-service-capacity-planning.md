@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 03/11/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 20b79b3c2581db94627746f52ed6837aa80b6be5
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 2c726675d799a8bb5f9ed1d1dd595aa7f4700036
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447734"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774589"
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Capaciteitsplanning voor Azure App Service-server-rollen in Azure Stack
 
@@ -52,7 +52,7 @@ De Azure App Service-controller ervaringen doorgaans laag verbruik van CPU, gehe
 
 **Aanbevolen minimum**: Twee exemplaren van Standard A1
 
-De front-end worden aanvragen gerouteerd naar webwerkrollen, afhankelijk van beschikbaarheid van de werknemer web. Voor hoge beschikbaarheid, hebt u meer dan één front-end en u kunt meer dan twee hebben. Voor doeleinden voor capaciteitsplanning, kunt u dat elke core ongeveer 100 aanvragen per seconde kan verwerken.
+De front-end-routes-aanvragen voor webwerkrollen, afhankelijk van beschikbaarheid van de werknemer web. Voor hoge beschikbaarheid, hebt u meer dan één front-end en u kunt meer dan twee hebben. Voor doeleinden voor capaciteitsplanning, kunt u dat elke core ongeveer 100 aanvragen per seconde kan verwerken.
 
 ## <a name="management-role"></a>Beheerrol
 

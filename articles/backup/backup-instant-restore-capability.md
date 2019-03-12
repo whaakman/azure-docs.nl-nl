@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: sogup
-ms.openlocfilehash: 3b367619e2d22754b45e8178a25021a677cab6da
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 7d54e137cbfb35c84173c79e65a1070eabb52e78
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405756"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731642"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Ophalen van verbeterde back-up en herstellen van de prestaties met mogelijkheid Azure back-up direct herstellen
 
@@ -78,7 +78,7 @@ U kunt ook, gaat u naar **eigenschappen** pagina van de kluis om op te halen de 
 
 
 ## <a name="configure-snapshot-retention-using-azure-portal"></a>Momentopname bewaren met behulp van Azure portal configureren
-Deze optie is momenteel beschikbaar in **West-Centraal VS**, **India-Zuid**, **Australië-Oost**, **Noord-Europa**,  **Canada centraal**, **Canada-Oost**, **Frankrijk-centraal**, **Frankrijk-Zuid**, **Korea-centraal**,  **Korea-Zuid**, **UK-Zuid 2**, **UK-Noord**, **UK-Zuid**, **UK-West**, **India-midden** , **Australië-Zuidoost**, **Oost-Azië**, **VS-midden**, **Zuidoost-Azië**,  **Noord-centraal VS**, **West vs2**, **Zuid-centraal VS**, **Japan (Oost)**, **Japan (West)**, en **VS-Oost 2**.
+Alle gebruikers op alle **openbare geografische gebieden** geüpdatet werden tot Instant restore.
 
 Voor de bijgewerkte gebruikers in de Azure-portal ziet u een veld toegevoegd aan de **VM back-upbeleid** blade onder de **direct herstellen** sectie. Kunt u de bewaartermijn van de momentopname van de **VM back-upbeleid** blade voor alle virtuele machines die zijn gekoppeld aan de specifieke back-upbeleid.
 

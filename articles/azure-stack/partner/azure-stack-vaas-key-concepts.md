@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 01/07/2019
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a128be720675898a2512f43bf714b9ad6aca0450
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 3830dc15cebe24a8fb910b641b7b986437aeec52
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338532"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768975"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>Validatie uit als een Service-belangrijkste concepten
 
@@ -33,7 +33,7 @@ Een oplossing VaaS vertegenwoordigt een Azure Stack-oplossing met een bepaalde h
 ### <a name="create-a-solution-in-the-vaas-portal"></a>Een oplossing maken in de portal VaaS
 
 1. Aanmelden bij de [VaaS portal](https://azurestackvalidation.com).
-2. Selecteer op het dashboard oplossingen op **nieuwe oplossing**.
+2. Selecteer op het dashboard oplossingen **nieuwe oplossing**.
 3. Voer een naam voor de oplossing. Zie voor het benoemen van suggesties, [naamgevingsconventie voor VaaS oplossingen](azure-stack-vaas-best-practice.md#naming-convention-for-vaas-solutions).
 4. Selecteer **opslaan** om de oplossing te maken.
 
@@ -41,7 +41,7 @@ Een oplossing VaaS vertegenwoordigt een Azure Stack-oplossing met een bepaalde h
 
 Een werkstroom VaaS werkt binnen de context van een VaaS-oplossing. Hiermee geeft u een verzameling testsuites die de functionaliteit van een Azure Stack-implementatie. Een werkstroom moet worden gemaakt voor elke implementatie of software-update van een Azure Stack-oplossing.
 
-Werkstromen worden gecategoriseerd op scenariotype kunt testen. Niet-officiële tests, de **testronde** werkstroom kunt u de tests uit alle beschikbare VaaS kunnen selecteren. In het officiële testen, het **validatie** werkstromen gericht op specifieke Testscenario's door Microsoft is geselecteerd.
+Werkstromen worden gecategoriseerd op scenariotype kunt testen. Niet-officiële tests, de **testronde** werkstroom kunt u tests uit alle beschikbare VaaS kunnen selecteren. In het officiële testen, het **validatie** werkstromen gericht op specifieke Testscenario's door Microsoft is geselecteerd.
 
 ![VaaS werkstroom tegels](media/tile_all-workflows.png)
 
@@ -52,7 +52,7 @@ Zie voor meer informatie over werkstroomtypen [wat wordt gevalideerd als een Ser
 
 ### <a name="getting-started-with-vaas-workflows"></a>Aan de slag met VaaS werkstromen
 
-1. Een nieuwe oplossing maken op het dashboard oplossingen, of Selecteer een bestaande resourcegroep. Dit wordt vernieuwd en u kunt de tegels van de werkstroom.
+1. Een nieuwe oplossing maken op het dashboard oplossingen, of Selecteer een bestaande resourcegroep. Dit wordt vernieuwd en de tegels van de werkstroom wordt geactiveerd.
 2. Als u wilt een nieuwe werkstroom maakt, selecteert u op **Start** op een willekeurige tegel. Zie de volgende artikelen voor informatie die specifiek zijn voor elke werkstroom:
     - Testronde: [Snelstart: De validatie gebruiken als een serviceportal voor het plannen van uw eerste test](azure-stack-vaas-schedule-test-pass.md)
     - Validatie van de oplossing: [Een nieuwe Azure Stack-oplossing te valideren](azure-stack-vaas-validate-solution-new.md)
@@ -65,7 +65,7 @@ Zie voor meer informatie over de werkstroomeigenschappen van de en parameters [w
 
 ## <a name="tests"></a>Tests
 
-Een test in VaaS bestaat uit een reeks acties worden uitgevoerd voor een Azure Stack-oplossing. Tests hebben verschillende beoogde doeleinden die zijn geïdentificeerd door een categorie, zoals functionele of de betrouwbaarheid, en een of meer services van Azure Stack als doel. Elke test definieert een eigen set parameters, waarvan een aantal door de algemene parameters van de werkstroom die zijn opgegeven.
+Een test in VaaS bestaat uit een reeks bewerkingen worden uitgevoerd voor een Azure Stack-oplossing. Tests hebben verschillende beoogde doeleinden die zijn geïdentificeerd door een categorie, zoals functionele of de betrouwbaarheid, en een of meer services van Azure Stack als doel. Elke test definieert een eigen set parameters, waarvan een aantal door de algemene parameters van de werkstroom die zijn opgegeven.
 
 Zie voor meer informatie over het beheren en controleren van tests, [bewaken en beheren van tests in de portal VaaS](azure-stack-vaas-monitor-test.md).
 
@@ -76,7 +76,7 @@ Zie voor meer informatie over testparameters [werkstroom algemene parameters voo
 Een agent VaaS stations testuitvoering. Twee typen agents uitvoeren VaaS tests:
 
 - De **cloudagent**. Dit is de standaard-agent die beschikbaar zijn in VaaS. Geen installatie vereist is, is, maar dit is vereist in afhankelijk van de verbinding met uw omgeving en Azure Stack-eindpunten moeten kunnen worden omgezet via internet. Sommige tests zijn niet compatibel met de cloudagent.
-- Een **lokale agent**. Hiermee kunt u voor het uitvoeren van validatie in scenario's waarin in afhankelijk van de verbinding met uw omgeving niet haalbaar is. Enkele tests uit vereist via de lokale agent.
+- Een **lokale agent**. Hiermee kunt u validatie uitvoert in scenario's waarin in afhankelijk van de verbinding met uw omgeving niet haalbaar is. Enkele tests uit vereist via de lokale agent.
 
 Lokale agenten zijn niet gekoppeld aan een bepaald Azure Stack of VaaS-oplossing. Als een best practice, moeten ze worden uitgevoerd buiten een Azure Stack-omgeving.
 

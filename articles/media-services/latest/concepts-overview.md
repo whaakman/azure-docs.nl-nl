@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 02/26/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: f9d431fe0ee76edf5d41c1ce7831f335128402a8
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: b346ac0ac456b7f6af078496e8dd1cb738caab67
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244737"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530191"
 ---
 # <a name="media-services-concepts"></a>Media Services-concepten
 
@@ -65,7 +65,7 @@ De volgende afbeelding ziet u de Media Services content protection-werkstroom:
 
 ![Inhoud beveiligen](./media/content-protection/content-protection.svg)
 
-&#42;* dynamische versleuteling ondersteunt AES-128 "clear key', CBCS en CENC. 
+&#42;dynamische versleuteling ondersteunt AES-128 "clear key', CBCS en CENC. 
 
 U kunt Media Services gebruiken **dynamische manifesten** alleen een specifieke weergave of subclips van uw video te streamen. In het volgende voorbeeld is een coderingsprogramma gebruikt een tussentijds asset coderen in zeven ISO MP4s video voorinstelling (van 180p 1080p). De gecodeerde asset kan dynamisch worden verpakt in een van de volgende protocollen voor streaming: HLS, MPEG DASH en Smooth.  Aan de bovenkant van het diagram, het HLS-manifest voor de asset met geen filters wordt weergegeven (bevat alle zeven voorinstelling).  In de linksonder, wordt het HLS-manifest waarop een filter met de naam "ott" is toegepast weergegeven. Het filter "ott" Hiermee geeft u als u wilt verwijderen van alle bitsnelheden hieronder 1 Mbps, wat leidde tot de twee quality-niveaus van onder, worden verwijderd uit in het antwoord. In de rechts onderaan wordt het HLS-manifest waarop een filter met de naam 'mobiel' is toegepast weergegeven. Het filter 'mobiel' Hiermee geeft u het verwijderen van vertoningen waar de oplossing is groter dan 720p, wat leidde tot de twee 1080p voorinstelling wordt overblijft.
 

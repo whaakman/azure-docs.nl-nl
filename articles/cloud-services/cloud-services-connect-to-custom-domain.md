@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: bb812699795f112023b579352ac3a52bef311d40
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8bee2e2038ee39c777e1ca09994ad21872d2029a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232644"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530055"
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Azure Cloud Services-rollen verbinding te maken met een aangepaste AD-domeincontroller die wordt gehost in Azure
 Er wordt eerst een Virtueelnetwerk (VNet) instellen in Azure. Er wordt een Active Directory-domeincontroller (die worden gehost op een Azure-Machine) toevoegen aan het VNet. Vervolgens wordt er bestaande cloudservicerollen toevoegen aan de vooraf gemaakte VNet en verbind deze met de domeincontroller.
@@ -41,7 +41,7 @@ U kunt een Virtueelnetwerk maken in Azure met behulp van de Azure portal of Powe
 
 $vnetStr =
 @"<?xml version="1.0" encoding="utf-8"?>
-<NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+<NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
     <VirtualNetworkConfiguration>
     <VirtualNetworkSites>
         <VirtualNetworkSite name="[your-vnet-name]" Location="West US">

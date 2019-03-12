@@ -7,13 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.subservice: common
-ms.openlocfilehash: 15ceaf1a75859ca53ddb946555880b360b29ee58
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: bff1e8c111a8a50e15b6d316e422a641a778c73c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405688"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775166"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Probleemoplossingsgids voor Azure Storage Explorer
 
@@ -97,13 +96,11 @@ Als u geen zelfondertekende certificaten met behulp van de voorgaande stappen ni
 
 Lege aanmelden dialoogvensters worden meestal veroorzaakt door AD FS Storage Explorer waarin wordt gevraagd om uit te voeren een omleiding, wordt niet ondersteund door Electron. U kunt proberen om dit probleem te omzeilen apparaat Code Flow gebruiken voor aanmelding bij. Volg de volgende stappen om dit te doen:
 
-1. 'Ga naar experimentele'-"Apparaat Code-aanmelding gebruiken" >.
+1. 'Ga naar Preview'-"Apparaat Code-aanmelding gebruiken" >.
 2. Open het dialoogvenster voor verbinding maken (ofwel via de plug-pictogram in de linkerbenedenhoek verticale balk of 'Account toevoegen' in het venster account).
 3. Kies welke omgeving u aanmelden wilt bij.
 4. Klik op de 'aanmelden' knop.
 5. Volg de instructies in het volgende deelvenster.
-
-Opmerking: deze functie is momenteel alleen beschikbaar in 1.7.0 Preview-versie.
 
 Als u zelf hebt u problemen bij het aanmelden bij het account dat u gebruiken wilt, omdat de standaardbrowser is al aangemeld bij een ander account, kunt u ofwel:
 
@@ -244,6 +241,14 @@ Voor Linux-distributies dan Ubuntu 16.04 moet u mogelijk enkele afhankelijkheden
 * Recente GCC
 
 Afhankelijk van uw distributie, is het mogelijk dat er een andere pakketten die u wilt installeren. Opslagverkenner [opmerkingen bij de Release](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) specifieke stappen voor het aantal distributies bevatten.
+
+## <a name="open-in-explorer-from-azure-portal-doesnt-work"></a>Openen In Explorer van Azure portal werkt niet
+
+Als de knop 'Openen In Explorer' in de Azure-portal niet voor u werkt, zorg ervoor dat u een compatibele browser. De volgende browsers zijn getest op compatibiliteit.
+* Microsoft Edge
+* Mozilla Firefox
+* Google Chrome
+* Microsoft Internet Explorer
 
 ## <a name="next-steps"></a>Volgende stappen
 

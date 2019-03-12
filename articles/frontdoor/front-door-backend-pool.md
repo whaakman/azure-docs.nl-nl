@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 64d96d54b323d634703301e48cdaa28fa875fbbc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 14cc87e8691c859274495a13cc0b73fa29ad22df
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958795"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726886"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Back-ends en back-end-pools in Azure voordeur Service
-In dit artikel worden de verschillende concepten met betrekking tot hoe u de implementatie van uw toepassing met de voordeur kunt toewijzen. Er wordt ook uitgelegd u wat de verschillende voorwaarden voor configuratie van de deur over back-end toepassing aan de hand.
+In dit artikel worden de verschillende concepten met betrekking tot hoe u de implementatie van uw toepassing met de voordeur kunt toewijzen. Ook wordt uitgelegd wat de verschillende voorwaarden voor configuratie van de deur over back-end toepassing aan de hand.
 
 ## <a name="backend-pool"></a>Back-endpool
-Een back-endpool voor de deur verwijst naar de set gelijkwaardige back-ends die hetzelfde type verkeer voor de toepassing kan ontvangen. Met andere woorden, is het een logische groepering van uw toepassingsexemplaren overal ter wereld die hetzelfde verkeer kunnen ontvangen en kunt reageren met het verwachte gedrag. Deze back-ends zijn meestal geïmplementeerd in verschillende regio's of binnen dezelfde regio. Bovendien deze back-ends zich in de modus actief-actief-implementatie of anderszins kan worden gedefinieerd als een actief/passief-configuratie.
+Een back-endpool in Front Door verwijst naar de set gelijkwaardige back-ends die hetzelfde type verkeer voor de toepassing kunnen ontvangen. Met andere woorden, het is een logische groepering van uw toepassingsinstanties overal ter wereld die hetzelfde verkeer kunnen ontvangen en met het verwachte gedrag kunnen reageren. Deze back-ends zijn meestal geïmplementeerd in verschillende regio's of binnen dezelfde regio. Bovendien deze back-ends zich in de modus actief-actief-implementatie of anderszins kan worden gedefinieerd als een actief/passief-configuratie.
 
 Back-endpool bepaalt ook hoe de verschillende back-ends moet alle worden geëvalueerd voor hun status via statuscontroles en dienovereenkomstig hoe de taakverdeling tussen de back-ends moet gebeuren.
 
@@ -30,18 +30,18 @@ Back-endpool bepaalt ook hoe de verschillende back-ends moet alle worden geëval
 Voordeur verzendt aanvragen van de test periodieke HTTP/HTTPS naar elk van de geconfigureerde back-ends om te bepalen het nabijheid en de status van elke back-end laden saldo ontvangen aanvragen van uw eindgebruikers. Instellingen van de Health-test voor een back endpool definiëren hoe we polling voor de integriteitsstatus voor back-ends voor uw toepassing. De volgende instellingen zijn beschikbaar voor configuratie voor de taakverdeling:
 
 1. **Pad**: URL-pad waar de test-aanvragen worden verzonden naar voor alle de back-ends via de back-endpool. Bijvoorbeeld, als een van uw back-ends `contoso-westus.azurewebsites.net` en het pad is ingesteld op `/probe/test.aspx`, en vervolgens de voordeur omgevingen, ervan uitgaande dat het protocol is ingesteld op HTTP, verzendt de health test aanvragen voor http://contoso-westus.azurewebsites.net/probe/test.aspx. 
-2. **Protocol**: bepaalt of de aanvragen van de health-test van voordeur naar uw back-ends worden verzonden via HTTP of HTTPS-protocol.
-3. **Interval (seconden)**: dit veld wordt gedefinieerd voor de frequentie van statuscontroles uw back-ends, dat wil zeggen, de intervallen in welke van de voordeur omgevingen een test wordt verzonden. Opmerking: als u op zoek bent voor snellere failover wordt ingesteld in dit veld op een lagere waarde. Echter, des te lager de waarde meer de statustest volume dat uw back-ends ontvangt. Als u een idee van hoeveel test volume voordeur wordt gegenereerd op de back-ends, we nemen een voorbeeld. Laten we zeggen dat het interval is ingesteld op 30 seconden en er ongeveer 90 voordeur omgevingen of POP's wereldwijd. Zodat elk van uw back-ends ongeveer ontvangen over 3 tot 5 test aanvragen per seconde.
+2. **Protocol**: Bepaalt of de aanvragen van de health-test van voordeur naar uw back-ends worden verzonden via HTTP of HTTPS-protocol.
+3. **Interval (seconden)**: Dit veld bepaalt de frequentie van statuscontroles uw back-ends, dat wil zeggen, de intervallen waarin elk van de voordeur omgevingen een test wordt verzonden. Opmerking: als u op zoek bent voor snellere failover wordt ingesteld in dit veld op een lagere waarde. Echter, des te lager de waarde meer de statustest volume dat uw back-ends ontvangt. Als u een idee van hoeveel test volume voordeur wordt gegenereerd op de back-ends, we nemen een voorbeeld. Laten we zeggen dat het interval is ingesteld op 30 seconden en er ongeveer 90 voordeur omgevingen of POP's wereldwijd. Zodat elk van uw back-ends ongeveer ontvangen over 3 tot 5 test aanvragen per seconde.
 
 Lezen [statuscontroles](front-door-health-probes.md) voor meer informatie.
 
 ### <a name="load-balancing-settings"></a>Instellingen voor taakverdeling
 De load balancing instellingen voor de back-endpool definiëren hoe we de statuscontroles voor het bepalen van de back-end op in orde worden geëvalueerd en ook hoe we moeten voor taakverdeling tussen het verkeer tussen de verschillende back-ends via de back-endpool. De volgende instellingen zijn beschikbaar voor configuratie voor de taakverdeling:
 
-1. **Voorbeeld van een grootte**: deze eigenschap wordt aangegeven hoeveel exemplaren van statuscontroles we moet rekening houden met voor back-end evalueren.
-2. **Geslaagde samplegrootte**: deze eigenschap bepaalt dat van de grootte van het voorbeeld, zoals hierboven wordt beschreven hoeveel steekproeven we moeten om te controleren op slagen om aan te roepen van de back-end als in orde. 
+1. **Voorbeeld van een grootte**: Deze eigenschap wordt aangegeven hoeveel exemplaren van statuscontroles we moet rekening houden met voor back-end evalueren.
+2. **Geslaagde samplegrootte**: Deze eigenschap bepaalt dat van de grootte van het voorbeeld, zoals hierboven wordt beschreven hoeveel steekproeven we moeten om te controleren op slagen om aan te roepen van de back-end als in orde. 
 </br>Bijvoorbeeld, stel voor de voordeur u hebt ingesteld met de statustest *interval* tot 30 seconden *voorbeeld grootte* is ingesteld op '5' en *geslaagde samplegrootte* is ingesteld op '3'. En wat deze configuratie betekent dat telkens wanneer we de statuscontroles voor uw back-end evalueren, kijken we de laatste vijf voorbeelden die zouden worden spanning laatste 150 seconden (= 5 * 30 s) en, tenzij er 3 of meer van deze tests geslaagde zijn declareert we de achtergrond einde niet in orde. Stel dat er slechts twee geslaagde tests en, zodat we de back-end als beschadigd wordt gemarkeerd. De volgende keer dat we de evaluatie uitgevoerd als we 3 lukt dit in de laatste vijf tests kunt vinden, markeert we vervolgens de back-end als in orde weer.
-3. **Latentie gevoeligheid (extra latentie)**: het veld latentie gevoeligheid bepaalt of u wilt dat de voordeur aan de aanvraag verzenden naar de back-ends die zich binnen het bereik van de gevoeligheid voor wat betreft latentie meting of de aanvraag naar de dichtstbijzijnde back-end. Lezen [minimale latentie op basis van de routeringsmethode](front-door-routing-methods.md#latency) voor voordeur voor meer informatie.
+3. **Latentie gevoeligheid (extra latentie)**: Het veld latentie gevoeligheid definieert of u wilt dat de voordeur aan de aanvraag verzenden naar de back-ends die zich binnen het bereik van de gevoeligheid voor wat betreft latentie meting of de aanvraag naar de dichtstbijzijnde back-end. Lezen [minimale latentie op basis van de routeringsmethode](front-door-routing-methods.md#latency) voor voordeur voor meer informatie.
 
 ## <a name="backend"></a>Back-end
 Een back-end is gelijk aan het exemplaar van de implementatie van een toepassing in een regio. Voordeur ondersteunt zowel Azure als niet-Azure-back-ends en dus de regio hier alleen is niet beperkt tot Azure-regio's, maar kan ook worden uw on-premises datacenter of een exemplaar van een toepassing in enkele andere cloud.
@@ -50,11 +50,11 @@ Back-ends verwijst in de context van voorgrond deuren, u naar de hostnaam of het
 
 Wanneer u een back-end in een back-endpool van de voordeur toevoegt, moet u Vul de volgende gegevens:
 
-1. **Back-end hosttype**: het type resource dat u wilt toevoegen. Voordeur biedt ondersteuning voor automatische detectie van uw back-ends van appservice, cloudservice of opslag. Als u een andere resource in Azure of zelfs een niet-Azure back-end wilt, selecteert u 'Aangepaste host'. Opmerking: tijdens het configureren van dat de API's wordt niet gevalideerd of de back-end toegankelijk is vanaf de voordeur omgevingen, in plaats daarvan moet u ervoor zorgen is dat uw back-end kan worden bereikt door de voordeur. 
-2. **Abonnement en de back-end hostnaam**: als u hebt geen 'Aangepaste host' geselecteerd voor back-end hosttype zijn, moet u het bereik van omlaag en selecteert u uw back-end door het kiezen van het juiste abonnement en de bijbehorende back-end-hostnaam van de gebruiker -interface.
-3. **Host-header van back-end**: de Host-headerwaarde die is verzonden naar de back-end voor elke aanvraag. Lezen [host-header van back-end](#hostheader) voor meer informatie.
-4. **Prioriteit**: kunt u prioriteiten toewijzen aan uw verschillende back-ends wanneer u wilt een back-end van de primaire service gebruikt voor al het verkeer, en geeft u back-ups in geval de primaire of de back-back-ends niet beschikbaar zijn. Meer informatie over [prioriteit](front-door-routing-methods.md#priority).
-5. **Gewicht**: kunt u het gewicht toewijzen aan uw verschillende back-ends wanneer u verkeer verspreiden over een set back-ends wilt, gelijkmatig of op basis van gewicht coëfficiënten. Meer informatie over [gewichten](front-door-routing-methods.md#weighted).
+1. **Back-end hosttype**: Het type resource dat u wilt toevoegen. Voordeur biedt ondersteuning voor automatische detectie van uw back-ends van appservice, cloudservice of opslag. Als u een andere resource in Azure of zelfs een niet-Azure back-end wilt, selecteert u 'Aangepaste host'. Opmerking: tijdens het configureren van dat de API's wordt niet gevalideerd of de back-end toegankelijk is vanaf de voordeur omgevingen, in plaats daarvan moet u ervoor zorgen is dat uw back-end kan worden bereikt door de voordeur. 
+2. **Abonnement en de back-end hostnaam**: Als u niet hebt geselecteerd typt u 'Aangepaste host' voor back-end-host, en vervolgens moet u het bereik van omlaag en selecteert u uw back-end door het kiezen van het juiste abonnement en de bijbehorende back-end-hostnaam van de gebruikersinterface.
+3. **Host-header van back-end**: De waarde van de Host-header is verzonden naar de back-end voor elke aanvraag. Lezen [host-header van back-end](#hostheader) voor meer informatie.
+4. **Prioriteit**: Als u wilt een back-end van de primaire service gebruiken voor al het verkeer en back-ups opgeven als de primaire of de back-ends voor back-up niet beschikbaar zijn, kunt u prioriteiten toewijzen aan uw verschillende back-ends. Meer informatie over [prioriteit](front-door-routing-methods.md#priority).
+5. **Gewicht**: Als u verkeer verspreiden over een set back-ends wilt, gelijkmatig of op basis van gewicht coëfficiënten, kunt u uw verschillende back-ends gewicht toewijzen. Meer informatie over [gewichten](front-door-routing-methods.md#weighted).
 
 
 ### <a name = "hostheader"></a>Back-end host-header
@@ -75,5 +75,5 @@ Het veld 'Host-header van back-end' kan worden geconfigureerd voor een back-end 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over het [maken van een voordeur](quickstart-create-front-door.md).
-- Informatie over [de werking van de voordeur](front-door-routing-architecture.md).
+- Lees hoe u [een Front Door maakt](quickstart-create-front-door.md).
+- Lees [hoe Front Door werkt](front-door-routing-architecture.md).

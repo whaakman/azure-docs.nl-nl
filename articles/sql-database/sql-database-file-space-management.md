@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 02/11/2019
-ms.openlocfilehash: b537dd8360c39a744cf9963376387a4c89e33838
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/07/2019
+ms.openlocfilehash: a6fccb087d8a2c78bb1ad47758952b76b245dbde
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311641"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576188"
 ---
 # <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Ruimte is voor één en gepoolde databases in Azure SQL Database beheren
 
@@ -42,7 +42,7 @@ Mogelijk moet u in de volgende scenario's het gebruik van bestandsruimte bewaken
 
 De meeste storage space metrische gegevens weergegeven in de Azure-portal en de volgende API's meten alleen het formaat van pagina's van gegevens die worden gebruikt:
 
-- Azure Resource Manager op basis van metrische gegevens over API's zoals PowerShell [get-metrische gegevens](https://docs.microsoft.com/powershell/module/az.insights/get-azmetric)
+- Azure Resource Manager op basis van metrische gegevens over API's zoals PowerShell [get-metrische gegevens](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetric)
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 De volgende API's meten echter ook de grootte van de toegewezen ruimte voor databases en elastische pools:

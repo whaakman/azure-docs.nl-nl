@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
+ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: e53d77c4faea5b9461395a0098261866bdf6252f
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: dea9a73d7ac868e45d3abf2ee3ff8366fc7b65cd
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430422"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57783088"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Waarschuwingen maken voor Azure SQL Database en Data Warehouse met behulp van Azure portal
 
@@ -40,7 +40,7 @@ Een waarschuwing als u wilt de volgende handelingen uit wanneer deze wordt geact
 
 U kunt configureren en informatie over met behulp van regels voor waarschuwingen
 
-* [Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
+* [Azure-portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
 * [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
 * [Opdrachtregelinterface (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
 * [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)

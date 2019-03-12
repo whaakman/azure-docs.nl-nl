@@ -1,6 +1,6 @@
 ---
-title: Inschakelen van het Kubernetes-Dashboard in Azure Stack | Microsoft Docs
-description: Meer informatie over het inschakelen van het Kubernetes-Dashboard in Azure Stack
+title: Toegang tot het Kubernetes-Dashboard in Azure Stack | Microsoft Docs
+description: Leer hoe u toegang tot het Kubernetes-Dashboard in Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,24 +11,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: cdc1be0c0274977fe14ef704fbb74fa955ad7e11
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 243fb01a5c8112afaf310f616b93c2667ac6f19d
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242408"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729856"
 ---
-# <a name="enable-the-kubernetes-dashboard-in-azure-stack"></a>Inschakelen van het Kubernetes-Dashboard in Azure Stack 
+# <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>Toegang tot het Kubernetes-Dashboard in Azure Stack 
 
 *Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit* 
 > [!Note]   
 > Kubernetes in Azure Stack is in preview. Azure Stack-niet-verbonden scenario wordt momenteel niet ondersteund door de Preview-versie. 
 
-Kubernetes biedt een webdashboard dat u voor eenvoudige beheerbewerkingen gebruiken kunt. Dit dashboard kunt u de status van de basisbewaking van statussen en metrische gegevens voor uw toepassingen weergeven, maken en implementeren van services en bewerken van bestaande toepassingen. Dit artikel laat u het inschakelen van het Kubernetes-dashboard in Azure Stack.
+Kubernetes biedt een webdashboard dat u voor eenvoudige beheerbewerkingen gebruiken kunt. Dit dashboard kunt u de status van de basisbewaking van statussen en metrische gegevens voor uw toepassingen weergeven, maken en implementeren van services en bewerken van bestaande toepassingen. Dit artikel leest u hoe het instellen van het Kubernetes-dashboard in Azure Stack.
 
 ## <a name="prerequisites-for-kubernetes-dashboard"></a>Vereisten voor het Kubernetes-Dashboard
 

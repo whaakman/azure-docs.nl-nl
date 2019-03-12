@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 28796c753e32a3c3b18052190618152c7669c93d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 6bb37008b6a8b37e575dcf83dffcf57ab08996fd
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437068"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539991"
 ---
 # <a name="data-management-gateway"></a>Gegevensbeheergateway
 > [!NOTE]
@@ -439,7 +439,7 @@ Deze sectie bevat stappen voor het verplaatsen van gateway-client van een machin
 ## <a name="encrypting-credentials"></a>Referenties versleutelen
 Voor het versleutelen van referenties in de Data Factory-Editor, voer de volgende stappen uit:
 
-1. Webbrowser starten op de **gatewaycomputer**, gaat u naar [Azure-portal](http://portal.azure.com). Zoeken naar uw data factory, indien nodig, opent u de gegevensfactory in de **DATA FACTORY** pagina en klik vervolgens op **maken en implementeren** Data Factory-Editor gestart.
+1. Webbrowser starten op de **gatewaycomputer**, gaat u naar [Azure-portal](https://portal.azure.com). Zoeken naar uw data factory, indien nodig, opent u de gegevensfactory in de **DATA FACTORY** pagina en klik vervolgens op **maken en implementeren** Data Factory-Editor gestart.
 2. Klik op een bestaande **gekoppelde service** in de structuurweergave wordt weergegeven om te bekijken van de JSON-definitie of een gekoppelde service waarvoor een data management gateway maken (bijvoorbeeld: SQL Server of Oracle).
 3. In de JSON-editor voor de **gatewayName** eigenschap, voer de naam van de gateway.
 4. Voer de naam van de server voor de **gegevensbron** eigenschap in de **connectionString**.

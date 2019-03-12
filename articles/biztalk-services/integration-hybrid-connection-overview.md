@@ -11,15 +11,15 @@ ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: fa38d0ef3d00bf5fdb886703cd882ec5ba552b95
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 18e65fc51f99aa19162daa3f6e5b9b7012214f64
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234031"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765540"
 ---
 # <a name="hybrid-connections-overview"></a>Overzicht van hybride verbindingen
 
@@ -95,8 +95,8 @@ De volgende TCP-poorten worden gebruikt door hybride verbindingen:
 
 ## <a name="see-also"></a>Zie ook
 [REST API voor het beheren van BizTalk Services op Microsoft Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
-[BizTalk Services: grafiek van edities](biztalk-editions-feature-chart.md)  
+[BizTalk Services: Grafiek van edities](biztalk-editions-feature-chart.md)  
 [Een BizTalk Service maken](biztalk-provision-services.md)  
-[BizTalk Services: de tabbladen Dashboard, Bewaken en Schalen](biztalk-dashboard-monitor-scale-tabs.md)  
+[BizTalk Services: Tabbladen dashboard, bewaken en schalen](biztalk-dashboard-monitor-scale-tabs.md)  
 
 [HCImage]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionImage.png

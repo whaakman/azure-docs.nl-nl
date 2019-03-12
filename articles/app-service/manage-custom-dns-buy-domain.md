@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c2bee4d35fe857d5ad3bf26dc1145b8721c85df4
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 44252274cc3c0050ba138c3115deeceb2f06f8d8
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594233"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57782765"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Een aangepaste domeinnaam voor Azure App Service kopen
 
@@ -102,7 +102,7 @@ In de **aangepaste domeinen** pagina, klikt u op **domein kopen**.
 ### <a name="configure-the-domain-purchase"></a>De aankoop van het domein configureren
 
 In de **App Service-domein** pagina, in de **domein zoeken** typt u de domeinnaam die u wilt kopen en typ `Enter`. De voorgestelde beschikbare domeinen worden weergegeven onder het tekstvak. Selecteer een of meer domeinen die u wilt kopen.
-   
+
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
 
 > [!NOTE]
@@ -111,15 +111,15 @@ In de **App Service-domein** pagina, in de **domein zoeken** typt u de domeinnaa
 >
 
 Klik op de **contactgegevens** en vul het formulier van het domein contactgegevens in. Wanneer u klaar bent, klikt u op **OK** om terug te keren naar de pagina met App Service-domein.
-   
-Het is belangrijk dat u alle vereiste velden met zo nauwkeurig mogelijk invullen. Onjuiste gegevens voor de contactgegevens kan resulteren in domeinen kopen is mislukt. 
+
+Het is belangrijk dat u alle vereiste velden met zo nauwkeurig mogelijk invullen. Onjuiste gegevens voor de contactgegevens kan resulteren in domeinen kopen is mislukt.
 
 Selecteer vervolgens de gewenste opties voor uw domein. Zie de volgende tabel voor een uitleg:
 
 | Instelling | Voorgestelde waarde | Description |
 |-|-|-|
 |Privacybescherming | Inschakelen | U meldt zich aan 'Privacy protection', dat van het aankoopbedrag uitmaakt deel _gratis_. Sommige domeinen op het hoogste niveau worden beheerd door registrars die geen ondersteuning voor privacybescherming, en ze worden weergegeven op de **privacybescherming** pagina. |
-| Standaard hostnamen toewijzen | **www** en **@** | Selecteer de gewenste hostnaambindingen, indien gewenst. Wanneer de naamswijziging domein aankoop voltooid is, wordt uw app toegankelijk op de geselecteerde hostnamen. Als de app achter [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), ziet u niet de optie voor het hoofddomein toewijzen (@), omdat het Traffic Manager biedt geen ondersteuning voor A-records. U kunt wijzigingen aanbrengen aan de hostnaam toewijzingen nadat de domein-aankoop is voltooid. |
+| Standaard hostnamen toewijzen | **www** en **\@** | Selecteer de gewenste hostnaambindingen, indien gewenst. Wanneer de naamswijziging domein aankoop voltooid is, wordt uw app toegankelijk op de geselecteerde hostnamen. Als de app achter [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), ziet u niet de optie voor het hoofddomein toewijzen (@), omdat het Traffic Manager biedt geen ondersteuning voor A-records. U kunt wijzigingen aanbrengen aan de hostnaam toewijzingen nadat de domein-aankoop is voltooid. |
 
 ### <a name="accept-terms-and-purchase"></a>Voorwaarden accepteren en kopen
 

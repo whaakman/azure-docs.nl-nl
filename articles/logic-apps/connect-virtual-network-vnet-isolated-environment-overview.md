@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 02/24/2019
-ms.openlocfilehash: ff43a55429eb69a7f98fd4da7fdbeb5d4e51513c
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.date: 03/11/2019
+ms.openlocfilehash: b53cd54afdf6243769602971ab77145cfa9ba9cc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991245"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57758774"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Toegang tot resources van Azure Virtual Network van Azure Logic Apps met behulp van de integratie van service-omgevingen (ISEs)
 
@@ -64,13 +64,6 @@ Het verschil tussen ISE en niet-ISE-connectors is op de locaties waar de trigger
   ![ISE-connectors selecteren](./media/connect-virtual-network-vnet-isolated-environment-overview/select-ise-connectors.png)
 
 * Connectors die worden uitgevoerd in een ISE zijn ook beschikbaar in de globale Logic Apps-service.
-
-<a name="vnet-access"></a>
-
-## <a name="permissions-for-virtual-network-access"></a>Machtigingen voor toegang tot het virtuele netwerk
-
-Voordat u een Azure-netwerk voor het injecteren van uw omgeving selecteren kunt, moet u machtigingen voor toegangsbeheer op basis van rollen (RBAC) instellen in uw virtuele netwerk voor de service Azure Logic Apps. Deze taak is vereist dat u toewijst de **Inzender voor netwerken** en **Inzender voor klassieke** rollen naar de service Azure Logic Apps.
-Als u deze machtigingen instelt, Zie [verbinding maken met virtuele netwerken van Azure vanuit logische apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#vnet-access).
 
 <a name="create-integration-account-environment"></a>
 

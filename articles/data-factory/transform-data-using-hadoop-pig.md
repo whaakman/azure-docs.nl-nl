@@ -3,23 +3,23 @@ title: Gegevens transformeren met behulp van Hadoop-Pig-activiteit in Azure Data
 description: Lees hoe u de Pig-activiteit in een Azure data factory kunt gebruiken om uit te voeren van Pig-scripts op een on-demand/uw eigen HDInsight-cluster.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.author: douglasl
-ms.openlocfilehash: a29bd64c6b18d41028c8952f531698bbfa9e01e2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: 914bc37552a80886df16ed69fba4e31b3f22ac22
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014706"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57574913"
 ---
 # <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Gegevens transformeren met behulp van Hadoop-Pig-activiteit in Azure Data Factory
-> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](v1/data-factory-pig-activity.md)
 > * [Huidige versie](transform-data-using-hadoop-pig.md)
 

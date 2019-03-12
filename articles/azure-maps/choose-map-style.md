@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 78e3f6a5f4a55fd4bf1925672205eb490e7c6b24
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 69cf0815a8418df4c8a36adf99770640df327d49
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695686"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57568852"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Kies een stijl kaart op Azure-kaarten
 
@@ -21,14 +21,14 @@ Azure Maps heeft vier verschillende maps stijlen om uit te kiezen. Zie voor meer
 
 ## <a name="set-style-on-map-load"></a>Set-stijl bij het laden van de kaart
 
-<iframe height='500' scrolling='no' title='De stijl instellen bij het laden van de kaart' src='//codepen.io/azuremaps/embed/WKOQRq/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/WKOQRq/'>de stijl instellen bij het laden van de kaart</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='De stijl instellen bij het laden van de kaart' src='//codepen.io/azuremaps/embed/WKOQRq/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/WKOQRq/'>de stijl instellen bij het laden van de kaart</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Het bovenstaande codeblok Hiermee stelt u de abonnementssleutel en maakt een kaart-object met de stijl van ingesteld op grayscale_dark. Zie [maken van een kaart](./map-create.md) voor instructies over het maken van een kaart.
 
 ## <a name="update-the-style"></a>De stijl bijwerken
 
-<iframe height='500' scrolling='no' title='De stijl bijwerken' src='//codepen.io/azuremaps/embed/yqXYzY/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/yqXYzY/'>bijwerken van de stijl</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='De stijl bijwerken' src='//codepen.io/azuremaps/embed/yqXYzY/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/yqXYzY/'>bijwerken van de stijl</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Het bovenstaande codeblok Hiermee stelt u de abonnementssleutel en maakt u een kaartobject zonder vooraf instellen van de stijl. Zie [maken van een kaart](./map-create.md) voor instructies over het maken van een kaart.
@@ -37,7 +37,7 @@ Het tweede codeblok maakt gebruik van de kaart [setStyle](https://docs.microsoft
 
 ## <a name="add-the-style-picker"></a>De Stijlkiezer toevoegen
 
-<iframe height='500' scrolling='no' title='De Stijlkiezer toevoegen' src='//codepen.io/azuremaps/embed/OwgyvG/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/OwgyvG/'>toe te voegen de Stijlkiezer</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='De Stijlkiezer toevoegen' src='//codepen.io/azuremaps/embed/OwgyvG/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/OwgyvG/'>toe te voegen de Stijlkiezer</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Het eerste codeblok in de bovenstaande code stelt de abonnementssleutel en maakt u een kaartobject, de stijl van de kaart is vooraf ingesteld op grayscale_dark. Zie [maken van een kaart](./map-create.md) voor instructies over het maken van een kaart.

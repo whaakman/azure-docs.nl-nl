@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: cdcf7f466e65cffd36bdcc816a9808ecac2ae242
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 77f6a48402aef5b493b115d2137ccb6a507050b7
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991290"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760202"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Fouten met runbooks oplossen
 
@@ -38,7 +38,7 @@ Deze fout treedt op als de naam van de referentie-asset is niet geldig. Deze fou
 
 Om te bepalen wat er mis is, moet u de volgende stappen uitvoeren:  
 
-1. Zorg ervoor dat u geen speciale tekens geen hebt. Deze tekens zijn onder andere de **@** teken in de naam van Automation-referentie asset die u gebruikt om te verbinden met Azure.  
+1. Zorg ervoor dat u geen speciale tekens geen hebt. Deze tekens zijn onder andere de **\@** teken in de naam van Automation-referentie asset die u gebruikt om te verbinden met Azure.  
 2. Controleer of u kunt de gebruikersnaam en het wachtwoord die zijn opgeslagen in de Azure Automation-referentie in uw lokale PowerShell ISE-editor gebruiken. U kunt doen. Controleer de gebruikersnaam en het wachtwoord juist zijn door het uitvoeren van de volgende cmdlets in PowerShell ISE:  
 
    ```powershell

@@ -10,12 +10,12 @@ ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: cost-management
 ms.custom: seodec18
-ms.openlocfilehash: 3d30693273f5d76e285554e230da0d4d74c7f30d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: dfe957ae67a8e154a62e443d2cc1769531dab77b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881495"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544781"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Uitgebreide metrische gegevens voor Azure virtual machines toevoegen
 
@@ -31,7 +31,7 @@ Nadat u het verzamelen van metrische gegevens inschakelt, kunt u het volgende do
 Bijvoorbeeld, als u wilt het % CPU en geheugen-% van uw virtuele Azure-machines bewaken. De metrische gegevens van virtuele Azure-machine komen overeen met _[Host] Percentage CPU_ en _[Gast] geheugenpercentage_.
 
 > [!NOTE]
-> Uitgebreide metrische gegevensverzameling wordt alleen ondersteund met Azure-bewaking op gastniveau. Cloudyn is niet compatibel met de VM-extensie van log analytics.
+> Uitgebreide metrische gegevensverzameling wordt alleen ondersteund met Azure-bewaking op gastniveau. Cloudyn is niet compatibel met de VM-extensie van Azure Monitor-Logboeken.
 
 ## <a name="determine-whether-extended-metrics-are-enabled"></a>Bepalen of uitgebreide metrische gegevens zijn ingeschakeld
 

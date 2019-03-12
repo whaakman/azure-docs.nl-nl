@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 5cddf69f700c971d22384dadb00d3becc4a8385f
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: d2f3eb25c2193ad94098acd714d934795d007e98
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300872"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543913"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Opstellen van een query in Azure Search
 
@@ -38,15 +38,15 @@ De volgende tabel bevat de API's en methoden op basis van een hulpprogramma voor
 Voorbeelden zijn handig voor de introductie van nieuwe concepten. Als een representatieve query gemaakt in de [REST-API](https://docs.microsoft.com/rest/api/searchservice/search-documents), in dit voorbeeld van doelen de [onroerend goed demo index](search-get-started-portal.md) en algemene parameters bevat.
 
 ```
-{  
+{
     "queryType": "simple" 
-    "search": "seattle townhouse* +\"lake\"", 
-    "searchFields": "description, city",  
-    "count": "true", 
+    "search": "seattle townhouse* +\"lake\"",
+    "searchFields": "description, city",
+    "count": "true",
     "select": "listingId, street, status, daysOnMarket, description",
     "top": "10",
     "orderby": "daysOnMarket"
- } 
+}
 ```
 
 + **`queryType`** Hiermee stelt u de parser, die in Azure Search kan de [standaard de eenvoudige queryparser](search-query-simple-examples.md) (geoptimaliseerd voor het zoeken in volledige tekst), of de [volledige Lucene-queryparser](search-query-lucene-examples.md) gebruikt voor geavanceerde query-constructs, zoals reguliere expressies , zoeken op nabijheid, fuzzy en zoeken met jokertekens, een paar te noemen.

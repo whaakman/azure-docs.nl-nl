@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/21/2018
+ms.date: 03/05/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc20a3739c7dab68728535cc05db400545fbcdf8
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 7fc0a22f4300a06b5c827973ffb2436d0b8cfb36
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436388"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542740"
 ---
 # <a name="activate-my-azure-ad-directory-roles-in-pim"></a>Mijn Azure AD-directory-rollen in PIM activeren
 
@@ -71,25 +71,15 @@ Als u uitvoeren op een Azure AD-directory-rol wilt, kunt u activering aanvragen 
 
 1. Klik op **Activeren**.
 
-    Als de rol geen goedkeuring is vereist, wordt deze geactiveerd en toegevoegd aan de lijst met actieve rollen. Als u de rol meteen gebruiken wilt, volgt u de stappen in de volgende sectie.
+    Als de rol niet voor goedkeuring vereist is, een **activeringsstatus** deelvenster wordt weergegeven met de status van de activering.
+
+    ![Activeringsstatus](./media/pim-how-to-activate-role/activation-status.png)
+
+    Nadat u alle stadia zijn voltooid, klikt u op de **Afmelden** koppeling naar het afmelden bij de Azure-portal. Wanneer u zich opnieuw aanmelden bij de portal, kunt u nu de rol.
 
     Als de [rol is goedkeuring vereist](./azure-ad-pim-approval-workflow.md) wilt activeren, een melding wordt weergegeven in de rechterbovenhoek van uw browser waarin de aanvraag is in afwachting van goedkeuring.
 
     ![Aanvraag in behandeling melding](./media/pim-how-to-activate-role/directory-roles-activate-notification.png)
-
-## <a name="use-a-role-immediately-after-activation"></a>Gebruik een rol onmiddellijk na de activering
-
-Als u een rol in PIM kunt activeren, gaat de ten minste tien minuten voordat u kunt toegang krijgen de gewenste beheerdersportal tot of functies in een specifieke werkbelasting uitvoeren. Als u wilt afdwingen dat een update van uw machtigingen, gebruiken de **toegang tot toepassingen** pagina zoals beschreven in de volgende stappen uit.
-
-1. Open Azure AD Privileged Identity Management.
-
-1. Klik op de **toegang tot toepassingen** pagina.
-
-    ![Toegang tot de PIM-toepassing](./media/pim-how-to-activate-role/pim-application-access.png)
-
-1. Klik op de **Azure Active Directory** koppeling naar de portal openen op de **alle gebruikers** pagina.
-
-    Als u deze koppeling klikt, kunt u uw huidige token vervalt en afdwingen dat de Azure-portal een nieuw token met uw bijgewerkte machtigingen te verkrijgen.
 
 ## <a name="view-the-status-of-your-requests"></a>De status van de aanvragen bekijken
 
@@ -139,7 +129,7 @@ Als u geen activering van een rol waarvoor goedkeuring wordt vereist, kunt u een
 
 ### <a name="permissions-not-granted-after-activating-a-role"></a>Machtigingen niet na het activeren van een rol
 
-Als u een rol in PIM kunt activeren, gaat de ten minste tien minuten voordat u kunt toegang krijgen de gewenste beheerdersportal tot of functies in een specifieke werkbelasting uitvoeren. Als u wilt afdwingen dat een update van uw machtigingen, gebruiken de **toegang tot toepassingen** pagina zoals eerder beschreven in [gebruik van een rol onmiddellijk na de activering](#use-a-role-immediately-after-activation).
+Als u een rol in PIM kunt activeren, gaat de ten minste tien minuten voordat u kunt toegang krijgen de gewenste beheerdersportal tot of functies in een specifieke werkbelasting uitvoeren. Nadat de activering voltooid is, afmelden bij de Azure-portal en meld u opnieuw aan om te beginnen met de zojuist geactiveerde functie.
 
 Zie voor aanvullende stappen voor probleemoplossing, [verhoogde machtigingen voor het oplossen van](https://social.technet.microsoft.com/wiki/contents/articles/37568.troubleshooting-elevated-permissions-with-azure-ad-privileged-identity-management.aspx).
 

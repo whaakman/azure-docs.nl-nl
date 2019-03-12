@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: f402aeb82271d4e0f5023f05b0d61713c4ab73c1
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 2a88781e17313557438e64492ab84f59018f9914
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338464"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730182"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementeer modellen met de Azure Machine Learning-service
 
@@ -30,7 +30,7 @@ U kunt modellen implementeren op de volgende compute-doelen:
 | COMPUTE-doel | Implementatietype | Description |
 | ----- | ----- | ----- |
 | [Azure Kubernetes Service (AKS)](#aks) | Realtime Deductie | Geschikt voor grootschalige productie-implementaties. Biedt automatisch schalen en snelle responstijden. |
-| Azure ML Compute | Batch Deductie | Voorspelling van de batch worden uitgevoerd op serverless Computing. Biedt ondersteuning voor normale en lage prioriteit VM's. |
+| [Azure ML Compute](#azuremlcompute) | Batch Deductie | Voorspelling van de batch worden uitgevoerd op serverless Computing. Biedt ondersteuning voor normale en lage prioriteit VM's. |
 | [Azure Container Instances (ACI)](#aci) | Testen | Goed voor ontwikkeling en testen. **Niet geschikt voor werkbelastingen voor productie.** |
 | [Azure IoT Edge](#iotedge) | (Preview) IoT-module | Implementeer modellen op IoT-apparaten. Inferentietaken gebeurt op het apparaat. |
 | [Veld-programmable gate array (FPGA)](#fpga) | (Preview) Webservice | Zeer lage latentie voor realtime inferentietaken. |
@@ -328,7 +328,7 @@ print(aks_target.provisioning_errors)
 
 #### <a name="use-an-existing-cluster"></a>Gebruik een bestaand cluster
 
-Als u al AKS-cluster in uw Azure-abonnement en het is versie 1.11. *, kunt u het implementeren van uw installatiekopie. De volgende code ziet u hoe u een bestaand cluster koppelt aan uw werkruimte:
+Als u al AKS-cluster in uw Azure-abonnement en het is versie 1.11. ## en ten minste 12 virtuele CPU's heeft, kunt u het implementeren van uw installatiekopie. De volgende code laat zien hoe u een bestaand AKS 1.11 koppelen. ## cluster aan uw werkruimte:
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -346,6 +346,11 @@ aks_target.wait_for_completion(True)
 ```
 
 **Geschatte tijd**: Ongeveer 3 minuten.
+
+Zie de volgende artikelen voor meer informatie over het maken van een AKS-cluster buiten de Azure Machine Learning-SDK:
+
+* [Een AKS-clsuter maken](https://docs.microsoft.com/cli/azure/aks?toc=%2Fen-us%2Fazure%2Faks%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
+* [Maken van een AKS-cluster (portal)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
 
 #### <a name="deploy-the-image"></a>De installatiekopie implementeren
 
@@ -372,7 +377,7 @@ print(service.state)
 
 Zie voor meer informatie de documentatie bij de [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) en [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) klassen.
 
-### <a id="fpga"></a> Deductie met Azure ML Compute
+### <a id="azuremlcompute"></a> Deductie met Azure ML Compute
 
 Azure ML compute-doelen worden gemaakt en beheerd door de Azure Machine Learning-service. Ze kunnen worden gebruikt voor batch voorspelling van Azure ML-pijplijnen.
 
@@ -387,9 +392,14 @@ Zie voor een overzicht van het implementeren van een model met behulp van Projec
 
 ### <a id="iotedge"></a> Implementeren naar Azure IoT Edge
 
-Een Azure IoT Edge-apparaat is een op Linux of Windows-apparaat waarop de Azure IoT Edge-runtime wordt uitgevoerd. Machine learning-modellen kunnen worden geïmplementeerd op deze apparaten als IoT Edge-modules. Een model implementeert naar een IoT Edge-apparaat staat toe dat het apparaat rechtstreeks gebruik van het model, in plaats van dat voor het verzenden van gegevens naar de cloud voor verwerking. U krijgt snellere reactietijden en minder gegevens worden overgebracht.
+Een Azure IoT Edge-apparaat is een op Linux of Windows-apparaat waarop de Azure IoT Edge-runtime wordt uitgevoerd. Met behulp van de Azure IoT Hub, kunt u machine learning-modellen implementeren op deze apparaten als IoT Edge-modules. Een model implementeert naar een IoT Edge-apparaat staat toe dat het apparaat rechtstreeks gebruik van het model, in plaats van dat voor het verzenden van gegevens naar de cloud voor verwerking. U krijgt snellere reactietijden en minder gegevens worden overgebracht.
 
 Azure IoT Edge-modules zijn geïmplementeerd op het apparaat van een containerregister. Wanneer u een installatiekopie uit het model maakt, wordt deze opgeslagen in de containerregister voor uw werkruimte.
+
+> [!IMPORTANT]
+> De informatie in deze sectie wordt ervan uitgegaan dat u al bekend met Azure IoT Hub en Azure IoT Edge-modules bent. Enkele van de informatie in deze sectie is specifiek voor Azure Machine Learning-service, wordt de meerderheid van het proces om te implementeren op een edge-apparaat gebeurt in de Azure IoT-service.
+>
+> Als u niet bekend met Azure IoT bent, Zie [basisprincipes van Azure IoT](https://docs.microsoft.com/azure/iot-fundamentals/) en [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) voor algemene informatie. Gebruik vervolgens de andere koppelingen in deze sectie voor meer informatie over specifieke bewerkingen.
 
 #### <a name="set-up-your-environment"></a>Uw omgeving instellen
 
@@ -399,36 +409,11 @@ Azure IoT Edge-modules zijn geïmplementeerd op het apparaat van een containerre
 
 * Een getraind model. Zie voor een voorbeeld van hoe u een model te trainen, de [een model van de installatiekopie classificatie met Azure Machine Learning te trainen](tutorial-train-models-with-aml.md) document. Er is een vooraf getrainde model beschikbaar op de [AI-werkset voor Azure IoT Edge-GitHub-opslagplaats](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial).
 
-#### <a name="prepare-the-iot-device"></a>De IoT-apparaat voorbereiden
-U moet een IoT-hub maken en registreren van een apparaat of opnieuw gebruiken met [met dit script](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/createNregister).
+#### <a id="getcontainer"></a> De container registerreferenties ophalen
 
-``` bash
-ssh <yourusername>@<yourdeviceip>
-sudo wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/createNregister
-sudo chmod +x createNregister
-sudo ./createNregister <The Azure subscriptionID you want to use> <Resourcegroup to use or create for the IoT hub> <Azure location to use e.g. eastus2> <the Hub ID you want to use or create> <the device ID you want to create>
-```
-
-Opslaan van de resulterende verbindingsreeks na "cs": '{deze tekenreeks kopiëren}'.
-
-Initialiseren van uw apparaat door het downloaden van [met dit script](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge) in een UbuntuX64 IoT Edge-knooppunt of DSVM om uit te voeren van de volgende opdrachten:
-
-```bash
-ssh <yourusername>@<yourdeviceip>
-sudo wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge
-sudo chmod +x installIoTEdge
-sudo ./installIoTEdge
-```
-
-Het IoT Edge-knooppunt is gereed voor het ontvangen van de verbindingsreeks voor uw IoT-Hub. Zoek de regel ```device_connection_string:``` en plak de verbindingsreeks van bovenstaande tussen de aanhalingstekens.
-
-U kunt ook meer informatie over het registreren van uw apparaat en de IoT-runtime installeren door de [Quick Start: Uw eerste IoT Edge-module implementeren op een apparaat met Linux x64](../../iot-edge/quickstart-linux.md) document.
-
-
-#### <a name="get-the-container-registry-credentials"></a>De container registerreferenties ophalen
 Als u wilt een IoT Edge-module implementeert op uw apparaat, moet Azure IoT de referenties voor de container registry om docker-installatiekopieën in Azure Machine Learning-service worden opgeslagen.
 
-U kunt gemakkelijk de vereiste container registerreferenties op twee manieren ophalen:
+U kunt de referenties ontvangen op twee manieren:
 
 + **In de Azure-portal**:
 
@@ -469,24 +454,21 @@ U kunt gemakkelijk de vereiste container registerreferenties op twee manieren op
 
      Deze referenties zijn nodig voor de IoT Edge Apparaattoegang tot afbeeldingen in uw persoonlijke containerregister.
 
+#### <a name="prepare-the-iot-device"></a>De IoT-apparaat voorbereiden
+
+U moet uw apparaat te registreren bij Azure IoT Hub en installeer vervolgens de IoT Edge-runtime op het apparaat. Als u niet bekend met dit proces bent, Zie [Quick Start: Uw eerste IoT Edge-module implementeren op een apparaat met Linux x64](../../iot-edge/quickstart-linux.md).
+
+Er zijn andere methoden voor het registreren van een apparaat:
+
+* [Azure-portal](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)
+* [Azure-CLI](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-cli)
+* [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-vscode)
+
 #### <a name="deploy-the-model-to-the-device"></a>Het model op het apparaat implementeren
 
-U kunt eenvoudig een model implementeren door het uitvoeren van [met dit script](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/deploymodel) en het geven van de volgende informatie uit de bovenstaande stappen: containerregister naam, gebruikersnaam, wachtwoord, afbeeldings-url voor locatie, naam van de gewenste implementatie, de naam van de IoT Hub, en de apparaat-ID u hebt gemaakt. U kunt dit doen in de virtuele machine door de volgende stappen: 
+Gebruiken om het model naar het apparaat implementeren, de gegevens worden verzameld in de [container registerreferenties ophalen](#getcontainer) sectie met de module-implementatie stappen voor IoT Edge-modules. Bijvoorbeeld, wanneer [implementeren van Azure IoT Edge-modules van de Azure-portal](../../iot-edge/how-to-deploy-modules-portal.md), moet u de __registerinstellingen__ voor het apparaat. Gebruik de __aanmeldingsserver__, __gebruikersnaam__, en __wachtwoord__ voor uw werkruimte container registry.
 
-```bash 
-wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/deploymodel
-sudo chmod +x deploymodel
-sudo ./deploymodel <ContainerRegistryName> <username> <password> <imageLocationURL> <DeploymentID> <IoTHubname> <DeviceID>
-```
-
-U kunt ook u kunt de stappen in de [implementeren Azure IoT Edge-modules van de Azure-portal](../../iot-edge/how-to-deploy-modules-portal.md) document naar de installatiekopie implementeert op uw apparaat. Bij het configureren van de __registerinstellingen__ gebruiken voor het apparaat, de __aanmeldingsserver__, __gebruikersnaam__, en __wachtwoord__ voor uw werkruimte container registry.
-
-> [!NOTE]
-> Als u niet bekend met Azure IoT Edge bent, ziet u de volgende documenten voor meer informatie over aan de slag met de service:
->
-> * [Snelstart: Uw eerste IoT Edge-module implementeert op een Linux-apparaat](../../iot-edge/quickstart-linux.md)
-> * [Snelstart: Uw eerste IoT Edge-module implementeert op een Windows-apparaat](../../iot-edge/quickstart.md)
-
+U kunt ook implementeren met behulp van [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) en [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-vscode).
 
 ## <a name="testing-web-service-deployments"></a>Testen van de webservice-implementaties
 

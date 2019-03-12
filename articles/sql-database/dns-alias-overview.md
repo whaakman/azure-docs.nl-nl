@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: genemi,ayolubek, jrasnick
 manager: craigg
-ms.date: 12/19/2018
-ms.openlocfilehash: dff0f9eae28e38b7049a51b1cb873991cc41999f
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/07/2019
+ms.openlocfilehash: 60f00418a2e3fcf2ac88dfc351e07ca8c3ac802a
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310213"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57574607"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>DNS-alias voor Azure SQL Database
 
@@ -97,10 +97,10 @@ Een voorbeeld van PowerShell-cmdlets die worden gebruikt voor het beheren van DN
 
 De cmdlets die in het codevoorbeeld gebruikt zijn de volgende:
 
-- [New-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias?view=azurermps-5.1.1): Hiermee maakt u een nieuwe DNS-alias in het systeem van de service Azure SQL Database. De alias verwijst naar Azure SQL Database-server 1.
-- [Get-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias?view=azurermps-5.1.1): Ophalen en weergeven van alle DNS-aliassen die zijn toegewezen aan de SQL-database-server 1.
-- [Set-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias?view=azurermps-5.1.1): Hiermee wijzigt u de naam van de server die de alias is geconfigureerd om te verwijzen naar, van server 1 naar 2 van de SQL-database-server.
-- [Remove-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias?view=azurermps-5.1.1): Verwijder de DNS-alias van de SQL-database-server 2, met behulp van de naam van de alias.
+- [New-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): Hiermee maakt u een nieuwe DNS-alias in het systeem van de service Azure SQL Database. De alias verwijst naar Azure SQL Database-server 1.
+- [Get-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias): Ophalen en weergeven van alle DNS-aliassen die zijn toegewezen aan de SQL-database-server 1.
+- [Set-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): Hiermee wijzigt u de naam van de server die de alias is geconfigureerd om te verwijzen naar, van server 1 naar 2 van de SQL-database-server.
+- [Remove-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): Verwijder de DNS-alias van de SQL-database-server 2, met behulp van de naam van de alias.
 
 ## <a name="limitations-during-preview"></a>Beperkingen voor de Preview-versie
 

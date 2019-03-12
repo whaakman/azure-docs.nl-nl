@@ -4,16 +4,16 @@ description: Het uitvoeren van bewerkingen op Azure Queue storage met PowerShell
 services: storage
 author: roygara
 ms.service: storage
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 09/14/2017
 ms.author: rogarana
 ms.subservice: queues
-ms.openlocfilehash: dddd82cd80d853607b28db906d298d5c301ab9df
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 64e8f9d1fb29718b0a3d4655c739abc93ecb088c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770700"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763837"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Azure Queue storage bewerkingen uitvoeren met Azure PowerShell
 
@@ -52,7 +52,7 @@ $location = "eastus"
 
 ## <a name="create-resource-group"></a>Een resourcegroep maken
 
-Maak een resourcegroep met de [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) opdracht. 
+Maak een resourcegroep met de opdracht [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
 
 Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Naam van de resourcegroep Store in een variabele voor toekomstig gebruik. In dit voorbeeld wordt een resourcegroep met de naam *howtoqueuesrg* wordt gemaakt in de *eastus* regio.
 

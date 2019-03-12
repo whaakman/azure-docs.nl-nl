@@ -1,5 +1,5 @@
 ---
-title: 'Een virtuele netwerkgateway verwijderen: PowerShell: Azure classic | Microsoft Docs'
+title: 'Een virtuele netwerkgateway verwijderen: PowerShell: Klassieke Azure-Portal | Microsoft Docs'
 description: Verwijder de gateway van een virtueel netwerk met behulp van PowerShell in het klassieke implementatiemodel.
 services: vpn-gateway
 documentationcenter: na
@@ -10,17 +10,17 @@ tags: azure-service-management
 ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cherylmc
-ms.openlocfilehash: 2c92db96820b9796ba2c952affcb3b3eef5b985e
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: ca014e4f5fbc4a5695dbc5fedc85826c71a2a906
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319843"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767767"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>Verwijderen van de gateway van een virtueel netwerk met behulp van PowerShell (klassiek)
 
@@ -56,7 +56,7 @@ In dit voorbeeld wordt het netwerkconfiguratiebestand geëxporteerd naar C:\Azur
 Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ```
 
-Open het bestand met een teksteditor en de weergavenaam voor uw klassieke VNet. Wanneer u een VNet in Azure portal maakt, is de volledige naam die gebruikmaakt van Azure niet zichtbaar in de portal. Een VNet dat wordt weergegeven op de naam 'ClassicVNet1' in de Azure-portal, kan bijvoorbeeld een veel langere naam hebben in het netwerkconfiguratiebestand. De naam ziet er ongeveer als volgt: 'Groep ClassicRG1 ClassicVNet1'. Virtueel netwerknamen worden weergegeven als **' VirtualNetworkSite name ='**. De namen in het netwerkconfiguratiebestand gebruiken bij het uitvoeren van uw PowerShell-cmdlets.
+Open het bestand met een teksteditor en de weergavenaam voor uw klassieke VNet. Wanneer u een VNet in Azure portal maakt, is de volledige naam die gebruikmaakt van Azure niet zichtbaar in de portal. Een VNet dat wordt weergegeven op de naam 'ClassicVNet1' in de Azure-portal, kan bijvoorbeeld een veel langere naam hebben in het netwerkconfiguratiebestand. De naam kan als volgt uitzien: 'Group ClassicRG1 ClassicVNet1'. Virtueel netwerknamen worden weergegeven als **' VirtualNetworkSite name ='**. De namen in het netwerkconfiguratiebestand gebruiken bij het uitvoeren van uw PowerShell-cmdlets.
 
 ## <a name="delete"></a>Stap 3: De virtuele netwerkgateway verwijderen
 
@@ -74,7 +74,7 @@ Als dit lukt, ziet u het rendement:
 Status : Successful
 ```
 
-## <a name="modify"></a>Stap 4: Het netwerkconfiguratiebestand wijzigen
+## <a name="modify"></a>Stap 4: Wijzig het configuratiebestand van het netwerk
 
 Wanneer u een virtuele netwerkgateway verwijdert, wordt in de cmdlet het netwerkconfiguratiebestand niet wijzigen. U moet het bestand als u wilt verwijderen van de elementen die niet meer worden gebruikt te wijzigen. De volgende secties helpen u Wijzig het netwerk-configuratiebestand dat u hebt gedownload.
 
@@ -181,7 +181,7 @@ Voorbeeld:
  </Subnets>
 ```
 
-## <a name="upload"></a>Stap 5: Het netwerkconfiguratiebestand uploaden
+## <a name="upload"></a>Stap 5: Uploaden van het netwerkconfiguratiebestand
 
 Sla uw wijzigingen op en upload het netwerkconfiguratiebestand naar Azure. Zorg ervoor dat u het bestandspad zo nodig voor uw omgeving wijzigen.
 

@@ -3,7 +3,7 @@ title: Beschikbaarheid van SQL Server - virtuele Machines van Azure - noodherste
 description: In dit artikel wordt uitgelegd hoe u een SQL Server-beschikbaarheidsgroep configureren op Azure virtual machines met een replica in een andere regio.
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
+author: MikeRayMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: d64c55857cda0aa64dc010566490e1696fffdea0
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 5e4b63d4fc8b437bd4d476c72d23f9dbf5242d5b
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972376"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780555"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Een AlwaysOn-beschikbaarheidsgroep configureren op Azure virtual machines in verschillende regio 's
 
@@ -183,5 +183,5 @@ Zie de volgende onderwerpen voor meer informatie:
 
 * [Always On Availability Groups](https://msdn.microsoft.com/library/hh510230.aspx)
 * [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/)
-* [Azure-Load Balancers](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)
+* [Azure Load Balancers](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)
 * [Azure-Beschikbaarheidssets](../manage-availability.md)

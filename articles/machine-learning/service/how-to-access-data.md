@@ -11,21 +11,22 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: f489abeab0e1374d2d40ade79c4eb55fd633b909
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a7c29d1bfcc0737f76afc43cb8997d6a1d16c82b
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443280"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731343"
 ---
 # <a name="access-data-from-your-datastores"></a>Toegang tot gegevens uit uw gegevensopslag
-In dit artikel leert u verschillende manieren om te openen en te communiceren met uw gegevens in Azure Machine Learning-werkstromen via de gegevensopslag.
 
-Deze procedure ziet u voorbeelden voor de volgende taken: 
+Gegevensopslag kunt u communiceren met en toegang tot uw gegevens of u de code lokaal worden uitgevoerd op een rekencluster of op een virtuele machine. In dit artikel hebt u informatie over de Azure Machine Learning-werkstromen die ervoor zorgen uw gegevensopslag dat toegankelijk zijn en beschikbaar gesteld voor uw compute-context.
+
+Deze procedure ziet u voorbeelden voor de volgende taken:
 * [Een gegevensarchief kiezen](#access)
-* [Een gegevensopslag ophalen](#get)
-* [Uploaden en downloaden van gegevens naar gegevensopslag](#upload-and-download-data)
-* Toegang tot gegevensopslag tijdens de training
+* [Gegevens ophalen](#get)
+* [Uploaden en downloaden van gegevens naar gegevensopslag](#up-and-down)
+* [Toegang tot gegevensopslag tijdens de training](#train)
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -85,7 +86,7 @@ De volgende voorbeelden ziet u voor het registreren van een Azure Blob-Container
 
 <a name="get"></a>
 
-## <a name="get-data-in-your-datastore"></a>Gegevens in de gegevensopslag ophalen
+## <a name="find--define-datastores"></a>Zoeken en gegevensopslag definiëren
 
 Voor een opgegeven gegevensarchief in de huidige werkruimte hebt geregistreerd, gebruikt [ `get()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#get-workspace--datastore-name-) :
 
@@ -110,7 +111,8 @@ Gebruik het definiëren van een andere standaard gegevensopslag voor de huidige 
 ws.set_default_datastore('your datastore name')
 ```
 
-## <a name="upload-and-download-data"></a>Uploaden en downloaden van gegevens
+<a name="up-and-down"></a>
+## <a name="upload--download-data"></a>Uploaden en downloaden van gegevens
 De [ `upload()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#download-target-path--prefix-none--overwrite-false--show-progress-true-) en [ `download()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#download-target-path--prefix-none--overwrite-false--show-progress-true-) methoden die worden beschreven in de volgende voorbeelden zijn specifiek voor en werken identiek voor de [AzureBlobDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py) en [AzureFileDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azurefiledatastore?view=azure-ml-py) klassen.
 
 ### <a name="upload"></a>Uploaden
@@ -142,6 +144,7 @@ ds.download(target_path='your target path',
 ```
 `target_path` is de locatie van de lokale map voor het downloaden van de gegevens. Geef het pad naar de map in de bestandsshare (of de blob-container) om te downloaden, geeft dat pad op naar `prefix`. Als `prefix` is `None`, de inhoud van uw bestandsshare (of de blob-container) wordt gedownload.
 
+<a name="train"></a>
 ## <a name="access-datastores-during-training"></a>Toegang tot gegevensopslag tijdens de training
 U hebt toegang tot een gegevensarchief tijdens een training uitgevoerd (bijvoorbeeld voor trainingen of validatie van gegevens) op een externe compute-doel via de Python-SDK met de [ `DataReference` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) klasse.
 

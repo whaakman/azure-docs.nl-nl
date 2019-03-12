@@ -9,14 +9,14 @@ ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
-ms.date: 2/25/2019
+ms.date: 03/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: d72676d7eaad539fc6e023bc96ccbb16f0958a7a
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: bb074dd848ce5e752ba8e4ca1d3a8ee533a2f5d2
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311369"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777444"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Releaseopmerkingen Azure Machine Learning-service
 
@@ -24,6 +24,21 @@ In dit artikel meer informatie over de versies van de Azure Machine Learning-ser
 + De Azure Machine Learning [ **belangrijkste SDK voor Python**](https://aka.ms/aml-sdk)
 + De Azure Machine Learning [ **Dataprep-SDK**](https://aka.ms/data-prep-sdk)
 
+## <a name="2019-03-11"></a>2019-03-11
+
+### <a name="azure-machine-learning-sdk-for-python-v1018"></a>Azure Machine Learning-SDK voor Python v1.0.18
+
+ + **Wijzigingen**
+   + Het pakket azureml-tensorboard vervangt azureml-contrib-tensorboard.
+
+### <a name="azure-machine-learning-data-prep-sdk-v1017"></a>Azure Machine Learning Data Prep SDK v1.0.17
+
++ **Nieuwe functies**
+  + Biedt nu ondersteuning voor twee numerieke kolommen voor het genereren van een resulterende kolom met behulp van de expressietaal toe te voegen.
+
++ **Fouten opgelost en verbeteringen**
+  + De documentatie en de parameter controleren op random_split verbeterd.
+  
 ## <a name="2019-02-27"></a>2019-02-27
 
 ### <a name="azure-machine-learning-data-prep-sdk-v1016"></a>Azure Machine Learning Data Prep SDK v1.0.16
@@ -37,25 +52,27 @@ In dit artikel meer informatie over de versies van de Azure Machine Learning-ser
 
 + **Nieuwe functies**
 
-  + Azure Machine Learning-SDK nu ondersteunt een [ `Chainer` ](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) estimator-klasse voor het stroomlijnen van de trainings- en implementeren van een model met behulp van aangepaste Chainer-code.
+  + Azure Machine Learning biedt nu eersteklas ondersteuning voor populaire DNN framework Chainer. Met behulp van [ `Chainer` ](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) klasse gebruikers kunnen eenvoudig trainen en Chainer modellen te implementeren.
+    + Meer informatie over het [gedistribueerde training met ChainerMN uitvoeren](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/distributed-chainer/distributed-chainer.ipynb)
+    + Meer informatie over het [hyperparameter afstemmen met Chainer met behulp van HyperDrive uitvoeren](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb)
   + Azure Machine Learning-pijplijnen toegevoegd mogelijkheid trigger een Pijplijnuitvoering op basis van wijzigingen van de gegevensopslag. De pijplijn [planning notebook](https://aka.ms/pl-schedule) ter promotie van deze functie wordt bijgewerkt.
-  
+
 + **Fouten opgelost en verbeteringen**
   + We hebben ondersteuning voor Azure Machine Learning-pijplijnen toegevoegd voor het instellen van de eigenschap source_directory_data_store met een gewenste gegevensarchief (zoals een blob-opslag) op [RunConfigurations](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) die worden geleverd aan de [ PythonScriptStep](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). Standaard stappen Azure File-opslag gebruikt als de back-ups gegevensopslag die kan worden uitgevoerd in de beperking van problemen wanneer een groot aantal stappen gelijktijdig worden uitgevoerd.
 
 ### <a name="azure-portal"></a>Azure Portal
 
 + **Nieuwe functies**
-    + Nieuwe slepen en neerzetten van tabel editor-ervaring voor rapporten. Gebruikers kunnen een kolom uit de bron slepen naar de tabelgebied waar een Preview-versie van de tabel wordt weergegeven. De kolommen kunnen opnieuw worden gerangschikt.
-    + Nieuwe logboeken bestandsviewer
-    + Koppelingen om te experimenteren wordt uitgevoerd, berekening, modellen, afbeeldingen en implementaties van het tabblad activiteiten
+  + Nieuwe slepen en neerzetten van tabel editor-ervaring voor rapporten. Gebruikers kunnen een kolom uit de bron slepen naar de tabelgebied waar een Preview-versie van de tabel wordt weergegeven. De kolommen kunnen opnieuw worden gerangschikt.
+  + Nieuwe logboeken bestandsviewer
+  + Koppelingen om te experimenteren wordt uitgevoerd, berekening, modellen, afbeeldingen en implementaties van het tabblad activiteiten
 
 ### <a name="azure-machine-learning-data-prep-sdk-v1015"></a>Azure Machine Learning Data Prep SDK v1.0.15
 
 + **Nieuwe functies**
   + Gegevens voorbereiden nu ondersteunt het schrijven van bestand-stromen van een gegevensstroom. Ook biedt de mogelijkheid voor het bewerken van de namen van de stroom te maken van nieuwe bestandsnamen.
     + Gebruiksaanwijzing: [Werken met bestand Streams notebook](https://aka.ms/aml-data-prep-file-stream-nb)
- 
+
 + **Fouten opgelost en verbeteringen**
   + Verbeterde prestaties van t-Digest op grote gegevenssets.
   + Lezen van gegevens uit een gegevenspad biedt nu ondersteuning voor gegevensvoorbereiding.

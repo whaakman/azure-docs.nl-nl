@@ -6,16 +6,16 @@ author: craigshoemaker
 ms.author: cshoe
 manager: jeconnoc
 keywords: Azure functions, functies, gebeurtenisverwerking, dynamische Computing, serverloze architectuur
-ms.service: azure-functions; cosmos-db
+ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: 7194c28e4e0620afb2ab6e5c817b2f9b322248a9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 0421ec62d25bbfaba2909d16498cac5afd038a53
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728060"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776322"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure Cosmos DB-bindingen voor Azure Functions 1.x
 
@@ -33,7 +33,7 @@ Dit artikel wordt uitgelegd hoe u werkt met [Azure Cosmos DB](../cosmos-db/serve
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> Azure Cosmos DB-bindingen worden alleen ondersteund voor gebruik met de SQL-API. Voor alle andere Azure Cosmos DB-API's, moet u de database opent vanuit uw functie met behulp van de statische-client voor uw API, met inbegrip van [Azure Cosmos DB-API voor MongoDB](../cosmos-db/mongodb-introduction.md)] (.. /cosmos-DB/mongodb-Introduction.MD), [Cassandra-API](../cosmos-db/cassandra-introduction.md), [Gremlin API](../cosmos-db/graph-introduction.md), en [Table-API](../cosmos-db/table-introduction.md).
+> Azure Cosmos DB-bindingen worden alleen ondersteund voor gebruik met de SQL-API. Voor alle andere Azure Cosmos DB-API's, moet u de database opent vanuit uw functie met behulp van de statische-client voor uw API, met inbegrip van [Azure Cosmos DB-API voor MongoDB](../cosmos-db/mongodb-introduction.md), [Cassandra-API](../cosmos-db/cassandra-introduction.md), [ Gremlin-API](../cosmos-db/graph-introduction.md), en [Table-API](../cosmos-db/table-introduction.md).
 
 ## <a name="packages---functions-1x"></a>Pakketten - functies 1.x
 

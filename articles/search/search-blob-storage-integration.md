@@ -9,12 +9,12 @@ author: mgottein
 manager: cgronlun
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: dcecb98d5e254e3fadd114c227e783a60fc6fa4e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b7e7ecd2a82a8d64967288def9c6ede7a292f72a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316146"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57759388"
 ---
 # <a name="searching-blob-storage-with-azure-search"></a>Blob-opslag doorzoeken met Azure Search
 
@@ -52,5 +52,5 @@ Azure Search kan worden toegevoegd aan BLOB's rechtstreeks vanuit de portal Blob
 
 Klik op **Azure Search toevoegen** om te starten van een stroom kunt u een bestaande Azure Search-service selecteren of een nieuwe service maken. Als u een nieuwe service maakt, wordt u genavigeerd buiten uw Storage-account-portal-ervaring. U kunt Ga terug naar de portal op de pagina opslag en opnieuw selecteren de **Azure Search toevoegen** optie, waarin u de bestaande service kunt selecteren.
 
-### <a name="next-steps"></a>Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Meer informatie over de indexeerfunctie Azure Search Blob in de volledige [documentatie](https://aka.ms/azsblobindexer).

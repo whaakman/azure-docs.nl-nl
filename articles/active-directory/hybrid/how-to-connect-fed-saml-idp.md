@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09151dee2d458e2ff4fae8a8a3bc93fa466e4efc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7b82c2261e949c724b1310ee43c6f3fe29766945
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167793"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531008"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Een SAML 2.0-id-Provider (IdP) gebruiken voor eenmalige aanmelding op
 
@@ -196,7 +196,7 @@ Zie voor meer informatie over "Set-MsolDomainAuthentication": [ https://technet.
 >[!NOTE]
 >Gebruik moet worden uitgevoerd ' $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" "alleen als u een extensie ECP voor uw id-provider instellen. Exchange Online clients, met uitzondering van Outlook Web Application (OWA) afhankelijk zijn van een bericht op basis van actieve eindpunt. Als uw SAML 2.0 STS een actieve eindpunt die vergelijkbaar is met de Shibboleth ECP implementatie van een actieve eindpunt implementeert is het mogelijk dat het mogelijk dat deze rich clients om te communiceren met de Exchange Online-service.
 
-Nadat federation is geconfigureerd u wilt terugkeren naar 'niet-gefedereerde' (of 'beheerd'), maar deze wijziging wordt van maximaal twee uur en hiervoor nieuwe willekeurige wachtwoorden voor cloud-gebaseerde aanmelding toewijzen aan elke gebruiker. Overschakelen naar 'beheerd' kan in sommige scenario's vereist een fout in de instellingen opnieuw instellen. Zie voor meer informatie over de conversie van domein: [ https://msdn.microsoft.com/library/windowsazure/dn194122.aspx ](httpss://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
+Nadat federation is geconfigureerd u wilt terugkeren naar 'niet-gefedereerde' (of 'beheerd'), maar deze wijziging wordt van maximaal twee uur en hiervoor nieuwe willekeurige wachtwoorden voor cloud-gebaseerde aanmelding toewijzen aan elke gebruiker. Overschakelen naar 'beheerd' kan in sommige scenario's vereist een fout in de instellingen opnieuw instellen. Zie voor meer informatie over de conversie van domein: [ https://msdn.microsoft.com/library/windowsazure/dn194122.aspx ](https://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
 
 ## <a name="provision-user-principals-to-azure-ad--office-365"></a>Inrichten van gebruikersprincipals met Azure AD / Office 365
 Voordat u uw gebruikers met Office 365 verifiëren kunt, moet u Azure AD inrichten met gebruikersprincipals zijn die met de verklaring in de SAML 2.0-claim overeenkomen. Als deze gebruikersprincipals zijn niet bekend zijn bij Azure AD van tevoren regelen, worden klikt u vervolgens ze niet gebruikt voor federatieve aanmelding. Azure AD Connect of Windows PowerShell kan worden gebruikt voor het inrichten van gebruikersprincipals.

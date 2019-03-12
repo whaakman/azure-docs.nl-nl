@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 35fc7b2c713f8d4b88f4a44d9ddef5d92ba4c402
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: bc9d6f8f078860000d7a2a38bf4aa1ce00ff450e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294310"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533439"
 ---
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Gegevens uit Azure Data Lake Storage Gen1 registreren in Azure Data Catalog
 In dit artikel leert u hoe u Azure Data Lake Storage Gen1 integreert met Azure Data Catalog uw gegevens kunnen worden gedetecteerd binnen een organisatie maken door deze te integreren met Data Catalog. Zie voor meer informatie over gegevens catalogiseren, [Azure Data Catalog](../data-catalog/data-catalog-what-is-data-catalog.md). Zie voor meer informatie over scenario's waarin u Data Catalog kunt gebruiken, [algemene scenario's voor Azure Data Catalog](../data-catalog/data-catalog-common-scenarios.md).
@@ -29,7 +29,7 @@ Voordat u met deze zelfstudie begint, moet u het volgende hebben of hebben gedaa
 * **Uw Azure-abonnement inschakelen** voor Data Lake Storage Gen1. Zie [Instructies](data-lake-store-get-started-portal.md).
 * **De account van een Data Lake Storage Gen1**. Volg de instructies op [aan de slag met Azure Data Lake Storage Gen1 met behulp van de Azure-Portal](data-lake-store-get-started-portal.md). Voor deze zelfstudie maakt u een Data Lake Storage Gen1-account met de naam **datacatalogstore**.
 
-    Nadat u het account hebt gemaakt, een verzameling voorbeeldgegevens te uploaden. Voor deze zelfstudie laat het ons uploaden alle CSV-bestanden onder de **AmbulanceData** map in de [Azure Data Lake Git-opslagplaats](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/). U kunt verschillende clients, zoals [Azure Storage Explorer](http://storageexplorer.com/), het uploaden van gegevens naar een blob-container.
+    Nadat u het account hebt gemaakt, een verzameling voorbeeldgegevens te uploaden. Voor deze zelfstudie laat het ons uploaden alle CSV-bestanden onder de **AmbulanceData** map in de [Azure Data Lake Git-opslagplaats](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/). U kunt verschillende clients, zoals [Azure Storage Explorer](https://storageexplorer.com/), het uploaden van gegevens naar een blob-container.
 * **Azure Data Catalog**. Uw organisatie moet een Azure Data Catalog gemaakt voor uw organisatie al hebben. Slechts één catalogus is toegestaan voor elke organisatie.
 
 ## <a name="register-data-lake-storage-gen1-as-a-source-for-data-catalog"></a>Data Lake Storage Gen1 registreren als een bron voor Data Catalog
