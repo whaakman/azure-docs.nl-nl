@@ -11,20 +11,20 @@ ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 966536b7129a91f4c6fd8dd7bf0270be660bdf81
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: aa62db0948ffa036b37736477b872d694d14836b
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332061"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762592"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Aan de slag met Azure Cloud Services en ASP.NET
 
 ## <a name="overview"></a>Overzicht
-Deze zelfstudie laat zien hoe u een .NET-toepassing met meerdere lagen maakt met een ASP.NET MVC-front-end en deze implementeert in een [Azure-cloudservice](cloud-services-choose-me.md). De toepassing gebruikt [Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336279), de [Azure Blob-service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) en de [Azure Queue-service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). U kunt [het Visual Studio-project downloaden uit de ](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) uit de MSDN-codegalerie.
+Deze zelfstudie laat zien hoe u een .NET-toepassing met meerdere lagen maakt met een ASP.NET MVC-front-end en deze implementeert in een [Azure-cloudservice](cloud-services-choose-me.md). De toepassing gebruikt [Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336279), de [Azure Blob-service](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) en de [Azure Queue-service](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). U kunt [het Visual Studio-project downloaden uit de ](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) uit de MSDN-codegalerie.
 
 In de zelfstudie leert u hoe u de toepassing lokaal maakt en uitvoert, hoe u deze in Azure implementeert en uitvoert in de cloud, en hoe u deze van het begin af aan bouwt. Desgewenst kunt u de toepassing eerst van het begin af aan bouwen en vervolgens later de test doen en stappen implementeren.
 
@@ -33,7 +33,7 @@ De toepassing is een bulletinboard voor advertenties. Gebruikers maken een adver
 
 ![Advertentielijst](./media/cloud-services-dotnet-get-started/list.png)
 
-De toepassing maakt gebruik van het [wachtrijgerichte werkpatroon](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) om de CPU te ontlasten bij het maken van miniatuurweergaven voor een back-endproces (een CPU-intensieve bewerking).
+De toepassing maakt gebruik van het [wachtrijgerichte werkpatroon](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) om de CPU te ontlasten bij het maken van miniatuurweergaven voor een back-endproces (een CPU-intensieve bewerking).
 
 ## <a name="alternative-architecture-app-service-and-webjobs"></a>Alternatieve architectuur: App Service en WebJobs
 Deze zelfstudie laat zien hoe u de front-end en back-end uitvoert in een cloudservice van Azure. Het is ook mogelijk om de front-end uit te voeren in [Azure App Service](/azure/app-service/) en de functie [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) te gebruiken voor de back-end. Zie [Aan de slag met de Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) voor een zelfstudie waarin gebruik wordt gemaakt van WebJobs. Zie [Vergelijking van Azure App Service, Virtual Machines, Service Fabric en Cloud Services](../app-service/overview-compare.md) voor meer informatie over het kiezen van de services die het meest geschikt zijn voor uw scenario.
@@ -47,7 +47,7 @@ Deze zelfstudie laat zien hoe u de front-end en back-end uitvoert in een cloudse
 * De Azure Queue-service gebruiken voor communicatie tussen lagen.
 
 ## <a name="prerequisites"></a>Vereisten
-In de zelfstudie wordt ervan uitgegaan dat u bekend bent met de [basisconcepten van Azure-cloudservices](cloud-services-choose-me.md), waaronder de concepten *webrol* en *werkrol*.  Ook wordt ervan uitgegaan dat u weet hoe u in Visual Studio werkt met [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)- of [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview)-projecten. De voorbeeldtoepassing gebruikt MVC, maar het meeste in de zelfstudie geldt ook voor Web Forms.
+In de zelfstudie wordt ervan uitgegaan dat u bekend bent met de [basisconcepten van Azure-cloudservices](cloud-services-choose-me.md), waaronder de concepten *webrol* en *werkrol*.  Ook wordt ervan uitgegaan dat u weet hoe u in Visual Studio werkt met [ASP.NET MVC](https://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)- of [Web Forms](https://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview)-projecten. De voorbeeldtoepassing gebruikt MVC, maar het meeste in de zelfstudie geldt ook voor Web Forms.
 
 U kunt de app lokaal zonder Azure-abonnement uitvoeren, maar u hebt wel een abonnement nodig om de toepassing in de cloud te implementeren. Als u geen account hebt, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) of [zich aanmelden voor een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
 
@@ -64,7 +64,7 @@ De app slaat de advertenties met behulp van Entity Framework Code First op in ee
 
 ![Advertentietabel](./media/cloud-services-dotnet-get-started/adtable.png)
 
-Wanneer een gebruiker een afbeelding uploadt, slaat de front-end (die wordt uitgevoerd in een webrol) de afbeelding op in een [Azure-blob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage). De advertentiegegevens worden opgeslagen in de database, samen met een URL die naar de blob verwijst. Tegelijkertijd schrijft de front-end een bericht naar een Azure-wachtrij. Een back-end-proces dat wordt uitgevoerd in een werkrol, peilt de wachtrij periodiek op nieuwe berichten. Wanneer er een nieuw bericht binnenkomt, maakt de werkrol een miniatuur voor de betreffende afbeelding en werkt deze het databaseveld met de miniatuur-URL voor de advertentie bij. Het volgende diagram toont de wisselwerking tussen de onderdelen van de toepassing.
+Wanneer een gebruiker een afbeelding uploadt, slaat de front-end (die wordt uitgevoerd in een webrol) de afbeelding op in een [Azure-blob](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage). De advertentiegegevens worden opgeslagen in de database, samen met een URL die naar de blob verwijst. Tegelijkertijd schrijft de front-end een bericht naar een Azure-wachtrij. Een back-end-proces dat wordt uitgevoerd in een werkrol, peilt de wachtrij periodiek op nieuwe berichten. Wanneer er een nieuw bericht binnenkomt, maakt de werkrol een miniatuur voor de betreffende afbeelding en werkt deze het databaseveld met de miniatuur-URL voor de advertentie bij. Het volgende diagram toont de wisselwerking tussen de onderdelen van de toepassing.
 
 ![Architectuur van Contoso Ads](./media/cloud-services-dotnet-get-started/apparchitecture.png)
 
@@ -188,10 +188,10 @@ In een echte toepassing maakt u meestal afzonderlijke accounts voor toepassingsg
 ### <a name="configure-the-solution-to-use-your-azure-sql-database-when-it-runs-in-azure"></a>De oplossing configureren voor het gebruik van uw Azure SQL-database als deze wordt uitgevoerd in Azure
 Het webproject en het werkrolproject hebben elk hun eigen databaseverbindingsreeks. Beide projecten moeten verwijzen naar de Azure SQL-database wanneer de app wordt uitgevoerd in Azure.
 
-U gebruikt een [Web.config-transformatie](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) voor de webrol en een cloudserviceomgevingsinstelling voor de werkrol.
+U gebruikt een [Web.config-transformatie](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) voor de webrol en een cloudserviceomgevingsinstelling voor de werkrol.
 
 > [!NOTE]
-> In deze en de volgende sectie slaat u referenties op in projectbestanden. [Sla gevoelige gegevens niet op in openbare broncodeopslagplaatsen](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets).
+> In deze en de volgende sectie slaat u referenties op in projectbestanden. [Sla gevoelige gegevens niet op in openbare broncodeopslagplaatsen](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets).
 >
 >
 
@@ -391,7 +391,7 @@ In deze sectie configureert u Azure Storage- en SQL-verbindingsreeksen om lokaal
 8. Terwijl u zich nog in het eigenschappenvenster **ContosoAdsWorker [rol]** bevindt, voegt u nog een verbindingsreeks toe:
 
    * Naam: ContosoAdsDbConnectionString
-   * Type: Tekenreeks
+   * Type: String
    * Waarde: plak hier dezelfde verbindingsreeks die u voor het webrolproject hebt gebruikt. (Het volgende voorbeeld is voor Visual Studio 2013. Als u Visual Studio 2015 of hoger gebruikt en dit voorbeeld kopieert, vergeet dan niet om de gegevensbron te wijzigen.)
 
        ```
@@ -417,9 +417,9 @@ U kunt de toepassing nu ontwikkelen en uitvoeren zoals eerder in de zelfstudie i
 
 De volgende secties geven uitleg over de code voor het werken met de Azure-omgeving, -blobs en -wachtrijen. In deze zelfstudie wordt niet ingegaan op het maken van MVC-controllers en -views met behulp van scaffolding, het schrijven van code voor Entity Framework die geschikt is voor SQL Server-databases en de basisbeginselen van asynchrone programmering in ASP.NET 4.5. Raadpleeg de volgende informatiebronnen voor meer informatie over deze onderwerpen:
 
-* [Aan de slag met MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
-* [Aan de slag met EF 6 en MVC 5](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
-* [Inleiding tot asynchrone programmering in .NET 4.5](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async).
+* [Aan de slag met MVC 5](https://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
+* [Aan de slag met EF 6 en MVC 5](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
+* [Inleiding tot asynchrone programmering in .NET 4.5](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async).
 
 ### <a name="contosoadscommon---adcs"></a>ContosoAdsCommon - Ad.cs
 Het bestand Ad.cs definieert een enum voor advertentiecategorieën en een POCO-entiteitsklasse voor advertentie-informatie.
@@ -533,7 +533,7 @@ Het bestand *Views\Home\Index.cshtml* geeft categoriekoppelingen weer op de star
 ### <a name="contosoadsweb---adcontrollercs"></a>ContosoAdsWeb - AdController.cs
 In het bestand *AdController.cs* roept de constructor de `InitializeStorage`-methode aan voor het maken van Azure Storage Client-bibliotheekobjecten die een API leveren voor het werken met blobs en wachtrijen.
 
-Vervolgens haalt de code een verwijzing op naar de blobcontainer met *afbeeldingen*, zoals u eerder hebt gezien in *Global.asax.cs*. Tijdens het uitvoeren hiervan wordt standaard [beleid voor opnieuw proberen](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) ingesteld dat geschikt is voor een web-app. Toepassing van het standaardbeleid voor opnieuw proberen met exponentieel uitstel kan ertoe leiden dat de web-app bij een tijdelijke fout langer dan een minuut blijft hangen vanwege herhaalde pogingen om het opnieuw te proberen. Het beleid dat hier is opgegeven, schrijft voor dat er na elke poging drie seconden wordt gewacht en dat het aantal pogingen maximaal drie bedraagt.
+Vervolgens haalt de code een verwijzing op naar de blobcontainer met *afbeeldingen*, zoals u eerder hebt gezien in *Global.asax.cs*. Tijdens het uitvoeren hiervan wordt standaard [beleid voor opnieuw proberen](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) ingesteld dat geschikt is voor een web-app. Toepassing van het standaardbeleid voor opnieuw proberen met exponentieel uitstel kan ertoe leiden dat de web-app bij een tijdelijke fout langer dan een minuut blijft hangen vanwege herhaalde pogingen om het opnieuw te proberen. Het beleid dat hier is opgegeven, schrijft voor dat er na elke poging drie seconden wordt gewacht en dat het aantal pogingen maximaal drie bedraagt.
 
 ```csharp
 var blobClient = storageAccount.CreateCloudBlobClient();
@@ -737,7 +737,7 @@ private void ProcessQueueMessage(CloudQueueMessage msg)
 Deze code leest de database om de afbeeldings-URL op te halen, converteert de afbeelding naar een miniatuur, slaat de miniatuur op in een blob, werkt de database bij met de blob-URL van de miniatuur en verwijdert het bericht uit de wachtrij.
 
 > [!NOTE]
-> Uit oogpunt van eenvoud maakt de code in de `ConvertImageToThumbnailJPG`-methode gebruik van klassen in de System.Drawing-naamruimte. De klassen in deze naamruimte zijn echter bedoeld voor gebruik met Windows Forms. Ze worden niet ondersteund voor gebruik in een Windows- of ASP.NET-service. Zie [Afbeeldingen dynamisch genereren](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) en [Alles over het wijzigen van het formaat van afbeeldingen](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na) voor meer informatie over opties voor de verwerking van afbeeldingen.
+> Uit oogpunt van eenvoud maakt de code in de `ConvertImageToThumbnailJPG`-methode gebruik van klassen in de System.Drawing-naamruimte. De klassen in deze naamruimte zijn echter bedoeld voor gebruik met Windows Forms. Ze worden niet ondersteund voor gebruik in een Windows- of ASP.NET-service. Zie [Afbeeldingen dynamisch genereren](https://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) en [Alles over het wijzigen van het formaat van afbeeldingen](https://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na) voor meer informatie over opties voor de verwerking van afbeeldingen.
 >
 >
 
@@ -762,20 +762,20 @@ Als u het project wilt wijzigen voor gebruik van de volledige emulator, klikt u 
 Als u de toepassing wilt uitvoeren met de volledige emulator, moet u Visual Studio openen met beheerdersrechten.
 
 ## <a name="next-steps"></a>Volgende stappen
-In het kader van deze 'Aan de slag'-zelfstudie is de Contoso Ads-toepassing met opzet eenvoudig gehouden. De toepassing gebruikt bijvoorbeeld geen [afhankelijkheidsinjectie](http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection), geen [patronen voor opslagplaatsen en werkeenheden](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo), geen [interface voor logboekregistratie](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log), geen [EF Code First-migraties](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) voor het beheren van wijzigingen in het gegevensmodel, geen [EF-verbindingstolerantie](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) voor het beheren van tijdelijke netwerkfouten, enzovoort.
+In het kader van deze 'Aan de slag'-zelfstudie is de Contoso Ads-toepassing met opzet eenvoudig gehouden. De toepassing gebruikt bijvoorbeeld geen [afhankelijkheidsinjectie](https://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection), geen [patronen voor opslagplaatsen en werkeenheden](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo), geen [interface voor logboekregistratie](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log), geen [EF Code First-migraties](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) voor het beheren van wijzigingen in het gegevensmodel, geen [EF-verbindingstolerantie](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) voor het beheren van tijdelijke netwerkfouten, enzovoort.
 
 Hier volgen enkele voorbeelden, in oplopende volgorde van complexiteit, van cloudservicetoepassingen waarin meer code wordt gebruikt:
 
 * [PhluffyFotos](https://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). Qua concept soortgelijk aan Contoso Ads, maar met meer functies en meer code.
 * [Azure Cloud Service-toepassing met meerdere lagen die opslagtabellen, wachtrijen en blobs bevat](https://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Introduceert Azure Storage-tabellen, evenals blobs en wachtrijen. Deze toepassing is gebaseerd op een oudere versie van de Azure SDK voor .NET. Voor gebruik met de huidige versie is een aantal wijzigingen nodig.
 
-Zie [Echte cloud-apps ontwikkelen met Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction) voor algemene informatie over ontwikkelen voor de cloud.
+Zie [Echte cloud-apps ontwikkelen met Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction) voor algemene informatie over ontwikkelen voor de cloud.
 
-Zie [Microsoft Azure Storage - nieuwe functies, aanbevolen procedures en patronen](http://channel9.msdn.com/Events/Build/2014/3-628) voor een video-inleiding in aanbevolen procedures en patronen voor Azure Storage.
+Zie [Microsoft Azure Storage - nieuwe functies, aanbevolen procedures en patronen](https://channel9.msdn.com/Events/Build/2014/3-628) voor een video-inleiding in aanbevolen procedures en patronen voor Azure Storage.
 
 Zie de volgende bronnen voor meer informatie:
 
-* [Azure Cloud Services Part 1: Inleiding](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
+* [Azure Cloud Services Part 1: Inleiding](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Cloud Services beheren](cloud-services-how-to-manage-portal.md)
 * [Azure Storage](https://docs.microsoft.com/azure/storage/)
 * [Een cloudserviceprovider kiezen](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

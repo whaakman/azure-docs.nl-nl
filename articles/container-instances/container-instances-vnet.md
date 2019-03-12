@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 79ba32f85c608d98b29b235bf1417e74f7e2a4d4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 5382c565e5afc42d65a3198d797b51d1b1a9dde6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313480"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550767"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Containerexemplaren in een Azure-netwerk implementeren
 
@@ -38,21 +38,15 @@ Er gelden bepaalde beperkingen wanneer u groepen met containers in een virtueel 
 * U kunt geen gebruiken een [beheerde identiteit](container-instances-managed-identity.md) in een containergroep geïmplementeerd in een virtueel netwerk.
 * Vanwege de extra netwerkresources die betrokken zijn is een containergroep implementeren met een virtueel netwerk meestal iets langzamer dan het implementeren van een standard containerexemplaar.
 
-## <a name="preview-limitations"></a>Beperkingen voor Preview
+## <a name="preview-limitations"></a>Preview-beperkingen
 
-Hoewel deze functie nog in preview, gelden de volgende beperkingen bij het implementeren van containerinstanties met een virtueel netwerk. 
+Hoewel deze functie nog in preview, gelden de volgende beperkingen bij het implementeren van containergroepen met een virtueel netwerk. 
 
-**Ondersteunde regio's en resourcelimieten**
+[!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
-| Locatie | OS | CPU | Geheugen (GB) |
-| -------- | :---: | :---: | :-----------: |
-| Europa -west | Linux | 4 | 14 |
-| US - oost, US - west | Linux | 2 | 3,5 |
-| Australië-Oost, Noord-Europa | Linux | 1 | 1.5 |
+Bronlimieten container kunnen afwijken van de limieten voor de niet in een netwerk-containerexemplaren in deze regio's. Momenteel worden alleen Linux-containers worden ondersteund voor deze functie. Windows-ondersteuning staat op de planning.
 
-Bronlimieten container kunnen afwijken van de limieten voor de niet in een netwerk-containerexemplaren in deze regio's. Momenteel worden alleen Linux-containers worden ondersteund voor deze functie. Ondersteuning voor Windows is gepland.
-
-**Niet-ondersteunde netwerkbronnen en functies**
+### <a name="unsupported-network-resources-and-features"></a>Niet-ondersteunde netwerkbronnen en functies
 
 * Azure Load Balancer
 * Peering op virtueel netwerk

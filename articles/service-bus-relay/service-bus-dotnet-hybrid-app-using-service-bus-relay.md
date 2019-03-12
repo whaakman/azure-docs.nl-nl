@@ -11,15 +11,15 @@ ms.service: service-bus-relay
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 2972d04d1617b755bb6c2ff60d9922accdd09f2a
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
-ms.translationtype: HT
+ms.openlocfilehash: 0dc50da5eb302e2f1b24c265b4675d93f0a2e849
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614834"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768362"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Een on-premises WCF-service zichtbaar maken voor een webtoepassing in de cloud met behulp van Azure Relay 
 In dit artikel wordt beschreven hoe u een hybride cloudtoepassing opbouwt met Microsoft Azure en Visual Studio. U maakt een toepassing die meerdere Azure-resources gebruikt en wordt uitgevoerd in de cloud.
@@ -185,7 +185,7 @@ U bouwt eerst een gesimuleerd on-premises systeem voor de productcatalogus op.  
         }
     }
     ```
-12. Dubbelklik in Solution Explorer op het bestand **App.config** om dit te openen in de Visual Studio-editor. Voeg onderaan het element `<system.ServiceModel>` (maar nog binnen `<system.ServiceModel>`) de volgende XML-code toe: Vervang *yourServiceNamespace* door de naam van uw naamruimte en *yourKey* door de SAS-sleutel die u eerder hebt opgehaald via de portal:
+12. Dubbelklik in Solution Explorer op het bestand **App.config** om dit te openen in de Visual Studio-editor. Aan de onderkant van de `<system.ServiceModel>` element (maar nog steeds binnen `<system.ServiceModel>`), voeg de volgende XML-code toe: Zorg ervoor dat u *yourServiceNamespace* vervangt door de naam van uw naamruimte en *yourKey* door de SAS-sleutel die u eerder hebt opgehaald via de portal:
 
     ```xml
     <system.serviceModel>
@@ -350,7 +350,7 @@ In de volgende stap koppelt u de on-premises productenserver aan de ASP.NET-toep
 
    ![Toevoegen als een koppeling][24]
 
-6. Open nu het bestand **HomeController.cs** in de Visual Studio-editor en vervang de naamruimtedefinitie door de volgende code: Vervang *yourServiceNamespace* door de naam van uw servicenaamruimte en *yourKey* door uw SAS-sleutel. Hierdoor kan de client de on-premises service aanroepen waarbij het resultaat van de aanroep wordt geretourneerd.
+6. Open nu het **HomeController.cs** bestand in de Visual Studio-editor en vervang de naamruimtedefinitie door de volgende code: Zorg ervoor dat u *yourServiceNamespace* vervangt door de naam van uw servicenaamruimte en *yourKey* door de SAS-sleutel. Hierdoor kan de client de on-premises service aanroepen waarbij het resultaat van de aanroep wordt geretourneerd.
 
    ```csharp
    namespace ProductsWeb.Controllers
@@ -448,7 +448,7 @@ Voordat u de toepassing in de cloud uitvoert, moet u ervoor zorgen dat **Product
 
 ## <a name="run-the-application"></a>De toepassing uitvoeren
 
-1. Druk op F5 om de toepassing op te bouwen en uit te voeren. Eerst wordt de on-premises server (de consoletoepassing **ProductsServer**) gestart en vervolgens wordt de toepassing **ProductsPortal** gestart in een browservenster, zoals wordt weergegeven in de volgende schermafbeelding: De productinventaris bevat opnieuw de gegevens die zijn opgehaald uit het on-premises systeem van de productservice, en die gegevens worden weergegeven in de web-app. Controleer de URL om ervoor te zorgen dat **ProductsPortal** als een Azure-web-app wordt uitgevoerd in de cloud.
+1. Druk op F5 om de toepassing op te bouwen en uit te voeren. De on-premises server (de **ProductsServer** consoletoepassing) moet eerst worden gestart en vervolgens wordt de **ProductsPortal** toepassing worden gestart in een browservenster, zoals wordt weergegeven in de volgende schermafbeelding: U ziet weer dat de productinventaris gegevens bevat die zijn opgehaald uit het on-premises systeem van de productservice en dat die gegevens in de web-app worden weergegeven. Controleer de URL om ervoor te zorgen dat **ProductsPortal** als een Azure-web-app wordt uitgevoerd in de cloud.
 
    ![De web-app in Azure uitvoeren][1]
 

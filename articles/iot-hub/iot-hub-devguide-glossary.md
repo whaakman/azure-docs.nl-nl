@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.openlocfilehash: d79485fa7587a6cf8783f2e5779fa0a1d593aea7
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: ac7043d2967fcf3f083c09622c39f4649f04f6e7
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011429"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551667"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Verklarende woordenlijst voor IoT Hub
 In dit artikel worden enkele van de algemene termen gebruikt in de IoT Hub-artikelen.
@@ -191,7 +191,7 @@ De identiteit van de module is de unieke id die is toegewezen aan elke module di
 Net als bij het dubbele apparaat, is een moduledubbel JSON-document waarin statusinformatie van de module, zoals metagegevens, configuraties en voorwaarden. IoT-Hub zich blijft voordoen een moduledubbel voor elke module-identiteit die u onder een apparaat-id in uw IoT-hub inricht. Moduledubbels kunnen u voorwaarden van de module en configuraties tussen de module en de back-end oplossing te synchroniseren. U kunt een query moduledubbels naar specifieke modules en de status van langlopende bewerkingen opvragen.
 
 ## <a name="mqtt"></a>MQTT
-[MQTT](http://mqtt.org/) is een van de berichten die protocollen [IoT-Hub](#iot-hub) ondersteunt om te communiceren met apparaten. Zie voor meer informatie over de messaging-protocollen die IoT Hub worden ondersteund, [berichten verzenden en ontvangen met IoT Hub](iot-hub-devguide-messaging.md).
+[MQTT](https://mqtt.org/) is een van de berichten die protocollen [IoT-Hub](#iot-hub) ondersteunt om te communiceren met apparaten. Zie voor meer informatie over de messaging-protocollen die IoT Hub worden ondersteund, [berichten verzenden en ontvangen met IoT Hub](iot-hub-devguide-messaging.md).
 
 ## <a name="operations-monitoring"></a>Controle van bewerkingen
 IoT Hub [bewerkingen controleren](iot-hub-operations-monitoring.md) kunt u de status van de bewerkingen op uw IoT-hub in realtime controleren. [IoT Hub](#iot-hub) gebeurtenissen worden bijgehouden in meerdere categorieën met bewerkingen. U kunt kiezen voor het verzenden van gebeurtenissen uit een of meer categorieën naar een IoT Hub-eindpunt voor verwerking. U kunt de gegevens op fouten controleren of instellen van meer complexe verwerking op basis van, gegevenspatronen.
