@@ -3,23 +3,23 @@ title: Gegevens transformeren met behulp van Hadoop-Streaming-activiteit in Azur
 description: Wordt uitgelegd hoe u Hadoop-Streamingactiviteit in Azure Data Factory om gegevens te transformeren door het uitvoeren van Hadoop-Streaming-programma's op een Hadoop-cluster.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.author: douglasl
-ms.openlocfilehash: b498e09e53f8b0844470bf3948a664d8ad4337b7
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: 0d8267f1cd65f78d5e98ae9d288d5fa5c4214420
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022220"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576426"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Gegevens transformeren met behulp van Hadoop-Streaming-activiteit in Azure Data Factory
-> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](v1/data-factory-hadoop-streaming-activity.md)
 > * [Huidige versie](transform-data-using-hadoop-streaming.md)
 
@@ -79,7 +79,7 @@ Als u niet bekend bent met Azure Data Factory, Lees [Inleiding tot Azure Data Fa
 | combiner          | Hiermee geeft u de naam van het uitvoerbare bestand combiner | Nee       |
 | fileLinkedService | Verwijzing naar een gekoppelde Azure Storage-Service gebruikt voor het opslaan van de programma's toewijzen, Combiner en Reducer moet worden uitgevoerd. Als u deze gekoppelde Service niet opgeeft, wordt de Azure Storage gekoppelde Service gedefinieerd in de gekoppelde HDInsight-Service wordt gebruikt. | Nee       |
 | filePath          | Een matrix van pad naar de Mapper, Combiner, bieden en Reducer programma's die zijn opgeslagen in Azure Storage waarnaar wordt verwezen door fileLinkedService. Het pad is hoofdlettergevoelig. | Ja      |
-| invoer             | Hiermee geeft u het WASB-pad naar het invoerbestand voor het toewijzen van de. | Ja      |
+| input             | Hiermee geeft u het WASB-pad naar het invoerbestand voor het toewijzen van de. | Ja      |
 | output            | Hiermee geeft u het WASB-pad naar het uitvoerbestand voor de Reducer. | Ja      |
 | getDebugInfo      | Geeft aan wanneer de logboekbestanden worden gekopieerd naar de Azure-opslag die wordt gebruikt door HDInsight-cluster (of) opgegeven door scriptLinkedService. Toegestane waarden: Geen altijd of fout. Standaardwaarde: Geen. | Nee       |
 | argumenten         | Hiermee geeft u een matrix van de argumenten voor een Hadoop-taak. De argumenten worden doorgegeven als opdrachtregelargumenten aan elke taak. | Nee       |

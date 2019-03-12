@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 309ddcf68d03f34ca3309d76d15cc3928037c667
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ccf67aab2d393d4ee820c19e839ff3076712843d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017443"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550068"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>MapReduce-programma's van Data Factory aanroepen
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -185,7 +185,7 @@ De pijplijn in dit voorbeeld heeft slechts één activiteit die is van het type:
 | Eigenschap | Opmerkingen |
 |:--- |:--- |
 | type |Het type moet worden ingesteld op **HDInsightMapReduce**. |
-| Klassenaam |Naam van de klasse is: **wordcount** |
+| className |Naam van de klasse is: **wordcount** |
 | jarFilePath |Pad naar het jar-bestand met de klasse. Vergeet niet de naam van het cluster te wijzigen als kopiëren/plakken van de volgende code. |
 | jarLinkedService |Gekoppelde Azure Storage-service die het jar-bestand bevat. Deze gekoppelde service verwijst naar de opslag die is gekoppeld aan het HDInsight-cluster. |
 | argumenten |Het wordcount-programma neemt twee argumenten, invoer en uitvoer. Het invoerbestand is het bestand davinci.txt. |
@@ -236,15 +236,15 @@ De pijplijn in dit voorbeeld heeft slechts één activiteit die is van het type:
 ## <a name="run-spark-programs"></a>Spark-programma's uitvoeren
 U kunt de MapReduce-activiteit gebruiken om Spark-programma's uit te voeren op uw HDInsight Spark-cluster. Zie [Spark-programma's aanroepen vanuit Azure Data Factory](data-factory-spark.md) voor meer informatie.  
 
-[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
-[cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
+[developer-reference]: https://go.microsoft.com/fwlink/?LinkId=516908
+[cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
 
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [adfgetstartedmonitoring]:data-factory-copy-data-from-azure-blob-storage-to-sql-database.md#monitor-pipelines 
 
-[Developer Reference]: http://go.microsoft.com/fwlink/?LinkId=516908
-[Azure Portal]: http://portal.azure.com
+[Developer Reference]: https://go.microsoft.com/fwlink/?LinkId=516908
+[Azure Portal]: https://portal.azure.com
 
 ## <a name="see-also"></a>Zie ook
 * [Hive-activiteit](data-factory-hive-activity.md)

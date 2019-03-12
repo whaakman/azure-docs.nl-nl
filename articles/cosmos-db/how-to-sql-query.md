@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 185ff9c7f50fa08ba952f1519bf406d9017982e0
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 5833ee3964958437b7834ff25f1bce7837370fb1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455956"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550580"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>SQL-queryvoorbeelden voor Azure Cosmos DB
 
@@ -160,7 +160,7 @@ Hier volgen enkele aspecten van de Cosmos DB-querytaal in de voorbeelden die u t
 
 * De gestructureerde querytaal werkt met gegevens zonder schema. Daarom moet het typesysteem dynamisch worden gebonden. Een expressie kan verschillende typen voor verschillende elementen opleveren. Het resultaat van een query is een geldige JSON-waarde, maar niet per se van een vast schema.  
 
-* Azure Cosmos DB biedt alleen ondersteuning voor JSON-items. Dit betekent dat het typesysteem en expressies alleen geschikt zijn voor JSON-typen. Raadpleeg de [JSON-specificatie](http://www.json.org/) voor meer informatie.  
+* Azure Cosmos DB biedt alleen ondersteuning voor JSON-items. Dit betekent dat het typesysteem en expressies alleen geschikt zijn voor JSON-typen. Raadpleeg de [JSON-specificatie](https://www.json.org/) voor meer informatie.  
 
 * Een Cosmos DB-container is een verzameling JSON-items zonder schema. De relaties in gegevensentiteiten binnen en tussen items in een container worden impliciet vastgelegd door insluiting en niet door de relaties tussen de primaire sleutel en de refererende sleutel. Dit is een belangrijk aspect met betrekking tot de joins tussen items die verderop in dit artikel worden besproken.
 

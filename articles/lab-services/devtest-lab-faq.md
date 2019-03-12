@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 7d845b0e434f21c6db46cddb26b7f55aeb33d080
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 8b5c5f316ff2c3ada035736755c7898270c49dee
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733772"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551820"
 ---
 # <a name="azure-devtest-labs-faq"></a>Veelgestelde vragen over Azure DevTest Labs
 Vind antwoorden op enkele veelgestelde vragen over Azure DevTest Labs.
@@ -99,8 +99,8 @@ Als u van Azure DevOps gebruikmaakt, kunt u een [DevTest Labs-taken extensie](ht
 De volgende blogberichten bieden richtlijnen en informatie over het gebruik van de Services van Azure DevOps-extensie:
 
 * [DevTest Labs en de Azure DevOps-extensie](https://blogs.msdn.microsoft.com/devtestlab/2016/06/15/azure-devtest-labs-vsts-extension/)
-* [Een nieuwe virtuele machine in een bestaande DevTest Labs-testomgeving van Azure DevOps-Services implementeren](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
-* [Met behulp van release management voor Azure DevOps-Services voor continue implementatie in DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
+* [Een nieuwe virtuele machine in een bestaande DevTest Labs-testomgeving van Azure DevOps-Services implementeren](https://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
+* [Met behulp van release management voor Azure DevOps-Services voor continue implementatie in DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
 
 Voor andere continue integratie (CI) / toolchains continue levering (CD), kunt u dezelfde scenario's door bereiken implementeren [Azure Resource Manager-sjablonen](https://aka.ms/dtlquickstarttemplate) met behulp van [Azure PowerShell-cmdlets](../azure-resource-manager/resource-group-template-deploy.md) en [.NET SDK's](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). U kunt ook gebruiken [REST API's voor DevTest Labs](https://aka.ms/dtlrestapis) om te integreren met uw hulpprogrammaketen.  
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: 3cd1bbf1852c440172913467c5c8523c520cac2f
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 389a8ac729cf5f4f95aa37654434245d08ecc87e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337512"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533626"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Instellen van uw factureringsrekening voor een Microsoft-KLANTOVEREENKOMST
 
@@ -136,7 +136,7 @@ De volgende secties bevatten aanvullende informatie over het instellen van uw fa
 
 ### <a name="no-service-downtime"></a>Er is geen service-uitvaltijd
 
-Azure-services in uw abonnement blijven zonder enige onderbreking uitvoeren. We alleen de facturering regelen voor uw Azure-abonnementen worden overgezet. Er is niet een invloed op bestaande resources, resourcegroepen of beheergroepen.
+Azure-services in uw abonnement worden zonder onderbreking uitgevoerd. We zetten alleen de factureringsrelatie voor uw Azure-abonnementen over. Dit heeft geen invloed op bestaande resources, resourcegroepen of beheergroepen.
 
 ### <a name="user-access-to-azure-resources"></a>Gebruikerstoegang tot Azure-resources
 
@@ -144,7 +144,7 @@ Toegang tot Azure-resources die was ingesteld met behulp van Azure RBAC (op roll
 
 ### <a name="azure-reservations"></a>Azure-reserveringen
 
-Een Azure-reserveringen in uw Enterprise Agreement-inschrijving wordt verplaatst naar uw nieuwe account voor de facturering. Tijdens de overgang niet eventuele wijzigingen in de reservering kortingen die worden toegepast op uw abonnementen.
+Een Azure-reserveringen in uw Enterprise Agreement-inschrijving wordt verplaatst naar uw nieuwe account voor de facturering. Tijdens de overgang worden er geen wijzigingen aangebracht in de reserveringskortingen die worden toegepast op uw abonnementen.
 
 ### <a name="azure-marketplace-products"></a>Azure Marketplace-producten
 
@@ -203,7 +203,7 @@ U voltooit de installatie, moet u toegang tot zowel de nieuwe factureringsaccoun
 
 ### <a name="azure-subscriptions"></a>Azure-abonnementen
 
-1. Meld u aan bij [Azure Portal](http://portal.azure.com).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
 2. Zoeken op **kosten Management en facturering**.
 
@@ -219,7 +219,7 @@ Azure-abonnementen die aan de nieuwe factureringsrekening zijn overgegaan van uw
 
 ### <a name="azure-reservations"></a>Azure-reserveringen
 
-1. Meld u aan bij [Azure Portal](http://portal.azure.com).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
 2. Zoeken op **kosten Management en facturering**.
 
@@ -239,7 +239,7 @@ Azure-reserveringen die van uw Enterprise Agreement-inschrijving worden verplaat
 
 ### <a name="access-of-enterprise-administrators-on-the-billing-profile"></a>Toegang van enterprise-beheerders op het profiel voor facturering
 
-1. Meld u aan bij [Azure Portal](http://portal.azure.com).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
 2. Zoeken op **kosten Management en facturering**.
 
@@ -255,7 +255,7 @@ Enterprise-beheerders kunnen worden weergegeven als het profiel eigenaren bij de
 
 ### <a name="access-of-enterprise-administrators-department-administrators-and-account-owners-on-invoice-sections"></a>Toegang van enterprise-beheerders kunnen beheerders van de afdeling en eigenaars op factuur secties
 
-1. Meld u aan bij [Azure Portal](http://portal.azure.com).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
 2. Zoeken op **kosten Management en facturering**.
 
@@ -271,7 +271,7 @@ Enterprise-beheerders kunnen worden weergegeven als het profiel eigenaren bij de
 
 Enterprise-beheerders en beheerders van de afdeling worden weergegeven als eigenaren van de sectie factuur of factuur sectie lezers terwijl eigenaars van de afdeling worden weergegeven als de makers van Azure-abonnement. Herhaal de stap voor alle factuur secties om te controleren of de toegang voor alle afdelingen in uw Enterprise Agreement-inschrijving. Eigenaars die deel uitmaken van een afdeling niet krijgen toestemming voor de gedeelte van een factuur met de naam **factuur standaardsectie**. Als u denkt dat de toegang voor alle beheerders ontbreekt dat, kunt u hen toegang geven in de Azure-portal. Zie voor meer informatie, [facturering rollen in Azure portal beheren](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
-## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning
+## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
 
 Als u hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.
 

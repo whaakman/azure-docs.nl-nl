@@ -3,7 +3,7 @@ title: Opstarten problemen oplossen in Azure Virtual Machines | Microsoft Docs
 description: Dit artikel helpt u te koppelen aan artikelen om op te lossen opstartfouten in Azure Virtual Machines.
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genlin
+author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: genli
-ms.openlocfilehash: b467618815f2bad8a6816425764fe60707c1db3d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c12f753225f8c6fc4fdb3fdcbaf0e915cb85fdbf
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53308138"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779436"
 ---
 # <a name="troubleshoot-azure-virtual-machines-boot-errors"></a>Opstarten van virtuele Machines van Azure oplossen
 
@@ -28,7 +28,7 @@ In dit artikel geeft een lijst van de veelvoorkomende opstartfouten die kunnen w
 
 * [BitLocker-opstartfouten](troubleshoot-bitlocker-boot-error.md) 
 * [Windows weergeven 'Bestandssysteem controleren' tijdens het opstarten](troubleshoot-check-disk-boot-error.md)
-* [Blauw scherm fouten](troubleshoot-common-blue-screen-error.md)
+* [Fouten met blauw scherm](troubleshoot-common-blue-screen-error.md)
 * [Opstarten van de virtuele machine is vastgelopen op 'Getting Windows gereed](troubleshoot-vm-boot-configure-update.md)
 * [De fout 'Kritieke SERVICE mislukt' in blauw scherm](troubleshoot-critical-service-failed-boot-error.md)
 * [Probleem van de lus opnieuw opstarten](troubleshoot-reboot-loop.md)

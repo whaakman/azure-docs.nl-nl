@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/25/2019
+ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cf82a80d0b812ab5540796c8e7758e6ff85952c5
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: fad3d77d15d78ffdaf1afca3675a82242b844778
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804769"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730378"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Het bijwerken van Azure PowerShell-modules in Azure Automation
 
@@ -41,7 +41,7 @@ Hier volgen enkele overwegingen rekening moet houden bij het gebruik van dit pro
 
 * Als u dit runbook met de naam van de oorspronkelijke importeert `Update-AutomationAzureModulesForAccount`, overschrijft het interne runbook met deze naam. Als gevolg hiervan het geïmporteerde runbook wordt uitgevoerd wanneer de **Update Azure-Modules** knop wordt gepusht of wanneer dit runbook wordt opgeroepen rechtstreeks via Azure Resource Manager-API voor dit Automation-account.
 
-* Alleen `Azure` en `AzureRM.*` modules worden momenteel ondersteund. De nieuwe [Az van Azure PowerShell-modules](/powershell/azure/new-azureps-module-az) nog worden niet ondersteund.
+* Dit runbook biedt ondersteuning voor bijwerken van alleen de **Azure** en **AzureRm** momenteel modules. [Azure PowerShell Az-modules](/powershell/azure/new-azureps-module-az) in Automation-accounts worden ondersteund, maar kan niet worden bijgewerkt met dit runbook.
 
 * Voorkomen dat dit runbook starten op Automation-accounts die Az modules bevatten.
 

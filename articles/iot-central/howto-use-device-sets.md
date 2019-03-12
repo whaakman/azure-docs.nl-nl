@@ -3,17 +3,17 @@ title: Hiermee stelt u apparaten gebruikt in uw Azure IoT Central-toepassing | M
 description: Als operator stelt het gebruik van apparaten in uw Azure IoT Central-toepassing.
 author: ellenfosborne
 ms.author: elfarber
-ms.date: 01/21/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: b24c7c6d08b7d7914c7bdef6d2a55eb88689b6ad
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: a28cf68eb449b563d93a139b830752748c448dd6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315194"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57759812"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Hiermee stelt u apparaten gebruikt in uw Azure IoT Central-toepassing
 
@@ -48,9 +48,11 @@ Nadat u uw apparaat instellen hebt gemaakt, kunt u configureren de **Dashboard**
 
 1. Kies **Apparaatsets** in het navigatiemenu links.
 
-1. Kies de **Dashboard** tabblad.
+1. Selecteer uw apparaat.
 
-1. Selecteer **sjabloon bewerken**.
+1. Selecteer het tabblad **Dashboard**.
+
+1. Selecteer **Bewerken**.
 
     ![Ontwerpmodus op](media/howto-use-device-sets/image3.png)
 
@@ -69,9 +71,6 @@ Nadat u uw apparaat instellen hebt gemaakt, kunt u configureren de **Dashboard**
 
 1. Voeg een raster. Een raster is een tabel van de apparaten in het apparaat instellen met de kolommen die u kiest.
     1. Kies **raster** in het rechterdeelvenster.
-
-        ![Kies raster](media/howto-use-device-sets/image8.png)
-
     1. Het raster geeft een **titel**.
     1. Selecteer de kolommen die moeten worden weergegeven door te kiezen **toevoegen/verwijderen**. Kies in het deelvenster dat verschijnt, de kolom die u wilt weergeven en kies de pijl-rechts om deze te selecteren.
     1. Kies **OK**.
@@ -81,31 +80,24 @@ Nadat u uw apparaat instellen hebt gemaakt, kunt u configureren de **Dashboard**
 
     1. Slepen en neerzetten het raster om het te plaatsen op de **Dashboard**.
 
-    > [!NOTE]
-    > U kunt meerdere afbeeldingen, koppelingen en rasters toevoegen.
+        > [!NOTE]
+        > U kunt meerdere afbeeldingen, koppelingen en rasters toevoegen.
   
     1. Selecteer **Done**.
 
-    ![Ontwerpmodus uitschakelen](media/howto-use-device-sets/image10.png)
+### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Dashboard instellen locatiekaart configureren in uw apparaat
 
-
-### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Dashboard instellen locatiekaart configureren in uw apparaat 
 U kunt toevoegen om een locatiekaart voor het visualiseren van de locatie van uw apparaten ingesteld op een kaart.
 
 Als u wilt toevoegen aan een locatiekaart op uw apparaat wordt ingesteld dashboard hebt u geconfigureerde locatie-eigenschap in de sjabloon voor het apparaat, Zie [maakt u een locatie-eigenschap aangestuurd door Azure Maps](howto-set-up-template.md).
 
-
 1. Selecteer de kaart uit de bibliotheek op uw Dashboard apparaat instellen.
-
-    ![Dashboard Maps wordt ingesteld voor apparaat](media/howto-use-device-sets/LocationMaps1.png)
-
 2. Geef een titel in en kies de locatie-eigenschap die u eerder hebt geconfigureerd als onderdeel van de eigenschap van uw apparaat.
 3. Opslaan en u ziet de kaart tegel weergeven van de locatie van uw apparaten in het apparaat ingesteld.
-4. Nu als een operator weergaven dashboard Hiermee stelt u het apparaat, de operator alle tegels die u hebt geconfigureerd ziet, met inbegrip van de locatie van de kaart voor het visualiseren van alle apparaten-locatie in een oogopslag! 
-    
-> [!NOTE] 
-> U kunt zich grootte van de kaart om de gewenste grootte te wijzigen. Als u een pincode op de kaart wordt weergegeven de apparaatgegevens, naam en locatie. U kunt het pop-upvenster naar de eigenschappenpagina van het apparaat selecteren.  
+4. Nu als een operator weergaven dashboard Hiermee stelt u het apparaat, de operator alle tegels die u hebt geconfigureerd ziet, met inbegrip van de locatie van de kaart voor het visualiseren van alle apparaten-locatie in een oogopslag!
 
+> [!NOTE]
+> U kunt het formaat van de kaart naar de gewenste grootte. Selecteren van een pincode op de kaart wordt weergegeven, de gegevens van een apparaat, naam en locatie. U kunt het pop-upvenster naar de eigenschappenpagina van het apparaat selecteren.
 
 ## <a name="configure-the-list-for-your-device-set"></a>De lijst voor het instellen van uw apparaat configureren
 
@@ -127,7 +119,7 @@ Nadat u uw apparaat instellen hebt gemaakt, kunt u configureren de **lijst**. De
 
 ## <a name="analytics"></a>Analyse
 
-De analyse in apparaatsets is hetzelfde als het tabblad belangrijkste analytische gegevens in het navigatiemenu links. U meer informatie over analytics in het artikel op [over het maken van analytics](howto-create-analytics.md).
+De analyse in apparaatsets is hetzelfde als het tabblad belangrijkste analytische gegevens in het navigatiemenu links. U meer informatie over analytics in het artikel op [over het maken van analytics](howto-use-device-sets.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

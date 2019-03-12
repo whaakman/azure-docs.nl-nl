@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: de0227ac3e3d963b5ec196b58e467dbeaf0dff42
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 057f5fcf9f050bdce9efb301db43b909893ade60
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453453"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769163"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Transact-SQL (T-SQL) gebruiken om te maken en beheren van taken voor Elastic Database
 
@@ -447,16 +447,16 @@ Hiermee wordt een nieuwe taak toegevoegd.
   
 #### <a name="arguments"></a>Argumenten  
 
-[ **@job_name =** ] 'job_name'  
+[  **\@job_name =** ] 'job_name'  
 De naam van de taak. De naam moet uniek zijn en mag het percentage (%) teken. job_name is nvarchar(128) met geen standaardwaarde.
 
-[  **@description =** ] 'description'  
+[  **\@beschrijving =** ] 'description'  
 De beschrijving van de taak. de beschrijving is nvarchar(512), met een standaard null. Als de beschrijving wordt weggelaten, wordt een lege tekenreeks wordt gebruikt.
 
-[  **@enabled =** ] ingeschakeld  
+[  **\@ingeschakeld =** ] ingeschakeld  
 Of de planning van de taak is ingeschakeld. Ingeschakeld is bits, met een standaardwaarde van 0 (uitgeschakeld). Als u 0 opgeeft, wordt de taak is niet ingeschakeld en wordt niet uitgevoerd volgens schema; maar kan deze handmatig worden uitgevoerd. Als 1, wordt de taak wordt uitgevoerd volgens schema, en kan ook handmatig worden uitgevoerd.
 
-[ **@schedule_interval_type =**] schedule_interval_type  
+[ **\@schedule_interval_type =**] schedule_interval_type  
 De waarde geeft aan wanneer de taak wordt uitgevoerd. schedule_interval_type kan is nvarchar(50), met een standaardwaarde van één keer, en een van de volgende waarden:
 - 'Eenmaal'
 - 'Minutes',
@@ -465,16 +465,16 @@ De waarde geeft aan wanneer de taak wordt uitgevoerd. schedule_interval_type kan
 - 'Weken'.
 - 'Maanden'
 
-[  **@schedule_interval_count =** ] schedule_interval_count  
+[  **\@schedule_interval_count =** ] schedule_interval_count  
 Het aantal perioden schedule_interval_count optreden tussen elke uitvoering van de taak. schedule_interval_count is int, met een standaardwaarde van 1. De waarde moet groter zijn dan of gelijk aan 1 zijn.
 
-[  **@schedule_start_time =** ] schedule_start_time  
+[  **\@schedule_start_time =** ] schedule_start_time  
 De datum op welke taak uitvoering kan beginnen. schedule_start_time is DATETIME2, met de standaardwaarde van 01-01-0001 00:00:00.0000000.
 
-[  **@schedule_end_time =** ] schedule_end_time  
+[  **\@schedule_end_time =** ] schedule_end_time  
 De datum op welke taak uitvoeren kunt stoppen. schedule_end_time DATETIME2, is met de standaardwaarde van 31-12-9999 11:59:59.0000000. 
 
-[  **@job_id =** ] job_id uitvoer  
+[ **\@job_id =** ] job_id OUTPUT  
 De taak id-nummer toegewezen aan de taak als is gemaakt. job_id is een uitvoervariabele van het type uniqueidentifier.
 
 #### <a name="return-code-values"></a>Retourcode waarden
@@ -510,19 +510,19 @@ Een bestaande taak voor het bijwerken.
 ```
 
 #### <a name="arguments"></a>Argumenten
-[ **@job_name =** ] 'job_name'  
+[  **\@job_name =** ] 'job_name'  
 De naam van de taak moet worden bijgewerkt. job_name is nvarchar(128).
 
-[  **@new_name =** ] 'nieuwe_naam'  
+[  **\@nieuwe_naam =** ] 'nieuwe_naam'  
 De nieuwe naam van de taak. nieuwe_naam is nvarchar(128).
 
-[  **@description =** ] 'description'  
+[  **\@beschrijving =** ] 'description'  
 De beschrijving van de taak. de beschrijving is nvarchar(512).
 
-[  **@enabled =** ] ingeschakeld  
+[  **\@ingeschakeld =** ] ingeschakeld  
 Geeft aan of het taakschema ingeschakeld (1) of niet is ingeschakeld (0). Ingeschakeld is bits.
 
-[ **@schedule_interval_type=** ] schedule_interval_type  
+[ **\@schedule_interval_type=** ] schedule_interval_type  
 De waarde geeft aan wanneer de taak wordt uitgevoerd. schedule_interval_type kan nvarchar(50) is en een van de volgende waarden:
 
 - 'Eenmaal'
@@ -532,13 +532,13 @@ De waarde geeft aan wanneer de taak wordt uitgevoerd. schedule_interval_type kan
 - 'Weken'.
 - 'Maanden'
 
-[  **@schedule_interval_count=** ] schedule_interval_count  
+[ **\@schedule_interval_count=** ] schedule_interval_count  
 Het aantal perioden schedule_interval_count optreden tussen elke uitvoering van de taak. schedule_interval_count is int, met een standaardwaarde van 1. De waarde moet groter zijn dan of gelijk aan 1 zijn.
 
-[  **@schedule_start_time=** ] schedule_start_time  
+[  **\@schedule_start_time =** ] schedule_start_time  
 De datum op welke taak uitvoering kan beginnen. schedule_start_time is DATETIME2, met de standaardwaarde van 01-01-0001 00:00:00.0000000.
 
-[  **@schedule_end_time=** ] schedule_end_time  
+[ **\@schedule_end_time=** ] schedule_end_time  
 De datum op welke taak uitvoeren kunt stoppen. schedule_end_time DATETIME2, is met de standaardwaarde van 31-12-9999 11:59:59.0000000. 
 
 #### <a name="return-code-values"></a>Retourcode waarden
@@ -567,10 +567,10 @@ Hiermee verwijdert u een bestaande taak.
 ```
 
 #### <a name="arguments"></a>Argumenten
-[ **@job_name =** ] 'job_name'  
+[  **\@job_name =** ] 'job_name'  
 De naam van de taak moet worden verwijderd. job_name is nvarchar(128).
 
-[  **@force =** ] forceren  
+[  **\@forceren =** ] forceren  
 Geeft aan of verwijderen als de taak uitvoeringen wordt uitgevoerd heeft en alle lopende uitvoeringen (1) of fouten worden geannuleerd als taakuitvoeringen uitgevoerd (0 worden). Force-is bits.
 
 #### <a name="return-code-values"></a>Retourcode waarden
@@ -622,79 +622,79 @@ Voegt een stap toe aan een taak.
 
 #### <a name="arguments"></a>Argumenten
 
-[ **@job_name =** ] 'job_name'  
+[  **\@job_name =** ] 'job_name'  
 De naam van de taak waarnaar u wilt toevoegen van de stap. job_name is nvarchar(128).
 
-[ **@step_id =** ] step_id  
+[ **\@step_id =** ] step_id  
 De volgorde-id-nummer voor de taakstap. Stap identificatiecodes begint bij 1 en verhogen zonder onderbrekingen. Als een bestaande stap al deze id, de klikt u vervolgens dat stap en alle volgende stappen uit hun-id hebben verhoogd zodat deze nieuwe stap in de reeks kan worden ingevoegd. Indien niet opgegeven, wordt de step_id automatisch toegewezen naar de laatste in de volgorde van stappen. step_id is int.
 
-[  **@step_name =** ] step_name  
+[  **\@step_name =** ] step_name  
 De naam van de stap. Moet worden opgegeven, met uitzondering van de eerste stap van een taak die (voor uw gemak bedoeld;) een standaard-naam van de 'JobStep heeft'. step_name is nvarchar(128).
 
-[ **@command_type =** ] 'command_type'  
+[ **\@command_type =** ] 'command_type'  
 Het type van de opdracht die wordt uitgevoerd door deze taakstap. command_type nvarchar(50) met TSql, wat betekent dat de waarde van de standaardwaarde is de @command_type parameter is een T-SQL-script.
 
 Als u opgeeft, moet de waarde TSql.
 
-[  **@command_source =** ] 'command_source'  
+[  **\@command_source =** ] 'command_source'  
 Het type van de locatie waar de opdracht is opgeslagen. command_source is nvarchar(50), met een standaardwaarde van Inline, wat betekent dat de waarde van de @command_source parameter is de letterlijke tekenreeks van de opdracht.
 
 Als u opgeeft, is de waarde moet Inline.
 
-[  **@command =** ] 'command'  
+[  **\@opdracht =** ] 'command'  
 De opdracht moet geldige T-SQL-script en vervolgens door deze taakstap wordt uitgevoerd. opdracht is nvarchar(max), met een standaard null.
 
-[  **@credential_name =** ] 'credential_name'  
+[  **\@credential_name =** ] 'credential_name'  
 De naam van de database-scoped referentie opgeslagen in deze taak control database die wordt gebruikt voor verbinding met elk van de doeldatabases in de doelgroep wanneer deze stap wordt uitgevoerd. credential_name is nvarchar(128).
 
-[ **@target_group_name =** ] 'target-group_name'  
+[ **\@target_group_name =** ] 'target-group_name'  
 De naam van de doelgroep waarop zich de doeldatabases die de taakstap wordt uitgevoerd op. target_group_name is nvarchar(128).
 
-[ **@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
+[ **\@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
 De vertraging voordat de eerste poging, als de taakstap mislukt bij de poging tot de eerste uitvoering. initial_retry_interval_seconds is int, met de standaardwaarde van 1.
 
-[ **@maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
+[ **\@maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
 De maximale wachttijd tussen nieuwe pogingen. Als de vertraging tussen nieuwe pogingen kan groter zijn dan deze waarde, wordt deze het beste in plaats daarvan beperkt tot op deze waarde. maximum_retry_interval_seconds is int, met de standaardwaarde van 120.
 
-[ **@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
+[ **\@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
 De vermenigvuldiger om toe te passen aan de elke poging als meerdere taak uitvoering van stap aanmeldingspogingen mislukt. Bijvoorbeeld, als de eerste poging had een vertraging van vijf seconden en de vermenigvuldiger uitstel 2.0 is, vervolgens de tweede nieuwe poging heeft een vertraging van 10 seconden en de derde opnieuw proberen heeft een vertraging van 20 seconden. retry_interval_backoff_multiplier zijn echte, met de standaardwaarde van 2.0.
 
-[  **@retry_attempts =** ] retry_attempts  
+[  **\@retry_attempts =** ] retry_attempts  
 Het aantal nieuwe pogingen worden uitgevoerd als de eerste poging is mislukt. Bijvoorbeeld, als de waarde retry_attempts 10, zijn er 1 eerste nieuwe poging en 10 pogingen, geeft een totaal van 11 pogingen. Als de laatste poging mislukt, wordt het uitvoeren van taak beëindigd met een levensduur van is mislukt. retry_attempts is int, met de standaardwaarde van 10.
 
-[ **@step_timeout_seconds =** ] step_timeout_seconds  
+[ **\@step_timeout_seconds =** ] step_timeout_seconds  
 De maximale hoeveelheid tijd die zijn toegestaan voor de stap uit te voeren. Als deze tijd wordt overschreden, wordt het uitvoeren van taak beëindigd met een levensduur van de time-out. step_timeout_seconds is int, met de standaardwaarde van 43.200 seconden (12 uur).
 
-[ **@output_type =** ] 'output_type'  
+[ **\@output_type =** ] 'output_type'  
 Als dat niet null is, het type van de bestemming die eerste voor de resultatenset van de opdracht wordt geschreven naar. output_type is nvarchar(50), met een standaard null.
 
 Als u opgeeft, moet de waarde SqlDatabase.
 
-[  **@output_credential_name =** ] 'output_credential_name'  
+[  **\@output_credential_name =** ] 'output_credential_name'  
 Als deze niet leeg is, de naam van de database-scoped referentie die wordt gebruikt om te verbinden met de doeldatabase uitvoer. Moet worden opgegeven als output_type SqlDatabase gelijk. output_credential_name is nvarchar(128), met een standaardwaarde van NULL.
 
-[ **@output_subscription_id =** ] 'output_subscription_id'  
+[ **\@output_subscription_id =** ] 'output_subscription_id'  
 Beschrijving moet.
 
-[  **@output_resource_group_name =** ] 'output_resource_group_name'  
+[  **\@output_resource_group_name =** ] 'output_resource_group_name'  
 Beschrijving moet.
 
-[ **@output_server_name =** ] 'output_server_name'  
+[  **\@output_server_name =** ] 'output_server_name'  
 Als dat niet null, de volledig gekwalificeerde DNS-naam van de server die de doeldatabase uitvoer bevat. Moet worden opgegeven als output_type SqlDatabase gelijk. output_server_name is nvarchar(256), met een standaard null.
 
-[  **@output_database_name =** ] 'output_database_name'  
+[  **\@output_database_name =** ] 'output_database_name'  
 Als dat niet null, de naam van de database die de doeltabel van de uitvoer bevat. Moet worden opgegeven als output_type SqlDatabase gelijk. output_database_name is nvarchar(128), met een standaard null.
 
-[  **@output_schema_name =** ] 'output_schema_name'  
+[  **\@output_schema_name =** ] 'output_schema_name'  
 Als dat niet null, de naam van het SQL-schema met de uitvoertabel van de bestemming. Als output_type gelijk is aan SqlDatabase, is de standaardwaarde dbo. output_schema_name is nvarchar(128).
 
-[  **@output_table_name =** ] 'output_table_name'  
+[  **\@output_table_name =** ] 'output_table_name'  
 Als dat niet null is, wordt de naam van de tabel die eerste voor de resultatenset van de opdracht om te worden geschreven. Als de tabel nog niet bestaat, wordt deze gemaakt op basis van het schema van de resultatenset geretourneerd. Moet worden opgegeven als output_type SqlDatabase gelijk. output_table_name is nvarchar(128), met een standaardwaarde van NULL.
 
-[  **@job_version =** ] job_version uitvoer  
+[  **\@job_version =** ] job_version uitvoer  
 Output-parameter die het nieuwe versienummer van de taak wordt toegewezen. job_version is int.
 
-[  **@max_parallelism =** ] max_parallelism uitvoer  
+[  **\@max_parallelism =** ] max_parallelism uitvoer  
 Het maximumniveau van parallelle uitvoering per elastische pool. Indien ingesteld, worden de taakstap beperkt is tot alleen worden uitgevoerd op een maximum van die veel databases per elastische groep zijn. Dit geldt voor elke elastische pool die ofwel rechtstreeks is opgenomen in de doelgroep of bevindt zich in een server die is opgenomen in de doelgroep. max_parallelism is int.
 
 
@@ -746,79 +746,79 @@ Een stap in logboektaak-updates.
 ```
 
 #### <a name="arguments"></a>Argumenten
-[ **@job_name =** ] 'job_name'  
+[  **\@job_name =** ] 'job_name'  
 De naam van de taak die de stap behoort. job_name is nvarchar(128).
 
-[ **@step_id =** ] step_id  
+[ **\@step_id =** ] step_id  
 De id-nummer voor de taakstap worden gewijzigd. Step_id of step_name moet worden opgegeven. step_id is int.
 
-[  **@step_name =** ] 'step_name'  
+[  **\@step_name =** ] 'step_name'  
 De naam van de stap om te worden gewijzigd. Step_id of step_name moet worden opgegeven. step_name is nvarchar(128).
 
-[ **@new_id =** ] new_id  
+[ **\@new_id =** ] new_id  
 De nieuwe volgorde id-nummer voor de taakstap. Stap identificatiecodes begint bij 1 en verhogen zonder onderbrekingen. Als een stap in de volgorde is gewijzigd, klikt u vervolgens andere stappen zal opnieuw worden automatisch genummerd.
 
-[  **@new_name =** ] 'nieuwe_naam'  
+[  **\@nieuwe_naam =** ] 'nieuwe_naam'  
 De nieuwe naam van de stap. nieuwe_naam is nvarchar(128).
 
-[ **@command_type =** ] 'command_type'  
+[ **\@command_type =** ] 'command_type'  
 Het type van de opdracht die wordt uitgevoerd door deze taakstap. command_type nvarchar(50) met TSql, wat betekent dat de waarde van de standaardwaarde is de @command_type parameter is een T-SQL-script.
 
 Als u opgeeft, moet de waarde TSql.
 
-[  **@command_source =** ] 'command_source'  
+[  **\@command_source =** ] 'command_source'  
 Het type van de locatie waar de opdracht is opgeslagen. command_source is nvarchar(50), met een standaardwaarde van Inline, wat betekent dat de waarde van de @command_source parameter is de letterlijke tekenreeks van de opdracht.
 
 Als u opgeeft, is de waarde moet Inline.
 
-[  **@command =** ] 'command'  
+[  **\@opdracht =** ] 'command'  
 De opdrachten zijn moet geldige T-SQL-script en vervolgens door deze taakstap wordt uitgevoerd. opdracht is nvarchar(max), met een standaard null.
 
-[  **@credential_name =** ] 'credential_name'  
+[  **\@credential_name =** ] 'credential_name'  
 De naam van de database-scoped referentie opgeslagen in deze taak control database die wordt gebruikt voor verbinding met elk van de doeldatabases in de doelgroep wanneer deze stap wordt uitgevoerd. credential_name is nvarchar(128).
 
-[ **@target_group_name =** ] 'target-group_name'  
+[ **\@target_group_name =** ] 'target-group_name'  
 De naam van de doelgroep waarop zich de doeldatabases die de taakstap wordt uitgevoerd op. target_group_name is nvarchar(128).
 
-[ **@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
+[ **\@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
 De vertraging voordat de eerste poging, als de taakstap mislukt bij de poging tot de eerste uitvoering. initial_retry_interval_seconds is int, met de standaardwaarde van 1.
 
-[ **@maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
+[ **\@maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
 De maximale wachttijd tussen nieuwe pogingen. Als de vertraging tussen nieuwe pogingen kan groter zijn dan deze waarde, wordt deze het beste in plaats daarvan beperkt tot op deze waarde. maximum_retry_interval_seconds is int, met de standaardwaarde van 120.
 
-[ **@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
+[ **\@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
 De vermenigvuldiger om toe te passen aan de elke poging als meerdere taak uitvoering van stap aanmeldingspogingen mislukt. Bijvoorbeeld, als de eerste poging had een vertraging van vijf seconden en de vermenigvuldiger uitstel 2.0 is, vervolgens de tweede nieuwe poging heeft een vertraging van 10 seconden en de derde opnieuw proberen heeft een vertraging van 20 seconden. retry_interval_backoff_multiplier zijn echte, met de standaardwaarde van 2.0.
 
-[  **@retry_attempts =** ] retry_attempts  
+[  **\@retry_attempts =** ] retry_attempts  
 Het aantal nieuwe pogingen worden uitgevoerd als de eerste poging is mislukt. Bijvoorbeeld, als de waarde retry_attempts 10, zijn er 1 eerste nieuwe poging en 10 pogingen, geeft een totaal van 11 pogingen. Als de laatste poging mislukt, wordt het uitvoeren van taak beëindigd met een levensduur van is mislukt. retry_attempts is int, met de standaardwaarde van 10.
 
-[ **@step_timeout_seconds =** ] step_timeout_seconds  
+[ **\@step_timeout_seconds =** ] step_timeout_seconds  
 De maximale hoeveelheid tijd die zijn toegestaan voor de stap uit te voeren. Als deze tijd wordt overschreden, wordt het uitvoeren van taak beëindigd met een levensduur van de time-out. step_timeout_seconds is int, met de standaardwaarde van 43.200 seconden (12 uur).
 
-[ **@output_type =** ] 'output_type'  
+[ **\@output_type =** ] 'output_type'  
 Als dat niet null is, het type van de bestemming die eerste voor de resultatenset van de opdracht wordt geschreven naar. Als u wilt opnieuw de waarde van output_type instellen op NULL, stelt u de waarde van van deze parameter in op ' (een lege tekenreeks). output_type is nvarchar(50), met een standaard null.
 
 Als u opgeeft, moet de waarde SqlDatabase.
 
-[  **@output_credential_name =** ] 'output_credential_name'  
+[  **\@output_credential_name =** ] 'output_credential_name'  
 Als deze niet leeg is, de naam van de database-scoped referentie die wordt gebruikt om te verbinden met de doeldatabase uitvoer. Moet worden opgegeven als output_type SqlDatabase gelijk. Als u wilt opnieuw de waarde van output_credential_name instellen op NULL, stelt u de waarde van van deze parameter in op ' (een lege tekenreeks). output_credential_name is nvarchar(128), met een standaardwaarde van NULL.
 
-[ **@output_server_name =** ] 'output_server_name'  
+[  **\@output_server_name =** ] 'output_server_name'  
 Als dat niet null, de volledig gekwalificeerde DNS-naam van de server die de doeldatabase uitvoer bevat. Moet worden opgegeven als output_type SqlDatabase gelijk. Als u wilt opnieuw de waarde van output_server_name instellen op NULL, stelt u de waarde van van deze parameter in op ' (een lege tekenreeks). output_server_name is nvarchar(256), met een standaard null.
 
-[  **@output_database_name =** ] 'output_database_name'  
+[  **\@output_database_name =** ] 'output_database_name'  
 Als dat niet null, de naam van de database die de doeltabel van de uitvoer bevat. Moet worden opgegeven als output_type SqlDatabase gelijk. Als u wilt opnieuw de waarde van output_database_name instellen op NULL, stelt u de waarde van van deze parameter in op ' (een lege tekenreeks). output_database_name is nvarchar(128), met een standaard null.
 
-[  **@output_schema_name =** ] 'output_schema_name'  
+[  **\@output_schema_name =** ] 'output_schema_name'  
 Als dat niet null, de naam van het SQL-schema met de uitvoertabel van de bestemming. Als output_type gelijk is aan SqlDatabase, is de standaardwaarde dbo. Als u wilt opnieuw de waarde van output_schema_name instellen op NULL, stelt u de waarde van van deze parameter in op ' (een lege tekenreeks). output_schema_name is nvarchar(128).
 
-[  **@output_table_name =** ] 'output_table_name'  
+[  **\@output_table_name =** ] 'output_table_name'  
 Als dat niet null is, wordt de naam van de tabel die eerste voor de resultatenset van de opdracht om te worden geschreven. Als de tabel nog niet bestaat, wordt deze gemaakt op basis van het schema van de resultatenset geretourneerd. Moet worden opgegeven als output_type SqlDatabase gelijk. Als u wilt opnieuw de waarde van output_server_name instellen op NULL, stelt u de waarde van van deze parameter in op ' (een lege tekenreeks). output_table_name is nvarchar(128), met een standaardwaarde van NULL.
 
-[  **@job_version =** ] job_version uitvoer  
+[  **\@job_version =** ] job_version uitvoer  
 Output-parameter die het nieuwe versienummer van de taak wordt toegewezen. job_version is int.
 
-[  **@max_parallelism =** ] max_parallelism uitvoer  
+[  **\@max_parallelism =** ] max_parallelism uitvoer  
 Het maximumniveau van parallelle uitvoering per elastische pool. Indien ingesteld, worden de taakstap beperkt is tot alleen worden uitgevoerd op een maximum van die veel databases per elastische groep zijn. Dit geldt voor elke elastische pool die ofwel rechtstreeks is opgenomen in de doelgroep of bevindt zich in een server die is opgenomen in de doelgroep. Als u de waarde van max_parallelism herstellen op null, waarde van deze parameter op-1. max_parallelism is int.
 
 
@@ -853,16 +853,16 @@ Hiermee verwijdert u een taakstap van een taak.
 ```
 
 #### <a name="arguments"></a>Argumenten
-[ **@job_name =** ] 'job_name'  
+[  **\@job_name =** ] 'job_name'  
 De naam van de taak van waaruit de stap wordt verwijderd. job_name is nvarchar(128) met geen standaardwaarde.
 
-[ **@step_id =** ] step_id  
+[ **\@step_id =** ] step_id  
 De id-nummer voor de taakstap moet worden verwijderd. Step_id of step_name moet worden opgegeven. step_id is int.
 
-[  **@step_name =** ] 'step_name'  
+[  **\@step_name =** ] 'step_name'  
 De naam van de stap moet worden verwijderd. Step_id of step_name moet worden opgegeven. step_name is nvarchar(128).
 
-[  **@job_version =** ] job_version uitvoer  
+[  **\@job_version =** ] job_version uitvoer  
 Output-parameter die het nieuwe versienummer van de taak wordt toegewezen. job_version is int.
 
 #### <a name="return-code-values"></a>Retourcode waarden
@@ -897,10 +897,10 @@ Start een taak wordt uitgevoerd.
 ```
 
 #### <a name="arguments"></a>Argumenten
-[ **@job_name =** ] 'job_name'  
+[  **\@job_name =** ] 'job_name'  
 De naam van de taak van waaruit de stap wordt verwijderd. job_name is nvarchar(128) met geen standaardwaarde.
 
-[  **@job_execution_id =** ] job_execution_id uitvoer  
+[ **\@job_execution_id =** ] job_execution_id OUTPUT  
 Output-parameter die de taakuitvoering van de-id worden toegewezen. job_version is uniqueidentifier.
 
 #### <a name="return-code-values"></a>Retourcode waarden
@@ -928,7 +928,7 @@ Hiermee stopt u het uitvoeren van een taak.
 
 
 #### <a name="arguments"></a>Argumenten
-[ **@job_execution_id =** ] job_execution_id  
+[ **\@job_execution_id =** ] job_execution_id  
 De id-nummer van de taakuitvoering te stoppen. job_execution_id is uniqueidentifier met standaard null.
 
 #### <a name="return-code-values"></a>Retourcode waarden
@@ -958,10 +958,10 @@ Een doel-gebruikersgroep wordt toegevoegd.
 
 
 #### <a name="arguments"></a>Argumenten
-[ **@target_group_name =** ] 'target_group_name'  
+[ **\@target_group_name =** ] 'target_group_name'  
 De naam van de doelgroep te maken. target_group_name is nvarchar(128) met geen standaardwaarde.
 
-[  **@target_group_id =** ] target_group_id uitvoer het doel groep id-nummer toegewezen aan de taak als is gemaakt. target_group_id is een uitvoervariabele van het type uniqueidentifier, met een standaard null.
+[  **\@target_group_id =** ] target_group_id uitvoer het doel groep id-nummer toegewezen aan de taak als is gemaakt. target_group_id is een uitvoervariabele van het type uniqueidentifier, met een standaard null.
 
 #### <a name="return-code-values"></a>Retourcode waarden
 0 (geslaagd) of 1 (fout)
@@ -988,7 +988,7 @@ Hiermee verwijdert u een doelgroep.
 
 
 #### <a name="arguments"></a>Argumenten
-[ **@target_group_name =** ] 'target_group_name'  
+[ **\@target_group_name =** ] 'target_group_name'  
 De naam van de doelgroep te verwijderen. target_group_name is nvarchar(128) met geen standaardwaarde.
 
 #### <a name="return-code-values"></a>Retourcode waarden
@@ -1022,31 +1022,31 @@ Een database of een groep databases toegevoegd aan een doelgroep.
 ```
 
 #### <a name="arguments"></a>Argumenten
-[ **@target_group_name =** ] 'target_group_name'  
+[ **\@target_group_name =** ] 'target_group_name'  
 De naam van de doelgroep waarop het lid wordt toegevoegd. target_group_name is nvarchar(128) met geen standaardwaarde.
 
-[  **@membership_type =** ] 'membership_type'  
+[  **\@membership_type =** ] 'membership_type'  
 Hiermee geeft u aan als lid van de doel-worden opgenomen of uitgesloten. target_group_name is nvarchar(128) met standaard van 'Toevoegen'. Geldige waarden voor target_group_name zijn 'Toevoegen' of 'Uitsluiten'.
 
-[ **@target_type =** ] 'target_type'  
+[ **\@target_type =** ] 'target_type'  
 Het type van de doeldatabase of -verzameling, inclusief alle databases in een server, alle databases in een elastische pool, alle databases in een shard-toewijzing of een afzonderlijke database. target_type is nvarchar(128) met geen standaardwaarde. Valid values for target_type are ‘SqlServer’, ‘SqlElasticPool’, ‘SqlDatabase’, or ‘SqlShardMap’. 
 
-[  **@refresh_credential_name =** ] 'refresh_credential_name'  
+[  **\@refresh_credential_name =** ] 'refresh_credential_name'  
 De naam van de SQL Database-server. refresh_credential_name is nvarchar(128) met geen standaardwaarde.
 
-[ **@server_name =** ] 'server_name'  
+[  **\@servernaam =** ] 'servernaam'  
 De naam van de SQL-Database-server die moet worden toegevoegd aan de opgegeven doelgroep. servernaam moet worden opgegeven wanneer target_type 'SqlServer'. servernaam is nvarchar(128) met geen standaardwaarde.
 
-[  **@database_name =** ] 'database_name'  
+[  **\@database_name =** ] 'database_name'  
 De naam van de database die moet worden toegevoegd aan de opgegeven doelgroep. Database_Name moet worden opgegeven wanneer target_type "SqlDatabase". databasenaam is nvarchar(128) met geen standaardwaarde.
 
-[ **@elastic_pool_name =** ] 'elastic_pool_name'  
+[  **\@elastic_pool_name =** ] 'elastic_pool_name'  
 De naam van de elastische groep die moet worden toegevoegd aan de opgegeven doelgroep. elastic_pool_name moet worden opgegeven wanneer target_type 'SqlElasticPool'. elastic_pool_name is nvarchar(128) met geen standaardwaarde.
 
-[  **@shard_map_name =** ] 'shard_map_name'  
+[  **\@shard_map_name =** ] 'shard_map_name'  
 De naam van de groep van de shard-kaart die moet worden toegevoegd aan de opgegeven doelgroep. elastic_pool_name should be specified when target_type is ‘SqlSqlShardMap’. shard_map_name is nvarchar(128) met geen standaardwaarde.
 
-[  **@target_id =** ] target_group_id uitvoer  
+[ **\@target_id =** ] target_group_id OUTPUT  
 De doel-id-nummer toegewezen aan het lid van de doel-als gemaakt toegevoegd aan de doelgroep. target_id is een uitvoervariabele van het type uniqueidentifier, met een standaard null.
 Geretourneerde waarden (geslaagd) 0 of 1 (fout)
 
@@ -1157,13 +1157,13 @@ Hiermee verwijdert u de geschiedenisrecords voor een taak.
 ```
 
 #### <a name="arguments"></a>Argumenten
-[ **@job_name =** ] 'job_name'  
+[  **\@job_name =** ] 'job_name'  
 De naam van de taak waarvoor u de geschiedenisrecords te verwijderen. job_name is nvarchar(128), met een standaard null. Job_id of job_name moet worden opgegeven, maar beide kunnen niet worden opgegeven.
 
-[ **@job_id =** ] job_id  
+[ **\@job_id =** ] job_id  
  De taak-id-nummer van de taak voor de records die moeten worden verwijderd. job_id is uniqueidentifier, met een standaard null. Job_id of job_name moet worden opgegeven, maar beide kunnen niet worden opgegeven.
 
-[ **@oldest_date =** ] oldest_date  
+[ **\@oldest_date =** ] oldest_date  
  De oudste record die moet worden behouden in de geschiedenis. oldest_date is DATETIME2, met een standaard null. Wanneer oldest_date wordt opgegeven, verwijdert sp_purge_jobhistory alleen de records die ouder dan de opgegeven waarde zijn.
 
 #### <a name="return-code-values"></a>Retourcode waarden

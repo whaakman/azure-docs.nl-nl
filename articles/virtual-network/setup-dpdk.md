@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
-ms.openlocfilehash: 34647c218bd5fd2eec775599a4d2f10373dbd2fd
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: b50f7c9b76e9309a1ee08257dd8b13ec289397a5
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268273"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775914"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>DPDK instellen in een virtuele Linux-machine
 
@@ -33,7 +33,7 @@ DPDK kunt uitvoeren op Azure virtual machines die ondersteuning voor meerdere be
 
 ## <a name="benefit"></a>Voordeel
 
-**Hogere pakketten per seconde (PPS)**: het aantal cyclus overslaan van de kernel en met inachtneming van pakketten in de gebruikersruimte beperkt door het elimineren van context switches. Het verbetert ook het aantal pakketten dat per seconde in virtuele Azure Linux-machines worden verwerkt.
+**Hogere pakketten per seconde (PPS)**: Het aantal cyclus overslaan van de kernel en met inachtneming van pakketten in de gebruikersruimte worden beperkt door het elimineren van context switches. Het verbetert ook het aantal pakketten dat per seconde in virtuele Azure Linux-machines worden verwerkt.
 
 
 ## <a name="supported-operating-systems"></a>Ondersteunde besturingssystemen
@@ -42,9 +42,9 @@ De volgende distributies uit de galerie met Azure worden ondersteund:
 
 | Linux-besturingssysteem     | Kernelversie        |
 |--------------|----------------       |
-| Ubuntu 16.04 | 4.15.0-1015-Azure     |
-| Ubuntu 18.04 | 4.15.0-1015-Azure     |
-| SLES 15      | 4.12.14-5.5-Azure     |
+| Ubuntu 16.04 | 4.15.0-1015-azure     |
+| Ubuntu 18.04 | 4.15.0-1015-azure     |
+| SLES 15      | 4.12.14-5.5-azure     |
 | RHEL 7.5     | 3.10.0-862.9.1.el7    |
 | CentOS 7.5   | 3.10.0-862.3.3.el7    |
 
@@ -87,7 +87,7 @@ yum install -y gcc kernel-devel-`uname -r` numactl-devel.x86_64 librdmacm-devel 
 
 ### <a name="sles-15"></a>SLES 15
 
-**Azure-kernel**
+**Azure kernel**
 
 ```bash
 zypper  \
@@ -244,7 +244,7 @@ De pakketten statistieken per seconde wordt periodiek afdrukken door de volgende
      -w <pci address NIC2> \
      --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
      --vdev="net_vdev_netvsc<2nd id>,iface=<2nd iface to attach to>" (you need as many --vdev arguments as the number of devices used by testpmd, in this case) \
-     -- --nb-cores <number of cores to use for test pmd> \
+     -- --nb-cores <number of cores to use for test pmd> \
      --forward-mode=io \
      --eth-peer=<recv port id>,<sender peer MAC address> \
      --stats-period <display interval in seconds>

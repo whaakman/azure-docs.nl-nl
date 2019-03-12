@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 5e905168ab2c2f10bcfadfc605fdcaa800e70332
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 02b3f4b0db46d05751569d465abf09310be91e8a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982004"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549767"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Migreren IaaS-resources van klassiek naar Azure Resource Manager met behulp van Azure PowerShell
 Deze stappen laten zien hoe u Azure PowerShell-opdrachten gebruiken voor het migreren van infrastructuur als een service (IaaS)-resources van het klassieke implementatiemodel naar het Azure Resource Manager-implementatiemodel.
@@ -126,7 +126,7 @@ Stel uw Azure-abonnement voor de huidige sessie. In dit voorbeeld wordt het stan
 <br>
 
 ## <a name="step-5-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Stap 5: Zorg ervoor dat er voldoende virtuele Machine van Azure Resource Manager-vcpu's in de Azure-regio van uw huidige implementatie of VNET
-U kunt de volgende PowerShell-opdracht gebruiken om te controleren of het huidige aantal vcpu's die u in Azure Resource Manager hebt. Zie voor meer informatie over vCPU-quota, [limieten en de Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager).
+U kunt de volgende PowerShell-opdracht gebruiken om te controleren of het huidige aantal vcpu's die u in Azure Resource Manager hebt. Zie voor meer informatie over vCPU-quota, [limieten en de Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-azure-resource-manager).
 
 In dit voorbeeld controleert de beschikbaarheid de **VS-West** regio. Vervang de naam van de regio voorbeeld door uw eigen.
 

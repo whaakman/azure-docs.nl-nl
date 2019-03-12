@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: cc8c10f8a3f515d3401dbb469a7e4a31c4fe3501
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 4ddbec6b163a939c1663630e39e89140ac6f7efe
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329810"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546470"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Met behulp van referentiegegevens voor zoekacties in Stream Analytics
 Referentiegegevens (ook wel bekend als een opzoektabel) is een eindige gegevensset die is statische of langzaam veranderende aard is, gebruikt om uit te voeren een zoekopdracht of om te correleren met de stroom van uw gegevens. U kunt in een IoT-scenario, bijvoorbeeld slaan metagegevens over sensoren (die niet vaak wijzigen) in de referentiegegevens en ontmoet realtime IoT-gegevensstromen. Azure Stream Analytics wordt geladen referentiegegevens in het geheugen te controleren van de verwerking van gegevensstromen met lage latentie. Om het gebruik van referentiegegevens in uw Azure Stream Analytics-taak, gebruikt u in het algemeen een [verwijzing gegevens Join](https://msdn.microsoft.com/library/azure/dn949258.aspx) in uw query. 
@@ -78,7 +78,7 @@ Referentiegegevens voor Azure SQL-Database wordt opgehaald door de Stream Analyt
 
 Als uw referentiegegevens een set met langzaam veranderende gegevens is, moet u het periodiek vernieuwen de momentopname die wordt gebruikt in uw taak. Stream Analytics kunt u een vernieuwingsfrequentie instellen bij het configureren van uw Azure SQL Database-verbinding voor invoer. De Stream Analytics-runtime wordt uw Azure SQL Database query volgens het interval dat is opgegeven door de vernieuwingsfrequentie. De snelste vernieuwingsfrequentie ondersteund is één keer per minuut. Voor elke vernieuwing, Stream Analytics een nieuwe momentopname opgeslagen in het opslagaccount dat is opgegeven.
 
-Stream Analytics biedt twee opties voor query's in uw Azure SQL Database. De query van een momentopname is verplicht en moet worden opgenomen in elke taak. Stream Analytics de snapshot-query periodiek op basis van het interval voor vernieuwen wordt uitgevoerd en het resultaat van de query (snapshot) gebruikt als de referentiegegevensset. De snapshot-query moet aan de meeste scenario's, maar als u prestatieproblemen met grote gegevenssets en snelle vernieuwingsfrequenties ondervindt, kunt u de optie voor een delta-query.
+Stream Analytics biedt twee opties voor query's in uw Azure SQL Database. De query van een momentopname is verplicht en moet worden opgenomen in elke taak. Stream Analytics de snapshot-query periodiek op basis van het interval voor vernieuwen wordt uitgevoerd en het resultaat van de query (snapshot) gebruikt als de referentiegegevensset. De snapshot-query moet aan de meeste scenario's, maar als u prestatieproblemen met grote gegevenssets en snelle vernieuwingsfrequenties ondervindt, kunt u de optie voor een delta-query. Query's die meer dan 60 seconden duren om te retourneren referentiegegevensset resulteert in een time-out.
 
 Met de optie voor een delta-query, wordt de momentopname-query in eerste instantie voor het ophalen van een basislijn referentiegegevensset uitgevoerd met Stream Analytics. Stream Analytics uitgevoerd na de delta-query periodiek op basis van het interval voor vernieuwen om op te halen van incrementele wijzigingen. Deze incrementele wijzigingen zijn voortdurend toegepast op de referentiegegevensset om deze bijgewerkt te houden. Met behulp van delta-query kan helpen verlagen van opslagkosten en netwerk-i/o-bewerkingen.
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 096bc96558f0fe33f8046622dc2443728674e405
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a9f6dfb0de2cf09b27d08eb6b7dc425c8cd1f17d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876852"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549218"
 ---
 # <a name="speech-devices-sdk-license-agreement"></a>Gebruiksrechtovereenkomst voor spraak Devices SDK
 
@@ -52,7 +52,7 @@ e) delen, publiceren, of lenen (met uitzondering van de te distribueren code, en
 
 f) moet u de software alleen in combinatie met Microsoft Azure Cognitive Services, Speech-service
 
-**3\. VERZAMELEN VAN GEGEVENS.** Deze software kan communiceren met andere Microsoft-producten die het verzamelen van gegevens die worden verzonden naar Microsoft. Voor meer informatie over hoe Microsoft processen persoonlijke gegevens die worden verzameld, Raadpleeg de privacyverklaring van Microsoft op http://go.microsoft.com/fwlink/?LinkId=248681.
+**3\. VERZAMELEN VAN GEGEVENS.** Deze software kan communiceren met andere Microsoft-producten die het verzamelen van gegevens die worden verzonden naar Microsoft. Voor meer informatie over hoe Microsoft processen persoonlijke gegevens die worden verzameld, Raadpleeg de privacyverklaring van Microsoft op https://go.microsoft.com/fwlink/?LinkId=248681.
 
 **4\. VOORLOPIGE SOFTWARE.** De software is een voorlopige versie. Deze mogelijk niet goed werken. Deze kan afwijken van de commerciële versie.
 

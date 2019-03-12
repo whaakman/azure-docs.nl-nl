@@ -1,18 +1,18 @@
 ---
 title: Opnieuw beveiligen van virtuele machines van Azure naar een on-premises site tijdens herstel na noodgevallen van virtuele VMware-machines en fysieke servers | Microsoft Docs
 description: Leer hoe u failback van Azure naar de on-premises site na een failover naar Azure tijdens het herstel na noodgevallen van virtuele VMware-machines en fysieke servers.
-author: rajani-janaki-ram
-manager: gauravd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/17/2018
-ms.author: rajanaki
-ms.openlocfilehash: 06337e205c472d26024289222dc8876d23b4184f
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.date: 3/12/2019
+ms.author: mayg
+ms.openlocfilehash: 4202d95b540efb98b526f8a8abd17da22a908ebe
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791874"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771806"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Opnieuw beveiligen en mislukt de back-machines naar een on-premises site na een failover naar Azure
 
@@ -114,7 +114,6 @@ Let op de volgende informatie:
 
 ## <a name="common-issues"></a>Algemene problemen
 
-- Site Recovery ondersteunt momenteel alleen met een gegevensarchief VMFS of virtueel SAN failback. Een NFS-gegevensopslag wordt niet ondersteund. Vanwege deze beperking, de invoer van de selectie van gegevensopslag op het scherm opnieuw beveiligen is leeg voor NFS-gegevensopslag, of het gegevensarchief virtueel SAN bevat, maar tijdens de taak is mislukt. Als u een failback uitvoeren wilt, kunt u een gegevensarchief VMFS on-premises maken en een failback naar deze. Deze failback zorgt ervoor dat een volledige download van de VMDK.
 - Als u een alleen-lezengebruiker vCenter-detectie uitvoeren en virtuele machines beveiligt, beveiliging is geslaagd en uitvoeren van failovers werkt. Tijdens het opnieuw beveiligen mislukt de failover omdat de gegevensopslag kan niet worden gedetecteerd. Een symptoom is dat de gegevensopslag worden niet tijdens het opnieuw beveiligen weergegeven. U lost dit probleem, kunt u de vCenter-referenties bijwerken met een juiste account dat machtigingen heeft en en probeer het opnieuw. 
 - Wanneer u een failback van virtuele Linux-machine en on-premises uitvoert, kunt u zien dat het pakket Network Manager is verwijderd van de machine. Deze verwijdering doet zich voor omdat het pakket Network Manager wordt verwijderd wanneer de virtuele machine is hersteld in Azure.
 - Wanneer een virtuele Linux-machine is geconfigureerd met een statisch IP-adres en een failover naar Azure, wordt het IP-adres verkregen via DHCP. Als u een failover naar on-premises, blijft de virtuele machine het IP-adres verkrijgen via DHCP. Handmatig aanmelden bij de machine en stel het IP-adres terug naar een statisch adres indien nodig. Een Windows virtuele machine kunt opnieuw het statische IP-adres verkrijgen.

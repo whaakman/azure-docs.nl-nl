@@ -3,17 +3,16 @@ title: Veelgestelde vragen - Azure Disk Encryption voor IaaS-VM's | Microsoft Do
 description: In dit artikel vindt u antwoorden op veelgestelde vragen over Microsoft Azure Disk Encryption voor Windows en Linux IaaS-VM's.
 author: mestew
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 03/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14804de1d8507a49cda2ce1dd8ee97dc56c0223b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c082de09cbe17bd31e50d14329cfb8f58b01d8fe
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439550"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781320"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk Encryption voor IaaS-VM's Veelgestelde vragen
 
@@ -44,12 +43,14 @@ Azure Disk Encryption wordt ondersteund op de volgende server Linux-distributies
 | --- | --- |--- |
 | Ubuntu | 16.04| Besturingssysteem- en schijf |
 | Ubuntu | 14.04.5</br>[met Azure afgestemd op de kernel bijgewerkt naar 4.15 of hoger](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | Besturingssysteem- en schijf |
+| RHEL | 7.6 | Besturingssysteem- en schijf * |
 | RHEL | 7.5 | Besturingssysteem- en schijf * |
 | RHEL | 7.4 | Besturingssysteem- en schijf * |
 | RHEL | 7.3 | Besturingssysteem- en schijf * |
 | RHEL | 7.2 | Besturingssysteem- en schijf * |
 | RHEL | 6.8 | Gegevens schijf * |
 | RHEL | 6.7 | Gegevens schijf * |
+| CentOS | 7.5 | Besturingssysteem- en schijf |
 | CentOS | 7.4 | Besturingssysteem- en schijf |
 | CentOS | 7.3 | Besturingssysteem- en schijf |
 | CentOS | 7.2n | Besturingssysteem- en schijf |

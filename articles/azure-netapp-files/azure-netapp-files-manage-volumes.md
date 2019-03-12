@@ -11,27 +11,27 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: how-to-article
+ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: d663a63f82878163fa2db562906edad910498be5
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: c8ac14f11d7f2eeed050997de42da4f512b46bc5
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008760"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767258"
 ---
 # <a name="manage-volumes-by-using-azure-netapp-files"></a>Volumes beheren met behulp van Azure NetApp bestanden
 U kunt een volume beheren door weergeven, bijwerken of verwijderen van het volume. 
 
 Als u verwijderen van een volume wilt, moet u eerst alle onderliggende objecten van een volume te verwijderen. 
 
-1.  Klik op de **Volumes** blade op de blade capaciteit groepen beheren. 
+1.  Klik in de blade Capaciteitspools beheren op de blade **Volumes**. 
 2.  Gebruik de **bladeren Volumes** weer te geven, bijwerken of verwijderen van bestaande volumes. 
 
 
 
 ## <a name="next-steps"></a>Volgende stappen 
 
-* [Koppelen of ontkoppelen van een volume voor virtuele machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Een volume voor virtuele machines koppelen of ontkoppelen](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Momentopnamen beheren](azure-netapp-files-manage-snapshots.md)

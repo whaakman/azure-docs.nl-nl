@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 827990e03ca1bbb4bfd2ca9cf8bf0a9ceccfb51b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 136b819f6bbbc1b546b66f54e771dbec8c71202c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719384"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548146"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Menselijke tussenkomst in duurzame functies - voorbeeld van de telefoon-verificatie
 
@@ -118,7 +118,7 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/741c6565
 
 De orchestrator-functie ontvangt van het opgegeven telefoonnummer en verzendt onmiddellijk een SMS-bericht met een willekeurig gegenereerde 4-cijferige verificatiecode &mdash; bijvoorbeeld *2168*. De functie wordt vervolgens gewacht 90 seconden een reactie.
 
-Te beantwoorden met de code, kunt u [ `RaiseEventAsync` (.NET) of `raiseEvent` (JavaScript)](durable-functions-instance-management.md#sending-events-to-instances) binnen een andere functie of aanroepen van de **sendEventUrl** waarnaar wordt verwezen in het 202-antwoord bovenstaande HTTP POST-webhook , vervangen `{eventName}` met de naam van de gebeurtenis `SmsChallengeResponse`:
+Te beantwoorden met de code, kunt u [ `RaiseEventAsync` (.NET) of `raiseEvent` (JavaScript)](durable-functions-instance-management.md) binnen een andere functie of aanroepen van de **sendEventUrl** waarnaar wordt verwezen in het 202-antwoord bovenstaande HTTP POST-webhook , vervangen `{eventName}` met de naam van de gebeurtenis `SmsChallengeResponse`:
 
 ```
 POST http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/SmsChallengeResponse?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}

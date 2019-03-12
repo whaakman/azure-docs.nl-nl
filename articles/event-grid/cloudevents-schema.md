@@ -8,16 +8,16 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
-ms.openlocfilehash: 81f9db7e90e2cef85d41561cc677db3d6422ef45
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: c9c0fd8bf7dc893ce07a6e3ce9cb392fc652a560
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079865"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535849"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Gebruik een CloudEvents-schema met Event Grid
 
-Naast de [gebeurtenisschema in het standaard](event-schema.md), gebeurtenissen in systeemeigen ondersteuning biedt voor Azure Event Grid de [CloudEvents JSON-schema](https://github.com/cloudevents/spec/blob/master/json-format.md). [Een CloudEvents](http://cloudevents.io/) is een [open specificatie](https://github.com/cloudevents/spec/blob/master/spec.md) voor het beschrijven van gebeurtenisgegevens.
+Naast de [gebeurtenisschema in het standaard](event-schema.md), gebeurtenissen in systeemeigen ondersteuning biedt voor Azure Event Grid de [CloudEvents JSON-schema](https://github.com/cloudevents/spec/blob/master/json-format.md). [Een CloudEvents](https://cloudevents.io/) is een [open specificatie](https://github.com/cloudevents/spec/blob/master/spec.md) voor het beschrijven van gebeurtenisgegevens.
 
 Een CloudEvents vereenvoudigt interoperabiliteit door te geven van een gemeenschappelijk gebeurtenisschema voor het publiceren en gebruiken van cloud op basis van gebeurtenissen. Dit schema kunt u uniform tooling standard manieren van Routering en verwerken van gebeurtenissen en universele manieren om bij het deserialiseren van de buitenste gebeurtenisschema. U kunt werken eenvoudiger verschillende platforms integreren met een gemeenschappelijk schema.
 
@@ -62,14 +62,14 @@ Een CloudEvents v0.1 heeft de volgende eigenschappen beschikbaar:
 
 | Een CloudEvents        | Type     | Voorbeeld van JSON-waarde             | Description                                                        | Event Grid-toewijzing
 |--------------------|----------|--------------------------------|--------------------------------------------------------------------|-------------------------
-| eventType          | Reeks   | "com.example.someevent"          | Type gebeurtenis die heeft plaatsgevonden                                   | eventType
-| eventTypeVersion   | Reeks   | "1.0"                            | De versie van het type gebeurtenis (optioneel)                            | dataVersion
-| cloudEventsVersion | Reeks   | "0.1"                            | De versie van de specificatie van een CloudEvents die maakt gebruik van de gebeurtenis        | *doorgegeven*
+| eventType          | String   | "com.example.someevent"          | Type gebeurtenis die heeft plaatsgevonden                                   | eventType
+| eventTypeVersion   | String   | "1.0"                            | De versie van het type gebeurtenis (optioneel)                            | dataVersion
+| cloudEventsVersion | String   | "0.1"                            | De versie van de specificatie van een CloudEvents die maakt gebruik van de gebeurtenis        | *doorgegeven*
 | source             | URI      | "/mycontext"                     | Beschrijving van de gebeurtenisproducent                                       | onderwerp #subject
-| eventID            | Reeks   | "1234-1234-1234"                 | ID van de gebeurtenis                                                    | id
+| eventID            | String   | "1234-1234-1234"                 | ID van de gebeurtenis                                                    | id
 | eventTime          | Tijdstempel| "2018-04-05T17:31:00Z"           | Timestamp van wanneer de gebeurtenis heeft plaatsgevonden (optioneel)                    | eventTime
 | schemaURL          | URI      | "https://myschema.com"           | Een koppeling naar het schema dat het kenmerk heeft (optioneel) | *niet gebruikt*
-| contentType        | Reeks   | "application/json"               | Beschrijf de coderingsindeling van de gegevens (optioneel)                       | *niet gebruikt*
+| contentType        | String   | "application/json"               | Beschrijf de coderingsindeling van de gegevens (optioneel)                       | *niet gebruikt*
 | Extensies         | Kaart      | { "extA": "vA", "extB", "vB" }  | Alle aanvullende metagegevens (optioneel)                                 | *niet gebruikt*
 | gegevens               | Object   | { "objA": "vA", "objB", "vB" }  | De nettolading van de gebeurtenis (optioneel)                                       | gegevens
 

@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: a9cc8c7b4cdcc05d38bc0d68561fc9d86305b0cb
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9569b161dd5c6c79c5333d585f9ab4fcdb55fa97
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879911"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533983"
 ---
 # <a name="getting-started-with-project-acoustics"></a>Aan de slag met Project akoestische
 Deze snelstartgids wordt beschreven hoe integreren van de invoegtoepassing in uw Unity-project, het maken van uw scène en het toepassen van de akoestische geluid gegevensbronnen. Voor deze Quick Start, moet u eerst maken een [Azure batch-account](create-azure-account.md). Deze handleiding wordt ervan uitgegaan dat bekend zijn met Unity.
@@ -24,7 +24,7 @@ Deze snelstartgids wordt beschreven hoe integreren van de invoegtoepassing in uw
 Registreren [hier](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u) voor deelname aan het Designer-Preview.
 
 ## <a name="supported-platforms-for-quickstart"></a>Ondersteunde platforms voor Quick Start
-* [Unity 2018.2 +](http://www.unity3d.com)
+* [Unity 2018.2 +](https://www.unity3d.com)
   * Vereist als u uw project op de **.NET 4.x Equivalent** scripting runtime-versie 
   * Vereist dat de eenheid op basis van een Windows-editor
 

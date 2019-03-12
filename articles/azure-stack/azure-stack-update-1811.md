@@ -16,12 +16,12 @@ ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 14e587276deab9656c3be04c96182942767ae0f2
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 0e14e7eb20e87f5555fa6b494c0d09ccde08d2dd
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986019"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731650"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 update
 
@@ -87,7 +87,7 @@ Azure Stack brengt hotfixes op gezette tijden. Zorg ervoor dat voor het installe
 
     Tijdens de installatie van deze update is de gebruikersportal van Azure Stack is niet beschikbaar terwijl de host van de extensie wordt geconfigureerd. De configuratie van de host van de extensie kan maximaal 5 uur duren. Gedurende deze tijd kunt u de status van een update controleren, of de mislukte installatie van een update hervatten met behulp van [Azure Stack Administrator PowerShell of het bevoegde eindpunt](azure-stack-monitor-update.md).
 
-- Wanneer Azure Stack wordt beheerd door System Center Operations Manager (SCOM), moet u het Management Pack voor Microsoft Azure Stack bijwerken naar versie 10.0.3.11 voordat u 1811 toepast.
+- Wanneer Azure Stack wordt beheerd door System Center Operations Manager (SCOM), moet u het Management Pack voor Microsoft Azure Stack bijwerken naar versie 1.0.3.11 voordat u 1811 toepast.
 
 ## <a name="new-features"></a>Nieuwe functies
 

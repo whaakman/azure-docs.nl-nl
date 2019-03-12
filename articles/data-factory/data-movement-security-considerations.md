@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: a996703f3719c2be90851241c1fe23c89f24e606
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 03976d321a92f6049d06cea88604618d5a2dee67
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447945"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532267"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Beveiligingsoverwegingen voor het verplaatsen van gegevens in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,7 @@ Data Factory is gecertificeerd voor:
 | **[SOC 1, 2, 3](https://www.microsoft.com/trustcenter/compliance/soc)** |
 | **[HIPAA BAA](https://www.microsoft.com/trustcenter/compliance/hipaa)** |
 
-Als u wel interesse in Azure, naleving en hoe Azure beveiligt met een eigen infrastructuur, gaat u naar de [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx). Voor de meest recente lijst met alle controle op naleving van de Azure-aanbiedingen - http://aka.ms/AzureCompliance.
+Als u wel interesse in Azure, naleving en hoe Azure beveiligt met een eigen infrastructuur, gaat u naar de [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx). Voor de meest recente lijst met alle controle op naleving van de Azure-aanbiedingen - https://aka.ms/AzureCompliance.
 
 In dit artikel bekijken we beveiligingsoverwegingen in de volgende twee verkeer scenario's: 
 
@@ -91,10 +91,10 @@ Azure Data Lake Store biedt ook versleuteling voor gegevens die zijn opgeslagen 
 Ondersteuning voor Storage Service Encryption (SSE), die automatisch worden uw gegevens worden versleuteld voordat opgeslagen en ontsleutelt voordat het ophalen van Azure Blob storage en Azure-tabelopslag. Zie voor meer informatie, [Azure Storage-Serviceversleuteling voor Data-at-Rest](../storage/common/storage-service-encryption.md).
 
 #### <a name="amazon-s3"></a>Amazon S3
-Amazon S3 biedt ondersteuning voor de client- en versleuteling van data-at-rest. Zie voor meer informatie, [gegevens beveiligen met behulp van versleuteling](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html).
+Amazon S3 biedt ondersteuning voor de client- en versleuteling van data-at-rest. Zie voor meer informatie, [gegevens beveiligen met behulp van versleuteling](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html).
 
 #### <a name="amazon-redshift"></a>Amazon Redshift
-Amazon Redshift ondersteunt cluster versleuteling voor data-at-rest. Zie voor meer informatie, [Amazon Redshift-Databaseversleuteling](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html). 
+Amazon Redshift ondersteunt cluster versleuteling voor data-at-rest. Zie voor meer informatie, [Amazon Redshift-Databaseversleuteling](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html). 
 
 #### <a name="salesforce"></a>SalesForce
 SalesForce ondersteunt Shield Platform versleuteling waarmee het coderen van alle bestanden, bijlagen en aangepaste velden. Zie voor meer informatie, [inzicht in de Web Server OAuth-Verificatiestroom](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm).  
@@ -186,7 +186,7 @@ De volgende cloud-gegevensarchieven vereisen dat u goedgekeurde IP-adres van de 
 - [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../cosmos-db/firewall-support.md)
-- [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
+- [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 

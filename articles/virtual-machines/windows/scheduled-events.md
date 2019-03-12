@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 9130bf5c2708f7eecf6fc1b5db2ffbb3c2fffc30
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: c9bd14128a6874f06983aa99ebb5a8a9a85843a2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201275"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550669"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata Service: Geplande gebeurtenissen voor Windows-VM 's
 
@@ -52,7 +52,7 @@ Geplande gebeurtenissen biedt gebeurtenissen in de volgende gevallen gebruik:
 
 Informatie over het uitvoeren van virtuele Machines met een REST-eindpunt dat toegankelijk is vanuit de virtuele machine wordt aangegeven dat Azure Metadata-service. De informatie is beschikbaar via een niet-routeerbare IP-adres zodat deze niet zichtbaar buiten de virtuele machine wordt gemaakt.
 
-### <a name="endpoint-discovery"></a>Eindpuntdetectie
+### <a name="endpoint-discovery"></a>Endpoint Discovery
 Voor VNET ingeschakeld virtuele machines, de metadata-service is beschikbaar via een statische niet-routeerbare IP-adres, `169.254.169.254`. De volledige-eindpunt voor de nieuwste versie van geplande gebeurtenissen is: 
 
  > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01`
@@ -105,7 +105,7 @@ In het geval waarbij er geplande gebeurtenissen, het antwoord bevat een reeks ge
             "ResourceType": "VirtualMachine",
             "Resources": [{resourceName}],
             "EventStatus": "Scheduled" | "Started",
-            "NotBefore": {timeInUTC},              
+            "NotBefore": {timeInUTC},
         }
     ]
 }
@@ -179,7 +179,7 @@ function Get-ScheduledEvents($uri)
 
 # How to approve a scheduled event
 function Approve-ScheduledEvent($eventId, $uri)
-{    
+{
     # Create the Scheduled Events Approval Document
     $startRequests = [array]@{"EventId" = $eventId}
     $scheduledEventsApproval = @{"StartRequests" = $startRequests} 

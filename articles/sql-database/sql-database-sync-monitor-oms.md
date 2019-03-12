@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: a1f2b0e3095718caad7c35a20bf7e91c88568364
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 1417907bf9472137677a090906fa173c3d1ea571
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213463"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539289"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>SQL Data Sync bewaken met Azure Monitor-Logboeken 
 
@@ -32,7 +32,7 @@ Zie [Gegevens synchroniseren tussen meerdere cloud- en on-premises databases met
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Dashboard van de controle voor alle synchronisatiegroepen 
 
-U moet niet meer om te zoeken via de logboeken van elke Synchronisatiegroep afzonderlijk op zoek naar problemen. U kunt alle synchronisatiegroepen uit een van uw abonnementen op één plek bewaken met behulp van een aangepaste log analytics-weergave. In deze weergave toont de informatie die belangrijk is voor klanten met SQL Data Sync.
+U moet niet meer om te zoeken via de logboeken van elke Synchronisatiegroep afzonderlijk op zoek naar problemen. U kunt alle synchronisatiegroepen uit een van uw abonnementen op één plek bewaken met behulp van een aangepaste weergave van Azure Monitor. In deze weergave toont de informatie die belangrijk is voor klanten met SQL Data Sync.
 
 ![Gegevens synchroniseren bewakingsdashboard](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.png)
 
@@ -50,9 +50,9 @@ U moet drie onderdelen configureren:
 
 -   Een PowerShell-runbook om gegevens van een SQL Data Sync naar Azure Monitor-Logboeken.
 
--   Een log analytics-waarschuwing voor e-mailmeldingen.
+-   Een Azure Monitor-waarschuwing voor e-mailmeldingen.
 
--   Een log analytics weergeven voor de bewaking.
+-   Een Azure Monitor-weergave voor de bewaking.
 
 ### <a name="samples-to-download"></a>Voorbeelden downloaden
 
@@ -60,7 +60,7 @@ Download de volgende twee voorbeelden:
 
 -   [Gegevens synchroniseren Log PowerShell-Runbook](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [Gegevens synchroniseren Log Analytics-weergave](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [Gegevens synchroniseren met Azure Monitor weergeven](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ### <a name="prerequisites"></a>Vereisten
 
@@ -130,7 +130,7 @@ Het runbook plannen:
 
 Om te controleren of uw automation wordt uitgevoerd zoals verwacht, onder **overzicht** vinden voor uw automation-account, de **taakstatistieken** weergeven onder **bewaking**. Zet deze weergave aan uw dashboard voor eenvoudige weergave vast. Geslaagde uitvoeringen van het runbook als 'Voltooid' weergeven en mislukte uitvoeringen weergegeven als 'Mislukt'.
 
-## <a name="create-a-log-analytics-reader-alert-for-email-notifications"></a>Een waarschuwing in Log Analytics-lezer voor e-mailmeldingen maken
+## <a name="create-an-azure-monitor-reader-alert-for-email-notifications"></a>Een waarschuwing met Azure Monitor-lezer voor e-mailmeldingen maken
 
 Voor het maken van een waarschuwing die gebruikmaakt van Azure Monitor-Logboeken, kunt u de volgende dingen doen. Als een vereiste moet u logboeken van Azure Monitor is gekoppeld met een Log Analytics-werkruimte.
 
@@ -152,9 +152,9 @@ Voor het maken van een waarschuwing die gebruikmaakt van Azure Monitor-Logboeken
 
 6.  Klik op **Opslaan**. De opgegeven ontvangers wordt nu een e-mailmeldingen ontvangen wanneer er fouten optreden.
 
-## <a name="create-a-log-analytics-view-for-monitoring"></a>Een Log Analytics-weergave maken voor het bewaken van
+## <a name="create-an-azure-monitor-view-for-monitoring"></a>Een weergave met een Azure Monitor voor het bewaken van maken
 
-Deze stap maakt u een log analytics-weergave voor de opgegeven synchronisatiegroepen visueel te controleren. De weergave bevat verschillende onderdelen:
+Deze stap maakt u een overzicht van Azure Monitor voor het controleren van de opgegeven synchronisatiegroepen visueel. De weergave bevat verschillende onderdelen:
 
 -   Een overzichtstegel ziet u hoeveel fouten, voltooide bewerkingen en waarschuwingen voor alle synchronisatiegroepen hebben.
 
@@ -162,9 +162,9 @@ Deze stap maakt u een log analytics-weergave voor de opgegeven synchronisatiegro
 
 -   Een tegel voor elke groep voor synchronisatie, waarin het aantal fouten, is voltooid, en waarschuwingen en de recente foutberichten worden weergegeven.
 
-Voor het configureren van de log analytics-weergave, moet u de volgende dingen doen:
+Voor het configureren van de weergave van Azure Monitor, moet u de volgende dingen doen:
 
-1.  Selecteer het plusteken aan de linkerkant om te openen op de startpagina van log analytics de **weergaveontwerper**.
+1.  Selecteer het plusteken aan de linkerkant om te openen op de startpagina van Log Analytics-werkruimte de **weergaveontwerper**.
 
 2.  Selecteer **importeren** op de bovenste balk van de ontwerper. Selecteer vervolgens het voorbeeldbestand 'DataSyncLogOMSView'.
 
@@ -196,7 +196,7 @@ Download de codevoorbeelden in dit artikel uit de volgende locaties beschreven:
 
 -   [Gegevens synchroniseren Log PowerShell-Runbook](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [Gegevens synchroniseren Log Analytics-weergave](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [Gegevens synchroniseren met Azure Monitor weergeven](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende onderwerpen voor meer informatie over SQL Data Sync:

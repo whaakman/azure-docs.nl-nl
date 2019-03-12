@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6e2fafa398b09d0822c4582e196345b812e6fc52
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 68f82c7e5b66cf94824bde930923f11423046e9a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54392243"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544253"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>De bewaking op afstand oplossingsversnellers implementeren lokaal - Visual Studio Code
 
@@ -34,7 +34,7 @@ Voor het voltooien van de lokale implementatie, moet u de volgende hulpprogramma
 * [Git](https://git-scm.com/)
 * [.Net Core](https://dotnet.microsoft.com/download)
 * [Docker](https://www.docker.com)
-* [Nginx](http://nginx.org/en/download.html)
+* [Nginx](https://nginx.org/en/download.html)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [VS-Code C# extensie](https://code.visualstudio.com/docs/languages/csharp)
 * [Node.js v8](https://nodejs.org/) -deze software is een vereiste voor de CLI PCS die de scripts gebruiken voor het maken van Azure-resources. Gebruik geen Node.js v10
@@ -88,7 +88,7 @@ Instellen van een reverse proxy-server om de web-App en microservices die worden
 * Kopieer de **nginx.conf** -bestand uit de **webui\scripts\localhost** map die u wilt de **nginx\conf** directory installeren.
 * Voer **nginx**.
 
-Voor meer informatie over het uitvoeren **nginx**, Zie [nginx voor Windows](http://nginx.org/en/docs/windows.html).
+Voor meer informatie over het uitvoeren **nginx**, Zie [nginx voor Windows](https://nginx.org/en/docs/windows.html).
 
 ### <a name="connect-to-the-dashboard"></a>Verbinding maken met het dashboard
 

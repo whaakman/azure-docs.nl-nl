@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: fe671dec730cd1a593c6413c38625677c3f9d164
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 6c71956bf43a0147d5abff4b708be93f62fe34fa
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894102"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545034"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Voorspellende pijplijnen maken met Azure Machine Learning en Azure Data Factory
 
@@ -303,7 +303,7 @@ Het is raadzaam dat u doorloopt de [uw eerste pijplijn met Data Factory maken] [
     }
     ```
 
-      Beide **start** en **end** datum/tijd moet zich in [ISO-indeling](http://en.wikipedia.org/wiki/ISO_8601). Bijvoorbeeld: 2014-10-14T16:32:41Z. De **end** is optioneel. Als u geen waarde voor de **end** eigenschap, wordt berekend als '**start + 48 uur.**" Als u de pijplijn voor onbepaalde tijd wilt uitvoeren, geeft u **9999-09-09** op als waarde voor de eigenschap **end**. Zie de [naslaginformatie voor JSON-scriptverwerking](https://msdn.microsoft.com/library/dn835050.aspx) voor meer informatie over de JSON-eigenschappen.
+      Beide **start** en **end** datum/tijd moet zich in [ISO-indeling](https://en.wikipedia.org/wiki/ISO_8601). Bijvoorbeeld: 2014-10-14T16:32:41Z. De **end** is optioneel. Als u geen waarde voor de **end** eigenschap, wordt berekend als '**start + 48 uur.**" Als u de pijplijn voor onbepaalde tijd wilt uitvoeren, geeft u **9999-09-09** op als waarde voor de eigenschap **end**. Zie de [naslaginformatie voor JSON-scriptverwerking](https://msdn.microsoft.com/library/dn835050.aspx) voor meer informatie over de JSON-eigenschappen.
 
       > [!NOTE]
       > Activiteit is op te geven voor de AzureMLBatchExecution invoer optioneel.
@@ -407,7 +407,7 @@ Wanneer u de reader-module in een Azure Machine Learning-experiment, kunt u Azur
 In de bovenstaande JSON-voorbeeld:
 
 * De geïmplementeerde Azure Machine Learning-webservice gebruikt een lezer en een schrijfmodule voor lezen/schrijven van gegevens van/naar een Azure SQL Database. Deze webservice wordt aangegeven dat de volgende vier parameters:  Database-servernaam, databasenaam, gebruikersnaam voor account Server en Server het wachtwoord voor gebruikersaccount.
-* Beide **start** en **end** datum/tijd moet zich in [ISO-indeling](http://en.wikipedia.org/wiki/ISO_8601). Bijvoorbeeld: 2014-10-14T16:32:41Z. De **end** is optioneel. Als u geen waarde voor de **end** eigenschap, wordt berekend als '**start + 48 uur.**" Als u de pijplijn voor onbepaalde tijd wilt uitvoeren, geeft u **9999-09-09** op als waarde voor de eigenschap **end**. Zie de [naslaginformatie voor JSON-scriptverwerking](https://msdn.microsoft.com/library/dn835050.aspx) voor meer informatie over de JSON-eigenschappen.
+* Beide **start** en **end** datum/tijd moet zich in [ISO-indeling](https://en.wikipedia.org/wiki/ISO_8601). Bijvoorbeeld: 2014-10-14T16:32:41Z. De **end** is optioneel. Als u geen waarde voor de **end** eigenschap, wordt berekend als '**start + 48 uur.**" Als u de pijplijn voor onbepaalde tijd wilt uitvoeren, geeft u **9999-09-09** op als waarde voor de eigenschap **end**. Zie de [naslaginformatie voor JSON-scriptverwerking](https://msdn.microsoft.com/library/dn835050.aspx) voor meer informatie over de JSON-eigenschappen.
 
 ### <a name="other-scenarios"></a>Andere scenario's
 #### <a name="web-service-requires-multiple-inputs"></a>Web-service vereist meerdere invoergegevens
@@ -555,7 +555,7 @@ Een veelvoorkomend scenario voor het gebruik van webserviceparameters is het geb
 Zie voor meer informatie over Azure-Blob/Azure SQL-reader/writer [lezer](https://msdn.microsoft.com/library/azure/dn905997.aspx) en [schrijver](https://msdn.microsoft.com/library/azure/dn905984.aspx) -onderwerpen op MSDN-bibliotheek. Het voorbeeld in de vorige sectie gebruikt de Azure Blob-lezer en Azure Blob-schrijver. In deze sectie beschrijft het gebruik van Azure SQL-reader en Azure SQL writer.
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
-**VRAAG:** Ik heb meerdere bestanden die worden gegenereerd door mijn big data-pijplijnen. Kan ik de AzureMLBatchExecution-activiteit gebruiken om te werken op alle bestanden?
+**V:** Ik heb meerdere bestanden die worden gegenereerd door mijn big data-pijplijnen. Kan ik de AzureMLBatchExecution-activiteit gebruiken om te werken op alle bestanden?
 
 **A:** Ja. Zie de **met behulp van een module Reader gegevens lezen uit meerdere bestanden in Azure Blob** sectie voor meer informatie.
 
@@ -634,4 +634,4 @@ U kunt ook [Data Factory-functies](data-factory-functions-variables.md) in het d
 
 [adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md
 
-[azure-machine-learning]: http://azure.microsoft.com/services/machine-learning/
+[azure-machine-learning]: https://azure.microsoft.com/services/machine-learning/

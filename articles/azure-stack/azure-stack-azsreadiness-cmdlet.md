@@ -11,17 +11,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 861784a2d22d15253c61884bfab62667c0560bcd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 63de39fa97850c1df72bdcd964ed670e4e8b0608
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250636"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767189"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Start-AzsReadinessChecker cmdlet-verwijzing
 
@@ -164,7 +164,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-## <a name="description"></a>Beschrijving
+## <a name="description"></a>Description
 
 De **Start AzsReadinessChecker** cmdlet valideert certificaten, Azure-accounts, Azure-abonnementen en Azure Active Directory's. Validatie voordat u implementeert Azure Stack, of voor Azure Stack bewerkingen zoals het geheim rotatie onderhoud worden uitgevoerd. De cmdlet kan ook worden gebruikt voor het ondertekenen van certificaataanvragen genereren voor infrastructuur en eventueel PaaS certificaten.  Ten slotte de cmdlet opnieuw verpakken PFX-certificaten voor het oplossen van veelvoorkomende problemen met verpakking.
 
@@ -301,7 +301,7 @@ In dit voorbeeld wordt met het team implementatie of ondersteuning voor het rapp
 Hiermee geeft u de naam van de Azure Stack-implementatie de regio.
 |  |  |
 |----------------------------|--------------|
-|Type:                       |Reeks        |
+|Type:                       |String        |
 |Positie:                   |met de naam         |
 |Standaardwaarde:              |Geen          |
 |Pijpleidinginvoer accepteren:      |False         |
@@ -312,7 +312,7 @@ Hiermee geeft u de naam van de Azure Stack-implementatie de regio.
 Hiermee geeft u de Azure Stack-implementatie externe FQDN, ook de alias als ExternalFQDN en ExternalDomainName.
 |  |  |
 |----------------------------|--------------|
-|Type:                       |Reeks        |
+|Type:                       |String        |
 |Positie:                   |met de naam         |
 |Standaardwaarde:              |ExternalFQDN, ExternalDomainName |
 |Pijpleidinginvoer accepteren:      |False         |
@@ -323,7 +323,7 @@ Hiermee geeft u de Azure Stack-implementatie externe FQDN, ook de alias als Exte
 Hiermee geeft u de Azure Stack-implementatie Identiteitssysteem geldige waarden, AAD of ADFS, voor Azure Active Directory en Active Directory Federated Services respectievelijk.
 |  |  |
 |----------------------------|--------------|
-|Type:                       |Reeks        |
+|Type:                       |String        |
 |Positie:                   |met de naam         |
 |Standaardwaarde:              |Geen          |
 |Geldige waarden:               |'AAD','ADFS'  |
@@ -357,7 +357,7 @@ Hiermee geeft u de hash-tabel met paden en wachtwoorden voor PaaS-certificaten.
 Hiermee geeft u de Azure Stack-implementatie gegevens JSON-configuratiebestand. Dit bestand is gegenereerd voor de implementatie.
 |  |  |
 |----------------------------|---------|
-|Type:                       |Reeks   |
+|Type:                       |String   |
 |Positie:                   |met de naam    |
 |Standaardwaarde:              |Geen     |
 |Pijpleidinginvoer accepteren:      |False    |
@@ -368,7 +368,7 @@ Hiermee geeft u de Azure Stack-implementatie gegevens JSON-configuratiebestand. 
 Hiermee geeft u het pad naar een problematische certificaat dat is vereist voor importeren/exporteren routine om op te lossen, zoals aangegeven door de certificaatvalidatie van het in dit hulpprogramma.
 |  |  |
 |----------------------------|---------|
-|Type:                       |Reeks   |
+|Type:                       |String   |
 |Positie:                   |met de naam    |
 |Standaardwaarde:              |Geen     |
 |Pijpleidinginvoer accepteren:      |False    |
@@ -379,7 +379,7 @@ Hiermee geeft u het pad naar een problematische certificaat dat is vereist voor 
 Hiermee geeft u het doelpad voor het resulterende PFX-bestand van import/export-routine.  
 |  |  |
 |----------------------------|---------|
-|Type:                       |Reeks   |
+|Type:                       |String   |
 |Positie:                   |met de naam    |
 |Standaardwaarde:              |Geen     |
 |Pijpleidinginvoer accepteren:      |False    |
@@ -405,7 +405,7 @@ Hiermee geeft u de SAN-type van de certificaataanvraag. Geldige waarden Multiple
 
 |  |  |
 |----------------------------|---------|
-|Type:                       |Reeks   |
+|Type:                       |String   |
 |Positie:                   |met de naam    |
 |Standaardwaarde:              |Geen     |
 |Geldige waarden:               |'MultipleCSR','SingleCSR' |
@@ -417,7 +417,7 @@ Hiermee geeft u de SAN-type van de certificaataanvraag. Geldige waarden Multiple
 Hiermee geeft u het doelpad voor aanvraag certificaatbestanden, map moet bestaan.
 |  |  |
 |----------------------------|---------|
-|Type:                       |Reeks   |
+|Type:                       |String   |
 |Positie:                   |met de naam    |
 |Standaardwaarde:              |Geen     |
 |Pijpleidinginvoer accepteren:      |False    |
@@ -439,7 +439,7 @@ Hiermee geeft u een beheerder van Azure Active Directory Service moet worden geb
 Hiermee geeft u de Azure Active Directory-naam moet worden gebruikt voor Azure Stack-implementatie.
 |  |  |
 |----------------------------|---------|
-|Type:                       |Reeks   |
+|Type:                       |String   |
 |Positie:                   |met de naam    |
 |Standaardwaarde:              |Geen     |
 |Pijpleidinginvoer accepteren:      |False    |
@@ -450,7 +450,7 @@ Hiermee geeft u de Azure Active Directory-naam moet worden gebruikt voor Azure S
 Hiermee geeft u het exemplaar van Azure-Services met de accounts, mappen en abonnementen worden gebruikt voor Azure Stack-implementatie en de registratie.
 |  |  |
 |----------------------------|---------|
-|Type:                       |Reeks   |
+|Type:                       |String   |
 |Positie:                   |met de naam    |
 |Standaardwaarde:              |Geen     |
 |Geldige waarden:               |'AzureCloud','AzureChinaCloud','AzureUSGovernment' |
@@ -462,7 +462,7 @@ Hiermee geeft u het exemplaar van Azure-Services met de accounts, mappen en abon
 Hiermee geeft u de registratie-Account moet worden gebruikt voor registratie in Azure Stack.
 |  |  |
 |----------------------------|---------|
-|Type:                       |Reeks   |
+|Type:                       |String   |
 |Positie:                   |met de naam    |
 |Standaardwaarde:              |Geen     |
 |Pijpleidinginvoer accepteren:      |False    |
@@ -473,7 +473,7 @@ Hiermee geeft u de registratie-Account moet worden gebruikt voor registratie in 
 Hiermee geeft u de registratie abonnements-ID moet worden gebruikt voor registratie in Azure Stack.
 |  |  |
 |----------------------------|---------|
-|Type:                       |GUID     |
+|Type:                       |Guid     |
 |Positie:                   |met de naam    |
 |Standaardwaarde:              |Geen     |
 |Pijpleidinginvoer accepteren:      |False    |
@@ -484,7 +484,7 @@ Hiermee geeft u de registratie abonnements-ID moet worden gebruikt voor registra
 Hiermee geeft u pad voor gereedheid rapport, standaard ingesteld op de huidige map en de standaard rapportnaam.
 |  |  |
 |----------------------------|---------|
-|Type:                       |Reeks   |
+|Type:                       |String   |
 |Positie:                   |met de naam    |
 |Standaardwaarde:              |Alle      |
 |Pijpleidinginvoer accepteren:      |False    |
@@ -506,7 +506,7 @@ ACSBlob, ACSQueue, ACSTable, ADFS, Admin Portal, ARM Admin, ARM Public, Graph, K
 
 |  |  |
 |----------------------------|---------|
-|Type:                       |Reeks   |
+|Type:                       |String   |
 |Positie:                   |met de naam    |
 |Standaardwaarde:              |. \Certificates |
 |Pijpleidinginvoer accepteren:      |False    |
@@ -529,7 +529,7 @@ Hiermee geeft u als PaaS-services/hostnamen moeten worden toegevoegd aan het cer
 Hiermee geeft u op of het rapport alleen samenvatting weergeven Details weggelaten.
 |  |  |
 |----------------------------|---------|
-|Type:                       |Reeks   |
+|Type:                       |String   |
 |Positie:                   |met de naam    |
 |Standaardwaarde:              |Alle      |
 |Geldige waarden:               |'Certificate','AzureRegistration','AzureIdentity','Jobs','All' |
@@ -565,7 +565,7 @@ Hiermee geeft u een aangepast pad om op te slaan van de gereedheid van de JSON-r
 
 |  |  |
 |----------------------------|------------------|
-|Type:                       |Reeks            |
+|Type:                       |String            |
 |Positie:                   |met de naam             |
 |Standaardwaarde:              |$ENV:TEMP\AzsReadinessChecker  |
 |Pijpleidinginvoer accepteren:      |False             |

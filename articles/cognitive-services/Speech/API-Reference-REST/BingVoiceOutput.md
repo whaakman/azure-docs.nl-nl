@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: priyar
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: f7620c29e7d00a06be6d14740f05cc7543e49837
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 8f7de542610731f88104591dc27baac1406a9514
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674562"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548401"
 ---
 # <a name="bing-text-to-speech-api"></a>Bing text to speech-API
 
@@ -71,7 +71,7 @@ Autorisatie | Autorisatietoken |  Zie de <a href="#Subscription">Autorisatietoke
 
 ### <a name="InputParam"></a>Invoerparameters
 
-Aanvragen voor Bing text to speech-API worden gedaan met behulp van HTTP POST-aanroepen. De headers zijn opgegeven in de vorige sectie. De hoofdtekst bevat invoer spraak synthese Markup Language (SSML) waarmee de tekst die moet worden gemaakt. Zie voor een beschrijving van de markering die wordt gebruikt voor het beheren aspecten van spraakherkenning, zoals de taal en geslacht van de spreker analyseren, de [SSML W3C-specificatie](http://www.w3.org/TR/speech-synthesis/).
+Aanvragen voor Bing text to speech-API worden gedaan met behulp van HTTP POST-aanroepen. De headers zijn opgegeven in de vorige sectie. De hoofdtekst bevat invoer spraak synthese Markup Language (SSML) waarmee de tekst die moet worden gemaakt. Zie voor een beschrijving van de markering die wordt gebruikt voor het beheren aspecten van spraakherkenning, zoals de taal en geslacht van de spreker analyseren, de [SSML W3C-specificatie](https://www.w3.org/TR/speech-synthesis/).
 
 >[!NOTE]
 >De maximale grootte van de invoer SSML die wordt ondersteund is 1024 tekens, inclusief alle tags.
@@ -141,42 +141,42 @@ Voice name not supported
 
 ## <a name="ChangeSSML"></a>Voice-uitvoer via SSML wijzigen
 
-Text to Speech-API van Microsoft SSML 1.0 ondersteunt, zoals gedefinieerd in W3C [spraak synthese Markup Language (SSML) versie 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/). In deze sectie ziet u voorbeelden van het wijzigen van bepaalde kenmerken van de gegenereerde voice-uitvoer zoals spreekstijl beoordelen, enz. met behulp van tags SSML uitspraak.
+Text to Speech-API van Microsoft SSML 1.0 ondersteunt, zoals gedefinieerd in W3C [spraak synthese Markup Language (SSML) versie 1.0](https://www.w3.org/TR/2009/REC-speech-synthesis-20090303/). In deze sectie ziet u voorbeelden van het wijzigen van bepaalde kenmerken van de gegenereerde voice-uitvoer zoals spreekstijl beoordelen, enz. met behulp van tags SSML uitspraak.
 
 1. Einde toevoegen
 
   ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)'> Welcome to use Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.</voice> </speak>
+  <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)'> Welcome to use Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.</voice> </speak>
   ```
 
 2. Snelheid van spreken wijzigen
 
   ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody rate="+30.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
+  <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody rate="+30.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
   ```
 
 3. Uitspraak van
 
   ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'> <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme></voice> </speak>
+  <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'> <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme></voice> </speak>
   ```
 
 4. Volume wijzigen
 
   ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody volume="+20.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
+  <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody volume="+20.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
   ```
 
 5. Breedte wijzigen
 
   ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>Welcome to use <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
+  <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>Welcome to use <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
   ```
 
 6. Wijziging prosody contour
 
   ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody contour="(80%,+20%) (90%,+30%)" >Good morning.</prosody></voice> </speak>
+  <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody contour="(80%,+20%) (90%,+30%)" >Good morning.</prosody></voice> </speak>
   ```
 
 > [!NOTE]

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 20e7f8f5d2c0eb9fbfb231adfd20ff54d9eda20a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: dc5bfe6b431659b7b99140eb29a0e64922a42275
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404192"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576331"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Gebruik IoT Hub-berichtroutering apparaat-naar-cloud-berichten te verzenden naar verschillende eindpunten
 
@@ -39,7 +39,7 @@ U kunt standard [Event Hubs-integratie en SDK's](iot-hub-devguide-messages-read-
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 
-IoT Hub worden ondersteund voor het schrijven van gegevens naar Azure Blob-opslag in de [Apache Avro](http://avro.apache.org/) en JSON-indeling. De mogelijkheid voor het coderen van JSON-indeling is in preview in alle regio's die IOT Hub verkrijgbaar in, met uitzondering van VS-Oost, VS-West en West-Europa is. De standaardwaarde is AVRO. U kunt de coderingsindeling met behulp van de IoT Hub maken of bijwerken REST API, specifiek selecteren de [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), de Azure-Portal [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest#optional-parameters) of de [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0#optional-parameters). De coderingsindeling kan alleen worden ingesteld als het eindpunt van blob storage is geconfigureerd. De indeling kan niet worden bewerkt voor een bestaand eindpunt. Het volgende diagram toont hoe u de coderingsindeling selecteert in de Azure Portal.
+IoT Hub worden ondersteund voor het schrijven van gegevens naar Azure Blob-opslag in de [Apache Avro](https://avro.apache.org/) en JSON-indeling. De mogelijkheid voor het coderen van JSON-indeling is in preview in alle regio's die IOT Hub verkrijgbaar in, met uitzondering van VS-Oost, VS-West en West-Europa is. De standaardwaarde is AVRO. De coderingsindeling kan alleen worden ingesteld als het eindpunt van blob storage is geconfigureerd. De indeling kan niet worden bewerkt voor een bestaand eindpunt. Wanneer u de JSON-codering, moet u de contentType instellen in JSON en beperking contentEncoding naar UTF-8 in het bericht [Systeemeigenschappen](iot-hub-devguide-routing-query-syntax.md#system-properties). U kunt de coderingsindeling met behulp van de IoT Hub maken of bijwerken REST API, specifiek selecteren de [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), de Azure-Portal [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest) of de [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). Het volgende diagram toont hoe u de coderingsindeling selecteert in de Azure Portal.
 
 ![BLOB storage endpoint codering](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
@@ -118,6 +118,8 @@ In de meeste gevallen is de gemiddelde toename in latentie van minder dan 500 ms
 ## <a name="monitoring-and-troubleshooting"></a>Bewaking en probleemoplossing
 
 IoT Hub biedt verschillende Routering en eindpunt verwante metrische gegevens waarin u een overzicht van de status van uw hub en de berichten die worden verzonden. U kunt gegevens uit meerdere metrische gegevens om de hoofdoorzaak van problemen vast te combineren. Gebruik bijvoorbeeld de statistiek voor **routering: telemetrieberichten verwijderd** of **d2c.telemetry.egress.dropped** voor het identificeren van het aantal berichten dat is verwijderd als ze niet overeenkomen met de query's op een van de routes en alternatieve route is uitgeschakeld. [Metrische gegevens van IoT-Hub](iot-hub-metrics.md) geeft een lijst van alle metrische gegevens die zijn standaard ingeschakeld voor uw IoT-Hub.
+
+U kunt de REST-API gebruiken [Endpoint-status ophalen](https://docs.microsoft.com/de-de/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) om op te halen [de integriteitsstatus van de](iot-hub-devguide-endpoints.md#custom-endpoints) van de eindpunten. Wordt u aangeraden de [metrische gegevens van IoT-Hub](iot-hub-metrics.md) met betrekking tot routering bericht latentie om te bepalen en fouten opsporen, wanneer de status van het eindpunt dode of niet in orde is. Bijvoorbeeld, voor het eindpunt van het type Event Hubs, kunt u controleren **d2c.endpoints.latency.eventHubs**. De status van een eindpunt niet in orde wordt bijgewerkt op in orde wanneer IoT Hub heeft een uiteindelijke consistente status van de gezondheid van tot stand worden gebracht.
 
 Met behulp van de **routes** diagnostische logboeken in Azure Monitor [diagnostische instellingen](../iot-hub/iot-hub-monitor-resource-health.md), kunt u de nummers fouten die tijdens de evaluatie van een routering query- en eindpunt status optreden zoals waargenomen door de IoT-Hub, bijvoorbeeld een eindpunt is als inactief. Deze logboeken met diagnostische gegevens kunnen worden verzonden naar Azure Monitor-Logboeken, Event Hubs of Azure Storage voor aangepaste verwerking.
 

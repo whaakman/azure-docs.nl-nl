@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 03/07/2019
 ms.author: danlep
-ms.openlocfilehash: e825e0bdd08db0e9c1b51c09859aba2e7c716f91
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: bf9f2be8a0854a6968f3be6bfdaf3a59fc81dc76
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856454"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57728962"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Azure Resource Manager-sjablonen voor Azure Container Instances
 
@@ -25,15 +25,16 @@ Zie voor de implementatie-opties, de [implementatie](#deployment) sectie. Als u 
 | | |
 |-|-|
 | **Toepassingen** ||
-| [WordPress][app-wp] | Hiermee maakt een WordPress-website en de MySQL-database in een containerexemplaar. De inhoud van de WordPress-site en MySQL-database zijn opgeslagen op een Azure-bestanden delen. |
+| [Wordpress][app-wp] | Hiermee maakt een WordPress-website en de MySQL-database in een containerexemplaar. De inhoud van de WordPress-site en MySQL-database zijn opgeslagen op een Azure-bestanden delen. |
 | [MS NAV met SQL Server en IIS][app-nav] | Implementeert een enkele Windows-container met een volledig functionele zichzelf Dynamics NAV / Dynamics 365 Business Central-omgeving. |
 | **Volumes** ||
 | [emptyDir][vol-emptydir] | Twee Linux-containers die delen van een volume emptyDir implementeert. |
-| [GitRepo][vol-gitrepo] | Hiermee wordt een Linux-container die een GitHub-opslagplaats te klonen en koppelt deze als een volume geïmplementeerd. |
-| [Geheim][vol-secret] | Hiermee wordt een Linux-container geïmplementeerd met een PFX-certificaat dat is gekoppeld als een geheime volume. |
+| [gitRepo][vol-gitrepo] | Hiermee wordt een Linux-container die een GitHub-opslagplaats te klonen en koppelt deze als een volume geïmplementeerd. |
+| [secret][vol-secret] | Hiermee wordt een Linux-container geïmplementeerd met een PFX-certificaat dat is gekoppeld als een geheime volume. |
 | **Netwerken** ||
-| [UDP-blootgesteld container][net-udp] | Hiermee wordt geïmplementeerd op een Windows- of Linux-container waarin wordt aangegeven dat een UDP-poort. |
+| [UDP-exposed container][net-udp] | Hiermee wordt geïmplementeerd op een Windows- of Linux-container waarin wordt aangegeven dat een UDP-poort. |
 | [Linux-containers met openbare IP-adres][net-publicip] | Implementeert een enkele Linux-container toegankelijk via een openbaar IP-adres. |
+| [Implementeren van een containergroep met een virtueel netwerk (preview)][net-vnet] | Hiermee wordt een nieuw virtueel netwerk, subnet, netwerkprofiel en containergroep geïmplementeerd. |
 | **Azure-resources** ||
 | [Azure Storage-account maken en delen van bestanden][az-files] | Maakt gebruik van de Azure CLI in een containerexemplaar om een opslagaccount en een Azure-bestandsshare te maken.
 
@@ -47,7 +48,7 @@ U hebt verschillende mogelijkheden voor het implementeren van resources met Reso
 
 [Azure-portal][deploy-portal]
 
-[REST-API][deploy-rest]
+[REST API][deploy-rest]
 
 <!-- LINKS - External -->
 [app-nav]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-dynamicsnav
@@ -55,6 +56,7 @@ U hebt verschillende mogelijkheden voor het implementeren van resources met Reso
 [az-files]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-storage-file-share
 [net-publicip]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-linuxcontainer-public-ip
 [net-udp]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-udp
+[net-vnet]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
 [repo]: https://github.com/Azure/azure-quickstart-templates
 [vol-emptydir]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-linuxcontainer-volume-emptydir
 [vol-gitrepo]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-linuxcontainer-volume-gitrepo

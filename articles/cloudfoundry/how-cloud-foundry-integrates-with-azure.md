@@ -1,6 +1,6 @@
 ---
 title: Hoe Cloud Foundry kan worden geïntegreerd met Azure | Microsoft Docs
-description: Hierin wordt beschreven hoe Azure-services ter verbetering van de ervaring Enterprice kunnen gebruikmaken van Cloud Foundry
+description: Beschrijft hoe Cloud Foundry Azure-services kunt gebruiken om de Enterprise-ervaring te verbeteren
 services: virtual-machines-linux
 documentationcenter: ''
 author: ningk
@@ -15,23 +15,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 908b7e40c0509d7034b86985ac0775635726a6b9
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 7cbffdd40e574c7e906a9388b70ca9d32fd84649
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329800"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550170"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Cloud Foundry integreren met Azure
 
-[Cloud Foundry](https://docs.cloudfoundry.org/) is een PaaS-platform uitgevoerd boven op cloudproviders IaaS-platform. Deze biedt toepassingen op een consistente implementatie-ervaring in de cloudproviders. Bovendien kan het ook integreren met verschillende Azure-services, met geavanceerde HA, schaalbaarheid en kostenbesparingen.
-Er zijn [6 subsystemen van de Cloud Foundry](https://docs.cloudfoundry.org/concepts/architecture/), die kan worden flexibel schalen online, met inbegrip van: Routering, verificatie, beheer van de levenscyclus van toepassingen, Service management, berichten en bewaking. U kunt Cloud Foundry voor gebruik van geadresseerde Azure-service configureren voor elk van de subsystemen. 
+[Cloud Foundry](https://docs.cloudfoundry.org/) is een PaaS-platform uitgevoerd boven op cloudproviders IaaS-platform. Deze biedt toepassingen op een consistente implementatie-ervaring in de cloudproviders. Het kan ook integreren met verschillende Azure-services, met geavanceerde HA, schaalbaarheid en kostenbesparingen.
+Er zijn [6 subsystemen van de Cloud Foundry](https://docs.cloudfoundry.org/concepts/architecture/), die kan worden flexibel schalen online, met inbegrip van: Routering, verificatie, beheer van de levenscyclus van toepassingen, Service management, berichten en bewaking. U kunt Cloud Foundry voor het gebruik van de geadresseerde Azure-service configureren voor elk van de subsystemen. 
 
 ![Cloud Foundry op Azure-integratie-architectuur](media/CFOnAzureEcosystem-colored.png)
 
 ## <a name="1-high-availability-and-scalability"></a>1. Hoge beschikbaarheid en schaalbaarheid
 ### <a name="managed-disk"></a>Managed Disk
-Bosh maakt gebruik van Azure KPI (Cloud Provider Interface) voor het maken van de schijf en routines verwijderen. Standaard, worden niet-beheerde schijven gebruikt. De klant handmatig maken van de storage-accounts en vervolgens configureert u de accounts in CF manifestbestanden is vereist. Dit komt door de beperking op het aantal schijven per opslagaccount gebruikt.
+Bosh maakt gebruik van Azure KPI (Cloud Provider Interface) voor het maken van de schijf en routines verwijderen. Standaard, worden niet-beheerde schijven gebruikt. De klant handmatig maken van de storage-accounts en vervolgens configureert u de accounts in CF manifestbestanden is vereist. Dit is vanwege de beperking op het aantal schijven per opslagaccount gebruikt.
 Nu [Managed Disk](https://azure.microsoft.com/services/managed-disks/) beschikbaar is, biedt een beheerde schijf van beveiligde en betrouwbare opslag voor virtuele machines. De klant is niet meer nodig hebt om op te lossen met de storage-account voor schaalbaarheid en HA. Azure worden de schijven automatisch gerangschikt. Of het nu een nieuwe of een bestaande implementatie, wordt de KPI Azure het maken of de migratie van de beheerde schijf tijdens de implementatie van een CF verwerken. Met PCF 1.11 wordt ondersteund. U kunt ook de open-source Cloud Foundry verkennen [Managed Disk-richtlijnen](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/managed-disks) ter referentie. 
 ### <a name="availability-zone-"></a>Binnen een Beschikbaarheidszone *
 Als een toepassingsplatform van cloud-native Cloud Foundry is ontworpen met [vier niveau van hoge beschikbaarheid](https://docs.pivotal.io/pivotalcf/2-1/concepts/high-availability.html). Tijdens de eerste drie niveaus van softwarefouten kunnen worden verwerkt door CF-systeem zelf wordt fouttolerantie platform wordt geleverd door cloudproviders. De hoofdonderdelen van CF moeten worden beveiligd met een van de cloudprovider platform HA-oplossing. Dit omvat GoRouters, Diego brein achter, CF-database en service-tegels. Standaard [Azure-Beschikbaarheidsset](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/deploy-cloudfoundry-with-availability-sets) wordt gebruikt voor fouttolerantie tussen clusters in een datacenter.
@@ -41,15 +41,15 @@ Azure-Beschikbaarheidszone HA bereikt door het plaatsen van een set van virtuele
 > Azure binnen een Beschikbaarheidszone is niet beschikbaar in alle regio's nog, controleert u de meest recente [aankondiging voor een lijst van ondersteunde regio's](https://docs.microsoft.com/azure/availability-zones/az-overview). Controleer voor Open Source Cloud Foundry, [Azure binnen een Beschikbaarheidszone voor open-source Cloud Foundry richtlijnen](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/availability-zone).
 
 ## <a name="2-network-routing"></a>2. De routering
-Azure basic load balancer wordt standaard gebruikt voor inkomende CF API/apps-aanvragen, stuurt deze door naar de Gorouters. CF-onderdelen, zoals Diego brein, MySQL, ERT kunt ook de load balancer gebruiken de om verkeer te verdelen voor hoge beschikbaarheid. Azure biedt bovendien een set van volledig beheerde oplossingen voor taakverdeling. Als u voor beëindiging van TLS ('SSL-offload') of per toepassing HTTP/HTTPS-laag aanvraagverwerking zoeken wilt, kunt u de Application Gateway. Voor hoge beschikbaarheid en schaalbaarheid voor taakverdeling van laag 4, kunt u de standaardversie van load balancer.
+Azure basic load balancer wordt standaard gebruikt voor inkomende CF API/apps-aanvragen, stuurt deze door naar de Gorouters. CF-onderdelen, zoals Diego brein, MySQL, ERT kunt ook de load balancer gebruiken de om verkeer te verdelen voor hoge beschikbaarheid. Azure biedt ook een set volledig beheerde oplossingen voor taakverdeling. Als u op zoek bent voor beëindiging van TLS ('SSL-offload') of per toepassing HTTP/HTTPS-laag aanvraagverwerking, kunt u de Application Gateway. Voor hoge beschikbaarheid en schaalbaarheid voor taakverdeling van laag 4, kunt u de standaardversie van load balancer.
 ### <a name="azure-application-gateway-"></a>Azure Application Gateway *
 [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) van laag 7 voor taakverdeling mogelijkheden, zoals het SSL-offloading, end-to-end SSL, Web Application Firewall, cookies gebaseerde sessieaffiniteit en meer biedt. U kunt [configureren van Application Gateway in Open Source Cloud Foundry](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/application-gateway). PCF, controleert u de [opmerkingen bij de release van PCF 2.1](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/opsmanager-rn.html#azure-application-gateway) voor POC-test.
 
 ### <a name="azure-standard-load-balancer-"></a>Azure Standard Load Balancer *
 Azure Load Balancer is een Layer 4 load balancer. Het wordt gebruikt voor het distribueren van het verkeer tussen exemplaren van services in een load balancer-set. De standard-versie biedt [geavanceerde functies](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) boven op de basic-versie. Voorbeeld 1. De maximale limiet voor back-end-pool is verhoogd van 100 tot 1000 virtuele machines.  2. De eindpunten bieden nu ondersteuning voor meerdere beschikbaarheidssets in plaats van één beschikbaarheidsset.  3. Aanvullende functies zoals HA-poorten, uitgebreidere bewakingsgegevens, enzovoort. Als u naar Azure binnen een Beschikbaarheidszone verplaatsen wilt, is standaardversie van load balancer vereist. Voor een nieuwe implementatie raden we u om te starten met Azure Standard Load Balancer. 
 
-## <a name="3-authentication"></a>3. Verificatie 
-[Cloud Foundry-gebruikersaccount en verificatie](https://docs.cloudfoundry.org/concepts/architecture/uaa.html) is de centrale identity management-service voor CF en de verschillende onderdelen. [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) is van Microsoft met meerdere tenants, cloudgebaseerde directory service- en identiteit. UAA wordt standaard gebruikt voor verificatie van de Cloud Foundry. Als een geavanceerde optie ondersteuning UAA ook voor Azure AD als een archief van de externe gebruiker. Azure AD-gebruikers hebben toegang tot Cloud Foundry met hun identiteit LDAP, zonder Cloud Foundry-account. Volg deze stappen om [configureren van de Azure AD voor UAA in PCF](http://docs.pivotal.io/p-identity/1-6/azure/index.html).
+## <a name="3-authentication"></a>3. Authentication 
+[Cloud Foundry-gebruikersaccount en verificatie](https://docs.cloudfoundry.org/concepts/architecture/uaa.html) is de centrale identity management-service voor CF en de verschillende onderdelen. [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) is van Microsoft met meerdere tenants, cloudgebaseerde directory service- en identiteit. UAA wordt standaard gebruikt voor verificatie van de Cloud Foundry. Als een geavanceerde optie ondersteuning UAA ook voor Azure AD als een archief van de externe gebruiker. Azure AD-gebruikers hebben toegang tot Cloud Foundry met hun identiteit LDAP, zonder Cloud Foundry-account. Volg deze stappen om [configureren van de Azure AD voor UAA in PCF](https://docs.pivotal.io/p-identity/1-6/azure/index.html).
 
 ## <a name="4-data-storage-for-cloud-foundry-runtime-system"></a>4. Gegevensopslag voor Cloud Foundry Runtime-systeem
 Cloud Foundry biedt uitstekende uitbreidbaarheid voor het gebruik van Azure-blobarchief of Azure MySQL/PostgreSQL-services voor opslag voor servertoepassingen runtime-systeem.
@@ -69,10 +69,12 @@ Standaard kan een lokaal systeem-database (MySQL) worden gebruikt. Voor hoge bes
 Azure service broker biedt een consistente interface voor het beheren van de toepassing toegang tot Azure-services. De nieuwe [Open Service Broker for Azure-project](https://github.com/Azure/open-service-broker-azure) biedt een enkel en eenvoudige manier voor het leveren van services voor toepassingen voor de Cloud Foundry, OpenShift en Kubernetes. Zie de [Azure Open Service Broker voor PCF tegel](https://network.pivotal.io/products/azure-open-service-broker-pcf/) voor implementatie-instructies op PCF.
 
 ## <a name="6-metrics-and-logging"></a>6. Metrische gegevens en logboekregistratie
-De Azure Log Analytics-pijp is een onderdeel Cloud Foundry, stuurt metrische gegevens van de [Cloud Foundry loggregator firehose](https://docs.cloudfoundry.org/loggregator/architecture.html) naar [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/). Met de Nozzle, kunt u verzamelen, weergeven en analyseren van uw CF system status en prestaties van metrische gegevens over meerdere implementaties.
-Klik op [hier](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-nozzle) voor informatie over het implementeren van de Azure Log Analytics-pijp voor Open Source- en Pivotal Cloud Foundry-omgeving en vervolgens toegang tot de gegevens uit de Azure Log Analytics-console. 
+De Azure Log Analytics-pijp is een onderdeel Cloud Foundry, stuurt metrische gegevens van de [Cloud Foundry loggregator firehose](https://docs.cloudfoundry.org/loggregator/architecture.html) naar [logboeken van Azure Monitor](https://azure.microsoft.com/services/log-analytics/). Met de Nozzle, kunt u verzamelen, weergeven en analyseren van uw CF system status en prestaties van metrische gegevens over meerdere implementaties.
+Klik op [hier](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-nozzle) voor informatie over het implementeren van de Azure Log Analytics-pijp voor Open Source- en Pivotal Cloud Foundry-omgeving en vervolgens toegang tot de gegevens van de Azure Monitor console registreert. 
 > [!NOTE]
-> PCF 2.0, metrische gegevens over gezondheid BOSH voor virtuele machines worden doorgestuurd naar de Loggregator Firehose standaard en zijn geïntegreerd in Azure Log Analytics-console.
+> PCF 2.0, metrische gegevens over gezondheid BOSH voor virtuele machines worden doorgestuurd naar de Loggregator Firehose standaard en zijn geïntegreerd in Azure Monitor Logboeken-console.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="7-cost-saving"></a>7. Kosten opslaan
 ### <a name="cost-saving-for-devtest-environments"></a>Geld besparen voor Dev/Test-omgevingen
@@ -85,7 +87,7 @@ Premium-schijven zijn aanbevolen voor betrouwbare prestaties in de productieomge
 Vandaag die alle CF-VM's worden gefactureerd op basis van 'on-demand' prijzen, hoewel de omgevingen doorgaans voor onbepaalde tijd blijven. U kunt nu capaciteit van de virtuele machine op een term 1 of 3 jaar gereserveerd en 45 en 65% kortingen krijgen. Kortingen zijn toegepast in het factureringssysteem, zonder wijzigingen in uw omgeving. Zie voor meer informatie, [hoe Azure reserveringen werkt](https://azure.microsoft.com/pricing/reserved-vm-instances/). 
 #### <a name="managed-premium-disk-with-smaller-sizes"></a>Beheerde Premium-schijf met kleinere: 
 Beheerde schijven ondersteuning kleinere schijfgrootten bijvoorbeeld P4(32 GB) en P6(64 GB) voor premium en standard-schijven. Als u kleine workloads hebt, kunt u kosten kunt opslaan bij het migreren van standard premium-schijven naar beheerde premium-schijven.
-#### <a name="utilizing-azure-first-party-services"></a>Met behulp van Azure Services voor de eerste partij: 
+#### <a name="use-azure-first-party-services"></a>Gebruik Azure-Services in eerste partij: 
 U profiteert van Azure de eigen service verlaagt de lange termijn beheer van kosten, naast de HA en -betrouwbaarheid de bovenstaande secties vermeld. 
 
 Pivotal heeft gestart een [kleine Footprint ERT](https://docs.pivotal.io/pivotalcf/2-0/customizing/small-footprint.html) voor PCF klanten, de onderdelen zich bevindt in slechts 4 virtuele machines, met tot 2500 exemplaren van de toepassing. De proefversie is nu beschikbaar via [Azure-marktplaats](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry).

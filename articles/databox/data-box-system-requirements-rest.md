@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: alkohli
-ms.openlocfilehash: b36926365b85c576cbe2927c690a30cc64df23d8
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 4ad607ad7ef1ee91ea9c886a76faabb0f304969d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752769"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538065"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Vereisten voor Azure Data Box-Blob-opslag
 
@@ -53,7 +53,7 @@ Openbare preview-versie (Azure Data Box 1.8 en hoger)
 |     Clientbibliotheek     |     Gegevens in Blob storage een ondersteunde versie     |     Koppeling             |     Eindpunt-specificatie         |
 |------------------------|-------------------------------------------------|---------------------------------------------|------------------------------------|
 |    .NET                |    Van 6.2.0 naar 8.7.0.                         |    Nuget-pakket:   https://www.nuget.org/packages/WindowsAzure.Storage/ <br>Release van GitHub:   https://github.com/Azure/azure-storage-net/releases                                                                      |    bestand App.config                 |
-|    Java                |    Van 4.1.0 naar 6.1.0                          |    Maven-pakket:   http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage   <br>Release van GitHub:   https://github.com/Azure/azure-storage-java/releases                                                      |    Verbindingsinstellingen voor tekenreeks         |
+|    Java                |    Van 4.1.0 naar 6.1.0                          |    Maven-pakket:   https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage   <br>Release van GitHub:   https://github.com/Azure/azure-storage-java/releases                                                      |    Verbindingsinstellingen voor tekenreeks         |
 |    Node.js             |    Van 1.1.0 naar 2.7.0                          |    Koppeling van NPM:   https://www.npmjs.com/package/azure-storage   (Bijvoorbeeld: Voer ' npm installeren azure-storage@2.7.0")   <br>Release van GitHub:   https://github.com/Azure/azure-storage-node/releases                            |    De declaratie van de service-exemplaar    |
 |    C++                 |    Van 2.4.0 naar 3.1.0                          |    Nuget-pakket:   https://www.nuget.org/packages/wastorage.v140/   <br>Release van GitHub:   https://github.com/Azure/azure-storage-cpp/releases                                                                            |    Verbindingsinstellingen voor tekenreeks         |
 |    PHP                 |    Van 0.15.0 naar 1.0.0                         |    Release van GitHub:   https://github.com/Azure/azure-storage-php/releases   <br>Via Composer installeren (Zie hieronder voor meer informatie)                                                                                                   |    Verbindingsinstellingen voor tekenreeks         |
@@ -69,7 +69,7 @@ Voor gegevens in Blob-opslag zijn er specifieke-clientbibliotheken en vereisten 
 | Clientbibliotheek     |Gegevens in Blob storage een ondersteunde versie     | Koppeling   |     Eindpunt-specificatie      |
 |--------------------|--------------------------------------------|--------|---------------------------------|
 |    .NET                |    8.7.0                                           |    Nuget-pakket:   https://www.nuget.org/packages/WindowsAzure.Storage/8.7.0    <br>Release van GitHub:   https://github.com/Azure/azure-storage-net/releases/tag/v8.7.0                                                                                                                                                                                               |    bestand App.config                 |
-|    Java                |    6.1.0                                           |    Maven-pakket:   http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>Release van GitHub:   https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0                                                                                                                                                                              |    Verbindingsinstellingen voor tekenreeks         |
+|    Java                |    6.1.0                                           |    Maven-pakket:   https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>Release van GitHub:   https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0                                                                                                                                                                              |    Verbindingsinstellingen voor tekenreeks         |
 |    Node.js             |    2.7.0                                           |    Koppeling van NPM:   https://www.npmjs.com/package/azure-storage   (Voer: npm installeren azure-storage@2.7.0)   <br>Release van GitHub:   https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0                                                                                                                                                                        |    De declaratie van de service-exemplaar    |
 |    C++                 |    3.1.0                                           |    Nuget-pakket:   https://www.nuget.org/packages/wastorage.v140/3.1.0   <br>Release van GitHub:   https://github.com/Azure/azure-storage-cpp/releases/tag/v3.1.0                                                                                                                                                                                                     |    Verbindingsinstellingen voor tekenreeks         |
 |    PHP                 |    1.0.0                                           |    Release van GitHub:<br>Algemene: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common   <br>Blob: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob      <br>Installeren via de Composer (voor meer informatie, Zie de onderstaande details.)                                                                                                             |    Verbindingsinstellingen voor tekenreeks         |

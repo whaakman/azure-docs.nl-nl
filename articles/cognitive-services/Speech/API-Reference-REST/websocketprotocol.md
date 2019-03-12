@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 35f1d75f28271cd7efc2911fe14de9ed6b525557
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 304df5cc96e7cf12cf74c319bee39f2369fc63e1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671740"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546344"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Bing Speech WebSocket-protocol
 
@@ -92,7 +92,7 @@ Clients *moet* ondersteuning bieden voor HTTP-cookies die zijn opgegeven in [RFC
 
 ### <a name="http-redirection"></a>HTTP-omleiding
 
-Clients *moet* ondersteuning voor de omleiding van standard-mechanismen opgegeven door de [HTTP protocol specification](http://www.w3.org/Protocols/rfc2616/rfc2616.html).
+Clients *moet* ondersteuning voor de omleiding van standard-mechanismen opgegeven door de [HTTP protocol specification](https://www.w3.org/Protocols/rfc2616/rfc2616.html).
 
 ### <a name="speech-endpoints"></a>Spraak-eindpunten
 

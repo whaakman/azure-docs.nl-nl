@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 615ce7ca5fbd14ee636a21bfc7184f0f8ccbc9f6
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 4b212ae884b184ffc60cdc0b3a2181a59efa3904
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341575"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760865"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>Validatie as a Service oplossen
 
@@ -103,7 +103,7 @@ Als de omgeving goed is, moet u handmatig de 5 VM-installatiekopieën vereist zi
     |---------|---------|
     | Uitgever | MicrosoftWindowsServer |
     | Aanbieding | WindowsServer |
-    | Type besturingssysteem | Windows |
+    | Het type besturingssysteem | Windows |
     | SKU | 2012-R2-Datacenter |
     | Versie | 1.0.0 |
     | Besturingssysteemschijf Blob-URI | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
@@ -113,7 +113,7 @@ Als de omgeving goed is, moet u handmatig de 5 VM-installatiekopieën vereist zi
 
 De eigenschappen van alle 5 VM-installatiekopieën zijn als volgt:
 
-| Uitgever  | Aanbieding  | Type besturingssysteem | SKU | Versie | Besturingssysteemschijf Blob-URI |
+| Uitgever  | Aanbieding  | Het type besturingssysteem | SKU | Versie | Besturingssysteemschijf Blob-URI |
 |---------|---------|---------|---------|---------|---------|
 | MicrosoftWindowsServer| WindowsServer | Windows | 2012-R2-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
 | MicrosoftWindowsServer | WindowsServer | Windows | 2016-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterFullBYOL.vhd |

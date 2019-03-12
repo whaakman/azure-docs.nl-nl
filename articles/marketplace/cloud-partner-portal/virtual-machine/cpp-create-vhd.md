@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 84e0d02f2608a6ee94ee409345e530357d394671
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bd085804f532811e71d421e3f683c50c1c3416cb
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233181"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575468"
 ---
 # <a name="create-an-azure-compatible-vhd"></a>Een Azure-compatibele VHD maken
 
@@ -33,7 +33,7 @@ Dit artikel vindt u de stappen die zijn vereist voor het maken van een virtuele 
 Het besturingssysteem VHD voor uw VM-installatiekopie moet worden gebaseerd op een Azure goedgekeurde basisinstallatiekopie met Windows Server of SQL Server.
 Om te beginnen een VM maken van een van de volgende installatiekopieën te vinden op de Microsoft Azure portal:
 
--   WindowsServer ([2016](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016), [2012 R2 Datacenter](https://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012r2datacenter/), [2012 Datacenter](https://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012datacenter/), [2008 R2 SP1](https://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2008r2sp1/))
+-   Windows Server ([2016](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016), [2012 R2 Datacenter](https://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012r2datacenter/), [2012 Datacenter](https://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012datacenter/), [2008 R2 SP1](https://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2008r2sp1/))
 -   [SQL Server 2014](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) (Enterprise, Standard, Web)
 -   [SQL Server 2012 SP2](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) (Enterprise, Standard, Web)
 
@@ -48,7 +48,7 @@ U kunt ook biedt Azure een scala aan goedgekeurde Linux-distributies.  Zie voor 
 In de Microsoft [Azure-portal](https://ms.portal.azure.com/), maken van de basisinstallatiekopie met behulp van de volgende stappen uit.
 
 1. Meld u aan bij de portal met het Microsoft-account voor het Azure-abonnement dat u wilt publiceren van uw VM-aanbieding.
-2. Maak een nieuwe resourcegroep en geef uw **groepsnaam voor Accountresources**, **abonnement**, en **resourcegroeplocatie**.  Zie voor meer richtlijnen [-resourcegroepen beheren](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal#manage-resource-groups).
+2. Maak een nieuwe resourcegroep en geef uw **groepsnaam voor Accountresources**, **abonnement**, en **resourcegroeplocatie**.  Zie voor meer richtlijnen [-resourcegroepen beheren](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
 3. Klik op **virtuele machines** in de menubalk linksboven om weer te geven van de pagina met details van virtuele machines. 
 4. In deze nieuwe pagina, klikt u op **+ toevoegen** om weer te geven de **Compute** blade.  Als u het VM-type niet op het eerste scherm ziet, u kunt zoeken naar de naam van de basis-VM, bijvoorbeeld:
 

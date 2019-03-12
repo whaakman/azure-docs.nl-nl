@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: jingwang
-ms.openlocfilehash: c4d694621e4ac5428256346e3994bc3233d399a2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f06dd47a519d992e52ac0010c0ae7d81870a4842
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441403"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544517"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Salesforce met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -48,7 +48,7 @@ SalesForce heeft limieten voor totaal aantal API-aanvragen en gelijktijdige API-
 - Als het aantal gelijktijdige aanvragen van de limiet overschrijdt, beperking optreedt en u willekeurige mislukte tests ziet.
 - Als het totale aantal aanvragen heeft de limiet overschrijdt, wordt het Salesforce-account is geblokkeerd voor 24 uur.
 
-U kunt ook het foutbericht 'REQUEST_LIMIT_EXCEEDED' in beide scenario's. Zie voor meer informatie de sectie 'Aanvraaglimieten API' in [Salesforce developer limieten](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf).
+U kunt ook het foutbericht 'REQUEST_LIMIT_EXCEEDED' in beide scenario's. Zie voor meer informatie de sectie 'Aanvraaglimieten API' in [Salesforce developer limieten](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf).
 
 ## <a name="get-started"></a>Aan de slag
 

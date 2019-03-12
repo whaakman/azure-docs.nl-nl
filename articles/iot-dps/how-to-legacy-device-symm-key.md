@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 963d03db2db811b44b1d89df8254f751ec7d3136
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: cf4ee8b1b9d96ad4d32a0ac8b1682968b90653f9
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877390"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541487"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Over het inrichten van verouderde apparaten met behulp van symmetrische sleutels
 
@@ -114,7 +114,7 @@ De SDK bevat de voorbeeldcode voor het gesimuleerde apparaat. Dit gesimuleerde a
 
 ## <a name="create-a-symmetric-key-enrollment-group"></a>Een symmetrische sleutel registratiegroep maken
 
-1. Aanmelden bij de [Azure-portal](http://portal.azure.com), en open uw Device Provisioning Service-exemplaar.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com), en open uw Device Provisioning Service-exemplaar.
 
 2. Selecteer de **registraties beheren** tabblad en klik vervolgens op de **toevoegen registratiegroep** knop aan de bovenkant van de pagina. 
 

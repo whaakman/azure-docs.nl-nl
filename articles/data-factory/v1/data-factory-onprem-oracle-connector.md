@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 28227ce9ebc5680f68c05cb1296a8ba35eac2c74
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 1dbac37e8b3bac5ee06ac3bdc3270c04efdcd408
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338345"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536688"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Naar of van Oracle on-premises gegevens kopiëren met behulp van Azure Data Factory
 
@@ -69,7 +69,7 @@ Deze connector Oracle bieden ondersteuning voor twee versies van stuurprogramma'
     > De Microsoft-stuurprogramma voor Oracle ondersteunt momenteel alleen kopiëren van gegevens van Oracle. Het stuurprogramma biedt geen ondersteuning voor het schrijven naar Oracle. De mogelijkheid van de verbinding testen op de Data Management Gateway **Diagnostics** tabblad biedt geen ondersteuning voor dit stuurprogramma. U kunt ook de wizard kopiëren gebruiken te valideren.
     >
 
-- **Oracle-gegevensprovider voor .NET**: U kunt de Oracle-gegevensprovider gebruiken om gegevens te kopiëren van of naar Oracle. Dit onderdeel is opgenomen in [Oracle Data Access-componenten voor Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Installeer de relevante versie (32-bits of 64-bits) op de computer waarop de gateway is geïnstalleerd. [Oracle-gegevensprovider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) hebben toegang tot Oracle Database 10 g Release 2 en hoger.
+- **Oracle-gegevensprovider voor .NET**: U kunt de Oracle-gegevensprovider gebruiken om gegevens te kopiëren van of naar Oracle. Dit onderdeel is opgenomen in [Oracle Data Access-componenten voor Windows](https://www.oracle.com/technetwork/topics/dotnet/downloads/). Installeer de relevante versie (32-bits of 64-bits) op de computer waarop de gateway is geïnstalleerd. [Oracle-gegevensprovider .NET 12.1](https://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) hebben toegang tot Oracle Database 10 g Release 2 en hoger.
 
     Als u selecteert **XCopy installatie**, de stappen die worden beschreven in het bestand Leesmij.htm. Het is raadzaam om het installatieprogramma met de gebruikersinterface (niet de XCopy-installatieprogramma) selecteren.
 
@@ -566,7 +566,7 @@ De pijplijn bevat een kopieeractiviteit die is geconfigureerd voor het gebruik v
 
 **Resolutie**
 
-* Als u de .NET-Provider voor Oracle, nog niet hebt geïnstalleerd [installeren](http://www.oracle.com/technetwork/topics/dotnet/downloads/), en probeer het scenario.
+* Als u de .NET-Provider voor Oracle, nog niet hebt geïnstalleerd [installeren](https://www.oracle.com/technetwork/topics/dotnet/downloads/), en probeer het scenario.
 * Als u het foutbericht ziet, zelfs nadat u de provider hebt geïnstalleerd, kunt u de volgende stappen:
     1. Open het configuratiebestand van de machine voor .NET 2.0 uit de map < systeemschijf\>: \Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
     2. Zoeken naar **Oracle-gegevensprovider voor .NET**. U moet kunnen geen vermelding vinden, zoals wordt weergegeven in het volgende voorbeeld onder **systeem.gegevens** > **DbProviderFactories**: `<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
@@ -617,7 +617,7 @@ Wanneer u gegevens van Oracle hebt verplaatst, worden de volgende toewijzingen v
 | TIMESTAMP |DateTime |
 | TIJDSTEMPEL MET DE LOKALE TIJDZONE |DateTime |
 | TIJDSTEMPEL MET TIJDZONE |DateTime |
-| GEHEEL GETAL ZONDER TEKEN |Getal |
+| GEHEEL GETAL ZONDER TEKEN |Aantal |
 | VARCHAR2 |String |
 | XML |String |
 

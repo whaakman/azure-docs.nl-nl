@@ -1,6 +1,6 @@
 ---
 title: Meer informatie over de functies in de edities van BizTalk Services | Microsoft Docs
-description: 'Vergelijk de mogelijkheden van de edities van BizTalk Services: Free, Developer, Basic, Standard en Premium. MABS, WABS.'
+description: 'Vergelijk de mogelijkheden van de edities van BizTalk Services: Gratis, Developer, Basic, Standard en Premium. MABS, WABS.'
 services: biztalk-services
 documentationcenter: ''
 author: MandiOhlinger
@@ -11,17 +11,17 @@ ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 8e25f98f1189f71943ece4a7877a86e29698689a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: d16bf73c1d9871e4de8940e4ab9bbd7ed0f39384
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240508"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765625"
 ---
-# <a name="biztalk-services-editions-chart"></a>BizTalk Services: grafiek van edities
+# <a name="biztalk-services-editions-chart"></a>BizTalk Services: Grafiek van edities
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
@@ -34,7 +34,7 @@ Kan hybride verbindingen maken en beheren. Een hybride verbinding is een eenvoud
 
 **Developer**
 
-Biedt hybride verbindingen, EAI- en EDI-berichtverwerking met een eenvoudig te gebruiken beheerportal voor handelspartners, ondersteuning voor algemene EDI-schema's en uitgebreide EDI-bewerking via X12 en AS2. U kunt algemene EAI-scenario's maken om verbinding te maken tussen services in de cloud en alle HTTP/S-, REST-, FTP-, WCF- en SFTP-protocollen om berichten te lezen en te schrijven.  U kunt gebruikmaken van de verbinding tussen on-premises LOB-systemen en kant-en-klare SAP-, Oracle eBusiness- Oracle DB-, Siebel- en SQL Server-adapters. Gebruik een op ontwikkelaars gerichte omgeving met Visual Studio-hulpprogramma’s, zodat u op een eenvoudige manier kunt ontwikkelen en implementeren. Alleen geschikt voor ontwikkelings- en testdoeleinden zonder Service Level Agreement (SLA).
+Biedt hybride verbindingen, EAI- en EDI-berichtverwerking met een eenvoudig te gebruiken beheerportal voor handelspartners, ondersteuning voor algemene EDI-schema's en uitgebreide EDI-bewerking via X12 en AS2. U kunt algemene EAI-scenario's maken om verbinding te maken tussen services in de cloud en alle HTTP/S-, REST-, FTP-, WCF- en SFTP-protocollen om berichten te lezen en te schrijven.  U kunt gebruikmaken van de verbinding tussen on-premises LOB-systemen en kant-en-klare SAP-, Oracle eBusiness- Oracle DB-, Siebel- en SQL Server-adapters. Gebruik een omgeving met speciaal voor ontwikkelaars met Visual Studio-hulpprogramma's voor eenvoudige ontwikkeling en implementatie. Alleen geschikt voor ontwikkelings- en testdoeleinden zonder Service Level Agreement (SLA).
 
 **Basic**
 
@@ -162,7 +162,7 @@ Voor Service Level Agreements (SLA) raadpleegt u <a HREF="https://go.microsoft.c
 <td>Inbegrepen</td>
 </tr>
 <tr>
-<td><strong>Back-up en herstel</strong></td>
+<td><strong>Back-ups maken en bestanden terugzetten</strong></td>
 <td>Niet inbegrepen</td>
 <td>Inbegrepen</td>
 <td>Inbegrepen</td>
@@ -239,20 +239,20 @@ Dan kunt u geen nieuwe bruggen implementeren en geen nieuwe overeenkomsten maken
 #### <a name="how-do-i-migrate-from-one-tier-of-biztalk-services-to-another"></a>Hoe migreer ik van één BizTalk Services-laag naar een andere?
 De editie Free kan niet worden gemigreerd of 'opgeschaald' naar een andere laag. Bovendien kunt u geen back-ups maken en herstellen naar een andere laag. Als u een andere laag nodig hebt, maakt u een nieuwe BizTalk Service met behulp van de nieuwe laag. Alle artefacten die zijn gemaakt met de editie Free, inclusief hybride verbindingen, moeten opnieuw worden gemaakt in de nieuwe BizTalk Service. 
 
-In de andere edities kunt u back-ups maken en deze herstellen om uw artefacten te migreren van één laag naar een andere. U kunt bijvoorbeeld een back-up maken van uw artefacten in de laag Standard en deze herstellen in de laag Premium. In [BizTalk Services: back-ups maken en herstellen](biztalk-backup-restore.md) worden de ondersteunde migratiepaden beschreven en ziet u van welke artefacten back-ups worden gemaakt. Houd er rekening mee dat er geen back-ups worden gemaakt van hybride verbindingen. Nadat u uw back-ups hebt hersteld in een nieuwe laag, kunt u de hybride verbindingen opnieuw maken.  
+In de andere edities kunt u back-ups maken en deze herstellen om uw artefacten te migreren van één laag naar een andere. U kunt bijvoorbeeld een back-up maken van uw artefacten in de laag Standard en deze herstellen in de laag Premium. [BizTalk Services: Back-up en herstellen](biztalk-backup-restore.md) worden de ondersteunde migratiepaden beschreven en geeft een lijst van welke artefacten back-up worden gemaakt. Houd er rekening mee dat er geen back-ups worden gemaakt van hybride verbindingen. Nadat u uw back-ups hebt hersteld in een nieuwe laag, kunt u de hybride verbindingen opnieuw maken.  
 
 #### <a name="is-the-biztalk-adapter-service-included-in-the-service-how-do-i-receive-the-software"></a>Maakt de BizTalk Adapter Service deel uit van de service? Hoe ontvang ik de software?
 Ja, de BizTalk Adapter Service en het BizTalk Adapter Pack zijn opgenomen in de Azure BizTalk Services SDK-[download](https://www.microsoft.com/download/details.aspx?id=39087).
 
 ## <a name="next-steps"></a>Volgende stappen
-Als u Azure BizTalk Services wilt maken in de Azure Portal, gaat u naar [BizTalk Services: inrichten met de Azure Portal](biztalk-provision-services.md). Ga naar [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197) om te beginnen met het maken van toepassingen.
+Voor het maken van Azure BizTalk Services in Azure portal, gaat u naar [BizTalk Services: Inrichten met de Azure portal](biztalk-provision-services.md). Ga naar [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197) om te beginnen met het maken van toepassingen.
 
 ## <a name="additional-resources"></a>Aanvullende resources
-* [BizTalk Services: inrichten met de Azure Portal](biztalk-provision-services.md)<br/>
-* [BizTalk Services: statusgrafiek voor de inrichting](biztalk-service-state-chart.md)<br/>
-* [BizTalk Services: de tabbladen Dashboard, Bewaken en Schalen](biztalk-dashboard-monitor-scale-tabs.md)<br/>
-* [BizTalk Services: back-ups maken en herstellen](biztalk-backup-restore.md)<br/>
-* [BizTalk Services: beperking](biztalk-throttling-thresholds.md)<br/>
-* [BizTalk Services: naam en sleutel van verlener](biztalk-issuer-name-issuer-key.md)<br/>
+* [BizTalk Services: Inrichten met de Azure portal](biztalk-provision-services.md)<br/>
+* [BizTalk Services: Diagram van de Status van inrichting](biztalk-service-state-chart.md)<br/>
+* [BizTalk Services: Tabbladen dashboard, bewaken en schalen](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+* [BizTalk Services: Back-up en herstel](biztalk-backup-restore.md)<br/>
+* [BizTalk Services: Beperking](biztalk-throttling-thresholds.md)<br/>
+* [BizTalk Services: Naam en sleutel van verlener](biztalk-issuer-name-issuer-key.md)<br/>
 * [De Azure BizTalk Services SDK gaan gebruiken](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 

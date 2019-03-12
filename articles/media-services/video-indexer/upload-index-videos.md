@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: ddf090664b1e5197603dadc26da92a0a1da1a63d
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: c11a206316cfb7b2d9e96b631fce01701da93565
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404940"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550479"
 ---
 # <a name="upload-and-index-your-videos"></a>Uw video's uploaden en indexeren  
 
@@ -36,6 +36,7 @@ Zodra uw video is geüpload, codeert Video Indexer, eventueel de video (besproke
 - De grootte voor het uploaden met de optie byte-matrix is beperkt tot 2GB
 - De optie van de matrix byte er een time-out na 30 minuten
 - De URL die is opgegeven in de parameter `videoURL`moet worden gecodeerd
+- Media Services-activa indexeren heeft de dezelfde beperking als indexering via URL
 
 > [!Tip]
 > Het verdient aanbeveling om .NET Framework versie 4.6.2 of hoger te gebruiken omdat oudere versies van .NET Framework niet standaard gebruikmaken van TLS 1.2.

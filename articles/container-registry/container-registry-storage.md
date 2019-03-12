@@ -7,18 +7,18 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: danlep
-ms.openlocfilehash: ba3c6a6bd4fb330eb64b5408eb72095f4de46a7b
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 55c84907ab41f6da9d7a0989c68a1c1f90c5e424
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856636"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551021"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Afbeeldingopslag container in Azure Container Registry
 
 Elke [Basic, Standard en Premium](container-registry-skus.md) Azure container registry voordelen van Azure storage geavanceerde functies zoals versleuteling-at-rest voor beveiliging van de installatiekopie van gegevens en geografische redundantie voor de installatiekopie van de beveiliging van gegevens. De volgende secties worden de functies en de grenzen van de installatiekopie van opslag in Azure Container Registry (ACR).
 
-## <a name="encryption-at-rest"></a>Versleuteling-at-rest
+## <a name="encryption-at-rest"></a>Encryption-at-rest
 
 Alle containerinstallatiekopieën in het register worden in rust versleuteld. Azure automatisch een installatiekopie van een versleuteld voordat deze worden opgeslagen en ontsleutelt deze op het begeven wanneer u of uw toepassingen en services Haal de installatiekopie.
 
@@ -40,7 +40,7 @@ De volgende tabel beschrijft de container-installatiekopie en de opslaglimieten 
 | Installatiekopieën | Geen limiet |
 | Lagen | Geen limiet |
 | Tags | Geen limiet|
-| Storage | 5 TB |
+| Opslag | 5 TB |
 
 Zeer groot aantal opslagplaatsen en tags kan invloed hebben op de prestaties van uw register. Regelmatig ongebruikte opslagplaatsen, labels en afbeeldingen als onderdeel van uw register onderhoud routine verwijderen. Register-resources, zoals opslagplaatsen, installatiekopieën en tags verwijderd *kan geen* worden hersteld na verwijdering. Zie voor meer informatie over het verwijderen van register resources [verwijderen van installatiekopieën van containers in Azure Container Registry](container-registry-delete.md).
 
@@ -56,6 +56,6 @@ Zie voor meer informatie over de verschillende Azure Container Registry-SKU's (B
 
 <!-- LINKS - External -->
 [portal]: https://portal.azure.com
-[pricing]: http://aka.ms/acr/pricing
+[pricing]: https://aka.ms/acr/pricing
 
 <!-- LINKS - Internal -->

@@ -3,20 +3,20 @@ title: Azure integratieruntime maken in Azure Data Factory | Microsoft Docs
 description: Leer hoe u Azure integratieruntime maken in Azure Data Factory, dat wordt gebruikt om te kopiëren van gegevens en transformatieactiviteiten verzending.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2018
-ms.author: douglasl
-ms.openlocfilehash: 93777a3d9ecbb6c2749594985494975f61cc1948
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: 4b166ded3dcef4a89951eb81f7f1b321f89a0e67
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455697"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576035"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Over het maken en configureren van Azure Integration Runtime
 De Integration Runtime (IR) is de rekeninfrastructuur die door Azure Data Factory gebruikt om u te bieden mogelijkheden voor gegevensintegratie in verschillende netwerkomgevingen. Zie voor meer informatie over IR [integratieruntime](concepts-integration-runtime.md).

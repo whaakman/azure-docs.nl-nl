@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: e49a3063d6314947c59c5ae863077748d997f2b5
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: ae123638e26c9fb6c82666efddabf06874c7b7a8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515468"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539957"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Adafruit Feather HUZZAH ESP8266 verbinden met Azure IoT Hub in de cloud
 
@@ -27,7 +27,7 @@ ms.locfileid: "51515468"
 Adafruit Feather HUZZAH ESP8266 verbinden met een IoT-hub die u maakt. Vervolgens voert u een voorbeeld van toepassing op ESP8266 de temperatuur en vochtigheid gegevens verzamelen uit een sensor DHT22. Ten slotte, stuurt u de sensorgegevens naar uw IoT-hub.
 
 > [!NOTE]
-> Als u andere borden ESP8266 gebruikt, kunt u nog steeds deze stappen om te verbinden met uw IoT-hub volgen. Afhankelijk van de ESP8266 bord dat u gebruikt, moet u mogelijk opnieuw configureren de `LED_PIN`. Bijvoorbeeld, als u ESP8266 van AI-Thinker, u kunt wijzigen in `0` naar `2`. Heb je nog een kit? Deze ophalen van de [Azure-website](http://azure.com/iotstarterkits).
+> Als u andere borden ESP8266 gebruikt, kunt u nog steeds deze stappen om te verbinden met uw IoT-hub volgen. Afhankelijk van de ESP8266 bord dat u gebruikt, moet u mogelijk opnieuw configureren de `LED_PIN`. Bijvoorbeeld, als u ESP8266 van AI-Thinker, u kunt wijzigen in `0` naar `2`. Heb je nog een kit? Deze ophalen van de [Azure-website](https://azure.com/iotstarterkits).
 
 ## <a name="what-you-learn"></a>Wat u leert
 
@@ -42,7 +42,7 @@ Adafruit Feather HUZZAH ESP8266 verbinden met een IoT-hub die u maakt. Vervolgen
 
 Als u wilt deze bewerking is voltooid, moet u de volgende onderdelen van uw Feather HUZZAH ESP8266 Starter Kit:
 
-* Het bord Feather HUZZAH ESP8266
+* The Feather HUZZAH ESP8266 board
 * Een Micro USB-Type een USB-kabel
 
 U moet ook de volgende bewerkingen voor uw ontwikkelomgeving:
@@ -66,7 +66,7 @@ De volgende items zijn optioneel in het geval u een sensor geen hebt. U hebt ook
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Voor IoT hub-verbindingsreeks ophalen
+### <a name="retrieve-connection-string-for-iot-hub"></a>Verbindingsreeks voor IoT-hub ophalen
 
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
@@ -86,10 +86,10 @@ De kabels breadboard en meestal gebruiken om de verbinding als volgt. Als u geen
 
 Voor sensor pincodes, gebruikt u de volgende bedrading:
 
-| Start (Sensor)           | Einde (bord)            | Kleur van de kabel   |
+| Start (Sensor)           | End (Board)            | Kleur van de kabel   |
 | -----------------------  | ---------------------- | ------------  |
-| VDD (Pin 31F)            | 3v (pincode 58 uur)           | Rode-kabel     |
-| GEGEVENS (Pin 32F)           | GPIO 2 (Pin 46)       | Blauwe-kabel    |
+| VDD (Pin 31F)            | 3V (Pin 58H)           | Rode-kabel     |
+| DATA (Pin 32F)           | GPIO 2 (Pin 46A)       | Blauwe-kabel    |
 | GND (Pin 34F)            | GND (PIn 56I)          | Zwarte kabel   |
 
 Zie voor meer informatie, [Adafruit DHT22 sensorinstallatie](https://learn.adafruit.com/dht/connecting-to-a-dhtxx-sensor) en [Adafruit Feather HUZZAH Esp8266 pin-outs gegeven](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-arduino-ide?view=all#pinouts).
@@ -160,7 +160,7 @@ De voorbeeldtoepassing wordt gehost op GitHub. Kloon de voorbeeldopslagplaats me
 
 6. Voer in de Visual Studio Code `F1`.
 
-7. Type **Arduino** en selecteer **Arduino: bord Manager**.
+7. Type **Arduino** en selecteer **Arduino: Bord Manager**.
 
 8. In de **Arduino-bord Manager** tabblad **extra URL's**.
 
@@ -184,7 +184,7 @@ De voorbeeldtoepassing wordt gehost op GitHub. Kloon de voorbeeldopslagplaats me
 
    ![Het pakket esp8266 is geïnstalleerd](media/iot-hub-arduino-huzzah-esp8266-get-started/13_vscode-esp8266-installed.png)
 
-13. Voer `F1`, typt u **Arduino** en selecteer **Arduino: bord Config**.
+13. Voer `F1`, typt u **Arduino** en selecteer **Arduino: Config Board**.
 
 14. Klik in het vak voor **bord geselecteerd:** en het type **esp8266**en selecteer vervolgens **Adafruit HUZZAH ESP8266 (esp8266)**.
 
@@ -192,7 +192,7 @@ De voorbeeldtoepassing wordt gehost op GitHub. Kloon de voorbeeldopslagplaats me
 
 ### <a name="install-necessary-libraries"></a>Vereiste bibliotheken installeren
 
-1. Voer in de Visual Studio Code, `F1`, typt u **Arduino** en selecteer **Arduino: Library Manager**.
+1. Voer in de Visual Studio Code, `F1`, typt u **Arduino** en selecteer **Arduino: Bibliotheek Manager**.
 
 2. Zoek naar de volgende bibliotheek de naam van één voor één. Voor elke bibliotheek die u vindt, klikt u op **installeren**.
    * `AzureIoTHub`
@@ -222,7 +222,7 @@ De voorbeeld-App kunt temperatuur en vochtigheid gegevens simuleren in het geval
 
 1. Klik in de Visual Studio-Code op **<Select Serial Port>** op de status van de staaf-, en klik vervolgens op de seriële poort voor Feather HUZZAH ESP8266.
 
-2. Voer `F1`, typt u **Arduino** en selecteer **Arduino: uploaden** te bouwen en implementeren van de voorbeeldtoepassing om te Feather HUZZAH ESP8266.
+2. Voer `F1`, typt u **Arduino** en selecteer **Arduino: Uploaden** te bouwen en implementeren van de voorbeeldtoepassing om te Feather HUZZAH ESP8266.
 
 ### <a name="enter-your-credentials"></a>Voer uw referenties in
 
@@ -238,7 +238,7 @@ Nadat het uploaden voltooid is, volgt u deze stappen om uw referenties invoeren:
 
 5. Voer de volgende informatie in het invoervak zich aan de bovenkant van het venster seriële monitor, als u wordt gevraagd te regelen, en klik vervolgens op **verzenden**.
 
-   * Wi-Fi-SSID
+   * Wi-Fi SSID
    * Wi-Fi-wachtwoord
    * Apparaat-verbindingsreeks
 

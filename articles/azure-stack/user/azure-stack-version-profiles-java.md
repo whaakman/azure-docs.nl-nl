@@ -16,12 +16,12 @@ ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 09/28/2018
-ms.openlocfilehash: cd02845f648275ee17f763bd5a94b386f7ed64fd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c7a6330f8e0197092f4c581f46c3cc6e68dba247
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246361"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540212"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>API-versieprofielen gebruiken met Java in Azure Stack
 
@@ -64,7 +64,7 @@ Gebruik de volgende stappen voor het installeren van de Java SDK:
 
 1.  De officiële instructies om Git te installeren. Zie voor instructies [aan de slag - installeren van Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
-2.  De officiële instructies voor het installeren van de [Java SDK](http://zulu.org/download/) en [Maven](https://maven.apache.org/). De juiste versie is versie 8 van de Java Developer Kit. De juiste Apache Maven is versie 3.0 of hoger. De omgevingsvariabele JAVA_HOME moet worden ingesteld op de installatielocatie van de Java Development Kit om uit te voeren van de Quick Start. Zie voor meer informatie, [uw eerste functie maken met Java en Maven](../../azure-functions/functions-create-first-java-maven.md).
+2.  De officiële instructies voor het installeren van de [Java SDK](https://zulu.org/download/) en [Maven](https://maven.apache.org/). De juiste versie is versie 8 van de Java Developer Kit. De juiste Apache Maven is versie 3.0 of hoger. De omgevingsvariabele JAVA_HOME moet worden ingesteld op de installatielocatie van de Java Development Kit om uit te voeren van de Quick Start. Zie voor meer informatie, [uw eerste functie maken met Java en Maven](../../azure-functions/functions-create-first-java-maven.md).
 
 3.  De juiste om afhankelijkheidspakketten te installeren, opent u het bestand Pom.xml in uw Java-toepassing. Een afhankelijkheid toevoegen, zoals wordt weergegeven in de volgende code:
 

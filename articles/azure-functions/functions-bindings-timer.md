@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: bdbb9d7c8b129642616a934dcc3d226434e69a03
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 0779ca2083691949821999322a3d732aed7b2694
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558971"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760764"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timertrigger voor Azure Functions 
 
@@ -50,13 +50,13 @@ Zie het voorbeeld taalspecifieke:
 
 ### <a name="c-example"></a>C#-voorbeeld
 
-Het volgende voorbeeld wordt een [ C# functie](functions-dotnet-class-library.md) die telkens wanneer de minuten een deelbaar zijn door vijf wordt uitgevoerd (bijvoorbeeld als de functie wordt gestart om 18:57:00 uur, de volgende prestaties zijn om 19:00:00):
+Het volgende voorbeeld wordt een [ C# functie](functions-dotnet-class-library.md) die telkens wanneer de minuten een deelbaar zijn door vijf wordt uitgevoerd (bijvoorbeeld als de functie wordt gestart om 18:57:00 uur, de volgende prestaties zijn om 19:00:00). De [ `TimerInfo` ](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) object in de functie wordt doorgegeven.
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
 public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger log)
 {
-    if(myTimer.IsPastDue)
+    if (myTimer.IsPastDue)
     {
         log.LogInformation("Timer is running late!");
     }
@@ -66,7 +66,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 ### <a name="c-script-example"></a>Voorbeeld van C#-script
 
-Het volgende voorbeeld ziet u een timertrigger binding in een *function.json* bestand en een [C#-scriptfunctie](functions-reference-csharp.md) die gebruikmaakt van de binding. De functie schrijft een logboek die aangeeft of deze functie-aanroep vanwege een schema voor gemiste-exemplaar is.
+Het volgende voorbeeld ziet u een timertrigger binding in een *function.json* bestand en een [C#-scriptfunctie](functions-reference-csharp.md) die gebruikmaakt van de binding. De functie schrijft een logboek die aangeeft of deze functie-aanroep vanwege een schema voor gemiste-exemplaar is. De [ `TimerInfo` ](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) object in de functie wordt doorgegeven.
 
 Hier volgt de binding-gegevens de *function.json* bestand:
 
@@ -84,7 +84,7 @@ Dit is de C#-scriptcode:
 ```csharp
 public static void Run(TimerInfo myTimer, ILogger log)
 {
-    if(myTimer.IsPastDue)
+    if (myTimer.IsPastDue)
     {
         log.LogInformation("Timer is running late!");
     }
@@ -94,7 +94,7 @@ public static void Run(TimerInfo myTimer, ILogger log)
 
 ### <a name="f-example"></a>F#voorbeeld
 
-Het volgende voorbeeld ziet u een timertrigger binding in een *function.json* bestand en een [ F# functie script](functions-reference-fsharp.md) die gebruikmaakt van de binding. De functie schrijft een logboek die aangeeft of deze functie-aanroep vanwege een schema voor gemiste-exemplaar is.
+Het volgende voorbeeld ziet u een timertrigger binding in een *function.json* bestand en een [ F# functie script](functions-reference-fsharp.md) die gebruikmaakt van de binding. De functie schrijft een logboek die aangeeft of deze functie-aanroep vanwege een schema voor gemiste-exemplaar is. De [ `TimerInfo` ](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) object in de functie wordt doorgegeven.
 
 Hier volgt de binding-gegevens de *function.json* bestand:
 
@@ -119,7 +119,7 @@ let Run(myTimer: TimerInfo, log: ILogger ) =
 
 ### <a name="javascript-example"></a>JavaScript-voorbeeld
 
-Het volgende voorbeeld ziet u een timertrigger binding in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie schrijft een logboek die aangeeft of deze functie-aanroep vanwege een schema voor gemiste-exemplaar is.
+Het volgende voorbeeld ziet u een timertrigger binding in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie schrijft een logboek die aangeeft of deze functie-aanroep vanwege een schema voor gemiste-exemplaar is. Een [timerobject](#usage) wordt doorgegeven in de functie.
 
 Hier volgt de binding-gegevens de *function.json* bestand:
 
@@ -138,7 +138,7 @@ Dit is de JavaScript-code:
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
 
-    if(myTimer.isPastDue)
+    if (myTimer.IsPastDue)
     {
         context.log('Node is running late!');
     }
@@ -201,7 +201,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 
 ## <a name="usage"></a>Gebruik
 
-Wanneer een timer trigger-functie is aangeroepen, de [timerobject](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) wordt doorgegeven in de functie. De volgende JSON is een voorbeeld van de weergave van de timerobject. 
+Wanneer een timer trigger-functie is aangeroepen, wordt een timerobject doorgegeven aan de functie. De volgende JSON is een voorbeeld van de weergave van de timerobject.
 
 ```json
 {
@@ -231,7 +231,7 @@ Elk veld kan een van de volgende typen waarden hebben:
 |Een specifieke waarde |<nobr>"0 5 * * * *"</nobr>|op hh:05:00 waarbij UU staat voor elk uur (eenmaal per uur)|
 |Alle waarden (`*`)|<nobr>"0 * 5 * * *"</nobr>|op 5:mm: 00 elke dag mm is waar elke minuut van het uur (60 keer per dag)|
 |Een bereik (`-` operator)|<nobr>"5-7 * * * * *"</nobr>|hh:mm:05, hh:mm:06 en hh:mm:07 waarbij UU: mm elke minuut van elk uur (3 keer een minuut wordt)|  
-|Een set waarden (`,` operator)|<nobr>"5,8,10 **** *"</nobr>|hh:mm:05, hh:mm:08 en hh:mm:10 waarbij UU: mm elke minuut van elk uur (3 keer een minuut wordt)|
+|Een set waarden (`,` operator)|<nobr>"5,8,10 * * * * *"</nobr>|hh:mm:05, hh:mm:08 en hh:mm:10 waarbij UU: mm elke minuut van elk uur (3 keer een minuut wordt)|
 |Een waarde voor interval (`/` operator)|<nobr>"0 */5 * * * *"</nobr>|hh:05:00, hh:10:00, hh:15:00, enzovoort via hh:55:00 waarbij UU staat voor elk uur (12 keer per uur)|
 
 U kunt numerieke waarden, namen of afkortingen van namen gebruiken als u wilt opgeven, maanden of dagen kwijt bent:

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d1ad1f34f51adbc177e5b4163d528dbe45ce03af
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 33f5cd6e1d2989a9ca5c26bbcf947bd6eade3831
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339144"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774197"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Een IoT Edge-apparaat om te communiceren via een proxyserver configureren
 
@@ -25,23 +25,23 @@ Een IoT Edge-apparaat om te werken met een proxyserver configureren, volgt deze 
 1. IoT Edge-runtime installeren op uw apparaat. 
 2. Configureer de Docker-daemon en de IoT Edge-daemon op uw apparaat om de proxyserver te gebruiken.
 3. Configureer de edgeAgent-eigenschappen in het bestand config.yaml op uw apparaat.
-4. Omgevingsvariabelen worden ingesteld voor de IoT Edge-runtime en andere IoT-Edge modules in het manifest van de implementatie. 
+4. Omgevingsvariabelen worden ingesteld voor de IoT Edge-runtime en andere IoT-Edge modules in het manifest van de implementatie.
 
 ## <a name="know-your-proxy-url"></a>De URL van uw proxy weet
 
-Voor het configureren van de Docker-daemon en de IoT Edge op uw apparaat, moet u de URL van uw proxy kent. 
+Voor het configureren van de Docker-daemon en de IoT Edge op uw apparaat, moet u de URL van uw proxy kent.
 
-Proxy-URL's worden de volgende indeling: **protocol**://**proxy_host**:**proxy_poort**. 
+Proxy-URL's worden de volgende indeling: **protocol**://**proxy_host**:**proxy_poort**.
 
 * De **protocol** via HTTP of HTTPS is. De Docker-daemon-protocol een van beide, afhankelijk van uw container registry-instellingen kunt gebruiken, maar de IoT Edge-daemon en runtime containers moeten altijd gebruik van HTTPS.
 
-* De **proxy_host** is een adres voor de proxyserver. Als uw proxyserver verificatie is vereist, kunt u uw referenties opgeven als onderdeel van de proxy_host in de indeling van **gebruiker**:**wachtwoord**@**proxy_host**. 
+* De **proxy_host** is een adres voor de proxyserver. Als uw proxyserver verificatie is vereist, kunt u uw referenties opgeven als onderdeel van de proxy_host in de indeling van **gebruiker**:**wachtwoord**\@**proxy_host**.
 
-* De **proxy_poort** is de netwerkpoort waarop de proxy op netwerkverkeer reageert. 
+* De **proxy_poort** is de netwerkpoort waarop de proxy op netwerkverkeer reageert.
 
 ## <a name="install-the-runtime"></a>De runtime installeren
 
-Als u de IoT Edge-runtime op een Linux-apparaat installeert, configureert u de package manager om te gaan via de proxyserver voor toegang tot het installatiepakket. Bijvoorbeeld, [apt-get ingesteld voor het gebruik van een http-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). Zodra uw pakketmanager is geconfigureerd, volg de instructies in [installeren Azure IoT Edge-runtime op Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md) of [Azure IoT Edge-runtime installeren in Linux (x64)](how-to-install-iot-edge-linux.md) zoals gebruikelijk. 
+Als u de IoT Edge-runtime op een Linux-apparaat installeert, configureert u de package manager om te gaan via de proxyserver voor toegang tot het installatiepakket. Bijvoorbeeld, [apt-get ingesteld voor het gebruik van een http-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). Zodra uw pakketmanager is geconfigureerd, volg de instructies in [installeren Azure IoT Edge-runtime op Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md) of [Azure IoT Edge-runtime installeren in Linux (x64)](how-to-install-iot-edge-linux.md) zoals gebruikelijk.
 
 Als u de IoT Edge-runtime op een Windows-apparaat installeert, moet u via de proxyserver wanneer het script installer-bestand, klikt u vervolgens opnieuw downloaden tijdens de installatie om de benodigde onderdelen te downloaden. U kunt configureren van proxy-informatie in de Windows-instellingen of het opnemen van uw proxy-informatie rechtstreeks in het script voor installatie. De volgende powershell-script wordt een voorbeeld van een windows-installatie met de `-proxy` argument:
 

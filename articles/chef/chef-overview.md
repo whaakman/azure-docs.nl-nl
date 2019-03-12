@@ -8,15 +8,15 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: c0ec8b98ff711f8e5746d6d4731266ed4b09cc8f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 5c4e20177c1b334a34f7ce9328dfaa7bd8c66d3d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658841"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545732"
 ---
 # <a name="using-chef-with-azure"></a>Met behulp van Chef met Azure
-[Chef](http://www.chef.io) is een krachtige automatisering-platform waarmee VM-infrastructuur in Azure worden getransformeerd in code. Chef automatiseert hoe infrastructuur is geconfigureerd, geïmplementeerd en beheerd via het netwerk, ongeacht de grootte ervan.
+[Chef](https://www.chef.io) is een krachtige automatisering-platform waarmee VM-infrastructuur in Azure worden getransformeerd in code. Chef automatiseert hoe infrastructuur is geconfigureerd, geïmplementeerd en beheerd via het netwerk, ongeacht de grootte ervan.
 
 Dit artikel beschrijft de voordelen van het gebruik van Chef voor het beheren van Azure-infrastructuur.
 

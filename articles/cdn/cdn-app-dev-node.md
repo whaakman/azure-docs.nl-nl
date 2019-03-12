@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 70bae1558860b763d17d04e10d5d926b39300101
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 48a84520a61d19968b467091871459e21898dd5e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321242"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548640"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Aan de slag met Azure CDN-ontwikkeling
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "54321242"
 
 U kunt de [Azure CDN SDK voor Node.js](https://www.npmjs.com/package/azure-arm-cdn) voor het automatiseren van het maken en beheren van CDN-profielen en -eindpunten.  Deze zelfstudie leidt u door het maken van een eenvoudige Node.js-consoletoepassing die ziet u enkele van de beschikbare bewerkingen.  In deze zelfstudie is niet bedoeld om alle aspecten van de Azure CDN-SDK voor Node.js in detail beschreven.
 
-Voor deze zelfstudie, moet u al hebben [Node.js](http://www.nodejs.org) **4.x.x** of hoger is geïnstalleerd en geconfigureerd.  U kunt een teksteditor die u wilt maken van uw Node.js-toepassing gebruiken.  Voor het schrijven van deze zelfstudie, ik gebruikt [Visual Studio Code](https://code.visualstudio.com).  
+Voor deze zelfstudie, moet u al hebben [Node.js](https://www.nodejs.org) **4.x.x** of hoger is geïnstalleerd en geconfigureerd.  U kunt een teksteditor die u wilt maken van uw Node.js-toepassing gebruiken.  Voor het schrijven van deze zelfstudie, ik gebruikt [Visual Studio Code](https://code.visualstudio.com).  
 
 > [!TIP]
 > De [voltooid project uit deze zelfstudie](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74) is beschikbaar voor downloaden op MSDN.
@@ -363,9 +363,9 @@ Ten slotte gaan we onze profiel verwijderen.
 ## <a name="next-steps"></a>Volgende stappen
 Om te zien van het voltooide project van dit scenario [het voorbeeld downloaden](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74).
 
-Als u wilt zien de verwijzing voor de Azure CDN-SDK voor Node.js, geven de [verwijzing](http://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/).
+Als u wilt zien de verwijzing voor de Azure CDN-SDK voor Node.js, geven de [verwijzing](https://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/).
 
-Voor aanvullende documentatie over de Azure SDK voor Node.js, geven de [volledige verwijzing](http://azure.github.io/azure-sdk-for-node/).
+Voor aanvullende documentatie over de Azure SDK voor Node.js, geven de [volledige verwijzing](https://azure.github.io/azure-sdk-for-node/).
 
 Beheer uw CDN-resources met [PowerShell](cdn-manage-powershell.md).
 

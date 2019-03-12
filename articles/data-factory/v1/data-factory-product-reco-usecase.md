@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 8ff100cd3fc1c9def10b4e585119414281b90d92
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 4a3d1c513bcfb6449ca73d873c0dd9831c6fe01d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017375"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540127"
 ---
 # <a name="use-case---product-recommendations"></a>Use case: productaanbevelingen
 Azure Data Factory is een van vele services die worden gebruikt voor het implementeren van de Cortana Intelligence Suite van Oplossingsverbeteringen.  Zie [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) pagina voor meer informatie over dit pakket. In dit document wordt een gebruikelijk dat gebruikers van Azure al hebt opgelost en geïmplementeerd met behulp van Azure Data Factory en andere services van Cortana Intelligence-onderdeel beschreven.
@@ -50,7 +50,7 @@ Alle de gegevens worden gecombineerd en opgenomen in een systeem van de aanbevel
 
 Gigabytes van onbewerkte logboekbestanden worden dagelijks op de website van de online winkel van gegenereerd als semi-gestructureerde bestanden. De onbewerkte logboekbestanden en de catalogusgegevens klant- en is regelmatig opgenomen in een Azure Blob-opslag met behulp van Data Factory wereldwijd geïmplementeerde gegevensverplaatsing als een service. De onbewerkte logboekbestanden voor die dag worden gepartitioneerd (op basis van jaren en maanden) in blob-opslag voor langdurige opslag.  [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) wordt gebruikt voor het partitioneren van de onbewerkte logboekbestanden in de blob-opslag en verwerking van de opgenomen logboeken op schaal met zowel Hive als Pig-scripts. De gepartitioneerde Weblogboeken met de gegevens vervolgens om op te halen van de vereiste invoer voor een machine learning-systeem voor het genereren van de aangepaste productaanbevelingen aanbeveling is verwerkt.
 
-De aanbeveling systeem dat wordt gebruikt voor de machine learning in dit voorbeeld is een open-source machine learning-platform van de aanbeveling van [Apache Mahout](http://mahout.apache.org/).  Alle [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) of aangepast model kan worden toegepast op het scenario.  De Mahout-model wordt gebruikt om te voorspellen van de overeenkomsten tussen items op de website op basis van algemene gebruikspatronen, en voor het genereren van de persoonlijke aanbevelingen op basis van de individuele gebruiker.
+De aanbeveling systeem dat wordt gebruikt voor de machine learning in dit voorbeeld is een open-source machine learning-platform van de aanbeveling van [Apache Mahout](https://mahout.apache.org/).  Alle [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) of aangepast model kan worden toegepast op het scenario.  De Mahout-model wordt gebruikt om te voorspellen van de overeenkomsten tussen items op de website op basis van algemene gebruikspatronen, en voor het genereren van de persoonlijke aanbevelingen op basis van de individuele gebruiker.
 
 Ten slotte wordt de resultatenset van aangepaste productaanbevelingen verplaatst naar een datamart relationele gegevens voor gebruik door de website van de leverancier.  De resultatenset kan ook worden geopend rechtstreeks vanuit de blob-opslag door een andere toepassing of verplaatst naar andere archieven voor andere consumenten en use-cases.
 

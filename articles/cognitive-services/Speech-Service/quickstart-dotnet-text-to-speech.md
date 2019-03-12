@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: 0086746ee676127a3fcae9e7b05efd3f7a9f65f3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 656ed50b9104fec48ff3eddb3c291608f8f87294
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878422"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534034"
 ---
-# <a name="quickstart-convert-text-to-speech-using-net-core"></a>Snelstart: Converteert tekst naar spraak met behulp van .NET Core
+# <a name="quickstart-convert-text-to-speech-using-net-core"></a>Quickstart: Converteert tekst naar spraak met behulp van .NET Core
 
 In deze snelstartgids leert u hoe u om te converteren tekst naar spraak met behulp van .NET Core en de tekst naar spraak REST-API. De voorbeeldtekst opgenomen in deze handleiding is opgebouwd als [spraak synthese Markup Language (SSML)](speech-synthesis-markup.md), waarmee u de spraak en taal van het antwoord te kiezen.
 
@@ -156,7 +156,7 @@ string host = "https://westus.tts.speech.microsoft.com/cognitiveservices/v1";
 Tekst wordt verzonden als de instantie van een `POST` aanvraag. Met SSML, kunt u de spraak- en taal. In deze snelstart gebruiken we SSML met de taal die is ingesteld op `en-US` en de stem ingesteld als `ZiraRUS`. We maken de SSML voor uw aanvraag:
 
 ```csharp
-string body = @"<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'>
+string body = @"<speak version='1.0' xmlns='https://www.w3.org/2001/10/synthesis' xml:lang='en-US'>
               <voice name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>" +
               text + "</voice></speak>";
 ```

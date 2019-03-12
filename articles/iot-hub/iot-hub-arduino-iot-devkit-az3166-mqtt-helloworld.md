@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
-ms.openlocfilehash: 8959c1d773a7e4ea79c7a7531c2bba578f2801e2
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 60520f5a72fd7e27d4ea64ac76511a00a727426e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158479"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552007"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Berichten verzenden naar een MQTT-server
 
 Internet of Things (IoT)-systemen vaak omgaan met onregelmatige, slechte kwaliteit of langzame verbindingen via internet. MQTT is een machine-to-machine (M2M) connectiviteit protocol, dat is ontwikkeld met uitdagingen in gedachten. 
 
-De hier gebruikte MQTT-clientbibliotheek maakt deel uit van de [Eclipse Paho](http://www.eclipse.org/paho/) project, waarmee u API's voor het gebruik van MQTT via meerdere vervoermiddel.
+De hier gebruikte MQTT-clientbibliotheek maakt deel uit van de [Eclipse Paho](https://www.eclipse.org/paho/) project, waarmee u API's voor het gebruik van MQTT via meerdere vervoermiddel.
 
 ## <a name="what-you-learn"></a>Wat u leert
 
@@ -77,7 +77,7 @@ De seriële Monitor weergeven met alle berichten die door de voorbeeld-schets wo
 
 Als u problemen ondervindt, raadpleegt u de [IoT DevKit Veelgestelde vragen over](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) of verbinding maken met behulp van de volgende kanalen:
 
-* [Gitter.IM](http://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="see-also"></a>Zie ook

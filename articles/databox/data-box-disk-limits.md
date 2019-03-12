@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 02/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 70a611f6a9b52ba6a4c904cc4cfa9bc8f0b4df8e
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 65a3aa41c72341aa57c8cb2ddca5d1ed10f0ec06
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409581"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530838"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limieten voor Azure Data Box-schijf
 
@@ -46,7 +46,7 @@ Voor de meest recente informatie over limieten voor Azure storage-service en aan
 
 - Kopieert geen gegevens rechtstreeks in de schijven. Gegevens kopiëren naar vooraf gemaakte *BlockBlob*,*PageBlob*, en *AzureFile* mappen.
 - Een map onder de *BlockBlob* en *PageBlob* is een container. Bijvoorbeeld, containers worden gemaakt als *BlockBlob/container* en *PageBlob/container*.
-- Hebt u een bestaande Azure-object (zoals een blob) in de cloud met dezelfde naam als het object dat wordt gekopieerd, wordt het bestand in de cloud in Data Box-schijf overschreven.
+- Hebt u een bestaande Azure-object (zoals een blob) in de cloud met dezelfde naam als het object dat wordt gekopieerd, wordt Data Box-schijf naam van het bestand als file(1) in de cloud.
 - Alle bestanden die worden weggeschreven naar *BlockBlob* en *PageBlob* shares respectievelijk als een blok-blobs en pagina-blob is geüpload.
 - Een directory-hiërarchie (zonder bestanden) gemaakt op basis van lege *BlockBlob* en *PageBlob* mappen is niet geüpload.
 - Als er fouten optreden tijdens het uploaden van gegevens naar Azure, wordt een foutenlogboek gemaakt in het doelopslagaccount. Het pad naar dit foutenlogboek is beschikbaar in de portal wanneer het uploaden voltooid is en u corrigerende maatregelen nemen in het logboek kunt bekijken. Verwijder geen gegevens van de bron zonder de geüploade gegevens te verifiëren.

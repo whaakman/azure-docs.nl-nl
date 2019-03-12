@@ -3,21 +3,20 @@ title: De activiteit Azure-functie in Azure Data Factory | Microsoft Docs
 description: Meer informatie over het gebruik van de activiteit Azure-functie om uit te voeren van een Azure-functie in een Data Factory-pijplijn
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.author: douglasl
-ms.openlocfilehash: ee99733440d74424f98a2ed16de83c88bae53ff1
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+author: sharonlo101
+ms.author: shlo
+manager: craigg
+ms.openlocfilehash: b98d20a1f96a6ab4a0dc72330e85fdc98ba04eae
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321786"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576375"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure functie-activiteit in Azure Data Factory
 
@@ -42,10 +41,10 @@ Het retourtype van de Azure-functie is alleen een geldig `JObject`. (Houd er rek
 
 | **Eigenschap**  | **Beschrijving** | **Toegestane waarden** | **Vereist** |
 | --- | --- | --- | --- |
-| naam  | Naam van de activiteit in de pijplijn  | Reeks | ja |
-| type  | Type activiteit is 'AzureFunctionActivity' | Reeks | ja |
+| naam  | Naam van de activiteit in de pijplijn  | String | ja |
+| type  | Type activiteit is 'AzureFunctionActivity' | String | ja |
 | Gekoppelde service | De gekoppelde Azure-functie-service voor de bijbehorende Azure-functie-App  | Verwijzing naar de gekoppelde service | ja |
-| Functienaam  | Naam van de functie in de Azure-functie-App waarmee deze activiteit wordt aangeroepen | Reeks | ja |
+| Functienaam  | Naam van de functie in de Azure-functie-App waarmee deze activiteit wordt aangeroepen | String | ja |
 | method  | REST-API-methode voor de functieaanroep | Tekenreeks ondersteunde typen: 'OPHALEN', 'POST', 'PLAATS'   | ja |
 | koptekst  | Headers die worden verzonden naar de aanvraag. Bijvoorbeeld, de taal en het type instellen op een aanvraag: "headers": {'Accept-taal': ' nl-ons ", 'Content-Type': ' application/json'} | Tekenreeks (of expressie resultType van de tekenreeks) | Nee |
 | hoofdtekst  | de hoofdtekst die samen met de aanvraag wordt verzonden naar de functie api-methode  | Tekenreeks (of expressie resultType van de tekenreeks) of object.   | Vereist voor opslag/POST-methoden |

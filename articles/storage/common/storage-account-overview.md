@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 03/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: c95fcd2e6369fae920481db2623124342c34a730
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ce9635c108a948b4773c7d27cb254f01d06896f8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447627"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544236"
 ---
 # <a name="azure-storage-account-overview"></a>Overzicht van Azure storage-account
 
@@ -38,7 +38,7 @@ Opslagaccounts voor algemeen gebruik v2 ondersteuning voor de nieuwste opslagfun
 > [!NOTE]
 > Microsoft raadt u aan met behulp van een opslagaccount voor algemeen gebruik v2 voor de meeste scenario's. U kunt gemakkelijk een voor algemeen gebruik v1- of Blob storage-account upgraden naar een algemeen gebruik v2-account zonder uitvaltijd en zonder de noodzaak om gegevens te kopiëren.
 >
-> Zie voor meer informatie over het bijwerken naar een account voor algemeen gebruik v2 [upgraden naar een opslagaccount voor algemeen gebruik v2](storage-account-upgrade.md). 
+> Zie voor meer informatie over het bijwerken naar een account voor algemeen gebruik v2 [upgraden naar een opslagaccount voor algemeen gebruik v2](storage-account-upgrade.md).
 
 Opslagaccounts voor algemeen gebruik v2 bieden meerdere toegangslagen voor het opslaan van gegevens op basis van uw gebruikspatronen. Zie voor meer informatie, [toegangslagen voor blok-blobgegevens](#access-tiers-for-block-blob-data).
 
@@ -85,7 +85,7 @@ Azure Storage biedt verschillende opties voor toegang tot blok-blobgegevens op b
 De laag beschikbaar zijn:
 
 > [!NOTE]
-> De [Premium-laag voor access](../blobs/storage-blob-storage-tiers.md#premium-access-tier) beperkte Preview-versie beschikbaar is als een account voor lokaal redundante opslag (LRS) in de regio's Noord-Europa, VS Oost 2, VS-centraal en VS-West. Zie voor meer informatie over het registreren voor de Preview-versie, [Maak kennis met blobopslag van Azure Premium](https://aka.ms/premiumblob).
+> De [premium-toegangslaag (preview)](../blobs/storage-blob-storage-tiers.md#premium-access-tier), die is geoptimaliseerd voor gevoelige toepassingen met prestaties, lage en consistente latentie met hoge doorvoer en transactie-frequenties biedt. De premium-laag voor access is alleen beschikbaar voor blok-Blob storage-accounts (preview). Zie voor meer informatie, [openbare preview van Azure Premium-blobopslag](https://azure.microsoft.com/blog/azure-premium-blob-storage-public-preview/).
 
 * De **warm** toegangslaag, die is geoptimaliseerd voor frequente toegang krijgen tot objecten in de storage-account. Toegang tot gegevens in de warme laag is meest rendabele, terwijl de kosten voor opslag enigszins hoger zijn. Nieuwe storage-accounts worden gemaakt in de warme laag standaard.
 * De **Cool** toegangslaag, die is geoptimaliseerd voor het opslaan van grote hoeveelheden gegevens die niet vaak worden geraadpleegd en die gedurende ten minste 30 dagen worden opgeslagen. Opslaan van gegevens in de koude laag rendabeler is, maar toegang tot die gegevens mogelijk iets duurder dan de toegang tot gegevens in de warme laag.

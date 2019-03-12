@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 299ea79a7a344a57bf302aae049ba87234427343
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 857aa71a4812534030ca638fd8bab11f60535ea0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442780"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536943"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Zelfstudie: Een geografisch gedistribueerde app-oplossing maken met Azure en Azure Stack
 
@@ -507,9 +507,9 @@ Wanneer App Service klaar is met uploaden van het certificaat, wordt deze weerge
 
 1.  In de **SSL-Binding toevoegen** pagina, gebruikt u de vervolgkeuzelijsten om te selecteren voor het beveiligen van de naam van het domein en het certificaat te gebruiken.
 
-2.  In **SSL-Type**, selecteert u of u wilt gebruiken [ **Server Name Indication (SNI)**](http://en.wikipedia.org/wiki/Server_Name_Indication)of IP-gebaseerd SSL.
+2.  In **SSL-Type**, selecteert u of u wilt gebruiken [ **Server Name Indication (SNI)**](https://en.wikipedia.org/wiki/Server_Name_Indication)of IP-gebaseerd SSL.
 
--   **Op basis van SNI SSL**-op basis van meerdere SNI SSL-bindingen kunnen worden toegevoegd. Met deze optie kunnen meerdere SSL-certificaten verschillende domeinen beveiligen op hetzelfde IP-adres. De meeste moderne browsers (waaronder Internet Explorer, Chrome, Firefox en Opera) ondersteunen SNI. Ga voor uitgebreidere informatie over browserondersteuning naar [Servernaamindicatie](http://wikipedia.org/wiki/Server_Name_Indication).
+-   **Op basis van SNI SSL**-op basis van meerdere SNI SSL-bindingen kunnen worden toegevoegd. Met deze optie kunnen meerdere SSL-certificaten verschillende domeinen beveiligen op hetzelfde IP-adres. De meeste moderne browsers (waaronder Internet Explorer, Chrome, Firefox en Opera) ondersteunen SNI. Ga voor uitgebreidere informatie over browserondersteuning naar [Servernaamindicatie](https://wikipedia.org/wiki/Server_Name_Indication).
 
 -   **IP-gebaseerd SSL**-slechts één IP-gebaseerd SSL-binding worden toegevoegd. Met deze optie kan slechts één SSL-certificaat een specifiek openbaar IP-adres beveiligen. Als u wilt beveiligen in meerdere domeinen, beveiligen ze alle met behulp van het SSL-certificaat. Dit is de traditionele optie voor SSL-binding.
 

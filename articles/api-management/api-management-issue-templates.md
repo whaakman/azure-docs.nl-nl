@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: f099c27c55b817d6d9217a614ee66bf1d414a4dd
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 99732a61ab64f8600ca368d4af5f47451014a993
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446365"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760747"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Probleem-sjablonen in Azure API Management
 Met Azure API Management biedt u de mogelijkheid om aan te passen van de inhoud van ontwikkelaarsportalpagina's met behulp van een set van sjablonen die hun inhoud hebt geconfigureerd. Met behulp van [DotLiquid](http://dotliquidmarkup.org/) syntaxis en de editor van uw keuze, zoals [DotLiquid voor ontwerpers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), en een opgegeven set gelokaliseerde [tekenreeks resources](api-management-template-resources.md#strings), [Glyph resources](api-management-template-resources.md#glyphs), en [pagina besturingselementen](api-management-page-controls.md), hebt u geweldige flexibiliteit voor het configureren van de inhoud van de pagina's naar eigen inzicht met behulp van deze sjablonen.  
@@ -40,100 +40,100 @@ Met Azure API Management biedt u de mogelijkheid om aan te passen van de inhoud 
   
 ### <a name="default-template"></a>Standaardsjabloon  
   
-```xml  
-<div class="row">  
-  <div class="col-md-9">  
-    <h2>{% localized "IssuesStrings|WebIssuesIndexTitle" %}</h2>  
-  </div>  
-</div>  
-<div class="row">  
-  <div class="col-md-12">  
-    {% if issues.size > 0 %}  
-    <ul class="list-unstyled">  
-      {% capture reportedBy %}{% localized "IssuesStrings|WebIssuesStatusReportedBy" %}{% endcapture %}  
-      {% assign replaceString0 = '{0}' %}  
-      {% assign replaceString1 = '{1}' %}  
-      {% for issue in issues %}  
-      <li>  
-        <h3>  
-          <a href="/issues/{{issue.id}}">{{issue.title}}</a>  
-        </h3>  
-        <p>{{issue.description}}</p>  
-        <em>  
-          {% capture state %}{{issue.issueState}}{% endcapture %}  
-          {% capture devName %}{{issue.subscriptionDeveloperName}}{% endcapture %}  
-          {% capture str1 %}{{ reportedBy | replace : replaceString0, state }}{% endcapture %}  
-          {{ str1 | replace : replaceString1, devName }}  
-          <span class="UtcDateElement">{{ issue.reportedOn | date: "r" }}</span>  
-        </em>  
-      </li>  
-      {% endfor %}  
-    </ul>  
-    <paging-control></paging-control>  
-    {% else %}  
-    {% localized "CommonResources|NoItemsToDisplay" %}  
-    {% endif %}  
-    {% if canReportIssue %}  
-    <a class="btn btn-primary" id="createIssue" href="/Issues/Create">{% localized "IssuesStrings|WebIssuesReportIssueButton" %}</a>  
-    {% elsif isAuthenticated %}  
-    <hr />  
-    <p>{% localized "IssuesStrings|WebIssuesNoActiveSubscriptions" %}</p>  
-    {% else %}  
-    <hr />  
-    <p>  
-      {% capture signIntext %}{% localized "IssuesStrings|WebIssuesNotSignin" %}{% endcapture %}  
-      {% capture link %}<a href="/signin">{% localized "IssuesStrings|WebIssuesSignIn" %}</a>{% endcapture %}  
-      {{ signIntext | replace : replaceString0, link }}  
-    </p>  
-    {% endif %}  
-  </div>  
-</div>  
-```  
+```xml
+<div class="row">
+  <div class="col-md-9">
+    <h2>{% localized "IssuesStrings|WebIssuesIndexTitle" %}</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    {% if issues.size > 0 %}
+    <ul class="list-unstyled">
+      {% capture reportedBy %}{% localized "IssuesStrings|WebIssuesStatusReportedBy" %}{% endcapture %}
+      {% assign replaceString0 = '{0}' %}
+      {% assign replaceString1 = '{1}' %}
+      {% for issue in issues %}
+      <li>
+        <h3>
+          <a href="/issues/{{issue.id}}">{{issue.title}}</a>
+        </h3>
+        <p>{{issue.description}}</p>
+        <em>
+          {% capture state %}{{issue.issueState}}{% endcapture %}
+          {% capture devName %}{{issue.subscriptionDeveloperName}}{% endcapture %}
+          {% capture str1 %}{{ reportedBy | replace : replaceString0, state }}{% endcapture %}
+          {{ str1 | replace : replaceString1, devName }}
+          <span class="UtcDateElement">{{ issue.reportedOn | date: "r" }}</span>
+        </em>
+      </li>
+      {% endfor %}
+    </ul>
+    <paging-control></paging-control>
+    {% else %}
+    {% localized "CommonResources|NoItemsToDisplay" %}
+    {% endif %}
+    {% if canReportIssue %}
+    <a class="btn btn-primary" id="createIssue" href="/Issues/Create">{% localized "IssuesStrings|WebIssuesReportIssueButton" %}</a>
+    {% elsif isAuthenticated %}
+    <hr />
+    <p>{% localized "IssuesStrings|WebIssuesNoActiveSubscriptions" %}</p>
+    {% else %}
+    <hr />
+    <p>
+      {% capture signIntext %}{% localized "IssuesStrings|WebIssuesNotSignin" %}{% endcapture %}
+      {% capture link %}<a href="/signin">{% localized "IssuesStrings|WebIssuesSignIn" %}</a>{% endcapture %}
+      {{ signIntext | replace : replaceString0, link }}
+    </p>
+    {% endif %}
+  </div>
+</div>
+```
   
 ### <a name="controls"></a>Besturingselementen  
  De `Issue list` sjabloon mogelijk gebruikt u de volgende [pagina besturingselementen](api-management-page-controls.md).  
   
--   [besturingselement voor paginering](api-management-page-controls.md#paging-control)  
+-   [paging-control](api-management-page-controls.md#paging-control)  
   
 ### <a name="data-model"></a>Gegevensmodel  
   
-|Eigenschap|Type|Beschrijving|  
+|Eigenschap|Type|Description|  
 |--------------|----------|-----------------|  
 |Problemen|Verzameling van [probleem](api-management-template-data-model-reference.md#Issue) entiteiten.|De problemen die zichtbaar is voor de huidige gebruiker.|  
 |Zoekresultaten oproepen|[Voor het wisselbestand](api-management-template-data-model-reference.md#Paging) entiteit.|De informatie paginering voor de verzameling van toepassingen.|  
 |IsAuthenticated|booleaans|Of de huidige gebruiker is aangemeld bij het ontwikkelaarsportal.|  
 |CanReportIssues|booleaans|Bepaalt of de huidige gebruiker heeft machtigingen voor een probleem melden.|  
-|Search|tekenreeks|Deze eigenschap is afgeschaft en mag niet worden gebruikt.|  
+|Search|string|Deze eigenschap is afgeschaft en mag niet worden gebruikt.|  
   
 ### <a name="sample-template-data"></a>Voorbeeldgegevens voor de sjabloon  
   
-```json  
-{  
-    "Issues": [  
-        {  
-            "Id": "5702b68bb16653124c8f9ba7",  
-            "ApiId": "570275f1b16653124c8f9ba3",  
-            "Title": "I couldn't figure out how to connect my application to the API",  
-            "Description": "I'm having trouble connecting my application to the backend API.",  
-            "SubscriptionDeveloperName": "Clayton",  
-            "IssueState": "Proposed",  
-            "ReportedOn": "2016-04-04T18:46:35.64",  
-            "Comments": null,  
-            "Attachments": null,  
-            "Services": null  
-        }  
-    ],  
-    "Paging": {  
-        "Page": 1,  
-        "PageSize": 10,  
-        "TotalItemCount": 1,  
-        "ShowAll": false,  
-        "PageCount": 1  
-    },  
-    "IsAuthenticated": true,  
-    "CanReportIssue": true,  
-    "Search": null  
-}  
+```json
+{
+    "Issues": [
+        {
+            "Id": "5702b68bb16653124c8f9ba7",
+            "ApiId": "570275f1b16653124c8f9ba3",
+            "Title": "I couldn't figure out how to connect my application to the API",
+            "Description": "I'm having trouble connecting my application to the backend API.",
+            "SubscriptionDeveloperName": "Clayton",
+            "IssueState": "Proposed",
+            "ReportedOn": "2016-04-04T18:46:35.64",
+            "Comments": null,
+            "Attachments": null,
+            "Services": null
+        }
+    ],
+    "Paging": {
+        "Page": 1,
+        "PageSize": 10,
+        "TotalItemCount": 1,
+        "ShowAll": false,
+        "PageCount": 1
+    },
+    "IsAuthenticated": true,
+    "CanReportIssue": true,
+    "Search": null
+}
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -10,25 +10,25 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: a4e64259b941a4f2c2727afc8730c6cb0102a061
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: ebdc90dc35f891ea1811ce81c5bdc1b937c58a5c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054876"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57529241"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Raspberry Pi verbinden met Azure IoT Hub (Node.js)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-In deze zelfstudie maakt begint u door te leren van de basisbeginselen van het werken met Raspberry Pi met Raspbian. Vervolgens leert u hoe u uw apparaten naadloos verbinding naar de cloud met behulp van [Azure IoT Hub](about-iot-hub.md). Voor voorbeelden van Windows 10 IoT Core, gaat u naar de [Windows Dev Center](http://www.windowsondevices.com/).
+In deze zelfstudie maakt begint u door te leren van de basisbeginselen van het werken met Raspberry Pi met Raspbian. Vervolgens leert u hoe u uw apparaten naadloos verbinding naar de cloud met behulp van [Azure IoT Hub](about-iot-hub.md). Voor voorbeelden van Windows 10 IoT Core, gaat u naar de [Windows Dev Center](https://www.windowsondevices.com/).
 
 Heb je nog een kit? Probeer [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md). Een nieuwe kit kopen of [hier](https://azure.microsoft.com/develop/iot/starter-kits).
 
 
 ## <a name="what-you-do"></a>Wat u allemaal doen
 
-* Een IoT-hub maken.
+* Maak een IoT-hub.
 * Registreer een apparaat voor Pi in uw IoT-hub.
 * Raspberry Pi instellen.
 * Een voorbeeldtoepassing uitvoert op Pi om sensorgegevens te verzenden naar uw IoT hub.
@@ -83,7 +83,7 @@ Bereid de microSD-kaart voor de installatie van de installatiekopie van het Rasp
 
 1. Download Raspbian.
 
-   a. [Download Raspbian Stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/) (het ZIP-bestand).
+   a. [Download Raspbian Stretch](https://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/) (het ZIP-bestand).
 
    > [!WARNING]
    > Gebruik bovenstaande koppeling downloaden `raspbian-2017-07-5` zip-installatiekopie. De nieuwste versie van Raspbian installatiekopieën heeft enkele bekende problemen met bedrading-Pi-knooppunt, wat leiden fouten in de volgende stappen tot kan.
@@ -131,13 +131,13 @@ De sensor BME280 kunt temperatuur en vochtigheid gegevens verzamelen. De LED kni
 
 Voor sensor pincodes, gebruikt u de volgende bedrading:
 
-| Start (Sensor & LED)     | Einde (bord)            | Kleur van de kabel   |
+| Start (Sensor & LED)     | End (Board)            | Kleur van de kabel   |
 | -----------------------  | ---------------------- | ------------: |
-| VDD (pincode 5G)             | 3, 3v PWR (pincode 1)       | Wit-kabel   |
+| VDD (Pin 5G)             | 3.3V PWR (Pin 1)       | Wit-kabel   |
 | GND (Pin 7G)             | GND (pincode 6)            | Bruine-kabel   |
 | SDI (Pin 10G)            | I2C1 SDA (Pin 3)       | Rode-kabel     |
-| SCK (Pin 8G)             | I2C1 SQL (pincode 5)       | Oranje-kabel  |
-| LED VDD (Pin 18F)        | GPIO 24 uur per dag (Pin 18)       | Wit-kabel   |
+| SCK (Pin 8G)             | I2C1 SCL (Pin 5)       | Oranje-kabel  |
+| LED VDD (Pin 18F)        | GPIO 24 (Pin 18)       | Wit-kabel   |
 | LED GND (Pin 17F)        | GND (Pin 20)           | Zwarte kabel   |
 
 Klik om weer te geven [Raspberry Pi 2 en 3 pincode toewijzingen](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi) ter referentie.
@@ -163,7 +163,7 @@ Pi inschakelen met behulp van de micro USB-kabel en de voeding. De Ethernet-kabe
    
    **Windows-gebruikers**
   
-   a. Download en installeer [PuTTY](http://www.putty.org/) voor Windows. 
+   a. Download en installeer [PuTTY](https://www.putty.org/) voor Windows. 
 
    b. Kopieer het IP-adres van de sectie Pi in de Host-naam (of IP-adres) en SSH als het verbindingstype selecteren.
    
@@ -187,7 +187,7 @@ Pi inschakelen met behulp van de micro USB-kabel en de voeding. De Ethernet-kabe
    Als de versie is lager dan 4.x, of als er geen Node.js op uw Pi, installeer de nieuwste versie.
 
    ```bash
-   curl -sL http://deb.nodesource.com/setup_4.x | sudo -E bash
+   curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash
    sudo apt-get -y install nodejs
    ```
 

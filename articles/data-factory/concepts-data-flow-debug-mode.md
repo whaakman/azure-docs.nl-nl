@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 6bde6e74279fc16237c0c0436296e2d21c3a57c7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 82559c89094649b377dc2a898798ce6aad5fbcc7
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736614"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570484"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Foutopsporingsmodus voor de stroom van de gegevens van de toewijzing
 
@@ -36,7 +36,7 @@ Als u op de foutopsporingsmodus gebruikt overschakelt, wordt u gevraagd een zijp
 >Bij uitvoering in de foutopsporingsmodus in gegevensstroom, uw gegevens niet worden geschreven naar de Sink transformeren. Een foutopsporingssessie is bedoeld om te fungeren als een test > basis voor uw transformaties. Sinks zijn niet vereist tijdens de foutopsporing en worden genegeerd in de gegevensstroom. Als u wilt testen met het schrijven van gegevens > in uw Sink de gegevensstroom worden uitgevoerd vanuit een Azure Data Factory-pijplijn en gebruikt u de uitvoering fouten opsporen in een pijplijn.
 
 ## <a name="debug-settings"></a>Instellingen voor foutopsporing
-Instellingen voor foutopsporing kan worden voor elke bron van de gegevensstroom wordt weergegeven in het paneel aan clientzijde en kan ook worden bewerkt door te selecteren in uw "source instellingen' op de werkbalk van gegevensstroom-ontwerp. U kunt de limieten en/of het bestandsbron moet worden gebruikt voor elke hier uw bron-transformatie selecteren. U kunt ook selecteren welke Databricks-cluster die u wilt gebruiken voor foutopsporing.
+Instellingen voor foutopsporing kan worden voor elke bron van de gegevensstroom wordt weergegeven in het paneel aan clientzijde en kan ook worden bewerkt door te selecteren in uw "source instellingen' op de werkbalk gegevensstroom ontwerper. U kunt de limieten en/of het bestandsbron moet worden gebruikt voor elke hier uw bron-transformatie selecteren. Er zijn de rijlimieten in deze instelling alleen voor de huidige foutopsporingssessie. U kunt ook de instelling van de steekproef nemen in de bron gebruiken voor het beperken van rijen in de bron-transforamtion.
 
 ## <a name="cluster-status"></a>De clusterstatus
 Er is een statusindicator cluster aan de bovenkant van het ontwerpoppervlak dat groen inschakelen wanneer het cluster gereed voor foutopsporing is. Als uw cluster al warm is, wordt vrijwel onmiddellijk de groene indicator weergegeven. Als uw cluster is niet al wordt uitgevoerd wanneer u de foutopsporingsmodus hebt ingevoerd, hebt u wacht 5-7 minuten voor het cluster om te activeren. Het licht indicator zijn gele totdat deze klaar is. Zodra het cluster gereed voor foutopsporing gegevensstroom is, wordt de indicator lichte groen inschakelen.

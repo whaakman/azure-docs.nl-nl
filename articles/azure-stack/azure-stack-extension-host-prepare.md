@@ -1,26 +1,26 @@
 ---
 title: Voorbereiden voor de host van de extensie voor Azure Stack | Microsoft Docs
-description: Informatie over het voorbereiden voor extensie-host, die automatisch wordt ingeschakeld via een toekomstige Update van Azure Stack-pakket.
+description: Informatie over het voorbereiden voor extensie-host automatisch ingeschakeld met een toekomstige update-pakket voor Azure Stack.
 services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 02/07/2019
+ms.date: 03/07/2019
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: b0d3b3e4901fbcece13c201938be8bccb1bb9c82
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.lastreviewed: 03/07/2019
+ms.openlocfilehash: 47cc7d9f09b7fb22cf99ad010f1dc75e6388c314
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962363"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731916"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Voorbereiden voor de host van de extensie voor Azure Stack
 
-De host van de extensie voor Azure Stack beveiliging door het aantal vereiste TCP/IP-poorten te verminderen. In dit artikel wordt behandeld Azure Stack voorbereiden voor de extensie-host, die automatisch wordt ingeschakeld via een Azure Stack-Update-pakket na de 1808 update. In dit artikel is van toepassing op Azure Stack updates 1808 1809 en 1811.
+De host van de extensie voor Azure Stack beveiliging door het aantal vereiste TCP/IP-poorten te verminderen. In dit artikel wordt behandeld Azure Stack voorbereiden voor de extensie-host die automatisch wordt ingeschakeld via een Azure Stack-updatepakket na de 1808 update. In dit artikel is van toepassing op Azure Stack updates 1808 1809 en 1811.
 
 ## <a name="certificate-requirements"></a>Vereisten voor certificaten
 
@@ -66,15 +66,14 @@ Het hulpprogramma Azure Stack Readiness Checker biedt de mogelijkheid om te make
     > [!Note]  
     > Als u met Azure Active Directory Federated Services (AD FS implementeert) de volgende mappen moeten worden toegevoegd aan **$directories** in het script: `ADFS`, `Graph`.
 
-4. Voer de volgende cmdlets voor het starten van de certificaatcontrole:
+4. Plaats de bestaande certificaten die u momenteel in Azure Stack gebruikt, in de juiste mappen. Bijvoorbeeld, de **Admin ARM** certificaat in de `Arm Admin` map. En stel vervolgens de zojuist gemaakte hosting certificaten de `Admin extension host` en `Public extension host` mappen.
+5. Voer de volgende cmdlet voor het starten van de certificaatcontrole:
 
     ```PowerShell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
     Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
     ```
-
-5. Plaats uw certificaten in de juiste mappen.
 
 6. Controleer de uitvoer en alle certificaten slagen voor alle tests.
 
@@ -141,7 +140,7 @@ Het artikel [datacenter-integratie van Azure Stack - eindpunten publiceren](azur
 
 ### <a name="publish-new-endpoints"></a>Nieuwe eindpunten publiceren
 
-Er zijn twee nieuwe eindpunten moeten worden gepubliceerd door uw firewall. De toegewezen IP-adressen van de openbare VIP-groep kan worden opgehaald met de volgende code die moet worden uitgevoerd via uw Azure Stack [omgeving in de beschermde modus eindpunt](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
+Er zijn twee nieuwe eindpunten moeten worden gepubliceerd door uw firewall. De toegewezen IP-adressen van de openbare VIP-groep kan worden opgehaald met de volgende code die moet worden uitgevoerd vanaf de Azure Stack [omgeving in de beschermde modus eindpunt](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 
 ```PowerShell
 # Create a PEP Session

@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
-ms.openlocfilehash: 9a240e15049d1acd7344f3ecf7dbf41ff2c3850d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 9903339cbf0958893fb0d11a8c1b6ab7d156aae7
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818784"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548214"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python-SDK voor SQL-API: Opmerkingen bij de release en resources
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "55818784"
 | |  |
 |---|---|
 |**SDK downloaden**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**API-documentatie**|[Python-API-referentiedocumentatie](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)|
+|**API-documentatie**|[Python-API-referentiedocumentatie](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python)|
 |**SDK-installatie-instructies**|[Python-SDK-installatie-instructies](https://github.com/Azure/azure-cosmos-python)|
 |**Bijdragen aan de SDK**|[GitHub](https://github.com/Azure/azure-cosmos-python)|
 |**Aan de slag**|[Aan de slag met de Python-SDK](sql-api-python-application.md)|

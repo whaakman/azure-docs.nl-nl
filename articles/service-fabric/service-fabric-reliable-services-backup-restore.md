@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: mcoskun
-ms.openlocfilehash: 986a7be49f8ae0f683b89596204845bb08eeaf2d
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d01d2f18ed35d1752f97f405ae7f7bfb4708ca0d
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095767"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570042"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Back-up en herstellen van Reliable Services en Reliable Actors
 Azure Service Fabric is een hoge beschikbaarheid-platform die de status over meerdere knooppunten voor deze hoge beschikbaarheid zijn gerepliceerd.  Dus zelfs als één knooppunt in het cluster is mislukt, blijven de services beschikbaar. Hoewel deze ingebouwde redundantie die wordt geleverd door het platform mogelijk voldoende zijn voor sommige, in bepaalde gevallen is het wenselijk zijn voor de service naar de back-ups (naar een externe opslag).
@@ -188,13 +188,13 @@ Reliable Actors-Framework is gebaseerd op Reliable Services. De ActorService, di
 ```csharp
 class MyCustomActorService : ActorService
 {
-     public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
-            : base(context, actorTypeInfo)
-     {                  
-     }
+    public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
+          : base(context, actorTypeInfo)
+    {
+    }
     
     //
-   // Method overrides and other code.
+    // Method overrides and other code.
     //
 }
 ```
@@ -203,7 +203,7 @@ Wanneer u een aangepaste actor-service-klasse maakt, moet u die ook registreren 
 
 ```csharp
 ActorRuntime.RegisterActorAsync<MyActor>(
-   (context, typeInfo) => new MyCustomActorService(context, typeInfo)).GetAwaiter().GetResult();
+    (context, typeInfo) => new MyCustomActorService(context, typeInfo)).GetAwaiter().GetResult();
 ```
 
 De status standaardprovider voor betrouwbare actoren `KvsActorStateProvider`. Incrementele back-up is niet standaard ingeschakeld voor `KvsActorStateProvider`. U kunt de incrementele back-up inschakelen door het maken van `KvsActorStateProvider` met de juiste instelling in de constructor en vervolgens doorgegeven aan de constructor ActorService zoals wordt weergegeven in het volgende codefragment:
@@ -211,13 +211,13 @@ De status standaardprovider voor betrouwbare actoren `KvsActorStateProvider`. In
 ```csharp
 class MyCustomActorService : ActorService
 {
-     public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
-            : base(context, actorTypeInfo, null, null, new KvsActorStateProvider(true)) // Enable incremental backup
-     {                  
-     }
+    public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
+          : base(context, actorTypeInfo, null, null, new KvsActorStateProvider(true)) // Enable incremental backup
+    {
+    }
     
     //
-   // Method overrides and other code.
+    // Method overrides and other code.
     //
 }
 ```

@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 963bc8f6602a33ed703344f5277bb427f11390bb
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: b307a497e69bd6c2dcc7b415b2d94335459f7fd3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823515"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544977"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Op rollen gebaseerd toegangsbeheer in Azure Automation
 
@@ -180,11 +180,11 @@ Een bijdrager bewaking kan alle controlegegevens lezen en controle-instellingen 
 |Microsoft.Insights/Metrics/*|De metrische gegevens voor een resource lezen.|
 |Microsoft.Insights/Register/Action|De Microsoft.Insights-provider hebt geregistreerd.|
 |Microsoft.Insights/webtests/*|Application Insights-webtests beheren.|
-|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Oplossingspakketten Log Analytics beheren.|
-|Microsoft.OperationalInsights/workspaces/savedSearches/*|Log Analytics opgeslagen zoekopdrachten beheren.|
+|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Azure Monitor logboeken oplossingspakketten beheren.|
+|Microsoft.OperationalInsights/workspaces/savedSearches/*|Azure Monitor logboeken die zijn opgeslagen zoekopdrachten beheren.|
 |Microsoft.OperationalInsights/workspaces/search/action|Zoeken naar Log Analytics-werkruimten.|
 |Microsoft.OperationalInsights/workspaces/sharedKeys/action|Lijst met sleutels voor een Log Analytics-werkruimte.|
-|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Log Analytics insight opslagconfiguraties beheren.|
+|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Azure Monitor logboeken inzicht opslagconfiguraties beheren.|
 |Microsoft.Support/*|Maak en ondersteuningstickets beheren.|
 |Microsoft.WorkloadMonitor/workloads/*|Workloads beheren.|
 

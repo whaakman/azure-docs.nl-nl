@@ -5,15 +5,15 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 03/03/2019
+ms.date: 03/07/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 9e15f2e1b064ec2e64bfa8254075eac5bc801115
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 9e192c736235fcf8b8b5374787ad94aaf87427bf
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442610"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727073"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Veelgestelde vragen - VMware naar Azure-replicatie
 
@@ -123,11 +123,15 @@ Ja, ExpressRoute kan worden gebruikt voor het repliceren van virtuele machines n
 
 ### <a name="how-can-i-change-storage-account-after-machine-is-protected"></a>Hoe kan ik storage-account wijzigen nadat de machine is beveiligd?
 
-Voor een doorlopende replicatie, kan alleen storage-account worden bijgewerkt naar premium. Als u gebruiken standaard-prijzen wilt, moet u de replicatie van uw broncomputer uitschakelen en de beveiliging met een standaard beheerde schijf opnieuw inschakelen. Naast dit is er een geen andere manier om te wijzigen van het storage-account nadat bescherming is ingeschakeld.
+U moet uitschakelen en inschakelen van replicatie om te upgraden of downgraden van het opslagaccounttype.
 
 ### <a name="how-can-i-change-managed-disk-type-after-machine-is-protected"></a>Hoe kan ik Managed Disk-type wijzigen nadat de machine is beveiligd?
 
-Ja, kunt u eenvoudig het type beheerde schijf wijzigen. [Meer informatie](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage).
+Ja, kunt u eenvoudig het type beheerde schijf wijzigen. [Meer informatie](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Echter wanneer u het type beheerde schijf wijzigt, zorg ervoor dat u wacht op de nieuwe herstelpunten moeten worden gegenereerd als u wilt testfailover of failover plaatsen deze activiteit.
+
+### <a name="can-i-switch-the-replication-from-managed-disks-to-unmanaged-disks"></a>Kan ik de replicatie van beheerde schijven naar niet-beheerde schijven wisselen?
+
+Nee, overstappen van beheerd naar niet-beheerde wordt niet ondersteund.
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Waarom kan ik niet repliceren via VPN?
 

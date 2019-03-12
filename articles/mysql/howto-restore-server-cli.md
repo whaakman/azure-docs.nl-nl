@@ -7,12 +7,12 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: 801f6dddfb3aaea850d76c80d43de93181c3d41c
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: f3850623f5918ea9405131edb1821b941019ac34
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913475"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532320"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Het back-up en herstellen van een server in Azure Database voor MySQL met behulp van de Azure CLI
 
@@ -94,14 +94,14 @@ De Azure CLI gebruiken voor het maken van een server met behulp van een redundan
 Voer de volgende opdracht voor geo-herstel de-server, op de Azure CLI-opdrachtprompt:
 
 ```azurecli-interactive
-az mysql server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen4_8 
+az mysql server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen5_8 
 ```
-Deze opdracht maakt u een nieuwe server met de naam *mydemoserver georestored* in VS-Oost die tot behoren *myresourcegroup*. Het is een algemeen gebruik, Gen 4-server met 8 vCores. De server is gemaakt op basis van de geografisch redundante back-up van *mydemoserver*, die ook in de resourcegroep is *myresourcegroup*
+Deze opdracht maakt u een nieuwe server met de naam *mydemoserver georestored* in VS-Oost die tot behoren *myresourcegroup*. Het is een algemeen gebruik, Gen 5-server met 8 vCores. De server is gemaakt op basis van de geografisch redundante back-up van *mydemoserver*, die ook in de resourcegroep is *myresourcegroup*
 
 Als u maken van de nieuwe server in een andere resourcegroep van de bestaande server, klikt u vervolgens wilt de `--source-server` parameter zou u in aanmerking komt de servernaam zoals in het volgende voorbeeld:
 
 ```azurecli-interactive
-az mysql server georestore --resource-group newresourcegroup --name mydemoserver-georestored --source-server "/subscriptions/$<subscription ID>/resourceGroups/$<resource group ID>/providers/Microsoft.DBforMySQL/servers/mydemoserver" --location eastus --sku-name GP_Gen4_8
+az mysql server georestore --resource-group newresourcegroup --name mydemoserver-georestored --source-server "/subscriptions/$<subscription ID>/resourceGroups/$<resource group ID>/providers/Microsoft.DBforMySQL/servers/mydemoserver" --location eastus --sku-name GP_Gen5_8
 
 ```
 
@@ -113,7 +113,7 @@ De `az mysql server georestore` opdracht moet de volgende parameters:
 |naam | mydemoserver-georestored | De naam van de nieuwe server. |
 |source-server | mydemoserver | De naam van de bestaande server waarvan back-ups redundante geo worden gebruikt. |
 |location | eastus | De locatie van de nieuwe server. |
-|sku-name| GP_Gen4_8 | Deze parameter stelt de prijzen laag, bewerking voor compute en het aantal vCores van de nieuwe server. GP_Gen4_8 toegewezen aan een algemeen gebruik, Gen 4-server met 8 vCores.|
+|sku-name| GP_Gen5_8 | Deze parameter stelt de prijzen laag, bewerking voor compute en het aantal vCores van de nieuwe server. GP_Gen5_8 toegewezen aan een algemeen gebruik, Gen 5-server met 8 vCores.|
 
 
 >[!Important]

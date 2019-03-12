@@ -3,22 +3,22 @@ title: Wat is Azure Cognitive Services?
 description: Azure Cognitive Services zijn API's, SDK's en services die u met Microsoft Azure gebruiken kunt om intelligente toepassingen te bouwen.
 services: cognitive-services
 author: nitinme
-manager: nitinmed
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 03/11/2019
 ms.author: nitinme
-ms.openlocfilehash: 38ad921c7c4b2fef9d325c2e2c9eea25bd3c913b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 5c6d9bbfe5cf3632b21f374c23bf5df728478ce0
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734673"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761052"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Wat is Azure Cognitive Services?
 
-Azure Cognitive Services zijn API's, SDK's en services waarmee ontwikkelaars intelligente toepassingen te bouwen zonder directe AI of gegevenswetenschap of kennis beschikbaar. Azure Cognitive Services uitvouwt op alsmaar groter wordende portfolio van machine learning-API's van Microsoft en kunnen ontwikkelaars eenvoudig toevoegen cognitieve functies – zoals emotie- en video detectie. videodetectie, spraak en herkenning van vision; en spraak en language understanding – in hun toepassingen. Het doel van Azure Cognitive Services is waarmee ontwikkelaars toepassingen maken die u zien kunnen, horen, spreken, begrijpen en zelfs begint met het reden. De catalogus van services binnen Azure Cognitive Services kan worden onderverdeeld in vijf belangrijkste pijlers - visie, spraak, taal, Search en Knowledge.
+Azure Cognitive Services zijn API's, SDK's en services waarmee ontwikkelaars intelligente toepassingen te bouwen zonder directe AI of gegevenswetenschap of kennis beschikbaar. Azure Cognitive Services kunnen ontwikkelaars eenvoudig toevoegen cognitieve functies, zoals emotie- en video detectie. videodetectie, spraak en herkenning van vision; en spraak en language understanding – in hun toepassingen. Het doel van Azure Cognitive Services is waarmee ontwikkelaars toepassingen maken die u zien kunnen, horen, spreken, begrijpen en zelfs begint met het reden. De catalogus van services binnen Azure Cognitive Services kan worden onderverdeeld in vijf belangrijkste pijlers - visie, spraak, taal, Search en Knowledge.
 
 ## <a name="vision-apis"></a>Vision API's
 
@@ -28,7 +28,6 @@ Azure Cognitive Services zijn API's, SDK's en services waarmee ontwikkelaars int
 |[Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "Custom Vision Service") (Preview)|De Custom Vision Service kunt u aangepaste beeldclassificeerders te bouwen.|
 |[Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "Content Moderator")|Content Moderator biedt bewaking voor de inhoud van mogelijk aanstootgevende, ongewenste en riskant.|
 |[Face-API](https://docs.microsoft.com/azure/cognitive-services/face/ "Face-API")|Face-API biedt toegang tot geavanceerde gezichtsalgoritmen, gezichtsherkenning-kenmerk en herkenning inschakelen.|
-|[Emotion-API](https://docs.microsoft.com/azure/cognitive-services/emotion/home "Emotion-API") (Preview)|Emotion-API wordt een afbeelding als invoer en retourneert de betrouwbaarheid voor een set emoties voor elk gezicht in de afbeelding.|
 | [Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Video Indexer")|Video Indexer kunt u voor het extraheren van inzichten uit uw video.|
 
 ## <a name="speech-apis"></a>Speech API's
@@ -36,7 +35,6 @@ Azure Cognitive Services zijn API's, SDK's en services waarmee ontwikkelaars int
 |Servicenaam|Servicebeschrijving|
 |:-----------|:------------------|
 |[Spraakservice](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Spraakservice") (Preview)|Speech Service voegt spraak ingeschakeld voor toepassingen.|
-|[Custom Speech Service](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home "Custom Speech Service") (Preview)|Met Custom Speech Service kunt u aangepaste taalmodellen en akoestische modellen maken op basis van uw toepassing en uw gebruikers.|
 |[Bing Speech-API](https://docs.microsoft.com/azure/cognitive-services/speech/home "Bing Speech-API")|De Bing Speech-API biedt u een eenvoudige manier om spraak ingeschakelde functies maken in uw toepassingen.|
 |[Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "Translator Speech")|Translator Speech is een service machinevertalingen.|
 |[Sprekerherkenning-API](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "Sprekerherkenning-API") (Preview)|De Sprekerherkenning-API biedt algoritmen voor sprekeridentificatie en verificatie.|
@@ -47,10 +45,8 @@ Azure Cognitive Services zijn API's, SDK's en services waarmee ontwikkelaars int
 |:-----------|:------------------|
 |[Bing Spell Check](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/ "spellingcontrole voor Bing")|Bing spellingcontrole, kunt u voor het uitvoeren van contextuele grammatica en spellingcontrole.|
 |[Language Understanding LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/ "Language Understanding")|Language Understanding service (LUIS) kunt uw toepassing om te begrijpen wat een persoon wil in hun eigen woorden.|
-|[Taalkundige analyse](https://docs.microsoft.com/azure/cognitive-services/linguisticanalysisapi/home "linguïstische") (Preview)|Taalkundige analyse biedt natuurlijke taal verwerken-hulpprogramma's waarmee de structuur van tekst geïdentificeerd.|
 |[Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "Text Analytics")|Text Analytics biedt via onbewerkte tekst voor sentimentanalyse, sleuteltermextractie en taaldetectie verwerking van natuurlijke taal.|
 |[Translator Text](https://docs.microsoft.com/azure/cognitive-services/translator/ "Translator tekst")|Translator tekst biedt voor op basis van machine tekstomzetting in bijna-realtime.||
-|[Webtaalmodel](https://docs.microsoft.com/azure/cognitive-services/web-language-model/home "Webtaalmodel") (Preview)|Natuurlijke taal verwerken voor het voorspellen van word sequentiëren, aanvullingen en woordafbreking van tekenreeksen zonder spaties.|
 
 ## <a name="search-apis"></a>Zoek-API's
 
@@ -64,12 +60,12 @@ Azure Cognitive Services zijn API's, SDK's en services waarmee ontwikkelaars int
 |[Bing entiteiten zoeken](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/ "Bing entiteiten zoeken")|Bing entiteiten zoeken retourneert informatie over entiteiten die Bing bepaalt relevant zijn voor de query van een gebruiker.|
 |[Bing afbeeldingen zoeken](https://docs.microsoft.com/azure/cognitive-services/bing-image-search "Bing afbeeldingen zoeken")|Bing afbeeldingen zoeken retourneert een weergave van afbeeldingen blijkt dat relevant is voor query van de gebruiker.|
 |[Bing visuele zoekopdrachten](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search "Bing visuele zoekopdrachten")|Bing visuele zoekopdrachten biedt retourneert inzichten over een afbeelding zoals visueel vergelijkbare afbeeldingen, bronnen winkelen voor producten in de afbeelding gevonden en zoekopdrachten gerelateerde.|
+|[Zoeken in Bing lokale bedrijven](https://docs.microsoft.com/azure/cognitive-services/bing-local-business-search/ "lokale bedrijven zoeken in Bing")| Bing-API voor het zoeken van lokale bedrijven kunnen uw toepassingen en neem contact op met de locatie-informatie over lokale bedrijven op basis van zoekquery's.|
 
 ## <a name="knowledge-apis"></a>Knowledge-API 's
 
 |Servicenaam|Servicebeschrijving|
 |:-----------|:------------------|
-| [Custom Decision Service](https://docs.microsoft.com/azure/cognitive-services/custom-decision-service/ "Custom Decision zoeken") (Preview)|Custom Decision Service helpt u bij het maken van intelligente systemen met contextuele besluitvorming voor het aanpassen en optimaliseren van de gebruikerservaring.|
 |[QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/index "QnA Maker")|QnA Maker kunt u voor het bouwen van een vraag en antwoord service van uw semi-gestructureerde inhoud.|
 
 ## <a name="use-free-trials"></a>Gebruik van gratis proefversies

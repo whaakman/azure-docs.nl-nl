@@ -1,18 +1,18 @@
 ---
 title: Implementeer containers met Helm in Kubernetes op Azure
-description: Het Helm verpakking-hulpprogramma gebruiken voor het implementeren van containers in een cluster Azure Kubernetes Service (AKS)
+description: Informatie over het gebruik van het hulpprogramma Helm-pakketten implementeren van containers in een cluster Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 10/01/2018
+ms.date: 03/06/2019
 ms.author: iainfou
-ms.openlocfilehash: a3f5bad20ddd0968f2e76008799494adbb55bc31
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: ccd98f5bf859673ae69b80dfcd0e5020ba289682
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092125"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768549"
 ---
 # <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>Installeren van toepassingen met Helm in Azure Kubernetes Service (AKS)
 
@@ -22,7 +22,7 @@ In dit artikel leest u hoe het configureren en gebruiken van Helm in een Kuberne
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-De stappen die in dit document wordt ervan uitgegaan dat u een AKS-cluster hebt gemaakt en hebben een `kubectl` verbinding met het cluster. Als u deze items wilt zien, de [Quick Start voor AKS][aks-quickstart].
+In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de Quick Start voor AKS [met de Azure CLI] [ aks-quickstart-cli] of [met behulp van de Azure-portal][aks-quickstart-portal].
 
 U moet ook de Helm-CLI is geïnstalleerd, de client die wordt uitgevoerd op uw systeem voor de ontwikkeling en kunt u starten, stoppen en beheren van toepassingen met Helm. Als u de Azure Cloud Shell gebruikt, wordt de Helm-CLI al geïnstalleerd. Voor installatie-instructies op uw lokale platform Zie, [Helm installeren][helm-install].
 
@@ -153,7 +153,7 @@ De volgende verkorte voorbeeld-uitvoer toont de status van de implementatie van 
 $ helm install stable/wordpress
 
 NAME:   wishful-mastiff
-LAST DEPLOYED: Thu Jul 12 15:53:56 2018
+LAST DEPLOYED: Wed Mar  6 19:11:38 2019
 NAMESPACE: default
 STATUS: DEPLOYED
 
@@ -201,8 +201,8 @@ Een lijst van versies die zijn geïnstalleerd op uw cluster wilt bekijken, gebru
 ```console
 $ helm list
 
-NAME             REVISION    UPDATED                     STATUS      CHART              NAMESPACE
-wishful-mastiff  1           Thu Jul 12 15:53:56 2018    DEPLOYED    wordpress-2.1.3  default
+NAME                REVISION    UPDATED                     STATUS      CHART            APP VERSION    NAMESPACE
+wishful-mastiff   1         Wed Mar  6 19:11:38 2019    DEPLOYED    wordpress-2.1.3  4.9.7          default
 ```
 
 ## <a name="clean-up-resources"></a>Resources opschonen
@@ -236,4 +236,6 @@ Zie de Helm-documentatie voor meer informatie over het beheren van implementatie
 [helm-ssl]: https://docs.helm.sh/using_helm/#using-ssl-between-helm-and-tiller
 
 <!-- LINKS - internal -->
-[aks-quickstart]: ./kubernetes-walkthrough.md
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: /cli/azure/install-azure-cli

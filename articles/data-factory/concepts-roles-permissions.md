@@ -1,9 +1,6 @@
 ---
 title: Rollen en machtigingen voor Azure Data Factory | Microsoft Docs
 description: Beschrijft de rollen en machtigingen die vereist zijn voor de Data Factory's maken en om te werken met de onderliggende resources.
-author: douglaslMS
-ms.author: douglasl
-manager: craigg
 ms.date: 11/5/2018
 ms.topic: conceptual
 ms.service: data-factory
@@ -11,12 +8,15 @@ services: data-factory
 documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.openlocfilehash: ee35c7ae1b75c6fb4d656927d7e6e4384cd76836
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
+ms.openlocfilehash: 19666eb668dd120c1705c6a62a8ba1abd2321026
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003938"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575712"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Rollen en machtigingen voor Azure Data Factory
 

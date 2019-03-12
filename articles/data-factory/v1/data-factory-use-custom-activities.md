@@ -3,22 +3,22 @@ title: Use custom activities in an Azure Data Factory pipeline (Aangepaste activ
 description: Leer hoe u aangepaste activiteiten te maken en deze gebruiken in een Azure Data Factory-pijplijn.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.assetid: 8dd7ba14-15d2-4fd9-9ada-0b2c684327e9
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: douglasl
+author: nabhishek
+ms.author: abnarain
+manager: craigg
 robots: noindex
-ms.openlocfilehash: 25592f80abc8aea338679f199f03114c2d0785f6
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 6d7aeef415fcc53fda2f5d66d748dd38f6d644fb
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077485"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576732"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +52,7 @@ In het scenario, moet u uw aangepaste .NET-activiteiten met behulp van Azure Bat
 
 Voor deze zelfstudie maakt u een Azure Batch-account aan een pool van virtuele machines. Dit zijn de stappen:
 
-1. Maak een **Azure Batch-account** met behulp van de [Azure-portal](http://portal.azure.com). Zie [maken en beheren van Azure Batch-account] [ batch-create-account] artikel voor meer informatie.
+1. Maak een **Azure Batch-account** met behulp van de [Azure-portal](https://portal.azure.com). Zie [maken en beheren van Azure Batch-account] [ batch-create-account] artikel voor meer informatie.
 2. Noteer de Azure Batch-accountnaam, accountsleutel, URI en naam van groep. U moet ze om een gekoppelde Azure-Batch-service te maken.
     1. Op de startpagina van Azure Batch-account, ziet u een **URL** in de volgende indeling: `https://myaccount.westus.batch.azure.com`. In dit voorbeeld **myaccount** is de naam van de Azure Batch-account. U in de definitie van de gekoppelde service gebruikt-URI is de URL zonder de naam van het account. Bijvoorbeeld: `https://<region>.batch.azure.com`.
     2. Klik op **sleutels** op het menu links en kopieer de **primaire TOEGANGSSLEUTEL**.
@@ -1040,15 +1040,15 @@ De [Azure Data Factory - lokale omgeving](https://github.com/gbrueckl/Azure.Data
 [azure-powershell-install]: https://github.com/Azure/azure-sdk-tools/releases
 
 
-[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
-[cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
+[developer-reference]: https://go.microsoft.com/fwlink/?LinkId=516908
+[cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
 
 [new-azure-batch-account]: https://msdn.microsoft.com/library/mt125880.aspx
 [new-azure-batch-pool]: https://msdn.microsoft.com/library/mt125936.aspx
-[azure-batch-blog]: http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx
+[azure-batch-blog]: https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx
 
-[nuget-package]: http://go.microsoft.com/fwlink/?LinkId=517478
-[adf-developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
+[nuget-package]: https://go.microsoft.com/fwlink/?LinkId=517478
+[adf-developer-reference]: https://go.microsoft.com/fwlink/?LinkId=516908
 [azure-preview-portal]: https://portal.azure.com/
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md

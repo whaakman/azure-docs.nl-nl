@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 272f4cfd4d79ef6d4fca3f3c00afb1c251649db8
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 6dcec5b72be8868a83a5760ef95117d3e751bcc3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010749"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538099"
 ---
 # <a name="get-started-with-device-management-java"></a>Aan de slag met Apparaatbeheer (Java)
 
@@ -57,7 +57,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 
 * Maven 3.  <br/> [Uw ontwikkelomgeving voorbereiden](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md) wordt beschreven hoe u voor het installeren van [Maven](https://maven.apache.org/what-is-maven.html) voor deze zelfstudie op Windows of Linux.
 
-* [Node.js versie 0.10.0 of hoger](http://nodejs.org).
+* [Node.js versie 0.10.0 of hoger](https://nodejs.org).
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
@@ -101,7 +101,7 @@ Deze console-app maakt verbinding met uw IoT-Hub aan de rechtstreekse methode aa
     ```
 
     > [!NOTE]
-    > U kunt controleren voor de meest recente versie van **iot-service-client** met behulp van [Maven zoeken](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > U kunt controleren voor de meest recente versie van **iot-service-client** met behulp van [Maven zoeken](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
 5. Voeg de volgende **bouwen** knooppunt na de **afhankelijkheden** knooppunt. Deze configuratie geeft Maven Java 1.8 gebruiken om de app te bouwen:
 
@@ -247,7 +247,7 @@ In deze sectie maakt u een Java-consoletoepassing die een apparaat simuleert. De
     ```
 
     > [!NOTE]
-    > U kunt controleren voor de meest recente versie van **iot-device-client** met behulp van [Maven zoeken](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > U kunt controleren voor de meest recente versie van **iot-device-client** met behulp van [Maven zoeken](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
 4. Voeg de volgende **bouwen** knooppunt na de **afhankelijkheden** knooppunt. Deze configuratie geeft Maven Java 1.8 gebruiken om de app te bouwen:
 

@@ -5,15 +5,15 @@ ms.service: iot-central
 services: iot-central
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 09/15/2018
+ms.date: 02/04/2019
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: f08167b4f37193c9a04da02fdd31e066a97aec66
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 142881e0a72ef9db7397276f092a4b7502b61fed
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317659"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781439"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Maken en uitvoeren van een taak in uw Azure IoT Central-toepassing
 
@@ -40,8 +40,6 @@ Deze sectie leest u hoe u maken en een taak uitvoert. Elke stap verloopt via een
 1. Aan de rechterkant, kies de apparaten die u wilt de taak wordt uitgevoerd. Als u het selectievakje boven selecteert, worden alle apparaten geselecteerd in het hele apparaat instellen. Als u het selectievakje in de buurt van de naam selecteert, worden alle apparaten in de huidige pagina geselecteerd.
 
 1. Zodra uw gewenste apparaten zijn geselecteerd, kiest u **uitvoeren**. De taak wordt nu weergegeven op de hoofdpagina **taken** pagina. In deze weergave bent u kan uw huidige actieve taak en de geschiedenis van een eerder taken uitvoeren. De actieve taak wordt altijd weergegeven boven aan de lijst.
-
-    ![Taak uitvoeren](./media/howto-run-a-job/runjob.png)
 
     ![Taak weergeven](./media/howto-run-a-job/viewjob.png)
 

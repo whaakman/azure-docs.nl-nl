@@ -8,17 +8,15 @@ author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
-ms.date: 02/15/2019
-ms.openlocfilehash: b77f87ef922d2f759fd8d72505effa3d8e96c403
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.date: 02/28/2019
+ms.openlocfilehash: 7fc7f63539e65618f00d75d5392ad1e96b7aab3e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339426"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533448"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Apache Oozie gebruiken met Apache Hadoop voor het definiëren en een werkstroom uitvoeren op Azure HDInsight op basis van Linux
-
-[!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
 Leer hoe u Apache Oozie gebruiken met Apache Hadoop op Azure HDInsight. Oozie is een werkstroom en coördinatie systeem waarmee Hadoop-taken worden beheerd. Oozie is geïntegreerd met de Hadoop-stack en ondersteunt de volgende taken:
 
@@ -35,10 +33,19 @@ U kunt ook Oozie gebruiken voor het plannen van taken die specifiek voor een sys
 
 ## <a name="prerequisites"></a>Vereisten
 
-* **Een gewone HDInsight-cluster**: Zie [aan de slag met HDInsight op Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* **Een Hadoop-cluster op HDInsight**. Zie [aan de slag met HDInsight op Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-> [!IMPORTANT]  
-> Voor de stappen in dit document hebt u een HDInsight-cluster nodig dat werkt met Linux. Linux is het enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
+* **Een SSH-client**. Zie [verbinding maken met HDInsight (Apache Hadoop) via SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
+
+* **Een Azure SQL-Database**.  Zie [maken van een Azure SQL database in Azure portal](../sql-database/sql-database-get-started.md).  In dit artikel wordt een database met de naam `oozietest`.
+
+* **Mogelijke wijziging in de opslagconfiguratie.**  Zie [opslagconfiguratie](#storage-configuration) als type opslagaccount `BlobStorage`.
+
+## <a name="storage-configuration"></a>Opslagconfiguratie
+Er is geen actie is vereist als het opslagaccount dat wordt gebruikt van het type `Storage (general purpose v1)` of `StorageV2 (general purpose v2)`.  Het proces in het artikel produceren uitvoer naar ten minste `/mapreducestaging`.  Een standaard hadoop-configuratie bevat `/mapreducestaging` in de `fs.azure.page.blob.dir` configuratievariabele van de in `core-site.xml` voor service `HDFS`.  Deze configuratie zorgt ervoor dat de uitvoer naar de map worden pagina-blobs, wat niet wordt ondersteund voor het type opslagaccount `BlobStorage`.  Gebruik `BlobStorage` voor dit artikel, verwijdert u `/mapreducestaging` uit de `fs.azure.page.blob.dir` configuratievariabele.  De configuratie is toegankelijk vanuit de [Ambari UI](/hdinsight-hadoop-manage-ambari.md).  Anders ontvangt u het foutbericht weergegeven: `Page blob is not supported for this account type.`
+
+> [!NOTE]  
+> Het opslagaccount dat wordt gebruikt in dit artikel heeft [veilige overdracht](../storage/common/storage-require-secure-transfer.md) ingeschakeld en dus `wasbs` in plaats van `wasb` wordt gebruikt in het artikel.
 
 ## <a name="example-workflow"></a>Van de voorbeeldwerkstroom
 
@@ -46,7 +53,7 @@ De werkstroom gebruikt in dit document bevat twee acties. Acties zijn definities
 
 ![Diagram van werkstroom][img-workflow-diagram]
 
-1. Een Hive-bewerking wordt een HiveQL-script om uit te pakken records uit de **hivesampletable** die is opgenomen in HDInsight. Elke rij gegevens beschrijft een bezoek van een specifieke mobiele apparaat. De recordindeling wordt weergegeven, zoals de volgende tekst:
+1. Een Hive-bewerking wordt een HiveQL-script om uit te pakken records uit de `hivesampletable` die is opgenomen in HDInsight. Elke rij gegevens beschrijft een bezoek van een specifieke mobiele apparaat. De recordindeling wordt weergegeven, zoals de volgende tekst:
 
         8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
         23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
@@ -63,15 +70,13 @@ De werkstroom gebruikt in dit document bevat twee acties. Acties zijn definities
 
 ## <a name="create-the-working-directory"></a>De werkmap maken
 
-Oozie wordt verwacht dat u voor het opslaan van alle bronnen die nodig zijn voor een taak in dezelfde map. In dit voorbeeld wordt **wasb: / / / zelfstudies/useoozie**. Voor het maken van deze map, voert u de volgende stappen uit:
+Oozie wordt verwacht dat u voor het opslaan van alle bronnen die nodig zijn voor een taak in dezelfde map. In dit voorbeeld wordt `wasbs:///tutorials/useoozie`. Voor het maken van deze map, voert u de volgende stappen uit:
 
-1. Verbinding maken met het HDInsight-cluster met behulp van SSH:
+1. De code hieronder om te vervangen bewerken `sshuser` met de SSH gebruiker naam voor het cluster en vervang `clustername` met de naam van het cluster.  Voer de code om verbinding met het HDInsight-cluster door [met behulp van SSH](hdinsight-hadoop-linux-use-ssh-unix.md).  
 
     ```bash
     ssh sshuser@clustername-ssh.azurehdinsight.net
     ```
-
-    Vervang `sshuser` door de SSH-gebruikersnaam voor het cluster. Vervang `clustername` met de naam van het cluster. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
 2. Gebruik de volgende opdracht voor het maken van de map:
 
@@ -79,16 +84,14 @@ Oozie wordt verwacht dat u voor het opslaan van alle bronnen die nodig zijn voor
     hdfs dfs -mkdir -p /tutorials/useoozie/data
     ```
 
-    > [!NOTE]
-    > De `-p` parameter zorgt ervoor dat het maken van alle mappen in het pad. De **gegevens** directory wordt gebruikt voor het opslaan van de gegevens die worden gebruikt door de **useooziewf.hql** script.
+    > [!NOTE]  
+    > De `-p` parameter zorgt ervoor dat het maken van alle mappen in het pad. De `data` directory wordt gebruikt voor het opslaan van de gegevens die worden gebruikt door de `useooziewf.hql` script.
 
-3. Om ervoor te zorgen dat uw account kan worden geïmiteerd Oozie, gebruikt u de volgende opdracht:
+3. De code hieronder om te vervangen bewerken `username` met de naam van de SSH-gebruiker.  Om ervoor te zorgen dat uw account kan worden geïmiteerd Oozie, gebruikt u de volgende opdracht:
 
     ```bash
     sudo adduser username users
     ```
-
-    Vervang `username` met de naam van de SSH-gebruiker.
 
     > [!NOTE]  
     > U kunt negeren fouten die wijzen op de gebruiker is al een lid van de `users` groep.
@@ -98,11 +101,11 @@ Oozie wordt verwacht dat u voor het opslaan van alle bronnen die nodig zijn voor
 Omdat deze werkstroom Sqoop gebruikt gegevens te exporteren naar de SQL-database, moet u een kopie van het JDBC-stuurprogramma gebruikt om te communiceren met de SQL-database opgeven. Als u wilt het JDBC-stuurprogramma kopiëren naar de werkmap, gebruik de volgende opdracht uit de SSH-sessie:
 
 ```bash
-hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
+hdfs dfs -put /usr/share/java/sqljdbc_7.0/enu/mssql-jdbc*.jar /tutorials/useoozie/
 ```
 
-> [!NOTE]  
-> Mogelijk ontvangt u een bericht dat het bestand al bestaat.
+> [!IMPORTANT]  
+> Controleer of de werkelijke JDBC-stuurprogramma dat bestaat op `/usr/share/java/`.
 
 Als de werkstroom andere resources, zoals een jar dat een MapReduce-toepassing bevat gebruikt, moet u deze resources ook toevoegen.
 
@@ -133,9 +136,9 @@ Gebruik de volgende stappen uit om een Hive query language (HiveQL) script die d
 
     De werkstroom-definitiebestand workflow.xml in deze zelfstudie, geeft deze waarden aan deze HiveQL-script uit tijdens runtime.
 
-4. Als u wilt de editor te sluiten, selecteert u Ctrl + X. Wanneer u hierom wordt gevraagd, selecteert u `Y` invoeren om het bestand hebt opgeslagen, `useooziewf.hql` als de bestandsnaam en selecteer vervolgens **Enter**.
+4. Om het bestand hebt opgeslagen, selecteert u Ctrl + X, voer `Y`, en selecteer vervolgens **Enter**.  
 
-5. Gebruik de volgende opdrachten om te kopiëren `useooziewf.hql` naar `wasb:///tutorials/useoozie/useooziewf.hql`:
+5. Gebruik de volgende opdracht uit om te kopiëren `useooziewf.hql` naar `wasbs:///tutorials/useoozie/useooziewf.hql`:
 
     ```bash
     hdfs dfs -put useooziewf.hql /tutorials/useoozie/useooziewf.hql
@@ -196,7 +199,7 @@ Oozie werkstroomdefinities worden geschreven in Hadoop proces Definition Languag
             <arg>1</arg>
             <arg>--input-fields-terminated-by</arg>
             <arg>"\t"</arg>
-            <archive>sqljdbc41.jar</archive>
+            <archive>mssql-jdbc-7.0.0.jre8.jar</archive>
             </sqoop>
         <ok to="end"/>
         <error to="fail"/>
@@ -216,9 +219,9 @@ Oozie werkstroomdefinities worden geschreven in Hadoop proces Definition Languag
 
      De werkstroom heeft verschillende vermeldingen, zoals `${jobTracker}`. U kunt deze vermeldingen worden vervangen door de waarden die u in de taakdefinitie. U maakt de taakdefinitie verderop in dit document.
 
-     Let ook op de `<archive>sqljdbc4.jar</archive>` vermelding in de sectie Sqoop. Deze vermelding geeft Oozie om dit archief beschikbaar maken voor Sqoop wanneer deze actie wordt uitgevoerd.
+     Let ook op de `<archive>mssql-jdbc-7.0.0.jre8.jar</archive>` vermelding in de sectie Sqoop. Deze vermelding geeft Oozie om dit archief beschikbaar maken voor Sqoop wanneer deze actie wordt uitgevoerd.
 
-3. Om het bestand hebt opgeslagen, selecteert u Ctrl + X, voer `Y`, en selecteer vervolgens **Enter**. 
+3. Om het bestand hebt opgeslagen, selecteert u Ctrl + X, voer `Y`, en selecteer vervolgens **Enter**.  
 
 4. Gebruik de volgende opdracht uit om te kopiëren de `workflow.xml` van het bestand in `/tutorials/useoozie/workflow.xml`:
 
@@ -226,15 +229,10 @@ Oozie werkstroomdefinities worden geschreven in Hadoop proces Definition Languag
     hdfs dfs -put workflow.xml /tutorials/useoozie/workflow.xml
     ```
 
-## <a name="create-the-database"></a>De database maken
-
-Voor het maken van een SQL-database, volg de stappen in de [maken van een SQL-database](../sql-database/sql-database-get-started.md) document. Wanneer u de database maken, gebruikt u `oozietest` als naam van de database. Maak ook een notitie van de naam van de database-server.
-
-### <a name="create-the-table"></a>De tabel maken
+## <a name="create-a-table"></a>Een tabel maken
 
 > [!NOTE]  
 > Er zijn veel manieren om te verbinden met SQL Database om een tabel te maken. In de volgende stappen wordt [FreeTDS](http://www.freetds.org/) gebruikt vanuit het HDInsight-cluster.
-
 
 1. Gebruik de volgende opdracht voor het installeren van FreeTDS op het HDInsight-cluster:
 
@@ -242,10 +240,10 @@ Voor het maken van een SQL-database, volg de stappen in de [maken van een SQL-da
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-2. Nadat FreeTDS is geïnstalleerd, gebruikt u de volgende opdracht uit om te verbinden met de SQL database-server die u eerder hebt gemaakt:
+2. De code hieronder om te vervangen bewerken `<serverName>` met de naam van uw Azure SQL-server en `<sqlLogin>` met de Azure SQL server-aanmelding.  Voer de opdracht verbinding maken met de vereiste SQL-database.  Voer het wachtwoord bij de prompt.
 
     ```bash
-    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -P <sqlPassword> -p 1433 -D oozietest
+    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -p 1433 -D oozietest
     ```
 
     Ontvangt u uitvoer zoals de volgende tekst:
@@ -267,7 +265,7 @@ Voor het maken van een SQL-database, volg de stappen in de [maken van een SQL-da
     GO
     ```
 
-    Wanneer u de instructie `GO` invoert, worden de vorige instructies geëvalueerd. Een tabel met de naam van deze instructies maken **mobiledata**, die wordt gebruikt door de werkstroom.
+    Wanneer u de instructie `GO` invoert, worden de vorige instructies geëvalueerd. Een tabel met de naam van deze instructies maken `mobiledata`, die wordt gebruikt door de werkstroom.
 
     Om te controleren of de tabel is gemaakt, gebruikt u de volgende opdrachten:
 
@@ -279,9 +277,9 @@ Voor het maken van een SQL-database, volg de stappen in de [maken van een SQL-da
     U ziet uitvoer zoals de volgende tekst:
 
         TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
-        oozietest       dbo     mobiledata      BASE TABLE
+        oozietest       dbo             mobiledata      BASE TABLE
 
-4. Voer om af te sluiten van het hulpprogramma tsql `exit` op de `1>` prompt.
+4. Het hulpprogramma tsql af te sluiten door te voeren `exit` op de `1>` prompt.
 
 ## <a name="create-the-job-definition"></a>De taakdefinitie van de maken
 
@@ -297,21 +295,23 @@ Waar vind ik de workflow.xml beschrijving van de taakdefinitie. Ook wordt beschr
 
     ```xml
     <name>fs.defaultFS</name>
-    <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
+    <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net</value>
     ```
 
     > [!NOTE]  
-    > Als het HDInsight-cluster maakt gebruik van Azure Storage als de standaardopslag, de `<value>` element inhoud beginnen met `wasb://`. Als Azure Data Lake Storage Gen1 in plaats daarvan wordt gebruikt, deze begint met `adl://`. Als Azure Data Lake Storage Gen2 wordt gebruikt, deze begint met `abfs://`.
+    > Als het HDInsight-cluster maakt gebruik van Azure Storage als de standaardopslag, de `<value>` element inhoud beginnen met `wasbs://`. Als Azure Data Lake Storage Gen1 in plaats daarvan wordt gebruikt, deze begint met `adl://`. Als Azure Data Lake Storage Gen2 wordt gebruikt, deze begint met `abfs://`.
 
     Sla de inhoud van de `<value>` -element, zoals deze wordt gebruikt in de volgende stappen.
 
-2. Gebruik de volgende opdracht voor het maken van de configuratie van de definitie Oozie:
+2. Bewerk het volgende XML-bestand als volgt:
 
-    ```bash
-    nano job.xml
-    ```
-
-3. Nadat de nano-editor wordt geopend, gebruikt u het volgende XML-bestand als de inhoud van het bestand:
+    |Tijdelijke aanduiding| Waarde vervangen|
+    |---|---|
+    |wasbs://mycontainer@mystorageaccount.blob.core.windows.net| De waarde van stap 1 hebt ontvangen.|
+    |beheerder| Uw aanmeldingsnaam voor de HDInsight-cluster als dat niet-beheerder.|
+    |Servernaam| Azure SQL database-servernaam.|
+    |sqlLogin| Azure SQL database server-aanmelding.|
+    |sqlPassword| Azure SQL database aanmeldingswachtwoord voor server.|
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -319,7 +319,7 @@ Waar vind ik de workflow.xml beschrijving van de taakdefinitie. Ook wordt beschr
 
         <property>
         <name>nameNode</name>
-        <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
+        <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net</value>
         </property>
 
         <property>
@@ -339,7 +339,7 @@ Waar vind ik de workflow.xml beschrijving van de taakdefinitie. Ook wordt beschr
 
         <property>
         <name>hiveScript</name>
-        <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/useooziewf.hql</value>
+        <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/useooziewf.hql</value>
         </property>
 
         <property>
@@ -349,12 +349,12 @@ Waar vind ik de workflow.xml beschrijving van de taakdefinitie. Ook wordt beschr
 
         <property>
         <name>hiveDataFolder</name>
-        <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/data</value>
+        <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/data</value>
         </property>
 
         <property>
         <name>sqlDatabaseConnectionString</name>
-        <value>"jdbc:sqlserver://serverName.database.windows.net;user=adminLogin;password=adminPassword;database=oozietest"</value>
+        <value>"jdbc:sqlserver://serverName.database.windows.net;user=sqlLogin;password=sqlPassword;database=oozietest"</value>
         </property>
 
         <property>
@@ -364,28 +364,25 @@ Waar vind ik de workflow.xml beschrijving van de taakdefinitie. Ook wordt beschr
 
         <property>
         <name>user.name</name>
-        <value>YourName</value>
+        <value>admin</value>
         </property>
 
         <property>
         <name>oozie.wf.application.path</name>
-        <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
+        <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
         </property>
     </configuration>
     ```
 
-   * Vervang alle exemplaren van `wasb://mycontainer@mystorageaccount.blob.core.windows.net` met de waarde die u eerder hebt ontvangen voor de standaardopslag.
+    De meeste van de informatie in dit bestand wordt gebruikt voor het vullen van de waarden in de workflow.xml of ooziewf.hql-bestanden, zoals `${nameNode}`.  Als het pad is een `wasbs` pad, moet u het volledige pad gebruiken. Geen korter maken om alleen `wasbs:///`. De `oozie.wf.application.path` vermelding bepaalt waar het bestand workflow.xml te vinden. Dit bestand bevat de werkstroom die door deze taak is uitgevoerd.
 
-     > [!WARNING]  
-     > Als het pad is een `wasb` pad, moet u het volledige pad gebruiken. Geen korter maken om alleen `wasb:///`.
+3. Gebruik de volgende opdracht voor het maken van de configuratie van de definitie Oozie:
 
-   * Vervang `YourName` met de aanmeldingsnaam van uw voor het HDInsight-cluster.
-   * Vervang `serverName`, `adminLogin`, en `adminPassword` met de gegevens voor uw SQL-database.
+    ```bash
+    nano job.xml
+    ```
 
-     De meeste van de informatie in dit bestand wordt gebruikt voor het vullen van de waarden in de workflow.xml of ooziewf.hql-bestanden, zoals `${nameNode}`.
-
-     > [!NOTE]  
-     > De `oozie.wf.application.path` vermelding bepaalt waar het bestand workflow.xml te vinden. Dit bestand bevat de werkstroom die door deze taak is uitgevoerd.
+4. Nadat de nano-editor wordt geopend, plakt u het bewerkte XML-bestand als de inhoud van het bestand.
 
 5. Om het bestand hebt opgeslagen, selecteert u Ctrl + X, voer `Y`, en selecteer vervolgens **Enter**.
 
@@ -395,7 +392,6 @@ De volgende stappen gebruikt de opdracht Oozie indienen en beheren van Oozie-wer
 
 > [!IMPORTANT]  
 > Wanneer u de opdracht Oozie gebruiken, moet u de FQDN-naam gebruiken voor het hoofdknooppunt van HDInsight. Deze FQDN is alleen toegankelijk is vanaf het cluster, of als het cluster zich in een Azure-netwerk, van andere virtuele machines op hetzelfde netwerk.
-
 
 1. Als u de URL naar de service Oozie, gebruik de volgende opdracht:
 
@@ -412,13 +408,12 @@ De volgende stappen gebruikt de opdracht Oozie indienen en beheren van Oozie-wer
 
     De `http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie` gedeelte is de URL voor gebruik met de opdracht Oozie.
 
-2. Voor het maken van een omgevingsvariabele voor de URL, gebruikt u de volgende, zodat u niet hoeft op te geven voor elke opdracht:
+2. De code bewerken om de URL vervangen door de reeks die u eerder hebt ontvangen. Voor het maken van een omgevingsvariabele voor de URL, gebruikt u de volgende, zodat u niet hoeft op te geven voor elke opdracht:
 
     ```bash
     export OOZIE_URL=http://HOSTNAMEt:11000/oozie
     ```
 
-    De URL vervangen door de reeks die u eerder hebt ontvangen.
 3. Als u wilt verzenden van de taak, gebruikt u het volgende:
 
     ```bash
@@ -429,14 +424,11 @@ De volgende stappen gebruikt de opdracht Oozie indienen en beheren van Oozie-wer
 
     Nadat de opdracht is voltooid, moet deze de ID van de taak, bijvoorbeeld retourneren `0000005-150622124850154-oozie-oozi-W`. Deze ID wordt gebruikt voor het beheren van de taak.
 
-4. Als u wilt weergeven van de status van de taak, gebruik de volgende opdracht:
+4. De code hieronder om te vervangen bewerken `<JOBID>` met de ID die wordt geretourneerd in de vorige stap.  Als u wilt weergeven van de status van de taak, gebruik de volgende opdracht:
 
     ```bash
     oozie job -info <JOBID>
     ```
-
-    > [!NOTE]  
-    > Vervang `<JOBID>` met de ID die wordt geretourneerd in de vorige stap.
 
     Dit retourneert informatie, zoals de volgende tekst:
 
@@ -457,21 +449,18 @@ De volgende stappen gebruikt de opdracht Oozie indienen en beheren van Oozie-wer
 
     Deze taak heeft de status van `PREP`. Deze status geeft aan dat de taak is gemaakt, maar niet is gestart.
 
-5. Gebruik de volgende opdracht voor het starten van de taak:
+5. De code hieronder om te vervangen bewerken `<JOBID>` met de ID die eerder zijn geretourneerd.  Gebruik de volgende opdracht voor het starten van de taak:
 
     ```bash
     oozie job -start JOBID
     ```
 
-    > [!NOTE]  
-    > Vervang `<JOBID>` met de ID die eerder zijn geretourneerd.
+    Als u de status na deze opdracht controleren, deel uitmaakt van een actieve status en gegevens worden geretourneerd voor de acties in de taak.  De taak duurt enkele minuten om te voltooien.
 
-    Als u de status na deze opdracht controleren, deel uitmaakt van een actieve status en gegevens worden geretourneerd voor de acties in de taak.
-
-6. Nadat de taak voltooid is, kunt u controleren dat de gegevens is gegenereerd en geëxporteerd naar de tabel van de SQL-database met behulp van de volgende opdracht uit:
+6. De code hieronder om te vervangen bewerken `<serverName>` met de naam van uw Azure SQL-server en `<sqlLogin>` met de Azure SQL server-aanmelding.  Nadat de taak voltooid is, kunt u controleren dat de gegevens is gegenereerd en geëxporteerd naar de tabel van de SQL-database met behulp van de volgende opdracht uit.  Voer het wachtwoord bij de prompt.
 
     ```bash
-    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D oozietest
+    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -p 1433 -D oozietest
     ```
 
     Op de `1>` wordt gevraagd, voert u de volgende query:
@@ -524,7 +513,7 @@ Voor toegang tot de Oozie-web-UI, voert u de volgende stappen uit:
 
 1. Maak een SSH-tunnel naar het HDInsight-cluster. Zie voor meer informatie, [SSH-Tunneling gebruiken met HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
-2. Nadat u een tunnel maken, opent u de Ambari-Webgebruikersinterface in uw webbrowser. De URI voor de site Ambari is `https://CLUSTERNAME.azurehdinsight.net`. Vervang `CLUSTERNAME` met de naam van uw Linux gebaseerde HDInsight-cluster.
+2. Nadat u een tunnel maakt, opent u de Ambari-Webgebruikersinterface in uw webbrowser met behulp van URI `http://headnodehost:8080`.
 
 3. Selecteer in de linkerkant van de pagina **Oozie** > **snelkoppelingen** > **Oozie-Webgebruikersinterface**.
 
@@ -593,9 +582,9 @@ U kunt de coördinator gebruiken om op te geven van een starten, een end en de f
     hadoop fs -put coordinator.xml /tutorials/useoozie/coordinator.xml
     ```
 
-4. Wijzig de `job.xml` bestand, gebruik de volgende opdracht:
+4. Wijzig de `job.xml` bestand dat u eerder hebt gemaakt, gebruikt u de volgende opdracht:
 
-    ```
+    ```bash
     nano job.xml
     ```
 
@@ -608,23 +597,23 @@ U kunt de coördinator gebruiken om op te geven van een starten, een end en de f
         ```xml
         <property>
             <name>workflowPath</name>
-            <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
+            <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
         </property>
         ```
 
-       Vervang de `wasb://mycontainer@mystorageaccount.blob.core.windows` tekst met de waarde die wordt gebruikt in de andere vermeldingen in het bestand job.xml.
+       Vervang de `wasbs://mycontainer@mystorageaccount.blob.core.windows` tekst met de waarde die wordt gebruikt in de andere vermeldingen in het bestand job.xml.
 
    * Voeg het volgende XML-bestand voor het definiëren van het begin, einde en frequentie voor de coördinator:
 
         ```xml
         <property>
             <name>coordStart</name>
-            <value>2017-05-10T12:00Z</value>
+            <value>2018-05-10T12:00Z</value>
         </property>
 
         <property>
             <name>coordEnd</name>
-            <value>2017-05-12T12:00Z</value>
+            <value>2018-05-12T12:00Z</value>
         </property>
 
         <property>
@@ -638,17 +627,15 @@ U kunt de coördinator gebruiken om op te geven van een starten, een end en de f
         </property>
         ```
 
-       Deze waarden ingesteld voor de begintijd tot 12:00 op 10 mei 2017 en de eindtijd op 12 mei 2017. Het interval voor het uitvoeren van deze taak is ingesteld op dagelijks. De frequentie in minuten, wordt dus 24 uur x 60 minuten = 1440 minuten. Ten slotte is de tijdzone ingesteld op UTC.
+       Deze waarden ingesteld voor de begintijd tot 12:00 op 10 mei 2018, en de eindtijd op 12 mei 2018. Het interval voor het uitvoeren van deze taak is ingesteld op dagelijks. De frequentie in minuten, wordt dus 24 uur x 60 minuten = 1440 minuten. Ten slotte is de tijdzone ingesteld op UTC.
 
 5. Om het bestand hebt opgeslagen, selecteert u Ctrl + X, voer `Y`, en selecteer vervolgens **Enter**.
 
-6. Als u wilt de taak uitvoert, moet u de volgende opdracht gebruiken:
+6. Als u wilt verzenden en start de taak, gebruik de volgende opdracht:
 
-    ```
+    ```bash
     oozie job -config job.xml -run
     ```
-
-    Met deze opdracht worden verzonden en wordt de taak wordt gestart.
 
 7. Als u gaat u naar de Oozie-Webinterface en selecteer de **Coordinator taken** tabblad ziet u informatie, zoals in de volgende afbeelding:
 
@@ -683,11 +670,11 @@ Hier volgen specifieke fouten die optreden en hoe u ze op te lossen.
 
     JA009: Cannot initialize Cluster. Please check your configuration for map
 
-**Oorzaak**: De Azure Blob-opslag-adressen die worden gebruikt de **job.xml** bestand geen het storage-container of de naam van het opslagaccount. De indeling van Blob storage-adres moet `wasb://containername@storageaccountname.blob.core.windows.net`.
+**Oorzaak**: De Azure Blob-opslag-adressen die worden gebruikt de **job.xml** bestand geen het storage-container of de naam van het opslagaccount. De indeling van Blob storage-adres moet `wasbs://containername@storageaccountname.blob.core.windows.net`.
 
 **Oplossing**: De Blob storage-adressen die gebruikmaakt van de taak wijzigen.
 
-### <a name="ja002-oozie-is-not-allowed-to-impersonate-ltuser"></a>JA002: Oozie is niet toegestaan om te imiteren &lt;gebruiker >
+### <a name="ja002-oozie-is-not-allowed-to-impersonate-ltusergt"></a>JA002: Oozie is niet toegestaan om te imiteren &lt;gebruiker&gt;
 
 **Symptomen**: De taakstatus verandert in **onderbroken**. Details voor het weergeven van de taak de `RunHiveScript` status als **START_MANUAL**. Als u de actie selecteert, ziet u de volgende strekking weergegeven:
 
@@ -714,16 +701,16 @@ Hier volgen specifieke fouten die optreden en hoe u ze op te lossen.
 
 Bijvoorbeeld, voor de taak in dit document, moet u de volgende stappen gebruiken:
 
-1. Kopieer de `sqljdbc4.1.jar` van het bestand in de **/zelfstudies/useoozie** directory:
+1. Kopieer de `mssql-jdbc-7.0.0.jre8.jar` van het bestand in de **/zelfstudies/useoozie** directory:
 
     ```bash
-    hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc41.jar /tutorials/useoozie/sqljdbc41.jar
+    hdfs dfs -put /usr/share/java/sqljdbc_7.0/enu/mssql-jdbc-7.0.0.jre8.jar /tutorials/useoozie/mssql-jdbc-7.0.0.jre8.jar
     ```
 
 2. Wijzig de `workflow.xml` om toe te voegen van het volgende XML-bestand op een nieuwe regel hierboven `</sqoop>`:
 
     ```xml
-    <archive>sqljdbc41.jar</archive>
+    <archive>mssql-jdbc-7.0.0.jre8.jar</archive>
     ```
 
 ## <a name="next-steps"></a>Volgende stappen

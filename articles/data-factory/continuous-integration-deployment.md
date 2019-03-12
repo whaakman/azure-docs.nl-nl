@@ -3,20 +3,20 @@ title: Continue integratie en levering in Azure Data Factory | Microsoft Docs
 description: Informatie over het gebruik van continue integratie en levering Data Factory-pijplijnen verplaatsen van de ene omgeving (ontwikkeling, testen, productie) naar een andere.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
+author: gauravmalhot
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2019
-ms.author: douglasl
-ms.openlocfilehash: bfab3c94892b94eaf1c0585ee47a6dcbdb161776
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.author: gamal
+manager: craigg
+ms.openlocfilehash: 415299b93edb28155ade4f1e95203e97bb02f0af
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452722"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57577021"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Continue integratie en levering (CI/CD) in Azure Data Factory
 

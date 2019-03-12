@@ -7,15 +7,15 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: cf2359834aa79b1d3fef8b65e4ef4191eb6ff867
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d325a5dfd57bb6b69e6cf171487adfa8d374512f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467438"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762922"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Kies een prijscategorie voor Azure Search
 
@@ -32,30 +32,57 @@ Hoewel alle lagen, inclusief de **gratis** laag, in het algemeen bieden functiep
 > De uitzondering functiepariteit is [indexeerfuncties](search-indexer-overview.md), die zijn niet beschikbaar op S3HD.
 >
 
-Binnen een laag, kunt u [replica en partitie resources aanpassen](search-capacity-planning.md) voor het afstemmen van prestaties. U kunt beginnen met twee of drie van elk en de rekenkracht voor de workload van een intensief indexering tijdelijk verhogen. De mogelijkheid om af te stemmen resource niveaus binnen een laag voegt u flexibiliteit toe, maar ook iets ingewikkelder, uw analyse. Mogelijk hebt om te experimenteren om te zien of een lagere laag met hogere resources/replica's betere waarde en prestaties dan een hogere laag met lagere te biedt. Zie voor meer informatie over wanneer en waarom zou u capaciteit aanpassen, [aandachtspunten voor prestaties en optimalisatie](search-performance-optimization.md).
+Binnen een laag, kunt u [replica en partitie resources aanpassen](search-capacity-planning.md) vergroten of verkleinen van de schaal. U kunt beginnen met een of twee van elk en de rekenkracht voor de workload van een intensief indexering tijdelijk verhogen. De mogelijkheid om af te stemmen resource niveaus binnen een laag voegt u flexibiliteit toe, maar ook iets ingewikkelder, uw analyse. Mogelijk hebt om te experimenteren om te zien of een lagere laag met hogere resources/replica's betere waarde en prestaties dan een hogere laag met lagere te biedt. Zie voor meer informatie over wanneer en waarom zou u capaciteit aanpassen, [aandachtspunten voor prestaties en optimalisatie](search-performance-optimization.md).
 
-<!---
-The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding which tier best meets your needs. 
---->
+## <a name="tiers-for-azure-search"></a>Lagen voor Azure Search
+
+De volgende tabel bevat de beschikbare categorieën. Andere bronnen van laaggegevens omvatten de [pagina met prijzen](https://azure.microsoft.com/pricing/details/search/), [service en limieten](search-limits-quotas-capacity.md), en de portal-pagina bij het inrichten van een service.
+
+|Laag | Capaciteit |
+|-----|-------------|
+|Gratis | Gedeeld met andere abonnees. Niet-schaalbare, beperkt tot 3 indexen en 50 MB opslag. |
+|Basic | Toegewezen computerbronnen voor productieworkloads op kleinere schaal. Een partitie van 2 GB en maximaal drie replica's. |
+|Standard 1 (S1) | Van S1 op van toegewezen machines met meer capaciteit voor de opslag en verwerking op ieder niveau. Partitiegrootte is 25 GB per partitie (maximaal 300 GB aan documenten per service) voor S1. |
+|Standard 2 (S2) | Lijkt naar S1 uitvoert, maar met 100 GB/partities (max 1,2 TB documenten per service) |
+|Standard 3 (S3) | 200 GB per partitie (max 2,4 TB documenten per service). |
+|Standard 3 met hoge dichtheid (S3-HD) | High-densitysampling is een *hostmodus* voor S3. De onderliggende hardware is geoptimaliseerd voor een groot aantal kleinere indexen, bedoeld voor scenario's voor multitenancy. S3 HD heeft de dezelfde per eenheid kosten in rekening gebracht zoals S3, maar de hardware is geoptimaliseerd voor het snel bestanden lezen op een groot aantal kleinere indexen.|
+
 
 ## <a name="how-billing-works"></a>Werking van facturering
 
-Er zijn vier manieren kosten in rekening bij het maken van de resource van een zoekopdracht in de portal in Azure Search:
+Er zijn drie manieren u kosten maken in Azure Search in Azure Search en zijn er vaste en variabele onderdelen. Deze sectie komen op zijn beurt elk onderdeel van de facturering.
 
-* Replica's en partities die worden gebruikt voor reguliere indexeren en doorzoeken van taken toe te voegen. U begint met één van elk, maar u kunt een of beide om toe te voegen capaciteit wilt vergroten kiezen en betaalt voor extra niveaus van te. 
-* Kosten voor uitgaande gegevens tijdens het indexeren. Bij het ophalen van gegevens uit een Azure SQL Database of Cosmos DB-gegevensbron, worden er kosten in rekening gebracht voor de transactie in de factuur voor die resources.
-* Voor [cognitief zoeken](cognitive-search-concept-intro.md) alleen installatiekopie extractie tijdens documenten kraken wordt in rekening gebracht op basis van het aantal afbeeldingen uit uw documenten hebt uitgepakt. Extractie van tekst is momenteel gratis.
-* Voor [cognitief zoeken](cognitive-search-concept-intro.md) alleen enrichments op basis van [ingebouwde cognitieve vaardigheden](cognitive-search-predefined-skills.md) worden in rekening gebracht tegen een Cognitive Services-resource. Enrichments worden gefactureerd tegen hetzelfde tarief als u de taak met Cognitive Services rechtstreeks heeft uitgevoerd.
+### <a name="1-core-service-costs-fixed-and-variable"></a>1. Servicekosten voor Core (vaste en variabele)
+
+Voor de service zelf, de minimale kosten is de eerste zoekeenheid (1 replica x 1 partitie) en deze hoeveelheid constant gedurende de levensduur van de service is omdat de service kan niet worden uitgevoerd op iets minder dan deze configuratie. 
+
+In de volgende schermafbeelding per eenheid prijzen wordt aangegeven voor gratis, basis en S1 (S2 en S3 worden niet weergegeven). Als u een eenvoudige service of een standaard service hebt gemaakt, uw maandelijkse kosten kan worden gebruikt voor het gemiddelde van de waarde die wordt weergegeven voor *prijs 1* en *prijs 2* respectievelijk. Kosten per eenheid terecht voor elke laag omdat de rekenkundige power- en opslagcapaciteit op elke opeenvolgende lagen valt.
+
+![Per eenheid prijzen](./media/search-sku-tier/per-unit-pricing.png "Per eenheid prijzen")
+
+Extra replica's en partities zijn een invoegtoepassing voor de initiële kosten in rekening gebracht. Een search-service vereist een replica en een partitie, zodat de minimale configuratie één van elk is. Dan het minimum voegt u replica's en partities onafhankelijk van elkaar. U kunt bijvoorbeeld alleen replica's of alleen de partities toevoegen. 
+
+Extra replica's en partities worden in rekening gebracht op basis van een [formule](#search-units). De kosten zijn niet lineair (verdubbeling van capaciteit van meer dan verdubbeld de kosten). Zie voor een voorbeeld van hoe u van de formule werkt ["Het toewijzen van replica's en partities"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)
+
+### <a name="2-data-egress-charges-during-indexing"></a>2. Kosten voor uitgaande gegevens tijdens het indexeren
+
+Bij het ophalen van gegevens uit een Azure SQL Database of Cosmos DB-gegevensbron, worden er kosten in rekening gebracht voor de transactie in de factuur voor die resources. Deze kosten zijn niet Azure Search meters, maar ze hier worden genoemd omdat als u van indexeerfuncties gebruikmaakt voor het ophalen van gegevens uit Azure SQL Database of een Azure Cosmos DB, u dat kosten in rekening gebracht op uw factuur ziet.
+
+### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3. AI-verrijkt indexeren met cognitieve Services
+
+Voor [cognitief zoeken](cognitive-search-concept-intro.md) alleen installatiekopie extractie tijdens documenten kraken wordt in rekening gebracht op basis van het aantal afbeeldingen uit uw documenten hebt uitgepakt. Extractie van tekst is momenteel gratis. Andere enrichments op basis van [ingebouwde cognitieve vaardigheden](cognitive-search-predefined-skills.md) worden in rekening gebracht tegen een Cognitive Services-resource. Enrichments worden gefactureerd tegen hetzelfde tarief als u de taak met Cognitive Services rechtstreeks heeft uitgevoerd.
 
 Als u geen [cognitief zoeken](cognitive-search-concept-intro.md) of [Azure Search-indexeerfuncties](search-indexer-overview.md), de enige kosten hebben betrekking op replica's en actief worden gebruikt, voor workloads met reguliere indexeren en query-partities.
 
-### <a name="billing-for-general-purpose-indexing-and-queries"></a>Facturering voor algemeen gebruik indexeren en query 's
+<a name="search-units"></a>
+
+### <a name="billing-based-on-search-units"></a>Facturering op basis van de search-eenheden
 
 Voor Azure Search-bewerkingen, de belangrijkste facturering concept om te begrijpen is een *zoekeenheid* (SU). Omdat Azure Search, hangt af van de replica's en partities om te indexeren en query's, verstandig niet het om aan te brengen door slechts in één van de andere kosten in rekening. In plaats daarvan is facturering gebaseerd op een samenstelling van beide. 
 
 SU is het product van *replica* en *partities* die worden gebruikt door een service: **`(R X P = SU)`**
 
-Elke service wordt gestart met één SU (één replica wordt vermenigvuldigd met één partitie) als het minimum. De maximale waarde voor elke service is 36 su's die op verschillende manieren kunnen worden bereikt: 6 partities x 6 replica's, of 3 partities x 12 replica's, een paar te noemen. Het is gebruikelijk is minder dan de totale capaciteit gebruiken. Bijvoorbeeld, een 3-replica, 3-partitie service, kosten in rekening gebracht als 9 su's. 
+Elke service wordt gestart met één SU (één replica wordt vermenigvuldigd met één partitie) als het minimum. De maximale waarde voor elke service is 36 su's die op verschillende manieren kunnen worden bereikt: 6 partities x 6 replica's, of 3 partities x 12 replica's, een paar te noemen. Het is gebruikelijk is minder dan de totale capaciteit gebruiken. Bijvoorbeeld, een 3-replica, 3-partitie service, kosten in rekening gebracht als 9 su's. U kunt bekijken [in deze grafiek](search-capacity-planning.md#chart) geldige combinaties in één oogopslag zien.
 
 Het tarief is **per uur per SU**, waarbij elke laag met een steeds hogere snelheid. Hogere lagen geleverd met grotere en sneller partities, die bijdragen aan een totale hogere uurtarief voor die laag. Tarieven voor elke laag kan worden gevonden op [prijsinformatie](https://azure.microsoft.com/pricing/details/search/). 
 

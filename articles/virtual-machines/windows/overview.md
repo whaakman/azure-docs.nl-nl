@@ -12,16 +12,16 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f4c9e256c3b3f2f5df8ef49f26c927250f376421
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 24914cc3ff673d04e8c181082e13c087aeabe709
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327048"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765745"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Overzicht van virtuele Windows-machines in Azure
 
@@ -58,7 +58,7 @@ Alle resources die in Azure zijn gemaakt, worden verdeeld over meerdere [geograf
 
 In deze tabel staan enkele manieren om een lijst met beschikbare locaties te verkrijgen.
 
-| Methode | Beschrijving |
+| Methode | Description |
 | --- | --- |
 | Azure Portal |Selecteer een locatie in de lijst bij het maken van een VM. |
 | Azure PowerShell |Gebruik de opdracht [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation). |
@@ -80,7 +80,7 @@ Azure biedt veel [marketplace-installatiekopieën](https://azure.microsoft.com/m
 
 In deze tabel ziet u een aantal manieren waarop u de gegevens voor een installatiekopie kunt vinden.
 
-| Methode | Beschrijving |
+| Methode | Description |
 | --- | --- |
 | Azure Portal |De waarden worden automatisch opgegeven wanneer u een installatiekopie selecteert om te gebruiken. |
 | Azure PowerShell |[Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher) -Location *location*<BR>[Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer) -Location *location* -Publisher *publisherName*<BR>[Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) -Location *location* -Publisher *publisherName* -Offer *offerName* |
@@ -101,7 +101,7 @@ Deze algemene taken kunnen worden uitgevoerd met extensies:
 ### <a name="related-resources"></a>Gerelateerde resources
 De resources in deze tabel worden gebruikt door de VM en moeten bestaan of worden gemaakt wanneer de VM wordt gemaakt.
 
-| Resource | Vereist | Beschrijving |
+| Resource | Vereist | Description |
 | --- | --- | --- |
 | [Resourcegroep](../../azure-resource-manager/resource-group-overview.md) |Ja |De VM moet zijn opgenomen in een resourcegroep. |
 | [Opslagaccount](../../storage/common/storage-create-storage-account.md) |Ja |De VM heeft het opslagaccount nodig voor het opslaan van de virtuele harde schijven. |
@@ -132,7 +132,7 @@ VM's kunnen worden beheerd via een op een browser gebaseerde portal, opdrachtreg
 ### <a name="get-information-about-a-vm"></a>Informatie over een VM ophalen
 In deze tabel ziet u enkele van de manieren waarop u informatie over een VM kunt ophalen.
 
-| Methode | Beschrijving |
+| Methode | Description |
 | --- | --- |
 | Azure Portal |Klik in het hub-menu op **Virtuele Machines** en selecteer vervolgens de VM uit de lijst. Op de blade voor de VM kunt u informatie inzien, waarden instellen en metrische gegevens controleren. |
 | Azure PowerShell |Zie [Create and Manage Windows VMs with the Azure PowerShell module](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Virtuele Windows-machines maken en beheren met de Azure PowerShell-module) voor informatie over het gebruik van PowerShell voor het beheren van virtuele machines. |

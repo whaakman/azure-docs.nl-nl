@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
-ms.openlocfilehash: f64f2cafb15a6cae71c304282e1fe6bd9231ef71
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 978667dcd3f7bd10192a396ec3e8d097bdb73509
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432920"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57577140"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Een Windows VHD of VHDX te uploaden naar Azure voorbereiden
 Voordat u een Windows virtuele machines (VM van on-premises met Microsoft Azure) uploadt, moet u de virtuele harde schijf (VHD of VHDX) voorbereiden. Azure ondersteunt **alleen virtuele machines van generatie 1** die in de VHD-indeling en hebben een schijf met vaste grootte. De maximale grootte van de VHD is 1023 GB. U kunt een generatie 1 VM op basis van de VHDX-bestandssysteem en naar een dynamisch uitbreidbare schijf naar vaste VHD converteren. Maar u kunt een virtuele machine generatie niet wijzigen. Zie voor meer informatie, [maak ik een generatie 1 of 2 virtuele machine in Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -415,11 +415,7 @@ Biedt ondersteuning voor deze generalisatie niet elke rol of de toepassing die g
 ## <a name="complete-recommended-configurations"></a>Voert u de aanbevolen configuraties
 De volgende instellingen hebben geen invloed op de VHD uploaden. Echter, wordt aangeraden dat u deze hebt geconfigureerd.
 
-* Installeer de [Azure VM's Agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Vervolgens kunt u VM-extensies. De VM-extensies implementeren de meeste van de essentiële functionaliteit die u mogelijk wilt gebruiken met uw VM opnieuw instellen van wachtwoorden, zoals het configureren van RDP's, enzovoort. Zie voor meer informatie:
-
-    - [VM-Agent en -extensies – deel 1](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-1/)
-    - [VM-Agent en -extensies – deel 2](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)
-
+* Installeer de [Azure VM's Agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Vervolgens kunt u VM-extensies. De VM-extensies implementeren de meeste van de essentiële functionaliteit die u mogelijk wilt gebruiken met uw VM opnieuw instellen van wachtwoorden, zoals het configureren van RDP's, enzovoort. Zie voor meer informatie, [overzicht van Azure Virtual Machine Agent](../extensions/agent-windows.md).
 *  Nadat de virtuele machine is gemaakt in Azure, wordt u aangeraden dat u het wisselbestand op het stationsvolume 'Tijdelijke plaatsen' om prestaties te verbeteren. U kunt instellen dit als volgt:
 
     ```PowerShell

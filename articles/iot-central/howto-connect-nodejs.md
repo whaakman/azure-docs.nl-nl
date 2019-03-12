@@ -3,17 +3,17 @@ title: Verbinding maken met een algemene Node.js-clienttoepassing op Azure IoT C
 description: Als ontwikkelaar in een apparaat, hoe u een algemene Node.js-apparaat verbinden met uw Azure IoT Central-toepassing.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/26/2018
+ms.date: 02/04/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: b22d719a25a93e1dffdba848e18f732b31e6e67d
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: c04358734923654366eb679505910e14d0e0059b
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214517"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767529"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Verbinding maken met een algemene clienttoepassing aan uw Azure IoT Central-toepassing (Node.js)
 
@@ -93,7 +93,7 @@ Voer veldnaam precies zoals weergegeven in de tabel in de sjabloon voor het appa
 
 ## <a name="add-a-real-device"></a>Echt apparaat toevoegen
 
-Voeg een echt apparaat van de sjabloon van het apparaat u maken en noteer de apparaatverbindingsreeks in uw Azure IoT Central-toepassing. Zie voor stapsgewijze instructies over het verbinden van een Node.js-toepassing naar IoT Central [verbindingsreeks voor een echt apparaat van de toepassing genereren](tutorial-add-device.md#generate-connection-string-for-real-device-from-application) en [voorbereiden van de clientcode](tutorial-add-device.md#prepare-the-client-code) in de zelfstudies > Een apparaat toevoegen.
+Voeg een echt apparaat van de sjabloon van het apparaat u maken en noteer de apparaatverbindingsreeks in uw Azure IoT Central-toepassing. Zie voor stapsgewijze instructies over het verbinden van een Node.js-toepassing naar IoT Central [verbindingsreeks voor een echt apparaat van de toepassing genereren](tutorial-add-device.md#generate-connection-string) en [voorbereiden van de clientcode](tutorial-add-device.md#prepare-the-client-code) in de zelfstudies > Een apparaat toevoegen.
 
 ### <a name="create-a-nodejs-application"></a>Een Node.js-toepassing maken
 
@@ -129,11 +129,10 @@ De volgende stappen laten zien over het maken van een clienttoepassing die het e
     var client = clientFromConnectionString(connectionString);
     ```
 
-  > [!NOTE]
-  > Azure IoT Central is overgeschakeld naar het gebruik van Azure IoT Hub Device Provisioning service (DPS) voor alle apparaatverbindingen, volgt u deze instructies voor het [de apparaat-verbindingsreeks ophalen](concepts-connectivity.md#get-a-connection-string) en Ga door met de rest van de zelfstudie. Voor meer informatie vindt u ook een gedetailleerd aantal instructies in [voorbereiden van de clientcode](tutorial-add-device.md#prepare-the-client-code) in zelfstudies > een apparaat toevoegen.
+    > [!NOTE]
+    > Azure IoT Central is overgeschakeld naar het gebruik van Azure IoT Hub Device Provisioning service (DPS) voor alle apparaatverbindingen, volgt u deze instructies voor het [de apparaat-verbindingsreeks ophalen](concepts-connectivity.md#get-a-connection-string) en Ga door met de rest van de zelfstudie. Voor meer informatie vindt u ook een gedetailleerd aantal instructies in [voorbereiden van de clientcode](tutorial-add-device.md#prepare-the-client-code) in zelfstudies > een apparaat toevoegen.
 
-
-  Bijwerken van de tijdelijke aanduiding `{your device connection string}` door de verbindingsreeks van het apparaat. In dit voorbeeld wordt geïnitialiseerd `targetTemperature` op nul, eventueel tilt u de huidige lezen van het apparaat of -waarde van het dubbele apparaat. 
+    Bijwerken van de tijdelijke aanduiding `{your device connection string}` door de verbindingsreeks van het apparaat. In dit voorbeeld wordt geïnitialiseerd `targetTemperature` op nul, eventueel tilt u de huidige lezen van het apparaat of -waarde van het dubbele apparaat. 
 
 1. Voor het verzenden van telemetrie, status en gebeurtenis metingen aan uw Azure IoT Central-toepassing, voeg de volgende functie naar het bestand:
 
@@ -269,7 +268,7 @@ Als operator in uw Azure IoT Central-toepassing voor uw echte apparaat kunt u:
 
     ![Telemetrie bekijken](media/howto-connect-nodejs/viewtelemetry.png)
 
-* Bekijk de eigenschapswaarden van het apparaat verzonden van uw apparaat op de **eigenschappen** pagina. De eigenschappen van apparaat tegels worden bijgewerkt als de verbinding geslaagd is.
+* Bekijk de eigenschapswaarden van het apparaat verzonden van uw apparaat op de **eigenschappen** pagina. De eigenschappen van tegels update als de verbinding geslaagd is.
 
     ![Eigenschappen van apparaat weergeven](media/howto-connect-nodejs/viewproperties.png)
 

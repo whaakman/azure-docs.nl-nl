@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: maxluk
-ms.openlocfilehash: 76df7f57f44100a27fbe4583051fa25c61e27ee0
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 272ec7298785128caebd850dc488ca01937a3960
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961819"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548504"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Azure Toolkit voor IntelliJ gebruiken voor het maken van Apache Spark-toepassingen voor een HDInsight-cluster
 
@@ -209,7 +209,7 @@ Na het maken van een Scala-toepassing, kunt u deze indient aan het cluster.
     |Spark-clusters (alleen Linux)|Selecteer het HDInsight Spark-cluster waarop u wilt dat uw toepassing uit te voeren.|
     |Selecteer een artefact om in te dienen|Laat de standaardinstelling.|
     |De naam van de Main-klasse|De standaardwaarde is de hoofdklasse van het geselecteerde bestand. U kunt de klasse wijzigen door het beletselteken (**...** ) en het kiezen van een andere klasse.|
-    |Configuraties van taak|U kunt de standaardsleutels en/of de waarden wijzigen. Zie voor meer informatie, [Apache Livy REST-API](http://livy.incubator.apache.org./docs/latest/rest-api.html).|
+    |Configuraties van taak|U kunt de standaardsleutels en/of de waarden wijzigen. Zie voor meer informatie, [Apache Livy REST-API](https://livy.incubator.apache.org./docs/latest/rest-api.html).|
     |Opdrachtregelargumenten|U kunt argumenten gescheiden door ruimte voor de main-klasse, indien nodig kunt invoeren.|
     |Waarnaar wordt verwezen, JAR-bestanden en bestanden waarnaar wordt verwezen|Indien van toepassing, kunt u de paden voor de waarnaar wordt verwezen, JAR-bestanden en bestanden. Voor meer informatie: [Apache Spark Configuration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment).  Zie ook [over het uploaden van resources aan het cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer).|
     |Taakopslag uploaden|Uitvouwen om extra opties weer te geven.|

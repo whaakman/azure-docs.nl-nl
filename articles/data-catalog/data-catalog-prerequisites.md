@@ -8,12 +8,12 @@ ms.assetid: ef497a54-dc4d-4820-b5bf-c361b64b964d
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 5d05371d9b948dc2f7d6f834eb9431af80fc6365
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 788e7a453e9879d9c901448659ff1c8cfa7201ff
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406869"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548304"
 ---
 # <a name="azure-data-catalog-prerequisites"></a>Vereisten voor Azure Data Catalog
 
@@ -30,7 +30,7 @@ Als u Data Catalog instelt, moet u zijn aangemeld met een gebruikersaccount van 
 Azure AD biedt uw bedrijf een eenvoudige manier om ID’s en toegang, zowel in de cloud als on-premises, te beheren. Gebruikers kunnen één werk- of schoolaccount gebruiken voor eenmalige aanmelding bij elke cloud en on-premises webtoepassing. Data Catalog maakt gebruik van Azure AD om te verifiëren aanmelden. Zie voor meer informatie, [wat is Azure Active Directory?](../active-directory/fundamentals/active-directory-whatis.md).
 
 > [!NOTE]
-> Met behulp van de [Azure-portal](http://portal.azure.com/), kunt u zich aanmelden met een persoonlijk Microsoft-account of een Azure Active Directory-werk- of schoolaccount. Data Catalog instellen met behulp van de Azure-portal of de [Data Catalog-portal](http://www.azuredatacatalog.com), u moet zich aanmelden met Azure Active Directory-account, niet een persoonlijk account.
+> Met behulp van de [Azure-portal](https://portal.azure.com/), kunt u zich aanmelden met een persoonlijk Microsoft-account of een Azure Active Directory-werk- of schoolaccount. Data Catalog instellen met behulp van de Azure-portal of de [Data Catalog-portal](https://www.azuredatacatalog.com), u moet zich aanmelden met Azure Active Directory-account, niet een persoonlijk account.
 >
 >
 

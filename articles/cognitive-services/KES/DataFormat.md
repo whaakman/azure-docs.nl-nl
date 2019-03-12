@@ -10,17 +10,17 @@ ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: f17bc3c0588476fdc4f8414fb020b16718bf1d90
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bba257c61509d862bb3161625750f05a86af8770
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55854792"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532164"
 ---
 # <a name="data-format"></a>Gegevensindeling
 
 Bestand met de beschrijving van de lijst van objecten om te indexeren.
-Elke regel in het bestand bevat de waarden van het kenmerk van een object in [JSON-indeling](http://json.org/) met UTF-8-codering.
+Elke regel in het bestand bevat de waarden van het kenmerk van een object in [JSON-indeling](https://json.org/) met UTF-8-codering.
 Naast de kenmerken die zijn gedefinieerd de [schema](SchemaFormat.md), elk object is een optionele 'logprob'-kenmerk dat Hiermee geeft u de kans dat relatieve log tussen de objecten.
 Wanneer de service objecten in de volgorde wordt van de kans te verkleinen, kunnen we 'logprob' gebruiken om aan te geven van de geretourneerde volgorde van de overeenkomende objecten.
 De kans gegeven *p* tussen 0 en 1, de bijbehorende logboekbestanden kans wordt berekend als het logboek (*p*), waarbij log() staat voor de functie natuurlijke logboek.

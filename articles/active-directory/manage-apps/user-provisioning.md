@@ -15,12 +15,12 @@ ms.date: 07/30/2018
 ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e8b099f845df66dfe8c43bc6f968fd63b30d09d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 198f32b5f3d7572807b6af3e41ccf8085d9cbc0b
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186349"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576936"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Gebruiker-inrichting en ongedaan maken van inrichting voor SaaS-toepassingen met Azure Active Directory automatiseren
 
@@ -108,11 +108,11 @@ In het scherm voor het beheren van toepassing inrichting is geconfigureerd in de
 
 ![Instellingen](./media/user-provisioning/provisioning_settings1.PNG)
 
-* **Bereikfilters** de inrichtingsservice zien welke gebruikers en groepen in het bronsysteem moeten worden ingericht en/of de inrichting ongedaan gemaakt op het doelsysteem. Er zijn twee aspecten bereikfilters die gezamenlijk worden geëvalueerd om te bepalen wie binnen het bereik voor het inrichten is:
+* **Bereikfilters** geven aan de inrichtingsservice door welke gebruikers en groepen in het bronsysteem moeten worden ingericht in het doelsysteem of van wie de inrichting daar ongedaan moet worden gemaakt. Er zijn twee aspecten van bereikfilters die gezamenlijk worden geëvalueerd om te bepalen wie er in aanmerking komt voor inrichting:
 
-    * **Filteren op kenmerkwaarden** -menu aan de 'Bereik van het bronobject' in de kenmerktoewijzingen Hiermee kunt u filteren op specifieke kenmerkwaarden. U kunt bijvoorbeeld opgeven dat alleen gebruikers met een kenmerk 'Afdeling' van 'Verkoop' binnen het bereik voor het inrichten moet. Zie voor meer informatie, [met behulp van bereikfilters](define-conditional-rules-for-provisioning-user-accounts.md).
+    * **Filteren op kenmerkwaarden**: via het menu Bereik van het bronobject in de kenmerktoewijzingen kunt u filteren op specifieke kenmerkwaarden. U kunt bijvoorbeeld opgeven dat alleen gebruikers waarvoor het kenmerk Afdeling is ingesteld op Verkoop moeten worden ingericht. Zie [Using scoping filters](define-conditional-rules-for-provisioning-user-accounts.md) (Bereikfilters gebruiken) voor meer informatie.
 
-    * **Filter voor toewijzingen** -menu aan de 'Bereik' in de inrichting > Instellingen-sectie van de portal kunt u opgeven of alleen 'toegewezen' gebruikers en groepen moet binnen het bereik voor het inrichten of als alle gebruikers in de Azure AD-directory moeten zijn ingericht. Zie voor meer informatie over het 'toewijzen' gebruikers en groepen [een gebruiker of groep toewijzen aan een enterprise-app in Azure Active Directory](assign-user-or-group-access-portal.md).
+    * **Filter voor toewijzingen** -menu aan de 'Bereik' in de inrichting > Instellingen-sectie van de portal kunt u opgeven of alleen 'toegewezen' gebruikers en groepen moet binnen het bereik voor het inrichten of als alle gebruikers in de Azure AD-directory moeten zijn ingericht. Zie [Assign a user or group to an enterprise app in Azure Active Directory](assign-user-or-group-access-portal.md) (Een gebruiker of groep toewijzen aan een enterprise-app in Azure Active Directory) voor informatie over het 'toewijzen' van gebruikers en groepen.
     
 * **Instellingen voor** bepalen de werking van de provisioning-service voor een toepassing, met inbegrip van of deze nu wordt uitgevoerd of niet.
 
@@ -260,7 +260,7 @@ Ja. Wanneer geconfigureerd voor 'sync alleen toegewezen gebruikers en groepen', 
 
 Gebruik van dynamische groepen kan echter van invloed op de algehele prestaties van end-to-end gebruikersinrichting van de Azure AD met SaaS-toepassingen. Wanneer u dynamische groepen, houd deze beperkingen en aanbevelingen in gedachten:
 
-* Hoe snel een gebruiker in een dynamische groep is ingericht of de inrichting ongedaan gemaakt in een SaaS-toepassing afhankelijk van hoe snel de dynamische groep wijzigingen in het lidmaatschap kunt evalueren. Zie voor meer informatie over het controleren van de verwerkingsstatus van een dynamische groep [Controleer de verwerkingsstatus voor een lidmaatschapsregel](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule).
+* Hoe snel een gebruiker in een dynamische groep is ingericht of de inrichting ongedaan gemaakt in een SaaS-toepassing afhankelijk van hoe snel de dynamische groep wijzigingen in het lidmaatschap kunt evalueren. Zie voor meer informatie over het controleren van de verwerkingsstatus van een dynamische groep [Controleer de verwerkingsstatus voor een lidmaatschapsregel](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule).
 
 * Wanneer u dynamische groepen, moeten de regels zorgvuldig worden nagedacht met gebruiker inrichting en ongedaan maken inrichting in gedachten, omdat een verlies van het lidmaatschap van een opheffen van inrichtingen gebeurtenis leidt.
 

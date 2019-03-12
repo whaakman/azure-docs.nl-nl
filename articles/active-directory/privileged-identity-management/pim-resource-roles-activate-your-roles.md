@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/21/2018
+ms.date: 03/05/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b02b0d36c6d7f5ddabae7a0e1d27dcca811fe56
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e6bf5ae22fe8bf06d29c8c812a18cffcef14865c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447775"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550801"
 ---
 # <a name="activate-my-azure-resource-roles-in-pim"></a>Mijn Azure-resource-rollen in PIM activeren
 
@@ -68,7 +68,7 @@ Wanneer u nodig hebt om de rol van een Azure-resource te, kunt u activering aanv
 
 1. Klik op **Activeren**.
 
-    Als de rol geen goedkeuring is vereist, wordt deze geactiveerd en toegevoegd aan de lijst met actieve rollen. Als u de rol meteen gebruiken wilt, volgt u de stappen in de volgende sectie.
+    Als de rol geen goedkeuring is vereist, wordt deze geactiveerd en toegevoegd aan de lijst met actieve rollen. Als u de rol gebruiken wilt, volgt u de stappen in de volgende sectie.
 
     Als de [rol is goedkeuring vereist](pim-resource-roles-approval-workflow.md) wilt activeren, een melding wordt weergegeven in de rechterbovenhoek van uw browser waarin de aanvraag is in afwachting van goedkeuring.
 
@@ -76,17 +76,19 @@ Wanneer u nodig hebt om de rol van een Azure-resource te, kunt u activering aanv
 
 ## <a name="use-a-role-immediately-after-activation"></a>Gebruik een rol onmiddellijk na de activering
 
-Als u een rol in PIM kunt activeren, gaat de ten minste tien minuten voordat u kunt toegang krijgen de gewenste beheerdersportal tot of functies in een specifieke werkbelasting uitvoeren. Als u wilt afdwingen dat een update van uw machtigingen, gebruiken de **toegang tot toepassingen** pagina zoals beschreven in de volgende stappen uit.
+In het geval van eventuele vertraging na de activering door deze stappen uit te voeren nadat u voor het gebruik van uw Azure-resourcerollen onmiddellijk geactiveerd.
 
 1. Open Azure AD Privileged Identity Management.
 
-1. Klik op de **toegang tot toepassingen** pagina.
+1. Klik op **mijn rollen** voor een overzicht van uw in aanmerking komende Azure AD-directory-rollen en functies van Azure-resource.
 
-    ![Toegang tot PIM toepassingen - schermafbeelding](./media/pim-resource-roles-activate-your-roles/pim-application-access.png)
+1. Klik op **Azure-resourcerollen**.
 
-1. Klik op de **Azure-resources** koppeling naar de portal openen op de **alle resources** pagina.
+1. Klik op de **actieve rollen** tabblad.
 
-    Als u deze koppeling klikt, kunt u uw huidige token vervalt en afdwingen dat de Azure-portal een nieuw token met uw bijgewerkte machtigingen te verkrijgen.
+1. Zodra de functie actief is, afmelden bij de portal en meld u opnieuw aan.
+
+    Nu moet de rol worden gebruikt.
 
 ## <a name="view-the-status-of-your-requests"></a>De status van de aanvragen bekijken
 
@@ -118,7 +120,7 @@ Als u geen activering van een rol waarvoor goedkeuring wordt vereist, kunt u een
 
 ### <a name="permissions-not-granted-after-activating-a-role"></a>Machtigingen niet na het activeren van een rol
 
-Als u een rol in PIM kunt activeren, gaat de ten minste tien minuten voordat u kunt toegang krijgen de gewenste beheerdersportal tot of functies in een specifieke werkbelasting uitvoeren. Als u wilt afdwingen dat een update van uw machtigingen, gebruiken de **toegang tot toepassingen** pagina zoals eerder beschreven in [gebruik van een rol onmiddellijk na de activering](#use-a-role-immediately-after-activation).
+Als u een rol in PIM kunt activeren, gaat de ten minste tien minuten voordat u kunt toegang krijgen de gewenste beheerdersportal tot of functies in een specifieke werkbelasting uitvoeren. Nadat de activering voltooid is, afmelden bij de Azure-portal en meld u opnieuw aan om te beginnen met de zojuist geactiveerde functie.
 
 Zie voor aanvullende stappen voor probleemoplossing, [verhoogde machtigingen voor het oplossen van](https://social.technet.microsoft.com/wiki/contents/articles/37568.troubleshooting-elevated-permissions-with-azure-ad-privileged-identity-management.aspx).
 

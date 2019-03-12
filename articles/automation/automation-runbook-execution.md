@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/10/2019
+ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a7d290b9270d5d548a2e2b36cd73588639691b6c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 84cf7d485295ae1a102957ee1f94ab3e9b2ea954
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819102"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548248"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Uitvoeren van Runbook in Azure Automation
 
@@ -49,6 +49,7 @@ In Azure Automation kunnen Runbooks worden uitgevoerd via een sandbox in Azure o
 |Modules gebruiken met specifieke vereisten| Hybrid Runbook Worker|Een aantal voorbeelden:</br> **WinSCP** -afhankelijkheid van winscp.exe </br> **IISAdministration** -IIS moet worden ingeschakeld|
 |Module waarvoor installatieprogramma installeren|Hybrid Runbook Worker|Modules voor sandbox moet xcopyable|
 |Met behulp van runbooks of modules waarvoor .NET Framework verschilt 4.7.2|Hybrid Runbook Worker|Automation-sandboxes geladen .NET Framework 4.7.2 hebben en er is geen manier om te upgraden|
+|Scripts die verhoogde bevoegdheden vereist|Hybrid Runbook Worker|Sandboxes toegestaan uitbreiding van bevoegdheden niet. Voor het oplossen van dit gebruik een Hybrid Runbook Worker en u UAC en gebruik uitschakelen kunt `Invoke-Command` als met de opdracht die is vereist tot misbruik van bevoegdheden|
 
 ## <a name="runbook-behavior"></a>Runbook-gedrag
 
@@ -224,7 +225,7 @@ Voor het delen van resources tussen alle runbooks in de cloud, Azure Automation 
 
 Voor het lang werken met taken, het is raadzaam om te gebruiken een [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid Runbook Workers zijn niet beperkt door evenredige deel en hoeft een beperking op hoe lang een runbook kunt uitvoeren. De andere taak [limieten](../azure-subscription-service-limits.md#automation-limits) gelden voor zowel Azure sandboxes als Hybrid Runbook Workers. Terwijl de Hybrid Runbook Workers zijn niet beperkt door de limiet van de evenredige deel 3 uur, runbooks die worden uitgevoerd op deze moet nog steeds worden ontwikkeld ter ondersteuning van opnieuw opstarten gedrag van problemen met onverwachte lokale infrastructuur.
 
-Een andere optie is het optimaliseren van het runbook met behulp van de onderliggende runbooks. Als uw runbook dezelfde functie op verschillende bronnen, zoals een databasebewerking op verschillende databases doorloopt, kunt u deze functie voor het verplaatsen een [onderliggend runbook](automation-child-runbooks.md) en roep deze aan met de [ Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. Elk van deze onderliggende runbooks wordt parallel uitgevoerd in afzonderlijke processen, waardoor het minder lang duurt voordat het bovenliggende runbook is voltooid. U kunt de [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) cmdlet in uw runbook om te controleren van de taak de status van alle onderliggende als er bewerkingen die worden uitgevoerd moeten nadat het onderliggende runbook is voltooid.
+Een andere optie is het optimaliseren van het runbook met behulp van de onderliggende runbooks. Als uw runbook dezelfde functie op verschillende bronnen, zoals een databasebewerking op verschillende databases doorloopt, kunt u deze functie voor het verplaatsen een [onderliggend runbook](automation-child-runbooks.md) en roep deze aan met de [ Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. Elk van deze onderliggende runbooks wordt parallel uitgevoerd in afzonderlijke processen, waardoor het minder lang duurt voordat het bovenliggende runbook is voltooid. U kunt de [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) cmdlet in uw runbook om te controleren van de taak de status van alle onderliggende als er bewerkingen uitvoeren nadat het onderliggende runbook is voltooid.
 
 ## <a name="next-steps"></a>Volgende stappen
 

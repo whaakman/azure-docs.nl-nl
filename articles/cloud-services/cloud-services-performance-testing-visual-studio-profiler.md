@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: ea46039583681bd89e254d153997e3a300041d4e
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 40ba5814bce08037b9e4d0787defbab4d02e58df
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341351"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546247"
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>De prestaties van een Cloudservice lokaal te testen in de Azure-Rekenemulator met behulp van de Visual Studio Profiler
 Diverse hulpmiddelen en technieken zijn beschikbaar voor het testen van de prestaties van cloudservices.
@@ -31,7 +31,7 @@ U kunt ook het profiel van uw toepassing lokaal in de rekenemulator voorafgaand 
 Dit artikel behandelt de profileringsmethode voor CPU-sampling, die lokaal kan worden uitgevoerd in de emulator. CPU-sampling is een methode van de profilering die is niet erg firewallverbinding. Op een aangewezen steekproefinterval momentopname de profiler een van de aanroepstack. De gegevens is verzameld gedurende een bepaalde periode en wordt weergegeven in een rapport. Deze profileringsmethode om aan te geven waar in een rekenintensieve toepassing de meeste CPU werk wordt verricht.  Dit biedt u de mogelijkheid om zich te richten op het 'hot 'pad waar uw toepassing de meeste tijd doorbrengt.
 
 ## <a name="1-configure-visual-studio-for-profiling"></a>1: Visual Studio configureren voor het profileren
-Eerste, zijn er enkele Visual Studio-configuratieopties die mogelijk nuttig zijn wanneer de profilering. Voor het zinvol zijn van de profilering rapporten, moet u voor uw toepassing en ook symbolen voor systeembibliotheken symbolen (.pdb-bestanden). Moet u om ervoor te zorgen dat u verwijst naar de servers beschikbaar symbool. Om dit te doen, op de **extra** in het menu in Visual Studio **opties**, en kies vervolgens **foutopsporing**, klikt u vervolgens **symbolen**. Zorg ervoor dat Microsoft symbool Servers wordt vermeld onder **bestandslocaties (.pdb) symbool**.  U kunt ook verwijzen naar http://referencesource.microsoft.com/symbols, die mogelijk aanvullende symboolbestanden.
+Eerste, zijn er enkele Visual Studio-configuratieopties die mogelijk nuttig zijn wanneer de profilering. Voor het zinvol zijn van de profilering rapporten, moet u voor uw toepassing en ook symbolen voor systeembibliotheken symbolen (.pdb-bestanden). Moet u om ervoor te zorgen dat u verwijst naar de servers beschikbaar symbool. Om dit te doen, op de **extra** in het menu in Visual Studio **opties**, en kies vervolgens **foutopsporing**, klikt u vervolgens **symbolen**. Zorg ervoor dat Microsoft symbool Servers wordt vermeld onder **bestandslocaties (.pdb) symbool**.  U kunt ook verwijzen naar https://referencesource.microsoft.com/symbols, die mogelijk aanvullende symboolbestanden.
 
 ![Symboolopties voor][4]
 
@@ -77,7 +77,7 @@ private async Task RunAsync(CancellationToken cancellationToken)
 
 Bouwen en uitvoeren van uw cloudservice lokaal zonder foutopsporing (Ctrl + F5), met de oplossingsconfiguratie van de ingesteld op **Release**. Dit zorgt ervoor dat alle bestanden en mappen worden gemaakt voor het uitvoeren van de toepassing lokaal en zorgt ervoor dat alle emulators worden gestart. De gebruikersinterface van de Rekenemulator starten vanaf de taakbalk om te controleren of de werkrol wordt uitgevoerd.
 
-## <a name="2-attach-to-a-process"></a>2: koppelen aan een proces
+## <a name="2-attach-to-a-process"></a>2: Koppelen aan een proces
 In plaats van de toepassing door deze te starten vanuit de Visual Studio 2010 IDE-profilering, moet u de profiler koppelen aan een proces dat wordt uitgevoerd. 
 
 De profiler koppelen aan een proces op de **analyseren** menu, kiest u **Profiler** en **Attach/Detach**.
@@ -113,7 +113,7 @@ Als u stoppen wilt, kiest de **profilering stoppen** koppeling.
 
 ![Optie-profilering stoppen][10]
 
-## <a name="3-view-performance-reports"></a>3: prestatierapporten weergeven
+## <a name="3-view-performance-reports"></a>3: Rapporten weergeven
 Het prestatierapport voor uw toepassing wordt weergegeven.
 
 Op dit moment de profiler stopt met het uitvoeren van, gegevens worden opgeslagen in een bestand .vsp en een rapport met een analyse van deze gegevens worden weergegeven.
@@ -130,7 +130,7 @@ Als u de code van de samengevoegde tekenreeks in dit artikel hebt toegevoegd, zi
 
 ![Prestaties van waarschuwingen][14]
 
-## <a name="4-make-changes-and-compare-performance"></a>4: wijzigingen aanbrengen en vergelijken van prestaties
+## <a name="4-make-changes-and-compare-performance"></a>4: Breng wijzigingen aan en vergelijken van prestaties
 U kunt de prestaties vóór en na een codewijziging ook vergelijken.  Stop het proces dat wordt uitgevoerd en de code bewerken om de bewerking van de samengevoegde tekenreeks vervangen door het gebruik van StringBuilder:
 
 ```csharp
@@ -162,14 +162,14 @@ Gefeliciteerd! U hebt verkregen gestart met de profiler.
 * Gebruik de gebruikersinterface van de Rekenemulator om de status van uw toepassing weer te geven. 
 * Als u problemen ondervindt bij het starten van toepassingen in de emulator of koppelen van de profiler, sluit u de rekenemulator en start deze opnieuw. Als dat niet het probleem is opgelost, probeert u opnieuw wordt opgestart. Dit probleem kan optreden als u de Compute-Emulator gebruiken om te onderbreken en verwijderen van actieve implementaties.
 * Als u hebt gebruikt een van de profilering opdrachten vanaf de opdrachtregel, met name de algemene instellingen, zorg dat VSPerfClrEnv /globaloff is aangeroepen en dat VsPerfMon.exe is afgesloten.
-* Als meting, u het bericht ziet ' PRF0025: Er zijn geen gegevens zijn verzameld, "Controleer of het proces dat u hebt gekoppeld aan CPU-activiteit heeft. Toepassingen die niet worden rekenkundige werk doen mogelijk niet produceren van een steekproef nemen voor gegevens.  Het is ook mogelijk dat het proces is afgesloten voordat er een steekproef nemen is uitgevoerd. Controleer dat de Run-methode voor een rol die u profilering worden niet beëindigd.
+* Als meting, u het bericht ziet ' PRF0025: Er zijn geen gegevens zijn verzameld,"Controleer of het proces dat u hebt gekoppeld aan CPU-activiteit heeft. Toepassingen die niet worden rekenkundige werk doen mogelijk niet produceren van een steekproef nemen voor gegevens.  Het is ook mogelijk dat het proces is afgesloten voordat er een steekproef nemen is uitgevoerd. Controleer dat de Run-methode voor een rol die u profilering worden niet beëindigd.
 
 ## <a name="next-steps"></a>Volgende stappen
-Instrumenteren Azure binaire bestanden in de emulator wordt niet ondersteund in de Visual Studio profiler, maar als u testen van de toewijzing van geheugen wilt, kunt u deze optie kiezen als profilering. U kunt ook gelijktijdigheid-profilering, die helpt u bepalen of threads zijn verspilling van tijd en dingen om de vergrendelingen of laag tussenkomst van de profilering, waarmee u problemen met prestaties sporen zijn wanneer de interactie tussen lagen van een toepassing, meest regelmatig tussen de gegevenslaag en een werkrol.  U kunt de database-query's die uw app genereert weergeven en gebruiken van de profileringsgegevens die voor het verbeteren van uw gebruik van de database. Zie voor informatie over laag tussenkomst van de profilering, het blogbericht [Walkthrough: met behulp van de laag interactie Profiler in Visual Studio Team System 2010][3].
+Instrumenteren Azure binaire bestanden in de emulator wordt niet ondersteund in de Visual Studio profiler, maar als u testen van de toewijzing van geheugen wilt, kunt u deze optie kiezen als profilering. U kunt ook gelijktijdigheid-profilering, die helpt u bepalen of threads zijn verspilling van tijd en dingen om de vergrendelingen of laag tussenkomst van de profilering, waarmee u problemen met prestaties sporen zijn wanneer de interactie tussen lagen van een toepassing, meest regelmatig tussen de gegevenslaag en een werkrol.  U kunt de database-query's die uw app genereert weergeven en gebruiken van de profileringsgegevens die voor het verbeteren van uw gebruik van de database. Zie voor informatie over laag tussenkomst van de profilering, het blogbericht [scenario: Met behulp van de laag interactie Profiler in Visual Studio Team System 2010][3].
 
 [1]: https://docs.microsoft.com/azure/application-insights/app-insights-profiler
-[2]: http://msdn.microsoft.com/library/azure/hh411542.aspx
-[3]: http://blogs.msdn.com/b/habibh/archive/2009/06/30/walkthrough-using-the-tier-interaction-profiler-in-visual-studio-team-system-2010.aspx
+[2]: https://msdn.microsoft.com/library/azure/hh411542.aspx
+[3]: https://blogs.msdn.com/b/habibh/archive/2009/06/30/walkthrough-using-the-tier-interaction-profiler-in-visual-studio-team-system-2010.aspx
 [4]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally09.png
 [5]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally10.png
 [6]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally02.png

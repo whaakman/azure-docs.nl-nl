@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/01/2019
-ms.openlocfilehash: a6b31933f7170006046846c458e21efd8c54034c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.date: 03/12/2019
+ms.openlocfilehash: 8cd4cf12390ff29754b55d2827ea4750e7123a27
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660721"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730487"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Prestaties bijhouden met de Query Store
 
@@ -32,12 +32,18 @@ Query Store is een functie opt-in, zodat deze niet standaard op een server actie
 ### <a name="enable-query-store-using-the-azure-portal"></a>Query Store met behulp van de Azure-portal inschakelen
 1. Meld u aan bij Azure portal en selecteer uw Azure Database for PostgreSQL-server.
 2. Selecteer **serverparameters** in de **instellingen** gedeelte van het menu.
-3. Zoek de **pg_qs.query_capture_mode** parameter.
-4. Werk de waarde van geen naar boven en opslaan.
+3. Zoek de `pg_qs.query_capture_mode` parameter.
+4. Stel de waarde voor `TOP` en **opslaan**.
 
-U kunt ook instellen dat deze parameter met de Azure CLI.
+Statistieken voor de wachttijd in uw Query Store inschakelen: 
+5. Zoek de `pgms_wait_sampling.query_capture_mode` parameter.
+6. Stel de waarde voor `ALL` en **opslaan**.
+
+
+U kunt ook instellen dat deze parameters met de Azure CLI.
 ```azurecli-interactive
 az postgres server configuration set --name pg_qs.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value TOP
+az postgres server configuration set --name pgms_wait_sampling.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value ALL
 ```
 
 Maximaal 20 minuten voor de eerste batch van gegevens om vast te leggen in de database azure_sys toestaan.

@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/12/2018
-ms.openlocfilehash: 4a3677dc5402948fc0105190d1891d709291d0f7
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/07/2019
+ms.openlocfilehash: a5b544db713f671230e4a226b1e0bdcfa77fbb2b
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317727"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575236"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Verwijderen van de beveiliging van een transparante gegevensversleuteling (TDE) met behulp van PowerShell
 
@@ -46,7 +46,7 @@ In deze gebruiksaanwijzing gaat via twee benaderingen, afhankelijk van het gewen
 
 ## <a name="to-keep-the-encrypted-resources-accessible"></a>De versleutelde resources om beschikbaar te houden
 
-1. Maak een [nieuwe sleutel in Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey?view=azurermps-4.1.0). Zorg ervoor dat deze nieuwe sleutel gemaakt in een afzonderlijke key vault vanuit de potentieel aangetast TDE-beveiliging, omdat het toegangsbeheer is ingericht op het kluisniveau van een. 
+1. Maak een [nieuwe sleutel in Key Vault](/powershell/module/az.keyvault/add-azkeyvaultkey). Zorg ervoor dat deze nieuwe sleutel gemaakt in een afzonderlijke key vault vanuit de potentieel aangetast TDE-beveiliging, omdat het toegangsbeheer is ingericht op het kluisniveau van een.
 2. Voeg de nieuwe sleutel toe met de server met de [toevoegen AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) en [Set AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlets en deze worden bijgewerkt naarmate nieuwe TDE-beveiliging van de server.
 
    ```powershell
@@ -74,12 +74,12 @@ In deze gebruiksaanwijzing gaat via twee benaderingen, afhankelijk van het gewen
    -ResourceGroupName <SQLDatabaseResourceGroupName>
    ```
 
-4. Duren voordat een [back-up van de nieuwe sleutel](/powershell/module/az.keyvault/backup-azurekeyvaultkey) in Key Vault.
+4. Duren voordat een [back-up van de nieuwe sleutel](/powershell/module/az.keyvault/backup-azkeyvaultkey) in Key Vault.
 
    ```powershell
    <# -OutputFile parameter is optional; 
    if removed, a file name is automatically generated. #>
-   Backup-AzureKeyVaultKey `
+   Backup-AzKeyVaultKey `
    -VaultName <KeyVaultName> `
    -Name <KeyVaultKeyName> `
    -OutputFile <DesiredBackupFilePath>
@@ -93,7 +93,7 @@ In deze gebruiksaanwijzing gaat via twee benaderingen, afhankelijk van het gewen
    -Name <KeyVaultKeyName>
    ```
  
-6. Een sleutel herstellen naar Key Vault in de toekomst met behulp van de [terugzetten AzKeyVaultKey](/powershell/module/az.keyvault/restore-azurekeyvaultkey) cmdlet:
+6. Een sleutel herstellen naar Key Vault in de toekomst met behulp van de [terugzetten AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey) cmdlet:
    ```powershell
    Restore-AzKeyVaultKey `
    -VaultName <KeyVaultName> `

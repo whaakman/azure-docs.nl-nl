@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f959a22432e82e1a55f613236ce6370ab638ccab
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 576fe268bec12c16c7c2e2076dfa066c908693d5
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245570"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539527"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Voorbeelden van Azure PowerShell van de virtuele Machine
 
@@ -49,5 +49,5 @@ De volgende tabel bevat koppelingen naar voorbeelden van de PowerShell-scripts m
 |**Virtuele machines beveiligen**||
 | [Een virtuele machine en de gegevensschijven versleutelen](./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?toc=%2fpowershell%2fazure%2ftoc.json) | Een Azure-sleutelkluis, een versleutelingssleutel gemaakt en een service-principal maakt en vervolgens versleutelt een virtuele machine. |
 |**Virtuele machines bewaken**||
-| [Een virtuele machine met Log Analytics bewaken](./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Hiermee maakt u een virtuele machine, de Azure Log Analytics-agent wordt geïnstalleerd en geregistreerd van de virtuele machine in een Log Analytics-werkruimte.  |
+| [Een virtuele machine bewaken met Azure Monitor](./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Hiermee maakt u een virtuele machine, de Azure Log Analytics-agent wordt geïnstalleerd en geregistreerd van de virtuele machine in een Log Analytics-werkruimte.  |
 | | |

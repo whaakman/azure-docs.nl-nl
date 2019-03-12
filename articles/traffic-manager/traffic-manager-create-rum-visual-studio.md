@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: eec13db8bdbe1f40a51df14077adb8740e977f5d
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 35b4b06a09b8ef7b27e8d105d7f2336668c49f8f
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138409"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570858"
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Over het verzenden van Real-User-metingen naar Traffic Manager met Visual Studio Mobile Center
 
@@ -40,7 +40,7 @@ Als u de RUM-sleutel met behulp van Azure portal met behulp van de volgende proc
         
    ![Real User Measurements sleutel genereren](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
-   **Afbeelding 1: Real User Measurements genereren**
+   **Afbeelding 1: Real-User-metingen genereren**
 
    5.   De pagina wordt weergegeven de RUM-sleutel die wordt gegenereerd en een JavaScript-codefragment die moeten worden ingesloten in de HTML-pagina.
  
@@ -50,7 +50,7 @@ Als u de RUM-sleutel met behulp van Azure portal met behulp van de volgende proc
  
    6. Klik op de **kopie** knop om te kopiëren van de sleutel RUM. 
 
-## <a name="step-2-instrument-your-app-with-the-rum-package-of-mobile-center-sdk"></a>Stap 2: Uw app Instrumenteren met het uitvoeren van Mobile Center SDK-pakket
+## <a name="step-2-instrument-your-app-with-the-rum-package-of-mobile-center-sdk"></a>Stap 2: Instrumenteer uw app met het uitvoeren van Mobile Center SDK-pakket
 
 Als u geen ervaring met Visual Studio Mobile Center, gaat u naar de [website](https://mobile.azure.com). Zie voor gedetailleerde instructies voor het SDK-integratie [aan de slag met de Android SDK](https://docs.microsoft.com/mobile-center/sdk/getting-started/Android).
 
@@ -72,7 +72,7 @@ Voer de volgende procedure voor het gebruik van Real User Measurements:
     In uw **App/build.gradle** bestand en voeg de volgende regels:
 
     ```groovy
-    dependencies {   
+    dependencies {
      
         def mobileCenterSdkVersion = '0.12.1-16+3fe5b08'
         compile "com.microsoft.azure.mobile:mobile-center-rum:${mobileCenterSdkVersion}"

@@ -7,19 +7,19 @@ ms.author: davidmu
 ms.date: 11/05/2018
 ms.topic: conceptual
 ms.service: active-directory
-ms.subservice: b2c
-ms.openlocfilehash: 5f771e51a0114c321d1dfcbaf305dd9923040032
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.subservice: B2C
+ms.openlocfilehash: dbb4789773ae9f1cd29f4a8e3ae415d450707a17
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149032"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771324"
 ---
 # <a name="solutions-and-training-for-azure-active-directory-b2c"></a>Oplossingen en Training voor Azure Active Directory B2C
 
 Azure Active Directory (Azure AD) B2C kunnen organisaties bedrijfsoplossingen waarmee ze verbinding maken met hun klanten implementeren. De volgende handleidingen met oplossingen en training zijn downloadbare documenten die u stapsgewijs door deze oplossingen begeleidt.
 
-| Titel | Beschrijving |
+| Titel | Description |
 | ----- | ----------- |
 | [Klant-identiteitsbeheer met Azure AD B2C](https://channel9.msdn.com/Shows/On-NET/Customer-Identity-Management-with-Azure-AD-B2C) | In dit overzicht van de service, Parakh Jain ([@jainparakh](https://twitter.com/jainparakh)) van de Azure AD B2C team biedt ons een overzicht van hoe de service werkt, en ook weer te geven hoe we kunnen snel verbinding B2C moet maken met een ASP.NET Core-toepassing. |
 | [Voordelen van het gebruik van Azure AD B2C](https://aka.ms/b2coverview) | Informatie over de voordelen en algemene scenario's van Azure AD B2C en hoe uw toepassingen kunnen gebruikmaken van deze CIAM-service. |

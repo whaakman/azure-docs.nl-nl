@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 39ffe1b71fb002658110c63c825e0515f38e2b9e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 6d6f24475497382dd9e04d3335fb89d6f0bdd514
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537321"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57528675"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Maken en beheren van Azure Database voor MySQL-server met behulp van Azure portal
 In dit onderwerp wordt beschreven hoe u snel een nieuwe Azure-Database voor MySQL-server kunt maken. Het bevat ook informatie over het beheren van de server met behulp van de Azure-portal. Serverbeheer bevat Serverdetails van de en databases, het wachtwoord opnieuw instellen, het schalen van resources en het verwijderen van de server weergeven.
@@ -28,7 +28,7 @@ Volg deze stappen voor het maken van een Azure Database for MySQL-server met de 
 
     > Een Azure Database for MySQL-server wordt gemaakt met een gedefinieerde set [reken- en](./concepts-pricing-tiers.md) resources. De database wordt gemaakt binnen een Azure-resourcegroep en in een Azure Database for MySQL-server.
 
-   ![maken-nieuwe-server](./media/howto-create-manage-server-portal/create-new-server.png)
+   ![create-new-server](./media/howto-create-manage-server-portal/create-new-server.png)
 
 3. Vul de Azure Database for MySQL-formulier in met behulp van de volgende informatie:
 
@@ -44,7 +44,7 @@ Volg deze stappen voor het maken van een Azure Database for MySQL-server met de 
     | *Locatie* | Zuidoost-Azië (selecteren tussen Noord-Europa en VS-West) |
     | *Versie* | 5.7 (Kies Azure Database voor MySQL-server-versie) |
 
-4. Klik op **prijscategorie** om op te geven van het serviceniveau voor servicelaag en het prestatieniveau voor uw nieuwe server. Selecteer de **algemeen** tabblad. *Gen 4*, *2 vCores*, *5 GB* en *7 dagen* zijn de standaardwaarden voor **Bewerking voor compute**, **vCore**, **Opslag** en **Bewaarperiode voor back-up**. U kunt deze schuifregelaars laten zoals ze zijn. Als u serverback-ups in geografisch redundante opslag wilt inschakelen, selecteert u **Geografisch redundant** in het gedeelte **Redundantieopties voor back-up**.
+4. Klik op **prijscategorie** om op te geven van het serviceniveau voor servicelaag en het prestatieniveau voor uw nieuwe server. Selecteer de **algemeen** tabblad. *Gen 5*, *2 vCores*, *5 GB* en *7 dagen* zijn de standaardwaarden voor **Bewerking voor compute**, **vCore**, **Opslag** en **Bewaarperiode voor back-up**. U kunt deze schuifregelaars laten zoals ze zijn. Als u serverback-ups in geografisch redundante opslag wilt inschakelen, selecteert u **Geografisch redundant** in het gedeelte **Redundantieopties voor back-up**.
 
    ![maken-server-prijscategorie](./media/howto-create-manage-server-portal/create-server-pricing-tier.png)
 

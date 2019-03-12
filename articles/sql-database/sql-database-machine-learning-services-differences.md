@@ -3,7 +3,6 @@ title: Belangrijke verschillen voor Azure SQL Database Machine Learning-Services
 description: Dit onderwerp beschrijft de belangrijkste verschillen tussen Azure SQL Database Machine Learning-Services (met R) en SQL Server Machine Learning-Services.
 services: sql-database
 ms.service: sql-database
-ms.subservice: machine-learning-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +11,12 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 03/01/2019
-ms.openlocfilehash: c750942f8f0f2727d1d11945a84bffb434a01193
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 57ea52c179376e8378680f436d396ffaf9357f68
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242119"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771847"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-database-preview-and-sql-server"></a>Belangrijke verschillen tussen Machine Learning-Services in Azure SQL Database (preview) en SQL Server
 
@@ -59,10 +58,6 @@ Als er onvoldoende geheugen beschikbaar voor R is, krijgt u een foutbericht weer
 - Er is een externe scriptfout opgetreden: Fout: kan geen vector van grootte toewijzen.
 
 Gebruik is afhankelijk van hoeveel geheugen wordt gebruikt in uw R-scripts en het aantal parallelle query's wordt uitgevoerd. Als u de bovenstaande fouten ontvangt, kunt u uw database naar een hogere servicelaag dit oplossen kunt schalen.
-
-## <a name="security-isolation"></a>Isolatie
-
-In Azure SQL Database biedt SQL Platform Abstraction Layer (SQLPAL) isolatie voor externe processen. Deze isolatie biedt een extra beveiligingslaag voor het uitvoeren van R-scripts.
 
 ## <a name="next-steps"></a>Volgende stappen
 

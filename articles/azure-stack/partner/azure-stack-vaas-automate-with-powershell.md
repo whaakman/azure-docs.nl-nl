@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7d675eb55e7ecda1dcf79859e85821c4e86ccbdd
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 7f9a4ce4f1e16f69a1d8998e24c1bfe955d17d92
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338515"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767104"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>Azure Stack-validatie met PowerShell automatiseren
 
@@ -29,13 +29,13 @@ Validatie uit als een Service (VaaS) biedt de mogelijkheid voor het automatisere
 > [!NOTE]  
 > Automation is alleen beschikbaar voor de werkstroom testronde. De validatie van het pakket en validatie van de oplossing werkstromen worden alleen ondersteund via de portal VaaS.
 
-In deze zelfstudie leert u hoe u het maken van een script dat:
+Met dit script kan worden gebruikt voor:
 
 > [!div class="checklist"]
-> * Vereiste onderdelen worden geïnstalleerd
-> * Installeert en start u de lokale agent
-> * Een categorie van tests, waaronder integratie, functionele, betrouwbaarheid wordt gestart
-> * Testresultaten van rapporten
+> * Vereiste onderdelen installeren
+> * Installeren en starten van de lokale agent
+> * Een categorie van tests, zoals starten *integratie*, *functionele*, *betrouwbaarheid*
+> * De resultaten van rapport
 
 ## <a name="launch-the-test-pass-workflow"></a>De werkstroom testronde starten
 

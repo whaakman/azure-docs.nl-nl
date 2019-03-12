@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: f4a2fe4c9307f7e59ca94e47683356143546d090
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 077b3e8b9aac47818b82384584d9b3cb410f9422
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310732"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541380"
 ---
 # <a name="about-azure-vm-backup"></a>Over Azure VM Backup
 
@@ -61,7 +61,7 @@ Wanneer u back-up van virtuele Azure-machines met Azure Backup, worden virtuele 
 Azure Backup-momentopnamen in overeenstemming met de back-upschema.
 
 - **Virtuele Windows-machines**: Voor Windows-VM's coördineert de Backup-service met de Volume Shadow Copy Service (VSS) naar een app-consistente momentopname te maken van de VM-schijven.
-    - Azure Backup wordt standaard volledige VSS-back-ups. [Meer informatie](http://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx).
+    - Azure Backup wordt standaard volledige VSS-back-ups. [Meer informatie](https://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx).
     - Als u de instelling wijzigen wilt zodat Azure back-ups VSS kopieback-ups neemt, stelt u de volgende registersleutel vanaf een opdrachtprompt: **REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v USEVSSCOPYBACKUP /t REG_SZ /d waar /f**.
 - **Virtuele Linux-machines**: Als u wilt de app-consistente momentopnamen maken van Linux-VM, gebruikt u de Linux-Pre-script en na script framework aan uw eigen aangepaste scripts om te zorgen voor consistentie kan schrijven.
     -  Azure Backup roept alleen de door u geschreven vooraf/post-scripts.

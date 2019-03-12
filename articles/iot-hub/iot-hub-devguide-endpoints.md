@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: 72604f84297ddc77b9732c19789d249ac4fa7774
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 28019163cfec1a9d2e3c12346a6aba2bd00b30b1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010834"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539544"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referentie - IoT-Hub-eindpunten
 
@@ -53,7 +53,7 @@ De volgende lijst beschrijft de eindpunten:
 
   * *Ontvangen aanvragen van de directe methode*. Een apparaat maakt gebruik van dit eindpunt om te luisteren naar [directe methode](iot-hub-devguide-direct-methods.md)van aanvragen.
 
-    Deze eindpunten worden beschikbaar gesteld met [MQTT v3.1.1](http://mqtt.org/), HTTPS 1.1, en [AMQP 1.0](https://www.amqp.org/) protocollen. AMQP is ook beschikbaar via [WebSockets](https://tools.ietf.org/html/rfc6455) op poort 443.
+    Deze eindpunten worden beschikbaar gesteld met [MQTT v3.1.1](https://mqtt.org/), HTTPS 1.1, en [AMQP 1.0](https://www.amqp.org/) protocollen. AMQP is ook beschikbaar via [WebSockets](https://tools.ietf.org/html/rfc6455) op poort 443.
 
 * **Service-eindpunten**. Elke IoT-hub toont een set met eindpunten voor uw back-end oplossing om te communiceren met uw apparaten. Met één uitzondering, deze eindpunten zijn alleen toegankelijk met behulp van de [AMQP](https://www.amqp.org/) protocol. Het eindpunt van de methode aanroepen is toegankelijk via het HTTPS-protocol.
   
@@ -83,6 +83,15 @@ IoT Hub ondersteunt momenteel de volgende Azure-services als extra eindpunten:
 * Service Bus-onderwerpen
 
 Zie voor de grenzen van het aantal eindpunten die u kunt toevoegen, [quota en beperkingen](iot-hub-devguide-quotas-throttling.md).
+
+U kunt de REST-API gebruiken [ophalen eindpunt Health](https://docs.microsoft.com/de-de/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) om op te halen van de status van de eindpunten. Wordt u aangeraden de [metrische gegevens van IoT-Hub](iot-hub-metrics.md) met betrekking tot routering bericht latentie om te bepalen en fouten opsporen, wanneer de status van het eindpunt dode of niet in orde is.
+
+|Status|Description|
+|---|---|
+|in orde|Het eindpunt is berichten geaccepteerd zoals verwacht.|
+|Niet in orde|Het eindpunt is geen berichten geaccepteerd zoals verwacht en IoT Hub wordt opnieuw geprobeerd om gegevens te verzenden naar dit eindpunt. De status van een eindpunt niet in orde wordt bijgewerkt op in orde wanneer IoT Hub heeft een uiteindelijke consistente status van de gezondheid van tot stand worden gebracht.|
+|onbekend|IoT Hub is een verbinding met het eindpunt is niet ingesteld. Er zijn geen berichten zijn die worden geleverd aan of afgewezen op dit eindpunt.|
+|Dead|Het eindpunt accepteert geen berichten, na het IoT-Hub opnieuw verzenden van berichten voor de periode retrial uitgevoerd.|
 
 ## <a name="field-gateways"></a>Veldgateways
 

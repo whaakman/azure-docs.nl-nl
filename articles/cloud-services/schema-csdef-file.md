@@ -13,17 +13,17 @@ caps.latest.revision: 42
 author: jpconnock
 ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: 9cb78362b5c0613d6ed6820bbf8e6d3275ab4787
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5f1084090561d3233d0587cf426581ab6ef0ab94
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250659"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532997"
 ---
 # <a name="azure-cloud-services-definition-schema-csdef-file"></a>De definitie van Schema (.csdef-bestand) voor Azure Cloud Services
 Het servicedefinitiebestand definieert het servicemodel voor een toepassing. Het bestand bevat de definities voor de functies die beschikbaar voor een cloudservice zijn, Hiermee geeft u de service-eindpunten en configuratie-instellingen voor de service maakt. Configuratie-instellingswaarden zijn ingesteld in het configuratiebestand van de service, zoals is beschreven in de [configuratieschema voor Cloud-Service (klassiek)](https://msdn.microsoft.com/library/b1ae68cd-cc95-48cb-a4a4-da91dc708a35).
 
-Het hulpprogramma voor het schema van de Azure Diagnostics-configuratiebestand is standaard geïnstalleerd op de `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas` directory. Vervang `<version>` met de geïnstalleerde versie van de [Azure SDK](http://www.windowsazure.com/develop/downloads/).
+Het hulpprogramma voor het schema van de Azure Diagnostics-configuratiebestand is standaard geïnstalleerd op de `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas` directory. Vervang `<version>` met de geïnstalleerde versie van de [Azure SDK](https://www.windowsazure.com/develop/downloads/).
 
 De standaardextensie voor het servicedefinitiebestand is .csdef.
 
@@ -67,7 +67,7 @@ De `ServiceDefinition` -element is het element op het hoogste niveau van het ser
 
 De volgende tabel beschrijft de kenmerken van de `ServiceDefinition` element.
 
-| Kenmerk               | Beschrijving |
+| Kenmerk               | Description |
 | ----------------------- | ----------- |
 | naam                    |Vereist. De naam van de service. De naam moet uniek zijn binnen het serviceaccount.|
 | topologyChangeDiscovery | Optioneel. Hiermee geeft u het type topologie wijzigingsmelding. Mogelijke waarden zijn:<br /><br /> -   `Blast` -De update zo snel mogelijk verzendt naar alle rolinstanties. Als u kiest, moet de rol van de update topologie zonder wordt opnieuw opgestart overweg kan met zijn.<br />-   `UpgradeDomainWalk` – Verzendt de update naar elke rolinstantie in een sequentiële wijze nadat het vorige exemplaar heeft de update is geaccepteerd.|

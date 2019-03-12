@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 12edea505ba3b0c8009512a52e3eea9ecea5bb26
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 2ed9598ecfb45323505e8527cfb3ab9fe7d8b58e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405195"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57764724"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack registreren bij Azure
 
@@ -483,11 +483,18 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
 
 ## <a name="registration-failures"></a>Registratiefouten
 
-Mogelijk ziet u een van de onderstaande fouten tijdens het registreren van uw Azure Stack:
+U ziet mogelijk een van de onderstaande fouten tijdens het registreren van uw Azure Stack:
 1. Kan de verplichte hardware-informatie voor $hostName niet ophalen. Controleer de fysieke host en connectiviteit en probeer het opnieuw uitvoeren registratie.
+
 2. Kan geen verbinding maken met $hostName naar informatie over hardware -. fysieke host en -connectiviteit controleren en probeer het opnieuw uitvoeren registratie.
 
-Oorzaak: Dit is meestal omdat we proberen te verkrijgen van hardware-informatie zoals de UUID, Bios CPU van hosts en de poging tot activering en kon niet worden vanwege het feit dat verbinding maakt met de fysieke host.
+> Oorzaak: dit is meestal omdat we proberen te verkrijgen van hardware-informatie zoals de UUID, Bios CPU van hosts en de poging tot activering en kon niet worden vanwege het feit dat verbinding maakt met de fysieke host.
+
+Bij het openen van Marketplace-beheer, wordt er een fout optreedt bij een poging voor het publiceren van producten. 
+> Oorzaak: dit gebeurt meestal wanneer Azure Stack is geen toegang tot de resource van de registratie. Een veelvoorkomende reden hiervoor is dat wanneer de directory-tenant van een Azure-abonnement wordt gewijzigd opnieuw de registratie wordt. U kunt het gebruik van Azure Stack marketplace of het rapport geen toegang tot, als u de directory-tenant van het abonnement hebt gewijzigd. U moet opnieuw registreren om dit probleem te verhelpen.
+
+Beheer van Marketplace nog steeds gevraagd om te registreren en activeren van uw Azure Stack, zelfs wanneer u uw stempel met behulp van de niet-verbonden proces al hebt geregistreerd. 
+> Oorzaak: dit is een bekend probleem voor niet-verbonden omgevingen. U kunt de registratiestatus van uw controleren door het volgende [stappen](azure-stack-registration.md#verify-azure-stack-registration). Als u wilt gebruiken in Marketplace-beheer, moet u gebruiken [het offline hulpprogramma](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario). 
 
 ## <a name="next-steps"></a>Volgende stappen
 

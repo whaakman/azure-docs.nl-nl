@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 3/01/2019
 ms.author: pullabhk
-ms.openlocfilehash: 6c2ade276e43f5e40d334a62c62a1abaa42b1b78
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 9ab271943d33ad63be0fae705ac703d1d98524ef
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308938"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542502"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Bestanden herstellen vanuit back-up van virtuele Azure-machine
 
@@ -29,7 +29,7 @@ Azure Backup biedt de mogelijkheid om terug te zetten [Azure virtuele machines (
 
 Als u bestanden of mappen herstellen vanaf het herstelpunt, gaat u naar de virtuele machine en kies het gewenste herstelpunt.
 
-1. Aanmelden bij de [Azure-portal](http://portal.Azure.com) en klik in het linkerdeelvenster op **virtuele machines**. Selecteer in de lijst met virtuele machines, de virtuele machine om deze virtuele machine-dashboard te openen.
+1. Aanmelden bij de [Azure-portal](https://portal.Azure.com) en klik in het linkerdeelvenster op **virtuele machines**. Selecteer in de lijst met virtuele machines, de virtuele machine om deze virtuele machine-dashboard te openen.
 
 2. Klik in het menu van de virtuele machine op **back-up** om de back-up-dashboard te openen.
 

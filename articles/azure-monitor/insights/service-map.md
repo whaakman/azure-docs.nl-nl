@@ -1,24 +1,24 @@
 ---
 title: Met behulp van de oplossing Serviceoverzicht in Azure | Microsoft Docs
 description: Serviceoverzicht is een oplossing in Azure die automatisch toepassingsonderdelen op Windows- en Linux-systemen detecteert en de communicatie tussen services toewijst. Dit artikel bevat informatie voor het implementeren van Serviceoverzicht in uw omgeving en het gebruik hiervan in een verscheidenheid aan scenario's.
-services: monitoring
+services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 041cc302f05b109de2b79697dd048a6bc0752a4f
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 143d14df3019aa0c5c5dd798f656f95c8ebde372
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232920"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731097"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Met behulp van de oplossing Serviceoverzicht in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. Met Service Map, kunt u uw servers weergeven in de manier waarop u kunt ze beschouwen: als onderling verbonden systemen die kritieke services verlenen. Servicetoewijzing toont verbindingen tussen servers, processen, binnenkomend en uitgaand verbinding latentie en poorten in alle via TCP verbonden architectuur, waarvoor geen configuratie vereist dan de installatie van een agent.
@@ -414,7 +414,7 @@ Records met een type *ServiceMapProcess_CL* beschikken over inventarisgegevens v
 | ProductVersion_s | De versie van het product |
 | FileVersion_s | Versie van het bestand |
 | CommandLine_s | Vanaf de opdrachtregel |
-| ExecutablePath _K | Het pad naar het uitvoerbare bestand |
+| ExecutablePath _s | Het pad naar het uitvoerbare bestand |
 | WorkingDirectory_s | De werkmap |
 | Gebruikersnaam | Het account waaronder het proces wordt uitgevoerd |
 | UserDomain | Het domein waarin het proces wordt uitgevoerd |
@@ -422,7 +422,7 @@ Records met een type *ServiceMapProcess_CL* beschikken over inventarisgegevens v
 ## <a name="sample-log-searches"></a>Voorbeeldzoekopdrachten in logboeken
 
 ### <a name="list-all-known-machines"></a>Lijst van alle bekende machines
-ServiceMapComputer_CL | samenvatten arg_max(TimeGenerated, *) door ResourceId
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Een lijst van de capaciteit van het fysieke geheugen van alle beheerde computers.
 ServiceMapComputer_CL | samenvatten arg_max(TimeGenerated, *) door ResourceId | Project PhysicalMemory_d, ComputerName_s
@@ -431,7 +431,7 @@ ServiceMapComputer_CL | samenvatten arg_max(TimeGenerated, *) door ResourceId | 
 ServiceMapComputer_CL | samenvatten arg_max(TimeGenerated, *) door ResourceId | Project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
 
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>Alle processen met 'sql' niet vinden in de opdrachtregel
-ServiceMapProcess_CL | waar CommandLine_s contains_cs 'sql' | samenvatten arg_max(TimeGenerated, *) door ResourceId
+ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Een virtuele machine (meest recente record) vinden op resourcenaam
 zoeken in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | samenvatten arg_max(TimeGenerated, *) door ResourceId
@@ -449,7 +449,7 @@ ServiceMapComputer_CL | waar ResourceName_s in ((zoeken in (ServiceMapProcess_CL
 ServiceMapProcess_CL | waar ExecutableName_s == "curl" | afzonderlijke ProductVersion_s
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Maak een computergroep van alle computers waarop CentOS wordt uitgevoerd
-ServiceMapComputer_CL | waar OperatingSystemFullName_s contains_cs "CentOS" | afzonderlijke ComputerName_s
+ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s
 
 ### <a name="summarize-the-outbound-connections-from-a-group-of-machines"></a>Samenvatting van de uitgaande verbindingen van een groep machines
 ```

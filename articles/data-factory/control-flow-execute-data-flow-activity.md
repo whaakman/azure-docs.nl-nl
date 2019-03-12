@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: 17bcb9efbf28901f241d44231bc5c71ae20380b5
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 4e661f838cc0b8e52ff72e4e44a43d611fa3355f
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241609"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727379"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Stroomactiviteit gegevens uitvoeren in Azure Data Factory
 De activiteit execute gegevens flow voor uw gegevensstroom ADF in Foutopsporing (sandbox) pijplijnuitvoeringen en geactiveerde pijplijnuitvoeringen gebruiken.
@@ -54,8 +54,6 @@ De activiteit execute gegevens flow voor uw gegevensstroom ADF in Foutopsporing 
 ### <a name="run-on"></a>Uitvoeren op
 
 Kies de compute-omgeving voor deze uitvoering van de gegevensstroom. De standaardwaarde is de standaard Integratieruntime voor Azure automatisch oplossen. Met deze optie wordt de gegevensstroom op de Spark-omgeving in dezelfde regio als uw data factory uitgevoerd. Het rekentype wordt een cluster taak, wat betekent dat de compute-omgeving duurt enkele minuten om lid te worden.
-
-Als u ervoor een toegewezen IR kiest, kunt u een nieuwe Azure-IR maken met een vastgemaakte regio en compute-grootten die voldoen aan de vereisten van uw gegevensstroom. Deze optie wordt kringveld-up interactieve clusters, die lid is wordt onmiddellijk nadat de eerste taak is verzonden. Dit cluster blijft actief totdat de TTL verloopt nadat de laatste taak is uitgevoerd.
 
 ### <a name="compute-type"></a>Rekentype
 

@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/07/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 0f1eac5b8052d1b96576699d12fc2c6ccd5a5724
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: b358609526c61b5acab83c02bdedd8cc06721425
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960799"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536477"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack servicebeleid
 
@@ -52,10 +52,11 @@ Microsoft verwacht om software-updatepakketten een maandelijkse uitgebracht vrij
 Documentatie voor het plannen en beheren van updates en het bepalen van uw huidige versie in [beheren updates overzicht](azure-stack-updates.md).
 
 Voor informatie over een bepaalde update, met inbegrip van hoe u het downloaden, Zie de releaseopmerkingen voor deze update:
-- [Update voor Azure Stack 1901](azure-stack-update-1901.md) (Zie de [belangrijk build opmerking hier](azure-stack-update-1901.md#build-reference).)
+
+- [Azure Stack 1902-update](azure-stack-update-1902.md)
+- [Azure Stack 1901 update](azure-stack-update-1901.md)
 - [Azure Stack 1811 update](azure-stack-update-1811.md)
 - [Azure Stack 1809 update](azure-stack-update-1809.md)
-- [Azure Stack 1808 update](azure-stack-update-1808.md)
 
 ## <a name="hotfixes"></a>Hotfixes
 

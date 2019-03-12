@@ -10,26 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 03/08/2019
 ms.author: jingwang
-ms.openlocfilehash: fe0783891bd5f571c06551e19c154d6f22768e84
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 474ebaad60328b011e91337c46040ae37c603e21
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821538"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731052"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Gegevens kopiëren van SAP Business Warehouse via Open-Hub met behulp van Azure Data Factory
 
 In dit artikel bevat een overzicht over het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren uit een SAP Business Warehouse (BW) via Open-Hub. Dit is gebaseerd op de [overzicht kopieeractiviteit](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
-
-## <a name="sap-bw-open-hub-integration"></a>SAP BW Open Hub-integratie 
-
-[SAP BW Open Hub Service](https://wiki.scn.sap.com/wiki/display/BI/Overview+of+Open+Hub+Service) is een efficiënte manier gegevens te extraheren uit SAP BW. Het volgende diagram toont een van de typische stromen die klanten in hun SAP-systeem hebben, in welk geval gegevensstromen van SAP ECC -> PSA -> DSO kubus ->.
-
-SAP BW Open Hub bestemming (OHD) definieert het doel waarnaar de SAP-gegevens wordt doorgegeven. Eventuele objecten die wordt ondersteund door SAP Data Transfer proces (DTP) kunnen worden gebruikt als open hub-gegevensbronnen, bijvoorbeeld DSO, InfoCube, DataSource, enzovoort. Open type van de bestemming van de Hub - waar de relayed gegevens worden opgeslagen - databasetabellen (lokaal of extern) kan worden en platte bestanden. Deze connector SAP BW Open Hub ondersteuning het kopiëren van gegevens uit de lokale tabel OHD in BW. Als u van andere typen gebruikmaakt, kunt u rechtstreeks verbinding maken met de database of bestand system met behulp van andere connectors.
-
-![SAP BW Open Hub](./media/connector-sap-business-warehouse-open-hub/sap-bw-open-hub.png)
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
@@ -41,6 +33,37 @@ Deze connector SAP Business Warehouse Open Hub ondersteunt name:
 - Kopiëren van gegevens via Open Hub lokale doeltabel die onder DSO, InfoCube, MultiProvider, DataSource, enzovoort.
 - Kopiëren van gegevens met behulp van basisverificatie.
 - Verbinding maken met toepassingsserver.
+
+## <a name="sap-bw-open-hub-integration"></a>SAP BW Open Hub-integratie 
+
+[SAP BW Open Hub Service](https://wiki.scn.sap.com/wiki/display/BI/Overview+of+Open+Hub+Service) is een efficiënte manier gegevens te extraheren uit SAP BW. Het volgende diagram toont een van de typische stromen die klanten in hun SAP-systeem hebben, in welk geval gegevensstromen van SAP ECC -> PSA -> DSO kubus ->.
+
+SAP BW Open Hub bestemming (OHD) definieert het doel waarnaar de SAP-gegevens wordt doorgegeven. Eventuele objecten die wordt ondersteund door SAP Data Transfer proces (DTP) kunnen worden gebruikt als open hub-gegevensbronnen, bijvoorbeeld DSO, InfoCube, DataSource, enzovoort. Open type van de bestemming van de Hub - waar de relayed gegevens worden opgeslagen - databasetabellen (lokaal of extern) kan worden en platte bestanden. Deze connector SAP BW Open Hub ondersteuning het kopiëren van gegevens uit de lokale tabel OHD in BW. Als u van andere typen gebruikmaakt, kunt u rechtstreeks verbinding maken met de database of bestand system met behulp van andere connectors.
+
+![SAP BW Open Hub](./media/connector-sap-business-warehouse-open-hub/sap-bw-open-hub.png)
+
+## <a name="delta-extraction-flow"></a>Delta-extractie stroom
+
+ADF SAP BW Open Hub Connector biedt twee optionele eigenschappen: `excludeLastRequest` en `baseRequestId` die kan worden gebruikt voor het afhandelen van delta-laden van Open-Hub. 
+
+- **excludeLastRequestId**: Of u wilt uitsluiten van de records van de laatste aanvraag. Standaardwaarde is true. 
+- **baseRequestId**: De ID van de aanvraag voor de delta-laden. Zodra deze is ingesteld, kunt u alleen gegevens met aanvraag-id groter is dan de waarde van deze eigenschap wordt opgehaald. 
+
+Over het algemeen bestaat de extractie van InfoProviders SAP op Azure Data Factory (ADF) uit 2 stappen: 
+
+1. **SAP BW Data Transfer proces (DTP)** in deze stap worden de gegevens uit een SAP BW InfoProvider gekopieerd naar een tabel met SAP BW Open Hub 
+
+1. **Het kopiëren van gegevens ADF** In deze stap in de tabel Open Hub kan worden gelezen door de ADF-Connector 
+
+![Delta-extractie stroom](media\connector-sap-business-warehouse-open-hub\delta-extraction-flow.png)
+
+In de eerste stap van wordt een DTP uitgevoerd. Elke uitvoering wordt gemaakt van een nieuwe SAP-aanvraag-ID. De aanvraag-ID is opgeslagen in de tabel Open Hub en wordt vervolgens gebruikt door de ADF-connector voor het identificeren van de verschillen. De twee stappen asynchroon uitvoeren: de DTP wordt geactiveerd door SAP en het kopiëren van de ADF-gegevens wordt geactiveerd door ADF. 
+
+Standaard ADF is niet lezen van de meest recente delta uit de tabel Open Hub (de optie "laatste aanvraag uitsluiten" is true). De gegevens in ADF is hierbij, niet 100% up-to-date zijn met de gegevens in de tabel van de Open Hub (de laatste delta ontbreekt). Hierna deze procedure zorgt ervoor dat er geen gegevensrijen veroorzaakt door de asynchrone extractie ophalen verloren. Het werkt prima, zelfs wanneer ADF de tabel Open Hub lezen is terwijl de DTP nog steeds schrijven in dezelfde tabel is. 
+
+U doorgaans opslaan de maximale gekopieerde aanvraag-ID in de laatste uitvoering door ADF in een tijdelijke gegevensopslag (zoals Azure Blob in bovenstaande diagram). Daarom is dezelfde aanvraag niet gelezen een tweede keer door ADF in de volgende uitvoering. In de tussentijd zorgen, Let op: de gegevens wordt niet automatisch verwijderd uit de tabel Open Hub.
+
+Voor de juiste delta is behandeling van het niet toegestaan dat de aanvraag-id's van verschillende DTPs in dezelfde tabel Open Hub. Daarom moet u niet maken meer dan één DTP voor elke Open Hub bestemming (OHD). Wanneer u volledige statistieken en Deltastatistieken extractie van de dezelfde InfoProvider, moet u twee OHDs maken voor de dezelfde InfoProvider. 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -60,6 +83,10 @@ Voor het gebruik van deze connector SAP Business Warehouse Open Hub, moet u naar
 - Maken van SAP Open Hub doeltype als **databasetabel** met 'Technische Key'-optie is ingeschakeld.  Het is ook raadzaam de gegevens verwijderen verlaten van de tabel als dit selectievakje is uitgeschakeld, maar dit niet vereist is. Maak gebruik van de DTP (rechtstreeks uitvoeren of integreren met bestaande procesketen) op grond van gegevens uit het bronobject (zoals kubus) die u hebt gekozen voor de doeltabel open hub.
 
 ## <a name="getting-started"></a>Aan de slag
+
+> [!TIP]
+>
+> Zie voor een overzicht van het gebruik van SAP BW Open Hub connector [laden van gegevens van SAP Business Warehouse (BW) met behulp van Azure Data Factory](load-sap-bw-data.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/03/2019
+ms.date: 03/05/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 364b0bf611581f88fc87f163acbbb7529862d096
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 5c5f1d8d7a9c84d807db53933f0cbb176f9fb7f2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309567"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551951"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Architectuur voor SAP HANA (grote instanties)
 
@@ -95,7 +95,7 @@ De opslag die wordt gebruikt voor HANA grote instantie kunt een transparante ver
 Met het Type ik klasse van SKU's, het volume de LUN wordt opgeslagen, worden opnieuw opgestart, worden versleuteld. Voor het Type II-klasse van SKU's van HANA grote instantie moet u voor het versleutelen van het bestand Boot.ini LUN met besturingssysteem-methoden. Voor meer informatie contact op met het Microsoft-Service Management-team.
 
 ## <a name="required-settings-for-larger-hana-instances-on-hana-large-instances"></a>Vereiste instellingen voor grotere HANA-instanties op HANA grote instanties
-De opslag die wordt gebruikt in HANA grote instanties heeft een maximale bestandsgrootte. De [formaat beperking is 16TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) per bestand. In tegenstelling tot in geval van beperkingen van de bestandsgrootte, zoals in EXT3 bestandssystemen, is HANA niet op de hoogte van de opslag-beperking afgedwongen door de opslag HANA grote instanties impliciet. Als gevolg hiervan wordt HANA niet automatisch gemaakt een nieuw bestand na het verstrijken van de maximale bestandsgrootte van 16TB. Als HANA probeert te uitbreiding van het bestand dan 16TB, rapporteert HANA fouten en de indexserver loopt vast aan het einde.
+De opslag die wordt gebruikt in HANA grote instanties heeft een maximale bestandsgrootte. De [formaat beperking is 16 TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) per bestand. In tegenstelling tot in de beperkingen van de bestandsgrootte in de bestandssystemen EXT3 is HANA niet op de hoogte van de opslag-beperking afgedwongen door de opslag HANA grote instanties impliciet. Als gevolg hiervan wordt HANA niet automatisch gemaakt een nieuw bestand na het verstrijken van de maximale bestandsgrootte van 16TB. Als HANA probeert te uitbreiding van het bestand dan 16 TB, rapporteert HANA fouten en de indexserver loopt vast aan het einde.
 
 > [!IMPORTANT]
 > Om te voorkomen dat een poging om te groeien gegevensbestanden voorbij de maximale bestandsgrootte 16 TB aan opslag van HANA grote instantie HANA, moet u de volgende parameters in het configuratiebestand global.ini van HANA instellen
@@ -103,6 +103,7 @@ De opslag die wordt gebruikt in HANA grote instanties heeft een maximale bestand
 - datavolume_striping=true
 - datavolume_striping_size_gb = 15000
 - Zie ook SAP Opmerking [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
+- Houd rekening met SAP-notitie [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
 
 
 

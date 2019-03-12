@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 89878b2774727d49d81ebec4c2a3c2cee355d8e8
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 84251b16d91ca74e11298c7aa54c9a7a8b7fd6d6
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743660"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576715"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Beschikbaarheid en betrouwbaarheid van Apache Hadoop-clusters in HDInsight
 
@@ -36,7 +36,7 @@ Knooppunten in een HDInsight-cluster worden geïmplementeerd met behulp van Azur
 
 HDInsight biedt voor hoge beschikbaarheid van Hadoop-services, twee hoofdknooppunten. Beide hoofdknooppunten zijn tegelijkertijd actief en wordt uitgevoerd binnen het HDInsight-cluster. Sommige services, zoals Apache HDFS of Apache Hadoop YARN, zijn alleen 'active' op één hoofdknooppunt op een bepaald moment. Andere services zoals HiveServer2 of Hive-MetaStore zijn actief op beide hoofdknooppunten op hetzelfde moment.
 
-Hoofdknooppunten (en andere knooppunten in HDInsight) hebt een numerieke waarde als onderdeel van de hostnaam van het knooppunt. Bijvoorbeeld, `hn0-CLUSTERNAME` of `hn4-CLUSTERNAME`.
+Hoofdknooppunten (en andere knooppunten in HDInsight) hebt een numerieke waarde als onderdeel van de hostnaam van het knooppunt. Bijvoorbeeld `hn0-CLUSTERNAME` of `hn4-CLUSTERNAME`.
 
 > [!IMPORTANT]  
 > Koppelt de numerieke waarde aan of een knooppunt is een primaire of secundaire. De numerieke waarde is alleen aanwezig is een unieke naam voor elk knooppunt op te geven.
@@ -49,7 +49,7 @@ Nimbus-knooppunten zijn beschikbaar met Apache Storm-clusters. Het Nimbus-knoopp
 
 [ZooKeeper](https://zookeeper.apache.org/) knooppunten worden gebruikt voor de selectie van leider van master services op de hoofdknooppunten. Ze worden ook gebruikt om ervoor te zorgen dat services, gegevensknooppunten (worker) en gateways weet welke hoofdknooppunt een hoofd-service is actief op. HDInsight biedt standaard drie ZooKeeper-knooppunten.
 
-### <a name="worker-nodes"></a>Worker-knooppunten
+### <a name="worker-nodes"></a>Werkknooppunten
 
 Worker-knooppunten worden de werkelijke gegevensanalyses uitvoeren wanneer een job wordt verzonden naar het cluster. Als een worker-knooppunt mislukt, wordt de taak uitgevoerde verzonden naar een andere worker-knooppunt. HDInsight maakt standaard vier worker-knooppunten. U kunt deze waarde aan uw behoeften, zowel tijdens als na het maken van een cluster wijzigen.
 
@@ -97,13 +97,13 @@ U kunt verbinding maken met knooppunten die niet rechtstreeks toegankelijk zijn 
 
 * **SSH Tunnel**: Als u nodig hebt voor toegang tot een webservice die wordt gehost op een van de knooppunten die geen toegang heeft tot internet, moet u een SSH-tunnel. Zie voor meer informatie de [een SSH-tunnel gebruiken met HDInsight](hdinsight-linux-ambari-ssh-tunnel.md) document.
 
-* **Azure-netwerk**: Als uw HDInsight-cluster deel uit van een Azure-netwerk maakt, kan een resource in hetzelfde Virtueelnetwerk rechtstreeks toegang tot alle knooppunten in het cluster. Zie voor meer informatie de [uitbreiden HDInsight met behulp van Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md) document.
+* **Azure Virtual Network**: Als uw HDInsight-cluster deel uit van een Azure-netwerk maakt, kan een resource in hetzelfde Virtueelnetwerk rechtstreeks toegang tot alle knooppunten in het cluster. Zie voor meer informatie de [uitbreiden HDInsight met behulp van Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md) document.
 
 ## <a name="how-to-check-on-a-service-status"></a>Hoe u een servicestatus controleren
 
 Om te controleren of de status van services die worden uitgevoerd op de hoofdknooppunten, moet u de Ambari-Webinterface of de Ambari REST-API gebruiken.
 
-### <a name="ambari-web-ui"></a>Ambari-Webgebruikersinterface
+### <a name="ambari-web-ui"></a>Ambari Web UI
 
 De Ambari-Webinterface is zichtbaar op https://CLUSTERNAME.azurehdinsight.net. Vervang **CLUSTERNAME** door de naam van uw cluster. Als u hierom wordt gevraagd, voert u de referenties van de HTTP-gebruiker voor uw cluster. De standaardnaam van de HTTP-gebruiker is **admin** en het wachtwoord is het wachtwoord die u hebt ingevoerd bij het maken van het cluster.
 
@@ -111,7 +111,50 @@ Wanneer u op de pagina Ambari binnenkomen, worden de geïnstalleerde services aa
 
 ![Geïnstalleerde services](./media/hdinsight-high-availability-linux/services.png)
 
-Er zijn een reeks pictogrammen die worden weergegeven naast een service om status te geven. Waarschuwingen met betrekking tot een service kunnen worden weergegeven met behulp van de **waarschuwingen** koppelen aan de bovenkant van de pagina. U kunt elke service voor meer informatie over het selecteren.
+Er zijn een reeks pictogrammen die worden weergegeven naast een service om status te geven. Waarschuwingen met betrekking tot een service kunnen worden weergegeven met behulp van de **waarschuwingen** koppelen aan de bovenkant van de pagina.  Ambari biedt verschillende vooraf gedefinieerde waarschuwingen.
+
+De volgende waarschuwingen helpen bij het beheren van de beschikbaarheid van een cluster:
+
+| Meldingnaam                               | Description                                                                                                                                                                                  |
+|------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Status van metrische gegevens controleren                    | Deze waarschuwing geeft aan dat de status van het proces van de metrische gegevens bewaken zoals wordt bepaald door het script van de status monitor.                                                                                   |
+| Ambari Agent Heartbeat                   | Deze waarschuwing wordt geactiveerd als de server contact met een agent is verbroken.                                                                                                                        |
+| ZooKeeper Server-proces                 | Deze waarschuwing hostniveau wordt geactiveerd als het ZooKeeper server-proces niet kan worden bepaald om te worden van is en luistert op het netwerk.                                                               |
+| Status van de Server IOCache metagegevens           | Deze waarschuwing hostniveau wordt geactiveerd als de Server van de metagegevens IOCache niet kan worden bepaald om te worden van en reageren op clientaanvragen                                                            |
+| JournalNode Web-UI                       | Deze waarschuwing hostniveau wordt geactiveerd als de Webgebruikersinterface JournalNode onbereikbaar is.                                                                                                                 |
+| Spark2 Thrift-Server                     | Deze waarschuwing hostniveau wordt geactiveerd als de Spark2 Thrift-Server kan niet worden bepaald uit.                                                                                                |
+| Geschiedenis van Server-proces                   | Deze waarschuwing hostniveau wordt geactiveerd als de geschiedenis van Server-proces kan niet tot stand gebrachte zodat u is en luistert op het netwerk.                                                                |
+| Geschiedenis van Server-Webgebruikersinterface                    | Deze waarschuwing hostniveau wordt geactiveerd als de Webgebruikersinterface van de geschiedenis-Server onbereikbaar is.                                                                                                              |
+| ResourceManager-Webgebruikersinterface                   | Deze waarschuwing hostniveau wordt geactiveerd als de ResourceManager-Webgebruikersinterface onbereikbaar is.                                                                                                             |
+| Samenvatting van status NodeManager               | Deze service level-waarschuwing wordt geactiveerd als er niet in orde NodeManagers                                                                                                                    |
+| App Timeline Web UI                      | Deze waarschuwing hostniveau wordt geactiveerd als de Webgebruikersinterface App tijdlijn Server onbereikbaar is.                                                                                                         |
+| Samenvatting van status DataNode                  | Deze service level-waarschuwing wordt geactiveerd als er niet in orde DataNodes                                                                                                                       |
+| NameNode Web-UI                          | Deze waarschuwing hostniveau wordt geactiveerd als de Webgebruikersinterface NameNode onbereikbaar is.                                                                                                                    |
+| ZooKeeper-Failover-Controller-proces    | Deze waarschuwing hostniveau wordt geactiveerd als het proces ZooKeeper Failover-Controller kan niet worden bevestigd zodat u is en luistert op het netwerk.                                                   |
+| Oozie Server Web-UI                      | Deze waarschuwing hostniveau wordt geactiveerd als de server Oozie-Webgebruikersinterface onbereikbaar is.                                                                                                                |
+| Oozie-serverstatus                      | Deze waarschuwing hostniveau wordt geactiveerd als de Oozie-server niet kan worden bepaald om te worden van en reageren op clientaanvragen.                                                                      |
+| Hive-Metastore proces                   | Deze waarschuwing hostniveau wordt geactiveerd als het proces van de Hive-Metastore kan niet worden bepaald om te worden van is en luistert op het netwerk.                                                                 |
+| Proces van HiveServer2                      | Deze waarschuwing hostniveau wordt geactiveerd als de HiveServer niet kan worden bepaald om te worden van en reageren op clientaanvragen.                                                                        |
+| WebHCat Server Status                    | Deze waarschuwing hostniveau wordt geactiveerd als de status van de templeton-server niet in orde is.                                                                                                            |
+| Percentage ZooKeeper-Servers die beschikbaar zijn      | Deze waarschuwing wordt geactiveerd als het aantal ZooKeeper-servers in het cluster groter dan de kritieke drempelwaarde is. Het combineert de resultaten van de controles van ZooKeeper-proces.     |
+| Spark2 Livy Server                       | Deze waarschuwing hostniveau wordt geactiveerd als de Server Livy2 kan niet worden bepaald uit.                                                                                                        |
+| Spark2 geschiedenis-Server                    | Deze waarschuwing hostniveau wordt geactiveerd als de Server van de geschiedenis Spark2 kan niet worden bepaald uit.                                                                                               |
+| Metrische gegevens Collector proces                | Deze waarschuwing wordt geactiveerd als de Collector metrische gegevens niet kan worden bevestigd uit en luistert op de geconfigureerde poort voor het aantal seconden gelijk zijn aan de drempelwaarde.                                 |
+| Metrische gegevens Collector - HBase Master proces | Deze waarschuwing wordt geactiveerd als van de metrische gegevens Collector HBase master processen niet kunnen worden bevestigd zodat u is en luistert op het netwerk voor de kritieke drempelwaarde, uitgedrukt in seconden. |
+| Percentage metrische gegevens over Monitors beschikbaar       | Deze waarschuwing wordt geactiveerd als een percentage van metrische gegevens controleren processen niet van zijn en luisteren op het netwerk naar de geconfigureerde waarschuwingen en kritieke drempelwaarden.                             |
+| Percentage NodeManagers beschikbaar           | Deze waarschuwing wordt geactiveerd als het aantal omlaag NodeManagers in het cluster groter dan de kritieke drempelwaarde is. Het combineert de resultaten van NodeManager proces controles.        |
+| De gezondheid van NodeManager                       | Deze waarschuwing hostniveau controleert de status knooppunteigenschap beschikbaar is via het onderdeel NodeManager.                                                                                              |
+| NodeManager Web-UI                       | Deze waarschuwing hostniveau wordt geactiveerd als de Webgebruikersinterface NodeManager onbereikbaar is.                                                                                                                 |
+| Status van de NameNode hoge beschikbaarheid        | Deze service level-waarschuwing wordt geactiveerd als de actieve NameNode of de stand-by NameNode niet worden uitgevoerd.                                                                                     |
+| DataNode proces                         | Deze waarschuwing hostniveau wordt geactiveerd als de afzonderlijke DataNode processen kunnen niet tot stand gebrachte zodat u is en luistert op het netwerk.                                                         |
+| DataNode Web-UI                          | Deze waarschuwing hostniveau wordt geactiveerd als de Webgebruikersinterface DataNode onbereikbaar is.                                                                                                                    |
+| Percentage JournalNodes beschikbaar           | Deze waarschuwing wordt geactiveerd als het aantal omlaag JournalNodes in het cluster groter dan de kritieke drempelwaarde is. Het combineert de resultaten van JournalNode proces controles.        |
+| Percentage DataNodes beschikbaar              | Deze waarschuwing wordt geactiveerd als het aantal omlaag DataNodes in het cluster groter dan de kritieke drempelwaarde is. Het combineert de resultaten van DataNode proces controles.              |
+| Zeppelin-serverstatus                   | Deze waarschuwing hostniveau wordt geactiveerd als de Zeppelin-server niet kan worden bepaald om te worden van en reageren op clientaanvragen.                                                                   |
+| Interactief proces HiveServer2          | Deze waarschuwing hostniveau wordt geactiveerd als de HiveServerInteractive niet kan worden bepaald om te worden van en reageren op clientaanvragen.                                                             |
+| LLAP toepassing                         | Deze waarschuwing wordt geactiveerd als de toepassing LLAP niet kan worden bepaald om te worden van en reageren op aanvragen.                                                                                    |
+
+U kunt elke service voor meer informatie over het selecteren.
 
 Terwijl de servicepagina informatie over de status en de configuratie van elke service bevat, biedt het geen informatie over welke hoofdknooppunt van de service wordt uitgevoerd op. Als u deze informatie, gebruikt u de **Hosts** koppelen aan de bovenkant van de pagina. Deze pagina bevat hosts in het cluster, inclusief de hoofdknooppunten.
 
@@ -123,7 +166,7 @@ Selecteren van de koppeling voor een van de hoofdknooppunten, geeft de services 
 
 Zie voor meer informatie over het gebruik van Ambari [bewaken en beheren van HDInsight met behulp van de Apache Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md).
 
-### <a name="ambari-rest-api"></a>Ambari REST-API
+### <a name="ambari-rest-api"></a>Ambari REST API
 
 De Ambari REST-API is beschikbaar via internet. De openbare gateway HDInsight verwerkt routeren van aanvragen met het hoofdknooppunt waarop de REST-API wordt gehost.
 

@@ -8,24 +8,24 @@ ms.topic: include
 ms.date: 11/29/2018
 ms.author: jinzh
 ms.custom: include file
-ms.openlocfilehash: 1b5991b7e9bb870fdace4418e23c7f8ff9bf8636
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 2bf9f75442ccf57aa28e6a12f415fb6e4ede78ec
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101934"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553650"
 ---
-Hieronder ziet u de limiet voor de service Azure Maps **S0-prijscategorie**. Limiet voor het gebruik, is afhankelijk van de prijscategorie. 
+De volgende tabel ziet u de limiet voor de prijscategorie van Azure Maps S0. Limiet voor het gebruik, is afhankelijk van de prijscategorie. 
 
 | Resource                              | S0 pricing tier limiet |
 |---------------------------------------|:---------------------:|
 | Maximum aantal aanvragen per abonnement |   50 aanvragen per seconde  |
 
 
-Hieronder volgt de maximale grootte van gegevens voor de Azure-kaarten data-service. Azure Maps data-service is alleen beschikbaar op **prijscategorie S1**.
+De volgende tabel ziet u de maximale grootte van gegevens voor Azure-kaarten. De Azure-kaarten data-service is alleen beschikbaar op de prijscategorie S1.
 
 | Resource                              | Limiet |
 |---------------------------------------|:---------------------:|
 | Maximale grootte van gegevens |   50 MB  |
 
-Zie voor meer informatie over de Azure-kaarten Prijscategorieën [Azure Maps prijsinformatie](https://azure.microsoft.com/pricing/details/azure-maps/).
+Zie voor meer informatie over de Azure-kaarten Prijscategorieën [prijzen van Azure Maps](https://azure.microsoft.com/pricing/details/azure-maps/).

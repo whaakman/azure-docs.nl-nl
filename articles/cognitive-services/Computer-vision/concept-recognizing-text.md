@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ea5084128848db7d799b1791aef528305b4f6df4
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 9bb574fcb9782aad41ea0fd276b8addee19caf01
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192364"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588972"
 ---
-# <a name="recognize-printed-and-handwritten-text"></a>Afgedrukte en handgeschreven tekstherkenning
+# <a name="recognize-printed-and-handwritten-text"></a>Afgedrukte en handgeschreven tekst herkennen
 
 Computer Vision biedt een aantal services die Detecteer en extraheer gedrukte of handgeschreven tekst die wordt weergegeven in afbeeldingen. Dit is handig in tal van scenario's zoals notities maken, medische dossiers, beveiliging en bankieren. De volgende drie secties gedetailleerd drie verschillende tekstherkenning API's, elk geoptimaliseerd voor verschillende gebruiksvoorbeelden.
 
@@ -26,7 +26,7 @@ Computer Vision biedt een aantal services die Detecteer en extraheer gedrukte of
 
 De API lezen detecteert tekstinhoud in een afbeelding met behulp van onze nieuwste modellen voor spraakherkenning en wordt de herkende tekst geconverteerd naar een machinaal leesbare tekenstroom. Deze is geoptimaliseerd voor tekst maken veel afbeeldingen (zoals documenten die digitaal zijn gescand) en voor installatiekopieën met een groot aantal visual ruis. Het uitvoeren van asynchroon omdat grotere documenten enige tijd duren kunnen om een resultaat te retourneren.
 
-De leesbewerking onderhoudt de oorspronkelijke regel groeperingen van herkende woorden in de uitvoer ervan weergegeven. Elke regel wordt geleverd met het selectiekader vak coördinaten en elk woord in de regel is ook een eigen coördinaten. Als een woord is herkend met weinig vertrouwen, wordt deze informatie ook overgebracht. Zie de [lezen API-referentiedocumenten](https://westus.api.cognitive.microosft.com/vision/v2.0/read/core/asyncBatchAnalyze) voor meer informatie.
+De leesbewerking onderhoudt de oorspronkelijke regel groeperingen van herkende woorden in de uitvoer ervan weergegeven. Elke regel wordt geleverd met het selectiekader vak coördinaten en elk woord in de regel is ook een eigen coördinaten. Als een woord is herkend met weinig vertrouwen, wordt deze informatie ook overgebracht. Zie de [lezen API-referentiedocumenten](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) voor meer informatie.
 
 > [!NOTE]
 > Deze functie is momenteel in preview en is alleen beschikbaar voor Engelse tekst.

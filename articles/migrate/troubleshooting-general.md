@@ -4,14 +4,14 @@ description: Biedt een overzicht van bekende problemen in de Azure Migrate-servi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: raynew
-ms.openlocfilehash: 7479f651a9fce5d65b1faf4113febb6e79c426b2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 0eede0ae4623d68adf749dc528ac5cc1ce81e024
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439075"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730409"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Problemen met Azure Migrate oplossen
 
@@ -80,11 +80,9 @@ esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/conto
 
 4. Nadat u het rapport hebt gedownload, kunt u Excel gebruiken om te bladeren naar de map gedownload en open het bestand in Excel om dit te bekijken.
 
-### <a name="performance-data-for-disks-and-networks-adapters-shows-as-zeros"></a>Prestatiegegevens voor schijven en netwerken adapters wordt weergegeven als nullen
+### <a name="performance-data-for-cpu-memory-and-disks-is-showing-up-as-zeroes"></a>Prestatiegegevens voor CPU, geheugen en schijven wordt weergegeven als nullen
 
-Dit kan gebeuren als het niveau van de instelling voor statistieken voor de vCenter-server is ingesteld op minder dan drie. Niveau 3 of hoger, slaat vCenter prestatiegeschiedenis van de virtuele machine voor berekening, opslag en netwerk. VCenter opslaan niet opslag en gegevens van het netwerk, maar alleen de gegevens CPU en geheugen voor minder dan niveau 3. In dit scenario, prestaties van gegevens wordt weergegeven als nul in Azure Migrate en Azure Migrate biedt de aanbeveling voor grootte voor schijven en netwerken op basis van de metagegevens van de on-premises machines verzameld.
-
-Om het verzamelen van prestatiegegevens voor schijven en het netwerk mogelijk, wijzigt u het niveau van de instellingen voor statistieken tot drie. Vervolgens wacht ten minste een dag voor uw omgeving detecteren en evalueren deze.
+Azure Migrate profielen continu de on-premises omgeving voor het verzamelen van prestatiegegevens van de on-premises VM's. Als u alleen de detectie van uw omgeving hebt gestart, moet u wachten tot ten minste een dag voor de verzameling van prestatiegegevens moet worden uitgevoerd. Als een evaluatie wordt gemaakt zonder te wachten op één dag, wordt de maatstaven voor prestaties weergegeven als nullen. Na een wachttijd van een dag, kunt u een nieuwe evaluatie maken of bijwerken van de evaluatie van de bestaande met behulp van de optie 'Opnieuw berekenen' in het evaluatierapport.
 
 ### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>Ik heb een Azure-Geografie hebt opgegeven tijdens het maken van een migratieproject hoe vind ik uit de exacte Azure-regio waar de metagegevens van de gedetecteerde zou worden opgeslagen?
 

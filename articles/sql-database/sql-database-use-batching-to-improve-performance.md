@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 0ef6d258be0165c7a73ce060879f55f1c7f404f9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 76b53132cca536f66aa2f739b27d74b08a3f16cf
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453517"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781388"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Batchverwerking gebruiken voor het verbeteren van de prestaties van toepassingen voor SQL-Database
 
@@ -168,7 +168,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-In het vorige voorbeeld de **SqlCommand** object voegt rijen uit een tabelwaardeparameter **@TestTvp**. De eerder gemaakte **DataTable** object is toegewezen aan deze parameter met de **SqlCommand.Parameters.Add** methode. De invoegingen in één aanroep aanzienlijk batchverwerking, verhoogt de prestaties via opeenvolgende ingevoegd.
+In het vorige voorbeeld de **SqlCommand** object voegt rijen uit een tabelwaardeparameter  **\@TestTvp**. De eerder gemaakte **DataTable** object is toegewezen aan deze parameter met de **SqlCommand.Parameters.Add** methode. De invoegingen in één aanroep aanzienlijk batchverwerking, verhoogt de prestaties via opeenvolgende ingevoegd.
 
 Ter verbetering van het vorige voorbeeld meer, een opgeslagen procedure te gebruiken in plaats van een opdracht op basis van tekst. De volgende Transact-SQL-opdracht maakt u een opgeslagen procedure waarmee de **SimpleTestTableType** tabelwaardeparameter.
 

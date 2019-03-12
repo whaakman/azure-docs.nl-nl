@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 4c01cf93fe3bb66f9bce73acb3c2f100764d1f46
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b008293e06f476109abde5be519489b2e3d4c1e9
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872540"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531382"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Aan de slag met de SDK van de apparaten spraak
 
@@ -37,7 +37,7 @@ Voordat u begint met ontwikkelen met de SDK van de apparaten spraak, verzamel de
 
 * De meest recente versie van de SDK van de apparaten spraak, die voorziet in een Android-voorbeeld-app van de [site voor het downloaden van spraak Devices SDK](https://shares.datatransfer.microsoft.com/). Pak het ZIP-bestand naar een lokale map, zoals C:\SDSDK.
 
-* Installeer [Android Studio](https://developer.android.com/studio/) en [Vysor](http://vysor.io/download/) op uw PC.
+* Installeer [Android Studio](https://developer.android.com/studio/) en [Vysor](https://vysor.io/download/) op uw PC.
 
 * Krijgen een [Speech-service-abonnementssleutel](get-started.md). U kunt een gratis proefversie van 30 dagen of u een sleutel van uw Azure-dashboard.
 

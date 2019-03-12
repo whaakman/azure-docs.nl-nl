@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 1/18/2019
 ms.author: victorh
-ms.openlocfilehash: b513e898e25397f54b8f7f7590a4466523a705ff
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: e8163ad34046261d9671c57db2cd2d2052fe35e0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401415"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550784"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Azure DNS gebruiken om aangepaste domein-instellingen voor een Azure-service te geven
 
@@ -54,7 +54,7 @@ Op de **hostnaam toevoegen** blade, voer de CNAME-record in de **hostnaam** teks
 
 ## <a name="public-ip-address"></a>Openbaar IP-adres
 
-Een aangepast domein configureren voor services die gebruikmaken van een openbaar IP-adres bron, zoals Application Gateway, Load Balancer, Cloudservice, virtuele machines Resource Manager en klassieke virtuele machines, een CNAME-record die wordt gebruikt.
+Een aangepast domein configureren voor services die gebruikmaken van een openbaar IP-adres bron, zoals Application Gateway, Load Balancer, Cloudservice, virtuele machines Resource Manager en klassieke virtuele machines, een A-record wordt gebruikt.
 
 Navigeer naar **netwerken** > **openbaar IP-adres**, selecteert u de openbare IP-resource en klik op **configuratie**. Het IP-adres weergegeven specificeren.
 

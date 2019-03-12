@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 991a50828059d850627e1f8f3f34f65a55fdf3f6
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 22347ce7296dc55d98f1ee6d4458fa6d7c5a21e6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890229"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551250"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>VM's starten/stoppen buiten kantooruren oplossing in Azure Automation
 
@@ -289,8 +289,8 @@ De volgende tabel bevat voorbeeldzoekopdrachten in logboeken voor taakrecords di
 
 |Query’s uitvoeren | Description|
 |----------|----------|
-|Taken zoeken voor runbook ScheduledStartStop_Parent die met succes voltooid | ```search Category == "JobLogs" | where ( RunbookName_s == "ScheduledStartStop_Parent" ) | where ( ResultType == "Completed" )  | summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sort by TimeGenerated desc```|
-|Taken zoeken voor runbook SequencedStartStop_Parent die met succes voltooid | ```search Category == "JobLogs" | where ( RunbookName_s == "SequencedStartStop_Parent" ) | where ( ResultType == "Completed" ) | summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sort by TimeGenerated desc```|
+|Taken zoeken voor runbook ScheduledStartStop_Parent die met succes voltooid | ''' zoeken naar categorie == "JobLogs" | where ( RunbookName_s == "ScheduledStartStop_Parent" ) | waar (ResultType == "Voltooid")  | samenvatten |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sorteren op TimeGenerated desc'' '|
+|Taken zoeken voor runbook SequencedStartStop_Parent die met succes voltooid | ''' zoeken naar categorie == "JobLogs" | where ( RunbookName_s == "SequencedStartStop_Parent" ) | waar (ResultType == "Voltooid") | samenvatten |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sorteren op TimeGenerated desc'' '|
 
 ## <a name="viewing-the-solution"></a>De oplossing bekijken
 
@@ -300,7 +300,7 @@ Als u de oplossing wordt weergegeven de **Start-Stop-VM [workspace]** oplossinge
 
 ![De pagina van de oplossing Update Management Automation](media/automation-solution-vm-management/azure-portal-vmupdate-solution-01.png)
 
-Hier kunt kunt u verder analyse uitvoeren van de Taakrecords door te klikken op de tegel ring. Dashboard van de oplossing toont Taakgeschiedenis en vooraf gedefinieerde log zoekquery's. Overschakelen naar de geavanceerde van Log Analytics-portal om te zoeken, is afhankelijk van uw zoekquery's.
+Hier kunt kunt u verder analyse uitvoeren van de Taakrecords door te klikken op de tegel ring. Dashboard van de oplossing toont Taakgeschiedenis en vooraf gedefinieerde log zoekquery's. Overschakelen naar de geavanceerde log analytics-portal om te zoeken, is afhankelijk van uw zoekquery's.
 
 ## <a name="configure-email-notifications"></a>E-mailmeldingen configureren
 

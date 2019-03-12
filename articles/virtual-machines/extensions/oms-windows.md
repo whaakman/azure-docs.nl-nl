@@ -1,5 +1,5 @@
 ---
-title: Azure Log Analytics VM-extensie voor Windows | Microsoft Docs
+title: Azure Monitor-virtuele machine-extensie voor Windows | Microsoft Docs
 description: De Log Analytics-agent op Windows-machine met behulp van de extensie van een virtuele machine implementeren.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,16 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: roiyz
-ms.openlocfilehash: 66240ffebcd98bb8e14fb21bcb5c54b8fceb7a64
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 7c56b54f2d5be2bd47644e07369120468bb6015e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406385"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533694"
 ---
-# <a name="log-analytics-virtual-machine-extension-for-windows"></a>Log Analytics VM-extensie voor Windows
+# <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Azure Monitor-virtuele machine-extensie voor Windows
 
-Log Analytics biedt mogelijkheden voor bewaking in de cloud en on-premises activa. De extensie van Log Analytics-agent virtuele machine voor Windows is gepubliceerd en ondersteund door Microsoft. De extensie voor de Log Analytics-agent geïnstalleerd op virtuele Azure-machines en virtuele machines voor een bestaande Log Analytics-werkruimte worden ingeschreven. In dit document worden de ondersteunde platforms, configuraties en implementatie-opties voor de extensie van de Log Analytics-virtuele machine voor Windows.
+Logboeken in Azure Monitor biedt mogelijkheden voor bewaking voor cloud en on-premises assets. De extensie van Log Analytics-agent virtuele machine voor Windows is gepubliceerd en ondersteund door Microsoft. De extensie voor de Log Analytics-agent geïnstalleerd op virtuele Azure-machines en virtuele machines voor een bestaande Log Analytics-werkruimte worden ingeschreven. In dit document worden de ondersteunde platforms, configuraties en implementatie-opties voor de extensie van de Azure Monitor-virtuele machine voor Windows.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -34,7 +36,7 @@ De Log Analytics-agent-extensie versies voor Windows kan worden uitgevoerd op ba
 
 ### <a name="azure-security-center"></a>Azure Security Center
 
-Azure Security Center wordt automatisch bepalingen van de Log Analytics-agent en verbindt u deze met de standaard log analytics-werkruimte van de Azure-abonnement. Als u van Azure Security Center gebruikmaakt, niet uitgevoerd door de stappen in dit document. In dat geval wordt de geconfigureerde werkruimte en het einde van de verbinding met Azure Security Center overschreven.
+Azure Security Center wordt automatisch bepalingen van de Log Analytics-agent en verbindt u deze met de standaard Log Analytics-werkruimte van de Azure-abonnement. Als u van Azure Security Center gebruikmaakt, niet uitgevoerd door de stappen in dit document. In dat geval wordt de geconfigureerde werkruimte en het einde van de verbinding met Azure Security Center overschreven.
 
 ### <a name="internet-connectivity"></a>Internetconnectiviteit
 De Log Analytics-agent-extensie voor Windows is vereist dat de virtuele doelmachine is verbonden met internet. 
@@ -85,7 +87,7 @@ Azure VM-extensies kunnen worden geïmplementeerd met Azure Resource Manager-sja
 
 De JSON voor de extensie van een virtuele machine kan worden genest in de bron van de virtuele machine of geplaatst op de hoofdmap of het hoogste niveau van een Resource Manager JSON-sjabloon. De plaatsing van de JSON is van invloed op de waarde van de resourcenaam en het type. Zie voor meer informatie, [naam en type voor de onderliggende resources instellen](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources). 
 
-Het volgende voorbeeld wordt ervan uitgegaan dat de extensie van Log Analytics is genest in de bron van de virtuele machine. Wanneer het nesten van de extensie-resource, de JSON wordt geplaatst in de `"resources": []` object van de virtuele machine.
+Het volgende voorbeeld wordt ervan uitgegaan dat de extensie Azure Monitor is genest in de bron van de virtuele machine. Wanneer het nesten van de extensie-resource, de JSON wordt geplaatst in de `"resources": []` object van de virtuele machine.
 
 
 ```json

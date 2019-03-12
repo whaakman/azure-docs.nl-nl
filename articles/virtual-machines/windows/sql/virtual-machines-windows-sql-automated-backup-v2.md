@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e20599833d3073e4819dbc974d4b2afe962ba18a
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 540acd1735eb539ecaac468e74511ba5f751278f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984304"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780011"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Automatische back-up v2 voor virtuele Azure-Machines (Resource Manager)
 
@@ -52,7 +52,7 @@ Voor het gebruik van automatische back-up v2, controleert u de volgende vereiste
 
 - Doeldatabase moeten het volledige herstelmodel gebruiken. Zie voor meer informatie over de impact van het volledige herstelmodel op back-ups, [back-up onder het volledige herstelmodel](https://technet.microsoft.com/library/ms190217.aspx).
 - Systeemdatabases geen volledig-herstelmodel te gebruiken. Als u logboekback-ups moeten worden uitgevoerd voor het Model of MSDB nodig hebt, moet u echter volledig-herstelmodel gebruiken.
-- Doeldatabases zich op het standaardexemplaar van SQL Server. De SQL Server IaaS-extensie biedt geen ondersteuning voor benoemde exemplaren.
+- Doeldatabases zich op een van beide de standaard SQL Server-exemplaar, of een [juist is geïnstalleerd](virtual-machines-windows-sql-server-iaas-faq.md#administration) benoemd exemplaar. 
 
 > [!NOTE]
 > Automatische back-up is afhankelijk van de **SQL Server IaaS Agent-extensie**. Huidige galerie met installatiekopieën van de SQL-machines met deze extensie standaard toegevoegd. Zie voor meer informatie, [SQL Server IaaS Agent-extensie](virtual-machines-windows-sql-server-agent-extension.md).

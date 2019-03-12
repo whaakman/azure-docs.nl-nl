@@ -3,30 +3,31 @@ title: Azure Active Directory-verificatie inschakelen voor Azure-SSIS Integratio
 description: Dit artikel wordt beschreven hoe u Azure Active Directory-verificatie met de beheerde identiteit voor Azure Data Factory te maken van Azure-SSIS Integration Runtime in te schakelen.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 2/19/2019
-ms.author: douglasl
-ms.openlocfilehash: 159aaf017265c09c2afc4b603ed5172fead9b29d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.date: 3/11/2019
+author: swinarko
+ms.author: sawinark
+manager: craigg
+ms.openlocfilehash: 787c436261635376ff82e8762cbc1469f4375e6b
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438649"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729954"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Azure Active Directory-verificatie inschakelen voor Azure-SSIS Integration Runtime
 
-Dit artikel leest u hoe u Azure Active Directory (Azure AD)-verificatie met de beheerde identiteit voor uw Azure Data Factory (ADF) inschakelen en gebruiken in plaats van SQL-verificatie om te maken van een Azure-SSIS Integration Runtime (IR) die op zijn beurt SSIS maken catalogusdatabase (SSISDB) in Azure SQL Database-server/beheerd exemplaar uit uw naam.
+Dit artikel leest u hoe u Azure Active Directory (Azure AD)-verificatie met de beheerde identiteit voor uw Azure Data Factory (ADF) inschakelen en gebruiken in plaats van SQL-verificatie om te maken van een Azure-SSIS Integration Runtime (IR) die op zijn beurt wordt ingericht SSIS-catalogusdatabase (SSISDB) in Azure SQL Database-server/beheerd exemplaar uit uw naam.
 
 Zie voor meer informatie over de beheerde identiteit voor uw ADF [beheerde identiy voor Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
 
 > [!NOTE]
-> Als u al een Azure-SSIS IR hebt gemaakt met behulp van SQL-verificatie, kunt u niet opnieuw configureren uw IR voor het gebruik van Azure AD-verificatie met PowerShell op dit moment maar u kunt dit doen in Azure portal/ADF-app. 
+>-  In dit scenario, Azure AD-verificatie met de beheerde identiteit voor uw ADF wordt alleen gebruikt bij het maken en verdere vanaf bewerkingen van uw SSIS-IR wordt in de inrichten en verbinding maken met SSISDB. Uitvoeringen van SSIS-pakket, wordt nog steeds uw SSIS-IR verbinding maken met SQL-verificatie gebruiken met volledig beheerde accounts die zijn gemaakt tijdens het inrichten van SSISDB SSISDB.
+>-  Als u al uw SSIS-IR hebt gemaakt met behulp van SQL-verificatie, wordt u deze voor het gebruik van Azure AD-verificatie via PowerShell op dit moment niet opnieuw kunt configureren, maar wordt u kunt dit doen via Azure portal/ADF-app. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

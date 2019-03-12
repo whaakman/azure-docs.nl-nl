@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: snehaa
-ms.openlocfilehash: 26992cfe1c6cb8555a7084075fed4d9c8daed031
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3744e51ffb4e0836eba4b1641413d8c0ee240f87
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444375"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729378"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - Asked Frequently Questions (FAQ)
 
@@ -21,7 +21,7 @@ Dit artikel bevat veelgestelde vragen over Azure Migrate. Hebt u geen verdere qu
 
 ### <a name="does-azure-migrate-support-assessment-of-only-vmware-workloads"></a>Biedt Azure Migrate ondersteuning voor beoordeling van de VMware-workloads?
 
-Ja, Azure Migrate ondersteunt momenteel alleen beoordeling van de VMware-workloads. Ondersteuning voor Hyper-V en fysieke servers wordt in de toekomst worden ingeschakeld.
+Ja, Azure Migrate ondersteunt momenteel alleen beoordeling van de VMware-workloads. Ondersteuning voor Hyper-V is in preview, moet u zich aanmelden [hier](http://aka.ms/migratefuture) toegang te krijgen tot de Preview-versie. Ondersteuning voor fysieke servers wordt in de toekomst worden ingeschakeld.
 
 ### <a name="does-azure-migrate-need-vcenter-server-to-discover-a-vmware-environment"></a>Heeft Azure Migrate vCenter-Server voor het detecteren van een VMware-omgeving nodig?
 
@@ -42,7 +42,7 @@ Azure Migrate is een hulpprogramma voor migratieplanning en Azure Site Recovery 
 
 **Migratie van VMware naar Azure**: Als u van plan bent uw on-premises workloads migreren naar Azure, Azure Migrate gebruiken voor het plannen van de migratie. Azure Migrate beoordeelt on-premises werkbelastingen en biedt richtlijnen, inzichten en mechanismen om u te helpen bij het migreren naar Azure. Wanneer u klaar met uw migratieplan bent, kunt u services zoals Azure Site Recovery en Azure Database Migration Service de machines migreren naar Azure.
 
-**Migratie van Hyper-V naar Azure**: Azure Migrate ondersteunt momenteel alleen evaluatie van virtuele VMware-machines voor migratie naar Azure. Ondersteuning voor Hyper-V is op de roadmap voor Azure Migrate. In de tussentijd kunt u Site Recovery Deployment Planner. Zodra de Hyper-V-ondersteuning is ingeschakeld in Azure Migrate, kunt u Azure Migrate kunt gebruiken voor het plannen van de migratie van Hyper-V-werkbelastingen.
+**Migratie van Hyper-V naar Azure**: De algemeen beschikbare versie van Azure Migrate ondersteunt momenteel evaluatie van virtuele VMware-machines voor migratie naar Azure. Ondersteuning voor Hyper-V momenteel in Preview-versie met productieondersteuning voor is. Als u geïnteresseerd bent in uit de Preview-versie te proberen, meldt u zich [hier](http://aka.ms/migratefuture).
 
 **Herstel na noodgevallen van VMware/Hyper-V naar Azure**: Als u van plan bent om te doen, herstel na noodgeval (DR) op Azure met behulp van Azure Site Recovery (Site Recovery), gebruikt u Site Recovery Deployment Planner voor herstel na Noodgevallen plannen. Site Recovery Deployment Planner biedt een diepgaande, ASR-specifieke beoordeling van uw on-premises omgeving. Het biedt aanbevelingen die door Site Recovery voor geslaagde DR-bewerkingen, zoals replicatie, failover van uw virtuele machines vereist zijn.  
 
@@ -120,7 +120,7 @@ Als u agents op de virtuele machines installeren, wordt de gegevens die zijn ver
 
 ### <a name="what-is-the-volume-of-data-which-is-uploaded-by-azure-migrate-in-the-case-of-continuous-profiling"></a>Wat is de hoeveelheid gegevens die door Azure Migrate is geüpload in het geval van continu profilering?
 
-De hoeveelheid gegevens die wordt verzonden naar de Azure Migrate zou variëren op basis van verschillende parameters zijn. Als u wilt een indicatieve nummer geven, zou een project met tien machines (met elk één schijf en één NIC in te stellen), ongeveer 50 MB per dag verzenden. Dit is een geschatte waarde en voor de NIC's en schijven (gegevens die worden verzonden of zou worden niet-lineaire als het aantal machines, NIC's of schijven verhogen) op basis van het aantal gegevenspunten wilt wijzigen. 
+De hoeveelheid gegevens die wordt verzonden naar de Azure Migrate zou variëren op basis van verschillende parameters zijn. Als u wilt een indicatieve nummer geven, zou een project met tien machines (met elk één schijf en één NIC in te stellen), ongeveer 50 MB per dag verzenden. Dit is een geschatte waarde en voor de NIC's en schijven (gegevens die worden verzonden of zou worden niet-lineaire als het aantal machines, NIC's of schijven verhogen) op basis van het aantal gegevenspunten wilt wijzigen.
 
 ### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>De gegevens worden versleuteld in rust en onderweg zijn?
 

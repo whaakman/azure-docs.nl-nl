@@ -7,19 +7,19 @@ author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
-ms.service: na
+ms.service: api-management
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 62bc6507e4b56c9df31a561f7677907486b0d562
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 3b6f1a004e4fb69bc08d5163734021bcb2aed9a2
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52421586"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765795"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Een Azure Service Management-certificaat uploaden
 Van beheercertificaten kunnen u verifiëren met het klassieke implementatiemodel verstrekt door Azure. Veel programma's en hulpprogramma's (zoals Visual Studio of de Azure SDK) kunt u deze certificaten gebruiken voor het automatiseren van configuratie en implementatie van verschillende Azure-services. 
@@ -33,7 +33,7 @@ Als u graag meer informatie over Azure-certificaten (inclusief het maken van een
 
 U kunt ook [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) om te verifiëren clientcode voor automation-doeleinden.
 
-**Opmerking:** moet u een CO-beheerder van het abonnement bewerkingen onder beheer van certificaten uit te voeren. [Meer informatie](https://go.microsoft.com/fwlink/?linkid=849300) over het toevoegen of verwijderen van Co-beheerders van de nieuwe Azure Portal 
+**Opmerking:** U moet een CO-beheerder van het abonnement bewerkingen onder beheer van certificaten uit te voeren. [Meer informatie](https://go.microsoft.com/fwlink/?linkid=849300) over het toevoegen of verwijderen van Co-beheerders van de nieuwe Azure Portal 
 
 ## <a name="upload-a-management-certificate"></a>Een beheercertificaat te uploaden
 Zodra u hebt een beheercertificaat gemaakt, (CER-bestand met alleen de openbare sleutel) kunt u deze kunt uploaden in de portal. Wanneer het certificaat in de portal beschikbaar is, kan iedereen met een overeenkomend certificaat (persoonlijke sleutel) verbinding maken via de API voor beheer en toegang tot de bronnen voor het gekoppelde abonnement.

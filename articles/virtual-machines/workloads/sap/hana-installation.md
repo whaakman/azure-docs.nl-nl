@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/03/2019
+ms.date: 03/05/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d81207195eb19a386d0d98fd4bfa6ba53ca972e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 5bdf23d1a2142e5c83ceeb72a79ca4fbea65d09c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316639"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534273"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Installeren en configureren van SAP HANA (grote instanties) op Azure
 
@@ -141,7 +141,7 @@ Er zijn enkele details over de netwerken van de afzonderlijke eenheden opgemerkt
 
 Zie voor meer informatie over Ethernet-details voor uw architectuur, de [HLI scenario's ondersteund](hana-supported-scenario.md).
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Opslag
 
 De opslagindeling voor SAP HANA op Azure (grote instanties) is geconfigureerd door SAP HANA op Azure-service-beheer via SAP aanbevolen richtlijnen. Deze richtlijnen worden beschreven in de [opslagvereisten voor SAP HANA](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) technisch document. 
 
@@ -202,14 +202,15 @@ Voor SAP HANA 1.0 versies tot SPS12, deze parameters worden ingesteld tijdens de
 
 U kunt ook de parameters na de installatie van de SAP HANA-database configureren met behulp van de hdbparam-framework. 
 
-De opslag die wordt gebruikt in HANA grote instanties heeft een maximale bestandsgrootte. De [formaat beperking is 16TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) per bestand. In tegenstelling tot in geval van beperkingen van de bestandsgrootte, zoals in EXT3 bestandssystemen, is HANA niet op de hoogte van de opslag-beperking afgedwongen door de opslag HANA grote instanties impliciet. Als gevolg hiervan wordt HANA niet automatisch gemaakt een nieuw bestand na het verstrijken van de maximale bestandsgrootte van 16TB. Als HANA probeert te uitbreiding van het bestand dan 16TB, rapporteert HANA fouten en de indexserver loopt vast aan het einde.
+De opslag die wordt gebruikt in HANA grote instanties heeft een maximale bestandsgrootte. De [formaat beperking is 16 TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) per bestand. In tegenstelling tot in de beperkingen van de bestandsgrootte in de bestandssystemen EXT3 is HANA niet op de hoogte van de opslag-beperking afgedwongen door de opslag HANA grote instanties impliciet. Als gevolg hiervan wordt HANA niet automatisch gemaakt een nieuw bestand na het verstrijken van de maximale bestandsgrootte van 16TB. Als HANA probeert te uitbreiding van het bestand dan 16 TB, rapporteert HANA fouten en de indexserver loopt vast aan het einde.
 
 > [!IMPORTANT]
-> Om te voorkomen dat een poging om te groeien gegevensbestanden voorbij de maximale bestandsgrootte 16 TB aan opslag van HANA grote instantie HANA, moet u de volgende parameters in het configuratiebestand global.ini van HANA instellen
+> Om te voorkomen dat een poging om te groeien gegevensbestanden voorbij de maximale bestandsgrootte 16 TB aan opslag van HANA grote instantie HANA, moet u de volgende parameters instellen in het configuratiebestand van de SAP HANA-global.ini
 > 
 - datavolume_striping=true
 - datavolume_striping_size_gb = 15000
 - Zie ook SAP Opmerking [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
+- Houd rekening met SAP-notitie [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
 
 
 Met SAP HANA 2.0, is het framework hdbparam afgeschaft. Als gevolg hiervan moeten de parameters worden ingesteld met behulp van SQL-opdrachten. Zie voor meer informatie, [SAP-notitie #2399079: Afschaffing van hdbparam in HANA 2](https://launchpad.support.sap.com/#/notes/2399079).

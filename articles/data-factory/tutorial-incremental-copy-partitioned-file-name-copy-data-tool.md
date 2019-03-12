@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: 04707a747edb7cf26b4e7f4e3251b958f6f11f38
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: df1542d6d20120a9b1e087fadf3743479ecebf07
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56962294"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533830"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Nieuwe bestanden op basis van tijd gepartitioneerde bestandsnaam met behulp van het hulpprogramma Copy Data incrementeel kopiëren
 
@@ -43,14 +43,14 @@ In deze zelfstudie voert u de volgende stappen uit:
 
 De Blob-opslag voorbereiden voor de zelfstudie door deze stappen uit te voeren.
 
-1. Maak een container met de naam **bron**.  Maken van een mappad als **2019/02/26/14** in de container. Maak een leeg tekstbestand en als de naam **Bestand1.txt**. De Bestand1.txt uploaden naar het pad naar de **bron/2019/02/26/14** in uw opslagaccount.  U kunt verschillende hulpprogramma's gebruiken om deze taken uit te voeren, zoals [Azure Storage Explorer](http://storageexplorer.com/).
+1. Maak een container met de naam **bron**.  Maken van een mappad als **2019/02/26/14** in de container. Maak een leeg tekstbestand en als de naam **Bestand1.txt**. De Bestand1.txt uploaden naar het pad naar de **bron/2019/02/26/14** in uw opslagaccount.  U kunt verschillende hulpprogramma's gebruiken om deze taken uit te voeren, zoals [Azure Storage Explorer](https://storageexplorer.com/).
     
     ![Bestanden uploaden](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/upload-file.png)
     
     > [!NOTE]
     > Wijzig de naam van de map met de UTC-tijd.  Bijvoorbeeld, als de huidige UTC-tijd 2:03 PM 26 februari 2019 is, kunt u het pad naar de map als **bron/2019/02/26/14/** door de regel van **bron / {Year} / {Month} / {Day} / {Hour} /**.
 
-2. Maak een container met de naam **bestemming**. U kunt verschillende hulpprogramma's gebruiken om deze taken uit te voeren, zoals [Azure Storage Explorer](http://storageexplorer.com/).
+2. Maak een container met de naam **bestemming**. U kunt verschillende hulpprogramma's gebruiken om deze taken uit te voeren, zoals [Azure Storage Explorer](https://storageexplorer.com/).
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 
@@ -175,10 +175,10 @@ De Blob-opslag voorbereiden voor de zelfstudie door deze stappen uit te voeren.
 
     ![Pijplijnuitvoeringen controleren](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs2.png)
     
-    U kunt dezelfde ook controleren met behulp van Azure Storage Explorer (http://storageexplorer.com/) om de bestanden te scannen.
+    U kunt dezelfde ook controleren met behulp van Azure Storage Explorer (https://storageexplorer.com/) om de bestanden te scannen.
     
     ![Pijplijnuitvoeringen controleren](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs3.png)
-12. Nog een leeg tekstbestand maken met de nieuwe naam als **bestand2.txt samengevoegd**. Upload het bestand Bestand2.txt samengevoegd naar het pad naar de **bron/2019/02/26/15** in uw opslagaccount.   U kunt verschillende hulpprogramma's gebruiken om deze taken uit te voeren, zoals [Azure Storage Explorer](http://storageexplorer.com/).    
+12. Nog een leeg tekstbestand maken met de nieuwe naam als **bestand2.txt samengevoegd**. Upload het bestand Bestand2.txt samengevoegd naar het pad naar de **bron/2019/02/26/15** in uw opslagaccount.   U kunt verschillende hulpprogramma's gebruiken om deze taken uit te voeren, zoals [Azure Storage Explorer](https://storageexplorer.com/).   
     
     ![Pijplijnuitvoeringen controleren](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs4.png)
     
@@ -197,7 +197,7 @@ De Blob-opslag voorbereiden voor de zelfstudie door deze stappen uit te voeren.
     
     ![Pijplijnuitvoeringen controleren](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs7.png) 
     
-    U kunt dezelfde ook controleren met behulp van Azure Storage Explorer (http://storageexplorer.com/) voor het scannen van de bestanden in **bestemming** container
+    U kunt dezelfde ook controleren met behulp van Azure Storage Explorer (https://storageexplorer.com/) voor het scannen van de bestanden in **bestemming** container
     
     ![Pijplijnuitvoeringen controleren](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs8.png)
 

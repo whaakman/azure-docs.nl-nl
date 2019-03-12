@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
-ms.openlocfilehash: 1278c788c0d36b2cadf860e379791ecd823a510b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 8ed148dfd6441d05891ef38934123a9cd3827b8b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113840"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538541"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>(AFGESCHAFT) Een Azure Container Service DC/OS-cluster bewaken met Log Analytics
 
@@ -34,7 +34,7 @@ In dit artikel wordt ervan uitgegaan dat u een DC/OS hebt geconfigureerd en eenv
 ### <a name="pre-requisite"></a>Vereiste
 - [Microsoft Azure-abonnement](https://azure.microsoft.com/free/) -krijgt u een abonnement gratis.  
 - Meld u instellingen voor Analytics-werkruimte: Zie 'stap 3"hieronder
-- [DC/OS CLI](http://docs.mesosphere.com/1.12/cli) geïnstalleerd.
+- [DC/OS CLI](https://docs.mesosphere.com/1.12/cli) geïnstalleerd.
 
 1. Klik in het DC/OS-dashboard op universum en zoek naar OMS, zoals hieronder weergegeven.
 

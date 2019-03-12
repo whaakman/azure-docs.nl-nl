@@ -8,14 +8,14 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 5ed15a58e5b709b003e9f45d04c3654f814aefc7
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
-ms.translationtype: HT
+ms.openlocfilehash: a58b247732125574a067deff1d5b03859cd036fc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334224"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57782289"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Concepten, terminologie en entiteiten in Azure Scheduler
 
@@ -26,7 +26,7 @@ ms.locfileid: "52334224"
 
 De volgende entiteiten of resources worden door de REST API voor Azure Scheduler beschikbaar gemaakt en gebruikt:
 
-| Entiteit | Beschrijving |
+| Entiteit | Description |
 |--------|-------------|
 | **Job** | Definieert één terugkerende actie, met eenvoudige of complexe strategieën, die moet worden uitgevoerd. Acties omvatten mogelijk HTTP-, opslagwachtrij-, Service Bus-wachtrij- of Service Bus-onderwerpaanvragen. | 
 | **Jobverzameling** | Bevat een aantal jobs en onderhoudt instellingen, quota en vertragingen die worden gedeeld door jobs binnen de verzameling. Als eigenaar van een Azure-abonnement kunt u jobverzamelingen maken en jobs groeperen op basis van gebruiks- of toepassingsgrenzen. Een jobverzameling heeft de volgende kenmerken: <p>- Beperkt tot één regio. <br>- U kunt er quota mee afdwingen, zodat u het gebruik voor alle jobs in een verzameling kunt beperken. <br>- Quota omvatten MaxJobs en MaxRecurrence. | 
@@ -69,13 +69,13 @@ Azure Scheduler ondersteunt meerdere jobtypen:
 Op hoog niveau bevat een Scheduler-job uit de volgende basisonderdelen:
 
 * De actie die wordt uitgevoerd wanneer de timer van de job wordt gestart
-* Optioneel: de tijd voor het uitvoeren van de job
-* Optioneel: wanneer en hoe vaak de job moet worden herhaald
-* Optioneel: een foutactie die wordt uitgevoerd als de primaire actie mislukt
+* Optioneel: De tijd voor het uitvoeren van de taak
+* Optioneel: Wanneer en hoe vaak de taak herhalen
+* Optioneel: Een foutactie die wordt uitgevoerd als de primaire actie mislukt
 
 De job bevat ook door het systeem geleverde gegevens, zoals volgende geplande uitvoeringstijd van de job. De codedefinitie van de job is een object in de indeling JSON (JavaScript Object Notation). Deze bevat drie elementen:
 
-| Element | Vereist | Beschrijving | 
+| Element | Vereist | Description | 
 |---------|----------|-------------| 
 | [**startTime**](#start-time) | Nee | De begintijd voor de taak, met een tijdverschuiving in de [indeling ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) | 
 | [**action**](#action) | Ja | De details van de primaire actie, die een **errorAction**-object kan omvatten | 
@@ -239,7 +239,7 @@ Een job wordt herhaald als de JSON-definitie van de job het object **recurrence*
 },
 ```
 
-| Eigenschap | Vereist | Waarde | Beschrijving | 
+| Eigenschap | Vereist | Value | Description | 
 |----------|----------|-------|-------------| 
 | **frequency** | Ja, als **recurrence** wordt gebruikt | Minuut, Uur, Dag, Week, Maand, Jaar | De tijdseenheid tussen de opgetreden gevallen | 
 | **interval** | Nee | 1 tot en met 1000 | Een positief geheel getal dat het aantal tijdseenheden tussen de opgetreden gevallen bepaalt op basis van **frequency** | 
@@ -269,7 +269,7 @@ In het geval dat een Scheduler-job mislukt, kunt u een beleid voor opnieuw probe
 },
 ```
 
-| Eigenschap | Vereist | Waarde | Beschrijving | 
+| Eigenschap | Vereist | Value | Description | 
 |----------|----------|-------|-------------| 
 | **retryType** | Ja | **Vast**, **Geen** | Bepaalt of u een beleid voor opnieuw proberen opgeeft (**vast**) of niet (**geen**). | 
 | **retryInterval** | Nee | PT30S | Geeft het interval en de frequentie op tussen herhaalpogingen in de [indeling ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). De minimumwaarde is 15 seconden; de maximumwaarde is 18 maanden. | 

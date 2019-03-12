@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 12/19/2018
 ms.author: wesmc
-ms.openlocfilehash: 0e668c0b31defd5c945ddf2fec1b00f75d92f174
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: e35e669c4abc4815b932e09d369af28e42617e8c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990150"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535677"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>IoT DevKit AZ3166 verbinden met Azure IoT Hub
 
@@ -175,9 +175,9 @@ Volg deze stappen voor de ontwikkelomgeving voorbereiden voor DevKit:
 
 ### <a name="install-st-link-drivers"></a>ST-koppeling stuurprogramma's installeren
 
-[ST-koppeling/V2](http://www.st.com/en/development-tools/st-link-v2.html) is de USB-interface die IoT DevKit gebruikt om te communiceren met uw ontwikkelcomputer. U moet ze deze willen installeren op Windows om in te schakelen van flash de gecompileerde deivce code aan de DevKit. De specifieke stappen voor de machine toegang tot uw apparaat.
+[ST-koppeling/V2](https://www.st.com/en/development-tools/st-link-v2.html) is de USB-interface die IoT DevKit gebruikt om te communiceren met uw ontwikkelcomputer. U moet ze deze willen installeren op Windows om in te schakelen van flash de gecompileerde deivce code aan de DevKit. De specifieke stappen voor de machine toegang tot uw apparaat.
 
-* **Windows**: Download en installeer USB-stuurprogramma van [STMicroelectronics website](http://www.st.com/en/development-tools/stsw-link009.html).
+* **Windows**: Download en installeer USB-stuurprogramma van [STMicroelectronics website](https://www.st.com/en/development-tools/stsw-link009.html).
 * **macOS**: Er zijn geen stuurprogramma is vereist voor macOS.
 * **Ubuntu**: Voer de volgende in de terminal en meld u af en meld u aan voor de groepswijziging door te voeren:
     ```bash
@@ -239,7 +239,7 @@ De voorbeeldtoepassing wordt uitgevoerd wanneer u de volgende resultaten ziet:
 U kunt [hulpprogramma's voor Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) voor het bewaken van apparaat-naar-cloud (D2C) berichten in IoT Hub.
 
 1. Meld u aan [Azure-portal](https://portal.azure.com/), vinden de IoT-Hub die u hebt gemaakt.
-    ![Azure Portal](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-iot-hub-portal.png)
+    ![Azure-portal](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-iot-hub-portal.png)
 
 1. In de **beleid voor gedeelde toegang** deelvenster, klikt u op de **iothubowner beleid**, en noteer de verbindingsreeks van uw IoT-hub.
     ![Azure IoT Hub-verbindingsreeks](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-portal-conn-string.png)

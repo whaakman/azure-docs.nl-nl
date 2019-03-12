@@ -6,15 +6,15 @@ keywords: geheimen
 author: v-steg
 ms.author: v-steg
 ms.date: 10/25/2018
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 63ac34e184d537eba2b915d4d108c7c1d8368aba
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: b6db9b6cb2ccbf1c8d29edb817d35677109ae755
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52891878"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768618"
 ---
 # <a name="service-fabric-mesh-application-secrets"></a>Service Fabric Mesh-toepassingsgeheimen
 Service Fabric Mesh biedt ondersteuning voor geheimen als Azure-resources. Een Service Fabric Mesh-geheim kan bestaan uit gevoelige informatie in tekstvorm, zoals opslagverbindingsreeksen, wachtwoorden of andere waarden die veilig moeten worden opgeslagen en verzonden.
@@ -23,7 +23,7 @@ Service Fabric Mesh biedt ondersteuning voor geheimen als Azure-resources. Een S
 
 ## <a name="mesh-secrets-resources"></a>Mesh-geheimenresources
 Een Mesh-toepassingsgeheim bestaat uit:
-* Een **Geheimen**-resource, dit is een container die geheimen in tekstvorm bevat. Geheimen die zijn opgenomen in de **Geheimen**-resource, worden veilig opgeslagen en verzonden.
+* Een **Geheimen**-resource. Dit is een container die geheimen in tekstvorm bevat. Geheimen die zijn opgenomen in de **Geheimen**-resource, worden veilig opgeslagen en verzonden.
 * Een of meer **Geheimen/waarden**-resources die zijn opgeslagen in de **Geheimen**-resourcecontainer. Elke **Geheimen/waarden**-resource wordt gekenmerkt door een uniek versienummer.
 
 ## <a name="inline-or-stored-in-azure-key-vault"></a>Inline- of opgeslagen in Azure Key Vault

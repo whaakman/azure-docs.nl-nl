@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/15/2019
-ms.openlocfilehash: b2c3e4067fd8e08440f9fe6e15212160aef002f0
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/07/2019
+ms.openlocfilehash: 6669be82877ae5d9465e23dad3c8b310cf24af89
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312917"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576766"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell en CLI: Transparent Data Encryption inschakelen met de klant beheerde sleutel uit Azure Key Vault
 
@@ -41,7 +41,7 @@ Dit artikel helpt bij het gebruik van een sleutel uit Azure Key Vault voor trans
    - Niet uitgeschakeld
    - Kan uitvoeren *ophalen*, *sleutel inpakken*, *sleutel uitpakken* bewerkingen
 
-## <a name="step-1-assign-an-azure-ad-identity-to-your-server"></a>Stap 1. Een Azure AD-identiteit toewijzen aan uw server 
+## <a name="step-1-assign-an-azure-ad-identity-to-your-server"></a>Step 1. Een Azure AD-identiteit toewijzen aan uw server 
 
 Als u een bestaande server hebt, gebruikt u de volgende in een Azure AD-identiteit toevoegen aan uw server:
 
@@ -175,7 +175,7 @@ Gebruik de [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sq
 ## <a name="troubleshooting"></a>Problemen oplossen
 
 Controleer het volgende als er een probleem optreedt:
-- Als de key vault kan niet worden gevonden, controleert u of u bent in het juiste abonnement met de [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription) cmdlet.
+- Als de key vault kan niet worden gevonden, controleert u of u bent in het juiste abonnement met de [Get-AzSubscription](/powershell/module/az.account/get-azsubscription) cmdlet.
 
    ```powershell
    Get-AzSubscription `
@@ -207,7 +207,7 @@ Controleer het volgende als er een probleem optreedt:
    - Niet uitgeschakeld
    - Kan uitvoeren *ophalen*, *sleutel inpakken*, *sleutel uitpakken* bewerkingen
    
-## <a name="step-1-create-a-server-with-an-azure-ad-identity"></a>Stap 1. Een server maken met een Azure AD-identiteit
+## <a name="step-1-create-a-server-with-an-azure-ad-identity"></a>Step 1. Een server maken met een Azure AD-identiteit
       cli
       # create server (with identity) and database
       az sql server create --name <servername> --resource-group <rgname>  --location <location> --admin-user <user> --admin-password <password> --assign-identity
