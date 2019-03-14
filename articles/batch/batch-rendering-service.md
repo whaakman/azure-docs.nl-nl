@@ -2,16 +2,17 @@
 title: Overzicht - rendering Azure Batch
 description: Introductie van het gebruik van Azure voor rendering en een overzicht van Azure Batch rendering-mogelijkheden
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: dbe3fe59fd2674cf3475fc5b589a2c938e706ab2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: d4423b22c4c8afea5afa9c7040e081665b17ba87
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441335"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790337"
 ---
 # <a name="rendering-using-azure"></a>Weergeven met Azure
 

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 03/12/2019
 ms.author: celested
-ms.reviewer: arvindh
+ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 186bc220778ed669672bfbc689dad6471195f4ce
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 84f1b7c9461d2eba5e13be8b15b2cbcc62715c23
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448557"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792035"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Eenmalige aanmelding voor toepassingen in Azure Active Directory
 Eenmalige aanmelding (SSO) voegt beveiliging en gemak wanneer gebruikers zich aanmelden bij toepassingen in Azure Active Directory (Azure AD). Dit artikel beschrijft de methoden voor eenmalige aanmelding en helpt u bij het kiezen van de meest geschikte methode voor eenmalige aanmelding bij het configureren van uw toepassingen.
@@ -35,14 +35,14 @@ Er zijn verschillende manieren om een toepassing voor eenmalige aanmelding te co
 
 Deze stroomdiagram kunt u bepalen welke methode voor eenmalige aanmelding wordt aanbevolen voor uw situatie. 
 
-![Kies de methode voor eenmalige aanmelding](./media/what-is-single-sign-on/choose-single-sign-on-method.png)
+![Kies de methode voor eenmalige aanmelding](./media/what-is-single-sign-on/choose-single-sign-on-method-updated.png)
 
 De volgende tabel geeft een overzicht van de methoden voor eenmalige aanmelding, en koppelingen naar meer informatie. 
 
 | Methode voor eenmalige aanmelding | Toepassingstypen | Wanneer gebruikt u dit? |
 | :------ | :------- | :----- |
 | [OpenID Connect en OAuth](#openid-connect-and-oauth) | Alleen cloud | OpenID Connect en OAuth gebruiken bij het ontwikkelen van een nieuwe toepassing. Dit protocol vereenvoudigt de configuratie van toepassing, is eenvoudig te gebruiken SDK's en kan uw toepassing MS Graph gebruiken.
-| [SAML](#saml-sso) | Alleen cloud | Kies SAML indien mogelijk voor bestaande toepassingen die niet met OpenID Connect of OAuth. SAML werkt voor toepassingen die worden geverifieerd met een van de SAML-protocollen.|
+| [SAML](#saml-sso) | cloud en on-premises | Kies SAML indien mogelijk voor bestaande toepassingen die niet met OpenID Connect of OAuth. SAML werkt voor toepassingen die worden geverifieerd met een van de SAML-protocollen.|
 | [Op basis van wachtwoorden](#password-based-sso) | cloud en on-premises | Kiezen op basis van wachtwoorden wanneer de toepassing wordt geverifieerd met gebruikersnaam en wachtwoord. Wachtwoord gebaseerde eenmalige aanmelding kunt u beveiligde toepassingen wachtwoorden worden opgeslagen en opnieuw afspelen met behulp van een uitbreiding van web browser of mobiele app. Deze methode maakt gebruik van het bestaande aanmeldingsproces geleverd door de toepassing, maar Hiermee kan een beheerder om de wachtwoorden te beheren. |
 | [Gekoppelde](#linked-sso) | cloud en on-premises | Kies gekoppelde eenmalige aanmelding bij de toepassing is geconfigureerd voor eenmalige aanmelding in een andere id-provider-service. Deze optie toevoegen niet eenmalige aanmelding aan de toepassing. De toepassing mogelijk echter al eenmalige aanmelding geïmplementeerd met behulp van een andere service, zoals Active Directory Federation Services.|
 | [Uitgeschakeld](#disabled-sso) | cloud en on-premises | Kies uitgeschakelde eenmalige aanmelding wanneer de app niet gereed om te worden geconfigureerd voor eenmalige aanmelding. Gebruikers moeten hun gebruikersnaam en wachtwoord invoeren telkens wanneer ze deze toepassing starten.|

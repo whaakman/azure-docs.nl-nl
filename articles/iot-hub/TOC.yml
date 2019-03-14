@@ -274,19 +274,14 @@ items:
         href: iot-hub-configure-file-upload-powershell.md
       - name: Azure CLI gebruiken
         href: iot-hub-configure-file-upload-cli.md
-    - name: Bewaken met diagnostische gegevens
+    - name: Metrische gegevens in Azure Monitor
+      href: iot-hub-metrics.md
+    - name: Diagnostische logboeken instellen
       href: iot-hub-monitor-resource-health.md
-      items:
-      - name: Migreren naar diagnostische instellingen
-        href: iot-hub-migrate-to-diagnostics-settings.md
-      - name: Controle van bewerkingen
-        href: iot-hub-operations-monitoring.md
     - name: Uw hub beveiligen met een X.509-certificaat
       href: iot-hub-security-x509-get-started.md
     - name: Een IoT-hub upgraden
       href: iot-hub-upgrade.md
-    - name: Metrische gebruiksgegevens
-      href: iot-hub-metrics.md
     - name: Berichttracering inschakelen
       href: iot-hub-distributed-tracing.md
     - name: IP-filtering configureren
@@ -378,6 +373,12 @@ items:
     href: https://docs.microsoft.com/rest/api/iothub/certificates
   - name: Resource Manager-sjabloon
     href: /azure/templates/microsoft.devices/iothub-allversions
+  - name: Buitengebruikstelling van functies en API
+    items:
+    - name: Controle van bewerkingen
+      href: iot-hub-operations-monitoring.md
+    - name: Migreren naar diagnostische instellingen
+      href: iot-hub-migrate-to-diagnostics-settings.md
 - name: Verwant
   items:
   - name: Oplossingen
@@ -444,9 +445,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Video's
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: cdeb8f013ee8a0dff212d5fc9facc199ed81828e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3bde9a6b9abcb5b99224ae9397756fe410cc0708
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530872"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791865"

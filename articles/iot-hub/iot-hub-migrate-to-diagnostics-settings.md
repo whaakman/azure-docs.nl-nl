@@ -6,20 +6,20 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 03/11/2019
 ms.author: kgremban
-ms.openlocfilehash: d54b109cd5ef41665e595e7b878c077732536297
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: b6cde8402c699a7477cd0efc79a44b3f5e150ad0
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674239"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792647"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-diagnostics-settings"></a>Migreren van uw IoT-Hub van bewerkingen controleren naar diagnostische instellingen
 
 Klanten die gebruikmaken van [bewerkingen controleren](iot-hub-operations-monitoring.md) om bij te houden van de status van bewerkingen in IoT Hub kunnen migreren die werkstroom [Azure diagnostische instellingen](../azure-monitor/platform/diagnostic-logs-overview.md), een functie van Azure Monitor. Instellingen voor diagnostische gegevens leveren resourceniveau diagnostische gegevens voor veel Azure-services.
 
-De bewerkingen bewakingsfunctionaliteit van IoT Hub is verouderd en in de toekomst wordt verwijderd. In dit artikel bevat stappen voor het verplaatsen van uw workloads van bewerkingen controleren naar diagnostische instellingen. Zie voor meer informatie over de tijdlijn afschaffing [bewaken van uw Azure-IoT-oplossingen met Azure Monitor en Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/).
+**De bewakingsfunctionaliteit van IoT Hub is afgeschaft bewerkingen**, en is verwijderd uit de portal. In dit artikel bevat stappen voor het verplaatsen van uw workloads van bewerkingen controleren naar diagnostische instellingen. Zie voor meer informatie over de tijdlijn afschaffing [bewaken van uw Azure-IoT-oplossingen met Azure Monitor en Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/).
 
 ## <a name="update-iot-hub"></a>IoT Hub bijwerken
 
@@ -28,6 +28,9 @@ Voor het bijwerken van uw IoT-Hub in Azure portal, eerst de diagnostische instel
 [!INCLUDE [iot-hub-diagnostics-settings](../../includes/iot-hub-diagnostics-settings.md)]
 
 ### <a name="turn-off-operations-monitoring"></a>Bewerkingen controleren uitschakelen
+
+> [!NOTE]
+> Als van 11 maart 2019, de bewerkingen die functie voor toepassingsbewaking wordt verwijderd uit Azure portal-interface van IoT-Hub. De onderstaande stappen niet langer van toepassing. Als u wilt migreren, zorg ervoor dat de juiste categorieën zijn ingeschakeld in de diagnostische instellingen van Azure Monitor hierboven.
 
 Nadat u de nieuwe instellingen voor diagnostische gegevens in uw werkstroom hebt getest, kunt u de bewerkingen controleren van functie uitschakelen. 
 
@@ -53,7 +56,7 @@ Zie voor de specifieke schemastructuren, [inzicht in het schema voor de diagnost
 
 ## <a name="monitoring-device-connect-and-disconnect-events-with-low-latency"></a>Bewaking van apparaat verbinding maken en gebeurtenissen met een lage latentie verbreken
 
-Voor het bewaken van apparaat verbinding maakt en disconnect-gebeurtenissen, wordt aangeraden zich abonneert op de [ **apparaat verbroken** gebeurtenis](iot-hub-event-grid.md#event-types) op Event Grid waarschuwingen ontvangen en controleren van de verbindingsstatus van het apparaat. Gebruik deze [zelfstudie](iot-hub-how-to-order-connection-state-events.md) voor informatie over het apparaat is verbonden en het apparaat verbroken gebeurtenissen uit IoT Hub in uw IoT-oplossing integreren.
+Voor het bewaken van apparaat verbinding maakt en disconnect-gebeurtenissen in de productieomgeving, wordt aangeraden zich abonneert op de [ **apparaat verbroken** gebeurtenis](iot-hub-event-grid.md#event-types) op Event Grid waarschuwingen ontvangen en controleren van de verbindingsstatus van het apparaat. Gebruik deze [zelfstudie](iot-hub-how-to-order-connection-state-events.md) voor informatie over het apparaat is verbonden en het apparaat verbroken gebeurtenissen uit IoT Hub in uw IoT-oplossing integreren.
 
 ## <a name="next-steps"></a>Volgende stappen
 

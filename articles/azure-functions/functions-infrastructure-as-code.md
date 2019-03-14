@@ -7,17 +7,18 @@ author: ggailey777
 manager: jeconnoc
 keywords: Azure functions, functions, serverloze architectuur, infrastructuur als code, azure resourcemanager
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
+ms.service: azure-functions
 ms.server: functions
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: 488b3797c7e18855a60b84a77a05e4e0a5654475
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9fc55e2b3ebb1e932a991e0da2c78a980abbc953
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023654"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792494"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatiseer de implementatie van de resource voor uw functie-app in Azure Functions
 
@@ -43,7 +44,7 @@ Zie het volgende voor JSON-syntaxis en eigenschappen voor deze resources:
 * [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)
 * [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)
 
-### <a name="storage-account"></a>Storage-account
+### <a name="storage-account"></a>Opslagaccount
 
 Een Azure storage-account is vereist voor een functie-app. U moet een account voor algemeen gebruik die ondersteuning biedt voor blobs, tabellen, wachtrijen en bestanden. Zie voor meer informatie, [vereisten voor Azure Functions een opslagaccount](functions-create-function-app-portal.md#storage-account-requirements).
 
@@ -81,7 +82,7 @@ Deze eigenschappen zijn opgegeven in de `appSettings` verzameling in de `siteCon
 
 De definitie van het hostingabonnement varieert, afhankelijk van of u een planning of op uw App Service gebruiken. Zie [implementeren van een functie-app op in het abonnement Consumption](#consumption) en [implementeren van een functie-app op het App Service-plan](#app-service-plan).
 
-### <a name="function-app"></a>Function App
+### <a name="function-app"></a>Functie-app
 
 De resource voor de functie-app wordt gedefinieerd door middel van een resource van het type **Microsoft.Web/Site** en type **functionapp**:
 
@@ -265,7 +266,7 @@ U kunt een van de volgende manieren om uw sjabloon te implementeren:
 
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [Azure-CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
+* [Azure-portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
 * [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Implementeren op Azure-knop

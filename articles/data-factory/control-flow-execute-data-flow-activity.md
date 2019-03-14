@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: 4e661f838cc0b8e52ff72e4e44a43d611fa3355f
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 856f4bd9c2b04ff10ed598c5e641955e1de99398
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727379"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792409"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Stroomactiviteit gegevens uitvoeren in Azure Data Factory
 De activiteit execute gegevens flow voor uw gegevensstroom ADF in Foutopsporing (sandbox) pijplijnuitvoeringen en geactiveerde pijplijnuitvoeringen gebruiken.
@@ -55,11 +55,17 @@ De activiteit execute gegevens flow voor uw gegevensstroom ADF in Foutopsporing 
 
 Kies de compute-omgeving voor deze uitvoering van de gegevensstroom. De standaardwaarde is de standaard Integratieruntime voor Azure automatisch oplossen. Met deze optie wordt de gegevensstroom op de Spark-omgeving in dezelfde regio als uw data factory uitgevoerd. Het rekentype wordt een cluster taak, wat betekent dat de compute-omgeving duurt enkele minuten om lid te worden.
 
+### <a name="debugging-pipelines-with-data-flows"></a>Opsporen van fouten in pijplijnen met gegevensstromen
+
+![Fouten opsporen in knop](media/data-flow/debugbutton.png "knop foutopsporing")
+
+Gebruik de gegevens stromen foutopsporing gebruikmaken van een verwarmde cluster voor het testen van uw gegevensstromen interactief in een pijplijn foutopsporing uitvoeren. Gebruik de optie Pipleine foutopsporing voor het testen van uw gegevensstromen binnen een pijplijn.
+
 ### <a name="compute-type"></a>Rekentype
 
 U kunt kiezen voor algemene doeleinden, geoptimaliseerd voor berekenen of geoptimaliseerd voor geheugen, al naar gelang de vereisten van uw gegevensstroom.
 
-### <a name="core-count"></a>Aantal kernen
+### <a name="core-count"></a>Aantal kerngeheugens
 
 Kies hoeveel cores u wilt toewijzen aan de taak. Voor kleinere taken werkt minder cores beter.
 

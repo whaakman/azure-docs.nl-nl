@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 02/22/2019
-ms.openlocfilehash: 01b0a86ede79187d8f180df0f2f71f6eaadb7428
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: e39904378edd9583cd7802d0a75f2f365a35d2b6
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990516"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791950"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Voordat u aan de slag met App Service in Azure Stack
 
@@ -76,7 +76,7 @@ Wanneer u de volgende PowerShell-opdracht uitvoert, hebt u voor het eindpunt van
 
 De *maken AppServiceCerts.ps1* script werkt met de Azure Stack-CA te maken van de vier certificaten die App Service nodig heeft.
 
-| Bestandsnaam | Gebruiken |
+| Bestandsnaam | Gebruik |
 | --- | --- |
 | _.appservice.local.azurestack.external.pfx | Het standaard-SSL-certificaatbestand voor App Service |
 | api.appservice.local.azurestack.external.pfx | App Service API-SSL-certificaat |
@@ -112,7 +112,7 @@ Het certificaat van het standaarddomein wordt geplaatst op de Front-End-rol. Geb
 
 Het certificaat in PFX-indeling moet worden en moet een certificaat met jokertekens drie-onderwerp. Deze vereiste kan een certificaat van toepassing op zowel het standaarddomein en de SCM-eindpunt voor bewerkingen voor beheer van gegevensbron.
 
-| Indeling | Voorbeeld |
+| Notatie | Voorbeeld |
 | --- | --- |
 | \*.appservice.\<region\>.\<DomainName\>.\<extension\> | \*.appservice.redmond.azurestack.external |
 | \*.scm.appservice.<region>.<DomainName>.<extension> | \*.scm.appservice.redmond.azurestack.external |
@@ -122,7 +122,7 @@ Het certificaat in PFX-indeling moet worden en moet een certificaat met jokertek
 
 De API-certificaat is op de beheerrol geplaatst. De resourceprovider gebruikt om u te helpen bij de beveiligde API-aanroepen. Het certificaat voor publicatie moet een onderwerpnaam die overeenkomt met de API-DNS-vermelding bevatten.
 
-| Indeling | Voorbeeld |
+| Notatie | Voorbeeld |
 | --- | --- |
 | api.appservice.\<region\>.\<DomainName\>.\<extension\> | api.appservice.redmond.azurestack.external |
 
@@ -130,7 +130,7 @@ De API-certificaat is op de beheerrol geplaatst. De resourceprovider gebruikt om
 
 Het certificaat voor de rol van de uitgever beveiligt het FTPS-verkeer voor toepassingseigenaren van wanneer ze inhoud uploaden. Het certificaat voor publicatie moet een onderwerpnaam die overeenkomt met de FTPS DNS-vermelding bevatten.
 
-| Indeling | Voorbeeld |
+| Notatie | Voorbeeld |
 | --- | --- |
 | ftp.appservice.\<region\>.\<DomainName\>.\<extension\> | ftp.appservice.redmond.azurestack.external |
 
@@ -143,15 +143,15 @@ Het certificaat voor de identiteitstoepassing kunt:
 
 Het certificaat voor de id moet een onderwerpnaam die overeenkomt met de volgende indeling bevatten.
 
-| Indeling | Voorbeeld |
+| Notatie | Voorbeeld |
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
-
 ### <a name="validate-certificates"></a>Certificaten valideren
-Voordat u de app service-resourceprovider implementeert, moet u [valideren van de certificaten te gebruiken Vernieuwingsdatum](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation) met behulp van de Azure Stack gereedheid van de Registercontrole beschikbaar is via de [PowerShell Gallery](https://aka.ms/AzsReadinessChecker). Het hulpprogramma Azure Stack Readiness Checker valideert dat de gegenereerde PKI-certificaten geschikt voor implementatie van app-services zijn. 
 
-Als een best practice, als u werkt met een van de benodigde [Azure Stack PKI-certificaten](azure-stack-pki-certs.md), moet u van plan bent om te laten voldoende tijd om te testen en certificaten opnieuw uitgegeven, indien nodig. 
+Voordat u de app service-resourceprovider implementeert, moet u [valideren van de certificaten te gebruiken Vernieuwingsdatum](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation) met behulp van de Azure Stack gereedheid van de Registercontrole beschikbaar is via de [PowerShell Gallery](https://aka.ms/AzsReadinessChecker). Het hulpprogramma Azure Stack Readiness Checker valideert dat de gegenereerde PKI-certificaten geschikt voor implementatie van app-services zijn.
+
+Als een best practice, als u werkt met een van de benodigde [Azure Stack PKI-certificaten](azure-stack-pki-certs.md), moet u van plan bent om te laten voldoende tijd om te testen en certificaten opnieuw uitgegeven, indien nodig.
 
 ## <a name="virtual-network"></a>Virtueel netwerk
 
@@ -170,6 +170,15 @@ Subnetten
 - PublishersSubnet /24
 - WorkersSubnet /21
 
+## <a name="licensing-concerns-for-required-file-server-and-sql-server"></a>Opmerkingen voor het vereiste bestandsserver en SQL Server-licentieverlening
+
+Azure App Service in Azure Stack is vereist voor een bestandsserver en de SQL Server om te werken.  U staat op bestaande resources die zich buiten uw Azure Stack-implementatie gebruiken of implementeren van resources binnen het Azure Stack standaard Provider-abonnement.
+
+Als u ervoor kiest om de resources binnen uw Azure Stack standaard Provider-abonnement te implementeren, zijn de licenties voor deze resources (Windows Server-licenties en licenties voor SQL Server) opgenomen in de kosten van Azure App Service in Azure Stack, afhankelijk van de volgende beperkingen:
+
+- de infrastructuur wordt geïmplementeerd in de **Providerabonnement standaard**;
+- de infrastructuur wordt uitsluitend gebruikt door de Azure App Service op Azure Stack-resourceprovider.  Er zijn geen andere werkbelastingen, met beheerdersrechten (bijvoorbeeld SQL-RP andere resourceproviders) of tenant (bijvoorbeeld tenant toepassingen, waarvoor een database), zijn toegestaan om het gebruik van deze infrastructuur.
+
 ## <a name="prepare-the-file-server"></a>De bestandsserver voorbereiden
 
 Azure App Service is vereist voor het gebruik van een bestandsserver. Voor productie-implementaties, moet de server worden geconfigureerd om maximaal beschikbare en kan afhandelen van fouten.
@@ -180,7 +189,7 @@ Voor alleen voor implementaties van Azure Stack Development Kit, kunt u de [voor
 
 ### <a name="quickstart-template-for-highly-available-file-server-and-sql-server"></a>QuickStart-sjabloon voor maximaal beschikbare bestandsserver en SQL Server
 
-Een [reference architecture-snelstartsjabloon](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) is nu beschikbaar, die de File Server, SQL Server wordt geïmplementeerd, ondersteuning van Active Directory-infrastructuur in een Virtueelnetwerk geconfigureerd ter ondersteuning van een maximaal beschikbare implementatie van Azure App Service op Azure Stack.  
+Een [reference architecture-snelstartsjabloon](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) is nu beschikbaar, die de File Server, SQL Server wordt geïmplementeerd, ondersteuning van Active Directory-infrastructuur in een Virtueelnetwerk geconfigureerd ter ondersteuning van een maximaal beschikbare implementatie van Azure App Service op Azure Stack.
 
 ### <a name="steps-to-deploy-a-custom-file-server"></a>Stappen voor het implementeren van een aangepaste-bestandsserver
 
@@ -303,12 +312,11 @@ Voor een van de SQL Server-rollen, kunt u een standaardexemplaar of een benoemd 
 Het App Service-installatieprogramma wordt gecontroleerd of dat de SQL Server database containment ingeschakeld heeft. Als u database containment op de SQL-Server die als host de App Service-databases fungeert, voert u deze SQL-opdrachten:
 
 ```sql
-sp_configure 'contained database authentication', 1;  
-GO  
-RECONFIGURE;  
+sp_configure 'contained database authentication', 1;
+GO
+RECONFIGURE;
 GO
 ```
-
 
 >[!IMPORTANT]
 > Als u ervoor kiest om App Service in een bestaand Virtueelnetwerk, de SQL-Server moet worden geïmplementeerd in een apart Subnet van App Service en de bestandsserver te implementeren.

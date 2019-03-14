@@ -1,26 +1,26 @@
 ---
-title: Azure IoT Hub-bewerkingen controleren | Microsoft Docs
+title: Azure IoT Hub-bewerkingen bewaken (afgeschaft) | Microsoft Docs
 description: Het gebruik van Azure IoT Hub-bewerkingen controleren voor het controleren van de status van bewerkingen op uw IoT-hub in realtime.
 author: nberdy
 manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/10/2017
+ms.date: 03/11/2019
 ms.author: nberdy
-ms.openlocfilehash: 3aa452cd178bd0d064726c5be7dbdf65c6ef8d92
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: d839e2e9922ac68af3aea37884e8b2f72b80b0e7
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160045"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791576"
 ---
-# <a name="iot-hub-operations-monitoring"></a>IoT Hub-bewerkingen controleren
+# <a name="iot-hub-operations-monitoring-deprecated"></a>IoT Hub-bewerkingen bewaken (afgeschaft)
 
 IoT Hub-bewerkingen controleren kunt u de status van de bewerkingen op uw IoT-hub in realtime controleren. IoT Hub worden gebeurtenissen bijgehouden in meerdere categorieën met bewerkingen. U kunt kiezen voor het verzenden van gebeurtenissen uit een of meer categorieën naar een eindpunt van uw IoT-hub voor verwerking. U kunt de gegevens op fouten controleren of instellen van meer complexe verwerking op basis van, gegevenspatronen.
 
 >[!NOTE]
->IoT Hub-bewerkingen controleren is afgeschaft en wordt verwijderd uit IoT Hub op 10 maart 2019. Zie voor het bewaken van de operations- en status van IoT Hub, [de status van Azure IoT Hub bewaken en problemen vast te stellen][lnk-monitor]. Zie voor meer informatie over de tijdlijn afschaffing [bewaken van uw Azure-IoT-oplossingen met Azure Monitor en Azure Resource Health][lnk-blog-announcement].
+>IoT Hub **bewerkingen controleren is afgeschaft en is verwijderd uit de IoT-Hub op 10 maart 2019**. Zie voor het bewaken van de operations- en status van IoT Hub, [de status van Azure IoT Hub bewaken en problemen vast te stellen][lnk-monitor]. Zie voor meer informatie over de tijdlijn afschaffing [bewaken van uw Azure-IoT-oplossingen met Azure Monitor en Azure Resource Health][lnk-blog-announcement].
 
 IoT Hub bewaakt zes categorieën van gebeurtenissen:
 
@@ -36,7 +36,7 @@ IoT Hub bewaakt zes categorieën van gebeurtenissen:
 
 ## <a name="how-to-enable-operations-monitoring"></a>Bewerkingen controleren inschakelen
 
-1. Een IoT-hub maken. U vindt instructies over het maken van een IoT-hub in de [aan de slag] [ lnk-get-started] handleiding.
+1. Maak een IoT-hub. U vindt instructies over het maken van een IoT-hub in de [aan de slag] [ lnk-get-started] handleiding.
 
 1. Open de blade van uw IoT-hub. Van daaruit, klikt u op **bewerkingen controleren**.
 
@@ -96,7 +96,7 @@ De apparaatcategorie telemetrie houdt bij of fouten die optreden bij de IoT-hub 
 }
 ```
 
-### <a name="cloud-to-device-commands"></a>Cloud-naar-apparaatopdrachten
+### <a name="cloud-to-device-commands"></a>Cloud-naar-apparaat-opdrachten
 
 De categorie cloud-naar-apparaatopdrachten houdt bij of fouten die optreden bij de IoT-hub en zijn gerelateerd aan de pijplijn cloud-naar-apparaat bericht. Deze categorie bevat fouten die optreden bij het verzenden van berichten van cloud-naar-apparaat (zoals niet-geautoriseerde afzender), het ontvangen van berichten van cloud-naar-apparaat (zoals aantal bezorgingen is overschreden) en het ontvangen van feedback van cloud-naar-apparaat bericht (zoals feedback verlopen). Deze categorie geen fouten van een apparaat dat een cloud-naar-apparaat-bericht niet goed verwerkt als de cloud-naar-apparaat-bericht met succes is afgeleverd af.
 

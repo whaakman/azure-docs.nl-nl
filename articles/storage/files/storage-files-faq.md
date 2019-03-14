@@ -7,12 +7,13 @@ ms.service: storage
 ms.date: 01/02/2019
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: f53df953d0a879d029a1cae3819a0e3154bd8f75
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.topic: conceptual
+ms.openlocfilehash: 7305fbf21557061250a80e095998ad7ea2f35510
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213854"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792511"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Veelgestelde vragen (FAQ) over Azure Files
 [Azure Files](storage-files-introduction.md) biedt volledig beheerde bestandsshares in de cloud die toegankelijk zijn via het industriestandaard [Server Message Block (SMB)-protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). U kunt Azure-bestandsshares gelijktijdig koppelen in de cloud of on-premises implementaties van Windows, Linux en macOS. U kunt ook Azure-bestandsshares op Windows Server-machines cache met behulp van Azure File Sync voor snelle toegang dicht bij waar de gegevens wordt gebruikt.
@@ -260,7 +261,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 
     U kunt de bestandsshare koppelt via het SMB-protocol als poort 445 (TCP uitgaand) geopend is en de client het SMB 3.0-protocol ondersteunt (bijvoorbeeld, als u Windows 10 of Windows Server 2016). Als poort 445 wordt geblokkeerd door het beleid van uw organisatie of door uw Internetprovider, kunt u Azure File Sync kunt gebruiken voor toegang tot uw Azure-bestandsshare.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Back-up
 * <a id="backup-share"></a>
 **Hoe kan ik maak een back-up van mijn Azure-bestand delen?**  
     U kunt periodieke [momentopnamen van bestandsshares](storage-snapshots-files.md) voor bescherming tegen onbedoeld verwijderen. Ook kunt u AzCopy, Robocopy of een back-uphulpprogramma van derden die back-up van een gekoppelde bestandsshare. Azure Backup biedt back-up van Azure Files. Meer informatie over [maakt u een back-up van Azure-bestandsshares door Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-files).

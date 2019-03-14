@@ -3,15 +3,16 @@ title: Maken van virtuele knooppunten met de Azure CLI in Azure Kubernetes Servi
 description: Leer hoe u de Azure CLI gebruiken voor het maken van een Azure Kubernetes-Services (AKS)-cluster dat gebruik maakt van virtuele knooppunten om uit te voeren schillen.
 services: container-service
 author: iainfoulds
+ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: ed3697cbfc605fbdecad2c1cc4b32c3ddd1e3813
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: e47817f70a727fe815e5d7e61ad7820121f26d97
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819038"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791406"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Maken en configureren van een cluster Azure Kubernetes-Services (AKS) voor het gebruik van virtuele knooppunten met de Azure CLI
 
@@ -44,7 +45,7 @@ Als de provider wordt weergegeven als *NotRegistered*, Registreer de provider me
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
-## <a name="preview-limitations"></a>Beperkingen voor Preview
+## <a name="preview-limitations"></a>Preview-beperkingen
 
 Hoewel deze functie nog in Preview-versie, worden de volgende regio's worden ondersteund voor implementaties:
 

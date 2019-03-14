@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/3/2018
 ms.author: pabouwer
-ms.openlocfilehash: f34d8c547738921374eaf5edcfcec4911423d9dc
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 25a68f55eb9a6deb037029d5d8a984ce74f12be5
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699208"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791457"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Installeren en gebruiken van Istio in Azure Kubernetes Service (AKS)
 
@@ -82,7 +82,7 @@ Expand-Archive -Path "istio-$ISTIO_VERSION.zip" -DestinationPath .
 De `istioctl` binaire-client wordt uitgevoerd op de clientcomputer en kunt u regels voor het doorsturen van Istio en beleidsregels beheert. Nogmaals, de installeren-stappen zijn enigszins verschillen tussen de client-besturingssystemen. Kies een van de installatie van de volgende stappen voor uw favoriete omgeving.
 
 > [!IMPORTANT]
-> Alle resterende stappen worden uitgevoerd vanuit de map op het hoogste niveau van de Istio-versie die u hebt gedownload en uitgepakt in de vorige sectie.
+> Zorg ervoor dat u de stappen in deze sectie worden uitgevoerd vanuit de map op het hoogste niveau van de Istio-versie die u hebt gedownload en uitgepakt.
 
 ### <a name="macos"></a>MacOS
 
@@ -145,6 +145,9 @@ $PATH = [environment]::GetEnvironmentVariable("PATH", "User")
 ```
 
 ## <a name="install-the-istio-kubernetes-components"></a>Installeer de onderdelen van Istio Kubernetes
+
+> [!IMPORTANT]
+> Zorg ervoor dat u de stappen in deze sectie worden uitgevoerd vanuit de map op het hoogste niveau van de Istio-versie die u hebt gedownload en uitgepakt.
 
 Gebruik Helm om de onderdelen Istio naar uw AKS-cluster. Installeren van de resources Istio in de `istio-system` naamruimte, en aanvullende opties voor beveiliging en bewaking als volgt inschakelen:
 

@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/27/2019
+ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: d09ce810605055b5be53219f254beb6660addbee
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 07e3552b58b702cb94c879dd34397010c07522db
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445701"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791933"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Logboekgegevens en toegang tot werkruimten in Azure Monitor beheren
 Azure Monitor-winkels vastleggen gegevens in een Log Analytics-werkruimte is in wezen een container die gegevens en configuratie-informatie bevat. Voor het beheren van toegang tot gegevens vastleggen, kunt u verschillende beheertaken met betrekking tot werkruimten uitvoeren. U of andere leden van uw organisatie kunnen meerdere werkruimten gebruiken om verschillende gegevenssets te beheren die worden verzameld uit de gehele of delen van uw IT-infrastructuur.
@@ -85,6 +85,7 @@ De gegevens die een gebruiker toegang tot heeft worden bepaald door meerdere fac
 | [Toegangsmodus](#access-modes) | Methode waarmee de gebruiker toegang heeft tot de werkruimte.  Definieert het bereik van de beschikbare gegevens en de modus voor het beheer van toegang dat wordt toegepast. |
 | [Access control-modus](#access-control-mode) | Instellen in de werkruimte waarmee wordt gedefinieerd of machtigingen worden toegepast op het niveau van de werkruimte of resource. |
 | [Machtigingen](#manage-accounts-and-users) | Machtigingen voor afzonderlijke of groepen gebruikers voor de werkruimte of resource. Hiermee definieert u welke gegevens de gebruiker toegang tot hebben. |
+| [Tabelniveau RBAC](#table-level-rbac) | Optionele gedetailleerde machtigingen die van toepassing op alle gebruikers, ongeacht hun toegang of toegang besturingselement modus. Hiermee definieert u welke gegevenstypen die een gebruiker toegang heeft. |
 
 
 
@@ -93,7 +94,7 @@ De _toegangsmodus_ verwijst naar hoe een gebruiker toegang heeft tot een Log Ana
 
 **Workspace-centric**: In deze modus kan een gebruiker alle logboeken in de werkruimte die ze gemachtigd zijn om te bekijken. Query's in deze modus zijn gericht op alle gegevens in alle tabellen in de werkruimte. Dit is de access-modus gebruikt wanneer u zich aanmeldt met de werkruimte worden geopend als het bereik, zoals wanneer u selecteert **logboeken** uit de **Azure Monitor** in het menu in de Azure-portal.
 
-**Resource-georiënteerde**: Wanneer u toegang krijgen tot de werkruimte voor een bepaalde resource, zoals wanneer u selecteert **logboeken** in een resourcemenu in Azure portal, kunt u Logboeken voor alleen die bron weergeven. Query's in deze modus zijn gericht op alleen de gegevens die zijn gekoppeld aan deze resource. In deze modus kunt ook gedetailleerde op rollen gebaseerd toegangsbeheer (RBAC). 
+**Resource-georiënteerde**: Wanneer u toegang krijgen tot de werkruimte voor een bepaalde resource, zoals wanneer u selecteert **logboeken** vanuit een resourcemenu in Azure portal, kunt u Logboeken voor alleen die resource in alle tabellen die u toegang tot hebt bekijken. Query's in deze modus zijn gericht op alleen de gegevens die zijn gekoppeld aan deze resource. In deze modus kunt ook gedetailleerde op rollen gebaseerd toegangsbeheer (RBAC). 
 
 > [!NOTE]
 > Logboeken zijn beschikbaar voor de resource-georiënteerde query's alleen als ze goed gekoppeld aan de betreffende resource zijn. Op dit moment hebben de volgende bronnen beperkingen: 
@@ -113,16 +114,16 @@ De volgende tabel geeft een overzicht van de toegangsmodi in:
 |:---|:---|:---|
 | Voor wie is elk model bedoeld? | Centrale beheersite. Beheerders moeten configureren voor het verzamelen van gegevens en gebruikers die toegang nodig tot een groot aantal bronnen. Ook nodig op dat moment voor gebruikers die hebben voor toegang tot logboeken voor resources buiten Azure. | Toepassing teams. Beheerders van Azure-resources die worden bewaakt. |
 | Wat is een gebruiker nodig om logboeken weer te geven? | Machtigingen voor de werkruimte. Zie **werkruimtemachtigingen** in [accounts en gebruikers beheren](#manage-accounts-and-users). | Leestoegang tot de resource. Zie **machtigingen voor resources** in [accounts en gebruikers beheren](#manage-accounts-and-users). Machtigingen kunnen worden overgenomen (zoals de betreffende resourcegroep) of rechtstreeks toegewezen aan de resource. Machtiging voor de logboeken voor de resource wordt automatisch toegewezen. |
-| Wat is het bereik van machtigingen? | Werkruimte. Gebruikers met toegang tot de werkruimte kunnen alle logboeken in de werkruimte opvragen. | Azure resource. Gebruikers logboeken kan opvragen voor bronnen ze hebben toegang tot vanuit elke werkruimte, maar kan geen query uitvoeren voor logbestanden voor andere bronnen. |
+| Wat is het bereik van machtigingen? | Werkruimte. Gebruikers met toegang tot de werkruimte kunnen alle logboeken in deze werkruimte uit tabellen die ze gemachtigd zijn om te zoeken. Zie [tabel toegangsbeheer](#table-access-control) | Azure resource. Gebruikers logboeken kan opvragen voor bronnen ze hebben toegang tot vanuit elke werkruimte, maar kan geen query uitvoeren voor logbestanden voor andere bronnen. |
 | Hoe kan een gebruiker toegang tot logboeken? | Start **logboeken** van **Azure Monitor** menu of **Log Analytics-werkruimten**. | Start **logboeken** in het menu voor de Azure-resource. |
 
 
 ## <a name="access-control-mode"></a>Modus toegangsbeheer
 De _besturingselement toegangsmodus_ is een instelling op elk werkruimten die definieert hoe machtigingen voor deze werkruimte worden bepaald.
 
-**Machtigingen voor de werkruimte vereisen**:  In deze modus controle is niet toegestaan voor gedetailleerde RBAC. Voor een gebruiker voor toegang tot de werkruimte, moeten deze machtigingen aan de werkruimte worden verleend. 
+**Machtigingen voor de werkruimte vereisen**:  In deze modus controle is niet toegestaan voor gedetailleerde RBAC. Voor een gebruiker voor toegang tot de werkruimte, moeten deze machtigingen aan de werkruimte of specifieke tabellen worden verleend. 
 
-Als een gebruiker toegang heeft tot de werkruimte in de werkruimte-georiënteerde modus, hebben ze toegang tot alle gegevens in de werkruimte. Als een gebruiker toegang heeft tot de werkruimte in de resource-georiënteerde modus, hebben ze toegang tot alleen de gegevens voor die bron.
+Als een gebruiker toegang heeft tot de werkruimte in de werkruimte-georiënteerde modus, wordt ze toegang tot alle gegevens die ze toegang tot gekregen hebben tabellen hebben. Als een gebruiker toegang heeft tot de werkruimte in de resource-georiënteerde modus, hebben ze toegang tot alleen gegevens voor die bron in tabellen die toegang tot hebt gekregen.
 
 Dit is de standaardinstelling voor alle werkruimten die zijn gemaakt vóór maart 2019.
 
@@ -144,6 +145,46 @@ U kunt de huidige werkruimte access control-modus weergeven op de **overzicht** 
 U kunt deze instelling wijzigen op de **eigenschappen** pagina voor de werkruimte. Als u de instelling wijzigt worden, uitgeschakeld als u geen machtigingen voor het configureren van de werkruimte.
 
 ![Toegangsmodus voor werkruimte wijzigen](media/manage-access/change-access-control-mode.png)
+
+### <a name="define-access-control-mode-in-azure-portal"></a>Besturingselement toegangsmodus definiëren in Azure portal
+U kunt de huidige werkruimte access control-modus weergeven op de **overzicht** -pagina voor de werkruimte in de **Log Analytics-werkruimte** menu.
+
+![Weergavemodus werkruimte access control](media/manage-access/view-access-control-mode.png)
+
+U kunt deze instelling wijzigen op de **eigenschappen** pagina voor de werkruimte. Als u de instelling wijzigt worden, uitgeschakeld als u geen machtigingen voor het configureren van de werkruimte.
+
+![Toegangsmodus voor werkruimte wijzigen](media/manage-access/change-access-control-mode.png)
+
+### <a name="define-access-control-mode-in-powershell"></a>Besturingselement toegangsmodus definiëren in PowerShell
+
+Gebruik de volgende opdracht om te controleren van het besturingselement toegangsmodus voor alle werkruimten in het abonnement:
+
+```PowerShell
+Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {$_.Name + ": " + $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions} 
+```
+
+Het volgende script gebruiken om in te stellen de controle-toegangsmodus voor een specifieke werkruimte:
+
+```PowerShell
+$WSName = "my-workspace"
+$Workspace = Get-AzResource -Name $WSName -ExpandProperties
+if ($Workspace.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null) 
+    { $Workspace.Properties.features | Add-Member enableLogAccessUsingOnlyResourcePermissions $true -Force }
+else 
+    { $Workspace.Properties.features.enableLogAccessUsingOnlyResourcePermissions = $true }
+Set-AzResource -ResourceId $Workspace.ResourceId -Properties $Workspace.Properties -Force
+```
+
+Het volgende script gebruiken om in te stellen van de modus voor het beheer van toegang voor alle werkruimten in het abonnement
+
+```PowerShell
+Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {
+if ($_.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null) 
+    { $_.Properties.features | Add-Member enableLogAccessUsingOnlyResourcePermissions $true -Force }
+else 
+    { $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions = $true }
+Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
+```
 
 ### <a name="define-access-mode-in-resource-manager-template"></a>Toegangsmodus definiëren in Resource Manager-sjabloon
 Voor het configureren van de toegangsmodus voor in een Azure Resource Manager-sjabloon, stel de **enableLogAccessUsingOnlyResourcePermissions** functie vlag in de werkruimte aan een van de volgende waarden.
@@ -241,6 +282,58 @@ Als gebruikers query zich vanaf een werkruimte met behulp van resource-georiënt
 
 Deze machtiging wordt meestal van een rol met verleend  _\*/lezen of_ _\*_ machtigingen, zoals de ingebouwde [lezer](../../role-based-access-control/built-in-roles.md#reader) en [ Inzender](../../role-based-access-control/built-in-roles.md#contributor) rollen. Houd er rekening mee dat aangepaste rollen met specifieke acties of toegewezen ingebouwde rollen niet advies bij deze machtiging inwinnen.
 
+Zie [definiëren per tabel toegangsbeheer](#defining-per-table-access-control) hieronder als u wilt maken van verschillende toegangsbeheer voor verschillende tabellen.
+
+
+## <a name="table-level-rbac"></a>Tabelniveau RBAC
+**Het niveau van RBAC tabel** kunt u meer gedetailleerde controle met gegevens in een Log Analytics-werkruimte naast de andere machtigingen bieden. Dit besturingselement kunt u specifieke gegevenstypen die alleen toegankelijk voor een specifieke set gebruikers zijn definiëren.
+
+Implementeren van toegangsbeheer tabel met [Azure aangepaste rollen](../../role-based-access-control/custom-roles.md) verlenen of weigeren van toegang tot specifieke [tabellen](../log-query/log-query-overview.md#how-azure-monitor-log-data-is-organized) in de werkruimte. Deze rollen worden toegepast op werkruimten met werkruimte gericht of resource-georiënteerde [toegang tot de control-modi](#access-control-modes) ongeacht van de gebruiker [toegangsmodus](#access-mode).
+
+Maak een [aangepaste rol](../../role-based-access-control/custom-roles.md) met de volgende acties te definiëren de toegang tot tabel toegangsbeheer.
+
+- Om toegang te verlenen aan een tabel, opnemen in de **acties** sectie van de roldefinitie.
+- Voor het weigeren van toegang tot een tabel, opnemen in de **NotActions** sectie van de roldefinitie.
+- Gebruik * om op te geven van alle tabellen.
+
+Als u bijvoorbeeld een rol maken met toegang tot de _Heartbeat_ en _AzureActivity_ tabellen, maakt u een aangepaste rol die met behulp van de volgende acties:
+
+```
+"Actions":  [
+              "Microsoft.OperationalInsights/workspaces/query/Heartbeat/read",
+              "Microsoft.OperationalInsights/workspaces/query/AzureActivity/read"
+  ],
+```
+
+Een rol maken met toegang tot enige _SecurityBaseline_ en geen andere tabellen, maakt u een aangepaste rol die met behulp van de volgende acties:
+
+```
+    "Actions":  [
+        "Microsoft.OperationalInsights/workspaces/query/*/read"
+    ],
+    "NotActions":  [
+        "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
+    ],
+```
+
+### <a name="custom-logs"></a>Aangepaste logboeken
+ Aangepaste logboeken worden gemaakt door gegevensbronnen, zoals aangepaste logboeken en HTTP Data Collector-API. De eenvoudigste manier om te identificeren van het type van het logboek is door het controleren van de tabellen die worden vermeld onder [aangepaste logboeken in het logboek schema](../log-query/get-started-portal.md#understand-the-schema).
+
+ U kunt geen op dit moment verlenen of weigeren van toegang tot afzonderlijke aangepaste logboeken, maar u kunt verlenen of weigeren van toegang tot alle aangepaste logboeken. Voor het maken van een rol met toegang tot alle aangepaste logboeken, maakt u een aangepaste rol die met behulp van de volgende acties:
+
+```
+    "Actions":  [
+        "Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read"
+    ],
+```
+
+### <a name="considerations"></a>Overwegingen
+
+- Als een gebruiker is verleend globale leesmachtiging hebt met de standard-lezer of Inzender-rollen die de  _\*/lezen_ actie, overschrijft het per tabel access control en geven ze toegang tot alle logboekgegevens.
+- Als een gebruiker is verleend per tabel toegang, maar er zijn geen andere machtigingen, is ze zou kunnen toegang krijgen tot logboekgegevens van de API, maar niet vanuit de Azure portal. Voor toegang tot de Azure-portal, lezer van Log Analytics te gebruiken als de basis-rol.
+- Beheerders voor het abonnement heeft toegang tot alle gegevenstypen, ongeacht eventuele andere machtigingsinstellingen.
+- Eigenaren van de werkruimte worden behandeld als voor andere gebruikers voor toegangsbeheer per tabel.
+- U moet de rollen toewijzen aan beveiligingsgroepen in plaats van afzonderlijke gebruikers te verminderen van het aantal toewijzingen. Dit helpt u ook bestaande groep beheerhulpprogramma's gebruiken om te configureren en controleren of de toegang.
 
 
 

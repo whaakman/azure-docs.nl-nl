@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.openlocfilehash: 31d3c404d22c9b8ad66c2d5d1adf34c38cc4a682
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 20e92317e748ebe19661a7c35d68829229b62378
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010851"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791372"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referentie - IoT-Hub-quota en beperkingen
 
@@ -42,8 +42,8 @@ De volgende tabel ziet u de afgedwongen beperkingen. Waarden verwijzen naar een 
 | Cloud-naar-apparaat ontvangt<sup>1</sup> <br/> (alleen als apparaat maakt gebruik van HTTPS)| 16.67/sec/Unit (1000 per minuut per eenheid) | 16.67/sec/Unit (1000 per minuut per eenheid) | 833.33/sec/Unit (50000 per minuut per eenheid) |
 | Bestand uploaden | 1.67 bestand uploaden meldingen per seconde per eenheid (100 per minuut per eenheid) | 1.67 bestand uploaden meldingen per seconde per eenheid (100 per minuut per eenheid) | 83.33 bestand uploaden meldingen per seconde per eenheid (5000 per minuut per eenheid) |
 | Directe methoden<sup>1</sup> | 160KB/sec/unit<sup>2</sup> | 480KB/sec/unit<sup>2</sup> | 24MB/sec/unit<sup>2</sup> | 
-| (Apparaat- en -module) leesbewerkingen Twin<sup>1</sup> | 10/sec | Hogere van 10 per seconde of 1 per seconde per eenheid | 50/sec/unit |
-| Updates (apparaat- en -module) Twin<sup>1</sup> | 10/sec | Hogere van 10 per seconde of 1 per seconde per eenheid | 50/sec/unit |
+| (Apparaat- en -module) leesbewerkingen Twin<sup>1</sup> | 100/sec | Hogere van 100 per seconde of 10 per seconde per eenheid | 500/sec/unit |
+| Updates (apparaat- en -module) Twin<sup>1</sup> | 50/sec | Hogere van 50 per seconde of 5 per seconde per eenheid | 250/sec/unit |
 | Taken operations<sup>1,3</sup> <br/> (maken, bijwerken, weergeven, verwijderen) | 1.67/sec/Unit (100 per minuut per eenheid) | 1.67/sec/Unit (100 per minuut per eenheid) | 83.33/sec/Unit (5000 per minuut per eenheid) |
 | Taken apparaatbewerkingen<sup>1</sup> <br/> (dubbele bijwerken, rechtstreekse methode aanroepen) | 10/sec | Hogere van 10 per seconde of 1 per seconde per eenheid | 50/sec/unit |
 | Configuraties en edge-implementaties<sup>1</sup> <br/> (maken, bijwerken, weergeven, verwijderen) | 0.33/sec/Unit (20 per minuut per eenheid) | 0.33/sec/Unit (20 per minuut per eenheid) | 0.33/sec/Unit (20 per minuut per eenheid) |
@@ -52,7 +52,7 @@ De volgende tabel ziet u de afgedwongen beperkingen. Waarden verwijzen naar een 
 | Overdracht van gegevens van maximaal stream<sup>4</sup> (statistische-volume per dag) | 300 MB | 300 MB | 300 MB |
 
 
-<sup>1</sup>deze functie is niet beschikbaar in de basic-laag van IoT-Hub. Zie voor meer informatie, [u bij het kiezen van de juiste IoT-Hub](iot-hub-scaling.md). <br/><sup>2</sup>meter formaat beperking is 8 KB. <br/><sup>3</sup>u kunt slechts één actieve apparaten import/export-taak tegelijk hebben. <br/><sup>4</sup>IoT Hub apparaat-gegevensstromen zijn alleen beschikbaar voor S1, S2, S3 en F1-SKU's.
+<sup>1</sup>deze functie is niet beschikbaar in de basic-laag van IoT-Hub. Zie voor meer informatie, [u bij het kiezen van de juiste IoT-Hub](iot-hub-scaling.md). <br/><sup>2</sup>meter formaat beperking is 4 KB. <br/><sup>3</sup>u kunt slechts één actieve apparaten import/export-taak tegelijk hebben. <br/><sup>4</sup>IoT Hub apparaat-gegevensstromen zijn alleen beschikbaar voor S1, S2, S3 en F1-SKU's.
 
 De *apparaatverbindingen* vertraging bepaalt de snelheid waarmee nieuwe apparaatverbindingen kunnen worden gemaakt met een IoT-hub. De *apparaatverbindingen* vertraging heeft geen betrekking op het maximale aantal gelijktijdig verbonden apparaten. De *apparaatverbindingen* snelheid beperken, is afhankelijk van het aantal eenheden die zijn ingericht voor de IoT hub.
 

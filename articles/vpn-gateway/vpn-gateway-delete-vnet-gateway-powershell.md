@@ -6,16 +6,17 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.date: 02/07/2019
 ms.author: cherylmc
-ms.openlocfilehash: 922aa739a42eddbe8cd7e3cabe46681c0c2c6d46
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.topic: conceptual
+ms.openlocfilehash: bf1cc3b95e8335b6e24dd405d82e5c51d2a8d11b
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417071"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792681"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>Verwijderen van de gateway van een virtueel netwerk met behulp van PowerShell
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
+> * [Azure-portal](vpn-gateway-delete-vnet-gateway-portal.md)
 > * [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [PowerShell (klassiek)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 >

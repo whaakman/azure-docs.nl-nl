@@ -2,22 +2,23 @@
 title: Functies - rendering Azure Batch
 description: Het gebruik van mogelijkheden voor rendering in Azure Batch
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2f423de63b7cec24d9d9c4541ddab0ac38b1076a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 2dff44f0b5b4b02c39c4c63f23ff64d55ca9d833
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542304"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57789632"
 ---
 # <a name="using-azure-batch-rendering"></a>Met behulp van Azure Batch rendering
 
 Er zijn verschillende manieren waarop u met Azure Batch rendering:
 
-* API's:
+* APIs:
   * Schrijf code met behulp van een van de Batch-API's.  Ontwikkelaars kunnen Azure Batch-mogelijkheden integreren in hun bestaande toepassingen of de werkstroom, of cloud of op basis van on-premises.
 * Vanaf de opdrachtregel-hulpprogramma's:
   * De [Azure vanaf de opdrachtregel](https://docs.microsoft.com/cli/azure/) of [PowerShell](https://docs.microsoft.com/powershell/azure/overview) kan worden gebruikt voor het gebruik van de Batch script.
@@ -58,7 +59,7 @@ De sectie 'Gegevens' in de Batch Explorer kunt bestanden die moeten worden gekop
 Invoegtoepassingen zijn beschikbaar voor enkele van de clienttoepassingen.  Invoegtoepassingen toestaan pools en taken rechtstreeks vanuit de toepassing worden gemaakt of aanroepen van Batch Explorer.
 
 * [Blender](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
-* [Autodesk 3ds Max.](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
+* [Autodesk 3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
 * [Autodesk Maya](https://github.com/Azure/azure-batch-maya)
 
 ## <a name="next-steps"></a>Volgende stappen
