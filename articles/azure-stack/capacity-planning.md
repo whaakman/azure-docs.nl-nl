@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.lastreviewed: 09/18/2018
-ms.openlocfilehash: b8bd57953845278aa75e8cbdf41ae28300edad58
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3d825a0f8a23380b4d9cf453076ab4b18ee67831
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184904"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095514"
 ---
 # <a name="azure-stack-capacity-planning"></a>Azure Stack-capaciteitsplanning
 Bij het evalueren van een Azure Stack-oplossing, zijn er hardware-configuratie-opties die een directe invloed op de totale capaciteit van de Azure Stack-Cloud hebben. Dit zijn de klassieke keuzes van CPU, geheugen dichtheid, opslagconfiguratie, en algemene oplossing schalen of het aantal servers. De eenvoudige rekenkundige van deze onderdelen om te bepalen aan bruikbare capaciteit in tegenstelling tot een traditionele virtualisatieoplossing, is niet van toepassing. De eerste reden hiervoor is dat Azure Stack is ontworpen voor het hosten van de infrastructuur of management onderdelen binnen de oplossing zelf. De tweede reden is dat een aantal van de oplossing capaciteit wordt gereserveerd ter ondersteuning van tolerantie; het bijwerken van de software van de oplossing op een manier om onderbreking van de tenantwerkbelastingen te minimaliseren.
@@ -49,7 +49,7 @@ Een uitgebreidere beschrijving van de complexiteit van capaciteitsberekeningen w
 |     |     |     |     |     |     |     |     |
 
 > <sup>1</sup> standard D2 virtuele machines.
-
+> 
 > <sup>2</sup> virtuele kern fysieke kernverhouding.
 
 Zoals eerder vermeld, wordt de VM-capaciteit bepaald door het beschikbare geheugen. De virtuele-cores op fysieke / core-verhouding voorbeeld zijn de VM-dichtheid heeft invloed op beschikbare CPU-capaciteit, tenzij de oplossing is gebouwd met een groter aantal fysieke kernen (een andere CPU is gekozen). Hetzelfde geldt voor opslag en de opslagcapaciteit van de cache.

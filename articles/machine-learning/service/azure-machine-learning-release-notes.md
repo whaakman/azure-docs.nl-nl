@@ -6,17 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: hning86
-ms.author: haining
-ms.reviewer: j-martens
+ms.author: larryfr
+author: Blackmist
 ms.date: 03/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: bb074dd848ce5e752ba8e4ca1d3a8ee533a2f5d2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 2a2817501628d55d7ccc84979700ea53e4114eed
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777444"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860632"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Releaseopmerkingen Azure Machine Learning-service
 
@@ -30,6 +29,7 @@ In dit artikel meer informatie over de versies van de Azure Machine Learning-ser
 
  + **Wijzigingen**
    + Het pakket azureml-tensorboard vervangt azureml-contrib-tensorboard.
+   + Met deze release kunt u een gebruikersaccount op uw beheerde rekencluster (amlcompute) instellen tijdens het maken van deze. Dit kan worden gedaan door te geven deze eigenschappen in de configuratie van de rapportcentrumsite. U vindt meer informatie in de [SDK-referentiedocumentatie](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none-).
 
 ### <a name="azure-machine-learning-data-prep-sdk-v1017"></a>Azure Machine Learning Data Prep SDK v1.0.17
 

@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 2aa5522b8200f87df633759ee136f744cd1b8099
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6588690629d2e266469a4b8ea533c5650f3fc0ea
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471229"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890879"
 ---
 # <a name="introduction-to-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Inleiding tot de Geo kunstmatige intelligentie Data Science Virtual Machine
 
@@ -44,7 +44,7 @@ Geografie en locatiegegevens integreren met uw gegevens zorgt voor een krachtige
 
 De [Data Science Virtual Machine (DSVM)](overview.md) van Microsoft is een populaire experimenten en modellering omgeving op Azure, die zorgt voor een groot aantal AI, Machine Learning en data science-hulpprogramma's. Deze platformen en hulpprogramma's zijn alle gemakkelijk vooraf geconfigureerde kunt u direct productief zijn. 
 
-Door een combinatie van de voorspellende mogelijkheden van de Data Science VM met de schaalbaarheid van de Azure-Cloud en de software georuimtelijke analyses van [ESRI](http://www.esri.com), gegevenswetenschappers en analisten georuimtelijke nu beschikken over een productieve platform uit welke nieuwe bedrijfsinformatie te verkrijgen uit hun gegevens en nieuwe kansen te identificeren. 
+Door een combinatie van de voorspellende mogelijkheden van de Data Science VM met de schaalbaarheid van de Azure-Cloud en de software georuimtelijke analyses van [ESRI](https://www.esri.com), gegevenswetenschappers en analisten georuimtelijke nu beschikken over een productieve platform uit welke nieuwe bedrijfsinformatie te verkrijgen uit hun gegevens en nieuwe kansen te identificeren. 
 
 
 ## <a name="next-steps"></a>Volgende stappen

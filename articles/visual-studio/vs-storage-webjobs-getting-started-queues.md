@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 74aea3ad4c3dda8abc69275ad4d683fbcf485ccc
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: f6f1a3a7f0a406e1dbb40f4bfc6a358da7ac68fa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722903"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999548"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Aan de slag met Azure Queue storage en Visual Studio verbonden services (webtaak projecten)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -27,7 +27,7 @@ Dit artikel wordt beschreven hoe aan de slag met Azure Queue storage in een Azur
 
 In dit artikel vindt u C#-codevoorbeelden die laten zien hoe de Azure WebJobs SDK-versie 1.x met de Azure Queue storage-service.
 
-Azure Queue Storage is een service voor de opslag van grote aantallen berichten die via HTTP of HTTPS overal vandaan kunnen worden opgevraagd met geverifieerde aanroepen. Een enkel wachtrijbericht mag maximaal 64 KB groot zijn en een wachtrij kan miljoenen berichten bevatten, tot de totale capaciteitslimiet van een opslagaccount. Zie [aan de slag met Azure Queue Storage met .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) voor meer informatie. Zie voor meer informatie over ASP.NET [ASP.NET](http://www.asp.net).
+Azure Queue Storage is een service voor de opslag van grote aantallen berichten die via HTTP of HTTPS overal vandaan kunnen worden opgevraagd met geverifieerde aanroepen. Een enkel wachtrijbericht mag maximaal 64 KB groot zijn en een wachtrij kan miljoenen berichten bevatten, tot de totale capaciteitslimiet van een opslagaccount. Zie [aan de slag met Azure Queue Storage met .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) voor meer informatie. Zie voor meer informatie over ASP.NET [ASP.NET](https://www.asp.net).
 
 ## <a name="how-to-trigger-a-function-when-a-queue-message-is-received"></a>Hoe u kunt een functie activeren wanneer er een wachtrijbericht is ontvangen
 Voor het schrijven van een functie waarmee de WebJobs SDK wordt aangeroepen wanneer er een wachtrijbericht is ontvangen, gebruiken de **QueueTrigger** kenmerk. De constructor kenmerk heeft een queryreeks-parameter met de naam van de wachtrij te peilen. Bekijk voor meer informatie over het instellen van de naam van de wachtrij dynamisch, [over het instellen van configuratie-opties](#how-to-set-configuration-options).
@@ -44,7 +44,7 @@ public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMess
 
 Naast **tekenreeks**, de parameter een matrix van bytes, kan niet een **CloudQueueMessage** object of een POCO die u definieert.
 
-### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(Plain oude CLR-Object](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) berichten in de wachtrij
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(Plain oude CLR-Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) berichten in de wachtrij
 In het volgende voorbeeld bevat het wachtrijbericht JSON voor een **BlobInformation** object waarin een **BlobName** eigenschap. De SDK gedeserialiseerd automatisch het object.
 
 ```csharp
@@ -54,7 +54,7 @@ public static void WriteLogPOCO([QueueTrigger("logqueue")] BlobInformation blobI
 }
 ```
 
-De SDK gebruikt de [NuGet-pakket Newtonsoft.Json](http://www.nuget.org/packages/Newtonsoft.Json) te serialiseren en deserialiseren van berichten. Als u berichten in wachtrij plaatsen in een programma dat geen gebruik maakt van de WebJobs SDK maakt, kunt u code als in het volgende voorbeeld om een wachtrijbericht POCO die kan worden geparseerd met de SDK te maken.
+De SDK gebruikt de [NuGet-pakket Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) te serialiseren en deserialiseren van berichten. Als u berichten in wachtrij plaatsen in een programma dat geen gebruik maakt van de WebJobs SDK maakt, kunt u code als in het volgende voorbeeld om een wachtrijbericht POCO die kan worden geparseerd met de SDK te maken.
 
 ```csharp
 BlobInformation blobInfo = new BlobInformation() { BlobName = "log.txt" };
@@ -72,7 +72,7 @@ public async static Task ProcessQueueMessageAsync([QueueTrigger("logqueue")] str
 }
 ```
 
-Async-functies kunnen duren voordat een [annulering token](http://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken), zoals weergegeven in het volgende voorbeeld wordt een blob gekopieerd. (Voor een uitleg van de **queueTrigger** tijdelijke aanduiding, Zie de [Blobs](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message) sectie.)
+Async-functies kunnen duren voordat een [annulering token](https://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken), zoals weergegeven in het volgende voorbeeld wordt een blob gekopieerd. (Voor een uitleg van de **queueTrigger** tijdelijke aanduiding, Zie de [Blobs](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message) sectie.)
 
 ```csharp
 public async static Task ProcessQueueMessageAsyncCancellationToken(
@@ -201,7 +201,7 @@ public static void CreateQueueMessage(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(Plain oude CLR-Object](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) berichten in de wachtrij
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(Plain oude CLR-Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) berichten in de wachtrij
 Voor het maken van een wachtrijbericht met een POCO in plaats van een tekenreeks, geeft u het type POCO als een output-parameter op de **wachtrij** kenmerkconstructie.
 
 ```csharp
@@ -296,7 +296,7 @@ public static void DeleteBlob(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(Plain oude CLR-Object](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) berichten in de wachtrij
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(Plain oude CLR-Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) berichten in de wachtrij
 Voor een POCO opgeslagen als JSON in het wachtrijbericht, kunt u tijdelijke aanduidingen die de naam van de eigenschappen van het object in de **wachtrij** van kenmerk **blobPath** parameter. U kunt wachtrijnamen metagegevens eigenschap ook gebruiken als tijdelijke aanduidingen. Zie [wachtrij of metagegevens in de wachtrij bericht](#get-queue-or-queue-message-metadata).
 
 Het volgende voorbeeld wordt een blob gekopieerd naar een nieuwe blob met een andere extensie. Bericht uit de wachtrij is een **BlobInformation** -object met **BlobName** en **BlobNameWithoutExtension** eigenschappen. De namen van eigenschappen worden gebruikt als tijdelijke aanduidingen in de blobpad voor de **Blob** kenmerken.
@@ -311,7 +311,7 @@ public static void CopyBlobPOCO(
 }
 ```
 
-De SDK gebruikt de [NuGet-pakket Newtonsoft.Json](http://www.nuget.org/packages/Newtonsoft.Json) te serialiseren en deserialiseren van berichten. Als u berichten in wachtrij plaatsen in een programma dat geen gebruik maakt van de WebJobs SDK maakt, kunt u code als in het volgende voorbeeld om een wachtrijbericht POCO die kan worden geparseerd met de SDK te maken.
+De SDK gebruikt de [NuGet-pakket Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) te serialiseren en deserialiseren van berichten. Als u berichten in wachtrij plaatsen in een programma dat geen gebruik maakt van de WebJobs SDK maakt, kunt u code als in het volgende voorbeeld om een wachtrijbericht POCO die kan worden geparseerd met de SDK te maken.
 
 ```csharp
 BlobInformation blobInfo = new BlobInformation() { BlobName = "boot.log", BlobNameWithoutExtension = "boot" };
@@ -329,7 +329,7 @@ De **Blob** kenmerk kan worden gebruikt met de volgende typen:
 * **TextWriter**
 * **tekenreeks** (lezen)
 * **uit de tekenreeks** (schrijven, maakt u een blob alleen als de queryreeks-parameter niet gelijk zijn aan nul is wanneer de functie geeft als resultaat)
-* POCO (lezen)
+* POCO (read)
 * uit POCO (schrijven; altijd wordt een blob gemaakt, wordt als null-object worden gemaakt als POCO-parameter null is wanneer de functie geeft als resultaat)
 * **CloudBlobStream** (schrijven)
 * **ICloudBlob** (lezen en schrijven)
@@ -442,7 +442,7 @@ static void Main(string[] args)
 ### <a name="set-values-for-webjobs-sdk-constructor-parameters-in-code"></a>Stel waarden voor WebJobs SDK parameters van constructor in code
 Soms wilt u de naam van een wachtrij, een blob-naam of container opgeven of een tabel in de code in plaats van programmeren Geef deze de naam. Bijvoorbeeld, u misschien wilt opgeven van de naam van de wachtrij voor **QueueTrigger** in een configuratie-bestand of de omgeving variabele.
 
-U kunt dit doen door te geven in een **NameResolver** object toe aan de **JobHostConfiguration** type. U speciale tijdelijke aanduidingen tussen procent (%) zich in de WebJobs SDK kenmerk constructor parameters bevatten en uw **NameResolver** code Hiermee geeft u de werkelijke waarden moet worden gebruikt in plaats van de tijdelijke aanduidingen.
+U kunt dit doen door te geven in een **NameResolver** object toe aan de **JobHostConfiguration** type. Opnemen van speciale tijdelijke aanduidingen tussen procent (%) WebJobs SDK kenmerk constructor parameters aanmeldt en uw **NameResolver** code Hiermee geeft u de werkelijke waarden moet worden gebruikt in plaats van de tijdelijke aanduidingen.
 
 Stel bijvoorbeeld dat u wilt gebruiken van een wachtrij met de naam logqueuetest in de testomgeving en één benoemde logqueueprod in productie. In plaats van een vastgelegde wachtrijnaam die u wilt opgeven van de naam van een vermelding in de **appSettings** verzameling die de naam van de werkelijke wachtrij zou hebben. Als de **appSettings** sleutel logqueue is, de functie kan eruitzien als in het volgende voorbeeld.
 

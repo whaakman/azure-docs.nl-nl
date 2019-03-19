@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
-ms.openlocfilehash: a09d880a1a17e429692dcb8e542657f416de7b30
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 90ca35ec899d71578a7da4061ca7842d13769072
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823532"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123569"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routering van verkeer in virtuele netwerken
 
@@ -48,8 +48,8 @@ De 'volgende hoptypen' in de bovenstaande tabel bepalen hoe Azure verkeer routee
 - **Internet**: Routeert verkeer dat is opgegeven met het adresvoorvoegsel, naar internet. De standaardsysteemroute is gekoppeld aan het adresvoorvoegsel 0.0.0.0/0. Als u de standaardroutes van Azure niet overschrijft, stuurt Azure verkeer voor een adres dat niet is opgegeven door een adresbereik binnen een virtueel netwerk, naar internet. Met één uitzondering. Als het doeladres hoort bij een service van Azure, stuurt Azure het verkeer rechtstreeks naar de service. Het verkeer loopt dan via het backbone-netwerk van Azure en wordt dus niet naar internet gerouteerd. Verkeer tussen Azure-services loopt niet via internet, ongeacht de Azure-regio waarin het virtuele netwerk zich bevindt of in welke Azure-regio een instantie van de Azure-service is geïmplementeerd. U kunt de standaardsysteemroute van Azure voor het adresvoorvoegsel 0.0.0.0/0 vervangen door een [aangepaste route](#custom-routes).
 
 - **Geen**: Verkeer dat wordt doorgestuurd naar het volgende hoptype **Geen**, wordt verwijderd en niet buiten het subnet gerouteerd. Azure maakt automatisch standaardroutes voor de volgende adresvoorvoegsels:
-    - **10.0.0.0/8, 172.16.0.0/12 en 192.168.0.0/16**: Gereserveerd voor persoonlijk gebruik in RFC 1918.
-    - **100.64.0.0/10**: Gereserveerd in RFC 6598.
+  - **10.0.0.0/8, 172.16.0.0/12 en 192.168.0.0/16**: Gereserveerd voor persoonlijk gebruik in RFC 1918.
+  - **100.64.0.0/10**: Gereserveerd in RFC 6598.
 
     Als u een van de bovenstaande adresbereiken toewijst binnen de adresruimte van een virtueel netwerk, wijzigt Azure het 'volgende hoptype' voor de route automatisch van **Geen** in **Virtueel netwerk**. Als u een adresbereik toewijst aan de adresruimte van een virtueel netwerk dat weliswaar een van de vier gereserveerde adresvoorvoegsels bevat, maar dat niet hetzelfde is, verwijdert Azure de route voor het voorvoegsel en wordt er een route toegevoegd voor het adresvoorvoegsel dat u hebt toegevoegd, met **Virtueel netwerk** als het 'volgende hoptype'.
 
@@ -82,12 +82,12 @@ U kunt de onderstaande 'volgende hoptypen' opgeven wanneer u een door de gebruik
 
 - **Virtueel apparaat**: Een virtueel apparaat is een virtuele machine waarop meestal een netwerktoepassing wordt uitgevoerd, zoals een firewall. Ga naar de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances) voor meer informatie over een aantal vooraf geconfigureerde virtuele netwerkapparaten die u in een virtueel netwerk kunt implementeren. Wanneer u een route maakt met het hoptype **Virtueel apparaat**, moet u ook het IP-adres van de volgende hop opgeven. Het IP-adres kan bestaan uit:
 
-    - Het [privé-IP-adres](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) van een netwerkinterface die is gekoppeld aan een virtuele machine. Als een netwerkinterface is gekoppeld aan een virtuele machine die netwerkverkeer doorstuurt naar een ander adres dan het eigen adres, moet in Azure de optie *Doorsturen via IP inschakelen* zijn ingeschakeld voor de interface. Deze instelling zorgt ervoor dat Azure de bron en bestemming voor een netwerkinterface niet controleert. Lees hier meer over het [inschakelen van doorsturen via IP voor een netwerkinterface](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Hoewel *Doorsturen via IP inschakelen* een instelling van Azure is, moet u doorsturen via IP mogelijk ook inschakelen in het besturingssysteem van de virtuele machine voor het apparaat om verkeer door te sturen tussen privé-IP-adressen die zijn toegewezen aan Azure-netwerkinterfaces. Als het apparaat verkeer moet routeren naar een openbaar IP-adres, moet het een proxy uitvoeren op het verkeer of het netwerkadres omzetten in het privé IP-adres van het privé IP-adres van de bron in een eigen privé-IP-adres, waarvan Azure het netwerkadres vervolgens omzet in een openbaar IP-adres, voordat het verkeer naar internet wordt verzonden. Raadpleeg de documentatie voor uw besturingssysteem of netwerktoepassing om de vereiste instellingen voor de virtuele machine te bepalen. Zie [Uitleg over uitgaande verbindingen](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie over uitgaande verbindingen in Azure.
+  - Het [privé-IP-adres](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) van een netwerkinterface die is gekoppeld aan een virtuele machine. Als een netwerkinterface is gekoppeld aan een virtuele machine die netwerkverkeer doorstuurt naar een ander adres dan het eigen adres, moet in Azure de optie *Doorsturen via IP inschakelen* zijn ingeschakeld voor de interface. Deze instelling zorgt ervoor dat Azure de bron en bestemming voor een netwerkinterface niet controleert. Lees hier meer over het [inschakelen van doorsturen via IP voor een netwerkinterface](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Hoewel *Doorsturen via IP inschakelen* een instelling van Azure is, moet u doorsturen via IP mogelijk ook inschakelen in het besturingssysteem van de virtuele machine voor het apparaat om verkeer door te sturen tussen privé-IP-adressen die zijn toegewezen aan Azure-netwerkinterfaces. Als het apparaat verkeer moet routeren naar een openbaar IP-adres, moet het een proxy uitvoeren op het verkeer of het netwerkadres omzetten in het privé IP-adres van het privé IP-adres van de bron in een eigen privé-IP-adres, waarvan Azure het netwerkadres vervolgens omzet in een openbaar IP-adres, voordat het verkeer naar internet wordt verzonden. Raadpleeg de documentatie voor uw besturingssysteem of netwerktoepassing om de vereiste instellingen voor de virtuele machine te bepalen. Zie [Uitleg over uitgaande verbindingen](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie over uitgaande verbindingen in Azure.
 
-      > [!NOTE]
-      > Het is belangrijk dat u een virtueel apparaat in een ander subnet implementeert dan het subnet waarin de resources zijn geïmplementeerd die gegevens via het virtuele apparaat routeren. Als u het virtuele apparaat in hetzelfde subnet implementeert en vervolgens een routetabel toepast op het subnet dat verkeer via het virtuele apparaat leidt, kan dit routeringslussen veroorzaken, waardoor verkeer het subnet nooit verlaat.
+    > [!NOTE]
+    > Het is belangrijk dat u een virtueel apparaat in een ander subnet implementeert dan het subnet waarin de resources zijn geïmplementeerd die gegevens via het virtuele apparaat routeren. Als u het virtuele apparaat in hetzelfde subnet implementeert en vervolgens een routetabel toepast op het subnet dat verkeer via het virtuele apparaat leidt, kan dit routeringslussen veroorzaken, waardoor verkeer het subnet nooit verlaat.
 
-    - Het privé IP-adres van een [interne load balancer](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) van Azure. Een load balancer wordt vaak gebruikt als onderdeel van een [strategie voor hoge beschikbaarheid van virtuele netwerkapparaten](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json).
+  - Het privé IP-adres van een [interne load balancer](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) van Azure. Een load balancer wordt vaak gebruikt als onderdeel van een [strategie voor hoge beschikbaarheid van virtuele netwerkapparaten](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
     U kunt een route met 0.0.0.0/0 als het adresvoorvoegsel definiëren en het 'volgende hoptype' Virtueel apparaat. Het apparaat kan dan het gegevensverkeer inspecteren en bepalen of dit moet worden doorgestuurd of verwijderd. Als u van plan bent een door de gebruiker gedefinieerde route te maken met het adresvoorvoegsel 0.0.0.0/0, moet u eerst [Adresvoorvoegsel 0.0.0.0/0](#default-route) lezen.
 
@@ -217,7 +217,7 @@ De routetabel voor *Subnet1* in de afbeelding bevat de volgende routes:
 |8   |Standaard|Ongeldig|10.10.0.0/16        |Gateway van een virtueel netwerk|[X.X.X.X]          |              |
 |9   |Gebruiker   |Actief |10.10.0.0/16        |Virtueel apparaat      |10.0.100.4         |To-On-Prem    |
 |10  |Standaard|Actief |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
-|11  |Standaard|Ongeldig|0.0.0.0/0           |Internet|              |                   |              |
+|11  |Standaard|Ongeldig|0.0.0.0/0           |Internet               |                   |              |
 |12  |Gebruiker   |Actief |0.0.0.0/0           |Virtueel apparaat      |10.0.100.4         |Default-NVA   |
 
 Hier volgt een uitleg van elke route-id:

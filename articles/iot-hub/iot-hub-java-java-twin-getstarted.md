@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/04/2017
-ms.openlocfilehash: 53eed3148483285bbcbc1e66edea5f2b189624c8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: bfb111b07db105190fc59f21b3255c2ea2b1471c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530549"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081012"
 ---
 # <a name="get-started-with-device-twins-java"></a>Aan de slag met apparaatdubbels (Java)
 
@@ -294,18 +294,18 @@ In deze sectie maakt u een Java-consoletoepassing die Hiermee stelt u de waarde 
     * Een apparaatclient om te communiceren met IoT Hub maken.
     * Maak een **apparaat** object voor het opslaan van de eigenschappen van het dubbele apparaat.
 
-    ```java
-    DeviceClient client = new DeviceClient(connString, protocol);
+      ```java
+      DeviceClient client = new DeviceClient(connString, protocol);
 
-    // Create a Device object to store the device twin properties
-    Device dataCollector = new Device() {
+      // Create a Device object to store the device twin properties
+      Device dataCollector = new Device() {
       // Print details when a property value changes
       @Override
       public void PropertyCall(String propertyKey, Object propertyValue, Object context) {
         System.out.println(propertyKey + " changed to " + propertyValue);
       }
-    };
-    ```
+      };
+      ```
 
 10. Voeg de volgende code aan de **belangrijkste** methode voor het maken van een **connectivityType** gerapporteerde eigenschap en te verzenden naar IoT Hub:
 
@@ -341,9 +341,9 @@ In deze sectie maakt u een Java-consoletoepassing die Hiermee stelt u de waarde 
 
 1. Wijzig de handtekening van de **main**-methode om de uitzonderingen als volgt op te nemen:
 
-    ```java
-    public static void main(String[] args) throws URISyntaxException, IOException
-    ```
+     ```java
+     public static void main(String[] args) throws URISyntaxException, IOException
+     ```
 
 1. Opslaan en sluiten de `simulated-device\src\main\java\com\mycompany\app\App.java` bestand.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: 91e2a4f49ba52ccbae8838400d54e0f483ca5039
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9fc20c97e19ef3a651bc6df36118bc85fefcaec3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780521"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118728"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>VPN-gatewayoverdracht configureren voor peering voor virtuele netwerken
 
@@ -129,13 +129,13 @@ Add-AzVirtualNetworkPeering `
 De stappen zijn vergelijkbaar met de stappen in het voorbeeld van Resource Manager, behalve dat de bewerkingen alleen op het Hub-RM virtuele netwerk worden toegepast.
 
 1. Maak of wijzig de peering van Hub-RM naar Spoke-RM via de Azure Portal. Navigeer naar de virtuele netwerkresource Hub-RM, klik op Peerings en vervolgens op Toevoegen:
-    - Stel de optie Classic in voor het implementatiemodel van virtuele netwerken
-    - Selecteer het virtuele netwerk Spoke-Classic in het desbetreffende abonnement
-    - Zorg dat Toegang tot het virtuele netwerk toestaan is ingeschakeld
-    - Stel de optie **Gatewayoverdracht toestaan** in
-    - Klik op OK
+   - Stel de optie Classic in voor het implementatiemodel van virtuele netwerken
+   - Selecteer het virtuele netwerk Spoke-Classic in het desbetreffende abonnement
+   - Zorg dat Toegang tot het virtuele netwerk toestaan is ingeschakeld
+   - Stel de optie **Gatewayoverdracht toestaan** in
+   - Klik op OK
 
-    ![hubrm-to-spokeclassic](./media/vpn-gateway-peering-gateway-transit/hubrm-spokeclassic-peering.png)
+     ![hubrm-to-spokeclassic](./media/vpn-gateway-peering-gateway-transit/hubrm-spokeclassic-peering.png)
 
 2. Als peering al is gemaakt, gaat u naar de peeringresource en schakelt u **Gatewayoverdracht toestaan** in (vergelijkbaar met de optie die wordt weergegeven in de schermafbeelding in stap 1)
 

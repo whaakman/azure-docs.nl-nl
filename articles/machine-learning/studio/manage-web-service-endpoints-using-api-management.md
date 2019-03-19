@@ -1,21 +1,21 @@
 ---
-title: Machine Learning Studio-webservices met API Management beheren
+title: Webservices met API Management beheren
 titleSuffix: Azure Machine Learning Studio
 description: Een handleiding waarin wordt getoond hoe voor het beheren van AzureML-webservices met API Management. De REST API-eindpunten beheren met het definiëren van gebruikerstoegang, beperking en dashboard bewaking.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: d4029d7f15918ea75ebcb10bfa8f8f7657eb11ca
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 0d79bc167ea0416218a4d4822bcd6221699643ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342578"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852879"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Azure Machine Learning Studio-webservices met API Management beheren
 ## <a name="overview"></a>Overzicht
@@ -182,11 +182,11 @@ Wijzig de naam **SimpleFeatureHashingExperiment**. Vouw **opgeslagen gegevensset
 
 Vouw **gegevenstransformatie** en **manipulatie** en sleep **Select Columns in Dataset** naar uw experiment. Verbinding maken met **boek beoordelingen van Amazon** naar **kolommen in gegevensset selecteren**.
 
-![select-columns](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
+![Koppel het boek beoordelingen gegevensset aan een Projectkolommen module](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
 
 Klik op **Select Columns in Dataset** en klik vervolgens op **kolomkiezer lancering** en selecteer **Col2**. Klik op het vinkje om deze wijzigingen te laten.
 
-![select-columns](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
+![Kolommen selecteren met behulp van de namen van kolommen](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
 
 Vouw **Tekstanalyse** en sleep **hash-functies** naar het experimentcanvas. Verbinding maken met **kolommen in gegevensset selecteren** naar **hash-functies**.
 

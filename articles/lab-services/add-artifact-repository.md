@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 85763a895b61d184db033c09a413cc897ef6eaa3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 42b59c8da9e66b0f749d067e3df867911c7108e9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551599"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106828"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Een artefactopslagplaats toevoegen aan uw lab in DevTest Labs
 DevTest Labs kunt u opgeven van een artefact dat moet worden toegevoegd aan een virtuele machine op het moment van de VM is gemaakt of nadat de virtuele machine is gemaakt. Dit artefact is mogelijk een hulpprogramma of een toepassing die u wilt installeren op de virtuele machine. Artefacten worden gedefinieerd in een JSON-bestand geladen vanuit een GitHub- of VSTS Git-opslagplaats. 
@@ -74,11 +74,11 @@ In deze sectie bevat stappen voor het toevoegen van een artefactopslagplaats aan
 
     ![De knop van de opslagplaats toevoegen](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. Op de **opslagplaatsen** pagina, geeft u de volgende informatie:
-  1. **Naam**. Voer een naam voor de opslagplaats.
-  2. **GIT kloon-Url**. Voer de Git-HTTPS-kloon-URL die u eerder hebt gekopieerd vanuit GitHub of Azure DevOps-Services.
-  3. **Vertakking**. Als u uw definities, voer de vertakking.
-  4. **Persoonlijk toegangstoken**. Voer in het persoonlijke toegangstoken dat u eerder hebt ontvangen van GitHub of Azure DevOps-Services.
-  5. **Mappaden**. Geef ten minste één pad ten opzichte van de kloon-URL die uw artefacten of Sjabloondefinities van de Resource Manager-bevat. Wanneer u een submap opgeeft, zorg ervoor dat u de schuine streep in het mappad.
+   1. **Naam**. Voer een naam voor de opslagplaats.
+   2. **GIT kloon-Url**. Voer de Git-HTTPS-kloon-URL die u eerder hebt gekopieerd vanuit GitHub of Azure DevOps-Services.
+   3. **Vertakking**. Als u uw definities, voer de vertakking.
+   4. **Persoonlijk toegangstoken**. Voer in het persoonlijke toegangstoken dat u eerder hebt ontvangen van GitHub of Azure DevOps-Services.
+   5. **Mappaden**. Geef ten minste één pad ten opzichte van de kloon-URL die uw artefacten of Sjabloondefinities van de Resource Manager-bevat. Wanneer u een submap opgeeft, zorg ervoor dat u de schuine streep in het mappad.
 
         ![Opslagplaatsen gebied](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
 6. Selecteer **Opslaan**.

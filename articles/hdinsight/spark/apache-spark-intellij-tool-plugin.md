@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: maxluk
-ms.openlocfilehash: 272ec7298785128caebd850dc488ca01937a3960
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8fa3cd79011ab31349ec44edf52b8fd9048d0d37
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548504"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077969"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Azure Toolkit voor IntelliJ gebruiken voor het maken van Apache Spark-toepassingen voor een HDInsight-cluster
 
@@ -57,10 +57,10 @@ Voer de volgende stappen uit om de Scala-invoegtoepassing te installeren:
 3. Selecteer **Spark Project (Scala)** in het hoofdvenster.
 
 4. Selecteer in de vervolgkeuzelijst **Build tool** een van de volgende opties:
-      * **Maven**, voor de ondersteuning van de wizard Scala-project maken.
-      * **SBT**, voor het beheren van de afhankelijkheden en het maken van het Scala-project.
+   * **Maven**, voor de ondersteuning van de wizard Scala-project maken.
+   * **SBT**, voor het beheren van de afhankelijkheden en het maken van het Scala-project.
 
-    ![Het dialoogvenster Nieuw project](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
+     ![Het dialoogvenster Nieuw project](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 
 5. Selecteer **Volgende**.
 

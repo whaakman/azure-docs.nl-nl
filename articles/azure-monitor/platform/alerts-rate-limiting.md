@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 3/12/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: cb70dd30d2c3218ac0ad6ef4bd7b71108845f8cb
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 11fd6a2c58671cc5d0bcf0593239eb9e62aca834
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476441"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109488"
 ---
 # <a name="rate-limiting-for-voice-sms-emails-azure-app-push-notifications-and-webhook-posts"></a>Frequentielimieten instellen voor spraak-, SMS, e-mailberichten, Azure-App pushmeldingen te verzenden en webhook-berichten
 Frequentielimiet is een onderbreking van de meldingen die wordt uitgevoerd wanneer er te veel worden verzonden naar een bepaald telefoonnummer, e-mailadres of apparaat. Gelden enkele beperkingen zorgt ervoor dat er waarschuwingen beheerbare en bruikbare zijn.
 
 De maximale snelheid drempelwaarden zijn:
 
- - **SMS**: Niet meer dan 1 SMS om de 5 minuten.
- - **Stem**: Spraakoproep om de 5 minuten niet meer dan 1.
- - **e-mailbericht**: Niet meer dan 100 e-mailberichten in een uur.
+- **SMS**: Niet meer dan 1 SMS om de 5 minuten.
+- **Stem**: Spraakoproep om de 5 minuten niet meer dan 1.
+- **e-mailbericht**: Niet meer dan 100 e-mailberichten in een uur.
  
- Andere acties zijn niet snelheidsbeperking van toepassing.
+  Andere acties zijn niet snelheidsbeperking van toepassing.
 
 ## <a name="rate-limit-rules"></a>Regels voor snelheid
 - Een bepaalde telefoonnummer of e-mailbericht is snelheidsbeperking van toepassing wanneer wordt ontvangen van berichten die meer dan de drempelwaarde is toegestaan.

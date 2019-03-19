@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/09/2019
 ms.author: juliako;
-ms.openlocfilehash: eee0d5365c515f8a7764b9d5636ae3d1b34cb934
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: a0d6eb67c255a40856683c8a5c47c1e1e9f6753e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240844"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837793"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Redigeer gezichten met Azure Media Analytics 
 ## <a name="overview"></a>Overzicht
@@ -41,10 +41,10 @@ Dit resulteert in een geredigeerde mp4 automatisch zonder handmatige invoer.
 | Uitvoerasset |foo_redacted.mp4 |Video met betrekking tot toegepast |
 
 #### <a name="input-example"></a>Voorbeeld van invoer:
-[Bekijk deze video](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4)
+[Bekijk deze video](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4)
 
 #### <a name="output-example"></a>Voorbeeld van uitvoer:
-[Bekijk deze video](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc6608001-e5da-429b-9ec8-d69d8f3bfc79%2Fdance_redacted.mp4)
+[Bekijk deze video](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc6608001-e5da-429b-9ec8-d69d8f3bfc79%2Fdance_redacted.mp4)
 
 ### <a name="analyze-mode"></a>Modus analyseren
 De **analyseren** pass van de werkstroom twee keer een video-invoer en produceert een JSON-bestand van de face-locaties en jpg-afbeeldingen voor elk gezicht gedetecteerd.
@@ -125,7 +125,7 @@ De uitvoer van de pas analyseren omvat niet de oorspronkelijke video. De video m
 #### <a name="example-output"></a>Voorbeeld van uitvoer
 Dit is de uitvoer van een IDList met één ID geselecteerd.
 
-[Bekijk deze video](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
+[Bekijk deze video](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
 
 Voorbeeld foo_IDList.txt
  
@@ -373,5 +373,5 @@ namespace FaceRedaction
 ## <a name="related-links"></a>Verwante koppelingen
 [Azure Media Services Analytics-overzicht](media-services-analytics-overview.md)
 
-[Azure Media Analytics-demo 's](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure Media Analytics-demo 's](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

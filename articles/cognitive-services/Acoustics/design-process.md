@@ -1,7 +1,7 @@
 ---
-title: Overzicht van het ontwerp voor Project akoestische
+title: Ontwerpconcepten met akoestische simulatie
 titlesuffix: Azure Cognitive Services
-description: Dit document wordt beschreven hoe u de bedoeling van uw ontwerp in alle drie fasen van de werkstroom Project akoestische express.
+description: In dit overzicht wordt uitgelegd hoe Project akoestische akoestische simulatie aan het proces goed ontwerp omvat.
 services: cognitive-services
 author: kegodin
 manager: nitinme
@@ -10,87 +10,56 @@ ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: bb5f309a96feac2caea85fbe81b7216eecfc4b79
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: dd27b660dfdd1f4bcec89291b10fd87750ad4c49
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873934"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136153"
 ---
-# <a name="design-process-overview"></a>Overzicht van het ontwerp
-U kunt de bedoeling van uw ontwerp in alle drie fasen van de werkstroom Project akoestische express: vooraf verdient scène setup, gezonde bron plaatsing en na bake ontwerp. Het proces vereist minder markeringen die zijn gekoppeld aan volumes weerklank behoudt designer bepalen hoe een scène geluiden plaatsen.
+# <a name="project-acoustics-design-process-concepts"></a>Project akoestische ontwerpconcepten proces
 
-## <a name="pre-bake-design"></a>Ontwerp vooraf maken
-Het installatieproces vooraf bake scène produceert de scène en metagegevens die worden gebruikt voor de simulatie geluid wave, waaronder te selecteren welke elementen van de scène wordt opgenomen in de simulatie occlusions, weerspiegeling en weerklank opgeven. De metagegevens van de scène is de selectie van akoestische materialen voor elk element in de scène. Het akoestisch materiaal beheren geluid energieverbruik weergegeven van elke surface.
+In dit overzicht wordt uitgelegd hoe Project akoestische fysieke akoestische simulatie opgenomen in het proces goed ontwerp.
 
-De standaard opname coëfficiënt voor alle oppervlakken is 0,04, sterk reflecteert. U kunt fraaie uiterlijk en spelen effecten bereiken door het afstemmen van de coëfficiënten voor opname van verschillende materialen in de scène, die met name belangrijk naar listeners zijn wanneer ze de overgang van het ene gebied van de scène naar een andere horen. Bijvoorbeeld, verbetert overstappen van een donkere reverberant kamer naar een heldere, niet-reverberant outdoor scène de impact van de overgang. Als u wilt dit resultaat te bereiken, de coëfficiënten voor opname in het materiaal outdoor scène hogere af te stemmen.
+## <a name="sound-design-with-audio-dsp-parameters"></a>Goed ontwerp met audio DSP-parameters
 
-De tijd weerklank van een bepaald materiaal in een kamer is omgekeerd gerelateerd aan de coëfficiënt opname met de meeste materiaal met waarden voor opname in het bereik 0,01-0.20. Materialen met opname coëfficiënten buiten dit bereik zijn zeer absorberend.
+3D-interactieve titels bereiken hun bepaald geluid met behulp van digitale audiosignaal (DSP) blokken die worden gehost in een audio-engine verwerkt. Het bereik van deze blokken in complexiteit van eenvoudig mengen weerklank, echo, vertraging, egalisatievoorziening, compressie en beperken, en andere effecten. Te selecteren, rangschikken en parameters instellen op deze effecten is de verantwoordelijkheid van de ontwerpfunctie voor geluid, die een audio-grafiek die de fraaie uiterlijk en spelen doelstellingen van de ervaring realiseert is gebaseerd.
 
-![Het diagram met de weerklank](media/ReverbTimeGraph.png)
+In de titel van een interactieve, zoals de geluiden en listener in de 3D-ruimte verplaatsen, hoe deze parameters aanpassen aan veranderende omstandigheden? De ontwerpfunctie voor geluid regelt vaak de volumes in de ruimte die zijn geprogrammeerd om Parameterwijzigingen in de voor het bereiken van wijzigingen in weerklank effecten, bijvoorbeeld of duck geluiden in de combinatie als u de listener van een deel van de scène worden verplaatst naar een andere activeren. Akoestische systemen zijn ook beschikbaar die kunt automatiseren, sommige van deze gevolgen.
 
-De [bake UI doorlopen](bake-ui-walkthrough.md) worden de vooraf bake besturingselementen in detail beschreven.
+3D-titels gebruiken verlichtings en kinematische physics systemen die zijn physics gemotiveerd, maar designer wordt aangepast aan het realiseren van een combinatie van doelstellingen onderdompeling en spelen. Een visuele ontwerper afzonderlijke pixelwaarden niet worden ingesteld, maar in plaats daarvan wordt aangepast 3D-modellen, materialen en lichte transport systemen die alle fysiek zijn gebaseerd op de handel visuele aspecten van vormgeving en CPU-kosten. Wat is het equivalent proces voor audio? Project akoestische is een eerste stap bij de verkenning van deze vraag. Eerst bespreken we u wat het betekent om over te brengen akoestische energie tot en met een spatie.
 
-## <a name="sound-source-placement"></a>Plaatsing van geluid bron
-Voxels en test weergeven tijdens runtime kan helpen bij het opsporen van problemen met geluid bronnen binnen de geometrie voxelized wordt vastgelopen. Het raster voxel en test met punten weergegeven, klikt u op het bijbehorende selectievakje in het menu Gizmos in de rechterbovenhoek van de scène-weergave. Als de bron-geluid is binnen een muur voxel, kunt u deze in een voxel lucht verplaatsen.
+![weerklank zones](media/reverb-zones-altspace.png)
 
-![Gizmos Menu](media/GizmosMenu.png)  
+## <a name="impulse-responses-acoustically-connecting-two-points-in-space"></a>Impuls antwoorden: Acoustically verbindingspunten twee in de ruimte
 
-De weergave voxel kunt u eenvoudiger bepalen als visuele onderdelen in de game een transformatie is toegepast om ze te hebben. Als dit het geval is, de dezelfde transformatie toepassen op de GameObject die als host fungeert de **akoestische Manager**.
+Als u bekend met audio ontwerp bent, is het mogelijk dat u bekend bent met akoestische impuls antwoorden. Een akoestisch impuls antwoord als model voor het transport van een geluid van een bron aan een listener. Een antwoord impuls kan daarom elke interessante effect van ruimte akoestische zoals bedekking en weerklank vastleggen. Impuls antwoorden zijn ook bepaalde eigenschappen van de krachtige waarmee audio DSP-effecten te schalen. Twee audio signalen samen te voegen en te verwerken met een antwoord impuls geeft hetzelfde resultaat als het antwoord impuls afzonderlijk op elke signaal toepassen en de resultaten toe te voegen. Akoestische doorgifte en impuls antwoorden ook niet afhankelijk zijn van de audio wordt verwerkt, alleen op de scène worden gemodelleerd, en de bron- en -listener-locaties. Kort gezegd, zet een impuls antwoord van de scène effect op geluid doorgifte.
 
-### <a name="voxel-size-discrepancies"></a>Voxel grootte verschillen
-U merkt u wellicht dat de grootte van de voxels gebruikt om te illustreren die van de scène netten deelnemen aan het akoestische bake anders in de ontwerp- en tijdens runtime weergaven is. Dit verschil heeft geen invloed op de kwaliteit/granulatie van de frequentie van de geselecteerde simulatie, maar in plaats daarvan een biproduct over het gebruik van de runtime van de scène voxelized is. Tijdens runtime worden de simulatie voxels "verfijnd' voor de ondersteuning van de interpolatie tussen de bron. Hierdoor kunnen ook ontwerp tijd positionering van geluid bronnen dichter naar het scène-netten dan is toegestaan door de grootte van de simulatie voxel – omdat bronnen binnen een voxel die een acoustically behandeld mesh bevatten geen geluid maakt.
+Een antwoord impuls vastgelegd elke interessante ruimte akoestische effect, en we kunnen toepassen op audio efficiënt met een filter en we impuls antwoorden krijgen van de meting of -simulatie. Maar wat gebeurt er als we niet helemaal wilt de akoestische precies de physics, maar in plaats van zich zodat het overeenkomt met de emotionele eisen van een scène? Maar veel, pixelwaarden, zoals een reactie impuls alleen een lijst met duizenden getallen is, hoe kunnen we mogelijk aanpassen te voldoen aan aesthetic? En wat gebeurt er als we willen dat van bedekking/obstakel varieert soepel tijdens het doorgeven via inbegrepen of achter obstakels, hoeveel impuls antwoorden moeten we een goede effect ophalen? Wat gebeurt er als de bron verplaatst snel? Hoe interpoleren we?
 
-Hier volgen twee afbeeldingen is het verschil tussen voxels ontwerp (vooraf bake) en runtime (na bake) voxels weergegeven als gevisualiseerd door de Unity-invoegtoepassing:
+Je zou denken lastig te simulatie en impuls antwoorden voor sommige aspecten van akoestische in interactieve titels gebruiken. Maar we kunnen nog steeds een audio-transport-systeem die ondersteuning biedt voor designer aanpassingen als we verbinding onze impuls antwoorden van simulatie met parameters van onze vertrouwde audio DSP-effect maken kunnen gebruikmaken.
 
-Tijd voxels ontwerpen:
+## <a name="connecting-simulation-to-audio-dsp-with-parameters"></a>Simulatie verbinden met audio DSP met parameters
 
-![VoxelsDesignTime](media/VoxelsDesignTime.png)
+Een antwoord impuls bevat elke interessante (en elke oninteressant) akoestische effect. Audio DSP-blokken, kunnen wanneer de bijbehorende parameters juist zijn ingesteld interessante akoestische effect renderen. Met behulp van akoestische simulatie op het station van een audio DSP-blok voor het automatiseren van audio transport in een 3D-scènes is slechts een kwestie van het meten van de audio DSP-parameters van een antwoord impuls. Deze meting is heel goed te begrijpen voor bepaalde veelgebruikte en belangrijke Akoestische effecten met inbegrip van bedekking, obstakel portalling en weerklank.
 
-Runtime-voxels:
+Maar als de simulatie rechtstreeks is verbonden met de audio DSP-parameters, waar de ontwerpfunctie aanpassing is? Wat er krijgen? Goed, krijgen we een aanzienlijke hoeveelheid geheugen terug door impuls antwoorden verwijderd en behouden van een aantal DSP-parameters. En om te geven de ontwerpfunctie wat stroom via het uiteindelijke resultaat, moet er alleen een manier om in te voegen van de ontwerpfunctie tussen de simulatie en de audio DSP gevonden.
 
-![VoxelsRuntime](media/VoxelsRuntime.png)
+![impuls antwoord parameters](media/acoustic-parameters.png)
 
-De beslissing over de wel of niet het net voxel nauwkeurige weergave is van de architectuur/structurele scène netten moet worden gemaakt met behulp van het ontwerp modus voxels, niet de runtime-visualisatie van de verfijnde voxels.
+## <a name="sound-design-by-transforming-audio-dsp-parameters-from-simulation"></a>Goed ontwerp door audio DSP-parameters van de simulatie transformeren
 
-## <a name="post-bake-design"></a>Na het maken van ontwerp
-Bake resultaten worden opgeslagen in het bestand ACE als bedekking en weerklank parameters voor alle bron-listener locatie sets in de scène. Deze fysiek accuraat resultaat kan worden gebruikt voor het project als- en een goed startpunt voor het ontwerpen van is. Het ontwerpproces voor na bake Hiermee geeft u regels voor het transformeren van de parameters van het resultaat bake tijdens runtime.
+Houd rekening met het effect van uw zonnebril in uw weergave van de hele wereld. Op een dag een heldere, kunnen de bril de schijnen om iets gemakkelijker te verminderen. In een donkere ruimte, u mogelijk niet iets helemaal te zien. De bril instellen een bepaalde mate van helderheid in alle gevallen; niet ze maken alleen alles donkerder.
 
-### <a name="distance-based-attenuation"></a>Op basis van afstand afname
-De audio DSP geleverd door de **Microsoft Acoustics** ruimtelijk-invoegtoepassing voor Unity respecteert de per-source afstand gebaseerde afname ingebouwd in de Unity-Editor. Besturingselementen voor afname op basis van afstand zijn de **Audio bron** onderdeel gevonden de **Inspector** Configuratiescherm van geluid gegevensbronnen onder **3D-geluidsinstellingen**:
+Als we simulatie gebruiken om onze audio DSP met behulp van bedekking en weerklank parameters te stimuleren, kunnen we een filter toevoegen na de simulator om aan te passen van de parameters die door de DSP ''. Het filter wouldn't dwingen een bepaalde mate van bedekking of weerklank tail lengte, veel zoals zonnebril niet je elke ruimte dezelfde helderheid. Het filter kan elke occluder occlude kleiner maken. Of occlude meer. Door toe te voegen en één 'verdonkerend' bedekking parameter filter aan te passen, zou grote, open ruimten nog steeds weinig tot geen bedekking effect hebben, terwijl inbegrepen uit een medium een sterke bedekking effect, optrekken zou behoudt de vloeiend van kracht overgangen dat de simulatie biedt.
 
-![Afstand afname](media/distanceattenuation.png)
+In dit paradigma wijzigingen in de ontwerpfunctie van taken van akoestische parameters voor elke situatie te selecteren en aanpassen filters toe te passen op de belangrijkste DSP-parameters die afkomstig zijn van de simulatie te kiezen. Deze benadrukt activiteiten van de ontwerpfunctie van de kleine problemen van het instellen van een soepele overgang naar de hogere betrekking heeft op van de intensiteit van bedekking en weerklank effecten en de aanwezigheid van bronnen in de combinatie. Wanneer de situatie is vereist, moet één filter altijd beschikbaar is natuurlijk gewoon terugkeren naar het kiezen van de DSP-parameters voor een specifieke bron in een specifieke situatie.
 
-Akoestische uitvoeren berekening in een "regio simulatie" gecentreerd rond de player-locatie. Als een goede bron ver van de speler is, buiten deze regio simulatie beïnvloedt alleen geometrie in het vak de geluid doorgifte (zoals waardoor bedekking) die redelijk goed werkt wanneer occluders zijn in de buurt van de speler. Echter, in gevallen wanneer de speler in de open ruimte is, maar de occluders in de buurt van de verafgelegen geluid bron zijn, het geluid kunt worden onrealistisch disoccluded. Onze voorgestelde tijdelijke oplossing is om in dergelijke gevallen ervoor te zorgen dat het geluid afname uit op 0 bij ongeveer 45 m, de standaard horizontale afstand van de speler aan de rand van het vak valt.
+## <a name="sound-design-in-project-acoustics"></a>Goed ontwerp in Project akoestische
 
-### <a name="tuning-scene-parameters"></a>Scène-parameters afstemmen
-Als u wilt aanpassen parameters voor alle bronnen, klikt u op de strook kanaal in van Unity **Audio Mixer**, en pas de parameters op de **Project akoestische Mixer** effect.
+Het Project akoestische-pakket is geïntegreerd in elk van de hierboven beschreven onderdelen: een simulator, een coderingsprogramma parameters worden uitgepakt en de asset akoestische, audio-DSP en een selectie van filters is gebaseerd. Goed ontwerp met Project akoestische omvat kiezen parameters voor de filters die pas de parameters bedekking en weerklank afgeleid van simulatie en toegepast op de audio-DSP met dynamische besturingselementen weergegeven in de game-editor en de audio-engine.
 
-![Aanpassing van Mixer](media/MixerParameters.png)
-
-* **Wetness aanpassen** -de kracht weerklank in dB worden aangepast voor alle bronnen in de scène op basis van de bron-listener afstand. Positieve waarden moeten een geluid meer reverberant, terwijl u negatieve waarden van een geluid meer droge.
-* **Schaal RT60** - Multiplicatieve scalaire weerklank tijd.
-* **Schuif gebruiken** -besturingselementen of audio wordt uitgevoerd als binaural (0) of meerdere kanalen pannen (1). Een willekeurige waarde behalve 1 geeft aan binaural. Binaural uitvoer is spatialized met HRTFs voor gebruik met hoofdtelefoon en meerdere kanalen uitvoer is spatialized met VBAP voor gebruik met meerdere kanalen omgeef spreker systemen. Als u met behulp van de Multikanaal panner ervoor dat u selecteert de luidsprekermodus die overeenkomt met uw instellingen voor apparaten, te vinden onder **projectinstellingen** > **Audio**.
-
-![SpeakerMode](media/SpeakerMode.png)
-
-### <a name="tuning-source-parameters"></a>Bron parameters afstemmen
-Bezig met koppelen van de **AcousticsAdjust** script naar een gegevensbron kunt afstemmen parameters voor die bron. Als u wilt koppelen het script, klikt u op **onderdeel toevoegen** aan de onderkant van de **Inspector** deelvenster en vervolgens naar **Scripts > akoestische aanpassen**. Het script heeft zes besturingselementen:
-
-![AcousticsAdjust](media/AcousticsAdjust.png)
-
-* **Inschakelen van akoestische** -bepaalt of akoestische is toegepast op deze gegevensbron. Wanneer dit selectievakje uitschakelt, wordt de bron worden spatialized met HRTFs of pannen, maar er is geen akoestische. Dit betekent dat er geen obstakel, bedekking en dynamische weerklank parameters zoals niveau en decay tijd. Weerklank wordt nog steeds toegepast met een vaste niveau en de vervaltijd.
-* **Bedekking** -een vermenigvuldiger van toepassing op het niveau van de bedekking dB berekend door het systeem akoestische. Als deze vermenigvuldiger groter dan 1 is, bedekking wordt exaggerated, terwijl waarden minder dan 1 maken het effect van bedekking subtielere en een waarde van 0 schakelt bedekking.
-* **Overdracht (dB)** -de afname (in de database) veroorzaakt door een overdracht via geometrie instellen. Deze schuifregelaar ingesteld op het laagste niveau om uit te schakelen verzending. Akoestische spatializes de initiële droge audio als binnenkomen rond scène geometrie (portaling). Verzending biedt een extra droge aankomst die in de richting van de regel van zicht is spatialized. Houd er rekening mee dat de curve afstand afname van de bron ook wordt toegepast.
-* **Wetness (dB)** -de kracht weerklank in dB worden aangepast op basis van de afstand tussen de bron. Positieve waarden moeten een geluid meer reverberant, terwijl u negatieve waarden van een geluid meer droge. Klik op het besturingselement met de curve (groene lijn) om de curve-editor. Wijzigen van de curve door te klikken met de linkermuisknop om toe te voegen punten en sleept deze punten om de functie die u wilt. De x-as is afstand van de bron en de y-as is weerklank aanpassing in dB. Zie voor meer informatie over het bewerken van curven [Unity handmatig](https://docs.unity3d.com/Manual/EditingCurves.html). Als u wilt opnieuw met het instellen van de curve naar de standaard, klik met de rechtermuisknop op **Wetness** en selecteer **opnieuw**.
-* **Verval schaal** -Hiermee past u een vermenigvuldiger voor de vervaltijd. Bijvoorbeeld, als het resultaat bake Hiermee geeft u een Vervaltijd van 750 milliseconden, maar deze waarde is ingesteld op 1.5, is de vervaltijd toegepast op de bron 1,125 milliseconden.
-* **Outdoorness** -een-additieve aanpassing op van het systeem akoestische schatting van hoe "buitenshuis' de weerklank op een bron moet geluid. Deze waarde instelt op 1 maakt een bron altijd goed volledig buitenmilieu, terwijl deze wordt ingesteld op -1 wordt een bron geluid binnen.
-
-Verschillende bronnen mogelijk verschillende instellingen voor een bepaalde effecten fraaie uiterlijk of spelen. Dialoogvenster is een mogelijke voorbeeld. Het menselijke oor is meer attuned naar weerklank in spraak, terwijl dialoogvenster moet vaak worden begrijpelijke voor spelen. U kunt voor dit account zonder dat het dialoogvenster niet-diegetic door over te stappen de **Wetness** naar beneden, passen de **perceptuele afstand verdraaien** parameter hieronder wordt beschreven, toe te voegen sommige  **Verzending** voor sommige droge audio boost doorgegeven door de muren en/of vermindering van de **bedekking** van 1 tot en met meer geluid binnenkomen via portals hebben.
-
-Bezig met koppelen van de **AcousticsAdjustExperimental** script naar een bron zorgt ervoor dat extra parameters voor experimentele afstemmen voor die bron. Als u wilt koppelen het script, klikt u op **onderdeel toevoegen** aan de onderkant van de **Inspector** deelvenster en vervolgens naar **Scripts > akoestische aanpassen experimentele**. Er is momenteel een experimenteel besturingselement:
-
-![AcousticsAdjustExperimental](media/AcousticsAdjustExperimental.png)
-
-* **Perceptuele afstand verdraaien** -toepassing een exponentiële kromtrekken aan de afstand wordt gebruikt voor het berekenen van de testmodus NAT-verhouding. Het systeem akoestische berekent NAT niveaus in de ruimte die variëren probleemloos met afstand en perceptuele afstand aanwijzingen geven. Dit effect exaggerate afbeeldingsvervormingen waarden groter dan 1 door te verhogen met betrekking tot afstand weerklank niveaus, waardoor het geluid "afstand". Kromtrekken waarden minder dan 1 maken de weerklank op basis van afstand meer subtiele, en het geluid meer "aanwezig' wijzigen.
+## <a name="next-steps"></a>Volgende stappen
+* Probeer uit het ontwerp paradigma met behulp van de [Project akoestische quickstart voor Unity](unity-quickstart.md) of de [Project akoestische quickstart voor Unreal](unreal-quickstart.md)
+* Verken de [Project akoestische besturingselementen voor Unity ontwerpen](unity-workflow.md) of de [Project akoestische besturingselementen voor Unreal ontwerpen](unreal-workflow.md)
 

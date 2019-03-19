@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 82738d6d97dc2c14c83ed483c4a1d76604d0cd91
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 743b4d4888738579a023e879dc7b6e95cd23ccc7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545313"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994375"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>Maak een Conversatiecursist-model met behulp van Node.js
 
@@ -78,35 +78,35 @@ Conversatiecursist project bestaat uit een SDK die u toevoegt aan uw bot, en een
 
     Hiermee wordt de algemene leeg bot uitgevoerd `cl-bot-01/src/app.ts`.
 
-3. Open de browser naar http://localhost:3978
+3. Open de browser naar `http://localhost:3978`
 
 U bent nu met Conversatiecursist kunt en maken en een model Conversatiecursist leren.  
 
 > [!NOTE]
-> Conversatiecursist Project is starten, beschikbaar op uitnodiging.  Als http://localhost:3978/ui ziet u een HTTP `403` fout, dit betekent dat uw account is niet uitgenodigd.  Neem [een uitnodiging](https://aka.ms/conversation-learner-request-invite).
+> Conversatiecursist Project is starten, beschikbaar op uitnodiging.  Als `http://localhost:3978/ui` ziet u een HTTP `403` fout, dit betekent dat uw account is niet uitgenodigd.  Neem [een uitnodiging](https://aka.ms/conversation-learner-request-invite).
 
 ## <a name="tutorials-demos-and-switching-between-bots"></a>Zelfstudies, demo's en schakelen tussen bots
 
 De bovenstaande instructies aan de slag met de algemene leeg bot.  Een zelfstudie uitvoeren of bot in plaats daarvan demo:
 
-1. Als u de Conversatiecursist web UI openen hebt, terug naar de lijst met modellen in de http://localhost:3978/ui/home.
+1. Als u de Conversatiecursist web UI openen hebt, terug naar de lijst met modellen in de `http://localhost:3978/ui/home`.
     
 2. Als een andere bot wordt uitgevoerd (zoals `npm start` of `npm run demo-pizza`), stopt.  U hoeft niet te stoppen van de gebruikersinterface of de webbrowser sluiten.
 
 3. Een demo-bot uitvoeren vanaf de opdrachtregel (stap 2 hierboven).  Demo's zijn onder andere:
 
-  ```bash
-  npm run tutorial-general
-  npm run tutorial-entity-detection
-  npm run tutorial-session-callbacks
-  npm run tutorial-api-calls
-  npm run tutorial-hybrid
-  npm run demo-password
-  npm run demo-pizza
-  npm run demo-storage
-  ```
+   ```bash
+   npm run tutorial-general
+   npm run tutorial-entity-detection
+   npm run tutorial-session-callbacks
+   npm run tutorial-api-calls
+   npm run tutorial-hybrid
+   npm run demo-password
+   npm run demo-pizza
+   npm run demo-storage
+   ```
 
-4. Als u nog niet bent, Ga naar de Conversatiecursist-webgebruikersinterface in Chrome met het laden van http://localhost:3978/ui/home. 
+4. Als u nog niet bent, Ga naar de Conversatiecursist-webgebruikersinterface in Chrome met het laden van `http://localhost:3978/ui/home`. 
 
 5. Klik op "Zelfstudies importeren" en selecteer de demo-model in de gebruikersinterface van de conversatie-Learner die overeenkomt met de demo die u aan de slag.
 
@@ -114,7 +114,7 @@ Bronbestanden voor de demo's staan in `cl-bot-01/src/demos`
 
 ## <a name="create-a-bot-which-includes-back-end-code"></a>Maken van een bot waaronder back-end-code
 
-1. Als u de Conversatiecursist web UI openen hebt, terug naar de lijst met modellen in de http://localhost:3978/ui/home.
+1. Als u de Conversatiecursist web UI openen hebt, terug naar de lijst met modellen in de `http://localhost:3978/ui/home`.
     
 2. Als een bot wordt uitgevoerd (zoals `npm run demo-pizza`), stopt.  U hoeft niet te stoppen van de gebruikersinterface of de webbrowser sluiten.
 
@@ -127,7 +127,7 @@ Bronbestanden voor de demo's staan in `cl-bot-01/src/demos`
     npm start
     ```
 
-5. Als u nog niet bent, Ga naar de Conversatiecursist-webgebruikersinterface in Chrome met het laden van http://localhost:3978/ui/home. 
+5. Als u nog niet bent, Ga naar de Conversatiecursist-webgebruikersinterface in Chrome met het laden van `http://localhost:3978/ui/home`. 
 
 6. Een nieuw Conversatiecursist-model maken in de gebruikersinterface en onderwijs start.
 

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: 8b47d57d21043de97e17b256a39ef88d73fbb1c1
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 64e3cbd082f2d18668dff87fbec098add73ffda6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54197604"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58010077"
 ---
 # <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>De geografische verkeersrouteringsmethode met Traffic Manager configureren
 
@@ -23,7 +23,7 @@ De geografische verkeersrouteringsmethode kunt u verkeer naar specifieke eindpun
 
 ## <a name="create-a-traffic-manager-profile"></a>Een Traffic Manager-profiel maken
 
-1. Meld u vanuit een browser aan bij [Azure Portal](http://portal.azure.com). Als u nog geen account hebt, kunt u zich registreren voor een [gratis proefversie van één maand](https://azure.microsoft.com/free/).
+1. Meld u vanuit een browser aan bij [Azure Portal](https://portal.azure.com). Als u nog geen account hebt, kunt u zich registreren voor een [gratis proefversie van één maand](https://azure.microsoft.com/free/).
 2. Klik op **Een resource maken** > **Netwerken** > **Traffic Manager-profiel** > **Maken**.
 4. In de **Traffic Manager-profiel**:
     1. Geef een naam voor uw profiel. Deze naam moet uniek zijn binnen de zone trafficmanager.net. Voor toegang tot uw Traffic Manager-profiel, gebruikt u de DNS-naam <profilename>. trafficmanager.net.

@@ -9,12 +9,12 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: c1343326b6db18608eb6a8994957d560124116ce
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 23275bc639b445b55cafb72c929514541ba00660
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450699"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105944"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Verbinding maken met een Node.js Mongoose-toepassing met Azure Cosmos DB
 
@@ -49,15 +49,15 @@ Laten we een Cosmos-account maken. Als u al een account dat u wilt gebruiken, ku
 
 1. Voeg een nieuw bestand toe aan de map en noem het ```index.js```.
 1. Installeer de vereiste pakketten met een van de ```npm install```-opties:
-    * Mongoose: ```npm install mongoose@5 --save```
+   * Mongoose: ```npm install mongoose@5 --save```
 
-    > [!Note]
-    > De onderstaande Mongoose voorbeeld van de verbinding is gebaseerd op Mongoose 5 +, die is gewijzigd sinds de eerdere versies.
+     > [!Note]
+     > De onderstaande Mongoose voorbeeld van de verbinding is gebaseerd op Mongoose 5 +, die is gewijzigd sinds de eerdere versies.
     
-    * Dotenv (als u uw geheimen wilt laden uit een .env-bestand): ```npm install dotenv --save```
+   * Dotenv (als u uw geheimen wilt laden uit een .env-bestand): ```npm install dotenv --save```
 
-    >[!Note]
-    > Met de ```--save```-markering wordt de afhankelijkheid toegevoegd aan het package.json-bestand.
+     >[!Note]
+     > Met de ```--save```-markering wordt de afhankelijkheid toegevoegd aan het package.json-bestand.
 
 1. Importeer de afhankelijkheden in uw index.js-bestand.
     ```JavaScript
@@ -161,25 +161,25 @@ Standaard maakt Mongoose telkens wanneer u een objectmodel maakt een MongoDB-ver
     ```
 
 1. We gaan nu een ander schema en object maken. Deze keer maken we er een voor 'Vacation Destinations' waarin de 'families' mogelijk geïnteresseerd in zijn.
-    1. Net als de laatste keer maken we het schema
-    ```JavaScript
-    const VacationDestinations = mongoose.model('VacationDestinations', new mongoose.Schema({
-        name: String,
-        country: String
-    }));
-    ```
+   1. Net als de laatste keer maken we het schema
+      ```JavaScript
+      const VacationDestinations = mongoose.model('VacationDestinations', new mongoose.Schema({
+       name: String,
+       country: String
+      }));
+      ```
 
-    1. Maak een voorbeeldobject (u kunt meerdere objecten toevoegen aan dit schema) en sla het op.
-    ```JavaScript
-    const vacaySpot = new VacationDestinations({
-        name: "Honolulu",
-        country: "USA"
-    });
+   1. Maak een voorbeeldobject (u kunt meerdere objecten toevoegen aan dit schema) en sla het op.
+      ```JavaScript
+      const vacaySpot = new VacationDestinations({
+       name: "Honolulu",
+       country: "USA"
+      });
 
-    vacaySpot.save((err, saveVacay) => {
-        console.log(JSON.stringify(saveVacay));
-    });
-    ```
+      vacaySpot.save((err, saveVacay) => {
+       console.log(JSON.stringify(saveVacay));
+      });
+      ```
 
 1. Nu ziet u twee verzamelingen die zijn gemaakt in Cosmos DB in Azure portal gaat.
 
@@ -251,40 +251,40 @@ Hier maken we een basisobjectmodel, definiëren we een onderscheidende sleutel e
     ```
 
 1. Tot slot maken we objecten voor het model en slaan het op.
-    1. We gaan objecten toevoegen aan het model 'Family'.
-    ```JavaScript
-    const family_common = new Family_common({
-        lastName: "Volum",
-        parents: [
-            { firstName: "Thomas" },
-            { firstName: "Mary Kay" }
-        ],
-        children: [
-            { firstName: "Ryan", gender: "male", grade: 8 },
-            { firstName: "Patrick", gender: "male", grade: 7 }
-        ],
-        pets: [
-            { givenName: "Blackie" }
-        ],
-        address: { country: "USA", state: "WA", city: "Seattle" }
-    });
+   1. We gaan objecten toevoegen aan het model 'Family'.
+      ```JavaScript
+      const family_common = new Family_common({
+       lastName: "Volum",
+       parents: [
+           { firstName: "Thomas" },
+           { firstName: "Mary Kay" }
+       ],
+       children: [
+           { firstName: "Ryan", gender: "male", grade: 8 },
+           { firstName: "Patrick", gender: "male", grade: 7 }
+       ],
+       pets: [
+           { givenName: "Blackie" }
+       ],
+       address: { country: "USA", state: "WA", city: "Seattle" }
+      });
 
-    family_common.save((err, saveFamily) => {
-        console.log("Saved: " + JSON.stringify(saveFamily));
-    });
-    ```
+      family_common.save((err, saveFamily) => {
+       console.log("Saved: " + JSON.stringify(saveFamily));
+      });
+      ```
 
-    1. Vervolgens voegen we objecten toe aan het model 'VacationDestinations' en slaan het op.
-    ```JavaScript
-    const vacay_common = new Vacation_common({
-        name: "Honolulu",
-        country: "USA"
-    });
+   1. Vervolgens voegen we objecten toe aan het model 'VacationDestinations' en slaan het op.
+      ```JavaScript
+      const vacay_common = new Vacation_common({
+       name: "Honolulu",
+       country: "USA"
+      });
 
-    vacay_common.save((err, saveVacay) => {
-        console.log("Saved: " + JSON.stringify(saveVacay));
-    });
-    ```
+      vacay_common.save((err, saveVacay) => {
+       console.log("Saved: " + JSON.stringify(saveVacay));
+      });
+      ```
 
 1. Als u nu terug naar Azure Portal gaat, ziet u dat er slechts één verzameling met de naam ```alldata``` met zowel 'Family'- als 'VacationDestinations'-gegevens heeft.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/12/2018
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 9bd5ec3471fc3447d1e29d875c154793daf8e9e5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: ab4aa2f37d5a883c83b8ee09b5de6551ebf13d2e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474027"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995156"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Servicestatusmeldingen bekijken met behulp van Azure portal
 
@@ -60,24 +60,24 @@ Properties.communicationId | De communicatie die aan deze gebeurtenis gekoppeld 
 ### <a name="details-on-service-health-level-information"></a>Meer informatie over service health informatie op het niveau
 
 **Actie vereist** (properties.incidentType == handeling vereist)
-    - Ter informatie - beheerder-actie vereist om te voorkomen dat invloed op bestaande services
+- Ter informatie - beheerder-actie vereist om te voorkomen dat invloed op bestaande services
     
 **Onderhoud** (properties.incidentType onderhoud ==)
-    - Waarschuwing: noodgevallen onderhoud
-    - Ter informatie - standaard gepland onderhoud
+- Waarschuwing: noodgevallen onderhoud
+- Ter informatie - standaard gepland onderhoud
 
 **Informatie** (properties.incidentType == informatie)
-    - Informatief - beheerder mogelijk moet om de gevolgen voor bestaande services
+- Informatief - beheerder mogelijk moet om de gevolgen voor bestaande services
 
 **Beveiliging** (properties.incidentType == beveiliging)
-    - Fout - optie in regio's problemen met toegang tot meerdere services in meerdere regio's van invloed zijn op een breed scala aan klanten.
-    - Waarschuwing - problemen bij toegang tot specifieke services en/of specifieke regio's zijn van invloed op een subset van klanten.
-    - Ter informatie - problemen die invloed hebben op bewerkingen en/of latentie, niet van invloed op beschikbaarheid van de service.
+- Fout - optie in regio's problemen met toegang tot meerdere services in meerdere regio's van invloed zijn op een breed scala aan klanten.
+- Waarschuwing - problemen bij toegang tot specifieke services en/of specifieke regio's zijn van invloed op een subset van klanten.
+- Ter informatie - problemen die invloed hebben op bewerkingen en/of latentie, niet van invloed op beschikbaarheid van de service.
 
 **Problemen met service** (properties.incidentType Incident ==)
-    - Fout - optie in regio's problemen met toegang tot meerdere services in meerdere regio's van invloed zijn op een breed scala aan klanten.
-    - Waarschuwing - problemen bij toegang tot specifieke services en/of specifieke regio's zijn van invloed op een subset van klanten.
-    - Ter informatie - problemen die invloed hebben op bewerkingen en/of latentie, niet van invloed op beschikbaarheid van de service.
+- Fout - optie in regio's problemen met toegang tot meerdere services in meerdere regio's van invloed zijn op een breed scala aan klanten.
+- Waarschuwing - problemen bij toegang tot specifieke services en/of specifieke regio's zijn van invloed op een subset van klanten.
+- Ter informatie - problemen die invloed hebben op bewerkingen en/of latentie, niet van invloed op beschikbaarheid van de service.
 
 
 ## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>Uw servicestatusmeldingen bekijken in Azure portal

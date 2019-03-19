@@ -12,12 +12,12 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b52e08485c5ce853f9c8eafaafd15f137aef10bb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b6f0d25f621768f79e8262f38617152e91692a23
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873442"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838847"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Herstel na noodgevallen voor een multitenant SaaS-toepassing met behulp van de database geo-replicatie
 
@@ -25,14 +25,14 @@ In deze zelfstudie maakt kennis u met een volledige noodherstelscenario voor een
 
 Deze zelfstudie worden de failover en failback-werkstromen. U leert het volgende:
 > [!div class="checklist"]
-
->* Databases en elastische groep configuratie-informatie in de tenantcatalogus synchroniseren
->* Instellen van een omgeving voor herstel in een andere regio op, die bestaat uit de toepassing, servers en toepassingen
->* Gebruik _geo-replicatie_ voor het repliceren van de catalogus en tenant-databases naar de recovery-regio
->* Failover van de toepassing en de catalogus en tenant-databases naar de recovery-regio 
->* Later, failover van de toepassing, -catalogus en tenant-databases terug naar de oorspronkelijke regio nadat de onderbreking is verholpen
->* Catalogus bijwerken als elke tenantdatabase failover wordt uitgevoerd voor het bijhouden van de primaire locatie van de database van elke tenant
->* Zorg ervoor dat de toepassing en de primaire tenant-database altijd in dezelfde Azure-regio te verminderen latentie zijn geplaatst  
+> 
+> * Databases en elastische groep configuratie-informatie in de tenantcatalogus synchroniseren
+> * Instellen van een omgeving voor herstel in een andere regio op, die bestaat uit de toepassing, servers en toepassingen
+> * Gebruik _geo-replicatie_ voor het repliceren van de catalogus en tenant-databases naar de recovery-regio
+> * Failover van de toepassing en de catalogus en tenant-databases naar de recovery-regio 
+> * Later, failover van de toepassing, -catalogus en tenant-databases terug naar de oorspronkelijke regio nadat de onderbreking is verholpen
+> * Catalogus bijwerken als elke tenantdatabase failover wordt uitgevoerd voor het bijhouden van de primaire locatie van de database van elke tenant
+> * Zorg ervoor dat de toepassing en de primaire tenant-database altijd in dezelfde Azure-regio te verminderen latentie zijn geplaatst  
  
 
 Voordat u deze zelfstudie begint, moet dat de volgende vereisten zijn voltooid:
@@ -106,7 +106,7 @@ Voordat u het herstelproces start, controleert u de normale, gezonde status van 
 In deze taak start u een proces dat worden gesynchroniseerd met de configuratie van de servers, elastische pools en databases in de tenantcatalogus. Het proces houdt deze informatie recente in de catalogus.  Het proces werkt met de actieve catalogus in de oorspronkelijke regio of in de herstelregio voor. De configuratie-informatie wordt gebruikt als onderdeel van het herstelproces om ervoor te zorgen betrouwbare omgeving voor het herstel consistent met de oorspronkelijke omgeving is en vervolgens later tijdens repatriëring om te controleren of de oorspronkelijke regio consistent is gemaakt met eventuele wijzigingen in de omgeving voor herstel. De catalogus wordt ook gebruikt voor het bijhouden van de herstelstatus van tenantbronnen
 
 > [!IMPORTANT]
-> Het synchronisatieproces en andere langlopende processen voor herstel en repatriëring voor het gemak zijn geïmplementeerd in deze zelfstudies als lokale Powershell-taken of sessies die worden uitgevoerd onder uw client-gebruikersaanmelding. De verificatietokens afgegeven wanneer u zich hebt aangemeld na enkele uren verloopt en de taken vervolgens mislukt. In een productiescenario voor, moeten de langlopende processen worden geïmplementeerd als betrouwbare Azure-services van een of andere, die wordt uitgevoerd onder een service-principal. Zie [gebruik Azure PowerShell een service-principal maken met een certificaat](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
+> Het synchronisatieproces en andere langlopende processen voor herstel en repatriëring voor het gemak zijn geïmplementeerd in deze zelfstudies als lokale PowerShell-taken of sessies die worden uitgevoerd onder uw client-gebruikersaanmelding. De verificatietokens afgegeven wanneer u zich hebt aangemeld na enkele uren verloopt en de taken vervolgens mislukt. In een productiescenario voor, moeten de langlopende processen worden geïmplementeerd als betrouwbare Azure-services van een of andere, die wordt uitgevoerd onder een service-principal. Zie [gebruik Azure PowerShell een service-principal maken met een certificaat](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
 
 1. In de _PowerShell ISE_, opent u het ...\Learning Modules\UserConfig.psm1-bestand. Vervang `<resourcegroup>` en `<user>` op regels 10 en 11 met de waarde die wordt gebruikt tijdens de implementatie van de app.  Sla het bestand.
 
@@ -199,15 +199,15 @@ Nu is er een storing in de regio waarin de toepassing is geïmplementeerd en voe
 Terwijl het toepassingseindpunt van de is uitgeschakeld in Traffic Manager, wordt de toepassing niet beschikbaar is. Nadat de catalogus is een failover naar de recovery-regio en alle tenants gemarkeerd als offline, is de toepassing weer online. Hoewel de toepassing beschikbaar is, elke tenant wordt als offline weergegeven in de events hub totdat failover van de database wordt uitgevoerd. Het is belangrijk om uw toepassing om af te handelen offline tenantdatabases te ontwerpen.
 
 1. Onmiddellijk nadat de catalogusdatabase is hersteld, vernieuwt u de Wingtip Tickets Events Hub in uw webbrowser.
-    * U ziet dat de naam van de catalogus nu heeft in de voettekst een _-recovery_ achtervoegsel en bevindt zich in de herstelregio voor.
-    * U ziet dat tenants die nog niet zijn hersteld, zijn gemarkeerd als offline, en zijn niet worden geselecteerd.  
+   * U ziet dat de naam van de catalogus nu heeft in de voettekst een _-recovery_ achtervoegsel en bevindt zich in de herstelregio voor.
+   * U ziet dat tenants die nog niet zijn hersteld, zijn gemarkeerd als offline, en zijn niet worden geselecteerd.  
 
-    > [!Note]
-    > Met slechts enkele databases te herstellen, kunnen mogelijk niet de browser vernieuwen voordat het herstel is voltooid, zodat u de tenants niet zien kan terwijl ze offline zijn. 
+     > [!Note]
+     > Met slechts enkele databases te herstellen, kunnen mogelijk niet de browser vernieuwen voordat het herstel is voltooid, zodat u de tenants niet zien kan terwijl ze offline zijn. 
  
-    ![Gebeurtenissen hub offline](media/saas-dbpertenant-dr-geo-replication/events-hub-offlinemode.png) 
+     ![Gebeurtenissen hub offline](media/saas-dbpertenant-dr-geo-replication/events-hub-offlinemode.png) 
 
-    * Als u de pagina van de tenant van een offline-gebeurtenissen rechtstreeks opent, wordt een melding offline tenant. Bijvoorbeeld, als Contoso Concert Hall offline is, probeert te openen http://events.wingtip-dpt.&lt; gebruiker&gt;.trafficmanager.net/contosoconcerthall ![Contoso Offline pagina](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
+   * Als u de pagina van de tenant van een offline-gebeurtenissen rechtstreeks opent, wordt een melding offline tenant. Bijvoorbeeld, als Contoso Concert Hall offline is, probeert te openen http://events.wingtip-dpt.&lt; gebruiker&gt;.trafficmanager.net/contosoconcerthall ![Contoso Offline pagina](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
 
 ### <a name="provision-a-new-tenant-in-the-recovery-region"></a>Een nieuwe tenant in de herstelregio inrichten
 Voordat de bestaande tenantdatabases failover hebt uitgevoerd, kunt u nieuwe tenants in de herstelregio inrichten.  
@@ -236,12 +236,12 @@ Wanneer het herstelproces is voltooid, zijn de toepassing en alle tenants volled
     * U ziet de resourcegroep die u hebt geïmplementeerd, plus de herstel-resourcegroep met de _-recovery_ achtervoegsel.  De resourcegroep van recovery bevat alle resources die zijn gemaakt tijdens het herstelproces en nieuwe resources die zijn gemaakt tijdens de storing.  
 
 3. Open de recovery-resourcegroep en ziet u de volgende items:
-    * De herstel-versies van de catalogus en tenants1-servers, met _-recovery_ achtervoegsel.  De herstelde catalogus en tenant-databases op deze alle servers hebben de namen in de oorspronkelijke regio gebruikt.
+   * De herstel-versies van de catalogus en tenants1-servers, met _-recovery_ achtervoegsel.  De herstelde catalogus en tenant-databases op deze alle servers hebben de namen in de oorspronkelijke regio gebruikt.
 
-    * De _tenants2-dpt -&lt;gebruiker&gt;-recovery_ SQL server.  Deze server wordt gebruikt voor het inrichten van nieuwe tenants gedurende de storing.
-    *   De naam van de App Service, _gebeurtenissen-wingtip-dpt -&lt;recoveryregion&gt;-&lt;gebruiker & gt_; is de herstel-exemplaar van de app. 
+   * De _tenants2-dpt -&lt;gebruiker&gt;-recovery_ SQL server.  Deze server wordt gebruikt voor het inrichten van nieuwe tenants gedurende de storing.
+   * De naam van de App Service, _gebeurtenissen-wingtip-dpt -&lt;recoveryregion&gt;-&lt;gebruiker & gt_; is de herstel-exemplaar van de app. 
 
-    ![Azure recovery-resources](media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png) 
+     ![Azure recovery-resources](media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png) 
     
 4. Open de _tenants2-dpt -&lt;gebruiker&gt;-recovery_ SQL server.  U ziet dat deze de database bevat _hawthornhall_ en de elastische pool _Pool1_.  De _hawthornhall_ database is geconfigureerd als een elastische database in _Pool1_ elastische pool.
 
@@ -305,12 +305,12 @@ Tenant-databases kunnen worden verdeeld over herstel en de oorspronkelijke regio
 
 In deze zelfstudie hebt u het volgende geleerd:
 > [!div class="checklist"]
-
->* Databases en elastische groep configuratie-informatie in de tenantcatalogus synchroniseren
->* Instellen van een omgeving voor herstel in een andere regio op, die bestaat uit de toepassing, servers en toepassingen
->* Gebruik _geo-replicatie_ voor het repliceren van de catalogus en tenant-databases naar de recovery-regio
->* Failover van de toepassing en de catalogus en tenant-databases naar de recovery-regio 
->* Een failback-de toepassing, -catalogus en tenant-databases naar de oorspronkelijke regio na de onderbreking verholpen is
+> 
+> * Databases en elastische groep configuratie-informatie in de tenantcatalogus synchroniseren
+> * Instellen van een omgeving voor herstel in een andere regio op, die bestaat uit de toepassing, servers en toepassingen
+> * Gebruik _geo-replicatie_ voor het repliceren van de catalogus en tenant-databases naar de recovery-regio
+> * Failover van de toepassing en de catalogus en tenant-databases naar de recovery-regio 
+> * Een failback-de toepassing, -catalogus en tenant-databases naar de oorspronkelijke regio na de onderbreking verholpen is
 
 U kunt meer informatie over de technologieën die Azure SQL database biedt om in te schakelen bedrijfscontinuïteit in de [overzicht voor zakelijke continuïteit](sql-database-business-continuity.md) documentatie.
 

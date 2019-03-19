@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bf73708be8a8bc597b70d0cb50fc337efa72906
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 23d829ad9b85b6e7944f6dd534ea7fbb3f92a0d2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211679"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887914"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Statische groepslidmaatschap wijzigen naar een dynamische in Azure Active Directory
 
@@ -33,7 +33,7 @@ U kunt het lidmaatschap van een groep wijzigen van statisch in dynamisch (of omg
 
 ## <a name="change-the-membership-type-for-a-group"></a>Het lidmaatschapstype voor een groep wijzigen
 
-1. Aanmelden bij de [Azure AD-beheercentrum](https://aad.portal.azure.com) met een account dat een globale beheerder of een beheerder van gebruikersaccounts in uw tenant.
+1. Aanmelden bij de [Azure AD-beheercentrum](https://aad.portal.azure.com) met een account dat een globale beheerder of de Gebruikersbeheerder van een in uw tenant.
 2. Selecteer **groepen**.
 3. Uit de **alle groepen** weergeven, opent u de groep die u wilt wijzigen.
 4. Selecteer **eigenschappen**.

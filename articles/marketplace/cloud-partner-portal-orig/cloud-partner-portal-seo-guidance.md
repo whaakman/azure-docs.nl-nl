@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: b8ca5fc5348818a7d0f1075557d4fe5c7e3bef44
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: cacc7c0b269e8006903961049caf3cd7e3bee449
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48809912"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834333"
 ---
 <a name="azure-marketplace-seo-publisher-guide"></a>Voor Azure Marketplace SEO-uitgever
 =======================================
 
 ### <a name="general-explanation-of-algorithm"></a>Algemene uitleg van het algoritme
 
-De marketplace maakt gebruik van Azure Search voor het aansturen van de zoekmogelijkheden van de site. Het algoritme is gebaseerd op termijn frequentie – inverse document frequentie ([TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)). De standaard [Lucene Analyzer](http://lucene.apache.org/core/) wordt gebruikt.
+De marketplace maakt gebruik van Azure Search voor het aansturen van de zoekmogelijkheden van de site. Het algoritme is gebaseerd op termijn frequentie – inverse document frequentie ([TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)). De standaard [Lucene Analyzer](https://lucene.apache.org/core/) wordt gebruikt.
 
 In het algemeen alle tekst velden, categorieën en industrieën en opgenomen in de weightage van de volgorde van relevantie. Vaktermen die zelden worden gebruikt door apps, maar vaak in uw app genereert een hogere score in de overeenkomst met zoeken. Met inbegrip van termen, zoals 'VM' zou weinig voordeel bieden dat 'Azure search' zou worden nog veel meer gespecialiseerd.
 Hieronder vindt u de meest relevante velden om te overwegen.

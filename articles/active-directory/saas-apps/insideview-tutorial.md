@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a315933dcd438c68a1326d2b656c2353e4185f12
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 92cb4f1093d8450bb2c32d99f4ccedd0a5688253
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866790"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58165914"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Zelfstudie: Azure Active Directory-integratie met InsideView
 
@@ -116,7 +116,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     In het tekstvak **Antwoord-URL** typt u een URL met behulp van het volgende patroon: `https://my.insideview.com/iv/<STS Name>/login.iv`
 
     > [!NOTE] 
-    > Deze waarde is niet echt. Deze waarde bijwerken met de werkelijke antwoord-URL. Neem contact op met [InsideView ondersteuningsteam](mailto:support@insideview.com) deze waarde op te halen.
+    > Deze waarde is niet echt. Werk deze waarde bij met de werkelijke antwoord-URL. Neem contact op met [InsideView ondersteuningsteam](mailto:support@insideview.com) deze waarde op te halen.
  
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Raw)** en slaat u het certificaatbestand op uw computer.
 
@@ -191,7 +191,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     d. Klik op **Create**.
  
-### <a name="creating-a-insideview-test-user"></a>Het maken van een testgebruiker InsideView
+### <a name="creating-an-insideview-test-user"></a>Het maken van een testgebruiker InsideView
 
 Om Azure AD-gebruikers zich aanmelden bij InsideView, moeten ze worden ingericht voor InsideView. In het geval van InsideView is inrichten een handmatige taak.
 
@@ -238,7 +238,7 @@ Wanneer u op de tegel InsideView in het toegangsvenster, u moet u automatisch aa
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 <!--Image references-->

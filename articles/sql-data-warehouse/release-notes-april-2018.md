@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 0a6f3551498565f5e5343fe53d373816025d944e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: a9fae37acd653b05502737756baf463188ef631d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472827"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861703"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-april-2018"></a>Wat is er nieuw in Azure SQL Data Warehouse? April 2018
 Azure SQL Data Warehouse ontvangt voortdurend verbeteringen. Dit artikel beschrijft de nieuwe functies en wijzigingen die zijn geïntroduceerd in April 2018.
@@ -72,7 +72,7 @@ Nu u een en ander weet over SQL Data Warehouse, kunt u leren hoe u snel [maken v
 [Teamblogs met adviezen voor klanten]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Succesverhalen van klanten]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [Functieverzoeken]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Stack Overflow-forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Stack Overflow-forum]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Video's]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [create a SQL Data Warehouse]: ./create-data-warehouse-portal.md

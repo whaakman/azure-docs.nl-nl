@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: a9ca626ecf026736617ba495422ed957d03b2b37
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: f062dcfb22dda015d0dab9727672ca90df5ddb4d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414597"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58000889"
 ---
 # <a name="tutorial-create-and-manage-s2s-vpn-connections-using-powershell"></a>Zelfstudie: S2S-VPN-verbindingen maken en beheren met PowerShell
 
@@ -120,7 +120,7 @@ Get-AzVirtualNetworkGatewayConnectionSharedKey `
   -Name $Connection1 -ResourceGroupName $RG1
 ```
 
-De uitvoer zal **Azure@!b2C3** zijn na het bovenstaande voorbeeld. Gebruik de onderstaande opdracht om de waarde van de vooraf gedeelde sleutel te wijzigen naar **Azure@!_b2=C3**:
+Uitvoer van de '**Azure\@! b2C3**' in het bovenstaande voorbeeld te volgen. Gebruik de onderstaande opdracht de waarde van de vooraf gedeelde sleutel te wijzigen '**Azure\@! _b2 = C3**':
 
 ```azurepowershell-interactive
 Set-AzVirtualNetworkGatewayConnectionSharedKey `

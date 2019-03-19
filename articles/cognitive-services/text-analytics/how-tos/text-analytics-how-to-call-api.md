@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 6fedc1b9a6b88419dbcae41b5bb6f89bd8c5cbf7
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 9d0a803f8a397d3c24f083188b6186acf4dde809
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886874"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122872"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Over het aanroepen van de Text Analytics REST-API
 
@@ -58,7 +58,7 @@ De service accepteert aanvragen van maximaal 1 MB in grootte. Als u Postman (of 
    + Plak in het eindpunt dat u hebt gekopieerd uit de portal-pagina.
    + Een resource toevoegen.
 
-  Resource-eindpunt zijn als volgt te werk (uw regio kan verschillen):
+   Resource-eindpunt zijn als volgt te werk (uw regio kan verschillen):
 
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
@@ -71,7 +71,7 @@ De service accepteert aanvragen van maximaal 1 MB in grootte. Als u Postman (of 
    + `Content-Type`: application/json.
    + `Accept`: application/json.
 
-  Uw aanvraag moet eruitzien als op de volgende schermafbeelding, ervan uitgaande dat het een **/keyPhrases** resource.
+   Uw aanvraag moet eruitzien als op de volgende schermafbeelding, ervan uitgaande dat het een **/keyPhrases** resource.
 
    ![Schermafbeelding van de aanvraag met het eindpunt en -koppen](../media/postman-request-keyphrase-1.png)
 
@@ -81,15 +81,15 @@ De service accepteert aanvragen van maximaal 1 MB in grootte. Als u Postman (of 
 
 5. In enkele JSON-documenten in een indeling die geldig is voor de beoogde analyse te plakken. Zie de volgende onderwerpen voor meer informatie over een bepaalde analyse:
 
-  + [Taaldetectie](text-analytics-how-to-language-detection.md)  
-  + [Sleuteltermextractie](text-analytics-how-to-keyword-extraction.md)  
-  + [Sentimentanalyse](text-analytics-how-to-sentiment-analysis.md)  
-  + [Herkenning van entiteit (Preview)](text-analytics-how-to-entity-linking.md)  
+   + [Taaldetectie](text-analytics-how-to-language-detection.md)  
+   + [Sleuteltermextractie](text-analytics-how-to-keyword-extraction.md)  
+   + [Sentimentanalyse](text-analytics-how-to-sentiment-analysis.md)  
+   + [Herkenning van entiteit (Preview)](text-analytics-how-to-entity-linking.md)  
 
 
 6. Klik op **verzenden** dien de aanvraag. U kunt maximaal 100 aanvragen per minuut indienen. 
 
-  In Postman, wordt het antwoord weergegeven in het volgende venster omlaag, als een enkel JSON-document met een item voor elk document-ID opgegeven in de aanvraag.
+   In Postman, wordt het antwoord weergegeven in het volgende venster omlaag, als een enkel JSON-document met een item voor elk document-ID opgegeven in de aanvraag.
 
 ## <a name="see-also"></a>Zie ook 
 

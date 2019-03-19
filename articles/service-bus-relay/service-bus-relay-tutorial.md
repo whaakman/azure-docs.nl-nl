@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 6927788fa79c567222a199064f5b375546ecf9ad
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: db73363a05734db5d7e3375a5755a807eb7ce2a5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615465"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890964"
 ---
 # <a name="expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Een on-premises-WCF REST-service voor externe client zichtbaar te maken met behulp van Azure WCF Relay
 
@@ -31,7 +31,7 @@ Als u de onderwerpen in deze zelfstudie op de juiste volgorde doorloopt, hebt u 
 
 In de laatste drie stappen wordt beschreven hoe u een clienttoepassing maakt, hoe u de clienttoepassing configureert en hoe u een client maakt en gebruikt die toegang heeft tot de functionaliteit van de host.
 
-U kunt de volgende stappen uitvoeren in deze zelfstudie:
+In deze zelfstudie voert u de volgende stappen uit:
 
 > [!div class="checklist"]
 > * Een Relay-naamruimte maken.
@@ -48,11 +48,11 @@ U kunt de volgende stappen uitvoeren in deze zelfstudie:
 Voor het voltooien van deze zelfstudie moet aan de volgende vereisten worden voldaan:
 
 - Een Azure-abonnement. Als u nog geen abonnement hebt, [maakt u een gratis account](https://azure.microsoft.com/free/) voordat u begint.
-- [Visual Studio 2015 of hoger](http://www.visualstudio.com). In de voorbeelden in deze zelfstudie wordt Visual Studio 2017 gebruikt.
-- Azure SDK voor .NET. Installeren via de [SDK-pagina met downloads](https://azure.microsoft.com/downloads/).
+- [Visual Studio 2015 of hoger](https://www.visualstudio.com). In de voorbeelden in deze zelfstudie wordt Visual Studio 2017 gebruikt.
+- Azure-SDK voor .NET. Installeer de SDK via de [SDK-downloadpagina](https://azure.microsoft.com/downloads/).
 
 ## <a name="create-a-relay-namespace"></a>Een Relay-naamruimte maken
-De eerste stap is het maken van een naamruimte, en om op te halen een [Shared Access Signature (SAS)](../service-bus-messaging/service-bus-sas.md) sleutel. Een naamruimte biedt een toepassingsbegrenzing voor elke toepassing die toegankelijk is via de relay-service. Een SAS-sleutel wordt automatisch door het systeem gegenereerd wanneer een servicenaamruimte wordt gemaakt. De combinatie van Servicenaamruimte en SAS-sleutel biedt de referenties voor Azure voor het verifiëren van toegang tot een toepassing.
+De eerste stap is het maken van een naamruimte en ophalen van een SAS-sleutel ([Shared Access Signature](../service-bus-messaging/service-bus-sas.md)). Een naamruimte biedt een toepassingsbegrenzing voor elke toepassing die toegankelijk is via de relayservice. Een SAS-sleutel wordt automatisch door het systeem gegenereerd wanneer een servicenaamruimte wordt gemaakt. De combinatie van servicenaamruimte en SAS-sleutel biedt Service Bus de benodigde referenties voor het verifiëren van toegang tot een toepassing.
 
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
@@ -68,7 +68,7 @@ Het servicecontract wordt aangegeven welke bewerkingen (de webserviceterminologi
 
 3. Installeer het Service Bus-pakket NuGet. Met dit pakket worden automatisch verwijzingen naar de Service Bus-bibliotheken en naar het **System.ServiceModel** van WCF toegevoegd. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) is de naamruimte die programmatisch toegang biedt tot de basisfuncties van WCF. Service Bus maakt gebruik van veel van de objecten en kenmerken van WCF om servicecontracten te definiëren.
 
-    Klik in Solution Explorer met de rechtermuisknop op het project en klik vervolgens op **NuGet-pakketten beheren...** . Klik op het tabblad Bladeren en zoek vervolgens naar **WindowsAzure.ServiceBus**. Zorg ervoor dat de naam van het project is geselecteerd in het vak **Versie(s)**. Klik op **Installeren** en accepteer de gebruiksvoorwaarden.
+    Klik in Solution Explorer met de rechtermuisknop op het project en klik vervolgens op **NuGet-pakketten beheren...** . Klik op het tabblad **Bladeren** en zoek vervolgens naar **WindowsAzure.ServiceBus**. Zorg ervoor dat de naam van het project is geselecteerd in het vak **Versie(s)**. Klik op **Installeren** en accepteer de gebruiksvoorwaarden.
 
     ![Service Bus-pakket][3]
 4. Dubbelklik in Solution Explorer op het bestand Program.cs om het in de editor te openen, als het bestand nog niet was geopend.
@@ -84,10 +84,10 @@ Het servicecontract wordt aangegeven welke bewerkingen (de webserviceterminologi
    > Deze zelfstudie wordt gebruikgemaakt van de C#-naamruimte **Microsoft.ServiceBus.Samples**, dit is de naamruimte van het contract op basis van beheerde type dat wordt gebruikt in het configuratiebestand in de [de WCF-client configureren](#configure-the-wcf-client) stap. U kunt bij het maken van dit voorbeeld elke gewenste naamruimte opgeven. Voor de zelfstudie moet u echter wel de naamruimten van het contract en de service naar behoren wijzigen in het configuratiebestand van de toepassing. De opgegeven naamruimte in het bestand App.config moet gelijk zijn aan de opgegeven naamruimte in de C#-bestanden.
    >
    >
-7. Direct na de `Microsoft.ServiceBus.Samples` naamruimtedeclaratie, maar in de naamruimte, definieert u een nieuwe interface met de naam `IEchoContract` en toe te passen de `ServiceContractAttribute` kenmerk aan de interface met een naamruimtewaarde van `http://samples.microsoft.com/ServiceModel/Relay/`. De naamruimtewaarde verschilt van de naamruimte die u in uw code gebruikt. In plaats daarvan wordt de naamruimtewaarde gebruikt als een unieke id voor dit contract. Door de naamruimte expliciet op te geven, wordt voorkomen dat de standaardnaamruimtewaarde wordt toegevoegd aan de naam van het contract. Plak de volgende code na de naamruimtedeclaratie:
+7. Direct na de `Microsoft.ServiceBus.Samples` naamruimtedeclaratie, maar in de naamruimte, definieert u een nieuwe interface met de naam `IEchoContract` en toe te passen de `ServiceContractAttribute` kenmerk aan de interface met een naamruimtewaarde van `https://samples.microsoft.com/ServiceModel/Relay/`. De naamruimtewaarde verschilt van de naamruimte die u in uw code gebruikt. In plaats daarvan wordt de naamruimtewaarde gebruikt als een unieke id voor dit contract. Door de naamruimte expliciet op te geven, wordt voorkomen dat de standaardnaamruimtewaarde wordt toegevoegd aan de naam van het contract. Plak de volgende code na de naamruimtedeclaratie:
 
     ```csharp
-    [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceContract(Name = "IEchoContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IEchoContract
     {
     }
@@ -122,7 +122,7 @@ using System.ServiceModel;
 
 namespace Microsoft.ServiceBus.Samples
 {
-    [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceContract(Name = "IEchoContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IEchoContract
     {
         [OperationContract]
@@ -158,7 +158,7 @@ Het maken van een Azure relay is vereist dat u eerst het contract dat is gedefin
 2. Pas het kenmerk [ServiceBehaviorAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicebehaviorattribute.aspx) toe op de `IEchoContract`-interface. Aan het kenmerk ziet u wat de servicenaam en naamruimte zijn. Wanneer u dit hebt gedaan, wordt de klasse `EchoService` als volgt weergegeven:
 
     ```csharp
-    [ServiceBehavior(Name = "EchoService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceBehavior(Name = "EchoService", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     class EchoService : IEchoContract
     {
     }
@@ -211,7 +211,7 @@ Het maken van een Azure relay is vereist dat u eerst het contract dat is gedefin
 In de volgende code staat de implementatie van het servicecontract.
 
 ```csharp
-[ServiceBehavior(Name = "EchoService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+[ServiceBehavior(Name = "EchoService", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
 
     class EchoService : IEchoContract
     {
@@ -354,7 +354,7 @@ using Microsoft.ServiceBus.Description;
 
 namespace Microsoft.ServiceBus.Samples
 {
-    [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceContract(Name = "IEchoContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IEchoContract
     {
         [OperationContract]
@@ -363,7 +363,7 @@ namespace Microsoft.ServiceBus.Samples
 
     public interface IEchoChannel : IEchoContract, IClientChannel { };
 
-    [ServiceBehavior(Name = "EchoService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceBehavior(Name = "EchoService", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     class EchoService : IEchoContract
     {
         public string Echo(string text)
@@ -442,7 +442,7 @@ De volgende stap is het maken van een clienttoepassing en definiëren van het se
 6. Voeg de definitie van het servicecontract toe aan de naamruimte, zoals wordt weergegeven in het volgende voorbeeld. Deze definitie is identiek aan de definitie die is gebruikt in het project **Service**. U moet deze code toevoegen aan de bovenkant van de `Microsoft.ServiceBus.Samples`-naamruimte.
 
     ```csharp
-    [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceContract(Name = "IEchoContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IEchoContract
     {
         [OperationContract]
@@ -465,7 +465,7 @@ using System.ServiceModel;
 namespace Microsoft.ServiceBus.Samples
 {
 
-    [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceContract(Name = "IEchoContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IEchoContract
     {
         [OperationContract]
@@ -631,7 +631,7 @@ using System.ServiceModel;
 
 namespace Microsoft.ServiceBus.Samples
 {
-    [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceContract(Name = "IEchoContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IEchoContract
     {
         [OperationContract]

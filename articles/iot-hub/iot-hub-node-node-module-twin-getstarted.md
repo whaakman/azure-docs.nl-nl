@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: node
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.openlocfilehash: ed60e379837a2c2af2a0cc2c3b27eec314bff56b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 80132a2d15333308766b62e89262133b1f05b394
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545154"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888720"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-nodejs-back-end-and-nodejs-device"></a>Aan de slag met IoT Hub identiteits- en module moduledubbel met behulp van Node.js-back-end en Node.js-apparaat
 
@@ -43,7 +43,7 @@ In deze sectie maakt u een Node.js-app die u een apparaat-id en de identiteit va
 
 1. Maak een map voor het opslaan van uw code.
 2. In die map voor het eerst uitvoert **npm init -y** te maken van een lege package.json met standaardwaarden. Dit is de projectbestand voor uw code.
-3. Voer **npm installeren -S azure-iothub@modules-preview ** voor het installeren van de SDK-service binnen de **node_modules** submap.
+3. Uitvoeren **npm installeren -S-azure-iothub\@preview-modules** voor het installeren van de SDK-service binnen de **node_modules** submap.
 
     > [!NOTE]
     > De naam submap node_modules maakt gebruik van de module word betekent 'een bibliotheek van het knooppunt'. De term hier heeft niets te doen met IoT Hub-modules.
@@ -107,7 +107,7 @@ In deze sectie maakt u een Node.js-app die u een apparaat-id en de identiteit va
 
 Deze app maakt een apparaat-id met de ID **myFirstDevice** en de identiteit van een module met de ID **myFirstModule** onder apparaat **myFirstDevice**. (Als deze module-id al in het id-register staat, haalt de code gewoon de bestaande modulegegevens op.) De app geeft vervolgens de primaire sleutel voor die identiteit weer. U gebruikt deze sleutel in de gesimuleerde module-app om verbinding te maken met uw IoT-hub.
 
-5. Deze uitvoeren met behulp van knooppunt add.js. Deze bieden u een verbindingsreeks voor uw apparaat-id en een andere naam voor de identiteit van de module.
+1. Deze uitvoeren met behulp van knooppunt add.js. Deze bieden u een verbindingsreeks voor uw apparaat-id en een andere naam voor de identiteit van de module.
 
     > [!NOTE]
     > In het identiteitsregister van IoT Hub worden alleen apparaat- en module-id's opgeslagen waarmee veilig toegang tot de IoT-hub kan worden verkregen. In het identiteitsregister worden apparaat-id's en -sleutels opgeslagen die als beveiligingsreferenties worden gebruikt. In het identiteitsregister wordt ook een vlag ingeschakeld/uitgeschakeld voor elk apparaat opgeslagen die u kunt gebruiken om de toegang tot dat apparaat uit te schakelen. Als uw toepassing andere apparaatspecifieke metagegevens moet opslaan, moet deze een toepassingsspecifieke opslagmethode gebruiken. Er is geen vlag voor ingeschakeld/uitgeschakeld voor module-id's. Zie de [ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identity] voor meer informatie.
@@ -120,7 +120,7 @@ In deze sectie maakt u een Node.js-app op uw gesimuleerde apparaat die updates v
 
     ![Details van de Azure Portal-module][15]
 
-2. Net als bij u in de bovenstaande stap hebt, maak een map voor de apparaatcode van uw en het initialiseren en de apparaat-SDK installeren met NPM (**npm installeren -S azure-iot-device-amqp@modules-preview** ).
+2. Net als bij u in de bovenstaande stap hebt, maak een map voor de apparaatcode van uw en het initialiseren en de apparaat-SDK installeren met NPM (**npm installeren -S azure-iot-device-amqp\@preview-modules**).
 
     > [!NOTE]
     > De installatieopdracht gevoel traag. Worden even geduld, dit wordt omlaag te schuiven veel code uit de pakketopslagplaats.

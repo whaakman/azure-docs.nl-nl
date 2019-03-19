@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 38ab7b80e2f03176c3bedfd98a2d0e20fc02592b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.lastreviewed: 03/14/2019
+ms.openlocfilehash: 773e600577b35019b8a3619c7eec3e93b77a4382
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865889"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085793"
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>Back-up inschakelen voor Azure Stack met PowerShell
 
@@ -51,9 +51,11 @@ In dezelfde PowerShell-sessie, bewerkt u het volgende PowerShell-script door toe
 | $sharepath      | Typ het pad naar de **back-up van opslaglocatie**. U moet een Universal Naming Convention (UNC)-tekenreeks voor het pad naar een bestandsshare die wordt gehost op een afzonderlijk apparaat gebruiken. Een UNC-tekenreeks geeft de locatie van bronnen zoals gedeelde bestanden of apparaten. Voor beschikbaarheid van de back-upgegevens, moet het apparaat zich in een andere locatie. |
 | $frequencyInHours | De frequentie in uren wordt bepaald hoe vaak back-ups worden gemaakt. De standaardwaarde is 12. Scheduler biedt ondersteuning voor maximaal 12 en een minimum van 4.|
 | $retentionPeriodInDays | De bewaarperiode in dagen bepaalt het aantal dagen van de back-ups, blijven behouden in de externe locatie. De standaardwaarde is 7. Scheduler biedt ondersteuning voor maximaal 14 en een minimum van 2. Back-ups ouder is dan de retentieperiode automatisch verwijderd van de externe locatie.|
-| $encryptioncertpath | Het pad naar het certificaat van de versleuteling Hiermee geeft u het pad naar de. CER-bestand met de openbare sleutel die wordt gebruikt voor gegevensversleuteling. |
+| $encryptioncertpath | Is van toepassing op 1901 en daarbuiten.  Parameter is beschikbaar in Azure Stack-Module versie 1.7 en daarbuiten. Het pad naar het certificaat van de versleuteling Hiermee geeft u het pad naar de. CER-bestand met de openbare sleutel die wordt gebruikt voor gegevensversleuteling. |
+| $encryptionkey | Toegepast op het bouwen van 1811 of lager. Parameter is beschikbaar in Azure Stack-Module versie 1.6 of eerder. De versleutelingssleutel die wordt gebruikt voor gegevensversleuteling. Gebruik de [New-AzsEncryptionKeyBase64](https://docs.microsoft.com/en-us/powershell/module/azs.backup.admin/new-azsencryptionkeybase64) cmdlet om een nieuwe sleutel te genereren. |
 |     |     |
 
+### <a name="enable-backup-on-1901-and-beyond-using-certificate"></a>Back-up inschakelen op 1901 en hoger met certificaat
 ```powershell
     # Example username:
     $username = "domain\backupadmin"
@@ -80,6 +82,25 @@ In dezelfde PowerShell-sessie, bewerkt u het volgende PowerShell-script door toe
     # Set the backup settings with the name, password, share, and CER certificate file.
     Set-AzsBackupConfiguration -BackupShare $sharepath -Username $username -Password $password -EncryptionCertPath "c:\temp\cert.cer"
 ```
+### <a name="enable-backup-on-1811-or-earlier-using-certificate"></a>Back-up op 1811 of eerder met certificaat inschakelen
+```powershell
+    # Example username:
+    $username = "domain\backupadmin"
+ 
+    # Example share path:
+    $sharepath = "\\serverIP\AzSBackupStore\contoso.com\seattle"
+
+    $password = Read-Host -Prompt ("Password for: " + $username) -AsSecureString
+
+    # Create a self-signed certificate using New-SelfSignedCertificate, export the public key portion and save it locally.
+
+    $key = New-AzsEncryptionKeyBase64
+    $Securekey = ConvertTo-SecureString -String ($key) -AsPlainText -Force
+
+    # Set the backup settings with the name, password, share, and CER certificate file.
+    Set-AzsBackupConfiguration -BackupShare $sharepath -Username $username -Password $password -EncryptionKey $Securekey
+```
+
    
 ##  <a name="confirm-backup-settings"></a>Back-instellingen bevestigen
 
@@ -119,7 +140,7 @@ Het resultaat ziet er als de volgende voorbeelduitvoer:
     BackupRetentionPeriodInDays : 5
    ```
 
-###<a name="azure-stack-powershell"></a>PowerShell voor Azure Stack 
+### <a name="azure-stack-powershell"></a>PowerShell voor Azure Stack 
 De PowerShell-cmdlet infrastructuur back-up configureren is Set-AzsBackupConfiguration. In eerdere versies is de cmdlet Set-AzsBackupShare. Deze cmdlet is vereist voor het leveren van een certificaat. Als back-up van de infrastructuur is geconfigureerd met een versleutelingssleutel gemaakt, kan de sleutel voor het bijwerken of weergeven van de eigenschap. U moet versie 1.6 van de Admin PowerShell te gebruiken. 
 
 Als back-up van de infrastructuur is geconfigureerd voordat u bijwerkt naar 1901, kunt u versie 1.6 van de Admin PowerShell instellen en weergeven van de versleutelingssleutel. Versie 1.6 kunt u bij te werken van de versleutelingssleutel naar een certificaatbestand.

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d8cb0829698b13e2193850c29f98492df6c48d4f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 688ef059387dc4c312873051c7c9d1eae259b1ae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468509"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57844780"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Gegevens verplaatsen naar of van Azure Blob Storage met behulp van SSIS-connectors
 De [SQL Server Integration Services Feature Pack voor Azure](https://msdn.microsoft.com/library/mt146770.aspx) onderdelen verbinding maken met Azure, gegevens overdragen tussen Azure en on-premises gegevensbronnen en gegevens verwerken die zijn opgeslagen in Azure biedt.
@@ -55,7 +55,7 @@ Zie voor het trainingsmateriaal van SSIS, [handen op Training voor SSIS](https:/
 Voor meer informatie over het ophalen van de boven-en-die wordt uitgevoerd met behulp van SISS aan het bouwen van eenvoudige extractie, transformatie en laden (ETL)-pakketten, Zie [SSIS-zelfstudie: Het maken van een eenvoudige ETL-pakket](https://msdn.microsoft.com/library/ms169917.aspx).
 
 ## <a name="download-nyc-taxi-dataset"></a>Gegevensset NYC over taxi's downloaden
-Het voorbeeld beschreven hier een openbaar beschikbare gegevensset--gebruiken de [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) gegevensset. De gegevensset bestaat uit over 173 miljoen taxi ritjes in NYC in het jaar 2013. Er zijn twee soorten gegevens: reis details gegevens en fare gegevens. Als er een bestand voor elke maand is, hebben we 24 bestanden in alle, die elk ongeveer 2GB niet gecomprimeerd is.
+Het voorbeeld beschreven hier een openbaar beschikbare gegevensset--gebruiken de [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) gegevensset. De gegevensset bestaat uit over 173 miljoen taxi ritjes in NYC in het jaar 2013. Er zijn twee soorten gegevens: reis details gegevens en fare gegevens. Als er een bestand voor elke maand is, hebben we 24 bestanden in alle, die elk ongeveer 2GB niet gecomprimeerd is.
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Gegevens uploaden naar Azure blob-opslag
 Voor het verplaatsen van gegevens met behulp van de SSIS-functiepakket van on-premises naar Azure blob-opslag, gebruiken we een exemplaar van de [ **Azure Blob uploaden taak**](https://msdn.microsoft.com/library/mt146776.aspx), die hier worden weergegeven:

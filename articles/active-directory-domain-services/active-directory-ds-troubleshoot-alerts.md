@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: c71528ed8453bcde05e29eb609ca2cde64bad8de
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 7d99f5a5d027c825fa1145328bb9576229ce39b4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309414"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121992"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - waarschuwingen oplossen
 Dit artikel bevat de handleidingen voor probleemoplossing voor alle waarschuwingen die op uw beheerde domein optreden kunnen.
@@ -103,13 +103,13 @@ In het virtuele netwerk, kunnen machines aanvragen versturen naar Azure-resource
 
 1. [Verwijderen van uw beheerde domein](active-directory-ds-disable-aadds.md) uit uw directory.
 2. Het IP-adresbereik voor het subnet oplossen
-  1. Navigeer naar de [pagina met virtuele netwerken in Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
-  2. Selecteer het virtuele netwerk dat u wilt gebruiken voor Azure AD Domain Services.
-  3. Klik op **adresruimte** onder instellingen
-  4. Het adresbereik bijwerken door te klikken op de bestaande adresbereik en te bewerken of een aanvullend adresbereik toe te voegen. Zorg ervoor dat het nieuwe adresbereik in een privé-IP-adresbereik. Sla uw wijzigingen op.
-  5. Klik op **subnetten** in de navigatiebalk links.
-  6. Klik op het subnet dat u wilt bewerken in de tabel.
-  7. Het adresbereik bijwerken en sla de wijzigingen.
+   1. Navigeer naar de [pagina met virtuele netwerken in Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
+   2. Selecteer het virtuele netwerk dat u wilt gebruiken voor Azure AD Domain Services.
+   3. Klik op **adresruimte** onder instellingen
+   4. Het adresbereik bijwerken door te klikken op de bestaande adresbereik en te bewerken of een aanvullend adresbereik toe te voegen. Zorg ervoor dat het nieuwe adresbereik in een privé-IP-adresbereik. Sla uw wijzigingen op.
+   5. Klik op **subnetten** in de navigatiebalk links.
+   6. Klik op het subnet dat u wilt bewerken in de tabel.
+   7. Het adresbereik bijwerken en sla de wijzigingen.
 3. Ga als volgt [het ophalen van aan de slag met behulp van Azure AD Domain Services-handleiding](active-directory-ds-getting-started.md) om uw beheerde domein opnieuw te maken. Zorg ervoor dat u een virtueel netwerk met een privé IP-adresbereik selecteren.
 4. Naar domein voert u uw virtuele machines naar het nieuwe domein [in deze handleiding](active-directory-ds-admin-guide-join-windows-vm-portal.md).
 8. Om te controleren of de waarschuwing is opgelost, Controleer de status van uw domein in twee uur.
@@ -160,13 +160,13 @@ Kunt u het abonnement dat is gekoppeld aan Azure AD Domain Services terug naar d
 
 Azure AD Domain Services maakt specifieke resources tijdens de implementatie om te laten functioneren, met inbegrip van openbare IP-adressen, NIC's en een load balancer. Als een van de benoemde worden verwijderd, wordt dit zorgt ervoor dat uw beheerde domein zich in een niet-ondersteunde status en voorkomt u dat uw domein wordt beheerd. Deze waarschuwing wordt gevonden wanneer iemand die dit kan de Azure AD Domain Services-resources bewerken een benodigde bron verwijdert. De volgende stappen beschrijven het herstellen van uw beheerde domein.
 
-1.  Navigeer naar de health-pagina van Azure AD Domain Services
-  1.    Reis naar de [pagina Azure AD Domain Services](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) in Azure portal.
-  2.    Klik in de navigatiebalk links op **Health**
-2.  Controleer of de waarschuwing is minder dan 4 uur
-  1.    Klik op de waarschuwing met de ID van de health-pagina **AADDS109**
-  2.    De waarschuwing heeft een tijdstempel voor wanneer het eerst is gevonden. Als dat tijdstempel minder dan 4 uur geleden is, is er een kans dat Azure AD Domain Services opnieuw van de verwijderde resourcegroep maken kunt.
-3.  Als de waarschuwing meer dan 4 uur is, wordt het beheerde domein heeft een onherstelbare status. U moet verwijderen en opnieuw maken van Azure AD Domain Services.
+1. Navigeer naar de health-pagina van Azure AD Domain Services
+   1.    Reis naar de [pagina Azure AD Domain Services](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) in Azure portal.
+   2.    Klik in de navigatiebalk links op **Health**
+2. Controleer of de waarschuwing is minder dan 4 uur
+   1.    Klik op de waarschuwing met de ID van de health-pagina **AADDS109**
+   2.    De waarschuwing heeft een tijdstempel voor wanneer het eerst is gevonden. Als dat tijdstempel minder dan 4 uur geleden is, is er een kans dat Azure AD Domain Services opnieuw van de verwijderde resourcegroep maken kunt.
+3. Als de waarschuwing meer dan 4 uur is, wordt het beheerde domein heeft een onherstelbare status. U moet verwijderen en opnieuw maken van Azure AD Domain Services.
 
 
 ## <a name="aadds110-the-subnet-associated-with-your-managed-domain-is-full"></a>AADDS110: Het subnet dat is gekoppeld aan uw beheerde domein is vol.
@@ -203,13 +203,13 @@ Onze service-principals moeten toegang hebben om te kunnen beheren en maken van 
 
 1. Uw beheerde domein verwijderen uit uw tenant.
 2. Het IP-adresbereik voor het subnet oplossen
-  1. Navigeer naar de [pagina met virtuele netwerken in Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
-  2. Selecteer het virtuele netwerk dat u wilt gebruiken voor Azure AD Domain Services.
-  3. Klik op **adresruimte** onder instellingen
-  4. Het adresbereik bijwerken door te klikken op de bestaande adresbereik en te bewerken of een aanvullend adresbereik toe te voegen. Sla uw wijzigingen op.
-  5. Klik op **subnetten** in de navigatiebalk links.
-  6. Klik op het subnet dat u wilt bewerken in de tabel.
-  7. Het adresbereik bijwerken en sla de wijzigingen.
+   1. Navigeer naar de [pagina met virtuele netwerken in Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
+   2. Selecteer het virtuele netwerk dat u wilt gebruiken voor Azure AD Domain Services.
+   3. Klik op **adresruimte** onder instellingen
+   4. Het adresbereik bijwerken door te klikken op de bestaande adresbereik en te bewerken of een aanvullend adresbereik toe te voegen. Sla uw wijzigingen op.
+   5. Klik op **subnetten** in de navigatiebalk links.
+   6. Klik op het subnet dat u wilt bewerken in de tabel.
+   7. Het adresbereik bijwerken en sla de wijzigingen.
 3. Ga als volgt [het ophalen van aan de slag met behulp van Azure AD Domain Services-handleiding](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) om uw beheerde domein opnieuw te maken. Zorg ervoor dat u een virtueel netwerk met een privé IP-adresbereik selecteren.
 4. Naar domein voert u uw virtuele machines naar het nieuwe domein [in deze handleiding](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
 5. Controleer de status van uw domein in twee uur om ervoor te zorgen dat u de stappen correct hebt voltooid.

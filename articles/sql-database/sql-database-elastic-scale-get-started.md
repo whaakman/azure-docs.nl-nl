@@ -12,12 +12,12 @@ ms.author: anjangsh
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 245cbafb42becc230f5e480cfc8e6fa41c352190
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 7c2e3b2bea7ddef3dfbf69f85b499d9a60158689
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309380"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999116"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Aan de slag met elastische Databasehulpprogramma 's
 
@@ -28,7 +28,7 @@ Dit document bevat een inleiding tot de ervaring voor ontwikkelaars voor het [cl
 ### <a name="prerequisites"></a>Vereisten
 
 * Een Java Developer Kit (JDK), versie 1.8 of hoger
-* [Maven](http://maven.apache.org/download.cgi)
+* [Maven](https://maven.apache.org/download.cgi)
 * Een SQL Database-server in Azure of een lokale SQL Server-exemplaar
 
 ### <a name="download-and-run-the-sample-app"></a>De voorbeeldapp downloaden en uitvoeren
@@ -74,7 +74,7 @@ De clientbibliotheek toevoegen aan uw eigen Maven-project, toevoegen de volgende
 ### <a name="prerequisites"></a>Vereisten
 
 * Visual Studio 2012 of hoger met C#. Download een gratis versie op [Visual Studio-Downloads](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
-* NuGet 2.7 of later. Als u de nieuwste versie, raadpleegt u [NuGet installeren](http://docs.nuget.org/docs/start-here/installing-nuget).
+* NuGet 2.7 of later. Als u de nieuwste versie, raadpleegt u [NuGet installeren](https://docs.nuget.org/docs/start-here/installing-nuget).
 
 ### <a name="download-and-run-the-sample-app"></a>De voorbeeldapp downloaden en uitvoeren
 
@@ -92,7 +92,7 @@ Als u wilt downloaden en uitvoeren van het voorbeeld, de volgende stappen uit:
 
 5. Experimenteer met de verschillende opties voor meer informatie over de mogelijkheden voor de bibliotheek. Houd er rekening mee de stappen die de toepassing in de console wordt uitgevoerd en u kunt de code achter de schermen worden besproken.
    
-    ![Wordt uitgevoerd][4]
+    ![Voortgang][4]
 
 Gefeliciteerd! U hebt gemaakt en u hebt uw eerste shard-toepassing uitvoeren met behulp van hulpprogramma's voor elastische databases in SQL-Database. Gebruik Visual Studio of SQL Server Management Studio verbinding maken met uw SQL-database en een beknopt overzicht van de shards die het voorbeeld hebt gemaakt. U zult de nieuwe voorbeeld shard-databases en een shard map manager-database die het voorbeeld is gemaakt.
 
@@ -132,7 +132,7 @@ Zie de volgende artikelen voor meer informatie over hulpprogramma's voor elastis
   * [Hulpmiddelen voor elastic Database voor Azure SQL - integratie met Entity Framework](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
   * [Shardflexibiliteit op Script Center](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * Blog: [Aankondiging van elastische schaal](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/)
-* Channel 9: [Video elastische schaal-overzicht](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
+* Channel 9: [Video elastische schaal-overzicht](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
 * Discussieforum: [Azure SQL Database-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
 * Voor het meten van prestaties: [Prestatiemeteritems voor shard-toewijzingsbeheer](sql-database-elastic-database-client-library.md)
 

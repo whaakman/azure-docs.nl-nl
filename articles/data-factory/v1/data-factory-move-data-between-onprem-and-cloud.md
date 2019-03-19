@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 94c464733d731505cde0327ce9a295d3b4ab68de
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 72e93b99783441bda97c52ff295a89b0fcf4e629
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538682"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995900"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Gegevens verplaatsen tussen on-premises bronnen en de cloud met Data Management Gateway
 > [!NOTE]
@@ -359,7 +359,7 @@ In deze stap maakt u een **pijplijn** met een **Kopieeractiviteit** die gebruikm
 
    * In het gedeelte activiteiten is er alleen activiteit waarvan **type** is ingesteld op **kopie**.
    * **Invoer** voor de activiteit is ingesteld op **EmpOnPremSQLTable** en **uitvoer** voor de activiteit is ingesteld op **OutputBlobTable**.
-   * In de **typeProperties** sectie **SqlSource** is opgegeven als de **gegevensbrontype** en ** BlobSink ** is opgegeven als de **sink-type**.
+   * In de **typeProperties** sectie **SqlSource** is opgegeven als de **gegevensbrontype** en **BlobSink** is opgegeven als de **sink-type**.
    * SQL-query `select * from emp` is opgegeven voor de **sqlReaderQuery** eigenschap van **SqlSource**.
 
    Zowel de begin- als einddatum en -tijd moeten de [ISO-indeling](https://en.wikipedia.org/wiki/ISO_8601) hebben. Bijvoorbeeld: 2014-10-14T16:32:41Z. De **eindtijd** is optioneel, maar we gebruiken hem in deze zelfstudie.

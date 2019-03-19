@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: fa0ba7aabcd03297b076ccbc1fcc3d2453676cc1
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: fe095b8f5a0080c0f28ec570303c9dc23962dfc8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782663"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57869809"
 ---
 # <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Quickstart: Een Basic load balancer maken met behulp van de Microsoft Azure-portal
 
@@ -28,7 +28,7 @@ Taakverdeling zorgt voor een hogere beschikbaarheid en betere schaalbaarheid doo
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint. 
 
-Als u de taken in deze quickstart wilt uitvoeren, moet u zich aanmelden bij de [Azure-portal](http://portal.azure.com).
+Als u de taken in deze quickstart wilt uitvoeren, moet u zich aanmelden bij de [Azure-portal](https://portal.azure.com).
 
 ## <a name="create-a-basic-load-balancer"></a>Een Basic load balancer maken
 
@@ -207,7 +207,7 @@ De load balancer-regel met de naam **myLoadBalancerRuleWeb** luistert op poort 8
    
 1. Selecteer **OK**.
    
-  ![Load balancer-regel toevoegen](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
+   ![Load balancer-regel toevoegen](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
 
 ## <a name="test-the-load-balancer"></a>Load balancer testen
 
@@ -259,6 +259,7 @@ Open een browser en plak het openbare IP-adres van de load balancer in de adresb
 
 ![IIS-webserver](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
 
+Als u wilt zien hoe de load balancer verkeer distribueert naar alle drie de VM's waarop uw app wordt uitgevoerd, kunt u vernieuwing van uw webbrowser afdwingen.
 ## <a name="clean-up-resources"></a>Resources opschonen
 
 Als u de load balancer en alle bijbehorende resources wilt verwijderen omdat u deze niet meer nodig hebt, opent u de resourcegroep **MyResourceGroupLB** en selecteert u **Resourcegroep verwijderen**.

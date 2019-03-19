@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 6c0207a68cea70951143c87f83f6b17bb0c7b1f3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 4fd96aedc658833493d6fddb704104a70c01df44
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098456"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010990"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Seriële console van de virtuele machine voor Linux
 
@@ -82,6 +82,7 @@ Aangepaste Linux-installatiekopieën     | Als u de seriële console voor uw aan
 > Als u in de seriële console niet ziet, zorg er dan voor dat de diagnostische gegevens over die opstarten is ingeschakeld op de virtuele machine.
 
 ## <a name="common-scenarios-for-accessing-the-serial-console"></a>Algemene scenario's voor het openen van de seriële console
+
 Scenario          | Acties in de seriële console
 :------------------|:-----------------------------------------
 Verbroken *FSTAB* bestand | Druk op de **Enter** om te gaan en gebruik een teksteditor om op te lossen de *FSTAB* bestand. U moet mogelijk worden in de modus voor één gebruiker om dit te doen. Zie voor meer informatie, [voor het oplossen van problemen met fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) en [seriële console gebruiken voor toegang tot WORMGATEN en de modus voor één gebruiker](serial-console-grub-single-user-mode.md).
@@ -143,14 +144,14 @@ Alle gegevens die worden verzonden heen en weer worden versleuteld op de kabel.
 ### <a name="audit-logs"></a>Controlelogboeken
 Alle toegang tot de seriële console momenteel is aangemeld de [diagnostische gegevens over opstarten](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) logboeken van de virtuele machine. Toegang tot deze logboeken zijn eigendom van en beheerd door de beheerder van de virtuele machine van Azure.
 
->[!CAUTION]
-Er zijn geen wachtwoorden voor toegang voor de console worden geregistreerd. Echter, als opdrachten worden uitgevoerd binnen de console bevat of uitvoer van wachtwoorden, geheimen, gebruikersnamen of enige andere vorm van persoonlijk identificeerbare informatie (PII), die wordt geschreven naar de VM boot diagnostics-Logboeken. Ze worden geschreven, samen met andere zichtbare tekst, als onderdeel van de implementatie van de seriële console Schuif terug functie. Deze logboeken zijn circulaire en alleen personen met leesmachtigingen voor het opslagaccount voor diagnostische gegevens over de toegang tot hebben. We raden echter aan na de aanbevolen procedure van het gebruik van de extern bureaublad voor alles wat die hebben mogelijk betrekking op geheimen en/of PII.
+> [!CAUTION]
+> Er zijn geen wachtwoorden voor toegang voor de console worden geregistreerd. Echter, als opdrachten worden uitgevoerd binnen de console bevat of uitvoer van wachtwoorden, geheimen, gebruikersnamen of enige andere vorm van persoonlijk identificeerbare informatie (PII), die wordt geschreven naar de VM boot diagnostics-Logboeken. Ze worden geschreven, samen met andere zichtbare tekst, als onderdeel van de implementatie van de seriële console Schuif terug functie. Deze logboeken zijn circulaire en alleen personen met leesmachtigingen voor het opslagaccount voor diagnostische gegevens over de toegang tot hebben. We raden echter aan na de aanbevolen procedure van het gebruik van de extern bureaublad voor alles wat die hebben mogelijk betrekking op geheimen en/of PII.
 
 ### <a name="concurrent-usage"></a>Gelijktijdig gebruik
 Als een gebruiker is verbonden met de seriële console en een andere gebruiker is toegang tot deze virtuele machine met dezelfde aanvraagt, wordt de eerste gebruiker verbroken en wordt de tweede gebruiker heeft verbinding gemaakt met dezelfde sessie.
 
->[!CAUTION]
-Dit betekent dat een gebruiker die niet verbonden wordt niet worden afgemeld. De mogelijkheid om af te dwingen een afmelden bij het verbreken van de verbinding (met behulp van SIGHUP of een vergelijkbaar mechanisme) is nog steeds in de roadmap. Voor Windows is een automatische time-out ingeschakeld in administratieve Console SAC (Special); u kunt echter de terminal time-outinstelling configureren voor Linux. Om dit te doen, Voeg `export TMOUT=600` in uw *.bash_profile* of *.profile* -bestand voor de gebruiker die u gebruiken om aan te melden bij de console. Deze instelling wordt time-out van de sessie na 10 minuten.
+> [!CAUTION]
+> Dit betekent dat een gebruiker die niet verbonden wordt niet worden afgemeld. De mogelijkheid om af te dwingen een afmelden bij het verbreken van de verbinding (met behulp van SIGHUP of een vergelijkbaar mechanisme) is nog steeds in de roadmap. Voor Windows is een automatische time-out ingeschakeld in administratieve Console SAC (Special); u kunt echter de terminal time-outinstelling configureren voor Linux. Om dit te doen, Voeg `export TMOUT=600` in uw *.bash_profile* of *.profile* -bestand voor de gebruiker die u gebruiken om aan te melden bij de console. Deze instelling wordt time-out van de sessie na 10 minuten.
 
 ## <a name="accessibility"></a>Toegankelijkheid
 Toegankelijkheid is een belangrijke focus voor de seriële console van Azure. Wat dat betreft, hebben we ervoor gezorgd dat de seriële console volledig toegankelijk is.
@@ -188,7 +189,7 @@ Seriële console werkt niet met een firewall voor storage-account. | Standaard d
 
 **Q. Hoe kan ik feedback verzenden?**
 
-A. Feedback geven door het maken van een GitHub-probleem aan https://aka.ms/serialconsolefeedback. U kunt ook (minder bij voorkeur), kunt u feedback via verzenden azserialhelp@microsoft.com of in de categorie van de virtuele machine van http://feedback.azure.com.
+A. Feedback geven door het maken van een GitHub-probleem aan https://aka.ms/serialconsolefeedback. U kunt ook (minder bij voorkeur), kunt u feedback via verzenden azserialhelp@microsoft.com of in de categorie van de virtuele machine van https://feedback.azure.com.
 
 **Q. Biedt ondersteuning voor de seriële console kopiëren/plakken?**
 

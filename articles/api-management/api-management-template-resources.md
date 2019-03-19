@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 4a7e3e9ff414c8f7ba1c49924f1d8659d72ae3e2
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: c52565403c7fbc80eacbf65428863db07d634030
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158207"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897279"
 ---
 # <a name="azure-api-management-template-resources"></a>Azure API Management-sjabloon-resources
 Met Azure API Management biedt de volgende typen resources voor gebruik in de developer portal-sjablonen.  
@@ -85,17 +85,17 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
   
 -   [UpdateProfileStrings](#UpdateProfileStrings)  
   
--   [Gebruikersprofiel](#UserProfile)  
+-   [UserProfile](#UserProfile)  
   
 ###  <a name="ApisStrings"></a> ApisStrings  
   
-|Name|Sms|  
+|Name|Tekst|  
 |----------|----------|  
 |PageTitleApis|API's|  
   
 ###  <a name="AppDetailsStrings"></a> AppDetailsStrings  
   
-|Name|Sms|  
+|Name|Tekst|  
 |----------|----------|  
 |WebApplicationsDetailsTitle|Voorbeeld van de toepassing|  
 |WebApplicationsRequirementsHeader|Vereisten|  
@@ -104,14 +104,14 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
   
 ###  <a name="ApplicationListStrings"></a> ApplicationListStrings  
   
-|Name|Sms|  
+|Name|Tekst|  
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|Weet u zeker dat u de toepassing wilt verwijderen?|  
 |WebDevelopersAppNotPublished|Niet gepubliceerd|  
 |WebDevelopersAppNotSubmitted|Niet verzonden|  
 |WebDevelopersAppTableCategoryHeader|Categorie|  
 |WebDevelopersAppTableNameHeader|Name|  
-|WebDevelopersAppTableStateHeader|Staat|  
+|WebDevelopersAppTableStateHeader|Status|  
 |WebDevelopersEditLink|Bewerken|  
 |WebDevelopersRegisterAppLink|Toepassing registreren|  
 |WebDevelopersRemoveLink|Verwijderen|  
@@ -120,15 +120,15 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
   
 ###  <a name="AppStrings"></a> AppStrings  
   
-|Name|Sms|  
+|Name|Tekst|  
 |----------|----------|  
-|WebApplicationsHeader|Toepassingen|  
+|WebApplicationsHeader|Applicaties|  
   
 ###  <a name="CommonResources"></a> CommonResources  
   
-|Name|Sms|  
+|Name|Tekst|  
 |----------|----------|  
-|NoItemsToDisplay|Geen resultaten gevonden.|  
+|NoItemsToDisplay|Er zijn geen resultaten gevonden.|  
 |GeneralExceptionMessage|Iets is niet goed. Het is mogelijk een tijdelijke storing of een bug. Probeer het opnieuw.|  
 |GeneralJsonExceptionMessage|Iets is niet goed. Het is mogelijk een tijdelijke storing of een bug. Laad de pagina in en probeer het opnieuw.|  
 |ConfirmationMessageUnsavedChanges|Er zijn enkele niet-opgeslagen wijzigingen. Weet u zeker dat u wilt annuleren en de wijzigingen negeren?|  
@@ -137,7 +137,7 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
   
 ###  <a name="CommonStrings"></a> CommonStrings  
   
-|Name|Sms|  
+|Name|Tekst|  
 |----------|----------|  
 |ButtonLabelCancel|Annuleren|  
 |ButtonLabelSave|Opslaan|  
@@ -161,13 +161,13 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
   
 ###  <a name="Documentation"></a> Documentatie  
   
-|Name|Sms|  
+|Name|Tekst|  
 |----------|----------|  
 |WebDocumentationInvalidHeaderErrorMessage|Ongeldige header '{0}'|  
 |WebDocumentationInvalidRequestErrorMessage|Ongeldige aanvraag-URL|  
 |TextboxLabelAccessToken|Access token *|  
-|DropdownOptionPrimaryKeyFormat|Primaire-{0}|  
-|DropdownOptionSecondaryKeyFormat|Secundaire-{0}|  
+|DropdownOptionPrimaryKeyFormat|Primary-{0}|  
+|DropdownOptionSecondaryKeyFormat|Secondary-{0}|  
 |WebDocumentationSubscriptionKeyText|Uw abonnementssleutel|  
 |WebDocumentationTemplatesAddHeaders|Vereiste HTTP-headers toevoegen|  
 |WebDocumentationTemplatesBasicAuthSample|Voorbeeld van Basic Authorization|  
@@ -185,23 +185,23 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
 |OAuth2AuthorizationEndpointName|Autorisatie-eindpunt|  
 |OAuth2TokenEndpointDescription|Het token-eindpunt wordt door de client gebruikt om een toegangstoken te verkrijgen door de autorisatietoekenning of een vernieuwingstoken te overleggen.|  
 |OAuth2TokenEndpointName|Tokeneindpunt|  
-|OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_Description|< p\> de client initieert de stroom door te leiden van de resource-eigenaar gebruikersagent naar het autorisatie-eindpunt.  De client neemt de client-id, aangevraagde bereik, lokale status en een omleidings-URI waarnaar de autorisatieserver de gebruikersagent wordt verzonden terug wanneer toegang wordt verleend (of te weigeren).     < /p\> < p\> de autorisatieserver verifieert de resource-eigenaar (via de gebruikersagent) en wordt tot stand gebracht of de resource-eigenaar verleent of weigert de aanvraag voor toegang van de client.     < /p\> < p\> ervan uitgaande dat de resource-eigenaar toegang verleent, stuurt de de autorisatieserver de gebruikersagent terug naar de client met behulp van de doorstuur-URI opgegeven eerdere (in de aanvraag of tijdens client registrati op).  De doorstuur-URI bevat een autorisatiecode en een lokale status die eerder door de client.     < /p\>|  
+|OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_Description|< p\> de client initieert de stroom door te leiden van de resource-eigenaar gebruikersagent naar het autorisatie-eindpunt.  De client neemt de client-id, aangevraagde bereik, lokale status en een omleidings-URI waarnaar de autorisatieserver de gebruikersagent wordt verzonden terug wanneer toegang wordt verleend (of te weigeren).     < /p\> < p\> de autorisatieserver verifieert de resource-eigenaar (via de gebruikersagent) en wordt tot stand gebracht of de resource-eigenaar verleent of weigert de aanvraag voor toegang van de client.     < /p\> < p\> ervan uitgaande dat de resource-eigenaar toegang verleent, stuurt de de autorisatieserver de gebruikersagent terug naar de client met behulp van de doorstuur-URI opgegeven eerdere (in de aanvraag of tijdens client registrati op).  De doorstuur-URI bevat een autorisatiecode en een lokale status die eerder door de client.     </p\>|  
 |OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_ErrorDescription|< p\> als de gebruiker de toegang van weigert als de aanvraag ongeldig is, de client ontvangt een melding met de volgende parameters die u aan bij de omleiding toegevoegd: < /p\>|  
 |OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_Name|Autorisatie-aanvraag|  
-|OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_RequestDescription|< p\> de client-app moet de gebruiker doorsturen naar het autorisatie-eindpunt om te starten van de OAuth-proces.          Op het autorisatie-eindpunt voert de gebruiker wordt geverifieerd en verleent of weigert toegang tot de app.     < /p\>|  
-|OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_ResponseDescription|< p\> ervan uitgaande dat de resource-eigenaar toegang verleent, stuurt de autorisatieserver de gebruikersagent terug naar de client met behulp van de doorstuur-URI opgegeven eerdere (in de aanvraag of tijdens de clientregistratie).  De doorstuur-URI bevat een autorisatiecode en een lokale status die eerder door de client. < /p\>|  
-|OAuth2Flow_AuthorizationCodeGrant_Step_TokenRequest_Description|< p\> de client vraagt een toegangstoken van de autorisatieserver '' s tokeneindpunt door de autorisatiecode ontvangen in de vorige stap.  Wanneer de aanvraag, verifieert de client met de autorisatie-server.  De client neemt de omleiding die URI gebruikt om op te halen van de autorisatiecode voor verificatie. < /p\> < p\> de autorisatieserver verifieert de client, valideert de autorisatiecode en zorgt ervoor dat de doorstuur-URI is ontvangen, overeenkomt met de URI die wordt gebruikt om te leiden van de client in stap (C).  Als geldig is, wordt de autorisatie-server reageert terug met een toegangstoken en eventueel een vernieuwingstoken. < /p\>|  
-|OAuth2Flow_AuthorizationCodeGrant_Step_TokenRequest_ErrorDescription|< p\> als de verificatie van de aanvraag-client is mislukt of ongeldig is, de autorisatie-server reageert met een statuscode HTTP 400 (onjuiste aanvraag) (tenzij anders opgegeven) en neemt de volgende parameters op in het antwoord. < /p\>|  
-|OAuth2Flow_AuthorizationCodeGrant_Step_TokenRequest_RequestDescription|< p\> de client een aanvraag doet bij het tokeneindpunt door te sturen met de volgende parameters met behulp van de vereiste indeling is "application/x-www-form-urlencoded goedkeurt" tekencodering UTF-8 in de HTTP-aanvragen entiteitshoofdtekst. < /p\>|  
-|OAuth2Flow_AuthorizationCodeGrant_Step_TokenRequest_ResponseDescription|< p\> de autorisatieserver verstrekt een toegangstoken en een optioneel vernieuwingstoken en formuleert een antwoord door de volgende parameters toe te voegen aan de entiteitshoofdtekst van het HTTP-antwoord met een 200 (OK)-statuscode. < /p\>|  
-|OAuth2Flow_ClientCredentialsGrant_Step_TokenRequest_Description|< p\> de client een verificatie uitvoert met de autorisatieserver en vraagt een toegangstoken van het token-eindpunt. < /p\> < p\> de autorisatieserver verifieert de client en als geldig is, geeft u een toegangstoken. < /p\>|  
-|OAuth2Flow_ClientCredentialsGrant_Step_TokenRequest_ErrorDescription|< p\> als de aanvraag is mislukt-clientverificatie of ongeldig is in de autorisatie-server reageert met een statuscode HTTP 400 (onjuiste aanvraag) (tenzij anders opgegeven) en neemt de volgende parameters op in het antwoord. < /p\>|  
-|OAuth2Flow_ClientCredentialsGrant_Step_TokenRequest_RequestDescription|< p\> de client een aanvraag doet bij het tokeneindpunt door toe te voegen met de volgende parameters met behulp van de vereiste indeling is "application/x-www-form-urlencoded goedkeurt" tekencodering UTF-8 in de HTTP-aanvragen entiteitshoofdtekst. < /p\>|  
-|OAuth2Flow_ClientCredentialsGrant_Step_TokenRequest_ResponseDescription|< p\> als de aanvraag voor een toegangstoken geldig en geautoriseerd, de autorisatieserver verstrekt een toegangstoken en een optioneel vernieuwingstoken en formuleert een antwoord door de volgende parameters toe te voegen aan de entiteitshoofdtekst van het HTTP-antwoord met een 200  Statuscode (OK). < /p\>|  
-|OAuth2Flow_ImplicitGrant_Step_AuthorizationRequest_Description|< p\> de client initieert de stroom door te leiden van de resource-eigenaar '' s gebruikersagent naar het autorisatie-eindpunt.  De client neemt de client-id, aangevraagde bereik, lokale status en een omleidings-URI waarnaar de autorisatieserver de gebruikersagent wordt verzonden terug wanneer toegang wordt verleend (of te weigeren). < /p\> < p\> de autorisatieserver verifieert de resource-eigenaar (via de gebruikersagent) en wordt tot stand gebracht of de resource-eigenaar verleent of de client weigert '' s-toegangsaanvraag. < /p\> < p\> ervan uitgaande dat de resource-eigenaar toegang verleent, stuurt de de autorisatieserver de gebruikersagent terug naar de client gebruik van de URI van de eerder opgegeven omleiding.  De doorstuur-URI bevat het toegangstoken in de URI-fragment. < /p\>|  
-|OAuth2Flow_ImplicitGrant_Step_AuthorizationRequest_ErrorDescription|< p\> als de resource-eigenaar de toegang weigert of als de aanvraag om redenen dan een ontbrekende of ongeldige doorstuur-URI mislukt, de autorisatieserver de client informeert door de volgende parameters toe te voegen aan het fragment onderdeel o f de doorstuur-URI met de vereiste indeling is ' application/x-www-form-urlencoded goedkeurt'. < /p\>|  
-|OAuth2Flow_ImplicitGrant_Step_AuthorizationRequest_RequestDescription|< p\> de client-app moet de gebruiker doorsturen naar het autorisatie-eindpunt om te starten van de OAuth-proces.      Op het autorisatie-eindpunt voert de gebruiker wordt geverifieerd en verleent of weigert toegang tot de app. < /p\>|  
-|OAuth2Flow_ImplicitGrant_Step_AuthorizationRequest_ResponseDescription|< p\> als de resource-eigenaar de aanvraag voor toegang tot verleent, de autorisatieserver een toegangstoken en stuurt dit naar de client door de volgende parameters toe te voegen aan de fragmentcomponent van de doorstuur-URI met behulp van de 'application/x-www -formulier - urlencoded'-indeling. < /p\>|  
+|OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_RequestDescription|< p\> de client-app moet de gebruiker doorsturen naar het autorisatie-eindpunt om te starten van de OAuth-proces.          Op het autorisatie-eindpunt voert de gebruiker wordt geverifieerd en verleent of weigert toegang tot de app.     </p\>|  
+|OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_ResponseDescription|< p\> ervan uitgaande dat de resource-eigenaar toegang verleent, stuurt de autorisatieserver de gebruikersagent terug naar de client met behulp van de doorstuur-URI opgegeven eerdere (in de aanvraag of tijdens de clientregistratie).  De doorstuur-URI bevat een autorisatiecode en een lokale status die eerder door de client. </p\>|  
+|OAuth2Flow_AuthorizationCodeGrant_Step_TokenRequest_Description|< p\> de client vraagt een toegangstoken van de autorisatieserver '' s tokeneindpunt door de autorisatiecode ontvangen in de vorige stap.  Wanneer de aanvraag, verifieert de client met de autorisatie-server.  De client neemt de omleiding die URI gebruikt om op te halen van de autorisatiecode voor verificatie. < /p\> < p\> de autorisatieserver verifieert de client, valideert de autorisatiecode en zorgt ervoor dat de doorstuur-URI is ontvangen, overeenkomt met de URI die wordt gebruikt om te leiden van de client in stap (C).  Als geldig is, wordt de autorisatie-server reageert terug met een toegangstoken en eventueel een vernieuwingstoken. </p\>|  
+|OAuth2Flow_AuthorizationCodeGrant_Step_TokenRequest_ErrorDescription|< p\> als de verificatie van de aanvraag-client is mislukt of ongeldig is, de autorisatie-server reageert met een statuscode HTTP 400 (onjuiste aanvraag) (tenzij anders opgegeven) en neemt de volgende parameters op in het antwoord. </p\>|  
+|OAuth2Flow_AuthorizationCodeGrant_Step_TokenRequest_RequestDescription|< p\> de client een aanvraag doet bij het tokeneindpunt door te sturen met de volgende parameters met behulp van de vereiste indeling is "application/x-www-form-urlencoded goedkeurt" tekencodering UTF-8 in de HTTP-aanvragen entiteitshoofdtekst. </p\>|  
+|OAuth2Flow_AuthorizationCodeGrant_Step_TokenRequest_ResponseDescription|< p\> de autorisatieserver verstrekt een toegangstoken en een optioneel vernieuwingstoken en formuleert een antwoord door de volgende parameters toe te voegen aan de entiteitshoofdtekst van het HTTP-antwoord met een 200 (OK)-statuscode. </p\>|  
+|OAuth2Flow_ClientCredentialsGrant_Step_TokenRequest_Description|< p\> de client een verificatie uitvoert met de autorisatieserver en vraagt een toegangstoken van het token-eindpunt. < /p\> < p\> de autorisatieserver verifieert de client en als geldig is, geeft u een toegangstoken. </p\>|  
+|OAuth2Flow_ClientCredentialsGrant_Step_TokenRequest_ErrorDescription|< p\> als de aanvraag is mislukt-clientverificatie of ongeldig is in de autorisatie-server reageert met een statuscode HTTP 400 (onjuiste aanvraag) (tenzij anders opgegeven) en neemt de volgende parameters op in het antwoord. </p\>|  
+|OAuth2Flow_ClientCredentialsGrant_Step_TokenRequest_RequestDescription|< p\> de client een aanvraag doet bij het tokeneindpunt door toe te voegen met de volgende parameters met behulp van de vereiste indeling is "application/x-www-form-urlencoded goedkeurt" tekencodering UTF-8 in de HTTP-aanvragen entiteitshoofdtekst. </p\>|  
+|OAuth2Flow_ClientCredentialsGrant_Step_TokenRequest_ResponseDescription|< p\> als de aanvraag voor een toegangstoken geldig en geautoriseerd, de autorisatieserver verstrekt een toegangstoken en een optioneel vernieuwingstoken en formuleert een antwoord door de volgende parameters toe te voegen aan de entiteitshoofdtekst van het HTTP-antwoord met een 200  Statuscode (OK). </p\>|  
+|OAuth2Flow_ImplicitGrant_Step_AuthorizationRequest_Description|< p\> de client initieert de stroom door te leiden van de resource-eigenaar '' s gebruikersagent naar het autorisatie-eindpunt.  De client neemt de client-id, aangevraagde bereik, lokale status en een omleidings-URI waarnaar de autorisatieserver de gebruikersagent wordt verzonden terug wanneer toegang wordt verleend (of te weigeren). < /p\> < p\> de autorisatieserver verifieert de resource-eigenaar (via de gebruikersagent) en wordt tot stand gebracht of de resource-eigenaar verleent of de client weigert '' s-toegangsaanvraag. < /p\> < p\> ervan uitgaande dat de resource-eigenaar toegang verleent, stuurt de de autorisatieserver de gebruikersagent terug naar de client gebruik van de URI van de eerder opgegeven omleiding.  De doorstuur-URI bevat het toegangstoken in de URI-fragment. </p\>|  
+|OAuth2Flow_ImplicitGrant_Step_AuthorizationRequest_ErrorDescription|< p\> als de resource-eigenaar de toegang weigert of als de aanvraag om redenen dan een ontbrekende of ongeldige doorstuur-URI mislukt, de autorisatieserver de client informeert door de volgende parameters toe te voegen aan het fragment onderdeel o f de doorstuur-URI met de vereiste indeling is ' application/x-www-form-urlencoded goedkeurt'. </p\>|  
+|OAuth2Flow_ImplicitGrant_Step_AuthorizationRequest_RequestDescription|< p\> de client-app moet de gebruiker doorsturen naar het autorisatie-eindpunt om te starten van de OAuth-proces.      Op het autorisatie-eindpunt voert de gebruiker wordt geverifieerd en verleent of weigert toegang tot de app. </p\>|  
+|OAuth2Flow_ImplicitGrant_Step_AuthorizationRequest_ResponseDescription|< p\> als de resource-eigenaar de aanvraag voor toegang tot verleent, de autorisatieserver een toegangstoken en stuurt dit naar de client door de volgende parameters toe te voegen aan de fragmentcomponent van de doorstuur-URI met behulp van de 'application/x-www -formulier - urlencoded'-indeling. </p\>|  
 |OAuth2Flow_ObtainAuthorization_AuthorizationCodeGrant_Description|De autorisatiecodestroom is geoptimaliseerd voor clients die de vertrouwelijkheid van hun referenties kunnen onderhouden (bijv. webservertoepassingen die zijn geïmplementeerd met PHP, Java, Python, Ruby, ASP.NET, enz.).|  
 |OAuth2Flow_ObtainAuthorization_AuthorizationCodeGrant_Name|Autorisatiecodetoewijzing|  
 |OAuth2Flow_ObtainAuthorization_ClientCredentialsGrant_Description|Clientreferentiestroom is geschikt in gevallen waar de client (uw toepassing) toegang tot de beveiligde resources onder het besturingselement aanvraagt. De client wordt beschouwd als een resource-eigenaar, zodat er geen interactie met de eindgebruiker vereist is.|  
@@ -210,10 +210,10 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
 |OAuth2Flow_ObtainAuthorization_ImplicitGrant_Name|Impliciete toewijzing|  
 |OAuth2Flow_ObtainAuthorization_ResourceOwnerPasswordCredentialsGrant_Description|Resource is-eigenaar wachtwoord geschikt in gevallen waarin de resource-eigenaar een vertrouwensrelatie tot stand met de client (uw toepassing), zoals het besturingssysteem van het apparaat of een toepassing met bijzondere rechten heeft. Deze stroom is geschikt voor clients die geschikt is voor het verkrijgen van de resource van de eigenaar van referenties (gebruikersnaam en wachtwoord, meestal met behulp van een interactief formulier).|  
 |OAuth2Flow_ObtainAuthorization_ResourceOwnerPasswordCredentialsGrant_Name|Toewijzing van wachtwoordreferenties van resource-eigenaar|  
-|OAuth2Flow_ResourceOwnerPasswordCredentialsGrant_Step_TokenRequest_Description|< p\> voorziet de client van de resource-eigenaar met de gebruikersnaam en wachtwoord. < /p\> < p\> de client vraagt een toegangstoken van de autorisatieserver '' s tokeneindpunt door de referenties ontvangen van de resource-eigenaar.  Wanneer de aanvraag, verifieert de client met de autorisatie-server. < /p\> < p\> de autorisatieserver verifieert de client en valideert de referenties van de resource-eigenaar en als geldig is, geeft u een toegangstoken. < /p\>|  
-|OAuth2Flow_ResourceOwnerPasswordCredentialsGrant_Step_TokenRequest_ErrorDescription|< p\> als de aanvraag is mislukt-clientverificatie of ongeldig is in de autorisatie-server reageert met een statuscode HTTP 400 (onjuiste aanvraag) (tenzij anders opgegeven) en neemt de volgende parameters op in het antwoord. < /p\>|  
-|OAuth2Flow_ResourceOwnerPasswordCredentialsGrant_Step_TokenRequest_RequestDescription|< p\> de client een aanvraag doet bij het tokeneindpunt door toe te voegen met de volgende parameters met behulp van de vereiste indeling is "application/x-www-form-urlencoded goedkeurt" tekencodering UTF-8 in de HTTP-aanvragen entiteitshoofdtekst. < /p\>|  
-|OAuth2Flow_ResourceOwnerPasswordCredentialsGrant_Step_TokenRequest_ResponseDescription|< p\> als de aanvraag voor een toegangstoken geldig en geautoriseerd, de autorisatieserver verstrekt een toegangstoken en een optioneel vernieuwingstoken en formuleert een antwoord door de volgende parameters toe te voegen aan de entiteitshoofdtekst van het HTTP-antwoord met een 20 (0 OK)-statuscode. < /p\>|  
+|OAuth2Flow_ResourceOwnerPasswordCredentialsGrant_Step_TokenRequest_Description|< p\> voorziet de client van de resource-eigenaar met de gebruikersnaam en wachtwoord. < /p\> < p\> de client vraagt een toegangstoken van de autorisatieserver '' s tokeneindpunt door de referenties ontvangen van de resource-eigenaar.  Wanneer de aanvraag, verifieert de client met de autorisatie-server. < /p\> < p\> de autorisatieserver verifieert de client en valideert de referenties van de resource-eigenaar en als geldig is, geeft u een toegangstoken. </p\>|  
+|OAuth2Flow_ResourceOwnerPasswordCredentialsGrant_Step_TokenRequest_ErrorDescription|< p\> als de aanvraag is mislukt-clientverificatie of ongeldig is in de autorisatie-server reageert met een statuscode HTTP 400 (onjuiste aanvraag) (tenzij anders opgegeven) en neemt de volgende parameters op in het antwoord. </p\>|  
+|OAuth2Flow_ResourceOwnerPasswordCredentialsGrant_Step_TokenRequest_RequestDescription|< p\> de client een aanvraag doet bij het tokeneindpunt door toe te voegen met de volgende parameters met behulp van de vereiste indeling is "application/x-www-form-urlencoded goedkeurt" tekencodering UTF-8 in de HTTP-aanvragen entiteitshoofdtekst. </p\>|  
+|OAuth2Flow_ResourceOwnerPasswordCredentialsGrant_Step_TokenRequest_ResponseDescription|< p\> als de aanvraag voor een toegangstoken geldig en geautoriseerd, de autorisatieserver verstrekt een toegangstoken en een optioneel vernieuwingstoken en formuleert een antwoord door de volgende parameters toe te voegen aan de entiteitshoofdtekst van het HTTP-antwoord met een 20 (0 OK)-statuscode. </p\>|  
 |OAuth2Step_AccessTokenRequest_Name|Toegangstokenaanvraag|  
 |OAuth2Step_AuthorizationRequest_Name|Autorisatie-aanvraag|  
 |OAuth2AccessToken_AuthorizationCodeGrant_TokenResponse|VEREIST. Het toegangstoken dat is uitgegeven door de autorisatie-server.|  
@@ -225,16 +225,16 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
 |OAuth2ClientId_ImplicitGrant_AuthorizationRequest|VEREIST. De client-id.|  
 |OAuth2Code_AuthorizationCodeGrant_AuthorizationResponse|VEREIST. De autorisatiecode gegenereerd door de autorisatie-server.|  
 |OAuth2Code_AuthorizationCodeGrant_TokenRequest|VEREIST. De autorisatiecode ontvangen van de autorisatie-server.|  
-|OAuth2ErrorDescription_AuthorizationCodeGrant_AuthorizationErrorResponse|OPTIONEEL. Mensen leesbare ASCII-tekst met aanvullende informatie.|  
-|OAuth2ErrorDescription_AuthorizationCodeGrant_TokenErrorResponse|OPTIONEEL. Mensen leesbare ASCII-tekst met aanvullende informatie.|  
-|OAuth2ErrorDescription_ClientCredentialsGrant_TokenErrorResponse|OPTIONEEL. Mensen leesbare ASCII-tekst met aanvullende informatie.|  
-|OAuth2ErrorDescription_ImplicitGrant_AuthorizationErrorResponse|OPTIONEEL. Mensen leesbare ASCII-tekst met aanvullende informatie.|  
-|OAuth2ErrorDescription_ResourceOwnerPasswordCredentialsGrant_TokenErrorResponse|OPTIONEEL. Mensen leesbare ASCII-tekst met aanvullende informatie.|  
-|OAuth2ErrorUri_AuthorizationCodeGrant_AuthorizationErrorResponse|OPTIONEEL. Een URI die verwijst naar een leesbare webpagina met informatie over de fout.|  
-|OAuth2ErrorUri_AuthorizationCodeGrant_TokenErrorResponse|OPTIONEEL. Een URI die verwijst naar een leesbare webpagina met informatie over de fout.|  
-|OAuth2ErrorUri_ClientCredentialsGrant_TokenErrorResponse|OPTIONEEL. Een URI die verwijst naar een leesbare webpagina met informatie over de fout.|  
-|OAuth2ErrorUri_ImplicitGrant_AuthorizationErrorResponse|OPTIONEEL. Een URI die verwijst naar een leesbare webpagina met informatie over de fout.|  
-|OAuth2ErrorUri_ResourceOwnerPasswordCredentialsGrant_TokenErrorResponse|OPTIONEEL. Een URI die verwijst naar een leesbare webpagina met informatie over de fout.|  
+|OAuth2ErrorDescription_AuthorizationCodeGrant_AuthorizationErrorResponse|OPTIONAL. Mensen leesbare ASCII-tekst met aanvullende informatie.|  
+|OAuth2ErrorDescription_AuthorizationCodeGrant_TokenErrorResponse|OPTIONAL. Mensen leesbare ASCII-tekst met aanvullende informatie.|  
+|OAuth2ErrorDescription_ClientCredentialsGrant_TokenErrorResponse|OPTIONAL. Mensen leesbare ASCII-tekst met aanvullende informatie.|  
+|OAuth2ErrorDescription_ImplicitGrant_AuthorizationErrorResponse|OPTIONAL. Mensen leesbare ASCII-tekst met aanvullende informatie.|  
+|OAuth2ErrorDescription_ResourceOwnerPasswordCredentialsGrant_TokenErrorResponse|OPTIONAL. Mensen leesbare ASCII-tekst met aanvullende informatie.|  
+|OAuth2ErrorUri_AuthorizationCodeGrant_AuthorizationErrorResponse|OPTIONAL. Een URI die verwijst naar een leesbare webpagina met informatie over de fout.|  
+|OAuth2ErrorUri_AuthorizationCodeGrant_TokenErrorResponse|OPTIONAL. Een URI die verwijst naar een leesbare webpagina met informatie over de fout.|  
+|OAuth2ErrorUri_ClientCredentialsGrant_TokenErrorResponse|OPTIONAL. Een URI die verwijst naar een leesbare webpagina met informatie over de fout.|  
+|OAuth2ErrorUri_ImplicitGrant_AuthorizationErrorResponse|OPTIONAL. Een URI die verwijst naar een leesbare webpagina met informatie over de fout.|  
+|OAuth2ErrorUri_ResourceOwnerPasswordCredentialsGrant_TokenErrorResponse|OPTIONAL. Een URI die verwijst naar een leesbare webpagina met informatie over de fout.|  
 |OAuth2Error_AuthorizationCodeGrant_AuthorizationErrorResponse|VEREIST. Een enkelvoudige ASCII-foutcode uit de volgende: invalid_request, unauthorized_client, access_denied, unsupported_response_type, invalid_scope, server_error, temporarily_unavailable.|  
 |OAuth2Error_AuthorizationCodeGrant_TokenErrorResponse|VEREIST. Een enkelvoudige ASCII-foutcode uit de volgende: invalid_request, invalid_client, invalid_grant, unauthorized_client, unsupported_grant_type, invalid_scope.|  
 |OAuth2Error_ClientCredentialsGrant_TokenErrorResponse|VEREIST. Een enkelvoudige ASCII-foutcode uit de volgende: invalid_request, invalid_client, invalid_grant, unauthorized_client, unsupported_grant_type, invalid_scope.|  
@@ -248,21 +248,21 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
 |OAuth2GrantType_ClientCredentialsGrant_TokenRequest|VEREIST. Waarde moet worden ingesteld op 'client_credentials'.|  
 |OAuth2GrantType_ResourceOwnerPasswordCredentialsGrant_TokenRequest|VEREIST. Waarde moet worden ingesteld op 'wachtwoord'.|  
 |OAuth2Password_ResourceOwnerPasswordCredentialsGrant_TokenRequest|VEREIST. Het wachtwoord van de resource-eigenaar.|  
-|OAuth2RedirectUri_AuthorizationCodeGrant_AuthorizationRequest|OPTIONEEL. URI voor de omleiding van het eindpunt moet een absolute URI zijn.|  
+|OAuth2RedirectUri_AuthorizationCodeGrant_AuthorizationRequest|OPTIONAL. URI voor de omleiding van het eindpunt moet een absolute URI zijn.|  
 |OAuth2RedirectUri_AuthorizationCodeGrant_TokenRequest|VEREIST als de parameter redirect_uri is opgenomen in de autorisatieaanvraag, en hun waarden MOETEN identiek zijn.|  
-|OAuth2RedirectUri_ImplicitGrant_AuthorizationRequest|OPTIONEEL. URI voor de omleiding van het eindpunt moet een absolute URI zijn.|  
-|OAuth2RefreshToken_AuthorizationCodeGrant_TokenResponse|OPTIONEEL. Het vernieuwingstoken dat kan worden gebruikt om nieuwe toegangstokens verkrijgen.|  
-|OAuth2RefreshToken_ClientCredentialsGrant_TokenResponse|OPTIONEEL. Het vernieuwingstoken dat kan worden gebruikt om nieuwe toegangstokens verkrijgen.|  
-|OAuth2RefreshToken_ResourceOwnerPasswordCredentialsGrant_TokenResponse|OPTIONEEL. Het vernieuwingstoken dat kan worden gebruikt om nieuwe toegangstokens verkrijgen.|  
+|OAuth2RedirectUri_ImplicitGrant_AuthorizationRequest|OPTIONAL. URI voor de omleiding van het eindpunt moet een absolute URI zijn.|  
+|OAuth2RefreshToken_AuthorizationCodeGrant_TokenResponse|OPTIONAL. Het vernieuwingstoken dat kan worden gebruikt om nieuwe toegangstokens verkrijgen.|  
+|OAuth2RefreshToken_ClientCredentialsGrant_TokenResponse|OPTIONAL. Het vernieuwingstoken dat kan worden gebruikt om nieuwe toegangstokens verkrijgen.|  
+|OAuth2RefreshToken_ResourceOwnerPasswordCredentialsGrant_TokenResponse|OPTIONAL. Het vernieuwingstoken dat kan worden gebruikt om nieuwe toegangstokens verkrijgen.|  
 |OAuth2ResponseType_AuthorizationCodeGrant_AuthorizationRequest|VEREIST. Waarde moet worden ingesteld op "code".|  
 |OAuth2ResponseType_ImplicitGrant_AuthorizationRequest|VEREIST. De waarde moet worden ingesteld op 'token'.|  
-|OAuth2Scope_AuthorizationCodeGrant_AuthorizationRequest|OPTIONEEL. Het bereik van de aanvraag.|  
+|OAuth2Scope_AuthorizationCodeGrant_AuthorizationRequest|OPTIONAL. Het bereik van de aanvraag.|  
 |OAuth2Scope_AuthorizationCodeGrant_TokenResponse|OPTIONEEL als deze identiek is aan het bereik dat door de client is aangevraagd; anders VEREIST.|  
-|OAuth2Scope_ClientCredentialsGrant_TokenRequest|OPTIONEEL. Het bereik van de aanvraag.|  
+|OAuth2Scope_ClientCredentialsGrant_TokenRequest|OPTIONAL. Het bereik van de aanvraag.|  
 |OAuth2Scope_ClientCredentialsGrant_TokenResponse|OPTIONEEL als deze identiek is aan het bereik dat door de client is aangevraagd; anders VEREIST.|  
-|OAuth2Scope_ImplicitGrant_AuthorizationRequest|OPTIONEEL. Het bereik van de aanvraag.|  
+|OAuth2Scope_ImplicitGrant_AuthorizationRequest|OPTIONAL. Het bereik van de aanvraag.|  
 |OAuth2Scope_ImplicitGrant_AuthorizationResponse|OPTIONEEL als deze identiek is aan het bereik dat door de client is aangevraagd; anders VEREIST.|  
-|OAuth2Scope_ResourceOwnerPasswordCredentialsGrant_TokenRequest|OPTIONEEL. Het bereik van de aanvraag.|  
+|OAuth2Scope_ResourceOwnerPasswordCredentialsGrant_TokenRequest|OPTIONAL. Het bereik van de aanvraag.|  
 |OAuth2Scope_ResourceOwnerPasswordCredentialsGrant_TokenResponse|OPTIONEEL als deze identiek is aan het bereik dat door de client is aangevraagd; anders VEREIST.|  
 |OAuth2State_AuthorizationCodeGrant_AuthorizationErrorResponse|VEREIST als de parameter 'state' aanwezig in de autorisatie-aanvraag van de client is.  De exacte waarde die is ontvangen van de client.|  
 |OAuth2State_AuthorizationCodeGrant_AuthorizationRequest|AANBEVOLEN. Een onduidelijke waarde die wordt gebruikt door de client om de status tussen de aanvraag en de callback te behouden.  De autorisatieserver bevat deze waarde bij omleiden van de gebruikersagent terug naar de client.  De parameter moet worden gebruikt voor het voorkomen van aanvraag voor cross-site kunnen worden vervalst.|  
@@ -297,8 +297,8 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
 |BadRequestParameterExpected|"'{0}' parameter wordt verwacht."|  
 |TooltipTextDoubleClickToSelectAll|Dubbelklik om alles te selecteren.|  
 |TooltipTextHideRevealSecret|Weergeven/Verbergen|  
-|ButtonLinkOpenConsole|Nu uitproberen|  
-|SectionHeadingRequestBody|Aanvraagtekst|  
+|ButtonLinkOpenConsole|Probeer het nu|  
+|SectionHeadingRequestBody|Aanvraagbody|  
 |SectionHeadingRequestParameters|Aanvraagparameters|  
 |SectionHeadingRequestUrl|Aanvraag-URL|  
 |SectionHeadingResponse|Antwoord|  
@@ -309,7 +309,7 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
   
 ###  <a name="ErrorPageStrings"></a> ErrorPageStrings  
   
-|Name|Sms|  
+|Name|Tekst|  
 |----------|----------|  
 |LinkLabelBack|terug|  
 |LinkLabelHomePage|startpagina|  
@@ -327,7 +327,7 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
   
 ###  <a name="IssuesStrings"></a> IssuesStrings  
   
-|Name|Sms|  
+|Name|Tekst|  
 |----------|----------|  
 |WebIssuesIndexTitle|Problemen|  
 |WebIssuesNoActiveSubscriptions|U hebt geen actieve abonnementen. U moet zich abonneren op een product om een probleem te melden.|  
@@ -338,7 +338,7 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
   
 ###  <a name="NotFoundStrings"></a> NotFoundStrings  
   
-|Name|Sms|  
+|Name|Tekst|  
 |----------|----------|  
 |LinkLabelHomePage|startpagina|  
 |LinkLabelSendUsEmail|e-mail verzenden|  
@@ -353,11 +353,11 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
   
 ###  <a name="ProductDetailsStrings"></a> ProductDetailsStrings  
   
-|Name|Sms|  
+|Name|Tekst|  
 |----------|----------|  
 |WebProductsAgreement|Abonneer u op {0} Product, ik ga akkoord met de `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`.|  
 |WebProductsLegalTermsLink|Gebruiksvoorwaarden|  
-|WebProductsSubscribeButton|Abonneren|  
+|WebProductsSubscribeButton|Abonneer u nu|  
 |WebProductsUsageLimitsHeader|Gebruiksbeperkingen|  
 |WebProductsYouAreNotSubscribed|U bent geabonneerd op dit product.|  
 |WebProductsYouRequestedSubscription|U hebt een abonnement op dit product aangevraagd.|  
@@ -375,13 +375,13 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
   
 ###  <a name="ProductsStrings"></a> ProductsStrings  
   
-|Name|Sms|  
+|Name|Tekst|  
 |----------|----------|  
 |PageTitleProducts|Producten|  
   
 ###  <a name="ProviderInfoStrings"></a> ProviderInfoStrings  
   
-|Name|Sms|  
+|Name|Tekst|  
 |----------|----------|  
 |TextboxExternalIdentitiesDisabled|Op het moment is het aanmelden uitgeschakeld door de beheerders.|  
 |TextboxExternalIdentitiesSigninInvitation|U kunt zich ook aanmelden met|  
@@ -389,7 +389,7 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
   
 ###  <a name="SigninResources"></a> SigninResources  
   
-|Name|Sms|  
+|Name|Tekst|  
 |----------|----------|  
 |PrincipalNotFound|Kan de principal niet vinden of de handtekening is ongeldig.|  
 |ErrorSsoAuthenticationFailed|De SSO-verificatie is mislukt|  
@@ -408,9 +408,9 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
 |WebAuthenticationEmailHasBeenRevertedNotice|Er bestaat al een e-mailadres. Aanvraag is teruggedraaid|  
 |ValidationErrorEmailAlreadyExists|Het e-mailadres bestaat al|  
 |ValidationErrorEmailInvalid|Ongeldig e-mailadres|  
-|TextboxLabelEmail|E-mailen|  
+|TextboxLabelEmail|Email|  
 |ValidationErrorEmailRequired|Het e-mailadres is vereist.|  
-|WebAuthenticationErrorNoticeHeader|fOUT|  
+|WebAuthenticationErrorNoticeHeader|Fout|  
 |WebAuthenticationFieldLengthErrorMessage|{0} moet een maximale lengte van {1}|  
 |TextboxLabelEmailFirstName|Voornaam|  
 |ValidationErrorFirstNameRequired|De voornaam is vereist.|  
@@ -427,7 +427,7 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
 |WebAuthenticationNewPasswordLabel|Nieuw wachtwoord|  
 |ValidationMessageNewPasswordRequired|Er is een nieuw wachtwoord vereist.|  
 |TextboxLabelNotificationsSenderEmail|E-mailadres van afzender meldingen|  
-|TextboxLabelOrganizationName|De naam van de organisatie|  
+|TextboxLabelOrganizationName|Naam van de organisatie|  
 |WebAuthenticationOrganizationRequiredErrorMessage|De organisatienaam is leeg|  
 |WebAuthenticationPasswordChangedNotice|Uw wachtwoord is bijgewerkt|  
 |WebAuthenticationPasswordChangedNoticeTitle|Wachtwoord bijgewerkt|  
@@ -459,7 +459,7 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
 |WebAuthenticationUserIsNotConfirm|Bevestig uw registratie voordat u zich aanmeldt.|  
 |WebAuthenticationInvalidEmailFormated|E-mailadres is ongeldig: {0}|  
 |WebAuthenticationUserNotFound|De gebruiker is niet gevonden|  
-|WebAuthenticationTenantNotRegistered|Uw account behoort tot een Azure Active Directory-tenant die niet is gemachtigd voor toegang tot deze portal.|  
+|WebAuthenticationTenantNotRegistered|Uw account behoort tot een Azure Active Directory-tenant die is niet gemachtigd voor toegang tot deze portal.|  
 |WebAuthenticationAuthenticationFailed|De verificatie is mislukt.|  
 |WebAuthenticationGooglePlusNotEnabled|De verificatie is mislukt. Als u de toepassing hebt geverifieerd is vervolgens Neem contact op met de beheerder om ervoor te zorgen dat Google de verificatie correct geconfigureerd.|  
 |ValidationErrorAllowedTenantIsRequired|Toegestane tenant is verplicht|  
@@ -485,7 +485,7 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
   
 ###  <a name="SigninStrings"></a> SigninStrings  
   
-|Name|Sms|  
+|Name|Tekst|  
 |----------|----------|  
 |WebAuthenticationForgotPassword|Wachtwoord vergeten?|  
 |WebAuthenticationIfAdministrator|Als u beheerder bent u moet zich aanmelden `<a href="{0}"\>here</a\>`.|  
@@ -497,17 +497,17 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
   
 ###  <a name="SignupStrings"></a> SignupStrings  
   
-|Name|Sms|  
+|Name|Tekst|  
 |----------|----------|  
-|PageTitleSignup|Registreren|  
+|PageTitleSignup|Aanmelden|  
 |WebAuthenticationAlreadyAMember|Bent u al lid?|  
 |WebAuthenticationCreateNewAccount|Een nieuw API Management-account maken|  
 |WebAuthenticationSigninNow|Nu aanmelden|  
-|ButtonLabelSignup|Registreren|  
+|ButtonLabelSignup|Aanmelden|  
   
 ###  <a name="SubscriptionListStrings"></a> SubscriptionListStrings  
   
-|Name|Sms|  
+|Name|Tekst|  
 |----------|----------|  
 |SubscriptionCancelConfirmation|Weet u zeker dat u dit abonnement wilt annuleren?|  
 |SubscriptionRenewConfirmation|Weet u zeker dat u dit abonnement wilt verlengen?|  
@@ -516,11 +516,11 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
 |WebDevelopersRegenerateLink|Opnieuw genereren|  
 |WebDevelopersSecondaryKey|Secundaire sleutel|  
 |ButtonLabelShowKey|Weergeven|  
-|ButtonLabelRenewSubscription|Vernieuwen|  
+|ButtonLabelRenewSubscription|Verlengen|  
 |WebDevelopersSubscriptionRequested|Aangevraagd op {0}|  
 |WebDevelopersSubscriptionRequestedState|Aangevraagd|  
 |WebDevelopersSubscriptionTableNameHeader|Name|  
-|WebDevelopersSubscriptionTableStateHeader|Staat|  
+|WebDevelopersSubscriptionTableStateHeader|Status|  
 |WebDevelopersUsageStatisticsLink|Analytics-rapporten|  
 |WebDevelopersYourSubscriptions|Uw abonnementen|  
 |SubscriptionPropertyLabelRequestedDate|Aangevraagd op|  
@@ -530,7 +530,7 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
   
 ###  <a name="SubscriptionStrings"></a> SubscriptionStrings  
   
-|Name|Sms|  
+|Name|Tekst|  
 |----------|----------|  
 |SectionHeadingCloseAccount|Wilt u uw account sluiten?|  
 |PageTitleDeveloperProfile|Profiel|  
@@ -541,23 +541,23 @@ Met Azure API Management biedt de volgende typen resources voor gebruik in de de
   
 ###  <a name="UpdateProfileStrings"></a> UpdateProfileStrings  
   
-|Name|Sms|  
+|Name|Tekst|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|Profiel bijwerken|  
 |PageTitleUpdateProfile|Accountgegevens bijwerken|  
   
 ###  <a name="UserProfile"></a> Gebruikersprofiel  
   
-|Name|Sms|  
+|Name|Tekst|  
 |----------|----------|  
 |ButtonLabelChangeAccountInfo|Accountinformatie wijzigen|  
 |ButtonLabelChangePassword|Wachtwoord wijzigen|  
 |ButtonLabelCloseAccount|Account sluiten|  
-|TextboxLabelEmail|E-mailen|  
+|TextboxLabelEmail|Email|  
 |TextboxLabelEmailFirstName|Voornaam|  
 |TextboxLabelEmailLastName|Achternaam|  
 |TextboxLabelNotificationsSenderEmail|E-mailadres van afzender meldingen|  
-|TextboxLabelOrganizationName|De naam van de organisatie|  
+|TextboxLabelOrganizationName|Naam van de organisatie|  
 |SubscriptionStateActive|Actief|  
 |SubscriptionStateCancelled|Geannuleerd|  
 |SubscriptionStateExpired|Vervallen|  

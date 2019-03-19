@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: iainfou
-ms.openlocfilehash: 0dced367f62ab97d62cd4b11758e13a05278442e
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 0cf83180647c142c9db2a1229674de96fec6a6bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099255"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087530"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Azure Active Directory integreren met Azure Kubernetes Service
 
@@ -40,47 +40,47 @@ De eerste Azure AD-toepassing wordt gebruikt om op te halen van een groepslidmaa
 
 1. Selecteer achtereenvolgens **Azure Active Directory** > **App-registraties** > **Registratie van nieuwe toepassing**.
 
-  Geef de toepassing een naam, selecteer **Web-app / API** voor het toepassingstype, en voer een waarde van de URI-indeling voor **aanmeldings-URL**. Selecteer **maken** wanneer u klaar bent.
+   Geef de toepassing een naam, selecteer **Web-app / API** voor het toepassingstype, en voer een waarde van de URI-indeling voor **aanmeldings-URL**. Selecteer **maken** wanneer u klaar bent.
 
-  ![Maken van Azure AD-registratie](media/aad-integration/app-registration.png)
+   ![Maken van Azure AD-registratie](media/aad-integration/app-registration.png)
 
 2. Selecteer **Manifest** en bewerk de `groupMembershipClaims` waarde die moet worden `"All"`.
 
-  Opslaan van de updates als u klaar bent.
+   Opslaan van de updates als u klaar bent.
 
-  ![Groepslidmaatschap op Alles bijwerken](media/aad-integration/edit-manifest.png)
+   ![Groepslidmaatschap op Alles bijwerken](media/aad-integration/edit-manifest.png)
 
 3. Selecteer terug op de Azure AD-toepassing **instellingen** > **sleutels**.
 
-  Een beschrijving van de sleutel toevoegen, schakelt u een vervaldatum en selecteer **opslaan**. Noteer de sleutelwaarde. Wanneer de AKS-cluster implementeren van een Azure AD worden ingeschakeld, deze waarde wordt aangeduid als de `Server application secret`.
+   Een beschrijving van de sleutel toevoegen, schakelt u een vervaldatum en selecteer **opslaan**. Noteer de sleutelwaarde. Wanneer de AKS-cluster implementeren van een Azure AD worden ingeschakeld, deze waarde wordt aangeduid als de `Server application secret`.
 
-  ![De persoonlijke sleutel van de toepassing ophalen](media/aad-integration/application-key.png)
+   ![De persoonlijke sleutel van de toepassing ophalen](media/aad-integration/application-key.png)
 
 4. Ga terug naar de Azure AD-toepassing, selecteer **instellingen** > **vereiste machtigingen** > **toevoegen**  >   **Een API selecteren** > **Microsoft Graph** > **Selecteer**.
 
-  ![Graph API selecteren](media/aad-integration/graph-api.png)
+   ![Graph API selecteren](media/aad-integration/graph-api.png)
 
 5. Onder **TOEPASSINGSMACHTIGINGEN** zet een vinkje naast **mapgegevens lezen**.
 
-  ![Graph-machtigingen van de toepassing instellen](media/aad-integration/read-directory.png)
+   ![Graph-machtigingen van de toepassing instellen](media/aad-integration/read-directory.png)
 
 6. Onder **GEDELEGEERDE MACHTIGINGEN**, schakel het selectievakje naast **aanmelden en gebruikersprofiel lezen** en **mapgegevens lezen**. Sla de updates die één keer uitgevoerd.
 
-  ![Graph-machtigingen van de toepassing instellen](media/aad-integration/delegated-permissions.png)
+   ![Graph-machtigingen van de toepassing instellen](media/aad-integration/delegated-permissions.png)
 
-  Selecteer **Done**.
+   Selecteer **Done**.
 
 7. Kies *Microsoft Graph* uit de lijst met API's, selecteert u vervolgens **machtigingen verlenen**. Deze stap mislukt als het huidige account niet een tenantbeheerder is.
 
-  ![Graph-machtigingen van de toepassing instellen](media/aad-integration/grant-permissions.png)
+   ![Graph-machtigingen van de toepassing instellen](media/aad-integration/grant-permissions.png)
 
-  Wanneer de machtigingen hebt verleend, wordt het volgende bericht weergegeven in de portal:
+   Wanneer de machtigingen hebt verleend, wordt het volgende bericht weergegeven in de portal:
 
-  ![Kennisgeving van geslaagde machtigingen](media/aad-integration/permissions-granted.png)
+   ![Kennisgeving van geslaagde machtigingen](media/aad-integration/permissions-granted.png)
 
 8. Ga terug naar de toepassing en noteer de **toepassings-ID**. Wanneer u een Azure AD-functionaliteit AKS-cluster implementeert, deze waarde wordt aangeduid als de `Server application ID`.
 
-  ![Toepassings-ID ophalen](media/aad-integration/application-id.png)
+   ![Toepassings-ID ophalen](media/aad-integration/application-id.png)
 
 ## <a name="create-client-application"></a>Client-toepassing maken
 
@@ -88,27 +88,27 @@ De tweede Azure AD-toepassing wordt gebruikt wanneer u zich aan met de Kubernete
 
 1. Selecteer achtereenvolgens **Azure Active Directory** > **App-registraties** > **Registratie van nieuwe toepassing**.
 
-  Geef de toepassing een naam, selecteer **systeemeigen** voor het toepassingstype, en voer een opgemaakte URI-waarde voor **omleidings-URI**. Selecteer **maken** wanneer u klaar bent.
+   Geef de toepassing een naam, selecteer **systeemeigen** voor het toepassingstype, en voer een opgemaakte URI-waarde voor **omleidings-URI**. Selecteer **maken** wanneer u klaar bent.
 
-  ![AAD-registratie maken](media/aad-integration/app-registration-client.png)
+   ![AAD-registratie maken](media/aad-integration/app-registration-client.png)
 
 2. Selecteer in de Azure AD-toepassing **instellingen** > **vereiste machtigingen** > **toevoegen** > **selecteert u een API** en zoek de naam van de server-toepassing in de laatste stap van dit document hebt gemaakt.
 
-  ![Machtigingen van de toepassing configureren](media/aad-integration/select-api.png)
+   ![Machtigingen van de toepassing configureren](media/aad-integration/select-api.png)
 
 3. Schakel het selectievakje naast de toepassing en klik op **Selecteer**.
 
-  ![AKS AAD-servereindpunt toepassing selecteren](media/aad-integration/select-server-app.png)
+   ![AKS AAD-servereindpunt toepassing selecteren](media/aad-integration/select-server-app.png)
 
-  Selecteer **gedaan**
+   Selecteer **gedaan**
 
 4. Selecteer uw API-server in de lijst en kies vervolgens **machtigingen verlenen**:
 
-  ![Machtigingen verlenen](media/aad-integration/grant-permissions-client.png)
+   ![Machtigingen verlenen](media/aad-integration/grant-permissions-client.png)
 
 5. Terug op de AD-toepassing en noteer de **toepassings-ID**. Wanneer u een Azure AD-functionaliteit AKS-cluster implementeert, deze waarde wordt aangeduid als de `Client application ID`.
 
-  ![De toepassings-ID ophalen](media/aad-integration/application-id-client.png)
+   ![De toepassings-ID ophalen](media/aad-integration/application-id-client.png)
 
 ## <a name="get-tenant-id"></a>Tenant-id ophalen
 

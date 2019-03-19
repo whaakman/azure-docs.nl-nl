@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf1dc33276c10a9b7fe7c7ebb6619b8c47d66bfb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ec88caafa9a6168860a8e9e2ff9e2abe0cfd0e77
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447826"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852956"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Veelgestelde vragen over Azure AD Connect Health
 In dit artikel bevat antwoorden op veelgestelde vragen over Azure Active Directory (Azure AD) Connect Health. Deze Veelgestelde vragen hebben betrekking op vragen over het gebruik van de service, waaronder het facturering model, mogelijkheden, beperkingen en ondersteuning.
@@ -192,6 +192,9 @@ CheckForMS17-010
 **V: Waarom wordt mijn ADFS controles zijn uitgevoerd niet wordt gegenereerd?**
 
 Gebruik PowerShell-cmdlet <i>Get-AdfsProperties - AuditLevel</i> uitgeschakeld om te controleren of de logboeken voor controle is niet in staat. Meer informatie over [AD FS-auditlogboeken](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). U ziet dat als er geavanceerde controle-instellingen naar de ADFS-server gepusht, worden eventuele wijzigingen in auditpol.exe overschreven (gebeurtenis als toepassing gegenereerd niet is geconfigureerd). Stel in dat geval wordt het lokale beveiligingsbeleid om aan te melden fouten toepassing gegenereerd en het slagen.
+
+**V: Wanneer worden certificaat van de agent automatisch vernieuwd voordat verlopen?**
+De certificering van de agent wordt automatisch worden vernieuwd **6 maanden** vóór de vervaldatum. Als u deze niet verlengt, zorg ervoor dat de netwerkverbinding van de agent is stabiel. Start de agent-services of update van de meest recente versie kan het probleem ook oplossen.
 
 
 ## <a name="related-links"></a>Verwante koppelingen

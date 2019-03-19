@@ -8,12 +8,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: b5e42585178505ee4c23ca4054e83f61ee1254b8
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 024bb29f9d7276021888e949073f6d45aed0a249
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436133"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076272"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IoT Hub apparaat-Streams (preview)
 
@@ -123,7 +123,7 @@ Volg onderstaande stappen voor het configureren van Azure Monitor-logboeken voor
 
 1. Navigeer naar de *diagnostische instellingen* tabblad in uw IoT-Hub en klik op *diagnostische gegevens inschakelen* koppeling.
 
-  ![Alternatieve tekst](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings.PNG "disgnostics Logboeken inschakelen")
+   ![Alternatieve tekst](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings.PNG "disgnostics Logboeken inschakelen")
 
 
 2. Geef een naam op voor de diagnostische instellingen en kies *verzenden naar Log Analytics* optie. Training voor het kiezen van een bestaande resource van de Log Analytics-werkruimte of maak een nieuwe. Controleer daarnaast de *DeviceStreams* in de lijst.

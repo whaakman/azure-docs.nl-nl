@@ -1,20 +1,20 @@
 ---
-title: 'Zelfstudie: Azure Machine Learning implementeren op een apparaat - Azure IoT Edge | Microsoft Docs'
-description: In deze zelfstudie implementeert u Azure Machine Learning als een module op een Edge-apparaat
+title: Azure Machine Learning implementeert op een apparaat - Azure IoT Edge | Microsoft Docs
+description: In deze zelfstudie maakt u een Azure Machine Learning-model maken en vervolgens als een module aan een edge-apparaat implementeren
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/21/2019
+ms.date: 03/07/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 0f7201ffd71a6bc3e68f83f005c693cae4fef84a
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
-ms.translationtype: HT
+ms.openlocfilehash: 985f1f73fbfc8c75df8393615fca32f5d1c08b9d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56648997"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078309"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Zelfstudie: Azure Machine Learning als een IoT Edge-module implementeren (preview)
 
@@ -40,13 +40,15 @@ In deze zelfstudie leert u het volgende:
 
 Een Azure IoT Edge-apparaat:
 
-* U kunt uw ontwikkelcomputer of een virtuele machine gebruiken als een Edge-apparaat door de stappen te volgen in de snelstart voor [Linux-](quickstart-linux.md) of [Windows-apparaten](quickstart.md).
-* De Azure Machine Learning-module ondersteunt geen ARM-processoren.
+* U kunt een virtuele machine van Azure gebruiken als een IoT Edge-apparaat met de volgende stappen in de Quick Start voor [Linux](quickstart-linux.md).
+* De Azure Machine Learning-module biedt geen ondersteuning voor Windows-containers.
+* De Azure Machine Learning-module biedt geen ondersteuning voor ARM-processors.
 
 Cloudresources:
 
 * Een gratis of standaard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)-laag in Azure.
-* Een Azure Machine Learning-werkruimte. Volg de instructies in [Voorbereidingen voor het implementeren van modellen in IoT Edge](../machine-learning/service/how-to-deploy-to-iot.md) om er een te maken.
+* Een Azure Machine Learning-werkruimte. Volg de instructies in [gebruik van de Azure-portal aan de slag met Azure Machine Learning](../machine-learning/service/quickstart-get-started.md) een te maken en informatie over het gebruik van deze.
+   * Noteer de naam van de werkruimte, resourcegroep en abonnements-ID. Deze waarden, allemaal verkrijgbaar in de werkruimte overzicht in Azure portal. U gebruikt deze waarden later in de zelfstudie een laptop met een Azure verbinden met de werkruimteresources van uw. 
 
 
 ### <a name="disable-process-identification"></a>Procesidentificatie uitschakelen
@@ -54,9 +56,9 @@ Cloudresources:
 >[!NOTE]
 >
 > In de preview-fase biedt Azure Machine Learning geen ondersteuning voor de beveiligingsfunctie voor procesidentificatie die standaard is ingeschakeld voor IoT Edge.
-> Hieronder ziet u hoe u deze functie kunt uitschakelen. Dit is echter niet geschikt voor productieomgevingen. Deze stappen zijn alleen nodig op Linux, omdat u dit hebt gedaan tijdens de installatie van de Windows Edge-runtime.
+> Hieronder ziet u hoe u deze functie kunt uitschakelen. Dit is echter niet geschikt voor productieomgevingen. Deze stappen zijn alleen nodig op Linux-apparaten. 
 
-Als u procesidentificatie wilt uitschakelen op uw IoT Edge-apparaat, moet u het IP-adres en de poort voor **workload_uri** en **management_uri** opgeven in de sectie **verbinding maken** van de IoT Edge-daemonconfiguratie.
+Als u wilt uitschakelen serverproces-id op uw IoT Edge-apparaat, moet u het IP-adres en poort voor **workload_uri** en **management_uri** in de **verbinding** sectie van de configuratie van de IoT Edge-daemon.
 
 Haal eerst het IP-adres op. Voer in de opdrachtregel `ifconfig` in en kopieer het IP-adres van de **docker0**-interface.
 
@@ -81,74 +83,75 @@ listen:
   workload_uri: "http://172.17.0.1:15581"
 ```
 
-Maak een omgevingsvariabele IOTEDGE_HOST met het adres van de management_uri. (Als u de variabele permanent wilt instellen, voegt u deze toe aan `/etc/environment`). Bijvoorbeeld:
+Opslaan en sluiten van het configuratiebestand.
+
+Maken van een omgevingsvariabele IOTEDGE_HOST met het adres management_uri (om in te stellen deze permanent, toe te voegen aan `/etc/environment`). Bijvoorbeeld:
 
 ```cmd/sh
 export IOTEDGE_HOST="http://172.17.0.1:15580"
 ```
 
+Start de IoT Edge-service de wijzigingen van kracht te laten worden.
 
-## <a name="create-the-azure-machine-learning-service-container"></a>De servicecontainer voor Azure Machine Learning maken
-In deze sectie downloadt u de bestanden van het getrainde model en converteert die in een Azure Machine Learning-servicecontainer.
+```cmd/sh
+sudo systemctl restart iotedge
+```
 
-Volg de instructies in de documentatie van [Voorbereidingen voor het implementeren van modellen in IoT Edge](../machine-learning/service/how-to-deploy-to-iot.md) om een Docker-container met uw Machine Learning-model te maken.  Alle onderdelen die vereist zijn voor de Docker-installatiekopie bevinden zich in de [AI-werkset voor Azure IoT Edge Git-repo](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial).
+## <a name="create-and-deploy-azure-machine-learning-module"></a>Maken en implementeren van Azure Machine Learning-module
 
-### <a name="view-the-container-repository"></a>De containeropslagplaats bekijken
+In deze sectie maakt u getrainde machine learning modelbestanden converteren en container in een Azure Machine Learning-service. Alle onderdelen die vereist zijn voor de Docker-installatiekopie bevinden zich in de [AI-werkset voor Azure IoT Edge Git-repo](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial). Volg deze stappen voor het uploaden van die opslagplaats naar Microsoft Azure-notitieblokken voor het maken van de container en pusht u deze naar Azure Container Registry.
 
-Controleer of de containerinstallatiekopie is gemaakt en opgeslagen in het Azure-containerregister dat is gekoppeld aan de machine learning-omgeving.
 
-1. Ga in [Azure Portal](https://portal.azure.com) naar **Alle services** en selecteer **Containerregisters**.
-2. Selecteer uw register. De naam moet beginnen met **mlcr** en behoren tot de resourcegroep en locatie die, en het abonnement dat u hebt gebruikt om Module-beheer in te stellen.
-3. Selecteer **Toegangssleutels**
-4. Kopieer **Aanmeldingsserver**, **Gebruikersnaam** en **Wachtwoord**.  Deze hebt u nodig om het register van uw Edge-apparaten te openen.
-5. Selecteer **Opslagplaatsen**
-6. Selecteer **machinelearningmodule**
-7. U hebt nu het volledige pad van de installatiekopie van de container. Noteer dit pad voor de volgende sectie. Het zou er als volgt uit moeten zien: **<registry_name>.azurecr.io/machinelearningmodule:1**
+1. Navigeer naar uw Azure-notitieblokken-projecten. Krijgt u hun vanuit uw werkruimte van de service Azure Machine Learning in de [Azure-portal](https://portal.azure.com) of door aan te melden bij [Microsoft Azure-notitieblokken](https://notebooks.azure.com/home/projects) met uw Azure-account.
 
-## <a name="deploy-to-your-device"></a>Uw apparaat implementeren
+2. Selecteer **GitHub-opslagplaats uploaden**.
 
-1. Ga in [Azure Portal](https://portal.azure.com) naar uw IoT-hub.
+3. Geef de naam van de volgende GitHub-opslagplaats: `Azure/ai-toolkit-iot-edge`. Schakel de **openbare** vak als u wilt het privé houden van uw project. Selecteer **importeren**. 
 
-1. Ga naar **IoT Edge** en selecteer het IoT Edge-apparaat.
+4. Nadat het importeren is voltooid, gaat u naar de nieuwe **ai-werkset-iot-edge** project en open de **IoT Edge anomaly detection zelfstudie** map. 
 
-1. Selecteer **Modules instellen**.
+5. Controleren of uw project wordt uitgevoerd. Als dit niet het geval is, selecteert u **worden uitgevoerd op de gratis Compute**.
 
-1. Voeg in de sectie **Registerinstellingen** de referenties toe die u hebt gekopieerd uit het Azure-containerregister.
+   ![Uitgevoerd op de gratis compute](./media/tutorial-deploy-machine-learning/run-on-free-compute.png)
 
-   ![Registerreferenties toevoegen aan manifest](./media/tutorial-deploy-machine-learning/registry-settings.png)
+6. Open de **aml_config/config.json** bestand.
 
-1. Als u de tempSensor-module eerder op uw IoT Edge-apparaat hebt geïmplementeerd, wordt het mogelijk automatisch ingevuld. Als die nog niet in uw lijst met modules staat, voeg deze dan toe.
+7. Het configuratiebestand zodat de waarden voor uw Azure-abonnement-ID, een resourcegroep die in uw abonnement en de naam van uw Azure Machine Learning-service-werkruimte bewerken. U kunt deze waarden uit de **overzicht** sectie van uw werkruimte in Azure. 
 
-    1. Klik op **Toevoegen** en selecteer **IoT Edge-module**.
-    2. Voer in het veld **Naam** `tempSensor` in.
-    3. Voer in het veld **URI installatiekopie** `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0` in.
-    4. Selecteer **Opslaan**.
+8. Sla het configuratiebestand.
 
-1. Voeg de machine learning-module toe die u hebt gemaakt.
+9. Open de **00-anomaliedetectie-detectie-tutorial.ipynb** bestand.
 
-    1. Klik op **Toevoegen** en selecteer **IoT Edge-module**.
-    1. Voer in het veld **Naam** `machinelearningmodule` in.
-    1. Voer in het veld **Installatiekopie** het adres van uw installatiekopie in, bijvoorbeeld `<registry_name>.azurecr.io/machinelearningmodule:1`.
-    1. Selecteer **Opslaan**.
+10. Wanneer u hierom wordt gevraagd, selecteert u de **Python 3.6** kernel Selecteer **ingesteld Kernel**.
 
-1. Terug in de stap **Modules toevoegen** selecteert u **Volgende**.
+11. De eerste cel in het notitieblok volgens de instructies in de opmerkingen bewerken. Gebruik de dezelfde resourcegroep bevinden, abonnements-ID en de naam van de werkruimte die u hebt toegevoegd in het configuratiebestand.
 
-1. Kopieer in de stap **Routes opgeven** de onderstaande JSON in het tekstvak. De eerste route transporteert berichten van de temperatuursensor naar de machine learning-module via het ‘amlInput’-eindpunt. Dit is het eindpunt dat alle Azure Machine Learning-modules gebruiken. De tweede route transporteert berichten van de Machine Learning- module naar IoT Hub. In deze route is ‘amlOutput’ het eindpunt dat alle Azure Machine Learning-modules gebruiken voor gegevens en ‘$upstream’ beschrijft IoT Hub.
+12. Uitvoeren van de cellen in de notebook door ze te selecteren en te selecteren **uitvoeren** of drukken `Shift + Enter`.
 
-    ```json
-    {
-        "routes": {
-            "sensorToMachineLearning":"FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/machinelearningmodule/inputs/amlInput\")",
-            "machineLearningToIoTHub": "FROM /messages/modules/machinelearningmodule/outputs/amlOutput INTO $upstream"
-        }
-    }
-    ```
+    >[!TIP]
+    >Sommige van de cellen in de anomaliedetectie-detectie zelfstudie notebook zijn optioneel, omdat ze resources dat sommige gebruikers mogelijk of kunnen niet nog hebt, zoals een IoT-Hub maken. Als u de resourcegegevens van een bestaande in de eerste cel, ontvangt u fouten als u de cellen die nieuwe resources niet maken omdat er dubbele resources niet gemaakt door Azure wordt uitgevoerd. Dit is prima, en u kunt de fouten negeren of volledig die optioneel gedeeltes overslaan. 
 
-1. Selecteer **Volgende**.
+Na het voltooien van de stappen in het notitieblok, hebt u een model voor afwijkingsdetectie, ingebouwde als een Docker-container-installatiekopie, getraind en die installatiekopie naar Azure Container Registry gepusht. Vervolgens het model getest en ten slotte deze geïmplementeerd naar uw IoT Edge-apparaat. 
 
-1. Selecteer in de stap **Implementatie beoordelen** de optie **Verzenden**.
+## <a name="view-container-repository"></a>Containeropslagplaats weergeven
 
-1. Ga terug naar de detailpagina van het apparaat en selecteer **Vernieuwen**.  U ziet nu dat de nieuwe **machinelearningmodule** samen met de **tempSensor**-module en de IoT Edge-runtime-modules wordt uitgevoerd.
+Controleer dat uw containerinstallatiekopie is gemaakt en opgeslagen in Azure container registry die is gekoppeld aan uw machine learning-omgeving. De notebook die u hebt gebruikt in de vorige sectie worden automatisch opgegeven installatiekopie van de container en de registerreferenties voor uw IoT Edge-apparaat, maar u moet weten waar ze zijn opgeslagen, zodat u kunt de gegevens zelf vinden later opnieuw. 
+
+1. In de [Azure-portal](https://portal.azure.com), gaat u naar de service Machine Learning-werkruimte. 
+
+2. De **overzicht** sectie vindt u de details van de werkruimte als ook alle bijbehorende resources. Selecteer de **register** waarde, de naam van uw werkruimte gevolgd door willekeurige getallen moet. 
+
+3. Selecteer in het containerregister **opslagplaatsen**. Er is een opslagplaats met de naam **tempanomalydetection** die is gemaakt door de notebook die u in de vorige sectie hebt uitgevoerd. 
+
+4. Selecteer **tempanomalydetection**. U ziet dat de opslagplaats een tag heeft: **1**. 
+
+   Nu dat u de naam van het containerregister, de naam van de opslagplaats en het label weet, weet u het pad van de volledige installatiekopie van de container. Afbeeldingspaden er als volgt uitzien  **\<registry_name\>.azurecr.io/tempanomalydetection:1**. Pad van de installatiekopie kunt u deze container implementeren in IoT Edge-apparaten. 
+
+5. Selecteer in het containerregister **toegangssleutels**. U ziet een aantal van de referenties voor toegang, met inbegrip van **aanmeldingsserver** en de **gebruikersnaam**, en **wachtwoord** voor een gebruiker met beheerdersrechten.
+
+   Deze referenties kunnen worden opgenomen in het manifest van de implementatie van uw IoT-Edge Apparaattoegang geven tot pull-containerinstallatiekopieën uit het register. 
+
+Nu weet u waar de Machine Learning-container-installatiekopie is opgeslagen. De volgende sectie begeleid om te zien hoe deze wordt uitgevoerd als een geïmplementeerde module op uw IoT Edge-apparaat. 
 
 ## <a name="view-generated-data"></a>Gegenereerde gegevens weergeven
 
@@ -158,7 +161,7 @@ U kunt berichten weergeven die worden gegenereerd vanaf elke IoT Edge-module, en
 
 Op het IoT Edge-apparaat kunt u de berichten weergeven die worden verzonden vanaf elke afzonderlijke module.
 
-Als u deze opdrachten uitvoert op een Linux-apparaat, moet u mogelijk `sudo` gebruiken voor verhoogde machtigingen.
+U wilt gebruiken `sudo` voor verhoogde machtigingen om uit te voeren `iotedge` opdrachten. Meld u af en weer bent aangemeld met het apparaat automatisch bijgewerkt uw machtigingen.
 
 1. Geef alle modules op het IoT Edge-apparaat weer.
 
@@ -188,7 +191,7 @@ In de volgende stappen ziet u hoe u Visual Studio Code kunt instellen om apparaa
 
 4. Selecteer **...** opnieuw en vervolgens **Controle D2C-bericht starten**.
 
-5. Bekijk de berichten die de tempSensor elke vijf seconden verzendt. De berichttekst bevat een eigenschap genaamd **afwijking** die de machinelearningmodule voorziet van een waarde ‘waar’ of ‘onwaar’. De eigenschap **AzureMLResponse** bevat de waarde ‘OK’ als het model is uitgevoerd.
+5. Bekijk de berichten die de tempSensor elke vijf seconden verzendt. De hoofdtekst van het bericht bevat een eigenschap genaamd **anomaliedetectie**, waarmee u de machinelearningmodule met een waarde waar of ONWAAR. De eigenschap **AzureMLResponse** bevat de waarde ‘OK’ als het model is uitgevoerd.
 
    ![Reactie van Azure Machine Learning-service in de hoofdtekst van het bericht](./media/tutorial-deploy-machine-learning/ml-output.png)
 
@@ -199,9 +202,6 @@ Als u van plan bent door te gaan met het volgende aanbevolen artikel, kunt u de 
 Anders kunt u de lokale configuraties en Azure-resources die u in dit artikel hebt gemaakt, verwijderen om kosten te voorkomen.
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
-
-[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
-
 
 ## <a name="next-steps"></a>Volgende stappen
 

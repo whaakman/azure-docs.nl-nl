@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 3dac469c2932276a903a516b71caa860f8870fa6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: bb827b80f79a53f30074b9230efe3e2049471051
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989335"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880769"
 ---
 # <a name="comparison-of-azure-on-demand-media-encoders"></a>Vergelijking van Azure op de media-coderingsprogramma  
 
@@ -33,7 +33,7 @@ De volgende tabel vergelijkt de functionaliteit tussen Media Encoder Standard (M
 |---|---|---|
 |Voorwaardelijke logica wordt toegepast tijdens het coderen<br/>(bijvoorbeeld, als de invoer HD is, klikt u vervolgens coderen 5.1 audio)|Nee|Ja|
 |Ondertiteling|Nee|[Ja](media-services-premium-workflow-encoder-formats.md#closed_captioning)|
-|[Correctie van Dolby® professionele volume](http://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> met de dialoog Intelligence™|Nee|Ja|
+|[Correctie van Dolby® professionele volume](https://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> met de dialoog Intelligence™|Nee|Ja|
 |Ongedaan maken ineengestrengeld, inverse telecine|Basic|Broadcast-kwaliteit|
 |Detecteren en verwijderen van zwarte randen <br/>(pillarboxes, postbussen)|Nee|Ja|
 |Miniaturen genereren|[Ja](media-services-dotnet-generate-thumbnail-with-mes.md)|[Ja](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)|
@@ -153,4 +153,4 @@ De volgende tabel vergelijkt de functionaliteit tussen Media Encoder Standard (M
 * [Quota en beperkingen](media-services-quotas-and-limitations.md)
 
 <!--Reference links in article-->
-[1]: http://azure.microsoft.com/pricing/details/media-services/
+[1]: https://azure.microsoft.com/pricing/details/media-services/

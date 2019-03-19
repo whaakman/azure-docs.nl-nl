@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbac6fe421864f9479c9a4ee7eecde97c13f6052
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0200aa917894f4b7f1a45a9d3bd15b128aaf27a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200527"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124173"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Azure Active Directory-toestemmingsframework
 
@@ -58,14 +58,14 @@ De volgende stappen laten zien hoe de toestemming werkt ervaren voor zowel de on
 
     **Als u wilt toestemming geven voor een app, de overgedragen machtigingen**
 
-    1. Ga naar de **instellingen** pagina voor uw toepassing
-    1. Selecteer **vereiste machtigingen**.
-    1. Klik op de **machtigingen verlenen** knop.
+   1. Ga naar de **instellingen** pagina voor uw toepassing
+   1. Selecteer **vereiste machtigingen**.
+   1. Klik op de **machtigingen verlenen** knop.
 
-    ![Machtigingen verlenen voor expliciete beheerderstoestemming](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
+      ![Machtigingen verlenen voor expliciete beheerderstoestemming](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
 
-  > [!IMPORTANT]
-  > Expliciete verleent toestemming met behulp van de **machtigingen verlenen** knop is momenteel vereist voor toepassingen met één pagina (SPA) die gebruikmaken van ADAL.js. Als dit niet gebeurt, treedt er een fout op in de toepassing wanneer het toegangstoken wordt aangevraagd.
+   > [!IMPORTANT]
+   > Expliciete verleent toestemming met behulp van de **machtigingen verlenen** knop is momenteel vereist voor toepassingen met één pagina (SPA) die gebruikmaken van ADAL.js. Als dit niet gebeurt, treedt er een fout op in de toepassing wanneer het toegangstoken wordt aangevraagd.
 
 ## <a name="next-steps"></a>Volgende stappen
 

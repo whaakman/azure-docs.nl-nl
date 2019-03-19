@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: robinsh
-ms.openlocfilehash: e7ffd8f6f4f3aee376a09071fad0f1a36c23f1c4
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: dd80095f50aa7bff488ac24e498afc0b41958dc0
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694003"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403444"
 ---
 # <a name="internet-of-things-iot-technologies-and-solutions-paas-and-saas"></a>Technologieën en oplossingen voor IoT (Internet of Things): PaaS en SaaS
 
@@ -90,13 +90,13 @@ PaaS-technologieën (Platform-as-as-Service) bieden de meest uitgebreide IoT-por
 
 ### <a name="device-support"></a>Ondersteuning voor apparaten
 
-Ga vol vertrouwen aan de slag met uw IoT-projecten met behulp van [Azure IoT Starter Kits](https://catalog.azureiotsuite.com/kits) of kies uit honderden gecertificeerde IoT-apparaten in de [apparaatcatalogus](http://catalog.azureiotsuite.com/). Alle apparaten zijn platformneutraal en getest om naadloos verbinding te maken met IoT Hub.
+Ga vol vertrouwen aan de slag met uw IoT-projecten met behulp van [Azure IoT Starter Kits](https://catalog.azureiotsolutions.com/kits) of kies uit honderden gecertificeerde IoT-apparaten in de [apparaatcatalogus](https://catalog.azureiotsolutions.com/). Alle apparaten zijn platformneutraal en getest om naadloos verbinding te maken met IoT Hub.
 Verbind al uw apparaten met Azure IoT met behulp van de open-source [apparaat-SDK’s](/azure/iot-hub/iot-hub-devguide-sdks). De SDK’s bieden ondersteuning voor meerdere besturingssystemen, zoals Linux Windows en besturingssystemen in realtime, alsook voor meerdere programmeertalen, zoals [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp) en [Python](https://github.com/Azure/azure-iot-sdk-python).
 
 ### <a name="iot"></a>IoT 
 [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) is een volledig beheerde service die betrouwbare en beveiligde bidirectionele communicatie mogelijk maakt tussen miljoenen IoT-apparaten en een oplossings-back-end. De Azure IoT Hub Device Provisioning Service is een Helper-service voor IoT Hub die Just-In-Time-inrichting naar de juiste IoT-hub mogelijk maakt zonder tussenkomst van de gebruiker, zodat klanten miljoenen apparaten op een veilige en schaalbare manier kunnen inrichten.
 
-### <a name="edge"></a>Edge
+### <a name="edge"></a>Microsoft Edge
 [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) is een IoT-service. Deze service is bedoeld voor klanten die ook gegevens willen analyseren op apparaten, oftewel ‘naar de marge’. Door delen van uw werkbelasting naar de marge te verplaatsen, is er sprake van een verminderde redundantie en kunt u offlinescenario’s gebruiken.
 
 ### <a name="spatial-intelligence"></a>Ruimtelijke intelligentie

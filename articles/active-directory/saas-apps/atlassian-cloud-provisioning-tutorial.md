@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2019
 ms.author: v-ant
-ms.openlocfilehash: ca9a569d28e42baafeabc15f49fb7f5206566730
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: ff6a111663df5d7e7f4f517446084ef75b009e59
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57572290"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092698"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Zelfstudie: Atlassian Cloud configureren voor het automatisch inrichten van gebruikers
 
@@ -28,7 +28,7 @@ Het doel van deze zelfstudie is ter illustratie van de stappen in de Atlassian-C
 
 > [!NOTE]
 > Deze zelfstudie beschrijft een connector die is gebaseerd op de Provisioning-Service van Azure AD-gebruiker. Zie voor belangrijke informatie over wat deze service biedt, hoe het werkt en veelgestelde vragen [automatiseren van gebruikersinrichting en -opheffing in SaaS-toepassingen met Azure Active Directory](../manage-apps/user-provisioning.md).
-
+> 
 > Deze connector is momenteel in openbare Preview. Zie voor meer informatie over de algemene Microsoft Azure gebruiksvoorwaarden voor Preview-functies, [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Vereisten
@@ -108,9 +108,9 @@ Deze sectie helpt u bij de stappen voor het configureren van de Azure AD-inricht
 
 5. Onder de **beheerdersreferenties** sectie, voer de **Tenant-URL** en **geheim Token** van uw Atlassian-Cloud-account. Voorbeelden van deze waarden zijn:
 
-    *   In de **Tenant-URL** veld, vult u het eindpunt voor de specifieke tenant u van de Atlassian ontvangen, zoals beschreven in stap 6. Bijvoorbeeld: **https://api.atlassian.com/scim/directory/{directoryId}**
+   * In de **Tenant-URL** veld, vult u het eindpunt voor de specifieke tenant u van de Atlassian ontvangen, zoals beschreven in stap 6. Bijvoorbeeld: **https://api.atlassian.com/scim/directory/{directoryId}**
 
-    *   In de **geheim Token** veld, vul het token voor geheim zoals beschreven in stap 6.
+   * In de **geheim Token** veld, vul het token voor geheim zoals beschreven in stap 6.
 
 6. Navigeer naar [Atlassian organisatie Manager](https://admin.atlassian.com) **> Gebruikersinrichting** en klikt u op **maken van een Token**. Kopiëren de **Directory basis-URL** en **Bearer Token** naar de **Tenant-URL** en **geheim Token** respectievelijk in velden.
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: srinathv
-ms.openlocfilehash: f79a9048e50901424330224066cb84929d9126dc
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 906c0ef3db530ecb4aeade449e41a866a4b09a74
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530923"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005708"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Problemen oplossen met back-ups van virtuele Azure-machines
 U kunt fouten opgetreden tijdens het gebruik van Azure Backup met de gegevens die worden vermeld in de volgende tabel kunt oplossen:
@@ -41,12 +41,13 @@ U kunt fouten opgetreden tijdens het gebruik van Azure Backup met de gegevens di
 | De Azure Backup-service beschikt niet over voldoende machtigingen voor Azure Key Vault voor back-up van versleutelde virtuele machines. |Om deze machtigingen in PowerShell bieden de Backup-service met behulp van de stappen in [maken van een VM van herstelde schijven](backup-azure-vms-automation.md). |
 |Installatie van de momentopname-extensie is mislukt met de fout **COM + is niet kan communiceren met de Microsoft Distributed Transaction Coordinator**. | De Windows-service starten vanaf een opdrachtprompt met verhoogde bevoegdheid **COM + System Application**. Een voorbeeld is **net start COMSysApp**. Als de service niet kan worden gestart, klikt u vervolgens de volgende stappen uitvoeren:<ol><li> Zorg ervoor dat de aanmeldingsaccount van de service **Distributed Transaction Coordinator** is **netwerkservice**. Als dat niet het geval is, wijzigt u het account aanmelden op **netwerkservice** en start de service opnieuw. Probeer te starten **COM + System Application**.<li>Als **COM + System Application** wordt niet gestart, de volgende stappen uit om te verwijderen en installeer de service **Distributed Transaction Coordinator**: <ol><li>Stop de MSDTC-service. <li>Open een opdrachtprompt **cmd**. <li>Voer de opdracht ```msdtc -uninstall``` uit. <li>Voer de opdracht ```msdtc -install``` uit. <li>Start de MSDTC-service. </ol> <li>Start de service Windows **COM + System Application**. Na de **COM + System Application** wordt gestart, activeert u een back-uptaak van de Azure-portal.</ol> |
 |  De momentopnamebewerking is mislukt vanwege een COM +-fout. | Het is raadzaam dat u de Windows-service opnieuw starten **COM + System Application** vanaf een opdrachtprompt met verhoogde bevoegdheid **net start COMSysApp**. Als het probleem zich blijft voordoen, start u de VM opnieuw. Als opnieuw opstarten van de virtuele machine niet wordt opgelost, probeert u [verwijderen van de VMSnapshot-extensie](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout) en de back-up handmatig activeren. |
-| Back-up is mislukt voor het blokkeren van een of meer koppelpunten van de virtuele machine naar een bestand system consistente momentopname te maken. | De volgende stap uitvoeren: <ul><li>Controleer de status van alle gekoppelde apparaten met behulp van de **'tune2fs'** opdracht. Een voorbeeld is **tune2fs -l/dev/sdb1 \** .| GREP **bestandssysteem status**. <li>Ontkoppel de apparaten waarvoor de systeemstatus van het bestand is niet schoon met behulp van de **'umount'** opdracht. <li> Een bestand system consistentiecontrole op deze apparaten worden uitgevoerd met behulp van de **'fsck'** opdracht. <li> De apparaten opnieuw koppelen en probeer het back-up.</ol> |
+| Back-up is mislukt voor het blokkeren van een of meer koppelpunten van de virtuele machine naar een bestand system consistente momentopname te maken. | De volgende stap uitvoeren: <ul><li>Controleer de status van alle gekoppelde apparaten met behulp van de **'tune2fs'** opdracht. Een voorbeeld is **tune2fs -l/dev/sdb1 \\** .\| grep **bestandssysteem status**. <li>Ontkoppel de apparaten waarvoor de systeemstatus van het bestand is niet schoon met behulp van de **'umount'** opdracht. <li> Een bestand system consistentiecontrole op deze apparaten worden uitgevoerd met behulp van de **'fsck'** opdracht. <li> De apparaten opnieuw koppelen en probeer het back-up.</ol> |
 | De momentopnamebewerking is mislukt vanwege fout bij het maken van een beveiligd netwerk communicatiekanaal. | <ol><li> Open de Register-Editor door te voeren **regedit.exe** in een modus met uitgebreide bevoegdheden. <li> Identificeer alle versies van .NET Framework aanwezig zijn in uw systeem. Ze zijn aanwezig in de hiërarchie van registersleutel **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> Voor elke .NET Framework in de registersleutel aanwezig is, moet u de volgende sleutel toevoegen: <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
 | De momentopnamebewerking is mislukt vanwege fout voor het installeren van Visual C++ Redistributable voor Visual Studio 2012. | Navigeer naar C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion en vcredist2012_x64 installeren. Zorg ervoor dat de registersleutelwaarde waarmee de installatie van deze service is ingesteld op de juiste waarde. Dat wil zeggen, de waarde van de registersleutel **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** is ingesteld op **3** en niet **4**. <br><br>Als u nog steeds problemen met de installatie hebt, start u de installatieservice opnieuw door te voeren **MSIEXEC/UNREGISTER** gevolgd door **MSIEXEC /REGISTER** vanaf een opdrachtprompt met verhoogde bevoegdheid.  |
 
 
 ## <a name="jobs"></a>Taken
+
 | Foutdetails | Tijdelijke oplossing |
 | --- | --- |
 | Annulering wordt niet ondersteund voor dit taaktype: <br>Wacht totdat de taak is voltooid. |Geen |

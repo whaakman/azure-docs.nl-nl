@@ -7,27 +7,27 @@ author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: diberry
-ms.openlocfilehash: 348cb6a451f15ddec6b7ee013832ad6c563bb2da
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 42d53cee48be73a0d151b6f44d381463fa1c4e16
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874942"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102159"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Zelfstudie: C# gebruiken, een knowledge base maken en vervolgens een vraag beantwoorden
 
 In deze zelfstudie gaat u via een programma een KB (knowledge base) maken en publiceren, en vervolgens een klantvraag beantwoorden met de knowledge base. 
 
 > [!div class="checklist"]
-* Een kennisdatabase maken 
-* Status voor maken controleren
-* De knowledge base trainen en publiceren
-* Eindpuntgegevens ophalen
-* Curl gebruiken om een query uit te voeren op de knowledge base
+> * Een kennisdatabase maken 
+> * Status voor maken controleren
+> * De knowledge base trainen en publiceren
+> * Eindpuntgegevens ophalen
+> * Curl gebruiken om een query uit te voeren op de knowledge base
 
 
 In deze snelstart worden QnA Maker-API's aangeroepen:

@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 12da1b20c5e4e6299445b8ec8ec90eeec6711e2c
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
-ms.translationtype: HT
+ms.openlocfilehash: 961983aad0775f9b9d728269e8a57137ff508f02
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805515"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451787"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Jupyter-notebooks gebruiken om Azure Machine Learning Service te verkennen
 
@@ -82,7 +82,7 @@ U kunt een van de bovenstaande opties gebruiken, maar u kunt ook de omgeving ins
       + Start een Jupyter-notebook
       
    >[!NOTE]
-   > Het script gebruikt de naam van de conda-omgeving als een optionele parameter. De standaardnaam van de conda-omgeving is `azure_automl`. De exacte opdracht is afhankelijk van het besturingssysteem. Dit is handig als u een nieuwe omgeving maakt of een upgrade naar een nieuwe versie uitvoert. U kunt bijvoorbeeld de opdracht 'automl_setup.cmd azure_automl_sandbox' gebruiken voor het maken van een omgeving met de naam azure_automl_sandbox. 
+   > Het script gebruikt de naam van de conda-omgeving als een optionele parameter. De standaardnaam van de conda-omgeving is `azure_automl`. De exacte opdracht is afhankelijk van het besturingssysteem. Dit is handig als u een nieuwe omgeving maakt of een upgrade naar een nieuwe versie uitvoert. Zo kunt u 'automl_setup.cmd azure_automl_sandbox' te maken van een omgeving naam azure_automl_sandbox. 
       
 1. Als het script is voltooid, wordt de startpagina van een Jupyter-notebook weergegeven in uw browser.
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0b24c5d2f174c9a656e81d0c85e12b589d7d7799
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: cc06ddf2fce93bef27e7aaee85b47179608e192b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48809969"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837028"
 ---
 # <a name="appsource-package-preparation"></a>AppSource-pakket voorbereiden
 
@@ -40,7 +40,7 @@ Het pakket voor Package Deployer maakt deel uit van het pakket met AppSource.
 Voor het maken van een pakket voor Package Deployer, gebruik de volgende instructies: [ https://msdn.microsoft.com/library/dn688182.aspx ](https://msdn.microsoft.com/library/dn688182.aspx). Als u klaar bent, wordt uw pakket bestaan uit de volgende elementen:
 
 1. Pakketmap: alle oplossingen, configuratiegegevens, platte bestanden en de inhoud van het pakket bevat. _Opmerking: In het volgende voorbeeld wordt ervan uitgegaan dat de pakketmap heet "PkgFolder"_
-2. DLL-bestand: de assembly bevat de aangepaste code voor het pakket. _Opmerking: In het volgende voorbeeld wordt ervan uitgegaan dat dit bestand is met de naam "MicrosoftSample.dll."_
+2. DLL-bestand: De assembly bevat de aangepaste code voor het pakket. _Opmerking: In het volgende voorbeeld wordt ervan uitgegaan dat dit bestand is met de naam "MicrosoftSample.dll."_
 
 U moet nu om te maken van een bestand met de naam '**Content_Types.xml**"dit bestand wordt een lijst alle activa-extensies die deel van uw pakket uitmaken. Hier volgt een voorbeeld van code voor het bestand.
 
@@ -63,7 +63,7 @@ De laatste stap is het zip-het volgende tot één bestand. Deze aanroepen **pack
 
 1. PkgFolder (met inbegrip van alles wat in de map)
 2. DLL-bestand
-3. **Content_Types.XML**
+3. **Content_Types.xml**
 
 Stappen voor het maken van package.zip:
 
@@ -71,11 +71,11 @@ Stappen voor het maken van package.zip:
 
 ![CRMScreenShot2](media/CRMScreenShot2.png)
 
-2. Selecteer alle items in de map met de rechtermuisknop en verzenden naar gecomprimeerde (zip) map kiezen
+1. Selecteer alle items in de map met de rechtermuisknop en verzenden naar gecomprimeerde (zip) map kiezen
 
 ![CRMScreenShot3](media/CRMScreenShot3.png)
 
-3. Wijzig de naam in package.zip
+1. Wijzig de naam in package.zip
 
 ![CRMScreenShot4](media/CRMScreenShot4.png)
 
@@ -97,7 +97,7 @@ Hier volgt een voorbeeld van code voor is input.xml. Zie definities in de onders
         <StartDate>01/01/2016</StartDate>
         <EndDate>01/01/2021</EndDate>
         <SupportedCountries>US,CA</SupportedCountries>
-        <LearnMoreLink>http://www.microsoft.com</LearnMoreLink>
+        <LearnMoreLink>https://www.microsoft.com</LearnMoreLink>
         <Locales>
         <PackageLocale Code="1033" IsDefault="true">
         <Logo>logo32x32.png</Logo>
@@ -115,12 +115,12 @@ Hier volgt een voorbeeld van code voor is input.xml. Zie definities in de onders
 |ProviderName|Wie is de oplossing die afkomstig zijn van. Als een Microsoft-team, moet dit Microsoft.|
 |PackageFile |Deployer-activa, samen met een inhoud ingepakte pakket\_types.xml-bestand. Dit zip-bestand moet bevatten de assembly van de implementatie van pakket en de map met de implementatie van pakket assets. Dat wil zeggen, package.zip|
 |SolutionAnchorName |De naam van het zip-bestand van de oplossing in package deployer die wordt gebruikt voor de weergavenaam en beschrijving van de activa van de oplossing.|
-| Begindatum| Dit is de datum waarop het oplossingspakket beschikbaar. De indeling is MM/DD/JJJJ|
+| StartDate| Dit is de datum waarop het oplossingspakket beschikbaar. De indeling is MM/DD/JJJJ|
 |Einddatum|Dit is de datum dat het pakket wordt beëindigd beschikbaar worden gesteld. De indeling is MM/DD/JJJJ |
-|SupportedCountries |Dit is een door komma's gescheiden lijst van landen die dit pakket moeten zien. Neem contact op met online services voor een lijst van alle huidige landcodes. Op het moment van dit schrijven van de lijst is: AE, AL, AM, door de AO, AR, AT, Australië, AZ, BA, BB, BD, worden, BG, BH, BM, BN, BO, Brazilië, BY, CA, CH, CI, CL, CM, CO, CR, CV, gewicht, CY, CZ, DE, DK, doen, DZ, EG, EE, EG , ES, FI, FR, GB, GE, GH, GR, GT, HK, HN, HR, HU, -ID, INTERNET EXPLORER, IL, INDIA, IQ, IS, HET, JM, JO, JP, KE, KG, KN, KOREA, KW, KY, KZ, LB, LK, LT, LU, LV, LY, MA, MC, MD, MIJ, MK, MN, MAAND, MT, MU, MX, MIJN , NG, NI, NL, NEE, NZ, OPERATIONS MANAGER, PA, PE, PH, PK, PL, PULL-AANVRAAG, PS, PT, PY, QA, RO, RS, RU, RW, SA, SE, AG, SI, SK, SN, SV, E, TM, TN, TR, TT, TW, UA, VERENIGDE STATEN, UY, UZ, VE, VI, VN, ZA, ZW |
+|SupportedCountries |Dit is een door komma's gescheiden lijst van landen die dit pakket moeten zien. Neem contact op met online services voor een lijst van alle huidige landcodes. Op het moment van schrijven van dit de lijst is: AE, AL, AM, DOOR DE AO, AR, AT, AUSTRALIË, AZ, BA, BB, BD, WORDEN, BG, BH, BM, BN, BO, BRAZILIË, DOOR CA, CH, CI, CL, CM, CO, CR, CV, GEWICHT, CY, CZ, DE, DK, DOEN, DZ, EG, EE, BIJVOORBEELD, ES, FI, FR, GB, GE, GH, GR, GT, HK , HN, HR, HU, -ID, INTERNET EXPLORER, IL, INDIA, IQ, IS, HET, JM, JO, JP, KE, KG, KN, KOREA, KW, KY, KZ, LB, LK, LT, LU, LV, LY, MA, MC, MD, MIJ, MK, MN, MAAND, MT, MU, MX, MIJN, NG, NI, NL, NEE, NZ, OPERATIONS MANAGER, PA, PE, PH , PK, PL, PULL-AANVRAAG, PS, PT, PY, QA, RO, RS, RU, RW, SA, SE, AG, SI, SK, SN, SV, E, TM, TN, TR, TT, TW, UA, VERENIGDE STATEN, UY, UZ, VE, VI, VN, ZA, ZW |
 |LearnMoreLink | URL naar de pagina voor meer info voor dit pakket. |
 |Landinstellingen|Een exemplaar van dit knooppunt voor elke taal UX die u wilt ondersteunen in de oplossing Preferred UX. Dit knooppunt bevat onderliggende items die worden beschreven van de landinstellingen, logo en voorwaarden voor elke taal|
-|Landinstellingen: PackageLocale.Code|LCID van de voor dit knooppunt. Voorbeeld: Nederlands is 1033|
+|Landinstellingen: PackageLocale.Code|LCID van de voor dit knooppunt. Voorbeeld: Amerikaans-Engels is 1033|
 |Landinstellingen: PackageLocale.IsDefault|Geeft aan dat dit de standaardtaal is. Dit wordt gebruikt als de herfst back-ups taal als de UX-taal die is gekozen door de klant niet beschikbaar is.|
 |Landinstellingen: Logo|Dit als het logo dat u wilt gebruiken voor dit pakket. Grootte van het pictogram is 32 x 32. Bestandsindelingen toegestaan zijn PNG en JPG|
 |Landinstellingen: voorwaarden: PackageTerm.File|Dit is de bestandsnaam van het HTML-document met de licentievoorwaarden.|
@@ -132,10 +132,10 @@ Dit is waar het logo wordt weergegeven:
 De laatste stap is het zip-het volgende tot één bestand.
 
 1. ZIP (eerder hebt gemaakt)
-2. **Content_Types.XML**
+2. **Content_Types.xml**
 3. xml
 4. PNG
-5. HTML-code
+5. html
 
 ![CRMScreenShot6](media/CRMScreenShot6.png)
 

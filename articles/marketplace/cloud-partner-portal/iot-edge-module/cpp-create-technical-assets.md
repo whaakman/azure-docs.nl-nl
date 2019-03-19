@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 877e42dc8d6e69834cf989122f855ada560b813c
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2ed4826eb47ab2fb13d312860475f9ec9b323bf7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201241"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884151"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Voorbereiden van uw IoT Edge-module technische activa
 
@@ -45,7 +45,7 @@ Uw IoT Edge-module moet een van de volgende opties voor platform ondersteunen.
 Ondersteuning voor alle laag 1-platformen worden ondersteund door de IoT Edge (zoals vastgelegd in [ondersteuning voor Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/support)). Deze optie wordt aangeraden omdat dit een betere klantervaring biedt. Kan de modules die voldoen aan deze criteria worden gepresenteerd. Er moet een module met behulp van deze optie platform:
 
 - Geef een `latest` tag en een versietag (bijvoorbeeld `1.0.1`) die zijn gebouwd met de GitHub-manifest tags [manifest-hulpprogramma](https://github.com/estesp/manifest-tool).
-- Gebruik de [het Marketplace-tabblad](./cpp-marketplace-tab.md) om toe te voegen een koppeling naar [compatibel IoT Edge gecertificeerde apparaten](https://aka.ms/iot-edge-certified). Deze koppeling wordt omgezet naar `http://aka.ms/iot-edge-certified`, een website waar klanten kunnen bladeren of zoeken naar apparaten gecertificeerd. Deze website is ook bekend als de [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/) apparaatcatalogus.
+- Gebruik de [het Marketplace-tabblad](./cpp-marketplace-tab.md) om toe te voegen een koppeling naar [compatibel IoT Edge gecertificeerde apparaten](https://aka.ms/iot-edge-certified). Deze koppeling wordt omgezet naar `https://aka.ms/iot-edge-certified`, een website waar klanten kunnen bladeren of zoeken naar apparaten gecertificeerd. Deze website is ook bekend als de [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/) apparaatcatalogus.
 
 #### <a name="a-subset-of-tier-1-platforms-supported-by-iot-edge"></a>Een subset van laag 1-platformen worden ondersteund door de IoT Edge
   
@@ -61,9 +61,9 @@ IoT Edge module dimensies (CPU/RAM-geheugen/opslag/GPU/enzovoort) op de betreffe
 - De module moet **werk met ten minste één certified voor IoT Edge** apparaat in de [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/) apparaatcatalogus.
 - De **minimale hardwarevereisten voor** moet worden gedocumenteerd als het laatste punt in de beschrijving van de aanbieding (onder de [Marketplace tabblad](./cpp-marketplace-tab.md)). Desgewenst kunt u ook de aanbevolen hardwarevereisten vermelden als deze aanzienlijk verschillen. Bijvoorbeeld, de volgende sectie toevoegen aan het einde van de beschrijving van uw aanbieding:
 
- ```html
+  ```html
     <p><u>Minimum hardware requirements:</u> Linux x64 and arm32  OS, 1GB of RAM, 500 Mb of storage</p>
- ```
+  ```
 
 ### <a name="configuration"></a>Configuratie
 
@@ -119,7 +119,7 @@ Minder nauwkeurig inzichten zijn voor modules die niet van de IoT-SDK-Module geb
 
 IoT Edge-modules moeten vragen naar de minste bevoegdheden toegang tot de host mogelijk. [Modules in beschermde modus](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) moeten worden vermeden.
 
-### <a name="module-iot-sdk"></a>Module IoT-SDK
+### <a name="module-iot-sdk"></a>Module IoT SDK
 
 Met inbegrip van de IoT-SDK-Module is niet een vereiste voor certificering. Met inbegrip van de IoT-SDK-Module kan evenwel een betere gebruikerservaring. Als u bijvoorbeeld voor de ondersteuning van routering of verzenden van berichten naar de Cloud.
 
@@ -128,10 +128,11 @@ De IoT-SDK-Module is vereist voor het ophalen van telemetrische gegevens over he
 
 ## <a name="recertification-process"></a>Proces voor certificering
 
-<!-- Add legal time windows--> Partners gewaarschuwd wanneer er sprake is van een belangrijke wijziging die gevolgen heeft voor hun modules zo opstellen, zoals:
+<!-- Add legal time windows-->
+Partners gewaarschuwd wanneer er sprake is van een belangrijke wijziging die gevolgen heeft voor hun modules zo opstellen, zoals:
 
 - Ondersteuningsmatrix voor laag 1-os/arch ondersteund door de IoT Edge
-- SDK voor IoT-Module
+- IoT Module SDK
 - IoT Edge-Runtime
 - De richtlijnen van IoT Edge module Certificeringsinstantie
 

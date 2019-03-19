@@ -16,12 +16,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d9855f107f9888fbfbcb10a3df849e78c87c0605
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7981df6aa1e08688bdbe3b18629450b996f7609e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246759"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123399"
 ---
 # <a name="optimize-sql-server-performance"></a>SQL Server-prestaties optimaliseren
 
@@ -44,7 +44,7 @@ De volgende controlelijst is voor optimale prestaties van SQL Server op virtuele
 |Onderwerp|Optimalisaties|
 |-----|-----|
 |Grootte virtuele machine |[DS3](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) of hoger voor SQL Server Enterprise edition.<br><br>[DS2](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) of hoger voor SQL Server Standard edition en Web edition.|
-|Storage |Gebruik van een virtuele machine-serie die ondersteuning biedt voor [Premium storage](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-acs-differences).|
+|Opslag |Gebruik van een virtuele machine-serie die ondersteuning biedt voor [Premium storage](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-acs-differences).|
 |Disks |Minimaal twee gegevensschijven (één voor de logboekbestanden) en één voor het gegevensbestand en TempDB gebruiken en de grootte van de schijf op basis van de capaciteitsbehoeften van uw kiezen. De standaardwaarde instellen locaties van gegevens naar deze schijven tijdens de installatie van SQL Server.<br><br>Vermijd het gebruik van besturingssysteem of tijdelijke schijven voor de database-opslag of logboekregistratie.<br>Stripe meerdere Azure-gegevensschijven om op te halen van hogere i/o-doorvoer met behulp van opslagruimten.<br><br>Opmaken met gedocumenteerde toewijzing grootten.|
 |I/O|Bestanden onmiddellijk de initialisatie van de gegevensbestanden inschakelen.<br><br>Beperken van autogrow voor de databases met een veelvoud van redelijk klein vaste (64 MB - 256 MB).<br><br>Schakel Automatische verkleining van de database.<br><br>Instellen van back-up- en database standaardbestandslocaties op gegevensschijven, niet de besturingssysteemschijf.<br><br>Vergrendelde pagina's inschakelen.<br><br>SQL Server servicepacks en de cumulatieve updates van toepassing.|
 |Functiespecifieke|Back-up rechtstreeks naar de blob-opslag (indien ondersteund door de versie van SQL Server wordt gebruikt).|
@@ -104,20 +104,20 @@ U wordt aangeraden TempDB opslaan op een gegevensschijf, omdat elke gegevensschi
 
 - **Striping van de schijf:** Voor meer doorvoer, kunt u extra gegevensschijven toevoegen en striping van de schijf. Om te bepalen het aantal gegevensschijven die u nodig hebt, het aantal IOPS en bandbreedte die vereist is voor uw logboekbestanden en voor uw gegevens en het TempDB-bestanden te analyseren. U ziet dat de IOPS-limieten per gegevensschijf op basis van de virtuele machine-serie en niet op basis van de grootte van de virtuele machine. Netwerk-bandbreedtelimieten, echter zijn gebaseerd op de grootte van de virtuele machine. Overzicht van de tabellen op [groottes van virtuele machines in Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) voor meer informatie. Gebruik de volgende richtlijnen:
 
-    - Voor Windows Server 2012 of hoger, gebruikt u [opslagruimten](https://technet.microsoft.com/library/hh831739.aspx) met de volgende richtlijnen:
+  - Voor Windows Server 2012 of hoger, gebruikt u [opslagruimten](https://technet.microsoft.com/library/hh831739.aspx) met de volgende richtlijnen:
 
-        1.  De interleave (Streepgrootte) aan 64 KB (65.536 bytes) instellen voor online transactieverwerking workloads (OLTP) en 256 KB (262.144 bytes) voor magazijnbeheer data-workloads om te voorkomen dat invloed op de prestaties vanwege databasetransactielogboeken. Dit moet worden ingesteld met PowerShell.
+    1. De interleave (Streepgrootte) aan 64 KB (65.536 bytes) instellen voor online transactieverwerking workloads (OLTP) en 256 KB (262.144 bytes) voor magazijnbeheer data-workloads om te voorkomen dat invloed op de prestaties vanwege databasetransactielogboeken. Dit moet worden ingesteld met PowerShell.
 
-        2.  Het aantal kolommen ingesteld = aantal fysieke schijven. PowerShell gebruiken bij het configureren van meer dan acht schijven (geen Server Manager UI).
+    2. Het aantal kolommen ingesteld = aantal fysieke schijven. PowerShell gebruiken bij het configureren van meer dan acht schijven (geen Server Manager UI).
 
-            De volgende PowerShell wordt bijvoorbeeld een nieuwe opslaggroep gemaakt met de interleave-grootte die is ingesteld op 64 KB en het aantal kolommen in 2:
+       De volgende PowerShell wordt bijvoorbeeld een nieuwe opslaggroep gemaakt met de interleave-grootte die is ingesteld op 64 KB en het aantal kolommen in 2:
 
-          ```PowerShell  
-          $PoolCount = Get-PhysicalDisk -CanPool $True
-          $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
+       ```PowerShell  
+       $PoolCount = Get-PhysicalDisk -CanPool $True
+       $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
 
-          New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Storage Spaces*" -PhysicalDisks $PhysicalDisks | New-VirtualDisk -FriendlyName "DataFiles" -Interleave 65536 -NumberOfColumns 2 -ResiliencySettingName simple –UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" -AllocationUnitSize 65536 -Confirm:$false
-          ```
+       New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Storage Spaces*" -PhysicalDisks $PhysicalDisks | New-VirtualDisk -FriendlyName "DataFiles" -Interleave 65536 -NumberOfColumns 2 -ResiliencySettingName simple –UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" -AllocationUnitSize 65536 -Confirm:$false
+       ```
 
 - Bepaalt het aantal schijven die zijn gekoppeld aan uw opslaggroep op basis van de load-verwachtingen. Houd er rekening mee dat andere VM-grootten verschillende aantallen stellen gekoppelde gegevensschijven. Zie voor meer informatie, [grootten van virtuele machines worden ondersteund in Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes).
 - Om de maximale IOPS mogelijk voor gegevensschijven, is de aanbeveling is om toe te voegen van het maximum aantal gegevensschijven dat wordt ondersteund door uw [grootte van virtuele machine](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) en gebruik schijfsegmentering.

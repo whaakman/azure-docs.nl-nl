@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: 34d42f9987303c1381584ae4b2991a8f30a67ed5
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 385163d791bff0c02a05ee1b27afd82c3afd0ac3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52618956"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997162"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>Uitgaande SMTP-verbindingsproblemen in Azure oplossen
 
@@ -26,7 +26,7 @@ Vanaf 15 November 2017, zijn uitgaande e-mailberichten die worden verzonden rech
 Deze wijziging in gedrag geldt alleen voor nieuwe abonnementen en nieuwe implementaties na 15 November 2017.
 
 ## <a name="recommended-method-of-sending-email"></a>Aanbevolen methode voor het verzenden van e-mail
-U wordt aangeraden dat u geverifieerde SMTP-relayservices (die doorgaans verbinding maken via TCP-poort 587 of 443 maar andere poorten te ondersteunen) gebruiken om u te e-mailbericht verzenden vanuit Azure-VM's of Azure App Services. Deze services worden gebruikt voor het onderhouden van de reputatie van de IP-adres of -domein om te voorkomen dat externe e-mailproviders het bericht wordt geweigerd. Dergelijke SMTP-relayservices omvatten, maar niet beperkt tot [SendGrid](http://sendgrid.com/partners/azure/). Het is ook mogelijk dat u hebt een veilige SMTP-relay-service, die wordt uitgevoerd on-premises die u kunt gebruiken.
+U wordt aangeraden dat u geverifieerde SMTP-relayservices (die doorgaans verbinding maken via TCP-poort 587 of 443 maar andere poorten te ondersteunen) gebruiken om u te e-mailbericht verzenden vanuit Azure-VM's of Azure App Services. Deze services worden gebruikt voor het onderhouden van de reputatie van de IP-adres of -domein om te voorkomen dat externe e-mailproviders het bericht wordt geweigerd. Dergelijke SMTP-relayservices omvatten, maar niet beperkt tot [SendGrid](https://sendgrid.com/partners/azure/). Het is ook mogelijk dat u hebt een veilige SMTP-relay-service, die wordt uitgevoerd on-premises die u kunt gebruiken.
 
 Met behulp van deze services voor het leveren van e-mailbericht is niet beperkt in Azure, ongeacht het abonnementstype.
 
@@ -36,7 +36,7 @@ Er is geen wijziging in de technische mogelijkheden voor het verzenden van e-mai
 ## <a name="pay-as-you-go"></a>Betalen per gebruik
 Als u zich hebt geregistreerd vóór 15 November 2017 voor het betalen per gebruik of Microsoft Partner Network-abonnement biedt, er zijn geen wijzigingen in de technische mogelijkheden om te proberen uitgaande e-maillevering. U gaat verder met het mogelijk om te proberen uitgaande e-maillevering van Azure VM's binnen deze abonnementen rechtstreeks naar externe e-mailproviders zonder beperkingen van het Azure-platform. Nogmaals, er geen garantie dat e-mailproviders inkomende e-mailbericht van een bepaalde gebruiker accepteert, en gebruikers hebben rechtstreeks met e-mailproviders oplossen van eventuele bezorging van berichten of filters gebruiken om problemen met betrekking specifieke providers tot SPAM.
 
-Voor betalen per gebruik of Microsoft Partner Network-abonnementen die zijn gemaakt na 15 November 2017 zullen er technische beperkingen die voorkomen dat e-mail die rechtstreeks vanuit virtuele machines in deze abonnementen worden verzonden. Als u wilt dat de mogelijkheid om e-mail te verzenden van Azure VM's rechtstreeks naar externe e-mailproviders (niet via een geverifieerde SMTP-relay), kunt u een aanvraag voor het verwijderen van de beperking. Aanvragen worden bekeken en goedgekeurd goeddunken van Microsoft, en ze wordt verleend nadat extra ter voorkoming van fraude wordt gecontroleerd. Als u een aanvraag, kunt u een ondersteuningsaanvraag openen met behulp van de volgende probleemtype: **technische** > **Virtueelnetwerk** > **connectiviteit**  >  **Kunnen geen e-mail (SMTP/poort 25) verzenden**. Zorg ervoor dat u meer informatie over waarom uw implementatie heeft voor het verzenden van e-mail rechtstreeks naar e-mailproviders in plaats van via een geverifieerde relay toevoegt.
+Voor betalen per gebruik of Microsoft Partner Network-abonnementen die zijn gemaakt na 15 November 2017 zullen er technische beperkingen die voorkomen dat e-mail die rechtstreeks vanuit virtuele machines in deze abonnementen worden verzonden. Als u wilt dat de mogelijkheid om e-mail te verzenden van Azure VM's rechtstreeks naar externe e-mailproviders (niet via een geverifieerde SMTP-relay), kunt u een aanvraag voor het verwijderen van de beperking. Aanvragen worden bekeken en goedgekeurd goeddunken van Microsoft, en ze wordt verleend nadat extra ter voorkoming van fraude wordt gecontroleerd. Als u een aanvraag, moet u een ondersteuningsaanvraag openen met behulp van het volgende probleemtype: **Technische** > **Virtueelnetwerk** > **connectiviteit** > **kunnen geen e-mail (SMTP/poort 25) verzenden**. Zorg ervoor dat u meer informatie over waarom uw implementatie heeft voor het verzenden van e-mail rechtstreeks naar e-mailproviders in plaats van via een geverifieerde relay toevoegt.
 
 Wanneer u een abonnement met betalen per gebruik of Microsoft Partner Network is uitgesloten, wordt virtuele machines binnen dat abonnement alleen vrijgesteld voortaan.
 

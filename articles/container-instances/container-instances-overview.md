@@ -2,19 +2,19 @@
 title: Wat is Azure Container Instances?
 description: De Azure Container Instances-service is de snelste en eenvoudigste methode voor het uitvoeren van geïsoleerde containers in Azure. Hierbij hoeft u geen virtuele machines te beheren of een orchestrator op een hoger niveau te gebruiken.
 services: container-instances
-author: seanmck
+author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
 ms.date: 11/30/2018
-ms.author: seanmck
+ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: ba454965ff2bb78ebe526e71d9280200b1f4b08b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 8362ae5e9647c023ff950a363f9ba7bfde37fdb6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187191"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863318"
 ---
 # <a name="what-is-azure-container-instances"></a>Wat is Azure Container Instances?
 
@@ -48,9 +48,14 @@ Voor het ophalen en persisteren van statuswaarden met exemplaren van Azure Conta
 
 Met Azure Container Instances kunt u Windows- en Linux-containers met dezelfde API plannen. Geef gewoon het type besturingssysteem op wanneer u de [containergroepen](container-instances-container-groups.md) maakt.
 
-Sommige functies zijn momenteel beperkt tot Linux-containers. Terwijl er hard wordt gewerkt om functiepariteit beschikbaar te maken voor Windows-containers, kunt u [Quota en beschikbaarheid in regio's voor Azure Container Instances](container-instances-quotas.md) raadplegen voor informatie over de huidige verschillen tussen platforms.
+Sommige functies zijn momenteel beperkt tot Linux-containers:
 
-Azure Container Instances biedt ondersteuning voor Windows-installatiekopieën op basis van LTSC-versies (Long-Term Servicing-kanaal). SAC-releases (Semi-Annual-kanaal) van Windows, zoals 1709 en 1803 worden niet ondersteund.
+* Meerdere containers per containergroep
+* Volume koppelen ([Azure Files](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [geheim](container-instances-volume-secret.md))
+* [Virtueel netwerkimplementatie](container-instances-vnet.md) (preview)
+* [GPU-resources](container-instances-gpu.md) (preview)
+
+Azure Container Instances biedt ondersteuning voor Windows Server 2016-installatiekopieën op basis van Long-Term Servicing-kanaal (LTSC)-versies. SAC-releases (Semi-Annual-kanaal) van Windows, zoals 1709 en 1803 worden niet ondersteund.
 
 ## <a name="co-scheduled-groups"></a>Samen geplande groepen
 

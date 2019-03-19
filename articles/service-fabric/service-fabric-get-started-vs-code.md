@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: v-jamebr
-ms.openlocfilehash: dc9c11e2c0d5642e31eace2a4dcb6065d990e25d
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 197010271518347025157968012be31c71b3b667
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413652"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121023"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Service Fabric voor Visual Studio Code
 
@@ -37,7 +37,7 @@ De volgende vereisten moeten worden geïnstalleerd op alle omgevingen.
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Node.js](https://nodejs.org/)
 * [Git](https://git-scm.com/)
-* [Service Fabric-SDK](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)
+* [Service Fabric SDK](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)
 * Yeoman-generatoren--de juiste generatoren voor uw toepassing installeren
 
    ```sh
@@ -71,14 +71,14 @@ De Service Fabric Reliable Services-extensie voor VS Code biedt veel opdrachten 
 * Service Fabric: Toepassing publiceren 
 * Service Fabric: Toepassing implementeren 
 * Service Fabric: Toepassing verwijderen  
-* Service Fabric: Toepassing bouwen 
-* Service Fabric: Schone-toepassing 
+* Service Fabric: -Toepassing ontwikkelen 
+* Service Fabric: Toepassing opgeschoond 
 
 ### <a name="service-fabric-create-application"></a>Service Fabric: Toepassing maken
 
-De **Service Fabric: toepassing maken** opdracht maakt u een nieuwe Service Fabric-toepassing in de huidige werkruimte. Afhankelijk van welke yeoman-generatoren zijn geïnstalleerd op uw ontwikkelcomputer, kunt u verschillende soorten Service Fabric-toepassing, waaronder Java, C#, Container, en Gast-projecten. 
+De **Service Fabric: Toepassing maken** opdracht maakt u een nieuwe Service Fabric-toepassing in de huidige werkruimte. Afhankelijk van welke yeoman-generatoren zijn geïnstalleerd op uw ontwikkelcomputer, kunt u verschillende soorten Service Fabric-toepassing, waaronder Java, C#, Container, en Gast-projecten. 
 
-1.  Selecteer de **Service Fabric: Add Service** opdracht
+1.  Selecteer de **Service Fabric: Service toevoegen** opdracht
 2.  Selecteer het type voor uw nieuwe Service Fabric-toepassing. 
 3.  Voer de naam van de toepassing die u wilt maken
 3.  Selecteer het type van de service die u wilt toevoegen aan uw Service Fabric-toepassing. 
@@ -87,50 +87,50 @@ De **Service Fabric: toepassing maken** opdracht maakt u een nieuwe Service Fabr
 6.  Open de map van het nieuwe zodat dit de hoofdmap van de werkruimte wordt. U kunt doorgaan met het uitvoeren van opdrachten hier.
 
 ### <a name="service-fabric-add-service"></a>Service Fabric: Service toevoegen
-De **Service Fabric: Add Service** opdracht voegt een nieuwe service toe aan een bestaande Service Fabric-toepassing. De toepassing die de service wordt toegevoegd aan moet de hoofdmap van de werkruimte. 
+De **Service Fabric: Service toevoegen** opdracht voegt een nieuwe service toe aan een bestaande Service Fabric-toepassing. De toepassing die de service wordt toegevoegd aan moet de hoofdmap van de werkruimte. 
 
-1.  Selecteer de **Service Fabric: Add Service** opdracht.
+1.  Selecteer de **Service Fabric: Service toevoegen** opdracht.
 2.  Selecteer het type van uw huidige Service Fabric-toepassing. 
 3.  Selecteer het type van de service die u wilt toevoegen aan uw Service Fabric-toepassing. 
 4.  Volg de aanwijzingen om de naam van de service. 
 5.  De nieuwe service wordt weergegeven in uw projectmap. 
 
 ### <a name="service-fabric-publish-application"></a>Service Fabric: Toepassing publiceren
-De **Service Fabric: Publish Application** opdracht wordt uw Service Fabric-toepassing op een extern cluster geïmplementeerd. Het doelcluster kan een beveiligde of een onbeveiligd cluster zijn. Als parameters zijn niet ingesteld in Cloud.json, wordt de toepassing wordt geïmplementeerd op het lokale cluster.
+De **Service Fabric: Toepassing publiceren** opdracht wordt uw Service Fabric-toepassing op een extern cluster geïmplementeerd. Het doelcluster kan een beveiligde of een onbeveiligd cluster zijn. Als parameters zijn niet ingesteld in Cloud.json, wordt de toepassing wordt geïmplementeerd op het lokale cluster.
 
 1.  De eerste keer is dat de toepassing is gemaakt, wordt een bestand Cloud.json gegenereerd in de projectmap.
 2.  Voer de waarden voor het cluster dat u verbinding maken wilt met in het bestand Cloud.json.
-3.  Selecteer de **Service Fabric: Publish Application** opdracht.
+3.  Selecteer de **Service Fabric: Toepassing publiceren** opdracht.
 4.  Bekijk het doelcluster met Service Fabric Explorer om te bevestigen dat de toepassing is geïnstalleerd. 
 
 ### <a name="service-fabric-deploy-application-localhost"></a>Service Fabric: (Localhost)-toepassing implementeren
-De **Service Fabric: toepassing implementeren** opdracht wordt uw Service Fabric-toepassing naar uw lokale cluster geïmplementeerd. Zorg ervoor dat uw lokale cluster voordat u de opdracht wordt uitgevoerd. 
+De **Service Fabric: Toepassing implementeren** opdracht wordt uw Service Fabric-toepassing naar uw lokale cluster geïmplementeerd. Zorg ervoor dat uw lokale cluster voordat u de opdracht wordt uitgevoerd. 
 
-1.  Selecteer de **Service Fabric: toepassing implementeren** opdracht
-2.  Het lokale cluster met Service Fabric Explorer weergeven (http://localhost:19080/Explorer) om te bevestigen dat de toepassing is geïnstalleerd. Dit kan enige tijd duren, dus zorg patiënt.
-3.  U kunt ook **Service Fabric: Publish Application** opdracht zonder parameters die zijn ingesteld in het bestand Cloud.json om te implementeren op een lokaal cluster.
+1. Selecteer de **Service Fabric: Toepassing implementeren** opdracht
+2. Het lokale cluster met Service Fabric Explorer weergeven (http://localhost:19080/Explorer) om te bevestigen dat de toepassing is geïnstalleerd. Dit kan enige tijd duren, dus zorg patiënt.
+3. U kunt ook **Service Fabric: Toepassing publiceren** opdracht zonder parameters die zijn ingesteld in het bestand Cloud.json om te implementeren op een lokaal cluster.
 
 > [!NOTE]
 > Implementeren van Java-toepassingen op het lokale cluster wordt niet ondersteund op Windows-machines.
 
 ### <a name="service-fabric-remove-application"></a>Service Fabric: Toepassing verwijderen
-De **Service Fabric: toepassing verwijderen** opdracht verwijdert u een Service Fabric-toepassing uit het cluster dat eerder is geïmplementeerd voor het gebruik van de VS Code-extensie. 
+De **Service Fabric: Toepassing verwijderen** opdracht verwijdert u een Service Fabric-toepassing uit het cluster dat eerder is geïmplementeerd voor het gebruik van de VS Code-extensie. 
 
-1.  Selecteer de **Service Fabric: toepassing verwijderen** opdracht.
+1.  Selecteer de **Service Fabric: Toepassing verwijderen** opdracht.
 2.  Met Service Fabric Explorer om te bevestigen dat de toepassing is verwijderd van het cluster weergeven. Dit kan enige tijd duren, dus zorg patiënt.
 
-### <a name="service-fabric-build-application"></a>Service Fabric: Toepassing bouwen
-De **Service Fabric: toepassing verwijderen** opdracht beide Java kunt bouwen of C# Service Fabric-toepassingen. 
+### <a name="service-fabric-build-application"></a>Service Fabric: -Toepassing ontwikkelen
+De **Service Fabric: Toepassing verwijderen** opdracht beide Java kunt bouwen of C# Service Fabric-toepassingen. 
 
 1.  Zorg ervoor dat u zich in de hoofdmap van de toepassing voordat u deze opdracht uitvoert. De opdracht geeft het type van de toepassing (C# of Java) en bouwt u uw toepassing dienovereenkomstig.
-2.  Selecteer de **Service Fabric: Build Application** opdracht.
+2.  Selecteer de **Service Fabric: -Toepassing ontwikkelen** opdracht.
 3.  De uitvoer van het bouwproces wordt geschreven naar de geïntegreerde terminal.
 
-### <a name="service-fabric-clean-application"></a>Service Fabric: Schone-toepassing
-De **Service Fabric: Clean Application** opdracht verwijdert u alle jar-bestanden en eigen bibliotheken die zijn gegenereerd door de build. Geldig voor Java-toepassingen. 
+### <a name="service-fabric-clean-application"></a>Service Fabric: Toepassing opgeschoond
+De **Service Fabric: Toepassing opgeschoond** opdracht verwijdert u alle jar-bestanden en eigen bibliotheken die zijn gegenereerd door de build. Geldig voor Java-toepassingen. 
 
 1.  Zorg ervoor dat u zich in de hoofdmap van de toepassing voordat u deze opdracht uitvoert. 
-2.  Selecteer de **Service Fabric: Clean Application** opdracht.
+2.  Selecteer de **Service Fabric: Toepassing opgeschoond** opdracht.
 3.  De uitvoer van het nieuwe proces wordt geschreven naar de geïntegreerde terminal.
 
 ## <a name="next-steps"></a>Volgende stappen

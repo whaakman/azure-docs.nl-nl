@@ -9,25 +9,25 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 28c2d65e1b1858b653775b4b298c9ab3e1d31e6e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: d8256f96a79969103b17047c4ebb55fb140eb0bc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991409"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121108"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Een winkelzoeker maken met behulp van Azure Maps
 
 Deze zelfstudie leidt u door het proces voor het maken van een eenvoudige winkelzoeker met behulp van Azure Maps. Winkelzoekers komen veel voor. Veel van de concepten die worden gebruikt in dit type toepassing zijn van toepassing op veel andere soorten toepassingen. Het aanbieden van een winkelzoeker aan klanten is een must voor de meeste bedrijven die rechtstreeks aan consumenten verkopen. In deze zelfstudie leert u het volgende:
     
 > [!div class="checklist"]
-* Een nieuwe webpagina maken met de Azure Map Control-API.
-* Aangepaste gegevens laden uit een bestand en weergeven op een kaart.
-* Gebruik de zoekservice van Azure Maps om een adres te vinden of een query in te voeren.
-* Haal de locatie van de gebruiker op van de browser en laat deze op de kaart zien.
-* Combineer meerdere lagen om aangepaste symbolen te maken op de kaart.  
-* Cluster gegevenspunten.  
-* Voeg besturingselementen voor in- en uitzoomen toe aan de kaart.
+> * Een nieuwe webpagina maken met de Azure Map Control-API.
+> * Aangepaste gegevens laden uit een bestand en weergeven op een kaart.
+> * Gebruik de zoekservice van Azure Maps om een adres te vinden of een query in te voeren.
+> * Haal de locatie van de gebruiker op van de browser en laat deze op de kaart zien.
+> * Combineer meerdere lagen om aangepaste symbolen te maken op de kaart.  
+> * Cluster gegevenspunten.  
+> * Voeg besturingselementen voor in- en uitzoomen toe aan de kaart.
 
 <a id="Intro"></a>
 
@@ -42,12 +42,16 @@ Om de stappen in deze zelfstudie te voltooien, moet u eerst [uw Azure Maps-accou
 Voordat u in de code duikt, is het een goed idee om met een ontwerp te beginnen. Uw winkelzoeker kan zo eenvoudig of zo ingewikkeld zijn als u wilt. In deze zelfstudie maken we een eenvoudige winkelzoeker. We nemen onderweg enkele tips op om u te helpen sommige functies uit te breiden als u dat wilt. We maken een winkelzoeker voor het fictieve bedrijf Contoso Coffee. De volgende afbeelding toont een draadmodel van de algemene indeling van de winkelzoeker die we in deze zelfstudie bouwen:
 
 <br/>
-<center>![Draadmodel van een winkelzoeker voor locaties van Contoso Coffee-koffiebars](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
+<center>
+
+![Draadmodel van een store-locator voor Contoso koffie restaurant locaties](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
 
 Om de bruikbaarheid van deze winkelzoeker te maximaliseren, gebruiken we een responsieve lay-out die wordt aangepast wanneer de schermbreedte van een gebruiker kleiner is dan 700 pixels. Een responsieve lay-out maakt het gemakkelijk om de winkelzoeker op een klein scherm te gebruiken, zoals op een mobiel apparaat. Hier volgt een draadmodel van een lay-out voor een klein scherm:  
 
 <br/>
-<center>![Draadmodel van de Contoso Coffee-winkelzoeker op een mobiel apparaat](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
+<center>
+
+![Draadmodel van de Contoso-koffie locator opslaan op een mobiel apparaat](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
 
 De draadmodellen tonen een redelijk eenvoudige toepassing. De toepassing heeft een zoekvak, een lijst met winkels in de buurt, een kaart met enkele markeringen (symbolen) en een pop-upvenster met extra informatie wanneer de gebruiker een markering selecteert. Meer specifiek zijn hier de functies die we in deze zelfstudie inbouwen in de winkelzoeker:
 
@@ -70,7 +74,9 @@ De draadmodellen tonen een redelijk eenvoudige toepassing. De toepassing heeft e
 Voordat we een winkelzoektoepassing ontwikkelen, moeten we een gegevensset maken van de winkels die we willen weergeven op de kaart. In deze zelfstudie gebruiken we een gegevensset voor een fictieve koffiebar met de naam Contoso Coffee. De gegevensset voor deze eenvoudige winkelzoeker wordt beheerd in een Excel-werkmap. De gegevensset bevat 10.213 locaties van Contoso Coffee-koffiebars, verdeeld over negen landen: de Verenigde Staten, Canada, het Verenigd Koninkrijk, Frankrijk, Duitsland, Italië, Nederland, Denemarken en Spanje. Hier volgt een schermopname van hoe de gegevens eruitzien:
 
 <br/>
-<center>![Schermafbeelding van de gegevens voor de winkelzoeker in een Excel-werkmap](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
+<center>
+
+![Schermafbeelding van de gegevens in de locator in een Excel-werkmap](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
 
 U kunt [de Excel-werkmap downloaden](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). 
 
@@ -90,12 +96,16 @@ Een andere benadering is om deze dataset om te zetten in een bestand met platte 
 Als u de werkmap wilt converteren naar een platte-tekstbestand, slaat u de werkmap op als een door tabs gescheiden bestand. De kolommen worden gescheiden door tabtekens, zodat de kolommen gemakkelijk te parseren zijn in onze code. U zou de CSV-indeling kunnen gebruiken (bestand met door komma's gescheiden waarden), maar voor die optie is meer parseringslogica nodig. Elk veld dat door komma's wordt gescheiden, zou dan worden omgeven door aanhalingstekens. Om deze gegevens in Excel te exporteren als een door tabs gescheiden bestand, selecteert u **Opslaan als**. Selecteer in de vervolgkeuzelijst **Opslaan als** de optie **Tekst (tab is scheidingsteken) (*.txt)**. Noem het bestand *ContosoCoffee.txt*. 
 
 <br/>
-<center>![Schermopname van het dialoogvenster Opslaan als](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)</center>
+<center>
+
+![Schermopname van het dialoogvenster Opslaan als type](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)</center>
 
 Als u het bestand in Kladblok opent, ziet dit eruit als in de volgende afbeelding:
 
 <br/>
-<center>![Schermafbeelding van een Kladblok-bestand met een door tabs gescheiden gegevensset](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
+<center>
+
+![Schermafbeelding van een Kladblok-bestand waarin een gegevensset door tabs gescheiden](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
 
 
 ## <a name="set-up-the-project"></a>Het project instellen
@@ -103,7 +113,9 @@ Als u het bestand in Kladblok opent, ziet dit eruit als in de volgende afbeeldin
 Voor het maken van het project kunt u [Visual Studio](https://visualstudio.microsoft.com) of de code-editor van uw keuze gebruiken. Maak in de projectmap drie bestanden: *index.html*, *index.css* en *index.js*. Deze bestanden definiëren de lay-out, stijl en logica voor de toepassing. Maak een map met de naam *data* en voeg *ContosoCoffee.txt* toe aan deze map. Maak een andere map met de naam *images* (afbeeldingen). We gebruiken tien afbeeldingen in deze toepassing, voor pictogrammen, knoppen en markeringen op de kaart. U kunt [deze afbeeldingen downloaden](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). Uw projectmap zou er nu uit moeten zien als in de volgende afbeelding:
 
 <br/>
-<center>![Schermafbeelding van de projectmap Simple Store Locator](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
+<center>
+
+![Schermafbeelding van de projectmap eenvoudige Store Locator](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
 
 ## <a name="create-the-user-interface"></a>De gebruikersinterface maken
 
@@ -395,12 +407,12 @@ Op dit punt is alles ingesteld in de gebruikersinterface. Nu moeten we de JavaSc
 
 1. Voeg code toe aan *index.js*. De volgende code initialiseert de kaart, voegt een [gebeurtenislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) toe die wacht totdat de pagina is geladen, gebeurtenissen aansluit om het laden van de kaart te controleren en de zoekknop en de knop Mijn locatie aandrijft. 
 
-  Wanneer de gebruiker de zoekknop selecteert, of wanneer de gebruiker op Enter drukt nadat een locatie in het zoekvak is ingevoerd, wordt een fuzzy zoekopdracht gestart met de zoekopdracht van de gebruiker. Geef een matrix met ISO 2-landwaarden door aan de `countrySet`-optie om de zoekresultaten te beperken tot die landen. Het beperken van de te zoeken landen helpt de nauwkeurigheid van de geretourneerde zoekresultaten te verhogen. 
+   Wanneer de gebruiker de zoekknop selecteert, of wanneer de gebruiker op Enter drukt nadat een locatie in het zoekvak is ingevoerd, wordt een fuzzy zoekopdracht gestart met de zoekopdracht van de gebruiker. Geef een matrix met ISO 2-landwaarden door aan de `countrySet`-optie om de zoekresultaten te beperken tot die landen. Het beperken van de te zoeken landen helpt de nauwkeurigheid van de geretourneerde zoekresultaten te verhogen. 
   
-  Wanneer de zoekopdracht is voltooid, wordt het eerste resultaat genomen en wordt de kaartcamera op dat gebied gezet. Wanneer de gebruiker de knop Mijn locatie selecteert, gebruikt u de HTML5 Geolocation-API die in de browser is ingebouwd om de locatie van de gebruiker op te halen en de kaart te centreren op die locatie.  
+   Wanneer de zoekopdracht is voltooid, wordt het eerste resultaat genomen en wordt de kaartcamera op dat gebied gezet. Wanneer de gebruiker de knop Mijn locatie selecteert, gebruikt u de HTML5 Geolocation-API die in de browser is ingebouwd om de locatie van de gebruiker op te halen en de kaart te centreren op die locatie.  
 
-  > [!Tip]
-  > Wanneer u een pop-upvensters gebruikt, is het raadzaam één `Popup`-instantie te maken en deze te hergebruiken door de inhoud en positie ervan bij te werken. Voor elke `Popup`-instantie die u toevoegt aan uw code, worden meerdere DOM-elementen toegevoegd aan de pagina. Hoe meer DOM-elementen er op een pagina zijn, hoe meer dingen de browser moet bijhouden. Als er te veel items zijn, kan de browser traag worden.
+   > [!Tip]
+   > Wanneer u een pop-upvensters gebruikt, is het raadzaam één `Popup`-instantie te maken en deze te hergebruiken door de inhoud en positie ervan bij te werken. Voor elke `Popup`-instantie die u toevoegt aan uw code, worden meerdere DOM-elementen toegevoegd aan de pagina. Hoe meer DOM-elementen er op een pagina zijn, hoe meer dingen de browser moet bijhouden. Als er te veel items zijn, kan de browser traag worden.
 
     ```Javascript
     function initialize() { 
@@ -542,7 +554,7 @@ Op dit punt is alles ingesteld in de gebruikersinterface. Nu moeten we de JavaSc
 
 1. Nadat u de gegevensset in de `load`-gebeurtenislistener van de kaart hebt geladen, definieert u een set lagen om de gegevens weer te geven. Er wordt een bellenlaag gebruikt om geclusterde gegevenspunten weer te geven. Er wordt een symboollaag wordt gebruikt om het aantal punten in elk cluster boven de bellenlaag weer te geven. Met een tweede symboollaag wordt een aangepast pictogram voor afzonderlijke locaties op de kaart weergegeven. 
 
-  Voeg `mouseover`- en `mouseout`-gebeurtenissen toe aan de bellen- en pictogramlagen om de muisaanwijzer te wijzigen wanneer de gebruiker een cluster of pictogram op de kaart aanwijst. Voeg een `click`-gebeurtenis toe aan de clusterbellenlaag. Deze `click`-gebeurtenis zoomt twee niveaus in op de kaart en centreert de kaart op een cluster wanneer de gebruiker een cluster selecteert. Voeg een `click`-gebeurtenis toe aan de pictogramlaag. Deze `click`-gebeurtenis geeft een pop-upvenster met de details van een koffiebar weer wanneer een gebruiker een individueel locatiepictogram selecteert. Voeg een gebeurtenis toe aan de kaart om te controleren wanneer de kaart klaar is met bewegen. Wanneer deze gebeurtenis wordt geactiveerd, worden de items in het deelvenster met de lijst bijgewerkt.  
+   Voeg `mouseover`- en `mouseout`-gebeurtenissen toe aan de bellen- en pictogramlagen om de muisaanwijzer te wijzigen wanneer de gebruiker een cluster of pictogram op de kaart aanwijst. Voeg een `click`-gebeurtenis toe aan de clusterbellenlaag. Deze `click`-gebeurtenis zoomt twee niveaus in op de kaart en centreert de kaart op een cluster wanneer de gebruiker een cluster selecteert. Voeg een `click`-gebeurtenis toe aan de pictogramlaag. Deze `click`-gebeurtenis geeft een pop-upvenster met de details van een koffiebar weer wanneer een gebruiker een individueel locatiepictogram selecteert. Voeg een gebeurtenis toe aan de kaart om te controleren wanneer de kaart klaar is met bewegen. Wanneer deze gebeurtenis wordt geactiveerd, worden de items in het deelvenster met de lijst bijgewerkt.  
 
     ```Javascript
     //Create a bubble layer to render clustered data points. 
@@ -916,30 +928,36 @@ Nu hebt u een volledig functionele winkelzoeker. Open het *index.html*-bestand v
 De eerste keer dat een gebruiker de knop Mijn locatie selecteert, geeft de browser een beveiligingswaarschuwing weer die om toestemming vraagt ​​voor toegang tot de locatie van de gebruiker. Als de gebruiker ermee instemt om zijn/haar locatie te delen, zoomt de kaart in op de locatie van de gebruiker en worden nabijgelegen koffiebars getoond. 
 
 <br/>
-<center>![Schermafbeelding van de vraag van de browser om toegang tot de locatie van de gebruiker](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
+<center>
+
+![Schermafbeelding van de browser de voor toegang tot de locatie van de gebruiker uitnodiging](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
 
 Wanneer u sterk genoeg inzoomt op een gebied met koffiebarlocaties, worden de clusters gescheiden in afzonderlijke locaties. Selecteer een van de pictogrammen op de kaart of selecteer een item in het zijpaneel om een ​​pop-upvenster te bekijken met informatie over die locatie.
 
 <br/>
-<center>![Schermafbeelding van de voltooide winkelzoeker](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)</center>
+<center>
+
+![Schermafbeelding van de voltooide store locator](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)</center>
 
 Als u het formaat van het browservenster verkleint tot minder dan 700 pixels breed of de toepassing op een mobiel apparaat opent, verandert de lay-out zodat deze beter geschikt is voor kleinere schermen. 
 
 <br/>
-<center>![Schermafbeelding van de versie van de winkelzoeker voor kleine schermen](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>
+<center>
+
+![Schermafbeelding van de versie klein scherm van de store-locator](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>
 
 ## <a name="next-steps"></a>Volgende stappen
 
 In dit zelfstudie leert u hoe u een eenvoudige winkelzoeker kunt maken met behulp van Azure Maps. De winkelzoeker die u in deze zelfstudie maakt, heeft mogelijk alle functionaliteit die u nodig hebt. U kunt functies toevoegen aan uw winkelzoeker of meer geavanceerde functies gebruiken voor een meer aangepaste gebruikerservaring: 
 
 > [!div class="checklist"]
-* Schakel [suggesties terwijl u typt](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI) in het zoekvak in.  
-* Voeg [ondersteuning voor meerdere talen](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization) toe. 
-* Geef de gebruiker de mogelijkheid [locaties langs een route te filteren](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
-* Voeg de mogelijkheid toe om [filters in te stellen](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
-* Voeg ondersteuning toe voor het opgeven van een aanvankelijke zoekwaarde door een queryreeks te gebruiken. Wanneer u deze optie in uw winkelzoeker opneemt, kunnen gebruikers zoekopdrachten markeren met een bladwijzer en delen. Dit biedt ook een eenvoudige methode waarmee u zoekopdrachten naar deze pagina kunt doorgeven vanaf een andere pagina.  
-* Implementeer uw winkelzoeker als een [Azure App Service-web-app](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html). 
-* Sla uw gegevens op in een database en zoek naar nabijgelegen locaties. Zie voor meer informatie [SQL Server spatial data types overview](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) (overzicht van ruimtelijke gegevenstypen in SQL Server) en [Query spatial data for the nearest neighbor](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017) (ruimtelijke gegevens opvragen voor de dichtstbijzijnde buren).
+> * Schakel [suggesties terwijl u typt](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI) in het zoekvak in.  
+> * Voeg [ondersteuning voor meerdere talen](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization) toe. 
+> * Geef de gebruiker de mogelijkheid [locaties langs een route te filteren](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
+> * Voeg de mogelijkheid toe om [filters in te stellen](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
+> * Voeg ondersteuning toe voor het opgeven van een aanvankelijke zoekwaarde door een queryreeks te gebruiken. Wanneer u deze optie in uw winkelzoeker opneemt, kunnen gebruikers zoekopdrachten markeren met een bladwijzer en delen. Dit biedt ook een eenvoudige methode waarmee u zoekopdrachten naar deze pagina kunt doorgeven vanaf een andere pagina.  
+> * Implementeer uw winkelzoeker als een [Azure App Service-web-app](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html). 
+> * Sla uw gegevens op in een database en zoek naar nabijgelegen locaties. Zie voor meer informatie [SQL Server spatial data types overview](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) (overzicht van ruimtelijke gegevenstypen in SQL Server) en [Query spatial data for the nearest neighbor](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017) (ruimtelijke gegevens opvragen voor de dichtstbijzijnde buren).
 
 De voorbeeldcode voor deze zelfstudie vindt u hier:
 

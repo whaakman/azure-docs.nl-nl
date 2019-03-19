@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 19/02/2019
 ms.author: monhaber
-ms.openlocfilehash: ab99116cabc14c70698a962c803adb87394e1796
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: d9c9a079198a8ff263c729b8e90c1fc8d0e64cd0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651101"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100067"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Onboarding van Azure Security Center Standard voor verbeterde beveiliging
 Upgrade uitvoeren naar Security Center Standard om te profiteren van verbeterde beveiligingsbeheer en bedreigingsbeveiliging voor uw hybride cloudworkloads.  U kunt de standaard gratis proberen. Zie het Security Center [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie.
@@ -65,11 +65,11 @@ Security Center kan de beveiligingsstatus van uw niet-Azure-computers controlere
 1. Ga terug naar **aan de slag**.   
 2. Selecteer het tabblad **Aan de slag**.
 
-  ![Niet-Azure](./media/security-center-onboarding/non-azure.png)
+   ![Niet-Azure](./media/security-center-onboarding/non-azure.png)
 
 3. Klik op **Configureren** onder **Nieuwe niet-Azure-computers toevoegen**. Een lijst met uw Log Analytics-werkruimten wordt weergegeven. De lijst bevat, indien van toepassing, de standaardwerkruimte die is gemaakt door Security Center toen automatisch inrichten werd ingeschakeld. Selecteer deze werkruimte of een andere werkruimte die u wilt gebruiken.
 
-  ![Niet-Azure-computer toevoegen][7]
+   ![Niet-Azure-computer toevoegen][7]
 
 Als u bestaande werkruimten hebt, worden deze weergegeven onder **nieuwe niet-Azure-computers toevoegen**. U kunt computers toevoegen aan een bestaande werkruimte of maak een nieuwe werkruimte. Selecteer de koppeling voor het maken van een nieuwe werkruimte **toevoegen van een nieuwe werkruimte**.
 
@@ -82,8 +82,8 @@ Als u bestaande werkruimten hebt, worden deze weergegeven onder **nieuwe niet-Az
    ![Een nieuwe werkruimte toevoegen][4]
 
 2. Onder **beveiliging en controle**, selecteer **OMS-werkruimte** om een nieuwe werkruimte te maken.
-> [!NOTE]
-> OMS-werkruimten worden nu aangeduid als Log Analytics-werkruimten.
+   > [!NOTE]
+   > OMS-werkruimten worden nu aangeduid als Log Analytics-werkruimten.
 3. Onder **OMS-werkruimte**, voer de gegevens voor uw werkruimte.
 4. Onder **OMS-werkruimte**, selecteer **OK**.  Nadat u OK kiest, ontvangt u een koppeling voor het downloaden van een Windows- of Linux-agent en de sleutels voor uw werkruimte-ID te gebruiken bij het configureren van de agent.
 5. Onder **beveiliging en controle**, selecteer **OK**.
@@ -105,7 +105,7 @@ U kunt een computer toevoegen aan de hand van de werkstroom van **Onboarding**, 
 
    ![Computers toevoegen][7]
 
- De **Direct Agent** blade bevat een koppeling voor het downloaden van een Windows- of Linux-agent, evenals de werkruimte-ID en sleutels voor het gebruik van bij het configureren van de agent.   
+   De **Direct Agent** blade bevat een koppeling voor het downloaden van een Windows- of Linux-agent, evenals de werkruimte-ID en sleutels voor het gebruik van bij het configureren van de agent.   
 
 ## <a name="next-steps"></a>Volgende stappen
 In dit artikel hebt u geleerd hoe u ingebouwde Azure en niet-Azure-resources om te profiteren van geavanceerde beveiliging van Security Center bevinden.  Als u wilt doen met Zie uw resources toegevoegd,

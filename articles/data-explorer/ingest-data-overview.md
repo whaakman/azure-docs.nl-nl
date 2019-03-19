@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 2/18/2019
-ms.openlocfilehash: bd1cb101a3bf9a4da9c681169d2a5c999e56b1b3
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c4db658db3d32905368390826e5531ca31525486
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438411"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58133124"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Gegevensopname met Azure Data Explorer
 
@@ -53,7 +53,7 @@ Azure Data Explorer ondersteunt op dit moment:
 
 ### <a name="ingestion-using-integration-services"></a>Gegevensopname met integratieservices
 
-* Azure Data Factory (ADF), een volledig beheerde service voor gegevensintegratie voor analytische workloads in Azure, om gegevens te kopiëren naar en van Azure Data Explorer. Zie voor meer informatie, [gegevens kopiëren naar of van Azure Data Explorer met behulp van Azure Data Factory](/azure/data-factory/connector-azure-data-explorer).
+* Azure Data Factory (ADF), een volledig beheerde service voor gegevensintegratie voor analytische workloads in Azure, het kopiëren van gegevens naar en van het gebruik van Azure Data Explorer [ondersteunde gegevensarchieven en indelingen](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats). Zie voor meer informatie, [gegevens kopiëren naar of van Azure Data Explorer met behulp van Azure Data Factory](/azure/data-factory/connector-azure-data-explorer).
 
 ### <a name="programmatic-ingestion"></a>Programmatische opname
 

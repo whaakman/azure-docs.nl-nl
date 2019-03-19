@@ -6,29 +6,29 @@ ms.service: avere-vfxt
 ms.topic: overview
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: b0b835dde4b98619238eaac9449432aaa9acffd3
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 724352ae9f7c66dfeab293473ea79438e3b36254
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50670484"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56989316"
 ---
 # <a name="what-is-avere-vfxt-for-azure"></a>Wat is Avere vFXT for Azure? 
 
-Avere vFXT for Azure is een oplossing met een bestandssysteemcache voor gegevensintensieve high performance computing (HPC)-taken. Hiermee kunt u profiteren van de schaalbaarheid van cloudcomputing om uw gegevens toegankelijk te maken waar en wanneer ze nodig zijn; ook voor gegevens die zijn opgeslagen op uw eigen on-premises hardware.
+Avere vFXT for Azure is een oplossing voor bestandssysteemcaching voor gegevensintensieve high performance computing (HPC)-taken. Hiermee kunt u profiteren van de schaalbaarheid van cloudcomputing om uw gegevens toegankelijk te maken waar en wanneer ze nodig zijn; ook voor gegevens die zijn opgeslagen op uw eigen on-premises hardware.
 
 Avere vFXT ondersteunt de volgende veelvoorkomende computerscenario's: 
 
-* Hybride-cloudarchitectuur: Avere vFXT for Azure werkt met een hardwareopslagsysteem, wat het voordeel biedt van cloudcomputing zonder dat u bestanden hoeft te verplaatsen. 
-* Krachtige cloudtoepassingen: met Avere vFXT for Azure kunt u uw gegevens voor één project naar de cloud verplaatsen of kiezen voor 'lift-and-shift', waarmee u de hele werkstroom definitief naar de cloud verplaatst. 
+* Hybride cloud-architectuur: Avere vFXT voor Azure kunt werken met een hardware-opslagsysteem, waarmee u het voordeel van cloud computing zonder om bestanden te verplaatsen. 
+* Cloudbursting: Avere vFXT voor Azure kunt u uw gegevens te verplaatsen naar de cloud voor een enkel project, of ' lift and shift ' de volledige werkstroom definitief. 
 
-![diagram met details van het Avere vFXT-systeem in een Azure-abonnement dat is verbonden aan Blob-opslag en een on-premises datacenter](media/avere-vfxt-hybrid.png)
+![diagram met details van het Avere vFXT-systeem in een Azure-abonnement dat is verbonden met Blob-opslag en een on-premises datacenter](media/avere-vfxt-hybrid.png)
 
 Avere vFXT for Azure is het geschiktst voor deze situaties: 
 
 * Leesintensieve bewerkingen voor HPC-workloads
 * Toepassingen die gebruikmaken van het NFS-protocol
-* Serverfarms met 1000 tot 40.000 CPU-kernen
+* Serverfarms met 1000 tot 40.000 CPU-cores
 * Integratie met on-premises hardware NAS, Azure Blob-opslag of beide
 
 Zie <https://azure.microsoft.com/services/storage/avere-vfxt/> voor meer informatie
@@ -39,7 +39,7 @@ Avere vFXT is handig bij het lezen van allerlei soorten leesintensieve rekentake
 
 ### <a name="visual-effects-rendering"></a>Rendering van visuele effecten 
 
-In media en entertainment kan het Avere vFXT-cluster de gegevenstoegang voor tijdgebonden renderingprojecten versnellen. Omdat u in Azure meer cacheruimte kunt toevoegen evenals meer rekenknooppunten, beschikt u over de flexibiliteit grote projecten efficiënte te kunnen afhandelen. 
+In media en entertainment kan het Avere vFXT-cluster de gegevenstoegang voor tijdgebonden renderingprojecten versnellen. Omdat u in Azure meer cacheruimte kunt toevoegen evenals meer rekenknooppunten, beschikt u over de flexibiliteit grote projecten efficiënt te kunnen afhandelen. 
 
 ### <a name="life-sciences"></a>Biowetenschappen 
 
@@ -60,14 +60,14 @@ In het Avere vFXT-cluster worden bestanden in de cache opgeslagen terwijl ze wor
 ### <a name="compatibility"></a>Compatibiliteit 
 
 * Compatibel met hardware NAS-systemen van NetApp of Dell EMC Isilon
-* Compatible met Azure Blob
+* Compatibel met Azure Blob
 * Gebruikt het NFSv3- of SMB2-protocol
 
-De gemiddelde Avere volgen gebruikt de volgende Azure-resources: 
+De Avere vFXT gebruikt de volgende Azure-resources: 
 
 |Azure-onderdeel|   |
 |----------|-----------|
-|Virtuele machines|3 of meer D16s_v3's of E32s_v3's|
+|Virtuele machines|3 of meer E32s_v3|
 |Premium SSD-opslag|200 GB ruimte in het besturingssysteem plus 1 tot 4 TB ruimte in de cache per knooppunt |
 |Opslagaccount (optioneel) |v2|
 |Back-endopslag van gegevens (optioneel) | Eén lege LRS Blob-container |

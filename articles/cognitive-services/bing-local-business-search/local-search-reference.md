@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 34cedd2b389187e55201b62acc38fca291cdd736
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: bc38b4457179c11f9d6b2656aacb8aa66848c444
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761785"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992480"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Verwijzing van lokale bedrijven zoeken-API voor Bing versie 7
 
@@ -173,18 +173,21 @@ Hiermee definieert u de querycontext die Bing voor de aanvraag gebruikt.
 |originalQuery|De query-tekenreeks die zijn opgegeven in de aanvraag.|String|  
 
 ### <a name="identifiable"></a>Identificeerbare
+
 |Name|Value|Type|  
 |-------------|-----------------|----------|
 |id|Een resource-id|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Definieert een groep resultaten, zoals mainline.
+
 |Name|Value|Type|  
 |-------------|-----------------|----------|
 |items|Een lijst met resultaten om weer te geven in de groep.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Hiermee definieert u een item voor het resultaat van zoeken om weer te geven.
+
 |Name|Value|Type|  
 |-------------|-----------------|----------|
 |resultIndex|Een op nul gebaseerde index van het item in het antwoord om weer te geven. Als het item bevat geen dit veld, moet u alle items weergeven in het antwoord. Bijvoorbeeld, alle nieuwsartikelen weergegeven in het antwoord nieuws.|Geheel getal|

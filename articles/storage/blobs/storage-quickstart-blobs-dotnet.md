@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: .NET gebruiken om een blob te maken in de objectopslag - Azure Storage'
+title: 'Quickstart: .NET gebruiken om te een blob maken in objectopslag - Azure Storage'
 description: In deze snelstart leert u hoe u de Azure Storage-clientbibliotheek voor .NET kunt gebruiken om een container te maken en een blob-in-blob-opslag (object). Hierna leert u hoe u de blob naar uw lokale computer downloadt en hoe u alle blobs in een container kunt weergeven.
 services: storage
 author: tamram
@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: 4b632d9aab89e4c8d79983855bdd12aeafb05147
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: HT
+ms.openlocfilehash: 277ed8328a537efe4d32e1ca8b0d62f5d74537dd
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712021"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193174"
 ---
-# <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>Snelstart: .NET gebruiken om een blob te maken in de objectopslag
+# <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>Quickstart: .NET gebruiken om te een blob maken in objectopslag
 
 In deze snelstart leert u hoe u de Azure Storage-clientbibliotheek voor .NET kunt gebruiken om een container te maken en een blob-in-blob-opslag (object). Hierna leert u hoe u de blob naar uw lokale computer downloadt en hoe u alle blobs in een container kunt weergeven.
 
@@ -162,6 +162,7 @@ Het eerste wat het voorbeeld doet, is controleren of de omgevingsvariabele een v
 string storageConnectionString = Environment.GetEnvironmentVariable("storageconnectionstring");
 
 // Check whether the connection string can be parsed.
+CloudStorageAccount storageAccount;
 if (CloudStorageAccount.TryParse(storageConnectionString, out storageAccount))
 {
     // If the connection string is valid, proceed with operations against Blob storage here.
@@ -196,7 +197,7 @@ In dit geval roept het voorbeeld de methode [CreateAsync](/dotnet/api/microsoft.
 CloudBlobClient cloudBlobClient = storageAccount.CreateCloudBlobClient();
 
 // Create a container called 'quickstartblobs' and append a GUID value to it to make the name unique. 
-cloudBlobContainer = cloudBlobClient.GetContainerReference("quickstartblobs" + Guid.NewGuid().ToString());
+CloudBlobContainer cloudBlobContainer = cloudBlobClient.GetContainerReference("quickstartblobs" + Guid.NewGuid().ToString());
 await cloudBlobContainer.CreateAsync();
 
 // Set the permissions so the blobs are public. 

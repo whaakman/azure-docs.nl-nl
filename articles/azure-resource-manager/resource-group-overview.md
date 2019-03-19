@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/13/2019
+ms.date: 03/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: d275455f502cf20eaa573c1716c38023f8e7236e
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+ms.openlocfilehash: 115b1fcd1b1e878a9b4a7efdf6f24d7391945619
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821897"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409836"
 ---
 # <a name="azure-resource-manager-overview"></a>Overzicht van Azure Resource Manager
 
@@ -51,7 +51,16 @@ Resource Manager biedt diverse voordelen:
 * U kunt tags toepassen op de resources om alle resources in uw abonnement op een logische manier te organiseren.
 * U kunt de facturering van uw organisatie transparanter maken door te kijken naar de kosten voor een groep resources met dezelfde tag.
 
+## <a name="understand-management-scope"></a>Beheerbereik begrijpen
+
+Azure biedt vier niveaus van beheerbereik: beheergroepen, abonnementen, resourcegroepen en resources. [Beheergroepen](../governance/management-groups/index.md) zijn in een preview-versie. In de volgende afbeelding ziet u een voorbeeld van deze lagen.
+
+![Bereik](./media/resource-group-overview/scope-levels.png)
+
+U past beheerinstellingen toe op een of meer bereikniveaus. Het niveau dat u kiest, bepaalt de reikwijdte van de instelling. Lagere niveaus nemen instellingen over van hogere niveaus. Bijvoorbeeld bij het toepassen van een [beleid](../governance/policy/overview.md) tot het abonnement, het beleid wordt toegepast op alle resourcegroepen en resources in uw abonnement. Wanneer u een beleid toepast op wordt de resourcegroep die het beleid is toegepast, de resourcegroep en alle bijbehorende resources. Een andere resourcegroep heeft echter geen deze beleidstoewijzing.
+
 ## <a name="guidance"></a>Richtlijnen
+
 Met de volgende tips kunt u profiteren van alle mogelijkheden die Resource Manager voor uw oplossingen biedt.
 
 * Definieer en implementeer uw infrastructuur via de declaratieve syntaxis in de Resource Manager-sjablonen, in plaats van via imperatieve opdrachten.

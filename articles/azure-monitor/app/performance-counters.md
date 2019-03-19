@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: mbullwin
-ms.openlocfilehash: d5c7e1815fe27d9b851407a8e6f17d04d7bc1cad
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: d38a575af54f044d64efc67b5483a67ffcd2fcd6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54003388"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837606"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Systeemprestatiemeteritems in Application Insights
 
-Windows biedt een groot aantal verschillende [prestatiemeteritems](https://docs.microsoft.com/windows/desktop/PerfCtrs/about-performance-counters) , zoals CPU-bezetting, geheugen, schijf en netwerkgebruik. U kunt ook uw eigen prestatiemeteritems definiëren. Als uw toepassing wordt uitgevoerd onder IIS op een on-premises-host of virtuele machine waarop u beheerderstoegang hebben.
+Windows biedt een grote verscheidenheid aan [prestatiemeteritems](https://docs.microsoft.com/windows/desktop/PerfCtrs/about-performance-counters), bijvoorbeeld voor CPU-bezetting, geheugen, schijfruimte en netwerkgebruik. U kunt ook uw eigen prestatiemeteritems definiëren. Als uw toepassing wordt uitgevoerd onder IIS op een on-premises-host of virtuele machine waarop u beheerderstoegang hebben.
 
 ## <a name="view-counters"></a>Items weergeven
 
@@ -122,8 +122,8 @@ Andere telemetrie, zoals **performanceCounters** heeft ook een kolom `cloud_Role
 
 * *Uitzonderingen* is een telling van de TrackException-rapporten ontvangen door de portal in het controle-interval van de grafiek. Het bevat alleen de verwerkte uitzonderingen waar u TrackException aanroepen in uw code en bevat geen alle hebt geschreven [onverwerkte uitzonderingen](../../azure-monitor/app/asp-net-exceptions.md). 
 
-## <a name="performance-counters-in-aspnet-core-applications"></a>Prestatiemeteritems in ASP.Net Core-toepassingen
-Prestatiemeteritems worden alleen ondersteund als de toepassing is die gericht is op het volledige .NET Framework. Er is geen mogelijkheid voor het verzamelen van prestatiemeteritems voor .net Core-toepassingen.
+## <a name="performance-counters-in-aspnet-core-applications"></a>Prestatiemeteritems in ASP.NET Core-toepassingen
+Prestatiemeteritems worden alleen ondersteund als de toepassing is die gericht is op het volledige .NET Framework. Er is geen mogelijkheid voor het verzamelen van prestatiemeteritems voor .NET Core-toepassingen.
 
 ## <a name="alerts"></a>Waarschuwingen
 Net als andere metrische gegevens, kunt u [een melding instellen](../../azure-monitor/app/alerts.md) om u te waarschuwen als een prestatiemeteritem gaat buiten een grens die u opgeeft. Open het deelvenster waarschuwingen en klik op waarschuwing toevoegen.

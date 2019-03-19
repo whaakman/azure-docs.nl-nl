@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 03/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 24b08bb843b4f1a0eb9f2471cb17b81f2c8ac4d0
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 76323ab00a3562cae10520b18008d030e40043fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417530"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864667"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Over VPN-Gateway-instellingen
 
@@ -43,7 +43,7 @@ Een VPN-gateway vereist de `-GatewayType` *Vpn*.
 
 Voorbeeld:
 
-```powershell
+```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
 -VpnType RouteBased
@@ -63,7 +63,7 @@ Als u de Azure portal gebruiken voor het maken van een virtuele netwerkgateway v
 
 Hiermee geeft u op de volgende PowerShell-voorbeeld de `-GatewaySku` als VpnGw1. Wanneer u PowerShell gebruikt om een gateway te maken, hebt u eerst de IP-configuratie maken en vervolgens een variabele gebruiken om te verwijzen naar deze. In dit voorbeeld is de configuratievariabele $gwipconfig.
 
-```powershell
+```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -Location 'US East' -IpConfigurations $gwipconfig -GatewaySku VpnGw1 `
 -GatewayType Vpn -VpnType RouteBased
@@ -77,7 +77,7 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --r
 
 ###  <a name="resizechange"></a>Het formaat wijzigen van een SKU of
 
-Als u een VPN-gateway hebt en u wilt een andere gateway-SKU gebruiken, wordt uw opties zijn ofwel de grootte van uw gateway-SKU wijzigen of te wijzigen op een andere SKU. Wanneer u naar een andere gateway-SKU overschakelt, kunt u de bestaande gateway volledig te verwijderen en een nieuwe build. Dit kan tot 45 minuten om te bouwen duren. Ter vergelijking, wanneer u het formaat van een gateway-SKU, hebt u weinig downtime omdat u niet hoeft te verwijderen en opnieuw opbouwen van de gateway. Als u de optie voor het formaat van uw gateway-SKU, in plaats van deze wijzigen hebt, wilt u dat doen. Er zijn echter regels met betrekking tot het vergroten of verkleinen:
+Als u een VPN-gateway hebt en u wilt een andere gateway-SKU gebruiken, wordt uw opties zijn ofwel de grootte van uw gateway-SKU wijzigen of te wijzigen op een andere SKU. Wanneer u naar een andere gateway-SKU overschakelt, kunt u de bestaande gateway volledig te verwijderen en een nieuwe build. Een gateway kan bouwen tot 45 minuten duren. Ter vergelijking, wanneer u het formaat van een gateway-SKU, is er veel downtime omdat u niet hoeft te verwijderen en opnieuw opbouwen van de gateway. Als u de optie voor het formaat van uw gateway-SKU, in plaats van deze wijzigen hebt, wilt u dat doen. Er zijn echter regels met betrekking tot het vergroten of verkleinen:
 
 1. U kunt wisselen tussen VpnGw1-, VpnGw2- en VpnGw3-SKU's.
 2. Als u met de oude gateway-SKU's werkt, kunt u wisselen tussen Basic-, Standard- en HighPerformance-SKU's.
@@ -102,7 +102,7 @@ Elke configuratie vereist in het Resource Manager-implementatiemodel, een specif
 
 In de volgende PowerShell-voorbeeld maken we een S2S-verbinding waarvoor het verbindingstype *IPsec*.
 
-```powershell
+```azurepowershell-interactive
 New-AzVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
 -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
 -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
@@ -120,7 +120,7 @@ Nadat een virtuele netwerkgateway is gemaakt, kunt u het VPN-type niet wijzigen.
 
 Hiermee geeft u op de volgende PowerShell-voorbeeld de `-VpnType` als *RouteBased*. Wanneer u een gateway maakt, moet u het juiste VPN-type voor uw configuratie kiezen.
 
-```powershell
+```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -Location 'West US' -IpConfigurations $gwipconfig `
 -GatewayType Vpn -VpnType RouteBased
@@ -132,7 +132,7 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ## <a name="gwsub"></a>Gatewaysubnet
 
-Voordat u een VPN-gateway maakt, moet u een gatewaysubnet maken. Het gatewaysubnet bevat de IP-adressen die gebruikmaken van de virtuele netwerkgateway virtuele machines en services. Wanneer u uw virtuele netwerkgateway maakt, zijn de gateway-VM's in het gatewaysubnet geïmplementeerd en geconfigureerd met de vereiste instellingen voor VPN-gateway. U moet nooit iets anders (bijvoorbeeld extra VM's) implementeren in het gatewaysubnet. Het gatewaysubnet moet de naam 'GatewaySubnet' goed te laten werken. Naamgeving van het gatewaysubnet 'GatewaySubnet', kunt Azure weet dat dit de virtuele netwerkgateway virtuele machines en services implementeren om het subnet is.
+Voordat u een VPN-gateway maakt, moet u een gatewaysubnet maken. Het gatewaysubnet bevat de IP-adressen die gebruikmaken van de virtuele netwerkgateway virtuele machines en services. Wanneer u uw virtuele netwerkgateway maakt, zijn de gateway-VM's in het gatewaysubnet geïmplementeerd en geconfigureerd met de vereiste instellingen voor VPN-gateway. Implementeer nooit iets anders (bijvoorbeeld extra VM's) in het gatewaysubnet. Het gatewaysubnet moet de naam 'GatewaySubnet' goed te laten werken. Naamgeving van het gatewaysubnet 'GatewaySubnet', kunt Azure weet dat dit de virtuele netwerkgateway virtuele machines en services implementeren om het subnet is.
 
 >[!NOTE]
 >[!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
@@ -142,7 +142,7 @@ Wanneer u het gatewaysubnet maakt, geeft u op hoeveel IP-adressen het subnet bev
 
 De volgende Resource Manager PowerShell-voorbeeld ziet u een gateway-subnet met de naam GatewaySubnet. U ziet dat de CIDR-notatie een/27, geeft dit biedt voldoende IP-adressen voor de meeste configuraties die momenteel aanwezig zijn.
 
-```powershell
+```azurepowershell-interactive
 Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
 ```
 
@@ -156,7 +156,7 @@ U geeft de lokale netwerkgateway een naam, het openbare IP-adres van de on-premi
 
 De volgende PowerShell-voorbeeld maakt u een nieuwe lokale netwerkgateway:
 
-```powershell
+```azurepowershell-interactive
 New-AzLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```

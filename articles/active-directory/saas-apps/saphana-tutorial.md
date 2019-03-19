@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: cef4a146-f4b0-4e94-82de-f5227a4b462c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 017d693f0d71692abfb432216ca0645dee80d7df
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: f8def13360bba2f82d5adf315503dc7d655f490d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865226"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899823"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Zelfstudie: Azure Active Directory-integratie met SAP HANA
 
@@ -64,7 +64,7 @@ Voor het configureren van de integratie van SAP HANA met Azure AD moet u SAP HAN
 
 **Als u SAP HANA vanuit de galerie wilt toevoegen, moet u de volgende stappen uitvoeren:**
 
-1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -195,7 +195,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    b. In de **gebruikersnaam** veldtype **brittasimon\@yourcompanydomain.extension**  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
@@ -248,8 +248,8 @@ Als de gebruiker handmatig moet maken, voert u de volgende stappen uit:
 
 4. Voeg de **externe id** toe (in dit geval BrittaSimon) of kies **Willekeurig**. Selecteer vervolgens **OK**.
 
-    >[!Note]
-    >Als het selectievakje bij **Willekeurig** niet is ingeschakeld, moet de gebruikersnaam in HANA exact overeenkomen met de naam van de gebruiker in de UPN voor het domeinachtervoegsel. (BrittaSimon@contoso.com wordt bijvoorbeeld BrittaSimon in HANA.)
+   > [!Note]
+   > Als het selectievakje bij **Willekeurig** niet is ingeschakeld, moet de gebruikersnaam in HANA exact overeenkomen met de naam van de gebruiker in de UPN voor het domeinachtervoegsel. (BrittaSimon@contoso.com wordt bijvoorbeeld BrittaSimon in HANA.)
 
 5. Voor testdoeleinden wijst u alle **XS**-rollen toe aan de gebruiker.
 
@@ -262,7 +262,7 @@ Als de gebruiker handmatig moet maken, voert u de volgende stappen uit:
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
 Wanneer u op de tegel SAP HANA in het toegangsvenster klikt, zou u automatisch moeten worden aangemeld bij de instantie van SAP HANA waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 

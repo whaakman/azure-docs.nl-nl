@@ -2,22 +2,22 @@
 title: Apparaatfirmware bijwerken via Azure IoT Hub | Microsoft Docs
 description: Implementeer een apparaatfirmware-updateproces met behulp van taken en apparaatdubbels.
 services: iot-hub
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2019
-ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: c387a7c10b962cfd27a7563c00ce58f58e97b9d5
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: faccebbd00b4ee9c8ecc257722ab87f0494d9466
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671825"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116687"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Zelfstudie: Een apparaatfirmware-updateproces implementeren
 
@@ -73,7 +73,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
 
 # Make a note of the service connection string, you need it later
-az iot hub show-connection-string --hub-name $hubname -o table
+az iot hub show-connection-string --name $hubname -o table
 
 ```
 
@@ -209,4 +209,4 @@ az group delete --name tutorial-iot-hub-rg
 In deze zelfstudie hebt u geleerd hoe u een firmware-updateproces voor uw verbonden apparaten kunt implementeren. Ga naar de volgende zelfstudie om te leren hoe u Azure IoT Hub-portalhulpmiddelen en Azure CLI-opdrachten kunt gebruiken om de apparaatconnectiviteit te testen.
 
 > [!div class="nextstepaction"]
-[Een gesimuleerd apparaat gebruiken om connectiviteit met uw IoT-hub te testen](tutorial-connectivity.md)
+> [Een gesimuleerd apparaat gebruiken om connectiviteit met uw IoT-hub te testen](tutorial-connectivity.md)

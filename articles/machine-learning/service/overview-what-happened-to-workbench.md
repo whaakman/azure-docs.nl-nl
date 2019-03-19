@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4ebc9b83c3aa135c90f18ff982621e862cb01d72
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 5ff065816e287e0d4e37cdea9a7770c9ff806520
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879608"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890743"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Wat is er gebeurd met Azure Machine Learning Workbench?
 
@@ -60,7 +60,7 @@ Uitvoeringsgeschiedenissen heten voortaan **experimenten**. U kunt de experiment
 
 Het werkruimtedashboard van de portal wordt alleen ondersteund in Microsoft Edge, Chrome en Firefox:
 
-[![Online portal](./media/overview-what-happened-to-workbench/image001.png)] (./media/overview-what-happened-to-workbench/image001.png#lightbox)
+[![Online-portal](./media/overview-what-happened-to-workbench/image001.png)](./media/overview-what-happened-to-workbench/image001.png#lightbox)
 
 Gebruik de nieuwe CLI en SDK om uw modellen te trainen en de uitvoeringsgeschiedenis bij te houden. Ga voor meer informatie naar de zelfstudie [ een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning Service](tutorial-train-models-with-aml.md).
 
@@ -68,7 +68,7 @@ Gebruik de nieuwe CLI en SDK om uw modellen te trainen en de uitvoeringsgeschied
 
 Uw bestaande gegevensvoorbereidingsbestanden zijn niet overdraagbaar naar de nieuwste versie omdat Machine Learning Workbench niet meer bestaat. U kunt echter nog steeds u een gegevensset van elke grootte voorbereiden voor modellering.   
 
-Met gegevenssets van elke grootte kunt u de [Azure Machine Learning Data Prep SDK](http://aka.ms/data-prep-sdk) gebruiken om uw gegevens snel voor te bereiden voorafgaand aan het modelleren door Python-code te schrijven. 
+Met gegevenssets van elke grootte kunt u de [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk) gebruiken om uw gegevens snel voor te bereiden voorafgaand aan het modelleren door Python-code te schrijven. 
 
 U kunt [deze zelfstudie](tutorial-data-prep.md) volgen voor meer informatie over het gebruik van de Azure Machine Learning Data Prep SDK.
 
@@ -84,7 +84,7 @@ run = exp.submit(source_directory = script_folder, script = 'train.py', run_conf
 Ontdek hoe u aan de slag kunt gaan [in Python met de belangrijkste SDK](quickstart-create-workspace-with-python.md) of via [Azure Portal](quickstart-get-started.md).
 
 ## <a name="what-about-my-registered-models-and-images"></a>Hoe zit het met mijn geregistreerde modellen en installatiekopieën?
- 
+
 De modellen die u in uw oude modelregister hebt geregistreerd, moeten worden gemigreerd naar uw nieuwe werkruimte als u ze wilt blijven gebruiken. Voor het migreren van uw modellen downloadt u de modellen en registreert u deze opnieuw in uw nieuwe werkruimte. 
 
 De installatiekopieën die u in uw oude installatiekopieregister hebt gemaakt, moeten opnieuw worden gemaakt in de nieuwe werkruimte om ze te blijven gebruiken. U kunt deze installatiekopieën opnieuw maken door de sectie [Installatiekopie configureren en maken](how-to-deploy-and-where.md#configureimage) te volgen. 
@@ -109,7 +109,7 @@ Met de nieuwe Python-SDK in de nieuwste versie kunt u met Azure Machine Learning
 
 In deze nieuwste release is de naam van de extensie gewijzigd in Azure Machine Learning voor Visual Studio Code. De extensie is uitgebreid en verbeterd voor gebruik met de eerdergenoemde nieuwe functies.
 
-[![Azure Machine Learning voor Visual Studio Code](./media/overview-what-happened-to-workbench/vscode.png)] (./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
+[![Azure Machine Learning voor Visual Studio Code](./media/overview-what-happened-to-workbench/vscode.png)](./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
 
 ## <a name="what-about-domain-packages"></a>Hoe zit het met domeinpakketten?
 

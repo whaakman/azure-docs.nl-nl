@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.author: sogup
-ms.openlocfilehash: 0ab626bffa3520af0ea23314cbaed118d66e280f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0eb19ba8278df2d77466e5be13731723557e85a8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008263"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082072"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups-limited-public-preview"></a>Een Recovery Services-kluis verplaatsen tussen Azure-abonnementen en resourcegroepen (beperkte openbare preview-versie)
 
@@ -37,10 +37,8 @@ In dit artikel wordt uitgelegd hoe u een Recovery Services-kluis geconfigureerd 
 -   Als u een kluis back-upgegevens van virtuele machine, met verschillende abonnementen, moet u uw virtuele machines verplaatsen naar het hetzelfde abonnement en de dezelfde doelresourcegroep gebruiken om door te gaan van de back-ups.<br>
 
 > [!NOTE]
->
-Recovery Services-kluizen geconfigureerd voor gebruik met **Azure Site Recovery** kan niet worden verplaatst, nog. Als u virtuele machines hebt geconfigureerd (Azure IaaS, Hyper-V, VMware) of fysieke machines voor het gebruik van disaster recovery de **Azure Site Recovery**, de verplaatsing worden geblokkeerd. De functie voor het verplaatsen van resources voor Site Recovery-service is nog niet beschikbaar.
->
->
+> 
+> Recovery Services-kluizen geconfigureerd voor gebruik met **Azure Site Recovery** kan niet worden verplaatst, nog. Als u virtuele machines hebt geconfigureerd (Azure IaaS, Hyper-V, VMware) of fysieke machines voor het gebruik van disaster recovery de **Azure Site Recovery**, de verplaatsing worden geblokkeerd. De functie voor het verplaatsen van resources voor Site Recovery-service is nog niet beschikbaar.
 
 ## <a name="register-the-source-subscription-to-move-your-recovery-services-vault"></a>Registratie van het bronabonnement voor het verplaatsen van uw Recovery Services-kluis
 
@@ -48,26 +46,26 @@ Voor het registreren van het abonnement van bron naar **verplaatsen** uw Recover
 
 1. Aanmelden bij uw Azure-account
 
-  ```
-  Connect-AzureRmAccount
-  ```
+   ```
+   Connect-AzureRmAccount
+   ```
 
-2.  Selecteer het abonnement dat u wilt registreren
+2. Selecteer het abonnement dat u wilt registreren
 
-    ```
-    Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
-    ```
-3.  Dit abonnement registreren
+   ```
+   Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
+   ```
+3. Dit abonnement registreren
 
-  ```
-  Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
-  ```
+   ```
+   Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
+   ```
 
 4. De opdracht uitvoeren
 
-  ```
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
-  ```
+   ```
+   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+   ```
 
 Wacht 30 minuten voor het abonnement om te worden goedgekeurd voordat u begint met de bewerking voor verplaatsen met behulp van de Azure portal of PowerShell.
 
@@ -78,27 +76,27 @@ Een recovery services-kluis en alle bijbehorende resources naar andere resourceg
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Open de lijst van **Recovery Services-kluizen** en selecteer de kluis die u wilt verplaatsen. Wanneer het kluisdashboard wordt geopend, wordt deze weergegeven zoals in de volgende afbeelding.
 
-  ![Open herstellen Services-kluis](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
+   ![Open herstellen Services-kluis](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
-  Als u niet ziet de **Essentials** informatie voor uw kluis, klikt u op het pictogram van de vervolgkeuzelijst. U ziet nu de Essentials-informatie voor uw kluis.
+   Als u niet ziet de **Essentials** informatie voor uw kluis, klikt u op het pictogram van de vervolgkeuzelijst. U ziet nu de Essentials-informatie voor uw kluis.
 
-  ![Tabblad met essentiële informatie](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
+   ![Tabblad met essentiële informatie](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
 
 3. Klik in het menu overzicht-kluis op **wijzigen** naast de **resourcegroep**, om te openen de **resources verplaatsen** blade.
 
-  ![Resourcegroep wijzigen](./media/backup-azure-move-recovery-services/change-resource-group.png)
+   ![Resourcegroep wijzigen](./media/backup-azure-move-recovery-services/change-resource-group.png)
 
 4. In de **resources verplaatsen** blade voor de geselecteerde kluis het wordt aanbevolen de optionele gerelateerde resources verplaatsen door het selectievakje, zoals wordt weergegeven in de volgende afbeelding.
 
-  ![Abonnement verplaatsen](./media/backup-azure-move-recovery-services/move-resource.png)
+   ![Abonnement verplaatsen](./media/backup-azure-move-recovery-services/move-resource.png)
 
 5. Toevoegen van de doelresourcegroep in de **resourcegroep** groeperen of klikt u op de vervolgkeuzelijst, selecteer een bestaande resource **Maak een nieuwe groep** optie.
 
-  ![Bron maken](./media/backup-azure-move-recovery-services/create-a-new-resource.png)
+   ![Bron maken](./media/backup-azure-move-recovery-services/create-a-new-resource.png)
 
 6. Na het toevoegen van de resourcegroep, bevestig **ik begrijp dat hulpmiddelen en scripts die zijn gekoppeld aan verplaatste resources niet werken totdat deze voor het gebruik van nieuwe resource-id's worden bijgewerkt** optie en klik vervolgens op **OK** om te voltooien het verplaatsen van de kluis.
 
-  ![Bevestigingsbericht](./media/backup-azure-move-recovery-services/confirmation-message.png)
+   ![Bevestigingsbericht](./media/backup-azure-move-recovery-services/confirmation-message.png)
 
 
 ## <a name="use-azure-portal-to-move-a-recovery-services-vault-to-a-different-subscription"></a>Azure portal gebruiken voor het verplaatsen van een Recovery Services-kluis naar een ander abonnement
@@ -116,16 +114,16 @@ U kunt een Recovery Services-kluis en alle bijbehorende resources verplaatsen na
 
 3. Klik in het menu overzicht-kluis op **wijzigen** naast **abonnement**, om te openen de **resources verplaatsen** blade.
 
-  ![Abonnement wijzigen](./media/backup-azure-move-recovery-services/change-resource-subscription.png)
+   ![Abonnement wijzigen](./media/backup-azure-move-recovery-services/change-resource-subscription.png)
 
 4. Selecteer de resources worden verplaatst, hier we raden u aan het gebruik van de **Alles selecteren** alle optionele bronnen in de lijst selecteren.
 
-  ![resource verplaatsen](./media/backup-azure-move-recovery-services/move-resource-source-subscription.png)
+   ![resource verplaatsen](./media/backup-azure-move-recovery-services/move-resource-source-subscription.png)
 
 5. Selecteer het doelabonnement uit de **abonnement** vervolgkeuzelijst, waar u de kluis worden verplaatst.
 6. Toevoegen van de doelresourcegroep in de **resourcegroep** groeperen of klikt u op de vervolgkeuzelijst, selecteer een bestaande resource **Maak een nieuwe groep** optie.
 
-  ![Abonnement toevoegen](./media/backup-azure-move-recovery-services/add-subscription.png)
+   ![Abonnement toevoegen](./media/backup-azure-move-recovery-services/add-subscription.png)
 
 7. Klik op **ik begrijp dat hulpmiddelen en scripts die zijn gekoppeld aan verplaatste resources niet werken totdat deze voor het gebruik van nieuwe resource-id's worden bijgewerkt** optie om te bevestigen en klik vervolgens op **OK**.
 

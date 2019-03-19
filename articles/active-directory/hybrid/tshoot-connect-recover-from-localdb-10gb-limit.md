@@ -16,12 +16,12 @@ ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e0942f028752b1e3db89802ee889eac7157815d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 194f422c1567103e41f3b39f8510931b1f4762b5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205610"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105179"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Probleem met LocalDB met limiet van 10 GB oplossen
 Azure AD Connect vereist een SQL Server-database voor het opslaan van identiteitsgegevens. U kunt de standaard SQL Server 2012 Express LocalDB gebruiken die samen met Azure AD Connect is geïnstalleerd, maar ook uw eigen volledige SQL. Voor SQL Server Express geldt een limiet van 10 GB. Wanneer u LocalDB gebruikt en deze limiet is bereikt, kan de Azure AD Connect-synchronisatieservice niet langer starten of goed synchroniseren. Dit artikel bevat de herstelstappen.
@@ -81,13 +81,13 @@ De naam van de database hebt gemaakt voor Azure AD Connect is **ADSync**. Als u 
 ### <a name="delete-run-history-data"></a>Uitvoeringsgeschiedenisgegevens verwijderen
 Standaard behoudt Azure AD Connect omhoog naar zeven dagen aan gegevens van de uitvoeringsgeschiedenis. In deze stap verwijderen we de gegevens van uitvoeringsgeschiedenis DB om vrij te maken zodat Azure AD Connect-synchronisatieservice synchroniseren opnieuw kunt starten.
 
-1.  Start **Synchronization Service Manager** door te gaan naar de synchronisatieservice START →.
+1. Start **Synchronization Service Manager** door te gaan naar de synchronisatieservice START →.
 
-2.  Ga naar de **Operations** tabblad.
+2. Ga naar de **Operations** tabblad.
 
-3.  Onder **acties**, selecteer **wissen wordt uitgevoerd**...
+3. Onder **acties**, selecteer **wissen wordt uitgevoerd**...
 
-4.  U kunt kiezen **wissen van alle uitvoeringen** of **wissen wordt uitgevoerd voordat er... <date>**  optie. Het is raadzaam dat u start door uitvoeringsgeschiedenisgegevens die ouder dan twee dagen zijn uit te schakelen. Als u DB grootte probleem ondervindt doorgaat, kiest u de **wissen van alle uitvoeringen** optie.
+4. U kunt kiezen **wissen van alle uitvoeringen** of **wissen wordt uitgevoerd voordat er... <date>**  optie. Het is raadzaam dat u start door uitvoeringsgeschiedenisgegevens die ouder dan twee dagen zijn uit te schakelen. Als u DB grootte probleem ondervindt doorgaat, kiest u de **wissen van alle uitvoeringen** optie.
 
 ### <a name="shorten-retention-period-for-run-history-data"></a>Verkort de bewaarperiode voor gegevens van uitvoeringsgeschiedenis
 Deze stap is het minder kans op wordt uitgevoerd in de limiet van 10 GB-probleem na meerdere synchronisatiecycli.

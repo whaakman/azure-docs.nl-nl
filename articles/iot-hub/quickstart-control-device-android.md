@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/19/2018
 ms.author: wesmc
-ms.openlocfilehash: b8623acc9d29f083e34c7fa7494e866317146802
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: a9e5b00ad84a57f49303f2e6f9389b4791fd0f60
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252555"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58166943"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Snelstart: Een apparaat beheren dat is verbonden met een IoT-hub (Android)
 
@@ -91,7 +91,7 @@ U hebt ook een _serviceverbindingsreeks_ nodig, zodat de servicetoepassingen ver
 **YourIoTHubName**: vervang deze tijdelijke aanduiding door een door u gekozen naam voor de IoT-hub.
 
 ```azurecli-interactive
-az iot hub show-connection-string --hub-name YourIoTHubName --output table
+az iot hub show-connection-string --name YourIoTHubName --output table
 ```
 
 Noteer de serviceverbindingsreeks. Deze ziet er ongeveer als volgt uit:
@@ -115,6 +115,13 @@ De Device SDK-voorbeeldtoepassing kan worden uitgevoerd op een fysiek Android-ap
     ```
 
 3. Klik in Android Studio op **Bestand** > **Project synchroniseren met Gradle-bestanden**. Controleer of de build is voltooid.
+
+   > [!NOTE]
+   > Als de project-synchronisatie is mislukt, kan het zijn voor een van de volgende redenen:
+   >
+   > * De versies van de Android Gradle-invoegtoepassing en Gradle waarnaar wordt verwezen in het project zijn verouderd voor uw versie van Android Studio. Ga als volgt [deze instructies](https://developer.android.com/studio/releases/gradle-plugin) om te verwijzen naar en installeren van de juiste versie van de invoegtoepassing en gradle zijn voor uw installatie.
+   > * De gebruiksrechtovereenkomst voor de Android SDK is niet ondertekend. Volg de instructies in de uitvoer van de Build ondertekenen van de gebruiksrechtovereenkomst en downloadt u de SDK.
+
 
 4. Zodra de build is voltooid, klikt u op **Uitvoeren** > **App uitvoeren**. Configureer de app om te worden uitgevoerd op een fysiek Android-apparaat of een Android-emulator. Zie [Uw app uitvoeren](https://developer.android.com/training/basics/firstapp/running-app) voor meer informatie over het uitvoeren van een Android-app op een fysiek apparaat of een emulator.
 
@@ -163,6 +170,13 @@ Een IoT Hub-back-endservicetoepassing wordt gewoonlijk uitgevoerd in de cloud, w
     ```
 
 3. Klik in Android Studio op **Bestand** > **Project synchroniseren met Gradle-bestanden**. Controleer of de build is voltooid.
+
+   > [!NOTE]
+   > Als de project-synchronisatie is mislukt, kan het zijn voor een van de volgende redenen:
+   >
+   > * De versies van de Android Gradle-invoegtoepassing en Gradle waarnaar wordt verwezen in het project zijn verouderd voor uw versie van Android Studio. Ga als volgt [deze instructies](https://developer.android.com/studio/releases/gradle-plugin) om te verwijzen naar en installeren van de juiste versie van de invoegtoepassing en gradle zijn voor uw installatie.
+   > * De gebruiksrechtovereenkomst voor de Android SDK is niet ondertekend. Volg de instructies in de uitvoer van de Build ondertekenen van de gebruiksrechtovereenkomst en downloadt u de SDK.
+
 
 4. Zodra de build is voltooid, klikt u op **Uitvoeren** > **App uitvoeren**. Configureer de app om te worden uitgevoerd op een afzonderlijk fysiek Android-apparaat of een Android-emulator. Zie [Uw app uitvoeren](https://developer.android.com/training/basics/firstapp/running-app) voor meer informatie over het uitvoeren van een Android-app op een fysiek apparaat of een emulator.
 

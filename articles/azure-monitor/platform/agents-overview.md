@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: dececc961e40d83cf44442dc61054bc8833208f0
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: d1e896aee4ba699704ce01e0cff8210d53700993
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265025"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899805"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Overzicht van de Azure monitoring-agents 
 Microsoft Azure biedt verschillende manieren voor het verzamelen van verschillende typen gegevens van virtuele machines met Microsoft Windows en Linux die worden gehost in Azure en uw datacenter of andere cloudproviders. De drie typen van de agents is beschikbaar voor het bewaken van een virtuele machine zijn:
@@ -37,7 +37,7 @@ U kunt kiezen voor het verzamelen van:
 * Een vooraf gedefinieerde set besturingssysteem prestatiemeteritems en gebeurtenislogboeken, of u kunt aangeven welke te verzamelen. 
 * Alle aanvragen en/of mislukte aanvragen op een IIS-webserver
 * .NET-app voor het traceren van logboeken met uitvoergegevens
-* Van Event tracing for Windows (ETW)-gebeurtenissen 
+* Gebeurtenissen van Event tracing for Windows (ETW) 
 * Gebeurtenissen verzamelen van syslog  
 * Crashdumps 
 
@@ -52,7 +52,7 @@ De Azure Diagnostics-agent moet worden gebruikt wanneer u wilt:
 * Log Analytics om te importeren van metrische gegevens en logboekgegevens die worden verzameld van Cloud Services, klassieke virtuele machines, configureren en Service Fabric-knooppunten die zijn opgeslagen in Azure storage-account.
 
 ## <a name="log-analytics-agent"></a>Log Analytics-agent
-Voor geavanceerde controle waar u wilt meer dan metrische gegevens worden verzameld en een subset van Logboeken, de Log Analytics-agent voor Windows en Linux is vereist. De Log Analytics-agent is ontwikkeld voor het beheer van uitgebreide zowel on-premises fysieke als virtuele machines, computers die worden bewaakt door System Center Operations Manager en VM's in die wordt gehost in andere clouds. De Windows- en Linux-agents verbinden met een werkruimte voor logboekanalyse voor het verzamelen van zowel oplossing op basis van gegevens als aangepaste gegevensbronnen die u configureert.
+Voor geavanceerde controle waar u wilt meer dan metrische gegevens worden verzameld en een subset van Logboeken, de Log Analytics-agent voor Windows (ook aangeduid als de Microsoft Monitoring Agent (MMA)) en Linux is vereist. De Log Analytics-agent is ontwikkeld voor het beheer van uitgebreide zowel on-premises fysieke als virtuele machines, computers die worden bewaakt door System Center Operations Manager en VM's in die wordt gehost in andere clouds. De Windows- en Linux-agents verbinden met een werkruimte voor logboekanalyse voor het verzamelen van zowel oplossing op basis van gegevens als aangepaste gegevensbronnen die u configureert.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 

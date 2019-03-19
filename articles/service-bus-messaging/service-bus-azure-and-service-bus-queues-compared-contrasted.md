@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 8c86ffaeb717914d9165ecb5b65f300ae7d903b2
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 74525b42445d87923b0bad7a522456257e651d00
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959303"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856019"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Storage-wachtrijen en Service Bus-wachtrijen: overeenkomsten en verschillen
 In dit artikel analyseert de verschillen en overeenkomsten tussen de twee typen wachtrijen die momenteel worden aangeboden door Microsoft Azure: Storage-wachtrijen en Service Bus-wachtrijen. U kunt deze informatie gebruiken om de verschillende technologieën te vergelijken en tegen elkaar af te zetten zodat u een weloverwogen beslissing kunt nemen en de oplossing kiest die beste voldoet aan uw behoeften.
@@ -193,9 +193,9 @@ De volgende artikelen bieden meer richtlijnen en informatie over het gebruik van
 * [Aan de slag met Service Bus-wachtrijen](service-bus-dotnet-get-started-with-queues.md)
 * [Het gebruik van de Queue Storage-Service](../storage/queues/storage-dotnet-how-to-use-queues.md)
 * [Aanbevolen procedures voor prestatieverbeteringen met Service Bus brokered messaging](service-bus-performance-improvements.md)
-* [Inleiding tot wachtrijen en onderwerpen in Azure Service Bus (blogbericht)](http://www.code-magazine.com/article.aspx?quickid=1112041)
+* [Inleiding tot wachtrijen en onderwerpen in Azure Service Bus (blogbericht)](https://www.code-magazine.com/article.aspx?quickid=1112041)
 * [De Developer's Guide voor Servicebus](http://www.cloudcasts.net/devguide/Default.aspx?id=11030)
-* [Met behulp van de Queuing-Service in Azure](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
+* [Met behulp van de Queuing-Service in Azure](https://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 
 [Azure portal]: https://portal.azure.com
 

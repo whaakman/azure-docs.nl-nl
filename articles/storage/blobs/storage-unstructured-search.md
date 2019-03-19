@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/13/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: 42c67d73ee776488fbe932676f61cb7166c2984b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: acf01788a1ac8ed8ca476941c402801abfbd8adf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599829"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011314"
 ---
 # <a name="tutorial-search-unstructured-data-in-cloud-storage"></a>Zelfstudie: Niet-gestructureerde gegevens in cloudopslag doorzoeken
 
@@ -39,7 +39,7 @@ In deze zelfstudie leert u het volgende:
 
 Elk opslagaccount moet behoren tot een Azure-resourcegroep. Een resourcegroep is een logische container voor het groeperen van uw Azure-services. Wanneer u een opslagaccount maakt, kunt u een nieuwe resourcegroep maken of een bestaande resourcegroep gebruiken. In deze zelfstudie maakt u een nieuwe resourcegroep.
 
-Meld u aan bij [Azure Portal](http://portal.azure.com).
+Meld u aan bij [Azure Portal](https://portal.azure.com).
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
@@ -63,7 +63,7 @@ Voor deze zelfstudie gebruikt u een enkele container om de tekstbestanden in op 
 
 5. Selecteer **OK** om de container te maken.
 
-  ![Niet-gestructureerde zoekopdracht](media/storage-unstructured-search/storageactinfo.png)
+   ![Niet-gestructureerde zoekopdracht](media/storage-unstructured-search/storageactinfo.png)
 
 ## <a name="upload-the-example-data"></a>De voorbeeldgegevens uploaden
 
@@ -77,7 +77,7 @@ Nu u een container hebt, kunt u uw voorbeeldgegevens erin uploaden.
 
 4. Selecteer **Uploaden** om te beginnen met uploaden.
 
-  ![Niet-gestructureerde zoekopdracht](media/storage-unstructured-search/upload.png)
+   ![Niet-gestructureerde zoekopdracht](media/storage-unstructured-search/upload.png)
 
 Het uploadproces kan even duren.
 
@@ -107,7 +107,7 @@ Voor deze zelfstudie gebruikt u een zoekservice om te zoeken in de tekstbestande
 
 8. Selecteer **Maken** om de zoekservice te maken.
 
-  ![Niet-gestructureerde zoekopdracht](media/storage-unstructured-search/createsearch2.png)
+   ![Niet-gestructureerde zoekopdracht](media/storage-unstructured-search/createsearch2.png)
 
 ## <a name="connect-your-search-service-to-your-container"></a>Uw zoekservice verbinden met de container
 
@@ -127,13 +127,13 @@ Nu u over een zoekservice beschikt, kunt u deze koppelen aan Blob Storage. In de
 
 2. Omdat de blobs die u gebruikt tekstbestanden zijn, moet u **Parseermodus** instellen op **Tekst**.
 
-  ![Niet-gestructureerde zoekopdracht](media/storage-unstructured-search/datasources.png)
+   ![Niet-gestructureerde zoekopdracht](media/storage-unstructured-search/datasources.png)
 
 3. Selecteer **Opslagcontainer** om de beschikbare opslagaccounts weer te geven.
 
 4. Selecteer uw opslagaccount en selecteer vervolgens de container die u eerder hebt gemaakt.
 
-  ![Niet-gestructureerde zoekopdracht](media/storage-unstructured-search/datacontainer.png)
+   ![Niet-gestructureerde zoekopdracht](media/storage-unstructured-search/datacontainer.png)
 
 5. Klik op **Selecteren** om terug te keren naar **Nieuwe gegevensbron** en selecteer **OK** om door te gaan.
 
@@ -147,7 +147,7 @@ Nu u over een zoekservice beschikt, kunt u deze koppelen aan Blob Storage. In de
 
 3. Schakel het selectievakje van het kenmerk **Ophalen mogelijk** bij **metadata_storage_name** in.
 
-  ![Niet-gestructureerde zoekopdracht](media/storage-unstructured-search/valuestoselect.png)
+   ![Niet-gestructureerde zoekopdracht](media/storage-unstructured-search/valuestoselect.png)
 
 4. Selecteer **OK**. **Een indexeerfunctie maken** wordt weergegeven.
 
@@ -157,7 +157,7 @@ De kolom **VELDNAAM** bevat de parameters. De volgende tabel bevat een overzicht
 
 #### <a name="field-attributes"></a>Veldkenmerken
 
-| Kenmerk | Beschrijving |
+| Kenmerk | Description |
 | --- | --- |
 | *Sleutel* |Een tekenreeks met de unieke id van elk document. Deze reeks wordt gebruikt om op te zoeken. Elke index moet een sleutel hebben. Slechts één veld kan de sleutel zijn en het type moet zijn ingesteld op Edm.String. |
 | *Ophalen mogelijk* |Hiermee geeft u op of een veld in een zoekresultaat kan worden geretourneerd. |
@@ -172,7 +172,7 @@ De kolom **VELDNAAM** bevat de parameters. De volgende tabel bevat een overzicht
 
 1. Typ een naam in het veld **Naam** en selecteer **OK**.
 
-  ![Niet-gestructureerde zoekopdracht](media/storage-unstructured-search/exindexer.png)
+   ![Niet-gestructureerde zoekopdracht](media/storage-unstructured-search/exindexer.png)
 
 2. U komt terug bij **Gegevens importeren**. Selecteer **OK** om het verbindingsproces te voltooien.
 
@@ -186,19 +186,19 @@ De volgende stappen laten zien u waar u Search Explorer en een aantal query's ku
 
 1. Ga naar alle resources en zoek naar de zoekservice die zojuist is gemaakt.
 
-  ![Niet-gestructureerde zoekopdracht](media/storage-unstructured-search/exampleurl.png)
+   ![Niet-gestructureerde zoekopdracht](media/storage-unstructured-search/exampleurl.png)
 
 2. Selecteer de index en open deze.
 
-  ![Niet-gestructureerde zoekopdracht](media/storage-unstructured-search/overview.png)
+   ![Niet-gestructureerde zoekopdracht](media/storage-unstructured-search/overview.png)
 
 3. Selecteer **Search Explorer** om deze te openen. Hier kunt u livequery's op uw gegevens uitvoeren.
 
-  ![Niet-gestructureerde zoekopdracht](media/storage-unstructured-search/indexespane.png)
+   ![Niet-gestructureerde zoekopdracht](media/storage-unstructured-search/indexespane.png)
 
 4. Selecteer **Zoeken** terwijl het veld voor de queryreeks leeg is. Bij een lege query worden *alle* gegevens van uw blobs geretourneerd.
 
-  ![Niet-gestructureerde zoekopdracht](media/storage-unstructured-search/emptySearch.png)
+   ![Niet-gestructureerde zoekopdracht](media/storage-unstructured-search/emptySearch.png)
 
 ### <a name="perform-a-full-text-search"></a>Zoekopdracht in volledige tekst uitvoeren
 

@@ -10,12 +10,12 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 991032a603844e697c122d8a26923f4c95a4a78c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 66ab1fa9779aa378c4153adc0da81b3d172e1320
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778787"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170221"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL Database controleren met Azure SQL Analytics (Preview)
 
@@ -66,9 +66,13 @@ De bovenstaande pagina bevat ook instructies over het inschakelen van ondersteun
 
 ## <a name="using-the-solution"></a>De oplossing gebruiken
 
-Wanneer u de oplossing aan uw werkruimte toevoegt, de tegel Azure SQL Analytics wordt toegevoegd aan uw werkruimte en deze wordt weergegeven in het overzicht. De tegel toont het aantal Azure SQL-databases, elastische pools, beheerde instanties en databases in beheerde instanties die de oplossing telemetrie van diagnostische gegevens ontvangt.
+Wanneer u de oplossing aan uw werkruimte toevoegt, de tegel Azure SQL Analytics wordt toegevoegd aan uw werkruimte en deze wordt weergegeven in het overzicht. Selecteer de koppeling een samenvatting weer om de inhoud van de tegel te laden.
 
-![Azure SQL Analytics-tegel](./media/azure-sql/azure-sql-sol-tile.png)
+![Azure SQL Analytics-overzichtstegel](./media/azure-sql/azure-sql-sol-tile-01.png)
+
+Zodra geladen, ziet de tegel u het aantal Azure SQL-databases, elastische pools, beheerde instanties en databases in beheerde instanties die de oplossing telemetrie van diagnostische gegevens ontvangt.
+
+![Azure SQL Analytics-tegel](./media/azure-sql/azure-sql-sol-tile-02.png)
 
 De oplossing biedt twee afzonderlijke weergaven: een voor het bewaken van Azure SQL-Databases en elastische pools en de andere weergave voor het bewaken van Managed Instance en databases in beheerde instanties.
 

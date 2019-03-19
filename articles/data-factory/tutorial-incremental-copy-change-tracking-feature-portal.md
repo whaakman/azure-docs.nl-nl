@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: 70159b975fd38c918f0b21a384b76666957f058b
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
-ms.translationtype: HT
+ms.openlocfilehash: a5a364c2065a7f4b9607eb4b078456324f261ce8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593145"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121873"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Incrementeel gegevens kopiëren van Azure SQL Database naar Azure Blob Storage met behulp van technologie voor bijhouden van wijzigingen 
 In deze zelfstudie maakt u een Azure data factory met een pijplijn die gewijzigde gegevens laadt op basis van informatie over **wijzigingen** in de Azure SQL- brondatabase naar een Azure blob storage.  
@@ -144,7 +144,10 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
     ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Installeer de nieuwste Azure PowerShell-modules met de instructies in [Azure PowerShell installeren en configureren](/powershell/azure/azurerm/install-azurerm-ps).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Installeer de nieuwste Azure PowerShell-modules met de instructies in [Azure PowerShell installeren en configureren](/powershell/azure/install-Az-ps).
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 
@@ -257,7 +260,7 @@ In deze stap maakt u een gegevensset die de gegevens voorstelt die worden gekopi
 
     1. Selecteer **AzureStorageLinkedService** bij **Linked service**.
     2. Voer **adftutorial/incchgtracking** in voor het **map**gedeelte van het **bestandspad**.
-    3. Voer **@CONCAT('Incremental-', pipeline().RunId, '.txt')** in voor het **file**-gedeelte van het **filePath**.  
+    3. Voer  **\@CONCAT (' incrementele-', pipeline(). RunId, '.txt')** voor **bestand** deel uitmaakt van de **filePath**.  
 
        ![Sink-gegevensset - verbinding](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-connection.png)
 
@@ -369,29 +372,29 @@ In deze stap maakt u een pijplijn met de volgende activiteiten en laat deze peri
     ![Activiteit Lookup - naam](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-name.png)
 6. Ga naar **Settings** in het venster **Properties** en voer de volgende stappen uit:
 
-    1. Selecteer **SourceDataset** in het veld **Source Dataset**.
-    2. Selecteer **Query** bij **Use Query**. 
-    3. Voer bij **Query** de volgende SQL-query in. 
+   1. Selecteer **SourceDataset** in het veld **Source Dataset**.
+   2. Selecteer **Query** bij **Use Query**. 
+   3. Voer bij **Query** de volgende SQL-query in. 
 
-        ```sql
-        SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion
-        ```
+       ```sql
+       SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion
+       ```
 
-    ![Activiteit Lookup - instellingen](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
+      ![Activiteit Lookup - instellingen](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
 7. Vouw in de werkset **Activities** de optie **Data Flow** uit en sleep de **Copy**-activiteit naar het ontwerpoppervlak voor pijplijnen. Stel de naam van de activiteit in op **IncrementalCopyActivity**. Deze activiteit kopieert de gegevens tussen de laatste versie voor bijhouden van wijzigingen en de huidige versie voor bijhouden van wijzigingen naar het beoogde gegevensarchief. 
 
     ![Kopieeractiviteit - naam](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-activity-name.png)
 8. Ga naar **Source** in het venster **Properties** en voer de volgende stappen uit:
 
-    1. Selecteer **SourceDataset** in het veld **Source Dataset**. 
-    2. Selecteer **Query** bij **Use Query**. 
-    3. Voer bij **Query** de volgende SQL-query in. 
+   1. Selecteer **SourceDataset** in het veld **Source Dataset**. 
+   2. Selecteer **Query** bij **Use Query**. 
+   3. Voer bij **Query** de volgende SQL-query in. 
 
-        ```sql
-        select data_source_table.PersonID,data_source_table.Name,data_source_table.Age, CT.SYS_CHANGE_VERSION, SYS_CHANGE_OPERATION from data_source_table RIGHT OUTER JOIN CHANGETABLE(CHANGES data_source_table, @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.SYS_CHANGE_VERSION}) as CT on data_source_table.PersonID = CT.PersonID where CT.SYS_CHANGE_VERSION <= @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}
-        ```
+       ```sql
+       select data_source_table.PersonID,data_source_table.Name,data_source_table.Age, CT.SYS_CHANGE_VERSION, SYS_CHANGE_OPERATION from data_source_table RIGHT OUTER JOIN CHANGETABLE(CHANGES data_source_table, @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.SYS_CHANGE_VERSION}) as CT on data_source_table.PersonID = CT.PersonID where CT.SYS_CHANGE_VERSION <= @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}
+       ```
     
-    ![Kopieeractiviteit - broninstellingen](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-source-settings.png)
+      ![Kopieeractiviteit - broninstellingen](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-source-settings.png)
 9. Open het tabblad **Sink** en selecteer **SinkDataset** in het veld **Sink Dataset**. 
 
     ![Kopieeractiviteit - sinkinstellingen](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-sink-settings.png)
@@ -410,10 +413,10 @@ In deze stap maakt u een pijplijn met de volgende activiteiten en laat deze peri
     2. Selecteer **Importparameter**. 
     3. In de sectie **Opgeslagen-procedureparameters** geeft u de volgende waarden voor de parameters op: 
 
-        | Naam | Type | Waarde | 
+        | Name | Type | Value | 
         | ---- | ---- | ----- | 
         | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
-        | TableName | Tekenreeks | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
+        | TableName | String | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
     
         ![Opgeslagen-procedureactiviteit - parameters](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
 14. **Verbind de kopieeractiviteit met de opgeslagen-procedureactiviteit**. Sleep de **groene** knop die is gekoppeld aan de Copy-activiteit naar de Stored Procedure-activiteit. 
@@ -422,9 +425,9 @@ In deze stap maakt u een pijplijn met de volgende activiteiten en laat deze peri
 15. Klik op **Validate** op de werkbalk. Controleer of er geen validatiefouten zijn. Sluit het venster **Pipeline Validation Report** door op **>>** te klikken. 
 
     ![Knop Valideren](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
-16.  Publiceer entiteiten (gekoppelde services, gegevenssets en pijplijnen) naar de Data Factory-service door te klikken op de knop **Alles publiceren**. Wacht tot u het bericht **Publishing succeeded** ziet. 
+16. Publiceer entiteiten (gekoppelde services, gegevenssets en pijplijnen) naar de Data Factory-service door te klikken op de knop **Alles publiceren**. Wacht tot u het bericht **Publishing succeeded** ziet. 
 
-        ![De knop Publiceren](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
+       ![De knop Publiceren](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
 
 ### <a name="run-the-incremental-copy-pipeline"></a>De pijplijn incrementele kopie uitvoeren
 1. Klik in de werkbalk voor de pijplijn op **Trigger** en klik vervolgens op **Trigger Now**. 

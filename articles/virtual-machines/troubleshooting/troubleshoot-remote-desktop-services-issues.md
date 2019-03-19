@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 3d747f3b8f54dfefe7e96c378eddbce320bcc8f7
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 8dc3dcbe3a84a0c35c1e3fc6e367c63393bebb70
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215113"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003135"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Extern bureaublad-Services is niet gestart op een Azure VM
 
@@ -45,7 +45,7 @@ Wanneer u probeert verbinding maken met een virtuele machine, treden de volgende
     **Niveau**:         Fout</br>
     **Trefwoorden**:      Klassiek</br>
     **Gebruiker**:          N/A</br>
-    **Computer**: vm.contoso.com</br>
+    **Computer**:      vm.contoso.com</br>
     **Beschrijving**: De extern bureaublad-Services-service is vastgelopen bij het starten. 
 
     U kunt ook de toegang tot de seriële Console-functie gebruiken om te zoeken voor deze fouten met de volgende query uit te voeren: 
@@ -99,7 +99,8 @@ Om dit probleem wilt oplossen, moet u de seriële Console gebruiken. Of anders [
 
     |  Fout |  Suggestie |
     |---|---|
-    |5 - TOEGANG IS GEWEIGERD |Zie [Terminal Server-service is gestopt vanwege een fout toegang geweigerd](#termService-service-is-stopped-because-of-an-access-denied-problem). |   |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |Zie [Terminal Server-service is uitgeschakeld](#termService-service-is-disabled).  |  
+    |5 - TOEGANG IS GEWEIGERD |Zie [Terminal Server-service is gestopt vanwege een fout toegang geweigerd](#termService-service-is-stopped-because-of-an-access-denied-problem). |
+    |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |Zie [Terminal Server-service is uitgeschakeld](#termService-service-is-disabled).  |  
     |1058 - ERROR_SERVICE_DISABLED  |Zie [Terminal Server-service vastloopt of loopt vast](#termService-service-crashes-or-hangs).  |
     |1059 - ERROR_CIRCULAR_DEPENDENCY |[Neem contact op met ondersteuning voor](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.|
     |1067 - ERROR_PROCESS_ABORTED  |Zie [Terminal Server-service vastloopt of loopt vast](#termService-service-crashes-or-hangs).  |
@@ -108,7 +109,7 @@ Om dit probleem wilt oplossen, moet u de seriële Console gebruiken. Of anders [
     |1070 - ERROR_SERVICE_START_HANG   | Zie [Terminal Server-service vastloopt of loopt vast](#termService-service-crashes-or-hangs). |
     |1077 - ERROR_SERVICE_NEVER_STARTED   | Zie [Terminal Server-service is uitgeschakeld](#termService-service-is-disabled).  |
     |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   |[Neem contact op met ondersteuning voor](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost. |
-    |1753   |[Neem contact op met ondersteuning voor](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.   |   |5 - TOEGANG IS GEWEIGERD |Zie [Terminal Server-service is gestopt vanwege een fout toegang geweigerd](#termService-service-is-stopped-because-of-an-access-denied-error). |
+    |1753   |[Neem contact op met ondersteuning voor](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.   |
     
 #### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>Terminal Server-service is gestopt vanwege een probleem met de toegang geweigerd
 
@@ -205,7 +206,7 @@ Om dit probleem wilt oplossen, moet u de seriële Console gebruiken. Of anders [
 
 1. [De besturingssysteemschijf koppelen aan een virtuele machine voor herstel](../windows/troubleshoot-recovery-disks-portal.md).
 2. Start een externe bureaubladverbinding met de virtuele machine voor herstel. Zorg ervoor dat de gekoppelde schijf is gemarkeerd als **Online** in de Schijfbeheer-console. Houd er rekening mee de stationsletter die toegewezen aan de gekoppelde besturingssysteemschijf.
-3.  Open een opdrachtprompt met verhoogde bevoegdheid-exemplaar (**als administrator uitvoeren**). Voer het volgende script. We gaan ervan uit dat de stationsletter die toegewezen aan de gekoppelde besturingssysteemschijf **F**. Vervang deze door de juiste waarde in uw virtuele machine. 
+3. Open een opdrachtprompt met verhoogde bevoegdheid-exemplaar (**als administrator uitvoeren**). Voer het volgende script. We gaan ervan uit dat de stationsletter die toegewezen aan de gekoppelde besturingssysteemschijf **F**. Vervang deze door de juiste waarde in uw virtuele machine. 
 
    ```
    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv

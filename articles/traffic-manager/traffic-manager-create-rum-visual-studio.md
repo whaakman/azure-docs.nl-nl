@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 35b4b06a09b8ef7b27e8d105d7f2336668c49f8f
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 1a5b883a8c9688d4545c0e98c00f78a2e982a611
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570858"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079708"
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Over het verzenden van Real-User-metingen naar Traffic Manager met Visual Studio Mobile Center
 
@@ -33,22 +33,22 @@ Voor het configureren van Real User Measurements, moet u een sleutel ophalen en 
 De metingen die u maakt en verzonden naar Traffic Manager van uw clienttoepassing worden aangeduid met de service met een unieke tekenreeks, de sleutel echte gebruiker metingen (RUM) genoemd. U kunt een uitvoeren met behulp van Azure portal, een REST-API-sleutel ophalen of met behulp van de PowerShell / CLI-interfaces.
 
 Als u de RUM-sleutel met behulp van Azure portal met behulp van de volgende procedure:
-   1. Vanuit een browser, moet u zich aanmelden bij de Azure-portal. Als u nog een account hebt, kunt u zich aanmelden voor een gratis proefversie van één maand.
-   2. Zoek in de zoekbalk van de portal, de naam van het Traffic Manager-profiel dat u wilt wijzigen en klik vervolgens op het Traffic Manager-profiel in de resultaten die de weergegeven.
-   3. Klik in de pagina Traffic Manager-profiel op **Real User Measurements** onder **instellingen**.
-   4. Klik op **sleutel genereren** om een nieuwe RUM-sleutel te maken.
+1. Vanuit een browser, moet u zich aanmelden bij de Azure-portal. Als u nog een account hebt, kunt u zich aanmelden voor een gratis proefversie van één maand.
+2. Zoek in de zoekbalk van de portal, de naam van het Traffic Manager-profiel dat u wilt wijzigen en klik vervolgens op het Traffic Manager-profiel in de resultaten die de weergegeven.
+3. Klik in de pagina Traffic Manager-profiel op **Real User Measurements** onder **instellingen**.
+4. Klik op **sleutel genereren** om een nieuwe RUM-sleutel te maken.
         
    ![Real User Measurements sleutel genereren](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
    **Afbeelding 1: Real-User-metingen genereren**
 
-   5.   De pagina wordt weergegeven de RUM-sleutel die wordt gegenereerd en een JavaScript-codefragment die moeten worden ingesloten in de HTML-pagina.
+5. De pagina wordt weergegeven de RUM-sleutel die wordt gegenereerd en een JavaScript-codefragment die moeten worden ingesloten in de HTML-pagina.
  
    ![JavaScript-code voor Real User Measurements sleutel](./media/traffic-manager-create-rum-visual-studio/rum-key.png)
 
    **Afbeelding 2: Real-User Meetsleutel en meting JavaScript**
  
-   6. Klik op de **kopie** knop om te kopiëren van de sleutel RUM. 
+6. Klik op de **kopie** knop om te kopiëren van de sleutel RUM. 
 
 ## <a name="step-2-instrument-your-app-with-the-rum-package-of-mobile-center-sdk"></a>Stap 2: Instrumenteer uw app met het uitvoeren van Mobile Center SDK-pakket
 

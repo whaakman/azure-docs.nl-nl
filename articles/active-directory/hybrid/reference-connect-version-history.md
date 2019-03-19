@@ -16,12 +16,12 @@ ms.date: 12/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd90cd18be1fdbac5948fb076a3358b070bad8eb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 840ea818c7c2e197f1ab65f4bd61067bf5e51283
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455068"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57836977"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Releasegeschiedenis van versie
 Azure AD Connect het team van Azure Active Directory (Azure AD) regelmatig bijgewerkt met nieuwe functies en functionaliteit. Niet alle toevoegingen gelden voor alle doelgroepen.
@@ -149,7 +149,7 @@ Azure AD Connect upgraden mislukt als altijd op beschikbaarheid van SQL is gecon
 
 ### <a name="fixed-issues"></a>Problemen opgelost 
 
-- Een bug opgelost waarbij de AAD Connect-server toont hoog CPU-gebruik na een upgrade naar .net 4.7.2
+- Een bug opgelost waarbij de AAD Connect-server toont hoog CPU-gebruik na een upgrade naar .NET 4.7.2
 - Er is een fout die niet continu geeft als een foutbericht weergegeven voor een probleem SQL impasse automatisch opgelost resultaat opgelost
 - Verschillende toegankelijkheidsproblemen opgelost voor de regeleditor synchronisatie en de Sync-Service Manager  
 - Een bug opgelost waarbij Azure AD Connect kan geen toestemming krijgen instelling registergegevens
@@ -180,12 +180,12 @@ Nieuwe functies en verbeteringen
 - Configuratie van de Write-back van apparaat wordt nu beheerd uitsluitend binnen de Azure AD Connect-Wizard.
 - Een nieuwe PowerShell-Module met de naam ADSyncTools.psm1 wordt toegevoegd die kunnen worden gebruikt voor het oplossen van problemen met de SQL-verbinding en verschillende andere hulpprogramma's voor probleemoplossing. Meer informatie over de module ADSyncTools [hier](tshoot-connect-tshoot-sql-connectivity.md). 
 - Een nieuwe aanvullende taak "Apparaatopties configureren" is toegevoegd. U kunt de taak voor het configureren van de volgende twee bewerkingen: 
-    -   **Hybride Azure AD join**: Als uw omgeving een on-premises AD-voetafdruk heeft en u ook wilt profiteren van de mogelijkheden die Azure Active Directory biedt, kunt u hybride Azure AD-gekoppelde apparaten implementeren. Dit zijn apparaten die zowel aan uw on-premises Active Directory als aan uw Azure Active Directory zijn gekoppeld.
-    -   **Apparaat terugschrijven**: Write-back van apparaat wordt gebruikt voor het inschakelen van voorwaardelijke toegang op basis van apparaten naar AD FS (2012 R2 of hoger) apparaten beveiligd
+  - **Hybride Azure AD join**: Als uw omgeving een on-premises AD-voetafdruk heeft en u ook wilt profiteren van de mogelijkheden die Azure Active Directory biedt, kunt u hybride Azure AD-gekoppelde apparaten implementeren. Dit zijn apparaten die zowel aan uw on-premises Active Directory als aan uw Azure Active Directory zijn gekoppeld.
+  - **Apparaat terugschrijven**: Write-back van apparaat wordt gebruikt voor het inschakelen van voorwaardelijke toegang op basis van apparaten naar AD FS (2012 R2 of hoger) apparaten beveiligd
 
-   >[!NOTE] 
-   > - De optie voor het inschakelen van Write-back van apparaat uit de synchronisatieopties aanpassen wordt grijs weergegeven. 
-   > -  De PowerShell-module voor ADPrep is afgeschaft in deze versie.
+    >[!NOTE] 
+    > - De optie voor het inschakelen van Write-back van apparaat uit de synchronisatieopties aanpassen wordt grijs weergegeven. 
+    > -  De PowerShell-module voor ADPrep is afgeschaft in deze versie.
 
 
 
@@ -415,7 +415,7 @@ Status: 19 oktober-2017
 
 * Er is een probleem met opgelost de *aanmelden van gebruikers wijzigen* taak in Azure AD Connect-wizard:
 
-   * Dit probleem doet zich voor wanneer u een bestaande Azure AD Connect-implementatie met Wachtwoordsynchronisatie **uitgeschakeld**, en u probeert om in te stellen van de gebruiker aanmelden methode als *Pass through-verificatie*. Als de wijziging wordt toegepast, wordt de wizard kan zowel Wachtwoordsynchronisatie als Pass-through-verificatie. Met deze oplossing wordt kunt de wizard niet meer Wachtwoordsynchronisatie.
+  * Dit probleem doet zich voor wanneer u een bestaande Azure AD Connect-implementatie met Wachtwoordsynchronisatie **uitgeschakeld**, en u probeert om in te stellen van de gebruiker aanmelden methode als *Pass through-verificatie*. Als de wijziging wordt toegepast, wordt de wizard kan zowel Wachtwoordsynchronisatie als Pass-through-verificatie. Met deze oplossing wordt kunt de wizard niet meer Wachtwoordsynchronisatie.
 
   * Voorheen was Wachtwoordsynchronisatie een vereiste voor het inschakelen van Pass-through-verificatie. Als u instelt dat de gebruiker aanmelden methode als *Pass through-verificatie*, de wizard zou kunnen zowel Wachtwoordsynchronisatie als Pass-through-verificatie. Wachtwoordsynchronisatie is onlangs verwijderd als een vereiste. Als onderdeel van Azure AD Connect versie 1.1.557.0, een wijziging is aangebracht in Azure AD Connect niet wachtwoordsynchronisatie inschakelen bij het instellen van de gebruiker aanmelden methode als *Pass through-verificatie*. De wijziging is echter alleen toegepast op Azure AD Connect-installatie. Met deze oplossing ook dezelfde wijziging wordt toegepast op de *aanmelden van gebruikers wijzigen* taak.
   
@@ -436,7 +436,7 @@ Status: 19 oktober-2017
 * Toegevoegde logica voor het vereenvoudigen van de stappen die nodig zijn voor het instellen van Azure AD Connect met Microsoft-Cloud voor Duitsland. Eerder, bent u vereist voor het bijwerken van specifieke registersleutels op de Azure AD Connect-server voor het correct te laten werken met Microsoft-Cloud voor Duitsland, zoals beschreven in dit artikel. Azure AD Connect kan nu automatisch detecteren als uw tenant is in de Microsoft-Cloud voor Duitsland op basis van de hoofdbeheerdersreferenties die zijn opgegeven tijdens de installatie.
 
 ### <a name="azure-ad-connect-sync"></a>Azure AD Connect Sync
->[!NOTE]
+> [!NOTE]
 > Opmerking: De Synchronization Service heeft een WMI-interface waarmee u uw eigen aangepaste scheduler ontwikkelen. Deze interface is afgeschaft en wordt verwijderd uit toekomstige versies van Azure AD Connect na 30 juni 2018 is verzonden. Klanten die willen aanpassen Synchronisatieplanning moeten gebruiken de [ingebouwde scheduler (https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
 
 #### <a name="fixed-issues"></a>Problemen opgelost
@@ -642,7 +642,7 @@ Het probleem dat zich voordoet, is dat de **alle domeinen en organisatie-eenhede
 
 * Azure AD Connect nu ondersteunt Write-back van Exchange Online **cloudPublicDelegates** kenmerk naar on-premises AD dat **publicDelegates** kenmerk. Hierdoor kan het scenario waarbij een Exchange Online-postbus kan worden verleend rechten SendOnBehalfTo aan gebruikers met on-premises Exchange-postvak. Ter ondersteuning van deze functie, een nieuwe synchronisatieregel van de out-of-box 'Out met AD-Write-back van gebruiker Exchange Hybrid PublicDelegates' is toegevoegd. Deze synchronisatieregel wordt alleen toegevoegd aan Azure AD Connect als Exchange hybride-functie is ingeschakeld.
 
-*   Azure AD Connect ondersteunt voor de nu synchroniseren van de **altRecipient** kenmerk uit Azure AD. Ter ondersteuning van deze wijziging, zijn volgende out-of-box-synchronisatieregels bijgewerkt om op te nemen van de stroom vereist kenmerk:
+* Azure AD Connect ondersteunt voor de nu synchroniseren van de **altRecipient** kenmerk uit Azure AD. Ter ondersteuning van deze wijziging, zijn volgende out-of-box-synchronisatieregels bijgewerkt om op te nemen van de stroom vereist kenmerk:
   * In uit Active Directory-gebruiker Exchange
   * Out voor AAD-gebruiker ExchangeOnline
   
@@ -1186,9 +1186,9 @@ Uitgebracht: Oktober 2014
 
 Als u al Azure AD Sync geïnstalleerd hebt, is er een extra stap die u uitvoeren moet als u een van de out-of-box-synchronisatieregels zijn gewijzigd. Nadat u een upgrade hebt uitgevoerd naar de 1.0.470.1023 vrijgeven, de synchronisatie regels die u hebt gewijzigd worden gedupliceerd. Voor elke gewijzigde synchronisatieregel, het volgende doen:
 
-1.  Ga naar de synchronisatieregel die u hebt gewijzigd en noteer de wijzigingen.
-* Verwijder de synchronisatieregel.
-* Ga naar de nieuwe regel voor synchroniseren die is gemaakt door Azure AD Sync en pas vervolgens de wijzigingen opnieuw toe.
+1. Ga naar de synchronisatieregel die u hebt gewijzigd en noteer de wijzigingen.
+1. Verwijder de synchronisatieregel.
+1. Ga naar de nieuwe regel voor synchroniseren die is gemaakt door Azure AD Sync en pas vervolgens de wijzigingen opnieuw toe.
 
 **Machtigingen voor het Active Directory-account**
 

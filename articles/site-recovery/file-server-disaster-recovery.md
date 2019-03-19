@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 64008a91033b1fdd9cb318e76db2b1958f2337e9
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 51754021f5029a751be90bfc4194ac6347c1e278
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309316"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005201"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Een bestandsserver beveiligen met behulp van Azure Site Recovery 
 
@@ -63,6 +63,7 @@ De volgende diagrammen helpen u te bepalen welke strategie u moet gebruiken voor
 
 ### <a name="site-recovery-support"></a>Ondersteuning voor Site Recovery
 Omdat Site Recovery-replicatie toepassingsagnostisch is, is de verwachting dat deze aanbevelingen gelden voor de volgende scenario’s.
+
 | Bron    |Op een secundaire site    |In Azure
 |---------|---------|---------|
 |Azure| -|Ja|

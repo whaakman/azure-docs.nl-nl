@@ -3,71 +3,64 @@ title: "Zelfstudie: Video's en transcripties beoordelen in .NET - Content Modera
 titlesuffix: Azure Cognitive Services
 description: In deze zelfstudie leert u hoe u een complete oplossing voor het beoordelen van video's en transcripties bouwt die resulteert in een beoordeling die deels automatisch tot stand komt en deels wordt uitgevoerd door menselijke beoordelaars.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: e3578c08b78894c2f9a858e97c7cbe2d260731c5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.date: 03/11/2019
+ms.author: pafarley
+ms.openlocfilehash: 504f79186eb69fb6e6c23c1a0cd9dfd7584bb128
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878745"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904334"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Zelfstudie: Video's en transcripties beoordelen
 
-Met behulp van de video-API's van Content Moderator kunt u video's beoordelen en videobeoordelingen maken in het hulpprogramma voor menselijke beoordeling. 
+In deze zelfstudie leert u hoe u een volledige video en transcriptie toezicht om oplossing te bouwen met geautomatiseerd beheer en het maken van human-in-the-loop controleren.
 
-In deze zelfstudie leert u hoe u een complete oplossing voor het beoordelen van video's en transcripties bouwt die resulteert in een beoordeling die deels automatisch tot stand komt en deels wordt uitgevoerd door menselijke beoordelaars.
+In deze zelfstudie ontdekt u hoe u:
 
-Download de [C#-consoletoepassing](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) voor deze zelfstudie. De consoletoepassing maakt gebruik van de SDK en de bijbehorende pakketten om de volgende taken uit te voeren:
-
-- De invoervideo('s) comprimeren voor een snellere verwerking
-- De video beoordelen om opnamen en frames met inzichten te verkrijgen
-- Miniaturen (afbeeldingen) maken aan de hand van de tijdstempels
-- Tijdstempels en miniaturen verzenden voor het maken van videobeoordelingen
-- Videospraak converteren naar tekst (transcriptie) met de Media Indexer-API
-- De transcriptie beoordelen met de service voor tekstbeoordeling
-- De beoordeelde transcriptie toevoegen aan het video-overzicht
-
-## <a name="sample-program-outputs"></a>Voorbeelduitvoer van programma
-
-Voordat we verdergaan, kijken we eerst even naar wat voorbeelden van uitvoer van het programma:
-
-- [Console-uitvoer](#program-output)
-- [Videobeoordeling](#video-review-default-view)
-- [Weergave van transcriptie](#video-review-transcript-view)
+> [!div class="checklist"]
+> - De invoervideo('s) comprimeren voor een snellere verwerking
+> - De video beoordelen om opnamen en frames met inzichten te verkrijgen
+> - Miniaturen (afbeeldingen) maken aan de hand van de tijdstempels
+> - Tijdstempels en miniaturen verzenden voor het maken van videobeoordelingen
+> - Videospraak converteren naar tekst (transcriptie) met de Media Indexer-API
+> - De transcriptie beoordelen met de service voor tekstbeoordeling
+> - De beoordeelde transcriptie toevoegen aan het video-overzicht
 
 ## <a name="prerequisites"></a>Vereisten
 
-1. Meld u aan voor het [beoordelingsprogramma Content Moderator](https://contentmoderator.cognitive.microsoft.com/) en [maak aangepaste tags](Review-Tool-User-Guide/tags.md) die door de C#-consoletoepassing worden toegewezen vanuit de code. In het volgende scherm ziet u de aangepaste tags.
+- Zich aanmelden voor de [Content Moderator-controlehulpprogramma](https://contentmoderator.cognitive.microsoft.com/) website en aangepaste labels maken. Zie [tags gebruiken](Review-Tool-User-Guide/tags.md) als u hulp nodig met deze stap.
 
-  ![Aangepaste tags voor beoordelen van video's](images/video-tutorial-custom-tags.png)
+    ![Schermafbeelding van de Video beheer aangepaste labels](images/video-tutorial-custom-tags.png)
+- Als u wilt de voorbeeldtoepassing uitvoert, moet u een Azure-account, een Azure Media Services-resource, een Azure Content Moderator-resource en Azure Active Directory-referenties. Zie voor instructies over het verkrijgen van deze de [toezicht-API voor Video](video-moderation-api.md) handleiding.
+- Download de [Video revisie consoletoepassing](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) vanuit GitHub.
 
-1. Als u de voorbeeldtoepassing wilt uitvoeren, hebt u een Azure-account en een account voor Azure Media Services nodig. Daarnaast moet u toegang hebben tot de beperkte preview van Content Moderator. Ten slotte moet u referenties hebben voor verificatie bij Azure Active Directory. Zie voor meer informatie over het verkrijgen van deze informatie [de snelstartgids over de API voor videobeoordeling](video-moderation-api.md).
+## <a name="enter-credentials"></a>Referenties opgeven
 
-1. Bewerk het bestand `App.config` en voeg de naam van de Active Directory-tenant, de service-eindpunten en de abonnementssleutels toe aangegeven door `#####`. U hebt de volgende informatie nodig:
+Bewerk de `App.config` -bestand en voeg de naam van de Active Directory-tenant, service-eindpunten en abonnementssleutels aangegeven door `#####`. U hebt de volgende informatie nodig:
 
-|Sleutel|Beschrijving|
-|-|-|
-|`AzureMediaServiceRestApiEndpoint`|Eindpunt voor de API van Azure Media Services (AMS)|
-|`ClientSecret`|Abonnementssleutel voor Azure Media Services|
-|`ClientId`|Client-id voor Azure Media Services|
-|`AzureAdTenantName`|Naam van Active Directory-tenant voor uw organisatie|
-|`ContentModeratorReviewApiSubscriptionKey`|Abonnementssleutel voor de beoordelings-API van Content Moderator|
-|`ContentModeratorApiEndpoint`|Eindpunt voor de Content Moderator-API|
-|`ContentModeratorTeamId`|Team-id voor Content Moderator|
+    |Sleutel|Description|
+    |-|-|
+    |`AzureMediaServiceRestApiEndpoint`|Eindpunt voor de API van Azure Media Services (AMS)|
+    |`ClientSecret`|Abonnementssleutel voor Azure Media Services|
+    |`ClientId`|Client-id voor Azure Media Services|
+    |`AzureAdTenantName`|Naam van Active Directory-tenant voor uw organisatie|
+    |`ContentModeratorReviewApiSubscriptionKey`|Abonnementssleutel voor de beoordelings-API van Content Moderator|
+    |`ContentModeratorApiEndpoint`|Eindpunt voor de Content Moderator-API|
+    |`ContentModeratorTeamId`|Team-id voor Content Moderator|
 
-## <a name="getting-started"></a>Aan de slag
+## <a name="examine-the-main-code"></a>De belangrijkste code te onderzoeken
 
 De klasse `Program` in `Program.cs` is het belangrijkste invoerpunt voor de toepassing voor videobeoordeling.
 
-### <a name="methods-of-class-program"></a>Methoden van de klasse Program
+### <a name="methods-of-program-class"></a>Methoden van de klasse Program
 
-|Methode|Beschrijving|
+|Methode|Description|
 |-|-|
 |`Main`|Parseert de opdrachtregel, verzamelt invoer van de gebruiker en start de verwerking.|
 |`ProcessVideo`|Comprimeert, uploadt, beoordeelt en maakt videobeoordelingen.|
@@ -79,44 +72,7 @@ De klasse `Program` in `Program.cs` is het belangrijkste invoerpunt voor de toep
 
 De uitvoering begint bij `Main()`, dus is dit het punt vanaf waar het belangrijk is om het beoordelingsproces van video's te begrijpen.
 
-    static void Main(string[] args)
-    {
-        if (args.Length == 0)
-        {
-            string videoPath = string.Empty;
-            GetUserInputs(out videoPath);
-            Initialize();
-            AmsConfigurations.logFilePath = Path.Combine(Path.GetDirectoryName(videoPath), "log.txt");
-            try
-            {
-                ProcessVideo(videoPath).Wait();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-        }
-        else
-        {
-            DirectoryInfo directoryInfo = new DirectoryInfo(args[0]);
-            if (args.Length == 2)
-                bool.TryParse(args[1], out generateVtt);
-            Initialize();
-            AmsConfigurations.logFilePath = Path.Combine(args[0], "log.txt");
-            var files = directoryInfo.GetFiles("*.mp4", SearchOption.AllDirectories);
-            foreach (var file in files)
-            {
-                try
-                {
-                    ProcessVideo(file.FullName).Wait();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-            }
-        }
-    }
+[!code-csharp[Main](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/Program.cs?range=20-24,42-52,54-74)]
 
 `Main()` verwerkt de volgende opdrachtregelargumenten:
 
@@ -132,7 +88,7 @@ Als er geen opdrachtregelargumenten zijn opgegeven, wordt `GetUserInputs()` aang
 
 Ongeacht of de opties voor het programma afkomstig zijn van de opdrachtregel of uit interactieve invoer van de gebruiker, roept `Main()` vervolgens `Initialize()` aan om de volgende instanties te maken:
 
-|Klasse|Beschrijving|
+|Klasse|Description|
 |-|-|
 |`AMSComponent`|Comprimeert videobestanden voordat deze worden verzonden voor beoordeling.|
 |`AMSconfigurations`|Interface naar de configuratiegegevens van de toepassing, gevonden in `App.config`.|
@@ -143,51 +99,7 @@ Deze klassen (afgezien van `AMSConfigurations`, die voor zichzelf spreekt) worde
 
 Ten slotte worden de videobestanden één voor één verwerkt door voor elk bestand `ProcessVideo()` aan te roepen.
 
-    private static async Task ProcessVideo(string videoPath)
-    {
-        Stopwatch sw = new Stopwatch();
-        sw.Start();
-        Console.ForegroundColor = ConsoleColor.White;
-        Console.WriteLine("\nVideo compression process started...");
-
-        var compressedVideoPath = amsComponent.CompressVideo(videoPath);
-        if (string.IsNullOrWhiteSpace(compressedVideoPath))
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Video Compression failed.");
-        }
-
-        Console.WriteLine("\nVideo compression process completed...");
-
-        UploadVideoStreamRequest uploadVideoStreamRequest = CreateVideoStreamingRequest(compressedVideoPath);
-        UploadAssetResult uploadResult = new UploadAssetResult();
-
-        if (generateVtt)
-        {
-            uploadResult.GenerateVTT = generateVtt;
-        }
-        Console.WriteLine("\nVideo moderation process started...");
-
-        if (!videoModerator.CreateAzureMediaServicesJobToModerateVideo(uploadVideoStreamRequest, uploadResult))
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Video Review process failed.");
-        }
-
-        Console.WriteLine("\nVideo moderation process completed...");
-        Console.WriteLine("\nVideo review process started...");
-        string reviewId = await videoReviewApi.CreateVideoReviewInContentModerator(uploadResult);
-        Console.WriteLine("\nVideo review successfully completed...");
-        sw.Stop();
-        Console.WriteLine("\nTotal Elapsed Time: {0}", sw.Elapsed);
-        using (var stw = new StreamWriter(AmsConfigurations.logFilePath, true))
-        {
-            stw.WriteLine("Video File Name: " + Path.GetFileName(videoPath));
-            stw.WriteLine($"ReviewId: {reviewId}");
-            stw.WriteLine("Total Elapsed Time: {0}", sw.Elapsed);
-        }
-    }
-
+[!code-csharp[ProcessVideo](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/Program.cs?range=76-118)]
 
 De methode `ProcessVideo()` is redelijk eenvoudig. De methode voert de volgende bewerkingen in de onderstaande volgorde uit:
 
@@ -198,7 +110,7 @@ De methode `ProcessVideo()` is redelijk eenvoudig. De methode voert de volgende 
 
 In de volgende gedeelten worden enkele van de afzonderlijke processen die worden aangeroepen door `ProcessVideo()` in meer detail besproken. 
 
-## <a name="compressing-the-video"></a>Comprimeren van de video
+## <a name="compress-the-video"></a>Comprimeren van de video
 
 Teneinde het netwerkverkeer zo veel mogelijk te beperken, converteert de toepassing videobestanden naar de indeling H.264 (MPEG-4 AVC) en worden de bestanden vervolgens geschaald naar een maximale breedte van 640 pixels. De codec H.264 wordt aanbevolen vanwege de hoge efficiëntie (compressie). De compressie wordt gedaan met behulp van het gratis opdrachtregelprogramma `ffmpeg`, dat u kunt vinden in de map `Lib` van Visual Studio. De invoerbestanden kunnen elke indeling hebben die wordt ondersteund door `ffmpeg`, dus ook de meest gebruikte indeling en codecs voor videobestanden.
 
@@ -207,35 +119,7 @@ Teneinde het netwerkverkeer zo veel mogelijk te beperken, converteert de toepass
 
 De code voor het comprimeren van een videobestand is de klasse `AmsComponent` in `AMSComponent.cs`. De methode die verantwoordelijk is voor deze functionaliteit is `CompressVideo()`, die hier wordt weergegeven.
 
-    public string CompressVideo(string videoPath)
-    {
-        string ffmpegBlobUrl;
-        if (!ValidatePreRequisites())
-        {
-            Console.WriteLine("Configurations check failed. Please cross check the configurations!");
-            throw new Exception();
-        }
-
-        if (File.Exists(_configObj.FfmpegExecutablePath))
-        {
-            ffmpegBlobUrl = this._configObj.FfmpegExecutablePath;
-        }
-        else
-        {
-            Console.WriteLine("ffmpeg.exe is missing. Please check the Lib folder");
-            throw new Exception();
-        }
-
-        string videoFilePathCom = videoPath.Split('.')[0] + "_c.mp4";
-        ProcessStartInfo processStartInfo = new ProcessStartInfo();
-        processStartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-        processStartInfo.FileName = ffmpegBlobUrl;
-        processStartInfo.Arguments = "-i \"" + videoPath + "\" -vcodec libx264 -n -crf 32 -preset veryfast -vf scale=640:-1 -c:a aac -aq 1 -ac 2 -threads 0 \"" + videoFilePathCom + "\"";
-        var process = Process.Start(processStartInfo);
-        process.WaitForExit();
-        process.Close();
-        return videoFilePathCom;
-    }
+[!code-csharp[CompressVideo](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/AMSComponent.cs?range=31-59)]
 
 De code voert de volgende stappen uit:
 
@@ -251,41 +135,15 @@ De code voert de volgende stappen uit:
 
 De methode retourneert de bestandsnaam van het gecomprimeerde uitvoerbestand.
 
-## <a name="uploading-and-moderating-the-video"></a>De video uploaden en beoordelen
+## <a name="upload-and-moderate-the-video"></a>Uploaden en te modereren van de video
 
 De video moet worden opgeslagen in Azure Media Services voordat deze kan worden verwerkt door de Content Moderation-service. De klasse `Program` in `Program.cs` heeft een korte methode `CreateVideoStreamingRequest()` die een object retourneert dat de streaming-aanvraag voorstelt voor het uploaden van de video.
 
-    private static UploadVideoStreamRequest CreateVideoStreamingRequest(string compressedVideoFilePath)
-    {
-        return
-            new UploadVideoStreamRequest
-            {
-                VideoStream = File.ReadAllBytes(compressedVideoFilePath),
-                VideoName = Path.GetFileName(compressedVideoFilePath),
-                EncodingRequest = new EncodingRequest()
-                {
-                    EncodingBitrate = AmsEncoding.AdaptiveStreaming
-                },
-                VideoFilePath = compressedVideoFilePath
-            };
-    }
+[!code-csharp[CreateVideoStreamingRequest](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/Program.cs?range=120-133)]
 
 Het resulterende object `UploadVideoStreamRequest` is gedefinieerd in `UploadVideoStreamRequest.cs` (en het bovenliggende object, `UploadVideoRequest`, in `UploadVideoRequest.cs`). Deze klassen worden hier niet weergegeven. Ze zijn kort en zijn alleen bedoeld voor het opslaan van de gecomprimeerde videogegevens en de bijbehorende metagegevens. Een andere klasse voor alleen gegevens, `UploadAssetResult` (`UploadAssetResult.cs`), wordt gebruikt voor het opslaan van de resultaten van het uploadproces. Nu hebben we genoeg informatie om deze regels in `ProcessVideo()` te begrijpen:
 
-    UploadVideoStreamRequest uploadVideoStreamRequest = CreateVideoStreamingRequest(compressedVideoPath);
-    UploadAssetResult uploadResult = new UploadAssetResult();
-
-    if (generateVtt)
-    {
-        uploadResult.GenerateVTT = generateVtt;
-    }
-    Console.WriteLine("\nVideo moderation process started...");
-
-    if (!videoModerator.CreateAzureMediaServicesJobToModerateVideo(uploadVideoStreamRequest, uploadResult))
-    {
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine("Video Review process failed.");
-    }
+[!code-csharp[ProcessVideoSnippet](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/Program.cs?range=91-104)]
 
 Deze regels voeren de volgende taken uit:
 
@@ -293,68 +151,11 @@ Deze regels voeren de volgende taken uit:
 - De vlag `GenerateVTT` van de aanvraag instellen als de gebruiker een transcriptie heeft aangevraagd
 - `CreateAzureMediaServicesJobToModerateVideo()` aanroepen om de upload uit te voeren en het resultaat te ontvangen
 
-## <a name="deep-dive-into-video-moderation"></a>Diepgaande bespreking van videobeoordeling
+## <a name="examine-video-moderation-code"></a>Videotoezicht code te onderzoeken
 
 De methode `CreateAzureMediaServicesJobToModerateVideo()` bevindt zich in `VideoModerator.cs`, de klasse met het overgrote deel van de code die interactie heeft met Azure Media Services. De broncode van de methode wordt weergegeven in het volgende fragment.
 
-    public bool CreateAzureMediaServicesJobToModerateVideo(UploadVideoStreamRequest uploadVideoRequest, UploadAssetResult uploadResult)
-    {
-        asset = CreateAsset(uploadVideoRequest);
-        uploadResult.VideoName = uploadVideoRequest.VideoName;
-        // Encoding the asset , Moderating the asset, Generating transcript in parallel
-        IAsset encodedAsset = null;
-        //Creates the job for the tasks.
-        IJob job = this._mediaContext.Jobs.Create("AMS Review Job");
-
-        //Adding encoding task to job.
-        ConfigureEncodeAssetTask(uploadVideoRequest.EncodingRequest, job);
-
-        ConfigureContentModerationTask(job);
-
-        //adding transcript task to job.
-        if (uploadResult.GenerateVTT)
-        {
-            ConfigureTranscriptTask(job);
-        }
-
-        Stopwatch timer = new Stopwatch();
-        timer.Start();
-        //submit and execute job.
-        job.Submit();
-        job.GetExecutionProgressTask(new CancellationTokenSource().Token).Wait();
-        timer.Stop();
-        using (var sw = new StreamWriter(AmsConfigurations.logFilePath, true))
-        {
-            sw.WriteLine("AMS Job Elapsed Time: {0}", timer.Elapsed);
-        }
-
-        if (job.State == JobState.Error)
-        {
-            throw new Exception("Video moderation has failed due to AMS Job error.");
-        }
-
-        UploadAssetResult result = uploadResult;
-        encodedAsset = job.OutputMediaAssets[0];
-        result.ModeratedJson = GetCmDetail(job.OutputMediaAssets[1]);
-        // Check for valid Moderated JSON
-        var jsonModerateObject = JsonConvert.DeserializeObject<VideoModerationResult>(result.ModeratedJson);
-
-        if (jsonModerateObject == null)
-        {
-            return false;
-        }
-        if (uploadResult.GenerateVTT)
-        {
-            GenerateTranscript(job.OutputMediaAssets.Last());
-        }
-
-        uploadResult.StreamingUrlDetails = PublishAsset(encodedAsset);
-        string downloadUrl = GenerateDownloadUrl(asset, uploadVideoRequest.VideoName);
-        uploadResult.StreamingUrlDetails.DownloadUri = downloadUrl;
-        uploadResult.VideoName = uploadVideoRequest.VideoName;
-        uploadResult.VideoFilePath = uploadVideoRequest.VideoFilePath;
-        return true;
-    }
+[!code-csharp[CreateAzureMediaServicesJobToModerateVideo](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/VideoModerator.cs?range=230-283)]
 
 Met deze code worden de volgende taken uitgevoerd:
 
@@ -363,101 +164,72 @@ Met deze code worden de volgende taken uitgevoerd:
 - De taak verzenden, het bestand uploaden en de verwerking starten
 - De resultaten van de beoordeling, de transcriptie (indien aangevraagd) en andere informatie ophalen
 
-## <a name="sample-video-moderation-response"></a>Voorbeeld van videobeoordeling
+## <a name="sample-video-moderation-output"></a>Voorbeeld van uitvoer videotoezicht
 
 Het resultaat van de videobeoordelingstaak (zie de [snelstartgids over videobeoordeling](video-moderation-api.md)) is een JSON-gegevensstructuur met de resultaten van de beoordeling. Deze resultaten omvatten een overzicht van de fragmenten (opnamen) binnen de video, elk met gebeurtenissen (clips) met belangrijke frames die zijn gemarkeerd voor beoordeling. Elk sleutelframe krijgt een score die aangeeft hoe groot de kans is dat het frame inhoud voor volwassenen of ongepaste inhoud bevat. Hieronder ziet u een voorbeeld van een JSON-antwoord:
 
+```json
+{
+    "version": 2,
+    "timescale": 90000,
+    "offset": 0,
+    "framerate": 50,
+    "width": 1280,
+    "height": 720,
+    "totalDuration": 18696321,
+    "fragments": [
     {
-        "version": 2,
-        "timescale": 90000,
-        "offset": 0,
-        "framerate": 50,
-        "width": 1280,
-        "height": 720,
-        "totalDuration": 18696321,
-        "fragments": [
+        "start": 0,
+        "duration": 18000
+    },
+    {
+        "start": 18000,
+        "duration": 3600,
+        "interval": 3600,
+        "events": [
+        [
         {
-            "start": 0,
-            "duration": 18000
-        },
+            "reviewRecommended": false,
+            "adultScore": 0.00001,
+            "racyScore": 0.03077,
+            "index": 5,
+            "timestamp": 18000,
+            "shotIndex": 0
+        }
+        ]
+    ]
+    },
+    {
+        "start": 18386372,
+        "duration": 119149,
+        "interval": 119149,
+        "events": [
+        [
         {
-            "start": 18000,
-            "duration": 3600,
-            "interval": 3600,
-            "events": [
-            [
-            {
-                "reviewRecommended": false,
-                "adultScore": 0.00001,
-                "racyScore": 0.03077,
-                "index": 5,
-                "timestamp": 18000,
-                "shotIndex": 0
-            }
-            ]
-        ]
-        },
-        {
-            "start": 18386372,
-            "duration": 119149,
-            "interval": 119149,
-            "events": [
-            [
-            {
-                "reviewRecommended": true,
-                "adultScore": 0.00000,
-                "racyScore": 0.91902,
-                "index": 5085,
-                "timestamp": 18386372,
-                "shotIndex": 62
-            }
-        ]
-        ]
+            "reviewRecommended": true,
+            "adultScore": 0.00000,
+            "racyScore": 0.91902,
+            "index": 5085,
+            "timestamp": 18386372,
+            "shotIndex": 62
         }
     ]
+    ]
     }
+]
+}
+```
 
 Er wordt ook een transcriptie van de audio van de video gemaakt wanneer de vlag `GenerateVTT` is ingesteld.
 
 > [!NOTE]
 > De consoletoepassing maakt gebruik van de [API van Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) om transcripties te genereren van de audiotrack van de geüploade video. De resultaten worden aangeboden in de indeling WebVTT. Zie de Engelstalige site [Web Video Text Tracks Format (WebVTT)](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API) voor meer informatie over deze indeling.
 
-
-## <a name="creating-the-human-in-the-loop-review"></a>Opnamen of frames extraheren voor menselijke beoordeling
+## <a name="create-a-the-human-in-the-loop-review"></a>Maak een de beoordeling human-in-the-loop
 
 Het beoordelingsproces retourneert een lijst met sleutelframes uit de video, samen met een transcriptie van de audiotracks. De volgende stap is het maken van een beoordeling in Content Moderator voor menselijke beoordelaars. Als we teruggaan naar de methode `ProcessVideo()` in `Program.cs`, ziet u de aanroep van de methode `CreateVideoReviewInContentModerator()`. Deze methode maakt deel uit van de klasse `videoReviewApi`, in `VideoReviewAPI.cs`, en wordt hier weergegeven.
 
-    public async Task<string> CreateVideoReviewInContentModerator(UploadAssetResult uploadAssetResult)
-    {
-    
-        string reviewId = string.Empty;
-        List<ProcessedFrameDetails> frameEntityList = framegenerator.CreateVideoFrames(uploadAssetResult);
-        string path = uploadAssetResult.GenerateVTT == true ? this._amsConfig.FfmpegFramesOutputPath + Path.GetFileNameWithoutExtension (uploadAssetResult.VideoName) + "_aud_SpReco.vtt" : "";
-        TranscriptScreenTextResult screenTextResult = new TranscriptScreenTextResult();
-        
-    if (File.Exists(path))
-        {
-            screenTextResult = await GenerateTextScreenProfanity(reviewId, path, frameEntityList);
-            uploadAssetResult.Category1TextScore = screenTextResult.Category1Score;
-            uploadAssetResult.Category2TextScore = screenTextResult.Category2Score;
-            uploadAssetResult.Category3TextScore = screenTextResult.Category3Score;
-            uploadAssetResult.Category1TextTag = screenTextResult.Category1Tag;
-            uploadAssetResult.Category2TextTag = screenTextResult.Category2Tag;
-            uploadAssetResult.Category3TextTag = screenTextResult.Category3Tag;
-        }
-        
-        var reviewVideoRequestJson = CreateReviewRequestObject(uploadAssetResult, frameEntityList);
-        if (string.IsNullOrWhiteSpace(reviewVideoRequestJson))
-        {
-            throw new Exception("Video review process failed in CreateVideoReviewInContentModerator");
-        }
-        
-        reviewId = JsonConvert.DeserializeObject<List<string>>(ExecuteCreateReviewApi(reviewVideoRequestJson).Result).FirstOrDefault();
-        frameEntityList = framegenerator.GenerateFrameImages(frameEntityList, uploadAssetResult, reviewId);
-        await CreateAndPublishReviewInContentModerator(uploadAssetResult, frameEntityList, reviewId, path, screenTextResult);
-        return reviewId;
-    
-    }
+[!code-csharp[CreateVideoReviewInContentModerator](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/VideoReviewAPI.cs?range=42-69)]
 
 `CreateVideoReviewInContentModerator()` roept verschillende andere methoden aan om de volgende taken uit te voeren:
 
@@ -470,13 +242,11 @@ Het beoordelingsproces retourneert een lijst met sleutelframes uit de video, sam
 |De transcriptie, indien beschikbaar, scannen op tekst voor volwassenen of ongepaste tekst|`GenerateTextScreenProfanity()`| `VideoReviewAPI.cs`|
 |Een aanvraag voor videobeoordeling voorbereiden en verzenden voor menselijke controle|`CreateReviewRequestObject()`<br> `ExecuteCreateReviewApi()`<br>`CreateAndPublishReviewInContentModerator()`|`VideoReviewAPI.cs`|
 
-## <a name="video-review-default-view"></a>Standaardweergave voor videobeoordeling
-
 In het volgende scherm ziet u de resultaten van de vorige stappen.
 
 ![Standaardweergave voor videobeoordeling](images/video-tutorial-default-view.PNG)
 
-## <a name="transcript-generation"></a>Transcriptie genereren
+## <a name="process-the-transcript"></a>Het transcript verwerken
 
 De code in deze zelfstudie is tot nu toe gericht op de visuele inhoud. Beoordeling van gesproken inhoud is een afzonderlijk en optioneel proces dat, zoals gezegd, gebruikmaakt van een transcriptie die wordt gegenereerd van de audio. Het is nu tijd om te kijken hoe transcripties worden gemaakt en gebruikt in het beoordelingsproces. Het genereren van transcripties wordt uitgevoerd door de [Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-index-content)-service.
 
@@ -494,16 +264,7 @@ De toepassing voert de volgende taken uit:
 
 We beginnen gewoon meteen met het verzenden van de transcriptietaak. `CreateAzureMediaServicesJobToModerateVideo()` (al eerder beschreven) roept `ConfigureTranscriptTask()` aan.
 
-    private void ConfigureTranscriptTask(IJob job)
-    {
-        string mediaProcessorName = _amsConfigurations.MediaIndexer2MediaProcessor;
-        IMediaProcessor processor = _mediaContext.MediaProcessors.GetLatestMediaProcessorByName(mediaProcessorName);
-
-        string configuration = File.ReadAllText(_amsConfigurations.MediaIndexerConfigurationJson);
-        ITask task = job.Tasks.AddNew("AudioIndexing Task", processor, configuration, TaskOptions.None);
-        task.InputAssets.Add(asset);
-        task.OutputAssets.AddNew("AudioIndexing Output Asset", AssetCreationOptions.None);
-    }
+[!code-csharp[ConfigureTranscriptTask](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/VideoModerator.cs?range=295-304)]
 
 De configuratie voor de transcriptietaak wordt gelezen uit het bestand `MediaIndexerConfig.json` in de map `Lib` van de oplossing. Er worden AMS-assets gemaakt voor het configuratiebestand en voor de uitvoer van het transcriptieproces. Wanneer de AMS-taak wordt uitgevoerd, maakt deze taak een transcriptie van de audiotrack van het videobestand.
 
@@ -514,32 +275,13 @@ De configuratie voor de transcriptietaak wordt gelezen uit het bestand `MediaInd
 
 De transcriptie wordt gepubliceerd als een AMS-asset. Om de transcriptie te scannen op aanstootgevende inhoud, downloadt de toepassing de asset uit Azure Media Services. `CreateAzureMediaServicesJobToModerateVideo()` roept `GenerateTranscript()` aan, zoals hier wordt weergegeven, om het bestand op te halen.
 
-    public bool GenerateTranscript(IAsset asset)
-    {
-        try
-        {
-            var outputFolder = this._amsConfigurations.FfmpegFramesOutputPath;
-            IAsset outputAsset = asset;
-            IAccessPolicy policy = null;
-            ILocator locator = null;
-            policy = _mediaContext.AccessPolicies.Create("My 30 days readonly policy", TimeSpan.FromDays(360), AccessPermissions.Read);
-            locator = _mediaContext.Locators.CreateLocator(LocatorType.Sas, outputAsset, policy, DateTime.UtcNow.AddMinutes(-5));
-            DownloadAssetToLocal(outputAsset, outputFolder);
-            locator.Delete();
-            return true;
-        }
-        catch
-        {   //TODO:  Logging
-            Console.WriteLine("Exception occurred while generating index for video.");
-            throw;
-        }
-    }
+[!code-csharp[GenerateTranscript](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/VideoModerator.cs?range=351-370)]
 
 Nadat enkele AMS-instellingen zijn geconfigureerd, wordt het bestand gedownload door het aanroepen van `DownloadAssetToLocal()`, een algemene functie voor het kopiëren van AMS-assets naar een lokaal bestand.
 
-## <a name="transcript-moderation"></a>Transcriptie beoordelen
+## <a name="moderate-the-transcript"></a>Gemiddelde van het transcript
 
-Met de transcriptie bij de hand kan deze worden gescand en gebruikt in de beoordeling. Het maken van de beoordeling is de taak van `CreateVideoReviewInContentModerator()`, die `GenerateTextScreenProfanity()` aanroept om het werk te doen. Deze methode roept op zijn beurt `TextScreen()` aan, die de meeste functionaliteit bevat. 
+Met de transcriptie bij de hand kan deze worden gescand en gebruikt in de beoordeling. Het maken van de beoordeling is de taak van `CreateVideoReviewInContentModerator()`, die `GenerateTextScreenProfanity()` aanroept om het werk te doen. Deze methode roept op zijn beurt `TextScreen()` aan, die de meeste functionaliteit bevat.
 
 `TextScreen()` voert de volgende taken uit:
 
@@ -553,177 +295,26 @@ Laten we deze taken eens afzonderlijk bekijken:
 
 Eerst worden alle variabelen en verzamelingen geïnitialiseerd.
 
-    private async Task<TranscriptScreenTextResult> TextScreen(string filepath, List<ProcessedFrameDetails> frameEntityList)
-    {
-        List<TranscriptProfanity> profanityList = new List<TranscriptProfanity>();
-        string responseContent = string.Empty;
-        HttpResponseMessage response;
-        bool category1Tag = false;
-        bool category2Tag = false;
-        bool category3Tag = false;
-        double category1Score = 0;
-        double category2Score = 0;
-        double category3Score = 0;
-        List<string> vttLines = File.ReadAllLines(filepath).Where(line => !line.Contains("NOTE Confidence:") && line.Length > 0).ToList();
-        StringBuilder sb = new StringBuilder();
-        List<CaptionScreentextResult> csrList = new List<CaptionScreentextResult>();
-        CaptionScreentextResult captionScreentextResult = new CaptionScreentextResult() { Captions = new List<string>() };
-
-        // Code from the next sections in the tutorial
-    
+[!code-csharp[TextScreen](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/VideoReviewAPI.cs?range=515-527)]
 
 ### <a name="parse-the-transcript-for-captions"></a>Transcriptie parseren op ondertiteling
 
 Vervolgens wordt de transcriptie met VTT-indeling geparseerd op ondertiteling en tijdstempels. Het beoordelingsprogramma geeft deze ondertitels weer op het tabblad Transcript van het scherm voor videobeoordeling. De tijdstempels worden gebruikt om de ondertitels te synchroniseren met de bijbehorende videoframes.
 
-        // Code from the previous section(s) in the tutorial
-
-        //
-        // Parse the transcript
-        //
-        foreach (var line in vttLines.Skip(1))
-        {
-                if (line.Contains("-->"))
-                {
-                    if (sb.Length > 0)
-                    {
-                        captionScreentextResult.Captions.Add(sb.ToString());
-                        sb.Clear();
-                    }
-                    if (captionScreentextResult.Captions.Count > 0)
-                    {
-                        csrList.Add(captionScreentextResult);
-                        captionScreentextResult = new CaptionScreentextResult() { Captions = new List<string>() };
-                    }
-                    string[] times = line.Split(new string[] { "-->" }, StringSplitOptions.RemoveEmptyEntries);
-                    string startTimeString = times[0].Trim();
-                    string endTimeString = times[1].Trim();
-                    int startTime = (int)TimeSpan.ParseExact(startTimeString, @"hh\:mm\:ss\.fff", CultureInfo.InvariantCulture).TotalMilliseconds;
-                    int endTime = (int)TimeSpan.ParseExact(endTimeString, @"hh\:mm\:ss\.fff", CultureInfo.InvariantCulture).TotalMilliseconds;
-                    captionScreentextResult.StartTime = startTime;
-                    captionScreentextResult.EndTime = endTime;
-                }
-                else
-                {
-                    sb.Append(line);
-                }
-                if (sb.Length + line.Length > 1024)
-                {
-                    captionScreentextResult.Captions.Add(sb.ToString());
-                    sb.Clear();
-                }
-            }
-            if (sb.Length > 0)
-            {
-                captionScreentextResult.Captions.Add(sb.ToString());
-            }
-            if (captionScreentextResult.Captions.Count > 0)
-            {
-                csrList.Add(captionScreentextResult);
-            }
-
-            // Code from the following section in the quickstart
+[!code-csharp[TextScreen2](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/VideoReviewAPI.cs?range=528-567)]
 
 ### <a name="moderate-captions-with-the-text-moderation-service"></a>Ondertitels beoordelen met de service voor tekstbeoordeling
 
 Vervolgens scannen we de geparseerde ondertitels met de tekst=API van Content Moderator.
 
 > [!NOTE]
-> Er geldt een limiet voor het aantal aanvragen per seconde (RPS) voor de sleutel van de Content Moderator-service. Als u de limiet overschrijdt, veroorzaakt dit een uitzondering met foutcode 429 in de SDK. 
+> Er geldt een limiet voor het aantal aanvragen per seconde (RPS) voor de sleutel van de Content Moderator-service. Als u de limiet overschrijdt, veroorzaakt dit een uitzondering met foutcode 429 in de SDK.
 >
 > Een sleutel voor de gratis laag heeft een limiet van één RPS.
 
-    //
-    // Moderate the captions or cues
-    //
-    int waitTime = 1000;
-    foreach (var csr in csrList)
-    {
-                bool captionAdultTextTag = false;
-                bool captionRacyTextTag = false;
-                bool captionOffensiveTextTag = false;
-                bool retry = true;
+[!code-csharp[TextScreen3](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/VideoReviewAPI.cs?range=568-653)]
 
-                foreach (var caption in csr.Captions)
-                {
-                    while (retry)
-                    {
-                        try
-                        {
-                            System.Threading.Thread.Sleep(waitTime);
-                            var lang = await CMClient.TextModeration.DetectLanguageAsync("text/plain", caption);
-                            var oRes = await CMClient.TextModeration.ScreenTextWithHttpMessagesAsync(lang.DetectedLanguageProperty, "text/plain", caption, null, null, null, true);
-                            response = oRes.Response;
-                            responseContent = await response.Content.ReadAsStringAsync();
-                            retry = false;
-                        }
-                        catch (Exception e)
-                        {
-                            if (e.Message.Contains("429"))
-                            {
-                                Console.WriteLine($"Moderation API call failed. Message: {e.Message}");
-                                waitTime = (int)(waitTime * 1.5);
-                                Console.WriteLine($"wait time: {waitTime}");
-                            }
-                            else
-                            {
-                                retry = false;
-                                Console.WriteLine($"Moderation API call failed. Message: {e.Message}");
-                            }
-                        }
-                    }
-                    var jsonTextScreen = JsonConvert.DeserializeObject<TextScreen>(responseContent);
-                    if (jsonTextScreen != null)
-                    {
-                        TranscriptProfanity transcriptProfanity = new TranscriptProfanity();
-                        transcriptProfanity.TimeStamp = "";
-                        List<Terms> transcriptTerm = new List<Terms>();
-                        if (jsonTextScreen.Terms != null)
-                        {
-                            foreach (var term in jsonTextScreen.Terms)
-                            {
-                                var profanityobject = new Terms
-                                {
-                                    Term = term.Term,
-                                    Index = term.Index
-                                };
-                                transcriptTerm.Add(profanityobject);
-                            }
-                            transcriptProfanity.Terms = transcriptTerm;
-                            profanityList.Add(transcriptProfanity);
-                        }
-                        if (jsonTextScreen.Classification.Category1.Score > _amsConfig.Category1TextThreshold) captionAdultTextTag = true;
-                        if (jsonTextScreen.Classification.Category2.Score > _amsConfig.Category2TextThreshold) captionRacyTextTag = true;
-                        if (jsonTextScreen.Classification.Category3.Score > _amsConfig.Category3TextThreshold) captionOffensiveTextTag = true;
-                        if (jsonTextScreen.Classification.Category1.Score > _amsConfig.Category1TextThreshold) category1Tag = true;
-                        if (jsonTextScreen.Classification.Category2.Score > _amsConfig.Category2TextThreshold) category2Tag = true;
-                        if (jsonTextScreen.Classification.Category3.Score > _amsConfig.Category3TextThreshold) category3Tag = true;
-                        category1Score = jsonTextScreen.Classification.Category1.Score > category1Score ? jsonTextScreen.Classification.Category1.Score : category1Score;
-                        category2Score = jsonTextScreen.Classification.Category2.Score > category2Score ? jsonTextScreen.Classification.Category2.Score : category2Score;
-                        category3Score = jsonTextScreen.Classification.Category3.Score > category3Score ? jsonTextScreen.Classification.Category3.Score : category3Score;
-                    }
-                    foreach (var frame in frameEntityList.Where(x => x.TimeStamp >= csr.StartTime && x.TimeStamp <= csr.EndTime))
-                    {
-                        frame.IsAdultTextContent = captionAdultTextTag;
-                        frame.IsRacyTextContent = captionRacyTextTag;
-                        frame.IsOffensiveTextContent = captionOffensiveTextTag;
-                    }
-                }
-            }
-            TranscriptScreenTextResult screenTextResult = new TranscriptScreenTextResult()
-            {
-                TranscriptProfanity = profanityList,
-                Category1Tag = category1Tag,
-                Category2Tag = category2Tag,
-                Category3Tag = category3Tag,
-                Category1Score = category1Score,
-                Category2Score = category2Score,
-                Category3Score = category3Score
-            };
-            return screenTextResult;
-    }
-
-### <a name="breaking-down-the-text-moderation-step"></a>De stap van tekstbeoordeling opsplitsen
+### <a name="text-moderation-breakdown"></a>Uitsplitsing van toezicht op tekst
 
 `TextScreen()` is een omvangrijke methode, dus is het beter om die op te splitsen.
 
@@ -736,8 +327,6 @@ Vervolgens scannen we de geparseerde ondertitels met de tekst=API van Content Mo
 1. Na ontvangst van de resultaten van de service voor tekstbeoordeling, analyseert de methode de resultaten om te controleren of deze voldoen aan de drempelwaarden voor vertrouwen. Deze waarden worden vastgelegd in `App.config` als `OffensiveTextThreshold`, `RacyTextThreshold` en `AdultTextThreshold`. Ten slotte worden de aanstootgevende termen zelf ook opgeslagen. Alle frames binnen het tijdsbereik van de cue worden gemarkeerd als frames die aanstootgevende tekst, ongepaste tekst en/of tekst voor volwassenen bevatten.
 
 1. `TextScreen()` retourneert een instantie van `TranscriptScreenTextResult` met het resultaat van de tekstbeoordeling van de video als geheel. Dit object bevat vlaggen en scores voor de verschillende typen aanstootgevende inhoud, samen met een lijst met alle ongewenste termen. De aanroepende functie, `CreateVideoReviewInContentModerator()`, roept `UploadScreenTextResult()` aan om deze informatie te koppelen aan de beoordeling, om deze beschikbaar te maken voor menselijke beoordeling.
- 
-## <a name="video-review-transcript-view"></a>Transcriptie van videobeoordeling
 
 In het volgende scherm ziet u het resultaat van de transcriptie die is gegenereerd en de stappen voor beoordeling.
 
@@ -747,26 +336,30 @@ In het volgende scherm ziet u het resultaat van de transcriptie die is gegeneree
 
 De volgende uitvoer op de opdrachtregel van het programma toont de verschillende taken terwijl die worden voltooid. Het resultaat van de beoordeling (in JSON-indeling) en de transcriptie van de tekst zijn bovendien beschikbaar in dezelfde map als de oorspronkelijke videobestanden.
 
-    Microsoft.ContentModerator.AMSComponentClient
-    Enter the fully qualified local path for Uploading the video :
-    "Your File Name.MP4"
-    Generate Video Transcript? [y/n] : y
-    
-    Video compression process started...
-    Video compression process completed...
-    
-    Video moderation process started...
-    Video moderation process completed...
-    
-    Video review process started...
-    Video Frames Creation inprogress...
-    Frames(83) created successfully.
-    Review Created Successfully and the review Id 201801va8ec2108d6e043229ba7a9e6373edec5
-    Video review successfully completed...
-    
-    Total Elapsed Time: 00:05:56.8420355
+```console
+Microsoft.ContentModerator.AMSComponentClient
+Enter the fully qualified local path for Uploading the video :
+"Your File Name.MP4"
+Generate Video Transcript? [y/n] : y
 
+Video compression process started...
+Video compression process completed...
+
+Video moderation process started...
+Video moderation process completed...
+
+Video review process started...
+Video Frames Creation inprogress...
+Frames(83) created successfully.
+Review Created Successfully and the review Id 201801va8ec2108d6e043229ba7a9e6373edec5
+Video review successfully completed...
+
+Total Elapsed Time: 00:05:56.8420355
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Download de Visual Studio-oplossing](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) en de voorbeeldbestanden en de vereiste bibliotheken voor deze zelfstudie en ga aan de slag met uw integratie.
+In deze zelfstudie stelt u een toepassing die video-inhoud matigt&mdash;inclusief transcript inhoud&mdash;en beoordelingen in het controlehulpprogramma gemaakt. Hierna leert u meer informatie over de details van beheer van video.
+
+> [!div class="nextstepaction"]
+> [Beheer van video](./video-moderation-human-review.md)

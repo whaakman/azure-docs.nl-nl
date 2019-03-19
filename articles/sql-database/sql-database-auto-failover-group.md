@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/07/2019
-ms.openlocfilehash: 3c65d4360e3a20b7c2228e42fb4b4db1eecc75ff
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.date: 03/12/2019
+ms.openlocfilehash: 7bfed1144ebfc69ed51b7bbc1adf78538ed28425
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774793"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861074"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Automatische failover-groepen gebruiken voor het inschakelen van transparante en gecoördineerd failover van meerdere databases
 
@@ -322,17 +322,17 @@ Zoals eerder besproken automatische failover-groepen en actieve kan geo-replicat
 
 ### <a name="powershell-managing-failover-groups-with-managed-instances-preview"></a>PowerShell: Failover-groepen beheren met beheerde instanties (preview)
 
-#### <a name="install-the-newest-pre-release-version-of-powershell"></a>Installeer de nieuwste versie van de voorlopige versie van Powershell
+#### <a name="install-the-newest-pre-release-version-of-powershell"></a>Installeer de nieuwste versie van de voorlopige versie van PowerShell
 
 1. De PowerShellGet-module bijwerken naar 1.6.5 (of de nieuwste preview-versie). Zie [PowerShell voorbeeldsite](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview).
 
-   ```Powershell
+   ```PowerShell
       install-module PowerShellGet -MinimumVersion 1.6.5 -force
    ```
 
 2. Voer de volgende opdrachten in een nieuwe PowerShell-venster:
 
-   ```Powershell
+   ```PowerShell
       import-module PowerShellGet
       get-module PowerShellGet #verify version is 1.6.5 (or newer)
       install-module azurerm.sql -RequiredVersion 4.5.0-preview -AllowPrerelease –Force

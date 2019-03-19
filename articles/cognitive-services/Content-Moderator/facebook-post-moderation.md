@@ -1,111 +1,115 @@
 ---
-title: 'Zelfstudie: Facebook-inhoud controleren - Azure Content Moderator'
+title: 'Zelfstudie: Beheren van inhoud van de Facebook - Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: In deze zelfstudie leert u hoe u met behulp van machine learning en Content Moderator berichten en opmerkingen voor Facebook kunt controleren.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 86c89164e3ccd5bf5df303b98cf6d336f3916e2b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.date: 01/18/2019
+ms.author: pafarley
+ms.openlocfilehash: 662eca2a727f3112f169ab8d669bf18c81700275
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878049"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57871025"
 ---
-# <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>Zelfstudie: Facebook-inhoud controleren met Azure Content Moderator
+# <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Zelfstudie: Gemiddeld Facebook-berichten en opdrachten met Azure Content Moderator
 
-In deze zelfstudie leert u hoe u met behulp van machine learning en Content Moderator berichten en opmerkingen voor Facebook kunt controleren.
+In deze zelfstudie leert u hoe u Azure Content Moderator om u te helpen met het gemiddelde van de berichten en opmerkingen op een Facebook-pagina. Facebook wordt de inhoud die wordt gepost door bezoekers van de Content Moderator-service verzonden. Vervolgens wordt uw Content Moderator-werkstromen de inhoud publiceren of beoordelingen binnen het beoordelingsprogramma, afhankelijk van de drempelwaarden en scores die inhoud maken. Zie de [Build 2017 demovideo](https://channel9.msdn.com/Events/Build/2017/T6033) voor een voorbeeld van een werkende van dit scenario.
 
-In deze zelfstudie gaat u de volgende stappen uitvoeren:
+In deze zelfstudie ontdekt u hoe u:
 
-1. Een Content Moderator-team samenstellen.
-2. Azure-functies maken die luisteren naar HTTP-gebeurtenissen van Content Moderator en Facebook.
-3. Een Facebook-pagina en -app maken en deze verbinden met Content Moderator.
+> [!div class="checklist"]
+> * Een Content Moderator-team samenstellen.
+> * Azure-functies maken die luisteren naar HTTP-gebeurtenissen van Content Moderator en Facebook.
+> * Koppel een Facebook-pagina aan de Content Moderator met behulp van een Facebook-toepassing.
 
-Als dit klaar is, wordt inhoud die door bezoekers op Facebook wordt geplaatst eerst naar Content Moderator verstuurd. Op basis van drempelwaarden voor overeenkomst zorgen de werkstromen van Content Moderator ervoor dat de inhoud wordt gepubliceerd of dat er beoordelingen worden gemaakt binnen het beoordelingsprogramma. 
+Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-In de volgende afbeelding ziet u de bouwstenen van de oplossing.
+Het volgende diagram illustreert elk onderdeel van dit scenario:
 
-![Beheer van Facebook-berichten](images/tutorial-facebook-moderation.png)
+![Diagram van Content Moderator ontvangen van gegevens uit Facebook via 'FBListener' en het verzenden van gegevens via "CMListener"](images/tutorial-facebook-moderation.png)
 
-## <a name="create-a-content-moderator-team"></a>Een Content Moderator-team samenstellen
+## <a name="prerequisites"></a>Vereisten
 
-Raadpleeg de quickstart [Content Moderator op internet proberen](quick-start.md) voor informatie over hoe u zich aanmeldt voor Content Moderator en een team samenstelt.
+- Een abonnementssleutel voor Content Moderator. Volg de instructies in [Een Cognitive Services-account maken](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) om u te abonneren op Content Moderator en een sleutel op te halen.
+- Een [Facebook-account](https://www.facebook.com/).
 
-## <a name="configure-image-moderation-workflow-threshold"></a>Werkstroom voor controle van afbeeldingen configureren (drempelwaarde)
+## <a name="create-a-review-team"></a>Een beoordelingsteam maken
 
-Raadpleeg de pagina [Werkstromen](review-tool-user-guide/workflows.md) voor informatie over het configureren van een aangepaste werkstroom voor afbeeldingen (drempelwaarde). Noteer de **naam** van de werkstroom.
+Verwijzen naar de [Content Moderator proberen op het web](quick-start.md) Quick Start voor instructies over hoe u zich aanmelden voor de [Content Moderator bekijken hulpprogramma](https://contentmoderator.cognitive.microsoft.com/) en maken van een beoordelingsteam. Noteer de waarde voor **Team Id** op de pagina **Create review team**.
 
-## <a name="3-configure-text-moderation-workflow-threshold"></a>3. Werkstroom voor controle van tekst configureren (drempel)
+## <a name="configure-image-moderation-workflow"></a>Afbeeldingstoezicht werkstroom configureren
 
-Gebruik stappen vergelijkbaar zoals op de pagina [Werkstromen](review-tool-user-guide/workflows.md) voor het configureren van een aangepaste drempelwaarde en werkstroom voor het controleren van tekst. Noteer de **naam** van de werkstroom.
+Raadpleeg de [definiëren, test en gebruik werkstromen](review-tool-user-guide/workflows.md) handleiding voor het maken van een aangepaste installatiekopie-werkstroom. Hierdoor kunnen Content Moderator automatisch controleren van installatiekopieën op Facebook en sommige aan het beoordelingsprogramma verstuurt. Noteer de werkstroom **naam**.
+
+## <a name="configure-text-moderation-workflow"></a>Tekst toezicht werkstroom configureren
+
+Nogmaals, verwijzen naar de [definiëren, test en gebruik werkstromen](review-tool-user-guide/workflows.md) handleiding; dit moment een aangepaste tekst-werkstroom maken. Hierdoor kunnen Content Moderator automatisch controleren op tekst. Noteer de werkstroom **naam**.
 
 ![Tekstwerkstroom configureren](images/text-workflow-configure.PNG)
 
-Test uw werkstroom met behulp van de knop Execute Workflow.
+Test uw werkstroom met behulp van de **werkstroom uitvoeren** knop.
 
 ![Tekstwerkstroom testen](images/text-workflow-test.PNG)
 
 ## <a name="create-azure-functions"></a>Azure-functies maken
 
-Meld u aan bij de [Azure-beheerportal](https://portal.azure.com/) om Azure-functies te maken. Volg deze stappen:
+Aanmelden bij de [Azure Portal](https://portal.azure.com/) en volg deze stappen:
 
 1. Maak een Azure-functie-app zoals wordt weergegeven op de pagina [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal).
-2. Open de zojuist gemaakte functie-app.
-3. Navigeer in de app naar **Platformfuncties -> Toepassingsinstellingen**.
-4. Definieer het volgende [toepassingsinstellingen](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings):
+2. Ga naar de zojuist gemaakte functie-App.
+3. In de App, gaat u naar de **platformfuncties** tabblad en selecteer **toepassingsinstellingen**. In de **toepassingsinstellingen** sectie van de volgende pagina, Ga naar de onderkant van de lijst en klikt u op **nieuwe instelling toevoegen**. De volgende sleutel/waarde-paren toevoegen
+    
+    | Naam van de App-instelling | waarde   | 
+    | -------------------- |-------------|
+    | cm:TeamId   | De id van het Content Moderator-team  | 
+    | cm:SubscriptionKey | Uw abonnementssleutel voor Content Moderator: zie [Referenties](review-tool-user-guide/credentials.md) | 
+    | cm:Region | De naam van uw Content Moderator-regio, zonder de spaties. Zie de vorige opmerking. |
+    | cm:ImageWorkflow | De naam van de werkstroom om uit te voeren voor afbeeldingen |
+    | cm:TextWorkflow | De naam van de werkstroom om uit te voeren voor tekst |
+    | cm:CallbackEndpoint | URL voor de CMListener-functie-app die u verderop in deze handleiding maakt |
+    | fb:VerificationToken | Het geheime token, wordt ook gebruikt om u te abonneren op de feed met Facebook-gebeurtenissen |
+    | fb:PageAccessToken | Het toegangstoken voor de Facebook Graph-API verloopt niet en maakt het mogelijk de functie voor het verbergen/verwijderen van berichten namens u uit te voeren. |
 
-> [!NOTE]
-> De waarde voor **cm: Region** moet bestaan uit de naam van de regio (zonder spaties).
-> Dus bijvoorbeeld **westeurope**, niet Europa - west, **westcentralus**, niet US - west-centraal, enzovoort.
->
+    Klik op de **opslaan** knop aan de bovenkant van de pagina.
 
-| App-instelling | Beschrijving   | 
-| -------------------- |-------------|
-| cm:TeamId   | De id van het Content Moderator-team  | 
-| cm:SubscriptionKey | Uw abonnementssleutel voor Content Moderator: zie [Referenties](review-tool-user-guide/credentials.md) | 
-| cm:Region | De naam van uw Content Moderator-regio, zonder de spaties. Zie de vorige opmerking. |
-| cm:ImageWorkflow | De naam van de werkstroom om uit te voeren voor afbeeldingen |
-| cm:TextWorkflow | De naam van de werkstroom om uit te voeren voor tekst |
-| cm:CallbackEndpoint | URL voor de CMListener-functie-app die u verderop in deze handleiding maakt |
-| fb:VerificationToken | Het geheime token, wordt ook gebruikt om u te abonneren op de feed met Facebook-gebeurtenissen |
-| fb:PageAccessToken | Het toegangstoken voor de Facebook Graph-API verloopt niet en maakt het mogelijk de functie voor het verbergen/verwijderen van berichten namens u uit te voeren. |
+1. Met behulp van de **+** knop in het linkerdeelvenster om de nieuwe functie-deelvenster.
 
-5. Maak een nieuwe **HttpTrigger-CSharp**-functie met de naam **FBListener**. Deze functie ontvangt gebeurtenissen van Facebook. Maak deze functie met de volgende stappen:
+    ![Azure Functions-deelvenster met de knop van de functie toevoegen gemarkeerd.](images/new-function.png)
 
-    1. Houd de pagina [Een functie-app maken vanuit de Azure-portal](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) open ter referentie.
-    2. Klik op het plusteken **+** om een nieuwe functie te maken.
-    3. Kies in plaats van een ingebouwde sjabloon de optie **Ga aan de slag met uw eigen/aangepaste functie**.
-    4. Klik op de tegel met de naam **HttpTrigger-CSharp**.
-    5. Voer de naam **FBListener** in. Stel **Autorisatieniveau** in op **Functie**.
-    6. Klik op **Create**.
-    7. Vervang de inhoud van **run.csx** door de inhoud van [**FbListener/run.csx**](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FbListener/run.csx).
+    Klik vervolgens op **+ nieuwe functie** aan de bovenkant van de pagina. Deze functie ontvangt gebeurtenissen van Facebook. Maak deze functie met de volgende stappen:
 
-6. Maak een nieuwe **HttpTrigger-CSharp**-functie met de naam **CMListener**. Deze functie ontvangt gebeurtenissen van Content Moderator. Volg deze stappen voor het maken van deze functie.
+    1. Klik op de tegel met de melding dat **Http-trigger**.
+    1. Voer de naam **FBListener** in. Stel **Autorisatieniveau** in op **Functie**.
+    1. Klik op **Create**.
+    1. Vervang de inhoud van de **run.csx** met de inhoud van **FbListener/run.csx**
 
-    1. Houd de pagina [Een functie-app maken vanuit de Azure-portal](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) open ter referentie.
-    2. Klik op het plusteken **+** om een nieuwe functie te maken.
-    3. Kies in plaats van een ingebouwde sjabloon de optie **Ga aan de slag met uw eigen/aangepaste functie**.
-    4. Klik op de tegel met de naam **HttpTrigger-CSharp**.
-    5. Voer de naam **CMListener** in. Stel **Autorisatieniveau** in op **Functie**.
-    6. Klik op **Create**.
-    7. Vervang de inhoud van **run.csx** door de inhoud van [**CMListener/run.csx**](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/CmListener/run.csx).
+    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/FbListener/run.csx?range=1-160)]
+
+1. Maak een nieuwe **Http-trigger** functie met de naam **CMListener**. Deze functie ontvangt gebeurtenissen van Content Moderator. Vervang de inhoud van de **run.csx** met de inhoud van **CMListener/run.csx**
+
+    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/CmListener/run.csx?range=1-106)]
+
+---
 
 ## <a name="configure-the-facebook-page-and-app"></a>De Facebook-pagina en -app configureren
 1. Maak een Facebook-app.
 
+    ![Facebook-pagina voor ontwikkelaars](images/facebook-developer-app.png)
+
     1. Navigeer naar de [site voor Facebook-ontwikkelaars](https://developers.facebook.com/)
     2. Klik op **My Apps**.
     3. Voeg een nieuw app toe.
-    4. Selecteer **Webhooks -> Get Started**
-    5. Selecteer **Page -> Subscribe to this topic**
-    6. Geef **FBListener Url** op als de Callback URL en het **Verify Token** dat u hebt geconfigureerd onder **Function App Settings**
-    7. Als u zich hebt geabonneerd, bladert u omlaag naar de feed en selecteert u **subscribe**.
+    1. een andere naam
+    1. Selecteer **Webhooks -> Set Up**
+    1. Selecteer **pagina** in de vervolgkeuzelijst en selecteer **abonneren op dit object**
+    1. Geef **FBListener Url** op als de Callback URL en het **Verify Token** dat u hebt geconfigureerd onder **Function App Settings**
+    1. Als u zich hebt geabonneerd, bladert u omlaag naar de feed en selecteert u **subscribe**.
 
 2. Maak een Facebook-pagina.
 
@@ -134,29 +138,22 @@ Meld u aan bij de [Azure-beheerportal](https://portal.azure.com/) om Azure-funct
         2. [Postman Environment](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FB%20Page%20Access%20Token%20Environment.postman_environment.json)       
     3. Werk deze omgevingsvariabelen bij:
     
-    | Sleutel | Waarde   | 
-    | -------------------- |-------------|
-    | appId   | Voeg hier de id van uw Facebook-app in  | 
-    | appSecret | Voeg hier het geheim van uw Facebook-app in | 
-    | token_met_korte_levensduur | Voeg hier het toegangstoken met korte levensduur van de gebruiker in dat u in de vorige stap hebt gegenereerd |
+        | Sleutel | Value   | 
+        | -------------------- |-------------|
+        | appId   | Voeg hier de id van uw Facebook-app in  | 
+        | appSecret | Voeg hier het geheim van uw Facebook-app in | 
+        | token_met_korte_levensduur | Voeg hier het toegangstoken met korte levensduur van de gebruiker in dat u in de vorige stap hebt gegenereerd |
     4. Voer nu de drie API's uit die in de verzameling worden vermeld: 
         1. Selecteer **Generate Long-Lived Access Token** en klik op **Send**.
         2. Selecteer **Get User ID** en klik op **Send**.
         3. Selecteer **Get Permanent Page Access Token** en klik op **Send**.
     5. Kopieer de waarde van **access_token** in het antwoord en wijs deze toe aan de app-instelling, **fb:PageAccessToken**.
 
-Dat is alles.
-
-De oplossing verzendt alle afbeeldingen en tekst die op uw Facebook-pagina worden geplaatst naar Content Moderator. De werkstromen die u eerder hebt geconfigureerd, worden aangeroepen. De inhoud die niet voldoet aan de criteria die zijn gedefinieerd in de werkstromen, worden ter beoordeling aangeboden binnen het beoordelingsprogramma. De rest van de inhoud wordt gepubliceerd.
-
-## <a name="license"></a>Licentie
-
-Alle SDK's en voorbeelden van Microsoft Cognitive Services worden gelicentieerd met de MIT-licentie. Zie de [LICENTIE](https://microsoft.mit-license.org/) voor meer informatie.
+De oplossing verzendt alle afbeeldingen en tekst die op uw Facebook-pagina worden geplaatst naar Content Moderator. Vervolgens worden de werkstromen die u eerder hebt geconfigureerd, worden aangeroepen. De inhoud die niet met uw criteria die zijn gedefinieerd in de werkstromen wordt doorgegeven aan de beoordelingen binnen het beoordelingsprogramma. De rest van de inhoud wordt automatisch gepubliceerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-1. [Bekijk een demo (video)](https://channel9.msdn.com/Events/Build/2017/T6033) van deze oplossing van Microsoft build 2017.
-1. [Het Facebook-voorbeeld op GitHub](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)
-1. https://docs.microsoft.com/azure/azure-functions/functions-create-github-webhook-triggered-function
-2. http://ukimiawz.github.io/facebook/2015/08/12/webhook-facebook-subscriptions/
-3. http://stackoverflow.com/questions/17197970/facebook-permanent-page-access-token
+In deze zelfstudie hebt u een programma gemaakt voor het analyseren van productafbeeldingen om deze te taggen op producttype, waarna een beoordelingsteam kan beslissen of de afbeeldingen al dan niet geschikt zijn. In de volgende zelfstudie wordt meer aandacht besteed aan het beoordelen van gecontroleerde afbeeldingen.
+
+> [!div class="nextstepaction"]
+> [Beheer van afbeeldingen](./image-moderation-api.md)

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32f53742de3242fb3b60a15d436ec6cd842aa429
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c8c86ad6e4b11f21c648083fac35e15eec7658c1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183983"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995501"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowledgeowl"></a>Zelfstudie: Azure Active Directory-integratie met KnowledgeOwl
 
@@ -110,6 +110,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     ![KnowledgeOwl domein en URL's, eenmalige aanmelding informatie](./media/knowledgeowl-tutorial/tutorial_knowledgeowl_url.png)
 
     a. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon:
+
     |||
     |-|-|
     | `https://app.knowledgeowl.com/sp`|
@@ -117,6 +118,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     |||
 
     b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie:
+
     |||
     |-|-|
     | `https://subdomain.knowledgeowl.com/help/saml-login`|
@@ -132,6 +134,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     ![KnowledgeOwl domein en URL's, eenmalige aanmelding informatie](./media/knowledgeowl-tutorial/tutorial_knowledgeowl_url1.png)
 
     In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon:
+    
     |||
     |-|-|
     | `https://subdomain.knowledgeowl.com/help/saml-login`|
@@ -185,29 +188,29 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. Klik op **instellingen** en selecteer vervolgens **Security**.
 
-    ![KnowledgeOwl configuratie](./media/knowledgeowl-tutorial/configure1.png)
+     ![KnowledgeOwl configuratie](./media/knowledgeowl-tutorial/configure1.png)
 
 1. Schuif naar **SAML SSO-integratie** en voer de volgende stappen uit:
     
-    ![KnowledgeOwl configuratie](./media/knowledgeowl-tutorial/configure2.png)
+     ![KnowledgeOwl configuratie](./media/knowledgeowl-tutorial/configure2.png)
 
-    a. Selecteer **SAML SSO inschakelen**.
+     a. Selecteer **SAML SSO inschakelen**.
 
-    b. Kopieer de **SP entiteit-ID** waarde en plak deze in de **id (entiteits-ID)** in de **KnowledgeOwl domein en URL's** sectie in Azure portal.
+     b. Kopieer de **SP entiteit-ID** waarde en plak deze in de **id (entiteits-ID)** in de **KnowledgeOwl domein en URL's** sectie in Azure portal.
 
-    c. Kopieer de **SP aanmeldings-URL** waarde en plak deze in de **aanmeldings-URL en antwoord-URL** tekstvakken in de **KnowledgeOwl domein en URL's** sectie in Azure portal.
+     c. Kopieer de **SP aanmeldings-URL** waarde en plak deze in de **aanmeldings-URL en antwoord-URL** tekstvakken in de **KnowledgeOwl domein en URL's** sectie in Azure portal.
 
-    d. In de **IdP entityID** tekstvak, plak de **SAML entiteit-ID** waarde die u hebt gekopieerd vanuit Azure portal.
+     d. In de **IdP entityID** tekstvak, plak de **SAML entiteit-ID** waarde die u hebt gekopieerd vanuit Azure portal.
 
-    e. In de **IdP aanmeldings-URL** tekstvak, plak de **Single Sign-On Service URL voor SAML** waarde die u hebt gekopieerd vanuit Azure portal.
+     e. In de **IdP aanmeldings-URL** tekstvak, plak de **Single Sign-On Service URL voor SAML** waarde die u hebt gekopieerd vanuit Azure portal.
 
-    f. In de **afmeldings-URL van id-provider** tekstvak, plak de **afmelding URL** waarde die u hebt gekopieerd vanuit Azure portal
+     f. In de **afmeldings-URL van id-provider** tekstvak, plak de **afmelding URL** waarde die u hebt gekopieerd vanuit Azure portal
 
-    g. Uploaden van de gedownloade certificaat in Azure portal door te klikken op de **IdP-certificaat uploaden**.
+     g. Uploaden van de gedownloade certificaat in Azure portal door te klikken op de **IdP-certificaat uploaden**.
 
-    h. Klik op **kaart SAML kenmerken** kenmerken toewijzen en voer de volgende stappen uit:
+     h. Klik op **kaart SAML kenmerken** kenmerken toewijzen en voer de volgende stappen uit:
     
-    ![KnowledgeOwl configuratie](./media/knowledgeowl-tutorial/configure3.png)
+     ![KnowledgeOwl configuratie](./media/knowledgeowl-tutorial/configure3.png)
 
     * Voer `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ssoid` in de **SSO-ID** tekstvak
     * Voer `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` in de **gebruikersnaam, e** tekstvak.
@@ -215,9 +218,9 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     * Voer `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` in de **achternaam** tekstvak.
     * Klik op **Opslaan**.
 
-    i. Klik op **Opslaan** onder aan de pagina.
+      i. Klik op **Opslaan** onder aan de pagina.
 
-    ![KnowledgeOwl configuratie](./media/knowledgeowl-tutorial/configure4.png)
+      ![KnowledgeOwl configuratie](./media/knowledgeowl-tutorial/configure4.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
@@ -296,7 +299,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

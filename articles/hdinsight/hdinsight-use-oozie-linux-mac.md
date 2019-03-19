@@ -9,12 +9,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: 7fc7f63539e65618f00d75d5392ad1e96b7aab3e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: dfbf9a3a9b800fec5df4cf527ddd4ec8e3f55b37
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533448"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57853236"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Apache Oozie gebruiken met Apache Hadoop voor het definiëren en een werkstroom uitvoeren op Azure HDInsight op basis van Linux
 
@@ -42,7 +42,7 @@ U kunt ook Oozie gebruiken voor het plannen van taken die specifiek voor een sys
 * **Mogelijke wijziging in de opslagconfiguratie.**  Zie [opslagconfiguratie](#storage-configuration) als type opslagaccount `BlobStorage`.
 
 ## <a name="storage-configuration"></a>Opslagconfiguratie
-Er is geen actie is vereist als het opslagaccount dat wordt gebruikt van het type `Storage (general purpose v1)` of `StorageV2 (general purpose v2)`.  Het proces in het artikel produceren uitvoer naar ten minste `/mapreducestaging`.  Een standaard hadoop-configuratie bevat `/mapreducestaging` in de `fs.azure.page.blob.dir` configuratievariabele van de in `core-site.xml` voor service `HDFS`.  Deze configuratie zorgt ervoor dat de uitvoer naar de map worden pagina-blobs, wat niet wordt ondersteund voor het type opslagaccount `BlobStorage`.  Gebruik `BlobStorage` voor dit artikel, verwijdert u `/mapreducestaging` uit de `fs.azure.page.blob.dir` configuratievariabele.  De configuratie is toegankelijk vanuit de [Ambari UI](/hdinsight-hadoop-manage-ambari.md).  Anders ontvangt u het foutbericht weergegeven: `Page blob is not supported for this account type.`
+Er is geen actie is vereist als het opslagaccount dat wordt gebruikt van het type `Storage (general purpose v1)` of `StorageV2 (general purpose v2)`.  Het proces in het artikel produceren uitvoer naar ten minste `/mapreducestaging`.  Een standaard hadoop-configuratie bevat `/mapreducestaging` in de `fs.azure.page.blob.dir` configuratievariabele van de in `core-site.xml` voor service `HDFS`.  Deze configuratie zorgt ervoor dat de uitvoer naar de map worden pagina-blobs, wat niet wordt ondersteund voor het type opslagaccount `BlobStorage`.  Gebruik `BlobStorage` voor dit artikel, verwijdert u `/mapreducestaging` uit de `fs.azure.page.blob.dir` configuratievariabele.  De configuratie is toegankelijk vanuit de [Ambari UI](hdinsight-hadoop-manage-ambari.md).  Anders ontvangt u het foutbericht weergegeven: `Page blob is not supported for this account type.`
 
 > [!NOTE]  
 > Het opslagaccount dat wordt gebruikt in dit artikel heeft [veilige overdracht](../storage/common/storage-require-secure-transfer.md) ingeschakeld en dus `wasbs` in plaats van `wasb` wordt gebruikt in het artikel.
@@ -130,11 +130,11 @@ Gebruik de volgende stappen uit om een Hive query language (HiveQL) script die d
 
     Er zijn twee variabelen die worden gebruikt in het script:
 
-    * `${hiveTableName}`: Bevat de naam van de tabel moet worden gemaakt.
+   * `${hiveTableName}`: Bevat de naam van de tabel moet worden gemaakt.
 
-    * `${hiveDataFolder}`: Bevat de locatie voor het opslaan van de gegevensbestanden voor de tabel.
+   * `${hiveDataFolder}`: Bevat de locatie voor het opslaan van de gegevensbestanden voor de tabel.
 
-    De werkstroom-definitiebestand workflow.xml in deze zelfstudie, geeft deze waarden aan deze HiveQL-script uit tijdens runtime.
+     De werkstroom-definitiebestand workflow.xml in deze zelfstudie, geeft deze waarden aan deze HiveQL-script uit tijdens runtime.
 
 4. Om het bestand hebt opgeslagen, selecteert u Ctrl + X, voer `Y`, en selecteer vervolgens **Enter**.  
 
@@ -307,7 +307,7 @@ Waar vind ik de workflow.xml beschrijving van de taakdefinitie. Ook wordt beschr
 
     |Tijdelijke aanduiding| Waarde vervangen|
     |---|---|
-    |wasbs://mycontainer@mystorageaccount.blob.core.windows.net| De waarde van stap 1 hebt ontvangen.|
+    |wasbs://mycontainer\@mystorageaccount.blob.core.windows.net| De waarde van stap 1 hebt ontvangen.|
     |beheerder| Uw aanmeldingsnaam voor de HDInsight-cluster als dat niet-beheerder.|
     |Servernaam| Azure SQL database-servernaam.|
     |sqlLogin| Azure SQL database server-aanmelding.|

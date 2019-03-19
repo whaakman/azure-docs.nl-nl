@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: a6e4f816d3c5be9d3a4f4824ad7ed26d48763034
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: abbd26779cefaf52c6f2247a5d27db25f280c930
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433263"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118047"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Azure verbinden met ITSM-hulpprogramma's met behulp van IT Service Management-Connector
 
@@ -52,24 +52,24 @@ U kunt starten met behulp van de ITSM-Connector met behulp van de volgende stapp
 
 Voordat u een verbinding maken kunt, moet u de oplossing voor ITSM-Connector toevoegen.
 
-1.  Klik in Azure portal op **+ nieuw** pictogram.
+1. Klik in Azure portal op **+ nieuw** pictogram.
 
-    ![Nieuwe Azure-resource](media/itsmc-overview/azure-add-new-resource.png)
+   ![Nieuwe Azure-resource](media/itsmc-overview/azure-add-new-resource.png)
 
-2.  Zoeken naar **IT Service Management Connector** in de Marketplace en klik op **maken**.
+2. Zoeken naar **IT Service Management Connector** in de Marketplace en klik op **maken**.
 
-    ![ITSMC oplossing toevoegen](media/itsmc-overview/add-itsmc-solution.png)
+   ![ITSMC oplossing toevoegen](media/itsmc-overview/add-itsmc-solution.png)
 
-3.  In de **OMS-werkruimte** sectie, selecteer de Azure Log Analytics-werkruimte waar u wilt installeren van de oplossing.
+3. In de **OMS-werkruimte** sectie, selecteer de Azure Log Analytics-werkruimte waar u wilt installeren van de oplossing.
    >[!NOTE]
    >Als onderdeel van de lopende overgang van Microsoft Operations Management Suite (OMS) naar Azure Monitor, worden OMS-werkruimten nu aangeduid als Log Analytics-werkruimten.
-4.  In de **instellingen van de OMS-werkruimte** sectie, selecteer de resourcegroep waar u om de bron van de oplossing te maken.
+4. In de **instellingen van de OMS-werkruimte** sectie, selecteer de resourcegroep waar u om de bron van de oplossing te maken.
 
-    ![ITSMC werkruimte](media/itsmc-overview/itsmc-solution-workspace.png)
-    >[!NOTE]
-    >Als onderdeel van de lopende overgang van Microsoft Operations Management Suite (OMS) naar Azure Monitor, worden OMS-werkruimten nu aangeduid als Log Analytics-werkruimten.
+   ![ITSMC werkruimte](media/itsmc-overview/itsmc-solution-workspace.png)
+   >[!NOTE]
+   >Als onderdeel van de lopende overgang van Microsoft Operations Management Suite (OMS) naar Azure Monitor, worden OMS-werkruimten nu aangeduid als Log Analytics-werkruimten.
 
-5.  Klik op **Create**.
+5. Klik op **Create**.
 
 Wanneer de resource van de oplossing wordt geïmplementeerd, wordt een melding weergegeven aan de bovenkant van het venster.
 
@@ -89,22 +89,22 @@ Afhankelijk van de ITSM-product dat u verbinding maakt, gebruikt u de volgende s
 
 Nadat u uw ITSM-hulpprogramma's hebt voorbereid, de volgende stappen om een verbinding te maken:
 
-1.  Ga naar **alle Resources**, zoek naar **ServiceDesk(YourWorkspaceName)**.
-2.  Onder **GEGEVENSBRONNEN voor WERKRUIMTE** in het linkerdeelvenster klikt u op **ITSM-verbindingen**.
-    ![ITSM-verbindingen](media/itsmc-overview/itsm-connections.png)
+1. Ga naar **alle Resources**, zoek naar **ServiceDesk(YourWorkspaceName)**.
+2. Onder **GEGEVENSBRONNEN voor WERKRUIMTE** in het linkerdeelvenster klikt u op **ITSM-verbindingen**.
+   ![ITSM-verbindingen](media/itsmc-overview/itsm-connections.png)
 
-    Deze pagina bevat de lijst met verbindingen.
-3.  Klik op **verbinding toevoegen**.
+   Deze pagina bevat de lijst met verbindingen.
+3. Klik op **verbinding toevoegen**.
 
-    ![ITSM-verbinding toevoegen](media/itsmc-overview/add-new-itsm-connection.png)
+   ![ITSM-verbinding toevoegen](media/itsmc-overview/add-new-itsm-connection.png)
 
-4.  Instellingen voor de verbinding opgeven, zoals beschreven in [de ITSMC-verbinding configureren met uw ITSM-producten en services-artikel](../../azure-monitor/platform/itsmc-connections.md).
+4. Instellingen voor de verbinding opgeven, zoals beschreven in [de ITSMC-verbinding configureren met uw ITSM-producten en services-artikel](../../azure-monitor/platform/itsmc-connections.md).
 
-    > [!NOTE]
+   > [!NOTE]
+   > 
+   > Standaard vernieuwt ITSMC configuratiegegevens van de verbinding eenmaal in elke 24 uur. Als u wilt vernieuwen van uw verbinding gegevens direct voor alle bewerkingen of de sjabloon-updates die u aanbrengt, klikt u op de **synchronisatie** knop op de blade van uw verbinding.
 
-    > Standaard vernieuwt ITSMC configuratiegegevens van de verbinding eenmaal in elke 24 uur. Als u wilt vernieuwen van uw verbinding gegevens direct voor alle bewerkingen of de sjabloon-updates die u aanbrengt, klikt u op de **synchronisatie** knop op de blade van uw verbinding.
-
-    ![Verbinding vernieuwen](media/itsmc-overview/itsmc-connections-refresh.png)
+   ![Verbinding vernieuwen](media/itsmc-overview/itsmc-connections-refresh.png)
 
 
 ## <a name="using-the-solution"></a>De oplossing gebruiken
@@ -138,8 +138,8 @@ Gebruik de volgende procedure:
 
 Wanneer een Azure waarschuwingsregel maken of bewerken, gebruikt u een actiegroep, waarvoor een ITSM-actie. Wanneer de waarschuwing wordt geactiveerd, is het werkitem gemaakt/bijgewerkt in de ITSM-hulpprogramma.
 
->[!NOTE]
-
+> [!NOTE]
+> 
 > Zie voor meer informatie over prijzen van de ITSM-actie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/monitor/) voor Actiegroepen.
 
 
@@ -172,7 +172,7 @@ Incidenten en wijzigingsaanvragen worden gesynchroniseerd vanuit uw ITSM-product
 De volgende informatie ziet u voorbeelden van gegevens die worden verzameld door ITSMC:
 
 > [!NOTE]
-
+> 
 > Afhankelijk van het werkitemtype geïmporteerd in Log Analytics, **ServiceDesk_CL** bevat de volgende velden:
 
 **Werkitem:** **Incidenten**  
@@ -284,17 +284,17 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 
 ## <a name="troubleshoot-itsm-connections"></a>ITSM-verbindingen oplossen
-1.  Als er geen verbinding kan vanuit de gebruikersinterface van de verbonden bron met een **fout bij het opslaan van de verbinding** ontvangt, voert de volgende stappen uit:
- - Voor ServiceNow, Cherwell en Provance-verbindingen  
-    - Zorg ervoor dat u de gebruikersnaam, wachtwoord, client-ID en clientgeheim correct voor elk van de verbindingen ingevoerd.  
-    - Controleer of u voldoende bevoegdheden hebt in het bijbehorende ITSM-product om de verbinding te maken.  
- - Voor Service Manager-verbindingen  
-    - Zorg ervoor dat de Web-app is geïmplementeerd en hybride verbinding wordt gemaakt. Als u wilt controleren of de verbinding is tot stand gebracht met de on premises Service Manager-machine, gaat u naar de URL van de Web-app zoals beschreven in de documentatie voor het maken van de [hybride verbinding](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
+1. Als er geen verbinding kan vanuit de gebruikersinterface van de verbonden bron met een **fout bij het opslaan van de verbinding** ontvangt, voert de volgende stappen uit:
+   - Voor ServiceNow, Cherwell en Provance-verbindingen  
+   - Zorg ervoor dat u de gebruikersnaam, wachtwoord, client-ID en clientgeheim correct voor elk van de verbindingen ingevoerd.  
+   - Controleer of u voldoende bevoegdheden hebt in het bijbehorende ITSM-product om de verbinding te maken.  
+   - Voor Service Manager-verbindingen  
+   - Zorg ervoor dat de Web-app is geïmplementeerd en hybride verbinding wordt gemaakt. Als u wilt controleren of de verbinding is tot stand gebracht met de on premises Service Manager-machine, gaat u naar de URL van de Web-app zoals beschreven in de documentatie voor het maken van de [hybride verbinding](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
 
-2.  Als u niet ophalen van gegevens van ServiceNow is gesynchroniseerd met Log Analytics, zorg ervoor dat het ServiceNow exemplaar niet in de slaapstand staat. Exemplaren van ServiceNow Dev gaat soms u naar de slaapstand als niet-actieve gedurende een lange periode. Anders, meld u het probleem.
-3.  Als Log Analytics-waarschuwingen worden geactiveerd, maar werkt items worden niet gemaakt in de ITSM-product of configuratie-items zijn niet gemaakt/gekoppeld aan werkitems of voor andere algemene informatie, zoekt u in de volgende locaties:
- -  ITSMC: De oplossing bevat een overzicht van verbindingen/zakelijke items/computers enzovoort. Klik op de tegel weergegeven **Connector-Status**, die gaat u naar **zoeken in logboeken** met de relevante query. Bekijk de records in logboek registreren met LogType_S als fout voor meer informatie.
- - **Zoeken in logboeken** pagina: Bekijk de fouten/gerelateerde informatie rechtstreeks met behulp van de query `*`ServiceDeskLog_CL`*`.
+2. Als u niet ophalen van gegevens van ServiceNow is gesynchroniseerd met Log Analytics, zorg ervoor dat het ServiceNow exemplaar niet in de slaapstand staat. Exemplaren van ServiceNow Dev gaat soms u naar de slaapstand als niet-actieve gedurende een lange periode. Anders, meld u het probleem.
+3. Als Log Analytics-waarschuwingen worden geactiveerd, maar werkt items worden niet gemaakt in de ITSM-product of configuratie-items zijn niet gemaakt/gekoppeld aan werkitems of voor andere algemene informatie, zoekt u in de volgende locaties:
+   -  ITSMC: De oplossing bevat een overzicht van verbindingen/zakelijke items/computers enzovoort. Klik op de tegel weergegeven **Connector-Status**, die gaat u naar **zoeken in logboeken** met de relevante query. Bekijk de records in logboek registreren met LogType_S als fout voor meer informatie.
+   - **Zoeken in logboeken** pagina: Bekijk de fouten/gerelateerde informatie rechtstreeks met behulp van de query `*`ServiceDeskLog_CL`*`.
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Service Manager-Web-App-implementatie oplossen
 1.  In het geval van problemen met web app-implementatie, zorg ervoor dat u voldoende rechten hebt in het abonnement vermeld maken/om resources te implementeren.

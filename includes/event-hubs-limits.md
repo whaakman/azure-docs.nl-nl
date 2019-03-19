@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 02/26/2018
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: 1eb90e8e04d18179ec361c302244f97956b34137
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: cd64bdabc2b7b34687296c855c27882925d80f63
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553409"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124383"
 ---
 De volgende tabel geeft een lijst van quota en limieten specifiek zijn voor [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Zie voor meer informatie over prijzen van Event Hubs [prijzen van Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 | Limiet | Bereik | Opmerkingen | Value |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | Het aantal Event Hubs-naamruimten per abonnement |Abonnement |- |1000 |
 | Het aantal eventhubs per naamruimte |Naamruimte |De volgende aanvragen voor het maken van een nieuwe event hub worden geweigerd. |10 |
 | Het aantal partities per event hub |Entiteit |- |32 |

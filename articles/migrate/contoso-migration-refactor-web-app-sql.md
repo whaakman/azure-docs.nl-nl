@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 8e8b9536c96b1f5ed899695a3715021b9f9875cf
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 271e18d370068e0445f183af0c694b19f0da22f2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440366"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102751"
 ---
 # <a name="contoso-migration-refactor-an-on-premises-app-to-an-azure-web-app-and-azure-sql-database"></a>Migratie van Contoso: Een on-premises-app met een Azure-Web-App en Azure SQL-database herstructureren
 
@@ -244,9 +244,9 @@ Met de database hebt gemigreerd, Contoso-beheerders kunnen nu inrichten de twee 
 
 Contoso heeft nodig om de infrastructuur voor DevOps en pijplijnen voor de toepassing te bouwen.  U doet dit door beheerders van Contoso een nieuw DevOps-project maken, importeren van de code, en vervolgens ingesteld build en pipelines vrijgeven.
 
-1.   In de Contoso Azure DevOps-account, ze een nieuw project maken (**ContosoSmartHotelRefactor**), en selecteer **Git** voor versiebeheer.
+1. In de Contoso Azure DevOps-account, ze een nieuw project maken (**ContosoSmartHotelRefactor**), en selecteer **Git** voor versiebeheer.
 
-    ![Nieuw project](./media/contoso-migration-refactor-web-app-sql/vsts1.png)
+   ![Nieuw project](./media/contoso-migration-refactor-web-app-sql/vsts1.png)
 2. Ze importeren de Git-opslagplaats die op dit moment de app-code bevat. Deel uitmaakt van een [openbare opslagplaats](https://github.com/Microsoft/SmartHotel360-internal-booking-apps) en kunt u deze downloaden.
 
     ![App-code downloaden](./media/contoso-migration-refactor-web-app-sql/vsts2.png)
@@ -306,8 +306,8 @@ Beheerders van Contoso is nu configureren voor Azure DevOps voor het uitvoeren v
 
 6. De map **neerzetten** de resultaten van de build bevat.
 
-    - De twee zip-bestanden worden de pakketten die de apps bevatten.
-    - Deze bestanden worden gebruikt in de release-pijplijn voor implementatie naar Azure Web Apps
+   - De twee zip-bestanden worden de pakketten die de apps bevatten.
+   - Deze bestanden worden gebruikt in de release-pijplijn voor implementatie naar Azure Web Apps
 
      ![Artefact](./media/contoso-migration-refactor-web-app-sql/pipeline6.png)
 
@@ -341,7 +341,7 @@ Beheerders van Contoso is nu configureren voor Azure DevOps voor het uitvoeren v
 
 16. De trigger voor continue implementatie moet worden ingesteld op **ingeschakeld**.
 
-   ![Continue implementatie ingeschakeld](./media/contoso-migration-refactor-web-app-sql/pipeline14.png) 
+    ![Continue implementatie ingeschakeld](./media/contoso-migration-refactor-web-app-sql/pipeline14.png) 
 
 17. Nu, ze terug verplaatsen naar een taak met de fase 1, ik taken, en klik op **Azure App Service implementeren**.
 

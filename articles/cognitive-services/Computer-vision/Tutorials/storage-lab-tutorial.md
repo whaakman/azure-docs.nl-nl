@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 650696d1eb3979447bffa7312e91b4fe1a57652c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: e5124b07a5aff67d53213149565ddae4ea6dda33
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865009"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447996"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Zelfstudie: Computer Vision gebruiken voor het genereren van afbeeldingsmetagegevens te genereren in Azure Storage
 
@@ -48,7 +48,7 @@ U moet een Computer Vision-resource maken voor uw Azure-account. Deze resource b
 
 1. Voer in het dialoogvenster 'vision-api-key' in in het veld **Naam** en selecteer **F0** als de **prijscategorie**. Selecteer dezelfde **locatie** die u hebt geselecteerd bij het instellen van uw Azure Storage-account. Selecteer bij **Resourcegroep** **Bestaande gebruiken** en kies hier ook dezelfde resourcegroep. Schakel het selectievakje bij **I confirm** (Ik bevestig dit) in en klik vervolgens op **Maken**.
 
-    ![Abonneren op de Computer Vision-API](../Images/create-vision-api.png)
+    ![Abonneer u op de Computer Vision-API](../Images/create-vision-api.png)
 
 1. Ga terug naar het menu van uw resourcegroep en klik op het Computer Vision-API-abonnement dat u zojuist hebt gemaakt. Kopieer de URL onder **Eindpunt** naar een plaats waar u de URL eenvoudig en snel weer kunt ophalen. Klik vervolgens op **Toegangssleutels weergeven**.
 

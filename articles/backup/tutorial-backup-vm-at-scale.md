@@ -9,12 +9,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: a73568fd1dd7ed6b6cd3a7938768db4982725658
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 99f5b09d0b5dfc144dca7f19efff3f0656a82b35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497875"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093242"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Azure Portal gebruiken voor het maken van een back-up van meerdere virtuele machines
 
@@ -77,16 +77,16 @@ Nadat de Recovery Services-kluis is gemaakt, bestaat de volgende stap uit het co
     ![Workload selecteren](./media/tutorial-backup-vm-at-scale/create-new-policy.png)
 
 5. Typ in het menu **Back-upbeleid** voor **Beleidsnaam** de tekst *Financiën*. Voer de volgende wijzigingen in voor het backup-beleid:
-    - Stel voor **Back-upfrequentie** de tijdzone in op *Central Time*. Omdat het sportcomplex zich in Texas bevindt, wil de eigenaar de tijd op de lokale tijd instellen. Laat de back-upfrequentie ingesteld op elke dag om 03:30 uur.
-    - Stel voor **Dagelijks back-uppunt bewaren** de periode in op 90 dagen.
-    - Gebruik voor **Wekelijks back-uppunt bewaren** de *Maandag* als herstelpunt en behoudt deze gedurende 52 weken.
-    - Voor **Maandelijks back-uppunt bewaren** gebruikt u het herstelpunt van de eerste zondag van de maand en behoudt u deze gedurende 36 maanden.
-    - Schakel de optie **Jaarlijks back-uppunt bewaren** uit. De financieel manager wil gegevens niet langer bewaren dan 36 maanden.
-    - Klik op **OK** om het back-upbeleid te maken.
+   - Stel voor **Back-upfrequentie** de tijdzone in op *Central Time*. Omdat het sportcomplex zich in Texas bevindt, wil de eigenaar de tijd op de lokale tijd instellen. Laat de back-upfrequentie ingesteld op elke dag om 03:30 uur.
+   - Stel voor **Dagelijks back-uppunt bewaren** de periode in op 90 dagen.
+   - Gebruik voor **Wekelijks back-uppunt bewaren** de *Maandag* als herstelpunt en behoudt deze gedurende 52 weken.
+   - Voor **Maandelijks back-uppunt bewaren** gebruikt u het herstelpunt van de eerste zondag van de maand en behoudt u deze gedurende 36 maanden.
+   - Schakel de optie **Jaarlijks back-uppunt bewaren** uit. De financieel manager wil gegevens niet langer bewaren dan 36 maanden.
+   - Klik op **OK** om het back-upbeleid te maken.
 
-    ![Workload selecteren](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
+     ![Workload selecteren](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
 
-    Nadat het back-upbeleid is gemaakt, koppelt u het beleid aan de virtuele machines.
+     Nadat het back-upbeleid is gemaakt, koppelt u het beleid aan de virtuele machines.
 
 6. Selecteer in het dialoogvenster **Virtuele machines selecteren** de optie *myVM* en klik op **OK** om het back-upbeleid op de virtuele machines te implementeren.
 

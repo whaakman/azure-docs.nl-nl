@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: magattus
-ms.openlocfilehash: 4d1725b0559c34692d1a89d016fd2d6b7b1b26c1
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: afe959e80b339db5112fa97fd79d0528390e3954
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193089"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096449"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>De prestaties verbeteren door bestanden in Azure CDN te comprimeren
 Bestandscompressie is een eenvoudige maar effectieve methode voor het verbeteren van bestand overdrachtssnelheid en het laden van de pagina prestaties van een bestand door grootte te beperken voordat deze wordt verzonden vanaf de server. Bestandscompressie kunt bandbreedtekosten verlagen en biedt een beter te laten reageren ervaring voor uw gebruikers.
@@ -31,13 +31,11 @@ Er zijn twee manieren om in te schakelen bestandscompressie:
 
 > [!IMPORTANT]
 > Azure CDN-configuratiewijzigingen kunnen even worden doorgegeven via het netwerk: 
-- Voor profielen van **Azure CDN Standard van Microsoft** is het doorgeven gewoonlijk binnen 10 minuten voltooid. 
-- Profielen van **Azure CDN Standard van Akamai** worden doorgaans binnen één minuut doorgegeven. 
-- Profielen van **Azure CDN Standard van Verizon** en **Azure CDN Premium van Verizon** worden normaal gesproken binnen 10 minuten doorgegeven. 
->
+> - Voor profielen van **Azure CDN Standard van Microsoft** is het doorgeven gewoonlijk binnen 10 minuten voltooid. 
+> - Profielen van **Azure CDN Standard van Akamai** worden doorgaans binnen één minuut doorgegeven. 
+> - Profielen van **Azure CDN Standard van Verizon** en **Azure CDN Premium van Verizon** worden normaal gesproken binnen 10 minuten doorgegeven. 
+> 
 > Als u compressie voor het eerst voor uw CDN-eindpunt instelt, kunt u overwegen wacht 1-2 uur voordat u om te controleren of dat de compressie-instellingen zijn doorgegeven aan de POP's oplossen.
-> 
-> 
 
 ## <a name="enabling-compression"></a>Compressie inschakelen
 De lagen standard en premium CDN bieden dezelfde functionaliteit compressie, maar de gebruikersinterface wijkt af. Zie voor meer informatie over de verschillen tussen lagen voor standard en premium CDN [overzicht van Azure CDN](cdn-overview.md).
@@ -49,28 +47,28 @@ De lagen standard en premium CDN bieden dezelfde functionaliteit compressie, maa
 > 
 
 1. Selecteer in het CDN-profielpagina het CDN-eindpunt dat u wilt beheren.
-   
+
     ![CDN-profiel-eindpunten](./media/cdn-file-compression/cdn-endpoints.png)
-   
+
     De CDN-eindpunt-pagina wordt geopend.
 2. Selecteer **compressie**.
 
     ![Selectie van CDN-compressie](./media/cdn-file-compression/cdn-compress-select-std.png)
-   
+
     De compressie-pagina wordt geopend.
 3. Selecteer **op** compressie inschakelen.
-   
+
     ![Opties voor compressie CDN](./media/cdn-file-compression/cdn-compress-standard.png)
 4. Gebruik de standaard-MIME-typen, of wijzigt u de lijst toevoegen of verwijderen van MIME-typen.
-   
+
    > [!TIP]
    > Hoewel het mogelijk is, wordt het niet aanbevolen om toe te passen van compressie naar gecomprimeerde indelingen. Bijvoorbeeld, POSTCODE, MP3, MP4 of JPG.
    > 
-   
+
    > [!NOTE]
    > Wijzigt de standaardlijst met MIME-typen is momenteel niet ondersteund in Azure CDN Standard van Microsoft.
    > 
- 
+
 5. Wanneer u klaar bent, selecteert u **opslaan**.
 
 ### <a name="premium-cdn-profiles"></a>Premium CDN-profielen
@@ -79,23 +77,23 @@ De lagen standard en premium CDN bieden dezelfde functionaliteit compressie, maa
 > 
 
 1. Selecteer in het CDN-profielpagina **beheren**.
-   
+
     ![Selecteer CDN beheren](./media/cdn-file-compression/cdn-manage-btn.png)
-   
+
     De CDN-beheerportal wordt geopend.
 2. Beweeg de muisaanwijzer over de **HTTP grote** tabblad en klik vervolgens Beweeg de muisaanwijzer over de **Cache-instellingen** flyout. Selecteer **compressie**.
 
     ![Selectie van CDN-compressie](./media/cdn-file-compression/cdn-compress-select.png)
-   
+
     De compressie-opties worden weergegeven.
-   
+
     ![Opties voor compressie CDN](./media/cdn-file-compression/cdn-compress-files.png)
 3. Compressie inschakelen door te selecteren **compressie**. Geef op de MIME-typen die u wilt comprimeren als een lijst met door komma's gescheiden (zonder spaties) in de **bestandstypen** vak.
-   
+
    > [!TIP]
    > Hoewel het mogelijk is, wordt het niet aanbevolen om toe te passen van compressie naar gecomprimeerde indelingen. Bijvoorbeeld, POSTCODE, MP3, MP4 of JPG.
    > 
-    
+
 4. Wanneer u klaar bent, selecteert u **Update**.
 
 ## <a name="compression-rules"></a>Regels voor compressie
@@ -110,7 +108,7 @@ Voor **Azure CDN Standard van Microsoft** profielen, alleen in aanmerking komend
 Deze profielen ondersteunen de volgende aanduidingen van de compressie:
 - gzip (GNU zip)
 - brotli 
- 
+
 Als de aanvraag meer dan één compressietype ondersteunt, voorrang brotli compressie.
 
 Wanneer een aanvraag voor een asset gzip-compressie en de resultaten van de aanvraag in een cache ontbreekt, voert Azure CDN gzip-compressie van de asset rechtstreeks op de POP-server. Daarna wordt het gecomprimeerde bestand geleverd uit de cache.
@@ -120,13 +118,13 @@ Wanneer een aanvraag voor een asset gzip-compressie en de resultaten van de aanv
 Voor **Azure CDN Standard van Verizon** en **Azure CDN Premium van Verizon** profielen, alleen in aanmerking komende bestanden zijn gecomprimeerd. Als u in aanmerking komen voor compressie, moet een bestand:
 - Niet groter zijn dan 128 bytes
 - Kleiner is dan 3 MB
- 
+
 Deze profielen ondersteunen de volgende aanduidingen van de compressie:
 - gzip (GNU zip)
 - DEFLATE
 - bzip2
 - brotli 
- 
+
 Als de aanvraag meer dan één compressietype ondersteunt, hebben deze compressietypen voorrang op brotli compressie.
 
 Wanneer een aanvraag voor een asset brotli compressie bevat (HTTP-header is `Accept-Encoding: br`) en de resultaten van de aanvraag in een cache ontbreekt, Azure CDN brotli compressie van de asset rechtstreeks op de POP-server uitvoert. Daarna wordt het gecomprimeerde bestand geleverd uit de cache.

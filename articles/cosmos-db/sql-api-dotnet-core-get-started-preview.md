@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: cc8c62113a9a7a12525f1ba7e59c68831a322cfe
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: HT
+ms.openlocfilehash: 828d0ced775d46b0e966969acb3220d2a678c57b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959184"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440043"
 ---
 # <a name="build-a-net-core-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Een .NET Core-console-app bouwen om gegevens te beheren in het Azure Cosmos DB SQL API-account (SDK versie 3, preview)
 
@@ -70,15 +70,15 @@ Begin met het maken van een Azure Cosmos DB-account. Als u al een account hebt d
 1. Open **Visual Studio 2017** op uw computer.
 1. Selecteer in het menu **Bestand** de optie **Nieuw** en kies vervolgens **Project**.
 1. Selecteer in het dialoogvenster **Nieuw project** de optie **Visual C#** / **Consoletoepassing (.NET Core)**, geef het project een naam en klik op **OK**.
-   ![Schermopname van het venster Nieuw project](./media/sql-api-dotnetcore-get-started/dotnetcore-tutorial-visual-studio-new-project.png)
+   ![Schermopname van het venster Nieuw Project](./media/sql-api-dotnetcore-get-started/dotnetcore-tutorial-visual-studio-new-project.png)
 1. Klik in **Solution Explorer** met de rechtermuisknop op uw nieuwe consoletoepassing. Deze bevindt zich onder uw Visual Studio-oplossing. Klik vervolgens op **Manage NuGet Packages...**
 
-   ![Schermopname van het rechtsklikmenu voor het project](./media/sql-api-dotnetcore-get-started/dotnetcore-tutorial-visual-studio-manage-nuget.png)
+   ![Schermafbeelding van het rechtsklikmenu voor het project](./media/sql-api-dotnetcore-get-started/dotnetcore-tutorial-visual-studio-manage-nuget.png)
 
 1. Klik op het tabblad **NuGet** op **Browse** en typ **Microsoft.Azure.Cosmos** in het zoekvak.
 1. Zoek **Microsoft.Azure.Cosmos** in de resultaten en klik op **Install**.
    De pakket-id voor de Azure Cosmos DB SQL-API-clientbibliotheek is [Microsoft Azure Cosmos DB-clientbibliotheek](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/).
-   ![Schermopname van het NuGet-menu voor het zoeken naar de Azure Cosmos DB-client-SDK](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
+   ![Schermopname van het NuGet-Menu voor het vinden van Azure Cosmos DB-Client-SDK](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
 
    Als u een bericht ontvangt over het controleren van wijzigingen in de oplossing, klikt u op **OK**. Als u een bericht ontvangt over het accepteren van de licentie, klikt u op **Accepteren**.
 
@@ -131,7 +131,7 @@ Goed gedaan. De configuratie is voltooid en u kunt nu aan de slag met het schrij
 
    Kopieer de URI uit de portal en plak deze in `<your endpoint URL>` in het bestand `Program.cs`. Kopieer de PRIMAIRE SLEUTEL uit de portal en plak deze in `<your primary key>`.
 
-   ![Schermopname van het ophalen van de Azure Cosmos DB-sleutels uit de Azure-portal](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
+   ![Schermafbeelding van Azure Cosmos DB-sleutels ophalen uit Azure portal](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
 
 1. Vervolgens maakt u een nieuw exemplaar van `CosmosClient` en stelt u een basis voor het programma in.
 
@@ -347,7 +347,7 @@ Eerst moet de klasse **Family** worden gemaakt, die aangeeft welke objecten in d
 
 1.  Selecteer **Ctrl+Shift+A** om het dialoogvenster **Add New Item** te openen. Voeg een nieuwe klasse **Family.cs** toe aan uw project.
 
-    ![Schermopname van het toevoegen van een nieuwe Family.cs-klasse aan het project](./media/sql-api-get-started/dotnet-tutorial-visual-studio-add-family-class.png)
+    ![Schermafbeelding van het toevoegen van een nieuwe Family.cs-klasse in het project](./media/sql-api-get-started/dotnet-tutorial-visual-studio-add-family-class.png)
 
 1.  Kopieer de klassen **Family**, **Parent**, **Child**, **Pet** en **Address** en plak deze in **Family.cs**. De naamruimte zal verschillen, op basis van de naam van uw project.
 

@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 121766a312db1970981b7ffb1c718f27c9f5d3d1
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 8f2ae27e19acb5bf324202b463d2b3027ad2ea5a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538740"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888226"
 ---
 # <a name="azure-database-for-mariadb-use-mysql-workbench-to-connect-and-query-data"></a>Azure Database for MariaDB: MySQL Workbench gebruiken om verbinding te maken met gegevens en er query's op uit te voeren
 
@@ -41,37 +41,37 @@ Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azur
 
 4. Op de pagina **Overzicht** van de server bekijkt u de waarden bij **Servernaam** en **Aanmeldingsnaam van de serverbeheerder** en noteert u deze. Als u uw wachtwoord vergeet, kunt u het wachtwoord op deze pagina opnieuw instellen.
 
- ![Azure Database for MariaDB-servernaam en de aanmeldingsgegevens van de serverbeheerder](./media/connect-workbench/1_server-overview-name-login.png)
+   ![Azure Database for MariaDB-servernaam en de aanmeldingsgegevens van de serverbeheerder](./media/connect-workbench/1_server-overview-name-login.png)
 
 ## <a name="connect-to-the-server-by-using-mysql-workbench"></a>Verbinding maken met de server met MySQL Workbench
 
 Verbinding maken met een Azure Database for MariaDB-server met behulp van MySQL Workbench:
 
-1.  Open MySQL Workbench op uw computer. 
+1. Open MySQL Workbench op uw computer. 
 
-2.  Voer in het dialoogvenster **Nieuwe verbinding instellen** de volgende gegevens in op het tabblad **Parameters**:
+2. Voer in het dialoogvenster **Nieuwe verbinding instellen** de volgende gegevens in op het tabblad **Parameters**:
 
-    | Instelling | Voorgestelde waarde | Beschrijving van veld |
-    |---|---|---|
-    |   Verbindingsnaam | **Demoverbinding** | Geef een label op voor deze verbinding. |
-    | Verbindingsmethode | **Standard (TCP/IP)** | Standard (TCP/IP) is voldoende. |
-    | Hostnaam | *servernaam* | Geef de servernaamwaarde op die u hebt gebruikt toen u de Azure Database for MariaDB-instantie maakte. De server in ons voorbeeld is **mydemoserver.mariadb.database.azure.com**. Gebruik de FQDN (Fully Qualified Domain Name) (\*.mariadb.database.azure.com) zoals weergegeven in het voorbeeld. Als u de servernaam niet meer weet, volgt u de stappen in de vorige sectie om de verbindingsgegevens op te halen.  |
-    | Poort | **3306** | Gebruik altijd poort 3306 bij het verbinden met Azure Database for MariaDB. |
-    | Gebruikersnaam |  *aanmeldnaam van serverbeheerder* | Geef de aanmeldnaam van de serverbeheerder op die u hebt gebruikt toen u de Azure Database for MariaDB-instantie maakte. De gebruikersnaam in ons voorbeeld is **myadmin@mydemoserver**. Als u de aanmeldnaam van de serverbeheerder niet meer weet, volgt u de stappen in de vorige sectie om de verbindingsgegevens op te halen. De indeling is *username@servername*.
-    | Wachtwoord | *Uw wachtwoord* | Selecteer **Opslaan in de kluis** om het wachtwoord op te slaan. |
+   | Instelling | Voorgestelde waarde | Beschrijving van veld |
+   |---|---|---|
+   |   Verbindingsnaam | **Demoverbinding** | Geef een label op voor deze verbinding. |
+   | Verbindingsmethode | **Standard (TCP/IP)** | Standard (TCP/IP) is voldoende. |
+   | Hostnaam | *servernaam* | Geef de servernaamwaarde op die u hebt gebruikt toen u de Azure Database for MariaDB-instantie maakte. De server in ons voorbeeld is **mydemoserver.mariadb.database.azure.com**. Gebruik de FQDN (Fully Qualified Domain Name) (\*.mariadb.database.azure.com) zoals weergegeven in het voorbeeld. Als u de servernaam niet meer weet, volgt u de stappen in de vorige sectie om de verbindingsgegevens op te halen.  |
+   | Poort | **3306** | Gebruik altijd poort 3306 bij het verbinden met Azure Database for MariaDB. |
+   | Gebruikersnaam |  *aanmeldnaam van serverbeheerder* | Geef de aanmeldnaam van de serverbeheerder op die u hebt gebruikt toen u de Azure Database for MariaDB-instantie maakte. De gebruikersnaam van ons voorbeeld is **myadmin\@mydemoserver**. Als u de aanmeldnaam van de serverbeheerder niet meer weet, volgt u de stappen in de vorige sectie om de verbindingsgegevens op te halen. De indeling is *gebruikersnaam\@servername*.
+   | Wachtwoord | *Uw wachtwoord* | Selecteer **Opslaan in de kluis** om het wachtwoord op te slaan. |
 
-    ![Een nieuwe verbinding instellen](./media/connect-workbench/2-setup-new-connection.png)
+   ![Een nieuwe verbinding instellen](./media/connect-workbench/2-setup-new-connection.png)
 
-3.   Selecteer **Verbinding testen** om te controleren of alle parameters juist zijn geconfigureerd. 
+3. Selecteer **Verbinding testen** om te controleren of alle parameters juist zijn geconfigureerd. 
 
-4.   Selecteer **OK** om de verbinding op te slaan. 
+4. Selecteer **OK** om de verbinding op te slaan. 
 
-5.   Bij **MySQL-verbindingen** selecteert u de tegel die bij uw server hoort. Wacht tot er verbinding is gemaakt.
+5. Bij **MySQL-verbindingen** selecteert u de tegel die bij uw server hoort. Wacht tot er verbinding is gemaakt.
 
-    Er wordt een nieuw SQL-tabblad geopend met een lege editor waar u uw query's kunt typen.
+   Er wordt een nieuw SQL-tabblad geopend met een lege editor waar u uw query's kunt typen.
     
-    > [!NOTE]
-    > Standaard wordt SSL-verbindingsbeveiliging vereist. Deze wordt afgedwongen op uw Azure Database for MariaDB-server. Hoewel er gewoonlijk geen aanvullende configuratie met SSL-certificaten is vereist om MySQL Workbench verbinding met de server te laten maken, verdient het aanbeveling de SSL CA-certificering te binden aan MySQL Workbench. Als u SSL wilt uitschakelen, gaat u op de serveroverzichtspagina in de Azure-portal naar **Verbindingsbeveiliging** in het menu. Bij **SSL-verbinding afdwingen** selecteert u **Uitgeschakeld**.
+   > [!NOTE]
+   > Standaard wordt SSL-verbindingsbeveiliging vereist. Deze wordt afgedwongen op uw Azure Database for MariaDB-server. Hoewel er gewoonlijk geen aanvullende configuratie met SSL-certificaten is vereist om MySQL Workbench verbinding met de server te laten maken, verdient het aanbeveling de SSL CA-certificering te binden aan MySQL Workbench. Als u SSL wilt uitschakelen, gaat u op de serveroverzichtspagina in de Azure-portal naar **Verbindingsbeveiliging** in het menu. Bij **SSL-verbinding afdwingen** selecteert u **Uitgeschakeld**.
 
 ## <a name="create-table-and-insert-read-update-and-delete-data"></a>Een tabel maken en gegevens invoegen, lezen, bijwerken en verwijderen
 

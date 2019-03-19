@@ -16,12 +16,12 @@ ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: a58f5a3794d352fa8671321f5a30d74d2598df75
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 509dafb02d456e3f612e1de8a5bc1cf4b010a05a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977725"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113853"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>De Azure Stack Development Kit (ASDK) installeren
 Na [voorbereiden van de hostcomputer ASDK](asdk-prepare-host.md), de ASDK kan worden geïmplementeerd in de installatiekopie van het CloudBuilder.vhdx met behulp van de volgende stappen in dit artikel.
@@ -44,8 +44,8 @@ De stappen in dit artikel ziet u over het implementeren van de ASDK met behulp v
   
    Als u ervoor een Azure-abonnement-id-provider kiest, moet u een internetverbinding, de volledige naam van een Azure AD directory-tenant in de vorm van *domainname*. onmicrosoft.com of een Azure AD gecontroleerd aangepast domein naam en een globale Administrator-referenties voor de opgegeven map.<br><br>Na de implementatie is Azure Active Directory-globale beheerder toestemming niet vereist. Bepaalde bewerkingen is echter mogelijk de referentie van de globale beheerder. Bijvoorbeeld, een resource provider installatieprogramma script of een nieuwe functie die een machtiging worden verleend. U kunt tijdelijk opnieuw installeren van de account hoofdbeheerder machtigingen of gebruik een afzonderlijke globale beheerder-account dat is eigenaar van de *providerabonnement standaard*.<br><br>Als u AD FS als de id-provider, wordt de standaard stempel directory-service gebruikt. Het standaardaccount voor het aanmelden is azurestackadmin@azurestack.local, en het wachtwoord te gebruiken is die u als onderdeel van de installatie is opgegeven.
 
-  > [!NOTE]
-  > Voor optimale resultaten, zelfs als u wilt gebruiken van een niet-verbonden Azure Stack-omgeving met behulp van AD FS als id-provider, is het raadzaam om te installeren de ASDK terwijl u verbinding hebt met internet. Op die manier kunnen kan de evaluatieversie van Windows Server 2016 opgenomen in de development kit-installatie worden geactiveerd tijdens de implementatie.
+   > [!NOTE]
+   > Voor optimale resultaten, zelfs als u wilt gebruiken van een niet-verbonden Azure Stack-omgeving met behulp van AD FS als id-provider, is het raadzaam om te installeren de ASDK terwijl u verbinding hebt met internet. Op die manier kunnen kan de evaluatieversie van Windows Server 2016 opgenomen in de development kit-installatie worden geactiveerd tijdens de implementatie.
 
 4. Selecteer een netwerkadapter wilt gebruiken voor de development kit en klik vervolgens op **volgende**.
 

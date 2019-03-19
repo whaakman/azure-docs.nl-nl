@@ -16,12 +16,12 @@ ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bf55cef00c0600963f8363e617c24fdc9113eae
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 31fe3877fd6098b18686b9d99a012cbfbef7c300
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543862"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122974"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect-synchronisatie: Breng een wijziging aan in de standaardconfiguratie
 Het doel van dit artikel is waarmee u stapsgewijs hoe u wijzigingen aanbrengen in de standaardconfiguratie in Azure Active Directory (Azure AD) Connect-synchronisatie. Het biedt stappen voor enkele algemene scenario's. Met deze kennis moet u het volgende kunnen eenvoudige wijzigingen aanbrengen in uw eigen configuratie op basis van uw eigen bedrijfsregels.
@@ -349,8 +349,8 @@ U kunt de volgende stappen uit om te controleren of de wijzigingen bij het handm
    3. Selecteer in het pop-updialoogvenster **volledige Import** en klik vervolgens op **OK**.
    4. Wacht tot de bewerking is voltooid.
 
-    > [!NOTE]
-    > U kunt een volledige import overslaan op de on-premises AD-Connector als het bronkenmerk al opgenomen in de lijst met is kenmerken geïmporteerd. Met andere woorden, u hebt geen te wijzigen tijdens de [stap 2: Het bronkenmerk toevoegen aan de on-premises AD-Connector schema](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema).
+      > [!NOTE]
+      > U kunt een volledige import overslaan op de on-premises AD-Connector als het bronkenmerk al opgenomen in de lijst met is kenmerken geïmporteerd. Met andere woorden, u hebt geen te wijzigen tijdens de [stap 2: Het bronkenmerk toevoegen aan de on-premises AD-Connector schema](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema).
 
 2. Voer een **volledige import** op de **Azure AD-Connector**:
 

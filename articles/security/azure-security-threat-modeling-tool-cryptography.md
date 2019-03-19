@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 947740ed28deea9682d10eecf9a66dab7540669e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 608792d8389a87bad3521d3a48947b20dd036d67
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880305"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57887099"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Beveiliging-Frame: Cryptografie | Oplossingen 
+
 | Product/Service | Artikel |
 | --------------- | ------- |
 | **Web-App** | <ul><li>[Gebruik alleen goedgekeurde symmetrische blok coderingen toe en sleutellengten](#cipher-length)</li><li>[Gebruik goedgekeurde blok cipher modi en initialisatie vectoren voor symmetrische codering](#vector-ciphers)</li><li>[Gebruik goedgekeurde asymmetrische algoritmen, sleutellengten en opvulling](#padding)</li><li>[Goedgekeurde willekeurig getal generatoren gebruiken](#numgen)</li><li>[Gebruik geen symmetrische stream-codering](#stream-ciphers)</li><li>[Goedgekeurde MAC/HMAC/opgegeven hash-algoritmen gebruiken](#mac-hash)</li><li>[Alleen goedgekeurde cryptografische hash-functies gebruiken](#hash-functions)</li></ul> |
@@ -96,7 +97,7 @@ ms.locfileid: "56880305"
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | N/A  |
-| **Stappen** | <p>Producten moeten alleen goedgekeurde code message authentication code (MAC) of hash-gebaseerde message authentication code (HMAC) algoritmen gebruiken.</p><p>Een message authentication code (MAC) is een stukje informatie die is gekoppeld aan een bericht waarmee de ontvanger om te controleren of zowel de authenticiteit van de afzender en de integriteit van het bericht met behulp van een geheime sleutel. Het gebruik van een van beide een hash-gebaseerde MAC ([HMAC](http://csrc.nist.gov/publications/nistpubs/800-107-rev1/sp800-107-rev1.pdf)) of [MAC cipher-op basis van blokken](http://csrc.nist.gov/publications/nistpubs/800-38B/SP_800-38B.pdf) is toegestaan als lange als alle onderliggende hash of symmetrische codering algoritmen ook zijn goedgekeurd voor gebruik; momenteel dit omvat de functies van de HMAC-SHA2 (HMAC-SHA256, HMAC-SHA384 en SHA512 HMAC-gebruikt) en de vereist/OMAC1 OMAC2 blokkeren op basis van cipher MACs (deze zijn gebaseerd op AES).</p><p>Gebruik van de HMAC-SHA1 mogelijk toelaatbaar voor compatibiliteit tussen platforms, maar kunt u zich een uitzondering op deze procedure het bestand en ondergaan cryptografische controle van uw organisatie. Het afkappen van HMAC's naar minder dan 128 bits is niet toegestaan. Met behulp van methoden op hash een sleutel en de gegevens niet is goedgekeurd en van uw organisatie Crypto-bord moet ondergaan voordat gebruik doorlezen van de klant.</p>|
+| **Stappen** | <p>Producten moeten alleen goedgekeurde code message authentication code (MAC) of hash-gebaseerde message authentication code (HMAC) algoritmen gebruiken.</p><p>Een message authentication code (MAC) is een stukje informatie die is gekoppeld aan een bericht waarmee de ontvanger om te controleren of zowel de authenticiteit van de afzender en de integriteit van het bericht met behulp van een geheime sleutel. Het gebruik van een van beide een hash-gebaseerde MAC ([HMAC](https://csrc.nist.gov/publications/nistpubs/800-107-rev1/sp800-107-rev1.pdf)) of [MAC cipher-op basis van blokken](https://csrc.nist.gov/publications/nistpubs/800-38B/SP_800-38B.pdf) is toegestaan als lange als alle onderliggende hash of symmetrische codering algoritmen ook zijn goedgekeurd voor gebruik; momenteel dit omvat de functies van de HMAC-SHA2 (HMAC-SHA256, HMAC-SHA384 en SHA512 HMAC-gebruikt) en de vereist/OMAC1 OMAC2 blokkeren op basis van cipher MACs (deze zijn gebaseerd op AES).</p><p>Gebruik van de HMAC-SHA1 mogelijk toelaatbaar voor compatibiliteit tussen platforms, maar kunt u zich een uitzondering op deze procedure het bestand en ondergaan cryptografische controle van uw organisatie. Het afkappen van HMAC's naar minder dan 128 bits is niet toegestaan. Met behulp van methoden op hash een sleutel en de gegevens niet is goedgekeurd en van uw organisatie Crypto-bord moet ondergaan voordat gebruik doorlezen van de klant.</p>|
 
 ## <a id="hash-functions"></a>Alleen goedgekeurde cryptografische hash-functies gebruiken
 

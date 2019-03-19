@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 9a76ad219e538874af04a72c9aa64e87a35bc53d
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: c1618d3402b37e91b3cf17365d6ccbf1285f4847
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434882"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993776"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Logboeken beheren voor een HDInsight-cluster
 
@@ -77,7 +77,7 @@ Een typische HDInsight-cluster maakt gebruik van verschillende services en open-
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Configuratie-instellingen van het cluster met de Ambari-UI weergeven
 
-Apache Ambari vereenvoudigt het beheer, configuratie en bewaking van een HDInsight-cluster met een web-gebruikersinterface en een REST-API. Ambari is opgenomen op Linux gebaseerde HDInsight-clusters. Selecteer de **Clusterdashboard** deelvenster aan de Azure portal HDInsight-pagina te openen de **' Clusterdashboards** koppelingenpagina.  Selecteer vervolgens de **HDInsight-clusterdashboard** deelvenster te openen van de Ambari UI.  U wordt gevraagd om de aanmeldingsreferenties voor uw cluster.
+Apache Ambari vereenvoudigt het beheer, configuratie en bewaking van een HDInsight-cluster met een web-gebruikersinterface en een REST-API. Ambari is opgenomen op Linux gebaseerde HDInsight-clusters. Selecteer de **Clusterdashboard** deelvenster aan de Azure portal HDInsight-pagina te openen de**Clusterdashboards** koppelingenpagina.  Selecteer vervolgens de **HDInsight-clusterdashboard** deelvenster te openen van de Ambari UI.  U wordt gevraagd om de aanmeldingsreferenties voor uw cluster.
 
 Als u een lijst met serviceweergaven, schakelt de **Ambari-weergaven** deelvenster aan de Azure portal-pagina voor HDInsight.  Deze lijst varieert, afhankelijk van welke bibliotheken die u hebt geïnstalleerd.  Bijvoorbeeld, ziet u mogelijk de wachtrijbeheerder YARN, Hive-weergave en Tez weergave.  Selecteer een service-koppeling om te zien van configuratie- en servicegegevens.  De UI Ambari **Stack en versie** pagina vindt u informatie over de configuratie van de clusterservices en versiegeschiedenis van de service. Ga naar deze sectie van de Ambari-UI, selecteer de **Admin** menu en vervolgens **stapels en versies**.  Selecteer de **versies** tabblad om te bekijken van de service versie-informatie.
 
@@ -128,7 +128,7 @@ Voor het gebruik van de YARN CLI-hulpprogramma's, moet u eerst verbinding met he
     yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
 ```
 
-#### <a name="yarn-resourcemanager-ui"></a>YARN ResourceManager-interface
+#### <a name="yarn-resourcemanager-ui"></a>YARN ResourceManager UI
 
 De gebruikersinterface van YARN ResourceManager wordt uitgevoerd op het hoofdknooppunt van het cluster en toegankelijk is via de Ambari-Webgebruikersinterface. Gebruik de volgende stappen uit om de YARN-logboeken weer te geven:
 

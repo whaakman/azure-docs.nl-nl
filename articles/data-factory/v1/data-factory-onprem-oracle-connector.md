@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1dbac37e8b3bac5ee06ac3bdc3270c04efdcd408
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 4ff7f92d1d13966be5d17f37210bef961f64faf2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536688"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084603"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Naar of van Oracle on-premises gegevens kopiëren met behulp van Azure Data Factory
 
@@ -56,11 +56,11 @@ De gateway is vereist, zelfs als de Oracle wordt gehost in een Azure-infrastruct
 Deze connector Oracle bieden ondersteuning voor twee versies van stuurprogramma's:
 
 - **Microsoft-stuurprogramma voor Oracle (aanbevolen)**: Een Microsoft-stuurprogramma voor Oracle, dat is vanaf Data Management Gateway versie 2.7, wordt automatisch geïnstalleerd met de gateway. U hoeft niet te installeren of bijwerken van het stuurprogramma voor het maken van verbinding met Oracle. U kunt ook betere kopieerprestaties ervaren door dit stuurprogramma. Deze versies van Oracle-databases worden ondersteund:
-    - Oracle 12c R1 (12.1)
-    - Oracle 11g R1, R2 (11.1, 11.2)
-    - Oracle 10g R1, R2 (10.1, 10.2)
-    - Oracle 9i R1, R2 (9.0.1, 9.2)
-    - Oracle 8i R3 (8.1.7)
+  - Oracle 12c R1 (12.1)
+  - Oracle 11g R1, R2 (11.1, 11.2)
+  - Oracle 10g R1, R2 (10.1, 10.2)
+  - Oracle 9i R1, R2 (9.0.1, 9.2)
+  - Oracle 8i R3 (8.1.7)
 
     > [!NOTE]
     > Proxyserver voor Oracle wordt niet ondersteund.

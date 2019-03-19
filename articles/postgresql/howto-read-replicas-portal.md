@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: b34b103d3b710b90fd7b396f2c8d0e7adc27aaca
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 24a37775298d6c6b40ec49f34158fcb77f26a379
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454664"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113211"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-portal"></a>Maken en beheren van meer replica's van de Azure-portal
 
@@ -50,17 +50,17 @@ De `azure.replication_support` parameter moet worden ingesteld op **REPLICA** op
 ## <a name="create-a-read-replica"></a>Maken van een replica lezen
 Volg deze stappen voor het maken van een replica lezen:
 
-1.  Selecteer de bestaande Azure Database for PostgreSQL-server om te gebruiken als de hoofd-server. 
+1. Selecteer de bestaande Azure Database for PostgreSQL-server om te gebruiken als de hoofd-server. 
 
-2.  In het servermenu onder **instellingen**, selecteer **replicatie**.
+2. In het servermenu onder **instellingen**, selecteer **replicatie**.
 
    Als u dit nog niet hebt ingesteld de `azure.replication_support` parameter **REPLICA** op een algemeen gebruik of geoptimaliseerd voor geheugen-master server en de server opnieuw opgestart, ontvangt u een melding. Deze stappen voltooien voordat u de replica maakt.
 
-3.  Selecteer **-Replica toevoegen**.
+3. Selecteer **-Replica toevoegen**.
 
    ![Toevoegen van een replica](./media/howto-read-replicas-portal/add-replica.png)
 
-4.  Voer een naam voor de replica voor lezen. Selecteer **OK** om te bevestigen van het maken van de replica.
+4. Voer een naam voor de replica voor lezen. Selecteer **OK** om te bevestigen van het maken van de replica.
 
    ![De naam van de replica](./media/howto-read-replicas-portal/name-replica.png) 
 
@@ -82,19 +82,19 @@ U kunt replicatie tussen een hoofd-server en een lezen replica stoppen.
 
 Als u wilt stoppen met replicatie tussen een hoofd-server en een lezen replica is vanaf de Azure-portal, de volgende stappen uit:
 
-1.  Selecteer uw master Azure Database for PostgreSQL-server in de Azure-portal.
+1. Selecteer uw master Azure Database for PostgreSQL-server in de Azure-portal.
 
-2.  In het servermenu onder **instellingen**, selecteer **replicatie**.
+2. In het servermenu onder **instellingen**, selecteer **replicatie**.
 
-3.  Selecteer de replica-server waarvoor om replicatie te stoppen.
+3. Selecteer de replica-server waarvoor om replicatie te stoppen.
 
    ![Selecteer de replica](./media/howto-read-replicas-portal/select-replica.png)
  
-4.  Selecteer **stoppen van de replicatie**.
+4. Selecteer **stoppen van de replicatie**.
 
    ![Selecteer stoppen van de replicatie](./media/howto-read-replicas-portal/select-stop-replication.png)
  
-5.  Selecteer **OK** om replicatie te stoppen.
+5. Selecteer **OK** om replicatie te stoppen.
 
    ![Bevestig dat u wilt stoppen van replicatie](./media/howto-read-replicas-portal/confirm-stop-replication.png)
  
@@ -107,13 +107,13 @@ Als u wilt verwijderen een hoofd-server, moet u dezelfde stappen over het verwij
 
 Als een server verwijderen uit de Azure-portal, de volgende stappen uit:
 
-1.  Selecteer uw master Azure Database for PostgreSQL-server in de Azure-portal.
+1. Selecteer uw master Azure Database for PostgreSQL-server in de Azure-portal.
 
-2.  Open de **overzicht** pagina voor de server. Selecteer **Verwijderen**.
+2. Open de **overzicht** pagina voor de server. Selecteer **Verwijderen**.
 
    ![Selecteer op de pagina overzicht van server verwijderen van de hoofd-server](./media/howto-read-replicas-portal/delete-server.png)
  
-3.  Voer de naam van de hoofd-server te verwijderen. Selecteer **verwijderen** verwijderen van de hoofd-server te bevestigen.
+3. Voer de naam van de hoofd-server te verwijderen. Selecteer **verwijderen** verwijderen van de hoofd-server te bevestigen.
 
    ![Bevestig dat u wilt verwijderen van de hoofd-server](./media/howto-read-replicas-portal/confirm-delete.png)
  
@@ -127,19 +127,19 @@ U kunt een vergelijkbaar met hoe u een hoofdserver verwijdert lezen replica verw
  
 U kunt ook verwijderen met de lezen replica van de **replicatie** venster door de volgende stappen:
 
-1.  Selecteer uw master Azure Database for PostgreSQL-server in de Azure-portal.
+1. Selecteer uw master Azure Database for PostgreSQL-server in de Azure-portal.
 
-2.  In het servermenu onder **instellingen**, selecteer **replicatie**.
+2. In het servermenu onder **instellingen**, selecteer **replicatie**.
 
-3.  Selecteer de lezen-replica te verwijderen.
+3. Selecteer de lezen-replica te verwijderen.
 
    ![Selecteer de replica verwijderen](./media/howto-read-replicas-portal/select-replica.png)
  
-4.  Selecteer **replica verwijderen**.
+4. Selecteer **replica verwijderen**.
 
    ![Selecteer een replica verwijderen](./media/howto-read-replicas-portal/select-delete-replica.png)
  
-5.  Voer de naam van de replica te verwijderen. Selecteer **verwijderen** om verwijdering van de replica te bevestigen.
+5. Voer de naam van de replica te verwijderen. Selecteer **verwijderen** om verwijdering van de replica te bevestigen.
 
    ![Bevestig dat u wilt replica te verwijderen](./media/howto-read-replicas-portal/confirm-delete-replica.png)
  
@@ -162,13 +162,13 @@ De **maximale vertraging voor replica's** ziet u de vertraging in bytes tussen d
 ### <a name="replica-lag-metric"></a>Replica Lag metrische gegevens
 De **Replica Lag** metrische gegevens geeft de tijd sinds de laatste replay transactie op een replica. Als er geen transacties plaatsvinden in uw model, geeft de metriek deze vertraging.
 
-1.  Selecteer in de Azure-portal, de Azure Database voor PostgreSQL replica lezen.
+1. Selecteer in de Azure-portal, de Azure Database voor PostgreSQL replica lezen.
 
-2.  Selecteer **Metrische gegevens**. In de **metrische gegevens** venster **Replica Lag**.
+2. Selecteer **Metrische gegevens**. In de **metrische gegevens** venster **Replica Lag**.
 
    ![Monitor voor de vertraging replica](./media/howto-read-replicas-portal/select-replica-lag.png)
  
-3.  Voor uw **aggregatie**, selecteer **Max**. 
+3. Voor uw **aggregatie**, selecteer **Max**. 
  
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over [lezen-replica's in Azure Database for PostgreSQL](concepts-read-replicas.md).

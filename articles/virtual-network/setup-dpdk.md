@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
-ms.openlocfilehash: b50f7c9b76e9309a1ee08257dd8b13ec289397a5
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c5cb840035c5d0d5694982324c7237c58001e689
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775914"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993873"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>DPDK instellen in een virtuele Linux-machine
 
@@ -126,12 +126,12 @@ Na het opnieuw opstarten, moet u de volgende opdrachten één keer uitgevoerd:
      /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hugepages
      ```
 
-   *  Maak een map voor koppelen met `mkdir /mnt/huge`.
-   *  Koppelpunt hugepages met `mount -t hugetlbfs nodev /mnt/huge`.
-   *  Controleer dat hugepages zijn gereserveerd met `grep Huge /proc/meminfo`.
+   * Maak een map voor koppelen met `mkdir /mnt/huge`.
+   * Koppelpunt hugepages met `mount -t hugetlbfs nodev /mnt/huge`.
+   * Controleer dat hugepages zijn gereserveerd met `grep Huge /proc/meminfo`.
 
      > [!NOTE]
-     > Er is een manier om het bestand wormgaten wijzigen zodat hugepages bij het opstarten zijn gereserveerd door het volgende op de [instructies](http://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) voor de DPDK. De instructies zijn aan de onderkant van de pagina. Wanneer u een Azure Linux-machine gebruikt, wijzigt u bestanden onder **/etc/config/grub.d** in plaats daarvan te reserveren hugepages tijdens opnieuw opstarten.
+     > Er is een manier om het bestand wormgaten wijzigen zodat hugepages bij het opstarten zijn gereserveerd door het volgende op de [instructies](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) voor de DPDK. De instructies zijn aan de onderkant van de pagina. Wanneer u een Azure Linux-machine gebruikt, wijzigt u bestanden onder **/etc/config/grub.d** in plaats daarvan te reserveren hugepages tijdens opnieuw opstarten.
 
 2. MAC- en IP-adressen: Gebruik `ifconfig –a` om het MAC- en IP-adres van de netwerkinterfaces weer te geven. De *VF* netwerkinterface en *NETVSC* netwerkinterface hebben hetzelfde MAC-adres, maar alleen de *NETVSC* netwerkinterface heeft een IP-adres. VF-interfaces worden uitgevoerd als onderliggende-interfaces van NETVSC interfaces.
 
@@ -146,7 +146,7 @@ Na het opnieuw opstarten, moet u de volgende opdrachten één keer uitgevoerd:
 
 DPDK toepassingen moeten worden uitgevoerd via de failsafe PMD die wordt weergegeven in Azure. Als de toepassing wordt uitgevoerd boven op de PMD VF, het ontvangt geen **alle** pakketten die bestemd zijn voor de virtuele machine, aangezien sommige pakketten worden weergegeven via de interface van synthetische. 
 
-Als u een toepassing DPDK via de failsafe PMD uitvoert, zorgt u ervoor dat de toepassing alle pakketten die bestemd zijn voor deze ontvangt. Deze ook zorgt ervoor dat de toepassing blijft actief in de modus DPDK, zelfs als de VF wordt ingetrokken wanneer de host wordt onderhouden. Zie voor meer informatie over failsafe PMD [failsafe poll-modus-stuurprogrammabibliotheek](http://doc.dpdk.org/guides/nics/fail_safe.html).
+Als u een toepassing DPDK via de failsafe PMD uitvoert, zorgt u ervoor dat de toepassing alle pakketten die bestemd zijn voor deze ontvangt. Deze ook zorgt ervoor dat de toepassing blijft actief in de modus DPDK, zelfs als de VF wordt ingetrokken wanneer de host wordt onderhouden. Zie voor meer informatie over failsafe PMD [failsafe poll-modus-stuurprogrammabibliotheek](https://doc.dpdk.org/guides/nics/fail_safe.html).
 
 ## <a name="run-testpmd"></a>Testpmd uitvoeren
 
@@ -244,7 +244,7 @@ De pakketten statistieken per seconde wordt periodiek afdrukken door de volgende
      -w <pci address NIC2> \
      --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
      --vdev="net_vdev_netvsc<2nd id>,iface=<2nd iface to attach to>" (you need as many --vdev arguments as the number of devices used by testpmd, in this case) \
-     -- --nb-cores <number of cores to use for test pmd> \
+     -- --nb-cores <number of cores to use for test pmd> \
      --forward-mode=io \
      --eth-peer=<recv port id>,<sender peer MAC address> \
      --stats-period <display interval in seconds>

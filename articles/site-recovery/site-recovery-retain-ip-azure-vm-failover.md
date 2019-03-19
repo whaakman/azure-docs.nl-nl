@@ -6,12 +6,12 @@ ms.date: 11/27/2018
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: f7b546e8a0ca52fd2037e471f01787bb64db032d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: aefb0684ea065841824ad27d1105ef309418c6b9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842744"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090743"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>IP-adressen behouden tijdens failover
 
@@ -62,10 +62,10 @@ Als een bron regionale uitval optreedt, kan een bedrijf alle bijbehorende resour
 
 - Met de doel-IP-adressen al aanwezig zijn vóór de failover, bedrijf A failover te organiseren en automatisch verbindingen tot stand brengen na een failover tussen **Recovery VNet** en **Azure VNet**. Dit wordt geïllustreerd in het volgende diagram...
 - Afhankelijk van de vereisten voor apps, verbindingen tussen de twee vnet's (**Recovery VNet** en **Azure VNet**) in de doel-regio kan worden vastgesteld voor, tijdens (als een tussenstap) of na de failover.
-    - Het bedrijf kan gebruiken [herstelplannen](site-recovery-create-recovery-plans.md) om op te geven wanneer verbindingen wordt tot stand worden gebracht.
-    - Ze verbinding kunnen maken tussen de VNets met behulp van VNet-peering of site-naar-site VPN.
-        - VNet-peering, geen gebruik maakt van een VPN-gateway en gelden diverse beperkingen.
-        - VNet-peering [prijzen](https://azure.microsoft.com/pricing/details/virtual-network) wordt anders berekend dan VNet-naar-VNet-VPN-Gateway [prijzen](https://azure.microsoft.com/pricing/details/vpn-gateway). Voor failovers adviseren we in het algemeen dezelfde verbindingsmethode gebruiken als bronnetwerken, inclusief het verbindingstype onvoorspelbare netwerk incidenten te minimaliseren.
+  - Het bedrijf kan gebruiken [herstelplannen](site-recovery-create-recovery-plans.md) om op te geven wanneer verbindingen wordt tot stand worden gebracht.
+  - Ze verbinding kunnen maken tussen de VNets met behulp van VNet-peering of site-naar-site VPN.
+      - Bij VNET-peering wordt geen VPN-gateway gebruikt en er gelden diverse beperkingen voor.
+      - VNet-peering [prijzen](https://azure.microsoft.com/pricing/details/virtual-network) wordt anders berekend dan VNet-naar-VNet-VPN-Gateway [prijzen](https://azure.microsoft.com/pricing/details/vpn-gateway). Voor failovers adviseren we in het algemeen dezelfde verbindingsmethode gebruiken als bronnetwerken, inclusief het verbindingstype onvoorspelbare netwerk incidenten te minimaliseren.
 
     ![Resources in Azure volledige failover](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-full-region-failover2.png)
 
@@ -128,13 +128,13 @@ In dit scenario **bedrijf B** wordt uitgevoerd van een bedrijf hybride met onder
 Hier ziet u hoe de netwerkarchitectuur eruitziet voordat de failover.
 
 - Toepassings-VM's worden gehost in Azure Oost-Azië.
--  Oost-Azië heeft een VNet (**bron VNet**) met adresruimte 10.1.0.0/16.
-    - Oost-Azië heeft werklasten verdeeld over drie subnetten in **bron VNet**:
-        - **Subnet 1**: 10.1.1.0/24
-        - **Subnet 2**: 10.1.2.0/24,
-        - **Subnet 3**: een Azure-netwerk met adresruimte 10.1.0.0/16 10.1.3.0/24utilizing. Dit virtuele netwerk is met de naam **bron-VNet**
- - De regio secundaire (doel) is Azure Zuidoost-Azië:
-    - Zuidoost-Azië heeft een herstel VNet (**Recovery VNet**) identiek is aan **bron VNet**.
+- Oost-Azië heeft een VNet (**bron VNet**) met adresruimte 10.1.0.0/16.
+  - Oost-Azië heeft werklasten verdeeld over drie subnetten in **bron VNet**:
+    - **Subnet 1**: 10.1.1.0/24
+    - **Subnet 2**: 10.1.2.0/24,
+    - **Subnet 3**: een Azure-netwerk met adresruimte 10.1.0.0/16 10.1.3.0/24utilizing. Dit virtuele netwerk is met de naam **bron-VNet**
+      - De regio secundaire (doel) is Azure Zuidoost-Azië:
+  - Zuidoost-Azië heeft een herstel VNet (**Recovery VNet**) identiek is aan **bron VNet**.
 - Virtuele machines in Oost-Azië zijn verbonden met een on-premises datacenter met Azure ExpressRoute of site-naar-site-VPN.
 - Als u wilt verkleinen RTO, bepalingen bedrijf B gateways op herstel VNet in Azure Zuidoost-Azië voordat u een failover.
 - Bedrijf B wijst/controleert of doel-IP-adressen voor gerepliceerde virtuele machines. Het doel-IP-adres is hetzelfde als de bron-IP-adres voor elke virtuele machine.

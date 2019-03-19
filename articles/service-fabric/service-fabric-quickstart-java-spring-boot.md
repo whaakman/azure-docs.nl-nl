@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e4fde75aeaf86219518daf92b67434fe9fd63f86
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 2c98b069e042f9cbd07ccee643028ac84b3471c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297395"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886679"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>Quickstart: Een Java Spring Boot-toepassing implementeren in Service Fabric
 
@@ -105,7 +105,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <ServiceManifest Name="SpringGettingStartedPkg" Version="1.0.0"
-                     xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+                     xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" >
 
        <ServiceTypes>
           <StatelessServiceType ServiceTypeName="SpringGettingStartedType" UseImplicitHost="true">
@@ -161,7 +161,7 @@ In dit stadium hebt u een Service Fabric-toepassing voor het Spring Boot Aan de 
     ./install.sh
     ```
 
-1. Open uw favoriete webbrowser en open de toepassing op **http://localhost:8080**.
+1. Open uw favoriete webbrowser en Open de toepassing op `http://localhost:8080`.
 
     ![Front-end van de toepassing voor Local](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 

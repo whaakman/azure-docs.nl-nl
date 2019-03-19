@@ -1,23 +1,22 @@
 ---
-title: Een Kubernetes-ontwikkelomgeving in de cloud maken met .NET Core en Visual Studio | Microsoft Docs
+title: Een Kubernetes-dev-ruimte in de cloud met behulp van .NET Core en Visual Studio maken
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: f345ff2e64670536771a639a7619c6e1d4d2d82d
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, NET service, service mesh-routering, kubectl, k8s
+ms.openlocfilehash: 9b5f5d41a35b608ecec5e9ab2161a6c122e7aa82
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823940"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894152"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Aan de slag in Azure Dev Spaces met .NET Core en Visual Studio
 
@@ -34,18 +33,17 @@ In deze handleiding leert u het volgende:
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Een Kubernetes-cluster maken dat is ingeschakeld voor Azure Dev Spaces
 
-1. Meld u aan bij Azure Portal op http://portal.azure.com.
+1. Meld u aan bij Azure Portal op https://portal.azure.com.
 1. Kies **Een resource maken** > ga naar **Kubernetes** > selecteer **Kubernetes-service** > **Maken**.
 
-   Voer de volgende stappen uit onder elke kop van het formulier AKS-cluster maken.
+   De volgende stappen onder de kop van de *maken Kubernetes-cluster* vormen en controleer of de door u geselecteerde [regio biedt ondersteuning voor Azure Dev spaties](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
 
-    - **PROJECTDETAILS**: selecteer een Azure-abonnement en een nieuwe of bestaande Azure-resourcegroep.
-    - **CLUSTERDETAILS**: voer een naam, regio (momenteel moet u EastUS, EastUS2, US - centraal, WestEurope, WestUS2, SoutheastAsia, CanadaCentral of CanadaEast), versie en DNS-voorvoegsel in voor het AKS-cluster.
-    - **SCHAAL**: selecteer een VM-grootte voor de AKS-agentknooppunten en het aantal knooppunten. Als u begint met Azure Dev Spaces, is één knooppunt voldoende voor het verkennen van alle functies. Het aantal knooppunten kan op elk gewenst moment na de implementatie van het cluster gemakkelijk worden aangepast. Let op: de VM-grootte kan niet meer worden gewijzigd als een AKS-cluster eenmaal is gemaakt. Zodra een AKS-cluster is geïmplementeerd, kunt u echter eenvoudig een nieuw AKS-cluster met grotere virtuele machines maken en Dev Spaces gebruiken om dat grotere cluster opnieuw te implementeren als u wilt opschalen.
-
-   Zorg ervoor dat u Kubernetes versie 1.9.6 of hoger kiest.
+   - **PROJECTDETAILS**: Selecteer een Azure-abonnement en een nieuwe of bestaande Azure-resourcegroep.
+   - **CLUSTERDETAILS**: voer een naam, regio, versie en DNS-voorvoegsel voor het AKS-cluster in.
+   - **SCHAAL**: selecteer een VM-grootte voor de AKS-agentknooppunten en het aantal knooppunten. Als u begint met Azure Dev Spaces, is één knooppunt voldoende voor het verkennen van alle functies. Het aantal knooppunten kan op elk gewenst moment na de implementatie van het cluster gemakkelijk worden aangepast. Let op: de VM-grootte kan niet meer worden gewijzigd als een AKS-cluster eenmaal is gemaakt. Zodra een AKS-cluster is geïmplementeerd, kunt u echter eenvoudig een nieuw AKS-cluster met grotere virtuele machines maken en Dev Spaces gebruiken om dat grotere cluster opnieuw te implementeren als u wilt opschalen.
 
    ![Configuratie-instellingen voor Kubernetes](media/common/Kubernetes-Create-Cluster-2.PNG)
+
 
    Selecteer **Volgende: Verificatie** wanneer u klaar bent.
 
@@ -63,7 +61,7 @@ In deze handleiding leert u het volgende:
 
 ## <a name="create-a-web-app-running-in-a-container"></a>Een web-app maken die wordt uitgevoerd in een container
 
-In deze sectie maakt u een ASP.NET Core-web-app en voert u deze uit in een container in Kubernetes.
+In deze sectie maakt u een ASP.NET Core web-app maken en deze uitvoeren in een container in Kubernetes.
 
 ### <a name="create-an-aspnet-web-app"></a>Een ASP.NET-web-app maken
 

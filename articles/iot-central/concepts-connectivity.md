@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: eb16778e0e7050dfda92fcc1b92afffe5860268d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0790b7d5280b3fdf26c34c3903a6257d21bc877c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767580"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835829"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Connectiviteit van apparaten in Azure IoT Central
 
@@ -33,9 +33,9 @@ Met DPS kunnen:
 In dit artikel beschrijft de volgende vier gebruiksvoorbeelden:
 
 1. [Snel verbinding maken met een enkel apparaat met behulp van SAS](#connect-a-single-device)
-1. [Verbinding maken met apparaten op schaal met behulp van SAS](#connect-devices-at-scale-using-shared-access-signatures)
+1. Verbinding maken met apparaten op schaal met behulp van SAS
 1. [Verbinding maken met apparaten op schaal met behulp van X.509-certificaten](#connect-devices-using-x509-certificates) dit is de aanbevolen aanpak voor productieomgevingen.
-1. [Verbinding maken zonder eerst registreren apparaten](#connect-without-first-registering-devices) 
+1. Verbinding maken zonder eerst registreren apparaten 
 
 ## <a name="connect-a-single-device"></a>Verbinding maken met een enkel apparaat
 
@@ -69,7 +69,7 @@ Voor het registreren van een groot aantal apparaten met uw IoT Central-toepassin
 Om op te halen van de verbindingsgegevens voor de geïmporteerde apparaten [exporteren van een CSV-bestand van uw toepassing IoT Central](howto-manage-devices.md#export-devices).
 
 > [!NOTE]
-> Zie voor meer informatie hoe u apparaten kunt verbinden zonder het eerst in IoT Central registreren, [verbinden zonder eerst registreren apparaten](#connect-without-first-registering-devices).
+> Zie voor meer informatie hoe u apparaten kunt verbinden zonder het eerst in IoT Central registreren, verbinding maken zonder eerst registreren apparaten.
 
 ### <a name="set-up-your-devices"></a>Instellen van uw apparaten
 

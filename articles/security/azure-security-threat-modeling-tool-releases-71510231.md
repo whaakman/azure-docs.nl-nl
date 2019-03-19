@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: jegeib
-ms.openlocfilehash: eb1b3c04d3714280c1d1ba6c91b3a4c728a3d1af
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 6f7699ece97be1941ef5235b92f2c76b3bed140e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360254"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57883488"
 ---
-# <a name="threat-modeling-tool-update-release-71510231---1112018"></a>Threat Modeling Tool release van update 7.1.51023.1 - 1-11-2018
+# <a name="threat-modeling-tool-update-release-71510231---1112018"></a>Threat Modeling Tool-updaterelease 7.1.51023.1 - 11/1/2018
 
 Zoals oorspronkelijk hebt genoteerd in de [opmerkingen bij de release van de algemene beschikbaarheid](./azure-security-threat-modeling-tool-releases-71509112.md), hebben we een update (7.1.51023.1) een die zijn uitgebracht voor de Microsoft Threat Modeling Tool die gebruikers van de Preview-versie (preview-clients met versie < 7.1.50911.2) nodig hebt om te upgraden naar de ondersteunde versie voor algemene beschikbaarheid. Deze release bevat geen eventuele nieuwe functies of oplossingen.
 
@@ -38,7 +38,7 @@ Zoals oorspronkelijk hebt genoteerd in de [opmerkingen bij de release van de alg
 - Ondersteunde besturingssystemen
   - Microsoft Windows 10
 - .NET-versie vereist
-  - .Net 3.5.2
+  - .NET 3.5.2
 - Aanvullende vereisten
   - Een internetverbinding is vereist voor het ontvangen van updates voor het hulpprogramma, evenals de sjablonen.
 

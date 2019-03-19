@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: za-rhoads
-ms.openlocfilehash: 06fb4b9c39b773393d7a58bba44f240265e2200f
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 19f53449e21b39eb212f94b100eaf5d26ca4cf13
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893698"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006664"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>MySQL op een a virtuele machine met OpenSUSE Linux installeren in Azure
 
-[MySQL](http://www.mysql.com) is een populaire, open source-SQL-database. Deze zelfstudie leert u hoe u een virtuele machine met OpenSUSE Linux maken en vervolgens MySQL installeren.
+[MySQL](https://www.mysql.com) is een populaire, open source-SQL-database. Deze zelfstudie leert u hoe u een virtuele machine met OpenSUSE Linux maken en vervolgens MySQL installeren.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
@@ -163,7 +163,7 @@ quit
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over MySQL de [MySQL documentatie](http://dev.mysql.com/doc).
+Zie voor meer informatie over MySQL de [MySQL documentatie](https://dev.mysql.com/doc).
 
 
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: b4d8214608e8193172da078fc352c66145253ada
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: c5ae3523da6da3286a65328cf302c5b211987d6d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878962"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895232"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Een CI/CD-pijplijn instellen met de build-taak van Azure Cosmos DB Emulator in Azure DevOps
 
@@ -31,9 +31,9 @@ U kunt de build-taak pas gebruiken als u deze eerst installeert in uw Azure DevO
 Kies vervolgens de organisatie waarin u de extensie installeren. 
 
 > [!NOTE]
-> Als u een extensie wilt installeren in een Azure DevOps-organisatie, moet u een accounteigenaar zijn of een beheerder van een projectverzameling. Als u niet bevoegd bent, maar wel lid bent van het account, kunt u extensies aanvragen. [Meer informatie.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions)
+> Als u wilt een extensie installeren voor een Azure DevOps-organisatie, moet u een eigenaar van account of een verzameling projectbeheerder zijn. Als u niet bevoegd bent, maar wel lid bent van het account, kunt u extensies aanvragen. [Meer informatie.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions)
 
-![Een Azure DevOps-organisatie kiezen waarin u een extensie wilt installeren](./media/tutorial-setup-ci-cd/addExtension_2.png)
+![Kies een Azure DevOps-organisatie waarin u een extensie installeren](./media/tutorial-setup-ci-cd/addExtension_2.png)
 
 ## <a name="create-a-build-definition"></a>Een build-definitie maken
 

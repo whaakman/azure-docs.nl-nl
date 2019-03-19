@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: fd1e7ccdc54b5c5111ecfa466e916a376f43521a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c5f8b6db77cabdf5e7af66063cbd9a058bd01800
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770714"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082769"
 ---
 # <a name="work-with-data-files-in-azure-notebook-projects"></a>Werken met gegevensbestanden in Azure Notebook-projecten
 
@@ -42,13 +42,13 @@ U kunt bestanden overbrengen naar een project van het projectdashboard of binnen
 
 1. Selecteer de **uploaden** opdracht en vervolgens een **van URL** of **van computer** en de benodigde informatie voor de gegevens die u wilt importeren:
 
-    - **Via URL**: Voer de bron-adres in de **bestands-URL** veld en de bestandsnaam om toe te wijzen aan de notebook in uw project in de **bestandsnaam** veld. Selecteer vervolgens **+ toevoegen bestand** om toe te voegen van de URL aan de uploadlijst met. Het proces herhalen voor elke extra URL's, en selecteer vervolgens **gedaan**.
+   - **Via URL**: Voer de bron-adres in de **bestands-URL** veld en de bestandsnaam om toe te wijzen aan de notebook in uw project in de **bestandsnaam** veld. Selecteer vervolgens **+ toevoegen bestand** om toe te voegen van de URL aan de uploadlijst met. Het proces herhalen voor elke extra URL's, en selecteer vervolgens **gedaan**.
 
-    ![Uploaden vanaf URL pop-upvenster](media/quickstarts/upload-from-url-popup.png)
+     ![Uploaden vanaf URL pop-upvenster](media/quickstarts/upload-from-url-popup.png)
 
-    - **Vanaf computer**: Sleep en zet deze neer bestanden in het pop-upvenster of selecteer **bestanden kiezen**, en blader vervolgens naar en selecteer de gegevensbestanden die u wilt importeren. U kunt verwijderen of een willekeurig aantal bestanden van elk type en de indeling kiezen omdat het is aan de code in het notitieblok opent u het bestand en parseren van de gegevens.
+   - **Vanaf computer**: Sleep en zet deze neer bestanden in het pop-upvenster of selecteer **bestanden kiezen**, en blader vervolgens naar en selecteer de gegevensbestanden die u wilt importeren. U kunt verwijderen of een willekeurig aantal bestanden van elk type en de indeling kiezen omdat het is aan de code in het notitieblok opent u het bestand en parseren van de gegevens.
 
-    ![Uploaden vanaf computer pop-upvenster](media/quickstarts/upload-from-computer-popup.png)
+     ![Uploaden vanaf computer pop-upvenster](media/quickstarts/upload-from-computer-popup.png)
 
 1. Zodra geïmporteerd, bestanden worden weergegeven op het projectdashboard en is toegankelijk vanuit notebook code met behulp van relatieve padnamen naar de map met.
 

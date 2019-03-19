@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 829b566469e5fd61460c1451b196eec24fd4e3f8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 81eb750f271062bcb4891edf8008d76a18ac85c7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882923"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57881194"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-the-azure-portal"></a>Snelstart: Aan de slag met Apache Hadoop en Apache Hive in Azure HDInsight met behulp van Azure Portal
 
@@ -43,7 +43,7 @@ In deze sectie maakt u een Hadoop-cluster in HDInsight met behulp van Azure Port
 
     Typ of selecteer de volgende waarden:
     
-    |Eigenschap  |Beschrijving  |
+    |Eigenschap  |Description  |
     |---------|---------|
     |**Clusternaam**     | Voer een naam in voor het Hadoop-cluster. Omdat alle clusters in HDInsight dezelfde DNS-naamruimte delen, moet deze naam uniek zijn. De naam mag bestaan uit maximaal 59 tekens, inclusief letters, cijfers en afbreekstreepjes. De eerste en laatste tekens van de naam mogen geen streepjes zijn. |
     |**Abonnement**     |  Selecteer uw Azure-abonnement. |
@@ -60,7 +60,7 @@ In deze sectie maakt u een Hadoop-cluster in HDInsight met behulp van Azure Port
 
     Selecteer de volgende waarden:
     
-    |Eigenschap  |Beschrijving  |
+    |Eigenschap  |Description  |
     |---------|---------|
     |**Clustertype**     | Selecteer **Hadoop**. |
     |**Besturingssysteem**     | Selecteer **Linux** |
@@ -74,7 +74,7 @@ In deze sectie maakt u een Hadoop-cluster in HDInsight met behulp van Azure Port
 
     Selecteer de volgende waarden:
     
-    |Eigenschap  |Beschrijving  |
+    |Eigenschap  |Description  |
     |---------|---------|
     |**Type van primaire opslag**     | Selecteer voor dit artikel **Azure Storage** om Azure Storage Blob te gebruiken als het standaardopslagaccount. U kunt ook Azure Data Lake Storage gebruiken als standaardopslag. |
     |**Selectiemethode**     |  Selecteer voor dit artikel **Mijn abonnementen** om een opslagaccount uit uw Azure-abonnement te gebruiken. Als u een opslagaccount uit andere abonnementen wilt gebruiken, selecteert u **Toegangssleutel** en geeft u vervolgens de toegangssleutel voor dat account op. |
@@ -117,11 +117,7 @@ In deze sectie maakt u een Hadoop-cluster in HDInsight met behulp van Azure Port
    
         SHOW TABLES;
 
-    ![HDInsight Hive-weergaven](./media/apache-hadoop-linux-tutorial-get-started/hiveview-1.png "HDInsight Hive-weergave Query Editor")
-   
-   > [!NOTE]  
-   > Puntkomma is vereist voor Hive.       
-
+    ![HDInsight Hive-weergaven](./media/apache-hadoop-linux-tutorial-get-started/hiveview-1.png "HDInsight Hive-weergave Query Editor")     
 
 5. Selecteer **Uitvoeren**. Er wordt een tabblad **RESULTATEN** weergegeven onder het tabblad **QUERY** met informatie over de taak. 
    
@@ -147,7 +143,7 @@ Zie [Vereisten voor toegangsbeheer](../hdinsight-hadoop-create-linux-clusters-po
 Nadat u de zelfstudie hebt voltooid, kunt u het cluster verwijderen. Met HDInsight worden uw gegevens opgeslagen in Azure Storage zodat u een cluster veilig kunt verwijderen wanneer deze niet wordt gebruikt. Voor een HDInsight-cluster worden ook kosten in rekening gebracht, zelfs wanneer het niet wordt gebruikt. Aangezien de kosten voor het cluster vaak zoveel hoger zijn dan de kosten voor opslag, is het financieel gezien logischer clusters te verwijderen wanneer ze niet worden gebruikt. 
 
 > [!NOTE]  
-> Als u *meteen* verder wilt gaan met de volgende zelfstudie om te leren hoe u ETL-bewerkingen uitvoert met behulp van Hadoop in HDInsight, kunt u het cluster beter behouden. In die zelfstudie hebt u namelijk ook een Hadoop-cluster nodig. Als u echter niet direct verdergaat met de volgende zelfstudie, moet u het cluster nu verwijderen.
+> Als u *meteen* verder wilt gaan met de volgende zelfstudie om te leren hoe u ETL-bewerkingen uitvoert met behulp van Hadoop in HDInsight, kunt u het cluster beter behouden. Dit komt doordat in de zelfstudie hebt u een Hadoop-cluster opnieuw maken. Als u echter niet direct verdergaat met de volgende zelfstudie, moet u het cluster nu verwijderen.
 > 
 >  
 

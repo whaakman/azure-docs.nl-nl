@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: secdec18
-ms.openlocfilehash: 25a8057a1c547e29b209d87d9124a3e019957dd8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f03193253bd8d8a7530d65a552a07d3901887cf5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100851"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104298"
 ---
 # <a name="configure-storage-accounts-for-cloudyn"></a>Storage-accounts voor Cloudyn configureren
 
@@ -39,13 +39,13 @@ Configureert u is Azure storage voor gebruik door Cloudyn vrij eenvoudig. Verzam
 2. Klik op **alle Services**, selecteer **opslagaccounts**, blader naar het opslagaccount dat u wilt gebruiken, en selecteer vervolgens het account.
 3. Op de pagina van uw storage-account onder **instellingen**, klikt u op **toegangssleutels**.
 4. Kopieer uw **opslagaccountnaam** en **Connection string** onder key1.  
-![Opslag account naam en de verbindingsreeks kopiëren](./media/storage-accounts/azure-storage-access-keys.png)  
+   ![Opslag account naam en de verbindingsreeks kopiëren](./media/storage-accounts/azure-storage-access-keys.png)  
 5. Open de Cloudyn-portal vanuit Azure Portal of ga naar https://azure.cloudyn.com en meld u aan.
 6. Klik op het tandwiel-symbool en selecteer vervolgens **rapporten opslagbeheer**.
 7. Klik op **nieuwe toevoegen +** en ervoor te zorgen dat Microsoft Azure is geselecteerd. Plak de naam van uw Azure storage-account in de **naam** gebied. Plak uw **verbindingsreeks** in het desbetreffende gebied. Voer een containernaam in en klik vervolgens op **opslaan**.  
-![Azure storage-account en de tekenreeks in de toevoegen een nieuw rapport opslag vak plakken](./media/storage-accounts/azure-cloudyn-storage.png)
+   ![Azure storage-account en de tekenreeks in de toevoegen een nieuw rapport opslag vak plakken](./media/storage-accounts/azure-cloudyn-storage.png)
 
-  Uw nieuwe rapport van Azure storage-vermelding wordt weergegeven in de lijst met storage-account.  
+   Uw nieuwe rapport van Azure storage-vermelding wordt weergegeven in de lijst met storage-account.  
     ![Nieuwe Azure-rapport opslag vermelding in lijst](./media/storage-accounts/azure-storage-entry.png)
 
 
@@ -53,7 +53,7 @@ U kunt nu rapporten opslaan naar Azure storage. Klik in een rapport op **acties*
 
 ## <a name="configure-an-aws-storage-bucket"></a>Een bucket van AWS-opslag configureren
 
-De Cloudyn maakt gebruik van bestaande AWS-referenties: gebruiker of rol, de rapporten opslaan naar de bucket. Als u wilt testen van de toegang, Cloudyn probeert op te slaan een klein tekstbestand dat aan de bucket met de naam van het _controle-bucket-permission.txt_.
+De Cloudyn maakt gebruik van bestaande AWS-referenties: Gebruiker of rol, de rapporten opslaan naar de bucket. Als u wilt testen van de toegang, Cloudyn probeert op te slaan een klein tekstbestand dat aan de bucket met de naam van het _controle-bucket-permission.txt_.
 
 U opgeven de Cloudyn-rol of de gebruiker met de machtiging PutObject aan de bucket. Vervolgens gebruikt u een bestaande bucket of een nieuwe maken om op te slaan van rapporten. Ten slotte bepalen hoe u de opslagklasse beheren, levenscyclus regels instellen of verwijder onnodige bestanden.
 
@@ -67,8 +67,8 @@ Wanneer u een nieuw beleid maakt, kunt u de exacte machtigingen die nodig zijn v
 4. Klik op de **JSON** tabblad.
 5. Het volgende beleid kunt u een rapport opslaan in een S3-bucket. Kopieer en plak het volgende voorbeeld van beleid om de **JSON** tabblad. Vervang &lt;bucketname&gt; met de Bucketnaam van uw.
 
-  ```json
-{
+   ```json
+   {
     "Version": "2012-10-17",
     "Statement": [
       {
@@ -82,8 +82,8 @@ Wanneer u een nieuw beleid maakt, kunt u de exacte machtigingen die nodig zijn v
         ]
       }
     ]
-}
-```
+   }
+   ```
 
 6. Klik op **controlebeleid**.  
     ![Voorbeeld van AWS JSON-beleid](./media/storage-accounts/aws-policy.png)  
@@ -109,12 +109,12 @@ Als u wilt koppelen het nieuwe beleid, de AWS-console openen en bewerken van de 
 1. Selecteer de Cloudyn-gebruiker.
 2. Op de **machtigingen** tabblad **machtigingen toevoegen**.
 3. In de **machtiging verlenen** sectie, selecteer **bestaande beleidsregels rechtstreeks koppelen**.
-4. Zoeken naar het beleid dat u hebt gemaakt, selecteert u deze en klik op **volgende: Controleer**.
+4. Zoeken naar het beleid dat u hebt gemaakt, selecteert u deze en klik op **volgende: Review**.
 5. Klik op de machtigingen toevoegen aan de pagina voor de naam van de rol, **machtigingen toevoegen**.  
     ![Van voorbeeldbeleid dat is gekoppeld aan uw Cloudyn-gebruiker](./media/storage-accounts/aws-attach-policy-user.png)
 
 
-### <a name="optional-set-permission-with-bucket-policy"></a>Optioneel: Machtiging met de bucket beleid instellen
+### <a name="optional-set-permission-with-bucket-policy"></a>Optioneel: De machtiging instellen met bucket-beleid
 
 U kunt ook de machtiging voor het maken van rapporten op uw S3-bucket op basis van beleid bucket instellen. In de klassieke S3-weergave:
 
@@ -122,11 +122,11 @@ U kunt ook de machtiging voor het maken van rapporten op uw S3-bucket op basis v
 2. Selecteer de **machtigingen** tabblad en klik vervolgens op **Bucket beleid**.
 3. Kopieer en plak het volgende voorbeeld van beleid. Vervang &lt;bucket\_naam&gt; en &lt;Cloudyn\_principe&gt; met de informatie van uw bucket. Vervang de informatie van de rol of de gebruiker die door Cloudyn worden gebruikt.
 
-  ```
-{
-  "Id": "Policy1485775646248",
-  "Version": "2012-10-17",
-  "Statement": [
+   ```
+   {
+   "Id": "Policy1485775646248",
+   "Version": "2012-10-17",
+   "Statement": [
     {
       "Sid": "SaveReport2S3",
       "Action": [
@@ -140,9 +140,9 @@ U kunt ook de machtiging voor het maken van rapporten op uw S3-bucket op basis v
         ]
       }
     }
-  ]
-}
-```
+   ]
+   }
+   ```
 
 4. Klik in de beleidseditor Bucket **opslaan**.
 

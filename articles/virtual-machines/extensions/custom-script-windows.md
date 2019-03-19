@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2018
 ms.author: roiyz
-ms.openlocfilehash: f29c995c4fb4a1e87c95295779ff83dd133ac61c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 520ff1dfeefc8cca66710745012ee54b550a19a0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984389"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097920"
 ---
 # <a name="custom-script-extension-for-windows"></a>Aangepaste Scriptextensie voor Windows
 
@@ -123,11 +123,11 @@ Deze items moeten worden beschouwd als vertrouwelijke gegevens en opgegeven in d
 >De namen van deze eigenschappen zijn hoofdlettergevoelig. Om implementatieproblemen te voorkomen, door de namen te gebruiken zoals hier wordt weergegeven.
 
 #### <a name="property-value-details"></a>Details van eigenschap
- * `commandToExecute`: (**vereist**, string) het invoerpunt-script om uit te voeren. Dit veld in plaats daarvan gebruiken als uw opdracht geheimen zoals wachtwoorden bevat, of uw fileUris gevoelig zijn.
-* `fileUris`: (optioneel, string-matrix) de URL's voor bestanden die moeten worden gedownload.
-* `timestamp` (optioneel, 32-bits geheel getal) te gebruiken in dit veld alleen voor het activeren van een opnieuw uitvoeren van het script door de waarde van dit veld te wijzigen.  Een geheel getal-waarde is toegestaan. alleen moet deze anders is dan de vorige waarde.
-* `storageAccountName`: (optioneel, string) de naam van de storage-account. Als u de storage-referenties opgeeft alle `fileUris` moet URL's voor Azure-Blobs.
-* `storageAccountKey`: (optioneel, string) de toegangssleutel van storage-account
+* `commandToExecute`: (**vereist**, string) het invoerpunt-script om uit te voeren. Dit veld in plaats daarvan gebruiken als uw opdracht geheimen zoals wachtwoorden bevat, of uw fileUris gevoelig zijn.
+  * `fileUris`: (optioneel, string-matrix) de URL's voor bestanden die moeten worden gedownload.
+  * `timestamp` (optioneel, 32-bits geheel getal) te gebruiken in dit veld alleen voor het activeren van een opnieuw uitvoeren van het script door de waarde van dit veld te wijzigen.  Een geheel getal-waarde is toegestaan. alleen moet deze anders is dan de vorige waarde.
+  * `storageAccountName`: (optioneel, string) de naam van de storage-account. Als u de storage-referenties opgeeft alle `fileUris` moet URL's voor Azure-Blobs.
+  * `storageAccountKey`: (optioneel, string) de toegangssleutel van storage-account
 
 De volgende waarden kunnen worden ingesteld in de openbare of beveiligde instellingen, de uitbreiding wordt een configuratie waarbij de onderstaande waarden zijn ingesteld in de instellingen voor zowel openbare als beveiligde afwijzen.
 * `commandToExecute`

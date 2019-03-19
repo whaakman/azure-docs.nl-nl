@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4dcf482e02d38e18b7b86fc57565a47510627d44
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: e470f9d6f33e8b534be22132881f4806bed85f5d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652861"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078360"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Zelfstudie: Apache Spark Structured Streaming gebruiken met Apache Kafka op HDInsight
 
@@ -131,16 +131,16 @@ Gebruik de volgende stappen om eerst een virtueel Azure-netwerk te maken en verv
 
     Met deze sjabloon maakt u de volgende bronnen:
 
-    * Een Kafka in HDInsight 3.6-cluster.
-    * Een Spark 2.2.0 in HDInsight 3.6-cluster.
-    * Een Azure Virtual Network dat de HDInsight-clusters bevat.
+   * Een Kafka in HDInsight 3.6-cluster.
+   * Een Spark 2.2.0 in HDInsight 3.6-cluster.
+   * Een Azure Virtual Network dat de HDInsight-clusters bevat.
 
-    > [!IMPORTANT]  
-    > Voor het Structured Streaming-notebook dat in deze zelfstudie wordt gebruikt, is Spark 2.2.0 in HDInsight 3.6 vereist. Als u een eerdere versie van Spark in HDInsight gebruikt, worden er fouten gegenereerd bij gebruik van de notebook.
+     > [!IMPORTANT]  
+     > Voor het Structured Streaming-notebook dat in deze zelfstudie wordt gebruikt, is Spark 2.2.0 in HDInsight 3.6 vereist. Als u een eerdere versie van Spark in HDInsight gebruikt, worden er fouten gegenereerd bij gebruik van de notebook.
 
 2. Gebruik de volgende informatie voor het vullen van de vermeldingen in de sectie **Aangepaste sjabloon**:
 
-    | Instelling | Waarde |
+    | Instelling | Value |
     | --- | --- |
     | Abonnement | Uw Azure-abonnement |
     | Resourcegroep | De resourcegroep die de resources bevat. |

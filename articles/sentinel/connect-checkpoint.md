@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/6/2019
 ms.author: rkarlin
-ms.openlocfilehash: f4886a8c66c464d3fd474da5946e53558a32ad13
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d6048ee90eb6e39e70550aa52a96b4466faa3efa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532470"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119884"
 ---
 # <a name="connect-your-check-point-appliance"></a>Verbinding maken met uw apparaat Check Point
 
@@ -46,18 +46,18 @@ Zie voor een diagram van een van beide opties [verbinding maken met gegevensbron
 
 1. Onder **Linux Syslog-agentconfiguratie**:
    - Kies **automatische implementatie** als u maken van een nieuwe machine die vooraf is geïnstalleerd met de Azure-Sentinel-agent en bevat alle configuratie nodig wilt, zoals hierboven is beschreven. Selecteer **automatische implementatie** en klikt u op **automatische agentimplementatie**. Hiermee gaat u naar de pagina kopen voor een specifieke virtuele machine die automatisch is verbonden met uw werkruimte. De virtuele machine is een **standard D2s v3 (2 vcpu's, 8 GB geheugen)** en heeft een openbaar IP-adres.
-      1. In de **aangepaste implementatie** pagina, geef de details en kiest u een gebruikersnaam en wachtwoord en als u akkoord met de voorwaarden en bepalingen gaat, koopt u de virtuele machine.
+     1. In de **aangepaste implementatie** pagina, geef de details en kiest u een gebruikersnaam en wachtwoord en als u akkoord met de voorwaarden en bepalingen gaat, koopt u de virtuele machine.
       
-       2. Deze opdrachten uitvoeren op de computer met de Syslog-agent om ervoor te zorgen dat alle Check Point-logboeken worden toegewezen aan de agent Azure Sentinel:
+        1. Deze opdrachten uitvoeren op de computer met de Syslog-agent om ervoor te zorgen dat alle Check Point-logboeken worden toegewezen aan de agent Azure Sentinel:
            - Als u Syslog-ng het volgende gebruikt, voert u deze opdrachten (Let erop dat de Syslog-agent opnieuw worden opgestart):
             
-                 sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };\n\nfilter f_msg_oms { match(\"Check Point\" value(\"MESSAGE\")); };\n  destination security_msg_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_msg_oms); destination(security_msg_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"
+                sudo bash - c "printf ' f_local4_oms filteren {facility(local4);}; \ n bestemming security_oms {tcp (\"127.0.0.1\" port(25226));}; \n logboek {source(src); filter(f_local4_oms); destination(security_oms);}; \n\nfilter f_msg_oms {overeen met (\"Check Point\" waarde (\" BERICHT\")); }; \n bestemming security_msg_oms {tcp (\"127.0.0.1\" port(25226));}; \n logboek {source(src); filter(f_msg_oms); destination(security_msg_oms);};' > /etc/syslog-ng/security-config-omsagent.conf "
 
              De Syslog-daemon opnieuw: `sudo service syslog-ng restart`
-            - Als u rsyslog gebruikt, voert u deze opdrachten (Let erop dat de Syslog-agent opnieuw worden opgestart):
+           - Als u rsyslog gebruikt, voert u deze opdrachten (Let erop dat de Syslog-agent opnieuw worden opgestart):
                     
-                  sudo bash -c "printf 'local4.debug  @127.0.0.1:25226\n\n:msg, contains, \"Check Point\"  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"
-              De Syslog-daemon opnieuw: `sudo service rsyslog restart`
+                 sudo bash -c "printf 'local4.debug  @127.0.0.1:25226\n\n:msg, contains, \"Check Point\"  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"
+             De Syslog-daemon opnieuw: `sudo service rsyslog restart`
 
    - Kies **handmatige implementatie** als u wilt gebruiken van een bestaande virtuele machine als de specifieke Linux-machine waarop de agent Azure Sentinel moet worden geïnstalleerd. 
       1. Onder **de Syslog-agent downloaden en installeren**, selecteer **virtuele Azure Linux-machine**. 
@@ -88,19 +88,19 @@ Als u Azure niet gebruikt, moet u handmatig de agent Azure Sentinel om uit te vo
 1. Maken van een specifieke Linux-VM, onder **Linux Syslog-agentconfiguratie** Kies **handmatige implementatie**.
    1. Onder **de Syslog-agent downloaden en installeren**, selecteer **niet-Azure Linux-machine**. 
    1. In de **Direct agent** scherm die wordt geopend, selecteert **-Agent voor Linux** om te downloaden van de agent of voer deze opdracht uit om het te downloaden op uw Linux-machine:   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w {workspace GUID} -s gehIk/GvZHJmqlgewMsIcth8H6VqXLM9YXEpu0BymnZEJb6mEjZzCHhZgCx5jrMB1pVjRCMhn+XTQgDTU3DVtQ== -d opinsights.azure.com`
-    3. In het scherm connector onder **en Syslog doorsturen configureren**, instellen of uw Syslog-daemon is **rsyslog.d** of **syslog-ng het volgende**. 
-    4. Kopieer deze opdrachten en voer ze uit op uw apparaat:
-       - Als u hebt geselecteerd **rsyslog**:
-          1. Laat de Syslog-daemon om te luisteren op faciliteit local_4 en 'Check Point', en de Syslog-berichten te verzenden naar de Azure-Sentinel agent met behulp van poort 25226. `sudo bash -c "printf 'local4.debug  @127.0.0.1:25226\n\n:msg, contains, \"Check Point\"  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"`
+      1. In het scherm connector onder **en Syslog doorsturen configureren**, instellen of uw Syslog-daemon is **rsyslog.d** of **syslog-ng het volgende**. 
+      1. Kopieer deze opdrachten en voer ze uit op uw apparaat:
+         - Als u hebt geselecteerd **rsyslog**:
+           1. Laat de Syslog-daemon om te luisteren op faciliteit local_4 en 'Check Point', en de Syslog-berichten te verzenden naar de Azure-Sentinel agent met behulp van poort 25226. `sudo bash -c "printf 'local4.debug  @127.0.0.1:25226\n\n:msg, contains, \"Check Point\"  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"`
             
-          2. Download en installeer de [security_events configuratiebestand](https://aka.ms/asi-syslog-config-file-linux) die configureert u de Syslog-agent om te luisteren op poort 25226. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` Waar {0} moet worden vervangen door de GUID van uw werkruimte.
-          3. De syslog-daemon opnieuw starten `sudo service rsyslog restart`
-       - Als u hebt geselecteerd **syslog-ng het volgende**:
+           2. Download en installeer de [security_events configuratiebestand](https://aka.ms/asi-syslog-config-file-linux) die configureert u de Syslog-agent om te luisteren op poort 25226. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` Waar {0} moet worden vervangen door de GUID van uw werkruimte.
+           3. De syslog-daemon opnieuw starten `sudo service rsyslog restart`
+         - Als u hebt geselecteerd **syslog-ng het volgende**:
             1. Laat de Syslog-daemon om te luisteren op faciliteit local_4 en 'Check Point', en de Syslog-berichten te verzenden naar de Azure-Sentinel agent met behulp van poort 25226. `sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };\n\nfilter f_msg_oms { match(\"Check Point\" value(\"MESSAGE\")); };\n  destination security_msg_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_msg_oms); destination(security_msg_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"`
             2. Download en installeer de [security_events configuratiebestand](https://aka.ms/asi-syslog-config-file-linux) die configureert u de Syslog-agent om te luisteren op poort 25226. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` Waar {0} moet worden vervangen door de GUID van uw werkruimte.
             3. De syslog-daemon opnieuw starten `sudo service syslog-ng restart`
-    5. Start opnieuw op de Syslog-agent met de volgende opdracht: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
-    6. Bevestig dat er geen fouten in het logboek van de agent zijn door het uitvoeren van deze opdracht: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
+      1. Start opnieuw op de Syslog-agent met de volgende opdracht: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
+      1. Bevestig dat er geen fouten in het logboek van de agent zijn door het uitvoeren van deze opdracht: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
  
 ## <a name="step-2-forward-check-point-logs-to-the-syslog-agent"></a>Stap 2: Zone voor forward Check Point logboeken naar de Syslog-agent
 
@@ -108,9 +108,9 @@ Configureer uw toestel Check Point voor het doorsturen van Syslog-berichten in C
 
 1. Ga naar [punt activiteitenlogboeken controleren](https://aka.ms/asi-syslog-checkpoint-forwarding).
 2. Schuif omlaag naar **basisimplementatie** en volg de instructies voor het instellen van de verbinding met de volgende richtlijnen:
-     - Stel de **Syslog-poort** naar **514** of de poort die u op de agent instelt.
-    - Vervang de **naam** en **doel-IP-adres** in de CLI met de naam van de Syslog-agent en de IP-adres.
-    - De indeling ingesteld op **CEF**.
+   - Stel de **Syslog-poort** naar **514** of de poort die u op de agent instelt.
+     - Vervang de **naam** en **doel-IP-adres** in de CLI met de naam van de Syslog-agent en de IP-adres.
+     - De indeling ingesteld op **CEF**.
 3. Als u van versie R77.30 of R80.10 gebruikmaakt, schuift u tot **installaties** en volg de instructies voor het installeren van een logboek-uitvoerder voor uw versie.
  
 ## <a name="step-3-validate-connectivity"></a>Stap 3: Verbinding valideren

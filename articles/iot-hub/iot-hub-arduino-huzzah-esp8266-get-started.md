@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: ae123638e26c9fb6c82666efddabf06874c7b7a8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 65f9b392f3ae57c1eaad7454434b4870954f36f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539957"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085096"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Adafruit Feather HUZZAH ESP8266 verbinden met Azure IoT Hub in de cloud
 
@@ -180,15 +180,15 @@ De voorbeeldtoepassing wordt gehost op GitHub. Kloon de voorbeeldopslagplaats me
 
 12. Klik op **installeren** knop voor esp8266.
 
-   Boards Manager geeft aan dat de ESP8266 met een versie van 2.2.0 of hoger is geïnstalleerd.
+    Boards Manager geeft aan dat de ESP8266 met een versie van 2.2.0 of hoger is geïnstalleerd.
 
-   ![Het pakket esp8266 is geïnstalleerd](media/iot-hub-arduino-huzzah-esp8266-get-started/13_vscode-esp8266-installed.png)
+    ![Het pakket esp8266 is geïnstalleerd](media/iot-hub-arduino-huzzah-esp8266-get-started/13_vscode-esp8266-installed.png)
 
 13. Voer `F1`, typt u **Arduino** en selecteer **Arduino: Config Board**.
 
 14. Klik in het vak voor **bord geselecteerd:** en het type **esp8266**en selecteer vervolgens **Adafruit HUZZAH ESP8266 (esp8266)**.
 
-   ![Selecteer esp8266 bord](media/iot-hub-arduino-huzzah-esp8266-get-started/14_vscode-select-esp8266.png)
+    ![Selecteer esp8266 bord](media/iot-hub-arduino-huzzah-esp8266-get-started/14_vscode-select-esp8266.png)
 
 ### <a name="install-necessary-libraries"></a>Vereiste bibliotheken installeren
 

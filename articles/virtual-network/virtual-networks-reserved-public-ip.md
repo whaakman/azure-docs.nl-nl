@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: genli
-ms.openlocfilehash: bd2b28a7f8d0a765e10ffa58b5a72b4bd5bc47b0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 543135db8df69db7e0e6182c9d52b9c956ee80b1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228178"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996980"
 ---
 # <a name="reserved-ip-addresses-classic-deployment"></a>Gereserveerde IP-adressen (klassieke implementatie)
 
@@ -28,7 +28,7 @@ ms.locfileid: "51228178"
 Als u wilt voorkomen dat IP-adressen wijzigen, kunt u een IP-adres reserveren. Gereserveerde IP-adressen kan alleen als een VIP-adres, ervoor te zorgen dat het IP-adres voor de cloudservice hetzelfde blijft, zelfs als het resources worden afgesloten of gestopt (toewijzing opgeheven) worden gebruikt. Bovendien kunt u als een VIP-adres aan een gereserveerde IP-adres gebruikt bestaande dynamische IP-adressen converteren.
 
 > [!IMPORTANT]
-> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../azure-resource-manager/resource-manager-deployment-model.md). Dit artikel gaat over het gebruik van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken. Meer informatie over het reserveren van een statische openbare IP-adres met de [Resource Manager-implementatiemodel](virtual-network-ip-addresses-overview-arm.md).
+> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources:  [Resource Manager en het klassieke model](../azure-resource-manager/resource-manager-deployment-model.md). Dit artikel gaat over het gebruik van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken. Meer informatie over het reserveren van een statische openbare IP-adres met de [Resource Manager-implementatiemodel](virtual-network-ip-addresses-overview-arm.md).
 
 Lees voor meer informatie over IP-adressen in Azure, de [IP-adressen](virtual-network-ip-addresses-overview-classic.md) artikel.
 
@@ -83,7 +83,7 @@ Verwachte uitvoer:
     OperationStatus      : Succeeded
 
 >[!NOTE]
->Wanneer u een gereserveerd IP-adres met PowerShell maken, kunt u een resourcegroep voor het maken van het gereserveerde IP-adres in niet opgeven. Azure plaatsen deze in een resourcegroep met de naam *standaard-netwerk* automatisch. Als u de gereserveerde IP-via maakt de [Azure-portal](http://portal.azure.com), kunt u een resourcegroep die u kiest. Als u het gereserveerde IP-adres in een resourcegroep gemaakt met andere dan maken *standaard-netwerk* echter wanneer u verwijst naar de gereserveerde IP-adres met opdrachten zoals `Get-AzureReservedIP` en `Remove-AzureReservedIP`, u moet verwijzen naar de naam van de  *Resource-group-name gereserveerd-ip-naam van de groep*.  Bijvoorbeeld, als u een gereserveerde IP-adres met de naam *myReservedIP* in een resourcegroep met de naam *myResourceGroup*, u moet verwijzen naar de naam van het gereserveerde IP-adres als *groep myResourceGroup myReservedIP*.   
+>Wanneer u een gereserveerd IP-adres met PowerShell maken, kunt u een resourcegroep voor het maken van het gereserveerde IP-adres in niet opgeven. Azure plaatsen deze in een resourcegroep met de naam *standaard-netwerk* automatisch. Als u de gereserveerde IP-via maakt de [Azure-portal](https://portal.azure.com), kunt u een resourcegroep die u kiest. Als u het gereserveerde IP-adres in een resourcegroep gemaakt met andere dan maken *standaard-netwerk* echter wanneer u verwijst naar de gereserveerde IP-adres met opdrachten zoals `Get-AzureReservedIP` en `Remove-AzureReservedIP`, u moet verwijzen naar de naam van de  *Resource-group-name gereserveerd-ip-naam van de groep*.  Bijvoorbeeld, als u een gereserveerde IP-adres met de naam *myReservedIP* in een resourcegroep met de naam *myResourceGroup*, u moet verwijzen naar de naam van het gereserveerde IP-adres als *groep myResourceGroup myReservedIP*.   
 
 
 Nadat een IP-adres is gereserveerd, blijft deze gekoppeld aan uw abonnement totdat u deze verwijdert. Een gereserveerde IP-adres als volgt verwijderen:

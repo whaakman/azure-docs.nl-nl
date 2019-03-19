@@ -11,12 +11,12 @@ ms.date: 11/26/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: d68910c32c53128704004d356062aca2c328e7d5
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 849f944235cf1ab4408aeab336310028d6e754f4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576698"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855866"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -324,9 +324,9 @@ Eigenschappen van het type toegang *SecureString* van een aangepaste activiteit 
 
 ## <a name="compare-v2-v1"></a> Aangepaste v2-activiteit vergelijken met versie 1 (aangepaste) DotNet-activiteit
 
-In Azure Data Factory versie 1, implementeert u een (aangepaste) DotNet-activiteit door het maken van een .net-klassenbibliotheek vormt project met een klasse die de `Execute` -methode van de `IDotNetActivity` interface. De gekoppelde Services, gegevenssets en uitgebreide eigenschappen in de JSON-nettolading van de activiteit van een (aangepaste) DotNet worden doorgegeven aan de methode kan worden uitgevoerd als sterk getypeerde objecten. Zie voor meer informatie over het gedrag van versie 1 [(aangepaste) DotNet in versie 1](v1/data-factory-use-custom-activities.md). Vanwege deze implementatie is uw versie 1-DotNet-activiteitscode voor .NET Framework 4.5.2. De versie 1 DotNet-activiteit heeft ook moet worden uitgevoerd op Azure Batch-Pool op basis van een Windows-knooppunten.
+In Azure Data Factory versie 1, implementeert u een (aangepaste) DotNet-activiteit door te maken van een .NET-klassebibliotheek-project met een klasse die de `Execute` -methode van de `IDotNetActivity` interface. De gekoppelde Services, gegevenssets en uitgebreide eigenschappen in de JSON-nettolading van de activiteit van een (aangepaste) DotNet worden doorgegeven aan de methode kan worden uitgevoerd als sterk getypeerde objecten. Zie voor meer informatie over het gedrag van versie 1 [(aangepaste) DotNet in versie 1](v1/data-factory-use-custom-activities.md). Vanwege deze implementatie is uw versie 1-DotNet-activiteitscode voor .NET Framework 4.5.2. De versie 1 DotNet-activiteit heeft ook moet worden uitgevoerd op Azure Batch-Pool op basis van een Windows-knooppunten.
 
-In de Azure Data Factory V2 aangepaste activiteit, zijn u niet verplicht een .net-interface te implementeren. U kunt nu rechtstreeks uitvoeren opdrachten, scripts en uw eigen aangepaste code als een uitvoerbaar bestand is gecompileerd. Voor het configureren van deze implementatie, geeft u de `Command` eigenschap in combinatie met de `folderPath` eigenschap. De aangepaste activiteit wordt geüpload voor het uitvoerbare bestand en de bijbehorende afhankelijkheden te `folderpath` en voert u de opdracht voor u.
+In de Azure Data Factory V2 aangepaste activiteit, zijn u niet verplicht een .NET-interface te implementeren. U kunt nu rechtstreeks uitvoeren opdrachten, scripts en uw eigen aangepaste code als een uitvoerbaar bestand is gecompileerd. Voor het configureren van deze implementatie, geeft u de `Command` eigenschap in combinatie met de `folderPath` eigenschap. De aangepaste activiteit wordt geüpload voor het uitvoerbare bestand en de bijbehorende afhankelijkheden te `folderpath` en voert u de opdracht voor u.
 
 De gekoppelde Services, gegevenssets (gedefinieerd in referenceObjects) en uitgebreide eigenschappen die zijn gedefinieerd in de JSON-nettolading van een Data Factory v2 die aangepaste activiteit kan worden geopend door uw uitvoerbaar bestand als JSON-bestanden. U kunt toegang tot de vereiste eigenschappen met behulp van een JSON-serializer zoals wordt weergegeven in de voorgaande SampleApp.exe-codevoorbeeld.
 
@@ -337,18 +337,18 @@ De volgende tabel beschrijft de verschillen tussen de aangepaste Data Factory V2
 
 |Verschillen      | Aangepaste activiteit      | versie 1 (aangepaste) DotNet-activiteit      |
 | ---- | ---- | ---- |
-|Hoe aangepaste logica wordt gedefinieerd      |Door op te geven van een uitvoerbaar bestand      |Door het implementeren van een .net-DLL-bestand      |
+|Hoe aangepaste logica wordt gedefinieerd      |Door op te geven van een uitvoerbaar bestand      |Door het implementeren van een .NET-DLL-bestand      |
 |De uitvoeringsomgeving van de aangepaste logica      |Windows- of Linux      |Windows (.NET Framework 4.5.2)      |
-|Uitvoeren van scripts      |Ondersteunt het uitvoeren van scripts rechtstreeks (bijvoorbeeld "cmd /c echo Hallo wereld" op Windows-VM)      |Implementatie in de .net-DLL-bestand is vereist      |
+|Uitvoeren van scripts      |Ondersteunt het uitvoeren van scripts rechtstreeks (bijvoorbeeld "cmd /c echo Hallo wereld" op Windows-VM)      |Implementatie in de .NET-DLL is vereist      |
 |Gegevensset vereist      |Optioneel      |Vereist voor het koppelen van activiteiten en informatie doorgeven      |
 |Informatie van de activiteit doorgeven aan de aangepaste logica      |Via ReferenceObjects (LinkedServices en gegevenssets) en ExtendedProperties (aangepaste eigenschappen)      |Via ExtendedProperties (aangepaste eigenschappen), invoer en Uitvoergegevenssets      |
-|Ophalen van gegevens in aangepaste logica      |Activity.json linkedServices.json en datasets.json die zijn opgeslagen in dezelfde map van het uitvoerbare bestand geparseerd      |Via .net SDK (.Net Frame 4.5.2)      |
-|Logboekregistratie      |Schrijft rechtstreeks naar de STDOUT      |Logger in .net DLL-bestand implementeren      |
+|Ophalen van gegevens in aangepaste logica      |Activity.json linkedServices.json en datasets.json die zijn opgeslagen in dezelfde map van het uitvoerbare bestand geparseerd      |Via .NET SDK (.NET Frame 4.5.2)      |
+|Logboekregistratie      |Schrijft rechtstreeks naar de STDOUT      |Logger implementeren in .NET-DLL      |
 
 
-Hebt u een bestaande .net-code die zijn geschreven voor een versie 1 (aangepaste) DotNet-activiteit, moet u uw code te werken met de huidige versie van de aangepaste activiteit wijzigen. Werk uw code door deze op hoog niveau richtlijnen te volgen:
+Hebt u een bestaande .NET-code die zijn geschreven voor een versie 1 (aangepaste) DotNet-activiteit, moet u uw code te werken met de huidige versie van de aangepaste activiteit wijzigen. Werk uw code door deze op hoog niveau richtlijnen te volgen:
 
-  - Wijzigen van het project vanuit een .net-klassenbibliotheek vormt voor een Console-App.
+  - Het project wijzigen van een .NET-klassenbibliotheek vormt in een Console-App.
   - Start uw toepassing met de `Main` methode. De `Execute` -methode van de `IDotNetActivity` interface is niet langer vereist.
   - Lezen en parseren van de gekoppelde Services, gegevenssets en -activiteit met een JSON-serializer, maar niet sterk getypeerde objecten. Geeft de waarden van de vereiste eigenschappen aan uw belangrijkste aangepaste code logica. Raadpleeg de bovenstaande SampleApp.exe code als voorbeeld.
   - De Logger-object wordt niet meer ondersteund. Uitvoer van het uitvoerbare bestand kan worden weergegeven in de console en is opgeslagen in een stdout.txt.

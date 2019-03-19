@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 12/27/2018
+ms.date: 02/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 6df44afee26570dbdc5d64b449c4e33d6a0956ae
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: d5b6949930161f78c6edf4213df98471e96b1d42
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885707"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404039"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box"></a>De lokale webinterface gebruiken om uw Data Box beheren
 
@@ -25,6 +25,7 @@ Dit artikel bevat de volgende zelfstudies:
 
 - Een ondersteuningspakket genereren
 - Apparaat uitschakelen of opnieuw opstarten
+- Stuklijst- of manifestbestanden downloaden
 - Beschikbare capaciteit van het apparaat weergeven
 - De controlesomvalidatie overslaan 
 
@@ -104,6 +105,8 @@ Zorg er voordat u begint voor dat uw Data Box de stap **Voorbereiding voor verze
     |databoxe2etest_AzFile-BOM.txt    |Azure Files         |SMB/NFS         |
     |databoxe2etest_PageBlock_Rest-BOM.txt     |Pagina-blobs         |REST        |
     |databoxe2etest_BlockBlock_Rest-BOM.txt    |Blok-blobs         |REST         |
+    |mydbmdrg1_MDisk-BOM.txt    |Managed Disk         |SMB/NFS         |
+    |mydbmdrg2_MDisk-BOM.txt     |Managed Disk         |SMB/NFS         |
 
 U kunt deze lijst gebruiken om de bestanden die zijn geüpload naar het Azure Storage-account te controleren nadat de Data Box is geretourneerd naar het Azure-datacenter. Hieronder ziet u een voorbeeld van een manifestbestand.
 

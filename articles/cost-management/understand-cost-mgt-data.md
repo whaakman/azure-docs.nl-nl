@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/07/2019
+ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: e418cf8d619b55fde56a4d6d7d7cd9a8b36a112e
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 40c08f87a1711ae57ceb8b288851686d1e2ad391
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339229"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993942"
 ---
 # <a name="understand-cost-management-data"></a>Inzicht in gegevens van Cost Management
 
@@ -95,7 +95,7 @@ De volgende tabellen bevatten gegevens die is opgenomen of zich niet in Cost Man
 
 ## <a name="rated-usage-data-refresh-schedule"></a>Schema voor gegevensvernieuwing geclassificeerde gebruik
 
-Kosten en gebruik gegevens zijn beschikbaar in kostenbeheer en facturering in Azure portal en [ondersteuning voor API's](https://aka.ms/costmgmt/docs). Houd er rekening mee met de volgende punten als u kosten bekijken:
+Kosten en gebruik gegevens zijn beschikbaar in kostenbeheer en facturering in Azure portal en [ondersteuning voor API's](index.yml). Houd er rekening mee met de volgende punten als u kosten bekijken:
 
 - Geschatte kosten in rekening gebracht voor de huidige factureringsperiode worden zes keer per dag bijgewerkt.
 - Geschatte kosten in rekening gebracht voor de huidige factureringsperiode kunnen wijzigen als u meer gebruik in rekening worden gebracht.

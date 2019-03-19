@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: tutorial
-ms.date: 10/16/2017
+ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: c1124e710c3bb2cc4d00595989ccb95e584025c4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 6f44d4e6e5a0ee940394e09ceff8a425700d34e1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884491"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100725"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Zelfstudie: Een Aangepaste zoekopdrachten-webpagina bouwen
 
@@ -49,11 +49,11 @@ Een exemplaar voor aangepaste zoekopdrachten met Bing maken:
   
 4. Als u bent aangemeld, klikt u op **Create new instance**. Voer in het venster **Create a new custom search instance** een beschrijvende naam in die duidelijk aangeeft wat voor inhoud de zoekopdracht retourneert. U kunt de naam overigens altijd wijzigen.  
   
-  ![Schermafbeelding van het vak voor het invoeren van een naam voor het nieuwe exemplaar voor aangepaste zoekopdrachten](../media/newCustomSrch.png)  
+   ![Schermafbeelding van het vak voor het invoeren van een naam voor het nieuwe exemplaar voor aangepaste zoekopdrachten](../media/newCustomSrch.png)  
   
 5. Klik op OK, geef een URL op en schakel het selectievakje in als u subpagina's wilt opnemen.  
   
-  ![Schermafbeelding van pagina voor opgeven van URL](../media/newCustomSrch1-a.png)  
+   ![Schermafbeelding van pagina voor opgeven van URL](../media/newCustomSrch1-a.png)  
 
 
 ## <a name="add-active-entries"></a>Actieve vermeldingen toevoegen
@@ -97,28 +97,28 @@ Custom Search biedt een gehoste gebruikersinterface voor het weergeven van het J
   
 2. Selecteer een lay-out.  
   
-  ![Schermafbeelding van het selecteren van een lay-out voor de gehoste gebruikersinterface](./media/custom-search-hosted-ui-select-layout.png)  
+   ![Schermafbeelding van het selecteren van een lay-out voor de gehoste gebruikersinterface](./media/custom-search-hosted-ui-select-layout.png)  
   
 3. Selecteer een kleurenthema.  
   
-  ![Schermafbeelding van het selecteren van een kleurenthema voor de gehoste gebruikersinterface](./media/custom-search-hosted-ui-select-color-theme.png)  
+   ![Schermafbeelding van het selecteren van een kleurenthema voor de gehoste gebruikersinterface](./media/custom-search-hosted-ui-select-color-theme.png)  
 
-  Als u het kleurenthema wilt afstemmen voor een betere integratie met uw web-app, klikt u op **Customize theme**. Niet alle kleurconfiguraties zijn van toepassing op alle lay-outthema's. Als u een kleur wilt wijzigen, voert u de hexadecimale RGB-waarde van de kleur (bijvoorbeeld #366eb8) in het bijbehorende tekstvak in. U kunt ook op de kleurknop klikken en vervolgens op de gewenste tint. Denk altijd aan toegankelijkheid bij het selecteren van kleuren.
+   Als u het kleurenthema wilt afstemmen voor een betere integratie met uw web-app, klikt u op **Customize theme**. Niet alle kleurconfiguraties zijn van toepassing op alle lay-outthema's. Als u een kleur wilt wijzigen, voert u de hexadecimale RGB-waarde van de kleur (bijvoorbeeld #366eb8) in het bijbehorende tekstvak in. U kunt ook op de kleurknop klikken en vervolgens op de gewenste tint. Denk altijd aan toegankelijkheid bij het selecteren van kleuren.
   
-  ![Schermafbeelding van het aanpassen van een kleurenthema voor de gehoste gebruikersinterface](./media/custom-search-hosted-ui-customize-color-theme.png)  
+   ![Schermafbeelding van het aanpassen van een kleurenthema voor de gehoste gebruikersinterface](./media/custom-search-hosted-ui-customize-color-theme.png)  
 
   
 4. Geef aanvullende configuratieopties op.  
   
-  ![Schermafbeelding van het opgeven van aanvullende configuraties voor de gehoste gebruikersinterface](./media/custom-search-hosted-ui-additional-configurations.png)  
+   ![Schermafbeelding van het opgeven van aanvullende configuraties voor de gehoste gebruikersinterface](./media/custom-search-hosted-ui-additional-configurations.png)  
   
-  Als u geavanceerde configuraties wilt ophalen, klikt u op **Show advanced configurations**. U ziet dan opties zoals *Link target* onder Web search, *Enable filters* onder Image search en Video search, en *Search box text placeholder* onder Miscellaneous.
+   Als u geavanceerde configuraties wilt ophalen, klikt u op **Show advanced configurations**. U ziet dan opties zoals *Link target* onder Web search, *Enable filters* onder Image search en Video search, en *Search box text placeholder* onder Miscellaneous.
 
-  ![Schermafbeelding van het opgeven van geavanceerde configuraties voor de gehoste gebruikersinterface](./media/custom-search-hosted-ui-advanced-configurations.png)  
+   ![Schermafbeelding van het opgeven van geavanceerde configuraties voor de gehoste gebruikersinterface](./media/custom-search-hosted-ui-advanced-configurations.png)  
   
 5. Selecteer uw abonnementssleutels in de vervolgkeuzelijsten. U kunt de abonnementssleutel ook handmatig invoeren. Zie [Cognitive Services uitproberen](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api) voor informatie over het opvragen van sleutels.  
   
-  ![Schermafbeelding van het opgeven van aanvullende configuraties voor de gehoste gebruikersinterface](./media/custom-search-hosted-ui-subscription-key.png)
+   ![Schermafbeelding van het opgeven van aanvullende configuraties voor de gehoste gebruikersinterface](./media/custom-search-hosted-ui-subscription-key.png)
 
 [!INCLUDE [publish or revert](../includes/publish-revert.md)]
 
@@ -140,66 +140,66 @@ In de rest van deze zelfstudie wordt het volgende toegelicht: **Optie 1: JavaScr
   
 3. Selecteer **Visual C# / Web / ASP.NET Core Web Application** in het venster **New Project**, geef het project een naam en klik vervolgens op **OK**.  
   
-  ![Schermafbeelding van het dialoogvenster New Project](./media/custom-search-new-project.png)  
+   ![Schermafbeelding van het dialoogvenster New Project](./media/custom-search-new-project.png)  
   
 4. Selecteer in het venster **New ASP.NET Core Web Application** de optie **Web Application** en klik op **OK**.  
   
-  ![Schermafbeelding van het dialoogvenster New Project](./media/custom-search-new-webapp.png)  
+   ![Schermafbeelding van het dialoogvenster New Project](./media/custom-search-new-webapp.png)  
 
 ## <a name="edit-indexcshtml"></a>index.cshtml bewerken
 
 1. Vouw in de **Solution Explorer** het onderdeel **Pages** uit en dubbelklik op **index.cshtml** om het bestand te openen.  
   
-  ![Schermafbeelding van Solution Explorer met Pages uitgevouwen en index.cshtml geselecteerd](./media/custom-search-visual-studio-webapp-solution-explorer-index.png)  
+   ![Schermafbeelding van Solution Explorer met Pages uitgevouwen en index.cshtml geselecteerd](./media/custom-search-visual-studio-webapp-solution-explorer-index.png)  
   
 2. Verwijder in index.cshtml alles vanaf regel 7.  
   
-  ```razor
-  @page
-  @model IndexModel
-  @{
+   ```razor
+   @page
+   @model IndexModel
+   @{
       ViewData["Title"] = "Home page";
-  }    
-  ```  
+   }    
+   ```  
   
 3. Voeg een regeleinde (br) toe en een div-element om te fungeren als een container.  
   
-  ```html
-  @page
-  @model IndexModel
-  @{
+   ```html
+   @page
+   @model IndexModel
+   @{
       ViewData["Title"] = "Home page";
-  }
-  <br />
-  <div id="customSearch"></div>
-  ```  
+   }
+   <br />
+   <div id="customSearch"></div>
+   ```  
   
 4. Blader op de pagina **Hosted UI** omlaag naar de sectie **Consuming the UI**. Klik op *Endpoints* voor toegang tot het JavaScript-fragment. U kunt ook naar het codefragment gaan door te klikken op **Production** en vervolgens op het tabblad **Hosted UI**.
   
-  <!-- Get new screenshot after prod gets new bits
-  ![Screenshot of the Hosted UI save button](./media/custom-search-hosted-ui-consuming-ui.png)  
-  -->
+   <!-- Get new screenshot after prod gets new bits
+   ![Screenshot of the Hosted UI save button](./media/custom-search-hosted-ui-consuming-ui.png)  
+   -->
   
 5. Plak het script-element in de container die u hebt toegevoegd.  
   
-  ``` html
-  @page
-  @model IndexModel
-  @{
+   ``` html
+   @page
+   @model IndexModel
+   @{
       ViewData["Title"] = "Home page";
-  }
-  <br />
-  <div id="customSearch">
+   }
+   <br />
+   <div id="customSearch">
       <script type="text/javascript" 
           id="bcs_js_snippet"
           src="https://ui.customsearch.ai /api/ux/rendering-js?customConfig=<YOUR-CUSTOM-CONFIG-ID>&market=en-US&safeSearch=Moderate&version=latest&q=">
       </script>
-  </div>
-  ```  
+   </div>
+   ```  
   
 6. Klik in de **Solution Explorer** met de rechtermuisknop op **wwwroot** en klik op **View in Browser**.  
   
-  ![Schermafbeelding van de optie View in Browser in het contextmenu van wwwroot in Solution Explorer](./media/custom-search-webapp-view-in-browser.png)  
+   ![Schermafbeelding van de optie View in Browser in het contextmenu van wwwroot in Solution Explorer](./media/custom-search-webapp-view-in-browser.png)  
 
 De nieuwe webpagina voor aangepaste zoekopdrachten moet er ongeveer als volgt uitzien:
 

@@ -8,12 +8,12 @@ author: dharmeshkakadia
 ms.author: dharmeshkakadia
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: 150f920fb1371eb64181ff69fdad054f989c0845
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 6d75bf86dab8775e77efb21ecc3b0d60063a9823
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407013"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088958"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Apache Hive oplossen met behulp van Azure HDInsight
 
@@ -33,13 +33,13 @@ Meer informatie over de meestgestelde vragen en hun oplossingen als u werkt met 
     for d in `hive -e "show databases"`; do echo "create database $d; use $d;" >> alltables.sql ; for t in `hive --database $d -e "show tables"` ; do ddl=`hive --database $d -e "show create table $t"`; echo "$ddl ;" >> alltables.sql ; echo "$ddl" | grep -q "PARTITIONED\s*BY" && echo "MSCK REPAIR TABLE $t ;" >> alltables.sql ; done; done
     ```
 
-  Met deze opdracht genereert u een bestand met de naam allatables.sql.
+   Met deze opdracht genereert u een bestand met de naam allatables.sql.
 
 3. De alltables.sql bestand kopiëren naar de nieuwe HDInsight-cluster en voer de volgende opdracht:
 
-  ```apache
-  hive -f alltables.sql
-  ```
+   ```apache
+   hive -f alltables.sql
+   ```
 
 De code in de Oplossingsstappen wordt ervan uitgegaan dat gegevenspaden op het nieuwe cluster hetzelfde als de gegevenspaden op het oude cluster zijn. Als de gegevenspaden verschillend zijn, kunt u handmatig het bestand gegenereerde alltables.sql aanleiding van wijzigingen bewerken.
 
@@ -56,21 +56,21 @@ De code in de Oplossingsstappen wordt ervan uitgegaan dat gegevenspaden op het n
 
 2. Hive-client als logboeken wilt raadplegen, gebruik de volgende opdracht:
 
-  ```apache
-  /tmp/<username>/hive.log 
-  ```
+   ```apache
+   /tmp/<username>/hive.log 
+   ```
 
 3. Hive-metastore als logboeken wilt raadplegen, gebruikt u de volgende opdracht:
 
-  ```apache
-  /var/log/hive/hivemetastore.log 
-  ```
+   ```apache
+   /var/log/hive/hivemetastore.log 
+   ```
 
 4. Hiveserver als logboeken wilt raadplegen, gebruikt u de volgende opdracht:
 
-  ```apache
-  /var/log/hive/hiveserver2.log 
-  ```
+   ```apache
+   /var/log/hive/hiveserver2.log 
+   ```
 
 ### <a name="additional-reading"></a>Meer lezen
 
@@ -83,21 +83,21 @@ De code in de Oplossingsstappen wordt ervan uitgegaan dat gegevenspaden op het n
 
 1. Geef een configuratie van sleutel / waarde-paar bij het starten van de Hive-shell. Zie voor meer informatie, [meer lezen](#additional-reading-end).
 
-  ```apache
-  hive -hiveconf a=b 
-  ```
+   ```apache
+   hive -hiveconf a=b 
+   ```
 
 2. Als u alle effectieve configuraties op de Hive-shell, gebruik de volgende opdracht:
 
-  ```apache
-  hive> set;
-  ```
+   ```apache
+   hive> set;
+   ```
 
-  Bijvoorbeeld, gebruik de volgende opdracht om te starten van Hive-shell met logboekregistratie voor foutopsporing ingeschakeld op de console:
+   Bijvoorbeeld, gebruik de volgende opdracht om te starten van Hive-shell met logboekregistratie voor foutopsporing ingeschakeld op de console:
 
-  ```apache
-  hive -hiveconf hive.root.logger=ALL,console 
-  ```
+   ```apache
+   hive -hiveconf hive.root.logger=ALL,console 
+   ```
 
 ### <a name="additional-reading"></a>Meer lezen
 
@@ -111,21 +111,21 @@ De code in de Oplossingsstappen wordt ervan uitgegaan dat gegevenspaden op het n
  
 1. Voor het analyseren van een Apache Tez directed acyclic graph (DAG) op een cluster-kritieke grafiek, verbinding met het HDInsight-cluster met behulp van SSH. Zie voor meer informatie, [meer lezen](#additional-reading-end).
 
-2. Voer de volgende opdracht achter een opdrachtprompt:
+2. Voer de volgende opdracht uit op een opdrachtprompt:
    
-  ```apache
-  hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar CriticalPath --saveResults --dagId <DagId> --eventFileName <DagData.zip> 
-  ```
+   ```apache
+   hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar CriticalPath --saveResults --dagId <DagId> --eventFileName <DagData.zip> 
+   ```
 
 3. Als u andere analyzers die kunnen worden gebruikt voor het analyseren van de DAG Tez, gebruik de volgende opdracht:
 
-  ```apache
-  hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar
-  ```
+   ```apache
+   hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar
+   ```
 
-  Als het eerste argument moet u een voorbeeldprogramma opgeven.
+   Als het eerste argument moet u een voorbeeldprogramma opgeven.
 
-  Geldig programmanamen zijn onder andere:
+   Geldig programmanamen zijn onder andere:
     - **ContainerReuseAnalyzer**: Details van de container opnieuw worden gebruikt in een DAG afdrukken
     - **CriticalPath**: Zoek het kritieke pad van een DAG
     - **LocalityAnalyzer**: Details van de plaats waar zich bevinden in een DAG afdrukken

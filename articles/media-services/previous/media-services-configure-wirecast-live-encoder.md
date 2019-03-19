@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/14/2019
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: c734c8033947c4f4d5636bc8d82d38a3d871bdbd
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: d0da69601bfc6fd09c10b30d45195722781d87d6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998566"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890046"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Gebruik de Wirecast-coderingsprogramma voor het verzenden van een single-bitrate live stream 
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "55998566"
 >
 >
 
-In dit artikel laat zien hoe het configureren van de [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) live coderingsprogramma voor het verzenden van een single-bitrate stream aan AMS kanalen die zijn ingeschakeld voor live codering.  Zie [Werken met kanalen waarmee Live Encoding kan worden uitgevoerd met Azure Media Services](media-services-manage-live-encoder-enabled-channels.md) voor meer informatie.
+In dit artikel laat zien hoe het configureren van de [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) live coderingsprogramma voor het verzenden van een single-bitrate stream aan AMS kanalen die zijn ingeschakeld voor live codering.  Zie [Werken met kanalen waarmee Live Encoding kan worden uitgevoerd met Azure Media Services](media-services-manage-live-encoder-enabled-channels.md) voor meer informatie.
 
 In deze zelfstudie laat zien hoe Azure Media Services (AMS) beheren met Azure Media Services Explorer (AMSE)-hulpprogramma. Dit hulpprogramma wordt alleen uitgevoerd op Windows-PC. Als u van Mac- of Linux gebruikmaakt, de Azure portal gebruiken voor het maken van [kanalen](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) en [programma's](media-services-portal-creating-live-encoder-enabled-channel.md).
 
@@ -109,7 +109,7 @@ In deze zelfstudie worden de volgende uitvoerinstellingen gebruikt. De rest van 
    * Profiel: Algemeen
    * Belangrijkste frame elke: 60 frames
 
-    **Audio**
+     **Audio**
 
    * Doelbitsnelheid: 192 kbits/sec
    * Samplefrequentie: 44,100 kHz
@@ -134,7 +134,7 @@ In deze zelfstudie worden de volgende uitvoerinstellingen gebruikt. De rest van 
 1. Selecteer **OK**.
 2. Op de hoofdpagina **Wirecast** scherm, invoerbronnen bevestigen voor video en audio gereed zijn en druk vervolgens op **Stream** in de bovenste linkerbenedenhoek weergegeven.
 
-   ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
+    ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
 
 > [!IMPORTANT]
 > Voordat u klikt op **Stream**, u **moet** ervoor te zorgen dat het kanaal gereed is.

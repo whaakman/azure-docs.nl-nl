@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: 6b57c3a172f39c596250b05024ad954a5d065440
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: f929424746a4e83f20af635bebf6ca60ee6cb673
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984814"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993447"
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Een aangepaste Docker-installatiekopie gebruiken voor Web App for Containers
 
@@ -193,7 +193,7 @@ v1.0.0: digest: sha256:21f2798b20555f4143f2ca0591a43b4f6c8138406041f2d32ec908974
 
 ## <a name="deploy-app-to-azure"></a>App in Azure implementeren
 
-Als u een app wilt maken die gebruikmaakt van de installatiekopie die u zo-even hebt gepusht, moet u Azure CLI-opdrachten uitvoeren waarmee een groep wordt gemaakt, vervolgens een serviceabonnement, en ten slotte de web-app zelf. 
+Voor het maken van een app die gebruikmaakt van de installatiekopie die u zojuist hebt gepusht, kunt u Azure CLI-opdrachten die u een groep, en vervolgens een service-plan en ten slotte de web-app zelf maakt uitvoeren. 
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
 

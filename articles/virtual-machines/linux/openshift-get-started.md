@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: haroldw
-ms.openlocfilehash: 826377f7ae4803818fab22e333f7b9b89caf67cb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 826085df8d928cab0a05527be8c464af5f4e9180
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444885"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002514"
 ---
 # <a name="openshift-in-azure"></a>OpenShift in Azure
 
@@ -50,7 +50,7 @@ Omdat klanten 'eigenaar' van het platform, kunnen ze deze installeren in hun on-
 
 ## <a name="openshift-on-azure"></a>OpenShift On Azure
 
-OpenShift op Azure is een volledig beheerde van OpenShift uitvoeren in Azure. Deze service is gezamenlijk beheerd en ondersteund door Microsoft en Red Hat. Het cluster implementeert in Azure-abonnement van de klant. De service is momenteel in Private Preview en is gepland voor algemene beschikbaarheid rond eind Q1 CY2019. Voor klanten die interesse hebben in die deel uitmaken van de Private Preview, vult u de [Nominatieformulier](http://aka.ms/openshiftazureinterest).  Meer informatie zal worden opgegeven omdat de aanbieding wordt verkregen dichter bij algemene beschikbaarheid.
+OpenShift op Azure is een volledig beheerde van OpenShift uitvoeren in Azure. Deze service is gezamenlijk beheerd en ondersteund door Microsoft en Red Hat. Het cluster implementeert in Azure-abonnement van de klant. De service is momenteel in Private Preview en is gepland voor algemene beschikbaarheid rond eind Q1 CY2019. Voor klanten die interesse hebben in die deel uitmaken van de Private Preview, vult u de [Nominatieformulier](https://aka.ms/openshiftazureinterest).  Meer informatie zal worden opgegeven omdat de aanbieding wordt verkregen dichter bij algemene beschikbaarheid.
 
 ## <a name="okd-formerly-openshift-origin"></a>OKD (voorheen OpenShift Origin)
 

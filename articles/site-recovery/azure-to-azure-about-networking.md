@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: fb80af9df58fba41e5ece060099eb98e3d2f90fe
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 0e28792e49d588bfec8d1f09dec68ead7e9dfa49
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883144"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001097"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Over netwerken in Azure naar Azure-replicatie
 
@@ -101,7 +101,8 @@ Site Recovery-IP-adresbereiken zijn als volgt:
    Frankrijk - zuid | 52.136.139.227 |52.136.136.62
    Australië-centraal| 20.36.34.70 | 20.36.46.142
    Australië - centraal 2| 20.36.69.62 | 20.36.74.130
-
+   Zuid-Afrika (west) | 102.133.72.51 | 102.133.26.128
+   Zuid-Afrika (noord) | 102.133.160.44 | 102.133.154.128
 ## <a name="example-nsg-configuration"></a>Voorbeeld van de NSG-configuratie
 
 In dit voorbeeld laat zien hoe het configureren van NSG-regels voor een virtuele machine om te repliceren.

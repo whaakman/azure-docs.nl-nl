@@ -7,12 +7,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 95bec451c556ff9f3c5bcccee68f900543639733
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 1552c54afe2195d58a032e9cc7bfa5aa70c844b1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978082"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004120"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Een microservice aanpassen en opnieuw implementeren
 
@@ -44,7 +44,7 @@ In dit gedeelte maakt aanroepen u de standaard IoT hub manager microservice API.
 
 1. Zorg ervoor dat de oplossing voor externe controle lokaal wordt uitgevoerd op uw computer.
 2. Zoek waar u Postman hebt gedownload en open deze.
-3. In Postman, voert u het volgende in de GET: http://localhost:8080/iothubmanager/v1/status.
+3. In Postman, voert u het volgende in de GET: `http://localhost:8080/iothubmanager/v1/status`.
 4. Het rendement weergeven en u ziet, 'Status': "OK: Alive en goed '.
 
     ![Actief en goed Postman-bericht](./media/iot-accelerators-microservices-example/postman-alive-well.png)
@@ -144,7 +144,7 @@ Voltooien door een lokaal exemplaar van de oplossing voor externe controle opnie
     ```
 
 3. Zoek waar u Postman hebt gedownload en open deze.
-4. Voer de volgende in de GET-aanvraag in Postman: http://localhost:8080/iothubmanager/v1/status. U ziet nu, 'Status': "OK: Nieuwe wijzigingen hier! ".
+4. Voer de volgende in de GET-aanvraag in Postman: `http://localhost:8080/iothubmanager/v1/status`. U ziet nu, 'Status': "OK: Nieuwe wijzigingen hier! ".
 
 ![Nieuw gemaakt hier bewerkt postman bericht](./media/iot-accelerators-microservices-example/new-postman-message.png)
 

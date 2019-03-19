@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 953f2cdac41dcd610afbde39a318c0237b0b9099
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c9d707d1a76b3b5913d66745767df8e84362a192
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114736"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890846"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Het Team Data Science Process in actie: met behulp van SQL Server
-In deze zelfstudie hebt u stapsgewijs door het proces van het bouwen en implementeren van een machine learning-model met behulp van SQL Server en een openbaar beschikbare gegevensset testlab voor de [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) gegevensset. De procedure volgt een standaard gegevenswetenschapwerkstroom: opnemen en Verken de gegevens, functies, dingen en vervolgens bouwen en implementeren van een model bouwen.
+In deze zelfstudie hebt u stapsgewijs door het proces van het bouwen en implementeren van een machine learning-model met behulp van SQL Server en een openbaar beschikbare gegevensset testlab voor de [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) gegevensset. De procedure volgt een standaard gegevenswetenschapwerkstroom: opnemen en Verken de gegevens, functies, dingen en vervolgens bouwen en implementeren van een model bouwen.
 
 ## <a name="dataset"></a>NYC Taxi Trips-gegevensset-beschrijving
 De reisgegevens NYC over taxi's is ongeveer 20GB gecomprimeerde CSV-bestanden (~ 48GB niet-gecomprimeerd), die bestaat uit meer dan 173 miljoen afzonderlijke trips en de tarieven voor elke reis betaald. Elke record van de fietstocht bevat de locatie van ophalen en dropoff en tijd, geanonimiseerde hack (van het stuurprogramma) licentienummer en straten (unieke id van taxi) getal. De gegevens bevat informatie over alle gegevens in het jaar 2013 en is beschikbaar in de volgende twee gegevenssets voor elke maand:
@@ -82,7 +82,7 @@ Uw Azure Data Science-omgeving instellen:
 Op basis van grootte van de gegevensset, de locatie van gegevens en de geselecteerde Azure doelomgeving, in dit scenario is vergelijkbaar met [Scenario \#5: Grote gegevensset in een lokale bestanden, gericht op SQL Server in virtuele Azure-machine](plan-sample-scenarios.md#largelocaltodb).
 
 ## <a name="getdata"></a>De gegevens ophalen uit openbare gegevensbron
-Aan de [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) gegevensset van de openbare locatie, u kunt een van de methoden die worden beschreven in [verplaatst gegevens van en naar Azure Blob Storage](move-azure-blob.md) om te kopiëren van de gegevens naar uw nieuwe virtuele machine.
+Aan de [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) gegevensset van de openbare locatie, u kunt een van de methoden die worden beschreven in [verplaatst gegevens van en naar Azure Blob Storage](move-azure-blob.md) om te kopiëren van de gegevens naar uw nieuwe virtuele machine.
 
 Om te kopiëren van gegevens met AzCopy:
 
@@ -622,8 +622,8 @@ Als u wilt samenvatting in deze zelfstudie scenario kunt u een Azure data scienc
 In dit voorbeeld scenario en de bijbehorende scripts en IPython notebook(s) worden gedeeld door Microsoft onder de MIT-licentie. Controleer of het bestand LICENSE.txt in de map van de voorbeeldcode op GitHub voor meer informatie.
 
 ### <a name="references"></a>Verwijzingen
-• [Andrés Monroy NYC Taxi Trips downloadpagina](http://www.andresmh.com/nyctaxitrips/)  
-• [FOILing NYC Taxi reisgegevens door Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+• [Andrés Monroy NYC Taxi Trips downloadpagina](https://www.andresmh.com/nyctaxitrips/)  
+• [FOILing NYC Taxi reisgegevens door Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
 • [NYC Taxi en Limousine Commissie onderzoek en statistieken](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [1]: ./media/sql-walkthrough/sql-walkthrough_26_1.png

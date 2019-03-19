@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 3d9106fb682a370e18fc78d35ca31662bae44524
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 228d7b6994c67f9e14424624d264061634d80f27
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310638"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080062"
 ---
 # <a name="about-the-collector-appliance"></a>Over het Collector-apparaat
 
@@ -85,22 +85,22 @@ De Collector moet slagen voor een aantal controles om ervoor te zorgen deze verb
 - De IP-adres/de FQDN van de proxyserver moet worden opgegeven als *http://IPaddress* of *http://FQDN*.
 - Alleen HTTP-proxy wordt ondersteund. Op HTTPS gebaseerde proxy-servers worden niet ondersteund door de Collector.
 - Als de proxy-server een onderschept proxy is, moet u de proxy-certificaat importeren met de Collector-VM.
-    1. In de collector-VM, gaat u naar **startmenu** > **computercertificaten beheren**.
-    2. In het hulpprogramma voor certificaten onder **certificaten - lokale Computer**, vinden **vertrouwde uitgevers** > **certificaten**.
+  1. In de collector-VM, gaat u naar **startmenu** > **computercertificaten beheren**.
+  2. In het hulpprogramma voor certificaten onder **certificaten - lokale Computer**, vinden **vertrouwde uitgevers** > **certificaten**.
 
-        ![Hulpprogramma voor certificaten](./media/concepts-intercepting-proxy/certificates-tool.png)
+      ![Hulpprogramma voor certificaten](./media/concepts-intercepting-proxy/certificates-tool.png)
 
-    3. Kopieer de proxy-certificaat naar de collector-VM. U moet mogelijk opvragen bij uw netwerkbeheerder.
-    4. Dubbelklik op het certificaat en klik op **certificaat installeren**.
-    5. In de Wizard Certificaat importeren > locatie van de Store, kiest u **lokale computer**.
+  3. Kopieer de proxy-certificaat naar de collector-VM. U moet mogelijk opvragen bij uw netwerkbeheerder.
+  4. Dubbelklik op het certificaat en klik op **certificaat installeren**.
+  5. In de Wizard Certificaat importeren > locatie van de Store, kiest u **lokale computer**.
 
-    ![Certificaatarchieflocatie](./media/concepts-intercepting-proxy/certificate-store-location.png)
+     ![Certificaatarchieflocatie](./media/concepts-intercepting-proxy/certificate-store-location.png)
 
-    6. Selecteer **alle certificaten in het onderstaande archief plaatsen** > **Bladeren** > **vertrouwde uitgevers**. Klik op **voltooien** om het certificaat te importeren.
+  6. Selecteer **alle certificaten in het onderstaande archief plaatsen** > **Bladeren** > **vertrouwde uitgevers**. Klik op **voltooien** om het certificaat te importeren.
 
-    ![Archief met certificaten](./media/concepts-intercepting-proxy/certificate-store.png)
+     ![Archief met certificaten](./media/concepts-intercepting-proxy/certificate-store.png)
 
-    7. Controleer of het certificaat wordt geïmporteerd zoals verwacht en controleer dat het internet connectiviteit controle werkt zoals verwacht.
+  7. Controleer of het certificaat wordt geïmporteerd zoals verwacht en controleer dat het internet connectiviteit controle werkt zoals verwacht.
 
 
 ### <a name="urls-for-connectivity"></a>URL's voor connectiviteit
@@ -181,7 +181,7 @@ De volledige lijst met items van VMware die zijn verzameld door Azure Migrate vi
 
 **Categorie** |  **Metadata** | **vCenter datapoint**
 --- | --- | ---
-MachineDetails | VM-ID | vm.Config.InstanceUuid
+MachineDetails | Id van de VM | vm.Config.InstanceUuid
 MachineDetails | VM-naam | vm.Config.Name
 MachineDetails | vCenter Server-ID | VMwareClient.InstanceUuid
 MachineDetails |  Beschrijving van de virtuele machine |  vm.Summary.Config.Annotation

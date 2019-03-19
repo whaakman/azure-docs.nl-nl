@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 5282f2e153ec2f1304bec9aadaf8fab88961edd9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 536b7ed21e7dd54fcbea97951330b08925961713
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443607"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884962"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>De bronomgeving instellen voor VMware naar Azure-replicatie
 
@@ -24,7 +24,7 @@ Dit artikel wordt beschreven hoe u voor het instellen van uw bronomgeving on-pre
 Het artikel wordt ervan uitgegaan dat u al hebt:
 
 - Uw implementatie met behulp van geplande [Azure Site Recovery Deployment Planner](site-recovery-deployment-planner.md). Zo kunt u voldoende bandbreedte, op basis van uw dagelijkse gegevens wijzigen, om te voldoen aan uw gewenste beoogde herstelpunt (RPO) toewijzen.
-- [Instellen van resources](tutorial-prepare-azure.md) in de [Azure-portal](http://portal.azure.com).
+- [Instellen van resources](tutorial-prepare-azure.md) in de [Azure-portal](https://portal.azure.com).
 - [Instellen van on-premises VMware](vmware-azure-tutorial-prepare-on-premises.md), met inbegrip van een specifiek account voor automatische detectie.
 
 ## <a name="choose-your-protection-goals"></a>Uw beveiligingsdoelstellingen kiezen
@@ -58,18 +58,18 @@ De volgende mappen van antivirussoftware voor goede replicatie en om te voorkome
 - C:\Program Files\Microsoft Azure Site Recovery Provider
 - C:\Program Files\Microsoft Azure Site Recovery Configuration Manager 
 - C:\Program Files\Microsoft Azure Site Recovery fout verzameling Tool 
- - C:\thirdparty
- - C:\Temp
- - C:\strawberry
- - C:\ProgramData\MySQL
- - C:\Program Files (x86)\MySQL
- - C:\ProgramData\ASR
- - C:\ProgramData\Microsoft Azure Site Recovery
- - C:\ProgramData\ASRLogs
- - C:\ProgramData\ASRSetupLogs
- - C:\ProgramData\LogUploadServiceLogs
- - C:\inetpub
- - Installatiemap van ASR. Bijvoorbeeld: E:\Program bestanden (x86) \Microsoft Azure Site Recovery
+  - C:\thirdparty
+  - C:\Temp
+  - C:\strawberry
+  - C:\ProgramData\MySQL
+  - C:\Program Files (x86)\MySQL
+  - C:\ProgramData\ASR
+  - C:\ProgramData\Microsoft Azure Site Recovery
+  - C:\ProgramData\ASRLogs
+  - C:\ProgramData\ASRSetupLogs
+  - C:\ProgramData\LogUploadServiceLogs
+  - C:\inetpub
+  - Installatiemap van ASR. Bijvoorbeeld: E:\Program bestanden (x86) \Microsoft Azure Site Recovery
 
 ### <a name="if-antivirus-software-is-active-on-scale-out-process-servermaster-target"></a>Als er antivirussoftware is actief op scale-out server/Master Target verwerken
 

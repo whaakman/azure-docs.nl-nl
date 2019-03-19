@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: f8977a0a50103b3c2935ee27a69a53e636f5aecb
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: d14088ed940ab83be29756a26f8612704bb9aebd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580392"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079875"
 ---
 # <a name="view-azure-maps-api-usage"></a>Azure kaarten-API-gebruik weergeven
 
@@ -37,10 +37,10 @@ Doorgaan naar de volgende sectie als u nodig hebt om aan te passen van de grafie
 
 4. Op de **metrische gegevens** deelvenster kiezen tussen een van de volgende:
 
-    1. **Beschikbaarheid** -deze toont de *gemiddelde* API beschikbaar gedurende een bepaalde periode.
-    2. **Gebruik** -deze toont hoe het gebruik *aantal* voor uw account.
+   1. **Beschikbaarheid** -deze toont de *gemiddelde* API beschikbaar gedurende een bepaalde periode.
+   2. **Gebruik** -deze toont hoe het gebruik *aantal* voor uw account.
 
-    ![Deelvenster in Azure Maps metrische gegevens](media/how-to-view-api-usage/portal-metrics.png)
+      ![Deelvenster in Azure Maps metrische gegevens](media/how-to-view-api-usage/portal-metrics.png)
 
 5. Vervolgens kunt u selecteren de *tijdsbereik* door te klikken op **afgelopen 24 uur (automatisch)**. Het tijdsbereik is standaard ingesteld op 24 uur. Nadat u hebt geklikt, ziet u alle selecteerbare tijdsbereik. U kunt selecteren de *tijdgranulatie* en kies om weer te geven van de tijd als *lokale* of *GMT* in de dezelfde vervolgkeuzelijst. Klik op **Toepassen**.
 

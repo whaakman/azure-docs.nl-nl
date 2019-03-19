@@ -2,7 +2,6 @@
 title: Verbinding maken met SAP-systemen - Azure Logic Apps | Microsoft Docs
 description: Over het openen en SAP-resources beheren met het automatiseren van werkstromen met Azure Logic Apps
 author: ecfan
-manager: jeconnoc
 ms.author: estfan
 ms.date: 05/31/2018
 ms.topic: article
@@ -11,18 +10,17 @@ services: logic-apps
 ms.reviewer: klam, divswa, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 77d1e11c1400f9a3d6bb6bda8e935cd4d24a195e
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: d677c0eae9c92f90783ed4ebd95a528b34c872ec
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230893"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170833"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Verbinding maken met SAP-systemen in Azure Logic Apps
 
 > [!NOTE]
-> Deze connector SAP worden binnenkort afgeschaft. We hebben uitgebracht nieuwe en geavanceerde SAP-connector en aanbevolen om te kiezen of verplaatsen naar de [nieuwe SAP-connector](./logic-apps-using-sap-connector.md).
->  
+> Deze SAP-connector is gepland voor de afschaffing. Gebruik of migreren naar de [nieuwere en meer geavanceerde SAP-connector](./logic-apps-using-sap-connector.md). 
 
 Dit artikel wordt beschreven hoe u kunt toegang tot de resources van uw SAP uit in een logische app met behulp van de SAP-toepassingsserver en SAP-berichtenserver connectors. Op die manier kunt u taken, processen en werkstromen die uw SAP-gegevens en resources beheren met het maken van logische apps automatiseren.
 
@@ -38,7 +36,7 @@ Als u een Azure-abonnement nog geen <a href="https://azure.microsoft.com/free/" 
 
 Als u wilt volgen, samen met dit artikel, moet u deze items:
 
-* De logische app van waar u toegang tot uw SAP-systeem en een trigger die de werkstroom van uw logische app wordt gestart. De SAP-connectors bieden op dit moment alleen acties. Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps](../logic-apps/logic-apps-overview.md) en [Snelstartgids: uw eerste logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* De logische app van waar u toegang tot uw SAP-systeem en een trigger die de werkstroom van uw logische app wordt gestart. De SAP-connectors bieden op dit moment alleen acties. Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps](../logic-apps/logic-apps-overview.md) en [Quick Start: Maak uw eerste logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * Uw <a href="https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server" target="_blank">SAP-toepassingsserver</a> of <a href="https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm" target="_blank">SAP-berichtenserver</a>
 
@@ -67,7 +65,7 @@ In dit voorbeeld u een logische app maken met een eindpunt in Azure zodat u kunt
 
 1. Maak een lege logische app, die de ontwerper van logische App wordt geopend in de Azure-portal. 
 
-2. Typ 'http-aanvraag' als filter in het zoekvak. Selecteer in de lijst met triggers deze trigger: **aanvraag: wanneer een HTTP-aanvraag wordt ontvangen**
+2. Typ 'http-aanvraag' als filter in het zoekvak. Selecteer deze trigger uit de lijst met triggers: **Aanvraag - wanneer er een HTTP-aanvraag wordt ontvangen**
 
    ![HTTP-aanvraag trigger toevoegen](./media/logic-apps-using-sap-connector-old/add-trigger.png)
 
@@ -91,7 +89,7 @@ In Azure Logic Apps, een [actie](../logic-apps/logic-apps-overview.md#logic-app-
 2. Typ 'sap-server' als filter in het zoekvak. Selecteer de actie voor uw SAP-server uit de lijst met acties: 
 
    * **SAP-toepassingsserver - verzenden naar SAP**
-   * **SAP-berichtenserver - verzenden naar SAP**
+   * **SAP Message Server - Send to SAP**
 
    In dit voorbeeld wordt met deze actie: **SAP-toepassingsserver - verzenden naar SAP**
 
@@ -106,11 +104,11 @@ In Azure Logic Apps, een [actie](../logic-apps/logic-apps-overview.md#logic-app-
    2. De verbindingsgegevens voor uw SAP-server opgeven. 
    Voor de **gateway** eigenschap, selecteert u de data gateway die u hebt gemaakt in de Azure-portal voor uw gatewayinstallatie bijvoorbeeld:
 
-      **SAP-toepassingsserver**
+      **SAP Application Server**
 
       ![Serververbinding voor SAP-toepassing maken](./media/logic-apps-using-sap-connector-old/create-SAP-app-server-connection.png)  
 
-      **SAP-berichtenserver**
+      **SAP Message Server**
 
       ![SAP bericht serververbinding maken](media/logic-apps-using-sap-connector-old/create-SAP-message-server-connection.png) 
 
@@ -154,7 +152,7 @@ Nu een reactie toevoegen aan uw logische app-werkstroom en de uitvoer van de SAP
 
 1. Kies in de Logic App Designer onder de actie SAP **nieuwe stap** > **een actie toevoegen**.
 
-2. Typ 'response' als filter in het zoekvak. Selecteer in de lijst met acties met deze actie: **aanvraag - reactie**
+2. Typ 'response' als filter in het zoekvak. Selecteer deze actie uit de lijst met acties: **Aanvraag - reactie**
 
 3. Klik in de **hoofdtekst** vak zodat de lijst met dynamische inhoud wordt weergegeven. In deze lijst onder **verzenden naar SAP**, selecteer de **hoofdtekst** veld. 
 
@@ -192,8 +190,8 @@ Gefeliciteerd, u hebt nu een logische app gemaakt die kan communiceren met uw SA
 
 Zie deze artikelen verwijzing voor technische informatie over de connector zoals is beschreven in de connectors Swagger-bestanden: 
 
-* [SAP-toepassingsserver](/connectors/sapapplicationserver/)
-* [SAP-berichtenserver](/connectors/sapmessageserver/)
+* [SAP Application Server](/connectors/sapapplicationserver/)
+* [SAP Message Server](/connectors/sapmessageserver/)
 
 ## <a name="get-support"></a>Ondersteuning krijgen
 

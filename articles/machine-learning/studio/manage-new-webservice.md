@@ -1,21 +1,21 @@
 ---
-title: Gebruik de portal voor Azure Machine Learning Studio-webservices
+title: Webservices beheren
 titleSuffix: Azure Machine Learning Studio
-description: U kunt beheren op uw Machine Learning nieuwe en klassieke webservices met behulp van de portal voor Microsoft Azure Machine Learning-webservices. Omdat klassieke webservices en nieuwe Web services zijn afhankelijk van verschillende onderliggende technologieën, hebt u iets anders beheermogelijkheden voor elk van deze.
+description: Beheer uw Machine Learning nieuwe en klassieke Web-services met behulp van de portal voor Microsoft Azure Machine Learning-webservices. Omdat klassieke webservices en nieuwe Web services zijn afhankelijk van verschillende onderliggende technologieën, hebt u iets anders beheermogelijkheden voor elk van deze.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 2d62b5a140fc4614e26d40f153f5e13d4a3b70f4
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 711cb674cb00a880eadda11b03da87631df90b0d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817147"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838371"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>Een webservice met behulp van de portal van Azure Machine Learning Studio-webservices beheren
 U kunt beheren op uw Machine Learning nieuwe en klassieke webservices met behulp van de portal voor Microsoft Azure Machine Learning-webservices. Omdat klassieke webservices en nieuwe Web services zijn afhankelijk van verschillende onderliggende technologieën, hebt u iets anders beheermogelijkheden voor elk van deze.
@@ -29,7 +29,7 @@ In Machine Learning-webservicesportal kunt u het volgende doen:
 * Toevoegen en verwijderen van eindpunten (alleen klassiek)
 
 >[!NOTE]
->Kunt u ook in voor klassieke webservices beheren [Machine Learning Studio](http://studio.azureml.net) op de **webservices** tabblad.
+>Kunt u ook in voor klassieke webservices beheren [Machine Learning Studio](https://studio.azureml.net) op de **webservices** tabblad.
 
 ## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>Machtigingen voor het beheren van nieuwe Resources Manager op basis van webservices
 

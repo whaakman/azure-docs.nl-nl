@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 1f79330f12117c6ade8884165d1538623e19c7ea
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6be2a2d6febfe927cadbdeb12dc91b0e103d6ac4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175261"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094623"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: Gebruik aangepaste kenmerken in een aangepast profiel bewerken beleid
 
@@ -260,20 +260,20 @@ De ID-token verzonden terug naar uw toepassing de nieuwe extensie-eigenschap bev
 
 1. Toevoegen van de nieuwe claim naar de stromen zich aanmeldt bij sociale accounts door het veranderen van de volgende **TechnicalProfiles**. Sociale en federatieve accounts maken gebruik van deze twee **TechnicalProfiles** aan te melden. Ze schrijven en lezen van gegevens met behulp van de **alternativeSecurityId** als de locator van het gebruikersobject.
 
-  ```xml
+   ```xml
     <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 
     <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
-  ```
+   ```
 
 2. Gebruik de dezelfde extensiekenmerken tussen ingebouwde en aangepaste beleidsregels. Wanneer u de kenmerken van extensie of aangepaste, via de portal-ervaring toevoegt, deze kenmerken worden geregistreerd met behulp van de **b2c-extensions-app** die zich in elke B2C-tenant. De volgende stappen extensiekenmerken gebruiken in uw aangepast beleid:
 
-  a. In uw B2C-tenant in portal.azure.com, navigeren naar **Azure Active Directory** en selecteer **App-registraties**.  
-  b. Zoek uw **b2c-extensions-app** en selecteer deze.  
-  c. Onder **Essentials**, voer de **toepassings-ID** en de **Object-ID**.  
-  d. Ze opneemt in uw **AAD-gemeenschappelijke** TechnicalProfile metagegevens:  
+   a. In uw B2C-tenant in portal.azure.com, navigeren naar **Azure Active Directory** en selecteer **App-registraties**.  
+   b. Zoek uw **b2c-extensions-app** en selecteer deze.  
+   c. Onder **Essentials**, voer de **toepassings-ID** en de **Object-ID**.  
+   d. Ze opneemt in uw **AAD-gemeenschappelijke** TechnicalProfile metagegevens:  
 
-  ```xml
+   ```xml
       <ClaimsProviders>
         <ClaimsProvider>
           <DisplayName>Azure Active Directory</DisplayName>
@@ -285,14 +285,14 @@ De ID-token verzonden terug naar uw toepassing de nieuwe extensie-eigenschap bev
               <Item Key="ApplicationObjectId">insert objectId here</Item> <!-- This is the "Object ID" from the "b2c-extensions-app"-->
               <Item Key="ClientId">insert appId here</Item> <!--This is the "Application ID" from the "b2c-extensions-app"-->
             </Metadata>
-  ```
+   ```
 
 3. Blijf op de consistent zijn met de portal-ervaring. Deze kenmerken maken met behulp van de gebruikersinterface van de portal voordat u ze in uw aangepaste beleidsregels gebruiken. Wanneer u een kenmerk maakt **ActivationStatus** in de portal, moet u verwijzen naar deze als volgt:
 
-  ```
-  extension_ActivationStatus in the custom policy.
-  extension_<app-guid>_ActivationStatus via Graph API.
-  ```
+   ```
+   extension_ActivationStatus in the custom policy.
+   extension_<app-guid>_ActivationStatus via Graph API.
+   ```
 
 ## <a name="reference"></a>Referentie
 

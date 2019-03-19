@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: aljo
-ms.openlocfilehash: d4d399258ac1bd83fe4cfb46344576ca74e66f1e
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 6fefbd21a5c301111afdc27ec1d332d713c669ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805134"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119646"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Inleiding tot ReliableConcurrentQueue in Azure Service Fabric
 Betrouwbare gelijktijdige wachtrij is een asynchrone, transactionele en gerepliceerde wachtrij welke functies hoog gelijktijdigheid voor in de wachtrij plaatsen en uit de wachtrij verwijderen bewerkingen. Het is ontworpen voor het leveren van hoge doorvoer en lage latentie door versoepeling van de strikte FIFO volgorde geleverd door [betrouwbare wachtrij](https://msdn.microsoft.com/library/azure/dn971527.aspx) en in plaats daarvan biedt een best-effort bestellen.
@@ -70,7 +70,7 @@ using (var txn = this.StateManager.CreateTransaction())
 Wordt ervan uitgegaan dat de taak is voltooid en dat er geen gelijktijdige transacties wijzigen van de wachtrij is. De gebruiker kan de wachtrij bevat de items in een van de volgende orders verwachten:
 
 > 10, 20
-
+> 
 > 20, 10
 
 
@@ -165,7 +165,7 @@ Wordt ervan uitgegaan dat de items uit wachtrij zijn geplaatst in de volgende vo
 
 Wanneer we de transactie afgebroken, zou de items terug naar de kop van de wachtrij in een van de volgende orders worden toegevoegd:
 > 10, 20
-
+> 
 > 20, 10
 
 Hetzelfde geldt voor alle gevallen waar de transactie niet met succes is *vastgelegd*.

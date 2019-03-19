@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018
 ms.author: rogarana
-ms.openlocfilehash: b64b433920a5ce769122c7956c18997c28a3d11a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: d1e941e41871de4a11641254f40c53285b096807
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867049"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546300"
 ---
 # <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Machtigingen op bestands- en mapniveau instellen voor Azure Data Lake Storage Gen2 met behulp van Azure Storage Explorer
 
@@ -33,7 +33,7 @@ Voor de beste weergave van het proces vragen wij u om onze [snelstart voor Azure
 
 ## <a name="managing-access"></a>Toegang beheren
 
-U kunt machtigingen instellen in de hoofdmap van uw bestandssysteem. Hiervoor klikt u met de rechtermuisknop op uw bestandssysteem en selecteert u **Machtigingen beheren**, waardoor het dialoogvenster **Machtiging beheren** wordt geopend.
+U kunt machtigingen instellen in de hoofdmap van uw bestandssysteem. Om dit te doen, moet u in Azure Storage Explorer zijn aangemeld met uw afzonderlijke account met machtigingen om dit te doen (in plaats van met een verbindingsreeks). Met de rechtermuisknop op uw bestandssysteem en selecteer **machtigingen beheren**, brengen van de **beheren machtiging** in het dialoogvenster.
 
 ![Microsoft Azure Storage Explorer - Toegang tot mappen beheren](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 

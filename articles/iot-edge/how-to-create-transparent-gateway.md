@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 7e196a912db723d5d118b0aadc98f73f1c7271e0
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: c769ae8e684a94e60f6a2e31ba404a0593f7aa78
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243751"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096704"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Een IoT Edge-apparaat om te fungeren als een transparante gateway configureren
 
@@ -181,7 +181,7 @@ Gebruik de stappen in deze sectie voor het genereren van testcertificaten op een
 
 In deze sectie maakt u drie certificaten maken en vervolgens verbinding maken in een keten. Het plaatsen van de certificaten in een keten-bestand kunt eenvoudig installeren op uw IoT Edge-gateway-apparaat en eventuele downstream-apparaten.  
 
-1.  De eigenaar van CA-certificaat en een tussenliggende certificaat maken. Deze certificaten worden geplaatst  *\<WRKDIR >*.
+1. De eigenaar van CA-certificaat en een tussenliggende certificaat maken. Deze certificaten worden geplaatst  *\<WRKDIR >*.
 
    ```bash
    ./certGen.sh create_root_and_intermediate
@@ -193,7 +193,7 @@ In deze sectie maakt u drie certificaten maken en vervolgens verbinding maken in
    * `<WRKDIR>/private/azure-iot-test-only.root.ca.key.pem`
    * `<WRKDIR>/private/azure-iot-test-only.intermediate.key.pem`
 
-2.  De CA-certificaat voor Edge-apparaat en de persoonlijke sleutel maken met de volgende opdracht uit. Geef een naam voor de gateway-apparaat dat wordt gebruikt om de naam van de bestanden en tijdens het genereren van het certificaat. 
+2. De CA-certificaat voor Edge-apparaat en de persoonlijke sleutel maken met de volgende opdracht uit. Geef een naam voor de gateway-apparaat dat wordt gebruikt om de naam van de bestanden en tijdens het genereren van het certificaat. 
 
    ```bash
    ./certGen.sh create_edge_device_certificate "<gateway name>"

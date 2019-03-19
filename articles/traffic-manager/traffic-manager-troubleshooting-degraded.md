@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: genli
-ms.openlocfilehash: 8b46839d26130f37f4f4ba5559f5699498b0e60f
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 2cb70c67bc4719eb43c4fcb70edf574c57362f26
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599396"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013283"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Problemen oplossen in gedegradeerde status op Azure Traffic Manager
 
@@ -41,8 +41,8 @@ Als de status van uw Traffic Manager weergeeft: een **inactief** status en vervo
 
 Voor het oplossen van een test mislukt, moet u een hulpprogramma waarmee HTTP-statuscode geretourneerd van de WebTest-URL. Er zijn veel hulpprogramma's beschikbaar waarin u het onbewerkte HTTP-antwoord.
 
-* [Fiddler](http://www.telerik.com/fiddler)
-* [CURL](https://curl.haxx.se/)
+* [Fiddler](https://www.telerik.com/fiddler)
+* [curl](https://curl.haxx.se/)
 * [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)
 
 Bovendien kunt u het tabblad netwerk van het gebied van F12 Tools foutopsporing in Internet Explorer om de HTTP-antwoorden weer te geven.

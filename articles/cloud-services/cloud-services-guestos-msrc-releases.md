@@ -11,22 +11,65 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/20/2019
+ms.date: 3/14/2019
 ms.author: raiye
-ms.openlocfilehash: 9a54a7676b874eee601ac2b673021bb7ff161ba8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ec50cff2a2d3323b988632fd7ee96b73f60117b1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532947"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887286"
 ---
 # <a name="azure-guest-os"></a>Azure-Gastbesturingssysteem
 De volgende tabellen tonen de updates van de Microsoft Security Response Center (MSRC) toegepast op de Azure-Gastbesturingssysteem. Zoeken in dit artikel om te bepalen als een bepaalde update van toepassing op de Gast-besturingssysteem dat u gebruikt. Updates altijd overdragen voor de betreffende [familie] [ family-explain] ze zijn geïntroduceerd in.
 
-## <a name="february-2019-guest-os"></a>Februari 2019 Guest OS
-
 >[!NOTE]
->Het Gastbesturingssysteem februari wordt momenteel geïmplementeerd voor Cloud Service-VM's die zijn geconfigureerd voor automatische updates. Wanneer de implementatie voltooid is, wordt deze versie beschikbaar voor het handmatig bijwerken via de Azure portal en -configuratiebestanden worden gemaakt. De volgende patches worden opgenomen in het Gastbesturingssysteem februari. Deze lijst is onderhevig aan wijzigingen.
+>Het Gastbesturingssysteem van maart is op dit moment wordt geïmplementeerd voor Cloud Service-VM's die zijn geconfigureerd voor automatische updates. Wanneer de implementatie voltooid is, wordt deze versie beschikbaar voor het handmatig bijwerken via de Azure portal en -configuratiebestanden worden gemaakt. De volgende patches worden opgenomen in het besturingssysteem van maart. Deze lijst is onderhevig aan wijzigingen.
+
+
+## <a name="march-2019-guest-os"></a>Maart 2019 Guest OS
+
+| Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
+| --- | --- | --- | --- | --- |
+| Rel 19-03 | [4489873] | Internet Explorer | 2.84, 3.71, 4.64 | 12 maart 2019 |
+| Rel 19-03 | [4489907] | Flash | 3.71, 4.64, 5.29, 6.5 | 12 maart 2019 |
+| Rel 19-03 | [4489885] | Windows-beveiliging | 2.84 | 12 maart 2019 |
+| Rel 19-03 | [4489884] | Windows-beveiliging | 3.71 | 12 maart 2019 |
+| Rel 19-03 | [4489883] | Windows-beveiliging | 4.64 | 12 maart 2019 |
+| Rel 19-03 | [4489882] | Windows 10-beveiliging | 5.29 | 12 maart 2019 |
+| Rel 19-03 | [4489899] | Windows 10-beveiliging | 6.5 | 12 maart 2019 |
+| Rel 19-03 | [4486563] | Totalisering van februari niet voor beveiliging | 2.84 | 12 februari 2019 |
+| Rel 19-03 | [4483458] | Februari niet voor beveiliging updatepakket .NET 3.x | 2.84 | 12 februari 2019 |
+| Rel 19-03 | [4483455] | Februari niet voor beveiliging updatepakket .NET 4.x | 2.84 | 12 februari 2019 |
+| Rel 19-03 | [4487025] | Totalisering van februari niet voor beveiliging | 3.71 | 12 februari 2019 |
+| Rel 19-03 | [4483456] | Februari niet voor beveiliging updatepakket .NET 3.x | 3.71 | 12 februari 2019 |
+| Rel 19-03 | [4483454] | Februari niet voor beveiliging updatepakket .NET 4.x | 3.71 | 12 februari 2019 |
+| Rel 19-03 | [4487000] | Totalisering van februari niet voor beveiliging | 4.64 | 12 februari 2019 |
+| Rel 19-03 | [4483459] | Februari niet voor beveiliging updatepakket .NET 3.x | 4.64 | 12 februari 2019 |
+| Rel 19-03 | [4483453] | Februari niet voor beveiliging updatepakket .NET 4.x | 4.64 | 12 februari 2019 |
+| Rel 19-03 | [4485447] | Servicing Stack Update van februari | 5.29 | 12 februari 2019 |
+| Rel 19-03 | [4486459] | Tijdzone-update | 2.84, 3.71, 4.64 | 12 februari 2019 |
+
+[4489873]: https://support.microsoft.com/kb/4489873
+[4489907]: https://support.microsoft.com/kb/4489907
+[4489885]: https://support.microsoft.com/kb/4489885
+[4489884]: https://support.microsoft.com/kb/4489884
+[4489883]: https://support.microsoft.com/kb/4489883
+[4489882]: https://support.microsoft.com/kb/4489882
+[4489899]: https://support.microsoft.com/kb/4489899
+[4486563]: https://support.microsoft.com/kb/4486563
+[4483458]: https://support.microsoft.com/kb/4483458
+[4483455]: https://support.microsoft.com/kb/4483455
+[4487025]: https://support.microsoft.com/kb/4487025
+[4483456]: https://support.microsoft.com/kb/4483456
+[4483454]: https://support.microsoft.com/kb/4483454
+[4487000]: https://support.microsoft.com/kb/4487000
+[4483459]: https://support.microsoft.com/kb/4483459
+[4483453]: https://support.microsoft.com/kb/4483453
+[4485447]: https://support.microsoft.com/kb/4485447
+[4486459]: https://support.microsoft.com/kb/4486459
+
+## <a name="february-2019-guest-os"></a>Februari 2019 Guest OS
 
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
@@ -87,13 +130,13 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | Rel 19-01 | [4480964] | Windows-beveiliging | 4.62 | 8 januari 2019 |
 | Rel 19-01 | [4480972] | Windows-beveiliging | 3.69 | 8 januari 2019 |
 | Rel 19-01 | [4480960] | Windows-beveiliging | 2.82 | 8 januari 2019 |
-| Rel 19-01 | [4480056] | .Net Security | 6.3 | 8 januari 2019 |
-| Rel 19-01 | [4480074] | .Net 4.x Security | 4.62 | 8 januari 2019 |
-| Rel 19-01 | [4480075] | .Net 4.x Security | 3.69 | 8 januari 2019 |
-| Rel 19-01 | [4480076] | .Net 4.x Security | 2.82 | 8 januari 2019 |
-| Rel 19-01 | [4480086] | .Net 3.x Security | 4.62 | 8 januari 2019 |
-| Rel 19-01 | [4480083] | .Net 3.x Security | 3.69 | 8 januari 2019 |
-| Rel 19-01 | [4480085] | .Net 3.x Security | 2.82 | 8 januari 2019 |
+| Rel 19-01 | [4480056] | .NET-beveiliging | 6.3 | 8 januari 2019 |
+| Rel 19-01 | [4480074] | .NET 4.x Security | 4.62 | 8 januari 2019 |
+| Rel 19-01 | [4480075] | .NET 4.x Security | 3.69 | 8 januari 2019 |
+| Rel 19-01 | [4480076] | .NET 4.x Security | 2.82 | 8 januari 2019 |
+| Rel 19-01 | [4480086] | .NET 3.x Security | 4.62 | 8 januari 2019 |
+| Rel 19-01 | [4480083] | .NET 3.x Security | 3.69 | 8 januari 2019 |
+| Rel 19-01 | [4480085] | .NET 3.x Security | 2.82 | 8 januari 2019 |
 | Rel 19-01 | [4480979] | Flash | 3.69, 4.62, 5.27, 6.3 | 8 januari 2019 |
 | Rel 19-01 | [4480965] | Internet Explorer | 2.82, 3.69, 4.62 | 8 januari 2019 |
 | N/A | [4471318] | Updatepakket van december niet voor beveiliging | 2.82 | 11 december 2018 |
@@ -138,12 +181,12 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | Rel 18-12 | [4471328] | Windows-beveiliging   | 2.81 | 11 december 2018 |
 | Rel 18-12 | [4471326] | Windows-beveiliging   | 3.68 | 11 december 2018 |
 | Rel 18-12 | [4471322] | Windows-beveiliging   | 4.61 | 11 december 2018 |
-| Rel 18-12 | [4470600] | .Net 3.x Security  | 2.81 | 11 december 2018 |
-| Rel 18-12 | [4470601] | .Net 3.x Security  | 3.68 | 11 december 2018|
-| Rel 18-12 | [4470602] | .Net 3.x Security  | 4.61 | 11 december 2018 |
-| Rel 18-12 | [4470493] | .Net 4.x Security  | 2.81 | 11 december 2018 |
-| Rel 18-12 | [4470492] | .Net 4.x Security  | 3.68 | 11 december 2018 |
-| Rel 18-12 | [4470491] | .Net 4.x Security  | 4.61| 11 december 2018 |
+| Rel 18-12 | [4470600] | .NET 3.x Security  | 2.81 | 11 december 2018 |
+| Rel 18-12 | [4470601] | .NET 3.x Security  | 3.68 | 11 december 2018|
+| Rel 18-12 | [4470602] | .NET 3.x Security  | 4.61 | 11 december 2018 |
+| Rel 18-12 | [4470493] | .NET 4.x Security  | 2.81 | 11 december 2018 |
+| Rel 18-12 | [4470492] | .NET 4.x Security  | 3.68 | 11 december 2018 |
+| Rel 18-12 | [4470491] | .NET 4.x Security  | 4.61| 11 december 2018 |
 | Rel 18-12 | [4471331] | Flash  | 3.68, 4.61, 5.26 | 5 december 2018  |
 | Rel 18-12 | [4470199] | Internet Explorer  | 2.81, 3.68, 4.61 | 11 december 2018 |
 | N/A | [4468323] | Tijdzone-update    | 2.81, 3.68, 4.61 | 13 december 2018 |
@@ -520,7 +563,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | Rel 17-05 | [4010323] |SHA1 Advisory |2.62, 4.42, 5.7 | 9 mei 2017 |
 | Rel 17-05 | [4022344] |Microsoft Security Advisory |5.7 | 9 mei 2017 |
 | Rel 17-05 | [4022345] |Microsoft Security Advisory |5.7 | 9 mei 2017 |
-| Rel 17-05 | [4021279] |.Net /ASP.Net Core Advisory |2.62, 3.49, 4.42, 5.7 | 9 mei 2017 |
+| Rel 17-05 | [4021279] |.NET /ASP.NET Core Advisory |2.62, 3.49, 4.42, 5.7 | 9 mei 2017 |
 | N/A | [4012864] |Tijdzone-Update |2.62, 3.49, 4.42 | 9 mei 2017 |
 | N/A | [4014565] |Totalisering van de niet-beveiligde april .NET |2.62 | 11 april 2017 |
 | N/A | [4014559] |Totalisering van de niet-beveiligde april .NET |2.62 | 11 april 2017 |

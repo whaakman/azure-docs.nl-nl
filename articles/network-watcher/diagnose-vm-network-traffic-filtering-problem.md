@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 6d5c159d030303b90128513d3521a19419e4277e
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: d469ee5148e3742f30795c09acf1a217db1b997a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429227"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004649"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Quickstart: Diagnose uitvoeren voor een probleem met netwerkverkeersfilters op een virtuele machine met behulp van de Azure-portal
 
@@ -42,7 +42,7 @@ Meld u aan bij Azure Portal op https://portal.azure.com.
 
     |Instelling|Waarde|
     |---|---|
-    |Naam|myVm|
+    |Name|myVm|
     |Gebruikersnaam| Voer een gebruikersnaam naar keuze in.|
     |Wachtwoord| Voer een wachtwoord naar keuze in. Het wachtwoord moet minstens 12 tekens lang zijn en moet voldoen aan de [gedefinieerde complexiteitsvereisten](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Abonnement| Selecteer uw abonnement.|
@@ -85,7 +85,7 @@ Als u een VM maakt, wordt netwerkverkeer van en naar de VM standaard toegestaan 
     | Richting         | Uitgaand                                                                                          |
     | Lokaal IP-adres  | 10.0.0.4                                                                                          |
     | Lokale poort      | 60000                                                                                                |
-    | Extern IP-adres | 13.107.21.200 - Een van de adressen voor www.bing.com.                                             |
+    | Extern IP-adres | 13.107.21.200 - een van de adressen voor < www.bing.com>.                                             |
     | Externe poort       | 80                                                                                                |
 
     ![IP-stroomverificatie](./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-outbound.png)

@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 7977dc55d101c99bf1f850a529083916367308b4
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: b83a6e2c81eac9993c481561e3cebbed681d2c4a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747810"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096041"
 ---
 # <a name="how-to-set-a-static-internal-private-ip-address-using-powershell-classic"></a>Over het instellen van een statische interne persoonlijke IP-adres met behulp van PowerShell (klassiek)
 In de meeste gevallen hoeft u niet een statische interne IP-adres voor uw virtuele machine opgeven. Virtuele machines in een virtueel netwerk ontvangt automatisch een intern IP-adres van een bereik dat u opgeeft. Maar in bepaalde gevallen een statisch IP-adres op te geven voor een bepaalde virtuele machine is logisch. Bijvoorbeeld, als uw virtuele machine wilt uitvoeren, DNS of wordt een domeincontroller. Een statische interne IP-adres blijft van toepassing op de virtuele machine, zelfs via een status stoppen/inrichting. 
 
 > [!IMPORTANT]
-> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../azure-resource-manager/resource-manager-deployment-model.md). Dit artikel gaat over het gebruik van het klassieke implementatiemodel. Microsoft raadt aan dat de meeste nieuwe implementaties gebruiken de [Resource Manager-implementatiemodel](virtual-networks-static-private-ip-arm-ps.md).
+> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources:  [Resource Manager en het klassieke model](../azure-resource-manager/resource-manager-deployment-model.md). Dit artikel gaat over het gebruik van het klassieke implementatiemodel. Microsoft raadt aan dat de meeste nieuwe implementaties gebruiken de [Resource Manager-implementatiemodel](virtual-networks-static-private-ip-arm-ps.md).
 > 
 > 
-## <a name="install-the-azure-powershell-service-management-module"></a>De Azure PowerShell Service Management-module installeren
+> ## <a name="install-the-azure-powershell-service-management-module"></a>De Azure PowerShell Service Management-module installeren
 
 Voordat u de volgende opdrachten uitvoert, zorg ervoor dat de [Azure PowerShell Service Management-module](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0
 ) op de computer is geïnstalleerd. Zie voor de versiegeschiedenis van Azure PowerShell Service Management-module, [Azure-module in PowerShell Gallery](https://www.powershellgallery.com/packages/Azure/5.3.0).

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 86976263c54f40c370a2bc8cab426f3e413442f7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 48afb867a5455ffea10f8a74b1fff2c2b7f361ab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546246"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57849751"
 ---
 # <a name="deprecated-use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>(AFGESCHAFT) Draft gebruiken met Azure Container Service en Azure Container Registry te bouwen en implementeren van een toepassing naar Kubernetes
 
@@ -106,11 +106,11 @@ Wanneer u een cluster hebt, kunt u de referenties importeren met de opdracht [az
 1. Downloaden van concept voor uw omgeving op https://github.com/Azure/draft/releases en installeren via het pad, zodat de opdracht kan worden gebruikt.
 2. Downloaden van helm voor uw omgeving op https://github.com/kubernetes/helm/releases en [installeren via het pad, zodat de opdracht kan worden gebruikt](https://github.com/kubernetes/helm/blob/master/docs/install.md#installing-the-helm-client).
 3. Configureer Draft om uw eigen register te gebruiken en om subdomeinen te maken voor elk Helm-diagram dat wordt gemaakt. U hebt het volgende nodig voor het configureren van Draft:
-  - de naam van uw Azure Container Registry (in dit voorbeeld is dat `draftacsdemo`)
-  - de registersleutel of het wachtwoord van `az acr credential show -n <registry name> --output tsv --query "passwords[0].value"`.
+   - de naam van uw Azure Container Registry (in dit voorbeeld is dat `draftacsdemo`)
+   - de registersleutel of het wachtwoord van `az acr credential show -n <registry name> --output tsv --query "passwords[0].value"`.
 
-  Bel `draft init` en het configuratieproces wordt u gevraagd om de bovenstaande waarden; Houd er rekening mee dat de URL-indeling voor de Register-URL is de naam van het containerregister (in dit voorbeeld `draftacsdemo`) plus `.azurecr.io`. Uw gebruikersnaam is de registernaam van het op een eigen. De eerste keer dat u het proces uitvoert, ziet het er ongeveer als volgt uit.
- ```bash
+   Bel `draft init` en het configuratieproces wordt u gevraagd om de bovenstaande waarden; Houd er rekening mee dat de URL-indeling voor de Register-URL is de naam van het containerregister (in dit voorbeeld `draftacsdemo`) plus `.azurecr.io`. Uw gebruikersnaam is de registernaam van het op een eigen. De eerste keer dat u het proces uitvoert, ziet het er ongeveer als volgt uit.
+   ```bash
     $ draft init
     Creating /home/ralph/.draft 
     Creating /home/ralph/.draft/plugins 
@@ -132,7 +132,7 @@ Wanneer u een cluster hebt, kunt u de referenties importeren met de opdracht [az
     3. Enter your password: 
     Draft has been installed into your Kubernetes Cluster.
     Happy Sailing!
-```
+   ```
 
 U kunt nu een toepassing implementeren.
 
@@ -224,7 +224,7 @@ Elke eigen domeinprovider wijst op zijn eigen manier DNS-servers toe. Als u uw [
     ```
 
 2. Maak een DNS-zone voor uw domein.
-Gebruik de opdracht [az network dns zone create](/cli/azure/network/dns/zone#az-network-dns-zone-create) om de naamservers te verkrijgen voor het delegeren van DNS-controle over uw domein aan Azure.
+   Gebruik de opdracht [az network dns zone create](/cli/azure/network/dns/zone#az-network-dns-zone-create) om de naamservers te verkrijgen voor het delegeren van DNS-controle over uw domein aan Azure.
     ```azurecli
     az network dns zone create --resource-group squillace.io --name squillace.io
     {
@@ -247,12 +247,12 @@ Gebruik de opdracht [az network dns zone create](/cli/azure/network/dns/zone#az-
     ```
 3. Voeg de DNS-servers die u ontvangt toe aan de domeinprovider van uw implementatiedomein. Op die manier kunt u Azure DNS gebruiken om uw domein naar wens opnieuw toe te wijzen. Is afhankelijk van de manier waarop u dit doen door domein opgeven; [de naamservers van uw domein naar Azure DNS delegeren](../../dns/dns-delegate-domain-azure-dns.md) bevat enkele van de details die u moet weten. 
 4. Wanneer uw domein is overgedragen naar Azure DNS, maakt u een A-recordsetvermelding voor uw implementatiedomein dat is toegewezen aan de `ingress` IP-adres uit stap 2 van de vorige sectie.
-  ```azurecli
-  az network dns record-set a add-record --ipv4-address 13.64.108.240 --record-set-name '*.draft' -g squillace.io -z squillace.io
-  ```
-De uitvoer ziet er ongeveer zo uit:
-  ```json
-  {
+   ```azurecli
+   az network dns record-set a add-record --ipv4-address 13.64.108.240 --record-set-name '*.draft' -g squillace.io -z squillace.io
+   ```
+   De uitvoer ziet er ongeveer zo uit:
+   ```json
+   {
     "arecords": [
       {
         "ipv4Address": "13.64.108.240"
@@ -265,23 +265,23 @@ De uitvoer ziet er ongeveer zo uit:
     "resourceGroup": "squillace.io",
     "ttl": 3600,
     "type": "Microsoft.Network/dnszones/A"
-  }
-  ```
+   }
+   ```
 5. Installeer **concept**
 
    1. Verwijder **draftd** uit het cluster door te typen `helm delete --purge draft`. 
    2. Opnieuw **draft** met behulp van dezelfde `draft-init` opdracht, maar met de `--ingress-enabled` optie:
-    ```bash
-    draft init --ingress-enabled
-    ```
-   Reageren op de prompts zoals u hierboven hebt gedaan. de eerste keer. Maar hebt u een vraag om te reageren op, met behulp van het volledige pad die u hebt geconfigureerd met de Azure DNS.
+      ```bash
+      draft init --ingress-enabled
+      ```
+      Reageren op de prompts zoals u hierboven hebt gedaan. de eerste keer. Maar hebt u een vraag om te reageren op, met behulp van het volledige pad die u hebt geconfigureerd met de Azure DNS.
 
 6. Voer uw domein op het hoogste niveau voor inkomende gegevens (bijvoorbeeld draft.example.com): draft.squillace.io
 7. Als u aanroept `draft up` dit moment kunt u zich om uw toepassing te zien (of `curl` deze) op de URL van het formulier `<appname>.draft.<domain>.<top-level-domain>`. In het geval van dit voorbeeld `http://handy-labradoodle.draft.squillace.io`. 
-```bash
-curl -s http://handy-labradoodle.draft.squillace.io
-Hello World, I'm Java!
-```
+   ```bash
+   curl -s http://handy-labradoodle.draft.squillace.io
+   Hello World, I'm Java!
+   ```
 
 
 ## <a name="next-steps"></a>Volgende stappen

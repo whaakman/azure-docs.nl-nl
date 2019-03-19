@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 69aecf3d107000408f98f8ae53968355943c2881
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 55b7e45bb9e600267e1dad0e36e9a97eca9a7d40
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440808"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074995"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Windows-opdrachten - CMD en PowerShell
 
@@ -247,8 +247,8 @@ Om uit te voeren PowerShell in SAC, als u bij een opdrachtprompt, typt u:
 
 `powershell <enter>`
 
->[!CAUTION]
-Verwijder de module PSReadLine vanuit de PowerShell-sessie voordat u andere PowerShell-opdrachten uitvoert. Er is een bekend probleem waarbij extra tekens in de tekst van het Klembord zijn geplakt als PSReadLine wordt uitgevoerd in een PowerShell-sessie in SAC kunnen worden ingevoerd.
+> [!CAUTION]
+> Verwijder de module PSReadLine vanuit de PowerShell-sessie voordat u andere PowerShell-opdrachten uitvoert. Er is een bekend probleem waarbij extra tekens in de tekst van het Klembord zijn geplakt als PSReadLine wordt uitgevoerd in een PowerShell-sessie in SAC kunnen worden ingevoerd.
 
 Controleer eerst of PSReadLine is geladen. Het wordt standaard op Windows Server 2016, Windows 10 en latere versies van Windows geladen. Deze zouden alleen aanwezig zijn in eerdere versies van Windows als u deze handmatig is geïnstalleerd. 
 

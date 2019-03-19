@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 840c9f4115c13052c65e5975ed22aab7737ea2fe
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 5d725cdac93ebdb39437c0b9bcb619488fade0f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543903"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090658"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Een Azure Batch-pool in een virtueel netwerk maken
 
@@ -48,7 +48,7 @@ Nadat u uw VNet hebt gemaakt en toegewezen subnet, kunt u een Batch-pool maken m
 6. Geef de overige vereiste instellingen, met inbegrip van de **knooppuntgrootte**, **doel toegewezen knooppunten**, en **lage prioriteit knooppunten**, evenals een optionele instellingen desgewenst.
 7. In **Virtueelnetwerk**, selecteert u het virtuele netwerk en subnet dat u wilt gebruiken.
   
-  ![Groep met een virtueel netwerk toevoegen](./media/batch-virtual-network/add-vnet-pool.png)
+   ![Groep met een virtueel netwerk toevoegen](./media/batch-virtual-network/add-vnet-pool.png)
 
 ## <a name="user-defined-routes-for-forced-tunneling"></a>Gebruiker gedefinieerde routes voor geforceerde tunneling
 

@@ -5,22 +5,22 @@ services: functions
 keywords: ''
 author: ggailey777
 ms.author: glenga
-ms.date: 11/28/2018
+ms.date: 03/12/2019
 ms.topic: quickstart
 ms.service: azure-functions
-ms.custom: mvc
+ms.custom: mvc, fasttrack-edit
 ms.devlang: javascript
 manager: jeconnoc
-ms.openlocfilehash: b6df653f89f05a9b253ecea102ed8310ff2a53b7
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: 78c2f599ba7d22e6de070f5867398e111a396d45
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438271"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849734"
 ---
 # <a name="create-your-first-function-hosted-on-linux-using-core-tools-and-the-azure-cli-preview"></a>Uw eerste Linux-functie maken met Azure Functions Core Tools en de Azure CLI (preview)
 
-Met Azure Functions kunt u uw code in een [serverloze](https://azure.com/serverless) Linux-omgeving uitvoeren zonder dat u eerst een virtuele machine moet maken of een webtoepassing publiceren. Hosting in Linux is momenteel alleen in preview en vereist [de Functions 2.0-runtime](functions-versions.md). Zie [dit Werkt op Linux-artikel](https://aka.ms/funclinux) voor meer informatie over preview-overwegingen voor het uitvoeren van uw functie-apps op Linux.
+Met Azure Functions kunt u uw code in een [serverloze](https://azure.com/serverless) Linux-omgeving uitvoeren zonder dat u eerst een virtuele machine moet maken of een webtoepassing publiceren. Linux-hosting vereist [de runtime van Functions 2.0](functions-versions.md). Ondersteuning voor het uitvoeren van een functie-app op Linux in de serverloze [verbruiksabonnement](functions-scale.md#consumption-plan) is momenteel in preview. Zie voor meer informatie, [in dit artikel van de overwegingen met betrekking tot preview](https://aka.ms/funclinux).
 
 In dit snelstartartikel leert u hoe u de Azure CLI gebruikt om uw eerste functie-app te maken die in Linux wordt uitgevoerd. De functiecode wordt lokaal gemaakt en vervolgens naar Azure geïmplementeerd met behulp van de [Azure Functions Core Tools](functions-run-local.md).
 
@@ -49,7 +49,7 @@ func init MyFunctionProj
 Wanneer u hierom wordt gevraagd, gebruikt u de pijltoetsen om een runtime voor de werkrol te selecteren uit de volgende taalopties:
 
 + `dotnet`: hiermee maakt u een .NET-klassebibliotheekproject (.csproj).
-+ `node`: hiermee maakt u een JavaScript-project.
++ `node`: Hiermee maakt u een JavaScript- of TypeScript-project. Wanneer u hierom wordt gevraagd, kiest u `JavaScript`.
 + `python`: hiermee maakt u een Python-project. Zie de [Python-quickstart](functions-create-first-function-python.md) voor Python-functies.
 
 Wanneer de opdracht wordt uitgevoerd, ziet u ongeveer de volgende uitvoer:
@@ -59,6 +59,12 @@ Writing .gitignore
 Writing host.json
 Writing local.settings.json
 Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
+```
+
+Gebruik de volgende opdracht om naar de nieuwe projectmap `MyFunctionProj` te navigeren.
+
+```bash
+cd MyFunctionProj
 ```
 
 [!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
@@ -71,23 +77,16 @@ Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
 
 [!INCLUDE [functions-create-storage-account](../../includes/functions-create-storage-account.md)]
 
-## <a name="create-a-linux-app-service-plan"></a>Een Linux App Service-abonnement maken
-
-[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
-
 ## <a name="create-a-linux-function-app-in-azure"></a>Een Linux-functie-app maken in Azure
 
 U moet beschikken over een functie-app om de uitvoering van uw functies in Linux te hosten. De functie-app biedt een serverloze omgeving voor de uitvoering van uw functiecode. U kunt er functies mee groeperen in een logische eenheid, zodat u resources eenvoudiger kunt beheren, implementeren en delen. U maakt een functie-app die in Linux wordt uitgevoerd met behulp van de opdracht [az functionapp create](/cli/azure/functionapp#az-functionapp-create).
 
-Gebruik in de volgende opdracht een unieke functie-appnaam in plaats van de tijdelijke plaatsaanduiding `<app_name>` en gebruik de naam van het opslagaccount in plaats van `<storage_name>`. De `<app_name>` is ook het standaard DNS-domein voor de functie-app. Deze naam moet uniek zijn in alle apps in Azure. U moet ook de `<language>`-runtime voor uw functie-app instellen, vanuit `dotnet` (C#), `node` (JavaScript) of `python`.
+Gebruik in de volgende opdracht een unieke functie-appnaam in plaats van de tijdelijke plaatsaanduiding `<app_name>` en gebruik de naam van het opslagaccount in plaats van `<storage_name>`. De `<app_name>` is ook het standaard DNS-domein voor de functie-app. Deze naam moet uniek zijn in alle apps in Azure. U moet ook ingesteld de `<language>` -runtime voor uw functie-app van `dotnet` (C#), `node` (JavaScript/TypeScript) of `python`.
 
 ```azurecli-interactive
 az functionapp create --resource-group myResourceGroup --consumption-plan-location westus --os-type Linux \
 --name <app_name> --storage-account  <storage_name> --runtime <language>
 ```
-
-> [!NOTE]
-> Als u al een resourcegroep met de naam `myResourceGroup` hebt die niet-Linux App Service-apps bevat, moet u een andere resourcegroep gebruiken. Het is niet mogelijk om zowel Windows- als Linux-apps in dezelfde resourcegroep uit te voeren.  
 
 Nadat de functie-app is gemaakt, ziet u het volgende bericht:
 
@@ -104,9 +103,4 @@ Nu kunt u uw project publiceren naar de nieuwe functie-app in Azure.
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
-## <a name="next-steps"></a>Volgende stappen
-
-In dit artikel ziet u hoe u uw functie-app uitvoert in een standaard Azure App Service-container. U kunt uw functies voor Linux ook uitvoeren in uw eigen aangepaste container.
-
-> [!div class="nextstepaction"]
-> [Een functie in Linux maken met een aangepaste installatiekopie](functions-create-function-linux-custom-image.md)
+[!INCLUDE [functions-quickstart-next-steps-cli](../../includes/functions-quickstart-next-steps-cli.md)]

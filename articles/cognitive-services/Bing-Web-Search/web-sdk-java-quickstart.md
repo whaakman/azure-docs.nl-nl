@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 08/22/2018
+ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: 420a0769af85d050f2786b65eb929a24d8b9da5d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 7209df902f03a7055e142dcbbb7743b6832958b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874155"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863777"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>Quickstart: De Bing Web Search SDK voor Java gebruiken
 
@@ -28,15 +28,16 @@ Wilt u de code nu zien? De [voorbeelden voor de Bing Web Search SDK voor Java](h
 Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="prerequisites"></a>Vereisten
+
 Voordat u verdergaat met deze snelstart moet u beschikken over:
 
 * [JDK 7 of 8](https://aka.ms/azure-jdks)
 * [Apache Maven](https://maven.apache.org/download.cgi) of uw favoriete hulpprogramma voor het automatiseren van builds
 * Een abonnementssleutel
 
-## <a name="create-a-project-and-configure-your-pom-file"></a>Een project maken en uw POM-bestand configureren
+## <a name="create-a-project-and-set-up-your-pom-file"></a>Een project maken en instellen van uw POM-bestand
 
-Maak een nieuw Java-project met behulp van Maven of uw favoriete hulpprogramma voor het automatiseren van builds. Ervan uitgaande dat u Maven gebruikt, moet u de volgende regels toevoegen aan uw POM-bestand. Vervang alle instanties van `mainClass` door uw toepassing.
+Maak een nieuw Java-project met behulp van Maven of uw favoriete hulpprogramma voor het automatiseren van builds. Ervan uitgaande dat u Maven gebruikt, voeg de volgende regels aan uw [Project Object Model (POM)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) bestand. Vervang alle instanties van `mainClass` door uw toepassing.
 
 ```xml
 <build>
@@ -180,7 +181,7 @@ Laten we vervolgens code toevoegen voor het parseren van het antwoord en het wee
 ```java
 /*
 * WebPages
-* If the search response contains web pages, the first result's name
+* If the search response has web pages, the first result's name
 * and url are printed.
 */
 if (webData != null && webData.webPages() != null && webData.webPages().value() != null &&
@@ -200,7 +201,7 @@ if (webData != null && webData.webPages() != null && webData.webPages().value() 
 }
 /*
  * Images
- * If the search response contains images, the first result's name
+ * If the search response has images, the first result's name
  * and url are printed.
  */
 if (webData != null && webData.images() != null && webData.images().value() != null &&
@@ -220,7 +221,7 @@ if (webData != null && webData.images() != null && webData.images().value() != n
 }
 /*
  * News
- * If the search response contains news articles, the first result's name
+ * If the search response has news articles, the first result's name
  * and url are printed.
  */
 if (webData != null && webData.news() != null && webData.news().value() != null &&
@@ -240,7 +241,7 @@ if (webData != null && webData.news() != null && webData.news().value() != null 
 
 /*
  * Videos
- * If the search response contains videos, the first result's name
+ * If the search response has videos, the first result's name
  * and url are printed.
  */
 if (webData != null && webData.videos() != null && webData.videos().value() != null &&

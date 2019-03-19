@@ -1,5 +1,5 @@
 ---
-title: Overzicht omleiden voor Azure Application Gateway
+title: Overzicht van omleiden voor Azure Application Gateway
 description: Meer informatie over de mogelijkheden voor omleiding in Azure Application Gateway
 services: application-gateway
 documentationcenter: na
@@ -13,33 +13,40 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/19/2018
 ms.author: amsriva
-ms.openlocfilehash: 65c631ca9beb5eab5d8fe2b7e71daa0cf3b768fa
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 8e88e0e11b3ccab7cc2c68b2617df2d588680780
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33204374"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170051"
 ---
-# <a name="application-gateway-redirect-overview"></a>Overzicht van Application Gateway-omleiding
+# <a name="application-gateway-redirect-overview"></a>Overzicht van Application Gateway redirect
 
-Een veelvoorkomend scenario voor veel webtoepassingen is de ondersteuning van automatische HTTP naar HTTPS-omleiding zodat alle communicatie tussen de toepassing en haar gebruikers vindt plaats via een versleutelde pad. In het verleden hebt klanten technieken zoals het maken van een toegewezen back-endpool met als enige doel is om te leiden aanvragen van HTTP naar HTTPS ontvangen gebruikt.
+Application gateway kunt u verkeer omleiden.  Er is een algemene omleiding-mechanisme voor het omleiden van verkeer dat is ontvangen door een listener voor een ander listener of naar een externe site waarmee. Dit vereenvoudigt de configuratie van toepassing, optimaliseert het gebruik van bronnen en biedt ondersteuning voor nieuwe omleiding-scenario's, met inbegrip van omleiding van globale en op basis van een pad.
 
-Application Gateway ondersteunt nu de mogelijkheid om te leiden van verkeer op de gateway. Dit vereenvoudigt de configuratie van toepassing, optimaliseert het brongebruik en nieuwe scenario's voor omleiding omleiding van globale en op basis van een pad inclusief ondersteunt. Ondersteuning voor toepassingen Gateway omleiding is niet beperkt tot HTTP-omleiding van HTTPS alleen >. Er is een mechanisme met algemene omleiding, waardoor de omleiding van verkeer ontvangen bij een listener voor een ander listener voor een toepassingsgateway. Omleiding van de externe site wordt ook ondersteund.
+Een veelvoorkomend scenario omleiding voor veel webtoepassingen wordt voor de ondersteuning van automatische HTTP naar HTTPS-omleiding om te controleren of dat alle communicatie tussen de toepassing en de gebruikers daarvan vindt plaats via een gecodeerde pad. Klanten hebben in het verleden technieken zoals het maken van een toegewezen back endpool met als enig doel is om te leiden van HTTP naar HTTPS ontvangen aanvragen worden gebruikt. Met de ondersteuning van omleiding in Application Gateway, kunt u dit doen door een nieuwe omleidings-configuratie toe te voegen aan een regel voor het doorsturen en een ander listener met HTTPS-protocol als de doel-listener op te geven.
 
-Ondersteuning voor toepassingen Gateway-omleiding biedt de volgende mogelijkheden:
+De volgende typen omleiding worden ondersteund:
+
+- 301: permanente omleiding
+- 302 - Gevonden
+- 303 Zie overige
+- 307 Temporary Redirect
+
+Ondersteuning voor Application Gateway-omleiding biedt de volgende mogelijkheden:
 
 -  **Globale omleiding**
 
-   Omleidingen vanaf één listener voor een ander listener op de gateway. Hierdoor kunnen HTTP naar HTTPS-omleiding op een site.
-- **Op basis van een pad omleiding**
+   Omleidingen van één listener voor een ander listener op de gateway. Hierdoor is HTTP-naar-HTTPS-omleiding op een site mogelijk.
+- **Op pad gebaseerde omleiding**
 
-   Dit type omleiding kunt HTTP naar HTTPS-omleiding alleen op een specifieke site gebied, zoals een winkelwagen winkelwagen gebied aangeduid met/mandje / *.
+   Dit type omleiding kunt HTTP naar HTTPS-omleiding alleen op het gebied van een specifieke site, bijvoorbeeld een winkelwagentje winkelwagen gebied aangeduid met/winkelwagen / *.
 - **Omleiden naar de externe site**
 
-![omleiden](./media/redirect-overview/redirect.png)
+![redirect](./media/redirect-overview/redirect.png)
 
-Met deze wijziging moeten klanten maken van een nieuw omleiding configuration-object waarmee de doel-listener of een externe site die omleiding gewenst is. Het configuratie-element ondersteunt ook opties voor het inschakelen van de URI-pad en query-tekenreeks toegevoegd aan de omgeleide URL. U kunt ook kiezen of omleiding een tijdelijke (HTTP-statuscode 302) of een permanente omleiding (HTTP-statuscode 301 is). Zodra gemaakt, wordt deze configuratie omleiding is gekoppeld aan de bron-listener via een nieuwe regel. Wanneer u een eenvoudige regel gebruikt, wordt de configuratie van de omleiding is gekoppeld aan een bron-listener en is een globale omleiding. Wanneer een regel op basis van het pad wordt gebruikt, wordt de omleidings-configuratie op de kaart URL-pad gedefinieerd. Zodat deze alleen van toepassing op het gebied specifiek pad van een site.
+Met deze wijziging moeten klanten maken van een nieuwe omleiden configuration-object, dat aangeeft van de doel-listener of een externe site waarvoor omleiding is vereist. De configuratie-element ondersteunt ook opties voor het inschakelen van de URI-pad en de query-tekenreeks toe te voegen aan de omgeleide URL. U kunt ook het type van omleiding. Eenmaal gemaakt, wordt deze omleiding-configuratie is gekoppeld aan de bron-listener via een nieuwe regel. Wanneer u een basisregel, wordt de configuratie van de omleidings-is gekoppeld aan de listener van een bron en is een algemene omleiding. Als u een pad gebaseerde regel gebruikt, wordt de configuratie van de omleidings-is gedefinieerd in de URL-path-map. Zodat deze alleen van toepassing op het padgebied van het specifieke van een site.
 
 ### <a name="next-steps"></a>Volgende stappen
 
-[URL-omleiding op een toepassingsgateway configureren](tutorial-url-redirect-powershell.md)
+[URL-omleiding in een toepassingsgateway configureren](tutorial-url-redirect-powershell.md)

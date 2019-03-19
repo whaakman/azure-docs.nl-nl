@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: da7556b909ec4eb544a6b4e4fab7af4a0919a158
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 2b069e55d98da824363dc480c211cde0fcc2518c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308173"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090811"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van waarschuwingen voor activiteitenlogboeken met behulp van Azure Monitor  
 
@@ -27,13 +27,13 @@ Deze waarschuwingen zijn voor Azure-resources kunnen worden gemaakt met behulp v
 ## <a name="azure-portal"></a>Azure Portal
 
 > [!NOTE]
-
+> 
 >  Tijdens het maken van de regels voor waarschuwingen, Controleer het volgende:
-
+> 
 > - Abonnement in het bereik is niet af van het abonnement waarin de waarschuwing wordt gemaakt.
-- Criteria moet niveau/status/aanroeper / resourcegroep / resource-id / resourcetype / gebeurteniscategorie waarop de waarschuwing is geconfigureerd.
-- Er is geen 'dragen' voorwaarde of geneste voorwaarden in de waarschuwingsconfiguratie JSON (in feite, slechts één allOf met geen verdere allOf/dragen is toegestaan).
-- Wanneer is de categorie 'beheer'. U moet ten minste één van de bovenstaande criteria opgeven in de waarschuwing. U kunt een waarschuwing die wordt geactiveerd wanneer een gebeurtenis wordt gemaakt in de activiteitenlogboeken niet maken.
+> - Criteria moet niveau/status/aanroeper / resourcegroep / resource-id / resourcetype / gebeurteniscategorie waarop de waarschuwing is geconfigureerd.
+> - Er is geen 'dragen' voorwaarde of geneste voorwaarden in de waarschuwingsconfiguratie JSON (in feite, slechts één allOf met geen verdere allOf/dragen is toegestaan).
+> - Wanneer is de categorie 'beheer'. U moet ten minste één van de bovenstaande criteria opgeven in de waarschuwing. U kunt een waarschuwing die wordt geactiveerd wanneer een gebeurtenis wordt gemaakt in de activiteitenlogboeken niet maken.
 
 ### <a name="create-with-azure-portal"></a>Maken met Azure portal
 
@@ -50,35 +50,36 @@ Gebruik de volgende procedure:
 
 3. **Onder de voorwaarde voor waarschuwing definiëren,** geeft u de volgende informatie en op **gedaan**.
 
-    - **Waarschuwingsdoel:** Als u wilt weergeven en selecteren van het doel voor de nieuwe waarschuwing, gebruikt u **filteren op abonnement** / **filteren op resourcetype** en selecteer de resource of resourcegroep in de lijst die wordt weergegeven.
+   - **Waarschuwingsdoel:** Als u wilt weergeven en selecteren van het doel voor de nieuwe waarschuwing, gebruikt u **filteren op abonnement** / **filteren op resourcetype** en selecteer de resource of resourcegroep in de lijst die wordt weergegeven.
 
-    > [!NOTE]
+     > [!NOTE]
+     > 
+     > u kunt een resource, resourcegroep of een hele abonnement voor de activiteit logboeksignaal selecteren.
 
-    > u kunt een resource, resourcegroep of een hele abonnement voor de activiteit logboeksignaal selecteren.
+     **Target voorbeeldgegevens waarschuwingsweergave**
+     ![doel selecteren](media/alerts-activity-log/select-target.png)
 
-    **Target voorbeeldgegevens waarschuwingsweergave** ![doel selecteren](media/alerts-activity-log/select-target.png)
+   - Onder **doel Criteria**, klikt u op **criteria toevoegen** en alle beschikbare signalen voor het doel worden weergegeven, met inbegrip van die uit verschillende categorieën van **activiteitenlogboek**; met naam van de apparaatcategorie in toegevoegd **-controleservice** naam.
 
-    - Onder **doel Criteria**, klikt u op **criteria toevoegen** en alle beschikbare signalen voor het doel worden weergegeven, met inbegrip van die uit verschillende categorieën van **activiteitenlogboek**; met naam van de apparaatcategorie in toegevoegd **-controleservice** naam.
+   - Selecteer het signaal uit de lijst weergegeven van de verschillende bewerkingen mogelijk voor het type **activiteitenlogboek**.
 
-    - Selecteer het signaal uit de lijst weergegeven van de verschillende bewerkingen mogelijk voor het type **activiteitenlogboek**.
+     U kunt de tijdlijn van de geschiedenis van logboekbestanden en de bijbehorende waarschuwingslogica voor dit doel signaal selecteren:
 
-    U kunt de tijdlijn van de geschiedenis van logboekbestanden en de bijbehorende waarschuwingslogica voor dit doel signaal selecteren:
+     **Scherm criteria toevoegen**
 
-    **Scherm criteria toevoegen**
+     ![criteria toevoegen](media/alerts-activity-log/add-criteria.png)
 
-    ![criteria toevoegen](media/alerts-activity-log/add-criteria.png)
+     **Tijd van de geschiedenis**: Gebeurtenissen beschikbaar voor de geselecteerde bewerking is, kunnen worden weergegeven gedurende de afgelopen 6/12/24 uur (of) in de afgelopen Week.
 
-    **Tijd van de geschiedenis**: Gebeurtenissen beschikbaar voor de geselecteerde bewerking is, kunnen worden weergegeven gedurende de afgelopen 6/12/24 uur (of) in de afgelopen Week.
-
-    **Waarschuwing logische**:
+     **Waarschuwing logische**:
 
      - **Gebeurtenisniveau**-de ernst van de gebeurtenis. _Uitgebreide_, _informatief_, _waarschuwing_, _fout_, of _kritieke_.
      - **Status**: De status van de gebeurtenis. _Aan de slag_, _mislukt_, of _geslaagd_.
      - **Gebeurtenis gestart door**: Ook wel bekend als de oproepende functie De e-mailadres of Azure Active Directory-id van de gebruiker die de bewerking heeft uitgevoerd.
 
-        Voorbeeld signaal graph met waarschuwingslogica toegepast:
+       Voorbeeld signaal graph met waarschuwingslogica toegepast:
 
-        ![ criteria die zijn geselecteerd](media/alerts-activity-log/criteria-selected.png)
+       ![ criteria die zijn geselecteerd](media/alerts-activity-log/criteria-selected.png)
 
 4. Onder **waarschuwingsregels details definiëren**, geef de volgende informatie op:
 
@@ -115,15 +116,15 @@ U kunt ook een eenvoudige vergelijking voor informatie over voorwaarden waarop d
 
     U kunt de beschikbare filters - _abonnement_, _resourcegroep_, _Resource_, _signaaltype_, of _Status_  te vinden van de activiteit regel die u wilt bewerken.
 
-    > [!NOTE]
+   > [!NOTE]
+   > 
+   > U kunt alleen bewerken **beschrijving** , **criteria als doel** en **actiegroepen**.
 
-    > U kunt alleen bewerken **beschrijving** , **criteria als doel** en **actiegroepen**.
+3. Selecteer de regel en dubbelklik erop om het bewerken van de opties voor de regel. De benodigde wijzigingen aanbrengen en klik vervolgens op **opslaan**.
 
-3.  Selecteer de regel en dubbelklik erop om het bewerken van de opties voor de regel. De benodigde wijzigingen aanbrengen en klik vervolgens op **opslaan**.
+   ![ regels voor waarschuwingen beheren](media/alerts-activity-log/activity-log-rule-edit-page.png)
 
-    ![ regels voor waarschuwingen beheren](media/alerts-activity-log/activity-log-rule-edit-page.png)
-
-4.  U kunt uitschakelen, inschakelen of verwijderen van een regel. Selecteer de gewenste optie aan de bovenkant van het venster nadat u de regel zoals beschreven in stap 2 hebt geselecteerd.
+4. U kunt uitschakelen, inschakelen of verwijderen van een regel. Selecteer de gewenste optie aan de bovenkant van het venster nadat u de regel zoals beschreven in stap 2 hebt geselecteerd.
 
 
 ## <a name="azure-resource-template"></a>Azure Resource-sjabloon

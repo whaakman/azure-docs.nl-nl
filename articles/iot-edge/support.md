@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 7e97983e1316476848eb4a051cd636339b8caff7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5c215c125237d72875155f15002fca6c4bee53b1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440961"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077731"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge ondersteunde systemen
 
@@ -31,6 +31,7 @@ Azure IoT Edge moet een container-engine modules starten omdat ze worden geïmpl
 
 <br>
 <center>
+
 ![Moby als container-runtime](./media/support/only-moby-for-production.png)
 </center>
 
@@ -47,11 +48,13 @@ De familie van het hostbesturingssysteem moet altijd overeenkomen met de familie
 
 <br>
 <center>
+
 ![Hostbesturingssysteem komt overeen met de Gast-OS](./media/support/edge-on-device.png)
 </center>
 
 ### <a name="tier-1"></a>Categorie 1
 Algemeen beschikbaar
+
 | Besturingssysteem | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
 | Raspbian stretch | Nee | Ja|
@@ -59,6 +62,7 @@ Algemeen beschikbaar
 | Ubuntu-Server 18.04 | Ja | Nee |
 
 Openbare preview
+
 | Besturingssysteem | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
 | Windows 10 IoT Core build 17763 | Ja | Nee |
@@ -86,6 +90,7 @@ Azure IoT Edge kunnen worden uitgevoerd in virtuele machines. Dit is gebruikelij
 
 <br>
 <center>
+
 ![Azure IoT Edge op een virtuele machine](./media/support/edge-on-vm.png)
 </center>
 

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/17/2019
+ms.date: 3/14/2019
 ms.author: monhaber
-ms.openlocfilehash: 7931caa985bc5dea98ca36bd15e0e634855ab2c5
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 98fffbc7a3b287dd59cfc681beec2107a5fd4ed6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650628"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085045"
 ---
 # <a name="working-with-security-policies"></a>Werken met beveiligingsbeleid
 
@@ -36,7 +36,7 @@ Een beveiligingsbeleid definieert de gewenste configuratie van uw workloads en h
 
 Uw beveiligingsbeleid de aanbevelingen voor beveiliging die in Azure Security Center u krijgt het station. Naleving van deze kunt u mogelijke beveiligingsproblemen te identificeren en bedreigingen te verhelpen, kunt u controleren. Zie voor meer informatie over hoe om te bepalen welke optie geschikt is voor u is, de lijst met [ingebouwde beveiligingsbeleid](security-center-policy-definitions.md).
 
-Wanneer u Security Center inschakelt, wordt het beveiligingsbeleid ingebouwd in Security Center in Azure Policy weergegeven als een ingebouwde initiatief onder de categorie Security Center. Het ingebouwde initiatief wordt automatisch toegewezen aan alle abonnementen die bij Security Center zijn geregistreerd (gratis of Standard-categorie). Het ingebouwde initiatief bevat alleen controlebeleid. 
+Wanneer u Security Center inschakelt, wordt het beveiligingsbeleid ingebouwd in Security Center in Azure Policy weergegeven als een ingebouwde initiatief onder de categorie Security Center. Het ingebouwde initiatief wordt automatisch toegewezen aan alle abonnementen die bij Security Center zijn geregistreerd (gratis of Standard-categorie). Het ingebouwde initiatief bevat alleen controlebeleid.
 
 
 ### <a name="management-groups"></a>Beheergroepen
@@ -68,25 +68,25 @@ Ga als volgt te werk als u uw beveiligingsbeleidsregels wilt weergeven in Securi
 
     ![Het deelvenster Beleidsbeheer](./media/security-center-policies/security-center-policy-mgt.png)
 
-  In de **beleidsbeheer** scherm ziet u het aantal beheergroepen, abonnementen en werkruimten, evenals de structuur van uw management groep.
+   In de **beleidsbeheer** scherm ziet u het aantal beheergroepen, abonnementen en werkruimten, evenals de structuur van uw management groep.
 
-  > [!NOTE]
-  > - Het dashboard van Security Center kan een hoger aantal abonnementen onder tonen **abonnementsdekking** dan het aantal abonnementen die wordt weergegeven onder **beleidsbeheer**. Abonnementsdekking toont het aantal Standaard-, gratis en 'Niet gedekt' abonnementen. De abonnementen 'wordt niet gedekt' geen Security Center is ingeschakeld en worden niet weergegeven onder **beleidsbeheer**.
-  >
+   > [!NOTE]
+   > - Het dashboard van Security Center kan een hoger aantal abonnementen onder tonen **abonnementsdekking** dan het aantal abonnementen die wordt weergegeven onder **beleidsbeheer**. Abonnementsdekking toont het aantal Standaard-, gratis en 'Niet gedekt' abonnementen. De abonnementen 'wordt niet gedekt' geen Security Center is ingeschakeld en worden niet weergegeven onder **beleidsbeheer**.
+   >
 
-  De kolommen in de tabel bevat de volgende gegevens:
+   De kolommen in de tabel bevat de volgende gegevens:
 
- - **Toewijzing beleidsinitiatieven** – Security Center [ingebouwde beleidsregels](security-center-policy-definitions.md) en initiatieven die zijn toegewezen aan een groep abonnement of de beheergroep.
- - **Dekking** – identificeert de prijscategorie gratis of Standard, dat de beheergroep, het abonnement of de werkruimte op wordt uitgevoerd.  Bekijk de pagina [Prijzen](security-center-pricing.md) voor meer informatie over de tariefopties van Security Center.
- - **Instellingen voor** – abonnementen hebben de koppeling **instellingen bewerken**. Selecteren **instellingen bewerken** kunt u werken uw [Security Center-instellingen](security-center-policies-overview.md) voor elke groep abonnement of de beheergroep.
- - **Beveiligde score** : de [beveiligde score](security-center-secure-score.md) biedt een zekere mate van hoe de beveiliging van uw werkbelasting beveiligingsstrategie en helpt u bij het prioriteren van aanbevelingen voor verbetering.
+   - **Toewijzing beleidsinitiatieven** – Security Center [ingebouwde beleidsregels](security-center-policy-definitions.md) en initiatieven die zijn toegewezen aan een groep abonnement of de beheergroep.
+   - **Dekking** – identificeert de prijscategorie gratis of Standard, dat de beheergroep, het abonnement of de werkruimte op wordt uitgevoerd.  Bekijk de pagina [Prijzen](security-center-pricing.md) voor meer informatie over de tariefopties van Security Center.
+   - **Instellingen voor** – abonnementen hebben de koppeling **instellingen bewerken**. Selecteren **instellingen bewerken** kunt u werken uw [Security Center-instellingen](security-center-policies-overview.md) voor elke groep abonnement of de beheergroep.
+   - **Beveiligde score** : de [beveiligde score](security-center-secure-score.md) biedt een zekere mate van hoe de beveiliging van uw werkbelasting beveiligingsstrategie en helpt u bij het prioriteren van aanbevelingen voor verbetering.
 
 2. Selecteer de groep abonnement of de beheergroep waarvan beleidsregels die u wilt weergeven.
 
-  - De **beveiligingsbeleid** scherm weerspiegelt de actie op die door de beleidsregels die zijn toegewezen op de geselecteerde groep van abonnement of de beheergroep.
-  - Gebruik de onderstaande koppelingen voor het openen van elk beleid aan de bovenkant **toewijzing** die van toepassing is op de groep abonnement of de beheergroep. Gebruik de koppelingen kunt u toegang tot de toewijzing en bewerken of uitschakelen van het beleid. Als u ziet dat de toewijzing van een bepaald beleid effectief eindpuntbeveiliging weigert, kunt u de koppeling bijvoorbeeld gebruiken voor toegang tot het beleid en bewerken of uitschakelen.
-  - In de lijst met beleidsregels ziet u de effectieve toepassing van het beleid op uw abonnement of beheergroep. Dit betekent dat de instellingen die betrekking hebben op het bereik van elk beleid in aanmerking worden genomen en u u met de cumulatieve resultaten vindt van welke actie wordt ondernomen door het beleid. Bijvoorbeeld, als in één toewijzing het beleid is uitgeschakeld, maar in een andere dat is ingesteld op AuditIfNotExist, klikt u vervolgens het cumulatieve effect is van toepassing AuditIfNotExist. Het meer actieve effect heeft altijd voorrang.
-  - Het beleid voor effect kan zijn: Toevoegen, controleren, AuditIfNotExists, weigeren, DeployIfNotExists, uitgeschakeld. Zie voor meer informatie over hoe effecten worden toegepast, [beleid begrijpen effecten](../governance/policy/concepts/effects.md).
+   - De **beveiligingsbeleid** scherm weerspiegelt de actie op die door de beleidsregels die zijn toegewezen op de geselecteerde groep van abonnement of de beheergroep.
+   - Gebruik de onderstaande koppelingen voor het openen van elk beleid aan de bovenkant **toewijzing** die van toepassing is op de groep abonnement of de beheergroep. Gebruik de koppelingen kunt u toegang tot de toewijzing en bewerken of uitschakelen van het beleid. Als u ziet dat de toewijzing van een bepaald beleid effectief eindpuntbeveiliging weigert, kunt u de koppeling bijvoorbeeld gebruiken voor toegang tot het beleid en bewerken of uitschakelen.
+   - In de lijst met beleidsregels ziet u de effectieve toepassing van het beleid op uw abonnement of beheergroep. Dit betekent dat de instellingen die betrekking hebben op het bereik van elk beleid in aanmerking worden genomen en u u met de cumulatieve resultaten vindt van welke actie wordt ondernomen door het beleid. Bijvoorbeeld, als in één toewijzing het beleid is uitgeschakeld, maar in een andere dat is ingesteld op AuditIfNotExist, klikt u vervolgens het cumulatieve effect is van toepassing AuditIfNotExist. Het meer actieve effect heeft altijd voorrang.
+   - Het beleid voor effect kan zijn: Toevoegen, controleren, AuditIfNotExists, weigeren, DeployIfNotExists, uitgeschakeld. Zie voor meer informatie over hoe effecten worden toegepast, [beleid begrijpen effecten](../governance/policy/concepts/effects.md).
 
    ![beleid scherm](./media/security-center-policies/policy-screen.png)
 
@@ -102,16 +102,25 @@ U kunt beveiligingsbeleid via de portal van Azure Policy, via de REST-API of met
 
 
 ## <a name="disable-security-policies"></a>Beveiligingsbeleidsregels voor uitschakelen
-Als het standaardbeveiligingsbeleid een aanbeveling die niet relevant is voor uw omgeving genereert, kunt u deze kunt stoppen door het uitschakelen van de beleidsdefinitie waarmee de aanbeveling wordt verzonden. Dit wordt gedaan via de portal voor Azure Policy (en niet de portal van Security Center), zoals hier wordt beschreven.
-Zie voor meer informatie over aanbevelingen [aanbevelingen voor beveiliging beheren](security-center-recommendations.md). 
-1. Ga naar Azure Policy en klikt u op **toewijzingen**.
-2. In de **ASC standaard** rij, klikt u op de drie puntjes en klikt u op **definitie**. De **Initiatiefdefinitie** pagina wordt geopend.
-   ![definitie weergeven](./media/tutorial-security-policy/view-definition.png)
-3. Klik op **intitiative bewerken**. De **Initiatiefdefinitie bewerken** pagina wordt geopend.
-   ![initiatief bewerken](./media/tutorial-security-policy/edit-initiative.png)
-4. In de **BELEIDSREGELS en PARAMETERS** sectie zoeken voor het beleid dat roept de bevelen aan dat u wilt uitschakelen, en in de vervolgkeuzelijst, selecteer **uitgeschakelde**.
+Als het standaardbeveiligingsbeleid een aanbeveling die niet relevant is voor uw omgeving genereert, kunt u deze kunt stoppen door het uitschakelen van de beleidsdefinitie waarmee de aanbeveling wordt verzonden.
+Zie voor meer informatie over aanbevelingen [aanbevelingen voor beveiliging beheren](security-center-recommendations.md).
+
+1. In het Beveiligingscentrum uit de **beleid en naleving** sectie, klikt u op **beveiligingsbeleid**.
+
+   ![beleidsbeheer](./media/tutorial-security-policy/policy-management.png)
+
+2. Klik op het abonnement waarvoor u wilt uitschakelen van de aanbeveling.
+
+1. Klik op het toegewezen beleid.
+
+   ![Beleid uitschakelen](./media/tutorial-security-policy/security-policy.png)
+
+1. In de **PARAMETERS** sectie zoeken voor het beleid dat roept de bevelen aan dat u wilt uitschakelen, en in de vervolgkeuzelijst, selecteer **uitgeschakeld**
+
    ![Beleid uitschakelen](./media/tutorial-security-policy/disable-policy.png)
-1. Klik op **opslaan** (te vinden onder aan de pagina).
+1. Klik op **Opslaan**.
+> [!Note]
+> Wijzigingen in het beleid uitschakelen kunnen pas van kracht tot 12 uur duren.
 
 
 ### <a name="configure-a-security-policy-using-the-rest-api"></a>Een beveiligingsbeleid op basis van de REST-API configureren
@@ -173,38 +182,38 @@ In dit voorbeeld laat zien hoe de ingebouwde Security Center-initiatief op een a
 
 - Endpoint protection ("endpointProtectionMonitoringEffect") 
 
- 
-      PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
 
-      Request Body (JSON) 
-
-      { 
-
-        "properties":{ 
-
-      "displayName":"Enable Monitoring in Azure Security Center", 
-
-      "metadata":{ 
-
-      "assignedBy":"{Name}" 
-
-      }, 
-
-      "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
-
-      "parameters":{ 
-
-      "systemUpdatesMonitoringEffect":{"value":"Disabled"}, 
-
-      "systemConfigurationsMonitoringEffect":{"value":"Disabled"}, 
-
-      "endpointProtectionMonitoringEffect":{"value":"Disabled"}, 
-
-      }, 
-
-       } 
-
-      } 
+    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+    
+    Hoofdtekst van de aanvraag (JSON) 
+    
+    { 
+    
+      "properties":{ 
+    
+    "displayName": "Controleren inschakelen in Azure Security Center", 
+    
+    "metagegevens": { 
+    
+    "assignedBy": "{Name} 
+    
+    }, 
+    
+    "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
+    
+    "parameters":{ 
+    
+    "systemUpdatesMonitoringEffect":{"value":"Disabled"}, 
+    
+    "systemConfigurationsMonitoringEffect": {"waarde": "Uitgeschakeld"}, 
+    
+    "endpointProtectionMonitoringEffect": {"waarde": "Uitgeschakeld"}, 
+    
+    }, 
+    
+     } 
+    
+    } 
 
 Dit voorbeeld ziet u hoe u een toewijzing verwijderen:
 

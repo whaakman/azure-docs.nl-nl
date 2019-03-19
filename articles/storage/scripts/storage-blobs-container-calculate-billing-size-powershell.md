@@ -15,12 +15,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: fryu
-ms.openlocfilehash: f1e905b0b67048a10f6eb455d77275375a99dbd0
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 805abec84b26a6b2b9af3dfe318f877f4edb9547
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245402"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080893"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>De totale grootte van een blobcontainer berekenen voor facturering
 
@@ -101,17 +101,17 @@ Hieronder ziet u de uitsplitsing:
 * Voor elke blok met metagegevens dat is opgeslagen, wordt de lengte van de naam (opgeslagen als ASCII) toegevoegd, plus de lengte van de tekenreekswaarde.
 
 * Voor de blok-blobs:
-    * 8 bytes voor de blok-lijst.
-    * Aantal blokken maal de grootte van de blok-id in bytes.
-    * De grootte van de gegevens in alle toegezegde en niet-toegezegde blokken.
+  * 8 bytes voor de blok-lijst.
+  * Aantal blokken maal de grootte van de blok-id in bytes.
+  * De grootte van de gegevens in alle toegezegde en niet-toegezegde blokken.
 
     >[!NOTE]
     >Wanneer momentopnamen worden gebruikt, is deze grootte alleen inclusief de unieke gegevens voor deze basis-blob of momentopname. Als de niet-toegezegde blokken na een week niet zijn gebruikt, worden ze definitief verwijderd. Hierna tellen ze niet meer mee in de facturering.
 
 * Voor pagina-blobs:
-    * Het aantal niet-aaneengesloten pagina’s met gegevens maal 12 bytes. Dit is het aantal unieke paginabereiken dat u ziet wanneer u de API **GetPageRanges** aanroept.
+  * Het aantal niet-aaneengesloten pagina’s met gegevens maal 12 bytes. Dit is het aantal unieke paginabereiken dat u ziet wanneer u de API **GetPageRanges** aanroept.
 
-    * De grootte van de gegevens in bytes van alle opgeslagen pagina’s.
+  * De grootte van de gegevens in bytes van alle opgeslagen pagina’s.
 
     >[!NOTE]
     >Wanneer momentopnamen worden gebruikt, is deze grootte alleen inclusief de unieke pagina’s voor de basis-blob of momentopname die wordt geteld.

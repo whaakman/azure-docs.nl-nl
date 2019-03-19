@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: d50f25fbe10fc5ac4e834141fe7ac45fbed918ab
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 26144b7eb53f5c0d4ebecbc9e6eece741f466719
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309023"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997789"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Het oplossen van fouten over ongeldige gateways in Application Gateway
 
@@ -83,7 +83,7 @@ Als aanwezig is, controleert u of de DNS-server correct kan omzetten van back-en
 
 | Test-eigenschap | Value | Description |
 | --- | --- | --- |
-| Test-URL |http://127.0.0.1/ |URL-pad |
+| Test-URL |`http://127.0.0.1/` |URL-pad |
 | Interval |30 |Testinterval in seconden |
 | Time-out |30 |Test time-out in seconden |
 | Drempelwaarde voor onjuiste status |3 |Aantal nieuwe pogingen-test. De back-endserver is gemarkeerd omlaag nadat het aantal opeenvolgende fouten de drempelwaarde voor onjuiste status heeft bereikt. |
@@ -92,7 +92,7 @@ Als aanwezig is, controleert u of de DNS-server correct kan omzetten van back-en
 
 * Zorg ervoor dat een standaard-site is geconfigureerd en op 127.0.0.1 luistert.
 * Als BackendHttpSetting Hiermee geeft u een andere poort dan 80, moet u de standaard-site geconfigureerd om te luisteren op poort.
-* De aanroep van http://127.0.0.1:port moet de resultaatcode van een HTTP 200 retourneren. Dit moet worden geretourneerd binnen de time-outperiode van 30 seconden.
+* De aanroep van `http://127.0.0.1:port` moet de resultaatcode van een HTTP 200 retourneren. Dit moet worden geretourneerd binnen de time-outperiode van 30 seconden.
 * Zorg ervoor dat poort geconfigureerd geopend is en dat er zijn geen firewallregels of Azure-Netwerkbeveiligingsgroepen, dit blokkeren van binnenkomend of uitgaand verkeer op de poort die is geconfigureerd.
 * Als Azure klassieke virtuele machines of Cloud Service met de FQDN-naam of openbaar IP-adres wordt gebruikt, zorg ervoor dat de bijbehorende [eindpunt](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) wordt geopend.
 * Als de virtuele machine is geconfigureerd via Azure Resource Manager en buiten de VNet waar Application Gateway is geïmplementeerd, [Network Security Group](../virtual-network/security-overview.md) moet worden geconfigureerd voor toegang op de gewenste poort.
@@ -118,7 +118,7 @@ Aangepaste statustests kunnen extra flexibiliteit om de standaard probing gedrag
 Controleer of de Statustest voor de aangepaste correct als de voorgaande tabel is geconfigureerd. Naast de voorgaande stappen voor probleemoplossing, zorg er ook voor het volgende:
 
 * Zorg ervoor dat de test correct is opgegeven als per de [handleiding](application-gateway-create-probe-ps.md).
-* Als Application Gateway is geconfigureerd voor een enkele site, wordt standaard de Host moet naam worden opgegeven als '127.0.0.1', tenzij anders is geconfigureerd in aangepaste test.
+* Als Application Gateway is geconfigureerd voor een enkele site, wordt standaard de Host naam moet worden opgegeven als `127.0.0.1`, tenzij anders is geconfigureerd in aangepaste test.
 * Zorg ervoor dat een aanroep naar http://\<host\>:\<poort\>\<pad\> retourneert de resultaatcode van een HTTP 200.
 * Zorg ervoor dat Interval, Time-out en UnhealtyThreshold binnen een acceptabel prestatiebereik.
 * Als u met behulp van een HTTPS-test, zorg ervoor dat de back-endserver zijn vereist om SNI door het configureren van een fallback-certificaat op de back endserver zelf.

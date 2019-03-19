@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/01/2017
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 075f08f89e0bbdefa76623a284971f46a1b3966a
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 13379111706eaa816a8fa16cfe72711b7bf4d739
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119795"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013291"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Node.js-services en -apps bewaken met Application Insights
 
@@ -28,8 +28,6 @@ Neem de SDK op in de code en stel vervolgens een bijbehorende Application Insigh
 De Node.js SDK kan binnenkomende en uitgaande HTTP-aanvragen, uitzonderingen en verschillende systeemmeetgegevens automatisch bewaken. Vanaf versie 0.20 kunnen met de SDK ook sommige algemene pakketten van derden worden bewaakt, zoals MongoDB, MySQL, bewaken en Redis. Alle gebeurtenissen met betrekking tot een binnenkomende HTTP-aanvraag worden gecorreleerd voor snellere probleemoplossing.
 
 U kunt de TelemetryClient-API gebruiken om handmatig aanvullende aspecten van de app en het systeem te instrumenteren en te bewaken. De TelemetryClient-API wordt verderop in dit artikel meer gedetailleerd beschreven.
-
-![Voorbeeld van grafieken met prestatiebewaking](./media/nodejs/10-perf.png)
 
 ## <a name="get-started"></a>Aan de slag
 
@@ -49,11 +47,7 @@ Voordat u begint, moet u ervoor zorgen dat u een Azure-abonnement hebt of moet u
 1. Meld u aan bij [Azure Portal][portal].
 2. Selecteer **Een resource maken** > **Hulpprogramma's voor ontwikkelaars** > **Application Insights**. De resource bevat een eindpunt voor het ontvangen van telemetriegegevens, opslag voor deze gegevens, opgeslagen rapporten en dashboards, regel- en waarschuwingsconfiguratie en meer.
 
-  ![Een Application Insights-resource maken](./media/nodejs/03-new_appinsights_resource.png)
-
 3. Selecteer op de pagina voor het maken van de resource in het vak **Toepassingstype** de optie **Node.js-toepassing**. Het apptype bepaalt de standaardashboards en -rapporten die worden gemaakt. (elke Application Insights-resource kan gegevens verzamelen vanuit elke taal en elk platform.)
-
-  ![Nieuw Application Insights-resourceformulier](./media/nodejs/04-create_appinsights_resource.png)
 
 ### <a name="sdk"></a> De Node.ja SDK instellen
 
@@ -61,29 +55,29 @@ Neem de SKD op in de app zodat gegevens kunnen worden verzameld.
 
 1. Kopieer de instrumentatiesleutel van de resource (ook wel *iKey* genoemd) vanuit Azure Portal. Application Insights gebruikt de iKey om de gegevens toe te wijzen aan de Azure-resource. Voordat de SDK uw iKey kan gebruiken, moet u de iKey opgeven in een omgevingsvariabele of in uw code.  
 
-  ![Instrumentatiesleutel kopiëren](./media/nodejs/05-appinsights_ikey_portal.png)
+   ![Instrumentatiesleutel kopiëren](./media/nodejs/instrumentation-key-001.png)
 
 2. Voeg de Node.js SDK-bibliotheek toe aan de afhankelijkheden van de app via package.json. Voer in de hoofdmap van uw app de volgende opdracht uit:
 
-  ```bash
-  npm install applicationinsights --save
-  ```
+   ```bash
+   npm install applicationinsights --save
+   ```
 
 3. Laad de bibliotheek expliciet in de code. Laad de bibliotheek zo vroeg mogelijk, zelfs vóór andere `require`-instructies, omdat de SDK instrumentatie in veel andere bibliotheken injecteert. 
 
-  Voeg boven aan het eerste .js-bestand de volgende code toe. De `setup`-methode configureert de iKey (en dus de Azure-resource) die standaard moet worden gebruikt voor alle bijgehouden items.
+   Voeg boven aan het eerste .js-bestand de volgende code toe. De `setup`-methode configureert de iKey (en dus de Azure-resource) die standaard moet worden gebruikt voor alle bijgehouden items.
 
-  ```javascript
-  const appInsights = require("applicationinsights");
-  appInsights.setup("<instrumentation_key>");
-  appInsights.start();
-  ```
+   ```javascript
+   const appInsights = require("applicationinsights");
+   appInsights.setup("<instrumentation_key>");
+   appInsights.start();
+   ```
    
-  U kunt ook een iKey opgeven via de omgevingsvariabele APPINSIGHTS \_INSTRUMENTATIONKEY in plaats van deze handmatig door te geven naar `setup()` of `new appInsights.TelemetryClient()`. Met deze procedure kunt u iKeys buiten vastgelegde broncode houden en kunt u verschillende iKeys opgeven voor verschillende omgevingen.
+   U kunt ook een iKey opgeven via de omgevingsvariabele APPINSIGHTS \_INSTRUMENTATIONKEY in plaats van deze handmatig door te geven naar `setup()` of `new appInsights.TelemetryClient()`. Met deze procedure kunt u iKeys buiten vastgelegde broncode houden en kunt u verschillende iKeys opgeven voor verschillende omgevingen.
 
-  Zie de volgende secties voor extra configuratieopties.
+   Zie de volgende secties voor extra configuratieopties.
 
-  U kunt de SDK uitproberen zonder telemetrie te verzenden door `appInsights.defaultClient.config.disableAppInsights = true` in te stellen.
+   U kunt de SDK uitproberen zonder telemetrie te verzenden door `appInsights.defaultClient.config.disableAppInsights = true` in te stellen.
 
 ### <a name="monitor"></a> Uw app bewaken
 
@@ -91,15 +85,13 @@ Met de SDK wordt automatisch telemetrische informatie verzameld over de Node.js-
 
 Ga vervolgen in [Azure Portal][portal] naar de Application Insights-resource die u hebt gemaakt. Zoek in de **Overzichtstijdlijn** naar de eerste gegevenspunten. Selecteer verschillende onderdelen in de grafieken om meer gedetailleerde gegevens te zien.
 
-![Eerste gegevenspunten](./media/nodejs/12-first-perf.png)
-
 Selecteer de knop **Toepassingskaart** om de gedetecteerde topologie voor te app weer te geven. Selecteer onderdelen in de kaart voor meer informatie.
 
-![Eenvoudig app-kaart](./media/nodejs/06-appinsights_appmap.png)
+![Eenvoudig app-kaart](./media/nodejs/application-map-002.png)
 
 Selecteer in de sectie **ONDERZOEKEN** de andere beschikbare weergaven voor informatie over de app en het oplossen van problemen.
 
-![Sectie onderzoeken](./media/nodejs/07-appinsights_investigate_blades.png)
+![Sectie onderzoeken](./media/nodejs/007-investigate-pane.png)
 
 #### <a name="no-data"></a>Zijn er geen gegevens?
 

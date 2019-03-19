@@ -1,6 +1,6 @@
 ---
-title: Codeer aangepaste transformeren met behulp van Media Services v3 - Azure | Microsoft Docs
-description: In dit onderwerp laat zien hoe Azure Media Services v3 gebruiken om een aangepaste transformatie.
+title: Codeer aangepaste transformeren met behulp van Media Services v3 .NET - Azure | Microsoft Docs
+description: In dit onderwerp laat zien hoe Azure Media Services v3 gebruiken om een aangepaste transformeren met behulp van .NET.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -10,21 +10,29 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: seodec18
-ms.date: 02/26/2019
+ms.date: 03/11/2019
 ms.author: juliako
-ms.openlocfilehash: a0843e6c641ded75ded01da4c8a54cd4c0f48ee1
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 848da2996b71b137c6112225c9bef7e93b457c7d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957467"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57837232"
 ---
-# <a name="how-to-encode-with-a-custom-transform"></a>Coderen met een aangepaste transformatie
+# <a name="how-to-encode-with-a-custom-transform-by-using-net"></a>Coderen met een aangepaste transformeren met behulp van .NET
 
-Wanneer u met Azure Media Services encoding, u kunt snel aan de slag met een van de aanbevolen ingebouwde voorinstellingen gebaseerd op best practices, zoals geïllustreerd in de [Streaming bestanden](stream-files-tutorial-with-api.md) zelfstudie, of u kunt ervoor kiezen om te maken van een aangepaste voorinstelling voor uw specifieke vereisten voor scenario of het apparaat. 
+Wanneer u met Azure Media Services encoding, u kunt snel aan de slag met een van de aanbevolen ingebouwde voorinstellingen gebaseerd op best practices, zoals geïllustreerd in de [Streaming bestanden](stream-files-tutorial-with-api.md) zelfstudie. U kunt ook een aangepaste voorinstelling wilt richten op uw specifieke vereisten voor scenario of het apparaat maken.
 
-> [!Note]
-> In Azure Media Services v3 zijn alle van de codering bitsnelheden in bits per seconde. Dit is anders dan de REST-v2 voorinstellingen van Media Encoder Standard. Bijvoorbeeld, de bitrate in v2 zou worden opgegeven als 128, maar in v3 128000 zou zijn.
+## <a name="considerations"></a>Overwegingen
+
+Bij het maken van aangepaste voorinstellingen, de volgende overwegingen zijn van toepassing:
+
+* Alle waarden voor de hoogte en breedte in AVC inhoud moet een meervoud van 4.
+* In Azure Media Services v3 zijn alle van de codering bitsnelheden in bits per seconde. Dit wijkt af van het voorbeelddiagram met onze v2 API's, dat kilobits per seconde als de eenheid gebruikt. Bijvoorbeeld, als de bitrate in v2 is opgegeven als 128 (kilobits per seconde), zou in v3 deze worden ingesteld op 128000 (bits per seconde).
+
+## <a name="prerequisites"></a>Vereisten 
+
+[Een Azure Media Services-account maken](create-account-cli-how-to.md). <br/>Zorg ervoor dat u de naam van de resourcegroep en de naam van de Media Services-account. 
 
 ## <a name="download-the-sample"></a>Het voorbeeld downloaden
 
@@ -40,7 +48,11 @@ De aangepaste voorinstelling voorbeeld bevindt zich in de [EncodeCustomTransform
 
 Bij het maken van een nieuwe [transformeren](https://docs.microsoft.com/rest/api/media/transforms), moet u opgeven wat u wilt dat als uitvoer produceren. De vereiste parameter is een [TransformOutput](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#transformoutput)-object, zoals weergegeven in de onderstaande code. Elke **transformatie-uitvoer** bevat een **voorinstelling**. **Voorinstelling** bevat de stapsgewijze instructies van de video- en/of audioverwerkingen die moeten worden gebruikt voor het genereren van de gewenste **TransformOutput**. De volgende **TransformOutput** aangepaste codec en laag uitvoerinstellingen maakt.
 
-Bij het maken van een [transformatie](https://docs.microsoft.com/rest/api/media/transforms) moet u controleren of er al een bestaat met de methode **Ophalen** zoals weergegeven in de volgende code.  In Media Services v3, **ophalen** methoden op entiteiten retourneren **null** als de entiteit bestaat niet (een niet-hoofdlettergevoelige controle op de naam).
+Bij het maken van een [transformatie](https://docs.microsoft.com/rest/api/media/transforms) moet u controleren of er al een bestaat met de methode **Ophalen** zoals weergegeven in de volgende code. In Media Services v3, **ophalen** methoden op entiteiten retourneren **null** als de entiteit bestaat niet (een niet-hoofdlettergevoelige controle op de naam).
+
+### <a name="example"></a>Voorbeeld
+
+Het volgende voorbeeld definieert een set van uitvoer die we worden gegenereerd willen wanneer deze transformatie wordt gebruikt. We eerst toevoegen een AacAudio-laag voor de audio codering en twee H264Video lagen voor de videocodering. In de video lagen toewijzen we labels, zodat ze kunnen worden gebruikt in de namen van de uitvoer. Vervolgens gaan we de uitvoer naar alle miniaturen. In het onderstaande voorbeeld geven we afbeeldingen in PNG-indeling, die worden gegenereerd op 50% van de omzetting van de invoervideo en op drie tijdstempels - {% 25, 50%, 75} van de lengte van de invoervideo. Tot slot geven we de indeling voor de uitvoerbestanden: één voor video en audio, en een andere voor de miniaturen. Aangezien we meerdere H264Layers hebben, hebben we het gebruik van macro's die unieke namen per laag produceren. Kunnen we gebruiken een `{Label}` of `{Bitrate}` macro, in het voorbeeld ziet u de vorige.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/EncodeCustomTransform/MediaV3ConsoleApp/Program.cs#EnsureTransformExists)]
 

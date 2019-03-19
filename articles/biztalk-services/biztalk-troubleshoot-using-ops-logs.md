@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: f69035202a3358af38ebaf8e94abdd3b030e633f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e58a62761284e0671c0083d41f5dde4c13b32fe2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256065"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108253"
 ---
 # <a name="biztalk-services-troubleshoot-using-operation-logs"></a>BizTalk Services: Problemen oplossen met bewerkingslogboeken
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
-
+> 
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 ## <a name="what-are-the-operation-logs"></a>Wat zijn de logboeken voor bewerkingen
@@ -39,7 +39,7 @@ Logboeken voor bewerkingen is een Management Services-functie waarmee u om histo
 ## <a name="view-biztalk-services-operation-logs"></a>BizTalk Services-Logboeken voor bewerkingen weergeven
 1. Selecteer in de portal **beheerservices**, en selecteer vervolgens de **Bewerkingslogboeken** tabblad.
 2. U kunt de logboeken op basis van verschillende parameters, zoals het abonnement, datumbereik, servicetype (bijvoorbeeld BizTalk Services), servicenaam of de status van de bewerking (geslaagd, mislukt) filteren.
-3. Selecteer het vinkje om de gefilterde lijst weer te geven. De volgende afbeelding ziet u activiteiten met betrekking tot testbiztalkservice: ![logboeken voor bewerkingen weergeven][ViewLogs] 
+3. Selecteer het vinkje om de gefilterde lijst weer te geven. De volgende afbeelding ziet u activiteiten met betrekking tot testbiztalkservice: ![Logboeken van de bewerking weergeven][ViewLogs] 
 4. Als u wilt meer weergeven over een bepaalde bewerking, selecteer de rij en klikt u op **Details** in de taakbalk onder.
 
 ## <a name="bizops"></a>Bewerkingen die worden bijgehouden met behulp van Azure-beheerservices
@@ -64,14 +64,14 @@ De volgende tabel bevat de bewerkingen die worden bijgehouden met behulp van de 
 | PurgeBackupBizTalkService |Bewerking voor het opschonen van de back-ups van de BizTalk Service buiten de bewaarperiode liggen |
 
 ## <a name="see-also"></a>Zie ook
-* [Back-up van BizTalk-Service](https://go.microsoft.com/fwlink/p/?LinkID=325584)
+* [Backup BizTalk Service](https://go.microsoft.com/fwlink/p/?LinkID=325584)
 * [BizTalk-Service te herstellen vanuit back-up](https://go.microsoft.com/fwlink/p/?LinkID=325582)
 * [BizTalk Services: Developer, Basic, Standard en Premium-edities grafiek](https://go.microsoft.com/fwlink/p/?LinkID=302279)
-* [BizTalk Services: inrichten](https://go.microsoft.com/fwlink/p/?LinkID=302280)
-* [BizTalk Services: statusgrafiek voor de inrichting](https://go.microsoft.com/fwlink/p/?LinkID=329870)
-* [BizTalk Services: de tabbladen Dashboard, Bewaken en Schalen](https://go.microsoft.com/fwlink/p/?LinkID=302281)
-* [BizTalk Services: beperking](https://go.microsoft.com/fwlink/p/?LinkID=302282)
-* [BizTalk Services: naam en sleutel van verlener](https://go.microsoft.com/fwlink/p/?LinkID=303941)
+* [BizTalk Services: Inrichting](https://go.microsoft.com/fwlink/p/?LinkID=302280)
+* [BizTalk Services: Diagram van de Status van inrichting](https://go.microsoft.com/fwlink/p/?LinkID=329870)
+* [BizTalk Services: Tabbladen dashboard, bewaken en schalen](https://go.microsoft.com/fwlink/p/?LinkID=302281)
+* [BizTalk Services: Beperking](https://go.microsoft.com/fwlink/p/?LinkID=302282)
+* [BizTalk Services: Naam en sleutel van verlener](https://go.microsoft.com/fwlink/p/?LinkID=303941)
 * [De Azure BizTalk Services SDK gaan gebruiken](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png

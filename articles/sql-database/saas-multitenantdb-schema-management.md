@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 55e414a35574f8437a30ffb75aebd82eded14fa9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c7c10608d90f7659b108d2d8c80038f59396de2d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447913"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878071"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Het schema in een SaaS-toepassing die gebruikmaakt van shard SQL-databases van meerdere tenants beheren
 
@@ -53,7 +53,7 @@ In deze zelfstudie leert u het volgende:
 - Azure PowerShell moet worden geïnstalleerd. Zie voor meer informatie, [aan de slag met Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 > [!NOTE]
-> Deze zelfstudie wordt gebruikgemaakt van functies van de Azure SQL Database-service die zich in een beperkte Preview-versie ([taken voor Elastic Database](sql-database-elastic-database-client-library.md)). Als u doen in deze zelfstudie wilt, geeft u uw abonnements-ID naar *SaaSFeedback@microsoft.com* met onderwerp = Elastic Jobs Preview. Wanneer u de bevestiging hebt ontvangen dat uw abonnement is ingeschakeld, [downloadt en installeert u de taak-cmdlets van de voorlopige versie](https://github.com/jaredmoo/azure-powershell/releases). Deze Preview-versie is beperkt, dus neem contact op met *SaaSFeedback@microsoft.com* voor vragen of voor ondersteuning.
+> Deze zelfstudie wordt gebruikgemaakt van functies van de Azure SQL Database-service die zich in een beperkte Preview-versie ([taken voor Elastic Database](sql-database-elastic-database-client-library.md)). Als u doen in deze zelfstudie wilt, geeft u uw abonnements-ID naar *SaaSFeedback\@microsoft.com* met onderwerp = Elastic Jobs Preview. Wanneer u de bevestiging hebt ontvangen dat uw abonnement is ingeschakeld, [downloadt en installeert u de taak-cmdlets van de voorlopige versie](https://github.com/jaredmoo/azure-powershell/releases). Deze Preview-versie is beperkt, dus neem contact op met *SaaSFeedback\@microsoft.com* voor vragen of voor ondersteuning.
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Kennismaking met patronen voor SaaS-schema
 
