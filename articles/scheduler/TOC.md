@@ -32,7 +32,7 @@
 ## [Azure Scheduler-roadmap](https://azure.microsoft.com/updates/?product=scheduler)
 ## [Azure-roadmap](https://azure.microsoft.com/updates/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-scheduler)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-scheduler)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/scheduler/)
 ## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=scheduler)
