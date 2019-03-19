@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/16/2018
+ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 0bed75090e82287e1239342884b5acea64e69bf0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b67a65bad06560a09d2ead88bd20f0568f749bb3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444001"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58082174"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Hoge beschikbaarheid van SAP HANA op Azure Virtual machines van Red Hat Enterprise Linux
 
@@ -182,6 +182,10 @@ Volg deze stappen voor het implementeren van de sjabloon:
    1. Herhaal deze stappen voor poorten 3**03**41 en 3**03**42.
 
 Lees voor meer informatie over de vereiste poorten voor SAP HANA, het hoofdstuk [verbindingen met Tenantdatabases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) in de [SAP HANA-Tenantdatabases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) handleiding of [SAP-notitie 2388694][2388694].
+
+> [!IMPORTANT]
+> Schakel geen TCP-tijdstempels op Azure VM's achter Azure Load Balancer worden geplaatst. Inschakelen van TCP tijdstempels zorgt ervoor dat de statuscontroles mislukken. Stel de parameter **net.ipv4.tcp_timestamps** naar **0**. Zie voor meer informatie [Load Balancer statuscontroles](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview).
+> SAP-notitie [2382421](https://launchpad.support.sap.com/#/notes/2382421) momenteel bevat conflicterende-instructie, adviseren u net.ipv4.tcp_timestamps instellen op 1. Voor Azure VM's achter Azure Load balancer worden geplaatst, stel de parameter **net.ipv4.tcp_timestamps** naar **0**.
 
 ## <a name="install-sap-hana"></a>SAP HANA installeren
 
@@ -357,21 +361,21 @@ De stappen in deze sectie gebruikt u de volgende voorvoegsels:
    Firewallregels voor HANA-Systeemreplicatie en client-verkeer maken. De vereiste poorten worden vermeld op [TCP/IP-poorten van alle SAP-producten](https://help.sap.com/viewer/ports). De volgende opdrachten zijn slechts een voorbeeld waarmee verkeer voor database SYSTEMDB, HN1 en NW1 HANA-Systeemreplicatie 2.0 en de client.
 
    <pre><code>sudo firewall-cmd --zone=public --add-port=40302/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=40302/tcp
-sudo firewall-cmd --zone=public --add-port=40301/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=40301/tcp
-sudo firewall-cmd --zone=public --add-port=40307/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=40307/tcp
-sudo firewall-cmd --zone=public --add-port=40303/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=40303/tcp
-sudo firewall-cmd --zone=public --add-port=40340/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=40340/tcp
-sudo firewall-cmd --zone=public --add-port=30340/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=30340/tcp
-sudo firewall-cmd --zone=public --add-port=30341/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=30341/tcp
-sudo firewall-cmd --zone=public --add-port=30342/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=30342/tcp
+   sudo firewall-cmd --zone=public --add-port=40302/tcp
+   sudo firewall-cmd --zone=public --add-port=40301/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=40301/tcp
+   sudo firewall-cmd --zone=public --add-port=40307/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=40307/tcp
+   sudo firewall-cmd --zone=public --add-port=40303/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=40303/tcp
+   sudo firewall-cmd --zone=public --add-port=40340/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=40340/tcp
+   sudo firewall-cmd --zone=public --add-port=30340/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=30340/tcp
+   sudo firewall-cmd --zone=public --add-port=30341/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=30341/tcp
+   sudo firewall-cmd --zone=public --add-port=30342/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=30342/tcp
    </code></pre>
 
 1. **[1]**  Maken van de tenant-database.

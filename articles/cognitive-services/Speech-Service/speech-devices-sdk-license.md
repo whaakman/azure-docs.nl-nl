@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: a9f6dfb0de2cf09b27d08eb6b7dc425c8cd1f17d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 825a6035a997eb27a3e8e5833a792bdd985997c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549218"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084620"
 ---
 # <a name="speech-devices-sdk-license-agreement"></a>Gebruiksrechtovereenkomst voor spraak Devices SDK
 
@@ -83,9 +83,9 @@ f) moet u de software alleen in combinatie met Microsoft Azure Cognitive Service
 (c) Duitsland en Oostenrijk.
 
 > (i) garantie. De juist gelicentieerde software presteert hoofdzakelijk zoals beschreven in de Microsoft-materiaal bij de software. Microsoft biedt echter geen contractuele garantie met betrekking tot de gelicentieerde software.
-
+> 
 > (ii) beperking van aansprakelijkheid. Microsoft is in het geval van opzettelijke verloop, grove nalatigheid, claims op basis van het Product aansprakelijkheid feit, evenals, in het geval van overlijden of persoonlijke of fysieke schade, gesteld op basis van het wettelijk recht.
-
+> 
 > Afhankelijk van de voorgaande component (ii) Microsoft alleen aansprakelijk worden gesteld voor lichte nalatigheid indien Microsoft in strijd is met dergelijke contractuele verplichtingen schendt, de afhandeling hiervan mogelijk maken van deze overeenkomst is, zou de schending het doel van deze overeenkomst en de compatibiliteit met die een partij voortdurend kan vertrouwen in (zogeheten 'plichten') gevaar. In andere gevallen van lichte nalatigheid is Microsoft niet aansprakelijk voor lichte nalatigheid.
 
 **15\. VRIJWARING VAN GARANTIE. DE SOFTWARE IS IN LICENTIE GEGEVEN "AS IS." U DRAAGT HET RISICO VAN HET GEBRUIK ERVAN. MICROSOFT BIEDT GEEN EXPLICIETE GARANTIES, GARANTIES OF VOORWAARDEN. VOOR ZOVER TOEGESTAAN ONDER DE TOEPASSELIJKE WETGEVING, WIJST MICROSOFT ALLE IMPLICIETE GARANTIES AF, MET INBEGRIP VAN VERKOOPBAARHEID, GESCHIKTHEID VOOR EEN BEPAALD DOEL EN NIET-INBREUKMAKENDHEID.**

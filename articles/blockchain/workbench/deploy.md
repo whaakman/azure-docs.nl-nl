@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: fcba3aef29e1566f9dfb2b151c15fe683be94fdb
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 7fead05e7404e042d923631f4ba745553085943a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266584"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098107"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain Workbench implementeren
 
@@ -108,20 +108,20 @@ Als de vereiste stappen zijn voltooid, bent u klaar om de Blockchain Workbench t
 
     Met de *gebruik bestaande* optie kunt u een netwerk van de blockchain Ethereum Proof-of-Authority (PoA) opgeven. Eindpunten hebben de volgende vereisten.
 
-    * Het eindpunt moet een Ethereum Proof-of-Authority (PoA) blockchain-netwerk zijn.
-    * Het eindpunt moet openbaar toegankelijk zijn via het netwerk.
-    * Het PoA blockchain-netwerk moet worden geconfigureerd met gas prijs is ingesteld op nul.
+   * Het eindpunt moet een Ethereum Proof-of-Authority (PoA) blockchain-netwerk zijn.
+   * Het eindpunt moet openbaar toegankelijk zijn via het netwerk.
+   * Het PoA blockchain-netwerk moet worden geconfigureerd met gas prijs is ingesteld op nul.
 
-    > [!NOTE]
-    > Blockchain Workbench-accounts worden niet gefinancierd. Als er fondsen zijn vereist, mislukt de transacties.
+     > [!NOTE]
+     > Blockchain Workbench-accounts worden niet gefinancierd. Als er fondsen zijn vereist, mislukt de transacties.
 
-    ![Geavanceerde instellingen voor bestaande blockchain-netwerk](media/deploy/advanced-blockchain-settings-existing.png)
+     ![Geavanceerde instellingen voor bestaande blockchain-netwerk](media/deploy/advanced-blockchain-settings-existing.png)
 
-    | Instelling | Beschrijving  |
-    |---------|--------------|
-    | Ethereum RPC-eindpunt | Geef het RPC-eindpunt van een bestaand PoA blockchain-netwerk. Het eindpunt begint met https:// of http:// en eindigt met een poortnummer op. Bijvoorbeeld: `http<s>://<network-url>:<port>` |
-    | Azure Active Directory-instellingen | Kies **Later toevoegen**.</br>Opmerking: Als u ervoor kiest [vooraf configureren van Azure AD](#azure-ad-configuration) of opnieuw wilt implementeren, wilt *nu toevoegen*. |
-    | Selectie van de virtuele machine | Kies de gewenste VM-grootte voor uw blockchain-netwerk. |
+     | Instelling | Beschrijving  |
+     |---------|--------------|
+     | Ethereum RPC-eindpunt | Geef het RPC-eindpunt van een bestaand PoA blockchain-netwerk. Het eindpunt begint met https:// of http:// en eindigt met een poortnummer op. Bijvoorbeeld: `http<s>://<network-url>:<port>` |
+     | Azure Active Directory-instellingen | Kies **Later toevoegen**.</br>Opmerking: Als u ervoor kiest [vooraf configureren van Azure AD](#azure-ad-configuration) of opnieuw wilt implementeren, wilt *nu toevoegen*. |
+     | Selectie van de virtuele machine | Kies de gewenste VM-grootte voor uw blockchain-netwerk. |
 
 9. Selecteer **OK** geavanceerde instellingen te voltooien.
 
@@ -223,18 +223,18 @@ Vervolgens moet u het manifest voor het gebruik van toepassingsrollen in Azure A
 
     ``` json
     "appRoles": [
-         {
-           "allowedMemberTypes": [
-             "User",
-             "Application"
-           ],
-           "displayName": "Administrator",
-           "id": "<A unique GUID>",
-           "isEnabled": true,
-           "description": "Blockchain Workbench administrator role allows creation of applications, user to role assignments, etc.",
-           "value": "Administrator"
-         }
-       ],
+         {
+           "allowedMemberTypes": [
+             "User",
+             "Application"
+           ],
+           "displayName": "Administrator",
+           "id": "<A unique GUID>",
+           "isEnabled": true,
+           "description": "Blockchain Workbench administrator role allows creation of applications, user to role assignments, etc.",
+           "value": "Administrator"
+         }
+       ],
     ```
 
     > [!IMPORTANT]

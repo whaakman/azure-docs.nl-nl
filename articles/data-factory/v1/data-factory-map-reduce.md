@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: ccf67aab2d393d4ee820c19e839ff3076712843d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 715c595f7a8757842ddf10de1c5d5c0a905e9d53
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550068"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110525"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>MapReduce-programma's van Data Factory aanroepen
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -110,7 +110,7 @@ In de JSON-definitie voor de HDInsight-activiteit:
         }
     }
     ```
-U kunt de HDInsight MapReduce-activiteit gebruiken een MapReduce-jar-bestand op een HDInsight-cluster uit te voeren. In het volgende voorbeeld van JSON-definitie van een pijplijn, worden de HDInsight-activiteit is geconfigureerd voor het uitvoeren van een Mahout-JAR-bestand.
+   U kunt de HDInsight MapReduce-activiteit gebruiken een MapReduce-jar-bestand op een HDInsight-cluster uit te voeren. In het volgende voorbeeld van JSON-definitie van een pijplijn, worden de HDInsight-activiteit is geconfigureerd voor het uitvoeren van een Mahout-JAR-bestand.
 
 ## <a name="sample-on-github"></a>Voorbeeld op GitHub
 U kunt een voorbeeld voor het gebruik van de HDInsight MapReduce-activiteit van downloaden: [Data Factory-voorbeelden op GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON/MapReduce_Activity_Sample).  

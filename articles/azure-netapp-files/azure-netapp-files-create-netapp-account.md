@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: ae42d8c0bec8c812d18e927dd450e5b5fc419ba3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: bb43a75b6a221c15c8724302797d04c22e04c8d2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774074"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113636"
 ---
 # <a name="create-a-netapp-account"></a>Een NetApp-account maken
 Als u een NetApp-account maakt, kunt u een capaciteitspool instellen en vervolgens een volume maken. U gebruikt de Azure NetApp Files-blade om een nieuw NetApp-account te maken.
@@ -33,29 +33,29 @@ U moet uw abonnement hebben geregistreerd voor het gebruik van de NetApp-resourc
 
 1. Meld u aan bij Azure Portal. 
 2. Verkrijg toegang tot de Azure NetApp Files-blade via een van de volgende methoden:  
-  * Zoek naar **Azure NetApp Files** in het zoekvak van de Azure-portal.  
-  * Klik in de navigatie op **Alle services** en filter vervolgens op Azure NetApp Files.  
+   * Zoek naar **Azure NetApp Files** in het zoekvak van de Azure-portal.  
+   * Klik in de navigatie op **Alle services** en filter vervolgens op Azure NetApp Files.  
 
-  U kunt de Azure NetApp Files-blade als favoriet opslaan door op het sterpictogram ernaast te klikken. 
+   U kunt de Azure NetApp Files-blade als favoriet opslaan door op het sterpictogram ernaast te klikken. 
 
 3. Klik op **+ Toevoegen** om een nieuw NetApp-account te maken.  
-  Het venster Nieuw NetApp-account verschijnt.  
+   Het venster Nieuw NetApp-account verschijnt.  
 
 4. Geef de volgende informatie voor uw NetApp-account op: 
-  * **Accountnaam**  
-    Geef een unieke naam voor het abonnement op.
-  *  **Abonnement**  
-    Kies een abonnement uit uw bestaande abonnementen.
-  * **Resourcegroep**   
-    Gebruik een bestaande resourcegroep of maak een nieuwe.
-  * **Locatie**  
-    Selecteer de regio waarin u wilt dat het account en zijn onderliggende resources zich bevinden.  
+   * **Accountnaam**  
+     Geef een unieke naam voor het abonnement op.
+   * **Abonnement**  
+     Kies een abonnement uit uw bestaande abonnementen.
+   * **Resourcegroep**   
+     Gebruik een bestaande resourcegroep of maak een nieuwe.
+   * **Locatie**  
+     Selecteer de regio waarin u wilt dat het account en zijn onderliggende resources zich bevinden.  
 
-    ![Nieuw NetApp-account](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)
+     ![Nieuw NetApp-account](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)
 
 
 5. Klik op **Create**.     
-  Het NetApp-account dat u hebt gemaakt, verschijnt nu in de Azure NetApp Files-blade. 
+   Het NetApp-account dat u hebt gemaakt, verschijnt nu in de Azure NetApp Files-blade. 
 
 ## <a name="next-steps"></a>Volgende stappen  
 

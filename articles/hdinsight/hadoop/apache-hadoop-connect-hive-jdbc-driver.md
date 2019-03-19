@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: hrasheed
-ms.openlocfilehash: dba7fbe026725510cc357fecbc7d3251849f6af8
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: dc088d3a6baa4198a1d5cb566b968c631ae5f2c4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56675072"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113815"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Apache Hive query via het JDBC-stuurprogramma in HDInsight
 
@@ -108,7 +108,7 @@ SQuirreL SQL is een JDBC-client die kan worden gebruikt voor het extern uitvoere
 
     * **Wachtwoord**: Het wachtwoord voor de aanmeldingsaccount van het cluster.
 
- ![dialoogvenster alias toevoegen](./media/apache-hadoop-connect-hive-jdbc-driver/addalias.png)
+   ![dialoogvenster alias toevoegen](./media/apache-hadoop-connect-hive-jdbc-driver/addalias.png)
 
     > [!IMPORTANT] 
     > Gebruik de **Test** knop om te controleren of de verbinding werkt. Wanneer **verbinding maken met: Hive in HDInsight** dialoogvenster wordt weergegeven, selecteert u **Connect** om uit te voeren van de test. Als de test is geslaagd, ziet u een **verbinding tot stand gebracht** dialoogvenster. Als er een fout optreedt, raadpleegt u [probleemoplossing](#troubleshooting).

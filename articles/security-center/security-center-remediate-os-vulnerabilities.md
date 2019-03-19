@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: f3764e5f4a5d6bbc3d6988321a2d7648012825ae
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: f4558c6fdb1e5e4f0ffb7a4b4fdb1ab62eb4cfa9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242238"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121278"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Beveiligingsconfiguraties in Azure Security Center herstellen
 Azure Security Center analyseert dagelijks het besturingssysteem (OS) van uw virtuele machines (VM's) en de computers voor een configuratie die kan de virtuele machines en computers die meer kwetsbaar voor aanvallen. Security Center raadt aan dat u beveiligingsproblemen oplossen wanneer de configuratie van het besturingssysteem komt niet overeen met de aanbevolen configuratie van beveiligingsregels en er configuratiewijzigingen aanbevolen om deze beveiligingsproblemen te verhelpen.
@@ -31,34 +31,34 @@ Zie voor meer informatie over de specifieke configuraties die worden bewaakt, de
 
 In dit voorbeeld bevat informatie over de aanbeveling 'Beveiligingsconfiguraties herstellen' onder **Compute en apps**.
 1. In Security Center in het linkerdeelvenster selecteert **Compute en apps**.  
-  De **Compute en apps** venster wordt geopend.
+   De **Compute en apps** venster wordt geopend.
 
    ![Beveiligingsconfiguraties herstellen][1]
 
 2. Selecteer **beveiligingsconfiguraties herstellen**.  
-  De **beveiligingsconfiguraties** venster wordt geopend.
+   De **beveiligingsconfiguraties** venster wordt geopend.
 
    ![Het venster "Beveiligingsconfiguraties"][2]
 
-  Het bovenste gedeelte van het dashboard wordt weergegeven:
+   Het bovenste gedeelte van het dashboard wordt weergegeven:
 
-  - **Mislukte regels op ernst**: Het totale aantal regels dat de configuratie van het besturingssysteem in uw virtuele machines en computers, onderverdeeld op basis van ernst is mislukt.
-  - **Mislukte regels per type**: Het totale aantal regels dat de configuratie van het besturingssysteem in uw virtuele machines en computers, opgedeeld per type is mislukt.
-  - **Mislukte regels Windows**: Het totale aantal regels is mislukt door de configuraties van uw Windows-besturingssysteem.
-  - **Mislukte regels Linux**: Het totale aantal regels is mislukt door de configuraties van uw Linux-besturingssysteem.
+   - **Mislukte regels op ernst**: Het totale aantal regels dat de configuratie van het besturingssysteem in uw virtuele machines en computers, onderverdeeld op basis van ernst is mislukt.
+   - **Mislukte regels per type**: Het totale aantal regels dat de configuratie van het besturingssysteem in uw virtuele machines en computers, opgedeeld per type is mislukt.
+   - **Mislukte regels Windows**: Het totale aantal regels is mislukt door de configuraties van uw Windows-besturingssysteem.
+   - **Mislukte regels Linux**: Het totale aantal regels is mislukt door de configuraties van uw Linux-besturingssysteem.
 
-  Het onderste gedeelte van het dashboard geeft een lijst van alle mislukte regels voor uw virtuele machines en computers en de ernst van de ontbrekende update. De lijst bevat de volgende elementen:
+   Het onderste gedeelte van het dashboard geeft een lijst van alle mislukte regels voor uw virtuele machines en computers en de ernst van de ontbrekende update. De lijst bevat de volgende elementen:
 
-  - **CCEID**: De CCE unieke id voor de regel. Unieke id's toewijzen aan configuratieregels gebruikt Security Center Common Configuration Enumeration (CCE).
-  - **Naam**: De naam van de regel die is mislukt.
-  - **Regeltype**: De *registersleutel*, *beveiligingsbeleid*, *controlebeleid*, of *IIS* regeltype.
-  - **Nee. VM's en computers**: Het totale aantal virtuele machines en computers die de mislukte regel van toepassing op.
-  - **Ernst van regel**: De waarde CCE *kritieke*, *belangrijk*, of *waarschuwing*.
-  - **status**: De huidige status van de aanbeveling:
+   - **CCEID**: De CCE unieke id voor de regel. Unieke id's toewijzen aan configuratieregels gebruikt Security Center Common Configuration Enumeration (CCE).
+   - **Naam**: De naam van de regel die is mislukt.
+   - **Regeltype**: De *registersleutel*, *beveiligingsbeleid*, *controlebeleid*, of *IIS* regeltype.
+   - **Nee. VM's en computers**: Het totale aantal virtuele machines en computers die de mislukte regel van toepassing op.
+   - **Ernst van regel**: De waarde CCE *kritieke*, *belangrijk*, of *waarschuwing*.
+   - **status**: De huidige status van de aanbeveling:
 
-    - **Open**: De aanbeveling is nog niet opgelost.
-    - **Bezig**: De aanbeveling wordt momenteel toegepast op de resources en er is geen actie te ondernemen.
-    - **Opgelost**: De aanbeveling is toegepast. Als het probleem is opgelost, wordt de vermelding lichter gekleurd weergegeven.
+     - **Open**: De aanbeveling is nog niet opgelost.
+     - **Bezig**: De aanbeveling wordt momenteel toegepast op de resources en er is geen actie te ondernemen.
+     - **Opgelost**: De aanbeveling is toegepast. Als het probleem is opgelost, wordt de vermelding lichter gekleurd weergegeven.
 
 3. Als u wilt weergeven van de details van een regel die is mislukt, selecteert u deze in de lijst.
 
@@ -79,17 +79,17 @@ In dit voorbeeld bevat informatie over de aanbeveling 'Beveiligingsconfiguraties
    - **Regel bewerking**: De regelbewerking die door Security Center wordt gebruikt tijdens de analyse van uw configuratie van het besturingssysteem van de virtuele machine op basis van de regel.
 
 4. Selecteer aan de bovenkant van het venster van de gedetailleerde weergave, **zoeken**.  
-  Zoeken wordt een lijst met werkruimten die virtuele machines en computers met de geselecteerde beveiligingsgroep configuraties mismatch hebt geopend. De werkruimteselectie wordt alleen weergegeven als de geselecteerde regel van toepassing op meerdere virtuele machines die zijn verbonden met verschillende werkruimten.
+   Zoeken wordt een lijst met werkruimten die virtuele machines en computers met de geselecteerde beveiligingsgroep configuraties mismatch hebt geopend. De werkruimteselectie wordt alleen weergegeven als de geselecteerde regel van toepassing op meerdere virtuele machines die zijn verbonden met verschillende werkruimten.
 
    ![Vermelde werkruimten][4]
 
 5. Selecteer een werkruimte.  
-  Een zoekquery voor logboeken van Azure Monitor wordt gefilterd op de werkruimte met de beveiliging configuraties mismatch geopend.
+   Een zoekquery voor logboeken van Azure Monitor wordt gefilterd op de werkruimte met de beveiliging configuraties mismatch geopend.
 
    ![Werkruimte met besturingssysteem-beveiligingsproblemen][5]
 
 6. Selecteer een computer in de lijst.  
-  Een nieuwe zoekresultaat wordt geopend met informatie die alleen voor die computer gefilterd.
+   Een nieuwe zoekresultaat wordt geopend met informatie die alleen voor die computer gefilterd.
 
    ![Gedetailleerde informatie over de geselecteerde computer][6]
 

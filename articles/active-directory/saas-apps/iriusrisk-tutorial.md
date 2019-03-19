@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e39bdcde896bca094b60b87308127a6ea01f1dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4aecb2850f80f0991c7466b388147ab4b21c4780
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169732"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170697"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iriusrisk"></a>Zelfstudie: Azure Active Directory-integratie met IriusRisk
 
@@ -164,7 +164,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
     d. Klik op **Create**.
  
-### <a name="create-a-iriusrisk-test-user"></a>Maak een testgebruiker IriusRisk
+### <a name="create-an-iriusrisk-test-user"></a>Maak een testgebruiker IriusRisk
 
 Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in IriusRisk. IriusRisk biedt ondersteuning voor just-in-time inrichting, dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot IriusRisk als deze nog niet bestaat.
 
@@ -210,7 +210,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 <!--Image references-->

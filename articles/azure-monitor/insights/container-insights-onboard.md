@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/28/2019
 ms.author: magoedte
-ms.openlocfilehash: 2e7c06d7dd673ff2a638b94996667607a079e707
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 591624e6bab07bfa06799d8e4817622e7a5c280a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307833"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107641"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers"></a>Hoe u ingebouwde Azure-Monitor voor containers  
 
@@ -297,31 +297,31 @@ Als u ervoor de Azure CLI gebruiken kiest, moet u eerst installeren en de CLI lo
 5. Sla dit bestand als **existingClusterParam.json** naar een lokale map.
 6. U kunt deze sjabloon nu implementeren. 
 
-    * Gebruik de volgende PowerShell-opdrachten in de map met de sjabloon:
+   * Gebruik de volgende PowerShell-opdrachten in de map met de sjabloon:
 
-        ```powershell
-        New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceGroupName> -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
-        ```
-        Wijzigen van de configuratie kan een paar minuten duren. Wanneer deze voltooid, wordt er een bericht weergegeven dat vergelijkbaar is met het volgende en het resultaat bevat:
+       ```powershell
+       New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceGroupName> -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
+       ```
+       Wijzigen van de configuratie kan een paar minuten duren. Wanneer deze voltooid, wordt er een bericht weergegeven dat vergelijkbaar is met het volgende en het resultaat bevat:
 
-        ```powershell
-        provisioningState       : Succeeded
-        ```
+       ```powershell
+       provisioningState       : Succeeded
+       ```
 
-    * De volgende opdracht uitvoeren met behulp van de Azure CLI:
+   * De volgende opdracht uitvoeren met behulp van de Azure CLI:
     
-        ```azurecli
-        az login
-        az account set --subscription "Subscription Name"
-        az group deployment create --resource-group <ResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
-        ```
+       ```azurecli
+       az login
+       az account set --subscription "Subscription Name"
+       az group deployment create --resource-group <ResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
+       ```
 
-        Wijzigen van de configuratie kan een paar minuten duren. Wanneer deze voltooid, wordt er een bericht weergegeven dat vergelijkbaar is met het volgende en het resultaat bevat:
+       Wijzigen van de configuratie kan een paar minuten duren. Wanneer deze voltooid, wordt er een bericht weergegeven dat vergelijkbaar is met het volgende en het resultaat bevat:
 
-        ```azurecli
-        provisioningState       : Succeeded
-        ```
-Wanneer u bewaking inschakelt, is het duurt ongeveer 15 minuten voordat u de gezondheid van metrische gegevens voor het cluster kunt weergeven. 
+       ```azurecli
+       provisioningState       : Succeeded
+       ```
+     Wanneer u bewaking inschakelt, is het duurt ongeveer 15 minuten voordat u de gezondheid van metrische gegevens voor het cluster kunt weergeven. 
 
 ## <a name="verify-agent-and-solution-deployment"></a>Controleer of de implementatie van agent en de oplossing
 Met de versie van agent *06072018* of hoger, kunt u controleren dat zowel de agent en de oplossing zijn geïmplementeerd. U kunt alleen de implementatie van de agent controleren met eerdere versies van de agent.

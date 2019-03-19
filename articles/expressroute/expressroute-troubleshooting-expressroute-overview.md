@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/26/2017
 ms.author: rambala
 ms.custom: seodec18
-ms.openlocfilehash: c4b20b4007a4824ee2dea0e1b22f1ea886218885
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 888f4dedf2fda0f54297d42a5f813abf73ded748
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453606"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121516"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Connectiviteit ExpressRoute controleren
 Dit artikel helpt u bij het controleren en oplossen van ExpressRoute-connectiviteit. ExpressRoute, wat een on-premises netwerk naar de Microsoft cloud via een persoonlijke verbinding die mogelijk gemaakt door een connectiviteitsprovider uitbreidt wordt, omvat de volgende drie afzonderlijke network-zones:
@@ -51,7 +51,7 @@ Als u de connectiviteitsmodellen Cloud Exchange CO-locatie of Point-to-Point Eth
 
 Als het model van de connectiviteit Any-to-any (IPVPN) wordt gebruikt, de PEs (MSEE gerichte) (4) BGP-peering met msee's (5) wilt maken. Routes zou worden doorgegeven aan terug naar het netwerk van de klant via de IPVPN serviceprovider-netwerk.
 
->[!NOTE]
+> [!NOTE]
 >Voor hoge beschikbaarheid van ExpressRoute vereist Microsoft dat een redundant paar BGP-sessies tussen msee's (5) en de PE-msee's (4). Een redundant paar netwerkpaden wordt ook aangemoedigd tussen klantnetwerk en PE CEs. In Any-to-any (IPVPN) verbinding model, kan echter een enkel CE-apparaat (2) zijn verbonden met een of meer PEs (3).
 >
 >
@@ -82,8 +82,8 @@ In de Essentials ExpressRoute *Circuit status* geeft de status van het circuit a
 
 Voor een ExpressRoute-circuit operationeel is, worden de *Circuit status* moet *ingeschakeld* en de *providerstatus* moet *ingerichte*.
 
->[!NOTE]
->Als de *Circuit status* is niet ingeschakeld, neem contact op met [Microsoft Support][Support]. Als de *providerstatus* is niet ingericht, neem contact op met uw serviceprovider.
+> [!NOTE]
+> Als de *Circuit status* is niet ingeschakeld, neem contact op met [Microsoft Support][Support]. Als de *providerstatus* is niet ingericht, neem contact op met uw serviceprovider.
 >
 >
 
@@ -131,8 +131,8 @@ Om te bevestigen of een ExpressRoute-circuit operationele speciale aandacht best
     CircuitProvisioningState         : Enabled
     ServiceProviderProvisioningState : Provisioned
 
->[!NOTE]
->Als de *CircuitProvisioningState* is niet ingeschakeld, neem contact op met [Microsoft Support][Support]. Als de *ServiceProviderProvisioningState* is niet ingericht, neem contact op met uw serviceprovider.
+> [!NOTE]
+> Als de *CircuitProvisioningState* is niet ingeschakeld, neem contact op met [Microsoft Support][Support]. Als de *ServiceProviderProvisioningState* is niet ingericht, neem contact op met uw serviceprovider.
 >
 >
 
@@ -159,8 +159,8 @@ Een van het voorbeeldantwoord is:
 
 Om te bevestigen of een ExpressRoute-circuit operationele speciale aandacht besteden aan de volgende velden: ServiceProviderProvisioningState : Ingerichte Status: Ingeschakeld
 
->[!NOTE]
->Als de *Status* is niet ingeschakeld, neem contact op met [Microsoft Support][Support]. Als de *ServiceProviderProvisioningState* is niet ingericht, neem contact op met uw serviceprovider.
+> [!NOTE]
+> Als de *Status* is niet ingeschakeld, neem contact op met [Microsoft Support][Support]. Als de *ServiceProviderProvisioningState* is niet ingericht, neem contact op met uw serviceprovider.
 >
 >
 
@@ -169,8 +169,8 @@ Nadat de service-provider is voltooid de inrichting van het ExpressRoute-circuit
 
 ### <a name="verification-via-the-azure-portal"></a>Verificatie via Azure portal
 
->[!NOTE]
->Als laag-3 wordt geleverd door de service-provider en de peerings leeg in de portal zijn, moet u de configuratie van het Circuit met de vernieuwknop in de portal vernieuwen. Met deze bewerking is de juiste configuratie van de routering van toepassing op uw circuit. 
+> [!NOTE]
+> Als laag-3 wordt geleverd door de service-provider en de peerings leeg in de portal zijn, moet u de configuratie van het Circuit met de vernieuwknop in de portal vernieuwen. Met deze bewerking is de juiste configuratie van de routering van toepassing op uw circuit. 
 >
 >
 
@@ -180,8 +180,8 @@ In Azure portal, de status van een ExpressRoute-circuit kan worden gecontroleerd
 
 In het voorgaande voorbeeld als vermelde Azure is private peering routering context ingeschakeld, terwijl Azure openbare en Microsoft-peering routering contexten zijn niet ingeschakeld. Een context die is ingeschakeld peering moet ook de primaire en secundaire point-to-point (vereist voor BGP)-subnetten die worden vermeld. Het/30-subnetten worden gebruikt voor het IP-adres van de interface van de msee's en de PE-msee's. 
 
->[!NOTE]
->Als een peering niet is ingeschakeld, controleert u als de primaire en secundaire subnetten die overeenkomt met de configuratie op PE Msee. Als dit niet het geval is, als u wilt wijzigen van de configuratie op de MSEE-routers, Raadpleeg [maken en wijzigen van de routering voor een ExpressRoute-circuit][CreatePeering]
+> [!NOTE]
+> Als een peering niet is ingeschakeld, controleert u als de primaire en secundaire subnetten die overeenkomt met de configuratie op PE Msee. Als dit niet het geval is, als u wilt wijzigen van de configuratie op de MSEE-routers, Raadpleeg [maken en wijzigen van de routering voor een ExpressRoute-circuit][CreatePeering]
 >
 >
 
@@ -230,9 +230,8 @@ Als u een peering niet is geconfigureerd, zou er een foutbericht weergegeven. Ee
             + FullyQualifiedErrorId : Microsoft.Azure.Commands.Network.GetAzureExpressRouteCircuitPeeringConfigCommand
 
 
-<p/>
->[!NOTE]
->Als een peering niet is ingeschakeld, controleert u als de primaire en secundaire subnetten die overeenkomt met de configuratie op de gekoppelde PE-MSEE. Controleer ook of de juiste *VlanId*, *AzureASN*, en *PeerASN* op msee's worden gebruikt en als deze waarden worden toegewezen aan de die worden gebruikt op de gekoppelde PE-MSEE. Als MD5-hash is gekozen, is de gedeelde sleutel moet hetzelfde zijn op een sleutelpaar met MSEE en PE MSEE. Als u de configuratie op de MSEE-routers, verwijzen naar [maken en wijzigen van de routering voor een ExpressRoute-circuit] [CreatePeering].  
+> [!NOTE]
+> Als een peering niet is ingeschakeld, controleert u als de primaire en secundaire subnetten die overeenkomt met de configuratie op de gekoppelde PE-MSEE. Controleer ook of de juiste *VlanId*, *AzureASN*, en *PeerASN* op msee's worden gebruikt en als deze waarden worden toegewezen aan de die worden gebruikt op de gekoppelde PE-MSEE. Als MD5-hash is gekozen, is de gedeelde sleutel moet hetzelfde zijn op een sleutelpaar met MSEE en PE MSEE. Als u de configuratie op de MSEE-routers, verwijzen naar [maken en wijzigen van de routering voor een ExpressRoute-circuit][CreatePeering].  
 >
 >
 
@@ -266,21 +265,20 @@ Als u de configuratiegegevens van de Microsoft-peering, gebruikt u de volgende o
 
     Get-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
 
->[!IMPORTANT]
->Als laag-3-peerings zijn ingesteld door de serviceprovider, overschrijft instellen van de ExpressRoute-peerings via de portal of PowerShell de instellingen van de service-provider. Opnieuw instellen van de instellingen van de peering kant vereist de ondersteuning van de serviceprovider. De ExpressRoute-peerings alleen wijzigen als het is zeker van zijn dat de serviceprovider services op laag 2 alleen biedt!
+> [!IMPORTANT]
+> Als laag-3-peerings zijn ingesteld door de serviceprovider, overschrijft instellen van de ExpressRoute-peerings via de portal of PowerShell de instellingen van de service-provider. Opnieuw instellen van de instellingen van de peering kant vereist de ondersteuning van de serviceprovider. De ExpressRoute-peerings alleen wijzigen als het is zeker van zijn dat de serviceprovider services op laag 2 alleen biedt!
 >
 >
 
-<p/>
->[!NOTE]
->Als een peering niet is ingeschakeld, controleert u als de primaire en secundaire peer-subnetten die overeenkomt met de configuratie op de gekoppelde PE-MSEE. Controleer ook of de juiste *VlanId*, *AzureAsn*, en *PeerAsn* op msee's worden gebruikt en als deze waarden worden toegewezen aan de die worden gebruikt op de gekoppelde PE-MSEE. Als u de configuratie op de MSEE-routers, verwijzen naar [maken en wijzigen van de routering voor een ExpressRoute-circuit] [CreatePeering].
+> [!NOTE]
+> Als een peering niet is ingeschakeld, controleert u als de primaire en secundaire peer-subnetten die overeenkomt met de configuratie op de gekoppelde PE-MSEE. Controleer ook of de juiste *VlanId*, *AzureAsn*, en *PeerAsn* op msee's worden gebruikt en als deze waarden worden toegewezen aan de die worden gebruikt op de gekoppelde PE-MSEE. Als u de configuratie op de MSEE-routers, verwijzen naar [maken en wijzigen van de routering voor een ExpressRoute-circuit][CreatePeering].
 >
 >
 
 ## <a name="validate-arp-between-microsoft-and-the-service-provider"></a>Valideren van ARP tussen Microsoft en de service-provider
 In deze sectie maakt gebruik van PowerShell (klassiek)-opdrachten. Als u PowerShell Azure Resource Manager-opdrachten gebruikt hebt, zorgt u ervoor dat u beheerder/co-beheerder toegang tot het abonnement hebben. Voor problemen oplossen met behulp van Azure Resource Manager opdrachten raadpleegt u de [Getting ARP-tabellen in het Resource Manager-implementatiemodel] [ ARP] document.
 
->[!NOTE]
+> [!NOTE]
 >Als u ARP, kunnen Azure portal en Azure Resource Manager PowerShell-opdrachten worden gebruikt. Als er fouten optreden met de Azure Resource Manager PowerShell-opdrachten, klassieke PowerShell-opdrachten gebruiken als klassieke PowerShell opdrachten ook met Azure Resource Manager ExpressRoute-circuits werken.
 >
 >
@@ -303,8 +301,8 @@ Het volgende voorbeeld ziet dat het antwoord van de opdracht voor een peering be
 
     ARP Info:
        
->[!NOTE]
->Wanneer de ARP-tabel heeft geen IP-adressen van de interfaces die zijn toegewezen aan de MAC-adressen, controleert u de volgende informatie:
+> [!NOTE]
+> Wanneer de ARP-tabel heeft geen IP-adressen van de interfaces die zijn toegewezen aan de MAC-adressen, controleert u de volgende informatie:
 >1. Als het eerste IP-adres van het/30 subnet toegewezen voor de koppeling tussen de MSEE-pull-aanvraag en de MSEE wordt gebruikt op de interface van de MSEE-pull-aanvraag. Azure maakt altijd gebruik van het tweede IP-adres voor msee's.
 >2. Controleer of als de klant (C-code) en de service (S-code) VLAN-tags overeenkomen met beide op een sleutelpaar met een MSEE-pull-aanvraag en de MSEE.
 >
@@ -313,7 +311,7 @@ Het volgende voorbeeld ziet dat het antwoord van de opdracht voor een peering be
 ## <a name="validate-bgp-and-routes-on-the-msee"></a>BGP en routes op de MSEE valideren
 In deze sectie maakt gebruik van PowerShell (klassiek)-opdrachten. Als u PowerShell Azure Resource Manager-opdrachten gebruikt hebt, zorgt u ervoor dat u beheerder/co-beheerder toegang tot het abonnement hebben.
 
->[!NOTE]
+> [!NOTE]
 >Als u BGP-gegevens, kunnen zowel Azure portal en Azure Resource Manager PowerShell-opdrachten worden gebruikt. Als er fouten optreden met de Azure Resource Manager PowerShell-opdrachten, klassieke PowerShell-opdrachten gebruiken als klassieke PowerShell opdrachten ook met Azure Resource Manager ExpressRoute-circuits werken.
 >
 >
@@ -331,14 +329,13 @@ Een voorbeeld van een antwoord is:
 
 Zoals u in het voorgaande voorbeeld, is de opdracht is handig om te bepalen voor hoe lang de routering-context is ingesteld. Tevens wordt aangegeven aantal route voorvoegsels geadverteerd door de peering-router.
 
->[!NOTE]
->Als de status in actief of niet-actief is, moet u controleren als de primaire en secundaire peer-subnetten die overeenkomt met de configuratie op de gekoppelde PE-MSEE. Controleer ook of de juiste *VlanId*, *AzureAsn*, en *PeerAsn* op msee's worden gebruikt en als deze waarden worden toegewezen aan de die worden gebruikt op de gekoppelde PE-MSEE. Als MD5-hash is gekozen, is de gedeelde sleutel moet hetzelfde zijn op een sleutelpaar met MSEE en PE MSEE. Als u de configuratie op de MSEE-routers, verwijzen naar [maken en wijzigen van de routering voor een ExpressRoute-circuit][CreatePeering].
+> [!NOTE]
+> Als de status in actief of niet-actief is, moet u controleren als de primaire en secundaire peer-subnetten die overeenkomt met de configuratie op de gekoppelde PE-MSEE. Controleer ook of de juiste *VlanId*, *AzureAsn*, en *PeerAsn* op msee's worden gebruikt en als deze waarden worden toegewezen aan de die worden gebruikt op de gekoppelde PE-MSEE. Als MD5-hash is gekozen, is de gedeelde sleutel moet hetzelfde zijn op een sleutelpaar met MSEE en PE MSEE. Als u de configuratie op de MSEE-routers, verwijzen naar [maken en wijzigen van de routering voor een ExpressRoute-circuit][CreatePeering].
 >
 >
 
-<p/>
->[!NOTE]
->Als bepaalde bestemmingen niet bereikbaar via een bepaalde peering zijn, controleert u de routetabel van de msee's die behoren tot de specifieke context van de peering. Als een overeenkomend voorvoegsel (kan worden NATed IP) in de routeringstabel aanwezig is, moet u controleren als er firewalls/NSG/ACL's op het pad en als ze het verkeer is toegestaan.
+> [!NOTE]
+> Als bepaalde bestemmingen niet bereikbaar via een bepaalde peering zijn, controleert u de routetabel van de msee's die behoren tot de specifieke context van de peering. Als een overeenkomend voorvoegsel (kan worden NATed IP) in de routeringstabel aanwezig is, moet u controleren als er firewalls/NSG/ACL's op het pad en als ze het verkeer is toegestaan.
 >
 >
 

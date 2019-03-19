@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: glenga
-ms.openlocfilehash: a3a259b9734a1cc313e046d9946a090232cd14a1
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 6988fb547b07f81891efea3caad8bf34f4c8a476
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727056"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088414"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Overzicht van Azure Functions runtime-versies
 
@@ -65,9 +65,9 @@ In versie 2.x zijn de volgende wijzigingen  aangebracht:
 
 * Het configuratiebestand van de host (host.json) moet leeg zijn of de tekenreeks `"version": "2.0"` bevatten.
 
-* Voor het verbeteren van bewaking wordt het WebJobs-dashboard in de portal dat gebruik maakte van de instelling [ `AzureWebJobsDashboard` ](functions-app-settings.md#azurewebjobsdashboard) vervangen door Azure Application Insights, dat gebruikmaakt van de [ `APPINSIGHTS_INSTRUMENTATIONKEY` ](functions-app-settings.md#appinsightsinstrumentationkey) instelling. Zie voor meer informatie, [Monitor Azure Functions](functions-monitoring.md).
+* Voor het verbeteren van bewaking wordt het WebJobs-dashboard in de portal dat gebruik maakte van de instelling [ `AzureWebJobsDashboard` ](functions-app-settings.md#azurewebjobsdashboard) vervangen door Azure Application Insights, dat gebruikmaakt van de [ `APPINSIGHTS_INSTRUMENTATIONKEY` ](functions-app-settings.md#appinsights_instrumentationkey) instelling. Zie voor meer informatie, [Monitor Azure Functions](functions-monitoring.md).
 
-* Alle functies in een functie-app moeten dezelfde taal delen. Wanneer u een functie-app maakt, moet u een runtimestack voor de app kiezen. De runtimestack wordt opgegeven door de [ `FUNCTIONS_WORKER_RUNTIME` ](functions-app-settings.md#functionsworkerruntime) waarde in de toepassingsinstellingen. Deze vereiste is toegevoegd om de footprint en de opstarttijd te verbeteren. Wanneer u lokaal ontwikkelt moet u ook deze instelling in het [bestand local.settings.json](functions-run-local.md#local-settings-file) opnemen.
+* Alle functies in een functie-app moeten dezelfde taal delen. Wanneer u een functie-app maakt, moet u een runtimestack voor de app kiezen. De runtimestack wordt opgegeven door de [ `FUNCTIONS_WORKER_RUNTIME` ](functions-app-settings.md#functions_worker_runtime) waarde in de toepassingsinstellingen. Deze vereiste is toegevoegd om de footprint en de opstarttijd te verbeteren. Wanneer u lokaal ontwikkelt moet u ook deze instelling in het [bestand local.settings.json](functions-run-local.md#local-settings-file) opnemen.
 
 * De standaardtime-out voor functies in een App Service-plan is gewijzigd naar 30 minuten. U kunt handmatig de time-out op onbeperkt instellen met behulp van de [functionTimeout](functions-host-json.md#functiontimeout) in host.json.
 
@@ -109,7 +109,7 @@ Voor ontwikkeling in Visual Studio Code moet u mogelijk ook de gebruikersinstell
 
 ### <a name="changing-version-of-apps-in-azure"></a>Wijzigen van de versie van apps in Azure
 
-De versie van de runtime van de functies die worden gebruikt door de gepubliceerde apps in Azure wordt bepaald door de [ `FUNCTIONS_EXTENSION_VERSION` ](functions-app-settings.md#functionsextensionversion) toepassingsinstelling. Een waarde van `~2` is gericht op de runtime versie 2.x en `~1` is gericht op de versie 1.x-runtime. Deze instelling kunt u niet willekeurig  wijzigen omdat er waarschijnlijk andere wijzigingen voor app-instelling en wijzigingen van de code in uw functies vereist zijn. Zie voor meer informatie over de aanbevolen manier om uw functie-app migreren naar een andere runtimeversie, [hoe te richten op versies van Azure Functions-runtime](set-runtime-version.md).
+De versie van de runtime van de functies die worden gebruikt door de gepubliceerde apps in Azure wordt bepaald door de [ `FUNCTIONS_EXTENSION_VERSION` ](functions-app-settings.md#functions_extension_version) toepassingsinstelling. Een waarde van `~2` is gericht op de runtime versie 2.x en `~1` is gericht op de versie 1.x-runtime. Deze instelling kunt u niet willekeurig  wijzigen omdat er waarschijnlijk andere wijzigingen voor app-instelling en wijzigingen van de code in uw functies vereist zijn. Zie voor meer informatie over de aanbevolen manier om uw functie-app migreren naar een andere runtimeversie, [hoe te richten op versies van Azure Functions-runtime](set-runtime-version.md).
 
 ## <a name="bindings"></a>Bindingen
 

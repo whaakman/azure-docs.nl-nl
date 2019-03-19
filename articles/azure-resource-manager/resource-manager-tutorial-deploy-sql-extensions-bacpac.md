@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6c146a99be369f92a72717ad1ec4b79bddafe28c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+ms.openlocfilehash: 40c7e00ad5271457904fc3273fdb633b0c7a8016
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819323"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085062"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>Zelfstudie: SQL BACPAC-bestanden importeren met Azure Resource Manager-sjablonen
 
@@ -65,11 +65,11 @@ Azure-snelstartsjablonen is een opslagplaats voor Resource Manager-sjablonen. In
 
     Er worden drie resources gedefinieerd in de sjabloon:
 
-    * `Microsoft.Sql/servers`. Zie de [sjabloonverwijzing](https://docs.microsoft.com/azure/templates/microsoft.sql/servers).
-    * `Microsoft.SQL/servers/securityAlertPolicies`. Zie de [sjabloonverwijzing](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/securityalertpolicies).
-    * `Microsoft.SQL.servers/databases`.  Zie de [sjabloonverwijzing](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
+   * `Microsoft.Sql/servers`. Zie de [sjabloonverwijzing](https://docs.microsoft.com/azure/templates/microsoft.sql/servers).
+   * `Microsoft.SQL/servers/securityAlertPolicies`. Zie de [sjabloonverwijzing](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/securityalertpolicies).
+   * `Microsoft.SQL.servers/databases`.  Zie de [sjabloonverwijzing](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
 
-    Het is handig om enige basiskennis te hebben van de sjabloon voordat u deze gaat aanpassen.
+     Het is handig om enige basiskennis te hebben van de sjabloon voordat u deze gaat aanpassen.
 4. Selecteer **Bestand**>**Opslaan als** om het bestand op uw lokale computer op te slaan als **azuredeploy.json**.
 
 ## <a name="edit-the-template"></a>De sjabloon bewerken

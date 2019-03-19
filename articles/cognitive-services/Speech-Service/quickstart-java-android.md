@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 2ee5028e0766ec52c407bf0ef0e18885c11734d8
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: HT
+ms.openlocfilehash: 43ace5e56234ed01ca008050c0efdf17b9a5a081
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961043"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848861"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Quickstart: Gesproken tekst herkennen in Java onder Android met behulp van de Speech-SDK
 
@@ -30,7 +30,7 @@ De Speech SDK is op dit moment compatibel met Android-apparaten met 32/64-bits A
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt een abonnementssleutel voor de Speech-service nodig om deze snelstartgids te doorlopen. U kunt er gratis een krijgen. Zie [Speech-service gratis uitproberen](get-started.md) voor meer informatie.
+U moet een abonnementssleutel Speech Services voor het voltooien van deze Quickstart. U kunt er gratis een krijgen. Zie [de Speech Services gratis uitproberen](get-started.md) voor meer informatie.
 
 ## <a name="create-and-configure-a-project"></a>Een project maken en configureren
 
@@ -137,7 +137,7 @@ De tekst en de grafische weergave van uw gebruikersinterface moeten er nu ongeve
 
    ![Schermafbeelding van het venster Select Deployment Target](media/sdk/qs-java-android-12-deploy.png)
 
-Klik op de knop in de toepassing om een sectie voor spraakherkenning te starten. De volgende 15 seconden aan Engels gesproken tekst wordt verzonden naar de Speech-service en getranscribeerd. Het resultaat wordt weergegeven in de Android-toepassing, en in het logcat-venster in Android Studio.
+Klik op de knop in de toepassing om een sectie voor spraakherkenning te starten. De volgende 15 seconden van de Engelse spraak worden verzonden naar de spraakservices en getranscribeerde. Het resultaat wordt weergegeven in de Android-toepassing, en in het logcat-venster in Android Studio.
 
 ![Schermafbeelding van de Android-toepassing](media/sdk/qs-java-android-13-gui-on-device.png)
 
