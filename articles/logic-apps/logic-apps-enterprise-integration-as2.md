@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
 ms.date: 06/08/2017
-ms.openlocfilehash: 2604cdd6bf758858328c2d30fc4cde535f0a7148
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 3413b235d9202530eb1a3129637e3746bbe6585b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124659"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872556"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>AS2-berichten uitwisselen voor B2B-bedrijfsintegratie in Azure Logic Apps met Enterprise Integration Pack
 
@@ -35,7 +35,7 @@ Nadat u [maken van een integratieaccount](../logic-apps/logic-apps-enterprise-in
 
 ## <a name="create-an-as2-agreement"></a>Maken van een AS2-overeenkomst
 
-1.  Meld u aan bij [Azure Portal](http://portal.azure.com "Azure Portal").  
+1.  Meld u aan bij [Azure Portal](https://portal.azure.com "Azure Portal").  
 
 2. Selecteer in het hoofdmenu van Azure **alle services**. Voer 'integration' in het zoekvak en selecteer vervolgens **integratieaccounts**.
 
@@ -60,9 +60,9 @@ Nadat u [maken van een integratieaccount](../logic-apps/logic-apps-enterprise-in
 
     ![Geef overeenkomstdetails](./media/logic-apps-enterprise-integration-as2/agreement-3.png)  
 
-    | Eigenschap | Beschrijving |
+    | Eigenschap | Description |
     | --- | --- |
-    | Naam |Naam van de overeenkomst |
+    | Name |Naam van de overeenkomst |
     | Overeenkomsttype | Moet AS2 |
     | Hostpartner |Een overeenkomst moet een host en de Gast-partner. De hostpartner vertegenwoordigt de organisatie die Hiermee configureert u de overeenkomst. |
     | Hostidentiteit |Een id voor de hostpartner |
@@ -98,7 +98,7 @@ Configureer deze eigenschappen op basis van uw overeenkomst met de partner die b
 
 De overeenkomst is nu gereed voor het afhandelen van berichten die aan de geselecteerde instellingen voldoen.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
 | Berichteigenschappen negeren |Geeft aan dat de eigenschappen van de ontvangen berichten kunnen worden genegeerd. |
 | Het bericht moet ondertekend zijn |Vereist dat berichten naar digitaal worden ondertekend. Configureer het openbare certificaat van Gast partner voor controle van de handtekening.  |
@@ -143,7 +143,7 @@ En in de **certificaat** , selecteert u een bestaande [Gast partner openbaar cer
 
 De overeenkomst is nu gereed om af te handelen uitgaande berichten die aan de geselecteerde instellingen voldoen.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
 | Berichtondertekening inschakelen |Vereist dat alle berichten die zijn verzonden vanaf de overeenkomst moet worden ondertekend. |
 | MIC-algoritme |Het algoritme moet worden gebruikt voor het ondertekenen van berichten. Hiermee configureert u de host partner persoonlijk certificaat MIC-algoritme voor het ondertekenen van berichten. |

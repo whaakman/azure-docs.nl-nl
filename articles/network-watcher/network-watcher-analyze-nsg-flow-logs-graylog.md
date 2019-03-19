@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: 08d3d59d20ea80065e8f0238f90579bb268c3723
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: a5fadcfce154740a79a8764f44f08b21ad18f4d8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823041"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57879936"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Beheren en analyseren van flow logboeken van netwerkbeveiligingsgroepen in Azure met behulp van Network Watcher en Graylog
 
@@ -47,12 +47,12 @@ Voor dit scenario moet u netwerk stroomlogboeken van netwerkbeveiligingsgroep in
 
 In dit voorbeeld worden zowel Graylog en Logstash geconfigureerd op een Ubuntu 14.04-Server geïmplementeerd in Azure.
 
-- Raadpleeg de [documentatie](http://docs.graylog.org/en/2.2/pages/installation/os/ubuntu.html) van Graylog, voor stapsgewijze instructies voor het installeren op Ubuntu.
-- Zorg ervoor dat u de webinterface van Graylog ook configureren door de [documentatie](http://docs.graylog.org/en/2.2/pages/configuration/web_interface.html#configuring-webif).
+- Raadpleeg de [documentatie](https://docs.graylog.org/en/2.2/pages/installation/os/ubuntu.html) van Graylog, voor stapsgewijze instructies voor het installeren op Ubuntu.
+- Zorg ervoor dat u de webinterface van Graylog ook configureren door de [documentatie](https://docs.graylog.org/en/2.2/pages/configuration/web_interface.html#configuring-webif).
 
-In dit voorbeeld wordt de minimale Graylog-instellingen (zoals) slechts één exemplaar van een Graylog), maar Graylog kan worden ontworpen om de behoeften op resources afhankelijk van uw systeem en productie worden geschaald. Zie voor meer informatie over overwegingen voor architecturale of een uitgebreide handleiding voor architectuur van van Graylog [documentatie](http://docs.graylog.org/en/2.2/pages/architecture.html) en [Architectuurhandleiding voor](https://www.slideshare.net/Graylog/graylog-engineering-design-your-architecture).
+In dit voorbeeld wordt de minimale Graylog-instellingen (zoals) slechts één exemplaar van een Graylog), maar Graylog kan worden ontworpen om de behoeften op resources afhankelijk van uw systeem en productie worden geschaald. Zie voor meer informatie over overwegingen voor architecturale of een uitgebreide handleiding voor architectuur van van Graylog [documentatie](https://docs.graylog.org/en/2.2/pages/architecture.html) en [Architectuurhandleiding voor](https://www.slideshare.net/Graylog/graylog-engineering-design-your-architecture).
 
-Graylog kan worden geïnstalleerd op tal van manieren, afhankelijk van uw platform en voorkeuren. Raadpleeg voor een volledige lijst van mogelijke installatiemethoden van Graylog officiële [documentatie](http://docs.graylog.org/en/2.2/pages/installation.html). De servertoepassing Graylog wordt uitgevoerd op Linux-distributies en heeft de volgende vereisten:
+Graylog kan worden geïnstalleerd op tal van manieren, afhankelijk van uw platform en voorkeuren. Raadpleeg voor een volledige lijst van mogelijke installatiemethoden van Graylog officiële [documentatie](https://docs.graylog.org/en/2.2/pages/installation.html). De servertoepassing Graylog wordt uitgevoerd op Linux-distributies en heeft de volgende vereisten:
 
 -  Java SE 8 of hoger: [Azul Azure JDK-documentatie](https://aka.ms/azure-jdks)
 -  Elastische 2.x zoeken (2.1.0 of hoger)- [installatiedocumentatie voor Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/_installation.html)
@@ -150,7 +150,7 @@ Logstash wordt gebruikt voor het samenvoegen van de logboeken van de stroom JSON
         }
     }
     ```
-Het opgegeven Logstash config-bestand bestaat uit drie delen: de invoer-, filter- en uitvoer. De sectie invoer geeft de invoerbron van de logboeken die Logstash verwerkt: in dit geval gaat u gebruik van een Azure-blog invoer-invoegtoepassing (geïnstalleerd in de volgende stappen) waardoor toegang tot de stroom network security group-logboek JSON-bestanden die zijn opgeslagen in blob-opslag.
+   Het opgegeven Logstash config-bestand bestaat uit drie delen: de invoer-, filter- en uitvoer. De sectie invoer geeft de invoerbron van de logboeken die Logstash verwerkt: in dit geval gaat u gebruik van een Azure-blog invoer-invoegtoepassing (geïnstalleerd in de volgende stappen) waardoor toegang tot de stroom network security group-logboek JSON-bestanden die zijn opgeslagen in blob-opslag.
 
 De sectie filteren vervolgens het logboekbestand van elke stroom wordt samengevoegd zodat elke tuple afzonderlijke stroom en de bijbehorende eigenschappen verandert in een aparte Logstash-gebeurtenis.
 
@@ -183,7 +183,7 @@ Nu dat u hebt een verbinding met de logboeken van de stroom met behulp van Logst
 
    ![Aan de slag](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)
 
-3. Selecteer voor het starten van de nieuwe invoer *GELF UDP* in de **Invoerselectie** vervolgkeuzelijst en vul het formulier. GELF staat voor Graylog uitgebreide indeling. De indeling GELF is ontwikkeld door Graylog. Zie voor meer informatie over de voordelen, de Graylog [documentatie](http://docs.graylog.org/en/2.2/pages/gelf.html).
+3. Selecteer voor het starten van de nieuwe invoer *GELF UDP* in de **Invoerselectie** vervolgkeuzelijst en vul het formulier. GELF staat voor Graylog uitgebreide indeling. De indeling GELF is ontwikkeld door Graylog. Zie voor meer informatie over de voordelen, de Graylog [documentatie](https://docs.graylog.org/en/2.2/pages/gelf.html).
 
    Zorg ervoor dat u het binden van de invoer naar het IP-adres geconfigureerd van uw server Graylog op. Het IP-adres moet overeenkomen met de **host** veld van de UDP-uitvoer van het bestand Logstash-configuratie. De standaardpoort moet *12201*. Zorg ervoor dat de poort komt overeen met de **poort** veld in het UDP-uitvoer aangegeven in de Logstash config-bestand.
 
@@ -193,7 +193,7 @@ Nu dat u hebt een verbinding met de logboeken van de stroom met behulp van Logst
 
    ![](./media/network-watcher-analyze-nsg-flow-logs-graylog/local-inputs.png)
 
-   Raadpleeg voor meer informatie over Graylog berichtinvoer, de [documentatie](http://docs.graylog.org/en/2.2/pages/sending_data.html#what-are-graylog-message-inputs).
+   Raadpleeg voor meer informatie over Graylog berichtinvoer, de [documentatie](https://docs.graylog.org/en/2.2/pages/sending_data.html#what-are-graylog-message-inputs).
 
 4. Zodra deze configuraties zijn aangebracht, kun u Logstash om te beginnen met lezen in Logboeken van de stroom met de volgende opdracht: `sudo systemctl start logstash.service`.
 
@@ -207,7 +207,7 @@ Te klikken op de koppeling blue '% {Message}", wordt elk bericht om weer te geve
 
 ![Berichten](./media/network-watcher-analyze-nsg-flow-logs-graylog/messages.png)
 
-Alle berichtvelden zijn standaard opgenomen in het zoekvak, als u een specifieke berichtenveld om te zoeken naar niet selecteert. Als u wilt zoeken naar specifieke berichten (zoals) – stroom tuples van een bepaalde bron-IP) kunt u de querytaal van Graylog zoeken als [beschreven](http://docs.graylog.org/en/2.2/pages/queries.html)
+Alle berichtvelden zijn standaard opgenomen in het zoekvak, als u een specifieke berichtenveld om te zoeken naar niet selecteert. Als u wilt zoeken naar specifieke berichten (zoals) – stroom tuples van een bepaalde bron-IP) kunt u de querytaal van Graylog zoeken als [beschreven](https://docs.graylog.org/en/2.2/pages/queries.html)
 
 ## <a name="analyze-network-security-group-flow-logs-using-graylog"></a>Stroomlogboeken van netwerkbeveiligingsgroepen met behulp van Graylog analyseren
 
@@ -241,7 +241,7 @@ U kunt klikken op de titel van het dashboard om te zien, maar de leeg, op dit mo
 
    ![Flowlogs dashboard](./media/network-watcher-analyze-nsg-flow-logs-graylog/flowlogs-dashboard.png)
 
-    Zie voor verdere uitleg aan dashboards en de andere typen widgets van Graylog [documentatie](http://docs.graylog.org/en/2.2/pages/dashboards.html).
+    Zie voor verdere uitleg aan dashboards en de andere typen widgets van Graylog [documentatie](https://docs.graylog.org/en/2.2/pages/dashboards.html).
 
 Door de Network Watcher integratie met Graylog, hebt u nu een handige en gecentraliseerde manier om te beheren en netwerk stroomlogboeken visualiseren. Graylog heeft een aantal andere krachtige functies zoals streams en waarschuwingen die kunnen ook worden gebruikt voor het verder beheren-stroomlogboeken en beter inzicht in uw netwerkverkeer. Nu dat u Graylog instellen en met Azure bent verbonden hebt, kunt u doorgaan met het verkennen van de functionaliteit die dit biedt.
 

@@ -3,20 +3,20 @@ title: Azure Database Migration Service gebruiken voor het bewaken van migratiea
 description: Leer hoe u met de Azure Database Migration Service voor het bewaken van migratieactiviteiten.
 services: database-migration
 author: HJToland3
-ms.author: rajpo
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 44fbbcf42635288be055feddde1d9df2a1c67541
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 325bbee3f3d5ad5097f710cb56fe03baff97388a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790777"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58173852"
 ---
 # <a name="monitor-migration-activity"></a>Migratieactiviteit bewaken
 In dit artikel leert u hoe u de voortgang van een migratie op het databaseniveau van een en het tabelniveau van een.
@@ -42,11 +42,11 @@ De volgende tabel geeft een lijst van de velden op de blade op databaseniveau en
   <tbody>
     <tr>
       <td rowspan="3" class="ActivityStatus"><strong>Activiteitsstatus</strong></td>
-      <td>Actief</td>
+      <td>In uitvoering</td>
       <td>Migratieactiviteit wordt uitgevoerd.</td>
     </tr>
     <tr>
-      <td>Voltooid</td>
+      <td>Geslaagd</td>
       <td>Migratieactiviteit is voltooid zonder problemen.</td>
     </tr>
     <tr>
@@ -59,7 +59,7 @@ De volgende tabel geeft een lijst van de velden op de blade op databaseniveau en
       <td>DMS is instellen van de migratie-pipeline.</td>
     </tr>
     <tr>
-      <td>Actief</td>
+      <td>In uitvoering</td>
       <td>DMS-pijplijn wordt uitgevoerd en migratie uitvoert.</td>
     </tr>
     <tr>
@@ -93,7 +93,7 @@ De volgende tabel geeft een lijst van de velden op de blade op databaseniveau en
     </tr>
     <tr>
       <td rowspan="1" class="duration"><strong>Duur</strong></td>
-      <td>n.v.t.</td>
+      <td>N/A</td>
       <td>Totale tijd van de migratieactiviteit wordt geïnitialiseerd voor de migratie is voltooid of migratie is mislukt.</td>
     </tr>
      </tbody>

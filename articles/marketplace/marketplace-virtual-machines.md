@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: b9403855949e87a287f543c2ac41738e92238303
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: eb49d0fe610a78b8d1a407644a206fddaba0a67a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217203"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116212"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Publicatiehandleiding voor virtuele Machine-aanbieding
 
@@ -56,12 +56,12 @@ U kunt een begeleide ervaring van uw oplossing opgeven voor uw klanten met behul
 
 Het type van de aanbieding virtuele machine gebruiken wanneer u een virtueel apparaat voor het abonnement is gekoppeld aan uw klant implementeert. VM's zijn volledig ingeschakeld met behulp van betalen per gebruik of bring-your-own-license (BYOL)-licentiemodellen commerce. Microsoft als host fungeert voor de commercetransactie en uw klant namens u kosten in rekening gebracht. U profiteren van de voordelen van het gebruik van de gewenste betaling relatie tussen de klant en Microsoft, zoals een Enterprise-overeenkomsten.
 
->[!NOTE]
->Op dit moment kunnen de monetaire toezeggingen die zijn gekoppeld aan een Enterprise Agreement worden gebruikt voor het gebruik van uw virtuele machine van Azure, maar niet op basis van uw kosten voor softwarelicenties.  
-
->[!NOTE]
->U zijn kunt de detectie en implementatie van uw virtuele machine naar een specifieke set van klanten beperken door de installatiekopie van het publiceren en prijzen als een persoonlijke aanbieding. Persoonlijke aanbiedingen Ontgrendel de mogelijkheid voor u exclusieve aanbiedingen maken voor uw dichtstbijzijnde klanten en bieden van aangepaste software en de voorwaarden. De aangepaste voorwaarden kunnen u een verscheidenheid aan scenario's, waaronder deals onder leiding van een veld met speciale prijzen en voorwaarden, evenals vroege toegang tot beperkte versie van de software te markeren. Persoonlijke aanbiedingen inschakelen u kunt specifieke prijzen bieden of producten voor een beperkt aantal klanten door het maken van een nieuwe SKU met de gegevens.  
-*   Voor meer informatie over het privé-aanbiedingen gaat u naar de persoonlijke aanbiedingen op Azure Marketplace-pagina te vinden op [azure.microsoft.com/blog/private-offers-on-azure-marketplace](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).  
+> [!NOTE]
+> Op dit moment kunnen de monetaire toezeggingen die zijn gekoppeld aan een Enterprise Agreement worden gebruikt voor het gebruik van uw virtuele machine van Azure, maar niet op basis van uw kosten voor softwarelicenties.  
+> 
+> [!NOTE]
+> U zijn kunt de detectie en implementatie van uw virtuele machine naar een specifieke set van klanten beperken door de installatiekopie van het publiceren en prijzen als een persoonlijke aanbieding. Persoonlijke aanbiedingen Ontgrendel de mogelijkheid voor u exclusieve aanbiedingen maken voor uw dichtstbijzijnde klanten en bieden van aangepaste software en de voorwaarden. De aangepaste voorwaarden kunnen u een verscheidenheid aan scenario's, waaronder deals onder leiding van een veld met speciale prijzen en voorwaarden, evenals vroege toegang tot beperkte versie van de software te markeren. Persoonlijke aanbiedingen inschakelen u kunt specifieke prijzen bieden of producten voor een beperkt aantal klanten door het maken van een nieuwe SKU met de gegevens.  
+> *   Voor meer informatie over het privé-aanbiedingen gaat u naar de persoonlijke aanbiedingen op Azure Marketplace-pagina te vinden op [azure.microsoft.com/blog/private-offers-on-azure-marketplace](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).  
 
 | Vereiste | Details |  
 |:--- |:--- | 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: b8ab4acd24a53267711fde4408bb9fa8f52c35f3
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 653043c756fbb36c037524309073b82dc20cf62a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635575"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079857"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-in-hdinsight"></a>Twitter-gegevens met behulp van Apache Hive in HDInsight analyseren
 Sociale websites vormen een van de belangrijkste drijvende krachten voor acceptatie van big data. Openbare API's die worden geleverd door sites zoals Twitter zijn een handige bron van de gegevens voor het analyseren en inzicht krijgen in populaire trends.
@@ -53,9 +53,9 @@ De volgende tabel bevat de bestanden die in deze zelfstudie worden gebruikt:
 
 | Bestanden | Description |
 | --- | --- |
-| /tutorials/Twitter/Data/tweets.txt |De brongegevens voor de Hive-taak. |
+| /tutorials/twitter/data/tweets.txt |De brongegevens voor de Hive-taak. |
 | /tutorials/Twitter/output |De map voor uitvoer voor de Hive-taak. Standaard Hive-Taaknaam van het uitvoerbestand is **000000_0**. |
-| tutorials/Twitter/Twitter.hql |Het HiveQL-script-bestand. |
+| tutorials/twitter/twitter.hql |Het HiveQL-script-bestand. |
 | /tutorials/Twitter/JobStatus |De status van de Hadoop-taak. |
 
 ## <a name="get-twitter-feed"></a>Get Twitter-feed
@@ -76,7 +76,7 @@ De eerste stap voor het gebruik van OAuth is het maken van een nieuwe toepassing
 2. Klik op **nieuwe App maken**.
 3. Voer **naam**, **beschrijving**, **Website**. U kunt maken van een URL voor de **Website** veld. De volgende tabel ziet u enkele voorbeeldwaarden gebruiken:
 
-   | Veld | Waarde |
+   | Veld | Value |
    | --- | --- |
    |  Name |MyHDInsightApp |
    |  Description |MyHDInsightApp |
@@ -438,7 +438,7 @@ Het HiveQL-script wordt het volgende doen:
    | Variabele | Description |
    | --- | --- |
    |  $clusterName |Voer de naam van het HDInsight-cluster waar u de toepassing uit te voeren. |
-   |  $subscriptionID |Voer uw Azure-abonnement-ID. |
+   |  $subscriptionID |voer de id van uw Azure-abonnement in. |
    |  $sourceDataPath |De Azure Blob storage locatie waar de Hive-query's de gegevens leest. U hoeft niet te wijzigen van deze variabele. |
    |  $outputPath |De Azure Blob storage locatie waar de Hive-query's worden de resultaten. U hoeft niet te wijzigen van deze variabele. |
    |  $hqlScriptFile |De locatie en de bestandsnaam van het bestand HiveQL-script. U hoeft niet te wijzigen van deze variabele. |
@@ -453,7 +453,7 @@ U hebt al de voorbereiding van het werk. U kunt nu het Hive-script aanroepen en 
 ### <a name="submit-a-hive-job"></a>Een Hive-taak verzenden
 Gebruik de volgende Windows PowerShell-script om uit te voeren van het Hive-script. U moet de eerste variabele instellen.
 
-> [!NOTE]  
+> [!NOTE]
 > Gebruik de tweets en de [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) script dat u die in de laatste twee secties zijn geüpload, $hqlScriptFile ingesteld op ' / tutorials/twitter/twitter.hql '. Instellen als u wilt gebruiken die voor u zijn geüpload naar een openbare blob, $hqlScriptFile op 'wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql'.
 
 ```powershell

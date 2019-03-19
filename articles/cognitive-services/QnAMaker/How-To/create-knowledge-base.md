@@ -1,26 +1,26 @@
 ---
 title: Een knowledge base maken
-titleSuffix: QnA Maker - Azure Cognitive Services
-description: Gebruik de QnA Maker-portal om toe te voegen een kennisdatabase met chit chat maken. Hierdoor wordt uw app deelnemen. Toevoegen van een vooraf gevulde set van de bovenste chit-chat in uw KB als uitgangspunt voor van uw bot chit-chat en bespaart u tijd en kosten van het schrijven van deze helemaal.
+titleSuffix: QnA Maker API - Azure Cognitive Services
+description: Gebruik de QnA Maker API-serviceportal, om toe te voegen een kennisdatabase met chit chat maken. Hierdoor wordt uw app deelnemen. Toevoegen van een vooraf gevulde set van de bovenste chit-chat in uw KB als uitgangspunt voor van uw bot chit-chat en bespaart u tijd en kosten van het schrijven van deze helemaal.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 03/11/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 1691bf9334d15ed7af211a929cf87ce433af895c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b4553a392795bb8578f24848ccacc870b654bce9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866399"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116229"
 ---
-# <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-portal"></a>Quickstart: Een kennisdatabase met behulp van de QnA Maker portal maken
+# <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Quickstart: Een kennisdatabase met behulp van de portal QnA Maker API maken
 
-QnA Maker kunt u eenvoudig uw bestaande gegevensbronnen voegen bij het maken van een kennisdatabase. U kunt een nieuwe QnA Maker-kennisdatabase maken van de volgende documenttypen:
+De portal QnA Maker API kunt u eenvoudig uw bestaande gegevensbronnen voegen bij het maken van een kennisdatabase. U kunt een nieuwe QnA Maker-kennisdatabase maken van de volgende documenttypen:
 
 <!-- added for scanability -->
 * Veelgestelde vragen over pagina 's

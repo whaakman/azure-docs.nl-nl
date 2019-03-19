@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: c79becfda84e1a7d65399c7211bdc3b98a28696f
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 2ea5b4e3af6591e6e25a863998baa7cecb3e29e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750562"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079108"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Joins in Logboeken-query's van Azure Monitor
 
@@ -101,7 +101,7 @@ Houd rekening met de volgende punten voor optimale prestaties:
 
 - Een tijdfilter voor elke tabel gebruiken om te beperken van de records die moeten worden geëvalueerd voor de join.
 - Gebruik `where` en `project` te verminderen van het aantal rijen en kolommen in de invoer tabellen voordat u de join.
-* Als een tabel altijd kleiner zijn dan de andere is, kunt u deze als aan de linkerkant van de join gebruiken.
+- Als een tabel altijd kleiner zijn dan de andere is, kunt u deze als aan de linkerkant van de join gebruiken.
 
 
 ## <a name="next-steps"></a>Volgende stappen

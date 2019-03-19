@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7ad5f22b0604cb9de38f7990c88d760df97098d9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: dc2fb3faddc8af30edd66b926259c05580d9872a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235832"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104519"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>On-premises virtuele VMware-machines detecteren en beoordelen voor migratie naar Azure
 
@@ -179,16 +179,16 @@ Importeer het gedownloade bestand naar de vCenter Server.
 3. Klik op het bureaublad op de snelkoppeling **Collector uitvoeren**.
 4. Klik in de bovenste balk van de gebruikersinterface van de collector op **Controleren op updates** en controleer of de nieuwste versie van de collector wordt uitgevoerd. Als dat niet het geval is, kunt u het nieuwste updatepakket downloaden via de koppeling en de collector bijwerken.
 5. Open in de Azure Migrate Collector het onderdeel **Vereisten instellen**.
-    - Selecteer de Azure-cloud die u wilt migreren (Azure Global of Azure Government).
-    - Accepteer de licentievoorwaarden en lees de informatie van derden.
-    - De collector controleert of de virtuele machine toegang heeft tot internet.
-    - Als de virtuele machine via een proxy toegang heeft tot internet, klikt u op **Proxyinstellingen** en geeft u het proxyadres en de controlepoort op. Geef referenties op als de proxy verificatie nodig heeft. Lees [hier](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) meer over de vereisten voor internetconnectiviteit en de [lijst met URL's](https://docs.microsoft.com/azure/migrate/concepts-collector) die de collector raadpleegt.
+   - Selecteer de Azure-cloud die u wilt migreren (Azure Global of Azure Government).
+   - Accepteer de licentievoorwaarden en lees de informatie van derden.
+   - De collector controleert of de virtuele machine toegang heeft tot internet.
+   - Als de virtuele machine via een proxy toegang heeft tot internet, klikt u op **Proxyinstellingen** en geeft u het proxyadres en de controlepoort op. Geef referenties op als de proxy verificatie nodig heeft. Lees [hier](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) meer over de vereisten voor internetconnectiviteit en de [lijst met URL's](https://docs.microsoft.com/azure/migrate/concepts-collector) die de collector raadpleegt.
 
-      > [!NOTE]
-      > Het proxyadres moet worden ingevoerd in het formulier http://ProxyIPAddress of http://ProxyFQDN. Alleen HTTP-proxy wordt ondersteund. Als u een onderscheppende proxy hebt, kan de internetverbinding in eerste instantie mislukken als u het proxycertificaat niet hebt geïmporteerd. [Hier](https://docs.microsoft.com/azure/migrate/concepts-collector) vindt u meer informatie over hoe u dit kunt oplossen door het proxycertificaat als vertrouwd in de collector-VM te importeren.
+     > [!NOTE]
+     > Het proxyadres moet worden ingevoerd in het formulier <http://ProxyIPAddress> of <http://ProxyFQDN>. Alleen HTTP-proxy wordt ondersteund. Als u een onderscheppende proxy hebt, kan de internetverbinding in eerste instantie mislukken als u het proxycertificaat niet hebt geïmporteerd. [Hier](https://docs.microsoft.com/azure/migrate/concepts-collector) vindt u meer informatie over hoe u dit kunt oplossen door het proxycertificaat als vertrouwd in de collector-VM te importeren.
 
-    - De collector controleert of de collector-service wordt uitgevoerd. De service wordt standaard geïnstalleerd op de collector-VM.
-    - Download en installeer VMware PowerCLI.
+   - De collector controleert of de collector-service wordt uitgevoerd. De service wordt standaard geïnstalleerd op de collector-VM.
+   - Download en installeer VMware PowerCLI.
 
 6. Doe het volgende in **vCenter Server-details opgeven**:
     - Geef de naam (FQDN) of het IP-adres op van de vCenter Server.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: 01b67cc0c20710fcf7c9a072e0ba3baaf286852a
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 60466f0c3c0e674dcbfa287a0368462fd5a1d18f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423640"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120309"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric met Azure API Management-overzicht
 
@@ -83,9 +83,9 @@ Om dit te bereiken, bevat een API Management-bewerking een beleid voor binnenkom
 
 In dit voorbeeld wordt een nieuw stateless service-exemplaar voor elke gebruiker van een toepassing gemaakt met de naam van een dynamisch gegenereerd met behulp van de volgende formule:
  
- - `fabric:/app/users/<username>`
+- `fabric:/app/users/<username>`
 
- Elke service heeft een unieke naam, maar de namen worden niet vooraf bekend omdat de services zijn gemaakt in reactie op de gebruiker of beheerder invoeren en dus kan niet worden vastgelegd in de APIM-beleid of regels voor doorsturen. In plaats daarvan de naam van de service voor het verzenden van een aanvraag wordt gegenereerd in de beleidsdefinitie van het voor back-end van de `name` waarde die is opgegeven in het URL-Aanvraagpad. Bijvoorbeeld:
+  Elke service heeft een unieke naam, maar de namen worden niet vooraf bekend omdat de services zijn gemaakt in reactie op de gebruiker of beheerder invoeren en dus kan niet worden vastgelegd in de APIM-beleid of regels voor doorsturen. In plaats daarvan de naam van de service voor het verzenden van een aanvraag wordt gegenereerd in de beleidsdefinitie van het voor back-end van de `name` waarde die is opgegeven in het URL-Aanvraagpad. Bijvoorbeeld:
 
   - Een aanvraag voor `/api/users/foo` wordt doorgestuurd naar de service-exemplaar `fabric:/app/users/foo`
   - Een aanvraag voor `/api/users/bar` wordt doorgestuurd naar de service-exemplaar `fabric:/app/users/bar`
@@ -102,9 +102,9 @@ Om dit te bereiken, bevat een API Management-bewerking een beleid voor binnenkom
 
 In dit voorbeeld wordt een nieuw stateful service-exemplaar voor elke gebruiker van de toepassing gemaakt met de naam van een dynamisch gegenereerd met behulp van de volgende formule:
  
- - `fabric:/app/users/<username>`
+- `fabric:/app/users/<username>`
 
- Elke service heeft een unieke naam, maar de namen worden niet vooraf bekend omdat de services zijn gemaakt in reactie op de gebruiker of beheerder invoeren en dus kan niet worden vastgelegd in de APIM-beleid of regels voor doorsturen. In plaats daarvan de naam van de service voor het verzenden van een aanvraag wordt gegenereerd in de beleidsdefinitie van het voor back-end van de `name` waarde opgegeven in het pad van URL-aanvraag. Bijvoorbeeld:
+  Elke service heeft een unieke naam, maar de namen worden niet vooraf bekend omdat de services zijn gemaakt in reactie op de gebruiker of beheerder invoeren en dus kan niet worden vastgelegd in de APIM-beleid of regels voor doorsturen. In plaats daarvan de naam van de service voor het verzenden van een aanvraag wordt gegenereerd in de beleidsdefinitie van het voor back-end van de `name` waarde opgegeven in het pad van URL-aanvraag. Bijvoorbeeld:
 
   - Een aanvraag voor `/api/users/foo` wordt doorgestuurd naar de service-exemplaar `fabric:/app/users/foo`
   - Een aanvraag voor `/api/users/bar` wordt doorgestuurd naar de service-exemplaar `fabric:/app/users/bar`

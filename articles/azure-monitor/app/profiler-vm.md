@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 01e5ffc7cf00f7d0e0e97f521b6b6de2abd56567
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b72966ebc73953e6a89ca1bb2fd4f7ce15f70fee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307680"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111375"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Profiel web-apps die worden uitgevoerd op een Azure-machine of een virtuele-machineschaalset instellen met behulp van Application Insights Profiler
 
@@ -32,28 +32,28 @@ U kunt ook Azure Application Insights Profiler implementeren voor deze services:
 In dit artikel wordt beschreven hoe u Application Insights Profiler wordt uitgevoerd op uw virtuele Azure-machine (VM) of Azure virtuele-machineschaalset ophalen. Profiler is geïnstalleerd met de Azure Diagnostics-extensie voor VM's. De uitbreiding voor het uitvoeren van Profiler configureren en de Application Insights SDK inbouwen in uw toepassing.
 
 1. Voeg de Application Insights-SDK op uw [ASP.NET-toepassing](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net) of gewone [.NET-toepassing](windows-services.md?toc=/azure/azure-monitor/toc.json).  
-  Als u profielen voor het aanvragen, moet u aanvraagtelemetrie verzenden naar Application Insights.
+   Als u profielen voor het aanvragen, moet u aanvraagtelemetrie verzenden naar Application Insights.
 
 1. Azure Diagnostics-extensie installeren op uw virtuele machine. Zie voor sjabloonvoorbeelden in de volledige Resource Manager:  
-    * [Virtuele machine](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)
-    * [Virtuele-machineschaalset](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)
+   * [Virtuele machine](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)
+   * [Virtuele-machineschaalset](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)
     
-    Het belangrijkste deel is de ApplicationInsightsProfilerSink in de WadCfg. Toevoegen als u wilt dat Azure Diagnostics inschakelen van Profiler gegevens verzenden naar uw iKey, een andere sink in deze sectie.
+     Het belangrijkste deel is de ApplicationInsightsProfilerSink in de WadCfg. Toevoegen als u wilt dat Azure Diagnostics inschakelen van Profiler gegevens verzenden naar uw iKey, een andere sink in deze sectie.
     
-    ```json
-      "SinksConfig": {
-        "Sink": [
-          {
-            "name": "ApplicationInsightsSink",
-            "ApplicationInsights": "85f73556-b1ba-46de-9534-606e08c6120f"
-          },
-          {
-            "name": "MyApplicationInsightsProfilerSink",
-            "ApplicationInsightsProfiler": "85f73556-b1ba-46de-9534-606e08c6120f"
-          }
-        ]
-      },
-    ```
+     ```json
+     "SinksConfig": {
+       "Sink": [
+         {
+           "name": "ApplicationInsightsSink",
+           "ApplicationInsights": "85f73556-b1ba-46de-9534-606e08c6120f"
+         },
+         {
+           "name": "MyApplicationInsightsProfilerSink",
+           "ApplicationInsightsProfiler": "85f73556-b1ba-46de-9534-606e08c6120f"
+         }
+       ]
+     },
+     ```
 
 1. De implementatiedefinitie gewijzigde omgeving implementeren.  
 

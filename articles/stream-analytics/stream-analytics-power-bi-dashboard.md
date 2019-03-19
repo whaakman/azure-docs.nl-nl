@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: d7f67015d4df20ea39c1225d52be36340b8f65d1
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 487c142400dc2bfa6f44e17963535051af017196
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556973"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116178"
 ---
 # <a name="tutorial-stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Zelfstudie: Stream Analytics en Power BI: Een realtime analytics-dashboard voor het streamen van gegevens
 Azure Stream Analytics kunt u profiteren van een van de toonaangevende hulpprogramma's voor bedrijfsinformatie [Microsoft Power BI](https://powerbi.com/). In dit artikel leert u hoe business intelligence-hulpmiddelen te maken met behulp van Power BI als uitvoer voor uw Azure Stream Analytics-taken. U leert ook hoe u het maken en gebruiken van een realtime dashboard.
@@ -56,16 +56,16 @@ In de zelfstudie realtime fraude-detectie wordt de uitvoer verzonden naar Azure 
 
 7. Als u terug naar de **nieuwe uitvoer** blade, voer de volgende informatie:
 
-    * **Werkruimte groep**: Selecteer een werkruimte in uw Power BI-tenant waar u om de gegevensset te maken.
-    * **Naam van de gegevensset**:  Voer `sa-dataset` in. U kunt ook een andere naam gebruiken. Als u dit doet, moet u een notitie van deze voor later.
-    * **Tabelnaam**: Voer `fraudulent-calls` in. Power BI-uitvoer van Stream Analytics-taken kan op dit moment slechts één tabel hebt in een gegevensset.
+   * **Werkruimte groep**: Selecteer een werkruimte in uw Power BI-tenant waar u om de gegevensset te maken.
+   * **Naam van de gegevensset**:  Voer `sa-dataset` in. U kunt ook een andere naam gebruiken. Als u dit doet, moet u een notitie van deze voor later.
+   * **Tabelnaam**: Voer `fraudulent-calls` in. Power BI-uitvoer van Stream Analytics-taken kan op dit moment slechts één tabel hebt in een gegevensset.
 
-    ![Gegevensset van Power BI-werkruimte en tabel](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
+     ![Gegevensset van Power BI-werkruimte en tabel](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
 
-    > [!WARNING]
-    > Als Power BI een gegevensset en een tabel met dezelfde namen als degene die u in de Stream Analytics-taak opgeeft heeft, worden de bestaande bestanden overschreven.
-    > Het is raadzaam dat u geen expliciet deze gegevensset en de tabel in uw Power BI-account maakt. Ze worden automatisch gemaakt wanneer u uw Stream Analytics-taak starten en de taak wordt gestart reageert uitvoer naar Power BI. Als uw job query geen resultaten oplevert, worden de gegevensset en de tabel niet gemaakt.
-    >
+     > [!WARNING]
+     > Als Power BI een gegevensset en een tabel met dezelfde namen als degene die u in de Stream Analytics-taak opgeeft heeft, worden de bestaande bestanden overschreven.
+     > Het is raadzaam dat u geen expliciet deze gegevensset en de tabel in uw Power BI-account maakt. Ze worden automatisch gemaakt wanneer u uw Stream Analytics-taak starten en de taak wordt gestart reageert uitvoer naar Power BI. Als uw job query geen resultaten oplevert, worden de gegevensset en de tabel niet gemaakt.
+     >
 
 8. Klik op **Create**.
 
@@ -189,13 +189,13 @@ Uw stream Analytics-taak wordt gestart op zoek naar frauduleuze gesprekken in de
     * Voeg een waarde toe en selecteer **fraudulentcalls**.
     * Selecteer bij **Tijdvenster voor weergave** de laatste 10 minuten.
 
-    ![Een tegel voor lijndiagram maken in Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
+      ![Een tegel voor lijndiagram maken in Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
 
 9. Klik op **volgende**, een titel en subtitel toevoegen en klik op **toepassen**.
 
-    De Power BI-dashboard nu kunt u twee weergaven van gegevens over frauduleuze gesprekken als gedetecteerd in de streaming-gegevens.
+     De Power BI-dashboard nu kunt u twee weergaven van gegevens over frauduleuze gesprekken als gedetecteerd in de streaming-gegevens.
 
-    ![Power BI-dashboard met twee tegels frauduleuze gesprekken voltooid](./media/stream-analytics-power-bi-dashboard/pbi-dashboard-fraudulent-calls-finished.png)
+     ![Power BI-dashboard met twee tegels frauduleuze gesprekken voltooid](./media/stream-analytics-power-bi-dashboard/pbi-dashboard-fraudulent-calls-finished.png)
 
 
 ## <a name="learn-more-about-power-bi"></a>Meer informatie over Power BI

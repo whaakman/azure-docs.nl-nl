@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: cawa
-ms.openlocfilehash: 206804ede429e8a9ace75c16b8f0ac4a8d3f49f7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 79b1c740bca56982243ddc130d8747fdc955247f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443578"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124113"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Geheime toepassingsinstellingen voor een webtoepassing veilig opslaan
 
@@ -143,9 +143,9 @@ Als u een snelle prototype ontwikkelt en niet wilt dat voor het inrichten van Az
 Volg de instructies van ASP.NET core sectie om te configureren van een Key Vault voor uw project.
 
 1. Het volgende NuGet-pakket installeren voor uw project
-```
-Microsoft.Configuration.ConfigurationBuilders.UserSecrets
-```
+   ```
+   Microsoft.Configuration.ConfigurationBuilders.UserSecrets
+   ```
 
 2. Opbouwfunctie voor Key Vault-configuratie definiëren in Web.config. In deze sectie voordat u put *appSettings* sectie. Vervang *vaultName* moet de naam van de Key Vault als uw Key Vault in openbare Azure, of de volledige URI als u van onafhankelijke Clouds gebruikmaakt.
 
@@ -159,16 +159,16 @@ Microsoft.Configuration.ConfigurationBuilders.UserSecrets
         </builders>
     </configBuilders>
     ```
-3.  Geef de sectie appSettings met behulp van de opbouwfunctie voor Key Vault-configuratie. Zorg ervoor dat er een vermelding voor de geheime instelling met een dummy-waarde.
+3. Geef de sectie appSettings met behulp van de opbouwfunctie voor Key Vault-configuratie. Zorg ervoor dat er een vermelding voor de geheime instelling met een dummy-waarde.
 
-    ```xml
-    <appSettings configBuilders="AzureKeyVault">
-        <add key="webpages:Version" value="3.0.0.0" />
-        <add key="webpages:Enabled" value="false" />
-        <add key="ClientValidationEnabled" value="true" />
-        <add key="UnobtrusiveJavaScriptEnabled" value="true" />
-        <add key="secret" value="" />
-    </appSettings>
-    ```
+   ```xml
+   <appSettings configBuilders="AzureKeyVault">
+       <add key="webpages:Version" value="3.0.0.0" />
+       <add key="webpages:Enabled" value="false" />
+       <add key="ClientValidationEnabled" value="true" />
+       <add key="UnobtrusiveJavaScriptEnabled" value="true" />
+       <add key="secret" value="" />
+   </appSettings>
+   ```
 
 4. Het project voor de foutopsporing starten. Het moet is uitgevoerd.

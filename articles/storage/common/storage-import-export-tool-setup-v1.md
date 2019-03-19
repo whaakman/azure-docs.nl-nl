@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 6d8cf874032449e362a35d106bba3b430a80ea48
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: aafff208b9de2ae485fb84be428cf77f237e022e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467608"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087445"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>De Azure Import/Export-hulpprogramma instellen
 Het Microsoft Azure Import/Export-hulpprogramma is het station voorbereiding hulpprogramma en herstel die u met de Microsoft Azure Import/Export-service gebruiken kunt. U kunt het hulpprogramma gebruiken voor de volgende functies:  
@@ -45,36 +45,36 @@ Als u schijven voor een importtaak voorbereidt, moet u voldoen aan de volgende v
   
 Als u probeert te herstellen van een importeren dat is gedeeltelijk mislukt, moet u:  
   
--   De kopie-logboekbestanden  
+- De kopie-logboekbestanden  
   
--   De opslagaccountsleutel  
+- De opslagaccountsleutel  
   
   Als u probeert te herstellen van een export die gedeeltelijk is mislukt, moet u:  
   
--   De kopie-logboekbestanden  
+- De kopie-logboekbestanden  
   
--   De manifest-bestanden (optioneel)  
+- De manifest-bestanden (optioneel)  
   
--   De opslagaccountsleutel  
+- De opslagaccountsleutel  
   
 ## <a name="installing-the-azure-importexport-tool"></a>Installatie van het hulpprogramma Azure Import/Export  
  Het hulpprogramma Azure Import/Export bestaat uit de volgende bestanden:  
   
--   WAImportExport.exe  
+- WAImportExport.exe  
   
--   WAImportExport.exe.config  
+- WAImportExport.exe.config  
   
--   WAImportExportCore.dll  
+- WAImportExportCore.dll  
   
--   WAImportExportRepair.dll  
+- WAImportExportRepair.dll  
   
--   Microsoft.WindowsAzure.Storage.dll  
+- Microsoft.WindowsAzure.Storage.dll  
   
--   Hddid.dll  
+- Hddid.dll  
   
- Deze bestanden kopiëren naar een werkmap, bijvoorbeeld `c:\WAImportExport`. Vervolgens een opdrachtregelvenster openen in de beheerdersmodus en instellen van de bovenstaande map als de huidige map.  
+  Deze bestanden kopiëren naar een werkmap, bijvoorbeeld `c:\WAImportExport`. Vervolgens een opdrachtregelvenster openen in de beheerdersmodus en instellen van de bovenstaande map als de huidige map.  
   
- Als u wilt de help voor de opdracht uitvoert, moet u het hulpprogramma zonder parameters uitvoert:  
+  Als u wilt de help voor de opdracht uitvoert, moet u het hulpprogramma zonder parameters uitvoert:  
   
 ```  
 WAImportExport, a client tool for Microsoft Azure Import/Export service. Microsoft (c) 2013, 2014  

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: d208d989fb9b84ae7bc94c6a1882754ed2bacb5d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 0bf1558f81f2936b4556ee658a235cd09dddf905
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343958"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892911"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Door Azure beheerde toepassingen in Marketplace
 
@@ -43,7 +43,7 @@ Voer de volgende stappen uit om een uitgever te worden in Azure Marketplace:
 
 1. Een Microsoft-id maken: maak een Microsoft-account met een e-mailadres dat deel uitmaakt van het domein van uw bedrijf, maar dat niet aan een bepaalde persoon is gekoppeld. Dit e-mailadres wordt gebruikt voor zowel het Microsoft Developer Center als de Cloud Partner-portal. Zie de [handleiding van Azure Marketplace voor uitgevers](https://aka.ms/sellerguide) voor meer informatie.
 1. [Azure Marketplace-aanvraagformulier](https://aka.ms/ampnomination) versturen: selecteer **Managed Application** voor **Solution that you intend to publish?**. Zodra het formulier is verzonden, wordt de aanvraag bekeken en gevalideerd door het Marketplace Onboarding Team. Het goedkeuringsproces kan één tot drie dagen duren. Wanneer uw aanvraag is goedgekeurd, ontvangt u een promotiecode waarmee u de registratiekosten voor het Developer Center kunt voldoen. Als u het Marketplace-aanvraagformulier **niet** invult, moet u een registratiebijdrage van $99 betalen.
-1. Registreren in [Developer Center](http://dev.windows.com/registration?accountprogram=azure): Microsoft controleert of uw organisatie een geldige rechtspersoon is met een geldig btw-nummer voor het land waar de organisatie is geregistreerd. Het goedkeuringsproces kan vijf tot tien dagen duren. U kunt de registratiekosten voldoen met behulp van de promotiecode die u in de e-mail over de aanvraag hebt ontvangen. Zie de [handleiding van Azure Marketplace voor uitgevers](https://aka.ms/sellerguide) voor meer informatie.
+1. Registreren in [Developer Center](https://dev.windows.com/registration?accountprogram=azure): Microsoft controleert of uw organisatie een geldige rechtspersoon is met een geldig btw-nummer voor het land waar de organisatie is geregistreerd. Het goedkeuringsproces kan vijf tot tien dagen duren. U kunt de registratiekosten voldoen met behulp van de promotiecode die u in de e-mail over de aanvraag hebt ontvangen. Zie de [handleiding van Azure Marketplace voor uitgevers](https://aka.ms/sellerguide) voor meer informatie.
 1. Aanmelden bij de [Cloud Partner-portal](https://cloudpartner.azure.com): koppel het Developer Center-account in uw uitgeversprofiel aan het uitgeversprofiel van Marketplace. Zie de [handleiding van Azure Marketplace voor uitgevers](https://aka.ms/sellerguide) voor meer informatie.
 
 ## <a name="create-a-new-azure-application-offer"></a>Een nieuwe aanbieding voor een Azure-toepassing maken

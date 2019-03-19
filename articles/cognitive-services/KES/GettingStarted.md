@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 815147abba444f0a55a8455c0a818aa048271b92
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: e2678200e2f8c55111e53ab0a341804fd17623a3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309638"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994942"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Aan de slag met de Knowledge Exploration Service
 
@@ -64,7 +64,7 @@ Zie voor meer informatie over de schemadefinitie [Schema-indeling](SchemaFormat.
 
 ## <a name="generate-data"></a>Gegevens genereren
 
-Het gegevensbestand beschrijft de lijst van de publicaties om te indexeren, met op elke regel de kenmerkwaarden van een publicatie in [JSON-indeling](http://json.org/).  Het volgende voorbeeld is een enkele regel uit het gegevensbestand *Academic.data*opgemaakt voor de leesbaarheid:
+Het gegevensbestand beschrijft de lijst van de publicaties om te indexeren, met op elke regel de kenmerkwaarden van een publicatie in [JSON-indeling](https://json.org/).  Het volgende voorbeeld is een enkele regel uit het gegevensbestand *Academic.data*opgemaakt voor de leesbaarheid:
 
 ```
 ...
@@ -207,7 +207,7 @@ Nadat u een XML-grammatica-specificatie hebt, kunt u deze in een binaire grammat
 
 ## <a name="host-the-grammar-and-index-in-a-web-service"></a>Host grammatica en de index in een webservice
 
-Voor snelle ontwikkeling van prototypen kunt u de grammatica en de index in een webservice op de lokale computer hosten met behulp van [ `kes.exe host_service` ](CommandLine.md#host_service-command). U hebt vervolgens toegang tot de service via [web-API's](WebAPI.md) voor het valideren van de gegevens en het grammatica-ontwerp. In dit voorbeeld gaat u het grammaticabestand *Academic.grammar* en het indexbestand *Academic.index* hosten op http://localhost:8000/. Gebruik de volgende opdracht:
+Voor snelle ontwikkeling van prototypen kunt u de grammatica en de index in een webservice op de lokale computer hosten met behulp van [ `kes.exe host_service` ](CommandLine.md#host_service-command). U hebt vervolgens toegang tot de service via [web-API's](WebAPI.md) voor het valideren van de gegevens en het grammatica-ontwerp. In dit voorbeeld gaat u het grammaticabestand *Academic.grammar* en het indexbestand *Academic.index* hosten op `http://localhost:8000/`. Gebruik de volgende opdracht:
 
 `kes.exe host_service Academic.grammar Academic.index --port 8000`
 
@@ -238,7 +238,7 @@ In dit voorbeeld kunt u ervan uitgaan dat de volgende Blob-opslagcontainer al is
 
 `kes.exe build_index http://<account>.blob.core.windows.net/<container>/Academic.schema http://<account>.blob.core.windows.net/<container>/Academic.full.data http://<account>.blob.core.windows.net/<container>/Academic.full.index --remote <vm_size>`
 
-Houd er rekening mee dat het 5-10 minuten duurt voor het inrichten van een tijdelijke VM om de index te maken. Voor snelle ontwikkeling van prototypen, kunt u het volgende doen:
+Houd er rekening mee dat het duurt 5-10 minuten voor het inrichten van een tijdelijke virtuele machine voor het bouwen van de index. Voor snelle ontwikkeling van prototypen, kunt u het volgende doen:
 - Ontwikkel lokaal met een kleinere set gegevens op een willekeurige machine.
 - Handmatig [maken van een Azure-VM](../../../articles/virtual-machines/windows/quick-create-portal.md), [verbinding maken ](../../../articles/virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) via Extern bureaublad, installeer de [Knowledge Exploration Service SDK](https://www.microsoft.com/en-us/download/details.aspx?id=51488) en uitvoeren [ `kes.exe` ](CommandLine.md) vanuit de VM.
 

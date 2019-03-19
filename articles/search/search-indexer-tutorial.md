@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 872871d2ab9a9c693ad81081f24c8de68457982d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: e23c9e04d06e509cba32c728ae6f86e1328d88cc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312048"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111069"
 ---
 # <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Zelfstudie: Een Azure SQL-database verkennen met de indexeerfuncties van Azure Search
 
@@ -90,20 +90,20 @@ U vindt het eindpunt van de zoekservice en de sleutel in de portal. Een sleutel 
 
 4. Kopieer en plak dit als eerste vermelding in **appsettings.json** in Visual Studio.
 
-  > [!Note]
-  > De servicenaam maakt deel uit van het eindpunt dat search.windows.net bevat. Desgewenst kunt u de volledige URL bekijken via **Essentials** op de overzichtspagina. De URL lijkt op dit voorbeeld: https://your-service-name.search.windows.net
+   > [!Note]
+   > De servicenaam maakt deel uit van het eindpunt dat search.windows.net bevat. Desgewenst kunt u de volledige URL bekijken via **Essentials** op de overzichtspagina. De URL lijkt op dit voorbeeld: https://your-service-name.search.windows.net
 
 5. Kopieer aan de linkerkant, onder **Instellingen** > **Sleutels**, een van de beheersleutels en plak deze als tweede vermelding in **appsettings.json**. Sleutels zijn alfanumerieke tekenreeksen die tijdens de inrichting voor uw service worden gegenereerd en zijn vereist voor geautoriseerde toegang tot servicebewerkingen. 
 
-  Nadat u beide instellingen hebt toegevoegd, ziet uw bestand er ongeveer uit als in dit voorbeeld:
+   Nadat u beide instellingen hebt toegevoegd, ziet uw bestand er ongeveer uit als in dit voorbeeld:
 
-  ```json
-  {
+   ```json
+   {
     "SearchServiceName": "azs-tutorial",
     "SearchServiceAdminApiKey": "A1B2C3D4E5F6G7H8I9J10K11L12M13N14",
     . . .
-  }
-  ```
+   }
+   ```
 
 ## <a name="prepare-an-external-data-source"></a>Een externe gegevensbron voorbereiden
 
@@ -125,7 +125,7 @@ In de volgende oefening wordt ervan uitgegaan dat er geen bestaande server of da
 
 4. Open de pagina SQL Database voor de nieuwe database als deze nog niet is geopend. De resourcenaam moet *SQL-database* zijn en niet *SQL-server*.
 
-  ![De pagina SQL-database](./media/search-indexer-tutorial/hotels-db.png)
+   ![De pagina SQL-database](./media/search-indexer-tutorial/hotels-db.png)
 
 4. Klik op de opdrachtbalk op **Extra** > **Query-editor**.
 
@@ -135,24 +135,24 @@ In de volgende oefening wordt ervan uitgegaan dat er geen bestaande server of da
 
 7. Selecteer het bestand en klik op **Openen**. Het script moet er ongeveer uitzien als in de volgende schermafbeelding:
 
-  ![SQL-script](./media/search-indexer-tutorial/sql-script.png)
+   ![SQL-script](./media/search-indexer-tutorial/sql-script.png)
 
 8. Klik op **Uitvoeren** om de query uit te voeren. In het resultatenvenster zou u het bericht moeten zien dat de query is gelukt voor 3 rijen.
 
 9. Als u een rijenset uit deze tabel wilt retourneren, kunt u de volgende query uitvoeren als verificatiestap:
 
-   ```sql
-   SELECT HotelId, HotelName, Tags FROM Hotels
-   ```
-   De prototypequery, `SELECT * FROM Hotels`, werkt niet in de query-editor. De voorbeeldgegevens bevatten geografische coördinaten in het veld Locatie dat momenteel niet door de editor wordt verwerkt. Voor een lijst met andere kolommen waarvoor u een query kunt uitvoeren, kunt u deze instructie uitvoeren: `SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
+    ```sql
+    SELECT HotelId, HotelName, Tags FROM Hotels
+    ```
+    De prototypequery, `SELECT * FROM Hotels`, werkt niet in de query-editor. De voorbeeldgegevens bevatten geografische coördinaten in het veld Locatie dat momenteel niet door de editor wordt verwerkt. Voor een lijst met andere kolommen waarvoor u een query kunt uitvoeren, kunt u deze instructie uitvoeren: `SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
 
 10. Nu u een externe gegevensset hebt, kopieert u de ADO.NET-verbindingsreeks voor de database. Ga op de pagina SQL Database van uw database naar **Instellingen** > **Verbindingsreeksen** en kopieer de ADO.NET-verbindingsreeks.
  
-  Een ADO.NET-verbindingsreeks ziet eruit als in het volgende voorbeeld, dat is gewijzigd zodat een geldige databasenaam, gebruikersnaam en wachtwoord worden gebruikt.
+    Een ADO.NET-verbindingsreeks ziet eruit als in het volgende voorbeeld, dat is gewijzigd zodat een geldige databasenaam, gebruikersnaam en wachtwoord worden gebruikt.
 
-  ```sql
-  Server=tcp:hotels-db.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
-  ```
+    ```sql
+    Server=tcp:hotels-db.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+    ```
 11. Plak de verbindingsreeks in 'AzureSqlConnectionString' als derde vermelding in het bestand **appsettings.json** in Visual Studio.
 
     ```json
@@ -250,15 +250,15 @@ Klik in de Azure Portal op de overzichtspagina van de zoekservice op **Search Ex
 
 2. Klik op de knop **Zoeken** om een lege zoekopdracht te geven. 
 
-  De drie vermeldingen in de index worden geretourneerd als JSON-documenten. Search Explorer retourneert documenten in JSON, zodat u de volledige structuur kunt bekijken.
+   De drie vermeldingen in de index worden geretourneerd als JSON-documenten. Search Explorer retourneert documenten in JSON, zodat u de volledige structuur kunt bekijken.
 
 3. Geef vervolgens een zoekreeks op: `search=river&$count=true`. 
 
-  Deze query roept een zoekopdracht aan die in de volledige tekst zoekt naar de term `river` en het resultaat bevat het aantal overeenkomende documenten. Het aantal overeenkomende documenten retourneren kan handig zijn in testscenario's wanneer u een grote index met duizenden of miljoenen documenten hebt. In dit geval komt slechts één document overeen met de query.
+   Deze query roept een zoekopdracht aan die in de volledige tekst zoekt naar de term `river` en het resultaat bevat het aantal overeenkomende documenten. Het aantal overeenkomende documenten retourneren kan handig zijn in testscenario's wanneer u een grote index met duizenden of miljoenen documenten hebt. In dit geval komt slechts één document overeen met de query.
 
 4. Voer ten slotte een zoektekenreeks in die de JSON-uitvoer beperkt tot de gewenste velden: `search=river&$count=true&$select=hotelId, baseRate, description`. 
 
-  De respons van de query wordt beperkt tot geselecteerde velden, wat resulteert in een beknoptere uitvoer.
+   De respons van de query wordt beperkt tot geselecteerde velden, wat resulteert in een beknoptere uitvoer.
 
 ## <a name="view-indexer-configuration"></a>De configuratie van de indexeerfunctie bekijken
 
@@ -268,7 +268,7 @@ Alle indexeerfuncties, inclusief de functie die u zojuist via programmacode hebt
 2. Schuif omlaag naar de tegels met **indexeerfuncties** en **gegevensbronnen**.
 3. Klik op een tegel om een lijst met resources te openen. U kunt afzonderlijke indexeerfuncties of gegevensbronnen selecteren om configuratie-instellingen weer te geven of te wijzigen.
 
-  ![Tegels met indexeerfuncties en gegevensbronnen](./media/search-indexer-tutorial/tiles-portal.png)
+   ![Tegels met indexeerfuncties en gegevensbronnen](./media/search-indexer-tutorial/tiles-portal.png)
 
 
 ## <a name="clean-up-resources"></a>Resources opschonen

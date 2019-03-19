@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/17/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 541d1473b21056e24c6b04b86414936a02b7d9d5
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: HT
+ms.openlocfilehash: 5308fc024a53fdbbef12b409622cc35adaea1e2e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382580"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57857705"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Zelfstudie: Een HTTPS-eindpunt toevoegen aan een front-end-service van ASP.NET Core Web-API met behulp van Kestrel
 
@@ -83,8 +83,8 @@ Start Visual Studio als een **beheerder** en open de Voting-oplossing. Open *Vot
 <ServiceManifest Name="VotingWebPkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <StatelessServiceType ServiceTypeName="VotingWebType" />
   </ServiceTypes>
@@ -193,8 +193,8 @@ Open *VotingWeb/PackageRoot/ServiceManifest.xml* vanuit Solution Explorer.  Voeg
 <ServiceManifest Name="VotingWebPkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <StatelessServiceType ServiceTypeName="VotingWebType" />
   </ServiceTypes>
@@ -297,7 +297,7 @@ Vervolgens configureert u in de sectie VotingWebPkg **ServiceManifestImport** ee
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="VotingData_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="VotingData_PartitionCount" DefaultValue="1" />
@@ -341,7 +341,7 @@ Vervolgens configureert u in de sectie VotingWebPkg **ServiceManifestImport** ee
 
 ## <a name="run-the-application-locally"></a>De toepassing lokaal uitvoeren
 
-Selecteer in Solution Explorer de toepassing **Stemmen** en stel de eigenschap **URL van toepassing** in op 'https://localhost:443'.
+Selecteer in Solution Explorer de toepassing **Stemmen** en stel de eigenschap **URL van toepassing** in op '<https://localhost:443>'.
 
 Sla alle bestanden op en druk op F5 om de toepassing lokaal uit te voeren.  Nadat de toepassing is geïmplementeerd, wordt een webbrowser geopend met [https://localhost:443](https://localhost:443). Als u een zelfondertekend certificaat gebruikt, ziet u een waarschuwing dat uw pc de beveiliging van deze website niet vertrouwt.  Ga door naar de webpagina.
 

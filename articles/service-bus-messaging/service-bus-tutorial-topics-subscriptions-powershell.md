@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 135f5e2500ab86d418085a5061f517176b9a4dad
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 21dcf522f00f1991ecb2a92d6dc0925baadbdcc6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430004"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081267"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Zelfstudie: Voorraad bijwerken met PowerShell en onderwerpen/abonnementen
 
@@ -111,13 +111,13 @@ Ga als volgt te werk om de code uit te voeren:
    ```azurepowershell-interactive
    Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
    ```
-5.  Typ de volgende opdracht bij de PowerShell-prompt:
+5. Typ de volgende opdracht bij de PowerShell-prompt:
 
    ```shell
    dotnet build
    ```
-6.  Navigeer naar de map `\bin\Debug\netcoreapp2.0`.
-7.  Typ de volgende opdracht om het programma uit te voeren. Zorg ervoor dat u `myConnectionString` vervangt door de waarde die u eerder hebt verkregen, en vervang `myQueueName` door de naam van de wachtrij die u hebt gemaakt:
+6. Navigeer naar de map `\bin\Debug\netcoreapp2.0`.
+7. Typ de volgende opdracht om het programma uit te voeren. Zorg ervoor dat u `myConnectionString` vervangt door de waarde die u eerder hebt verkregen, en vervang `myQueueName` door de naam van de wachtrij die u hebt gemaakt:
 
    ```shell
    dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"

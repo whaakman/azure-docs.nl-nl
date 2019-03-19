@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
-ms.openlocfilehash: 88518bee879d01966813fc89e8095d2237476a15
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: a143fc6d9dbd78ae365f943a00ac9f8492d5e51c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901306"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897143"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Meer informatie over de Microsoft Azure gedetailleerde gebruikskosten 
 
@@ -57,7 +57,7 @@ Het bovenste gedeelte van het gedetailleerde gebruik CSV-bestand ziet u de servi
 |Overschrijding |De kosten voor meter die groter zijn dan de toezeggingshoeveelheid die is gekoppeld aan uw aanbieding 6 of 12 maanden |
 |Toezeggingstarief |Geeft het toezeggingstarief op basis van de totale toezeggingshoeveelheid die is gekoppeld aan uw aanbieding 6 of 12 maanden |
 |Tarief |Het tarief dat u kosten in per factureerbare eenheid gebracht rekening |
-|Waarde |Toont het resultaat van het vermenigvuldigen van de hoeveelheid overschrijding kolom met de kolom tarief. Als de verbruikte hoeveelheid niet hoger is dan het aantal opgenomen, zijn er geen kosten in deze kolom. |
+|Value |Toont het resultaat van het vermenigvuldigen van de hoeveelheid overschrijding kolom met de kolom tarief. Als de verbruikte hoeveelheid niet hoger is dan het aantal opgenomen, zijn er geen kosten in deze kolom. |
 
 ### <a name="daily-usage"></a>Dagelijks gebruik
 
@@ -90,4 +90,4 @@ Externe services (ook wel bekend als een Marketplace-bestellingen) worden geleve
 
 ## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 
-Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://go.microsoft.com/fwlink/?linkid=2083458).

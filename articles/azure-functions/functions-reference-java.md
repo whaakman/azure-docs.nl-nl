@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 14a9e369f3366fc103cde2f0faafb570de409de7
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 9258b58783d4670620a251fef866211f7634480f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311862"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096721"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java-handleiding voor ontwikkelaars
 
@@ -391,6 +391,6 @@ Zie de volgende bronnen voor meer informatie over het ontwikkelen van Java voor 
 * [Aanbevolen procedures voor Azure Functions](functions-best-practices.md)
 * [Naslaginformatie over Azure Functions voor ontwikkelaars](functions-reference.md)
 * [Azure Functions-triggers en bindingen](functions-triggers-bindings.md)
-- Lokale ontwikkeling en foutopsporing met [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md), en [Eclipse](functions-create-maven-eclipse.md). 
+* Lokale ontwikkeling en foutopsporing met [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md), en [Eclipse](functions-create-maven-eclipse.md). 
 * [Externe foutopsporing voor Java Azure Functions met Visual Studio Code](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)
 * [Maven-invoegtoepassing voor Azure Functions](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-functions-maven-plugin/README.md) -functie maken via stroomlijnen de `azure-functions:add` doel en een staging-map voor te bereiden [ZIP-bestandsimplementatie](deployment-zip-push.md).

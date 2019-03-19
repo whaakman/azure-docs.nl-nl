@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: a4b6bc8f6e621cda921d599b5368c6a671defcc2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f7bfb4f403104bb91fb1a9ba4b70cb164e0738b4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548606"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113296"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Ondersteunde metrische gegevens met Azure Monitor
 Azure Monitor biedt verschillende manieren om te communiceren met metrische gegevens, zoals ze in het portaal grafieken, toegang hebben tot deze via de REST-API of uitvoeren van deze query's met behulp van PowerShell of CLI. Hieronder vindt u een volledige lijst van alle metrische gegevens op dit moment met metrische gegevens van Azure Monitor-pijplijn. Andere metrische gegevens is mogelijk beschikbaar in de portal of met verouderde API's. Deze lijst hieronder bevat alleen beschikbaar via de pijplijn voor het metrische gegevens van Azure Monitor samengevoegde metrische gegevens. Query's uitvoeren voor en toegang tot deze metrische gegevens gebruik de [2018-01-01-api-versie](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -682,7 +682,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 ### <a name="latency-metrics"></a>Metrieken voor latentie
 
 |Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies| Tijd granulaties| Gebruik |
-|---|---|---|---|---|---| ---| ---| ---|
+|---|---|---|---|---|---| ---| ---|
 | ReplicationLatency    | Replicatielatentie|  MilliSeconds|   Minimum, Maximum, gemiddelde | Replicatievertraging P99 tussen de bron- en regio's voor geo-ingeschakelde account| SourceRegion, TargetRegion| Alle | Gebruikt voor het bewaken van de replicatielatentie P99 tussen elke twee regio's voor een geo-replicatie-account. |
 
 ### <a name="availability-metrics"></a>Metrische gegevens over beschikbaarheid
@@ -694,7 +694,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 ### <a name="cassandra-api-metrics"></a>Metrische gegevens over Cassandra-API
 
 |Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Description|Dimensies| Tijd granulaties| Gebruik |
-|---|---|---|---|---|---| ---| ---| ---|
+|---|---|---|---|---|---| ---| ---|
 | CassandraRequests | Cassandra-aanvragen |  Count|  Count|  Aantal aanvragen voor Cassandra-API|  Databasenaam, CollectionName, ErrorCode, regio, OperationType, ResourceType|   Alle| Gebruikt voor het bewaken van de Cassandra-aanvragen met een granulariteit van één minuut. Als u verzoeken per seconde, minuut aantal aggregatie gebruiken en delen door 60.|
 | CassandraRequestCharges|  Cassandra-aanvraag kosten in rekening gebracht| Count|   Sum, Min, Max, Avg| Aanvraageenheden gebruikt door de Cassandra-API-aanvragen|   DatabaseName, CollectionName, Region, OperationType, ResourceType|  Alle| Gebruikt voor het bewaken van ru's per minuut wordt gebruikt door een Cassandra-API-account.|
 | CassandraConnectionClosures   | Cassandra-verbinding is gesloten |Count| Count   |Aantal Cassandra verbindingen gesloten|    ClosureReason, Region|  Alle | Gebruikt voor het bewaken van de verbinding tussen clients en de Cassandra-API van Azure Cosmos DB.|
@@ -1296,7 +1296,7 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |---|---|---|---|---|---|
 |cpu_percent|CPU-percentage|Procent|Gemiddeld|CPU-percentage|Er zijn geen dimensies|
 |physical_data_read_percent|Gegevens-I/O-percentage|Procent|Gemiddeld|Gegevens-I/O-percentage|Er zijn geen dimensies|
-|log_write_percent|Logboek-IO-percentage|Procent|Gemiddeld|Logboek-IO-percentage|Er zijn geen dimensies|
+|log_write_percent|Percentage logboek-IO|Procent|Gemiddeld|Percentage logboek-IO|Er zijn geen dimensies|
 |dtu_consumption_percent|DTU-percentage|Procent|Gemiddeld|DTU-percentage|Er zijn geen dimensies|
 |opslag|Totale databasegrootte|Bytes|Maximum|Totale databasegrootte|Er zijn geen dimensies|
 |connection_successful|Geslaagde verbindingen|Count|Totaal|Geslaagde verbindingen|Er zijn geen dimensies|
@@ -1305,8 +1305,8 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |Impasse|Deadlocks|Count|Totaal|Deadlocks|Er zijn geen dimensies|
 |storage_percent|Databaseomvangpercentage|Procent|Maximum|Databaseomvangpercentage|Er zijn geen dimensies|
 |xtp_storage_percent|Percentage van in-Memory OLTP-opslag|Procent|Gemiddeld|Percentage van in-Memory OLTP-opslag|Er zijn geen dimensies|
-|workers_percent|Percentage van de werknemers|Procent|Gemiddeld|Percentage van de werknemers|Er zijn geen dimensies|
-|sessions_percent|Percentage van sessies|Procent|Gemiddeld|Percentage van sessies|Er zijn geen dimensies|
+|workers_percent|Werknemerspercentage|Procent|Gemiddeld|Werknemerspercentage|Er zijn geen dimensies|
+|sessions_percent|Sessiepercentage|Procent|Gemiddeld|Sessiepercentage|Er zijn geen dimensies|
 |dtu_limit|DTU-limiet|Count|Gemiddeld|DTU-limiet|Er zijn geen dimensies|
 |dtu_used|DTU gebruikt|Count|Gemiddeld|DTU gebruikt|Er zijn geen dimensies|
 |dwu_limit|DWU-limiet|Count|Maximum|DWU-limiet|Er zijn geen dimensies|
@@ -1321,11 +1321,11 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |---|---|---|---|---|---|
 |cpu_percent|CPU-percentage|Procent|Gemiddeld|CPU-percentage|Er zijn geen dimensies|
 |physical_data_read_percent|Gegevens-I/O-percentage|Procent|Gemiddeld|Gegevens-I/O-percentage|Er zijn geen dimensies|
-|log_write_percent|Logboek-IO-percentage|Procent|Gemiddeld|Logboek-IO-percentage|Er zijn geen dimensies|
+|log_write_percent|Percentage logboek-IO|Procent|Gemiddeld|Percentage logboek-IO|Er zijn geen dimensies|
 |dtu_consumption_percent|DTU-percentage|Procent|Gemiddeld|DTU-percentage|Er zijn geen dimensies|
 |storage_percent|Opslagpercentage|Procent|Gemiddeld|Opslagpercentage|Er zijn geen dimensies|
-|workers_percent|Percentage van de werknemers|Procent|Gemiddeld|Percentage van de werknemers|Er zijn geen dimensies|
-|sessions_percent|Percentage van sessies|Procent|Gemiddeld|Percentage van sessies|Er zijn geen dimensies|
+|workers_percent|Werknemerspercentage|Procent|Gemiddeld|Werknemerspercentage|Er zijn geen dimensies|
+|sessions_percent|Sessiepercentage|Procent|Gemiddeld|Sessiepercentage|Er zijn geen dimensies|
 |eDTU_limit|eDTU-limiet|Count|Gemiddeld|eDTU-limiet|Er zijn geen dimensies|
 |storage_limit|Limiet voor opslag|Bytes|Gemiddeld|Limiet voor opslag|Er zijn geen dimensies|
 |eDTU_used|eDTU gebruikt|Count|Gemiddeld|eDTU gebruikt|Er zijn geen dimensies|

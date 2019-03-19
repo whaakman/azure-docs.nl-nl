@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: c8713c4d3f6bd7835fed8e668407ea9ee55cc712
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 6b1b92f25d24294fc5b685b4ce737c03800face3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111829"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093089"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Zelfstudie: HSM's implementeren in een bestaand virtueel netwerk met behulp van CLI
 
@@ -177,7 +177,7 @@ Het duurt gewoonlijk maximaal 25 tot 30 minuten totdat deze implementatie is vol
 
 ![inrichtingsstatus](media/tutorial-deploy-hsm-cli/progress-status.png)
 
-Wanneer de implementatie is geslaagd, wordt er provisioningState: Succeeded weergegeven.  U kunt verbinding maken met de bestaande virtuele machine en SSH gebruiken om de beschikbaarheid van het HSM-apparaat te verzekeren.
+Wanneer de implementatie is voltooid 'provisioningState': 'Geslaagd' wordt weergegeven. U kunt verbinding maken met de bestaande virtuele machine en SSH gebruiken om de beschikbaarheid van het HSM-apparaat te verzekeren.
 
 ## <a name="verifying-the-deployment"></a>De implementatie controleren
 
@@ -245,8 +245,8 @@ Als u klaar bent met het HSM-apparaat, kan het als resource worden verwijderd en
 9. `syslog rotate`
 
 
->[!NOTE]
-Als u problemen hebt met de configuratie van een Gemalto-apparaat, neemt u contact op met [Gemalto-klantondersteuning](https://safenet.gemalto.com/technical-support/).
+> [!NOTE]
+> Als u problemen hebt met de configuratie van een Gemalto-apparaat, neemt u contact op met [Gemalto-klantondersteuning](https://safenet.gemalto.com/technical-support/).
 
 
 Als u klaar bent met resources in deze resourcegroep, kunt u ze allemaal verwijderen door de volgende opdracht uit te voeren:

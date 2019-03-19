@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: 9ca8e6876b67167429dbc0b5e6c3f5b454878c2a
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: HT
+ms.openlocfilehash: c2f6a614524f0dfb242db11618fda94ce57e6e6a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382687"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111528"
 ---
 # <a name="what-is-azure-load-balancer"></a>Wat is Azure Load Balancer?
 
@@ -94,8 +94,8 @@ Load Balancer biedt de volgende fundamentele mogelijkheden voor TCP en UDP-toepa
 
     Alle uitgaande stromen van privé-IP-adressen in uw virtuele netwerk naar openbare IP-adressen op internet, kunnen worden omgezet in een front-end-IP-adres van de Load Balancer. Wanneer een openbare front-end aan een back-end-VM is gekoppeld via een taakverdelingsregel, worden in Azure uitgaande verbindingen geprogrammeerd om automatisch te worden omgezet in het openbare front-end-IP-adres.
 
-    * Eenvoudig upgraden en herstellen na noodgevallen van services is mogelijk, omdat de front-end dynamisch kan worden toegewezen aan een andere instantie van de service.
-    * Gemakkelijker beheer van toegangsbeheerlijsten( ACL). ACL's die worden uitgedrukt in de vorm van front-end-IP-adressen, veranderen niet als services omhoog of omlaag worden geschaald of opnieuw worden geïmplementeerd.  Het omzetten van uitgaande verbindingen naar een kleiner aantal IP-adressen dan er machines zijn, kan de belasting die door opname in whitelists optreedt, reduceren.
+  * Eenvoudig upgraden en herstellen na noodgevallen van services is mogelijk, omdat de front-end dynamisch kan worden toegewezen aan een andere instantie van de service.
+  * Gemakkelijker beheer van toegangsbeheerlijsten( ACL). ACL's die worden uitgedrukt in de vorm van front-end-IP-adressen, veranderen niet als services omhoog of omlaag worden geschaald of opnieuw worden geïmplementeerd.  Het omzetten van uitgaande verbindingen naar een kleiner aantal IP-adressen dan er machines zijn, kan de belasting die door opname in whitelists optreedt, reduceren.
 
     Zie [Uitgaande verbindingen](load-balancer-outbound-connections.md) voor meer informatie.
 

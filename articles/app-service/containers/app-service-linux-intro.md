@@ -16,18 +16,18 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu;yili
 ms.custom: seodec18
-ms.openlocfilehash: 2e75ff08acdda03c0080f49c6616274a4b031075
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 161b2054d690a2e609085852aa7caf2f02366f69
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903720"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215656"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Inleiding tot App Service onder Linux
 
 [Azure App Service](../overview.md) is een volledig beheerd rekenplatform dat is geoptimaliseerd voor het hosten van websites en web-apps. Klanten kunnen App Service onder Linux gebruiken voor het systeemeigen hosten van web-apps op Linux voor ondersteunde toepassingsstacks. In de sectie [Talen](#languages) worden de toepassingsstacks vermeld die momenteel worden ondersteund.
 
-## <a name="languages"></a>Talen
+## <a name="languages"></a>Languages
 
 App Service onder Linux ondersteunt een aantal ingebouwde installatiekopieën om zodoende de productiviteit van ontwikkelaars te verhogen. Als de runtime die uw toepassing vereist, niet in de ingebouwde installatiekopieën wordt ondersteund, zijn er instructies voor het [bouwen van een Docker-installatiekopie](tutorial-custom-docker-image.md) voor implementatie voor Web App for Containers.
 
@@ -71,9 +71,7 @@ Controleer [Azure Status Dashboard](https://azure.microsoft.com/status).
 
 In Azure Portal worden alleen functies getoond die momenteel werken voor Web App for Containers. Naarmate er meer functies mogelijk worden, zullen ze op de portal worden getoond.
 
-Sommige functies, zoals de integratie van virtuele netwerken, verificatie van derden van Azure Active Directory of Kudu-site-extensies, zijn nog niet beschikbaar. Zodra deze functies beschikbaar zijn, worden de documentatie en de blog over de wijzigingen bijgewerkt.
-
-App Service onder Linux wordt alleen ondersteund met de app-serviceplannen [Basic, Standard en Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) en heeft geen [Free- of Shared-](https://azure.microsoft.com/pricing/details/app-service/plans/)laag. U kunt Web App for Containers niet maken met een App Service-plan waarvoor al non-Linux Web Apps wordt gehost. 
+App Service onder Linux wordt alleen ondersteund met de app-serviceplannen [Basic, Standard en Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) en heeft geen [Free- of Shared-](https://azure.microsoft.com/pricing/details/app-service/plans/)laag. U kunt Web App for Containers niet maken met een App Service-plan waarvoor al non-Linux Web Apps wordt gehost.  
 
 Vanwege een huidige beperking kunt u ook geen Windows- en Linux-apps door elkaar gebruiken in dezelfde resourcegroep.
 

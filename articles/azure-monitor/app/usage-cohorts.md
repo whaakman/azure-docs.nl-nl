@@ -13,12 +13,12 @@ ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 810ccae08b540c417a0e7dfecb6ad5a8b110cd7b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: a575161be0a339973f9c59cc13c2320b38939d04
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54045792"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108522"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights cohorten
 
@@ -105,16 +105,16 @@ De vorige twee cohorten zijn gedefinieerd met behulp van de vervolgkeuzelijsten.
     ![Leeg gebruikerscohort](./media/usage-cohorts/001.png)
 
     Er zijn drie secties:
-    * Een Markdown tekstsectie, waar u het cohort in meer detail voor anderen in uw team beschreven.
+   * Een Markdown tekstsectie, waar u het cohort in meer detail voor anderen in uw team beschreven.
 
-    * Een gedeelte van de parameters, waar u uw eigen parameters, zoals maken **activiteiten** en andere vervolgkeuzelijsten uit de vorige twee voorbeelden.
+   * Een gedeelte van de parameters, waar u uw eigen parameters, zoals maken **activiteiten** en andere vervolgkeuzelijsten uit de vorige twee voorbeelden.
 
-    * Een querysectie, waar u het cohort definiëren met behulp van een analytics-query.
+   * Een querysectie, waar u het cohort definiëren met behulp van een analytics-query.
 
-    In de querysectie u [een analytics-query schrijven](/azure/kusto/query). De query selecteert het aantal rijen met een beschrijving van het cohort dat u wilt definiëren. Het programma cohorten vervolgens impliciet wordt toegevoegd een "| samenvatten op user_Id'-component in de query. Deze gegevens is een voorbeeld hieronder de query in een tabel, zodat u kunt ervoor zorgen dat uw query resultaten worden geretourneerd.
+     In de querysectie u [een analytics-query schrijven](/azure/kusto/query). De query selecteert het aantal rijen met een beschrijving van het cohort dat u wilt definiëren. Het programma cohorten vervolgens impliciet wordt toegevoegd een "| samenvatten op user_Id'-component in de query. Deze gegevens is een voorbeeld hieronder de query in een tabel, zodat u kunt ervoor zorgen dat uw query resultaten worden geretourneerd.
 
-    > [!NOTE]
-    > Als u de query niet ziet, probeert u het formaat van de sectie als u wilt deze groter en weergeven van de query. De GIF-animaties kunnen aan het begin van deze sectie ziet u het formaat gedrag.
+     > [!NOTE]
+     > Als u de query niet ziet, probeert u het formaat van de sectie als u wilt deze groter en weergeven van de query. De GIF-animaties kunnen aan het begin van deze sectie ziet u het formaat gedrag.
 
 2. Kopieer en plak de volgende tekst in de query-editor:
 

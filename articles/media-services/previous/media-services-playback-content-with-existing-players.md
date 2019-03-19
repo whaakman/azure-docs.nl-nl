@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: ae057feb70d9ddb2c2dae10bae20eca1b613f76f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 2083390c3d228e57151db8b165b876054d6c12cd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996932"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57876558"
 ---
 # <a name="playing-your-content-with-existing-players"></a>Uw inhoud met bestaande spelers afspelen
 Azure Media Services biedt ondersteuning voor veel populaire streaming-indelingen, zoals Smooth Streaming, HTTP Live Streaming en MPEG-Dash. In dit onderwerp verwijst u naar bestaande spelers die u gebruiken kunt voor het testen van uw stromen.
@@ -31,12 +31,12 @@ Klik op de gewenste video (Zorg ervoor dat er [gepubliceerd](media-services-port
 
 Hierbij geldt het volgende:
 
-* **MEDIA SERVICES CONTENT PLAYER** speelt af vanaf het standaard streaming-eindpunt. Als u wilt afspelen vanaf een ander streaming-eindpunt, gebruikt u een andere speler. Bijvoorbeeld, [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+* **MEDIA SERVICES CONTENT PLAYER** speelt af vanaf het standaard streaming-eindpunt. Als u wilt afspelen vanaf een ander streaming-eindpunt, gebruikt u een andere speler. Bijvoorbeeld, [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 ![AMSPlayer][AMSPlayer]
 
 ### <a name="azure-media-player"></a>Azure Media Player
-Gebruik [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) af te spelen uw inhoud (wissen of beveiligde) in een van de volgende indelingen:
+Gebruik [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html) af te spelen uw inhoud (wissen of beveiligde) in een van de volgende indelingen:
 
 * Smooth Streaming
 * MPEG DASH
@@ -45,17 +45,17 @@ Gebruik [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer
 
 ### <a name="flash-player"></a>Flash Player
 #### <a name="aes-encrypted-with-token"></a>AES-versleuteling met een Token
-[http://aestoken.azurewebsites.net](http://aestoken.azurewebsites.net)
+[https://aestoken.azurewebsites.net](https://aestoken.azurewebsites.net)
 
 ### <a name="silverlight-players"></a>Silverlight Players
 
 #### <a name="playready-with-token"></a>PlayReady met Token
-[http://sltoken.azurewebsites.net](http://sltoken.azurewebsites.net)
+[https://sltoken.azurewebsites.net](https://sltoken.azurewebsites.net)
 
 ### <a name="dash-players"></a>DASH-spelers
-[http://dashplayer.azurewebsites.net](http://dashplayer.azurewebsites.net)
+[https://dashplayer.azurewebsites.net](https://dashplayer.azurewebsites.net)
 
-[http://dashif.org](http://dashif.org)
+[https://dashif.org](https://dashif.org)
 
 ### <a name="other"></a>Overige
 Test HLS-URL's die u kunt ook gebruiken als volgt:

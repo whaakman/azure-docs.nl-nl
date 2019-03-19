@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: ff202c85f20adce173a375987a5f2250fda565b2
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4d259523d3f7fe7165d0ef4c8a5aac12bd7cd823
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041183"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123773"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Serverless database computing met behulp van Azure Cosmos DB en Azure Functions
 
@@ -97,11 +97,11 @@ In implementaties van een retailanalyse, wanneer een gebruiker een item toegevoe
 
 1. U kunt meerdere Azure Functions maken door toe te voegen met Azure Cosmos DB-triggers voor elk - die naar dezelfde luisteren wijzigingenfeed van winkelen winkelwagen gegevens. Houd er rekening mee dat wanneer meerdere functies luisteren naar dezelfde wijzigingenfeed, een nieuwe leaseverzameling is vereist voor elke functie. Zie voor meer informatie over verzamelingen lease [inzicht in de Change Feed Processor-bibliotheek](change-feed-processor.md).
 2. Wanneer een nieuw item wordt toegevoegd aan een winkelwagen gebruikers, wordt elke functie onafhankelijk aangeroepen door de wijzigingenfeed vanuit de shopping winkelwagen-container.
-    * Een functie kan de inhoud van het huidige mandje gebruiken om te wijzigen van de weergave van andere items die de gebruiker mogelijk geïnteresseerd in.
-    * Een andere functie kan inventarisatie totalen worden bijgewerkt.
-    * Een andere functie kan verzenden klantgegevens voor bepaalde producten naar de marketingafdeling, die ze een speciale e-mailprogramma verzendt. 
+   * Een functie kan de inhoud van het huidige mandje gebruiken om te wijzigen van de weergave van andere items die de gebruiker mogelijk geïnteresseerd in.
+   * Een andere functie kan inventarisatie totalen worden bijgewerkt.
+   * Een andere functie kan verzenden klantgegevens voor bepaalde producten naar de marketingafdeling, die ze een speciale e-mailprogramma verzendt. 
 
-    Elke afdeling kan een Azure Cosmos DB-trigger maken door te luisteren naar de wijzigingenfeed en zorg ervoor dat ze kritieke volgorde verwerking van gebeurtenissen in het proces wordt niet uitstellen.
+     Elke afdeling kan een Azure Cosmos DB-trigger maken door te luisteren naar de wijzigingenfeed en zorg ervoor dat ze kritieke volgorde verwerking van gebeurtenissen in het proces wordt niet uitstellen.
 
 In al deze gevallen gebruikt, omdat de functie is losgekoppeld van de app zelf, hoeft u om te activeren voortdurend nieuwe app-exemplaren. Azure Functions is in plaats daarvan draaien van afzonderlijke functies voor het voltooien van afzonderlijke processen, zoals die nodig zijn.
 
@@ -133,7 +133,7 @@ Als u wilt integreren met Azure Functions voor het opslaan van gegevens en niet 
 
 Voordelen van Azure Functions: 
 
-* **Gebeurtenisgestuurde**. Azure Functions worden op basis van gebeurtenissen en kunnen luisteren naar een van de Azure Cosmos DB-wijzigingenfeed. Dit betekent dat u hoeft te luisteren naar logische maken, u alleen gaten houden uit om de wijzigingen die u naar luisteren wilt. 
+* **Event-driven**. Azure Functions worden op basis van gebeurtenissen en kunnen luisteren naar een van de Azure Cosmos DB-wijzigingenfeed. Dit betekent dat u hoeft te luisteren naar logische maken, u alleen gaten houden uit om de wijzigingen die u naar luisteren wilt. 
 
 * **Er zijn geen limieten**. Functies uitvoeren in parallelle instructies en de service draaien om zo veel als u nodig hebt. U instellen de parameters.
 

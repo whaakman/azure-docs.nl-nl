@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe781802309ad0945eaee23c35dda1617e47ae06
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: a898b5b235099109fcfeaaa4d647493e54caf57e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727346"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853168"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Probleem met het toevoegen van een toepassing in Azure AD-galerie
 
@@ -73,41 +73,41 @@ Zie de volgende beschrijvingen voor meer informatie over de meldingen.
 
 ### <a name="essential-notification-items"></a>Essentiële kennisgeving Items
 
--   **Titel** – de beschrijvende titel van de melding
+- **Titel** – de beschrijvende titel van de melding
 
   * Voorbeeld: **Application proxy-instellingen**
 
--   **Beschrijving** : de beschrijving van wat is het gevolg van de bewerking
+- **Beschrijving** : de beschrijving van wat is het gevolg van de bewerking
 
-    -   Voorbeeld: **opgegeven interne url wordt al gebruikt door een andere toepassing**
+  -   Voorbeeld: **opgegeven interne url wordt al gebruikt door een andere toepassing**
 
--   **Meldings-ID** : de unieke ID van de melding
+- **Meldings-ID** : de unieke ID van de melding
 
-    -   Voorbeeld: **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
+  -   Voorbeeld: **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
--   **Clientaanvraag-ID** – de specifieke aanvraag-ID die is gemaakt door uw browser
+- **Clientaanvraag-ID** – de specifieke aanvraag-ID die is gemaakt door uw browser
 
-    -   Voorbeeld: **302fd775-3329-4670-a9f3-bea37004f0bc**
+  -   Voorbeeld: **302fd775-3329-4670-a9f3-bea37004f0bc**
 
--   **Tijd stempel UTC** – de tijdstempel gedurende welke de melding is opgetreden, in UTC
+- **Tijd stempel UTC** – de tijdstempel gedurende welke de melding is opgetreden, in UTC
 
-    -   Voorbeeld: **2017-03-23T19:50:43.7583681Z**
+  -   Voorbeeld: **2017-03-23T19:50:43.7583681Z**
 
--   **Interne transactie-ID** : de interne ID die we kunnen gebruiken voor de fout opzoeken in onze systemen
+- **Interne transactie-ID** : de interne ID die we kunnen gebruiken voor de fout opzoeken in onze systemen
 
-    -   Voorbeeld: **71a2f329-ca29-402f-aa72-bc00a7aca603**
+  -   Voorbeeld: **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
--   **UPN** – de gebruiker die de bewerking heeft uitgevoerd
+- **UPN** – de gebruiker die de bewerking heeft uitgevoerd
 
-    -   Voorbeeld: **tperkins@f128.info**
+  -   Voorbeeld: **tperkins\@f128.info**
 
--   **Tenant-ID** : de unieke ID van de tenant die de gebruiker die de bewerking heeft uitgevoerd, een lid van is
+- **Tenant-ID** : de unieke ID van de tenant die de gebruiker die de bewerking heeft uitgevoerd, een lid van is
 
-    -   Voorbeeld: **7918d4b5-0442-4a97-be2d-36f9f9962ece**
+  -   Voorbeeld: **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
--   **Object-ID gebruiker** : de unieke ID van de gebruiker die de bewerking heeft uitgevoerd
+- **Object-ID gebruiker** : de unieke ID van de gebruiker die de bewerking heeft uitgevoerd
 
-    -   Voorbeeld: **17f84be4-51f8-483a-b533-383791227a99**
+  -   Voorbeeld: **17f84be4-51f8-483a-b533-383791227a99**
 
 ### <a name="detailed-notification-items"></a>Gedetailleerde melding Items
 
@@ -125,7 +125,7 @@ Zie de volgende beschrijvingen voor meer informatie over de meldingen.
 
 -   **Details** : de gedetailleerde beschrijving van wat is het gevolg van de bewerking
 
-    -   Voorbeeld: **interne url 'https://bing.com/' is ongeldig omdat deze al in gebruik**
+    -   Voorbeeld: **interne url `https://bing.com/` is ongeldig omdat deze al in gebruik**
 
 -   **Fout kopiëren** : klik op de **kopieerpictogram** aan de rechterkant van de **fout kopiëren** tekstvak kopiëren alle details van de melding om te delen met een groep ondersteuning of product 
 -   technicus

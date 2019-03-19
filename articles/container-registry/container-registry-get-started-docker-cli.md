@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: d2aa05d6648a76b02e09c660d7e6f6f30988db53
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 180cbb9c31d14c36679bb84f92b3c9892ee3602d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542162"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011151"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Uw eerste installatiekopie naar een Docker-containerregister pushen met de Docker-CLI
 
@@ -62,7 +62,7 @@ Uitvoeren van volgende [docker uitvoeren](https://docs.docker.com/engine/referen
 docker run -it --rm -p 8080:80 nginx
 ```
 
-Blader naar [ http://localhost:8080 ](http://localhost:8080) om de standaardwebpagina bediend door Nginx in de actieve container weer te geven. U ziet een pagina zoals in het volgende:
+Blader naar `http://localhost:8080` om de standaardwebpagina bediend door Nginx in de actieve container weer te geven. U ziet een pagina zoals in het volgende:
 
 ![Nginx op lokale computer](./media/container-registry-get-started-docker-cli/nginx.png)
 
@@ -104,7 +104,7 @@ Gebruik de [docker uitvoeren](https://docs.docker.com/engine/reference/run/) opd
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
-Blader naar [ http://localhost:8080 ](http://localhost:8080) om de actieve container weer te geven.
+Blader naar `http://localhost:8080` om de actieve container weer te geven.
 
 Als u wilt stoppen en verwijderen van de container, drukt u op `Control` + `C`.
 

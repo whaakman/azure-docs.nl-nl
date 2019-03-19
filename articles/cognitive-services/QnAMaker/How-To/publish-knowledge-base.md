@@ -1,26 +1,26 @@
 ---
 title: Een kennisdatabase publiceren
-titleSuffix: QnA Maker - Azure Cognitive Services
-description: Publiceren van uw knowledge base, is de laatste stap bij het maken van uw knowledge base beschikbaar als een eindpunt in het beantwoorden van vraag. Wanneer u een kennisdatabase publiceert, wordt de status van de QnA-inhoud van uw knowledge base verplaatst van de test-index naar een productie-index in Azure search.
+titleSuffix: QnA Maker API - Azure Cognitive Services
+description: Publiceren van uw knowledge base met QnA Maker API-service is de laatste stap om uw vraag beantwoorden eindpunt beschikbaar maken voor uw knowledge base. Wanneer u een kennisdatabase publiceert, wordt de status van de QnA-inhoud van uw knowledge base verplaatst van de test-index naar een productie-index in Azure search.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 03/11/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 585e5f8f955a405b08bef42588ab5caff71c7bba
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c65654e7d6b2e66a07116ea9555ed316ace88912
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865910"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091950"
 ---
-# <a name="publish-a-knowledge-base-using-the-qna-maker-portal"></a>Een kennisdatabase met behulp van de QnA Maker portal publiceren
+# <a name="publish-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Een kennisdatabase met behulp van de portal QnA Maker API publiceren
 
-Publiceren van uw knowledge base, is de laatste stap bij het maken van uw knowledge base beschikbaar als een eindpunt in het beantwoorden van vraag naar een clienttoepassing. 
+Publiceren van uw knowledge base met QnA Maker API-service is de laatste stap om uw vraag beantwoorden eindpunt beschikbaar maken voor uw knowledge base. 
 
 Wanneer u een kennisdatabase publiceren, wordt de status van de vraag en antwoord inhoud van uw knowledge base verplaatst van de test-index naar een productie-index in Azure search.
 

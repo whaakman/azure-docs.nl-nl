@@ -1,21 +1,21 @@
 ---
 title: 'Snelstartgids: Een apparaat beheren vanuit Azure IoT Hub (.NET) | Microsoft Docs'
 description: In deze snelstartgids gaan we twee voorbeeldtoepassingen geschreven in C# uitvoeren. De ene toepassing is een back-endtoepassing waarmee u op afstand apparaten kunt beheren die zijn verbonden met uw hub. De andere toepassing simuleert een apparaat dat is verbonden met uw hub en dat op afstand kan worden beheerd.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/22/2019
-ms.author: dobett
-ms.openlocfilehash: 5de2fa7e7ae18bf5a6212f6571acdf545116b88b
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: a24f0810a5b785a57a8a255f3f762f2d2a8e6ee4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673474"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170816"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Quickstart: Een apparaat beheren dat is verbonden met een IoT-hub (.NET)
 
@@ -93,7 +93,7 @@ Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan m
 U hebt ook de _serviceverbindingsreeks_ voor de IoT-hub nodig, zodat de back-endtoepassing verbinding kan maken met de hub en de berichten kan ophalen. Met de volgende opdracht haalt u de serviceverbindingsreeks voor uw IoT-hub op:
 
 ```azurecli-interactive
-az iot hub show-connection-string --hub-name YourIoTHubName --output table
+az iot hub show-connection-string --name YourIoTHubName --output table
 ```
 
 Noteer de serviceverbindingsreeks. Deze ziet er ongeveer als volgt uit:

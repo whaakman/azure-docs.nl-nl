@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: cc5c4310d5f9886518bee6612113fba174130bec
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 140c8b2ab9b7985652a6474a1a9373e0d453b9e6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56648713"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900723"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Service verlagen met behulp van Azure Advisor
 
@@ -40,6 +40,10 @@ Advisor identificeert virtuele netwerk-poorten die meer dan 90 dagen inactief zi
 Advisor wordt uw gebruik van virtuele machines in de afgelopen 30 dagen bekijken en te bepalen als u geld besparen kunt door het aanschaffen van een Azure-reservering. Advisor ziet u de regio's en -grootten waar u mogelijk hebt de meeste besparingen en ziet u de geschatte besparing bij de aanschaf van reserveringen. 
 
 Met Azure reserveringen, kunt u de basiskosten voor het vooraf kunt kopen voor uw virtuele machines. Kortingen wordt automatisch toegepast op nieuwe of bestaande virtuele machines met dezelfde grootte en regio als uw reserveringen. [Meer informatie over Azure Reserved VM Instances.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
+
+## <a name="delete-unassociated-public-ip-addresses-to-save-money"></a>Verwijderen van niet-gekoppelde openbare IP-adressen om geld te besparen
+
+Advisor identificeert openbare IP-adressen die niet momenteel gekoppeld aan Azure-resources zoals Load Balancers of virtuele machines zijn. Deze openbare IP adressen worden geleverd met een nominaal bedrag in rekening gebracht. Als u niet van plan bent om ze te gebruiken, kan deze worden verwijderd leiden tot kostenbesparingen.
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Toegang tot kosten aanbevelingen in Azure Advisor
 

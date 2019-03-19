@@ -16,12 +16,12 @@ ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 0bbf76e16334ae4847ec6f7fbf3aa88fb508e84d
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 682ff9b139d7315604da70fbba47b5e81a290921
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731142"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886365"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 update
 
@@ -63,7 +63,7 @@ Azure Stack-hotfixes zijn alleen van toepassing op Azure Stack-geïntegreerde sy
 ## <a name="prerequisites"></a>Vereisten
 
 > [!IMPORTANT]
-- Installeer de [meest recente Azure Stack-hotfix](#azure-stack-hotfixes) voor 1811 (indien aanwezig) voordat u bijwerkt naar 1901.
+> - Installeer de [meest recente Azure Stack-hotfix](#azure-stack-hotfixes) voor 1811 (indien aanwezig) voordat u bijwerkt naar 1901.
 
 - Voordat u begint met de installatie van deze update, voert u [Test AzureStack](azure-stack-diagnostic-test.md) met de volgende parameters om te valideren van de status van uw Azure-Stack en los eventuele operationele problemen gevonden, met inbegrip van alle waarschuwingen en fouten. Ook actieve waarschuwingen bekijken en op te lossen die actie is vereist:
 
@@ -89,7 +89,7 @@ Deze update bevat de volgende nieuwe functies en verbeteringen voor Azure Stack:
    * **AzureRm.Storage**  
          Rollup-AzureRm-module bevat nu de al gepubliceerde versie 5.0.4 ondersteunen de **api-versie 2017-10-01**.  
    * **AzureRm.Compute**  
-         Hiermee stelt u eenvoudige parameter toegevoegd in `New-AzureRMVM` en `NewAzureRMVMSS`, `-ImageName` parameter ondersteunt het opgeven van installatiekopieën die gebruiker.  
+         Hiermee stelt u eenvoudige parameter toegevoegd in `New-AzureRmVM` en `New-AzureRmVmss`, `-Image` parameter ondersteunt het opgeven van installatiekopieën die gebruiker.  
    * **AzureRm.Insights**  
          Rollup-AzureRm-module bevat nu de al gepubliceerde versie 5.1.5 ondersteunen de **api-versie 2018-01-01** voor metrische gegevens, metrische definities van de resourcetypen.
 
@@ -115,7 +115,8 @@ De verwijzing voor de bijgewerkte modules Zie [Azure Stack-Moduleverwijzing](htt
 <!-- 16523695 – IS, ASDK -->
 - Een probleem opgelost waarbij na het bijwerken van de DNS-instellingen voor het Virtueelnetwerk van **gebruik Azure Stack DNS** naar **aangepaste DNS**, de exemplaren niet zijn bijgewerkt met de nieuwe instelling.
 
-- <!-- 3235634 – IS, ASDK --> Een probleem opgelost in welke implementeren VM's met grootten met een **v2** achtervoegsel; bijvoorbeeld, **Standard_A2_v2**, vereiste op te geven het achtervoegsel als **Standard_A2_v2** () kleine letters v). Als met globale Azure, kunt u nu gebruiken **Standard_A2_V2** (V hoofdletters).
+- <!-- 3235634 – IS, ASDK -->
+  Een probleem opgelost in welke implementeren VM's met grootten met een **v2** achtervoegsel; bijvoorbeeld, **Standard_A2_v2**, vereiste op te geven het achtervoegsel als **Standard_A2_v2** () kleine letters v). Als met globale Azure, kunt u nu gebruiken **Standard_A2_V2** (V hoofdletters).
 
 <!-- 2869209 – IS, ASDK --> 
 - Er is een probleem opgelost bij het gebruik van de [cmdlet Add-AzsPlatformImage](/powershell/module/azs.compute.admin/add-azsplatformimage), in die u moest gebruiken de **- OsUri** parameter als het opslagaccount URI waar de schijf is geüpload. U kunt nu het lokale pad naar de schijf ook gebruiken.
@@ -291,9 +292,9 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 <!-- 3632798 - IS, ASDK -->
 - In de portal, als u een inkomende beveiligingsregel toevoegen en selecteer **servicetag** als de bron, verschillende opties worden weergegeven in de **Brontag** lijst die niet beschikbaar voor Azure Stack. Alleen de opties die geldig in Azure Stack zijn zijn als volgt:
 
-    - **Internet**
-    - **VirtualNetwork**
-    - **AzureLoadBalancer**
+  - **Internet**
+  - **VirtualNetwork**
+  - **AzureLoadBalancer**
   
     De andere opties worden niet ondersteund als bron labels in Azure Stack. Op dezelfde manier als u een uitgaande beveiligingsregel toevoegen en selecteer **servicetag** als doel, dezelfde lijst met opties voor **Brontag** wordt weergegeven. De enige geldige opties zijn hetzelfde als voor **Brontag**, zoals beschreven in de vorige lijst.
 

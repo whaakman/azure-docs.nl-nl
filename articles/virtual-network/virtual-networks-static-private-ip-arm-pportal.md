@@ -16,17 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff9d025980f80cb77246ea12dbf2e9bcedd73f86
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e5efe0516d1b2dd387532d31a0a6654e6651fe41
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38705881"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011731"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Privé IP-adressen voor een virtuele machine met behulp van de Azure-portal configureren
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](virtual-networks-static-private-ip-arm-pportal.md)
+> * [Azure-portal](virtual-networks-static-private-ip-arm-pportal.md)
 > * [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 > * [Azure-CLI](virtual-networks-static-private-ip-arm-cli.md)
 > * [Azure portal (klassiek)](virtual-networks-static-private-ip-classic-pportal.md)
@@ -49,7 +49,7 @@ U kunt een statisch privé IP-adres niet instellen tijdens het maken van een vir
 
 Het maken van een virtuele machine met de naam *DNS01* in de *FrontEnd* subnet van een VNet met de naam *TestVNet*, als volgt te werk:
 
-1. Navigeer in een browser naar http://portal.azure.com en meld u, indien nodig, aan met uw Azure-account.
+1. Navigeer in een browser naar https://portal.azure.com en meld u, indien nodig, aan met uw Azure-account.
 2. Klik op **een resource maken** > **Compute** > **Windows Server 2012 R2 Datacenter**, zoals u ziet de **selecteert u een implementatie model** lijst met al wordt weergegeven **Resource Manager**, en klik vervolgens op **maken**, zoals te zien is in de volgende afbeelding.
    
     ![Virtuele machine maken in Azure portal](./media/virtual-networks-static-ip-arm-pportal/figure01.png)

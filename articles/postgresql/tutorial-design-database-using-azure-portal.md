@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 03/20/2018
-ms.openlocfilehash: 869bee8fcd0d1c2876ac7317fb239a1d5c61cb87
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: aed539484ac01d1b18b8374ffb57456364f9bd2c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56864546"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119258"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>Zelfstudie: Een Azure Database for PostgreSQL ontwerpen met Azure Portal
 
@@ -39,33 +39,33 @@ Meld u aan bij [Azure Portal](https://portal.azure.com).
 Een Azure Database voor PostgreSQL-server wordt gemaakt met een gedefinieerde set [reken- en opslagresources](./concepts-compute-unit-and-storage.md). De server wordt gemaakt in een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md).
 
 Volg deze stappen voor het maken van een Azure Database voor PostgreSQL-server:
-1.  Klik in de linkerbovenhoek van Azure Portal op **Een resource maken**.
-2.  Selecteer **Databases** op de pagina **Nieuw** en selecteer **Azure Database voor PostgreSQL** op de pagina **Databases**.
-  ![Azure Database voor PostgreSQL - De database maken](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
+1. Klik in de linkerbovenhoek van Azure Portal op **Een resource maken**.
+2. Selecteer **Databases** op de pagina **Nieuw** en selecteer **Azure Database voor PostgreSQL** op de pagina **Databases**.
+   ![Azure Database voor PostgreSQL - De database maken](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
 
-3.  Vul het formulier voor de gegevens van de nieuwe server als volgt in:
+3. Vul het formulier voor de gegevens van de nieuwe server als volgt in:
 
-    ![Een server maken](./media/tutorial-design-database-using-azure-portal/2-create.png)
+   ![Een server maken](./media/tutorial-design-database-using-azure-portal/2-create.png)
 
-    - Servernaam: **mydemoserver** (de servernaam verwijst naar een DNS-naam en moet daarom wereldwijd uniek zijn) 
-    - Abonnement: Als u meerdere abonnementen hebt, kiest u het abonnement waarin de resource is opgenomen of wordt gefactureerd.
-    - Resourcegroep: **myresourcegroup**
-    - De aanmeldgegevens van de serverbeheerder (gebruikersnaam en wachtwoord)
-    - Locatie
-    - PostgreSQL-versie
+   - Servernaam: **mydemoserver** (de servernaam verwijst naar een DNS-naam en moet daarom wereldwijd uniek zijn) 
+   - Abonnement: Als u meerdere abonnementen hebt, kiest u het abonnement waarin de resource is opgenomen of wordt gefactureerd.
+   - Resourcegroep: **myresourcegroup**
+   - De aanmeldgegevens van de serverbeheerder (gebruikersnaam en wachtwoord)
+   - Locatie
+   - PostgreSQL-versie
 
    > [!IMPORTANT]
    > De aanmeldgegevens en het wachtwoord van de serverbeheerder die u hier opgeeft, zijn vereist voor aanmelding bij de server en de bijbehorende databases verderop in deze zelfstudie. Onthoud of noteer deze informatie voor later gebruik.
 
-4.  Klik op **Prijscategorie** om de prijscategorie voor de nieuwe server op te geven. Selecteer voor deze zelfstudie de prijscategorie **Algemeen**, **Gen 4** bij Bewerking voor compute, 2 bij **vCores**, 5 GB bij **Opslag** en 7 dagen bij **Bewaarperiode voor back-up**. Selecteer **Geografisch redundant** als redundantieoptie voor back-ups, zodat de automatische back-ups van uw server worden opgeslagen in een geografisch redundante opslag.
- ![Azure Database for PostgreSQL - De prijscategorie kiezen](./media/tutorial-design-database-using-azure-portal/2-pricing-tier.png)
+4. Klik op **Prijscategorie** om de prijscategorie voor de nieuwe server op te geven. Selecteer voor deze zelfstudie **algemeen**, **Gen 5** bewerking voor compute, 2 **vCores**, 5 GB aan **opslag** en 7 dagen  **back-up bewaarperiode**. Selecteer **Geografisch redundant** als redundantieoptie voor back-ups, zodat de automatische back-ups van uw server worden opgeslagen in een geografisch redundante opslag.
+   ![Azure Database for PostgreSQL - De prijscategorie kiezen](./media/tutorial-design-database-using-azure-portal/2-pricing-tier.png)
 
-5.  Klik op **OK**.
+5. Klik op **OK**.
 
-6.  Klik op **Maken** om de server in te richten. De inrichting duurt een paar minuten.
+6. Klik op **Maken** om de server in te richten. De inrichting duurt een paar minuten.
 
-7.  Klik op de werkbalk op **Meldingen** om het implementatieproces te bewaken.
- ![Azure Database voor PostgreSQL - Meldingen bekijken](./media/tutorial-design-database-using-azure-portal/3-notifications.png)
+7. Klik op de werkbalk op **Meldingen** om het implementatieproces te bewaken.
+   ![Azure Database voor PostgreSQL - Meldingen bekijken](./media/tutorial-design-database-using-azure-portal/3-notifications.png)
 
    > [!TIP]
    > Schakel de optie **Vastmaken aan dashboard** in om uw implementaties eenvoudig te kunnen volgen.
@@ -76,17 +76,17 @@ Volg deze stappen voor het maken van een Azure Database voor PostgreSQL-server:
 
 De Azure Database for PostgreSQL-service gebruikt een firewall op serverniveau. Standaard voorkomt deze firewall dat externe toepassingen en hulpprogramma's verbinding maken met de server of databases op de server, tenzij er een firewallregel wordt gemaakt om de firewall te openen voor een specifiek IP-adresbereik. 
 
-1.  Nadat de implementatie is voltooid, klikt u op **Alle resources** in het menu links en voert u de naam **mydemoserver** in om te zoeken naar de zojuist gemaakte server. Klik op de servernaam in de zoekresultaten. De pagina **Overzicht** wordt geopend voor uw server en biedt opties voor verdere configuratie.
+1. Nadat de implementatie is voltooid, klikt u op **Alle resources** in het menu links en voert u de naam **mydemoserver** in om te zoeken naar de zojuist gemaakte server. Klik op de servernaam in de zoekresultaten. De pagina **Overzicht** wordt geopend voor uw server en biedt opties voor verdere configuratie.
 
    ![Azure Database voor PostgreSQL - Zoeken naar de server](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
-2.  Selecteer **Verbindingsbeveiliging** op de serverpagina. 
+2. Selecteer **Verbindingsbeveiliging** op de serverpagina. 
 
-3.  Klik in het tekstvak onder **Regelnaam** en voeg een nieuwe firewallregel toe om het IP-bereik voor connectiviteit op de goedgekeurde lijst te plaatsen. Voer uw IP-bereik in. Klik op **Opslaan**.
+3. Klik in het tekstvak onder **Regelnaam** en voeg een nieuwe firewallregel toe om het IP-bereik voor connectiviteit op de goedgekeurde lijst te plaatsen. Voer uw IP-bereik in. Klik op **Opslaan**.
 
    ![Azure Database voor PostgreSQL - Een firewallregel maken](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
 
-4.  Klik op **Opslaan** en klik vervolgens op **X** om de pagina **Verbindingsbeveiliging** te sluiten.
+4. Klik op **Opslaan** en klik vervolgens op **X** om de pagina **Verbindingsbeveiliging** te sluiten.
 
    > [!NOTE]
    > De Azure PostgreSQL-server communiceert via poort 5432. Als u verbinding probeert te maken vanuit een bedrijfsnetwerk, wordt uitgaand verkeer via poort 5432 mogelijk niet toegestaan door de firewall van uw netwerk. In dat geval kunt u geen verbinding maken met uw Azure SQL Database-server, tenzij de IT-afdeling poort 5432 openstelt.
@@ -184,11 +184,11 @@ SELECT * FROM inventory;
 ## <a name="restore-data-to-a-previous-point-in-time"></a>Gegevens herstellen naar een eerder tijdstip
 Stel dat u deze tabel per ongeluk hebt verwijderd. Dit is iets wat u niet eenvoudig kunt herstellen. Met Azure Database for PostgreSQL kunt u gegevens herstellen van elk tijdstip waarop een back-up van uw server is gemaakt (welke tijdstippen dat zijn, is afhankelijk van de geconfigureerde bewaarperiode voor back-ups) en dit tijdstip herstellen naar een nieuwe server. U kunt deze nieuwe server dan gebruiken om de verwijderde gegevens te herstellen. Met de volgende stappen wordt de server **mydemoserver** hersteld naar een tijdstip voordat de inventaristabel is toegevoegd.
 
-1.  Klik op de pagina **Overzicht** van Azure Database for PostgreSQL voor uw server op de werkbalk op **Herstellen**. De**gelijknamige**pagina wordt geopend.
+1. Klik op de pagina **Overzicht** van Azure Database for PostgreSQL voor uw server op de werkbalk op **Herstellen**. De**gelijknamige**pagina wordt geopend.
 
    ![Azure Portal: opties voor het herstellen van formulieren](./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png)
 
-2.  Vul in het formulier **Restore** de vereiste gegevens in:
+2. Vul in het formulier **Restore** de vereiste gegevens in:
 
    ![Azure Portal: opties voor het herstellen van formulieren](./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png)
 
@@ -196,7 +196,7 @@ Stel dat u deze tabel per ongeluk hebt verwijderd. Dit is iets wat u niet eenvou
    - **Doelserver**: geef de naam op van de nieuwe server waarnaar u wilt herstellen
    - **Locatie**: u kunt de regio niet selecteren, standaard is deze hetzelfde als die van de bronserver
    - **Prijscategorie**: u kunt deze waarde niet wijzigen als u een server gaat herstellen. Deze is hetzelfde als de bronserver. 
-3.  Klik op **OK** om [de server te herstellen naar een tijdstip](./howto-restore-server-portal.md) voordat de tabel is toegevoegd. Als u een server herstelt naar een eerder tijdstip, wordt er een nieuw exemplaar gemaakt van de oorspronkelijke server met de inhoud zoals die aanwezig was op het tijdstip dat u opgeeft. Dit tijdstip moet wel binnen de bewaarperiode liggen die wordt gehanteerd voor uw [prijscategorie](./concepts-pricing-tiers.md).
+3. Klik op **OK** om [de server te herstellen naar een tijdstip](./howto-restore-server-portal.md) voordat de tabel is toegevoegd. Als u een server herstelt naar een eerder tijdstip, wordt er een nieuw exemplaar gemaakt van de oorspronkelijke server met de inhoud zoals die aanwezig was op het tijdstip dat u opgeeft. Dit tijdstip moet wel binnen de bewaarperiode liggen die wordt gehanteerd voor uw [prijscategorie](./concepts-pricing-tiers.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 In deze zelfstudie hebt u geleerd hoe u Azure Portal en andere hulpprogramma's kunt gebruiken voor het volgende:

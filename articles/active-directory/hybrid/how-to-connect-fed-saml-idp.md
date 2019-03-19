@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b82c2261e949c724b1310ee43c6f3fe29766945
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8b5eb46b845bebbb81dce6aadb9d97af08955df3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531008"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096942"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Een SAML 2.0-id-Provider (IdP) gebruiken voor eenmalige aanmelding op
 
@@ -30,16 +30,16 @@ Dit document bevat informatie over het gebruik van een SAML 2.0 compatibel SP-Li
 
 Microsoft biedt ondersteuning voor deze aanmelding als de integratie van een Microsoft-cloudservice, zoals Office 365, met uw correct geconfigureerde SAML 2.0-profiel op basis van id-provider. SAML 2.0-id-providers zijn producten van derden en daarom Microsoft biedt geen ondersteuning voor de implementatie, configuratie, het oplossen van aanbevolen procedures met betrekking tot deze. Eenmaal correct is geconfigureerd, de integratie met de SAML 2.0-id-provider voor de juiste configuratie kan worden getest met behulp van de Microsoft Connectivity Analyzer Tool, die in meer detail hieronder wordt beschreven. Voor meer informatie over uw SAML 2.0 SP-Lite-profiel op basis van id-provider, vraagt u de organisatie die deze heeft geleverd.
 
->[!IMPORTANT]
->Alleen een beperkte set clients zijn beschikbaar in dit scenario aanmelding met SAML 2.0-id-providers, wordt dit omvat:
-
->- Clients op het web zoals Outlook Web Access en SharePoint Online
-- E-rich clients die gebruikmaken van basisverificatie en op een ondersteunde methode van de toegang tot Exchange, zoals IMAP, pop-server, ActiveSync, MAPI, enz. (het eindpunt van de Enhanced-clientprotocol is vereist om te worden geïmplementeerd), met inbegrip van:
-    - Microsoft Outlook 2010/Outlook 2013/Outlook 2016, Apple iPhone (verschillende iOS-versies)
-    - Verschillende Google Android-apparaten
-    - Windows Phone 7, Windows Phone 7.8 en Windows Phone 8.0
-    - E-mailclient van Windows 8 en Windows 8.1-e-mailclient
-    - Windows 10 Mail Client
+> [!IMPORTANT]
+> Alleen een beperkte set clients zijn beschikbaar in dit scenario aanmelding met SAML 2.0-id-providers, wordt dit omvat:
+> 
+> - Clients op het web zoals Outlook Web Access en SharePoint Online
+> - E-rich clients die gebruikmaken van basisverificatie en op een ondersteunde methode van de toegang tot Exchange, zoals IMAP, pop-server, ActiveSync, MAPI, enz. (het eindpunt van de Enhanced-clientprotocol is vereist om te worden geïmplementeerd), met inbegrip van:
+>     - Microsoft Outlook 2010/Outlook 2013/Outlook 2016, Apple iPhone (verschillende iOS-versies)
+>     - Verschillende Google Android-apparaten
+>     - Windows Phone 7, Windows Phone 7.8 en Windows Phone 8.0
+>     - E-mailclient van Windows 8 en Windows 8.1-e-mailclient
+>     - Windows 10 Mail Client
 
 Alle andere clients zijn niet beschikbaar in dit scenario aanmelding met uw SAML 2.0-id-Provider. Bijvoorbeeld, kan de bureaubladclient Lync 2010 niet aan te melden bij de service met uw SAML 2.0-identiteitsprovider geconfigureerd voor eenmalige aanmelding.
 
@@ -194,7 +194,7 @@ De volgende procedure begeleidt u bij het converteren van een bestaande standaar
 Zie voor meer informatie over "Set-MsolDomainAuthentication": [ https://technet.microsoft.com/library/dn194112.aspx ](https://technet.microsoft.com/library/dn194112.aspx).
 
 >[!NOTE]
->Gebruik moet worden uitgevoerd ' $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" "alleen als u een extensie ECP voor uw id-provider instellen. Exchange Online clients, met uitzondering van Outlook Web Application (OWA) afhankelijk zijn van een bericht op basis van actieve eindpunt. Als uw SAML 2.0 STS een actieve eindpunt die vergelijkbaar is met de Shibboleth ECP implementatie van een actieve eindpunt implementeert is het mogelijk dat het mogelijk dat deze rich clients om te communiceren met de Exchange Online-service.
+>U moet uitvoeren gebruik `$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"` alleen als u een extensie ECP voor uw id-provider instellen. Exchange Online clients, met uitzondering van Outlook Web Application (OWA) afhankelijk zijn van een bericht op basis van actieve eindpunt. Als uw SAML 2.0 STS een actieve eindpunt die vergelijkbaar is met de Shibboleth ECP implementatie van een actieve eindpunt implementeert is het mogelijk dat het mogelijk dat deze rich clients om te communiceren met de Exchange Online-service.
 
 Nadat federation is geconfigureerd u wilt terugkeren naar 'niet-gefedereerde' (of 'beheerd'), maar deze wijziging wordt van maximaal twee uur en hiervoor nieuwe willekeurige wachtwoorden voor cloud-gebaseerde aanmelding toewijzen aan elke gebruiker. Overschakelen naar 'beheerd' kan in sommige scenario's vereist een fout in de instellingen opnieuw instellen. Zie voor meer informatie over de conversie van domein: [ https://msdn.microsoft.com/library/windowsazure/dn194122.aspx ](https://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: e6814224827aac0da9c6faf5108ecf585bae7c35
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 80c9cd91efd14e3d4b4214bde089f73692568f76
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445378"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840185"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Kosten van de query in Azure Cosmos DB optimaliseren
 
@@ -33,7 +33,7 @@ Query's die gegevens uit een of meer partities lezen in rekening worden gebracht
 
 Zodra u sommige gegevens in uw Azure Cosmos-containers hebt opgeslagen, kunt u de Data Explorer in Azure portal te maken en uw query's uitvoeren. U kunt ook de kosten van de query's ophalen met behulp van data explorer. Deze methode geeft u een idee van de werkelijke kosten in rekening gebracht bij normale query's en bewerkingen die ondersteuning biedt voor uw systeem.
 
-U kunt ook de kosten van query's via een programma ophalen met behulp van de SDK's. Voor het meten van de overhead van elke bewerking zoals zoals het maken, bijwerken of verwijderen controleren de `x-ms-request-charge` header bij het gebruik van REST-API. Als u de .net of de Java SDK, de `RequestCharge` eigenschap is de eigenschap gelijk aan de aanvraag kosten in rekening gebracht en deze eigenschap is aanwezig in de ResourceResponse of FeedResponse.
+U kunt ook de kosten van query's via een programma ophalen met behulp van de SDK's. Voor het meten van de overhead van elke bewerking zoals zoals het maken, bijwerken of verwijderen controleren de `x-ms-request-charge` header bij het gebruik van REST-API. Als u de .NET of de Java SDK, de `RequestCharge` eigenschap is de eigenschap gelijk aan de aanvraag kosten in rekening gebracht en deze eigenschap is aanwezig in de ResourceResponse of FeedResponse.
 
 ```csharp
 // Measure the performance (request units) of writes 
@@ -59,7 +59,7 @@ In sommige gevallen ziet u een reeks van 200 en 429 antwoorden en variabele aanv
 
 ## <a name="metrics-for-troubleshooting"></a>Metrische gegevens voor het oplossen van problemen
 
-De prestaties en de doorvoer die voornamelijk worden gebruikt door query's, gebruiker gedefinieerde functies (UDF's), is afhankelijk van de hoofdtekst van de functie. De eenvoudigste manier om erachter te komen hoeveel tijd van de uitvoering van de query in de UDF en het aantal ru's die worden gebruikt, is door in te schakelen van de Query metrische gegevens. Als u de .net SDK gebruikt, moet u dit voorbeeld query metrische gegevens die wordt geretourneerd door de SDK zijn:
+De prestaties en de doorvoer die voornamelijk worden gebruikt door query's, gebruiker gedefinieerde functies (UDF's), is afhankelijk van de hoofdtekst van de functie. De eenvoudigste manier om erachter te komen hoeveel tijd van de uitvoering van de query in de UDF en het aantal ru's die worden gebruikt, is door in te schakelen van de Query metrische gegevens. Als u de .NET SDK gebruikt, moet u dit voorbeeld query metrische gegevens die wordt geretourneerd door de SDK zijn:
 
 ```bash
 Retrieved Document Count                 :               1              

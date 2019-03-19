@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ee08e4dc2f6a4616c4b427ad7d33f56e135b27a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: aa6f0aeaa39114efbf3bd5587eac5744db386672
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442492"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105230"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B-samenwerking Veelgestelde vragen
 
@@ -59,12 +59,12 @@ Tenzij een gebruiker de rol van beperkte beheerder of de globale beheerdersrol i
 Ja. Wanneer u dit beleid configureren, Let erop om te voorkomen dat per ongeluk blokkeren van toegang tot de leden en beheerders.
 Een gastgebruiker toegang tot blokkeren de [Azure-portal](https://portal.azure.com), gebruikt u een beleid voor voorwaardelijke toegang in de Windows Azure classic deployment model-API:
 1. Wijzig de **alle gebruikers** groeperen zodat deze alleen leden bevat.
-  ![Schermafbeelding van de groep wijzigen](media/faq/modify-all-users-group.png)
+   ![Schermafbeelding van de groep wijzigen](media/faq/modify-all-users-group.png)
 2. Maak een dynamische groep met gastgebruikers die.
-  ![Schermafbeelding van de groep maken](media/faq/group-with-guest-users.png)
+   ![Schermafbeelding van de groep maken](media/faq/group-with-guest-users.png)
 3. Stellen beleid voor voorwaardelijke toegang voor gastgebruikers blokkeren van toegang tot de portal, zoals wordt weergegeven in de volgende video:
   
-  > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 
+   > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 
 
 ### <a name="does-azure-ad-b2b-collaboration-support-multi-factor-authentication-and-consumer-email-accounts"></a>Ondersteunt Azure AD B2B-samenwerking multi-factor authentication en consumenten-e-mailaccounts?
 Ja. Multi-factor authentication en consument e-mailaccounts worden beide ondersteund voor Azure AD B2B-samenwerking.
@@ -94,7 +94,7 @@ Een gastgebruiker kan id-provider gebruiken om te verifiëren. Zie voor meer inf
 
 ### <a name="where-can-i-find-a-b2b-collaboration-community-to-share-solutions-and-to-submit-ideas"></a>Waar vind ik een B2B-samenwerking-community voor het delen van oplossingen en ideeën wilt indienen?
 We zijn voortdurend luisteren naar uw feedback, voor het verbeteren van B2B-samenwerking. Deel uw gebruiker scenario's, aanbevolen procedures en waar u tevreden over Azure AD B2B-samenwerking. Deelnemen aan de discussie de [Microsoft Tech-Community](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b).
- 
+ 
 We nodigen u ook uit om in te dienen uw ideeën en stem voor toekomstige functies op [B2B-samenwerking ideeën](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas).
 
 ### <a name="can-we-send-an-invitation-that-is-automatically-redeemed-so-that-the-user-is-just-ready-to-go-or-does-the-user-always-have-to-click-through-to-the-redemption-url"></a>Kunnen we een uitnodiging die automatisch wordt ingewisseld, zodat de gebruiker alleen 'klaar is voor gebruik ' verzenden? Of de gebruiker altijd hoeft door te klikken op de URL voor inschrijving?

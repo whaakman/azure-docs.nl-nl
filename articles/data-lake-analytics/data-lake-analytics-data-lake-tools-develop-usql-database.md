@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 4518011fbeaefbb32403f5b37e434e7315beffa0
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 1982f974acd1e9d5e8cae91201f6503eb2ae678a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734921"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898791"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Een project U-SQL-database gebruiken voor het ontwikkelen van een U-SQL-database voor Azure Data Lake
 
@@ -100,8 +100,8 @@ U kunt een U-SQL-database via een project U-SQL-database of een pakket .usqldbpa
 
 Een U-SQL-project kunt verwijzen naar een project U-SQL-database. De verwijzing van invloed is op twee workloads:
 
-- *Build project*: de database waarnaar wordt verwezen-omgevingen instellen voor het bouwen van de U-SQL-scripts. 
-- *Lokaal uitvoeren op (een lokale-project) account*: de database waarnaar wordt verwezen-omgevingen zijn geïmplementeerd op (een lokale-project) account voordat U-SQL-script wordt uitgevoerd. [Meer informatie over lokaal wordt uitgevoerd en het verschil tussen (de lokale computer) en (een lokale-project) account hier](data-lake-analytics-data-lake-tools-local-run.md).
+- *Build project*: De database waarnaar wordt verwezen-omgevingen instellen voor het bouwen van de U-SQL-scripts. 
+- *Lokaal uitvoeren op (een lokale-project) account*: De database waarnaar wordt verwezen-omgevingen zijn geïmplementeerd op (een lokale-project) account voordat U-SQL-script wordt uitgevoerd. [Meer informatie over lokaal wordt uitgevoerd en het verschil tussen (de lokale computer) en (een lokale-project) account hier](data-lake-analytics-data-lake-tools-local-run.md).
 
 ### <a name="how-to-add-a-u-sql-database-reference"></a>De verwijzing naar een U-SQL-database toevoegen
 

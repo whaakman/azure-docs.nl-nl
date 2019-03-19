@@ -10,14 +10,14 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 07/23/2018
 ms.custom: mvc
-ms.openlocfilehash: 1c8f280d58d12df33b687fa9c09712176987cdd1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: 1e0e5deea8602b3da16074155e69c952227b8609
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259542"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117673"
 ---
-# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Snelstartgids: Een Apache Spark-taak uitvoeren in Azure Databricks met behulp van Azure Portal
+# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Snelstart: Een Apache Spark-taak uitvoeren in Azure Databricks met behulp van Azure Portal
 
 Deze quickstart laat zien hoe een Azure Databricks-werkruimte wordt gemaakt en hoe binnen die werkruimte een Apache Spark-cluster kan worden gemaakt. Tot slot leert u hoe u een Spark-taak op het Databricks-cluster kunt uitvoeren. Zie [Wat is Azure Databricks?](what-is-azure-databricks.md) voor meer informatie over Azure Databricks.
 
@@ -74,11 +74,11 @@ In deze sectie gaat u een Azure Databricks-werkruimte maken met behulp van Azure
 
     Accepteer alle andere standaardwaarden, anders dan de volgende:
 
-    * Voer een naam in voor het cluster.
-    * Voor dit artikel maakt u een cluster met een **4.0**-runtime.
-    * Zorg ervoor dat u het selectievakje **Beëindigen na\_\_ minuten van inactiviteit** inschakelt. Geef een duur (in minuten) op waarna het cluster moet worden beëindigd als het niet wordt gebruikt.
+   * Voer een naam in voor het cluster.
+   * Voor dit artikel maakt u een cluster met een **4.0**-runtime.
+   * Zorg ervoor dat u het selectievakje **Beëindigen na\_\_ minuten van inactiviteit** inschakelt. Geef een duur (in minuten) op waarna het cluster moet worden beëindigd als het niet wordt gebruikt.
     
-    Selecteer **Cluster maken**. Zodra het cluster wordt uitgevoerd, kunt u notitieblokken koppelen aan het cluster en Spark-taken uitvoeren.
+     Selecteer **Cluster maken**. Zodra het cluster wordt uitgevoerd, kunt u notitieblokken koppelen aan het cluster en Spark-taken uitvoeren.
 
 Zie [Een Spark-cluster maken in Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html) voor meer informatie over het maken van clusters.
 
@@ -89,12 +89,12 @@ Download een JSON-bestand met voorbeeldgegevens en sla het op in Azure Blob-opsl
 1. Download dit JSON-bestand met voorbeeldgegeven [vanuit GitHub](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) naar uw lokale computer. Klik met de rechtermuisknop op en sla op om het raw-bestand lokaal op te slaan.
 
 2. Als u nog geen opslagaccount hebt, maakt u er nu een.
-    - Selecteer in Azure Portal **Een resource maken**. Selecteer de **opslag**categorie en selecteer **Opslagaccounts**
-    - Geef een unieke naam op voor het opslagaccount.
-    - Selecteer **Type account**: **Blob Storage**
-    - Selecteer de naam van een **Resourcegroep**. Gebruik dezelfde resourcegroep als waarin u de Databricks-werkruimte hebt gemaakt.
+   - Selecteer in Azure Portal **Een resource maken**. Selecteer de **opslag**categorie en selecteer **Opslagaccounts**
+   - Geef een unieke naam op voor het opslagaccount.
+   - Selecteer **Type account**: **Blob Storage**
+   - Selecteer de naam van een **Resourcegroep**. Gebruik dezelfde resourcegroep als waarin u de Databricks-werkruimte hebt gemaakt.
     
-    Zie [Een Azure Blob-opslagaccount maken](../storage/common/storage-quickstart-create-account.md) voor meer informatie.
+     Zie [Een Azure Blob-opslagaccount maken](../storage/common/storage-quickstart-create-account.md) voor meer informatie.
 
 3. Maak een opslagcontainer in het Blob-opslagaccount en upload het JSON-voorbeeldbestand naar de container. U kunt het bestand uploaden via Azure Portal of de [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
@@ -130,21 +130,21 @@ Voer de volgende taken uit om een notitieblok in Databricks te maken. Configuree
 
     In het volgende codefragment vervangt u `{YOUR CONTAINER NAME}`, `{YOUR STORAGE ACCOUNT NAME}` en `{YOUR STORAGE ACCOUNT ACCESS KEY}` door de desbetreffende waarden voor uw Azure Storage-account. Plak het volgende codefragment in een lege cel en druk op Shift+Enter om de codecel uit te voeren.
 
-    * **Het opslagaccount koppelen aan DBFS (aanbevolen)**. Met dit codefragment wordt het pad voor het Azure Storage-account gekoppeld aan `/mnt/mypath`. Als u later het Azure Storage-account opent, hoeft u het volledige pad niet meer op te geven. U kunt gewoon `/mnt/mypath` gebruiken.
+   * **Het opslagaccount koppelen aan DBFS (aanbevolen)**. Met dit codefragment wordt het pad voor het Azure Storage-account gekoppeld aan `/mnt/mypath`. Als u later het Azure Storage-account opent, hoeft u het volledige pad niet meer op te geven. U kunt gewoon `/mnt/mypath` gebruiken.
 
-          dbutils.fs.mount(
-            source = "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/",
-            mountPoint = "/mnt/mypath",
-            extraConfigs = Map("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net" -> "{YOUR STORAGE ACCOUNT ACCESS KEY}"))
+         dbutils.fs.mount(
+           source = "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/",
+           mountPoint = "/mnt/mypath",
+           extraConfigs = Map("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net" -> "{YOUR STORAGE ACCOUNT ACCESS KEY}"))
 
-    * **Het opslagaccount rechtstreeks openen**
+   * **Het opslagaccount rechtstreeks openen**
 
-          spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
+         spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
 
-    Zie [Toegangssleutels beheren voor uw opslagaccount](../storage/common/storage-account-manage.md#access-keys) voor instructies over het ophalen van de toegangssleutel voor uw opslagaccount.
+     Zie [Toegangssleutels beheren voor uw opslagaccount](../storage/common/storage-account-manage.md#access-keys) voor instructies over het ophalen van de toegangssleutel voor uw opslagaccount.
 
-    > [!NOTE]
-    > U kunt ook Azure Data Lake Store met een Spark-cluster in Azure Databricks gebruiken. Zie [Data Lake Store met Azure Databricks gebruiken](https://go.microsoft.com/fwlink/?linkid=864084) voor instructies.
+     > [!NOTE]
+     > U kunt ook Azure Data Lake Store met een Spark-cluster in Azure Databricks gebruiken. Zie [Data Lake Store met Azure Databricks gebruiken](https://go.microsoft.com/fwlink/?linkid=864084) voor instructies.
 
 4. Voer een SQL-instructie uit om een tijdelijke tabel te maken met gegevens uit het JSON-voorbeeldgegevensbestand, **small_radio_json.json**. Vervang in het volgende codefragment de tijdelijke aanduidingen voor waarden door de containernaam en de naam van het opslagaccount. Plak het codefragment in een lege codecel in het notitieblok en druk op Shift+Enter. In het codefragment duidt `path` de locatie aan van het voorbeeld-JSON-bestand dat u hebt geüpload naar uw Azure Storage-account.
 
@@ -183,12 +183,12 @@ Voer de volgende taken uit om een notitieblok in Databricks te maken. Configuree
 
     ![Staafdiagram aanpassen](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "Staafdiagram aanpassen")
 
-    * Stel **Sleutels** in op **geslacht**.
-    * Stel **Reeksgroeperingen** in op **niveau**.
-    * Stel **Waarden** in op **niveau**.
-    * Stel **Aggregatie** in op **AANTAL**.
+   * Stel **Sleutels** in op **geslacht**.
+   * Stel **Reeksgroeperingen** in op **niveau**.
+   * Stel **Waarden** in op **niveau**.
+   * Stel **Aggregatie** in op **AANTAL**.
 
-    Klik op **Toepassen**.
+     Klik op **Toepassen**.
 
 9. De uitvoer toont de visuele weergave zoals de volgende schermafbeelding laat zien:
 

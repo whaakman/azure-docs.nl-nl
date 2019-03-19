@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: cfefa8a1bfee03959d0f3b077d9915a6badb1ffd
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: fd680b00feb8a75dfec952d7211554100fca00d8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55988082"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075063"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Video Indexer widgets insluiten in uw toepassingen
 
@@ -45,7 +45,7 @@ Met de widget **Speler** kunt u de video streamen met gebruik van een adaptieve 
 |t|Seconden vanaf het begin|Laat de speler starten met afspelen vanaf het opgegeven moment.<br/>Voorbeeld: t=60|
 |captions|Taalcode|Haalt de ondertiteling in de opgegeven taal op tijdens het laden van de widget zodat deze beschikbaar is in het menu voor ondertiteling.<br/>Voorbeeld: captions=nl-NL|
 |showCaptions|Een booleaanse waarde|Zorgt ervoor dat speler wordt geladen met de ondertiteling al ingeschakeld.<br/>Voorbeeld: showCaptions=true|
-|type||Hiermee activeert u de weergave van een audiospeler (videogedeelte wordt verwijderd).<br/>Bijvoorbeeld: type=audio|"
+|type||Hiermee activeert u de weergave van een audiospeler (videogedeelte wordt verwijderd).<br/>Bijvoorbeeld: type=audio|
 |autoplay|Een booleaanse waarde|Geeft aan of de speler het afspelen van de video moet starten wanneer deze wordt geladen (de standaardinstelling is true).<br/>Voorbeeld: autoplay=false|
 |language|Taalcode|Hiermee bepaalt u de taal van de speler (de standaardinstelling is en-US)<br/>Voorbeeld: language=nl-NL|
 

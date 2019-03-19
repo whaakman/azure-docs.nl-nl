@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52d3e058c7e604a31493bf3b1972b39c9922fd90
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e5ce628716e9e8d0094f678c3d67dcfad9e24ada
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163512"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860530"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proxyclick"></a>Zelfstudie: Azure Active Directory-integratie met Proxyclick
 
@@ -214,11 +214,11 @@ Als u wilt dat Azure AD-gebruikers zich aanmelden bij Proxyclick, moeten ze word
 
     ![Werknemer toevoegen](./media/proxyclick-tutorial/user3.png)
 
-    a. In de **e** tekstvak, typ het e-mailadres van gebruiker, zoals **brittasimon@contoso.com**.
+    a. In de **e** tekstvak, typ het e-mailadres van gebruiker, zoals **brittasimon\@contoso.com**.
 
-    b. In de **voornaam** tekstvak, de eerste naam van gebruiker, zoals Julia.
+    b. Typ in het tekstvak **Voornaam** de voornaam van de gebruiker, zoals Britta.
 
-    c. In de **achternaam** tekstvak typt u de achternaam van de gebruiker, zoals Simon.
+    c. Typ in het tekstvak **Achternaam** de achternaam van de gebruiker, zoals Simon.
 
     d. Klik op **Add User**.
 
@@ -261,7 +261,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

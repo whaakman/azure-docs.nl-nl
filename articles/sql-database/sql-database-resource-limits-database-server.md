@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan,moslake,josack
 manager: craigg
 ms.date: 03/01/2019
-ms.openlocfilehash: 801b7de4b82c37503f2a14619112cbf46ca60a43
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5b11f9bc25cd0fcc8a83a2eeaf5cc1746a63200e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447078"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093885"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>SQL Database-resourcebeperkingen voor Azure SQL Database-server
 
@@ -36,7 +36,7 @@ In dit artikel biedt een overzicht van de SQL Database-resourcebeperkingen voor 
 | DTU / eDTU-quotum per server | 54,000 |  
 | vCore quotum per server-exemplaar | 540 |
 | Maximum aantal toepassingen per server | Beperkt door het aantal dtu's of vCores. Bijvoorbeeld, als elke groep 1000 dtu's is, klikt u vervolgens een server kan ondersteunen 54 pools.|
-||||
+|||
 
 > [!NOTE]
 > Als u wilt meer DTU-quotum voor /eDTU, vCore quotum of meer servers dan de standaardinstelling, kan een nieuwe ondersteuningsaanvraag in de Azure-portal voor het abonnement met probleemtype 'Target' worden verzonden. De DTU / eDTU-quota en database-limiet per server beperkt het aantal elastische pools per server.
@@ -95,7 +95,7 @@ Vormgeven van logboek tarief resourceregeling verkeer wordt opgehaald via de vol
 | INSTANCE_LOG_RATE_GOVERNOR | Exemplaar niveau beperken |  
 | HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Besturingselement voor feedback, beschikbaarheid van groep fysieke replicatie in Premium/bedrijfskritiek niet kunnen |  
 | HADR_THROTTLE_LOG_RATE_LOG_SIZE | Feedback-besturingselement, beperken tarieven om te voorkomen dat een out-of ruimte-logboekvoorwaarde |
-||||
+|||
 
 Als een frequentielimiet van logboekbestanden die de gewenste schaalbaarheid is die worden aangetroffen, houd rekening met de volgende opties:
 - Schaal omhoog naar een grotere laag om op te halen van de maximale 48 MB/s log snelheid. 

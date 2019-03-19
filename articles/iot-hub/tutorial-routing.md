@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: cc3f7c72acc0723c522b595ea106f72947e9d014
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
+ms.openlocfilehash: 87d0339de117330bf6d586cd653b0d4d16a8cbca
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728723"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087700"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Zelfstudie: Berichtroutering configureren met IoT Hub
 
@@ -144,7 +144,7 @@ echo "Service Bus namespace = " $sbNameSpace
 az servicebus namespace create --resource-group $resourceGroup \
     --name $sbNameSpace \
     --location $location
-    
+
 # The Service Bus queue name must be globally unique, so add a random number to the end.
 sbQueueName=ContosoSBQueue$RANDOM
 echo "Service Bus queue name = " $sbQueueName
@@ -276,7 +276,7 @@ U gaat berichten naar andere resources doorsturen op basis van eigenschappen die
 
 Stel nu de routering in voor het opslagaccount. Ga naar het deelvenster Berichtroutering en voeg een route toe. Definieer bij het toevoegen van de route een nieuw eindpunt voor de route. Nadat u dit hebt ingesteld, worden berichten waarvan de eigenschap **Niveau** is ingesteld op **Opslag** automatisch naar een opslagaccount geschreven. 
 
-De gegevens worden in de Avro-indeling naar de blob-opslag geschreven.
+De gegevens worden geschreven naar de blob storage in het Avro-indeling standaard.
 
 1. Klik in [Azure Portal](https://portal.azure.com) op **Resourcegroepen** en selecteer vervolgens uw resourcegroep. In deze zelfstudie wordt gebruikgemaakt van **ContosoResources**. 
 
@@ -301,8 +301,9 @@ De gegevens worden in de Avro-indeling naar de blob-opslag geschreven.
    > 
    > Als u bijvoorbeeld de indeling van de standaardnaam voor het blobbestand gebruikt, de naam van de hub ContosoTestHub is en de datum en tijd 30 oktober 2018 om 10:56 uur, dan ziet de blobnaam er als volgt uit: `ContosoTestHub/0/2018/10/30/10/56`.
    > 
-   > De blobs worden geschreven in de Avro-indeling.
-   >
+   > De blobs worden geschreven in de Avro-indeling standaard. U kunt bestanden in JSON-indeling wilt schrijven. De mogelijkheid voor het coderen van JSON-indeling is in preview in alle regio's die IOT Hub verkrijgbaar in, met uitzondering van VS-Oost, VS-West en West-Europa is. Zie [richtlijnen voor de routering naar blob-opslag](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
+   > 
+   > Wanneer Routering BLOB storage, raden wij de blobs opnemen en vervolgens iteratie van deze, om ervoor te zorgen dat voor alle containers worden gelezen zonder een veronderstellingen van de partitie. Het partitiebereik kan mogelijk wijzigen tijdens een [Microsoft geïnitieerde failover](iot-hub-ha-dr.md#microsoft-initiated-failover) of IoT-Hub [handmatige failover](iot-hub-ha-dr.md#manual-failover-preview). Voor informatie over het inventariseren van de lijst met blobs Zie [routering naar blob-opslag](iot-hub-devguide-messages-d2c.md#azure-blob-storage)
 
 8. Klik op **Maken** het opslageindpunt te maken en toe te voegen aan de route. U gaat terug naar het deelvenster **Route toevoegen**.
 
@@ -311,15 +312,15 @@ De gegevens worden in de Avro-indeling naar de blob-opslag geschreven.
    **Naam**: Voer een naam in voor uw routeringsquery. In deze zelfstudie wordt gebruikgemaakt van **StorageRoute**.
 
    **Eindpunt**: Geeft het eindpunt weer dat u net hebt ingesteld. 
-   
+
    **Gegevensbron**: Selecteer **Telemetrieberichten apparaat** uit de vervolgkeuzelijst.
 
    **Route inschakelen**: Zorg ervoor dat deze optie is ingeschakeld.
-   
+
    **Routeringsquery**: Voer `level="storage"` in als querytekenreeks. 
 
    ![Schermopname waarin wordt weergegeven hoe een routeringsquery wordt gemaakt voor het opslagaccount.](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
-   
+
    Klik op **Opslaan**. Wanneer dit is voltooid, gaat u terug naar het deelvenster Berichtroutering, waar u uw nieuwe routeringsquery voor opslag kunt zien. Sluit het deelvenster Routes, waarna u terugkeert naar de pagina Resourcegroep.
 
 ### <a name="routing-to-a-service-bus-queue"></a>Routering naar een Service Bus-wachtrij 
@@ -337,14 +338,14 @@ Stel nu de routering in voor de Service Bus-wachtrij. Ga naar het deelvenster Be
 4. Vul de velden in:
 
    **Naam van het eindpunt**: Voer een naam in voor het eindpunt. In deze zelfstudie wordt gebruikgemaakt van **CriticalQueue**.
-   
+
    **Service Bus-naamruimte**: Klik op dit veld om de vervolgkeuzelijst weer te geven en selecteer de Service Bus-naamruimte die u hebt ingesteld in de voorbereidende stappen. In deze zelfstudie wordt gebruikgemaakt van **ContosoSBNamespace**.
 
    **Service Bus-wachtrij**: Klik op dit veld om de vervolgkeuzelijst weer te geven en selecteer de Service Bus-wachtrij. In deze zelfstudie wordt gebruikgemaakt van **contososbqueue**.
 
 5. Klik op **Maken** om het Service Bus-wachtrij-eindpunt toe te voegen. U gaat terug naar het deelvenster **Route toevoegen**. 
 
-6.  Vul nu de rest van de informatie voor de routeringsquery in. Deze query specificeert de criteria voor het verzenden van berichten naar de Service Bus-wachtrij die u zojuist hebt toegevoegd als eindpunt. Vul de velden in op het scherm. 
+6. Vul nu de rest van de informatie voor de routeringsquery in. Deze query specificeert de criteria voor het verzenden van berichten naar de Service Bus-wachtrij die u zojuist hebt toegevoegd als eindpunt. Vul de velden in op het scherm. 
 
    **Naam**: Voer een naam in voor uw routeringsquery. In deze zelfstudie wordt gebruikgemaakt van **SBQueueRule**. 
 
@@ -401,7 +402,7 @@ De Service Bus-wachtrij moet worden gebruikt voor het ontvangen van berichten di
    ![Schermopname waarin het instellen van de verbinding van de Service Bus-wachtrij wordt weergegeven.](./media/tutorial-routing/logic-app-define-connection.png)
 
    Klik op Service Bus-naamruimte. In deze zelfstudie wordt gebruikgemaakt van **ContosoSBNamespace**. Wanneer u de naamruimte selecteert, vraagt de portal de Service Bus-naamruimte op voor het ophalen van de sleutels. Selecteer **RootManageSharedAccessKey** en klik op **Maken**. 
-   
+
    ![Schermopname waarin de voltooiing van het instellen van de verbinding wordt weergegeven.](./media/tutorial-routing/logic-app-finish-connection.png)
 
 6. Selecteer de naam van de wachtrij op het volgende scherm (in deze zelfstudie wordt gebruikgemaakt van **contososbqueue**) in de vervolgkeuzelijst. U kunt de standaardwaarden gebruiken voor de rest van de velden. 
@@ -442,9 +443,9 @@ Als u de gegevens in een Power BI-visualisatie wilt zien, stelt u eerst een Stre
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Een invoer aan de Stream Analytics-taak toevoegen
 
-4. Klik onder **Taaktopologie** op **Invoer**.
+1. Klik onder **Taaktopologie** op **Invoer**.
 
-5. Klik in het deelvenster **Invoer** op **Stroominvoer toevoegen** en selecteer IoT Hub. Vul de volgende velden in op het scherm dat wordt weergegeven:
+1. Klik in het deelvenster **Invoer** op **Stroominvoer toevoegen** en selecteer IoT Hub. Vul de volgende velden in op het scherm dat wordt weergegeven:
 
    **Invoeralias**: In deze zelfstudie wordt gebruikgemaakt van **contosoinputs**.
 
@@ -457,12 +458,12 @@ Als u de gegevens in een Power BI-visualisatie wilt zien, stelt u eerst een Stre
    **Naam van het gedeelde toegangsbeleid**: Selecteer **iothubowner**. In de portal wordt de sleutel van het beleid voor gedeelde toegang voor u ingevuld.
 
    **Consumentengroep**: Selecteer de consumentengroep die u eerder hebt gemaakt. In deze zelfstudie wordt gebruikgemaakt van **contosoconsumers**.
-   
+
    Accepteer de standaardwaarden voor de rest van de velden. 
 
    ![Schermopname waarin wordt weergegeven hoe u de invoerwaarden voor de Stream analytics-taak kunt instellen.](./media/tutorial-routing/stream-analytics-job-inputs.png)
 
-6. Klik op **Opslaan**.
+1. Klik op **Opslaan**.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Een uitvoer aan de Stream Analytics-taak toevoegen
 
@@ -631,4 +632,4 @@ In deze zelfstudie hebt u geleerd hoe u met berichtroutering IoT Hub-berichten n
 Ga door naar de volgende zelfstudie voor informatie over het beheren van de toestand van een IoT-apparaat. 
 
 > [!div class="nextstepaction"]
-[Metrische gegevens en diagnostische gegevens instellen en gebruiken met een IoT Hub](tutorial-use-metrics-and-diags.md)
+> [Metrische gegevens en diagnostische gegevens instellen en gebruiken met een IoT Hub](tutorial-use-metrics-and-diags.md)

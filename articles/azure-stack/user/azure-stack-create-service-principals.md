@@ -14,12 +14,12 @@ ms.date: 12/12/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 9f0ccb85fa4b42ef3ca90c6d4ca2d80113b93a0c
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3a6fa631fdf3436dc3a76817d2c0043b0407b2ce
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733696"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121550"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Toepassingen toegang geven tot Azure Stack-bronnen met het maken van service-principals
 
@@ -56,8 +56,8 @@ De stappen voor het toewijzen van een service-principal aan een rol hetzelfde vo
 
 Als uw Azure Stack Azure AD als het identiteitsarchief gebruikt, kunt u een service-principal met behulp van dezelfde stappen als voor Azure met behulp van de Azure-portal maken.
 
->[!NOTE]
-Controleer dat u hebt de [vereist Azure AD-machtigingen](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) voordat u begint met het maken van een service-principal.
+> [!NOTE]
+> Controleer dat u hebt de [vereist Azure AD-machtigingen](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) voordat u begint met het maken van een service-principal.
 
 ### <a name="create-service-principal"></a>Een service-principal maken
 
@@ -80,8 +80,8 @@ Wanneer u zich programmatisch aanmeldt, gebruikt u de ID voor uw toepassing en e
 
 4. Geef een beschrijving op van de sleutel en geef de duur van de sleutel op. Selecteer **Opslaan** wanneer u klaar bent.
 
->[!IMPORTANT]
-Nadat u de sleutel opgeslagen **waarde** wordt weergegeven. Noteer deze waarde omdat u de sleutel later niet ophalen. Bewaar de sleutelwaarde op een locatie waar de toepassing deze kan ophalen.
+> [!IMPORTANT]
+> Nadat u de sleutel opgeslagen **waarde** wordt weergegeven. Noteer deze waarde omdat u de sleutel later niet ophalen. Bewaar de sleutelwaarde op een locatie waar de toepassing deze kan ophalen.
 
 ![Waarschuwing: sleutelwaarde voor opgeslagen sleutel.](./media/azure-stack-create-service-principals/image15.png)
 
@@ -101,8 +101,8 @@ Zie voor meer informatie over het maken van de service-principal [service-princi
 
 Voor toegang tot resources in uw abonnement, moet u de toepassing aan een rol toewijzen. Bepaal welke rol staat voor de juiste machtigingen voor de toepassing. Zie voor meer informatie over de beschikbare rollen, [RBAC: ingebouwde rollen](../../role-based-access-control/built-in-roles.md).
 
->[!NOTE]
-U kunt van een rol bereik instellen op het niveau van een abonnement, een resourcegroep of een resource. Machtigingen worden overgenomen op lagere niveaus van bereik. Een app met de rol van lezer voor een resourcegroep betekent bijvoorbeeld dat de app een van de resources in de resourcegroep kan lezen.
+> [!NOTE]
+> U kunt van een rol bereik instellen op het niveau van een abonnement, een resourcegroep of een resource. Machtigingen worden overgenomen op lagere niveaus van bereik. Een app met de rol van lezer voor een resourcegroep betekent bijvoorbeeld dat de app een van de resources in de resourcegroep kan lezen.
 
 Gebruik de volgende stappen uit als richtlijn voor een rol toewijzen aan een service-principal.
 

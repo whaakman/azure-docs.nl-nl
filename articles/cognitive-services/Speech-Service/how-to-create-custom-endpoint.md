@@ -1,6 +1,6 @@
 ---
-title: Maak een aangepaste spraak-eindpunt met de Speech-Service op Azure | Microsoft Docs
-description: Informatie over het maken van een aangepaste spraak-naar-tekst-eindpunt met de Speech-Service in Cognitive Services.
+title: Een aangepaste spraak-eindpunt met de Speech Services op Azure maken | Microsoft Docs
+description: Informatie over het maken van een aangepaste spraak-naar-tekst-eindpunt met behulp van Azure Speech Services.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -9,19 +9,19 @@ ms.subservice: custom-speech
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: panosper
-ms.openlocfilehash: 63d2c15c14340b0d7407b0144a8b8c75a2634e6a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 1f7a84d187ba6279caad4926d54bfc56254152af
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220238"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862995"
 ---
 # <a name="create-a-custom-speech-to-text-endpoint"></a>Een aangepast spraak naar tekst-eindpunt maken
 
-Nadat u hebt aangepaste akoestische modellen of taalmodellen die zijn gemaakt, kunt u ze kunt implementeren in een aangepast eindpunt voor spraak-naar-tekst. 
+Nadat u hebt aangepaste akoestische modellen of taalmodellen die zijn gemaakt, kunt u ze kunt implementeren in een aangepast eindpunt voor spraak-naar-tekst.
 
 ## <a name="create-an-endpoint"></a>Een eindpunt maken
-Voor het maken van een nieuw aangepast eindpunt selecteert **eindpunten** op de **aangepaste spraak** menu aan de bovenkant van de pagina. Deze actie gaat u naar de **eindpunten** bevat een tabel met de huidige aangepaste eindpunten. Als u geen eindpunten nog niet hebt gemaakt, wordt de tabel leeg is. De huidige landinstelling wordt weergegeven in de titel van de tabel. 
+Voor het maken van een nieuw aangepast eindpunt selecteert **eindpunten** op de **aangepaste spraak** menu aan de bovenkant van de pagina. Deze actie gaat u naar de **eindpunten** bevat een tabel met de huidige aangepaste eindpunten. Als u geen eindpunten nog niet hebt gemaakt, wordt de tabel leeg is. De huidige landinstelling wordt weergegeven in de titel van de tabel.
 
 Voor het maken van een implementatie voor een andere taal selecteert **wijziging landinstelling**. Voor meer informatie over ondersteunde talen.
 
@@ -44,6 +44,6 @@ Wanneer de implementatie gereed is, wordt de naam van het eindpunt een koppeling
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie voor meer zelfstudies:
-- [Uw proefabonnement voor Speech Service ophalen](https://azure.microsoft.com/try/cognitive-services/)
+- [Uw proefabonnement voor Speech Services ophalen](https://azure.microsoft.com/try/cognitive-services/)
 - [Aangepast akoestisch model maken](how-to-customize-acoustic-models.md)
 - [Aangepaste taalmodel maken](how-to-customize-language-model.md)

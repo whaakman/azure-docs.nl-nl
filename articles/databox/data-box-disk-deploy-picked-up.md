@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 02/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 357fa8a34afc8b426d308940462e22895130169f
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 0dd0474ad1ad360fd82cfdf746d2e9837f74833a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158768"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108372"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Zelfstudie: Azure Data Box Disk terugsturen en de gegevensupload naar Azure controleren
 
@@ -33,7 +33,7 @@ Voltooi voordat u begint de [Zelfstudie: Gegevens kopiëren naar de Azure Data B
 
 1. Koppel de schijven los, nadat de gegevensvalidatie is voltooid. Verwijder de verbindingskabels.
 2. Verpak alle schijven en de verbindingskabels in bubbelplastic en plaats deze in de verzenddoos.
-3. Gebruik het retourlabel in de doorzichtige plastic hoes op de doos. Als het label is beschadigd of ontbreekt, dient u een nieuw verzendlabel te downloaden via Azure Portal en deze op het apparaat te bevestigen. Ga naar **Overzicht > Verzendlabel downloaden**. 
+3. Gebruik het retourlabel in de doorzichtige plastic hoes op de doos. Als het label is beschadigd of ontbreekt, dient u een nieuw verzendlabel te downloaden via Azure Portal en deze op het apparaat te bevestigen. Ga naar **Overzicht > Verzendlabel downloaden**.
 
     ![Verzendlabel downloaden](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
 
@@ -44,7 +44,7 @@ Voltooi voordat u begint de [Zelfstudie: Gegevens kopiëren naar de Azure Data B
 4. Verzegel de verpakking en zorg ervoor dat het retourlabel zichtbaar is.
 5. Plan een ophaalmoment via UPS, als het apparaat in de Verenigde Staten worden geretourneerd. Als u het apparaat in Europa met DHL retourneert, dient u een ophaalverzoek in door op de website van DHL het verzendnummer op te geven. Ga naar de DHL Express-website voor uw land/regio en kies onder **Snel naar > Boek een retour**.
 
-    ![Boek een retour](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
+    ![DHL retourverzending](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
     
     Geef het nummer van de luchtvrachtbrief op en klik op **Boek een koerier** om een ophaalmoment te plannen.
 
@@ -66,7 +66,28 @@ Nadat de kopie is voltooid, wordt de orderstatus bijgewerkt naar **Voltooid**.
 
 ![Gegevens kopiëren voltooid](media/data-box-disk-deploy-picked-up/data-box-portal-completed.png)
 
-Controleer of uw gegevens zich in de opslagaccount(s) bevinden voordat u deze uit de bron verwijdert. Om te controleren of de gegevens naar Azure zijn geüpload, dient u de volgende stappen uit te voeren:
+Controleer of uw gegevens zich in de opslagaccount(s) bevinden voordat u deze uit de bron verwijdert. Uw gegevens, kunnen zich in:
+
+- Uw Azure-Opslagaccount (s). Als u de gegevens naar Data Box kopieert, worden de gegevens naar een van de volgende paden in uw Azure Storage-account geüpload, afhankelijk van het gegevenstype.
+
+  - Voor blok-blobs en pagina-blobs: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
+  - Voor Azure Files: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
+
+    U kunt ook naar uw Azure-opslagaccount in de Azure-portal gaan en van daaruit navigeren.
+
+- Uw beheerde schijf resourcegroepen bevinden. Bij het maken van beheerde schijven, wordt de VHD's worden geüpload als pagina-blobs, en vervolgens geconverteerd naar beheerde schijven. De beheerde schijven zijn gekoppeld aan de opgegeven op het moment van het maken van resourcegroepen.
+
+  - Als uw kopiëren naar beheerde schijven in Azure voltooid is, gaat u naar de **detailgegevens Order** in Azure portal en maak een notitie van de resourcegroep die is opgegeven voor beheerde schijven.
+
+      ![Details van de volgorde weergeven](media/data-box-disk-deploy-picked-up/order-details-resource-group.png)
+
+    Ga naar de resourcegroep hebt genoteerd en zoek uw beheerde schijven.
+
+      ![Resourcegroep voor beheerde schijven](media/data-box-disk-deploy-picked-up/resource-group-attached-managed-disk.png)
+
+  - Als u een VHDX- of een dynamische/differentiërende VHD hebt gekopieerd, is klikt u vervolgens de VHDX/VHD geüpload naar het tijdelijke opslagaccount dat als een blok-blob. Ga naar uw fasering **Storage-account > Blobs** en selecteer vervolgens de juiste container - StandardSSD, StandardHDD of PremiumSSD. De VHDX/VHD's weergegeven als blok-blobs in uw faseringsopslagaccount.
+
+Om te controleren of de gegevens naar Azure zijn geüpload, dient u de volgende stappen uit te voeren:
 
 1. Ga naar het opslagaccount dat is gekoppeld aan uw schijforder.
 2. Ga naar **Blob-service > Blobs verkennen**. De lijst met containers wordt weergegeven. Er worden containers gemaakt in uw opslagaccount met dezelfde naam als die van de submappen die u hebt gemaakt onder de mappen *BlockBlob* en *PageBlob*.
@@ -78,7 +99,7 @@ Controleer of uw gegevens zich in de opslagaccount(s) bevinden voordat u deze ui
 
 ## <a name="erasure-of-data-from-data-box-disk"></a>Gegevens verwijderen van de Data Box Disk
 
-Nadat de kopie is voltooid en u de gegevens in het Azure-opslagaccount hebt gecontroleerd, worden de schijven veilig gewist volgens de NIST-standaard. 
+Nadat de kopie is voltooid en u de gegevens in het Azure-opslagaccount hebt gecontroleerd, worden de schijven veilig gewist volgens de NIST-standaard.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 62675df9f440df77d1098d5c89bd6810349fb3af
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
-ms.translationtype: HT
+ms.openlocfilehash: 3474d4ee8751bcd472aa109e9e541d639344276d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750001"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118081"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Zelfstudie: Gegevens naar Azure Data Box Disk kopiëren via SMB
 
@@ -41,7 +41,8 @@ Zorg voordat u begint voor het volgende:
 
 Data Box maakt op basis van het geselecteerde opslagaccount maximaal:
 - Drie shares voor elk gekoppeld opslagaccount voor GPv1 en GPv2.
-- Een share voor premium- of blob-opslagaccount.
+- Een share voor een premium-opslag. 
+- Een share voor blob storage-account. 
 
 Onder blok-blob- en pagina-blob-shares zijn entiteiten op het eerste niveau containers en entiteiten op het tweede niveau blobs. Onder shares voor Azure Files zijn entiteiten op het eerste niveau shares en entiteiten op het tweede niveau bestanden.
 
@@ -116,7 +117,7 @@ Begin met het kopiëren van gegevens nadat u verbinding met de SMB-share hebt ge
   
  De kenmerken worden in de volgende tabel beschreven.
     
-|Kenmerk  |Beschrijving  |
+|Kenmerk  |Description  |
 |---------|---------|
 |/e     |Hiermee kopieert u submappen, met inbegrip van lege mappen.         |
 |/r:     |Hiermee geeft u het aantal nieuwe pogingen bij mislukte kopieerbewerkingen op.         |
@@ -195,8 +196,8 @@ In het volgende voorbeeld ziet u de uitvoer van de Robocopy-opdracht voor het ko
 Gebruik de volgende parameters in Robocopy om de prestaties te optimaliseren als u de gegevens kopieert.
 
 |    Platform    |    Voornamelijk kleine bestanden van < 512 KB                           |    Voornamelijk middelgrote bestanden van 512 KB - 1 MB                      |    Voornamelijk grote bestanden van > 1 MB                             |   
-|----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
-|    Data Box         |    2 Robocopy-sessies <br> 16 threads per sessie    |    3 Robocopy-sessies <br> 16 threads per sessie    |    2 Robocopy-sessies <br> 24 threads per sessie    |  |
+|----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|
+|    Data Box         |    2 Robocopy-sessies <br> 16 threads per sessie    |    3 Robocopy-sessies <br> 16 threads per sessie    |    2 Robocopy-sessies <br> 24 threads per sessie    |
 
 
 Ga voor meer informatie over opdrachten voor Robocopy naar [Robocopy en een paar voorbeelden](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx).

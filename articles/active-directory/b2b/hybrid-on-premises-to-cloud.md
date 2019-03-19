@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd684b992d46edbec30a12dc3b166d6193d2eabe
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 66c5ec6a41b630ee20139575080d8874d819bb59
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442151"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57871355"
 ---
 # <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources-using-azure-ad-b2b-collaboration"></a>Verleen partner lokaal beheerde accounts toegang bronnen in de cloud met behulp van Azure AD B2B-samenwerking
 
@@ -32,7 +32,7 @@ Voordat u de synchronisatie van het UserType-kenmerk inschakelt, moet u eerst be
 Er zijn twee algemene benaderingen gebruikt voor deze voor:
 
 - Een niet-gebruikte on-premises Active Directory-kenmerk (bijvoorbeeld extensionAttribute1) om te gebruiken als het bronkenmerk aanwijzen. 
-- U kunt ook de waarde voor UserType-kenmerk zijn afgeleid van andere eigenschappen. Bijvoorbeeld, u wilt synchroniseren van alle gebruikers als Gast als hun on-premises Active Directory-UserPrincipalName-kenmerk met het domein eindigt *@partners.contoso.com*.
+- U kunt ook de waarde voor UserType-kenmerk zijn afgeleid van andere eigenschappen. Bijvoorbeeld, u wilt synchroniseren van alle gebruikers als Gast als hun on-premises Active Directory-UserPrincipalName-kenmerk met het domein eindigt  *\@partners.contoso.com*.
  
 Zie voor gedetailleerde kenmerk [schakelt u de synchronisatie van UserType](../hybrid/how-to-connect-sync-change-the-configuration.md#enable-synchronization-of-usertype). 
 

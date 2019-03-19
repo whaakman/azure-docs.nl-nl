@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: d90439e498e8812551d9e2994165f1714d3bdaab
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b06fec8ab726f48e1937bae4cfbdbd9842788d0a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093312"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109304"
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Uitvoeren van sentimentanalyses met behulp van Azure Stream Analytics en Azure Machine Learning
 In dit artikel wordt beschreven hoe u snel een eenvoudige Azure Stream Analytics-taak die is geïntegreerd Azure Machine Learning instellen. Kunt u een Machine Learning sentiment analytics-model van de Cortana Intelligence Gallery streaming gegevens analyseren en te bepalen van de gevoelsscore in realtime. Met behulp van de Cortana Intelligence Suite kunt u deze taak wordt uitgevoerd zonder dat u de complexiteit van het bouwen van een gevoel analytics-model.
@@ -145,7 +145,7 @@ De taak haalt de invoer uit het CSV-bestand dat u eerder hebt geüpload naar blo
 
    ![Instellingen voor nieuwe Stream Analytics-Taakinvoer](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
-4. Klik op **Opslaan**.
+1. Klik op **Opslaan**.
 
 ### <a name="configure-the-job-output"></a>De taakuitvoer configureren
 De taak verzendt resultaten naar dezelfde blob storage waar deze wordt ingevoerd. 

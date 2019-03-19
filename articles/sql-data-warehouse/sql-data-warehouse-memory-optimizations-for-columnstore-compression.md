@@ -2,24 +2,24 @@
 title: Verbeter prestaties in de columnstore-index - Azure SQL Data Warehouse | Microsoft Docs
 description: Geheugenvereisten verlagen of te verhogen van het beschikbare geheugen voor het maximaliseren van het aantal rijen die een columnstore-index in elke rijgroep comprimeren.
 services: sql-data-warehouse
-author: ckarst
+author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 03/18/2019
+ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: d956322233cb6b4f8502775dcf2f89d96fd5cafe
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 859f0d168dcf1cc999f79ef22b5ba6669da79593
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463358"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189560"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Rijgroep kwaliteit voor columnstore maximaliseren
 
-Rijgroep kwaliteit wordt bepaald door het aantal rijen in een rijgroep. Geheugenvereisten verlagen of te verhogen van het beschikbare geheugen voor het maximaliseren van het aantal rijen die een columnstore-index in elke rijgroep comprimeren.  Deze methoden gebruiken voor betere compressie tarieven en queryprestaties voor columnstore-indexen.
+Rijgroep kwaliteit wordt bepaald door het aantal rijen in een rijgroep. Het beschikbare geheugen te verhogen, kan het aantal rijen die een columnstore-index in elke rijgroep comprimeren maximaliseren.  Deze methoden gebruiken voor betere compressie tarieven en queryprestaties voor columnstore-indexen.
 
 ## <a name="why-the-rowgroup-size-matters"></a>Waarom de grootte van de rijgroep belangrijk is
 Omdat een columnstore-index een tabel zoekt door te scannen kolomsegmenten van afzonderlijke rijgroepen, verbetert maximaliseren van het aantal rijen in elke rijgroep de prestaties van query's. Wanneer Rijgroepen een groot aantal rijen hebben, verbetert de compressie van gegevens wat inhoudt dat er minder gegevens te lezen van de schijf.
@@ -35,11 +35,11 @@ Tijdens een bulksgewijs laden of columnstore-indexen, soms er niet voldoende geh
 
 Wanneer er onvoldoende geheugen aan ten minste 10.000 rijen in elke rijgroep comprimeren, wordt er een fout gegenereerd in SQL Data Warehouse.
 
-Zie voor meer informatie over het bulksgewijs laden, [bulksgewijs laden in een geclusterde columnstore-index](https://msdn.microsoft.com/library/dn935008.aspx#Bulk load into a clustered columnstore index).
+Zie voor meer informatie over het bulksgewijs laden, [bulksgewijs laden in een geclusterde columnstore-index](https://msdn.microsoft.com/library/dn935008.aspx#Bulk ).
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Rijgroep kwaliteit controleren
 
-Er is een DMV (sys.dm_pdw_nodes_db_column_store_row_group_physical_stats) die nuttige informatie zoals het aantal rijen in Rijgroepen en de reden voor het trimmen als er is u beschikbaar maakt. U kunt de volgende weergave maken als een handige manier om op te vragen van deze DMV voor informatie over het inkorten van rijgroep.
+De DMV-sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql) bevat de weergavedefinitie van de die overeenkomt met de SQL-database naar SQL Data Warehouse) die nuttige informatie wordt aangegeven zoals het aantal rijen in Rijgroepen en de reden voor het trimmen als er werd bijsnijden. U kunt de volgende weergave maken als een handige manier om op te vragen van deze DMV voor informatie over het inkorten van rijgroep.
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -137,14 +137,6 @@ DWU-grootte en de gebruiker resourceklasse samen bepalen hoeveel geheugen beschi
 
 - Als u wilt vergroten de dwu's, Zie [hoe schalen prestaties?](quickstart-scale-compute-portal.md)
 - De resourceklasse van een query, Zie [wijzigen van een voorbeeld van een gebruiker resource klasse](resource-classes-for-workload-management.md#change-a-users-resource-class).
-
-Bijvoorbeeld op 100 DWU kunt een gebruiker in de resourceklasse smallrc 100 MB aan geheugen voor elke distributie. Zie voor informatie [gelijktijdigheid in SQL Data Warehouse](resource-classes-for-workload-management.md).
-
-Stel dat u vastgesteld dat er 700 MB geheugen voor het ophalen van hoge kwaliteit rijgroep grootten. Deze voorbeelden laten zien hoe u de load-query kunt uitvoeren met onvoldoende geheugen.
-
-- Met behulp van DWU 1000 en mediumrc, is uw geheugentoekenning 800 MB
-- Met behulp van DWU 600 en largerc, is uw geheugentoekenning 800 MB.
-
 
 ## <a name="next-steps"></a>Volgende stappen
 

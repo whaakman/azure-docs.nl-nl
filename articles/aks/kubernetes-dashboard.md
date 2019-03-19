@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 9d953cdb82412c07fe0ed4bef75dece4a929cad9
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: e831979e0a9f9c8b4d812f682403ecf466abbd13
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299126"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993888"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Toegang tot het Kubernetes-web-dashboard in Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Zie voor meer informatie over het Kubernetes-dashboard [Kubernetes Web UI-Dashbo
 
 De stappen die in dit document wordt ervan uitgegaan dat u een AKS-cluster hebt gemaakt en hebben een `kubectl` verbinding met het cluster. Als u maken van een AKS-cluster wilt, raadpleegt u de [Quick Start voor AKS][aks-quickstart].
 
-Ook moet de Azure CLI-versie 2.0.46 of later zijn geïnstalleerd en geconfigureerd. Voer  `az --version`  uit om de versie te bekijken. Als u wilt installeren of upgraden, Zie [Azure CLI installeren][install-azure-cli].
+Ook moet de Azure CLI-versie 2.0.46 of later zijn geïnstalleerd en geconfigureerd. Voer  `az --version`  uit om de versie te bekijken. Als u de Azure CLI wilt installeren of upgraden, raadpleegt u  [Azure CLI installeren][install-azure-cli].
 
 ## <a name="start-the-kubernetes-dashboard"></a>Start het Kubernetes-dashboard
 
@@ -34,7 +34,7 @@ Gebruiken om het Kubernetes-dashboard starten, de [az aks Bladeren] [ az-aks-bro
 az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Met deze opdracht maakt een proxy tussen uw systeem voor de ontwikkeling en het Kubernetes-API en opent een webbrowser naar de Kubernetes-dashboard. Als een webbrowser niet aan het Kubernetes-dashboard wordt geopend, kopieert en plakt u de URL-adres dat is vermeld in de Azure CLI, doorgaans *http://127.0.0.1:8001*.
+Met deze opdracht maakt een proxy tussen uw systeem voor de ontwikkeling en het Kubernetes-API en opent een webbrowser naar de Kubernetes-dashboard. Als een webbrowser niet aan het Kubernetes-dashboard wordt geopend, kopieert en plakt u de URL-adres dat is vermeld in de Azure CLI, doorgaans `http://127.0.0.1:8001`.
 
 ![De overzichtspagina van het Kubernetes-web-dashboard](./media/kubernetes-dashboard/dashboard-overview.png)
 

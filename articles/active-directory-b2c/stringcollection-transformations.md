@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 58773dded162ea51ccc6e502bbbdd4e13965c1d6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c312433832f7402eaff8b40c4e0a2a61397f6f87
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203485"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123501"
 ---
 # <a name="stringcollection-claims-transformations"></a>StringCollection claims transformaties
 
@@ -52,10 +52,10 @@ De volgende claimtransformatie wordt toegevoegd de **e** ClaimType naar **otherM
 ### <a name="example"></a>Voorbeeld
 
 - Invoerclaims:
-    - **verzameling**: ["someone@outlook.com"]
-    - **item**: "admin@contoso.com"
+  - **verzameling**: ["someone@outlook.com"]
+  - **item**: "admin@contoso.com"
 - Uitvoerclaims: 
-    - **verzameling**: ["someone@outlook.com","admin@contoso.com"]
+  - **verzameling**: ["someone@outlook.com","admin@contoso.com"]
 
 ## <a name="addparametertostringcollection"></a>AddParameterToStringCollection
 
@@ -86,11 +86,11 @@ Gebruik deze transformatie als u wilt een string-waarde toevoegen aan een nieuwe
 ### <a name="example"></a>Voorbeeld
 
 - Invoerclaims:
-    - **verzameling**: ["someone@outlook.com"]
+  - **verzameling**: ["someone@outlook.com"]
 - Invoerparameters 
-    - **item**: "admin@contoso.com"
+  - **item**: "admin@contoso.com"
 - Uitvoerclaims:
-    - **verzameling**: ["someone@outlook.com","admin@contoso.com"]
+  - **verzameling**: ["someone@outlook.com","admin@contoso.com"]
 
 ## <a name="getsingleitemfromstringcollection"></a>GetSingleItemFromStringCollection
 
@@ -117,7 +117,7 @@ Het volgende voorbeeld leest de **otherMails** claimen en retourneert het eerste
 ### <a name="example"></a>Voorbeeld
 
 - Invoerclaims:
-    - **verzameling**: ["someone@outlook.com","someone@contoso.com"]
+  - **verzameling**: ["someone@outlook.com","someone@contoso.com"]
 - Uitvoerclaims: 
-    - **extractedItem**: "someone@outlook.com"
+  - **extractedItem**: "someone@outlook.com"
 

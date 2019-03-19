@@ -11,16 +11,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/18/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: c993322bdf4266939eab854e217cae6e90326d29
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.lastreviewed: 03/18/2019
+ms.openlocfilehash: 1ea079373edc9b9f1dde6038f1e02e3d7036e052
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991560"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890488"
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>Bijwerken van de Azure App Service op Azure Stack
 
@@ -52,7 +52,7 @@ Tijdens dit proces wordt de upgrade:
 
 Als u wilt upgraden van uw implementatie van App Service in Azure Stack, de volgende stappen uit:
 
-1. Download de [App Service-installatieprogramma](https://aka.ms/appsvcupdate4installer)
+1. Download de [App Service-installatieprogramma](https://aka.ms/appsvcupdate5installer)
 
 2. Appservice.exe uitvoeren als beheerder
 
@@ -72,13 +72,13 @@ Als u wilt upgraden van uw implementatie van App Service in Azure Stack, de volg
 
    1. Klik op de **Connect** naast de **Azure Stack-abonnementen** vak.
         * Als u Azure Active Directory (Azure AD), voert u de Azure AD-beheerdersaccount en het wachtwoord die u hebt opgegeven tijdens de implementatie van Azure Stack. Klik op **aanmelden**.
-        * Als u Active Directory Federation Services (AD FS), Geef uw beheerdersaccount. Bijvoorbeeld *cloudadmin@azurestack.local*. Voer uw wachtwoord in en klikt u op **aanmelden**.
+        * Als u Active Directory Federation Services (AD FS), Geef uw beheerdersaccount. Bijvoorbeeld, *cloudadmin\@azurestack.local*. Voer uw wachtwoord in en klikt u op **aanmelden**.
    2. In de **Azure Stack-abonnementen** Schakel de **Providerabonnement standaard**.
    3. In de **Azure Stack-locaties** vak, selecteert u de locatie die overeenkomt met de regio die u naar implementeert. Selecteer bijvoorbeeld **lokale** als uw implementatie van de Azure Stack Development Kit.
    4. Als een bestaande App Service-implementatie wordt gedetecteerd, klikt u vervolgens de resource-account voor groep en de opslag ingevuld en grijs.
    5. Klik op **volgende** om te controleren van de samenvatting van de upgrade.
 
-    ![App Service-installatie gedetecteerd][3]
+      ![App Service-installatie gedetecteerd][3]
 
 8. Op de pagina Samenvatting:
    1. Controleer of de selecties die u hebt gemaakt. Als u wilt wijzigen, gebruikt u de **vorige** knoppen om naar de vorige pagina's te gaan.

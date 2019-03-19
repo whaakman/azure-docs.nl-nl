@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: geg
-ms.openlocfilehash: 0140cbc440e6098290a81f7ae61aa99e36da7d80
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 26856ac77f169d76c8bcbee7efd707c9881e4876
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312032"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105808"
 ---
 # <a name="restore-azure-vms"></a>Azure-VM's herstellen
 
@@ -101,11 +101,11 @@ Nadat de schijf is hersteld, gebruikt u de sjabloon die is gegenereerd als onder
     - [Meer informatie](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) over het implementeren van resources van een aangepaste sjabloon.
     - [Meer informatie](../azure-resource-manager/resource-group-authoring-templates.md) over het ontwerpen van sjablonen.
 
-  ![Sjabloonimplementatie laden](./media/backup-azure-arm-restore-vms/edit-template1.png)
+   ![Sjabloonimplementatie laden](./media/backup-azure-arm-restore-vms/edit-template1.png)
 
 4. Voer de aangepaste waarden in voor de virtuele machine, accepteert u de **voorwaarden en bepalingen** en klikt u op **aankoop**.
 
-  ![Sjabloonimplementatie verzenden](./media/backup-azure-arm-restore-vms/submitting-template1.png)
+   ![Sjabloonimplementatie verzenden](./media/backup-azure-arm-restore-vms/submitting-template1.png)
 
 
 ## <a name="replace-existing-disks"></a>Bestaande schijven vervangen

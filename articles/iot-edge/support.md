@@ -4,17 +4,17 @@ description: Informatie over welke besturingssystemen voor de Azure IoT Edge-dae
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/17/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 5c215c125237d72875155f15002fca6c4bee53b1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5bc133e81f9917aafb406a6bfb27922cdba48ef5
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077731"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58190002"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge ondersteunde systemen
 
@@ -36,15 +36,15 @@ Azure IoT Edge moet een container-engine modules starten omdat ze worden geïmpl
 </center>
 
 ## <a name="operating-systems"></a>Besturingssystemen
-Azure IoT Edge wordt uitgevoerd op de meeste besturingssystemen die containers; kunnen worden uitgevoerd. al deze waarden worden echter niet gelijkmatig ondersteund. Besturingssystemen zijn gegroepeerd in lagen, waarbij het niveau van ondersteuning voor gebruikers kunnen verwachten.
-* Laag 1-systemen kunnen worden beschouwd als officieel ondersteund. Dit betekent dat Microsoft:
+Azure IoT Edge wordt uitgevoerd op de meeste besturingssystemen die containers; kunnen worden uitgevoerd. al deze systemen worden echter niet gelijkmatig ondersteund. Besturingssystemen zijn gegroepeerd in lagen, waarbij het niveau van ondersteuning voor gebruikers kunnen verwachten.
+* Laag 1-systemen kunnen worden beschouwd als officieel ondersteund. Voor laag 1-systemen, Microsoft:
     * Dit besturingssysteem is in geautomatiseerde tests uit
     * biedt de installatiepakketten van deze
-* Laag 2-systemen kunnen worden beschouwd als compatibel met Azure IoT Edge en relatief eenvoudig kunnen worden gebruikt. Dit betekent dat:
+* Laag 2-systemen kunnen worden beschouwd als compatibel met Azure IoT Edge en relatief eenvoudig kunnen worden gebruikt. Voor laag 2-systemen:
     * Microsoft heeft gedaan ad-hoc testen op een platform of kent van een partner die Azure IoT Edge is uitgevoerd op het platform
     * Installatiepakketten voor andere platforms werken op deze platforms
     
-De familie van het hostbesturingssysteem moet altijd overeenkomen met de familie van het gastbesturingssysteem te installeren die wordt gebruikt in de container van een module. Met andere woorden, kunt u alleen Linux-containers in Linux en Windows-containers gebruiken op Windows. Wanneer u Windows gebruikt, zijn alleen proces geïsoleerde containers ondersteund, niet hyper-v geïsoleerde containers.  
+De familie van het hostbesturingssysteem moet altijd overeenkomen met de familie van het gastbesturingssysteem te installeren die wordt gebruikt in de container van een module. Met andere woorden, kunt u alleen Linux-containers in Linux en Windows-containers gebruiken op Windows. Bij het gebruik van Windows, alleen proces geïsoleerde containers worden ondersteund, niet Hyper-V (geïsoleerd) containers.  
 
 <br>
 <center>
@@ -65,11 +65,11 @@ Openbare preview
 
 | Besturingssysteem | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
-| Windows 10 IoT Core build 17763 | Ja | Nee |
-| Windows 10 IoT Enterprise build 17763 | Ja | Nee |
+| Windows 10 IoT Core, build 17763 | Ja | Nee |
+| Windows 10 IoT Enterprise, build 17763 | Ja | Nee |
 | Windows Server 2019 | Ja | Nee |
 
-De bovenstaande Windows-besturingssystemen zijn de vereisten voor welke Windows-containers worden uitgevoerd op Windows-apparaten. Dit is de enige ondersteunde configuratie voor productie. Het gebruik van Linux-containers in Windows; van de Azure IoT Edge-installatiepakketten voor Windows toestaan Dit is echter alleen voor ontwikkeling en testen. Gebruik van Linux-containers in Windows is geen ondersteunde configuratie voor productie. Elke versie van Windows 10-build 14393 of hoger en WindowsServer 2016 of hoger kan worden gebruikt voor dit scenario voor het ontwikkelen.
+De Windows-besturingssystemen die hierboven worden vermeld, zijn de vereisten voor apparaten met Windows-containers in Windows. Deze configuratie is de enige ondersteunde configuraties voor productie. Het gebruik van Linux-containers in Windows; van de Azure IoT Edge-installatiepakketten voor Windows toestaan Deze configuratie is echter alleen voor ontwikkeling en testen. Gebruik van Linux-containers in Windows is geen ondersteunde configuratie voor productie. Elke versie van Windows 10-build 14393 of hoger en WindowsServer 2016 of hoger kan worden gebruikt voor dit scenario voor het ontwikkelen.
 
 ### <a name="tier-2"></a>Categorie 2
 
@@ -86,7 +86,7 @@ De bovenstaande Windows-besturingssystemen zijn de vereisten voor welke Windows-
 
 
 ## <a name="virtual-machines"></a>Virtuele machines
-Azure IoT Edge kunnen worden uitgevoerd in virtuele machines. Dit is gebruikelijk wanneer klanten willen bestaande infrastructuur uitbreiden met randintelligentie. De familie van de virtuele machine hostbesturingssysteem moet overeenkomen met de familie van het gastbesturingssysteem te installeren die wordt gebruikt in de container van een module. Dit is dezelfde vereisten als Azure IoT Edge rechtstreeks op een apparaat wordt uitgevoerd. Azure IoT Edge is los van de onderliggende virtualisatietechnologie en werkt in VM's met platformen, zoals Hyper-V- en vSphere.
+Azure IoT Edge kunnen worden uitgevoerd in virtuele machines. Met behulp van een virtuele machine als een IoT-Edge is apparaat gebruikelijk wanneer klanten willen bestaande infrastructuur uitbreiden met randintelligentie. De familie van de virtuele machine hostbesturingssysteem moet overeenkomen met de familie van het gastbesturingssysteem te installeren die wordt gebruikt in de container van een module. Deze vereiste is hetzelfde als bij Azure IoT Edge rechtstreeks op een apparaat wordt uitgevoerd. Azure IoT Edge is los van de onderliggende virtualisatietechnologie en werkt in VM's met platformen, zoals Hyper-V- en vSphere.
 
 <br>
 <center>
@@ -95,6 +95,14 @@ Azure IoT Edge kunnen worden uitgevoerd in virtuele machines. Dit is gebruikelij
 </center>
 
 ## <a name="minimum-system-requirements"></a>Minimale systeemvereisten
-Azure IoT Edge uitstekend wordt uitgevoerd op apparaten die zo klein is als een Raspberry Pi3 server geavanceerde hardware. Het kiezen van de juiste hardware voor uw scenario is erg afhankelijk zijn van de werkbelastingen die u wilt uitvoeren. Het laatste apparaat beslissing kan ingewikkeld; zijn u kunt echter eenvoudig ontwikkelen van prototypen een oplossing voor traditionele laptops of desktops starten.
+Azure IoT Edge uitstekend wordt uitgevoerd op apparaten die zo klein is als een Raspberry Pi3 server geavanceerde hardware. Kies de juiste hardware voor uw scenario, is afhankelijk van de werkbelastingen die u wilt uitvoeren. Het laatste apparaat beslissing kan ingewikkeld; zijn u kunt echter eenvoudig ontwikkelen van prototypen een oplossing voor traditionele laptops of desktops starten.
 
-Ervaringen bij het ontwikkelen van prototypen helpt uw apparaatselectie van het laatste. Vragen kunt u overwegen opnemen: hoeveel modules deel uitmaken van uw werkbelasting, het aantal lagen uw modules containers delen, in welke taal zijn de modules die zijn geschreven, hoeveel gegevens wordt uw modules worden verwerkt, een gespecialiseerde modules hoeft te doen hardware voor het versnellen van hun workloads, wat zijn de gewenste prestatiekenmerken van uw oplossing, wat is uw budget hardware?
+Ervaringen bij het ontwikkelen van prototypen helpt uw apparaatselectie van het laatste. U moet rekening houden met vragen zijn onder andere: 
+
+* Hoeveel modules zijn in uw werkbelasting?
+* Het aantal lagen maken gebruik van uw modules containers?
+* In welke taal zijn de modules geschreven? 
+* Hoeveel gegevens wordt uw modules verwerkt?
+* Moeten uw modules geen speciale hardware voor het versnellen van hun workloads?
+* Wat zijn de gewenste prestatiekenmerken van uw oplossing?
+* Wat is uw budget hardware?

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 9e4c4e8c8d7aa89e2a27efc2c2deebd4863be23e
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: ca6be2b08c9a38813b2c98eef7e5696bd61fd074
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242952"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893030"
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Aggregatie van de gebeurtenis en verzameling met Linux Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Eén manier om te uploaden en verzamelen van Logboeken is het gebruik van de Lin
 ## <a name="log-and-event-sources"></a>Logboek- en gebeurtenisgegevens bronnen
 
 ### <a name="service-fabric-platform-events"></a>Service Fabric-platformgebeurtenissen
-Service Fabric verzendt een paar out-of-the-box-logboeken via [LTTng](http://lttng.org), met inbegrip van operationele gebeurtenissen of de runtime-gebeurtenissen. Deze logboeken worden opgeslagen in de locatie van het cluster Resource Manager-sjabloon bevat. Als u wilt ophalen of instellen van de details van het opslagaccount, zoek de tag **AzureTableWinFabETWQueryable** en zoek naar **StoreConnectionString**.
+Service Fabric verzendt een paar out-of-the-box-logboeken via [LTTng](https://lttng.org), met inbegrip van operationele gebeurtenissen of de runtime-gebeurtenissen. Deze logboeken worden opgeslagen in de locatie van het cluster Resource Manager-sjabloon bevat. Als u wilt ophalen of instellen van de details van het opslagaccount, zoek de tag **AzureTableWinFabETWQueryable** en zoek naar **StoreConnectionString**.
 
 ### <a name="application-events"></a>Toepassingsgebeurtenissen
  Gebeurtenissen die afkomstig zijn van uw toepassingen en services code zoals opgegeven door u bij het instrumenteren van uw software. U kunt een registratie-oplossing die tekstgebaseerde logboekbestanden--bijvoorbeeld LTTng schrijft. Zie voor meer informatie de documentatie LTTng op de tracering van de toepassing.
@@ -52,5 +52,5 @@ Hiermee configureert u de agent LAD voor het controleren van de opgegeven logboe
 
 ## <a name="next-steps"></a>Volgende stappen
 
-1. Zie voor meer informatie over in meer detail wat u controleren moet bij het oplossen van problemen met gebeurtenissen, [LTTng documentatie](http://lttng.org/docs) en [LAD met behulp van](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux).
+1. Zie voor meer informatie over in meer detail wat u controleren moet bij het oplossen van problemen met gebeurtenissen, [LTTng documentatie](https://lttng.org/docs) en [LAD met behulp van](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux).
 2. [Instellen van de Log Analytics-agent](service-fabric-diagnostics-event-analysis-oms.md) om te verzamelen van metrische gegevens, Containers die zijn geïmplementeerd op het cluster controleren en visualiseren van uw logboeken 

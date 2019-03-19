@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: 7d45c11345312fe48312bd4e744433397a17a62d
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
-ms.translationtype: HT
+ms.openlocfilehash: 7d94834523e331ff048f787760561739765e7023
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359320"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842291"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Een Azure Database for MariaDB-server maken met behulp van de Azure CLI
 
@@ -45,7 +45,7 @@ az group create --name myresourcegroup --location westus
 
 U maakt een Azure Database for MariaDB-server met de opdracht [az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create). Een server kan meerdere databases beheren. Een aparte database wordt doorgaans gebruikt voor elk project of voor elke gebruiker.
 
-Instelling | Voorbeeldwaarde | Beschrijving
+Instelling | Voorbeeldwaarde | Description
 ---|---|---
 naam | **mydemoserver** | Voer een unieke naam in ter identificatie van de Azure Database for MariaDB-server. De servernaam mag alleen kleine letters, cijfers en het koppelteken (-) bevatten. Dit wachtwoord moet tussen 3 en 63 tekens bevatten.
 resource-group | **myresourcegroup** | Voer de naam van de Azure-resourcegroep in.
@@ -147,78 +147,78 @@ Maak als volgt verbinding met de server met het opdrachtregelprogramma mysql:
 
 1. Verbinding maken met de server:
 
-  ```azurecli-interactive
-  mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
-  ```
+   ```azurecli-interactive
+   mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
+   ```
 
 2. De serverstatus bekijken bij de prompt van `mysql>`:
 
-  ```sql
-  status
-  ```
-  De uitvoer moet er ongeveer uitzien als de volgende tekst:
+   ```sql
+   status
+   ```
+   De uitvoer moet er ongeveer uitzien als de volgende tekst:
 
-  ```bash
-  C:\Users\>mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
-  Enter password: ***********
-  Welcome to the MySQL monitor.  Commands end with ; or \g.
-  Your MySQL connection id is 65512
-  Server version: 5.6.39.0 MariaDB Server
+   ```bash
+   C:\Users\>mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
+   Enter password: ***********
+   Welcome to the MySQL monitor.  Commands end with ; or \g.
+   Your MySQL connection id is 65512
+   Server version: 5.6.39.0 MariaDB Server
 
-  Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.
+   Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.
 
-  Oracle is a registered trademark of Oracle Corporation and/or its
-  affiliates. Other names may be trademarks of their respective
-  owners.
+   Oracle is a registered trademark of Oracle Corporation and/or its
+   affiliates. Other names may be trademarks of their respective
+   owners.
 
-  Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+   Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
-  mysql> status
-  --------------
-  mysql  Ver 14.14 Distrib 5.7.23, for Linux (x86_64)
+   mysql> status
+   --------------
+   mysql  Ver 14.14 Distrib 5.7.23, for Linux (x86_64)
 
-  Connection id:          64681
-  Current database:
-  Current user:           myadmin@40.118.201.21
-  SSL:                    Cipher in use is AES256-SHA
-  Current pager:          stdout
-  Using outfile:          ''
-  Using delimiter:        ;
-  Server version:         5.6.39.0 MariaDB Server
-  Protocol version:       10
-  Connection:             mydemoserver.mariadb.database.azure.com via TCP/IP
-  Server characterset:    latin1
-  Db     characterset:    latin1
-  Client characterset:    utf8
-  Conn.  characterset:    utf8
-  TCP port:               3306
-  Uptime:                 1 day 3 hours 28 min 50 sec
+   Connection id:          64681
+   Current database:
+   Current user:           myadmin@40.118.201.21
+   SSL:                    Cipher in use is AES256-SHA
+   Current pager:          stdout
+   Using outfile:          ''
+   Using delimiter:        ;
+   Server version:         5.6.39.0 MariaDB Server
+   Protocol version:       10
+   Connection:             mydemoserver.mariadb.database.azure.com via TCP/IP
+   Server characterset:    latin1
+   Db     characterset:    latin1
+   Client characterset:    utf8
+   Conn.  characterset:    utf8
+   TCP port:               3306
+   Uptime:                 1 day 3 hours 28 min 50 sec
 
-  Threads: 10  Questions: 29002  Slow queries: 0  Opens: 33  Flush tables: 3  Open tables: 1  Queries per second avg: 0.293
-  --------------
+   Threads: 10  Questions: 29002  Slow queries: 0  Opens: 33  Flush tables: 3  Open tables: 1  Queries per second avg: 0.293
+   --------------
 
-  mysql>
-  ```
+   mysql>
+   ```
 
 > [!TIP]
 > Zie [hoofdstuk 4.5.1 in de Engelstalige naslaghandleiding van MySQL 5.7](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) voor aanvullende opdrachten.
 
 ## <a name="connect-to-the-server-by-using-mysql-workbench"></a>Verbinding maken met de server met MySQL Workbench
 
-1.  Open MySQL Workbench op uw clientcomputer. Als dit nog niet is geïnstalleerd, [downloadt](https://dev.mysql.com/downloads/workbench/) en installeert u de toepassing.
+1. Open MySQL Workbench op uw clientcomputer. Als dit nog niet is geïnstalleerd, [downloadt](https://dev.mysql.com/downloads/workbench/) en installeert u de toepassing.
 
-2.  Voer in het dialoogvenster **Nieuwe verbinding instellen** de volgende gegevens in op het tabblad **Parameters**:
+2. Voer in het dialoogvenster **Nieuwe verbinding instellen** de volgende gegevens in op het tabblad **Parameters**:
 
- ![Een nieuwe verbinding instellen](./media/quickstart-create-mariadb-server-database-using-azure-cli/setup-new-connection.png)
+   ![Een nieuwe verbinding instellen](./media/quickstart-create-mariadb-server-database-using-azure-cli/setup-new-connection.png)
 
-  | Instelling | Voorgestelde waarde | Beschrijving |
-  |---|---|---|
-  | Verbindingsnaam | **Demoverbinding** | Geef een label op voor deze verbinding (de verbindingsnaam kan van alles zijn) |
-  | Verbindingsmethode | **Standard (TCP/IP)** | Gebruik het TCP/IP-protocol om verbinding te maken met Azure Database for MariaDB |
-  | Hostnaam | **mydemoserver.mariadb.database.azure.com** | De servernaam die u eerder hebt genoteerd. |
-  | Poort | **3306** | De standaardpoort voor Azure Database for MariaDB. |
-  | Gebruikersnaam | **myadmin@mydemoserver** | De serverbeheerdersnaam die u eerder hebt genoteerd. |
-  | Wachtwoord | *Uw wachtwoord* | Gebruik het beheerdersaccountwachtwoord voor het beheerdersaccount dat u eerder hebt ingesteld. |
+   | Instelling | Voorgestelde waarde | Description |
+   |---|---|---|
+   | Verbindingsnaam | **Demoverbinding** | Geef een label op voor deze verbinding (de verbindingsnaam kan van alles zijn) |
+   | Verbindingsmethode | **Standard (TCP/IP)** | Gebruik het TCP/IP-protocol om verbinding te maken met Azure Database for MariaDB |
+   | Hostnaam | **mydemoserver.mariadb.database.azure.com** | De servernaam die u eerder hebt genoteerd. |
+   | Poort | **3306** | De standaardpoort voor Azure Database for MariaDB. |
+   | Gebruikersnaam | **myadmin\@mydemoserver** | De serverbeheerdersnaam die u eerder hebt genoteerd. |
+   | Wachtwoord | *Uw wachtwoord* | Gebruik het beheerdersaccountwachtwoord voor het beheerdersaccount dat u eerder hebt ingesteld. |
 
 3. Selecteer **Verbinding testen** om te controleren of alle parameters juist zijn geconfigureerd.
 

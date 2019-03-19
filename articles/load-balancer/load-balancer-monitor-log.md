@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/10/2018
 ms.author: kumud
-ms.openlocfilehash: d6b5a8b31b78e21868a7f81c481c4fce1cd4e6f5
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 0d7c792c5230a5d82e97f4598a5dcfb864cead74
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192442"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57847141"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Azure Monitor-logboeken voor openbare Basic Load Balancer
 
@@ -38,7 +38,7 @@ U kunt verschillende soorten logboeken in Azure gebruiken om te beheren en probl
 
 Het controlelogboek is automatisch ingeschakeld voor elke Resource Manager-resource. U moet inschakelen gebeurtenis en health test logboekregistratie voor het starten van de gegevens beschikbaar zijn via deze logboeken verzamelen. Gebruik de volgende stappen om in te schakelen van logboekregistratie.
 
-Aanmelden bij de [Azure-portal](http://portal.azure.com). Als u een load balancer, nog niet hebt [maken van een load balancer](load-balancer-get-started-internet-arm-ps.md) voordat u doorgaat.
+Aanmelden bij de [Azure-portal](https://portal.azure.com). Als u een load balancer, nog niet hebt [maken van een load balancer](load-balancer-get-started-internet-arm-ps.md) voordat u doorgaat.
 
 1. Klik in de portal op **Bladeren**.
 2. Selecteer **Load Balancers**.

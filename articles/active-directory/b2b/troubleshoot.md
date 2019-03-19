@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec05c513d89dc8a590cbd0f586f382d699edc5e3
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e66c694d2bfb5497712bcf81c4d50a8e68fdcef9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454116"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122517"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Oplossen van problemen met Azure Active Directory B2B-samenwerking
 
@@ -29,7 +29,7 @@ Hier volgen enkele oplossingen voor veelvoorkomende problemen met Azure Active D
 In gevallen waarbij externe gebruikers niet worden ingevuld in de lijst, kan het object repliceren in een paar minuten duren.
 
 ## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>Een gastgebruiker B2B wordt niet weergegeven in SharePoint Online/OneDrive personen selecteren 
- 
+ 
 De mogelijkheid om te zoeken naar bestaande gastgebruikers ook kunnen in de SharePoint Online (SPO) personen selecteren is uitgeschakeld zodat deze overeenkomen met de verouderde gedrag standaard.
 
 U kunt deze functie inschakelen met behulp van de instelling 'ShowPeoplePickerSuggestionsForGuestUsers' op het niveau van de verzameling tenant en de site. U kunt de functie met de cmdlets Set-SPOTenant en Set-SPOSite waarmee leden om te zoeken naar alle bestaande gastgebruikers ook kunnen in de map instellen. Wijzigingen in het tenantbereik is niet van invloed op al ingerichte SPO-sites.

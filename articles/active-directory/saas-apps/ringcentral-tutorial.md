@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d86dc27822c91bd6b2b1cb3ec53b07978061cc7d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e9cd97bc226ec69441b933a9f7bf3caec17f1478
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437357"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877119"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ringcentral"></a>Zelfstudie: Azure Active Directory-integratie met RingCentral
 
@@ -127,6 +127,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     ![image](./media/ringcentral-tutorial/b21-domains_and_urls.png)
 
     d. In de **aanmeldings-URL** tekstvak, een URL typen:
+
     | |
     |--|
     | `https://service.ringcentral.com` |
@@ -140,6 +141,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 6. Als u geen **Service Provider-bestand met metagegevens**, voer de volgende stappen uit:
 
     a. In de **aanmeldings-URL** tekstvak, een URL typen:
+
     | |
     |--|
     | `https://service.ringcentral.com` |
@@ -148,12 +150,14 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     | `https://service.ringcentral.eu` |
 
     b. In de **id** tekstvak, een URL typen:
+
     | |
     |--|
     |  `https://sso.ringcentral.com` |
     | `https://ssoeuro.ringcentral.com` |
 
     c. Typ een URL in het tekstvak **Antwoord-URL**:
+    
     | |
     |--|
     | `https://sso.ringcentral.com/sp/ACS.saml2` |
@@ -223,7 +227,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     a. Voer in het veld **Naam** **Britta Simon**in.
   
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    b. In de **gebruikersnaam** veldtype **brittasimon\@yourcompanydomain.extension**  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Selecteer **eigenschappen**, selecteer de **Show wachtwoord** selectievakje en noteer de waarde die wordt weergegeven in het wachtwoord.

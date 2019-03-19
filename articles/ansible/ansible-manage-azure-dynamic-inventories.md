@@ -1,19 +1,19 @@
 ---
 title: Dynamische voorraden in Azure beheren met Ansible
 description: Informatie over het beheren van dynamische voorraden in Azure met Ansible
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, cloudshell, dynamische voorraad
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 08/09/2018
 ms.topic: tutorial
-ms.openlocfilehash: cf404b84377a37f9a97f7e7c9c9f86402fe999e0
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
-ms.translationtype: HT
+ms.openlocfilehash: 0ef754b792654281f2a12b8eee613434896d5476
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359660"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092205"
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Dynamische voorraden in Azure beheren met Ansible
 Ansible kan worden gebruikt om voorraadinformatie uit verschillende bronnen (met inbegrip van cloudbronnen zoals Azure) in een *dynamische voorraad* op te halen. In dit artikel gebruikt u de [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) om een dynamische virtuele machine voor Ansible Azure te configureren waarin u twee virtuele machines maakt, één van deze virtuele machines tagt en Nginx op de getagde virtuele machine installeert.
@@ -130,9 +130,9 @@ Het doel van tags is om de mogelijkheid in te schakelen snel en eenvoudig met su
 
 1. Maak als volgt een bestand (om uw playbook te bevatten) met de naam `nginx.yml`:
 
-  ```azurecli-interactive
-  vi nginx.yml
-  ```
+   ```azurecli-interactive
+   vi nginx.yml
+   ```
 
 1. Voeg de volgende code in het zojuist gemaakte `nginx.yml`-bestand in:
 

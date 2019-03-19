@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30f35010b5072c89779b8030055a2d37beb58b0d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 80a35182af3c4a7992ef416fcee038240e2bdfca
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200436"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074944"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Azure Multi-Factor Authentication-server configureren om met AD FS in Windows Server te werken
 
@@ -46,21 +46,29 @@ Houd rekening met de volgende informatie voordat u begint:
 3. Selecteer de aanvullende opties die u wilt opgeven voor uw organisatie.
 4. Klik op **AD FS-adapter installeren**.
    
-   <center>![Cloud](./media/howto-mfaserver-adfs-2012/server.png)</center>
+   <center>
+   
+   ![Cloud](./media/howto-mfaserver-adfs-2012/server.png)</center>
 
 5. Als het Active Directory-venster wordt weergegeven, betekent dit twee dingen. Uw computer is lid van een domein en de Active Directory-configuratie voor de beveiliging van de communicatie tussen de AD FS-adapter en de Multi-Factor Authentication-service is niet voltooid. Klik op **Volgende** om deze configuratie automatisch te voltooien of schakel het selectievakje **Automatische Active Directory-configuratie overslaan en instellingen handmatig configureren** in. Klik op **volgende**.
 6. Als het venster Lokale groep wordt weergegeven, betekent dit twee dingen. Uw computer is geen lid van een domein en de configuratie van de lokale groep voor de beveiliging van de communicatie tussen de AD FS-adapter en de Multi-Factor Authentication-service is niet voltooid. Klik op **Volgende** om deze configuratie automatisch te voltooien of schakel het selectievakje **Automatische lokale groep-configuratie overslaan en instellingen handmatig configureren** in. Klik op **volgende**.
 7. Klik in de installatiewizard op **Volgende**. Azure Multi-Factor Authentication-server maakt de PhoneFactor Admins-groep en voegt de AD FS-serviceaccount toe aan de PhoneFactor Admins-groep.
-   <center>![Cloud](./media/howto-mfaserver-adfs-2012/adapter.png)</center>
+   <center>
+   
+   ![Cloud](./media/howto-mfaserver-adfs-2012/adapter.png)</center>
 8. Klik op de pagina **Installatieprogramma uitvoeren** op **Volgende**.
 9. Klik in het installatieprogramma voor de Multi-Factor Authentication AD FS-adapter op **Volgende**.
 10. Klik op **Sluiten** nadat de installatie is voltooid.
 11. Wanneer de adapter is geïnstalleerd, moet u deze registreren bij AD FS. Open Windows PowerShell en voer de volgende opdracht uit:<br>
     `C:\Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1`
-    <center>![Cloud](./media/howto-mfaserver-adfs-2012/pshell.png)</center>
+    <center>
+    
+    ![Cloud](./media/howto-mfaserver-adfs-2012/pshell.png)</center>
 12. Bewerk het algemene authenticatiebeleid in AD FS om de zojuist geregistreerde adapter te gebruiken. Ga in de AD FS-beheerconsole naar het knooppunt **Authentication Policies**. Klik in het gedeelte **Multi-factor Authentication** op de koppeling **Edit** naast het gedeelte **Global Settings**. Selecteer in het venster **Edit Global Authentication Policy** **Multi-Factor Authentication** als een aanvullende verificatiemethode en klik op **OK**. De adapter wordt geregistreerd als WindowsAzureMultiFactorAuthentication. Start de AD FS-service opnieuw op voordat de registratie van kracht wordt.
 
-<center>![Cloud](./media/howto-mfaserver-adfs-2012/global.png)</center>
+<center>
+
+![Cloud](./media/howto-mfaserver-adfs-2012/global.png)</center>
 
 De Multi-Factor Authentication-server is nu ingesteld voor gebruik als een extra verificatieprovider voor gebruik met AD FS.
 
@@ -80,7 +88,7 @@ De Multi-Factor Authentication-server is nu ingesteld voor gebruik als een extra
 Volg deze stappen om het bestand MultiFactorAuthenticationAdfsAdapter.config te bewerken:
 
 1. Stel het knooppunt **UseWebServiceSdk** in op **true**.  
-2. Stel de waarde voor **WebServiceSdkUrl** in op de URL van de webservice-SDK voor Multi-Factor Authentication. Bijvoorbeeld:  *https://contoso.com/&lt; certificatename&gt;/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*, waarbij *certificatename* is de naam van uw certificaat.  
+2. Stel de waarde voor **WebServiceSdkUrl** in op de URL van de webservice-SDK voor Multi-Factor Authentication. Bijvoorbeeld: *<https://contoso.com/&lt;certificatename&gt;/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx>*, waarbij *certificatename* is de naam van uw certificaat.  
 3. Bewerk het script Register-MultiFactorAuthenticationAdfsAdapter.ps1 door `-ConfigurationFilePath &lt;path&gt;` toe te voegen aan het einde van de opdracht `Register-AdfsAuthenticationProvider`, waarbij *&lt;path&gt;* het volledige pad is naar het bestand MultiFactorAuthenticationAdfsAdapter.config.
 
 ### <a name="configure-the-web-service-sdk-with-a-username-and-password"></a>De webservice-SDK configureren met een gebruikersnaam en wachtwoord

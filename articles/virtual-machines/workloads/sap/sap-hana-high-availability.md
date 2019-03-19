@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/16/2018
+ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 0f5de24d42ccc930a4746251b9f466f241c3508e
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: f0bac9d50e73ed703905545261e86796ede214e2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806705"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180837"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Hoge beschikbaarheid van SAP HANA op Azure VM's in SUSE Linux Enterprise Server
 
@@ -193,6 +193,9 @@ Volg deze stappen voor het implementeren van de sjabloon:
 
 Lees voor meer informatie over de vereiste poorten voor SAP HANA, het hoofdstuk [verbindingen met Tenantdatabases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) in de [SAP HANA-Tenantdatabases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) handleiding of [SAP-notitie 2388694][2388694].
 
+> [!IMPORTANT]
+> Schakel geen TCP-tijdstempels op Azure VM's achter Azure Load Balancer worden geplaatst. Inschakelen van TCP tijdstempels zorgt ervoor dat de statuscontroles mislukken. Stel de parameter **net.ipv4.tcp_timestamps** naar **0**. Zie voor meer informatie [Load Balancer statuscontroles](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview).
+> SAP-notitie [2382421](https://launchpad.support.sap.com/#/notes/2382421) momenteel bevat conflicterende-instructie, adviseren u net.ipv4.tcp_timestamps instellen op 1. Voor Azure VM's achter Azure Load balancer worden geplaatst, stel de parameter **net.ipv4.tcp_timestamps** naar **0**. 
 
 ## <a name="create-a-pacemaker-cluster"></a>Een cluster Pacemaker maken
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: monhaber
-ms.openlocfilehash: 8662539257422289053e75beeadd07c63d8d3f4d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 6e8c10ecb85addf2ef6a995e3c0b8ac611343cfa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106627"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110338"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Zelfstudie: Uw resources beveiligen met Azure Security Center
 Security Center beperkt de blootstelling aan bedreigingen met behulp van toegangs- en toepassingsbesturingselementen om schadelijke activiteiten te blokkeren. Just-In-Time-toegang (JIT) tot virtuele machines (VM's) vermindert de blootstelling aan aanvallen doordat u permanente toegang tot VM's kunt weigeren. U biedt in plaats daarvan beheerde en gecontroleerde toegang tot VM's, alleen wanneer dat nodig is. Besturingselementen voor adaptieve toepassingen helpen u om VM's beter te beschermen tegen malware door te beheren welke toepassingen op uw VM's kunnen worden uitgevoerd. Security Center maakt gebruik van machine learning om de processen te analyseren die op de virtuele machine worden uitgevoerd. Ook helpt het u op basis van deze informatie regels voor opname in de whitelist toe te passen.
@@ -43,30 +43,30 @@ Beheerpoorten hoeven niet te allen tijde geopend te zijn. Ze hoeven alleen geope
 
 1. Selecteer in het hoofdmenu van Security Center **Just-In-Time-VM-toegang** onder **GEAVANCEERDE CLOUDBEVEILIGING**.
 
-  ![Just-In-Time-VM-toegang][1]
+   ![Just-In-Time-VM-toegang][1]
 
-  **Just-In-Time-VM-toegang** biedt informatie over de status van uw VM's:
+   **Just-In-Time-VM-toegang** biedt informatie over de status van uw VM's:
 
-  - **Geconfigureerd**: VM's die zijn geconfigureerd om Just-In-Time-VM-toegang te ondersteunen.
-  - **Aanbevolen**: VM's die Just-In-Time-VM-toegang kunnen ondersteunen maar er niet voor zijn geconfigureerd.
-  - **Geen aanbeveling**: redenen waarom een VM mogelijk niet wordt aanbevolen zijn:
+   - **Geconfigureerd**: VM's die zijn geconfigureerd om Just-In-Time-VM-toegang te ondersteunen.
+   - **Aanbevolen**: VM's die Just-In-Time-VM-toegang kunnen ondersteunen maar er niet voor zijn geconfigureerd.
+   - **Geen aanbeveling**: redenen waarom een VM mogelijk niet wordt aanbevolen zijn:
 
-    - NSG ontbreekt: de Just-In-Time-oplossing vereist dat er een NSG aanwezig is.
-    - Klassieke VM: Just-In-Time-VM-toegang van Security Center ondersteunt momenteel alleen VM's die zijn geïmplementeerd via Azure Resource Manager.
-    - Overig: een VM valt in deze categorie als de Just-In-Time-oplossing is uitgeschakeld in het beveiligingsbeleid van het abonnement of de resourcegroep, of als de VM geen openbaar IP-adres heeft en geen NSG heeft.
+     - NSG ontbreekt: de Just-In-Time-oplossing vereist dat er een NSG aanwezig is.
+     - Klassieke VM: Just-In-Time-VM-toegang van Security Center ondersteunt momenteel alleen VM's die zijn geïmplementeerd via Azure Resource Manager.
+     - Overig: een VM valt in deze categorie als de Just-In-Time-oplossing is uitgeschakeld in het beveiligingsbeleid van het abonnement of de resourcegroep, of als de VM geen openbaar IP-adres heeft en geen NSG heeft.
 
 2. Selecteer een aanbevolen VM en klik op **JIT inschakelen op 1 VM** om een Just-In-Time-beleid voor die VM te configureren:
 
-  U kunt de standaardpoorten opslaan die door Security Center worden aanbevolen of u kunt een nieuwe poort toevoegen en configureren waarop u de Just-In-Time-oplossing wilt inschakelen. In deze zelfstudie gaan we een poort toevoegen door **Toevoegen** te selecteren.
+   U kunt de standaardpoorten opslaan die door Security Center worden aanbevolen of u kunt een nieuwe poort toevoegen en configureren waarop u de Just-In-Time-oplossing wilt inschakelen. In deze zelfstudie gaan we een poort toevoegen door **Toevoegen** te selecteren.
 
-  ![Poortconfiguratie toevoegen][2]
+   ![Poortconfiguratie toevoegen][2]
 
 3. Onder **Poortconfiguratie toevoegen** kunt u het volgende identificeren:
 
-  - De poort
-  - Het protocoltype
-  - Toegestane bron-IP's: toegestane IP-bereiken om toegang te verkrijgen met een goedgekeurde aanvraag
-  - Maximale aanvraagtijd: maximaal tijdvenster dat een specifieke poort geopend kan zijn
+   - De poort
+   - Het protocoltype
+   - Toegestane bron-IP's: toegestane IP-bereiken om toegang te verkrijgen met een goedgekeurde aanvraag
+   - Maximale aanvraagtijd: maximaal tijdvenster dat een specifieke poort geopend kan zijn
 
 4. Selecteer **OK** om op te slaan.
 
@@ -79,22 +79,22 @@ Deze functie is alleen beschikbaar voor Windows-machines.
 
    ![Adaptieve toepassingsbesturingselementen][3]
 
-  De sectie **Resourcegroepen** bevat drie tabbladen:
+   De sectie **Resourcegroepen** bevat drie tabbladen:
 
-  - **Geconfigureerd**: een lijst met resourcegroepen met VM's waarvoor toepassingsbeheer is geconfigureerd.
-  - **Aanbevolen**: een lijst met resourcegroepen waarvoor toepassingsbeheer wordt aanbevolen.
-  - **Geen aanbeveling**: een lijst met resourcegroepen met VM's waarvoor geen aanbevelingen zijn gedaan voor het gebruik van toepassingsbeheer. Hierbij kan het bijvoorbeeld gaan om virtuele machines waarop toepassingen steeds wisselen en geen stabiele status hebben.
+   - **Geconfigureerd**: een lijst met resourcegroepen met VM's waarvoor toepassingsbeheer is geconfigureerd.
+   - **Aanbevolen**: een lijst met resourcegroepen waarvoor toepassingsbeheer wordt aanbevolen.
+   - **Geen aanbeveling**: een lijst met resourcegroepen met VM's waarvoor geen aanbevelingen zijn gedaan voor het gebruik van toepassingsbeheer. Hierbij kan het bijvoorbeeld gaan om virtuele machines waarop toepassingen steeds wisselen en geen stabiele status hebben.
 
 2. Selecteer het tabblad **Aanbevolen** voor een lijst met resourcegroepen waarvoor toepassingsbeheer wordt aanbevolen.
 
-  ![Aanbevelingen voor toepassingsbeheer][4]
+   ![Aanbevelingen voor toepassingsbeheer][4]
 
 3. Selecteer een resourcegroep om de optie **Regels voor toepassingsbeheer maken** te openen. Bekijk in **VM's selecteren** de lijst met aanbevolen virtuele machines en schakel alle virtuele machines uit waarop u geen toepassingsbeheer wilt toepassen. Bekijk in **Processen selecteren voor de regels voor opname in de whitelist** de lijst met aanbevolen toepassingen en schakel alle toepassingen uit waarop u geen toepassingsbeheer wilt toepassen. De lijst bevat:
 
-  - **NAAM**: het volledige toepassingspad
-  - **PROCESSEN**: hoeveel toepassingen zich binnen elk pad bevinden
-  - **ALGEMEEN**: 'Ja' geeft aan dat deze processen zijn uitgevoerd op de meeste virtuele machines in deze resourcegroep
-  - **EXPLOITEERBAAR**: er wordt een waarschuwingspictogram weergegeven als de toepassingen door een aanvaller kunnen worden gebruikt om opname in de whitelist met toepassingen te omzeilen. U wordt aanbevolen om deze toepassingen te controleren voordat ze worden goedgekeurd.
+   - **NAAM**: het volledige toepassingspad
+   - **PROCESSEN**: hoeveel toepassingen zich binnen elk pad bevinden
+   - **ALGEMEEN**: 'Ja' geeft aan dat deze processen zijn uitgevoerd op de meeste virtuele machines in deze resourcegroep
+   - **EXPLOITEERBAAR**: er wordt een waarschuwingspictogram weergegeven als de toepassingen door een aanvaller kunnen worden gebruikt om opname in de whitelist met toepassingen te omzeilen. U wordt aanbevolen om deze toepassingen te controleren voordat ze worden goedgekeurd.
 
 4. Selecteer **Maken** nadat u uw selecties hebt gemaakt.
 

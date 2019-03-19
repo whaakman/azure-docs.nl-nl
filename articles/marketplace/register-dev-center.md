@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 549f37c1287373fe8bf4c10dc64e6e778b37be02
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 682c9e209c4fa4a9f4971af5da901faf1ec58c22
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730134"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889740"
 ---
 # <a name="register-in-dev-center"></a>Registreren in Dev Center  
 Om te controleren of u bent niet aangemeld bij een account persoonlijke browser, open een nieuw InPrivate van Internet Explorer of Chrome Incognito browsersessie.  
 1.  Meld u aan als een verkoper in Dev Center.  
-    *   Als u wilt zich aanmelden en meld u aan als een verkoper, gaat u naar het Azure Dev Center-pagina te vinden op [dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure).  
+    *   Als u wilt zich aanmelden en meld u aan als een verkoper, gaat u naar het Azure Dev Center-pagina te vinden op [dev.windows.com/registration?accountprogram=azure](https://dev.windows.com/registration?accountprogram=azure).  
 2.  Voltooi de `Help us protect your account` wizard, die controleert of uw identiteit met behulp van uw telefoonnummer of e-mailadres.  
 
     ![Dialoogvensters voor informatie over de telefoon in de Help ons uw wizard account beveiligen](./media/marketplace-publishers-guide/registerdevcenteremail.png)  
@@ -142,55 +142,55 @@ De bank en btw-informatie is vereist voor alle commerciële aanbiedingen met beh
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen: 
 
-*   **Welke uitgevers is vereist voor de registratie van een Dev Center-account?** 
-> De uitgever die zijn gepubliceerd in Transact type aanbieding: Virtuele machine, Azure-apps: oplossingssjablonen en beheerde apps.  
+* **Welke uitgevers is vereist voor de registratie van een Dev Center-account?** 
+  > De uitgever die zijn gepubliceerd in Transact type aanbieding: Virtuele machine, Azure-apps: oplossingssjablonen en beheerde apps.  
 
-*   **Waarom is het Dev Center-account nodig?**
-> Dev Center-account is een vereist zodat Microsoft de klant van de uitgever namens een factuur voor Transact type aanbieding. Dev Center-account registratie kan Microsoft voor het valideren van de juridische afdeling, fiscale en bankgegevens voor uw bedrijf. Voor meer informatie over meer Klik [hier.](https://docs.microsoft.com/azure/marketplace/become-publisher)
+* **Waarom is het Dev Center-account nodig?**
+  > Dev Center-account is een vereist zodat Microsoft de klant van de uitgever namens een factuur voor Transact type aanbieding. Dev Center-account registratie kan Microsoft voor het valideren van de juridische afdeling, fiscale en bankgegevens voor uw bedrijf. Voor meer informatie over meer Klik [hier.](https://docs.microsoft.com/azure/marketplace/become-publisher)
 
-*   **Hoe ga ik aan de slag met de registratie van het Dev Center?**
-> Om te voorkomen dat dubbele, Controleer of dat uw bedrijf nog geen een Dev Center-account dat is geregistreerd. U moet zijn aangemeld met het Microsoft-account dat u wilt koppelen aan uw developer-account. Als u nog een Microsoft-account hebt, kunt u een nieuw account maken [hier.](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1) (voorbeeld: contoso_marketplace@live.com) als u wilt aanmelden en registreren, gaat u naar https://dev.windows.com/en-us/registration?accountProgram=Azure
-<br>Voor meer informatie over het registratieproces klikt u op meer [hier.](https://docs.microsoft.com/azure/marketplace/register-dev-center)</br>
+* **Hoe ga ik aan de slag met de registratie van het Dev Center?**
+  > Om te voorkomen dat dubbele, Controleer of dat uw bedrijf nog geen een Dev Center-account dat is geregistreerd. U moet zijn aangemeld met het Microsoft-account dat u wilt koppelen aan uw developer-account. Als u nog een Microsoft-account hebt, kunt u een nieuw account maken [hier.](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1) (voorbeeld: contoso_marketplace@live.com) als u wilt aanmelden en registreren, gaat u naar https://dev.windows.com/en-us/registration?accountProgram=Azure
+  > <br>Voor meer informatie over het registratieproces klikt u op meer [hier.](https://docs.microsoft.com/azure/marketplace/register-dev-center)</br>
 
-*   **Moet ik kiezen 'Afzonderlijk' of 'Bedrijf' accounttype?**
-> Als u wilt een transact-aanbieding op Marketplace publiceert, moet u bedrijfsaccount selecteren tijdens het registreren van uw Dev Center-account.
+* **Moet ik kiezen 'Afzonderlijk' of 'Bedrijf' accounttype?**
+  > Als u wilt een transact-aanbieding op Marketplace publiceert, moet u bedrijfsaccount selecteren tijdens het registreren van uw Dev Center-account.
 
-*   **Kan ik mijn accounttype 'Particulier' naar 'Bedrijf'-account wijzigen nadat het acocunt?**
-> Nee, het accounttype kan niet worden bijgewerkt zodra het account is gemaakt.
+* **Kan ik mijn accounttype 'Particulier' naar 'Bedrijf'-account wijzigen nadat het acocunt?**
+  > Nee, het accounttype kan niet worden bijgewerkt zodra het account is gemaakt.
 
-*   **Waarom krijg ik een foutbericht "de plaat is vereist, hoewel ik de stad juist hebt ingevoerd?**
-> Controleer of dat de postcode is correct te worden ingevoerd. Er is een plaats, postcode validatie.
+* **Waarom krijg ik een foutbericht "de plaat is vereist, hoewel ik de stad juist hebt ingevoerd?**
+  > Controleer of dat de postcode is correct te worden ingevoerd. Er is een plaats, postcode validatie.
 
-*   **Hoe kan ik een promotiecode krijgen?**
-> Voltooi de [Marketplace-registratie](https://azuremarketplace.microsoft.com/en-us/sell/signup) formulier voor het ontvangen van een promotiecode Dev Center.
+* **Hoe kan ik een promotiecode krijgen?**
+  > Voltooi de [Marketplace-registratie](https://azuremarketplace.microsoft.com/en-us/sell/signup) formulier voor het ontvangen van een promotiecode Dev Center.
  
-*   **Wat kan ik verwachten als ik het registratieproces te voltooien?**
-> Zoek naar een e-mailbericht van verify@microsoft.com met onderwerpregel "actie vereist: Controleer of uw e-mailaccount met Microsoft'. Klik op de tijd gevoelige verificatiekoppeling om registratie te voltooien. *Als u een e-mailbericht binnen 24 uur niet hebt ontvangen, controleert u de map met ongewenste e-mail.*
+* **Wat kan ik verwachten als ik het registratieproces te voltooien?**
+  > Zoek naar een e-mailbericht van verify@microsoft.com met onderwerpregel "actie vereist: Controleer of uw e-mailaccount met Microsoft'. Klik op de tijd gevoelige verificatiekoppeling om registratie te voltooien. *Als u een e-mailbericht binnen 24 uur niet hebt ontvangen, controleert u de map met ongewenste e-mail.*
 
-*   **Wat zijn de volgende stappen na de verificatie van Dev Center?**
-> Ga naar 'Uw programma's ' (https://developer.microsoft.com/dashboard/Account/Programs) en meld u aan bij de Dev Center-account. Als u niet Azure als een geregistreerde programma ziet, kijk onder 'Aanbevolen programma's voor u' en zoek naar Azure om te selecteren "Aan de slag."
+* **Wat zijn de volgende stappen na de verificatie van Dev Center?**
+  > Ga naar 'Uw programma's ' (https://developer.microsoft.com/dashboard/Account/Programs) en meld u aan bij de Dev Center-account. Als u niet Azure als een geregistreerde programma ziet, kijk onder 'Aanbevolen programma's voor u' en zoek naar Azure om te selecteren "Aan de slag."
 
-*   **Hoe kan ik mijn Dev Center-account koppelen aan Mijn profiel van de uitgever Cloud Partner-Portal?**
-> De laatste stap voordat de publicatie is uw Dev Center-account koppelen aan uw Cloud Partner-Portal [profiel](https://cloudpartner.azure.com/#profile). Als uw Dev Center-account verschilt van uw account op [Cloud Partner-Portal](https://cloudpartner.azure.com/#alloffers), uw Dev Center-account toevoegen als een nieuwe [gebruiker](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-manage-users) in de Cloud Partner-Portal. Meld u aan bij de [Cloud Partner-Portal](https://cloudpartner.azure.com/#alloffers) met uw Dev Center-Account. Selecteer uitgeverprofiel in het menu zich in de rechterbovenhoek van uw webbrowser. Selecteer koppeling Dev Center-Account.
+* **Hoe kan ik mijn Dev Center-account koppelen aan Mijn profiel van de uitgever Cloud Partner-Portal?**
+  > De laatste stap voordat de publicatie is uw Dev Center-account koppelen aan uw Cloud Partner-Portal [profiel](https://cloudpartner.azure.com/#profile). Als uw Dev Center-account verschilt van uw account op [Cloud Partner-Portal](https://cloudpartner.azure.com/#alloffers), uw Dev Center-account toevoegen als een nieuwe [gebruiker](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-manage-users) in de Cloud Partner-Portal. Meld u aan bij de [Cloud Partner-Portal](https://cloudpartner.azure.com/#alloffers) met uw Dev Center-Account. Selecteer uitgeverprofiel in het menu zich in de rechterbovenhoek van uw webbrowser. Selecteer koppeling Dev Center-Account.
 
-*   **Waarom wordt mijn Dev Center-toepassing geweigerd**
-> Het vetting bedrijf van derden (Duns & Bradstreet) kon geen contact met u opnemen via het telefoonnummer dat u hebt opgegeven. Neem contact op met ondersteuning van op [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) het controleproces opnieuw te starten
+* **Waarom wordt mijn Dev Center-toepassing geweigerd**
+  > Het vetting bedrijf van derden (Duns & Bradstreet) kon geen contact met u opnemen via het telefoonnummer dat u hebt opgegeven. Neem contact op met ondersteuning van op [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) het controleproces opnieuw te starten
 
 > of
-
+> 
 > Account registratie worden geweigerd, is afhankelijk van wat problemen. Bedrijven met vestigingen gebaseerd op locaties anders dan het hoofdkantoor hoeft slechts één Dev Center-account.
  
-*   **Wat moet ik doen als de naam van het bedrijf die ik wil gebruiken, al in Dev Center bestaat?**
-> Toewijzen van een tijdelijke bedrijfsnaam, neem contact op met ondersteuning van op [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) en geeft u de registratie van zakelijke documenten.
+* **Wat moet ik doen als de naam van het bedrijf die ik wil gebruiken, al in Dev Center bestaat?**
+  > Toewijzen van een tijdelijke bedrijfsnaam, neem contact op met ondersteuning van op [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) en geeft u de registratie van zakelijke documenten.
 
-*   **Hoe kan ik mijn gegevens belasting en payout toevoegen**
-> Kunt u zich niet kunnen publiceren transact van aanbiedingen zonder het voltooien van de belasting en bank informatie in uw Dev Center-account.  Bezoek voor meer informatie over het toevoegen van accountgegevens [hoe u informatie over de bank toevoegen en belasting.](https://docs.microsoft.com/azure/marketplace/register-dev-center)
+* **Hoe kan ik mijn gegevens belasting en payout toevoegen**
+  > Kunt u zich niet kunnen publiceren transact van aanbiedingen zonder het voltooien van de belasting en bank informatie in uw Dev Center-account.  Bezoek voor meer informatie over het toevoegen van accountgegevens [hoe u informatie over de bank toevoegen en belasting.](https://docs.microsoft.com/azure/marketplace/register-dev-center)
 
-*   **Kan ik de aanmeldingsaccount van het Dev Center Microsoft wijzigen?**
-> Nee. Zodra een Dev Center is gemaakt, kan de van eigenaarsaccount kan niet worden gewijzigd. U moet beginnen met een gloednieuwe Dev Center-account met het gewenste Microsoft-account.
+* **Kan ik de aanmeldingsaccount van het Dev Center Microsoft wijzigen?**
+  > Nee. Zodra een Dev Center is gemaakt, kan de van eigenaarsaccount kan niet worden gewijzigd. U moet beginnen met een gloednieuwe Dev Center-account met het gewenste Microsoft-account.
 
-*   **Waar moet ik contact opnemen ondersteuning bij problemen met betrekking tot registratie van het Dev Center?**
-Toegang tot ondersteuning, gaat u naar de pagina voor developer-ondersteuning te op het vinden Windows [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support). 
+* **Waar moet ik contact opnemen ondersteuning bij problemen met betrekking tot registratie van het Dev Center?**
+  Toegang tot ondersteuning, gaat u naar de pagina voor developer-ondersteuning te op het vinden Windows [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support). 
 
 ## <a name="next-steps"></a>Volgende stappen
 *   Ga naar de [Azure Marketplace en AppSource Uitgevershandleiding voor](./marketplace-publishers-guide.md) pagina.  

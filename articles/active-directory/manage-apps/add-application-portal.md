@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/24/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27456f672e2fa67928b43e80bef384a14e9c1d62
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9f062596e2be93065b3c076787c2f5b3dfcedf9d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166960"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110117"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Quickstart: een toepassing toevoegen aan uw Azure Active Directory-tenant
 
@@ -113,35 +113,35 @@ De eigenschappen van de toepassing bewerken
 
 4. Gebruik de volgende tabellen als hulp bij het kiezen van de opties die het beste passen bij uw behoeften.
 
-    - Gedrag voor **toegewezen** gebruikers:
+   - Gedrag voor **toegewezen** gebruikers:
 
-        | Instellingen voor toepassingseigenschappen | | | Toegewezen gebruikerservaring | |
-        |---|---|---|---|---|
-        | Ingeschakeld voor gebruikers voor aanmelden? | Gebruikerstoewijzing vereist? | Zichtbaar voor gebruiker? | Kunnen toegewezen gebruikers zich aanmelden? | Kunnen toegewezen gebruikers de toepassing zien?* |
-        | ja | ja | ja | ja | ja  |
-        | ja | ja | nee  | ja | nee   |
-        | ja | nee  | ja | ja | ja  |
-        | ja | nee  | nee  | ja | nee   |
-        | nee  | ja | ja | nee  | nee   |
-        | nee  | ja | nee  | nee  | nee   |
-        | nee  | nee  | ja | nee  | nee   |
-        | nee  | nee  | nee  | nee  | nee   |
+       | Instellingen voor toepassingseigenschappen | | | Toegewezen gebruikerservaring | |
+       |---|---|---|---|---|
+       | Ingeschakeld voor gebruikers voor aanmelden? | Gebruikerstoewijzing vereist? | Zichtbaar voor gebruiker? | Kunnen toegewezen gebruikers zich aanmelden? | Kunnen toegewezen gebruikers de toepassing zien?* |
+       | ja | ja | ja | ja | ja  |
+       | ja | ja | nee  | ja | nee   |
+       | ja | nee  | ja | ja | ja  |
+       | ja | nee  | nee  | ja | nee   |
+       | nee  | ja | ja | nee  | nee   |
+       | nee  | ja | nee  | nee  | nee   |
+       | nee  | nee  | ja | nee  | nee   |
+       | nee  | nee  | nee  | nee  | nee   |
 
-    - Gedrag voor **niet-toegewezen** gebruikers:
+   - Gedrag voor **niet-toegewezen** gebruikers:
 
-        | Instellingen voor toepassingseigenschappen | | | Niet-toegewezen gebruikerservaring | |
-        |---|---|---|---|---|
-        | Ingeschakeld voor gebruikers voor aanmelden? | Gebruikerstoewijzing vereist? | Zichtbaar voor gebruiker? | Kunnen niet-toegewezen gebruikers zich aanmelden? | Kunnen niet-toegewezen gebruikers de toepassing zien?* |
-        | ja | ja | ja | nee  | nee   |
-        | ja | ja | nee  | nee  | nee   |
-        | ja | nee  | ja | ja | nee   |
-        | ja | nee  | nee  | ja | nee   |
-        | nee  | ja | ja | nee  | nee   |
-        | nee  | ja | nee  | nee  | nee   |
-        | nee  | nee  | ja | nee  | nee   |
-        | nee  | nee  | nee  | nee  | nee   |
+       | Instellingen voor toepassingseigenschappen | | | Niet-toegewezen gebruikerservaring | |
+       |---|---|---|---|---|
+       | Ingeschakeld voor gebruikers voor aanmelden? | Gebruikerstoewijzing vereist? | Zichtbaar voor gebruiker? | Kunnen niet-toegewezen gebruikers zich aanmelden? | Kunnen niet-toegewezen gebruikers de toepassing zien?* |
+       | ja | ja | ja | nee  | nee   |
+       | ja | ja | nee  | nee  | nee   |
+       | ja | nee  | ja | ja | nee   |
+       | ja | nee  | nee  | ja | nee   |
+       | nee  | ja | ja | nee  | nee   |
+       | nee  | ja | nee  | nee  | nee   |
+       | nee  | nee  | ja | nee  | nee   |
+       | nee  | nee  | nee  | nee  | nee   |
 
-    *Kan de gebruiker de toepassing zien in het toegangsvenster en het startprogramma voor Office 365-apps?
+     *Kan de gebruiker de toepassing zien in het toegangsvenster en het startprogramma voor Office 365-apps?
 
 ## <a name="use-a-custom-logo"></a>Een aangepast logo gebruiken
 

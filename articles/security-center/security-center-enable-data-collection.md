@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: 09abb8fa2c8d08b27b83a2510b4c1133458b8363
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 3f837820d05f7e10524e65bd8a7775d45c4cc600
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240725"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110423"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Verzamelen van gegevens in Azure Security Center
 Security Center verzamelt gegevens van uw virtuele Azure-machines (VM's) en niet-Azure-computers om te controleren op beveiligingsproblemen en bedreigingen. Gegevens worden verzameld met behulp van de Log Analytics-agent, die verschillende beveiliging gerelateerde configuraties en gebeurtenislogboeken van de machine leest en de gegevens worden gekopieerd naar uw werkruimte voor analyse. Voorbeelden van dergelijke gegevens zijn: besturingssysteem systeemtype en versie, besturingssysteemlogboeken (Windows-gebeurtenislogboeken), actieve processen, computernaam, IP-adressen en aangemelde gebruiker. De Log Analytics-agent kopieert ook crashdumpbestanden naar uw werkruimte.
@@ -50,13 +50,13 @@ Inschakelen van automatische inrichting van de Log Analytics-agent:
 1. Selecteer in het hoofdmenu van Security Center de optie **beveiligingsbeleid**.
 2. Klik op **instellingen bewerken** in de kolom met de instellingen van het gewenste abonnement in de lijst.
 
-  ![Abonnement selecteren][7]
+   ![Abonnement selecteren][7]
 
 3. Onder **Beveiligingsbeleid** selecteert u **Gegevensverzameling**.
 4. Onder **automatische inrichting**, selecteer **op** voor automatische inrichting inschakelen.
 5. Selecteer **Opslaan**.
 
-  ![Automatische inrichting inschakelen][1]
+   ![Automatische inrichting inschakelen][1]
 
 >[!NOTE]
 > - Zie voor instructies over het inrichten van een bestaande installatie [automatische inrichting in geval van een bestaande installatie van de agent](#preexisting).
@@ -76,15 +76,15 @@ Security center kan automatisch een standaardwerkruimte voor het opslaan van de 
 
 Een werkruimte te selecteren die zijn gemaakt door Security Center:
 
-1.  Onder **configuratie van de standaardwerkruimte**, selecteer werkruimten die zijn gemaakt door Security center gebruiken.
+1. Onder **configuratie van de standaardwerkruimte**, selecteer werkruimten die zijn gemaakt door Security center gebruiken.
    ![Prijscategorie selecteren][10] 
 
-2. Klik op **Opslaan**.<br>
+1. Klik op **Opslaan**.<br>
     Security Center maakt u een nieuwe resource-groep en de standaard werkruimte in die geolocatie en verbindt de agent voor de desbetreffende werkruimte. De naamconventie voor de werkruimte en de resource is:<br>
-**Werkruimte: DefaultWorkspace-[subscription-ID]-[geo]<br> Resource Group: DefaultResourceGroup-[geo]**
+   **Werkruimte: DefaultWorkspace-[subscription-ID]-[geo]<br> Resource Group: DefaultResourceGroup-[geo]**
 
    Als een abonnement virtuele machines van meerdere geolocations bevat, maakt Security Center meerdere werkruimten. Meerdere werkruimten worden gemaakt voor het onderhouden van regels voor privacy van gegevens.
--   Security Center wordt automatisch ingeschakeld voor een oplossing voor Security Center in de werkruimte per de prijscategorie voor het abonnement instellen. 
+1. Security Center wordt automatisch ingeschakeld voor een oplossing voor Security Center in de werkruimte per de prijscategorie voor het abonnement instellen. 
 
 > [!NOTE]
 > Log analytics prijscategorie van werkruimten die zijn gemaakt door Security Center heeft geen invloed op de facturering van Security Center. Security Center-facturering is altijd gebaseerd op het Security Center-beveiligingsbeleid en de oplossingen die zijn geïnstalleerd op een werkruimte. Voor de laag gratis, schakelt Azure Security Center de *SecurityCenterFree* -oplossing op de standaardwerkruimte. Voor de Standard-laag, schakelt Azure Security Center de *Security* -oplossing op de standaardwerkruimte.
@@ -111,10 +111,10 @@ Selecteer een bestaande Log Analytics-werkruimte:
 
 2. Selecteer een werkruimte voor het opslaan van verzamelde gegevens in de vervolgkeuzelijst.
 
-  > [!NOTE]
-  > In de vervolgkeuzelijst menu zijn alle werkruimten in al uw abonnementen beschikbaar. Zie [cross-werkruimte kunt selecteren. abonnement](security-center-enable-data-collection.md#cross-subscription-workspace-selection) voor meer informatie. U moet gemachtigd voor toegang tot de werkruimte.
-  >
-  >
+   > [!NOTE]
+   > In de vervolgkeuzelijst menu zijn alle werkruimten in al uw abonnementen beschikbaar. Zie [cross-werkruimte kunt selecteren. abonnement](security-center-enable-data-collection.md#cross-subscription-workspace-selection) voor meer informatie. U moet gemachtigd voor toegang tot de werkruimte.
+   >
+   >
 
 3. Selecteer **Opslaan**.
 4. Na het selecteren van **opslaan**, wordt u gevraagd als u wilt reconfigure bewaakte VM's die eerder zijn verbonden met een standaardwerkruimte.
@@ -150,8 +150,8 @@ Wanneer u een werkruimte waarin u uw gegevens kunt opslaan selecteert, worden al
 Een verzameling gegevenslaag selecteren in Azure Security Center heeft alleen invloed op de opslag van beveiligingsgebeurtenissen in uw Log Analytics-werkruimte. De Log Analytics-agent wordt nog steeds verzamelen en analyseren van de beveiligingsgebeurtenissen die vereist zijn voor Azure Security Center bedreigingen detecties, ongeacht welke laag van beveiligingsgebeurtenissen die u kiest voor het opslaan in uw Log Analytics-werkruimte (indien aanwezig). Voor het opslaan van beveiligingsgebeurtenissen in uw werkruimte te kiezen kunt voor onderzoek, zoeken en controle van de gebeurtenissen die in uw werkruimte. 
 > [!NOTE]
 > Opslaan van gegevens in log analytics mogelijk extra kosten voor gegevensopslag, Zie de pagina met prijzen voor meer informatie.
->
-U kunt het recht filterbeleid voor uw abonnementen en werkruimten op vier sets gebeurtenissen worden opgeslagen in uw werkruimte kiezen: 
+> 
+> U kunt het recht filterbeleid voor uw abonnementen en werkruimten op vier sets gebeurtenissen worden opgeslagen in uw werkruimte kiezen: 
 
 - **Geen** – gebeurtenisopslag beveiliging uitschakelen. Dit is de standaardinstelling.
 - **Minimale** – een kleiner aantal gebeurtenissen voor klanten die willen minimaliseren van het volume van de gebeurtenis.
@@ -224,7 +224,7 @@ U kunt automatische inrichting van resources op elk gewenst moment door het uits
 3. Op de **beveiligingsbeleid – gegevensverzameling** blade onder **automatische inrichting** Selecteer **uit**.
 4. Selecteer **Opslaan**.
 
-  ![Automatische inrichting uitschakelen][6]
+   ![Automatische inrichting uitschakelen][6]
 
 Wanneer automatische inrichting is uitgeschakeld (uitgeschakeld), wordt de configuratiesectie van de standaard-werkruimte niet weergegeven.
 
@@ -243,57 +243,57 @@ Er zijn verschillende manieren de Microsoft Monitoring Agent handmatig installer
 ### <a name="operations-management-suite-vm-extension-deployment"></a>Implementatie van operations Management Suite VM-extensie 
 
 U kunt Microsoft Monitoring Agent, handmatig installeren, zodat Security Center kunt verzamelen van beveiligingsgegevens van uw virtuele machines en aanbevelingen en waarschuwingen bieden.
-1.  Selecteer automatisch inrichten – uit.
-2.  Een werkruimte maken en de prijscategorie voor de werkruimte die u van plan bent om in te stellen van de Microsoft Monitoring agent ingesteld:
+1. Selecteer automatisch inrichten – uit.
+2. Een werkruimte maken en de prijscategorie voor de werkruimte die u van plan bent om in te stellen van de Microsoft Monitoring agent ingesteld:
 
-    a.  Selecteer in het hoofdmenu van Security Center **beveiligingsbeleid**.
+   a.  Selecteer in het hoofdmenu van Security Center **beveiligingsbeleid**.
      
-    b.  Selecteer de werkruimte waarin u van plan bent om de agent verbinding te maken. Zorg ervoor dat de werkruimte zich in hetzelfde abonnement u in Security Center en dat u lees-/ schrijfmachtigingen beschikt in de werkruimte hebben.
-        ![Selecteer een werkruimte][8]
+   b.  Selecteer de werkruimte waarin u van plan bent om de agent verbinding te maken. Zorg ervoor dat de werkruimte zich in hetzelfde abonnement u in Security Center en dat u lees-/ schrijfmachtigingen beschikt in de werkruimte hebben.
+       ![Selecteer een werkruimte][8]
 3. De prijscategorie instellen.
    ![Prijscategorie selecteren][9] 
    >[!NOTE]
    >Als de werkruimte is al een **Security** of **SecurityCenterFree** oplossing is ingeschakeld, de prijzen wordt automatisch ingesteld. 
    > 
 
-4.  Als u de agents op de nieuwe virtuele machines met behulp van Resource Manager-sjabloon te implementeren wilt, installeert u de extensie van de OMS-virtuele machine:
+4. Als u de agents op de nieuwe virtuele machines met behulp van Resource Manager-sjabloon te implementeren wilt, installeert u de extensie van de OMS-virtuele machine:
 
-    a.  [De extensie van de OMS-virtuele machine voor Windows installeren](../virtual-machines/extensions/oms-windows.md)
+   a.  [De extensie van de OMS-virtuele machine voor Windows installeren](../virtual-machines/extensions/oms-windows.md)
     
-    b.  [De extensie van de OMS-virtuele machine voor Linux installeren](../virtual-machines/extensions/oms-linux.md)
-5.  Volg de instructies in voor het implementeren van de extensies op bestaande virtuele machines, [gegevens verzamelen over Azure Virtual Machines](../azure-monitor/learn/quick-collect-azurevm.md).
+   b.  [De extensie van de OMS-virtuele machine voor Linux installeren](../virtual-machines/extensions/oms-linux.md)
+5. Volg de instructies in voor het implementeren van de extensies op bestaande virtuele machines, [gegevens verzamelen over Azure Virtual Machines](../azure-monitor/learn/quick-collect-azurevm.md).
 
-  > [!NOTE]
-  > De sectie **gebeurtenissen en prestatiegegevens verzamelen** is optioneel.
-  >
+   > [!NOTE]
+   > De sectie **gebeurtenissen en prestatiegegevens verzamelen** is optioneel.
+   >
 6. Als u PowerShell wilt implementeren de extensie, gebruik de volgende PowerShell-voorbeeld:  [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
    
-    1.  Ga naar **Log Analytics** en klikt u op **geavanceerde instellingen**.
+   1. Ga naar **Log Analytics** en klikt u op **geavanceerde instellingen**.
     
-        ![Set-logboekanalyse][11]
+      ![Set-logboekanalyse][11]
 
-    2. Kopieer de waarden van **WorkspaceID** en **primaire sleutel**.
+   2. Kopieer de waarden van **WorkspaceID** en **primaire sleutel**.
   
-       ![Waarden kopiëren][12]
+      ![Waarden kopiëren][12]
 
-    3. De openbare configuratie en de persoonlijke configuratie met deze waarden vullen:
+   3. De openbare configuratie en de persoonlijke configuratie met deze waarden vullen:
      
-            $PublicConf = '{
-                "workspaceId": "WorkspaceID value",
-                "MultipleConnections": true
-            }' 
+           $PublicConf = '{
+               "workspaceId": "WorkspaceID value",
+               "MultipleConnections": true
+           }' 
  
-            $PrivateConf = '{
-                "workspaceKey": "<Primary key value>”
-            }' 
+           $PrivateConf = '{
+               "workspaceKey": "<Primary key value>”
+           }' 
 
       - Wanneer u installeert op een Windows-VM:
         
-             Set-AzVMExtension -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Name "MicrosoftMonitoringAgent" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "MicrosoftMonitoringAgent" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True 
+            Set-AzVMExtension -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Name "MicrosoftMonitoringAgent" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "MicrosoftMonitoringAgent" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True 
     
-       - Wanneer u installeert op een Linux-VM:
+      - Wanneer u installeert op een Linux-VM:
         
-             Set-AzVMExtension -ResourceGroupName $vm1.ResourceGroupName -VMName $vm1.Name -Name "OmsAgentForLinux" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "OmsAgentForLinux" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True`
+            Set-AzVMExtension -ResourceGroupName $vm1.ResourceGroupName -VMName $vm1.Name -Name "OmsAgentForLinux" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "OmsAgentForLinux" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True`
 
 > [!NOTE]
 > Voor instructies over hoe onboarding Security Center met behulp van PowerShell, Zie [automatiseren onboarding van Azure Security Center met behulp van PowerShell](security-center-powershell-onboarding.md).

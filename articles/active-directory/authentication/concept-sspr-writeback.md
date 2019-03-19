@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bba14e37e811c941c9709eef6b6d8ffd8322643
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3772f42b1216cfb26d66b1d68fcb9e59fd8652d8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167130"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107539"
 ---
 # <a name="what-is-password-writeback"></a>Wat is wachtwoord terugschrijven?
 
@@ -96,11 +96,11 @@ Wanneer een federatieve of wachtwoord-hash gesynchroniseerd pogingen van gebruik
    >
 
 1. Als het wachtwoord bewerking mislukt instelt, is een fout wordt gevraagd om de gebruiker en probeer het opnieuw. De bewerking kan mislukken omdat:
-   * De service is niet beschikbaar.
-   * Het wachtwoord dat ze geselecteerd niet voldoet aan beleidsregels van de organisatie.
-   * Kan de gebruiker in de lokale Active Directory vinden.
+    * De service is niet beschikbaar.
+    * Het wachtwoord dat ze geselecteerd niet voldoet aan beleidsregels van de organisatie.
+    * Kan de gebruiker in de lokale Active Directory vinden.
 
-    De foutberichten bieden richtlijnen aan gebruikers zodat ze proberen kunnen op te lossen zonder tussenkomst van de beheerder.
+      De foutberichten bieden richtlijnen aan gebruikers zodat ze proberen kunnen op te lossen zonder tussenkomst van de beheerder.
 
 ## <a name="password-writeback-security"></a>Wachtwoord terugschrijven beveiliging
 

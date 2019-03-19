@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af01d924036e5d31de5498e51b56efdf1defc9f3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5217f21449efeb2086770f040fb781765ea819eb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201445"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083934"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory naadloze eenmalige aanmelding: Technische details
 
@@ -60,7 +60,7 @@ De stroom aanmelden via een webbrowser is als volgt:
 3. De gebruiker typt in hun gebruikersnaam in de Azure AD-aanmeldingspagina.
 
    >[!NOTE]
-   >Voor [bepaalde toepassingen](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso), stappen 2 en 3 worden overgeslagen.
+   >Voor [bepaalde toepassingen](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domain_hint-or-login_hint-parameter-capability-of-seamless-sso), stappen 2 en 3 worden overgeslagen.
 
 4. Met behulp van JavaScript op de achtergrond, uitdagingen Azure AD voor de browser, via een 401-niet-geautoriseerde respons, voor een Kerberos-ticket.
 5. De browser, vraagt een ticket op zijn beurt uit Active Directory voor de `AZUREADSSOACC` computeraccount (die staat voor Azure AD).

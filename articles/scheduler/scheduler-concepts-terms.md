@@ -10,12 +10,12 @@ ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: a58b247732125574a067deff1d5b03859cd036fc
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 15770246f52e87b8fba4a9ec01e1583d194d002b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782289"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57887048"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Concepten, terminologie en entiteiten in Azure Scheduler
 
@@ -77,7 +77,7 @@ De job bevat ook door het systeem geleverde gegevens, zoals volgende geplande ui
 
 | Element | Vereist | Description | 
 |---------|----------|-------------| 
-| [**startTime**](#start-time) | Nee | De begintijd voor de taak, met een tijdverschuiving in de [indeling ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) | 
+| [**startTime**](#start-time) | Nee | De begintijd voor de taak, met een tijdverschuiving in de [indeling ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
 | [**action**](#action) | Ja | De details van de primaire actie, die een **errorAction**-object kan omvatten | 
 | [**errorAction**](#error-action) | Nee | De details van de secundaire actie, die wordt uitgevoerd als de eerste actie mislukt |
 | [**recurrence**](#recurrence) | Nee | Details als frequentie en interval van een terugkerende job | 
@@ -137,7 +137,7 @@ Hier is een voorbeeld dat een uitgebreide jobdefinitie laat zien voor een HTTP-a
 
 ## <a name="starttime"></a>startTime
 
-In het object **startTime** kunt u de begintijd en een tijdverschuiving aangeven in de [indeling ISO 8601](http://en.wikipedia.org/wiki/ISO_8601).
+In het object **startTime** kunt u de begintijd en een tijdverschuiving aangeven in de [indeling ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
 
 <a name="action"></a>
 

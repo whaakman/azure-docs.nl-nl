@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a003248104c45fa2bcc1020e0ad8ea895d759457
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 961f09d7581a26596b03e7a2f8e97d98fe83e6aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992383"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995366"
 ---
 # <a name="deprecated-create-container-images-to-be-used-with-azure-container-service"></a>(AFGESCHAFT) Containerinstallatiekopieën maken om te gebruiken bij Azure Container Service
 
@@ -23,18 +23,18 @@ ms.locfileid: "52992383"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-In deze zelfstudie, deel een van zeven, wordt een toepassing met meerdere containers voorbereid voor gebruik in Kubernetes. Dit zijn de uitgevoerde stappen:  
+In deze zelfstudie, deel 1 van 7, wordt een toepassing met meerdere containers voorbereid op gebruik in Kubernetes. Dit zijn de uitgevoerde stappen:  
 
 > [!div class="checklist"]
 > * Toepassingsbron klonen vanuit GitHub  
 > * Een containerinstallatiekopie maken uit de toepassingsbron
 > * De toepassing testen in een lokale Docker-omgeving
 
-Na voltooiing is de volgende toepassing toegankelijk in uw lokale ontwikkelomgeving.
+Zodra de stappen zijn voltooid, is de volgende toepassing toegankelijk in uw lokale ontwikkelomgeving.
 
 ![Afbeelding van Kubernetes-cluster in Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
-In de volgende zelfstudies wordt de containerinstallatiekopie geüpload naar een Azure Container Registry, en vervolgens uitgevoerd in een met Azure gehost Kubernetes-cluster.
+In de zelfstudies daarna leert u hoe u de installatiekopie van de container uploadt naar een Azure Container Registry en ontdekt u hoe u deze vervolgens uitvoert in een in Azure gehost Kubernetes-cluster.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -103,7 +103,7 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 
 ## <a name="test-application-locally"></a>Toepassing lokaal testen
 
-Blader naar http://localhost:8080 om de toepassing te zien terwijl deze wordt uitgevoerd.
+Blader naar `http://localhost:8080` om de toepassing te zien terwijl deze wordt uitgevoerd.
 
 ![Afbeelding van Kubernetes-cluster in Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 

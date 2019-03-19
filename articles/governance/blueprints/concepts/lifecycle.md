@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: c1e596516136240b1d1d08b4e8386e9cf5ef48e5
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 71a5233c6d5af21d7bc5430cda14e156e16d5cd4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819119"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001568"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Informatie over de levenscyclus van een Azure-blauwdruk
 
@@ -68,7 +68,7 @@ Elke versie van een blauwdruk is een unieke object en kan afzonderlijk worden **
 > [!NOTE]
 > Het is niet mogelijk om te verwijderen van een blauwdruk die actieve toewijzingen heeft. Verwijder eerst de toewijzingen en verwijder vervolgens de versie die u wilt verwijderen.
 
-1. Selecteer **alle services** in het linkerdeelvenster. Zoek en selecteer **blauwdrukken**.
+1. Selecteer **Alle services** in het linkerdeelvenster. Zoek en selecteer **Blauwdrukken**.
 
 1. Selecteer **blauwdruk definities** op de pagina aan de linkerkant en gebruik het filter te vinden van de blauwdruk die u wilt verwijderen van een versie van de opties. Klik op de pagina bewerken te openen.
 
@@ -103,8 +103,8 @@ Voor meer informatie Zie [bijwerken, bestaande toewijzingen](../how-to/update-ex
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Informatie over hoe u [statische en dynamische parameters](parameters.md) gebruikt
-- Meer informatie over hoe u de [blauwdrukvolgorde](sequencing-order.md) aanpast
-- Ontdek hoe u gebruikmaakt van [resourcevergrendeling in blauwdrukken](resource-locking.md)
-- Meer informatie over hoe u [bestaande toewijzingen bijwerkt](../how-to/update-existing-assignments.md)
-- Problemen oplossen tijdens de toewijzing van een blauwdruk met [algemene probleemoplossing](../troubleshoot/general.md)
+- Meer informatie over het gebruik van [statische en dynamische parameters](parameters.md).
+- Meer informatie over het aanpassen van de [blauwdruk volgorde](sequencing-order.md).
+- Ontdek hoe u het gebruik van [blauwdruk resource vergrendelen](resource-locking.md).
+- Meer informatie over het [bijwerken, bestaande toewijzingen](../how-to/update-existing-assignments.md).
+- Problemen oplossen bij het toewijzen van een blauwdruk met [algemene probleemoplossing](../troubleshoot/general.md).

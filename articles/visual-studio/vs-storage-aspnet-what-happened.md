@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: a6e05d706d54d63695861b03cd9de0e65ebdd8bb
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: e0e065b23581f297ee4ae2288a6e437da461a19f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42060786"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998353"
 ---
 # <a name="what-happened-to-my-aspnet-project-visual-studio-azure-storage-connected-service"></a>Wat is er gebeurd met mijn ASP.NET-project (Visual Studio Azure Storage verbonden service)?
 ## <a name="references-added"></a>Verwijzingen die zijn toegevoegd
@@ -36,5 +36,5 @@ Dit pakket voegt de volgende .NET verwijzingen toe:
 ## <a name="connection-string-for-azure-storage-added"></a>Verbindingsreeks voor Azure Storage is toegevoegd
 Een element is in het bestand web.config van uw project gemaakt met de verbindingsreeks en de sleutel van het geselecteerde opslagaccount.
 
-Zie voor meer informatie, [ASP.NET](http://www.asp.net).
+Zie voor meer informatie, [ASP.NET](https://www.asp.net).
 

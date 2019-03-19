@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: c30ec060eca2bc0c2f5a85565ec6ed23bce6be4e
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: e6423f2ce3659fd3dd738dcc8a990261bc7bf60c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464745"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088380"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Aan de slag met automatisch schalen door aangepaste metrische gegevens in Azure
 In dit artikel wordt beschreven hoe u uw resource schalen door een aangepaste metrische gegevens in Azure portal.
@@ -28,7 +28,7 @@ In dit artikel wordt ervan uitgegaan dat u een web-app met application insights 
   ![Starten met Azure Monitor][3]
 - Klik op de instelling voor automatisch schalen om alle resources voor welke automatisch schalen van toepassing, samen met de huidige status van de functie voor automatisch schalen is weer te geven ![detecteren, automatisch schalen in Azure monitor][4]
 - Open 'voor automatisch schalen-blade in Azure Monitor en selecteer een resource die u wilt schalen
-> Opmerking: De onderstaande stappen gebruiken een app service-plan dat is gekoppeld aan een web-app met app insights is geconfigureerd.
+  > Opmerking: De onderstaande stappen gebruiken een app service-plan dat is gekoppeld aan een web-app met app insights is geconfigureerd.
 - U ziet dat het huidige aantal instanties 1 is in de blade van de instelling schaal voor de resource. Klik op 'Inschakelen voor automatisch schalen'.
   ![Instelling voor de nieuwe web-app schalen][5]
 - Geef een naam voor de schaalinstelling van de en het klikken op 'Een regel toevoegen'. U ziet de schaalopties regel die wordt geopend in een deelvenster context in de rechterkant. Standaard wordt de optie voor het schalen van uw aantal instanties met 1 als het CPU-percentage van de resource groter is dan 70%. De bron van metrische gegevens aan de bovenkant wijzigen in 'Application Insights', selecteert u de app insights-resource in de vervolgkeuzelijst 'Resource' en selecteer vervolgens de aangepaste metrische gegevens op basis van die u wilt schalen.
@@ -36,7 +36,7 @@ In dit artikel wordt ervan uitgegaan dat u een web-app met application insights 
 - Net als bij de stap hierboven, een scale-regel die wordt geschaald en de schaalaanpassingsaantal verlagen met 1 als de aangepaste metrische gegevens lager dan een drempel is toevoegen.
   ![Schaal op basis van cpu][7]
 - Stel u instantielimieten. Bijvoorbeeld, als u schalen tussen 2-5-exemplaren, afhankelijk van de aangepaste metrische fluctuaties wilt, ingesteld 'minimale' op '2', 'maximale' op '5' en 'default' op ' 2'
-> Opmerking: In het geval er een probleem opgetreden bij het lezen van de metrische gegevens voor resources en de huidige capaciteit lager dan de standaardcapaciteit is, wordt klikt u vervolgens voor de beschikbaarheid van de resource voor automatisch schalen uitgeschaald op de standaardwaarde. Als de huidige capaciteit al hoger is dan de standaardcapaciteit, wordt niet automatisch schalen geschaald.
+  > Opmerking: In het geval er een probleem opgetreden bij het lezen van de metrische gegevens voor resources en de huidige capaciteit lager dan de standaardcapaciteit is, wordt klikt u vervolgens voor de beschikbaarheid van de resource voor automatisch schalen uitgeschaald op de standaardwaarde. Als de huidige capaciteit al hoger is dan de standaardcapaciteit, wordt niet automatisch schalen geschaald.
 - Klik op 'Opslaan'
 
 Gefeliciteerd! U nu de instelling voor automatisch schalen van uw web-app op basis van een aangepaste meetwaarde schaalset is gemaakt.

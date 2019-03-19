@@ -8,12 +8,12 @@ ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 0096a7a57cb4a404f5c8e36d8b69eac2c20c1fab
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
-ms.translationtype: HT
+ms.openlocfilehash: 31330c3d2b10e6245db775da4039fd1948539df4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139808"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106012"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Zelfstudie: Azure Stream Analytics implementeren als een IoT Edge-module
 
@@ -33,7 +33,8 @@ In deze zelfstudie leert u het volgende:
 > * De Azure Stream Analytics-taak implementeren op een IoT Edge-apparaat vanuit Azure Portal.
 
 <center>
-![Diagram - zelfstudie-architectuur, ASA-taak faseren en implementeren](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
+
+![Diagram - zelfstudie-architectuur, Faseren en ASA-taak kunt implementeren](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
 </center>
 
 
@@ -62,9 +63,9 @@ Wanneer u een Azure Stream Analytics-taak maakt die op een IoT Edge-apparaat moe
 
 1. Geef de volgende waarden op om uw opslagaccount te maken:
 
-   | Veld | Waarde |
+   | Veld | Value |
    | ----- | ----- |
-   | Naam | Voer een unieke naam in voor het opslagaccount. | 
+   | Name | Voer een unieke naam in voor het opslagaccount. | 
    | Locatie | Kies een locatie dicht bij u in de buurt. |
    | Abonnement | Kies het hetzelfde abonnement als uw IoT-hub. |
    | Resourcegroep | Het wordt aangeraden om dezelfde resourcegroep te gebruiken voor alle test-resources die u maakt met de snelstartgidsen en zelfstudies voor IoT Edge, zoals **IoTEdgeResources**. |
@@ -77,7 +78,7 @@ Wanneer u een Azure Stream Analytics-taak maakt die op een IoT Edge-apparaat moe
 
 1. Geef de volgende waarden op om de taak te maken:
 
-   | Veld | Waarde |
+   | Veld | Value |
    | ----- | ----- |
    | Taaknaam | Geef de taak een naam. Bijvoorbeeld **IoTEdgeJob**. | 
    | Abonnement | Kies het hetzelfde abonnement als uw IoT-hub. |
@@ -215,9 +216,9 @@ U kunt nu naar het IoT Edge-apparaat gaan om de interactie tussen de Azure Strea
    ```cmd/sh
    iotedge list  
    ```
-<!--
+   <!--
    ![Docker output](./media/tutorial-deploy-stream-analytics/docker_output.png)
--->
+   -->
 1. Bekijk alle systeemlogboeken en metrische gegevens. Gebruik de naam van de Stream Analytics-module:
 
    ```cmd/sh

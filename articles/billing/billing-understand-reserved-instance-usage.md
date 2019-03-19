@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: banders
-ms.openlocfilehash: d3da7e73569d7860c7e4328b11ecc3f20cf648fc
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: a3bacdb19dfe16a63cf1f89ef6fb162d08cb4d32
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903618"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57883777"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Gebruik Azure-reservering voor uw abonnement op gebruiksbasis begrijpen
 
@@ -33,7 +33,7 @@ In dit artikel wordt ervan uitgegaan dat de reservering wordt toegepast op één
 
 Voor de volgende secties wordt ervan uitgegaan dat u een Standard_DS1_v2 Windows virtuele machine worden uitgevoerd in de regio VS-Oost en uw gereserveerde VM-exemplaar informatie lijkt erop dat de volgende tabel:
 
-| Veld | Waarde |
+| Veld | Value |
 |---| :---: |
 |ReservationId |8117adfb-1d94-4675-be2b-f3c1bca808b6|
 |Hoeveelheid |1|
@@ -68,7 +68,7 @@ De volgende secties voor het gebruik van Azure SQL Database als voorbeeld voor h
 
 Wordt ervan uitgegaan dat u een SQL-Database Gen 4 worden uitgevoerd in de regio VS-Oost en uw reservering informatie er ongeveer zo uitziet als de volgende tabel:
 
-| Veld | Waarde |
+| Veld | Value |
 |---| --- |
 |ReservationId |446ec809-423d-467c-8c5c-bbd5d22906b1|
 |Hoeveelheid |2|
@@ -107,6 +107,6 @@ Zie voor meer informatie over Azure-reserveringen, de volgende artikelen:
 
 ## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 
-Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 

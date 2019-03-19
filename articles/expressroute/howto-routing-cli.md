@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 683a05c39b73f51d6eb2c81b8afbb32c7daf6bfc
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a2bb8f5d27f1829f891a0638642093df1fa35b81
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104574"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088448"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>Peering voor een ExpressRoute-circuit met behulp van CLI maken en wijzigen
 
@@ -52,70 +52,70 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de c
 
 1. Installeer de nieuwste versie van Azure CLI. Gebruik de nieuwste versie van de Azure-opdrachtregelinterface (CLI). * Controleer de [vereisten](expressroute-prerequisites.md) en [werkstromen](expressroute-workflows.md) voordat u begint met de configuratie.
 
-  ```azurecli-interactive
-  az login
-  ```
+   ```azurecli-interactive
+   az login
+   ```
 
-  Selecteer het abonnement waarvoor u wilt maken van ExpressRoute-circuit.
+   Selecteer het abonnement waarvoor u wilt maken van ExpressRoute-circuit.
 
-  ```azurecli-interactive
-  az account set --subscription "<subscription ID>"
-  ```
+   ```azurecli-interactive
+   az account set --subscription "<subscription ID>"
+   ```
 2. Maak een ExpressRoute-circuit. Volg de instructies voor het [maken van een ExpressRoute-circuit](howto-circuit-cli.md) en laat het circuit inrichten door de connectiviteitsprovider. Als uw connectiviteitsprovider beheerde laag-3-services biedt, kunt u uw connectiviteitsprovider om in te schakelen van Microsoft-peering voor u vragen. In dat geval hoeft u de instructies in de volgende secties niet te volgen. Als uw connectiviteitsprovider niet wordt beheerd routering voor u, na het maken van uw circuit blijven echter de configuratie met behulp van de volgende stappen. 
 
 3. Controleer de ExpressRoute-circuit om te controleren of deze is ingericht en ook ingeschakeld. Gebruik het volgende voorbeeld:
 
-  ```azurecli-interactive
-  az network express-route list
-  ```
+   ```azurecli-interactive
+   az network express-route list
+   ```
 
-  Het antwoord is vergelijkbaar met het volgende voorbeeld:
+   Het antwoord is vergelijkbaar met het volgende voorbeeld:
 
-  ```azurecli
-  "allowClassicOperations": false,
-  "authorizations": [],
-  "circuitProvisioningState": "Enabled",
-  "etag": "W/\"1262c492-ffef-4a63-95a8-a6002736b8c4\"",
-  "gatewayManagerEtag": null,
-  "id": "/subscriptions/81ab786c-56eb-4a4d-bb5f-f60329772466/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit",
-  "location": "westus",
-  "name": "MyCircuit",
-  "peerings": [],
-  "provisioningState": "Succeeded",
-  "resourceGroup": "ExpressRouteResourceGroup",
-  "serviceKey": "1d05cf70-1db5-419f-ad86-1ca62c3c125b",
-  "serviceProviderNotes": null,
-  "serviceProviderProperties": {
+   ```azurecli
+   "allowClassicOperations": false,
+   "authorizations": [],
+   "circuitProvisioningState": "Enabled",
+   "etag": "W/\"1262c492-ffef-4a63-95a8-a6002736b8c4\"",
+   "gatewayManagerEtag": null,
+   "id": "/subscriptions/81ab786c-56eb-4a4d-bb5f-f60329772466/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit",
+   "location": "westus",
+   "name": "MyCircuit",
+   "peerings": [],
+   "provisioningState": "Succeeded",
+   "resourceGroup": "ExpressRouteResourceGroup",
+   "serviceKey": "1d05cf70-1db5-419f-ad86-1ca62c3c125b",
+   "serviceProviderNotes": null,
+   "serviceProviderProperties": {
     "bandwidthInMbps": 200,
     "peeringLocation": "Silicon Valley",
     "serviceProviderName": "Equinix"
-  },
-  "serviceProviderProvisioningState": "Provisioned",
-  "sku": {
+   },
+   "serviceProviderProvisioningState": "Provisioned",
+   "sku": {
     "family": "UnlimitedData",
     "name": "Standard_MeteredData",
     "tier": "Standard"
-  },
-  "tags": null,
-  "type": "Microsoft.Network/expressRouteCircuits]
-  ```
+   },
+   "tags": null,
+   "type": "Microsoft.Network/expressRouteCircuits]
+   ```
 
 4. Configureer Microsoft-peering voor het circuit. Zorg ervoor dat u over de volgende informatie beschikt voordat u verder gaat.
 
-  * Een /30-subnet voor de primaire koppeling. Dit moet een geldig openbaar IPv4-voorvoegsel zijn waarvan u eigenaar bent en dat is geregistreerd in een RIR/IRR.
-  * Een /30-subnet voor de secundaire koppeling. Dit moet een geldig openbaar IPv4-voorvoegsel zijn waarvan u eigenaar bent en dat is geregistreerd in een RIR/IRR.
-  * Een geldige VLAN-id waarop u deze peering wilt instellen. Controleer of er geen andere peering in het circuit is die dezelfde VLAN-id gebruikt.
-  * AS-nummer voor peering. U kunt 2-bytes en 4-bytes AS-nummers gebruiken.
-  * Geadverteerde voorvoegsels: u moet een lijst verstrekken van alle voorvoegsels die u via de BGP-sessie wilt adverteren. Alleen openbare IP-adresvoorvoegsels worden geaccepteerd. Als u van plan bent om een set voorvoegsels te verzenden, kunt u een door komma's gescheiden lijst verzenden. Deze voorvoegsels moeten voor u zijn geregistreerd in een RIR/IRR.
-  * **Optioneel:** klant-ASN: als u voorvoegsels adverteert die niet zijn geregistreerd op de AS-nummer peering, kunt u het AS-nummer waaraan ze zijn geregistreerd.
-  * Naam van routeringsregister: u kunt het RIR/IRR opgeven waarbij het AS-nummer en de voorvoegsels zijn geregistreerd.
-  * **Optioneel:** een MD5-hash, als u ervoor kiest een te gebruiken.
+   * Een /30-subnet voor de primaire koppeling. Dit moet een geldig openbaar IPv4-voorvoegsel zijn waarvan u eigenaar bent en dat is geregistreerd in een RIR/IRR.
+   * Een /30-subnet voor de secundaire koppeling. Dit moet een geldig openbaar IPv4-voorvoegsel zijn waarvan u eigenaar bent en dat is geregistreerd in een RIR/IRR.
+   * Een geldige VLAN-id waarop u deze peering wilt instellen. Controleer of er geen andere peering in het circuit is die dezelfde VLAN-id gebruikt.
+   * AS-nummer voor peering. U kunt 2-bytes en 4-bytes AS-nummers gebruiken.
+   * Geadverteerde voorvoegsels: U kunt een lijst van alle voorvoegsels die u van plan bent om te adverteren via de BGP-sessie moet opgeven. Alleen openbare IP-adresvoorvoegsels worden geaccepteerd. Als u van plan bent om een set voorvoegsels te verzenden, kunt u een door komma's gescheiden lijst verzenden. Deze voorvoegsels moeten voor u zijn geregistreerd in een RIR/IRR.
+   * **Optioneel:** klant-ASN: Als u voorvoegsels adverteert die niet zijn geregistreerd op de AS-nummer peering, kunt u het AS-nummer waaraan ze zijn geregistreerd.
+   * Naam van Routeringsregister: U kunt het RIR / IRR op basis waarvan het AS-nummer en de voorvoegsels zijn geregistreerd.
+   * **Optioneel:** een MD5-hash, als u ervoor kiest een te gebruiken.
 
    Voer het volgende voorbeeld voor het Microsoft-peering voor uw circuit te configureren:
 
-  ```azurecli-interactive
-  az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 123.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 123.0.0.4/30 --vlan-id 300 --peering-type MicrosoftPeering --advertised-public-prefixes 123.1.0.0/24
-  ```
+   ```azurecli-interactive
+   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 123.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 123.0.0.4/30 --vlan-id 300 --peering-type MicrosoftPeering --advertised-public-prefixes 123.1.0.0/24
+   ```
 
 ### <a name="getmsft"></a>Details van Microsoft-peering weergeven
 
@@ -189,78 +189,78 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de A
 
 1. Installeer de nieuwste versie van Azure CLI. Moet u de meest recente versie van de Azure-opdrachtregelinterface (CLI). * Controleer de [vereisten](expressroute-prerequisites.md) en [werkstromen](expressroute-workflows.md) voordat u begint met de configuratie.
 
-  ```azurecli-interactive
-  az login
-  ```
+   ```azurecli-interactive
+   az login
+   ```
 
-  Het abonnement selecteren waarmee u een ExpressRoute-circuit wilt maken
+   Het abonnement selecteren waarmee u een ExpressRoute-circuit wilt maken
 
-  ```azurecli-interactive
-  az account set --subscription "<subscription ID>"
-  ```
+   ```azurecli-interactive
+   az account set --subscription "<subscription ID>"
+   ```
 2. Maak een ExpressRoute-circuit. Volg de instructies voor het [maken van een ExpressRoute-circuit](howto-circuit-cli.md) en laat het circuit inrichten door de connectiviteitsprovider. Als uw connectiviteitsprovider beheerde laag-3-services biedt, kunt u uw connectiviteitsprovider om in te schakelen persoonlijke Azure-peering voor u vragen. In dat geval hoeft u de instructies in de volgende secties niet te volgen. Als uw connectiviteitsprovider niet wordt beheerd routering voor u, na het maken van uw circuit blijven echter de configuratie met behulp van de volgende stappen.
 
 3. Controleer de ExpressRoute-circuit om te controleren of deze is ingericht en ook ingeschakeld. Gebruik het volgende voorbeeld:
 
-  ```azurecli-interactive
-  az network express-route show --resource-group ExpressRouteResourceGroup --name MyCircuit
-  ```
+   ```azurecli-interactive
+   az network express-route show --resource-group ExpressRouteResourceGroup --name MyCircuit
+   ```
 
-  Het antwoord is vergelijkbaar met het volgende voorbeeld:
+   Het antwoord is vergelijkbaar met het volgende voorbeeld:
 
-  ```azurecli
-  "allowClassicOperations": false,
-  "authorizations": [],
-  "circuitProvisioningState": "Enabled",
-  "etag": "W/\"1262c492-ffef-4a63-95a8-a6002736b8c4\"",
-  "gatewayManagerEtag": null,
-  "id": "/subscriptions/81ab786c-56eb-4a4d-bb5f-f60329772466/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit",
-  "location": "westus",
-  "name": "MyCircuit",
-  "peerings": [],
-  "provisioningState": "Succeeded",
-  "resourceGroup": "ExpressRouteResourceGroup",
-  "serviceKey": "1d05cf70-1db5-419f-ad86-1ca62c3c125b",
-  "serviceProviderNotes": null,
-  "serviceProviderProperties": {
-  "bandwidthInMbps": 200,
-  "peeringLocation": "Silicon Valley",
-  "serviceProviderName": "Equinix"
-  },
-  "serviceProviderProvisioningState": "Provisioned",
-  "sku": {
+   ```azurecli
+   "allowClassicOperations": false,
+   "authorizations": [],
+   "circuitProvisioningState": "Enabled",
+   "etag": "W/\"1262c492-ffef-4a63-95a8-a6002736b8c4\"",
+   "gatewayManagerEtag": null,
+   "id": "/subscriptions/81ab786c-56eb-4a4d-bb5f-f60329772466/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit",
+   "location": "westus",
+   "name": "MyCircuit",
+   "peerings": [],
+   "provisioningState": "Succeeded",
+   "resourceGroup": "ExpressRouteResourceGroup",
+   "serviceKey": "1d05cf70-1db5-419f-ad86-1ca62c3c125b",
+   "serviceProviderNotes": null,
+   "serviceProviderProperties": {
+   "bandwidthInMbps": 200,
+   "peeringLocation": "Silicon Valley",
+   "serviceProviderName": "Equinix"
+   },
+   "serviceProviderProvisioningState": "Provisioned",
+   "sku": {
     "family": "UnlimitedData",
     "name": "Standard_MeteredData",
     "tier": "Standard"
-  },
-  "tags": null,
-  "type": "Microsoft.Network/expressRouteCircuits]
-  ```
+   },
+   "tags": null,
+   "type": "Microsoft.Network/expressRouteCircuits]
+   ```
 
 4. Configureer persoonlijke Azure-peering voor het circuit. Zorg ervoor dat u de volgende items hebt voordat u verdergaat met de volgende stappen:
 
-  * Een /30-subnet voor de primaire koppeling. Het subnet moet deel uitmaken van een adresruimte gereserveerd voor virtuele netwerken niet.
-  * Een /30-subnet voor de secundaire koppeling. Het subnet moet deel uitmaken van een adresruimte gereserveerd voor virtuele netwerken niet.
-  * Een geldige VLAN-id waarop u deze peering wilt instellen. Controleer of er geen andere peering in het circuit is die dezelfde VLAN-id gebruikt.
-  * AS-nummer voor peering. U kunt 2-bytes en 4-bytes AS-nummers gebruiken. U kunt een persoonlijk AS-nummer voor deze peering gebruiken. Zorg dat u niet 65515 gebruikt.
-  * **Optioneel:** een MD5-hash, als u ervoor kiest een te gebruiken.
+   * Een /30-subnet voor de primaire koppeling. Het subnet moet deel uitmaken van een adresruimte gereserveerd voor virtuele netwerken niet.
+   * Een /30-subnet voor de secundaire koppeling. Het subnet moet deel uitmaken van een adresruimte gereserveerd voor virtuele netwerken niet.
+   * Een geldige VLAN-id waarop u deze peering wilt instellen. Controleer of er geen andere peering in het circuit is die dezelfde VLAN-id gebruikt.
+   * AS-nummer voor peering. U kunt 2-bytes en 4-bytes AS-nummers gebruiken. U kunt een persoonlijk AS-nummer voor deze peering gebruiken. Zorg dat u niet 65515 gebruikt.
+   * **Optioneel:** een MD5-hash, als u ervoor kiest een te gebruiken.
 
-  Gebruik het volgende voorbeeld voor persoonlijke Azure-peering voor uw circuit configureren:
+   Gebruik het volgende voorbeeld voor persoonlijke Azure-peering voor uw circuit configureren:
 
-  ```azurecli-interactive
-  az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 10.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 10.0.0.4/30 --vlan-id 200 --peering-type AzurePrivatePeering
-  ```
+   ```azurecli-interactive
+   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 10.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 10.0.0.4/30 --vlan-id 200 --peering-type AzurePrivatePeering
+   ```
 
-  Als u ervoor kiest een MD5-hash wilt gebruiken, gebruikt u het volgende voorbeeld:
+   Als u ervoor kiest een MD5-hash wilt gebruiken, gebruikt u het volgende voorbeeld:
 
-  ```azurecli-interactive
-  az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 10.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 10.0.0.4/30 --vlan-id 200 --peering-type AzurePrivatePeering --SharedKey "A1B2C3D4"
-  ```
+   ```azurecli-interactive
+   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 10.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 10.0.0.4/30 --vlan-id 200 --peering-type AzurePrivatePeering --SharedKey "A1B2C3D4"
+   ```
 
-  > [!IMPORTANT]
-  > Zorg dat u uw AS-nummer als peering-ASN opgeeft, niet als klant-ASN.
-  > 
-  > 
+   > [!IMPORTANT]
+   > Zorg dat u uw AS-nummer als peering-ASN opgeeft, niet als klant-ASN.
+   > 
+   > 
 
 ### <a name="getprivate"></a>Details van een Azure private peering weergeven
 
@@ -327,76 +327,76 @@ In deze sectie helpt u bij het maken, ophalen, bijwerken en verwijderen van de A
 
 1. Installeer de nieuwste versie van Azure CLI. Moet u de meest recente versie van de Azure-opdrachtregelinterface (CLI). * Controleer de [vereisten](expressroute-prerequisites.md) en [werkstromen](expressroute-workflows.md) voordat u begint met de configuratie.
 
-  ```azurecli-interactive
-  az login
-  ```
+   ```azurecli-interactive
+   az login
+   ```
 
-  Selecteer het abonnement waarvoor u wilt maken van ExpressRoute-circuit.
+   Selecteer het abonnement waarvoor u wilt maken van ExpressRoute-circuit.
 
-  ```azurecli-interactive
-  az account set --subscription "<subscription ID>"
-  ```
+   ```azurecli-interactive
+   az account set --subscription "<subscription ID>"
+   ```
 2. Maak een ExpressRoute-circuit.  Volg de instructies voor het [maken van een ExpressRoute-circuit](howto-circuit-cli.md) en laat het circuit inrichten door de connectiviteitsprovider. Als uw connectiviteitsprovider beheerde laag-3-services biedt, kunt u uw connectiviteitsprovider om in te schakelen openbare Azure-peering voor u vragen. In dat geval hoeft u de instructies in de volgende secties niet te volgen. Als uw connectiviteitsprovider niet wordt beheerd routering voor u, na het maken van uw circuit blijven echter de configuratie met behulp van de volgende stappen.
 
 3. Controleer of de ExpressRoute circuit is ingericht en ook ingeschakeld. Gebruik het volgende voorbeeld:
 
-  ```azurecli-interactive
-  az network express-route list
-  ```
+   ```azurecli-interactive
+   az network express-route list
+   ```
 
-  Het antwoord is vergelijkbaar met het volgende voorbeeld:
+   Het antwoord is vergelijkbaar met het volgende voorbeeld:
 
-  ```azurecli
-  "allowClassicOperations": false,
-  "authorizations": [],
-  "circuitProvisioningState": "Enabled",
-  "etag": "W/\"1262c492-ffef-4a63-95a8-a6002736b8c4\"",
-  "gatewayManagerEtag": null,
-  "id": "/subscriptions/81ab786c-56eb-4a4d-bb5f-f60329772466/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit",
-  "location": "westus",
-  "name": "MyCircuit",
-  "peerings": [],
-  "provisioningState": "Succeeded",
-  "resourceGroup": "ExpressRouteResourceGroup",
-  "serviceKey": "1d05cf70-1db5-419f-ad86-1ca62c3c125b",
-  "serviceProviderNotes": null,
-  "serviceProviderProperties": {
+   ```azurecli
+   "allowClassicOperations": false,
+   "authorizations": [],
+   "circuitProvisioningState": "Enabled",
+   "etag": "W/\"1262c492-ffef-4a63-95a8-a6002736b8c4\"",
+   "gatewayManagerEtag": null,
+   "id": "/subscriptions/81ab786c-56eb-4a4d-bb5f-f60329772466/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit",
+   "location": "westus",
+   "name": "MyCircuit",
+   "peerings": [],
+   "provisioningState": "Succeeded",
+   "resourceGroup": "ExpressRouteResourceGroup",
+   "serviceKey": "1d05cf70-1db5-419f-ad86-1ca62c3c125b",
+   "serviceProviderNotes": null,
+   "serviceProviderProperties": {
     "bandwidthInMbps": 200,
     "peeringLocation": "Silicon Valley",
     "serviceProviderName": "Equinix"
-  },
-  "serviceProviderProvisioningState": "Provisioned",
-  "sku": {
+   },
+   "serviceProviderProvisioningState": "Provisioned",
+   "sku": {
     "family": "UnlimitedData",
     "name": "Standard_MeteredData",
     "tier": "Standard"
-  },
-  "tags": null,
-  "type": "Microsoft.Network/expressRouteCircuits]
-  ```
+   },
+   "tags": null,
+   "type": "Microsoft.Network/expressRouteCircuits]
+   ```
 
 4. Configureer openbare Azure-peering voor het circuit. Zorg ervoor dat u de volgende informatie voordat u verder gaat.
 
-  * Een /30-subnet voor de primaire koppeling. Dit moet een geldig openbaar IPv4-voorvoegsel zijn.
-  * Een /30-subnet voor de secundaire koppeling. Dit moet een geldig openbaar IPv4-voorvoegsel zijn.
-  * Een geldige VLAN-id waarop u deze peering wilt instellen. Controleer of er geen andere peering in het circuit is die dezelfde VLAN-id gebruikt.
-  * AS-nummer voor peering. U kunt 2-bytes en 4-bytes AS-nummers gebruiken.
-  * **Optioneel:** een MD5-hash, als u ervoor kiest een te gebruiken.
+   * Een /30-subnet voor de primaire koppeling. Dit moet een geldig openbaar IPv4-voorvoegsel zijn.
+   * Een /30-subnet voor de secundaire koppeling. Dit moet een geldig openbaar IPv4-voorvoegsel zijn.
+   * Een geldige VLAN-id waarop u deze peering wilt instellen. Controleer of er geen andere peering in het circuit is die dezelfde VLAN-id gebruikt.
+   * AS-nummer voor peering. U kunt 2-bytes en 4-bytes AS-nummers gebruiken.
+   * **Optioneel:** een MD5-hash, als u ervoor kiest een te gebruiken.
 
-  Voer het volgende voorbeeld om Azure openbare peering voor uw circuit te configureren:
+   Voer het volgende voorbeeld om Azure openbare peering voor uw circuit te configureren:
 
-  ```azurecli-interactive
-  az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 12.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 12.0.0.4/30 --vlan-id 200 --peering-type AzurePublicPeering
-  ```
+   ```azurecli-interactive
+   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 12.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 12.0.0.4/30 --vlan-id 200 --peering-type AzurePublicPeering
+   ```
 
-  Als u ervoor kiest een MD5-hash wilt gebruiken, gebruikt u het volgende voorbeeld:
+   Als u ervoor kiest een MD5-hash wilt gebruiken, gebruikt u het volgende voorbeeld:
 
-  ```azurecli-interactive
-  az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 12.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 12.0.0.4/30 --vlan-id 200 --peering-type AzurePublicPeering --SharedKey "A1B2C3D4"
-  ```
+   ```azurecli-interactive
+   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 12.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 12.0.0.4/30 --vlan-id 200 --peering-type AzurePublicPeering --SharedKey "A1B2C3D4"
+   ```
 
-  > [!IMPORTANT]
-  > Zorg dat u uw AS-nummer als peering-ASN opgeeft, niet als klant-ASN.
+   > [!IMPORTANT]
+   > Zorg dat u uw AS-nummer als peering-ASN opgeeft, niet als klant-ASN.
 
 ### <a name="getpublic"></a>Details van een Azure openbare peering weergeven
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: cdaa151f0603cddc9ca1bf17b0ff304f646cfdde
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e826c7a3fc12e819fd6f145d42b7381087d5970c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462831"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000239"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>De Azure Import/Export-service gebruiken om gegevens te importeren naar Azure Blob Storage
 
@@ -29,7 +29,7 @@ Voordat u een import-taak voor het overdragen van gegevens naar Azure Blob-opsla
     - Voor informatie over de storage-container, gaat u naar [maken van een opslagcontainer](../blobs/storage-quickstart-blobs-portal.md#create-a-container).
 - Schijven van voldoende [ondersteunde typen](storage-import-export-requirements.md#supported-disks). 
 - Een Windows-systeem met een [ondersteunde besturingssysteemversie](storage-import-export-requirements.md#supported-operating-systems). 
-- Het inschakelen van BitLocker op het Windows-systeem. Zie [BitLocker inschakelen](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
+- Het inschakelen van BitLocker op het Windows-systeem. Zie [BitLocker inschakelen](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
 - [Download de WAImportExport versie 1](https://aka.ms/waiev1) op het Windows-systeem. Pak deze uit naar de standaardmap `waimportexportv1`. Bijvoorbeeld `C:\WaImportExportV1`.
 - Een FedEx/DHL-account hebben.  
     - Het account moet geldig zijn, saldo moet hebben en moet return verzending mogelijkheden hebben.
@@ -47,7 +47,7 @@ Voer de volgende stappen voor het voorbereiden van de schijven.
 
 1.  De schijfstations verbinden met het Windows-systeem via SATA-connectors.
 1.  Maak een enkele NTFS-volume op elke schijf. Een stationsletter toewijzen aan het volume. Stel de volgende parameter niet gebruiken
-2.  Inschakelen van BitLocker-versleuteling op het NTFS-volume. Als een Windows Server-systeem, gebruikt u de instructies in [het inschakelen van BitLocker op Windows Server 2012 R2](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
+2.  Inschakelen van BitLocker-versleuteling op het NTFS-volume. Als een Windows Server-systeem, gebruikt u de instructies in [het inschakelen van BitLocker op Windows Server 2012 R2](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
 3.  Gegevens kopiëren naar een versleuteld volume. Gebruik slepen en neerzetten of Robocopy of een dergelijke hulpprogramma voor kopiëren.
 4.  Open een PowerShell- of vanaf de opdrachtregel-venster met beheerdersbevoegdheden. Als u de map naar de uitgepakte map, moet u de volgende opdracht uitvoeren:
     
@@ -94,14 +94,14 @@ De volgende stappen uitvoeren om een import-taak maken in Azure portal.
 
 4. In **basisbeginselen**:
 
-    - Selecteer **importeren in Azure**.
-    - Voer een beschrijvende naam voor de import-taak. De naam gebruiken om de voortgang van uw taken te houden.
-        - De naam mag alleen kleine letters, cijfers en afbreekstreepjes bevatten.
-        - De naam moet beginnen met een letter en mag geen spaties bevatten.
-    - Selecteer een abonnement.
-    - Typ of Selecteer een resourcegroep.  
+   - Selecteer **importeren in Azure**.
+   - Voer een beschrijvende naam voor de import-taak. De naam gebruiken om de voortgang van uw taken te houden.
+       - De naam mag alleen kleine letters, cijfers en afbreekstreepjes bevatten.
+       - De naam moet beginnen met een letter en mag geen spaties bevatten.
+   - Selecteer een abonnement.
+   - Typ of Selecteer een resourcegroep.  
 
-    ![Importeren van een taak maken - stap 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
+     ![Importeren van een taak maken - stap 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
 3. In **taakgegevens**:
 
@@ -113,21 +113,21 @@ De volgende stappen uitvoeren om een import-taak maken in Azure portal.
 
 4. In **verzendinfo retourneren**:
 
-    - Selecteer de provider die in de vervolgkeuzelijst.
-    - Voer een geldige provider account getal dat u hebt gemaakt met deze provider. Microsoft gebruikt deze account voor de schijven terug naar u verzenden zodra uw import-taak voltooid is. Als u een accountnummer hebt, maakt u een [FedEx](http://www.fedex.com/us/oadr/) of [DHL](http://www.dhl.com/) doorberekend aan.
-    - Geef een volledig en geldig contact op met de naam, telefoon, e-mailadres, adres, stad, postcode, staat/provincie en land/regio. 
+   - Selecteer de provider die in de vervolgkeuzelijst.
+   - Voer een geldige provider account getal dat u hebt gemaakt met deze provider. Microsoft gebruikt deze account voor de schijven terug naar u verzenden zodra uw import-taak voltooid is. Als u een accountnummer hebt, maakt u een [FedEx](https://www.fedex.com/us/oadr/) of [DHL](http://www.dhl.com/) doorberekend aan.
+   - Geef een volledig en geldig contact op met de naam, telefoon, e-mailadres, adres, stad, postcode, staat/provincie en land/regio. 
         
-        > [!TIP] 
-        > In plaats van op te geven in een e-mailadres voor één gebruiker, moet u een groep e-mailadres opgeven. Dit zorgt ervoor dat u meldingen ontvangt, zelfs als een beheerder verlaat.
+       > [!TIP] 
+       > In plaats van op te geven in een e-mailadres voor één gebruiker, moet u een groep e-mailadres opgeven. Dit zorgt ervoor dat u meldingen ontvangt, zelfs als een beheerder verlaat.
 
-    ![Importeren van een taak maken - stap 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
+     ![Importeren van een taak maken - stap 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
    
 5. In de **samenvatting**:
 
-    - Bekijk de taakinformatie in het overzicht. Noteer de taaknaam van de en de Azure-datacenter verzendadres voor het verzenden van de schijven terug naar Azure. Deze informatie wordt later gebruikt op het verzendlabel.
-    - Klik op **OK** te maken van de import-taak.
+   - Bekijk de taakinformatie in het overzicht. Noteer de taaknaam van de en de Azure-datacenter verzendadres voor het verzenden van de schijven terug naar Azure. Deze informatie wordt later gebruikt op het verzendlabel.
+   - Klik op **OK** te maken van de import-taak.
 
-    ![Importeren van een taak maken - stap 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
+     ![Importeren van een taak maken - stap 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
 ## <a name="step-3-ship-the-drives"></a>Stap 3: De schijven verzenden 
 

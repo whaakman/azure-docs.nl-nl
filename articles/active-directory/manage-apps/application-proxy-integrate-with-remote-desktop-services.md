@@ -16,12 +16,12 @@ ms.author: celested
 ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e433eded9ffccde0eccb3b807c8eb8e3219771f5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 295422e0f456c4dfd4166911ef8150e8a896ba1a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162099"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111103"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Extern bureaublad met Azure AD Application Proxy publiceren
 
@@ -86,7 +86,7 @@ Verbinding maken met de implementatie van extern bureaublad-services als beheerd
 6. Wijzig in het tabblad Extern bureaublad-Gateway de **servernaam** veld naar de externe URL die u hebt ingesteld voor het eindpunt van de host Extern bureaublad in Application Proxy.
 7. Wijzig de **aanmelden methode** veld **wachtwoordverificatie**.
 
-  ![Scherm van de eigenschappen van implementatie van extern bureaublad-services](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
+   ![Scherm van de eigenschappen van implementatie van extern bureaublad-services](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
 
 8. Voer deze opdracht uit voor elke verzameling. Vervang *\<yourcollectionname\>* en *\<proxyfrontendurl\>* door uw eigen waarden. Met deze opdracht kunt eenmalige aanmelding tussen RD-Web- en RD-Gateway en optimaliseert de prestaties:
 
@@ -98,8 +98,8 @@ Verbinding maken met de implementatie van extern bureaublad-services als beheerd
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://remotedesktoptest-aadapdemo.msappproxy.net/`nrequire pre-authentication:i:1"
    ```
->[!NOTE]
->De bovenstaande opdracht maakt gebruik van een backtick in ' ' nrequire '.
+   >[!NOTE]
+   >De bovenstaande opdracht maakt gebruik van een backtick in ' ' nrequire '.
 
 9. Als u wilt controleren of de wijziging van de aangepaste RDP-eigenschappen, evenals de inhoud van het RDP-bestand dat zal worden gedownload van RDWeb voor deze verzameling weergeven, moet u de volgende opdracht uitvoeren:
     ```

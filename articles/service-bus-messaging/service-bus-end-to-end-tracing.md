@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 2330e395244f33653af415b5db896fdc2aa2024d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 6e5895392db1d75a985674bf2f878a84bc8dd926
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852980"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107032"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Gedistribueerde tracering en correlatie via Service Bus-berichten
 
@@ -213,7 +213,7 @@ In sommige gevallen is het wenselijk om aan te melden slechts een deel van de ge
 
 1. `IsEnabled(<OperationName>, string entity, null)` bijvoorbeeld, `IsEnabled("Microsoft.Azure.ServiceBus.Send", "MyQueue1")`. Let op: Er is geen 'Start' of 'Stop' aan het einde. Gebruik deze om te filteren om bepaalde bewerkingen of wachtrijen. Als de callback retourneert `false`, gebeurtenissen voor de bewerking niet worden verzonden
 
-  * Voor de 'Process' en 'ProcessSession', ontvangt u ook `IsEnabled(<OperationName>, string entity, Activity activity)` retouraanroep. Gebruiken om te filteren op basis van gebeurtenissen `activity.Id` of Tags eigenschappen.
+   * Voor de 'Process' en 'ProcessSession', ontvangt u ook `IsEnabled(<OperationName>, string entity, Activity activity)` retouraanroep. Gebruiken om te filteren op basis van gebeurtenissen `activity.Id` of Tags eigenschappen.
   
 2. `IsEnabled(<OperationName>.Start)` bijvoorbeeld, `IsEnabled("Microsoft.Azure.ServiceBus.Send.Start")`. Hiermee wordt gecontroleerd of de gebeurtenis 'Start' moet worden geactiveerd. Het resultaat heeft alleen gevolgen voor de gebeurtenis 'Start', maar verdere instrumentation is niet afhankelijk van het.
 

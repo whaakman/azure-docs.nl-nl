@@ -1,38 +1,43 @@
 ---
-title: Wat is Text Analytics?
+title: 'Wat is de Tekstanalyse-API? -Mogelijkheden:'
 titleSuffix: Azure Cognitive Services
-description: Text Analytics in Azure Cognitive Services voor sentimentanalyse, sleuteltermextractie, taaldetectie en entiteitskoppeling.
+description: Tekstanalyse-API in Azure Cognitive Services voor sentimentanalyse, sleuteltermextractie, taaldetectie en entiteiten koppelen.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 02/13/2019
+ms.date: 03/01/2019
 ms.author: aahi
-ms.openlocfilehash: 7623f98b9fd6c4bad8a41050e39b6e0e8650dccc
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: HT
+ms.openlocfilehash: 1e6aea792666447141e504f45a3ff55cb70f6261
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889276"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533235"
 ---
-# <a name="what-is-text-analytics"></a>Wat is Text Analytics?
+# <a name="what-is-text-analytics-api"></a>Wat is de Tekstanalyse-API?
 
 De Text Analytics-API is een op de cloud gebaseerde service die geavanceerde verwerking van natuurlijke taal biedt voor onbewerkte tekst. De service bevat vier hoofdfuncties: sentimentanalyse, sleuteltermextractie, taaldetectie en entiteitskoppeling.
 
 De API maakt deel uit van [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/), een verzameling van machine learning- en AI-algoritmen in de cloud, die kunnen worden gebruikt in uw ontwikkelprojecten.
 
-## <a name="capabilities-in-text-analytics"></a>Mogelijkheden in Text Analytics
+> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player]
 
-Tekstanalyse kan verschillende dingen betekenen, maar in Cognitive Services biedt de Text Analytics-API vier soorten analyse, zoals wordt beschreven in de volgende tabel.
+Tekstanalyse kan verschillende dingen betekenen, maar in Cognitive Services, de Tekstanalyse-API biedt vier soorten analyse, zoals hieronder wordt beschreven.
 
-| Bewerkingen| Beschrijving | API's |
-|-----------|-------------|------|
-|[**Sentimentanalyse**](how-tos/text-analytics-how-to-sentiment-analysis.md) | Ontdek hoe klanten denken over uw merk of onderwerp, door onbewerkte tekst te analyseren op aanwijzingen van positieve of negatieve gevoelens. Deze API retourneert een gevoelsscore tussen 0 en 1 voor elk document, waarbij 1 het meest positief is.<br /> De analysemodellen zijn vooraf getraind met behulp van een uitgebreide hoofdtekst en natuurlijke-taaltechnologieën van Microsoft. Voor [geselecteerde talen](text-analytics-supported-languages.md) kan de API elke onbewerkte tekst die u opgeeft analyseren en beoordelen en de resultaten direct doorgeven aan de aanroepende toepassing. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) <br /> [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package)  |
-|[**Sleuteltermextractie**](how-tos/text-analytics-how-to-keyword-extraction.md) | Extraheer automatisch sleuteltermen om snel de hoofdpunten te identificeren. Bijvoorbeeld, voor de invoertekst 'het eten was heerlijk en de bediening fantastisch' retourneert de API de belangrijkste gespreksonderwerpen: 'eten' en 'bediening fantastisch'.  | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) <br /> [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) |
-|[**Taaldetectie**](how-tos/text-analytics-how-to-language-detection.md) | Voor maximaal 120 talen kan worden gedetecteerd in welke taal de ingevoerde tekst is geschreven en wordt er één taalcode gerapporteerd voor elk document dat is ingediend bij de aanvraag. De taalcode is gekoppeld aan een score die de sterkte van de score aangeeft. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) <br />  [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) |
-|[**Entiteitsherkenning (preview)**](how-tos/text-analytics-how-to-entity-linking.md) | U kunt entiteiten in uw tekst identificeren en categoriseren als mensen, plaatsen, organisaties, datum/tijd, hoeveelheden, percentages, valuta's en meer. Bekende entiteiten worden ook herkend en gekoppeld aan meer informatie op het web. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) |
+## <a name="sentiment-analysis"></a>Sentimentanalyse
+Gebruik [sentimentanalyse](how-tos/text-analytics-how-to-sentiment-analysis.md) om erachter te komen hoe klanten van uw merk of onderwerp denken door onbewerkte tekst of er aanwijzingen over positief of negatief gevoel analyseren. Deze API retourneert een gevoelsscore tussen 0 en 1 voor elk document, waarbij 1 het meest positief is.<br /> De analysemodellen zijn vooraf getraind met behulp van een uitgebreide hoofdtekst en natuurlijke-taaltechnologieën van Microsoft. Voor [geselecteerde talen](text-analytics-supported-languages.md) kan de API elke onbewerkte tekst die u opgeeft analyseren en beoordelen en de resultaten direct doorgeven aan de aanroepende toepassing. U kunt de [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) API of de [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK.
+
+## <a name="key-phrase-extraction"></a>Sleuteltermextractie
+Automatisch [Extraheer sleuteluitdrukkingen](how-tos/text-analytics-how-to-keyword-extraction.md) snel de hoofdpunten te identificeren. Bijvoorbeeld, voor de invoertekst 'het eten was heerlijk en de bediening fantastisch' retourneert de API de belangrijkste gespreksonderwerpen: 'eten' en 'bediening fantastisch'. U kunt de [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) hier API of de [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK.
+
+## <a name="language-detection"></a>Taaldetectie
+U kunt [detecteren welke taal de ingevoerde tekst is geschreven in](how-tos/text-analytics-how-to-language-detection.md) en rapporteren van een enkele taalcode voor elk document dat is ingediend bij de aanvraag voor maximaal 120 talen. De taalcode is gekoppeld aan een score die de sterkte van de score aangeeft. U kunt de [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) API of de [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK.
+
+## <a name="entity-recognition-preview"></a>Herkenning van entiteit (Preview)
+[Identificeren en categoriseren entiteiten](how-tos/text-analytics-how-to-entity-linking.md) in uw tekst als mensen, plaatsen, organisaties, datum/tijd, hoeveelheden, percentages, valuta's en meer. Bekende entiteiten worden ook herkend en gekoppeld aan meer informatie op het web. U kunt de [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) API.
 
 ## <a name="use-containers"></a>Containers gebruiken
 
@@ -66,7 +71,7 @@ Deze sectie is voor betere zichtbaarheid verplaatst naar een afzonderlijk artike
 
 Alle eindpunten van de Text Analytics-API accepteren onbewerkte tekstgegevens. De huidige limiet is 5120 tekens per document. Als u grotere documenten moet analyseren, kunt u deze splitsen in een aantal kleinere documenten. Als u toch een hogere limiet nodig hebt, [neem dan contact met ons op](https://azure.microsoft.com/overview/sales-number/) zodat we uw vereisten kunnen bespreken.
 
-| Limiet | Waarde |
+| Limiet | Value |
 |------------------------|---------------|
 | Maximale grootte van één document | 5120 tekens, zoals wordt gemeten door [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
 | Maximale grootte van de hele aanvraag | 1 MB |
@@ -80,18 +85,10 @@ De Text Analytics-API maakt gebruik van Unicode-codering voor tekstweergave en h
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Probeer eerst de [interactieve demo](https://azure.microsoft.com/services/cognitive-services/text-analytics/). U kunt een tekstinvoer (maximaal 5120 tekens) plakken om de taal te bepalen (maximaal 120 talen), een gevoelsscore te berekenen of sleuteltermen te extraheren. U hoeft zich niet te registreren.
-
-Wanneer u klaar bent om de API rechtstreeks aan te roepen:
-
 + [Registreer](how-tos/text-analytics-how-to-signup.md) u voor een toegangssleutel en bekijk de stappen [de API aan te roepen](how-tos/text-analytics-how-to-call-api.md).
 
-+ [Snelstart](quickstarts/csharp.md) is een overzicht van de REST API-aanroepen die zijn geschreven in C#. Informatie over het indienen van tekst, het kiezen van een analyse en het bekijken van de resultaten met minimale code.
++ [Snelstart](quickstarts/csharp.md) is een overzicht van de REST API-aanroepen die zijn geschreven in C#. Informatie over het indienen van tekst, het kiezen van een analyse en het bekijken van de resultaten met minimale code. Als u liever, kunt u beginnen met de [Python-quickstart](quickstarts/python.md) in plaats daarvan.
 
-+ [API-referentiedocumentatie](//go.microsoft.com/fwlink/?LinkID=759346) bevat de technische documentatie voor de API's. De documentatie ondersteunt ingesloten aanroepen. U kunt de API dus aanroepen vanuit elke pagina in de documentatie.
++ Dieper iets met dit [sentiment-analyse zelfstudie](https://docs.microsoft.com/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services) met behulp van Azure Databricks.
 
-+ [Externe en community-inhoud](text-analytics-resource-external-community.md) bevat een lijst met blogberichten en video's die laten zien hoe u Text Analytics kunt gebruiken met andere hulpprogramma's en technologieën.
-
-## <a name="see-also"></a>Zie ook
-
- [Documentatiepagina van Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)
++ Bekijk onze lijst met blogberichten en meer video's over het gebruik van Tekstanalyse-API met andere hulpprogramma's en technologieën in onze [pagina externe en Community-inhoud](text-analytics-resource-external-community.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: f11d680330a43dd49b3c36c864f50b9dc869d172
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c4516e86e25bb31b113b495a239c9eae9df8c9f8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211849"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094766"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Verbinding maken en te communiceren met services in Service Fabric
 In Service Fabric, een service wordt uitgevoerd ergens in een Service Fabric-cluster, meestal verdeeld over meerdere virtuele machines. Deze kan worden verplaatst vanaf één locatie naar een andere, door de eigenaar van de service of automatisch door Service Fabric. Services zijn niet statisch gekoppeld aan een bepaalde machine of een adres.
@@ -78,26 +78,31 @@ Bijvoorbeeld, om te kunnen accepteren extern verkeer op poort **80**, de volgend
 
 1. Schrijven van een service die op poort 80 luistert. Poort 80 in ServiceManifest.xml van de service configureren en open een listener in de service, bijvoorbeeld een zelf-hostend webserver.
 
-    ```xml    <Resources> <Endpoints> <Endpoint Name="WebEndpoint" Protocol="http" Port="80" /> </Endpoints> </Resources>
+    ```xml
+    <Resources>
+        <Endpoints>
+            <Endpoint Name="WebEndpoint" Protocol="http" Port="80" />
+        </Endpoints>
+    </Resources>
     ```
     ```csharp
-        class HttpCommunicationListener : ICommunicationListener
+        class HttpCommunicationListener : ICommunicationListener
         {
             ...
 
             public Task<string> OpenAsync(CancellationToken cancellationToken)
             {
-                EndpointResourceDescription endpoint =
+                EndpointResourceDescription endpoint =
                     serviceContext.CodePackageActivationContext.GetEndpoint("WebEndpoint");
 
-                string uriPrefix = $"{endpoint.Protocol}://+:{endpoint.Port}/myapp/";
+                string uriPrefix = $"{endpoint.Protocol}://+:{endpoint.Port}/myapp/";
 
-                this.httpListener = new HttpListener();
+                this.httpListener = new HttpListener();
                 this.httpListener.Prefixes.Add(uriPrefix);
                 this.httpListener.Start();
 
-                string publishUri = uriPrefix.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
-                return Task.FromResult(publishUri);
+                string publishUri = uriPrefix.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
+                return Task.FromResult(publishUri);
             }
 
             ...
@@ -109,7 +114,7 @@ Bijvoorbeeld, om te kunnen accepteren extern verkeer op poort **80**, de volgend
 
             protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
             {
-                return new[] { new ServiceInstanceListener(context => new HttpCommunicationListener(context))};
+                return new[] { new ServiceInstanceListener(context => new HttpCommunicationListener(context))};
             }
 
             ...

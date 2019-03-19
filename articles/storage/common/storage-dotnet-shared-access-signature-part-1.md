@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/18/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: bee2a715e9e9b163af342b70c4cdd63d24ccee3b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e9e78d3226f90ef780a1ed2114ba256c293463dc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450036"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001581"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Shared access signatures (SAS) gebruiken
 
@@ -40,11 +40,11 @@ Een veelvoorkomend scenario waarin een SAS handig is, is een service waarbij geb
 
 1. Clients uploaden en downloaden van gegevens via een front-end-proxy-service, waarmee authenticatie wordt uitgevoerd. Deze front-proxyservice heeft het voordeel van het toestaan van validatie van bedrijfsregels kan, maar voor grote hoeveelheden gegevens of transacties, hoog volume, het maken van een service die kan worden geschaald zodat deze overeenkomt met de aanvraag duur en moeilijk.
 
-  ![Scenario-diagram: Front-end-proxy-service](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
+   ![Scenario-diagram: Front-end-proxy-service](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
 
 1. Een lichtgewicht service verifieert de client naar behoefte en genereert vervolgens een SAS. Nadat de client de SAS ontvangt, kunnen ze toegang tot resources voor storage-account rechtstreeks met de machtigingen die zijn gedefinieerd door de SAS en voor het interval dat is toegestaan door de SAS. De SAS vermindert de noodzaak voor de routering van alle gegevens via de front-end-proxy-service.
 
-  ![Scenario-diagram: SAS-provider-service](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
+   ![Scenario-diagram: SAS-provider-service](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
 
 Veel real-world services kunnen een hybride versie van deze twee methoden gebruiken. Sommige gegevens kunnen bijvoorbeeld worden verwerkt en gevalideerd via het front-proxy, terwijl andere gegevens is opgeslagen en/of rechtstreeks met behulp van SAS lezen.
 
@@ -230,8 +230,8 @@ Hieronder volgen enkele voorbeelden van beide typen handtekeningen voor gedeelde
 
 Als u wilt deze C#-voorbeelden uitvoeren, moet u verwijzen naar de volgende NuGet-pakketten in uw project:
 
-* [Azure Storage-clientbibliotheek voor .NET](http://www.nuget.org/packages/WindowsAzure.Storage), versie 6.x of hoger (om te gebruiken account-SAS).
-* [Azure Configuration Manager](http://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
+* [Azure Storage-clientbibliotheek voor .NET](https://www.nuget.org/packages/WindowsAzure.Storage), versie 6.x of hoger (om te gebruiken account-SAS).
+* [Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
 
 Zie voor meer voorbeelden die laten hoe u zien kunt maken en testen van een SAS [codevoorbeelden van Azure voor opslag](https://azure.microsoft.com/documentation/samples/?service=storage).
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: v-wingf
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03c45a19c8f6bbce2ffdfff0758eb3e57203b7cf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8fd7145be5f82a90acced0f02e35f6c8880dbcad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211203"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120394"
 ---
 # <a name="tutorial-configure-cisco-spark-for-automatic-user-provisioning"></a>Zelfstudie: Cisco Spark voor het automatisch inrichten van gebruikers configureren
 
@@ -113,28 +113,28 @@ Deze sectie helpt u bij de stappen voor het configureren van de Azure AD-inricht
     *   In de **geheim Token** veld, vul het geheim Token zoals beschreven in stap 6.
 
 1. De **Tenant-ID** en **geheim Token** voor uw Spark Cisco account kan worden gevonden door bent aangemeld bij de [Cisco Spark developer-site](https://developer.webex.com/) met uw beheerdersaccount. Één keer aangemeld:
-    * Ga naar de [pagina aan de slag](https://developer.webex.com/getting-started.html)
-    * Schuif omlaag naar de [-verificatiesectie](https://developer.webex.com/getting-started.html#authentication)
-    ![Cisco Spark-verificatietoken](./media/cisco-spark-provisioning-tutorial/SecretToken.png)
-    * De alfanumerieke tekenreeks in het vak is uw **geheim Token**. Dit token naar het Klembord kopiëren
-    * Ga naar de [pagina Mijn eigen Details ophalen](https://developer.webex.com/endpoint-people-me-get.html)
-        * Zorg ervoor dat de testmodus op
-        * Typ het woord 'Bearer' gevolgd door een spatie en plakt u het geheim-Token in het veld autorisatie ![Cisco Spark-verificatietoken](./media/cisco-spark-provisioning-tutorial/GetMyDetails.png)
-        * Klik op uitvoeren
-    * In de antwoordtekst aan de rechterkant, het **Tenant-ID** wordt weergegeven als 'orgId':
+   * Ga naar de [pagina aan de slag](https://developer.webex.com/getting-started.html)
+   * Schuif omlaag naar de [-verificatiesectie](https://developer.webex.com/getting-started.html#authentication)
+     ![Cisco Spark-verificatietoken](./media/cisco-spark-provisioning-tutorial/SecretToken.png)
+   * De alfanumerieke tekenreeks in het vak is uw **geheim Token**. Dit token naar het Klembord kopiëren
+   * Ga naar de [pagina Mijn eigen Details ophalen](https://developer.webex.com/endpoint-people-me-get.html)
+       * Zorg ervoor dat de testmodus op
+       * Typ het woord 'Bearer' gevolgd door een spatie en plakt u het geheim-Token in het veld autorisatie ![Cisco Spark-verificatietoken](./media/cisco-spark-provisioning-tutorial/GetMyDetails.png)
+       * Klik op uitvoeren
+   * In de antwoordtekst aan de rechterkant, het **Tenant-ID** wordt weergegeven als 'orgId':
 
-    ```json
-    {
-        "id": "(...)",
-        "emails": [
-            "admin.user@contoso.com"
-        ],
-        "displayName": "John Smith",
-        "nickName": "John",
-        "orgId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-        (...)
-    }
-    ```
+     ```json
+     {
+       "id": "(...)",
+       "emails": [
+           "admin.user@contoso.com"
+       ],
+       "displayName": "John Smith",
+       "nickName": "John",
+       "orgId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+       (...)
+     }
+     ```
 
 1. Bij het invullen van de velden die in stap 5 wordt weergegeven, klikt u op **testverbinding** om te controleren of Azure AD een verbinding kunt maken met Cisco Spark. Als de verbinding is mislukt, zorg ervoor dat uw Cisco Spark account beheerdersmachtigingen heeft en probeer het opnieuw.
 

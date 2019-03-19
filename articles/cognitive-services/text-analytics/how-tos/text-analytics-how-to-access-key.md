@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: fc594a660efe1bf90daeffa79826057a8e66c60c
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 512417a228ed99a2f5b516f14084a5785bc0c1dd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245164"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096738"
 ---
 # <a name="how-to-find-endpoints-and-access-keys-for-the-text-analytics-cognitive-service"></a>Over het vinden van eindpunten en toegang tot sleutels voor de Text Analytics-Cognitive Service
 
@@ -33,7 +33,7 @@ Als u hulp bij het vinden van de sleutel, of om te bepalen of uw abonnement al T
 
 4. Klik op de koppeling om de serviceblade te openen. U krijgt nu een sleutel van **Resources > sleutels** of door te klikken op **toegangssleutels weergeven** in het deelvenster Essentials. Het eindpunt wordt ook weergegeven in het deelvenster Essentials.
 
- ![Portal-pagina met het eindpunt en de sleutels](../media/portal-keys-endpoint.png)
+   ![Portal-pagina met het eindpunt en de sleutels](../media/portal-keys-endpoint.png)
 
 ## <a name="see-also"></a>Zie ook 
 

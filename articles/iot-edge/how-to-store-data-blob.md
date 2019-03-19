@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 6f82f50ebaa7ad4440078d1fd4658109cf0e19b6
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 0fc34c913453abd174009213233a54e30b9346d3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571283"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57881381"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Gegevens aan de rand met Azure Blob Storage Store op IoT Edge (preview)
 
@@ -230,6 +230,7 @@ Gebruik de gewenste eigenschappen om in te stellen met automatische lagen voor e
 
 ### <a name="auto-tiering-properties"></a>Eigenschappen van automatische lagen 
 De naam van deze instelling is `tieringSettings`
+
 | Veld | Mogelijke waarden | Uitleg |
 | ----- | ----- | ---- |
 | tieringOn | waar of ONWAAR | Standaard is ingesteld op `false`, als u wilt inschakelen op instellen op `true`|
@@ -239,6 +240,7 @@ De naam van deze instelling is `tieringSettings`
 
 ### <a name="auto-expiration-properties"></a>Eigenschappen van auto-vervaldatum
 De naam van deze instelling is `ttlSettings`
+
 | Veld | Mogelijke waarden | Uitleg |
 | ----- | ----- | ---- |
 | ttlOn | waar of ONWAAR | Standaard is ingesteld op `false`, als u wilt inschakelen op instellen op `true`|
@@ -272,7 +274,7 @@ Stel de gewenste eigenschappen om in te schakelen automatisch opslaglagen en aut
 
    ```
 
- ![stelt eigenschappen automatisch opslaglagen en automatisch verlopen](./media/how-to-store-data-blob/iotedge_custom_module.png)
+  ![stelt eigenschappen automatisch opslaglagen en automatisch verlopen](./media/how-to-store-data-blob/iotedge_custom_module.png)
 
 - **Nadat de module is geïmplementeerd via de functie "Identiteit Moduledubbel"**: Ga naar 'Een identiteit van een Moduledubbel' van deze module, kopieert u de JSON onder de gewenste eigenschappen en configureren van elke eigenschap met de juiste waarde opslaan. In de Json van de identiteit ' Moduledubbel"Zorg ervoor dat telkens wanneer u toevoegt of een bijwerkt gewenste eigenschap, de `reported configuration` gedeelte worden de wijzigingen en de `configurationValidation` sectie rapporten is geslaagd voor elke eigenschap.
 
@@ -343,6 +345,9 @@ Hier volgt een voorbeeld van de gewenste eigenschappen voor deze module: ![gewen
     }
 
    ```
+  ## <a name="logs"></a>Logboeken
+
+Volg de instructies om [configureren van uw docker-logboeken voor IoT Edge-modules](production-checklist.md#set-up-logs-and-diagnostics)
 
 ## <a name="connect-to-your-blob-storage-module"></a>Verbinding maken met uw blob storage-module
 
@@ -378,7 +383,7 @@ De volgende quickstarts talen die ook worden ondersteund door de IoT Edge, zodat
 * [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md) 
 
 ### <a name="azure-storage-explorer"></a>Azure Opslagverkenner
-U kunt ook proberen [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) verbinding maken met uw lokale storage-account. We hebben geprobeerd met [vorige versie 1.5.0](https://go.microsoft.com/fwlink/?LinkId=809306&clcid=0x409) van Azure Explorer.
+U kunt ook proberen [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) verbinding maken met uw lokale storage-account. We hebben geprobeerd met [vorige versie 1.5.0](https://github.com/Microsoft/AzureStorageExplorer/releases/tag/v1.5.0) van Azure Explorer.
 > [!NOTE]
 > U kunt er fouten optreden tijdens het uitvoeren van onderstaande stappen te volgen, negeren en vernieuwen. 
 
@@ -388,8 +393,8 @@ U kunt ook proberen [Azure Storage Explorer](https://azure.microsoft.com/feature
 4. Doorloop de stappen om verbinding te maken.
 5. Container in uw lokale storage-account maken
 6. Beginnen met uploaden van bestanden als blok-blobs.
-> [!NOTE]
-> Schakel het selectievakje uit als u wilt uploaden als pagina-blobs. Deze module biedt geen ondersteuning voor pagina-blobs. U krijgt deze vragen tijdens het uploaden van bestanden, zoals ISO, VHD, vhdx of een grote bestanden.
+   > [!NOTE]
+   > Schakel het selectievakje uit als u wilt uploaden als pagina-blobs. Deze module biedt geen ondersteuning voor pagina-blobs. U krijgt deze vragen tijdens het uploaden van bestanden, zoals ISO, VHD, vhdx of een grote bestanden.
 
 7. U kunt verbinding maken met Azure storage-accounts waarbij u de gegevens wilt uploaden. Het biedt een weergave voor uw account met lokale opslag en de Azure storage-account
 
@@ -445,7 +450,7 @@ Ondersteund:
 Niet-ondersteund:
 * Blokkeren van URL plaatsen
 
-##<a name="feedback"></a>Feedback:
+## <a name="feedback"></a>Feedback:
 Uw feedback is zeer belangrijk voor ons, zodat deze module en de bijbehorende functies handig en eenvoudig te gebruiken. Deel uw feedback en laat het ons weten hoe we kunnen verbeteren.
 
 U kunt contact met ons op absiotfeedback@microsoft.com 

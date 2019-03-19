@@ -1,18 +1,18 @@
 ---
-title: Snelstart voor de serverloze Azure SignalR Service - JavaScript
+title: Azure SignalR Service zonder server Quick Start - JavaScript
 description: Een quickstart waarin u leert hoe u de service Azure SignalR en Azure Functions gebruikt om een chatruimte te maken.
 author: sffamily
 ms.service: signalr
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 09/23/2018
+ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: f0044ca206d15762d44d8d4ea2d58c93950c5e1e
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: c66323a430e86053627577b40f66b3f4be11c74f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252453"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535611"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>Snelstart: Een chatruimte maken met Azure Functions en SignalR Service met behulp van JavaScript
 
@@ -81,7 +81,7 @@ Meld u met uw Azure-account aan bij Azure Portal op <https://portal.azure.com/>.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze quickstart hebt u een serverloze, realtimetoepassing in Visual Studio Code gebouwd en uitgevoerd. Nu volgt meer informatie over het ontwikkelen en implementeren van Azure Functions met behulp van Visual Studio Code.
+In deze snelstartgids hebt gemaakt en is een realtime toepassing zonder server wordt uitgevoerd in VS Code. Nu volgt meer informatie over het implementeren van Azure Functions vanuit VS Code.
 
 > [!div class="nextstepaction"]
-> [Azure Functions ontwikkelen met Visual Studio](../azure-functions/functions-develop-vs.md)
+> [Azure Functions met VS Code implementeren](https://code.visualstudio.com/tutorials/functions-extension/getting-started)

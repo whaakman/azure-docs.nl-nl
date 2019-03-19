@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: feecafcae8095c11736d1a76a1b6774c8dde1fc8
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2e33f94486fe295fffa1f0b4bbd298b15d9271f4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864091"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113730"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Maken van videotranscriptie beoordelingen met behulp van .NET
 
@@ -246,10 +246,10 @@ Naast het toevoegen van een transcript naar een video-overzicht, moet u ook het 
 1. De naam van uw Content Moderator-team.
 1. De video revisie-ID die wordt geretourneerd door **CreateVideoReviews**.
 1. IList<TranscriptModerationBodyItem>. Een **TranscriptModerationBodyItem** heeft de volgende eigenschappen:
-- **Voorwaarden**. IList<TranscriptModerationBodyItemTermsItem>. Een **TranscriptModerationBodyItemTermsItem** heeft de volgende eigenschappen:
-- **Index**. De op nul gebaseerde index van de termijn.
-- **Term**. Een tekenreeks is die de term bevat.
-- **Tijdstempel**. Een tekenreeks is die bevat, in seconden, de tijd in het transcript waarop de voorwaarden worden gevonden.
+1. **Voorwaarden**. IList<TranscriptModerationBodyItemTermsItem>. Een **TranscriptModerationBodyItemTermsItem** heeft de volgende eigenschappen:
+1. **Index**. De op nul gebaseerde index van de termijn.
+1. **Term**. Een tekenreeks is die de term bevat.
+1. **Tijdstempel**. Een tekenreeks is die bevat, in seconden, de tijd in het transcript waarop de voorwaarden worden gevonden.
 
 Het transcript moet zich in de WebVTT-indeling. Zie voor meer informatie, [WebVTT: De tekst van Web-Video wordt bijgehouden indeling](https://www.w3.org/TR/webvtt1/).
 

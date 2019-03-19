@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 3/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: f2f109b6861e54cc613fd06f26983897f7c1a9bb
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 063699f016c3e165dfb07d17c26e7f29a13c81f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727124"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118609"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Opmerkingen bij de release voor de Azure File Sync-agent
 Met Azure File Sync kunt u bestandsshares van uw organisatie in Azure Files centraliseren zonder in te leveren op de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Uw installaties van Windows Server worden getransformeerd in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is in Windows Server gebruiken voor lokale toegang tot uw gegevens (inclusief SMB, NFS en FTPS) en u kunt zoveel caches hebben als u waar ook ter wereld nodig hebt.
@@ -55,7 +55,7 @@ De volgende releaseopmerkingen zijn voor versie 5.0.2.0 van de Azure File Sync-a
 ### <a name="improvements-and-issues-that-are-fixed"></a>Verbeteringen en problemen die zijn opgelost
 
 - Ondersteuning voor Azure Government-cloud
-    - Preview-versie is ondersteuning toegevoegd voor de Azure Government-cloud. Hiervoor hebt u een abonnement op technische vermeld en een speciale agent van Microsoft worden gedownload. Voor toegang tot de Preview-versie, stuur een e-mail rechtstreeks [ AzureFiles@microsoft.com ](mailto:AzureFiles@microsoft.com).
+  - Preview-versie is ondersteuning toegevoegd voor de Azure Government-cloud. Hiervoor hebt u een abonnement op technische vermeld en een speciale agent van Microsoft worden gedownload. Voor toegang tot de Preview-versie, stuur een e-mail rechtstreeks [ AzureFiles@microsoft.com ](mailto:AzureFiles@microsoft.com).
 - Ondersteuning voor Gegevensontdubbeling
     - Gegevensontdubbeling wordt nu volledig ondersteund met cloud-opslaglagen worden ingeschakeld op Windows Server 2016 en Windows Server 2019. Inschakelen van Ontdubbeling op een volume met cloud-opslaglagen ingeschakeld, kunt u meer bestanden on-premises zonder in te richten meer opslagruimte in de cache.
 - Ondersteuning voor de overdracht van offline (bijvoorbeeld via Data Box)

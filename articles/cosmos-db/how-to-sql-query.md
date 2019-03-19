@@ -1,17 +1,17 @@
 ---
 title: SQL-query's voor Azure Cosmos DB
-description: Meer informatie over SQL-syntaxis, database-concepten en SQL-query's voor Azure Cosmos DB. SQL kan worden gebruikt als een JSON-querytaal in Azure Cosmos DB.
+description: Meer informatie over SQL-syntaxis, database-concepten en SQL-query's voor Azure Cosmos DB. SQL kan worden gebruikt als een JSON-query-taal in Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 5833ee3964958437b7834ff25f1bce7837370fb1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 822c4631c08da27ef7b92af2df5e5e0d04f063b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550580"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013894"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>SQL-queryvoorbeelden voor Azure Cosmos DB
 
@@ -2113,9 +2113,9 @@ In het tweede voorbeeld ziet u een complexere query die meerdere resultaten uit 
 
 Als de resultaten van een query niet op één pagina passen, retourneert de REST API een vervolgtoken via de antwoordheader `x-ms-continuation-token`. Clients kunnen resultaten pagineren door de header op te nemen in de volgende resultaten. Het aantal resultaten per pagina kan ook worden beheerd via de nummerheader `x-ms-max-item-count`. Als de opgegeven query een statistische functie zoals `COUNT` bevat, kan een gedeeltelijk geaggregeerde waarde worden geretourneerd op de pagina met resultaten. De clients moeten een tweede statische functie op deze resultaten uitvoeren om het gewenste eindresultaat te verkrijgen, bijvoorbeeld door de som te berekenen van de aantallen die zijn geretourneerd in de afzonderlijke pagina's om het totaalaantal te retourneren.
 
-Voor het beheren van het beleid voor gegevensconsistentie voor query's, gebruikt u de header `x-ms-consistency-level` zoals in alle REST API-aanvragen. Voor sessieconsistentie moet u ook de echo van de meest recente cookieheader `x-ms-session-token` toevoegen aan de queryaanvraag. Het indexeringsbeleid van de container waarop de query wordt uitgevoerd kan ook van invloed zijn op de consistentie van queryresultaten. Bij de standaardinstellingen voor het indexeringsbeleid voor containers wordt de index altijd bijgewerkt met de iteminhoud en zullen de queryresultaten overeenkomen met de consistentie die voor de gegevens is gekozen. Als het indexeringsbeleid is verlaagd tot Vertraagd, is het mogelijk dat uw query's verouderde resultaten retourneren. Zie de [consistentieniveaus van Azure Cosmos DB][consistency-levels] voor meer informatie.
+Voor het beheren van het beleid voor gegevensconsistentie voor query's, gebruikt u de header `x-ms-consistency-level` zoals in alle REST API-aanvragen. Voor sessieconsistentie moet u ook de echo van de meest recente cookieheader `x-ms-session-token` toevoegen aan de queryaanvraag. Het indexeringsbeleid van de container waarop de query wordt uitgevoerd kan ook van invloed zijn op de consistentie van queryresultaten. Bij de standaardinstellingen voor het indexeringsbeleid voor containers wordt de index altijd bijgewerkt met de iteminhoud en zullen de queryresultaten overeenkomen met de consistentie die voor de gegevens is gekozen. Zie de [consistentieniveaus van Azure Cosmos DB][consistency-levels] voor meer informatie.
 
-Als de opgegeven query niet wordt ondersteund door het geconfigureerde indexeringsbeleid voor de container, retourneert de Azure Cosmos DB-server het foutbericht '400 - Ongeldige aanvraag'. Dit foutbericht wordt geretourneerd voor bereikquery's op paden die zijn geconfigureerd voor hash-zoekopdrachten (gelijkheid) en voor paden die expliciet zijn uitgesloten van indexering. U kunt de header `x-ms-documentdb-query-enable-scan` opgeven om een scanbewerking door de query te laten uitvoeren als een index niet beschikbaar is.
+Als de opgegeven query niet wordt ondersteund door het geconfigureerde indexeringsbeleid voor de container, retourneert de Azure Cosmos DB-server het foutbericht '400 - Ongeldige aanvraag'. Dit foutbericht wordt geretourneerd voor query's met paden expliciet is uitgesloten van het indexeren. U kunt de header `x-ms-documentdb-query-enable-scan` opgeven om een scanbewerking door de query te laten uitvoeren als een index niet beschikbaar is.
 
 U kunt gedetailleerde metrische gegevens ophalen bij het uitvoeren van query's door de header `x-ms-documentdb-populatequerymetrics` in te stellen op `True`. Zie [Metrische gegevens van SQL-query's voor Azure Cosmos DB](sql-api-query-metrics.md) voor meer informatie.
 

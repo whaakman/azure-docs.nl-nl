@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.openlocfilehash: a999553d7ba26daba674534b1656e90ad0de4f5f
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 7211ffddf82b38ca27b776ecfd12bca25ebbb0f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54243964"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121941"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>De Azure portal gebruiken voor het instellen van waarschuwingen over metrische gegevens voor Azure Database for PostgreSQL 
 
@@ -25,9 +25,9 @@ Een waarschuwing als u wilt de volgende acties uitvoeren wanneer deze wordt geac
 * Een webhook aanroepen.
 
 U kunt configureren en informatie over met behulp van regels voor waarschuwingen:
-* [Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Azure-portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Azure-CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [Azure Monitor REST-API](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Een waarschuwingsregel maken op een metrische waarde van de Azure-portal
 1. In de [Azure-portal](https://portal.azure.com/), selecteert u de Azure Database for PostgreSQL-server die u wilt bewaken.
@@ -60,21 +60,21 @@ U kunt configureren en informatie over met behulp van regels voor waarschuwingen
 
 10. Configureer een **e-mailadres/SMS/Push/stem** actietype.
     
-   Kies 'E-mailbericht Azure Resource Manager rol' te selecteren van Abonnementseigenaren, bijdragers en lezers om meldingen te ontvangen.
+    Kies 'E-mailbericht Azure Resource Manager rol' te selecteren van Abonnementseigenaren, bijdragers en lezers om meldingen te ontvangen.
    
-   (Optioneel) Geef een geldige URI in de **Webhook** veld als u wilt dat deze wordt aangeroepen wanneer de waarschuwing wordt geactiveerd.
+    (Optioneel) Geef een geldige URI in de **Webhook** veld als u wilt dat deze wordt aangeroepen wanneer de waarschuwing wordt geactiveerd.
 
-   Selecteer **OK** wanneer dit is voltooid.
+    Selecteer **OK** wanneer dit is voltooid.
 
-   ![Actiegroep](./media/howto-alert-on-metric/10-action-group-type.png)
+    ![Actiegroep](./media/howto-alert-on-metric/10-action-group-type.png)
 
 11. Geef een naam, beschrijving en ernst.
 
-   ![Actiegroep](./media/howto-alert-on-metric/11-name-description-severity.png) 
+    ![Actiegroep](./media/howto-alert-on-metric/11-name-description-severity.png) 
 
 12. Selecteer **waarschuwingsregel maken** om de waarschuwing te maken.
 
-   Binnen een paar minuten, wordt de waarschuwing is actief en wordt geactiveerd als eerder beschreven.
+    Binnen een paar minuten, wordt de waarschuwing is actief en wordt geactiveerd als eerder beschreven.
 
 ## <a name="manage-your-alerts"></a>De waarschuwingen beheren
 Als u een waarschuwing hebt gemaakt, kunt u deze selecteren en de volgende acties uitvoeren:

@@ -12,12 +12,12 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/25/2019
-ms.openlocfilehash: 247198e9ba1cdc6cd43b3fe60a20cd81280113cd
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 7a8556edd793cbde47c14d2b79792dbe42f8e44b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569940"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894288"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Service-lagen in het op DTU gebaseerde aankoopmodel
 
@@ -33,7 +33,7 @@ Service-lagen in het op DTU gebaseerde aankoopmodel van elkaar worden onderschei
 Een servicelaag kiezen afhankelijk is voornamelijk van zakelijke continuïteit-, opslag- en prestatievereisten.
 
 ||Basic|Standard|Premium|
-| :-- | --: |--:| --:| --:|
+| :-- | --: |--:| --:|
 |Specifieke workload|Ontwikkeling en productie|Ontwikkeling en productie|Ontwikkeling en productie|
 |SLA voor actieve tijdsduur|99,99%|99,99%|99,99%|
 |Retentie van back-ups|7 dagen|35 dagen|35 dagen|
@@ -52,10 +52,10 @@ Een servicelaag kiezen afhankelijk is voornamelijk van zakelijke continuïteit-,
 COMPUTE-grootten worden uitgedrukt in termen van Database Transaction Units (dtu's) voor individuele databases en elastische Database Transaction Units (edtu's) voor elastische pools. Zie voor meer informatie over dtu's en Edtu's [DTU gebaseerde aankoopmodel](sql-database-purchase-models.md#dtu-based-purchasing-model)?
 
 ||Basic|Standard|Premium|
-| :-- | --: | --: | --: | --: |
+| :-- | --: | --: | --: |
 | Maximale opslagruimte | 2 GB | 1 TB | 4 TB  |
 | Maximum aantal dtu 's | 5 | 3000 | 4000 | 
-||||||
+|||||
 
 > [!IMPORTANT]
 > In sommige gevallen is het wellicht voor het verkleinen van een database voor het vrijmaken van ongebruikte ruimte. Zie voor meer informatie, [bestandsruimte in Azure SQL Database beheren](sql-database-file-space-management.md).
@@ -63,13 +63,13 @@ COMPUTE-grootten worden uitgedrukt in termen van Database Transaction Units (dtu
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>Elastische pool-eDTU-, opslag- en limieten voor gegroepeerde databases
 
 | | **Basic** | **Standard** | **Premium** |
-| :-- | --: | --: | --: | --: |
+| :-- | --: | --: | --: |
 | Maximale opslagruimte per database  | 2 GB | 1 TB | 1 TB |
 | Maximale opslagruimte per groep | 156 GB | 4 TB | 4 TB |
 | Maximum aantal edtu's per database | 5 | 3000 | 4000 |
 | Maximum aantal edtu's per groep | 1600 | 3000 | 4000 |
 | Maximum aantal databases per pool | 500  | 500 | 100 |
-||||||
+|||||
 
 > [!IMPORTANT]
 > Voor de Premium-laag is er meer dan 1 TB aan opslagruimte beschikbaar in alle regio's, met uitzondering van: China - oost, China - noord, Duitsland - centraal, Duitsland - noordoost, US - west-centraal, US - DoD-regio's en US Government - centraal. In deze regio’s is de maximale opslagruimte in de Premium-laag beperkt tot 1 TB.  Raadpleeg [P11-P15 huidige beperkingen](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) voor meer informatie.  

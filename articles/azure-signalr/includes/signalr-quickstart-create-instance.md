@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 09/14/2018
 ms.author: antchu
 ms.custom: include file
-ms.openlocfilehash: c95f05127d62d366e1ad78b45df23d04ced0164a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: 15eded28e38279ea01bf019566d4fda5e7ac6c3e
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262754"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57588116"
 ---
 ## <a name="create-an-azure-signalr-service-instance"></a>Een exemplaar van de Azure SignalR Service maken
 
@@ -26,7 +26,7 @@ Uw toepassing maakt verbinding met een SignalR-Service-exemplaar in Azure.
 
 1. Voer de volgende instellingen in.
 
-    | Instelling      | Voorgestelde waarde  | Beschrijving                                        |
+    | Instelling      | Voorgestelde waarde  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Resourcenaam** | Wereldwijd unieke naam | Naam ter identificatie van uw nieuwe SignalR Service-exemplaar. Geldige tekens zijn `a-z`, `0-9` en `-`.  | 
     | **Abonnement** | Uw abonnement | Het abonnement waarin dit nieuwe SignalR Service-exemplaar is gemaakt. | 
@@ -38,3 +38,7 @@ Uw toepassing maakt verbinding met een SignalR-Service-exemplaar in Azure.
     ![SignalR Service maken](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-create.png)
 
 1. Selecteer **Maken** om te beginnen met het implementeren van het SignalR-Service-exemplaar.
+
+1. Nadat het exemplaar is geïmplementeerd, opent u het in de portal en zoek de pagina instellingen. Wijzig de modus van Service-instelling in *zonder*.
+
+    ![SignalR-servicemodus](../media/signalr-concept-azure-functions/signalr-service-mode.png)

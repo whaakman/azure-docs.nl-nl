@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 995f9d2bc0ad0a6b985790d75a63866a3a2d55bc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f8db5552ad81a1a47db72a5372e643a6fc167888
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445361"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091202"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>'Geen toegang tot deze zakelijke toepassing' Fout bij het gebruik van een toepassing Application Proxy
 
@@ -75,19 +75,19 @@ Als een eerste snelle stap, Controleer en op te lossen van de interne URL door h
 
 Om te controleren of de toepassing wordt toegewezen aan een werkende Connectorgroep:
 
-1.  De toepassing in de portal openen door te gaan naar **Azure Active Directory**, te klikken op **bedrijfstoepassingen**, klikt u vervolgens **alle toepassingen.** Open de toepassing en selecteer vervolgens **Application Proxy** in het menu links.
+1. De toepassing in de portal openen door te gaan naar **Azure Active Directory**, te klikken op **bedrijfstoepassingen**, klikt u vervolgens **alle toepassingen.** Open de toepassing en selecteer vervolgens **Application Proxy** in het menu links.
 
-2.  Bekijk de Connectorgroep-veld. Als er geen actieve connectors in de groep, ziet u een waarschuwing. Als er geen waarschuwingen, verplaatsen naar 'Controleer of alle vereiste poorten zijn opgenomen in de whitelist'.
+2. Bekijk de Connectorgroep-veld. Als er geen actieve connectors in de groep, ziet u een waarschuwing. Als er geen waarschuwingen, verplaatsen naar 'Controleer of alle vereiste poorten zijn opgenomen in de whitelist'.
 
-3.  Als de verkeerde Connectorgroep wordt weergegeven, gebruikt u de vervolgkeuzelijst selecteert u de juiste groep en controleer of dat u niet meer waarschuwingen ziet. Als de beoogde Connectorgroep wordt weergegeven, klikt u op de waarschuwing op de pagina te openen met de Connector-beheer.
+3. Als de verkeerde Connectorgroep wordt weergegeven, gebruikt u de vervolgkeuzelijst selecteert u de juiste groep en controleer of dat u niet meer waarschuwingen ziet. Als de beoogde Connectorgroep wordt weergegeven, klikt u op de waarschuwing op de pagina te openen met de Connector-beheer.
 
-4.  Hier zijn er een aantal manieren om in te zoomen verder:
+4. Hier zijn er een aantal manieren om in te zoomen verder:
 
-  * Een actieve Connector verplaatsen naar de groep: Hebt u een actieve Connector die moet behoren tot deze groep en peeren aan de doeltoepassing back-end heeft, kunt u de Connector verplaatsen naar de toegewezen groep. Om dit te doen, klikt u op de Connector. Gebruik de vervolgkeuzelijst de juiste groep selecteren en klik op opslaan in het veld 'Connectorgroep'.
+   * Een actieve Connector verplaatsen naar de groep: Hebt u een actieve Connector die moet behoren tot deze groep en peeren aan de doeltoepassing back-end heeft, kunt u de Connector verplaatsen naar de toegewezen groep. Om dit te doen, klikt u op de Connector. Gebruik de vervolgkeuzelijst de juiste groep selecteren en klik op opslaan in het veld 'Connectorgroep'.
 
-  * Download een nieuwe Connector voor deze groep: Op deze pagina kunt u de koppeling naar [downloaden van een nieuwe Connector](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). De Connector installeren op een computer met rechtstreekse verbinding naar de back endtoepassing. Normaal gesproken is de Connector geïnstalleerd op dezelfde server als de toepassing. Het downloaden van de koppeling voor de Certificaatconnector gebruiken voor het downloaden van een connector op de doelcomputer. Vervolgens klikt u op de Connector en de 'Connector groeperen' vervolgkeuzelijst gebruiken om ervoor te zorgen dat hoort bij de juiste groep.
+   * Download een nieuwe Connector voor deze groep: Op deze pagina kunt u de koppeling naar [downloaden van een nieuwe Connector](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). De Connector installeren op een computer met rechtstreekse verbinding naar de back endtoepassing. Normaal gesproken is de Connector geïnstalleerd op dezelfde server als de toepassing. Het downloaden van de koppeling voor de Certificaatconnector gebruiken voor het downloaden van een connector op de doelcomputer. Vervolgens klikt u op de Connector en de 'Connector groeperen' vervolgkeuzelijst gebruiken om ervoor te zorgen dat hoort bij de juiste groep.
 
-  * Een niet-actieve Connector onderzoeken: Als u een connector als inactief ziet, is het niet bereiken van de service. Deze fout wordt meestal veroorzaakt door sommige vereiste poorten worden geblokkeerd. U lost dit probleem, verplaatsen naar "Controleer of alle vereiste poorten zijn opgenomen in de whitelist."
+   * Een niet-actieve Connector onderzoeken: Als u een connector als inactief ziet, is het niet bereiken van de service. Deze fout wordt meestal veroorzaakt door sommige vereiste poorten worden geblokkeerd. U lost dit probleem, verplaatsen naar "Controleer of alle vereiste poorten zijn opgenomen in de whitelist."
 
 Nadat u test deze stappen om te controleren of de toepassing is toegewezen aan een groep met Connectors, werkt de toepassing opnieuw uit. Als dit nog steeds niet werkt, gaat u verder met de volgende sectie.
 

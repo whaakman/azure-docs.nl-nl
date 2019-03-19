@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
 ms.date: 03/15/2018
-ms.openlocfilehash: dbb38336f0521f8f8e526ad3f5e13829075e7cca
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 9f626e2a5c277cdce78c6e90046a1d40dac2d588
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158142"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078666"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Logische apps beheren met Visual Studio
 
@@ -79,7 +79,7 @@ U kunt logische apps eerder hebt gemaakt en geïmplementeerd via Azure portal of
 
    In dit voorbeeld ziet u logische apps per resourcetype, zodat uw logische apps worden weergegeven onder de **Logic Apps** sectie.
 
-  ![Open geïmplementeerde logische app in Azure portal](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
+   ![Open geïmplementeerde logische app in Azure portal](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
    Nadat de logische app wordt geopend in de ontwerper van logische Apps, aan de onderkant van het ontwerpprogramma, kunt u kiezen **codeweergave** zodat u de onderliggende definitie structuur van de logische app kunt controleren. 
    Als u maken van een sjabloon voor de implementatie voor de logische app wilt, krijgt u informatie [het downloaden van een Azure Resource Manager-sjabloon](#download-logic-app) voor deze logische app. Meer informatie over [Resource Manager-sjablonen](../azure-resource-manager/resource-group-overview.md#template-deployment).
@@ -173,7 +173,7 @@ Als u wilt uw logische app verwijderen uit de Azure portal, in Cloud Explorer he
 > [!NOTE]
 > Wanneer u een logische app verwijdert, worden geen nieuwe uitvoeringen gemaakt. Alle uitvoeringen die bezig zijn en wachten op uitvoering worden geannuleerd. Als u duizenden uitvoeringen hebt, kan de annulering een aanzienlijke tijd in beslag nemen. 
 
-## <a name="troubleshooting"></a>Probleemoplossing
+## <a name="troubleshooting"></a>Problemen oplossen
 
 Als u uw logische app-project in de ontwerper van logische Apps opent, krijgt u mogelijk niet de optie voor het selecteren van uw Azure-abonnement. In plaats daarvan uw logische app wordt geopend met een Azure-abonnement dat is niet de versie die u wilt gebruiken. Dit probleem treedt op omdat nadat u een logische app .json-bestand hebt geopend, Visual Studio de eerste geselecteerde abonnement voor toekomstig gebruik in de cache opgeslagen. U lost dit probleem, probeert u een van deze stappen:
 

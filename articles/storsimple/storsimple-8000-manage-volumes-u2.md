@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: b748e203e3bf769eef8ce728bbb9471b8d13fb9a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: f7bfe41b4cdc9989c6b949011bc240275886b6f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822303"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093327"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>De StorSimple Device Manager-service gebruiken voor het beheren van volumes (Update 3 of hoger)
 
@@ -235,7 +235,7 @@ U wilt wijzigen op een lokaal vastgemaakt volume een gelaagd volume als u extra 
    * Als u het type wijzigen **gelaagd** en dit volume wordt gebruikt voor archivering van gegevens, selecteer de **dit volume gebruiken voor minder frequent gebruikte gearchiveerde gegevens** selectievakje.
    * Als u een lokaal vastgemaakt volume configureert als gelaagde of _omgekeerd_, het volgende bericht wordt weergegeven.
    
-    ![Wijziging volume type bericht](./media/storsimple-8000-manage-volumes-u2/changevoltype3.png)
+     ![Wijziging volume type bericht](./media/storsimple-8000-manage-volumes-u2/changevoltype3.png)
 
 7. Klik op **Opslaan** om de wijzigingen op te slaan. Wanneer u hierom wordt gevraagd om bevestiging, klikt u op **Ja** het conversieproces te starten. 
 

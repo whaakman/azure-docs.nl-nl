@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 8f5a0a22ecea0b5df0f4108984b2a65d4add2bf8
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: d7b8037f50fc4877fe233925f3e922648169f73b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301771"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901165"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Prestaties in webtoepassingen controleren
 
@@ -112,7 +112,7 @@ Hier volgen enkele tips voor het zoeken en oplossen van problemen met prestaties
 * Vergelijken met het aantal aanvragen met andere metrische gegevens om te controleren of de mislukte of trage reactie zijn gerelateerd aan het laden.
 * [Plaats en zoeken naar trace-instructies] [ diagnostic] in uw code aan problemen met deze functie.
 * Bewaken van uw Web-app in de bewerking opnieuw uit met [Live Metrics Stream][livestream].
-* De status van uw .net-toepassing met vastleggen [Snapshot Debugger][snapshot].
+* De status van uw .NET-toepassing met vastleggen [Snapshot Debugger][snapshot].
 
 ## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>Zoeken en herstellen van knelpunten met de ervaring voor het onderzoeken van prestaties
 

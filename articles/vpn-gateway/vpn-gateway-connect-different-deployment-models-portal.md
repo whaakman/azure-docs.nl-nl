@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9779885869666ffd1198afcda944823b99d52e5b
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: bf7d80bbbe63204cda47719a7d7c019013ad800b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417970"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099168"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Verbinding maken met virtuele netwerken van verschillende implementatiemodellen met behulp van de portal
 
@@ -114,7 +114,7 @@ Als u al een VNet met een VPN-gateway hebt, controleert u of dat de gateway dyna
 1. Op de **nieuwe VPN-verbinding** weergeeft, schakelt de **gateway onmiddellijk maken** selectievakje.
 2. Klik op **Optionele gatewayconfiguratie** om de pagina **Gatewayconfiguratie** te openen.
 
-  ![Open gateway-configuratiepagina](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "configuratiepagina Open-gateway")
+   ![Open gateway-configuratiepagina](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "configuratiepagina Open-gateway")
 3. Klik op **Subnet - vereiste instellingen configureren** openen de **subnet toevoegen** pagina. De **naam** is al geconfigureerd met de vereiste waarde: **GatewaySubnet**.
 4. De **adresbereik** verwijst naar het bereik voor het gatewaysubnet. Hoewel u een gatewaysubnet met een/29 maken kunt-adresbereik (3-adressen), het is raadzaam een gatewaysubnet maken die meer IP-adressen bevat. Dit geschikt is voor toekomstige configuraties waarvoor meer beschikbare IP-adressen. Gebruik indien mogelijk /27 of/28. Als u deze stappen bij wijze van oefening, kunt u verwijzen naar de [voorbeeldwaarden](#values). Voor dit voorbeeld gebruiken we '10.0.0.32/28'. Klik op **OK** om het gatewaysubnet te maken.
 5. Op de **gatewayconfiguratie** pagina **grootte** verwijst naar de gateway-SKU. Selecteer de gateway-SKU voor uw VPN-gateway.
@@ -192,16 +192,16 @@ In deze sectie vervangt u de tijdelijke aanduiding voor IP-adres dat u hebt gebr
 2. Klik op de pagina voor het virtuele netwerk op **overzicht**.
 3. In de **VPN-verbindingen** sectie, klikt u op de naam van uw lokale site in de afbeelding.
 
-  ![VPN-verbindingen](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "VPN-verbindingen")
+   ![VPN-verbindingen](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "VPN-verbindingen")
 4. Op de **Site-naar-site VPN-verbindingen** pagina, klikt u op de naam van de site.
 
-  ![Naam van de site](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "naam lokale site")
+   ![Naam van de site](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "naam lokale site")
 5. Klik op de naam van de lokale site om te openen op de pagina voor uw lokale site, de **lokale site** pagina.
 
-  ![Open-local-site](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "lokale site openen")
+   ![Open-local-site](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "lokale site openen")
 6. Op de **lokale site** pagina, vervangt de **IP-adres van VPN-gateway** met het IP-adres van de Resource Manager-gateway.
 
-  ![Gateway-ip-adres](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "Gateway-IP-adres")
+   ![Gateway-ip-adres](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "Gateway-IP-adres")
 7. Klik op **OK** om bij te werken van het IP-adres.
 
 ## <a name="RMtoclassic"></a>Sectie 4: Resource Manager naar klassieke verbinding maken

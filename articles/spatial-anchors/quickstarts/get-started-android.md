@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 64e5e78f93488b2c375c617e8857c84ba2171f00
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+ms.openlocfilehash: 8f2a5fdaf2222de7a802e8ff2a1f6fdb37dae4c3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822392"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880032"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>Quickstart: Een Android-app maken met Azure Spatial Anchors
 
@@ -33,6 +33,8 @@ U leert het volgende:
 Zorg ervoor dat u over het volgende beschikt om deze snelstart te voltooien:
 
 - Een Windows- of macOS-machine met <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3 +</a>.
+  - Indien uitgevoerd op Windows, u moet ook <a href="https://git-scm.com/download/win" target="_blank">Git voor Windows</a>.
+  - Als het wordt uitgevoerd op macOS, krijgt u Git geïnstalleerd via HomeBrew. Voer de volgende opdracht in een enkele regel van de Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Voer `brew install git`.
   - Om het NDK-voorbeeld te bouwen, moet u ook de NDK en CMake 3.6 SDK-hulpprogramma’s in Android Studio installeren.
 - Een <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">door een ontwikkelaar geactiveerd</a> en <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">voor ARCore geschikt</a> Android-apparaat.
 - Uw app moet gericht zijn op ARCore 1.5 (ondersteuning voor ARCore 1.6+ volgt binnenkort)
@@ -59,13 +61,13 @@ Selecteer **Een bestaand Android Studio-project openen** en selecteer het projec
 
 ## <a name="configure-account-identifier-and-key"></a>Account-id en -sleutel configureren
 
-De volgende stap is het gebruiken van de account-id en -sleutel die eerder zijn vastgelegd bij het opzetten van de Spatial Anchors-resource om de app te configureren.
+De volgende stap is het configureren van de app voor het gebruik van uw account-id en de accountsleutel. U ze hebt gekopieerd in een teksteditor als [instellen van de bron van ruimtelijke ankers](#create-a-spatial-anchors-resource).
 
 # <a name="javatabopenproject-java"></a>[Java](#tab/openproject-java)
 
 Open `Android/Java/app/src/main/java/com/microsoft/sampleandroid/AzureSpatialAnchorsActivity.java`.
 
-Zoek het `SpatialAnchorsAccountKey`-veld en vervang `Set me` met de accountsleutel.
+Zoek het veld `SpatialAnchorsAccountKey` en vervang `Set me` met de accountsleutel.
 
 Zoek het `SpatialAnchorsAccountId`-veld en vervang `Set me` met de account-id.
 
@@ -73,7 +75,7 @@ Zoek het `SpatialAnchorsAccountId`-veld en vervang `Set me` met de account-id.
 
 Open `Android/NDK/app/src/main/cpp/spatial_services_application.cc`.
 
-Zoek het `SpatialAnchorsAccountKey`-veld en vervang `Set me` met de accountsleutel.
+Zoek het veld `SpatialAnchorsAccountKey` en vervang `Set me` met de accountsleutel.
 
 Zoek het `SpatialAnchorsAccountId`-veld en vervang `Set me` met de account-id.
 
@@ -93,7 +95,7 @@ Volg de instructies in de app om een anker te plaatsen en terug te halen.
 
 Stop de app door **Stop** te selecteren in de werkbalk van Android Studio.
 
-![Android Studio stoppen](./media/get-started-android/android-studio-stop.png)
+![Android Studio Stop](./media/get-started-android/android-studio-stop.png)
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

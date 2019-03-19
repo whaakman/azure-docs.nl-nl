@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 57d112cfce00839f1381dc41d24bfb697179b5a4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 8276b86df2dc1bc90fc07da262aa0979f7562619
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878677"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548486"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Zelfstudie: Een aangepast taalmodel maken
 
@@ -53,13 +53,13 @@ Als u wilt dat sommige termen een hoger gewicht hebben (belangrijker zijn), kunt
 
 De belangrijkste vereisten voor de taalgegevens worden samengevat in de volgende tabel.
 
-| Eigenschap | Waarde |
+| Eigenschap | Value |
 |----------|-------|
 | Tekstcodering | UTF-8 BOM|
 | Aantal utterances per regel | 1 |
 | Maximale bestandsgrootte | 1,5 GB |
 | Opmerkingen | Vermijd tekens meer dan vier keer te herhalen, bijvoorbeeld 'aaaaa'|
-| Opmerkingen | Geen speciale tekens als '\t' of andere UTF-8-teken boven U+00A1 in de [tabel met Unicode-tekens](http://www.utf8-chartable.de/)|
+| Opmerkingen | Geen speciale tekens als '\t' of andere UTF-8-teken boven U+00A1 in de [tabel met Unicode-tekens](https://www.utf8-chartable.de/)|
 | Opmerkingen | URI's wordt ook geweigerd, omdat er geen unieke manier is om een URI uit te spreken|
 
 Wanneer de tekst wordt geïmporteerd, wordt de tekst genormaliseerd zodat deze door het systeem kan worden verwerkt. Er zijn echter enkele belangrijke normalisaties die door de gebruiker moeten worden uitgevoerd _voordat_ de gegevens worden geüpload. Zie de [transcriptierichtlijnen](prepare-transcription.md) om te bepalen welke taal geschikt is om uw taalgegevens voor te bereiden.

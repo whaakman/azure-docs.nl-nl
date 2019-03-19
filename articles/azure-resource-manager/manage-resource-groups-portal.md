@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 2f31809a0d80079730966e2ecdb017b68563949e
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: cbbc710c9408c84c601d7b9eb9560641b5313a05
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825106"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090930"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Azure Resource Manager-resourcegroepen beheren met behulp van Azure portal
 
@@ -46,11 +46,11 @@ De resourcegroep slaat metagegevens op over de resources. Wanneer u een locatie 
 3. Selecteer **Toevoegen**.
 4. Voer de volgende waarden in:
 
-    - **Abonnement**: Selecteer uw Azure-abonnement. 
-    - **Resourcegroep**: Voer de naam van een nieuwe resourcegroep. 
-    - **Regio**: Selecteer een Azure-locatie, zoals **VS-midden**.
+   - **Abonnement**: Selecteer uw Azure-abonnement. 
+   - **Resourcegroep**: Voer de naam van een nieuwe resourcegroep. 
+   - **Regio**: Selecteer een Azure-locatie, zoals **VS-midden**.
 
-    ![Resourcegroep maken](./media/manage-resource-groups-portal/manage-resource-groups-create-group.png)
+     ![Resourcegroep maken](./media/manage-resource-groups-portal/manage-resource-groups-create-group.png)
 5. Selecteer **beoordelen en maken**
 6. Selecteer **Maken**. Het duurt een paar seconden om een resourcegroep te maken.
 7. Selecteer **vernieuwen** in het menu bovenaan de lijst voor de resource-groep vernieuwen, en selecteer vervolgens de zojuist gemaakte resource-groep om deze te openen. Of selecteer **melding**(het belpictogram) van de boven- en selecteer vervolgens **gaat u naar de resourcegroep** openen van de zojuist gemaakte resource-groep
@@ -130,14 +130,14 @@ Deze methode exporteert u de sjablonen voor bepaalde implementaties. Als u de re
 3. Selecteer een van de implementaties in de lijst.
 4. Selecteer in het linkerdeelvenster **sjabloon**. Resource Manager haalt de volgende zes bestanden voor u op:
 
-    - **Sjabloon**: de sjabloon die de infrastructuur voor uw oplossing definieert. Toen u het opslagaccount via de portal maakte, heeft Resource Manager een sjabloon gebruikt om het te implementeren. De sjabloon is opgeslagen voor toekomstig gebruik.
-    - **Parameters**: een parameterbestand dat u kunt gebruiken om tijdens de implementatie waarden door te geven. Het bevat de waarden die u tijdens de eerste implementatie hebt opgegeven. U kunt deze waarden wijzigen wanneer u de sjabloon opnieuw gaat implementeren.
-    - **CLI** -een Azure-CLI-scriptbestand dat u gebruiken kunt om de sjabloon te implementeren.
-    - **PowerShell**: een Azure PowerShell-scriptbestand dat u kunt gebruiken om de sjabloon te implementeren.
-    - **.NET**: een .NET-klasse die u kunt gebruiken om de sjabloon te implementeren.
-    - **Ruby**: een Ruby-klasse die u kunt gebruiken om de sjabloon te implementeren.
+   - **Sjabloon**: de sjabloon die de infrastructuur voor uw oplossing definieert. Toen u het opslagaccount via de portal maakte, heeft Resource Manager een sjabloon gebruikt om het te implementeren. De sjabloon is opgeslagen voor toekomstig gebruik.
+   - **Parameters**: een parameterbestand dat u kunt gebruiken om tijdens de implementatie waarden door te geven. Het bevat de waarden die u tijdens de eerste implementatie hebt opgegeven. U kunt deze waarden wijzigen wanneer u de sjabloon opnieuw gaat implementeren.
+   - **CLI** -een Azure-CLI-scriptbestand dat u gebruiken kunt om de sjabloon te implementeren.
+   - **PowerShell**: een Azure PowerShell-scriptbestand dat u kunt gebruiken om de sjabloon te implementeren.
+   - **.NET**: een .NET-klasse die u kunt gebruiken om de sjabloon te implementeren.
+   - **Ruby**: een Ruby-klasse die u kunt gebruiken om de sjabloon te implementeren.
 
-    De portal wordt standaard de sjabloon weergegeven.
+     De portal wordt standaard de sjabloon weergegeven.
 
 5. Selecteer **downloaden** een sjabloon exporteren naar uw lokale computer.
 
@@ -151,14 +151,14 @@ Als u uw resources vanuit de portal hebt gewijzigd of toegevoegd of verwijderen 
 1. Open de resourcegroep die u wilt verwijderen.  Zie [resourcegroepen openen](#open-resource-groups).
 2. Selecteer in het linkerdeelvenster **automatiseringsscript**. Resource Manager haalt de volgende zes bestanden voor u op:
 
-    - **Sjabloon**: de sjabloon die de infrastructuur voor uw oplossing definieert. Toen u het opslagaccount via de portal maakte, heeft Resource Manager een sjabloon gebruikt om het te implementeren. De sjabloon is opgeslagen voor toekomstig gebruik.
-    - **Parameters**: een parameterbestand dat u kunt gebruiken om tijdens de implementatie waarden door te geven. Het bevat de waarden die u tijdens de eerste implementatie hebt opgegeven. U kunt deze waarden wijzigen wanneer u de sjabloon opnieuw gaat implementeren.
-    - **CLI** -een Azure-CLI-scriptbestand dat u gebruiken kunt om de sjabloon te implementeren.
-    - **PowerShell**: een Azure PowerShell-scriptbestand dat u kunt gebruiken om de sjabloon te implementeren.
-    - **.NET**: een .NET-klasse die u kunt gebruiken om de sjabloon te implementeren.
-    - **Ruby**: een Ruby-klasse die u kunt gebruiken om de sjabloon te implementeren.
+   - **Sjabloon**: de sjabloon die de infrastructuur voor uw oplossing definieert. Toen u het opslagaccount via de portal maakte, heeft Resource Manager een sjabloon gebruikt om het te implementeren. De sjabloon is opgeslagen voor toekomstig gebruik.
+   - **Parameters**: een parameterbestand dat u kunt gebruiken om tijdens de implementatie waarden door te geven. Het bevat de waarden die u tijdens de eerste implementatie hebt opgegeven. U kunt deze waarden wijzigen wanneer u de sjabloon opnieuw gaat implementeren.
+   - **CLI** -een Azure-CLI-scriptbestand dat u gebruiken kunt om de sjabloon te implementeren.
+   - **PowerShell**: een Azure PowerShell-scriptbestand dat u kunt gebruiken om de sjabloon te implementeren.
+   - **.NET**: een .NET-klasse die u kunt gebruiken om de sjabloon te implementeren.
+   - **Ruby**: een Ruby-klasse die u kunt gebruiken om de sjabloon te implementeren.
 
-    De portal wordt standaard de sjabloon weergegeven.
+     De portal wordt standaard de sjabloon weergegeven.
 3. Selecteer **downloaden** een sjabloon exporteren naar uw lokale computer.
 
 Sommige geëxporteerde sjablonen moeten sommige bewerkingen voordat ze kunnen worden gebruikt. Zie voor meer informatie over het ontwikkelen van sjablonen, de [zelfstudies met stapsgewijze instructies](/azure/azure-resource-manager/).

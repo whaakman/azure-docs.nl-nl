@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 02/20/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 1a15600889a3c5a3c0ca587c78499f32be0ab8ed
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 9a7d83070caad86d7d66b62a9592dbb1e0017f97
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456704"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884236"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Visual Studio Code gebruiken om te ontwikkelen en fouten opsporen in modules voor Azure IoT Edge
 
@@ -154,7 +154,7 @@ Als u wilt instellen en de simulator start, voert u de opdracht **Azure IoT Edge
 
 1. Uw omgeving voorbereidt voor foutopsporing op basis van de vereisten van uw programmeertaal, stel een onderbrekingspunt in de module en selecteer de configuratie van de foutopsporing te gebruiken:
    - **C#**
-     - In de Visual Studio Code geïntegreerde terminal, wijzig de map in de ***&lt;de modulenaam van uw&gt;*** map en voer de volgende opdracht uit om te maken van .net Core-toepassing.
+     - In de Visual Studio Code geïntegreerde terminal, wijzig de map in de ***&lt;de modulenaam van uw&gt;*** map en voer de volgende opdracht uit om .NET Core-toepassing te bouwen.
 
        ```cmd
        dotnet build
@@ -165,7 +165,7 @@ Als u wilt instellen en de simulator start, voert u de opdracht **Azure IoT Edge
      - Navigeer naar de weergave foutopsporing van Visual Studio Code door te selecteren **weergave > fouten opsporen in**. Selecteer de configuratie van de foutopsporing  ***&lt;de modulenaam van uw&gt;* lokale foutopsporing (.NET Core)** in de vervolgkeuzelijst.
 
         > [!NOTE]
-        > Als uw .net Core `TargetFramework` is niet consistent met het programmapad in `launch.json`, moet u handmatig bijwerken van het programmapad in `launch.json` zodat deze overeenkomen met de `TargetFramework` in uw .csproj-bestand zodat die Visual Studio-Code kunt is dit starten programma.
+        > Als uw .NET Core `TargetFramework` is niet consistent met het programmapad in `launch.json`, moet u handmatig bijwerken van het programmapad in `launch.json` zodat deze overeenkomen met de `TargetFramework` in uw .csproj-bestand zodat die Visual Studio-Code kunt is dit starten programma.
 
    - **Node.js**
      - In de Visual Studio Code geïntegreerde terminal, wijzig de map in de ***&lt;de modulenaam van uw&gt;*** map en voer de volgende opdracht uit om knooppunt pakketten te installeren

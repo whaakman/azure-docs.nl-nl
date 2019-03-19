@@ -7,21 +7,23 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: iainfou
-ms.openlocfilehash: 81b45a25c8040916b835ab333c5ce80ab6c1a788
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a20dfcd9e2ef12252235b74455964d115d9aef9b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772310"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181483"
 ---
-# <a name="secure-traffic-between-pods-by-using-network-policies-in-azure-kubernetes-service"></a>Beveiliging van verkeer tussen schillen met behulp van beleid voor netwerken in Azure Kubernetes Service
+# <a name="preview---secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Preview - beveiligd verkeer tussen schillen met behulp van beleid voor netwerken in Azure Kubernetes Service (AKS)
 
 Wanneer u een moderne, op basis van microservices-toepassingen in Kubernetes uitvoeren, wilt u meestal om te bepalen welke onderdelen met elkaar kunnen communiceren. Het principe van minimale bevoegdheden moet worden toegepast op hoe verkeer tussen de schillen in een cluster Azure Kubernetes Service (AKS stromen kan). Stel dat u waarschijnlijk wilt blokkeren van verkeer rechtstreeks naar de back-end-toepassingen. De *netwerkbeleid* functie in Kubernetes kunt u regels definiëren voor inkomend en uitgaand verkeer tussen de schillen in een cluster.
 
 Calico, een open-source-netwerk- en netwerk-beveiligingsoplossing die is opgericht door Tigera, biedt een netwerk groepsbeleid-engine die beleidsregels voor Kubernetes netwerk kunt implementeren. Dit artikel leest u hoe de beleidsengine Calico netwerk installeren en Kubernetes netwerk beleid om te bepalen van de verkeersstroom tussen de schillen in AKS.
 
 > [!IMPORTANT]
-> Deze functie is momenteel beschikbaar als preview-product. Preview-versies worden beschikbaar gesteld op voorwaarde dat u akkoord gaat met de [aanvullende gebruiksvoorwaarden][terms-of-use]. Sommige aspecten van deze functie kunnen worden gewijzigd voorafgaand aan de algemene beschikbaarheid (GA).
+> AKS-preview-functies zijn selfservice en aanmelden. Previews worden opgegeven voor het verzamelen van fouten en feedback van onze community. Ze worden echter niet ondersteund door Azure technische ondersteuning. Als u een cluster maken of deze functies aan bestaande clusters toevoegen, is dat cluster wordt niet ondersteund totdat de functie niet langer in preview is en is geslaagd voor algemene beschikbaarheid (GA).
+>
+> Als u problemen met de preview-functies ondervindt, [opent u een probleem op de AKS-GitHub-opslagplaats] [ aks-github] met de naam van de preview-functie in de titel van fout.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -451,6 +453,7 @@ Zie voor meer informatie over het beleid, [Kubernetes netwerkbeleidsregels][kube
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
+[aks-github]: https://github.com/azure/aks/issues]
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

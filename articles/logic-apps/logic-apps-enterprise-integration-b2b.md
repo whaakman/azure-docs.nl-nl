@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 20fc3722-6f8b-402f-b391-b84e9df6fcff
 ms.date: 07/08/2016
-ms.openlocfilehash: ad7a29f4a554d599b17576921542b1ac6e403911
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 05368f627c5e9482a43d5e30b0e16b1d47f6217c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127761"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58074714"
 ---
 # <a name="receive-b2b-data-with-azure-logic-apps-and-enterprise-integration-pack"></a>B2B-gegevens met Azure Logic Apps en Enterprise Integration Pack ontvangen
 
@@ -47,11 +47,13 @@ Volg deze stappen voor het maken van een B2B-logische app die gebruikmaakt van d
 
     ![](./media/logic-apps-enterprise-integration-b2b/b2b-6.png)
 
-6. Voeg de **hoofdtekst** die u wilt gebruiken als invoer. Selecteer in dit voorbeeld wordt de hoofdtekst van de HTTP-aanvraag die de logische app wordt geactiveerd. Of voer een expressie die invoer van de kopteksten in de **HEADERS** veld:
+6. Voeg de **hoofdtekst** die u wilt gebruiken als invoer. 
+   Selecteer in dit voorbeeld wordt de hoofdtekst van de HTTP-aanvraag die de logische app wordt geactiveerd. Of voer een expressie die invoer van de kopteksten in de **HEADERS** veld:
 
-    @triggerOutputs([headers])
+    @triggerOutputs()['headers']
 
-7. Voeg de vereiste **Headers** voor AS2, die u in de HTTP-aanvraagheaders vinden kunt. Selecteer de headers van de HTTP-aanvraag die de logische app activeren in dit voorbeeld.
+7. Voeg de vereiste **Headers** voor AS2, die u in de HTTP-aanvraagheaders vinden kunt. 
+   Selecteer de headers van de HTTP-aanvraag die de logische app activeren in dit voorbeeld.
 
 8. Nu de decoderen X12 bericht-actie toevoegen. Selecteer **een actie toevoegen**.
 
@@ -65,12 +67,13 @@ Volg deze stappen voor het maken van een B2B-logische app die gebruikmaakt van d
 
     ![](./media/logic-apps-enterprise-integration-b2b/b2b-as2message.png)
 
-11. Nu moet u de invoer voor deze actie. Deze invoer is de uitvoer van de vorige AS2-actie.
+11. Nu moet u de invoer voor deze actie. 
+    Deze invoer is de uitvoer van de vorige AS2-actie.
 
     De werkelijke berichtinhoud is in een JSON-object en base64-gecodeerd, is dus u een expressie als invoer opgeven moet. 
     Voer de volgende expressie in de **X12 PLATTE bestand bericht te decoderen** invoerveld:
     
-    @base64ToString(body('Decode_AS2_message')? ['AS2Message']? ['Inhoud'])
+    @base64ToString(body('Decode_AS2_message')?['AS2Message']?['Content'])
 
     Voeg stappen voor het decoderen van de X12 gegevens ontvangen van de trading partner en uitvoer van de items in een JSON-object toe. 
     Als u wilt de partner sturen dat de gegevens is ontvangen, kunt u terugsturen van een antwoord met de AS2 bericht toestand melding (MDN) in een HTTP-reactie.
@@ -89,7 +92,7 @@ Volg deze stappen voor het maken van een B2B-logische app die gebruikmaakt van d
 
 15. Voor toegang tot de MDN uit de uitvoer van de **decoderen X12 bericht** actie, de reactie instellen **hoofdtekst** veld met deze expressie:
 
-    @base64ToString(body('Decode_AS2_message')? ['OutgoingMdn']? ['Inhoud'])
+    @base64ToString(body('Decode_AS2_message')?['OutgoingMdn']?['Content'])
 
     ![](./media/logic-apps-enterprise-integration-b2b/b2b-17.png)  
 

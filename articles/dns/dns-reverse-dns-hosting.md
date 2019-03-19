@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: victorh
-ms.openlocfilehash: f0ab7d4063eea50b58c809aee1b0ea70f8c21c6b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: cb2f04c692d4b5f385a89ba6a3071c20ef1bdf21
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546837"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118252"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Omgekeerde DNS-lookup-zones hosten in Azure DNS
 
@@ -131,7 +131,7 @@ Het volgende voorbeeld wordt uitgelegd hoe u voor het maken van een PTR-record i
 1. Voor **domeinnaam**, voer de volledig gekwalificeerde domeinnaam (FQDN) van de resource die gebruikmaakt van het IP-adres.
 1. Selecteer **OK** opnemen onder aan het deelvenster voor het maken van de DNS-server.
 
- !['Recordset toevoegen' in het deelvenster met vakken ingevuld](./media/dns-reverse-dns-hosting/figure5.png)
+   !['Recordset toevoegen' in het deelvenster met vakken ingevuld](./media/dns-reverse-dns-hosting/figure5.png)
 
 De volgende voorbeelden laten zien hoe deze taak uitvoeren met behulp van PowerShell of Azure CLI.
 

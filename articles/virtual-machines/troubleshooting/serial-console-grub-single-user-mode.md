@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 135741a8bf385388fa1b3ac75a45e4c4678bf196
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: ca2523a1101a21740a318a304f9bec491d4de2f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814466"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106233"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Seriële Console gebruiken voor toegang tot WORMGATEN en de modus voor één gebruiker
 WORMGATEN is het eindtotaal Unified Bootloader, dit waarschijnlijk het eerste wat dat u ziet is wanneer u een virtuele machine wordt opgestart. Omdat deze wordt weergegeven voordat het besturingssysteem is gestart, is het niet toegankelijk via SSH. Vanaf WORMGATEN, u kunt wijzigen van de opstartconfiguratie om op te starten in de modus voor één gebruiker, onder andere.
@@ -187,7 +187,7 @@ U wordt automatisch verwijderd in noodgevallen shell als SLES niet normaal mag o
 1. Zoek de regel van de kernel die wordt gestart met `linux`
 1. Toevoeg- `systemd.unit=emergency.target` aan het einde van de regel
 1. Druk op Ctrl + X op te starten met de volgende instellingen en noodgevallen shell invoeren
-> Houd er rekening mee dat u wordt verwijderd in noodgevallen shell met een _alleen-lezen_ bestandssysteem. Als u maken van alle wijzigingen aan alle bestanden wilt, moet u te koppelen van het bestandssysteem met machtigingen voor lezen / schrijven. U doet dit door Voer `mount -o remount,rw /` in shell
+   > Houd er rekening mee dat u wordt verwijderd in noodgevallen shell met een _alleen-lezen_ bestandssysteem. Als u maken van alle wijzigingen aan alle bestanden wilt, moet u te koppelen van het bestandssysteem met machtigingen voor lezen / schrijven. U doet dit door Voer `mount -o remount,rw /` in shell
 
 ## <a name="access-for-oracle-linux"></a>Toegang voor Oracle Linux
 Veel, zoals Red Hat Enterprise Linux vereist modus voor één gebruiker in Oracle Linux WORMGATEN en de hoofdgebruiker zijn ingeschakeld.

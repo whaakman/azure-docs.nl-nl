@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8686e2c518bb2dc778c120350657aa54c856aec6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: be96aaa69fc1d59bdfa8079eff99c13c1e92c736
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440315"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905117"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Azure Premium Storage gebruiken met SQL Server op Virtual Machines
 
@@ -140,17 +140,17 @@ Voor elke schijf, gebruikt u de volgende stappen uit:
 Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
 ```
 
-2. Noteer de DiskName en LUN.
+1. Noteer de DiskName en LUN.
 
     ![DisknameAndLUN][2]
-3. Extern bureaublad op de virtuele machine. Ga vervolgens naar **Computerbeheer** | **Apparaatbeheer** | **schijfstations**. Bekijk de eigenschappen van elk van de 'Microsoft virtuele schijven'
+1. Extern bureaublad op de virtuele machine. Ga vervolgens naar **Computerbeheer** | **Apparaatbeheer** | **schijfstations**. Bekijk de eigenschappen van elk van de 'Microsoft virtuele schijven'
 
     ![VirtualDiskProperties][3]
-4. Hier het nummer van de logische eenheid is een verwijzing naar het LUN die u opgeeft bij het koppelen van de VHD aan de virtuele machine.
-5. Voor de 'Microsoft Virtual Disk' gaat u naar de **Details** tabblad, klik dan in de **eigenschap** lijst, gaat u naar **stuurprogrammasleutel**. In de **waarde**, houd er rekening mee de **Offset**, namelijk 0002 in de volgende schermafbeelding. De 0002 geeft aan dat de PhysicalDisk2 die de opslaggroep naar verwijst.
+1. Hier het nummer van de logische eenheid is een verwijzing naar het LUN die u opgeeft bij het koppelen van de VHD aan de virtuele machine.
+1. Voor de 'Microsoft Virtual Disk' gaat u naar de **Details** tabblad, klik dan in de **eigenschap** lijst, gaat u naar **stuurprogrammasleutel**. In de **waarde**, houd er rekening mee de **Offset**, namelijk 0002 in de volgende schermafbeelding. De 0002 geeft aan dat de PhysicalDisk2 die de opslaggroep naar verwijst.
 
     ![VirtualDiskPropertyDetails][4]
-6. Dump van de gekoppelde schijven voor elke opslaggroep:
+1. Dump van de gekoppelde schijven voor elke opslaggroep:
 
 ```powershell
 Get-StoragePool -FriendlyName AMS1pooldata | Get-PhysicalDisk
@@ -750,7 +750,7 @@ Get-ClusterResource $ListenerName| Set-ClusterParameter -Name "HostRecordTTL" 12
 
 ##### <a name="client-application-settings"></a>Clientinstellingen voor de toepassing
 
-Als de toepassing van uw SQL-client .net 4.5 ondersteunt SQLClient, dan hebt u kunt gebruiken ' MULTISUBNETFAILOVER = TRUE' trefwoord. Dit trefwoord moet worden toegepast, omdat u Hiermee sneller verbinding met SQL AlwaysOn-beschikbaarheidsgroep tijdens de failover. Het inventariseren via alle IP-adressen die zijn gekoppeld aan de Always On-listener parallel en een agressievere TCP-verbinding opnieuw proberen snelheid tijdens een failover uitvoert.
+Als de toepassing van uw SQL-client biedt ondersteuning voor de .NET 4.5 SQLClient, dan kunt u ' MULTISUBNETFAILOVER = TRUE' trefwoord. Dit trefwoord moet worden toegepast, omdat u Hiermee sneller verbinding met SQL AlwaysOn-beschikbaarheidsgroep tijdens de failover. Het inventariseren via alle IP-adressen die zijn gekoppeld aan de Always On-listener parallel en een agressievere TCP-verbinding opnieuw proberen snelheid tijdens een failover uitvoert.
 
 Zie voor meer informatie over de vorige instellingen [MultiSubnetFailover trefwoord en functies die zijn gekoppeld](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Zie ook [SqlClient-ondersteuning voor hoge beschikbaarheid, herstel na noodgevallen](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx).
 
@@ -973,7 +973,7 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 
 #SET Azure ACLs or Network Security Groups & Windows FWs
 
-#http://msdn.microsoft.com/library/azure/dn495192.aspx
+#https://msdn.microsoft.com/library/azure/dn495192.aspx
 
 ####WAIT FOR FULL AlwaysOn RESYNCRONISATION!!!!!!!!!#####
 ```
@@ -1218,7 +1218,7 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 
 #SET ACLs or Azure Network Security Groups & Windows FWs
 
-#http://msdn.microsoft.com/library/azure/dn495192.aspx
+#https://msdn.microsoft.com/library/azure/dn495192.aspx
 ```
 
 #### <a name="step-23-test-failover"></a>Stap 23: Testfailover

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d7943119ed29e03afb6b089a913d4ba2baddc166
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 69ee0c0add2895b30a60db577cc11c83a0e00bb8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430858"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854769"
 ---
 # <a name="create-a-new-iot-edge-module-offer-with-the-cloud-partner-portal"></a>Een nieuwe aanbieding van de IoT Edge-module maken met de Cloud Partner-Portal
 
@@ -34,7 +34,7 @@ In dit artikel wordt beschreven hoe u maken en publiceren van een vermelding in 
 
 ## <a name="new-offer-form"></a>Nieuwe aanbieding formulier 
 
-Aanmelden bij de [Cloud Partner-Portal](http://cloudpartner.azure.com/), en selecteer vervolgens **+ nieuwe aanbieding** in het menu links. Selecteer in het menu nieuwe aanbieding **IoT Edge-Modules** om weer te geven de **nieuwe aanbieding** vormen en start het proces van het definiëren van assets voor een nieuwe aanbieding voor ioT Edge-Module. 
+Aanmelden bij de [Cloud Partner-Portal](https://cloudpartner.azure.com/), en selecteer vervolgens **+ nieuwe aanbieding** in het menu links. Selecteer in het menu nieuwe aanbieding **IoT Edge-Modules** om weer te geven de **nieuwe aanbieding** vormen en start het proces van het definiëren van assets voor een nieuwe aanbieding voor ioT Edge-Module. 
 
 ![Nieuwe IoT Edge-module bieden de selectie van de interface](./media/new-iot-edge-module-offer.png)
 
@@ -42,7 +42,7 @@ Aanmelden bij de [Cloud Partner-Portal](http://cloudpartner.azure.com/), en sele
 
 De **nieuwe aanbieding** pagina voor het type aanbieding van IoT Edge-module biedt een set met tabbladen en formuliervelden die u gebruiken gaat om te maken van een nieuwe aanbieding. Elk van de volgende artikelen wordt uitgelegd hoe u het tabblad gebruiken om de asset groepen en de ondersteunende services voor uw nieuwe aanbieding voor IoT Edge-module te definiëren.
 
-- [Tabblad instellingen bieden](./cpp-offer-settings-tab.md)
-- [Tabblad SKU 's](./cpp-skus-tab.md)
-- [Marketplace-tabblad](./cpp-marketplace-tab.md)
-- [Tabblad ondersteuning](./cpp-support-tab.md)
+- [Tabblad voor aanbiedingsinstellingen](./cpp-offer-settings-tab.md)
+- [Tabblad voor SKU's](./cpp-skus-tab.md)
+- [Tabblad voor Marketplace](./cpp-marketplace-tab.md)
+- [Tabblad voor ondersteuning](./cpp-support-tab.md)

@@ -1,6 +1,6 @@
 ---
 title: Verbinding maken met Azure Database for MySQL via Java
-description: Deze snelstartgids bevat een voorbeeld van Java-code dat u kunt gebruiken om verbinding te maken met en gegevens op te vragen uit een Azure Database voor MySQL-database.
+description: Deze snelstartgids bevat een Java-codevoorbeeld dat die u kunt verbinding maken met en gegevens uit een Azure Database for MySQL-database op te vragen.
 author: jasonwhowell
 ms.author: jasonh
 ms.service: mysql
@@ -8,12 +8,12 @@ ms.custom: mvc, devcenter
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 02/28/2018
-ms.openlocfilehash: e660daa0a0676f7f4267be7e6852568d80791774
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 87c74581f456baae3d12e164dfdc0a15e3231728
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539106"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835331"
 ---
 # <a name="azure-database-for-mysql-use-java-to-connect-and-query-data"></a>Azure Database for MySQL: Java gebruiken om verbinding te maken met gegevens en er query's op uit te voeren
 In deze quickstart ziet u hoe u verbinding maakt met Azure Database for MySQL met behulp van een Java-toepassing en het JDBC-stuurprogramma [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/). U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. In dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met behulp van Java, maar geen ervaring hebt met het werken met Azure Database voor MySQL.

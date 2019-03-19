@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3dffcfe7c4c892976a61272a2217226f512b70ed
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 1cb15f3e786313fca4ae9f0c224c68c96bac7836
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542553"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077714"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Een Azure Active Directory-tenant niet verwijderen
 Wanneer een tenant is verwijderd, worden ook alle resources die zijn opgenomen in de tenant verwijderd. U moet de tenant voorbereiden door het minimaliseren van alle bijbehorende resources, voordat u verwijderen. Alleen een globale beheerder van Azure Active Directory (Azure AD) u een Azure AD-tenant uit de portal verwijderen kunt.
@@ -41,11 +41,11 @@ U kunt een tenant niet verwijderen in Azure AD pas verschillende controles wordt
 
 3. Switch voor de tenant die u wilt verwijderen.
   
-  ![knop directory verwijderen](./media/directory-delete-howto/delete-directory-command.png)
+   ![knop directory verwijderen](./media/directory-delete-howto/delete-directory-command.png)
 
 4. Selecteer **verwijderen directory**.
   
-  ![knop directory verwijderen](./media/directory-delete-howto/delete-directory-list.png)
+   ![knop directory verwijderen](./media/directory-delete-howto/delete-directory-list.png)
 
 5. Als uw tenant voldoet niet aan een of meer controles, bent u hebt opgegeven met een koppeling naar meer informatie over hoe u om door te geven. Nadat u alle controles kunt toevoegen, selecteert u **verwijderen** om het proces te voltooien.
 
@@ -57,10 +57,10 @@ Zie de volgende tabel voor wat u kunt verwachten wanneer u een proefversie Offic
 
 Abonnementsstatus | Gegevens | Toegang tot gegevens
 ----- | ----- | -----
-Actieve (voor de proefversie van 30 dagen)  | Gegevens die toegankelijk is voor alle    | <li>Gebruikers hebben normale toegang tot Office 365-bestanden of toepassingen<li>Beheerders hebben de normale wijze toegang tot Office 365-beheercentrum en bronnen 
-Verlopen (30 dagen)   | Gegevens die toegankelijk is voor alle    | <li>Gebruikers hebben normale toegang tot Office 365-bestanden of toepassingen<li>Beheerders hebben de normale wijze toegang tot Office 365-beheercentrum en bronnen
-Uitgeschakeld (30 dagen) | Gegevens die toegankelijk is voor alleen administratie  | <li>Gebruikers geen toegang tot Office 365-bestanden of toepassingen<li>Beheerders kunnen toegang krijgen tot de Office 365-beheercentrum, maar kan geen licenties toewijzen aan of gebruikers bijwerken
-Ongedaan gemaakt (30 dagen na uitgeschakeld) | Gegevens zijn verwijderd (automatisch verwijderd als er geen andere services gebruikt worden) | <li>Gebruikers geen toegang tot Office 365-bestanden of toepassingen<li>Beheerders hebben toegang tot de Office 365-beheercentrum aanschaffen en andere abonnementen beheren 
+Actieve (voor de proefversie van 30 dagen)  | Gegevens die toegankelijk is voor alle    | <li>Gebruikers hebben normale toegang tot Office 365-bestanden of toepassingen<li>Beheerders hebben de normale wijze toegang tot Microsoft 365-beheercentrum en bronnen 
+Verlopen (30 dagen)   | Gegevens die toegankelijk is voor alle    | <li>Gebruikers hebben normale toegang tot Office 365-bestanden of toepassingen<li>Beheerders hebben de normale wijze toegang tot Microsoft 365-beheercentrum en bronnen
+Uitgeschakeld (30 dagen) | Gegevens die toegankelijk is voor alleen administratie  | <li>Gebruikers geen toegang tot Office 365-bestanden of toepassingen<li>Beheerders kunnen krijgen tot het beheercentrum van Microsoft 365, maar kan geen licenties toewijzen aan of gebruikers bijwerken
+Ongedaan gemaakt (30 dagen na uitgeschakeld) | Gegevens zijn verwijderd (automatisch verwijderd als er geen andere services gebruikt worden) | <li>Gebruikers geen toegang tot Office 365-bestanden of toepassingen<li>Beheerders hebben toegang tot het Microsoft 365-beheercentrum aanschaffen en andere abonnementen beheren 
 
 ## <a name="delete-a-subscription-in-the-microsoft-365-admin-center"></a>Verwijderen van een abonnement in het Microsoft 365-beheercentrum
 
@@ -70,17 +70,17 @@ U kunt een abonnement in plaatst een **Deprovisoned** status moet worden verwijd
 
 2. Ga naar de **facturering** tabblad en selecteer **producten en Services**, kies vervolgens het abonnement dat u wilt annuleren. Nadat u op **annuleren**, vernieuw de pagina.
   
-  ![Koppeling voor het verwijderen van abonnement verwijderen](./media/directory-delete-howto/delete-command.png)
+   ![Koppeling voor het verwijderen van abonnement verwijderen](./media/directory-delete-howto/delete-command.png)
   
 3. Selecteer **verwijderen** verwijderen van het abonnement en de voorwaarden accepteren. Alle gegevens binnen drie dagen definitief verwijderd. Als u van gedachten verandert, kunt u het abonnement tijdens de periode van drie dagen opnieuw activeren.
   
-  ![algemene voorwaarden](./media/directory-delete-howto/delete-terms.png)
+   ![algemene voorwaarden](./media/directory-delete-howto/delete-terms.png)
 
 4. Nu de abonnementsstatus is gewijzigd, wordt het abonnement is gemarkeerd voor verwijdering. Het abonnement voert de **inrichting ongedaan gemaakt** status 72 uur later opnieuw.
 
 5. Als u een abonnement op uw tenant hebt verwijderd en 72 uur zijn verstreken, kunt u zich aanmelden terug in de Azure AD-beheercentrum opnieuw en er moeten er is geen actie vereist en er zijn geen abonnementen blokkeren van het verwijderen van uw tenants. U moet mogelijk uw Azure AD-tenant is verwijderd.
   
-  ![scherm verwijderen abonnement selectievakje doorgeven](./media/directory-delete-howto/delete-checks-passed.png)
+   ![scherm verwijderen abonnement selectievakje doorgeven](./media/directory-delete-howto/delete-checks-passed.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 [Documentatie voor Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)

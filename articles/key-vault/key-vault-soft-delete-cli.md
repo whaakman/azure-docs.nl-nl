@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5af9ac4b694eccddacebdf387992226930bf1125
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4311d71775ef877e0090abca9c6caabab503ef08
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450259"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097607"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Key Vault-functie voor voorlopig verwijderen gebruiken met CLI
 
@@ -167,19 +167,19 @@ az keyvault set-policy --name ContosoVault --key-permissions get create delete l
 Zoals sleutels, geheimen beheerd met hun eigen opdrachten:
 
 - Een geheim met de naam SQLPassword verwijderen: 
-```azurecli
-az keyvault secret delete --vault-name ContosoVault -name SQLPassword
-```
+  ```azurecli
+  az keyvault secret delete --vault-name ContosoVault -name SQLPassword
+  ```
 
 - Een overzicht van alle verwijderde geheimen in een key vault: 
-```azurecli
-az keyvault secret list-deleted --vault-name ContosoVault
-```
+  ```azurecli
+  az keyvault secret list-deleted --vault-name ContosoVault
+  ```
 
 - Een geheim in de status verwijderd heeft herstellen: 
-```azurecli
-az keyvault secret recover --name SQLPassword --vault-name ContosoVault
-```
+  ```azurecli
+  az keyvault secret recover --name SQLPassword --vault-name ContosoVault
+  ```
 
 - Opschonen van een geheim status verwijderd: 
 

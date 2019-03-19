@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 2970ef58e177d10eac80d46825f3fb985b98af61
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 8973558e0841bfd0d6651a08d39da96b544156c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734962"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842445"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Word een Cloud-Marketplace-uitgever
 
@@ -49,14 +49,14 @@ Noteer het Microsoft Partner Network-ID voor uw organisatie na de registratie. U
 
 ## <a name="2-create-a-microsoft-account"></a>2. Een Microsoft-Account maken  
 | 15 min |  
-Een Microsoft-account, bijvoorbeeld *@outlook.com of @live.com*, wordt gebruikt voor toegang tot veel Microsoft-apparaten en services. Dit is nodig voor Azure Marketplace transact aanbiedingen, en wordt aangeraden het gebruik ervan op alle uitgevers van de cloud. Voor meer informatie over de voordelen en maakt gebruik van een Microsoft-account, [gaat u naar deze pagina](https://account.microsoft.com/account/). U kunt een persoonlijk Microsoft-account wilt gebruiken voor toegang tot de Cloud Partner-Portal, biedt het publicatie-platform die u gebruiken wilt voor het maken en beheren van uw marketplace. 
+Een Microsoft-account, bijvoorbeeld  *\@outlook.com of \@live.com*, wordt gebruikt voor toegang tot veel Microsoft-apparaten en services. Dit is nodig voor Azure Marketplace transact aanbiedingen, en wordt aangeraden het gebruik ervan op alle uitgevers van de cloud. Voor meer informatie over de voordelen en maakt gebruik van een Microsoft-account, [gaat u naar deze pagina](https://account.microsoft.com/account/). U kunt een persoonlijk Microsoft-account wilt gebruiken voor toegang tot de Cloud Partner-Portal, biedt het publicatie-platform die u gebruiken wilt voor het maken en beheren van uw marketplace. 
 
 [! [Belangrijk] Let op dat een Microsoft-account dat is gekoppeld aan uw zakelijke e-mailadres niet kunt u toegang tot de portal.
 
->[!Note]
->Als u al een Microsoft-account hebt, raadpleegt u de [richtlijnen voor het maken van een Microsoft-ID voor het beheren van een marketplace-account](https://docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) om te bepalen als deze kan worden gebruikt voor marketplace-publicatie. 
-
->Gebruikers met een bedrijfsaccount van Azure Active Directory federated moeten lezen [in dit artikel](https://docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) voordat u probeert te maken of gebruik uw bestaande Microsoft-Account.
+> [!Note]
+> Als u al een Microsoft-account hebt, raadpleegt u de [richtlijnen voor het maken van een Microsoft-ID voor het beheren van een marketplace-account](https://docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) om te bepalen als deze kan worden gebruikt voor marketplace-publicatie. 
+> 
+> Gebruikers met een bedrijfsaccount van Azure Active Directory federated moeten lezen [in dit artikel](https://docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) voordat u probeert te maken of gebruik uw bestaande Microsoft-Account.
 
 *   Voor meer informatie over het maken of beheren van uw Microsoft-account, gaat u naar de [pagina's van Microsoft-account help ondersteuning](https://support.microsoft.com/products/microsoft-account?category=manage-account).
 

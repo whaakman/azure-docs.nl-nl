@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2019
+ms.date: 03/18/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: bb9e5ba960251f728e14106ab1c586e1d3ef373f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.lastreviewed: 03/18/2019
+ms.openlocfilehash: 33f1ccf3f1c7bc657cc66efe7c5025356c954ad6
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538643"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58187758"
 ---
 # <a name="asdk-release-notes"></a>Opmerkingen bij de release van ASDK
 
@@ -30,9 +30,11 @@ De hoogte blijven van wat is er nieuw in de ASDK Abonneer u op de [ ![RSS](./med
 
 ## <a name="build-11902069"></a>Build 1.1902.0.69
 
-### <a name="changes"></a>Wijzigingen
+### <a name="new-features"></a>Nieuwe functies
 
 - De 1902-build introduceert een nieuwe gebruikersinterface van de beheerder van Azure Stack-portal voor het maken van plannen, aanbiedingen, quota's en aanvullende plannen. Zie voor meer informatie, waaronder schermafbeeldingen, [maken, plannen, aanbiedingen en quota's](../azure-stack-create-plan.md).
+
+- Zie voor een lijst van andere wijzigingen en verbeteringen in deze release, [in deze sectie](../azure-stack-update-1902.md#improvements) opmerkingen bij de release in de Azure Stack.
 
 <!-- ### New features
 
@@ -42,6 +44,20 @@ De hoogte blijven van wat is er nieuw in de ASDK Abonneer u op de [ ![RSS](./med
 
 - For a list of issues fixed in this release, see [this section](../azure-stack-update-1902.md#fixed-issues) of the Azure Stack release notes. For a list of known issues, see [this section](../azure-stack-update-1902.md#known-issues-post-installation).
 - Note that [available Azure Stack hotfixes](../azure-stack-update-1902.md#azure-stack-hotfixes) are not applicable to the Azure Stack ASDK. -->
+
+### <a name="known-issues"></a>Bekende problemen
+
+- Een probleem is geïdentificeerd waarbij pakketten meer dan 1450 bytes aan een interne Load Balancer (ILB) verwijderd. Het probleem wordt veroorzaakt door van de MTU-instelling op de host wordt te laag voor VXLAN encapsulated pakketten die passeren van de rol, die vanaf 1901 is verplaatst naar de host. Er zijn ten minste twee scenario's die u kunt tegenkomen waarin we dit probleem zelf manifest hebben gezien:
+
+  - SQL-query's met SQL Always-On die achter een interne Load Balancer (ILB), en meer dan 660 bytes zijn.
+  - Kubernetes-implementaties mislukken als u probeert in te schakelen van meerdere modellen.  
+
+  Het probleem treedt op wanneer er communicatie tussen een virtuele machine en een ILB in hetzelfde virtuele netwerk, maar op verschillende subnetten. U kunt dit probleem omzeilen door het uitvoeren van de volgende opdrachten in een opdrachtprompt met verhoogde bevoegdheid op de host ASDK:
+
+  ```shell
+  netsh interface ipv4 set sub "hostnic" mtu=1660
+  netsh interface ipv4 set sub "management" mtu=1660
+  ```
 
 ## <a name="build-11901095"></a>Build 1.1901.0.95
 

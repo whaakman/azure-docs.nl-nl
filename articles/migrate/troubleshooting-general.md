@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: raynew
-ms.openlocfilehash: 0eede0ae4623d68adf749dc528ac5cc1ce81e024
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 2b542cc8202b75c0007686e3f0e0d9fbd1ac28c1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730409"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119170"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Problemen met Azure Migrate oplossen
 
@@ -53,28 +53,28 @@ Als u zich niet aan het evaluatierapport exporteren vanuit de portal, kunt u met
 
 1. Installeer *armclient* op uw computer (als deze nog niet al geïnstalleerd):
 
-  a. Voer de volgende opdracht in een beheerder opdrachtprompt-venster: ```@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"```
+   a. Voer de volgende opdracht in een beheerder opdrachtprompt-venster: ```@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"```
 
-  b. Voer de volgende opdracht in een beheerder Windows PowerShell-venster: ```choco install armclient```
+   b. Voer de volgende opdracht in een beheerder Windows PowerShell-venster: ```choco install armclient```
 
-2.  De download-URL ophalen voor het evaluatierapport met behulp van REST-API van Azure migreren
+2. De download-URL ophalen voor het evaluatierapport met behulp van REST-API van Azure migreren
 
-  a.    Voer de volgende opdracht in een beheerder Windows PowerShell-venster: ```armclient login```
+   a.    Voer de volgende opdracht in een beheerder Windows PowerShell-venster: ```armclient login```
 
-  Hiermee opent u de Azure-aanmelding pop-upvenster waarin u wilt aanmelden bij Azure.
+   Hiermee opent u de Azure-aanmelding pop-upvenster waarin u wilt aanmelden bij Azure.
 
-  b.    Voer in het dezelfde PowerShell-venster de volgende opdracht uit om op te halen van de download-URL voor het evaluatierapport (Vervang de URI-parameters met de juiste waarden, voorbeeld-API-hieronder aanvragen)
+   b.    Voer in het dezelfde PowerShell-venster de volgende opdracht uit om op te halen van de download-URL voor het evaluatierapport (Vervang de URI-parameters met de juiste waarden, voorbeeld-API-hieronder aanvragen)
 
-       ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
+      ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
 
-       Voorbeeld van een aanvraag en de uitvoer:
+      Voorbeeld van een aanvraag en de uitvoer:
 
-       ```PS C:\WINDOWS\system32> armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r
-esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2
-018_12_16_21/downloadUrl?api-version=2018-02-02
-{
-  "assessmentReportUrl": "https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r",
-  "expirationTime": "2018-11-20T22:09:30.5681954+05:30"```
+      ```PS C:\WINDOWS\system32> armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r
+   esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2
+   018_12_16_21/downloadUrl?api-version=2018-02-02
+   {
+   "assessmentReportUrl": "https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r",
+   "expirationTime": "2018-11-20T22:09:30.5681954+05:30"```
 
 3. Kopieer de URL uit het antwoord en open het in een browser voor het downloaden van het evaluatierapport.
 
@@ -97,9 +97,9 @@ Gaat u naar de **Essentials** sectie de **overzicht** pagina van het project voo
 1. Controleer of als Azure Migrate Collector OVA-bestand correct is gedownload door het controleren van de hash-waarde. Raadpleeg het [artikel](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) om de hash-waarde te controleren. Als de hash-waarde niet overeen komt, het OVA-bestand opnieuw te downloaden en de implementatie opnieuw probeert.
 2. Als deze nog steeds mislukt en u VMware vSphere Client gebruikt om de OVF te implementeren, kunt u proberen deze te implementeren via de vSphere Web Client. Als het nog steeds mislukt, probeer het met andere webbrowser.
 3. Als u met behulp van vSphere-webclient en probeert te implementeren op de vCenter-Server 6.5 of 6.7, probeert het ova-bestand rechtstreeks op de ESXi-host implementeren door de onderstaande stappen te volgen:
-  - Verbinding maken met de ESXi-host rechtstreeks (in plaats van vCenter-Server) met behulp van de webclient (https:// <*host IP-adres*> /ui)
-  - Ga naar de introductiepagina van > inventaris
-  - Klik op bestand > implementeren van OVF-sjabloon > Ga naar het ova-bestand en de implementatie te voltooien
+   - Verbinding maken met de ESXi-host rechtstreeks (in plaats van vCenter-Server) met behulp van de webclient (https:// <*host IP-adres*> /ui)
+   - Ga naar de introductiepagina van > inventaris
+   - Klik op bestand > implementeren van OVF-sjabloon > Ga naar het ova-bestand en de implementatie te voltooien
 4. Als de implementatie nog steeds mislukt, moet u contact op met ondersteuning voor Azure Migrate.
 
 
@@ -301,15 +301,15 @@ Voor het verzamelen van Event Tracing voor Windows, het volgende doen:
 1. Open de browser, ga en meld u [naar de portal](https://portal.azure.com).
 2. Druk op F12 te starten van de hulpprogramma's voor ontwikkelaars. Indien nodig, schakelt u de instelling **ingangen op navigatie**.
 3. Klik op de **netwerk** tabblad, en start u het netwerkverkeer vast te leggen:
- - Selecteer in Chrome, **behouden log**. De opname start automatisch. Een rode cirkel geeft aan dat verkeer vastleggen wordt. Als deze niet wordt weergegeven, klikt u op de zwarte cirkel te starten
- - In Microsoft Edge/IE, opname automatisch moet worden gestart. Als dat niet het geval is, klikt u op de groene knop.
+   - Selecteer in Chrome, **behouden log**. De opname start automatisch. Een rode cirkel geeft aan dat verkeer vastleggen wordt. Als deze niet wordt weergegeven, klikt u op de zwarte cirkel te starten
+   - In Microsoft Edge/IE, opname automatisch moet worden gestart. Als dat niet het geval is, klikt u op de groene knop.
 4. Probeer de fout te reproduceren.
 5. Nadat u hebt de fout tijdens het opnemen, opname stoppen en sla een kopie van de geregistreerde activiteit:
- - In Chrome met de rechtermuisknop en klikt u op **opslaan als HAR met inhoud**. Dit zips en exporteert de logboeken als een .har-bestand.
- - In Microsoft Edge/IE, klikt u op de **uitvoer vastgelegd verkeer** pictogram. Dit zips en exporteert het logboek.
+   - In Chrome met de rechtermuisknop en klikt u op **opslaan als HAR met inhoud**. Dit zips en exporteert de logboeken als een .har-bestand.
+   - In Microsoft Edge/IE, klikt u op de **uitvoer vastgelegd verkeer** pictogram. Dit zips en exporteert het logboek.
 6. Navigeer naar de **Console** tabblad om te controleren op fouten of waarschuwingen worden gegenereerd. Om op te slaan in het consolelogboek:
- - Chrome, met de rechtermuisknop op een willekeurige plaats in het consolelogboek. Selecteer **opslaan als**, om te exporteren en postcode van het logboek.
- - In Microsoft Edge/IE, met de rechtermuisknop op de fouten en selecteer **Kopieer alle**.
+   - Chrome, met de rechtermuisknop op een willekeurige plaats in het consolelogboek. Selecteer **opslaan als**, om te exporteren en postcode van het logboek.
+   - In Microsoft Edge/IE, met de rechtermuisknop op de fouten en selecteer **Kopieer alle**.
 7. Sluit de hulpprogramma's voor ontwikkelaars.
 
 ## <a name="collector-error-codes-and-recommended-actions"></a>Collector-foutcodes en aanbevolen acties

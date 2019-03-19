@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 50f55ca3b05a6902841f1b1268cfbde742a9d589
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b45c5abb66d927f247f62692f12bd9207958a3e3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52428282"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181279"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor ontwikkelaars van toepassingen voor het beheren van resources in Azure Kubernetes Service (AKS)
 
 Als u toepassingen ontwikkelen en in Azure Kubernetes Service (AKS uitvoeren), zijn er enkele belangrijke gebieden te houden. Het beheren van uw implementaties van toepassingen kunnen een negatieve invloed hebben op de gebruikerservaring van services die u opgeeft. Als u wilt gebruiken om te laten slagen, houd er rekening mee enkele aanbevolen procedures kunt u volgen als u toepassingen ontwikkelen en in AKS uitvoeren.
 
-Deze aanbevolen procedures voor richt zich voor het uitvoeren van uw cluster en de werkbelasting van een toepassing developer-perspectief. Zie voor meer informatie over best practices administratieve [operator aanbevolen procedures voor het beheer van isolatie en resource in Azure Kubernetes Service (AKS)-Cluster][operator-best-practices-isolation]. In dit artikel leert u:
+Deze aanbevolen procedures voor richt zich voor het uitvoeren van uw cluster en de werkbelasting van een toepassing developer-perspectief. Zie voor meer informatie over best practices administratieve [operator aanbevolen procedures voor het beheer van isolatie en resource in Azure Kubernetes Service (AKS)-Cluster][operator-best-practices-isolation]. In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
 > * Wat zijn de resourceaanvragen pod en limieten
@@ -84,9 +84,9 @@ De [Visual Studio Code-extensie voor Kubernetes] [ vscode-kubernetes] helpt u bi
 
 ## <a name="regularly-check-for-application-issues-with-kube-advisor"></a>Regelmatig controleren op problemen in toepassingen met kube-advisor
 
-**Aanbevolen procedurerichtlijn** -Voer regelmatig de nieuwste versie van `kube-advisor` om problemen te detecteren in uw cluster. Als u resourcequota op een bestaand AKS-cluster toepast, voert u `kube-advisor` eerst te vinden schillen waarvoor geen resourceaanvragen en -limieten die zijn gedefinieerd.
+**Aanbevolen procedurerichtlijn** -Voer regelmatig de nieuwste versie van `kube-advisor` open source-hulpprogramma om problemen te detecteren in uw cluster. Als u resourcequota op een bestaand AKS-cluster toepast, voert u `kube-advisor` eerst te vinden schillen waarvoor geen resourceaanvragen en -limieten die zijn gedefinieerd.
 
-De [kube-advisor] [ kube-advisor] hulpprogramma scant een Kubernetes-cluster en rapporten weergeven over problemen die worden gevonden. Een nuttige controle is het identificeren van schillen die niet over een bron aanvragen en -limieten in plaats.
+De [kube-advisor] [ kube-advisor] hulpprogramma is een bijbehorende AKS open source-project, die een Kubernetes-cluster wordt gescand en rapporten weergeven over problemen die worden gevonden. Een nuttige controle is het identificeren van schillen die niet over een bron aanvragen en -limieten in plaats.
 
 In een AKS-cluster die als host fungeert voor veel development-teams en toepassingen, kan het lastig zijn om bij te houden van schillen zonder deze resource-aanvragen en set beperkt. Als een best practice regelmatig uitgevoerd `kube-advisor` op uw AKS-clusters.
 

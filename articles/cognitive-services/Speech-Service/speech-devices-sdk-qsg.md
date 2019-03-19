@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: b008293e06f476109abde5be519489b2e3d4c1e9
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 114e0b951b2bfe83e8b989646bd07a5fd75b3ee6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531382"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894407"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Aan de slag met de SDK van de apparaten spraak
 
@@ -39,18 +39,18 @@ Voordat u begint met ontwikkelen met de SDK van de apparaten spraak, verzamel de
 
 * Installeer [Android Studio](https://developer.android.com/studio/) en [Vysor](https://vysor.io/download/) op uw PC.
 
-* Krijgen een [Speech-service-abonnementssleutel](get-started.md). U kunt een gratis proefversie van 30 dagen of u een sleutel van uw Azure-dashboard.
+* Krijgen een [spraakservices abonnementssleutel](get-started.md). U kunt een gratis proefversie van 30 dagen of u een sleutel van uw Azure-dashboard.
 
-* Als u gebruiken van de spraakservice intentieherkenning wilt, zich abonneren op de [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) en [ophalen van een abonnementssleutel](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription).
+* Als u gebruiken van de spraakservices intentieherkenning wilt, zich abonneren op de [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) en [ophalen van een abonnementssleutel](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription).
 
     U kunt [maken een eenvoudige LUIS-model](https://docs.microsoft.com/azure/cognitive-services/luis/) of gebruik het voorbeeld LUIS-model, LUIS-example.json. Het voorbeeld LUIS-model beschikbaar via is de [site voor het downloaden van spraak Devices SDK](https://shares.datatransfer.microsoft.com/). Voor het uploaden van uw model JSON-bestand naar de [LUIS portal](https://www.luis.ai/home), selecteer **importeren nieuwe app**, en selecteer vervolgens het JSON-bestand.
 
 ## <a name="set-up-the-development-kit"></a>Instellen van de development kit
-    
+
 1. De development kit heeft twee micro USB-connectors. De linker-connector is om de development kit en is gemarkeerd als Power in de onderstaande afbeelding. Het recht een is om dit te beheren, en is gemarkeerd als fouten opsporen in de afbeelding.
 
     ![de dev kit verbinding te maken](media/speech-devices-sdk/qsg-1.png)
-       
+
 1. De development kit voor energiebeheer met behulp van een micro USB-kabel op de power-poort verbinding te maken met een PC of het samenstellen van de adapter. Een indicator groen power licht op onder de bovenste kaart.
 
 1. Voor het beheren van de ontwikkeling kit verbinding maken met de poort voor foutopsporing op een computer met behulp van een tweede micro USB-kabel. Het is essentieel voor een hoge kwaliteit-kabel gebruiken om ervoor te zorgen betrouwbare communicatie.
@@ -114,92 +114,68 @@ Voordat u begint met ontwikkelen met de SDK van de apparaten spraak, verzamel de
 
 De ROOBO tests uitvoeren en uw development kit valideren, bouwen en installeren van de voorbeeldtoepassing:
 
-1.  Android Studio starten.
+1. Android Studio starten.
 
-1.  Selecteer **Open een bestaand Android Studio project**.
+1. Selecteer **Open een bestaand Android Studio project**.
 
-    ![Android Studio - een bestaand project openen](media/speech-devices-sdk/qsg-5.png)
+   ![Android Studio - een bestaand project openen](media/speech-devices-sdk/qsg-5.png)
 
-1.  Ga naar C:\SDSDK\Android-Sample-Release\example. Selecteer **OK** om de voorbeeldproject te openen.
+1. Ga naar C:\SDSDK\Android-Sample-Release\example. Selecteer **OK** om de voorbeeldproject te openen.
 
-1.  Uw abonnementssleutel spraak toevoegen aan de broncode. Als u proberen intentieherkenning wilt, voegt u ook uw [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) abonnementssleutel en de toepassing-id.
+1. Uw abonnementssleutel spraak toevoegen aan de broncode. Als u proberen intentieherkenning wilt, voegt u ook uw [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) abonnementssleutel en de toepassing-id.
 
-    De toepassingsgegevens van uw sleutels en gaat u in de volgende regels in het bronbestand MainActivity.java:
+   De toepassingsgegevens van uw sleutels en gaat u in de volgende regels in het bronbestand MainActivity.java:
 
-    ```java
-    // Subscription
-    private static final String SpeechSubscriptionKey = "[your speech key]";
-    private static final String SpeechRegion = "westus";
-    private static final String LuisSubscriptionKey = "[your LUIS key]";
-    private static final String LuisRegion = "westus2.api.cognitive.microsoft.com";
-    private static final String LuisAppId = "[your LUIS app ID]"
-    ```
+   ```java
+   // Subscription
+   private static final String SpeechSubscriptionKey = "[your speech key]";
+   private static final String SpeechRegion = "westus";
+   private static final String LuisSubscriptionKey = "[your LUIS key]";
+   private static final String LuisRegion = "westus2.api.cognitive.microsoft.com";
+   private static final String LuisAppId = "[your LUIS app ID]"
+   ```
 
 1. Het standaard wake woord (trefwoord) is 'Computer'. U kunt ook een van de opgegeven andere woorden, zoals 'Machine' of 'Assistent' activeren. De bronbestanden voor deze alternatieve wake-woorden zijn in de SDK van de spraak-apparaten in de map trefwoord. C:\SDSDK\Android-Sample-Release\keyword\Computer bevat bijvoorbeeld de bestanden die worden gebruikt voor de wake-woord 'Computer'.
 
     U kunt ook [maken van een aangepaste wake-woord](speech-devices-sdk-create-kws.md).
 
-    Voor het installeren van het woord wake die u wilt gebruiken:
+    Voor het gebruik van een nieuwe wake-woord, werk de volgende twee regels van MainActivity.java en de wake word pakket kopiëren naar uw app. Word bijvoorbeeld gebruik van de wake 'Machine' van de wake word pakket kws-machine.zip:
 
-    * Maak een map sleutelwoord in de gegevensmap op het apparaat door het uitvoeren van de volgende opdrachten in een opdrachtpromptvenster:
+   * Kopieer het wake word-pakket naar de map 'C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\'.
+   * De MainActivity.java met het sleutelwoord en naam van het pakket bijwerken: 
+    
+     ```java
+     private static final String Keyword = "Machine";
+     private static final String KeywordModel = "kws-machine.zip" // set your own keyword package name.
+     ```
 
-        ```
-        adb shell
-        cd /data
-        mkdir keyword
-        exit
-        ```
+1. De volgende regels de microfoon matrix geometrie-instellingen bevatten bijwerken:
 
-    * Kopieer de bestanden kws.table, kws_k.fst en words_kw.txt naar \data\keyword-map van het apparaat. Voer de volgende opdrachten in een opdrachtpromptvenster. Als u hebt gemaakt een [aangepaste wake word](speech-devices-sdk-create-kws.md), het kws.table-bestand gegenereerd op basis van de website is in dezelfde map als de bestanden kws.table kws_k.fst en words_kw.txt. Voor een aangepaste wake-woord, gebruikt u de `adb push C:\SDSDK\Android-Sample-Release\keyword\[wake_word_name]\kws.table /data/keyword` opdracht naar het bestand kws.table push naar de dev kit:
+   ```java
+   private static final String DeviceGeometry = "Circular6+1";
+   private static final String SelectedGeometry = "Circular6+1";
+   ```
+   De volgende tabel beschrijft de beschikbare waarden:
 
-        ```
-        adb push C:\SDSDK\Android-Sample-Release\keyword\kws.table /data/keyword
-        adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\kws_k.fst /data/keyword
-        adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\words_kw.txt /data/keyword
-        ```
-
-    * Verwijzen naar deze bestanden in de voorbeeldtoepassing. De volgende regels in MainActivity.java vinden. Zorg ervoor dat het opgegeven trefwoord is de URL die u gebruikt en dat het pad verwijst naar de `kws.table` -bestand dat u naar het apparaat gepusht.
-
-        ```java
-        private static final String Keyword = "Computer";
-        private static final String KeywordModel = "/data/keyword/kws.table";
-        ```
-
-        > [!NOTE]
-        > In uw eigen code kunt u het bestand kws.table te maken van een sleutelwoord model exemplaar opname starten:
-        >
-        > ```java
-        > KeywordRecognitionModel km = KeywordRecognitionModel.fromFile(KeywordModel);
-        > final Task<?> task = reco.startKeywordRecognitionAsync(km);
-        > ```
-
-1.  De volgende regels de microfoon matrix geometrie-instellingen bevatten bijwerken:
-
-    ```java
-    private static final String DeviceGeometry = "Circular6+1";
-    private static final String SelectedGeometry = "Circular6+1";
-    ```
-    De volgende tabel beschrijft de beschikbare waarden:
-
-    |Variabele|Betekenis|Beschikbare waarden|
-    |--------|-------|----------------|
-    |`DeviceGeometry`|Fysieke mic-configuratie|Voor een circulaire dev kit: `Circular6+1` |
-    |||Voor een lineaire dev kit: `Linear4`|
-    |`SelectedGeometry`|De softwareconfiguratie voor de mic|Voor een circulaire dev kit die gebruikmaakt van alle microfoon: `Circular6+1`|
-    |||Voor een circulaire dev kit die gebruikmaakt van vier microfoon: `Circular3+1`|
-    |||Voor een lineaire dev kit die gebruikmaakt van alle microfoon: `Linear4`|
-    |||Voor een lineaire dev kit die gebruikmaakt van twee microfoon: `Linear2`|
+   |Variabele|Betekenis|Beschikbare waarden|
+   |--------|-------|----------------|
+   |`DeviceGeometry`|Fysieke mic-configuratie|Voor een circulaire dev kit: `Circular6+1` |
+   |||Voor een lineaire dev kit: `Linear4`|
+   |`SelectedGeometry`|De softwareconfiguratie voor de mic|Voor een circulaire dev kit die gebruikmaakt van alle microfoon: `Circular6+1`|
+   |||Voor een circulaire dev kit die gebruikmaakt van vier microfoon: `Circular3+1`|
+   |||Voor een lineaire dev kit die gebruikmaakt van alle microfoon: `Linear4`|
+   |||Voor een lineaire dev kit die gebruikmaakt van twee microfoon: `Linear2`|
 
 
-1.  De toepassing te bouwen, op de **uitvoeren** in het menu **uitvoeren 'app'**. De **implementatiedoel Selecteer** in het dialoogvenster wordt weergegeven.
+1. De toepassing te bouwen, op de **uitvoeren** in het menu **uitvoeren 'app'**. De **implementatiedoel Selecteer** in het dialoogvenster wordt weergegeven.
 
 1. Selecteer uw apparaat en selecteer vervolgens **OK** om de toepassing op het apparaat te implementeren.
 
     ![Het dialoogvenster implementatiedoel selecteren](media/speech-devices-sdk/qsg-7.png)
 
-1.  De voorbeeldtoepassing met spraak Devices SDK wordt gestart en worden de volgende opties weergegeven:
+1. De voorbeeldtoepassing met spraak Devices SDK wordt gestart en worden de volgende opties weergegeven:
 
-    ![Voorbeeld van de voorbeeldtoepassing spraak Devices SDK en opties](media/speech-devices-sdk/qsg-8.png)
+   ![Voorbeeld van de voorbeeldtoepassing spraak Devices SDK en opties](media/speech-devices-sdk/qsg-8.png)
 
 1. Experiment!
 
@@ -207,9 +183,9 @@ De ROOBO tests uitvoeren en uw development kit valideren, bouwen en installeren 
 
 ### <a name="certificate-failures"></a>Certificaatfouten
 
-Als er certificaatfouten wanneer u de Speech-service gebruikt, zorg ervoor dat uw apparaat de juiste datum en tijd heeft:
+Als er certificaatfouten bij het gebruik van de spraakservices, zorg ervoor dat uw apparaat de juiste datum en tijd heeft:
 
-1. Ga naar **instellingen**. Onder **System**, selecteer **datum en tijd**.
+1. Ga naar **Settings**. Onder **System**, selecteer **datum en tijd**.
 
     ![Selecteer onder instellingen voor datum en tijd](media/speech-devices-sdk/qsg-12.png)
 

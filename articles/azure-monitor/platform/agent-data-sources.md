@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: ad4270700712311d8bea2e2014701a99e44c735f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: e4550dde533044260c120b17c4f72758f90e8bff
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992442"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102095"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Agent-gegevensbronnen in Azure Monitor
 De gegevens die door Azure Monitor worden verzameld van agents wordt gedefinieerd door de gegevensbronnen die u configureert.  De gegevens van agents wordt opgeslagen als [logboekgegevens](data-collection.md) met een set records.  Elke gegevensbron maakt van een bepaald type-records met elk type met een eigen set eigenschappen.
@@ -30,7 +30,7 @@ De volgende tabel geeft een lijst van de agent-gegevensbronnen die momenteel bes
 
 
 | Gegevensbron | Platform | Microsoft monitoring agent | Operations Manager-agent | Azure Storage | Operations Manager vereist? | Operations Manager-agent gegevens verzonden via de beheergroep | Verzamelingsfrequentie |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- | --- |
 | [Aangepaste logboeken](data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | bij ontvangst |
 | [Aangepaste logboeken](data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | bij ontvangst |
 | [IIS-logboeken](data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |afhankelijk van de instelling Rollover voor logboekbestand |

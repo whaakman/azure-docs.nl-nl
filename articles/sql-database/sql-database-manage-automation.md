@@ -11,13 +11,13 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/19/2018
-ms.openlocfilehash: f462940f652f568168c4d0b1e8012c7196d59b13
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: e488e742fc49102f7c58d132a66bca2347ad575c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314157"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849870"
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>Azure SQL-databases met Azure Automation beheren
 
@@ -33,7 +33,7 @@ Lagere operationele overhead en vrij IT / DevOps-personeel te concentreren op we
 
 ## <a name="how-can-azure-automation-help-manage-azure-sql-databases"></a>Hoe u kunt Azure Automation beheren van Azure SQL-databases?
 
-Azure SQL-Database kunnen worden beheerd in Azure Automation met behulp van de [Azure SQL Database PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#sql) die beschikbaar zijn in de [Azure PowerShell-hulpprogramma's](/powershell/azure/overview). Azure Automation heeft deze Azure SQL Database PowerShell-cmdlets beschikbaar gebruiksklaar, zodat u al uw SQL-database-beheertaken in de service kunt uitvoeren. U kunt ook deze cmdlets in Azure Automation met de cmdlets voor andere Azure-services voor het automatiseren van complexe taken tussen Azure-services en systemen van derden worden gekoppeld.
+Azure SQL-Database kunnen worden beheerd in Azure Automation met behulp van de [Azure SQL Database PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/servicemanagement/azure/#sql) die beschikbaar zijn in de [Azure PowerShell-hulpprogramma's](/powershell/azure/overview). Azure Automation heeft deze Azure SQL Database PowerShell-cmdlets beschikbaar gebruiksklaar, zodat u al uw SQL-database-beheertaken in de service kunt uitvoeren. U kunt ook deze cmdlets in Azure Automation met de cmdlets voor andere Azure-services voor het automatiseren van complexe taken tussen Azure-services en systemen van derden worden gekoppeld.
 
 Azure Automation biedt ook de mogelijkheid om te communiceren met de SQL-servers rechtstreeks met behulp van SQL-opdrachten met behulp van PowerShell.
 

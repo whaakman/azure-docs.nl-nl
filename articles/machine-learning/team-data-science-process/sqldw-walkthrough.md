@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8d9e59a11957e8d108ae86ebba157a06129efa58
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: adbf3e4fbc0f9d49458dadaebcdd2a090030654e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111540"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838881"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Het Team Data Science Process in actie: met behulp van SQL Data Warehouse
-In deze zelfstudie, we begeleidt u bij het bouwen en implementeren van een machine learning-model met behulp van SQL Data Warehouse (SQL DW) voor een openbaar beschikbare gegevensset--de [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) gegevensset. De binaire classificeringsmodel samengesteld voorspelt al dan niet een tip wordt betaald voor een reis, en modellen voor multiklassen classificatie- en regressiemodellen worden ook besproken die het distributiepunt voor de betaalde bedragen tip voorspellen.
+In deze zelfstudie, we begeleidt u bij het bouwen en implementeren van een machine learning-model met behulp van SQL Data Warehouse (SQL DW) voor een openbaar beschikbare gegevensset--de [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) gegevensset. De binaire classificeringsmodel samengesteld voorspelt al dan niet een tip wordt betaald voor een reis, en modellen voor multiklassen classificatie- en regressiemodellen worden ook besproken die het distributiepunt voor de betaalde bedragen tip voorspellen.
 
 De procedure volgt de [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) werkstroom. Laten we zien over het instellen van een data science-omgeving, hoe u de gegevens laden in SQL DW en hoe SQL DW of een IPython Notebook gebruiken voor het verkennen van de gegevens en engineer functies model. Vervolgens laten we zien hoe u kunt bouwen en implementeren van een model met Azure Machine Learning.
 
@@ -881,7 +881,7 @@ Voor samenvatting van wat we hebben gedaan in deze zelfstudie scenario, u hebt g
 In dit voorbeeld scenario en de bijbehorende scripts en IPython notebook(s) worden gedeeld door Microsoft onder de MIT-licentie. Controleer of het bestand LICENSE.txt in de map van de voorbeeldcode op GitHub voor meer informatie.
 
 ## <a name="references"></a>Verwijzingen
-• [Andrés Monroy NYC Taxi Trips downloadpagina](http://www.andresmh.com/nyctaxitrips/) • [FOILing NYC Taxi reisgegevens door Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/) • [NYC Taxi en Limousine Commissie onderzoek en statistieken](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+• [Andrés Monroy NYC Taxi Trips downloadpagina](https://www.andresmh.com/nyctaxitrips/) • [FOILing NYC Taxi reisgegevens door Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/) • [NYC Taxi en Limousine Commissie onderzoek en statistieken](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [1]: ./media/sqldw-walkthrough/sql-walkthrough_26_1.png
 [2]: ./media/sqldw-walkthrough/sql-walkthrough_28_1.png

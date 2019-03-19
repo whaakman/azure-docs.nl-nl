@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: d1e43924634e3c4543c244043cb06d965a4d14e0
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 37e3dbb5f69d7319e0b56a5d209e0487e0562e00
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576834"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838796"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Maken en configureren van een zelf-hostende integratieruntime
 De integratieruntime (IR) is de rekeninfrastructuur die Azure Data Factory gebruikt zodat de mogelijkheden van de integratie van gegevens in verschillende netwerkomgevingen. Zie voor meer informatie over IR [overzicht van Integration runtime](concepts-integration-runtime.md).
@@ -61,7 +61,7 @@ Hier volgt een gegevensstroom op hoog niveau voor een samenvatting van de stappe
 ## <a name="considerations-for-using-a-self-hosted-ir"></a>Overwegingen voor het gebruik van een zelf-hostende IR
 
 - Een enkele zelf-hostende integratieruntime kan worden gebruikt voor meerdere on-premises gegevensbronnen. Een enkele zelf-hostende integratieruntime kan worden gedeeld met een andere data factory binnen dezelfde Azure Active Directory-tenant. Zie voor meer informatie, [delen van een zelf-hostende integratieruntime](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories).
-- U kunt slechts één exemplaar van een zelf-hostende integratieruntime op één computer geïnstalleerd hebben. Hebt u twee data factory's die nodig voor toegang tot on-premises gegevensbronnen, moet u de zelf-hostende integratieruntime installeren op twee on-premises computers. Met andere woorden, is een zelf-hostende integratieruntime gekoppeld aan een specifieke data factory.
+- U kunt slechts één exemplaar van een zelf-hostende integratieruntime op één computer geïnstalleerd hebben. Als u twee data factory's die nodig hebt voor toegang tot on-premises gegevensbronnen hebt, moet u de zelf-hostende integratieruntime installeren op twee on-premises computers elk van beide de data factory's of de [zelf-hostende IR delen functie](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories)voor het delen van een zelf-hostende integratieruntime met een andere Data Factory.  
 - De zelf-hostende integratieruntime hoeft niet te worden op dezelfde computer als de gegevensbron. Echter verkort met de zelf-hostende integratieruntime dichter bij de gegevensbron de termijn voor de zelf-hostende integratieruntime verbinding maken met de gegevensbron. Het is raadzaam dat u installeert de zelf-hostende integratieruntime op een computer die verschilt van de hosts on-premises gegevensbron. Wanneer de zelf-hostende integration runtime en de gegevensbron zich op verschillende computers bevinden, kunnen de zelf-hostende integratieruntime niet concurreren voor resources met de gegevensbron.
 - U kunt meerdere zelf-hostende integratieruntimes hebben op verschillende computers die verbinding met dezelfde on-premises gegevensbron maken. Bijvoorbeeld, u mogelijk twee zelf-hostende integratieruntimes die u beschikbaar twee data factory's maakt, maar dezelfde on-premises gegevensbron is geregistreerd bij de gegevensfactory.
 - Als u al een gateway is geïnstalleerd op uw computer voor het bieden van een Power BI-scenario, installeert u een afzonderlijke zelf-hostende integratieruntime voor Azure Data Factory op een andere computer.
@@ -145,7 +145,7 @@ Hier volgen de vereisten voor het TLS/SSL-certificaat dat wordt gebruikt voor he
 - Certificaten met CNG-sleutels worden niet ondersteund.  
 
 > [!NOTE]
-> Dit certificaat wordt gebruikt voor het versleutelen van poorten op de zelf-hostende IR-knooppunt, die wordt gebruikt voor **knooppunt-naar-knooppunt communicatie** (voor de status synchronisatie) en tijdens het **met behulp van PowerShell-cmdlet voor het gekoppelde service referentie-instelling**van binnen het lokale netwerk. Het is raadzaam om dit certificaat te gebruiken als uw particuliere netwerkomgeving niet beveiligd is of als u wilt beveiligen de communicatie tussen knooppunten in uw particuliere netwerk ook. Verplaatsing van gegevens tijdens de overdracht van zelf-hostende IR naar andere gegevensarchieven gebeurt altijd versleuteld kanaal, ongeacht deze ingesteld of niet certificaat gebruiken. 
+> Dit certificaat wordt gebruikt voor het versleutelen van poorten op de zelf-hostende IR-knooppunt, die wordt gebruikt voor **knooppunt-naar-knooppunt communicatie** (voor status-synchronisatie met gekoppelde services referenties synchronisatie op knooppunten) en tijdens het **met behulp van PowerShell-cmdlet voor het gekoppelde service referentie-instelling** van binnen het lokale netwerk. Het is raadzaam om dit certificaat te gebruiken als uw particuliere netwerkomgeving niet beveiligd is of als u wilt beveiligen de communicatie tussen knooppunten in uw particuliere netwerk ook. Verplaatsing van gegevens tijdens de overdracht van zelf-hostende IR naar andere gegevensarchieven gebeurt altijd versleuteld kanaal, ongeacht deze ingesteld of niet certificaat gebruiken. 
 
 ## <a name="sharing-the-self-hosted-integration-runtime-with-multiple-data-factories"></a>Delen van de zelf-hostende integratieruntime met meerdere data factory 's
 

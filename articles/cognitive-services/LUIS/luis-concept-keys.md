@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: diberry
-ms.openlocfilehash: 1898d6e5119d3cbc2061aff8d4a7e673abd83198
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 1f5aab607c5046df0dee4db5caf36b0b7de53c4d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56097454"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998756"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>Ontwerpen en query voorspelling endpoint-sleutels in LUIS
 LUIS maakt gebruik van twee sleutels: [ontwerpen](#programmatic-key) en [eindpunt](#endpoint-key). De ontwerphandleiding sleutel wordt automatisch voor u gemaakt wanneer u uw LUIS-account maakt. Wanneer u klaar om uw LUIS-app te publiceren bent, moet u [maken van de eindpuntsleutel](luis-how-to-azure-subscription.md), [toewijzen](luis-how-to-azure-subscription.md) aan uw LUIS-app en [gebruiken met de query eindpunt](#use-endpoint-key-in-query). 
@@ -60,7 +60,7 @@ Het eindpunt LUIS accepteert twee stijlen van query, zowel de sleutel, maar voor
 
 |term|Voorbeeld-url en de sleutel-locatie|
 |--|--|
-|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`<br><br>waarde voor de QueryString voor `subscription-key`<br><br>Wijzig de waarde van uw eindpunt query voor de `subscription-key` uit de authoring (starter)-sleutel, aan de nieuwe eindpuntsleutel als u wilt gebruiken, de snelheid van LUIS-eindpunt sleutel quotum. Als u de sleutel maken en toewijzen van de sleutel maar wijzig de waarde van de query eindpunt voor abonnement-sleutel niet ', u niet met behulp van uw quotum aanvragen voor de sleutel van eindpunt.|
+|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`<br><br>waarde voor de QueryString voor `subscription-key`<br><br>Wijzig de waarde van uw eindpunt query voor de `subscription-key` uit de authoring (starter)-sleutel, aan de nieuwe eindpuntsleutel als u wilt gebruiken, de snelheid van LUIS-eindpunt sleutel quotum. Als u de sleutel maken en toewijzen van de sleutel, maar wijzig niet de waarde van de query eindpunt voor `subscription-key`, u niet met behulp van uw quotum aanvragen voor de sleutel van eindpunt.|
 |[POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2`<br><br> de waarde van de header voor `Ocp-Apim-Subscription-Key`<br><br>Wijzig de waarde van uw eindpunt query voor de `Ocp-Apim-Subscription-Key` uit de authoring (starter)-sleutel, aan de nieuwe eindpuntsleutel als u wilt gebruiken, de snelheid van LUIS-eindpunt sleutel quotum. Als u de sleutel maken en toewijzen van de sleutel, maar wijzig niet de waarde van de query eindpunt voor `Ocp-Apim-Subscription-Key`, u niet met behulp van uw quotum aanvragen voor de sleutel van eindpunt.|
 
 De app-ID die wordt gebruikt in de vorige URL's, `df67dcdb-c37d-46af-88e1-8b97951ca1c2`, is de openbare IoT-app die wordt gebruikt voor de [interactieve demonstratie](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/). 

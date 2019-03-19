@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 12/27/2018
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 1f65d7711c57930886ac9826bb105b6bc4931268
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 158f22ec2ab07bfc2f893d4b0c55d862e0b19de0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238904"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106658"
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>Belangrijke overwegingen: Met behulp van services of het bouwen van apps voor Azure Stack
 
@@ -76,8 +76,8 @@ Azure Stack biedt ondersteuning voor specifieke versies van Azure PowerShell en 
 
 Om ervoor te zorgen dat u een juiste versie van Azure PowerShell, gebruikt u [API-versieprofielen](azure-stack-version-profiles.md). Ontdek de build van Azure Stack u om te bepalen het meest recente versie profiel voor API die u kunt gebruiken. U kunt deze informatie krijgen van uw Azure Stack-beheerder.
 
->[!NOTE]
- Als u de Azure Stack Development Kit en u beheerdersrechten hebt, raadpleegt u de [bepalen van de huidige versie](../azure-stack-updates.md#determine-the-current-version) sectie om te bepalen van de Azure Stack-build.
+> [!NOTE]
+>  Als u de Azure Stack Development Kit en u beheerdersrechten hebt, raadpleegt u de [bepalen van de huidige versie](../azure-stack-updates.md#determine-the-current-version) sectie om te bepalen van de Azure Stack-build.
 
 Voor andere API's, voer de volgende PowerShell-opdracht om uit te voeren van de naamruimten, resourcetypen en API-versies die worden ondersteund in uw Azure Stack-abonnement. Zoals u ziet mogelijk nog steeds verschillen op het eigenschapniveau van een. Voor deze opdracht te laten werken, moet u hebt al [geïnstalleerd](azure-stack-powershell-install.md) en [geconfigureerd](azure-stack-powershell-configure-user.md) PowerShell voor Azure Stack-omgeving. U moet ook een abonnement op een Azure Stack-aanbieding hebben.
 
@@ -94,4 +94,4 @@ Zie voor meer gedetailleerde informatie over de verschillen op het serviceniveau
 
 * [Overwegingen voor virtuele Machines in Azure Stack](azure-stack-vm-considerations.md)
 * [Overwegingen voor opslag in Azure Stack](azure-stack-acs-differences.md)
-* [Overwegingen voor Azure Stack-netwerken](azure-stack-network-differences.md)
+* [Aandachtspunten voor Azure Stack-netwerken](azure-stack-network-differences.md)

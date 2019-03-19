@@ -13,12 +13,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/06/2019
-ms.openlocfilehash: 4c01402932e35297e4284c09a35a14c304b4bf7c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2682f98628f3c1cf22a2c3767f52bedbc148fa62
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550240"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888567"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL-foutcodes voor SQL Database-clienttoepassingen: Database-verbindingsfouten en andere problemen
 
@@ -55,7 +55,7 @@ De volgende fouten tijdelijk zijn en opnieuw moeten worden uitgevoerd in de logi
 
 | Foutcode | Severity | Description |
 | ---:| ---:|:--- |
-| 4060 |16 |Kan database niet openen "%.&#x2a;ls" aangevraagd door de aanmelding. De aanmelding is mislukt. |Zie voor meer informatie, [fouten 4000-4999](https://docs.microsoft.comsql/relational-databases/errors-events/database-engine-events-and-errors?view=sql-server-2017#errors-4000-to-4999)|
+| 4060 |16 |Kan database niet openen "%.&#x2a;ls" aangevraagd door de aanmelding. De aanmelding is mislukt. Zie voor meer informatie, [fouten 4000-4999](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
 | 40197 |17 |De service heeft een fout bij het verwerken van uw aanvraag aangetroffen. Probeer het opnieuw. Foutcode %d.<br/><br/>U ontvangt deze foutmelding wanneer de service niet beschikbaar vanwege de software of hardware-upgrades, problemen met de hardware of andere problemen met betrekking tot failover is. De foutcode (%d) dat is ingesloten in het bericht van fout 40197 bevat aanvullende informatie over het soort fout of een failover die is opgetreden. Enkele voorbeelden van de fout codes zijn ingesloten in het bericht van fout 40197 zijn 40020, 40143 40166 en 40540.<br/><br/>Automatisch opnieuw verbinding te maken met uw SQL Database-server, maakt u verbinding met een goede kopie van uw database. Uw toepassing moet 40197, foutenlogboek de ingesloten foutcode (%d) in het bericht voor het oplossen van problemen ontdekken en probeer het opnieuw verbinding maken met SQL-Database, totdat de resources beschikbaar zijn en de verbinding opnieuw wordt ingesteld. Zie voor meer informatie, [tijdelijke fouten](sql-database-connectivity-issues.md#transient-errors-transient-faults).|
 | 40501 |20 |De service is momenteel bezet. De aanvraag opnieuw proberen na tien seconden. Incident-ID: %ls. Code: %d. Zie voor meer informatie: <br/>&bull; &nbsp;[Resourcelimieten voor database-server](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[Limieten op basis van DTU voor individuele databases](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[Op basis van DTU-limieten voor elastische pools](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[op vCore gebaseerde limieten voor individuele databases](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[op vCore gebaseerde limieten voor elastische pools](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Beheerd exemplaar resourcelimieten](sql-database-managed-instance-resource-limits.md).|
 | 40613 |17 |Database '%.&#x2a;ls' op server '%.&#x2a;ls' is momenteel niet beschikbaar. Probeer opnieuw verbinding later opnieuw. Als het probleem zich blijft voordoen, neem contact op met klantenondersteuning en geeft u de sessietracerings-ID "%.&#x2a;ls".<br/><br/> Deze fout kan optreden als er al een bestaande exclusieve beheerdersverbinding (DAC) tot stand gebracht met de database. Zie voor meer informatie, [tijdelijke fouten](sql-database-connectivity-issues.md#transient-errors-transient-faults).|

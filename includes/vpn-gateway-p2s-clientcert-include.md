@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: 8c55b9b9ce6e98e91e7c6a712e0a9dbca0964512
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 31ccf14c82f6248c74d6af932fe9e338d26d2747
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985408"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57964124"
 ---
 Op elke clientcomputer die u verbindt met een VNet via een punt-naar-site-verbinding, moet een clientcertificaat zijn geïnstalleerd. U genereert het clientcertificaat op basis van het basiscertificaat en installeert het clientcertificaat op elke clientcomputer. Als u geen geldig clientcertificaat hebt geïnstalleerd en de client probeert verbinding te maken met het VNet, mislukt de verificatie.
 
@@ -22,7 +22,7 @@ U kunt clientcertificaten genereren op de volgende manieren:
 
 - **Commercieel certificaat**
 
-  - Als u een commerciële certificeringsoplossing gebruikt, genereert u een clientcertificaat met de algemene waarde-indeling *name@yourdomain.com*. Gebruik deze indeling in plaats van de indeling *domeinnaam\gebruikersnaam*.
+  - Als u een commerciële certificeringsoplossing gebruikt, genereert u een clientcertificaat met de algemene waarde-indeling *naam\@uwdomein.com*. Gebruik deze indeling in plaats van de indeling *domeinnaam\gebruikersnaam*.
   - Zorg ervoor dat het clientcertificaat dat u verleent, is gebaseerd op de certificaatsjabloon voor *Gebruiker met Clientverificatie* als het eerste item in de lijst. U kunt het certificaat controleren door op het clientcertificaat te dubbelklikken en **Enhanced Key Usage**  (Uitgebreid sleutelgebruik) weer te geven op het tabblad **Details**.
 
 - **Zelfondertekend basiscertificaat**: Volg de stappen in een van de volgende artikelen over P2S-certificaten zodat de clientcertificaten die u maakt compatibel zijn met P2S-verbindingen. De stappen in deze artikelen zijn bedoeld om een compatibel clientcertificaat te maken: 

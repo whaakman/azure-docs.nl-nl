@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: c8e204aef8bea26394c7180a72eb8ed8f62bbdc4
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 369f3ebca0ca2f5862d8300934dee57a73d8bada
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447255"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57903399"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Hulp voor architectuur via pushmeldingen van het bedrijf
 
@@ -232,7 +232,7 @@ De volledige voorbeeldcode is beschikbaar op [Notification Hub-voorbeelden]. Dit
 
     ![][3]
 
-    g. Configureren van de taak voor het "Continu uitvoeren" zo dat wanneer u zich aanmeldt bij de [Azure Portal] ziet dit er ongeveer als volgt:
+    g. Configureren van de taak voor het "Continu uitvoeren" zo dat wanneer u zich aanmeldt bij de [Azure-portal] ziet dit er ongeveer als volgt:
 
     ![][4]
 
@@ -270,7 +270,7 @@ De volledige voorbeeldcode is beschikbaar op [Notification Hub-voorbeelden]. Dit
 
     ![][5]
 
-4. De berichten zijn oorspronkelijk verzonden naar Service Bus-onderwerpen die werd bewaakt door Service Bus-abonnementen in uw Web-Job. Zodra een bericht is ontvangen, is een melding gemaakt en verzonden naar de mobiele app. U kunt zoeken via de WebJob-Logboeken om te bevestigen van de verwerking wanneer u gaat u naar de Logs-koppeling in [Azure Portal] voor uw Web-Project:
+4. De berichten zijn oorspronkelijk verzonden naar Service Bus-onderwerpen die werd bewaakt door Service Bus-abonnementen in uw Web-Job. Zodra een bericht is ontvangen, is een melding gemaakt en verzonden naar de mobiele app. U kunt zoeken via de WebJob-Logboeken om te bevestigen van de verwerking wanneer u gaat u naar de Logs-koppeling in [Azure-portal] voor uw Web-Project:
 
     ![][6]
 
@@ -284,9 +284,9 @@ De volledige voorbeeldcode is beschikbaar op [Notification Hub-voorbeelden]. Dit
 
 <!-- Links -->
 [Notification Hub-voorbeelden]: https://github.com/Azure/azure-notificationhubs-samples
-[Azure Mobile Service]: http://azure.microsoft.com/documentation/services/mobile-services/
-[Azure Service Bus]: http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
-[Service Bus Pub/Sub-programmering]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
+[Azure Mobile Service]: https://azure.microsoft.com/documentation/services/mobile-services/
+[Azure Service Bus]: https://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
+[Service Bus Pub/Sub-programmering]: https://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
 [Azure WebJob]: ../app-service/webjobs-create.md
-[Notification Hubs - zelfstudie voor Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Azure Portal]: https://portal.azure.com/
+[Notification Hubs - zelfstudie voor Windows Universal]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Azure-portal]: https://portal.azure.com/

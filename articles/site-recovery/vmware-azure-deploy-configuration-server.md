@@ -8,19 +8,19 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/06/2019
 ms.author: ramamill
-ms.openlocfilehash: 3f500abe0ea37b35236547824c655adc1a4c4d93
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ef0e29217e03b3c5d1b2880a6ce755c6cc02ceba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448829"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004452"
 ---
 # <a name="deploy-a-configuration-server"></a>Een configuratieserver implementeren
 
 U implementeert een on-premises configuratieserver wanneer u [Azure Site Recovery](site-recovery-overview.md) voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure. De configuratie van server coördinaten communicatie tussen on-premises VMware en Azure. Deze beheert de gegevensreplicatie. In dit artikel begeleidt u bij de stappen die nodig zijn voor de configuratieserver implementeren wanneer u virtuele VMware-machines naar Azure repliceert. [In dit artikel volgen](physical-azure-set-up-source.md) als u nodig hebt voor het instellen van een configuratieserver voor replicatie van fysieke server.
 
->[!TIP]
-U kunt meer informatie over de rol van de configuratieserver als onderdeel van Azure Site Recovery-architectuur [hier](vmware-azure-architecture.md).
+> [!TIP]
+> U kunt meer informatie over de rol van de configuratieserver als onderdeel van Azure Site Recovery-architectuur [hier](vmware-azure-architecture.md).
 
 ## <a name="deployment-of-configuration-server-through-ova-template"></a>Implementatie van de configuratieserver via OVA-sjabloon
 
@@ -46,7 +46,7 @@ U moet een gebruiker met **een van de volgende** machtigingen zijn ingesteld in 
    1. Ga naar Azure Active Directory > gebruikersinstellingen
    1. Onder ** App-registraties ', 'Gebruikers kunnen toepassingen registreren' als 'Ja' worden gekozen.
 
-    ![AAD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
+      ![AAD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
 
 > [!NOTE]
 > Active Directory Federation Services(ADFS) is **niet ondersteund**. Gebruik een account dat wordt beheerd via [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
@@ -70,11 +70,11 @@ Als u meer dan een VMware-VM repliceert, leest u [overwegingen voor capaciteitsp
 3. Controleer in **Server toevoegen** of **Configuratieserver voor VMware** wordt weergegeven in **Servertype**.
 4. Download de Open Virtualization-toepassing (OVA)-sjabloon voor de configuratieserver.
 
-  > [!TIP]
->U kunt ook de meest recente versie van de configuratieserversjabloon rechtstreeks vanuit downloaden [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+   > [!TIP]
+   >U kunt ook de meest recente versie van de configuratieserversjabloon rechtstreeks vanuit downloaden [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
 
->[!NOTE]
-De licentie die is opgegeven met OVA-sjabloon is een van de evaluatielicentie is geldig gedurende 180 dagen. Na deze periode klant nodig heeft om de windows met een licentie voor geleverde te activeren.
+> [!NOTE]
+> De licentie die is opgegeven met OVA-sjabloon is een van de evaluatielicentie is geldig gedurende 180 dagen. Na deze periode klant nodig heeft om de windows met een licentie voor geleverde te activeren.
 
 ## <a name="import-the-template-in-vmware"></a>De sjabloon in VMware importeren
 
@@ -136,6 +136,7 @@ Als u toevoegen van een extra NIC aan de configuratieserver wilt, moet u het toe
     |Kan ik downloaden en handmatig installeren van MySQL?     |  Ja. MySQL-toepassing downloaden en plaats deze in de map **C:\Temp\ASRSetup**, installeert u vervolgens handmatig. Nu, wanneer u de voorwaarden accepteert > Klik op **downloaden en installeren**, de portal zegt *al geïnstalleerd*. U kunt doorgaan met de volgende stap.       |
     |Kan ik voorkomen downloaden van MySQL online?     |   Ja. Plaats uw MySQL-installer-toepassing in de map **C:\Temp\ASRSetup**. Accepteer de voorwaarden > Klik op **Download en installeer**, de portal wordt gebruikt het installatieprogramma die u hebt toegevoegd en de toepassing wordt geïnstalleerd. U kunt doorgaan met de volgende stap na de installatie.    |
     |Ik wil downloaden en installeren van MySQL via Azure Site Recovery     |  Accepteer de gebruiksrechtovereenkomst en klik op **Download en installeer**. U kunt vervolgens doorgaan met de volgende stap na de installatie.       |
+
 5. In **De configuratie van het apparaat valideren** worden de vereisten gecontroleerd voordat u doorgaat.
 6. In **vCenter Server vSphere/ESXi-server configureren** voert u de FQDN of het IP-adres van de vCenter-server, of vSphere-host, in waar de VM's die u wilt repliceren zich bevinden. Voer de poort in waarop de server luistert. Voer een beschrijvende naam in voor de VMware-server in de kluis.
 7. Voer referenties in die door de configuratieserver moeten worden gebruikt voor verbinding met de VMware-server. Site Recovery gebruikt deze referenties voor het automatisch detecteren van VMware-VM’s die beschikbaar zijn voor replicatie. Selecteer **toevoegen**, en vervolgens **blijven**. De referenties die u hier opgeeft, worden lokaal opgeslagen.

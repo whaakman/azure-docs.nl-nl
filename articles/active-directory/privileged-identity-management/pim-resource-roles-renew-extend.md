@@ -16,12 +16,12 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cec018eec6e298e27329c03964dccf5809c1791
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 79549c1b8ed578319e43fc1c4354c7cd76f71589
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190633"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004223"
 ---
 # <a name="extend-or-renew-azure-resource-role-assignments-in-pim"></a>Verlengen of vernieuwen van Azure-resource-roltoewijzingen in PIM
 
@@ -49,7 +49,7 @@ Leden van een roltoewijzing kunnen uitbreiden verlopende roltoewijzingen rechtst
 
 Wanneer de toewijzing einddatum en-tijd is binnen 14 dagen, op de knop **uitbreiden** verandert in een actieve koppeling in de gebruikersinterface. In het volgende voorbeeld wordt ervan uitgegaan dat de huidige datum valt 27 maart.
 
-![De knop "Uitbreiden"](media/azure-pim-resource-rbac/aadpim_rbac_extend_within_14.png)
+![Knop uitbreiden](media/azure-pim-resource-rbac/aadpim_rbac_extend_within_14.png)
 
 Selecteer om aan te vragen een uitbreiding van deze roltoewijzing, **uitbreiden** om het aanvraagformulier te openen.
 
@@ -64,11 +64,11 @@ Als u informatie over de oorspronkelijke toewijzing, vouw **toewijzingsdetails**
 
 Binnen enkele ogenblikken ontvangt resource beheerders een e-mailbericht melding met het verzoek dat ze de extensie-aanvraag bekijken. Als een aanvraag om uit te breiden al heeft ingediend, wordt een pop-upmelding weergegeven aan de bovenkant van de Azure portal waarin wordt uitgelegd van de fout.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_failed_existing_request.png)
+![Melding waarin wordt uitgelegd fout](media/azure-pim-resource-rbac/aadpim_rbac_extend_failed_existing_request.png)
 
 Ga naar de **aanvragen in behandeling** tabblad in het linkerdeelvenster om de status van uw aanvraag weer te geven of om deze te annuleren.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_cancel_request.png)
+![Aanvragen in behandeling](media/azure-pim-resource-rbac/aadpim_rbac_extend_cancel_request.png)
 
 ### <a name="admin-approve"></a>Beheerder goedkeuren
 
@@ -80,7 +80,7 @@ Naast het gebruik van de koppeling van e-mailbericht te volgen, beheerders kunne
 
 Wanneer een beheerder selecteert **goedkeuren** of **weigeren**, de details van de aanvraag worden weergegeven, samen met een veld reden voor de controlelogboeken op te geven.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_blade.png)
+![De aanvraag voor roltoewijzing goedkeuren](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_blade.png)
 
 Wanneer een aanvraag om uit te breiden roltoewijzing wordt goedgekeurd, worden de resource-beheerders kunnen kiezen een nieuwe begindatum, einddatum en toewijzingstype. Wijzigen van dit toewijzingstype kan het nodig zijn als de beheerder wil de toegang beperkt voor het voltooien van een specifieke taak (bijvoorbeeld één dag). In dit voorbeeld kan de beheerder de toewijzing van wijzigen **in aanmerking komende** naar **Active**. Dit betekent dat ze kunnen toegang bieden aan de aanvrager zonder dat ze om te activeren.
 
@@ -100,7 +100,7 @@ Terwijl qua ontwerp vergelijkbaar met het proces voor het aanvragen van een exte
 
 Leden die niet langer toegang bronnen tot hebben toegang tot maximaal 30 dagen van de geschiedenis van werkitemtoewijzingen verlopen. U doet dit door ze te bladeren **mijn rollen** in het linkerdeelvenster en selecteer vervolgens de **verlopen rollen** tabblad in de sectie Azure-resource-rollen.
 
-![Het tabblad 'Verlopen rollen'](media/azure-pim-resource-rbac/aadpim_rbac_renew_from_myroles.png)
+![Verlopen rollen tabblad](media/azure-pim-resource-rbac/aadpim_rbac_renew_from_myroles.png)
 
 De lijst met rollen weergegeven standaard ingesteld op **in aanmerking komende rollen**. Gebruik de vervolgkeuzelijst om uit te schakelen tussen van in aanmerking komende en actieve rollen toegewezen krijgen.
 

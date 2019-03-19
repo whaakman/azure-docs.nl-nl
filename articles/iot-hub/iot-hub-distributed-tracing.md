@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: 0a2027e3ae0fb40058b5bdbfd212687697877076
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 0553bd904cfaabaefce4e6ab3f7fbf5d356922d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875256"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100357"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Traceringsberichten Azure IoT-apparaat-naar-cloud met gedistribueerde tracering (preview)
 
@@ -269,7 +269,7 @@ Zie voor meer informatie over de verschillende typen logboeken, [diagnostische l
 Als u wilt de stroom van IoT-berichten visualiseren, instellen van het Toepassingsoverzicht voorbeeld-app. De voorbeeld-app verzendt de logboeken gedistribueerde tracering [Toepassingsoverzicht](../application-insights/app-insights-app-map.md) met behulp van een Azure-functie en een Event Hub.
 
 > [!div class="button"]
-<a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Ophalen van het voorbeeld op Github</a>
+> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Ophalen van het voorbeeld op Github</a>
 
 Deze onderstaande afbeelding ziet u gedistribueerde tracering in App-kaart met drie routering eindpunten:
 

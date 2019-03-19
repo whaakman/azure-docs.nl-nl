@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
-ms.openlocfilehash: bcfb227b8ced6b17fe23c1a60468de24f1835ba0
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: d848fdd23f459d7e95e85fe38f2272f4d67c32be
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979952"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120785"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Een Windows virtuele machine van niet-beheerde schijven converteren naar managed disks
 
@@ -45,17 +45,17 @@ In deze sectie wordt uitgelegd hoe u Azure-VM's van één exemplaar van niet-beh
 
 1. Wijs de virtuele machine met behulp van de [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) cmdlet. Het volgende voorbeeld wordt de virtuele machine met de naam de toewijzing ingetrokken `myVM` in de resourcegroep met de naam `myResourceGroup`: 
 
-  ```azurepowershell-interactive
-  $rgName = "myResourceGroup"
-  $vmName = "myVM"
-  Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
-  ```
+   ```azurepowershell-interactive
+   $rgName = "myResourceGroup"
+   $vmName = "myVM"
+   Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
+   ```
 
 2. De virtuele machine converteren naar managed disks met behulp van de [ConvertTo-AzVMManagedDisk](https://docs.microsoft.com/powershell/module/az.compute/convertto-azvmmanageddisk) cmdlet. Het volgende proces converteert de vorige virtuele machine, met inbegrip van de schijf met het besturingssysteem en eventuele gegevensschijven en de virtuele Machine gestart:
 
-  ```azurepowershell-interactive
-  ConvertTo-AzVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
-  ```
+   ```azurepowershell-interactive
+   ConvertTo-AzVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
+   ```
 
 
 
@@ -65,33 +65,33 @@ Als de virtuele machines die u converteren wilt naar beheerde schijven zijn in e
 
 1. Converteren van de beschikbaarheidsset met behulp van de [Update AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/update-azavailabilityset) cmdlet. Het volgende voorbeeld wordt de beschikbaarheidsset met de naam bijgewerkt `myAvailabilitySet` in de resourcegroep met de naam `myResourceGroup`:
 
-  ```azurepowershell-interactive
-  $rgName = 'myResourceGroup'
-  $avSetName = 'myAvailabilitySet'
+   ```azurepowershell-interactive
+   $rgName = 'myResourceGroup'
+   $avSetName = 'myAvailabilitySet'
 
-  $avSet = Get-AzAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
-  Update-AzAvailabilitySet -AvailabilitySet $avSet -Sku Aligned 
-  ```
+   $avSet = Get-AzAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
+   Update-AzAvailabilitySet -AvailabilitySet $avSet -Sku Aligned 
+   ```
 
-  Als de regio waar uw beschikbaarheidsset zich bevindt alleen 2 beheerde foutdomeinen heeft, maar het aantal niet-beheerde foutdomeinen is 3, met deze opdracht toont een fout die lijkt op "het aantal opgegeven foutdomeinen 3 moet vallen binnen het bereik van 1 tot 2." Los de fout op door het foutdomein naar 2 en update bijwerken `Sku` naar `Aligned` als volgt:
+   Als de regio waar uw beschikbaarheidsset zich bevindt alleen 2 beheerde foutdomeinen heeft, maar het aantal niet-beheerde foutdomeinen is 3, met deze opdracht toont een fout die lijkt op "het aantal opgegeven foutdomeinen 3 moet vallen binnen het bereik van 1 tot 2." Los de fout op door het foutdomein naar 2 en update bijwerken `Sku` naar `Aligned` als volgt:
 
-  ```azurepowershell-interactive
-  $avSet.PlatformFaultDomainCount = 2
-  Update-AzAvailabilitySet -AvailabilitySet $avSet -Sku Aligned
-  ```
+   ```azurepowershell-interactive
+   $avSet.PlatformFaultDomainCount = 2
+   Update-AzAvailabilitySet -AvailabilitySet $avSet -Sku Aligned
+   ```
 
 2. Toewijzing ongedaan maken en de virtuele machines in de beschikbaarheidsset converteren. Het volgende script maakt de toewijzingen elke VM ongedaan met behulp van de [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) cmdlet, converteert u deze met behulp van [ConvertTo-AzVMManagedDisk](https://docs.microsoft.com/powershell/module/az.compute/convertto-azvmmanageddisk), en start deze opnieuw automatisch elkaar van de conversie:
 
-  ```azurepowershell-interactive
-  $avSet = Get-AzAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
+   ```azurepowershell-interactive
+   $avSet = Get-AzAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
 
-  foreach($vmInfo in $avSet.VirtualMachinesReferences)
-  {
+   foreach($vmInfo in $avSet.VirtualMachinesReferences)
+   {
      $vm = Get-AzVM -ResourceGroupName $rgName | Where-Object {$_.Id -eq $vmInfo.id}
      Stop-AzVM -ResourceGroupName $rgName -Name $vm.Name -Force
      ConvertTo-AzVMManagedDisk -ResourceGroupName $rgName -VMName $vm.Name
-  }
-  ```
+   }
+   ```
 
 
 ## <a name="troubleshooting"></a>Problemen oplossen

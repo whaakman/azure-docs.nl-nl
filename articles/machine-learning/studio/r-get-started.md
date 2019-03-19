@@ -1,21 +1,21 @@
 ---
-title: Aan de slag met de programmeertaal R
+title: Aan de slag met R
 titleSuffix: Azure Machine Learning Studio
 description: Gebruik deze programmeren R-zelfstudie aan de slag met behulp van de R-taal met Azure Machine Learning Studio om een prognose-oplossing te maken.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: c18de2efff0f867213cad56b6012bb8ee6ed52bb
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 307636b019b53c8457c65261824adbf8e52ca0a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57344797"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875512"
 ---
 # <a name="getting-started-with-the-r-programming-language-in-azure-machine-learning-studio"></a>Aan de slag met de programmeertaal in Azure Machine Learning Studio R
 
@@ -131,7 +131,7 @@ Als u niet weet de laatste regel van deze code op dit moment wat, lees dan verde
 
 RStudio is een veel gebruikte IDE voor R. Ik zal RStudio gebruiken voor het bewerken, testen en foutopsporing in enkele van de R-code die wordt gebruikt in deze handleiding. Zodra de R-code getest en klaar zijn is, u kunt gewoon knippen en plakken in de RStudio-editor naar een Machine Learning Studio [R-Script uitvoeren] [ execute-r-script] module.  
 
-Als u de programmeertaal R op uw computer is geïnstalleerd hebt, raden ik dat u dit nu doen. Gratis downloads van open-sourcetaal R zijn beschikbaar op de uitgebreide R Archive Network (CRAN) op [ http://www.r-project.org/ ](http://www.r-project.org/). Er zijn downloads beschikbaar voor Windows, Mac OS en Linux/UNIX. Kies in de buurt mirror en volg de aanwijzingen downloaden. CRAN bevat bovendien een schat aan handig pakketten voor analyse- en manipuleren.
+Als u de programmeertaal R op uw computer is geïnstalleerd hebt, raden ik dat u dit nu doen. Gratis downloads van open-sourcetaal R zijn beschikbaar op de uitgebreide R Archive Network (CRAN) op [ https://www.r-project.org/ ](https://www.r-project.org/). Er zijn downloads beschikbaar voor Windows, Mac OS en Linux/UNIX. Kies in de buurt mirror en volg de aanwijzingen downloaden. CRAN bevat bovendien een schat aan handig pakketten voor analyse- en manipuleren.
 
 Als u niet bekend bent met RStudio, moet u downloadt en installeert de desktopversie. U vindt de RStudio-downloads voor Windows, Mac OS en Linux/UNIX op http://www.rstudio.com/products/RStudio/. Volg de instructies voor het installeren van RStudio op uw computer.  
 
@@ -1312,18 +1312,18 @@ RStudio wordt goed gedocumenteerd. Hier volgen enkele koppelingen naar de belang
 
 Deze programmeren R-zelfstudie bevat informatie over de basisprincipes van wat u moet de R-taal gebruiken met Azure Machine Learning Studio. Als u niet bekend met R bent, zijn twee inleidingen beschikbaar op CRAN:
 
-* [R voor Beginners](http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf) Emmanuel Paradis is een goede plaats om te starten.  
-* [Een inleiding tot R](http://cran.r-project.org/doc/manuals/R-intro.html) door W. N. Venables et. al. dieper in krijgt.
+* [R voor Beginners](https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf) Emmanuel Paradis is een goede plaats om te starten.  
+* [Een inleiding tot R](https://cran.r-project.org/doc/manuals/R-intro.html) door W. N. Venables et. al. dieper in krijgt.
 
 Er zijn veel boeken op R waarmee u aan de slag kunt. Hier volgen enkele die ik handig:
 
 * De **illustraties van R-programmering: Een ontwerp rondleiding door de statistische Software** Norman Matloff is een uitstekende inleiding in programmeren in R.  
 * **R Cookbook** door Paul Teetor biedt een oplossing en probleem aanpak voor het gebruik van R.  
-* **R in actie** Robert Kabacoff is een ander handig inleidende rapport. De bijbehorende [snelle R website](http://www.statmethods.net/) is een nuttig middel.
+* **R in actie** Robert Kabacoff is een ander handig inleidende rapport. De bijbehorende [snelle R website](https://www.statmethods.net/) is een nuttig middel.
 * **R Inferno** door Patrick Burns is een verrassend humoristische boek die met een aantal lastig en moeilijk onderwerpen die kunnen worden aangetroffen bij het programmeren in R. Het rapport is beschikbaar voor gratis op [de R-Inferno](http://www.burns-stat.com/documents/books/the-r-inferno/).
 * Als u een nauwkeuriger geavanceerde onderwerpen van R wilt, hebt u een overzicht van het boek **geavanceerde R** door Hadley Wickham. De online versie van deze handleiding vindt u gratis op [ http://adv-r.had.co.nz/ ](http://adv-r.had.co.nz/).
 
-Een catalogus van R-pakketten voor time series kunt u vinden in [CRAN taak weergeven: Time Series-analyse](http://cran.r-project.org/web/views/TimeSeries.html). Voor informatie over specifieke tijd reeks object pakketten, moet u verwijzen naar de documentatie voor dit pakket.
+Een catalogus van R-pakketten voor time series kunt u vinden in [CRAN taak weergeven: Time Series-analyse](https://cran.r-project.org/web/views/TimeSeries.html). Voor informatie over specifieke tijd reeks object pakketten, moet u verwijzen naar de documentatie voor dit pakket.
 
 Het boek **inleidende Time Series** met R door Paul Cowpertwait en Andrew Metcalfe bevat een inleiding tot het gebruik van R voor tijdseries analyseren. Veel meer theoretische teksten vindt u voorbeelden van R.
 
@@ -1331,8 +1331,8 @@ Hier volgen enkele fantastische resources op internet:
 
 * DataCamp leert hoe u R in het gemak van uw browser met video lessen en codering oefeningen. Er zijn interactieve zelfstudies op de meest recente R technieken en pakketten. De gratis nemen [interactieve R zelfstudie](https://www.datacamp.com/courses/introduction-to-r).
 * [Informatie over programmeren R, de definitieve handleiding](https://www.programiz.com/r-programming) van Programiz.
-* Een snelle [R zelfstudie](http://www.cyclismo.org/tutorial/R/) door Kelly Black van Clarkson University.
-* Er zijn gedurende 60 R-resources die worden vermeld op [boven R taalbronnen voor het verbeteren van de vaardigheden van uw gegevens](http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html).
+* Een snelle [R zelfstudie](https://www.cyclismo.org/tutorial/R/) door Kelly Black van Clarkson University.
+* Er zijn gedurende 60 R-resources die worden vermeld op [boven R taalbronnen voor het verbeteren van de vaardigheden van uw gegevens](https://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html).
 
 <!-- Module References -->
 [execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script

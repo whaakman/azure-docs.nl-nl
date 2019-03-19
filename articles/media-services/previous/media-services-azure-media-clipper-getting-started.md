@@ -6,15 +6,15 @@ keywords: clip;subclip;encoding;media
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 02/10/2019
+ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: a67315287f90143701ca38b9f42e243b2d4913a3
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 51848b9ba4d18b3ac7d652cfbd97cab6b85f2ee8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437697"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842359"
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Maak korte clips met Azure Media Clipper
 Deze sectie leest u de eenvoudige stappen aan de slag met Azure Media Clipper. De volgende gedeelten vindt de details over het configureren van Azure Media Clipper.
@@ -100,7 +100,7 @@ De parameters voor het aanroepen van de initialisatie-methode zijn:
 - `height` {OPTIONEEL, number} De totale hoogte van de widget (minimumhoogte is 600 px zonder activa deelvenster en 850 px met het deelvenster activa).
 - `subclippingMode` (OPTIONAL, {'all', 'render', 'filter'}): De sub-clipping modus/modi toegestaan. De standaardwaarde is alles.
 - `filterAssetsTypes` (Optioneel, bool): filterAssetsTypes kunt u de vervolgkeuzelijst filters in het deelvenster activa weergeven/verbergen. De standaardwaarde is true.
-- `speedLevels` (Optioneel, matrix): speedLevels kunnen andere snelheidsniveaus voor de video speler instellen, Zie [documentatie voor Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/#amp.player.playbackspeedoptions) voor meer informatie.
+- `speedLevels` (Optioneel, matrix): speedLevels kunnen andere snelheidsniveaus voor de video speler instellen, Zie [documentatie voor Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/#amp.player.playbackspeedoptions) voor meer informatie.
 - `resetOnJobDone` (Optioneel, bool): resetOnJobDone kunt Clipper opnieuw in te stellen de subclipper naar de oorspronkelijke status wanneer een taak is verzonden.
 - `autoplayVideo` (Optioneel, bool): autoplayVideo kunt Clipper automatisch afspelen de video bij het laden. De standaardwaarde is true.
 - `language` {String, optioneel,}: taal de taal van de widget wordt ingesteld. Indien niet opgegeven, probeert de widget voor lokalisatie van de berichten op basis van de browsertaal. Als er geen taal is gedetecteerd in de browser, wordt de widget standaard in het Engels. Zie voor meer informatie de [lokalisatie configureren](media-services-azure-media-clipper-localization.md) sectie.
@@ -108,7 +108,7 @@ De parameters voor het aanroepen van de initialisatie-methode zijn:
 - `extraLanguages` (Optioneel, JSON): de parameter extraLanguages nieuwe talen toevoegen aan de standaardwoordenlijst. Zie voor meer informatie de [lokalisatie configureren](media-services-azure-media-clipper-localization.md) sectie.
 
 ## <a name="typescript-definition"></a>TypeScript-definitie
-Een [TypeScript](https://www.typescriptlang.org/) definitiebestand voor de Clipper vindt [hier](http://amp.azure.net/libs/amc/latest/azuremediaclipper.d.ts).
+Een [TypeScript](https://www.typescriptlang.org/) definitiebestand voor de Clipper vindt [hier](https://amp.azure.net/libs/amc/latest/azuremediaclipper.d.ts).
 
 ## <a name="azure-media-clipper-api"></a>Azure Media Clipper API
 In deze sectie worden de API-gebied geleverd door de Clipper.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 26f60a6f1796b080df3294737ce93bfb43029bf1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c5f92d564a93823fd9c0f932fa95f20d4e827761
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439112"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108828"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Problemen met Azure Load Balancer oplossen
 
@@ -128,7 +128,7 @@ Als een interne Load Balancer is geconfigureerd in een VNet en een van de cursis
 Als u besluit een ondersteuningsaanvraag openen, verzamel dan de volgende informatie voor een snellere oplossing. Kies een eenmalige back-end VM het uitvoeren van de volgende tests:
 - Psping uit een van de back-end-VM's binnen het VNet gebruiken voor het testen van het antwoord van de poort test (voorbeeld: psping 10.0.0.4:3389) en resultaten opnemen. 
 - Als er geen reactie wordt ontvangen in deze pingtests, moet u een gelijktijdige Netsh-tracering uitvoeren op de back-end van de virtuele machine en de VNet-test-VM terwijl u PsPing uitvoert en stop vervolgens de Netsh-tracering. 
-  
+  
 ## <a name="next-steps"></a>Volgende stappen
 
 Als de voorgaande stappen het probleem niet verhelpen, opent u een [ondersteuningsticket](https://azure.microsoft.com/support/options/).

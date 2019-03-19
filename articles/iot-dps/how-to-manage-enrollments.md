@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 0970131c4b674fd864ad574b0f749cd6d7f6f2a2
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 51b072bfd0827528a5504133dff8c1cdd7a7ca86
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42060581"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089383"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Het apparaatregistraties beheren met Azure Portal
 
@@ -28,15 +28,15 @@ Er zijn twee manieren waarop u uw apparaten met de provisioning-service kunt ins
 
     U kunt een registratiegroep maken in de portal voor een groep van apparaten met behulp van de volgende stappen uit:
 
-    1. Meld u aan bij de Azure-portal en klikt u op **alle resources** in het menu links.  
-    1. Klik op de Device Provisioning service die u wilt uw apparaat inschrijven bij in de lijst met resources.  
-    1. In de provisioning-service:  
-       a. Klik op **registraties beheren**en selecteer vervolgens de **Registratiegroepen** tabblad.  
-       b. Klik bovenaan op de knop **Toevoegen**.  
-       c. Wanneer het paneel 'Registratiegroep toevoegen' wordt weergegeven, voert u de gegevens voor de inschrijving van de lijst.  **Naam van groep** is vereist. Ook selecteren 'CA of tussenliggende' voor **certificaattype**, en upload de hoofdmap **primair certificaat** voor de groep van apparaten.  
-       d. Klik op **Opslaan**. Op de registratiegroep is gemaakt, ziet u de naam van de groep worden weergegeven onder de **Registratiegroepen** tabblad.  
+  1. Meld u aan bij de Azure-portal en klikt u op **alle resources** in het menu links.  
+  1. Klik op de Device Provisioning service die u wilt uw apparaat inschrijven bij in de lijst met resources.  
+  1. In de provisioning-service:  
+     a. Klik op **registraties beheren**en selecteer vervolgens de **Registratiegroepen** tabblad.  
+     b. Klik bovenaan op de knop **Toevoegen**.  
+     c. Wanneer het paneel 'Registratiegroep toevoegen' wordt weergegeven, voert u de gegevens voor de inschrijving van de lijst.  **Naam van groep** is vereist. Ook selecteren 'CA of tussenliggende' voor **certificaattype**, en upload de hoofdmap **primair certificaat** voor de groep van apparaten.  
+     d. Klik op **Opslaan**. Op de registratiegroep is gemaakt, ziet u de naam van de groep worden weergegeven onder de **Registratiegroepen** tabblad.  
 
-       [![Registratiegroep zit in de portal](./media/how-to-manage-enrollments/group-enrollment.png)] (. / media/how-to-manage-enrollments/group-enrollment.png#lightbox)
+     [![Registratiegroep zit in de portal](./media/how-to-manage-enrollments/group-enrollment.png)](./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
     
 
 * Een **afzonderlijke inschrijving** een vermelding voor een enkel apparaat dat kan worden geregistreerd. Afzonderlijke inschrijvingen kunnen beide x509 gebruiken certificaten of SAS-tokens (van een fysiek of virtueel TPM) als attestation-mechanismen. Het is raadzaam om afzonderlijke inschrijvingen te gebruiken voor apparaten die unieke initiële configuraties vereisen, of voor apparaten die u kunnen alleen SAS-tokens via TPM of virtuele TPM als attestation-mechanisme. Afzonderlijke inschrijvingen hebben mogelijk de gewenste apparaat-id voor IoT Hub die is opgegeven.

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3e9d7191af3a870f60b40311be03e0ef9d9bf7ad
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 693da06ce14a4854d5db49f588fa29d791060166
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750205"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108100"
 ---
 # <a name="add-an-email-action"></a>Een e-mailactie toevoegen
 
@@ -128,7 +128,7 @@ De volgende stappen helpen u om te melden en e-mailacties instellen:
 
 1. Klik om aan te melden bij Outlook. Er wordt naar de Azure-portal:
 
-  ![Aanmelden bij Outlook](./media/iot-accelerators-remote-monitoring-email-actions/owneroutlook-email.png)
+   ![Aanmelden bij Outlook](./media/iot-accelerators-remote-monitoring-email-actions/owneroutlook-email.png)
 
 1. Klik op **autoriseren**. U wordt gevraagd of u zich aanmeldt. Het account waarmee u zich aanmeldt moet de toepassing van het e-mailadres wordt gebruikt voor het verzenden van e-mailmeldingen:
 
@@ -136,7 +136,7 @@ De volgende stappen helpen u om te melden en e-mailacties instellen:
 
 1. Als u het e-mailbericht hebt geconfigureerd, kunt u dit bericht ziet:
 
-  ![Geslaagde Outlook aanmelden](./media/iot-accelerators-remote-monitoring-email-actions/success-email.png)
+   ![Geslaagde Outlook aanmelden](./media/iot-accelerators-remote-monitoring-email-actions/success-email.png)
 
 ## Stem de e-mail HTML <a name="htmledit"></a>
 
@@ -164,7 +164,7 @@ De volgende stappen laten zien hoe u de HTML-e-mailsjabloon te bewerken. U kunt 
 
 1. Installatiekopieën of aangepaste tekst wilt toevoegen, moet u het bestand EmailTemplate.HTML rechtstreeks bijwerken.
 
-## <a name="throttling"></a>Beperken
+## <a name="throttling"></a>Beperking
 
 De oplossingsverbetering voor externe controle wordt Outlook gebruikt voor het verzenden van e-mailmeldingen. Outlook beperkt het aantal e-mailberichten verzonden naar [30 e-mailberichten per één minuut](https://docs.microsoft.com/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits). E-mailclients die de e-mailberichten ontvangt mogelijk ook het aantal e-mailberichten ontvangen per minuut vertraging. Neem contact op met uw specifieke e-mailclient op beperkingen. Bij het instellen van e-mailmelding voor een regel, wordt de regel berekend gemiddelde waarden gedurende een periode van ten minste één minuut en niet direct waarden gebruiken:
 

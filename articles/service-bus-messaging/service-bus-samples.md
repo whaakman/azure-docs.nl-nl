@@ -12,21 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 03/13/2019
 ms.author: aschhab
-ms.openlocfilehash: eefe624462609a69296ec6d6e409d72745da0846
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 7b34233e10c5d622b598d35c6eb136b88daf8eb6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856686"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880157"
 ---
 # <a name="service-bus-messaging-samples"></a>Service Bus messaging-voorbeelden
+De Service Bus messaging-voorbeelden demonstreren belangrijke functies in [Service Bus-berichtenservice](https://azure.microsoft.com/services/service-bus/). Op dit moment kunt u de voorbeelden in de volgende locaties vinden:
 
-De Service Bus messaging-voorbeelden demonstreren belangrijke functies in [Service Bus-berichtenservice](https://azure.microsoft.com/services/service-bus/). Op dit moment kunt u de voorbeelden op twee plaatsen:
-
-- [.NET en Java](https://github.com/Azure/azure-service-bus/tree/master/samples) . Zie de [.NET Leesmij](https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.ServiceBus.Messaging/README.md) in de opslagplaats voor beschrijvingen van de .NET-voorbeelden en de [Java Leesmij](https://github.com/Azure/azure-service-bus/tree/master/samples/Java) voor de beschrijvingen van de Java-voorbeelden.
-- [Typescript](https://github.com/Azure/azure-service-bus-node/tree/master/examples)
+| Programmeertaal | Locatie SDK en -voorbeelden |
+| -------------------- | ----------------------- |
+| .NET, Java en beheer | https://github.com/Azure/azure-service-bus/ |
+| Node.js | https://github.com/Azure/azure-sdk-for-js/tree/master/packages/%40azure/servicebus/data-plane/examples |
+| Python | https://github.com/Azure/azure-sdk-for-python/tree/master/azure-servicebus |
 
 ## <a name="service-bus-explorer"></a>Service Bus Explorer
 

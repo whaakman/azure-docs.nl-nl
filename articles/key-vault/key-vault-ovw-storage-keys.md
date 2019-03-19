@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: pryerram
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: dc743f7e8ebaebf2b253a1c2c199133bc4266dd5
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: c2107e501affd5e3dd22e0fbc83d078b51d414a5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404362"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57841137"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure Key Vault beheerd opslagaccount - CLI
 
@@ -40,6 +40,7 @@ Wanneer u de belangrijkste functie van beheerde opslag account gebruikt:
 - **Alleen toestaan Key Vault voor het beheren van uw opslagaccountsleutels.** Niet proberen ze om zelf te beheren, zoals u leiden tot met de processen van de Sleutelkluis problemen zult.
 - **Opslagaccountsleutels worden beheerd door meer dan een Key Vault-object niet toestaan**.
 - **Niet handmatig uw storage-accountsleutels opnieuw genereren**. Het is raadzaam dat u ze via Key Vault genereren.
+- Key Vault voor het beheren van uw storage-account waarin wordt gevraagd, kan worden gedaan door een UPN voor nu en niet een Service-Principal
 
 Het volgende voorbeeld ziet u hoe u Key Vault voor het beheren van uw storage-accountsleutels toestaan.
 
@@ -124,7 +125,7 @@ Wanneer deze bewerking wordt uitgevoerd, ziet u uitvoer die lijkt op, zoals hier
    "se=2020-01-01&sp=***"
 ```
 
-2. In deze stap gebruiken we de uitvoer ($sasToken) gegenereerd hierboven om de definitie van een SAS te maken. Lees voor meer documentatie [hier](https://docs.microsoft.com/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#required-parameters)   
+1. In deze stap gebruiken we de uitvoer ($sasToken) gegenereerd hierboven om de definitie van een SAS te maken. Lees voor meer documentatie [hier](https://docs.microsoft.com/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#required-parameters)   
 
 ```
 az keyvault storage sas-definition create --vault-name <YourVaultName> --account-name <YourStorageAccountName> -n <NameOfSasDefinitionYouWantToGive> --validity-period P2D --sas-type account --template-uri $sastoken
@@ -134,12 +135,11 @@ az keyvault storage sas-definition create --vault-name <YourVaultName> --account
  > [!NOTE] 
  > In het geval de gebruiker beschikt niet over machtigingen voor het opslagaccount, krijgen we eerst de Object-Id van de gebruiker
 
-    ```
-    az ad user show --upn-or-object-id "developer@contoso.com"
+ ```
+ az ad user show --upn-or-object-id "developer@contoso.com"
 
-    az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
-    
-    ```
+ az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
+ ```
     
 ## <a name="fetch-sas-tokens-in-code"></a>SAS-tokens in de code ophalen
 
@@ -147,8 +147,8 @@ In deze sectie bespreken we hoe u bewerkingen op uw storage-account kunt doen me
 
 In de onderstaande sectie we laten zien hoe u voor het ophalen van SAS-tokens wanneer de definitie van een SAS zoals hierboven is gemaakt.
 
-> [!NOTE] 
-  Er zijn 3 manieren om te verifiëren naar Key Vault, omdat u kunt lezen de [basisconcepten](key-vault-whatis.md#basic-concepts)
+> [!NOTE]
+>   Er zijn 3 manieren om te verifiëren naar Key Vault, omdat u kunt lezen de [basisconcepten](key-vault-whatis.md#basic-concepts)
 > - Met behulp van de beheerde Service-identiteit (ten zeerste aanbevolen)
 > - Met behulp van Service-Principal en certificaat 
 > - Met Service-Principal en het wachtwoord (niet aanbevolen)

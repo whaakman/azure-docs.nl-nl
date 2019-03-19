@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 65940aa07c532ae3bc708d475b2d6ac60cf8d636
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: d7865d394dfc955a7b24115e747dd77352d89e3d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308921"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901913"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Over clouddatabases gedistribueerde transacties
 
@@ -127,6 +127,8 @@ Houd er rekening mee dat het installatieprogramma voor .NET 4.6.1 meer tijdelijk
 ## <a name="transactions-across-multiple-servers"></a>Transacties op meerdere servers
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> De PowerShell Azure Resource Manager-module nog steeds wordt ondersteund door Azure SQL Database, maar alle toekomstige ontwikkeling is voor de module Az.Sql. Zie voor deze cmdlets [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). De argumenten voor de opdrachten in de Az-module en de AzureRm-modules zijn vrijwel identiek zijn.
 
 Elastische transacties worden ondersteund in verschillende SQL Database-servers in Azure SQL Database. Als transacties cross-grenzen voor SQL Database-server, moeten de deelnemende servers eerst worden ingevoerd in een relatie wederzijdse communicatie. Wanneer is de relatie communicatie tot stand is gebracht, deel elke database in een van de twee servers uitmaken van elastische transacties met databases van de andere server. Met transacties die meer dan twee SQL Database-servers zijn verspreid, moet een communicatie-relatie voor elke combinatie van een SQL Database-servers.
 

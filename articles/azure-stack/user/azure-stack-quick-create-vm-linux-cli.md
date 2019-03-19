@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: b3fbd91ddf06d4515ee55d24ba9330d0af6dc124
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 84f9472618322111ad2f669ebb172258837620fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540249"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106063"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Snelstartgids: een virtuele Linux-server-machine maken met behulp van Azure CLI in Azure Stack
 
@@ -46,8 +46,8 @@ U kunt een Ubuntu Server 16.04 LTS virtuele machine maken met behulp van de Azur
 
 Een resourcegroep is een logische container waarin u kunt implementeren en beheren van Azure Stack-resources. Geïntegreerd systeem, uitvoeren van uw development kit of de Azure Stack de [az-groep maken](/cli/azure/group#az-group-create) opdracht om een resourcegroep te maken.
 
->[!NOTE]
- Waarden zijn voor de variabelen in de codevoorbeelden toegewezen. U kunt echter nieuwe waarden toewijzen als u wilt.
+> [!NOTE]
+>  Waarden zijn voor de variabelen in de codevoorbeelden toegewezen. U kunt echter nieuwe waarden toewijzen als u wilt.
 
 Het volgende voorbeeld wordt een resourcegroep met de naam myResourceGroup in de lokale locatie.
 

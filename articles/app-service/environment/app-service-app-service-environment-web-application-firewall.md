@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: naziml
 ms.custom: seodec18
-ms.openlocfilehash: 4681dad55807705a2ce8e9908cbd3ee53fb3c32e
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: c1930777f44266755f20400d063ec938ee631adb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631495"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089315"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Een Web Application Firewall (WAF) voor App Service Environment configureren
 ## <a name="overview"></a>Overzicht
@@ -66,7 +66,7 @@ Voeg het beheereindpunt toe zoals weergegeven in de volgende afbeelding om uw Ba
 
 ![Beheereindpunt toevoegen][AddManagementEndpoint]
 
-Een browser gebruiken om te bladeren naar het beheerseindpunt op uw cloudservice. Als uw cloudservice test.cloudapp.net heet, zou u dit eindpunt openen door naar http://test.cloudapp.net:8000 te bladeren. U ziet een aanmeldingspagina zoals de volgende afbeelding waarop u kunt aanmelden met de referenties die u hebt opgegeven in de installatiefase van de WAF-VM.
+Een browser gebruiken om te bladeren naar het beheerseindpunt op uw cloudservice. Als uw cloudservice test.cloudapp.net heet, zou u dit eindpunt openen door naar `http://test.cloudapp.net:8000` te bladeren. U ziet een aanmeldingspagina zoals de volgende afbeelding waarop u kunt aanmelden met de referenties die u hebt opgegeven in de installatiefase van de WAF-VM.
 
 ![Aanmeldingspagina voor beheer][ManagementLoginPage]
 

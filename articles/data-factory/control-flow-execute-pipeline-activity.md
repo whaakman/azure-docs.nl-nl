@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: f36d9eed11685d1bb35a46a97eb58fe870970075
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: a0ece499262464bc28f55c37188698a3313e2c04
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019429"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998721"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Execute Pipeline-activiteit in Azure Data Factory
 De Execute Pipeline-activiteit kunt een Data Factory-pijplijn om aan te roepen een andere pijplijn.
@@ -59,13 +59,14 @@ De Execute Pipeline-activiteit kunt een Data Factory-pijplijn om aan te roepen e
 ```
 
 ## <a name="type-properties"></a>Type-eigenschappen
+
 Eigenschap | Description | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
-naam | De naam van de execute pipeline-activiteit. | Reeks | Ja
-type | Moet worden ingesteld op: **ExecutePipeline**. | Reeks | Ja
+naam | De naam van de execute pipeline-activiteit. | String | Ja
+type | Moet worden ingesteld op: **ExecutePipeline**. | String | Ja
 pijplijn | Pijplijn verwijzing naar de afhankelijke pijplijn die deze pijplijn aanroept. Een pijplijn reference-object heeft twee eigenschappen: **verwijzing** en **type**. De eigenschap verwijzing geeft de naam van de referentie-pijplijn. De eigenschap type moet worden ingesteld op PipelineReference. | PipelineReference | Ja
 parameters | Parameters worden doorgegeven aan de pijplijn aangeroepen | Een JSON-object dat de namen van parameters wordt toegewezen aan de waarden van het argument | Nee
-waitOnCompletion | Bepaalt of de uitvoeringsomgeving van de activiteit moet wachten voor de uitvoering van de afhankelijke pipeline om te voltooien. | De standaardinstelling is onwaar. | Booleaans | Nee
+waitOnCompletion | Bepaalt of de uitvoeringsomgeving van de activiteit moet wachten voor de uitvoering van de afhankelijke pipeline om te voltooien. De standaardinstelling is onwaar. | Booleaans | Nee
 
 ## <a name="sample"></a>Voorbeeld
 In dit scenario heeft twee pijplijnen:

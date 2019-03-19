@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: 43f2694f597d99edaf127a6afd64376cca33dad2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3b90ae3e9808b22b6d6c41e3ac11bec0293bd4bf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448149"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107879"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Een load balancer voor een AlwaysOn-beschikbaarheidsgroep configureren in Azure
 In dit artikel wordt uitgelegd hoe u een load balancer voor een SQL Server Always On-beschikbaarheidsgroep maken in Azure virtuele machines die worden uitgevoerd met Azure Resource Manager. Een beschikbaarheidsgroep is een load balancer vereist bij de SQL Server-exemplaren op Azure virtual machines zijn. De load balancer slaat het IP-adres voor de beschikbaarheidsgroep-listener. Als een beschikbaarheidsgroep meerdere regio's omvat, moet elke regio een load balancer.
@@ -235,18 +235,18 @@ Een IP-adres toevoegen aan een load balancer met de Azure-portal, het volgende d
 
 10. De nieuwe load balancer-regel met behulp van de volgende instellingen configureren:
 
-   |Instelling |Value
-   |:-----|:----
-   |**Naam** |Een unieke naam voor de load balancer-regel. 
-   |**Frontend-IP-adres** |Selecteer het IP-adres dat u hebt gemaakt. 
-   |**Protocol** |TCP
-   |**Poort** |Gebruik de poort die van de SQL Server-exemplaren gebruikmaken. Een standaardexemplaar gebruikt poort 1433, tenzij u deze hebt gewijzigd. 
-   |**Back-endpoort** |Gebruik dezelfde waarde als **poort**.
-   |**Back-endpool** |De groep met de virtuele machines met de SQL Server-exemplaren. 
-   |**Statustest** |Kies de test die u hebt gemaakt.
-   |**Sessiepersistentie** |Geen
-   |**Time-out voor inactiviteit (minuten)** |Standaard (4)
-   |**Zwevend IP (direct server return)** | Ingeschakeld
+    |Instelling |Value
+    |:-----|:----
+    |**Naam** |Een unieke naam voor de load balancer-regel. 
+    |**Frontend-IP-adres** |Selecteer het IP-adres dat u hebt gemaakt. 
+    |**Protocol** |TCP
+    |**Poort** |Gebruik de poort die van de SQL Server-exemplaren gebruikmaken. Een standaardexemplaar gebruikt poort 1433, tenzij u deze hebt gewijzigd. 
+    |**Back-endpoort** |Gebruik dezelfde waarde als **poort**.
+    |**Back-endpool** |De groep met de virtuele machines met de SQL Server-exemplaren. 
+    |**Statustest** |Kies de test die u hebt gemaakt.
+    |**Sessiepersistentie** |Geen
+    |**Time-out voor inactiviteit (minuten)** |Standaard (4)
+    |**Zwevend IP (direct server return)** | Ingeschakeld
 
 ### <a name="configure-the-availability-group-to-use-the-new-ip-address"></a>De beschikbaarheidsgroep voor het gebruik van het nieuwe IP-adres configureren
 

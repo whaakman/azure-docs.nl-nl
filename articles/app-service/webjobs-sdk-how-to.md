@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 6c6d72875cded1b594af12922db9a0c4e8afed17
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0da4e1a0b20874c4452dd77bf77df0860dec455f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769333"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848070"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Over het gebruik van de Azure WebJobs SDK voor verwerking op de achtergrond gebeurtenisgestuurde
 
@@ -370,7 +370,7 @@ U kunt de volgende bindingen configureren:
 
 * [Azure cosmos DB-trigger](#azure-cosmosdb-trigger-configuration-version-3x)
 * [Event Hubs trigger](#event-hubs-trigger-configuration-version-3x)
-* [Trigger voor queue storage](#queue-trigger-configuration)
+* Trigger voor queue storage
 * [SendGrid-binding](#sendgrid-binding-configuration-version-3x)
 * [Service Bus trigger](#service-bus-trigger-configuration-version-3x)
 

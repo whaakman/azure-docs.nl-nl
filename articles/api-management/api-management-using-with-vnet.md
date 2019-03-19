@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 6ace19339eb3f89c3b0cde6f5b9b0ecc783e2597
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: a8566e41934b5d78d8be60b385ea4148e1cb60c3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341609"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087037"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Azure API Management gebruiken met virtuele netwerken
 Azure-netwerken (VNETs) kunt u een van uw Azure-resources in een niet-internet routeerbare netwerk dat u toegang tot te plaatsen. Deze netwerken kunnen vervolgens worden verbonden met uw on-premises netwerken met behulp van verschillende VPN-technologieën. Voor meer informatie over Azure Virtual Networks beginnen met de informatie hier: [Overzicht van Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -53,26 +53,26 @@ Als u de stappen in dit artikel, moet u het volgende hebben:
     ![Menu van het virtuele netwerk van API Management][api-management-using-vnet-menu]
 4. Selecteer de gewenste toegangstype:
 
-    * **Externe**: de API Management-gateway en developer-portal zijn toegankelijk via het openbare internet via een externe load balancer. De gateway hebben toegang tot resources binnen het virtuele netwerk.
+   * **Externe**: de API Management-gateway en developer-portal zijn toegankelijk via het openbare internet via een externe load balancer. De gateway hebben toegang tot resources binnen het virtuele netwerk.
 
-    ![Openbare peering][api-management-vnet-public]
+     ![Openbare peering][api-management-vnet-public]
 
-    * **Interne**: de API Management-gateway en developer-portal zijn alleen toegankelijk vanuit het virtuele netwerk via een interne load balancer. De gateway hebben toegang tot resources binnen het virtuele netwerk.
+   * **Interne**: de API Management-gateway en developer-portal zijn alleen toegankelijk vanuit het virtuele netwerk via een interne load balancer. De gateway hebben toegang tot resources binnen het virtuele netwerk.
 
-    ![Persoonlijke peering][api-management-vnet-private]`
+     ![Persoonlijke peering][api-management-vnet-private]`
 
-    U ziet nu een lijst met alle regio's waar uw API Management-service is ingericht. Selecteer een VNET en subnet voor elke regio. De lijst is gevuld met zowel klassieke als Resource Manager virtuele netwerken die beschikbaar zijn in uw Azure-abonnementen die zijn ingesteld in de regio die u wilt configureren.
+     U ziet nu een lijst met alle regio's waar uw API Management-service is ingericht. Selecteer een VNET en subnet voor elke regio. De lijst is gevuld met zowel klassieke als Resource Manager virtuele netwerken die beschikbaar zijn in uw Azure-abonnementen die zijn ingesteld in de regio die u wilt configureren.
 
-    > [!NOTE]
-    > **Service-eindpunt** in het bovenstaande diagram bevat Gateway/Proxy, de Azure-portal, de portal voor ontwikkelaars, GIT en het eindpunt voor Direct.
-    > **Beheereindpunt** in het bovenstaande diagram wordt het eindpunt dat wordt gehost op de service voor het beheer van configuratie via Azure portal en Powershell.
-    > Ook, houd er rekening mee dat, zelfs als het diagram ziet u IP-adressen voor de verschillende API Management-service-eindpunten **alleen** reageert op de geconfigureerde hostnamen.
+     > [!NOTE]
+     > **Service-eindpunt** in het bovenstaande diagram bevat Gateway/Proxy, de Azure-portal, de portal voor ontwikkelaars, GIT en het eindpunt voor Direct.
+     > **Beheereindpunt** in het bovenstaande diagram wordt het eindpunt dat wordt gehost op de service voor het beheer van configuratie via Azure portal en Powershell.
+     > Ook, houd er rekening mee dat, zelfs als het diagram ziet u IP-adressen voor de verschillende API Management-service-eindpunten **alleen** reageert op de geconfigureerde hostnamen.
 
-    > [!IMPORTANT]
-    > Wanneer u een Azure API Management-exemplaar met een Resource Manager VNET implementeert, moet de service zich in een toegewezen subnet die geen andere resources, met uitzondering van exemplaren van Azure API Management bevat. Als een poging wordt gedaan om het exemplaar van Azure API Management implementeren met een Resource Manager-VNET-subnet die andere resources bevat, mislukt de implementatie.
-    >
+     > [!IMPORTANT]
+     > Wanneer u een Azure API Management-exemplaar met een Resource Manager VNET implementeert, moet de service zich in een toegewezen subnet die geen andere resources, met uitzondering van exemplaren van Azure API Management bevat. Als een poging wordt gedaan om het exemplaar van Azure API Management implementeren met een Resource Manager-VNET-subnet die andere resources bevat, mislukt de implementatie.
+     >
 
-    ![Selecteer VPN][api-management-setup-vpn-select]
+     ![Selecteer VPN][api-management-setup-vpn-select]
 
 5. Klik op **opslaan** aan de bovenkant van het scherm.
 
@@ -112,16 +112,16 @@ Wanneer een exemplaar van API Management-service wordt gehost in een VNET, worde
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / 80, 443                  | Inkomend            | TCP                | INTERNET / VIRTUAL_NETWORK            | Communicatie van clients met API Management                      | Extern             |
 | * / 3443                     | Inkomend            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Beheereindpunt voor Azure-portal en Powershell         | Externe en interne  |
-| * / 80, 443                  | Uitgaande           | TCP                | VIRTUAL_NETWORK / Storage             | **Afhankelijkheid van Azure Storage**                             | Externe en interne  |
-| * / 80, 443                  | Uitgaande           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | Azure Active Directory (indien van toepassing)                   | Externe en interne  |
-| * / 1433                     | Uitgaande           | TCP                | VIRTUAL_NETWORK / SQL                 | **Toegang tot Azure SQL-eindpunten**                           | Externe en interne  |
-| * / 5672                     | Uitgaande           | TCP                | VIRTUAL_NETWORK / EventHub            | Afhankelijkheid voor logboek naar Event Hub-beleid en de monitoring agent | Externe en interne  |
-| * / 445                      | Uitgaande           | TCP                | VIRTUAL_NETWORK / Storage             | Afhankelijkheid van Azure-bestandsshare voor GIT                      | Externe en interne  |
-| * / 1886                     | Uitgaande           | TCP                | VIRTUAL_NETWORK / INTERNET            | Die nodig zijn voor het publiceren van de Integriteitsstatus van de op Resource Health          | Externe en interne  |
-| * / 443                     | Uitgaande           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Publiceren van diagnostische logboeken en metrische gegevens                        | Externe en interne  |
-| * / 25                       | Uitgaande           | TCP                | VIRTUAL_NETWORK / INTERNET            | Verbinding maken met de SMTP-Relay voor het verzenden van e-mailberichten                    | Externe en interne  |
-| * / 587                      | Uitgaande           | TCP                | VIRTUAL_NETWORK / INTERNET            | Verbinding maken met de SMTP-Relay voor het verzenden van e-mailberichten                    | Externe en interne  |
-| * / 25028                    | Uitgaande           | TCP                | VIRTUAL_NETWORK / INTERNET            | Verbinding maken met de SMTP-Relay voor het verzenden van e-mailberichten                    | Externe en interne  |
+| * / 80, 443                  | Uitgaand           | TCP                | VIRTUAL_NETWORK / Storage             | **Afhankelijkheid van Azure Storage**                             | Externe en interne  |
+| * / 80, 443                  | Uitgaand           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | Azure Active Directory (indien van toepassing)                   | Externe en interne  |
+| * / 1433                     | Uitgaand           | TCP                | VIRTUAL_NETWORK / SQL                 | **Toegang tot Azure SQL-eindpunten**                           | Externe en interne  |
+| * / 5672                     | Uitgaand           | TCP                | VIRTUAL_NETWORK / EventHub            | Afhankelijkheid voor logboek naar Event Hub-beleid en de monitoring agent | Externe en interne  |
+| * / 445                      | Uitgaand           | TCP                | VIRTUAL_NETWORK / Storage             | Afhankelijkheid van Azure-bestandsshare voor GIT                      | Externe en interne  |
+| * / 1886                     | Uitgaand           | TCP                | VIRTUAL_NETWORK / INTERNET            | Die nodig zijn voor het publiceren van de Integriteitsstatus van de op Resource Health          | Externe en interne  |
+| * / 443                     | Uitgaand           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Publiceren van diagnostische logboeken en metrische gegevens                        | Externe en interne  |
+| * / 25                       | Uitgaand           | TCP                | VIRTUAL_NETWORK / INTERNET            | Verbinding maken met de SMTP-Relay voor het verzenden van e-mailberichten                    | Externe en interne  |
+| * / 587                      | Uitgaand           | TCP                | VIRTUAL_NETWORK / INTERNET            | Verbinding maken met de SMTP-Relay voor het verzenden van e-mailberichten                    | Externe en interne  |
+| * / 25028                    | Uitgaand           | TCP                | VIRTUAL_NETWORK / INTERNET            | Verbinding maken met de SMTP-Relay voor het verzenden van e-mailberichten                    | Externe en interne  |
 | * / 6381 - 6383              | Inkomende en uitgaande | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Toegang tot Azure Cache voor instanties van Redis tussen RoleInstances          | Externe en interne  |
 | * / *                        | Inkomend            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure Infrastructure Load Balancer                          | Externe en interne  |
 
@@ -148,17 +148,17 @@ Wanneer een exemplaar van API Management-service wordt gehost in een VNET, worde
 
 + **Geforceerde Tunneling van verkeer naar On-premises Firewall met Express Route of netwerk virtueel apparaat**: Een veelvoorkomende configuratie van de klant is voor het definiëren van hun eigen standaardroute (0.0.0.0/0) waardoor al het verkeer van de API Management gedelegeerd subnet aan de stroom door een firewall voor on-premises of aan een virtueel netwerkapparaat. Connectiviteit met Azure API Management verbroken met deze verkeersstroom altijd omdat het uitgaande verkeer geblokkeerd on-premises wordt en NAT wilt een onherkenbare set met adressen die niet meer met verschillende Azure-eindpunten werken. De oplossing moet u een aantal dingen doen:
 
-    * Schakel de service-eindpunten op het subnet waarin de API Management-service is geïmplementeerd. [Service-eindpunten] [ ServiceEndpoints] moet worden ingeschakeld voor Azure Sql, Azure Storage, Azure Event hub en Azure Service bus. Inschakelen van rechtstreeks vanuit de API Management gedelegeerde subnet in op deze services kan ze gebruik van het Microsoft Azure-backbone-netwerk bieden van optimale routering voor verkeer van service-eindpunten. Als u een geforceerde tunnel Api Management Service-eindpunten gebruikt, wordt de bovenstaande Azure-services verkeer niet gedwongen tunnel. De andere API Management service afhankelijkheid verkeer geforceerd tunnels en kan niet verloren gaan of de API Management-service kan niet naar behoren.
+  * Schakel de service-eindpunten op het subnet waarin de API Management-service is geïmplementeerd. [Service-eindpunten] [ ServiceEndpoints] moet worden ingeschakeld voor Azure Sql, Azure Storage, Azure Event hub en Azure Service bus. Inschakelen van rechtstreeks vanuit de API Management gedelegeerde subnet in op deze services kan ze gebruik van het Microsoft Azure-backbone-netwerk bieden van optimale routering voor verkeer van service-eindpunten. Als u een geforceerde tunnel Api Management Service-eindpunten gebruikt, wordt de bovenstaande Azure-services verkeer niet gedwongen tunnel. De andere API Management service afhankelijkheid verkeer geforceerd tunnels en kan niet verloren gaan of de API Management-service kan niet naar behoren.
     
-    * Alle het besturingselement vlak verkeer van Internet naar het eindpunt van uw API Management-service worden gerouteerd via een specifieke set inkomende IP-adressen die worden gehost door de API Management. Wanneer het verkeer geforceerde tunnels te gebruiken is wordt de antwoorden niet symmetrisch toegewezen terug naar deze binnenkomende bron-IP-adressen. Om te strijden tegen de beperking, moeten we de volgende door de gebruiker gedefinieerde routes toevoegen ([udr's][UDRs]) om door te sturen verkeer terug naar Azure door in te stellen van de bestemming van deze hostroutes naar 'Internet'. De set inkomende IP-adressen voor beheer op vlak van het verkeer is als volgt:
+  * Alle het besturingselement vlak verkeer van Internet naar het eindpunt van uw API Management-service worden gerouteerd via een specifieke set inkomende IP-adressen die worden gehost door de API Management. Wanneer het verkeer geforceerde tunnels te gebruiken is wordt de antwoorden niet symmetrisch toegewezen terug naar deze binnenkomende bron-IP-adressen. Om te strijden tegen de beperking, moeten we de volgende door de gebruiker gedefinieerde routes toevoegen ([udr's][UDRs]) om door te sturen verkeer terug naar Azure door in te stellen van de bestemming van deze hostroutes naar 'Internet'. De set inkomende IP-adressen voor beheer op vlak van het verkeer is als volgt:
     
     > 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 13.64.39.16/32, 40.81.47.216/32, 51.145.179.78/32, 52.142.95.35/32, 40.90.185.46/32, 20.40.125.155/32
 
-    * Voor andere van API Management service-afhankelijkheden die geforceerde tunnels te gebruiken zijn, hun manier om de hostnaam niet omzetten en contact opnemen met het eindpunt moet zijn. Deze omvatten
-        - Metrische gegevens en statuscontrole
-        - Azure-portal diagnostische gegevens
-        - SMTP-Relay
-        - CAPTCHA-portal voor ontwikkelaars
+  * Voor andere van API Management service-afhankelijkheden die geforceerde tunnels te gebruiken zijn, hun manier om de hostnaam niet omzetten en contact opnemen met het eindpunt moet zijn. Deze omvatten
+      - Metrische gegevens en statuscontrole
+      - Azure-portal diagnostische gegevens
+      - SMTP-Relay
+      - CAPTCHA-portal voor ontwikkelaars
 
 ## <a name="troubleshooting"> </a>Problemen oplossen
 * **Instellingen voor de eerste**: Wanneer de eerste implementatie van API Management-service in een subnet niet gelukt is, is het raadzaam eerst een virtuele machine implementeren in hetzelfde subnet bevinden. Extern bureaublad van de volgende bij de virtuele machine en controleren of er verbinding met een van elke resource hieronder in uw azure-abonnement
@@ -166,8 +166,8 @@ Wanneer een exemplaar van API Management-service wordt gehost in een VNET, worde
     * Azure SQL Database
     * Azure Storage-tabel
 
- > [!IMPORTANT]
- > Nadat u de connectiviteit hebt gevalideerd, zorg ervoor dat alle resources die zijn geïmplementeerd in het subnet voor het implementeren van API Management in het subnet te verwijderen.
+  > [!IMPORTANT]
+  > Nadat u de connectiviteit hebt gevalideerd, zorg ervoor dat alle resources die zijn geïmplementeerd in het subnet voor het implementeren van API Management in het subnet te verwijderen.
 
 * **Incrementele Updates**: Als u wijzigingen aanbrengt aan uw netwerk, verwijzen naar [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus), om te verifiëren dat de API Management-service niet tot een van de kritieke resources, dit is afhankelijk van is verbroken. De verbindingsstatus van de moet worden bijgewerkt om de 15 minuten.
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 2e68ad6d999a5ff003abe35a0cce75bc5f2cebef
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: d227b8d038dd686bde9b031ca2c58adc7dd6d76b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723923"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104451"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Overzicht van ondersteuning voor meerdere tenants voor VMware naar Azure met CSP een noodgeval
 
@@ -75,17 +75,17 @@ De configuratieserver configureren met een account met een speciale rol zijn toe
 1. Een nieuwe rol maken door het klonen van de vooraf gedefinieerde *alleen-lezen* rol, en wijs hieraan een handige naam (zoals Azure_Site_Recovery, zoals wordt weergegeven in dit voorbeeld).
 2. De volgende machtigingen toewijzen aan deze rol:
 
-    * **Gegevensopslag**: Toewijzen van ruimte, bladeren gegevensopslag, bestandsbewerkingen op laag niveau, bestand, updatebestanden voor de virtuele machine verwijderen
-    * **Netwerk**: Netwerk toewijzen
-    * **Resource**: Virtuele machine toewijzen aan resourcegroep, VM uitgeschakeld migreren, ingeschakelde VM migreren
-    * **Taken**: Taak, Update-taak maken
-    * **VM - configuratie**: Alle
-    - **VM - interactie** > beantwoorden vraag, apparaatverbinding, CD configureren media, diskettes configureren, uitschakelen, inschakelen, VMware-hulpprogramma's installeren
-    - **VM - inventarisatie** > maken op basis van bestaande, maak een nieuwe, registreren, registratie opheffen
-    - **VM - inrichting** > downloaden van de virtuele machine toestaan, toestaan virtuele machine bestanden uploaden
-    - **VM - beheer van momentopnamen** > momentopnamen verwijderen
+   * **Gegevensopslag**: Toewijzen van ruimte, bladeren gegevensopslag, bestandsbewerkingen op laag niveau, bestand, updatebestanden voor de virtuele machine verwijderen
+   * **Netwerk**: Netwerk toewijzen
+   * **Resource**: Virtuele machine toewijzen aan resourcegroep, VM uitgeschakeld migreren, ingeschakelde VM migreren
+   * **Tasks**: Taak, Update-taak maken
+   * **VM - configuratie**: Alle
+   * **VM - interactie** > beantwoorden vraag, apparaatverbinding, CD configureren media, diskettes configureren, uitschakelen, inschakelen, VMware-hulpprogramma's installeren
+   * **VM - inventarisatie** > maken op basis van bestaande, maak een nieuwe, registreren, registratie opheffen
+   * **VM - inrichting** > downloaden van de virtuele machine toestaan, toestaan virtuele machine bestanden uploaden
+   * **VM - beheer van momentopnamen** > momentopnamen verwijderen
 
-        ![Het dialoogvenster rol bewerken](./media/vmware-azure-multi-tenant-overview/edit-role-permissions.png)
+       ![Het dialoogvenster rol bewerken](./media/vmware-azure-multi-tenant-overview/edit-role-permissions.png)
 
 3. Toegangsniveaus op de vCenter-account (gebruikt in de tenant-configuratieserver) voor verschillende objecten als volgt toewijzen:
 

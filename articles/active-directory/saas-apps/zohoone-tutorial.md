@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f17a297d3099d51b3a58a6654560a67f9a4192a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: aadb3188969e099a709711ac18916b67c83b5da1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208313"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884435"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho-one"></a>Zelfstudie: Azure Active Directory-integratie met één Zoho
 
@@ -117,7 +117,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     d. In de **Relaystatus** tekstvak, een URL typen:`https://one.zoho.com`
 
-1. Als u wilt configureren van de toepassing in **SP** gestart modus de volgende stap uitvoeren:
+1. Als u de toepassing wilt configureren in door **SP**geïnitieerde modus, voert u de volgende stap uit:
 
     Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://accounts.zoho.com/samlauthrequest/<domain_name>?serviceurl=https://one.zoho.com`
      
@@ -223,7 +223,7 @@ Als u wilt dat Azure AD-gebruikers zich aanmelden bij een Zoho, moeten ze worden
     
     a. In **naam** tekst voert u de naam van gebruiker, zoals **Julia steen**.
     
-    b. Voer in het tekstvak **Email Address** het e-mailadres van de gebruiker in, zoals **brittasimon@contoso.com**.
+    b. In **e-mailadres** tekst vak, voer het e-mailadres van gebruiker, zoals **brittasimon\@contoso.com**.
 
     >[!Note]
     >Selecteer uw geverifieerde domein in de lijst met domeinen.
@@ -269,7 +269,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

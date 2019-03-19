@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: rkmanda
-ms.openlocfilehash: 308d9a04e52572e00e1cbed24548e5f09adda571
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: ac47ad10f394eaf31a9f7c12d7a2a03ea23283f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985917"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092647"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub hoge beschikbaarheid en herstel na noodgevallen
 
@@ -128,7 +128,7 @@ Ter vereenvoudiging van deze stap, moet u idempotente bewerkingen. Idempotente b
 Hier volgt een samenvatting van de HA-/ DR-opties in dit artikel die kan worden gebruikt als een het referentiekader van de juiste optie die geschikt is voor uw oplossing te kiezen.
 
 | HA-/ DR-optie | RTO | RPO | Handmatige interventie nodig is? | Complexiteit van de implementatie | Impact van de extra kosten|
-| --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | Microsoft geïnitieerde failover |2 - 26 uur|Raadpleeg de bovenstaande RPO-tabel|Nee|Geen|Geen|
 | Handmatige failover |10 minuten - 2 uur|Raadpleeg de bovenstaande RPO-tabel|Ja|Zeer laag. U hoeft alleen te activeren met deze bewerking via de portal.|Geen|
 | Cross-regio HA |< 1 min|Afhankelijk van de replicatiefrequentie van uw aangepaste HA-oplossing|Nee|Hoog|> 1 x de kosten van 1 IoT-hub|

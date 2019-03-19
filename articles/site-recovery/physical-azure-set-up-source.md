@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 2e5b90f36a6dc5c88db3f6f449c911d22de680b1
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: e9bf06ba058078fc5012410bdd75ef90ff6c93d4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976797"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899006"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Instellen van de configuratieserver voor herstel na noodgeval voor fysieke servers naar Azure
 
@@ -22,7 +22,7 @@ Dit artikel wordt beschreven hoe u uw on-premises omgeving instelt om te beginne
 ## <a name="prerequisites"></a>Vereisten
 
 Het artikel wordt ervan uitgegaan dat u al hebt:
-- Een Recovery Services-kluis de [Azure-portal](http://portal.azure.com "Azure-portal").
+- Een Recovery Services-kluis de [Azure-portal](https://portal.azure.com "Azure-portal").
 - Een fysieke computer waarop de configuratieserver.
 - Als u TLS 1.0 hebt uitgeschakeld op de computer waarop u de configuratieserver installeert, zorg ervoor dat TLs 1.2 is ingeschakeld en dat het .NET Framework 4.6 of hoger is geïnstalleerd op de computer (met sterke cryptografie uitgeschakeld). [Meer informatie](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
 
@@ -36,7 +36,7 @@ De volgende tabel bevat de minimale hardware, software en netwerkvereisten voor 
 ## <a name="choose-your-protection-goals"></a>Uw beveiligingsdoelstellingen kiezen
 
 1. In de Azure-portal, gaat u naar de **herstelservices** blade-kluizen en selecteer uw kluis.
-2. In de **Resource** menu van de kluis, klikt u op **aan de slag** > **siteherstel** > **stap 1: Infrastructuur voorbereiden** > **beveiligingsdoel**.
+2. In de **Resource** menu van de kluis, klikt u op **aan de slag** > **siteherstel** > **stap 1: infrastructuur voorbereiden** > **Beveiligingsdoel.**
 
     ![Doelstellingen kiezen](./media/physical-azure-set-up-source/choose-goals.png)
 3. In **beveiligingsdoel**, selecteer **naar Azure** en **niet gevirtualiseerd/Overig**, en klik vervolgens op **OK**.
@@ -47,7 +47,7 @@ De volgende tabel bevat de minimale hardware, software en netwerkvereisten voor 
 
 1. In **bron voorbereiden**, als u een configuratieserver, klikt u op geen **+ configuratieserver** een toe te voegen.
 
-  ![Bron instellen](./media/physical-azure-set-up-source/plus-config-srv.png)
+   ![Bron instellen](./media/physical-azure-set-up-source/plus-config-srv.png)
 2. In de **-Server toevoegen** blade, controleert u of **configuratieserver** wordt weergegeven in **servertype**.
 4. Download het installatiebestand van de geïntegreerde Setup van Site Recovery.
 5. Download de registratiesleutel voor de kluis. Wanneer u geïntegreerde Setup uitvoert moet u de registratiesleutel. De sleutel blijft vijf dagen na het genereren ervan geldig.

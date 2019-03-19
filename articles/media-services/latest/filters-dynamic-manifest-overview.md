@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: juliako
-ms.openlocfilehash: 5290901348bb139140f1ad6d2ee50b9ddd88b297
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 57007674e11271e6a3d5bdf660531d01b1eff82c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214432"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861431"
 ---
 # <a name="dynamic-manifests"></a>Dynamische manifesten
 
@@ -52,7 +52,7 @@ Zie voor het voorbeeld REST [uploaden, coderen en streamen van bestanden met RES
 
 ### <a name="monitor-the-bitrate-of-a-video-stream"></a>De bitrate van een videostream bewaken
 
-U kunt de [Azure Media Player-demo pagina](http://aka.ms/amp) voor het bewaken van de bitrate van een videostream. De demo-pagina wordt weergegeven voor informatie over de diagnostische gegevens in de **Diagnostics** tabblad:
+U kunt de [Azure Media Player-demo pagina](https://aka.ms/amp) voor het bewaken van de bitrate van een videostream. De demo-pagina wordt weergegeven voor informatie over de diagnostische gegevens in de **Diagnostics** tabblad:
 
 ![Azure Media Player diagnostics][amp_diagnostics]
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: banders
-ms.openlocfilehash: 870ceaf1ded3dd8eb08128514dcc7020fe74e7ae
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: f907ebcfc1efc2e6eb9b458f83ab11d868871946
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903907"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858334"
 ---
 # <a name="create-an-additional-subscription-in-the-azure-portal"></a>Een extra abonnement maken in Azure portal
 
@@ -50,4 +50,4 @@ U kunt ook aanvullende abonnementen via een programma maken. Zie voor meer infor
 
 ## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 
-Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://go.microsoft.com/fwlink/?linkid=2083458).

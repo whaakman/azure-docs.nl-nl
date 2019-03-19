@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 39c4884fcca2b041603305d73526e3310ab99a21
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b2aa3eb6a117bbbdcf9c4aa44161dc25ddea2f1a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441879"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081216"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Het schema in een SaaS-toepassing met behulp van het patroon van de database-per-tenant met Azure SQL Database beheren
  
@@ -28,7 +28,7 @@ In deze zelfstudie worden twee scenario's - implementeren voor alle tenants en o
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-
+> 
 > * De taakagent van een maken
 > * Ervoor zorgen dat de T-SQL-taken kunnen worden uitgevoerd op alle tenantdatabases
 > * Naslaginformatie over gegevens in alle tenantdatabases bijwerken
@@ -122,7 +122,7 @@ Bekijk de volgende elementen in de _OnlineReindex.sql_ script:
 In deze zelfstudie hebt u het volgende geleerd:
 
 > [!div class="checklist"]
-
+> 
 > * Een agent voor taken om uit te voeren via T-SQL-taken met meerdere databases maken
 > * Naslaginformatie over gegevens in alle tenantdatabases bijwerken
 > * Een index in een tabel maken in alle tenantdatabases

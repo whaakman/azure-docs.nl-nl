@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 0ef4aa988f4adc855051b213013636b4a04f1cca
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8e108d88282894a7b1bf014146083008bedd483d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316968"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095038"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>Niet van RDP-verbinding met een virtuele machine omdat de virtuele machine wordt opgestart in de veilige modus
 
 In dit artikel laat zien hoe het oplossen van een probleem waarbij u geen verbinding naar Azure Windows Virtual Machines (VM's maken) omdat de virtuele machine is geconfigureerd om op te starten in de veilige modus.
 
 > [!NOTE]
-> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en klassieke](../../azure-resource-manager/resource-manager-deployment-model.md). In dit artikel bevat informatie over het Resource Manager-implementatiemodel, dat wordt u aangeraden voor nieuwe implementaties in plaats van het klassieke implementatiemodel.
+> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../../azure-resource-manager/resource-manager-deployment-model.md). In dit artikel bevat informatie over het Resource Manager-implementatiemodel, dat wordt u aangeraden voor nieuwe implementaties in plaats van het klassieke implementatiemodel.
 
 ## <a name="symptoms"></a>Symptomen
 
@@ -47,7 +47,7 @@ U lost dit probleem, kunt u seriële besturingselement gebruiken om te configure
 ### <a name="use-serial-control"></a>Seriële besturingselement gebruiken
 
 1. Verbinding maken met [seriële Console- en CMD-instantie openen](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
-). Als de seriële Console is niet ingeschakeld op de virtuele machine, Zie [herstel de virtuele machine offline](#repair-the-vm-offline).
+   ). Als de seriële Console is niet ingeschakeld op de virtuele machine, Zie [herstel de virtuele machine offline](#repair-the-vm-offline).
 2. Controleer de opstartconfiguratiegegevens:
 
         bcdedit /enum
@@ -55,12 +55,12 @@ U lost dit probleem, kunt u seriële besturingselement gebruiken om te configure
     Als de virtuele machine is geconfigureerd om op te starten in de veilige modus, ziet u een extra vlag onder de **Windows-opstartlaadprogramma** sectie met de naam **veilig**. Als u niet ziet de **veilig** vlag, de virtuele machine is niet in de veilige modus. In dit artikel geldt niet voor uw scenario.
 
     De **veilig** vlag kan worden weergegeven met de volgende waarden:
-    - Minimaal
-    - Netwerk
+   - Minimaal
+   - Netwerk
 
-    RDP wordt in een van deze twee modi, niet worden gestart. De oplossing blijft daarom ongewijzigd.
+     RDP wordt in een van deze twee modi, niet worden gestart. De oplossing blijft daarom ongewijzigd.
 
-    ![Afbeelding van de markering voor de veilige modus](./media/troubleshoot-rdp-safe-mode/safe-mode-tag.png)
+     ![Afbeelding van de markering voor de veilige modus](./media/troubleshoot-rdp-safe-mode/safe-mode-tag.png)
 
 3. Verwijder de **safemoade** markeren, zodat de virtuele machine opnieuw in de normale modus opgestart:
 

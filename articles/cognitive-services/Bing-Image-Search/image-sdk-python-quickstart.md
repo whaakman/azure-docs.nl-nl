@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/04/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: a785cb461b12c20bd5e322a55a91c8b49cb40d54
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: cabf29423123d988b08e002077b4782529e96aa0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858158"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095633"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-python"></a>Snelstartgids: Afbeeldingen zoeken met de Bing Image Search-SDK voor Python
 
@@ -52,16 +52,16 @@ Haal een [Cognitive Services-toegangssleutel](https://azure.microsoft.com/try/co
 
 ## <a name="create-the-image-search-client"></a>De zoekclient voor afbeeldingen maken
 
-3. Maak een exemplaar van `CognitiveServicesCredentials` en gebruik deze om een exemplaar van de client te maken:
+1. Maak een exemplaar van `CognitiveServicesCredentials` en gebruik deze om een exemplaar van de client te maken:
 
     ```python
     client = ImageSearchAPI(CognitiveServicesCredentials(subscription_key))
     ```
-4. Verzend een zoekquery naar de Bing Afbeeldingen zoeken-API:
+1. Verzend een zoekquery naar de Bing Afbeeldingen zoeken-API:
     ```python
     image_results = client.images.search(query=search_term)
     ```
-## <a name="process-and-view-the-results"></a>De resultaten verwerken en weergeven
+   ## <a name="process-and-view-the-results"></a>De resultaten verwerken en weergeven
 
 Parseer de afbeeldingsresultaten die in het antwoord zijn geretourneerd.
 

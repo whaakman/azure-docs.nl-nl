@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbb50d22b5e0bd1a247dd806f45d9e4519214aba
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 328393d78514b236707cff1cedb9c34680900015
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208177"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120326"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Quickstart: Benoemde locaties configureren in Azure Active Directory
 
@@ -53,11 +53,11 @@ U hebt het volgende nodig om deze quickstart te voltooien:
 
 6. Vul het formulier in op de nieuwe pagina. 
 
-    * In het vak **Naam** typt u een naam voor uw benoemde locatie.
-    * In de **IP-adresbereiken** typt u het IP-adresbereik in CIDR-indeling.  
-    * Klik op **Create**.
+   * In het vak **Naam** typt u een naam voor uw benoemde locatie.
+   * In de **IP-adresbereiken** typt u het IP-adresbereik in CIDR-indeling.  
+   * Klik op **Create**.
     
-    ![De nieuwe blade](./media/quickstart-configure-named-locations/61.png)
+     ![De nieuwe blade](./media/quickstart-configure-named-locations/61.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

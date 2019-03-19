@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: aa003d5c56e374c99b26beb884fce27b9b16298e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 76944d98d6a5fe7c3f83ce12bb2fdf1a34d5e234
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440060"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839097"
 ---
 # <a name="azure-security-technical-capabilities"></a>Technische mogelijkheden van Azure-beveiliging
 
@@ -75,7 +75,7 @@ De voordelen van de beveiliging van Azure Active Directory (Azure AD) zijn de mo
 
 - Veilige externe toegang tot on-premises webtoepassingen via Azure AD Application Proxy richt.
 
-De [Azure Active Directory-portal](http://aad.portal.azure.com/) vindt u een deel van de Azure-portal. U kunt vanuit dit dashboard een overzicht van de status van uw organisatie en dieper in te gaan met het beheren van de directory, gebruikers of toegang tot toepassingen.
+De [Azure Active Directory-portal](https://aad.portal.azure.com/) vindt u een deel van de Azure-portal. U kunt vanuit dit dashboard een overzicht van de status van uw organisatie en dieper in te gaan met het beheren van de directory, gebruikers of toegang tot toepassingen.
 
 ![Azure Active Directory](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig2.png)
 
@@ -113,7 +113,7 @@ Niet alleen gebruikers hoeven niet te beheren van meerdere sets met gebruikersna
 
 Beveiligingsbewaking, meldingen en machine learning gebaseerde rapporten die inconsistente toegangspatronen identificeren kunt u uw bedrijf te beveiligen. U kunt de toegang van Azure Active Directory, en gebruiksrapporten meer inzicht verkrijgen in de integriteit en beveiliging van de adreslijst van uw organisatie. Met deze informatie bepalen een directory-beheerder beter waar mogelijke beveiligingsrisico's schuilen zodat ze voldoende plannen maken kunnen die risico's te beperken.
 
-In de Azure-portal of via de [Azure Active Directory-portal](http://aad.portal.azure.com/), [rapporten](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) zijn onderverdeeld in de volgende manieren:
+In de Azure-portal of via de [Azure Active Directory-portal](https://aad.portal.azure.com/), [rapporten](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) zijn onderverdeeld in de volgende manieren:
 
 - Anomaliedetectie-rapporten: aanmelden gebeurtenissen waarop we gevonden worden afwijkende bevatten. Ons doel is u op de hoogte van deze activiteit maken en kunt u bepalen of een gebeurtenis verdacht is.
 
@@ -274,7 +274,7 @@ U kunt meer informatie over Azure VPN-optie lezen van het artikel [Planning en o
 
 [Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) gebruikt beleidsregels voor versleuteling, identiteit en verificatie om uw bestanden en e-mailbericht te beveiligen. Azure RMS werkt op meerdere apparaten, telefoons, tablets en pc's door te beschermen, zowel binnen als buiten uw organisatie. Deze mogelijkheid is mogelijk omdat Azure RMS voegt een niveau van beveiliging die met de gegevens gekoppeld blijft zelfs wanneer deze grenzen van uw organisatie.
 
-Wanneer u Azure RMS gebruiken om uw bestanden te beveiligen, gebruikt u industriestandaard cryptografie met volledige ondersteuning van [FIPS 140-2](http://csrc.nist.gov/groups/STM/cmvp/standards.html). Wanneer u Azure RMS voor de beveiliging van gegevens gebruiken, hebt u de zekerheid dat de beveiliging blijft van toepassing op het bestand, zelfs als deze wordt gekopieerd naar de opslag die niet onder het beheer van IT, zoals een cloudopslagservice. Hetzelfde doet zich voor bestanden die worden gedeeld via e-mail, het bestand is beveiligd als bijlage aan een e-mailbericht met instructies voor hoe u de beveiligde bijlage te openen.
+Wanneer u Azure RMS gebruiken om uw bestanden te beveiligen, gebruikt u industriestandaard cryptografie met volledige ondersteuning van [FIPS 140-2](https://csrc.nist.gov/groups/STM/cmvp/standards.html). Wanneer u Azure RMS voor de beveiliging van gegevens gebruiken, hebt u de zekerheid dat de beveiliging blijft van toepassing op het bestand, zelfs als deze wordt gekopieerd naar de opslag die niet onder het beheer van IT, zoals een cloudopslagservice. Hetzelfde doet zich voor bestanden die worden gedeeld via e-mail, het bestand is beveiligd als bijlage aan een e-mailbericht met instructies voor hoe u de beveiligde bijlage te openen.
 Bij het plannen van Azure RMS acceptatie raden we het volgende:
 
 - Installeer de [RMS sharing-app](https://technet.microsoft.com/library/dn339006.aspx). Deze app kan worden geïntegreerd in Office-toepassingen door installatie van een Office-invoegtoepassing, zodat gebruikers kunnen bestanden eenvoudig rechtstreeks beveiligen.

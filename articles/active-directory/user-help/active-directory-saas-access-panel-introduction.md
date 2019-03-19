@@ -14,12 +14,12 @@ ms.author: lizross
 ms.reviewer: asteen
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6df034264e54d7d421d9508fb3c08cc6675cb10d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 47c624a9f1d3989e9146f7c32745ca892f6467e0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451991"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113806"
 ---
 # <a name="what-is-the-myapps-portal"></a>Wat is de MyApps-portal?
 
@@ -82,11 +82,11 @@ Als u wilt aanmelden bij op basis van wachtwoorden eenmalige aanmelding, moet u 
 
 > [!NOTE]
 > Aanvullende functies zijn alleen beschikbaar voor Microsoft Edge, Chrome en Firefox.
->
-U kunt de extensie downloaden rechtstreeks vanuit de volgende sites:
-- [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
-- [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
-- [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
+> 
+> U kunt de extensie downloaden rechtstreeks vanuit de volgende sites:
+> - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
+> - [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+> - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 Als u een URL voor mijn Apps dan `https://myapps.microsoft.com`, de standaard-URL configureren door het volgende te doen:
 1. Terwijl u bent *niet* aangemeld bij de extensie, met de rechtermuisknop op het pictogram van de extensie.

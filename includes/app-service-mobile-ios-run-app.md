@@ -4,19 +4,19 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: 8146489a913ce863cee7534331231a248a3ea7ac
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: HT
+ms.openlocfilehash: f4ba467b6d80c9ccafba0a91c1f04152b92cf869
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890976"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125040"
 ---
-1. Ga op uw Mac naar de [Azure Portal]. Klik op **Alle Services** > **App Services** > en op de back-end die u zojuist hebt gemaakt. Kies de taal van uw voorkeur in de instellingen van de mobiele app:
+1. Ga op uw Mac naar de [Azure-portal]. Klik op **Alle Services** > **App Services** > en op de back-end die u zojuist hebt gemaakt. Kies de taal van uw voorkeur in de instellingen van de mobiele app:
 
-    - Objective-C &ndash; **Quickstart** > **iOS (Objective-C)**
-    - Swift &ndash; **Quickstart** > **iOS (Swift)**
+   - Objective-C &ndash; **Quickstart** > **iOS (Objective-C)**
+   - Swift &ndash; **Quickstart** > **iOS (Swift)**
 
-    Selecteer onder **3. Configureer uw clienttoepassing**, klik op **Downloaden**. Er wordt dan een volledig Xcode-project gedownload, dat vooraf is geconfigureerd om verbinding te maken met uw back-end. Open het project met Xcode.
+     Selecteer onder **3. Configureer uw clienttoepassing**, klik op **Downloaden**. Er wordt dan een volledig Xcode-project gedownload, dat vooraf is geconfigureerd om verbinding te maken met uw back-end. Open het project met Xcode.
 
 1. Druk op de knop **Uitvoeren** om het project te bouwen en de app te starten in de iOS-emulator.
 
@@ -24,4 +24,4 @@ ms.locfileid: "56890976"
 
    ![Snelstartgids-app uitgevoerd op iOS](./media/app-service-mobile-ios-quickstart/mobile-quickstart-startup-ios.png)
 
-[Azure Portal]: https://portal.azure.com/
+[Azure-portal]: https://portal.azure.com/

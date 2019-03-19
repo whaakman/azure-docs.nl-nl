@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Uw ASP.NET Core-app implementeren naar Azure Service Fabric met Azure DevOps Projects'
+title: 'Zelfstudie: Uw ASP.NET Core-app implementeren in Azure Service Fabric met behulp van Azure DevOps Projects'
 description: Azure DevOps Projects zorgt ervoor dat u eenvoudig aan de slag kunt met Azure. Met Azure DevOps Projects kunt u in slechts enkele stappen een ASP.NET Core-app implementeren naar Azure Service Fabric.
 ms.author: mlearned
 ms.manager: douge
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 2bba5d54c2b6298c2dd8059d47e5975ad3f176c8
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: HT
+ms.openlocfilehash: 8ba217cb9ce849e57b15d3e6cc73529c78bf340e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264757"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453752"
 ---
-# <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-projects"></a>Zelfstudie: Uw ASP.NET Core-app implementeren naar Azure Service Fabric met Azure DevOps Projects
+# <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-projects"></a>Zelfstudie: Uw ASP.NET Core-app implementeren in Azure Service Fabric met behulp van Azure DevOps Projects
 
 Azure DevOps Projects biedt een vereenvoudigde ervaring waar u uw bestaande code en Git-opslagplaats gebruikt of een voorbeeldtoepassing kiest voor het maken van een CI- (Continue integratie) en CD-pijplijn (Continue levering) naar Azure. 
 
@@ -39,7 +39,7 @@ In deze zelfstudie leert u het volgende:
 
 * Een Azure-abonnement. U kunt er een gratis krijgen via [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
-## <a name="use-devops-projects-to-create-an-aspnet-core-app-and-deploy-it-to-service-fabricc"></a>Maak een ASP.NET Core-app met DevOps Projects en implementeer de app naar Service Fabric
+## <a name="use-devops-projects-to-create-an-aspnet-core-app-and-deploy-it-to-service-fabric"></a>Een ASP.NET Core-app maken met DevOps Projects en deze implementeren naar Service Fabric
 
 In DevOps Projects wordt een CI/CD-pijplijn gemaakt in Azure Pipelines. U kunt een nieuwe Azure DevOps-organisatie maken of een bestaande organisatie gebruiken. In DevOps Projects worden ook Azure-resources gemaakt, zoals een Service Fabric-cluster, in het Azure-abonnement van uw keuze.
 
@@ -73,13 +73,13 @@ In DevOps Projects wordt een CI/CD-pijplijn gemaakt in Azure Pipelines. U kunt e
 
     Nadat u dit alles hebt voltooid, wordt het dashboard van DevOps Projects in Azure Portal weergegeven. U kunt ook rechtstreeks vanuit **Alle resources** in de Azure-portal naar het dashboard van DevOps Projects gaan. 
 
-    Dit dashboard biedt meer inzicht in uw Azure DevOps-codeopslagplaats, uw CI/CD-pijplijn en uw Service Fabric-cluster. U kunt aanvullende opties voor uw CI/CD-pijplijn configureren in Azure-opslagplaatsen. Selecteer aan de rechterkant **Bladeren** om uw actieve app weer te geven.
+    Dit dashboard biedt meer inzicht in uw Azure DevOps-codeopslagplaats, uw CI/CD-pijplijn en uw Service Fabric-cluster. U kunt aanvullende opties voor uw CI/CD-pijplijn configureren in Azure-opslagplaatsen. Selecteer aan de rechterkant **Bladeren** om de actieve app weer te geven.
 
 ## <a name="examine-the-ci-pipeline"></a>De CI-pijplijn onderzoeken
 
 In DevOps Projects wordt automatisch een CI/CD-pijplijn geconfigureerd in Azure Pipelines. U kunt de pijplijn verkennen en aanpassen. Ga als volgt te werk om vertrouwd te raken met de pijplijn:
 
-1. Ga naar het dashboard van DevOps Projects.
+1. Ga naar het dashboard DevOps-Project.
 
 1. Selecteer boven in het DevOps Projects-dashboard de optie **Build-pijplijnen**.  
     Op een tabblad in de browser wordt de build-pijplijn voor het nieuwe project weergegeven.
@@ -98,7 +98,7 @@ In DevOps Projects wordt automatisch een CI/CD-pijplijn geconfigureerd in Azure 
     In dit deelvenster ziet u een audittrail van recente wijzigingen voor de build. In Azure DevOps worden alle wijzigingen in de build-pijplijn bijgehouden en krijgt u de mogelijkheid om versies te vergelijken.
 
 1. Selecteer **Triggers**.  
-    In DevOps Projects wordt automatisch een CI-trigger gemaakt en met elke doorvoering naar de opslagplaats wordt een nieuwe build gestart. Desgewenst kunt u kiezen of u vertakkingen van het CI-proces wilt opnemen of uitsluiten.
+    In DevOps Projects wordt automatisch een CI-trigger gemaakt en met elke doorvoering naar de opslagplaats wordt een nieuwe build gestart. U kunt eventueel kiezen of u branches van het CI-proces wilt opnemen of uitsluiten.
 
 1. Selecteer **Retentie**.  
     Afhankelijk van het scenario kunt u beleidsregels opgeven om een bepaald aantal builds te behouden of te verwijderen.

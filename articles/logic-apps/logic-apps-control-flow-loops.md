@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: 7237a9a6a99b57401af40512a6d2e21a3fe49e53
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: b2e8d629f4007729ad0538aee9bdb8e67747b026
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159482"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58015125"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Lussen die werkstroomacties herhalen of verwerken van matrices in Azure Logic Apps maken
 
@@ -58,7 +58,7 @@ In dit voorbeeld van logische app verzendt een dagelijks overzicht voor de RSS-f
 
       ![Selecteer 'Een actie toevoegen'](media/logic-apps-control-flow-loops/add-for-each-loop.png)
 
-   1. Kies onder het zoekvak **alle**. Typ 'voor elke' als filter in het zoekvak in. Selecteer deze actie uit de lijst met acties: **Voor elk - besturingselement**
+   1. Kies **Alle** onder het zoekvak. Typ 'voor elke' als filter in het zoekvak in. Selecteer deze actie uit de lijst met acties: **Voor elk - besturingselement**
 
       ![Lus 'voor elke' toevoegen](media/logic-apps-control-flow-loops/select-for-each.png)
 
@@ -166,7 +166,8 @@ Beginnen om 8:00 uur per dag, verhoogd in dit voorbeeld van logische app een var
 > Deze stappen gebruiken Office 365 Outlook, maar u kunt een e-mailprovider die ondersteuning biedt voor logische Apps gebruiken. 
 > [Controleer de lijst met connectors hier](https://docs.microsoft.com/connectors/). Als u een ander e-mailaccount gebruikt, blijven de algemene stappen gelijk, maar uw gebruikersinterface kan er iets anders uitzien. 
 
-1. Een lege, logische app maken. In Logic App Designer, onder het zoekvak typt, kiest u **alle**. Zoeken naar "terugkeerpatroon". Selecteer deze trigger uit de lijst met triggers: **Herhaling - schema**
+1. Een lege, logische app maken. In Logic App Designer, onder het zoekvak typt, kiest u **alle**. Zoeken naar "terugkeerpatroon". 
+   Selecteer deze trigger uit de lijst met triggers: **Herhaling - schema**
 
    !['--Terugkeerschema' trigger toevoegen](./media/logic-apps-control-flow-loops/do-until-loop-add-trigger.png)
 
@@ -174,14 +175,15 @@ Beginnen om 8:00 uur per dag, verhoogd in dit voorbeeld van logische app een var
 
    ![Terugkerend schema instellen](./media/logic-apps-control-flow-loops/do-until-loop-set-trigger-properties.png)
 
-   | Eigenschap | Waarde |
+   | Eigenschap | Value |
    | -------- | ----- |
    | **Interval** | 1 | 
    | **Frequentie** | Dag |
    | **Deze uren** | 8 |
    ||| 
 
-1. Kies onder de trigger **nieuwe stap**. Zoek naar 'variabelen' en selecteer deze actie: **Variabele - variabelen initialiseren**
+1. Kies onder de trigger **nieuwe stap**. 
+   Zoek naar 'variabelen' en selecteer deze actie: **Variabele - variabelen initialiseren**
 
    ![De actie 'Initialize variabele - variabelen' toevoegen](./media/logic-apps-control-flow-loops/do-until-loop-add-variable.png)
 
@@ -198,48 +200,50 @@ Beginnen om 8:00 uur per dag, verhoogd in dit voorbeeld van logische app een var
 
 1. Onder de **variabele initialiseren** actie, kiest u **nieuwe stap**. 
 
-1. Kies onder het zoekvak **alle**. Zoek naar 'tot' en selecteer deze actie: **Totdat - besturingselement**
+1. Kies **Alle** onder het zoekvak. Zoek naar 'tot' en selecteer deze actie: **Totdat - besturingselement**
 
    !["Tot" lus toevoegen](./media/logic-apps-control-flow-loops/do-until-loop-add-until-loop.png)
 
-1. Voorwaarde voor het afsluiten van de lus kunt maken met het selecteren van de **limiet** variabele en de **is gelijk** operator. Voer **10** als de vergelijkingswaarde.
+1. Voorwaarde voor het afsluiten van de lus kunt maken met het selecteren van de **limiet** variabele en de **is gelijk** operator. 
+   Voer **10** als de vergelijkingswaarde.
 
    ![Voorwaarde voor het afsluiten voor het stoppen van de lus bouwen](./media/logic-apps-control-flow-loops/do-until-loop-settings.png)
 
 1. Binnen de lus, kiest u **een actie toevoegen**. 
 
-1. Kies onder het zoekvak **alle**. Zoek naar 'variabelen' en selecteer deze actie: **Variabele verhogen - variabelen**
+1. Kies **Alle** onder het zoekvak. Zoek naar 'variabelen' en selecteer deze actie: **Variabele verhogen - variabelen**
 
    ![Actie voor het verhogen van de variabele toevoegen](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable.png)
 
 1. Voor **naam**, selecteer de **limiet** variabele. Voor **waarde**, voer '1'. 
 
-   ![Verhogen 'Limiet' met 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
+    ![Verhogen 'Limiet' met 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
 1. Buiten en onder de lus, kiest u **nieuwe stap**. 
 
-1. Kies onder het zoekvak **alle**. Zoeken en een actie toevoegen waarmee e-mailadres, bijvoorbeeld verzendt: 
+1. Kies **Alle** onder het zoekvak. 
+    Zoeken en een actie toevoegen waarmee e-mailadres, bijvoorbeeld verzendt: 
 
-   ![Actie toevoegen waarmee e-mail wordt verzonden](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
+    ![Actie toevoegen waarmee e-mail wordt verzonden](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
 
 1. Meld u aan bij uw e-mailaccount als dat wordt gevraagd.
 
 1. Het e-mailadres van de actie-eigenschappen instellen. Voeg de **limiet** variabele aan het onderwerp. Op die manier kunt u bevestigen de huidige waarde van de variabele voldoet aan de opgegeven criteria, bijvoorbeeld:
 
-    ![E-eigenschappen instellen](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
+     ![E-eigenschappen instellen](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-    | Eigenschap | Waarde | Description |
-    | -------- | ----- | ----------- | 
-    | **Aan** | *<email-address@domain>* | e-mailadres van de ontvanger. Voor het testen, moet u uw eigen e-mailadres gebruiken. | 
-    | **Onderwerp** | Huidige waarde voor de 'Limiet' is **limiet** | Geef het e-mailonderwerp. Zorg ervoor dat u voor dit voorbeeld wordt de **limiet** variabele. | 
-    | **Hoofdtekst** | <*email-content*> | Geef de inhoud van het e-bericht die u wilt verzenden. Voer de tekst die u in dit voorbeeld. | 
-    |||| 
+     | Eigenschap | Waarde | Description |
+     | -------- | ----- | ----------- | 
+     | **Aan** | *<email-address\@domain>* | e-mailadres van de ontvanger. Voor het testen, moet u uw eigen e-mailadres gebruiken. | 
+     | **Onderwerp** | Huidige waarde voor de 'Limiet' is **limiet** | Geef het e-mailonderwerp. Zorg ervoor dat u voor dit voorbeeld wordt de **limiet** variabele. | 
+     | **Hoofdtekst** | <*email-content*> | Geef de inhoud van het e-bericht die u wilt verzenden. Voer de tekst die u in dit voorbeeld. | 
+     |||| 
 
 1. Sla uw logische app op. Als u wilt testen handmatig uw logische app, op de werkbalk van de ontwerper, kies **uitvoeren**.
 
-    Nadat uw logica uitgevoerd wordt, krijgt u een e-mailbericht met de inhoud die u hebt opgegeven:
+     Nadat uw logica uitgevoerd wordt, krijgt u een e-mailbericht met de inhoud die u hebt opgegeven:
 
-    ![Ontvangen e-mail](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
+     ![Ontvangen e-mail](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
 
 ## <a name="prevent-endless-loops"></a>Oneindige lus te voorkomen dat
 
@@ -331,7 +335,7 @@ In dit voorbeeld "Tot" lus roept een HTTP-eindpunt, waarmee een resource wordt g
 }
 ```
 
-## <a name="get-support"></a>Ondersteuning vragen
+## <a name="get-support"></a>Ondersteuning krijgen
 
 * Ga naar het [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) (Forum voor Azure Logic Apps) als u vragen hebt.
 * Op indienen of hierop stemmen op de functies en suggesties voor [site voor gebruikersfeedback van Azure Logic Apps](https://aka.ms/logicapps-wish).

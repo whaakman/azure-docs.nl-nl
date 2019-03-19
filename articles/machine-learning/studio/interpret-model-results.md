@@ -1,21 +1,21 @@
 ---
-title: Modelresultaten in Machine Learning Studio interpreteren
+title: Modelresultaten interpreteren
 titleSuffix: Azure Machine Learning Studio
 description: Klik hier voor meer informatie over het kiezen van de optimale parameter is ingesteld voor een algoritme gebruikt en score model uitvoer visualiseren.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: 778f713fb1046d3c1987b065c9dc25c4ad9825cb
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: c46f22fb5c906aaffa48f39a0c643ca2a48573f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822545"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877272"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Modelresultaten in Azure Machine Learning Studio interpreteren
 In dit onderwerp wordt uitgelegd hoe te visualiseren en te interpreteren voorspellingsresultaten in Azure Machine Learning Studio. Nadat u hebt een model wordt getraind en voorspellingen daarboven ("het model beoordeeld') wordt uitgevoerd, moet u om te begrijpen en interpreteren van het resultaat voorspelling.
@@ -52,7 +52,7 @@ Azure Machine Learning Studio heeft andere modules te maken met elk van deze typ
 ### <a name="two-class-classification"></a>Classificatie van twee klassen
 **Voorbeeldexperiment**
 
-Een voorbeeld van een probleem met twee klassen classificatie is de indeling van de iris bloemen. De taak is het classificeren van iris bloemen op basis van hun functies. De Iris-gegevensset vindt u in Azure Machine Learning Studio is een subset van de populaire [Iris-gegevensset](http://en.wikipedia.org/wiki/Iris_flower_data_set) exemplaren van die alleen de twee bloem soorten (klassen 0 en 1). Er zijn vier functies voor elke bloem (petal length, petal width petal length en petal width).
+Een voorbeeld van een probleem met twee klassen classificatie is de indeling van de iris bloemen. De taak is het classificeren van iris bloemen op basis van hun functies. De Iris-gegevensset vindt u in Azure Machine Learning Studio is een subset van de populaire [Iris-gegevensset](https://en.wikipedia.org/wiki/Iris_flower_data_set) exemplaren van die alleen de twee bloem soorten (klassen 0 en 1). Er zijn vier functies voor elke bloem (petal length, petal width petal length en petal width).
 
 ![Schermafbeelding van de iris-experiment](./media/interpret-model-results/1.png)
 

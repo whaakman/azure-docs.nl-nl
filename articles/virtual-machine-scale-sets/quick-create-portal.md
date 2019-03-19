@@ -17,12 +17,12 @@ ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 0a9975b6f44a97d198dc308e263879c3358aab82
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: a2081bab2aebf0d49f3bde2467dac1fa683452ab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672692"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008728"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Quickstart: Een schaalset voor virtuele machines maken in Azure Portal
 Met een virtuele-machineschaalset kunt u een reeks identieke virtuele machines met automatisch schalen implementeren en beheren. U kunt het aantal VM’s in de schaalset handmatig schalen of regels voor automatisch schalen definiëren op basis van resourcegebruik zoals CPU, vraag naar geheugen, of netwerkverkeer. Een Azure load balancer verdeelt het verkeer vervolgens naar de VM-exemplaren in de schaalset. In deze snelstartgids gaat u in Azure Portal een schaalset voor virtuele machines maken.
@@ -31,7 +31,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
-Meld u aan bij Azure Portal op http://portal.azure.com.
+Meld u aan bij Azure Portal op https://portal.azure.com.
 
 
 ## <a name="create-virtual-machine-scale-set"></a>Schaalset voor virtuele machines maken
@@ -43,10 +43,10 @@ U kunt een schaalset implementeren met een installatiekopie van Windows Server o
 4. Selecteer het gewenste type besturingssysteem, zoals *Windows Server 2016 Datacenter*.
 5. Voer de naam van de gewenste resourcegroep in, zoals *myResourceGroup*, en de locatie, zoals *US - oost*.
 6. Voer de gewenste gebruikersnaam in en selecteer het verificatietype dat u wilt gebruiken.
-    - Een **wachtwoord** moet ten minste 12 tekens lang zijn en aan drie van de vier volgende complexiteitsvereisten voldoen: ten minste één kleine letter, één hoofdletter, één cijfer en één speciaal teken. Zie [Wat zijn de wachtwoordvereisten bij het maken van een virtuele machine?](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm) voor meer informatie.
-    - Als u een installatiekopie voor een Linux-besturingssysteem selecteert, kunt u ook **Openbare SSH-sleutel** kiezen. Geef alleen de openbare sleutel op, zoals *~/.ssh/id_rsa.pub*. U kunt vanuit de portal de Azure Cloud-Shell gebruiken om [SSH-sleutels te maken en gebruiken](../virtual-machines/linux/mac-create-ssh-keys.md).
+   - Een **wachtwoord** moet ten minste 12 tekens lang zijn en aan drie van de vier volgende complexiteitsvereisten voldoen: ten minste één kleine letter, één hoofdletter, één cijfer en één speciaal teken. Zie [Wat zijn de wachtwoordvereisten bij het maken van een virtuele machine?](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm) voor meer informatie.
+   - Als u een installatiekopie voor een Linux-besturingssysteem selecteert, kunt u ook **Openbare SSH-sleutel** kiezen. Geef alleen de openbare sleutel op, zoals *~/.ssh/id_rsa.pub*. U kunt vanuit de portal de Azure Cloud-Shell gebruiken om [SSH-sleutels te maken en gebruiken](../virtual-machines/linux/mac-create-ssh-keys.md).
 
-    ![Basisgegevens om een virtuele-machineschaalset te maken in de Azure-portal](./media/virtual-machine-scale-sets-create-portal/create-scale-set-basic-details.png)
+     ![Basisgegevens om een virtuele-machineschaalset te maken in de Azure-portal](./media/virtual-machine-scale-sets-create-portal/create-scale-set-basic-details.png)
 1. Selecteer onder **Opties voor taakverdeling kiezen** een optie voor taakverdeling, zoals *Load balancer*. Voer de resterende gegevens in voor de optie voor uw taakverdeling. Voor bijvoorbeeld *Load balancer* dient u een **openbare IP-adresnaam** en een **domeinnaamlabel** in te voeren.
 1. Voer de gegevens voor het virtuele netwerk in onder **Virtuele netwerken configureren**. U kunt bijvoorbeeld een nieuw virtueel netwerk maken, *myVirtualNetwork* en een nieuw subnet, *default*.
 1. Selecteer **Maken** om de opties voor de schaalset te bevestigen.

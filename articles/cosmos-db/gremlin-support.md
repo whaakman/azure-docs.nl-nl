@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: e7230e9c4d97c1c3ba8f0cf20d32f5a59ea2219b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: c4622293f05be5f4595136a5bbf194116fb2887c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034519"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081097"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Ondersteuning voor Gremlin-grafieken in Azure Cosmos DB
 Azure Cosmos DB biedt ondersteuning voor de grafiekdoorkruisingstaal van [Apache Tinkerpop](https://tinkerpop.apache.org) en [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps). Dit is een Gremlin-API voor het maken van grafiekentiteiten en het uitvoeren van querybewerkingen voor grafieken. U kunt de Gremlin-taal gebruiken om grafiekentiteiten (hoekpunten en randen) te maken, eigenschappen binnen deze entiteiten te wijzigen, query’s en traversals uit te voeren, en entiteiten te verwijderen. 
@@ -125,7 +125,7 @@ In het volgende fragment wordt bijvoorbeeld een GraphSON-representatie weergegev
 
 In GraphSON worden de volgende eigenschappen gebruikt voor hoekpunten:
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
 | id | De id voor het hoekpunt. Moet uniek zijn (in combinatie met de waarde _partition, indien van toepassing) |
 | label | Het label van het hoekpunt. Dit is optioneel en wordt gebruikt om het entiteitstype te beschrijven. |
@@ -136,7 +136,7 @@ In GraphSON worden de volgende eigenschappen gebruikt voor hoekpunten:
 
 En de rand bevat de volgende informatie voor hulp bij het navigeren naar andere delen van de grafiek.
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
 | id | De id voor de rand. Moet uniek zijn (in combinatie met de waarde _partition, indien van toepassing) |
 | label | Het label van de rand. Deze eigenschap is optioneel en wordt gebruikt om het relatietype te beschrijven. |
@@ -145,14 +145,14 @@ En de rand bevat de volgende informatie voor hulp bij het navigeren naar andere 
 
 Met elke eigenschap kunnen meerdere waarden worden opgeslagen binnen een matrix. 
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
 | waarde | De waarde van de eigenschap
 
 ## <a name="gremlin-steps"></a>Gremlin-stappen
 We gaan nu de Gremlin-stappen bekijken die worden ondersteund in Azure Cosmos DB. Zie [TinkerPop-naslagwerken](https://tinkerpop.apache.org/docs/current/reference) voor een compleet overzicht van Gremlin.
 
-| stap | Beschrijving | TinkerPop 3.2-documentatie |
+| stap | Description | TinkerPop 3.2-documentatie |
 | --- | --- | --- |
 | `addE` | Voegt een rand toe tussen twee hoekpunten | [stap: addE](https://tinkerpop.apache.org/docs/current/reference/#addedge-step) |
 | `addV` | Voegt een hoekpunt toe aan de grafiek | [stap: addV](https://tinkerpop.apache.org/docs/current/reference/#addvertex-step) |
@@ -181,7 +181,7 @@ We gaan nu de Gremlin-stappen bekijken die worden ondersteund in Azure Cosmos DB
 | `range` | Filtert op het opgegeven waardenbereik| [stap: range](https://tinkerpop.apache.org/docs/current/reference/#range-step) |
 | `repeat` | Herhaalt de stap zo vaak als is opgegeven. Wordt gebruikt om een lus te maken | [stap: repeat](https://tinkerpop.apache.org/docs/current/reference/#repeat-step) |
 | `sample` | Wordt gebruikt voor voorbeeldresultaten van de traversal | [stap: sample](https://tinkerpop.apache.org/docs/current/reference/#sample-step) |
-| `select` | Wordt gebruikt voor projectresultaten van de traversal |  [stap: select](https://tinkerpop.apache.org/docs/current/reference/#select-step) | |
+| `select` | Wordt gebruikt voor projectresultaten van de traversal |  [stap: select](https://tinkerpop.apache.org/docs/current/reference/#select-step) |
 | `store` | Wordt gebruikt voor niet-blokkerende combinaties van de traversal | [stap: store](https://tinkerpop.apache.org/docs/current/reference/#store-step) |
 | `tree` | Paden van een hoekpunt combineren in een boomstructuur | [stap: tree](https://tinkerpop.apache.org/docs/current/reference/#tree-step) |
 | `unfold` | Een iterator uitvoeren als stap| [stap: unfold](https://tinkerpop.apache.org/docs/current/reference/#unfold-step) |

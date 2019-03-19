@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05fda1b4f71f67714b4723e15533d3555d497249
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: e5d8357d17f8a6b463546789dd4627b74924a763
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321667"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080995"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Maken van de configuratie van een SAP NetWeaver-multi-SID
 
@@ -88,7 +88,7 @@ De volledige landschap met twee hoge beschikbaarheid van SAP-systemen zou er als
 ## <a name="prepare-the-infrastructure"></a>De infrastructuur voorbereiden
 Om voor te bereiden op uw infrastructuur, kunt u een extra SAP ASCS/SCS-exemplaar installeren met de volgende parameters:
 
-| Parameternaam | Waarde |
+| Parameternaam | Value |
 | --- | --- |
 | SAP ASCS/SCS BEVEILIGINGS-ID |pr1-lb-ascs |
 | SAP DBMS interne load balancer | PR5 |
@@ -114,7 +114,7 @@ U kunt extra exemplaren van de SAP ASCS/SCS installeren in de bestaande WSFC-clu
 U kunt een DNS-vermelding voor de virtuele host-naam van de ASCS/SCS-exemplaar maken met behulp van de volgende parameters:
 
 | Nieuwe SAP ASCS/SCS virtuele host-naam | Bijbehorende IP-adres |
-| --- | --- | --- |
+| --- | --- |
 |pr5-sap-cl |10.0.0.50 |
 
 De nieuwe hostnaam en IP-adres zijn in de DNS-beheer weergegeven zoals in de volgende schermafbeelding:

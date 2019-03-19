@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: roiyz
-ms.openlocfilehash: 67eadd45d4c9c3f3c83568dc7831eff37a4c376e
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 4d3e77ab2ee7f25c9155feb9d40c0870103320d3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983435"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007912"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>NVIDIA GPU-stuurprogramma-extensie voor Windows
 
 ## <a name="overview"></a>Overzicht
 
-Deze extensie wordt NVIDIA GPU-stuurprogramma's geïnstalleerd op Windows-N-serie VM's. De uitbreiding is afhankelijk van de VM-reeks CUDA- of GRID stuurprogramma's geïnstalleerd. Tijdens de installatie van NVIDIA stuurprogramma's met behulp van deze extensie u accepteren en als u akkoord gaat met de voorwaarden van de [NVIDIA gebruiksrechtovereenkomst](http://developer.download.nvidia.com/compute/cuda/5_5/rel/docs/EULA.pdf). Tijdens de installatie, kan de virtuele machine opnieuw opstarten om de stuurprogramma-installatie te voltooien.
+Deze extensie wordt NVIDIA GPU-stuurprogramma's geïnstalleerd op Windows-N-serie VM's. De uitbreiding is afhankelijk van de VM-reeks CUDA- of GRID stuurprogramma's geïnstalleerd. Tijdens de installatie van NVIDIA stuurprogramma's met behulp van deze extensie u accepteren en als u akkoord gaat met de voorwaarden van de [NVIDIA gebruiksrechtovereenkomst](https://developer.download.nvidia.com/compute/cuda/5_5/rel/docs/EULA.pdf). Tijdens de installatie, kan de virtuele machine opnieuw opstarten om de stuurprogramma-installatie te voltooien.
 
 Een uitbreiding is ook beschikbaar voor installatie van NVIDIA GPU-stuurprogramma's op [Linux N-serie VM's](hpccompute-gpu-linux.md).
 

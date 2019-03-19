@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: d25fcbce99017ff19adebd61275b395c980a3cf5
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: cc6c66ccb0bb08d709b2015d643544fb9dc30f52
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891688"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57846732"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core-SDK voor SQL-API: Opmerkingen bij de release en resources
 > [!div class="op_single_selector"]
@@ -49,6 +49,10 @@ De Azure Cosmos DB .NET Core SDK heeft de functiepariteit met de meest recente v
 * Nieuw objectmodel, met methoden en op het hoogste niveau CosmosClient verdeeld over relevante CosmosDatabases, CosmosContainers en CosmosItems klassen.
 * Ondersteuning voor stromen.
 * Bijgewerkte CosmosResponseMessage van server-statuscode retourneren en uitzondering alleen genereren als er geen reactie wordt geretourneerd.
+
+### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
+
+* Verbeteringen voor diagnosefuncties in
 
 ### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
 
@@ -233,6 +237,7 @@ Als u vragen met betrekking tot deze SDK hebt, post naar [StackOverflow](https:/
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [2.2.3](#2.2.3) |11 maart 2019 |--- |
 | [2.2.2](#2.2.2) |06 februari 2019 |--- |
 | [2.2.1](#2.2.1) |December 24 mei 2018 |--- |
 | [2.2.0](#2.2.0) |07 december 2018 |--- |

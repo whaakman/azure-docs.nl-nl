@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: johndeu;
-ms.openlocfilehash: 89a19d53046afd8d2b16b23508e952989091c8d2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: a953f4b77f896d3943cd996abf8c1fc1306ee9d7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005264"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881993"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Getimede metagegevens signaleren in Live streamen 
 
@@ -120,6 +120,7 @@ Het vak 'moov' moet bevatten een **TrackHeaderBox (tkhd)** vak zoals gedefinieer
 | **Veldnaam** | **Veldtype**          | **Vereist?** | **Beschrijving**                                                                                                |
 |----------------|-------------------------|---------------|----------------------------------------------------------------------------------------------------------------|
 | duur       | niet-ondertekende 64-bits geheel getal | Vereist      | Moet 0, omdat het nummer nul voorbeelden is en de totale duur van de voorbeelden in het spoor 0 is. |
+
 -------------------------------------
 
 Het vak 'moov' moet bevatten een **HandlerBox (hdlr)** zoals gedefinieerd in [ISO-14496-12] met de volgende beperkingen:
@@ -127,6 +128,7 @@ Het vak 'moov' moet bevatten een **HandlerBox (hdlr)** zoals gedefinieerd in [IS
 | **Veldnaam** | **Veldtype**          | **Vereist?** | **Beschrijving**   |
 |----------------|-------------------------|---------------|-------------------|
 | handler_type   | niet-ondertekende 32-bits geheel getal | Vereist      | Moet 'meta'. |
+
 -------------------------------------
 
 Het vak 'stsd' moet een MetaDataSampleEntry vak met de naam van een code bevatten, zoals gedefinieerd in [ISO-14496-12].  De naam van de codering moet bijvoorbeeld voor SCTE 35 berichten zijn 'scte'.
@@ -225,7 +227,7 @@ Getimede metagegevens voor Apple HTTP Live Streaming (HLS) kan worden ingesloten
 
 | **De naam van kenmerk** | **Type**                      | **Vereist?**                             | **Beschrijving**                                                                                                                                                                                                                                                                      |
 |--------------------|-------------------------------|-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| HINT                | tekenreeks tussen aanhalingstekens                 | Vereist                                  | Het bericht als een tekenreeks met Base 64 gecodeerde zoals beschreven in [IETF RFC 4648](http://tools.ietf.org/html/rfc4648). Voor [SCTE-35] berichten is dit de splice_info_section() base64-gecodeerd.                                                                                                |
+| HINT                | tekenreeks tussen aanhalingstekens                 | Vereist                                  | Het bericht als een tekenreeks met Base 64 gecodeerde zoals beschreven in [IETF RFC 4648](https://tools.ietf.org/html/rfc4648). Voor [SCTE-35] berichten is dit de splice_info_section() base64-gecodeerd.                                                                                                |
 | TYPE               | tekenreeks tussen aanhalingstekens                 | Vereist                                  | Een URN of een URL voor het identificeren van het bericht-schema. Voor [SCTE-35] berichten duurt het type de speciale waarde 'scte35'.                                                                                                                                |
 | Id                 | tekenreeks tussen aanhalingstekens                 | Vereist                                  | Een unieke id voor de gebeurtenis. Als de ID niet opgegeven is wanneer het bericht wordt opgenomen, wordt een unieke id gegenereerd in Azure Media Services.                                                                                                                                          |
 | DUUR           | decimaal getal met drijvende komma | Vereist                                  | De duur van de gebeurtenis. Als onbekend, moet de waarde 0 zijn. Eenheden zijn factional seconden.                                                                                                                                                                                           |
@@ -292,7 +294,7 @@ Nul of meer elementen van de gebeurtenis zijn opgenomen in het element EventStre
 | presentation_time   | niet-ondertekende 64-bits geheel getal | Optioneel      | Moet de media presentatietijd van de gebeurtenis ten opzichte van het begin van de periode. De presentatietijd en de duur moeten worden uitgelijnd met Stream toegang punten (SAP) van het type 1 of 2, zoals gedefinieerd in [ISO-14496-12] bijlage I. |
 | duur            | niet-ondertekende 32-bits geheel getal | Optioneel      | De duur van de gebeurtenis. Dit moet worden weggelaten als de duur onbekend is.                                                                                                                                                 |
 | id                  | niet-ondertekende 32-bits geheel getal | Optioneel      | Hiermee geeft u dit exemplaar van het bericht. Berichten met gelijkwaardige semantiek moeten dezelfde waarde hebben. Als de ID niet opgegeven is wanneer het bericht wordt opgenomen, wordt een unieke id gegenereerd in Azure Media Services.             |
-| De waarde van de gebeurtenis-element | string                  | Vereist      | Het gebeurtenisbericht weergegeven als een tekenreeks met Base 64 zoals beschreven in [IETF RFC 4648](http://tools.ietf.org/html/rfc4648).                                                                                                                   |
+| De waarde van de gebeurtenis-element | string                  | Vereist      | Het gebeurtenisbericht weergegeven als een tekenreeks met Base 64 zoals beschreven in [IETF RFC 4648](https://tools.ietf.org/html/rfc4648).                                                                                                                   |
 
 #### <a name="xml-syntax-and-example-for-dash-manifest-mpd-signaling"></a>Voorbeeld voor DASH en de syntaxis van de XML-manifest (MPD)-signalering
 
@@ -396,7 +398,7 @@ Smooth Streaming opnemen is vereist dat de Media Data Box (mdat) moet bevatten d
 
 **[MS-SSTR]**  ["Microsoft Smooth Streaming-Protocol', 15 mei 2014](https://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-SSTR%5d.pdf)
 
-**[AMF0]**  ["Actie bericht indeling AMF0"](http://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)
+**[AMF0]**  ["Actie bericht indeling AMF0"](https://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)
 
 **[LIVE-FMP4]** [Azure Media Services Fragmented MP4 Live Ingest Specification](https://docs.microsoft.com/azure/media-services/media-services-fmp4-live-ingest-overview)
 

@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 12/10/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: e4ae0c944323f18876ffcd1ee5c21aa29e9806cc
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
-ms.translationtype: HT
+ms.openlocfilehash: 4b95c75b863cdc86dd8a1ebe8347b77b637b110c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650815"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999114"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>Quickstart: Een Java-app maken in App Service in Linux
 
@@ -55,25 +55,18 @@ Voeg vervolgens de volgende invoegtoepassingsdefinitie toe aan het element `<bui
     <!--*************************************************-->
     <!-- Deploy to Tomcat in App Service Linux           -->
     <!--*************************************************-->
-      
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
         <version>1.5.3</version>
         <configuration>
-            <!-- Specify v2 schema -->
-            <schemaVersion>v2</schemaVersion>
             <!-- App information -->
             <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
             <appName>${WEBAPP_NAME}</appName>
             <region>${REGION}</region>
    
             <!-- Java Runtime Stack for App on Linux-->
-            <runtime>
-                <os>linux</os>
-                <javaVersion>jre8</javaVersion>
-                <webContainer>tomcat 8.5</webContainer>
-            </runtime>
+            <linuxRuntime>tomcat 8.5-jre8</linuxRuntime> 
         </configuration>
     </plugin>
 </plugins>
@@ -86,7 +79,7 @@ Voeg vervolgens de volgende invoegtoepassingsdefinitie toe aan het element `<bui
 
 Werk de volgende tijdelijke aanduidingen bij in de configuratie van de invoegtoepassing:
 
-| Tijdelijke aanduiding | Beschrijving |
+| Tijdelijke aanduiding | Description |
 | ----------- | ----------- |
 | `RESOURCEGROUP_NAME` | Naam voor de nieuwe resourcegroep waarin de app moet worden gemaakt. Door alle resources voor een app in een groep te plaatsen, kunt u ze samen beheren. Als u de resourcegroep verwijdert, worden bijvoorbeeld alle resources verwijderd die bij de app behoren. Wijzig deze waarde in een unieke nieuwe resourcegroepnaam, bijvoorbeeld *TestResources*. U gebruikt deze resourcegroepnaam om alle Azure-resources in een volgende sectie op te schonen. |
 | `WEBAPP_NAME` | De app-naam maakt deel uit van de hostnaam voor de app wanneer deze in Azure is geïmplementeerd (NAAM_WEBAPP.azurewebsites.net). Wijzig deze waarde in een unieke naam voor de nieuwe App Service-app, die uw Java-app host, bijvoorbeeld *contoso*. |
@@ -115,7 +108,8 @@ Zodra de implementatie is voltooid, bladert u naar de geïmplementeerde toepassi
 In deze snelstart hebt u Maven gebruikt om een ​​Java-app te maken, de [Maven-invoegtoepassing voor Azure Web Apps](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) geconfigureerd en vervolgens een in een webarchief verpakte Java-app geïmplementeerd naar App Service in Linux. Raadpleeg de volgende zelfstudies en artikelen met procedures voor meer informatie over het hosten van Java-toepassingen in App Service in Linux.
 
 - [Zelfstudie: Een Java Enterprise-app implementeren met PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
-- [Een Tomcat-gegevensbron configureren](app-service-linux-java.md#connecting-to-data-sources)
+- [Een Tomcat-gegevensbron configureren](app-service-linux-java.md#tomcat)
 - [CI/CD met Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)
 - [Hulpprogramma's voor het bewaken van toepassingsprestaties instellen](how-to-java-apm-monitoring.md)
+- [Java developer's guide for App Service op Linux](app-service-linux-java.md)
 

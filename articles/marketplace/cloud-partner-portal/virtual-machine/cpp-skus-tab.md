@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 4ecc259d40cdcba93a484f27e27191e967f10ff1
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: e05813297707165d59d1b1ed969b54fb0f433277
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639685"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57848087"
 ---
 # <a name="virtual-machine-skus-tab"></a>Tabblad voor virtuele machine-SKU 's
 
@@ -47,7 +47,7 @@ De volgende tabel beschrijft het doel, inhoud en opmaak van deze velden.
 |  ---------       |     ---------------                                                          |
 |  *SKU-instellingen*   |  |
 | **SKU-ID**       | De id voor deze SKU.  Deze naam is een maximum van 50 tekens, die bestaan uit kleine letters, alfanumerieke tekens en streepjes (-), maar mag niet eindigen met een streepje.  Worden kan niet gewijzigd nadat de aanbieding is gepubliceerd.  |
-|  *SKU-Details*   |  |
+|  *SKU Details*   |  |
 | **Titel**        | Beschrijvende naam voor de aanbieding om weer te geven in de marketplace. Maximale lengte van maximaal 50 tekens. |
 | **Samenvatting**      | Beknopte beschrijving van de aanbieding om weer te geven in de marketplace. Maximale lengte van 100 tekens. |
 | **Beschrijving**  | Beschrijvende tekst waarmee een meer gedetailleerde uitleg van de aanbieding.  <!-- TD: max len/guidance? 3k characters -->  |
@@ -63,7 +63,7 @@ De volgende tabel beschrijft het doel, inhoud en opmaak van deze velden.
 | **Gebruiksvriendelijke naam** | De naam van het besturingssysteem moet worden weergegeven aan klanten.  |
 | **Aanbevolen VM-grootten** | Selectie van maximaal zes aanbevolen VM-grootten in een gestandaardiseerde lijst kunt.  Hoewel deze aanbevelingen prominent op potentiële klanten weergegeven worden, kunnen worden om op te geven van elke VM-grootte die compatibel is met de installatiekopie van de oplossing. | 
 | **Poorten openen**| De poorten te openen en ter ondersteuning van voor de SKU-protocol.  Deze configuraties moeten overeenkomen met het virtuele netwerk dat u hebt geconfigureerd voor het netwerk van de VM-oplossing. Deze instellingen gaan van kracht tijdens de implementatie van de virtuele machine. Instellingen van de poort kunnen echter worden gewijzigd nadat u een SKU publiceert. Zie voor meer informatie, [over het openen van poorten op een virtuele machine met de Azure-portal](https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal). <br/>De volgende standaard-netwerkkoppelingen worden toegevoegd aan alle virtuele machines. &emsp; Windows: 3389 -> 3389 TCP, 5986 -> 5986 TCP; &emsp; Linux: 22 -> 22, TCP (SSH). |
-| **Versie van schijf**  | Gekoppelde oplossing VM, opgegeven door het versienummer van de schijf en schijf-URL. De versie van de schijf moet zich in [semantische versie](http://semver.org/) indeling: `<major>.<minor>.<patch>`.  De URL is de shared access signature die URI voor het besturingssysteem VHD gemaakt.  Hoewel u maximaal acht versies van schijf per SKU toevoegt kunt, worden alleen de hoogste versie schijfnummer voor een SKU op Azure Marketplace weergegeven. De andere versies is alleen zichtbaar via API's.  <!--TD: Add more specific link to API --> <br/> De **nieuwe gegevensschijf** accordeon sectie kunt u maximaal 15 gegevensschijven koppelen aan uw virtuele machine.  Wanneer u een SKU met een bepaalde versie van de virtuele machine en de gekoppelde gegevensschijven publiceert, kan deze configuratie kan niet worden gewijzigd.  Als u meer versies van de virtuele machine toegevoegd aan de SKU, moeten ze ook hetzelfde aantal gegevensschijven ondersteunen. <br/> Als u uw Azure-gebaseerde VM-installatiekopieën niet hebt gemaakt, kunt u dit veld later bijwerken toevoegen.  Zie de sectie voor informatie over het maken van de bijbehorende VM-resource, [maken VM technische zaken](./cpp-create-technical-assets.md).  
+| **Versie van schijf**  | Gekoppelde oplossing VM, opgegeven door het versienummer van de schijf en schijf-URL. De versie van de schijf moet zich in [semantische versie](https://semver.org/) indeling: `<major>.<minor>.<patch>`.  De URL is de shared access signature die URI voor het besturingssysteem VHD gemaakt.  Hoewel u maximaal acht versies van schijf per SKU toevoegt kunt, worden alleen de hoogste versie schijfnummer voor een SKU op Azure Marketplace weergegeven. De andere versies is alleen zichtbaar via API's.  <!--TD: Add more specific link to API --> <br/> De **nieuwe gegevensschijf** accordeon sectie kunt u maximaal 15 gegevensschijven koppelen aan uw virtuele machine.  Wanneer u een SKU met een bepaalde versie van de virtuele machine en de gekoppelde gegevensschijven publiceert, kan deze configuratie kan niet worden gewijzigd.  Als u meer versies van de virtuele machine toegevoegd aan de SKU, moeten ze ook hetzelfde aantal gegevensschijven ondersteunen. <br/> Als u uw Azure-gebaseerde VM-installatiekopieën niet hebt gemaakt, kunt u dit veld later bijwerken toevoegen.  Zie de sectie voor informatie over het maken van de bijbehorende VM-resource, [maken VM technische zaken](./cpp-create-technical-assets.md).  
 |  |  |
 
 <!-- TD: The CPP UX warning msg indicates that underscores are also supported in these SKU IDs. I suspect this might be true for other identifiers. --> 

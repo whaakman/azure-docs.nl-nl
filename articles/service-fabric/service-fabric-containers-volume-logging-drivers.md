@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
 ms.author: aljo, subramar
-ms.openlocfilehash: f92c8a7cca70dd9de6389c201d9589c7a31ce25f
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 24cda5d6c96355ab4df086a2649c136116f200f1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726988"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863080"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric-stuurprogramma voor Azure Files-Volume (Preview)
 De invoegtoepassing Azure Files-volume is een [Docker volume invoegtoepassing](https://docs.docker.com/engine/extend/plugins_volume/) waarmee de [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) op basis van volumes voor Docker-containers. Deze invoegtoepassing Docker-volume wordt geleverd als een Service Fabric-toepassing die kan worden geïmplementeerd naar Service Fabric-clusters. Het doel is voor Azure Files op basis van volumes voor andere toepassingen met Service Fabric-containers die zijn geïmplementeerd in het cluster.
@@ -66,7 +66,7 @@ In de instelling fabricSettings-sectie van de ARM-sjabloon (voor Azure-implement
 
 ## <a name="deploy-the-service-fabric-azure-files-application"></a>De bestanden van de Azure Service Fabric-toepassing implementeren
 
-De Service Fabric-toepassing waarmee de volumes voor uw containers kan worden gedownload vanaf de volgende [koppeling](http://download.microsoft.com/download/C/0/3/C0373AA9-DEFA-48CF-9EBE-994CA2A5FA2F/AzureFilesVolumePlugin.6.4.571.9590.zip). De toepassing kan worden geïmplementeerd in het cluster via [PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) of [FabricClient APIs](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
+De Service Fabric-toepassing waarmee de volumes voor uw containers kan worden gedownload vanaf de volgende [koppeling](https://download.microsoft.com/download/C/0/3/C0373AA9-DEFA-48CF-9EBE-994CA2A5FA2F/AzureFilesVolumePlugin.6.4.571.9590.zip). De toepassing kan worden geïmplementeerd in het cluster via [PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) of [FabricClient APIs](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
 
 1. Via de opdrachtregel, wijzig de map naar de hoofdmap van het toepassingspakket dat is gedownload.
 
@@ -110,9 +110,8 @@ De Service Fabric-toepassing waarmee de volumes voor uw containers kan worden ge
     ```
 
 > [!NOTE]
-
+> 
 > Toewijzing van SMB-koppelingen naar containers biedt geen ondersteuning voor Windows Server 2016 Datacenter ([die wordt alleen ondersteund op Windows Server versie 1709](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/container-storage)). Deze beperking voorkomt dat netwerktoewijzing volume en stuurprogramma's voor Azure Files-volume op versies ouder dan 1709.
->   
 
 ### <a name="deploy-the-application-on-a-local-development-cluster"></a>De toepassing op een lokaal ontwikkelcluster implementeren
 Het standaardaantal-service-exemplaar voor de toepassing Azure Files-volume-invoegtoepassing wordt -1, wat inhoudt dat er een exemplaar van de service op elk knooppunt in het cluster geïmplementeerd is. Bij het implementeren van de toepassing Azure Files-volume-invoegtoepassing op een lokaal ontwikkelcluster, moet er echter het aantal service-exemplaren worden opgegeven als 1. Dit kan worden gedaan de **InstanceCount** parametr aplikace. De opdracht voor het implementeren van de toepassing Azure Files-volume-invoegtoepassing op een lokaal ontwikkelcluster is daarom:
@@ -129,33 +128,33 @@ Het volgende fragment toont hoe een Azure-bestanden op basis van volume kan word
 
 ```xml
 ?xml version="1.0" encoding="UTF-8"?>
-<ApplicationManifest ApplicationTypeName="WinNodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <Description>Calculator Application</Description>
-    <Parameters>
-      <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
-      <Parameter Name="MyCpuShares" DefaultValue="3"></Parameter>
-      <Parameter Name="MyStorageVar" DefaultValue="c:\tmp"></Parameter>
-    </Parameters>
-    <ServiceManifestImport>
-        <ServiceManifestRef ServiceManifestName="NodeServicePackage" ServiceManifestVersion="1.0"/>
-     <Policies>
+<ApplicationManifest ApplicationTypeName="WinNodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
+    <Description>Calculator Application</Description>
+    <Parameters>
+      <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
+      <Parameter Name="MyCpuShares" DefaultValue="3"></Parameter>
+      <Parameter Name="MyStorageVar" DefaultValue="c:\tmp"></Parameter>
+    </Parameters>
+    <ServiceManifestImport>
+        <ServiceManifestRef ServiceManifestName="NodeServicePackage" ServiceManifestVersion="1.0"/>
+     <Policies>
        <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="hyperv">
-            <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
-            <RepositoryCredentials PasswordEncrypted="false" Password="****" AccountName="test"/>
+            <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
+            <RepositoryCredentials PasswordEncrypted="false" Password="****" AccountName="test"/>
             <Volume Source="azfiles" Destination="c:\VolumeTest\Data" Driver="sfazurefile">
                 <DriverOption Name="shareName" Value="" />
                 <DriverOption Name="storageAccountName" Value="" />
                 <DriverOption Name="storageAccountKey" Value="" />
                 <DriverOption Name="storageAccountFQDN" Value="" />
             </Volume>
-       </ContainerHostPolicies>
-   </Policies>
-    </ServiceManifestImport>
-    <ServiceTemplates>
-        <StatelessService ServiceTypeName="StatelessNodeService" InstanceCount="5">
-            <SingletonPartition></SingletonPartition>
-        </StatelessService>
-    </ServiceTemplates>
+       </ContainerHostPolicies>
+   </Policies>
+    </ServiceManifestImport>
+    <ServiceTemplates>
+        <StatelessService ServiceTypeName="StatelessNodeService" InstanceCount="5">
+            <SingletonPartition></SingletonPartition>
+        </StatelessService>
+    </ServiceTemplates>
 </ApplicationManifest>
 ```
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c23f16f5d3c665cb74e9e0460d2e5658fa716d72
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e0ada3055a3347cb42179fddbba671f2f03f502d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452858"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57885064"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Zelfstudie: Azure Active Directory-integratie met oneindige Campus
 
@@ -194,16 +194,16 @@ Het doel van deze sectie is het maken van een _één_ testgebruiker in Azure por
 
     ![Het maken van een Azure AD-testgebruiker](common/create_aaduser_02.png)
 
-    a. Voer in het veld **Naam****Britta Simon** in.
+    a. Voer in het veld **Naam** **Britta Simon** in.
   
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    b. In de **gebruikersnaam** veld, typt u **brittasimon\@yourcompanydomain.extension**  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Selecteer **eigenschappen**, selecteer de **Show wachtwoord** selectievakje en noteer de waarde die wordt weergegeven in het wachtwoord.
 
     d. Selecteer **Maken**.
 
-### <a name="creating-a-infinite-campus-test-user"></a>Het maken van een oneindige Campus-testgebruiker
+### <a name="creating-an-infinite-campus-test-user"></a>Het maken van een oneindige Campus-testgebruiker
 
 Oneindige Campus heeft een architectuur met demografische gegevens die zijn gericht. Neem contact op met [oneindige Campus-ondersteuningsteam](mailto:sales@infinitecampus.com) om toe te voegen de gebruikers in het oneindige Campus-platform.
 

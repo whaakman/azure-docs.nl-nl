@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 10/12/2018
-ms.openlocfilehash: 76f09af66e362fb6b03346b43a6be1a3ec7cf681
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: a8ed25f761e3109b0b97ee9b604a7a2d58e5aa8e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976763"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081335"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Quickstart: Een Apache Kafka-cluster maken in HDInsight
 
@@ -36,9 +36,9 @@ In deze snelstart leert u hoe u met Azure Portal een [Apache Kafka](https://kafk
 
     De opdracht `ssh` wordt standaard ondersteund op Linux, Unix- en macOS-systemen. In Windows 10 gebruikt u een van de volgende methoden om de opdracht `ssh` te installeren:
 
-    * Gebruik [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart). De cloud-shell biedt de opdracht `ssh` en kan worden geconfigureerd om Bash of PowerShell te gebruiken als de shell-omgeving.
+  * Gebruik [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart). De cloud-shell biedt de opdracht `ssh` en kan worden geconfigureerd om Bash of PowerShell te gebruiken als de shell-omgeving.
 
-    * [Installeer het Windows-subsysteem voor Linux](https://docs.microsoft.com/windows/wsl/install-win10). De Linux-distributies die beschikbaar zijn via de Microsoft Store bieden de opdracht `ssh`.
+  * [Installeer het Windows-subsysteem voor Linux](https://docs.microsoft.com/windows/wsl/install-win10). De Linux-distributies die beschikbaar zijn via de Microsoft Store bieden de opdracht `ssh`.
 
     > [!IMPORTANT]  
     > Bij de stappen in dit document wordt ervan uitgegaan dat u van een van de hierboven genoemde SSH-clients gebruikt. Als u een andere SSH-client gebruikt en er problemen optreden, raadpleegt u de documentatie voor uw SSH-client.
@@ -180,6 +180,9 @@ In deze sectie vraagt u de hostgegevens op uit de Apache Ambari REST API in het 
     ```
 
 2. Gebruik de volgende opdracht om een omgevingsvariabele in te stellen op de clusternaam:
+
+    > [!Important]
+    > Voer de clusternaam van uw in kleine letters voor deze opdracht, zelfs als deze is ingericht met hoofdletters in de naam. Hoofdletters namen kunnen niet worden gebruikt met Zookeeper of voor gegevens van de broker.
 
     ```bash
     read -p "Enter the Kafka on HDInsight cluster name: " CLUSTERNAME

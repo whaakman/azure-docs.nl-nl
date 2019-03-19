@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: ad97381d983446dfcc32dd1ba82af587a500b9da
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 55c9120547472bb9a9a74533fe532d346844e89c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762140"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081760"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Zelfstudie: Resources voor validatie als een Service instellen
 
@@ -56,13 +56,13 @@ Een tenant die uw organisatie wordt gebruikt voor toegang tot VaaS services make
 
     Het toewijzen van rollen in de **Azure Stack-validatieservice** toepassing:
 
-    1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-    2. Selecteer **alle Services** > **Azure Active Directory** onder de **identiteit** sectie.
-    3. Selecteer **bedrijfstoepassingen** > **Azure Stack-validatieservice** toepassing.
-    4. Selecteer **Gebruikers en groepen**. De **Azure Stack-validatieservice - gebruikers en groepen** blade geeft een lijst van de gebruikers met een machtiging voor het gebruik van de toepassing.
-    5. Selecteer **+ gebruiker toevoegen** toevoegen van een gebruiker uit uw tenant en een rol toe te wijzen.
+   1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+   2. Selecteer **alle Services** > **Azure Active Directory** onder de **identiteit** sectie.
+   3. Selecteer **bedrijfstoepassingen** > **Azure Stack-validatieservice** toepassing.
+   4. Selecteer **Gebruikers en groepen**. De **Azure Stack-validatieservice - gebruikers en groepen** blade geeft een lijst van de gebruikers met een machtiging voor het gebruik van de toepassing.
+   5. Selecteer **+ gebruiker toevoegen** toevoegen van een gebruiker uit uw tenant en een rol toe te wijzen.
 
-    Als u isoleren VaaS resources en acties van verschillende groepen binnen een organisatie wilt, kunt u meerdere Azure AD-tenant-mappen maken.
+      Als u isoleren VaaS resources en acties van verschillende groepen binnen een organisatie wilt, kunt u meerdere Azure AD-tenant-mappen maken.
 
 ### <a name="register-your-tenant"></a>Registreren van uw tenant
 

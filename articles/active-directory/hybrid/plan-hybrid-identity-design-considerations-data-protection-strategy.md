@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b35060aec8d9d040777fda247c798a42533b2ea4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3c5cad3f735494ee74156e22a9bf150911c36eb0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182677"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091474"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Strategie voor gegevensbescherming voor uw oplossing voor hybride identiteit definiëren
 In deze taak definieert u de strategie voor gegevensbescherming voor uw oplossing voor hybride identiteit om te voldoen aan de bedrijfsvereisten die u hebt gedefinieerd in:
@@ -119,9 +119,9 @@ Zodra de gebruiker is geverifieerd met behulp van Azure AD, is het belangrijk om
 
 Elke interactie in het diagram weergegeven zoals in afbeelding X vertegenwoordigt een scenario van de access control die kan worden volstaan met Azure AD. Hieronder bevat een beschrijving van elk scenario:
 
-  1. Voorwaardelijke toegang voor toepassingen die on-premises gehost: U kunt geregistreerde apparaten met toegangsbeleid voor toepassingen die zijn geconfigureerd voor gebruik van AD FS met Windows Server 2012 R2.
+1. Voorwaardelijke toegang voor toepassingen die on-premises gehost: U kunt geregistreerde apparaten met toegangsbeleid voor toepassingen die zijn geconfigureerd voor gebruik van AD FS met Windows Server 2012 R2.
 
-  2. Toegangsbeheer voor de Azure-portal:  Met Azure kunt u ook toegang tot de portal beheren met behulp van op rollen gebaseerd toegangsbeheer (RBAC)). Deze methode kan het bedrijf om te beperken van het aantal bewerkingen die een persoon in de Azure-portal kunt uitvoeren. Met behulp van RBAC voor het beheren van toegang tot de portal, kunnen IT-beheerders toegang delegeren met behulp van de volgende methoden voor access management:
+2. Toegangsbeheer voor de Azure-portal:  Met Azure kunt u ook toegang tot de portal beheren met behulp van op rollen gebaseerd toegangsbeheer (RBAC)). Deze methode kan het bedrijf om te beperken van het aantal bewerkingen die een persoon in de Azure-portal kunt uitvoeren. Met behulp van RBAC voor het beheren van toegang tot de portal, kunnen IT-beheerders toegang delegeren met behulp van de volgende methoden voor access management:
 
    - Groep op basis van roltoewijzing: U kunt toegang toewijzen aan Azure AD-groepen die kunnen worden gesynchroniseerd vanuit uw lokale Active Directory. Hiermee kunt u de bestaande investeringen die uw organisatie heeft aangebracht in de hulpprogramma's en processen voor het beheren van groepen. U kunt ook de functie voor het beheer van groepen met gemachtigden van Azure AD Premium gebruiken.
    - Gebruik de ingebouwde rollen in Azure: U kunt drie rollen: eigenaar, Inzender en lezer, om ervoor te zorgen dat gebruikers en groepen gemachtigd alleen de taken die ze nodig hebben om hun werk te doen.
@@ -131,9 +131,9 @@ Elke interactie in het diagram weergegeven zoals in afbeelding X vertegenwoordig
    > Als u toepassingen bouwen en wilt aanpassen van het toegangsbeheer voor hen, is het ook mogelijk met Azure AD-toepassingsrollen voor autorisatie. Controleer deze [WebApp-RoleClaims-DotNet-voorbeeld](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) van het bouwen van uw app voor het gebruik van deze mogelijkheid.
 
 
-  3. Voorwaardelijke toegang voor Office 365-toepassingen met Microsoft Intune:  IT-beheerders kunnen apparaatbeleid voor voorwaardelijke toegang voor het beveiligen van bedrijfsbronnen, terwijl op hetzelfde moment ze IT-medewerkers op compatibele apparaten toegang krijgen tot de services inrichten. 
+3. Voorwaardelijke toegang voor Office 365-toepassingen met Microsoft Intune:  IT-beheerders kunnen apparaatbeleid voor voorwaardelijke toegang voor het beveiligen van bedrijfsbronnen, terwijl op hetzelfde moment ze IT-medewerkers op compatibele apparaten toegang krijgen tot de services inrichten. 
   
-  4. Voorwaardelijke toegang voor Saas-apps: [Deze functie](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) kunt u regels voor toegang per toepassing meervoudige verificatie en de mogelijkheid om te blokkeren van toegang voor gebruikers niet op een vertrouwd netwerk configureren. U kunt de multi-factor authentication-regels toepassen op alle gebruikers die zijn toegewezen aan de toepassing of alleen voor gebruikers binnen de opgegeven beveiligingsgroepen. Gebruikers kunnen worden uitgesloten van de vereiste voor meervoudige verificatie als ze de toepassing openen vanaf een IP-adres dat in binnen de organisatie het netwerk.
+4. Voorwaardelijke toegang voor Saas-apps: [Deze functie](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) kunt u regels voor toegang per toepassing meervoudige verificatie en de mogelijkheid om te blokkeren van toegang voor gebruikers niet op een vertrouwd netwerk configureren. U kunt de multi-factor authentication-regels toepassen op alle gebruikers die zijn toegewezen aan de toepassing of alleen voor gebruikers binnen de opgegeven beveiligingsgroepen. Gebruikers kunnen worden uitgesloten van de vereiste voor meervoudige verificatie als ze de toepassing openen vanaf een IP-adres dat in binnen de organisatie het netwerk.
 
 Omdat de opties voor toegangsbeheer gebruiken een gelaagde benadering, vergelijking tussen deze opties zijn niet van toepassing voor deze taak. Zorg ervoor dat u gebruik van alle opties die beschikbaar zijn voor elk scenario dat vereist dat u voor het beheren van toegang tot uw resources.
 

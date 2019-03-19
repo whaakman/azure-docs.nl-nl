@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 43276aad26bc06400c1bc4b5feaace0d5646c213
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 41220ccdca945610d7d8ca87af0857114e2cef85
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849228"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57866289"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Doel (VMware naar Azure) voorbereiden
 
@@ -21,16 +21,16 @@ In dit artikel wordt beschreven hoe u uw Azure-omgeving om te beginnen met het r
 ## <a name="prerequisites"></a>Vereisten
 
 Het artikel wordt ervan uitgegaan dat:
-- U kunt een Recovery Services-kluis ter bescherming van uw fysieke servers hebt gemaakt. Kunt u een Recovery Services-kluis uit de [Azure-portal](http://portal.azure.com "Azure-portal").
+- U kunt een Recovery Services-kluis ter bescherming van uw fysieke servers hebt gemaakt. Kunt u een Recovery Services-kluis uit de [Azure-portal](https://portal.azure.com "Azure-portal").
 - U hebt [instellen van uw on-premises omgeving](physical-azure-disaster-recovery.md) voor het repliceren van fysieke servers naar Azure.
 
 ## <a name="prepare-target"></a>Doel voorbereiden
 
-Na het voltooien van de **stap 1: Selecteer beveiligingsdoel** en **stap 2: bron voorbereiden**, gaat u naar **stap 3: doel**
+Na het voltooien van de **stap 1: Selecteer beveiligingsdoel** en **stap 2: bron voorbereiden**, gaat u naar **stap 3: Doel**
 
 ![Doel voorbereiden](./media/physical-azure-set-up-target/prepare-target-physical-to-azure.png)
 
-1. **Abonnement:** uit de vervolgkeuzelijst, selecteer het abonnement dat u wilt uw fysieke servers te repliceren.
+1. **Abonnement:** Selecteer het abonnement dat u wilt repliceren van uw fysieke servers naar in de vervolgkeuzelijst.
 2. **Implementatiemodel:** Selecteer het implementatiemodel (klassiek of Resource Manager)
 
 Op basis van het gekozen implementatiemodel, wordt om ervoor te zorgen dat u hebt ten minste één compatibel opslagaccount en virtueel netwerk in het doelabonnement om te repliceren en failover uw fysieke servers naar een validatie uitgevoerd.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: f19693853672b6274265c95b851f478b4f3ef4a2
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: a3778a0b0e5b4b59eb29cb67c0596d9636eb3ccb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961887"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58166698"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Upgraden en het bijwerken van een Azure Service Fabric-cluster
 
@@ -101,8 +101,6 @@ Veel verschillende configuratie-instellingen kunnen worden aangepast op een clus
 ## <a name="patch-the-os-in-the-cluster-nodes"></a>Patch uitvoeren voor het besturingssysteem in de clusterknooppunten
 De patch orchestration-toepassing (POA) is een Service Fabric-toepassing waarmee het besturingssysteem op een Service Fabric-cluster zonder uitvaltijd patches worden geautomatiseerd. De [Patch Orchestration-toepassing voor Windows](service-fabric-patch-orchestration-application.md) of [Patch Orchestration-toepassing voor Linux](service-fabric-patch-orchestration-application-linux.md) kan worden geïmplementeerd in uw cluster om patches te installeren op een gecoördineerde manier terwijl de services beschikbare voortdurend. 
 
-## <a name="os-upgrades-on-the-vms-that-make-up-the-cluster"></a>Upgrades voor het besturingssysteem op de virtuele machines die gezamenlijk het cluster
-Als u de installatiekopie van het besturingssysteem op de virtuele machines van het cluster bijwerkt moet, u moet dit doen één virtuele machine op een tijdstip. U bent verantwoordelijk voor deze upgrade--er is momenteel geen automatisering voor dit.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Informatie over het aanpassen van enkele van de [service fabric-cluster infrastructuurinstellingen](service-fabric-cluster-fabric-settings.md)

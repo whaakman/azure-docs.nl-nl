@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 01/21/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: de009d1dbc979a534b0fed8cee2afc867c5b79d4
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 37f5040585681a53743fb3426b7f7ffac36de51c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426910"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008690"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Architectuur voor hoge beschikbaarheid en scenario's voor SAP NetWeaver
 
@@ -45,7 +45,7 @@ ms.locfileid: "54426910"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -59,6 +59,7 @@ ms.locfileid: "54426910"
 [sap-ascs-ha-multi-sid-wsfc-shared-disk]:sap-ascs-ha-multi-sid-wsfc-shared-disk.md
 [sap-hana-ha]:sap-hana-high-availability.md
 [sap-suse-ascs-ha]:high-availability-guide-suse.md
+[sap-suse-ascs-ha-anf]:high-availability-guide-suse-netapp-files.md
 [sap-higher-availability]:sap-higher-availability-architecture-scenarios.md
 
 [planning-guide]:planning-guide.md  
@@ -92,11 +93,11 @@ ms.locfileid: "54426910"
 [virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]:../../windows/sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md
 [virtual-machines-windows-portal-sql-alwayson-int-listener]:../../windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md
 
-[sap-ha-bc-virtual-env-hyperv-vmware-white-paper]:http://scn.sap.com/docs/DOC-44415
-[sap-ha-partner-information]:http://scn.sap.com/docs/DOC-8541
+[sap-ha-bc-virtual-env-hyperv-vmware-white-paper]:https://scn.sap.com/docs/DOC-44415
+[sap-ha-partner-information]:https://scn.sap.com/docs/DOC-8541
 [azure-sla]:https://azure.microsoft.com/support/legal/sla/
-[azure-virtual-machines-manage-availability]:http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability
-[azure-storage-redundancy]:http://azure.microsoft.com/documentation/articles/storage-redundancy/
+[azure-virtual-machines-manage-availability]:https://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability
+[azure-storage-redundancy]:https://azure.microsoft.com/documentation/articles/storage-redundancy/
 [azure-storage-managed-disks-overview]:https://docs.microsoft.com/azure/storage/storage-managed-disks-overview
 
 [planning-guide-figure-100]:media/virtual-machines-shared-sap-planning-guide/100-single-vm-in-azure.png
@@ -394,8 +395,8 @@ U kunt een WSFC-oplossing gebruiken om te beveiligen van de SAP ASCS/SCS-exempla
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-linux"></a>Architectuur voor hoge beschikbaarheid voor een SAP ASCS/SCS-exemplaar op Linux
 
 > ![Linux][Logo_Linux] Linux
->
-Zie voor meer informatie over clusters van de SAP ASCS/SCS-exemplaar met behulp van de cluster-framework van SLES [hoge beschikbaarheid voor SAP NetWeaver op Azure VM's in SUSE Linux Enterprise Server voor SAP-toepassingen] [ sap-suse-ascs-ha].
+> 
+> Zie voor meer informatie over clusters van de SAP ASCS/SCS-exemplaar met behulp van de cluster-framework van SLES [hoge beschikbaarheid voor SAP NetWeaver op Azure VM's in SUSE Linux Enterprise Server voor SAP-toepassingen] [ sap-suse-ascs-ha]. Voor alternatieve HA-architectuur op SLES, die vereist geen maximaal beschikbare NFS Zie [gids voor hoge beschikbaarheid voor SAP NetWeaver in SUSE Linux Enterprise Server met Azure NetApp-bestanden voor SAP-toepassingen] [ sap-suse-ascs-ha-anf].
 
 Zie voor meer informatie over clusters van de SAP ASCS/SCS-exemplaar met behulp van de cluster-framework van Red Hat [hoge beschikbaarheid voor SAP NetWeaver op Red Hat Enterprise Linux Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel)
 
@@ -403,10 +404,10 @@ Zie voor meer informatie over clusters van de SAP ASCS/SCS-exemplaar met behulp 
 ### <a name="sap-netweaver-multi-sid-configuration-for-a-clustered-sap-ascsscs-instance"></a>SAP NetWeaver multi-SID-configuratie voor een geclusterde SAP ASCS/SCS-exemplaar
 
 > ![Windows][Logo_Windows] Windows
->
+> 
 > Op dit moment wordt multi-SID alleen ondersteund met WSFC. Multi-SID wordt ondersteund met de bestandsshare en gedeelde schijf.
->
-Zie voor meer informatie over de architectuur voor hoge beschikbaarheid van multi-SID:
+> 
+> Zie voor meer informatie over de architectuur voor hoge beschikbaarheid van multi-SID:
 
 * [SAP ASCS/SCS-exemplaar multi-SID hoge beschikbaarheid voor Windows Server Failover Clustering en bestandsshare][sap-ascs-ha-multi-sid-wsfc-file-share]
 

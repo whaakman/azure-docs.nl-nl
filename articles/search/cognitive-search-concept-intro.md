@@ -6,16 +6,16 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.devlang: NA
-ms.topic: conceptual
-ms.date: 01/18/2019
+ms.topic: overview
+ms.date: 03/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d2086f02cc981ad944c030ad40083d153c520359
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 3c2567564e015ef19adf9f8c776e1f377a9cdf30
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447324"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58133056"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Wat is 'cognitive search' in Azure Search?
 
@@ -92,31 +92,9 @@ Indexen zijn gegenereerd op basis van een indexschema waarin de velden, kenmerke
 
 ## <a name="where-do-i-start"></a>Waar moet ik beginnen?
 
-**Stap 1: [Maak een Azure Search-resource](search-create-service-portal.md) in een regio die de API's** 
+**Stap 1: [Maak een Azure Search-resource](search-create-service-portal.md)** 
 
-+ US - west-centraal
-+ US - zuid-centraal
-+ US - noord-centraal
-+ US - oost
-+ US - oost 2
-+ US - west
-+ US - west 2
-+ US - centraal
-+ Canada - midden
-+ Europa -west
-+ Europa - noord
-+ Verenigd Koninkrijk Zuid
-+ Frankrijk - centraal
-+ Brazilië - zuid
-+ Azië - oost
-+ Azië - zuidoost
-+ India - centraal
-+ Japan - west
-+ Japan - oost
-+ Korea - centraal
-+ Australië - oost
-
-**Stap 2: Praktische ervaring naar het hoofdniveau van de werkstroom**
+**Stap 2: Probeer enkele snelstarts en voorbeelden voor praktische ervaring**
 
 + [Quick Start (portal)](cognitive-search-quickstart-blob.md)
 + [Zelfstudie (HTTP-aanvragen)](cognitive-search-tutorial-blob.md)

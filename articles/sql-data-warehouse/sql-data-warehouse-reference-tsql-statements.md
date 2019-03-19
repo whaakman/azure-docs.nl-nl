@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 06/13/2018
 ms.author: twounder
 ms.reviewer: igorstan
-ms.openlocfilehash: 4cec5dd38d41f354f4d1430240a23f0b328cbb7b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8922d4399f52937710f111c3c8ad4c9af91b6bb7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452427"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890097"
 ---
 # <a name="t-sql-statements-supported-in-azure-sql-data-warehouse"></a>T-SQL-instructies ondersteund in Azure SQL Data Warehouse
 Koppelingen naar de documentatie voor T-SQL-instructies ondersteund in Azure SQL Data Warehouse.
@@ -40,6 +40,7 @@ Koppelingen naar de documentatie voor T-SQL-instructies ondersteund in Azure SQL
 * [CREATE TABLE](https://msdn.microsoft.com/library/mt203953.aspx)
 * [CREATE TABLE AS SELECT](https://msdn.microsoft.com/library/mt204041.aspx)
 * [WEERGAVE MAKEN](https://msdn.microsoft.com/library/ms187956.aspx)
+* [MAKEN van de WERKBELASTING classificatie](/sql/t-sql/statements/create-workload-classifier-transact-sql) (Preview)
 * [EXTERNE GEGEVENSBRON VERWIJDEREN](https://msdn.microsoft.com/library/mt146367.aspx)
 * [VERWIJDEREN VAN DE EXTERNE BESTANDSINDELING](https://msdn.microsoft.com/library/mt146379.aspx)
 * [EXTERNE TABEL VERWIJDEREN](https://msdn.microsoft.com/library/mt130698.aspx)
@@ -49,6 +50,7 @@ Koppelingen naar de documentatie voor T-SQL-instructies ondersteund in Azure SQL
 * [TABEL VERWIJDEREN](https://msdn.microsoft.com/library/ms173790.aspx)
 * [SCHEMA VERWIJDEREN](https://msdn.microsoft.com/library/ms186751.aspx)
 * [WEERGAVE VERWIJDEREN](https://msdn.microsoft.com/library/ms173492.aspx)
+* [VERVOLGKEUZELIJST WERKBELASTING classificatie](/sql/t-sql/statements/drop-workload-classifier-transact-sql) (Preview)
 * [WIJZIG DE NAAM](https://msdn.microsoft.com/library/mt631611.aspx)
 * [TRUNCATE TABLE](https://msdn.microsoft.com/library/ms177570.aspx)
 * [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx)

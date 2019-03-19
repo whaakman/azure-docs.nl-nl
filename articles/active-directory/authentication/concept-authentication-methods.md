@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9d90407dab29f431f5a592e077c859aea997c4c
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 09f61f60a3885fbc58cddc4b46df11014057f54e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214092"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999484"
 ---
 # <a name="what-are-authentication-methods"></a>Wat zijn verificatiemethoden?
 
@@ -148,6 +148,8 @@ De Microsoft Authenticator-app of andere apps van derden kunnen worden gebruikt 
 > [!WARNING]
 > Self-service voor wachtwoord opnieuw ingesteld wanneer alleen één methode vereist is voor het opnieuw instellen van de verificatiecode is de enige optie beschikbaar voor gebruikers **om te controleren of het hoogste niveau van beveiliging**.
 >
+
+Gebruikers hebben mogelijk een combinatie van maximaal 5 OATH-tokens voor hardware- of verificator-toepassingen, zoals de Microsoft Authenticator-app is geconfigureerd voor gebruik op elk gewenst moment.
 
 ## <a name="oath-hardware-tokens-public-preview"></a>OATH-hardware-tokens (openbare preview)
 

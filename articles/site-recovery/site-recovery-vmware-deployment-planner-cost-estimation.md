@@ -5,18 +5,26 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 3/14/2019
 ms.author: mayg
-ms.openlocfilehash: d1e406567b5f56f6ad08e4d276202ebf43d92534
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 8a36a80903a47bb4163666baf86ed8dac13a00de
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321484"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093834"
 ---
 # <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Bekijk het rapport met kostenramingen in de Site Recovery Deployment Planner voor noodherstel van VMware naar Azure
 
 De implementatieplanner geeft een samenvatting van de kostenramingen in werkbladen met [Aanbevelingen](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations). De details staan in het werkblad Kostenramingen. Hier vindt u de uitgebreide kostenanalyse per VM. 
+
+>[!Note]
+>De huidige versie van de implementatieplanner biedt geen schatting van de kosten voor virtuele machines repliceren naar Managed Disks.
+>* Kostenraming voor DR Drill zijn hetzelfde voor storage-accounts en beheerde schijven als 'Beheerde schijven gebruiken' parameter is ingesteld op 'Ja' op de blade 'Compute en netwerk'.
+>* Als u een geschatte jaarlijkse kostenraming voor replicatie, moet u de volgende tijdelijke instellingen op **kostenraming** blad:
+>    * Stel de parameter "Duur van de kosten" in **instellingen** tabel "Year"
+>    * In **gedetailleerde analyse kosten** tabel, stelt u de kolom 'Het aantal DR-oefeningen in een jaar' op 12 en ' de duur van elke DR-oefening (dagen) "tot en met 30 
+>    * De replicatiekosten voor zijn vergelijkbaar met de kosten die is ingevuld in de kolom 'R' dat wil zeggen DR-oefening-opslagkosten per jaar in **DR-oefening kosten per jaar** subsectie.
 
 ### <a name="cost-estimation-summary"></a>Samenvatting kostenramingen 
 De grafiek toont de weergave Samenvatting van de geschatte totale kosten voor noodherstel (DR) voor Azure van de gekozen doelregio en de valuta die u hebt opgegeven voor het genereren van rapporten.
@@ -106,9 +114,9 @@ Handmatig VM's toevoegen:
 * De gegevensredundantie 
 * Azure Hybrid Benefit
 
-3.  U kunt dezelfde waarde toepassen op alle virtuele machines in de tabel door op de knop Op alles toepassen te klikken voor Aantal DR-oefeningen in een jaar, Duur van elke DR-oefening (dagen), Gegevensredundantie en Azure Hybrid Use Benefit.
+1. U kunt dezelfde waarde toepassen op alle virtuele machines in de tabel door op de knop Op alles toepassen te klikken voor Aantal DR-oefeningen in een jaar, Duur van elke DR-oefening (dagen), Gegevensredundantie en Azure Hybrid Use Benefit.
 
-4.  Klik op Kosten opnieuw berekenen om de kosten bij te werken.
+1. Klik op Kosten opnieuw berekenen om de kosten bij te werken.
 
 **VM-naam**: De naam van de virtuele machine.
 

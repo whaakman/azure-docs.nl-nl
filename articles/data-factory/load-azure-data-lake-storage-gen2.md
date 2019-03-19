@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: c4f32113c0750b825f217330f94b45484dc3be29
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: ad6fd4a75ca139c4943ca0d079a2d041ccb46d09
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313463"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101088"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Gegevens laden in Azure Data Lake Storage Gen2 met Azure Data Factory
 
@@ -49,7 +49,7 @@ Dit artikel ziet u hoe u het hulpprogramma Data Factory Copy Data gebruiken om t
     * **Naam**: Voer een unieke naam op voor uw Azure-gegevensfactory. Als u de foutmelding ' naam Data factory \"LoadADLSDemo\" is niet beschikbaar, "Voer een andere naam voor de data factory. Bijvoorbeeld, kunt u de naam van de  _**uwnaam**_**ADFTutorialDataFactory**. Probeer het opnieuw maken van de data factory. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
     * **Abonnement**: Selecteer uw Azure-abonnement waarin u wilt maken van de data factory. 
     * **Resourcegroep**: Selecteer een bestaande resourcegroep in de vervolgkeuzelijst of Selecteer de **nieuw** optie en voer de naam van een resourcegroep. Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-overview.md) voor meer informatie.  
-    * **Versie**: Selecteer **V2**.
+    * **Version**: Selecteer **V2**.
     * **Locatie**: Selecteer de locatie voor de data factory. In de vervolgkeuzelijst worden alleen ondersteunde locaties weergegeven. De gegevensarchieven die worden gebruikt door data factory, kunnen zich in andere locaties of regio's. 
 
 3. Selecteer **Maken**.
@@ -77,12 +77,12 @@ Dit artikel ziet u hoe u het hulpprogramma Data Factory Copy Data gebruiken om t
     
 4. In de **opgeven Amazon S3 verbinding** pagina, de volgende stappen uit:
 
-    1. Geef de **toegangssleutel-ID** waarde.
-    2. Geef de **geheime toegangssleutel** waarde.
-    3. Klik op **verbinding testen** voor het valideren van de instellingen, selecteer **voltooien**.
-    4. U ziet dat een nieuwe verbinding wordt gemaakt. Selecteer **Volgende**.
+   1. Geef de **toegangssleutel-ID** waarde.
+   2. Geef de **geheime toegangssleutel** waarde.
+   3. Klik op **verbinding testen** voor het valideren van de instellingen, selecteer **voltooien**.
+   4. U ziet dat een nieuwe verbinding wordt gemaakt. Selecteer **Volgende**.
    
-    ![Amazon S3-account opgeven](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
+      ![Amazon S3-account opgeven](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
       
 5. In de **invoerbestand of invoermap kiezen** pagina, blader naar de map en elk bestand dat u wilt dat moeten worden gekopieerd. Selecteer de map/bestand, selecteer **kiezen**:
 

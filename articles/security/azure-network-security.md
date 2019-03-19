@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 857672e8dee4dbe8d586db0cd80b206ec6ecb7df
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: f684a9d7bca77a8aa3aa60f5079dda0ce3b58a1c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244567"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121584"
 ---
 # <a name="azure-network-security"></a>Azure-netwerkbeveiliging
 
@@ -90,7 +90,7 @@ U kunt VNets verbinden met elkaar, zodat resources die zijn verbonden met een VN
 
 - **Peering:** Hiermee kunt resources die zijn verbonden met verschillende Azure VNets in dezelfde Azure-locatie om te communiceren met elkaar. De bandbreedte en de latentie tussen het VNet is hetzelfde als wanneer de resources die zijn verbonden met hetzelfde VNet is. Lees voor meer informatie over peering [peering van virtuele netwerken](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
- ![Peering](media/azure-network-security/azure-network-security-fig-3.png)
+  ![Peering](media/azure-network-security/azure-network-security-fig-3.png)
 
 - **VNet-naar-VNet-verbinding:** Hiermee kunt resources die zijn verbonden met andere Azure-VNet binnen de dezelfde of verschillende Azure-locaties. In tegenstelling tot de peering, is bandbreedte tussen de VNets, omdat de verkeersstroom moet via een Azure VPN-Gateway.
 
@@ -318,19 +318,19 @@ Geforceerde tunneling in Azure wordt geconfigureerd via het virtuele netwerk zel
 
 Het volgende gedeelte bevat de huidige beperking van de tabel en routes de routering voor een Azure-netwerk:
 
--   Elk virtueel netwerksubnet heeft een ingebouwde, systeem-routeringstabel. De routeringstabel van het systeem heeft de volgende drie groepen van routes:
+- Elk virtueel netwerksubnet heeft een ingebouwde, systeem-routeringstabel. De routeringstabel van het systeem heeft de volgende drie groepen van routes:
 
- -  **Lokale VNet routes:** Rechtstreeks naar de bestemming VM's in hetzelfde virtuele netwerk
+  -  **Lokale VNet routes:** Rechtstreeks naar de bestemming VM's in hetzelfde virtuele netwerk
 
- - **Op de lokale routes:** Met Azure VPN-gateway
+  - **Op de lokale routes:** Met Azure VPN-gateway
 
- -  **Standaard-route:** Rechtstreeks met Internet. Pakketten dat is bestemd voor het particuliere IP-adressen niet wordt gedekt door de vorige twee routes worden verwijderd.
+  -  **Standaard-route:** Rechtstreeks met Internet. Pakketten dat is bestemd voor het particuliere IP-adressen niet wordt gedekt door de vorige twee routes worden verwijderd.
 
--   U kunt met het uitbrengen van de gebruiker gedefinieerde routes, een routeringstabel om toe te voegen een standaardroute maken en vervolgens de routeringstabel koppelen aan uw VNet-subnet om in te schakelen geforceerde tunneling op deze subnetten.
+- U kunt met het uitbrengen van de gebruiker gedefinieerde routes, een routeringstabel om toe te voegen een standaardroute maken en vervolgens de routeringstabel koppelen aan uw VNet-subnet om in te schakelen geforceerde tunneling op deze subnetten.
 
--   U moet een 'standaard-site"tussen de cross-premises lokale sites die zijn verbonden met het virtuele netwerk instellen.
+- U moet een 'standaard-site"tussen de cross-premises lokale sites die zijn verbonden met het virtuele netwerk instellen.
 
--   Geforceerde tunneling moet worden gekoppeld aan een VNet met een VPN-gateway voor dynamische routering (niet een statische gateway genoemd).
+- Geforceerde tunneling moet worden gekoppeld aan een VNet met een VPN-gateway voor dynamische routering (niet een statische gateway genoemd).
 
 - ExpressRoute geforceerde tunneling is niet geconfigureerd via dit mechanisme, maar in plaats daarvan wordt ingeschakeld door kondigt een standaardroute via de ExpressRoute-BGP-peeringsessies.
 
@@ -507,7 +507,7 @@ Azure biedt veel hulpprogramma's om te controleren, voorkomen, detecteren en rea
 
 -   De Resource niveau Netwerkbewaking
 
--   Logboeken in Azure Monitor
+-   Azure Monitor-logboeken
 
 ### <a name="network-watcher"></a>Netwerk-watcher
 
@@ -603,7 +603,7 @@ Logboeken met diagnostische gegevens zijn beschikbaar voor [Load Balancer](https
 
 Network Watcher biedt dat een diagnostische logboeken weergeven. Deze weergave bevat alle netwerkresources die ondersteuning bieden voor registratie in diagnoselogboek. In deze weergave kunt u in- en netwerkresources uitschakelen gemakkelijk en snel.
 
-### <a name="azure-monitor-logs"></a>Logboeken in Azure Monitor
+### <a name="azure-monitor-logs"></a>Azure Monitor-logboeken
 
 [Logboeken in Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) is een service in Azure waarmee u uw cloud en on-premises omgevingen voor het onderhouden van hun beschikbaarheid en prestaties. De service verzamelt gegevens afkomstig van resources in uw cloud- en on-premises omgevingen en van andere bewakingsprogramma's om analyse over meerdere resources aan te bieden.
 

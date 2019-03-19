@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/01/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 243697c20f10a019a73326c3bd79e23fc3342640
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: ddcaca46a2b8f9501337b3591d6ed666876e1de9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113597"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093766"
 ---
 # <a name="tutorial-install-azure-data-box-edge-preview"></a>Zelfstudie: Azure Data Box Edge (preview-versie) installeren
 
@@ -94,15 +94,15 @@ Het apparaat moet worden geïnstalleerd in een standaard 19-inch rek. Gebruik de
     ![Montagerails installeren](./media/data-box-edge-deploy-install/rack-mount-rail-1.png)
 
 2. Plaats de buitenste rails in de verticale elementen van het rek. Om te helpen bij de montage staat er **Front** op de geleiders en die kant moet naar de voorkant van de behuizing worden gericht.    
-    1. Zoek de pennen van de rails aan voor- en achterzijde van de rail. Maak de rail langer zodat deze tussen de stijlen van het rek past. Bevestig de buitenste rail eerst aan de achterzijde van het rek. Plaats de achterste bevestigingsbeugel zodanig dat deze binnen de achterste montagegaten van het rek valt.   
+   1. Zoek de pennen van de rails aan voor- en achterzijde van de rail. Maak de rail langer zodat deze tussen de stijlen van het rek past. Bevestig de buitenste rail eerst aan de achterzijde van het rek. Plaats de achterste bevestigingsbeugel zodanig dat deze binnen de achterste montagegaten van het rek valt.   
 
-    2. Houd het palletje op de achterste beugel ingedrukt om de metalen haken bloot te leggen. Plaats de achterste beugel in de montagegaten en laat het palletje los.
+   2. Houd het palletje op de achterste beugel ingedrukt om de metalen haken bloot te leggen. Plaats de achterste beugel in de montagegaten en laat het palletje los.
 
-    3. Lijn de voorste beugel uit met het montagegat.
+   3. Lijn de voorste beugel uit met het montagegat.
 
-    4. De voorste beugel moet nu zijn vastgezet aan het rek. U kunt desgewenst M5 X 10L-schroeven gebruiken om de rails met stijlen vast te zetten, indien nodig. 
+   4. De voorste beugel moet nu zijn vastgezet aan het rek. U kunt desgewenst M5 X 10L-schroeven gebruiken om de rails met stijlen vast te zetten, indien nodig. 
 
-    ![Montagerails installeren](./media/data-box-edge-deploy-install/rack-mount-rail-2.png)
+      ![Montagerails installeren](./media/data-box-edge-deploy-install/rack-mount-rail-2.png)
 
 3. Om de binnenste rails aan het chassis te bevestigen, moeten de spiegaten op de binnenste rail zijn uitgelijnd met de opsluitpennen aan de zijkant van het chassis. Zorg ervoor dat de koppen van de pennen van het chassis via de spiegaten in de binnenste rail steken. Trek de rail naar de voorzijde van het chassis totdat u de rail hoort vastklikken. Herhaal dit voor de andere binnenste rail. Duw het chassis met de binnenste rail in de geleider om de montage te voltooien.
 

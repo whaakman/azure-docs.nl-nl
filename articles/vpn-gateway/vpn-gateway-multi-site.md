@@ -1,5 +1,5 @@
 ---
-title: 'Een virtueel netwerk verbinden met meerdere sites met behulp van VPN-Gateway en PowerShell: klassieke | Microsoft Docs'
+title: 'Een virtueel netwerk verbinden met meerdere sites met behulp van VPN-Gateway en PowerShell: Klassieke | Microsoft Docs'
 description: Meerdere lokale on-premises sites verbinden met een klassiek virtueel netwerk met behulp van een VPN-Gateway.
 services: vpn-gateway
 documentationcenter: na
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: 768f06c9d007e716f89ca61ccd9f8a2ccd575efd
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 77f8b7094c96e507eef1d360a26240627bc0e350
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160865"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994012"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Een Site-naar-Site-verbinding toevoegen aan een VNet met een bestaande VPN-gatewayverbinding (klassiek)
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Azure-portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (klassiek)](vpn-gateway-multi-site.md)
 >
 >
@@ -75,8 +75,8 @@ Als u al een Site-naar-Site-VPN-verbinding met een gateway voor dynamische route
 2. De gateway van het nieuwe configureren en maken van uw VPN-tunnel. Zie voor instructies voor instructies [het SKU- en VPN-type opgeven](vpn-gateway-howto-site-to-site-classic-portal.md#sku). Zorg ervoor dat u het Type routering als 'Dynamische' opgeven.
 
 ### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>Als u een Site-naar-Site virtueel netwerk hebt:
-1. Uw Site-naar-Site virtueel netwerk maken met deze instructies: [een Virtueelnetwerk maken met een Site-naar-Site VPN-verbinding](vpn-gateway-site-to-site-create.md).  
-2. Configureren van een gateway voor dynamische routering met behulp van deze instructies: [configureren van een VPN-Gateway](vpn-gateway-configure-vpn-gateway-mp.md). Zorg ervoor dat u selecteert **dynamische routering** voor uw Gatewaytype.
+1. Uw Site-naar-Site virtueel netwerk met behulp van deze instructies maken: [Een virtueel netwerk maken met een Site-naar-Site VPN-verbinding](vpn-gateway-site-to-site-create.md).  
+2. Configureer een gateway voor dynamische routering met behulp van deze instructies: [Een VPN-Gateway configureren](vpn-gateway-configure-vpn-gateway-mp.md). Zorg ervoor dat u selecteert **dynamische routering** voor uw Gatewaytype.
 
 ## <a name="export"></a>2. Het netwerkconfiguratiebestand exporteert
 Uw Azure-netwerk-configuratiebestand exporteren met de volgende opdracht. U kunt de locatie van het bestand om te exporteren naar een andere locatie indien nodig wijzigen.
@@ -88,7 +88,7 @@ Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ## <a name="3-open-the-network-configuration-file"></a>3. Open het netwerkconfiguratiebestand
 Open het netwerkconfiguratiebestand dat u hebt gedownload in de vorige stap. Elke xml-editor die u wilt gebruiken. Het bestand moet er ongeveer als volgt uitzien:
 
-        <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+        <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
           <VirtualNetworkConfiguration>
             <LocalNetworkSites>
               <LocalNetworkSite name="Site1">

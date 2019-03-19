@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 6a45d6366ef3c581c00b084b7ea2e4095eaaba3f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: cd0bceae770182e778410d8065d34dfeed055acc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538116"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993258"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Een Node.js-chattoepassing met Socket.IO bouwen op een Azure Cloud Service
 
@@ -62,7 +62,7 @@ Voor dit project, gebruiken we de chat-voorbeeld uit de [Socket.IO GitHub-opslag
 
 1. Maken van een lokale kopie van de opslagplaats met behulp van de **kloon** knop. U kunt ook de **ZIP** knop voor het downloaden van het project.
    
-   ![De weergave van een browser venster https://github.com/LearnBoost/socket.io/tree/master/examples/chat, met het pictogram voor het downloaden van ZIP gemarkeerd][chat-example-view]
+   ![De weergave van een browser venster https://github.com/LearnBoost/socket.io/tree/master/examples/chat, met het pictogram voor het downloaden van ZIP gemarkeerd](./media/cloud-services-nodejs-chat-app-socketio/socketio-22.png)
 2. De mapstructuur van de lokale opslagplaats navigeren totdat er uitziet de **voorbeelden\\chat** directory. Kopieer de inhoud van deze map op de **C:\\knooppunt\\chatapp\\WorkerRole1** directory eerder hebt gemaakt.
    
    ![Verkenner weergeven van de inhoud van de voorbeelden\\chat directory geëxtraheerd uit het archief][chat-contents]
@@ -84,7 +84,11 @@ Voordat u de toepassing test in de Azure-emulator, moeten we enkele kleine wijzi
          var port = process.env.PORT || 3000;         //Updated
 3. Om te controleren of de toepassing luistert op de juiste poort, server.js opent in Kladblok of uw favoriete editor en wijzigt u de volgende regel te vervangen **3000** met **process.env.port** zoals hieronder wordt weergegeven:
    
-       App.Listen (3000, functie () {//Original       app.listen (process.env.port, functie () {//Updated var adres = app.address();       console.log (' app luisteren op http://' + addr.address + ":" + addr.port);     });
+       //app.listen(3000, function () {            //Original
+       app.listen(process.env.port, function () {  //Updated
+         var addr = app.address();
+         console.log('   app listening on http://' + addr.address + ':' + addr.port);
+       });
 
 Na het opslaan van de wijzigingen in **server.js**, gebruikt u de volgende stappen uit om vereiste modules te installeren en vervolgens de toepassing testen in de Azure-emulator:
 
@@ -105,12 +109,9 @@ Na het opslaan van de wijzigingen in **server.js**, gebruikt u de volgende stapp
        PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
    
    > [!NOTE]
-   > Als u problemen met het starten van emulator, bijv.:      Start-AzureEmulator : Er is een onverwachte fout opgetreden.  Details: Er is een onverwachte fout objekt komunikace, System.ServiceModel.Channels.ServiceChannel, kan niet worden gebruikt voor communicatie, omdat deze zich in de status van de Faulted.
-   
-      Installeer AzureAuthoringTools v 2.7.1 en AzureComputeEmulator v 2.7: Zorg ervoor dat versie overeenkomt met.
-   >
-   >
-
+   > Als u problemen met het starten van emulator, bijv.: Start-AzureEmulator: Er is een onverwachte fout opgetreden.  Details: Er is een onverwachte fout objekt komunikace, System.ServiceModel.Channels.ServiceChannel, kan niet worden gebruikt voor communicatie, omdat deze zich in de status van de Faulted.
+   > 
+   > Installeer AzureAuthoringTools v 2.7.1 en AzureComputeEmulator v 2.7: Zorg ervoor dat versie overeenkomt met.
 
 2. Open een browser en navigeer naar **http://127.0.0.1**.
 3. Als het browservenster wordt geopend, voer een bijnaam in en klik vervolgens op ENTER drukken.

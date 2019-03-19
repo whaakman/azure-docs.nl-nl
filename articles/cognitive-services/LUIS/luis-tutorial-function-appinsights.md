@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 97e29ba166d652f053f754482b6da36a33ec5bb5
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 1c44d2e41d37a9236ee6d6936c349acf5ca5e44c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878168"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098760"
 ---
 # <a name="add-luis-results-to-application-insights-and-azure-functions"></a>LUIS resultaten toevoegen aan Application Insights en Azure functions
 In deze zelfstudie voegt LUIS-aanvraag en respons informatie aan [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetrie-gegevensopslag. Zodra u deze gegevens hebt, kunt u deze met de Kusto-taal of Power BI te analyseren, samenvoegen, opvragen en te rapporteren intenties en entiteiten van de utterance in realtime. Met deze analyse kunt u bepalen of u moet toevoegen of bewerken van de intenties en entiteiten van uw LUIS-app.
@@ -26,9 +26,9 @@ De bot is gebouwd met Bot Framework 3.x en de Azure-Web-app-bot.
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-* Application Insights-bibliotheek toevoegen aan een web-app-bot
-* Vastleggen en LUIS queryresultaten verzenden naar Application Insights
-* Query uitvoeren op Application Insights voor het belangrijkste doel, score en utterance
+> * Application Insights-bibliotheek toevoegen aan een web-app-bot
+> * Vastleggen en LUIS queryresultaten verzenden naar Application Insights
+> * Query uitvoeren op Application Insights voor het belangrijkste doel, score en utterance
 
 ## <a name="prerequisites"></a>Vereisten
 

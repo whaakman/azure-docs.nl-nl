@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 539a7fc5b9d3038424059f1ee599c6966a968781
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: a9e8d2cbc067fd92208fac778ba17c58bdc7a5e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629592"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079142"
 ---
 # <a name="filters-in-azure-search"></a>Filters in Azure Search 
 
@@ -32,17 +32,17 @@ Scenario's met voorbeelden omvatten het volgende:
 
 1. Gebruik een filter voor het segmenteren van uw index op basis van gegevenswaarden in de index. Uitgaande van een schema met stad, huisvesting type en faciliteiten, kunt u een filter kunt u documenten die voldoen aan uw criteria (in Seattle, condos, afgebakend) expliciet selecteren maken. 
 
-  Zoeken in volledige tekst met de dezelfde invoer vaak dezelfde resultaten oplevert, maar een filter is nauwkeuriger in die exact overeenkomen met de filterterm op basis van inhoud in uw index moet. 
+   Zoeken in volledige tekst met de dezelfde invoer vaak dezelfde resultaten oplevert, maar een filter is nauwkeuriger in die exact overeenkomen met de filterterm op basis van inhoud in uw index moet. 
 
 2. Een filter gebruiken als de zoekervaring wordt geleverd met een vereiste filter:
 
- * [Facetnavigatie](search-faceted-navigation.md) maakt gebruik van een filter om door te geven weer de facet categorie geselecteerd door de gebruiker.
- * Geografische locaties zoeken maakt gebruik van een filter om door te geven coördinaten van de huidige locatie in 'in mijn buurt zoeken' apps. 
- * Beveiligingsfilters geven beveiligings-id's als de filtercriteria, waarbij een overeenkomst in de index fungeert als een proxy voor de toegangsrechten tot het document.
+   * [Facetnavigatie](search-faceted-navigation.md) maakt gebruik van een filter om door te geven weer de facet categorie geselecteerd door de gebruiker.
+   * Geografische locaties zoeken maakt gebruik van een filter om door te geven coördinaten van de huidige locatie in 'in mijn buurt zoeken' apps. 
+   * Beveiligingsfilters geven beveiligings-id's als de filtercriteria, waarbij een overeenkomst in de index fungeert als een proxy voor de toegangsrechten tot het document.
 
 3. Een filter gebruiken als u wilt dat de zoekcriteria op een numeriek veld. 
 
-  Numerieke velden worden opgehaald in het document en kunnen worden weergegeven in zoekresultaten, maar ze zijn niet afzonderlijk doorzoekbare (afhankelijk van zoeken in volledige tekst). Als u selectiecriteria op basis van numerieke gegevens nodig hebt, gebruikt u een filter.
+   Numerieke velden worden opgehaald in het document en kunnen worden weergegeven in zoekresultaten, maar ze zijn niet afzonderlijk doorzoekbare (afhankelijk van zoeken in volledige tekst). Als u selectiecriteria op basis van numerieke gegevens nodig hebt, gebruikt u een filter.
 
 ### <a name="alternative-methods-for-reducing-scope"></a>Alternatieve methoden voor het verminderen van bereik
 
@@ -141,10 +141,8 @@ In de .NET SDK, de Filterbaar is *uit* standaard. De API voor het instellen van 
 
 Als een veld niet-filterbare is en u ervoor Filterbaar, hebt u een nieuw veld toevoegen of opnieuw opbouwen van de bestaande velden. De velddefinitie van een wijzigen, wijzigt de fysieke structuur van de index. In Azure Search, worden alle toegestane Toegangspaden geïndexeerd voor snelle query snelheid, die noodzakelijk is opnieuw opbouwen van de gegevensstructuren wanneer velddefinities wijzigt. 
 
-Opnieuw opbouwen van afzonderlijke velden is een bewerking met weinig impact, vereisen een merge-bewerking waarmee het bestaande documentsleutel en de bijbehorende waarden worden verzonden naar de index, zodat de rest van elk document ongewijzigd blijft. Als er een vereiste opnieuw maken, raadpleegt u de volgende koppelingen voor instructies:
+Opnieuw opbouwen van afzonderlijke velden is een bewerking met weinig impact, vereisen een merge-bewerking waarmee het bestaande documentsleutel en de bijbehorende waarden worden verzonden naar de index, zodat de rest van elk document ongewijzigd blijft. Als er een vereiste opnieuw maken, Zie [indexeren van acties (uploaden, samenvoegen, mergeOrUpload, verwijderen)](search-what-is-data-import.md#indexing-actions) voor een lijst met opties.
 
- + [Indexeren van acties met de .NET SDK](https://docs.microsoft.com/azure/search/search-import-data-dotnet#decide-which-indexing-action-to-use)
- + [Indexeren van acties met behulp van de REST-API](https://docs.microsoft.com/azure/search/search-import-data-rest-api#decide-which-indexing-action-to-use)
 
 ## <a name="text-filter-fundamentals"></a>Tekst filter grondbeginselen
 
@@ -157,8 +155,8 @@ Tekenreeksen zijn hoofdlettergevoelig. Er is geen kleine-hoofdlettergebruik van 
 
 | Methode | Description | 
 |----------|-------------|
-| [Search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Een functie met door komma's gescheiden lijst met tekenreeksen die voor een bepaald veld. De tekenreeksen bestaan uit de filtercriteria op die worden toegepast op elk veld binnen het bereik van de query. <br/><br/>`search.in(f, ‘a, b, c’)` semantisch gelijk is aan `f eq ‘a’ or f eq ‘b’ or f eq ‘c’`, behalve dat deze wordt veel sneller uitgevoerd wanneer de lijst met waarden groot is.<br/><br/>Het is raadzaam de **search.in** functie voor [beveiligingsfilters](search-security-trimming-for-azure-search.md) en voor eventuele filters uit de onbewerkte tekst die bestaat moet worden vergeleken op basis van waarden in een bepaald veld. Deze aanpak is ontworpen voor snelheid. U kunt verwachten dat subsecond reactietijd voor honderden tot duizenden waarden. Hoewel er geen expliciete limiet voor het aantal items die u aan de functie doorgeven kunt, neemt de latentie in verhouding tot het aantal tekenreeksen die u opgeeft. | 
-| [Search.ismatch()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Een functie waarmee u kunt zoeken in volledige tekst bewerkingen met strikt Boolean-filter bewerkingen in de dezelfde filterexpressie combineren. Hiermee kunnen meerdere combinaties van query-filter in één aanvraag. U kunt ook gebruiken voor een *bevat* om te filteren op een gedeeltelijke tekenreeks binnen een grotere tekenreeks. |  
+| [search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Een functie met door komma's gescheiden lijst met tekenreeksen die voor een bepaald veld. De tekenreeksen bestaan uit de filtercriteria op die worden toegepast op elk veld binnen het bereik van de query. <br/><br/>`search.in(f, ‘a, b, c’)` semantisch gelijk is aan `f eq ‘a’ or f eq ‘b’ or f eq ‘c’`, behalve dat deze wordt veel sneller uitgevoerd wanneer de lijst met waarden groot is.<br/><br/>Het is raadzaam de **search.in** functie voor [beveiligingsfilters](search-security-trimming-for-azure-search.md) en voor eventuele filters uit de onbewerkte tekst die bestaat moet worden vergeleken op basis van waarden in een bepaald veld. Deze aanpak is ontworpen voor snelheid. U kunt verwachten dat subsecond reactietijd voor honderden tot duizenden waarden. Hoewel er geen expliciete limiet voor het aantal items die u aan de functie doorgeven kunt, neemt de latentie in verhouding tot het aantal tekenreeksen die u opgeeft. | 
+| [search.ismatch()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Een functie waarmee u kunt zoeken in volledige tekst bewerkingen met strikt Boolean-filter bewerkingen in de dezelfde filterexpressie combineren. Hiermee kunnen meerdere combinaties van query-filter in één aanvraag. U kunt ook gebruiken voor een *bevat* om te filteren op een gedeeltelijke tekenreeks binnen een grotere tekenreeks. |  
 | [$filter = veld operatortekenreeks](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | De expressie voor een gebruiker gedefinieerde bestaat uit velden, operators en waarden. | 
 
 ## <a name="numeric-filter-fundamentals"></a>Grondbeginselen van numerieke filter

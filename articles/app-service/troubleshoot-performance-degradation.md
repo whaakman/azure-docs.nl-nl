@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9c66a937ffd9155569820c47c99946d186c55cce
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 2d17991854f13f889c4e8c3a8c6f18e933655546
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052152"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884219"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Problemen met trage app-prestaties oplossen in Azure App Service
 Dit artikel helpt u problemen met trage app-prestaties oplossen in [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
@@ -162,7 +162,7 @@ Bovendien kunt u uw toepassing uitvoeren op meer dan één exemplaar. Uitschalen
 U kunt instellen om het handmatig of automatisch worden geschaald.
 
 #### <a name="use-autoheal"></a>Gebruikmaken van AutoHeal
-AutoHeal wordt gerecycled het werkproces voor uw app op basis van de instellingen die u (zoals wijzigingen in de configuratie, aanvragen, de limieten voor geheugen of de tijd die nodig is kiest voor het uitvoeren van een aanvraag). De meeste van de tijd is recyclen van het proces de snelste manier om te herstellen van een probleem. Hoewel u altijd opnieuw de app rechtstreeks in Azure portal Start kunt, doet AutoHeal het allemaal automatisch voor u. U hoeft alleen is bepaalde triggers toevoegen in de hoofdmap web.config voor uw app. Deze instellingen zou moeten werken op dezelfde manier, zelfs als uw toepassing niet een .net-app is.
+AutoHeal wordt gerecycled het werkproces voor uw app op basis van de instellingen die u (zoals wijzigingen in de configuratie, aanvragen, de limieten voor geheugen of de tijd die nodig is kiest voor het uitvoeren van een aanvraag). De meeste van de tijd is recyclen van het proces de snelste manier om te herstellen van een probleem. Hoewel u altijd opnieuw de app rechtstreeks in Azure portal Start kunt, doet AutoHeal het allemaal automatisch voor u. U hoeft alleen is bepaalde triggers toevoegen in de hoofdmap web.config voor uw app. Deze instellingen zou moeten werken op dezelfde manier, zelfs als uw toepassing niet een .NET-app is.
 
 Zie voor meer informatie, [automatisch herstel Azure Web Sites](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 20a4e24800b2fa05990d294cb374841c50c4f79b
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 89cc8c4bffe910de0861d7f44925a10df3811fdb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48809488"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097471"
 ---
 <a name="web-analytics"></a>Web Analytics
 =============
@@ -32,7 +32,7 @@ Nu dat u hebt gemaakt en gepubliceerd van uw aanbieding, het volgende deel van u
 
 Ziet u een uitgebreid dashboard toegevoegd voor de uitgevers-ID die is gemaakt met Microsoft Power BI en kunt u elk van uw aanbiedingen\' gegevens die dagelijks wordt vernieuwd.
 
-<a name="microsoft-campaigns"></a>**Microsoft-campagnes**
+<a name="microsoft-campaigns"></a>**Microsoft Campaigns**
 -----------------------
 
 Om te groeien van uw aanbiedingen en bijhouden van de groei van uw aanbiedingen, is voorzien van de mogelijkheid om te gebruiken **Microsoft campagnes** in de Cloud Partner-Portal. Campagnes zijn een nieuwe functie voor de marketplace die zorgen u dat ervoor voor het bijhouden van de verschillende kanalen die klanten naar de pagina met details van uw app verzenden.
@@ -49,11 +49,11 @@ Er zijn twee manieren om uw eigen campagne te genereren.
 
 U kunt bijvoorbeeld het volgende gebruiken: <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign>
 
-2. (Geavanceerd): gebruik een van onze campagne ondersteunde, algemene id's in de URL. We willen laten met extra ref-labels die u gebruiken, wilt zodat we bieden ondersteuning voor de overeenkomst automatisch herkent deze andere labels worden werken:
+1. (Geavanceerd): Gebruik een van onze campagne ondersteunde, algemene id's in de URL. We willen laten met extra ref-labels die u gebruiken, wilt zodat we bieden ondersteuning voor de overeenkomst automatisch herkent deze andere labels worden werken:
     
     1. **UTM\_campagne**
-    2. **UTM\_bron**
-    3. **Ref**
+    2. **utm\_source**
+    3. **ref**
     4. **src**
 
 U kunt bijvoorbeeld het volgende gebruiken: <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=NewCampaign>
@@ -63,7 +63,7 @@ U kunt ervoor kiezen een combinatie van meerdere van deze campagne-ID's om meerd
 Bijvoorbeeld:
 
 1. Nieuwsbrief verwijzende site:  <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=newsletter>
-2. LinkedIn verwijzende site:  <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=LinkedIn>
+2. LinkedIn referrer:  <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=LinkedIn>
 
 ### <a name="ensuring-campaigns-pass-through-all-your-pages"></a>**Ervoor zorgen dat campagnes doorgeven aan alle pagina 's**
 
@@ -77,7 +77,7 @@ Hier volgt een voorbeeld:
     2.  URL van openingspagina = <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
 3. De gebruiker klikt op de \"probeer mijn product\" koppelen en gaat in AppSource.
     1. Referentie-URL =  <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
-    2. URL van openingspagina (**ervoor te zorgen dat deze URL utm\_campagnes en utm\_bron toegevoegd aan deze URL**) = [ https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername? **utm\_campagne MyCampaignAdName = & utm\_bron = MySourceAdName**](https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
+    2. Landing Page URL (**Ensure that this URL has utm\_campaign and  utm\_source added to this URL**) =  [https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?**utm\_campaign=MyCampaignAdName&utm\_source=MySourceAdName**](https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
 
 <a name="how-to-evaluate-the-success-of-a-campaign"></a>Het evalueren van het succes van een campagne
 -----------------------------------------

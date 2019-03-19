@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 03920bc3ed17eac9d76cea78877f1f008e83f4dd
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bcaf470fae34056fe932cf8b5fd3076899f895ae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196834"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880276"
 ---
 # <a name="create-a-new-saas-application-offer"></a>Een nieuwe aanbieding voor SaaS-toepassing maken
 
@@ -34,6 +34,7 @@ Het volgende diagram ziet u het proces voor het maken van een SaaS-App-aanbiedin
 ## <a name="offer-components"></a>Onderdelen van de aanbieding
 
 De aanbieding voor SaaS-App bestaat uit vijf secties wordt beschreven in de volgende tabel:
+
 |  **Activa-groep**   |  **Beschrijving**  |
 |  ---------------   |  ---------------  |
 |    Aanbiedingsinstellingen  |  Gebruik een unieke identiteit voor de SaaS-app configureren.                 |
@@ -45,7 +46,7 @@ De aanbieding voor SaaS-App bestaat uit vijf secties wordt beschreven in de volg
 
 ## <a name="new-offer-form"></a>Nieuwe aanbieding formulier
 
-Aanmelden bij de [Cloud Partner-Portal](http://cloudpartner.azure.com/), en selecteer vervolgens **+ nieuwe aanbieding** in het menu links. Bieden op het pictogram Nieuw menu, selecteert u **SaaS-Apps** naar de nieuwe aanbieding formulier weergeven en start het proces van het definiëren van assets voor een nieuwe aanbieding voor SaaS-toepassing.
+Aanmelden bij de [Cloud Partner-Portal](https://cloudpartner.azure.com/), en selecteer vervolgens **+ nieuwe aanbieding** in het menu links. Bieden op het pictogram Nieuw menu, selecteert u **SaaS-Apps** naar de nieuwe aanbieding formulier weergeven en start het proces van het definiëren van assets voor een nieuwe aanbieding voor SaaS-toepassing.
 
 ![Menu van de nieuwe aanbieding voor SaaS-Apps](./media/azure-new-saas-offer.png)
 
@@ -54,8 +55,8 @@ Aanmelden bij de [Cloud Partner-Portal](http://cloudpartner.azure.com/), en sele
 De pagina nieuwe aanbieding voor het type SaaS-aanbod biedt een set met tabbladen en velden die u gebruiken gaat om te maken van een nieuwe aanbieding. Elk van de volgende artikelen wordt uitgelegd hoe u het tabblad gebruiken om de asset groepen en de ondersteunende services voor uw nieuwe aanbieding te definiëren.
 
 - [Tabblad voor aanbiedingsinstellingen](./cpp-offer-settings-tab.md)
-- [Tabblad technische gegevens](./cpp-technical-info-tab.md)
-- [Tabblad Info kanaal](./cpp-channel-info-tab.md)
+- [Tabblad Technische gegevens](./cpp-technical-info-tab.md)
+- [Tabblad Informatiekanaal](./cpp-channel-info-tab.md)
 - [Tabblad voor Test Drive](./cpp-testdrive-tab.md)
-- [Tabblad StoreFront Details](./cpp-storefront-tab.md)
-- [Tabblad contactpersonen](./cpp-contacts-tab.md)
+- [Tabblad Details van webwinkel](./cpp-storefront-tab.md)
+- [Tabblad Contactpersonen](./cpp-contacts-tab.md)

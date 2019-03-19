@@ -11,19 +11,21 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 03/07/2019
-ms.openlocfilehash: a5b544db713f671230e4a226b1e0bdcfa77fbb2b
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.date: 03/12/2019
+ms.openlocfilehash: a49c22a0597c34075de3e5fd7b9a324169e1da00
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575236"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57895168"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Verwijderen van de beveiliging van een transparante gegevensversleuteling (TDE) met behulp van PowerShell
 
 ## <a name="prerequisites"></a>Vereisten
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> De PowerShell Azure Resource Manager-module nog steeds wordt ondersteund door Azure SQL Database, maar alle toekomstige ontwikkeling is voor de module Az.Sql. Zie voor deze cmdlets [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). De argumenten voor de opdrachten in de Az-module en de AzureRm-modules zijn vrijwel identiek zijn.
 
 - U moet een Azure-abonnement hebt en een beheerder zijn op dat aan het abonnement
 - Azure PowerShell installeren en uitvoeren, moet u hebben. 
@@ -85,7 +87,7 @@ In deze gebruiksaanwijzing gaat via twee benaderingen, afhankelijk van het gewen
    -OutputFile <DesiredBackupFilePath>
    ```
  
-5. Verwijderen van de sleutel waarmee is geknoeid vanuit Key Vault met de [Remove-AzKeyVaultKey](/powershell/module/az.keyvault/remove-azurekeyvaultkey) cmdlet. 
+5. Verwijderen van de sleutel waarmee is geknoeid vanuit Key Vault met de [Remove-AzKeyVaultKey](/powershell/module/azurerm.keyvault/remove-azurekeyvaultkey) cmdlet. 
 
    ```powershell
    Remove-AzKeyVaultKey `

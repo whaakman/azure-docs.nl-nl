@@ -8,28 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/11/2019
+ms.date: 03/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: dd9429ade750810138335c522d68df5cd595f320
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 2769384957b6cf6484163c4d9e54d042877794ec
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310980"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451651"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-c-in-computer-vision"></a>Quickstart: Handgeschreven tekst extraheren met behulp van de REST API en C# in Computer Vision
 
-In deze quickstart extraheert u handgeschreven tekst uit een afbeelding met behulp van de Computer Vision-REST API. Met de methoden [Recognize Text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) (tekst herkennen) en [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) (resultaat van tekstherkenningsbewerking ophalen) kunt u handgeschreven tekst in een afbeelding detecteren en herkende tekens extraheren naar een machinaal leesbare tekenstroom.
+In deze quickstart extraheert u handgeschreven tekst uit een afbeelding met behulp van de Computer Vision-REST API. Met de [Batch lezen](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) API en de [lezen bewerkingsresultaat](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) API, kunt u handgeschreven tekst detecteren in een afbeelding en extraheer herkende tekens naar een machinaal leesbare tekenstroom.
 
 > [!IMPORTANT]
-> In tegenstelling tot de [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc)-methode wordt de methode [Tekst herkennen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) asynchroon uitgevoerd. Deze methode retourneert geen gegevens in de hoofdtekst van een geslaagd antwoord. In plaats daarvan retourneert de methode Tekst herkennen een URI in de waarde van de `Operation-Content`-antwoordveld-header. Deze URI vertegenwoordigt de methode [Resultaat van tekstherkenningsbewerking ophalen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) en u kunt deze URI aanroepen om de status te controleren en de resultaten van de methode Tekst herkennen te retourneren.
+> In tegenstelling tot de [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) methode, de [Batch lezen](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) methode wordt asynchroon uitgevoerd. Deze methode retourneert geen gegevens in de hoofdtekst van een geslaagd antwoord. In plaats daarvan de Read-methode retourneert een URI in de `Operation-Location` antwoordveld-header. Vervolgens kunt u aanroepen met deze URI, vertegenwoordigt de [lezen bewerkingsresultaat](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) methode om de status controleren en het resultaat van het aanroepen van de Batch-lezen-methode.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- U hebt [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) of hoger nodig.
+- U moet hebben [Visual Studio 2015 of hoger](https://visualstudio.microsoft.com/downloads/).
 - U moet beschikken over een abonnementssleutel voor Computer Vision. Zie [Abonnementssleutels verkrijgen](../Vision-API-How-to-Topics/HowToSubscribe.md) voor meer informatie over het verkrijgen van een abonnementssleutel.
 
 ## <a name="create-and-run-the-sample-application"></a>De voorbeeldtoepassing maken en uitvoeren
@@ -43,7 +43,7 @@ Voer de volgende stappen uit om het voorbeeld in Visual Studio te maken:
     1. Selecteer **Newtonsoft.Json** wanneer dit wordt weergegeven en klik vervolgens op het selectievakje naast uw projectnaam en op **Installeren**.
 1. Vervang de code in `Program.cs` door de volgende code en breng vervolgens waar nodig de volgende wijzigingen aan in de code:
     1. Vervang de waarde van `subscriptionKey` door uw abonnementssleutel.
-    1. Vervang de waarde van `uriBase` door de eindpunt-URL van de methode [Tekst herkennen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) uit de Azure-regio waar u uw abonnementssleutels hebt verkregen (indien nodig).
+    1. Vervang de waarde van `uriBase` met de eindpunt-URL voor de [Batch lezen](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) methode van de Azure-regio waar u uw abonnementssleutels hebt verkregen, indien nodig.
 1. Voer het programma uit.
 1. Voer bij de prompt het pad naar een lokale afbeelding in.
 
@@ -72,7 +72,7 @@ namespace CSHttpClientSample
         // If you use a free trial subscription key, you shouldn't need to change
         // this region.
         const string uriBase =
-            "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/recognizeText";
+            "https://westus.api.cognitive.microsoft.com/vision/v2.0/read/core/asyncBatchAnalyze";
 
         static void Main()
         {
@@ -140,15 +140,15 @@ namespace CSHttpClientSample
                     content.Headers.ContentType =
                         new MediaTypeHeaderValue("application/octet-stream");
 
-                    // The first REST API method, Recognize Text, starts
+                    // The first REST API method, Batch Read, starts
                     // the async process to analyze the written text in the image.
                     response = await client.PostAsync(uri, content);
                 }
 
-                // The response header for the Recognize Text method contains the URI
-                // of the second method, Get Recognize Text Operation Result, which
+                // The response header for the Batch Read method contains the URI
+                // of the second method, Read Operation Result, which
                 // returns the results of the process in the response body.
-                // The Recognize Text operation does not return anything in the response body.
+                // The Batch Read operation does not return anything in the response body.
                 if (response.IsSuccessStatusCode)
                     operationLocation =
                         response.Headers.GetValues("Operation-Location").FirstOrDefault();
@@ -223,199 +223,101 @@ Een geslaagd antwoord wordt geretourneerd in JSON-indeling. De voorbeeldtoepassi
 
 ```json
 {
-    "status": "Succeeded",
-    "recognitionResult": {
-        "lines": [
+  "status": "Succeeded",
+  "recognitionResults": [
+    {
+      "page": 1,
+      "clockwiseOrientation": 349.59,
+      "width": 3200,
+      "height": 3200,
+      "unit": "pixel",
+      "lines": [
+        {
+          "boundingBox": [202,618,2047,643,2046,840,200,813],
+          "text": "Our greatest glory is not",
+          "words": [
             {
-                "boundingBox": [
-                    99,
-                    195,
-                    1309,
-                    45,
-                    1340,
-                    292,
-                    130,
-                    442
-                ],
-                "text": "when you write them down",
-                "words": [
-                    {
-                        "boundingBox": [
-                            152,
-                            191,
-                            383,
-                            154,
-                            341,
-                            421,
-                            110,
-                            458
-                        ],
-                        "text": "when"
-                    },
-                    {
-                        "boundingBox": [
-                            436,
-                            145,
-                            607,
-                            118,
-                            565,
-                            385,
-                            394,
-                            412
-                        ],
-                        "text": "you"
-                    },
-                    {
-                       "boundingBox": [
-                            644,
-                            112,
-                            873,
-                            76,
-                            831,
-                            343,
-                            602,
-                            379
-                        ],
-                        "text": "write"
-                    },
-                    {
-                        "boundingBox": [
-                            895,
-                            72,
-                            1092,
-                            41,
-                            1050,
-                            308,
-                            853,
-                            339
-                        ],
-                        "text": "them"
-                    },
-                    {
-                        "boundingBox": [
-                            1140,
-                            33,
-                            1400,
-                            0,
-                            1359,
-                            258,
-                            1098,
-                            300
-                        ],
-                        "text": "down"
-                    }
-                ]
+              "boundingBox": [204,627,481,628,481,830,204,829],
+              "text": "Our"
             },
             {
-                "boundingBox": [
-                    142,
-                    222,
-                    1252,
-                    62,
-                    1269,
-                    180,
-                    159,
-                    340
-                ],
-                "text": "You remember things better",
-                "words": [
-                    {
-                        "boundingBox": [
-                            140,
-                            223,
-                            267,
-                            205,
-                            288,
-                            324,
-                            162,
-                            342
-                        ],
-                        "text": "You"
-                    },
-                    {
-                        "boundingBox": [
-                            314,
-                            198,
-                            740,
-                            137,
-                            761,
-                            256,
-                            335,
-                            317
-                        ],
-                        "text": "remember"
-                    },
-                    {
-                        "boundingBox": [
-                            761,
-                            134,
-                            1026,
-                            95,
-                            1047,
-                            215,
-                            782,
-                            253
-                        ],
-                        "text": "things"
-                    },
-                    {
-                        "boundingBox": [
-                            1046,
-                            92,
-                            1285,
-                            58,
-                            1307,
-                            177,
-                            1068,
-                            212
-                        ],
-                        "text": "better"
-                    }
-                ]
+              "boundingBox": [519,628,1057,630,1057,832,518,830],
+              "text": "greatest"
             },
             {
-                "boundingBox": [
-                    155,
-                    405,
-                    537,
-                    338,
-                    557,
-                    449,
-                    175,
-                    516
-                ],
-                "text": "by hand",
-                "words": [
-                    {
-                        "boundingBox": [
-                            146,
-                            408,
-                            266,
-                            387,
-                            301,
-                            495,
-                            181,
-                            516
-                        ],
-                        "text": "by"
-                    },
-                    {
-                        "boundingBox": [
-                            290,
-                            383,
-                            569,
-                            334,
-                            604,
-                            443,
-                            325,
-                            491
-                        ],
-                        "text": "hand"
-                    }
-                ]
+              "boundingBox": [1114,630,1549,631,1548,833,1114,832],
+              "text": "glory"
+            },
+            {
+              "boundingBox": [1586,631,1785,632,1784,834,1586,833],
+              "text": "is"
+            },
+            {
+              "boundingBox": [1822,632,2115,633,2115,835,1822,834],
+              "text": "not"
             }
-        ]
+          ]
+        },
+        {
+          "boundingBox": [420,1273,2954,1250,2958,1488,422,1511],
+          "text": "but in rising every time we fall",
+          "words": [
+            {
+              "boundingBox": [423,1269,634,1268,635,1507,424,1508],
+              "text": "but"
+            },
+            {
+              "boundingBox": [667,1268,808,1268,809,1506,668,1507],
+              "text": "in"
+            },
+            {
+              "boundingBox": [874,1267,1289,1265,1290,1504,875,1506],
+              "text": "rising"
+            },
+            {
+              "boundingBox": [1331,1265,1771,1263,1772,1502,1332,1504],
+              "text": "every"
+            },
+            {
+              "boundingBox": [1812, 1263, 2178, 1261, 2179, 1500, 1813, 1502],
+              "text": "time"
+            },
+            {
+              "boundingBox": [2219, 1261, 2510, 1260, 2511, 1498, 2220, 1500],
+              "text": "we"
+            },
+            {
+              "boundingBox": [2551, 1260, 3016, 1258, 3017, 1496, 2552, 1498],
+              "text": "fall"
+            }
+          ]
+        },
+        {
+          "boundingBox": [1612, 903, 2744, 935, 2738, 1139, 1607, 1107],
+          "text": "in never failing ,",
+          "words": [
+            {
+              "boundingBox": [1611, 934, 1707, 933, 1708, 1147, 1613, 1147],
+              "text": "in"
+            },
+            {
+              "boundingBox": [1753, 933, 2132, 930, 2133, 1144, 1754, 1146],
+              "text": "never"
+            },
+            {
+              "boundingBox": [2162, 930, 2673, 927, 2674, 1140, 2164, 1144],
+              "text": "failing"
+            },
+            {
+              "boundingBox": [2703, 926, 2788, 926, 2790, 1139, 2705, 1140],
+              "text": ",",
+              "confidence": "Low"
+            }
+          ]
+        }
+      ]
     }
+  ]
 }
 ```
 

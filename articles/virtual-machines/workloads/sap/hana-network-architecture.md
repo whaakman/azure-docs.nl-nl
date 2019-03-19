@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1262ed841fe8f6f9c2d5339d79abf06c1ab15a25
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 724a91b6ba0be030a2281bce366e4378892df59b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392870"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011578"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Netwerkarchitectuur van SAP HANA (grote instanties)
 
@@ -27,7 +27,7 @@ De architectuur van Azure network services is een belangrijk onderdeel van de su
 
 - SAP-systemen on-premises geïmplementeerd. Vanwege de grootte, niet kunnen deze systemen op dit moment worden gehost in Azure. Een voorbeeld is een productie SAP ERP-systeem dat wordt uitgevoerd op SQL Server (als de database) en meer CPU of geheugen resources dan virtuele machines nodig.
 - SAP HANA op basis van SAP-systemen on-premises geïmplementeerd.
-- Geïmplementeerde SAP-systemen in virtuele machines. Deze systemen kunnen ontwikkelen, testen, sandbox of productie-exemplaren voor het gebruik van de SAP NetWeaver gebaseerde toepassingen die in Azure (op VM's), op basis van verbruik en het geheugen vraag naar resources kunnen implementeren. Deze systemen kunnen ook worden gebaseerd op, zoals SQL Server-databases. Zie voor meer informatie, [SAP Support Opmerking #1928533-SAP-toepassingen op Azure: ondersteunde producten en typen Azure VM's](https://launchpad.support.sap.com/#/notes/1928533/E). En deze systemen kunnen worden gebaseerd op, zoals SAP HANA-databases. Zie voor meer informatie, [SAP HANA-gecertificeerde IaaS-platformen](http://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html).
+- Geïmplementeerde SAP-systemen in virtuele machines. Deze systemen kunnen ontwikkelen, testen, sandbox of productie-exemplaren voor het gebruik van de SAP NetWeaver gebaseerde toepassingen die in Azure (op VM's), op basis van verbruik en het geheugen vraag naar resources kunnen implementeren. Deze systemen kunnen ook worden gebaseerd op, zoals SQL Server-databases. Zie voor meer informatie, [SAP Support Opmerking #1928533-SAP-toepassingen op Azure: Ondersteunde producten en typen Azure VM's](https://launchpad.support.sap.com/#/notes/1928533/E). En deze systemen kunnen worden gebaseerd op, zoals SAP HANA-databases. Zie voor meer informatie, [SAP HANA-gecertificeerde IaaS-platformen](https://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html).
 - SAP-toepassingsservers in Azure (op VM's) die gebruikmaken van SAP HANA op Azure (grote instanties) in Azure Large Instance stempels geïmplementeerd.
 
 Een hybride SAP-landschap met vier of meer verschillende implementatiescenario's is normaal. Er zijn ook veel klantcases van complete SAP-landschappen die worden uitgevoerd in Azure. Als VM's nog krachtigere worden, verhoogt het aantal klanten die alle hun SAP-oplossingen op Azure worden verplaatst.
@@ -79,7 +79,7 @@ De verschillen naar SAP-oplossingen in Azure zijn:
 - De architectuur van SAP-toepassing is gevoeliger voor netwerklatentie dan typische scenario's waarbij gegevens worden uitgewisseld tussen on-premises en Azure.
 - De virtuele netwerkgateway heeft ten minste twee ExpressRoute-verbindingen. Beide verbindingen delen de maximale bandbreedte voor binnenkomende gegevens van de virtuele netwerkgateway.
 
-De ervaren netwerklatentie tussen virtuele machines en HANA grote instantie eenheden kunnen hoger zijn dan een normaal traject latentie van de VM-VM-netwerk. Afhankelijk van de Azure-regio, de meetwaarden kunnen groter zijn dan de 0,7 ms traject latentie geclassificeerd als een waarde onder het gemiddelde in [SAP Opmerking #1100926 - Veelgestelde vragen over: prestaties van het netwerk](https://launchpad.support.sap.com/#/notes/1100926/E). Afhankelijk van Azure-regio en hulpprogramma voor het meten van de traject netwerklatentie tussen een virtuele machine van Azure en HANA grote instantie eenheid, de gemeten latentie kan worden tot en rond 2 milliseconden. Niettemin implementeren klanten voor productie op basis van SAP HANA SAP-toepassingen is op SAP HANA grote instantie. Zorg ervoor dat u uw bedrijfsprocessen grondig testen in Azure HANA grote instantie.
+De ervaren netwerklatentie tussen virtuele machines en HANA grote instantie eenheden kunnen hoger zijn dan een normaal traject latentie van de VM-VM-netwerk. Afhankelijk van de Azure-regio, de meetwaarden kunnen groter zijn dan de 0,7 ms traject latentie geclassificeerd als een waarde onder het gemiddelde in [SAP Opmerking #1100926 - Veelgestelde vragen over: Prestaties van het netwerk](https://launchpad.support.sap.com/#/notes/1100926/E). Afhankelijk van Azure-regio en hulpprogramma voor het meten van de traject netwerklatentie tussen een virtuele machine van Azure en HANA grote instantie eenheid, de gemeten latentie kan worden tot en rond 2 milliseconden. Niettemin implementeren klanten voor productie op basis van SAP HANA SAP-toepassingen is op SAP HANA grote instantie. Zorg ervoor dat u uw bedrijfsprocessen grondig testen in Azure HANA grote instantie.
  
 Voor deterministische netwerklatentie tussen virtuele machines en HANA grote instantie, de keuze van de virtuele netwerkgateway SKU is essentieel. In tegenstelling tot de patronen in het netwerkverkeer tussen on-premises en virtuele machines, kunt het patroon voor verkeer tussen virtuele machines en HANA grote instantie ontwikkelen met kleine maar hoge pieken van aanvragen en gegevens volumes moet worden verzonden. Voor het afhandelen van dergelijke bursts goed, raden we het gebruik van de gateway-SKU UltraPerformance. Voor het Type II-klasse van HANA grote instantie SKU's is het gebruik van de gateway-SKU UltraPerformance als een virtuele netwerkgateway verplicht.
 
@@ -113,7 +113,7 @@ Voor een beter schaalbaar netwerkarchitectuur:
 - Maak gebruik van meerdere virtuele netwerken voor een enkele, grotere SAP-toepassingslaag.
 - Implementeer een afzonderlijke virtuele netwerk voor elk SAP-systeem dat is geïmplementeerd, vergeleken met het combineren van deze SAP-systemen in afzonderlijke subnetten in hetzelfde virtuele netwerk.
 
- Een beter schaalbaar netwerkarchitectuur voor SAP HANA op Azure (grote instanties):
+  Een beter schaalbaar netwerkarchitectuur voor SAP HANA op Azure (grote instanties):
 
 ![SAP-toepassingslaag via meerdere virtuele netwerken implementeren](./media/hana-overview-architecture/image4-networking-architecture.png)
 
@@ -132,12 +132,12 @@ Er zijn drie netwerk routering overwegingen belangrijk voor SAP HANA op Azure (g
 
 * SAP HANA op Azure (grote instanties)-eenheden hebben een toegewezen IP-adres uit het adresbereik van server IP-adresgroep die u hebt ingediend. Zie voor meer informatie, [SAP HANA (grote instanties)-infrastructuur en connectiviteit in Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Dit IP-adres is toegankelijk via de Azure-abonnementen en ExpressRoute dat virtuele netwerken met HANA op Azure (grote instanties verbindt). Het IP-adres toegewezen van die server IP-adresgroepbereik dat rechtstreeks is toegewezen aan de hardware-eenheid. Er *niet* toegewezen via NAT zich voordoet, net als in de eerste implementatie van deze oplossing. 
 
-> [!NOTE] 
+> [!NOTE]
 > De beperking in tijdelijke routering manieren, zoals wordt beschreven in de eerste twee items, om de extra onderdelen voor het routering te gebruiken. Onderdelen die kunnen worden gebruikt om te strijden tegen de beperking kunnen zijn:
-
+> 
 > * Een omgekeerde proxy voor het routeren van gegevens naar en uit. Bijvoorbeeld, F5 BIG-IP, NGINX met Traffic Manager, geïmplementeerd in Azure als een virtuele firewall/verkeer routeren oplossing.
 > * Met behulp van [regels van IPTables](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) in een Linux-VM om in te schakelen routering tussen on-premises locaties en HANA grote instantie eenheden, of tussen HANA grote instantie eenheden in verschillende regio's.
-
+> 
 > Let erop dat de implementatie en ondersteuning voor aangepaste oplossingen van derden met betrekking tot netwerkapparaten of IPTables wordt niet geleverd door Microsoft. Ondersteuning moet worden opgegeven door de leverancier van het onderdeel dat wordt gebruikt of de gegevensintegrator worden verstrekt. 
 
 ## <a name="internet-connectivity-of-hana-large-instance"></a>Verbinding met Internet van HANA grote instantie

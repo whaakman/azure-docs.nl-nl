@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 260dfc829d0869b1fc4f58ae399351c5f68dd926
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 85fc8a42f5220aa8f05495aa260d05ce009884f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270331"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58137824"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Quickstart: Ingebouwde portalprogramma's gebruiken voor importeren, indexeren en query's uitvoeren in Azure Search
 
@@ -34,13 +34,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="prerequisites"></a>Vereisten
 
-[Maak een Azure Search-service](search-create-service-portal.md) of zoek een bestaande service onder uw huidige abonnement.
-
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Open het servicedashboard van uw Azure Search-service. Als u de servicetegel niet hebt vastgemaakt aan het dashboard, kunt u de service op de volgende manier vinden:
-
-   * Klik in de snelbalk in het linkernavigatiedeelvenster op **Alle services**.
-   * Typ in het zoekvak het woord *zoeken* voor een lijst met zoekservices voor uw abonnement. Klik op **Services zoeken**. Als het goed is, wordt de service nu weergegeven in de lijst.
+[Maak een Azure Search-service](search-create-service-portal.md) of [vinden van een bestaande service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in uw huidige abonnement. U kunt een gratis service voor deze Quick Start. 
 
 ### <a name="check-for-space"></a>Controleren of er voldoende ruimte is
 

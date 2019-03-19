@@ -8,12 +8,12 @@ ms.date: 11/05/2018
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: dbb4789773ae9f1cd29f4a8e3ae415d450707a17
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 08a5e288d58d86cdad18561cb8a08a31f44ae498
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771324"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009721"
 ---
 # <a name="solutions-and-training-for-azure-active-directory-b2c"></a>Oplossingen en Training voor Azure Active Directory B2C
 
@@ -28,3 +28,4 @@ Azure Active Directory (Azure AD) B2C kunnen organisaties bedrijfsoplossingen wa
 | [Migreren toepassing verificatie bij Azure AD B2C in een hybride omgeving](https://aka.ms/MigratetoAADB2C) | In moderne organisaties vandaag, digitale transformatie en verplaatst naar de cloud gebeurt in fasen, die de meeste organisaties werkt met ten minste tijdelijk een hybride identiteit-omgeving.<br><br>Deze handleiding is gericht op het maken van het migratieplan voor het verplaatsen van uw eerste toepassing in Azure AD B2C en bevat informatie over de overwegingen voor het in dat geval in een hybride identiteit-omgeving. |
 | [General Data protection Regulation (GDPR) overwegingen voor internetgerichte toepassingen van klanten](https://aka.ms/AADB2CandGDPR) | Voor elke klantgerichte van toepassingen moet GDPR in aanmerking worden genomen door alle organisaties die begint op projecten die persoonlijke gegevens bevatten en burgers van de EU fungeren.<br><br>Deze handleiding is gericht op de manier waarop Azure AD B2C kunnen worden gebruikt als een flexibele onderdeel van uw algehele gang voor GDPR compliance, met inbegrip van hoe onderdelen van Azure AD B2C ondersteuning bieden voor elk van de belangrijkste GDPR-rechten voor personen. |
 | Werken met aangepast beleid:<br><ul><li>[Aangepast beleid-inleiding](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Introduction.pdf)</li><li>[Maak gebruik van aangepaste beleidsregels in uw tenant](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Leveraging%20Custom%20Policies%20for%20your%20Tenant.pdf)</li><li>[Structuur van beleid en sleutels beheren](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Structuring%20Policies%20and%20Managing%20Keys.pdf)</li><li>[Breng uw eigen identiteit en migreren van gebruikers](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Bring-your-own-identity%20and%20Migrating%20Users.pdf)</li><li>[Beleidsproblemen oplossen en toegang controleren](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Troubleshooting%20Policies%20and%20Auditing.pdf)</li><li>[Gedetailleerde informatie over voor aangepaste beleidsschema](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Deep%20Dive%20on%20Custom%20Policy%20Schema.pdf)</li><br>| Deze reeks documenten biedt een end-to-end-reis met de aangepaste beleidsregels in Azure AD B2C, presenteren uitgebreide de meest voorkomende geavanceerde scenario's van identiteit.<br><br> Het bevat over het implementeren en beheren van aangepaste beleidsregels voor deze scenario's en hoe u ze met de beschikbare hulpprogramma's voor vaststelt. Het biedt ook een diepgaand inzicht in hoe aangepaste beleidsregels werken en meer informatie over het afstemmen van de ze om te voldoen aan uw eigen specifieke vereisten. |
+

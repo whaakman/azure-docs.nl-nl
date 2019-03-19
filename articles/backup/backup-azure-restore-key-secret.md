@@ -8,19 +8,22 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: geetha
-ms.openlocfilehash: 9ec6760e790bc540554cf18a9f85f24048becbed
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c5a26de703c97878352ff5fbffdb44f6fca682a6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114668"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875954"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Key Vault-sleutel en -geheim voor versleutelde virtuele machines met behulp van Azure back-up terugzetten
 In dit artikel vertelt over het gebruik van Azure VM Backup voor herstel van versleutelde virtuele machines van Azure uitvoeren als uw sleutel en -geheim niet bestaan in de key vault. Deze stappen kunnen ook worden gebruikt als u wilt behouden een afzonderlijk exemplaar van de sleutel (Key-versleutelingssleutel) en -geheim (BitLocker-versleutelingssleutel) voor de herstelde virtuele machine.
 
 ## <a name="prerequisites"></a>Vereisten
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 * **Back-up van versleutelde virtuele machines** - versleutelde virtuele machines in Azure back-ups maken met Azure Backup. Raadpleeg het artikel [beheren van back-up en herstel van virtuele Azure-machines met behulp van PowerShell](backup-azure-vms-automation.md) voor meer informatie over hoe u back-up van versleutelde virtuele machines van Azure.
-* **Configureren van Azure Key Vault** : Zorg ervoor dat die key vault waarnaar sleutels en geheimen moeten worden hersteld, is al aanwezig. Raadpleeg het artikel [wat is Azure Key Vault?](../key-vault/key-vault-overview.md) voor meer informatie over key vault-beheer.
+* **Configureren van Azure Key Vault** : Zorg ervoor dat die key vault waarnaar sleutels en geheimen moeten worden hersteld, is al aanwezig. Raadpleeg het artikel [aan de slag met Azure Key Vault](../key-vault/key-vault-get-started.md) voor meer informatie over key vault-beheer.
 * **Herstellen schijf** -Zorg ervoor dat u de hersteltaak voor het herstellen van schijven voor het gebruik van versleutelde VM hebt geactiveerd [PowerShell stappen](backup-azure-vms-automation.md#restore-an-azure-vm). Dit is omdat deze taak wordt een JSON-bestand gegenereerd in uw opslagaccount met sleutels en geheimen voor de versleutelde VM kunnen worden hersteld.
 
 ## <a name="get-key-and-secret-from-azure-backup"></a>Sleutel en -geheim ophalen uit Azure Backup
@@ -44,9 +47,9 @@ PS C:\> $encryptedBlobName = $properties["Encryption Info Blob Name"]
 Stel de context van de Azure-opslag en JSON-configuratiebestand met de sleutel en geheime gegevens voor versleutelde VM herstellen.
 
 ```
-PS C:\> Set-AzureRmCurrentStorageAccount -Name $storageaccountname -ResourceGroupName '<rg-name>'
+PS C:\> Set-AzCurrentStorageAccount -Name $storageaccountname -ResourceGroupName '<rg-name>'
 PS C:\> $destination_path = 'C:\vmencryption_config.json'
-PS C:\> Get-AzureStorageBlobContent -Blob $encryptedBlobName -Container $containerName -Destination $destination_path
+PS C:\> Get-AzStorageBlobContent -Blob $encryptedBlobName -Container $containerName -Destination $destination_path
 PS C:\> $encryptionObject = Get-Content -Path $destination_path  | ConvertFrom-Json
 ```
 
@@ -107,7 +110,7 @@ De methode bovengenoemde zou moeten werken voor de herstelpunten. De oudere aanp
 De volgende cmdlets gebruiken voor de sleutel (KEK)-gegevens ophalen uit herstelpunt en voer deze voor het herstellen van de belangrijkste cmdlet om het terug in de key vault.
 
 ```
-PS C:\> $rp1 = Get-AzureRmRecoveryServicesBackupRecoveryPoint -RecoveryPointId $rp[0].RecoveryPointId -Item $backupItem -KeyFileDownloadLocation 'C:\Users\downloads'
+PS C:\> $rp1 = Get-AzRecoveryServicesBackupRecoveryPoint -RecoveryPointId $rp[0].RecoveryPointId -Item $backupItem -KeyFileDownloadLocation 'C:\Users\downloads'
 PS C:\> Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile 'C:\Users\downloads'
 ```
 
@@ -125,7 +128,7 @@ PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secr
 > [!NOTE]
 > * Waarde voor $secretname kan worden verkregen door te verwijzen naar de uitvoer van $rp1. KeyAndSecretDetails.SecretUrl en tekst met na geheimen / bijvoorbeeld geheim van de uitvoer-URL is https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 en geheime naam B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
 > * Waarde van de tag DiskEncryptionKeyFileName is gelijk aan de geheime naam.
-> * Waarde voor DiskEncryptionKeyEncryptionKeyURL kan worden verkregen vanuit key vault na het herstellen van de sleutels terug en het gebruik van [Get-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultkey) cmdlet
+> * Waarde voor DiskEncryptionKeyEncryptionKeyURL kan worden verkregen vanuit key vault na het herstellen van de sleutels terug en het gebruik van [Get-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/get-azurekeyvaultkey) cmdlet
 >
 >
 

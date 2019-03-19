@@ -6,22 +6,22 @@ author: anuragm
 manager: shivamg
 ms.service: backup
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 03/13/2019
 ms.author: anuragm
-ms.openlocfilehash: 8bfa9f2fcdc3047ed5541db058f670a4bc464164
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b8fb6e2b23c275d198ac58fec874ad6627a7b43e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449900"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007180"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Maak een Back-up van SQL Server op Azure oplossen
 
 Dit artikel bevat informatie over probleemoplossing voor het beveiligen van SQL Server-VM's op Azure (Preview).
 
-## <a name="public-preview-limitations"></a>Beperkingen van openbare preview
+## <a name="feature-consideration-and-limitations"></a>Functie overwegingen en beperkingen
 
-U wilt weergeven van de openbare Preview-beperkingen, Zie het artikel [maakt u een Back-up van SQL Server-database in Azure](backup-azure-sql-database.md#preview-limitations).
+U wilt weergeven van de functie overweging, Zie het artikel [over SQL Server-back-up in Azure VM's](backup-sql-server-azure-vms.md#feature-consideration-and-limitations).
 
 ## <a name="sql-server-permissions"></a>SQL Server-machtigingen
 
@@ -37,7 +37,7 @@ Gebruik de informatie in de volgende tabellen om het oplossen van problemen en f
 
 | Severity | Description | Mogelijke oorzaken | Aanbevolen actie |
 |---|---|---|---|
-| Waarschuwing | Huidige instellingen voor deze database bieden geen ondersteuning voor bepaalde soorten back-uptypen aanwezig zijn in het bijbehorende beleid. | <li>**DB-master**: Alleen een volledige database back-upbewerking kan worden uitgevoerd op de database master. geen van beide **differentiële** back-ups of transactie **logboeken** back-up mogelijk zijn. </li> <li>Elke database in **eenvoudige herstelmodel** is niet toegestaan voor de transactie **logboeken** back-up moeten worden uitgevoerd.</li> | De database-instellingen wijzigen zodat de back-typen in het beleid worden ondersteund. U kunt ook het huidige beleid zodanig dat alleen de ondersteunde back-uptypen wijzigen. Anders wordt de niet-ondersteunde back-uptypen overgeslagen tijdens de geplande back-up of de back-uptaak mislukt voor ad-hoc back-up.
+| Waarschuwing | Huidige instellingen voor deze database bieden geen ondersteuning voor bepaalde soorten back-uptypen aanwezig zijn in het bijbehorende beleid. | <li>**DB-master**: Alleen een volledige database back-upbewerking kan worden uitgevoerd op de database master. geen van beide **differentiële** back-ups of transactie **logboeken** back-up is mogelijk. </li> <li>Elke database in **eenvoudige herstelmodel** is niet toegestaan voor de transactie **logboeken** back-up moeten worden uitgevoerd.</li> | De database-instellingen wijzigen zodat de back-typen in het beleid worden ondersteund. U kunt ook het huidige beleid zodanig dat alleen de ondersteunde back-uptypen wijzigen. Anders wordt de niet-ondersteunde back-uptypen overgeslagen tijdens de geplande back-up of de back-uptaak mislukt voor ad-hoc back-up.
 
 
 ## <a name="backup-failures"></a>Mislukte back-ups
@@ -136,6 +136,35 @@ De volgende fout codes zijn voor configureren back-up maken van de fouten.
 | Foutbericht | Mogelijke oorzaken | Aanbevolen actie |
 |---|---|---|
 | Automatische beveiliging kunt u lezen wat is verwijderd of is niet meer geldig. | Wanneer u automatische beveiliging op een SQL-exemplaar inschakelt **back-up configureren** taken worden uitgevoerd voor alle databases in dat exemplaar. Als u automatische beveiliging uitschakelt terwijl de taken worden uitgevoerd, dan zal de **In uitvoering** taken worden geannuleerd met deze foutcode. | Schakel automatische beveiliging opnieuw naar de resterende databases beveiligen. |
+
+## <a name="re-registration-failures"></a>Vernieuwde registratie fouten
+
+Controleren op een of meer van de [symptomen](#symptoms) voordat u activeert de bewerking opnieuw te registreren.
+
+### <a name="symptoms"></a>Symptomen
+
+* Alle bewerkingen zoals back-ups, herstel, en de configuratie van back-ups mislukken op de virtuele machine met een van de volgende foutcodes: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**
+* De **back-up Status** voor de back-up item wordt weergegeven **niet bereikbaar**. Hoewel u moet sprake is van alle andere redenen die ook tot de dezelfde status leiden kunnen:
+
+  * Gebrek aan machtigingen voor het uitvoeren van back-gerelateerde bewerkingen op de virtuele machine  
+  * Virtuele machine is afgesloten vanwege die back-ups kunnen niet uitgevoerd worden
+  * Netwerkproblemen  
+
+    ![Virtuele machine opnieuw te registreren](./media/backup-azure-sql-database/re-register-vm.png)
+
+* In het geval van AlwaysOn-beschikbaarheidsgroep, de back-ups gestart nadat u de back-upvoorkeur gewijzigd of wanneer er een failover is mislukt
+
+### <a name="causes"></a>Oorzaken
+Deze problemen kunnen worden veroorzaakt door een of meer van de volgende redenen:
+
+  * Extensie is verwijderd of is verwijderd van de portal 
+  * Extensie is verwijderd uit de **Configuratiescherm** van de virtuele machine onder **verwijderen of wijzigen van een programma** UI
+  * Virtuele machine is hersteld terug in tijd met in-place schijven herstellen
+  * Virtuele machine is afgesloten gedurende een langere periode vanwege waarvan de configuratie van de extensie erop verlopen
+  * Virtuele machine is verwijderd en een andere virtuele machine is gemaakt met dezelfde naam en in dezelfde resourcegroep bevinden als de verwijderde virtuele machine
+  * Een van de knooppunten AG de volledige back-upconfiguratie is ontvangen, dit kan gebeuren op het moment van registratie van de beschikbaarheid van groep naar de kluis of wanneer een nieuw knooppunt wordt toegevoegd  <br>
+    In de bovenstaande scenario's, is het aanbevolen voor het activeren van de bewerking op de virtuele machine opnieuw te registreren. Deze optie is alleen beschikbaar via PowerShell en is binnenkort beschikbaar in Azure portal.
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

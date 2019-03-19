@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 02/15/2019
-ms.openlocfilehash: 6ec32a40cea4f95d9225134cfb36d4930245d1c5
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
-ms.translationtype: HT
+ms.openlocfilehash: e306245da2c76560ad447358fa1a57e491c370ee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750596"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855687"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Zelfstudie: Gegevens extraheren, transformeren en laden met Azure Databricks
 
@@ -40,6 +40,10 @@ Deze zelfstudie bestaat uit de volgende taken:
 
 Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
+> [!Note]
+> In deze zelfstudie niet kan worden uitgevoerd met behulp van **Azure gratis proefabonnement**.
+> Als u een gratis account wilt gebruiken om het Azure Databricks-cluster te maken, gaat u voordat het cluster is gemaakt naar uw profiel en wijzigt u uw abonnement in **betalen per gebruik**. Zie [Gratis Azure-account](https://azure.microsoft.com/free/) voor meer informatie.
+     
 ## <a name="prerequisites"></a>Vereisten
 
 Voltooi deze taken voordat u aan deze zelfstudie begint:
@@ -50,7 +54,7 @@ Voltooi deze taken voordat u aan deze zelfstudie begint:
 
 * Maak een Azure Blob-opslagaccount met daarin een container. Haal ook de toegangssleutel op voor toegang tot het opslagaccount. Zie [Quickstart: Een Azure Blob Storage-account maken](../storage/blobs/storage-quickstart-blobs-portal.md).
 
-* Een Azure Data Lake Storage Gen2-opslagaccount maken. Zie [Een Azure Data Lake Storage Gen2-account maken](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+* Een Azure Data Lake Storage Gen2-opslagaccount maken. Zie [maken van een account met Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
 *  Een service-principal maken. Raadpleeg [Uitleg: Gebruik de portal voor het maken van een Azure AD-toepassing en service-principal die toegang hebben tot resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 

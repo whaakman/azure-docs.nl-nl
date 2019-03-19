@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 037dafcfc60c629841e326cecc38bb2b3250d77c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 092a346d8303bb9e88a53b6fa529bb820635c554
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015420"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099539"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Activiteiten vertakken en koppelen in een Data Factory-pijplijn
 In deze zelfstudie maakt u een Data Factory-pijplijn die enkele van de stroombeheerfuncties demonstreert. Deze pijplijn voert een eenvoudige kopieerbewerking uit van een container in Azure Blob Storage naar een andere container in hetzelfde opslagaccount. Als de kopieerbewerking is geslaagd, worden de details over de geslaagde kopieerbewerking (zoals de hoeveelheid geschreven gegevens) via de pijplijn verzonden in een e-mail met een succesbericht. Als de kopieerbewerking is mislukt, worden de details over de mislukte kopieerbewerking (zoals de foutmelding) via de pijplijn verzonden in een e-mail met de foutmelding. In de zelfstudie ziet u hoe u parameters kunt doorgeven.
@@ -52,7 +52,7 @@ In deze zelfstudie wordt Azure Portal gebruikt. U kunt andere methoden gebruiken
     John,Doe
     Jane,Doe
     ```
-2. Gebruik hulpprogramma's zoals [Azure Storage Explorer](http://storageexplorer.com/) om de volgende stappen uit te voeren: 
+2. Gebruik hulpprogramma's zoals [Azure Storage Explorer](https://storageexplorer.com/) om de volgende stappen uit te voeren: 
     1. Maak de container **adfv2branch**.
     2. Maak de **invoermap** in de container **adfv2branch**.
     3. Upload het bestand **input.txt** naar de container.
@@ -199,10 +199,10 @@ In deze stap maakt u een pijplijn met één kopieeractiviteit en twee webactivit
    ![Nieuwe gekoppelde Azure Storage-service](./media/tutorial-control-flow-portal/new-azure-storage-linked-service.png)
 12. Voer `@pipeline().parameters.sourceBlobContainer` in als de map en `emp.txt` als de bestandsnaam. U gebruikt de pijplijnparameter sourceBlobContainer om het bestandspad voor de gegevensset in te stellen. 
 
-    ![Instellingen voor de brongegevensset](./media/tutorial-control-flow-portal/source-dataset-settings.png)
+   ![Instellingen voor de brongegevensset](./media/tutorial-control-flow-portal/source-dataset-settings.png)
 13. Ga naar het tabblad **Pijplijn** (of) klik op de pijplijn in de structuurweergave. Controleer of **SourceBlobDataset** is geselecteerd als **Brongegevensset**. 
 
-   ![Brongegevensset](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
+    ![Brongegevensset](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
 13. Ga in het venster Eigenschappen naar het tabblad **Sink** en klik op **+ Nieuw** voor **Sink-gegevensset**. In deze stap maakt u een sink-gegevensset voor de kopieeractiviteit. Dit doet u op dezelfde manier als waarop u de brongegevensset hebt gemaakt. 
 
     ![Knop Nieuwe sink-gegevensset](./media/tutorial-control-flow-portal/new-sink-dataset-button.png)
@@ -217,7 +217,7 @@ In deze stap maakt u een pijplijn met één kopieeractiviteit en twee webactivit
         ![Instellingen voor sink-gegevenssets](./media/tutorial-control-flow-portal/sink-dataset-settings.png)
 17. Ga bovenaan naar het tabblad **Pijplijn**. Vouw **Algemeen** uit in de **Activiteiten**-werkset. Gebruik vervolgens slepen-en-neerzetten om een **webactiviteit** te verplaatsen naar het ontwerpoppervlak voor pijplijnen. Stel de naam van de activiteit in op **SendSuccessEmailActivity**. De Web Activity (webactiviteit) staat een aanroep toe naar elk REST-eindpunt. Zie voor meer informatie over de activiteit [Webactiviteit](control-flow-web-activity.md). Deze pijplijn gebruikt een webactiviteit voor het aanroepen van de Logic Apps-e-mailwerkstroom. 
 
-   ![De eerste webactiviteit slepen en neerzetten](./media/tutorial-control-flow-portal/success-web-activity-general.png)
+    ![De eerste webactiviteit slepen en neerzetten](./media/tutorial-control-flow-portal/success-web-activity-general.png)
 18. Ga vanuit het tabblad **Algemeen** naar het tabblad **Instellingen** en voer de volgende stappen uit: 
     1. Geef bij **URL** de URL voor de Logic Apps-werkstroom op waarmee de e-mail met het succesbericht wordt verzonden.  
     2. Selecteer **POST** als **Methode**. 
@@ -235,12 +235,12 @@ In deze stap maakt u een pijplijn met één kopieeractiviteit en twee webactivit
         ```
         De hoofdtekst van het bericht bevat de volgende eigenschappen:
 
-        - Bericht: geeft de waarde van `@{activity('Copy1').output.dataWritten` door. Leest een eigenschap van de vorige kopieeractiviteit en geeft de waarde van dataWritten door. In het geval waarin het kopiëren mislukt, wordt de uitvoer van de fout doorgegeven in plaats van `@{activity('CopyBlobtoBlob').error.message`.
-        - Naam data factory: geeft de waarde van `@{pipeline().DataFactory}` door. Dit is een systeemvariabele, zodat u toegang hebt tot de bijbehorende data factory-naam. Zie voor een lijst van systeemvariabelen het artikel [System Variables](control-flow-system-variables.md) (Systeemvariabelen).
-        - Naam pijplijn: geeft de waarde van `@{pipeline().Pipeline}` door. Dit is ook een systeemvariabele, zodat u toegang hebt tot de bijbehorende pijplijnnaam. 
-        - Ontvanger: geeft de waarde van "\@pipeline().parameters.receiver") door. Toegang tot de pijplijnparameters.
+       - Bericht: geeft de waarde van `@{activity('Copy1').output.dataWritten` door. Leest een eigenschap van de vorige kopieeractiviteit en geeft de waarde van dataWritten door. In het geval waarin het kopiëren mislukt, wordt de uitvoer van de fout doorgegeven in plaats van `@{activity('CopyBlobtoBlob').error.message`.
+       - Naam data factory: geeft de waarde van `@{pipeline().DataFactory}` door. Dit is een systeemvariabele, zodat u toegang hebt tot de bijbehorende data factory-naam. Zie voor een lijst van systeemvariabelen het artikel [System Variables](control-flow-system-variables.md) (Systeemvariabelen).
+       - Naam pijplijn: geeft de waarde van `@{pipeline().Pipeline}` door. Dit is ook een systeemvariabele, zodat u toegang hebt tot de bijbehorende pijplijnnaam. 
+       - Ontvanger: geeft de waarde van "\@pipeline().parameters.receiver") door. Toegang tot de pijplijnparameters.
     
-        ![Instellingen voor de eerste webactiviteit](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
+         ![Instellingen voor de eerste webactiviteit](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
 19. Verbind de **kopieeractiviteit** met de **webactiviteit** door de groene knop naast de kopieeractiviteit te slepen en neer te zetten op de webactiviteit. 
 
     ![Kopieeractiviteit verbinden met de eerste webactiviteit](./media/tutorial-control-flow-portal/connect-copy-web-activity1.png)

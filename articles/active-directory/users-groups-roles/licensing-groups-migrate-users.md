@@ -16,12 +16,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4067a54326d0a4a8ab9029dd4afceea384cf6aa
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7fd800097ca5107f7df1e67c91ff4c96b9cfcd74
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188627"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107743"
 ---
 # <a name="how-to-add-licensed-users-to-a-group-for-licensing-in-azure-active-directory"></a>Gelicentieerde gebruikers toevoegen aan een groep voor licentieverlening in Azure Active Directory
 
@@ -39,17 +39,17 @@ Het belangrijkste dat rekening moet houden is dat u een situatie waarbij migrere
 
 4. Controleer of dat licenties zijn toegepast op alle gebruikers in deze groepen. Deze toepassing kan worden gedaan door het controleren van de verwerkingsstatus voor elke groep en door het controleren van de logboeken voor controle.
 
-  - Kunt u afzonderlijke gebruikers controle door te kijken naar de details van hun licentie. U ziet dat ze hebben dezelfde licenties zijn toegewezen "rechtstreeks" en "overgenomen" van groepen.
+   - Kunt u afzonderlijke gebruikers controle door te kijken naar de details van hun licentie. U ziet dat ze hebben dezelfde licenties zijn toegewezen "rechtstreeks" en "overgenomen" van groepen.
 
-  - U kunt een PowerShell-script voor uitvoeren [controleren hoe licenties zijn toegewezen aan gebruikers](licensing-group-advanced.md#use-powershell-to-see-who-has-inherited-and-direct-licenses).
+   - U kunt een PowerShell-script voor uitvoeren [controleren hoe licenties zijn toegewezen aan gebruikers](licensing-group-advanced.md#use-powershell-to-see-who-has-inherited-and-direct-licenses).
 
-  - Als de dezelfde productlicentie is toegewezen aan de gebruiker rechtstreeks en via een groep, wordt slechts één licentie voor gebruikt door de gebruiker. Er zijn geen aanvullende licenties moeten daarom migratie uit te voeren.
+   - Als de dezelfde productlicentie is toegewezen aan de gebruiker rechtstreeks en via een groep, wordt slechts één licentie voor gebruikt door de gebruiker. Er zijn geen aanvullende licenties moeten daarom migratie uit te voeren.
 
 5. Controleer of dat er geen licentietoewijzingen kunnen niet door het controleren van elke groep voor gebruikers in de foutstatus. Zie voor meer informatie, [identificeren en oplossen van problemen voor een groep](licensing-groups-resolve-problems.md).
 
 6. Houd rekening met de oorspronkelijke directe toewijzingen; worden verwijderd mogelijk wilt u geleidelijk in 'blokken' voor het bewaken van het resultaat in een subset van gebruikers eerst doen.
 
-  Kan u laat u de oorspronkelijke directe toewijzingen op gebruikers, maar als de gebruikers hun groepen met licenties laat ze nog steeds de oorspronkelijke licentie, is mogelijk niet wat u wilt behouden.
+   Kan u laat u de oorspronkelijke directe toewijzingen op gebruikers, maar als de gebruikers hun groepen met licenties laat ze nog steeds de oorspronkelijke licentie, is mogelijk niet wat u wilt behouden.
 
 ## <a name="an-example"></a>Een voorbeeld
 
@@ -61,25 +61,25 @@ Dit is wat het migratieproces kan er als volgt uitzien:
 
 2. Bevestig dat de licentietoewijzing is voltooid voor alle gebruikers voor elke groep. Ga naar de blade voor elke groep, schakel **licenties**, en controleer de verwerkingsstatus aan de bovenkant van de **licenties** blade.
 
-  - Zoek naar 'Nieuwste licentie wijzigingen zijn toegepast op alle gebruikers' om te bevestigen van de verwerking is voltooid.
+   - Zoek naar 'Nieuwste licentie wijzigingen zijn toegepast op alle gebruikers' om te bevestigen van de verwerking is voltooid.
 
-  - Zoek naar een melding bovenaan over gebruikers voor wie licenties mogelijk niet met succes is toegewezen. Is er geen licenties voor bepaalde gebruikers uitvoeren? Sommige gebruikers hebben conflicterende licentie-SKU's die te voorkomen dat ze overgenomen van Groepslicenties?
+   - Zoek naar een melding bovenaan over gebruikers voor wie licenties mogelijk niet met succes is toegewezen. Is er geen licenties voor bepaalde gebruikers uitvoeren? Sommige gebruikers hebben conflicterende licentie-SKU's die te voorkomen dat ze overgenomen van Groepslicenties?
 
 3. Positie controleren op bepaalde gebruikers om te controleren of dat ze zowel de directe en groep licenties toegepast hebt. Ga naar de blade voor een gebruiker, selecteer **licenties**, en bekijk de status van licenties.
 
-  - Dit is de status van de verwachte gebruiker tijdens de migratie:
+   - Dit is de status van de verwachte gebruiker tijdens de migratie:
 
       ![verwachte gebruikersstatus](./media/licensing-groups-migrate-users/expected-user-state.png)
 
-  Hiermee bevestigt u dat de gebruiker direct en overgenomen licenties heeft. Zien we dat beide **EMS** en **E3** zijn toegewezen.
+   Hiermee bevestigt u dat de gebruiker direct en overgenomen licenties heeft. Zien we dat beide **EMS** en **E3** zijn toegewezen.
 
-  - Selecteer elke licentie om meer informatie over de ingeschakelde services weer te geven. Dit kan worden gebruikt om te controleren als de directe en groep-licenties exact de dezelfde service-plannen voor de gebruiker inschakelen.
+   - Selecteer elke licentie om meer informatie over de ingeschakelde services weer te geven. Dit kan worden gebruikt om te controleren als de directe en groep-licenties exact de dezelfde service-plannen voor de gebruiker inschakelen.
 
       ![Controleer de service-plannen](./media/licensing-groups-migrate-users/check-service-plans.png)
 
 4. Nadat is bevestigd dat dat zowel direct als groep licenties gelijkwaardig zijn, kunt u beginnen met het verwijderen van directe licenties van gebruikers. U kunt dit testen door deze te verwijderen voor afzonderlijke gebruikers in de portal en voer vervolgens automatiseringsscripts van te zijn verwijderd in één bulkbewerking. Hier volgt een voorbeeld van dezelfde gebruiker in de directe licenties verwijderd via de portal. U ziet dat de licentiestatus ongewijzigd blijft, maar niet meer we direct toewijzingen zien.
 
-  ![directe licenties die zijn verwijderd](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
+   ![directe licenties die zijn verwijderd](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen

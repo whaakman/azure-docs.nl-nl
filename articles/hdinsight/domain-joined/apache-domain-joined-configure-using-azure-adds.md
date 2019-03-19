@@ -9,12 +9,12 @@ ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 722a40dca0a64407a407ecad6d990d1651b0e998
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 96766a12d7e78dacd93432e30d12f313d52ad4c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415728"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176171"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Een HDInsight-cluster met Enterprise Security Package configureren met behulp van Azure Active Directory Domain Services
 
@@ -56,7 +56,7 @@ De status van uw Azure Active Directory Domain Services weergeven door te select
 
 ## <a name="create-and-authorize-a-managed-identity"></a>Maken en machtigen van een beheerde identiteit
 
-Een **gebruiker toegewezen beheerde identiteit** wordt gebruikt om te vereenvoudigen en veilige bewerkingen voor domain services. Wanneer u de rol Inzender voor HDInsight Domain Services aan de beheerde identiteit toewijzen, kan het lezen, maken, wijzigen en verwijderbewerkingen met domain services. Bepaalde bewerkingen domain services, zoals het maken van de organisatie-eenheden en service beginselen nodig zijn voor de Enterprise-beveiligingspakket van HDInsight. Beheerde identiteiten kunnen worden gemaakt in elk abonnement. Zie voor meer informatie, [beheerde identiteiten voor een Azure-resources](../../active-directory/managed-identities-azure-resources/overview.md).
+Een **gebruiker toegewezen beheerde identiteit** wordt gebruikt om te vereenvoudigen en veilige bewerkingen voor domain services. Wanneer u de rol Inzender voor HDInsight Domain Services aan de beheerde identiteit toewijzen, kan het lezen, maken, wijzigen en verwijderbewerkingen met domain services. Bepaalde bewerkingen domain services, zoals het maken van de organisatie-eenheden en service beginselen nodig zijn voor de Enterprise-beveiligingspakket van HDInsight. Beheerde identiteiten kunnen worden gemaakt in elk abonnement. Zie voor meer informatie over identiteiten in het algemeen beheerde, [beheerde identiteiten voor een Azure-resources](../../active-directory/managed-identities-azure-resources/overview.md). Zie voor meer informatie over de manier waarop beheerde identiteiten werk in Azure HDInsight, [beheerde identiteiten in Azure HDInsight](../hdinsight-managed-identities.md).
 
 Als u ESP-clusters instelt, maakt u een beheerde identiteit voor de gebruiker toegewezen als u nog niet hebt. Zie [maken, lijst, verwijderen of wijs een rol aan een gebruiker toegewezen beheerde identiteit met Azure portal](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) voor instructies. Vervolgens kunt toewijzen aan de **HDInsight Domain Services Inzender** rol aan de beheerde identiteit in Azure AD DS-toegangsbeheer (AAD-DS-beheerdersbevoegdheden zijn vereist voor het maken van deze roltoewijzing).
 

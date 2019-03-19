@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: aac23f616cb9d7c3fb29e516cfa2daa47c00e8e2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4190f06129d7f9bcfe455b3e321de785fc531f1e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989257"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842546"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>Problemen oplossen met verbindingen met Azure Network Watcher met behulp van PowerShell
 
@@ -26,7 +26,7 @@ ms.locfileid: "46989257"
 > - [Portal](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [Azure-CLI](network-watcher-connectivity-cli.md)
-> - [Azure REST-API](network-watcher-connectivity-rest.md)
+> - [Azure REST API](network-watcher-connectivity-rest.md)
 
 Informatie over het gebruik van de verbinding oplossen om te controleren of een rechtstreekse TCP-verbinding van een virtuele machine naar een bepaald eindpunt kan worden gemaakt.
 
@@ -214,7 +214,7 @@ $nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networ
 $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 
 
-Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress http://bing.com/
+Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress https://bing.com/
 ```
 
 ### <a name="response"></a>Antwoord

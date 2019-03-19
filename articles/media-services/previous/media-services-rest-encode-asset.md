@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: e51fa086b26e5692d8dd572654b7c1ec50c641c5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 608abd09227014513a0ad358d7a2c225b5ab2b97
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005145"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863369"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Een asset coderen met behulp van Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -61,7 +61,7 @@ Zie voor meer informatie over het verbinding maken met de AMS-API [toegang tot d
 >
 > Bij het openen van entiteiten in Media Services, moet u specifieke header-velden en waarden instellen in uw HTTP-aanvragen. Zie voor meer informatie, [instellen voor het ontwikkelen van Media Services REST API](media-services-rest-how-to-use.md).
 >
-> Wanneer met behulp van JSON en op te geven voor het gebruik van de **__metadata** sleutelwoord in de aanvraag (bijvoorbeeld, om te verwijzen naar een gekoppeld object), stelt u de **accepteren** koptekst [uitgebreide JSON-indeling](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accepteer: application/json; odata = uitgebreide.
+> Wanneer met behulp van JSON en op te geven voor het gebruik van de **__metadata** sleutelwoord in de aanvraag (bijvoorbeeld, om te verwijzen naar een gekoppeld object), stelt u de **accepteren** koptekst [uitgebreide JSON-indeling](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accepteer: application/json; odata = uitgebreide.
 >
 >
 
@@ -151,7 +151,7 @@ Om in te schakelen taak koppeling:
 * Er moet ten minste één taak waarvan de invoer de uitvoer van een andere taak in de taak is.
 
 ## <a name="use-odata-batch-processing"></a>OData-batchverwerking gebruiken
-Het volgende voorbeeld laat zien hoe OData batchverwerking gebruiken om te maken van een job en taken. Zie voor informatie over batchverwerking, [Open Data Protocol (OData) batchverwerking](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+Het volgende voorbeeld laat zien hoe OData batchverwerking gebruiken om te maken van een job en taken. Zie voor informatie over batchverwerking, [Open Data Protocol (OData) batchverwerking](https://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
     POST https://media.windows.net/api/$batch HTTP/1.1
     DataServiceVersion: 1.0;NetFx

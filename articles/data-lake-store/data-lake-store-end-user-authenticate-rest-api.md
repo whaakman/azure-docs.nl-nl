@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 1e952e32142672946fa987b763032dad66f564a9
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d5603bb6bbb56d1aebb719902c60de631a4f14f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537878"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108185"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Eindgebruikersverificatie met Azure Data Lake Storage Gen1 met behulp van REST-API
 > [!div class="op_single_selector"]
@@ -45,38 +45,36 @@ Het resultaat dat de aanmelding door eindgebruikers is dat uw toepassing een toe
 In dit scenario wordt de gebruiker via de toepassing gevraagd om zich te melden en worden alle bewerkingen uitgevoerd in de context van de gebruiker. Voer de volgende stappen uit:
 
 1. Leid de gebruiker via de toepassing om naar de volgende URL:
-   
+
         https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<APPLICATION-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
-   
+
    > [!NOTE]
    > \<REDIRECT-URI> moet zijn gecodeerd om te worden gebruikt in een URL. Ja, voor https://localhost, gebruikt u `https%3A%2F%2Flocalhost`)
-   > 
-   > 
-   
+
     Voor deze zelfstudie kunt u de waarden van de tijdelijke aanduiding in bovenstaande URL vervangen en deze in de adresbalk van de webbrowser plakken. U wordt omgeleid om u te verifiëren met uw Azure-aanmelding. Wanneer u bent aangemeld, wordt het antwoord weergegeven in de adresbalk van de browser. Het antwoord heeft de volgende indeling:
-   
+
         http://localhost/?code=<AUTHORIZATION-CODE>&session_state=<GUID>
 
 2. Leg de autorisatiecode uit het antwoord vast. Voor deze zelfstudie kunt u de autorisatiecode uit de adresbalk van de webbrowser en geeft u het in het bericht aanvragen bij het tokeneindpunt kopiëren, zoals wordt weergegeven in het volgende codefragment:
-   
+
         curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token \
         -F redirect_uri=<REDIRECT-URI> \
         -F grant_type=authorization_code \
         -F resource=https://management.core.windows.net/ \
         -F client_id=<APPLICATION-ID> \
         -F code=<AUTHORIZATION-CODE>
-   
+
    > [!NOTE]
    > In dit geval hoeft de \<REDIRECT-URI> niet te worden gecodeerd.
    > 
    > 
 
 3. Het antwoord is een JSON-object dat een toegangstoken bevat (bijvoorbeeld `"access_token": "<ACCESS_TOKEN>"`) en een vernieuwingstoken (bijvoorbeeld `"refresh_token": "<REFRESH_TOKEN>"`). Uw toepassing gebruikt het toegangstoken tijdens toegang tot Azure Data Lake Storage Gen1 en het vernieuwingstoken dat aan een andere toegangstoken wanneer een toegangstoken is verlopen.
-   
+
         {"token_type":"Bearer","scope":"user_impersonation","expires_in":"3599","expires_on":"1461865782","not_before":    "1461861882","resource":"https://management.core.windows.net/","access_token":"<REDACTED>","refresh_token":"<REDACTED>","id_token":"<REDACTED>"}
 
 4. Wanneer het toegangstoken is verlopen, kunt u een nieuw toegangstoken met het vernieuwingstoken aanvragen, zoals wordt weergegeven in het volgende codefragment:
-   
+
         curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
              -F grant_type=refresh_token \
              -F resource=https://management.core.windows.net/ \
@@ -84,7 +82,7 @@ In dit scenario wordt de gebruiker via de toepassing gevraagd om zich te melden 
              -F refresh_token=<REFRESH-TOKEN>
 
 Zie [De stroom voor autorisatiecodetoekenning](https://msdn.microsoft.com/library/azure/dn645542.aspx) voor meer informatie over interactieve gebruikersverificatie.
-   
+
 ## <a name="next-steps"></a>Volgende stappen
 In dit artikel hebt u geleerd hoe u service-naar-serviceverificatie voor verificatie met Azure Data Lake Storage Gen1 met behulp van REST-API. U kunt nu de volgende artikelen die bespreken hoe u de REST-API gebruiken om te werken met Azure Data Lake Storage Gen1 kijken.
 

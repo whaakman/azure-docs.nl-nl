@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 3ebc4d94e0bbf24895be0aeba9fef1cc7aacd6b9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 1e17ec48c35a7e01ca87016406fb416a05544b41
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736709"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087190"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Voldoen aan de Azure CDN-regelengine 
 Dit artikel vindt u gedetailleerde beschrijvingen van de criteria voor het Azure Content Delivery Network (CDN) voor de beschikbare overeenkomst [regels-engine](cdn-rules-engine.md).
@@ -532,16 +532,16 @@ Belangrijke informatie:
 - Een edge CNAME-URL wordt herschreven naar de URL van een CDN voorafgaand aan de URL-vergelijking.
 
     Bijvoorbeeld, beide van de volgende URL's verwijzen naar dezelfde asset en daarom hebben de dezelfde URL-pad.
-    - CDN-URL: http:\//wpc.0001.&lt; domein&gt;/800001/CustomerOrigin/path/asset.htm
+  - CDN-URL: http:\//wpc.0001.&lt; domein&gt;/800001/CustomerOrigin/path/asset.htm
     
-    - Edge CNAME-URL: http:\//&lt;eindpunt&gt;.azureedge.net/path/asset.htm
+  - Edge CNAME-URL: http:\//&lt;eindpunt&gt;.azureedge.net/path/asset.htm
     
     Aanvullende informatie:
-    - Aangepast domein: https:\//my.domain.com/path/asset.htm
+  - Aangepast domein: https:\//my.domain.com/path/asset.htm
     
-    - URL-pad (relatief aan hoofdmap van): / 800001/CustomerOrigin/path /
+  - URL-pad (relatief aan hoofdmap van): / 800001/CustomerOrigin/path /
     
-    - URL-pad (ten opzichte van oorsprong): /path/
+  - URL-pad (ten opzichte van oorsprong): /path/
 
 - Het gedeelte van de URL die wordt gebruikt voor het einde van de vergelijking URL net vóór de bestandsnaam van de aangevraagde asset. Een afsluitende slash is het laatste teken in dit type pad.
     
@@ -639,27 +639,27 @@ Belangrijke informatie:
 - Gebruik de **ten opzichte van** optie om op te geven of het punt van de vergelijking van de URL vóór of na de punt van de toegang tot inhoud begint. 
 
     De volgende waarden zijn beschikbaar voor de **ten opzichte van** optie:
-     - **Hoofdmap**: Geeft aan dat het punt van de vergelijking van de URL direct na de CDN-hostnaam begint.
+  - **Hoofdmap**: Geeft aan dat het punt van de vergelijking van de URL direct na de CDN-hostnaam begint.
 
-       Bijvoorbeeld: http:\//wpc.0001.&lt; domein&gt;/**800001/myorigin/myfolder/index.htm**
+    Bijvoorbeeld: http:\//wpc.0001.&lt; domein&gt;/**800001/myorigin/myfolder/index.htm**
 
-     - **Oorsprong**: Geeft aan dat het punt van de vergelijking van de URL na de punt van de toegang tot inhoud (bijvoorbeeld /000001 of/800001/myorigin begint). Omdat de \*. azureedge.net CNAME is ten opzichte van de map van de oorsprong van de hostnaam Verizon CDN die standaard worden gemaakt, moeten worden gebruikt door Azure CDN-gebruikers de **oorsprong** waarde. 
+  - **Oorsprong**: Geeft aan dat het punt van de vergelijking van de URL na de punt van de toegang tot inhoud (bijvoorbeeld /000001 of/800001/myorigin begint). Omdat de \*. azureedge.net CNAME is ten opzichte van de map van de oorsprong van de hostnaam Verizon CDN die standaard worden gemaakt, moeten worden gebruikt door Azure CDN-gebruikers de **oorsprong** waarde. 
 
-       Bijvoorbeeld: https:\//&lt;eindpunt&gt;.azureedge.net/**myfolder/index.htm**
+    Bijvoorbeeld: https:\//&lt;eindpunt&gt;.azureedge.net/**myfolder/index.htm**
 
-     Deze URL verwijst naar de volgende Verizon CDN-hostnaam: http:\//wpc.0001.&lt; domein&gt;/800001/myorigin/**myfolder/index.htm**
+    Deze URL verwijst naar de volgende Verizon CDN-hostnaam: http:\//wpc.0001.&lt; domein&gt;/800001/myorigin/**myfolder/index.htm**
 
 - Een edge CNAME-URL wordt herschreven naar een CDN-URL voordat u een URL-vergelijking.
 
     Bijvoorbeeld, beide van de volgende URL's verwijzen naar dezelfde asset en daarom hebben de dezelfde URL-pad:
-    - CDN-URL: http:\//wpc.0001.&lt; domein&gt;/800001/CustomerOrigin/path/asset.htm
-    - Edge CNAME-URL: http:\//&lt;eindpunt&gt;.azureedge.net/path/asset.htm
+  - CDN-URL: http:\//wpc.0001.&lt; domein&gt;/800001/CustomerOrigin/path/asset.htm
+  - Edge CNAME-URL: http:\//&lt;eindpunt&gt;.azureedge.net/path/asset.htm
     
     Aanvullende informatie:
     
-    - URL-pad (relatief aan hoofdmap van): /800001/CustomerOrigin/path/asset.htm
+  - URL-pad (relatief aan hoofdmap van): /800001/CustomerOrigin/path/asset.htm
    
-    - URL-pad (ten opzichte van oorsprong): /path/asset.htm
+  - URL-pad (ten opzichte van oorsprong): /path/asset.htm
 
 - Queryreeksen in de URL worden genegeerd.
 - Gebruik de **negeren geval** optie om te bepalen of een hoofdlettergevoelige vergelijking wordt uitgevoerd.
@@ -684,13 +684,13 @@ Belangrijke informatie:
  
     Bijvoorbeeld, beide URL's verwijzen naar dezelfde asset en daarom hebben de dezelfde URL-pad.
 
-     - CDN-URL: http:\//wpc.0001.&lt; domein&gt;/800001/CustomerOrigin/path/asset.htm
+  - CDN-URL: http:\//wpc.0001.&lt; domein&gt;/800001/CustomerOrigin/path/asset.htm
 
-     - Edge CNAME-URL: http:\//my.domain.com/path/asset.htm
+  - Edge CNAME-URL: http:\//my.domain.com/path/asset.htm
     
     Aanvullende informatie:
     
-     - URL-pad: /800001/CustomerOrigin/path/asset.htm
+  - URL-pad: /800001/CustomerOrigin/path/asset.htm
 
 - Queryreeksen in de URL worden genegeerd.
     
@@ -714,27 +714,27 @@ Belangrijke informatie:
 - **Ten opzichte van** optie: Deze optie bepaalt u of het punt van de vergelijking van de URL vóór of na de punt van de toegang tot inhoud begint.
 
    Deze optie kan de volgende waarden hebben:
-     - **Hoofdmap**: Geeft aan dat het punt van de vergelijking van de URL direct na de CDN-hostnaam begint.
+  - **Hoofdmap**: Geeft aan dat het punt van de vergelijking van de URL direct na de CDN-hostnaam begint.
 
-       Bijvoorbeeld: http:\//wpc.0001.&lt; domein&gt;/**800001/myorigin/myfolder/index.htm**
+    Bijvoorbeeld: http:\//wpc.0001.&lt; domein&gt;/**800001/myorigin/myfolder/index.htm**
 
-     - **Oorsprong**: Geeft aan dat het punt van de vergelijking van de URL na de punt van de toegang tot inhoud (bijvoorbeeld /000001 of/800001/myorigin begint). Omdat de \*. azureedge.net CNAME is ten opzichte van de map van de oorsprong van de hostnaam Verizon CDN die standaard worden gemaakt, moeten worden gebruikt door Azure CDN-gebruikers de **oorsprong** waarde. 
+  - **Oorsprong**: Geeft aan dat het punt van de vergelijking van de URL na de punt van de toegang tot inhoud (bijvoorbeeld /000001 of/800001/myorigin begint). Omdat de \*. azureedge.net CNAME is ten opzichte van de map van de oorsprong van de hostnaam Verizon CDN die standaard worden gemaakt, moeten worden gebruikt door Azure CDN-gebruikers de **oorsprong** waarde. 
 
-       Bijvoorbeeld: https:\//&lt;eindpunt&gt;.azureedge.net/**myfolder/index.htm**
+    Bijvoorbeeld: https:\//&lt;eindpunt&gt;.azureedge.net/**myfolder/index.htm**
 
-     Deze URL verwijst naar de volgende Verizon CDN-hostnaam: http:\//wpc.0001.&lt; domein&gt;/800001/myorigin/**myfolder/index.htm**
+    Deze URL verwijst naar de volgende Verizon CDN-hostnaam: http:\//wpc.0001.&lt; domein&gt;/800001/myorigin/**myfolder/index.htm**
 
 - Een edge CNAME-URL wordt herschreven naar een CDN-URL voor vergelijking van de URL.
 
     Bijvoorbeeld, beide van de volgende URL's verwijzen naar dezelfde asset en daarom hebben de dezelfde URL-pad:
-     - De URL van CDN: http://wpc.0001.&lt; domein&gt;/800001/CustomerOrigin/path/asset.htm
-     - Edge CNAME-URL: http:\//&lt;eindpunt&gt;.azureedge.net/path/asset.htm
+  - De URL van CDN: http://wpc.0001.&lt; domein&gt;/800001/CustomerOrigin/path/asset.htm
+  - Edge CNAME-URL: http:\//&lt;eindpunt&gt;.azureedge.net/path/asset.htm
     
     Aanvullende informatie:
     
-     - URL-pad (relatief aan hoofdmap van): /800001/CustomerOrigin/path/asset.htm
+  - URL-pad (relatief aan hoofdmap van): /800001/CustomerOrigin/path/asset.htm
     
-     - URL-pad (ten opzichte van oorsprong): /path/asset.htm
+  - URL-pad (ten opzichte van oorsprong): /path/asset.htm
     
 - Geef meerdere URL-paden door die begrenst elkaar met een spatie.
 

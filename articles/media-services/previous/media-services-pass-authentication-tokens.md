@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: dwgeo
-ms.openlocfilehash: b4bcc1bbed732e09f4c4d915342a422ce6c36901
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6fc13010d5dd888f28b5634b1f70aaa3326e54cf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002068"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837504"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Informatie over hoe clients tokens doorgeven aan de sleutel leveringsservice voor Azure Media Services
 Klanten vragen vaak hoe een speler kunt doorgeven tokens aan de sleutel leveringsservice voor Azure Media Services om te verifiëren, zodat de speler de sleutel kunt verkrijgen. Media Services biedt ondersteuning voor het simple webtoken (SWT) en JSON Web Token (JWT) geformatteerd. Tokenverificatie wordt toegepast op elk type sleutel, ongeacht of u algemene versleuteling of Advanced Encryption Standard (AES) envelop versleuteling in het systeem.
@@ -29,7 +29,7 @@ Klanten vragen vaak hoe een speler kunt doorgeven tokens aan de sleutel levering
 
 - Via de HTTP-autorisatie-header.
     > [!NOTE]
-    > Het voorvoegsel 'Bearer' wordt verwacht per de OAuth 2.0-specificaties. Een voorbeeld-speler met de configuratie van sessietoken wordt gehost op de Azure Media Player [demo pagina](http://ampdemo.azureedge.net/). Om in te stellen de videobron, kies **AES (JWT-Token)** of **AES (SWT Token)**. Het token wordt doorgegeven via de autorisatie-header.
+    > Het voorvoegsel 'Bearer' wordt verwacht per de OAuth 2.0-specificaties. Een voorbeeld-speler met de configuratie van sessietoken wordt gehost op de Azure Media Player [demo pagina](https://ampdemo.azureedge.net/). Om in te stellen de videobron, kies **AES (JWT-Token)** of **AES (SWT Token)**. Het token wordt doorgegeven via de autorisatie-header.
 
 - Via het toevoegen van een URL queryparameter met ' token = tokenvalue. "  
     > [!NOTE]

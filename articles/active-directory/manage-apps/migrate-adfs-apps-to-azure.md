@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/02/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d43a8a316ff28d2cdb9e231057aea3de85d7d444
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f2739b5d2d944ea9a8b8cefdcc741abc8a2b632a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205576"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113398"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>Toepassingen van AD FS verplaatsen naar Azure AD 
 
@@ -99,7 +99,7 @@ Voor de migratie begint, moet eerst worden vastgesteld hoe de app on-premises mo
 |Configuratie-element van app|Description|Locatie in AD FS-configuratie|Overeenkomstige locatie in Azure AD-configuratie|SAML-tokenelement|
 |-----|-----|-----|-----|-----|
 |Aanmeldings-URL van app|URL van de aanmeldingspagina van deze toepassing. Hier gaat de gebruiker naartoe om zich aan te melden bij de app in een door SP geïnitieerde SAML-stroom.|N/A|In Azure AD wordt binnen Azure Portal de aanmeldings-URL als de aanmeldings-URL geconfigureerd in de eigenschappen voor **eenmalige aanmelding** van de toepassing.</br></br>(Mogelijk moet u **Geavanceerde URL-instellingen weergeven** selecteren om de aanmeldings-URL te zien.)|N/A|
-|Antwoord-URL van app|URL van de app vanuit het perspectief van de id-provider (IdP). Hier worden de gebruiker en het token naartoe gestuurd nadat de gebruiker zich bij de IdP heeft aangemeld.</br></br> Dit wordt ook wel het ‘consumenteneindpunt van de SAML-bewerking’ genoemd.|Te vinden in de vertrouwensrelatie van de Relying Party van AD FS voor de app. Klik met de rechtermuisknop op de Relying Party, selecteer **Eigenschappen** en selecteer het tabblad **Eindpunten**.|In Azure AD wordt de antwoord-URL binnen de Azure-portal geconfigureerd in de eigenschappen voor **eenmalige aanmelding** van de toepassing.</br></br>(Mogelijk moet u **Geavanceerde URL-instellingen weergeven** selecteren om de antwoord-URL te zien.)|Komt overeen met het **Doel**-element in het SAML-token.</br></br> Voorbeeldwaarde: https://contoso.my.salesforce.com|
+|Antwoord-URL van app|URL van de app vanuit het perspectief van de id-provider (IdP). Hier worden de gebruiker en het token naartoe gestuurd nadat de gebruiker zich bij de IdP heeft aangemeld.</br></br> Dit wordt ook wel het ‘consumenteneindpunt van de SAML-bewerking’ genoemd.|Te vinden in de vertrouwensrelatie van de Relying Party van AD FS voor de app. Klik met de rechtermuisknop op de Relying Party, selecteer **Eigenschappen** en selecteer het tabblad **Eindpunten**.|In Azure AD wordt de antwoord-URL binnen de Azure-portal geconfigureerd in de eigenschappen voor **eenmalige aanmelding** van de toepassing.</br></br>(Mogelijk moet u **Geavanceerde URL-instellingen weergeven** selecteren om de antwoord-URL te zien.)|Komt overeen met het **Doel**-element in het SAML-token.</br></br> Voorbeeldwaarde: `https://contoso.my.salesforce.com`|
 |App-URL voor afmelden|URL waarnaar aanvragen voor 'sign-out cleanup' worden verzonden als een gebruiker zich bij een app afmeldt, waarna wordt afgemeld bij alle overige apps waar de IdP de gebruiker heeft aangemeld.|Te vinden in AD FS-beheer onder **Vertrouwensrelaties van Relying Party**. Klik met de rechtermuisknop op de Relying Party, selecteer **Eigenschappen** en selecteer het tabblad **Eindpunten**.|N.v.t. Azure AD biedt geen ondersteuning voor ‘eenmalig afmelden’, dat wil zeggen afmelden bij alle apps. De gebruiker wordt gewoon afgemeld bij Azure AD zelf.|N/A|
 |App-id|Id van de app vanuit het perspectief van de IdP. De waarde van de aanmeldings-URL wordt vaak (maar niet altijd) gebruikt als de id.</br></br> In de app wordt deze id soms de ‘entiteits-id’ genoemd.|In AD FS is dit de Relying Party-id. Klik met de rechtermuisknop op de vertrouwensrelatie van de Relying Party, selecteer **Eigenschappen** en selecteer het tabblad **Id’s**.|In Azure AD wordt de id in Azure Portal in de eigenschappen voor **eenmalige aanmelding** van de toepassing als id onder **Domein en URL's** geconfigureerd. (Mogelijk moet u het selectievakje **Geavanceerde URL-instellingen weergeven** inschakelen.)|Komt overeen met het element **Doelgroep** in het SAML-token.|
 |Federatieve metagegevens van app|Locatie van de federatieve metagegevens van de app. De IdP gebruikt deze om bepaalde configuratie-instellingen automatisch bij te werken, zoals eindpunten of versleutelingscertificaten.|De URL voor de federatieve metagegevens van de app is te vinden in de vertrouwensrelatie van de Relying Party van AD FS voor de app. Klik met de rechtermuisknop op de vertrouwensrelatie, selecteer **Eigenschappen** en selecteer het tabblad **Controle**.|N.v.t. Azure biedt geen rechtstreekse ondersteuning voor het gebruik van federatieve metagegevens van toepassingen.|N/A|

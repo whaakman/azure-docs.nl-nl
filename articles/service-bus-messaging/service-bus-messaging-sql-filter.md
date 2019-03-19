@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 7bac115ab3215a7dde625f194bdf325f9e0af318
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: e490c7c24ed38e2988c1f097b09b508746f08178
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392853"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118132"
 ---
 # <a name="sqlfilter-syntax"></a>SQLFilter-syntaxis
 
@@ -119,9 +119,9 @@ Een `<regular_identifier>` mag niet een gereserveerd trefwoord.
   
 `<pattern>` moet een expressie die wordt geëvalueerd als een tekenreeks zijn. Deze wordt gebruikt als een patroon voor de operator LIKE.      Dit kan de volgende tekens bevatten:  
   
--   `%`: Een reeks nul of meer tekens.  
+-   `%`:  Een willekeurige tekenreeks van nul of meer tekens.  
   
--   `_`: Eén willekeurig teken.  
+-   `_`: Een willekeurig teken.  
   
 ## <a name="escapechar"></a>escape_char  
   
@@ -223,29 +223,29 @@ Houd rekening met de volgende [SqlFilter](/dotnet/api/microsoft.servicebus.messa
   
 ### <a name="property-evaluation-semantics"></a>De eigenschap evaluatie semantiek  
   
--   Een poging om te evalueren van een niet-bestaande systeemeigenschap genereert een [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) uitzondering.  
+- Een poging om te evalueren van een niet-bestaande systeemeigenschap genereert een [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) uitzondering.  
   
--   Een eigenschap die niet bestaat, wordt als intern worden geëvalueerd **onbekende**.  
+- Een eigenschap die niet bestaat, wordt als intern worden geëvalueerd **onbekende**.  
   
- Onbekende evaluatie in rekenkundige operators:  
+  Onbekende evaluatie in rekenkundige operators:  
   
--   Voor binaire operators, als op de links en/of rechts van de operands wordt geëvalueerd als **onbekende**, dan is het resultaat **onbekende**.  
+- Voor binaire operators, als op de links en/of rechts van de operands wordt geëvalueerd als **onbekende**, dan is het resultaat **onbekende**.  
   
--   Voor de unitaire operators, als een operand wordt geëvalueerd als **onbekende**, dan is het resultaat **onbekende**.  
+- Voor de unitaire operators, als een operand wordt geëvalueerd als **onbekende**, dan is het resultaat **onbekende**.  
   
- Onbekende evaluatie in binaire vergelijkingsoperators:  
+  Onbekende evaluatie in binaire vergelijkingsoperators:  
   
--   Als zowel de linkerkant en/of rechts van de operands wordt geëvalueerd als **onbekende**, dan is het resultaat **onbekende**.  
+- Als zowel de linkerkant en/of rechts van de operands wordt geëvalueerd als **onbekende**, dan is het resultaat **onbekende**.  
   
- Onbekende evaluatie in `[NOT] LIKE`:  
+  Onbekende evaluatie in `[NOT] LIKE`:  
   
--   Als een operand wordt geëvalueerd als **onbekende**, dan is het resultaat **onbekende**.  
+- Als een operand wordt geëvalueerd als **onbekende**, dan is het resultaat **onbekende**.  
   
- Onbekende evaluatie in `[NOT] IN`:  
+  Onbekende evaluatie in `[NOT] IN`:  
   
--   Als de linkeroperand wordt geëvalueerd als **onbekende**, dan is het resultaat **onbekende**.  
+- Als de linkeroperand wordt geëvalueerd als **onbekende**, dan is het resultaat **onbekende**.  
   
- Onbekende evaluatie in **en** operator:  
+  Onbekende evaluatie in **en** operator:  
   
 ```  
 +---+---+---+---+  

@@ -14,12 +14,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: e69e2ca5ccd8e8edc2f55d74a0cca03eaabc9f49
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 9288ea08da6335dd29e7a15a9bc871b76c1ce7e9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884242"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438428"
 ---
 # <a name="work-with-key-values-in-an-azure-app-configuration-store"></a>Werken met sleutelwaarden in een Azure-app-configuratiearchief
 
@@ -31,7 +31,7 @@ Met dit voorbeeldscript wordt een nieuwe sleutelwaarde in een Azure-app-configur
 
 Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit artikel gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren](/cli/azure/install-azure-cli).
 
-U moet eerst de CLI-extensie voor het Azure-app-configuratiearchief installeren door de volgende opdracht uit te voeren:
+U moet eerst de CLI-extensie voor het Azure App Configuration-archief installeren door de volgende opdracht uit te voeren:
 
         az extension add -n appconfig
 
@@ -70,12 +70,12 @@ Dit script maakt gebruik van de volgende opdrachten om te werken met sleutelwaar
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [az appconfig kv set](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-kv-set) | Hiermee wordt een sleutelwaarde gemaakt of bijgewerkt. |
-| [az appconfig kv list](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-kv-list) | Hiermee worden sleutelwaarden in een app-configuratiearchief bijgewerkt. |
-| [az appconfig kv delete](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-kv-delete) | Hiermee wordt een sleutelwaarde verwijderd. |
+| [az appconfig kv set](/cli/azure/ext/appconfig/appconfig) | Hiermee wordt een sleutelwaarde gemaakt of bijgewerkt. |
+| [az appconfig kv list](/cli/azure/ext/appconfig/appconfig) | Hiermee worden sleutelwaarden in een app-configuratiearchief bijgewerkt. |
+| [az appconfig kv delete](/cli/azure/ext/appconfig/appconfig) | Hiermee wordt een sleutelwaarde verwijderd. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Raadpleeg de [documentatie van Azure CLI](/cli/azure) voor meer informatie over de Azure CLI.
 
-Meer voorbeelden van CLI-scripts voor een app-configuratiearchief vindt u in de [documentatie over Azure-app-configuratie](../cli-samples.md).
+Meer voorbeelden van CLI-scripts voor een App Configuration-archief vindt u in de [documentatie over Azure App-configuratie](../cli-samples.md).

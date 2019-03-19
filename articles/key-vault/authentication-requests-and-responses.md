@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2d63c14c5eba1a9637cfd5544585e71d2bc86048
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7ca486768cf56059328801b1b4b1036bb8aeece8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535158"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081777"
 ---
 # <a name="authentication-requests-and-responses"></a>Verificatie, vragen en antwoorden
 
@@ -31,17 +31,17 @@ In dit onderwerp bevat informatie over specificaties voor de Azure Key Vault-ser
 
  Als u wilt werken met objecten in de Azure Key Vault, zijn het volgende voorbeeld-URL's:  
 
--   Een TESTKEY genoemd in het gebruik van een Key Vault - sleutel te maken `PUT /keys/TESTKEY?api-version=<api_version> HTTP/1.1`  
+- Een TESTKEY genoemd in het gebruik van een Key Vault - sleutel te maken `PUT /keys/TESTKEY?api-version=<api_version> HTTP/1.1`  
 
--   Om een IMPORTEDKEY genoemd in het gebruik van een Key Vault - sleutel te importeren `POST /keys/IMPORTEDKEY/import?api-version=<api_version> HTTP/1.1`  
+- Om een IMPORTEDKEY genoemd in het gebruik van een Key Vault - sleutel te importeren `POST /keys/IMPORTEDKEY/import?api-version=<api_version> HTTP/1.1`  
 
--   Een MYSECRET genoemd in het gebruik van een Key Vault - geheim ophalen `GET /secrets/MYSECRET?api-version=<api_version> HTTP/1.1`  
+- Een MYSECRET genoemd in het gebruik van een Key Vault - geheim ophalen `GET /secrets/MYSECRET?api-version=<api_version> HTTP/1.1`  
 
--   Als u wilt een samenvatting te ONDERTEKENEN met behulp van een sleutel met de naam TESTKEY in het gebruik van een Key Vault- `POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
+- Als u wilt een samenvatting te ONDERTEKENEN met behulp van een sleutel met de naam TESTKEY in het gebruik van een Key Vault- `POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
 
- De instantie voor een aanvraag voor een Key Vault is altijd als volgt te werk,  `https://{keyvault-name}.vault.azure.net/`  
+  De instantie voor een aanvraag voor een Key Vault is altijd als volgt te werk,  `https://{keyvault-name}.vault.azure.net/`  
 
- Sleutels altijd worden opgeslagen onder het pad /keys, geheimen altijd worden opgeslagen onder het pad /secrets.  
+  Sleutels altijd worden opgeslagen onder het pad /keys, geheimen altijd worden opgeslagen onder het pad /secrets.  
 
 ## <a name="api-version"></a>API-versie  
  De Azure Key Vault-Service ondersteunt protocol versiebeheer voor compatibiliteit met clients met oudere versies, maar niet alle mogelijkheden beschikbaar voor deze clients is. Clients moeten gebruiken de `api-version` query-tekenreeksparameter om op te geven van de versie van het protocol die worden ondersteund als er geen standaardwaarde is.  
@@ -64,17 +64,17 @@ In dit onderwerp bevat informatie over specificaties voor de Azure Key Vault-ser
 ## <a name="error-responses"></a>Foutberichten  
  Foutafhandeling gebruikt HTTP-statuscodes. Typische resultaten zijn:  
 
--   2xx – Success: Gebruikt voor normale werking. De antwoordtekst bevat het verwachte resultaat  
+- 2xx – Success: Gebruikt voor normale werking. De antwoordtekst bevat het verwachte resultaat  
 
--   3xx – omleiding: De 304 'Niet gewijzigd' kan worden geretourneerd om te voldoen aan een voorwaardelijke GET. Andere codes 3xx kunnen in de toekomst worden gebruikt om aan te geven van wijzigingen in DNS en pad.  
+- 3xx – omleiding: De 304 'Niet gewijzigd' kan worden geretourneerd om te voldoen aan een voorwaardelijke GET. Andere codes 3xx kunnen in de toekomst worden gebruikt om aan te geven van wijzigingen in DNS en pad.  
 
--   4XX: fout bij de Client: Gebruikt voor ongeldige aanvragen, ontbrekende sleutels, syntaxisfouten, er zijn ongeldige parameters, -verificatiefouten, enzovoort. De antwoordtekst bevat gedetailleerde fout uitleg.  
+- 4XX: fout bij de Client: Gebruikt voor ongeldige aanvragen, ontbrekende sleutels, syntaxisfouten, er zijn ongeldige parameters, -verificatiefouten, enzovoort. De antwoordtekst bevat gedetailleerde fout uitleg.  
 
--   5XX-serverfout: Gebruikt voor interne serverfouten optreden. De antwoordtekst bevat informatie over samengevatte fouten.  
+- 5XX-serverfout: Gebruikt voor interne serverfouten optreden. De antwoordtekst bevat informatie over samengevatte fouten.  
 
- Het systeem is ontworpen om te werken achter een proxy of firewall. Een client ontvangt daarom andere foutcodes.  
+  Het systeem is ontworpen om te werken achter een proxy of firewall. Een client ontvangt daarom andere foutcodes.  
 
- Azure Key Vault retourneert ook informatie over de fout in de antwoordtekst wanneer er een probleem optreedt. De antwoordtekst JSON-indeling is en heeft de vorm:  
+  Azure Key Vault retourneert ook informatie over de fout in de antwoordtekst wanneer er een probleem optreedt. De antwoordtekst JSON-indeling is en heeft de vorm:  
 
 ```  
 

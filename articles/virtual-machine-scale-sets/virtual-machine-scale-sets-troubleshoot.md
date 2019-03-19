@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: e4b1153e46625f88c717fd9b7a5336ffe4ca7f6a
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 3308b22606e87853aad7e3d3a3995aab8d1b5401
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739546"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005313"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Oplossen van problemen met automatisch schalen met Virtual Machine Scale Sets
 **Probleem** : u hebt gemaakt een infrastructuur voor automatisch schalen in Azure Resource Manager met behulp van de virtuele-machineschaalsets, bijvoorbeeld door het implementeren van een sjabloon zoals deze: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale : u hebt uw schaalregels die zijn gedefinieerd en deze kan uitstekend, met uitzondering van Nee hoeveel belasting van de virtuele machines uit, dat niet het geval voor automatisch schalen.
@@ -52,7 +52,7 @@ Er zijn enkele aandachtspunten voor:
     Azure Resource Explorer is een onmisbaar hulpprogramma waarin u de status van uw Azure Resource Manager-resources voor probleemoplossing. Klik op uw abonnement en kijken naar de resourcegroep die u wilt oplossen. Bekijk de virtuele-machineschaalset u gemaakt en controleer of de weergave-exemplaar, waarin u de status van een implementatie onder de Compute-resourceprovider. Controleer ook of de instantieweergave van virtuele machines in de virtuele-machineschaalset. Vervolgens gaat u naar de resourceprovider Microsoft.Insights en controleer de regels voor automatisch schalen uitziet.
 * Is de diagnostische extensie werken en prestatiegegevens verzenden?
   
-    **Update:** automatisch schalen van Azure is uitgebreid voor het gebruik van een pijplijn hostgebaseerde metrische gegevens, die niet langer vereist een extensie voor diagnostische gegevens worden geïnstalleerd. De volgende alinea zijn niet langer van toepassing als u een automatisch schalende toepassing met behulp van de nieuwe pijplijn maakt. Een voorbeeld van Azure-sjablonen die zijn geconverteerd voor het gebruik van de pijplijn host is hier beschikbaar: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. 
+    **Update:** Automatisch schalen van Azure is uitgebreid voor het gebruik van een pijplijn hostgebaseerde metrische gegevens, die niet langer vereist een extensie voor diagnostische gegevens worden geïnstalleerd. De volgende alinea zijn niet langer van toepassing als u een automatisch schalende toepassing met behulp van de nieuwe pijplijn maakt. Een voorbeeld van Azure-sjablonen die zijn geconverteerd voor het gebruik van de pijplijn host is hier beschikbaar: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. 
   
     Met behulp van hostgebaseerde metrische gegevens voor automatisch schalen is het beter om de volgende redenen:
   
@@ -72,14 +72,14 @@ Er zijn enkele aandachtspunten voor:
     
     ![Cloud Explorer][explorer]
     
-   U ziet een aantal tabellen waarbij de gegevens van elke virtuele machine worden opgeslagen. Linux- en de metriek CPU als voorbeeld nemen, zoek de meest recente rijen. De Visual Studio cloud explorer ondersteunt een querytaal, zodat u een query kunt uitvoeren. Bijvoorbeeld, u kunt geen query uitvoeren voor ' tijdstempel gt datum/tijd ' 2016-02-02T21:20:00Z' ' om ervoor te zorgen dat u de meest recente gebeurtenissen. De tijdzone komt overeen met de UTC. Voert de gegevens die u ziet in er komen overeen met de schaalregels instellen? In het volgende voorbeeld wordt de CPU voor machine 20 gestart verhogen tot 100% in de afgelopen vijf minuten.
+    U ziet een aantal tabellen waarbij de gegevens van elke virtuele machine worden opgeslagen. Linux- en de metriek CPU als voorbeeld nemen, zoek de meest recente rijen. De Visual Studio cloud explorer ondersteunt een querytaal, zodat u een query kunt uitvoeren. Bijvoorbeeld, u kunt geen query uitvoeren voor ' tijdstempel gt datum/tijd ' 2016-02-02T21:20:00Z' ' om ervoor te zorgen dat u de meest recente gebeurtenissen. De tijdzone komt overeen met de UTC. Voert de gegevens die u ziet in er komen overeen met de schaalregels instellen? In het volgende voorbeeld wordt de CPU voor machine 20 gestart verhogen tot 100% in de afgelopen vijf minuten.
     
     ![Storage-tabellen][tables]
     
     Als de gegevens niet aanwezig, impliceert dat het probleem is met de diagnostische extensie die wordt uitgevoerd in de virtuele machines. Als de gegevens aanwezig is, impliceert dat er is een probleem met uw schaalregels of met de Insights-service. Controleer [Azure Status](https://azure.microsoft.com/status/).
     
     Nadat u tijdens de volgende stappen zijn hebt als u nog steeds problemen met automatisch schalen, kunt u proberen de volgende bronnen: 
-    * De forums lezen op [MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=WAVirtualMachinesforWindows), of [stackoverloop](http://stackoverflow.com/questions/tagged/azure) 
+    * De forums lezen op [MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=WAVirtualMachinesforWindows), of [stackoverloop](https://stackoverflow.com/questions/tagged/azure) 
     * Meld u aan een telefoongesprek met de ondersteuning. Worden voorbereid om de sjabloon en een weergave van uw prestatiegegevens te delen.
 
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png

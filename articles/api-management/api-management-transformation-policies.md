@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 3d5962ec097c5cd72693530328b710af915054d0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 72348085a69746306e40029bc7473df271b60221
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768909"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105281"
 ---
 # <a name="api-management-transformation-policies"></a>API Management-beleidsregels voor transformatie
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie voor meer informatie over het toevoegen en configureren van beleid [beleidsregels in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -289,13 +289,13 @@ In dit voorbeeld stuurt het beleid de aanvraag door naar een service fabric-back
 
 > [!IMPORTANT]
 >  Houd er rekening mee dat standaard bij het openen van het bericht hoofdtekst met behulp van `context.Request.Body` of `context.Response.Body`, de hoofdtekst van het oorspronkelijke bericht is verloren en moet worden ingesteld door de instantie terug in de expressie worden geretourneerd. Als u wilt behouden in de hoofdtekst, stel de `preserveContent` parameter `true` bij het openen van het bericht. Als `preserveContent` is ingesteld op `true` en een andere instantie wordt geretourneerd door de expressie de hoofdtekst van het geretourneerde wordt gebruikt.
->
+> 
 >  Houd er rekening mee de volgende overwegingen wanneer u de `set-body` beleid.
->
->  -   Als u de `set-body` beleid om te retourneren van een nieuwe of bijgewerkte instantie die u niet nodig om in te stellen `preserveContent` naar `true` omdat u de inhoud van de nieuwe expliciet levert.
-> -   Behoud van de inhoud van een antwoord in de inkomende pijplijn zin geen omdat er nog geen reactie is.
-> -   Behoud van de inhoud van een aanvraag in de uitgaande pijplijn zin geen omdat de aanvraag is al is verzonden naar de back-end op dit moment.
-> -   Als dit beleid wordt gebruikt wanneer er geen hoofdtekst van het bericht, bijvoorbeeld in een inkomende GET, een uitzondering opgetreden.
+> 
+> - Als u de `set-body` beleid om te retourneren van een nieuwe of bijgewerkte instantie die u niet nodig om in te stellen `preserveContent` naar `true` omdat u de inhoud van de nieuwe expliciet levert.
+>   -   Behoud van de inhoud van een antwoord in de inkomende pijplijn zin geen omdat er nog geen reactie is.
+>   -   Behoud van de inhoud van een aanvraag in de uitgaande pijplijn zin geen omdat de aanvraag is al is verzonden naar de back-end op dit moment.
+>   -   Als dit beleid wordt gebruikt wanneer er geen hoofdtekst van het bericht, bijvoorbeeld in een inkomende GET, een uitzondering opgetreden.
 
  Zie voor meer informatie de `context.Request.Body`, `context.Response.Body`, en de `IMessage` secties in het [contextvariabele](api-management-policy-expressions.md#ContextVariables) tabel.
 
@@ -586,11 +586,11 @@ OriginalUrl.
 ##  <a name="RewriteURL"></a> Herschrijven van URL 's
  De `rewrite-uri` beleid omgezet in een aanvraag-URL van het formulier voor openbare van het formulier werd verwacht door de webservice, zoals wordt weergegeven in het volgende voorbeeld.
 
--   Openbare URL- `http://api.example.com/storenumber/ordernumber`
+- Openbare URL- `http://api.example.com/storenumber/ordernumber`
 
--   Aanvraag-URL: `http://api.example.com/v2/US/hardware/storenumber&ordernumber?City&State`
+- Aanvraag-URL: `http://api.example.com/v2/US/hardware/storenumber&ordernumber?City&State`
 
- Dit beleid kan worden gebruikt wanneer een menselijke en/of beschrijvende browser-URL moet worden omgezet in de URL-indeling verwacht door de webservice. Dit beleid moet alleen worden toegepast als een alternatieve URL-indeling, zoals nieuwe URL's, RESTful URL's, gebruikersvriendelijke URL's of SEO-vriendelijk-URL's die zijn uitsluitend structurele URL's die geen querytekenreeks bevatten en alleen het pad van de resource (in plaats daarvan bevatten om vrij te geven Nadat het schema en de instantie). Dit wordt vaak gedaan voor fraaie uiterlijk, bruikbaarheid of zoekmachine optimaliseringsdoeleinden (SEO).
+  Dit beleid kan worden gebruikt wanneer een menselijke en/of beschrijvende browser-URL moet worden omgezet in de URL-indeling verwacht door de webservice. Dit beleid moet alleen worden toegepast als een alternatieve URL-indeling, zoals nieuwe URL's, RESTful URL's, gebruikersvriendelijke URL's of SEO-vriendelijk-URL's die zijn uitsluitend structurele URL's die geen querytekenreeks bevatten en alleen het pad van de resource (in plaats daarvan bevatten om vrij te geven Nadat het schema en de instantie). Dit wordt vaak gedaan voor fraaie uiterlijk, bruikbaarheid of zoekmachine optimaliseringsdoeleinden (SEO).
 
 > [!NOTE]
 >  U kunt queryreeksparameters met behulp van het beleid alleen toevoegen. U kunt geen extra sjabloon padparameters toevoegen in de URL opnieuw schrijven.

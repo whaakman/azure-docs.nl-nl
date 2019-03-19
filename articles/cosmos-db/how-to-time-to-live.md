@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/14/2018
 ms.author: mjbrown
-ms.openlocfilehash: a9f6676f1b2fdf812ec87595083ba6317a11873c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: bb5997c2ae8f93068b0ad2a77b5109f6c79b9b30
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462146"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003513"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Time to Live configureren in Azure Cosmos DB
 
@@ -72,6 +72,20 @@ DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionA
     new RequestOptions { OfferThroughput = 20000 });
 ```
 
+### <a id="nodejs-enable-withexpiry"></a>NodeJS-SDK
+
+```javascript
+const containerDefinition = {
+          id: "sample container1",
+        };
+
+async function createcontainerWithTTL(db: Database, containerDefinition: ContainerDefinition, collId: any, defaultTtl: number) {
+      containerDefinition.id = collId;
+      containerDefinition.defaultTtl = defaultTtl;
+      await db.containers.create(containerDefinition);
+}
+```
+
 ## <a name="set-time-to-live-on-an-item"></a>Geldigheidsduur voor een item instellen
 
 U kunt niet alleen de standaardwaarde voor Time to Live voor een container instellen, maar ook voor een item. Als u Time to Live op itemniveau instelt, wordt de standaard-TL van het item in die container overschreven.
@@ -81,6 +95,37 @@ U kunt niet alleen de standaardwaarde voor Time to Live voor een container inste
 * Als het item geen TTL-veld heeft, wordt standaard de TTL-waarde die voor de container is ingesteld, op het item toegepast.
 
 * Als TTL wordt uitgeschakeld op containerniveau, wordt het TTL-veld van het item genegeerd totdat TTL opnieuw voor de container wordt ingeschakeld.
+
+### <a id="portal-set-ttl-item"></a>Azure-portal
+
+Gebruik de volgende stappen uit om in te schakelen time to live op een item van:
+
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
+
+2. Maak een nieuw Azure Cosmos DB-account of selecteer een bestaand account.
+
+3. Open het deelvenster **Data Explorer**.
+
+4. Selecteer een bestaande container, vouw deze uit en wijzig de volgende waarden:
+
+   * Open het venster **Schaal en instellingen**.
+   * Onder **Instelling** zoekt u **Time to Live**.
+   * Selecteer **op (niet standaard)** of selecteer **op** en stel een TTL-waarde. 
+   * Klik op **Opslaan** om de wijzigingen op te slaan.
+
+5. Vervolgens gaat u naar het item waarvoor u wenst te insteltijd voor de live, voegt u de `ttl` eigenschap en selecteer **Update**. 
+
+   ```json
+   {
+    "id": "1",
+    "_rid": "Jic9ANWdO-EFAAAAAAAAAA==",
+    "_self": "dbs/Jic9AA==/colls/Jic9ANWdO-E=/docs/Jic9ANWdO-EFAAAAAAAAAA==/",
+    "_etag": "\"0d00b23f-0000-0000-0000-5c7712e80000\"",
+    "_attachments": "attachments/",
+    "ttl": 10,
+    "_ts": 1551307496
+   }
+   ```
 
 ### <a id="dotnet-set-ttl-item"></a>.NET SDK
 
@@ -94,7 +139,7 @@ public class SalesOrder
     public string CustomerId { get; set; }
     // used to set expiration policy
     [JsonProperty(PropertyName = "ttl", NullValueHandling = NullValueHandling.Ignore)]
-    public int? TimeToLive { get; set; }
+    public int? ttl { get; set; }
 
     //...
 }
@@ -103,9 +148,21 @@ SalesOrder salesOrder = new SalesOrder
 {
     Id = "SO05",
     CustomerId = "CO18009186470",
-    TimeToLive = 60 * 60 * 24 * 30;  // Expire sales orders in 30 days
+    ttl = 60 * 60 * 24 * 30;  // Expire sales orders in 30 days
 };
 ```
+
+### <a id="nodejs-set-ttl-item"></a>NodeJS-SDK
+
+```javascript
+const itemDefinition = {
+          id: "doc",
+          name: "sample Item",
+          key: "value", 
+          ttl: 2
+        };
+```
+
 
 ## <a name="reset-time-to-live"></a>Time to Live opnieuw instellen
 
@@ -121,7 +178,7 @@ response = await client.ReadDocumentAsync(
     new RequestOptions { PartitionKey = new PartitionKey("CO18009186470") });
 
 Document readDocument = response.Resource;
-readDocument.TimeToLive = 60 * 30 * 30; // update time to live
+readDocument.ttl = 60 * 30 * 30; // update time to live
 response = await client.ReplaceDocumentAsync(readDocument);
 ```
 
@@ -139,14 +196,14 @@ response = await client.ReadDocumentAsync(
     new RequestOptions { PartitionKey = new PartitionKey("CO18009186470") });
 
 Document readDocument = response.Resource;
-readDocument.TimeToLive = null; // inherit the default TTL of the collection
+readDocument.ttl = null; // inherit the default TTL of the collection
 
 response = await client.ReplaceDocumentAsync(readDocument);
 ```
 
 ## <a name="disable-time-to-live"></a>Time to Live uitschakelen
 
-Als u Time to Live voor een container wilt uitschakelen en het achtergrondproces dat op verlopen items controleert, wilt stoppen, moet eigenschap `DefaultTimeToLive` op de container worden verwijderd. Het verwijderen van deze eigenschap is iets anders dan het instellen ervan op -1. Als u de eigenschap op -1 instelt, zullen nieuwe items die aan de container worden toegevoegd, nooit verlopen. U kunt deze waarde echter voor bepaalde items in de container overschrijven. Als u de TTL-eigenschap van de container verwijdert, zullen de items verlopen, zelfs als de vorige TTL-waarde expliciet is overschreven.
+Als u Time to Live voor een container wilt uitschakelen en het achtergrondproces dat op verlopen items controleert, wilt stoppen, moet eigenschap `DefaultTimeToLive` op de container worden verwijderd. Het verwijderen van deze eigenschap is iets anders dan het instellen ervan op -1. Als u de eigenschap op -1 instelt, zullen nieuwe items die aan de container worden toegevoegd, nooit verlopen. U kunt deze waarde echter voor bepaalde items in de container overschrijven. Wanneer u de TTL-eigenschap verwijderd uit de container verloopt de items nooit, zelfs als er zijn dat ze expliciet de vorige standaard TTL-waarde zijn overschreven.
 
 ### <a id="dotnet-disable-ttl"></a>.NET SDK
 

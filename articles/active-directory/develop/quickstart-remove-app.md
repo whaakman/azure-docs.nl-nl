@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d71489194422a785ee98ec70a07c765c3d686808
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 20d7218b9b1d53b3cfb72a12ee34a77956327ce2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182609"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093191"
 ---
 # <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform-preview"></a>Quickstart: Een toepassing verwijderen die bij het Microsoft Identity Platform (Preview) is geregistreerd
 
@@ -52,8 +52,8 @@ Toepassingen die u of uw organisatie hebben geregistreerd, worden vertegenwoordi
 4. Selecteer **Verwijderen** op de pagina **Overzicht**.
 5. Selecteer **Ja** om te bevestigen dat u de app wilt verwijderen.
 
-  > [!NOTE]
-  > Als u een toepassing wilt verwijderen, moet u vermeld staan als de eigenaar van de toepassing of over beheerdersrechten beschikken.
+   > [!NOTE]
+   > Als u een toepassing wilt verwijderen, moet u vermeld staan als de eigenaar van de toepassing of over beheerdersrechten beschikken.
 
 ## <a name="remove-an-application-authored-by-another-organization"></a>Een toepassing verwijderen die is geschreven door een andere organisatie
 

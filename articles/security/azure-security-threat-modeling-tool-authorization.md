@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: ddf40538fc3d6e39fe48ff49311f86314008b4ce
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 3c078f7246140ee966f1d202d2248758dde49059
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994764"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888465"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Beveiliging-Frame: Autorisatie | Oplossingen 
 | Product/Service | Artikel |
@@ -27,9 +27,9 @@ ms.locfileid: "52994764"
 | **Vertrouwensgrenzen van computer** | <ul><li>[Zorg ervoor dat de juiste ACL's zijn geconfigureerd voor niet-geautoriseerde toegang tot gegevens op het apparaat beperken](#acl-restricted-access)</li><li>[Ervoor te zorgen dat gevoelige gebruikersspecifieke toepassingsinhoud is opgeslagen in de map gebruiker profiel](#sensitive-directory)</li><li>[Zorg ervoor dat de geïmplementeerde toepassingen worden uitgevoerd met de minimaal benodigde bevoegdheden](#deployed-privileges)</li></ul> |
 | **Web-App** | <ul><li>[Sequentiële volgorde afdwingen bij het verwerken van zakelijke logicastromen](#sequential-logic)</li><li>[Frequentie mechanisme om te voorkomen dat opsomming implementeren](#rate-enumeration)</li><li>[Zorg ervoor dat de juiste machtiging ingesteld is en principe van minimale bevoegdheden wordt gevolgd](#principle-least-privilege)</li><li>[Zakelijke logica en resource access autorisatie beslissingen te nemen moeten niet worden gebaseerd op de parameters van de inkomende aanvraag](#logic-request-parameters)</li><li>[Zorg ervoor dat die inhoud en resources zijn niet invoeroverzicht of toegankelijk is via geforceerde bladeren](#enumerable-browsing)</li></ul> |
 | **Database** | <ul><li>[Zorg ervoor dat de minste bevoegdheden accounts worden gebruikt verbinding maken met Database-server](#privileged-server)</li><li>[Rij niveau van beveiliging RLS om te voorkomen dat tenants toegang tot elkaars gegevens implementeren](#rls-tenants)</li><li>[Rol sysadmin mag alleen geldige noodzakelijk gebruikers hebben.](#sysadmin-users)</li></ul> |
-| **IoT-Cloud-Gateway** | <ul><li>[Verbinding maken met Cloud-Gateway met behulp van de minste bevoegdheden tokens](#cloud-least-privileged)</li></ul> |
+| **IoT Cloud Gateway** | <ul><li>[Verbinding maken met Cloud-Gateway met behulp van de minste bevoegdheden tokens](#cloud-least-privileged)</li></ul> |
 | **Azure Event Hub** | <ul><li>[Gebruik van een verzenden alleen-lezen machtigingen SAS-sleutel voor het genereren van apparaattokens](#sendonly-sas)</li><li>[Gebruik geen toegangstokens die voorzien in directe toegang tot de Event Hub](#access-tokens-hub)</li><li>[Verbinding maken met Event Hub met behulp van SAS-sleutels met de minimale machtigingen die vereist zijn](#sas-minimum-permissions)</li></ul> |
-| **Azure Documentdb** | <ul><li>[Resource-tokens gebruiken om te verbinden met Azure Cosmos DB indien mogelijk](#resource-docdb)</li></ul> |
+| **Azure Document DB** | <ul><li>[Resource-tokens gebruiken om te verbinden met Azure Cosmos DB indien mogelijk](#resource-docdb)</li></ul> |
 | **Vertrouwensgrenzen van Azure** | <ul><li>[Verfijnd toegangsbeheer met RBAC met Azure-abonnement inschakelen](#grained-rbac)</li></ul> |
 | **Vertrouwensgrenzen van service Fabric** | <ul><li>[Van de client toegang beperken tot bewerkingen voor een cluster met behulp van RBAC](#cluster-rbac)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Beveiliging-modellen uitvoeren en gebruiken van veld beveiligingsniveau vereist](#modeling-field)</li></ul> |
@@ -39,7 +39,7 @@ ms.locfileid: "52994764"
 | **WCF** | <ul><li>[Zwakke Class Reference in WCF](#weak-class-wcf)</li><li>[Besturingselement voor autorisatie van WCF-implementeren](#wcf-authz)</li></ul> |
 | **Web-API** | <ul><li>[Juiste autorisatiemechanismen in ASP.NET-Web-API implementeren](#authz-aspnet)</li></ul> |
 | **IoT-apparaat** | <ul><li>[Autorisatie-controles uitvoeren in het apparaat als deze ondersteuning biedt voor verschillende acties waarvoor verschillende machtigingsniveaus](#device-permission)</li></ul> |
-| **Veld voor IoT-Gateway** | <ul><li>[Autorisatie-controles uitvoeren in de Gateway van het veld als deze ondersteuning biedt voor verschillende acties waarvoor verschillende machtigingsniveaus](#field-permission)</li></ul> |
+| **IoT Field Gateway** | <ul><li>[Autorisatie-controles uitvoeren in de Gateway van het veld als deze ondersteuning biedt voor verschillende acties waarvoor verschillende machtigingsniveaus](#field-permission)</li></ul> |
 
 ## <a id="acl-restricted-access"></a>Zorg ervoor dat de juiste ACL's zijn geconfigureerd voor niet-geautoriseerde toegang tot gegevens op het apparaat beperken
 
@@ -154,9 +154,9 @@ Een aanvaller mogelijk kan nu niet knoeien en wijzigen verwerkt de bewerking van
 | ----------------------- | ------------ |
 | **Onderdeel**               | Database | 
 | **SDL-fase**               | Ontwikkelen |  
-| **Van toepassing technologieën** | SQL Azure, on-premises |
+| **Van toepassing technologieën** | Sql Azure, OnPrem |
 | **Kenmerken**              | SQL-versie - V12, versie van SQL - MsSQL2016 |
-| **Verwijzingen**              | [SQL Server-beveiliging voor beveiliging op rijniveau (RLS)](https://msdn.microsoft.com/library/azure/dn765131.aspx) |
+| **Verwijzingen**              | [SQL Server Row-Level Security (RLS)](https://msdn.microsoft.com/library/azure/dn765131.aspx) |
 | **Stappen** | <p>Met beveiliging op rijniveau kunnen klanten de toegang tot rijen in een databasetabel beheren op basis van de kenmerken van de gebruiker die een query uitvoert (bijvoorbeeld groepslidmaatschap of uitvoeringscontext).</p><p>Beveiliging op rijniveau (RLS) vereenvoudigt het ontwerp en de code van de beveiliging in uw toepassing. Met RLS kunt u beperkingen instellen voor de toegang tot gegevens in rijen. U kunt bijvoorbeeld bepalen dat werkrollen alleen toegang hebben tot de rijen met gegevens die relevant zijn voor hun afdeling, of de toegang van klanten beperken tot de gegevens die relevant zijn voor hun bedrijf.</p><p>De logica van de beperking van toegang is gevonden in de databaselaag in plaats van opslag van de gegevens in een andere toepassingslaag. De database-systeem is van toepassing de toegangsbeperkingen telkens wanneer die toegang tot gegevens van elke laag wordt uitgevoerd. Dit maakt het beveiligingssysteem betrouwbaarder en robuuste door te verminderen van het gebied van het beveiligingssysteem.</p><p>|
 
 Houd er rekening mee dat beveiliging op Rijniveau als een out-of-the-box databasefunctie is alleen van toepassing op SQL-Server vanaf 2016 en Azure SQL-database. Als de out-of-the-box RLS-functie niet is geïmplementeerd, er moet voor worden gezorgd dat de gegevenstoegang beperkt met behulp van weergaven en Procedures is
@@ -176,7 +176,7 @@ Houd er rekening mee dat beveiliging op Rijniveau als een out-of-the-box databas
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
-| **Onderdeel**               | IoT-Cloud-Gateway | 
+| **Onderdeel**               | IoT Cloud Gateway | 
 | **SDL-fase**               | Implementatie |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | Keuze van de gateway - Azure IoT Hub |
@@ -220,7 +220,7 @@ Houd er rekening mee dat beveiliging op Rijniveau als een out-of-the-box databas
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
-| **Onderdeel**               | Azure Documentdb | 
+| **Onderdeel**               | Azure Document DB | 
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
@@ -302,7 +302,7 @@ Houd er rekening mee dat beveiliging op Rijniveau als een out-of-the-box databas
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | N/A  |
-| **Stappen** | <p>Toepassing moet een eigen configuratie en de gebruiker gegevens in het geval als de telefoon is geroot of jailbroken beveiligen. Basismappen/belangrijke jailbroken impliceert dat onbevoegde toegang, welke normale gebruikers geen op hun eigen telefoons. Daarom moet de toepassing impliciete detectielogica hebben bij het opstarten van de toepassing, om te detecteren of de telefoon is geroot.</p><p>De logica voor het detecteren kan gewoon toegang tot bestanden die normaal gesproken alleen hoofdmap gebruiker toegang, bijvoorbeeld heeft:</p><ul><li>/System/App/SuperUser.APK</li><li>/sbin/su</li><li>/System/bin/su</li><li>/System/xbin/su</li><li>/Data/Local/xbin/su</li><li>/Data/local/bin/su</li><li>/System/SD/xbin/su</li><li>/System/bin/failsafe/su</li><li>/Data/Local/su</li></ul><p>Als de toepassing toegang heeft tot deze bestanden, geeft aan dat de toepassing wordt uitgevoerd als hoofdgebruiker.</p>|
+| **Stappen** | <p>Toepassing moet een eigen configuratie en de gebruiker gegevens in het geval als de telefoon is geroot of jailbroken beveiligen. Basismappen/belangrijke jailbroken impliceert dat onbevoegde toegang, welke normale gebruikers geen op hun eigen telefoons. Daarom moet de toepassing impliciete detectielogica hebben bij het opstarten van de toepassing, om te detecteren of de telefoon is geroot.</p><p>De logica voor het detecteren kan gewoon toegang tot bestanden die normaal gesproken alleen hoofdmap gebruiker toegang, bijvoorbeeld heeft:</p><ul><li>/system/app/Superuser.apk</li><li>/sbin/su</li><li>/system/bin/su</li><li>/System/xbin/su</li><li>/data/local/xbin/su</li><li>/Data/local/bin/su</li><li>/system/sd/xbin/su</li><li>/system/bin/failsafe/su</li><li>/data/local/su</li></ul><p>Als de toepassing toegang heeft tot deze bestanden, geeft aan dat de toepassing wordt uitgevoerd als hoofdgebruiker.</p>|
 
 ## <a id="weak-class-wcf"></a>Zwakke Class Reference in WCF
 
@@ -395,9 +395,9 @@ return result;
 | ----------------------- | ------------ |
 | **Onderdeel**               | Web-API | 
 | **SDL-fase**               | Ontwikkelen |  
-| **Van toepassing technologieën** | Algemeen, MVC5 |
+| **Van toepassing technologieën** | Generic, MVC5 |
 | **Kenmerken**              | Niet van toepassing want id-Provider - ADFS, id-Provider - Azure AD |
-| **Verwijzingen**              | [Verificatie en autorisatie in ASP.NET Web-API](http://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api) |
+| **Verwijzingen**              | [Verificatie en autorisatie in ASP.NET Web-API](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api) |
 | **Stappen** | <p>Informatie van rollen voor de gebruikers van de toepassing kan worden afgeleid van Azure AD of AD FS-claims als de toepassing afhankelijk is van deze als id-provider of de toepassing zelf mogelijk als er een hebt opgegeven. In al deze gevallen moet de aangepaste autorisatie-uitvoering informatie over de rol valideren.</p><p>Informatie van rollen voor de gebruikers van de toepassing kan worden afgeleid van Azure AD of AD FS-claims als de toepassing afhankelijk is van deze als id-provider of de toepassing zelf mogelijk als er een hebt opgegeven. In al deze gevallen moet de aangepaste autorisatie-uitvoering informatie over de rol valideren.</p>
 
 ### <a name="example"></a>Voorbeeld
@@ -455,7 +455,7 @@ public class CustomController : ApiController
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
-| **Onderdeel**               | Veld voor IoT-Gateway | 
+| **Onderdeel**               | IoT Field Gateway | 
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |

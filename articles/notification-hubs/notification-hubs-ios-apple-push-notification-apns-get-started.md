@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 63fb04e6b31fe4026b93cef09d88601d6182101a
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 520d01327b5809d453bb777165899770ea4c130b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448306"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885030"
 ---
 # <a name="tutorial-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Zelfstudie: Pushmeldingen verzenden naar iOS met Azure Notification Hubs
 
@@ -50,8 +50,8 @@ De volledige code voor deze zelfstudie vindt u [op GitHub](https://github.com/Az
 * Een apparaat dat compatibel is met iOS 10 (of een hogere versie)
 * [Apple Developer Program](https://developer.apple.com/programs/)-lidmaatschap
   
- > [!NOTE]
- > Vanwege configuratievereisten voor pushmeldingen moet u pushmeldingen op een fysiek iOS-apparaat (iPhone of iPad) implementeren en testen in plaats van in de iOS-simulator.
+  > [!NOTE]
+  > Vanwege configuratievereisten voor pushmeldingen moet u pushmeldingen op een fysiek iOS-apparaat (iPhone of iPad) implementeren en testen in plaats van in de iOS-simulator.
   
 Het voltooien van deze zelfstudie is een vereiste voor alle andere Notification Hubs-zelfstudies voor iOS-apps.
 
@@ -96,9 +96,46 @@ De Notification Hub is nu geconfigureerd om te werken met APNS en u hebt de verb
 
     ![Xcode - pushmogelijkheden][12]
 
-5. Download het [Windows Azure Messaging Framework] en pak het bestand uit. Klik met de rechtermuisknop op uw project in Xcode en klik op de optie **Add Files to** (Bestanden toevoegen aan) om de map **WindowsAzureMessaging.framework** aan uw Xcode-project toe te voegen. Selecteer **Options** (Opties), zorg ervoor dat **Copy items if needed** (Copy items if needed) is geselecteerd en klik op **Add** (Toevoegen).
+5. De Azure Notification Hubs SDK-modules toevoegen.
 
-    ![Azure SDK uitpakken][10]
+   U kunt de Azure Notification Hubs SDK integreren in uw app met behulp van [Cocoapods](https://cocoapods.org) of door handmatig de binaire bestanden toe te voegen aan uw project.
+
+   - Integratie via Cocoapods
+
+     Voeg de volgende afhankelijkheden aan uw `podfile` om op te nemen van Azure Notification Hubs SDK in uw app.
+
+     ```ruby
+     pod 'AzureNotificationHubs-iOS'
+     ```
+
+     Voer `pod install` uw nieuw gedefinieerde pod installeert en opent de `.xcworkspace`.
+
+     > [!NOTE]
+     > Als er een foutbericht wordt weergegeven als ```[!] Unable to find a specification for `AzureNotificationHubs-iOS` ``` tijdens de uitvoering `pod install`, voert u `pod repo update` om de meest recente schillen ophalen uit de opslagplaats Cocoapods en voer vervolgens `pod install`.
+
+   - Integratie via Carthage
+
+     Voeg de volgende afhankelijkheden aan uw `Cartfile` om op te nemen van Azure Notification Hubs SDK in uw app.
+
+     ```ruby
+     github "Azure/azure-notificationhubs-ios"
+     ```
+
+     Vervolgens, bijwerken en build-afhankelijkheden:
+
+     ```shell
+     $ carthage update
+     ```
+
+     Zie voor meer informatie over het gebruik van Carthage de [Carthage GitHub-opslagplaats](https://github.com/Carthage/Carthage).
+
+   - Integratie met de binaire bestanden kopiëren naar uw project
+
+     1. Download de [Azure Notification Hubs SDK](https://github.com/Azure/azure-notificationhubs-ios/releases) framework geleverd als een zip-bestand en pak het uit.
+
+     2. Klik met de rechtermuisknop op uw project in Xcode en klik op de optie **Add Files to** (Bestanden toevoegen aan) om de map **WindowsAzureMessaging.framework** aan uw Xcode-project toe te voegen. Selecteer **Options** (Opties), zorg ervoor dat **Copy items if needed** (Copy items if needed) is geselecteerd en klik op **Add** (Toevoegen).
+
+        ![Azure SDK uitpakken][10]
 
 6. Voeg een nieuw headerbestand toe aan uw project met de naam `HubInfo.h`. Dit bestand bevat de constanten voor uw Notification Hub. Voeg de volgende definities toe en vervang de tijdelijke aanduidingen voor tekenreeksen door uw *hubnaam* en de *DefaultListenSharedAccessSignature* die u eerder hebt genoteerd.
 
@@ -170,7 +207,7 @@ De Notification Hub is nu geconfigureerd om te werken met APNS en u hebt de verb
 
 ## <a name="send-test-push-notifications"></a>Testpushmeldingen verzenden
 
-U kunt ontvangst van meldingen in uw app testen met de optie *Test verzenden* in [Azure Portal]. Er wordt dan een pushmelding als test naar uw apparaat verzonden.
+U kunt ontvangst van meldingen in uw app testen met de optie *Test verzenden* in [Azure-portal]. Er wordt dan een pushmelding als test naar uw apparaat verzonden.
 
 ![Azure Portal - Test verzenden][30]
 
@@ -184,7 +221,7 @@ Als u pushmeldingen op iOS wilt testen, moet u de app implementeren op een fysie
 
     ![De registratie van pushmeldingen in iOS-apps testen][33]
 
-2. Vervolgens verstuurt u als test een pushmelding vanuit [Azure Portal], zoals in de vorige sectie wordt beschreven.
+2. Vervolgens verstuurt u als test een pushmelding vanuit [Azure-portal], zoals in de vorige sectie wordt beschreven.
 
 3. De pushmelding wordt verzonden naar alle apparaten die zijn geregistreerd voor het ontvangen van meldingen van de specifieke Notification Hub.
 
@@ -212,17 +249,17 @@ In dit eenvoudige voorbeeld hebt u pushmeldingen uitgezonden naar al uw geregist
 [35]: ./media/notification-hubs-ios-get-started/notification-hubs-test3.png
 
 <!-- URLs. -->
-[Windows Azure Messaging Framework]: http://go.microsoft.com/fwlink/?LinkID=799698&clcid=0x409
-[Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
-[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Windows Azure Messaging Framework]: https://go.microsoft.com/fwlink/?LinkID=799698&clcid=0x409
+[Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/?LinkID=266533
+[Submit an app page]: https://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: https://go.microsoft.com/fwlink/p/?LinkId=262253
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
+[iOS Provisioning Portal]: https://go.microsoft.com/fwlink/p/?LinkId=272456
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
 [Azure Notification Hubs Notify Users for iOS with .NET backend]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
-[Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
-[Azure Portal]: https://portal.azure.com
+[Local and Push Notification Programming Guide]: https://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+[Azure-portal]: https://portal.azure.com

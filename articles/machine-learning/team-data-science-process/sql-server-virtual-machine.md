@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7b0ae144cce1213b5476ba1cccc94d994ebeda60
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 7b3b4e0886f561cc66e2c02e4ea354c86b34453c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464123"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904181"
 ---
 # <a name="heading"></a>Gegevens verwerken in SQL Server-Machine op Azure
 Dit document wordt uitgelegd hoe u gegevens verkennen en functies voor gegevens die zijn opgeslagen in een SQL Server-VM op Azure te genereren. Dit kan worden gedaan door data wrangling met behulp van SQL of met behulp van een programmeertaal zoals Python.
@@ -36,7 +36,7 @@ We beschrijven de volgende data wrangling taken in deze sectie met behulp van SQ
 Hier volgen enkele voorbeelden SQL-scripts die kunnen worden gebruikt voor het verkennen van SQL Server voor gegevensopslag.
 
 > [!NOTE]
-> Voor een voorbeeld, kunt u de [NYC Taxi gegevensset](http://www.andresmh.com/nyctaxitrips/) en verwijzen naar de met de titel IPNB [NYC Data wrangling met behulp van IPython Notebook en SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) voor een overzicht van end-to-end.
+> Voor een voorbeeld, kunt u de [NYC Taxi gegevensset](https://www.andresmh.com/nyctaxitrips/) en verwijzen naar de met de titel IPNB [NYC Data wrangling met behulp van IPython Notebook en SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) voor een overzicht van end-to-end.
 > 
 > 
 
@@ -82,7 +82,7 @@ Het volgende voorbeeld laat zien hoe voor het genereren van binned functies door
 ### <a name="sql-featurerollout"></a>Implementeren van de functies van één kolom
 In deze sectie laten we zien hoe u één kolom in een tabel voor het genereren van extra functies worden uitgerold. Het voorbeeld wordt ervan uitgegaan dat er een kolom voor breedtegraad of lengtegraad in de tabel waaruit u wilt genereren van functies.
 
-Hier volgt een korte uitleg van breedtegraad/lengtegraad locatiegegevens (resources voorzien van stackoverflow [hoe u voor het meten van de nauwkeurigheid van de breedtegraad en lengtegraad?](http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)). Dit is handig om te begrijpen voordat featurizing het locatieveld:
+Hier volgt een korte uitleg van breedtegraad/lengtegraad locatiegegevens (resources voorzien van stackoverflow [hoe u voor het meten van de nauwkeurigheid van de breedtegraad en lengtegraad?](https://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)). Dit is handig om te begrijpen voordat featurizing het locatieveld:
 
 * De aanmelding kan worden achterhaald of we Noord of -Zuid, Oost- of -west op de hele wereld.
 * Een andere waarde dan nul honderden cijfers kan worden achterhaald dat we niet breedtegraad lengtegraad gebruiken!
@@ -129,7 +129,7 @@ De volgende indeling van de verbindingsreeks kan worden gebruikt voor het verbin
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-De [Pandas bibliotheek](http://pandas.pydata.org/) in Python biedt u een uitgebreide set gegevensstructuren en hulpprogramma's voor gegevensanalyse voor gegevensmanipulatie voor Python programmeren. De onderstaande code leest de resultaten van een SQL Server-database in een gegevensframe Pandas:
+De [Pandas bibliotheek](https://pandas.pydata.org/) in Python biedt u een uitgebreide set gegevensstructuren en hulpprogramma's voor gegevensanalyse voor gegevensmanipulatie voor Python programmeren. De onderstaande code leest de resultaten van een SQL Server-database in een gegevensframe Pandas:
 
     # Query database and load the returned results in pandas data frame
     data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)

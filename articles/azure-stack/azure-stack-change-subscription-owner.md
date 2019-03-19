@@ -16,12 +16,12 @@ ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: shnatara
 ms.lastreviewed: 10/19/2018
-ms.openlocfilehash: 02c5d063246844d5ed8945aba38aaada87691627
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1d9dd7d19c196679ead9b552bcf296b4acd4ca68
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763194"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842886"
 ---
 # <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>Wijzig de eigenaar voor een Azure Stack-gebruikersabonnement
 
@@ -49,7 +49,7 @@ Vervang de volgende waarden in het script voordat deze wordt uitgevoerd:
 - **$ArmEndpoint**: Het Resource Manager-eindpunt voor uw omgeving.
 - **$TenantId**: Uw Tenant-ID.
 - **$SubscriptionId**: Uw abonnements-ID.
-- **$OwnerUpn**: Een account, bijvoorbeeld **user@example.com**om toe te voegen als de eigenaar van de nieuwe facturering.
+- **$OwnerUpn**: Een account, bijvoorbeeld **gebruiker\@voorbeeld.com**om toe te voegen als de eigenaar van de nieuwe facturering.
 
 ```powershell
 # Set up Azure Stack admin environment

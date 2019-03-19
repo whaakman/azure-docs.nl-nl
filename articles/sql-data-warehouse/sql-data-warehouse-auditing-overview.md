@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: d9a911dccf3d59bf1159cf8576b95d86ef26657b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 85693ec6aa67dc69cd65aae8e66e66e2118672ef
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314242"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898479"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Auditing in Azure SQL datawarehouse
 
@@ -65,13 +65,13 @@ Het volgende gedeelte bevat de configuratie van de controle met Azure portal.
 1. Ga naar de [Azure Portal](https://portal.azure.com).
 2. Ga naar de **SQL server** die u wilt controleren (belangrijk is, zorg ervoor dat u de SQL-server, niet een bepaalde database/DW bekijkt). In de **Security** in het menu **controle en detectie van bedreigingen**.
 
-    ![Navigatiedeelvenster][6]
+    ![Navigatievenster][6]
 4. In de *controle en detectie van bedreigingen* blade voor **controle** Selecteer **ON**. Deze controle beleid wordt toegepast op alle bestaande en nieuwe databases op deze server.
 
-    ![Navigatiedeelvenster][7]
+    ![Navigatievenster][7]
 5. Om te openen de **Audit Logs opslag** Selecteer **opslaggegevens**. Selecteer of maak de Azure storage-account waar de logboeken worden opgeslagen en selecteer vervolgens de bewaarperiode (oude logboeken worden verwijderd). Klik vervolgens op **OK**.
 
-    ![Navigatiedeelvenster][8]
+    ![Navigatievenster][8]
 
     > [!IMPORTANT]
     > Auditlogboeken worden geschreven naar **toevoeg-Blobs** in Azure Blob-opslag in uw Azure-abonnement.
@@ -135,7 +135,7 @@ Er zijn verschillende methoden die u gebruiken kunt om blob auditing logboeken w
 
 * Power BI gebruiken. U kunt bekijken en analyseren van logboekgegevens audit in Power BI. Meer informatie over [Power BI en toegang tot een sjabloon downloaden](https://blogs.msdn.microsoft.com/azuresqldbsupport/20../../sql-azure-blob-auditing-basic-power-bi-dashboard/).
 
-* Downloaden van de logboekbestanden van uw Azure Storage blob-container via de portal of met behulp van een hulpprogramma zoals [Azure Storage Explorer](http://storageexplorer.com/).
+* Downloaden van de logboekbestanden van uw Azure Storage blob-container via de portal of met behulp van een hulpprogramma zoals [Azure Storage Explorer](https://storageexplorer.com/).
     * Nadat u een logboekbestand lokaal hebt gedownload, kunt u dubbelklikken op het bestand te openen, weergeven en analyseren van de logboeken in SSMS.
     * U kunt ook meerdere bestanden tegelijkertijd via Azure Storage Explorer downloaden. Met de rechtermuisknop op een specifieke submap en selecteer **opslaan als** om op te slaan in een lokale map.
 
@@ -150,8 +150,9 @@ Er zijn verschillende methoden die u gebruiken kunt om blob auditing logboeken w
 
 
 <br>
+
 ### <a name="database-level-policy-audit-logs"></a>De logboeken voor controle op databaseniveau beleid
-De logboeken voor controle op databaseniveau worden samengevoegd in een verzameling van Store tabellen met een **SQLDBAuditLogs** voorvoegsel in de Azure storage-account dat u hebt gekozen tijdens de installatie. U kunt met behulp van een hulpprogramma zoals logboekbestanden weergeven [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com).
+De logboeken voor controle op databaseniveau worden samengevoegd in een verzameling van Store tabellen met een **SQLDBAuditLogs** voorvoegsel in de Azure storage-account dat u hebt gekozen tijdens de installatie. U kunt met behulp van een hulpprogramma zoals logboekbestanden weergeven [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com).
 
 Een rapportsjabloon vooraf geconfigureerde dashboard is beschikbaar als een [downloadbare Excel-werkblad](https://go.microsoft.com/fwlink/?LinkId=403540) waarmee u snel analyseren logboekgegevens. Als u de sjabloon op uw auditlogboeken, moet u Excel 2013 of later en Power Query, die u kunt [download hier](https://www.microsoft.com/download/details.aspx?id=39379).
 
@@ -176,14 +177,19 @@ U kunt ook configureren om controle in Azure SQL Data Warehouse met behulp van d
 
 * **PowerShell-cmdlets**:
 
+<!-- None of the following links exist anymore 3-12-2019
    * [Get-AzSqlDatabaseAuditingPolicy](/powershell/module/az.sql/get-azsqldatabaseauditingpolicy)
    * [Get-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Get-azSqlServerAuditingPolicy)
    * [Remove-AzSqlDatabaseAuditing](/powershell/module/az.sql/Remove-azSqlDatabaseAuditing)
    * [Remove-AzSqlServerAuditing](/powershell/module/az.sql/Remove-azSqlServerAuditing)
    * [Set-AzSqlDatabaseAuditingPolicy](/powershell/module/az.sql/Set-azSqlDatabaseAuditingPolicy)
    * [Set-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Set-azSqlServerAuditingPolicy)
-   * [Use-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Use-azSqlServerAuditingPolicy)
+   * [Use-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Use-azSqlServerAuditingPolicy) -->
 
+   * [Get-AzSqlDatabaseAuditing](/powershell/module/az.sql/get-azsqldatabaseauditing)
+   * [Set-AzSqlDatabaseAuditing](/powershell/module/az.sql/set-azsqldatabaseauditing)
+   * [Get-AzSqlServerAuditing](/powershell/module/az.sql/get-azsqlserverauditing)
+   * [Set-AzSqlServerAuditing](/powershell/module/az.sql/set-azsqlserverauditing)
 
 ## <a name="downlevel-clients-support-for-auditing-and-dynamic-data-masking"></a>Ondersteuning voor downlevel-clients voor controle en dynamische gegevensmaskering
 Controle werkt met SQL-clients die ondersteuning bieden voor TDS-omleiding.

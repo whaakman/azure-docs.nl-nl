@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: 5fb8f54f50d821e53ec260c67ad5cf56c7f5671b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 82910f7b29789fa777f6deb2c185c57e847e1c88
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816535"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109253"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric-cluster overwegingen voor capaciteitsplanning
 Voor een productie-implementatie is plannen van capaciteit een belangrijke stap. Hier volgen enkele van de artikelen waarmee u rekening moet houden als onderdeel van dit proces.
@@ -82,16 +82,16 @@ De duurzaamheidslaag wordt gebruikt om aan te geven aan het systeem de rechten v
 
 > [!WARNING]
 > Knooppunttypen met de duurzaamheid Brons verkrijgen _geen bevoegdheden_. Dit betekent dat infrastructuur-taken die invloed hebben op uw staatloze werkbelastingen worden niet worden gestopt of uitgesteld, kan dit gevolgen hebben voor uw workloads. Gebruik alleen Brons voor typen die alleen staatloze werkbelastingen worden uitgevoerd. Voor productieworkloads, Zilver uitgevoerd of hoger wordt aanbevolen. 
-
+> 
 > Ongeacht eventuele duurzaamheidsniveau [toewijzing is opgeheven](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) bewerking op de VM-Schaalset wordt het cluster vernietigen
 
 **Voordelen van het gebruik van Silver- of Gold duurzaamheid niveaus**
- 
+ 
 - Vermindert het aantal vereiste stappen in een bewerking voor schaal (dat wil zeggen, knooppunt deactiveren en verwijderen-ServiceFabricNodeState wordt automatisch aangeroepen).
 - Vermindert het risico van gegevensverlies als gevolg van een klant geïnitieerde ter plekke VM-SKU wijzigingsbewerking of bewerkingen voor Azure-infrastructuur.
 
 **Nadelen van het gebruik van Silver- of Gold duurzaamheid niveaus**
- 
+ 
 - Implementaties naar uw virtuele-machineschaalset is ingesteld en andere gerelateerde Azure-resources kunnen worden uitgesteld, kunnen een time-out of volledig door problemen in uw cluster of op het niveau van de infrastructuur kunnen worden geblokkeerd. 
 - Verhoogt het aantal [levenscyclusgebeurtenissen voor replica](service-fabric-reliable-services-lifecycle.md) (bijvoorbeeld primaire worden verwisseld) geautomatiseerde vanwege knooppunt deactivations tijdens de bewerkingen voor Azure-infrastructuur.
 - Duurt knooppunten buiten gebruik gesteld voor perioden tijdens het Azure-platform software-updates of het onderhoud van hardware activiteiten plaatsvinden. Mogelijk ziet u knooppunten met de status uitschakelen/uitgeschakeld tijdens deze activiteiten. Dit vermindert de capaciteit van uw cluster tijdelijk, maar u moet niet van invloed op de beschikbaarheid van uw cluster of toepassingen.

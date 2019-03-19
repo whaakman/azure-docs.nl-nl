@@ -7,16 +7,16 @@ ms.service: dns
 ms.topic: article
 ms.date: 1/18/2019
 ms.author: victorh
-ms.openlocfilehash: e8163ad34046261d9671c57db2cd2d2052fe35e0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 78496dbc7891fe911ab0affd81f8a7d887e5d76e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550784"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111409"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Azure DNS gebruiken om aangepaste domein-instellingen voor een Azure-service te geven
 
-Azure DNS biedt DNS voor een aangepast domein voor het gebruik van uw Azure-resources die ondersteuning voor aangepaste domeinen of die een volledig gekwalificeerde domeinnaam (FQDN) hebben. Een voorbeeld is u een Azure-web-app hebt en u wilt dat uw gebruikers toegang tot het door een van beide contoso.com of www.contoso.com als een FQDN-naam gebruiken. In dit artikel begeleidt u bij het configureren van uw Azure-service met Azure DNS voor het gebruik van aangepaste domeinen.
+Azure DNS biedt DNS voor een aangepast domein voor het gebruik van uw Azure-resources die ondersteuning voor aangepaste domeinen of die een volledig gekwalificeerde domeinnaam (FQDN) hebben. Een voorbeeld is u een Azure-web-app hebt en u wilt dat uw gebruikers om deze te openen door met behulp van contoso.com of www\.contoso.com als een FQDN-naam. In dit artikel begeleidt u bij het configureren van uw Azure-service met Azure DNS voor het gebruik van aangepaste domeinen.
 
 ## <a name="prerequisites"></a>Vereisten
 

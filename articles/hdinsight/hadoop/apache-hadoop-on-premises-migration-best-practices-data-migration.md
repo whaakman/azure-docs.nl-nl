@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 488e1adb6d533dc88994e1dc08513870f56bd9c0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 34a63c8f283f24fa58b4e2a41d3a44ff0c8c3c17
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433039"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003465"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>On-premises Apache Hadoop-clusters migreren naar Azure HDInsight - gegevens migratie aanbevolen procedures
 
@@ -34,9 +34,9 @@ Er zijn twee manieren om gegevens te migreren van on-premises naar Azure-omgevin
 
 De volgende tabel bevat geschatte data transfer duur op basis van de gegevens volume en de netwerkbandbreedte. Een Data box gebruiken als de gegevensmigratie wordt verwacht dat meer dan drie weken duren.
 
-|**De hoeveelheid gegevens**|**Netwerkbandbreedte**|||
-|---|---|---|---|
-|| **45 Mbps (T3)**|**100 Mbps**|**1 Gbps**|**10 Gbps**
+|**De hoeveelheid gegevens**|**Netwerkbandbreedte**||||
+|---|---|---|---|---|
+|| **45 Mbps (T3)**|**100 Mbps**|**1 Gbps**|**10 Gbps**|
 |1 TB|2 dagen|1 dag| 2 uur|14 minuten|
 |10 TB|22 dagen|tien dagen|1 dag|2 uur|
 |35 TB|76 dagen|34 dagen|3 dagen|8 uur|

@@ -14,12 +14,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 3cda9d487d9548251c68d61db51bf2fb826b6f79
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 96325d7c21ccf7d93deaafbad974009004030157
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775285"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091984"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Opmerkingen bij de release voor validatie als een Service
 
@@ -42,10 +42,10 @@ In dit artikel heeft de opmerkingen bij de release voor Azure Stack-validatie al
 
 Als u de werkstroom van de Azure Stack maandelijkse Update verificatie uitvoert en de versie voor uw OEM-updatepakket niet 1810 of hoger is, wordt een foutbericht worden weergegeven wanneer u naar de OEM-update-stap. Dit is een fout. Een oplossing is ontwikkeld. De stappen zijn als volgt:
 
-1.  De OEM-update worden uitgevoerd als normaal.
-2.  Test-AzureStack uitvoeren na geslaagde toepassing van het pakket en sla de uitvoer.
-3.  Annuleren van de test.
-4.  Verzenden van de opgeslagen uitvoer naar VaaSHelp@microsoft.com om resultaten te geven voor de uitvoering te ontvangen.
+1. De OEM-update worden uitgevoerd als normaal.
+2. Test-AzureStack uitvoeren na geslaagde toepassing van het pakket en sla de uitvoer.
+3. Annuleren van de test.
+4. Verzenden van de opgeslagen uitvoer naar VaaSHelp@microsoft.com om resultaten te geven voor de uitvoering te ontvangen.
 
 ## <a name="version-402"></a>Versie 4.0.2
 

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: hrasheed
-ms.openlocfilehash: 23fa146b7bdaef0451984d0fbc638c57691cf259
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4b7e2a8d5eb981fc30dd14fed8f7efcfc094af0d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201717"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110882"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>De client Apache Beeline gebruiken met Apache Hive
 
@@ -148,10 +148,10 @@ Beeline is een Hive-client die is opgenomen op de hoofdknooppunten van het HDIns
 
     * `INPUT__FILE__NAME LIKE '%.log'` -Hive probeert het schema toepassen op alle bestanden in de map. In dit geval bevat de map bestanden die niet overeenkomen met het schema. Om te voorkomen dat garbagecollection-gegevens in de resultaten, deze instructie vertelt Hive dat deze alleen gegevens uit bestanden hebben die eindigt op moet retourneren. log.
 
-  > [!NOTE]  
-  > Externe tabellen moeten worden gebruikt wanneer u verwacht dat de onderliggende gegevens worden bijgewerkt door een externe bron. Bijvoorbeeld, een geautomatiseerd proces of een MapReduce-bewerking uploaden.
-  >
-  > Verwijderen van een externe tabel heeft **niet** de gegevens, alleen de definitie van de tabel verwijderen.
+   > [!NOTE]  
+   > Externe tabellen moeten worden gebruikt wanneer u verwacht dat de onderliggende gegevens worden bijgewerkt door een externe bron. Bijvoorbeeld, een geautomatiseerd proces of een MapReduce-bewerking uploaden.
+   >
+   > Verwijderen van een externe tabel heeft **niet** de gegevens, alleen de definitie van de tabel verwijderen.
 
     De uitvoer van deze opdracht is vergelijkbaar met de volgende tekst:
 
@@ -198,12 +198,12 @@ Gebruik de volgende stappen uit om te maken van een bestand en voer vervolgens m
 
     Deze instructies uit uitvoeren de volgende acties:
 
-    * **MAKEN van tabel als niet bestaat** -als de tabel nog niet bestaat, wordt dit gemaakt. Omdat de **externe** trefwoord wordt niet gebruikt, wordt deze instructie maakt u een interne tabel. Interne tabellen worden opgeslagen in het datawarehouse Hive en volledig worden beheerd door Hive.
-    * **OPGESLAGEN als ORC** -de gegevens worden opgeslagen in geoptimaliseerd rij kolommen (ORC)-indeling. ORC-indeling is een uiterst geoptimaliseerde en efficiënte indeling voor het opslaan van gegevens met Hive.
-    * **INSERT OVERWRITE ... Selecteer** -selecteert rijen uit de **log4jLogs** tabel met **[fout]**, voegt u vervolgens de gegevens in de **foutenlogboeken** tabel.
+   * **MAKEN van tabel als niet bestaat** -als de tabel nog niet bestaat, wordt dit gemaakt. Omdat de **externe** trefwoord wordt niet gebruikt, wordt deze instructie maakt u een interne tabel. Interne tabellen worden opgeslagen in het datawarehouse Hive en volledig worden beheerd door Hive.
+   * **OPGESLAGEN als ORC** -de gegevens worden opgeslagen in geoptimaliseerd rij kolommen (ORC)-indeling. ORC-indeling is een uiterst geoptimaliseerde en efficiënte indeling voor het opslaan van gegevens met Hive.
+   * **INSERT OVERWRITE ... Selecteer** -selecteert rijen uit de **log4jLogs** tabel met **[fout]**, voegt u vervolgens de gegevens in de **foutenlogboeken** tabel.
 
-    > [!NOTE]  
-    > In tegenstelling tot externe tabellen, het verwijderen van een interne tabel Hiermee verwijdert u ook de onderliggende gegevens.
+     > [!NOTE]  
+     > In tegenstelling tot externe tabellen, het verwijderen van een interne tabel Hiermee verwijdert u ook de onderliggende gegevens.
 
 3. Gebruiken om het bestand hebt opgeslagen, **Ctrl**+**_X**, voert u **Y**, en tot slot **Enter**.
 

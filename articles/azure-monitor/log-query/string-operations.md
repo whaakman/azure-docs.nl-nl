@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 4998084ed15e6ed455789689674e134c6cd9d0a8
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 4b2763629a3036551cb3d362e609c72737436f4a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749763"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012231"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Werken met tekenreeksen in Logboeken-query's van Azure Monitor
 
@@ -64,9 +64,9 @@ Operator       |Description                         |Hoofdlettergevoelig|Voorbee
 `hasprefix_cs`    |Rechts naast is een term-voorvoegsel in de links aan         |Ja            |`"North America" hasprefix_cs "Ame"`
 `!hasprefix_cs`   |Rechts naast is niet een term-voorvoegsel in de links aan     |Ja            |`"North America" !hasprefix_cs "CA"` 
 `hassuffix`    |Rechts naast is een term-achtervoegsel in de links aan         |Nee            |`"North America" hassuffix "ica"`
-`!hassuffix`   |Rechts naast is niet een term-achtervoegsel in de links aan     |Nee            |' 'Noord-Amerika'! hassuffix "americ"
+`!hassuffix`   |Rechts naast is niet een term-achtervoegsel in de links aan     |Nee            |`"North America" !hassuffix "americ"`
 `hassuffix_cs`    |Rechts naast is een term-achtervoegsel in de links aan         |Ja            |`"North America" hassuffix_cs "ica"`
-`!hassuffix_cs`   |Rechts naast is niet een term-achtervoegsel in de links aan     |Ja            |`"North America" !hassuffix_cs "icA"
+`!hassuffix_cs`   |Rechts naast is niet een term-achtervoegsel in de links aan     |Ja            |`"North America" !hassuffix_cs "icA"`
 `contains`     |Rechts naast treedt op als een subsequence van links zijde  |Nee            |`"FabriKam" contains "BRik"`
 `!contains`    |Rechts naast niet wordt uitgevoerd in de links aan           |Nee            |`"Fabrikam" !contains "xyz"`
 `contains_cs`   |Rechts naast treedt op als een subsequence van links zijde  |Ja           |`"FabriKam" contains_cs "Kam"`
@@ -259,6 +259,7 @@ SecurityEvent
 ```
 
 Kan hebben de volgende resultaten:
+
 Activiteit                                        |vervangen
 ------------------------------------------------|----------------------------------------------------------
 4663 - er is geprobeerd toegang tot een object  |Activiteits-ID 4663: Er is geprobeerd toegang tot een object.

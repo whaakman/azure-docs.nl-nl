@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: alkohli;
 ms.subservice: common
-ms.openlocfilehash: 1494ccea1580d7415c6c86f14682ca59ad7124d5
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b01c8a3fe9b0c0856dceb5c05f449504ce8c75d6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459893"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120360"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Open een ondersteuningsticket voor een taak voor importeren/exporteren
 
@@ -57,14 +57,14 @@ De volgende stappen uitvoeren om een ondersteuningsaanvraag maken:
 
 4. In **nieuwe ondersteuningsaanvraag**, klikt u op **contactgegevens van stap 3**. In **contactgegevens**, de volgende stappen uit:
 
-    1. In de **opties voor contactpersonen**, geef de gewenste manier (telefoon of e-mail) en de taal. De reactietijd wordt automatisch geselecteerd op basis van uw abonnement wilt.
-    2. Geef uw naam, e-mailbericht, contact op met de optionele, land/regio in de contactgegevens. Selecteer de **contact op met wijzigingen opslaan voor toekomstige ondersteuningsaanvragen** selectievakje.
-    3. Klik op **Create**.
+   1. In de **opties voor contactpersonen**, geef de gewenste manier (telefoon of e-mail) en de taal. De reactietijd wordt automatisch geselecteerd op basis van uw abonnement wilt.
+   2. Geef uw naam, e-mailbericht, contact op met de optionele, land/regio in de contactgegevens. Selecteer de **contact op met wijzigingen opslaan voor toekomstige ondersteuningsaanvragen** selectievakje.
+   3. Klik op **Create**.
    
-        ![Contactgegevens](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   
+       ![Contactgegevens](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   
 
-    Deze informatie wordt door Microsoft Support contact op met u voor meer informatie, diagnose en het probleem zou moeten worden gebruikt.
-Nadat u uw aanvraag hebt ingediend, een ondersteuningsmedewerker neemt contact met u zo snel mogelijk om door te gaan met uw aanvraag.
+      Deze informatie wordt door Microsoft Support contact op met u voor meer informatie, diagnose en het probleem zou moeten worden gebruikt.
+      Nadat u uw aanvraag hebt ingediend, een ondersteuningsmedewerker neemt contact met u zo snel mogelijk om door te gaan met uw aanvraag.
 
 ## <a name="manage-a-support-request"></a>Een ondersteuningsaanvraag beheren
 

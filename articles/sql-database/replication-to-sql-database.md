@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 78858ba888986b75a1da77caaec1ef02ffcdf307
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b9d6569504b5352c6187afe12d903c986019c517
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467693"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860700"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replicatie naar SQL Database single en gepoolde databases
 
@@ -40,7 +40,7 @@ SQL Server-replicatie kan worden geconfigureerd met één en gepoolde databases 
 - SQL Server 2014 (12.x) RTM CU10
 - SQL Server 2012 (11.x) SP2 CU8 of SP3
 - -Replicatie configureren met een oudere versie willen kan resulteren in fout MSSQL_REPL20084 (het proces kan geen verbinding met abonneeserver.) en MSSQL_REPL40532 (server kan niet worden geopend \<naam > door de aanmelding is aangevraagd. De aanmelding is mislukt.).  
-- Voor het gebruik van alle functies van Azure SQL Database, moet u de nieuwste versies van [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) en [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017).  
+- Voor het gebruik van alle functies van Azure SQL Database, moet u de nieuwste versies van [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) en [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
   
 ## <a name="remarks"></a>Opmerkingen
 

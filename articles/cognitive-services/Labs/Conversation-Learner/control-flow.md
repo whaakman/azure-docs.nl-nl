@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 3e10c09b8f11566860256aaf4b793c6ae0d2d5e9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: e0a0a88e249c0a032e5afaeea14b9b3cfcbdc319
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876922"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080657"
 ---
 ## <a name="control-flow"></a>Controlestroom
 
@@ -25,13 +25,13 @@ Dit document beschrijft de Controlestroom van de conversatie Learner (CL) zoals 
 
 1. Gebruiker voert een term of woordgroep in de bot, bijvoorbeeld: 'Wat is het weer in Seattle?'
 1. De invoer van de gebruiker naar een model voor machine learning die entiteiten ophaalt CL is geslaagd
-    - Dit model bouwen door Conversatiecursist is en die wordt gehost door www.luis.ai
+   - Dit model bouwen door Conversatiecursist is en die wordt gehost door www.luis.ai
 1. Alle entiteiten opgehaald en de gebruiker de invoer van tekst, worden doorgegeven aan de entiteit-detectie terugbelmethode in de code van de bot.
     - Deze code kan entiteitswaarden set/wissen/bewerken
 1. Vervolgens wordt de uitvoer van de entiteiten extraheren en de invoer van de gebruiker en alle acties gedefinieerd in de bot-scores CL neurale netwerk
-    - In dit voorbeeld is de hoogste kans-actie voor de weersverwachting:
+   - In dit voorbeeld is de hoogste kans-actie voor de weersverwachting:
 
-    ![](media/controlflow_forecast.PNG)
+     ![](media/controlflow_forecast.PNG)
 
 1. Een API-aanroep om op te halen van de weersvoorspelling voor de geselecteerde actie, in dit geval vereist. 
 1. Deze API is geregistreerd via de CL. AddCallback methode wordt aangeroepen.  Het resultaat van deze API wordt vervolgens geretourneerd naar de gebruiker als een bericht--bijvoorbeeld 'Sunny met een hoge 67.'

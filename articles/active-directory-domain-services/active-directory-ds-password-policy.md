@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: 5fc50aeeb2764f90a111c2466ff5a9deefe1e65c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 513cccb8b83eb4a69df1bc6172f1f02485215e35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167985"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086000"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Wachtwoord- en accountvergrendelingsbeleid op beheerde domeinen
 In dit artikel wordt uitgelegd dat de standaard-wachtwoordbeleid in een beheerd domein. Ook wordt beschreven hoe u dit beleid kunt configureren.
@@ -89,28 +89,28 @@ Een aangepaste FGPP maken op uw beheerde domein:
 7. Op de **taken** deelvenster in de juiste, op **nieuw** en klikt u op **wachtwoordinstellingen**.
 8. In de **wachtwoordinstellingen maken** dialoogvenster, geef de wachtwoordinstellingen op aangepaste om toe te passen als onderdeel van de aangepaste FGPP. Vergeet niet om in te stellen de voorrang op de juiste wijze het standaard FGPP.
 
-  ![Aangepaste FGPP maken](./media/how-to/custom-fgpp.png)
+   ![Aangepaste FGPP maken](./media/how-to/custom-fgpp.png)
 
-  > [!TIP]
-  > **Houd er rekening mee de beveiligen tegen onopzettelijk verwijderen optie uitschakelen.** Als deze optie is ingeschakeld, kan de FGPP kan niet worden opgeslagen.
-  >
-  >
+   > [!TIP]
+   > **Houd er rekening mee de beveiligen tegen onopzettelijk verwijderen optie uitschakelen.** Als deze optie is ingeschakeld, kan de FGPP kan niet worden opgeslagen.
+   >
+   >
 
 9. In **rechtstreeks van toepassing op**, klikt u op de **toevoegen** knop. In de **gebruikers of groepen selecteren** dialoogvenster, klikt u op de **locaties** knop.
 
-  ![Gebruikers en groepen selecteren](./media/how-to/fgpp-applies-to.png)
+   ![Gebruikers en groepen selecteren](./media/how-to/fgpp-applies-to.png)
 
 10. In de **locaties** dialoogvenster, vouwt u de domeinnaam en op **AADDC gebruikers**. U kunt nu een groep selecteren van de ingebouwde gebruikers organisatie-eenheid waaraan de FGPP toepassen.
 
-  ![Selecteer de organisatie-eenheid die groep behoort](./media/how-to/fgpp-container.png)
+    ![Selecteer de organisatie-eenheid die groep behoort](./media/how-to/fgpp-container.png)
 
 11. Typ de naam van de groep en klikt u op de **namen controleren** knop voor het valideren van de groep bestaat.
 
-  ![Selecteer de groep om toe te passen FGPP](./media/how-to/fgpp-apply-group.png)
+    ![Selecteer de groep om toe te passen FGPP](./media/how-to/fgpp-apply-group.png)
 
 12. De naam van de groep wordt weergegeven in **rechtstreeks van toepassing op** sectie. Klik op de **OK** knop deze wijzigingen op te slaan.
 
-  ![FGPP toegepast](./media/how-to/fgpp-applied.png)
+    ![FGPP toegepast](./media/how-to/fgpp-applied.png)
 
 > [!TIP]
 > **Toepassen van beleid voor aangepaste wachtwoorden voor gebruikersaccounts in een aangepaste organisatie-eenheid:** Goed korrelig wachtwoordbeleid kunnen worden alleen toegepast op groepen. Voor het configureren van een aangepaste wachtwoordbeleid alleen voor gebruikers van een aangepaste organisatie-eenheid, een groep met gebruikers in de organisatie-eenheid te maken.

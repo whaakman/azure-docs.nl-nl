@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 76af79cc9ef1ebea30b30a291f451b7b0a4f3ba6
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 832614c46f0269460245d081f20897b591e31fce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694479"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101564"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Migratie van Contoso: Opnieuw hosten van een on-premises-app op een Azure-VM en het beheerde exemplaar van SQL Database
 
@@ -222,7 +222,7 @@ Contoso rekening gehouden met deze factoren:
 - Een subnet kan worden gekoppeld aan slechts één routetabel.
 - Er zijn geen extra kosten voor het routetabellen maken in Microsoft Azure.
 
- Voor het instellen van routering Contoso doen beheerders het volgende:
+  Voor het instellen van routering Contoso doen beheerders het volgende:
 
 1. Maken van een UDR (route) tabel in de **ContosoNetworkingRG** resourcegroep.
 
@@ -441,11 +441,11 @@ Wanneer de bron en het doel zijn ingesteld, wordt beheerders van Contoso een rep
 
 1. In **infrastructuur voorbereiden** > **replicatie-instellingen** > **replicatiebeleid** >  **maken en Koppelen**, het maken van de **ContosoMigrationPolicy** beleid.
 2. Ze gebruiken de standaard-instellingen:
-    - **RPO-drempelwaarde**: De standaardwaarde van 60 minuten. Deze waarde bepaalt hoe vaak herstelpunten worden gemaakt. Wanneer de continue replicatie deze limiet overschrijdt, wordt er een waarschuwing gegenereerd.
-    - **Bewaarperiode van herstelpunt**: De standaardwaarde van 24 uur. Deze waarde wordt bepaald hoe lang de bewaarperiode is voor elk herstelpunt. Gerepliceerde VM’s kunnen worden hersteld naar een willekeurig punt in een tijdvenster.
-    - **Frequentie van de app-consistente momentopname**: De standaardwaarde van 1 uur. Deze waarde bepaalt de frequentie waarmee App-consistente momentopnamen worden gemaakt.
+   - **RPO-drempelwaarde**: De standaardwaarde van 60 minuten. Deze waarde bepaalt hoe vaak herstelpunten worden gemaakt. Wanneer de continue replicatie deze limiet overschrijdt, wordt er een waarschuwing gegenereerd.
+   - **Bewaarperiode van herstelpunt**: De standaardwaarde van 24 uur. Deze waarde wordt bepaald hoe lang de bewaarperiode is voor elk herstelpunt. Gerepliceerde VM’s kunnen worden hersteld naar een willekeurig punt in een tijdvenster.
+   - **Frequentie van de app-consistente momentopname**: De standaardwaarde van 1 uur. Deze waarde bepaalt de frequentie waarmee App-consistente momentopnamen worden gemaakt.
  
-    ![Beleid voor wachtwoordreplicatie - maken](./media/contoso-migration-rehost-vm-sql-managed-instance/replication-policy.png)
+     ![Beleid voor wachtwoordreplicatie - maken](./media/contoso-migration-rehost-vm-sql-managed-instance/replication-policy.png)
 
 3. Het beleid wordt automatisch gekoppeld aan de configuratieserver. 
 

@@ -2,19 +2,19 @@
 title: Verbinding van apparaat met Apparaat IoT Hub controleren
 description: Gebruik IoT Hub-hulpprogramma’s om tijdens de ontwikkeling verbindingsproblemen met uw IoT Hub op te lossen.
 services: iot-hub
-author: dominicbetts
-manager: timlt
-ms.author: dobett
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.custom: mvc
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: ebd206f6de031ea73d621568e091632e2e8123b9
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: cd60129e2da0b0c2130b300159953bd81c4aeb82
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674497"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077561"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Zelfstudie: Een gesimuleerd apparaat gebruiken om connectiviteit met uw IoT-hub te testen
 
@@ -135,7 +135,7 @@ az iot hub generate-sas-token --device-id MyTestDevice --hub-name {YourIoTHubNam
 
 Noteer de volledige tekst van het gegenereerde SAS-token. Een SAS-token ziet er als volgt uit: `SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307`
 
-Navigeer in een terminalvenster op uw ontwikkelcomputer naar de hoofdmap van het voorbeeldproject in Node.js dat u hebt gedownload. Navigeer vervolgens naar de map **iot-hub\Tutorials\ConnectivityTests\simulated-device**.
+Navigeer in een terminalvenster op uw ontwikkelcomputer naar de hoofdmap van het voorbeeldproject in Node.js dat u hebt gedownload. Navigeer vervolgens naar de map **iot-hub\Tutorials\ConnectivityTests**.
 
 Voer in het terminalvenster de volgende opdrachten uit om de vereiste bibliotheken te installeren en de toepassing voor het gesimuleerde apparaat uit te voeren:
 
@@ -176,7 +176,7 @@ Haal eerst de huidige verbindingsreeks op voor uw gesimuleerd apparaat met de vo
 az iot hub device-identity show-connection-string --device-id MyTestDevice --output table --hub-name {YourIoTHubName}
 ```
 
-Navigeer naar de map **iot-hub\Tutorials\ConnectivityTests\simulated-device** in de code die u hebt gedownload om een gesimuleerd apparaat uit te voeren dat berichten verzendt.
+Als u wilt uitvoeren van een gesimuleerd apparaat waarmee berichten worden verzonden, gaat u naar de **iot-hub\Tutorials\ConnectivityTests** map in de code die u hebt gedownload.
 
 Voer in het terminalvenster de volgende opdrachten uit om de vereiste bibliotheken te installeren en de toepassing voor het gesimuleerde apparaat uit te voeren:
 

@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: 5f77857c82846fe9c3d2ad4f5f82572d18401691
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c2c722331c95e72bae5605606564a2083e2802e3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003598"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075029"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-apis"></a>Een taalmodel met Video Indexer-API's aanpassen
 
@@ -306,7 +306,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 |fileId|string|Ja|Id van het bestand dat moet worden bijgewerkt (gegenereerd wanneer het bestand geüpload bij het maken of bijwerken van het taalmodel is)|
 |accessToken|string|Ja|Toegangstoken (moet van het bereik [Account toegangstoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) voor verificatie op basis van de aanroep. Toegangstokens verloopt binnen 1 uur.|
 |fileName|string|Nee|Naam van de bestandsnaam om te werken|
-|inschakelen|booleaans|Nee|Bijwerken of dit bestand is (true) of uitgeschakeld (ONWAAR) in het taalmodel||
+|inschakelen|booleaans|Nee|Bijwerken of dit bestand is (true) of uitgeschakeld (ONWAAR) in het taalmodel|
 
 ### <a name="request-body"></a>Aanvraagbody
 

@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 0d8bb451c821a4883c81e0e51c5d98e146e3008e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2d59235b067d9571bc8b64c33799431be6489502
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243535"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087207"
 ---
 # <a name="restore-azure-sql-data-warehouse-portal"></a>Herstellen van Azure SQL Data Warehouse (portal)
 > [!div class="op_single_selector"]
@@ -23,9 +23,9 @@ ms.locfileid: "55243535"
 > * [Portal][Portal]
 > * [PowerShell][PowerShell]
 > * [REST][REST]
->
->
-In dit artikel leert u hoe u kunt het herstellen van Azure SQL Data Warehouse met behulp van de Azure-portal.
+> 
+> 
+> In dit artikel leert u hoe u kunt het herstellen van Azure SQL Data Warehouse met behulp van de Azure-portal.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 **Controleer of de capaciteit van uw DTU.** Elk exemplaar van SQL Data Warehouse wordt gehost door een SQL-server (bijvoorbeeld myserver.database.windows.net) waarvoor een standaardquotum gegevens throughput unit (DTU). Voordat u SQL Data Warehouse herstellen kunt, moet u controleren of uw SQL-server genoeg resterende DTU-quotum voor de database die u wilt terugzetten heeft. Zie voor meer informatie over het berekenen van de DTU-quotum of om aan te vragen van meer dtu's, [een wijziging van de DTU-quotum aanvragen][Request a DTU quota change].
