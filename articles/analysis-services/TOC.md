@@ -43,8 +43,6 @@
 ### [Een service-principal toevoegen aan serverbeheerdersrol](analysis-services-addservprinc-admins.md)
 
 ## Model
-### [Een Power BI Desktop-bestand importeren](analysis-services-import-pbix.md)
-### [Een model maken in Azure Portal (preview)](analysis-services-create-model-portal.md)
 ### [Implementeren vanuit Visual Studio (SSDT)](analysis-services-deploy.md)
 ### [Vernieuwen met REST-API](analysis-services-async-refresh.md)
 ### [Gegevens modelleren in Visual Studio - zelfstudie Adventure Works (1400)](tutorials/aas-adventure-works-tutorial.md)
@@ -97,13 +95,3 @@
 ## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-analysis-services)
 ## [Video's](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
-
-
-
-
-
-
-
-
-
-
