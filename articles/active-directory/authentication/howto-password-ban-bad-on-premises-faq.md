@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f0a10a56aeecf9973ea12b022e0030fb4635fbf
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 91ab8e8757c4a5313fde5f4d883e45648c9143b7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984545"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901352"
 ---
 # <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Preview: Azure AD wachtwoordbeveiliging on-premises - Veelgestelde vragen over
 
@@ -86,6 +86,10 @@ Nee. Aangezien de proxyserver stateless is, is het niet belangrijk welke specifi
 **V: Is het goed dat het implementeren van de Azure AD-wachtwoord beveiliging-proxyservice naast andere services zoals Azure AD Connect?**
 
 Ja. De Azure AD-wachtwoord beveiliging Proxy-service en Azure AD Connect moet nooit rechtstreeks met elkaar conflicteren.
+
+**V: In welke volgorde moeten de DC-agents en proxy's worden geïnstalleerd en geregistreerd?**
+
+Een volgorde van de installatie van de Proxy-agent, DC-agentinstallatie forest registratie en registratie van Proxy wordt ondersteund.
 
 **V: Ik moet over de prestaties op de domeincontrollers van het implementeren van deze functie is bereikt?**
 

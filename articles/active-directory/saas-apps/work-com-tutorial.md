@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e5d097afa3af111a7de8341b90d8c6c05ac0347
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6a37a811c7944334571b4043d8ba937ffadc1e71
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205746"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891566"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Zelfstudie: Azure Active Directory-integratie met Work.com
 
@@ -151,13 +151,13 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. Vouw de **beveiligingsmechanismen** menu en klik vervolgens op **instellingen voor eenmalige aanmelding**.
     
-    ![Single Sign-On instellingen](./media/work-com-tutorial/ic794113.png "Single Sign-On-instellingen")
+    ![Instellingen voor eenmalige aanmelding](./media/work-com-tutorial/ic794113.png "Instellingen voor eenmalige aanmelding")
 
 1. Op de **instellingen voor eenmalige aanmelding** dialoogvenster pagina, voert u de volgende stappen uit:
     
     ![SAML ingeschakeld](./media/work-com-tutorial/ic781026.png "SAML ingeschakeld")
     
-    a. Selecteer **SAML ingeschakeld**.
+    a. Selecteer **SAML Enabled**.
     
     b. Klik op **Nieuw**.
 
@@ -246,7 +246,7 @@ Voor Azure Active Directory-gebruikers kunnen zich aanmelden, moeten ze worden i
     ![Setup](./media/work-com-tutorial/IC794108.png "Setup")
 1. Ga naar **gebruikers beheren \> gebruikers**.
    
-    ![Gebruikers beheren](./media/work-com-tutorial/IC784369.png "gebruikers beheren")
+    ![Gebruikers beheren](./media/work-com-tutorial/IC784369.png "Gebruikers beheren")
 
 1. Klik op **New User**.
    
@@ -262,9 +262,9 @@ Voor Azure Active Directory-gebruikers kunnen zich aanmelden, moeten ze worden i
     
     c. In de **Alias** tekstvak, type de **naam** van de gebruiker **BrittaS**.
     
-    d. In de **e** tekstvak, type de **e-mailadres** van gebruiker **Brittasimon@contoso.com**.
+    d. In de **e** tekstvak, type de **e-mailadres** van gebruiker **Brittasimon\@contoso.com**.
     
-    e. In de **gebruikersnaam** tekstvak, typ een naam van gebruiker, zoals **Brittasimon@contoso.com**.
+    e. In de **gebruikersnaam** tekstvak, typ een naam van gebruiker, zoals **Brittasimon\@contoso.com**.
     
     f. In de **bijnaam** tekstvak, typ een **bijnaam** van gebruiker **Simon**.
     
@@ -316,7 +316,7 @@ Zie [Introduction to the Access Panel](../user-help/active-directory-saas-access
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

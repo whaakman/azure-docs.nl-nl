@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2886dbafe6bf20718f4e3cd2976764fc432dbb04
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 92a5f7c058904015cb22a239b7e7c4938ae1fdae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44021749"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895249"
 ---
-# <a name="microsoftcommonfileupload-ui-element"></a>Microsoft.Common.FileUpload UI-element
+# <a name="microsoftcommonfileupload-ui-element"></a>Microsoft.Common.FileUpload UI element
 Een besturingselement waarmee een gebruiker om op te geven van een of meer bestanden te uploaden.
 
 ## <a name="ui-sample"></a>Voorbeeld van de gebruikersinterface
@@ -48,7 +48,7 @@ Een besturingselement waarmee een gebruiker om op te geven van een of meer besta
 ```
 
 ## <a name="remarks"></a>Opmerkingen
-- `constraints.accept` Hiermee geeft u de typen bestanden die worden weergegeven in het dialoogvenster voor het bestand van de browser. Zie de [HTML5-specificatie](http://www.w3.org/TR/html5/forms.html#attr-input-accept) voor toegestane waarden. De standaardwaarde is **null**.
+- `constraints.accept` Hiermee geeft u de typen bestanden die worden weergegeven in het dialoogvenster voor het bestand van de browser. Zie de [HTML5-specificatie](https://www.w3.org/TR/html5/forms.html#attr-input-accept) voor toegestane waarden. De standaardwaarde is **null**.
 - Als `options.multiple` is ingesteld op **waar**, de gebruiker meer dan één bestand selecteren in het dialoogvenster voor het bestand van de browser is toegestaan. De standaardwaarde is **false**.
 - Dit element biedt ondersteuning voor bestanden die worden geüpload in twee modi op basis van de waarde van `options.uploadMode`. Als **bestand** is opgegeven, wordt de uitvoer heeft de inhoud van het bestand op als een blob. Als **url** is opgegeven, wordt het bestand is geüpload naar een tijdelijke locatie en de uitvoer de URL van de blob bevat. Tijdelijke blobs opgeschoond na 24 uur. De standaardwaarde is **bestand**.
 - Een geüploade bestand is beveiligd. De uitvoer-URL bevat een [SAS-token](../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) voor toegang tot het bestand tijdens de implementatie.

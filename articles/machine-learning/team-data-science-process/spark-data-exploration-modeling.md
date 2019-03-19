@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b1e6884366300a4edfce1eb05971e50f673b3a22
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4ddcd2429ce1b7e44670b52a0a7b7494d0400af7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457221"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860972"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Met Spark gegevens verkennen en modelleren
 
@@ -29,8 +29,8 @@ De modellen we gebruiken bevatten logistieke en lineaire regressie, willekeurige
 
 * [Lineaire regressie met SGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) is een lineair regressiemodel die gebruikmaakt van een methode stochastische kleurovergang afkomst (SGD) en optimalisatie en functie schalen om te voorspellen van de tip-bedragen betaald. 
 * [Logistieke regressie met LBFGS](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS) of "logit" regressie, wordt een regressiemodel dat kan worden gebruikt wanneer de afhankelijke variabele categorische doen gegevensclassificatie is. LBFGS is een quasi toegepast optimalisatie-algoritme dat benadert de Broyden – Fletcher – Goldfarb – Shanno (BFGS)-algoritme met behulp van een beperkte hoeveelheid van het geheugen van de computer en die wordt veel gebruikt in machine learning.
-* [Willekeurige forests](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) ensembles van beslissingsstructuren zijn.  Ze combineren veel beslissingsstructuren om het risico te beperken. Willekeurige forests worden gebruikt voor regressie en classificatie en categorische functies kunnen worden verwerkt en kunnen worden uitgebreid naar de instelling voor multiklassen classificatie. Ze vereisen geen functie schaalaanpassing en kunnen niet-mogelijkheid tot vastleggen en functie van interacties. Willekeurige forests vormen een van de meest succesvolle machine learning-modellen voor classificatie- en regressiemodellen.
-* [Kleurovergang boosted structuren](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) ensembles van beslissingsstructuren zijn. GBTs trainen beslisbomen iteratief te minimaliseren, een functie verloren gaan. GBTs worden gebruikt voor regressie en classificatie en categorische functies kunnen worden verwerkt, vereisen geen functie schaalaanpassing en kunnen niet-mogelijkheid tot vastleggen en functie van interacties. Ze kunnen ook worden gebruikt in een multiklasse-classificatie.
+* [Willekeurige forests](https://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) ensembles van beslissingsstructuren zijn.  Ze combineren veel beslissingsstructuren om het risico te beperken. Willekeurige forests worden gebruikt voor regressie en classificatie en categorische functies kunnen worden verwerkt en kunnen worden uitgebreid naar de instelling voor multiklassen classificatie. Ze vereisen geen functie schaalaanpassing en kunnen niet-mogelijkheid tot vastleggen en functie van interacties. Willekeurige forests vormen een van de meest succesvolle machine learning-modellen voor classificatie- en regressiemodellen.
+* [Kleurovergang boosted structuren](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) ensembles van beslissingsstructuren zijn. GBTs trainen beslisbomen iteratief te minimaliseren, een functie verloren gaan. GBTs worden gebruikt voor regressie en classificatie en categorische functies kunnen worden verwerkt, vereisen geen functie schaalaanpassing en kunnen niet-mogelijkheid tot vastleggen en functie van interacties. Ze kunnen ook worden gebruikt in een multiklasse-classificatie.
 
 De stappen modellering bevatten ook code waarin wordt getoond hoe om te trainen, evalueren en elk type model opslaan. Python is gebruikt om de oplossing en om de relevante grafieken weer te geven.   
 
@@ -60,19 +60,17 @@ De regressie en classificatie van taken die worden geïmplementeerd met behulp v
 
 > [!NOTE]
 > De gegevensset luchtvaartmaatschappij is toegevoegd aan de notebooks Spark 2.0 ter illustratie van het gebruik van bestandsclassificatie-algoritmen beter. Zie de volgende koppelingen voor meer informatie over luchtvaartmaatschappij op tijd vertrek gegevensset en de gegevensset weer:
-
->- Luchtvaartmaatschappij op tijd vertrek gegevens: [http://www.transtats.bts.gov/ONTIME/](http://www.transtats.bts.gov/ONTIME/)
-
->- Weergegevens luchthaven: [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/) 
 > 
+> - Luchtvaartmaatschappij op tijd vertrek gegevens: [https://www.transtats.bts.gov/ONTIME/](https://www.transtats.bts.gov/ONTIME/)
 > 
+> - Weergegevens luchthaven: [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/) 
 
 <!-- -->
 
 <!-- -->
 
 > [!NOTE]
-De notebooks Spark 2.0 op de NYC taxi en luchtvaartmaatschappij flight vertraging-gegevenssets kunnen 10 minuten of langer om uit te voeren (afhankelijk van de grootte van het HDI-cluster) duren. In een notitieblok dat minder tijd om uit te voeren naar beneden steekproef NYC gegevens is ingesteld kost, waarin de bestanden over taxi's en fare zijn vooraf is toegevoegd aan ziet het eerste notitieblok in de bovenstaande lijst u veel aspecten van de gegevens verkennen, visualisatie en training voor ML-model: [Spark2.0-pySpark3-machine-Learning-Data-Science-Spark-Advanced-Data-Exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) dit notitieblok neemt een veel kortere tijd om te voltooien (2-3 minuten) en kan worden een goed startpunt om snel de die we hebben opgegeven te verkennen voor Spark 2.0. 
+> De notebooks Spark 2.0 op de NYC taxi en luchtvaartmaatschappij flight vertraging-gegevenssets kunnen 10 minuten of langer om uit te voeren (afhankelijk van de grootte van het HDI-cluster) duren. In een notitieblok dat minder tijd om uit te voeren naar beneden steekproef NYC gegevens is ingesteld kost, waarin de bestanden over taxi's en fare zijn vooraf is toegevoegd aan ziet het eerste notitieblok in de bovenstaande lijst u veel aspecten van de gegevens verkennen, visualisatie en training voor ML-model: [Spark2.0-pySpark3-machine-Learning-Data-Science-Spark-Advanced-Data-Exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) dit notitieblok neemt een veel kortere tijd om te voltooien (2-3 minuten) en kan worden een goed startpunt om snel de die we hebben opgegeven te verkennen voor Spark 2.0. 
 
 <!-- -->
 
@@ -81,7 +79,7 @@ De notebooks Spark 2.0 op de NYC taxi en luchtvaartmaatschappij flight vertragin
 <!-- -->
 
 > [!NOTE]
-De onderstaande beschrijvingen zijn gerelateerd aan met behulp van Spark 1.6. Gebruik de notebooks beschreven en bovenstaande voor Spark 2.0-versies. 
+> De onderstaande beschrijvingen zijn gerelateerd aan met behulp van Spark 1.6. Gebruik de notebooks beschreven en bovenstaande voor Spark 2.0-versies. 
 
 <!-- -->
 
@@ -362,8 +360,8 @@ Deze code geeft over het maken van een nieuwe functie door binning uur in verkee
 ### <a name="index-and-encode-categorical-features-for-input-into-modeling-functions"></a>Index- en coderen categorische functies voor de invoer voor het modelleren van functies
 Deze sectie wordt beschreven hoe om te indexeren of categorische functies voor invoer in de modelfuncties coderen. Het maken van modellering en functies van MLlib functies met categorische invoergegevens worden geïndexeerd of gecodeerde vóór gebruik nodig hebben te voorspellen. Afhankelijk van het model moet u indexeren of ze coderen op verschillende manieren:  
 
-* **Modellen op basis van een structuur** categorieën op die moeten worden gecodeerd als numerieke waarden vereist (bijvoorbeeld, een functie met drie categorieën kan worden gecodeerd met 0, 1, 2). Dit wordt geleverd door de MLlib [StringIndexer](http://spark.apache.org/docs/latest/ml-features.html#stringindexer) functie. Deze functie codeert een kolom met tekenreeksen van labels aan een kolom van het label indexen die zijn geordend op label frequenties. Hoewel geïndexeerd met numerieke waarden voor de invoer- en verwerking van gegevens, worden de structuur gebaseerde algoritmen voor ze op de juiste manier te behandelen als categorieën opgegeven. 
-* **Logistieke en lineaire regressie modellen** vereisen een hot-codering, wanneer bijvoorbeeld een functie met drie categorieën kan worden uitgebreid naar drie kolommen van de functie, met elke met 0 of 1, afhankelijk van de categorie van een opmerking. MLlib biedt [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) functie een hot-codering. Een kolom van het label indexen dit coderingsprogramma toegewezen aan een kolom van de binaire vectoren, met maximaal één één-waarde. Deze codering kunt algoritmen die verwacht dat de numerieke waarden functies, zoals logistieke regressie, moet worden toegepast op categorische functies.
+* **Modellen op basis van een structuur** categorieën op die moeten worden gecodeerd als numerieke waarden vereist (bijvoorbeeld, een functie met drie categorieën kan worden gecodeerd met 0, 1, 2). Dit wordt geleverd door de MLlib [StringIndexer](https://spark.apache.org/docs/latest/ml-features.html#stringindexer) functie. Deze functie codeert een kolom met tekenreeksen van labels aan een kolom van het label indexen die zijn geordend op label frequenties. Hoewel geïndexeerd met numerieke waarden voor de invoer- en verwerking van gegevens, worden de structuur gebaseerde algoritmen voor ze op de juiste manier te behandelen als categorieën opgegeven. 
+* **Logistieke en lineaire regressie modellen** vereisen een hot-codering, wanneer bijvoorbeeld een functie met drie categorieën kan worden uitgebreid naar drie kolommen van de functie, met elke met 0 of 1, afhankelijk van de categorie van een opmerking. MLlib biedt [OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) functie een hot-codering. Een kolom van het label indexen dit coderingsprogramma toegewezen aan een kolom van de binaire vectoren, met maximaal één één-waarde. Deze codering kunt algoritmen die verwacht dat de numerieke waarden functies, zoals logistieke regressie, moet worden toegepast op categorische functies.
 
 Dit is de code om te indexeren en coderen categorische functies:
 

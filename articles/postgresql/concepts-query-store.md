@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: 8cd4cf12390ff29754b55d2827ea4750e7123a27
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: db62c1ec03ae9005f33a09010486b04ac6976742
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730487"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005910"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Prestaties bijhouden met de Query Store
 
@@ -36,8 +36,8 @@ Query Store is een functie opt-in, zodat deze niet standaard op een server actie
 4. Stel de waarde voor `TOP` en **opslaan**.
 
 Statistieken voor de wachttijd in uw Query Store inschakelen: 
-5. Zoek de `pgms_wait_sampling.query_capture_mode` parameter.
-6. Stel de waarde voor `ALL` en **opslaan**.
+1. Zoek de `pgms_wait_sampling.query_capture_mode` parameter.
+1. Stel de waarde voor `ALL` en **opslaan**.
 
 
 U kunt ook instellen dat deze parameters met de Azure CLI.
@@ -87,6 +87,7 @@ Hier volgen enkele voorbeelden van hoe u krijgt meer inzicht in uw workload met 
 Als de Query Store is ingeschakeld worden gegevens opgeslagen in windows voor aggregatie van 15 minuten, maximaal 500 afzonderlijke query's per tijdvenster van. 
 
 De volgende opties zijn beschikbaar voor Query Store-parameters configureren.
+
 | **Parameter** | **Beschrijving** | **Standaard** | **Range**|
 |---|---|---|---|
 | pg_qs.query_capture_mode | Hiermee stelt u welke instructies worden bijgehouden. | geen | None, top, alle |
@@ -95,6 +96,7 @@ De volgende opties zijn beschikbaar voor Query Store-parameters configureren.
 | pg_qs.track_utility | Wordt ingesteld of hulpprogramma opdrachten worden bijgehouden | op | op uitgeschakeld |
 
 De volgende opties gelden specifiek voor het wachten van statistieken.
+
 | **Parameter** | **Beschrijving** | **Standaard** | **Range**|
 |---|---|---|---|
 | pgms_wait_sampling.query_capture_mode | Sets die instructies worden bijgehouden voor wachten statistieken. | geen | geen, alle|

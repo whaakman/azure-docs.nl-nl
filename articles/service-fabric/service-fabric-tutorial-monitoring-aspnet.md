@@ -1,6 +1,6 @@
 ---
 title: Bewaking en diagnose van ASP.NET Core-services voor Service Fabric in Azure | Microsoft Docs
-description: In deze zelfstudie leert u hoe u bewakings- en diagnostische gegevens instelt voor een ASP.NET Core-toepassing in Azure Service Fabric.
+description: In deze zelfstudie leert u hoe u voor het instellen van controle en diagnostische gegevens voor een Azure Service Fabric ASP.NET Core-toepassing.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/17/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 27a114378cf72e766e894dc0dd6886197f56a841
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
-ms.translationtype: HT
+ms.openlocfilehash: 8657e9cabdf7dcd4900f65b6bef56f62a1caf472
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390258"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901718"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Zelfstudie: Bewaking en diagnose van een ASP.NET Core-toepassing in Service Fabric met behulp van Application Insights
 
@@ -103,50 +103,50 @@ Hier volgen de stappen om de NuGet in te stellen:
     ![AI sdk Nuget](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
 5. Klik op **OK** in het dialoogvenster *Wijzigingen controleren* dat verschijnt en *accepteer de licentie*. Hiermee wordt de NuGet aan de services toegevoegd.
 6. U moet nu de initialisatiefunctie voor telemetrie in de twee services instellen. Daarvoor opent u *VotingWeb.cs* en *VotingData.cs*. Voor beide volgt u de volgende twee stappen:
-    1. Voeg deze twee *using*-instructies bovenaan het begin van elke  *\<ServiceName>.cs* toe:
+   1. Voeg deze twee *using*-instructies bovenaan het begin van elke  *\<ServiceName>.cs* toe:
 
-    ```csharp
-    using Microsoft.ApplicationInsights.Extensibility;
-    using Microsoft.ApplicationInsights.ServiceFabric;
-    ```
+      ```csharp
+      using Microsoft.ApplicationInsights.Extensibility;
+      using Microsoft.ApplicationInsights.ServiceFabric;
+      ```
 
-    2. Voer in de geneste *retourinstructie* van *CreateServiceInstanceListeners()* of *CreateServiceReplicaListeners()* onder *ConfigureServices* > *services*, tussen de twee gedeclareerde Singleton-services, `.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))` toe.
-    Hiermee voegt u de *Servicecontext* toe aan uw telemetrie, zodat u beter inzicht hebt in de bron van uw telemetrie in Application Insights. De geneste *retourinstructie* in *VotingWeb.cs* ziet er als volgt uit:
+   2. Voer in de geneste *retourinstructie* van *CreateServiceInstanceListeners()* of *CreateServiceReplicaListeners()* onder *ConfigureServices* > *services*, tussen de twee gedeclareerde Singleton-services, `.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))` toe.
+      Hiermee voegt u de *Servicecontext* toe aan uw telemetrie, zodat u beter inzicht hebt in de bron van uw telemetrie in Application Insights. De geneste *retourinstructie* in *VotingWeb.cs* ziet er als volgt uit:
 
-    ```csharp
-    return new WebHostBuilder()
-        .UseKestrel()
-        .ConfigureServices(
-            services => services
-                .AddSingleton<HttpClient>(new HttpClient())
-                .AddSingleton<FabricClient>(new FabricClient())
-                .AddSingleton<StatelessServiceContext>(serviceContext)
-                .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
-        .UseContentRoot(Directory.GetCurrentDirectory())
-        .UseStartup<Startup>()
-        .UseApplicationInsights()
-        .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
-        .UseUrls(url)
-        .Build();
-    ```
+      ```csharp
+      return new WebHostBuilder()
+       .UseKestrel()
+       .ConfigureServices(
+           services => services
+               .AddSingleton<HttpClient>(new HttpClient())
+               .AddSingleton<FabricClient>(new FabricClient())
+               .AddSingleton<StatelessServiceContext>(serviceContext)
+               .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
+       .UseContentRoot(Directory.GetCurrentDirectory())
+       .UseStartup<Startup>()
+       .UseApplicationInsights()
+       .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
+       .UseUrls(url)
+       .Build();
+      ```
 
-    Zo zou u ook in *VotingData.cs* het volgende moeten kunnen zien:
+      Zo zou u ook in *VotingData.cs* het volgende moeten kunnen zien:
 
-    ```csharp
-    return new WebHostBuilder()
-        .UseKestrel()
-        .ConfigureServices(
-            services => services
-                .AddSingleton<StatefulServiceContext>(serviceContext)
-                .AddSingleton<IReliableStateManager>(this.StateManager)
-                .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
-        .UseContentRoot(Directory.GetCurrentDirectory())
-        .UseStartup<Startup>()
-        .UseApplicationInsights()
-        .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.UseUniqueServiceUrl)
-        .UseUrls(url)
-        .Build();
-    ```
+      ```csharp
+      return new WebHostBuilder()
+       .UseKestrel()
+       .ConfigureServices(
+           services => services
+               .AddSingleton<StatefulServiceContext>(serviceContext)
+               .AddSingleton<IReliableStateManager>(this.StateManager)
+               .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
+       .UseContentRoot(Directory.GetCurrentDirectory())
+       .UseStartup<Startup>()
+       .UseApplicationInsights()
+       .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.UseUniqueServiceUrl)
+       .UseUrls(url)
+       .Build();
+      ```
 
 Controleer of de `UseApplicationInsights()`-methode in beide bestanden wordt aangeroepen, zoals hierboven weergegeven.
 
@@ -176,7 +176,7 @@ Ga naar uw Application Insights-resource in Azure Portal.
 Klik op **Overzicht** om terug te gaan naar de landingspagina van uw resource. Klik vervolgens op **Zoeken** in de rechterbovenhoek om de traceringen binnen te zien komen. Het duurt enkele minuten voordat de traceringen in Application Insights verschijnen. In het geval dat u er geen ziet, wacht u even en klikt u bovenaan op de knop **Vernieuwen**.
 ![Traceringen zien in AI](./media/service-fabric-tutorial-monitoring-aspnet/ai-search.png)
 
-Als u naar beneden scrolt in het venster *Zoeken*, ziet u alle binnenkomende telemetrie die u bij Application Insights meegeleverd krijgt. Voor elke actie die u hebt genomen in de toepassing Voting, zou er een uitgaande PUT-aanvraag van *VotingWeb* (PUT Votes/Put [naam]) moeten zijn, een binnenkomende PUT-aanvraag van *VotingData* (PUT VoteData/Put [naam]), gevolgd door een paar GET-aanvragen om de gegevens die worden weergegeven, te vernieuwen. Bovendien is er een afhankelijkheidstracering voor HTTP op localhost, aangezien er HTTP-aanvragen zijn. Hier volgt een voorbeeld van wat u ziet wanneer er een stem wordt toegevoegd: ![AI-voorbeeld aanvraagtracering](./media/service-fabric-tutorial-monitoring-aspnet/sample-request.png)
+Als u naar beneden scrolt in het venster *Zoeken*, ziet u alle binnenkomende telemetrie die u bij Application Insights meegeleverd krijgt. Voor elke actie die u in de toepassing Voting duurde, moet er een uitgaande PUT-aanvraag van *VotingWeb* (plaatsen stemmen/Put [name]), een binnenkomende PUT-aanvraag van *VotingData* (plaatsen VoteData/Put [naam]), gevolgd door een combinatie van GET-aanvragen voor het vernieuwen van de gegevens worden weergegeven. Bovendien is er een afhankelijkheidstracering voor HTTP op localhost, aangezien er HTTP-aanvragen zijn. Hier volgt een voorbeeld van wat u ziet wanneer er een stem wordt toegevoegd: ![AI-voorbeeld aanvraagtracering](./media/service-fabric-tutorial-monitoring-aspnet/sample-request.png)
 
 U kunt op een van deze traceringen klikken om er meer informatie over te bekijken. Er is nuttige informatie over de aanvraag die wordt geleverd door Application Insights, waaronder de *Reactietijd* en de *Aanvraag-URL*. Aangezien u de Service Fabric-specifieke NuGet hebt toegevoegd, krijgt u bovendien extra gegevens over uw toepassing in de context van een Service Fabric-cluster in de onderstaande sectie *Aangepaste gegevens*. Dit omvat de servicecontext, zodat u *PartitionID* en *ReplicaId* van de bron van de aanvraag kunt zien en problemen beter kunt lokaliseren wanneer u fouten in uw toepassing opspoort.
 

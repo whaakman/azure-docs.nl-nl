@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e2b9d380b5e164bb8b730ec7037a6b2836c2af85
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: ca50c7cbbcccadf96641c28e43f7da48421c8f3b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447358"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994418"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Overzicht van de functies in Azure Backup
 Azure Backup is de Azure-service die u kunt gebruiken voor het maken van back-ups en het herstellen van uw gegevens in de Microsoft-cloud (of deze te beschermen). Met Azure Backup vervangt u uw bestaande on-premises of off-site back-upoplossing door een betrouwbare, veilige en kostenbesparende cloudoplossing. Azure Backup biedt meerdere onderdelen die u kunt downloaden en implementeren op de desbetreffende computer, server, of in de cloud. Welk onderdeel, of welke agent, u implementeert, is afhankelijk van wat u wilt beveiligen. Alle onderdelen van Azure Backup (ongeacht of u gegevens on-premises of in de cloud wilt beveiligen) kunnen worden gebruikt om back-ups te maken naar een Recovery Services-kluis in Azure. Zie de [Azure Backup onderdelentabel](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (verderop in dit artikel) voor informatie over welk onderdeel moet worden gebruikt om specifieke gegevens, toepassingen of workloads te beschermen.
@@ -54,6 +54,7 @@ Raadpleeg de volgende tabel voor informatie over wat u met elk Azure Backup-onde
 | Back-up van virtuele machines van Azure IaaS |<li>App-gerichte momentopnamen (VSS)<li>Systeemeigen back-ups voor Windows/Linux<li>Er zijn geen specifieke agentinstallatie vereist<li>Back-ups op infrastructuurniveau zonder dat er een back-upinfrastructuur nodig is |<li>Eens per dag back-ups maken van VM's <li>VM's alleen op schijfniveau herstellen<li>Geen back-up on-premises |<li>VM's, <li>Alle schijven (met PowerShell) |<p>Recovery Services-kluis</p> |
 
 ## <a name="what-are-the-deployment-scenarios-for-each-component"></a>Wat zijn de implementatiescenario's voor elk onderdeel?
+
 | Onderdeel | Kan worden geïmplementeerd in Azure? | Kan on-premises worden geïmplementeerd? | Doelopslag ondersteund |
 | --- | --- | --- | --- |
 | Azure Backup-agent (MARS) |<p>**Ja**</p> <p>De Azure Backup-agent kan worden geïmplementeerd op elke virtuele machine van Windows Server die wordt uitgevoerd in Azure.</p> |<p>**Ja**</p> <p>De Azure Backup-agent kan worden geïmplementeerd op elke virtuele machine van Windows Server of fysieke computer.</p> |<p>Recovery Services-kluis</p> |
@@ -114,6 +115,7 @@ Met Azure Backup kunt u een volledige virtuele machine terugzetten met beheerde 
 De volgende secties bevatten tabellen met een overzicht van de beschikbaarheid van of de ondersteuning voor verschillende functies in elk Azure Backup-onderdeel. Zie de informatie na elke tabel voor aanvullende ondersteuning of details.
 
 ### <a name="storage"></a>Opslag
+
 | Functie | Azure Backup-agent | System Center DPM | Azure Backup-server | Back-up van virtuele machines van Azure IaaS |
 | --- | --- | --- | --- | --- |
 | Recovery Services-kluis |![Ja][green] |![Ja][green] |![Ja][green] |![Ja][green] |
@@ -121,7 +123,7 @@ De volgende secties bevatten tabellen met een overzicht van de beschikbaarheid v
 | Bandgeheugen | |![Ja][green] | | |
 | Compressie <br/>(in Recovery Services-kluis) |![Ja][green] |![Ja][green] |![Ja][green] | |
 | Incrementele back-up |![Ja][green] |![Ja][green] |![Ja][green] |![Ja][green] |
-| Schijfontdubbeling | |![Gedeeltelijk][yellow] |![Gedeeltelijk][yellow] | | |
+| Schijfontdubbeling | |![Gedeeltelijk][yellow] |![Gedeeltelijk][yellow] | |
 
 ![tabelsleutel](./media/backup-introduction-to-azure-backup/table-key.png)
 
@@ -132,7 +134,7 @@ Back-ups worden gecomprimeerd zodat er minder opslagruimte nodig is. Het enige o
 
 
 #### <a name="disk-deduplication"></a>Schijfontdubbeling
-U kunt profiteren van ontdubbeling wanneer u System Center DPM of Azure Backup Server implementeert [op een virtuele Hyper-V-machine](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). Windows Server voert gegevensontdubbeling uit (op hostniveau) op virtuele harde schijven (VHD's) die als back-upopslag zijn gekoppeld aan de virtuele machine.
+U kunt profiteren van ontdubbeling wanneer u System Center DPM of Azure Backup Server implementeert [op een virtuele Hyper-V-machine](https://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). Windows Server voert gegevensontdubbeling uit (op hostniveau) op virtuele harde schijven (VHD's) die als back-upopslag zijn gekoppeld aan de virtuele machine.
 
 > [!NOTE]
 > Ontdubbeling is niet beschikbaar in Azure voor Backup-onderdelen. Wanneer de System Center DPM en de Bakckup-server zijn geïmplementeerd in Azure, kunnen de opslagschijven die aan de virtuele machine zijn gekoppeld, niet worden ontdubbeld.
@@ -155,6 +157,7 @@ Bij **Differentiële back-up** worden alleen de blokken opgeslagen die zijn gewi
 Bij **Incrementele back-up** is sprake van zeer efficiëntie opslag en netwerk door alleen gegevensblokken op te slaan die sinds de vorige back-up zijn gewijzigd. Met incrementele back-up hoeft u geen periodieke volledige back-ups te maken. In het voorbeeld worden, nadat de volledige back-up voor de eerste maand is gemaakt, de blokken A2, A3, A4 en A9 gemarkeerd als gewijzigd en overgedragen naar de tweede maand. In het derde maand wordt alleen gewijzigd blok A5 gemarkeerd als gemarkeerd en overgedragen. Door minder gegevens te verplaatsen worden opslag- en netwerkresources bespaard, waardoor de totale eigendomskosten worden verlaagd.
 
 ### <a name="security"></a>Beveiliging
+
 | Functie | Azure Backup-agent | System Center DPM | Azure Backup-server | Back-up van virtuele machines van Azure IaaS |
 | --- | --- | --- | --- | --- |
 | Netwerkbeveiliging<br/> (naar Azure) |![Ja][green] |![Ja][green] |![Ja][green] |![Ja][green] |
@@ -174,6 +177,7 @@ Al het back-upverkeer van uw servers naar de Recovery Services-kluis wordt versl
 Als u back-ups van virtuele machines van Azure wilt maken, moet u de versleuteling configureren *in* de virtuele machine. Azure Backup biedt ondersteuning voor Azure Disk Encryption, dat gebruikmaakt van BitLocker op virtuele Windows-machines en **dm-crypt** op virtuele Linux-machines. Op de backend maakt Azure Backup gebruik van [Azure Storage Service-versleuteling](../storage/common/storage-service-encryption.md), waarmee data-at-rest worden beschermd.
 
 ### <a name="network"></a>Netwerk
+
 | Functie | Azure Backup-agent | System Center DPM | Azure Backup-server | Back-up van virtuele machines van Azure IaaS |
 | --- | --- | --- | --- | --- |
 | Netwerkcompressie <br/>(naar de **back-upserver**) | |![Ja][green] |![Ja][green] | |

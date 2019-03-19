@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: b58059727a383e978691bfbbee77a1f6b04692ce
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c5128e904e540deeb3293fb687da4e8cafcfa1e0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264323"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57870991"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Verbinding maken met on-premises bestandssystemen met Azure Logic Apps
 
@@ -34,9 +34,9 @@ Als u wilt volgen in het voorbeeld, moet u deze items:
 
 * Voordat u logische apps met on-premises systemen, zoals uw bestand system-server verbinden kunt, moet u [installeren en instellen van een on-premises gegevensgateway](../logic-apps/logic-apps-gateway-install.md). Op die manier kunt u opgeven voor het gebruik van de gatewayinstallatie, wanneer u de bestand system-verbinding van uw logische app maakt.
 
-* Een [Drobox account](https://www.dropbox.com/) en referenties van uw account. Uw DropBox-referenties zijn nodig voor het maken van een verbinding tussen uw logische app en uw account Drobox. 
+* Een [Dropbox-account](https://www.dropbox.com/), waarmee u gratis kunt aanmelden. Referenties voor uw account zijn nodig voor het maken van een verbinding tussen uw logische app en uw Dropbox-account. 
 
-* De referenties van uw account voor de computer die het bestandssysteem dat u wilt openen. Bijvoorbeeld, als u de data gateway op dezelfde computer als uw bestandssysteem installeert, moet u referenties van het account voor die computer. 
+* Toegang tot de computer waarop het bestandssysteem dat u wilt gebruiken. Bijvoorbeeld, als u de data gateway op dezelfde computer als uw bestandssysteem installeert, moet u referenties van het account voor die computer. 
 
 * Een e-mailaccount van een provider die wordt ondersteund door Logic Apps, zoals Office 365 Outlook, Outlook.com of Gmail. Voor andere providers [kunt u hier de lijst met connectors bekijken](https://docs.microsoft.com/connectors/). Deze logische app maakt gebruik van een Office 365 Outlook-account. Als u een ander e-mailaccount gebruikt, zijn de algemene stappen hetzelfde, maar ziet de gebruikersinterface er misschien iets anders uit. 
 
@@ -68,7 +68,7 @@ Als u wilt volgen in het voorbeeld, moet u deze items:
 
    ![Verbinding maken](media/logic-apps-using-file-connector/file-system-connection.png)
 
-   | Eigenschap | Vereist | Waarde | Description | 
+   | Eigenschap | Vereist | Value | Description | 
    | -------- | -------- | ----- | ----------- | 
    | **Verbindingsnaam** | Ja | <*naam van de verbinding*> | De naam die u wilt gebruiken voor de verbinding | 
    | **Hoofdmap** | Ja | <*hoofdmap mapnaam*> | De hoofdmap van het bestandssysteem, bijvoorbeeld, als u uw on-premises gegevensgateway, zoals een lokale map geïnstalleerd op de computer waarop de on-premises gegevensgateway is geïnstalleerd, of de map voor een netwerkshare die toegang hebben tot de computer. <p>Bijvoorbeeld: `\\PublicShare\\DropboxFiles` <p>De hoofdmap is de belangrijkste bovenliggende map, dat wordt gebruikt om relatieve paden voor alle bestand gerelateerde acties. | 

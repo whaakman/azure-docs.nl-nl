@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3a8ee51656b5521916e68ee34edda91c34ea0c35
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: dcf7d237c8cfbf52a804e428d84fff0bb328c7c8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216032"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012101"
 ---
 # <a name="authenticate-access-to-azure-blobs-and-queues-using-azure-active-directory-preview"></a>Verifiëren van toegang tot Azure-blobs en wachtrijen met behulp van Azure Active Directory (Preview)
 
@@ -35,7 +35,7 @@ Houd rekening met de volgende punten over de Preview-versie:
 - Azure Storage ondersteunt zowel ingebouwde als aangepaste RBAC-rollen. U kunt rollen binnen het bereik van het abonnement, de resourcegroep, de storage-account of een afzonderlijke container of wachtrij toewijzen.
 - De Azure Storage-clientbibliotheken die momenteel ondersteuning bieden voor Azure AD-integratie zijn onder andere:
     - [.NET](https://www.nuget.org/packages/WindowsAzure.Storage)
-    - [Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)
+    - [Java](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)
     - Python
         - [BLOB, Queue en bestanden](https://github.com/Azure/azure-storage-python)
     - [Node.js](https://www.npmjs.com/package/azure-storage)

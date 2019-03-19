@@ -1,19 +1,19 @@
 ---
 title: Azure Container Registry voor Event Grid-gebeurtenisschema
-description: Beschrijft de eigenschappen die beschikbaar zijn voor Container Reigstry gebeurtenissen met Azure Event Grid
+description: Beschrijft de eigenschappen die beschikbaar zijn voor Container Registry-gebeurtenissen met Azure Event Grid
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/13/2019
+ms.date: 03/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 6f00d4f249543ece0eb8db4a8e040300d55b2de8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: c5998ff428c4b6f4c1f7a4087c6ccb27d93773eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462841"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084324"
 ---
 # <a name="azure-event-grid-event-schema-for-container-registry"></a>Azure Event Grid-gebeurtenisschema voor Container Registry
 
@@ -21,12 +21,14 @@ Dit artikel bevat de eigenschappen en het schema voor Container Registry-gebeurt
 
 ## <a name="available-event-types"></a>Typen van de gebeurtenis berichten beschikbaar
 
-BLOB-opslag, verzendt de volgende typen gebeurtenissen:
+Azure Container Registry verzendt de volgende typen gebeurtenissen:
 
 | Gebeurtenistype | Description |
 | ---------- | ----------- |
 | Microsoft.ContainerRegistry.ImagePushed | Treedt op wanneer een installatiekopie wordt gepusht. |
 | Microsoft.ContainerRegistry.ImageDeleted | Treedt op wanneer een installatiekopie wordt gewist. |
+| Microsoft.ContainerRegistry.ChartPushed | Treedt op wanneer een Helm-grafiek wordt gepusht. |
+| Microsoft.ContainerRegistry.ChartDeleted | Treedt op wanneer een Helm-diagram wordt verwijderd. |
 
 ## <a name="example-event"></a>Voorbeeld van de gebeurtenis
 
@@ -93,6 +95,62 @@ Het schema voor een afbeelding verwijderd gebeurtenis lijkt:
 }]
 ```
 
+Het schema voor een grafiek gepusht gebeurtenis is vergelijkbaar met het schema voor een afbeelding gepushte gebeurtenis, maar deze bevat geen een request-object:
+
+```json
+[{
+  "id": "ea3a9c28-5b17-40f6-a500-3f02b6829277",
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name>",
+  "subject": "mychart:1.0.0",
+  "eventType": "Microsoft.ContainerRegistry.ChartPushed",
+  "eventTime": "2019-03-12T22:16:31.5164086Z",
+  "data": {
+    "id":"ea3a9c28-5b17-40f6-a500-3f02b682927",
+    "timestamp":"2019-03-12T22:16:31.0087496+00:00",
+    "action":"chart_push",
+    "target":{
+      "mediaType":"application/vnd.acr.helm.chart",
+      "size":25265,
+      "digest":"sha256:7f060075264b5ba7c14c23672698152ae6a3ebac1c47916e4efe19cd624d5fab",
+      "repository":"repo",
+      "tag":"mychart-1.0.0.tgz",
+      "name":"mychart",
+      "version":"1.0.0"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
+Het schema voor een grafiek verwijderde gebeurtenis is vergelijkbaar met het schema voor een afbeelding verwijderde gebeurtenis, maar deze bevat geen een request-object:
+
+```json
+[{
+  "id": "39136b3a-1a7e-416f-a09e-5c85d5402fca",
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name>",
+  "subject": "mychart:1.0.0",
+  "eventType": "Microsoft.ContainerRegistry.ChartDeleted",
+  "eventTime": "019-03-12T22:42:08.7034064Z",
+  "data": {
+    "id":"ea3a9c28-5b17-40f6-a500-3f02b682927",
+    "timestamp":"2019-03-12T22:42:08.3783775+00:00",
+    "action":"chart_delete",
+    "target":{
+      "mediaType":"application/vnd.acr.helm.chart",
+      "size":25265,
+      "digest":"sha256:7f060075264b5ba7c14c23672698152ae6a3ebac1c47916e4efe19cd624d5fab",
+      "repository":"repo",
+      "tag":"mychart-1.0.0.tgz",
+      "name":"mychart",
+      "version":"1.0.0"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
 ## <a name="event-properties"></a>Eigenschappen van gebeurtenis
 
 Een gebeurtenis heeft de volgende gegevens op het hoogste niveau:
@@ -128,6 +186,8 @@ Het doelobject heeft de volgende eigenschappen:
 | Lengte | geheel getal | Het aantal bytes van de inhoud. Hetzelfde als het veld grootte. |
 | Opslagplaats | string | De naam van de opslagplaats. |
 | tag | string | De naam van de tag. |
+| naam | string | De naam van de grafiek. |
+| versie | string | De versie van de grafiek. |
 
 Het request-object heeft de volgende eigenschappen:
 

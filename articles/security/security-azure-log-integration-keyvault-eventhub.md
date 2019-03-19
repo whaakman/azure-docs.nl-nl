@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 22d4a18ad1c6e80baa6e798be399ab2cd4836fbc
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: c199adb9ee1d9e5fbc879441da7395efa16f0d40
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733400"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58094657"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Zelfstudie voor Azure-Logboekintegratie: Azure Key Vault-gebeurtenissen verwerken met behulp van Event Hubs
 
@@ -30,8 +30,8 @@ De aanbevolen methode voor het integreren van Logboeken in Azure wordt met behul
  
 Gebruik deze zelfstudie om vertrouwd te raken met hoe Azure-Logboekintegratie en Event Hubs samen werken met de voorbeeldenstappen te volgen en begrijpen hoe de oplossing biedt ondersteuning voor elke stap. U kunt vervolgens nemen wat u hebt geleerd hier om te maken van uw eigen stappen ter ondersteuning van de unieke vereisten van uw bedrijf.
 
->[!WARNING]
-De stappen en de opdrachten in deze zelfstudie zijn niet bedoeld om te worden gekopieerd en geplakt. Ze dienen uitsluitend als voorbeeld. Gebruik de PowerShell-opdrachten "as is" niet in uw productieomgeving. U moet deze op basis van uw unieke omgeving aanpassen.
+> [!WARNING]
+> De stappen en de opdrachten in deze zelfstudie zijn niet bedoeld om te worden gekopieerd en geplakt. Ze dienen uitsluitend als voorbeeld. Gebruik de PowerShell-opdrachten "as is" niet in uw productieomgeving. U moet deze op basis van uw unieke omgeving aanpassen.
 
 
 In deze zelfstudie begeleidt u bij het proces van Azure Key Vault-activiteit vastgelegd in een event hub maken en het beschikbaar maken als JSON-bestanden naar uw SIEM-systeem. Vervolgens kunt u uw SIEM-systeem voor het verwerken van de JSON-bestanden configureren.

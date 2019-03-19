@@ -16,12 +16,12 @@ ms.date: 02/18/2019
 ms.author: celested
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c5b61dbb3c6dde8dfcabdba015ee41e968cc5dd
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 225676b144d042c51a97fe14a20a5a78f0a77244
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817079"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013091"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemen met aanmelden bij een toepassing in de galerie geconfigureerd voor federatieve eenmalige aanmelding
 
@@ -93,7 +93,7 @@ Nadat u de antwoord-URL-waarde in Azure AD hebt bijgewerkt en deze overeenkomt m
 
 ## <a name="user-not-assigned-a-role"></a>Gebruiker met een niet toegewezen
 
-*Error AADSTS50105: De aangemelde gebruiker 'brian@contoso.com' is niet toegewezen aan een rol voor de toepassing*.
+*Error AADSTS50105: De aangemelde gebruiker ' brian\@contoso.com' is niet toegewezen aan een rol voor de toepassing*.
 
 **Mogelijke oorzaak**
 
@@ -150,9 +150,9 @@ Azure AD biedt geen ondersteuning voor de SAML-aanvraag verzonden door de toepas
 
 **Resolutie**
 
-1.  Leg de SAML-aanvraag. Volg de zelfstudie [fouten opsporen in SAML gebaseerde eenmalige aanmelding tot toepassingen in Azure AD](../develop/howto-v1-debug-saml-sso-issues.md) voor informatie over het vastleggen van de SAML-aanvraag.
+1. Leg de SAML-aanvraag. Volg de zelfstudie [fouten opsporen in SAML gebaseerde eenmalige aanmelding tot toepassingen in Azure AD](../develop/howto-v1-debug-saml-sso-issues.md) voor informatie over het vastleggen van de SAML-aanvraag.
 
-1.  Neem contact op met de leverancier van de toepassing en delen van de volgende gegevens:
+1. Neem contact op met de leverancier van de toepassing en delen van de volgende gegevens:
 
    -   SAML-aanvraag
 

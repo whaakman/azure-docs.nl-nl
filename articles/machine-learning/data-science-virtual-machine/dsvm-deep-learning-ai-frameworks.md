@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 610b140fd6049842b993c17fd53bebf799f83f5c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 59f88d54d3542738f1a500c8c476995eb1535ecf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453141"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006492"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Deep Learning en AI-frameworks
 De [Data Science Virtual Machine](https://aka.ms/dsvm) (DSVM) en de [Deep Learning VM](https://aka.ms/dsvm/deeplearning) ondersteunt een aantal frameworks voor deep learning bij het opbouwen van kunstmatige intelligentie (AI)-toepassingen met Voorspellend en cognitieve functionaliteit, zoals afbeeldingen en language understanding.
@@ -218,8 +218,7 @@ De service duurt ongeveer een minuut om te starten. Start een webbrowser en navi
 | Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | PyTorch is geïnstalleerd in [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition).  |
 | Koppelingen naar voorbeelden      | Voorbeeld van Jupyter notebooks zijn opgenomen en kunnen ook voorbeelden te vinden in /dsvm/samples/pytorch.      |
 | Meer hulpprogramma's op de DSVM      | Torch      |
-| Over het gebruik / uitvoeren |
-* Op een terminal: Python Voer vervolgens de juiste omgeving activeren. <br/> * In Jupyter: Verbinding maken met [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), open vervolgens de map PyTorch voor voorbeelden.  |
+| Over het gebruik / uitvoeren |* Op een terminal: Python Voer vervolgens de juiste omgeving activeren. <br/> * In Jupyter: Verbinding maken met [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), open vervolgens de map PyTorch voor voorbeelden.  |
 
 ## <a name="mxnet-model-server"></a>MXNet Model-Server
 

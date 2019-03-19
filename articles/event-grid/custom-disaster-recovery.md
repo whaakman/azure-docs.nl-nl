@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: babanisa
-ms.openlocfilehash: a77c208c208ef7e0df170733dbe89963fc5cb846
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
+ms.openlocfilehash: fa0ffa9ad913f0dc3afe8dc31aeaa0254fa2d241
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727176"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863165"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Uw eigen herstel na noodgevallen bouwen voor aangepaste onderwerpen in Azure Event Grid
 
@@ -28,7 +28,7 @@ Ter vereenvoudiging van de test gaat u een [vooraf gebouwde web-app](https://git
 
 1. Selecteer **Implementeren in Azure** om de oplossing voor uw abonnement te implementeren. Geef in Azure Portal waarden op voor de parameters.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 1. De implementatie kan enkele minuten duren. Controleer of uw web-app wordt uitgevoerd nadat de implementatie is voltooid. Navigeer in een webbrowser naar: `https://<your-site-name>.azurewebsites.net`
 Schrijf deze URL op, want u hebt deze later nodig.
@@ -54,10 +54,10 @@ Maak eerst twee Event Grid-onderwerpen. Deze onderwerpen fungeren als primaire e
 
 1. Selecteer **+Toevoegen** in het menu Event Grid-onderwerpen om het primaire onderwerp te maken.
 
-    * Geef het onderwerp een logische naam en voeg er '-primaire' als achtervoegsel aan toe om het makkelijker terug te kunnen vinden.
-    * De regio voor dit onderwerp wordt uw primaire regio.
+   * Geef het onderwerp een logische naam en voeg er '-primaire' als achtervoegsel aan toe om het makkelijker terug te kunnen vinden.
+   * De regio voor dit onderwerp wordt uw primaire regio.
 
-    ![Dialoogvenster voor het maken van een primaire Event Grid-onderwerp](./media/custom-disaster-recovery/create-primary-topic.png)
+     ![Dialoogvenster voor het maken van een primaire Event Grid-onderwerp](./media/custom-disaster-recovery/create-primary-topic.png)
 
 1. Als het onderwerp is gemaakt, gaat u er naartoe en kopieert u het **Eindpunt onderwerp**. U hebt de URL later nog nodig.
 
@@ -69,11 +69,11 @@ Maak eerst twee Event Grid-onderwerpen. Deze onderwerpen fungeren als primaire e
 
 1. Klik in de blade onderwerp op **+Gebeurtenisabonnement** om een abonnement te maken waarmee verbinding wordt gemaakt met het proces waarmee u zich abonneert op de website voor de gebeurtenisontvanger die u in de vereisten voor de zelfstudie hebt gemaakt.
 
-    * Geef het gebeurtenisabonnement een logische naam en voeg er '-primaire' aan toe om het makkelijker terug te kunnen vinden.
-    * Selecteer Webhook van eindpunttype.
-    * Stel het eindpunt in op de gebeurtenis-URL van de gebeurtenisontvanger. Deze moet eruitzien als: `https://<your-event-reciever>.azurewebsites.net/api/updates`
+   * Geef het gebeurtenisabonnement een logische naam en voeg er '-primaire' aan toe om het makkelijker terug te kunnen vinden.
+   * Selecteer Webhook van eindpunttype.
+   * Stel het eindpunt in op de gebeurtenis-URL van de gebeurtenisontvanger. Deze moet eruitzien als: `https://<your-event-reciever>.azurewebsites.net/api/updates`
 
-    ![Primair gebeurtenisabonnement van Event Grid](./media/custom-disaster-recovery/create-primary-es.png)
+     ![Primair gebeurtenisabonnement van Event Grid](./media/custom-disaster-recovery/create-primary-es.png)
 
 1. Herhaal dezelfde stroom om het secundaire onderwerp en abonnement te maken. Vervang hier het achtervoegsel 'primaire' door 'secundaire' om het makkelijker te kunnen vinden. Controleer ten slotte of u het in een andere Azure-regio hebt ondergebracht. Hoewel u het overal in kunt onderbrengen, wordt u aangeraden [Gekoppelde Azure-regio's](../best-practices-availability-paired-regions.md) te gebruiken. Als u het secundaire onderwerp en abonnement in een andere regio hebt ondergebracht, weet u zeker dat de nieuwe gebeurtenissen zullen stromen, ook als de primaire regio uitvalt.
 
@@ -91,7 +91,7 @@ U hebt nu een regionaal redundant paar onderwerpen en abonnementen ingesteld. U 
 
 ### <a name="basic-client-side-implementation"></a>Eenvoudige implementatie aan de clientzijde
 
-De volgende voorbeeldcode is een eenvoudige .NET-uitgever die altijd zal proberen om eerst uw primaire onderwerp te publiceren. Als dit niet lukt, wordt er failover uitgevoerd naar het secundaire onderwerp. In beide gevallen wordt ook de status-API van het andere onderwerp gecontroleerd door een GET uit te voeren op `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. Een onderwerp dat in orde is, reageert altijd met **200 OK** als er een GET wordt uitgevoerd op het **/api/health**-eindpunt.
+De volgende voorbeeldcode wordt een eenvoudige .NET-uitgever die altijd probeert eerst publiceren naar uw primaire onderwerp. Als dit niet lukt, wordt er failover uitgevoerd naar het secundaire onderwerp. In beide gevallen wordt ook de status-API van het andere onderwerp gecontroleerd door een GET uit te voeren op `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. Een onderwerp dat in orde is, reageert altijd met **200 OK** als er een GET wordt uitgevoerd op het **/api/health**-eindpunt.
 
 ```csharp
 using System;

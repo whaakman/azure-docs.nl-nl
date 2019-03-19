@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b5c4779605922bf6d523a9bc6e65e4d9a27f32a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8fa78ec2b5623dfd010a8fe5709916a47e221a9e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163713"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57902192"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>Zelfstudie: Azure Active Directory-integratie met TalentLMS
 
@@ -215,11 +215,11 @@ Als u wilt dat Azure AD-gebruikers zich aanmelden bij TalentLMS, moeten ze worde
    
     ![Gebruiker toevoegen](./media/talentlms-tutorial/IC777299.png "Gebruiker toevoegen")  
 
-    a. In de **voornaam** tekstvak, geef de voornaam van de gebruiker, zoals **Julia**.
+    a. Voer in het tekstvak **First name** de voornaam van de gebruiker in, zoals **Britta**.
 
-    b. In de **achternaam** tekstvak, geef de achternaam van de gebruiker, zoals **Simon**.
+    b. Voer in het tekstvak **Last name** de achternaam van de gebruiker in, zoals **Simon**.
  
-    c. In de **e-mailadres** tekstvak, voer het e-mailadres van gebruiker, zoals **brittasimon@contoso.com**.
+    c. In de **e-mailadres** tekstvak, voer het e-mailadres van gebruiker, zoals **brittasimon\@contoso.com**.
 
     d. Klik op **Add User**.
 
@@ -265,7 +265,7 @@ Wanneer u op de tegel TalentLMS in het toegangsvenster, u moet u automatisch aan
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

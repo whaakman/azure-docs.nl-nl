@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: fa433f55839db66bcf8245fe058ac56702af3d6e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2abfa29671bd804ee75194ef621fe07f06c015e9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889691"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125084"
 ---
 #### <a name="to-create-a-volume"></a>Een volume maken
 1. Selecteer en klik op uw apparaat in de lijst in tabelvorm met apparaten op de blade **Apparaten**. Klik op **Volume toevoegen**.
@@ -22,7 +22,7 @@ ms.locfileid: "55889691"
 
    2. Selecteer in de vervolgkeuzelijst de volumecontainer waaraan u een volume wilt toevoegen. 
 
-   3.  een **naam** voor het volume. U kunt de naam van een volume niet wijzigen wanneer het volume is gemaakt.
+   3. een **naam** voor het volume. U kunt de naam van een volume niet wijzigen wanneer het volume is gemaakt.
 
    4. Selecteer in de vervolgkeuzelijst het **Type** voor het volume. Voor workloads waarvoor lokale garanties, lage latenties en betere prestaties vereist zijn, selecteert u een **lokaal vastgemaakt** volume. Voor alle overige gegevens selecteert u een **gelaagd** volume. Als u dit volume gebruikt voor de archivering van gegevens, schakelt u **Dit volume gebruiken voor minder frequent gebruikte gearchiveerde gegevens** in.
       
@@ -36,19 +36,19 @@ ms.locfileid: "55889691"
       
        Als u een lokaal vastgemaakt volume van 8,5 TB (maximaal toegestane grootte) op uw 8100-apparaat inricht, hebt u de lokale ruimte die beschikbaar is op het apparaat volledig gebruikt. Vanaf dat moment kunt u geen gelaagd volume maken, omdat er geen lokale ruimte op het apparaat is voor het hosten van de werkset van het gelaagde volume. Bestaande gelaagde volumes zijn ook van invloed op de beschikbare ruimte. Als u bijvoorbeeld een 8100-apparaat hebt met reeds gelaagde volumes van circa 106 TB, is er nog maar 4 TB ruimte beschikbaar voor lokaal vastgemaakte volumes.
 
-    6. Klik in het veld **Verbonden hosts** op de pijl. 
+      1. Klik in het veld **Verbonden hosts** op de pijl. 
 
-        ![Verbonden hosts](./media/storsimple-8000-create-volume-u2/step5createvol2.png)
+         ![Verbonden hosts](./media/storsimple-8000-create-volume-u2/step5createvol2.png)
 
-    7. Kies op de blade **Verbonden hosts** een bestaande ACR of voeg een nieuwe ACR toe door de volgende stappen uit te voeren:
+      1. Kies op de blade **Verbonden hosts** een bestaande ACR of voeg een nieuwe ACR toe door de volgende stappen uit te voeren:
 
-       1. Geef een **naam** voor uw ACR op.
-       2. Geef onder **iSCSI-initiatornaam** het IQN (iSCI Qualified Name) van uw Windows-host op. Als u het IQN niet hebt, gaat u naar [Het IQN van een Windows Server-host ophalen](#get-the-iqn-of-a-windows-server-host).
+         1. Geef een **naam** voor uw ACR op.
+         2. Geef onder **iSCSI-initiatornaam** het IQN (iSCI Qualified Name) van uw Windows-host op. Als u het IQN niet hebt, gaat u naar [Het IQN van een Windows Server-host ophalen](#get-the-iqn-of-a-windows-server-host).
 
-    9. Klik op **Create**. Er wordt een volume gemaakt met de opgegeven instellingen.
+      1. Klik op **Create**. Er wordt een volume gemaakt met de opgegeven instellingen.
 
-        ![Klik op Maken](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
+         ![Klik op Maken](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
 
-        > [!NOTE]
-        > Let erop dat het volume dat u hier hebt gemaakt niet wordt beveiligd. U moet back-upbeleid maken en koppelen aan dit volume om geplande back-ups uit te voeren. 
+         > [!NOTE]
+         > Let erop dat het volume dat u hier hebt gemaakt niet wordt beveiligd. U moet back-upbeleid maken en koppelen aan dit volume om geplande back-ups uit te voeren. 
 

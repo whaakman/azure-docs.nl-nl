@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 02/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 338907585ade0a33f74ca3e6337f1dd5cf8cc211
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+ms.openlocfilehash: b40cd130039f7d55b69198b4be4af908dedbe8b7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820350"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58076884"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Quickstart: De Azure-CLI gebruiken om een Service Bus-wachtrij te maken
 
@@ -61,31 +61,31 @@ Wanneer de laatste opdracht is uitgevoerd, kopieert en plakt u de verbindingstek
 
 Wanneer u de naamruimte en wachtrij hebt gemaakt en u over de benodigde referenties beschikt, kunt u berichten gaan verzenden en ontvangen. U kunt de code in [deze GitHub-voorbeeldmap](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters) controleren.
 
-2. Kloon de [Service Bus GitHub-opslagplaats](https://github.com/Azure/azure-service-bus/) op uw computer met behulp van de volgende opdracht:
+1. Kloon de [Service Bus GitHub-opslagplaats](https://github.com/Azure/azure-service-bus/) op uw computer met behulp van de volgende opdracht:
 
    ```bash
    git clone https://github.com/Azure/azure-service-bus.git
    ```
 
-2. Wijzig de huidige map in de voorbeeldmap, waarbij u de slash (/) als padscheidingstekens gebruikt:
+1. Wijzig de huidige map in de voorbeeldmap, waarbij u de slash (/) als padscheidingstekens gebruikt:
 
    ```bash
    cd azure-service-bus/samples/Java/azure-servicebus/QueuesGettingStarted
    ```
 
-3. Geef de volgende opdracht om de toepassing te compileren:
+1. Geef de volgende opdracht om de toepassing te compileren:
    
    ```bash
    mvn clean package -DskipTests
    ```
 
-4. Als u het programma wilt uitvoeren, moet u de volgende opdracht geven nadat u de verbindingsreeks hebt vervangen door de waarde die u eerder hebt gekopieerd:
+1. Als u het programma wilt uitvoeren, moet u de volgende opdracht geven nadat u de verbindingsreeks hebt vervangen door de waarde die u eerder hebt gekopieerd:
 
    ```bash
    java -jar ./target/queuesgettingstarted-1.0.0-jar-with-dependencies.jar -c "<SERVICE BUS NAMESPACE CONNECTION STRING>" 
    ```
 
-6. Zie hoe 10 berichten naar de wachtrij worden verzonden. De volgorde van de berichten wordt niet gegarandeerd, maar u ziet dat de berichten worden verzonden en daarna worden bevestigd en ontvangen, samen met de payload-gegevens:
+1. Zie hoe 10 berichten naar de wachtrij worden verzonden. De volgorde van de berichten wordt niet gegarandeerd, maar u ziet dat de berichten worden verzonden en daarna worden bevestigd en ontvangen, samen met de payload-gegevens:
 
     ```
     Message sending: Id = 0

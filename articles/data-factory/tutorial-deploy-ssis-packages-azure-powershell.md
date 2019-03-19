@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 0e16ea9b7dd4518227adaba0f2797dca3821db45
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: cba8af369beac935834da8d2073510e0f997648b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456627"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123246"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory-with-powershell"></a>De Azure-SSIS-integratieruntime inrichten in Azure Data Factory met PowerShell
 Deze zelfstudie bevat de stappen voor het inrichten van een Azure SSIS Integration Runtime (IR) in Azure Data Factory. Vervolgens kunt u SSDT (SQL Server Data Tools) of SSMS (SQL Server Management Studio) gebruiken om SSIS-pakketten (SQL Server Integration Services) te implementeren en uit te voeren in deze runtime van Azure. In deze zelfstudie voert u de volgende stappen uit:
@@ -35,14 +35,16 @@ Deze zelfstudie bevat de stappen voor het inrichten van een Azure SSIS Integrati
 
 ## <a name="prerequisites"></a>Vereisten
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 - **Azure-abonnement**. Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint. Zie [Overzicht van Integration Runtime in Azure-SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime) voor algemene informatie over Azure-SSIS IR. 
 - **Azure SQL Database-server**. Als u nog geen databaseserver hebt, maakt u die in Azure Portal voordat u begint. Deze server fungeert als host voor de SSIS-catalogusdatabase (SSISDB). Het wordt aangeraden om de databaseserver in dezelfde Azure-regio te maken als de Integration Runtime. Met deze configuratie kan de Integration Runtime uitvoeringslogboeken wegschrijven naar SSISDB zonder dat hierbij Azure-regio's worden overschreden. 
     - Op basis van de geselecteerde databaseserver kan SSISDB namens u worden gemaakt als een enkele database, als onderdeel van een elastische pool of in een beheerd exemplaar. Deze is toegankelijk in een openbaar netwerk of kan worden toegevoegd aan een virtueel netwerk. Raadpleeg [Enkele databases/elastische pools van Azure SQL Database vergelijken met Beheerd exemplaar](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance) voor hulp bij het kiezen van een type databaseserver waarin u SSISDB host. Als u Azure SQL Database gebruikt met eindpunten van een virtueel netwerk/een beheerd exemplaar voor het hosten van SSISDB of toegang tot on-premises gegevens vereist, moet u uw Azure-SSIS IR toevoegen aan een virtueel netwerk. Zie [Azure-SSIS IR in een virtueel netwerk maken](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). 
-    - Controleer of de instelling **Toegang tot Azure-services toestaan** is ingesteld op **AAN** voor de databaseserver. Deze instelling is niet van toepassing wanneer u Azure SQL Database met eindpunten van een virtueel netwerk/Beheerd exemplaar gebruikt voor het hosten van SSISDB. Zie [Secure your Azure SQL database](../sql-database/sql-database-security-tutorial.md#create-firewall-rules) (Azure SQL-database beveiligen) voor meer informatie. Zie [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1) om deze instelling met behulp van PowerShell in te schakelen. 
+    - Controleer of de instelling **Toegang tot Azure-services toestaan** is ingesteld op **AAN** voor de databaseserver. Deze instelling is niet van toepassing wanneer u Azure SQL Database met eindpunten van een virtueel netwerk/Beheerd exemplaar gebruikt voor het hosten van SSISDB. Zie [Secure your Azure SQL database](../sql-database/sql-database-security-tutorial.md#create-firewall-rules) (Azure SQL-database beveiligen) voor meer informatie. Zie voor meer informatie over het inschakelen van deze instelling met behulp van PowerShell [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule). 
     - Voeg het IP-adres van de clientcomputer (of een reeks IP-adressen dat het IP-adres van de clientcomputer bevat) toe aan de lijst met client-IP-adressen in de instellingen van de firewall voor de databaseserver. Zie [Overzicht van de firewallregels voor Azure SQL Database](../sql-database/sql-database-firewall-configure.md) voor meer informatie. 
     - U kunt verbinding maken met de databaseserver via SQL-verificatie met de beheerdersreferenties van de server of AAD-verificaties (Azure Active Directory) met de beheerde identiteit voor uw ADF (Azure Data Factory).  Voor het laatste moet u de beheerde identiteit voor de ADF toevoegen aan een AAD-groep met machtigingen voor toegang tot de databaseserver. Zie [Azure-SSIS IR met AAD-verificaties maken](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). 
     - Controleer of uw Azure SQL Database-server geen SSIS-catalogus (SSISDB-database) heeft. Het inrichten van Azure-SSIS-IR biedt geen ondersteuning voor het gebruik van een bestaande SSIS-catalogus. 
-- **Azure PowerShell**. Volg de instructies in [How to install and configure Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) (Azure PowerShell installeren en configureren). U gebruikt PowerShell om een script uit te voeren voor het inrichten van een Azure SSIS Integration Runtime die SSIS-pakketten uitvoert in de cloud. 
+- **Azure PowerShell**. Volg de instructies in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps) (Azure PowerShell installeren en configureren). U gebruikt PowerShell om een script uit te voeren voor het inrichten van een Azure SSIS Integration Runtime die SSIS-pakketten uitvoert in de cloud. 
 
 > [!NOTE]
 > - Zie [Beschikbaarheid van ADF en SSIS IR per regio](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all) voor een lijst met Azure-regio's waarin Data Factory en Azure-SSIS Integration Runtime momenteel beschikbaar zijn. 
@@ -114,40 +116,40 @@ Zie het volgende voorbeeld als u een Azure SQL-database onderdeel van het script
 Stel waarden in voor de variabelen die nog niet zijn gedefinieerd. Bijvoorbeeld: SSISDBServerName, FirewallIPAddress. 
 
 ```powershell
-New-AzureRmSqlServer -ResourceGroupName $ResourceGroupName `
+New-AzSqlServer -ResourceGroupName $ResourceGroupName `
     -ServerName $SSISDBServerName `
-    -Location $DataFactoryLocation `
+    -Location $DataFactoryLocation `
     -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $SSISDBServerAdminUserName, $(ConvertTo-SecureString -String $SSISDBServerAdminPassword -AsPlainText -Force))    
 
-New-AzureRmSqlServerFirewallRule -ResourceGroupName $ResourceGroupName `
+New-AzSqlServerFirewallRule -ResourceGroupName $ResourceGroupName `
     -ServerName $SSISDBServerName `
-    -FirewallRuleName "ClientIPAddress_$today" -StartIpAddress $FirewallIPAddress -EndIpAddress $FirewallIPAddress
+    -FirewallRuleName "ClientIPAddress_$today" -StartIpAddress $FirewallIPAddress -EndIpAddress $FirewallIPAddress
 
-New-AzureRmSqlServerFirewallRule -ResourceGroupName $ResourceGroupName -ServerName $SSISDBServerName -AllowAllAzureIPs
+New-AzSqlServerFirewallRule -ResourceGroupName $ResourceGroupName -ServerName $SSISDBServerName -AllowAllAzureIPs
 ```
 
 ## <a name="log-in-and-select-subscription"></a>Aanmelden en abonnement selecteren
 Voeg de volgende code toe aan het script om u aan te melden en uw Azure-abonnement te selecteren: 
 
 ```powershell
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+Connect-AzAccount
+Select-AzSubscription -SubscriptionName $SubscriptionName
 ```
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
-Maak een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) met de opdracht [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en groepsgewijs worden beheerd. In het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` gemaakt op de locatie `westeurope`.
+Maak een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) met behulp van de [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) opdracht. Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en groepsgewijs worden beheerd. In het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` gemaakt op de locatie `westeurope`.
 
 Als uw resourcegroep al bestaat, hoeft u deze code niet naar het script te kopiëren. 
 
 ```powershell
-New-AzureRmResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
+New-AzResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
 ```
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 Voer de volgende opdracht uit om een data factory te maken:
 
 ```powershell
-Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
+Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
                          -Location $DataFactoryLocation `
                          -Name $DataFactoryName
 ```
@@ -159,7 +161,7 @@ Voer de volgende opdracht uit om een Azure SSIS Integration Runtime te maken die
 $secpasswd = ConvertTo-SecureString $SSISDBServerAdminPassword -AsPlainText -Force
 $serverCreds = New-Object System.Management.Automation.PSCredential($SSISDBServerAdminUserName, $secpasswd)
   
-Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                            -DataFactoryName $DataFactoryName `
                                            -Name $AzureSSISName `
                                            -Description $AzureSSISDescription `
@@ -176,7 +178,7 @@ Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName
 
 if(![string]::IsNullOrEmpty($SetupScriptContainerSasUri))
 {
-    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                                -DataFactoryName $DataFactoryName `
                                                -Name $AzureSSISName `
                                                -SetupScriptContainerSasUri $SetupScriptContainerSasUri
@@ -188,7 +190,7 @@ Voer de volgende opdracht uit om de Azure SSIS Integration Runtime te starten:
 
 ```powershell
 write-host("##### Starting your Azure-SSIS integration runtime. This command takes 20 to 30 minutes to complete. #####")
-Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                              -DataFactoryName $DataFactoryName `
                                              -Name $AzureSSISName `
                                              -Force
@@ -218,11 +220,11 @@ Met het PowerShell-script in deze sectie wordt er een instantie van de Azure SSI
     ```
 3. Kopieer het PowerShell-script in deze sectie en plak het in ISE.
 4. Geef aan het begin van het script de juiste waarden voor alle parameters op.
-5. Voer het script uit. De opdracht `Start-AzureRmDataFactoryV2IntegrationRuntime` aan het einde van het script neemt **20-30 minuten** in beslag.
+5. Voer het script uit. De opdracht `Start-AzDataFactoryV2IntegrationRuntime` aan het einde van het script neemt **20-30 minuten** in beslag.
 
 > [!NOTE]
 > - Het script maakt verbinding met uw Azure SQL-databaseserver om de SSIS-catalogusdatabase (SSISDB) voor te bereiden.
-
+> 
 > - Wanneer u een exemplaar van een Azure-SSI-IR inricht, worden ook het Azure Feature Pack voor SSIS en de Access Redistributable geïnstalleerd. Deze onderdelen bieden connectiviteit met Excel- en Access-bestanden en met verschillende Azure-gegevensbronnen, naast de gegevensbronnen die worden ondersteund door de ingebouwde onderdelen. U kunt ook extra onderdelen installeren. Zie [Aangepaste instelling voor de Azure-SSIS-integratieruntime](how-to-configure-azure-ssis-ir-custom-setup.md) voor meer informatie.
 
 Voor een lijst met ondersteunde **prijscategorieën** voor Azure SQL Database raadpleegt u [SQL Database resource limits](../sql-database/sql-database-resource-limits.md) (Limieten voor SQL Database-resources). 
@@ -279,17 +281,17 @@ Catch [System.Data.SqlClient.SqlException]
     } 
 }
 
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+Connect-AzAccount
+Select-AzSubscription -SubscriptionName $SubscriptionName
 
-Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
+Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
                          -Location $DataFactoryLocation `
                          -Name $DataFactoryName
     
 $secpasswd = ConvertTo-SecureString $SSISDBServerAdminPassword -AsPlainText -Force
 $serverCreds = New-Object System.Management.Automation.PSCredential($SSISDBServerAdminUserName, $secpasswd)
     
-Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                            -DataFactoryName $DataFactoryName `
                                            -Name $AzureSSISName `
                                            -Description $AzureSSISDescription `
@@ -306,14 +308,14 @@ Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName
 
 if(![string]::IsNullOrEmpty($SetupScriptContainerSasUri))
 {
-    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                                -DataFactoryName $DataFactoryName `
                                                -Name $AzureSSISName `
                                                -SetupScriptContainerSasUri $SetupScriptContainerSasUri
 }
 
 write-host("##### Starting your Azure-SSIS integration runtime. This command takes 20 to 30 minutes to complete. #####")
-Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                              -DataFactoryName $DataFactoryName `
                                              -Name $AzureSSISName `
                                              -Force

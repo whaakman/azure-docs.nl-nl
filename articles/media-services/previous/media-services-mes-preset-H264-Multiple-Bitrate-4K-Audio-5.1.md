@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 9bf1b39e8cd0192a3d516bf64b32da4fcc500080
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: ed56fa80917221f5856d26bc4ab29eec9909e592
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003122"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57837810"
 ---
 # <a name="h264-multiple-bitrate-4k-audio-51"></a>H264 Multiple Bitrate 4K Audio 5.1
 `Media Encoder Standard` definieert een reeks voorinstellingen die kunt u bij het maken van coderingstaken coderen. Kunt u ofwel een `preset name` om op te geven in welke indeling u wilt coderen van uw media-bestand. Of, kunt u uw eigen JSON of XML-indeling voorinstellingen (met behulp van UTF-8- of UTF-16-codering. Vervolgens geeft u door de aangepaste voorinstelling voor het coderingsprogramma. Voor een lijst van de vooraf gedefinieerde namen ondersteund door dit `Media Encoder Standard` encoder, Zie [taak voorinstellingen voor Media Encoder Standard](media-services-mes-presets-overview.md).  
@@ -38,7 +38,7 @@ ms.locfileid: "56003122"
   
 ```  
 <?xml version="1.0" encoding="utf-16"?>  
-<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">  
+<Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">  
   <Encoding>  
     <H264Video>  
       <KeyFrameInterval>00:00:02</KeyFrameInterval>  

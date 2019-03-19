@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.custom: seodec18
-ms.openlocfilehash: a14f568e2485e59cb3e567eb9ee5c5eb20b02afc
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: f5cc06ba1a326d262c1437a941306b4d4a648260
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198419"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101224"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Een referentiegegevensset voor uw Time Series Insights-omgeving met behulp van de Azure portal maken
 
@@ -82,19 +82,19 @@ Referentiegegevens is niet met terugwerkende kracht gekoppeld. Dit betekent dat 
  
 13. Naam van de gegevensset, door het invullen van de **naam van gegevensset** veld boven het gegevensraster.
 
-   ![De naam van de gegevensset.](media/add-reference-data-set/name_reference_dataset.png)
+    ![De naam van de gegevensset.](media/add-reference-data-set/name_reference_dataset.png)
 
 14. Geef de **primaire sleutel** kolom in de gegevensset, door het selecteren van de vervolgkeuzelijst boven het gegevensraster.
 
-   ![Selecteer de sleutel kolom(men).](media/add-reference-data-set/set_primary_key.png)
+    ![Selecteer de sleutel kolom(men).](media/add-reference-data-set/set_primary_key.png)
 
-   Selecteer desgewenst de **+** om toe te voegen een kolom voor de secundaire sleutel als een samengestelde primaire sleutel. Als u nodig hebt om de selectie ongedaan te maken, kiest u de waarde is leeg in de vervolgkeuzelijst om te verwijderen van de secundaire sleutel.
+    Selecteer desgewenst de **+** om toe te voegen een kolom voor de secundaire sleutel als een samengestelde primaire sleutel. Als u nodig hebt om de selectie ongedaan te maken, kiest u de waarde is leeg in de vervolgkeuzelijst om te verwijderen van de secundaire sleutel.
 
-15.  Als u wilt de gegevens uploaden, selecteert u de **rijen uploaden** knop.
+15. Als u wilt de gegevens uploaden, selecteert u de **rijen uploaden** knop.
 
-   ![Uploaden](media/add-reference-data-set/upload_rows.png)
+    ![Uploaden](media/add-reference-data-set/upload_rows.png)
 
-   De pagina wordt bevestigd dat de voltooide uploaden en het bericht weergegeven **geüpload gegevensset**.
+    De pagina wordt bevestigd dat de voltooide uploaden en het bericht weergegeven **geüpload gegevensset**.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Programmatisch [referentiegegevens beheren](time-series-insights-manage-reference-data-csharp.md).

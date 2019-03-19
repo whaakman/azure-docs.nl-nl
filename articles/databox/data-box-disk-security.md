@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 569f89d389e4bc8c7f2d1f46f3713e9792d4e466
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: afb344418f843e54c3172c17d28bde7055e101b4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159686"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093453"
 ---
 # <a name="azure-data-box-disk-security-and-data-protection"></a>Azure Data Box Disk-beveiliging en -gegevensbescherming
 
@@ -71,17 +71,17 @@ Azure Data Box Disk verzamelt en toont persoonlijke informatie in de volgende be
 
 - **Ordergegevens** – Zodra de order is gemaakt, worden het verzendadres, het e-mailadres en de contactgegevens van gebruikers in de Azure-portal opgeslagen. De opgeslagen informatie omvat:
 
-    - Naam van contactpersoon
-    - Telefoonnummer
-    - Email
-    - Adres
-    - Plaats
-    - Postcode
-    - Status
-    - Land/Provincie/Regio
-    - Stations-ID
-    - Accountnummer van transporteur
-    - Volgnummer van verzending
+  - Naam van contactpersoon
+  - Telefoonnummer
+  - Email
+  - Adres
+  - Plaats
+  - Postcode
+  - Status
+  - Land/Provincie/Regio
+  - Stations-ID
+  - Accountnummer van transporteur
+  - Volgnummer van verzending
 
     De ordergegevens worden verwijderd door de Data Box-service wanneer de order is voltooid of wanneer u de order verwijdert.
 

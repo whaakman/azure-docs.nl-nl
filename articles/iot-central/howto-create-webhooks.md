@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: e5b0f3ce685aa7af441a670fd3124d5ebee2f0c8
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 22167de6676837c45c48a0bafd19b1ba69578827
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776986"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003663"
 ---
 # <a name="create-webhook-actions-on-rules-in-azure-iot-central"></a>Webhookacties op regels in Azure IoT Central maken
 
@@ -25,7 +25,7 @@ Webhooks kunt u uw IoT Central-app verbinden met andere toepassingen en services
 
 In dit voorbeeld verbinding u met RequestBin om te worden geïnformeerd wanneer regels worden geactiveerd met behulp van webhooks.
 
-1. Open [RequestBin](http://requestbin.net/).
+1. Open [RequestBin](https://requestbin.net/).
 
 1. Maak een nieuwe RequestBin en kopieer de **Bin-URL**.
 

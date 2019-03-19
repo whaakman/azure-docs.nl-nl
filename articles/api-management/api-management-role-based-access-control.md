@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 21e7406d566be5be73342d530a4ad66b80a1d23f
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: deef5d17f9970f23c40c323bd1612cc3e3e1304e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990438"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107403"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Het gebruik van toegangsbeheer op basis van rollen in Azure API Management
 Met Azure API Management maakt gebruik van op rollen gebaseerd toegangsbeheer (RBAC) om in te schakelen over Geavanceerd toegangsbeheer voor API Management-services en entiteiten (bijvoorbeeld API's en beleid). In dit artikel biedt een overzicht van de ingebouwde en aangepaste rollen in API Management. Zie voor meer informatie over toegangsbeheer in Azure portal, [aan de slag met toegangsbeheer in Azure portal](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/).
@@ -32,7 +32,7 @@ API Management is momenteel heeft drie ingebouwde rollen en twee meer functies i
 De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. U kunt deze rollen toewijzen met behulp van de Azure-portal of andere hulpprogramma's, waaronder Azure [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli), en [REST-API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). Zie voor meer informatie over het toewijzen van ingebouwde rollen [roltoewijzingen gebruiken voor het beheren van toegang tot de resources van uw Azure-abonnement](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 | Rol          | Leestoegang<sup>[1]</sup> | Toegang voor schrijven<sup>[2]</sup> | Service maken, verwijderen, schaal, VPN- en aangepaste domeinconfiguratie | Toegang tot de verouderde publisher-portal | Description
-| ------------- | ---- | ---- | ---- | ---- | ---- | ---- |
+| ------------- | ---- | ---- | ---- | ---- | ---- 
 | Inzender voor Azure API Management-Services | ✓ | ✓ | ✓ | ✓ | Supergebruiker. Heeft volledige toegang tot de CRUD API Management-services en entiteiten (bijvoorbeeld API's en beleidsregels). Heeft toegang tot de verouderde publicatieportal. |
 | Azure API Management-Service-lezer | ✓ | | || Heeft alleen-lezen toegang tot de API Management-services en entiteiten. |
 | Azure API Management-Service-Operator | ✓ | | ✓ | | API Management-services, maar geen entiteiten beheren.|

@@ -16,12 +16,12 @@ ms.date: 02/25/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: ed149398a1244ad0cb09c3e0fe128973c6caa00d
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: b61bf4f05f52b9d28ee09bb6c0de30544396e815
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408000"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091593"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>Zelfstudie: Maximaal beschikbare SQL-databases bieden
 
@@ -65,7 +65,7 @@ Gebruik de stappen in deze sectie voor het implementeren van de SQL Server Alway
 - Een beschikbaarheidsset met de SQL- en bestandsshare-witness VM 's  
 
 1. 
-[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Selecteer **\+** **een resource maken** > **aangepaste**, en vervolgens **sjabloonimplementatie**.
 
@@ -156,7 +156,7 @@ Nadat de SQL AlwaysOn-beschikbaarheidsgroep is gemaakt, geconfigureerd en toegev
 > Deze stappen van de gebruikersportal van Azure Stack uitgevoerd als een tenant-gebruiker met een abonnement van mogelijkheden voor SQL Server (Microsoft.SQLAdapter service).
 
 1. 
-[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
+   [!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. Selecteer **\+** **een resource maken** > **gegevens \+ opslag**, en vervolgens **SQL-Database**.<br><br>Geef de vereiste database eigenschapsgegevens zoals naam, sortering maximale grootte en het abonnement, resourcegroep en locatie moet worden gebruikt voor de implementatie. 
 

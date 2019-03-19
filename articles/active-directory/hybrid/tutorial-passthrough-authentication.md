@@ -11,12 +11,12 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c813685a89f3d18b01ab75d710df54f8d1e1338
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b951cc81d2f957214eb4c78125bde36b61ff64b8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187737"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098039"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Zelfstudie:  Een enkele AD-forest integreren met pass-through-verificatie (PTA)
 
@@ -80,7 +80,7 @@ Om het bouwen van de virtuele machine te voltooien, moet u de installatie van he
 
 1. Ga naar Hyper-V Manager en dubbelklik op de virtuele machine
 2. Klik op de knop Start.
-3.  U wordt gevraagd om op een willekeurige toets te drukken om op te starten vanaf cd of dvd. Druk op een willekeurige toets.
+3. U wordt gevraagd om op een willekeurige toets te drukken om op te starten vanaf cd of dvd. Druk op een willekeurige toets.
 4. Selecteer uw taal in het opstartscherm van Windows Server en klik op **Volgende**.
 5. Klik op **Nu installeren**.
 6. Voer uw licentiecode in en klik op **Volgende**.
@@ -227,7 +227,7 @@ We gaan nu Azure AD Connect downloaden en installeren.  Zodra dat is gebeurd, ne
 ![PTA](media/tutorial-passthrough-authentication/pta1.png)</b>
 7. Voer in het scherm Verbinding maken met Azure Active Directory de gebruikersnaam en het wachtwoord van de globale beheerder in die eerder is gemaakt en klik op **Volgende**.
 2. Klik in het scherm Verbinding maken met uw mappen op **Volgende**.  Selecteer vervolgens **nieuw AD-account maken**, voer de gebruikersnaam en het wachtwoord in voor contoso\Administrator en klik op **OK**.
-3. Klik op **Volgende**.
+3. Klik op **volgende**.
 4. Selecteer op het scherm van de configuratie van aanmelding bij Azure Active Directory **Doorgaan zonder alle UPN-achtervoegsels op geverifieerde domeinen af te stemmen** en klik op **volgende.**
 5. Klik in het scherm Domein- en OE-filteren op **Volgende**.
 6. In het scherm voor het uniek identificeren uw gebruikers, klikt u op **volgende**.
@@ -250,9 +250,9 @@ We gaan nu controleren of de gebruikers die aanwezig waren in onze on-premises a
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Aanmelden testen met een van onze gebruikers
 
-1.  Ga naar [https://myapps.microsoft.com](httpss://myapps.microsoft.com)
+1. Ga naar [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Meld u aan met een gebruikersaccount dat is gemaakt in onze nieuwe tenant.  U moet zich aanmelden met de volgende indeling: (user@domain.onmicrosoft.com). Gebruik het wachtwoord waarmee de gebruiker zich on-premises aanmeldt.
-![Verifiëren](media/tutorial-password-hash-sync/verify1.png)
+   ![Verifiëren](media/tutorial-password-hash-sync/verify1.png)
 
 U hebt nu een omgeving met een hybride identiteit ingesteld die u kunt gebruiken voor testdoeleinden en om bekend te raken met wat Azure te bieden heeft.
 

@@ -5,26 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 03/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 31ca6deef6d81ca7beb08f6df1a15d52ef381a46
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 9f2eae4160dbef164ec70e8fa4d7b3a83706ae96
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190388"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880123"
 ---
 # <a name="compatibility-level-for-analysis-services-tabular-models"></a>Compatibiliteitsniveau voor tabellaire modellen van Analysis Services
 
-*Compatibiliteitsniveau* verwijst naar de release-specifieke gedrag in de Analysis Services-engine. Wijzigingen in het compatibiliteitsniveau is doorgaans valt samen met belangrijke releases van SQL Server. Deze wijzigingen worden ook geïmplementeerd in Azure Analysis Services te onderhouden pariteit tussen beide platforms. Compatibiliteitsniveau verandert ook effect die beschikbaar zijn in uw modellen in tabelvorm. Bijvoorbeeld, hebben DirectQuery en metagegevens in tabelvorm object verschillende implementaties, afhankelijk van het compatibiliteitsniveau. Compatibiliteitsniveau is opgegeven in het project voor tabellair model in Visual Studio (SSDT). Modellen in tabelvorm in hebt gemaakt en worden geïmporteerd uit Power BI Desktop zijn op het compatibiliteitsniveau 1400 alleen.
+*Compatibiliteitsniveau* verwijst naar de release-specifieke gedrag in de Analysis Services-engine. Wijzigingen in het compatibiliteitsniveau is doorgaans valt samen met belangrijke releases van SQL Server. Deze wijzigingen worden ook geïmplementeerd in Azure Analysis Services te onderhouden pariteit tussen beide platforms. Compatibiliteitsniveau verandert ook effect die beschikbaar zijn in uw modellen in tabelvorm. Bijvoorbeeld, hebben DirectQuery en metagegevens in tabelvorm object verschillende implementaties, afhankelijk van het compatibiliteitsniveau. Compatibiliteitsniveau is opgegeven in het project voor tabellair model in Visual Studio (SSDT).
 
-Azure Analysis Services ondersteunt tabellaire modellen met het compatibiliteitsniveau 1200 en 1400. 
-
-> [!NOTE]
-> Power BI Desktop September 2018 en latere versies hebben een pbix-compatibiliteitsniveau van 1465. Deze compatibiliteitsniveau wordt ondersteund in Azure Analysis Services. Een Power BI Desktop-bestand importeren wordt echter niet aanbevolen voor productie-omgevingen. Zie voor meer informatie, [een Power BI Desktop-bestand importeren](analysis-services-import-pbix.md).
-
-De meest recente versie van het compatibiliteitsniveau is 1400. Dit niveau overeenkomt met de SQL Server 2017 Analysis Services. Belangrijkste functies in het compatibiliteitsniveau 1400 zijn onder andere:
+Azure Analysis Services ondersteunt tabellaire modellen met het compatibiliteitsniveau 1200 en 1400. De meest recente versie van het compatibiliteitsniveau is 1400. Dit niveau overeenkomt met de SQL Server 2017 Analysis Services. Belangrijkste functies in het compatibiliteitsniveau 1400 zijn onder andere:
 
 *  Nieuwe functies voor toegang tot gegevens en importeren met ondersteuning voor TOM APIs en het uitvoeren van TMSL-scripts. 
 *  Gegevenstransformatie en mashup mogelijkheden om gegevens met behulp van gegevens ophalen en M-expressies.
@@ -55,5 +50,4 @@ De meest recente versie van het compatibiliteitsniveau is 1400. Dit niveau overe
 
 ## <a name="next-steps"></a>Volgende stappen
 
-  [Een model maken in Azure portal](analysis-services-create-model-portal.md)   
   [Analyseservices beheren](analysis-services-manage.md)  

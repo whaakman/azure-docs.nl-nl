@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: e44a02e2126e7b25f69999de34fe5cf42499a90c
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: eb1c302bf1954492ba2a7a78d16fc697fdf4b687
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556829"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080434"
 ---
 # <a name="diagnose-and-troubleshoot"></a>Problemen vaststellen en oplossen
 
@@ -35,7 +35,7 @@ Er zijn enkele veelvoorkomende redenen waarom u ziet mogelijk niet de gegevens i
 
     Controleer of dat uw gebeurtenisbron, die een event hub of een IoT-hub, gegevens van uw labels of instanties ontvangt. Om te controleren, gaat u naar de overzichtspagina van uw resource in Azure portal.
 
-    ![dashboard-inzichten][2]
+    ![Dashboard-insights][2]
 
 - Uw gebeurtenisgegevens van de bron is niet in JSON-indeling.
 
@@ -43,16 +43,16 @@ Er zijn enkele veelvoorkomende redenen waarom u ziet mogelijk niet de gegevens i
 
 - De sleutel van de bron gebeurtenis ontbreekt een vereiste machtiging.
 
-    * Voor een IoT-hub, moet u de sleutel die is opgeven **service verbinding maken met** machtiging.
+  * Voor een IoT-hub, moet u de sleutel die is opgeven **service verbinding maken met** machtiging.
 
     ![Configuratie][3]
 
-    * Zoals wordt weergegeven in de voorgaande afbeelding, beide van de beleidsregels **iothubowner** en **service** werken omdat ze hebben **service verbinding maken met** machtiging.
-    * Voor een event hub, moet u de sleutel die is opgeven **luisteren** machtiging.
+  * Zoals wordt weergegeven in de voorgaande afbeelding, beide van de beleidsregels **iothubowner** en **service** werken omdat ze hebben **service verbinding maken met** machtiging.
+  * Voor een event hub, moet u de sleutel die is opgeven **luisteren** machtiging.
   
     ![Machtigingen][4]
 
-    * Zoals wordt weergegeven in de voorgaande afbeelding, beide van de **lezen** en **beheren** -beleid werkt omdat ze hebben **luisteren** machtiging.
+  * Zoals wordt weergegeven in de voorgaande afbeelding, beide van de **lezen** en **beheren** -beleid werkt omdat ze hebben **luisteren** machtiging.
 
 - De consumentengroep opgegeven is niet exclusief voor Time Series Insights.
 

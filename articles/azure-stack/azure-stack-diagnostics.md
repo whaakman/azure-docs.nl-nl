@@ -11,12 +11,12 @@ ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: 41609a75efec6c15d894b61867fb9d3ae727dc8c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 068c239b4ec04363107554d1ad402749cc84d5b3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440553"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58076697"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack diagnostische hulpprogramma 's
 
@@ -127,28 +127,28 @@ Volg deze stappen om uit te voeren van Get-AzureStackLog op een hostcomputer ASD
 - Logboekverzameling dump-bestand is standaard uitgeschakeld. Als u wilt inschakelen, gebruikt u de **IncludeDumpFile** parameter overschakelen. 
 - Op dit moment kunt u de **FilterByRole** parameter voor de logboekverzameling filter door de volgende rollen:
 
- |   |   |   |    |
- | - | - | - | -  |   
- |ACS                   |CacheService                   |IBC                            |OEM|
- |ACSDownloadService    |Compute                        |InfraServiceController         |OnboardRP|
- |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PXE|
- |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator|
- |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker|
- |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing|
- |ACSMonitoringService  |Domain                         |KeyVaultInternalDataPlane      |SeedRingServices|
- |ACSSettingsService    |ECE                            |KeyVaultNamingService          |SLB|
- |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL|
- |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP   |
- |ACSWac                |ExternalDNS                    |MetricsRP                      |Opslag|
- |ADFS                  |FabricRing                     |MetricsServer                  |StorageController   |
- |ApplicationController |FabricRingServices             |MetricsStoreService            |URP   |
- |ASAppGateway          |FirstTierAggregationService    |MonAdminRP                     |UsageBridge|
- |AzureBridge           |FRP                            |MonRP                          |VirtualMachines   |
- |AzureMonitor          |Gateway                        |NC                             |WAS|
- |BareMetal             |HealthMonitoring               |NonPrivilegedAppGateway        |WASPUBLIC|
- |BRP                   |HintingServiceV2               |NRP                            |   |
- |CA                    |HRP                            |OboService                     |   |
- |   |   |   |    |
+  |   |   |   |    |
+  | - | - | - | -  |   
+  |ACS                   |CacheService                   |IBC                            |OEM|
+  |ACSDownloadService    |Compute                        |InfraServiceController         |OnboardRP|
+  |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PXE|
+  |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator|
+  |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker|
+  |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing|
+  |ACSMonitoringService  |Domain                         |KeyVaultInternalDataPlane      |SeedRingServices|
+  |ACSSettingsService    |ECE                            |KeyVaultNamingService          |SLB|
+  |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL|
+  |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP   |
+  |ACSWac                |ExternalDNS                    |MetricsRP                      |Opslag|
+  |ADFS                  |FabricRing                     |MetricsServer                  |StorageController   |
+  |ApplicationController |FabricRingServices             |MetricsStoreService            |URP   |
+  |ASAppGateway          |FirstTierAggregationService    |MonAdminRP                     |UsageBridge|
+  |AzureBridge           |FRP                            |MonRP                          |VirtualMachines   |
+  |AzureMonitor          |Gateway                        |NC                             |WAS|
+  |BareMetal             |HealthMonitoring               |NonPrivilegedAppGateway        |WASPUBLIC|
+  |BRP                   |HintingServiceV2               |NRP                            |   |
+  |CA                    |HRP                            |OboService                     |   |
+  |   |   |   |    |
 
 ### <a name="additional-considerations"></a>Aanvullende overwegingen
 

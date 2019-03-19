@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
-ms.openlocfilehash: 70154a50086fabc84671e7e540d8496490ab5b2d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 42fd28f2a18ecf81c7846abdc7b3159a275a9cd7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436626"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013554"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>HTTP-variabelen voor regels-engine van Azure CDN
 HTTP-variabelen bieden de mogelijkheid waarmee u HTTP-aanvraag en respons metagegevens kunt ophalen. Deze metagegevens kunt vervolgens worden gebruikt om een aanvraag of antwoord dynamisch wijzigen. Het gebruik van HTTP-variabelen is beperkt tot de volgende regels-engine-functies:
@@ -54,10 +54,10 @@ De volgende tabel beschrijft de ondersteunde HTTP-variabelen. Een lege waarde wo
 | Queryreeks-Parameter gevonden | %{is_amp} | De waarde voor deze variabele is afhankelijk van of de aanvraag ten minste één queryreeks-parameter bevat.<br /><br />-De parameter die is gevonden: &<br />-Er zijn geen Parameters: NULL | & |
 | Waarde voor Parameter de QueryString | %{arg_&lt;parameter&gt;} | Retourneert de waarde die overeenkomt met de queryreeks-parameter geïdentificeerd door de &lt;parameter&gt; term. | Voorbeeldgebruik: <br />%{arg_language}<br /><br />Voorbeeld van queryreeks-Parameter: <br />?language=en<br /><br />Voorbeeld van een waarde: nl |
 | Waarde voor de QueryString | %{query_string} | Geeft aan dat de hele queryreekswaarde gedefinieerd in de aanvraag-URL. |key1=val1&key2=val2&key3=val3 |
-| Verwijzende domein | %{referring_domain} | Geeft aan dat het domein dat is gedefinieerd in de aanvraagheader verwijzende site. | www.google.com |
+| Verwijzende domein | %{referring_domain} | Geeft aan dat het domein dat is gedefinieerd in de aanvraagheader verwijzende site. | <www.google.com> |
 | Regio (aanvrager) | %{geo_region} | Geeft aan van de aanvrager regio (bijvoorbeeld staat of provincie) via de afkorting van alfanumerieke tekens. | CA |
 | Waarde van aanvraagheader | %{http_RequestHeader} | Retourneert de waarde die overeenkomt met de aanvraagheader geïdentificeerd door de term RequestHeader. <br /><br />Als de naam van de header van de aanvraag bevat een streepje (bijvoorbeeld gebruiker-Agent), vervangt u deze met een onderstrepingsteken (bijvoorbeeld User_Agent).| Voorbeeldgebruik: % {http_Connection}<br /><br />Voorbeeldwaarde: Keep-Alive | 
-| Host van aanvraag | % {host} | Geeft aan dat de host die is gedefinieerd in de aanvraag-URL. | www.mydomain.com |
+| Host van aanvraag | % {host} | Geeft aan dat de host die is gedefinieerd in de aanvraag-URL. | <www.mydomain.com> |
 | Aanvraagprotocol | %{request_protocol} | Geeft aan dat de aanvraagprotocol. | HTTP/1.1 |
 | Aanvraag-schema | % {scheme} | Geeft aan dat het schema van de aanvraag. |http |
 | Aanvraag-URI (relatief) | %{request_uri} | Geeft het relatieve pad, met inbegrip van de query-tekenreeks, gedefinieerd in de aanvraag-URI. | /marketing/foo.js?loggedin=true |
@@ -187,8 +187,8 @@ In dit voorbeeldscenario; de *request_uri* variabele is ingesteld op:
 
 De volgende tabel laat zien hoe deze syntaxis werkt.
 
-| Voorbeeldsyntaxis | Resultaten |
-| ------------- | ------- |
+| Voorbeeldsyntaxis | Resultaten | |
+| ------------- | ------- | --- |
 | %{request_uri#/800001}/customerorigin | /customerorigin/myorigin/marketing/product.html?language=en-US | Omdat de variabele wordt gestart met het patroon, is het vervangen. |
 | %{request_uri%html}htm | /800001/myorigin/marketing/product.html?language=en-US | Omdat de variabele niet met het patroon eindigt, is er geen wijziging.|
 

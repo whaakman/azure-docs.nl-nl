@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: v-gedod
-ms.openlocfilehash: ea13ae5bc649ae3a803fb8446fa009fac94874a8
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: a5a3bb38f832d13a39a061453e6ef7910ba5cccf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673561"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094106"
 ---
 # <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-java"></a>Quickstart: Een aanvraag verzenden om te zoeken naar entiteiten met de Bing Entity Search SDK voor Java
 
@@ -67,7 +67,7 @@ Installeer de afhankelijkheden van Bing Entity Search SDK met Maven, Gradle of e
 
 ## <a name="create-a-search-client"></a>Een zoekclient maken
 
-2. Implementeer de client `dominantEntityLookup`, die uw API-eindpunt vereist, en een exemplaar van de klasse `ServiceClientCredentials`.
+1. Implementeer de client `dominantEntityLookup`, die uw API-eindpunt vereist, en een exemplaar van de klasse `ServiceClientCredentials`.
 
     ```java
     public static EntitySearchAPIImpl getClient(final String subscriptionKey) {
@@ -80,47 +80,47 @@ Installeer de afhankelijkheden van Bing Entity Search SDK met Maven, Gradle of e
 
     Ga als volgt te werk om `ServiceClientCredentials` te implementeren:
 
-    1. overschrijf de functie `applyCredentialsFilter()`, met een `OkHttpClient.Builder`-object als parameter. 
+   1. overschrijf de functie `applyCredentialsFilter()`, met een `OkHttpClient.Builder`-object als parameter. 
         
-        ```java
-        //...
-        new ServiceClientCredentials() {
-                @Override
-                public void applyCredentialsFilter(OkHttpClient.Builder builder) {
-                //...
-                }
-        //...
-        ```
+       ```java
+       //...
+       new ServiceClientCredentials() {
+               @Override
+               public void applyCredentialsFilter(OkHttpClient.Builder builder) {
+               //...
+               }
+       //...
+       ```
     
-    2. Roep binnen `applyCredentialsFilter()` `builder.addNetworkInterceptor()` aan. Maak een nieuw `Interceptor`-object en overschrijf de methode `intercept()` ervan om een `Chain`-interceptorobject te nemen.
+   2. Roep binnen `applyCredentialsFilter()` `builder.addNetworkInterceptor()` aan. Maak een nieuw `Interceptor`-object en overschrijf de methode `intercept()` ervan om een `Chain`-interceptorobject te nemen.
 
-        ```java
-        //...
-        builder.addNetworkInterceptor(
-            new Interceptor() {
-                @Override
-                public Response intercept(Chain chain) throws IOException {
-                //...    
-                }
-            });
-        ///...
-        ```
+       ```java
+       //...
+       builder.addNetworkInterceptor(
+           new Interceptor() {
+               @Override
+               public Response intercept(Chain chain) throws IOException {
+               //...    
+               }
+           });
+       ///...
+       ```
 
-    3. Maak binnen de functie `intercept` variabelen voor uw aanvraag. Gebruik `Request.Builder()` om uw aanvraag te maken. Voeg uw abonnementssleutel toe aan de `Ocp-Apim-Subscription-Key`-header en retourneer `chain.proceed()` in het aanvraagobject.
+   3. Maak binnen de functie `intercept` variabelen voor uw aanvraag. Gebruik `Request.Builder()` om uw aanvraag te maken. Voeg uw abonnementssleutel toe aan de `Ocp-Apim-Subscription-Key`-header en retourneer `chain.proceed()` in het aanvraagobject.
             
-        ```java
-        //...
-        public Response intercept(Chain chain) throws IOException {
-            Request request = null;
-            Request original = chain.request();
-            Request.Builder requestBuilder = original.newBuilder()
-                    .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
-            request = requestBuilder.build();
-            return chain.proceed(request);
-        }
-        //...
-        ```
-## <a name="send-a-request-and-receive-a-response"></a>Een aanvraag verzenden en een antwoord ontvangen
+       ```java
+       //...
+       public Response intercept(Chain chain) throws IOException {
+           Request request = null;
+           Request original = chain.request();
+           Request.Builder requestBuilder = original.newBuilder()
+                   .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+           request = requestBuilder.build();
+           return chain.proceed(request);
+       }
+       //...
+       ```
+      ## <a name="send-a-request-and-receive-a-response"></a>Een aanvraag verzenden en een antwoord ontvangen
 
 1. Maak een nieuw exemplaar van de zoekclient met uw abonnementssleutel. gebruik `client.entities().search()` voor het verzenden van een zoekopdracht voor de zoekquery `satya nadella`, en ontvang een antwoord. 
     
@@ -130,7 +130,7 @@ Installeer de afhankelijkheden van Bing Entity Search SDK met Maven, Gradle of e
             "satya nadella", null, null, null, null, null, null, "en-us", null, null, SafeSearch.STRICT, null);
     ```
 
-2. Als er entiteiten worden geretourneerd, zet u deze om in een lijst. Doorloop de entiteiten en geef de dominante entiteit weer.
+1. Als er entiteiten worden geretourneerd, zet u deze om in een lijst. Doorloop de entiteiten en geef de dominante entiteit weer.
 
     ```java
     if (entityData.entities().value().size() > 0){

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b7c10884682b6537bbfcbb1b1f8b89b38751d05b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8b0973007a78b492cff1c5ffc2ce1e43116a0847
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478046"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835081"
 ---
 # <a name="feature-engineering-in-data-science"></a>Functie-engineering in datatechnologie
 Dit artikel worden de doeleinden van feature-engineering en bevat voorbeelden van de rol in de uitbreiding van de synchronisatiegegevens van machine learning. De voorbeelden die wordt gebruikt ter illustratie van dit proces worden getekend van Azure Machine Learning Studio. 
@@ -46,7 +46,7 @@ Wat voor soort functies moet worden gemaakt voor het verbeteren van de gegevenss
 
 Bij het starten met Azure Machine Learning, is het eenvoudigste ingewikkeld van dit proces concrete invulling te geven met behulp van voorbeelden die in de Studio. Twee voorbeelden worden hier weergegeven:
 
-* Een voorbeeld van een regressie [voorspelling van het aantal huurfietsen](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4) in waar de doelwaarden zijn bekend is onder supervisie experiment
+* Een voorbeeld van een regressie [voorspelling van het aantal huurfietsen](https://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4) in waar de doelwaarden zijn bekend is onder supervisie experiment
 * Een text mining classificatie voorbeeld met [hash-functies](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/)
 
 ## <a name="example-1-add-temporal-features-for-a-regression-model"></a>Voorbeeld 1: Tijdelijke functies voor een regressiemodel toevoegen

@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: fdad2893-41f4-4056-b6d2-ec3d050eb350
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4aee3474741e7483dabe31eec80b42badda40baf
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: f150522c8ea4d3bcb69b7ffe274f1d40d831ab2b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875494"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864912"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-corptax"></a>Zelfstudie: Azure Active Directory-integratie met CorpTax
 
@@ -53,7 +53,7 @@ Voor het configureren van de integratie van CorpTax in Azure AD moet u CorpTax v
 
 **Voer de volgende stappen uit om CorpTax toe te voegen vanuit de galerie:**
 
-1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select_azuread.png)
 
@@ -131,9 +131,9 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     ![Het dialoogvenster Gebruiker](common/user_properties.png)
 
-    a. Voer in het veld **Naam****Britta Simon** in.
+    a. Voer in het veld **Naam** **Britta Simon** in.
 
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    b. In de **gebruikersnaam** veld, typt u **brittasimon\@yourcompanydomain.extension**  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
@@ -172,7 +172,7 @@ In dit gedeelte maakt u in CorpTax een gebruiker met de naam Britta Simon. Werk 
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 Wanneer u op de tegel CorpTax in het toegangsvenster klikt, zou u moeten worden omgeleid naar de onderstaande CorpTax-pagina- 
 
 ![image](media/corptax-tutorial/corptaxlogin.png)

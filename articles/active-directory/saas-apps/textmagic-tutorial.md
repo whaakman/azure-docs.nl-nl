@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec8085d2d3ac4cc338ab9c0c36eec481a5d4fbc9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a91d6878f509f47f029a3b8aaf7bbbe4e6f35435
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200340"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57869792"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-textmagic"></a>Zelfstudie: Azure Active Directory-integratie met TextMagic
 
@@ -125,7 +125,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     | Name  | Bronkenmerk  | Naamruimte |
     | --------------- | --------------- | --------------- |
-    | Bedrijf | User.CompanyName | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | bedrijf | user.companyname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | voornaam               | user.givenname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | achternaam            | user.surname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | telefoon               | user.telephonenumber |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
@@ -200,9 +200,9 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     ![Het maken van een Azure AD-testgebruiker](common/create_aaduser_02.png)
 
-    a. Voer in het veld **Naam****Britta Simon** in.
+    a. Voer in het veld **Naam** **Britta Simon** in.
   
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    b. In de **gebruikersnaam** veld, typt u **brittasimon\@yourcompanydomain.extension**  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Selecteer **eigenschappen**, selecteer de **Show wachtwoord** selectievakje en noteer de waarde die wordt weergegeven in het wachtwoord.
@@ -247,7 +247,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 <!--Image references-->

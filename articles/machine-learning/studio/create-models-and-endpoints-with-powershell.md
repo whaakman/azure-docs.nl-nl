@@ -1,21 +1,21 @@
 ---
-title: Meerdere modellen van een Studio-experiment maken
+title: Meerdere eindpunten voor een model maken
 titleSuffix: Azure Machine Learning Studio
 description: PowerShell gebruiken voor het maken van meerdere Machine Learning-modellen en web-service-eindpunten met dezelfde algoritme, maar met verschillende trainingdatasets.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 442acb88a7a758517b8007b85dd6a58520a0caa4
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: a191a7adc2c43337b663fc44a8ef40df9d8ffef4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817504"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848914"
 ---
 # <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>PowerShell gebruiken voor Studio-modellen en webservice-eindpunten van een experiment maken
 
@@ -35,7 +35,7 @@ Gelukkig, u kunt dit doen met behulp van de [Azure Machine Learning Studio retra
 > 
 
 ## <a name="set-up-the-training-experiment"></a>Het trainingsexperiment instellen
-Gebruik het voorbeeld [trainingsexperiment](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) die zich in de [Cortana Intelligence Gallery](http://gallery.azure.ai). Open dit experiment in uw [Azure Machine Learning Studio](https://studio.azureml.net) werkruimte.
+Gebruik het voorbeeld [trainingsexperiment](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) die zich in de [Cortana Intelligence Gallery](https://gallery.azure.ai). Open dit experiment in uw [Azure Machine Learning Studio](https://studio.azureml.net) werkruimte.
 
 > [!NOTE]
 > Als u wilt volgen, samen met het volgende voorbeeld, kunt u een standard-werkruimte in plaats van een gratis werkruimte gebruiken. Maakt u een eindpunt voor elke klant - voor een totaal van 10 eindpunten - en waarvoor een standard-werkruimte is vereist omdat een gratis werkruimte beperkt tot 3-eindpunten is. Als u alleen een gratis werkruimte hebt, alleen de scripts om toe te staan voor alleen th locaties te wijzigen.
@@ -44,7 +44,7 @@ Gebruik het voorbeeld [trainingsexperiment](https://gallery.azure.ai/Experiment/
 
 Het experiment wordt gebruikgemaakt van een **gegevens importeren** module voor het importeren van de gegevensset training *customer001.csv* uit Azure storage-account. Stel dat u hebt verzameld van trainingdatasets van alle fiets verhuur locaties en opgeslagen in de dezelfde locatie van de blob-opslag met bestandsnamen, variërend van *rentalloc001.csv* naar *rentalloc10.csv*.
 
-![image](./media/create-models-and-endpoints-with-powershell/reader-module.png)
+![Leesmodule importeert gegevens uit een Azure-blob](./media/create-models-and-endpoints-with-powershell/reader-module.png)
 
 Houd er rekening mee dat een **Web Service uitvoer** module is toegevoegd aan de **Train Model** module.
 Wanneer dit experiment is geïmplementeerd als een webservice, het eindpunt die zijn gekoppeld aan dat de uitvoer het getrainde model in de indeling van een bestand .ilearner retourneert.
@@ -52,7 +52,7 @@ Wanneer dit experiment is geïmplementeerd als een webservice, het eindpunt die 
 Let ook op een web service-parameter die de URL definieert in te stellen die de **importgegevens** module wordt gebruikt. Hiermee kunt u de parameter gebruiken om op te geven van individuele training gegevenssets trainen van het model voor elke locatie.
 Er zijn andere manieren waarop u kunt dit hebt gedaan. U kunt een SQL-query met de parameter van een web-service gegevens ophalen uit een SQL Azure-database. Of u kunt een **Web Service invoer** module om door te geven in een gegevensset met de webservice.
 
-![image](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
+![Een module van het getrainde Model uitvoer naar een uitvoer-module van Web service](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
 
 Nu gaan we deze met behulp van de standaardwaarde trainingsexperiment uitvoeren *rental001.csv* als de gegevensset training. Als u de uitvoer van de **evalueren** module (Klik op de uitvoer en selecteer **Visualize**), ziet u een goede prestaties van *AUC* = 0.91. Op dit moment u kunt een webservice buiten deze trainingsexperiment implementeren.
 
@@ -89,7 +89,7 @@ Voer de volgende PowerShell-opdracht:
 
 Nu u 10 eindpunten hebt gemaakt en ze alle dezelfde getraind bevatten model wordt getraind op *customer001.csv*. U kunt ze weergeven in Azure portal.
 
-![image](./media/create-models-and-endpoints-with-powershell/created-endpoints.png)
+![De lijst met getrainde modellen weergeven in de portal](./media/create-models-and-endpoints-with-powershell/created-endpoints.png)
 
 ## <a name="update-the-endpoints-to-use-separate-training-datasets-using-powershell"></a>Bijwerken van de eindpunten voor het gebruik van afzonderlijke trainings-gegevenssets met behulp van PowerShell
 De volgende stap is het de eindpunten bijwerken met een unieke getraind op de afzonderlijke gegevens van elke klant-modellen. Maar u moet eerst voor het produceren van deze modellen uit de **fiets verhuur Training** webservice. We gaan terug naar de **fiets verhuur Training** webservice. U moet het eindpunt BES 10 keer met 10 verschillende trainingdatasets aanroepen om te kunnen produceren van 10 verschillende modellen. Gebruik de **InovkeAmlWebServiceBESEndpoint** PowerShell-cmdlet om dit te doen.

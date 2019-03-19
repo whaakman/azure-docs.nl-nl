@@ -15,12 +15,12 @@ ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ca27e89ad67b0f0755a7dda50572f3dcd857189
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: c17078ea14a254f64a41751f2efffc16e2a1e821
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733926"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57847379"
 ---
 # <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Een toegangsbeoordeling van groepen of toepassingen maken in Azure AD-Toegangsbeoordelingen
 
@@ -31,7 +31,7 @@ In dit artikel wordt beschreven hoe u een of meer toegangsbeoordelingen voor gro
 ## <a name="prerequisites"></a>Vereisten
 
 - [Toegangsbeoordelingen ingeschakeld](access-reviews-overview.md)
-- Globale beheerder of beheerder van gebruikersaccounts
+- Globale beheerder of Gebruikerbeheerder
 
 ## <a name="create-one-or-more-access-reviews"></a>Maken van een of meer toegangsbeoordelingen
 
@@ -53,7 +53,7 @@ In dit artikel wordt beschreven hoe u een of meer toegangsbeoordelingen voor gro
 
 1. Als u de toegang tot revisie terugkerende, wijzigen de **frequentie** instellen op basis van **één keer** naar **wekelijkse**, **maandelijkse**,  **Elk kwartaal** of **jaarlijks**, en gebruik de **duur** schuifregelaar of tekst in om te bepalen hoeveel dagen elk onderzoek van de reeks terugkerende is geopend voor invoer van de revisoren. Bijvoorbeeld, is de maximale duur die u voor een maandelijkse revisie instellen kunt 27 dagen, om te voorkomen dat overlappende beoordelingen.
 
-1. Gebruik de **End** instelling kunt u opgeven hoe de toegang tot de terugkerende beëindigen serie bekijken. De reeks kunt op drie manieren beëindigen: deze continu wordt uitgevoerd voor het starten van beoordelingen voor onbepaalde tijd, tot een bepaalde datum of na een opgegeven aantal exemplaren is voltooid. U een andere beheerder van gebruikersaccounts of een ander algemeen beheerder kunt stoppen de reeks na het maken van door het veranderen van de datum in de **instellingen**, zodat deze wordt beëindigd op die datum.
+1. Gebruik de **End** instelling kunt u opgeven hoe de toegang tot de terugkerende beëindigen serie bekijken. De reeks kunt op drie manieren beëindigen: deze continu wordt uitgevoerd voor het starten van beoordelingen voor onbepaalde tijd, tot een bepaalde datum of na een opgegeven aantal exemplaren is voltooid. U, Gebruikerbeheerder van een andere of een ander algemeen beheerder kunt stoppen de reeks na het maken van door het veranderen van de datum in de **instellingen**, zodat deze wordt beëindigd op die datum.
 
 1. In de **gebruikers** sectie, geeft u de gebruikers die toegang tot revisie van toepassing op. Met toegangsbeoordelingen kunnen zich voor de leden van een groep of voor gebruikers die zijn toegewezen aan een toepassing. U kunt de toegang verder bereik bekijken om te bekijken alleen de gastgebruikers die lid zijn (of toegewezen aan de toepassing), in plaats van het controleren van alle gebruikers die lid zijn of die toegang tot de toepassing hebben.
 

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 03/18/2019
 ms.author: cenkdin;juliako
-ms.openlocfilehash: 3f4641f6a97d265bf2c2ad9dadb548ff754ad434
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 6bec12893591fb36298e9c2f1664646a4d598073
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828108"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839777"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Live streamen met on-premises coderingsprogramma's met behulp van .NET
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien:
 * Een Azure-account.
 * Een Media Services-account.    Zie [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie over het maken van een Media Services-account.
 * Uw ontwikkelaarsomgeving instellen. Zie voor meer informatie, [instellen van uw omgeving](media-services-set-up-computer.md).
-* Een webcam. Bijvoorbeeld [Telestream Wirecast-coderingsprogramma](http://www.telestream.net/wirecast/overview.htm).
+* Een webcam. Bijvoorbeeld [Telestream Wirecast-coderingsprogramma](https://www.telestream.net/wirecast/overview.htm).
 
 Aanbevolen om te controleren van de volgende artikelen:
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: 94931546f3b8ddb18a5381de3baa31d66376badb
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: b6f0ce1939b2a78ca191d2feb0140506d130b9b0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810717"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107454"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Werkstroom voor offline back-ups maken in Azure Backup
 Azure Backup heeft diverse ingebouwde efficiëntie die netwerk- en kosten tijdens de eerste volledige back-ups van gegevens naar Azure besparen. Initiële volledige back-ups wordt gewoonlijk grote hoeveelheden gegevens overdragen en meer netwerkbandbreedte in vergelijking met de volgende back-ups waarbij alleen de delta's / plaatsvindt worden overgedragen. Door het proces van het offline-seeding, kunt Azure Backup gebruiken schijven voor de offline back-upgegevens uploaden naar Azure.
@@ -73,7 +73,7 @@ Deze sectie beschrijft de werkstroom voor offline back-ups, zodat uw gegevens ku
 
     ![Voor importeren](./media/backup-azure-backup-import-export/offlinebackup_inputs.png)
 
-  De beschrijving van de invoer is als volgt:
+   De beschrijving van de invoer is als volgt:
 
     * **Faseringslocatie**: De tijdelijke opslaglocatie waarop de eerste back-up is geschreven. Faseringslocatie mogelijk op een netwerkshare of een lokale computer. Als de computer kopiëren en de broncomputer verschillend zijn, wordt u aangeraden dat u het volledige netwerk-pad van de faseringslocatie opgeven.
     * **Azure Resource Manager-Opslagaccount**: De naam van het Resource Manager type opslagaccount dat in elk Azure-abonnement.
@@ -81,7 +81,7 @@ Deze sectie beschrijft de werkstroom voor offline back-ups, zodat uw gegevens ku
     * **Azure-abonnement-ID**: De ID voor de Azure-abonnement waarin de Azure Storage-account is gemaakt.
     * **Azure Import-taaknaam**: De unieke naam die Azure Import-service en Azure Backup de overdracht van gegevens die worden verzonden op schijven naar Azure bijhouden. 
   
-  Geef de invoer op het scherm en klik op **volgende**. De opgegeven opslaan *faseringslocatie* en de *Azure Import-taaknaam*, zoals deze informatie vereist voor het voorbereiden van de schijven is.
+   Geef de invoer op het scherm en klik op **volgende**. De opgegeven opslaan *faseringslocatie* en de *Azure Import-taaknaam*, zoals deze informatie vereist voor het voorbereiden van de schijven is.
 
 2. Wanneer u hierom wordt gevraagd, meldt u zich bij uw Azure-abonnement. U moet zich aanmelden zodat Azure Backup kan de Azure Active Directory-toepassing maken en geef de vereiste machtigingen voor toegang tot de Azure Import-Service.
 
@@ -106,14 +106,14 @@ De *AzureOfflineBackupDiskPrep* hulpprogramma bereidt de SATA-schijven die worde
 
 1. Ga naar de map en kopieer de **AzureOfflineBackupDiskPrep** map naar een andere computer waar de SATA-schijven zijn verbonden. Op de computer met de verbonden zijn met SATA-schijven, zorg ervoor dat:
 
-    * De computer kopiëren hebt toegang tot de faseringslocatie voor de werkstroom voor offline-seeding via hetzelfde netwerkpad dat is opgegeven in de **start offline back-up** werkstroom.
-    * BitLocker is ingeschakeld op de computer kopiëren.
-    * Azure PowerShell 3.7.0 is geïnstalleerd.
-    * De meest recente compatibel browsers (Microsoft Edge of Internet Explorer 11) zijn geïnstalleerd en JavaScript is ingeschakeld. 
-    * De computer kopiëren, hebben toegang tot de Azure-portal. Indien nodig, is de computer kopiëren hetzelfde als de broncomputer kan verzenden.
+   * De computer kopiëren hebt toegang tot de faseringslocatie voor de werkstroom voor offline-seeding via hetzelfde netwerkpad dat is opgegeven in de **start offline back-up** werkstroom.
+   * BitLocker is ingeschakeld op de computer kopiëren.
+   * Azure PowerShell 3.7.0 is geïnstalleerd.
+   * De meest recente compatibel browsers (Microsoft Edge of Internet Explorer 11) zijn geïnstalleerd en JavaScript is ingeschakeld. 
+   * De computer kopiëren, hebben toegang tot de Azure-portal. Indien nodig, is de computer kopiëren hetzelfde als de broncomputer kan verzenden.
     
-    > [!IMPORTANT] 
-    > Als de broncomputer een virtuele machine is, klikt u vervolgens moet de kopie-computer een andere fysieke server of clientcomputer van de broncomputer.
+     > [!IMPORTANT] 
+     > Als de broncomputer een virtuele machine is, klikt u vervolgens moet de kopie-computer een andere fysieke server of clientcomputer van de broncomputer.
 
 2. Open een opdrachtprompt met verhoogde bevoegdheid op de computer kopiëren met de *AzureOfflineBackupDiskPrep* hulpprogramma directory als de huidige map en voer de volgende opdracht uit:
 
@@ -137,11 +137,11 @@ De *AzureOfflineBackupDiskPrep* hulpprogramma bereidt de SATA-schijven die worde
     Het hulpprogramma is vervolgens begint met het voorbereiden van de schijf en worden de back-upgegevens gekopieerd. U moet mogelijk extra schijven wanneer u hierom wordt gevraagd door het hulpprogramma voor het geval de opgegeven schijf beschikt niet over voldoende ruimte voor de back-upgegevens te koppelen. <br/>
 
     Aan het einde van het hulpprogramma is uitgevoerd biedt de opdrachtprompt drie soorten informatie:
-    1. Een of meer schijven die u hebt opgegeven, worden voorbereid voor verzending naar Azure. 
-    2. U ontvangt een bevestiging dat uw import-taak is gemaakt. De import-taak maakt gebruik van de naam die u hebt opgegeven.
-    3. Het hulpprogramma wordt weergegeven het verzendadres voor de Azure-datacenter.
+   1. Een of meer schijven die u hebt opgegeven, worden voorbereid voor verzending naar Azure. 
+   2. U ontvangt een bevestiging dat uw import-taak is gemaakt. De import-taak maakt gebruik van de naam die u hebt opgegeven.
+   3. Het hulpprogramma wordt weergegeven het verzendadres voor de Azure-datacenter.
 
-    ![De voorbereiding van de Azure-schijf is voltooid](./media/backup-azure-backup-import-export/console2.png)<br/>
+      ![De voorbereiding van de Azure-schijf is voltooid](./media/backup-azure-backup-import-export/console2.png)<br/>
 
 6. Aan het einde van de uitvoering van de opdracht, kunt u de verzendgegevens bijwerken.
 

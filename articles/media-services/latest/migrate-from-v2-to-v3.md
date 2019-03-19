@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/04/2019
+ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 4f67158c0de8cdd161bce269059af6d421bb68b5
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 2d7dc6eb5ee77804f0c8c87ee2e5a5dd1d0dc30a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340345"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57841120"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Hulp bij de migratie voor het verplaatsen van Media Services v2 naar v3
 
@@ -72,6 +72,7 @@ Als u een videoservice ontwikkeld vandaag nog hebt op de [oudere Media Services 
     * Live gebeurtenis vervangt kanaal.<br/>Live gebeurtenissen facturering is gebaseerd op Livekanaal meters. Zie voor meer informatie, [facturering](live-event-states-billing.md) en [prijzen](https://azure.microsoft.com/pricing/details/media-services/).
     * Live uitvoer vervangt programma.
 * Live uitvoer hoeft niet expliciet worden gestart, ze bij het maken van starten en stoppen wanneer verwijderd. Programma's anders gewerkt in de v2-API's, ze moest worden gestart na het maken.
+*  Voor informatie over een taak, moet u weten de naam van de transformatie waarmee de taak is gemaakt. 
 
 ## <a name="feature-gaps-with-respect-to-v2-apis"></a>Functiehiaten met betrekking tot v2-API 's
 
@@ -96,8 +97,9 @@ De volgende tabel bevat de codeverschillen tussen v2 en v3 voor algemene scenari
 |Scenario|V2 API|V3 API|
 |---|---|---|
 |Maak een asset en upload een bestand |[v2 .NET-voorbeeld](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[V3 .NET-voorbeeld](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
-|Een taak verzenden|[v2 .NET-voorbeeld](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[V3 .NET-voorbeeld](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>Laat zien hoe maakt u eerst een transformatie en vervolgens een taak te verzenden.|
+|Een taak indienen|[v2 .NET-voorbeeld](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[V3 .NET-voorbeeld](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>Laat zien hoe maakt u eerst een transformatie en vervolgens een taak te verzenden.|
 |Publiceren van een asset met AES-versleuteling |1. ContentKeyAuthorizationPolicyOption maken<br/>2. Create ContentKeyAuthorizationPolicy<br/>3. Create AssetDeliveryPolicy<br/>4. Asset maken en uploaden van inhoud taak of verzenden en uitvoerasset gebruiken<br/>5. AssetDeliveryPolicy koppelen aan Asset<br/>6. ContentKey maken<br/>7. ContentKey koppelen aan Asset<br/>8. Create AccessPolicy<br/>9. Locator maken<br/><br/>[v2 .NET-voorbeeld](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. Beleid voor inhoud sleutels maken<br/>2. Asset maken<br/>3. Inhoud uploaden of activa zoals JobOutput<br/>4. Streaming-Locator te maken<br/><br/>[V3 .NET-voorbeeld](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
+|Informatie over taken en beheren |[Taken met v2 beheren](../previous/media-services-dotnet-manage-entities.md#get-a-job-reference) |[Beheren van taken met v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L546)|
 
 ## <a name="known-issues"></a>Bekende problemen
 

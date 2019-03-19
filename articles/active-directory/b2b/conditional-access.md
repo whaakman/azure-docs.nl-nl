@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f51b42780a4a3500a5f5e8385d0973a335c2b78e
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: a5234443e234d232a9711274bea2f73427266f6e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670176"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113483"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Voorwaardelijke toegang voor gebruikers van B2B-samenwerking
 
@@ -48,26 +48,26 @@ Op dit moment kan de beheerder vereisen gebruikers van B2B-samenwerking bewijs v
 
 1. Verbinding maken met Azure AD
 
-  ```
-  $cred = Get-Credential
-  Connect-MsolService -Credential $cred
-  ```
+   ```
+   $cred = Get-Credential
+   Connect-MsolService -Credential $cred
+   ```
 2. Ophalen van alle gebruikers met een bewijs van methoden
 
-  ```
-  Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
-  ```
-  Hier volgt een voorbeeld:
+   ```
+   Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
+   ```
+   Hier volgt een voorbeeld:
 
-  ```
-  Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
-  ```
+   ```
+   Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
+   ```
 
 3. Opnieuw instellen van de MFA-methode voor een specifieke gebruiker moet de gebruiker B2B-samenwerking bewijs van methoden opnieuw instellen. Voorbeeld:
 
-  ```
-  Reset-MsolStrongAuthenticationMethodByUpn -UserPrincipalName gsamoogle_gmail.com#EXT#@ WoodGroveAzureAD.onmicrosoft.com
-  ```
+   ```
+   Reset-MsolStrongAuthenticationMethodByUpn -UserPrincipalName gsamoogle_gmail.com#EXT#@ WoodGroveAzureAD.onmicrosoft.com
+   ```
 
 ### <a name="why-do-we-perform-mfa-at-the-resource-tenancy"></a>Waarom we MFA uitvoeren op de resource-tenants?
 

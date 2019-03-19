@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 372275740b7d4fd757e97a3966e4e87c9d2de940
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 807a6b38b9f2cbe2a3c8787fe09c2ea14106a942
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105386"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864895"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Gegevens kopiëren van een REST-eindpunt met behulp van Azure Data Factory
 
@@ -170,10 +170,10 @@ Om gegevens te kopiëren van REST, worden de volgende eigenschappen ondersteund:
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De **type** eigenschap van de gegevensset moet worden ingesteld op **RestResource**. | Ja |
-| relativeurl bevatten | Een relatieve URL naar de resource die de gegevens bevat. Als deze eigenschap is niet opgegeven, wordt alleen de URL die opgegeven in de definitie van de gekoppelde service gebruikt. | Nee |
+| relativeUrl | Een relatieve URL naar de resource die de gegevens bevat. Als deze eigenschap is niet opgegeven, wordt alleen de URL die opgegeven in de definitie van de gekoppelde service gebruikt. | Nee |
 | requestMethod | De HTTP-methode. Toegestane waarden zijn **ophalen** (standaard) en **Post**. | Nee |
 | additionalHeaders | Extra kopteksten die HTTP-aanvraag. | Nee |
-| RequestBody | De hoofdtekst van de HTTP-aanvraag. | Nee |
+| requestBody | De hoofdtekst van de HTTP-aanvraag. | Nee |
 | paginationRules | De paginering regels voor het opstellen van de volgende pagina-aanvragen. Raadpleeg [ondersteuning voor paginering](#pagination-support) sectie voor meer informatie. | Nee |
 
 **Voorbeeld 1: Met behulp van de Get-methode met paginering**
@@ -274,8 +274,8 @@ Normaal gesproken beperken REST-API de grootte van de nettolading antwoord van e
 
 Deze algemene REST-connector ondersteunt de volgende paginering patronen: 
 
-* Absolute URL van de volgende aanvraag = waarde van de eigenschap in de hoofdtekst van het huidige antwoord
-* Absolute URL van de volgende aanvraag = headerwaarde in de huidige antwoordheaders
+* De volgende aanvraag absolute of relatieve URL = waarde van de eigenschap in de hoofdtekst van het huidige antwoord
+* De volgende aanvraag absolute of relatieve URL = headerwaarde in de huidige antwoordheaders
 * De queryparameter van de volgende aanvraag = waarde van de eigenschap in de hoofdtekst van het huidige antwoord
 * De queryparameter van de volgende aanvraag = headerwaarde in de huidige antwoordheaders
 * Volgende aanvraagheader = waarde van de eigenschap in de hoofdtekst van het huidige antwoord
@@ -287,13 +287,13 @@ Deze algemene REST-connector ondersteunt de volgende paginering patronen:
 
 | Sleutel | Description |
 |:--- |:--- |
-| AbsoluteUrl | Geeft aan dat de URL voor het uitgeven van de volgende aanvraag. |
+| AbsoluteUrl | Geeft aan dat de URL voor het uitgeven van de volgende aanvraag. Kan het zijn **absolute URL of relatieve URL**. |
 | QueryParameters. *request_query_parameter* of QueryParameters [request_query_parameter] | "request_query_parameter" is gebruiker gedefinieerd die verwijst naar een query parameter de naam in de volgende HTTP-aanvraag-URL. |
 | Headers. *request_header* of Headers [request_header] | "request_header" is gebruiker gedefinieerd die verwijst naar een headernaam in de volgende HTTP-aanvraag. |
 
 **Ondersteunde waarden** in paginering regels:
 
-| Waarde | Description |
+| Value | Description |
 |:--- |:--- |
 | Headers. *response_header* of Headers [response_header] | "response_header" is gebruiker gedefinieerd die verwijst naar een headernaam in de huidige HTTP-antwoord, de waarde die wordt gebruikt om uit te geven van de volgende aanvraag. |
 | Een expressie voor een JSONPath beginnen met '$' (die vertegenwoordigt de hoofdmap van de antwoordtekst) | De antwoordtekst mag slechts één JSON-object. De expressie JSONPath moet één primitieve waarde, dat wordt gebruikt om uit te geven van de volgende aanvraag retourneren. |

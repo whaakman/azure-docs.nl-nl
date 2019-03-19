@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 14bbb77678a70b51c7f640b501827c5618cce606
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: c14b6e16a16f325681722203eaa05a435b141208
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978933"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990615"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Hoe u verbinding maken met en meld u aan met een Azure-machine waarop Windows wordt uitgevoerd
 U gebruikt de knop **Verbinden** in Azure Portal om een Extern bureaublad-sessie (RDP) te starten vanaf een Windows-computer. Eerst maakt u verbinding met de virtuele machine en meld u op.
@@ -32,7 +32,7 @@ Als u wilt verbinding maken met een Windows-VM vanaf een Mac, moet u een RDP-cli
 2. Selecteer in het menu links **virtuele Machines**.
 3. Selecteer de virtuele machine in de lijst.
 4. Selecteer boven aan de pagina voor de virtuele machine, **Connect**.
-2. Op de **verbinding maken met virtuele machine** pagina, selecteert u de juiste IP-adres en poort. In de meeste gevallen moeten het standaard IP-adres en de poort worden gebruikt. Selecteer **downloaden RDP-bestand**downloaden RDP-bestand **. Als de virtuele machine een just-in-time-beleid is ingesteld heeft, moet u eerst selecteert u de **toegang aanvragen** knop om toegang te vragen voordat u het RDP-bestand kunt downloaden. Zie voor meer informatie over het beleid voor just-in-time [beheer van de virtuele machine toegang met just in time-beleid](../../security-center/security-center-just-in-time.md).
+2. Op de **verbinding maken met virtuele machine** pagina, selecteert u de juiste IP-adres en poort. In de meeste gevallen moeten het standaard IP-adres en de poort worden gebruikt. Selecteer **RDP-bestand downloaden**. Als de virtuele machine een just-in-time-beleid is ingesteld heeft, moet u eerst selecteert u de **toegang aanvragen** knop om toegang te vragen voordat u het RDP-bestand kunt downloaden. Zie voor meer informatie over het beleid voor just-in-time [beheer van de virtuele machine toegang met just in time-beleid](../../security-center/security-center-just-in-time.md).
 2. Open het gedownloade RDP-bestand en selecteer **Verbinden** wanneer dit wordt gevraagd. 
 2. U ontvangt een waarschuwing dat de `.rdp` bestand afkomstig is van een onbekende uitgever. Dit is normaal gedrag. In de **verbinding met extern bureaublad** venster **Connect** om door te gaan.
    

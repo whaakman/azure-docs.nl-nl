@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: e8e9991f20481deee85a6d582582335eb98e3c24
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: e1b4bf1f9fa956da7a7b0ca1521439002d1ce76b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815214"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993427"
 ---
 # <a name="optimize-autovacuum-on-an-azure-database-for-postgresql-server"></a>Optimaliseren autovacuum op een Azure Database for PostgreSQL-server 
 In dit artikel wordt beschreven hoe u effectief autovacuum op een Azure Database for PostgreSQL-server te optimaliseren.
@@ -43,6 +43,7 @@ De configuratieparameters die autovacuum regelen zijn gebaseerd op de antwoorden
 - Hoeveel moet het opschonen nadat deze is gestart?
 
 Hier volgen enkele parameters die u kunt bijwerken op basis van de vorige vragen, samen met enkele richtlijnen autovacuum-configuratie.
+
 Parameter|Description|Standaardwaarde
 ---|---|---
 autovacuum_vacuum_threshold|Hiermee geeft u het minimum aantal bijgewerkte of verwijderde tuples die nodig zijn voor het activeren van een onderdruk bewerking in de tabel. De standaardwaarde is 50 tuples. Stel deze parameter alleen in het bestand postgresql.conf of op de server vanaf de opdrachtregel. Als u wilt overschrijven de instellingen voor afzonderlijke tabellen, moet u de parameters van de opslag tabel wijzigen.|50
@@ -51,6 +52,7 @@ autovacuum_vacuum_cost_limit|Hiermee geeft u de waarde voor het beperken van kos
 autovacuum_vacuum_cost_delay|Hiermee geeft u de waarde voor de vertraging kosten die worden gebruikt in automatische onderdruk bewerkingen. Als u -1 opgeeft, wordt de waarde reguliere vacuum_cost_delay gebruikt. De standaardwaarde is 20 milliseconden. Stel deze parameter alleen in het bestand postgresql.conf of op de server vanaf de opdrachtregel. Als u wilt overschrijven de instellingen voor afzonderlijke tabellen, moet u de parameters van de opslag tabel wijzigen.|20 ms
 autovacuum_nap_time|Hiermee geeft u dat de minimale vertraging tussen autovacuum wordt uitgevoerd op een bepaalde database. In elke ronde de daemon onderzoekt de database en geeft ONDERDRUK en analyseren-opdrachten voor tabellen in de database. De vertraging wordt gemeten in seconden en de standaardwaarde is 1 minuut (1 min). Stel deze parameter alleen in het bestand postgresql.conf of op de server vanaf de opdrachtregel.|15 s
 autovacuum_max_workers|Hiermee geeft u het maximum aantal autovacuum processen, dan het autovacuum startprogramma voor, die kunnen worden uitgevoerd op elk willekeurig moment. De standaardwaarde is 3. Stel deze parameter alleen aan begin van de server.|3
+
 Als u wilt overschrijven de instellingen voor afzonderlijke tabellen, moet u de parameters van de opslag tabel wijzigen. 
 
 ## <a name="autovacuum-cost"></a>Autovacuum kosten

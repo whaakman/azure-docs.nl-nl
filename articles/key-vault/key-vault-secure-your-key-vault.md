@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 320a23e425ecb11e36af3efe988b25e598948132
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 3b302c60aefec1c4cd37a7dde82a2f11a9eeed33
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118510"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57862859"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Beveiligde toegang tot een key vault
 
@@ -28,7 +28,7 @@ Azure Key Vault is een cloudservice die beveiligt uw versleutelingssleutels en g
 
 ## <a name="access-model-overview"></a>Overzicht van Access-model
 
-Toegang tot een key vault wordt geregeld via twee interfaces: de *beheerlaag* en de *gegevenslaag*. Het beheervlak is waar u Key Vault beheren zelf. Bewerkingen op dit vlak zijn onder meer het maken en verwijderen van sleutelkluizen, bij het ophalen van de eigenschappen van de Key Vault en toegangsbeleid wordt bijgewerkt. Het vlak van gegevens is waar u werkt met de gegevens die zijn opgeslagen in een key vault. U kunt toevoegen, verwijderen en wijzigen van sleutels, geheimen en certificaten.
+Toegang tot een key vault wordt geregeld via twee interfaces: de **beheerlaag** en de **gegevenslaag**. Het beheervlak is waar u Key Vault beheren zelf. Bewerkingen op dit vlak zijn onder meer het maken en verwijderen van sleutelkluizen, bij het ophalen van de eigenschappen van de Key Vault en toegangsbeleid wordt bijgewerkt. Het vlak van gegevens is waar u werkt met de gegevens die zijn opgeslagen in een key vault. U kunt toevoegen, verwijderen en wijzigen van sleutels, geheimen en certificaten.
 
 Voor toegang tot een key vault in een van beide vlak, moet alle aanroepers (gebruikers of toepassingen) juiste verificatie en autorisatie. Verificatie wordt de identiteit van de oproepende functie. Autorisatie bepaalt welke bewerkingen de aanroeper kan worden uitgevoerd. 
 
@@ -62,7 +62,7 @@ De volgende tabel ziet u de eindpunten voor het beheer en de gegevens vlakken.
 
 ## <a name="management-plane-and-rbac"></a>Beheer- en RBAC
 
-In het beheervlak met RBAC kunt u toestaan dat de bewerkingen die kan worden uitgevoerd door een aanroeper. In de RBAC-model heeft elk Azure-abonnement een exemplaar van Azure AD. U kunt toegang verlenen aan gebruikers, groepen en toepassingen in deze directory. Toegang te krijgen tot het beheren van resources in het Azure-abonnement die gebruikmaken van de Azure Resource Manager-implementatiemodel. Om toegang te verlenen, gebruikt u de [Azure-portal](https://portal.azure.com/), wordt de [Azure CLI](../cli-install-nodejs.md), [Azure PowerShell](/powershell/azureps-cmdlets-docs), of de [Azure Resource Manager REST API's](https://msdn.microsoft.com/library/azure/dn906885.aspx).
+In het beheervlak gebruikt u RBAC (op rollen gebaseerd toegangsbeheer) voor het autoriseren van de bewerkingen die een aanroeper kunt uitvoeren. In de RBAC-model heeft elk Azure-abonnement een exemplaar van Azure AD. U kunt toegang verlenen aan gebruikers, groepen en toepassingen in deze directory. Toegang te krijgen tot het beheren van resources in het Azure-abonnement die gebruikmaken van de Azure Resource Manager-implementatiemodel. Om toegang te verlenen, gebruikt u de [Azure-portal](https://portal.azure.com/), wordt de [Azure CLI](../cli-install-nodejs.md), [Azure PowerShell](/powershell/azureps-cmdlets-docs), of de [Azure Resource Manager REST API's](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
 U maakt een key vault in een resourcegroep en toegang beheren met behulp van Azure AD. U verleent gebruikers of groepen van de mogelijkheid voor het beheren van de sleutelkluizen in een resourcegroep. In dat geval verleent u de toegang op het niveau van een bepaald bereik in juiste RBAC-rollen toe te wijzen. Om toegang te verlenen aan een gebruiker voor het beheren van sleutelkluizen, u een vooraf gedefinieerde toewijzen `key vault Contributor` rol aan de gebruiker op een bepaald bereik. Het niveau van de volgende bereiken kunnen worden toegewezen aan een RBAC-rol:
 

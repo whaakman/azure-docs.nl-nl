@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: eedebb76-e78c-428f-9cf0-5891852e79fb
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0742a08e0169d47307f28ff08491b0f7c7c4a914
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 713e4e7874b2ca650ab669d52f9d3026b5e80899
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201513"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780980"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Een OpenID/OAuth-toepassing uit de Azure AD-app-galerie configureren
 
@@ -106,7 +106,7 @@ In de volgende stappen ontdekt u hoe de toestemmingservaring werkt voor de toepa
 
 3. Als de gebruiker nog niet is geverifieerd, vraagt het Azure AD-eindpunt /authorize om aanmelding.
 
-    ![Verificatie](./media/openidoauth-tutorial/authentication.png)
+    ![Authentication](./media/openidoauth-tutorial/authentication.png)
 
 4. Wanneer de gebruiker zich heeft aangemeld, bepaalt Azure AD of de gebruiker een toestemmingspagina te zien krijgt. Hierbij wordt gecontroleerd of de gebruiker (of de beheerder in de organisatie) de toepassing al toestemming heeft gegeven.
 

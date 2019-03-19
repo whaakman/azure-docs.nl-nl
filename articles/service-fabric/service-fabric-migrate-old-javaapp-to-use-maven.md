@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
 ms.author: rapatchi
-ms.openlocfilehash: b880a80e19c5a85a35d5e1d78022fe4acc74f0e1
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 75a3f8e6c872e0bbb9fde8c5776d99ba0cf2c3d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999166"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116590"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Bestaande Java Service Fabric-toepassingen bijwerken voor het ophalen van Java-bibliotheken van Maven
 We hebben onlangs de binaire bestanden van Java Service Fabric verplaatst van de Service Fabric Java SDK naar Maven-hosting. U kunt nu **mavencentral** gebruiken om de meest recente Service Fabric Java-afhankelijkheden op te halen. Deze Quick Start helpt u om uw bestaande Java-toepassingen bij te werken, zodat deze compatibel zijn met de op Maven gebaseerde build. Deze toepassingen werden eerder gemaakt voor gebruik met Service Fabric Java SDK, met behulp van een Yeoman-sjabloon of Eclipse.
@@ -27,17 +27,17 @@ We hebben onlangs de binaire bestanden van Java Service Fabric verplaatst van de
 ## <a name="prerequisites"></a>Vereisten
 1. U moet eerst de bestaande Java SDK verwijderen.
 
-  ```bash
-  sudo dpkg -r servicefabricsdkjava
-  ```
+   ```bash
+   sudo dpkg -r servicefabricsdkjava
+   ```
 2. Installeer de meest recente Service Fabric-CLI door [deze stappen](service-fabric-cli.md) te volgen.
 
 3. U kunt alleen Service Fabric-Java-toepassingen bouwen en hieraan werken als JDK 1.8 en Gradle zijn geïnstalleerd. Als dat nog is gebeurd, voert u de volgende opdrachten uit om JDK 1.8 (openjdk-8-jdk) en Gradle te installeren:
 
- ```bash
- sudo apt-get install openjdk-8-jdk-headless
- sudo apt-get install gradle
- ```
+   ```bash
+   sudo apt-get install openjdk-8-jdk-headless
+   sudo apt-get install gradle
+   ```
 4. Werk de scripts voor het installeren/verwijderen van uw toepassing bij, zodat ze de nieuwe Service Fabric-CLI gebruiken. Volg hiervoor [deze stappen](service-fabric-application-lifecycle-sfctl.md). U kunt als naslag verwijzen naar onze [voorbeelden](https://github.com/Azure-Samples/service-fabric-java-getting-started) om snel aan de slag te gaan.
 
 >[!TIP]

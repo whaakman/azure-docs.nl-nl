@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 01d3a20022972b0e18de02bd2730ca31e57cd77a
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 368fec658dd1f063c45f3d00d42a4549ca9dfd83
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755019"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996740"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Uploaden en een Linux-VM maken van een aangepaste schijf met de Azure CLI
 
@@ -85,7 +85,7 @@ Het doelopslagaccount is gelijk aan waar u de virtuele schijf om te uploaden. U 
 Als u wilt de volgende stappen hebt voltooid, hebt u het volgende nodig:
 
 * **Linux-besturingssysteem die is geïnstalleerd in een VHD-bestand** -installatie van een [door Azure onderschreven Linux-distributie](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (of Raadpleeg [informatie over niet-goedgekeurde distributies](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) op een virtuele schijf in de VHD-indeling . Er bestaan meerdere hulpprogramma's voor het maken van een virtuele machine en de VHD:
-  * Installeer en configureer [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) of [KVM](http://www.linux-kvm.org/page/RunningKVM), zorg ervoor dat u VHD gebruiken als uw installatiekopie-indeling. Indien nodig, kunt u [converteren van een installatiekopie van een](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) met behulp van `qemu-img convert`.
+  * Installeer en configureer [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) of [KVM](https://www.linux-kvm.org/page/RunningKVM), zorg ervoor dat u VHD gebruiken als uw installatiekopie-indeling. Indien nodig, kunt u [converteren van een installatiekopie van een](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) met behulp van `qemu-img convert`.
   * U kunt ook de Hyper-V [op Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) of [op Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx).
 
 > [!NOTE]

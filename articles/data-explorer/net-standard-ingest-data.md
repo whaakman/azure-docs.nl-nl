@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Gegevens opnemen met behulp van de .NET Standard SDK voor Azure Data Explorer (preview)'
+title: 'Quickstart: Opname van gegevens met behulp van de Azure Data Explorer .NET Standard SDK (Preview)'
 description: In deze quickstart leert u hoe u gegevens opneemt (laadt) in Azure Data Explorer met behulp van .NET Standard SDK.
 services: data-explorer
 author: orspod
@@ -8,14 +8,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/18/2018
-ms.openlocfilehash: e734f11fb3f6a833b8c080deb57b9153c6c12dde
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
-ms.translationtype: HT
+ms.openlocfilehash: 0197ae8077a00111e005e5686efcd2597b995bcb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290685"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007032"
 ---
-# <a name="quickstart-ingest-data-using-the-azure-data-explorer-net-standard-sdk-preview"></a>Quickstart: Gegevens opnemen met behulp van de .NET Standard SDK voor Azure Data Explorer (preview)
+# <a name="quickstart-ingest-data-using-the-azure-data-explorer-net-standard-sdk-preview"></a>Quickstart: Opname van gegevens met behulp van de Azure Data Explorer .NET Standard SDK (Preview)
 
 Azure Data Explorer (ADX) is een snelle en zeer schaalbare service om gegevens in logboeken en telemetrie te verkennen. ADX biedt twee clientbibliotheken voor .NET Standard: een [opnamebibliotheek](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest.NETStandard) en een [gegevensbibliotheek](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard). Met deze bibliotheken kunt u gegevens opnemen (laden) in een cluster en gegevens bevragen vanuit uw code. In deze snelstart maakt u eerst een tabel en gegevenstoewijzing in een testcluster. Vervolgens plaatst u een gegevensopname in het cluster in de wachtrij en valideert u de resultaten.
 
@@ -31,7 +31,7 @@ Azure Data Explorer (ADX) is een snelle en zeer schaalbare service om gegevens i
 Install-Package Microsoft.Azure.Kusto.Ingest.NETStandard
 ```
 
-## <a name="authentication"></a>Verificatie
+## <a name="authentication"></a>Authentication
 
 Azure Data Explorer maakt gebruik van de id van uw AAD-tenant om een toepassing te verifiëren. Om uw tenant-id te vinden, gebruikt u de volgende URL, waarbij u *YourDomain* vervangt door uw domeinnaam.
 
@@ -100,6 +100,7 @@ using (var kustoClient = KustoClientFactory.CreateCslAdminProvider(kustoConnecti
                 Tuple.Create("State", "System.String"),
                 Tuple.Create("EventType", "System.String"),
                 Tuple.Create("InjuriesDirect", "System.Int32"),
+                Tuple.Create("InjuriesIndirect", "System.Int32"),
                 Tuple.Create("DeathsDirect", "System.Int32"),
                 Tuple.Create("DeathsIndirect", "System.Int32"),
                 Tuple.Create("DamageProperty", "System.Int32"),
@@ -137,8 +138,10 @@ using (var kustoClient = KustoClientFactory.CreateCslAdminProvider(kustoConnecti
             {
                 new CsvColumnMapping { ColumnName = "StartTime", Ordinal = 0 },
                 new CsvColumnMapping { ColumnName = "EndTime", Ordinal = 1 },
+                new CsvColumnMapping { ColumnName = "EpisodeId", Ordinal = 2 },
                 new CsvColumnMapping { ColumnName = "EventId", Ordinal = 3 },
                 new CsvColumnMapping { ColumnName = "State", Ordinal = 4 },
+                new CsvColumnMapping { ColumnName = "EventType", Ordinal = 5 },
                 new CsvColumnMapping { ColumnName = "InjuriesDirect", Ordinal = 6 },
                 new CsvColumnMapping { ColumnName = "InjuriesIndirect", Ordinal = 7 },
                 new CsvColumnMapping { ColumnName = "DeathsDirect", Ordinal = 8 },
@@ -148,13 +151,13 @@ using (var kustoClient = KustoClientFactory.CreateCslAdminProvider(kustoConnecti
                 new CsvColumnMapping { ColumnName = "Source", Ordinal = 12 },
                 new CsvColumnMapping { ColumnName = "BeginLocation", Ordinal = 13 },
                 new CsvColumnMapping { ColumnName = "EndLocation", Ordinal = 14 },
-                new CsvColumnMapping { ColumnName = "BeginLat", Ordinal = 16 },
-                new CsvColumnMapping { ColumnName = "BeginLon", Ordinal = 17 },
-                new CsvColumnMapping { ColumnName = "EndLat", Ordinal = 18 },
-                new CsvColumnMapping { ColumnName = "EndLon", Ordinal = 19 },
-                new CsvColumnMapping { ColumnName = "EpisodeNarrative", Ordinal = 20 },
-                new CsvColumnMapping { ColumnName = "EventNarrative", Ordinal = 21 },
-                new CsvColumnMapping { ColumnName = "StormSummary", Ordinal = 22 },
+                new CsvColumnMapping { ColumnName = "BeginLat", Ordinal = 15 },
+                new CsvColumnMapping { ColumnName = "BeginLon", Ordinal = 16 },
+                new CsvColumnMapping { ColumnName = "EndLat", Ordinal = 17 },
+                new CsvColumnMapping { ColumnName = "EndLon", Ordinal = 18 },
+                new CsvColumnMapping { ColumnName = "EpisodeNarrative", Ordinal = 19 },
+                new CsvColumnMapping { ColumnName = "EventNarrative", Ordinal = 20 },
+                new CsvColumnMapping { ColumnName = "StormSummary", Ordinal = 21 },
             });
 
     kustoClient.ExecuteControlCommand(command);

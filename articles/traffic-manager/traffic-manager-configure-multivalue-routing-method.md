@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: 40b266c92a86006746ab5341ac5fa1d785ee6032
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: de7288e2062fdfab363c46749b34c7afcacbb6e1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54197165"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094800"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Routeringsmethode voor met meerdere waarden configureren in Traffic Manager
 
@@ -49,7 +49,7 @@ Maak een Traffic Manager-profiel met gebruikersverkeer verwezen door deze te ver
     | Locatie                | Deze instelling verwijst naar de locatie van de resourcegroep en heeft geen invloed op het Traffic Manager-profiel dat wereldwijd wordt geïmplementeerd.                              |
    |        |           | 
   
-  ![Een Traffic Manager-profiel maken](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
+   ![Een Traffic Manager-profiel maken](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
 
 ## <a name="add-traffic-manager-endpoints"></a>Traffic Manager-eindpunten toevoegen
 
@@ -67,7 +67,7 @@ Twee IP-adressen als externe eindpunten toevoegen aan meerdere waarden Traffic M
     |        |           |
 
 4. Herhaal stappen 2 en 3 om toe te voegen een ander eindpunt met de naam *myEndpoint2*, voor **volledig gekwalificeerde domeinnaam (FQDN) of IP-**, voer het openbare IP-adres van het tweede eindpunt.
-5.  Als beide eindpunten zijn toegevoegd, worden ze weergegeven in **Traffic Manager-profiel**, samen met de controlestatus **Online**.
+5. Als beide eindpunten zijn toegevoegd, worden ze weergegeven in **Traffic Manager-profiel**, samen met de controlestatus **Online**.
 
    ![Traffic Manager-eindpunt toevoegen](./media/traffic-manager-multivalue-routing-method/add-endpoint.png)
  

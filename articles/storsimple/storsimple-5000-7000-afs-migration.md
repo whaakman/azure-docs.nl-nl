@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 9992faa11585d49d3024e00338b4c1dc09da9195
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: c27244af6da01163fa9ab554b6b9c1d9c99bab23
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726665"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104570"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Gegevens van de StorSimple 5000-7000-serie migreren naar Azure File Sync
 
@@ -57,7 +57,7 @@ Hier vindt u de vereisten voor uw verouderde 5000 of 7000 serie apparaat van de 
 - De host heeft onvoldoende lokale opslag om uw lokaal in cache opgeslagen gegevens te bevatten.
 - De eigenaar van niveau toegang tot de Azure-abonnement dat u gebruiken wilt voor Azure File Sync implementeren. U ondervindt mogelijk problemen bij het maken van een cloudeindpunt om daar de synchronisatiegroep als u geen eigenaar of beheerdersmachtigingen.
 - Toegang tot een [voor algemeen gebruik v2-opslagaccount](https://docs.microsoft.com/azure/storage/common/storage-account-overview) met een Azure-bestandsshare die u wilt synchroniseren. Zie [Een opslagaccount maken](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) voor meer informatie.
- - Hoe u [maken van een Azure-bestandsshare](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
+  - Hoe u [maken van een Azure-bestandsshare](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 
 ## <a name="migration-process"></a>Migratieproces
 

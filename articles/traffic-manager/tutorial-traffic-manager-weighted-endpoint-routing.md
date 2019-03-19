@@ -8,12 +8,12 @@ ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: kumud
-ms.openlocfilehash: f4c29526f675cab461153b4749c4f6edc237dada
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 50790e50602fbc8d302a67ea9963a4e492ce2f0b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467329"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009756"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Zelfstudie: Verkeersroutering met gewogen eindpunten beheren met behulp van Traffic Manager
 
@@ -60,6 +60,7 @@ In deze sectie maakt u twee VM's (*myIISVMEastUS* en *myIISVMWEurope*) in de Azu
     |Resourcegroep| Selecteer **Nieuw** en voer **myResourceGroupTM1** in.|
     |Locatie| Selecteer **US - oost**.|
     |||
+
 4. Selecteer een VM-grootte onder **Kies een grootte**.
 5. Selecteer de volgende waarden voor **Instellingen** en selecteer vervolgens **OK**:
     
@@ -69,6 +70,7 @@ In deze sectie maakt u twee VM's (*myIISVMEastUS* en *myIISVMWEurope*) in de Azu
     |Netwerkbeveiligingsgroep|Selecteer **Basic**. Selecteer in de vervolgkeuzelijst **Openbare binnenkomende poorten selecteren** de opties **HTTP** en **RDP**. |
     |Diagnostische gegevens over opstarten|Selecteer **Uitgeschakeld**.|
     |||
+
 6. Selecteer onder **Maken** in **Overzicht** de optie **Maken** om de implementatie van de VM te starten.
 
 7. Volg de stappen 1-6 nogmaals, met de volgende wijzigingen:
@@ -80,6 +82,7 @@ In deze sectie maakt u twee VM's (*myIISVMEastUS* en *myIISVMWEurope*) in de Azu
     |VM-naam | Voer **myIISVMWEurope** in.|
     |Virtueel netwerk | Selecteer **Virtueel netwerk**. Voer in **Virtueel netwerk maken** voor **Naam** **myVNet2** in. Voer voor **Subnet** **mySubnet** in.|
     |||
+
 8. Het maken van de VM's duurt enkele minuten. Ga niet verder met andere stappen voordat beide VM's zijn gemaakt.
 
 ![Een virtuele machine maken](./media/tutorial-traffic-manager-improve-website-response/createVM.png)
@@ -137,6 +140,7 @@ In deze sectie maakt u de VM *mVMEastUS*. U gaat deze VM gebruiken om te testen 
 
 4. Selecteer een VM-grootte onder **Kies een grootte**.
 5. Selecteer de volgende waarden voor **Instellingen** en selecteer vervolgens **OK**:
+
     |Instelling|Waarde|
     |---|---|
     |Virtueel netwerk| Selecteer **Virtueel netwerk**. Voer in **Virtueel netwerk maken** voor **Naam** **myVNet3** in. Voer voor subnet **mySubnet** in.|

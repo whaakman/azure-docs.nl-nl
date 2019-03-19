@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: cf16f27a8d39871491b7cf46a509b9714a669667
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 87e006cc5d56e0c7eb5455147c5ce9eb40afc162
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873811"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086612"
 ---
 # <a name="tutorial-identify-common-intents-and-entities"></a>Zelfstudie: Algemene intenties en entiteiten identificeren
 
@@ -55,13 +55,13 @@ LUIS biedt verschillende vooraf gemaakte intenties om u te helpen met algemene g
 
 1. Selecteer de volgende intenties en selecteer **Done**: 
 
-    * Utilities.Cancel
-    * Utilities.Confirm
-    * Utilities.Help
-    * Utilities.StartOver
-    * Utilities.Help
+   * Utilities.Cancel
+   * Utilities.Confirm
+   * Utilities.Help
+   * Utilities.StartOver
+   * Utilities.Help
 
-    Deze intenties zijn handig om te bepalen waar de gebruiker zich bevindt in de conversatie en wat ze willen doen. 
+     Deze intenties zijn handig om te bepalen waar de gebruiker zich bevindt in de conversatie en wat ze willen doen. 
 
 
 ## <a name="add-prebuilt-entities-to-help-with-common-data-type-extraction"></a>Vooraf gemaakte entiteiten toevoegen om te helpen met het ophalen van algemene gegevens
@@ -74,12 +74,12 @@ LUIS biedt verschillende vooraf gemaakte entiteiten voor het ophalen van algemen
 
 1. Selecteer de volgende entiteiten in de lijst met vooraf gedefinieerde entiteiten en selecteer **Gereed**:
 
-    * **[PersonName](luis-reference-prebuilt-person.md)** 
-    * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
+   * **[PersonName](luis-reference-prebuilt-person.md)** 
+   * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
 
-    ![Schermopname van het selecteren van een nummer in het dialoogvenster met de vooraf gedefinieerde entiteiten](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
+     ![Schermopname van het selecteren van een nummer in het dialoogvenster met de vooraf gedefinieerde entiteiten](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
-    Deze entiteiten helpen bij het toevoegen van naams- en plaatsherkenning aan uw clienttoepassing.
+     Deze entiteiten helpen bij het toevoegen van naams- en plaatsherkenning aan uw clienttoepassing.
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>Voorbeelduitingen toevoegen aan de intentie None 
 

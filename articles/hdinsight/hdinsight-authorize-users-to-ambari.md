@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 976bb44ae81a6c002d2503407a4d74d513a76042
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: f82ce7cbc060d7bb97e2ee90d872fbf2abd1983b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725266"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117775"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Gebruikers machtigen voor Apache Ambari-weergaven
 
@@ -31,7 +31,7 @@ Als u hebt nog niet gedaan, voert u de [deze instructies](./domain-joined/apache
 
 Om te gaan naar de **Ambari beheerpagina** op de [Apache Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md), blader naar **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Voer de gebruikersnaam van de cluster-beheerder en het wachtwoord die u hebt gedefinieerd bij het maken van het cluster. Selecteer vervolgens in het dashboard Ambari **beheren Ambari** onder de **admin** menu:
 
-![Ambari beheren](./media/hdinsight-authorize-users-to-ambari/manage-ambari.png)
+![Manage Ambari](./media/hdinsight-authorize-users-to-ambari/manage-ambari.png)
 
 ## <a name="grant-permissions-to-apache-hive-views"></a>Machtigingen verlenen voor Apache Hive-weergaven
 
@@ -51,24 +51,24 @@ Ambari wordt geleverd met exemplaren weergeven voor [Apache Hive](https://hive.a
 
 **Machtigingen verlenen aan deze groepen** ![machtigingen verlenen aan deze groepen](./media/hdinsight-authorize-users-to-ambari/add-group-to-view.png)
 
-4. Een gebruiker toevoegen, selecteert u de **gebruiker toevoegen** knop.
+1. Een gebruiker toevoegen, selecteert u de **gebruiker toevoegen** knop.
 
-    * Begin te typen van de gebruikersnaam en u ziet een vervolgkeuzelijst met vooraf gedefinieerde namen.
+   * Begin te typen van de gebruikersnaam en u ziet een vervolgkeuzelijst met vooraf gedefinieerde namen.
 
-    ![Gebruiker autocompletes](./media/hdinsight-authorize-users-to-ambari/user-autocomplete.png)
+     ![Gebruiker autocompletes](./media/hdinsight-authorize-users-to-ambari/user-autocomplete.png)
 
-    * Selecteer of klaar bent met typen, de naam van de gebruiker. Selecteer om de naam van deze gebruiker toe als een nieuwe gebruiker de **nieuw** knop.
+   * Selecteer of klaar bent met typen, de naam van de gebruiker. Selecteer om de naam van deze gebruiker toe als een nieuwe gebruiker de **nieuw** knop.
 
-    * Om uw wijzigingen hebt opgeslagen, selecteert u de **Blauw selectievakje**.
+   * Om uw wijzigingen hebt opgeslagen, selecteert u de **Blauw selectievakje**.
 
-    ![Gebruiker heeft ingevoerd](./media/hdinsight-authorize-users-to-ambari/user-entered.png)
+     ![Gebruiker heeft ingevoerd](./media/hdinsight-authorize-users-to-ambari/user-entered.png)
 
-5. Een groep toevoegen, selecteert u de **groep toevoegen** knop.
+1. Een groep toevoegen, selecteert u de **groep toevoegen** knop.
 
-    * Begin met de naam van de typen. Het proces van het selecteren van de groepsnaam van een bestaande, of het toevoegen van een nieuwe groep is hetzelfde als voor het toevoegen van gebruikers.
-    * Om uw wijzigingen hebt opgeslagen, selecteert u de **Blauw selectievakje**.
+   * Begin met de naam van de typen. Het proces van het selecteren van de groepsnaam van een bestaande, of het toevoegen van een nieuwe groep is hetzelfde als voor het toevoegen van gebruikers.
+   * Om uw wijzigingen hebt opgeslagen, selecteert u de **Blauw selectievakje**.
 
-    ![Opgegeven groep](./media/hdinsight-authorize-users-to-ambari/group-entered.png)
+     ![Opgegeven groep](./media/hdinsight-authorize-users-to-ambari/group-entered.png)
 
 Toevoegen van gebruikers rechtstreeks naar een weergave is handig als u machtigingen toewijzen aan een gebruiker te gebruiken die weergave wilt, maar niet wilt dat ze lid zijn van een groep met aanvullende machtigingen. Als u wilt de administratieve overhead verminderen, is het wellicht eenvoudiger machtigingen toewijzen aan groepen.
 

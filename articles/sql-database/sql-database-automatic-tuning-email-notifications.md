@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 03/07/2019
-ms.openlocfilehash: 8b82955d7a4bdecf71c9cb4545249a423a5b5dd4
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.date: 03/12/2019
+ms.openlocfilehash: 0d0452cba099bbc568f2b9e926258eb16060eaf4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57577072"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855917"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>E-mailmeldingen voor automatisch afstemmen
 
@@ -26,6 +26,8 @@ SQL Database aanbevelingen voor afstemming worden gegenereerd door Azure SQL Dat
 SQL Database automatisch afstemmen aanbevelingen kunnen worden weergegeven in de [Azure-portal](sql-database-advisor-portal.md), met de opgehaalde [REST-API](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) aanroept, of met behulp van [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) en [ PowerShell](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) opdrachten. In dit artikel is gebaseerd op een PowerShell-script gebruiken om op te halen van de aanbevelingen voor automatische afstemming.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> De PowerShell Azure Resource Manager-module nog steeds wordt ondersteund door Azure SQL Database, maar alle toekomstige ontwikkeling is voor de module Az.Sql. Zie voor deze cmdlets [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). De argumenten voor de opdrachten in de Az-module en de AzureRm-modules zijn vrijwel identiek zijn.
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>E-mailmeldingen voor aanbevelingen voor automatische afstemming automatiseren
 

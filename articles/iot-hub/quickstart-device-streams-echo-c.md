@@ -8,20 +8,22 @@ services: iot-hub
 ms.devlang: c
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/15/2019
+ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 61c1afbe6252d1feefc9bc648457ef21a57d23d5
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 9355262d764d96c576e1d5ce07f22d28e7aa2c76
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733991"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104934"
 ---
-# <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Snelstart: communiceren met een apparaattoepassing in C via IoT Hub-apparaatstreams (preview)
+# <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Quickstart: communiceren met een apparaattoepassing in C via IoT Hub-apparaatstreams (preview)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
-[IoT Hub-apparaatstreams](./iot-hub-device-streams-overview.md) zorgen ervoor dat service- en apparaattoepassingen kunnen communiceren op een beveiligde manier die de firewall toestaat. Gedurende de openbare preview biedt de C SDK alleen ondersteuning voor apparaatstreams aan de apparaatzijde. Daarom bevat deze quickstart alleen instructies voor het uitvoeren van de toepassing aan de apparaatzijde. Voer een bijbehorende toepassing aan de servicezijde uit. Deze is beschikbaar in de handleidingen [Quickstart voor C#](./quickstart-device-streams-echo-csharp.md) of [Quickstart voor Node.js](./quickstart-device-streams-echo-nodejs.md).
+Microsoft Azure IoT Hub apparaat-streams als op dit moment ondersteunt een [preview-functie](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+[IoT Hub-apparaatstreams](./iot-hub-device-streams-overview.md) zorgen ervoor dat service- en apparaattoepassingen kunnen communiceren op een beveiligde manier die de firewall toestaat. Gedurende de openbare preview biedt de C SDK alleen ondersteuning voor apparaatstreams aan de apparaatzijde. Daarom bevat deze quickstart alleen instructies voor het uitvoeren van de toepassing aan de apparaatzijde. U moet een bijbehorende servicezijde-toepassing uitvoeren, die beschikbaar is in de [ C# snelstartgids](./quickstart-device-streams-echo-csharp.md) of [Node.js Quick Start](./quickstart-device-streams-echo-nodejs.md).
 
 De C-toepassing aan de apparaatzijde in deze quickstart heeft de volgende functionaliteit:
 
@@ -29,13 +31,18 @@ De C-toepassing aan de apparaatzijde in deze quickstart heeft de volgende functi
 
 * Gegevens ontvangen die zijn verzonden vanaf de servicezijde en deze terug echoën.
 
-De code demonstreert het initiatieproces van een apparaatstream en laat zien hoe gegevens worden verzonden en ontvangen.
+De code laat zien het proces voor het initiëren van een apparaat-stream, evenals hoe u kunt gebruiken om te verzenden en ontvangen van gegevens.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
+
+* De Preview-versie van apparaat stromen is momenteel alleen ondersteund voor IoT-Hubs die zijn gemaakt in de volgende regio's:
+
+  * **US - centraal**
+  * **VS-midden EUAP**
 
 * [Visual Studio 2017](https://www.visualstudio.com/vs/) installeren met de workload ['Desktopontwikkeling met C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) ingeschakeld.
 * Installeer de meest recente versie van [Git](https://git-scm.com/download/).
@@ -44,22 +51,23 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 Voor deze snelstart gebruikt u de [Azure IoT device-SDK voor C](iot-hub-device-sdk-c-intro.md). U bereidt een ontwikkelomgeving voor die wordt gebruikt om de [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) van GitHub te klonen en te bouwen. De SDK op GitHub bevat de voorbeeldcode gebruikt in deze snelstartgids. 
 
-
-1. Download versie 3.11.4 van het [CMake-buildsysteem](https://cmake.org/download/). Controleer het gedownloade binaire bestand met behulp van de bijbehorende cryptografische hash-waarde. In het volgende voorbeeld is Windows PowerShell gebruikt om de cryptografische hash te controleren voor versie 3.11.4 van de x64 MSI-distributie:
+1. Download versie 3.13.4 van de [CMake-bouwsysteem](https://cmake.org/download/). Controleer het gedownloade binaire bestand met behulp van de bijbehorende cryptografische hash-waarde. Het volgende voorbeeld Windows PowerShell gebruikt om te controleren of de cryptografische hash voor 3.13.4-versie van de x64 MSI-distributiepunt:
 
     ```PowerShell
-    PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
-    PS C:\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
+    PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
     True
     ```
     
-    De volgende hash-waarden voor versie 3.11.4 werden vermeld op de CMake-site ten tijde van dit schrijven:
+    De volgende hash-waarden voor versie 3.13.4 werden vermeld op de CMake-site ten tijde van dit schrijven:
 
     ```
-    6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
-    72b3b82b6d2c2f3a375c0d2799c01819df8669dc55694c8b8daaf6232e873725  cmake-3.11.4-win32-x86.msi
-    56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869  cmake-3.11.4-win64-x64.msi
+    563a39e0a7c7368f81bfa1c3aff8b590a0617cdfe51177ddc808f66cc0866c76  cmake-3.13.4-Linux-x86_64.tar.gz
+    7c37235ece6ce85aab2ce169106e0e729504ad64707d56e4dbfc982cb4263847  cmake-3.13.4-win32-x86.msi
+    64ac7dd5411b48c2717e15738b83ea0d4347cd51b940487dff7f99a870656c09  cmake-3.13.4-win64-x64.msi
     ```
+
+    Het is belangrijk dat de Visual Studio-vereisten (Visual Studio en de workload 'Desktop development with C++') zijn geïnstalleerd op uw computer **voordat** vanaf de `CMake` installatie. Zodra de vereisten voldaan is en de download is geverifieerd, installeert u de CMake-build-systeem.
 
 2. Open een opdrachtprompt of Git Bash-shell. Voer de volgende opdracht uit voor het klonen van de [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub-opslagplaats:
     
@@ -77,27 +85,27 @@ Voor deze snelstart gebruikt u de [Azure IoT device-SDK voor C](iot-hub-device-s
     cd cmake
     ```
 
-4. Voer de volgende opdracht uit om een versie van de SDK te compileren die specifiek is voor uw clientplatform voor ontwikkeling. Er wordt in Windows een Visual Studio-oplossing voor het gesimuleerde apparaat gegenereerd in de map `cmake`. 
+4. Voer de volgende opdrachten uit de `cmake` directory voor het bouwen van een versie van de SDK die specifiek zijn voor uw clientplatform voor ontwikkeling.
 
-```
-    # In Linux
-    cmake ..
-    make -j
-```
+   * In Linux:
 
-Voer in Windows de volgende opdrachten uit in Developer Command Prompt voor uw Visual Studio 2015- of 2017-prompt:
+      ```bash
+      cmake ..
+      make -j
+      ```
 
-```
-    rem In Windows
-    rem For VS2015
-    cmake .. -G "Visual Studio 15 2015"
-    
-    rem Or for VS2017
-    cmake .. -G "Visual Studio 15 2017"
+   * Voer in Windows, de volgende opdrachten in de opdrachtprompt voor ontwikkelaars voor Visual Studio 2015 of 2017. Er wordt een Visual Studio-oplossing voor het gesimuleerde apparaat gegenereerd in de map `cmake`.
 
-    rem Then build the project
-    cmake --build . -- /m /p:Configuration=Release
-```
+      ```cmd
+      rem For VS2015
+      cmake .. -G "Visual Studio 14 2015"
+
+      rem Or for VS2017
+      cmake .. -G "Visual Studio 15 2017"
+
+      rem Then build the project
+      cmake --build . -- /m /p:Configuration=Release
+      ```
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
@@ -132,52 +140,50 @@ Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan m
 
     U gebruikt deze waarde verderop in de snelstartgids.
 
-
 ## <a name="communicate-between-device-and-service-via-device-streams"></a>Communicatie tussen apparaat en service via apparaatstreams
 
 ### <a name="run-the-device-side-application"></a>De toepassing aan de apparaatzijde uitvoeren
 
 U moet de volgende stappen volgen om de toepassing aan de apparaatzijde uit te voeren:
-- Stel uw ontwikkelomgeving in met behulp van de instructies in dit [artikel over apparaatstreams](https://github.com/Azure/azure-iot-sdk-c-tcpstreaming/blob/master/iothub_client/readme.md#compiling-the-device-sdk-for-c).
 
-- Geef de aanmeldingsgegevens voor het apparaat op door het bronbestand `iothub_client/samples/iothub_client_c2d_streaming_sample/iothub_client_c2d_streaming_sample.c` te bewerken en geef de verbindingsreeks van het apparaat op.
-```C
-  /* Paste in the your iothub connection string  */
-  static const char* connectionString = "[device connection string]";
-```
+1. Geef de referenties van uw apparaat door het bewerken van het bronbestand `iothub_client/samples/iothub_client_c2d_streaming_sample/iothub_client_c2d_streaming_sample.c` en het geven van de verbindingsreeks van uw apparaat.
 
-- Compileer de code als volgt:
+   ```C
+   /* Paste in your iothub connection string  */
+   static const char* connectionString = "[device connection string]";
+   ```
 
-```
-  # In Linux
-  # Go to the sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_sample
-  make -j
+2. Compileer de code als volgt:
 
+   ```bash
+   # In Linux
+   # Go to the sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_sample
+   make -j
+   ```
 
-  # In Windows
-  # Go to the cmake folder at the root of repo
-  cmake --build . -- /m /p:Configuration=Release
-```
+   ```cmd
+   rem In Windows
+   rem Go to the cmake folder at the root of repo
+   cmake --build . -- /m /p:Configuration=Release
+   ```
 
-- Voer het gecompileerde programma uit:
+3. Voer het gecompileerde programma uit:
 
-```
-  # In Linux
-  # Go to sample's folder
-  cmake/iothub_client/samples/iothub_client_c2d_streaming_sample
-  ./iothub_client_c2d_streaming_sample
+   ```bash
+   # In Linux
+   # Go to the sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_sample
+   ./iothub_client_c2d_streaming_sample
+   ```
 
-
-  # In Windows
-  # Go to sample's release folder
-  cmake\iothub_client\samples\iothub_client_c2d_streaming_sample\Release
-  iothub_client_c2d_streaming_sample.exe
-```
+   ```cmd
+   rem In Windows
+   rem Go to the sample's release folder cmake\iothub_client\samples\iothub_client_c2d_streaming_sample\Release
+   iothub_client_c2d_streaming_sample.exe
+   ```
 
 ### <a name="run-the-service-side-application"></a>De toepassing aan de servicezijde uitvoeren
 
-Zoals eerder vermeld, biedt de IoT Hub C SDK alleen ondersteuning voor apparaatstreams aan de apparaatzijde. Voor de toepassing aan de servicezijde gebruikt u de bijbehorende serviceprogramma's die beschikbaar zijn in de handleidingen[Quickstart voor C#](./quickstart-device-streams-echo-csharp.md) of [Quickstart voor Node.js](./quickstart-device-streams-echo-nodejs.md).
-
+Zoals eerder vermeld, ondersteunt C-SDK voor IoT-Hub alleen apparaat stromen op het apparaat plaats. Als u wilt bouwen en uitvoeren van de toepassing aan de serverkant, volgt u de stappen die beschikbaar zijn in de [ C# snelstartgids](./quickstart-device-streams-echo-csharp.md) of de [Node.js Quick Start](./quickstart-device-streams-echo-nodejs.md).
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
@@ -185,7 +191,7 @@ Zoals eerder vermeld, biedt de IoT Hub C SDK alleen ondersteuning voor apparaats
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze quickstart hebt u een IoT-hub geconfigureerd, een apparaat geregistreerd, gesimuleerde telemetrie verzonden naar de hub met behulp van een C-toepassing en de telemetrie van de hub gelezen met behulp van Azure Cloud Shell.
+In deze snelstartgids hebt u instellen van een IoT-hub, een apparaat hebt geregistreerd, een apparaat-stroom tussen een toepassing C op het apparaat en een andere toepassing aan de service tot stand gebracht en de stroom gebruikt voor het verzenden van gegevens heen en weer tussen de toepassingen.
 
 Gebruik de onderstaande koppelingen voor meer informatie over apparaatstreams:
 

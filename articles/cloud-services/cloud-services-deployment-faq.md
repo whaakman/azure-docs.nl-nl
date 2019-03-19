@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: c961238d1fbce1ff590e0b0843ae1390aa7f1cd9
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: adaed4c7af1d325f85d6fc349ac9a4faf73c1169
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534817"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078808"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemen bij de implementatie voor Azure Cloud Services: Veelgestelde vragen (FAQ's)
 
@@ -67,10 +67,11 @@ Zie voor meer informatie, [het bijwerken van een cloudservice](cloud-services-up
 ## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Waarom kan ik geen implementeren van Cloud-Services via Service Management API's of PowerShell bij het gebruik van Azure Resource Manager-Storage-account? 
 
 Omdat de Service in de Cloud een Classic-resource die niet rechtstreeks compatibel is met het Azure Resource Manager-model is, kunt u deze niet koppelen met de Azure Resource Manager-opslagaccounts. Hier zijn enkele opties: 
- 
+ 
 - Implementeren via REST-API.
 
-    Wanneer u via de Service Management REST-API implementeert, kan u de beperking omzeilen door een SAS-URL naar de blob-opslag, die is voor zowel klassieke als Azure Resource Manager-Storage-account geschikt op te geven. Meer informatie over de eigenschap 'PackageUrl' [hier](https://msdn.microsoft.com/library/azure/ee460813.aspx).  
+    Wanneer u via de Service Management REST-API implementeert, kan u de beperking omzeilen door een SAS-URL naar de blob-opslag, die is voor zowel klassieke als Azure Resource Manager-Storage-account geschikt op te geven. Meer informatie over de eigenschap 'PackageUrl' [hier](https://msdn.microsoft.com/library/azure/ee460813.aspx).
+  
 - Implementeren via [Azure-portal](https://portal.azure.com).
 
     Dit werkt vanuit de [Azure-portal](https://portal.azure.com) wanneer de aanroep niet via een proxy/shim waarmee de communicatie tussen Azure Resource Manager en klassieke resources. 

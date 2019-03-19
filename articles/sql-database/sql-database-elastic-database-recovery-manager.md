@@ -12,16 +12,16 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: c4eeb73e3b0abfe2558fc387953023254952a515
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 1bab1ed9e2a24b0a84f4327d47a910934319b397
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296865"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849972"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Problemen met shard-toewijzingen oplossen met de RecoveryManager-klasse
 
-De [RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) klasse biedt ADO.Net toepassingen de mogelijkheid om eenvoudig detecteren en corrigeer eventuele inconsistenties tussen de globale shard-toewijzing (GSM) en de lokale-shard-toewijzing (LSM) in een omgeving met shard-database.
+De [RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) klasse biedt ADO.NET toepassingen de mogelijkheid om eenvoudig detecteren en corrigeer eventuele inconsistenties tussen de globale shard-toewijzing (GSM) en de lokale-shard-toewijzing (LSM) in een omgeving met shard-database.
 
 De GSM en LSM houden de toewijzing van elke database in een gedeelde omgeving. Af en toe optreedt een onderbreking tussen de GSM en de LSM. In dat geval gebruikt u de RecoveryManager-klasse om te detecteren en herstellen van het einde.
 

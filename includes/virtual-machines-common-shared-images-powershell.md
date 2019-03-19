@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/10/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: c74a96e3dcce1394e0af5447c07ad38c54b960fa
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 91889971e1ab8a9ea8341f6bc57735d973ea0e89
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825285"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125313"
 ---
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell starten
 
@@ -95,7 +95,7 @@ $vmConfig = Set-AzVMSourceImage `
 
 Dit is vergelijkbaar met hoe u op dit moment opgeven Gebruik uitgever, aanbieding en SKU voor de kunt [Azure Marketplace-installatiekopieën](../articles/virtual-machines/windows/cli-ps-findimage.md) naar de meest recente versie van een Marketplace-installatiekopie. Met dat gegeven in gedachte moet elke definitie van de installatiekopie van een unieke set van deze waarden hebben.  
 
-##<a name="create-an-image-version"></a>De versie van een installatiekopie maken
+## <a name="create-an-image-version"></a>De versie van een installatiekopie maken
 
 De versie van een installatiekopie van het gebruik van een beheerde installatiekopie maken [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) . In dit voorbeeld de versie van de installatiekopie is *1.0.0* en deze worden gerepliceerd naar beide *West-Centraal VS* en *Zuid-centraal VS* datacenters.
 

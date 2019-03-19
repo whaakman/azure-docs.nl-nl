@@ -19,12 +19,12 @@ ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bf7919a2dc69bc834a5834d10a5a297a2ad6949
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9e2b99871cc1da2b1e8e136fc4d689e90dfad77a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170300"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081233"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Enterprise State Roaming-instellingen in Azure Active Directory oplossen
 
@@ -47,7 +47,7 @@ Als u uw probleem met de onderstaande richtlijnen niet kan oplossen, kunt u cont
 * **Betrokken gebruikers** – Is sync werken/mislukte voor één gebruiker of meerdere gebruikers? Het aantal apparaten per gebruiker zijn betrokken? Zijn al deze niet gesynchroniseerd of zijn sommige van deze synchroniseren en sommige niet synchroniseren?
 * **Informatie over de gebruiker** : welke identiteit van de gebruiker die zich aanmeldt bij het apparaat is? Hoe wordt de gebruiker aanmelden bij het apparaat? Zijn ze deel uitmaken van een geselecteerde beveiligingsgroep kan synchroniseren? 
 * **Informatie over het apparaat** – dit apparaat Azure AD join of domein? Welke versie is het apparaat op? Wat zijn de meest recente updates?
-- **Datum / tijd / tijdzone** : Wat is de exacte datum en tijd die u hebt gezien de fout (inclusief de tijdzone)?
+* **Datum / tijd / tijdzone** : Wat is de exacte datum en tijd die u hebt gezien de fout (inclusief de tijdzone)?
 
 Deze gegevens kan we het probleem zo snel mogelijk kunt oplossen.
 
@@ -59,8 +59,8 @@ In deze sectie bevat suggesties over het oplossen en diagnosticeren van probleme
 1. Nadat u uw Windows 10-pc's toevoegen aan een domein dat is geconfigureerd voor het Enterprise State Roaming toestaan, moet u zich aanmelden met uw werkaccount. Ga naar **instellingen** > **Accounts** > **uw synchronisatie-instellingen** en controleer of synchronisatie en de afzonderlijke instellingen op, en dat de bovenkant van de instellingenpagina geeft aan dat u met uw werkaccount synchroniseert. Controleer of hetzelfde account wordt ook gebruikt als uw account voor aanmelding in **instellingen** > **Accounts** > **je Info**. 
 1. Controleer of synchroniseren tussen meerdere computers werkt door enkele wijzigingen doorgevoerd op de oorspronkelijke computer, zoals het verplaatsen van de taakbalk op de bovenste of rechts van het scherm. Bekijk de wijziging wordt doorgegeven aan de tweede machine binnen vijf minuten. 
 
-  * Vergrendelen en ontgrendelen van het scherm (Win + L) kan helpen bij het activeren van een synchronisatie.
-  * U moet aanmelden met hetzelfde account op beide computers voor synchronisatie moet werken, zoals Enterprise State Roaming is gekoppeld aan het gebruikersaccount en niet het computeraccount.
+   * Vergrendelen en ontgrendelen van het scherm (Win + L) kan helpen bij het activeren van een synchronisatie.
+   * U moet aanmelden met hetzelfde account op beide computers voor synchronisatie moet werken, zoals Enterprise State Roaming is gekoppeld aan het gebruikersaccount en niet het computeraccount.
 
 **Potentiële problemen**: Als de besturingselementen in de **instellingen** pagina zijn niet beschikbaar en u ziet het bericht "Sommige Windows-functies zijn alleen beschikbaar als u een Microsoft-account of werkaccount." Dit probleem kan optreden voor apparaten die zijn ingesteld op domein en geregistreerd bij Azure AD, maar het apparaat is niet nog is geverifieerd bij Azure AD. Een mogelijke oorzaak is dat het apparaatbeleid moet worden toegepast, maar deze toepassing verloopt asynchroon en door een paar uur kan worden vertraagd. 
 

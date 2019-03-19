@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: a3e08da062614184ff943feca669d7b46ae13c4f
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 793624b34c718abccaeeff5b0fe3b83f446d0809
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243955"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58171003"
 ---
 # <a name="mapping-data-flow-data-transformation-expressions"></a>Toewijzing van gegevensstroom data transformation expressies
 
@@ -65,12 +65,12 @@ Logische AND-operator. Hetzelfde als & & * ``and(true, false) -> false``
 <code>asin</code>
 ==============================
 <code><b>asin(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-De waarde van een inverse sinus berekend * ``asin(0) -> 0.0``
+Berekent een waarde inverse sinus * ``asin(0) -> 0.0``
 *********************************
 <code>atan</code>
 ==============================
 <code><b>atan(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Een inverse tangens waarde wordt berekend * ``atan(0) -> 0.0``
+Berekent een inverse tangens waarde * ``atan(0) -> 0.0``
 *********************************
 <code>atan2</code>
 ==============================
@@ -864,7 +864,7 @@ Een numerieke of tekenreeks wordt geconverteerd naar een drijvende-kommawaarde. 
 <code>toInteger</code>
 ==============================
 <code><b>toInteger(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string]) => integer</b></code><br/><br/>
-Een numerieke of tekenreeks wordt geconverteerd naar een geheel getal zijn. Een optionele Java decimale notatie voor de conversie kan worden gebruikt. Kapt een lang, float dubbele * ``toInteger(123) -> 123``
+Een numerieke of tekenreeks wordt geconverteerd naar een geheel getal. Een optionele Java decimale notatie voor de conversie kan worden gebruikt. Kapt een lang, float dubbele * ``toInteger(123) -> 123``
 * ``toInteger('123') -> 123``
 * ``toInteger('$123', '$###') -> 123``
 *********************************

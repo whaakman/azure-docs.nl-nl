@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: cherylmc
-ms.openlocfilehash: e574759ff8af172841db9fc94ee860a19dd14200
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 74639dee6fb548e1c9067cae6fc22f6e3cc872c3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415362"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096228"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Genereren en exporteren van certificaten voor punt-naar-Site met behulp van PowerShell
 
@@ -30,12 +30,12 @@ Gebruik de cmdlet New-SelfSignedCertificate om een zelfondertekend basiscertific
 1. Vanaf een computer met Windows 10 of Windows Server 2016, opent u een Windows PowerShell-console met verhoogde bevoegdheden. Deze voorbeelden werken niet in de Azure Cloud Shell 'Nu uitproberen'. U moet deze voorbeelden lokaal uitvoeren.
 2. Gebruik het volgende voorbeeld om het zelfondertekend basiscertificaat te maken. Het volgende voorbeeld wordt een zelfondertekend basiscertificaat 'P2SRootCert', die automatisch wordt geïnstalleerd in 'Certificaten-Huidige gebruiker\Persoonlijk\Certificaten' met de naam. U kunt het certificaat weergeven door het openen van *certmgr.msc*, of *Gebruikerscertificaten beheren*.
 
-  ```powershell
-  $cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature `
-  -Subject "CN=P2SRootCert" -KeyExportPolicy Exportable `
-  -HashAlgorithm sha256 -KeyLength 2048 `
-  -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
-  ```
+   ```powershell
+   $cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature `
+   -Subject "CN=P2SRootCert" -KeyExportPolicy Exportable `
+   -HashAlgorithm sha256 -KeyLength 2048 `
+   -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
+   ```
 
 ## <a name="clientcert"></a>2. Een clientcertificaat genereren
 
@@ -65,37 +65,37 @@ Als u het maken van aanvullende clientcertificaten of niet dezelfde PowerShell-s
 
 1. Identificeer het zelfondertekende basiscertificaat dat is geïnstalleerd op de computer. Deze cmdlet retourneert een lijst met certificaten die zijn geïnstalleerd op uw computer.
 
-  ```powershell
-  Get-ChildItem -Path “Cert:\CurrentUser\My”
-  ```
+   ```powershell
+   Get-ChildItem -Path “Cert:\CurrentUser\My”
+   ```
 2. Zoek de naam van het onderwerp in de geretourneerde lijst en kopieer de vingerafdruk die naast het bevindt zich in een tekstbestand. Er zijn twee certificaten in het volgende voorbeeld. De CN-naam is de naam van het zelfondertekende basiscertificaat van waaruit u wilt een onderliggende certificaat genereren. In dit geval 'P2SRootCert'.
 
-  ```
-  Thumbprint                                Subject
+   ```
+   Thumbprint                                Subject
   
-  AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
-  7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
-  ```
+   AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
+   7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
+   ```
 3. Declareer een variabele voor het basiscertificaat met behulp van de vingerafdruk van de vorige stap. VINGERAFDRUK vervangen door de vingerafdruk van het basiscertificaat van waaruit u wilt een onderliggende certificaat genereren.
 
-  ```powershell
-  $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\THUMBPRINT"
-  ```
+   ```powershell
+   $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\THUMBPRINT"
+   ```
 
-  Met de vingerafdruk voor P2SRootCert in de vorige stap, de variabele, ziet er bijvoorbeeld als volgt:
+   Met de vingerafdruk voor P2SRootCert in de vorige stap, de variabele, ziet er bijvoorbeeld als volgt:
 
-  ```powershell
-  $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655"
-  ```
-4.  Wijzigen en voer het voorbeeld voor het genereren van een clientcertificaat. Als u het volgende voorbeeld uitvoert zonder het te wijzigen, is het resultaat een clientcertificaat met de naam 'P2SChildCert'. Als u wilt de naam van het certificaat van de onderliggende iets anders, wijzigt u de CN-waarde. Wijzig de TextExtension niet bij het uitvoeren van dit voorbeeld. Het clientcertificaat dat u wordt automatisch geïnstalleerd in 'Certificaten - Huidige gebruiker\Persoonlijk\Certificaten' op uw computer.
+   ```powershell
+   $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655"
+   ```
+4. Wijzigen en voer het voorbeeld voor het genereren van een clientcertificaat. Als u het volgende voorbeeld uitvoert zonder het te wijzigen, is het resultaat een clientcertificaat met de naam 'P2SChildCert'. Als u wilt de naam van het certificaat van de onderliggende iets anders, wijzigt u de CN-waarde. Wijzig de TextExtension niet bij het uitvoeren van dit voorbeeld. Het clientcertificaat dat u wordt automatisch geïnstalleerd in 'Certificaten - Huidige gebruiker\Persoonlijk\Certificaten' op uw computer.
 
-  ```powershell
-  New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature `
-  -Subject "CN=P2SChildCert" -KeyExportPolicy Exportable `
-  -HashAlgorithm sha256 -KeyLength 2048 `
-  -CertStoreLocation "Cert:\CurrentUser\My" `
-  -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
-  ```
+   ```powershell
+   New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature `
+   -Subject "CN=P2SChildCert" -KeyExportPolicy Exportable `
+   -HashAlgorithm sha256 -KeyLength 2048 `
+   -CertStoreLocation "Cert:\CurrentUser\My" `
+   -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
+   ```
 
 ## <a name="cer"></a>3. Exporteer de openbare sleutel voor basis-certificaat (.cer)
 

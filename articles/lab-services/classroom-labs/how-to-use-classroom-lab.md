@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 387e59eccc7dd9b20142bd692a1fe361435d3d57
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 7c4a73c86245067a07dc253041c43ae6c17f7172
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965015"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096976"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Toegang tot een leslokaallab in Azure Lab Services
 In dit artikel wordt beschreven hoe u toegang krijgt tot een leslokaallab, hoe u verbinding maakt met de virtuele machine in het lab en hoe u de virtuele machine kunt stoppen. 
@@ -46,10 +46,10 @@ Als u zich voor de labs registreert, kunt u alle leslokaallabs weergeven door de
 
 1. Selecteer **Start** op de tegel om de virtuele machine te starten als deze nog niet is gestart. 
 2. Selecteer **Verbinding maken** op de tegel van de virtuele machine van het lab dat u wilt openen. 
-3. Sla het RDP-bestand (voor een virtuele Windows-machine) op de harde schijf op en open het. 
-4. Gebruik de **gebruikersnaam** en het **wachtwoord** dat u van uw docent hebt gekregen om zich aan te melden bij de computer. 
-
-## <a name="stop-the-virtual-machine-in-a-classroom-lab"></a>De virtuele machine in een leslokaallab stoppen
+3. Voer een van de volgende stappen uit: 
+   1. Voor **Windows** opslaan voor virtuele machines, de **RDP** bestand naar de harde schijf. Open het RDP-bestand verbinding maken met de virtuele machine. Gebruik de **gebruikersnaam** en **wachtwoord** u ophalen uit uw docenten/professor aan te melden bij de computer. 
+   3. Voor **Linux** virtuele machines, kopiëren en opslaan van de SSH-verbindingsreeks op de **verbinding maken met uw virtuele machine** in het dialoogvenster. Deze verbindingsreeks vanuit een SSH-terminal gebruiken (zoals [Putty](https://www.putty.org/)) verbinding maken met de virtuele machine.
+      ## <a name="stop-the-virtual-machine-in-a-classroom-lab"></a>De virtuele machine in een leslokaallab stoppen
 
 Selecteer **Stoppen** op de tegel om de virtuele machine te stoppen. Zodra de virtuele machine is gestopt, wordt de knop **Start** op de tegel geactiveerd. 
 

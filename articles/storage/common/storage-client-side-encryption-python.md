@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
 ms.subservice: common
-ms.openlocfilehash: dfff159d7e0204a752935458a2b4845499c0d652
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ecfd86a7e4a8ef97663cc930906fd909b6f0fae8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453396"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011114"
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Client-Side-versleuteling voor Microsoft Azure Storage met Python
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -48,7 +48,7 @@ Ontsleuteling via de techniek envelop werkt in de volgende manier:
 4. De sleutel voor versleuteling van inhoud (CEK) wordt vervolgens gebruikt voor het ontsleutelen van de versleutelde gegevens.
 
 ## <a name="encryption-mechanism"></a>-Versleutelingsmechanisme
-Maakt gebruik van de storage-clientbibliotheek [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) om gebruikersgegevens te versleutelen. Met name [Cipher Block Chaining (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) modus met AES. Elke service enigszins anders werkt, zodat we elk van deze hier wordt besproken.
+Maakt gebruik van de storage-clientbibliotheek [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) om gebruikersgegevens te versleutelen. Met name [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) modus met AES. Elke service enigszins anders werkt, zodat we elk van deze hier wordt besproken.
 
 ### <a name="blobs"></a>Blobs
 De clientbibliotheek biedt momenteel ondersteuning voor versleuteling van hele BLOB's. Specifiek, versleuteling wordt ondersteund wanneer gebruikers de **maken*** methoden. Voor downloads, zowel volledige als bereik downloads worden ondersteund, en parallelle uitvoering van beide uploaden en downloaden is beschikbaar.
@@ -91,9 +91,9 @@ Tabel gegevensversleuteling werkt als volgt:
 2. De clientbibliotheek genereert een willekeurige initialisatie Vector (IV) van 16 bytes, samen met een willekeurige versleuteling van de inhoud-sleutel (CEK) van 32 bytes voor elke entiteit en envelop-versleuteling uitvoert op de afzonderlijke eigenschappen te laten versleutelen door een nieuwe IV per eigenschap die is afgeleid. De gecodeerde eigenschap wordt opgeslagen als binaire gegevens.
 3. De verpakte CEK en enkele aanvullende metagegevens worden vervolgens opgeslagen als twee extra gereserveerde eigenschappen. De eerste gereserveerde eigenschap (\_ClientEncryptionMetadata1) is een string-eigenschap die de informatie over IV, versie en ingepakte sleutel bevat. De tweede gereserveerde eigenschap (\_ClientEncryptionMetadata2) is een binaire eigenschap waarin de informatie over de eigenschappen die zijn versleuteld. De informatie in dit tweede eigenschap (\_ClientEncryptionMetadata2) is versleuteld.
 4. Vanwege deze extra gereserveerde eigenschappen vereist zijn voor versleuteling, kunnen gebruikers nu alleen 250 aangepaste eigenschappen in plaats van 252 hebben. De totale grootte van de entiteit moet minder dan 1MB.
-   
+
    Houd er rekening mee dat alleen de tekenreekseigenschappen van de kunnen worden versleuteld. Als andere typen eigenschappen moeten worden versleuteld, moeten ze worden geconverteerd naar tekenreeksen. De gecodeerde tekenreeksen worden opgeslagen op de service als binaire eigenschappen, en ze worden geconverteerd naar tekenreeksen (onbewerkte tekenreeksen, niet EntityProperties met het type EdmType.STRING) na ontsleuteling.
-   
+
    Gebruikers moeten de eigenschappen moeten worden versleuteld opgeven voor tabellen, naast het coderingsbeleid. Dit kan worden gedaan door op te slaan deze eigenschappen in TableEntity objecten met het type is ingesteld op EdmType.STRING en is ingesteld op true of de encryption_resolver_function instellen op het object tableservice coderen. Een oplossing versleuteling is een functie die u neemt een partitiesleutel, een rijsleutel en een eigenschapsnaam en retourneert een Booleaanse waarde die aangeeft of deze eigenschap moet worden versleuteld. Tijdens het versleutelen, wordt de clientbibliotheek van deze informatie gebruiken om te bepalen of een eigenschap moet worden versleuteld tijdens het schrijven naar de kabel. De gemachtigde biedt ook de mogelijkheid van logica over hoe eigenschappen zijn gecodeerd. (Bijvoorbeeld, als X, vervolgens versleutelen eigenschap A; anders eigenschappen A en B. te versleutelen) Houd er rekening mee dat het is niet nodig om deze informatie tijdens het lezen of uitvoeren van query's entiteiten te geven.
 
 ### <a name="batch-operations"></a>Batchbewerkingen
@@ -105,9 +105,9 @@ Houd er rekening mee dat de entiteiten worden versleuteld terwijl ze worden inge
 > [!NOTE]
 > Omdat de entiteiten zijn versleuteld, kunt u query's die filteren niet uitvoeren op een gecodeerde eigenschap.  Als u probeert, is resultaten onjuist, omdat de service probeert zou om versleutelde gegevens met niet-versleutelde gegevens te vergelijken.
 > 
->
-Als u wilt querybewerkingen uitvoeren, moet u een sleutel-omzetter kan omzetten van de sleutels in de resultatenset. Als een entiteit die deel uitmaken van het queryresultaat kan niet worden omgezet naar een provider, genereert de clientbibliotheek een fout. Voor elke query die wordt uitgevoerd van server side projecties, de clientbibliotheek van de eigenschappen van speciale versleuteling metagegevens wordt toegevoegd (\_ClientEncryptionMetadata1 en \_ClientEncryptionMetadata2) standaard aan de geselecteerde kolommen.
-
+> 
+> Als u wilt querybewerkingen uitvoeren, moet u een sleutel-omzetter kan omzetten van de sleutels in de resultatenset. Als een entiteit die deel uitmaken van het queryresultaat kan niet worden omgezet naar een provider, genereert de clientbibliotheek een fout. Voor elke query die wordt uitgevoerd van server side projecties, de clientbibliotheek van de eigenschappen van speciale versleuteling metagegevens wordt toegevoegd (\_ClientEncryptionMetadata1 en \_ClientEncryptionMetadata2) standaard aan de geselecteerde kolommen.
+> 
 > [!IMPORTANT]
 > Houd rekening met deze belangrijke punten bij het gebruik van versleuteling op de client:
 > 
@@ -115,8 +115,6 @@ Als u wilt querybewerkingen uitvoeren, moet u een sleutel-omzetter kan omzetten 
 > * Een dergelijke beperking bestaat voor tabellen. Zorg ervoor dat versleutelde eigenschappen niet bijwerken zonder versleutelingsgerelateerde metagegevens worden bijgewerkt.
 > * Als u de metagegevens op de versleutelde blob hebt ingesteld, overschrijft u de versleutelingsgerelateerde metagegevens vereist voor ontsleuteling, omdat de instelling van metagegevens is niet-additieve. Dit geldt ook voor momentopnamen; Vermijd metagegevens op te geven tijdens het maken van een momentopname van een versleutelde blob. Als de metagegevens van moet zijn ingesteld, moet u aanroepen de **get_blob_metadata** methode om de metagegevens van de huidige versleuteling ophalen, en te voorkomen dat gelijktijdige schrijfbewerkingen terwijl metagegevens wordt ingesteld.
 > * Schakel de **require_encryption** vlag aan het service-object voor gebruikers die alleen met de versleutelde gegevens werken moeten. Zie hieronder voor meer informatie.
-> 
-> 
 
 De opslagclientbibliotheek wordt verwacht dat de KEK-sleutel opgegeven en de sleutel conflictoplosser voor het implementeren van de volgende interface. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) ondersteuning voor Python-KEK-management in behandeling is en wordt geïntegreerd in deze bibliotheek wanneer dit is voltooid.
 
@@ -136,10 +134,10 @@ De belangrijkste resolver moet ten minste een methode die gegeven van een sleute
 
 * De sleutel wordt altijd gebruikt voor versleuteling, en het ontbreken van een sleutel zal leiden tot een fout.
 * Voor ontsleuteling:
-  
+
   * De belangrijkste resolver wordt aangeroepen als voor het ophalen van de sleutel opgegeven. Als de conflictoplosser is opgegeven, maar beschikt niet over een toewijzing voor de sleutel-id, wordt er een fout opgetreden.
   * Als conflictoplosser niet is opgegeven, maar een sleutel is opgegeven, wordt de sleutel wordt gebruikt als de id overeenkomt met de vereiste sleutel-id. Als de id komt niet overeen met, wordt er een fout opgetreden.
-    
+
     De voorbeelden versleuteling in azure.storage.samples <fix URL>demonstreren een meer gedetailleerde end-to-end-scenario voor blobs, wachtrijen en tabellen.
       Voorbeeldimplementaties van de KEK-sleutel en de sleutel conflictoplosser vindt u in de voorbeeldbestanden KeyWrapper en KeyResolver respectievelijk.
 

@@ -6,16 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.reviewer: larryfr
-ms.author: haining
-author: hning86
+ms.author: larryfr
+author: Blackmist
 ms.date: 02/11/2019
-ms.openlocfilehash: d91cb2a98c6861695ffdc231bd979abaf24b2c6e
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 2b5ee1b5079f22985b03aaafac30c11a10a3c8f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669989"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850074"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace-by-using-a-template"></a>Een werkruimte van Azure Machine Learning-service met behulp van een sjabloon maken
 
@@ -25,7 +24,7 @@ Zie voor meer informatie, [een toepassing implementeren met Azure Resource Manag
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een **Azure-abonnement**. Als u een hebt, kunt u de [gratis of betaalde versie van Azure Machine Learning-service](http://aka.ms/AMLFree).
+* Een **Azure-abonnement**. Als u een hebt, kunt u de [gratis of betaalde versie van Azure Machine Learning-service](https://aka.ms/AMLFree).
 
 * Een sjabloon van een CLI wilt gebruiken, moet u een [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) of de [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -193,12 +192,12 @@ Zie de volgende artikelen voor meer informatie over sjablonen:
 1. Volg de stappen in [resources implementeren vanuit een aangepaste sjabloon](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). Als u aankomen bij de __template bewerken__ scherm, in de sjabloon van dit document plakken.
 1. Selecteer __opslaan__ de sjabloon wilt gebruiken. Geef de volgende informatie en ga akkoord met de vermelde voorwaarden:
 
-    * Abonnement: Selecteer het Azure-abonnement moet worden gebruikt voor deze resources.
-    * Resourcegroep: Selecteer of maak een resourcegroep voor de services bevatten.
-    * Werkruimtenaam: De naam moet worden gebruikt voor de Azure Machine Learning-werkruimte die worden gemaakt. Naam van de werkruimte moet tussen 3 en 33 tekens lang zijn. Deze mag alleen alfanumerieke tekens bevatten en '-'.
-    * Locatie: Selecteer de locatie waar de resources worden gemaakt.
+   * Abonnement: Selecteer het Azure-abonnement moet worden gebruikt voor deze resources.
+   * Resourcegroep: Selecteer of maak een resourcegroep voor de services bevatten.
+   * Werkruimtenaam: De naam moet worden gebruikt voor de Azure Machine Learning-werkruimte die worden gemaakt. Naam van de werkruimte moet tussen 3 en 33 tekens lang zijn. Deze mag alleen alfanumerieke tekens bevatten en '-'.
+   * Locatie: Selecteer de locatie waar de resources worden gemaakt.
 
-    ![De sjabloonparameters in Azure portal](media/how-to-create-workspace-template/template-parameters.png)
+     ![De sjabloonparameters in Azure portal](media/how-to-create-workspace-template/template-parameters.png)
 
 Zie voor meer informatie, [resources implementeren vanuit een aangepaste sjabloon](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 

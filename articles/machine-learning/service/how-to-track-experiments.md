@@ -11,17 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: bd3adaee275dbb8a705c7b0a35335385d1026eed
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 79247c4c1f26fadcd5f0291b55c9dd8d4d9aa2af
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337937"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008830"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Bijhouden van experimenten en training metrische gegevens in Azure Machine Learning
 
-U kunt in de Azure Machine Learning-service uw experimenten volgen en controleren van metrische gegevens voor het verbeteren van het proces voor het model maken. In dit artikel leert u over de verschillende manieren om toe te voegen van logboekregistratie voor uw trainingsscript over het verzenden van het experiment met **start_logging** en **ScriptRunConfig**, het controleren van de voortgang van een actieve taak, en hoe u de resultaten van een uitvoering wilt weergeven. 
-
+U kunt in de Azure Machine Learning-service uw experimenten volgen en controleren van metrische gegevens voor het verbeteren van het proces voor het model maken. In dit artikel leert u hoe u logboekregistratie toevoegen aan uw trainingsscript, verzenden van een experiment uitvoeren, bewaken van de uitvoering en de resultaten van een uitvoering weergeven.
 
 ## <a name="list-of-training-metrics"></a>Overzicht van metrische gegevens voor training 
 
@@ -31,7 +30,7 @@ De volgende metrische gegevens kunnen worden toegevoegd aan een run tijdens het 
 |----|:----|:----|
 |Scalaire waarden |Functie:<br>`run.log(name, value, description='')`<br><br>Voorbeeld:<br>Run.log ("nauwkeurigheid", 0.95) |Meld u een numerieke of tekenreekswaarde voor de uitvoering met de opgegeven naam. Logboekregistratie van een metrische waarde aan een run zorgt ervoor dat deze metrische gegevens worden opgeslagen in de record uitvoeren in het experiment.  U kunt de dezelfde metrische gegevens meerdere keren binnen een uitvoering, het resultaat wordt beschouwd als een vector van deze metrische gegevens vastleggen.|
 |Lijsten|Functie:<br>`run.log_list(name, value, description='')`<br><br>Voorbeeld:<br>Run.log_list ("nauwkeurigheden," [0,6, 0,7, 0.87]) | Meld u een lijst met waarden voor de uitvoering met de opgegeven naam.|
-|Rij|Functie:<br>' run.log_row (naam, beschrijving = None, ** kwargs)<br>Voorbeeld:<br>Run.log_row ("Y via X", x = 1, y = 0.4) | Met behulp van *log_row* maakt u een metrische waarde met meerdere kolommen zoals beschreven in kwargs. Elke benoemde parameter genereert een kolom met de opgegeven waarde.  *log_row* kan eenmaal worden aangeroepen voor het melden van een willekeurige tuple of meerdere keren in een lus voor het genereren van een volledige tabel.|
+|Rij|Functie:<br>`run.log_row(name, description=None, **kwargs)`<br>Voorbeeld:<br>Run.log_row ("Y via X", x = 1, y = 0.4) | Met behulp van *log_row* maakt u een metrische waarde met meerdere kolommen zoals beschreven in kwargs. Elke benoemde parameter genereert een kolom met de opgegeven waarde.  *log_row* kan eenmaal worden aangeroepen voor het melden van een willekeurige tuple of meerdere keren in een lus voor het genereren van een volledige tabel.|
 |Tabel|Functie:<br>`run.log_table(name, value, description='')`<br><br>Voorbeeld:<br>Run.log_table ("Y via X", {"x": [1, 2, 3], "y": [0,6, 0,7, 0,89]}) | Meld u aan een dictionary-object de uitvoeren met de opgegeven naam. |
 |Installatiekopieën|Functie:<br>`run.log_image(name, path=None, plot=None)`<br><br>Voorbeeld:<br>Run.log_image ("ROC" plt) | Meld u aan een installatiekopie van de record uitvoeren. Log_image gebruiken om aan te melden voor een afbeelding of een matplotlib getekend met het uitvoeren.  Deze installatiekopieën worden zichtbaar en vergelijkbare in de record uitvoeren.|
 |Een uitvoering taggen|Functie:<br>`run.tag(key, value=None)`<br><br>Voorbeeld:<br>Run.Tag ("ingeschakeld", "Ja") | Tag de uitvoering met een tekenreekssleutel en een optionele tekenreeks-waarde.|
@@ -51,11 +50,11 @@ Voordat u logboekregistratie en het verzenden van een experiment toevoegt, moet 
 
 1. Laden van de werkruimte. Voor meer informatie over het instellen van de configuratie van de standaardwerkruimte, volgt u de [snelstartgids](https://docs.microsoft.com/azure/machine-learning/service/quickstart-get-started).
 
-  ```python
-  from azureml.core import Experiment, Run, Workspace
-  import azureml.core
+   ```python
+   from azureml.core import Experiment, Run, Workspace
+   import azureml.core
   
-  ws = Workspace(workspace_name = <<workspace_name>>,
+   ws = Workspace(workspace_name = <<workspace_name>>,
                subscription_id = <<subscription_id>>,
                resource_group = <<resource_group>>)
    ```
@@ -68,57 +67,57 @@ Het volgende voorbeeld traint een eenvoudig model sklearn Ridge lokaal in een lo
 
 1. Maak een trainingsscript in een lokaal Jupyter-notitieblok. 
 
-  ``` python
-  # load diabetes dataset, a well-known small dataset that comes with scikit-learn
-  from sklearn.datasets import load_diabetes
-  from sklearn.linear_model import Ridge
-  from sklearn.metrics import mean_squared_error
-  from sklearn.model_selection import train_test_split
-  from sklearn.externals import joblib
+   ``` python
+   # load diabetes dataset, a well-known small dataset that comes with scikit-learn
+   from sklearn.datasets import load_diabetes
+   from sklearn.linear_model import Ridge
+   from sklearn.metrics import mean_squared_error
+   from sklearn.model_selection import train_test_split
+   from sklearn.externals import joblib
 
-  X, y = load_diabetes(return_X_y = True)
-  columns = ['age', 'gender', 'bmi', 'bp', 's1', 's2', 's3', 's4', 's5', 's6']
-  X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
-  data = {
+   X, y = load_diabetes(return_X_y = True)
+   columns = ['age', 'gender', 'bmi', 'bp', 's1', 's2', 's3', 's4', 's5', 's6']
+   X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
+   data = {
       "train":{"X": X_train, "y": y_train},        
       "test":{"X": X_test, "y": y_test}
-  }
-  reg = Ridge(alpha = 0.03)
-  reg.fit(data['train']['X'], data['train']['y'])
-  preds = reg.predict(data['test']['X'])
-  print('Mean Squared Error is', mean_squared_error(preds, data['test']['y']))
-  joblib.dump(value = reg, filename = 'model.pkl');
-  ```
+   }
+   reg = Ridge(alpha = 0.03)
+   reg.fit(data['train']['X'], data['train']['y'])
+   preds = reg.predict(data['test']['X'])
+   print('Mean Squared Error is', mean_squared_error(preds, data['test']['y']))
+   joblib.dump(value = reg, filename = 'model.pkl');
+   ```
 
 2. Experiment bijhouden met behulp van de Azure Machine Learning-service-SDK toevoegen en een persistente model uploaden naar het experiment record worden uitgevoerd. De volgende code wordt toegevoegd tags, Logboeken, en wordt een modelbestand geüpload naar het experiment uitvoeren.
 
-  ```python
-  # Get an experiment object from Azure Machine Learning
-  experiment = Experiment(workspace = ws, name = "train-within-notebook")
+   ```python
+   # Get an experiment object from Azure Machine Learning
+   experiment = Experiment(workspace = ws, name = "train-within-notebook")
   
-  # Create a run object in the experiment
-  run = experiment.start_logging()# Log the algorithm parameter alpha to the run
-  run.log('alpha', 0.03)
+   # Create a run object in the experiment
+   run = experiment.start_logging()# Log the algorithm parameter alpha to the run
+   run.log('alpha', 0.03)
 
-  # Create, fit, and test the scikit-learn Ridge regression model
-  regression_model = Ridge(alpha=0.03)
-  regression_model.fit(data['train']['X'], data['train']['y'])
-  preds = regression_model.predict(data['test']['X'])
+   # Create, fit, and test the scikit-learn Ridge regression model
+   regression_model = Ridge(alpha=0.03)
+   regression_model.fit(data['train']['X'], data['train']['y'])
+   preds = regression_model.predict(data['test']['X'])
 
-  # Output the Mean Squared Error to the notebook and to the run
-  print('Mean Squared Error is', mean_squared_error(data['test']['y'], preds))
-  run.log('mse', mean_squared_error(data['test']['y'], preds))
+   # Output the Mean Squared Error to the notebook and to the run
+   print('Mean Squared Error is', mean_squared_error(data['test']['y'], preds))
+   run.log('mse', mean_squared_error(data['test']['y'], preds))
 
-  # Save the model to the outputs directory for capture
-  joblib.dump(value=regression_model, filename='outputs/model.pkl')
+   # Save the model to the outputs directory for capture
+   joblib.dump(value=regression_model, filename='outputs/model.pkl')
 
-  # Take a snapshot of the directory containing this notebook
-  run.take_snapshot('./')
+   # Take a snapshot of the directory containing this notebook
+   run.take_snapshot('./')
 
-  # Complete the run
-  run.complete()
+   # Complete the run
+   run.complete()
   
-  ```
+   ```
 
 Het script wordt beëindigd met ```run.complete()```, die de uitvoering wordt gemarkeerd als voltooid.  Deze functie wordt meestal gebruikt in interactieve scenario's.
 
@@ -130,33 +129,33 @@ In dit voorbeeld is een vervolg op het basismodel sklearn Ridge van boven. Hierv
 
 1. Maken van een trainingsscript `train.py`.
 
-  ```python
-  # train.py
+   ```python
+   # train.py
 
-  import os
-  from sklearn.datasets import load_diabetes
-  from sklearn.linear_model import Ridge
-  from sklearn.metrics import mean_squared_error
-  from sklearn.model_selection import train_test_split
-  from azureml.core.run import Run
-  from sklearn.externals import joblib
+   import os
+   from sklearn.datasets import load_diabetes
+   from sklearn.linear_model import Ridge
+   from sklearn.metrics import mean_squared_error
+   from sklearn.model_selection import train_test_split
+   from azureml.core.run import Run
+   from sklearn.externals import joblib
 
-  import numpy as np
+   import numpy as np
 
-  #os.makedirs('./outputs', exist_ok = True)
+   #os.makedirs('./outputs', exist_ok = True)
 
-  X, y = load_diabetes(return_X_y = True)
+   X, y = load_diabetes(return_X_y = True)
 
-  run = Run.get_context()
+   run = Run.get_context()
 
-  X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
-  data = {"train": {"X": X_train, "y": y_train},
+   X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
+   data = {"train": {"X": X_train, "y": y_train},
           "test": {"X": X_test, "y": y_test}}
 
-  # list of numbers from 0.0 to 1.0 with a 0.05 interval
-  alphas = mylib.get_alphas()
+   # list of numbers from 0.0 to 1.0 with a 0.05 interval
+   alphas = mylib.get_alphas()
 
-  for alpha in alphas:
+   for alpha in alphas:
       # Use Ridge algorithm to create a regression model
       reg = Ridge(alpha = alpha)
       reg.fit(data["train"]["X"], data["train"]["y"])
@@ -180,43 +179,43 @@ In dit voorbeeld is een vervolg op het basismodel sklearn Ridge van boven. Hierv
 
       print('alpha is {0:.2f}, and mse is {1:0.2f}'.format(alpha, mse))
   
-  ```
+   ```
 
 2. De `train.py` script verwijzingen `mylib.py` waarmee u de lijst met alfanumerieke waarden worden gebruikt in het model ridge ophalen.
 
-  ```python
-  # mylib.py
+   ```python
+   # mylib.py
   
-  import numpy as np
+   import numpy as np
 
-  def get_alphas():
+   def get_alphas():
       # list of numbers from 0.0 to 1.0 with a 0.05 interval
       return np.arange(0.0, 1.0, 0.05)
-  ```
+   ```
 
 3. Configureer een beheerde gebruiker lokale omgeving.
 
-  ```python
-  from azureml.core.runconfig import RunConfiguration
+   ```python
+   from azureml.core.runconfig import RunConfiguration
 
-  # Editing a run configuration property on-fly.
-  run_config_user_managed = RunConfiguration()
+   # Editing a run configuration property on-fly.
+   run_config_user_managed = RunConfiguration()
 
-  run_config_user_managed.environment.python.user_managed_dependencies = True
+   run_config_user_managed.environment.python.user_managed_dependencies = True
 
-  # You can choose a specific Python environment by pointing to a Python path 
-  #run_config.environment.python.interpreter_path = '/home/user/miniconda3/envs/sdk2/bin/python'
-  ```
+   # You can choose a specific Python environment by pointing to a Python path 
+   #run_config.environment.python.interpreter_path = '/home/user/miniconda3/envs/sdk2/bin/python'
+   ```
 
 4. Dien de ```train.py``` script uit te voeren in de gebruiker beheerde omgeving. Deze scriptmap gehele wordt ingediend voor de training, met inbegrip van de ```mylib.py``` bestand.
 
-  ```python
-  from azureml.core import ScriptRunConfig
+   ```python
+   from azureml.core import ScriptRunConfig
   
-  experiment = Experiment(workspace=ws, name="train-on-local")
-  src = ScriptRunConfig(source_directory = './', script = 'train.py', run_config = run_config_user_managed)
-  run = experiment.submit(src)
-  ```
+   experiment = Experiment(workspace=ws, name="train-on-local")
+   src = ScriptRunConfig(source_directory = './', script = 'train.py', run_config = run_config_user_managed)
+   run = experiment.submit(src)
+   ```
 
 ## <a name="cancel-a-run"></a>Een uitvoering annuleren
 Na een uitvoering is ingediend, kunt u deze annuleren, zelfs als u hebt de objectverwijzing verloren als u weet de naam van het experiment wat en id uitvoeren. 
@@ -255,12 +254,12 @@ Wanneer u gebruikt de **ScriptRunConfig** methode om in te dienen wordt uitgevoe
 
 1. Bekijk de Jupyter-widget tijdens het wachten op voor het uitvoeren om te voltooien.
 
-  ```python
-  from azureml.widgets import RunDetails
-  RunDetails(run).show()
-  ```
+   ```python
+   from azureml.widgets import RunDetails
+   RunDetails(run).show()
+   ```
 
-  ![Schermafbeelding van de Jupyter-notebook widget](./media/how-to-track-experiments/widgets.PNG)
+   ![Schermafbeelding van de Jupyter-notebook widget](./media/how-to-track-experiments/widgets.PNG)
 
 2. **[Voor geautomatiseerde machine learning-uitvoeringen]**  Voor toegang tot de grafieken van een vorige uitvoering. Vervang `<<experiment_name>>` met de naam van de juiste experiment:
 
@@ -274,7 +273,7 @@ Wanneer u gebruikt de **ScriptRunConfig** methode om in te dienen wordt uitgevoe
    RunDetails(run).show()
    ```
 
-  ![Jupyter notebook widget voor geautomatiseerde Machine Learning](./media/how-to-track-experiments/azure-machine-learning-auto-ml-widget.png)
+   ![Jupyter notebook widget voor geautomatiseerde Machine Learning](./media/how-to-track-experiments/azure-machine-learning-auto-ml-widget.png)
 
 
 Om verdere details van een pijplijn-Klik op de pijplijn weer te geven u graag zou willen verkennen in de tabel en de grafieken worden weergegeven in een pop-upvenster vanuit Azure portal.
@@ -329,17 +328,17 @@ Meer informatie over:
 
 1. Selecteer **experimenten** in het deelvenster uiterst links van uw werkruimte.
 
-  ![Schermopname van het experiment menu](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_menu.PNG)
+   ![Schermopname van het experiment menu](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_menu.PNG)
 
 1. Selecteer het experiment dat u geïnteresseerd bent in.
 
-  ![Lijst van experiment](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_list.PNG)
+   ![Lijst van experiment](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_list.PNG)
 
 1. Selecteer het aantal uitvoeren in de tabel.
 
    ![Experiment uitvoeren](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_run.PNG)
 
-1.  Selecteer in de tabel, het aantal herhalingen voor het model dat u graag verder te verkennen.
+1. Selecteer in de tabel, het aantal herhalingen voor het model dat u graag verder te verkennen.
 
    ![Model van experiment](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_model.PNG)
 
@@ -449,7 +448,7 @@ Urgentie van de functie biedt een score die aangeeft hoe waardevol elke functie 
 
 ## <a name="example-notebooks"></a>Voorbeeld-laptops
 De volgende notebooks illustratie van concepten in dit artikel:
-* [How-to-use-azureml/training/Train-within-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training\train-within-notebook)
+* [How-to-use-azureml/training/Train-within-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook)
 * [How-to-use-azureml/training/Train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
 * [How-to-use-azureml/training/Logging-API/Logging-API.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/logging-api)
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43aa43d37099d69441a5dde47327e784d67fa9ac
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5d85c4dbd3cc1c3d827a3f8324e63f75eb942425
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189443"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892979"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thousandeyes"></a>Zelfstudie: Azure Active Directory-integratie met ThousandEyes
 
@@ -113,7 +113,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/thousandeyes-tutorial/tutorial_thousandeyes_url.png)
 
-    In de **aanmeldings-URL** tekstvak, een URL als: `https://app.thousandeyes.com/login/sso`
+    Typ een URL in het tekstvak **Aanmeldings-URL**, bijvoorbeeld: `https://app.thousandeyes.com/login/sso`
 
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
 
@@ -214,7 +214,7 @@ Het doel van deze sectie is het maken van een gebruiker met de naam van Britta S
 
     a. In **naam** tekstvak typt u de naam van gebruiker, zoals **Britta Simon**.
 
-    b. In **e** tekstvak, typ het e-mailadres van gebruiker, zoals **brittasimon@contoso.com**.
+    b. In **e** tekstvak, typ het e-mailadres van gebruiker, zoals **brittasimon\@contoso.com**.
 
     b. Klik op **nieuwe gebruiker toevoegen aan het Account**.
 
@@ -264,7 +264,7 @@ Zie [Introduction to the Access Panel](../user-help/active-directory-saas-access
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 * [Inrichten van gebruikers configureren](thousandeyes-provisioning-tutorial.md)
 

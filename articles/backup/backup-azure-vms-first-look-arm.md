@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: 16c7fe68e67094cef21d9efbffdccd614827ae6d
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 2fe786d90612feff312983dbd25dc6d691be6e70
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887468"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089774"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Back-up van een Azure-VM van de instellingen van de virtuele machine
 
@@ -44,18 +44,18 @@ Als u wilt back-up van virtuele machines van Azure, installeert Azure Backup een
 3. Selecteer de virtuele machine die u back wilt-up maken van de lijst met virtuele machines.
 4. Klik op het VM-menu **back-up**. 
 5. In **Recovery Services-kluis**, doet u het volgende:
-  - Als u al een kluis hebt, klikt u op **Selecteer een bestaande**, en selecteer een kluis.
-  - Als u een kluis hebt, klikt u op **nieuw**. Geef een naam voor de kluis. Deze gemaakt in dezelfde regio en resourcegroep bevinden als de virtuele machine. U kunt deze instellingen niet wijzigen wanneer u back-up rechtstreeks vanuit de instellingen van de virtuele machine inschakelt.
+   - Als u al een kluis hebt, klikt u op **Selecteer een bestaande**, en selecteer een kluis.
+   - Als u een kluis hebt, klikt u op **nieuw**. Geef een naam voor de kluis. Deze gemaakt in dezelfde regio en resourcegroep bevinden als de virtuele machine. U kunt deze instellingen niet wijzigen wanneer u back-up rechtstreeks vanuit de instellingen van de virtuele machine inschakelt.
 
-  ![Wizard Back-up inschakelen](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
+   ![Wizard Back-up inschakelen](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
 
 6. In **back-upbeleid kiezen**, doet u het volgende:
 
-  - Laat het standaardbeleid. Dit back-ups van de virtuele machine eenmaal per dag om de tijd die is opgegeven en worden back-ups in de kluis gedurende 30 dagen bewaard.
-  - Selecteer een bestaande back-upbeleid als u die hebt.
-  - Een nieuw beleid maken en de beleidsinstellingen definiëren.  
+   - Laat het standaardbeleid. Dit back-ups van de virtuele machine eenmaal per dag om de tijd die is opgegeven en worden back-ups in de kluis gedurende 30 dagen bewaard.
+   - Selecteer een bestaande back-upbeleid als u die hebt.
+   - Een nieuw beleid maken en de beleidsinstellingen definiëren.  
 
-  ![Back-upbeleid selecteren](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
+   ![Back-upbeleid selecteren](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
 
 7. Klik op **back-up inschakelen**. Dit wordt het back-upbeleid gekoppeld aan de virtuele machine. 
 
@@ -64,7 +64,7 @@ Als u wilt back-up van virtuele machines van Azure, installeert Azure Backup een
 8. U kunt de voortgang van de configuratie in de portalmeldingen bijhouden.
 9. Nadat de taak is voltooid, wordt in het VM-menu, klikt u op **back-up**. De back-upstatus wordt voor de virtuele machine, informatie over herstelpunten, taken die worden uitgevoerd en waarschuwingen die zijn uitgegeven.
 
-  ![Back-upstatus](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
+   ![Back-upstatus](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
 
 10. Na het inschakelen van back-up, een eerste back-up wordt uitgevoerd. U kunt het onmiddellijk starten van de eerste back-up of wacht totdat deze wordt gestart in overeenstemming met de back-upschema.
     - Totdat de eerste back-up is voltooid, de **laatste back-up status** wordt weergegeven als **waarschuwing (eerste back-up in behandeling)**.

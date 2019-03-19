@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/13/2019
+ms.date: 03/18/2019
 ms.author: tomfitz
-ms.openlocfilehash: 92e5fb782eed3344a55178d6ba74dfd6d7b8cafd
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: d4ecccf8787e369b9a3270eab2d01a01ce7ae0c7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235901"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58174304"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Met behulp van gekoppelde en geneste sjablonen bij het implementeren van Azure-resources
 
@@ -42,13 +42,13 @@ Als u wilt koppelen aan een andere sjabloon, Voeg een **implementaties** resourc
 ```json
 "resources": [
   {
-      "apiVersion": "2017-05-10",
-      "name": "linkedTemplate",
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-          "mode": "Incremental",
-          <nested-template-or-external-template>
-      }
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2018-05-01",
+    "name": "linkedTemplate",
+    "properties": {
+        "mode": "Incremental",
+        <nested-template-or-external-template>
+    }
   }
 ]
 ```
@@ -62,9 +62,9 @@ Als u wilt de sjabloon in de belangrijkste sjabloon nesten, gebruikt u de **sjab
 ```json
 "resources": [
   {
-    "apiVersion": "2017-05-10",
-    "name": "nestedTemplate",
     "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2018-05-01",
+    "name": "nestedTemplate",
     "properties": {
       "mode": "Incremental",
       "template": {
@@ -73,8 +73,8 @@ Als u wilt de sjabloon in de belangrijkste sjabloon nesten, gebruikt u de **sjab
         "resources": [
           {
             "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2018-07-01",
             "name": "[variables('storageName')]",
-            "apiVersion": "2015-06-15",
             "location": "West US",
             "properties": {
               "accountType": "Standard_LRS"
@@ -90,6 +90,13 @@ Als u wilt de sjabloon in de belangrijkste sjabloon nesten, gebruikt u de **sjab
 > [!NOTE]
 > Voor geneste sjablonen, kunt u parameters en variabelen die zijn gedefinieerd in de geneste sjabloon niet gebruiken. U kunt parameters en variabelen van de belangrijkste sjabloon gebruiken. In het voorgaande voorbeeld `[variables('storageName')]` haalt een waarde op basis van de belangrijkste sjabloon, niet de geneste sjabloon. Deze beperking geldt niet voor externe sjablonen.
 >
+> Voor twee resources, zoals gedefinieerd in een geneste-sjabloon en één resource is afhankelijk van de andere, de waarde van de afhankelijkheid is gewoon de naam van de afhankelijke resource:
+> ```json
+> "dependsOn": [
+>   "[variables('storageAccountName')]"
+> ],
+> ```
+>
 > U kunt geen gebruiken de `reference` functie in de uitvoersectie van een geneste sjabloon. Als u wilt de waarden voor een geïmplementeerde resource in een geneste sjabloon, uw geneste sjabloon te converteren naar een gekoppelde sjabloon.
 
 De geneste sjabloon moet de [dezelfde eigenschappen](resource-group-authoring-templates.md) als een standaardsjabloon.
@@ -101,20 +108,20 @@ Gebruiken om een koppeling naar een externe sjabloon en het parameterbestand, **
 ```json
 "resources": [
   {
-     "apiVersion": "2017-05-10",
-     "name": "linkedTemplate",
-     "type": "Microsoft.Resources/deployments",
-     "properties": {
-       "mode": "Incremental",
-       "templateLink": {
-          "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
-          "contentVersion":"1.0.0.0"
-       },
-       "parametersLink": {
-          "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
-          "contentVersion":"1.0.0.0"
-       }
-     }
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2018-05-01",
+    "name": "linkedTemplate",
+    "properties": {
+    "mode": "Incremental",
+    "templateLink": {
+        "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
+        "contentVersion":"1.0.0.0"
+    },
+    "parametersLink": {
+        "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
+        "contentVersion":"1.0.0.0"
+    }
+    }
   }
 ]
 ```
@@ -130,9 +137,9 @@ Gebruik een waarde van de belangrijkste sjabloon doorgeven aan de gekoppelde sja
 ```json
 "resources": [
   {
-     "apiVersion": "2017-05-10",
-     "name": "linkedTemplate",
      "type": "Microsoft.Resources/deployments",
+     "apiVersion": "2018-05-01",
+     "name": "linkedTemplate",
      "properties": {
        "mode": "Incremental",
        "templateLink": {
@@ -203,9 +210,9 @@ De belangrijkste sjabloon implementeert de gekoppelde sjabloon en de geretournee
     "variables": {},
     "resources": [
         {
-            "apiVersion": "2017-05-10",
-            "name": "linkedTemplate",
             "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-05-01",
+            "name": "linkedTemplate",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -241,8 +248,8 @@ Het volgende voorbeeld ziet u een sjabloon die wordt geïmplementeerd een openba
     "resources": [
         {
             "type": "Microsoft.Network/publicIPAddresses",
+            "apiVersion": "2018-11-01",
             "name": "[parameters('publicIPAddresses_name')]",
-            "apiVersion": "2017-06-01",
             "location": "eastus",
             "properties": {
                 "publicIPAddressVersion": "IPv4",
@@ -281,8 +288,8 @@ Koppeling naar de sjabloon voor het gebruik van het openbare IP-adres van de voo
     "resources": [
         {
             "type": "Microsoft.Network/loadBalancers",
+            "apiVersion": "2018-11-01",
             "name": "[parameters('loadBalancers_name')]",
-            "apiVersion": "2017-06-01",
             "location": "eastus",
             "properties": {
                 "frontendIPConfigurations": [
@@ -308,9 +315,9 @@ Koppeling naar de sjabloon voor het gebruik van het openbare IP-adres van de voo
             ]
         },
         {
-            "apiVersion": "2017-05-10",
-            "name": "linkedTemplate",
             "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-05-01",
+            "name": "linkedTemplate",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -347,8 +354,8 @@ U kunt deze afzonderlijke items in de geschiedenis voor het ophalen van uitvoerw
     "resources": [
         {
             "type": "Microsoft.Network/publicIPAddresses",
+            "apiVersion": "2018-11-01",
             "name": "[parameters('publicIPAddresses_name')]",
-            "apiVersion": "2017-06-01",
             "location": "southcentralus",
             "properties": {
                 "publicIPAddressVersion": "IPv4",
@@ -381,9 +388,13 @@ De volgende sjabloon een koppeling naar de voorgaande sjabloon. Hiermee maakt u 
     "variables": {},
     "resources": [
         {
-            "apiVersion": "2017-05-10",
-            "name": "[concat('linkedTemplate', copyIndex())]",
             "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-05-01",
+            "name": "[concat('linkedTemplate', copyIndex())]",
+            "copy": {
+                "count": 3,
+                "name": "ip-loop"
+            },
             "properties": {
               "mode": "Incremental",
               "templateLink": {
@@ -393,10 +404,6 @@ De volgende sjabloon een koppeling naar de voorgaande sjabloon. Hiermee maakt u 
               "parameters":{
                   "publicIPAddresses_name":{"value": "[concat('myip-', copyIndex())]"}
               }
-            },
-            "copy": {
-                "count": 3,
-                "name": "ip-loop"
             }
         }
     ]
@@ -446,9 +453,9 @@ Het volgende voorbeeld laat zien hoe om door te geven van een SAS-token bij het 
   },
   "resources": [
     {
-      "apiVersion": "2017-05-10",
-      "name": "linkedTemplate",
       "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2018-05-01",
+      "name": "linkedTemplate",
       "properties": {
         "mode": "Incremental",
         "templateLink": {

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8008f96e00b0d9a4366832110c696c67a9c7257
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: dc3a42c280a344ef08fa23111df8652b6167cfb0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165401"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109896"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Zelfstudie: Azure Active Directory-integratie met Panorama9
 
@@ -114,7 +114,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/panorama9-tutorial/tutorial_panorama9_url.png)
 
-    a. In de **aanmeldings-URL** tekstvak, een URL als: `https://dashboard.panorama9.com/saml/access/3262`
+    a. Typ een URL in het tekstvak **Aanmeldings-URL**, bijvoorbeeld: `https://dashboard.panorama9.com/saml/access/3262`
 
     b. Typ in het tekstvak **Id** een URL met het volgende patroon: `https://www.panorama9.com/saml20/<tenant-name>`
 
@@ -198,18 +198,18 @@ In het geval van Panorama9 is inrichten een handmatige taak.
 
 1. Klik in het menu aan de bovenkant op **beheren**, en klik vervolgens op **gebruikers**.
    
-  ![Gebruikers](./media/panorama9-tutorial/ic790027.png "Gebruikers")
+   ![Gebruikers](./media/panorama9-tutorial/ic790027.png "Gebruikers")
 
 1. Klik in de sectie gebruikers **+** nieuwe gebruiker toe te voegen.
 
- ![Gebruikers](./media/panorama9-tutorial/ic790028.png "Gebruikers")
+   ![Gebruikers](./media/panorama9-tutorial/ic790028.png "Gebruikers")
 
 1. Ga naar de sectie van de gebruiker gegevens, typt u het e-mailadres van een geldige Azure Active Directory-gebruiker die u inrichten wilt in de **e** tekstvak.
 
 1. Komen aan de sectie gebruikers, klikt u op **opslaan**.
    
 > [!NOTE]
-    > De houder van Azure Active Directory-account ontvangt een e-mailbericht en volgt een koppeling om te bevestigen van hun account voordat deze geactiveerd wordt.
+> De houder van het Azure Active Directory-account ontvangt een e-mail en volgt een koppeling om het account te bevestigen voordat het actief wordt.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
 
@@ -250,7 +250,7 @@ Zie [Introduction to the Access Panel](../user-help/active-directory-saas-access
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 

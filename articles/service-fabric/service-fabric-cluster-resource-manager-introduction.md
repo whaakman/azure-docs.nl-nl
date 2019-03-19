@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: f41027b5455aa3b1835a0d4fd0c1be11cddccd0d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 75aa960ff060d74d0a579b475e4334402992b3c3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871992"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903354"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Maak kennis met de Service Fabric-cluster resource manager
 Traditioneel beheer van IT-systemen of online services bedoeld specifieke fysieke of virtuele machines toe die specifieke services of systemen. Services zijn ontworpen als lagen. Er worden een 'web'-laag en een laag "gegevens" of 'opslag'. Toepassingen hoeft een berichtenservice waar aanvragen gestroomd en afmelden, evenals een set van machines speciaal voor opslaan in cache. Elke servicelaag of het type workload specifieke computers die zijn toegewezen aan deze was: de database hebt u een aantal machines die zijn toegewezen, de webservers van een enkele. Als een bepaald type werkbelasting de machines er veroorzaakt op uitvoeren te ' hot ', en vervolgens u meer machines met dezelfde configuratie hebt toegevoegd aan die laag. Echter niet van alle werkbelastingen kunnen zo gemakkelijk worden uitgebreid - met name met de gegevenslaag zou u meestal machines met grotere machines vervangen. Eenvoudig. Als een virtuele machine is mislukt, wordt die deel uitmaken van de algemene toepassing is op lagere capaciteit totdat de computer kan worden hersteld. Nog steeds redelijk eenvoudig is (als deze niet per se leuke).
 
 Nu echter de wereld van service- en software-architectuur is gewijzigd. Het is gebruikelijk dat toepassingen een scale-out-ontwerp hebt vastgesteld. Het bouwen van toepassingen met containers of microservices (of beide) is het gebruikelijk. Terwijl u nog steeds slechts een paar machines hebt, worden ze nu niet slechts één exemplaar van een workload uitgevoerd. Ze kunnen ook worden uitgevoerd meerdere verschillende werkbelastingen op hetzelfde moment. U hebt nu vele verschillende soorten services (geen verbruikt aan resources van een volledige virtuele machine), misschien wel honderden verschillende exemplaren van deze services. Elke benoemd exemplaar heeft een of meer exemplaren of replica's voor hoge beschikbaarheid (HA). Afhankelijk van de grootte van deze werkbelastingen, en hoe bezet zijn, merkt u misschien zelf met honderden of duizenden machines. 
 
-Plotseling beheer van uw omgeving is niet zo eenvoudig als het beheer van enkele machines die zijn toegewezen aan één typen workloads. Uw servers, virtuele en hoeft niet langer namen (u bent overgeschakeld naar hebt mindsets van [huisdieren naar vee](http://www.slideshare.net/randybias/architectures-for-open-and-scalable-clouds/20) nadat alle). Configuratie is minder over de machines en meer informatie over de services zelf. Hardware die is toegewezen aan één exemplaar van een werkbelasting is grotendeels een het verleden. Services zelf geworden kleine gedistribueerde systemen met betrekking meerdere kleinere delen met basishardware tot.
+Plotseling beheer van uw omgeving is niet zo eenvoudig als het beheer van enkele machines die zijn toegewezen aan één typen workloads. Uw servers, virtuele en hoeft niet langer namen (u bent overgeschakeld naar hebt mindsets van [huisdieren naar vee](https://www.slideshare.net/randybias/architectures-for-open-and-scalable-clouds/20) nadat alle). Configuratie is minder over de machines en meer informatie over de services zelf. Hardware die is toegewezen aan één exemplaar van een werkbelasting is grotendeels een het verleden. Services zelf geworden kleine gedistribueerde systemen met betrekking meerdere kleinere delen met basishardware tot.
 
 Omdat de app niet langer een reeks monolieten verdeeld over verschillende categorieën is, hebt u nu veel meer combinaties om op te lossen. Die bepaalt welke soorten workloads kunnen uitvoeren op welke hardware, of hoeveel? Welke workloads goed werken op dezelfde hardware, en die conflicteren? U weet wat er op deze machine werd uitgevoerd als een virtuele machine gaat omlaag hoe doe? Wie is verantwoordelijk voor te zorgen dat die werkbelasting weer wordt uitgevoerd? Moet u wachten voor de machine (virtueel?) keert u terug of uw workloads automatisch failover naar een andere machines en de uitvoering? Menselijke tussenkomst vereist is? Hoe zit het met upgrades in deze omgeving?
 

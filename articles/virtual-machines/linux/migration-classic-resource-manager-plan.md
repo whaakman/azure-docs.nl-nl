@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: bd3bd4937bd376c696df98af0b535aeda5027ddc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: de2279d7f24400142f9d47ecf25378e7e4c47f9e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437085"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111970"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planning voor de migratie van IaaS-resources van klassiek naar Azure Resource Manager
 Azure Resource Manager biedt een aantal geweldige functies, is het essentieel is voor het plannen van de migratie om ervoor zaken soepel verloopt. Tijd besteed aan het plannen, zorgt u ervoor dat u geen problemen ondervindt tijdens het uitvoeren van migratieactiviteiten. 
@@ -79,8 +79,8 @@ Geslaagde klanten gedetailleerde plannen waar de voorgaande vragen zijn besproke
   
   Uitvoering van een test lab van uw exacte scenario (compute, netwerken en opslag), is de beste manier om te controleren of een soepele migratie. Dit helpt ervoor te zorgen:
 
-  - Een volledig afzonderlijke lab of een bestaande niet-productie-omgeving te testen. U wordt aangeraden een volledig afzonderlijke lab die meerdere malen kan worden gemigreerd en destructief kan worden gewijzigd.  Scripts voor het verzamelen/hydraat metagegevens uit de echte abonnementen worden hieronder vermeld.
-  - Het is een goed idee om het lab maken in een afzonderlijk abonnement. De reden is dat de testomgeving wordt herhaaldelijk omlaag worden verwijderd, en wanneer u een afzonderlijke, geïsoleerd abonnement wordt de kans kleiner dat iets echte wordt per ongeluk verwijderd.
+- Een volledig afzonderlijke lab of een bestaande niet-productie-omgeving te testen. U wordt aangeraden een volledig afzonderlijke lab die meerdere malen kan worden gemigreerd en destructief kan worden gewijzigd.  Scripts voor het verzamelen/hydraat metagegevens uit de echte abonnementen worden hieronder vermeld.
+- Het is een goed idee om het lab maken in een afzonderlijk abonnement. De reden is dat de testomgeving wordt herhaaldelijk omlaag worden verwijderd, en wanneer u een afzonderlijke, geïsoleerd abonnement wordt de kans kleiner dat iets echte wordt per ongeluk verwijderd.
 
   Dit kan worden bereikt met behulp van het hulpprogramma AsmMetadataParser. [Meer informatie over dit hulpprogramma hier](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/AsmToArmMigrationApiToolset)
 
@@ -114,13 +114,13 @@ De volgende zijn problemen gedetecteerd in veel van de grotere migraties. Dit is
     > Deze limieten moeten worden gegenereerd in dezelfde regio als uw huidige omgeving moeten worden gemigreerd.
     >
 
-    - Netwerkinterfaces
-    - Load balancers
-    - Openbare IP-adressen
-    - Statische openbare IP-adressen
-    - Kerngeheugens
-    - Netwerkbeveiligingsgroepen
-    - Routetabellen
+  - Netwerkinterfaces
+  - Load balancers
+  - Openbare IP-adressen
+  - Statische openbare IP-adressen
+  - Kerngeheugens
+  - Netwerkbeveiligingsgroepen
+  - Routetabellen
 
     U kunt uw huidige Azure Resource Manager-quota's die met de volgende opdrachten met de meest recente versie van Azure CLI kunt controleren.
 

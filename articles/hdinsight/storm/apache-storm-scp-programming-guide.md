@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: 848663c509fd3635b33b8e7735feb940da215bfa
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1ad9661d85c7ec91f361cdc4d126e0a91e376b66
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441811"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853287"
 ---
 # <a name="scp-programming-guide"></a>SCP-programmeergids
 SCP is een platform voor het bouwen van realtime, betrouwbare en consistente en hoogwaardige gegevensverwerking toepassing. Het is gebouwd boven [Apache Storm](https://storm.incubator.apache.org/) --een verwerkingssysteem die is ontworpen door de OSS-community's. Storm is ontworpen door Nathan Marz en is open source op Twitter. Hierbij wordt gebruikgemaakt van [Apache ZooKeeper](https://zookeeper.apache.org/), een ander Apache-project om in te schakelen zeer betrouwbare gedistribueerd beheer coördinatie en status. 
@@ -32,7 +32,7 @@ In Storm definieert u de Toepassingstopologie van een een grafiek van de bereken
 
 SCP ondersteunt aanbevolen inspanningen, op-één keer en precies-eenmaal gegevensverwerking. In een gedistribueerde toepassing voor streaming verwerkt, kunnen diverse fouten optreden tijdens de verwerking van gegevens, zoals netwerkstoringen, machine storing of gebruikersfout code enzovoort. Op de minste eenmaal verwerken zorgt ervoor dat alle gegevens ten minste één keer wordt verwerkt door af te spelen automatisch dezelfde gegevens als er treedt een fout. Op de minst keer worden verwerkt is eenvoudig en betrouwbaar en ook veel toepassingen geschikt. Als u een toepassing moet exact tellen, is op-één keer verwerkt echter onvoldoende omdat dezelfde gegevens kan mogelijk worden afgespeeld in de Toepassingstopologie. In dat geval, precies-nadat de verwerking is ontworpen om te controleren of het resultaat juist is, zelfs wanneer de gegevens kunnen worden opnieuw afgespeeld en meerdere keren verwerkt.
 
-SCP kan .NET-ontwikkelaars voor het ontwikkelen van toepassingen voor realtime gegevens verwerken terwijl u gebruikmaakt van op Java Virtual Machine (JVM) met Storm op de achtergrond. De .NET- en JVM communiceert via een lokale TCP-sockets. In feite is elke Spout/Bolt de combinatie van een .net/Java-proces, waarin de logica van de gebruiker wordt uitgevoerd in .net-proces als een invoegtoepassing.
+SCP kan .NET-ontwikkelaars voor het ontwikkelen van toepassingen voor realtime gegevens verwerken terwijl u gebruikmaakt van op Java Virtual Machine (JVM) met Storm op de achtergrond. De .NET- en JVM communiceert via een lokale TCP-sockets. In feite is elke Spout/Bolt de combinatie van een .NET/Java-proces, waarin de logica van de gebruiker wordt uitgevoerd in .NET-proces als een invoegtoepassing.
 
 Voor het bouwen van een toepassing gegevensverwerking boven op SCP, zijn er verschillende stappen nodig:
 
@@ -355,12 +355,12 @@ SCP.NET heeft de volgende functies voor het definiëren van transactionele topol
 | **Nieuwe functies** | **Parameters** | **Beschrijving** |
 | --- | --- | --- |
 | **tx-topolopy** |naam van de topologie<br />spout-map<br />bolt-map |Definieer een transactionele topologie met de topologienaam van de &nbsp;spouts definitie kaart en de bolts definition-kaart |
-| **scp-tx-spout** |exec-name<br />argumenten<br />velden |Een transactionele spout definiëren. Deze wordt uitgevoerd met de toepassing met ***exec naam*** met behulp van ***argumenten***.<br /><br />De ***velden*** is de uitvoer-velden voor spout |
-| **scp-tx-batch-bolt** |exec-name<br />argumenten<br />velden |Definieer een transactionele Batch-Bolt. Deze wordt uitgevoerd met de toepassing met ***exec naam*** met behulp van ***argumenten.***<br /><br />De velden is de uitvoer-velden voor bolt. |
-| **scp-tx-commit-bolt** |exec-name<br />argumenten<br />velden |Definieer een transactionele commit-bolt. Deze wordt uitgevoerd met de toepassing met ***exec naam*** met behulp van ***argumenten***.<br /><br />De ***velden*** is de uitvoer-velden voor bolt |
+| **scp-tx-spout** |exec-name<br />argumenten<br />Velden |Een transactionele spout definiëren. Deze wordt uitgevoerd met de toepassing met ***exec naam*** met behulp van ***argumenten***.<br /><br />De ***velden*** is de uitvoer-velden voor spout |
+| **scp-tx-batch-bolt** |exec-name<br />argumenten<br />Velden |Definieer een transactionele Batch-Bolt. Deze wordt uitgevoerd met de toepassing met ***exec naam*** met behulp van ***argumenten.***<br /><br />De velden is de uitvoer-velden voor bolt. |
+| **scp-tx-commit-bolt** |exec-name<br />argumenten<br />Velden |Definieer een transactionele commit-bolt. Deze wordt uitgevoerd met de toepassing met ***exec naam*** met behulp van ***argumenten***.<br /><br />De ***velden*** is de uitvoer-velden voor bolt |
 | **nontx-topolopy** |naam van de topologie<br />spout-map<br />bolt-map |Definieer een niet-transactionele-topologie met de topologienaam van de&nbsp; spouts definitie kaart en de toewijzing van de definitie bolts |
-| **scp-spout** |exec-name<br />argumenten<br />velden<br />parameters |Een niet-transactionele spout definiëren. Deze wordt uitgevoerd met de toepassing met ***exec naam*** met behulp van ***argumenten***.<br /><br />De ***velden*** is de uitvoer-velden voor spout<br /><br />De ***parameters*** zijn optioneel, met bepaalde parameters, zoals 'nontransactional.ack.enabled' opgeven. |
-| **scp-bolt** |exec-name<br />argumenten<br />velden<br />parameters |Definieer een niet-transactionele Bolt. Deze wordt uitgevoerd met de toepassing met ***exec naam*** met behulp van ***argumenten***.<br /><br />De ***velden*** is de uitvoer-velden voor bolt<br /><br />De ***parameters*** zijn optioneel, met bepaalde parameters, zoals 'nontransactional.ack.enabled' opgeven. |
+| **scp-spout** |exec-name<br />argumenten<br />Velden<br />parameters |Een niet-transactionele spout definiëren. Deze wordt uitgevoerd met de toepassing met ***exec naam*** met behulp van ***argumenten***.<br /><br />De ***velden*** is de uitvoer-velden voor spout<br /><br />De ***parameters*** zijn optioneel, met bepaalde parameters, zoals 'nontransactional.ack.enabled' opgeven. |
+| **scp-bolt** |exec-name<br />argumenten<br />Velden<br />parameters |Definieer een niet-transactionele Bolt. Deze wordt uitgevoerd met de toepassing met ***exec naam*** met behulp van ***argumenten***.<br /><br />De ***velden*** is de uitvoer-velden voor bolt<br /><br />De ***parameters*** zijn optioneel, met bepaalde parameters, zoals 'nontransactional.ack.enabled' opgeven. |
 
 SCP.NET heeft de volgende trefwoorden gedefinieerd:
 
@@ -450,7 +450,7 @@ Hier
 3. [0,1] betekent een hash-set veld-id's, vanaf 0.
 
 ### <a name="hybrid-topology"></a>Hybride topologie
-De systeemeigen Storm is geschreven in Java. En SCP.Net is uitgebreid om te schakelen C\# ontwikkelaars kunnen schrijven C\# code voor het verwerken van hun zakelijke logica. Maar ondersteunt ook hybride topologieën, die niet alleen C bevat\# spouts/bolts, maar ook Java Spout/Bolts.
+De systeemeigen Storm is geschreven in Java. En SCP.NET is uitgebreid om te schakelen C\# ontwikkelaars kunnen schrijven C\# code voor het verwerken van hun zakelijke logica. Maar ondersteunt ook hybride topologieën, die niet alleen C bevat\# spouts/bolts, maar ook Java Spout/Bolts.
 
 ### <a name="specify-java-spoutbolt-in-spec-file"></a>Java Spout/Bolt in spec bestand opgeven
 In spec bestand "scp-spout" en "scp-bolt" kunnen ook worden gebruikt om op te geven Java Spouts en Bolts, Hier volgt een voorbeeld:
@@ -562,7 +562,7 @@ In de modus van de host, gebruikerscode wordt gecompileerd als dll-bestand en wo
 
 ## <a name="scp-programming-examples"></a>SCP programmeren voorbeelden
 ### <a name="helloworld"></a>HelloWorld
-**HelloWorld** is een eenvoudig voorbeeld om een voorproefje van SCP.Net weer te geven. Hierbij een niet-transactionele-topologie met een spout met de naam **generator**, en twee bolts met de naam **splitsen** en **teller**. De spout **generator** willekeurig zinnen gegenereerd en het verzenden van deze zinnen op **splitsen**. De bolt **splitsen** splitst de zinnen op woorden en hoe deze woorden **teller** bolt. De bout 'item' maakt gebruik van een woordenlijst om vast te leggen van het nummer van het exemplaar van elk woord.
+**HelloWorld** is een eenvoudig voorbeeld om een voorproefje van SCP.NET weer te geven. Hierbij een niet-transactionele-topologie met een spout met de naam **generator**, en twee bolts met de naam **splitsen** en **teller**. De spout **generator** willekeurig zinnen gegenereerd en het verzenden van deze zinnen op **splitsen**. De bolt **splitsen** splitst de zinnen op woorden en hoe deze woorden **teller** bolt. De bout 'item' maakt gebruik van een woordenlijst om vast te leggen van het nummer van het exemplaar van elk woord.
 
 Er zijn twee bestanden spec **HelloWorld.spec** en **HelloWorld\_EnableAck.spec** voor dit voorbeeld. In de C\# code, het vindt of ack met het ophalen van de pluginConf van Java aan clientzijde is ingeschakeld.
 

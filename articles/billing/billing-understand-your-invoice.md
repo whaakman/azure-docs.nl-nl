@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
-ms.openlocfilehash: 506910ffa46cb3fbd4be9dcecf9df0f9fdd291e5
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 77c1a85136b2117af7396b8eec2d8b92b335d61d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901017"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897449"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Meer informatie over uw factuur voor Microsoft Azure
 
-De factuur bevat een samenvatting van uw kosten en vindt u instructies voor de betaling. Het is gedownload in de Portable Document Format (PDF) van de [Azure-portal](https://portal.azure.com/) of kunnen worden verzonden via e-mail. Zie voor meer informatie, [over het verkrijgen van uw Azure-factuur en de dagelijkse gebruiksgegevens](billing-download-azure-invoice-daily-usage-date.md).
+De factuur bevat een overzicht van uw kosten en instructies voor de betaling. Het is gedownload in de Portable Document Format (PDF) van de [Azure-portal](https://portal.azure.com/) of kunnen worden verzonden via e-mail. Zie voor meer informatie, [over het verkrijgen van uw Azure-factuur en de dagelijkse gebruiksgegevens](billing-download-azure-invoice-daily-usage-date.md).
 
 Een paar dingen om te weten:
 
@@ -31,7 +31,7 @@ Een paar dingen om te weten:
 
 -   Maximaal 24 uur van het gebruik van aan het einde van de vorige factureringsperiode mogelijk weergegeven in uw huidige factuur.
 
--   Er zijn kosten die worden vermeld op factuuroverzichten voor internationale klanten alleen voor schattingsdoeleinden gebruiken. Banken mogelijk verschillende kosten voor de conversie-tarieven.
+-   Kosten op afschriften voor internationale klanten zijn een schatting Banken mogelijk verschillende kosten voor de conversie-tarieven.
 
 >[!VIDEO https://www.youtube.com/embed/jWG1lyJe3Mg]
 
@@ -107,7 +107,7 @@ De volgende tabel beschrijft de kolomkoppen van de gebruik kosten in rekening ge
 | Inbegrepen |Het bedrag van de meter die is opgenomen gratis inbegrepen in uw huidige factureringsperiode. |
 | Factureerbaar |Bevat het verschil tussen de verbruikte hoeveelheid en het aantal opgenomen. U wordt gefactureerd voor dit bedrag. Bij betalen per gebruik-aanbiedingen waarbij er geen hoeveelheid in de aanbieding is opgenomen, is dit totaal hetzelfde als de verbruikte hoeveelheid |
 | Tarief |Het tarief dat u kosten in per factureerbare eenheid gebracht rekening |
-| Waarde |Toont het resultaat van het vermenigvuldigen van de hoeveelheid overschrijding kolom met de kolom tarief. Als de verbruikte hoeveelheid niet hoger is dan het aantal opgenomen, zijn er geen kosten in deze kolom. |
+| Value |Toont het resultaat van het vermenigvuldigen van de hoeveelheid overschrijding kolom met de kolom tarief. Als de verbruikte hoeveelheid niet hoger is dan het aantal opgenomen, zijn er geen kosten in deze kolom. |
 | Subtotaal |De som van alle uw kosten vóór belastingen voor deze factureringsperiode |
 | Eindtotaal |De som van alle kosten na belasting voor deze factureringsperiode |
 
@@ -116,4 +116,4 @@ Als er een kosten in rekening gebracht op uw factuur die u graag meer details op
 
 ## <a name="need-help-contact-us"></a>Hulp nodig? Neem contact met ons op.
 
-Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Als u vragen hebt of hulp nodig hebt, [Maak een ondersteuningsaanvraag](https://go.microsoft.com/fwlink/?linkid=2083458).

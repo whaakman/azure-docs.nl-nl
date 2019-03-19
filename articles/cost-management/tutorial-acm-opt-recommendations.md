@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/28/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 6a26b4c08915b44d24290fde2c74d71b9362c11c
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 8471ae8ed0b391df11d81569b5660a2b098f5793
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338566"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58000914"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Zelfstudie: De kosten van aanbevelingen optimaliseren
 
@@ -41,7 +41,9 @@ Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azur
 
 ## <a name="view-cost-optimization-recommendations"></a>Optimalisatie aanbevelingen weergeven
 
-Klik in Azure Portal, in de lijst met services, op **Cost Management en facturering**. Klik in de lijst onder **Cost Management**, selecteer **aanbevelingen van Advisor**. Aanbevelingen van Advisor kosten worden weergegeven.
+Voor aanbevelingen voor kosten optimalisatie voor een abonnement, opent u het gewenste bereik in de Azure portal en selecteer **aanbevelingen van Advisor**.
+
+Voor aanbevelingen voor een beheergroep, opent u het gewenste bereik in de Azure portal en selecteer **Cost analysis** in het menu. Gebruik de **bereik** pill om over te schakelen naar een ander bereik, zoals een beheergroep. Selecteer **aanbevelingen van Advisor** in het menu. Zie voor meer informatie over bereiken [begrijpen en werk met een bereik](understand-work-scopes.md).
 
 ![Aanbevelingen voor kosten Management Advisor wordt weergegeven in de Azure-portal](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
 

@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: overview
 ms.date: 10/30/2018
 ms.author: darrine
-ms.openlocfilehash: 975c36451f0f00ce374a0bbf0a6dd87ec39eb912
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b15ed5e2b31ed817d3f6558858e2b7285f98a70f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871554"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551718"
 ---
 # <a name="academic-knowledge-api"></a>Academic Knowledge-API
 
@@ -23,7 +23,7 @@ Welkom bij de Academic Knowledge-API. Met deze service kunt u query’s van gebr
 
 De MAG-gegevens worden afgeleid van de Bing-webindex en van een interne kennisbank van Bing. Als resultaat van de continue indexering door Bing, levert deze API altijd actuele informatie van internet na detectie en indexering door Bing. Op basis van deze gegevensset maken de Academic Knowledge-API's een kennisgedreven, interactieve dialoog mogelijk waarin reactief zoeken naadloos wordt gecombineerd met proactieve suggesties, waardevolle zoekresultaten uit de graaf met onderzoeksverslagen en histogramdistributies van de attribuutwaarden voor een set documenten en gerelateerde entiteiten.
 
-Zie [http://aka.ms/academicgraph](https://aka.ms/academicgraph) voor meer informatie over de Microsoft Academic Graph.
+Zie [https://aka.ms/academicgraph](https://aka.ms/academicgraph) voor meer informatie over de Microsoft Academic Graph.
 
 De Academic Knowledge-API is verplaatst van Cognitive Services Preview naar Cognitive Services Labs. De nieuwe startpagina voor het project is [https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge](https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge). Uw bestaande API-sleutel blijft werken tot 24 mei 2018. Na deze datum moet u een nieuwe API-sleutel genereren. De betaalde preview-versie is niet meer beschikbaar wanneer uw bestaande sleutel is verlopen. Neem contact op met ons team als de gratis laag van de API niet toereikend is voor uw doeleinden. 
 
