@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca079fa2ec41f85c365102fbd81ffde23e97e2c4
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: ccad4f9aaa85d528697c1bcf34e1b034eeabe9e1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990489"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996005"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Onjuiste wachtwoorden in uw organisatie te elimineren
 
@@ -60,7 +60,7 @@ Normalisering bestaat uit twee delen.  Eerste, allemaal hoofdletters letters wor
 | '0'  | -o ' |
 | '1'  | 'l' |
 | '$'  | de ' |
-| '@'  | 'a' |
+| '\@'  | 'a' |
 
 Voorbeeld: Stel dat het wachtwoord 'leeg' is niet toegestaan en een gebruiker probeert het wachtwoord te wijzigen 'Bl@nK'. Hoewel 'Bl@nk' is niet expliciet is uitgesloten, converteert het normalisatieproces dit wachtwoord "blank", die een uitgesloten wachtwoorden.
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: ee09f8defc7a10b153e910cb7208b0ddb21120b2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7a3819eedc57e1e349814c9105a0880bf3d4d9ec
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543949"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891253"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON-scriptverwerking van verwijzing
 > [!NOTE]
@@ -3325,6 +3325,7 @@ U kunt een on-premises bestandssysteem koppelen aan een Azure-gegevensfactory me
 | gatewayName |Hiermee geeft u de naam van de gateway die Data Factory moet worden gebruikt verbinding maken met de on-premises bestandsserver. |Ja |
 
 #### <a name="sample-folder-path-definitions"></a>Voorbeeld van map pad definities
+
 | Scenario | Hosten in de definitie van de gekoppelde service | Mappad in de definitie van de gegevensset |
 | --- | --- | --- |
 | Lokale map op de machine Data Management Gateway: <br/><br/>Voorbeelden: D:\\ \* of D:\folder\subfolder\\* |D:\\ \\ (voor Data Management Gateway 2.0 en hoger) <br/><br/> localhost (voor oudere versies dan Data Management Gateway 2.0) |. \\ \\ of de map\\\\submap (voor Data Management Gateway 2.0 en hoger) <br/><br/>D:\\ \\ of D:\\\\map\\\\submap (voor de gatewayversie lager dan 2.0) |
@@ -3496,6 +3497,7 @@ Als u gegevens naar File System kopieert, stelt u de **sink-type** van de kopiee
 | Eigenschap | Description | Toegestane waarden | Vereist |
 | --- | --- | --- | --- |
 | copyBehavior |Definieert het gedrag kopiëren wanneer de bron BlobSource of bestandssysteem is. |**PreserveHierarchy:** Hiermee behoudt u de bestandshiërarchie in de doelmap. Dat wil zeggen, is het relatieve pad van het bronbestand voor de bronmap hetzelfde als het relatieve pad van de doel-bestand naar de doelmap.<br/><br/>**FlattenHierarchy:** Alle bestanden uit de bronmap worden gemaakt in het eerste niveau van de doelmap. De doelbestanden worden gemaakt met een automatisch gegenereerde naam.<br/><br/>**MergeFiles:** Hiermee worden alle bestanden uit de bronmap naar één bestand samengevoegd. Als de naam/blob-naam van het bestand is opgegeven, is de naam van het samengevoegde de opgegeven naam. Anders is de bestandsnaam van een automatisch gegenereerde. |Nee |
+
 automatisch:
 
 #### <a name="example"></a>Voorbeeld
@@ -3863,7 +3865,7 @@ Zie HDFS-connector artikel voor meer informatie.
 Gekoppelde voor het definiëren van een SFTP-service, stelt u de **type** van de gekoppelde service om **Sftp**, en geeft u de volgende eigenschappen in de **typeProperties** sectie:
 
 | Eigenschap | Description | Vereist |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | host | Naam of IP-adres van de SFTP-server. |Ja |
 | poort |De poort waarop de SFTP-server luistert. De standaardwaarde is: 21 |Nee |
 | authenticationType |Geef het verificatietype. Toegestane waarden: **Basic**, **SshPublicKey**. <br><br> Raadpleeg met basisverificatie en [met behulp van SSH openbare sleutelverificatie](#using-ssh-public-key-authentication) respectievelijk de secties over meer eigenschappen en voorbeelden voor JSON. |Ja |
@@ -3877,7 +3879,7 @@ Gekoppelde voor het definiëren van een SFTP-service, stelt u de **type** van de
 Als u wilt gebruikmaken van basisverificatie instellen `authenticationType` als `Basic`, en geeft u de volgende eigenschappen naast de algemene die zijn geïntroduceerd in de laatste sectie van de SFTP-connector:
 
 | Eigenschap | Description | Vereist |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | gebruikersnaam | De gebruiker die toegang tot de SFTP-server heeft. |Ja |
 | wachtwoord | Wachtwoord voor de gebruiker (gebruikersnaam). | Ja |
 
@@ -3926,7 +3928,7 @@ Als u wilt gebruikmaken van basisverificatie instellen `authenticationType` als 
 Als u wilt gebruikmaken van basisverificatie instellen `authenticationType` als `SshPublicKey`, en geeft u de volgende eigenschappen naast de algemene die zijn geïntroduceerd in de laatste sectie van de SFTP-connector:
 
 | Eigenschap | Description | Vereist |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | gebruikersnaam |Gebruikers die toegang tot de SFTP-server heeft |Ja |
 | privateKeyPath | Geef het absolute pad naar het persoonlijke sleutelbestand dat de gateway toegankelijk. | Opgeven of de `privateKeyPath` of `privateKeyContent`. <br><br> Gelden alleen wanneer het kopiëren van gegevens uit een on-premises SFTP-server. |
 | privateKeyContent | Een geserialiseerde tekenreeks van de inhoud van de persoonlijke sleutel. De Wizard kopiëren kunt lezen van het bestand met persoonlijke sleutel en de persoonlijke sleutel inhoud automatisch uit te pakken. Als u van andere hulpprogramma/SDK gebruikmaakt, in plaats daarvan de eigenschap privateKeyPath gebruiken. | Opgeven of de `privateKeyPath` of `privateKeyContent`. |

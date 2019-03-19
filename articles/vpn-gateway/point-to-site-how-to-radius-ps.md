@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: cherylmc
-ms.openlocfilehash: 739d6adb493da2ab0e844f1e219ec422ebeec8d5
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1096c120b4e7731fabd574c4096e70fe02b6272d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768674"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081080"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Een punt-naar-Site-verbinding met een VNet met behulp van RADIUS-verificatie configureren: PowerShell
 
@@ -46,7 +46,7 @@ Voor P2S-verbindingen is het volgende vereist:
 ## <a name="aboutad"></a>Over Active Directory (AD)-domeinverificatie voor P2S VPN 's
 
 AD-domeinverificatie kan gebruikers zich aanmelden bij Azure met de domeinreferenties van hun organisatie. Hiervoor een RADIUS-server die is geïntegreerd met de AD-server. Organisaties kunnen ook gebruikmaken van hun bestaande RADIUS-implementatie.
- 
+ 
 De RADIUS-server kan zich on-premises bevinden of in uw Azure VNet. Tijdens de verificatie, wordt de VPN-gateway fungeert als een Pass Through-query en stuurt verificatieberichten heen en weer tussen de RADIUS-server en het verbindende apparaat. Het is belangrijk voor de VPN-gateway te kunnen bereiken van de RADIUS-server. Als de RADIUS-server zich op locatie is, klikt u vervolgens is een Site-naar-Site VPN-verbinding van Azure met de on-premises site vereist.
 
 Naast de Active Directory, kan een RADIUS-server ook worden geïntegreerd met andere systemen externe id. Hiermee opent u tal van verificatieopties voor punt-naar-Site-VPN's, met inbegrip van opties voor MFA. Controleer uw leveranciersdocumentatie van RADIUS-server om de lijst kan worden geïntegreerd met identiteitssystemen.
@@ -118,33 +118,33 @@ De volgende stappen maakt een resourcegroep en een virtueel netwerk in de resour
 
 1. Maak een resourcegroep.
 
-  ```azurepowershell-interactive
-  New-AzResourceGroup -Name "TestRG" -Location "East US"
-  ```
+   ```azurepowershell-interactive
+   New-AzResourceGroup -Name "TestRG" -Location "East US"
+   ```
 2. Maak de subnetconfiguraties voor het virtuele netwerk, noem deze *FrontEnd*, *BackEnd* en *GatewaySubnet*. Deze voorvoegsels moeten deel uitmaken van de VNet-adresruimte die u hebt opgegeven.
 
-  ```azurepowershell-interactive
-  $fesub = New-AzVirtualNetworkSubnetConfig -Name "FrontEnd" -AddressPrefix "192.168.1.0/24"  
-  $besub = New-AzVirtualNetworkSubnetConfig -Name "Backend" -AddressPrefix "10.254.1.0/24"  
-  $gwsub = New-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix "192.168.200.0/24"
-  ```
+   ```azurepowershell-interactive
+   $fesub = New-AzVirtualNetworkSubnetConfig -Name "FrontEnd" -AddressPrefix "192.168.1.0/24"  
+   $besub = New-AzVirtualNetworkSubnetConfig -Name "Backend" -AddressPrefix "10.254.1.0/24"  
+   $gwsub = New-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix "192.168.200.0/24"
+   ```
 3. Maak het virtuele netwerk.
 
-  In dit voorbeeld is de serverparameter-DnsServer optioneel. Het opgeven van een waarde betekent niet dat er een nieuwe DNS-server wordt gemaakt. Het IP-adres van de DNS-server dat u opgeeft, moet het adres zijn van een DNS-server die de namen kan omzetten voor de resources waarmee u verbinding maakt vanuit uw VNet. Voor dit voorbeeld hebben we een privé-IP-adres gebruikt, maar het is zeer onwaarschijnlijk dat dit het IP-adres van uw DNS-server is. Zorg ervoor dat u uw eigen waarden gebruikt. De waarde die u opgeeft wordt gebruikt door de resources die u met het VNet, niet door de P2S-verbinding implementeert.
+   In dit voorbeeld is de serverparameter-DnsServer optioneel. Het opgeven van een waarde betekent niet dat er een nieuwe DNS-server wordt gemaakt. Het IP-adres van de DNS-server dat u opgeeft, moet het adres zijn van een DNS-server die de namen kan omzetten voor de resources waarmee u verbinding maakt vanuit uw VNet. Voor dit voorbeeld hebben we een privé-IP-adres gebruikt, maar het is zeer onwaarschijnlijk dat dit het IP-adres van uw DNS-server is. Zorg ervoor dat u uw eigen waarden gebruikt. De waarde die u opgeeft wordt gebruikt door de resources die u met het VNet, niet door de P2S-verbinding implementeert.
 
-  ```azurepowershell-interactive
-  New-AzVirtualNetwork -Name "VNet1" -ResourceGroupName "TestRG" -Location "East US" -AddressPrefix "192.168.0.0/16","10.254.0.0/16" -Subnet $fesub, $besub, $gwsub -DnsServer 10.2.1.3
-  ```
+   ```azurepowershell-interactive
+   New-AzVirtualNetwork -Name "VNet1" -ResourceGroupName "TestRG" -Location "East US" -AddressPrefix "192.168.0.0/16","10.254.0.0/16" -Subnet $fesub, $besub, $gwsub -DnsServer 10.2.1.3
+   ```
 4. Een VPN Gateway moet een openbaar IP-adres hebben. U vraagt eerst de resource van het IP-adres aan en verwijst hier vervolgens naar bij het maken van uw virtuele netwerkgateway. Het IP-adres wordt dynamisch aan de resource toegewezen wanneer de VPN Gateway wordt gemaakt. VPN Gateway ondersteunt momenteel alleen *dynamische* toewijzing van openbare IP-adressen. U kunt geen toewijzing van een statisch openbaar IP-adres aanvragen. Dit betekent echter niet dat het IP-adres wordt gewijzigd nadat het aan uw VPN Gateway is toegewezen. Het openbare IP-adres verandert alleen wanneer de gateway wordt verwijderd en opnieuw wordt gemaakt. Het verandert niet wanneer de grootte van uw VPN Gateway verandert, wanneer deze gateway opnieuw wordt ingesteld of wanneer andere interne onderhoudswerkzaamheden of upgrades worden uitgevoerd.
 
-  Geef de variabelen voor het aanvragen van een dynamisch toegewezen openbare IP-adres.
+   Geef de variabelen voor het aanvragen van een dynamisch toegewezen openbare IP-adres.
 
-  ```azurepowershell-interactive
-  $vnet = Get-AzVirtualNetwork -Name "VNet1" -ResourceGroupName "TestRG"  
-  $subnet = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet 
-  $pip = New-AzPublicIpAddress -Name "VNet1GWPIP" -ResourceGroupName "TestRG" -Location "East US" -AllocationMethod Dynamic 
-  $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name "gwipconf" -Subnet $subnet -PublicIpAddress $pip
-  ```
+   ```azurepowershell-interactive
+   $vnet = Get-AzVirtualNetwork -Name "VNet1" -ResourceGroupName "TestRG"  
+   $subnet = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet 
+   $pip = New-AzPublicIpAddress -Name "VNet1GWPIP" -ResourceGroupName "TestRG" -Location "East US" -AllocationMethod Dynamic 
+   $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name "gwipconf" -Subnet $subnet -PublicIpAddress $pip
+   ```
 
 ## 2. <a name="radius"></a>Instellen van uw RADIUS-server
 
@@ -170,25 +170,25 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 ```
 
 ## 4. <a name="addradius"></a>De RADIUS-server en client-adresgroep toevoegen
- 
+ 
 * De RadiusServer - kan worden opgegeven door de naam of IP-adres. Als u de naam en de server bevindt zich on-premises, kan de VPN-gateway kan niet worden de naam kunnen omzetten. Als dit het geval is, is het beter om op te geven van het IP-adres van de server. 
 * De RadiusSecret - moet overeenkomen met wat er op uw RADIUS-server is geconfigureerd.
 * Het VpnClientAddressPool - is het bereik van waaruit de verbindende VPN-clients een IP-adres ontvangen. Gebruik een privé-IP-adresbereik dat niet overlapt met de on-premises locatie waarvanaf u verbinding maakt of met het VNet waarmee u verbinding wilt maken. Zorg ervoor dat u een groot genoeg adresgroep geconfigureerd hebt.  
 
 1. Maak een beveiligde tekenreeks voor de RADIUS geheim.
 
-  ```azurepowershell-interactive
-  $Secure_Secret=Read-Host -AsSecureString -Prompt "RadiusSecret"
-  ```
+   ```azurepowershell-interactive
+   $Secure_Secret=Read-Host -AsSecureString -Prompt "RadiusSecret"
+   ```
 
 2. U wordt gevraagd naar de RADIUS-geheim invoeren. De tekens die u invoert worden niet weergegeven en in plaats daarvan wordt vervangen door de "*" teken.
 
-  ```azurepowershell-interactive
-  RadiusSecret:***
-  ```
+   ```azurepowershell-interactive
+   RadiusSecret:***
+   ```
 3. De adresgroep van de VPN-client en de informatie van RADIUS-server toevoegen.
 
-  Voor SSTP-configuraties:
+   Voor SSTP-configuraties:
 
     ```azurepowershell-interactive
     $Gateway = Get-AzVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
@@ -197,7 +197,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
-  Voor IKEv2-configuraties:
+   Voor IKEv2-configuraties:
 
     ```azurepowershell-interactive
     $Gateway = Get-AzVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
@@ -206,7 +206,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
-  Voor SSTP en IKEv2
+   Voor SSTP en IKEv2
 
     ```azurepowershell-interactive
     $Gateway = Get-AzVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
@@ -225,10 +225,10 @@ De configuratie van de VPN-client kunt apparaten verbinding maken met een VNet v
 
 1. Als u met uw VNet wilt verbinden, gaat u op de clientcomputer naar de VPN-verbindingen en zoekt u de VPN-verbinding die u hebt gemaakt. Deze heeft dezelfde naam als het virtuele netwerk. Voer de domeinreferenties van uw en klik op 'Connect'. Een pop-upbericht aanvragen verhoogde rechten wordt weergegeven. Accepteren en voer de referenties in.
 
-  ![VPN-client maakt verbinding met Azure](./media/point-to-site-how-to-radius-ps/client.png)
+   ![VPN-client maakt verbinding met Azure](./media/point-to-site-how-to-radius-ps/client.png)
 2. De verbinding is tot stand gebracht.
 
-  ![Verbinding tot stand gebracht](./media/point-to-site-how-to-radius-ps/connected.png)
+   ![Verbinding tot stand gebracht](./media/point-to-site-how-to-radius-ps/connected.png)
 
 ### <a name="connect-from-a-mac-vpn-client"></a>Verbinding maken vanaf een Mac-VPN-client
 
@@ -241,8 +241,8 @@ Zoek in het dialoogvenster Netwerk het clientprofiel dat u wilt gebruiken en kli
 1. Als u wilt controleren of uw VPN-verbinding actief is, opent u een opdrachtprompt met verhoogde bevoegdheid en voert u *ipconfig/all* in.
 2. Bekijk de resultaten. Het IP-adres dat u hebt ontvangen is een van de adressen binnen het adresbereik van de punt-naar-site-VPN-clientadresgroep die u hebt opgegeven in uw configuratie. De resultaten zijn vergelijkbaar met het volgende voorbeeld:
 
-  ```
-  PPP adapter VNet1:
+   ```
+   PPP adapter VNet1:
       Connection-specific DNS Suffix .:
       Description.....................: VNet1
       Physical Address................:
@@ -252,7 +252,7 @@ Zoek in het dialoogvenster Netwerk het clientprofiel dat u wilt gebruiken en kli
       Subnet Mask.....................: 255.255.255.255
       Default Gateway.................:
       NetBIOS over Tcpip..............: Enabled
-  ```
+   ```
 
 Zie voor het oplossen van een P2S-verbinding, [punt-naar-site-verbindingen van Azure voor het oplossen van](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
 

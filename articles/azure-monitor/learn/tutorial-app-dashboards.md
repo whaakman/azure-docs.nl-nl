@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 5ce99e06ea1a8e72a8767367ddfd7bbb845c8400
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: 3abe0511200bf5828b485b15a4b8a512731c4ffa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54318420"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082123"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Aangepaste KPI-dashboards maken met behulp van Azure Application Insights
 
@@ -42,18 +42,18 @@ Meld u aan bij de Azure-portal op [https://portal.azure.com](https://portal.azur
 ## <a name="create-a-new-dashboard"></a>Een nieuw dashboard maken
 Een dashboard kan resources uit meerdere toepassingen, resourcegroepen en abonnementen bevatten.  Begin deze zelfstudie met het maken van een nieuw dashboard voor uw toepassing.  
 
-2.  Selecteer in het dashboarddeelvenster de optie **Nieuw dashboard**.
+1. Selecteer in het dashboarddeelvenster de optie **Nieuw dashboard**.
 
-    ![Nieuw dashboard](media/tutorial-app-dashboards/1newdashboard.png)
+   ![Nieuw dashboard](media/tutorial-app-dashboards/1newdashboard.png)
 
-3. Typ een naam voor het dashboard.
-4. Bekijk de **Tegelgalerie** voor de verschillende tegels die u aan het dashboard kunt toevoegen.  U kunt niet alleen tegels uit de galerie toevoegen, maar ook grafieken en andere weergaven rechtstreeks vanuit Application Insights aan het dashboard vastmaken.
-5. Zoek de tegel **Markdown** en sleep deze naar uw dashboard.  Met deze tegel kunt u tekst opmaken in Markdown, wat ideaal is om beschrijvende tekst toe te voegen aan uw dashboard.
-6. Voeg tekst toe aan de tegeleigenschappen en wijzig het formaat van de tegel op het canvas van het dashboard.
+1. Typ een naam voor het dashboard.
+1. Bekijk de **Tegelgalerie** voor de verschillende tegels die u aan het dashboard kunt toevoegen.  U kunt niet alleen tegels uit de galerie toevoegen, maar ook grafieken en andere weergaven rechtstreeks vanuit Application Insights aan het dashboard vastmaken.
+1. Zoek de tegel **Markdown** en sleep deze naar uw dashboard.  Met deze tegel kunt u tekst opmaken in Markdown, wat ideaal is om beschrijvende tekst toe te voegen aan uw dashboard.
+1. Voeg tekst toe aan de tegeleigenschappen en wijzig het formaat van de tegel op het canvas van het dashboard.
     
     ![Tegel Markdown bewerken](media/tutorial-app-dashboards/2dashboard-text.png)
 
-6. Klik op **Aanpassen voltooid** boven aan het scherm om de modus voor het aanpassen van tegels af te sluiten.
+1. Klik op **Aanpassen voltooid** boven aan het scherm om de modus voor het aanpassen van tegels af te sluiten.
 
 ## <a name="add-health-overview"></a>Statusoverzicht toevoegen
 Een dashboard met alleen statische tekst is niet erg interessant. Voeg daarom een tegel toe vanuit Application Insights die informatie over uw toepassing weergeeft.  U kunt Application Insights-tegels toevoegen uit de Tegelgalerie of ze rechtstreeks vanuit Application Insights-schermen vastmaken.  Hiermee kunt u grafieken en weergaven die u al kent, configureren voordat u ze aan uw dashboard vastmaakt.  Voeg eerst het standaardstatusoverzicht voor uw toepassing toe.  Hiervoor is geen configuratie vereist en er is minimale aanpassing mogelijk in het dashboard.

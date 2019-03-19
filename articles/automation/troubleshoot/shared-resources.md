@@ -4,16 +4,16 @@ description: Meer informatie over het oplossen van problemen met Azure Automatio
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/22/2019
+ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: abce40958f8d775e0a579a18cf8d1351740031ff
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 35e39a070a4c976655296d2ea141478d13e43bbc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671060"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57902821"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Problemen oplossen met gedeelde bronnen
 
@@ -137,6 +137,30 @@ U hebt de machtigingen die u wilt maken of bijwerken van uitvoeren als-account o
 Als u wilt maken of bijwerken van een uitvoeren als-account, moet u toegangsmachtigingen voor de verschillende bronnen die worden gebruikt door het uitvoeren als-account hebben. Zie voor meer informatie over de machtigingen die nodig zijn voor het maken of bijwerken van een uitvoeren als-account, [uitvoeren als-accountmachtigingen](../manage-runas-account.md#permissions).
 
 Als het probleem vanwege een vergrendeling is, controleert u of de vergrendeling ok om deze te verwijderen. Vervolgens gaat u naar de resource is vergrendeld, met de rechtermuisknop op de vergrendeling en kies **verwijderen** de vergrendeling te verwijderen.
+
+### <a name="iphelper"></a>Scenario: U ontvangt de fout 'Kan een ingangspunt met de naam 'GetPerAdapterInfo' in DLL-bestand 'iplpapi.dll' vinden' wanneer een runbook uitvoeren.
+
+#### <a name="issue"></a>Probleem
+
+Bij het uitvoeren van een runbook ontvangt u de volgende uitzondering:
+
+```error
+Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
+```
+
+#### <a name="cause"></a>Oorzaak
+
+Deze fout wordt waarschijnlijk veroorzaakt door een onjuist geconfigureerde [Run As-Account](../manage-runas-account.md).
+
+#### <a name="resolution"></a>Oplossing
+
+Zorg ervoor dat uw [Run As-Account](../manage-runas-account.md) correct is geconfigureerd. Als deze juist is geconfigureerd, zorg ervoor dat u hebt de juiste code in uw runbook om te verifiëren met Azure. Het volgende voorbeeld ziet een codefragment om te verifiëren bij Azure in een runbook met behulp van een Run As-Account.
+
+```powershell
+$connection = Get-AutomationConnection -Name AzureRunAsConnection
+Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
+-ApplicationID $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 02/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 75a78e303991e5426c97b8ceb0eb1375e03be2a2
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 47c14379a01da86f547ac917472260a041b67f99
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868184"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106896"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Zelfstudie: Gegevens kopiëren naar Azure Data Box Disk en deze gegevens controleren
 
@@ -32,42 +32,60 @@ Zorg voordat u begint voor het volgende:
 - U hebt de zelfstudie [ uw Azure Data Box Disk installeren en configureren](data-box-disk-deploy-set-up.md) voltooid.
 - Uw schijven worden ontgrendeld en verbonden met een clientcomputer.
 - Er moet een [ondersteund besturingssysteem](data-box-disk-system-requirements.md##supported-operating-systems-for-clients) worden uitgevoerd op de clientcomputer die wordt gebruikt om gegevens naar de schijven te kopiëren.
-- Zorg ervoor dat het beoogde opslagtype voor uw gegevens overeenkomt met [Ondersteunde opslagtypen](data-box-disk-system-requirements.md#supported-storage-types).
+- Zorg ervoor dat het beoogde opslagtype voor uw gegevens overeenkomt met [Ondersteunde opslagtypen](data-box-disk-system-requirements.md#supported-storage-types-for-upload).
+- Beoordeling [beheerde schijflimieten in Azure-object groottelimieten](data-box-disk-limits.md#azure-object-size-limits).
 
 
 ## <a name="copy-data-to-disks"></a>Gegevens naar schijven kopiëren
 
+Bekijk de volgende punten voordat u de gegevens naar de schijven kopieert:
+
+- Het is uw verantwoordelijkheid om ervoor te zorgen dat u de gegevens kopieert naar mappen met de juiste gegevensindeling. U moet bijvoorbeeld de blok-blobgegevens naar de map voor blok-blobs kopiëren. Als de gegevensindeling niet overeenkomt met de betreffende map (opslagtype), zal de gegevensupload naar Azure op een later tijdstip mislukken.
+- Zorg er tijdens het kopiëren van gegevens voor dat de gegevensgrootte voldoet aan de limieten die staan beschreven in de [limieten voor Azure-opslag en Data Box-schijven](data-box-disk-limits.md).
+- Als de gegevens die door Data Box Disk worden geüpload gelijktijdig door andere toepassingen buiten Data Box Disk worden geüpload, kan dit tot fouten voor de uploadtaak en beschadigde gegevens leiden.
+
+Als u beheerde schijven in de volgorde opgegeven, controleert u de volgende aanvullende factoren:
+
+- U kunt slechts één beheerde schijf met een specifieke naam hebben in een resourcegroep, tussen de precreated mappen en alle de Data Box-schijf. Dit betekent dat de VHD's geüpload naar de precreated mappen moeten een unieke naam hebben. Zorg ervoor dat de opgegeven naam komt niet overeen met een al bestaande beheerde schijf in een resourcegroep. Als u VHD's dezelfde namen hebben, wordt slechts één VHD geconverteerd naar beheerde schijven met die naam. De andere VHD's worden naar het tijdelijke opslagaccount geüpload als pagina-blobs.
+- Kopieer de VHD's altijd op een van de precreated mappen. Als u de VHD's buiten deze mappen of in een map die u hebt gemaakt kopieert, wordt de VHD's worden geüpload naar Azure Storage-account als pagina-blobs en schijven niet worden beheerd.
+- De vaste VHD's kunnen worden geüpload voor het maken van beheerde schijven. Dynamische VHD's, differentiërende VHD's of VHDX-bestanden worden niet ondersteund.
+
+
 Voer de volgende stappen uit om verbinding te maken en gegevens van uw computer naar de Data Box-schijf te kopiëren.
 
-1. Geef de inhoud van het ontgrendelde station weer.
+1. Geef de inhoud van het ontgrendelde station weer. De lijst van de precreated mappen en submappen in het station is afhankelijk van de opties geselecteerd bij het plaatsen van de Data Box-schijforder.
 
-    ![De inhoud van het station weergeven](media/data-box-disk-deploy-copy-data/data-box-disk-content.png)
+    |Geselecteerde opslaglocatie  |Type opslagaccount|Type opslagaccount fasering |Mappen en submappen  |
+    |---------|---------|---------|------------------|
+    |Storage-account     |GPv1- of GPv2                 | N.v.t. | BlockBlob <br> PageBlob <br> AzureFile        |
+    |Storage-account     |BLOB storage-account         | N.v.t. | BlockBlob        |
+    |Managed Disks     |N.v.t. | GPv1- of GPv2         | ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>        |
+    |Storage-account <br> Managed Disks     |GPv1- of GPv2 | GPv1- of GPv2         |BlockBlob <br> PageBlob <br> AzureFile <br> ManagedDisk<ul> <li> PremiumSSD </li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
+    |Storage-account <br> Managed Disks    |BLOB storage-account | GPv1- of GPv2         |BlockBlob <br> ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
+
+    Een schermopname van de volgorde waarin een GPv2-opslagaccount die is opgegeven, wordt hieronder weergegeven:
+
+    ![De inhoud van het schijfstation](media/data-box-disk-deploy-copy-data/data-box-disk-content.png)
  
-2. Kopieer de gegevens die als blok-blobs moeten worden geïmporteerd in de BlockBlob-map. Kopieer VHD-/VHDX-gegevens naar de PageBlob-map. 
+2. De gegevens die moet worden geïmporteerd als blok-blobs in om te kopiëren *BlockBlob* map. Op deze manier kopiëren van gegevens, zoals VHD-/ VHDX op *PageBlob* map en gegevens in om *AzureFile* map.
 
     Er wordt voor elke submap onder de BlockBlob- en PageBlob-mappen een container gemaakt in het Azure-opslagaccount. Alle bestanden onder de mappen BlockBlob en PageBlob worden naar een standaardcontainer `$root` onder het Azure-opslagaccount gekopieerd. Bestanden in de `$root`-container worden altijd als blok-blobs geüpload.
 
+   Bestanden kopiëren naar een map in *AzureFile* map. Een submap binnen *AzureFile* map wordt gemaakt van een bestandsshare. Bestanden rechtstreeks naar gekopieerd *AzureFile* map mislukken en worden geüpload als blok-blobs.
+
     Als er in de hoofdmap bestanden en mappen voorkomen, moet u deze naar een andere map verplaatsen voordat u met het kopiëren van gegevens begint.
 
-    Houd u aan de Azure-naamgevingsvereisten voor container- en blobnamen.
+    > [!IMPORTANT]
+    > Alle containers, blobs en bestandsnamen moeten voldoen aan [Azure naamgevingsregels](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Als u zich niet aan deze regels houdt, mislukt de gegevensupload naar Azure.
 
-    #### <a name="azure-naming-conventions-for-container-and-blob-names"></a>Azure-naamconventies voor namen van containers en blobs
-    |Entiteit   |Conventies  |
-    |---------|---------|
-    |Namen van containers voor blok-blobs en pagina-blobs     |Moeten beginnen met een letter of cijfer en mogen alleen kleine letters, cijfers en het koppelteken (-) bevatten. Elk koppelteken (-) moet direct worden voorafgegaan en gevolgd door een letter of cijfer. In namen worden geen opeenvolgende koppeltekens toegestaan. <br>Moet een geldige DNS-naam zijn die tussen de 3 en 63 tekens bevat.          |
-    |Blobnamen voor blok-blob en pagina-blob    |Blobnamen zijn hoofdlettergevoelig en kunnen elke combinatie van tekens bevatten. <br>Een blobnaam moet 1 tot 1024 tekens bevatten.<br>Gereserveerde tekens voor URL's moeten op de juiste wijze van een escape-teken zijn voorzien.<br>Het aantal padsegmenten dat de blobnaam omvat, mag niet meer dan 254 zijn. Een padsegment is de tekenreeks tussen opeenvolgende scheidingstekens (bijvoorbeeld de slash '/') die overeenkomt met de naam van een virtuele map.         |
-
-    > [!IMPORTANT] 
-    > Alle containers en blobs moeten voldoen aan de [Azure-naamgevingsregels](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions). Als u zich niet aan deze regels houdt, mislukt de gegevensupload naar Azure.
-
-3. Wanneer u bestanden kopieert, moet u ervoor zorgen dat de bestanden de ~4,7 TiB voor blok-blobs en ~8 TiB voor pagina-blobs niet overschrijden. 
+3. Bij het kopiëren van bestanden, zorg ervoor dat bestanden niet groter zijn dan ~4.7 TiB voor blok-blobs, ~ 8 TiB voor pagina-blobs en ~ 1 TiB voor Azure Files. 
 4. U kunt door middel van slepen en neerzetten de gegevens vanuit Verkenner kopiëren. U kunt ook elk programma voor het kopiëren van bestanden dat compatibel is met SMB, zoals Robocopy, gebruiken om de gegevens te kopiëren. Er kunnen meerdere kopieertaken worden gestart met de volgende Robocopy-opdracht:
 
     `Robocopy <source> <destination>  * /MT:64 /E /R:1 /W:1 /NFL /NDL /FFT /Log:c:\RobocopyLog.txt` 
     
     De parameters en opties voor de opdracht worden in de volgende tabel weergegeven:
     
-    |Parameters/opties  |Beschrijving |
+    |Parameters/opties  |Description |
     |--------------------|------------|
     |Bron            | Hiermee geeft u het pad naar de bronmap op.        |
     |Doel       | Hiermee geeft u het pad naar de doelmap op.        |
@@ -80,7 +98,7 @@ Voer de volgende stappen uit om verbinding te maken en gegevens van uw computer 
     |/FFT                | Hiermee wordt uitgegaan van FAT-bestandstijden (precisie van twee seconden).        |
     |/Log:<Log File>     | Hiermee schrijft u de statusuitvoer naar het logboekbestand (en overschrijft u het bestaande logboekbestand).         |
 
-    Er kunnen gelijktijdig meerdere schijven worden gebruikt terwijl er op elke schijf meerdere taken worden uitgevoerd. 
+    Er kunnen gelijktijdig meerdere schijven worden gebruikt terwijl er op elke schijf meerdere taken worden uitgevoerd.
 
 6. Controleer de kopieerstatus wanneer de taak wordt uitgevoerd. In het volgende voorbeeld ziet u de uitvoer van de Robocopy-opdracht voor het kopiëren van bestanden naar de Data Box-schijf.
 
@@ -151,8 +169,8 @@ Voer de volgende stappen uit om verbinding te maken en gegevens van uw computer 
     Gebruik de volgende parameters in Robocopy om de prestaties te optimaliseren als u de gegevens kopieert.
 
     |    Platform    |    Voornamelijk kleine bestanden van < 512 KB                           |    Voornamelijk middelgrote bestanden van 512 KB - 1 MB                      |    Voornamelijk grote bestanden van > 1 MB                             |   
-    |----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
-    |    Data Box Disk        |    4 Robocopy-sessies* <br> 16 threads per sessie    |    2 Robocopy-sessies* <br> 16 threads per sessie    |    2 Robocopy-sessies* <br> 16 threads per sessie    |  |
+    |----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|
+    |    Data Box Disk        |    4 Robocopy-sessies* <br> 16 threads per sessie    |    2 Robocopy-sessies* <br> 16 threads per sessie    |    2 Robocopy-sessies* <br> 16 threads per sessie    |
     
     **Elke Robocopy-sessie kan maximaal 7.000 mappen en 150 miljoen bestanden hebben.*
     
@@ -163,17 +181,13 @@ Voer de volgende stappen uit om verbinding te maken en gegevens van uw computer 
 
 6. Open de doelmap om de gekopieerde bestanden weer te geven en te controleren. Als er fouten zijn opgetreden tijdens het kopiëren, downloadt u de logboekbestanden om de problemen op te lossen. De logboekbestanden bevinden zich op de locatie die in de Robocopy-opdracht is aangegeven.
  
-> [!IMPORTANT]
-> - Het is uw verantwoordelijkheid om ervoor te zorgen dat u de gegevens kopieert naar mappen met de juiste gegevensindeling. U moet bijvoorbeeld de blok-blobgegevens naar de map voor blok-blobs kopiëren. Als de gegevensindeling niet overeenkomt met de betreffende map (opslagtype), zal de gegevensupload naar Azure op een later tijdstip mislukken.
-> -  Zorg er tijdens het kopiëren van gegevens voor dat de gegevensgrootte voldoet aan de limieten die staan beschreven in de [limieten voor Azure-opslag en Data Box-schijven](data-box-disk-limits.md).
-> - Als de gegevens die door Data Box Disk worden geüpload gelijktijdig door andere toepassingen buiten Data Box Disk worden geüpload, kan dit tot fouten voor de uploadtaak en beschadigde gegevens leiden.
-
 ### <a name="split-and-copy-data-to-disks"></a>Gegevens splitsen en kopiëren naar schijven
 
 U kunt deze optionele procedure gebruiken als u meerdere schijven gebruikt en u over een grote gegevensset beschikt die moet worden gesplitst en gekopieerd naar alle schijven. Met de Split Copy Tool van Data Box kunt u de gegevens op een Windows-computer splitsen en kopiëren.
 
 >[!IMPORTANT]
 > De Data Box Split Copy tool valideert ook uw gegevens. Als u de Data Box Split Copy tool gebruikt om gegevens te kopiëren, kunt u de [validatiestap](#validate-data) overslaan.
+> Hulpprogramma voor splitsen kopiëren wordt niet ondersteund met beheerde schijven.
 
 1. Zorg er op uw Windows-computer voor dat u de Split Copy Tool van Data Box hebt gedownload en uitgepakt in een lokale map. Het hulpprogramma is gedownload toen u de werkset voor de Data Box-schijf voor Windows downloadde.
 2. Open Verkenner. Maak een notitie van het gegevensbronstation en welke stationsletters zijn toegewezen aan de Data Box-schijf. 
@@ -195,10 +209,10 @@ U kunt deze optionele procedure gebruiken als u meerdere schijven gebruikt en u 
  
 5. Wijzig het bestand `SampleConfig.json`.
  
-    - Geef een taaknaam op. Hiermee maakt u een map in de Data Box-schijf. Uiteindelijk wordt dit de container in het Azure-opslagaccount dat is gekoppeld aan deze schijven. De taaknaam moet voldoen aan de naamgevingsconventies voor Azure-containers. 
-    - Geef een bronpad op en noteer de padindeling in `SampleConfigFile.json`. 
-    - Voer de stationsletters in voor de doelschijven. De gegevens worden via het bronpad verzameld en gekopieerd naar meerdere schijven.
-    - Geef een pad op voor de logboekbestanden. Standaard worden deze naar de huidige map verzonden, waar het `.exe`-bestand zich bevindt.
+   - Geef een taaknaam op. Hiermee maakt u een map in de Data Box-schijf. Uiteindelijk wordt dit de container in het Azure-opslagaccount dat is gekoppeld aan deze schijven. De taaknaam moet voldoen aan de naamgevingsconventies voor Azure-containers. 
+   - Geef een bronpad op en noteer de padindeling in `SampleConfigFile.json`. 
+   - Voer de stationsletters in voor de doelschijven. De gegevens worden via het bronpad verzameld en gekopieerd naar meerdere schijven.
+   - Geef een pad op voor de logboekbestanden. Standaard worden deze naar de huidige map verzonden, waar het `.exe`-bestand zich bevindt.
 
      ![Gegevens splitsen en kopiëren](media/data-box-disk-deploy-copy-data/split-copy-5.png)
 

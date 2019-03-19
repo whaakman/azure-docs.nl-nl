@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 50306ab4dee13f772c2c34b3c3a8f13d07861fc0
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 53b4d03ac8f5d22595d3a4e840a04583f7ec963d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410261"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995527"
 ---
 # <a name="certificate-creation-methods"></a>Methoden voor het maken van certificaten
 
@@ -35,7 +35,7 @@ De volgende beschrijvingen komen overeen met de groene letters stappen in het vo
 1. In het bovenstaande diagram is uw toepassing een certificaat dat intern wordt gestart met het maken van een sleutel in uw key vault maken.
 2. Key Vault retourneert aan uw toepassing een Certificate Signing Request (CSR)
 3. Uw toepassing geeft de CSR aan de door u gekozen CA.
-4. De door u gekozen CA reageert met een een X509 certificaat.
+4. De door u gekozen CA reageert met een X509 certificaat.
 5. Uw toepassing klaar is voor het nieuwe certificaat maken met een fusie van de X509 certificaat van uw Certificeringsinstantie.
 
 -   **Maak een certificaat met een bekende verlener-provider:** Deze methode moet u een eenmalige taak voor het maken van een verlener-object. Zodra een verlener-object is gemaakt in uw key vault, de naam ervan in het beleid van het certificaat KV kan worden verwezen. Een aanvraag voor het maken van een certificaat KV maakt een sleutelpaar in de kluis en communiceren met de uitgever provider-service met behulp van de gegevens in het object waarnaar wordt verwezen, uitgever om een x509 certificaat. De x509 certificaat wordt opgehaald uit de service verlener en wordt samengevoegd met het sleutelpaar om uit te voeren van de KV certificaat maken.  

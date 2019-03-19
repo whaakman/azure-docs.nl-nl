@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: ab89f8ee-2507-4625-94bc-b24ef3d5e006
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad35d8d3ff04de7e3d99976d637c4fad47c0cd6c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 7bc40c5043cefad7892eaead8fe8058ac3707865
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869000"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904708"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>Zelfstudie: Azure Active Directory-integratie met Envi MMIS
 
@@ -53,7 +53,7 @@ Als u de integratie van Envi MMIS wilt configureren in Azure AD, dient u Envi MM
 
 **Als u Envi MMIS wilt toevoegen vanuit de galerie, voert u de volgende stappen uit:**
 
-1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De knop Azure Active Directory](common/select-azuread.png)
 
@@ -182,9 +182,9 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    a. Voer in het veld **Naam****Britta Simon** in.
+    a. Voer in het veld **Naam** **Britta Simon** in.
   
-    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    b. In de **gebruikersnaam** veld, typt u **brittasimon\@yourcompanydomain.extension**  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
@@ -237,7 +237,7 @@ Als u wilt dat Azure AD-gebruikers zich kunnen aanmelden bij Envi MMIS, moeten z
 
     ![Werknemer toevoegen](./media/envimmis-tutorial/user3.png)
 
-    a. Typ in het tekstvak **User Name** de gebruikersnaam van het Britta Simon-account in, bijvoorbeeld **brittasimon@contoso.com**.
+    a. In de **gebruikersnaam** tekstvak typt u de gebruikersnaam van Britta Simon account, zoals **brittasimon\@contoso.com**.
     
     b. Typ in het tekstvak **First Name** de voornaam van BrittaSimon in, in dit geval **Britta**.
 
@@ -245,15 +245,15 @@ Als u wilt dat Azure AD-gebruikers zich kunnen aanmelden bij Envi MMIS, moeten z
 
     d. Voer de titel van de gebruiker in in **Title** van het tekstvak.
     
-    e. Typ in het tekstvak **Email Address** het e-mailadres van het Britta Simon-account in, bijvoorbeeld **brittasimon@contoso.com**.
+    e. In de **e-mailadres** tekstvak typt u het e-mailadres van Britta Simon account, zoals **brittasimon\@contoso.com**.
 
-    f. Typ in het tekstvak **SSO User Name** de gebruikersnaam van het Britta Simon-account in, bijvoorbeeld **brittasimon@contoso.com**.
+    f. In de **SSO-gebruikersnaam** tekstvak typt u de gebruikersnaam van Britta Simon account, zoals **brittasimon\@contoso.com**.
 
     g. Klik op **Opslaan**.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
 
-In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
 Wanneer u in het toegangsvenster op de tegel Envi MMIS klikt, wordt u automatisch aangemeld bij de instantie van Envi MMIS waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 83bbb7f6a683265e4f2ed20801d0c7541a54e9f9
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 63ce2be847017ed7e80fe5e573d5553311f6af2f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244958"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107675"
 ---
 # <a name="use-notebooks-to-hunt-for-anomalies"></a>Notitieblokken gebruiken voor het opsporen van afwijkingen
 
@@ -48,15 +48,15 @@ In het volgende voorbeeld uitvoeren we het ingebouwde notitieblok om te zoeken n
   
    ![notitieblok selecteren](./media/notebooks/select-notebook.png)
 
-3.  Klik op **importeren** naar kloon de GitHub-opslagplaats naar uw Azure-notitieblokken-project.
-  ![Import-notebook](./media/notebooks/import1.png)
-4.  Elk notitieblok leidt u door de stappen voor het uitvoeren van een hunt of onderzoek. Modellen, bibliotheken en andere afhankelijkheden en de configuratie voor de verbinding met Azure Sentinel wordt automatisch geïmporteerd om in te schakelen van één klik kan worden uitgevoerd. Alle code en bibliotheken die nodig zijn voor het uitvoeren van een laptop worden vooraf geladen. U kunt direct beginnen met het uitvoeren van een notebook in uw Log Analytics-werkruimte zonder configuratie.
+3. Klik op **importeren** naar kloon de GitHub-opslagplaats naar uw Azure-notitieblokken-project.
+   ![Import-notebook](./media/notebooks/import1.png)
+4. Elk notitieblok leidt u door de stappen voor het uitvoeren van een hunt of onderzoek. Modellen, bibliotheken en andere afhankelijkheden en de configuratie voor de verbinding met Azure Sentinel wordt automatisch geïmporteerd om in te schakelen van één klik kan worden uitgevoerd. Alle code en bibliotheken die nodig zijn voor het uitvoeren van een laptop worden vooraf geladen. U kunt direct beginnen met het uitvoeren van een notebook in uw Log Analytics-werkruimte zonder configuratie.
 
    ![Importeren van opslagplaats](./media/notebooks/import2.png)
 
-5.  Verken, wijzigen en uitvoeren van alle voorbeeldnotitieblokken die zijn opgegeven. Deze kunnen worden gebruikt als bouwstenen voor veel verschillende scenario's.
+5. Verken, wijzigen en uitvoeren van alle voorbeeldnotitieblokken die zijn opgegeven. Deze kunnen worden gebruikt als bouwstenen voor veel verschillende scenario's.
 
-  ![notitieblok selecteren](./media/notebooks/import3.png)
+   ![notitieblok selecteren](./media/notebooks/import3.png)
 
 
 

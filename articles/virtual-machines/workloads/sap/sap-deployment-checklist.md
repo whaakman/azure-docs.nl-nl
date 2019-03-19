@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 67083a8214724659765922047c1f0ccd6da87b9d
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 520d417abe27887fad03257c52521c25602009eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884925"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096007"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>SAP-werkbelasting op Azure controlelijst voor planning en implementatie 
 
@@ -87,76 +87,76 @@ In deze fase is een migratie van SAP-workload naar Azure openbare cloud gepland.
  
 De test kunt uitvoeren voordat u parallel aan het project plannen en voorbereiden. De fase kan ook worden gebruikt voor het testen van benaderingen en het ontwerp gemaakt in de fase plannen en voorbereiden. De testfase kan worden uitgebreid naar een echte bewijs van concepten. Het verdient aanbeveling om te stellen en een volledige HA-/ DR-oplossing te valideren en beveiligingsontwerp tijdens een proef-implementatie. In sommige gevallen klant kunnen schaalbaarheid tests ook worden uitgevoerd in deze fase. Andere klanten gebruiken de implementatie van SAP-systemen voor sandbox als testfase. Dus we ervan uitgaan dat u hebt vastgesteld dat een systeem dat u migreren naar Azure dat wilt voor het uitvoeren van een leider.
 
-1.  Optimaliseer gegevens worden overgebracht naar Azure. Sterk afhankelijk van de klant cases overboeking via [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) van on-premises is snelste als het Circuit Express voldoende bandbreedte heeft. Met andere klanten plannen via internet om te worden sneller
-2.  In het geval van een SAP heterogene platform-migratie, die bestaat uit een exporteren en importeren van de databasegegevens, testen, en optimaliseren van exporteren en importeren van de fasen. Voor grote migraties met betrekking tot SQL Server als de doelplatform, kunnen u aanbevelingen vinden [hier](https://blogs.msdn.microsoft.com/saponsqlserver/2017/05/08/sap-osdb-migration-to-sql-server-faq-v6-2-april-2017/). U kunt de aanpak van migratie Monitor/SWPM uitvoeren als u niet een upgrade van een gecombineerde versie of [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) verwerken wanneer u de migratie bij een upgrade van de release SAP combineren en te voldoen aan bepaalde bron- en DBMS-platform combinaties zoals beschreven, bijvoorbeeld in [Database migratie optie (DMO) van de som 2.0 SP03](https://launchpad.support.sap.com/#/notes/2631152). 
-    1.  Exporteren naar bron, exporteren-bestand uploaden naar Azure en importeren van prestaties.  Maximaliseren overlapping tussen importeren en exporteren
-    2.  Volume van de database tussen de doel- en bestemmings-platform om aan in de grootte van de infrastructuur te evalueren    
-    3.  Valideren en timing optimaliseren 
-3.  Technische validatie 
-    1.  Soorten VM
-        1.  Valideren van de bronnen op de opmerkingen bij de ondersteuning van SAP en SAP HANA-hardware-directory SAP PAM opnieuw om het ervoor te zorgen dat er geen wijzigingen in de ondersteunde VM's voor Azure, OS-versies ondersteund voor deze VM-typen en SAP en DBMS versies ondersteund
-        2.  Opnieuw valideren van de grootte van uw toepassing en de infrastructuur die u op Azure implementeert. In het geval van het verplaatsen van bestaande toepassingen, u vaak kan worden afgeleid de benodigde SAP's van de infrastructuur die u gebruikt en de [SAP benchmark webpagina](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/sd) en dit vergelijken met de SAP's getallen die worden vermeld in de SAP-notitie voor ondersteuning [#1928533](https://launchpad.support.sap.com/#/notes/1928533). Houd er ook [in dit artikel](https://blogs.msdn.microsoft.com/saponsqlserver/2018/11/04/saps-ratings-on-azure-vms-where-to-look-and-where-you-can-get-confused/) in gedachten
-        3.  Evalueren en te testen van de grootte van uw Azure-VM's met betrekking tot de maximale doorvoer en de netwerkdoorvoer van de verschillende VM-typen die u hebt gekozen in de planningsfase. De gegevens kunnen worden gevonden:
-            1.  [Grootten voor Windows virtuele machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). Het is belangrijk rekening houden met de **schijfdoorvoer, met maximale zonder caching** voor schaling
-            2.  [Grootten voor virtuele Linux-machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) is het belangrijk om te overwegen de **schijfdoorvoer, met maximale zonder caching** voor schaling
-    2.  Storage
-        1.  Azure Premium Storage gebruiken voor Database-VM 's
-        2.  Gebruik [Azure beheerde schijven](https://azure.microsoft.com/services/managed-disks/)
-        3.  Gebruik Azure Write Accelerator voor DBMS log schijven met M-serie. Houd rekening met Write accelerator limieten en -gebruik, zoals beschreven in [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)
-        4.  Voor de verschillende DBMS-systemen, Controleer de [algemene SAP DBMS-documentatie gerelateerde](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) en de specifieke documentatie DBMS het algemene document verwijst u naar
-        5.  Voor SAP HANA, meer details worden gedocumenteerd in [configuraties van SAP HANA-infrastructuur en bewerkingen op Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
-        6.  Nooit gegevensschijven koppelen van Azure met een Azure Linux-VM met behulp van de apparaat-ID. Gebruik in plaats daarvan de universally unique identifier (UUID). Wees voorzichtig wanneer u grafische hulpprogramma's te koppelen van een Azure-gegevensschijven, bijvoorbeeld. Controleer de vermeldingen in/etc/fstab om ervoor te zorgen dat de schijven zijn gekoppeld met behulp van de UUID
-            1.  Meer informatie vindt [hier](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#connect-to-the-linux-vm-to-mount-the-new-disk)
-    3.  Netwerken
-        1.  Test en evalueer uw VNet-infrastructuur en de distributie van uw SAP-toepassingen in of in de verschillende virtuele netwerken
-            1.  De benadering van de hub en spoke-architectuur voor virtueel netwerk of microsegmentation binnen een enkel Azure-netwerk op basis van evalueren
-                1.  Kosten vanwege het uitwisselen van gegevens tussen [Azure VNets gekoppeld](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). Controleer voor de kosten van [prijzen voor Virtual Network](https://azure.microsoft.com/pricing/details/virtual-network/)
-                2.  Snelle verbinding verbreken van de peering tussen virtuele Azure-netwerken in vergelijking met wijziging NSG aan een subnet binnen een virtueel netwerk voor gevallen waarin werd een veiligheidsrisico inhouden van toepassingen of virtuele machines die worden gehost in een subnet van het virtuele netwerk isoleren
-                3.  Centrale logboekregistratie en bewaking van netwerkverkeer tussen on-premises, buitenwereld en het virtuele datacenter dat in Azure worden hebt gemaakt
-            2.  Evalueren en te testen gegevenspad tussen SAP-toepassingslaag en SAP DBMS-laag. 
-                1.  Alle plaatsing van [Azure Network Virtual Appliances](https://azure.microsoft.com/solutions/network-appliances/) in het communicatiepad tussen de SAP-toepassing en de DBMS-laag van een SAP NetWeaver, Hybris of S/4HANA van SAP-systemen is niet helemaal worden ondersteund
-                2.  SAP-toepassingslaag en SAP DBMS in verschillende virtuele netwerken die niet worden gekoppeld plaatsen wordt niet ondersteund
-                3.  [Azure ASG en NSG-regels](https://docs.microsoft.com/azure/virtual-network/security-overview) worden ondersteund voor het definiëren van routes tussen de SAP-toepassingslaag en SAP DBMS-laag
-            3.  Zorg ervoor dat [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) is ingeschakeld op de virtuele machines die worden gebruikt op het niveau van de SAP-toepassing en de SAP DBMS-laag. Houd er rekening mee dat verschillende niveaus van het besturingssysteem nodig zijn voor de ondersteuning van versnelde netwerken in Azure:
-                1.  Windows Server 2012 R2 of een nieuwere versie
-                2.  SUSE Linux 12 SP3 of een nieuwere versie
-                3.  RHEL 7.4 of een nieuwere versie
-                4.  Oracle Linux 7.5. Met behulp van de kernel RHCKL, moet de versie 3.10.0-862.13.1.el7. Met behulp van de Oracle-UEK is kernel versie 5 vereist
-            4.   Testen en evalueren van de netwerklatentie tussen SAP-toepassingslaag VM en de DBMS-VM op basis van SAP-notitie voor ondersteuning [#500235](https://launchpad.support.sap.com/#/notes/500235) en ondersteuning-SAP-notitie [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Evalueren van de resultaten op basis van de richtlijnen voor network-latentie van SAP-notitie voor ondersteuning [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). De netwerklatentie moet binnen het bereik gemiddeld en goed. Uitzonderingen zijn van toepassing op het verkeer tussen VM's en HANA grote instantie eenheden zoals beschreven [hier](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance)
-            5.   Zorg ervoor dat ILB-implementaties zijn ingesteld voor het gebruik van de Direct Server Return is. Deze instelling wordt Verminder de latentie in gevallen waarin Azure ILB's worden gebruikt voor configuraties met hoge beschikbaarheid in de DBMS-laag
-    4.   Hoge beschikbaarheid en disaster recovery-implementaties. 
-        1.   Als u het niveau van de SAP-toepassing implementeren zonder het definiëren van een specifieke Azure-Beschikbaarheidszone, zorgt u ervoor dat alle virtuele machines met SAP dialoogvenster instantie of middleware exemplaren van een enkele SAP-systeem worden geïmplementeerd een [Beschikbaarheidsset](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability). 
-            1.   Als u geen hoge beschikbaarheid nodig voor de SAP Central Services en de DBMS-systemen hebt, kunnen deze VM's worden geïmplementeerd in dezelfde Beschikbaarheidsset als het niveau van de SAP-toepassing
-        2.   Als u de SAP Central Services en de DBMS-laag voor hoge beschikbaarheid met passieve replica's beveiligt, hebt u de twee knooppunten voor SAP Central Services in een afzonderlijke Beschikbaarheidsset en de twee DBMS-knooppunt in een andere Beschikbaarheidsset
-        3.   Als u in Azure-Beschikbaarheidszones implementeert, kunt u Beschikbaarheidssets kan niet gebruikmaken van. U moet echter om ervoor te zorgen dat u de actieve en passieve knooppunten voor Central Services implementeren in twee verschillende Beschikbaarheidszones, waarin de laagste latentie tussen zones.
-            1.   Houd er rekening mee dat u wilt gebruiken [Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) voor het geval van het opstellen van Windows of Pacemaker failover-Clusters voor de laag DBMS-systemen en SAP Central Services in meerdere Beschikbaarheidszones. [Basic Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) kan niet worden gebruikt voor zonegebonden implementaties 
-    5.   Time-outinstellingen
-        1.   SAP NetWeaver-ontwikkelaar traceringen van de verschillende SAP-exemplaren controleren en zorg ervoor dat er geen verbinding onderbrekingen tussen de server in de wachtrij plaatsen en de SAP-werkprocessen worden vermeld. Deze verbinding-einden worden vermeden door in te stellen van deze twee registerparameters:
-            1.   HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveTime = 120000 - Zie ook [in dit artikel](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc957549(v=technet.10))
-            2.   HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveInterval = 120000 - Zie ook [in dit artikel](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc957548(v=technet.10)) 
-        2.   Om te voorkomen dat GUI time-outs tussen 1-premises SAP-GUI-interfaces en lagen van SAP-toepassing geïmplementeerd in Azure geïmplementeerd, moet u controleren of de volgende parameters zijn ingesteld in de default.pfl of het exemplaar van het profiel:
-            1.   rdisp/keepalive_timeout = 3600
-            2.   rdisp/keepalive = 20
-        3.   Als u een Windows-failovercluster-configuratie gebruikt, zorg ervoor dat de tijd om te reageren op niet-reagerend knooppunten correct is ingesteld voor Azure. Het Microsoft-artikel [afstemmen Failover Cluster netwerk drempelwaarden](https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/) een lijst met parameters en hoe die invloed hebben op failover gevoeligheid. Van de parameters moeten deze twee parameters worden ingesteld door de waarden:
-            1.   SameSubNetDelay = 2
-            2.   SameSubNetThreshold = 15
-4.   Testen van herstelprocedures van de hoge beschikbaarheid en herstel na noodgeval
-    1.   Failover-situaties simuleren door virtuele machines (Windows Gast-OS) wordt afgesloten of het plaatsen van besturingssystemen in paniek modus (Linux Gast-OS) om te kunnen beoordelen of uw failoverconfiguraties werkt zoals ontworpen. 
-    2.   Meet de tijden die nodig is voor het uitvoeren van een failover. Als de tijdstippen te lang duren, kunt u overwegen:
-        1.   Gebruiken voor SUSE Linux SBD apparaten in plaats van de Agent beide kanten van Azure om failover te versnellen
-        2.   Voor SAP HANA, als het laden van gegevens te lang duurt kunt u overwegen om in te richten meer opslag bandbreedte
-    3.   Back-up/herstel volgorde en timing testen en af te stemmen indien nodig. Zorg ervoor dat niet alleen back-uptijden voldoende zijn. Ook test herstellen en de timing terugzetten activiteiten uitvoeren. Zorg ervoor dat de hersteltijden zijn binnen uw Sla RTO's waar uw RTO, is afhankelijk van een database of herstelproces van de virtuele machine
-    4.   Testen in de regio DR-functionaliteit en architectuur
-5.  Beveiligingscontrole
-    1.  Test de geldigheid van de Azure-rol gebaseerd toegangsbeheer (RBAC)-architectuur die u hebt geïmplementeerd. Doel is om te scheiden en beperken van toegang en machtigingen van verschillende teams. Als u bijvoorbeeld moet SAP Basis teamleden kunnen VM's implementeert en het toewijzen van schijven in Azure storage in een bepaald Azure-netwerk. De Basis van de SAP-team mag echter niet zijn eigen virtuele netwerken maken of wijzigen van de instellingen van bestaande virtuele netwerken. Aan de andere kant moeten leden van het netwerkteam niet mogelijk voor het implementeren van virtuele machines in virtuele netwerken waar de SAP-toepassing en DBMS-VM's worden uitgevoerd. Noch de leden van het netwerkteam moet kunnen kenmerken van virtuele machines wijzigen of zelfs verwijderen VM's of schijven.  
-    2.  Controleer of [NSG en ASC](https://docs.microsoft.com/azure/virtual-network/security-overview) regels worden naar behoren werkt en de beveiligde resources afschermen
-    3.  Zorg ervoor dat alle resources die moeten worden versleuteld zijn versleuteld. Definieer en processen voor het back-up van certificaten, opslaan, en deze certificaten toegankelijk en herstellen van de versleutelde entiteiten worden uitgevoerd. 
-    4.  Gebruik [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq) en/of voor waar mogelijk van een besturingssysteem oogpunt ondersteunt OS-schijven
-    5.  Controleer dat niet te veel lagen van versleuteling zijn gebruikt. Het verstandig beperkt om te gebruiken Azure Disk encryption en klikt u vervolgens op top een van de methoden transparante Databaseversleuteling DBMS-systemen
-6.  Prestatietesten
-    1.  In SAP op basis van SAP-tracering en metingen, vergelijken bovenste 10 online rapporten naar de huidige implementatie, indien van toepassing 
-    2.  In SAP op basis van SAP-tracering en metingen, vergelijken top 10 batch-taken naar de huidige implementatie, indien van toepassing 
-    3.  In SAP op basis van SAP-tracering en metingen, vergelijken gegevensoverdrachten via interfaces in de SAP-systeem. Richt u op de interfaces waarvan u weet dat de overdracht nu wordt verzonden tussen verschillende locaties, zoals die van on-premises naar Azure 
+1. Optimaliseer gegevens worden overgebracht naar Azure. Sterk afhankelijk van de klant cases overboeking via [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) van on-premises is snelste als het Circuit Express voldoende bandbreedte heeft. Met andere klanten plannen via internet om te worden sneller
+2. In het geval van een SAP heterogene platform-migratie, die bestaat uit een exporteren en importeren van de databasegegevens, testen, en optimaliseren van exporteren en importeren van de fasen. Voor grote migraties met betrekking tot SQL Server als de doelplatform, kunnen u aanbevelingen vinden [hier](https://blogs.msdn.microsoft.com/saponsqlserver/2017/05/08/sap-osdb-migration-to-sql-server-faq-v6-2-april-2017/). U kunt de aanpak van migratie Monitor/SWPM uitvoeren als u niet een upgrade van een gecombineerde versie of [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) verwerken wanneer u de migratie bij een upgrade van de release SAP combineren en te voldoen aan bepaalde bron- en DBMS-platform combinaties zoals beschreven, bijvoorbeeld in [Database migratie optie (DMO) van de som 2.0 SP03](https://launchpad.support.sap.com/#/notes/2631152). 
+   1.  Exporteren naar bron, exporteren-bestand uploaden naar Azure en importeren van prestaties.  Maximaliseren overlapping tussen importeren en exporteren
+   2.  Volume van de database tussen de doel- en bestemmings-platform om aan in de grootte van de infrastructuur te evalueren    
+   3.  Valideren en timing optimaliseren 
+3. Technische validatie 
+   1. Soorten VM
+      1.  Valideren van de bronnen op de opmerkingen bij de ondersteuning van SAP en SAP HANA-hardware-directory SAP PAM opnieuw om het ervoor te zorgen dat er geen wijzigingen in de ondersteunde VM's voor Azure, OS-versies ondersteund voor deze VM-typen en SAP en DBMS versies ondersteund
+      2.  Opnieuw valideren van de grootte van uw toepassing en de infrastructuur die u op Azure implementeert. In het geval van het verplaatsen van bestaande toepassingen, u vaak kan worden afgeleid de benodigde SAP's van de infrastructuur die u gebruikt en de [SAP benchmark webpagina](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/sd) en dit vergelijken met de SAP's getallen die worden vermeld in de SAP-notitie voor ondersteuning [#1928533](https://launchpad.support.sap.com/#/notes/1928533). Houd er ook [in dit artikel](https://blogs.msdn.microsoft.com/saponsqlserver/2018/11/04/saps-ratings-on-azure-vms-where-to-look-and-where-you-can-get-confused/) in gedachten
+      3.  Evalueren en te testen van de grootte van uw Azure-VM's met betrekking tot de maximale doorvoer en de netwerkdoorvoer van de verschillende VM-typen die u hebt gekozen in de planningsfase. De gegevens kunnen worden gevonden:
+          1.  [Grootten voor Windows virtuele machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). Het is belangrijk rekening houden met de **schijfdoorvoer, met maximale zonder caching** voor schaling
+          2.  [Grootten voor virtuele Linux-machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) is het belangrijk om te overwegen de **schijfdoorvoer, met maximale zonder caching** voor schaling
+   2. Opslag
+      1.  Azure Premium Storage gebruiken voor Database-VM 's
+      2.  Gebruik [Azure beheerde schijven](https://azure.microsoft.com/services/managed-disks/)
+      3.  Gebruik Azure Write Accelerator voor DBMS log schijven met M-serie. Houd rekening met Write accelerator limieten en -gebruik, zoals beschreven in [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)
+      4.  Voor de verschillende DBMS-systemen, Controleer de [algemene SAP DBMS-documentatie gerelateerde](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) en de specifieke documentatie DBMS het algemene document verwijst u naar
+      5.  Voor SAP HANA, meer details worden gedocumenteerd in [configuraties van SAP HANA-infrastructuur en bewerkingen op Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
+      6.  Nooit gegevensschijven koppelen van Azure met een Azure Linux-VM met behulp van de apparaat-ID. Gebruik in plaats daarvan de universally unique identifier (UUID). Wees voorzichtig wanneer u grafische hulpprogramma's te koppelen van een Azure-gegevensschijven, bijvoorbeeld. Controleer de vermeldingen in/etc/fstab om ervoor te zorgen dat de schijven zijn gekoppeld met behulp van de UUID
+          1.  Meer informatie vindt [hier](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#connect-to-the-linux-vm-to-mount-the-new-disk)
+   3. Netwerken
+      1.  Test en evalueer uw VNet-infrastructuur en de distributie van uw SAP-toepassingen in of in de verschillende virtuele netwerken
+          1.  De benadering van de hub en spoke-architectuur voor virtueel netwerk of microsegmentation binnen een enkel Azure-netwerk op basis van evalueren
+              1.  Kosten vanwege het uitwisselen van gegevens tussen [Azure VNets gekoppeld](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). Controleer voor de kosten van [prijzen voor Virtual Network](https://azure.microsoft.com/pricing/details/virtual-network/)
+              2.  Snelle verbinding verbreken van de peering tussen virtuele Azure-netwerken in vergelijking met wijziging NSG aan een subnet binnen een virtueel netwerk voor gevallen waarin werd een veiligheidsrisico inhouden van toepassingen of virtuele machines die worden gehost in een subnet van het virtuele netwerk isoleren
+              3.  Centrale logboekregistratie en bewaking van netwerkverkeer tussen on-premises, buitenwereld en het virtuele datacenter dat in Azure worden hebt gemaakt
+          2.  Evalueren en te testen gegevenspad tussen SAP-toepassingslaag en SAP DBMS-laag. 
+              1.  Alle plaatsing van [Azure Network Virtual Appliances](https://azure.microsoft.com/solutions/network-appliances/) in het communicatiepad tussen de SAP-toepassing en de DBMS-laag van een SAP NetWeaver, Hybris of S/4HANA van SAP-systemen is niet helemaal worden ondersteund
+              2.  SAP-toepassingslaag en SAP DBMS in verschillende virtuele netwerken die niet worden gekoppeld plaatsen wordt niet ondersteund
+              3.  [Azure ASG en NSG-regels](https://docs.microsoft.com/azure/virtual-network/security-overview) worden ondersteund voor het definiëren van routes tussen de SAP-toepassingslaag en SAP DBMS-laag
+          3.  Zorg ervoor dat [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) is ingeschakeld op de virtuele machines die worden gebruikt op het niveau van de SAP-toepassing en de SAP DBMS-laag. Houd er rekening mee dat verschillende niveaus van het besturingssysteem nodig zijn voor de ondersteuning van versnelde netwerken in Azure:
+              1.  Windows Server 2012 R2 of een nieuwere versie
+              2.  SUSE Linux 12 SP3 of een nieuwere versie
+              3.  RHEL 7.4 of een nieuwere versie
+              4.  Oracle Linux 7.5. Met behulp van de kernel RHCKL, moet de versie 3.10.0-862.13.1.el7. Met behulp van de Oracle-UEK is kernel versie 5 vereist
+          4.   Testen en evalueren van de netwerklatentie tussen SAP-toepassingslaag VM en de DBMS-VM op basis van SAP-notitie voor ondersteuning [#500235](https://launchpad.support.sap.com/#/notes/500235) en ondersteuning-SAP-notitie [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Evalueren van de resultaten op basis van de richtlijnen voor network-latentie van SAP-notitie voor ondersteuning [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). De netwerklatentie moet binnen het bereik gemiddeld en goed. Uitzonderingen zijn van toepassing op het verkeer tussen VM's en HANA grote instantie eenheden zoals beschreven [hier](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance)
+          5.   Zorg ervoor dat ILB-implementaties zijn ingesteld voor het gebruik van de Direct Server Return is. Deze instelling wordt Verminder de latentie in gevallen waarin Azure ILB's worden gebruikt voor configuraties met hoge beschikbaarheid in de DBMS-laag
+   4. Hoge beschikbaarheid en disaster recovery-implementaties. 
+      1. Als u het niveau van de SAP-toepassing implementeren zonder het definiëren van een specifieke Azure-Beschikbaarheidszone, zorgt u ervoor dat alle virtuele machines met SAP dialoogvenster instantie of middleware exemplaren van een enkele SAP-systeem worden geïmplementeerd een [Beschikbaarheidsset](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability). 
+         1.   Als u geen hoge beschikbaarheid nodig voor de SAP Central Services en de DBMS-systemen hebt, kunnen deze VM's worden geïmplementeerd in dezelfde Beschikbaarheidsset als het niveau van de SAP-toepassing
+      2. Als u de SAP Central Services en de DBMS-laag voor hoge beschikbaarheid met passieve replica's beveiligt, hebt u de twee knooppunten voor SAP Central Services in een afzonderlijke Beschikbaarheidsset en de twee DBMS-knooppunt in een andere Beschikbaarheidsset
+      3. Als u in Azure-Beschikbaarheidszones implementeert, kunt u Beschikbaarheidssets kan niet gebruikmaken van. U moet echter om ervoor te zorgen dat u de actieve en passieve knooppunten voor Central Services implementeren in twee verschillende Beschikbaarheidszones, waarin de laagste latentie tussen zones.
+         1.   Houd er rekening mee dat u wilt gebruiken [Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) voor het geval van het opstellen van Windows of Pacemaker failover-Clusters voor de laag DBMS-systemen en SAP Central Services in meerdere Beschikbaarheidszones. [Basic Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) kan niet worden gebruikt voor zonegebonden implementaties 
+   5. Time-outinstellingen
+      1. SAP NetWeaver-ontwikkelaar traceringen van de verschillende SAP-exemplaren controleren en zorg ervoor dat er geen verbinding onderbrekingen tussen de server in de wachtrij plaatsen en de SAP-werkprocessen worden vermeld. Deze verbinding-einden worden vermeden door in te stellen van deze twee registerparameters:
+         1.   HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveTime = 120000 - Zie ook [in dit artikel](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc957549(v=technet.10))
+         2.   HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveInterval = 120000 - Zie ook [in dit artikel](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc957548(v=technet.10)) 
+      2. Om te voorkomen dat GUI time-outs tussen 1-premises SAP-GUI-interfaces en lagen van SAP-toepassing geïmplementeerd in Azure geïmplementeerd, moet u controleren of de volgende parameters zijn ingesteld in de default.pfl of het exemplaar van het profiel:
+         1.   rdisp/keepalive_timeout = 3600
+         2.   rdisp/keepalive = 20
+      3. Als u een Windows-failovercluster-configuratie gebruikt, zorg ervoor dat de tijd om te reageren op niet-reagerend knooppunten correct is ingesteld voor Azure. Het Microsoft-artikel [afstemmen Failover Cluster netwerk drempelwaarden](https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/) een lijst met parameters en hoe die invloed hebben op failover gevoeligheid. Van de parameters moeten deze twee parameters worden ingesteld door de waarden:
+         1.   SameSubNetDelay = 2
+         2.   SameSubNetThreshold = 15
+4. Testen van herstelprocedures van de hoge beschikbaarheid en herstel na noodgeval
+   1. Failover-situaties simuleren door virtuele machines (Windows Gast-OS) wordt afgesloten of het plaatsen van besturingssystemen in paniek modus (Linux Gast-OS) om te kunnen beoordelen of uw failoverconfiguraties werkt zoals ontworpen. 
+   2. Meet de tijden die nodig is voor het uitvoeren van een failover. Als de tijdstippen te lang duren, kunt u overwegen:
+      1.   Gebruiken voor SUSE Linux SBD apparaten in plaats van de Agent beide kanten van Azure om failover te versnellen
+      2.   Voor SAP HANA, als het laden van gegevens te lang duurt kunt u overwegen om in te richten meer opslag bandbreedte
+   3. Back-up/herstel volgorde en timing testen en af te stemmen indien nodig. Zorg ervoor dat niet alleen back-uptijden voldoende zijn. Ook test herstellen en de timing terugzetten activiteiten uitvoeren. Zorg ervoor dat de hersteltijden zijn binnen uw Sla RTO's waar uw RTO, is afhankelijk van een database of herstelproces van de virtuele machine
+   4. Testen in de regio DR-functionaliteit en architectuur
+5. Beveiligingscontrole
+   1.  Test de geldigheid van de Azure-rol gebaseerd toegangsbeheer (RBAC)-architectuur die u hebt geïmplementeerd. Doel is om te scheiden en beperken van toegang en machtigingen van verschillende teams. Als u bijvoorbeeld moet SAP Basis teamleden kunnen VM's implementeert en het toewijzen van schijven in Azure storage in een bepaald Azure-netwerk. De Basis van de SAP-team mag echter niet zijn eigen virtuele netwerken maken of wijzigen van de instellingen van bestaande virtuele netwerken. Aan de andere kant moeten leden van het netwerkteam niet mogelijk voor het implementeren van virtuele machines in virtuele netwerken waar de SAP-toepassing en DBMS-VM's worden uitgevoerd. Noch de leden van het netwerkteam moet kunnen kenmerken van virtuele machines wijzigen of zelfs verwijderen VM's of schijven.  
+   2.  Controleer of [NSG en ASC](https://docs.microsoft.com/azure/virtual-network/security-overview) regels worden naar behoren werkt en de beveiligde resources afschermen
+   3.  Zorg ervoor dat alle resources die moeten worden versleuteld zijn versleuteld. Definieer en processen voor het back-up van certificaten, opslaan, en deze certificaten toegankelijk en herstellen van de versleutelde entiteiten worden uitgevoerd. 
+   4.  Gebruik [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq) en/of voor waar mogelijk van een besturingssysteem oogpunt ondersteunt OS-schijven
+   5.  Controleer dat niet te veel lagen van versleuteling zijn gebruikt. Het verstandig beperkt om te gebruiken Azure Disk encryption en klikt u vervolgens op top een van de methoden transparante Databaseversleuteling DBMS-systemen
+6. Prestatietesten
+   1.  In SAP op basis van SAP-tracering en metingen, vergelijken bovenste 10 online rapporten naar de huidige implementatie, indien van toepassing 
+   2.  In SAP op basis van SAP-tracering en metingen, vergelijken top 10 batch-taken naar de huidige implementatie, indien van toepassing 
+   3.  In SAP op basis van SAP-tracering en metingen, vergelijken gegevensoverdrachten via interfaces in de SAP-systeem. Richt u op de interfaces waarvan u weet dat de overdracht nu wordt verzonden tussen verschillende locaties, zoals die van on-premises naar Azure 
 
 
 ## <a name="non-production-phase"></a>Niet-productie-fase 

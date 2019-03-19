@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 145c6ac01cce9a70f3753b54a46638bf9d9c23b4
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: e72b115420e49a50f18ae9a27c6243394427ea4a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729743"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000416"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Richtlijnen voor Azure Marketplace-vermelding
 
@@ -72,16 +72,18 @@ Alle aanbiedingen moeten voldoen aan de [alle vereisten van de aanbieding](https
 ----
 
 ## <a name="container-offer-requirements"></a>Containervereisten van aanbieding
+
 |  | Aanbieding-Element | Algemene vereisten | Vereisten voor optimale | 
 |:--- |:--- |:--- |:--- |
 |1 |Aanbiedingsinstellingen | <br>• Aanbiedings-ID: Maximaal 50 tekens <br>• Uitgevers-ID: Selecteer in vervolgkeuzelijst <br>• Naam: Maximaal 50 tekens | Extreem lange titels mirrors niet wilt dat de van al beschikbaar in de beschrijving - titelstijl. | 
-| 2 | Voorraadeenheden | Partners klikken op de nieuwe SKU 's| Extreem lange titels mirrors niet wilt dat de van al beschikbaar in de beschrijving - titelstijl.  |  |
+| 2 | Voorraadeenheden | Partners klikken op de nieuwe SKU 's| Extreem lange titels mirrors niet wilt dat de van al beschikbaar in de beschrijving - titelstijl.  |
 | 3 | Marketplace-artefacten | Logo's weergegeven correct |<br>• Logo bevat 'hero installatiekopie,' dit de installatiekopie van de grote-indeling in de Azure Portal is <br>• Logo's: Klein (48 x 48) en grote (216 x 216) zijn vereisten <br>• Hero afbeeldingsvereisten: https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish<br>• Schermafbeelding (maximaal 5):  CPP moet een PNG-afbeelding met een resolutie van 1280 x 720.|
 | 4 | Leads beheren |<br>•    Lead Management: Selecteer het systeem waar de leads worden opgeslagen. <br>• Meer informatie over het verbinding maken met uw CRM-systeem [hier](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) | |
 
 ----
 
 ## <a name="consulting-offer-requirements"></a>Advies aanbieding-vereisten
+
 |  | Aanbieding-Element | Algemene vereisten | Vereisten voor optimale |
 |:--- |:--- |:--- |:--- |
 | 1 | Titel van aanbieding  |  <br>• Moeten duidelijk vermelden servicetype en duur in de volgende indeling: NAAM: DUUR VAN HET TYPE. (dat wil zeggen, "Engagement bieden: 1 week Proof-of-Concept")  | <br>• Wordt niet herhaald voor de naam van uitgever <br>• Komt overeen met de stijl van de titel al beschikbaar in de beschrijving van-niet wilt dat lange titels. | 

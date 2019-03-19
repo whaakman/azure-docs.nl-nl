@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 9c2d6c48b9bf51062181886c8a9ef789b1c2b359
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: ebd9939128d1f2b870541e82710792d13b69728e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240827"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098998"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Systeemupdates in Azure Security Center toepassen
 Azure Security Center bewaakt dagelijkse Windows en Linux-machines (VM's) en computers voor het besturingssysteemupdates ontbreken. Security Center wordt een lijst met beschikbare beveiligingsupdates en essentiële updates opgehaald van Windows Update of Windows Server Update Services (WSUS), afhankelijk van welke service is geconfigureerd op een Windows-computer. Security Center wordt ook gecontroleerd voor de meest recente updates in Linux-systemen. Als uw virtuele machine of computer het bijwerken van een systeem ontbreekt, wordt Security Center aangeraden dat u systeemupdates toepassen.
@@ -43,7 +43,7 @@ In dit voorbeeld gebruiken we **Compute**.
     - Het totale aantal essentiële updates ontbreken in uw virtuele machines en computers.
     - Het totale aantal beveiligingsupdates dat ontbreekt in uw virtuele machines en computers.
 
-  Onder aan het dashboard geeft een lijst van alle ontbrekende updates voor uw virtuele machines, computers en de ernst van de ontbrekende update.  De lijst bevat:
+   Onder aan het dashboard geeft een lijst van alle ontbrekende updates voor uw virtuele machines, computers en de ernst van de ontbrekende update.  De lijst bevat:
 
     - NAAM: De naam van de ontbrekende update.
     - NEE. VM's en COMPUTERS: Totale aantal virtuele machines en computers die niet over deze update beschikken.

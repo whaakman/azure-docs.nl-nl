@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 1/11/2019
+ms.date: 3/13/2019
 ms.author: victorh
-ms.openlocfilehash: 5552ca80059b4aa7ef96caf7984b4c15ec177d38
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 96bd9e679e1766e87a0bb807204df744bb3cca95
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316588"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897704"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Veelgestelde vragen over Application Gateway
 
@@ -75,7 +75,7 @@ Wanneer u een openbaar IP-adres gebruikt als een eindpunt, deze informatie kan w
 
 ### <a name="what-is-keep-alive-timeout-and-tcp-idle-timeout-setting-on-application-gateway"></a>Wat is Keep-Alive-out en TCP-time-out voor inactiviteit instellen in Application Gateway?
 
-Keep-Alive-out in v1-SKU is 120 sec. Keep-Alive-out op v2 SKU 75 sec. TCP-inactiviteit wordt standaard op het front-end VIP van de toepassingsgateway 4 min.
+Keep-Alive-out in v1-SKU is 120 sec. Keep-Alive-out op v2 SKU 75 sec. TCP-inactiviteit is standaard 4 minuten op het front-end VIP van de toepassingsgateway.
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>Wordt het IP- of DNS-naam gewijzigd gedurende de levensduur van de Application Gateway?
 
@@ -93,6 +93,8 @@ Slechts één openbaar IP-adres wordt ondersteund in een toepassingsgateway.
 
 Application Gateway verbruikt één privé IP-adres per exemplaar, plus een andere privé-IP-adres als een privé front-end-IP-configuratie is geconfigureerd. Ook Azure reserveert de eerste vier en laatste IP-adres in elk subnet voor intern gebruik.
 Bijvoorbeeld, als een application gateway is ingesteld op drie exemplaren en geen privé front-end-IP, klikt u vervolgens een/29 subnet, grootte of hoger is vereist. In dit geval de application gateway maakt gebruik van drie IP-adressen. Als u drie exemplaren en een IP-adres voor de privé front-end-IP-configuratie, klikt u vervolgens een/28 hebt subnet groot of groter is nodig omdat tijdens vier IP-adressen zijn vereist.
+
+Als een best practice, gebruikt u ten minste een/28 grootte van het gatewaysubnet. Dit biedt u 11 bruikbare adressen. Als de belasting van uw toepassing meer dan 10 exemplaren vereist, kunt u overwegen een/27 of/26 grootte van het gatewaysubnet.
 
 ### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>V. Kan ik meer dan één Application Gateway-resource met één subnet implementeren?
 
@@ -356,7 +358,7 @@ Stroom voor diagnostische logboeken naar het opslagaccount voor klanten en klant
 
 ### <a name="how-do-i-get-audit-logs-for-application-gateway"></a>Hoe krijg ik auditlogboeken voor Application Gateway?
 
-Auditlogboeken zijn beschikbaar voor Application Gateway. Klik in de portal op **activiteitenlogboek** in de menu-blade van een toepassingsgateway voor toegang tot het auditlogboek. 
+Auditlogboeken zijn beschikbaar voor Application Gateway. Klik in de portal op **activiteitenlogboek** op het menu-blade van een toepassingsgateway voor toegang tot het auditlogboek. 
 
 ### <a name="can-i-set-alerts-with-application-gateway"></a>Kan ik waarschuwingen kunt instellen met Application Gateway?
 

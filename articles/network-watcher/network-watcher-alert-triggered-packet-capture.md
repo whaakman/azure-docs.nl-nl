@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: fd7e7151d8ec676239ed810fb700149aab0fe0fa
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 71e71b417f12b58fc03c581826c0e5c2412e684b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427399"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57876643"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Pakketopname gebruiken voor proactieve netwerkbewaking met waarschuwingen en Azure Functions
 
@@ -110,13 +110,13 @@ Network Watcher PowerShell-cmdlets wilt gebruiken, de meest recente PowerShell-m
 
     In dit voorbeeld geeft u het lokale pad van de Azure PowerShell-modules. Deze mappen worden gebruikt in een latere stap. De modules die worden gebruikt in dit scenario zijn:
 
-    * AzureRM.Network
+   * AzureRM.Network
 
-    * AzureRM.Profile
+   * AzureRM.Profile
 
-    * AzureRM.Resources
+   * AzureRM.Resources
 
-    ![PowerShell-mappen][functions5]
+     ![PowerShell-mappen][functions5]
 
 1. Selecteer **functie app-instellingen** > **gaat u naar App Service-Editor**.
 
@@ -146,7 +146,7 @@ Network Watcher PowerShell-cmdlets wilt gebruiken, de meest recente PowerShell-m
 
     ![PowerShell-bestanden][functions7]
 
-### <a name="authentication"></a>Verificatie
+### <a name="authentication"></a>Authentication
 
 De PowerShell-cmdlets wilt gebruiken, moet u verifiëren. U configureren verificatie in de functie-app. Om verificatie te configureren, moet u omgevingsvariabelen configureren en uploaden van een bestand met een versleutelde sleutel naar de functie-app.
 
@@ -344,7 +344,7 @@ Ga naar een bestaande virtuele machine en vervolgens een waarschuwingsregel toev
   |**Instelling** | **Waarde** | **Details** |
   |---|---|---|
   |**Naam**|TCP_Segments_Sent_Exceeded|De naam van de waarschuwingsregel.|
-  |**Beschrijving**|TCP-segmenten verzonden heeft de drempel|De beschrijving voor de waarschuwingsregel.||
+  |**Beschrijving**|TCP-segmenten verzonden heeft de drempel|De beschrijving voor de waarschuwingsregel.|
   |**Gegevens**|TCP-segmenten verzonden| De metrische gegevens te gebruiken om de waarschuwing te activeren. |
   |**voorwaarde**|Groter dan| De voorwaarde om te gebruiken bij het evalueren van de metrische gegevens.|
   |**Drempelwaarde**|100| De waarde van de metrische gegevens die de waarschuwing wordt geactiveerd. Deze waarde moet worden ingesteld op een geldige waarde voor uw omgeving.|
@@ -362,7 +362,7 @@ Nadat de criteria voor de waarschuwing triggers, is een pakketopname gemaakt. Ga
 
 Als het bestand vastleggen lokaal is opgeslagen, kunt u deze ophalen door het aanmelden bij de virtuele machine.
 
-Zie voor instructies over het downloaden van bestanden vanuit Azure storage-accounts [aan de slag met Azure Blob storage met .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Een ander hulpprogramma, kunt u is [Opslagverkenner](http://storageexplorer.com/).
+Zie voor instructies over het downloaden van bestanden vanuit Azure storage-accounts [aan de slag met Azure Blob storage met .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Een ander hulpprogramma, kunt u is [Opslagverkenner](https://storageexplorer.com/).
 
 Nadat uw vastleggen is gedownload, kunt u deze weergeven met behulp van een hulpmiddel dat vindt u een **.cap** bestand. Hieronder vindt u koppelingen naar twee van deze hulpprogramma's:
 

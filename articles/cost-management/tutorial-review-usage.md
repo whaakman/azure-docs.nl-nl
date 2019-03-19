@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: e240cbadbee87938107c4a9bf034c47db42acf92
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: bb5a4b3a3019007948a9996ed6715e755f284f9e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098643"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58175164"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -97,14 +97,14 @@ Met waarschuwingen kunt u ook andere belanghebbenden automatisch op de hoogte st
 
 In dit voorbeeld wordt het rapport **Actual Cost Over Time** (Werkelijke kosten in de loop van de tijd) gebruikt om u een waarschuwing te sturen wanneer uw uitgaven voor een Azure-VM het totale budget naderen. In dit scenario hebt u een totaalbudget van $ 20.000. U wilt een waarschuwing ontvangen wanneer bij $ 9000 de kosten de helft van het budget beginnen te naderen en een extra waarschuwing wanneer het bedrag van $ 10.000 wordt bereikt.
 
-1. Selecteer in het menu boven aan Cloudyn-portal de optie **Costs** > **Cost Analysis** > **Actual Cost Over Time**. 
-2. Stel **Groups** in op **Service** en stel **Filter on the service** in op **Azure/VM**. 
+1. Selecteer in het menu boven aan Cloudyn-portal de optie **Costs** > **Cost Analysis** > **Actual Cost Over Time**.
+2. Stel **Groups** in op **Service** en stel **Filter on the service** in op **Azure/VM**.
 3. Selecteer rechtsboven in het rapport de optie **Actions** en selecteer **Schedule report**.
-4. Als u zelf op vaste tijden een e-mail met het rapport wilt ontvangen, selecteert u het tabblad **Scheduling** in het dialoogvenster **Save or Schedule this**. Selecteer **Send via email**. Alle labels, groepen en filters die u gebruikt, zijn opgenomen het rapport dat u per e-mail wordt toegezonden. 
-5. Selecteer het tabblad **Threshold** en selecteer **Actual Cost vs. Threshold**. 
-   1. In het vak voor de drempelwaarde **Red alert** voert u 10000 in. 
-   2. In het vak voor de drempelwaarde **Yellow alert** voert u 9000 in. 
-   3. In het vak **Number of consecutive alerts** voert u het aantal opeenvolgende te ontvangen waarschuwingen in. Wanneer u het totaal aantal waarschuwingen hebt ontvangen dat u hebt opgegeven, worden er geen extra waarschuwingen meer verzonden. 
+4. Als u zelf op vaste tijden een e-mail met het rapport wilt ontvangen, selecteert u het tabblad **Scheduling** in het dialoogvenster **Save or Schedule this**. Selecteer **Send via email**. Alle labels, groepen en filters die u gebruikt, zijn opgenomen het rapport dat u per e-mail wordt toegezonden.
+5. Selecteer het tabblad **Threshold** en selecteer **Actual Cost vs. Threshold**.
+   1. In het vak voor de drempelwaarde **Red alert** voert u 10000 in.
+   2. In het vak voor de drempelwaarde **Yellow alert** voert u 9000 in.
+   3. In het vak **Number of consecutive alerts** voert u het aantal opeenvolgende te ontvangen waarschuwingen in. Wanneer u het totaal aantal waarschuwingen hebt ontvangen dat u hebt opgegeven, worden er geen extra waarschuwingen meer verzonden.
 6. Selecteer **Opslaan**.
 
 ![Voorbeeld met rode en gele waarschuwingen op basis van uitgavedrempelwaarden](./media/tutorial-review-usage/schedule-alert01.png)

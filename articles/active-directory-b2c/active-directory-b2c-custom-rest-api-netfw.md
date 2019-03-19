@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5ade3ac7587d4ac5c5a6d8e174e76e76088e4e57
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: bc2e41fd5da4737ea1efe329b70964535daff54a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157938"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105961"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integreer claims worden uitgewisseld REST-API in uw Azure AD B2C de gebruikersbeleving als validatie van de gebruikersinvoer
 
@@ -249,10 +249,10 @@ Een claimprovider kan meerdere technische profielen om verschillende redenen heb
 De volgende XML-fragment bevat een claims provider-knooppunt met twee technische profielen:
 
 * **Technische profiel-Id = "REST-API-SignUp"**: Hiermee definieert u uw RESTful-service.
-   * `Proprietary` wordt beschreven als protocol voor een op basis van een RESTful-provider.
-   * `InputClaims` Hiermee definieert u de claims die naar de REST-service van Azure AD B2C worden verzonden.
+  * `Proprietary` wordt beschreven als protocol voor een op basis van een RESTful-provider.
+  * `InputClaims` Hiermee definieert u de claims die naar de REST-service van Azure AD B2C worden verzonden.
 
-   In dit voorbeeld wordt de inhoud van de claim `givenName` verzendt naar de REST-service als `firstName`, de inhoud van de claim `surname` verzendt naar de REST-service als `lastName`, en `email` is verzonden. De `OutputClaims` element wordt gedefinieerd voor de claims die worden opgehaald uit RESTful-service naar Azure AD B2C.
+    In dit voorbeeld wordt de inhoud van de claim `givenName` verzendt naar de REST-service als `firstName`, de inhoud van de claim `surname` verzendt naar de REST-service als `lastName`, en `email` is verzonden. De `OutputClaims` element wordt gedefinieerd voor de claims die worden opgehaald uit RESTful-service naar Azure AD B2C.
 
 * **Technische profiel-Id = "LocalAccountSignUpWithLogonEmail"**: Voegt een validatie technisch profiel toe aan een bestaand technische profiel (gedefinieerd in het Basisbeleid). Tijdens de registratie reis roept het technische profiel van de validatie van de voorgaande technisch profiel. Als de RESTful-service retourneert een HTTP-fout 409 (een conflict-fout), wordt het foutbericht wordt weergegeven aan de gebruiker.
 

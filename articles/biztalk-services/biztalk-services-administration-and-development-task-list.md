@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: e762141e089b11dd0fb129f3bf758874d4ad4da8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: baee8c8e931a18c1d72b52c6141c29cba98f9c53
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227634"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096398"
 ---
 # <a name="administration-and-development-task-list-in-biztalk-services"></a>Beheer en ontwikkeling Task List in BizTalk Services
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
-
+> 
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 ## <a name="getting-started"></a>Aan de slag
@@ -32,14 +32,14 @@ Als u werkt met Microsoft Azure BizTalk Services, zijn er verschillende on-premi
 
 | Stap | Wie er verantwoordelijk is | Taak | Verwante koppelingen |
 | --- | --- | --- | --- |
-| 1. |Beheerder |De Microsoft Azure-abonnement met behulp van een Microsoft-account of een organisatie-account maken |[Azure Portal](https://portal.azure.com) |
+| 1. |Beheerder |De Microsoft Azure-abonnement met behulp van een Microsoft-account of een organisatie-account maken |[Azure-portal](https://portal.azure.com) |
 | 2. |Beheerder |Maken of een BizTalk Service inricht. |[Een BizTalk Service maken](https://msdn.microsoft.com/library/azure/dn232347.aspx) |
 | 3. |Beheerder |Registreer u of de implementatie van de BizTalk Services van uw bedrijf |[Registreren en bijwerken van een BizTalk Service-implementatie op de BizTalk Services-Portal](https://msdn.microsoft.com/library/azure/hh689837.aspx) |
-| 4. |Beheerder |Is van toepassing als de toepassing gebruikmaakt van BizTalk Adapter Service verbinding maken met een Line-of-Business (LOB) on-premises systeem of een wachtrij of onderwerp doel gebruikt.  De Azure Service Bus-Namespace maken. Deze naamruimte, Service Bus-Verlenernaam en sleutel van Service Bus-verlener waarden geven aan de ontwikkelaar. |[Hoe: maken of wijzigen van een Service Bus-Service Namespace](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md) en [waarden voor naam verkrijgen en sleutel van verlener](biztalk-issuer-name-issuer-key.md) |
+| 4. |Beheerder |Is van toepassing als de toepassing gebruikmaakt van BizTalk Adapter Service verbinding maken met een Line-of-Business (LOB) on-premises systeem of een wachtrij of onderwerp doel gebruikt.  De Azure Service Bus-Namespace maken. Deze naamruimte, Service Bus-Verlenernaam en sleutel van Service Bus-verlener waarden geven aan de ontwikkelaar. |[Procedure: Maken of wijzigen van een Service Bus-Service Namespace](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md) en [waarden voor naam verkrijgen en sleutel van verlener](biztalk-issuer-name-issuer-key.md) |
 | 5. |Developer |Installeer de SDK en de BizTalk Service-project maken in Visual Studio. |[Azure BizTalk Services SDK installeren](https://msdn.microsoft.com/library/azure/hh689760.aspx) en [eindpunten voor uitgebreide berichten maken in Azure](https://msdn.microsoft.com/library/azure/hh689766.aspx) |
 | 6. |Developer |Implementeer uw BizTalk Service project naar uw BizTalk Service die wordt gehost op Azure. |[Implementatie en het vernieuwen van het BizTalk Services-Project](https://msdn.microsoft.com/library/azure/hh689881.aspx) |
 | 7. |Beheerder |Is van toepassing als u van EDI gebruikmaakt.  U kunt toevoegen, Partners en overeenkomsten maken op de Microsoft Azure BizTalk Services-Portal. Wanneer u een overeenkomst maakt, kunt u de bridge en/of de transformaties die zijn gemaakt door de ontwikkelaar in de instellingen van de overeenkomst kunt toevoegen. |[EDI, AS2 en EDIFACT op BizTalk Services-Portal configureren](https://msdn.microsoft.com/library/azure/hh689853.aspx) |
-| 8. |Beheerder |Met behulp van [REST](https://msdn.microsoft.com/library/azure/dn232347.aspx), Controleer de status van uw BizTalk Service, met inbegrip van metrische gegevens voor prestaties. |[BizTalk Services: de tabbladen Dashboard, Bewaken en Schalen](https://go.microsoft.com/fwlink/p/?LinkID=302281) |
+| 8. |Beheerder |Met behulp van [REST](https://msdn.microsoft.com/library/azure/dn232347.aspx), Controleer de status van uw BizTalk Service, met inbegrip van metrische gegevens voor prestaties. |[BizTalk Services: Tabbladen dashboard, bewaken en schalen](https://go.microsoft.com/fwlink/p/?LinkID=302281) |
 | 9. |Beheerder |Met behulp van de Microsoft Azure BizTalk Services-Portal, de artefacten die wordt gebruikt door BizTalk Services en -berichten bijhouden terwijl ze worden verwerkt door de bridge-bestanden beheren. |[Met behulp van de BizTalk Services-Portal](https://msdn.microsoft.com/library/azure/dn874043.aspx) |
 | 10. |Beheerder |Maak een back-upplan back-up van de BizTalk Service. |[Zakelijke continuïteit en herstel na noodgevallen in BizTalk Services](https://msdn.microsoft.com/library/azure/dn509557.aspx) |
 
@@ -48,7 +48,7 @@ Als u werkt met Microsoft Azure BizTalk Services, zijn er verschillende on-premi
 
 [Het project in Visual Studio maken](https://msdn.microsoft.com/library/azure/hh689811.aspx)
 
-[Azure BizTalk Services SDK installeren](https://msdn.microsoft.com/library/azure/hh689760.aspx)
+[Install Azure BizTalk Services SDK](https://msdn.microsoft.com/library/azure/hh689760.aspx)
 
 ## <a name="concepts"></a>Concepten
 [Het project in Visual Studio maken](https://msdn.microsoft.com/library/azure/hh689811.aspx)  

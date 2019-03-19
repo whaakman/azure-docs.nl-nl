@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 1805d54e66187a97bf598734801f0d94895e7490
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 0e61f6a914c33842f4f42b2e1e4206b370a11dd4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880345"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099032"
 ---
 # <a name="tutorial--get-sentiment-of-utterance"></a>Zelfstudie:  Het gevoel achter een uiting ophalen
 
@@ -61,9 +61,9 @@ Omdat dit een publicatie-instelling is, wordt deze niet weergegeven op de intent
 
 1. Selecteer de volgende entiteit in de lijst met vooraf gedefinieerde entiteiten en selecteer **Gereed**:
 
-    * **[PersonName](luis-reference-prebuilt-person.md)** 
+   * **[PersonName](luis-reference-prebuilt-person.md)** 
 
-    ![Schermopname van het selecteren van een nummer in het dialoogvenster met de vooraf gedefinieerde entiteiten](./media/luis-quickstart-intent-and-sentiment-analysis/add-personname-prebuilt-entity.png)
+     ![Schermopname van het selecteren van een nummer in het dialoogvenster met de vooraf gedefinieerde entiteiten](./media/luis-quickstart-intent-and-sentiment-analysis/add-personname-prebuilt-entity.png)
 
 ## <a name="create-an-intent-to-determine-employee-feedback"></a>Een intentie maken om werknemersfeedback te bepalen
 

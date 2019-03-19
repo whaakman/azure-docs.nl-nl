@@ -16,12 +16,12 @@ ms.date: 02/15/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/10/2018
-ms.openlocfilehash: eff27e296800f78303d085f471e4fda188b487ce
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: b1b11dc27b279173ede4498ca353aea4018ea8f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301856"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102431"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>Na de installatie van de ASDK configuratietaken
 
@@ -172,7 +172,7 @@ Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurest
 
 Voor implementaties met Azure AD, moet u [multitenancy inschakelen](../azure-stack-enable-multitenancy.md#enable-multi-tenancy) voor uw installatie ASDK.
 
-> [!NOTE]  
+> [!NOTE]
 > Als beheerder of gebruiker-accounts uit andere domeinen dan het account dat wordt gebruikt voor het registreren van Azure Stack worden gebruikt voor het aanmelden bij een Azure Stack-portal, de domeinnaam die wordt gebruikt voor het registreren van Azure Stack moet worden toegevoegd aan de portal url. Bijvoorbeeld, als Azure Stack is geregistreerd bij fabrikam.onmicrosoft.com en de account van de gebruiker zich aanmeldt is admin@contoso.com, de URL te gebruiken om aan te melden bij de gebruikersportal: https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
 ## <a name="next-steps"></a>Volgende stappen

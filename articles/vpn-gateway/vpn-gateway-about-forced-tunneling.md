@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
-ms.openlocfilehash: cf566811f1e5fe7fde20d148e68417acf6d42f54
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0955d95ebfd9e1f72ed1da577bf3520a70b71624
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53073819"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008327"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Geforceerde tunneling met het klassieke implementatiemodel configureren
 
@@ -28,7 +28,7 @@ Geforceerde tunneling kunt u omleiding of 'force' alle internetverkeer terug naa
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-In dit artikel begeleidt u bij het configureren geforceerde tunneling voor virtuele netwerken die zijn gemaakt met het klassieke implementatiemodel. Geforceerde tunneling kan worden geconfigureerd met behulp van PowerShell, niet via de portal. Als u configureren met geforceerde tunnels zijn voor het Resource Manager-implementatiemodel wilt, selecteert u klassieke artikel in de volgende vervolgkeuzelijst:
+In dit artikel begeleidt u bij het configureren geforceerde tunneling voor virtuele netwerken die zijn gemaakt met het klassieke implementatiemodel. Geforceerde tunneling kan worden geconfigureerd met behulp van PowerShell, niet via de portal. Als u configureren met geforceerde tunnels zijn voor het Resource Manager-implementatiemodel wilt, selecteert u de Resource Manager-artikel in de volgende vervolgkeuzelijst:
 
 > [!div class="op_single_selector"]
 > * [PowerShell - Klassiek](vpn-gateway-about-forced-tunneling.md)
@@ -41,9 +41,9 @@ Geforceerde tunneling in Azure wordt geconfigureerd via het virtuele netwerk zel
 
 * Elk virtueel netwerksubnet heeft een ingebouwde, systeem-routeringstabel. De routeringstabel van het systeem heeft de volgende drie groepen van routes:
 
-  * **Lokale VNet routes:** rechtstreeks naar de bestemming VM's in hetzelfde virtuele netwerk.
-  * **On-premises routes:** naar de Azure VPN-gateway.
-  * **Standaard-route:** rechtstreeks met Internet. Pakketten dat is bestemd voor het particuliere IP-adressen niet wordt gedekt door de vorige twee routes verwijderd.
+  * **Lokale VNet routes:** Rechtstreeks naar de bestemming VM's in hetzelfde virtuele netwerk.
+  * **On-premises routes:** Met Azure VPN-gateway.
+  * **Standaard-route:** Rechtstreeks met Internet. Pakketten dat is bestemd voor het particuliere IP-adressen niet wordt gedekt door de vorige twee routes verwijderd.
 * U kunt met de release van de gebruiker gedefinieerde routes maken een routeringstabel om toe te voegen een standaardroute en koppel vervolgens de routeringstabel naar de subnetten van uw VNet om in te schakelen geforceerde tunneling op deze subnetten.
 * U moet een 'standaard-site"tussen de cross-premises lokale sites die zijn verbonden met het virtuele netwerk instellen.
 * Geforceerde tunneling moet worden gekoppeld aan een VNet met een VPN-gateway voor dynamische routering (niet een statische gateway genoemd).
@@ -104,7 +104,7 @@ De volgende procedure ziet u een geforceerde tunnels voor een virtueel netwerk o
     </VirtualNetworkSite>
 ```
 
-In dit voorbeeld is het virtuele netwerk MultiTier-VNet drie subnetten: 'Frontend', 'Midtier' en 'back-end-subnetten, met vier cross-premises verbindingen: 'DefaultSiteHQ' en drie vertakkingen. 
+In dit voorbeeld is het virtuele netwerk MultiTier-VNet drie subnetten: Subnetten 'Frontend', 'Midtier' en 'Back-end', met vier cross-premises verbindingen: 'DefaultSiteHQ' en drie vertakkingen. 
 
 De stappen wordt de 'DefaultSiteHQ' ingesteld als de standaard-site-verbinding voor geforceerde tunneling en het Midtier configureren en back-end-subnetten gebruik van geforceerde tunneling.
 

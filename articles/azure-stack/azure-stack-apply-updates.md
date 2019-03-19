@@ -15,12 +15,12 @@ ms.date: 02/11/2019
 ms.author: mabrigg
 ms.reviewer: justini
 ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: 0c3f52c78bbfd3094324b74f3b66610fcebfa2f4
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 9eca22f5a594bf3d61b1d68882c4853f4bfc499d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099289"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100748"
 ---
 # <a name="apply-updates-in-azure-stack"></a>In Azure Stack-updates toepassen
 
@@ -30,7 +30,7 @@ U kunt de **bijwerken** tegel in de beheerportal om toe te passen van Microsoft 
 
 Als u van een geïntegreerde systemen versie 1807 gebruikmaakt of eerder gebruikt, moet u het updatepakket downloaden, de pakketbestanden importeren in Azure Stack en installeer vervolgens het updatepakket. Zie voor instructies [Update Azure Stack door het pakket downloaden](#update-azure-stack-by-downloading-the-package)
 
-Deze instructies werken met geïntegreerde Azure Stack-systemen bijwerken. Als u van de ontwikkelomgeving voor Azure Stack gebruikmaakt, moet u het installatiepakket voor de huidige versie te downloaden. Zie voor instructies [Azure Stack Development Kit installeren](.\asdk\asdk-install.md)
+Deze instructies werken met geïntegreerde Azure Stack-systemen bijwerken. Als u van de ontwikkelomgeving voor Azure Stack gebruikmaakt, moet u het installatiepakket voor de huidige versie te downloaden. Zie voor instructies [Azure Stack Development Kit installeren](./asdk/asdk-install.md)
 
 ## <a name="update-azure-stack"></a>Update Azure Stack
 

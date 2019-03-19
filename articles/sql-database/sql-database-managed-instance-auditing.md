@@ -14,12 +14,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 20c893aa0ff5bc1f20ecfd95d33038937f3af466
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: d283cfa18d31e360aed78ae5262c5416f94c0676
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576970"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086051"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Aan de slag met Azure SQL Database managed instance-controle
 
@@ -50,7 +50,7 @@ Het volgende gedeelte bevat de configuratie van de controle op uw beheerde exemp
 
    1. Geef een container **naam**, openbare toegang instellen voor **persoonlijke**, en klik vervolgens op **OK**.
 
-     ![Configuratie van de blob-container maken](./media/sql-managed-instance-auditing/3_create_container_config.png)
+      ![Configuratie van de blob-container maken](./media/sql-managed-instance-auditing/3_create_container_config.png)
 
 1. Na het maken van de container voor de Audit logboeken er zijn twee manieren om te configureren als het doel van de auditlogboeken: [met T-SQL](#blobtsql) of [met behulp van SQL Server Management Studio (SSMS) UI](#blobssms):
 
@@ -113,7 +113,7 @@ Het volgende gedeelte bevat de configuratie van de controle op uw beheerde exemp
         GO
         ```
 
-      1. Gaat u door met [het maken van een Server Audit Specification of Auditspecificatie](#createspec)
+        1. Gaat u door met [het maken van een Server Audit Specification of Auditspecificatie](#createspec)
 
    - <a id="blobssms"></a>Configureer de blob-opslag voor logboeken voor controle met behulp van SQL Server Management Studio (SSMS) 18 (Preview):
 

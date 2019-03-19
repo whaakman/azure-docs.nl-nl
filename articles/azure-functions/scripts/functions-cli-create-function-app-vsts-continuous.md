@@ -9,16 +9,16 @@ ms.date: 07/03/2018
 ms.topic: sample
 ms.service: azure-functions
 ms.custom: mvc
-ms.openlocfilehash: 17e33e3c0e6b06266025a7f0e6403789c9468a16
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 7fe68090773902248dbcdd63fbbdbbdb06b307cf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957471"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852386"
 ---
 # <a name="create-a-function-app-and-deploy-function-code-from-azure-devops"></a>Een functie-app maken en functiecode implementeren vanuit Azure DevOps
 
-In dit onderwerp leest u hoe u Azure Functions kunt gebruiken om een functie-app [zonder server](https://azure.microsoft.com/solutions/serverless/) te maken met behulp van het [verbruiksabonnement](../functions-scale.md#consumption-plan). De functie-app, wat een container is voor uw functies, wordt continu vanuit een Azure DevOps-opslagplaats geïmplementeerd. 
+In dit onderwerp leest u hoe u Azure Functions kunt gebruiken om een functie-app [zonder server](https://azure.microsoft.com/solutions/serverless/) te maken met behulp van het [verbruiksabonnement](../functions-scale.md#consumption-plan). De functie-app een container voor uw functies is, wordt continu vanuit een opslagplaats voor Azure DevOps geïmplementeerd. 
 
 [!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 084a921123badb786503ce6696eb4ace14dd59b8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a26418a5159781eab96cf7730d669ccb65742d86
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170479"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861482"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Zelfstudie: Azure Active Directory-integratie met Pingboard
 
@@ -202,7 +202,7 @@ Het doel van deze sectie is het maken van een gebruiker met de naam van Britta S
 
     a. In de **volledige naam** tekstvak typt u de volledige naam van gebruiker, zoals **Britta Simon**.
 
-    b. In de **e** tekstvak, typ het e-mailadres van gebruiker, zoals **brittasimon@contoso.com**.
+    b. In de **e** tekstvak, typ het e-mailadres van gebruiker, zoals **brittasimon\@contoso.com**.
 
     c. In de **functietitel** tekstvak typt u de functie van Britta Simon.
 
@@ -215,7 +215,7 @@ Het doel van deze sectie is het maken van een gebruiker met de naam van Britta S
     ![bevestigen](./media/pingboard-tutorial/create_testuser_confirm.png)
 
     > [!NOTE]
-    > De houder van Azure Active Directory-account ontvangt een e-mailbericht en volgt een koppeling om te bevestigen van hun account voordat deze geactiveerd wordt.
+    > De houder van het Azure Active Directory-account ontvangt een e-mail en volgt een koppeling om het account te bevestigen voordat het actief wordt.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
@@ -256,7 +256,7 @@ Wanneer u op de tegel Pingboard in het toegangsvenster, u moet u automatisch aan
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 * [Inrichten van gebruikers configureren](pingboard-provisioning-tutorial.md)
 

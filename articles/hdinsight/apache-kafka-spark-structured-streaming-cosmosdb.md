@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: e964e00cd326d924a77a53348942f91ebbdbdea4
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 9d29608ded920b14af1be6d4d68ab1d77c3c8cb5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630157"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099151"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Apache Spark Structured Streaming met Apache Kafka en Azure Cosmos DB gebruiken
 
@@ -52,19 +52,19 @@ Hoewel u een Azure-netwerk, Kafka, maken kunt en Spark-clusters handmatig, is he
 
     Met deze sjabloon maakt u de volgende bronnen:
 
-    * Een Kafka in HDInsight 3.6-cluster.
+   * Een Kafka in HDInsight 3.6-cluster.
 
-    * Een Spark in HDInsight 3.6-cluster.
+   * Een Spark in HDInsight 3.6-cluster.
 
-    * Een Azure Virtual Network dat de HDInsight-clusters bevat.
+   * Een Azure Virtual Network dat de HDInsight-clusters bevat.
 
-        > [!NOTE]  
-        > Het virtuele netwerk gemaakt met de sjabloon maakt gebruik van de adresruimte 10.0.0.0/16.
+       > [!NOTE]  
+       > Het virtuele netwerk gemaakt met de sjabloon maakt gebruik van de adresruimte 10.0.0.0/16.
 
-    * Een Azure Cosmos DB SQL API-database.
+   * Een Azure Cosmos DB SQL API-database.
 
-    > [!IMPORTANT]  
-    > Voor de Structured Streaming-notebook die in dit voorbeeld wordt gebruikt, is Spark in HDInsight 3.6 vereist. Als u een eerdere versie van Spark in HDInsight gebruikt, worden er fouten gegenereerd bij gebruik van de notebook.
+     > [!IMPORTANT]  
+     > Voor de Structured Streaming-notebook die in dit voorbeeld wordt gebruikt, is Spark in HDInsight 3.6 vereist. Als u een eerdere versie van Spark in HDInsight gebruikt, worden er fouten gegenereerd bij gebruik van de notebook.
 
 2. Gebruik de volgende informatie voor het vullen van de vermeldingen in de **aangepaste implementatie** sectie:
    

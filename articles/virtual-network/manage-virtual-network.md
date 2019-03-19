@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: jdial
-ms.openlocfilehash: b4877f7904523782f1555f53a7bcb440871cc698
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 6e393bf9c08eaa656a1c9b2302cde937a87ccc9a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888309"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088499"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Maken, wijzigen of verwijderen van een virtueel netwerk
 
@@ -54,16 +54,16 @@ Voer de volgende taken voordat u de stappen in elke sectie van dit artikel:
      >
      >
 
-    - **Subnetnaam**: De subnetnaam moet uniek zijn binnen het virtuele netwerk. U kunt de naam van het subnet niet wijzigen nadat het subnet is gemaakt. De portal vereist dat u een subnet definieert bij het maken van een virtueel netwerk, zelfs als een virtueel netwerk is niet vereist voor het geen subnetten. In de portal, kunt u slechts één subnet definiëren wanneer u een virtueel netwerk maken. U kunt meer subnetten toevoegen aan het virtuele netwerk later, nadat het virtuele netwerk is gemaakt. Zie voor informatie over het toevoegen van een subnet met een virtueel netwerk [subnetten beheren](virtual-network-manage-subnet.md). U kunt een virtueel netwerk met meerdere subnetten met behulp van Azure CLI of PowerShell maken.
+     - **Subnetnaam**: De subnetnaam moet uniek zijn binnen het virtuele netwerk. U kunt de naam van het subnet niet wijzigen nadat het subnet is gemaakt. De portal vereist dat u een subnet definieert bij het maken van een virtueel netwerk, zelfs als een virtueel netwerk is niet vereist voor het geen subnetten. In de portal, kunt u slechts één subnet definiëren wanneer u een virtueel netwerk maken. U kunt meer subnetten toevoegen aan het virtuele netwerk later, nadat het virtuele netwerk is gemaakt. Zie voor informatie over het toevoegen van een subnet met een virtueel netwerk [subnetten beheren](virtual-network-manage-subnet.md). U kunt een virtueel netwerk met meerdere subnetten met behulp van Azure CLI of PowerShell maken.
 
-      >[!TIP]
-      >Beheerders maken soms verschillende subnetten te filteren of beheren van routering van verkeer tussen de subnetten. Voordat u subnets kunt definiëren, houd rekening met hoe u mogelijk wilt filteren en verkeer routeren tussen uw subnetten. Zie voor meer informatie over het filteren van verkeer tussen subnetten, [Netwerkbeveiligingsgroepen](security-overview.md). Azure automatisch routeert verkeer tussen subnetten, maar u kunt Azure standaardroutes vervangen. Zie voor meer informatie over het verkeer van Azures standaard subnet, [routeringoverzicht](virtual-networks-udr-overview.md).
-      >
+       >[!TIP]
+       >Beheerders maken soms verschillende subnetten te filteren of beheren van routering van verkeer tussen de subnetten. Voordat u subnets kunt definiëren, houd rekening met hoe u mogelijk wilt filteren en verkeer routeren tussen uw subnetten. Zie voor meer informatie over het filteren van verkeer tussen subnetten, [Netwerkbeveiligingsgroepen](security-overview.md). Azure automatisch routeert verkeer tussen subnetten, maar u kunt Azure standaardroutes vervangen. Zie voor meer informatie over het verkeer van Azures standaard subnet, [routeringoverzicht](virtual-networks-udr-overview.md).
+       >
 
-    - **Subnetadresbereik**: Het bereik moet zich binnen de adresruimte die u hebt ingevoerd voor het virtuele netwerk. Het kleinste bereik dat u kunt opgeven is /29, waarmee u acht IP-adressen voor het subnet. Azure reserveert de eerste en laatste adres in elk subnet voor conformiteit van protocol. Drie extra adressen zijn gereserveerd voor gebruik met Azure-service. Een virtueel netwerk met een subnet-adresbereik van /29 heeft als gevolg hiervan alleen voor de drie bruikbare IP-adressen. Als u van plan bent een virtueel netwerk verbinden met een VPN-gateway, moet u een gatewaysubnet maken. Meer informatie over [specifiek adresbereik overwegingen voor het gateway-subnetten](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). U kunt het adresbereik wijzigen nadat het subnet is gemaakt, klikt u onder bepaalde omstandigheden. Zie voor informatie over het wijzigen van het adresbereik van een subnet, [subnetten beheren](virtual-network-manage-subnet.md).
-    - **Abonnement**: Selecteer een [abonnement](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). U kunt hetzelfde virtuele netwerk in meer dan één Azure-abonnement gebruiken. U kunt echter een virtueel netwerk in een abonnement verbinding met virtuele netwerken in andere abonnementen met [peering op virtueel netwerk](virtual-network-peering-overview.md). Een Azure-resource die u verbinding met het virtuele netwerk maken moet zich in hetzelfde abonnement bevinden als het virtuele netwerk.
-    - **Resourcegroep**: Selecteer een bestaande [resourcegroep](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) of maak een nieuwe. Een Azure-resource die u verbinding met het virtuele netwerk maken kan zich in dezelfde resourcegroep bevinden als het virtuele netwerk of in een andere resourcegroep.
-    - **Locatie**: Selecteer een Azure [locatie](https://azure.microsoft.com/regions/), ook wel aangeduid als een regio. Een virtueel netwerk kan zich op slechts één Azure-locatie. U kunt echter een virtueel netwerk op één locatie verbinden met een virtueel netwerk in een andere locatie via een VPN-gateway. Een Azure-resource die u verbinding met het virtuele netwerk maken moet zich in dezelfde locatie als het virtuele netwerk.
+     - **Subnetadresbereik**: Het bereik moet zich binnen de adresruimte die u hebt ingevoerd voor het virtuele netwerk. Het kleinste bereik dat u kunt opgeven is /29, waarmee u acht IP-adressen voor het subnet. Azure reserveert de eerste en laatste adres in elk subnet voor conformiteit van protocol. Drie extra adressen zijn gereserveerd voor gebruik met Azure-service. Een virtueel netwerk met een subnet-adresbereik van /29 heeft als gevolg hiervan alleen voor de drie bruikbare IP-adressen. Als u van plan bent een virtueel netwerk verbinden met een VPN-gateway, moet u een gatewaysubnet maken. Meer informatie over [specifiek adresbereik overwegingen voor het gateway-subnetten](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). U kunt het adresbereik wijzigen nadat het subnet is gemaakt, klikt u onder bepaalde omstandigheden. Zie voor informatie over het wijzigen van het adresbereik van een subnet, [subnetten beheren](virtual-network-manage-subnet.md).
+     - **Abonnement**: Selecteer een [abonnement](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). U kunt hetzelfde virtuele netwerk in meer dan één Azure-abonnement gebruiken. U kunt echter een virtueel netwerk in een abonnement verbinding met virtuele netwerken in andere abonnementen met [peering op virtueel netwerk](virtual-network-peering-overview.md). Een Azure-resource die u verbinding met het virtuele netwerk maken moet zich in hetzelfde abonnement bevinden als het virtuele netwerk.
+     - **Resourcegroep**: Selecteer een bestaande [resourcegroep](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) of maak een nieuwe. Een Azure-resource die u verbinding met het virtuele netwerk maken kan zich in dezelfde resourcegroep bevinden als het virtuele netwerk of in een andere resourcegroep.
+     - **Locatie**: Selecteer een Azure [locatie](https://azure.microsoft.com/regions/), ook wel aangeduid als een regio. Een virtueel netwerk kan zich op slechts één Azure-locatie. U kunt echter een virtueel netwerk op één locatie verbinden met een virtueel netwerk in een andere locatie via een VPN-gateway. Een Azure-resource die u verbinding met het virtuele netwerk maken moet zich in dezelfde locatie als het virtuele netwerk.
 
 **Opdrachten**
 

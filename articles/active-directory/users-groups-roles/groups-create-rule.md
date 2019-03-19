@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df5668c3fa43130ee1a0271d6040b1989ee8ab79
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 79b40af914cd55ae37205123df595ab177c87752
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242629"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098199"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Een dynamische groep maken en de status controleren
 
@@ -41,8 +41,8 @@ Zie voor meer voorbeelden van syntaxis, ondersteunde eigenschappen, operators en
    ![Regel voor dynamisch lidmaatschap toevoegen](./media/groups-create-rule/add-dynamic-group-rule.png)
 
 5. Om te zien van de aangepaste extensie-eigenschappen die beschikbaar zijn voor uw lidmaatschapquery
-  1. Selecteer **aangepaste extensie-eigenschappen ophalen**
-  2. Voer de toepassings-ID en selecteer vervolgens **eigenschappen vernieuwen**. 
+   1. Selecteer **aangepaste extensie-eigenschappen ophalen**
+   2. Voer de toepassings-ID en selecteer vervolgens **eigenschappen vernieuwen**. 
 6. Na het maken van de regel, selecteer **query toevoegen** aan de onderkant van de blade.
 7. Selecteer **maken** op de **groep** blade om de groep te maken.
 

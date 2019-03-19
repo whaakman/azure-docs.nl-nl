@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 16c9e1cb568533e8dcad046c4ee21bfeaf19d5b7
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: cb68e93553be66d0d0be0edf61e491217bfe4d48
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407844"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091304"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Apache Ambari Hive-weergave gebruiken met Apache Hadoop in HDInsight
 
@@ -73,7 +73,7 @@ Leer hoe u Hive-query's uitvoert met behulp van Apache Ambari Hive-weergave. De 
    * `DROP TABLE`: Hiermee verwijdert u de tabel en het gegevensbestand als de tabel al bestaat.
 
    * `CREATE EXTERNAL TABLE`: Maakt een nieuwe 'extern' tabel in Hive.
-   Externe tabellen worden alleen de definitie van de tabel in Hive opslaan. De gegevens is achtergebleven in de oorspronkelijke locatie.
+     Externe tabellen worden alleen de definitie van de tabel in Hive opslaan. De gegevens is achtergebleven in de oorspronkelijke locatie.
 
    * `ROW FORMAT`: Laat zien hoe de gegevens zijn opgemaakt. In dit geval worden de velden in elk logboek gescheiden door een spatie.
 
@@ -81,8 +81,8 @@ Leer hoe u Hive-query's uitvoert met behulp van Apache Ambari Hive-weergave. De 
 
    * `SELECT`: Selecteert een telling van alle rijen waar kolom t4 de waarde [fout bevat].
 
-    > [!IMPORTANT]  
-    > Laat de __Database__ selectie __standaard__. De voorbeelden in dit document gebruikt de standaarddatabase die is opgenomen in HDInsight.
+     > [!IMPORTANT]  
+     > Laat de __Database__ selectie __standaard__. De voorbeelden in dit document gebruikt de standaarddatabase die is opgenomen in HDInsight.
 
 5. Voor het starten van de query, gebruikt u de **Execute** knop onder het werkblad. Hiermee schakelt u de knop oranje en verandert de tekst in **stoppen**.
 

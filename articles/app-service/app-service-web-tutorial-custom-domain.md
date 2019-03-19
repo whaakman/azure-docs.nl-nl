@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0885671d777d79c6f8a9fc993aa1224312705bce
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
-ms.translationtype: HT
+ms.openlocfilehash: 5d6a7d77b442383817179fadc5878f02dfe86628
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650900"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089519"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Zelfstudie: Een bestaande aangepaste DNS-naam toewijzen aan Azure App Service
 
@@ -145,7 +145,7 @@ Selecteer **Valideren**.
 
 De pagina **Hostnaam toevoegen** wordt weergegeven. 
 
-Zorg ervoor dat **Hostnaam recordtype** is ingesteld op **CNAME (www.example.com of elk subdomein)**.
+Zorg ervoor dat **hostnaam recordtype** is ingesteld op **CNAME (www\.voorbeeld.com of elk subdomein)**.
 
 Selecteer **Hostnaam toevoegen**.
 
@@ -195,7 +195,7 @@ Als u een A-record wilt toewijzen aan een app, vereist App Service **twee** DNS-
 
 Maak voor het domeinvoorbeeld `contoso.com` de A- en TXT-records overeenkomstig de volgende tabel (`@` vertegenwoordigt doorgaans het hoofddomein). 
 
-| Recordtype | Host | Waarde |
+| Recordtype | Host | Value |
 | - | - | - |
 | A | `@` | IP-adres uit [Het IP-adres van de app kopiëren](#info) |
 | TXT | `@` | `<app_name>.azurewebsites.net` |
@@ -203,7 +203,7 @@ Maak voor het domeinvoorbeeld `contoso.com` de A- en TXT-records overeenkomstig 
 > [!NOTE]
 > Als u een subdomein (zoals `www.contoso.com`) wilt toevoegen met behulp van een A-record in plaats van een aanbevolen [CNAME-record](#map-a-cname-record), moeten uw A-record en TXT-record eruitzien zoals in de volgende tabel:
 >
-> | Recordtype | Host | Waarde |
+> | Recordtype | Host | Value |
 > | - | - | - |
 > | A | `www` | IP-adres uit [Het IP-adres van de app kopiëren](#info) |
 > | TXT | `www` | `<app_name>.azurewebsites.net` |
@@ -282,7 +282,7 @@ Typ een FQDN-naam die overeenkomt met het wildcard-domein (bijvoorbeeld `sub1.co
 
 De knop **Hostnaam toevoegen** wordt geactiveerd. 
 
-Zorg ervoor dat **Hostnaam recordtype** is ingesteld op **CNAME-record (www.example.com of elk subdomein)**.
+Zorg ervoor dat **hostnaam recordtype** is ingesteld op **CNAME-record (www\.voorbeeld.com of elk subdomein)**.
 
 Selecteer **Hostnaam toevoegen**.
 

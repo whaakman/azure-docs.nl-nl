@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: f2e18db7bd1766901ffb36cc74172f4c8414135c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 4c2f2ebca40ee3e4b5a9a32767783694af52944b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232880"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106641"
 ---
-# <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Zelfstudie: de Azure Data Box-schijf uitpakken, aansluiten en ontgrendelen
+# <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Zelfstudie: Uitpakken, verbinden en ontgrendelen van Azure Data Box-schijf
 
 In deze zelfstudie wordt beschreven hoe u de Azure Data Box-schijf uitpakt, aansluit en ontgrendelt.
 
@@ -32,7 +32,7 @@ In deze zelfstudie leert u het volgende:
 
 Zorg voordat u begint voor het volgende:
 
-1. U hebt de [zelfstudie: Azure Data Box-schijf bestellen](data-box-disk-deploy-ordered.md) voltooid.
+1. U hebt de zelfstudie [ Azure Data Box Disk bestellen](data-box-disk-deploy-ordered.md).
 2. U hebt uw schijven ontvangen en de taakstatus in de portal is bijgewerkt naar **Geleverd**.
 3. U beschikt over een clientcomputer waarop u het ontgrendelingsprogramma voor Data Box-schijven kunt installeren. De clientcomputer moet voldoen aan deze vereisten:
     - Een [ondersteund besturingssysteem](data-box-disk-system-requirements.md#supported-operating-systems-for-clients) worden uitgevoerd.
@@ -70,7 +70,7 @@ De stappen voor het ontgrendelen van de schijven verschillen voor clients met Wi
 Voer de volgende stappen uit om uw schijven aan te sluiten en te ontgrendelen.
      
 1. Ga in Azure Portal naar **Algemeen > Apparaatdetails**. 
-2. Download de toolset van Data Box Data Box Disk voor Windows-clients. Deze toolset bevat drie hulpprogramma's: Data Box Disk Unlock, Data Box Disk Validation tool en Data Box Disk Split Copy. 
+2. Download de toolset van Data Box Data Box Disk voor Windows-clients. Deze toolset bevat hulpprogramma's voor 3: Hulpprogramma voor Data Box-schijf ontgrendelen, gegevensvalidatie Box-schijf, en schijf Split kopiëren van gegevens in het hulpprogramma. 
 
     In deze procedure gebruikt u alleen het hulpprogramma Data Box Disk Unlock. De andere twee hulpprogramma's worden later gebruikt.
 
@@ -170,39 +170,39 @@ Voer de volgende stappen uit om uw schijven aan te sluiten en te ontgrendelen.
     
  
 5. Typ `y` om verder te gaan met de installatie. Het script installeert de volgende pakketten: 
-    - **epel-release**: opslagplaats met de volgende drie pakketten. 
-    - **dislocker en fuse-dislocker**: hulpprogramma voor het ontsleutelen van met BitLocker versleutelde schijven. 
-    - **ntfs-3g**: pakket voor het koppelen van NTFS-volumes. 
+   - **epel-release**: opslagplaats met de volgende drie pakketten. 
+   - **dislocker en fuse-dislocker**: hulpprogramma voor het ontsleutelen van met BitLocker versleutelde schijven. 
+   - **ntfs-3g**: pakket voor het koppelen van NTFS-volumes. 
  
-    Als de pakketten zijn geïnstalleerd, ziet u hierover een melding in de terminal.     
-    ```
-    Dependency Installed: compat-readline5.x86 64 0:5.2-17.I.el6 dislocker-libs.x86 64 0:0.7.1-8.el6 mbedtls.x86 64 0:2.7.4-l.el6        ruby.x86 64 0:1.8.7.374-5.el6 
-    ruby-libs.x86 64 0:1.8.7.374-5.el6 
-    Complete! 
-    Loaded plugins: fastestmirror, refresh-packagekit, security 
-    Setting up Remove Process 
-    Resolving Dependencies 
-    --> Running transaction check 
-    ---> Package epel-release.noarch 0:6-8 will be erased --> Finished Dependency Resolution 
-    Dependencies Resolved 
-    Package        Architecture        Version        Repository        Size 
-    Removing:  epel-release        noarch         6-8        @extras        22 k 
-    Transaction Summary                                 
-    Remove        1 Package(s) 
-    Installed size: 22 k 
-    Downloading Packages: 
-    Running rpmcheckdebug 
-    Running Transaction Test 
-    Transaction Test Succeeded 
-    Running Transaction 
-    Erasing : epel-release-6-8.noarch 
-    Verifying : epel-release-6-8.noarch 
-    Removed: 
-    epel-release.noarch 0:6-8 
-    Complete! 
-    Dislocker is installed by the script. 
-    OpenSSL is already installed.
-    ```
+     Als de pakketten zijn geïnstalleerd, ziet u hierover een melding in de terminal.     
+     ```
+     Dependency Installed: compat-readline5.x86 64 0:5.2-17.I.el6 dislocker-libs.x86 64 0:0.7.1-8.el6 mbedtls.x86 64 0:2.7.4-l.el6        ruby.x86 64 0:1.8.7.374-5.el6 
+     ruby-libs.x86 64 0:1.8.7.374-5.el6 
+     Complete! 
+     Loaded plugins: fastestmirror, refresh-packagekit, security 
+     Setting up Remove Process 
+     Resolving Dependencies 
+     --> Running transaction check 
+     ---> Package epel-release.noarch 0:6-8 will be erased --> Finished Dependency Resolution 
+     Dependencies Resolved 
+     Package        Architecture        Version        Repository        Size 
+     Removing:  epel-release        noarch         6-8        @extras        22 k 
+     Transaction Summary                                 
+     Remove        1 Package(s) 
+     Installed size: 22 k 
+     Downloading Packages: 
+     Running rpmcheckdebug 
+     Running Transaction Test 
+     Transaction Test Succeeded 
+     Running Transaction 
+     Erasing : epel-release-6-8.noarch 
+     Verifying : epel-release-6-8.noarch 
+     Removed: 
+     epel-release.noarch 0:6-8 
+     Complete! 
+     Dislocker is installed by the script. 
+     OpenSSL is already installed.
+     ```
 
 6. Voer het ontgrendelingsprogramma van Data Box Disk uit. Geef de wachtwoordcode op die u hebt vastgesteld in [Schijven aansluiten en de wachtwoordcode opzoeken](#Connect-to-disks-and-get-the-passkey). Geef eventueel een lijst van met BitLocker versleutelde volumes op die u wilt ontgrendelen. De wachtwoordcode en de lijst moeten tussen enkele aanhalingstekens staan. 
 

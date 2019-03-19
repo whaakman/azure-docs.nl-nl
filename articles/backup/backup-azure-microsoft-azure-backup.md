@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: kasinh
-ms.openlocfilehash: f81e7a0008c015c033d30045970fe1bd67597ff9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 26f25a0dcbeef0d5b7456d42caaca392c3ca6a1a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452185"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075609"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installeren en upgraden van Azure Backup Server
 > [!div class="op_single_selector"]
@@ -231,16 +231,16 @@ De volgende secties wordt beschreven hoe u beveiligingsagents voor client-comput
 
 2. Selecteer in het weergavepaneel de clientcomputers waarvoor u wilt bijwerken van de beveiligingsagent.
 
-  > [!NOTE]
-  > De **agentupdates** kolom geeft aan wanneer een update van de beveiligingsagent beschikbaar is voor elke beveiligde computer. In de **acties** in het deelvenster de **Update** actie is alleen beschikbaar wanneer een beveiligde computer is geselecteerd en er updates beschikbaar zijn.
-  >
-  >
+   > [!NOTE]
+   > De **agentupdates** kolom geeft aan wanneer een update van de beveiligingsagent beschikbaar is voor elke beveiligde computer. In de **acties** in het deelvenster de **Update** actie is alleen beschikbaar wanneer een beveiligde computer is geselecteerd en er updates beschikbaar zijn.
+   >
+   >
 
 3. Voor het installeren van de bijgewerkte beveiligingsagents op de geselecteerde computers in de **acties** venster **Update**.
 
 4. Voor een clientcomputer die niet is verbonden met het netwerk, totdat de computer is verbonden met het netwerk, de **agentstatus** kolom ziet u de status van **Update in behandeling**.
 
-  Nadat een clientcomputer is verbonden met het netwerk, de **agentupdates** kolom voor de clientcomputer wordt de status van **bijwerken**.
+   Nadat een clientcomputer is verbonden met het netwerk, de **agentupdates** kolom voor de clientcomputer wordt de status van **bijwerken**.
 
 ## <a name="move-mabs-to-a-new-server"></a>MABS verplaatsen naar een nieuwe server
 
@@ -262,10 +262,11 @@ Hier volgen de stappen als u MABS verplaatst naar een nieuwe server behoudt de o
 9. Herstel de DPMDB van SQL
 10. Installeren vanaf de opdrachtregel admin op cd van de nieuwe server met Microsoft Azure Backup locatie en de bin-map
 
-Voorbeeld van pad: C:\Windows\System32 > cd ' c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\
-naar Azure back-up Voer DPMSYNC-SYNC
+    Voorbeeld van pad: C:\Windows\System32 > cd ' c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\" 
 
-10) Voer DPMSYNC-SYNC-Opmerking Als u nieuwe schijven hebt toegevoegd aan de DPM-opslaggroep in plaats van verplaatsen van de oude versie, voer DPMSYNC - reallocatereplica uit
+11. Met Azure backup, voer DPMSYNC-SYNC
+
+    Als u nieuwe schijven aan de DPM-opslaggroep in plaats van verplaatsen van de oude versie hebt toegevoegd, voert u DPMSYNC - reallocatereplica uit
 
 ## <a name="network-connectivity"></a>Verbinding met het netwerk
 Azure Backup Server is de verbinding met de Azure Backup-service voor het product om te werken is vereist. Als u wilt valideren of de machine de verbinding met Azure heeft, gebruikt u de ```Get-DPMCloudConnection``` cmdlet in de Azure Backup Server PowerShell-console. Als de uitvoer van de cmdlet waar is en vervolgens verbinding bestaat, anders is er geen met.
@@ -306,33 +307,33 @@ Gebruik de volgende procedures om bij te werken MABS.
 ### <a name="upgrade-from-mabs-v2-to-v3"></a>Upgrade van MABS V2 naar V3
 
 > [!NOTE]
-
+> 
 > MABS V2 is niet een vereiste voor het installeren van MABS V3. U kunt echter upgraden naar MABS V3 alleen vanaf MABS V2.
 
 Gebruik de volgende stappen uit om te werken MABS:
 
 1. Om te upgraden van MABS V2 naar V3 MABS, upgrade u uw besturingssysteem naar Windows Server 2016 of Windows Server 2019 indien nodig.
 
-2.  Werk uw server. De stappen zijn vergelijkbaar met [installatie](#install-and-upgrade-azure-backup-server). Echter voor SQL-instellingen krijgt u de optie voor het upgraden van uw SQL-exemplaar naar SQL 2017, of gebruik uw eigen exemplaar van SQL server 2017.
+2. Werk uw server. De stappen zijn vergelijkbaar met [installatie](#install-and-upgrade-azure-backup-server). Echter voor SQL-instellingen krijgt u de optie voor het upgraden van uw SQL-exemplaar naar SQL 2017, of gebruik uw eigen exemplaar van SQL server 2017.
 
-  > [!NOTE]
+   > [!NOTE]
+   > 
+   > Niet afsluiten terwijl uw SQL-exemplaar wordt bijgewerkt, wordt afgesloten, wordt de SQL reporting-instantie verwijderd en kan daarom een poging tot opnieuw MABS upgrade mislukt.
 
-  > Niet afsluiten terwijl uw SQL-exemplaar wordt bijgewerkt, wordt afgesloten, wordt de SQL reporting-instantie verwijderd en kan daarom een poging tot opnieuw MABS upgrade mislukt.
+   Belangrijke punten om te weten:
 
-  Belangrijke punten om te weten:
-
-  > [!IMPORTANT]
-
-  >  Als onderdeel van de upgrade van de SQL-2017, we back-up van de SQL-versleutelingssleutels en verwijderen van het reporting services. Na de upgrade van SQL server, rapportage service(14.0.6827.4788) is geïnstalleerd en versleutelingssleutels worden hersteld.
-
- > Wanneer u handmatig configureert SQL 2017, verwijzen naar *SSRS-configuratie met SQL 2017* sectie onder installatie-instructies.
+   > [!IMPORTANT]
+   > 
+   >  Als onderdeel van de upgrade van de SQL-2017, we back-up van de SQL-versleutelingssleutels en verwijderen van het reporting services. Na de upgrade van SQL server, rapportage service(14.0.6827.4788) is geïnstalleerd en versleutelingssleutels worden hersteld.
+   > 
+   > Wanneer u handmatig configureert SQL 2017, verwijzen naar *SSRS-configuratie met SQL 2017* sectie onder installatie-instructies.
 
 3. Werk de beveiligingsagenten op de beveiligde servers.
 4. Back-ups moeten doorgaan zonder de noodzaak om opnieuw te starten van uw productieservers.
 5. U kunt beginnen met het beveiligen van uw gegevens nu. Als u een upgrade naar Modern Backup Storage, uitvoert terwijl u beveiligt, kunt u ook de volumes die u wilt opslaan van de back-ups in en controleren op onder de ingerichte ruimte. [Meer informatie](backup-mabs-add-storage.md).
 
 > [!NOTE]
-
+> 
 > Als u een van MABS V1 in V2 upgrade, zorg ervoor dat het besturingssysteem Windows Server 2016 of Windows Server 2012 R2. Als u wilt profiteren van nieuwe functies zoals System Center 2016 Data Protection Manager Modern Backup Storage, moet u back-up Server V2 installeren op Windows Server 2016. Voordat u een upgrade naar uitvoert of back-up Server V2 installeren, meer informatie over de [installatievereisten](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites) van toepassing voor MABS.
 
 ## <a name="troubleshooting"></a>Problemen oplossen

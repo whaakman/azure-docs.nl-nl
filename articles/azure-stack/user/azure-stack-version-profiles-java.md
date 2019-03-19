@@ -16,12 +16,12 @@ ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 09/28/2018
-ms.openlocfilehash: c7a6330f8e0197092f4c581f46c3cc6e68dba247
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: eef9e45d71dd5a8c29112f74deaf8342dc0d1406
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540212"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101496"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>API-versieprofielen gebruiken met Java in Azure Stack
 
@@ -62,11 +62,11 @@ Houd er rekening mee dat u alle van de opties in dezelfde toepassing kunt combin
 
 Gebruik de volgende stappen voor het installeren van de Java SDK:
 
-1.  De officiële instructies om Git te installeren. Zie voor instructies [aan de slag - installeren van Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+1. De officiële instructies om Git te installeren. Zie voor instructies [aan de slag - installeren van Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
-2.  De officiële instructies voor het installeren van de [Java SDK](https://zulu.org/download/) en [Maven](https://maven.apache.org/). De juiste versie is versie 8 van de Java Developer Kit. De juiste Apache Maven is versie 3.0 of hoger. De omgevingsvariabele JAVA_HOME moet worden ingesteld op de installatielocatie van de Java Development Kit om uit te voeren van de Quick Start. Zie voor meer informatie, [uw eerste functie maken met Java en Maven](../../azure-functions/functions-create-first-java-maven.md).
+2. De officiële instructies voor het installeren van de [Java SDK](https://zulu.org/download/) en [Maven](https://maven.apache.org/). De juiste versie is versie 8 van de Java Developer Kit. De juiste Apache Maven is versie 3.0 of hoger. De omgevingsvariabele JAVA_HOME moet worden ingesteld op de installatielocatie van de Java Development Kit om uit te voeren van de Quick Start. Zie voor meer informatie, [uw eerste functie maken met Java en Maven](../../azure-functions/functions-create-first-java-maven.md).
 
-3.  De juiste om afhankelijkheidspakketten te installeren, opent u het bestand Pom.xml in uw Java-toepassing. Een afhankelijkheid toevoegen, zoals wordt weergegeven in de volgende code:
+3. De juiste om afhankelijkheidspakketten te installeren, opent u het bestand Pom.xml in uw Java-toepassing. Een afhankelijkheid toevoegen, zoals wordt weergegeven in de volgende code:
 
    ```xml  
    <dependency>
@@ -76,17 +76,17 @@ Gebruik de volgende stappen voor het installeren van de Java SDK:
    </dependency>
    ```
 
-4.  De pakketten die moeten worden geïnstalleerd, is afhankelijk van de Profielversie die u wilt gebruiken. De Pakketnamen van het voor de profielversies zijn:
+4. De pakketten die moeten worden geïnstalleerd, is afhankelijk van de Profielversie die u wilt gebruiken. De Pakketnamen van het voor de profielversies zijn:
     
    - **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**
    - **com.microsoft.azure**
-      - **latest**
+     - **latest**
 
-5.  Als niet beschikbaar is, maakt u een abonnement en de abonnements-ID voor later gebruik opslaan. Zie voor instructies over het maken van een abonnement [abonnementen voor aanbiedingen maken in Azure Stack](../azure-stack-subscribe-plan-provision-vm.md).
+5. Als niet beschikbaar is, maakt u een abonnement en de abonnements-ID voor later gebruik opslaan. Zie voor instructies over het maken van een abonnement [abonnementen voor aanbiedingen maken in Azure Stack](../azure-stack-subscribe-plan-provision-vm.md).
 
-6.  Een service-principal maken en opslaan van de Client-ID en het Clientgeheim. Zie voor instructies over het maken van een service-principal voor Azure Stack [toepassingen toegang verlenen tot Azure Stack](../azure-stack-create-service-principals.md). Houd er rekening mee dat de client-ID ook wel bekend als de toepassings-ID wordt bij het maken van een service-principal.
+6. Een service-principal maken en opslaan van de Client-ID en het Clientgeheim. Zie voor instructies over het maken van een service-principal voor Azure Stack [toepassingen toegang verlenen tot Azure Stack](../azure-stack-create-service-principals.md). Houd er rekening mee dat de client-ID ook wel bekend als de toepassings-ID wordt bij het maken van een service-principal.
 
-7.  Zorg ervoor dat uw service-principal de rol van inzender of eigenaar heeft op uw abonnement. Zie voor instructies over hoe u een rol toewijzen aan service-principal [toepassingen toegang verlenen tot Azure Stack](../azure-stack-create-service-principals.md).
+7. Zorg ervoor dat uw service-principal de rol van inzender of eigenaar heeft op uw abonnement. Zie voor instructies over hoe u een rol toewijzen aan service-principal [toepassingen toegang verlenen tot Azure Stack](../azure-stack-create-service-principals.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -98,7 +98,7 @@ Voor het gebruik van de Java-SDK van Azure met Azure Stack, moet u de volgende w
 | Client-id                 | AZURE_CLIENT_ID             | De service principal toepassings-ID opgeslagen wanneer service-principal is gemaakt op de vorige sectie van dit document.                                                                                              |
 | Abonnements-id           | AZURE_SUBSCRIPTION_ID      | De [ <span class="underline">abonnements-ID</span> ](../azure-stack-plan-offer-quota-overview.md#subscriptions) is hoe u toegang hebben tot aanbiedingen in Azure Stack.                |
 | Clientgeheim             | AZURE_CLIENT_SECRET        | De service-principal toepassing geheim opgeslagen bij het service-principal is gemaakt.                                                                                                                                   |
-| Resource Manager-eindpunt | ARM_ENDPOINT              | Zie [ <span class="underline">de Azure Stack resource manager-eindpunt</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
+| Resource Manager-eindpunt | ARM_ENDPOINT              | Zie [ <span class="underline">het Azure Stack Resource Manager-eindpunt</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
 | Locatie                  | RESOURCE_LOCATION    | Lokale voor Azure Stack                                                                                                                                                                                                |
 
 Volg de instructies om de tenant-ID voor uw Azure Stack, [hier](../azure-stack-csp-ref-operations.md). Om in te stellen de omgevingsvariabelen, het volgende doen:
@@ -119,7 +119,23 @@ In op basis van Unix-systemen kunt u de volgende opdracht uit:
 Export AZURE_TENANT_ID=<Your_Tenant_ID>
 ```
 
-### <a name="the-azure-stack-resource-manager-endpoint"></a>De Azure Stack resource manager-eindpunt
+### <a name="trust-the-azure-stack-ca-root-certificate"></a>Vertrouwen van de Azure Stack-CA-basiscertificaat
+
+Als u de ASDK gebruikt, moet u het CA-basiscertificaat op de externe computer vertrouwt. U moet niet om dit te doen met de geïntegreerde systemen.
+
+#### <a name="windows"></a>Windows
+
+1. De Azure Stack zelfondertekende certificaten exporteren op het bureaublad
+
+1. In een cmd-shell en wijzig de directory naar %JAVA_HOME%\bin
+
+1. Voer deze cmd:
+
+```shell
+      .\keytool.exe -importcert -noprompt -file <location of the exported certificate here> -alias root -keystore %JAVA_HOME%\lib\security\cacerts -trustcacerts -storepass changeit
+```
+
+### <a name="the-azure-stack-resource-manager-endpoint"></a>Het Azure Stack Resource Manager-eindpunt
 
 De Microsoft Azure Resource Manager is een raamwerk waarmee beheerders te implementeren, beheren en bewaken van Azure-resources. Deze taken kunnen worden verwerkt in Azure Resource Manager als een groep, in plaats van afzonderlijk, in één bewerking.
 
@@ -162,10 +178,10 @@ De volgende code wordt geverifieerd door de service-principal in Azure Stack. De
 
 ```java
 AzureTokenCredentials credentials = new ApplicationTokenCredentials(client, tenant, key, AZURE_STACK)
-                    .withDefaultSubscriptionId(subscriptionId);
+                    .withDefaultSubscriptionID(subscriptionID);
 Azure azureStack = Azure.configure()
                     .withLogLevel(com.microsoft.rest.LogLevel.BASIC)
-                    .authenticate(credentials, credentials.defaultSubscriptionId());
+                    .authenticate(credentials, credentials.defaultSubscriptionID());
 ```
 
 Hiermee kunt u de afhankelijkheden van API-profiel gebruiken om uw toepassing is op Azure Stack te implementeren.
@@ -181,8 +197,8 @@ AzureEnvironment AZURE_STACK = new AzureEnvironment(new HashMap<String, String>(
                     put("resourceManagerEndpointUrl", armEndpoint);
                     put("galleryEndpointUrl", settings.get("galleryEndpoint"));
                     put("activeDirectoryEndpointUrl", settings.get("login_endpoint"));
-                    put("activeDirectoryResourceId", settings.get("audience"));
-                    put("activeDirectoryGraphResourceId", settings.get("graphEndpoint"));
+                    put("activeDirectoryResourceID", settings.get("audience"));
+                    put("activeDirectoryGraphResourceID", settings.get("graphEndpoint"));
                     put("storageEndpointSuffix", armEndpoint.substring(armEndpoint.indexOf('.')));
                     put("keyVaultDnsSuffix", ".vault" + armEndpoint.substring(armEndpoint.indexOf('.')));
                 }
@@ -226,33 +242,33 @@ U kunt de volgende GitHub-voorbeelden als verwijzingen gebruiken voor het maken 
 
 ### <a name="sample-unit-test-project"></a>Voorbeeld van een Project voor de Test-eenheid 
 
-1.  Kloon de opslagplaats met de volgende opdracht:
+1. Kloon de opslagplaats met de volgende opdracht:
     
-    `git clone https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group.git`
+   `git clone https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group.git`
 
-2.  Een Azure-service-principal maken en toewijzen van een rol voor toegang tot het abonnement. Zie voor instructies over het maken van een service-principal [gebruik Azure PowerShell een service-principal maken met een certificaat](../azure-stack-create-service-principals.md).
+2. Een Azure-service-principal maken en toewijzen van een rol voor toegang tot het abonnement. Zie voor instructies over het maken van een service-principal [gebruik Azure PowerShell een service-principal maken met een certificaat](../azure-stack-create-service-principals.md).
 
-3.  De volgende vereiste omgeving variabele waarden ophalen:
+3. De volgende vereiste omgeving variabele waarden ophalen:
     
-    -  AZURE_TENANT_ID
-    -  AZURE_CLIENT_ID
-    -  AZURE_CLIENT_SECRET
-    -  AZURE_SUBSCRIPTION_ID
-    -  ARM_ENDPOINT
-    -  RESOURCE_LOCATION
+   -  AZURE_TENANT_ID
+   -  AZURE_CLIENT_ID
+   -  AZURE_CLIENT_SECRET
+   -  AZURE_SUBSCRIPTION_ID
+   -  ARM_ENDPOINT
+   -  RESOURCE_LOCATION
 
-4.  Stel de volgende omgevingsvariabelen met behulp van de gegevens die u hebt opgehaald uit de Service-Principal hebt gemaakt met behulp van de opdrachtprompt:
+4. Stel de volgende omgevingsvariabelen met behulp van de gegevens die u hebt opgehaald uit de Service-Principal hebt gemaakt met behulp van de opdrachtprompt:
     
-    - exporteren van AZURE_TENANT_ID = {uw tenant-id}
-    - exporteren van AZURE_CLIENT_ID = {uw client-id}
-    - exporteren van AZURE_CLIENT_SECRET = {uw clientgeheim}
-    - exporteren van AZURE_SUBSCRIPTION_ID = {uw abonnements-id}
-    - exporteren van ARM_ENDPOINT = {uw Azure Stack Resource manager-URL}
-    - exporteren van RESOURCE_LOCATION = {locatie van Azure Stack}
+   - exporteren van AZURE_TENANT_ID = {uw tenant-ID}
+   - exporteren van AZURE_CLIENT_ID = {uw client-ID}
+   - exporteren van AZURE_CLIENT_SECRET = {uw clientgeheim}
+   - exporteren van AZURE_SUBSCRIPTION_ID = {uw abonnements-ID}
+   - exporteren van ARM_ENDPOINT = {uw Azure Stack Resource Manager-URL}
+   - exporteren van RESOURCE_LOCATION = {locatie van Azure Stack}
 
    Gebruik in Windows, **ingesteld** in plaats van **exporteren**.
 
-5.  Gebruik de `getactivedirectorysettings` code voor het ophalen van de arm-eindpunt voor metagegevens en de HTTP-client gebruiken om in te stellen van informatie over het eindpunt.
+5. Gebruik de `getactivedirectorysettings` code voor het ophalen van de arm-eindpunt voor metagegevens en de HTTP-client gebruiken om in te stellen van informatie over het eindpunt.
 
    ```java
    public static HashMap<String, String> getActiveDirectorySettings(String armEndpoint) {
@@ -274,7 +290,7 @@ U kunt de volgende GitHub-voorbeelden als verwijzingen gebruiken voor het maken 
    HttpResponse response = httpClient.execute(getRequest);
    ```
 
-6.  In het pom.xml-bestand, moet u het hieronder om het profiel 2018-03-01-hybride gebruiken voor Azure Stack afhankelijkheid toevoegen. Met deze afhankelijkheid installeert de modules die zijn gekoppeld aan dit profiel voor de resourceproviders Compute, netwerken, opslag, KeyVault en App-Services.
+6. In het pom.xml-bestand, moet u het hieronder om het profiel 2018-03-01-hybride gebruiken voor Azure Stack afhankelijkheid toevoegen. Met deze afhankelijkheid installeert de modules die zijn gekoppeld aan dit profiel voor de resourceproviders Compute, netwerken, opslag, KeyVault en App-Services.
       
    ```xml
    <dependency>
@@ -284,7 +300,7 @@ U kunt de volgende GitHub-voorbeelden als verwijzingen gebruiken voor het maken 
    </dependency>
    ```
 
-8.  Voer de volgende regel in de opdrachtprompt die geopend is voor de omgevingsvariabelen worden ingesteld:
+8. Voer de volgende regel in de opdrachtprompt die geopend is voor de omgevingsvariabelen worden ingesteld:
     
    ```shell
    mvn clean compile exec:java

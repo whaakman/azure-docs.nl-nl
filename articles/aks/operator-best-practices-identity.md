@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 478034d1c9f99f40a4827515433357c76235e9ee
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 7d846f28e78959b6962add51070f04857f6463d7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52428940"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852804"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor verificatie en autorisatie in Azure Kubernetes Service (AKS)
 
@@ -25,7 +25,7 @@ Deze aanbevolen procedures voor richt zich op hoe een cluster-operator toegang e
 > * Toegang tot bronnen met op rollen gebaseerd toegangsbeheer (RBAC) beheren
 > * Gebruik van een beheerde identiteit worden geverifieerd met andere services
 
-## <a name="use-azure-active-directory"></a>Azure Active Directory gebruiken
+## <a name="use-azure-active-directory"></a>Use Azure Active Directory
 
 **Aanbevolen procedurerichtlijn** -AKS implementeren-clusters met Azure AD-integratie. Met behulp van Azure AD, centraliseert het onderdeel-id-beheer. Eventuele wijzigingen in de account of groep van de gebruiker wordt automatisch bijgewerkt in toegang tot het AKS-cluster. Gebruik functies of ClusterRoles en bindingen, zoals beschreven in de volgende sectie, bereik gebruikers of groepen aan de benodigde machtigingen zo min mogelijk.
 
@@ -64,7 +64,7 @@ rules:
   verbs: ["*"]
 ```
 
-Een RoleBinding wordt vervolgens gemaakt dat een binding de Azure AD-gebruiker heeft *developer1@contoso.com* naar de RoleBinding, zoals wordt weergegeven in de volgende YAML-manifest:
+Een RoleBinding wordt vervolgens gemaakt dat een binding de Azure AD-gebruiker heeft *developer1\@contoso.com* naar de RoleBinding, zoals wordt weergegeven in de volgende YAML-manifest:
 
 ```yaml
 ind: RoleBinding
@@ -82,7 +82,7 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ```
 
-Wanneer *developer1@contoso.com* wordt geverifieerd op basis van het AKS-cluster, hebben volledige machtigingen voor resources in de *Financiën-app* naamruimte. In deze manier, u logische manier apart en beheer de toegang tot resources. Kubernetes RBAC moet worden gebruikt in combinatie met Azure AD-integratie, zoals beschreven in de vorige sectie.
+Wanneer *developer1\@contoso.com* wordt geverifieerd op basis van het AKS-cluster, hebben volledige machtigingen voor resources in de *Financiën-app* naamruimte. In deze manier, u logische manier apart en beheer de toegang tot resources. Kubernetes RBAC moet worden gebruikt in combinatie met Azure AD-integratie, zoals beschreven in de vorige sectie.
 
 ## <a name="use-pod-identities"></a>Pod-identiteiten gebruiken
 

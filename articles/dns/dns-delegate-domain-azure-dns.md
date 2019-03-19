@@ -5,18 +5,18 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: tutorial
-ms.date: 10/30/2018
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: a952eb679810f36008425ae5daacc4261db50c77
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
-ms.translationtype: HT
+ms.openlocfilehash: c0c5c5fe899c9b9b898973a88c7dac4256959ee4
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999609"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779773"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Zelfstudie: Uw domein hosten in Azure DNS
 
-U kunt Azure DNS gebruiken om uw DNS-domein te hosten en uw DNS-records te beheren. Door uw domeinen in Azure te hosten, kunt u uw DNS-records met dezelfde referenties, API's, hulpprogramma's en facturering beheren als voor uw andere Azure-services. 
+U kunt Azure DNS gebruiken om uw DNS-domein te hosten en uw DNS-records te beheren. Door uw domeinen in Azure te hosten, kunt u uw DNS-records met dezelfde referenties, API's, hulpprogramma's en facturering beheren als voor uw andere Azure-services.
 
 Stel dat u het domein contoso.net koopt van een domeinnaamregistrar en vervolgens een zone met de naam contoso.net in Azure DNS maakt. Omdat u de eigenaar van het domein bent, zal uw registrar u de optie bieden om de adressen van NS-records (naamserver) te configureren voor uw domein. De registrar slaat deze NS-records op in de bovenliggende .net-zone. Internetgebruikers over de hele wereld worden daarna naar uw domein in de Azure DNS-zone omgeleid wanneer ze proberen DNS-records om te zetten in contoso.net.
 
@@ -31,6 +31,12 @@ In deze zelfstudie leert u het volgende:
 
 
 Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+
+## <a name="prerequisites"></a>Vereisten
+
+U kunt een beschikbaar om mee te testen die u in Azure DNS hosten kunt-domeinnaam moet hebben. U moet het volledige beheer over dit domein hebben. Volledig beheer betekent ook de mogelijkheid om naamserverrecords (NS) voor het domein in te stellen.
+
+De voorbeelddomein dat wordt gebruikt voor deze zelfstudie is contoso.net, maar gebruikt u de domeinnaam van uw eigen.
 
 ## <a name="create-a-dns-zone"></a>Een DNS-zone maken
 

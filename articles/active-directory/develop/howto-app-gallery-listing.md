@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5622c179b6eb767f4c608e8c36c2ba154aac0906
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 4cda09a6b407621e595b0cb8ed9103b1fbbd5cc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594692"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097954"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Procedure: Uw toepassing weergeven in de Azure Active Directory-toepassingsgalerie
 
@@ -83,12 +83,12 @@ Als u een toepassing in de galerie met Azure AD-app, moet u eerst een van de vol
     * Als u wilt uw toepassing toevoegen aan lijst in de galerie met OpenID Connect, selecteer **OpenID Connect en OAuth 2.0** zoals hierboven.
     * Als u problemen met betrekking tot toegang hebt, neem dan contact op met de [Team van Azure AD-eenmalige aanmelding integratie](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-*   **SAML 2.0** of **WS-Federation**: Als uw app SAML 2.0 ondersteunt, u kunt deze rechtstreeks integreren met een Azure AD-tenant met behulp van de [instructies voor het toevoegen van een aangepaste toepassing](../active-directory-saas-custom-apps.md).
+- **SAML 2.0** of **WS-Federation**: Als uw app SAML 2.0 ondersteunt, u kunt deze rechtstreeks integreren met een Azure AD-tenant met behulp van de [instructies voor het toevoegen van een aangepaste toepassing](../active-directory-saas-custom-apps.md).
 
-    ![Tijdlijn van SAML 2.0 of WS-Federation-toepassing in de galerie vermelden](./media/howto-app-gallery-listing/saml.png)
+  ![Tijdlijn van SAML 2.0 of WS-Federation-toepassing in de galerie vermelden](./media/howto-app-gallery-listing/saml.png)
 
-    * Als u wilt dat uw toepassing toevoegen aan lijst in de galerie met **SAML 2.0** of **WS-Federation**, selecteer **SAMl 2.0/WS-Federation** zoals hierboven.
-    * Als u problemen met betrekking tot toegang hebt, neem dan contact op met de [Team van Azure AD-eenmalige aanmelding integratie](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+  * Als u wilt dat uw toepassing toevoegen aan lijst in de galerie met **SAML 2.0** of **WS-Federation**, selecteer **SAMl 2.0/WS-Federation** zoals hierboven.
+  * Als u problemen met betrekking tot toegang hebt, neem dan contact op met de [Team van Azure AD-eenmalige aanmelding integratie](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## <a name="implementing-sso-using-password-sso"></a>Eenmalige aanmelding met wachtwoord eenmalige aanmelding implementeren
 

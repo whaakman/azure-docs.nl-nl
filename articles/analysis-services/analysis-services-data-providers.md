@@ -5,19 +5,19 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 03/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6ab7fa99732c2964e5ccaa2ce4e55f4fbf28ceff
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: bc8fae8f1278babd8c4c7402d86700ad78e3cb9d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761274"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897415"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Clientbibliotheken voor het verbinden met Azure Analysis Services
 
--Clientbibliotheken zijn nodig om de clienttoepassingen en hulpprogramma's verbinding maken met Analysis Services-servers. 
+-Clientbibliotheken zijn nodig om de clienttoepassingen en hulpprogramma's verbinding maken met Analysis Services-servers. Microsoft-clienttoepassingen zoals Power BI Desktop, Excel, SQL Server Management Studio (SSMS), en SQL Server Data Tools (SSDT) alle drie deze clientbibliotheken geïnstalleerd en werken ze samen met de reguliere toepassingsupdates. In sommige gevallen moet u mogelijk nieuwere versies van de clientbibliotheken installeren. Aangepaste clienttoepassingen vereist ook-clientbibliotheken zijn geïnstalleerd.
 
 ## <a name="download-the-latest-client-libraries-windows-installer"></a>De meest recente clientbibliotheken (Windows-installatieprogramma) downloaden  
 

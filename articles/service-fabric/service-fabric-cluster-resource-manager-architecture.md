@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: b39f7bc31ed286ef4a894e9d49166cd305d9e905
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 82183cefc11a1f3c39fadd639c988d8bf83fc109
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736738"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116589"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>Overzicht van cluster resource manager-architectuur
 De Service Fabric Cluster Resource Manager is een centrale service die wordt uitgevoerd in het cluster. Hiermee worden de gewenste status van de services in het cluster, met name met betrekking tot gebruik van resources en eventuele plaatsingsregels beheerd. 
@@ -51,6 +51,7 @@ Cluster Resource Manager heeft voor het bijhouden van de vereisten van elke serv
 Bekijk het volgende diagram:
 
 <center>
+
 ![Resource Balancer-architectuur][Image1]
 </center>
 
@@ -59,6 +60,7 @@ Tijdens runtime zijn er veel wijzigingen die kunnen optreden. Bijvoorbeeld, late
 Laten we kijken naar het volgende diagram en zien wat er daarna gebeurt. Stel dat de Cluster Resource Manager bepaalt dat er wijzigingen nodig zijn. Deze coördineert met andere systeemservices (met name de Failover Manager) als de benodigde wijzigingen wilt aanbrengen. Vervolgens worden de benodigde opdrachten verzonden naar de juiste knooppunten (4). Stel dat de Resource Manager al opgemerkt dat Knooppunt5 is overbelast, waardoor dus besloten service B van Knooppunt5 naar Knooppunt4 verplaatsen. Aan het einde van de nieuwe configuratie (5), is het cluster ziet er als volgt:
 
 <center>
+
 ![Resource Balancer-architectuur][Image2]
 </center>
 

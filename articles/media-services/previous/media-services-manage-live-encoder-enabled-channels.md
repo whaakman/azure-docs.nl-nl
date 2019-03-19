@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: ecdb6d7a225d3a2f2c5bbf90a36b91367faf04b0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b65a5d0f9b0eb5eac5738169ebfeba5503471ebc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003343"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856154"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Live streamen met Azure Media Services om multi-bitrate streams te maken
 
@@ -31,7 +31,7 @@ In Azure Media Services (AMS), een **kanaal** vertegenwoordigt een pijplijn voor
 
 * Een on-premises live codering verzendt een single-bitrate stream naar het kanaal dat is ingeschakeld voor live coderen met Media Services in een van de volgende indelingen: RTMP of Smooth Streaming (gefragmenteerde MP4). Het kanaal codeert de inkomende single-bitrate stream vervolgens live naar een (adaptieve) multi-bitrate videostream. Desgevraagd levert Media Services de stream aan klanten.
 * Een on-premises live codering verzendt een multi-bitrate **RTMP** of **Smooth Streaming** (gefragmenteerde MP4) naar het kanaal dat is niet ingeschakeld voor het uitvoeren van realtime codering met AMS. De opgenomen streams **kanaal**passeren zonder verdere verwerking. Deze methode wordt aangeroepen **pass-through**. U kunt de volgende live coderingsprogramma's die multi-bitrate Smooth Streaming gebruiken: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco en Elemental. De volgende live coderingsprogramma's voeren RTMP uit: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek and Tricaster encoders.  Een live coderingsprogramma kan ook een stream met één bitsnelheid verzenden naar een kanaal dat niet is ingeschakeld voor Live Encoding, maar dit wordt niet aanbevolen. Desgevraagd levert Media Services de stream aan klanten.
-  
+
   > [!NOTE]
   > Met behulp van een passthrough-methode is de meest voordelige manier om live te streamen.
   > 
@@ -50,7 +50,7 @@ Beginnen met de release van Media Services 2.10 wanneer u een kanaal maakt, kunt
 > 
 
 ## <a name="billing-implications"></a>Gevolgen van facturering
-Een live encoding kanaal begint de facturering zodra het statusovergangen naar "Uitvoeren" via de API is.   U kunt ook de status bekijken in Azure portal of in het hulpprogramma Azure Media Services Explorer (http://aka.ms/amse).
+Een live encoding kanaal begint de facturering zodra het statusovergangen naar "Uitvoeren" via de API is.   U kunt ook de status bekijken in Azure portal of in het hulpprogramma Azure Media Services Explorer (https://aka.ms/amse).
 
 De volgende tabel ziet u hoe kanaal statussen worden toegewezen aan facturering statussen in de API en Azure-portal. De statussen zijn enigszins tussen de API en de Portal-UX. Zodra een kanaal in de status 'Actief' via de API of in de status 'Ready' of 'Streaming' in de Azure-portal is, wordt de facturering actief zijn.
 Als u wilt stoppen met het kanaal van u verdere facturering, moet u Stop het kanaal via de API of in de Azure portal.
@@ -89,29 +89,27 @@ Hieronder volgen de algemene stappen voor het maken van veelvoorkomende toepassi
 
 > [!NOTE]
 > De maximum aanbevolen duur van een live gebeurtenis is momenteel acht uur. Neem contact op met amslived@microsoft.com als u een kanaal voor langere tijd wilt uitvoeren. Er is een facturering invloed voor live codering en moet u eraan denken dat terwijl er een live encoding kanaal in de status 'Running' worden kosten per uur facturering.  Het verdient aanbeveling uw actieve kanalen onmiddellijk te beëindigen nadat uw live streaming gebeurtenissen is voltooid om extra per uur kosten te voorkomen. 
-> 
-> 
 
 1. Sluit een videocamera aan op een computer. Start en configureer een on-premises live coderingsprogramma dat een **één** bitrate stream in een van de volgende protocollen: RTMP of Smooth Streaming. 
-   
+
     Deze stap kan ook worden uitgevoerd nadat u uw kanaal hebt gemaakt.
 2. Maak en start een kanaal. 
 3. Haal de URL voor opnemen voor het kanaal op. 
-   
+
     De URL voor opnemen wordt gebruikt door het live coderingsprogramma om de stream naar het kanaal te verzenden.
 4. Haal de voorbeeld-URL voor het kanaal op. 
-   
+
     Gebruik deze URL om te controleren of de livestream goed door het kanaal wordt ontvangen.
 5. Maak een programma. 
-   
+
     Wanneer u de Azure-portal, het maken van een programma ook een asset gemaakt. 
-   
+
     Wanneer u .NET SDK of REST moet u een asset maken en opgeven voor het gebruik van deze asset bij het maken van een programma. 
 6. Publiceer de asset die zijn gekoppeld aan het programma.   
-   
+
     >[!NOTE]
     >Wanneer uw AMS-account is gemaakt, wordt er een **standaardstreaming-eindpunt** met de status **Gestopt** toegevoegd aan uw account. Het streaming-eindpunt van waar u inhoud wilt streamen, moet de status **Wordt uitgevoerd** hebben. 
-    
+
 7. Start het programma wanneer u klaar bent om te streamen en te archiveren.
 8. Het live coderingsprogramma kan desgewenst een signaal ontvangen dat een advertentie moet worden gestart. De advertentie wordt ingevoegd in de uitvoerstream.
 9. Stop het programma als u het streamen wilt stoppen en de gebeurtenis wilt archiveren.
@@ -217,6 +215,7 @@ Houd er rekening mee dat als u aangepaste voorinstellingen wilt, moet u contact 
 **Default720p** wordt de video coderen in de volgende 6 lagen.
 
 #### <a name="output-video-stream"></a>Uitvoer Video Stream
+
 | BitRate | Breedte | Hoogte | MaxFPS | Profiel | Naam van de uitvoer-Stream |
 | --- | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |Hoog |Video_1280x720_3500kbps |
@@ -357,7 +356,7 @@ Media Services-leertrajecten bekijken.
 [Maak kanalen waarmee live encoding uitvoeren van een afzonderlijke bitsnelheid naar adaptieve bitrate stream met .NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
 [Beheren van kanalen met REST-API](https://docs.microsoft.com/rest/api/media/operations/channel)
- 
+
 [Media Services-concepten](media-services-concepts.md)
 
 [Specificatie van Azure mediaservices Live gefragmenteerde MP4-Liveopname](media-services-fmp4-live-ingest-overview.md)

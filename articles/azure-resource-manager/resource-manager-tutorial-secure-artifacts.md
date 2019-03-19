@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 53cc987d13479fc0d9276ec80f33a163a2a6ded7
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+ms.openlocfilehash: f7f235ce709fd81c4bb4c367774b4a96cd920e13
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817028"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120343"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Zelfstudie: Artefacten in Azure Resource Manager-sjabloonimplementaties beveiligen
 
@@ -126,11 +126,11 @@ Een blobcontainer is vereist voordat u bestanden kunt uploaden.
 3. Selecteer **Blob-SAS-token en -URL genereren**.
 4. Kopieer de **Blob-SAS-URL**. In het midden van de URL staat de bestandsnaam **SQLDatabaseExtension.bacpac**.  De bestandsnaam verdeelt de URL in drie delen:
 
-    - **Locatie van het artefact**: https://xxxxxxxxxxxxxx.blob.core.windows.net/sqlbacpac/. Zorg ervoor dat de locatie eindigt op een '/'.
-    - **BACPAC-bestandsnaam**: SQLDatabaseExtension.bacpac.
-    - **SAS-token artefactlocatie**: Zorg ervoor dat het token wordt voorafgegaan door een '?'.
+   - **Locatie van het artefact**: https://xxxxxxxxxxxxxx.blob.core.windows.net/sqlbacpac/. Zorg ervoor dat de locatie eindigt op een '/'.
+   - **BACPAC-bestandsnaam**: SQLDatabaseExtension.bacpac.
+   - **SAS-token artefactlocatie**: Zorg ervoor dat het token wordt voorafgegaan door een '?'.
 
-    U hebt deze drie waarden nodig voor het [implementeren van de sjabloon](#deploy-the-template).
+     U hebt deze drie waarden nodig voor het [implementeren van de sjabloon](#deploy-the-template).
 
 ## <a name="open-an-existing-template"></a>Een bestaande sjabloon openen
 
@@ -146,13 +146,13 @@ In deze sessie wijzigt u de sjabloon die u hebt gemaakt in [Zelfstudie: SQL BACP
 
     Er zijn vijf resources gedefinieerd in de sjabloon:
 
-    * `Microsoft.Sql/servers`. Zie de [sjabloonverwijzing](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers).
-    * `Microsoft.SQL/servers/securityAlertPolicies`. Zie de [sjabloonverwijzing](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/securityalertpolicies).
-    * `Microsoft.SQL/servers/filewallRules`. Zie de [sjabloonverwijzing](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers/firewallrules).
-    * `Microsoft.SQL/servers/databases`.  Zie de [sjabloonverwijzing](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
-    * `Microsoft.SQL/server/databases/extensions`.  Zie de [sjabloonverwijzing](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions).
+   * `Microsoft.Sql/servers`. Zie de [sjabloonverwijzing](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers).
+   * `Microsoft.SQL/servers/securityAlertPolicies`. Zie de [sjabloonverwijzing](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/securityalertpolicies).
+   * `Microsoft.SQL/servers/filewallRules`. Zie de [sjabloonverwijzing](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers/firewallrules).
+   * `Microsoft.SQL/servers/databases`.  Zie de [sjabloonverwijzing](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
+   * `Microsoft.SQL/server/databases/extensions`.  Zie de [sjabloonverwijzing](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions).
 
-    Het is handig om enige basiskennis te hebben van de sjabloon voordat u deze gaat aanpassen.
+     Het is handig om enige basiskennis te hebben van de sjabloon voordat u deze gaat aanpassen.
 4. Selecteer **Bestand**>**Opslaan als** om het bestand op uw lokale computer op te slaan als **azuredeploy.json**.
 
 ## <a name="edit-the-template"></a>De sjabloon bewerken

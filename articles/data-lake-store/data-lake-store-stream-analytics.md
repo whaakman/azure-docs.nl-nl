@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: nitinme
-ms.openlocfilehash: e52cf99e3bdd1960ca361ccde50d85dfaa2209c0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 1b18bd5aae398d2ec942120af5d96943636c346c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544917"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101108"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Stream-gegevens uit Azure Storage-Blob in Azure Data Lake Storage Gen1 met behulp van Azure Stream Analytics
 In dit artikel leert u hoe u met Azure Data Lake Storage Gen1 als uitvoer voor een Azure Stream Analytics-taak. In dit artikel ziet u een eenvoudig scenario die gegevens van een Azure Storage-blob (invoer) leest en schrijft de gegevens naar Data Lake Storage Gen1 (uitvoer).
@@ -54,17 +54,17 @@ U begint met het maken van een Stream Analytics-taak die een invoerbron en een b
 
     ![Toevoegen van een invoer voor de taak](./media/data-lake-store-stream-analytics/create.input.2.png "invoer voor de taak toevoegen")
 
-    * Voor **invoer alias**, voer een unieke naam voor de taak invoeren.
-    * Voor **gegevensbrontype**, selecteer **gegevensstroom**.
-    * Voor **bron**, selecteer **Blob storage**.
-    * Voor **abonnement**, selecteer **gebruik blob-opslag van het huidige abonnement**.
-    * Voor **opslagaccount**, selecteer het opslagaccount dat u hebt gemaakt als onderdeel van de vereisten. 
-    * Voor **Container**, selecteert u de container die u hebt gemaakt in het geselecteerde opslagaccount.
-    * Voor **serialisatie-indeling voor gebeurtenissen**, selecteer **CSV**.
-    * Voor **scheidingsteken**, selecteer **tabblad**.
-    * Voor **Encoding**, selecteer **UTF-8**.
+   * Voor **invoer alias**, voer een unieke naam voor de taak invoeren.
+   * Voor **gegevensbrontype**, selecteer **gegevensstroom**.
+   * Voor **bron**, selecteer **Blob storage**.
+   * Voor **abonnement**, selecteer **gebruik blob-opslag van het huidige abonnement**.
+   * Voor **opslagaccount**, selecteer het opslagaccount dat u hebt gemaakt als onderdeel van de vereisten. 
+   * Voor **Container**, selecteert u de container die u hebt gemaakt in het geselecteerde opslagaccount.
+   * Voor **serialisatie-indeling voor gebeurtenissen**, selecteer **CSV**.
+   * Voor **scheidingsteken**, selecteer **tabblad**.
+   * Voor **Encoding**, selecteer **UTF-8**.
 
-    Klik op **Create**. De portal wordt nu toegevoegd de invoer en test de verbinding met het.
+     Klik op **Create**. De portal wordt nu toegevoegd de invoer en test de verbinding met het.
 
 
 ## <a name="create-a-data-lake-storage-gen1-output-for-the-job"></a>De uitvoer van een Data Lake Storage Gen1 voor de taak maken
@@ -84,15 +84,15 @@ U begint met het maken van een Stream Analytics-taak die een invoerbron en een b
 
     ![Uitvoer toevoegen aan uw taak](./media/data-lake-store-stream-analytics/create.output.3.png "uitvoer toevoegen aan uw taak")
 
-    * Voor **accountnaam**, selecteert u de Data Lake Storage Gen1-account dat u al hebt gemaakt waar u de taak moet worden verzonden naar de uitvoer.
-    * Voor **voorvoegsel padpatroon**, voer een pad dat wordt gebruikt om uw bestanden in de opgegeven Gen1 van Data Lake Storage-account te schrijven.
-    * Voor **datumnotatie**, als u de datumtoken van een in het voorvoegsel van pad gebruikt, kunt u de datumnotatie waarin de bestanden zijn ingedeeld.
-    * Voor **tijdnotatie**, als u een tijd-token hebt gebruikt in het pad voorvoegsel opgeven van de tijdindeling waarin de bestanden zijn ingedeeld.
-    * Voor **serialisatie-indeling voor gebeurtenissen**, selecteer **CSV**.
-    * Voor **scheidingsteken**, selecteer **tabblad**.
-    * Voor **Encoding**, selecteer **UTF-8**.
+   * Voor **accountnaam**, selecteert u de Data Lake Storage Gen1-account dat u al hebt gemaakt waar u de taak moet worden verzonden naar de uitvoer.
+   * Voor **voorvoegsel padpatroon**, voer een pad dat wordt gebruikt om uw bestanden in de opgegeven Gen1 van Data Lake Storage-account te schrijven.
+   * Voor **datumnotatie**, als u de datumtoken van een in het voorvoegsel van pad gebruikt, kunt u de datumnotatie waarin de bestanden zijn ingedeeld.
+   * Voor **tijdnotatie**, als u een tijd-token hebt gebruikt in het pad voorvoegsel opgeven van de tijdindeling waarin de bestanden zijn ingedeeld.
+   * Voor **serialisatie-indeling voor gebeurtenissen**, selecteer **CSV**.
+   * Voor **scheidingsteken**, selecteer **tabblad**.
+   * Voor **Encoding**, selecteer **UTF-8**.
     
-    Klik op **Create**. De portal wordt de uitvoer toegevoegd nu en test de verbinding met het.
+     Klik op **Create**. De portal wordt de uitvoer toegevoegd nu en test de verbinding met het.
     
 ## <a name="run-the-stream-analytics-job"></a>De Stream Analytics-taak uitvoeren
 

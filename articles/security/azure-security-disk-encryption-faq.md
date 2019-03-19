@@ -1,18 +1,18 @@
 ---
 title: Veelgestelde vragen - Azure Disk Encryption voor IaaS-VM's | Microsoft Docs
 description: In dit artikel vindt u antwoorden op veelgestelde vragen over Microsoft Azure Disk Encryption voor Windows en Linux IaaS-VM's.
-author: mestew
+author: msmbaldwin
 ms.service: security
 ms.topic: article
-ms.author: mstewart
-ms.date: 03/01/2019
+ms.author: mbaldwin
+ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: c082de09cbe17bd31e50d14329cfb8f58b01d8fe
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b98b9653aee395ebdf797c50c313c322727480c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781320"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892758"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk Encryption voor IaaS-VM's Veelgestelde vragen
 
@@ -150,6 +150,9 @@ Op Windows, ADE de versleutelingsmethode BitLocker AES256 gebruikt (AES256WithDi
 
 ## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>Als ik EncryptFormatAll gebruiken en alle typen opgeeft, wordt deze de gegevens op de schijven die we al versleuteld wissen?
 Nee, wordt niet gegevens worden gewist van schijven die al zijn versleuteld met Azure Disk Encryption. Net als bij hoe EncryptFormatAll opnieuw de besturingssysteemschijf niet versleutelen, deze wordt niet het station al versleutelde gegevens opnieuw versleutelen. Zie voor meer informatie de [EncryptFormatAll criteria](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        
+
+## <a name="is-xfs-filesystem-supported"></a>Wordt ondersteund bestandssysteem XFS?
+XFS volumes worden ondersteund voor schijfversleuteling van gegevens. Geef de EncryptFormatAll-optie voor het versleutelen van een volume dat momenteel een XFS gebruiken. Hiermee wordt het volume formatteren. Zie voor meer informatie de [EncryptFormatAll criteria](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>Kan ik back-up en herstellen van een versleutelde VM? 
 

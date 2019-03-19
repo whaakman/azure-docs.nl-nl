@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3109c4e6190cd8e485ae9b28117c4688836dfc26
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: cdc37ace4687fe978030f528dcd5cbc87da596f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470311"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855934"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Gegevenswetenschap met Scala en Spark op Azure
 In dit artikel wordt beschreven hoe u met Scala voor beheerde machine learning-taken met de Spark schaalbare MLlib en Spark ML-pakketten op een Azure HDInsight Spark-cluster. Dit helpt u bij de taken die deel uitmaken van de [Data Science process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): gegevensopname en verkennen, visualisatie, feature-engineering, modellen en model verbruik. De modellen in het artikel zijn onder andere logistieke en lineaire regressie, willekeurige forests en verloop boosted structuren (GBTs), naast de twee algemene beheerde machine learning-taken:
@@ -26,9 +26,9 @@ In dit artikel wordt beschreven hoe u met Scala voor beheerde machine learning-t
 
 Het modelleringsproces is vereist voor training en evaluatie van een test-gegevensset en de nauwkeurigheid van de relevante metrische gegevens. In dit artikel leert u hoe deze modellen worden opgeslagen in Azure Blob-opslag en hoe u kunt beoordelen en evalueren van de voorspellende prestaties. Dit artikel behandelt ook de meer geavanceerde onderwerpen over het optimaliseren van modellen met behulp van kruisvalidatie en hyper-parameter sweeping. De gegevens die worden gebruikt, is een voorbeeld van de 2013 NYC taxi reis- en fare gegevensset beschikbaar op GitHub.
 
-[Scala](http://www.scala-lang.org/), een taal op basis van de virtuele Java-machine, objectgeoriënteerd en functionele Taalconcepten integreert. Het is een schaalbare taal die zeer geschikt voor gedistribueerde verwerking in de cloud en wordt uitgevoerd op Azure Spark-clusters.
+[Scala](https://www.scala-lang.org/), een taal op basis van de virtuele Java-machine, objectgeoriënteerd en functionele Taalconcepten integreert. Het is een schaalbare taal die zeer geschikt voor gedistribueerde verwerking in de cloud en wordt uitgevoerd op Azure Spark-clusters.
 
-[Spark](http://spark.apache.org/) is een open source-framework voor parallelle verwerking dat ondersteuning biedt voor in-memory verwerking om de prestaties van toepassingen voor gegevensanalyse van big data te verbeteren. De Spark-verwerkingsengine is gebouwd voor snelheid, gebruiksgemak, en geavanceerde analyses. Gedistribueerde berekening in-memory-mogelijkheden van Spark kunt een goede keuze voor zich herhalende algoritmen in machine learning- en grafiekberekeningen. De [spark.ml](http://spark.apache.org/docs/latest/ml-guide.html) pakket biedt een uniforme reeks op hoog niveau API's die zijn gebaseerd op gegevens frames waarmee u kunnen maken en af te stemmen praktische machine learning-pijplijnen. [MLlib](http://spark.apache.org/mllib/) is Spark van schaalbare machine learning-bibliotheek, die zorgt voor modellering in deze gedistribueerde omgeving.
+[Spark](https://spark.apache.org/) is een open source-framework voor parallelle verwerking dat ondersteuning biedt voor in-memory verwerking om de prestaties van toepassingen voor gegevensanalyse van big data te verbeteren. De Spark-verwerkingsengine is gebouwd voor snelheid, gebruiksgemak, en geavanceerde analyses. Gedistribueerde berekening in-memory-mogelijkheden van Spark kunt een goede keuze voor zich herhalende algoritmen in machine learning- en grafiekberekeningen. De [spark.ml](https://spark.apache.org/docs/latest/ml-guide.html) pakket biedt een uniforme reeks op hoog niveau API's die zijn gebaseerd op gegevens frames waarmee u kunnen maken en af te stemmen praktische machine learning-pijplijnen. [MLlib](https://spark.apache.org/mllib/) is Spark van schaalbare machine learning-bibliotheek, die zorgt voor modellering in deze gedistribueerde omgeving.
 
 [HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md) is van de aanbieding wordt gehost op Azure van open-source Spark. Ook biedt ondersteuning voor Jupyter Scala-notebooks in het Spark-cluster en Spark SQL-interactieve query's om te transformeren, filteren en visualiseren van gegevens die zijn opgeslagen in Azure Blob-opslag kunnen worden uitgevoerd. De Scala codefragmenten in dit artikel die de oplossingen bieden en weergeven van de relevante grafieken om de gegevens te visualiseren uitvoeren in Jupyter-notebooks geïnstalleerd op de Spark-clusters. De stappen modellen in de volgende onderwerpen hebben code waarin wordt uitgelegd hoe u trainen, evalueren, opslaan en gebruiken van elk type model.
 
@@ -368,7 +368,7 @@ Deze code leest u over het maken van een nieuwe functie door binning uur in verk
 ### <a name="indexing-and-one-hot-encoding-of-categorical-features"></a>Indexeren en de categorische functies een hot-codering
 Het maken van modellering en functies van MLlib functies met categorische invoergegevens worden geïndexeerd of gecodeerde vóór gebruik nodig hebben te voorspellen. In deze sectie leest u hoe om te indexeren of categorische functies voor invoer in de modelfuncties coderen.
 
-U moet index of uw modellen coderen op verschillende manieren, afhankelijk van het model. Bijvoorbeeld, logistieke en lineaire regressiemodellen vereisen dat een hot-codering. Een functie met drie categorieën kan bijvoorbeeld worden uitgebreid naar drie kolommen van de functie. 0 of 1, afhankelijk van de categorie van een observatie van bevat elke kolom. MLlib biedt de [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) functie voor het coderen van één hot. Een kolom van het label indexen dit coderingsprogramma toegewezen aan een kolom van de binaire vectoren met maximaal één één-waarde. Met deze codering, kunnen de algoritmen die verwacht dat de numerieke waarden functies, zoals logistieke regressie, worden toegepast op categorische functies.
+U moet index of uw modellen coderen op verschillende manieren, afhankelijk van het model. Bijvoorbeeld, logistieke en lineaire regressiemodellen vereisen dat een hot-codering. Een functie met drie categorieën kan bijvoorbeeld worden uitgebreid naar drie kolommen van de functie. 0 of 1, afhankelijk van de categorie van een observatie van bevat elke kolom. MLlib biedt de [OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) functie voor het coderen van één hot. Een kolom van het label indexen dit coderingsprogramma toegewezen aan een kolom van de binaire vectoren met maximaal één één-waarde. Met deze codering, kunnen de algoritmen die verwacht dat de numerieke waarden functies, zoals logistieke regressie, worden toegepast op categorische functies.
 
 Hier kunt u alleen de vier variabelen om weer te geven voorbeelden zijn tekenreeksen transformeren. U kunt ook andere variabelen, zoals weekdag, vertegenwoordigd door de numerieke waarden als categorische variabelen index.
 
@@ -853,7 +853,7 @@ Grafieken maken met behulp van Python matplotlib.
 ### <a name="create-a-gbt-regression-model"></a>Een regressiemodel GBT maken
 Een regressiemodel GBT maken met behulp van de Spark ML `GBTRegressor()` functioneren en vervolgens het model op testgegevens evalueren.
 
-[Kleurovergang boosted structuren](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) ensembles van beslissingsstructuren zijn. GBTs trainen beslisbomen iteratief te minimaliseren, een functie verloren gaan. U kunt GBTs gebruiken voor regressie en classificatie. Ze categorische functies kunnen worden verwerkt, vereisen geen functie schaalaanpassing en nonlinearities en functie interacties kunnen vastleggen. Ook kunt u ze in een multiklasse-classificatie.
+[Kleurovergang boosted structuren](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) ensembles van beslissingsstructuren zijn. GBTs trainen beslisbomen iteratief te minimaliseren, een functie verloren gaan. U kunt GBTs gebruiken voor regressie en classificatie. Ze categorische functies kunnen worden verwerkt, vereisen geen functie schaalaanpassing en nonlinearities en functie interacties kunnen vastleggen. Ook kunt u ze in een multiklasse-classificatie.
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()

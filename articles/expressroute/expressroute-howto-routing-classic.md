@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: b7ac8c0f5c45382dd3beb943699efb198a94e0eb
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 5542d61c5e615361ca96f911cfe11540fcd09037
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57402339"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103822"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Peering voor een ExpressRoute-circuit (klassiek) maken en wijzigen
 > [!div class="op_single_selector"]
@@ -58,25 +58,25 @@ Als u wilt aanmelden bij uw Azure-account, moet u de volgende voorbeelden gebrui
 
 1. Open de PowerShell-console met verhoogde rechten en maak verbinding met uw account.
 
-  ```powershell
-  Connect-AzureRmAccount
-  ```
+   ```powershell
+   Connect-AzureRmAccount
+   ```
 2. Controleer de abonnementen voor het account.
 
-  ```powershell
-  Get-AzureRmSubscription
-  ```
+   ```powershell
+   Get-AzureRmSubscription
+   ```
 3. Als u meerdere abonnementen hebt, selecteert u het abonnement dat u wilt gebruiken.
 
-  ```powershell
-  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-  ```
+   ```powershell
+   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   ```
 
 4. Gebruik vervolgens de volgende cmdlet uit uw Azure-abonnement toevoegen aan PowerShell voor het klassieke implementatiemodel.
 
-  ```powershell
-  Add-AzureAccount
-  ```
+   ```powershell
+   Add-AzureAccount
+   ```
 
 ## <a name="azure-private-peering"></a>Persoonlijke Azure-peering
 
@@ -86,59 +86,59 @@ In deze sectie vindt u instructies voor het maken, verkrijgen, bijwerken en verw
 
 1. **Maak een ExpressRoute-circuit.**
 
-  Volg de instructies voor het [maken van een ExpressRoute-circuit](expressroute-howto-circuit-classic.md) en laat het circuit inrichten door de connectiviteitsprovider. Als uw connectiviteitsprovider beheerde Laag-3-services biedt, kunt u de connectiviteitsprovider vragen om persoonlijke Azure-peering voor u in te schakelen. In dat geval hoeft u de instructies in de volgende secties niet te volgen. Als uw connectiviteitsprovider routing niet voor u beheert, volgt u onderstaande instructies wanneer u het circuit hebt gemaakt.
+   Volg de instructies voor het [maken van een ExpressRoute-circuit](expressroute-howto-circuit-classic.md) en laat het circuit inrichten door de connectiviteitsprovider. Als uw connectiviteitsprovider beheerde Laag-3-services biedt, kunt u de connectiviteitsprovider vragen om persoonlijke Azure-peering voor u in te schakelen. In dat geval hoeft u de instructies in de volgende secties niet te volgen. Als uw connectiviteitsprovider routing niet voor u beheert, volgt u onderstaande instructies wanneer u het circuit hebt gemaakt.
 2. **Controleer de ExpressRoute-circuit om ervoor te zorgen dat deze is ingericht.**
    
-  Controleer, als het ExpressRoute-circuit is ingericht en ook ingeschakeld.
+   Controleer, als het ExpressRoute-circuit is ingericht en ook ingeschakeld.
 
-  ```powershell
-  Get-AzureDedicatedCircuit -ServiceKey "*********************************"
-  ```
+   ```powershell
+   Get-AzureDedicatedCircuit -ServiceKey "*********************************"
+   ```
 
-  Resultaat:
+   Resultaat:
 
-  ```powershell
-  Bandwidth                        : 200
-  CircuitName                      : MyTestCircuit
-  Location                         : Silicon Valley
-  ServiceKey                       : *********************************
-  ServiceProviderName              : equinix
-  ServiceProviderProvisioningState : Provisioned
-  Sku                              : Standard
-  Status                           : Enabled
-  ```
+   ```powershell
+   Bandwidth                        : 200
+   CircuitName                      : MyTestCircuit
+   Location                         : Silicon Valley
+   ServiceKey                       : *********************************
+   ServiceProviderName              : equinix
+   ServiceProviderProvisioningState : Provisioned
+   Sku                              : Standard
+   Status                           : Enabled
+   ```
    
-  Zorg ervoor dat het circuit ingericht en ingeschakeld bevat. Als dit niet is, kunt u werken met uw connectiviteitsprovider om op te halen van het circuit met de vereiste status en de status.
+   Zorg ervoor dat het circuit ingericht en ingeschakeld bevat. Als dit niet is, kunt u werken met uw connectiviteitsprovider om op te halen van het circuit met de vereiste status en de status.
 
-  ```powershell
-  ServiceProviderProvisioningState : Provisioned
-  Status                           : Enabled
-  ```
+   ```powershell
+   ServiceProviderProvisioningState : Provisioned
+   Status                           : Enabled
+   ```
 3. **Configureer persoonlijke Azure-peering voor het circuit.**
 
-  Zorg ervoor dat u de volgende items hebt voordat u verdergaat met de volgende stappen:
+   Zorg ervoor dat u de volgende items hebt voordat u verdergaat met de volgende stappen:
    
-  * Een /30-subnet voor de primaire koppeling. Dit mag geen deel uitmaken van een adresruimte die is gereserveerd voor virtuele netwerken.
-  * Een /30-subnet voor de secundaire koppeling. Dit mag geen deel uitmaken van een adresruimte die is gereserveerd voor virtuele netwerken.
-  * Een geldige VLAN-id waarop u deze peering wilt instellen. Controleer of dat er geen bij andere peering in het circuit dezelfde VLAN-ID gebruikt.
-  * AS-nummer voor peering. U kunt 2-bytes en 4-bytes AS-nummers gebruiken. U kunt een persoonlijk AS-nummer voor deze peering gebruiken. Controleer of dat u niet 65515 gebruikt.
-  * Een MD5-hash, als u er een wilt gebruiken. **Optioneel**.
+   * Een /30-subnet voor de primaire koppeling. Dit mag geen deel uitmaken van een adresruimte die is gereserveerd voor virtuele netwerken.
+   * Een /30-subnet voor de secundaire koppeling. Dit mag geen deel uitmaken van een adresruimte die is gereserveerd voor virtuele netwerken.
+   * Een geldige VLAN-id waarop u deze peering wilt instellen. Controleer of dat er geen bij andere peering in het circuit dezelfde VLAN-ID gebruikt.
+   * AS-nummer voor peering. U kunt 2-bytes en 4-bytes AS-nummers gebruiken. U kunt een persoonlijk AS-nummer voor deze peering gebruiken. Controleer of dat u niet 65515 gebruikt.
+   * Een MD5-hash, als u er een wilt gebruiken. **Optioneel**.
      
-  Persoonlijke Azure-peering voor uw circuit configureren kunt u het volgende voorbeeld:
+   Persoonlijke Azure-peering voor uw circuit configureren kunt u het volgende voorbeeld:
 
-  ```powershell
-  New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100
-  ```    
+   ```powershell
+   New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100
+   ```    
 
-  Als u wilt een MD5-hash wilt gebruiken, gebruikt u het volgende voorbeeld persoonlijke peering voor uw circuit configureren:
+   Als u wilt een MD5-hash wilt gebruiken, gebruikt u het volgende voorbeeld persoonlijke peering voor uw circuit configureren:
 
-  ```powershell
-  New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100 -SharedKey "A1B2C3D4"
-  ```
+   ```powershell
+   New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100 -SharedKey "A1B2C3D4"
+   ```
      
-  > [!IMPORTANT]
-  > Controleer of dat u uw AS-nummer als peering-ASN, niet als klant-ASN opgeeft.
-  > 
+   > [!IMPORTANT]
+   > Controleer of dat u uw AS-nummer als peering-ASN, niet als klant-ASN opgeeft.
+   > 
 
 ### <a name="to-view-azure-private-peering-details"></a>De details van persoonlijke Azure-peering weergeven
 
@@ -189,59 +189,59 @@ In deze sectie vindt u instructies voor het maken, verkrijgen, bijwerken en verw
 
 1. **Een ExpressRoute-circuit maken**
 
-  Volg de instructies voor het [maken van een ExpressRoute-circuit](expressroute-howto-circuit-classic.md) en laat het circuit inrichten door de connectiviteitsprovider. Als uw connectiviteitsprovider beheerde Laag-3-services biedt, kunt u de connectiviteitsprovider vragen om openbare Azure-peering voor u in te schakelen. In dat geval hoeft u de instructies in de volgende secties niet te volgen. Als uw connectiviteitsprovider routing niet voor u beheert, volgt u onderstaande instructies wanneer u het circuit hebt gemaakt.
+   Volg de instructies voor het [maken van een ExpressRoute-circuit](expressroute-howto-circuit-classic.md) en laat het circuit inrichten door de connectiviteitsprovider. Als uw connectiviteitsprovider beheerde Laag-3-services biedt, kunt u de connectiviteitsprovider vragen om openbare Azure-peering voor u in te schakelen. In dat geval hoeft u de instructies in de volgende secties niet te volgen. Als uw connectiviteitsprovider routing niet voor u beheert, volgt u onderstaande instructies wanneer u het circuit hebt gemaakt.
 2. **Controleer of ExpressRoute-circuit om te controleren of deze is ingericht**
 
-  Controleer eerst of het ExpressRoute-circuit is ingericht en is ingeschakeld.
+   Controleer eerst of het ExpressRoute-circuit is ingericht en is ingeschakeld.
 
-  ```powershell
-  Get-AzureDedicatedCircuit -ServiceKey "*********************************"
-  ```
+   ```powershell
+   Get-AzureDedicatedCircuit -ServiceKey "*********************************"
+   ```
 
-  Resultaat:
+   Resultaat:
 
-  ```powershell
-  Bandwidth                        : 200
-  CircuitName                      : MyTestCircuit
-  Location                         : Silicon Valley
-  ServiceKey                       : *********************************
-  ServiceProviderName              : equinix
-  ServiceProviderProvisioningState : Provisioned
-  Sku                              : Standard
-  Status                           : Enabled
-  ```
+   ```powershell
+   Bandwidth                        : 200
+   CircuitName                      : MyTestCircuit
+   Location                         : Silicon Valley
+   ServiceKey                       : *********************************
+   ServiceProviderName              : equinix
+   ServiceProviderProvisioningState : Provisioned
+   Sku                              : Standard
+   Status                           : Enabled
+   ```
    
-  Controleer of dat het circuit ingericht en ingeschakeld bevat. Als dit niet is, kunt u werken met uw connectiviteitsprovider om op te halen van het circuit met de vereiste status en de status.
+   Controleer of dat het circuit ingericht en ingeschakeld bevat. Als dit niet is, kunt u werken met uw connectiviteitsprovider om op te halen van het circuit met de vereiste status en de status.
 
-  ```powershell
-  ServiceProviderProvisioningState : Provisioned
-  Status                           : Enabled
-  ```
+   ```powershell
+   ServiceProviderProvisioningState : Provisioned
+   Status                           : Enabled
+   ```
 4. **Openbare Azure-peering voor het circuit configureren**
    
-  Zorg ervoor dat u de volgende informatie voordat u doorgaat:
+   Zorg ervoor dat u de volgende informatie voordat u doorgaat:
    
-  * Een /30-subnet voor de primaire koppeling. Dit moet een geldig openbaar IPv4-voorvoegsel zijn.
-  * Een /30-subnet voor de secundaire koppeling. Dit moet een geldig openbaar IPv4-voorvoegsel zijn.
-  * Een geldige VLAN-id waarop u deze peering wilt instellen. Controleer of dat er geen bij andere peering in het circuit dezelfde VLAN-ID gebruikt.
-  * AS-nummer voor peering. U kunt 2-bytes en 4-bytes AS-nummers gebruiken.
-  * Een MD5-hash, als u er een wilt gebruiken. **Optioneel**.
+   * Een /30-subnet voor de primaire koppeling. Dit moet een geldig openbaar IPv4-voorvoegsel zijn.
+   * Een /30-subnet voor de secundaire koppeling. Dit moet een geldig openbaar IPv4-voorvoegsel zijn.
+   * Een geldige VLAN-id waarop u deze peering wilt instellen. Controleer of dat er geen bij andere peering in het circuit dezelfde VLAN-ID gebruikt.
+   * AS-nummer voor peering. U kunt 2-bytes en 4-bytes AS-nummers gebruiken.
+   * Een MD5-hash, als u er een wilt gebruiken. **Optioneel**.
 
-  > [!IMPORTANT]
-  > Zorg ervoor dat u uw AS-nummer als peering-ASN en niet als klant-ASN opgeeft.
-  >  
+   > [!IMPORTANT]
+   > Zorg ervoor dat u uw AS-nummer als peering-ASN en niet als klant-ASN opgeeft.
+   >  
      
-  Het volgende voorbeeld kunt u openbare Azure-peering voor uw circuit configureren:
+   Het volgende voorbeeld kunt u openbare Azure-peering voor uw circuit configureren:
 
-  ```powershell
-  New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200
-  ```
+   ```powershell
+   New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200
+   ```
      
-  Als u wilt een MD5-hash wilt gebruiken, gebruikt u het volgende voorbeeld uw circuit te configureren:
+   Als u wilt een MD5-hash wilt gebruiken, gebruikt u het volgende voorbeeld uw circuit te configureren:
      
-  ```powershell
-  New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200 -SharedKey "A1B2C3D4"
-  ```
+   ```powershell
+   New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200 -SharedKey "A1B2C3D4"
+   ```
      
 ### <a name="to-view-azure-public-peering-details"></a>De details van openbare Azure-peering weergeven
 
@@ -293,34 +293,34 @@ In deze sectie vindt u instructies voor het maken, verkrijgen, bijwerken en verw
 
 1. **Een ExpressRoute-circuit maken**
   
-  Volg de instructies voor het [maken van een ExpressRoute-circuit](expressroute-howto-circuit-classic.md) en laat het circuit inrichten door de connectiviteitsprovider. Als uw connectiviteitsprovider beheerde Laag-3-services biedt, kunt u de connectiviteitsprovider vragen om persoonlijke Azure-peering voor u in te schakelen. In dat geval hoeft u de instructies in de volgende secties niet te volgen. Als uw connectiviteitsprovider routing niet voor u beheert, volgt u onderstaande instructies wanneer u het circuit hebt gemaakt.
+   Volg de instructies voor het [maken van een ExpressRoute-circuit](expressroute-howto-circuit-classic.md) en laat het circuit inrichten door de connectiviteitsprovider. Als uw connectiviteitsprovider beheerde Laag-3-services biedt, kunt u de connectiviteitsprovider vragen om persoonlijke Azure-peering voor u in te schakelen. In dat geval hoeft u de instructies in de volgende secties niet te volgen. Als uw connectiviteitsprovider routing niet voor u beheert, volgt u onderstaande instructies wanneer u het circuit hebt gemaakt.
 2. **Controleer of ExpressRoute-circuit om te controleren of deze is ingericht**
 
-  Controleer of dat het circuit ingericht en ingeschakeld bevat. 
+   Controleer of dat het circuit ingericht en ingeschakeld bevat. 
    
-  ```powershell
-  Get-AzureDedicatedCircuit -ServiceKey "*********************************"
-  ```
+   ```powershell
+   Get-AzureDedicatedCircuit -ServiceKey "*********************************"
+   ```
 
-  Resultaat:
+   Resultaat:
    
-  ```powershell
-  Bandwidth                        : 200
-  CircuitName                      : MyTestCircuit
-  Location                         : Silicon Valley
-  ServiceKey                       : *********************************
-  ServiceProviderName              : equinix
-  ServiceProviderProvisioningState : Provisioned
-  Sku                              : Standard
-  Status                           : Enabled
-  ```
+   ```powershell
+   Bandwidth                        : 200
+   CircuitName                      : MyTestCircuit
+   Location                         : Silicon Valley
+   ServiceKey                       : *********************************
+   ServiceProviderName              : equinix
+   ServiceProviderProvisioningState : Provisioned
+   Sku                              : Standard
+   Status                           : Enabled
+   ```
    
-  Controleer of dat het circuit ingericht en ingeschakeld bevat. Als dit niet is, kunt u werken met uw connectiviteitsprovider om op te halen van het circuit met de vereiste status en de status.
+   Controleer of dat het circuit ingericht en ingeschakeld bevat. Als dit niet is, kunt u werken met uw connectiviteitsprovider om op te halen van het circuit met de vereiste status en de status.
 
-  ```powershell
-  ServiceProviderProvisioningState : Provisioned
-  Status                           : Enabled
-  ```
+   ```powershell
+   ServiceProviderProvisioningState : Provisioned
+   Status                           : Enabled
+   ```
 3. **Microsoft-peering voor het circuit configureren**
    
     Zorg ervoor dat u over de volgende informatie beschikt voordat u verder gaat.
@@ -334,11 +334,11 @@ In deze sectie vindt u instructies voor het maken, verkrijgen, bijwerken en verw
    * Naam van Routeringsregister: U kunt het RIR / IRR op basis waarvan het AS-nummer en de voorvoegsels zijn geregistreerd.
    * Een MD5-hash, als u er een wilt gebruiken. **Optioneel.**
      
-  Voer de volgende cmdlet voor het configureren van Microsoft-peering voor uw circuit:
+   Voer de volgende cmdlet voor het configureren van Microsoft-peering voor uw circuit:
  
-  ```powershell
-  New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
-  ```
+   ```powershell
+   New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
+   ```
 
 ### <a name="to-view-microsoft-peering-details"></a>De details van Microsoft-peering weergeven
 

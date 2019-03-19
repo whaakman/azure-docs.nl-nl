@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 9f5cf0e8be0529ce59edc9aa4cd33d470415c8a6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 694c56cf52cb7a15230b9a2cdd34642c7820b407
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190956"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897554"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Quota en beperkingen in Azure Media Services v3
 
@@ -37,10 +37,11 @@ Dit artikel wordt beschreven, quota en beperkingen in Azure Media Services v3.
 | Media Services-accounts in één abonnement | 25 (vast) |
 | Live uitvoer met de status per LiveEvent wordt uitgevoerd |3|
 | Opslagaccounts | 100<sup>(4)</sup> (vast) |
-| Streaming-eindpunten (gestopt of wordt uitgevoerd) per Media Services-account|2|
+| Streaming-eindpunten (gestopt of wordt uitgevoerd) per Media Services-account|2 (vast)|
 | Beleid voor streaming | 100 <sup>(3)</sup> |
 | Transformaties per Media Services-account | 100 (vast)|
 | De unieke Streaming-Locators die tegelijk zijn gekoppeld aan een Asset | 100<sup>(5)</sup> (vast) |
+| Beleid voor inhoud sleutels |30 | 
 
 <sup>1</sup> de maximale grootte voor één blob momenteel maximaal 5 TB in Azure Blob Storage wordt wordt ondersteund. Aanvullende beperkingen gelden echter in Azure Media Services op basis van de VM-grootten die worden gebruikt door de service. Als het bronbestand groter dan 260 GB is, wordt waarschijnlijk uw taak mislukt. Als u 4K-inhoud die groter is dan de limiet van 260 GB hebt, contact met ons op amshelp@microsoft.com voor mogelijke oplossingen ter ondersteuning van uw scenario.
 
