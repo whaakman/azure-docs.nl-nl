@@ -35,7 +35,7 @@
 
 # Naslaginformatie
 ## [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
-## [Azure CLI](/cli/azure/)
+## [Azure-CLI](/cli/azure/)
 ## [T-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)
 ## [SQL Server-stuurprogramma's](https://docs.microsoft.com/sql/connect/sql-server-drivers)
 ## [REST](/rest/api/)
@@ -46,5 +46,5 @@
 ## [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
 ## [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 ## [SQL Server-hulpprogramma's](https://docs.microsoft.com/sql/tools/overview-sql-tools)
-## [Stack Overflow](http://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server)
+## [Stack Overflow](https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server)
 

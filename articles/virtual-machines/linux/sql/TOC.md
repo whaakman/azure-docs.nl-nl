@@ -19,4 +19,4 @@
 ## [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
 ## [SQL Server-hulpprogramma's](https://docs.microsoft.com/sql/tools/overview-sql-tools)
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=compute)
-## [Stack Overflow](http://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server)
+## [Stack Overflow](https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server)

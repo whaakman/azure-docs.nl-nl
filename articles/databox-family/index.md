@@ -1,6 +1,6 @@
 ---
 title: Documentatie voor Azure Data Box
-description: De Azure Data Box-serie biedt producten van verschillende opslagcapaciteiten om terabytes aan gegeven snel, goedkoop en betrouwbaar naar Azure te sturen. Microsoft versnelt de beveiligde gegevensoverdracht door u bedrijfseigen opslagapparaten te sturen waarmee het mogelijk is om offline of via het netwerk gegevens over te dragen.
+description: 'De Azure Data Box-serie biedt producten van verschillende opslagcapaciteiten om terabytes aan gegeven snel, goedkoop en betrouwbaar naar Azure te sturen. Microsoft versnelt de beveiligde gegevensoverdracht door u bedrijfseigen opslagapparaten te sturen waarmee het mogelijk is om offline of via het netwerk gegevens over te dragen.'
 services: databox
 author: alkohli
 manager: twooley
@@ -11,16 +11,10 @@ ms.devlang: na
 ms.topic: hub-page
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 09e0debba88ed87ab84b567e797d3ae63ec32a81
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157102"
 ---
+<div id="main" class="v2">
 <h1>Azure Data Box</h1>
 <p>De Azure Data Box-serie biedt producten van verschillende opslagcapaciteiten om terabytes (TB) aan gegeven snel, goedkoop en betrouwbaar naar Azure te sturen. Microsoft versnelt de beveiligde gegevensoverdracht door u bedrijfseigen opslagapparaten te sturen waarmee het mogelijk is om offline of via het netwerk gegevens over te dragen.</p>
-
 <h2>Offline gegevensoverdracht</h2>
 <p>Voor beperkte tot geen netwerkbandbreedte</p>
 <ul class="cardsA panelContent singlePanelContent cols cols3" style="display:flex!important;">
@@ -79,7 +73,6 @@ ms.locfileid: "54157102"
         </a>
     </li>
 </ul>
-
 <h2>Online gegevensoverdracht</h2>
 <p>Overdracht via het netwerk</p>
 <ul class="cardsA panelContent singlePanelContent cols cols3" style="display:flex!important;">
@@ -120,3 +113,4 @@ ms.locfileid: "54157102"
         </a>
     </li>
 </ul>
+</div>
